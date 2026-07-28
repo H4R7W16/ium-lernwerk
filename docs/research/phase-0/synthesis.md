@@ -110,7 +110,7 @@ Cybermobbingprogramme zeigen im Mittel moderate Reduktionen, ohne wirksame Einze
 
 Medium und Methode erhalten ihren Wert durch die ausgelösten Lernprozesse. [CLAIM-LP-001] Kognitive Last wird durch Aufgabe, Vorwissen, Darstellung und Umgebung gemeinsam geprägt; digitale Zustände und synchrone Repräsentationen sowie analoge räumliche Übersicht können je eigene Funktionen erfüllen. [CLAIM-LP-003] Unplugged-Aktivitäten tragen eng umrissene Ziele, rechtfertigen aber keine pauschale Transfer- oder Wirksamkeitsannahme. [CLAIM-INF-009] Bloße Mobilgerätenutzung ist kein Lernwirkungsnachweis. [CLAIM-DLE-014]
 
-**Projektfolge:** Digital bleibt Primärmedium. Analog wird nur mit fachlicher oder lernpsychologischer Funktion, Analogiegrenze und Anschlussprodukt vorgesehen; es gibt keine parallele Vollstruktur. Diese Regel ist als `PRIN-010` operationalisiert.
+**Projektfolge:** Digital bleibt Primärmedium. Analog wird nur mit eigenständiger fachlicher oder lernpsychologischer Funktion und dokumentierter Rückbindung an das digitale Modul vorgesehen; es gibt keine parallele Vollstruktur. Modellierende oder unplugged Materialien weisen zusätzlich Zuordnung, Modell- oder Analogiegrenze und eine formale oder digitale Anschlussaufgabe aus. Diese Regel ist als `PRIN-010` operationalisiert.
 
 ### 3.11 Datenschutz, Accessibility, Offlinequalität und OER
 
@@ -256,7 +256,7 @@ Die Lernendenanwendung vergibt keine Noten, Punkte oder Kompetenzprofile. Die p�
 | Fachtypische Programmieraufgaben | Tracing, Erklären, Modifizieren, Testen, Debugging und Eigenkonstruktion sind unterscheidbar; Block/Text nicht altersautomatisch. | `PRIN-007` |
 | Mehrschrittige Medienanalyse | Mechanismus, Akteur, Interesse, Beleg, Gegenbeleg, Unsicherheit und Revision sind darstellbar; kein Detektor-Endurteil. | `PRIN-008` |
 | Schutzvertrag für sensible Inhalte | Fiktive oder kuratierte Fälle, Offenlegungsgrenze, Hilfsweg, Aktualitätsreview und sichere Produkte sind dokumentiert. | `PRIN-009` |
-| Medienbegründung und optionales Printmaterial | Digitalfunktion oder analoge Eigenfunktion ist benannt; Analogmaterial hat Analogiegrenze und Anschlussprodukt; kein Parallelbestand. | `PRIN-010` |
+| Medienbegründung und optionales Printmaterial | Digitalfunktion oder eigenständige fachliche beziehungsweise lernpsychologische Analogfunktion und dokumentierte Rückbindung sind benannt; kein Parallelbestand. Für modellierende oder unplugged Materialien sind zusätzlich Zuordnung, Modell- oder Analogiegrenze und eine formale oder digitale Anschlussaufgabe dokumentiert. | `PRIN-010` |
 | Dateninventar und lokaler Speichervertrag | Datenart, Zweck, Speicherort, Löschung, Export und Hostingfluss dokumentiert; reale Speicherprobe, flüchtiger Modus und Rechtsrecheck vorhanden. | `PRIN-011` |
 | Accessibility-Vertrag | Vollständiges WCAG-2.2-AA-Gate plus gleichwertige Tastatur-, Touch- und Assistive-Technology-Pfade; Nutzeraufgaben getrennt ausgewertet. | `PRIN-012` |
 | Offline-, Release- und Browservertrag | Installation, Erstladung, Netzverlust, Teilcache, Altclient, Update, Rollback, Wiederanbindung, MDM und Browsermatrix getrennt getestet. | `PRIN-013` |
