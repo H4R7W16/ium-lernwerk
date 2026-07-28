@@ -1,7 +1,7 @@
 # Forschungssynthese Phase 0
 
-**Status:** `working`  
-**Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E  
+**Status:** `working`
+**Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
 **Evidenzstichtag:** 28. Juli 2026
 
 ## 1. Zweck, Scope und Evidenzbasis
