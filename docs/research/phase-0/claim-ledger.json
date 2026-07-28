@@ -518,6 +518,202 @@
         "Selbstregulation als explizite fachliche Lernhandlungen gestalten: planen, eine Strategie wählen, den Zwischenstand überwachen sowie prüfen und revidieren.",
         "Aktuelle Handlungen und Produkte für Rückmeldung nutzen, ohne Selbstregulation als feste Eigenschaft zu diagnostizieren oder personenbezogene Telemetrie zu erzeugen."
       ]
+    },
+    {
+      "id": "CLAIM-DLE-001",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "WCAG 2.2 ist eine testbare technische Accessibility-Baseline; selbst vollständige AA-Konformität deckt nicht jedes Bedürfnis ab und belegt weder schulische Usability noch Lernwirksamkeit.",
+      "scope": "W3C Recommendation vom 12. Dezember 2024 für Webinhalte auf Desktop- und Mobilgeräten, geprüft am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-WCAG22-2024"],
+      "limitations": "Die rechtliche Verbindlichkeit hängt von Betreiber, Veröffentlichungsform und anwendbarem Recht ab. WCAG ist kein alters- oder fachspezifischer Wirksamkeitsstandard.",
+      "designImplications": [
+        "WCAG 2.2 AA als vollständiges technisches Gate in die Phase-1-Spezifikation aufnehmen.",
+        "Accessibility-Konformität, schulische Usability und fachliches Lernen mit getrennten Verfahren prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-002",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "WCAG 2.2 verlangt für interaktive Kernfunktionen unter anderem Tastaturbedienbarkeit, Freiheit von Tastaturfallen, sichtbaren und nicht vollständig verdeckten Fokus, eine Alternative zu nicht wesentlichem Ziehen und Mindestzielgrößen beziehungsweise definierte Ausnahmen.",
+      "scope": "WCAG-2.2-Erfolgskriterien 2.1.1, 2.1.2, 2.4.7, 2.4.11, 2.5.7 und 2.5.8 auf Level A beziehungsweise AA.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-WCAG22-2024"],
+      "limitations": "Die Auswahl ist nicht der vollständige AA-Prüfumfang. Touchfähigkeit belegt weder Tastatur- noch Assistive-Technology-Bedienbarkeit.",
+      "designImplications": [
+        "Drag-and-drop, Canvas, Sortieren und Verbinden mit fachlich gleichwertigen Bedienalternativen spezifizieren.",
+        "Vollständige Lernaufgaben getrennt mit Tastatur, Touch und assistiven Technologien testen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-003",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "W3C WAI empfiehlt, Menschen mit Behinderungen früh und fortlaufend einzubeziehen und Nutzerbeteiligung mit WCAG-Konformitätsprüfung zu kombinieren.",
+      "scope": "Professionelle WAI-Orientierung für Webprojekte, zuletzt aktualisiert am 5. Mai 2020.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-WAI-USERS-2020"],
+      "limitations": "Kein kontrollierter Wirksamkeitsnachweis und keine repräsentative Stichprobenvorgabe für IuM 5 bis 7. Einzelnes Nutzerfeedback ersetzt keine technische Vollprüfung.",
+      "designImplications": [
+        "Repräsentative Lernaufgaben mit der Zielaltersgruppe und unterschiedlichen Zugangsbedürfnissen erproben.",
+        "Befunde zu Bedienbarkeit, Accessibility und Lernen getrennt dokumentieren."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-004",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Bei der Verarbeitung personenbezogener Daten verlangt die DSGVO Datenminimierung sowie wirksamen Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen; die EDPB-Leitlinie konkretisiert deren lebenszyklusbezogene und nachweisbare Umsetzung.",
+      "scope": "EU-Recht nach Art. 5 Abs. 1 lit. c und Art. 25 DSGVO sowie finale EDPB-Leitlinie 4/2019, Version 2.0; Stand 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-GDPR-2016", "SRC-DLE-EDPB-DPBDD-2020"],
+      "limitations": "Konto- und Backendfreiheit verhindern nicht automatisch personenbezogene Freitexte, Hosting-Logs, Drittrequests oder personenbezogene Exporte und belegen keine Compliance. Verantwortlichkeit und Rechtsgrundlage bleiben einzelfallabhängig.",
+      "designImplications": [
+        "Keine Namen, Konten oder Telemetrie im Kern vorsehen und alle Datenarten, Zwecke, Speicherorte und Löschwege dokumentieren.",
+        "Hosting- und Exportdatenflüsse vor öffentlichem Betrieb einer zuständigen Datenschutzprüfung zuführen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-005",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "§ 25 TDDDG erfasst Speicherung von Informationen in Endeinrichtungen und Zugriff auf dort vorhandene Informationen; von der grundsätzlichen Einwilligungsanforderung bestehen eng beschriebene Ausnahmen.",
+      "scope": "Geltendes Bundesrecht Deutschland, insbesondere § 25 Abs. 1 und 2 TDDDG, geprüft am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-TDDDG-25-2024"],
+      "limitations": "Ob lokale Lernstandspeicherung im konkreten Schulbetrieb unbedingt erforderlich ist, wer Anbieter oder Endnutzer ist und welche Einwilligungsregeln gelten, ist nicht entschieden. Keine Rechtsberatung.",
+      "designImplications": [
+        "Nicht notwendige Endgerätespeicherung vermeiden und Zweck sowie lokale Datenarten transparent ausweisen.",
+        "Die konkrete TDDDG-Einordnung vor Deployment prüfen; keinen pauschalen Banner aus dem Claim ableiten."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-006",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Browserstorage ist zunächst best-effort, kann unter Speicherdruck gelöscht oder durch Browserpolicy blockiert werden; Persistenz und Quota sind keine universelle Garantie.",
+      "scope": "WHATWG Storage Living Standard, Stand 15. März 2026, und HTML Living Standard Web Storage, abgerufen am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-WHATWG-STORAGE-2026", "SRC-DLE-WHATWG-HTML-STORAGE-2026"],
+      "limitations": "Der HTML-Fehlervertrag für localStorage belegt nur die Verfügbarkeitsgrenze; das Projekt plant IndexedDB. Auch ein persistenter Bucket ersetzt kein nutzergesteuertes Backup außerhalb des Browsers.",
+      "designImplications": [
+        "Speicherfähigkeit durch Schreib-, Lese- und Löschprobe prüfen und bei Fehler einen sichtbaren flüchtigen Modus anbieten.",
+        "Versionierten Export als browserunabhängigen Sicherungs- und Gerätewechselweg spezifizieren."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-007",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Web-App-Installationsmetadaten und Service-Worker-Fähigkeiten sind von vollständiger Offlinekorrektheit zu unterscheiden; weder Manifest noch Registrierung beweist einen funktionierenden Offlinekern.",
+      "scope": "W3C Web Application Manifest Working Draft und Service Workers Candidate Recommendation Draft, beide vom 23. Juli 2026.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-APP-MANIFEST-2026", "SRC-DLE-SERVICE-WORKERS-2026"],
+      "limitations": "App Manifest ist ausdrücklich instabil; Service Workers ist work in progress. Beide sind nicht als fertige W3C Recommendations endorsiert, und Browser- sowie Schulpolicies variieren.",
+      "designImplications": [
+        "Installation, Kernressourcen offline, Lernstand offline, externe Ressourcen und Wiederanbindung getrennt spezifizieren.",
+        "Offlineabnahme auf realen Zielgeräten und nicht über bloße API- oder Registrierungsprüfung durchführen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-008",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "HTTP-Frische und Revalidierung sowie Service-Worker-Installations-, Warte-, Aktivierungs- und Cachezustände bilden getrennte Updateebenen; kompatible Kombinationen alter und neuer Ressourcen entstehen nicht automatisch.",
+      "scope": "IETF Standards Track RFC 9111 von 2022 und W3C Service Workers Candidate Recommendation Draft vom 23. Juli 2026.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-HTTP-CACHE-2022", "SRC-DLE-SERVICE-WORKERS-2026"],
+      "limitations": "Die Standards definieren keine projektspezifische atomare Release- oder Lernstandsmigration. Browsercache, CacheStorage und lokale Lernstände sind verschiedene Zustände.",
+      "designImplications": [
+        "Versionierten Cache-, Release- und Migrationsvertrag als Phase-1-Anforderung definieren.",
+        "Teilcache, Altclient, laufende Arbeit, neues Deployment, Rollback und inkompatiblen Import regressiv testen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-009",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Die UNESCO-Empfehlung beschreibt OER als gemeinfreie oder offen lizenzierte Lern-, Lehr- und Forschungsmaterialien, die kostenlosen Zugang, Wiederverwendung, Umnutzung, Bearbeitung und Weiterverbreitung erlauben.",
+      "scope": "Internationale Empfehlung der UNESCO General Conference vom 25. November 2019.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-UNESCO-OER-2019"],
+      "limitations": "Die Empfehlung lizenziert kein Projektmaterial, ist kein deutsches Gesetz und kein Lernwirksamkeitsnachweis. Kostenloser Lesezugriff allein erfüllt den beschriebenen Nachnutzungsraum nicht.",
+      "designImplications": [
+        "Quellformate, bearbeitbare Assets und vollständige Rechteketten als Teil der OER-Auslieferung behandeln.",
+        "Öffentlichen Zugriff und tatsächliche rechtliche sowie technische Bearbeitbarkeit getrennt prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-010",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "CC BY 4.0 erlaubt Vervielfältigung, öffentliche Weitergabe und Bearbeitung unter kontextangemessen erfüllbaren Attribution-, Lizenz- und Änderungskennzeichnungspflichten.",
+      "scope": "Kanonischer internationaler Lizenztext Creative Commons Attribution 4.0.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-CC-BY-4"],
+      "limitations": "Die Lizenz erfasst nur Rechte, die die lizenzgebende Person einräumen kann; Persönlichkeits-, Datenschutz-, Marken-, Patent- und Drittmaterialrechte können fortbestehen. Keine Rechtsberatung.",
+      "designImplications": [
+        "Jedes importierte Asset mit Titel, Urheber, Quelle, Lizenzversion und -link sowie Änderungsvermerk erfassen.",
+        "Nicht von der CC-Lizenz erfasste Rechte separat prüfen und dokumentieren."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-011",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "CC BY-SA 4.0 verlangt beim Teilen eigener Bearbeitungen eine zulässige Adapterlizenz; Lizenzkompatibilität ist versions- und richtungsspezifisch, wobei die offizielle Liste die GPLv3-Kompatibilität ausdrücklich nur einseitig ausweist.",
+      "scope": "Kanonischer CC-BY-SA-4.0-Lizenztext und offizielle Creative-Commons-Kompatibilitätsliste, geprüft am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-CC-BY-SA-4", "SRC-DLE-CC-COMPAT-2026"],
+      "limitations": "Bearbeitung, Sammlung, technische Modifikation und Schrankenanwendung sind einzelfallabhängig; die Kompatibilitätsliste kann erweitert werden. Keine pauschale Rechtsberatung.",
+      "designImplications": [
+        "Jede Materialkombination mit Lizenzversion, Richtung, Werkart und Bearbeitungsstatus dokumentieren.",
+        "NC- oder ND-Material nicht ohne dokumentierte Einzelfallentscheidung in den offenen Kern übernehmen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-012",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Apple-MDM kann Safari und Web Clips deaktivieren sowie Webzugriffe über Listen oder WebKit-Filter beschränken; schulische Browserunterstützung ist daher ein datiertes Konfigurationsziel.",
+      "scope": "Aktuelle Apple-Herstellerdokumentation für verwaltete iPadOS-Geräte, abgerufen am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-APPLE-RESTRICTIONS-2026", "SRC-DLE-APPLE-WEBFILTER-2026"],
+      "limitations": "Die Quellen belegen keine konkrete Schulkonfiguration, keine universelle iPad-Supportmatrix und keine Eigenschaften von Chromium oder Firefox.",
+      "designImplications": [
+        "Reale verwaltete iPads und benannte Browserhauptversionen als datierte Abnahmematrix führen.",
+        "MDM, Filter, Download, Einbettung, Web-Clip-Nutzung und Storage je Zielkonfiguration prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-013",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "HTTP-Caching kann Latenz und Netzwerkaufwand durch Wiederverwendung und Revalidierung reduzieren; die Web Sustainability Guidelines sind dagegen nur ein nicht endorsierter W3C Group Note Draft und kein Nachhaltigkeitsstandard.",
+      "scope": "IETF Standards Track RFC 9111 von 2022 und W3C Group Note Draft vom 28. Juli 2026.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-HTTP-CACHE-2022", "SRC-DLE-WSG-DRAFT-2026"],
+      "limitations": "Weniger Transfers beweisen keine konkrete Umweltwirkung. WSG besitzt keinen vorläufigen Interoperabilitäts- oder Implementierungsbericht und kann ersetzt oder obsolet werden.",
+      "designImplications": [
+        "Roh-, Transfer-, Cache- und Offlinegrößen messen und begründete Performancebudgets definieren.",
+        "WSG nur als datierte Arbeitscheckliste nutzen und keine pauschalen Nachhaltigkeitslabels vergeben."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-014",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Ein systematischer Review von 43 Studien fand bei 9- bis 14-jährigen Schülerinnen und Schülern über verschiedene Fächer keine konsistente Verbesserung akademischer Outcomes allein durch iPad- oder Mobilgerätenutzung.",
+      "scope": "Systematischer Review von Studien aus 2010 bis 2019 in schulischen Lernbereichen; Suche durchgeführt im März 2019.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-IPAD-REVIEW-2021"],
+      "limitations": "Heterogene Fächer, Designs, Gerätenutzungen und Pädagogik; keine Untersuchung des IuM-Lernwerks, von WCAG-Konformität, Local First oder PWA-Technik.",
+      "designImplications": [
+        "Jede digitale Funktion mit einer fachlich-didaktischen Lernfunktion und eigener Erprobung begründen.",
+        "Bloße iPad-Verfügbarkeit nicht als Lernwirksamkeits- oder Qualitätskriterium verwenden."
+      ]
     }
   ]
 }
