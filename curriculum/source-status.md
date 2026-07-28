@@ -7,7 +7,8 @@ Stand der Primärprüfung: 28.07.2026. Dieses Dokument hält die Rolle der Quell
 - Titel: *Lesehilfe Informatik und Medienbildung für die Klassen 5 bis 7 im Schuljahr 2026/2027*.
 - Herausgeber: Ministerium für Kultus Baden-Württemberg.
 - Fassung: erstellt am 20.07.2026; 18 Seiten; Niveau E für das Gymnasium.
-- Verifizierter Asset-Pfad: `C:/Users/berater/OneDrive - Kreismedienzentrum Esslingen/AI-Workspace/Assets/PDFs/Lesehilfe Informatik und Medienbildung Klassen 5 bis 7 2026-2027.pdf`.
+- Verifizierter Asset-Bezeichner im Workspace: `Assets/PDFs/Lesehilfe Informatik und Medienbildung Klassen 5 bis 7 2026-2027.pdf`.
+- Die amtliche PDF wird wegen nicht geklärter offener Lizenz nicht im öffentlichen Repository mitgeliefert. Externe Mitwirkende müssen sie aus einer verifizierten amtlichen Fundstelle beziehen und gegen den dokumentierten SHA-256 prüfen.
 - SHA-256: `1BC94255AD35D75782B819C1CA425D7C1F21CEDC6B2012378EC828BAC1451008`.
 - Amtliche Direkt-URL dieser konkreten Ausgabe: derzeit nicht verifiziert; deshalb im Register `url: null`.
 - Status: `orientation`, `primary-checked`.
