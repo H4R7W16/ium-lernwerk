@@ -1,4 +1,80 @@
 {
   "schemaVersion": 1,
-  "sources": []
+  "sources": [
+    {
+      "id": "SRC-CUR-LESEHILFE-2026-27",
+      "package": "official",
+      "sourceKind": "official",
+      "title": "Lesehilfe Informatik und Medienbildung für die Klassen 5 bis 7 im Schuljahr 2026/2027",
+      "authors": ["Ministerium für Kultus Baden-Württemberg"],
+      "year": 2026,
+      "url": null,
+      "doi": null,
+      "license": "Keine offene Lizenz ausgewiesen; amtliche Veröffentlichung.",
+      "accessed": "2026-07-28",
+      "verificationStatus": "primary-checked",
+      "normativeStatus": "orientation",
+      "relevance": ["curriculum-transition", "grades-5-7", "gymnasium", "secondary-level-i"]
+    },
+    {
+      "id": "SRC-CUR-KM-FACHSEITE",
+      "package": "official",
+      "sourceKind": "official",
+      "title": "Informatik und Medienbildung",
+      "authors": ["Ministerium für Kultus Baden-Württemberg"],
+      "year": null,
+      "url": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+      "doi": null,
+      "license": "Keine offene Lizenz ausgewiesen; amtliche Veröffentlichung.",
+      "accessed": "2026-07-28",
+      "verificationStatus": "primary-checked",
+      "normativeStatus": "administrative-information",
+      "relevance": ["curriculum-transition", "grades-5-6", "implementation-information"]
+    },
+    {
+      "id": "SRC-CUR-KM-FAQ-REFORM",
+      "package": "official",
+      "sourceKind": "official",
+      "title": "Fragen und Antworten zur Bildungsreform",
+      "authors": ["Ministerium für Kultus Baden-Württemberg"],
+      "year": null,
+      "url": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/faq-bildungsreform",
+      "doi": null,
+      "license": "Keine offene Lizenz ausgewiesen; amtliche Veröffentlichung.",
+      "accessed": "2026-07-28",
+      "verificationStatus": "primary-checked",
+      "normativeStatus": "administrative-information",
+      "relevance": ["curriculum-transition", "grades-5-7", "implementation-information", "future-monitoring"]
+    },
+    {
+      "id": "SRC-CUR-BMB-2016",
+      "package": "official",
+      "sourceKind": "official",
+      "title": "Gymnasium – Basiskurs Medienbildung",
+      "authors": ["Ministerium für Kultus Baden-Württemberg", "Zentrum für Schulqualität und Lehrerbildung Baden-Württemberg"],
+      "year": 2016,
+      "url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/BMB",
+      "doi": null,
+      "license": "Keine offene Lizenz ausgewiesen; amtliche Veröffentlichung.",
+      "accessed": "2026-07-28",
+      "verificationStatus": "primary-checked",
+      "normativeStatus": "enacted",
+      "relevance": ["curriculum", "gymnasium", "grade-5", "media-literacy"]
+    },
+    {
+      "id": "SRC-CUR-INF7-2016",
+      "package": "official",
+      "sourceKind": "official",
+      "title": "Gymnasium – Aufbaukurs Informatik (Klasse 7)",
+      "authors": ["Ministerium für Kultus Baden-Württemberg", "Zentrum für Schulqualität und Lehrerbildung Baden-Württemberg"],
+      "year": 2016,
+      "url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/INF7",
+      "doi": null,
+      "license": "Keine offene Lizenz ausgewiesen; amtliche Veröffentlichung.",
+      "accessed": "2026-07-28",
+      "verificationStatus": "primary-checked",
+      "normativeStatus": "enacted",
+      "relevance": ["curriculum", "gymnasium", "grade-7", "computer-science"]
+    }
+  ]
 }

@@ -21,6 +21,12 @@ VERIFICATION_STATUSES = {
     "metadata-checked",
     "secondary-only",
 }
+NORMATIVE_STATUSES = {
+    "enacted",
+    "orientation",
+    "administrative-information",
+    "superseded",
+}
 CLAIM_STATUSES = {"draft", "working", "reviewed", "standard"}
 EVIDENCE_LEVELS = {"low", "medium", "high", "normative"}
 REVIEWED_CLAIM_STATUSES = {"reviewed", "standard"}
@@ -92,6 +98,7 @@ def validate_source_register(payload):
         "license",
         "accessed",
         "verificationStatus",
+        "normativeStatus",
         "relevance",
     )
     for source in sources:
@@ -129,6 +136,16 @@ def validate_source_register(payload):
             source["verificationStatus"] in VERIFICATION_STATUSES,
             f"invalid verification status: {source_id}",
         )
+        if source["sourceKind"] == "official":
+            _require(
+                source["normativeStatus"] in NORMATIVE_STATUSES,
+                f"official source needs valid normative status: {source_id}",
+            )
+        else:
+            _require(
+                source["normativeStatus"] is None,
+                f"non-official source must use null normative status: {source_id}",
+            )
         _require(
             isinstance(source["relevance"], list) and source["relevance"],
             f"relevance missing: {source_id}",

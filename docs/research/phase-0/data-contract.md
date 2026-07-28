@@ -19,9 +19,12 @@ Dieser Vertrag definiert die maschinenprüfbaren Grunddaten von Phase 0. Die JSO
 | `license` | String | Lizenz- oder Nutzungsstatus. |
 | `accessed` | String | Abrufdatum im ISO-Format. |
 | `verificationStatus` | Enum | Umfang der Quellenprüfung. |
+| `normativeStatus` | Enum oder `null` | Geltungs- bzw. Verwaltungsstatus einer amtlichen Quelle. |
 | `relevance` | Nichtleeres Array | Relevante Entscheidungs- oder Inhaltsbereiche. |
 
 Zulässige `sourceKind`-Werte sind `official`, `systematic-review`, `meta-analysis`, `empirical-study`, `research-synthesis`, `handbook`, `professional-standard` und `secondary`. Zulässige `verificationStatus`-Werte sind `primary-checked`, `metadata-checked` und `secondary-only`.
+
+Für `sourceKind: official` ist `normativeStatus` verpflichtend und einer der Werte `enacted`, `orientation`, `administrative-information` oder `superseded`. Für alle nichtamtlichen Quellen ist `normativeStatus: null` verpflichtend. Der Normativstatus beschreibt die Rolle der Quelle; er ersetzt keine rechtliche Prüfung.
 
 ## Claim-Ledger
 

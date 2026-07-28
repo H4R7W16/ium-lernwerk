@@ -20,6 +20,7 @@ def valid_source(**overrides):
         "license": "unknown",
         "accessed": "2026-07-28",
         "verificationStatus": "primary-checked",
+        "normativeStatus": "enacted",
         "relevance": ["curriculum"],
     }
     source.update(overrides)
@@ -43,6 +44,27 @@ def valid_claim(**overrides):
 
 
 class SourceRegisterTests(unittest.TestCase):
+    def test_official_source_without_normative_status_is_rejected(self):
+        source = valid_source()
+        del source["normativeStatus"]
+
+        with self.assertRaises(ValidationError):
+            validate_source_register({"schemaVersion": 1, "sources": [source]})
+
+    def test_non_official_source_requires_null_normative_status(self):
+        with self.assertRaises(ValidationError):
+            validate_source_register(
+                {
+                    "schemaVersion": 1,
+                    "sources": [
+                        valid_source(
+                            sourceKind="secondary",
+                            normativeStatus="enacted",
+                        )
+                    ],
+                }
+            )
+
     def test_duplicate_source_id_is_rejected(self):
         payload = {
             "schemaVersion": 1,
@@ -59,6 +81,7 @@ class SourceRegisterTests(unittest.TestCase):
                     "license": "unknown",
                     "accessed": "2026-07-28",
                     "verificationStatus": "primary-checked",
+                    "normativeStatus": "enacted",
                     "relevance": ["curriculum"],
                 },
                 {
@@ -73,6 +96,7 @@ class SourceRegisterTests(unittest.TestCase):
                     "license": "unknown",
                     "accessed": "2026-07-28",
                     "verificationStatus": "primary-checked",
+                    "normativeStatus": "enacted",
                     "relevance": ["curriculum"],
                 },
             ],
@@ -94,6 +118,7 @@ class SourceRegisterTests(unittest.TestCase):
             "license",
             "accessed",
             "verificationStatus",
+            "normativeStatus",
             "relevance",
         )
 
