@@ -154,6 +154,188 @@
         "Daten, Netze und Sicherheit als eigenständige fachliche Stränge führen und mit Erstellen, Abstrahieren, Testen und gesellschaftlicher Reflexion verbinden.",
         "Die konkrete Progression ausschließlich nach Abgleich mit den amtlichen baden-württembergischen Quellen festlegen."
       ]
+    },
+    {
+      "id": "CLAIM-MED-001",
+      "package": "medienbildung",
+      "statement": "Forschung zu kindlicher Online-Privatsphäre untersucht überwiegend bewusst preisgegebene Daten und zwischenmenschliche Situationen; Metadaten, abgeleitete Daten sowie kommerzielle und institutionelle Kontexte sind seltener berücksichtigt.",
+      "scope": "Systematische Evidenzkartierung internationaler Forschung zu Kindern und Jugendlichen; für Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E, als Begründung einer erweiterten Datenperspektive.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-MED-PRIVACY-MAP-2019"],
+      "limitations": "Die Kartierung ist keine Wirksamkeitsstudie, bündelt heterogene Altersgruppen und bildet schnell veränderliche Plattformen nur zeitgebunden ab; die konkrete Unterrichtssequenz ist Projektinferenz.",
+      "designImplications": [
+        "Datenflüsse von Eingabe über Metadatum und Profilinferenz bis zur Verwendung rekonstruieren lassen.",
+        "Fiktive Beispiele verwenden und keine persönlichen Verläufe oder Kontodaten erheben."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-002",
+      "package": "medienbildung",
+      "statement": "Medienbildungsinterventionen zeigen über Wissens-, Einstellungs- und Verhaltensmaße hinweg im Mittel kleine positive Effekte, deren Stärke und Dauer stark nach Outcome und Kontext variieren.",
+      "scope": "Meta-Analyse von 160 Interventionen aus den Jahren 1983 bis 2023 mit Kindern, Jugendlichen und Erwachsenen; kein Nachweis für eine einzelne Modulgrammatik.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-INTERVENTIONS-META-2025"],
+      "limitations": "Themen, Populationen, Medien, Maßnahmen und Messungen waren heterogen; breite Mittelwerte belegen weder eine bestimmte Unterrichtsfolge noch eine Überlegenheit digitaler Durchführung.",
+      "designImplications": [
+        "Module auf aktive Lernhandlungen wie Erklären, Analysieren, Belegprüfung, Produktion und Revision ausrichten.",
+        "Interventionseffekte nach konkretem Outcome prüfen und nicht pauschal auf Medienkompetenz übertragen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-003",
+      "package": "medienbildung",
+      "statement": "Experimentelle Medienbildungsinterventionen gegen Desinformation verbesserten im Mittel Glaubenskorrektur, Unterscheidungsleistung oder Teilungsentscheidungen; mehrteilige Interventionen erzielten stärkere Effekte als Einzelsitzungen.",
+      "scope": "Meta-Analyse von 49 Experimenten mit 81.155 überwiegend erwachsenen oder studentischen Teilnehmenden; Transfer auf 10- bis 13-Jährige ist ungeprüft.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-MISINFO-META-2024"],
+      "limitations": "Kultur, Inhalt, Messung und Intervention unterschieden sich; die Zielgruppe 10 bis 13 ist kaum repräsentiert und der berichtete Gesamteffekt gilt nicht automatisch für eine konkrete Aufgabe.",
+      "designImplications": [
+        "Informationsprüfung über mehrere Module als wiederkehrenden Prüf- und Revisionszyklus anlegen.",
+        "Primärquelle, unabhängigen Beleg, Gegenbeleg, Kontext und Unsicherheitsurteil explizit dokumentieren lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-004",
+      "package": "medienbildung",
+      "statement": "Die empirische Schnittmenge von generativer KI, Fehlinformation und Bildung ist klein und heterogen; ein in einem systematischen Scoping Review enthaltenes Middle-School-Angebot steigerte die Deepfake-Erkennungsleistung im Posttest nicht.",
+      "scope": "Systematisches Scoping Review von 20 empirischen Studien über K-12 und Hochschule; unmittelbare Zielgruppenevidenz für Gymnasium Klassen 5–7 ist sehr begrenzt.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-MED-GENAI-MISINFO-2026"],
+      "limitations": "Modelle, Versionen, Fächer und Altersgruppen unterscheiden sich und ändern sich schnell; weder eine wirksame Standardsequenz noch generelle Wirkungslosigkeit folgt aus der Evidenz.",
+      "designImplications": [
+        "KI-Ausgaben in prüfbare Teilbehauptungen zerlegen und gegen Primärquellen sowie unabhängige Evidenz prüfen lassen.",
+        "Kein KI- oder Detektorlabel als Endurteil verwenden und keine personenbezogenen Daten eingeben."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-005",
+      "package": "medienbildung",
+      "statement": "In einer qualitativen Studie deuteten 11- bis 13-Jährige Videoempfehlungen als Ergebnis eigener, familiärer und plattformseitiger Handlungen, als emotional wirksam und als Ausdruck eines Geschäftsmodells.",
+      "scope": "26 Fokusgruppen mit 120 Kindern an Primarschulen im deutschsprachigen Kanton Zürich; zielgruppennaher Einblick in vorhandene Algorithmusvorstellungen.",
+      "status": "reviewed",
+      "evidenceLevel": "low",
+      "sourceIds": ["SRC-MED-ALGORITHM-LITERACY-2025"],
+      "limitations": "Die Studie zeigt keine Verteilung von Kompetenzniveaus, beobachtet keine reale Nutzung und untersucht nur YouTube in einer Region; sie belegt keine Unterrichtswirkung.",
+      "designImplications": [
+        "Vorstellungen mit fiktiven Profil- und Empfehlungskarten aktivieren und an kontrollierten Beispielen prüfen.",
+        "Daten, Auswahl, Aufmerksamkeit und Erlös in einem reduzierten Modell verbinden und dessen Grenzen markieren."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-006",
+      "package": "medienbildung",
+      "statement": "Influencerwerbung verbindet Unterhaltung, soziale Nähe und kommerzielle Kommunikation; Kennzeichnungen können 9- bis 12-Jährigen beim Erkennen von Werbung helfen, neutralisieren Überzeugungswirkung aber nicht automatisch.",
+      "scope": "Forschungsreview mit Schwerpunkt auf Kindern unter 12 und YouTube; Plattform- und Forschungsstand bis 2019.",
+      "status": "reviewed",
+      "evidenceLevel": "low",
+      "sourceIds": ["SRC-MED-INFLUENCER-REVIEW-2019"],
+      "limitations": "Die empirische Basis war klein, plattformspezifisch und stark auf Lebensmittel konzentriert; heutige Plattform- und Rechtsstände sind separat zu prüfen.",
+      "designImplications": [
+        "Akteur, Gegenleistung, inhaltliche Kontrolle, Zielgruppe, Kennzeichnung und Gestaltungsmittel markieren lassen.",
+        "Einen Beitrag transparent revidieren lassen, ohne Disclosure als vollständigen Persuasionsschutz darzustellen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-007",
+      "package": "medienbildung",
+      "statement": "Schulische Cybermobbingprogramme reduzieren Täterhandeln und Viktimisierung im Mittel moderat.",
+      "scope": "Systematische Review und Meta-Analyse von 24 Publikationen mit 26 Evaluationen bei schulpflichtigen Lernenden.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-CYBERBULLY-META-2019"],
+      "limitations": "Programme, Definitionen und Selbstberichtmaße unterschieden sich; wirksame Einzelkomponenten und die Überlappung mit Offline-Mobbing bleiben unklar, Mittelwerte garantieren keinen Schutz im Einzelfall.",
+      "designImplications": [
+        "Fiktive Fälle mit Rollenklärung, Reichweitenanalyse, Beweissicherung sowie Hilfe-, Blockier- und Meldeentscheidungen bearbeiten.",
+        "Persönliche Offenlegung, Peerdiagnostik und zentrale Fallspeicherung ausschließen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-008",
+      "package": "medienbildung",
+      "statement": "In beobachtenden Studien sind Zusammenhänge zwischen sozialer Mediennutzung und internalisierenden Symptomen bei Jugendlichen im Mittel klein.",
+      "scope": "Systematische Review und Meta-Analyse von 143 Studien mit mehr als einer Million Jugendlichen in klinischen und Community-Stichproben.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-MENTAL-HEALTH-META-2024"],
+      "limitations": "Experimentelle Studien waren ausgeschlossen; Richtung, individuelle Wirkung und Drittvariablen bleiben offen, Engagementmaße waren stark heterogen und häufig selbstberichtet.",
+      "designImplications": [
+        "Wirkungsclaims nach Studiendesign, Effektgröße, Heterogenität, Moderator, Selbstbericht und alternativer Erklärung prüfen lassen.",
+        "Keine Pauschalaussagen oder psychischen Risikoprofile für einzelne Lernende erzeugen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-009",
+      "package": "medienbildung",
+      "statement": "Schulische Medienkompetenzinterventionen können bei 10- bis 15-Jährigen Medienkompetenz und positives Körperbild verbessern.",
+      "scope": "Systematische Review und Meta-Analyse von 17 kontrollierten Programmen mit 7.392 Lernenden der Klassen 5 bis 9.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-BODY-IMAGE-META-2022"],
+      "limitations": "Heterogenität war für beide Outcomes erheblich; Programme und Messinstrumente unterschieden sich, und Geschlechter sowie intersektionale Rollenbilder sind ungleich abgedeckt.",
+      "designImplications": [
+        "Auswahl, Perspektive, Retusche, Wiederholung, Vergleich und Popularitätsmetriken an kuratierten Beispielen untersuchen.",
+        "Persönliche Körperdaten und Körpervergleiche ausschließen und Gegenprodukte anhand von Kriterien revidieren."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-010",
+      "package": "medienbildung",
+      "statement": "Lootbox-Ausgaben korrelieren klein bis mittel mit Symptomen problematischen Glücksspiels und exzessiven Gamings.",
+      "scope": "Meta-Analyse von 15 Studien zur Glücksspiel-Symptomatik und sieben Studien zu exzessivem Gaming in heterogenen Gamer-Stichproben.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-MED-LOOTBOX-META-2021"],
+      "limitations": "Die Studien waren überwiegend querschnittlich und selbstberichtet, Altersgruppen und Mechaniken heterogen und 10- bis 13-Jährige unterrepräsentiert; Kausalrichtung und individuelles Risiko bleiben offen.",
+      "designImplications": [
+        "Zufallsbelohnung, Echtgeldpfad, Zwischenwährung, Wahrscheinlichkeit, Knappheit und Kaufanreiz in einem geldfreien Modell sichtbar machen.",
+        "Mechanismuskarten oder Redesigns statt personenbezogener Risikowerte erstellen lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-011",
+      "package": "medienbildung",
+      "statement": "DigComp 3.0 strukturiert digitale Kompetenz in die fünf Bereiche Informationssuche, -bewertung und -management; Kommunikation und Zusammenarbeit; Inhaltserstellung; Sicherheit, Wohlbefinden und verantwortungsvolle Nutzung; sowie Problemerkennung und -lösung und integriert KI-bezogene Kompetenzen querschnittlich.",
+      "scope": "Europäischer professioneller Referenzrahmen, fünfte Ausgabe 2025; nicht altersspezifisch und nicht curricular verbindlich für Baden-Württemberg.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-MED-DIGCOMP-3-2025"],
+      "limitations": "Der Rahmen ist kein Wirksamkeitsbeleg, kein Kinder-Curriculum und keine verbindliche Vorgabe für Baden-Württemberg.",
+      "designImplications": [
+        "DigComp als Kontrollperspektive auf beobachtbare digitale Handlungen verwenden.",
+        "Verbindlichkeit und Klassenprogression ausschließlich aus dem amtlichen BW-Curriculum-Mapping ableiten."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-012",
+      "package": "medienbildung",
+      "statement": "Der DCE Planner 2026 beschreibt 320 exemplarische Outcomes in zehn Domänen und vier Altersbändern, darunter 8–11 und 12–15, mit Privatsphäre, Sicherheit, Medien- und Informationskompetenz sowie aktiver Partizipation.",
+      "scope": "Flexibler professioneller Curriculumrahmen des Europarats, veröffentlicht am 12. März 2026; die Zielgruppe 10 bis 13 liegt über zwei Altersbänder.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-MED-DCE-PLANNER-2026"],
+      "limitations": "Die Outcomes sind normative Beispiele, kein fixes Curriculum und kein empirischer Wirkungsnachweis; sie sind für Baden-Württemberg nicht verbindlich.",
+      "designImplications": [
+        "Urteil und Partizipation als sichere Handlung mit Adressat, Öffentlichkeit, Rechten, Verantwortung, Belegen und Rückmeldung operationalisieren.",
+        "Die Zuordnung zu Klassen 5 bis 7 als Projektinferenz kennzeichnen und curricular prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-013",
+      "package": "medienbildung",
+      "statement": "CC BY-SA 4.0 erlaubt Vervielfältigung, öffentliche Weitergabe und Bearbeitung unter Lizenzbedingungen, insbesondere Namensnennung und ShareAlike bei veröffentlichten Bearbeitungen.",
+      "scope": "Kanonischer Text einer internationalen Creative-Commons-Standardlizenz; normative Grundlage für offen lizenzierte Medienproduktion.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-MED-CC-BY-SA-4"],
+      "limitations": "Die Lizenz ist keine Rechtsberatung und erfasst nur Rechte, die die lizenzgebende Person einräumen darf; Persönlichkeits-, Marken-, Datenschutz- und Drittmaterialrechte können fortbestehen.",
+      "designImplications": [
+        "Eine lokale Produktakte mit Titel, Urheber, Quelle, Lizenz, Link, Änderungen und eigenen Anteilen führen.",
+        "Kuratiertes oder eigenes Material verwenden und Rechtsstände datiert ausweisen."
+      ]
     }
   ]
 }
