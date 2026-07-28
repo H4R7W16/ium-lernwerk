@@ -54,12 +54,28 @@
       "authors": ["Ministerium für Kultus Baden-Württemberg", "Zentrum für Schulqualität und Lehrerbildung Baden-Württemberg"],
       "year": 2016,
       "url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/BMB",
+      "pdf": {
+        "url": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF",
+        "sha256": "84609F1CAF3BDB5D3CFDD0BD6287C348F773F6BD5A2DD40F95D9711B1F338536",
+        "pageCount": 28
+      },
+      "sectionUrls": {
+        "2.1 Sachkompetenz": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_01",
+        "2.2 Handlungskompetenz": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_02",
+        "2.3 Reflexionskompetenz": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_03",
+        "3.1.1 Information und Wissen": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "3.1.2 Produktion und Präsentation": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "3.1.3 Kommunikation und Kooperation": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "3.1.4 Mediengesellschaft": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "3.1.5 Grundlagen digitaler Medienarbeit": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "4. Operatoren": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP"
+      },
       "doi": null,
       "license": "Keine offene Lizenz ausgewiesen; amtliche Veröffentlichung.",
       "accessed": "2026-07-28",
       "verificationStatus": "primary-checked",
       "normativeStatus": "enacted",
-      "relevance": ["curriculum", "gymnasium", "grade-5", "media-literacy"]
+      "relevance": ["curriculum", "gymnasium", "grade-5", "media-literacy", "process-competencies", "content-standards", "operators"]
     },
     {
       "id": "SRC-CUR-INF7-2016",
