@@ -1,4 +1,159 @@
 {
   "schemaVersion": 1,
-  "claims": []
+  "claims": [
+    {
+      "id": "CLAIM-INF-001",
+      "package": "informatikdidaktik",
+      "statement": "Literaturbasierte K-8-Lerntrajektorien ordnen Sequenz, Wiederholung und Bedingungen als schrittweise Netze von Lernzielen; Kontext, Aufgabe und Programmiersprache beeinflussen die konkrete Ordnung.",
+      "scope": "K-8-Forschungssynthese zu grundlegenden Kontrollstrukturen; für Klassen 5 bis 7 als Progressionsrahmen, nicht als evaluierter Stoffverteilungsplan.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-RICH-LT-2017"],
+      "limitations": "Die zugrunde liegende Forschung ist lückenhaft und kontextabhängig; die Trajektorien prüfen kein vollständiges Curriculum und legen keine baden-württembergischen Klassenstufen fest.",
+      "designImplications": [
+        "Kontrollstrukturen über steigende Lernhandlungen und Repräsentationen statt nur über Begriffslisten staffeln.",
+        "Die konkrete Zuordnung zu Klasse 5, 6 und 7 als Projektinferenz kennzeichnen und pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-002",
+      "package": "informatikdidaktik",
+      "statement": "In einer Mixed-Methods-Studie mit 11- bis 14-Jährigen erzielte die PRIMM-Interventionsgruppe nach Unterricht mit Predict, Run, Investigate, Modify und Make höhere Posttestwerte als die Kontrollgruppe.",
+      "scope": "Verpflichtender schulischer Programmierunterricht in 13 englischen Schulen; 493 Lernende in der Intervention und 180 in Kontrollgruppen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-PRIMM-2019"],
+      "limitations": "Die Gruppen waren nicht durchgängig randomisiert, Schulen und Umsetzung variierten und der berichtete Effekt war klein (r=.13); die Studie isoliert nicht jede PRIMM-Phase einzeln.",
+      "designImplications": [
+        "Predict-Run-Investigate-Modify-Make als wiederkehrende Modulfolge für Programmierlernen erproben.",
+        "Lehrkraftmoderation und fachliche Gespräche als Teil des Designs vorsehen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-003",
+      "package": "informatikdidaktik",
+      "statement": "Tracing, korrektes Schreiben von Syntax, Verstehen wiederverwendbarer Lösungsmuster und Schreiben mit solchen Mustern sind unterscheidbare Programmierpraktiken, die explizit und inkrementell unterrichtet werden können.",
+      "scope": "Theorie und explorative Studie zu Einführung in Programmierung mit überwiegend erwachsenen Hochschulneulingen.",
+      "status": "reviewed",
+      "evidenceLevel": "low",
+      "sourceIds": ["SRC-INF-XIE-SKILLS-2019"],
+      "limitations": "Die empirische Prüfung umfasste nur neun Teilnehmende und erlaubte keine belastbaren Signifikanz- oder Effektstärkeaussagen; die Übertragung auf 10- bis 13-Jährige ist ungeprüft.",
+      "designImplications": [
+        "Code vorhersagen, Syntax erzeugen, Muster erklären und Code entwickeln als getrennte Lernhandlungen ausweisen.",
+        "Die Sequenz für Klassen 5 bis 7 als prüfbare Heuristik pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-004",
+      "package": "informatikdidaktik",
+      "statement": "Die Forschung zu worked examples in Programmieraktivitäten stützt vor allem aktiv zu verarbeitende Beispiele für Code-Tracing und Code-Generierung, darunter Subgoal-Hinweise, unvollständige Beispiele und Parsons-Probleme.",
+      "scope": "Review heterogener Programmierlernsettings, überwiegend in tertiären Einführungskursen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-WORKED-EXAMPLES-2023"],
+      "limitations": "Die Altersgruppe 10 bis 13 ist unterrepräsentiert; Aufgaben, Medien und Ergebnismaße unterscheiden sich stark, sodass keine einheitliche optimale Beispielgestaltung folgt.",
+      "designImplications": [
+        "Beispiele mit Vorhersage, Selbsterklärung, Ergänzung oder Korrektur koppeln.",
+        "Unterstützung sichtbar von vollständigen Beispielen über Lücken und Modifikationen zur Eigenkonstruktion ausblenden."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-005",
+      "package": "informatikdidaktik",
+      "statement": "Ein explizites notional-machine-Modell kann Programmtext, Ausführungsprozess und veränderlichen Zustand verbinden; der Lernwert einer Visualisierung hängt wesentlich von der aktiven Auseinandersetzung mit ihr ab.",
+      "scope": "Theoretisch-kritische Synthese zur Einführung in Programmierung, überwiegend auf Hochschulforschung gestützt.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-NOTIONAL-MACHINE-2013"],
+      "limitations": "Ein notional-machine-Modell ist sprach-, paradigm- und zweckabhängig; die Synthese liefert keinen direkt geprüften Standard für Klassen 5 bis 7 und Visualisierung ist keine hinreichende Bedingung für Lernen.",
+      "designImplications": [
+        "Codezeile, Ausführungsposition, Zustand und Ausgabe in konsistenten Spuren oder Tabellen verbinden.",
+        "Lernende Visualisierungen vorhersagen, ergänzen, erklären und korrigieren lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-006",
+      "package": "informatikdidaktik",
+      "statement": "Dokumentierte Schwierigkeiten beim Einführungsprogrammieren betreffen unter anderem Variablen und Zuweisung, Kontrollfluss, Schleifen, Aufrufe sowie das Verhältnis von Syntax, Semantik und Programmplan.",
+      "scope": "Literaturreview zu Einführung in Programmierung mit Schwerpunkt CS1 und einzelnen K-12-Bezügen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-MISCONCEPTIONS-2017", "SRC-INF-NOTIONAL-MACHINE-2013"],
+      "limitations": "Definitionen von Fehlvorstellung und Schwierigkeit sind uneinheitlich, viele Befunde stammen aus Hochschulkontexten und nicht jeder Fehler belegt ein stabiles Fehlkonzept.",
+      "designImplications": [
+        "Kurze Aufgaben zu Vorhersage, Erklärung, Vergleich und Reparatur für unmittelbares Feedback einbauen.",
+        "Keine dauerhaften personenbezogenen Fehlvorstellungsprofile speichern."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-007",
+      "package": "informatikdidaktik",
+      "statement": "Eine literaturbasierte K-8-Lerntrajektorie beschreibt Debugging entlang der Dimensionen Strategien zum Finden und Beheben, Fehlertypen und Rolle von Fehlern im Problemlösen.",
+      "scope": "Forschungssynthese zu Debugging in K-8; keine Evaluation einer vollständigen Unterrichtsreihe.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-RICH-DEBUG-2019"],
+      "limitations": "Die Trajektorie synthetisiert Forschungsziele und mögliche Ordnungen, weist aber keine kausale Wirkung einer bestimmten Sequenz oder eines bestimmten Werkzeugs nach.",
+      "designImplications": [
+        "Bemerken, Lokalisieren, Klassifizieren, Hypothese, gezielten Test, Reparatur und Begründung schrittweise unterscheiden.",
+        "Fehler als erwartbaren Teil des Problemlösens und nicht nur als zu beseitigendes Defizit rahmen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-008",
+      "package": "informatikdidaktik",
+      "statement": "In zwei Klassen einer selektiven High School zeigte eine blockbasierte Oberfläche nach fünf Wochen größere Lernzuwächse als eine isomorphe Textoberfläche; nach zehn weiteren Wochen Java waren Unterschiede in Leistung, Haltung und Programmierpraktiken nicht mehr nachweisbar.",
+      "scope": "Quasi-experimentelle Untersuchung mit 60 Lernenden in einem Wahlkurs und demselben Lehrer.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-BLOCK-TEXT-2017", "SRC-INF-BLOCK-TEXT-TRANSFER-2019"],
+      "limitations": "Nur zwei nicht randomisierte Klassen, selektive Schule, spezifische Werkzeuge und Übergang zu Java; weder eine allgemeine Überlegenheit noch ein fester Alterswechsel lässt sich ableiten.",
+      "designImplications": [
+        "Block- oder Textdarstellung aus Lernziel, Syntaxlast und Anschlussweg begründen.",
+        "Übergänge mit isomorphen Beispielen, Übersetzungsaufgaben oder strukturierten Editoren ausdrücklich stützen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-009",
+      "package": "informatikdidaktik",
+      "statement": "Unplugged-Aktivitäten können eng umrissene Informatik- und Computational-Thinking-Ziele unterstützen, doch die K-12-Evidenz rechtfertigt keine pauschale Wirksamkeits- oder Transferannahme.",
+      "scope": "Kritischer Review von 40 K-12-Publikationen plus Quasi-Experiment mit 73 Lernenden im Alter von 10 bis 12 Jahren.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-UNPLUGGED-REVIEW-2021", "SRC-INF-UNPLUGGED-PRIMARY-2017"],
+      "limitations": "Studien verwenden heterogene CT-Konstrukte, vermischen teils Programmierung und unplugged Anteile und zeigen wenig robuste Equity- oder Langzeitbefunde; im Quasi-Experiment ähnelten sich Intervention und Testformat.",
+      "designImplications": [
+        "Analog nur einsetzen, wenn Manipulation, Verkörperung oder gemeinsames Modellieren eine fachliche Funktion erfüllt.",
+        "Repräsentationszuordnung, Analogiegrenze und digitales oder formales Anschlussprodukt angeben."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-010",
+      "package": "informatikdidaktik",
+      "statement": "Ein systematisches Review dokumentiert bei 3- bis 15-Jährigen fragmentarische und teils widersprüchliche Vorstellungen von Internet, Wi-Fi, Infrastruktur, zentraler Speicherung, Türmen, Satelliten und Datenfluss.",
+      "scope": "Systematisches Review von 27 qualitativen und Mixed-Methods-Studien mit insgesamt 2.214 Kindern und Jugendlichen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-INTERNET-CONCEPTIONS-2023"],
+      "limitations": "Die Einzelstudien decken verschiedene Altersgruppen, Länder und Technikstände von 2002 bis 2022 ab; das früheste dokumentierte Auftreten ist kein Entwicklungsgrenzwert.",
+      "designImplications": [
+        "Vorstellungen durch nicht personenbezogen gespeicherte Zeichnungen, Erklärungen und Modellvergleiche sichtbar machen.",
+        "Von alltagsnahen Gerätevorstellungen schrittweise zu mehrstufigen Paketweg-, Router-, Client-Server- und Speicherungsmodellen führen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-011",
+      "package": "informatikdidaktik",
+      "statement": "Die CSTA-Standards 2026 führen Algorithmen und Design, Programmierung, Daten und Analyse, Systeme und Sicherheit sowie Computing und Gesellschaft als verbundene Inhaltsbereiche und kombinieren sie mit fachlichen Praktiken.",
+      "scope": "US-amerikanischer professioneller PK-12-Standard mit einem Middle-School-Band für Grades 6 bis 8.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-CSTA-2026"],
+      "limitations": "Der Standard ist kein empirischer Wirksamkeitsnachweis und weder rechtlich noch curricular verbindlich für Baden-Württemberg; seine Klassenbänder lassen sich nicht direkt auf Klassen 5 bis 7 übertragen.",
+      "designImplications": [
+        "Daten, Netze und Sicherheit als eigenständige fachliche Stränge führen und mit Erstellen, Abstrahieren, Testen und gesellschaftlicher Reflexion verbinden.",
+        "Die konkrete Progression ausschließlich nach Abgleich mit den amtlichen baden-württembergischen Quellen festlegen."
+      ]
+    }
+  ]
 }
