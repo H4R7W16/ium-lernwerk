@@ -101,11 +101,11 @@ Alle 13 retained Claims stehen im `claim-ledger.json` auf `reviewed`. Keiner wir
 
 ### CLAIM-MED-009 – Körper- und Rollenbilder über Gestaltung und Vergleich bearbeiten
 
-**Befund.** Schulische Medienkompetenzinterventionen können bei 10- bis 15-Jährigen Medienkompetenz und positives Körperbild verbessern.
+**Befund.** In kontrollierten Evaluationen schulischer Medienkompetenzinterventionen zeigten sich bei 10- bis 15-Jährigen unmittelbar nach der Intervention im Mittel kleine positive Effekte auf Medienkompetenz und Körperbild.
 
-**Evidenz.** Kurz und Kolleginnen und Kollegen meta-analysierten 17 kontrollierte Programme mit 7.392 Lernenden der Klassen 5 bis 9. Beide Zielbereiche verbesserten sich gegenüber Kontrollen. [Originalquelle](https://doi.org/10.1007/s10935-021-00660-1)
+**Evidenz.** Kurz und Kolleginnen und Kollegen meta-analysierten 17 kontrollierte Programme mit 7.392 Lernenden der Klassen 5 bis 9. Unmittelbar nach der Intervention betrugen die aggregierten Effekte `g = .16` für Körperbild und `g = .24` für Medienkompetenz. [Originalquelle](https://doi.org/10.1007/s10935-021-00660-1)
 
-**Einschränkung und Transfer.** Heterogenität war für beide Outcomes erheblich; Programme und Messinstrumente unterschieden sich. Die Forschung bildet Jungen, nichtbinäre Lernende und intersektionale Rollenbilder ungleich ab; ungeeignete Beispiele können Idealbilder erneut exponieren.
+**Einschränkung und Transfer.** Der aggregierte Körperbildeffekt bestand beim Follow-up nicht fort (`g = .03`, nicht signifikant); stabil blieb der kleine Medienkompetenzeffekt (`g = .20`). Heterogenität war für beide Outcomes erheblich; Programme und Messinstrumente unterschieden sich. Die Forschung bildet Jungen, nichtbinäre Lernende und intersektionale Rollenbilder ungleich ab; ungeeignete Beispiele können Idealbilder erneut exponieren.
 
 **Designfolge.** Lernende untersuchen Auswahl, Perspektive, Retusche, Wiederholung, Vergleich und Popularitätsmetriken an kuratierten Beispielen und revidieren ein Gegenprodukt. Persönliche Körperdaten und Körpervergleiche sind ausgeschlossen.
 
@@ -202,7 +202,7 @@ Analog ist begründet möglich, wenn Kartenlegen einen Datenfluss oder Akteurszu
 
 ## Verworfen oder herabgestuft
 
-- KIM 2024 und JIM 2025 wurden als aktuelle deskriptive Jugendstudien geprüft, aber nicht für retained Wirkungs- oder Designclaims benötigt. Ihre Stichproben dürfen künftig nur für passende Prävalenzen verwendet werden.
+- KIM 2024 und JIM 2025 wurden als aktuelle deskriptive Jugendstudien geprüft, aber nicht für retained Wirkungs- oder Designclaims benötigt. KIM 2024 befragte `n = 1.225` Kinder im Alter von 6 bis 13 Jahren plus deren Haupterziehende; die Feldzeit lief vom 18.09. bis 07.11.2024. JIM 2025 befragte `n = 1.200` Jugendliche im Alter von 12 bis 19 Jahren vom 02.06. bis 12.07.2025 per Telefon- und Onlinebefragung. Die Stichproben dürfen künftig nur für passende Prävalenzen verwendet werden.
 - Einzelne Deepfake-Detektionsstudien mit Erwachsenen wurden nicht zu Altersclaims oder visuellen Merkmalslisten verallgemeinert.
 - Pauschale Screen-Time-, Sucht-, Depressions- und Körperbildaussagen wurden verworfen; beobachtende Befunde bleiben probabilistisch und person-/kontextabhängig.
 - Plattformrichtlinien und Rechtszusammenfassungen wurden nicht als dauerhafte Claims aufgenommen. Module brauchen datierte Primärquellen und ein eigenes Aktualisierungsgate.

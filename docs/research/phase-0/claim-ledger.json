@@ -270,12 +270,12 @@
     {
       "id": "CLAIM-MED-009",
       "package": "medienbildung",
-      "statement": "Schulische Medienkompetenzinterventionen können bei 10- bis 15-Jährigen Medienkompetenz und positives Körperbild verbessern.",
+      "statement": "In kontrollierten Evaluationen schulischer Medienkompetenzinterventionen zeigten sich bei 10- bis 15-Jährigen unmittelbar nach der Intervention im Mittel kleine positive Effekte auf Medienkompetenz und Körperbild.",
       "scope": "Systematische Review und Meta-Analyse von 17 kontrollierten Programmen mit 7.392 Lernenden der Klassen 5 bis 9.",
       "status": "reviewed",
       "evidenceLevel": "high",
       "sourceIds": ["SRC-MED-BODY-IMAGE-META-2022"],
-      "limitations": "Heterogenität war für beide Outcomes erheblich; Programme und Messinstrumente unterschieden sich, und Geschlechter sowie intersektionale Rollenbilder sind ungleich abgedeckt.",
+      "limitations": "Der aggregierte Körperbildeffekt bestand beim Follow-up nicht fort (g = 0.03, nicht signifikant), während der kleine Medienkompetenzeffekt stabil blieb (g = 0.20); Heterogenität war für beide Outcomes erheblich, Programme und Messinstrumente unterschieden sich, und Geschlechter sowie intersektionale Rollenbilder sind ungleich abgedeckt.",
       "designImplications": [
         "Auswahl, Perspektive, Retusche, Wiederholung, Vergleich und Popularitätsmetriken an kuratierten Beispielen untersuchen.",
         "Persönliche Körperdaten und Körpervergleiche ausschließen und Gegenprodukte anhand von Kriterien revidieren."
