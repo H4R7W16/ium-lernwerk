@@ -82,7 +82,11 @@
       "package": "official",
       "sourceKind": "official",
       "title": "Gymnasium – Aufbaukurs Informatik (Klasse 7), Bildungsplan 2016",
-      "authors": ["Ministerium für Kultus Baden-Württemberg", "Zentrum für Schulqualität und Lehrerbildung Baden-Württemberg"],
+      "authors": ["Ministerium für Kultus, Jugend und Sport Baden-Württemberg", "Landesinstitut für Schulentwicklung"],
+      "institutionRoles": {
+        "publisher": "Ministerium für Kultus, Jugend und Sport Baden-Württemberg",
+        "collaborationPartner": "Landesinstitut für Schulentwicklung"
+      },
       "year": 2016,
       "url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/INF7",
       "pdf": {
