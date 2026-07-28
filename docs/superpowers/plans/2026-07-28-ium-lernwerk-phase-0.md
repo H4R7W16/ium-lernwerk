@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Maßgebliche fachliche Spezifikation ist Commit `7801361` der Datei `docs/superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md`.
-- Die fremde uncommittete Löschung in Abschnitt 2.2 der Spezifikation wird nicht mit Phase-0-Artefakten vermischt. Vor Ausführung von Task 1 wird sie als beabsichtigt oder versehentlich geklärt.
+- Das Hybridmodell ist ausdrücklich bestätigt: Der progressive Kernlernweg wird durch flexibel einsetzbare Vertiefungs-, Transfer- und Projektmodule ergänzt. Die zwischenzeitlich gelöschte Zeile in Abschnitt 2.2 wurde auf Nutzerauftrag am 28. Juli 2026 wiederhergestellt.
 - Phase 0 erstellt keine Lernendenanwendung, kein Portal, keine PWA, keinen Local-First-Speicher und kein Pilotmodul.
 - Geltungsbereich ist Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E.
 - Die Lesehilfe 2026/2027 wird als Planungs- und Orientierungsgrundlage, nicht als bereits in Kraft gesetzter Bildungsplan behandelt.
@@ -115,9 +115,9 @@ git remote -v
 
 Expected:
 
-- `main` zeigt höchstens die bereits dokumentierte fremde Änderung an Abschnitt 2.2.
-- Die Phase-0-Arbeit verändert oder staged diese Spezifikationsänderung nicht.
-- Wenn die Löschung beabsichtigt war, wird vor Task 13 eine eigene Spezifikationsrevision beschlossen; andernfalls wird nur die fehlende Zeile durch den Nutzer oder nach dessen ausdrücklicher Freigabe wiederhergestellt.
+- Die Arbeitskopie ist sauber und Abschnitt 2.2 enthält beide bestätigten Zugänge.
+- Der Ausführungsbranch enthält Commit `63baa9e` sowie die wiederhergestellte Hybridmodell-Zeile.
+- Spätere Änderungen am Verhältnis von Kern- und Ergänzungsmodulen benötigen eine eigene Spezifikationsrevision und Nutzerfreigabe.
 
 - [ ] **Step 2: Failing tests für Quellen- und Claim-Verträge schreiben**
 
@@ -1199,10 +1199,7 @@ Core candidates jointly cover the union of binding and orientation requirements.
 
 - [ ] **Step 5: Hybridmodell-Integrität prüfen**
 
-Before finalizing this task, resolve the dirty Section-2.2 change:
-
-- if accidental, restore the approved sentence in a separate spec-only commit;
-- if intentional, stop and revise the architecture decision, candidate kinds and Tasks 13–14 with the user before continuing.
+Before finalizing this task, verify that section 2.2 still contains both approved sentences and that `module-candidates.json` includes the kinds `core`, `extension`, `transfer` and `project` without forcing every flexible kind into every grade.
 
 - [ ] **Step 6: Validate and commit**
 
