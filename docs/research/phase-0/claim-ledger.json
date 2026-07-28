@@ -336,6 +336,174 @@
         "Eine lokale Produktakte mit Titel, Urheber, Quelle, Lizenz, Link, Änderungen und eigenen Anteilen führen.",
         "Kuratiertes oder eigenes Material verwenden und Rechtsstände datiert ausweisen."
       ]
+    },
+    {
+      "id": "CLAIM-LP-001",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Der IBBW-Syntheserahmen ordnet Unterrichtsqualität nach der Qualität von kognitiver Aktivierung, konstruktiver Unterstützung und Klassenführung; Methode und Medium erhalten ihren Wert über die ermöglichten Lernprozesse.",
+      "scope": "Professioneller Syntheserahmen für Unterrichtspraxis aller Schularten; hier auf digital gestützten, lehrkraftorchestrierten IuM-Unterricht in Klasse 5 bis 7 bezogen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-IBBW-WU"],
+      "limitations": "Keine einheitliche Interventionsmeta-Analyse und kein domänenspezifischer Wirksamkeitsnachweis für IuM 5 bis 7.",
+      "designImplications": [
+        "Jede Aktivität mit Ziel, fachlicher Lernhandlung, Unterstützung, Rückmeldung und Sicherung spezifizieren.",
+        "Digital nur mit fachlich-didaktischer Funktion einsetzen; analoge Varianten nur bei eigener Lernfunktion vorsehen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-002",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Domänenspezifisches Vorwissen sagt spätere Wissensstände deutlich voraus, den normalisierten Wissenszuwachs im Mittel jedoch kaum; die Beziehung zwischen Vorwissen und Lernen variiert stark.",
+      "scope": "Meta-Analyse verschiedener Altersgruppen und Domänen mit 8.776 Effektgrößen.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-PRIOR-2022"],
+      "limitations": "Überwiegend Zusammenhänge; keine direkte Evaluation einer Vorwissensphase für IuM 5 bis 7. Eine falsche Antwort belegt kein stabiles Fehlkonzept.",
+      "designImplications": [
+        "Vorwissen mit kurzen Vorhersagen, Skizzen, Code- oder Medienbeispielen lokal und aufgabenbezogen aktivieren.",
+        "Keine zentralen Vorwissens- oder Fehlvorstellungsprofile anlegen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-003",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Cognitive Load Theory begründet, warum Aufgabe, Vorwissen, Darstellung und Lernumgebung gemeinsam betrachtet, unnötige Verarbeitung reduziert und Unterstützung mit wachsender Expertise angepasst werden sollten.",
+      "scope": "Theoretischer Forschungsüberblick zum Lernen komplexer Aufgaben.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-CLT-2020"],
+      "limitations": "Keine Meta-Effektzahl für ein bestimmtes Design; mentale Anstrengung, Bearbeitungszeit oder Bedienleichtigkeit sind keine Lernoutcomes. Die IuM-Übertragung ist inferenziell.",
+      "designImplications": [
+        "Zusammengehörige Informationen integrieren, Bedien- und Suchlast reduzieren und Repräsentationen konsistent halten.",
+        "Digital für veränderliche Zustände, Testfälle und synchrone Repräsentationen nutzen; Papier bei lernförderlicher räumlicher Übersicht zulassen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-004",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Worked examples verbesserten in einer Mathematikmeta-Analyse die Leistung gegenüber Vergleichsbedingungen im Mittel; daraus folgt weder passive Beispielbetrachtung noch ein universelles Fadingrezept.",
+      "scope": "43 Artikel mit 55 Studien und 181 Effekten von Primarstufe bis Hochschule im Fach Mathematik.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-WORKED-2023"],
+      "limitations": "Heterogene Altersgruppen, Beispieltypen und Outcomes; die Effektzahl ist nicht direkt auf Programmier- oder Medienproduktionsaufgaben übertragbar.",
+      "designImplications": [
+        "Beispiele durch Vorhersagen, Begründungen, Variantenvergleiche, Lückenergänzung und Tests aktiv verarbeiten lassen.",
+        "Fading domänennah vom vollständigen Beispiel über Lücken und Modifikation zur Eigenkonstruktion pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-005",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Induzierte Selbsterklärung zeigt über unterschiedliche Aufgaben und Bildungsstufen im Mittel positive Lernoutcomes, ist aber kein automatischer Zusatznutzen unabhängig von Prompt und Aufgabe.",
+      "scope": "Meta-Analyse von 69 Effekten aus 64 Berichten mit heterogenen Fächern, Altersgruppen und Promptformen.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-SELFEXPLAIN-2018"],
+      "limitations": "Ein engerer Worked-example-Kontext zeigt auch ungünstige Moderation durch zusätzliche Selbsterklärungsprompts; häufige generische Warum-Fragen sind nicht belegt.",
+      "designImplications": [
+        "Wenige fachlich fokussierte Prompts für kausale Beziehungen, Vorhersagen, Begründungen oder Reparaturen einsetzen.",
+        "Digitale Antworten lokal verarbeiten oder im Gespräch nutzen, ohne Persönlichkeits- oder Kompetenzprofile zu bilden."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-006",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Computerbasiertes Scaffolding unterstützt in problemzentrierten STEM-Settings kognitive Outcomes im Mittel; die Evidenz zeigt keine robuste Überlegenheit einer bestimmten Anpassungs- oder Fadinglogik.",
+      "scope": "Meta-Analyse von 144 experimentellen Studien mit 333 Outcomes von Primarstufe bis Erwachsenenbildung.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-SCAFFOLD-2017"],
+      "limitations": "Heterogene STEM-Domänen und Bildungsstufen; keine spezifische Evidenz für IuM 5 bis 7 und keine robuste Moderation durch Fadinglogiken.",
+      "designImplications": [
+        "Hilfen an konkrete fachliche Hürden koppeln und die zentrale Entscheidung der Lernenden erhalten.",
+        "Fading an sichtbarer fachlicher Bewältigung statt an Zeit, Klickzahl oder zentraler Telemetrie ausrichten."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-007",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Classroom Quizzing verbessert gegenüber Wiederlernen und anderen Vergleichsstrategien akademische Leistung im Mittel; der Nutzen hängt von Aufgabe, Vergleich, Wiederholung, Feedback und Testpassung ab.",
+      "scope": "Meta-Analyse von 222 unabhängigen Studien mit 48.478 Lernenden über viele Bildungsstufen, Fächer, Formate und Messzeitpunkte.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-QUIZZING-2021"],
+      "limitations": "Der Gesamtwert sagt nichts über eine konkrete IuM-Aufgabe aus; Retrieval ist aktiver Abruf und nicht Wiederlesen oder Wiederanschauen.",
+      "designImplications": [
+        "Kurze Abrufe als Rekonstruktion, Vorhersage, Erklärung oder Anwendung mit korrigierender Rückmeldung gestalten.",
+        "Antworten lokal halten und weder bewerten noch personenbezogen profilieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-008",
+      "package": "lernpsychologie-unterricht",
+      "statement": "In curriculumsnahen Klassenzimmerstudien war verteiltes Üben massiertem Üben im Mittel überlegen, besonders für verzögerte Messungen; die genaue Terminierung bleibt kontextabhängig.",
+      "scope": "Meta-Analyse von 22 Berichten mit 31 Effekten und mehr als 3.000 Lernenden.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-SPACING-2025"],
+      "limitations": "Begrenzte Moderatoranalysen; komplexe IuM-Inhalte und 10- bis 13-Jährige sind nicht separat abgesichert.",
+      "designImplications": [
+        "Zentrale Konzepte in späteren Modulen mit Abstand und veränderter Lernhandlung wieder aufnehmen.",
+        "Curriculare Wiedervorlagen ohne personenbezogene Erinnerungsprofile organisieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-009",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Retrieval Practice kann Transfer gegenüber nicht-testender Wiederexposition unterstützen; positiver Transfer hängt von Elaboriertheit, Antwortbeziehung und initialem Abruf ab und entsteht nicht automatisch.",
+      "scope": "Meta-Analyse von 192 Transfereffekten aus 122 Experimenten mit 10.382 Teilnehmenden.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-TRANSFER-2018"],
+      "limitations": "Heterogene Forschung und Hinweise auf Publikationsbias; die Transferart muss benannt werden und Oberflächenvariation allein genügt nicht.",
+      "designImplications": [
+        "Transferaufgaben mit veränderter Repräsentation, Oberfläche oder Anwendung, aber gleichem fachlichen Prinzip entwerfen.",
+        "Unmittelbaren Lernerfolg, späteres Behalten und Transfer mit getrennten Kriterien und Messzeitpunkten prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-010",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Feedback zeigt im Mittel positive, aber extrem heterogene Lernoutcomes; Informationsgehalt, Outcome, Design und Kontext unterscheiden die Effekte, und ein relevanter Anteil ist negativ.",
+      "scope": "Meta-Analyse von 994 Effekten aus 435 Studien mit etwa 61.000 Personen.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-FEEDBACK-2020"],
+      "limitations": "Viele Fächer, Altersstufen, Designs und Feedbackarten sowie ältere Studien; ein Gesamtwert erlaubt keine universelle Regel zu Timing, Kanal oder Form.",
+      "designImplications": [
+        "Rückmeldung als am Produkt, an der Strategie oder am nächsten Prüfschritt nutzbare Information formulieren.",
+        "Sicherheitsrelevante Fehler rasch korrigieren und reversible Lösungswege vor Rückmeldung erklären oder vergleichen lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-011",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Autonomieunterstützung und Struktur sind keine Gegensätze: Sie treten positiv miteinander auf und sind beide mit Motivation, Engagement und Bedürfnisbefriedigung verbunden.",
+      "scope": "Meta-Analyse von 94 Studien mit 280 Effekten über verschiedene Schulstufen, Fächer, Kulturen und Messmethoden.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-AUTONOMY-2025"],
+      "limitations": "Überwiegend korrelative Daten und eine sehr große PISA-Stichprobe; keine generelle kausale Leistungswirkung und keine Begründung für freie Wahl ohne Leitplanken.",
+      "designImplications": [
+        "Sinnvolle Entscheidungen über Beispiel, Strategie oder Produkt innerhalb klarer Ziele, Kriterien, Zeitrahmen und Hilfen ermöglichen.",
+        "Selbstregulation als sichtbares Planen, Prüfen und Revidieren statt als angenommene Eigenschaft einer Oberfläche gestalten."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-012",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Problem Solving before Instruction war Instruction before Problem Solving im Mittel überlegen, wenn die Exploration Bedingungen von Productive Failure erfüllte; für jüngere Lernende und domänenübergreifende Fähigkeiten zeigte sich teils die Gegenrichtung.",
+      "scope": "Meta-Analyse von 53 Studien mit 166 Vergleichen, überwiegend Mathematik, Klassen 6 bis 10 und Hochschule.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-PF-2021"],
+      "limitations": "Bei Klassen 2 bis 5 sowie domänenübergreifenden Fähigkeiten tendierten Effekte zugunsten früher Instruktion; der Befund gilt nicht für unbegleitetes Entdecken und nicht ohne anschließende Instruktion.",
+      "designImplications": [
+        "Exploration auf vorbereitete Kontrastfälle, kontrollierte Simulationen oder begrenzte Lösungsräume stützen.",
+        "Anschließend Lösungswege vergleichen, das Zielkonzept instruieren und gemeinsam sichern; Klasse 5 besonders vorsichtig pilotieren."
+      ]
     }
   ]
 }
