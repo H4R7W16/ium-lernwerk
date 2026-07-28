@@ -129,6 +129,17 @@ class SourceRegisterTests(unittest.TestCase):
                         }
                     )
 
+    def test_source_id_requires_ascii_src_prefix(self):
+        for source_id in ("Quelle-ä", "X1"):
+            with self.subTest(source_id=source_id):
+                with self.assertRaises(ValidationError):
+                    validate_source_register(
+                        {
+                            "schemaVersion": 1,
+                            "sources": [valid_source(id=source_id)],
+                        }
+                    )
+
 
 class ClaimLedgerTests(unittest.TestCase):
     def test_reviewed_claim_requires_registered_source(self):
@@ -196,6 +207,35 @@ class ClaimLedgerTests(unittest.TestCase):
                 {"schemaVersion": 1, "claims": [valid_claim(status="reviewed")]},
                 source_ids,
             )
+
+    def test_reviewed_and_standard_claims_reject_plain_source_id_set(self):
+        for status in ("reviewed", "standard"):
+            with self.subTest(status=status):
+                with self.assertRaises(ValidationError):
+                    validate_claim_ledger(
+                        {"schemaVersion": 1, "claims": [valid_claim(status=status)]},
+                        {"SRC-001"},
+                    )
+
+    def test_working_claim_accepts_plain_source_id_set(self):
+        claim_ids = validate_claim_ledger(
+            {"schemaVersion": 1, "claims": [valid_claim()]},
+            {"SRC-001"},
+        )
+
+        self.assertEqual(claim_ids, {"CLAIM-INF-001"})
+
+    def test_claim_id_requires_ascii_documented_prefix(self):
+        for claim_id in ("Claim-ä", "X1"):
+            with self.subTest(claim_id=claim_id):
+                with self.assertRaises(ValidationError):
+                    validate_claim_ledger(
+                        {
+                            "schemaVersion": 1,
+                            "claims": [valid_claim(id=claim_id)],
+                        },
+                        {"SRC-001"},
+                    )
 
     def test_reviewed_claim_requires_limitations_after_source_registration(self):
         source_ids = validate_source_register(

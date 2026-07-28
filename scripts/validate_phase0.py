@@ -24,6 +24,8 @@ VERIFICATION_STATUSES = {
 CLAIM_STATUSES = {"draft", "working", "reviewed", "standard"}
 EVIDENCE_LEVELS = {"low", "medium", "high", "normative"}
 REVIEWED_CLAIM_STATUSES = {"reviewed", "standard"}
+SOURCE_ID_PREFIX = "SRC-"
+CLAIM_ID_PREFIXES = ("CLAIM-INF-", "CLAIM-MED-", "CLAIM-LP-", "CLAIM-DLE-")
 
 
 class SourceIndex(set):
@@ -66,6 +68,14 @@ def _require_string_or_none(value, field, record_id):
     )
 
 
+def _require_technical_id(value, prefixes, record_type):
+    _require(value.isascii(), f"{record_type} id must be ASCII: {value}")
+    _require(
+        any(value.startswith(prefix) and len(value) > len(prefix) for prefix in prefixes),
+        f"invalid {record_type} id prefix: {value}",
+    )
+
+
 def validate_source_register(payload):
     _require(payload.get("schemaVersion") == 1, "source register schemaVersion must be 1")
     sources = payload.get("sources")
@@ -95,6 +105,7 @@ def validate_source_register(payload):
     for source in sources:
         source_id = source["id"]
         _require_nonempty_string(source_id, "id", source_id)
+        _require_technical_id(source_id, (SOURCE_ID_PREFIX,), "source")
         _require_nonempty_string(source["package"], "package", source_id)
         _require(
             source["sourceKind"] in SOURCE_KINDS,
@@ -149,6 +160,7 @@ def validate_claim_ledger(payload, source_ids):
     for claim in claims:
         claim_id = claim["id"]
         _require_nonempty_string(claim_id, "id", claim_id)
+        _require_technical_id(claim_id, CLAIM_ID_PREFIXES, "claim")
         _require_nonempty_string(claim["package"], "package", claim_id)
         _require_nonempty_string(claim["statement"], "statement", claim_id)
         _require_nonempty_string(claim["scope"], "scope", claim_id)
@@ -183,14 +195,17 @@ def validate_claim_ledger(payload, source_ids):
                 claim["limitations"].strip(),
                 f"reviewed claim has no limitations: {claim_id}",
             )
-            if verification_statuses is not None:
-                _require(
-                    any(
-                        verification_statuses[source_id] == "primary-checked"
-                        for source_id in claim["sourceIds"]
-                    ),
-                    f"reviewed claim has no primary-checked source: {claim_id}",
-                )
+            _require(
+                verification_statuses is not None,
+                f"reviewed claim requires source verification metadata: {claim_id}",
+            )
+            _require(
+                any(
+                    verification_statuses[source_id] == "primary-checked"
+                    for source_id in claim["sourceIds"]
+                ),
+                f"reviewed claim has no primary-checked source: {claim_id}",
+            )
     return set(ids)
 
 

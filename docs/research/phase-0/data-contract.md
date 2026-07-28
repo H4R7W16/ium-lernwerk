@@ -41,8 +41,8 @@ Zulässige `sourceKind`-Werte sind `official`, `systematic-review`, `meta-analys
 
 Zulässige `status`-Werte sind `draft`, `working`, `reviewed` und `standard`. Zulässige `evidenceLevel`-Werte sind `low`, `medium`, `high` und `normative`.
 
-Deterministische Claim-Präfixe sind `CLAIM-INF-`, `CLAIM-MED-`, `CLAIM-LP-` und `CLAIM-DLE-`. Quellen-IDs beginnen mit `SRC-`. Identifikatoren bleiben ASCII-stabil, auch wenn der sichtbare Text deutsche Umlaute verwendet.
+Deterministische Claim-Präfixe sind `CLAIM-INF-`, `CLAIM-MED-`, `CLAIM-LP-` und `CLAIM-DLE-`. Quellen-IDs beginnen mit `SRC-`. Jede technische ID enthält nach ihrem Präfix mindestens ein Zeichen und besteht ausschließlich aus ASCII-Zeichen; sichtbarer deutscher Text darf davon unabhängig Umlaute verwenden.
 
 Ein Claim mit Status `reviewed` oder `standard` benötigt mindestens eine registrierte Quelle, nichtleere `limitations` und mindestens eine zitierte Quelle mit `verificationStatus: primary-checked`. Dies ist die technische Mindestschwelle dafür, dass die Aussage gegen eine Originalquelle geprüft wurde. `metadata-checked` und `secondary-only` bleiben im Register zulässige Statuswerte, reichen jedoch nicht für einen Claim in diesen beiden Statusstufen.
 
-`validate_source_register` liefert weiterhin eine mengenkompatible Sammlung der Quellen-IDs. Im regulären Pfad enthält sie zusätzlich die Prüfstatus-Metadaten, damit `validate_claim_ledger` die Mindestschwelle durchsetzen kann. Ein übergebener einfacher ID-`set` bleibt für bestehende Aufrufe zulässig; er kann nur die Registrierung, nicht jedoch den Prüfstatus einer Quelle abbilden.
+`validate_source_register` liefert eine mengenkompatible Sammlung der Quellen-IDs mit den erforderlichen Prüfstatus-Metadaten. Ein einfacher ID-`set` bleibt für `draft` und `working` zur Referenzprüfung zulässig. Für `reviewed` und `standard` wird er fail-closed abgelehnt, weil er die verbindliche Prüfung mindestens einer `primary-checked` Quelle nicht ermöglichen kann.
