@@ -252,7 +252,7 @@
     {
       "id": "PRIN-010",
       "title": "Digitales Primärmedium und begründete Analogwahl",
-      "statement": "Digital ist das Primärmedium, wenn es Zustände, Testfälle, Simulation, Quellenprüfung, Produktion oder Revision fachlich trägt; analoges Material entsteht nur bei eigenständiger Lernfunktion und mit ausgewiesener Zuordnung, Analogiegrenze und Anschlussprodukt.",
+      "statement": "Digital ist das Primärmedium, wenn es Zustände, Testfälle, Simulation, Quellenprüfung, Produktion oder Revision fachlich trägt; analoges Material entsteht nur bei eigenständiger Lernfunktion und dokumentierter Rückbindung an das digitale Modul. Modellierende oder unplugged Materialien weisen zusätzlich Zuordnung, Modell- oder Analogiegrenze und eine formale oder digitale Anschlussaufgabe aus.",
       "claimIds": [
         "CLAIM-LP-001",
         "CLAIM-LP-003",
@@ -268,7 +268,7 @@
       ],
       "status": "working",
       "phase1Implications": [
-        "Das Modulmanifest muss die Lernfunktion des Mediums und bei Analogmaterial dessen Rückbindung an das digitale Modul erfassen.",
+        "Das Modulmanifest muss die Lernfunktion des Mediums und bei Analogmaterial dessen Rückbindung an das digitale Modul erfassen; für modellierende oder unplugged Materialien zusätzlich Zuordnung, Modell- oder Analogiegrenze und formale oder digitale Anschlussaufgabe.",
         "Printverzeichnisse dürfen nur bei dokumentierter fachlicher oder lernpsychologischer Begründung angelegt werden.",
         "Das Review muss eine parallele analoge Vollstruktur und funktionslose Digitalisierung zurückweisen."
       ],

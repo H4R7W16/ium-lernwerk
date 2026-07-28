@@ -502,6 +502,12 @@ class DesignPrincipleTests(unittest.TestCase):
     def setUp(self):
         self.claim_ids = {"CLAIM-LP-006", "CLAIM-INF-004"}
 
+    def test_non_object_payload_is_rejected_with_validation_error(self):
+        for payload in ([], None):
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(payload, self.claim_ids)
+
     def test_valid_payload_returns_principle_ids(self):
         principle_ids = validate_design_principles(
             valid_design_principles_payload(),
@@ -643,6 +649,19 @@ class DesignPrincipleTests(unittest.TestCase):
                 ),
                 self.claim_ids,
             )
+
+    def test_unhashable_status_type_is_rejected_with_validation_error(self):
+        for status in ([], {}):
+            with self.subTest(status=status):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(
+                        valid_design_principles_payload(
+                            principles=[
+                                valid_design_principle(status=status)
+                            ]
+                        ),
+                        self.claim_ids,
+                    )
 
     def test_schema_version_one_and_principles_array_are_required(self):
         invalid_payloads = (

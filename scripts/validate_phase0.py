@@ -246,6 +246,10 @@ def validate_claim_ledger(payload, source_ids):
 
 def validate_design_principles(payload, claim_ids):
     _require(
+        isinstance(payload, dict),
+        "design principles payload must be an object",
+    )
+    _require(
         payload.get("schemaVersion") == 1
         and not isinstance(payload.get("schemaVersion"), bool),
         "design principles schemaVersion must be 1",
@@ -299,6 +303,10 @@ def validate_design_principles(payload, claim_ids):
         )
         _require_nonempty_string_list(
             principle["appliesTo"], "appliesTo", principle_id
+        )
+        _require(
+            isinstance(principle["status"], str),
+            f"design principle status must be a string: {principle_id}",
         )
         _require(
             principle["status"] in CLAIM_STATUSES,
