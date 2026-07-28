@@ -1,0 +1,424 @@
+{
+  "schemaVersion": 1,
+  "principles": [
+    {
+      "id": "PRIN-001",
+      "title": "Lernprozessqualität vor Medien- oder Methodenlabel",
+      "statement": "Jede Aktivität weist Lernziel, fachliche Denkhandlung, Unterstützung, Rückmeldung und Sicherung aus; Geräteverfügbarkeit, Interaktivität oder ein Methodenname gelten nicht als Qualitätsnachweis.",
+      "claimIds": [
+        "CLAIM-LP-001",
+        "CLAIM-DLE-014"
+      ],
+      "appliesTo": [
+        "alle sieben Modulphasen",
+        "Komponentenauswahl",
+        "didaktisches Review"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Das Modulmanifest muss Ziel, fachliche Lernhandlung und Lernfunktion jeder interaktiven Komponente erfassen.",
+        "Das Review-Gate muss funktionslose Interaktivität und unbegründete Geräteargumente zurückweisen."
+      ],
+      "risks": [
+        "Bedienkomfort oder Neuigkeitswert kann mit Lernen verwechselt werden.",
+        "Eine formale Felderfüllung kann eine schwache fachliche Aufgabe verdecken."
+      ]
+    },
+    {
+      "id": "PRIN-002",
+      "title": "Vorwissen und Vorstellungen lokal aktivieren",
+      "statement": "Module machen aufgabenbezogenes Vorwissen und plausible Vorstellungen durch Vorhersagen, Skizzen, Modellvergleiche oder Reparaturen sichtbar, ohne einzelne Antworten als stabiles Defizit oder Personenmerkmal zu behandeln.",
+      "claimIds": [
+        "CLAIM-LP-002",
+        "CLAIM-INF-006",
+        "CLAIM-INF-010",
+        "CLAIM-MED-005"
+      ],
+      "appliesTo": [
+        "Phase 2: Vorwissen aktivieren",
+        "Phase 3: Konzept aufbauen",
+        "Lehrkräftehandbuch",
+        "lokale Selbstchecks"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Vorwissensaufgaben müssen ohne Konten, Profilbildung und zentrale Antwortspeicherung funktionieren.",
+        "Module müssen erwartbare Deutungen, geeignete Anschlussreaktionen und Modellgrenzen für Lehrkräfte ausweisen."
+      ],
+      "risks": [
+        "Ein Einzelfehler kann fälschlich als stabile Fehlvorstellung etikettiert werden.",
+        "Zu offene persönliche Fragen können sensible Nutzungs- oder Konfliktdaten hervorrufen."
+      ]
+    },
+    {
+      "id": "PRIN-003",
+      "title": "Exploration vorbereiten und explizit konsolidieren",
+      "statement": "Exploration verwendet begrenzte Lösungsräume, Kontrastfälle oder kontrollierte Simulationen und mündet in Vergleich, explizite Erklärung und gemeinsame Sicherung; unbegleitetes Entdecken ist kein Standard.",
+      "claimIds": [
+        "CLAIM-LP-012",
+        "CLAIM-INF-002"
+      ],
+      "appliesTo": [
+        "Phase 1: Orientierung und Herausforderung",
+        "Phase 3: Konzept aufbauen",
+        "Phase 4: angeleitet erproben",
+        "Phase 7: gemeinsam sichern"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Die Modulstruktur muss Explorationsauftrag, Begrenzungen, erwartete Lösungswege und anschließenden Instruktionspunkt getrennt beschreiben.",
+        "Erprobungen in Klasse 5 müssen Überforderung und Qualität der Konsolidierung gesondert prüfen."
+      ],
+      "risks": [
+        "Offenes Ausprobieren kann fälschlich als produktives Scheitern bezeichnet werden.",
+        "Zu frühe Erklärung kann die geplante eigenständige Denkhandlung vorwegnehmen."
+      ]
+    },
+    {
+      "id": "PRIN-004",
+      "title": "Beispiele aktiv verarbeiten und Hilfen fachlich dosieren",
+      "statement": "Worked Examples, Selbsterklärung, externe Repräsentationen und Scaffolds verlangen Vorhersage, Begründung, Ergänzung, Vergleich oder Korrektur; Hilfen werden nach sichtbarer fachlicher Bewältigung und nicht automatisiert nach Zeit oder Klickzahl reduziert.",
+      "claimIds": [
+        "CLAIM-INF-004",
+        "CLAIM-INF-005",
+        "CLAIM-LP-004",
+        "CLAIM-LP-005",
+        "CLAIM-LP-006"
+      ],
+      "appliesTo": [
+        "Phase 3: Konzept aufbauen",
+        "Phase 4: angeleitet erproben",
+        "Phase 5: eigenständig handeln oder produzieren",
+        "Hilfesystem",
+        "Programmausführungsdarstellungen"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Komponenten müssen vollständige Beispiele, gezielte Lücken, Modifikation und Eigenkonstruktion als getrennte Aufgabentypen unterstützen.",
+        "Hilfen müssen mit fachlicher Hürde, erhaltener Kernhandlung und Rücknahmekriterium dokumentierbar sein.",
+        "Programmiermodule benötigen konsistente Darstellungen von Code, Ausführungsposition, Zustand und Ausgabe."
+      ],
+      "risks": [
+        "Bloßes Abspielen eines Beispiels kann aktive Verarbeitung ersetzen.",
+        "Generische Warum-Fragen können zusätzliche Last ohne fachlichen Nutzen erzeugen.",
+        "Automatisches Fading kann Lernende überfordern oder unnötig lange unterstützen."
+      ]
+    },
+    {
+      "id": "PRIN-005",
+      "title": "Abruf, Verteilung, Feedback und Transfer getrennt entwerfen",
+      "statement": "Kernkonzepte werden durch aktiven Abruf, verteilte Wiederaufnahme, informationshaltiges Feedback und eigens konstruierte Transferaufgaben gesichert; unmittelbare Anwendung, Behalten und Transfer erhalten getrennte Kriterien.",
+      "claimIds": [
+        "CLAIM-LP-007",
+        "CLAIM-LP-008",
+        "CLAIM-LP-009",
+        "CLAIM-LP-010"
+      ],
+      "appliesTo": [
+        "Phase 2: Vorwissen aktivieren",
+        "Phase 4: angeleitet erproben",
+        "Phase 6: prüfen, überarbeiten und übertragen",
+        "Phase 7: gemeinsam sichern",
+        "modulübergreifende Progression"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Modulmetadaten müssen spätere Wiedervorlagen und die jeweils veränderte Lernhandlung beschreiben können.",
+        "Aufgabenschemata müssen unmittelbare Anwendung, verzögerten Abruf und Transfer unterscheiden.",
+        "Feedbackkomponenten müssen Produkt-, Strategie- oder nächsten Prüfschritt benennen, ohne Punkte- oder Profilzwang."
+      ],
+      "risks": [
+        "Wiedersehen kann mit aktivem Abruf verwechselt werden.",
+        "Oberflächenvariation kann als Transfer ausgegeben werden.",
+        "Sofortfeedback kann begründbares Denken vorzeitig abbrechen; verzögertes Feedback kann sicherheitsrelevante Fehler festigen."
+      ]
+    },
+    {
+      "id": "PRIN-006",
+      "title": "Autonomie durch Struktur und explizite Selbstregulation ermöglichen",
+      "statement": "Lernende treffen sinnvolle Entscheidungen über Strategie, Beispiel oder Produkt innerhalb klarer Ziele, Kriterien, Zeitrahmen und Hilfen und machen Planen, Überwachen, Prüfen und Revidieren als fachliche Handlungen sichtbar.",
+      "claimIds": [
+        "CLAIM-LP-011",
+        "CLAIM-LP-013"
+      ],
+      "appliesTo": [
+        "Phase 1: Orientierung und Herausforderung",
+        "Phase 4: angeleitet erproben",
+        "Phase 5: eigenständig handeln oder produzieren",
+        "Phase 6: prüfen, überarbeiten und übertragen"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Module müssen verbindliche Ziele und Kriterien mit begrenzten echten Wahlmöglichkeiten kombinieren.",
+        "Planungs-, Zwischenprüfungs- und Revisionsschritte müssen als Aufgabenhandlungen modellierbar sein.",
+        "Selbstregulation darf nicht aus Klickdaten oder Nutzungsdauer inferiert werden."
+      ],
+      "risks": [
+        "Freie Wahl ohne Leitplanken kann als Autonomieunterstützung missverstanden werden.",
+        "Selbstregulation kann fälschlich als stabile Personeneigenschaft diagnostiziert werden.",
+        "Die Evidenz zur digitalen Umsetzung in IuM 5–7 ist nicht direkt."
+      ]
+    },
+    {
+      "id": "PRIN-007",
+      "title": "Programmierpraktiken sichtbar progressiv verbinden",
+      "statement": "Programmiermodule unterscheiden Vorhersagen, Ausführen, Tracing, Erklären, Syntax- und Musterarbeit, Modifizieren, Testen, Debugging und Eigenkonstruktion und verbinden sie in einer begründeten Progression statt in einem bloßen Codeproduktionsauftrag.",
+      "claimIds": [
+        "CLAIM-INF-001",
+        "CLAIM-INF-002",
+        "CLAIM-INF-003",
+        "CLAIM-INF-007",
+        "CLAIM-INF-008"
+      ],
+      "appliesTo": [
+        "Programmiermodule Klassen 5–7",
+        "Phase 3: Konzept aufbauen",
+        "Phase 4: angeleitet erproben",
+        "Phase 5: eigenständig handeln oder produzieren",
+        "Phase 6: prüfen, überarbeiten und übertragen"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Aufgabentypen und Lernprodukte müssen die jeweilige Programmierpraktik explizit kennzeichnen.",
+        "Debugging muss Hypothese, gezielten Test, Reparatur und Begründung unterstützen.",
+        "Block- und Textdarstellungen benötigen isomorphe Beispiele oder Übersetzungsaufgaben; ein fester Alterswechsel darf nicht einprogrammiert werden."
+      ],
+      "risks": [
+        "Lauffähiger Code kann Verständnis, Testqualität und Debugging verdecken.",
+        "Die konkrete Reihenfolge für 10- bis 13-Jährige bleibt teilweise heuristisch.",
+        "Ein Werkzeugwechsel kann mit fachlicher Progression verwechselt werden."
+      ]
+    },
+    {
+      "id": "PRIN-008",
+      "title": "Medienmechanismen aktiv und mehrschrittig analysieren",
+      "statement": "Medienbildung verbindet Daten, Akteure, Auswahl- oder Gestaltungsmechanismen, Interessen und mögliche Wirkungen mit wiederholtem Prüfen, begründetem Urteil, Produktion und dokumentierter Revision statt mit einmaligen Warnbotschaften.",
+      "claimIds": [
+        "CLAIM-MED-001",
+        "CLAIM-MED-002",
+        "CLAIM-MED-003",
+        "CLAIM-MED-004",
+        "CLAIM-MED-005",
+        "CLAIM-MED-006"
+      ],
+      "appliesTo": [
+        "Informations- und Quellenprüfung",
+        "Plattform- und Werbeanalyse",
+        "KI- und Deepfake-Aufgaben",
+        "Medienproduktion",
+        "Phase 6: prüfen, überarbeiten und übertragen"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Analysekomponenten müssen Mechanismus, Akteur, Interesse, Beleg, Gegenbeleg, Unsicherheit und Revision abbilden können.",
+        "Die Modulroadmap muss Informationsprüfung wiederholt und in veränderten Kontexten vorsehen.",
+        "KI- oder Detektorlabels dürfen kein Endurteil automatisieren."
+      ],
+      "risks": [
+        "Deskriptive Jugend- oder Plattformbefunde können als Wirkungserklärung überdehnt werden.",
+        "Ein einzelner Check kann als stabile Medienkompetenz gelten.",
+        "Schnell veränderliche Plattform- und KI-Stände können Aufgaben veralten lassen."
+      ]
+    },
+    {
+      "id": "PRIN-009",
+      "title": "Sensible Medienthemen fall- und mechanismusbezogen bearbeiten",
+      "statement": "Cybermobbing, Lootboxen, Körper- und Rollenbilder sowie Medienwirkungen werden an fiktiven oder kuratierten Fällen analysiert, probabilistisch und nicht monokausal beurteilt und niemals für persönliche Offenlegung oder individuelle Risikoprofile genutzt.",
+      "claimIds": [
+        "CLAIM-MED-007",
+        "CLAIM-MED-008",
+        "CLAIM-MED-009",
+        "CLAIM-MED-010"
+      ],
+      "appliesTo": [
+        "Cybermobbingmodule",
+        "Gaming- und Monetarisierungsmodule",
+        "Medienwirkungsanalyse",
+        "Körper- und Rollenbildmodule",
+        "Lehrkräftehandbuch"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Sensible Module benötigen Inhalts-, Offenlegungs- und Eskalationsregeln sowie kuratierte fiktive Datensätze.",
+        "Lernprodukte müssen Mechanismuskarte, Evidenzdossier, Handlungsplan oder Redesign statt Personenscore vorsehen.",
+        "Das Modulmanifest muss Aktualitäts- und Sicherheitsreview für sensible Inhalte ausweisen."
+      ],
+      "risks": [
+        "Korrelationen können als individuelle Ursache oder Diagnose formuliert werden.",
+        "Problematische Darstellungen können durch ungeeignete Beispiele erneut verstärkt werden.",
+        "Fiktive Fälle können reale Hilfebedarfe auslösen, für die ein schulischer Umgang vorbereitet sein muss."
+      ]
+    },
+    {
+      "id": "PRIN-010",
+      "title": "Digitales Primärmedium und begründete Analogwahl",
+      "statement": "Digital ist das Primärmedium, wenn es Zustände, Testfälle, Simulation, Quellenprüfung, Produktion oder Revision fachlich trägt; analoges Material entsteht nur bei eigenständiger Lernfunktion und mit ausgewiesener Zuordnung, Analogiegrenze und Anschlussprodukt.",
+      "claimIds": [
+        "CLAIM-LP-001",
+        "CLAIM-LP-003",
+        "CLAIM-INF-009",
+        "CLAIM-DLE-014"
+      ],
+      "appliesTo": [
+        "alle Module",
+        "Komponentenauswahl",
+        "Printmaterial",
+        "Modulmanifest",
+        "didaktisches Review"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Das Modulmanifest muss die Lernfunktion des Mediums und bei Analogmaterial dessen Rückbindung an das digitale Modul erfassen.",
+        "Printverzeichnisse dürfen nur bei dokumentierter fachlicher oder lernpsychologischer Begründung angelegt werden.",
+        "Das Review muss eine parallele analoge Vollstruktur und funktionslose Digitalisierung zurückweisen."
+      ],
+      "risks": [
+        "Digital kann aus Gewohnheit statt wegen fachlicher Funktion gewählt werden.",
+        "Analog kann zum dekorativen Zusatz oder zum zweiten Pflegebestand werden.",
+        "Eine mediale Entlastung kann mit geringerem fachlichem Anspruch verwechselt werden."
+      ]
+    },
+    {
+      "id": "PRIN-011",
+      "title": "Datenminimierung und fehlertolerante lokale Arbeit",
+      "statement": "Der Kern vermeidet Konten, Namen und Telemetrie, dokumentiert jeden Datenfluss und behandelt lokale Speicherung als ausfallgefährdet; flüchtiger Modus, Löschen und nutzergesteuerter Export bleiben sichtbar, während die rechtliche Einordnung vor Betrieb erneut geprüft wird.",
+      "claimIds": [
+        "CLAIM-DLE-004",
+        "CLAIM-DLE-005",
+        "CLAIM-DLE-006"
+      ],
+      "appliesTo": [
+        "lokaler Lernstand",
+        "Export und Import",
+        "Hosting",
+        "Datenschutzreview",
+        "alle interaktiven Module"
+      ],
+      "status": "reviewed",
+      "phase1Implications": [
+        "Das Plattformfundament benötigt ein Dateninventar mit Zweck, Speicherort, Löschweg, Exportweg und Hostingfluss.",
+        "Speicherfähigkeit muss durch reale Schreib-, Lese- und Löschproben geprüft werden und bei Fehler in einen sichtbaren flüchtigen Modus wechseln.",
+        "DSGVO- und TDDDG-Einordnung muss vor öffentlichem Betrieb und bei Datenflussänderungen zuständig geprüft werden."
+      ],
+      "risks": [
+        "Backendfreiheit kann fälschlich als vollständige Datenschutzkonformität gelten.",
+        "Browserstorage kann durch Policy, Quota oder Speicherdruck ausfallen.",
+        "Freitext, Exporte, Drittrequests oder Hosting-Logs können dennoch personenbezogene Daten enthalten."
+      ]
+    },
+    {
+      "id": "PRIN-012",
+      "title": "WCAG-Baseline durch reale Nutzeraufgaben ergänzen",
+      "statement": "WCAG 2.2 AA ist das vollständige technische Accessibility-Gate; fachlich gleichwertige Tastatur-, Touch- und Assistive-Technology-Pfade sowie reale schulische Nutzeraufgaben prüfen zusätzlich Bedienbarkeit, ohne Konformität mit Lernwirksamkeit gleichzusetzen.",
+      "claimIds": [
+        "CLAIM-DLE-001",
+        "CLAIM-DLE-002",
+        "CLAIM-DLE-003"
+      ],
+      "appliesTo": [
+        "Portalnavigation",
+        "interaktive Komponenten",
+        "vollständige Aufgabenpfade",
+        "technische QA",
+        "schulische Erprobung"
+      ],
+      "status": "reviewed",
+      "phase1Implications": [
+        "WCAG 2.2 AA muss automatisiert und manuell über vollständige Seiten und Prozesse geprüft werden.",
+        "Drag-and-drop, Canvas, Sortieren und Verbinden benötigen fachlich gleichwertige Bedienalternativen.",
+        "Usability-, Accessibility- und Lernbefunde müssen in Erprobungen getrennt dokumentiert werden."
+      ],
+      "risks": [
+        "Ein automatisierter Test kann als vollständige Konformitätsprüfung missverstanden werden.",
+        "AA-Konformität kann fälschlich als schulische Usability oder Lernwirksamkeit gelten.",
+        "Einzelnes Nutzerfeedback kann die technische Vollprüfung nicht ersetzen."
+      ]
+    },
+    {
+      "id": "PRIN-013",
+      "title": "Installation, Offlinebetrieb, Updates und Schulbrowser getrennt abnehmen",
+      "statement": "Installierbarkeit, vollständige Offlinekorrektheit, Cache- und Lernstandsmigration, Wiederanbindung sowie reale schulische Browser- und MDM-Konfigurationen sind getrennte versionierte QA-Verträge.",
+      "claimIds": [
+        "CLAIM-DLE-007",
+        "CLAIM-DLE-008",
+        "CLAIM-DLE-012",
+        "CLAIM-DLE-013"
+      ],
+      "appliesTo": [
+        "PWA- und Offlinegrundlage",
+        "Release- und Cachevertrag",
+        "Lernstandsmigration",
+        "Browsermatrix",
+        "Performancebudgets"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "QA muss Erstladung, Netzverlust, Teilcache, Altclient, neues Deployment, laufende Arbeit, Rollback und Wiederanbindung einzeln prüfen.",
+        "Verwaltete iPads, Browserhauptversionen, Filter, Downloads, Einbettung und Storage müssen als datierte Zielkonfigurationen dokumentiert werden.",
+        "Roh-, Transfer-, Cache- und Offlinegrößen müssen gemessen und begründet budgetiert werden."
+      ],
+      "risks": [
+        "Manifest oder Service-Worker-Registrierung kann als Offlinebeweis missverstanden werden.",
+        "Alte und neue Ressourcen oder Lernstände können unbemerkt gemischt werden.",
+        "Hersteller- und Entwurfsstände können sich vor Phase 1 ändern."
+      ]
+    },
+    {
+      "id": "PRIN-014",
+      "title": "OER als bearbeitbare Rechte- und Quellenkette ausliefern",
+      "statement": "Offene Veröffentlichung umfasst bearbeitbare Quellen und assetgenaue Angaben zu Urheber, Fundstelle, Lizenzversion, Lizenzlink, Änderungen, Drittmaterial und Kompatibilitätsentscheidung; öffentlicher Lesezugriff allein genügt nicht.",
+      "claimIds": [
+        "CLAIM-MED-013",
+        "CLAIM-DLE-009",
+        "CLAIM-DLE-010",
+        "CLAIM-DLE-011"
+      ],
+      "appliesTo": [
+        "Inhaltsrepository",
+        "Medienprodukte",
+        "Asset-Pipeline",
+        "Lizenzreview",
+        "Export und Nachnutzung"
+      ],
+      "status": "reviewed",
+      "phase1Implications": [
+        "Assets benötigen maschinenlesbare Provenienz-, Lizenz- und Änderungsmetadaten.",
+        "Lizenzkompatibilität muss nach Version, Richtung, Werkart und Bearbeitungsstatus dokumentiert werden.",
+        "NC- oder ND-Material darf nicht ohne dokumentierte Einzelfallentscheidung in den offenen Kern gelangen."
+      ],
+      "risks": [
+        "Eine CC-Lizenz kann fälschlich als Freigabe von Persönlichkeits-, Datenschutz-, Marken- oder Drittmaterialrechten gelten.",
+        "ShareAlike-Kompatibilität kann pauschal oder in falscher Richtung angenommen werden.",
+        "Nicht bearbeitbare Assets können rechtlich offen, aber praktisch nicht nachnutzbar sein."
+      ]
+    },
+    {
+      "id": "PRIN-015",
+      "title": "Lernnachweise produktbezogen und reduzierbar halten",
+      "statement": "Lernnachweise entstehen aus aktuellen Produkten, Erklärungen, Testfällen und Revisionen; das Beurteilungsinstrumentarium bleibt ein lokal nutzbarer, später begründet reduzierbarer Arbeitsbestand und erzeugt weder automatische Noten noch Kompetenzprofile.",
+      "claimIds": [
+        "CLAIM-INF-006",
+        "CLAIM-LP-010",
+        "CLAIM-LP-013",
+        "CLAIM-MED-007"
+      ],
+      "appliesTo": [
+        "Phase 5: eigenständig handeln oder produzieren",
+        "Phase 6: prüfen, überarbeiten und übertragen",
+        "Lehrkräftehandbuch",
+        "Beurteilungsinstrumentarium"
+      ],
+      "status": "working",
+      "phase1Implications": [
+        "Produkte, Kriterien, Testfälle und kommentierte Beispiele müssen exportierbar sein, ohne Bewertungsdaten zentral zu speichern.",
+        "Bewertungsfunktionen müssen von Kernlernzielen und Lernmodulen entkoppelt bleiben, damit Instrumente später reduziert werden können.",
+        "Lern- und Leistungssituationen müssen im Handbuch sichtbar unterschieden werden."
+      ],
+      "risks": [
+        "Ein vollständiger Arbeitsbestand kann die curriculare und didaktische Architektur dominieren.",
+        "Lokale Produkte können dennoch personenbezogene Inhalte enthalten und benötigen bewusste Exportentscheidungen.",
+        "Automatisierte Rückmeldung kann fälschlich als pädagogische Bewertung verwendet werden."
+      ]
+    }
+  ]
+}

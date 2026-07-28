@@ -4,6 +4,7 @@ from scripts.validate_phase0 import (
     ValidationError,
     validate_claim_ledger,
     validate_curriculum_dataset,
+    validate_design_principles,
     validate_source_register,
 )
 
@@ -68,6 +69,36 @@ def valid_curriculum_payload(records=None, **overrides):
         "schemaVersion": 1,
         "sourceId": "SRC-CUR-LESEHILFE-2026-27",
         "records": records if records is not None else [valid_curriculum_record()],
+    }
+    payload.update(overrides)
+    return payload
+
+
+def valid_design_principle(**overrides):
+    principle = {
+        "id": "PRIN-001",
+        "title": "Hilfen fachlich dosieren",
+        "statement": "Hilfen adressieren konkrete Hürden und erhalten die zentrale Denkhandlung.",
+        "claimIds": ["CLAIM-LP-006"],
+        "appliesTo": ["Modulphase 4: angeleitet erproben"],
+        "status": "working",
+        "phase1Implications": [
+            "Hilfestufen und ihre fachliche Funktion im Modulmanifest beschreibbar machen."
+        ],
+        "risks": ["Zu starke Hilfen können die zentrale Denkhandlung übernehmen."],
+    }
+    principle.update(overrides)
+    return principle
+
+
+def valid_design_principles_payload(principles=None, **overrides):
+    payload = {
+        "schemaVersion": 1,
+        "principles": (
+            principles
+            if principles is not None
+            else [valid_design_principle()]
+        ),
     }
     payload.update(overrides)
     return payload
@@ -465,6 +496,164 @@ class CurriculumDatasetTests(unittest.TestCase):
                 ),
                 self.source_ids,
             )
+
+
+class DesignPrincipleTests(unittest.TestCase):
+    def setUp(self):
+        self.claim_ids = {"CLAIM-LP-006", "CLAIM-INF-004"}
+
+    def test_valid_payload_returns_principle_ids(self):
+        principle_ids = validate_design_principles(
+            valid_design_principles_payload(),
+            self.claim_ids,
+        )
+
+        self.assertEqual(principle_ids, {"PRIN-001"})
+
+    def test_unknown_claim_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_design_principles(
+                valid_design_principles_payload(
+                    principles=[
+                        valid_design_principle(claimIds=["CLAIM-MISSING"])
+                    ]
+                ),
+                self.claim_ids,
+            )
+
+    def test_duplicate_principle_id_is_rejected(self):
+        principle = valid_design_principle()
+
+        with self.assertRaises(ValidationError):
+            validate_design_principles(
+                valid_design_principles_payload(
+                    principles=[principle, dict(principle)]
+                ),
+                self.claim_ids,
+            )
+
+    def test_principle_id_requires_ascii_prin_prefix(self):
+        for principle_id in ("PRIN-", "PRIN-Ä", "X-001"):
+            with self.subTest(principle_id=principle_id):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(
+                        valid_design_principles_payload(
+                            principles=[
+                                valid_design_principle(id=principle_id)
+                            ]
+                        ),
+                        self.claim_ids,
+                    )
+
+    def test_missing_required_field_is_rejected(self):
+        required_fields = (
+            "id",
+            "title",
+            "statement",
+            "claimIds",
+            "appliesTo",
+            "status",
+            "phase1Implications",
+            "risks",
+        )
+
+        for field in required_fields:
+            principle = valid_design_principle()
+            del principle[field]
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(
+                        valid_design_principles_payload(
+                            principles=[principle]
+                        ),
+                        self.claim_ids,
+                    )
+
+    def test_invalid_required_field_type_is_rejected(self):
+        invalid_values = {
+            "id": 1,
+            "title": 1,
+            "statement": 1,
+            "claimIds": "CLAIM-LP-006",
+            "appliesTo": "Modulphase 4",
+            "status": 1,
+            "phase1Implications": "Manifest erweitern",
+            "risks": "Übersteuerung",
+        }
+
+        for field, value in invalid_values.items():
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(
+                        valid_design_principles_payload(
+                            principles=[
+                                valid_design_principle(**{field: value})
+                            ]
+                        ),
+                        self.claim_ids,
+                    )
+
+    def test_required_strings_and_lists_must_be_nonempty(self):
+        invalid_overrides = (
+            {"title": " "},
+            {"statement": ""},
+            {"claimIds": []},
+            {"claimIds": [""]},
+            {"appliesTo": []},
+            {"appliesTo": [" "]},
+            {"phase1Implications": []},
+            {"phase1Implications": [""]},
+            {"risks": []},
+            {"risks": [" "]},
+        )
+
+        for overrides in invalid_overrides:
+            with self.subTest(overrides=overrides):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(
+                        valid_design_principles_payload(
+                            principles=[
+                                valid_design_principle(**overrides)
+                            ]
+                        ),
+                        self.claim_ids,
+                    )
+
+    def test_duplicate_claim_id_within_principle_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_design_principles(
+                valid_design_principles_payload(
+                    principles=[
+                        valid_design_principle(
+                            claimIds=["CLAIM-LP-006", "CLAIM-LP-006"]
+                        )
+                    ]
+                ),
+                self.claim_ids,
+            )
+
+    def test_invalid_status_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_design_principles(
+                valid_design_principles_payload(
+                    principles=[
+                        valid_design_principle(status="verified")
+                    ]
+                ),
+                self.claim_ids,
+            )
+
+    def test_schema_version_one_and_principles_array_are_required(self):
+        invalid_payloads = (
+            valid_design_principles_payload(schemaVersion=2),
+            {"schemaVersion": 1, "principles": {}},
+        )
+
+        for payload in invalid_payloads:
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_design_principles(payload, self.claim_ids)
 
 
 if __name__ == "__main__":

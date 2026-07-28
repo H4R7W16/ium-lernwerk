@@ -32,6 +32,7 @@ EVIDENCE_LEVELS = {"low", "medium", "high", "normative"}
 REVIEWED_CLAIM_STATUSES = {"reviewed", "standard"}
 SOURCE_ID_PREFIX = "SRC-"
 CLAIM_ID_PREFIXES = ("CLAIM-INF-", "CLAIM-MED-", "CLAIM-LP-", "CLAIM-DLE-")
+DESIGN_PRINCIPLE_ID_PREFIX = "PRIN-"
 CURRICULUM_RECORD_TYPES = {
     "competency",
     "progression-note",
@@ -87,6 +88,15 @@ def _require_technical_id(value, prefixes, record_type):
     _require(
         any(value.startswith(prefix) and len(value) > len(prefix) for prefix in prefixes),
         f"invalid {record_type} id prefix: {value}",
+    )
+
+
+def _require_nonempty_string_list(value, field, record_id):
+    _require(
+        isinstance(value, list)
+        and bool(value)
+        and all(isinstance(item, str) and item.strip() for item in value),
+        f"{field} must be a nonempty list of nonempty strings: {record_id}",
     )
 
 
@@ -234,6 +244,77 @@ def validate_claim_ledger(payload, source_ids):
     return set(ids)
 
 
+def validate_design_principles(payload, claim_ids):
+    _require(
+        payload.get("schemaVersion") == 1
+        and not isinstance(payload.get("schemaVersion"), bool),
+        "design principles schemaVersion must be 1",
+    )
+    principles = payload.get("principles")
+    _require(isinstance(principles, list), "principles must be a list")
+    required_fields = (
+        "id",
+        "title",
+        "statement",
+        "claimIds",
+        "appliesTo",
+        "status",
+        "phase1Implications",
+        "risks",
+    )
+    for principle in principles:
+        _require_fields(principle, required_fields, "design principle")
+    ids = [principle["id"] for principle in principles]
+    _require(
+        all(isinstance(principle_id, str) and principle_id.strip() for principle_id in ids),
+        "every design principle needs a nonempty id",
+    )
+    _require(len(ids) == len(set(ids)), "design principle ids must be unique")
+    registered_claim_ids = set(claim_ids)
+    for principle in principles:
+        principle_id = principle["id"]
+        _require(
+            principle_id.isascii(),
+            f"design principle id must be ASCII: {principle_id}",
+        )
+        suffix = principle_id[len(DESIGN_PRINCIPLE_ID_PREFIX):]
+        _require(
+            principle_id.startswith(DESIGN_PRINCIPLE_ID_PREFIX)
+            and bool(suffix)
+            and all(character.isalnum() or character in "-_." for character in suffix),
+            f"invalid design principle id: {principle_id}",
+        )
+        _require_nonempty_string(principle["title"], "title", principle_id)
+        _require_nonempty_string(principle["statement"], "statement", principle_id)
+        _require_nonempty_string_list(
+            principle["claimIds"], "claimIds", principle_id
+        )
+        _require(
+            len(principle["claimIds"]) == len(set(principle["claimIds"])),
+            f"claimIds must be unique within a design principle: {principle_id}",
+        )
+        _require(
+            set(principle["claimIds"]) <= registered_claim_ids,
+            f"unknown claim id: {principle_id}",
+        )
+        _require_nonempty_string_list(
+            principle["appliesTo"], "appliesTo", principle_id
+        )
+        _require(
+            principle["status"] in CLAIM_STATUSES,
+            f"invalid design principle status: {principle_id}",
+        )
+        _require_nonempty_string_list(
+            principle["phase1Implications"],
+            "phase1Implications",
+            principle_id,
+        )
+        _require_nonempty_string_list(
+            principle["risks"], "risks", principle_id
+        )
+    return set(ids)
+
+
 def validate_curriculum_dataset(payload, source_ids):
     _require(
         payload.get("schemaVersion") == 1,
@@ -316,10 +397,16 @@ def main():
     source_ids = validate_source_register(
         load_json(root / "docs/research/phase-0/source-register.json")
     )
-    validate_claim_ledger(
+    claim_ids = validate_claim_ledger(
         load_json(root / "docs/research/phase-0/claim-ledger.json"),
         source_ids,
     )
+    design_principles_file = root / "docs/research/phase-0/design-principles.json"
+    if design_principles_file.exists():
+        validate_design_principles(
+            load_json(design_principles_file),
+            claim_ids,
+        )
     curriculum_files = sorted((root / "curriculum").glob("**/competencies.json"))
     for curriculum_file in curriculum_files:
         validate_curriculum_dataset(load_json(curriculum_file), source_ids)
