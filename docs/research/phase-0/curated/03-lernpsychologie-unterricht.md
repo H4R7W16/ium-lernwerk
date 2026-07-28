@@ -11,11 +11,20 @@ source: ../raw/03-lernpsychologie-unterricht.md
 
 Dieses Paket kuratiert Lernpsychologie und Unterrichtswissenschaft für ein digitales, lehrkraftorchestriertes Lernwerk am Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E, und damit für Lernende im Alter von etwa 10 bis 13 Jahren. Es leitet keine allgemeine Rangliste von Methoden ab. Unmittelbarer Lernerfolg, verzögertes Behalten und Transfer bleiben getrennte Outcomes; Effektangaben werden nur zusammen mit Design, Population, Vergleich, Messung, Moderatoren und Grenzen verwendet.
 
-Der feste Quellenkern umfasst zwölf wissenschaftliche Original-/Publisherquellen und die offizielle IBBW-Publikationsreihe als einen professionellen lokalen Syntheserahmen. Die IBBW-Bände 1, 3, 6 und 9 strukturieren das Zusammenspiel von Tiefenstrukturen, konstruktiver Unterstützung, Aufgabenqualität und digitaler Medienfunktion. Sie werden nicht als zusätzliche unabhängige kausale Wirksamkeitsnachweise gezählt.
+Der feste Quellenkern umfasst dreizehn wissenschaftliche Original-/Publisherquellen und die offizielle IBBW-Publikationsreihe als einen professionellen lokalen Syntheserahmen. Die IBBW-Bände 1, 3, 6 und 9 strukturieren das Zusammenspiel von Tiefenstrukturen, konstruktiver Unterstützung, Aufgabenqualität und digitaler Medienfunktion. Sie werden nicht als zusätzliche unabhängige kausale Wirksamkeitsnachweise gezählt.
 
 Die Meta-Analysen zu Vorwissen, worked examples, Selbsterklärung, Scaffolding, Abruf, Spacing, Transfer, Feedback und Problem Solving before Instruction mischen Fächer und Altersgruppen. Nur Teilmengen liegen nahe an der Zielgruppe. Jede Übertragung auf Informatik und Medienbildung ist deshalb eine zu prüfende Projektinferenz. Der feste Kern enthält keine belastbare Synthese zu einer bestimmten Selbstregulationsintervention in IuM 5–7; diese Lücke wird nicht durch Motivations- oder Feedbackforschung verdeckt.
 
-Alle zwölf retained Claims stehen im `claim-ledger.json` auf `reviewed`; keiner ist `standard`.
+Die ergänzte Selbstregulationsmeta-Analyse untersucht explizite Trainings in realen Grundschulklassen, schließt computerbasierte Interventionen aber aus. Sie schließt damit eine allgemeine Evidenzlücke für jüngere Lernende, nicht die spezifische Lücke für digitale IuM-Settings der Klassen 5–7.
+
+Alle dreizehn retained Claims stehen im `claim-ledger.json` auf `reviewed`; keiner ist `standard`.
+
+## Errata zum versiegelten Rohbericht
+
+Der Rohbericht bleibt als Provenienzartefakt bytegenau unverändert. Für die Kuration gelten folgende Korrekturen:
+
+- **Selbstregulation.** Der Raw nennt fälschlich DOI `10.1007/s10648-008-9088-4` und leitet daraus eine allgemeine Forschungslücke ab. Richtig ist Dignath, Büttner und Langfeldt (2008), *How can primary school students learn self-regulated learning strategies most effectively? A meta-analysis on self-regulation training programmes*, DOI [`10.1016/j.edurev.2008.02.003`](https://doi.org/10.1016/j.edurev.2008.02.003). Die falsche Lückenfolgerung wird durch CLAIM-LP-013 ersetzt; offen bleibt nur die Übertragung auf digitale IuM-Settings und Klasse 7.
+- **Raw-Bibliografie.** Der exakte Belland-Titel lautet *Synthesizing Results From Empirical Research on Computer-Based Scaffolding in STEM Education: A Meta-Analysis*. Beim Signaling-Beitrag ist der Erstautor vollständig als Sascha V. Schneider zu führen; Titel und Reihenfolge lauten *A meta-analysis of how signaling affects learning with media*, Sascha V. Schneider, Maik Beege, Steve Nebel und Günter Daniel Rey. Die weiteren im Review festgestellten Namens- und Titelabweichungen lagen im Quellenregister und sind dort gegen DOI-/Publishermetadaten korrigiert.
 
 ## Retained Claims
 
@@ -149,7 +158,7 @@ Alle zwölf retained Claims stehen im `claim-ledger.json` auf `reviewed`; keiner
 
 **Befund.** Feedback zeigt im Mittel positive, aber extrem heterogene Lernoutcomes; Informationsgehalt, Outcome, Design und Kontext unterscheiden die Effekte, und ein relevanter Anteil ist negativ.
 
-**Evidenz.** Wisniewski, Zierer und Hattie integrierten 994 Effekte aus 435 Studien mit etwa 61.000 Personen. Der Mittelwert lag bei `d = 0.55`, 17 % der Effekte waren negativ und die Heterogenität betrug `I² = 86.47 %`. [Originalquelle](https://doi.org/10.3389/fpsyg.2019.03087)
+**Evidenz.** Wisniewski, Zierer und Hattie integrierten 994 Effekte aus 435 Studien mit etwa 61.000 Personen. Der unbereinigte gewichtete Mittelwert lag bei `d = 0.55`; 17 % der Effekte waren negativ und die Heterogenität betrug `I² = 86.47 %`. Nach Ausschluss von 35 extremen Effekten lag der gewichtete Mittelwert bei `d = 0.48`, 95%-KI `[0.44, 0.51]`. [Originalquelle](https://doi.org/10.3389/fpsyg.2019.03087)
 
 **Scope und Einschränkungen.** Viele Fächer, Altersstufen, Designs und Feedbackarten; Median des Publikationsjahrs 1985, asymmetrische Effektverteilung. Ein Gesamtwert erlaubt keine universelle Regel zu Timing, Kanal oder Form.
 
@@ -163,9 +172,9 @@ Alle zwölf retained Claims stehen im `claim-ledger.json` auf `reviewed`; keiner
 
 **Befund.** Autonomieunterstützung und Struktur sind keine Gegensätze: Sie treten positiv miteinander auf und sind beide mit Motivation, Engagement und Bedürfnisbefriedigung verbunden.
 
-**Evidenz.** Patzak und Zhang synthetisierten 94 Studien und 280 Effekte, davon 110 zur Beziehung von Autonomieunterstützung und Struktur sowie 170 zu Lernoutcomes. [Originalquelle](https://doi.org/10.1007/s10648-025-09994-2)
+**Evidenz.** Patzak und Zhang synthetisierten 94 Studien und 110 Effektgrößen zur Beziehung von Autonomieunterstützung und Struktur. Der mittlere Zusammenhang war positiv, aber extrem heterogen (`I² = 98.94 %`); acht Studien berichteten negative Beziehungen. [Originalquelle](https://doi.org/10.1007/s10648-025-09994-2)
 
-**Scope und Einschränkungen.** Überwiegend korrelative Daten, eine sehr große PISA-Stichprobe, verschiedene Schulstufen, Fächer, Kulturen und Messmethoden. Daraus folgt keine generelle kausale Leistungswirkung und keine Begründung für Gamification oder freie Wahl ohne Leitplanken.
+**Scope und Einschränkungen.** Überwiegend korrelative Daten, eine sehr große PISA-Stichprobe, verschiedene Schulstufen, Fächer, Kulturen und Erhebungsmethoden. Die Beziehung war in der Primarstufe kleiner (`r = .29`) als in der Sekundarstufe (`r = .56`) und variierte nach Erhebungsmethode: Schülerberichte, Lehrkraftberichte und Beobachtungen ergaben unterschiedlich starke Zusammenhänge. Nach Kontrolle des jeweils anderen Konstrukts wurden die Beziehungen zu Lernoutcomes kleiner. Daraus folgen weder eine robuste Synergie noch eine generelle kausale Leistungswirkung oder eine Begründung für Gamification beziehungsweise freie Wahl ohne Leitplanken.
 
 **IBBW-Abgleich.** Band 3 deckt motivational-emotionale und methodisch-didaktische Unterstützung ab, Band 1 klare Klassenführung. Die statistischen Zusammenhänge stammen aus der Originalmeta-Analyse.
 
@@ -187,16 +196,30 @@ Alle zwölf retained Claims stehen im `claim-ledger.json` auf `reviewed`; keiner
 
 **Designfolge und Medium.** Exploration verwendet vorbereitete Kontrastfälle, kontrollierte Simulationen oder begrenzte Lösungsräume. Anschließend vergleicht und erklärt die Lehrkraft Lösungswege, führt das Zielkonzept ein und sichert es gemeinsam. Für Klasse 5 wird der Ansatz besonders vorsichtig pilotiert.
 
+### CLAIM-LP-013 – Selbstregulation als explizite Lernhandlung aufbauen
+
+**Befund.** Explizite Selbstregulationstrainings in realen Grundschulklassen verbesserten im Mittel akademische Leistung, Strategiegebrauch und Motivation; daraus folgt keine einzelne universelle Trainingssequenz.
+
+**Evidenz.** Dignath, Büttner und Langfeldt integrierten 30 Artikel mit 48 Vergleichen und 263 Effektgrößen. Der gewichtete Gesamtmittelwert lag bei `d = 0.69`; gruppierte Mittelwerte lagen für akademische Leistung bei `d = 0.62`, für kognitiven und metakognitiven Strategiegebrauch bei `d = 0.73` und für Motivation bei `d = 0.76`. [Originalquelle](https://doi.org/10.1016/j.edurev.2008.02.003)
+
+**Scope und Einschränkungen.** Klassen 1–6 beziehungsweise Lernende im Durchschnitt bis etwa 12 Jahre in realen Klassenräumen. Computerbasierte Interventionen waren ausgeschlossen. Die Evidenz stammt von 2008; Programme, Messungen und Implementationen waren heterogen, die Zielgruppe überlappt nur teilweise mit Klasse 5–7, und weder ein digitales noch ein IuM-spezifisches Setting wurde untersucht. Die Mittelwerte garantieren keine einzelne Abfolge; Unterschiede zwischen forschungs- und lehrkraftgeleiteter Implementation begrenzen die Übertragung.
+
+**IBBW-Abgleich.** Band 3 stützt explizite, lernprozessbezogene Unterstützung und nutzbare Rückmeldung; Band 1 stützt klare Orientierung und Rahmung. Die quantitativen Interventionsbefunde stammen ausschließlich aus der Originalmeta-Analyse und werden durch IBBW nicht als eigener Effektbeleg dupliziert.
+
+**Betroffene Modulphasen.** 4.2 Vorwissen aktivieren; 4.4 Angeleitet erproben; 4.6 Prüfen, überarbeiten und übertragen.
+
+**Designfolge und Medium.** Selbstregulation wird als konkrete Folge fachlicher Lernhandlungen angelegt: planen, eine Strategie wählen, den Zwischenstand überwachen sowie prüfen und revidieren. Rückmeldung knüpft an aktuelle Handlungen und Produkte an; das Lernwerk diagnostiziert keine stabile persönliche Eigenschaft und erzeugt keine personenbezogene Telemetrie. Die digitale Umsetzung dieser Lernhandlungen bleibt eine zu pilotierende Übertragung, nicht Teil des Originalnachweises.
+
 ## Kompakte Phasenmatrix
 
 | Modulphase | Tragende Claims | Verbindliche Lernfunktion |
 | --- | --- | --- |
 | 4.1 Orientierung und Herausforderung | CLAIM-LP-001, CLAIM-LP-011, CLAIM-LP-012 | relevante Frage, klare Ziele, begrenzte Wahl und vorbereitete Herausforderung |
-| 4.2 Vorwissen aktivieren | CLAIM-LP-001, CLAIM-LP-002, CLAIM-LP-005, CLAIM-LP-007, CLAIM-LP-010, CLAIM-LP-012 | vorhandene Modelle, Kenntnisse und Abrufwege ohne Profilbildung sichtbar machen |
+| 4.2 Vorwissen aktivieren | CLAIM-LP-001, CLAIM-LP-002, CLAIM-LP-005, CLAIM-LP-007, CLAIM-LP-010, CLAIM-LP-012, CLAIM-LP-013 | vorhandene Modelle, Kenntnisse, Abrufwege und Planung ohne Profilbildung sichtbar machen |
 | 4.3 Konzept aufbauen | CLAIM-LP-001, CLAIM-LP-002, CLAIM-LP-003, CLAIM-LP-004, CLAIM-LP-005, CLAIM-LP-006, CLAIM-LP-012 | Repräsentationen integrieren, Beispiele aktiv verarbeiten, Exploration explizit konsolidieren |
-| 4.4 Angeleitet erproben | CLAIM-LP-001 bis CLAIM-LP-008, CLAIM-LP-010 bis CLAIM-LP-012 | Beispiele variieren, Scaffolds hürdenbezogen nutzen, abrufen und informativ rückmelden |
+| 4.4 Angeleitet erproben | CLAIM-LP-001 bis CLAIM-LP-008, CLAIM-LP-010 bis CLAIM-LP-013 | Beispiele variieren, Scaffolds hürdenbezogen nutzen, Strategien überwachen, abrufen und informativ rückmelden |
 | 4.5 Eigenständig handeln oder produzieren | CLAIM-LP-001, CLAIM-LP-003, CLAIM-LP-004, CLAIM-LP-006, CLAIM-LP-008 bis CLAIM-LP-011 | eigenständige fachliche Entscheidung und prüfbares Produkt innerhalb klarer Struktur |
-| 4.6 Prüfen, überarbeiten und übertragen | CLAIM-LP-001, CLAIM-LP-006 bis CLAIM-LP-011 | testen, Feedback nutzen, zeitversetzt abrufen, revidieren und Transfer getrennt prüfen |
+| 4.6 Prüfen, überarbeiten und übertragen | CLAIM-LP-001, CLAIM-LP-006 bis CLAIM-LP-011, CLAIM-LP-013 | testen, Feedback nutzen, zeitversetzt abrufen, Strategien prüfen, revidieren und Transfer getrennt prüfen |
 | 4.7 Gemeinsam sichern | CLAIM-LP-001, CLAIM-LP-005, CLAIM-LP-007 bis CLAIM-LP-010, CLAIM-LP-012 | Begriffe, Modelle, Begründungen, Fehlwege und spätere Wiederaufnahme konsolidieren |
 
 ## Übungs- und Festigungsarchitektur
@@ -213,7 +236,7 @@ Abruf, Feedback und Spacing werden verbunden, aber nicht verwechselt. Ein digita
 
 Feedback wird nach Aufgabe, Strategie und nächstem Prüfschritt differenziert. Timing folgt der Lernfunktion: sofort bei sicherheitsrelevanten oder voraussetzungsnotwendigen Fehlern, gegebenenfalls verzögert bei begründbaren Lösungswegen, wenn zunächst Selbsterklärung oder Vergleich produktiv ist.
 
-Selbstregulation wird als Handlung gestaltet: Ziel klären, Vorgehen wählen, Zwischenstand prüfen, Hilfe begründet nutzen, Produkt revidieren und spätere Wiederaufnahme planen. Der im Rechercheauftrag genannte Dignath-DOI `10.1007/s10648-008-9088-4` war nicht auflösbar und wurde nicht registriert. Deshalb entsteht kein eigener Effektclaim zu einer bestimmten Selbstregulationsintervention. CLAIM-LP-011 begründet nur vorsichtig die Verbindung von Autonomieunterstützung und Struktur.
+Selbstregulation wird als Handlung gestaltet: Ziel klären, Vorgehen planen, eine Strategie wählen, den Zwischenstand überwachen sowie Ergebnis und Strategie prüfen und revidieren. CLAIM-LP-013 stützt explizite Strategiearbeit für jüngere Lernende, aber nicht ihre digitale Umsetzung; CLAIM-LP-011 begründet ergänzend und nur korrelativ die Verbindung von Autonomieunterstützung und Struktur.
 
 Datensparsame Gelegenheiten sind lokale Selbstchecks, Testfälle, Muster- und Gegenbeispiele, Produktkriterien, Peer-Rückmeldung und kurze Lehrkraftgespräche. Konten, Profile, Rankings, zentrale Antwortspeicherung und Telemetrie sind ausgeschlossen.
 
@@ -233,8 +256,8 @@ Datensparsame Gelegenheiten sind lokale Selbstchecks, Testfälle, Muster- und Ge
 - **„Fading ist als feste digitale Hilfelogik erwiesen.“** Verworfen: Anpassung und Fading moderierten den Belland-Effekt nicht robust.
 - **„Retrieval Practice ist Wiederholen.“** Verworfen: Der Mechanismus ist aktiver Abruf; Wiederexposition ist eine andere Vergleichsbedingung.
 - **„Spacing bedeutet möglichst häufig wiederholen.“** Verworfen: Zeitverteilung, Retentionsziel, Wiederexposition und Bildungsstufe moderieren die Befundlage.
-- **„Feedback wirkt allgemein mit `d = 0.55`.“** Verworfen: 17 % negative Effekte und sehr hohe Heterogenität schließen eine pauschale Regel aus.
-- **„Autonomie bedeutet wenig Struktur.“** Verworfen: Die Konstrukte verstärken sich, die Befundlage ist jedoch überwiegend korrelativ.
+- **„Feedback wirkt allgemein mit `d = 0.55`.“** Verworfen: `d = 0.55` ist der unbereinigte Mittelwert; nach Ausschluss von 35 extremen Effekten lag er bei `d = 0.48`. 17 % negative Effekte und sehr hohe Heterogenität schließen eine pauschale Regel aus.
+- **„Autonomie bedeutet wenig Struktur.“** Verworfen: Die Konstrukte waren im Mittel positiv verbunden, aber die Beziehung war extrem heterogen, methoden- und schulstufenabhängig und in acht Studien negativ. Daraus folgt keine robuste Synergie.
 - **„Produktives Scheitern rechtfertigt offenes Entdecken.“** Verworfen: Positive Befunde setzen passende Aufgaben, Vorwissen und anschließende Instruktion voraus.
 - **„Mehr Interaktivität verbessert Lernen.“** Verworfen: Weder IBBW noch der geprüfte Evidenzkern stützen Interaktivität ohne benannten Lernmechanismus.
 - **Signaling-Effektzahl.** Herabgestuft: Schneider et al. (2018) wurde bibliografisch am Original geprüft, der Primärvolltext war im Prüfpfad nicht direkt zugänglich. Die Quelle bleibt im Register `metadata-checked`; numerische Effekte und ein eigener retained Claim werden nicht übernommen.
@@ -250,4 +273,4 @@ Datensparsame Gelegenheiten sind lokale Selbstchecks, Testfälle, Muster- und Ge
 
 ## Quellen
 
-Die registrierten Quellen `SRC-LP-*` stehen im `source-register.json`. Die vollständigen Prüf- und Effektgrenzen sind im unveränderten Rohbericht `../raw/03-lernpsychologie-unterricht.md` dokumentiert.
+Die vierzehn registrierten Quellen `SRC-LP-*` stehen im `source-register.json`. Prüf- und Effektgrenzen sind im unveränderten Rohbericht `../raw/03-lernpsychologie-unterricht.md` sowie für die Fixrunde in den Errata und CLAIM-LP-013 dieses Curated-Berichts dokumentiert.

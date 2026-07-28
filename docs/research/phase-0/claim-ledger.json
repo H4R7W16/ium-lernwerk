@@ -481,11 +481,11 @@
       "id": "CLAIM-LP-011",
       "package": "lernpsychologie-unterricht",
       "statement": "Autonomieunterstützung und Struktur sind keine Gegensätze: Sie treten positiv miteinander auf und sind beide mit Motivation, Engagement und Bedürfnisbefriedigung verbunden.",
-      "scope": "Meta-Analyse von 94 Studien mit 280 Effekten über verschiedene Schulstufen, Fächer, Kulturen und Messmethoden.",
+      "scope": "Systematischer Review und Meta-Analyse von 94 Studien mit 110 Effektgrößen zur Beziehung von Autonomieunterstützung und Struktur über verschiedene Schulstufen, Fächer, Kulturen und Erhebungsmethoden.",
       "status": "reviewed",
       "evidenceLevel": "medium",
       "sourceIds": ["SRC-LP-AUTONOMY-2025"],
-      "limitations": "Überwiegend korrelative Daten und eine sehr große PISA-Stichprobe; keine generelle kausale Leistungswirkung und keine Begründung für freie Wahl ohne Leitplanken.",
+      "limitations": "Überwiegend korrelative Daten, eine sehr große PISA-Stichprobe und extreme Heterogenität (I² = 98.94 %). Die Beziehung war in der Primarstufe kleiner (r = .29) als in der Sekundarstufe (r = .56) und hing von der Erhebungsmethode ab; acht von 94 Studien berichteten negative Beziehungen. Zusammenhänge mit Outcomes wurden bei Kontrolle des jeweils anderen Konstrukts kleiner. Daraus folgen weder eine robuste Synergie noch eine generelle kausale Leistungswirkung.",
       "designImplications": [
         "Sinnvolle Entscheidungen über Beispiel, Strategie oder Produkt innerhalb klarer Ziele, Kriterien, Zeitrahmen und Hilfen ermöglichen.",
         "Selbstregulation als sichtbares Planen, Prüfen und Revidieren statt als angenommene Eigenschaft einer Oberfläche gestalten."
@@ -503,6 +503,20 @@
       "designImplications": [
         "Exploration auf vorbereitete Kontrastfälle, kontrollierte Simulationen oder begrenzte Lösungsräume stützen.",
         "Anschließend Lösungswege vergleichen, das Zielkonzept instruieren und gemeinsam sichern; Klasse 5 besonders vorsichtig pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-013",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Explizite Selbstregulationstrainings in realen Grundschulklassen verbesserten im Mittel akademische Leistung, Strategiegebrauch und Motivation; der Befund belegt keine einzelne universelle Trainingssequenz.",
+      "scope": "Meta-Analyse von 30 Artikeln mit 48 Vergleichen und 263 Effektgrößen für Klassen 1 bis 6 beziehungsweise Lernende im Durchschnitt bis etwa 12 Jahre in realen Klassenräumen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-SRL-2008"],
+      "limitations": "Evidenzstand 2008 mit heterogenen Programmen, Messungen und Implementationen; nur Teilüberlappung mit Klasse 5 bis 7. Computerbasierte Interventionen waren ausgeschlossen, ein digitales IuM-Setting wurde nicht untersucht. Die Mittelwerte garantieren weder eine einzelne Sequenz noch eine bestimmte Umsetzung durch Lehrkräfte.",
+      "designImplications": [
+        "Selbstregulation als explizite fachliche Lernhandlungen gestalten: planen, eine Strategie wählen, den Zwischenstand überwachen sowie prüfen und revidieren.",
+        "Aktuelle Handlungen und Produkte für Rückmeldung nutzen, ohne Selbstregulation als feste Eigenschaft zu diagnostizieren oder personenbezogene Telemetrie zu erzeugen."
       ]
     }
   ]
