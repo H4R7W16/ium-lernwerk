@@ -3,6 +3,7 @@ import unittest
 from scripts.validate_phase0 import (
     ValidationError,
     validate_claim_ledger,
+    validate_curriculum_dataset,
     validate_source_register,
 )
 
@@ -41,6 +42,35 @@ def valid_claim(**overrides):
     }
     claim.update(overrides)
     return claim
+
+
+def valid_curriculum_record(**overrides):
+    record = {
+        "id": "LH26-E-DP-001",
+        "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+        "text": "Die Schülerinnen und Schüler können ein digitales Artefakt erstellen.",
+        "grades": [5, 6],
+        "level": "E",
+        "area": "Digitalität und Partizipation",
+        "recordType": "competency",
+        "sourceLocator": {
+            "page": 5,
+            "section": "Klassen 5/6 – Digitalität und Partizipation",
+        },
+        "status": "verified",
+    }
+    record.update(overrides)
+    return record
+
+
+def valid_curriculum_payload(records=None, **overrides):
+    payload = {
+        "schemaVersion": 1,
+        "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+        "records": records if records is not None else [valid_curriculum_record()],
+    }
+    payload.update(overrides)
+    return payload
 
 
 class SourceRegisterTests(unittest.TestCase):
@@ -288,6 +318,152 @@ class ClaimLedgerTests(unittest.TestCase):
                     "claims": [valid_claim(status="standard", limitations="")],
                 },
                 source_ids,
+            )
+
+
+class CurriculumDatasetTests(unittest.TestCase):
+    def setUp(self):
+        self.source_ids = {"SRC-CUR-LESEHILFE-2026-27"}
+
+    def test_valid_dataset_returns_record_ids(self):
+        record_ids = validate_curriculum_dataset(
+            valid_curriculum_payload(),
+            self.source_ids,
+        )
+
+        self.assertEqual(record_ids, {"LH26-E-DP-001"})
+
+    def test_schema_version_one_is_required(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(schemaVersion=2),
+                self.source_ids,
+            )
+
+    def test_registered_top_level_source_is_required(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(sourceId="SRC-NOT-REGISTERED"),
+                self.source_ids,
+            )
+
+    def test_duplicate_record_ids_are_rejected(self):
+        record = valid_curriculum_record()
+
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(records=[record, dict(record)]),
+                self.source_ids,
+            )
+
+    def test_empty_text_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(
+                    records=[valid_curriculum_record(text="  ")]
+                ),
+                self.source_ids,
+            )
+
+    def test_missing_required_record_fields_are_rejected(self):
+        required_fields = (
+            "id",
+            "sourceId",
+            "text",
+            "grades",
+            "level",
+            "area",
+            "recordType",
+            "sourceLocator",
+            "status",
+        )
+
+        for field in required_fields:
+            record = valid_curriculum_record()
+            del record[field]
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_curriculum_dataset(
+                        valid_curriculum_payload(records=[record]),
+                        self.source_ids,
+                    )
+
+    def test_invalid_grades_are_rejected(self):
+        for grades in ([], "5/6", [0], [5, "6"], [True]):
+            with self.subTest(grades=grades):
+                with self.assertRaises(ValidationError):
+                    validate_curriculum_dataset(
+                        valid_curriculum_payload(
+                            records=[valid_curriculum_record(grades=grades)]
+                        ),
+                        self.source_ids,
+                    )
+
+    def test_page_must_be_a_positive_integer(self):
+        for page in (0, -1, 1.5, True):
+            locator = {"page": page, "section": "Klassen 5/6"}
+
+            with self.subTest(page=page):
+                with self.assertRaises(ValidationError):
+                    validate_curriculum_dataset(
+                        valid_curriculum_payload(
+                            records=[
+                                valid_curriculum_record(sourceLocator=locator)
+                            ]
+                        ),
+                        self.source_ids,
+                    )
+
+    def test_locator_section_must_be_nonempty(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(
+                    records=[
+                        valid_curriculum_record(
+                            sourceLocator={"page": 5, "section": " "}
+                        )
+                    ]
+                ),
+                self.source_ids,
+            )
+
+    def test_status_must_be_allowed(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(
+                    records=[valid_curriculum_record(status="draft")]
+                ),
+                self.source_ids,
+            )
+
+    def test_record_type_must_be_allowed(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(
+                    records=[valid_curriculum_record(recordType="interpretation")]
+                ),
+                self.source_ids,
+            )
+
+    def test_record_id_must_be_nonempty_ascii(self):
+        for record_id in ("", "LH26-Ä-001"):
+            with self.subTest(record_id=record_id):
+                with self.assertRaises(ValidationError):
+                    validate_curriculum_dataset(
+                        valid_curriculum_payload(
+                            records=[valid_curriculum_record(id=record_id)]
+                        ),
+                        self.source_ids,
+                    )
+
+    def test_record_source_must_match_dataset_source(self):
+        with self.assertRaises(ValidationError):
+            validate_curriculum_dataset(
+                valid_curriculum_payload(
+                    records=[valid_curriculum_record(sourceId="SRC-OTHER")]
+                ),
+                self.source_ids,
             )
 
 

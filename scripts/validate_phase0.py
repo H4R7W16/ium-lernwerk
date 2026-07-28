@@ -32,6 +32,14 @@ EVIDENCE_LEVELS = {"low", "medium", "high", "normative"}
 REVIEWED_CLAIM_STATUSES = {"reviewed", "standard"}
 SOURCE_ID_PREFIX = "SRC-"
 CLAIM_ID_PREFIXES = ("CLAIM-INF-", "CLAIM-MED-", "CLAIM-LP-", "CLAIM-DLE-")
+CURRICULUM_RECORD_TYPES = {
+    "competency",
+    "progression-note",
+    "example",
+    "operator",
+    "process-competency",
+}
+CURRICULUM_RECORD_STATUSES = {"verified", "plausible", "open"}
 
 
 class SourceIndex(set):
@@ -226,6 +234,83 @@ def validate_claim_ledger(payload, source_ids):
     return set(ids)
 
 
+def validate_curriculum_dataset(payload, source_ids):
+    _require(
+        payload.get("schemaVersion") == 1,
+        "curriculum dataset schemaVersion must be 1",
+    )
+    source_id = payload.get("sourceId")
+    _require(
+        isinstance(source_id, str) and source_id in set(source_ids),
+        f"unknown curriculum source id: {source_id}",
+    )
+    records = payload.get("records")
+    _require(isinstance(records, list), "curriculum records must be a list")
+    required_fields = (
+        "id",
+        "sourceId",
+        "text",
+        "grades",
+        "level",
+        "area",
+        "recordType",
+        "sourceLocator",
+        "status",
+    )
+    for record in records:
+        _require_fields(record, required_fields, "curriculum record")
+    ids = [record["id"] for record in records]
+    _require(
+        all(isinstance(record_id, str) and record_id.strip() for record_id in ids),
+        "every curriculum record needs a nonempty id",
+    )
+    _require(
+        all(record_id.isascii() for record_id in ids),
+        "curriculum record ids must be ASCII",
+    )
+    _require(len(ids) == len(set(ids)), "curriculum record ids must be unique")
+    for record in records:
+        record_id = record["id"]
+        _require(
+            record["sourceId"] == source_id,
+            f"curriculum record source mismatch: {record_id}",
+        )
+        _require_nonempty_string(record["text"], "text", record_id)
+        _require(
+            isinstance(record["grades"], list)
+            and bool(record["grades"])
+            and all(
+                isinstance(grade, int)
+                and not isinstance(grade, bool)
+                and 1 <= grade <= 13
+                for grade in record["grades"]
+            ),
+            f"grades missing or invalid: {record_id}",
+        )
+        _require_nonempty_string(record["level"], "level", record_id)
+        _require_nonempty_string(record["area"], "area", record_id)
+        _require(
+            record["recordType"] in CURRICULUM_RECORD_TYPES,
+            f"invalid curriculum record type: {record_id}",
+        )
+        locator = record["sourceLocator"]
+        _require(
+            isinstance(locator, dict),
+            f"source locator must be an object: {record_id}",
+        )
+        page = locator.get("page")
+        _require(
+            isinstance(page, int) and not isinstance(page, bool) and page > 0,
+            f"PDF page must be a positive integer: {record_id}",
+        )
+        _require_nonempty_string(locator.get("section"), "section", record_id)
+        _require(
+            record["status"] in CURRICULUM_RECORD_STATUSES,
+            f"invalid curriculum record status: {record_id}",
+        )
+    return set(ids)
+
+
 def main():
     root = Path(__file__).resolve().parents[1]
     source_ids = validate_source_register(
@@ -235,6 +320,9 @@ def main():
         load_json(root / "docs/research/phase-0/claim-ledger.json"),
         source_ids,
     )
+    curriculum_files = sorted((root / "curriculum").glob("**/competencies.json"))
+    for curriculum_file in curriculum_files:
+        validate_curriculum_dataset(load_json(curriculum_file), source_ids)
     print("phase 0 validation passed")
 
 
