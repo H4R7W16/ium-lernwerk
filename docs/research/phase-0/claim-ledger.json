@@ -508,12 +508,12 @@
     {
       "id": "CLAIM-LP-013",
       "package": "lernpsychologie-unterricht",
-      "statement": "Explizite Selbstregulationstrainings in realen Grundschulklassen verbesserten im Mittel akademische Leistung, Strategiegebrauch und Motivation; der Befund belegt keine einzelne universelle Trainingssequenz.",
+      "statement": "In nicht randomisierten, pretest-adjustierten Treatment-Kontroll-Vergleichen lagen unmittelbare Posttest-Outcomes nach expliziten Selbstregulationstrainings im Mittel höher als in den Kontrollbedingungen; daraus folgt weder ein gesicherter kausaler Effekt noch eine universelle Trainingssequenz.",
       "scope": "Meta-Analyse von 30 Artikeln mit 48 Vergleichen und 263 Effektgrößen für Klassen 1 bis 6 beziehungsweise Lernende im Durchschnitt bis etwa 12 Jahre in realen Klassenräumen.",
       "status": "reviewed",
       "evidenceLevel": "medium",
       "sourceIds": ["SRC-LP-SRL-2008"],
-      "limitations": "Evidenzstand 2008 mit heterogenen Programmen, Messungen und Implementationen; nur Teilüberlappung mit Klasse 5 bis 7. Computerbasierte Interventionen waren ausgeschlossen, ein digitales IuM-Setting wurde nicht untersucht. Die Mittelwerte garantieren weder eine einzelne Sequenz noch eine bestimmte Umsetzung durch Lehrkräfte.",
+      "limitations": "Evidenzstand 2008 mit heterogenen Programmen, Messungen und Implementationen; nur Teilüberlappung mit Klasse 5 bis 7. Die Zuweisung zu Treatment und Kontrolle war nicht randomisiert; trotz Pretest-Adjustierung bleibt Restkonfundierung möglich. Nur vier Studien berichteten Follow-ups, für die keine Follow-up- oder Behaltens-Effektgrößen synthetisiert wurden; die Evidenz betrifft damit überwiegend unmittelbare Posttests. Computerbasierte Interventionen waren ausgeschlossen, ein digitales IuM-Setting wurde nicht untersucht. Die Mittelwerte garantieren weder eine einzelne Sequenz noch eine bestimmte Umsetzung durch Lehrkräfte.",
       "designImplications": [
         "Selbstregulation als explizite fachliche Lernhandlungen gestalten: planen, eine Strategie wählen, den Zwischenstand überwachen sowie prüfen und revidieren.",
         "Aktuelle Handlungen und Produkte für Rückmeldung nutzen, ohne Selbstregulation als feste Eigenschaft zu diagnostizieren oder personenbezogene Telemetrie zu erzeugen."
