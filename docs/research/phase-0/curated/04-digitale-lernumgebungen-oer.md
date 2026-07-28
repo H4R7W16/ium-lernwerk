@@ -41,7 +41,11 @@ Alle vierzehn retained Claims `CLAIM-DLE-*` stehen im `claim-ledger.json` auf `r
 | `SRC-DLE-APPLE-RESTRICTIONS-2026` | Herstellerdokumentation | Apple, abgerufen 28.07.2026 | Safari-/Web-Clip-Einschränkung auf MDM-Geräten |
 | `SRC-DLE-APPLE-WEBFILTER-2026` | Herstellerdokumentation | Apple, abgerufen 28.07.2026 | Filter- und Allowlist-Risiken |
 | `SRC-DLE-WSG-DRAFT-2026` | nicht normativer Entwurf | W3C Group Note Draft 28.07.2026, nicht W3C-endorsed | vorsichtige Nachhaltigkeitscheckliste |
-| `SRC-DLE-IPAD-REVIEW-2021` | systematischer Review | 43 Studien, 9–14 Jahre, Publikationen 2010–2019 | keine konsistente Lernwirkung allein durch Gerätenutzung |
+| `SRC-DLE-IPAD-REVIEW-2021` | systematischer Review | 43 Studien, davon 21 ausschließlich mit 9- bis 14-Jährigen; übrige mit teils breiteren Altersstichproben | gemischte und inkonsistente Befunde, keine Kausal- oder Nulleffektschätzung |
+
+## Provenienz-Erratum zum versiegelten Rohbericht
+
+Prompt und Rohbericht aus Commit `5687231` bleiben als Provenienzartefakte bytegenau unverändert. Der Rohbericht fasst die Population und das Ergebnis des iPad-Reviews zu breit: Nicht alle 43 eingeschlossenen Studien untersuchten ausschließlich 9- bis 14-Jährige, sondern nur 21; die übrigen schlossen teils breitere Altersstichproben ein. Die Ergebnisse sind als gemischt beziehungsweise inkonsistent zu beschreiben, nicht als kausaler Nullbefund. Zudem waren die meisten Studien explorativ und qualitativ, Interventionen häufig kurz; Längsschnitt- und Within-Subject-Experimente fehlten weitgehend. Für die Kuration ersetzen die korrigierte Quellenmatrix, der folgende Abschnitt zu `CLAIM-DLE-014` und der Claim-Ledger-Eintrag die zu breite Raw-Aussage.
 
 ## Retained Claims
 
@@ -177,11 +181,11 @@ Alle vierzehn retained Claims `CLAIM-DLE-*` stehen im `claim-ledger.json` auf `r
 
 ### CLAIM-DLE-014 – Gerätedigitalisierung nicht mit Lernwirkung verwechseln
 
-**Befund.** Ein systematischer Review identifizierte 43 Studien aus 2010–2019 zur iPad- oder Mobilgerätenutzung bei 9- bis 14-jährigen Schülerinnen und Schülern und fand über Fächer hinweg keine konsistente Verbesserung akademischer Outcomes.
+**Befund.** Ein systematischer Review identifizierte 43 Studien aus 2010–2019 zur iPad- oder Mobilgerätenutzung in schulischen Lernkontexten. Die berichteten akademischen Outcomes waren über Fächer und Umsetzungen gemischt beziehungsweise inkonsistent; der Review schätzt weder einen kausalen Effekt noch einen quantitativen Nulleffekt.
 
-**Population und Kontext.** Schülerinnen und Schüler im Alter 9–14 in schulischen Lernbereichen wie Mathematik, Englisch und Naturwissenschaften; Review von Boon, Boon und Bartle. [Original-/Repositoryquelle](https://doi.org/10.1007/s13384-020-00400-0)
+**Population und Kontext.** Nur 21 der 43 Studien untersuchten ausschließlich Schülerinnen und Schüler im Alter von 9 bis 14 Jahren; die übrigen schlossen teils breitere Altersstichproben ein. Die Studien lagen in schulischen Lernbereichen wie Mathematik, Englisch und Naturwissenschaften; Review von Boon, Boon und Bartle. [Original-/Repositoryquelle](https://doi.org/10.1007/s13384-020-00400-0)
 
-**Einschränkung.** Heterogene Studien, Fächer, Designs, Gerätenutzung und Pädagogik; Suchstand März 2019. Keine Untersuchung des IuM-Lernwerks, von WCAG-Konformität, Local First oder PWA-Technik.
+**Einschränkung.** Die meisten Studien waren explorativ und qualitativ, Interventionen häufig kurz; Längsschnitt- und Within-Subject-Experimente fehlten weitgehend. Hinzu kommen heterogene Fächer, Altersstichproben, Gerätenutzungen und Pädagogiken sowie der Suchstand März 2019. Der Review untersucht weder das IuM-Lernwerk noch WCAG-Konformität, Local First oder PWA-Technik und erlaubt keine kausale oder pauschale Nullfolgerung.
 
 **Phase-1-Folge.** Jede digitale Funktion braucht eine fachlich-didaktische Lernfunktion und separate Erprobung; bloße iPad-Verfügbarkeit ist kein Qualitätskriterium.
 

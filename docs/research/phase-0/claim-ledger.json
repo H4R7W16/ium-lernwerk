@@ -704,12 +704,12 @@
     {
       "id": "CLAIM-DLE-014",
       "package": "digitale-lernumgebungen-oer",
-      "statement": "Ein systematischer Review von 43 Studien fand bei 9- bis 14-jährigen Schülerinnen und Schülern über verschiedene Fächer keine konsistente Verbesserung akademischer Outcomes allein durch iPad- oder Mobilgerätenutzung.",
-      "scope": "Systematischer Review von Studien aus 2010 bis 2019 in schulischen Lernbereichen; Suche durchgeführt im März 2019.",
+      "statement": "Ein systematischer Review von 43 Studien berichtet über Fächer und Umsetzungen gemischte beziehungsweise inkonsistente akademische Outcomes zur iPad- oder Mobilgerätenutzung; daraus folgt weder ein kausaler Effekt noch ein quantitativer Nulleffekt.",
+      "scope": "Systematischer Review von Studien aus 2010 bis 2019 in schulischen Lernbereichen; nur 21 der 43 Studien untersuchten ausschließlich 9- bis 14-Jährige, die übrigen schlossen teils breitere Altersstichproben ein; Suche durchgeführt im März 2019.",
       "status": "reviewed",
       "evidenceLevel": "medium",
       "sourceIds": ["SRC-DLE-IPAD-REVIEW-2021"],
-      "limitations": "Heterogene Fächer, Designs, Gerätenutzungen und Pädagogik; keine Untersuchung des IuM-Lernwerks, von WCAG-Konformität, Local First oder PWA-Technik.",
+      "limitations": "Die meisten Studien waren explorativ und qualitativ, Interventionen häufig kurz; Längsschnitt- und Within-Subject-Experimente fehlten weitgehend. Heterogene Fächer, Altersstichproben, Gerätenutzungen und Pädagogiken sowie der Suchstand März 2019 begrenzen die Synthese. Keine Untersuchung des IuM-Lernwerks, von WCAG-Konformität, Local First oder PWA-Technik; keine kausale oder pauschale Nullfolgerung.",
       "designImplications": [
         "Jede digitale Funktion mit einer fachlich-didaktischen Lernfunktion und eigener Erprobung begründen.",
         "Bloße iPad-Verfügbarkeit nicht als Lernwirksamkeits- oder Qualitätskriterium verwenden."
