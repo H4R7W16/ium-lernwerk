@@ -43,4 +43,6 @@ Zulässige `status`-Werte sind `draft`, `working`, `reviewed` und `standard`. Zu
 
 Deterministische Claim-Präfixe sind `CLAIM-INF-`, `CLAIM-MED-`, `CLAIM-LP-` und `CLAIM-DLE-`. Quellen-IDs beginnen mit `SRC-`. Identifikatoren bleiben ASCII-stabil, auch wenn der sichtbare Text deutsche Umlaute verwendet.
 
-Ein Claim mit Status `reviewed` oder `standard` benötigt mindestens eine registrierte Quelle und nichtleere `limitations`. Für `reviewed` soll die zitierte Quelle als `primary-checked` oder begründet als `metadata-checked` dokumentiert sein; der Validator erzwingt die Registrierung und die explizite Einschränkung. Die fachliche Prüfung des Quellenstatus bleibt in den paketbezogenen Review-Gates nachvollziehbar festzuhalten.
+Ein Claim mit Status `reviewed` oder `standard` benötigt mindestens eine registrierte Quelle, nichtleere `limitations` und mindestens eine zitierte Quelle mit `verificationStatus: primary-checked`. Dies ist die technische Mindestschwelle dafür, dass die Aussage gegen eine Originalquelle geprüft wurde. `metadata-checked` und `secondary-only` bleiben im Register zulässige Statuswerte, reichen jedoch nicht für einen Claim in diesen beiden Statusstufen.
+
+`validate_source_register` liefert weiterhin eine mengenkompatible Sammlung der Quellen-IDs. Im regulären Pfad enthält sie zusätzlich die Prüfstatus-Metadaten, damit `validate_claim_ledger` die Mindestschwelle durchsetzen kann. Ein übergebener einfacher ID-`set` bleibt für bestehende Aufrufe zulässig; er kann nur die Registrierung, nicht jedoch den Prüfstatus einer Quelle abbilden.
