@@ -9,14 +9,14 @@ source: ../raw/01-informatikdidaktik.md
 
 ## Scope und Quellenqualität
 
-Dieses Paket kuratiert Informatikdidaktik für einen gymnasialen Lernweg im Alter von etwa 10 bis 13 Jahren. Es deckt Progression, Programmierpraktiken, Fehlvorstellungen, externe Repräsentationen, Beispiele und Anleitung, Block/Text-Übergänge, Daten, Netze, Sicherheit sowie begründete analoge und digitale Aktivitäten ab.
+Dieses Paket kuratiert Informatikdidaktik für das Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E, und damit für Lernende im Alter von etwa 10 bis 13 Jahren. Es deckt Progression, Programmierpraktiken, Fehlvorstellungen, externe Repräsentationen, Beispiele und Anleitung, Block/Text-Übergänge, Daten, Netze, Sicherheit sowie begründete analoge und digitale Aktivitäten ab.
 
 Die Quellen wurden am 28. Juli 2026 gegen DOI-, Publisher-, Autoren- oder Institutionsseiten geprüft. Die höchste Zielgruppennähe haben:
 
 - PRIMM mit 11- bis 14-Jährigen;
 - die K‑8-Lerntrajektorien;
 - das Unplugged-Quasi-Experiment mit 10- bis 12-Jährigen;
-- das systematische Review zu Internetvorstellungen von 3- bis 15-Jährigen.
+- das systematische Review mit Zielbereich 3 bis 15 Jahre zu Internetvorstellungen; in vier eingeschlossenen Studien reichten die Stichproben bis 17 Jahre.
 
 Die Quellen zu notional machines, worked examples, Fehlvorstellungen und expliziter Skill-Sequenz beruhen stark oder ausschließlich auf Hochschulkontexten. Sie begründen deshalb didaktische Heuristiken, keine altersbezogenen Standards. Die CSTA-Standards sind eine professionelle fachliche Orientierung; sie belegen keine Methodenwirkung und sind für Baden-Württemberg nicht normativ.
 
@@ -118,9 +118,9 @@ Alle retained Claims stehen im `claim-ledger.json` auf `reviewed`. Keiner wird a
 
 **Befund.** Kinder und Jugendliche verfügen häufig über fragmentarische und widersprüchliche Vorstellungen von Internet, Wi‑Fi, Infrastruktur, zentraler Speicherung, Türmen, Satelliten und Datenfluss.
 
-**Evidenz.** Brom et al. synthetisierten 27 qualitative und Mixed-Methods-Studien mit 2.214 Teilnehmenden im Alter von 3 bis 15 Jahren und ordneten 60 Konzeptionen. [Originalquelle](https://doi.org/10.1007/s10639-023-11775-9)
+**Evidenz.** Brom et al. synthetisierten 27 qualitative und Mixed-Methods-Studien mit insgesamt 2.214 Teilnehmenden. Der Zielbereich des Reviews lag bei 3 bis 15 Jahren; in vier eingeschlossenen Studien reichten die Stichproben bis 17 Jahre. Die thematische Analyse ergab 60 Themen, davon 55 Konzeptionen und fünf andere Ideen. [Originalquelle](https://doi.org/10.1007/s10639-023-11775-9)
 
-**Einschränkung und Transfer.** Länder, Altersgruppen und Technikstände von 2002 bis 2022 unterscheiden sich. Das früheste dokumentierte Auftreten ist kein Entwicklungsgrenzwert.
+**Einschränkung und Transfer.** Länder, Altersgruppen und Technikstände von 2002 bis 2022 unterscheiden sich; die Gesamtstichprobe ist nicht vollständig auf den Zielbereich 3 bis 15 Jahre begrenzt. Das früheste dokumentierte Auftreten ist kein Entwicklungsgrenzwert.
 
 **Designfolge.** Lernende erklären oder zeichnen zunächst einen Nachrichtenweg. Modellvergleiche führen von Geräte-/Wi‑Fi-Vorstellungen zu mehrstufigen Paketweg-, Router-, Client–Server- und Speicherungsmodellen, ohne personenbezogene Speicherung.
 

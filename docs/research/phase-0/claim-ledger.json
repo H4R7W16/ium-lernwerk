@@ -130,12 +130,12 @@
     {
       "id": "CLAIM-INF-010",
       "package": "informatikdidaktik",
-      "statement": "Ein systematisches Review dokumentiert bei 3- bis 15-Jährigen fragmentarische und teils widersprüchliche Vorstellungen von Internet, Wi-Fi, Infrastruktur, zentraler Speicherung, Türmen, Satelliten und Datenfluss.",
-      "scope": "Systematisches Review von 27 qualitativen und Mixed-Methods-Studien mit insgesamt 2.214 Kindern und Jugendlichen.",
+      "statement": "Ein systematisches Review mit Zielausrichtung auf 3- bis 15-Jährige dokumentiert fragmentarische und teils widersprüchliche Vorstellungen von Internet, Wi-Fi, Infrastruktur, zentraler Speicherung, Türmen, Satelliten und Datenfluss.",
+      "scope": "Systematisches Review von 27 qualitativen und Mixed-Methods-Studien mit insgesamt 2.214 Teilnehmenden; in vier eingeschlossenen Studien umfassten die Stichproben auch 16- bis 17-Jährige. Die thematische Analyse ergab 60 Themen: 55 Konzeptionen und fünf andere Ideen.",
       "status": "reviewed",
       "evidenceLevel": "medium",
       "sourceIds": ["SRC-INF-INTERNET-CONCEPTIONS-2023"],
-      "limitations": "Die Einzelstudien decken verschiedene Altersgruppen, Länder und Technikstände von 2002 bis 2022 ab; das früheste dokumentierte Auftreten ist kein Entwicklungsgrenzwert.",
+      "limitations": "Die Einzelstudien decken verschiedene Altersgruppen, Länder und Technikstände von 2002 bis 2022 ab; die Gesamtstichprobe ist nicht vollständig auf den Zielbereich 3 bis 15 Jahre begrenzt, und das früheste dokumentierte Auftreten ist kein Entwicklungsgrenzwert.",
       "designImplications": [
         "Vorstellungen durch nicht personenbezogen gespeicherte Zeichnungen, Erklärungen und Modellvergleiche sichtbar machen.",
         "Von alltagsnahen Gerätevorstellungen schrittweise zu mehrstufigen Paketweg-, Router-, Client-Server- und Speicherungsmodellen führen."
@@ -147,7 +147,7 @@
       "statement": "Die CSTA-Standards 2026 führen Algorithmen und Design, Programmierung, Daten und Analyse, Systeme und Sicherheit sowie Computing und Gesellschaft als verbundene Inhaltsbereiche und kombinieren sie mit fachlichen Praktiken.",
       "scope": "US-amerikanischer professioneller PK-12-Standard mit einem Middle-School-Band für Grades 6 bis 8.",
       "status": "reviewed",
-      "evidenceLevel": "medium",
+      "evidenceLevel": "normative",
       "sourceIds": ["SRC-INF-CSTA-2026"],
       "limitations": "Der Standard ist kein empirischer Wirksamkeitsnachweis und weder rechtlich noch curricular verbindlich für Baden-Württemberg; seine Klassenbänder lassen sich nicht direkt auf Klassen 5 bis 7 übertragen.",
       "designImplications": [
