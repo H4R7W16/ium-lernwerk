@@ -1,4 +1,5 @@
 import json
+from collections import Counter
 from pathlib import Path
 
 
@@ -437,6 +438,7 @@ def validate_crosswalk(payload, curriculum_ids):
         isinstance(unmapped_records, list),
         "crosswalk unmappedRecords must be a list",
     )
+    source_records = curriculum_ids if isinstance(curriculum_ids, dict) else None
     registered_ids = set(curriculum_ids)
     covered_ids = set()
     relation_required_fields = (
@@ -477,6 +479,10 @@ def validate_crosswalk(payload, curriculum_ids):
             )
             covered_ids.update(value)
             mapped_ids.update(value)
+        _require(
+            set(relation["fromIds"]).isdisjoint(relation["toIds"]),
+            f"crosswalk relation sides must be disjoint: {relation_id}",
+        )
         relationship = relation["relationship"]
         _require(
             isinstance(relationship, str)
@@ -495,8 +501,8 @@ def validate_crosswalk(payload, curriculum_ids):
             )
         else:
             _require(
-                bool(relation["fromIds"]) or bool(relation["toIds"]),
-                f"not-comparable relationship needs at least one record: {relation_id}",
+                bool(relation["fromIds"]) and not relation["toIds"],
+                f"not-comparable relationship needs fromIds and no toIds: {relation_id}",
             )
         _require_nonempty_string(
             relation["rationale"],
@@ -543,6 +549,88 @@ def validate_crosswalk(payload, curriculum_ids):
         mapped_ids.isdisjoint(unmapped_ids),
         "curriculum records cannot be both mapped and unmapped",
     )
+    counts = payload.get("counts")
+    if counts is not None:
+        _require_fields(
+            counts,
+            (
+                "curriculumRecords",
+                "relations",
+                "unmappedRecords",
+                "relationshipCounts",
+            ),
+            "crosswalk counts",
+        )
+        expected_relationship_counts = dict(
+            sorted(
+                Counter(
+                    relation["relationship"] for relation in relations
+                ).items()
+            )
+        )
+        expected_counts = {
+            "curriculumRecords": len(registered_ids),
+            "relations": len(relations),
+            "unmappedRecords": len(unmapped_records),
+            "relationshipCounts": expected_relationship_counts,
+        }
+        _require(
+            counts == expected_counts,
+            "crosswalk counts do not match payload",
+        )
+    required_comparisons = payload.get("requiredSourceComparisons")
+    if required_comparisons is not None:
+        _require(
+            source_records is not None,
+            "required source comparisons need curriculum source metadata",
+        )
+        _require(
+            isinstance(required_comparisons, list),
+            "requiredSourceComparisons must be a list",
+        )
+        available_source_ids = {
+            record["sourceId"] for record in source_records.values()
+        }
+        comparison_pairs = []
+        for comparison in required_comparisons:
+            _require_fields(
+                comparison,
+                ("fromSourceId", "toSourceId"),
+                "required source comparison",
+            )
+            from_source_id = comparison["fromSourceId"]
+            to_source_id = comparison["toSourceId"]
+            _require(
+                isinstance(from_source_id, str)
+                and isinstance(to_source_id, str)
+                and from_source_id in available_source_ids
+                and to_source_id in available_source_ids
+                and from_source_id != to_source_id,
+                "invalid required source comparison",
+            )
+            comparison_pairs.append((from_source_id, to_source_id))
+            has_direct_relation = any(
+                any(
+                    source_records[record_id]["sourceId"]
+                    == from_source_id
+                    for record_id in relation["fromIds"]
+                )
+                and any(
+                    source_records[record_id]["sourceId"]
+                    == to_source_id
+                    for record_id in relation["toIds"]
+                )
+                for relation in relations
+            )
+            _require(
+                has_direct_relation,
+                "required source comparison has no direct relation: "
+                f"{from_source_id} -> {to_source_id}",
+            )
+        _require(
+            len(comparison_pairs) == len(set(comparison_pairs)),
+            "required source comparisons must be unique",
+        )
 
     _require(
         covered_ids == registered_ids,
@@ -742,12 +830,20 @@ def main():
             claim_ids,
         )
     curriculum_files = sorted((root / "curriculum").glob("**/competencies.json"))
-    curriculum_ids = set()
+    curriculum_records = {}
     operator_records = {}
     for curriculum_file in curriculum_files:
         curriculum_payload = load_json(curriculum_file)
-        curriculum_ids.update(
-            validate_curriculum_dataset(curriculum_payload, source_ids)
+        validated_curriculum_ids = validate_curriculum_dataset(
+            curriculum_payload,
+            source_ids,
+        )
+        curriculum_records.update(
+            {
+                record["id"]: record
+                for record in curriculum_payload["records"]
+                if record["id"] in validated_curriculum_ids
+            }
         )
         operator_records.update(
             {
@@ -758,7 +854,7 @@ def main():
         )
     validate_curriculum_integrations(
         root,
-        curriculum_ids,
+        curriculum_records,
         operator_records,
     )
     print("phase 0 validation passed")

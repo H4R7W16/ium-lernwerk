@@ -1,9 +1,9 @@
 # Begründete Progression Informatik und Medienbildung 5–7
 
-**Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Niveau E  
-**Stand:** 29. Juli 2026  
-**Artefaktstatus:** `working`  
-**Curriculumstatus:** Basiskurs Medienbildung 2016 und Aufbaukurs Informatik Klasse 7 sind `enacted`; die Lesehilfe 2026/2027 ist `orientation`.
+- **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Niveau E
+- **Stand:** 29. Juli 2026
+- **Artefaktstatus:** `working`
+- **Curriculumstatus:** Basiskurs Medienbildung 2016 und Aufbaukurs Informatik Klasse 7 sind `enacted`; die Lesehilfe 2026/2027 ist `orientation`.
 
 ## 1. Zweck und Statusgrenze
 
@@ -14,7 +14,7 @@ Für jede Aussage gilt daher eine von zwei Kategorien:
 - **Normative beziehungsweise orientierende Anforderung:** Sie ist durch einen Record aus `competencies.json` belegt. Geltungsstatus, Klassenband und Wortlaut bleiben unverändert.
 - **Didaktische Sequenzierungsentscheidung · `working`:** Sie ordnet Voraussetzungen, Wiederaufnahme, Komplexitätszuwachs oder einen vorläufigen Jahrgang zu. Sie ist eine Projektentscheidung und muss durch Fachreview, Pilotierung sowie einen späteren Fachplan revidierbar bleiben.
 
-Der Crosswalk in `crosswalk.json` löst 278 Records vollständig auf: fachliche Beziehungen stehen in 44 Relationsgruppen; 107 nicht verbindliche Beispiele beziehungsweise quellenspezifische Operatorrecords werden mit Grund und Folgeaktion separat geführt. Neun Relationsgruppen bleiben wegen Klassenverteilung oder veränderter Gewichtung `open`.
+Der Crosswalk in `crosswalk.json` löst 278 Records vollständig auf: fachliche Beziehungen stehen in 53 Relationsgruppen; 107 nicht verbindliche Beispiele beziehungsweise quellenspezifische Operatorrecords werden mit Grund und Folgeaktion separat geführt. Neun Relationsgruppen bleiben wegen Klassenverteilung oder veränderter Gewichtung `open`.
 
 ## 2. Quellen- und Entscheidungslogik
 
@@ -25,6 +25,8 @@ Der Crosswalk in `crosswalk.json` löst 278 Records vollständig auf: fachliche 
 5. `not-comparable` markiert eine geltende Anforderung ohne ausdrückliches Lesehilfe-Gegenstück. Solche Anforderungen dürfen nicht stillschweigend entfallen.
 6. Nicht verbindliche Beispiele sind mögliche Kontexte, keine zusätzlichen Pflichtkompetenzen.
 7. Operatoren und Prozesskompetenzen werden in `operators.json` quellengebunden erhalten. Das dortige Komplexitätsband ist eine Aufgabenheuristik und keine universelle Operatorenhierarchie.
+
+Die fünf direkten Brücken `XW-045` bis `XW-049` machen fachliche Überschneidungen zwischen Basiskurs Medienbildung und Aufbaukurs Informatik explizit. Ihre Richtung vom früheren Basiskurs zum späteren Aufbaukurs dient nur der konsistenten Datenmodellierung; sie behauptet keine zusätzliche normative Jahrgangsprogression.
 
 ## 3. Fünf wiederkehrende Stränge
 
@@ -56,7 +58,7 @@ präzise Handlung und Reihenfolge
 → gezielt testen, überarbeiten und Lösung bewerten
 ```
 
-Die letzten beiden Schritte sichern die weiterhin geltenden Records `INF7-16-GYM-PK-MI-009` und `INF7-16-GYM-PK-MI-010`, obwohl die Lesehilfe dafür keine eigenen Gegenrecords enthält (`XW-043`).
+Die letzten beiden Schritte sichern die weiterhin geltenden Records `INF7-16-GYM-PK-MI-009` und `INF7-16-GYM-PK-MI-010`, obwohl die Lesehilfe dafür keine eigenen Gegenrecords enthält (`XW-052`).
 
 ### B. Information, Daten und Codierung
 
@@ -72,7 +74,7 @@ Fragestellung und Informationsbedarf
 → Ressourcenbezug und begründete Repräsentationsentscheidung
 ```
 
-Binärdarstellung natürlicher Zahlen sowie der Zusammenhang von Zeichenvorrat, Codelänge und Codewörtern bleiben als `enacted` Inhalte zusätzlich erhalten (`INF7-16-GYM-IK-DC-005`, `INF7-16-GYM-IK-DC-008`; `XW-044`).
+Binärdarstellung natürlicher Zahlen sowie der Zusammenhang von Zeichenvorrat, Codelänge und Codewörtern bleiben als `enacted` Inhalte zusätzlich erhalten (`INF7-16-GYM-IK-DC-005`, `INF7-16-GYM-IK-DC-008`; `XW-053`).
 
 ### C. Rechner, Netze, Kommunikation und Sicherheit
 
@@ -211,12 +213,13 @@ Der spätere Abdeckungsplan muss dafür Zeit ausweisen oder die curriculare Konf
 
 Als `new` geführt werden:
 
-- eingebettete und personalisierte Werbung (`XW-007`);
-- indexbasierte Suche, Akteurs-/Motivlagen, automatisierter Content und KI-Recherche (`XW-011`);
-- Gaming einschließlich Monetarisierung (`XW-029`);
-- technische Medienmanipulation und wirkungsveränderte Produkte (`XW-040`).
+- die Erklärung, wie eine spezifisch ausgewählte Werbebotschaft zustande kommt (`XW-008`);
+- automatisierte Content-Erzeugung und -Verbreitung sowie Chancen und Fehlerrisiken KI-generierter Rechercheergebnisse (`XW-014`);
+- soziale Aspekte und Monetarisierungsmodelle digitaler Spiele (`XW-033`).
 
 Diese Gegenstände benötigen eigenständige Modulabdeckung, dürfen aber nicht als Beleg dafür dienen, enacted Informatik- oder Medienbildungsanforderungen zu verdrängen.
+
+Eingebettete Werbung, indexbasierte Suche, Akteurs- und Motivlagen, psychologische Aspekte sowie die Reflexion eigener Spielnutzung und technische Medienmanipulation sind dagegen spezifische Erweiterungen oder Neurahmungen vorhandener Anforderungen. Der Crosswalk behandelt sie deshalb nicht mehr pauschal als `new`.
 
 ## 12. Review- und Revisionsregeln
 

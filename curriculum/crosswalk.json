@@ -15,8 +15,22 @@
       "SRC-CUR-INF7-2016": "enacted"
     }
   },
+  "requiredSourceComparisons": [
+    {
+      "fromSourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "toSourceId": "SRC-CUR-BMB-2016"
+    },
+    {
+      "fromSourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "toSourceId": "SRC-CUR-INF7-2016"
+    },
+    {
+      "fromSourceId": "SRC-CUR-BMB-2016",
+      "toSourceId": "SRC-CUR-INF7-2016"
+    }
+  ],
   "modelNotes": {
-    "directionConvention": "Bei Vergleichen stehen neuere/orientierende Lesehilfe-Records in fromIds und geltende Planrecords in toIds. Enacted Records ohne Lesehilfe-Gegenstück stehen mit relationship=not-comparable in fromIds und leerem toIds.",
+    "directionConvention": "Bei Vergleichen stehen neuere/orientierende Lesehilfe-Records in fromIds und geltende Planrecords in toIds. Enacted Records ohne Lesehilfe-Gegenstück stehen mit relationship=not-comparable in fromIds und leerem toIds. Direkte Brücken vom Basiskurs Medienbildung zum Aufbaukurs Informatik führen die frühere Basiskursanforderung in fromIds und die spätere Aufbaukursanforderung in toIds; sie markieren fachliche Überschneidungen, keine normative Jahrgangsprogression.",
     "relationshipSemantics": {
       "equivalent": "fachlicher Handlungskern stimmt überein",
       "overlaps": "Teilmenge oder gemeinsamer Handlungskern",
@@ -31,15 +45,15 @@
   },
   "counts": {
     "curriculumRecords": 278,
-    "relations": 44,
+    "relations": 53,
     "unmappedRecords": 107,
     "relationshipCounts": {
       "equivalent": 2,
-      "extends": 12,
-      "new": 4,
+      "extends": 15,
+      "new": 3,
       "not-comparable": 4,
-      "overlaps": 7,
-      "reframes": 15
+      "overlaps": 12,
+      "reframes": 17
     }
   },
   "relations": [
@@ -144,17 +158,29 @@
     {
       "id": "XW-007",
       "fromIds": [
-        "LH26-E-DP-005",
+        "LH26-E-DP-005"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "relationship": "extends",
+      "rationale": "Das Identifizieren eingebetteter Werbung konkretisiert die allgemeinere Untersuchung von Medienwirkung und die dort beispielhaft genannte Gestaltung von Werbung.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-008",
+      "fromIds": [
         "LH26-E-DP-006"
       ],
       "toIds": [],
       "relationship": "new",
-      "rationale": "Die Identifikation eingebetteter Werbung und die Erklärung personalisierter Werbeauswahl besitzen in den beiden geltenden Fachplänen kein quellentreues Einzelgegenstück.",
+      "rationale": "Die Erklärung, wie eine spezifisch ausgewählte Werbebotschaft zustande kommt, besitzt in den beiden geltenden Fachplänen kein quellentreues Einzelgegenstück.",
       "status": "resolved",
       "followUp": "Als eigenständige Lesehilfe-Anforderung im Abdeckungsplan erhalten und mit Daten-, Auswahl- und Geschäftsmodellmechanismen verbinden."
     },
     {
-      "id": "XW-008",
+      "id": "XW-009",
       "fromIds": [
         "LH26-E-ID-001"
       ],
@@ -168,7 +194,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-009",
+      "id": "XW-010",
       "fromIds": [
         "LH26-E-ID-002",
         "LH26-E-ID-010",
@@ -185,7 +211,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-010",
+      "id": "XW-011",
       "fromIds": [
         "LH26-E-ID-003",
         "LH26-E-ID-009"
@@ -201,23 +227,49 @@
       "followUp": ""
     },
     {
-      "id": "XW-011",
+      "id": "XW-012",
       "fromIds": [
-        "LH26-E-ID-004",
+        "LH26-E-ID-004"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-IW-001"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe ergänzt den Einsatz von Browser und Suchmaschine um eine Erklärung der grundlegenden Funktionsweise indexbasierter Suche.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-013",
+      "fromIds": [
         "LH26-E-ID-005",
         "LH26-E-ID-006",
-        "LH26-E-ID-007",
+        "LH26-E-ID-007"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-IW-002",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006"
+      ],
+      "relationship": "reframes",
+      "rationale": "Akteursarten, Veröffentlichungsmotive und Interessenkonflikte konkretisieren die Qualitätsprüfung von Informationsquellen und führen sie in eine mehrperspektivische gesellschaftlich-ethische Analyse über.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-014",
+      "fromIds": [
         "LH26-E-ID-008",
         "LH26-E-ID-012"
       ],
       "toIds": [],
       "relationship": "new",
-      "rationale": "Indexbasierte Suche, Akteurs- und Motivlagen, automatisierte Content-Verbreitung sowie Chancen und Fehlerrisiken KI-generierter Rechercheergebnisse werden in den geltenden Fachplänen nicht als quellentreue Einzelanforderungen ausgewiesen.",
+      "rationale": "Automatisierte Content-Erzeugung und -Verbreitung sowie Chancen und Fehlerrisiken KI-generierter Rechercheergebnisse werden in den geltenden Fachplänen nicht als quellentreue Einzelanforderungen ausgewiesen.",
       "status": "resolved",
-      "followUp": "Als zusammenhängenden Mechanismus–Akteur–Interesse–Evidenz-Strang eigenständig abdecken und nach Veröffentlichung des neuen Fachplans erneut prüfen."
+      "followUp": "Als zusammenhängenden Automatisierung–Evidenz-Strang eigenständig abdecken und nach Veröffentlichung des neuen Fachplans erneut prüfen."
     },
     {
-      "id": "XW-012",
+      "id": "XW-015",
       "fromIds": [
         "LH26-E-ID-013",
         "LH26-E-ID-014",
@@ -238,7 +290,7 @@
       "followUp": "Die konkrete Verteilung auf Klasse 5 und 6 nicht normativ festschreiben; Klasse 7 als formale Vertiefung planen."
     },
     {
-      "id": "XW-013",
+      "id": "XW-016",
       "fromIds": [
         "LH26-E-ALG-001",
         "LH26-E-ALG-002"
@@ -253,7 +305,7 @@
       "followUp": "Den Jahrgang innerhalb 5/6 über Voraussetzungen und Pilotierung bestimmen, nicht aus dem Klassenband ableiten."
     },
     {
-      "id": "XW-014",
+      "id": "XW-017",
       "fromIds": [
         "LH26-E-ALG-003",
         "LH26-E-ALG-004"
@@ -270,7 +322,7 @@
       "followUp": "Darstellungswechsel und konstante Schleifen in 5/6 pilotieren; Verzweigung und bedingte Schleife für Klasse 7 reservieren."
     },
     {
-      "id": "XW-015",
+      "id": "XW-018",
       "fromIds": [
         "LH26-E-ALG-005",
         "LH26-E-ALG-006"
@@ -287,7 +339,7 @@
       "followUp": "Werkzeug und Umfang erst nach Pilotierung festlegen; fachliche Anschlussfähigkeit an Klasse 7 nachweisen."
     },
     {
-      "id": "XW-016",
+      "id": "XW-019",
       "fromIds": [
         "LH26-E-KS-001"
       ],
@@ -305,7 +357,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-017",
+      "id": "XW-020",
       "fromIds": [
         "LH26-E-KS-002",
         "LH26-E-KS-003",
@@ -321,7 +373,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-018",
+      "id": "XW-021",
       "fromIds": [
         "LH26-E-KS-006",
         "LH26-E-KS-007"
@@ -335,7 +387,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-019",
+      "id": "XW-022",
       "fromIds": [
         "LH26-E-KS-008",
         "LH26-E-KS-009"
@@ -353,7 +405,7 @@
       "followUp": "Die konkrete Klassen-5/6-Zuordnung offen halten und Modellgrenzen sowie Darstellungswechsel verbindlich pilotieren."
     },
     {
-      "id": "XW-020",
+      "id": "XW-023",
       "fromIds": [
         "LH26-E-KS-010"
       ],
@@ -367,7 +419,7 @@
       "followUp": "Innerhalb 5/6 nach schulischer Infrastruktur und erforderlichen Vorkonzepten sequenzieren."
     },
     {
-      "id": "XW-021",
+      "id": "XW-024",
       "fromIds": [
         "LH26-E-KS-011",
         "LH26-E-KS-012",
@@ -388,7 +440,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-022",
+      "id": "XW-025",
       "fromIds": [
         "LH26-E-DA-001",
         "LH26-E-DA-002",
@@ -408,7 +460,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-023",
+      "id": "XW-026",
       "fromIds": [
         "LH26-E-DA-005",
         "LH26-E-DA-006",
@@ -425,7 +477,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-024",
+      "id": "XW-027",
       "fromIds": [
         "LH26-E-DA-009",
         "LH26-E-DA-010",
@@ -445,7 +497,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-025",
+      "id": "XW-028",
       "fromIds": [
         "LH26-E-DA-013",
         "LH26-E-DA-014"
@@ -460,7 +512,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-026",
+      "id": "XW-029",
       "fromIds": [
         "LH26-E-DA-015"
       ],
@@ -475,7 +527,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-027",
+      "id": "XW-030",
       "fromIds": [
         "LH26-E-DP-010",
         "LH26-E-DP-011",
@@ -498,7 +550,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-028",
+      "id": "XW-031",
       "fromIds": [
         "LH26-E-DP-014"
       ],
@@ -514,21 +566,34 @@
       "followUp": ""
     },
     {
-      "id": "XW-029",
+      "id": "XW-032",
       "fromIds": [
         "LH26-E-DP-015",
-        "LH26-E-DP-016",
-        "LH26-E-DP-017",
         "LH26-E-DP-018"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002"
+      ],
+      "relationship": "extends",
+      "rationale": "Psychologische Aspekte und die Reflexion der eigenen Spielnutzung konkretisieren die allgemeinere Beschreibung, Bewertung und präventive Reflexion des eigenen Mediengebrauchs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-033",
+      "fromIds": [
+        "LH26-E-DP-016",
+        "LH26-E-DP-017"
       ],
       "toIds": [],
       "relationship": "new",
-      "rationale": "Psychologische und soziale Aspekte, Monetarisierungsmodelle und reflektierte Eigennutzung digitaler Spiele haben in den geltenden Plänen kein quellentreues Einzelgegenstück.",
+      "rationale": "Soziale Aspekte und Monetarisierungsmodelle digitaler Spiele haben in den geltenden Plänen kein quellentreues Einzelgegenstück.",
       "status": "resolved",
-      "followUp": "Als eigenständigen, nicht diagnostischen Gaming-Strang abdecken und Wirkbehauptungen evidenzbegrenzt formulieren."
+      "followUp": "Als eigenständigen Gaming-Strang abdecken, mit allgemeiner Mediennutzungsreflexion verbinden und Wirkbehauptungen evidenzbegrenzt formulieren."
     },
     {
-      "id": "XW-030",
+      "id": "XW-034",
       "fromIds": [
         "LH26-E-ID-016",
         "LH26-E-ID-017",
@@ -547,7 +612,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-031",
+      "id": "XW-035",
       "fromIds": [
         "LH26-E-ID-020",
         "LH26-E-ID-021"
@@ -561,7 +626,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-032",
+      "id": "XW-036",
       "fromIds": [
         "LH26-E-ID-022"
       ],
@@ -575,7 +640,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-033",
+      "id": "XW-037",
       "fromIds": [
         "LH26-E-ALG-007",
         "LH26-E-ALG-008",
@@ -593,7 +658,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-034",
+      "id": "XW-038",
       "fromIds": [
         "LH26-E-ALG-010"
       ],
@@ -609,7 +674,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-035",
+      "id": "XW-039",
       "fromIds": [
         "LH26-E-ALG-011",
         "LH26-E-ALG-012"
@@ -625,15 +690,14 @@
       "followUp": ""
     },
     {
-      "id": "XW-036",
+      "id": "XW-040",
       "fromIds": [
         "LH26-E-KS-016",
         "LH26-E-KS-017",
         "LH26-E-KS-018"
       ],
       "toIds": [
-        "INF7-16-GYM-IK-IGD-001",
-        "INF7-16-GYM-IK-IGD-005"
+        "INF7-16-GYM-IK-IGD-001"
       ],
       "relationship": "extends",
       "rationale": "Die Lesehilfe übernimmt Gründe für Verschlüsselung und ergänzt quellentreue Fachbegriffe sowie die Unterscheidung von Transport- und Ende-zu-Ende-Verschlüsselung.",
@@ -641,7 +705,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-037",
+      "id": "XW-041",
       "fromIds": [
         "LH26-E-KS-019",
         "LH26-E-KS-021"
@@ -655,7 +719,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-038",
+      "id": "XW-042",
       "fromIds": [
         "LH26-E-KS-020"
       ],
@@ -669,7 +733,7 @@
       "followUp": ""
     },
     {
-      "id": "XW-039",
+      "id": "XW-043",
       "fromIds": [
         "LH26-E-KS-022"
       ],
@@ -685,19 +749,118 @@
       "followUp": ""
     },
     {
-      "id": "XW-040",
+      "id": "XW-044",
       "fromIds": [
         "LH26-E-DA-016",
         "LH26-E-DA-017"
       ],
-      "toIds": [],
-      "relationship": "new",
-      "rationale": "Technische Medienmanipulation und die gezielte Erstellung wirkungsveränderter Medienprodukte besitzen in den geltenden Fachplänen kein gleich spezifisches Gegenstück.",
+      "toIds": [
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "relationship": "reframes",
+      "rationale": "Technische Medienmanipulation und die gezielte Erstellung wirkungsveränderter Medienprodukte verbinden die allgemeine Medienproduktion mit der Analyse manipulativer Medienwirkung zu einem spezifischen Technik–Gestaltung–Wirkung-Strang.",
       "status": "resolved",
-      "followUp": "Als integrierten Technik–Gestaltung–Wirkung-Strang eigenständig abdecken und mit Quellen-/Rechteprüfung koppeln."
+      "followUp": ""
     },
     {
-      "id": "XW-041",
+      "id": "XW-045",
+      "fromIds": [
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-001",
+        "BMB16-GYM-IK-IW-002",
+        "BMB16-GYM-IK-IW-003"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-MI-001",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-KK-001"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Recherche, Qualitätsprüfung, Auswahl und Strukturierung von Informationen im Basiskurs überschneiden sich mit dem informatischen Analysieren, strukturierten Darstellen und verständlichen Präsentieren von Informationen im Aufbaukurs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-046",
+      "fromIds": [
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-IK-GM-001",
+        "BMB16-GYM-IK-GM-002",
+        "BMB16-GYM-IK-GM-003"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-SV-002"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Das zielgerichtete Bedienen digitaler Geräte sowie die grundlegende Arbeit mit Hard- und Software überschneiden sich mit der sicheren Nutzung vorhandener Informatiksysteme und dem aufgabengerechten Einsatz von Werkzeugen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-047",
+      "fromIds": [
+        "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-IK-KK-001",
+        "BMB16-GYM-IK-KK-002",
+        "BMB16-GYM-IK-KK-003"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-KK-003",
+        "INF7-16-GYM-PK-KK-004",
+        "INF7-16-GYM-PK-KK-005"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Regeln, verantwortliche Kooperation und schulischer Informationsaustausch im Basiskurs überschneiden sich mit Teamarbeit, adressatengerechter Kommunikation und der Beachtung rechtlicher Rahmenbedingungen im Aufbaukurs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-048",
+      "fromIds": [
+        "BMB16-GYM-PK-HK-002",
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-PP-002",
+        "BMB16-GYM-IK-PP-003"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-003",
+        "INF7-16-GYM-PK-KK-005"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Planung, Gestaltung, Präsentation sowie Quellen- und Rechtebeachtung bei Medienprodukten überschneiden sich mit informatischer Modellerstellung, Ergebnisdarstellung, Kooperation und rechtssicherer Kommunikation.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-049",
+      "fromIds": [
+        "BMB16-GYM-PK-RK-001",
+        "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-PK-RK-003",
+        "BMB16-GYM-PK-RK-004",
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002",
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-IK-IGD-005",
+        "INF7-16-GYM-IK-IGD-006"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Reflexion von Mediennutzung, Wirkung, Risiken und rechtlichem Handeln im Basiskurs überschneidet sich mit gesellschaftlicher, ethischer und rechtlicher Bewertung von Informatiksystemen und digitalen Daten im Aufbaukurs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-050",
       "fromIds": [
         "INF7-16-GYM-PK-MI-003"
       ],
@@ -708,7 +871,7 @@
       "followUp": "Als weiterhin enacted Prozessanforderung im Kernlernweg und Abdeckungsplan erhalten, bis ein neuer Fachplan sie ersetzt."
     },
     {
-      "id": "XW-042",
+      "id": "XW-051",
       "fromIds": [
         "INF7-16-GYM-PK-MI-008"
       ],
@@ -719,7 +882,7 @@
       "followUp": "Als enacted Anforderung in Programmiermodulen erhalten und mit Quellen- sowie Lizenzpraxis verbinden."
     },
     {
-      "id": "XW-043",
+      "id": "XW-052",
       "fromIds": [
         "INF7-16-GYM-PK-MI-009",
         "INF7-16-GYM-PK-MI-010"
@@ -731,7 +894,7 @@
       "followUp": "Als enacted Prozessanforderungen und als fachprofilgestützte Programmierpraktiken im Kernlernweg sichern."
     },
     {
-      "id": "XW-044",
+      "id": "XW-053",
       "fromIds": [
         "INF7-16-GYM-IK-DC-005",
         "INF7-16-GYM-IK-DC-008"

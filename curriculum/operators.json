@@ -33,7 +33,7 @@
       "sourceRecordId": "BMB16-GYM-PK-SK-001",
       "sourceDefinition": "Fachbegriffe richtig verwenden",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Fachbegriffe richtig verwenden.",
+      "expectedObservableAction": "Produkt: fachsprachlich korrekte Handlungsausführung oder Kurzbeschreibung. Sichtbares Erfolgskriterium: Die Lernenden können Fachbegriffe richtig verwenden.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -48,7 +48,7 @@
       "sourceRecordId": "BMB16-GYM-PK-SK-002",
       "sourceDefinition": "Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden.",
+      "expectedObservableAction": "Produkt: fachsprachlich korrekte Handlungsausführung oder Kurzbeschreibung. Sichtbares Erfolgskriterium: Die Lernenden können Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -63,7 +63,7 @@
       "sourceRecordId": "BMB16-GYM-PK-SK-003",
       "sourceDefinition": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Verhaltensregeln im Umgang mit Medien benennen und einhalten.",
+      "expectedObservableAction": "Produkt: fachsprachlich korrekte Handlungsausführung oder Kurzbeschreibung. Sichtbares Erfolgskriterium: Die Lernenden können Verhaltensregeln im Umgang mit Medien benennen und einhalten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -78,7 +78,7 @@
       "sourceRecordId": "BMB16-GYM-PK-HK-001",
       "sourceDefinition": "Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten.",
+      "expectedObservableAction": "Produkt: Rechercheartefakt, Medienprodukt oder Kooperationsprodukt. Sichtbares Erfolgskriterium: Die Lernenden können Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -93,7 +93,7 @@
       "sourceRecordId": "BMB16-GYM-PK-HK-002",
       "sourceDefinition": "einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren.",
+      "expectedObservableAction": "Produkt: Rechercheartefakt, Medienprodukt oder Kooperationsprodukt. Sichtbares Erfolgskriterium: Die Lernenden können einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -108,7 +108,7 @@
       "sourceRecordId": "BMB16-GYM-PK-HK-003",
       "sourceDefinition": "Medien für Zusammenarbeit und Kooperation nutzen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Medien für Zusammenarbeit und Kooperation nutzen.",
+      "expectedObservableAction": "Produkt: Rechercheartefakt, Medienprodukt oder Kooperationsprodukt. Sichtbares Erfolgskriterium: Die Lernenden können Medien für Zusammenarbeit und Kooperation nutzen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -123,7 +123,7 @@
       "sourceRecordId": "BMB16-GYM-PK-RK-001",
       "sourceDefinition": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen.",
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -138,7 +138,7 @@
       "sourceRecordId": "BMB16-GYM-PK-RK-002",
       "sourceDefinition": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen.",
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -153,7 +153,7 @@
       "sourceRecordId": "BMB16-GYM-PK-RK-003",
       "sourceDefinition": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten.",
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -168,7 +168,7 @@
       "sourceRecordId": "BMB16-GYM-PK-RK-004",
       "sourceDefinition": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten.",
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         5
@@ -183,7 +183,7 @@
       "sourceRecordId": "BMB16-GYM-OP-001",
       "sourceDefinition": "auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „ableiten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „ableiten“: auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         5
@@ -198,7 +198,7 @@
       "sourceRecordId": "BMB16-GYM-OP-002",
       "sourceDefinition": "Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „analysieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „analysieren“: Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -213,7 +213,7 @@
       "sourceRecordId": "BMB16-GYM-OP-003",
       "sourceDefinition": "Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „auswählen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „auswählen“: Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         5
@@ -228,7 +228,7 @@
       "sourceRecordId": "BMB16-GYM-OP-004",
       "sourceDefinition": "entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „(be-)nennen, einbringen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „(be-)nennen, einbringen“: entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         5
@@ -243,7 +243,7 @@
       "sourceRecordId": "BMB16-GYM-OP-005",
       "sourceDefinition": "bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „beachten, einhalten, verhalten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „beachten, einhalten, verhalten“: bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         5
@@ -258,7 +258,7 @@
       "sourceRecordId": "BMB16-GYM-OP-006",
       "sourceDefinition": "technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „bedienen, anwenden, nutzen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen.",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „bedienen, anwenden, nutzen“: technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         5
@@ -273,7 +273,7 @@
       "sourceRecordId": "BMB16-GYM-OP-007",
       "sourceDefinition": "wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „beschreiben“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „beschreiben“: wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         5
@@ -288,7 +288,7 @@
       "sourceRecordId": "BMB16-GYM-OP-008",
       "sourceDefinition": "Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „bewerten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „bewerten“: Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         5
@@ -303,7 +303,7 @@
       "sourceRecordId": "BMB16-GYM-OP-009",
       "sourceDefinition": "Strukturen und Zusammenhänge beschreiben und verdeutlichen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „darstellen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Strukturen und Zusammenhänge beschreiben und verdeutlichen.",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „darstellen“: Strukturen und Zusammenhänge beschreiben und verdeutlichen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -318,7 +318,7 @@
       "sourceRecordId": "BMB16-GYM-OP-010",
       "sourceDefinition": "Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „einschätzen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „einschätzen“: Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -333,7 +333,7 @@
       "sourceRecordId": "BMB16-GYM-OP-011",
       "sourceDefinition": "bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „einsetzen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden.",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „einsetzen“: bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         5
@@ -348,7 +348,7 @@
       "sourceRecordId": "BMB16-GYM-OP-012",
       "sourceDefinition": "Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „erläutern“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „erläutern“: Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -363,7 +363,7 @@
       "sourceRecordId": "BMB16-GYM-OP-013",
       "sourceDefinition": "ein Medienprodukt entwickeln und anfertigen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „erstellen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: ein Medienprodukt entwickeln und anfertigen.",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „erstellen“: ein Medienprodukt entwickeln und anfertigen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -378,7 +378,7 @@
       "sourceRecordId": "BMB16-GYM-OP-014",
       "sourceDefinition": "ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „gestalten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen.",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „gestalten“: ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -393,7 +393,7 @@
       "sourceRecordId": "BMB16-GYM-OP-015",
       "sourceDefinition": "Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „(heraus-)arbeiten, aufbereiten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „(heraus-)arbeiten, aufbereiten“: Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -408,7 +408,7 @@
       "sourceRecordId": "BMB16-GYM-OP-016",
       "sourceDefinition": "einen Medienbeitrag in einzelne Arbeitsschritte zergliedern",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „planen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: einen Medienbeitrag in einzelne Arbeitsschritte zergliedern.",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „planen“: einen Medienbeitrag in einzelne Arbeitsschritte zergliedern.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -423,7 +423,7 @@
       "sourceRecordId": "BMB16-GYM-OP-017",
       "sourceDefinition": "ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „präsentieren, vorstellen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen.",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „präsentieren, vorstellen“: ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -438,7 +438,7 @@
       "sourceRecordId": "BMB16-GYM-OP-018",
       "sourceDefinition": "ein Rechercheergebnis in eine gegliederte Form bringen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „strukturieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: ein Rechercheergebnis in eine gegliederte Form bringen.",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „strukturieren“: ein Rechercheergebnis in eine gegliederte Form bringen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         5
@@ -453,7 +453,7 @@
       "sourceRecordId": "BMB16-GYM-OP-019",
       "sourceDefinition": "vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „überprüfen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „überprüfen“: vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         5
@@ -468,7 +468,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-SV-001",
       "sourceDefinition": "mit dem Schulnetz zielorientiert arbeiten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden mit dem Schulnetz zielorientiert arbeiten.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können mit dem Schulnetz zielorientiert arbeiten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -483,7 +483,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-SV-002",
       "sourceDefinition": "Dateien und Bezeichner aussagekräftig benennen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Dateien und Bezeichner aussagekräftig benennen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Dateien und Bezeichner aussagekräftig benennen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -498,7 +498,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-SV-003",
       "sourceDefinition": "Beziehungen zwischen Daten/Objekten erkennen und erläutern",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Beziehungen zwischen Daten/Objekten erkennen und erläutern.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Beziehungen zwischen Daten/Objekten erkennen und erläutern.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -513,7 +513,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-SV-004",
       "sourceDefinition": "Handlungsschritte chronologisch ordnen (auch aufgrund von kausalen Zusammenhängen)",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Handlungsschritte chronologisch ordnen (auch aufgrund von kausalen Zusammenhängen).",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Handlungsschritte chronologisch ordnen (auch aufgrund von kausalen Zusammenhängen).",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -528,7 +528,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-SV-005",
       "sourceDefinition": "Teillösungen zur Lösung des Gesamtproblems nutzen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Teillösungen zur Lösung des Gesamtproblems nutzen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Teillösungen zur Lösung des Gesamtproblems nutzen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -543,7 +543,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-001",
       "sourceDefinition": "die für die Problemstellung relevanten Informationen herausarbeiten und fehlende beziehungsweise ergänzende Informationen beschaffen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden die für die Problemstellung relevanten Informationen herausarbeiten und fehlende beziehungsweise ergänzende Informationen beschaffen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können die für die Problemstellung relevanten Informationen herausarbeiten und fehlende beziehungsweise ergänzende Informationen beschaffen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -558,7 +558,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-002",
       "sourceDefinition": "für (Teil-)Abläufe notwendige Eingabedaten und Ergebnisse beschreiben",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden für (Teil-)Abläufe notwendige Eingabedaten und Ergebnisse beschreiben.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können für (Teil-)Abläufe notwendige Eingabedaten und Ergebnisse beschreiben.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -573,7 +573,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-003",
       "sourceDefinition": "charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion)",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion).",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion).",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -588,7 +588,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-004",
       "sourceDefinition": "relevante Abläufe, Daten und ihre Beziehungen in informatischen Modellen darstellen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden relevante Abläufe, Daten und ihre Beziehungen in informatischen Modellen darstellen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können relevante Abläufe, Daten und ihre Beziehungen in informatischen Modellen darstellen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -603,7 +603,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-005",
       "sourceDefinition": "geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -618,7 +618,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-006",
       "sourceDefinition": "unterschiedliche Perspektiven in die Entwicklung einer Lösung mit einbeziehen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden unterschiedliche Perspektiven in die Entwicklung einer Lösung mit einbeziehen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können unterschiedliche Perspektiven in die Entwicklung einer Lösung mit einbeziehen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -633,7 +633,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-007",
       "sourceDefinition": "Abläufe in einer Programmiersprache implementieren",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Abläufe in einer Programmiersprache implementieren.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Abläufe in einer Programmiersprache implementieren.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -648,7 +648,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-008",
       "sourceDefinition": "vorhandene Codebausteine aus verschiedenen Quellen adaptiert in eigene Programme einbauen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden vorhandene Codebausteine aus verschiedenen Quellen adaptiert in eigene Programme einbauen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können vorhandene Codebausteine aus verschiedenen Quellen adaptiert in eigene Programme einbauen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -663,7 +663,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-009",
       "sourceDefinition": "Programme gezielt testen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Programme gezielt testen.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Programme gezielt testen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -678,7 +678,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-MI-010",
       "sourceDefinition": "die Angemessenheit von Lösungen und die erreichten Resultate bewerten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden die Angemessenheit von Lösungen und die erreichten Resultate bewerten.",
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können die Angemessenheit von Lösungen und die erreichten Resultate bewerten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -693,7 +693,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-KK-001",
       "sourceDefinition": "fachspezifische Schreib- und Notationsweisen verwenden",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden fachspezifische Schreib- und Notationsweisen verwenden.",
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können fachspezifische Schreib- und Notationsweisen verwenden.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -708,7 +708,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-KK-002",
       "sourceDefinition": "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen.",
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -723,7 +723,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-KK-003",
       "sourceDefinition": "arbeitsteilig als Team ihre Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden arbeitsteilig als Team ihre Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren.",
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können arbeitsteilig als Team ihre Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -738,7 +738,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-KK-004",
       "sourceDefinition": "zielorientiert auf einer vorhandenen Infrastruktur kommunizieren und geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden zielorientiert auf einer vorhandenen Infrastruktur kommunizieren und geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen.",
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können zielorientiert auf einer vorhandenen Infrastruktur kommunizieren und geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -753,7 +753,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-KK-005",
       "sourceDefinition": "in Erarbeitung, Kooperation und Darstellung alltagsrelevante rechtliche Regelungen befolgen und verantwortungsvoll mit eigenen und fremden personenbezogenen Daten umgehen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden in Erarbeitung, Kooperation und Darstellung alltagsrelevante rechtliche Regelungen befolgen und verantwortungsvoll mit eigenen und fremden personenbezogenen Daten umgehen.",
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können in Erarbeitung, Kooperation und Darstellung alltagsrelevante rechtliche Regelungen befolgen und verantwortungsvoll mit eigenen und fremden personenbezogenen Daten umgehen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -768,7 +768,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-KK-006",
       "sourceDefinition": "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren.",
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -783,7 +783,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-AB-001",
       "sourceDefinition": "durch Analyse Erkenntnisse über das Verhalten von informatischen Systemen gewinnen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden durch Analyse Erkenntnisse über das Verhalten von informatischen Systemen gewinnen.",
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können durch Analyse Erkenntnisse über das Verhalten von informatischen Systemen gewinnen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -798,7 +798,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-AB-002",
       "sourceDefinition": "informatische Modelle mit der jeweiligen Realsituation vergleichen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden informatische Modelle mit der jeweiligen Realsituation vergleichen.",
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können informatische Modelle mit der jeweiligen Realsituation vergleichen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -813,7 +813,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-AB-003",
       "sourceDefinition": "Kenntnisse über den inneren Ablauf informatischer Systeme im Alltag nutzen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Kenntnisse über den inneren Ablauf informatischer Systeme im Alltag nutzen.",
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können Kenntnisse über den inneren Ablauf informatischer Systeme im Alltag nutzen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -828,7 +828,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-AB-004",
       "sourceDefinition": "Entscheidungen auf der Grundlage informatischen Sachverstands treffen und diese sachgerecht begründen",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Entscheidungen auf der Grundlage informatischen Sachverstands treffen und diese sachgerecht begründen.",
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können Entscheidungen auf der Grundlage informatischen Sachverstands treffen und diese sachgerecht begründen.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -843,7 +843,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-AB-005",
       "sourceDefinition": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten.",
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -858,7 +858,7 @@
       "sourceRecordId": "INF7-16-GYM-PK-AB-006",
       "sourceDefinition": "im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten",
       "sourceAfb": null,
-      "expectedObservableAction": "In Bearbeitungsweg oder Produkt wird sichtbar, dass die Lernenden im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten.",
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten.",
       "likelyComplexityBand": "context-dependent",
       "applicableGrades": [
         7
@@ -873,7 +873,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-001",
       "sourceDefinition": "eine konkrete Materialgrundlage unter einer gegebenen Fragestellung auf wichtige Bestandteile, Eigenschaften oder Zusammenhänge untersuchen",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „analysieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: eine konkrete Materialgrundlage unter einer gegebenen Fragestellung auf wichtige Bestandteile, Eigenschaften oder Zusammenhänge untersuchen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „analysieren“: eine konkrete Materialgrundlage unter einer gegebenen Fragestellung auf wichtige Bestandteile, Eigenschaften oder Zusammenhänge untersuchen.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         7
@@ -888,7 +888,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-002",
       "sourceDefinition": "einen bekannten Zusammenhang oder eine bekannte Methode auf einen (anderen) Sachverhalt beziehen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „anwenden“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: einen bekannten Zusammenhang oder eine bekannte Methode auf einen (anderen) Sachverhalt beziehen.",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „anwenden“: einen bekannten Zusammenhang oder eine bekannte Methode auf einen (anderen) Sachverhalt beziehen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -903,7 +903,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-003",
       "sourceDefinition": "Daten, Einzelergebnisse oder sonstige Sachverhalte zu einer abschließenden, begründeten Gesamtaussage zusammenführen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „auswerten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Daten, Einzelergebnisse oder sonstige Sachverhalte zu einer abschließenden, begründeten Gesamtaussage zusammenführen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „auswerten“: Daten, Einzelergebnisse oder sonstige Sachverhalte zu einer abschließenden, begründeten Gesamtaussage zusammenführen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -918,7 +918,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-004",
       "sourceDefinition": "eine Aussage oder einen Sachverhalt durch Berechnungen, nach gültigen Schlussregeln, durch Herleitungen oder inhaltliche Argumentation verifizieren oder falsifizieren",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „begründen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: eine Aussage oder einen Sachverhalt durch Berechnungen, nach gültigen Schlussregeln, durch Herleitungen oder inhaltliche Argumentation verifizieren oder falsifizieren.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „begründen“: eine Aussage oder einen Sachverhalt durch Berechnungen, nach gültigen Schlussregeln, durch Herleitungen oder inhaltliche Argumentation verifizieren oder falsifizieren.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         7
@@ -933,7 +933,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-005",
       "sourceDefinition": "Fachbegriffe kriteriengeleitet zuordnen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „benennen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Fachbegriffe kriteriengeleitet zuordnen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „benennen“: Fachbegriffe kriteriengeleitet zuordnen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         7
@@ -948,7 +948,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-006",
       "sourceDefinition": "Ergebnisse von einem Ansatz oder einer Formel ausgehend durch Rechenoperationen gewinnen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „berechnen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Ergebnisse von einem Ansatz oder einer Formel ausgehend durch Rechenoperationen gewinnen.",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „berechnen“: Ergebnisse von einem Ansatz oder einer Formel ausgehend durch Rechenoperationen gewinnen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         7
@@ -963,7 +963,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-007",
       "sourceDefinition": "Strukturen, Sachverhalte, Verfahren, Prozesse und Eigenschaften von Objekten in der Regel unter Verwendung der Fachsprache in vollständigen Sätzen wiedergeben (hier sind auch Einschränkungen möglich: „Beschreiben Sie in Stichworten“) beziehungsweise in einer vorgeschriebenen Form darstellen (zum Beispiel: „Beschreiben Sie als Term“)",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „beschreiben“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Strukturen, Sachverhalte, Verfahren, Prozesse und Eigenschaften von Objekten in der Regel unter Verwendung der Fachsprache in vollständigen Sätzen wiedergeben (hier sind auch Einschränkungen möglich: „Beschreiben Sie in Stichworten“) beziehungsweise in einer vorgeschriebenen Form darstellen (zum Beispiel: „Beschreiben Sie als Term“).",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „beschreiben“: Strukturen, Sachverhalte, Verfahren, Prozesse und Eigenschaften von Objekten in der Regel unter Verwendung der Fachsprache in vollständigen Sätzen wiedergeben (hier sind auch Einschränkungen möglich: „Beschreiben Sie in Stichworten“) beziehungsweise in einer vorgeschriebenen Form darstellen (zum Beispiel: „Beschreiben Sie als Term“).",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -978,7 +978,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-008",
       "sourceDefinition": "einen Sachverhalt nach fachwissenschaftlichen oder fachmethodischen Kriterien, persönlichem oder gesellschaftlichem Wertebezug begründet einschätzen und ein selbstständiges Urteil formulieren",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „bewerten“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: einen Sachverhalt nach fachwissenschaftlichen oder fachmethodischen Kriterien, persönlichem oder gesellschaftlichem Wertebezug begründet einschätzen und ein selbstständiges Urteil formulieren.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „bewerten“: einen Sachverhalt nach fachwissenschaftlichen oder fachmethodischen Kriterien, persönlichem oder gesellschaftlichem Wertebezug begründet einschätzen und ein selbstständiges Urteil formulieren.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         7
@@ -993,7 +993,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-009",
       "sourceDefinition": "Zusammenhänge, Sachverhalte oder Arbeitsverfahren in strukturierter oder formal definierter Form (zum Beispiel grafisch) wiedergeben",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „darstellen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Zusammenhänge, Sachverhalte oder Arbeitsverfahren in strukturierter oder formal definierter Form (zum Beispiel grafisch) wiedergeben.",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „darstellen“: Zusammenhänge, Sachverhalte oder Arbeitsverfahren in strukturierter oder formal definierter Form (zum Beispiel grafisch) wiedergeben.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1008,7 +1008,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-010",
       "sourceDefinition": "nach bekannten Regeln oder Anweisungen von einer Aufgabenstellung zu einem definierten Ziel gelangen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „durchführen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: nach bekannten Regeln oder Anweisungen von einer Aufgabenstellung zu einem definierten Ziel gelangen.",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „durchführen“: nach bekannten Regeln oder Anweisungen von einer Aufgabenstellung zu einem definierten Ziel gelangen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1023,7 +1023,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-011",
       "sourceDefinition": "nach vorgegebenen Bedingungen ein sinnvolles Konzept selbstständig planen/erarbeiten",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „entwerfen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: nach vorgegebenen Bedingungen ein sinnvolles Konzept selbstständig planen/erarbeiten.",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „entwerfen“: nach vorgegebenen Bedingungen ein sinnvolles Konzept selbstständig planen/erarbeiten.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         7
@@ -1038,7 +1038,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-012",
       "sourceDefinition": "Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „erklären“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „erklären“: Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1053,7 +1053,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-013",
       "sourceDefinition": "Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen und durch zusätzliche Informationen oder Beispiele verständlich machen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „erläutern“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen und durch zusätzliche Informationen oder Beispiele verständlich machen.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „erläutern“: Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen und durch zusätzliche Informationen oder Beispiele verständlich machen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1068,7 +1068,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-014",
       "sourceDefinition": "Datenstrukturen oder Algorithmen in einer Programmiersprache umsetzen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „implementieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Datenstrukturen oder Algorithmen in einer Programmiersprache umsetzen.",
+      "expectedObservableAction": "Produkt: ausführbarer Code, kommentierter Code oder Testprotokoll. Sichtbares Erfolgskriterium für „implementieren“: Datenstrukturen oder Algorithmen in einer Programmiersprache umsetzen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1083,7 +1083,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-015",
       "sourceDefinition": "Sachverhalte und Zusammenhänge im Hinblick auf Erklärungsmöglichkeiten untersuchen und abwägend herausstellen",
       "sourceAfb": "III",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „interpretieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Sachverhalte und Zusammenhänge im Hinblick auf Erklärungsmöglichkeiten untersuchen und abwägend herausstellen.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „interpretieren“: Sachverhalte und Zusammenhänge im Hinblick auf Erklärungsmöglichkeiten untersuchen und abwägend herausstellen.",
       "likelyComplexityBand": "independent-transfer-design-and-evaluation",
       "applicableGrades": [
         7
@@ -1098,7 +1098,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-016",
       "sourceDefinition": "einen gegebenen Sachverhalt oder einen gegebenen Algorithmus mit erläuternden Hinweisen versehen",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „kommentieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: einen gegebenen Sachverhalt oder einen gegebenen Algorithmus mit erläuternden Hinweisen versehen.",
+      "expectedObservableAction": "Produkt: ausführbarer Code, kommentierter Code oder Testprotokoll. Sichtbares Erfolgskriterium für „kommentieren“: einen gegebenen Sachverhalt oder einen gegebenen Algorithmus mit erläuternden Hinweisen versehen.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         7
@@ -1113,7 +1113,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-017",
       "sourceDefinition": "Elemente, Sachverhalte, Begriffe, Daten, Fakten ohne Erläuterung wiedergeben",
       "sourceAfb": "I",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „nennen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Elemente, Sachverhalte, Begriffe, Daten, Fakten ohne Erläuterung wiedergeben.",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „nennen“: Elemente, Sachverhalte, Begriffe, Daten, Fakten ohne Erläuterung wiedergeben.",
       "likelyComplexityBand": "guided-reproduction-and-operation",
       "applicableGrades": [
         7
@@ -1128,7 +1128,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-018",
       "sourceDefinition": "die wesentlichen Eigenschaften eines Objekts grafisch vereinfacht darstellen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „skizzieren“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: die wesentlichen Eigenschaften eines Objekts grafisch vereinfacht darstellen.",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „skizzieren“: die wesentlichen Eigenschaften eines Objekts grafisch vereinfacht darstellen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1143,7 +1143,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-019",
       "sourceDefinition": "systematisch ein gegebenes oder selbst erstelltes Programm auf Fehler untersuchen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „testen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: systematisch ein gegebenes oder selbst erstelltes Programm auf Fehler untersuchen.",
+      "expectedObservableAction": "Produkt: ausführbarer Code, kommentierter Code oder Testprotokoll. Sichtbares Erfolgskriterium für „testen“: systematisch ein gegebenes oder selbst erstelltes Programm auf Fehler untersuchen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1158,7 +1158,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-020",
       "sourceDefinition": "eine Darstellungsform in eine andere Darstellungsform bringen",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „überführen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: eine Darstellungsform in eine andere Darstellungsform bringen.",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „überführen“: eine Darstellungsform in eine andere Darstellungsform bringen.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1173,7 +1173,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-021",
       "sourceDefinition": "Objekte, Sachverhalte und Fragestellungen nach fachlichen Kriterien zielorientiert erkunden und Zusammenhänge herausarbeiten",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „untersuchen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Objekte, Sachverhalte und Fragestellungen nach fachlichen Kriterien zielorientiert erkunden und Zusammenhänge herausarbeiten.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „untersuchen“: Objekte, Sachverhalte und Fragestellungen nach fachlichen Kriterien zielorientiert erkunden und Zusammenhänge herausarbeiten.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7
@@ -1188,7 +1188,7 @@
       "sourceRecordId": "INF7-16-GYM-OP-022",
       "sourceDefinition": "Gemeinsamkeiten, Ähnlichkeiten und Unterschiede herausarbeiten",
       "sourceAfb": "II",
-      "expectedObservableAction": "Die Lernenden führen die durch den Operator „vergleichen“ bezeichnete Handlung aus und machen das Ergebnis im geforderten Produkt sichtbar: Gemeinsamkeiten, Ähnlichkeiten und Unterschiede herausarbeiten.",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „vergleichen“: Gemeinsamkeiten, Ähnlichkeiten und Unterschiede herausarbeiten.",
       "likelyComplexityBand": "structured-application-and-relation",
       "applicableGrades": [
         7

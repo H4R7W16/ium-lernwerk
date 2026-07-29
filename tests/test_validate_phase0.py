@@ -840,6 +840,113 @@ class CrosswalkTests(unittest.TestCase):
                         self.curriculum_ids,
                     )
 
+    def test_relation_sides_must_be_disjoint(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(
+                            toIds=[
+                                "LH26-E-ID-001",
+                                "BMB16-GYM-IK-IW-001",
+                            ]
+                        )
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_not_comparable_requires_source_but_no_target(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(
+                            relationship="not-comparable"
+                        )
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_declared_counts_must_match_payload(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    counts={
+                        "curriculumRecords": 99,
+                        "relations": 1,
+                        "unmappedRecords": 0,
+                        "relationshipCounts": {"overlaps": 1},
+                    }
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_required_source_comparisons_need_direct_relations(self):
+        curriculum_records = {
+            "LH26-E-ID-001": {
+                "id": "LH26-E-ID-001",
+                "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+            },
+            "BMB16-GYM-IK-IW-001": {
+                "id": "BMB16-GYM-IK-IW-001",
+                "sourceId": "SRC-CUR-BMB-2016",
+            },
+            "INF7-16-GYM-PK-MI-001": {
+                "id": "INF7-16-GYM-PK-MI-001",
+                "sourceId": "SRC-CUR-INF7-2016",
+            },
+        }
+        relations_without_bmb_inf = [
+            valid_crosswalk_relation(),
+            valid_crosswalk_relation(
+                id="XW-002",
+                toIds=["INF7-16-GYM-PK-MI-001"],
+            ),
+        ]
+        required_comparisons = [
+            {
+                "fromSourceId": "SRC-CUR-LESEHILFE-2026-27",
+                "toSourceId": "SRC-CUR-BMB-2016",
+            },
+            {
+                "fromSourceId": "SRC-CUR-LESEHILFE-2026-27",
+                "toSourceId": "SRC-CUR-INF7-2016",
+            },
+            {
+                "fromSourceId": "SRC-CUR-BMB-2016",
+                "toSourceId": "SRC-CUR-INF7-2016",
+            },
+        ]
+
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=relations_without_bmb_inf,
+                    requiredSourceComparisons=required_comparisons,
+                ),
+                curriculum_records,
+            )
+
+        relations_with_bmb_inf = relations_without_bmb_inf + [
+            valid_crosswalk_relation(
+                id="XW-003",
+                fromIds=["BMB16-GYM-IK-IW-001"],
+                toIds=["INF7-16-GYM-PK-MI-001"],
+            )
+        ]
+        self.assertEqual(
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=relations_with_bmb_inf,
+                    requiredSourceComparisons=required_comparisons,
+                ),
+                curriculum_records,
+            ),
+            set(curriculum_records),
+        )
+
 
 class OperatorMappingTests(unittest.TestCase):
     def setUp(self):
