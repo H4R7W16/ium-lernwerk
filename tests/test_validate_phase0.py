@@ -963,14 +963,16 @@ class CrosswalkTests(unittest.TestCase):
             },
         ]
 
-        with self.assertRaises(ValidationError):
-            validate_crosswalk(
-                valid_crosswalk_payload(
-                    relations=relations,
-                    requiredSourceComparisons=incomplete_comparisons,
-                ),
-                curriculum_records,
-            )
+        for comparisons in ([], incomplete_comparisons):
+            with self.subTest(comparisons=comparisons):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(
+                        valid_crosswalk_payload(
+                            relations=relations,
+                            requiredSourceComparisons=comparisons,
+                        ),
+                        curriculum_records,
+                    )
 
     def test_required_source_comparisons_need_direct_relations(self):
         curriculum_records = {

@@ -599,65 +599,69 @@ def validate_crosswalk(payload, curriculum_ids):
         isinstance(required_comparisons, list),
         "requiredSourceComparisons must be a list",
     )
-    if required_comparisons:
+    available_source_ids = (
+        {
+            record["sourceId"]
+            for record in source_records.values()
+        }
+        if source_records is not None
+        else set()
+    )
+    comparison_pairs = []
+    for comparison in required_comparisons:
         _require(
             source_records is not None,
             "required source comparisons need curriculum source metadata",
         )
-        available_source_ids = {
-            record["sourceId"] for record in source_records.values()
-        }
-        comparison_pairs = []
-        for comparison in required_comparisons:
-            _require_fields(
-                comparison,
-                ("fromSourceId", "toSourceId"),
-                "required source comparison",
-            )
-            from_source_id = comparison["fromSourceId"]
-            to_source_id = comparison["toSourceId"]
-            _require(
-                isinstance(from_source_id, str)
-                and isinstance(to_source_id, str)
-                and from_source_id in available_source_ids
-                and to_source_id in available_source_ids
-                and from_source_id != to_source_id,
-                "invalid required source comparison",
-            )
-            comparison_pairs.append((from_source_id, to_source_id))
-            has_direct_relation = any(
-                any(
-                    source_records[record_id]["sourceId"]
-                    == from_source_id
-                    for record_id in relation["fromIds"]
-                )
-                and any(
-                    source_records[record_id]["sourceId"]
-                    == to_source_id
-                    for record_id in relation["toIds"]
-                )
-                for relation in relations
-            )
-            _require(
-                has_direct_relation,
-                "required source comparison has no direct relation: "
-                f"{from_source_id} -> {to_source_id}",
-            )
-        _require(
-            len(comparison_pairs) == len(set(comparison_pairs)),
-            "required source comparisons must be unique",
+        _require_fields(
+            comparison,
+            ("fromSourceId", "toSourceId"),
+            "required source comparison",
         )
-        canonical_source_ids = {
-            source_id
-            for pair in REQUIRED_CROSSWALK_SOURCE_COMPARISONS
-            for source_id in pair
-        }
-        if canonical_source_ids <= available_source_ids:
-            _require(
-                set(comparison_pairs)
-                == REQUIRED_CROSSWALK_SOURCE_COMPARISONS,
-                "canonical curriculum source comparisons are incomplete",
+        from_source_id = comparison["fromSourceId"]
+        to_source_id = comparison["toSourceId"]
+        _require(
+            isinstance(from_source_id, str)
+            and isinstance(to_source_id, str)
+            and from_source_id in available_source_ids
+            and to_source_id in available_source_ids
+            and from_source_id != to_source_id,
+            "invalid required source comparison",
+        )
+        comparison_pairs.append((from_source_id, to_source_id))
+        has_direct_relation = any(
+            any(
+                source_records[record_id]["sourceId"]
+                == from_source_id
+                for record_id in relation["fromIds"]
             )
+            and any(
+                source_records[record_id]["sourceId"]
+                == to_source_id
+                for record_id in relation["toIds"]
+            )
+            for relation in relations
+        )
+        _require(
+            has_direct_relation,
+            "required source comparison has no direct relation: "
+            f"{from_source_id} -> {to_source_id}",
+        )
+    _require(
+        len(comparison_pairs) == len(set(comparison_pairs)),
+        "required source comparisons must be unique",
+    )
+    canonical_source_ids = {
+        source_id
+        for pair in REQUIRED_CROSSWALK_SOURCE_COMPARISONS
+        for source_id in pair
+    }
+    if canonical_source_ids <= available_source_ids:
+        _require(
+            set(comparison_pairs)
+            == REQUIRED_CROSSWALK_SOURCE_COMPARISONS,
+            "canonical curriculum source comparisons are incomplete",
+        )
 
     _require(
         covered_ids == registered_ids,
