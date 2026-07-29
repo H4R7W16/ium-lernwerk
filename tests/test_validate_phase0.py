@@ -286,15 +286,28 @@ def valid_module_candidates_payload(modules=None, **overrides):
 
 
 def valid_coverage_entry(**overrides):
+    requirement_text = (
+        "einen aktuellen Internetbrowser und Suchmaschinen zu "
+        "Recherchezwecken einsetzen"
+    )
+    action = "Eine Recherche mit Browser und Suchmaschine durchführen."
+    product = "Ein sichtbares Suchprotokoll."
     entry = {
         "competencyId": "BMB16-GYM-IK-IW-001",
         "normativeWeight": "enacted",
         "moduleIds": ["IUM-5-CORE-01"],
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match",
+        "requirementText": requirement_text,
+        "evidenceModuleId": "IUM-5-CORE-01",
         "evidence": (
-            "IUM-5-CORE-01 führt die geforderte Lernhandlung aus und "
-            "sichert sie in einem sichtbaren Produkt."
+            f"Kernmodul IUM-5-CORE-01: {action} "
+            f"Sichtbarer Nachweis: {product}"
+        ),
+        "matchRationale": (
+            f"Die Anforderung „{requirement_text}“ wird durch die zentrale "
+            f"Lernhandlung „{action}“ ausgeführt; das Produkt „{product}“ "
+            "dokumentiert das Ergebnis."
         ),
         "risk": (
             "Kandidatenabdeckung ersetzt noch keine Zeit- und "
@@ -321,6 +334,18 @@ def valid_coverage_payload(entries=None, **overrides):
                 valid_coverage_entry(
                     competencyId="LH26-E-ID-001",
                     normativeWeight="orientation",
+                    requirementText=(
+                        "digitale Werkzeuge und Angebote zur "
+                        "Informationsgewinnung nutzen"
+                    ),
+                    matchRationale=(
+                        "Die Anforderung „digitale Werkzeuge und Angebote "
+                        "zur Informationsgewinnung nutzen“ wird durch die "
+                        "zentrale Lernhandlung „Eine Recherche mit Browser "
+                        "und Suchmaschine durchführen.“ ausgeführt; das "
+                        "Produkt „Ein sichtbares Suchprotokoll.“ "
+                        "dokumentiert das Ergebnis."
+                    ),
                 ),
             ]
         ),
@@ -1566,8 +1591,20 @@ class ModuleCandidateFileTests(unittest.TestCase):
 class CoverageTests(unittest.TestCase):
     def setUp(self):
         self.required_ids = {
-            "BMB16-GYM-IK-IW-001": "enacted",
-            "LH26-E-ID-001": "orientation",
+            "BMB16-GYM-IK-IW-001": {
+                "normativeWeight": "enacted",
+                "text": (
+                    "einen aktuellen Internetbrowser und Suchmaschinen zu "
+                    "Recherchezwecken einsetzen"
+                ),
+            },
+            "LH26-E-ID-001": {
+                "normativeWeight": "orientation",
+                "text": (
+                    "digitale Werkzeuge und Angebote zur "
+                    "Informationsgewinnung nutzen"
+                ),
+            },
         }
         self.module_ids = {
             "IUM-5-CORE-01": {
@@ -1576,14 +1613,23 @@ class CoverageTests(unittest.TestCase):
                     "BMB16-GYM-IK-IW-001",
                     "LH26-E-ID-001",
                 ],
+                "centralLearningAction": (
+                    "Eine Recherche mit Browser und Suchmaschine "
+                    "durchführen."
+                ),
+                "centralLearningProduct": "Ein sichtbares Suchprotokoll.",
             },
             "IUM-5-CORE-02": {
                 "kind": "core",
                 "competencyIds": ["LH26-E-ID-001"],
+                "centralLearningAction": "Eine Suchfrage prüfen.",
+                "centralLearningProduct": "Ein Quellendossier.",
             },
             "IUM-5-EXT-01": {
                 "kind": "extension",
                 "competencyIds": ["BMB16-GYM-IK-IW-001"],
+                "centralLearningAction": "Eine Recherche vertiefen.",
+                "centralLearningProduct": "Ein Vertiefungsprotokoll.",
             },
         }
 
@@ -1701,6 +1747,26 @@ class CoverageTests(unittest.TestCase):
                         self.module_ids,
                     )
 
+    def test_semantic_traceability_must_match_source_and_module_contract(self):
+        invalid_mutations = (
+            ("requirementText", "Eine andere Anforderung."),
+            ("evidenceModuleId", "IUM-5-CORE-02"),
+            ("matchRationale", "Pauschale Matchbehauptung."),
+            ("evidence", "Pauschale Evidenzbehauptung."),
+        )
+
+        for field, value in invalid_mutations:
+            entries = valid_coverage_payload()["entries"]
+            entries[0][field] = value
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_coverage(
+                        valid_coverage_payload(entries=entries),
+                        self.required_ids,
+                        self.module_ids,
+                    )
+
     def test_normative_weight_must_match_curriculum_source_status(self):
         entries = valid_coverage_payload()["entries"]
         entries[1]["normativeWeight"] = "enacted"
@@ -1758,7 +1824,7 @@ class CoverageRepositoryTests(unittest.TestCase):
                 (root / "curriculum").glob("**/competencies.json")
             )
         ]
-        required_weights = {}
+        required_contracts = {}
         for payload in curriculum_payloads:
             normative_weight = (
                 "orientation"
@@ -1766,9 +1832,12 @@ class CoverageRepositoryTests(unittest.TestCase):
                 == "orientation"
                 else "enacted"
             )
-            required_weights.update(
+            required_contracts.update(
                 {
-                    record["id"]: normative_weight
+                    record["id"]: {
+                        "normativeWeight": normative_weight,
+                        "text": record["text"],
+                    }
                     for record in payload["records"]
                     if record["recordType"] not in {"example", "operator"}
                 }
@@ -1782,6 +1851,8 @@ class CoverageRepositoryTests(unittest.TestCase):
             module["id"]: {
                 "kind": module["kind"],
                 "competencyIds": module["competencyIds"],
+                "centralLearningAction": module["centralLearningAction"],
+                "centralLearningProduct": module["centralLearningProduct"],
             }
             for module in module_payload["modules"]
         }
@@ -1798,13 +1869,16 @@ class CoverageRepositoryTests(unittest.TestCase):
 
         coverage_ids = validate_coverage(
             coverage_payload,
-            required_weights,
+            required_contracts,
             module_contracts,
         )
         self.assertEqual(len(coverage_ids), 171)
         self.assertEqual(module_competency_ids, coverage_ids)
         self.assertEqual(
-            Counter(required_weights.values()),
+            Counter(
+                contract["normativeWeight"]
+                for contract in required_contracts.values()
+            ),
             Counter({"orientation": 95, "enacted": 76}),
         )
         self.assertEqual(
@@ -1812,7 +1886,7 @@ class CoverageRepositoryTests(unittest.TestCase):
                 entry["coverageStatus"]
                 for entry in coverage_payload["entries"]
             ),
-            Counter({"covered": 123, "partial": 48}),
+            Counter({"covered": 112, "partial": 59}),
         )
         self.assertEqual(
             Counter(
@@ -1824,12 +1898,21 @@ class CoverageRepositoryTests(unittest.TestCase):
             ),
             Counter(
                 {
-                    ("orientation", "covered"): 74,
-                    ("orientation", "partial"): 21,
-                    ("enacted", "covered"): 49,
-                    ("enacted", "partial"): 27,
+                    ("orientation", "covered"): 66,
+                    ("orientation", "partial"): 29,
+                    ("enacted", "covered"): 46,
+                    ("enacted", "partial"): 30,
                 }
             ),
+        )
+        self.assertEqual(
+            len(
+                {
+                    entry["matchRationale"]
+                    for entry in coverage_payload["entries"]
+                }
+            ),
+            171,
         )
         entries_by_id = {
             entry["competencyId"]: entry
@@ -1841,6 +1924,17 @@ class CoverageRepositoryTests(unittest.TestCase):
             "INF7-16-GYM-PK-SV-001",
             "LH26-E-DA-015",
             "LH26-E-ID-021",
+            "BMB16-GYM-PK-RK-001",
+            "LH26-E-DP-003",
+            "LH26-E-DA-009",
+            "LH26-E-DP-013",
+            "BMB16-GYM-IK-PP-002",
+            "LH26-E-DA-005",
+            "LH26-E-DA-006",
+            "LH26-E-DA-008",
+            "LH26-E-DA-010",
+            "INF7-16-GYM-PK-SV-003",
+            "LH26-E-ALG-009",
         }
         for competency_id in expected_partial_ids:
             with self.subTest(competency_id=competency_id):
@@ -1853,6 +1947,16 @@ class CoverageRepositoryTests(unittest.TestCase):
                 self.assertTrue(entry["reason"].strip())
                 self.assertTrue(entry["risk"].strip())
                 self.assertTrue(entry["followUp"].strip())
+        for competency_id in {
+            "LH26-E-PROG-001",
+            "LH26-E-PROG-002",
+            "LH26-E-PROG-003",
+            "LH26-E-PROG-004",
+        }:
+            with self.subTest(progression_id=competency_id):
+                follow_up = entries_by_id[competency_id]["followUp"]
+                self.assertIn("jahrgangsweiten Sequenznachweis", follow_up)
+                self.assertIn("Einzelprodukt genügt nicht", follow_up)
         expected_covered_ids = {
             "BMB16-GYM-IK-PP-003",
             "INF7-16-GYM-PK-KK-003",
@@ -1934,8 +2038,8 @@ class CoverageRepositoryTests(unittest.TestCase):
             "35-50",
             "54-78",
             "zeitlich nicht freigegeben",
-            "123 `covered`",
-            "48 `partial`",
+            "112 `covered`",
+            "59 `partial`",
             "Operator und Gegenstand",
             "IUM-5-CORE-05",
             "keine Phase-2-Implementierungsplanung",

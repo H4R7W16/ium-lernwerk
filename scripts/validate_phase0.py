@@ -1177,29 +1177,49 @@ def validate_coverage(payload, required_ids, module_ids):
         "coverage needs a required-id normative-weight mapping",
     )
     required_weight_map = {}
-    for competency_id, normative_weight in required_ids.items():
+    required_text_map = {}
+    for competency_id, required_contract in required_ids.items():
         _require_nonempty_string(
             competency_id,
             "competencyId",
             competency_id,
         )
+        _require_fields(
+            required_contract,
+            ("normativeWeight", "text"),
+            f"coverage source contract {competency_id}",
+        )
+        normative_weight = required_contract["normativeWeight"]
         _require(
             isinstance(normative_weight, str)
             and normative_weight in COVERAGE_NORMATIVE_WEIGHTS,
             f"invalid required normative weight: {competency_id}",
         )
+        _require_nonempty_string(
+            required_contract["text"],
+            "text",
+            competency_id,
+        )
         required_weight_map[competency_id] = normative_weight
+        required_text_map[competency_id] = required_contract["text"]
     _require(
         isinstance(module_ids, Mapping) and bool(module_ids),
         "coverage needs a module-id kind mapping",
     )
     module_kind_map = {}
     module_competency_map = {}
+    module_action_map = {}
+    module_product_map = {}
     for module_id, module_contract in module_ids.items():
         _require_nonempty_string(module_id, "moduleId", module_id)
         _require_fields(
             module_contract,
-            ("kind", "competencyIds"),
+            (
+                "kind",
+                "competencyIds",
+                "centralLearningAction",
+                "centralLearningProduct",
+            ),
             f"coverage module contract {module_id}",
         )
         module_kind = module_contract["kind"]
@@ -1220,6 +1240,21 @@ def validate_coverage(payload, required_ids, module_ids):
         )
         module_kind_map[module_id] = module_kind
         module_competency_map[module_id] = set(competency_id_list)
+        for field in (
+            "centralLearningAction",
+            "centralLearningProduct",
+        ):
+            _require_nonempty_string(
+                module_contract[field],
+                field,
+                module_id,
+            )
+        module_action_map[module_id] = module_contract[
+            "centralLearningAction"
+        ]
+        module_product_map[module_id] = module_contract[
+            "centralLearningProduct"
+        ]
     entries = payload["entries"]
     _require(
         isinstance(entries, list) and bool(entries),
@@ -1231,7 +1266,10 @@ def validate_coverage(payload, required_ids, module_ids):
         "moduleIds",
         "coverageStatus",
         "semanticAudit",
+        "requirementText",
+        "evidenceModuleId",
         "evidence",
+        "matchRationale",
         "risk",
         "followUp",
     )
@@ -1275,6 +1313,24 @@ def validate_coverage(payload, required_ids, module_ids):
             ),
             f"coverage module does not contain competency: {competency_id}",
         )
+        requirement_text = entry["requirementText"]
+        _require(
+            requirement_text == required_text_map[competency_id],
+            f"coverage requirement text differs from source: {competency_id}",
+        )
+        evidence_module_id = entry["evidenceModuleId"]
+        _require_nonempty_string(
+            evidence_module_id,
+            "evidenceModuleId",
+            competency_id,
+        )
+        _require(
+            evidence_module_id in module_id_list
+            and module_kind_map[evidence_module_id] == "core"
+            and competency_id
+            in module_competency_map[evidence_module_id],
+            f"invalid coverage evidence module: {competency_id}",
+        )
         coverage_status = entry["coverageStatus"]
         _require(
             isinstance(coverage_status, str)
@@ -1291,12 +1347,31 @@ def validate_coverage(payload, required_ids, module_ids):
             semantic_audit == expected_semantic_audit,
             f"semantic audit differs from coverage status: {competency_id}",
         )
-        for field in ("evidence", "risk", "followUp"):
+        for field in (
+            "evidence",
+            "matchRationale",
+            "risk",
+            "followUp",
+        ):
             _require_nonempty_string(
                 entry[field],
                 field,
                 competency_id,
             )
+        _require(
+            module_action_map[evidence_module_id] in entry["evidence"]
+            and module_product_map[evidence_module_id]
+            in entry["evidence"],
+            f"coverage evidence differs from module contract: {competency_id}",
+        )
+        _require(
+            requirement_text in entry["matchRationale"]
+            and module_action_map[evidence_module_id]
+            in entry["matchRationale"]
+            and module_product_map[evidence_module_id]
+            in entry["matchRationale"],
+            f"coverage rationale is not record-exact: {competency_id}",
+        )
         if coverage_status == "covered":
             _require(
                 any(
@@ -1411,20 +1486,25 @@ def main():
         module_candidates,
         required_curriculum_grades,
     )
-    required_curriculum_weights = {
-        record_id: curriculum_normative_weights[record_id]
+    required_curriculum_contracts = {
+        record_id: {
+            "normativeWeight": curriculum_normative_weights[record_id],
+            "text": curriculum_records[record_id]["text"],
+        }
         for record_id in required_curriculum_grades
     }
     module_contracts = {
         module["id"]: {
             "kind": module["kind"],
             "competencyIds": module["competencyIds"],
+            "centralLearningAction": module["centralLearningAction"],
+            "centralLearningProduct": module["centralLearningProduct"],
         }
         for module in module_candidates["modules"]
     }
     validate_coverage(
         load_json(root / "roadmap/coverage-plan.json"),
-        required_curriculum_weights,
+        required_curriculum_contracts,
         module_contracts,
     )
     print("phase 0 validation passed")
