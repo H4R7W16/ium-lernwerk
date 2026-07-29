@@ -6,7 +6,7 @@ Geltungsbereich: Baden-Württemberg, Gymnasium, Niveau E
 
 Diese Roadmap ordnet die 31 geprüften Modulkandidaten zu einem reviewfähigen Lernwerk-Kosmos. Sie ist weder Stundentafel noch fertiges Schulcurriculum. Insbesondere trennt sie drei Aussagen:
 
-1. **Designabdeckung:** Für jeden relevanten Curriculumrecord existiert mindestens eine passende Lernhandlung und ein sichtbares Produkt in einem Kernkandidaten.
+1. **Semantischer Coverage-Audit:** Alle 171 Curriculumrecords sind einem Kernkandidaten zugeordnet und einzeln gegen Operator, Gegenstand, zentrale Lernhandlung und Produktnachweis geprüft. 123 Records besitzen einen expliziten Match; bei 48 Records ist die noch zu schließende Lücke dokumentiert.
 2. **Abhängigkeit:** Der Kandidatengraph ist fachlich progressiv, azyklisch und jahrgangskonsistent.
 3. **Zeitliche Umsetzbarkeit:** Eine vollständige Kandidatenfolge muss zusätzlich in die reale Unterrichtszeit passen. Dieser Nachweis ist für die Klassen 6 und 7 noch nicht erbracht.
 
@@ -105,11 +105,13 @@ Jahrgangsrücksprünge sind im Validator verboten. Kernmodule dürfen nicht von 
 
 | Quellengewicht | Records | Status im Coverage-Plan |
 |---|---:|---|
-| `enacted` - Basiskurs Medienbildung und Aufbaukurs Informatik | 76 | 76 `covered` auf Kandidatenebene |
-| `orientation` - Lesehilfe 2026/2027 | 95 | 95 `covered` auf Kandidatenebene |
-| Gesamt | 171 | 171 `covered`, 0 `partial`, 0 `deferred` |
+| `enacted` - Basiskurs Medienbildung und Aufbaukurs Informatik | 76 | 49 `covered`, 27 `partial` |
+| `orientation` - Lesehilfe 2026/2027 | 95 | 74 `covered`, 21 `partial` |
+| Gesamt | 171 | 123 `covered`, 48 `partial`, 0 `deferred` |
 
-`covered` bedeutet hier ausschließlich, dass ein Kernkandidat eine passende zentrale Lernhandlung und ein sichtbares Produkt ausweist. Der Status ist **keine** Aussage, dass alle 171 Records im Ein-Wochenstunden-Jahr mit der erforderlichen Tiefe unterrichtet werden können. Diese Trennung verhindert, dass die sichtbare Zeitlücke durch eine formal grüne ID-Menge verdeckt wird.
+`covered` bedeutet hier ausschließlich, dass Operator und Gegenstand in einer zentralen Lernhandlung ausgeführt und in einem passenden Lernprodukt sichtbar werden. `partial` bedeutet nicht „unzugeordnet“: Der Record besitzt einen Kern-Andockpunkt, aber der explizite Operator-Produkt-Nachweis ist noch unvollständig. Für jeden dieser 48 Records nennt `coverage-plan.json` eine konkrete Begründung, das Risiko einer Überbehauptung und eine Nacharbeit.
+
+Der Status ist **keine** Aussage, dass die 171 Records im Ein-Wochenstunden-Jahr mit der erforderlichen Tiefe unterrichtet werden können. Die semantische und die zeitliche Lücke bleiben getrennt sichtbar; eine formal grüne ID-Menge darf keine von beiden verdecken.
 
 Quellenüberlappungen bleiben über `curriculum/crosswalk.json` nachvollziehbar. Ein Record wird nicht gelöscht, nur weil ein anderer Record einen ähnlichen Handlungskern besitzt.
 
@@ -176,12 +178,13 @@ Der Pilot soll die Modulgrammatik, Accessibility, Offlinefähigkeit, lokale Spei
 5. **Flexible Module:** Im Ein-Wochenstunden-Modell ist derzeit kein verlässlicher Zusatzkorridor vorhanden. Austausch- oder Integrationsvarianten brauchen einen eigenen Coverage-Nachweis.
 6. **Beurteilungsinstrumentarium:** `assessmentWorkingNotes` bleibt reduzierbar. Private Reflexion, automatische Punkte und personenbezogene Kompetenzprofile sind ausgeschlossen.
 7. **Goldstandard-Pilot:** `IUM-5-CORE-05` ist eine begründete Empfehlung, aber noch keine Nutzerfreigabe zur Implementierung.
-8. **Vollständigkeitsbehauptung:** 171/171 Designabdeckung darf nicht als 171/171 zeitlich gesicherte Unterrichtsabdeckung kommuniziert werden.
+8. **Semantische Lücken:** 48 Records sind curricular verortet, aber noch nicht vollständig durch Lernhandlung und Produkt eingelöst. Sie müssen vor einer Vollabdeckungsbehauptung einzeln geschlossen oder begründet `partial` bleiben.
+9. **Vollständigkeitsbehauptung:** 171/171 zugeordnete Records dürfen weder als 171/171 semantisch abgedeckte noch als zeitlich gesicherte Unterrichtsabdeckung kommuniziert werden.
 
 ## Freigabestatus
 
 - Fachlicher Kandidatengraph: reviewfähig.
-- Design-Coverage: 171/171 auf Kandidatenebene.
+- Coverage-Audit: 171/171 zugeordnet und geprüft; 123 `covered`, 48 `partial`, 0 `deferred`.
 - Jahresroadmap Klasse 5: `amber`.
 - Jahresroadmap Klassen 6 und 7: `red`.
-- Phase-1-Modulspezifikation: erst nach Task-15-Abschlussreview und Nutzerentscheidung zu Zeitkonflikt und Pilot.
+- Phase-1-Modulspezifikation: für den Goldstandard-Pilot nach Task-15-Abschlussreview und Nutzerentscheidung; eine Vollabdeckungsfreigabe setzt zusätzlich die recordgenaue Bearbeitung der 48 `partial`-Lücken voraus.

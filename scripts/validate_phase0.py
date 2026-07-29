@@ -1230,6 +1230,7 @@ def validate_coverage(payload, required_ids, module_ids):
         "normativeWeight",
         "moduleIds",
         "coverageStatus",
+        "semanticAudit",
         "evidence",
         "risk",
         "followUp",
@@ -1279,6 +1280,16 @@ def validate_coverage(payload, required_ids, module_ids):
             isinstance(coverage_status, str)
             and coverage_status in COVERAGE_STATUSES,
             f"invalid coverage status: {competency_id}",
+        )
+        semantic_audit = entry["semanticAudit"]
+        expected_semantic_audit = (
+            "operator-product-match"
+            if coverage_status == "covered"
+            else "documented-gap"
+        )
+        _require(
+            semantic_audit == expected_semantic_audit,
+            f"semantic audit differs from coverage status: {competency_id}",
         )
         for field in ("evidence", "risk", "followUp"):
             _require_nonempty_string(

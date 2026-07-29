@@ -291,6 +291,7 @@ def valid_coverage_entry(**overrides):
         "normativeWeight": "enacted",
         "moduleIds": ["IUM-5-CORE-01"],
         "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match",
         "evidence": (
             "IUM-5-CORE-01 führt die geforderte Lernhandlung aus und "
             "sichert sie in einem sichtbaren Produkt."
@@ -1641,6 +1642,7 @@ class CoverageTests(unittest.TestCase):
             for field in ("reason", "risk", "followUp"):
                 entry = valid_coverage_entry(
                     coverageStatus=coverage_status,
+                    semanticAudit="documented-gap",
                     reason="Nur ein Teil des Operators wird eingelöst.",
                 )
                 if field == "reason":
@@ -1665,6 +1667,39 @@ class CoverageTests(unittest.TestCase):
                             self.required_ids,
                             self.module_ids,
                         )
+
+    def test_semantic_audit_must_match_coverage_decision(self):
+        invalid_pairs = (
+            ("covered", "documented-gap"),
+            ("partial", "operator-product-match"),
+            ("deferred", "operator-product-match"),
+        )
+
+        for coverage_status, semantic_audit in invalid_pairs:
+            entry = valid_coverage_entry(
+                coverageStatus=coverage_status,
+                semanticAudit=semantic_audit,
+            )
+            if coverage_status != "covered":
+                entry["reason"] = "Der Produktnachweis ist unvollständig."
+            entries = [
+                entry,
+                valid_coverage_entry(
+                    competencyId="LH26-E-ID-001",
+                    normativeWeight="orientation",
+                ),
+            ]
+
+            with self.subTest(
+                coverage_status=coverage_status,
+                semantic_audit=semantic_audit,
+            ):
+                with self.assertRaises(ValidationError):
+                    validate_coverage(
+                        valid_coverage_payload(entries=entries),
+                        self.required_ids,
+                        self.module_ids,
+                    )
 
     def test_normative_weight_must_match_curriculum_source_status(self):
         entries = valid_coverage_payload()["entries"]
@@ -1698,6 +1733,7 @@ class CoverageTests(unittest.TestCase):
             ("risk", None),
             ("followUp", ""),
             ("coverageStatus", "open"),
+            ("semanticAudit", "unreviewed"),
         )
 
         for field, value in invalid_mutations:
@@ -1772,9 +1808,65 @@ class CoverageRepositoryTests(unittest.TestCase):
             Counter({"orientation": 95, "enacted": 76}),
         )
         self.assertEqual(
-            {entry["coverageStatus"] for entry in coverage_payload["entries"]},
-            {"covered"},
+            Counter(
+                entry["coverageStatus"]
+                for entry in coverage_payload["entries"]
+            ),
+            Counter({"covered": 123, "partial": 48}),
         )
+        self.assertEqual(
+            Counter(
+                (
+                    entry["normativeWeight"],
+                    entry["coverageStatus"],
+                )
+                for entry in coverage_payload["entries"]
+            ),
+            Counter(
+                {
+                    ("orientation", "covered"): 74,
+                    ("orientation", "partial"): 21,
+                    ("enacted", "covered"): 49,
+                    ("enacted", "partial"): 27,
+                }
+            ),
+        )
+        entries_by_id = {
+            entry["competencyId"]: entry
+            for entry in coverage_payload["entries"]
+        }
+        expected_partial_ids = {
+            "BMB16-GYM-PK-HK-003",
+            "BMB16-GYM-IK-KK-003",
+            "INF7-16-GYM-PK-SV-001",
+            "LH26-E-DA-015",
+            "LH26-E-ID-021",
+        }
+        for competency_id in expected_partial_ids:
+            with self.subTest(competency_id=competency_id):
+                entry = entries_by_id[competency_id]
+                self.assertEqual(entry["coverageStatus"], "partial")
+                self.assertEqual(
+                    entry["semanticAudit"],
+                    "documented-gap",
+                )
+                self.assertTrue(entry["reason"].strip())
+                self.assertTrue(entry["risk"].strip())
+                self.assertTrue(entry["followUp"].strip())
+        expected_covered_ids = {
+            "BMB16-GYM-IK-PP-003",
+            "INF7-16-GYM-PK-KK-003",
+            "INF7-16-GYM-PK-KK-004",
+            "LH26-E-DP-009",
+        }
+        for competency_id in expected_covered_ids:
+            with self.subTest(competency_id=competency_id):
+                entry = entries_by_id[competency_id]
+                self.assertEqual(entry["coverageStatus"], "covered")
+                self.assertEqual(
+                    entry["semanticAudit"],
+                    "operator-product-match",
+                )
 
         roadmap = (root / "roadmap/module-roadmap.md").read_text(
             encoding="utf-8"
@@ -1842,6 +1934,9 @@ class CoverageRepositoryTests(unittest.TestCase):
             "35-50",
             "54-78",
             "zeitlich nicht freigegeben",
+            "123 `covered`",
+            "48 `partial`",
+            "Operator und Gegenstand",
             "IUM-5-CORE-05",
             "keine Phase-2-Implementierungsplanung",
         ):
