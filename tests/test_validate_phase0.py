@@ -1,3 +1,4 @@
+import copy
 import json
 import tempfile
 import unittest
@@ -11,6 +12,7 @@ from scripts.validate_phase0 import (
     validate_curriculum_dataset,
     validate_design_principles,
     validate_curriculum_integrations,
+    validate_module_candidates,
     validate_operators,
     validate_source_register,
 )
@@ -166,6 +168,117 @@ def valid_crosswalk_payload(relations=None, unmapped_records=None, **overrides):
         },
         "relations": relation_payloads,
         "unmappedRecords": unmapped_payloads,
+    }
+    payload.update(overrides)
+    return payload
+
+
+MODULE_GRAMMAR_PHASES = [
+    "orientation-challenge",
+    "activate-prior-knowledge",
+    "build-concept",
+    "guided-practice",
+    "independent-action-product",
+    "review-revise-transfer",
+    "shared-consolidation",
+]
+
+
+def valid_module_candidate(**overrides):
+    module = {
+        "id": "IUM-5-CORE-01",
+        "title": "Recherche mit prüfbaren Belegen",
+        "grade": 5,
+        "kind": "core",
+        "strandIds": ["STRAND-B"],
+        "competencyIds": [
+            "LH26-E-ID-001",
+            "BMB16-GYM-IK-IW-001",
+        ],
+        "prerequisiteModuleIds": [],
+        "lessonRange": {"min": 4, "max": 6},
+        "centralQuestion": "Wie wird aus einer Suchfrage ein belastbarer Befund?",
+        "centralLearningAction": (
+            "Suchergebnisse auswählen, Quellen anhand von Kriterien "
+            "vergleichen und eine begründete Auswahl revidieren."
+        ),
+        "centralLearningProduct": (
+            "Quellendossier mit Suchweg, Kriterienprüfung, Belegen und Revision."
+        ),
+        "moduleGrammar": list(MODULE_GRAMMAR_PHASES),
+        "mediumRationale": (
+            "Die digitale Rechercheumgebung ist selbst Gegenstand der "
+            "Analyse und macht Suchweg, Quellenwechsel und Belegprüfung "
+            "direkt ausführbar."
+        ),
+        "analogMaterials": [],
+        "assessmentWorkingNotes": (
+            "Optional prüfbar sind Kriterienanwendung, Belegqualität und "
+            "begründete Revision; es entsteht kein Personenprofil."
+        ),
+        "status": "working",
+    }
+    module.update(overrides)
+    return module
+
+
+def valid_module_candidates_payload(modules=None, **overrides):
+    core = valid_module_candidate()
+    extension = valid_module_candidate(
+        id="IUM-5-EXT-01",
+        title="Recherchewerkzeuge vergleichen",
+        kind="extension",
+        competencyIds=["LH26-E-ID-001"],
+        prerequisiteModuleIds=["IUM-5-CORE-01"],
+        lessonRange={"min": 2, "max": 3},
+        moduleGrammar=[
+            "orientation-challenge",
+            "guided-practice",
+            "independent-action-product",
+            "review-revise-transfer",
+            "shared-consolidation",
+        ],
+    )
+    transfer = valid_module_candidate(
+        id="IUM-6-TRANSFER-01",
+        title="Belege in einem neuen Kontext prüfen",
+        grade=6,
+        kind="transfer",
+        competencyIds=["BMB16-GYM-IK-IW-001"],
+        prerequisiteModuleIds=["IUM-5-CORE-01"],
+        lessonRange={"min": 2, "max": 4},
+        moduleGrammar=[
+            "orientation-challenge",
+            "activate-prior-knowledge",
+            "independent-action-product",
+            "review-revise-transfer",
+            "shared-consolidation",
+        ],
+    )
+    project = valid_module_candidate(
+        id="IUM-7-PROJECT-01",
+        title="Offenes Evidenzprojekt",
+        grade=7,
+        kind="project",
+        prerequisiteModuleIds=["IUM-5-CORE-01"],
+        lessonRange={"min": 6, "max": 10},
+        moduleGrammar=[
+            "orientation-challenge",
+            "activate-prior-knowledge",
+            "build-concept",
+            "independent-action-product",
+            "review-revise-transfer",
+            "shared-consolidation",
+        ],
+    )
+    payload = {
+        "schemaVersion": 1,
+        "status": "working",
+        "modules": (
+            modules
+            if modules is not None
+            else [core, extension, transfer, project]
+        ),
     }
     payload.update(overrides)
     return payload
@@ -1036,6 +1149,294 @@ class CrosswalkTests(unittest.TestCase):
                 curriculum_records,
             ),
             set(curriculum_records),
+        )
+
+
+class ModuleCandidateTests(unittest.TestCase):
+    def setUp(self):
+        self.curriculum_ids = {
+            "LH26-E-ID-001",
+            "BMB16-GYM-IK-IW-001",
+        }
+
+    def test_valid_candidate_graph_returns_module_ids(self):
+        module_ids = validate_module_candidates(
+            valid_module_candidates_payload(),
+            self.curriculum_ids,
+        )
+
+        self.assertEqual(
+            module_ids,
+            {
+                "IUM-5-CORE-01",
+                "IUM-5-EXT-01",
+                "IUM-6-TRANSFER-01",
+                "IUM-7-PROJECT-01",
+            },
+        )
+
+    def test_duplicate_module_ids_are_rejected(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules.append(copy.deepcopy(modules[0]))
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_missing_module_field_is_rejected(self):
+        required_fields = (
+            "id",
+            "title",
+            "grade",
+            "kind",
+            "strandIds",
+            "competencyIds",
+            "prerequisiteModuleIds",
+            "lessonRange",
+            "centralQuestion",
+            "centralLearningAction",
+            "centralLearningProduct",
+            "moduleGrammar",
+            "mediumRationale",
+            "analogMaterials",
+            "assessmentWorkingNotes",
+            "status",
+        )
+
+        for field in required_fields:
+            modules = valid_module_candidates_payload()["modules"]
+            del modules[0][field]
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_module_candidates(
+                        valid_module_candidates_payload(modules=modules),
+                        self.curriculum_ids,
+                    )
+
+    def test_unknown_competency_id_is_rejected(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules[0]["competencyIds"] = ["UNKNOWN"]
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_unknown_prerequisite_module_id_is_rejected(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules[1]["prerequisiteModuleIds"] = ["IUM-5-CORE-99"]
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_dependency_cycles_are_rejected(self):
+        modules = valid_module_candidates_payload()["modules"]
+        second_core = valid_module_candidate(
+            id="IUM-5-CORE-02",
+            title="Zweiter Kernkandidat",
+            prerequisiteModuleIds=["IUM-5-CORE-01"],
+        )
+        modules[0]["prerequisiteModuleIds"] = ["IUM-5-CORE-02"]
+        modules.append(second_core)
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_invalid_or_missing_hybrid_module_kind_is_rejected(self):
+        invalid_modules = valid_module_candidates_payload()["modules"]
+        invalid_modules[1]["kind"] = "lab"
+        missing_kind_modules = [
+            module
+            for module in valid_module_candidates_payload()["modules"]
+            if module["kind"] != "project"
+        ]
+
+        for modules in (invalid_modules, missing_kind_modules):
+            with self.subTest(modules=modules):
+                with self.assertRaises(ValidationError):
+                    validate_module_candidates(
+                        valid_module_candidates_payload(modules=modules),
+                        self.curriculum_ids,
+                    )
+
+    def test_missing_learning_product_or_medium_rationale_is_rejected(self):
+        for field in ("centralLearningProduct", "mediumRationale"):
+            modules = valid_module_candidates_payload()["modules"]
+            modules[0][field] = " "
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_module_candidates(
+                        valid_module_candidates_payload(modules=modules),
+                        self.curriculum_ids,
+                    )
+
+    def test_analog_material_needs_didactic_rationale_and_reconnection(self):
+        invalid_analog_materials = (
+            [
+                {
+                    "title": "Paketkarten",
+                    "didacticRationale": "",
+                    "digitalReconnection": "Netzmodell digital prüfen.",
+                }
+            ],
+            [
+                {
+                    "title": "Paketkarten",
+                    "didacticRationale": "Verteiltes Weiterleiten körperlich modellieren.",
+                    "digitalReconnection": "",
+                }
+            ],
+        )
+
+        for analog_materials in invalid_analog_materials:
+            modules = valid_module_candidates_payload()["modules"]
+            modules[0]["analogMaterials"] = analog_materials
+
+            with self.subTest(analog_materials=analog_materials):
+                with self.assertRaises(ValidationError):
+                    validate_module_candidates(
+                        valid_module_candidates_payload(modules=modules),
+                        self.curriculum_ids,
+                    )
+
+    def test_core_module_needs_grade_and_valid_lesson_range(self):
+        invalid_overrides = (
+            {"grade": None},
+            {"lessonRange": None},
+            {"lessonRange": {"min": 6, "max": 4}},
+        )
+
+        for overrides in invalid_overrides:
+            modules = valid_module_candidates_payload()["modules"]
+            modules[0].update(overrides)
+
+            with self.subTest(overrides=overrides):
+                with self.assertRaises(ValidationError):
+                    validate_module_candidates(
+                        valid_module_candidates_payload(modules=modules),
+                        self.curriculum_ids,
+                    )
+
+    def test_core_modules_jointly_cover_all_required_curriculum_ids(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules[0]["competencyIds"] = ["LH26-E-ID-001"]
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_core_module_requires_complete_seven_phase_grammar(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules[0]["moduleGrammar"] = MODULE_GRAMMAR_PHASES[:-1]
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_core_path_cannot_depend_on_a_flexible_module(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules[0]["prerequisiteModuleIds"] = ["IUM-5-EXT-01"]
+        modules[1]["prerequisiteModuleIds"] = []
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_flexible_module_cannot_depend_on_another_flexible_module(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules[2]["prerequisiteModuleIds"] = ["IUM-5-EXT-01"]
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+
+class ModuleCandidateFileTests(unittest.TestCase):
+    def test_repository_candidates_cover_contract_and_preserve_hybrid_model(self):
+        root = Path(__file__).resolve().parents[1]
+        records = [
+            record
+            for path in sorted(
+                (root / "curriculum").glob("**/competencies.json")
+            )
+            for record in json.loads(path.read_text(encoding="utf-8"))[
+                "records"
+            ]
+        ]
+        required_curriculum_ids = {
+            record["id"]
+            for record in records
+            if record["recordType"] not in {"example", "operator"}
+        }
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        module_ids = validate_module_candidates(
+            payload,
+            required_curriculum_ids,
+        )
+        specification = (
+            root
+            / "docs/superpowers/specs/"
+            "2026-07-27-ium-lernwerk-gesamtdesign.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertEqual(len(required_curriculum_ids), 171)
+        self.assertEqual(len(module_ids), 31)
+        self.assertEqual(
+            {module["kind"] for module in payload["modules"]},
+            {"core", "extension", "transfer", "project"},
+        )
+        self.assertEqual(
+            {
+                module["grade"]
+                for module in payload["modules"]
+                if module["kind"] == "core"
+            },
+            {5, 6, 7},
+        )
+        self.assertFalse(
+            any(
+                module["grade"] == 5
+                and module["kind"] in {"transfer", "project"}
+                for module in payload["modules"]
+            )
+        )
+        self.assertEqual(
+            specification.count(
+                "Ein verbindlicher Kernlernweg sichert fachliche "
+                "Progression und vollständige Curriculum-Abdeckung."
+            ),
+            1,
+        )
+        self.assertEqual(
+            specification.count(
+                "Vertiefungs-, Transfer- und Projektmodule können an "
+                "definierte Voraussetzungen andocken und flexibel "
+                "eingesetzt werden."
+            ),
+            1,
         )
 
 

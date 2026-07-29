@@ -1,0 +1,1344 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "scope": {
+    "schoolType": "Gymnasium",
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "level": "E",
+    "curriculumStatusBoundary": {
+      "SRC-CUR-LESEHILFE-2026-27": "orientation",
+      "SRC-CUR-BMB-2016": "enacted",
+      "SRC-CUR-INF7-2016": "enacted"
+    }
+  },
+  "modelNotes": {
+    "candidateBoundary": "Die Records sind reviewfähige Modulkandidaten, keine fertigen Module und keine normative Stundentafel.",
+    "coreCoverage": "Alle Kompetenz-, Prozesskompetenz- und Progressionsrecords werden im Kernpfad mindestens einmal abgedeckt; Beispiele und Operatoren werden nicht als eigenständige Pflichtkompetenzen gezählt.",
+    "hybridModel": "Core bildet einen progressiven, vollständig abdeckenden Pfad. Extension, transfer und project bleiben optionale Kandidaten mit expliziten Kernvoraussetzungen.",
+    "gradeBoundary": "Die konkrete Verteilung der kombinierten Lesehilfe-Vorgaben 5/6 ist eine didaktische Arbeitsentscheidung mit Status working.",
+    "timeBoundary": "lessonRange ist ein erster Modulkorridor. Jahreskorridore, Puffer und Abdeckungskonflikte werden erst in Task 14 geprüft.",
+    "assessmentBoundary": "assessmentWorkingNotes ist reduzierbar und erzeugt weder Noten noch personenbezogene Kompetenzprofile."
+  },
+  "modules": [
+    {
+      "id": "IUM-5-CORE-01",
+      "title": "Im Schulnetz sicher arbeitsfähig werden",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-PROG-001",
+        "LH26-E-DP-001",
+        "LH26-E-KS-006",
+        "LH26-E-KS-007",
+        "LH26-E-DA-001",
+        "LH26-E-DA-002",
+        "LH26-E-DA-003",
+        "LH26-E-DA-004",
+        "BMB16-GYM-PK-SK-001",
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-PK-SK-003",
+        "BMB16-GYM-IK-GM-001",
+        "BMB16-GYM-IK-GM-002",
+        "BMB16-GYM-IK-GM-003"
+      ],
+      "prerequisiteModuleIds": [],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie richten wir einen digitalen Arbeitsplatz ein, der verständlich, sicher und wieder auffindbar bleibt?",
+      "centralLearningAction": "Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen.",
+      "centralLearningProduct": "Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Dateioperationen, Zugriffswege und Wiederanlauf lassen sich nur in einer digitalen Arbeitsumgebung authentisch ausführen und unmittelbar prüfen.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-02",
+      "title": "Eine Suchfrage mit Belegen beantworten",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-001",
+        "LH26-E-ID-002",
+        "LH26-E-ID-003",
+        "LH26-E-ID-009",
+        "LH26-E-ID-010",
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-001",
+        "BMB16-GYM-IK-IW-002",
+        "BMB16-GYM-IK-IW-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wann trägt ein Suchergebnis wirklich zur Antwort auf unsere Frage bei?",
+      "centralLearningAction": "Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren.",
+      "centralLearningProduct": "Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Browser, Suchmaschine, Quellenwechsel und Hyperlinks sind zugleich Werkzeug und Untersuchungsgegenstand; der digitale Weg muss für die Belegprüfung erhalten bleiben.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-03",
+      "title": "Digital verständlich, sicher und fair kommunizieren",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-001",
+        "LH26-E-KS-002",
+        "LH26-E-KS-003",
+        "LH26-E-KS-004",
+        "LH26-E-KS-005",
+        "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-PK-RK-004",
+        "BMB16-GYM-IK-KK-001",
+        "BMB16-GYM-IK-KK-002",
+        "BMB16-GYM-IK-KK-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Welche Regel hilft in welcher digitalen Kommunikationssituation – und warum?",
+      "centralLearningAction": "Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen.",
+      "centralLearningProduct": "Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Kommunikationswege müssen in ihrer realen Zeichen-, Anhangs-, Adressaten- und Teilungslogik erprobt werden; fiktive Fälle verhindern persönliche Offenlegung.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-04",
+      "title": "Den Weg einer Nachricht als Modell prüfen",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-008",
+        "LH26-E-KS-009",
+        "LH26-E-KS-010",
+        "BMB16-GYM-IK-GM-002"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie gelangt eine Nachricht durch ein Netz zum richtigen Dienst, obwohl wir den Weg nicht sehen?",
+      "centralLearningAction": "Vermutungen über Internet und Cloud sichtbar machen, Knoten und Weiterleitungen modellieren, Client–Server-Abläufe ausführen und Modellgrenzen an einer digitalen Simulation prüfen.",
+      "centralLearningProduct": "Mehrschichtiges Netzmodell mit Nachrichtenweg, Client–Server-Sequenz, Speicherortvergleich und ausdrücklich markierter Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine interaktive Netzsimulation macht alternative Wege, Weiterleitung und Client–Server-Rollen veränderbar; dadurch können Modellvorhersagen direkt gegen Systemreaktionen geprüft werden.",
+      "analogMaterials": [
+        {
+          "title": "Verteiltes Paketkarten-Modell",
+          "didacticRationale": "Rollen, lokale Weiterleitungsentscheidungen und alternative Wege werden körperlich und gemeinsam erfahrbar, ohne sie hinter einer Oberfläche zu verbergen.",
+          "digitalReconnection": "Die protokollierten Wege werden anschließend in der digitalen Netzsimulation rekonstruiert, variiert und auf Modellgrenzen geprüft."
+        }
+      ],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-05",
+      "title": "Präzise Abläufe ausführbar machen",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-PROG-002",
+        "LH26-E-ALG-001",
+        "LH26-E-ALG-002",
+        "LH26-E-ALG-003",
+        "LH26-E-ALG-004"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie genau muss eine Vorschrift sein, damit Mensch und digitales System denselben Ablauf ausführen?",
+      "centralLearningAction": "Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren.",
+      "centralLearningProduct": "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine digitale Ausführungsumgebung kann Schritte, Position, Zustand und Wiederholungen sichtbar koppeln und Abweichungen reproduzierbar machen.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-06",
+      "title": "Ein Medienprodukt zielgerichtet gestalten",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DA-005",
+        "LH26-E-DA-006",
+        "LH26-E-DA-007",
+        "LH26-E-DA-008",
+        "BMB16-GYM-PK-HK-002",
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-PP-002",
+        "BMB16-GYM-IK-PP-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01",
+        "IUM-5-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Welche Gestaltung hilft einer Zielgruppe, eine belegte Aussage richtig zu verstehen?",
+      "centralLearningAction": "Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten.",
+      "centralLearningProduct": "Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Layout, Medienobjekte, Quellenlinks und Revision sind genuine digitale Produkteigenschaften; Versionen können direkt verglichen und barrierearme Varianten geprüft werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-07",
+      "title": "Mediennutzung und Werbung an Fällen untersuchen",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-002",
+        "LH26-E-DP-003",
+        "LH26-E-DP-005",
+        "BMB16-GYM-PK-RK-001",
+        "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-PK-RK-003",
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002",
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie beeinflussen Gestaltung, Einbettung und Nutzungssituation unsere Wahrnehmung, ohne dass daraus eine Personendiagnose folgt?",
+      "centralLearningAction": "Werbung und Medienwirkung in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen, alternative Erklärungen nennen und eine begründete Handlungsoption formulieren.",
+      "centralLearningProduct": "Fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Kuratiertes digitales Medienmaterial erlaubt das genaue Markieren eingebetteter Werbung und den Vergleich veränderbarer Gestaltungsmerkmale, ohne private Nutzungsdaten zu erheben.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-01",
+      "title": "Suchmaschinen, Akteure und KI-Ergebnisse prüfen",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-004",
+        "LH26-E-ID-005",
+        "LH26-E-ID-006",
+        "LH26-E-ID-007",
+        "LH26-E-ID-008",
+        "LH26-E-ID-011",
+        "LH26-E-ID-012"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 8
+      },
+      "centralQuestion": "Wie entstehen sichtbare Such- und KI-Ergebnisse – und wann verdienen sie Vertrauen?",
+      "centralLearningAction": "Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren.",
+      "centralLearningProduct": "Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Suchindizes, verlinkte Quellen und KI-Ausgaben sind digitale Mechanismen; ein kontrollierter Browserraum erlaubt reproduzierbare Vergleiche und direkte Belegnavigation.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-02",
+      "title": "Datenfluss und personalisierte Auswahl modellieren",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D",
+        "STRAND-B",
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-004",
+        "LH26-E-DP-006",
+        "LH26-E-DP-007",
+        "LH26-E-DP-008",
+        "LH26-E-DP-009"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-07",
+        "IUM-6-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Welche Daten gelangen zu welchen Akteuren, und wie können sie eine Auswahl beeinflussen?",
+      "centralLearningAction": "Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen.",
+      "centralLearningProduct": "Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine lokale interaktive Fallumgebung macht Datenflüsse, Auswahlparameter und Gegenmaßnahmen veränderbar, ohne reale personenbezogene Daten zu sammeln.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-03",
+      "title": "Codierungen entwerfen und auf Umkehrbarkeit prüfen",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-013",
+        "LH26-E-ID-014",
+        "LH26-E-ID-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie muss eine Vereinbarung aussehen, damit Information eindeutig übertragen und zurückgewonnen werden kann?",
+      "centralLearningAction": "Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern.",
+      "centralLearningProduct": "Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein lokales digitales Codierwerkzeug ermöglicht sofortige Umkehrtests, systematische Gegenbeispiele und den Wechsel zwischen Information, Zeichen und Code.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-04",
+      "title": "Programme mit festen Schleifen lesen und verändern",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-ALG-005",
+        "LH26-E-ALG-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie erklären wir nicht nur, dass Code läuft, sondern wie jeder Schritt zur Wirkung beiträgt?",
+      "centralLearningAction": "Code vorhersagen, schrittweise mit Zustand ausführen, Wirkung erklären, eine feste Schleife begründet verändern und die Änderung mit Fällen prüfen.",
+      "centralLearningProduct": "Lauffähiges kleines Programm mit Trace, Wirkungserklärung, begründeter Modifikation und dokumentierten Testfällen.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine lokale Programmier- und Tracingumgebung koppelt Codeposition, Zustand und Ausgabe; Änderungen und Testfälle werden unmittelbar reproduzierbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-05",
+      "title": "Netz- und Speicherentscheidungen mit Modellen begründen",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-008",
+        "LH26-E-KS-009",
+        "LH26-E-KS-010"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-04"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Welches Netz- oder Speichermodell erklärt eine konkrete Schulaufgabe gut genug – und wo endet es?",
+      "centralLearningAction": "Bekannte Netz-, Client–Server- und Speichermodelle auf einen neuen Fall übertragen, Kriterien gewichten, Modellgrenzen markieren und eine Entscheidung revidieren.",
+      "centralLearningProduct": "Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Szenarien erlauben das Umschalten von Netzwegen, Diensten und Speicherorten; Entscheidungen können gegen simulierte Ausfälle und Zugriffsänderungen geprüft werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-06",
+      "title": "Konflikte in sozialen Räumen fallbezogen bearbeiten",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-011",
+        "LH26-E-KS-012",
+        "LH26-E-KS-013",
+        "LH26-E-KS-014",
+        "LH26-E-KS-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-03",
+        "IUM-5-CORE-07"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie lässt sich in einem digitalen Konflikt handeln, ohne Betroffene zur Offenlegung zu zwingen?",
+      "centralLearningAction": "Rechtliche und kommunikative Bedingungen an fiktiven Fällen prüfen, begünstigende Faktoren unterscheiden und passende Präventions-, Hilfe- und Meldewege begründen.",
+      "centralLearningProduct": "Nichtpersonaler Fall-Handlungsplan mit Rollen, Grenzen, Belegen, Hilfswegen, Alternativen und begründeter Eskalationsentscheidung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine geschützte digitale Fallsimulation kann Perspektiven, Sichtbarkeiten und Handlungsfolgen variieren; persönliche Berichte und reale Klassenkommunikation sind nicht erforderlich.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-07",
+      "title": "Wirkungsabsicht, Rechte und Revision verbinden",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DA-009",
+        "LH26-E-DA-010",
+        "LH26-E-DA-011",
+        "LH26-E-DA-012",
+        "LH26-E-DA-013",
+        "LH26-E-DA-014",
+        "LH26-E-DA-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-06",
+        "IUM-6-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie lässt sich eine beabsichtigte Wirkung gestalten, rechtlich verantworten und durch Revision verbessern?",
+      "centralLearningAction": "Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren.",
+      "centralLearningProduct": "Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Produktion ist Gegenstand und Handlung: Versionen, Quellenmetadaten, Lizenzhinweise, Export und Feedbackrevision müssen am tatsächlichen Artefakt geprüft werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-01",
+      "title": "Codierungen zwischen Zeichen, Zahlen und Bits entwerfen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-016",
+        "LH26-E-ID-017",
+        "LH26-E-ID-020",
+        "LH26-E-ID-021",
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-007",
+        "INF7-16-GYM-IK-DC-008"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-03"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie wird aus einer vereinbarten Bedeutung eine eindeutige Bitfolge – und welche Grenzen setzt der Zeichenvorrat?",
+      "centralLearningAction": "Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen.",
+      "centralLearningProduct": "Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein lokales Bitlabor macht Zeichen-, Zahlen- und Bitdarstellung synchron sichtbar und erzeugt systematische Test- und Grenzfälle ohne Formatierungsfehler durch Fremdwerkzeuge.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-02",
+      "title": "Bilder als Daten modellieren und Ressourcenfolgen prüfen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-018",
+        "LH26-E-ID-019",
+        "LH26-E-ID-022",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-006",
+        "INF7-16-GYM-IK-DC-007"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie werden Bildentscheidungen zu Bits, Datenmengen und Ressourcenfolgen?",
+      "centralLearningAction": "Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen.",
+      "centralLearningProduct": "Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein interaktives Pixel- und Bitraster verbindet sichtbare Bildänderung unmittelbar mit Code und Datenmenge; Varianten können kontrolliert verglichen werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-03",
+      "title": "Kontrollfluss, Werte und Zustände tracen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-ALG-007",
+        "LH26-E-ALG-008",
+        "LH26-E-ALG-009",
+        "LH26-E-ALG-011",
+        "LH26-E-ALG-012",
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-002",
+        "INF7-16-GYM-IK-ALG-003",
+        "INF7-16-GYM-IK-ALG-006",
+        "INF7-16-GYM-IK-ALG-007",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-SV-004",
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-MI-004",
+        "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-PK-AB-001"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-04"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 8
+      },
+      "centralQuestion": "Wie verändern Kontrollstrukturen, Werte und Ausdrücke den Zustand eines Programms Schritt für Schritt?",
+      "centralLearningAction": "Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren.",
+      "centralLearningProduct": "Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine Tracingumgebung kann Codeposition, Kontrollfluss, Werte, Typen und Ausgabe synchronisieren; dieselbe Ausführung bleibt für Vorhersage und Gegenfall reproduzierbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-04",
+      "title": "Programme entwerfen, testen und debuggen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-ALG-010",
+        "INF7-16-GYM-IK-ALG-004",
+        "INF7-16-GYM-IK-ALG-005",
+        "INF7-16-GYM-PK-SV-002",
+        "INF7-16-GYM-PK-SV-005",
+        "INF7-16-GYM-PK-MI-003",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-PK-MI-008",
+        "INF7-16-GYM-PK-MI-009",
+        "INF7-16-GYM-PK-MI-010",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "lessonRange": {
+        "min": 7,
+        "max": 10
+      },
+      "centralQuestion": "Wann ist ein Programm nicht nur lauffähig, sondern verständlich, geprüft und angemessen?",
+      "centralLearningAction": "Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren.",
+      "centralLearningProduct": "Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Implementation, Zustandsbeobachtung, Testwiederholung und Codevergleich verlangen eine lokale Programmierumgebung; Quellbausteine und Revisionen bleiben nachvollziehbar exportierbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-05",
+      "title": "Netze, Speicher und Geräteschutz modellieren",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-RN-002",
+        "INF7-16-GYM-IK-RN-003",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-003",
+        "INF7-16-GYM-PK-AB-004"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Welches Systemmodell trägt eine begründete Entscheidung zu Netz, Speicherort und Geräteschutz?",
+      "centralLearningAction": "Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen.",
+      "centralLearningProduct": "System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Interaktive Netz- und Speicherszenarien machen Ausfall, Zugriff, Datenweg und Schutzmaßnahme variierbar und erlauben direkte Modell-Realitäts-Vergleiche.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-06",
+      "title": "Verschlüsselung erklären und passend auswählen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-016",
+        "LH26-E-KS-017",
+        "LH26-E-KS-018",
+        "LH26-E-KS-022",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wann schützt Verschlüsselung eine Kommunikation – und worin unterscheidet sie sich von Codierung?",
+      "centralLearningAction": "Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen.",
+      "centralLearningProduct": "Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine lokale Visualisierung kann Schlüssel, Datenweg und sichtbare Zwischenzustände kontrolliert ein- und ausblenden; dadurch werden Schutzgrenzen direkt prüfbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-07",
+      "title": "Einfache Verschlüsselung angreifen und bewerten",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-019",
+        "LH26-E-KS-020",
+        "LH26-E-KS-021",
+        "INF7-16-GYM-IK-IGD-002",
+        "INF7-16-GYM-IK-IGD-003",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-KK-002"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Was zeigt ein erfolgreicher Angriff über die Sicherheit eines Verfahrens – und was nicht?",
+      "centralLearningAction": "Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten.",
+      "centralLearningProduct": "Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Werkzeuge machen vollständige Schlüsselsuche, Häufigkeiten und Variantenvergleich effizient prüfbar; der händische Einstieg erhält das Verfahrensverständnis.",
+      "analogMaterials": [
+        {
+          "title": "Caesar-Scheibe und händisches Kurzprotokoll",
+          "didacticRationale": "Die Zuordnung von Klartext, Geheimtext und Schlüssel bleibt als nachvollziehbare Transformation sichtbar, bevor Automatisierung die einzelnen Schritte verdeckt.",
+          "digitalReconnection": "Der manuelle Fall wird im lokalen Angriffslabor reproduziert, mit vollständiger Schlüsselsuche erweitert und gegen Häufigkeitsanalyse verglichen."
+        }
+      ],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-08",
+      "title": "Daten, Akteure und Desinformation beurteilen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D",
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-PROG-003",
+        "LH26-E-PROG-004",
+        "LH26-E-DP-010",
+        "LH26-E-DP-011",
+        "LH26-E-DP-012",
+        "LH26-E-DP-013",
+        "INF7-16-GYM-PK-MI-001",
+        "INF7-16-GYM-PK-KK-004",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-IK-IGD-005",
+        "INF7-16-GYM-IK-IGD-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-01",
+        "IUM-6-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie entsteht ein begründetes Urteil, wenn Akteure Einfluss nehmen, Daten anfallen und Belege widersprüchlich sind?",
+      "centralLearningAction": "Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren.",
+      "centralLearningProduct": "Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Quellenketten, Versionen und verlinkte Belege müssen am tatsächlichen Material untersucht werden; kuratierte Fälle verhindern algorithmische Live-Zufälle und persönliche Datenspuren.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-09",
+      "title": "Gamingmechanismen ohne Personendiagnose analysieren",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-015",
+        "LH26-E-DP-016",
+        "LH26-E-DP-017",
+        "LH26-E-DP-018",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-PK-KK-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-02",
+        "IUM-7-CORE-08"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie greifen Spielgestaltung, soziale Situation und Geschäftsmodell ineinander, ohne individuelles Verhalten zu diagnostizieren?",
+      "centralLearningAction": "Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen und eine Designentscheidung bewerten.",
+      "centralLearningProduct": "Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Kuratiertes digitales Spielmaterial macht Interaktion, Feedbackschleifen und Monetarisierung sichtbar; fiktive Profile ersetzen persönliche Nutzungsdaten.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-10",
+      "title": "Medienbilder analysieren und wirkungsbewusst verändern",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-014",
+        "LH26-E-DA-016",
+        "LH26-E-DA-017",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-07",
+        "IUM-7-CORE-08"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie verändert eine technische Bearbeitung die Wirkung eines Medienbilds – und wie wird diese Entscheidung transparent und verantwortbar?",
+      "centralLearningAction": "Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren.",
+      "centralLearningProduct": "Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Technische Veränderung, Ebenen, Versionen und Export sind genuin digitale Produktionshandlungen; ein lokaler Editor hält Original, Bearbeitung und Metadaten kontrollierbar zusammen.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-EXT-01",
+      "title": "Paketpost im Klassennetz vertiefen",
+      "grade": 5,
+      "kind": "extension",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-008",
+        "LH26-E-KS-009"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-04"
+      ],
+      "lessonRange": {
+        "min": 2,
+        "max": 3
+      },
+      "centralQuestion": "Welche lokalen Regeln lassen ein verteiltes Netz auch bei einer Störung weiterarbeiten?",
+      "centralLearningAction": "Weiterleitungsregeln in zusätzlichen Störfällen variieren, Paketwege protokollieren und die eigene Modellgrenze präzisieren.",
+      "centralLearningProduct": "Erweiterter Paketwegvergleich mit Störfall, Alternativroute und revidierter Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Die digitale Simulation erlaubt reproduzierbare Störungen und direkten Vergleich mehrerer Routen; das analoge Rollenspiel fokussiert lokale Entscheidungen.",
+      "analogMaterials": [
+        {
+          "title": "Störfallkarten für das Paketnetz",
+          "didacticRationale": "Unvorhersehbare lokale Ausfälle erzwingen gemeinsame Weiterleitungsentscheidungen, ohne dass eine fertige Simulation den Lösungsweg vorgibt.",
+          "digitalReconnection": "Jeder analoge Störfall wird anschließend digital rekonstruiert und auf alternative Pfade sowie Modellgrenzen geprüft."
+        }
+      ],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-EXT-01",
+      "title": "KI-Antworten im Quellenlabor vertiefen",
+      "grade": 6,
+      "kind": "extension",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-011",
+        "LH26-E-ID-012"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 4
+      },
+      "centralQuestion": "Welche Prüfstrategie bleibt tragfähig, wenn eine KI-Antwort plausibel klingt und Quellen widersprechen?",
+      "centralLearningAction": "Mehrere KI-Behauptungen in prüfbare Teile zerlegen, unabhängige Belege und Gegenbelege suchen, Unsicherheit kalibrieren und die Prüfstrategie vergleichen.",
+      "centralLearningProduct": "Vergleichsmatrix dreier Behauptungsprüfungen mit Belegkette, Gegenbeleg, Unsicherheit und Strategie-Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein lokaler, kuratierter Antwortsatz hält Fälle reproduzierbar; Browserlinks ermöglichen die notwendige unabhängige Quellenprüfung ohne Live-KI-Abhängigkeit.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-EXT-01",
+      "title": "Codewortgrenzen formal untersuchen",
+      "grade": 7,
+      "kind": "extension",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-008"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 5
+      },
+      "centralQuestion": "Wie begrenzen Zeichenvorrat und Codelänge die Zahl unterscheidbarer Codewörter?",
+      "centralLearningAction": "Codeworträume systematisch erzeugen, Zusammenhang und Grenzfälle berechnen, eine Behauptung mit Gegenbeispiel prüfen und verallgemeinern.",
+      "centralLearningProduct": "Interaktiver Codewortatlas mit Berechnung, Grenzfall, Gegenbeispiel und begründeter Verallgemeinerung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein digitales Kombinationslabor kann Codeworträume vollständig und fehlerarm erzeugen; Lernende verbinden die sichtbaren Muster mit eigener Berechnung.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-TRANSFER-01",
+      "title": "Einen Speicherort für ein Schulprojekt entscheiden",
+      "grade": 6,
+      "kind": "transfer",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-010",
+        "LH26-E-DA-002"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01",
+        "IUM-6-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 2,
+        "max": 4
+      },
+      "centralQuestion": "Welcher Speicherort trägt Zusammenarbeit, Zugriff und Schutz in einem neuen Schulprojekt?",
+      "centralLearningAction": "Anforderungen eines unbekannten Projekts gewichten, Speicheroptionen vergleichen, Datenweg und Zugriff modellieren und die Entscheidung nach einem Störfall revidieren.",
+      "centralLearningProduct": "Begründete Speicherentscheidung mit Kriteriengewichtung, Datenweg, Störfallprüfung und Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Die digitale Szenarioumgebung kann Rechte, Netzverfügbarkeit und Gerätezustand verändern; dadurch wird die Entscheidung gegen reale Systembedingungen geprüft.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-TRANSFER-01",
+      "title": "Einen sicheren Kommunikationsweg begründen",
+      "grade": 7,
+      "kind": "transfer",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-017",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-IK-IGD-005"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-06",
+        "IUM-7-CORE-05",
+        "IUM-7-CORE-06"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 5
+      },
+      "centralQuestion": "Welcher Kommunikationsweg schützt eine konkrete Nachricht unter technischen und rechtlichen Bedingungen angemessen?",
+      "centralLearningAction": "Schutzbedarf, Datenweg, Geräteverlust, Verschlüsselungsgrenze und rechtliche Anforderungen eines neuen Falls verbinden, Alternativen prüfen und eine Empfehlung vertreten.",
+      "centralLearningProduct": "Sicherheitsentscheidung mit Bedrohungsmodell, Kommunikationswegvergleich, Rechtsprüfung, Gegenargument und revidierter Empfehlung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Fallvarianten machen Geräte-, Dienst- und Verschlüsselungszustände veränderbar; der Datenweg bleibt als prüfbares Modell sichtbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-PROJECT-01",
+      "title": "Eine offene Informationskampagne gestalten",
+      "grade": 6,
+      "kind": "project",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-002",
+        "LH26-E-ID-003",
+        "LH26-E-ID-010",
+        "LH26-E-ID-011",
+        "LH26-E-DA-009",
+        "LH26-E-DA-010",
+        "LH26-E-DA-011",
+        "LH26-E-DA-013",
+        "LH26-E-DA-014",
+        "LH26-E-DA-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-01",
+        "IUM-6-CORE-07"
+      ],
+      "lessonRange": {
+        "min": 8,
+        "max": 12
+      },
+      "centralQuestion": "Wie entsteht eine überzeugende Informationskampagne, die Belege, Wirkung und offene Nachnutzung verantwortet?",
+      "centralLearningAction": "Eine reale, nicht sensible Schulfrage recherchieren, Zielgruppe und Wirkung planen, offene Assets prüfen, ein Produkt arbeitsteilig erstellen, testen und veröffentlichungsreif revidieren.",
+      "centralLearningProduct": "Offen lizenziertes Kampagnenpaket mit Evidenzdossier, Gestaltungsbriefing, Assetnachweisen, Feedback, Revision und Exportentscheidung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Recherche, kollaborative Produktion, Assetmetadaten, Versionen und offener Export bilden den Projektgegenstand; das Ergebnis bleibt ohne Konto nachnutzbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-PROJECT-01",
+      "title": "Täuschung sichtbar machen und verantwortbar redesignen",
+      "grade": 7,
+      "kind": "project",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-012",
+        "LH26-E-DP-013",
+        "LH26-E-DP-014",
+        "LH26-E-DA-016",
+        "LH26-E-DA-017"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-10"
+      ],
+      "lessonRange": {
+        "min": 8,
+        "max": 12
+      },
+      "centralQuestion": "Wie lässt sich eine manipulative Darstellung erklären und so redesignen, dass Eingriff, Wirkung und Beleglage transparent werden?",
+      "centralLearningAction": "Eine kuratierte Darstellung evidenzbasiert analysieren, technische Eingriffe rekonstruieren, ein transparentes Gegenprodukt entwerfen, Wirkung und Rechte prüfen und nach Review revidieren.",
+      "centralLearningProduct": "Transparenz-Dossier und revidiertes Medienprodukt mit Eingriffsprotokoll, Beleg/Gegenbeleg, Wirkungsgrenze, Rechteprüfung und offener Kennzeichnung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Original, Bearbeitungsebenen, Metadaten, Quellen und Versionen müssen digital vergleichbar bleiben; kuratiertes Material begrenzt Schutz- und Rechtsrisiken.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    }
+  ]
+}

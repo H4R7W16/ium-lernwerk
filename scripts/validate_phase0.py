@@ -1,4 +1,5 @@
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -60,6 +61,32 @@ OPERATOR_COMPLEXITY_BANDS = {
     "context-dependent",
 }
 INTEGRATION_STATUSES = {"working", "reviewed"}
+MODULE_KINDS = {"core", "extension", "transfer", "project"}
+MODULE_KIND_TOKENS = {
+    "CORE": "core",
+    "EXT": "extension",
+    "TRANSFER": "transfer",
+    "PROJECT": "project",
+}
+MODULE_STRAND_IDS = {
+    "STRAND-A",
+    "STRAND-B",
+    "STRAND-C",
+    "STRAND-D",
+    "STRAND-E",
+}
+MODULE_GRAMMAR_PHASES = (
+    "orientation-challenge",
+    "activate-prior-knowledge",
+    "build-concept",
+    "guided-practice",
+    "independent-action-product",
+    "review-revise-transfer",
+    "shared-consolidation",
+)
+MODULE_ID_PATTERN = re.compile(
+    r"^IUM-([5-7])-(CORE|EXT|TRANSFER|PROJECT)-([0-9]{2})$"
+)
 REQUIRED_CROSSWALK_SOURCE_COMPARISONS = {
     ("SRC-CUR-LESEHILFE-2026-27", "SRC-CUR-BMB-2016"),
     ("SRC-CUR-LESEHILFE-2026-27", "SRC-CUR-INF7-2016"),
@@ -825,6 +852,262 @@ def validate_operators(payload, curriculum_ids):
     return source_record_id_set
 
 
+def validate_module_candidates(payload, curriculum_ids):
+    _require(
+        isinstance(payload, dict),
+        "module candidates payload must be an object",
+    )
+    _require_fields(
+        payload,
+        ("schemaVersion", "status", "modules"),
+        "module candidates payload",
+    )
+    _require(
+        payload["schemaVersion"] == 1
+        and not isinstance(payload["schemaVersion"], bool),
+        "module candidates schemaVersion must be 1",
+    )
+    _require(
+        isinstance(payload["status"], str)
+        and payload["status"] in INTEGRATION_STATUSES,
+        "module candidates status must be working or reviewed",
+    )
+    modules = payload["modules"]
+    _require(
+        isinstance(modules, list) and bool(modules),
+        "module candidates modules must be a nonempty list",
+    )
+    registered_curriculum_ids = set(curriculum_ids)
+    _require(
+        bool(registered_curriculum_ids),
+        "module candidates need registered curriculum ids",
+    )
+    required_fields = (
+        "id",
+        "title",
+        "grade",
+        "kind",
+        "strandIds",
+        "competencyIds",
+        "prerequisiteModuleIds",
+        "lessonRange",
+        "centralQuestion",
+        "centralLearningAction",
+        "centralLearningProduct",
+        "moduleGrammar",
+        "mediumRationale",
+        "analogMaterials",
+        "assessmentWorkingNotes",
+        "status",
+    )
+    module_ids = []
+    module_kinds = {}
+    prerequisite_ids_by_module = {}
+    core_curriculum_ids = set()
+    grammar_phase_order = {
+        phase: index
+        for index, phase in enumerate(MODULE_GRAMMAR_PHASES)
+    }
+    for module in modules:
+        _require_fields(module, required_fields, "module candidate")
+        module_id = module["id"]
+        _require_nonempty_string(module_id, "id", module_id)
+        match = MODULE_ID_PATTERN.fullmatch(module_id)
+        _require(match is not None, f"invalid module candidate id: {module_id}")
+        module_ids.append(module_id)
+        _require_nonempty_string(module["title"], "title", module_id)
+        grade = module["grade"]
+        _require(
+            isinstance(grade, int)
+            and not isinstance(grade, bool)
+            and grade in {5, 6, 7},
+            f"invalid module grade: {module_id}",
+        )
+        kind = module["kind"]
+        _require(
+            isinstance(kind, str) and kind in MODULE_KINDS,
+            f"invalid module kind: {module_id}",
+        )
+        _require(
+            int(match.group(1)) == grade
+            and MODULE_KIND_TOKENS[match.group(2)] == kind,
+            f"module id, grade and kind do not match: {module_id}",
+        )
+        module_kinds[module_id] = kind
+        strand_ids = module["strandIds"]
+        _require(
+            isinstance(strand_ids, list)
+            and bool(strand_ids)
+            and all(
+                isinstance(strand_id, str)
+                and strand_id in MODULE_STRAND_IDS
+                for strand_id in strand_ids
+            )
+            and len(strand_ids) == len(set(strand_ids)),
+            f"invalid strandIds: {module_id}",
+        )
+        competency_ids = module["competencyIds"]
+        _require(
+            isinstance(competency_ids, list)
+            and bool(competency_ids)
+            and all(
+                isinstance(competency_id, str) and competency_id
+                for competency_id in competency_ids
+            )
+            and len(competency_ids) == len(set(competency_ids)),
+            f"invalid competencyIds: {module_id}",
+        )
+        _require(
+            set(competency_ids) <= registered_curriculum_ids,
+            f"unknown competency id: {module_id}",
+        )
+        if kind == "core":
+            core_curriculum_ids.update(competency_ids)
+        prerequisite_ids = module["prerequisiteModuleIds"]
+        _require(
+            isinstance(prerequisite_ids, list)
+            and all(
+                isinstance(prerequisite_id, str) and prerequisite_id
+                for prerequisite_id in prerequisite_ids
+            )
+            and len(prerequisite_ids) == len(set(prerequisite_ids)),
+            f"invalid prerequisiteModuleIds: {module_id}",
+        )
+        prerequisite_ids_by_module[module_id] = prerequisite_ids
+        lesson_range = module["lessonRange"]
+        _require_fields(
+            lesson_range,
+            ("min", "max"),
+            f"lessonRange for {module_id}",
+        )
+        minimum_lessons = lesson_range["min"]
+        maximum_lessons = lesson_range["max"]
+        _require(
+            isinstance(minimum_lessons, int)
+            and not isinstance(minimum_lessons, bool)
+            and isinstance(maximum_lessons, int)
+            and not isinstance(maximum_lessons, bool)
+            and minimum_lessons > 0
+            and minimum_lessons <= maximum_lessons,
+            f"invalid lessonRange: {module_id}",
+        )
+        for field in (
+            "centralQuestion",
+            "centralLearningAction",
+            "centralLearningProduct",
+            "mediumRationale",
+            "assessmentWorkingNotes",
+        ):
+            _require_nonempty_string(module[field], field, module_id)
+        module_grammar = module["moduleGrammar"]
+        _require(
+            isinstance(module_grammar, list)
+            and bool(module_grammar)
+            and all(
+                isinstance(phase, str)
+                and phase in grammar_phase_order
+                for phase in module_grammar
+            )
+            and len(module_grammar) == len(set(module_grammar)),
+            f"invalid moduleGrammar: {module_id}",
+        )
+        _require(
+            module_grammar
+            == sorted(
+                module_grammar,
+                key=grammar_phase_order.__getitem__,
+            ),
+            f"moduleGrammar phases are out of order: {module_id}",
+        )
+        if kind == "core":
+            _require(
+                module_grammar == list(MODULE_GRAMMAR_PHASES),
+                f"core module needs all grammar phases: {module_id}",
+            )
+        analog_materials = module["analogMaterials"]
+        _require(
+            isinstance(analog_materials, list),
+            f"analogMaterials must be a list: {module_id}",
+        )
+        for analog_material in analog_materials:
+            _require_fields(
+                analog_material,
+                ("title", "didacticRationale", "digitalReconnection"),
+                f"analog material for {module_id}",
+            )
+            for field in (
+                "title",
+                "didacticRationale",
+                "digitalReconnection",
+            ):
+                _require_nonempty_string(
+                    analog_material[field],
+                    field,
+                    module_id,
+                )
+        _require(
+            isinstance(module["status"], str)
+            and module["status"] in INTEGRATION_STATUSES,
+            f"invalid module candidate status: {module_id}",
+        )
+    _require(
+        len(module_ids) == len(set(module_ids)),
+        "module candidate ids must be unique",
+    )
+    module_id_set = set(module_ids)
+    _require(
+        set(module_kinds.values()) == MODULE_KINDS,
+        "module candidates must include all hybrid module kinds",
+    )
+    for module_id, prerequisite_ids in prerequisite_ids_by_module.items():
+        _require(
+            set(prerequisite_ids) <= module_id_set,
+            f"unknown prerequisite module id: {module_id}",
+        )
+        _require(
+            module_id not in prerequisite_ids,
+            f"module cannot depend on itself: {module_id}",
+        )
+        if module_kinds[module_id] == "core":
+            _require(
+                all(
+                    module_kinds[prerequisite_id] == "core"
+                    for prerequisite_id in prerequisite_ids
+                ),
+                f"core module cannot depend on flexible module: {module_id}",
+            )
+        else:
+            _require(
+                all(
+                    module_kinds[prerequisite_id] == "core"
+                    for prerequisite_id in prerequisite_ids
+                ),
+                f"flexible module prerequisites must be core: {module_id}",
+            )
+    _require(
+        core_curriculum_ids == registered_curriculum_ids,
+        "core modules must jointly cover every required curriculum id",
+    )
+    visit_state = {}
+
+    def visit(module_id):
+        state = visit_state.get(module_id, "unvisited")
+        _require(
+            state != "visiting",
+            f"module dependency cycle detected at: {module_id}",
+        )
+        if state == "visited":
+            return
+        visit_state[module_id] = "visiting"
+        for prerequisite_id in prerequisite_ids_by_module[module_id]:
+            visit(prerequisite_id)
+        visit_state[module_id] = "visited"
+
+    for module_id in module_ids:
+        visit(module_id)
+    return module_id_set
+
+
 def validate_curriculum_integrations(
     root,
     curriculum_ids,
@@ -887,6 +1170,15 @@ def main():
         root,
         curriculum_records,
         operator_records,
+    )
+    required_curriculum_ids = {
+        record_id
+        for record_id, record in curriculum_records.items()
+        if record["recordType"] not in {"example", "operator"}
+    }
+    validate_module_candidates(
+        load_json(root / "roadmap/module-candidates.json"),
+        required_curriculum_ids,
     )
     print("phase 0 validation passed")
 
