@@ -505,7 +505,7 @@
         "max": 6
       },
       "centralQuestion": "Welches Netz- oder Speichermodell erklärt eine konkrete Schulaufgabe gut genug – und wo endet es?",
-      "centralLearningAction": "Bekannte Netz-, Client–Server- und Speichermodelle auf einen neuen Fall übertragen, Kriterien gewichten, Modellgrenzen markieren und eine Entscheidung revidieren.",
+      "centralLearningAction": "Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren.",
       "centralLearningProduct": "Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
       "moduleGrammar": [
         "orientation-challenge",
@@ -1064,9 +1064,9 @@
       "status": "working"
     },
     {
-      "id": "IUM-5-EXT-01",
+      "id": "IUM-6-EXT-02",
       "title": "Paketpost im Klassennetz vertiefen",
-      "grade": 5,
+      "grade": 6,
       "kind": "extension",
       "strandIds": [
         "STRAND-C"
@@ -1076,7 +1076,7 @@
         "LH26-E-KS-009"
       ],
       "prerequisiteModuleIds": [
-        "IUM-5-CORE-04"
+        "IUM-6-CORE-05"
       ],
       "lessonRange": {
         "min": 2,

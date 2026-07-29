@@ -1460,14 +1460,25 @@ class ModuleCandidateFileTests(unittest.TestCase):
             "LH26-E-KS-010",
         ):
             with self.subTest(competency_id=competency_id):
-                self.assertNotIn(
-                    competency_id,
-                    modules_by_id["IUM-5-CORE-04"]["competencyIds"],
+                self.assertFalse(
+                    any(
+                        competency_id in module["competencyIds"]
+                        for module in payload["modules"]
+                        if module["grade"] == 5
+                    ),
                 )
                 self.assertIn(
                     competency_id,
                     modules_by_id["IUM-6-CORE-05"]["competencyIds"],
                 )
+        self.assertEqual(
+            modules_by_id["IUM-6-EXT-02"]["prerequisiteModuleIds"],
+            ["IUM-6-CORE-05"],
+        )
+        self.assertIn(
+            "erarbeiten, erklären",
+            modules_by_id["IUM-6-CORE-05"]["centralLearningAction"],
+        )
         for module_id in ("IUM-5-CORE-07", "IUM-7-CORE-09"):
             with self.subTest(module_id=module_id):
                 self.assertIn(
