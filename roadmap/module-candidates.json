@@ -20,7 +20,7 @@
     "coreCoverage": "Alle Kompetenz-, Prozesskompetenz- und Progressionsrecords werden im Kernpfad mindestens einmal abgedeckt; Beispiele und Operatoren werden nicht als eigenständige Pflichtkompetenzen gezählt.",
     "hybridModel": "Core bildet einen progressiven, vollständig abdeckenden Pfad. Extension, transfer und project bleiben optionale Kandidaten mit expliziten Kernvoraussetzungen.",
     "gradeBoundary": "Die konkrete Verteilung der kombinierten Lesehilfe-Vorgaben 5/6 ist eine didaktische Arbeitsentscheidung mit Status working.",
-    "timeBoundary": "lessonRange ist ein erster Modulkorridor. Jahreskorridore, Puffer und Abdeckungskonflikte werden erst in Task 14 geprüft.",
+    "timeBoundary": "lessonRange ist ein erster Modulkorridor. Jahreskorridore, Puffer und Abdeckungskonflikte sind im Abdeckungs- und Zeitmodell der Modulroadmap geprüft; deren Jahrgangsstatus ist für die Freigabe maßgeblich.",
     "assessmentBoundary": "assessmentWorkingNotes ist reduzierbar und erzeugt weder Noten noch personenbezogene Kompetenzprofile."
   },
   "modules": [

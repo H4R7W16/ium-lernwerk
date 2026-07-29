@@ -10,7 +10,7 @@ Dieses Profil übersetzt fachliche, fachdidaktische, lernpsychologische, curricu
 
 - **Projektentscheidung:** Das Lernwerk ist ein öffentliches, offen lizenziertes digitales Primärmedium für lehrkraftorchestrierten Unterricht und soll einen vollständigen Lehrwerksersatz ermöglichen. ([Gesamtdesign, Abschnitte 1, 2.1, 2.3 und 2.5](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
 - **Projektentscheidung:** Die erste Ausbaustufe gilt für Gymnasium 5–7 auf Niveau E; Niveaudifferenzierung und Klassen 8–11 sind nicht Teil dieses Profils. ([Gesamtdesign, Abschnitte 1 und 15](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
-- **Projektentscheidung · `working`:** Das Profil darf Planung vorläufig leiten. Es ist weder `reviewed` noch `standard`; die jahrgangsgenaue normative Verteilung bleibt bis zum Curriculum-Crosswalk in Task 12 offen. ([Gesamtdesign, Abschnitte 9.5 und 14](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
+- **Projektentscheidung · `working`:** Das Profil darf Planung vorläufig leiten. Es ist weder `reviewed` noch `standard`. Der vollständige Curriculum-Crosswalk liegt vor; die jahrgangsgenaue Verteilung des gemeinsamen Bands 5/6 bleibt dennoch eine revidierbare didaktische Projektentscheidung, weil die Quelle keine amtliche Aufteilung auf Klasse 5 und 6 vorgibt. ([Gesamtdesign, Abschnitte 9.5 und 14](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
 - **Projektentscheidung:** Das Profil legt keine Plattformkomponenten, Speicher- oder PWA-Implementierung und keine konkrete Modulserie fest. ([Gesamtdesign, Abschnitt 14](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
 
 ## 2. Quellenbasis und Regelhierarchie
@@ -85,7 +85,7 @@ Planungsleitende Aussagen werden in vier Regeltypen getrennt:
 
 ## 7. Alters- und jahrgangsbezogene Progression 5–7
 
-**Projektentscheidung · `working`:** Die folgende Progression ist ein Gerüst für Roadmap und Aufgabenprüfung. Sie ist keine abschließende normative Klassenverteilung; diese wird in Task 12 aus dem vollständigen Crosswalk festgelegt. ([Gesamtdesign, Abschnitte 3 und 5](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
+**Projektentscheidung · `working`:** Die folgende Progression ist ein Gerüst für Roadmap und Aufgabenprüfung, das auf dem vollständigen Curriculum-Crosswalk aufbaut. Sie ist keine abschließende normative Klassenverteilung; insbesondere bleibt die konkrete Zuordnung der gemeinsamen 5/6-Anforderungen eine revidierbare didaktische Projektentscheidung. ([Gesamtdesign, Abschnitte 3 und 5](../superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md))
 
 | Jahrgang | Vorläufige Leitidee | Zunehmende fachliche Handlung | Status- und Quellenbezug |
 | --- | --- | --- | --- |
@@ -277,4 +277,4 @@ Die Recheck-Logik konkretisiert Qualitätssicherung, Review und Erprobung. ([Ges
 - Forschung: Claim-basiert; ihre konkrete Profilanwendung bleibt, sofern nicht anders ausgewiesen, `working`;
 - Designprinzipien: zwölf `working`, drei `reviewed`, kein `draft`, kein `standard`;
 - curriculare Basis: BMB 2016 und INF7 2016 `enacted`, Lesehilfe 2026/2027 `orientation`;
-- nächster Reifeschritt: Task-12-Crosswalk, getrenntes Fach-/Didaktikreview und spätere Pilotierung; keine automatische Statusanhebung durch dieses Profil.
+- nächste Reifeschritte: getrenntes Fach-/Didaktikreview, Prüfung der offenen 5/6-Verteilung, Recheck bei neuer amtlicher Quellenlage und spätere Pilotierung; keine automatische Statusanhebung durch dieses Profil.

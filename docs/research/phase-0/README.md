@@ -34,7 +34,7 @@ Die Statuswerte folgen dem [Forschungsprotokoll](research-protocol.md). Ein Rohb
 | `scripts/validate_phase0.py` | Exit `0`, `phase 0 validation passed` |
 | `git diff --check` | ohne Befund |
 | Red-Flag-Suche | keine Treffer in `README.md`, `docs`, `curriculum`, `roadmap`, `scripts`, `tests` |
-| Encoding | keine Treffer für die Zeichen `U+00C3`, `U+00C2` oder `U+FFFD` in 38 versionierten Textdateien |
+| Encoding | keine Treffer für die Zeichen `U+00C3`, `U+00C2` oder `U+FFFD` in 39 versionierten UTF-8-Textdateien (`*.md`, `*.json`, `*.py`, `LICENSE`, `.gitignore`) |
 | Coverage-Vertrag | 171 Records: 111 `covered`, 60 `partial`, 0 `deferred` |
 | Match-Rationales | 171 von 171 eindeutig |
 

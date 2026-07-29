@@ -18,9 +18,9 @@ Jeder Kompetenzdatensatz enthält mindestens:
 - den Wortlaut der Kompetenz **wortgetreu**;
 - einen präzisen Locator: bei PDF Seitenzahl plus Überschrift/Unterabschnitt, bei Webseite URL plus Abschnittsüberschrift und vorhandene Anker- oder Nummernangabe;
 - die amtliche Nummer unverändert, sofern sie vorhanden ist;
-- sonst eine deterministische Fallback-ID: `<sourceId>--p<Seite-oder-Abschnitt>--<normalisierte-Überschrift>--<laufnummer>`; die Normalisierung nutzt nur ASCII-Kleinbuchstaben, Ziffern und Bindestriche;
+- sonst eine deterministische, quellenspezifische ID in Dokumentreihenfolge nach dem für den Datensatz festgelegten Schema, derzeit `LH26-E-<Bereich>-<laufnummer>`, `BMB16-GYM-<Bereich>-<laufnummer>` beziehungsweise `INF7-16-GYM-<Bereich>-<laufnummer>`; nur für eine neue Quelle ohne bereits festgelegtes Schema gilt als generischer Fallback `<sourceId>--p<Seite-oder-Abschnitt>--<normalisierte-Überschrift>--<laufnummer>`, wobei die Normalisierung nur ASCII-Kleinbuchstaben, Ziffern und Bindestriche nutzt;
 - Klassenstufe, Niveau und Kompetenzbereich als getrennte Felder;
-- `recordStatus` mit genau einem Wert `verified`, `plausible` oder `open`.
+- `status` mit genau einem Wert `verified`, `plausible` oder `open`.
 
 `verified` bedeutet: Wortlaut und Locator wurden gegen die gerenderte Vorlage bzw. die Primärseite geprüft. `plausible` bedeutet: eine maschinelle oder manuelle Vorstrukturierung liegt vor, aber die Gegenprüfung steht noch aus. `open` bedeutet: die Information ist unvollständig, widersprüchlich oder vom Monitoring abhängig; sie darf nicht als Norm weiterverwendet werden.
 
@@ -33,7 +33,7 @@ Kompetenztext, Beispiele, erläuternder Prosa-Text und lokale Interpretation wer
 1. PDF: Text extrahieren, betreffende Seite rendern, Wortlaut, Nummerierung, Zeilenumbruch und Tabellen-/Listenstruktur vergleichen.
 2. Webseite: sichtbaren Primärinhalt und verlinkte amtliche Downloads prüfen; Unterstützungsmaterialien nicht als Bestandteil des Bildungsplans behandeln.
 3. Bei fehlender offizieller Nummer die Fallback-ID bilden, aber keinen Nummerncharakter vortäuschen.
-4. Bei widersprüchlichen Fassungen beide Fassungen mit Quelle und Datum dokumentieren, `recordStatus: open` setzen und nicht zusammenführen.
+4. Bei widersprüchlichen Fassungen beide Fassungen mit Quelle und Datum dokumentieren, `status: open` setzen und nicht zusammenführen.
 5. Erst nach Vier-Augen-Prüfung oder dokumentierter Eigenprüfung kann ein Datensatz `verified` werden.
 
 ## 5. Quellenänderungslog
