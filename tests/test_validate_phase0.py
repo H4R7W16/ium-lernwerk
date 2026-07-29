@@ -1,10 +1,16 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.validate_phase0 import (
     ValidationError,
     validate_claim_ledger,
+    validate_crosswalk,
     validate_curriculum_dataset,
     validate_design_principles,
+    validate_curriculum_integrations,
+    validate_operators,
     validate_source_register,
 )
 
@@ -98,6 +104,71 @@ def valid_design_principles_payload(principles=None, **overrides):
             principles
             if principles is not None
             else [valid_design_principle()]
+        ),
+    }
+    payload.update(overrides)
+    return payload
+
+
+def valid_crosswalk_relation(**overrides):
+    relation = {
+        "id": "XW-001",
+        "fromIds": ["LH26-E-ID-001"],
+        "toIds": ["BMB16-GYM-IK-IW-001"],
+        "relationship": "overlaps",
+        "rationale": "Beide Records verlangen die Nutzung digitaler Angebote zur Recherche.",
+        "status": "resolved",
+        "followUp": "",
+    }
+    relation.update(overrides)
+    return relation
+
+
+def valid_crosswalk_payload(relations=None, unmapped_records=None, **overrides):
+    payload = {
+        "schemaVersion": 1,
+        "status": "working",
+        "relations": (
+            relations
+            if relations is not None
+            else [valid_crosswalk_relation()]
+        ),
+        "unmappedRecords": (
+            unmapped_records
+            if unmapped_records is not None
+            else []
+        ),
+    }
+    payload.update(overrides)
+    return payload
+
+
+def valid_operator_entry(**overrides):
+    entry = {
+        "id": "OPMAP-001",
+        "kind": "operator",
+        "exactOfficialTerm": "analysieren",
+        "sourceRecordId": "BMB16-GYM-OP-002",
+        "sourceDefinition": "Materialien oder Sachverhalte systematisch untersuchen.",
+        "sourceAfb": "III",
+        "expectedObservableAction": "Relevante Bestandteile nach Kriterien herausarbeiten und belegen.",
+        "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+        "applicableGrades": [5],
+        "notesOnAmbiguity": "Die Komplexität hängt von Material und Fragestellung ab.",
+        "status": "working",
+    }
+    entry.update(overrides)
+    return entry
+
+
+def valid_operators_payload(entries=None, **overrides):
+    payload = {
+        "schemaVersion": 1,
+        "status": "working",
+        "entries": (
+            entries
+            if entries is not None
+            else [valid_operator_entry()]
         ),
     }
     payload.update(overrides)
@@ -507,6 +578,583 @@ class DesignPrincipleTests(unittest.TestCase):
             with self.subTest(payload=payload):
                 with self.assertRaises(ValidationError):
                     validate_design_principles(payload, self.claim_ids)
+
+
+class CrosswalkTests(unittest.TestCase):
+    def setUp(self):
+        self.curriculum_ids = {
+            "LH26-E-ID-001",
+            "BMB16-GYM-IK-IW-001",
+        }
+
+    def test_valid_crosswalk_returns_resolved_union(self):
+        resolved_ids = validate_crosswalk(
+            valid_crosswalk_payload(),
+            self.curriculum_ids,
+        )
+
+        self.assertEqual(resolved_ids, self.curriculum_ids)
+
+    def test_unknown_from_or_to_record_id_is_rejected(self):
+        invalid_relations = (
+            valid_crosswalk_relation(fromIds=["UNKNOWN"]),
+            valid_crosswalk_relation(toIds=["UNKNOWN"]),
+        )
+
+        for relation in invalid_relations:
+            with self.subTest(relation=relation):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(
+                        valid_crosswalk_payload(relations=[relation]),
+                        self.curriculum_ids,
+                    )
+
+    def test_invalid_relationship_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(
+                            relationship="similar"
+                        )
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_missing_relation_field_is_rejected(self):
+        required_fields = (
+            "id",
+            "fromIds",
+            "toIds",
+            "relationship",
+            "rationale",
+            "status",
+            "followUp",
+        )
+
+        for field in required_fields:
+            relation = valid_crosswalk_relation()
+            del relation[field]
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(
+                        valid_crosswalk_payload(relations=[relation]),
+                        self.curriculum_ids,
+                    )
+
+    def test_empty_rationale_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(rationale=" ")
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_open_relation_requires_explicit_follow_up(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(
+                            status="open",
+                            followUp="",
+                        )
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_every_curriculum_record_must_be_accounted_for(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(toIds=[])
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_unmapped_record_requires_reason_and_follow_up(self):
+        payloads = (
+            valid_crosswalk_payload(
+                relations=[],
+                unmapped_records=[
+                    {
+                        "recordId": "LH26-E-ID-001",
+                        "reason": "",
+                        "followUp": "Im Modulreview prüfen.",
+                    },
+                    {
+                        "recordId": "BMB16-GYM-IK-IW-001",
+                        "reason": "Kein Gegenstück.",
+                        "followUp": "Im Modulreview prüfen.",
+                    },
+                ],
+            ),
+            valid_crosswalk_payload(
+                relations=[],
+                unmapped_records=[
+                    {
+                        "recordId": "LH26-E-ID-001",
+                        "reason": "Kein Gegenstück.",
+                        "followUp": "",
+                    },
+                    {
+                        "recordId": "BMB16-GYM-IK-IW-001",
+                        "reason": "Kein Gegenstück.",
+                        "followUp": "Im Modulreview prüfen.",
+                    },
+                ],
+            ),
+        )
+
+        for payload in payloads:
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(payload, self.curriculum_ids)
+
+    def test_valid_unmapped_records_complete_the_union(self):
+        payload = valid_crosswalk_payload(
+            relations=[],
+            unmapped_records=[
+                {
+                    "recordId": record_id,
+                    "reason": "Kein quellentreues Gegenstück vorhanden.",
+                    "followUp": "Bei der Modulzuordnung eigenständig berücksichtigen.",
+                }
+                for record_id in sorted(self.curriculum_ids)
+            ],
+        )
+
+        self.assertEqual(
+            validate_crosswalk(payload, self.curriculum_ids),
+            self.curriculum_ids,
+        )
+
+    def test_unhashable_crosswalk_values_raise_validation_error(self):
+        payloads = (
+            valid_crosswalk_payload(status=[]),
+            valid_crosswalk_payload(
+                relations=[
+                    valid_crosswalk_relation(relationship=[])
+                ]
+            ),
+            valid_crosswalk_payload(
+                relations=[valid_crosswalk_relation(status={})]
+            ),
+        )
+
+        for payload in payloads:
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(payload, self.curriculum_ids)
+
+    def test_relation_ids_must_be_unique_ascii_xw_ids(self):
+        duplicate = valid_crosswalk_relation()
+        payloads = (
+            valid_crosswalk_payload(
+                relations=[duplicate, dict(duplicate)]
+            ),
+            valid_crosswalk_payload(
+                relations=[
+                    valid_crosswalk_relation(id="Beziehung-Ä")
+                ]
+            ),
+        )
+
+        for payload in payloads:
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(payload, self.curriculum_ids)
+
+    def test_relation_record_ids_must_be_unique_within_each_side(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(
+                            fromIds=[
+                                "LH26-E-ID-001",
+                                "LH26-E-ID-001",
+                            ]
+                        )
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_mapped_record_cannot_also_be_unmapped(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    unmapped_records=[
+                        {
+                            "recordId": "LH26-E-ID-001",
+                            "reason": "Kein Gegenstück.",
+                            "followUp": "Eigenständig berücksichtigen.",
+                        }
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_comparative_relationship_requires_both_sides(self):
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=[
+                        valid_crosswalk_relation(toIds=[])
+                    ],
+                    unmapped_records=[
+                        {
+                            "recordId": "BMB16-GYM-IK-IW-001",
+                            "reason": "Kein Gegenstück.",
+                            "followUp": "Eigenständig berücksichtigen.",
+                        }
+                    ],
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_new_relationship_requires_source_but_no_target(self):
+        invalid_relations = (
+            valid_crosswalk_relation(
+                fromIds=[],
+                toIds=[],
+                relationship="new",
+            ),
+            valid_crosswalk_relation(relationship="new"),
+        )
+
+        for relation in invalid_relations:
+            with self.subTest(relation=relation):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(
+                        valid_crosswalk_payload(relations=[relation]),
+                        self.curriculum_ids,
+                    )
+
+
+class OperatorMappingTests(unittest.TestCase):
+    def setUp(self):
+        self.curriculum_ids = {
+            "BMB16-GYM-OP-002",
+            "INF7-16-GYM-PK-MI-009",
+        }
+
+    def test_valid_operator_payload_returns_source_record_ids(self):
+        source_record_ids = validate_operators(
+            valid_operators_payload(
+                entries=[
+                    valid_operator_entry(),
+                    valid_operator_entry(
+                        id="OPMAP-002",
+                        kind="process-competency",
+                        exactOfficialTerm="Programme gezielt testen",
+                        sourceRecordId="INF7-16-GYM-PK-MI-009",
+                        sourceDefinition="Programme gezielt testen",
+                        sourceAfb=None,
+                        likelyComplexityBand="context-dependent",
+                        applicableGrades=[7],
+                    ),
+                ]
+            ),
+            self.curriculum_ids,
+        )
+
+        self.assertEqual(source_record_ids, self.curriculum_ids)
+
+    def test_unknown_source_record_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_operators(
+                valid_operators_payload(
+                    entries=[
+                        valid_operator_entry(sourceRecordId="UNKNOWN")
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_duplicate_source_record_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            validate_operators(
+                valid_operators_payload(
+                    entries=[
+                        valid_operator_entry(),
+                        valid_operator_entry(id="OPMAP-002"),
+                    ]
+                ),
+                self.curriculum_ids,
+            )
+
+    def test_missing_operator_field_is_rejected(self):
+        required_fields = (
+            "id",
+            "kind",
+            "exactOfficialTerm",
+            "sourceRecordId",
+            "sourceDefinition",
+            "sourceAfb",
+            "expectedObservableAction",
+            "likelyComplexityBand",
+            "applicableGrades",
+            "notesOnAmbiguity",
+            "status",
+        )
+
+        for field in required_fields:
+            entry = valid_operator_entry()
+            del entry[field]
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_operators(
+                        valid_operators_payload(entries=[entry]),
+                        self.curriculum_ids,
+                    )
+
+    def test_invalid_operator_classification_is_rejected(self):
+        invalid_overrides = (
+            {"kind": "derived-verb"},
+            {"sourceAfb": "IV"},
+            {"likelyComplexityBand": "universal-level-2"},
+            {"applicableGrades": []},
+            {"applicableGrades": [4]},
+            {"status": "verified"},
+        )
+
+        for overrides in invalid_overrides:
+            with self.subTest(overrides=overrides):
+                with self.assertRaises(ValidationError):
+                    validate_operators(
+                        valid_operators_payload(
+                            entries=[
+                                valid_operator_entry(**overrides)
+                            ]
+                        ),
+                        self.curriculum_ids,
+                    )
+
+    def test_unhashable_operator_values_raise_validation_error(self):
+        payloads = (
+            valid_operators_payload(status=[]),
+            valid_operators_payload(
+                entries=[valid_operator_entry(kind=[])]
+            ),
+            valid_operators_payload(
+                entries=[
+                    valid_operator_entry(
+                        likelyComplexityBand={}
+                    )
+                ]
+            ),
+            valid_operators_payload(
+                entries=[valid_operator_entry(status=[])]
+            ),
+        )
+
+        for payload in payloads:
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_operators(payload, self.curriculum_ids)
+
+    def test_entry_ids_must_be_unique_ascii_opmap_ids(self):
+        duplicate = valid_operator_entry()
+        payloads = (
+            valid_operators_payload(
+                entries=[duplicate, dict(duplicate)]
+            ),
+            valid_operators_payload(
+                entries=[
+                    valid_operator_entry(id="Operator-Ä")
+                ]
+            ),
+        )
+
+        for payload in payloads:
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValidationError):
+                    validate_operators(payload, self.curriculum_ids)
+
+    def test_kind_and_source_afb_must_agree(self):
+        invalid_entries = (
+            valid_operator_entry(sourceAfb=None),
+            valid_operator_entry(
+                kind="process-competency",
+                sourceAfb="II",
+            ),
+        )
+
+        for entry in invalid_entries:
+            with self.subTest(entry=entry):
+                with self.assertRaises(ValidationError):
+                    validate_operators(
+                        valid_operators_payload(entries=[entry]),
+                        self.curriculum_ids,
+                    )
+
+    def test_every_requested_source_record_must_have_an_entry(self):
+        with self.assertRaises(ValidationError):
+            validate_operators(
+                valid_operators_payload(),
+                self.curriculum_ids,
+            )
+
+    def test_source_metadata_must_remain_exact_when_available(self):
+        source_records = {
+            "BMB16-GYM-OP-002": {
+                "id": "BMB16-GYM-OP-002",
+                "recordType": "operator",
+                "operator": "analysieren",
+                "text": "Materialien oder Sachverhalte systematisch untersuchen.",
+                "afb": "III",
+                "grades": [5],
+            },
+            "INF7-16-GYM-PK-MI-009": {
+                "id": "INF7-16-GYM-PK-MI-009",
+                "recordType": "process-competency",
+                "text": "Programme gezielt testen",
+                "grades": [7],
+            },
+        }
+        process_entry = valid_operator_entry(
+            id="OPMAP-002",
+            kind="process-competency",
+            exactOfficialTerm="Programme gezielt testen",
+            sourceRecordId="INF7-16-GYM-PK-MI-009",
+            sourceDefinition="Programme gezielt testen",
+            sourceAfb=None,
+            likelyComplexityBand="context-dependent",
+            applicableGrades=[7],
+        )
+        invalid_operator_overrides = (
+            {"exactOfficialTerm": "untersuchen"},
+            {"sourceDefinition": "verkürzte Definition"},
+            {"sourceAfb": "II"},
+            {"applicableGrades": [6]},
+        )
+
+        for overrides in invalid_operator_overrides:
+            with self.subTest(overrides=overrides):
+                with self.assertRaises(ValidationError):
+                    validate_operators(
+                        valid_operators_payload(
+                            entries=[
+                                valid_operator_entry(**overrides),
+                                process_entry,
+                            ]
+                        ),
+                        source_records,
+                    )
+
+        with self.assertRaises(ValidationError):
+            validate_operators(
+                valid_operators_payload(
+                    entries=[
+                        valid_operator_entry(),
+                        dict(process_entry, kind="operator"),
+                    ]
+                ),
+                source_records,
+            )
+
+
+class CurriculumIntegrationFileTests(unittest.TestCase):
+    def test_integration_files_are_loaded_and_validated_together(self):
+        crosswalk_ids = {
+            "LH26-E-ID-001",
+            "BMB16-GYM-IK-IW-001",
+        }
+        operator_ids = {
+            "BMB16-GYM-OP-002",
+            "INF7-16-GYM-PK-MI-009",
+        }
+        operators = valid_operators_payload(
+            entries=[
+                valid_operator_entry(),
+                valid_operator_entry(
+                    id="OPMAP-002",
+                    kind="process-competency",
+                    exactOfficialTerm="Programme gezielt testen",
+                    sourceRecordId="INF7-16-GYM-PK-MI-009",
+                    sourceDefinition="Programme gezielt testen",
+                    sourceAfb=None,
+                    likelyComplexityBand="context-dependent",
+                    applicableGrades=[7],
+                ),
+            ]
+        )
+
+        with tempfile.TemporaryDirectory() as directory:
+            curriculum = Path(directory) / "curriculum"
+            curriculum.mkdir()
+            (curriculum / "operators.json").write_text(
+                json.dumps(operators),
+                encoding="utf-8",
+            )
+            (curriculum / "crosswalk.json").write_text(
+                json.dumps(valid_crosswalk_payload()),
+                encoding="utf-8",
+            )
+
+            result = validate_curriculum_integrations(
+                Path(directory),
+                crosswalk_ids,
+                operator_ids,
+            )
+
+        self.assertEqual(
+            result,
+            {
+                "curriculumIds": crosswalk_ids,
+                "operatorRecordIds": operator_ids,
+            },
+        )
+
+    def test_invalid_crosswalk_file_is_not_ignored(self):
+        crosswalk_ids = {
+            "LH26-E-ID-001",
+            "BMB16-GYM-IK-IW-001",
+        }
+        operator_ids = {"BMB16-GYM-OP-002"}
+
+        with tempfile.TemporaryDirectory() as directory:
+            curriculum = Path(directory) / "curriculum"
+            curriculum.mkdir()
+            (curriculum / "operators.json").write_text(
+                json.dumps(valid_operators_payload()),
+                encoding="utf-8",
+            )
+            (curriculum / "crosswalk.json").write_text(
+                json.dumps(
+                    valid_crosswalk_payload(
+                        relations=[
+                            valid_crosswalk_relation(
+                                relationship="similar"
+                            )
+                        ]
+                    )
+                ),
+                encoding="utf-8",
+            )
+
+            with self.assertRaises(ValidationError):
+                validate_curriculum_integrations(
+                    Path(directory),
+                    crosswalk_ids,
+                    operator_ids,
+                )
+
+
+class DesignPrincipleFieldTests(unittest.TestCase):
+    def setUp(self):
+        self.claim_ids = {"CLAIM-LP-006", "CLAIM-INF-004"}
 
     def test_valid_payload_returns_principle_ids(self):
         principle_ids = validate_design_principles(

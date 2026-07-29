@@ -1,0 +1,1283 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "scope": {
+    "schoolType": "Gymnasium",
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "level": "E",
+    "sourceStatuses": {
+      "SRC-CUR-LESEHILFE-2026-27": "orientation",
+      "SRC-CUR-BMB-2016": "enacted",
+      "SRC-CUR-INF7-2016": "enacted"
+    }
+  },
+  "modelNotes": {
+    "directionConvention": "Bei Vergleichen stehen neuere/orientierende Lesehilfe-Records in fromIds und geltende Planrecords in toIds. Enacted Records ohne Lesehilfe-Gegenstück stehen mit relationship=not-comparable in fromIds und leerem toIds.",
+    "relationshipSemantics": {
+      "equivalent": "fachlicher Handlungskern stimmt überein",
+      "overlaps": "Teilmenge oder gemeinsamer Handlungskern",
+      "extends": "fromIds differenzieren oder ergänzen toIds",
+      "reframes": "Inhalt wird neu gewichtet, verschoben oder verbunden",
+      "new": "kein quellentreues Gegenstück in den geltenden Plänen",
+      "not-comparable": "geltende Anforderung ohne ausdrückliches Lesehilfe-Gegenstück"
+    },
+    "coverageRule": "Jeder der drei extrahierten Curriculumrecords erscheint in mindestens einer Relation oder mit Grund und Folgeaktion in unmappedRecords.",
+    "examplesAndOperators": "Nicht verbindliche Beispiele werden nicht als Anforderungen gleichgesetzt. Operatoren bleiben wegen quellengebundener Semantik im separaten Operatorenmodell.",
+    "statusBoundary": "resolved bezeichnet eine aufgelöste Mappingentscheidung, nicht die normative Freigabe einer Klassenverteilung. open markiert ungeklärte curriculare oder jahrgangsbezogene Differenzen."
+  },
+  "counts": {
+    "curriculumRecords": 278,
+    "relations": 44,
+    "unmappedRecords": 107,
+    "relationshipCounts": {
+      "equivalent": 2,
+      "extends": 12,
+      "new": 4,
+      "not-comparable": 4,
+      "overlaps": 7,
+      "reframes": 15
+    }
+  },
+  "relations": [
+    {
+      "id": "XW-001",
+      "fromIds": [
+        "LH26-E-PROG-001"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-PK-RK-001"
+      ],
+      "relationship": "reframes",
+      "rationale": "Der Progressionshinweis ordnet die Klassen 5/6 ausdrücklich dem Themen- und Zielhorizont des Basiskurses zu, erweitert dessen punktuelle Kompetenzen aber zu einem zweijährigen Orientierungsrahmen.",
+      "status": "open",
+      "followUp": "Die endgültige Verteilung der kombinierten 5/6-Anforderungen erst nach neuem Fachplan oder belastbarer Pilotierung festlegen."
+    },
+    {
+      "id": "XW-002",
+      "fromIds": [
+        "LH26-E-PROG-002"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-006"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Lesehilfe zieht grundlegende algorithmische Denk- und Vorgehensweisen in die Klassen 5/6 vor, hält die fachliche Tiefe des bisherigen Aufbaukurses aber ausdrücklich noch nicht für erreicht.",
+      "status": "open",
+      "followUp": "Den genauen Aufbau innerhalb der Klassen 5 und 6 offen halten und über Voraussetzungen sowie Lernprodukte pilotieren."
+    },
+    {
+      "id": "XW-003",
+      "fromIds": [
+        "LH26-E-PROG-003",
+        "LH26-E-PROG-004"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-PK-AB-005"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Hinweise beschreiben für Klasse 7 keine bloße Fortsetzung des Aufbaukurses, sondern eine neue Gewichtung: weniger reine Informatikanteile und mehr systematische Verbindung technischer, anwendungsbezogener, gesellschaftlicher und medialer Perspektiven.",
+      "status": "open",
+      "followUp": "Bis zum neuen Fachplan die enacted Anforderungen des Aufbaukurses sichern und die verringerte Tiefe jeder Roadmapentscheidung ausweisen."
+    },
+    {
+      "id": "XW-004",
+      "fromIds": [
+        "LH26-E-DP-001",
+        "LH26-E-KS-005"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-SK-003",
+        "BMB16-GYM-PK-RK-004",
+        "BMB16-GYM-IK-KK-001",
+        "BMB16-GYM-IK-GM-001"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Beide Quellen verlangen Regeln schulischer beziehungsweise digitaler Mediennutzung; die Lesehilfe ergänzt die Auseinandersetzung mit Regeln und Folgen missbräuchlicher Kommunikation.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-005",
+      "fromIds": [
+        "LH26-E-DP-002",
+        "LH26-E-DP-003",
+        "LH26-E-DP-009",
+        "LH26-E-KS-012"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-RK-001",
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe übernimmt die Reflexion eigener Mediennutzung und differenziert sie um Konflikte, informationelle Selbstbestimmung und begründete Entscheidungen zu sozialen Medien.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-006",
+      "fromIds": [
+        "LH26-E-DP-004",
+        "LH26-E-DP-007",
+        "LH26-E-DP-008"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-RK-002",
+        "INF7-16-GYM-IK-IGD-006"
+      ],
+      "relationship": "extends",
+      "rationale": "Nutzungsbedingungen, Datenerhebungstechniken und Akteursinteressen konkretisieren die allgemeinere Reflexion von Medienwirkung sowie personenbezogener Datenspeicherung.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-007",
+      "fromIds": [
+        "LH26-E-DP-005",
+        "LH26-E-DP-006"
+      ],
+      "toIds": [],
+      "relationship": "new",
+      "rationale": "Die Identifikation eingebetteter Werbung und die Erklärung personalisierter Werbeauswahl besitzen in den beiden geltenden Fachplänen kein quellentreues Einzelgegenstück.",
+      "status": "resolved",
+      "followUp": "Als eigenständige Lesehilfe-Anforderung im Abdeckungsplan erhalten und mit Daten-, Auswahl- und Geschäftsmodellmechanismen verbinden."
+    },
+    {
+      "id": "XW-008",
+      "fromIds": [
+        "LH26-E-ID-001"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-001"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Alle Records verlangen digitale Recherchehandlungen; die Lesehilfe formuliert werkzeugoffener, während der Basiskurs Browser und Suchmaschinen ausdrücklich nennt.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-009",
+      "fromIds": [
+        "LH26-E-ID-002",
+        "LH26-E-ID-010",
+        "LH26-E-ID-011"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-002",
+        "INF7-16-GYM-PK-MI-001"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe führt Qualitätsprüfung über Kriterien, widersprüchliche Quellen und begründete Vertrauenswürdigkeit aus und erweitert damit die allgemeineren Recherche- und Auswahlhandlungen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-010",
+      "fromIds": [
+        "LH26-E-ID-003",
+        "LH26-E-ID-009"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-003",
+        "INF7-16-GYM-PK-MI-001"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Auswahl, Strukturierung und fragestellungsbezogene Weiterverarbeitung von Informationen bilden in allen drei Quellen denselben Handlungskern mit unterschiedlicher Ausführlichkeit.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-011",
+      "fromIds": [
+        "LH26-E-ID-004",
+        "LH26-E-ID-005",
+        "LH26-E-ID-006",
+        "LH26-E-ID-007",
+        "LH26-E-ID-008",
+        "LH26-E-ID-012"
+      ],
+      "toIds": [],
+      "relationship": "new",
+      "rationale": "Indexbasierte Suche, Akteurs- und Motivlagen, automatisierte Content-Verbreitung sowie Chancen und Fehlerrisiken KI-generierter Rechercheergebnisse werden in den geltenden Fachplänen nicht als quellentreue Einzelanforderungen ausgewiesen.",
+      "status": "resolved",
+      "followUp": "Als zusammenhängenden Mechanismus–Akteur–Interesse–Evidenz-Strang eigenständig abdecken und nach Veröffentlichung des neuen Fachplans erneut prüfen."
+    },
+    {
+      "id": "XW-012",
+      "fromIds": [
+        "LH26-E-ID-013",
+        "LH26-E-ID-014",
+        "LH26-E-ID-015"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-SK-001",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-006"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Lesehilfe führt Zweck, Auswahl und Anwendung von Codierungen bereits in 5/6 grundlegend ein; der Aufbaukurs fordert in Klasse 7 zusätzliche formale und bitbezogene Tiefe.",
+      "status": "open",
+      "followUp": "Die konkrete Verteilung auf Klasse 5 und 6 nicht normativ festschreiben; Klasse 7 als formale Vertiefung planen."
+    },
+    {
+      "id": "XW-013",
+      "fromIds": [
+        "LH26-E-ALG-001",
+        "LH26-E-ALG-002"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-002"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Lesehilfe verankert Algorithmusbegriff und algorithmisch geprägte Systeme schon in 5/6; der Aufbaukurs behandelt die Verknüpfung mit Kontrollstrukturen in Klasse 7 fachlich tiefer.",
+      "status": "open",
+      "followUp": "Den Jahrgang innerhalb 5/6 über Voraussetzungen und Pilotierung bestimmen, nicht aus dem Klassenband ableiten."
+    },
+    {
+      "id": "XW-014",
+      "fromIds": [
+        "LH26-E-ALG-003",
+        "LH26-E-ALG-004"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-SV-004",
+        "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-006"
+      ],
+      "relationship": "reframes",
+      "rationale": "Grafische Darstellungen, präzise Handlungsschritte und eine konstante Schleife bilden in 5/6 einen reduzierten Vorläufer der Modellierungs- und Kontrollstrukturkompetenzen aus Klasse 7.",
+      "status": "open",
+      "followUp": "Darstellungswechsel und konstante Schleifen in 5/6 pilotieren; Verzweigung und bedingte Schleife für Klasse 7 reservieren."
+    },
+    {
+      "id": "XW-015",
+      "fromIds": [
+        "LH26-E-ALG-005",
+        "LH26-E-ALG-006"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-IK-ALG-005",
+        "INF7-16-GYM-IK-ALG-007"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Lesehilfe verschiebt erste Implementations- und Tracinghandlungen nach 5/6, beschränkt sie aber auf einfache Grundbausteine und erreicht noch nicht die Variablen- und Kontrollstrukturtiefe des Aufbaukurses.",
+      "status": "open",
+      "followUp": "Werkzeug und Umfang erst nach Pilotierung festlegen; fachliche Anschlussfähigkeit an Klasse 7 nachweisen."
+    },
+    {
+      "id": "XW-016",
+      "fromIds": [
+        "LH26-E-KS-001"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-IK-KK-002",
+        "BMB16-GYM-IK-KK-003",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-KK-003",
+        "INF7-16-GYM-PK-KK-004"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Schulische Kommunikation und Kollaboration bilden einen gemeinsamen Handlungskern; die Prozesskompetenzen der Fachpläne differenzieren Infrastruktur, Teamplanung und Austausch stärker aus.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-017",
+      "fromIds": [
+        "LH26-E-KS-002",
+        "LH26-E-KS-003",
+        "LH26-E-KS-004"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-IK-KK-001"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe verbindet Regeln mit Konfliktfolgen, dem Vergleich analoger und digitaler Kommunikation sowie Bedingungen situationsgerechter Kommunikation.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-018",
+      "fromIds": [
+        "LH26-E-KS-006",
+        "LH26-E-KS-007"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-IGD-004"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Beide Seiten behandeln Zugangsschutz und Schutzmaßnahmen; der Aufbaukurs nennt mobile Geräte und Datenträger, die Lesehilfe fokussiert den eigenen Geräte- und Dienstzugang.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-019",
+      "fromIds": [
+        "LH26-E-KS-008",
+        "LH26-E-KS-009"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-MI-004",
+        "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-003",
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-RN-002"
+      ],
+      "relationship": "reframes",
+      "rationale": "Vermaschtes Netz, Weiterleitung und Client–Server-Prinzip werden in der Lesehilfe bereits in 5/6 verlangt; die informatischen Modellierungs- und Vergleichshandlungen bleiben als Tiefenanforderung sichtbar.",
+      "status": "open",
+      "followUp": "Die konkrete Klassen-5/6-Zuordnung offen halten und Modellgrenzen sowie Darstellungswechsel verbindlich pilotieren."
+    },
+    {
+      "id": "XW-020",
+      "fromIds": [
+        "LH26-E-KS-010"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-IK-RN-003"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Lesehilfe verlagert das Benennen und kriteriengeleitete Vergleichen lokaler, portabler und cloudbasierter Speicherorte in 5/6.",
+      "status": "open",
+      "followUp": "Innerhalb 5/6 nach schulischer Infrastruktur und erforderlichen Vorkonzepten sequenzieren."
+    },
+    {
+      "id": "XW-021",
+      "fromIds": [
+        "LH26-E-KS-011",
+        "LH26-E-KS-012",
+        "LH26-E-KS-013",
+        "LH26-E-KS-014",
+        "LH26-E-KS-015"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-RK-003",
+        "BMB16-GYM-PK-RK-004",
+        "BMB16-GYM-IK-KK-001",
+        "BMB16-GYM-IK-MG-002",
+        "INF7-16-GYM-IK-IGD-005"
+      ],
+      "relationship": "extends",
+      "rationale": "Rechtlicher Rahmen, soziale Medien, Selbstdarstellung und verletzendes Verhalten differenzieren die allgemeineren Rechts-, Risiko- und Kommunikationsanforderungen in sichere, handlungsbezogene Teilaspekte.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-022",
+      "fromIds": [
+        "LH26-E-DA-001",
+        "LH26-E-DA-002",
+        "LH26-E-DA-003",
+        "LH26-E-DA-004"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-IK-GM-001",
+        "BMB16-GYM-IK-GM-002",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-SV-002"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Hardwareeingabe, Verzeichnisstruktur, Betriebssystem und Schichtenmodell konkretisieren die grundlegende Bedien- und Infrastrukturkompetenz der geltenden Pläne.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-023",
+      "fromIds": [
+        "LH26-E-DA-005",
+        "LH26-E-DA-006",
+        "LH26-E-DA-007",
+        "LH26-E-DA-008"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-IK-GM-003"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe konkretisiert Standardprogrammfunktionen durch Textbausteine, visuelle Objekte, Strukturierung sowie Analyse der Beziehung von Inhalt und Form.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-024",
+      "fromIds": [
+        "LH26-E-DA-009",
+        "LH26-E-DA-010",
+        "LH26-E-DA-011",
+        "LH26-E-DA-012"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-HK-002",
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-PP-003",
+        "BMB16-GYM-IK-MG-003",
+        "INF7-16-GYM-PK-KK-002"
+      ],
+      "relationship": "reframes",
+      "rationale": "Medienproduktion wird von bloßer Bedienung auf Gestaltungsziel, Wirkungsabsicht, Inhalt–Form-Beziehung und begründete Wirkung ausgerichtet; Präsentations- und Kriterienbezug der Fachpläne bleibt ergänzend bestehen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-025",
+      "fromIds": [
+        "LH26-E-DA-013",
+        "LH26-E-DA-014"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-PP-002",
+        "INF7-16-GYM-PK-KK-005"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe führt Quellenangabe, Lizenzmodell, Produktanalyse und urheberrechtsbezogene Revision expliziter aus als die allgemeineren Rechtsanforderungen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-026",
+      "fromIds": [
+        "LH26-E-DA-015"
+      ],
+      "toIds": [
+        "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-IK-KK-003",
+        "INF7-16-GYM-PK-KK-004"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Das Teilen eines Medienprodukts überschneidet sich mit Kooperation und zielgerichtetem Informationsaustausch, ohne eine öffentliche Veröffentlichung zu verlangen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-027",
+      "fromIds": [
+        "LH26-E-DP-010",
+        "LH26-E-DP-011",
+        "LH26-E-DP-012",
+        "LH26-E-DP-013"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-IW-002",
+        "BMB16-GYM-IK-MG-003",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-IK-IGD-006"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Klasse-7-Anforderungen verbinden Akteure, Einflussnahme, Quellenvertrauen und Desinformation zu einer medienbildnerischen Konkretisierung allgemeiner Analyse-, Perspektiv- und Gesellschaftskompetenzen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-028",
+      "fromIds": [
+        "LH26-E-DP-014"
+      ],
+      "toIds": [
+        "BMB16-GYM-IK-MG-003",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006"
+      ],
+      "relationship": "reframes",
+      "rationale": "Geschlechterrollen, Schönheitsideale und Selbstwahrnehmung sind ein spezifischer neuer Gegenstand, operationalisieren aber bestehende Perspektiv-, Medienwirkungs- und Urteilsanforderungen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-029",
+      "fromIds": [
+        "LH26-E-DP-015",
+        "LH26-E-DP-016",
+        "LH26-E-DP-017",
+        "LH26-E-DP-018"
+      ],
+      "toIds": [],
+      "relationship": "new",
+      "rationale": "Psychologische und soziale Aspekte, Monetarisierungsmodelle und reflektierte Eigennutzung digitaler Spiele haben in den geltenden Plänen kein quellentreues Einzelgegenstück.",
+      "status": "resolved",
+      "followUp": "Als eigenständigen, nicht diagnostischen Gaming-Strang abdecken und Wirkbehauptungen evidenzbegrenzt formulieren."
+    },
+    {
+      "id": "XW-030",
+      "fromIds": [
+        "LH26-E-ID-016",
+        "LH26-E-ID-017",
+        "LH26-E-ID-018",
+        "LH26-E-ID-019"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-006",
+        "INF7-16-GYM-IK-DC-007"
+      ],
+      "relationship": "extends",
+      "rationale": "Eigene umkehrbare Codierung, ASCII sowie diskretisierte Schwarzweißbilder konkretisieren Entwurf und Anwendung von Text- und Bildcodierungen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-031",
+      "fromIds": [
+        "LH26-E-ID-020",
+        "LH26-E-ID-021"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-DC-004"
+      ],
+      "relationship": "equivalent",
+      "rationale": "Datenmenge als Bitfolgenlänge sowie Bit, Byte und dezimale Präfixe stimmen im fachlichen Kern überein; die Lesehilfe teilt die Anforderung auf zwei Records.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-032",
+      "fromIds": [
+        "LH26-E-ID-022"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005"
+      ],
+      "relationship": "extends",
+      "rationale": "Der Zusammenhang von Datenmenge und Ressourcenverbrauch ergänzt die technische Größenbeschreibung um eine gesellschaftlich-ökologische Reflexionshandlung.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-033",
+      "fromIds": [
+        "LH26-E-ALG-007",
+        "LH26-E-ALG-008",
+        "LH26-E-ALG-009"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-003"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die Lesehilfe hält Kontrollstrukturen fest, beschreibt aber Werteübergabe, Rückgabe und Datentypen statt der bisherigen expliziten Variablenprogression; damit bleibt eine fachlich relevante Differenz sichtbar.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-034",
+      "fromIds": [
+        "LH26-E-ALG-010"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-SV-005",
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-IK-ALG-004",
+        "INF7-16-GYM-IK-ALG-005"
+      ],
+      "relationship": "reframes",
+      "rationale": "Zielorientierte Verwendung der Grundbausteine und Implementation überschneiden sich; Entwurfstiefe, Teillösungen und Variablen des Aufbaukurses sind in der Lesehilfe nicht gleich ausführlich.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-035",
+      "fromIds": [
+        "LH26-E-ALG-011",
+        "LH26-E-ALG-012"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-IK-ALG-007"
+      ],
+      "relationship": "extends",
+      "rationale": "Ablaufdarstellung, Wirkungsbeschreibung und Analyse übergebener Werte präzisieren das schrittweise Untersuchen von Code und das Gewinnen von Erkenntnissen über Systemverhalten.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-036",
+      "fromIds": [
+        "LH26-E-KS-016",
+        "LH26-E-KS-017",
+        "LH26-E-KS-018"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-IGD-005"
+      ],
+      "relationship": "extends",
+      "rationale": "Die Lesehilfe übernimmt Gründe für Verschlüsselung und ergänzt quellentreue Fachbegriffe sowie die Unterscheidung von Transport- und Ende-zu-Ende-Verschlüsselung.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-037",
+      "fromIds": [
+        "LH26-E-KS-019",
+        "LH26-E-KS-021"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-IGD-002"
+      ],
+      "relationship": "extends",
+      "rationale": "Caesar-Verfahren und allgemeine monoalphabetische Substitution konkretisieren die im Aufbaukurs allgemein geforderten einfachen Verschlüsselungsverfahren.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-038",
+      "fromIds": [
+        "LH26-E-KS-020"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-IGD-002",
+        "INF7-16-GYM-IK-IGD-003"
+      ],
+      "relationship": "equivalent",
+      "rationale": "Beschreibung und Durchführung von Brute Force und Häufigkeitsanalyse mit anschließender Sicherheitsbewertung entsprechen dem fachlichen Kern der Angriffsanforderungen.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-039",
+      "fromIds": [
+        "LH26-E-KS-022"
+      ],
+      "toIds": [
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-IGD-002"
+      ],
+      "relationship": "reframes",
+      "rationale": "Die explizite Unterscheidung von Codierung und Verschlüsselung nach Zweck und Schlüssel verbindet zwei im Aufbaukurs getrennte Inhaltsbereiche.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-040",
+      "fromIds": [
+        "LH26-E-DA-016",
+        "LH26-E-DA-017"
+      ],
+      "toIds": [],
+      "relationship": "new",
+      "rationale": "Technische Medienmanipulation und die gezielte Erstellung wirkungsveränderter Medienprodukte besitzen in den geltenden Fachplänen kein gleich spezifisches Gegenstück.",
+      "status": "resolved",
+      "followUp": "Als integrierten Technik–Gestaltung–Wirkung-Strang eigenständig abdecken und mit Quellen-/Rechteprüfung koppeln."
+    },
+    {
+      "id": "XW-041",
+      "fromIds": [
+        "INF7-16-GYM-PK-MI-003"
+      ],
+      "toIds": [],
+      "relationship": "not-comparable",
+      "rationale": "Die Prozesskompetenz zur Abstraktion besitzt in der Lesehilfe keinen expliziten quellentreuen Gegenrecord.",
+      "status": "resolved",
+      "followUp": "Als weiterhin enacted Prozessanforderung im Kernlernweg und Abdeckungsplan erhalten, bis ein neuer Fachplan sie ersetzt."
+    },
+    {
+      "id": "XW-042",
+      "fromIds": [
+        "INF7-16-GYM-PK-MI-008"
+      ],
+      "toIds": [],
+      "relationship": "not-comparable",
+      "rationale": "Das Adaptieren vorhandener Codebausteine aus verschiedenen Quellen wird in der Lesehilfe nicht ausdrücklich verlangt.",
+      "status": "resolved",
+      "followUp": "Als enacted Anforderung in Programmiermodulen erhalten und mit Quellen- sowie Lizenzpraxis verbinden."
+    },
+    {
+      "id": "XW-043",
+      "fromIds": [
+        "INF7-16-GYM-PK-MI-009",
+        "INF7-16-GYM-PK-MI-010"
+      ],
+      "toIds": [],
+      "relationship": "not-comparable",
+      "rationale": "Gezieltes Testen von Programmen und Bewerten informatischer Lösungen sind in der Lesehilfe nicht als eigene Kompetenzrecords formuliert.",
+      "status": "resolved",
+      "followUp": "Als enacted Prozessanforderungen und als fachprofilgestützte Programmierpraktiken im Kernlernweg sichern."
+    },
+    {
+      "id": "XW-044",
+      "fromIds": [
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-008"
+      ],
+      "toIds": [],
+      "relationship": "not-comparable",
+      "rationale": "Binärdarstellung natürlicher Zahlen sowie der formale Zusammenhang von Zeichenvorrat, Codelänge und Codewörtern fehlen als ausdrückliche Lesehilfe-Anforderungen.",
+      "status": "resolved",
+      "followUp": "Bis zu einer normativen Ablösung als enacted Inhalte abdecken; Tiefe und Zeitbedarf in der Roadmap transparent ausweisen."
+    }
+  ],
+  "unmappedRecords": [
+    {
+      "recordId": "LH26-E-DP-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DP-EX-002",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ID-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ID-EX-002",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ID-EX-003",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ID-EX-004",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ID-EX-005",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ID-EX-006",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-002",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-003",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-KS-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-KS-EX-002",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-KS-EX-003",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-KS-EX-004",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-KS-EX-005",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-002",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-003",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-004",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-005",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-006",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-007",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DP-EX-003",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DP-EX-004",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DP-EX-005",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DP-EX-006",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-004",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-005",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "LH26-E-DA-EX-008",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-001",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-002",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-003",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-004",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-005",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-006",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-007",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-008",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-009",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-010",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-011",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-012",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-013",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-014",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-015",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-016",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-017",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-018",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "BMB16-GYM-OP-019",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-007-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-004-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-008-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-005-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-006-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-003-EX-002",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-001-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-002-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-003-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-004-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-005-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-006-EX-001",
+      "reason": "Als ausdrücklich getrenntes, nicht verbindliches Beispiel ist der Record kein eigenständiges Anforderungsäquivalent.",
+      "followUp": "Bei Modul- und Aufgabenentwicklung als möglichen Kontext prüfen; nicht als Pflichtinhalt zählen."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-001",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-002",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-003",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-004",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-005",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-006",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-007",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-008",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-009",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-010",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-011",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-012",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-013",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-014",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-015",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-016",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-017",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-018",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-019",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-020",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-021",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-022",
+      "reason": "Quellenspezifischer Operator; Semantik und AFB werden ohne Kompetenzgleichsetzung in curriculum/operators.json erhalten.",
+      "followUp": "Bei Aufgabenformulierungen den exakten Quelleintrag und seine AFB-Angabe verwenden."
+    }
+  ]
+}

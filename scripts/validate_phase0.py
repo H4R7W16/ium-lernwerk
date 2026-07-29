@@ -41,6 +41,24 @@ CURRICULUM_RECORD_TYPES = {
     "process-competency",
 }
 CURRICULUM_RECORD_STATUSES = {"verified", "plausible", "open"}
+CROSSWALK_RELATIONSHIPS = {
+    "equivalent",
+    "overlaps",
+    "extends",
+    "reframes",
+    "new",
+    "not-comparable",
+}
+CROSSWALK_RELATION_STATUSES = {"resolved", "open"}
+OPERATOR_KINDS = {"operator", "process-competency"}
+SOURCE_AFBS = {"I", "II", "III"}
+OPERATOR_COMPLEXITY_BANDS = {
+    "guided-reproduction-and-operation",
+    "structured-application-and-relation",
+    "independent-transfer-design-and-evaluation",
+    "context-dependent",
+}
+INTEGRATION_STATUSES = {"working", "reviewed"}
 
 
 class SourceIndex(set):
@@ -400,6 +418,314 @@ def validate_curriculum_dataset(payload, source_ids):
     return set(ids)
 
 
+def validate_crosswalk(payload, curriculum_ids):
+    _require(isinstance(payload, dict), "crosswalk payload must be an object")
+    _require(
+        payload.get("schemaVersion") == 1
+        and not isinstance(payload.get("schemaVersion"), bool),
+        "crosswalk schemaVersion must be 1",
+    )
+    _require(
+        isinstance(payload.get("status"), str)
+        and payload.get("status") in INTEGRATION_STATUSES,
+        "crosswalk status must be working or reviewed",
+    )
+    relations = payload.get("relations")
+    unmapped_records = payload.get("unmappedRecords")
+    _require(isinstance(relations, list), "crosswalk relations must be a list")
+    _require(
+        isinstance(unmapped_records, list),
+        "crosswalk unmappedRecords must be a list",
+    )
+    registered_ids = set(curriculum_ids)
+    covered_ids = set()
+    relation_required_fields = (
+        "id",
+        "fromIds",
+        "toIds",
+        "relationship",
+        "rationale",
+        "status",
+        "followUp",
+    )
+    relation_ids = []
+    mapped_ids = set()
+    for relation in relations:
+        _require_fields(relation, relation_required_fields, "crosswalk relation")
+        relation_id = relation["id"]
+        _require_nonempty_string(relation_id, "id", relation_id)
+        _require_technical_id(
+            relation_id,
+            ("XW-",),
+            "crosswalk relation",
+        )
+        relation_ids.append(relation_id)
+        for field in ("fromIds", "toIds"):
+            value = relation[field]
+            _require(
+                isinstance(value, list)
+                and all(isinstance(record_id, str) and record_id for record_id in value),
+                f"{field} must be a list of nonempty strings: {relation_id}",
+            )
+            _require(
+                len(value) == len(set(value)),
+                f"{field} ids must be unique: {relation_id}",
+            )
+            _require(
+                set(value) <= registered_ids,
+                f"unknown curriculum record id in {field}: {relation_id}",
+            )
+            covered_ids.update(value)
+            mapped_ids.update(value)
+        relationship = relation["relationship"]
+        _require(
+            isinstance(relationship, str)
+            and relationship in CROSSWALK_RELATIONSHIPS,
+            f"invalid crosswalk relationship: {relation_id}",
+        )
+        if relationship in {"equivalent", "overlaps", "extends", "reframes"}:
+            _require(
+                bool(relation["fromIds"]) and bool(relation["toIds"]),
+                f"comparative relationship needs fromIds and toIds: {relation_id}",
+            )
+        elif relationship == "new":
+            _require(
+                bool(relation["fromIds"]) and not relation["toIds"],
+                f"new relationship needs fromIds and no toIds: {relation_id}",
+            )
+        else:
+            _require(
+                bool(relation["fromIds"]) or bool(relation["toIds"]),
+                f"not-comparable relationship needs at least one record: {relation_id}",
+            )
+        _require_nonempty_string(
+            relation["rationale"],
+            "rationale",
+            relation_id,
+        )
+        _require(
+            isinstance(relation["status"], str)
+            and relation["status"] in CROSSWALK_RELATION_STATUSES,
+            f"invalid crosswalk relation status: {relation_id}",
+        )
+        _require(
+            isinstance(relation["followUp"], str),
+            f"followUp must be a string: {relation_id}",
+        )
+        if relation["status"] == "open":
+            _require(
+                relation["followUp"].strip(),
+                f"open crosswalk relation needs followUp: {relation_id}",
+            )
+    _require(
+        len(relation_ids) == len(set(relation_ids)),
+        "crosswalk relation ids must be unique",
+    )
+
+    unmapped_required_fields = ("recordId", "reason", "followUp")
+    unmapped_ids = []
+    for unmapped in unmapped_records:
+        _require_fields(unmapped, unmapped_required_fields, "unmapped record")
+        record_id = unmapped["recordId"]
+        _require(
+            isinstance(record_id, str) and record_id in registered_ids,
+            f"unknown unmapped curriculum record id: {record_id}",
+        )
+        _require_nonempty_string(unmapped["reason"], "reason", record_id)
+        _require_nonempty_string(unmapped["followUp"], "followUp", record_id)
+        unmapped_ids.append(record_id)
+        covered_ids.add(record_id)
+    _require(
+        len(unmapped_ids) == len(set(unmapped_ids)),
+        "unmapped curriculum record ids must be unique",
+    )
+    _require(
+        mapped_ids.isdisjoint(unmapped_ids),
+        "curriculum records cannot be both mapped and unmapped",
+    )
+
+    _require(
+        covered_ids == registered_ids,
+        "every curriculum record must be mapped or explicitly unmapped",
+    )
+    return covered_ids
+
+
+def validate_operators(payload, curriculum_ids):
+    _require(isinstance(payload, dict), "operators payload must be an object")
+    _require(
+        payload.get("schemaVersion") == 1
+        and not isinstance(payload.get("schemaVersion"), bool),
+        "operators schemaVersion must be 1",
+    )
+    _require(
+        isinstance(payload.get("status"), str)
+        and payload.get("status") in INTEGRATION_STATUSES,
+        "operators status must be working or reviewed",
+    )
+    entries = payload.get("entries")
+    _require(isinstance(entries, list), "operator entries must be a list")
+    required_fields = (
+        "id",
+        "kind",
+        "exactOfficialTerm",
+        "sourceRecordId",
+        "sourceDefinition",
+        "sourceAfb",
+        "expectedObservableAction",
+        "likelyComplexityBand",
+        "applicableGrades",
+        "notesOnAmbiguity",
+        "status",
+    )
+    source_records = curriculum_ids if isinstance(curriculum_ids, dict) else None
+    registered_ids = set(curriculum_ids)
+    source_record_ids = []
+    entry_ids = []
+    for entry in entries:
+        _require_fields(entry, required_fields, "operator entry")
+        entry_id = entry["id"]
+        _require_nonempty_string(entry_id, "id", entry_id)
+        _require_technical_id(entry_id, ("OPMAP-",), "operator entry")
+        entry_ids.append(entry_id)
+        _require(
+            isinstance(entry["kind"], str)
+            and entry["kind"] in OPERATOR_KINDS,
+            f"invalid operator entry kind: {entry_id}",
+        )
+        _require_nonempty_string(
+            entry["exactOfficialTerm"],
+            "exactOfficialTerm",
+            entry_id,
+        )
+        source_record_id = entry["sourceRecordId"]
+        _require(
+            isinstance(source_record_id, str)
+            and source_record_id in registered_ids,
+            f"unknown operator source record: {entry_id}",
+        )
+        source_record_ids.append(source_record_id)
+        _require_nonempty_string(
+            entry["sourceDefinition"],
+            "sourceDefinition",
+            entry_id,
+        )
+        _require(
+            entry["sourceAfb"] is None
+            or (
+                isinstance(entry["sourceAfb"], str)
+                and entry["sourceAfb"] in SOURCE_AFBS
+            ),
+            f"invalid sourceAfb: {entry_id}",
+        )
+        _require_nonempty_string(
+            entry["expectedObservableAction"],
+            "expectedObservableAction",
+            entry_id,
+        )
+        _require(
+            isinstance(entry["likelyComplexityBand"], str)
+            and entry["likelyComplexityBand"] in OPERATOR_COMPLEXITY_BANDS,
+            f"invalid likelyComplexityBand: {entry_id}",
+        )
+        _require(
+            isinstance(entry["applicableGrades"], list)
+            and bool(entry["applicableGrades"])
+            and all(
+                isinstance(grade, int)
+                and not isinstance(grade, bool)
+                and grade in {5, 6, 7}
+                for grade in entry["applicableGrades"]
+            ),
+            f"invalid applicableGrades: {entry_id}",
+        )
+        _require(
+            isinstance(entry["notesOnAmbiguity"], str),
+            f"notesOnAmbiguity must be a string: {entry_id}",
+        )
+        _require(
+            isinstance(entry["status"], str)
+            and entry["status"] in INTEGRATION_STATUSES,
+            f"invalid operator entry status: {entry_id}",
+        )
+        if entry["kind"] == "operator":
+            _require(
+                entry["sourceAfb"] in SOURCE_AFBS,
+                f"operator needs sourceAfb: {entry_id}",
+            )
+        else:
+            _require(
+                entry["sourceAfb"] is None,
+                f"process competency must use null sourceAfb: {entry_id}",
+            )
+        if source_records is not None:
+            source_record = source_records[source_record_id]
+            expected_term = (
+                source_record["operator"]
+                if source_record["recordType"] == "operator"
+                else source_record["text"]
+            )
+            expected_afb = (
+                source_record["afb"]
+                if source_record["recordType"] == "operator"
+                else None
+            )
+            _require(
+                entry["kind"] == source_record["recordType"],
+                f"operator kind differs from source record: {entry_id}",
+            )
+            _require(
+                entry["exactOfficialTerm"] == expected_term,
+                f"official term differs from source record: {entry_id}",
+            )
+            _require(
+                entry["sourceDefinition"] == source_record["text"],
+                f"source definition differs from source record: {entry_id}",
+            )
+            _require(
+                entry["sourceAfb"] == expected_afb,
+                f"sourceAfb differs from source record: {entry_id}",
+            )
+            _require(
+                entry["applicableGrades"] == source_record["grades"],
+                f"applicableGrades differ from source record: {entry_id}",
+            )
+    _require(
+        len(entry_ids) == len(set(entry_ids)),
+        "operator entry ids must be unique",
+    )
+    _require(
+        len(source_record_ids) == len(set(source_record_ids)),
+        "operator source records must be unique",
+    )
+    source_record_id_set = set(source_record_ids)
+    _require(
+        source_record_id_set == registered_ids,
+        "every requested operator or process competency needs an entry",
+    )
+    return source_record_id_set
+
+
+def validate_curriculum_integrations(
+    root,
+    curriculum_ids,
+    operator_record_ids,
+):
+    curriculum_root = Path(root) / "curriculum"
+    validated_operator_ids = validate_operators(
+        load_json(curriculum_root / "operators.json"),
+        operator_record_ids,
+    )
+    validated_curriculum_ids = validate_crosswalk(
+        load_json(curriculum_root / "crosswalk.json"),
+        curriculum_ids,
+    )
+    return {
+        "curriculumIds": validated_curriculum_ids,
+        "operatorRecordIds": validated_operator_ids,
+    }
+
+
 def main():
     root = Path(__file__).resolve().parents[1]
     source_ids = validate_source_register(
@@ -416,8 +742,25 @@ def main():
             claim_ids,
         )
     curriculum_files = sorted((root / "curriculum").glob("**/competencies.json"))
+    curriculum_ids = set()
+    operator_records = {}
     for curriculum_file in curriculum_files:
-        validate_curriculum_dataset(load_json(curriculum_file), source_ids)
+        curriculum_payload = load_json(curriculum_file)
+        curriculum_ids.update(
+            validate_curriculum_dataset(curriculum_payload, source_ids)
+        )
+        operator_records.update(
+            {
+                record["id"]: record
+                for record in curriculum_payload["records"]
+                if record["recordType"] in OPERATOR_KINDS
+            }
+        )
+    validate_curriculum_integrations(
+        root,
+        curriculum_ids,
+        operator_records,
+    )
     print("phase 0 validation passed")
 
 
