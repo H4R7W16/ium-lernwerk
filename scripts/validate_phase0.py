@@ -63,6 +63,8 @@ OPERATOR_COMPLEXITY_BANDS = {
 }
 INTEGRATION_STATUSES = {"working", "reviewed"}
 MODULE_KINDS = {"core", "extension", "transfer", "project"}
+COVERAGE_STATUSES = {"covered", "partial", "deferred"}
+COVERAGE_NORMATIVE_WEIGHTS = {"enacted", "orientation"}
 MODULE_KIND_TOKENS = {
     "CORE": "core",
     "EXT": "extension",
@@ -1146,6 +1148,145 @@ def validate_module_candidates(payload, curriculum_ids):
     return module_id_set
 
 
+def validate_coverage(payload, required_ids, module_ids):
+    _require(
+        isinstance(payload, dict),
+        "coverage payload must be an object",
+    )
+    _require_fields(
+        payload,
+        ("schemaVersion", "status", "coverageBasis", "entries"),
+        "coverage payload",
+    )
+    _require(
+        payload["schemaVersion"] == 1
+        and not isinstance(payload["schemaVersion"], bool),
+        "coverage schemaVersion must be 1",
+    )
+    _require(
+        isinstance(payload["status"], str)
+        and payload["status"] in INTEGRATION_STATUSES,
+        "coverage status must be working or reviewed",
+    )
+    _require(
+        payload["coverageBasis"] == "candidate-design",
+        "coverageBasis must be candidate-design",
+    )
+    _require(
+        isinstance(required_ids, Mapping) and bool(required_ids),
+        "coverage needs a required-id normative-weight mapping",
+    )
+    required_weight_map = {}
+    for competency_id, normative_weight in required_ids.items():
+        _require_nonempty_string(
+            competency_id,
+            "competencyId",
+            competency_id,
+        )
+        _require(
+            isinstance(normative_weight, str)
+            and normative_weight in COVERAGE_NORMATIVE_WEIGHTS,
+            f"invalid required normative weight: {competency_id}",
+        )
+        required_weight_map[competency_id] = normative_weight
+    _require(
+        isinstance(module_ids, Mapping) and bool(module_ids),
+        "coverage needs a module-id kind mapping",
+    )
+    module_kind_map = {}
+    for module_id, module_kind in module_ids.items():
+        _require_nonempty_string(module_id, "moduleId", module_id)
+        _require(
+            isinstance(module_kind, str) and module_kind in MODULE_KINDS,
+            f"invalid coverage module kind: {module_id}",
+        )
+        module_kind_map[module_id] = module_kind
+    entries = payload["entries"]
+    _require(
+        isinstance(entries, list) and bool(entries),
+        "coverage entries must be a nonempty list",
+    )
+    required_fields = (
+        "competencyId",
+        "normativeWeight",
+        "moduleIds",
+        "coverageStatus",
+        "evidence",
+        "risk",
+        "followUp",
+    )
+    competency_ids = []
+    for entry in entries:
+        _require_fields(entry, required_fields, "coverage entry")
+        competency_id = entry["competencyId"]
+        _require_nonempty_string(
+            competency_id,
+            "competencyId",
+            competency_id,
+        )
+        _require(
+            competency_id in required_weight_map,
+            f"unknown coverage competency id: {competency_id}",
+        )
+        competency_ids.append(competency_id)
+        normative_weight = entry["normativeWeight"]
+        _require(
+            normative_weight == required_weight_map[competency_id],
+            f"coverage normative weight differs from source: {competency_id}",
+        )
+        module_id_list = entry["moduleIds"]
+        _require(
+            isinstance(module_id_list, list)
+            and all(
+                isinstance(module_id, str) and bool(module_id)
+                for module_id in module_id_list
+            )
+            and len(module_id_list) == len(set(module_id_list)),
+            f"invalid coverage moduleIds: {competency_id}",
+        )
+        _require(
+            set(module_id_list) <= set(module_kind_map),
+            f"unknown coverage module id: {competency_id}",
+        )
+        coverage_status = entry["coverageStatus"]
+        _require(
+            isinstance(coverage_status, str)
+            and coverage_status in COVERAGE_STATUSES,
+            f"invalid coverage status: {competency_id}",
+        )
+        for field in ("evidence", "risk", "followUp"):
+            _require_nonempty_string(
+                entry[field],
+                field,
+                competency_id,
+            )
+        if coverage_status == "covered":
+            _require(
+                any(
+                    module_kind_map[module_id] == "core"
+                    for module_id in module_id_list
+                ),
+                f"covered record needs a core module: {competency_id}",
+            )
+        else:
+            _require_fields(entry, ("reason",), "coverage entry")
+            _require_nonempty_string(
+                entry["reason"],
+                "reason",
+                competency_id,
+            )
+    _require(
+        len(competency_ids) == len(set(competency_ids)),
+        "coverage competency ids must be unique",
+    )
+    competency_id_set = set(competency_ids)
+    _require(
+        competency_id_set == set(required_weight_map),
+        "every required curriculum id needs a coverage entry",
+    )
+    return competency_id_set
+
+
 def validate_curriculum_integrations(
     root,
     curriculum_ids,
@@ -1183,6 +1324,7 @@ def main():
         )
     curriculum_files = sorted((root / "curriculum").glob("**/competencies.json"))
     curriculum_records = {}
+    curriculum_normative_weights = {}
     operator_records = {}
     for curriculum_file in curriculum_files:
         curriculum_payload = load_json(curriculum_file)
@@ -1193,6 +1335,19 @@ def main():
         curriculum_records.update(
             {
                 record["id"]: record
+                for record in curriculum_payload["records"]
+                if record["id"] in validated_curriculum_ids
+            }
+        )
+        normative_weight = (
+            "orientation"
+            if curriculum_payload["metadata"]["normativeStatus"]
+            == "orientation"
+            else "enacted"
+        )
+        curriculum_normative_weights.update(
+            {
+                record["id"]: normative_weight
                 for record in curriculum_payload["records"]
                 if record["id"] in validated_curriculum_ids
             }
@@ -1214,9 +1369,23 @@ def main():
         for record_id, record in curriculum_records.items()
         if record["recordType"] not in {"example", "operator"}
     }
+    module_candidates = load_json(root / "roadmap/module-candidates.json")
     validate_module_candidates(
-        load_json(root / "roadmap/module-candidates.json"),
+        module_candidates,
         required_curriculum_grades,
+    )
+    required_curriculum_weights = {
+        record_id: curriculum_normative_weights[record_id]
+        for record_id in required_curriculum_grades
+    }
+    module_kinds = {
+        module["id"]: module["kind"]
+        for module in module_candidates["modules"]
+    }
+    validate_coverage(
+        load_json(root / "roadmap/coverage-plan.json"),
+        required_curriculum_weights,
+        module_kinds,
     )
     print("phase 0 validation passed")
 

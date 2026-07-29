@@ -1,0 +1,1912 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "coverageBasis": "candidate-design",
+  "coverageDefinition": "covered bedeutet: Mindestens ein Kernkandidat enthält eine passende zentrale Lernhandlung und ein sichtbares Produkt. Der Status behauptet weder fertige Modulqualität noch zeitliche Umsetzbarkeit innerhalb eines Schuljahres.",
+  "normativeWeightDefinition": {
+    "enacted": "Record aus einem in Kraft gesetzten Bildungsplan 2016.",
+    "orientation": "Record aus der Lesehilfe 2026/2027; Planungsorientierung, kein in Kraft gesetzter Bildungsplan."
+  },
+  "entries": [
+    {
+      "competencyId": "BMB16-GYM-IK-GM-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-GM-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-01",
+        "IUM-5-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste. Weitere Wiederaufnahme im Kernpfad: IUM-5-CORE-04.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-GM-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-IW-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-IW-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-IW-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-PP-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-PP-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-PP-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-HK-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-HK-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-HK-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-SK-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-SK-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-SK-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-006",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-007",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-06.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-02",
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-02, IUM-7-CORE-06.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-02.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-006",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-02 „Bilder als Daten modellieren und Ressourcenfolgen prüfen“: Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen. Sichtbarer Nachweis: Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-007",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-02.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-008",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-06 „Verschlüsselung erklären und passend auswählen“: Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen. Sichtbarer Nachweis: Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-07 „Einfache Verschlüsselung angreifen und bewerten“: Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten. Sichtbarer Nachweis: Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-07 „Einfache Verschlüsselung angreifen und bewerten“: Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten. Sichtbarer Nachweis: Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-006",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-RN-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-RN-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-RN-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03",
+        "IUM-7-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-07.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05",
+        "IUM-7-CORE-07",
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-07, IUM-7-CORE-08.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-09",
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-09, IUM-7-CORE-10.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-006",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-09",
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-09, IUM-7-CORE-10.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04",
+        "IUM-7-CORE-07",
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-07, IUM-7-CORE-10.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-10.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-006",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-09",
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-09, IUM-7-CORE-10.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-006",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04",
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung. Weitere Wiederaufnahme im Kernpfad: IUM-7-CORE-10.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-007",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-008",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-009",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-010",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-001",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-05 „Netze, Speicher und Geräteschutz modellieren“: Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. Sichtbarer Nachweis: System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-002",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-003",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-004",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-005",
+      "normativeWeight": "enacted",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
+      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+    },
+    {
+      "competencyId": "LH26-E-ALG-001",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-05 „Präzise Abläufe ausführbar machen“: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren. Sichtbarer Nachweis: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-002",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-05 „Präzise Abläufe ausführbar machen“: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren. Sichtbarer Nachweis: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-003",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-05 „Präzise Abläufe ausführbar machen“: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren. Sichtbarer Nachweis: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-004",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-05 „Präzise Abläufe ausführbar machen“: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren. Sichtbarer Nachweis: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-005",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-04 „Programme mit festen Schleifen lesen und verändern“: Code vorhersagen, schrittweise mit Zustand ausführen, Wirkung erklären, eine feste Schleife begründet verändern und die Änderung mit Fällen prüfen. Sichtbarer Nachweis: Lauffähiges kleines Programm mit Trace, Wirkungserklärung, begründeter Modifikation und dokumentierten Testfällen.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-006",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-04 „Programme mit festen Schleifen lesen und verändern“: Code vorhersagen, schrittweise mit Zustand ausführen, Wirkung erklären, eine feste Schleife begründet verändern und die Änderung mit Fällen prüfen. Sichtbarer Nachweis: Lauffähiges kleines Programm mit Trace, Wirkungserklärung, begründeter Modifikation und dokumentierten Testfällen.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-007",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-008",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-009",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-010",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-04"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-04 „Programme entwerfen, testen und debuggen“: Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren. Sichtbarer Nachweis: Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-011",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ALG-012",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-03 „Kontrollfluss, Werte und Zustände tracen“: Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. Sichtbarer Nachweis: Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-001",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-002",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-003",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-004",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-005",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-006",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-007",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-008",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-06 „Ein Medienprodukt zielgerichtet gestalten“: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten. Sichtbarer Nachweis: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-009",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-010",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-011",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-012",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-013",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-014",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-015",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-07 „Wirkungsabsicht, Rechte und Revision verbinden“: Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. Sichtbarer Nachweis: Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-016",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-10 „Medienbilder analysieren und wirkungsbewusst verändern“: Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren. Sichtbarer Nachweis: Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DA-017",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-10 „Medienbilder analysieren und wirkungsbewusst verändern“: Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren. Sichtbarer Nachweis: Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-001",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-002",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-003",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-004",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-02 „Datenfluss und personalisierte Auswahl modellieren“: Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen. Sichtbarer Nachweis: Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-005",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-07 „Mediennutzung und Werbung an Fällen untersuchen“: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. Sichtbarer Nachweis: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-006",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-02 „Datenfluss und personalisierte Auswahl modellieren“: Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen. Sichtbarer Nachweis: Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-007",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-02 „Datenfluss und personalisierte Auswahl modellieren“: Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen. Sichtbarer Nachweis: Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-008",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-02 „Datenfluss und personalisierte Auswahl modellieren“: Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen. Sichtbarer Nachweis: Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-009",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-02 „Datenfluss und personalisierte Auswahl modellieren“: Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen. Sichtbarer Nachweis: Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-010",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-011",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-012",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-013",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-014",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-10"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-10 „Medienbilder analysieren und wirkungsbewusst verändern“: Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren. Sichtbarer Nachweis: Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-015",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-09"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-09 „Gamingmechanismen ohne Personendiagnose analysieren“: Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen. Sichtbarer Nachweis: Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-016",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-09"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-09 „Gamingmechanismen ohne Personendiagnose analysieren“: Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen. Sichtbarer Nachweis: Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-017",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-09"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-09 „Gamingmechanismen ohne Personendiagnose analysieren“: Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen. Sichtbarer Nachweis: Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-DP-018",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-09"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-09 „Gamingmechanismen ohne Personendiagnose analysieren“: Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen. Sichtbarer Nachweis: Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-001",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-002",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-003",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-004",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-005",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-006",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-007",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-008",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-009",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-010",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-02 „Eine Suchfrage mit Belegen beantworten“: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. Sichtbarer Nachweis: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-011",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-012",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-01 „Suchmaschinen, Akteure und KI-Ergebnisse prüfen“: Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. Sichtbarer Nachweis: Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-013",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-03 „Codierungen entwerfen und auf Umkehrbarkeit prüfen“: Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern. Sichtbarer Nachweis: Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-014",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-03 „Codierungen entwerfen und auf Umkehrbarkeit prüfen“: Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern. Sichtbarer Nachweis: Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-015",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-03 „Codierungen entwerfen und auf Umkehrbarkeit prüfen“: Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern. Sichtbarer Nachweis: Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-016",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-017",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-018",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-02 „Bilder als Daten modellieren und Ressourcenfolgen prüfen“: Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen. Sichtbarer Nachweis: Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-019",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-02 „Bilder als Daten modellieren und Ressourcenfolgen prüfen“: Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen. Sichtbarer Nachweis: Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-020",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-021",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-01 „Codierungen zwischen Zeichen, Zahlen und Bits entwerfen“: Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. Sichtbarer Nachweis: Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-ID-022",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-02"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-02 „Bilder als Daten modellieren und Ressourcenfolgen prüfen“: Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen. Sichtbarer Nachweis: Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-001",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-002",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-003",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-004",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-005",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-03"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-03 „Digital verständlich, sicher und fair kommunizieren“: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. Sichtbarer Nachweis: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-006",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-007",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-008",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-05 „Netz- und Speicherentscheidungen mit Modellen begründen“: Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren. Sichtbarer Nachweis: Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-009",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-05 „Netz- und Speicherentscheidungen mit Modellen begründen“: Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren. Sichtbarer Nachweis: Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-010",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-05 „Netz- und Speicherentscheidungen mit Modellen begründen“: Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren. Sichtbarer Nachweis: Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-011",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-06 „Konflikte in sozialen Räumen fallbezogen bearbeiten“: Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen. Sichtbarer Nachweis: Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-012",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-06 „Konflikte in sozialen Räumen fallbezogen bearbeiten“: Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen. Sichtbarer Nachweis: Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-013",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-06 „Konflikte in sozialen Räumen fallbezogen bearbeiten“: Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen. Sichtbarer Nachweis: Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-014",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-06 „Konflikte in sozialen Räumen fallbezogen bearbeiten“: Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen. Sichtbarer Nachweis: Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-015",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-6-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-6-CORE-06 „Konflikte in sozialen Räumen fallbezogen bearbeiten“: Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen. Sichtbarer Nachweis: Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-016",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-06 „Verschlüsselung erklären und passend auswählen“: Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen. Sichtbarer Nachweis: Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-017",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-06 „Verschlüsselung erklären und passend auswählen“: Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen. Sichtbarer Nachweis: Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-018",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-06 „Verschlüsselung erklären und passend auswählen“: Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen. Sichtbarer Nachweis: Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-019",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-07 „Einfache Verschlüsselung angreifen und bewerten“: Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten. Sichtbarer Nachweis: Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-020",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-07 „Einfache Verschlüsselung angreifen und bewerten“: Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten. Sichtbarer Nachweis: Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-021",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-07"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-07 „Einfache Verschlüsselung angreifen und bewerten“: Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten. Sichtbarer Nachweis: Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-KS-022",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-06 „Verschlüsselung erklären und passend auswählen“: Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen. Sichtbarer Nachweis: Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-PROG-001",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-PROG-002",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-5-CORE-05 „Präzise Abläufe ausführbar machen“: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren. Sichtbarer Nachweis: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-PROG-003",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    },
+    {
+      "competencyId": "LH26-E-PROG-004",
+      "normativeWeight": "orientation",
+      "moduleIds": [
+        "IUM-7-CORE-08"
+      ],
+      "coverageStatus": "covered",
+      "evidence": "Kernmodul IUM-7-CORE-08 „Daten, Akteure und Desinformation beurteilen“: Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren. Sichtbarer Nachweis: Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "risk": "Der Record hat Orientierungsstatus und kann sich mit dem künftigen Fachplan ändern. Die Designabdeckung ist keine Verbindlichkeitsaussage; die zeitliche Umsetzbarkeit wird separat in der Jahresroadmap bewertet.",
+      "followUp": "Vor dem Modulrelease Wortlaut und Geltungsstatus gegen die aktuelle amtliche Fassung prüfen; im Pilot Operator, Lernprodukt und realen Zeitbedarf auditieren."
+    }
+  ]
+}

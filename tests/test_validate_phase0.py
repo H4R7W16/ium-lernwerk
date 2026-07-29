@@ -12,6 +12,7 @@ from scripts.validate_phase0 import (
     validate_curriculum_dataset,
     validate_design_principles,
     validate_curriculum_integrations,
+    validate_coverage,
     validate_module_candidates,
     validate_operators,
     validate_source_register,
@@ -278,6 +279,49 @@ def valid_module_candidates_payload(modules=None, **overrides):
             modules
             if modules is not None
             else [core, extension, transfer, project]
+        ),
+    }
+    payload.update(overrides)
+    return payload
+
+
+def valid_coverage_entry(**overrides):
+    entry = {
+        "competencyId": "BMB16-GYM-IK-IW-001",
+        "normativeWeight": "enacted",
+        "moduleIds": ["IUM-5-CORE-01"],
+        "coverageStatus": "covered",
+        "evidence": (
+            "IUM-5-CORE-01 führt die geforderte Lernhandlung aus und "
+            "sichert sie in einem sichtbaren Produkt."
+        ),
+        "risk": (
+            "Kandidatenabdeckung ersetzt noch keine Zeit- und "
+            "Implementierungsprüfung."
+        ),
+        "followUp": (
+            "Operator, Lernhandlung und Produkt im Modulreview erneut prüfen."
+        ),
+    }
+    entry.update(overrides)
+    return entry
+
+
+def valid_coverage_payload(entries=None, **overrides):
+    payload = {
+        "schemaVersion": 1,
+        "status": "working",
+        "coverageBasis": "candidate-design",
+        "entries": (
+            entries
+            if entries is not None
+            else [
+                valid_coverage_entry(),
+                valid_coverage_entry(
+                    competencyId="LH26-E-ID-001",
+                    normativeWeight="orientation",
+                ),
+            ]
         ),
     }
     payload.update(overrides)
@@ -1516,6 +1560,230 @@ class ModuleCandidateFileTests(unittest.TestCase):
             ),
             1,
         )
+
+
+class CoverageTests(unittest.TestCase):
+    def setUp(self):
+        self.required_ids = {
+            "BMB16-GYM-IK-IW-001": "enacted",
+            "LH26-E-ID-001": "orientation",
+        }
+        self.module_ids = {
+            "IUM-5-CORE-01": "core",
+            "IUM-5-EXT-01": "extension",
+        }
+
+    def test_valid_coverage_returns_required_ids(self):
+        self.assertEqual(
+            validate_coverage(
+                valid_coverage_payload(),
+                self.required_ids,
+                self.module_ids,
+            ),
+            set(self.required_ids),
+        )
+
+    def test_every_required_record_must_be_accounted_for(self):
+        entries = valid_coverage_payload()["entries"][:-1]
+
+        with self.assertRaises(ValidationError):
+            validate_coverage(
+                valid_coverage_payload(entries=entries),
+                self.required_ids,
+                self.module_ids,
+            )
+
+    def test_covered_record_needs_a_valid_core_module(self):
+        invalid_module_lists = (
+            ["UNKNOWN"],
+            ["IUM-5-EXT-01"],
+            [],
+        )
+
+        for module_ids in invalid_module_lists:
+            entries = valid_coverage_payload()["entries"]
+            entries[0]["moduleIds"] = module_ids
+
+            with self.subTest(module_ids=module_ids):
+                with self.assertRaises(ValidationError):
+                    validate_coverage(
+                        valid_coverage_payload(entries=entries),
+                        self.required_ids,
+                        self.module_ids,
+                    )
+
+    def test_partial_and_deferred_need_reason_risk_and_follow_up(self):
+        for coverage_status in ("partial", "deferred"):
+            for field in ("reason", "risk", "followUp"):
+                entry = valid_coverage_entry(
+                    coverageStatus=coverage_status,
+                    reason="Nur ein Teil des Operators wird eingelöst.",
+                )
+                if field == "reason":
+                    del entry[field]
+                else:
+                    entry[field] = " "
+                entries = [
+                    entry,
+                    valid_coverage_entry(
+                        competencyId="LH26-E-ID-001",
+                        normativeWeight="orientation",
+                    ),
+                ]
+
+                with self.subTest(
+                    coverage_status=coverage_status,
+                    field=field,
+                ):
+                    with self.assertRaises(ValidationError):
+                        validate_coverage(
+                            valid_coverage_payload(entries=entries),
+                            self.required_ids,
+                            self.module_ids,
+                        )
+
+    def test_normative_weight_must_match_curriculum_source_status(self):
+        entries = valid_coverage_payload()["entries"]
+        entries[1]["normativeWeight"] = "enacted"
+
+        with self.assertRaises(ValidationError):
+            validate_coverage(
+                valid_coverage_payload(entries=entries),
+                self.required_ids,
+                self.module_ids,
+            )
+
+    def test_duplicate_or_unknown_competency_id_is_rejected(self):
+        duplicate_entries = valid_coverage_payload()["entries"]
+        duplicate_entries.append(copy.deepcopy(duplicate_entries[0]))
+        unknown_entries = valid_coverage_payload()["entries"]
+        unknown_entries[0]["competencyId"] = "UNKNOWN"
+
+        for entries in (duplicate_entries, unknown_entries):
+            with self.subTest(entries=entries):
+                with self.assertRaises(ValidationError):
+                    validate_coverage(
+                        valid_coverage_payload(entries=entries),
+                        self.required_ids,
+                        self.module_ids,
+                    )
+
+    def test_required_strings_and_status_are_validated(self):
+        invalid_mutations = (
+            ("evidence", " "),
+            ("risk", None),
+            ("followUp", ""),
+            ("coverageStatus", "open"),
+        )
+
+        for field, value in invalid_mutations:
+            entries = valid_coverage_payload()["entries"]
+            entries[0][field] = value
+
+            with self.subTest(field=field, value=value):
+                with self.assertRaises(ValidationError):
+                    validate_coverage(
+                        valid_coverage_payload(entries=entries),
+                        self.required_ids,
+                        self.module_ids,
+                    )
+
+
+class CoverageRepositoryTests(unittest.TestCase):
+    def test_repository_coverage_and_roadmap_are_complete_and_reviewable(self):
+        root = Path(__file__).resolve().parents[1]
+        curriculum_payloads = [
+            json.loads(path.read_text(encoding="utf-8"))
+            for path in sorted(
+                (root / "curriculum").glob("**/competencies.json")
+            )
+        ]
+        required_weights = {}
+        for payload in curriculum_payloads:
+            normative_weight = (
+                "orientation"
+                if payload["metadata"]["normativeStatus"]
+                == "orientation"
+                else "enacted"
+            )
+            required_weights.update(
+                {
+                    record["id"]: normative_weight
+                    for record in payload["records"]
+                    if record["recordType"] not in {"example", "operator"}
+                }
+            )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        module_kinds = {
+            module["id"]: module["kind"]
+            for module in module_payload["modules"]
+        }
+        module_competency_ids = {
+            competency_id
+            for module in module_payload["modules"]
+            for competency_id in module["competencyIds"]
+        }
+        coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+        coverage_ids = validate_coverage(
+            coverage_payload,
+            required_weights,
+            module_kinds,
+        )
+        self.assertEqual(len(coverage_ids), 171)
+        self.assertEqual(module_competency_ids, coverage_ids)
+        self.assertEqual(
+            Counter(required_weights.values()),
+            Counter({"orientation": 95, "enacted": 76}),
+        )
+        self.assertEqual(
+            {entry["coverageStatus"] for entry in coverage_payload["entries"]},
+            {"covered"},
+        )
+
+        roadmap = (root / "roadmap/module-roadmap.md").read_text(
+            encoding="utf-8"
+        )
+        required_sections = (
+            "## Planungsannahmen und Zeitmodell",
+            "## Kernfolge Klasse 5",
+            "## Kernfolge Klasse 6",
+            "## Kernfolge Klasse 7",
+            "## Flexible Kandidaten",
+            "## Begründung der Abhängigkeiten",
+            "## Curriculare Abdeckung",
+            "## Jahreskorridore und Puffer",
+            "## Analoge Materialien",
+            "## Erhöhter Prüfbedarf",
+            "## Empfehlung für den ersten Goldstandard-Pilot",
+            "## Offene Entscheidungen und Risiken",
+        )
+        for section in required_sections:
+            with self.subTest(section=section):
+                self.assertIn(section, roadmap)
+        for module_id in module_kinds:
+            with self.subTest(module_id=module_id):
+                self.assertIn(module_id, roadmap)
+        for required_text in (
+            "30 Unterrichtseinheiten Kern",
+            "6 Unterrichtseinheiten Puffer",
+            "31-44",
+            "35-50",
+            "54-78",
+            "zeitlich nicht freigegeben",
+            "IUM-5-CORE-05",
+            "keine Phase-2-Implementierungsplanung",
+        ):
+            with self.subTest(required_text=required_text):
+                self.assertIn(required_text, roadmap)
 
 
 class OperatorMappingTests(unittest.TestCase):
