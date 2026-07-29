@@ -36,14 +36,15 @@
         "IUM-5-CORE-01",
         "IUM-5-CORE-04"
       ],
-      "coverageStatus": "covered",
-      "semanticAudit": "operator-product-match",
+      "coverageStatus": "partial",
+      "semanticAudit": "documented-gap",
       "requirementText": "sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten",
-      "evidenceModuleId": "IUM-5-CORE-04",
-      "evidence": "Kernmodul IUM-5-CORE-04 „Einen schulischen Datenweg sichtbar machen“: In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen. Sichtbarer Nachweis: Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6. Weitere Wiederaufnahme im Kernpfad: IUM-5-CORE-01.",
-      "matchRationale": "Die Anforderung „sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten“ wird im Kernmodul IUM-5-CORE-04 durch die zentrale Lernhandlung „In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen.“ ausgeführt; das Produkt „Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6.“ dokumentiert das Ergebnis.",
-      "risk": "Die Designabdeckung weist eine passende Lernhandlung aus, garantiert aber noch keine vollständige Unterrichtstiefe im Ein-Wochenstunden-Jahreskorridor.",
-      "followUp": "Im Modulreview Operator, Lernhandlung und Produkt recordgenau prüfen; im Jahrespilot den realen Zeitbedarf erheben, ohne personenbezogene Kompetenzprofile anzulegen."
+      "evidenceModuleId": "IUM-5-CORE-01",
+      "evidence": "Kernmodul IUM-5-CORE-01 „Im Schulnetz sicher arbeitsfähig werden“: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. Sichtbarer Nachweis: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste. Weitere Wiederaufnahme im Kernpfad: IUM-5-CORE-04.",
+      "matchRationale": "Die Anforderung „sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten“ ist im Kernmodul IUM-5-CORE-01 mit der Lernhandlung „Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen.“ und dem Produkt „Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.“ verortet, aber nur teilweise eingelöst: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach.",
+      "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach.",
+      "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach. Danach den Record erneut operator- und produktgenau auditieren.",
+      "reason": "Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach."
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-003",

@@ -6,7 +6,7 @@ Geltungsbereich: Baden-Württemberg, Gymnasium, Niveau E
 
 Diese Roadmap ordnet die 31 geprüften Modulkandidaten zu einem reviewfähigen Lernwerk-Kosmos. Sie ist weder Stundentafel noch fertiges Schulcurriculum. Insbesondere trennt sie drei Aussagen:
 
-1. **Semantischer Coverage-Audit:** Alle 171 Curriculumrecords sind einem Kernkandidaten zugeordnet und einzeln gegen Operator, Gegenstand, zentrale Lernhandlung und Produktnachweis geprüft. 112 Records besitzen einen expliziten Match; bei 59 Records ist die noch zu schließende Lücke dokumentiert.
+1. **Semantischer Coverage-Audit:** Alle 171 Curriculumrecords sind einem Kernkandidaten zugeordnet und einzeln gegen Operator, Gegenstand, zentrale Lernhandlung und Produktnachweis geprüft. 111 Records besitzen einen expliziten Match; bei 60 Records ist die noch zu schließende Lücke dokumentiert.
 2. **Abhängigkeit:** Der Kandidatengraph ist fachlich progressiv, azyklisch und jahrgangskonsistent.
 3. **Zeitliche Umsetzbarkeit:** Eine vollständige Kandidatenfolge muss zusätzlich in die reale Unterrichtszeit passen. Dieser Nachweis ist für die Klassen 6 und 7 noch nicht erbracht.
 
@@ -105,11 +105,11 @@ Jahrgangsrücksprünge sind im Validator verboten. Kernmodule dürfen nicht von 
 
 | Quellengewicht | Records | Status im Coverage-Plan |
 |---|---:|---|
-| `enacted` - Basiskurs Medienbildung und Aufbaukurs Informatik | 76 | 46 `covered`, 30 `partial` |
+| `enacted` - Basiskurs Medienbildung und Aufbaukurs Informatik | 76 | 45 `covered`, 31 `partial` |
 | `orientation` - Lesehilfe 2026/2027 | 95 | 66 `covered`, 29 `partial` |
-| Gesamt | 171 | 112 `covered`, 59 `partial`, 0 `deferred` |
+| Gesamt | 171 | 111 `covered`, 60 `partial`, 0 `deferred` |
 
-`covered` bedeutet hier ausschließlich, dass Operator und Gegenstand in einer zentralen Lernhandlung ausgeführt und in einem passenden Lernprodukt sichtbar werden. `partial` bedeutet nicht „unzugeordnet“: Der Record besitzt einen Kern-Andockpunkt, aber der explizite Operator-Produkt-Nachweis ist noch unvollständig. Für jeden dieser 59 Records nennt `coverage-plan.json` eine konkrete Begründung, das Risiko einer Überbehauptung und eine Nacharbeit.
+`covered` bedeutet hier ausschließlich, dass Operator und Gegenstand in einer zentralen Lernhandlung ausgeführt und in einem passenden Lernprodukt sichtbar werden. `partial` bedeutet nicht „unzugeordnet“: Der Record besitzt einen Kern-Andockpunkt, aber der explizite Operator-Produkt-Nachweis ist noch unvollständig. Für jeden dieser 60 Records nennt `coverage-plan.json` eine konkrete Begründung, das Risiko einer Überbehauptung und eine Nacharbeit.
 
 Jeder Eintrag enthält den exakten Anforderungstext, einen ausgewählten Evidenz-Kernkandidaten und ein recordgenaues `matchRationale` mit dessen unveränderter Lernhandlung und Produktbeschreibung. Der Validator erzwingt diese Nachweiskette und verhindert fachfremde oder veraltete Verweise. Er entscheidet jedoch keine natürlichsprachliche Fachsemantik; die Einstufung `covered` oder `partial` bleibt Ergebnis des dokumentierten manuellen Fachaudits.
 
@@ -180,13 +180,13 @@ Der Pilot soll die Modulgrammatik, Accessibility, Offlinefähigkeit, lokale Spei
 5. **Flexible Module:** Im Ein-Wochenstunden-Modell ist derzeit kein verlässlicher Zusatzkorridor vorhanden. Austausch- oder Integrationsvarianten brauchen einen eigenen Coverage-Nachweis.
 6. **Beurteilungsinstrumentarium:** `assessmentWorkingNotes` bleibt reduzierbar. Private Reflexion, automatische Punkte und personenbezogene Kompetenzprofile sind ausgeschlossen.
 7. **Goldstandard-Pilot:** `IUM-5-CORE-05` ist eine begründete Empfehlung, aber noch keine Nutzerfreigabe zur Implementierung.
-8. **Semantische Lücken:** 59 Records sind curricular verortet, aber noch nicht vollständig durch Lernhandlung und Produkt eingelöst. Sie müssen vor einer Vollabdeckungsbehauptung einzeln geschlossen oder begründet `partial` bleiben.
+8. **Semantische Lücken:** 60 Records sind curricular verortet, aber noch nicht vollständig durch Lernhandlung und Produkt eingelöst. Sie müssen vor einer Vollabdeckungsbehauptung einzeln geschlossen oder begründet `partial` bleiben.
 9. **Vollständigkeitsbehauptung:** 171/171 zugeordnete Records dürfen weder als 171/171 semantisch abgedeckte noch als zeitlich gesicherte Unterrichtsabdeckung kommuniziert werden.
 
 ## Freigabestatus
 
 - Fachlicher Kandidatengraph: reviewfähig.
-- Coverage-Audit: 171/171 zugeordnet und geprüft; 112 `covered`, 59 `partial`, 0 `deferred`.
+- Coverage-Audit: 171/171 zugeordnet und geprüft; 111 `covered`, 60 `partial`, 0 `deferred`.
 - Jahresroadmap Klasse 5: `amber`.
 - Jahresroadmap Klassen 6 und 7: `red`.
-- Phase-1-Modulspezifikation: für den Goldstandard-Pilot nach Task-15-Abschlussreview und Nutzerentscheidung; eine Vollabdeckungsfreigabe setzt zusätzlich die recordgenaue Bearbeitung der 59 `partial`-Lücken voraus.
+- Phase-1-Modulspezifikation: für den Goldstandard-Pilot nach Task-15-Abschlussreview und Nutzerentscheidung; eine Vollabdeckungsfreigabe setzt zusätzlich die recordgenaue Bearbeitung der 60 `partial`-Lücken voraus.

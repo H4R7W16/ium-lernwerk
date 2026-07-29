@@ -1886,7 +1886,7 @@ class CoverageRepositoryTests(unittest.TestCase):
                 entry["coverageStatus"]
                 for entry in coverage_payload["entries"]
             ),
-            Counter({"covered": 112, "partial": 59}),
+            Counter({"covered": 111, "partial": 60}),
         )
         self.assertEqual(
             Counter(
@@ -1900,8 +1900,8 @@ class CoverageRepositoryTests(unittest.TestCase):
                 {
                     ("orientation", "covered"): 66,
                     ("orientation", "partial"): 29,
-                    ("enacted", "covered"): 46,
-                    ("enacted", "partial"): 30,
+                    ("enacted", "covered"): 45,
+                    ("enacted", "partial"): 31,
                 }
             ),
         )
@@ -1924,6 +1924,7 @@ class CoverageRepositoryTests(unittest.TestCase):
             "INF7-16-GYM-PK-SV-001",
             "LH26-E-DA-015",
             "LH26-E-ID-021",
+            "BMB16-GYM-IK-GM-002",
             "BMB16-GYM-PK-RK-001",
             "LH26-E-DP-003",
             "LH26-E-DA-009",
@@ -2038,8 +2039,8 @@ class CoverageRepositoryTests(unittest.TestCase):
             "35-50",
             "54-78",
             "zeitlich nicht freigegeben",
-            "112 `covered`",
-            "59 `partial`",
+            "111 `covered`",
+            "60 `partial`",
             "Operator und Gegenstand",
             "IUM-5-CORE-05",
             "keine Phase-2-Implementierungsplanung",
