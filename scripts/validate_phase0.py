@@ -1,6 +1,7 @@
 import json
 import re
 from collections import Counter
+from collections.abc import Mapping
 from pathlib import Path
 
 
@@ -877,7 +878,27 @@ def validate_module_candidates(payload, curriculum_ids):
         isinstance(modules, list) and bool(modules),
         "module candidates modules must be a nonempty list",
     )
-    registered_curriculum_ids = set(curriculum_ids)
+    _require(
+        isinstance(curriculum_ids, Mapping),
+        "module candidates need a curriculum grade mapping",
+    )
+    curriculum_grade_map = {}
+    for curriculum_id, curriculum_grades in curriculum_ids.items():
+        _require(
+            isinstance(curriculum_id, str)
+            and bool(curriculum_id.strip())
+            and isinstance(curriculum_grades, (list, tuple, set))
+            and bool(curriculum_grades)
+            and all(
+                isinstance(curriculum_grade, int)
+                and not isinstance(curriculum_grade, bool)
+                and curriculum_grade in {5, 6, 7}
+                for curriculum_grade in curriculum_grades
+            ),
+            f"invalid curriculum grade contract: {curriculum_id}",
+        )
+        curriculum_grade_map[curriculum_id] = set(curriculum_grades)
+    registered_curriculum_ids = set(curriculum_grade_map)
     _require(
         bool(registered_curriculum_ids),
         "module candidates need registered curriculum ids",
@@ -902,6 +923,7 @@ def validate_module_candidates(payload, curriculum_ids):
     )
     module_ids = []
     module_kinds = {}
+    module_grades = {}
     prerequisite_ids_by_module = {}
     core_curriculum_ids = set()
     grammar_phase_order = {
@@ -934,6 +956,7 @@ def validate_module_candidates(payload, curriculum_ids):
             f"module id, grade and kind do not match: {module_id}",
         )
         module_kinds[module_id] = kind
+        module_grades[module_id] = grade
         strand_ids = module["strandIds"]
         _require(
             isinstance(strand_ids, list)
@@ -960,6 +983,14 @@ def validate_module_candidates(payload, curriculum_ids):
         _require(
             set(competency_ids) <= registered_curriculum_ids,
             f"unknown competency id: {module_id}",
+        )
+        _require(
+            all(
+                grade in curriculum_grade_map[competency_id]
+                for competency_id in competency_ids
+                if competency_id in curriculum_grade_map
+            ),
+            f"competency grade does not match module grade: {module_id}",
         )
         if kind == "core":
             core_curriculum_ids.update(competency_ids)
@@ -1068,6 +1099,13 @@ def validate_module_candidates(payload, curriculum_ids):
             module_id not in prerequisite_ids,
             f"module cannot depend on itself: {module_id}",
         )
+        _require(
+            all(
+                module_grades[prerequisite_id] <= module_grades[module_id]
+                for prerequisite_id in prerequisite_ids
+            ),
+            f"module cannot depend on a later grade: {module_id}",
+        )
         if module_kinds[module_id] == "core":
             _require(
                 all(
@@ -1171,14 +1209,14 @@ def main():
         curriculum_records,
         operator_records,
     )
-    required_curriculum_ids = {
-        record_id
+    required_curriculum_grades = {
+        record_id: set(record["grades"])
         for record_id, record in curriculum_records.items()
         if record["recordType"] not in {"example", "operator"}
     }
     validate_module_candidates(
         load_json(root / "roadmap/module-candidates.json"),
-        required_curriculum_ids,
+        required_curriculum_grades,
     )
     print("phase 0 validation passed")
 

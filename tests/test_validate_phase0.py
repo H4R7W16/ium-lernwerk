@@ -1155,8 +1155,8 @@ class CrosswalkTests(unittest.TestCase):
 class ModuleCandidateTests(unittest.TestCase):
     def setUp(self):
         self.curriculum_ids = {
-            "LH26-E-ID-001",
-            "BMB16-GYM-IK-IW-001",
+            "LH26-E-ID-001": {5, 6, 7},
+            "BMB16-GYM-IK-IW-001": {5, 6, 7},
         }
 
     def test_valid_candidate_graph_returns_module_ids(self):
@@ -1369,6 +1369,34 @@ class ModuleCandidateTests(unittest.TestCase):
                 self.curriculum_ids,
             )
 
+    def test_module_cannot_depend_on_a_later_grade(self):
+        modules = valid_module_candidates_payload()["modules"]
+        modules.append(
+            valid_module_candidate(
+                id="IUM-7-CORE-02",
+                title="Späterer Kernkandidat",
+                grade=7,
+                competencyIds=["LH26-E-ID-001"],
+            )
+        )
+        modules[1]["prerequisiteModuleIds"] = ["IUM-7-CORE-02"]
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(modules=modules),
+                self.curriculum_ids,
+            )
+
+    def test_module_grade_must_match_curriculum_grade_contract(self):
+        curriculum_grade_contract = dict(self.curriculum_ids)
+        curriculum_grade_contract["LH26-E-ID-001"] = {7}
+
+        with self.assertRaises(ValidationError):
+            validate_module_candidates(
+                valid_module_candidates_payload(),
+                curriculum_grade_contract,
+            )
+
 
 class ModuleCandidateFileTests(unittest.TestCase):
     def test_repository_candidates_cover_contract_and_preserve_hybrid_model(self):
@@ -1382,8 +1410,8 @@ class ModuleCandidateFileTests(unittest.TestCase):
                 "records"
             ]
         ]
-        required_curriculum_ids = {
-            record["id"]
+        required_curriculum_grades = {
+            record["id"]: set(record["grades"])
             for record in records
             if record["recordType"] not in {"example", "operator"}
         }
@@ -1394,15 +1422,18 @@ class ModuleCandidateFileTests(unittest.TestCase):
         )
         module_ids = validate_module_candidates(
             payload,
-            required_curriculum_ids,
+            required_curriculum_grades,
         )
+        modules_by_id = {
+            module["id"]: module for module in payload["modules"]
+        }
         specification = (
             root
             / "docs/superpowers/specs/"
             "2026-07-27-ium-lernwerk-gesamtdesign.md"
         ).read_text(encoding="utf-8")
 
-        self.assertEqual(len(required_curriculum_ids), 171)
+        self.assertEqual(len(required_curriculum_grades), 171)
         self.assertEqual(len(module_ids), 31)
         self.assertEqual(
             {module["kind"] for module in payload["modules"]},
@@ -1422,6 +1453,42 @@ class ModuleCandidateFileTests(unittest.TestCase):
                 and module["kind"] in {"transfer", "project"}
                 for module in payload["modules"]
             )
+        )
+        for competency_id in (
+            "LH26-E-KS-008",
+            "LH26-E-KS-009",
+            "LH26-E-KS-010",
+        ):
+            with self.subTest(competency_id=competency_id):
+                self.assertNotIn(
+                    competency_id,
+                    modules_by_id["IUM-5-CORE-04"]["competencyIds"],
+                )
+                self.assertIn(
+                    competency_id,
+                    modules_by_id["IUM-6-CORE-05"]["competencyIds"],
+                )
+        for module_id in ("IUM-5-CORE-07", "IUM-7-CORE-09"):
+            with self.subTest(module_id=module_id):
+                self.assertIn(
+                    "private Selbstreflexion",
+                    modules_by_id[module_id]["centralLearningAction"],
+                )
+                self.assertIn(
+                    "nicht erhoben, gespeichert oder bewertet",
+                    modules_by_id[module_id]["assessmentWorkingNotes"],
+                )
+        self.assertIn(
+            "Gründe für und gegen die Nutzung Sozialer Medien",
+            modules_by_id["IUM-6-CORE-06"]["centralLearningAction"],
+        )
+        self.assertIn(
+            "Wirkung von Selbstdarstellung",
+            modules_by_id["IUM-6-CORE-06"]["centralLearningAction"],
+        )
+        self.assertIn(
+            "private Selbstreflexion",
+            modules_by_id["IUM-6-CORE-06"]["centralLearningAction"],
         )
         self.assertEqual(
             specification.count(

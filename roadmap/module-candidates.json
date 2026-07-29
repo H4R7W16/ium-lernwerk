@@ -162,28 +162,25 @@
     },
     {
       "id": "IUM-5-CORE-04",
-      "title": "Den Weg einer Nachricht als Modell prüfen",
+      "title": "Einen schulischen Datenweg sichtbar machen",
       "grade": 5,
       "kind": "core",
       "strandIds": [
         "STRAND-C"
       ],
       "competencyIds": [
-        "LH26-E-KS-008",
-        "LH26-E-KS-009",
-        "LH26-E-KS-010",
         "BMB16-GYM-IK-GM-002"
       ],
       "prerequisiteModuleIds": [
         "IUM-5-CORE-01"
       ],
       "lessonRange": {
-        "min": 4,
-        "max": 6
+        "min": 3,
+        "max": 4
       },
-      "centralQuestion": "Wie gelangt eine Nachricht durch ein Netz zum richtigen Dienst, obwohl wir den Weg nicht sehen?",
-      "centralLearningAction": "Vermutungen über Internet und Cloud sichtbar machen, Knoten und Weiterleitungen modellieren, Client–Server-Abläufe ausführen und Modellgrenzen an einer digitalen Simulation prüfen.",
-      "centralLearningProduct": "Mehrschichtiges Netzmodell mit Nachrichtenweg, Client–Server-Sequenz, Speicherortvergleich und ausdrücklich markierter Modellgrenze.",
+      "centralQuestion": "Was geschieht zwischen Anmeldung, Datei und schulischer Ablage, obwohl wir meist nur die Oberfläche sehen?",
+      "centralLearningAction": "In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen.",
+      "centralLearningProduct": "Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -193,12 +190,12 @@
         "review-revise-transfer",
         "shared-consolidation"
       ],
-      "mediumRationale": "Eine interaktive Netzsimulation macht alternative Wege, Weiterleitung und Client–Server-Rollen veränderbar; dadurch können Modellvorhersagen direkt gegen Systemreaktionen geprüft werden.",
+      "mediumRationale": "Die digitale Schulumgebung ist selbst Untersuchungsgegenstand: Eine geführte Systemansicht macht Anmeldung, Dateiablage und Zugriffsrollen schrittweise nachvollziehbar und hält offene Modellfragen für Klasse 6 fest.",
       "analogMaterials": [
         {
-          "title": "Verteiltes Paketkarten-Modell",
-          "didacticRationale": "Rollen, lokale Weiterleitungsentscheidungen und alternative Wege werden körperlich und gemeinsam erfahrbar, ohne sie hinter einer Oberfläche zu verbergen.",
-          "digitalReconnection": "Die protokollierten Wege werden anschließend in der digitalen Netzsimulation rekonstruiert, variiert und auf Modellgrenzen geprüft."
+          "title": "Rollen- und Datenwegkarten",
+          "didacticRationale": "Gerät, Anmeldung, lokales Schulnetz und Ablage werden als unterscheidbare Rollen körperlich angeordnet; die stark gestützte Folge entlastet die erste Begriffsbildung.",
+          "digitalReconnection": "Die gelegte Folge wird anschließend in der digitalen Schulumgebung rekonstruiert, mit der realen Systemreaktion verglichen und als noch unvollständiges Modell markiert."
         }
       ],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
@@ -314,8 +311,8 @@
         "max": 6
       },
       "centralQuestion": "Wie beeinflussen Gestaltung, Einbettung und Nutzungssituation unsere Wahrnehmung, ohne dass daraus eine Personendiagnose folgt?",
-      "centralLearningAction": "Werbung und Medienwirkung in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen, alternative Erklärungen nennen und eine begründete Handlungsoption formulieren.",
-      "centralLearningProduct": "Fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption.",
+      "centralLearningAction": "Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren.",
+      "centralLearningProduct": "Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -325,9 +322,9 @@
         "review-revise-transfer",
         "shared-consolidation"
       ],
-      "mediumRationale": "Kuratiertes digitales Medienmaterial erlaubt das genaue Markieren eingebetteter Werbung und den Vergleich veränderbarer Gestaltungsmerkmale, ohne private Nutzungsdaten zu erheben.",
+      "mediumRationale": "Kuratiertes digitales Medienmaterial erlaubt das genaue Markieren eingebetteter Werbung und den Vergleich veränderbarer Gestaltungsmerkmale; die anschließende private Reflexion funktioniert lokal ohne Übermittlung persönlicher Nutzungsangaben.",
       "analogMaterials": [],
-      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur die fallbezogene Wirkungskarte, ihre Belege und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; Lern- und Leistungssituation bleiben getrennt.",
       "status": "working"
     },
     {
@@ -548,9 +545,9 @@
         "min": 5,
         "max": 7
       },
-      "centralQuestion": "Wie lässt sich in einem digitalen Konflikt handeln, ohne Betroffene zur Offenlegung zu zwingen?",
-      "centralLearningAction": "Rechtliche und kommunikative Bedingungen an fiktiven Fällen prüfen, begünstigende Faktoren unterscheiden und passende Präventions-, Hilfe- und Meldewege begründen.",
-      "centralLearningProduct": "Nichtpersonaler Fall-Handlungsplan mit Rollen, Grenzen, Belegen, Hilfswegen, Alternativen und begründeter Eskalationsentscheidung.",
+      "centralQuestion": "Wie lassen sich soziale Medien und digitale Konflikte beurteilen, ohne Betroffene zur Offenlegung zu zwingen?",
+      "centralLearningAction": "Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen.",
+      "centralLearningProduct": "Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -560,9 +557,9 @@
         "review-revise-transfer",
         "shared-consolidation"
       ],
-      "mediumRationale": "Eine geschützte digitale Fallsimulation kann Perspektiven, Sichtbarkeiten und Handlungsfolgen variieren; persönliche Berichte und reale Klassenkommunikation sind nicht erforderlich.",
+      "mediumRationale": "Eine geschützte digitale Fallsimulation kann Profile, Perspektiven, Sichtbarkeiten und Handlungsfolgen variieren; die persönliche Reflexion erfolgt lokal und wird weder übermittelt noch mit realer Klassenkommunikation verknüpft.",
       "analogMaterials": [],
-      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Pro-und-Contra-Matrix, Fallanalyse, Handlungsplan und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
       "status": "working"
     },
     {
@@ -1005,8 +1002,8 @@
         "max": 6
       },
       "centralQuestion": "Wie greifen Spielgestaltung, soziale Situation und Geschäftsmodell ineinander, ohne individuelles Verhalten zu diagnostizieren?",
-      "centralLearningAction": "Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen und eine Designentscheidung bewerten.",
-      "centralLearningProduct": "Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative.",
+      "centralLearningAction": "Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen.",
+      "centralLearningProduct": "Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -1016,9 +1013,9 @@
         "review-revise-transfer",
         "shared-consolidation"
       ],
-      "mediumRationale": "Kuratiertes digitales Spielmaterial macht Interaktion, Feedbackschleifen und Monetarisierung sichtbar; fiktive Profile ersetzen persönliche Nutzungsdaten.",
+      "mediumRationale": "Kuratiertes digitales Spielmaterial macht Interaktion, Feedbackschleifen und Monetarisierung sichtbar; fiktive Profile tragen die gemeinsame Analyse, während die persönliche Reflexion lokal ohne Übermittlung von Nutzungsdaten erfolgt.",
       "analogMaterials": [],
-      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Mechanismuskarte, Redesign-Begründung und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
       "status": "working"
     },
     {
