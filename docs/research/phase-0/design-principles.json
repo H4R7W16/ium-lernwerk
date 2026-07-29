@@ -14,6 +14,10 @@
         "Komponentenauswahl",
         "didaktisches Review"
       ],
+      "fachprofilApplications": [
+        "Fachkern und zentrale Denkweisen",
+        "Material- und Repräsentationsstandards"
+      ],
       "status": "working",
       "phase1Implications": [
         "Das Modulmanifest muss Ziel, fachliche Lernhandlung und Lernfunktion jeder interaktiven Komponente erfassen.",
@@ -40,6 +44,10 @@
         "Lehrkräftehandbuch",
         "lokale Selbstchecks"
       ],
+      "fachprofilApplications": [
+        "Typische Vorstellungen, Fehlvorstellungen und Lernbarrieren",
+        "Nicht personenbezogene Diagnosegelegenheiten"
+      ],
       "status": "working",
       "phase1Implications": [
         "Vorwissensaufgaben müssen ohne Konten, Profilbildung und zentrale Antwortspeicherung funktionieren.",
@@ -63,6 +71,10 @@
         "Phase 3: Konzept aufbauen",
         "Phase 4: angeleitet erproben",
         "Phase 7: gemeinsam sichern"
+      ],
+      "fachprofilApplications": [
+        "Scaffolding, Üben, Feedback, Transfer und Sicherung",
+        "Lehrkraftorchestrierung"
       ],
       "status": "working",
       "phase1Implications": [
@@ -91,6 +103,10 @@
         "Phase 5: eigenständig handeln oder produzieren",
         "Hilfesystem",
         "Programmausführungsdarstellungen"
+      ],
+      "fachprofilApplications": [
+        "Material- und Repräsentationsstandards",
+        "Standards für Programmieraufgaben"
       ],
       "status": "working",
       "phase1Implications": [
@@ -121,6 +137,10 @@
         "Phase 7: gemeinsam sichern",
         "modulübergreifende Progression"
       ],
+      "fachprofilApplications": [
+        "Alters- und jahrgangsbezogene Progression 5–7",
+        "Scaffolding, Üben, Feedback, Transfer und Sicherung"
+      ],
       "status": "working",
       "phase1Implications": [
         "Modulmetadaten müssen spätere Wiedervorlagen und die jeweils veränderte Lernhandlung beschreiben können.",
@@ -146,6 +166,10 @@
         "Phase 4: angeleitet erproben",
         "Phase 5: eigenständig handeln oder produzieren",
         "Phase 6: prüfen, überarbeiten und übertragen"
+      ],
+      "fachprofilApplications": [
+        "Lehrkraftorchestrierung",
+        "Reduzierbares Beurteilungsinstrumentarium"
       ],
       "status": "working",
       "phase1Implications": [
@@ -176,6 +200,10 @@
         "Phase 4: angeleitet erproben",
         "Phase 5: eigenständig handeln oder produzieren",
         "Phase 6: prüfen, überarbeiten und übertragen"
+      ],
+      "fachprofilApplications": [
+        "Eigenständiger Lernstrang Informatik",
+        "Standards für Programmieraufgaben"
       ],
       "status": "working",
       "phase1Implications": [
@@ -208,6 +236,10 @@
         "Medienproduktion",
         "Phase 6: prüfen, überarbeiten und übertragen"
       ],
+      "fachprofilApplications": [
+        "Eigenständiger Lernstrang Medienbildung",
+        "Standards für Medienanalyse und Medienproduktion"
+      ],
       "status": "working",
       "phase1Implications": [
         "Analysekomponenten müssen Mechanismus, Akteur, Interesse, Beleg, Gegenbeleg, Unsicherheit und Revision abbilden können.",
@@ -236,6 +268,10 @@
         "Medienwirkungsanalyse",
         "Körper- und Rollenbildmodule",
         "Lehrkräftehandbuch"
+      ],
+      "fachprofilApplications": [
+        "Standards für Medienanalyse und Medienproduktion",
+        "Nicht personenbezogene Diagnosegelegenheiten"
       ],
       "status": "working",
       "phase1Implications": [
@@ -266,6 +302,9 @@
         "Modulmanifest",
         "didaktisches Review"
       ],
+      "fachprofilApplications": [
+        "Begründete Analog-/Digitalentscheidung"
+      ],
       "status": "working",
       "phase1Implications": [
         "Das Modulmanifest muss die Lernfunktion des Mediums und bei Analogmaterial dessen Rückbindung an das digitale Modul erfassen; für modellierende oder unplugged Materialien zusätzlich Zuordnung, Modell- oder Analogiegrenze und formale oder digitale Anschlussaufgabe.",
@@ -294,6 +333,10 @@
         "Datenschutzreview",
         "alle interaktiven Module"
       ],
+      "fachprofilApplications": [
+        "Nicht personenbezogene Diagnosegelegenheiten",
+        "Quellen, Lizenz, Aktualität und Accessibility"
+      ],
       "status": "reviewed",
       "phase1Implications": [
         "Das Plattformfundament benötigt ein Dateninventar mit Zweck, Speicherort, Löschweg, Exportweg und Hostingfluss.",
@@ -321,6 +364,10 @@
         "vollständige Aufgabenpfade",
         "technische QA",
         "schulische Erprobung"
+      ],
+      "fachprofilApplications": [
+        "Material- und Repräsentationsstandards",
+        "Quellen, Lizenz, Aktualität und Accessibility"
       ],
       "status": "reviewed",
       "phase1Implications": [
@@ -351,6 +398,10 @@
         "Browsermatrix",
         "Performancebudgets"
       ],
+      "fachprofilApplications": [
+        "Quellen, Lizenz, Aktualität und Accessibility",
+        "Offene Fragen, Recheck-Trigger und Reviewstatus"
+      ],
       "status": "working",
       "phase1Implications": [
         "QA muss Erstladung, Netzverlust, Teilcache, Altclient, neues Deployment, laufende Arbeit, Rollback und Wiederanbindung einzeln prüfen.",
@@ -380,6 +431,10 @@
         "Lizenzreview",
         "Export und Nachnutzung"
       ],
+      "fachprofilApplications": [
+        "Standards für Medienanalyse und Medienproduktion",
+        "Quellen, Lizenz, Aktualität und Accessibility"
+      ],
       "status": "reviewed",
       "phase1Implications": [
         "Assets benötigen maschinenlesbare Provenienz-, Lizenz- und Änderungsmetadaten.",
@@ -407,6 +462,9 @@
         "Phase 6: prüfen, überarbeiten und übertragen",
         "Lehrkräftehandbuch",
         "Beurteilungsinstrumentarium"
+      ],
+      "fachprofilApplications": [
+        "Reduzierbares Beurteilungsinstrumentarium"
       ],
       "status": "working",
       "phase1Implications": [
