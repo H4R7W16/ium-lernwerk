@@ -1,7 +1,7 @@
 # IuM-Lernwerk - erste Modulroadmap für Gymnasium 5-7
 
-Status: `working`  
-Stand: 29. Juli 2026  
+Status: `working`
+Stand: 29. Juli 2026
 Geltungsbereich: Baden-Württemberg, Gymnasium, Niveau E
 
 Diese Roadmap ordnet die 31 geprüften Modulkandidaten zu einem reviewfähigen Lernwerk-Kosmos. Sie ist weder Stundentafel noch fertiges Schulcurriculum. Insbesondere trennt sie drei Aussagen:

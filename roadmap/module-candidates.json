@@ -268,8 +268,8 @@
         "max": 7
       },
       "centralQuestion": "Welche Gestaltung hilft einer Zielgruppe, eine belegte Aussage richtig zu verstehen?",
-      "centralLearningAction": "Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen und nach Kriterien sichtbar überarbeiten.",
-      "centralLearningProduct": "Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback und Vorher–Nachher-Revision.",
+      "centralLearningAction": "Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen.",
+      "centralLearningProduct": "Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -395,8 +395,8 @@
         "max": 7
       },
       "centralQuestion": "Welche Daten gelangen zu welchen Akteuren, und wie können sie eine Auswahl beeinflussen?",
-      "centralLearningAction": "Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen und Handlungsoptionen zur informationellen Selbstbestimmung begründen.",
-      "centralLearningProduct": "Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung.",
+      "centralLearningAction": "Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen, Handlungsoptionen zur informationellen Selbstbestimmung begründen und eine private Selbstreflexion zur eigenen Mediennutzung durchführen.",
+      "centralLearningProduct": "Teilbares Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -408,7 +408,7 @@
       ],
       "mediumRationale": "Eine lokale interaktive Fallumgebung macht Datenflüsse, Auswahlparameter und Gegenmaßnahmen veränderbar, ohne reale personenbezogene Daten zu sammeln.",
       "analogMaterials": [],
-      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Datenflussmodell, Schutzentscheidung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
       "status": "working"
     },
     {
@@ -775,8 +775,8 @@
         "max": 10
       },
       "centralQuestion": "Wann ist ein Programm nicht nur lauffähig, sondern verständlich, geprüft und angemessen?",
-      "centralLearningAction": "Problem und Teillösungen modellieren, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen und einen Fehler hypothesengeleitet reparieren.",
-      "centralLearningProduct": "Kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur und Lösungsbewertung.",
+      "centralLearningAction": "Arbeitsteilig als Team Aufgaben und Teillösungen planen, strukturieren und ausführen, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen, einen Fehler hypothesengeleitet reparieren sowie Arbeitsprozess und Lösung reflektieren und präsentieren.",
+      "centralLearningProduct": "Teamplan mit Zuständigkeiten sowie kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur, Lösungsbewertung, Teamreflexion und Präsentation.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
@@ -960,8 +960,8 @@
         "max": 9
       },
       "centralQuestion": "Wie entsteht ein begründetes Urteil, wenn Akteure Einfluss nehmen, Daten anfallen und Belege widersprüchlich sind?",
-      "centralLearningAction": "Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen an Fällen bewerten und das Urteil mit Unsicherheit revidieren.",
-      "centralLearningProduct": "Evidenz- und Entscheidungsdossier mit Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und revidiertem Standpunkt.",
+      "centralLearningAction": "Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen bewerten, auf einer vorhandenen Infrastruktur kommunizieren, geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen und das gemeinsame Urteil mit Unsicherheit revidieren.",
+      "centralLearningProduct": "Geteiltes Evidenz- und Entscheidungsdossier mit begründeter Werkzeugwahl, Kommunikationsspur, Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und gemeinsam revidiertem Standpunkt.",
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",

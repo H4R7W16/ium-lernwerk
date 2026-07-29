@@ -1569,8 +1569,21 @@ class CoverageTests(unittest.TestCase):
             "LH26-E-ID-001": "orientation",
         }
         self.module_ids = {
-            "IUM-5-CORE-01": "core",
-            "IUM-5-EXT-01": "extension",
+            "IUM-5-CORE-01": {
+                "kind": "core",
+                "competencyIds": [
+                    "BMB16-GYM-IK-IW-001",
+                    "LH26-E-ID-001",
+                ],
+            },
+            "IUM-5-CORE-02": {
+                "kind": "core",
+                "competencyIds": ["LH26-E-ID-001"],
+            },
+            "IUM-5-EXT-01": {
+                "kind": "extension",
+                "competencyIds": ["BMB16-GYM-IK-IW-001"],
+            },
         }
 
     def test_valid_coverage_returns_required_ids(self):
@@ -1611,6 +1624,17 @@ class CoverageTests(unittest.TestCase):
                         self.required_ids,
                         self.module_ids,
                     )
+
+    def test_referenced_core_must_contain_the_covered_competency(self):
+        entries = valid_coverage_payload()["entries"]
+        entries[0]["moduleIds"] = ["IUM-5-CORE-02"]
+
+        with self.assertRaises(ValidationError):
+            validate_coverage(
+                valid_coverage_payload(entries=entries),
+                self.required_ids,
+                self.module_ids,
+            )
 
     def test_partial_and_deferred_need_reason_risk_and_follow_up(self):
         for coverage_status in ("partial", "deferred"):
@@ -1718,8 +1742,11 @@ class CoverageRepositoryTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
-        module_kinds = {
-            module["id"]: module["kind"]
+        module_contracts = {
+            module["id"]: {
+                "kind": module["kind"],
+                "competencyIds": module["competencyIds"],
+            }
             for module in module_payload["modules"]
         }
         module_competency_ids = {
@@ -1736,7 +1763,7 @@ class CoverageRepositoryTests(unittest.TestCase):
         coverage_ids = validate_coverage(
             coverage_payload,
             required_weights,
-            module_kinds,
+            module_contracts,
         )
         self.assertEqual(len(coverage_ids), 171)
         self.assertEqual(module_competency_ids, coverage_ids)
@@ -1769,7 +1796,43 @@ class CoverageRepositoryTests(unittest.TestCase):
         for section in required_sections:
             with self.subTest(section=section):
                 self.assertIn(section, roadmap)
-        for module_id in module_kinds:
+        modules_by_id = {
+            module["id"]: module for module in module_payload["modules"]
+        }
+        semantic_contracts = {
+            "IUM-5-CORE-06": (
+                "vor einem Publikum vorstellen",
+                "Kriterien",
+            ),
+            "IUM-6-CORE-02": (
+                "private Selbstreflexion",
+                "nicht erhoben, gespeichert oder bewertet",
+            ),
+            "IUM-7-CORE-04": (
+                "arbeitsteilig als Team",
+                "Teamreflexion und Präsentation",
+            ),
+            "IUM-7-CORE-08": (
+                "vorhandenen Infrastruktur kommunizieren",
+                "digitale Werkzeuge zum Teilen",
+            ),
+        }
+        for module_id, required_phrases in semantic_contracts.items():
+            module_text = " ".join(
+                str(value)
+                for value in modules_by_id[module_id].values()
+                if isinstance(value, str)
+            )
+            for required_phrase in required_phrases:
+                with self.subTest(
+                    module_id=module_id,
+                    required_phrase=required_phrase,
+                ):
+                    self.assertIn(
+                        required_phrase.casefold(),
+                        module_text.casefold(),
+                    )
+        for module_id in module_contracts:
             with self.subTest(module_id=module_id):
                 self.assertIn(module_id, roadmap)
         for required_text in (

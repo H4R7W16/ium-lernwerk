@@ -1194,13 +1194,32 @@ def validate_coverage(payload, required_ids, module_ids):
         "coverage needs a module-id kind mapping",
     )
     module_kind_map = {}
-    for module_id, module_kind in module_ids.items():
+    module_competency_map = {}
+    for module_id, module_contract in module_ids.items():
         _require_nonempty_string(module_id, "moduleId", module_id)
+        _require_fields(
+            module_contract,
+            ("kind", "competencyIds"),
+            f"coverage module contract {module_id}",
+        )
+        module_kind = module_contract["kind"]
         _require(
             isinstance(module_kind, str) and module_kind in MODULE_KINDS,
             f"invalid coverage module kind: {module_id}",
         )
+        competency_id_list = module_contract["competencyIds"]
+        _require(
+            isinstance(competency_id_list, list)
+            and bool(competency_id_list)
+            and all(
+                isinstance(competency_id, str) and bool(competency_id)
+                for competency_id in competency_id_list
+            )
+            and len(competency_id_list) == len(set(competency_id_list)),
+            f"invalid coverage module competencyIds: {module_id}",
+        )
         module_kind_map[module_id] = module_kind
+        module_competency_map[module_id] = set(competency_id_list)
     entries = payload["entries"]
     _require(
         isinstance(entries, list) and bool(entries),
@@ -1247,6 +1266,13 @@ def validate_coverage(payload, required_ids, module_ids):
         _require(
             set(module_id_list) <= set(module_kind_map),
             f"unknown coverage module id: {competency_id}",
+        )
+        _require(
+            all(
+                competency_id in module_competency_map[module_id]
+                for module_id in module_id_list
+            ),
+            f"coverage module does not contain competency: {competency_id}",
         )
         coverage_status = entry["coverageStatus"]
         _require(
@@ -1378,14 +1404,17 @@ def main():
         record_id: curriculum_normative_weights[record_id]
         for record_id in required_curriculum_grades
     }
-    module_kinds = {
-        module["id"]: module["kind"]
+    module_contracts = {
+        module["id"]: {
+            "kind": module["kind"],
+            "competencyIds": module["competencyIds"],
+        }
         for module in module_candidates["modules"]
     }
     validate_coverage(
         load_json(root / "roadmap/coverage-plan.json"),
         required_curriculum_weights,
-        module_kinds,
+        module_contracts,
     )
     print("phase 0 validation passed")
 
