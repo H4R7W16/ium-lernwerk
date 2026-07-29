@@ -45,14 +45,14 @@
   },
   "counts": {
     "curriculumRecords": 278,
-    "relations": 53,
+    "relations": 56,
     "unmappedRecords": 107,
     "relationshipCounts": {
       "equivalent": 2,
       "extends": 15,
       "new": 3,
       "not-comparable": 4,
-      "overlaps": 12,
+      "overlaps": 15,
       "reframes": 17
     }
   },
@@ -772,12 +772,10 @@
         "BMB16-GYM-IK-IW-003"
       ],
       "toIds": [
-        "INF7-16-GYM-PK-MI-001",
-        "INF7-16-GYM-PK-SV-003",
-        "INF7-16-GYM-PK-KK-001"
+        "INF7-16-GYM-PK-MI-001"
       ],
       "relationship": "overlaps",
-      "rationale": "Recherche, Qualitätsprüfung, Auswahl und Strukturierung von Informationen im Basiskurs überschneiden sich mit dem informatischen Analysieren, strukturierten Darstellen und verständlichen Präsentieren von Informationen im Aufbaukurs.",
+      "rationale": "Recherche, Qualitätsprüfung, Auswahl und Strukturierung von Informationen im Basiskurs überschneiden sich mit dem Herausarbeiten problemrelevanter und dem Beschaffen fehlender oder ergänzender Informationen im Aufbaukurs.",
       "status": "resolved",
       "followUp": ""
     },
@@ -785,16 +783,13 @@
       "id": "XW-046",
       "fromIds": [
         "BMB16-GYM-PK-SK-002",
-        "BMB16-GYM-IK-GM-001",
-        "BMB16-GYM-IK-GM-002",
-        "BMB16-GYM-IK-GM-003"
+        "BMB16-GYM-IK-GM-002"
       ],
       "toIds": [
-        "INF7-16-GYM-PK-SV-001",
-        "INF7-16-GYM-PK-SV-002"
+        "INF7-16-GYM-PK-SV-001"
       ],
       "relationship": "overlaps",
-      "rationale": "Das zielgerichtete Bedienen digitaler Geräte sowie die grundlegende Arbeit mit Hard- und Software überschneiden sich mit der sicheren Nutzung vorhandener Informatiksysteme und dem aufgabengerechten Einsatz von Werkzeugen.",
+      "rationale": "Das Bedienen digitaler Medien und die Arbeit im schulischen Netzwerk des Basiskurses überschneiden sich mit dem zielorientierten Arbeiten im Schulnetz des Aufbaukurses.",
       "status": "resolved",
       "followUp": ""
     },
@@ -802,65 +797,92 @@
       "id": "XW-047",
       "fromIds": [
         "BMB16-GYM-PK-HK-003",
-        "BMB16-GYM-IK-KK-001",
         "BMB16-GYM-IK-KK-002",
         "BMB16-GYM-IK-KK-003"
       ],
       "toIds": [
         "INF7-16-GYM-PK-KK-003",
-        "INF7-16-GYM-PK-KK-004",
-        "INF7-16-GYM-PK-KK-005"
+        "INF7-16-GYM-PK-KK-004"
       ],
       "relationship": "overlaps",
-      "rationale": "Regeln, verantwortliche Kooperation und schulischer Informationsaustausch im Basiskurs überschneiden sich mit Teamarbeit, adressatengerechter Kommunikation und der Beachtung rechtlicher Rahmenbedingungen im Aufbaukurs.",
+      "rationale": "Digitale Kommunikation, Kooperation und projektbezogener Austausch im Basiskurs überschneiden sich mit geplanter Teamarbeit und zielorientierter Kommunikation auf vorhandener Infrastruktur im Aufbaukurs.",
       "status": "resolved",
       "followUp": ""
     },
     {
       "id": "XW-048",
       "fromIds": [
-        "BMB16-GYM-PK-HK-002",
-        "BMB16-GYM-IK-PP-001",
-        "BMB16-GYM-IK-PP-002",
-        "BMB16-GYM-IK-PP-003"
+        "BMB16-GYM-IK-KK-001"
       ],
       "toIds": [
-        "INF7-16-GYM-PK-MI-006",
-        "INF7-16-GYM-PK-KK-002",
-        "INF7-16-GYM-PK-KK-003",
         "INF7-16-GYM-PK-KK-005"
       ],
       "relationship": "overlaps",
-      "rationale": "Planung, Gestaltung, Präsentation sowie Quellen- und Rechtebeachtung bei Medienprodukten überschneiden sich mit informatischer Modellerstellung, Ergebnisdarstellung, Kooperation und rechtssicherer Kommunikation.",
+      "rationale": "Regeln für angemessene Netzkommunikation und den Umgang mit privaten Daten im Basiskurs überschneiden sich mit der Beachtung rechtlicher Regeln und dem verantwortungsvollen Umgang mit personenbezogenen Daten im Aufbaukurs.",
       "status": "resolved",
       "followUp": ""
     },
     {
       "id": "XW-049",
       "fromIds": [
-        "BMB16-GYM-PK-RK-001",
-        "BMB16-GYM-PK-RK-002",
-        "BMB16-GYM-PK-RK-003",
-        "BMB16-GYM-PK-RK-004",
-        "BMB16-GYM-IK-MG-001",
-        "BMB16-GYM-IK-MG-002",
-        "BMB16-GYM-IK-MG-003"
+        "BMB16-GYM-PK-HK-002",
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-PP-003"
       ],
       "toIds": [
-        "INF7-16-GYM-PK-KK-006",
-        "INF7-16-GYM-PK-AB-004",
-        "INF7-16-GYM-PK-AB-005",
-        "INF7-16-GYM-PK-AB-006",
-        "INF7-16-GYM-IK-IGD-005",
-        "INF7-16-GYM-IK-IGD-006"
+        "INF7-16-GYM-PK-KK-002"
       ],
       "relationship": "overlaps",
-      "rationale": "Reflexion von Mediennutzung, Wirkung, Risiken und rechtlichem Handeln im Basiskurs überschneidet sich mit gesellschaftlicher, ethischer und rechtlicher Bewertung von Informatiksystemen und digitalen Daten im Aufbaukurs.",
+      "rationale": "Planung, Gestaltung und Präsentation von Medienprodukten im Basiskurs überschneiden sich mit der zielgruppenorientierten, strukturierten Erläuterung und Darstellung eigener Ideen und Ergebnisse im Aufbaukurs.",
       "status": "resolved",
       "followUp": ""
     },
     {
       "id": "XW-050",
+      "fromIds": [
+        "BMB16-GYM-IK-PP-002"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-KK-005"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Urheberrechts- und Datenschutzrichtlinien bei der Medienproduktion im Basiskurs überschneiden sich mit dem rechtssicheren und verantwortungsvollen Umgang mit Daten bei Erarbeitung und Darstellung im Aufbaukurs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-051",
+      "fromIds": [
+        "BMB16-GYM-PK-RK-001",
+        "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-PK-RK-003",
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002",
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-AB-005"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Reflexion und Bewertung von Mediennutzung, Medienwirkung und Risiken im persönlichen Lebensumfeld des Basiskurses überschneiden sich mit der mehrperspektivischen Bewertung gesellschaftlicher und persönlicher Auswirkungen von Computersystemen im Aufbaukurs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-052",
+      "fromIds": [
+        "BMB16-GYM-PK-RK-004"
+      ],
+      "toIds": [
+        "INF7-16-GYM-PK-AB-006"
+      ],
+      "relationship": "overlaps",
+      "rationale": "Das Erkennen rechtlicher und moralischer Grenzübertretungen und Ableiten eigener Verhaltensregeln im Basiskurs überschneidet sich mit dem Einnehmen und argumentativen Vertreten eines Standpunkts zu ethischen Fragen im Aufbaukurs.",
+      "status": "resolved",
+      "followUp": ""
+    },
+    {
+      "id": "XW-053",
       "fromIds": [
         "INF7-16-GYM-PK-MI-003"
       ],
@@ -871,7 +893,7 @@
       "followUp": "Als weiterhin enacted Prozessanforderung im Kernlernweg und Abdeckungsplan erhalten, bis ein neuer Fachplan sie ersetzt."
     },
     {
-      "id": "XW-051",
+      "id": "XW-054",
       "fromIds": [
         "INF7-16-GYM-PK-MI-008"
       ],
@@ -882,7 +904,7 @@
       "followUp": "Als enacted Anforderung in Programmiermodulen erhalten und mit Quellen- sowie Lizenzpraxis verbinden."
     },
     {
-      "id": "XW-052",
+      "id": "XW-055",
       "fromIds": [
         "INF7-16-GYM-PK-MI-009",
         "INF7-16-GYM-PK-MI-010"
@@ -894,7 +916,7 @@
       "followUp": "Als enacted Prozessanforderungen und als fachprofilgestützte Programmierpraktiken im Kernlernweg sichern."
     },
     {
-      "id": "XW-053",
+      "id": "XW-056",
       "fromIds": [
         "INF7-16-GYM-IK-DC-005",
         "INF7-16-GYM-IK-DC-008"

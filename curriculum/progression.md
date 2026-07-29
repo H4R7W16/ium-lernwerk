@@ -14,7 +14,7 @@ Für jede Aussage gilt daher eine von zwei Kategorien:
 - **Normative beziehungsweise orientierende Anforderung:** Sie ist durch einen Record aus `competencies.json` belegt. Geltungsstatus, Klassenband und Wortlaut bleiben unverändert.
 - **Didaktische Sequenzierungsentscheidung · `working`:** Sie ordnet Voraussetzungen, Wiederaufnahme, Komplexitätszuwachs oder einen vorläufigen Jahrgang zu. Sie ist eine Projektentscheidung und muss durch Fachreview, Pilotierung sowie einen späteren Fachplan revidierbar bleiben.
 
-Der Crosswalk in `crosswalk.json` löst 278 Records vollständig auf: fachliche Beziehungen stehen in 53 Relationsgruppen; 107 nicht verbindliche Beispiele beziehungsweise quellenspezifische Operatorrecords werden mit Grund und Folgeaktion separat geführt. Neun Relationsgruppen bleiben wegen Klassenverteilung oder veränderter Gewichtung `open`.
+Der Crosswalk in `crosswalk.json` löst 278 Records vollständig auf: fachliche Beziehungen stehen in 56 Relationsgruppen; 107 nicht verbindliche Beispiele beziehungsweise quellenspezifische Operatorrecords werden mit Grund und Folgeaktion separat geführt. Neun Relationsgruppen bleiben wegen Klassenverteilung oder veränderter Gewichtung `open`.
 
 ## 2. Quellen- und Entscheidungslogik
 
@@ -26,7 +26,7 @@ Der Crosswalk in `crosswalk.json` löst 278 Records vollständig auf: fachliche 
 6. Nicht verbindliche Beispiele sind mögliche Kontexte, keine zusätzlichen Pflichtkompetenzen.
 7. Operatoren und Prozesskompetenzen werden in `operators.json` quellengebunden erhalten. Das dortige Komplexitätsband ist eine Aufgabenheuristik und keine universelle Operatorenhierarchie.
 
-Die fünf direkten Brücken `XW-045` bis `XW-049` machen fachliche Überschneidungen zwischen Basiskurs Medienbildung und Aufbaukurs Informatik explizit. Ihre Richtung vom früheren Basiskurs zum späteren Aufbaukurs dient nur der konsistenten Datenmodellierung; sie behauptet keine zusätzliche normative Jahrgangsprogression.
+Die acht direkten Brücken `XW-045` bis `XW-052` machen fachliche Überschneidungen zwischen Basiskurs Medienbildung und Aufbaukurs Informatik explizit. Ihre Richtung vom früheren Basiskurs zum späteren Aufbaukurs dient nur der konsistenten Datenmodellierung; sie behauptet keine zusätzliche normative Jahrgangsprogression.
 
 ## 3. Fünf wiederkehrende Stränge
 
@@ -58,7 +58,7 @@ präzise Handlung und Reihenfolge
 → gezielt testen, überarbeiten und Lösung bewerten
 ```
 
-Die letzten beiden Schritte sichern die weiterhin geltenden Records `INF7-16-GYM-PK-MI-009` und `INF7-16-GYM-PK-MI-010`, obwohl die Lesehilfe dafür keine eigenen Gegenrecords enthält (`XW-052`).
+Die letzten beiden Schritte sichern die weiterhin geltenden Records `INF7-16-GYM-PK-MI-009` und `INF7-16-GYM-PK-MI-010`, obwohl die Lesehilfe dafür keine eigenen Gegenrecords enthält (`XW-055`).
 
 ### B. Information, Daten und Codierung
 
@@ -74,7 +74,7 @@ Fragestellung und Informationsbedarf
 → Ressourcenbezug und begründete Repräsentationsentscheidung
 ```
 
-Binärdarstellung natürlicher Zahlen sowie der Zusammenhang von Zeichenvorrat, Codelänge und Codewörtern bleiben als `enacted` Inhalte zusätzlich erhalten (`INF7-16-GYM-IK-DC-005`, `INF7-16-GYM-IK-DC-008`; `XW-053`).
+Binärdarstellung natürlicher Zahlen sowie der Zusammenhang von Zeichenvorrat, Codelänge und Codewörtern bleiben als `enacted` Inhalte zusätzlich erhalten (`INF7-16-GYM-IK-DC-005`, `INF7-16-GYM-IK-DC-008`; `XW-056`).
 
 ### C. Rechner, Netze, Kommunikation und Sicherheit
 

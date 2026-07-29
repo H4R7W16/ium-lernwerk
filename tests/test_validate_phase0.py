@@ -1,6 +1,7 @@
 import json
 import tempfile
 import unittest
+from collections import Counter
 from pathlib import Path
 
 from scripts.validate_phase0 import (
@@ -125,19 +126,46 @@ def valid_crosswalk_relation(**overrides):
 
 
 def valid_crosswalk_payload(relations=None, unmapped_records=None, **overrides):
+    relation_payloads = (
+        relations
+        if relations is not None
+        else [valid_crosswalk_relation()]
+    )
+    unmapped_payloads = (
+        unmapped_records
+        if unmapped_records is not None
+        else []
+    )
+    curriculum_record_ids = {
+        record_id
+        for relation in relation_payloads
+        for record_id in relation.get("fromIds", [])
+        + relation.get("toIds", [])
+    } | {
+        record.get("recordId")
+        for record in unmapped_payloads
+        if isinstance(record, dict) and record.get("recordId")
+    }
     payload = {
         "schemaVersion": 1,
         "status": "working",
-        "relations": (
-            relations
-            if relations is not None
-            else [valid_crosswalk_relation()]
-        ),
-        "unmappedRecords": (
-            unmapped_records
-            if unmapped_records is not None
-            else []
-        ),
+        "requiredSourceComparisons": [],
+        "counts": {
+            "curriculumRecords": len(curriculum_record_ids),
+            "relations": len(relation_payloads),
+            "unmappedRecords": len(unmapped_payloads),
+            "relationshipCounts": dict(
+                sorted(
+                    Counter(
+                        relation.get("relationship")
+                        for relation in relation_payloads
+                        if relation.get("relationship")
+                    ).items()
+                )
+            ),
+        },
+        "relations": relation_payloads,
+        "unmappedRecords": unmapped_payloads,
     }
     payload.update(overrides)
     return payload
@@ -881,6 +909,67 @@ class CrosswalkTests(unittest.TestCase):
                     }
                 ),
                 self.curriculum_ids,
+            )
+
+    def test_counts_and_source_comparisons_are_required(self):
+        curriculum_records = {
+            "LH26-E-ID-001": {
+                "id": "LH26-E-ID-001",
+                "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+            },
+            "BMB16-GYM-IK-IW-001": {
+                "id": "BMB16-GYM-IK-IW-001",
+                "sourceId": "SRC-CUR-BMB-2016",
+            },
+        }
+        for field in ("counts", "requiredSourceComparisons"):
+            payload = valid_crosswalk_payload()
+            del payload[field]
+
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_crosswalk(payload, curriculum_records)
+
+    def test_canonical_source_comparisons_must_be_complete(self):
+        curriculum_records = {
+            "LH26-E-ID-001": {
+                "id": "LH26-E-ID-001",
+                "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+            },
+            "BMB16-GYM-IK-IW-001": {
+                "id": "BMB16-GYM-IK-IW-001",
+                "sourceId": "SRC-CUR-BMB-2016",
+            },
+            "INF7-16-GYM-PK-MI-001": {
+                "id": "INF7-16-GYM-PK-MI-001",
+                "sourceId": "SRC-CUR-INF7-2016",
+            },
+        }
+        relations = [
+            valid_crosswalk_relation(),
+            valid_crosswalk_relation(
+                id="XW-002",
+                toIds=["INF7-16-GYM-PK-MI-001"],
+            ),
+        ]
+        incomplete_comparisons = [
+            {
+                "fromSourceId": "SRC-CUR-LESEHILFE-2026-27",
+                "toSourceId": "SRC-CUR-BMB-2016",
+            },
+            {
+                "fromSourceId": "SRC-CUR-LESEHILFE-2026-27",
+                "toSourceId": "SRC-CUR-INF7-2016",
+            },
+        ]
+
+        with self.assertRaises(ValidationError):
+            validate_crosswalk(
+                valid_crosswalk_payload(
+                    relations=relations,
+                    requiredSourceComparisons=incomplete_comparisons,
+                ),
+                curriculum_records,
             )
 
     def test_required_source_comparisons_need_direct_relations(self):

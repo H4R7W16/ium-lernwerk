@@ -60,6 +60,11 @@ OPERATOR_COMPLEXITY_BANDS = {
     "context-dependent",
 }
 INTEGRATION_STATUSES = {"working", "reviewed"}
+REQUIRED_CROSSWALK_SOURCE_COMPARISONS = {
+    ("SRC-CUR-LESEHILFE-2026-27", "SRC-CUR-BMB-2016"),
+    ("SRC-CUR-LESEHILFE-2026-27", "SRC-CUR-INF7-2016"),
+    ("SRC-CUR-BMB-2016", "SRC-CUR-INF7-2016"),
+}
 
 
 class SourceIndex(set):
@@ -421,6 +426,18 @@ def validate_curriculum_dataset(payload, source_ids):
 
 def validate_crosswalk(payload, curriculum_ids):
     _require(isinstance(payload, dict), "crosswalk payload must be an object")
+    _require_fields(
+        payload,
+        (
+            "schemaVersion",
+            "status",
+            "requiredSourceComparisons",
+            "counts",
+            "relations",
+            "unmappedRecords",
+        ),
+        "crosswalk",
+    )
     _require(
         payload.get("schemaVersion") == 1
         and not isinstance(payload.get("schemaVersion"), bool),
@@ -549,44 +566,43 @@ def validate_crosswalk(payload, curriculum_ids):
         mapped_ids.isdisjoint(unmapped_ids),
         "curriculum records cannot be both mapped and unmapped",
     )
-    counts = payload.get("counts")
-    if counts is not None:
-        _require_fields(
-            counts,
-            (
-                "curriculumRecords",
-                "relations",
-                "unmappedRecords",
-                "relationshipCounts",
-            ),
-            "crosswalk counts",
+    counts = payload["counts"]
+    _require_fields(
+        counts,
+        (
+            "curriculumRecords",
+            "relations",
+            "unmappedRecords",
+            "relationshipCounts",
+        ),
+        "crosswalk counts",
+    )
+    expected_relationship_counts = dict(
+        sorted(
+            Counter(
+                relation["relationship"] for relation in relations
+            ).items()
         )
-        expected_relationship_counts = dict(
-            sorted(
-                Counter(
-                    relation["relationship"] for relation in relations
-                ).items()
-            )
-        )
-        expected_counts = {
-            "curriculumRecords": len(registered_ids),
-            "relations": len(relations),
-            "unmappedRecords": len(unmapped_records),
-            "relationshipCounts": expected_relationship_counts,
-        }
-        _require(
-            counts == expected_counts,
-            "crosswalk counts do not match payload",
-        )
-    required_comparisons = payload.get("requiredSourceComparisons")
-    if required_comparisons is not None:
+    )
+    expected_counts = {
+        "curriculumRecords": len(registered_ids),
+        "relations": len(relations),
+        "unmappedRecords": len(unmapped_records),
+        "relationshipCounts": expected_relationship_counts,
+    }
+    _require(
+        counts == expected_counts,
+        "crosswalk counts do not match payload",
+    )
+    required_comparisons = payload["requiredSourceComparisons"]
+    _require(
+        isinstance(required_comparisons, list),
+        "requiredSourceComparisons must be a list",
+    )
+    if required_comparisons:
         _require(
             source_records is not None,
             "required source comparisons need curriculum source metadata",
-        )
-        _require(
-            isinstance(required_comparisons, list),
-            "requiredSourceComparisons must be a list",
         )
         available_source_ids = {
             record["sourceId"] for record in source_records.values()
@@ -631,6 +647,17 @@ def validate_crosswalk(payload, curriculum_ids):
             len(comparison_pairs) == len(set(comparison_pairs)),
             "required source comparisons must be unique",
         )
+        canonical_source_ids = {
+            source_id
+            for pair in REQUIRED_CROSSWALK_SOURCE_COMPARISONS
+            for source_id in pair
+        }
+        if canonical_source_ids <= available_source_ids:
+            _require(
+                set(comparison_pairs)
+                == REQUIRED_CROSSWALK_SOURCE_COMPARISONS,
+                "canonical curriculum source comparisons are incomplete",
+            )
 
     _require(
         covered_ids == registered_ids,
