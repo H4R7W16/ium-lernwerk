@@ -52,6 +52,17 @@ CORE03_DATA_BOUNDARY = (
 CORE02_INTEGRATED_TRACE = (
     "integrierte Belegspur derselben belegten Antwort oder dokumentierten Revision"
 )
+CORE06_COMMON_PRODUCT = (
+    "demselben adressatengerechten Informationsprodukt mit integrierter "
+    "Gestaltungsbegründung und Vorher-Nachher-Revision"
+)
+CORE06_RIGHTS_PRIVACY_TRACE = "getrennte Rechte- und Datenschutzspur"
+CORE06_TEXT_FORMAT_TRACE = "Baustein- und Formatierungsspur"
+CORE06_IMAGE_TRACE = "Bildnutzungs- und Gestaltungsentscheidung"
+CORE06_GIVEN_DESIGN_TRACE = (
+    "kriterien- und beleggebundene Analyse- und Urteilsspur der "
+    "vorgegebenen Gestaltung"
+)
 CORE7_CORE03_TRACE_PRODUCT = (
     "sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen "
     "Code-, Ablauf- und Zustandstraceprodukts"
@@ -175,6 +186,12 @@ AUDITED_DECISIONS = {
     "LH26-E-ALG-008": ("IUM-7-CORE-03", "module-detail", "covered"),
     "LH26-E-ALG-009": ("IUM-7-CORE-03", "module-detail", "covered"),
     "LH26-E-ID-009": ("IUM-5-CORE-02", "module-detail", "covered"),
+    "BMB16-GYM-IK-PP-002": (
+        "IUM-5-CORE-06", "module-detail", "covered"
+    ),
+    "LH26-E-DA-005": ("IUM-5-CORE-06", "module-detail", "covered"),
+    "LH26-E-DA-006": ("IUM-5-CORE-06", "module-detail", "covered"),
+    "LH26-E-DA-008": ("IUM-5-CORE-06", "module-detail", "covered"),
 }
 
 
@@ -220,6 +237,13 @@ def curriculum_contracts():
                 "Übertretungen rechtlicher und moralischer Grenzen in der "
                 "digitalen Welt erkennen und daraus Regeln für das eigene "
                 "soziale Verhalten ableiten"
+            )
+        },
+        "BMB16-GYM-IK-PP-002": {
+            "text": (
+                "bei der Erstellung eines digitalen Medienprodukts erste "
+                "grundlegende Urheberrechts- und Datenschutzrichtlinien "
+                "beachten"
             )
         },
         "BMB16-GYM-IK-MG-001": {
@@ -354,6 +378,21 @@ def curriculum_contracts():
                 "weiterzuverarbeiten"
             )
         },
+        "LH26-E-DA-005": {
+            "text": (
+                "Bausteine eines Textes identifizieren und Möglichkeiten zu "
+                "ihrer Formatierung nutzen"
+            )
+        },
+        "LH26-E-DA-006": {
+            "text": "eine Objektart zur visuellen Gestaltung nutzen"
+        },
+        "LH26-E-DA-008": {
+            "text": (
+                "die Wirkung einer vorgegebenen Gestaltung beurteilen und "
+                "den Zusammenhang von Inhalt und Form analysieren"
+            )
+        },
     }
 
 
@@ -449,6 +488,10 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-7-CORE-03-LH26-E-ALG-008",
                 "CE-IUM-7-CORE-03-LH26-E-ALG-009",
                 "CE-IUM-5-CORE-05-LH26-E-ALG-001",
+                "CE-IUM-5-CORE-06-BMB16-GYM-IK-PP-002",
+                "CE-IUM-5-CORE-06-LH26-E-DA-005",
+                "CE-IUM-5-CORE-06-LH26-E-DA-006",
+                "CE-IUM-5-CORE-06-LH26-E-DA-008",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -783,6 +826,155 @@ class Core02RepositoryOrchestrationTests(unittest.TestCase):
             "Verknüpfung als Übereinstimmung, Ergänzung oder Widerspruch",
             "daraus abgeleiteter weiterverarbeiteter Aussage",
             "kein separates Zusatzprodukt",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+
+class Core06RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-5-CORE-06"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_core_06_orchestrates_four_distinct_traces_in_one_product_revision(self):
+        expected_traces = {
+            "BMB16-GYM-IK-PP-002": CORE06_RIGHTS_PRIVACY_TRACE,
+            "LH26-E-DA-005": CORE06_TEXT_FORMAT_TRACE,
+            "LH26-E-DA-006": CORE06_IMAGE_TRACE,
+            "LH26-E-DA-008": CORE06_GIVEN_DESIGN_TRACE,
+        }
+        self.assertEqual(set(self.contracts), set(expected_traces))
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-5-CORE-01", "IUM-5-CORE-02"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 5, "max": 7})
+
+        for competency_id, trace in expected_traces.items():
+            with self.subTest(competency_id=competency_id):
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "module-detail")
+                self.assertEqual(
+                    contract["productVisibility"],
+                    "teacher-observable",
+                )
+                self.assertIn(CORE06_COMMON_PRODUCT, contract["productEvidence"])
+                self.assertIn(trace, contract["productEvidence"])
+                for other_id, other_trace in expected_traces.items():
+                    if other_id != competency_id:
+                        self.assertNotIn(other_trace, contract["productEvidence"])
+
+        self.assertEqual(
+            len(
+                {
+                    contract["productEvidence"]
+                    for contract in self.contracts.values()
+                }
+            ),
+            4,
+        )
+
+    def test_pp002_separates_copyright_and_data_protection_without_private_evidence(self):
+        contract = self.contracts["BMB16-GYM-IK-PP-002"]
+        for term in (
+            "für jedes verwendete Fremdmaterial",
+            "Quelle, Lizenz und zulässige Nutzung",
+            "getrennt davon",
+            "datensparsame Inhalts- und Veröffentlichungsentscheidung",
+            "fiktive oder sachbezogene Inhalte",
+            "keine echten personenbezogenen Daten",
+            "begrenzten Adressatenkreis",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        self.assertIn(
+            "bei der erstellung",
+            contract["learningAction"].casefold(),
+        )
+        for term in (
+            CORE06_RIGHTS_PRIVACY_TRACE,
+            "quellen- und lizenzbezogene Entscheidung pro Fremdmaterial",
+            "Datenvermeidung",
+            "keine echten personenbezogenen Daten",
+            "begrenzter Adressatenkreis",
+            "keine Einwilligungsdokumente",
+            "keine private Offenlegung",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_da005_identifies_concrete_text_parts_and_uses_multiple_formats(self):
+        contract = self.contracts["LH26-E-DA-005"]
+        for term in (
+            "in einer vorgegebenen konkreten Textfassung",
+            "Überschrift",
+            "Fließtext",
+            "Bildunterschrift",
+            "Listenbaustein",
+            "identifizieren",
+            "Formatvorlage oder Absatzformat",
+            "Liste",
+            "Hervorhebung",
+            "tatsächlich und funktional nutzen",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            CORE06_TEXT_FORMAT_TRACE,
+            "markierten Textbausteine",
+            "Vorher-Nachher-Vergleich",
+            "mehrere tatsächlich eingesetzte Formatierungen",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertNotIn("Text gestalten", contract["learningAction"])
+
+    def test_da006_requires_the_named_object_type_image_and_its_visible_function(self):
+        contract = self.contracts["LH26-E-DA-006"]
+        for term in (
+            "ein Bild als verpflichtend nachzuweisende visuelle Objektart",
+            "tatsächlich nutzen",
+            "Position, Größe oder Ausschnitt",
+            "visuelle Funktion",
+            "weitere Gestaltungsobjekte bleiben optional",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            CORE06_IMAGE_TRACE,
+            "das eingesetzte Bild",
+            "sichtbare Entscheidung zu Position, Größe oder Ausschnitt",
+            "begründete Funktion für die Aussage",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertNotIn("visuelle Objekte nutzen", contract["learningAction"])
+
+    def test_da008_analyses_and_judges_a_given_design_before_optional_transfer(self):
+        contract = self.contracts["LH26-E-DA-008"]
+        for term in (
+            "eine vorgegebene Gestaltung",
+            "Wirkung anhand vorgegebener Kriterien und konkreter Belege beurteilen",
+            "Zusammenhang von Inhalt und Form analysieren",
+            "erst anschließend",
+            "eigene Überarbeitung übertragen",
+            "ersetzt Analyse und Urteil nicht",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            CORE06_GIVEN_DESIGN_TRACE,
+            "Gestaltungselement",
+            "Inhalt",
+            "Form",
+            "Wirkung",
+            "Beleg",
+            "begründetes Gesamturteil",
+            "optionale Transfermarkierung",
         ):
             self.assertIn(term, contract["productEvidence"])
 

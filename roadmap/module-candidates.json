@@ -408,7 +408,41 @@
       "mediumRationale": "Layout, Medienobjekte, Quellenlinks und Revision sind genuine digitale Produkteigenschaften; Versionen können direkt verglichen und barrierearme Varianten geprüft werden.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
-      "status": "working"
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-06-BMB16-GYM-IK-PP-002",
+          "competencyId": "BMB16-GYM-IK-PP-002",
+          "mode": "module-detail",
+          "learningAction": "Bei der Erstellung desselben adressatengerechten Informationsprodukts für jedes verwendete Fremdmaterial Quelle, Lizenz und zulässige Nutzung prüfen und dokumentieren; getrennt davon eine datensparsame Inhalts- und Veröffentlichungsentscheidung treffen, ausschließlich fiktive oder sachbezogene Inhalte verwenden, keine echten personenbezogenen Daten aufnehmen und einen begrenzten Adressatenkreis wählen.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision weist eine getrennte Rechte- und Datenschutzspur die quellen- und lizenzbezogene Entscheidung pro Fremdmaterial sowie getrennt die Datenschutzentscheidung nach: Datenvermeidung, fiktive oder sachbezogene Inhalte, keine echten personenbezogenen Daten und ein begrenzter Adressatenkreis; keine Einwilligungsdokumente und keine private Offenlegung werden verlangt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-06-LH26-E-DA-005",
+          "competencyId": "LH26-E-DA-005",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen in einer vorgegebenen konkreten Textfassung die Bausteine Überschrift, Fließtext, Bildunterschrift und Listenbaustein identifizieren und anschließend mehrere konkrete Formatierungsoptionen – Formatvorlage oder Absatzformat, Liste und Hervorhebung – tatsächlich und funktional nutzen.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision zeigt eine Baustein- und Formatierungsspur die markierten Textbausteine und im Vorher-Nachher-Vergleich mehrere tatsächlich eingesetzte Formatierungen mit ihrer jeweiligen Funktion.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-06-LH26-E-DA-006",
+          "competencyId": "LH26-E-DA-006",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen ein Bild als verpflichtend nachzuweisende visuelle Objektart nach der Rechteprüfung tatsächlich nutzen, eine Entscheidung zu Position, Größe oder Ausschnitt treffen und seine visuelle Funktion für die belegte Aussage begründen; weitere Gestaltungsobjekte bleiben optional.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision dokumentiert eine Bildnutzungs- und Gestaltungsentscheidung das eingesetzte Bild, die sichtbare Entscheidung zu Position, Größe oder Ausschnitt und seine begründete Funktion für die Aussage.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-06-LH26-E-DA-008",
+          "competencyId": "LH26-E-DA-008",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen eine vorgegebene Gestaltung in ihrer Wirkung anhand vorgegebener Kriterien und konkreter Belege beurteilen und den Zusammenhang von Inhalt und Form analysieren; erst anschließend können sie eine ausgewählte Erkenntnis in die eigene Überarbeitung übertragen, dieser Transfer ersetzt Analyse und Urteil nicht.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision enthält eine kriterien- und beleggebundene Analyse- und Urteilsspur der vorgegebenen Gestaltung für jedes untersuchte Gestaltungselement die Zuordnung von Inhalt, Form, Wirkung und Beleg, ein begründetes Gesamturteil sowie eine optionale Transfermarkierung zur eigenen Revision.",
+          "productVisibility": "teacher-observable"
+        }
+      ]
     },
     {
       "id": "IUM-5-CORE-07",

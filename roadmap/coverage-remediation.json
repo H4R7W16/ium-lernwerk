@@ -237,26 +237,22 @@
         "evidenceModuleId": "IUM-5-CORE-06",
         "reason": "Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-BMB16-GYM-IK-PP-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Bei der Erstellung werden für jedes Fremdmaterial Quelle, Lizenz und zulässige Nutzung geprüft sowie getrennt eine datensparsame Inhalts- und Veröffentlichungsentscheidung getroffen; die integrierte Produktspur weist beide Dimensionen ohne echte personenbezogene Daten, Einwilligungsdokumente oder private Offenlegung nach.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die getrennte Rechte- und Datenschutzprüfung konkretisiert die Produktarbeit substanziell; IUM10 muss ihren Zeitbedarf im Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Rechte-, Quellen- und Veröffentlichungsentscheidungen gehören zur vorhandenen Medienproduktion in IUM-5-CORE-06 und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen.",
-        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-PK-HK-003",
@@ -1037,26 +1033,22 @@
         "evidenceModuleId": "IUM-5-CORE-06",
         "reason": "Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-LH26-E-DA-005",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: In einer konkreten Textfassung werden Überschrift, Fließtext, Bildunterschrift und Listenbaustein identifiziert und mehrere konkrete Formatierungsoptionen tatsächlich funktional genutzt; die Baustein- und Formatierungsspur macht beides im Vorher-Nachher-Vergleich sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Identifikation und funktionale Nutzung mehrerer Formatierungsoptionen vertiefen die vorhandene Revision; IUM10 muss den Zeitbedarf im Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Baustein- und Formatierungsarbeit wird in die vorhandene Informationsproduktrevision integriert und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen.",
-        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-006",
@@ -1068,26 +1060,22 @@
         "evidenceModuleId": "IUM-5-CORE-06",
         "reason": "Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-LH26-E-DA-006",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Ein Bild wird als benannte und einzige verpflichtende visuelle Objektart tatsächlich genutzt; Position, Größe oder Ausschnitt sowie seine Funktion für die Aussage werden in einer unterscheidbaren Bildnutzungs- und Gestaltungsentscheidung sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die verpflichtende Bildnutzung mit Rechteprüfung und begründeter Gestaltungsentscheidung erzeugt reale Produktionstiefe; IUM10 muss den Zeitbedarf prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Bildnutzung und Gestaltungsbegründung sind im vorhandenen digitalen Informationsprodukt orchestrierbar und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar.",
-        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-008",
@@ -1099,26 +1087,22 @@
         "evidenceModuleId": "IUM-5-CORE-06",
         "reason": "Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-LH26-E-DA-008",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Eine vorgegebene Gestaltung wird kriterien- und beleggebunden hinsichtlich ihrer Wirkung beurteilt und ihr Inhalt-Form-Zusammenhang analysiert; die eigene Revision ist nur ein möglicher anschließender Transfer und ersetzt Analyse und Urteil nicht.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die eigenständige Analyse und Beurteilung einer vorgegebenen Gestaltung ergänzt die bestehende Produktrevision um eine anspruchsvolle Lernhandlung; IUM10 muss die Verdichtung im Zeitkorridor prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Analyse der vorgegebenen Gestaltung dient als kriterienbildender Schritt für die vorhandene Revision und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen.",
-        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-009",
