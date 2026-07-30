@@ -897,6 +897,56 @@
       "mediumRationale": "Eine Tracingumgebung kann Codeposition, Kontrollfluss, Werte, Typen und Ausgabe synchronisieren; dieselbe Ausführung bleibt für Vorhersage und Gegenfall reproduzierbar.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-03-INF7-16-GYM-IK-ALG-003",
+          "competencyId": "INF7-16-GYM-IK-ALG-003",
+          "mode": "module-detail",
+          "learningAction": "Im selben gegebenen Programmfall die Variable ausdrücklich als änderbaren Wertespeicher erläutern und beim schrittweisen Trace jede Zustandsänderung vom alten zum neuen Wert mit der auslösenden Anweisung erklären.",
+          "productEvidence": "Die klar benannte Wertespeicher- und Zustandsansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie zeigt Variable, alten Wert, auslösende Anweisung und Zustandsänderung vom alten zum neuen Wert; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-MI-005",
+          "competencyId": "INF7-16-GYM-PK-MI-005",
+          "mode": "module-detail",
+          "learningAction": "Für denselben Programmfall ein plattformneutrales grafisches Modellierungswerkzeug tatsächlich einsetzen und damit die grafische Ablauf- und Zustandsmodellierung erstellen, bearbeiten und korrigieren; eine bloße Anzeige oder Tracingoberfläche genügt nicht.",
+          "productEvidence": "Die klar benannte grafische Ablauf- und Zustandsmodellierungsansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie belegt den Werkzeugeinsatz mit bearbeiteter und korrigierter Modellfassung; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-SV-003",
+          "competencyId": "INF7-16-GYM-PK-SV-003",
+          "mode": "module-detail",
+          "learningAction": "Im selben Programmfall die fachliche Daten- und Objektbeziehung Eingabe → Variable → Ausdrucksergebnis → Ausgabe erkennen und erläutern, indem die Abhängigkeiten zwischen Quelle, gespeichertem Wert, berechnetem Ergebnis und ausgegebener Darstellung erklärt werden.",
+          "productEvidence": "Die klar benannte Daten- und Objektbeziehungsansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie markiert und erläutert die fachliche Beziehung Eingabe → Variable → Ausdrucksergebnis → Ausgabe; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-LH26-E-ALG-007",
+          "competencyId": "LH26-E-ALG-007",
+          "mode": "module-detail",
+          "learningAction": "Im selben Programmfall alle atomaren algorithmischen Grundbausteine beschreiben: Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator.",
+          "productEvidence": "Die klar benannte Grundbaustein- und Ausdrucksansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie enthält beschriftete Belegstellen für Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-LH26-E-ALG-008",
+          "competencyId": "LH26-E-ALG-008",
+          "mode": "module-detail",
+          "learningAction": "Bei gegebenen Anweisungen und gegebenen Ausdrücken im selben Programmfall Übergabe und Rückgabe von Werten identifizieren und jeweils Quelle, Ziel, Eingabe und Ergebnis eindeutig zuordnen.",
+          "productEvidence": "Die klar benannte Übergabe- und Rückgabeansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie weist bei gegebenen Anweisungen und gegebenen Ausdrücken Übergabe und Rückgabe sowie Quelle, Ziel, Eingabe und Ergebnis getrennt aus; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-LH26-E-ALG-009",
+          "competencyId": "LH26-E-ALG-009",
+          "mode": "module-detail",
+          "learningAction": "Bei Werten und Ausdrücken desselben Programmfalls die Datentypen Zeichenkette, Zahl und Wahrheitswert identifizieren und ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe begründen.",
+          "productEvidence": "Die klar benannte Datentypansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie kennzeichnet bei Werten und Ausdrücken Zeichenkette, Zahl und Wahrheitswert sowie deren Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
       "status": "working"
     },
     {

@@ -49,6 +49,14 @@ CORE03_DATA_BOUNDARY = (
     "Zugangsdaten, private Nachrichten, personenbezogene Inhalte und "
     "vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert"
 )
+CORE7_CORE03_TRACE_PRODUCT = (
+    "sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen "
+    "Code-, Ablauf- und Zustandstraceprodukts"
+)
+CORE7_CORE03_COMMON_TRACE = (
+    "demselben Programmfall, denselben Ausführungspositionen, Eingaben, "
+    "Werten, Ausgaben und derselben korrigierten Fassung"
+)
 
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
@@ -150,6 +158,18 @@ AUDITED_DECISIONS = {
     ),
     "LH26-E-KS-001": ("IUM-5-CORE-03", "school-context", "covered"),
     "LH26-E-KS-002": ("IUM-5-CORE-03", "module-detail", "covered"),
+    "INF7-16-GYM-IK-ALG-003": (
+        "IUM-7-CORE-03", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-MI-005": (
+        "IUM-7-CORE-03", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-SV-003": (
+        "IUM-7-CORE-03", "module-detail", "covered"
+    ),
+    "LH26-E-ALG-007": ("IUM-7-CORE-03", "module-detail", "covered"),
+    "LH26-E-ALG-008": ("IUM-7-CORE-03", "module-detail", "covered"),
+    "LH26-E-ALG-009": ("IUM-7-CORE-03", "module-detail", "covered"),
 }
 
 
@@ -264,6 +284,39 @@ def curriculum_contracts():
                 "informatischer Fragestellungen diskutieren"
             )
         },
+        "INF7-16-GYM-IK-ALG-003": {
+            "text": "Variablen als änderbaren Wertespeicher erläutern"
+        },
+        "INF7-16-GYM-PK-MI-005": {
+            "text": (
+                "geeignete Programme und Hilfsmittel zur grafisch gestützten "
+                "Modellierung einsetzen"
+            )
+        },
+        "INF7-16-GYM-PK-SV-003": {
+            "text": "Beziehungen zwischen Daten/Objekten erkennen und erläutern"
+        },
+        "LH26-E-ALG-007": {
+            "text": (
+                "algorithmische Grundbausteine beschreiben: • Anweisung • "
+                "Schleife (Variante mit konstanter Anzahl von Durchläufen und "
+                "Variante mit Bedingung) • Verzweigung • Ausdrücke ohne "
+                "Operatoren, mit arithmetischen Operatoren und mit "
+                "Vergleichsoperatoren"
+            )
+        },
+        "LH26-E-ALG-008": {
+            "text": (
+                "Übergabe und Rückgabe von Werten bei gegebenen Anweisungen "
+                "und Ausdrücken identifizieren"
+            )
+        },
+        "LH26-E-ALG-009": {
+            "text": (
+                "den Datentyp (Zeichenkette, Zahl, Wahrheitswert) von Werten "
+                "und Ausdrücken identifizieren"
+            )
+        },
         "LH26-E-DP-013": {
             "text": (
                 "sich mit in manipulativer Absicht verbreiteten "
@@ -370,6 +423,12 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
                 "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
                 "CE-IUM-7-CORE-08-LH26-E-DP-013",
+                "CE-IUM-7-CORE-03-INF7-16-GYM-IK-ALG-003",
+                "CE-IUM-7-CORE-03-INF7-16-GYM-PK-MI-005",
+                "CE-IUM-7-CORE-03-INF7-16-GYM-PK-SV-003",
+                "CE-IUM-7-CORE-03-LH26-E-ALG-007",
+                "CE-IUM-7-CORE-03-LH26-E-ALG-008",
+                "CE-IUM-7-CORE-03-LH26-E-ALG-009",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -655,6 +714,123 @@ class Core03RepositoryOrchestrationTests(unittest.TestCase):
             "gemeinsame Revision",
         ):
             self.assertIn(term, ks002)
+
+
+class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-7-CORE-03"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_core_03_orchestrates_six_distinct_views_in_one_trace_product(self):
+        expected_views = {
+            "INF7-16-GYM-IK-ALG-003": "Wertespeicher- und Zustandsansicht",
+            "INF7-16-GYM-PK-MI-005": (
+                "grafische Ablauf- und Zustandsmodellierungsansicht"
+            ),
+            "INF7-16-GYM-PK-SV-003": (
+                "Daten- und Objektbeziehungsansicht"
+            ),
+            "LH26-E-ALG-007": "Grundbaustein- und Ausdrucksansicht",
+            "LH26-E-ALG-008": "Übergabe- und Rückgabeansicht",
+            "LH26-E-ALG-009": "Datentypansicht",
+        }
+        self.assertEqual(set(self.contracts), set(expected_views))
+        self.assertEqual(self.module["lessonRange"], {"min": 6, "max": 8})
+
+        for competency_id, view_name in expected_views.items():
+            with self.subTest(competency_id=competency_id):
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "module-detail")
+                self.assertIn(
+                    CORE7_CORE03_TRACE_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE7_CORE03_COMMON_TRACE,
+                    contract["productEvidence"],
+                )
+                self.assertIn(view_name, contract["productEvidence"])
+                self.assertIn(
+                    "keine zusätzlichen Einzelprodukte",
+                    contract["productEvidence"],
+                )
+
+        variable = self.contracts["INF7-16-GYM-IK-ALG-003"]
+        self.assertIn(
+            "Variable ausdrücklich als änderbaren Wertespeicher erläutern",
+            variable["learningAction"],
+        )
+        self.assertIn(
+            "Zustandsänderung vom alten zum neuen Wert",
+            variable["productEvidence"],
+        )
+
+        modelling = self.contracts["INF7-16-GYM-PK-MI-005"]
+        for term in (
+            "plattformneutrales grafisches Modellierungswerkzeug",
+            "tatsächlich einsetzen",
+            "erstellen, bearbeiten und korrigieren",
+        ):
+            self.assertIn(term, modelling["learningAction"])
+        self.assertIn(
+            "Werkzeugeinsatz mit bearbeiteter und korrigierter Modellfassung",
+            modelling["productEvidence"],
+        )
+
+        relationship = self.contracts["INF7-16-GYM-PK-SV-003"]
+        for term in (
+            "Daten- und Objektbeziehung",
+            "Eingabe → Variable → Ausdrucksergebnis → Ausgabe",
+            "erkennen und erläutern",
+        ):
+            self.assertIn(term, relationship["learningAction"])
+
+        building_blocks = self.contracts["LH26-E-ALG-007"]
+        for term in (
+            "Anweisung",
+            "Schleife mit konstanter Durchlaufzahl",
+            "Schleife mit Bedingung",
+            "Verzweigung",
+            "Ausdruck ohne Operator",
+            "Ausdruck mit arithmetischem Operator",
+            "Ausdruck mit Vergleichsoperator",
+        ):
+            self.assertIn(term, building_blocks["learningAction"])
+            self.assertIn(term, building_blocks["productEvidence"])
+
+        transfer = self.contracts["LH26-E-ALG-008"]
+        for term in (
+            "gegebenen Anweisungen und gegebenen Ausdrücken",
+            "Übergabe und Rückgabe",
+            "Quelle",
+            "Ziel",
+            "Eingabe",
+            "Ergebnis",
+        ):
+            self.assertIn(term, transfer["learningAction"])
+            self.assertIn(term, transfer["productEvidence"])
+
+        data_types = self.contracts["LH26-E-ALG-009"]
+        for term in (
+            "Zeichenkette",
+            "Zahl",
+            "Wahrheitswert",
+            "Werten und Ausdrücken",
+        ):
+            self.assertIn(term, data_types["learningAction"])
+            self.assertIn(term, data_types["productEvidence"])
 
 
 class Core08RepositoryOrchestrationTests(unittest.TestCase):

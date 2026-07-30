@@ -434,26 +434,22 @@
         "evidenceModuleId": "IUM-7-CORE-03",
         "reason": "Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-INF7-16-GYM-IK-ALG-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Wertespeicher- und Zustandsansicht des vorhandenen synchronen Traceprodukts erläutert die Variable ausdrücklich als änderbaren Wertespeicher und zeigt jede Zustandsänderung vom alten zum neuen Wert mit der auslösenden Anweisung. Variable, Wert, Anweisung und Zustandsänderung bleiben unterscheidbar und sind mit demselben Programmfall synchronisiert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die explizite Wertespeichererklärung und die begründete Zustandsänderung verdichten das vorhandene Traceprodukt; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von 6–8 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Erklärung nutzt denselben Programmfall und die vorhandene Voraussetzung IUM-6-CORE-04; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert.",
-        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-001",
@@ -790,26 +786,22 @@
         "evidenceModuleId": "IUM-7-CORE-03",
         "reason": "Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-MI-005",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die grafische Ablauf- und Zustandsmodellierungsansicht verlangt den tatsächlichen Einsatz eines plattformneutralen grafischen Modellierungswerkzeugs zum Erstellen, Bearbeiten und Korrigieren der Modellierung. Die bearbeitete und korrigierte Modellfassung ist Produktspur im selben synchronen Trace; eine bloße Anzeige oder Tracingoberfläche genügt nicht.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Tatsächliches Erstellen, Bearbeiten und Korrigieren der grafischen Modellierung ergänzt eine eigenständige Werkzeughandlung; IUM10 prüft den Zeitbedarf im unveränderten Korridor von 6–8 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Das plattformneutrale Werkzeug bearbeitet die vorhandene Ablauf- und Zustandsspur im selben Modul; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt.",
-        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-001",
@@ -883,26 +875,22 @@
         "evidenceModuleId": "IUM-7-CORE-03",
         "reason": "Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-SV-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Daten- und Objektbeziehungsansicht lässt im selben Programmfall die fachliche Beziehung Eingabe → Variable → Ausdrucksergebnis → Ausgabe erkennen und erläutern. Quellen, gespeicherter Wert, berechnetes Ergebnis und ausgegebene Darstellung werden als Abhängigkeiten erklärt und nicht mit einer bloßen Zuweisung oder einem Variablenwert gleichgesetzt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die ausdrückliche Erklärung der Datenbeziehung ergänzt eine eigene Erklärungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Beziehung wird am selben vorhandenen Programmfall und Trace erklärt; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus.",
-        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ALG-001",
@@ -945,26 +933,22 @@
         "evidenceModuleId": "IUM-7-CORE-03",
         "reason": "Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-LH26-E-ALG-007",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Grundbaustein- und Ausdrucksansicht beschreibt im selben Programmfall vollständig und unterscheidbar Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator. Jede atomare Anforderung besitzt eine beschriftete Belegstelle im synchronen Traceprodukt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die vollständige Breite aus zwei Schleifenvarianten und drei Ausdrucksformen erweitert die explizite Beschreibungsarbeit deutlich; IUM10 prüft die Tragfähigkeit im unveränderten Korridor von 6–8 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Alle Grundbausteine werden im selben vorhandenen Programmfall und Traceprodukt beschrieben; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben.",
-        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ALG-008",
@@ -976,26 +960,22 @@
         "evidenceModuleId": "IUM-7-CORE-03",
         "reason": "Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-LH26-E-ALG-008",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Übergabe- und Rückgabeansicht identifiziert bei gegebenen Anweisungen und gegebenen Ausdrücken sowohl Übergabe als auch Rückgabe von Werten. Quelle, Ziel, Eingabe und Ergebnis werden getrennt zugeordnet und bleiben von Variable und Datentyp unterscheidbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die explizite Quellen-/Zielzuordnung für Anweisungen und Ausdrücke ergänzt eine eigenständige Identifikationsspur; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Übergabe und Rückgabe werden im selben vorhandenen Programmfall und Traceprodukt identifiziert; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert.",
-        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ALG-009",
@@ -1007,26 +987,22 @@
         "evidenceModuleId": "IUM-7-CORE-03",
         "reason": "Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-LH26-E-ALG-009",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Datentypansicht identifiziert bei Werten und Ausdrücken die drei Datentypen Zeichenkette, Zahl und Wahrheitswert und begründet ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe. Datentyp, Wert und Ausdruck bleiben als getrennte Kategorien sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die explizite Typzuordnung für Werte und Ausdrücke ergänzt eine eigene Begründungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Typidentifikation nutzt dieselben Werte und Ausdrücke des vorhandenen Programmfalls; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert.",
-        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-004",
