@@ -3,6 +3,7 @@ import json
 import unittest
 from pathlib import Path
 
+import scripts.validate_ium10 as ium10_validator
 from scripts.validate_ium10 import (
     BASELINE_COVERAGE_PROJECTION_SHA256,
     BASELINE_MODULE_STRUCTURE_SHA256,
@@ -936,6 +937,48 @@ class IUM10AnnualVariantTests(unittest.TestCase):
         integration = self.integration_contract(status=integration_status)
         return module_contracts, {"INT-TEST": integration}
 
+    def override_variant(self):
+        variant = self.annual_variant()
+        variant.update(
+            {
+                "id": "GRADE-5-OVERRIDE-TEST",
+                "pathId": "regular",
+                "targetUnits": 6,
+                "allocations": [
+                    {
+                        "moduleId": "MODULE-A",
+                        "budgetPathId": "regular",
+                        "units": 3,
+                    },
+                    {
+                        "moduleId": "MODULE-B",
+                        "budgetPathId": "baseline",
+                        "units": 3,
+                    },
+                ],
+                "integrationContractIds": ["INT-TEST"],
+            }
+        )
+        return variant
+
+    def validate_with_module_b_baseline_override(
+        self,
+        *,
+        module_contracts,
+        integration_contracts,
+    ):
+        variant = self.override_variant()
+        overrides = ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES
+        overrides[variant["id"]] = {"MODULE-B": "baseline"}
+        try:
+            return self.validate_variants(
+                variants=[variant],
+                module_contracts=module_contracts,
+                integration_contracts=integration_contracts,
+            )
+        finally:
+            del overrides[variant["id"]]
+
     def test_returns_annual_variants_keyed_by_unique_id(self):
         result = self.validate_variants()
 
@@ -976,6 +1019,42 @@ class IUM10AnnualVariantTests(unittest.TestCase):
 
         with self.assertRaisesRegex(IUM10ValidationError, "variant path"):
             self.validate_variants(variants=[variant])
+
+    def test_rejects_same_sized_optimized_budgets_for_robust_demand_scenario(self):
+        module_contracts = {
+            module_id: {
+                "moduleId": module_id,
+                "grade": 7,
+                "kind": "core",
+                "pathBudgets": [
+                    {"pathId": "optimized", "units": units},
+                    {"pathId": "robust", "units": units},
+                ],
+            }
+            for module_id, units in (("MODULE-A", 2), ("MODULE-B", 3))
+        }
+        variant = {
+            "id": "GRADE-7-ROBUST-TEST",
+            "grade": 7,
+            "kind": "demand-scenario",
+            "pathId": "robust",
+            "targetUnits": 5,
+            "allocations": [
+                {"moduleId": "MODULE-A", "budgetPathId": "optimized", "units": 2},
+                {"moduleId": "MODULE-B", "budgetPathId": "optimized", "units": 3},
+            ],
+            "integrationContractIds": [],
+            "available": False,
+            "status": "working",
+            "rationale": "Das robuste Testszenario weist fünf Einheiten aus.",
+            "risk": "Das Testszenario ist kein verfügbarer Jahrespfad.",
+        }
+
+        with self.assertRaisesRegex(IUM10ValidationError, "variant path"):
+            self.validate_variants(
+                variants=[variant],
+                module_contracts=module_contracts,
+            )
 
     def test_rejects_missing_or_unexpected_fields_fail_closed(self):
         missing = self.annual_variant()
@@ -1039,6 +1118,29 @@ class IUM10AnnualVariantTests(unittest.TestCase):
                 variants=[variant],
                 integration_contracts={"INT-TEST": integration},
             )
+
+    def test_rejects_override_when_participant_path_is_unsupported_by_integration(self):
+        module_contracts, integrations = self.integration_aware_inputs()
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "participant budget path",
+        ):
+            self.validate_with_module_b_baseline_override(
+                module_contracts=module_contracts,
+                integration_contracts=integrations,
+            )
+
+    def test_accepts_override_when_all_participant_paths_support_integration(self):
+        module_contracts, integrations = self.integration_aware_inputs()
+        integrations["INT-TEST"]["pathIds"] = ["baseline", "regular"]
+
+        result = self.validate_with_module_b_baseline_override(
+            module_contracts=module_contracts,
+            integration_contracts=integrations,
+        )
+
+        self.assertEqual(set(result), {"GRADE-5-OVERRIDE-TEST"})
 
 
 class IUM10Grade5RepositoryTests(unittest.TestCase):

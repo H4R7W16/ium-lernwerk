@@ -48,7 +48,7 @@ ANNUAL_PATH_IDS_BY_KIND = {
     "planning-path": {"baseline", "regular", "extended"},
     "demand-scenario": {"optimized", "robust", "historical-minimum"},
 }
-ANNUAL_VARIANT_BUDGET_PATH_EXCEPTIONS = {}
+ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES = {}
 
 
 class IUM10ValidationError(ValueError):
@@ -892,6 +892,7 @@ def validate_annual_variants(
         allocation_module_ids = set()
         allocated_units = 0
         required_integration_ids = set()
+        selected_budget_path_ids = {}
         for allocation in allocations:
             _require(
                 isinstance(allocation, dict)
@@ -913,16 +914,15 @@ def validate_annual_variants(
                 f"annual variant module grade differs: {variant_id}/{module_id}",
             )
             budget_path_id = allocation["budgetPathId"]
-            if variant["kind"] == "planning-path":
-                expected_budget_path_id = ANNUAL_VARIANT_BUDGET_PATH_EXCEPTIONS.get(
-                    variant_id,
-                    {},
-                ).get(module_id, variant["pathId"])
-                _require(
-                    budget_path_id == expected_budget_path_id,
-                    "annual allocation budget path differs from variant path: "
-                    f"{variant_id}/{module_id}",
-                )
+            expected_budget_path_id = ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES.get(
+                variant_id,
+                {},
+            ).get(module_id, variant["pathId"])
+            _require(
+                budget_path_id == expected_budget_path_id,
+                "annual allocation budget path differs from variant path: "
+                f"{variant_id}/{module_id}",
+            )
             matching_budgets = [
                 budget
                 for budget in module_contract.get("pathBudgets", [])
@@ -968,6 +968,7 @@ def validate_annual_variants(
                 )
                 required_integration_ids.add(integration_id)
             allocation_module_ids.add(module_id)
+            selected_budget_path_ids[module_id] = budget_path_id
             allocated_units += units
         _require(
             allocated_units == variant["targetUnits"],
@@ -984,6 +985,18 @@ def validate_annual_variants(
             _require(
                 same_grade_participants <= allocation_module_ids,
                 f"annual variant omits integration participants: {variant_id}/{integration_id}",
+            )
+            selected_participants = (
+                set(integration.get("moduleIds", [])) & allocation_module_ids
+            )
+            _require(
+                all(
+                    selected_budget_path_ids[module_id]
+                    in integration.get("pathIds", [])
+                    for module_id in selected_participants
+                ),
+                "annual integration participant budget path is unsupported: "
+                f"{variant_id}/{integration_id}",
             )
         _require(
             set(integration_ids) == required_integration_ids,
