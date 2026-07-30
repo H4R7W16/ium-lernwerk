@@ -83,6 +83,19 @@ def time_handoff_fingerprint(remediation_payload):
     )
 
 
+def validate_time_model_draft(time_model):
+    """Validate the top-level schema version required by the IUM10 draft."""
+    _require(isinstance(time_model, dict), "time model draft must be an object")
+    schema_version = time_model.get("schemaVersion")
+    _require(
+        isinstance(schema_version, int)
+        and not isinstance(schema_version, bool)
+        and schema_version == 1,
+        "schema version must be the integer 1",
+    )
+    return time_model
+
+
 def validate_capacity_model(capacity_model, unit_contract):
     """Validate IUM10's dated capacity assumptions and return planning paths."""
     _require(isinstance(unit_contract, dict), "unit contract must be an object")

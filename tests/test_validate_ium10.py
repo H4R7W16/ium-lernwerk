@@ -12,6 +12,7 @@ from scripts.validate_ium10 import (
     coverage_projection_fingerprint,
     time_handoff_fingerprint,
     validate_capacity_model,
+    validate_time_model_draft,
     validate_ium10_baseline,
 )
 
@@ -233,11 +234,23 @@ class IUM10CapacityModelTests(unittest.TestCase):
                     with self.assertRaises(IUM10ValidationError):
                         self.validate_capacity(capacity_model=payload)
 
+    def test_rejects_boolean_schema_version_in_the_repository_draft(self):
+        root = Path(__file__).resolve().parents[1]
+        time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        time_model["schemaVersion"] = True
+
+        with self.assertRaisesRegex(IUM10ValidationError, "schema version"):
+            validate_time_model_draft(time_model)
+
     def test_repository_draft_has_the_capacity_contract_and_empty_future_contract_lists(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
         )
+
+        validate_time_model_draft(time_model)
 
         self.assertEqual(
             set(time_model),
