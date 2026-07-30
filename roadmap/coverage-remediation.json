@@ -1325,26 +1325,22 @@
         "evidenceModuleId": "IUM-7-CORE-10",
         "reason": "Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-10-LH26-E-DP-014",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Darstellung von Geschlechterrollen und Schönheitsidealen wird an vollständig vorgegebenen kuratierten Medienbeispielen analysiert; nur ihr möglicher Einfluss auf die eigene Selbstwahrnehmung wird in einer privaten lokalen Notiz reflektiert. Das bestehende Vorher–Nachher-Medienprodukt führt unabhängig davon in eine nichtpersonale Gegenperspektive, funktioniert ohne Kenntnis der Notiz und gilt ausdrücklich nicht als Proxy-Nachweis des privaten Operatoranteils.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Private Reflexion, nichtpersonale Gegenperspektive und ihre klare Trennung verdichten die bestehende Medienanalyse; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Kuratiertes Medienbeispiel, Privatnotiz und nichtpersonale Gegenperspektive bleiben im vorhandenen Kernmodul und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert.",
-        "followUp": "Kernkandidat IUM-7-CORE-10 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ID-009",

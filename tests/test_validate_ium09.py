@@ -214,6 +214,7 @@ AUDITED_DECISIONS = {
         "IUM-7-CORE-08", "module-detail", "covered"
     ),
     "LH26-E-DP-013": ("IUM-7-CORE-08", "private-local", "covered"),
+    "LH26-E-DP-014": ("IUM-7-CORE-10", "private-local", "covered"),
     "BMB16-GYM-IK-KK-002": (
         "IUM-5-CORE-03", "school-context", "covered"
     ),
@@ -494,6 +495,13 @@ def curriculum_contracts():
                 "eigenen Umgang damit reflektieren"
             )
         },
+        "LH26-E-DP-014": {
+            "text": (
+                "Die Darstellung von Geschlechterrollen und Schönheitsidealen "
+                "in Medien analysieren und deren Einfluss auf die "
+                "Selbstwahrnehmung reflektieren"
+            )
+        },
         "LH26-E-ALG-001": {
             "text": (
                 "digitale Systeme identifizieren, deren Funktionsweise "
@@ -682,6 +690,7 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
                 "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
                 "CE-IUM-7-CORE-08-LH26-E-DP-013",
+                "CE-IUM-7-CORE-10-LH26-E-DP-014",
                 "CE-IUM-7-CORE-03-INF7-16-GYM-IK-ALG-003",
                 "CE-IUM-7-CORE-03-INF7-16-GYM-PK-MI-005",
                 "CE-IUM-7-CORE-03-INF7-16-GYM-PK-SV-003",
@@ -2549,6 +2558,64 @@ class Core08RepositoryOrchestrationTests(unittest.TestCase):
             "keine persönliche Handlungsoption",
             private["nonPersonalFollowUp"],
         )
+
+
+class Core7Core10RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-7-CORE-10"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_dp014_keeps_self_perception_reflection_private_and_unassessed(self):
+        self.assertEqual(
+            AUDITED_DECISIONS["LH26-E-DP-014"],
+            ("IUM-7-CORE-10", "private-local", "covered"),
+        )
+        self.assertEqual(set(self.contracts), {"LH26-E-DP-014"})
+
+        contract = self.contracts["LH26-E-DP-014"]
+        self.assertEqual(contract["mode"], "private-local")
+        self.assertEqual(contract["productVisibility"], "private-local")
+        self.assertEqual(contract["privacyBoundary"], PRIVATE_BOUNDARY_TEXT)
+        for term in (
+            "Geschlechterrollen",
+            "Schönheitsidealen",
+            "analysieren",
+            "eigene Selbstwahrnehmung",
+            "reflektieren",
+            "privaten lokalen Reflexionsnotiz",
+        ):
+            with self.subTest(term=term):
+                self.assertIn(term, contract["learningAction"])
+        self.assertIn(
+            "verbleibt ausschließlich bei der lernenden Person",
+            contract["productEvidence"],
+        )
+
+    def test_dp014_nonpersonal_follow_up_is_independent_and_not_proxy_evidence(self):
+        self.assertIn("LH26-E-DP-014", self.contracts)
+        contract = self.contracts["LH26-E-DP-014"]
+        follow_up = contract["nonPersonalFollowUp"]
+        for term in (
+            "nichtpersonale Gegenperspektive",
+            "vollständig vorgegebenen kuratierten Medienbeispielen",
+            "ohne Kenntnis der privaten Reflexionsnotiz",
+            "kein Nachweis der Reflexion der eigenen Selbstwahrnehmung",
+            "keine Offenlegung",
+        ):
+            with self.subTest(term=term):
+                self.assertIn(term, follow_up)
 
 
 class ModuleStructureFingerprintTests(unittest.TestCase):

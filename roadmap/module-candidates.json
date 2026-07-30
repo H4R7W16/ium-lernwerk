@@ -1521,6 +1521,18 @@
       "centralQuestion": "Wie verändert eine technische Bearbeitung die Wirkung eines Medienbilds – und wie wird diese Entscheidung transparent und verantwortbar?",
       "centralLearningAction": "Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren.",
       "centralLearningProduct": "Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-10-LH26-E-DP-014",
+          "competencyId": "LH26-E-DP-014",
+          "mode": "private-local",
+          "learningAction": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in vollständig vorgegebenen kuratierten Medienbeispielen analysieren und deren möglichen Einfluss auf die eigene Selbstwahrnehmung anschließend ausschließlich in einer privaten lokalen Reflexionsnotiz konkret reflektieren.",
+          "productEvidence": "Eine private lokale Reflexionsnotiz zu den analysierten Geschlechterrollen und Schönheitsidealen und ihrem möglichen Einfluss auf die eigene Selbstwahrnehmung; sie verbleibt ausschließlich bei der lernenden Person.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Unabhängig davon im bestehenden Vorher–Nachher-Medienprodukt eine nichtpersonale Gegenperspektive zu den vollständig vorgegebenen kuratierten Medienbeispielen ausarbeiten: dargestellte Geschlechterrollen oder Schönheitsideale, gestalterische Mittel, eine mögliche allgemeine Wirkung und eine begründete Veränderung werden sichtbar dokumentiert. Diese Anschlussaufgabe funktioniert ohne Kenntnis der privaten Reflexionsnotiz, ist kein Nachweis der Reflexion der eigenen Selbstwahrnehmung und verlangt keine Offenlegung persönlicher Inhalte."
+        }
+      ],
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",
