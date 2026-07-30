@@ -122,6 +122,11 @@ CORE7_CORE04_COMMON_PRODUCT = (
     "demselben Teamplan, kommentierten Programm und derselben Präsentation"
 )
 CORE7_CORE04_NO_EXTRA_PRODUCT = "kein zusätzliches Einzelprodukt"
+CORE7_CORE05_COMMON_PRODUCT = (
+    "demselben System- und Bedrohungsmodell und demselben neutralen "
+    "schulischen Speicherworkflow"
+)
+CORE7_CORE05_NO_EXTRA_PRODUCT = "kein zusätzliches Einzelprodukt"
 
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
@@ -271,6 +276,15 @@ AUDITED_DECISIONS = {
     "INF7-16-GYM-PK-SV-002": (
         "IUM-7-CORE-04", "module-detail", "covered"
     ),
+    "INF7-16-GYM-IK-IGD-004": (
+        "IUM-7-CORE-05", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-AB-002": (
+        "IUM-7-CORE-05", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-SV-001": (
+        "IUM-7-CORE-05", "school-context", "covered"
+    ),
 }
 
 
@@ -371,6 +385,22 @@ def curriculum_contracts():
                 "alltagsrelevanten Beispielen erläutern und dabei sowohl "
                 "Nutzen als auch Risiken nennen"
             )
+        },
+        "INF7-16-GYM-IK-IGD-004": {
+            "text": (
+                "besondere Sicherheitsaspekte im Umgang mit mobilen Geräten "
+                "und Datenträgern nennen sowie mögliche Schutzmaßnahmen "
+                "beschreiben"
+            )
+        },
+        "INF7-16-GYM-PK-AB-002": {
+            "text": (
+                "informatische Modelle mit der jeweiligen Realsituation "
+                "vergleichen"
+            )
+        },
+        "INF7-16-GYM-PK-SV-001": {
+            "text": "mit dem Schulnetz zielorientiert arbeiten"
         },
         "INF7-16-GYM-PK-AB-005": {
             "text": (
@@ -679,6 +709,9 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-7-CORE-04-INF7-16-GYM-PK-KK-002",
                 "CE-IUM-7-CORE-04-INF7-16-GYM-PK-MI-003",
                 "CE-IUM-7-CORE-04-INF7-16-GYM-PK-SV-002",
+                "CE-IUM-7-CORE-05-INF7-16-GYM-IK-IGD-004",
+                "CE-IUM-7-CORE-05-INF7-16-GYM-PK-AB-002",
+                "CE-IUM-7-CORE-05-INF7-16-GYM-PK-SV-001",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -2027,6 +2060,225 @@ class Core7Core04RepositoryOrchestrationTests(unittest.TestCase):
             "Dateien und Bezeichner sauber benennen",
             contract["learningAction"],
         )
+
+
+class Core7Core05RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.module = next(
+            module
+            for module in module_payload["modules"]
+            if module["id"] == "IUM-7-CORE-05"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+        cls.remediation = {
+            entry["competencyId"]: entry
+            for entry in remediation_payload["entries"]
+            if entry["competencyId"] in {
+                "INF7-16-GYM-IK-IGD-004",
+                "INF7-16-GYM-PK-AB-002",
+                "INF7-16-GYM-PK-SV-001",
+            }
+        }
+
+    def test_core_05_keeps_three_traces_distinct_in_one_connected_product(self):
+        expected_modes = {
+            "INF7-16-GYM-IK-IGD-004": "module-detail",
+            "INF7-16-GYM-PK-AB-002": "module-detail",
+            "INF7-16-GYM-PK-SV-001": "school-context",
+        }
+        self.assertEqual(set(self.contracts), set(expected_modes))
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-6-CORE-05"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 5, "max": 7})
+
+        for competency_id, mode in expected_modes.items():
+            with self.subTest(competency_id=competency_id):
+                self.assertEqual(
+                    AUDITED_DECISIONS[competency_id],
+                    ("IUM-7-CORE-05", mode, "covered"),
+                )
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], mode)
+                self.assertEqual(
+                    contract["productVisibility"],
+                    "teacher-observable",
+                )
+                self.assertIn(
+                    CORE7_CORE05_COMMON_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE7_CORE05_NO_EXTRA_PRODUCT,
+                    contract["productEvidence"],
+                )
+
+        self.assertIn(
+            "Eigene Risiko–Maßnahme-Spur",
+            self.contracts["INF7-16-GYM-IK-IGD-004"]["productEvidence"],
+        )
+        self.assertIn(
+            "Eigene Modell–Realsituation-Spur",
+            self.contracts["INF7-16-GYM-PK-AB-002"]["productEvidence"],
+        )
+        self.assertIn(
+            "Eigene Ausführungsspur",
+            self.contracts["INF7-16-GYM-PK-SV-001"]["productEvidence"],
+        )
+
+        for entry in self.remediation.values():
+            with self.subTest(competency_id=entry["competencyId"]):
+                self.assertEqual(entry["timeImpact"]["level"], "review-required")
+                self.assertEqual(entry["graphImpact"]["level"], "none")
+
+    def test_igd004_requires_broad_explicit_risk_measure_pairs_and_limits(self):
+        contract = self.contracts["INF7-16-GYM-IK-IGD-004"]
+        for term in (
+            "mehreren vollständig vorgegebenen fiktiven Bedrohungsfällen",
+            "mobile Geräte und Datenträger",
+            "Verlust, Diebstahl oder unbefugter Zugriff",
+            "Displaysperre",
+            "Geräte- oder Datenträgerverschlüsselung",
+            "nicht vertrauenswürdiger Wechseldatenträger oder Schadsoftware",
+            "freigegebene Datenträger und Pfade",
+            "Updates",
+            "vorgesehene Schadsoftwareprüfung",
+            "unsichere Übertragung oder öffentliche Umgebung",
+            "freigegebener Übertragungsweg",
+            "Sicht- und Zugriffsschutz",
+            "Beschädigung oder Ausfall",
+            "Backup",
+            "geprüfte Wiederherstellung",
+            "Schutzwirkung",
+            "Grenze",
+            "Zielkonflikt",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "mindestens vier ausdrücklichen Risiko→Maßnahme-Paaren",
+            "Risiko",
+            "Schutzmaßnahme",
+            "Schutzwirkung",
+            "Grenze oder Zielkonflikt",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertIn(
+            "Persönliche Geräte werden nicht verändert",
+            contract["learningAction"],
+        )
+        self.assertIn(
+            "Gerätekennungen werden nicht erhoben",
+            contract["learningAction"],
+        )
+
+    def test_ab002_compares_corresponding_model_and_reality_and_revises_model(self):
+        contract = self.contracts["INF7-16-GYM-PK-AB-002"]
+        for term in (
+            "informatische Systemmodell mit der entsprechenden Realsituation",
+            "sicheren, nichtpersonalen tatsächlichen oder kuratierten "
+            "Beobachtungsspur",
+            "vor Ort freigegebenen neutralen Client–Server- und "
+            "Speicherworkflows",
+            "Modellelement",
+            "Vorhersage",
+            "Datenweg",
+            "beobachteten realen Schritt",
+            "Übereinstimmungen",
+            "Abweichungen",
+            "Auslassungen",
+            "Modellgrenze",
+            "mindestens eine begründete Modellrevision",
+            "Bei tatsächlicher Beobachtung gilt dasselbe lokale Freigabegate",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            "separate Modell–Realsituation-Tabelle",
+            "Modellelement/Vorhersage/Datenweg",
+            "entsprechendem beobachteten realen Schritt",
+            "Übereinstimmung",
+            "Abweichung oder Auslassung",
+            "Modellgrenze",
+            "begründeter Revision",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertNotEqual(
+            contract["learningAction"],
+            "Das Modell ist vereinfacht.",
+        )
+        for excluded_trace in (
+            "weder eine Paketaufzeichnung",
+            "Erhebung privater Protokolle",
+            "von Zugangsdaten",
+        ):
+            self.assertIn(excluded_trace, contract["learningAction"])
+
+    def test_sv001_requires_actual_goal_workflow_local_gate_and_private_safe_trace(self):
+        contract = self.contracts["INF7-16-GYM-PK-SV-001"]
+        self.assertEqual(contract["executionType"], "actual-local-use")
+        for term in (
+            "vor Ort freigegebene Schulnetz tatsächlich nutzen",
+            "für ein vorgegebenes neutrales Arbeitsziel",
+            "geeigneten freigegebenen Speicherort oder Pfad auswählen",
+            "neutrales, fiktives und personenfreies Testartefakt",
+            "speichern oder hochladen",
+            "erneut abrufen und öffnen",
+            "Aufgabenergebnis verifizieren",
+            "zweiten freigegebenen Zugriffskontext",
+            "falls lokal unterstützt",
+            "ohne Nachweis von Zugangsdaten",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        local_gate = contract["localConfigurationRequirement"]
+        for term in (
+            "Vor Freigabe",
+            "bestehendes lokal verfügbares",
+            "schulisch freigegebenes",
+            "datenschutzkonformes Schulnetz",
+            "freigegebenen Speicherort oder Pfad",
+            "neutrale Aufgabe",
+            "tatsächliche Ausführung",
+            "nicht möglich",
+            "bleibt der Record partial",
+        ):
+            self.assertIn(term, local_gate)
+
+        evidence = contract["productEvidence"]
+        for term in (
+            "Arbeitsziel",
+            "freigegebene Pfadbezeichnung oder Pfadkategorie",
+            "ausgeführte Operationen",
+            "Ergebnis der Abruf- und Öffnungsprüfung",
+        ):
+            self.assertIn(term, evidence)
+        for excluded_data in (
+            "keine Zugangsdaten",
+            "keine Netzwerkadressen",
+            "keine IP-Adressen",
+            "keine Gerätekennungen",
+            "keine Tokens",
+            "keine privaten Dateien",
+            "keine Inhaltsprotokolle",
+            "keine vollständigen Zugriffsprotokolle",
+        ):
+            self.assertIn(excluded_data, evidence)
 
 
 class Core7Core01RepositoryOrchestrationTests(unittest.TestCase):

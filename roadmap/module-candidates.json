@@ -1231,6 +1231,34 @@
       "mediumRationale": "Interaktive Netz- und Speicherszenarien machen Ausfall, Zugriff, Datenweg und Schutzmaßnahme variierbar und erlauben direkte Modell-Realitäts-Vergleiche.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-05-INF7-16-GYM-IK-IGD-004",
+          "competencyId": "INF7-16-GYM-IK-IGD-004",
+          "mode": "module-detail",
+          "learningAction": "An mehreren vollständig vorgegebenen fiktiven Bedrohungsfällen besondere Sicherheitsaspekte für mobile Geräte und Datenträger nennen und jeweils eine mögliche Schutzmaßnahme beschreiben: Verlust, Diebstahl oder unbefugter Zugriff → Displaysperre sowie, soweit in der lokal freigegebenen Umgebung umsetzbar, Geräte- oder Datenträgerverschlüsselung; nicht vertrauenswürdiger Wechseldatenträger oder Schadsoftware → ausschließlich freigegebene Datenträger und Pfade, Updates und vorgesehene Schadsoftwareprüfung; unsichere Übertragung oder öffentliche Umgebung → freigegebener Übertragungsweg sowie Sicht- und Zugriffsschutz; Beschädigung oder Ausfall → Backup und geprüfte Wiederherstellung. Für jedes Risiko–Maßnahme-Paar Schutzwirkung und mindestens eine Grenze oder einen Zielkonflikt beschreiben. Persönliche Geräte werden nicht verändert; Gerätekennungen werden nicht erhoben.",
+          "productEvidence": "Eigene Risiko–Maßnahme-Spur in demselben System- und Bedrohungsmodell und demselben neutralen schulischen Speicherworkflow: Matrix mit mindestens vier ausdrücklichen Risiko→Maßnahme-Paaren sowie je Risiko, möglicher Schutzmaßnahme, Schutzwirkung und Grenze oder Zielkonflikt; kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-AB-002",
+          "competencyId": "INF7-16-GYM-PK-AB-002",
+          "mode": "module-detail",
+          "learningAction": "Das informatische Systemmodell mit der entsprechenden Realsituation vergleichen: Modellelement, Vorhersage und Datenweg jeweils einem beobachteten realen Schritt in einer sicheren, nichtpersonalen tatsächlichen oder kuratierten Beobachtungsspur des vor Ort freigegebenen neutralen Client–Server- und Speicherworkflows gegenüberstellen; Übereinstimmungen, Abweichungen und Auslassungen identifizieren, die Modellgrenze benennen und mindestens eine begründete Modellrevision vornehmen. Bei tatsächlicher Beobachtung gilt dasselbe lokale Freigabegate wie für die Schulnetznutzung. Es erfolgen weder eine Paketaufzeichnung noch die Erhebung privater Protokolle oder von Zugangsdaten.",
+          "productEvidence": "Eigene Modell–Realsituation-Spur in demselben System- und Bedrohungsmodell und demselben neutralen schulischen Speicherworkflow: separate Modell–Realsituation-Tabelle mit Modellelement/Vorhersage/Datenweg, entsprechendem beobachteten realen Schritt, Übereinstimmung, Abweichung oder Auslassung, Modellgrenze und begründeter Revision; kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-SV-001",
+          "competencyId": "INF7-16-GYM-PK-SV-001",
+          "mode": "school-context",
+          "learningAction": "Das vor Ort freigegebene Schulnetz tatsächlich nutzen: für ein vorgegebenes neutrales Arbeitsziel einen geeigneten freigegebenen Speicherort oder Pfad auswählen, ein neutrales, fiktives und personenfreies Testartefakt dort speichern oder hochladen, es erneut abrufen und öffnen und so das Aufgabenergebnis verifizieren; einen zweiten freigegebenen Zugriffskontext nutzen, falls lokal unterstützt, ohne Nachweis von Zugangsdaten.",
+          "productEvidence": "Eigene Ausführungsspur in demselben System- und Bedrohungsmodell und demselben neutralen schulischen Speicherworkflow: ausschließlich Arbeitsziel, freigegebene Pfadbezeichnung oder Pfadkategorie, ausgeführte Operationen und Ergebnis der Abruf- und Öffnungsprüfung; keine Zugangsdaten, keine Netzwerkadressen, keine IP-Adressen, keine Gerätekennungen, keine Tokens, keine privaten Dateien, keine Inhaltsprotokolle und keine vollständigen Zugriffsprotokolle; kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Vor Freigabe benennt die Lehrkraft ein bestehendes lokal verfügbares, schulisch freigegebenes und datenschutzkonformes Schulnetz, einen freigegebenen Speicherort oder Pfad und eine neutrale Aufgabe für die tatsächliche Ausführung; ist dies nicht möglich, bleibt der Record partial."
+        }
+      ],
       "status": "working"
     },
     {

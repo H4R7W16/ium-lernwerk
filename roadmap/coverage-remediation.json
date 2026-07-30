@@ -538,26 +538,22 @@
         "evidenceModuleId": "IUM-7-CORE-05",
         "reason": "Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-05-INF7-16-GYM-IK-IGD-004",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die integrierte Risiko–Maßnahme-Spur nennt an vollständig vorgegebenen fiktiven Fällen besondere Sicherheitsaspekte mobiler Geräte und Datenträger und beschreibt für Verlust, Schadsoftware, unsichere Übertragung sowie Beschädigung jeweils mögliche Schutzmaßnahmen, deren Wirkung und Grenze. Sie bleibt als Matrix mit dem vorhandenen System- und Bedrohungsmodell verbunden, ohne persönliche Geräte zu verändern oder Gerätekennungen zu erheben.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Vier ausdrückliche Risiko–Maßnahme-Paare samt Schutzwirkung und Grenze verdichten das bestehende Bedrohungsmodell; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Risiko–Maßnahme-Matrix ist eine Spur des vorhandenen System- und Bedrohungsmodells und nutzt die bestehende Voraussetzung IUM-6-CORE-05; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden.",
-        "followUp": "Kernkandidat IUM-7-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-IK-IGD-006",
@@ -596,26 +592,22 @@
         "evidenceModuleId": "IUM-7-CORE-05",
         "reason": "Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-AB-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die separate Modell–Realsituation-Tabelle stellt Modellelement, Vorhersage und Datenweg den entsprechenden beobachteten realen Schritten einer tatsächlichen oder kuratierten nichtpersonalen Spur des neutralen schulischen Client–Server- und Speicherworkflows gegenüber und verlangt Übereinstimmungen, Abweichungen oder Auslassungen, Modellgrenze und begründete Revision. Eine tatsächliche Beobachtung nutzt dasselbe lokale Freigabegate wie die Schulnetznutzung; die Modellspur ist in das vorhandene Systemmodell integriert und geht über die bloße Feststellung einer Vereinfachung hinaus.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die tatsächliche oder kuratierte nichtpersonale Beobachtung, der kriterielle Vergleich und die Modellrevision verdichten die bestehende Modellarbeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Der Modell–Realsituation-Vergleich nutzt das vorhandene Systemmodell, den neutralen Speicherworkflow und die bestehende Voraussetzung IUM-6-CORE-05; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen.",
-        "followUp": "Kernkandidat IUM-7-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-005",
@@ -789,26 +781,22 @@
         "evidenceModuleId": "IUM-7-CORE-05",
         "reason": "Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-SV-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Vertrag schließt den Record ausschließlich über eine tatsächliche zielorientierte Handlung im vor Ort freigegebenen Schulnetz: Speicherort zum neutralen Arbeitsziel auswählen, ein fiktives personenfreies Testartefakt speichern oder hochladen, erneut abrufen und öffnen sowie das Ergebnis verifizieren. Das harte lokale Freigabegate hält die Lücke offen, falls keine schulisch freigegebene und datenschutzkonforme Konfiguration benannt werden kann.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die tatsächliche lokale Speicher-, Abruf- und Prüfhandlung benötigt vor Ort Konfigurations- und Unterrichtszeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die tatsächliche lokale Nutzung führt den vorhandenen neutralen Netz- und Speicherworkflow aus und nutzt die bestehende Voraussetzung IUM-6-CORE-05; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz.",
-        "followUp": "Kernkandidat IUM-7-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-002",
