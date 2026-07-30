@@ -1371,20 +1371,8 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             self.grade_6_payload,
         )
 
-    def assert_grade_6_scope_stops_before_task_6_orchestration(self, time_model):
+    def grade_6_orchestration_findings(self, time_model):
         grade_6_module_ids = set(self.grade_6_modules)
-        grade_6_contracts = [
-            contract
-            for contract in time_model["moduleContracts"]
-            if contract["moduleId"] in grade_6_module_ids
-        ]
-        for contract in grade_6_contracts:
-            with self.subTest(module_id=contract["moduleId"]):
-                self.assertEqual(contract["integrationContractIds"], [])
-                for budget in contract["pathBudgets"]:
-                    self.assertEqual(budget["sharedAllocations"], [])
-                    self.assertEqual(budget["countedSharedMinutes"], 0)
-
         grade_6_integration_ids = [
             integration["id"]
             for integration in time_model["integrationContracts"]
@@ -1403,14 +1391,90 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             index
             for index, judgement in enumerate(time_model["gradeJudgements"])
             if judgement["grade"] == 6
+            or set(judgement["annualVariantIds"]) & set(grade_6_variant_ids)
         ]
-        self.assertEqual(grade_6_integration_ids, [])
-        self.assertEqual(grade_6_variant_ids, [])
-        self.assertEqual(grade_6_judgement_indexes, [])
+        return {
+            "integrationContractIds": grade_6_integration_ids,
+            "annualVariantIds": grade_6_variant_ids,
+            "gradeJudgementIndexes": grade_6_judgement_indexes,
+        }
+
+    def assert_grade_6_scope_stops_before_task_6_orchestration(self, time_model):
+        grade_6_module_ids = set(self.grade_6_modules)
+        grade_6_contracts = [
+            contract
+            for contract in time_model["moduleContracts"]
+            if contract["moduleId"] in grade_6_module_ids
+        ]
+        for contract in grade_6_contracts:
+            with self.subTest(module_id=contract["moduleId"]):
+                self.assertEqual(contract["integrationContractIds"], [])
+                for budget in contract["pathBudgets"]:
+                    self.assertEqual(budget["sharedAllocations"], [])
+                    self.assertEqual(budget["countedSharedMinutes"], 0)
+
+        findings = self.grade_6_orchestration_findings(time_model)
+        self.assertEqual(findings["integrationContractIds"], [])
+        self.assertEqual(findings["annualVariantIds"], [])
+        self.assertEqual(findings["gradeJudgementIndexes"], [])
 
     def test_repository_grade_6_scope_stops_before_task_6_orchestration(self):
         self.assert_grade_6_scope_stops_before_task_6_orchestration(
             self.time_model
+        )
+
+    def test_scope_links_spoofed_grade_judgement_to_grade_6_variant(self):
+        adversarial_time_model = copy.deepcopy(self.time_model)
+        adversarial_time_model["annualVariants"].append(
+            {
+                "id": "SPOOFED-ALLOCATION-VARIANT",
+                "grade": 5,
+                "kind": "planning-path",
+                "pathId": "baseline",
+                "targetUnits": 30,
+                "allocations": [
+                    {
+                        "moduleId": module_id,
+                        "budgetPathId": "baseline",
+                        "units": units["baseline"],
+                    }
+                    for module_id, units in EXPECTED_GRADE_6_CORE_UNITS.items()
+                ],
+                "integrationContractIds": [],
+                "available": True,
+                "status": "working",
+                "rationale": "Über Klasse-6-Allokationen semantisch verknüpft.",
+                "risk": "Das grade-Feld ist absichtlich falsch gesetzt.",
+            }
+        )
+        spoofed_judgement_index = len(
+            adversarial_time_model["gradeJudgements"]
+        )
+        adversarial_time_model["gradeJudgements"].append(
+            {
+                "grade": 5,
+                "semanticCoverageStatus": "partial",
+                "timeFeasibilityStatus": "green",
+                "sequenceEvidenceStatus": "partial",
+                "pilotStatus": "not-started",
+                "annualVariantIds": ["SPOOFED-ALLOCATION-VARIANT"],
+                "rationale": "Über die Jahresvariante semantisch Klasse 6.",
+                "risk": "Das grade-Feld ist absichtlich falsch gesetzt.",
+                "decisionOptions": ["defer-to-task-6"],
+            }
+        )
+
+        findings = self.grade_6_orchestration_findings(
+            adversarial_time_model
+        )
+
+        self.assertEqual(
+            findings["annualVariantIds"],
+            ["SPOOFED-ALLOCATION-VARIANT"],
+        )
+        self.assertEqual(
+            findings["gradeJudgementIndexes"],
+            [spoofed_judgement_index],
         )
 
     def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
