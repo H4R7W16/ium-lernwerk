@@ -1476,6 +1476,10 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             findings["gradeJudgementIndexes"],
             [spoofed_judgement_index],
         )
+        with self.assertRaises(AssertionError):
+            self.assert_grade_6_scope_stops_before_task_6_orchestration(
+                adversarial_time_model
+            )
 
     def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS) | set(
