@@ -930,6 +930,48 @@
       "mediumRationale": "Ein lokales Bitlabor macht Zeichen-, Zahlen- und Bitdarstellung synchron sichtbar und erzeugt systematische Test- und Grenzfälle ohne Formatierungsfehler durch Fremdwerkzeuge.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-001",
+          "competencyId": "INF7-16-GYM-IK-DC-001",
+          "mode": "module-detail",
+          "learningAction": "In der Alltagscodierungsansicht mehrere Verwendungen von Codierungen im Alltag nennen und für Strichcode oder QR-Code, Morsecode, Brailleschrift und ASCII-Zeichencode jeweils Bedeutung, Darstellung und Verwendungszweck sinnvoll zuordnen. Dabei Codierung nicht mit Verschlüsselung gleichsetzen.",
+          "productEvidence": "Die Alltagscodierungs-Landkarte als erste der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs enthält mindestens vier fachlich korrekte Beispiele mit der Zuordnung Bedeutung ↔ Darstellung ↔ Verwendungszweck; sie ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-004",
+          "competencyId": "INF7-16-GYM-IK-DC-004",
+          "mode": "module-detail",
+          "learningAction": "Die Datenmenge als Länge einer Bitfolge erklären: Für 0100000101000010 die Länge 16 Bit bestimmen, mit 8 Bit = 1 Byte als 2 Byte beschreiben und Größenangaben in Bit, Byte, kB, MB, GB und TB verwenden. Die größeren Einheiten werden dezimal mit 1 kB = 10^3 Byte, 1 MB = 10^6 Byte, 1 GB = 10^9 Byte und 1 TB = 10^12 Byte gekennzeichnet.",
+          "productEvidence": "Die enacted Datengrößenspur als zweite der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs dokumentiert in der gemeinsamen Datengrößentabelle des Bit-Codebuchs 0100000101000010, die Länge 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte sowie Größenangaben in Bit, Byte, kB, MB, GB und TB; die Präfixe sind ausdrücklich dezimal ausgewiesen. Die Spur ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-005",
+          "competencyId": "INF7-16-GYM-IK-DC-005",
+          "mode": "module-detail",
+          "learningAction": "Mit einer systematischen Stellenwertmethode jede natürliche Zahl von 0 bis 255 in beide Richtungen bearbeiten: Zahl → 8-Bit-Folge und 8-Bit-Folge → Zahl. Dazu die Stellenwerte 2^7, 2^6, 2^5, 2^4, 2^3, 2^2, 2^1 und 2^0 sowie die Summe der Stellenwerte erklären, führende Nullen als Teil der eindeutigen 8-Bit-Darstellung verwenden und 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000, 255 ↔ 11111111 sowie einen unbekannten Prüffall korrekt bearbeiten.",
+          "productEvidence": "Die Binärumwandlungs- und Prinzipspur als dritte der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs weist das Verfahren für jede natürliche Zahl von 0 bis 255 mit einer systematischen Methode statt einer vollständigen Aufzählung nach: Zahl → 8-Bit-Folge, 8-Bit-Folge → Zahl, Stellenwertzeile 2^7, 2^6, 2^5, 2^4, 2^3, 2^2, 2^1 und 2^0, Summe der Stellenwerte, führende Nullen, die Grenz- und Stellenwechselfälle 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000 und 255 ↔ 11111111 sowie ein korrekt gelöster unbekannter Prüffall. Die Spur ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-LH26-E-ID-020",
+          "competencyId": "LH26-E-ID-020",
+          "mode": "module-detail",
+          "learningAction": "Quellentreu die Datenmenge als Länge einer Bitfolge erklären und für konkrete Bitfolgen Bit und Byte verwenden, einschließlich 8 Bit = 1 Byte und 16 Bit = 2 Byte.",
+          "productEvidence": "Die separate Bit-und-Byte-Spur als vierte der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs verweist auf einen eigenen Ausschnitt der gemeinsamen Datengrößentabelle des Bit-Codebuchs und hält für 0100000101000010 ausschließlich die Bitfolgenlänge 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte fest; sie ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-LH26-E-ID-021",
+          "competencyId": "LH26-E-ID-021",
+          "mode": "module-detail",
+          "learningAction": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera tatsächlich zur Angabe von Datenmengen verwenden und mit 10^3, 10^6, 10^9 und 10^12 sowie den Einheitensymbolen kB, MB, GB und TB korrekt umrechnen: 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte.",
+          "productEvidence": "Die separate Dezimalpräfixspur als fünfte der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs ergänzt einen eigenen Ausschnitt der gemeinsamen Datengrößentabelle des Bit-Codebuchs um Kilo, Mega, Giga und Tera mit 10^3, 10^6, 10^9 und 10^12 und den tatsächlich ausgeführten Umrechnungen 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte; sie ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
       "status": "working"
     },
     {

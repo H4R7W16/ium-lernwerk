@@ -457,26 +457,22 @@
         "evidenceModuleId": "IUM-7-CORE-01",
         "reason": "Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke mit einer sichtbaren Alltagscodierungs-Landkarte im bestehenden Bit-Codebuch: Die Lernenden nennen mindestens vier fachlich korrekte Alltagsverwendungen, ordnen Bedeutung, Darstellung und Verwendungszweck zu und grenzen Codierung ausdrücklich von Verschlüsselung ab.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die Sammlung, fachliche Prüfung und Zuordnung mehrerer Alltagscodierungen verdichtet das bestehende Bit-Codebuch; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Alltagscodierungs-Landkarte ist eine beschriftete Ansicht desselben Bit-Codebuchs und nutzt die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt.",
-        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-004",
@@ -488,26 +484,22 @@
         "evidenceModuleId": "IUM-7-CORE-01",
         "reason": "Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-004",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die enacted Anforderung durch eine konkrete Datengrößenspur: Eine Bitfolge wird als Länge in Bit erklärt, mit 8 Bit = 1 Byte in Byte beschrieben und zusammen mit kB, MB, GB und TB in einer ausdrücklich dezimal gekennzeichneten Tabelle verwendet.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Bitfolgenlänge, Bit-Byte-Beziehung und die größeren dezimalen Einheiten erweitern die bestehende Codierungsarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Datengrößenspur ergänzt das vorhandene Bit-Codebuch und die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben.",
-        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-005",
@@ -519,26 +511,22 @@
         "evidenceModuleId": "IUM-7-CORE-01",
         "reason": "Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-005",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt alle drei enacted Teilanforderungen mit einer systematischen 8-Bit-Stellenwertmethode für den gesamten Bereich 0 bis 255: Zahl und Bitfolge werden in beide Richtungen umgewandelt, das Binärprinzip wird über Stellenwerte und Summe erklärt und Grenz-, Stellenwechsel- sowie unbekannte Prüffälle werden sichtbar bearbeitet.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die systematische Methode, beide Umwandlungsrichtungen, führende Nullen und repräsentative Prüf- und Grenzfälle verdichten die vorhandene Binärarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Binärumwandlungs- und Prinzipspur ist eine Ansicht des bestehenden Bit-Codebuchs und nutzt die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt.",
-        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-IK-IGD-004",
@@ -1419,26 +1407,22 @@
         "evidenceModuleId": "IUM-7-CORE-01",
         "reason": "Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-LH26-E-ID-020",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit hält die Orientierungsanforderung quellentreu getrennt: Eine eigene Bit-und-Byte-Spur erklärt Datenmenge als Bitfolgenlänge und verwendet ausschließlich Bit und Byte; die gemeinsame Datengrößentabelle wird referenziert, ohne größere Präfixe stillschweigend zur Voraussetzung dieses Records zu machen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die separate quellentreue Bit-und-Byte-Spur verdichtet die gemeinsame Datengrößentabelle des bestehenden Bit-Codebuchs; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Bit-und-Byte-Spur nutzt dieselbe Tabelle, dasselbe Bit-Codebuch und die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben.",
-        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ID-021",
@@ -1450,26 +1434,22 @@
         "evidenceModuleId": "IUM-7-CORE-01",
         "reason": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-LH26-E-ID-021",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Orientierungsanforderung mit einer eigenen Dezimalpräfixspur: Kilo, Mega, Giga und Tera werden nicht nur genannt, sondern mit 10^3, 10^6, 10^9 und 10^12, korrekten Einheitensymbolen und je einer ausgeführten Umrechnung verwendet; Binärpräfixe werden nicht vermischt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Vier Dezimalpräfixe, korrekte Symbole und ausgeführte Umrechnungen verdichten die gemeinsame Datengrößentabelle des bestehenden Bit-Codebuchs; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Dezimalpräfixspur nutzt dieselbe Tabelle, dasselbe Bit-Codebuch und die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet.",
-        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-KS-001",

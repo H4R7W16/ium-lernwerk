@@ -112,6 +112,12 @@ CORE7_CORE03_COMMON_TRACE = (
     "demselben Programmfall, denselben Ausführungspositionen, Eingaben, "
     "Werten, Ausgaben und derselben korrigierten Fassung"
 )
+CORE7_CORE01_COMMON_PRODUCT = (
+    "fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs"
+)
+CORE7_CORE01_BIT_SIZE_TABLE = (
+    "gemeinsamen Datengrößentabelle des Bit-Codebuchs"
+)
 
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
@@ -241,6 +247,17 @@ AUDITED_DECISIONS = {
     "LH26-E-DA-010": ("IUM-6-CORE-07", "module-detail", "covered"),
     "LH26-E-DA-012": ("IUM-6-CORE-07", "module-detail", "covered"),
     "LH26-E-DA-015": ("IUM-6-CORE-07", "school-context", "covered"),
+    "INF7-16-GYM-IK-DC-001": (
+        "IUM-7-CORE-01", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-IK-DC-004": (
+        "IUM-7-CORE-01", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-IK-DC-005": (
+        "IUM-7-CORE-01", "module-detail", "covered"
+    ),
+    "LH26-E-ID-020": ("IUM-7-CORE-01", "module-detail", "covered"),
+    "LH26-E-ID-021": ("IUM-7-CORE-01", "module-detail", "covered"),
 }
 
 
@@ -374,6 +391,22 @@ def curriculum_contracts():
         "INF7-16-GYM-PK-SV-003": {
             "text": "Beziehungen zwischen Daten/Objekten erkennen und erläutern"
         },
+        "INF7-16-GYM-IK-DC-001": {
+            "text": "Beispiele zur Verwendung von Codierungen im Alltag nennen"
+        },
+        "INF7-16-GYM-IK-DC-004": {
+            "text": (
+                "Datenmengen als „Länge einer Bitfolge“ erklären und mithilfe "
+                "der Einheiten Bit, Byte, Kilobyte etc. beschreiben"
+            )
+        },
+        "INF7-16-GYM-IK-DC-005": {
+            "text": (
+                "natürliche Zahlen (im Bereich 0–255) mithilfe des "
+                "Binärsystems als Bitfolge darstellen, Bitfolgen als Zahlen "
+                "interpretieren und das Prinzip des Binärsystems erklären"
+            )
+        },
         "LH26-E-ALG-007": {
             "text": (
                 "algorithmische Grundbausteine beschreiben: • Anweisung • "
@@ -425,6 +458,18 @@ def curriculum_contracts():
                 "Strategien anwenden, um Informationen mit Vorwissen zu "
                 "verknüpfen und für eine gegebene Fragestellung "
                 "weiterzuverarbeiten"
+            )
+        },
+        "LH26-E-ID-020": {
+            "text": (
+                "Datenmengen als Länge einer Bitfolge erklären und zur "
+                "Größenangabe die Einheiten Bit und Byte verwenden"
+            )
+        },
+        "LH26-E-ID-021": {
+            "text": (
+                "die Dezimalpräfixe Kilo, Mega, Giga und Tera zur Angabe von "
+                "Datenmengen verwenden"
             )
         },
         "LH26-E-DA-005": {
@@ -597,6 +642,11 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-6-CORE-07-LH26-E-DA-010",
                 "CE-IUM-6-CORE-07-LH26-E-DA-012",
                 "CE-IUM-6-CORE-07-LH26-E-DA-015",
+                "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-001",
+                "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-004",
+                "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-005",
+                "CE-IUM-7-CORE-01-LH26-E-ID-020",
+                "CE-IUM-7-CORE-01-LH26-E-ID-021",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -1801,6 +1851,174 @@ class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
             "getrennt aus",
             transfer["productEvidence"],
         )
+
+
+class Core7Core01RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-7-CORE-01"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_five_source_separated_contracts_share_one_bit_codebook(self):
+        expected = {
+            "INF7-16-GYM-IK-DC-001",
+            "INF7-16-GYM-IK-DC-004",
+            "INF7-16-GYM-IK-DC-005",
+            "LH26-E-ID-020",
+            "LH26-E-ID-021",
+        }
+        self.assertEqual(set(self.contracts), expected)
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-6-CORE-03"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 6, "max": 9})
+        for competency_id in expected:
+            with self.subTest(competency_id=competency_id):
+                self.assertEqual(
+                    AUDITED_DECISIONS[competency_id],
+                    ("IUM-7-CORE-01", "module-detail", "covered"),
+                )
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "module-detail")
+                self.assertEqual(
+                    contract["productVisibility"],
+                    "teacher-observable",
+                )
+                self.assertIn(
+                    CORE7_CORE01_COMMON_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    "kein zusätzliches Einzelprodukt",
+                    contract["productEvidence"],
+                )
+
+    def test_dc001_names_multiple_everyday_encodings_and_maps_meaning_to_representation(self):
+        contract = self.contracts["INF7-16-GYM-IK-DC-001"]
+        for term in (
+            "mehrere Verwendungen von Codierungen im Alltag nennen",
+            "Strichcode oder QR-Code",
+            "Morsecode",
+            "Brailleschrift",
+            "ASCII-Zeichencode",
+            "Bedeutung",
+            "Darstellung",
+            "Verwendungszweck",
+            "Codierung nicht mit Verschlüsselung gleichsetzen",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            "Alltagscodierungs-Landkarte",
+            "mindestens vier fachlich korrekte Beispiele",
+            "Bedeutung ↔ Darstellung ↔ Verwendungszweck",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_dc004_explains_bit_sequence_length_and_describes_decimal_data_units(self):
+        contract = self.contracts["INF7-16-GYM-IK-DC-004"]
+        for field in ("learningAction", "productEvidence"):
+            text = contract[field]
+            with self.subTest(field=field):
+                for term in (
+                    "0100000101000010",
+                    "16 Bit",
+                    "2 Byte",
+                    "8 Bit = 1 Byte",
+                    "kB",
+                    "MB",
+                    "GB",
+                    "TB",
+                    "dezimal",
+                ):
+                    self.assertIn(term, text)
+                for binary_prefix in ("KiB", "MiB", "GiB", "TiB"):
+                    self.assertNotIn(binary_prefix, text)
+        self.assertIn(
+            "Datenmenge als Länge einer Bitfolge erklären",
+            contract["learningAction"],
+        )
+
+    def test_dc005_covers_both_directions_full_range_and_binary_principle(self):
+        contract = self.contracts["INF7-16-GYM-IK-DC-005"]
+        combined = contract["learningAction"] + " " + contract["productEvidence"]
+        for term in (
+            "jede natürliche Zahl von 0 bis 255",
+            "Zahl → 8-Bit-Folge",
+            "8-Bit-Folge → Zahl",
+            "2^7, 2^6, 2^5, 2^4, 2^3, 2^2, 2^1 und 2^0",
+            "Summe der Stellenwerte",
+            "führende Nullen",
+            "0 ↔ 00000000",
+            "127 ↔ 01111111",
+            "128 ↔ 10000000",
+            "255 ↔ 11111111",
+            "unbekannten Prüffall",
+        ):
+            self.assertIn(term, combined)
+        self.assertNotIn("alle 256 Zahlen auflisten", combined)
+
+    def test_id020_stays_exactly_at_bit_and_byte_in_its_own_trace(self):
+        contract = self.contracts["LH26-E-ID-020"]
+        self.assertIn(
+            "Datenmenge als Länge einer Bitfolge erklären",
+            contract["learningAction"],
+        )
+        self.assertIn("Bit und Byte verwenden", contract["learningAction"])
+        self.assertIn(CORE7_CORE01_BIT_SIZE_TABLE, contract["productEvidence"])
+        for term in ("8 Bit = 1 Byte", "16 Bit = 2 Byte"):
+            self.assertIn(term, contract["productEvidence"])
+        for out_of_scope_term in (
+            "Kilo",
+            "Mega",
+            "Giga",
+            "Tera",
+            "kB",
+            "MB",
+            "GB",
+            "TB",
+            "KiB",
+            "MiB",
+            "GiB",
+            "TiB",
+        ):
+            with self.subTest(out_of_scope_term=out_of_scope_term):
+                self.assertNotIn(
+                    out_of_scope_term,
+                    contract["learningAction"]
+                    + " "
+                    + contract["productEvidence"],
+                )
+
+    def test_id021_uses_all_four_decimal_prefixes_without_binary_prefixes(self):
+        contract = self.contracts["LH26-E-ID-021"]
+        combined = contract["learningAction"] + " " + contract["productEvidence"]
+        for term in (
+            "Kilo, Mega, Giga und Tera",
+            "10^3",
+            "10^6",
+            "10^9",
+            "10^12",
+            "2 kB = 2 × 10^3 Byte",
+            "3 MB = 3 × 10^6 Byte",
+            "4 GB = 4 × 10^9 Byte",
+            "5 TB = 5 × 10^12 Byte",
+            CORE7_CORE01_BIT_SIZE_TABLE,
+        ):
+            self.assertIn(term, combined)
+        for binary_prefix in ("KiB", "MiB", "GiB", "TiB"):
+            self.assertNotIn(binary_prefix, combined)
 
 
 class Core08RepositoryOrchestrationTests(unittest.TestCase):
