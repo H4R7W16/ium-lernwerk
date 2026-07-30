@@ -24,6 +24,21 @@ ROADMAP_DEPENDENT_IDS = frozenset(
         "LH26-E-PROG-004",
     }
 )
+PHASE_IDS = (
+    "orientation-challenge",
+    "activate-prior-knowledge",
+    "build-concept",
+    "guided-practice",
+    "independent-action-product",
+    "review-revise-transfer",
+    "shared-consolidation",
+)
+CONTRACT_STATUSES = {"working", "reviewed"}
+CORE_PATH_IDS = {
+    5: {"baseline", "regular", "extended"},
+    6: {"baseline", "regular"},
+    7: {"optimized", "robust", "historical-minimum"},
+}
 
 
 class IUM10ValidationError(ValueError):
@@ -33,6 +48,22 @@ class IUM10ValidationError(ValueError):
 def _require(condition, message):
     if not condition:
         raise IUM10ValidationError(message)
+
+
+def _positive_int(value):
+    return isinstance(value, int) and not isinstance(value, bool) and value > 0
+
+
+def _nonnegative_int(value):
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+
+def _nonempty_string_list(value):
+    return (
+        isinstance(value, list)
+        and all(isinstance(item, str) and item.strip() for item in value)
+        and len(value) == len(set(value))
+    )
 
 
 def _canonical_sha256(value):
@@ -244,6 +275,269 @@ def validate_capacity_model(capacity_model, unit_contract):
     _require(capacity_model["status"] == "working", "capacity model status must be working")
 
     return paths_by_id
+
+
+def validate_module_contracts(module_contracts, module_payload):
+    """Validate time contracts against the immutable IUM09 module graph."""
+    modules = module_payload.get("modules") if isinstance(module_payload, dict) else None
+    _require(isinstance(modules, list), "module payload must contain modules")
+    modules_by_id = {}
+    for module in modules:
+        _require(isinstance(module, dict), "module must be an object")
+        module_id = module.get("id")
+        _require(
+            isinstance(module_id, str) and module_id,
+            "module id must be a nonempty string",
+        )
+        _require(module_id not in modules_by_id, "module ids must be unique")
+        modules_by_id[module_id] = module
+
+    _require(isinstance(module_contracts, list), "module contracts must be a list")
+    contract_fields = {
+        "id",
+        "moduleId",
+        "grade",
+        "kind",
+        "historicalLessonRange",
+        "competencyIds",
+        "centralLearningAction",
+        "centralLearningProduct",
+        "prerequisiteModuleIds",
+        "revisitModuleIds",
+        "pathBudgets",
+        "standaloneUnitRange",
+        "timeReviewIds",
+        "integrationContractIds",
+        "schoolDependentSteps",
+        "risk",
+        "pilotRequired",
+        "status",
+    }
+    contracts_by_module_id = {}
+    contract_ids = set()
+    for contract in module_contracts:
+        _require(isinstance(contract, dict), "module contract must be an object")
+        _require(
+            set(contract) == contract_fields,
+            "module contract fields differ from the IUM10 contract",
+        )
+        module_id = contract["moduleId"]
+        _require(
+            isinstance(module_id, str) and module_id in modules_by_id,
+            f"unknown module for time contract: {module_id}",
+        )
+        _require(
+            module_id not in contracts_by_module_id,
+            f"module needs exactly one time contract: {module_id}",
+        )
+        contract_id = contract["id"]
+        _require(
+            isinstance(contract_id, str) and contract_id == f"TC-{module_id}",
+            f"invalid time contract id: {module_id}",
+        )
+        _require(contract_id not in contract_ids, "time contract ids must be unique")
+        contract_ids.add(contract_id)
+        module = modules_by_id[module_id]
+        for field, source_field in (
+            ("grade", "grade"),
+            ("kind", "kind"),
+            ("historicalLessonRange", "lessonRange"),
+            ("competencyIds", "competencyIds"),
+            ("centralLearningAction", "centralLearningAction"),
+            ("centralLearningProduct", "centralLearningProduct"),
+            ("prerequisiteModuleIds", "prerequisiteModuleIds"),
+        ):
+            _require(
+                contract[field] == module.get(source_field),
+                f"time contract {field} differs from module: {module_id}",
+            )
+        _require(
+            _nonempty_string_list(contract["revisitModuleIds"]),
+            f"invalid revisit module ids: {module_id}",
+        )
+        _require(
+            _nonempty_string_list(contract["timeReviewIds"]),
+            f"invalid time review ids: {module_id}",
+        )
+        _require(
+            _nonempty_string_list(contract["integrationContractIds"]),
+            f"invalid integration contract ids: {module_id}",
+        )
+        _require(
+            _nonempty_string_list(contract["schoolDependentSteps"]),
+            f"invalid school-dependent steps: {module_id}",
+        )
+        _require(
+            isinstance(contract["risk"], str) and contract["risk"].strip(),
+            f"time contract risk must be a nonempty string: {module_id}",
+        )
+        _require(
+            contract["pilotRequired"] is True,
+            f"time contract must require a pilot: {module_id}",
+        )
+        _require(
+            isinstance(contract["status"], str)
+            and contract["status"] in CONTRACT_STATUSES,
+            f"invalid time contract status: {module_id}",
+        )
+
+        is_core = contract["kind"] == "core"
+        standalone_range = contract["standaloneUnitRange"]
+        if is_core:
+            _require(
+                contract["grade"] in CORE_PATH_IDS,
+                f"invalid core module grade: {module_id}",
+            )
+            _require(
+                standalone_range is None,
+                f"core module cannot have a standalone unit range: {module_id}",
+            )
+            expected_path_ids = set(CORE_PATH_IDS[contract["grade"]])
+            if module_id == "IUM-6-CORE-04":
+                expected_path_ids.add("targeted-extension")
+        else:
+            _require(
+                isinstance(standalone_range, dict)
+                and set(standalone_range) == {"min", "recommended", "max"}
+                and all(_positive_int(value) for value in standalone_range.values())
+                and standalone_range["min"]
+                <= standalone_range["recommended"]
+                <= standalone_range["max"],
+                f"invalid standalone unit range: {module_id}",
+            )
+            expected_path_ids = {"standalone"}
+
+        path_budgets = contract["pathBudgets"]
+        _require(isinstance(path_budgets, list), f"path budgets must be a list: {module_id}")
+        path_ids = []
+        for budget in path_budgets:
+            _require(isinstance(budget, dict), f"path budget must be an object: {module_id}")
+            _require(
+                set(budget)
+                == {
+                    "pathId",
+                    "units",
+                    "minutes",
+                    "directMinutes",
+                    "countedSharedMinutes",
+                    "phaseBudgets",
+                    "sharedAllocations",
+                },
+                f"path budget fields differ from the IUM10 contract: {module_id}",
+            )
+            path_id = budget["pathId"]
+            _require(
+                isinstance(path_id, str) and path_id,
+                f"path budget id must be a nonempty string: {module_id}",
+            )
+            path_ids.append(path_id)
+            _require(
+                _positive_int(budget["units"]),
+                f"path budget units must be a positive integer: {module_id}",
+            )
+            _require(
+                _positive_int(budget["minutes"]),
+                f"path budget minutes must be a positive integer: {module_id}",
+            )
+            _require(
+                _nonnegative_int(budget["directMinutes"])
+                and _nonnegative_int(budget["countedSharedMinutes"]),
+                f"direct and shared minutes must be non-negative integers: {module_id}",
+            )
+            _require(
+                budget["minutes"] == budget["units"] * 45,
+                f"path budget minutes must equal units times 45: {module_id}",
+            )
+            _require(
+                budget["minutes"]
+                == budget["directMinutes"] + budget["countedSharedMinutes"],
+                f"direct and shared minutes must equal total minutes: {module_id}",
+            )
+
+            phase_budgets = budget["phaseBudgets"]
+            _require(
+                isinstance(phase_budgets, list),
+                f"phase budgets must be a list: {module_id}",
+            )
+            phase_ids = []
+            phase_minutes = 0
+            for phase_budget in phase_budgets:
+                _require(
+                    isinstance(phase_budget, dict)
+                    and set(phase_budget)
+                    == {"phaseId", "minutes", "learningFunction"},
+                    f"phase budget fields differ from the IUM10 contract: {module_id}",
+                )
+                phase_id = phase_budget["phaseId"]
+                _require(
+                    isinstance(phase_id, str) and phase_id in PHASE_IDS,
+                    f"invalid phase id: {module_id}",
+                )
+                _require(
+                    _positive_int(phase_budget["minutes"]),
+                    f"phase minutes must be a positive integer: {module_id}",
+                )
+                _require(
+                    isinstance(phase_budget["learningFunction"], str)
+                    and phase_budget["learningFunction"].strip(),
+                    f"learning function must be a nonempty string: {module_id}",
+                )
+                phase_ids.append(phase_id)
+                phase_minutes += phase_budget["minutes"]
+            expected_phase_ids = set(PHASE_IDS) if is_core else set(module["moduleGrammar"])
+            _require(
+                len(phase_ids) == len(set(phase_ids))
+                and set(phase_ids) == expected_phase_ids,
+                f"phase budgets differ from module grammar: {module_id}",
+            )
+            _require(
+                phase_minutes == budget["minutes"],
+                f"phase budget minutes must equal total minutes: {module_id}",
+            )
+
+            shared_allocations = budget["sharedAllocations"]
+            _require(
+                isinstance(shared_allocations, list),
+                f"shared allocations must be a list: {module_id}",
+            )
+            allocation_ids = set()
+            shared_minutes = 0
+            for allocation in shared_allocations:
+                _require(
+                    isinstance(allocation, dict)
+                    and set(allocation) == {"integrationContractId", "minutes"},
+                    f"shared allocation fields differ from the IUM10 contract: {module_id}",
+                )
+                allocation_id = allocation["integrationContractId"]
+                _require(
+                    isinstance(allocation_id, str) and allocation_id,
+                    f"invalid shared allocation id: {module_id}",
+                )
+                _require(
+                    allocation_id not in allocation_ids,
+                    f"shared allocation ids must be unique: {module_id}",
+                )
+                _require(
+                    _positive_int(allocation["minutes"]),
+                    f"shared allocation minutes must be a positive integer: {module_id}",
+                )
+                allocation_ids.add(allocation_id)
+                shared_minutes += allocation["minutes"]
+            _require(
+                shared_minutes == budget["countedSharedMinutes"],
+                f"shared allocation minutes must equal counted shared minutes: {module_id}",
+            )
+        _require(
+            len(path_ids) == len(set(path_ids)) and set(path_ids) == expected_path_ids,
+            f"time contract paths differ from the IUM10 contract: {module_id}",
+        )
+        contracts_by_module_id[module_id] = contract
+
+    _require(
+        set(contracts_by_module_id) == set(modules_by_id),
+        "every module needs exactly one time contract",
+    )
+    return contracts_by_module_id
 
 
 def validate_ium10_baseline(module_payload, coverage_payload, remediation_payload):

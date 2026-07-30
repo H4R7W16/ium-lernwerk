@@ -12,6 +12,7 @@ from scripts.validate_ium10 import (
     coverage_projection_fingerprint,
     time_handoff_fingerprint,
     validate_capacity_model,
+    validate_module_contracts,
     validate_time_model_draft,
     validate_ium10_baseline,
 )
@@ -314,3 +315,282 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "extended": {"id": "extended", "units": 38, "status": "working"},
             },
         )
+
+
+class IUM10ModuleContractTests(unittest.TestCase):
+    @staticmethod
+    def module_payload():
+        return {
+            "modules": [
+                {
+                    "id": "IUM-5-CORE-01",
+                    "grade": 5,
+                    "kind": "core",
+                    "lessonRange": {"min": 5, "max": 7},
+                    "competencyIds": ["COMP-CORE-01"],
+                    "centralLearningAction": "Ein Modell fachlich anwenden.",
+                    "centralLearningProduct": "Ein überprüfbares Modellprodukt.",
+                    "prerequisiteModuleIds": [],
+                    "moduleGrammar": [
+                        "orientation-challenge",
+                        "activate-prior-knowledge",
+                        "build-concept",
+                        "guided-practice",
+                        "independent-action-product",
+                        "review-revise-transfer",
+                        "shared-consolidation",
+                    ],
+                },
+                {
+                    "id": "IUM-6-EXT-01",
+                    "grade": 6,
+                    "kind": "extension",
+                    "lessonRange": {"min": 3, "max": 4},
+                    "competencyIds": ["COMP-EXT-01"],
+                    "centralLearningAction": "Eine Behauptung mit Belegen prüfen.",
+                    "centralLearningProduct": "Eine begründete Prüfmatrix.",
+                    "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+                    "moduleGrammar": [
+                        "orientation-challenge",
+                        "activate-prior-knowledge",
+                        "guided-practice",
+                        "independent-action-product",
+                        "review-revise-transfer",
+                        "shared-consolidation",
+                    ],
+                },
+            ]
+        }
+
+    @staticmethod
+    def phase_budgets(phase_ids):
+        return [
+            {
+                "phaseId": phase_id,
+                "minutes": 45,
+                "learningFunction": f"{phase_id} fachlich durchführen.",
+            }
+            for phase_id in phase_ids
+        ]
+
+    @classmethod
+    def core_contract(cls):
+        phase_budgets = cls.phase_budgets(cls.module_payload()["modules"][0]["moduleGrammar"])
+        minutes = sum(phase["minutes"] for phase in phase_budgets)
+        return {
+            "id": "TC-IUM-5-CORE-01",
+            "moduleId": "IUM-5-CORE-01",
+            "grade": 5,
+            "kind": "core",
+            "historicalLessonRange": {"min": 5, "max": 7},
+            "competencyIds": ["COMP-CORE-01"],
+            "centralLearningAction": "Ein Modell fachlich anwenden.",
+            "centralLearningProduct": "Ein überprüfbares Modellprodukt.",
+            "prerequisiteModuleIds": [],
+            "revisitModuleIds": [],
+            "pathBudgets": [
+                {
+                    "pathId": path_id,
+                    "units": 7,
+                    "minutes": minutes,
+                    "directMinutes": minutes,
+                    "countedSharedMinutes": 0,
+                    "phaseBudgets": copy.deepcopy(phase_budgets),
+                    "sharedAllocations": [],
+                }
+                for path_id in ("baseline", "regular", "extended")
+            ],
+            "standaloneUnitRange": None,
+            "timeReviewIds": [],
+            "integrationContractIds": [],
+            "schoolDependentSteps": [],
+            "risk": "Die verfügbare Schulzeit muss im Pilot geprüft werden.",
+            "pilotRequired": True,
+            "status": "working",
+        }
+
+    @classmethod
+    def flexible_contract(cls):
+        phase_budgets = cls.phase_budgets(cls.module_payload()["modules"][1]["moduleGrammar"])
+        minutes = sum(phase["minutes"] for phase in phase_budgets)
+        return {
+            "id": "TC-IUM-6-EXT-01",
+            "moduleId": "IUM-6-EXT-01",
+            "grade": 6,
+            "kind": "extension",
+            "historicalLessonRange": {"min": 3, "max": 4},
+            "competencyIds": ["COMP-EXT-01"],
+            "centralLearningAction": "Eine Behauptung mit Belegen prüfen.",
+            "centralLearningProduct": "Eine begründete Prüfmatrix.",
+            "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+            "revisitModuleIds": ["IUM-5-CORE-01"],
+            "pathBudgets": [
+                {
+                    "pathId": "standalone",
+                    "units": 6,
+                    "minutes": minutes,
+                    "directMinutes": minutes,
+                    "countedSharedMinutes": 0,
+                    "phaseBudgets": phase_budgets,
+                    "sharedAllocations": [],
+                }
+            ],
+            "standaloneUnitRange": {"min": 3, "recommended": 4, "max": 6},
+            "timeReviewIds": [],
+            "integrationContractIds": [],
+            "schoolDependentSteps": [],
+            "risk": "Die zusätzliche Zeit wird nur bei lokaler Kapazität eingesetzt.",
+            "pilotRequired": True,
+            "status": "working",
+        }
+
+    def contracts(self):
+        return [self.core_contract(), self.flexible_contract()]
+
+    def validate_contracts(self, contracts=None, module_payload=None):
+        return validate_module_contracts(
+            self.contracts() if contracts is None else contracts,
+            self.module_payload() if module_payload is None else module_payload,
+        )
+
+    def test_returns_contracts_keyed_by_their_existing_module_ids(self):
+        result = self.validate_contracts()
+
+        self.assertEqual(set(result), {"IUM-5-CORE-01", "IUM-6-EXT-01"})
+        self.assertEqual(result["IUM-5-CORE-01"]["id"], "TC-IUM-5-CORE-01")
+        self.assertEqual(result["IUM-6-EXT-01"]["pathBudgets"][0]["pathId"], "standalone")
+
+    def test_rejects_unknown_duplicate_or_malformed_contract_identity(self):
+        mutations = (
+            ("unknown module", "moduleId", "IUM-5-CORE-99"),
+            ("wrong contract id", "id", "TC-IUM-5-CORE-99"),
+        )
+        for label, field, value in mutations:
+            with self.subTest(label=label):
+                contracts = self.contracts()
+                contracts[0][field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_contracts(contracts=contracts)
+
+        contracts = self.contracts()
+        duplicate = copy.deepcopy(contracts[0])
+        duplicate["moduleId"] = "IUM-6-EXT-01"
+        duplicate["id"] = "TC-IUM-6-EXT-01"
+        contracts.append(duplicate)
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_contracts(contracts=contracts)
+
+    def test_rejects_contract_metadata_that_diverges_from_its_module(self):
+        mutations = (
+            ("grade", 6),
+            ("kind", "extension"),
+            ("historicalLessonRange", {"min": 2, "max": 7}),
+            ("competencyIds", ["COMP-OTHER"]),
+            ("prerequisiteModuleIds", ["IUM-6-EXT-01"]),
+            ("centralLearningAction", "Eine andere Lernhandlung."),
+            ("centralLearningProduct", "Ein anderes Lernprodukt."),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                contracts = self.contracts()
+                contracts[0][field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_contracts(contracts=contracts)
+
+    def test_rejects_inconsistent_path_arithmetic(self):
+        mutations = (
+            ("unit minutes", "minutes", 314),
+            ("phase total", "phaseBudgets.0.minutes", 44),
+            ("direct and shared total", "directMinutes", 314),
+        )
+        for label, field, value in mutations:
+            with self.subTest(label=label):
+                contracts = self.contracts()
+                budget = contracts[0]["pathBudgets"][0]
+                target, _, key = field.rpartition(".")
+                if target:
+                    container, index = target.split(".")
+                    budget[container][int(index)][key] = value
+                else:
+                    budget[key] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_contracts(contracts=contracts)
+
+        contracts = self.contracts()
+        budget = contracts[0]["pathBudgets"][0]
+        budget["directMinutes"] = 270
+        budget["countedSharedMinutes"] = 45
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_contracts(contracts=contracts)
+
+    def test_rejects_missing_zero_or_unpermitted_phase_budgets(self):
+        mutations = (
+            ("missing core phase", "core", "phaseBudgets", lambda phases: phases[:-1]),
+            ("zero core phase", "core", "phaseBudgets.0.minutes", 0),
+            ("unpermitted flexible phase", "flexible", "phaseBudgets.0.phaseId", "build-concept"),
+        )
+        for label, contract_kind, field, value in mutations:
+            with self.subTest(label=label):
+                contracts = self.contracts()
+                contract = contracts[0] if contract_kind == "core" else contracts[1]
+                target, _, key = field.rpartition(".")
+                if target == "":
+                    budget = contract["pathBudgets"][0]
+                    budget[key] = value(budget[key])
+                else:
+                    container, index = target.split(".")
+                    contract["pathBudgets"][0][container][int(index)][key] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_contracts(contracts=contracts)
+
+    def test_rejects_missing_learning_function_non_core_paths_or_missing_pilot(self):
+        mutations = (
+            ("missing learning function", "learningFunction", ""),
+            ("flexible core coverage", "pathId", "baseline"),
+        )
+        for label, field, value in mutations:
+            with self.subTest(label=label):
+                contracts = self.contracts()
+                if field == "learningFunction":
+                    contracts[0]["pathBudgets"][0]["phaseBudgets"][0][field] = value
+                else:
+                    contracts[1]["pathBudgets"][0][field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_contracts(contracts=contracts)
+
+        contracts = self.contracts()
+        contracts[0]["pilotRequired"] = False
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_contracts(contracts=contracts)
+
+    def test_rejects_boolean_values_in_integer_contract_fields(self):
+        mutations = (
+            ("standalone range minimum", "standaloneUnitRange.min", True),
+            ("standalone range", "standaloneUnitRange.recommended", True),
+            ("standalone range maximum", "standaloneUnitRange.max", True),
+            ("path units", "pathBudgets.0.units", True),
+            ("path minutes", "pathBudgets.0.minutes", True),
+            ("direct minutes", "pathBudgets.0.directMinutes", True),
+            ("shared minutes", "pathBudgets.0.countedSharedMinutes", True),
+            ("phase minutes", "pathBudgets.0.phaseBudgets.0.minutes", True),
+        )
+        for label, field, value in mutations:
+            with self.subTest(label=label):
+                contracts = self.contracts()
+                contract = contracts[1] if field.startswith("standalone") else contracts[0]
+                current = contract
+                for part in field.split(".")[:-1]:
+                    current = current[int(part)] if part.isdigit() else current[part]
+                current[field.split(".")[-1]] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_contracts(contracts=contracts)
+
+        contracts = self.contracts()
+        budget = contracts[0]["pathBudgets"][0]
+        budget["directMinutes"] = 270
+        budget["countedSharedMinutes"] = 45
+        budget["sharedAllocations"] = [
+            {"integrationContractId": "INT-TEST", "minutes": True}
+        ]
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_contracts(contracts=contracts)
