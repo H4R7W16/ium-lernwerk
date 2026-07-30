@@ -39,6 +39,16 @@ CORE_PATH_IDS = {
     6: {"baseline", "regular"},
     7: {"optimized", "robust", "historical-minimum"},
 }
+CORE_PATH_ORDER = {
+    5: ("baseline", "regular", "extended"),
+    6: ("baseline", "regular", "targeted-extension"),
+    7: ("optimized", "robust", "historical-minimum"),
+}
+ANNUAL_PATH_IDS_BY_KIND = {
+    "planning-path": {"baseline", "regular", "extended"},
+    "demand-scenario": {"optimized", "robust", "historical-minimum"},
+}
+ANNUAL_VARIANT_BUDGET_PATH_EXCEPTIONS = {}
 
 
 class IUM10ValidationError(ValueError):
@@ -537,34 +547,40 @@ def validate_module_contracts(module_contracts, module_payload):
             f"time contract paths differ from the IUM10 contract: {module_id}",
         )
         if is_core:
-            minimum_units = min(budget["units"] for budget in validated_budgets)
-            reference_budget = next(
-                budget
-                for budget in validated_budgets
-                if budget["units"] == minimum_units
-            )
-            reference_phases = {
-                phase["phaseId"]: phase["minutes"]
-                for phase in reference_budget["phaseBudgets"]
-            }
             protected_growth_phases = {
                 "guided-practice",
                 "independent-action-product",
                 "review-revise-transfer",
             }
-            for budget in validated_budgets:
-                if budget["units"] == minimum_units:
+            budgets_by_path_id = {
+                budget["pathId"]: budget for budget in validated_budgets
+            }
+            ordered_budgets = [
+                budgets_by_path_id[path_id]
+                for path_id in CORE_PATH_ORDER[contract["grade"]]
+                if path_id in budgets_by_path_id
+            ]
+            for previous_budget, budget in zip(
+                ordered_budgets,
+                ordered_budgets[1:],
+            ):
+                if budget["units"] <= previous_budget["units"]:
                     continue
+                previous_phase_minutes = {
+                    phase["phaseId"]: phase["minutes"]
+                    for phase in previous_budget["phaseBudgets"]
+                }
                 phase_minutes = {
                     phase["phaseId"]: phase["minutes"]
                     for phase in budget["phaseBudgets"]
                 }
                 _require(
                     any(
-                        phase_minutes[phase_id] > reference_phases[phase_id]
+                        phase_minutes[phase_id] > previous_phase_minutes[phase_id]
                         for phase_id in protected_growth_phases
                     ),
-                    "additional path time must increase practice, product, or revision: "
+                    "additional path time must increase practice, product, or revision "
+                    "over its immediate predecessor: "
                     f"{module_id}/{budget['pathId']}",
                 )
         contracts_by_module_id[module_id] = contract
@@ -744,6 +760,35 @@ def validate_integration_contracts(integration_contracts, module_contracts):
         )
         contracts_by_id[contract_id] = contract
 
+    known_integration_ids = set(contracts_by_id)
+    for module_id, module_contract in module_contracts.items():
+        integration_ids = module_contract.get("integrationContractIds")
+        _require(
+            _nonempty_string_list(integration_ids),
+            f"module integration references must be unique strings: {module_id}",
+        )
+        _require(
+            set(integration_ids) <= known_integration_ids,
+            f"module has an unknown integration reference: {module_id}",
+        )
+        for budget in module_contract.get("pathBudgets", []):
+            path_id = budget.get("pathId")
+            allocations = budget.get("sharedAllocations")
+            _require(
+                isinstance(allocations, list),
+                f"shared allocations must be a list: {module_id}/{path_id}",
+            )
+            for allocation in allocations:
+                _require(
+                    isinstance(allocation, dict)
+                    and set(allocation) == {"integrationContractId", "minutes"},
+                    f"invalid shared allocation: {module_id}/{path_id}",
+                )
+                _require(
+                    allocation["integrationContractId"] in known_integration_ids,
+                    f"unknown shared allocation integration id: {module_id}/{path_id}",
+                )
+
     return contracts_by_id
 
 
@@ -805,6 +850,10 @@ def validate_annual_variants(
             f"annual variant path id must be a nonempty string: {variant_id}",
         )
         _require(
+            variant["pathId"] in ANNUAL_PATH_IDS_BY_KIND[variant["kind"]],
+            f"annual variant uses an unknown {variant['kind']} planning path: {variant_id}",
+        )
+        _require(
             _positive_int(variant["targetUnits"]),
             f"annual variant target units must be a positive integer: {variant_id}",
         )
@@ -842,6 +891,7 @@ def validate_annual_variants(
         )
         allocation_module_ids = set()
         allocated_units = 0
+        required_integration_ids = set()
         for allocation in allocations:
             _require(
                 isinstance(allocation, dict)
@@ -863,6 +913,16 @@ def validate_annual_variants(
                 f"annual variant module grade differs: {variant_id}/{module_id}",
             )
             budget_path_id = allocation["budgetPathId"]
+            if variant["kind"] == "planning-path":
+                expected_budget_path_id = ANNUAL_VARIANT_BUDGET_PATH_EXCEPTIONS.get(
+                    variant_id,
+                    {},
+                ).get(module_id, variant["pathId"])
+                _require(
+                    budget_path_id == expected_budget_path_id,
+                    "annual allocation budget path differs from variant path: "
+                    f"{variant_id}/{module_id}",
+                )
             matching_budgets = [
                 budget
                 for budget in module_contract.get("pathBudgets", [])
@@ -882,11 +942,60 @@ def validate_annual_variants(
                 units == matching_budgets[0].get("units"),
                 f"annual allocation differs from module budget: {variant_id}/{module_id}",
             )
+            selected_budget = matching_budgets[0]
+            shared_allocations = selected_budget.get("sharedAllocations", [])
+            _require(
+                isinstance(shared_allocations, list),
+                f"annual allocation shared allocations must be a list: {variant_id}/{module_id}",
+            )
+            for shared_allocation in shared_allocations:
+                _require(
+                    isinstance(shared_allocation, dict)
+                    and set(shared_allocation)
+                    == {"integrationContractId", "minutes"},
+                    f"invalid annual shared allocation: {variant_id}/{module_id}",
+                )
+                integration_id = shared_allocation["integrationContractId"]
+                _require(
+                    integration_id in integration_contracts,
+                    f"annual variant uses unknown shared integration: {variant_id}",
+                )
+                integration = integration_contracts[integration_id]
+                _require(
+                    integration.get("countedInModuleId") == module_id
+                    and budget_path_id in integration.get("pathIds", []),
+                    f"annual shared integration is not applicable: {variant_id}/{integration_id}",
+                )
+                required_integration_ids.add(integration_id)
             allocation_module_ids.add(module_id)
             allocated_units += units
         _require(
             allocated_units == variant["targetUnits"],
             f"annual allocation sum differs from target units: {variant_id}",
+        )
+        for integration_id in required_integration_ids:
+            integration = integration_contracts[integration_id]
+            same_grade_participants = {
+                module_id
+                for module_id in integration.get("moduleIds", [])
+                if module_id in module_contracts
+                and module_contracts[module_id].get("grade") == variant["grade"]
+            }
+            _require(
+                same_grade_participants <= allocation_module_ids,
+                f"annual variant omits integration participants: {variant_id}/{integration_id}",
+            )
+        _require(
+            set(integration_ids) == required_integration_ids,
+            f"annual variant references differ from required integrations: {variant_id}",
+        )
+        _require(
+            not variant["available"]
+            or all(
+                integration_contracts[integration_id].get("status") != "failed"
+                for integration_id in required_integration_ids
+            ),
+            f"available annual variant uses a failed integration: {variant_id}",
         )
         variants_by_id[variant_id] = variant
 

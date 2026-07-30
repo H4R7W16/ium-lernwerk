@@ -668,6 +668,53 @@ class IUM10ModuleContractTests(unittest.TestCase):
         ):
             self.validate_contracts(contracts=contracts)
 
+    def test_rejects_extended_focus_time_that_regresses_from_regular_path(self):
+        contracts = self.contracts()
+        regular = contracts[0]["pathBudgets"][1]
+        regular["units"] = 8
+        regular["minutes"] = 360
+        regular["directMinutes"] = 360
+        regular["phaseBudgets"][3]["minutes"] = 90
+
+        extended = contracts[0]["pathBudgets"][2]
+        extended["units"] = 9
+        extended["minutes"] = 405
+        extended["directMinutes"] = 405
+        extended["phaseBudgets"][0]["minutes"] = 120
+        extended["phaseBudgets"][3]["minutes"] = 60
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "immediate predecessor",
+        ):
+            self.validate_contracts(contracts=contracts)
+
+    def test_rejects_targeted_extension_focus_time_that_regresses_from_regular_path(self):
+        contract = self.grade_six_core_04_contract(
+            include_targeted_extension=True
+        )
+        regular = contract["pathBudgets"][1]
+        regular["units"] = 8
+        regular["minutes"] = 360
+        regular["directMinutes"] = 360
+        regular["phaseBudgets"][3]["minutes"] = 90
+
+        targeted = contract["pathBudgets"][2]
+        targeted["units"] = 9
+        targeted["minutes"] = 405
+        targeted["directMinutes"] = 405
+        targeted["phaseBudgets"][0]["minutes"] = 120
+        targeted["phaseBudgets"][3]["minutes"] = 60
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "immediate predecessor",
+        ):
+            validate_module_contracts(
+                [contract],
+                {"modules": [self.grade_six_core_04_module()]},
+            )
+
 
 class IUM10IntegrationContractTests(unittest.TestCase):
     CONTRACT_ID = "INT-TEST-SHARED-EVIDENCE"
@@ -793,6 +840,26 @@ class IUM10IntegrationContractTests(unittest.TestCase):
         with self.assertRaises(IUM10ValidationError):
             self.validate_integrations(module_contracts=module_contracts)
 
+    def test_rejects_unknown_module_integration_reference(self):
+        module_contracts = self.module_contracts()
+        module_contracts["MODULE-A"]["integrationContractIds"].append(
+            "INT-UNKNOWN"
+        )
+
+        with self.assertRaisesRegex(IUM10ValidationError, "unknown integration reference"):
+            self.validate_integrations(module_contracts=module_contracts)
+
+    def test_rejects_unknown_shared_allocation_integration_id(self):
+        module_contracts = self.module_contracts()
+        budget = module_contracts["MODULE-A"]["pathBudgets"][0]
+        budget["countedSharedMinutes"] = 45
+        budget["sharedAllocations"].append(
+            {"integrationContractId": "INT-UNKNOWN", "minutes": 45}
+        )
+
+        with self.assertRaisesRegex(IUM10ValidationError, "unknown shared allocation"):
+            self.validate_integrations(module_contracts=module_contracts)
+
 
 class IUM10AnnualVariantTests(unittest.TestCase):
     @staticmethod
@@ -839,12 +906,35 @@ class IUM10AnnualVariantTests(unittest.TestCase):
             "risk": "Die Rechnung ist noch nicht pilotiert.",
         }
 
-    def validate_variants(self, variants=None, module_contracts=None):
+    def validate_variants(
+        self,
+        variants=None,
+        module_contracts=None,
+        integration_contracts=None,
+    ):
         return validate_annual_variants(
             [self.annual_variant()] if variants is None else variants,
             self.module_contracts() if module_contracts is None else module_contracts,
-            {},
+            {} if integration_contracts is None else integration_contracts,
         )
+
+    @staticmethod
+    def integration_contract(status="working"):
+        return {
+            "id": "INT-TEST",
+            "moduleIds": ["MODULE-A", "MODULE-B"],
+            "pathIds": ["baseline"],
+            "countedInModuleId": "MODULE-B",
+            "status": status,
+        }
+
+    def integration_aware_inputs(self, *, integration_status="working"):
+        module_contracts = self.module_contracts()
+        module_contracts["MODULE-B"]["pathBudgets"][0]["sharedAllocations"] = [
+            {"integrationContractId": "INT-TEST", "minutes": 45}
+        ]
+        integration = self.integration_contract(status=integration_status)
+        return module_contracts, {"INT-TEST": integration}
 
     def test_returns_annual_variants_keyed_by_unique_id(self):
         result = self.validate_variants()
@@ -867,6 +957,25 @@ class IUM10AnnualVariantTests(unittest.TestCase):
                 current[field.split(".")[-1]] = value
                 with self.assertRaises(IUM10ValidationError):
                     self.validate_variants(variants=[variant])
+
+    def test_rejects_unknown_top_level_planning_path(self):
+        variant = self.annual_variant()
+        variant["pathId"] = "missing"
+
+        with self.assertRaisesRegex(IUM10ValidationError, "planning path"):
+            self.validate_variants(variants=[variant])
+
+    def test_rejects_same_sized_foreign_budget_path_for_planning_variant(self):
+        variant = self.annual_variant()
+        variant["pathId"] = "regular"
+        variant["targetUnits"] = 6
+        variant["allocations"] = [
+            {"moduleId": "MODULE-A", "budgetPathId": "extended", "units": 3},
+            {"moduleId": "MODULE-B", "budgetPathId": "regular", "units": 3},
+        ]
+
+        with self.assertRaisesRegex(IUM10ValidationError, "variant path"):
+            self.validate_variants(variants=[variant])
 
     def test_rejects_missing_or_unexpected_fields_fail_closed(self):
         missing = self.annual_variant()
@@ -894,6 +1003,42 @@ class IUM10AnnualVariantTests(unittest.TestCase):
                 current[field.split(".")[-1]] = value
                 with self.assertRaises(IUM10ValidationError):
                     self.validate_variants(variants=[variant])
+
+    def test_rejects_omitted_integration_used_by_selected_budget(self):
+        module_contracts, integrations = self.integration_aware_inputs()
+        variant = self.annual_variant()
+
+        with self.assertRaisesRegex(IUM10ValidationError, "required integrations"):
+            self.validate_variants(
+                variants=[variant],
+                module_contracts=module_contracts,
+                integration_contracts=integrations,
+            )
+
+    def test_rejects_failed_integration_while_variant_remains_available(self):
+        module_contracts, integrations = self.integration_aware_inputs(
+            integration_status="failed"
+        )
+        variant = self.annual_variant()
+        variant["integrationContractIds"] = ["INT-TEST"]
+
+        with self.assertRaisesRegex(IUM10ValidationError, "failed integration"):
+            self.validate_variants(
+                variants=[variant],
+                module_contracts=module_contracts,
+                integration_contracts=integrations,
+            )
+
+    def test_rejects_declared_integration_not_used_by_selected_budgets(self):
+        integration = self.integration_contract()
+        variant = self.annual_variant()
+        variant["integrationContractIds"] = ["INT-TEST"]
+
+        with self.assertRaisesRegex(IUM10ValidationError, "required integrations"):
+            self.validate_variants(
+                variants=[variant],
+                integration_contracts={"INT-TEST": integration},
+            )
 
 
 class IUM10Grade5RepositoryTests(unittest.TestCase):
@@ -970,6 +1115,20 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
         self.assertIn("Quellen", integration["sharedPhaseOrProduct"])
         self.assertIn("Beleg", integration["sharedPhaseOrProduct"])
         self.assertIn("eigenständig", integration["fallback"])
+        self.assertEqual(
+            {
+                module_id: contract["integrationContractIds"]
+                for module_id, contract in contracts.items()
+            },
+            {
+                module_id: (
+                    ["INT-5-RESEARCH-PRODUCTION"]
+                    if module_id in {"IUM-5-CORE-02", "IUM-5-CORE-06"}
+                    else []
+                )
+                for module_id in EXPECTED_GRADE_5_UNITS
+            },
+        )
 
     def test_repository_has_available_core_only_30_34_38_variants(self):
         contracts = validate_module_contracts(
@@ -998,6 +1157,10 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
                 self.assertEqual(variant["pathId"], path_id)
                 self.assertEqual(variant["targetUnits"], target_units)
                 self.assertIs(variant["available"], True)
+                self.assertEqual(
+                    variant["integrationContractIds"],
+                    ["INT-5-RESEARCH-PRODUCTION"],
+                )
                 self.assertEqual(
                     {allocation["moduleId"] for allocation in variant["allocations"]},
                     set(EXPECTED_GRADE_5_UNITS),
