@@ -142,6 +142,16 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM09ValidationError, "visibility"):
             self.validate(evidence_contract(productVisibility="public"))
 
+    def test_rejects_private_local_visibility_for_module_detail(self):
+        with self.assertRaisesRegex(IUM09ValidationError, "module-detail"):
+            self.validate(evidence_contract(productVisibility="private-local"))
+
+    def test_rejects_private_local_visibility_for_school_context(self):
+        with self.assertRaisesRegex(IUM09ValidationError, "school-context"):
+            self.validate(
+                school_context_contract(productVisibility="private-local")
+            )
+
     def test_rejects_empty_coverage_evidence_when_field_is_present(self):
         payload = copy.deepcopy(self.repository_payload)
         payload["modules"][0]["coverageEvidence"] = []
