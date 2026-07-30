@@ -16,6 +16,9 @@ Zentrale Einstiege:
 - [Curriculum-Crosswalk](curriculum/crosswalk.json) und [begründete Progression](curriculum/progression.md)
 - [Modulroadmap](roadmap/module-roadmap.md) und [recordgenauer Abdeckungsplan](roadmap/coverage-plan.json)
 - [verbindliche Gesamtspezifikation](docs/superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md)
+- [IUM09-Spezifikation zur curricularen Partial-Nacharbeit](docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md), [Implementierungsplan](docs/superpowers/plans/2026-07-29-ium09-curriculare-partial-nacharbeit-implementation.md) und [Nacharbeitsledger](roadmap/coverage-remediation.json)
+
+Die Ausgangsbilanz wird erst durch die dokumentierten modulweisen Audits verändert; der Ledger legt keine Endbilanz vorweg.
 
 Vor jeder Phase-1-Spezifikation stehen vier getrennte Nutzerentscheidungen: Forschungsbasis, Fachprofil, curriculare Vollständigkeit und Modulroadmap. Die offenen `partial`- und Zeitlücken dürfen dabei angenommen, revidiert oder zur Nacharbeit zurückgegeben, aber nicht durch eine pauschale Freigabe unsichtbar gemacht werden.
 

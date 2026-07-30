@@ -456,3 +456,159 @@ def validate_remediation_ledger(
         "ledger cause class counts differ from immutable baseline",
     )
     return remediation_entries
+
+
+def validate_remediated_coverage(
+    coverage_payload,
+    remediation_entries,
+    evidence_contracts,
+    curriculum_contracts,
+):
+    """Validate the fail-closed IUM09 coverage-plan projection."""
+    _require(isinstance(coverage_payload, dict), "coverage payload must be an object")
+    entries = coverage_payload.get("entries")
+    _require(isinstance(entries, list) and bool(entries), "coverage entries must be a nonempty list")
+    _require(isinstance(remediation_entries, dict), "remediation entries must be a mapping")
+    _require(isinstance(evidence_contracts, dict), "evidence contracts must be a mapping")
+    _require(isinstance(curriculum_contracts, dict), "curriculum contracts must be a mapping")
+
+    coverage_entries = {}
+    for entry in entries:
+        _require(isinstance(entry, dict), "coverage entry must be an object")
+        competency_id = entry.get("competencyId")
+        _require_nonempty_string(competency_id, "competencyId", "coverage entry")
+        _require(
+            competency_id not in coverage_entries,
+            f"coverage competency ids must be unique: {competency_id}",
+        )
+        coverage_entries[competency_id] = entry
+
+    _require(
+        set(coverage_entries) == set(curriculum_contracts),
+        "coverage competency ids differ from curriculum contracts",
+    )
+    _require(
+        set(remediation_entries) <= set(coverage_entries),
+        "remediation competency ids are missing from coverage",
+    )
+
+    referenced_contract_ids = []
+    for competency_id, entry in coverage_entries.items():
+        if competency_id not in remediation_entries:
+            _require(
+                entry.get("coverageStatus") == "covered"
+                and entry.get("semanticAudit") == "operator-product-match",
+                f"legacy covered record changed status: {competency_id}",
+            )
+            _require(
+                "evidenceContractId" not in entry,
+                f"legacy covered record has evidenceContractId: {competency_id}",
+            )
+            continue
+
+        remediation = remediation_entries[competency_id]
+        _require(isinstance(remediation, dict), f"invalid remediation entry: {competency_id}")
+        expected_after = remediation.get("after")
+        _require(
+            isinstance(expected_after, dict),
+            f"invalid remediation after status: {competency_id}",
+        )
+        _require(
+            entry.get("coverageStatus") == expected_after.get("coverageStatus")
+            and entry.get("semanticAudit") == expected_after.get("semanticAudit"),
+            f"coverage status differs from remediation ledger: {competency_id}",
+        )
+        _require(
+            entry.get("requirementText") == remediation.get("requirementText")
+            == curriculum_contracts[competency_id].get("text"),
+            f"coverage requirement text differs from remediation ledger: {competency_id}",
+        )
+
+        if remediation.get("decision") == "covered":
+            contract_id = remediation.get("evidenceContractId")
+            _require_nonempty_string(contract_id, "evidenceContractId", competency_id)
+            _require(
+                entry.get("evidenceContractId") == contract_id,
+                f"coverage evidence contract differs from remediation ledger: {competency_id}",
+            )
+            _require(
+                contract_id in evidence_contracts,
+                f"unknown evidence contract: {competency_id}",
+            )
+            contract = evidence_contracts[contract_id]
+            _require(
+                isinstance(contract, dict)
+                and contract.get("competencyId") == competency_id,
+                f"evidence contract has wrong competency: {competency_id}",
+            )
+            for field in ("requirementText", "learningAction", "productEvidence"):
+                value = (
+                    entry["requirementText"]
+                    if field == "requirementText"
+                    else contract.get(field)
+                )
+                _require_nonempty_string(value, field, competency_id)
+                _require(
+                    isinstance(entry.get("evidence"), str) and value in entry["evidence"],
+                    f"coverage evidence lacks {field}: {competency_id}",
+                )
+                _require(
+                    isinstance(entry.get("matchRationale"), str)
+                    and value in entry["matchRationale"],
+                    f"coverage rationale lacks {field}: {competency_id}",
+                )
+            referenced_contract_ids.append(contract_id)
+        elif remediation.get("decision") == "remain-partial":
+            _require(
+                "evidenceContractId" not in entry,
+                f"remain-partial record has evidenceContractId: {competency_id}",
+            )
+            residual_gap = remediation.get("residualGap")
+            _require(isinstance(residual_gap, dict), f"invalid residual gap: {competency_id}")
+            for field in ("reason", "risk", "followUp"):
+                _require(
+                    entry.get(field) == residual_gap.get(field),
+                    f"coverage residual {field} differs from remediation ledger: {competency_id}",
+                )
+        else:
+            raise IUM09ValidationError(
+                f"invalid remediation decision: {competency_id}"
+            )
+
+    _require(
+        len(referenced_contract_ids) == len(set(referenced_contract_ids)),
+        "evidence contracts must be referenced exactly once",
+    )
+    _require(
+        set(referenced_contract_ids) == set(evidence_contracts),
+        "evidence contracts must be referenced by a covered ledger decision",
+    )
+    return set(coverage_entries)
+
+
+def validate_ium09(
+    module_payload,
+    coverage_payload,
+    remediation_payload,
+    curriculum_contracts,
+):
+    """Validate the complete IUM09 chain and return both record maps."""
+    evidence_contracts = validate_coverage_evidence(
+        module_payload,
+        curriculum_contracts,
+    )
+    remediation_entries = validate_remediation_ledger(
+        remediation_payload,
+        curriculum_contracts,
+        evidence_contracts,
+    )
+    validate_remediated_coverage(
+        coverage_payload,
+        remediation_entries,
+        evidence_contracts,
+        curriculum_contracts,
+    )
+    return {
+        "evidenceContracts": evidence_contracts,
+        "remediationEntries": remediation_entries,
+    }

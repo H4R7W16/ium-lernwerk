@@ -4,6 +4,11 @@ from collections import Counter
 from collections.abc import Mapping
 from pathlib import Path
 
+if __package__:
+    from .validate_ium09 import validate_ium09
+else:
+    from validate_ium09 import validate_ium09
+
 
 class ValidationError(ValueError):
     pass
@@ -1502,10 +1507,17 @@ def main():
         }
         for module in module_candidates["modules"]
     }
+    coverage_payload = load_json(root / "roadmap/coverage-plan.json")
     validate_coverage(
-        load_json(root / "roadmap/coverage-plan.json"),
+        coverage_payload,
         required_curriculum_contracts,
         module_contracts,
+    )
+    validate_ium09(
+        module_candidates,
+        coverage_payload,
+        load_json(root / "roadmap/coverage-remediation.json"),
+        required_curriculum_contracts,
     )
     print("phase 0 validation passed")
 

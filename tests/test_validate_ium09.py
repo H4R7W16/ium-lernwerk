@@ -9,7 +9,9 @@ from scripts.validate_ium09 import (
     coverage_baseline_fingerprint,
     module_structure_fingerprint,
     validate_coverage_evidence,
+    validate_ium09,
     validate_remediation_ledger,
+    validate_remediated_coverage,
 )
 
 
@@ -500,6 +502,191 @@ class RemediationLedgerTests(unittest.TestCase):
                 mutate(payload["entries"][index])
                 with self.assertRaisesRegex(IUM09ValidationError, message):
                     self.validate(payload, evidence_contracts)
+
+
+class RemediatedCoverageTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+        )
+        cls.remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.curriculum_contracts = {
+            entry["competencyId"]: {"text": entry["requirementText"]}
+            for entry in cls.coverage_payload["entries"]
+        }
+
+    def validated_ledger_entries(self):
+        return validate_remediation_ledger(
+            self.remediation_payload,
+            self.curriculum_contracts,
+            {},
+        )
+
+    def covered_chain_payloads(self):
+        module_payload = copy.deepcopy(self.module_payload)
+        contract = evidence_contract()
+        module_payload["modules"][0]["coverageEvidence"] = [contract]
+        coverage_payload = copy.deepcopy(self.coverage_payload)
+        coverage_entry = next(
+            entry
+            for entry in coverage_payload["entries"]
+            if entry["competencyId"] == contract["competencyId"]
+        )
+        coverage_entry.update(
+            {
+                "coverageStatus": "covered",
+                "semanticAudit": "operator-product-match",
+                "evidenceContractId": contract["id"],
+            }
+        )
+        for field in ("requirementText", "learningAction", "productEvidence"):
+            value = (
+                coverage_entry["requirementText"]
+                if field == "requirementText"
+                else contract[field]
+            )
+            coverage_entry["evidence"] += f" {value}"
+            coverage_entry["matchRationale"] += f" {value}"
+        remediation_payload = copy.deepcopy(self.remediation_payload)
+        remediation_entry = next(
+            entry
+            for entry in remediation_payload["entries"]
+            if entry["competencyId"] == contract["competencyId"]
+        )
+        remediation_entry.update(
+            {
+                "decision": "covered",
+                "evidenceContractId": contract["id"],
+                "after": {
+                    "coverageStatus": "covered",
+                    "semanticAudit": "operator-product-match",
+                },
+                "residualGap": None,
+            }
+        )
+        return module_payload, coverage_payload, remediation_payload, contract
+
+    def test_accepts_repository_remediation_chain(self):
+        result = validate_remediated_coverage(
+            self.coverage_payload,
+            self.validated_ledger_entries(),
+            {},
+            self.curriculum_contracts,
+        )
+        self.assertEqual(
+            result,
+            {entry["competencyId"] for entry in self.coverage_payload["entries"]},
+        )
+
+    def test_rejects_each_nonempty_residual_gap_mutation(self):
+        for field in ("reason", "risk", "followUp"):
+            with self.subTest(field=field):
+                coverage_payload = copy.deepcopy(self.coverage_payload)
+                coverage_payload["entries"][0][field] += " Abweichung."
+                with self.assertRaisesRegex(IUM09ValidationError, "residual"):
+                    validate_remediated_coverage(
+                        coverage_payload,
+                        self.validated_ledger_entries(),
+                        {},
+                        self.curriculum_contracts,
+                    )
+
+    def test_rejects_status_change_without_matching_ledger_decision(self):
+        coverage_payload = copy.deepcopy(self.coverage_payload)
+        coverage_payload["entries"][0].update(
+            {
+                "coverageStatus": "covered",
+                "semanticAudit": "operator-product-match",
+                "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
+            }
+        )
+        with self.assertRaisesRegex(IUM09ValidationError, "coverage status"):
+            validate_remediated_coverage(
+                coverage_payload,
+                self.validated_ledger_entries(),
+                {},
+                self.curriculum_contracts,
+            )
+
+    def test_rejects_evidence_contract_id_on_legacy_covered_record(self):
+        coverage_payload = copy.deepcopy(self.coverage_payload)
+        legacy_covered = next(
+            entry
+            for entry in coverage_payload["entries"]
+            if entry["competencyId"] not in EXPECTED_CAUSE_CLASS_BY_ID
+        )
+        legacy_covered["evidenceContractId"] = "CE-legacy-record"
+        with self.assertRaisesRegex(IUM09ValidationError, "legacy covered"):
+            validate_remediated_coverage(
+                coverage_payload,
+                self.validated_ledger_entries(),
+                {},
+                self.curriculum_contracts,
+            )
+
+    def test_covered_record_requires_every_contract_text_in_evidence_and_rationale(self):
+        for container in ("evidence", "matchRationale"):
+            for field in ("requirementText", "learningAction", "productEvidence"):
+                with self.subTest(container=container, field=field):
+                    module_payload, coverage_payload, remediation_payload, contract = (
+                        self.covered_chain_payloads()
+                    )
+                    coverage_entry = coverage_payload["entries"][0]
+                    value = (
+                        coverage_entry["requirementText"]
+                        if field == "requirementText"
+                        else contract[field]
+                    )
+                    coverage_entry[container] = coverage_entry[container].replace(
+                        value,
+                        "",
+                    )
+                    evidence_contracts = validate_coverage_evidence(
+                        module_payload,
+                        self.curriculum_contracts,
+                    )
+                    remediation_entries = validate_remediation_ledger(
+                        remediation_payload,
+                        self.curriculum_contracts,
+                        evidence_contracts,
+                    )
+                    message = "evidence" if container == "evidence" else "rationale"
+                    with self.assertRaisesRegex(IUM09ValidationError, message):
+                        validate_remediated_coverage(
+                            coverage_payload,
+                            remediation_entries,
+                            evidence_contracts,
+                            self.curriculum_contracts,
+                        )
+
+    def test_rejects_evidence_contract_without_a_covered_ledger_decision(self):
+        with self.assertRaisesRegex(IUM09ValidationError, "referenced"):
+            validate_remediated_coverage(
+                self.coverage_payload,
+                self.validated_ledger_entries(),
+                {"CE-orphan": {"competencyId": "BMB16-GYM-IK-GM-001"}},
+                self.curriculum_contracts,
+            )
+
+    def test_orchestrator_rejects_module_structure_mutation(self):
+        module_payload = copy.deepcopy(self.module_payload)
+        module_payload["modules"][0]["grade"] = 6
+        with self.assertRaisesRegex(IUM09ValidationError, "module structure fingerprint"):
+            validate_ium09(
+                module_payload,
+                self.coverage_payload,
+                self.remediation_payload,
+                self.curriculum_contracts,
+            )
 
 
 if __name__ == "__main__":

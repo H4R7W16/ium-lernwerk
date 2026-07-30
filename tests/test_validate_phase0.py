@@ -4,7 +4,9 @@ import tempfile
 import unittest
 from collections import Counter
 from pathlib import Path
+from unittest import mock
 
+import scripts.validate_phase0 as validate_phase0_script
 from scripts.validate_phase0 import (
     ValidationError,
     validate_claim_ledger,
@@ -1816,6 +1818,22 @@ class CoverageTests(unittest.TestCase):
 
 
 class CoverageRepositoryTests(unittest.TestCase):
+    def test_phase0_entrypoint_runs_ium09_with_the_loaded_payloads(self):
+        with mock.patch(
+            "scripts.validate_phase0.validate_ium09",
+            wraps=validate_phase0_script.validate_ium09,
+        ) as validate_ium09_mock:
+            validate_phase0_script.main()
+
+        validate_ium09_mock.assert_called_once()
+        module_payload, coverage_payload, remediation_payload, contracts = (
+            validate_ium09_mock.call_args.args
+        )
+        self.assertEqual(len(module_payload["modules"]), 31)
+        self.assertEqual(len(coverage_payload["entries"]), 171)
+        self.assertEqual(len(remediation_payload["entries"]), 60)
+        self.assertEqual(len(contracts), 171)
+
     def test_repository_coverage_and_roadmap_are_complete_and_reviewable(self):
         root = Path(__file__).resolve().parents[1]
         curriculum_payloads = [
@@ -1866,6 +1884,11 @@ class CoverageRepositoryTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
+        remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
 
         coverage_ids = validate_coverage(
             coverage_payload,
@@ -1881,13 +1904,36 @@ class CoverageRepositoryTests(unittest.TestCase):
             ),
             Counter({"orientation": 95, "enacted": 76}),
         )
-        self.assertEqual(
-            Counter(
-                entry["coverageStatus"]
-                for entry in coverage_payload["entries"]
-            ),
-            Counter({"covered": 111, "partial": 60}),
+        remediation_entries = {
+            entry["competencyId"]: entry
+            for entry in remediation_payload["entries"]
+        }
+        entries_by_id = {
+            entry["competencyId"]: entry
+            for entry in coverage_payload["entries"]
+        }
+        legacy_covered_entries = [
+            entry
+            for entry in coverage_payload["entries"]
+            if entry["competencyId"] not in remediation_entries
+        ]
+        self.assertEqual(len(legacy_covered_entries), 111)
+        for entry in legacy_covered_entries:
+            with self.subTest(legacy_covered_id=entry["competencyId"]):
+                self.assertEqual(entry["coverageStatus"], "covered")
+                self.assertEqual(entry["semanticAudit"], "operator-product-match")
+                self.assertNotIn("evidenceContractId", entry)
+        expected_status_counts = Counter(
+            {"covered": len(legacy_covered_entries)}
         )
+        expected_status_counts.update(
+            entry["after"]["coverageStatus"]
+            for entry in remediation_entries.values()
+        )
+        actual_status_counts = Counter(
+            entry["coverageStatus"] for entry in coverage_payload["entries"]
+        )
+        self.assertEqual(actual_status_counts, expected_status_counts)
         self.assertEqual(
             Counter(
                 (
@@ -1897,12 +1943,15 @@ class CoverageRepositoryTests(unittest.TestCase):
                 for entry in coverage_payload["entries"]
             ),
             Counter(
-                {
-                    ("orientation", "covered"): 66,
-                    ("orientation", "partial"): 29,
-                    ("enacted", "covered"): 45,
-                    ("enacted", "partial"): 31,
-                }
+                (entry["normativeWeight"], "covered")
+                for entry in legacy_covered_entries
+            )
+            + Counter(
+                (
+                    entries_by_id[competency_id]["normativeWeight"],
+                    entry["after"]["coverageStatus"],
+                )
+                for competency_id, entry in remediation_entries.items()
             ),
         )
         self.assertEqual(
@@ -1914,28 +1963,10 @@ class CoverageRepositoryTests(unittest.TestCase):
             ),
             171,
         )
-        entries_by_id = {
-            entry["competencyId"]: entry
-            for entry in coverage_payload["entries"]
-        }
         expected_partial_ids = {
-            "BMB16-GYM-PK-HK-003",
-            "BMB16-GYM-IK-KK-003",
-            "INF7-16-GYM-PK-SV-001",
-            "LH26-E-DA-015",
-            "LH26-E-ID-021",
-            "BMB16-GYM-IK-GM-002",
-            "BMB16-GYM-PK-RK-001",
-            "LH26-E-DP-003",
-            "LH26-E-DA-009",
-            "LH26-E-DP-013",
-            "BMB16-GYM-IK-PP-002",
-            "LH26-E-DA-005",
-            "LH26-E-DA-006",
-            "LH26-E-DA-008",
-            "LH26-E-DA-010",
-            "INF7-16-GYM-PK-SV-003",
-            "LH26-E-ALG-009",
+            competency_id
+            for competency_id, entry in remediation_entries.items()
+            if entry["decision"] == "remain-partial"
         }
         for competency_id in expected_partial_ids:
             with self.subTest(competency_id=competency_id):
@@ -2039,8 +2070,8 @@ class CoverageRepositoryTests(unittest.TestCase):
             "35-50",
             "54-78",
             "zeitlich nicht freigegeben",
-            "111 `covered`",
-            "60 `partial`",
+            f"{actual_status_counts['covered']} `covered`",
+            f"{actual_status_counts['partial']} `partial`",
             "Operator und Gegenstand",
             "IUM-5-CORE-05",
             "keine Phase-2-Implementierungsplanung",
