@@ -444,6 +444,52 @@ class IUM10ModuleContractTests(unittest.TestCase):
             "status": "working",
         }
 
+    @staticmethod
+    def grade_six_core_04_module():
+        return {
+            "id": "IUM-6-CORE-04",
+            "grade": 6,
+            "kind": "core",
+            "lessonRange": {"min": 5, "max": 7},
+            "competencyIds": ["COMP-CORE-04"],
+            "centralLearningAction": "Ein Programm schrittweise ausführen.",
+            "centralLearningProduct": "Ein getestetes Programmprodukt.",
+            "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+            "moduleGrammar": [
+                "orientation-challenge",
+                "activate-prior-knowledge",
+                "build-concept",
+                "guided-practice",
+                "independent-action-product",
+                "review-revise-transfer",
+                "shared-consolidation",
+            ],
+        }
+
+    @classmethod
+    def grade_six_core_04_contract(cls, include_targeted_extension=False):
+        contract = cls.core_contract()
+        module = cls.grade_six_core_04_module()
+        contract.update(
+            {
+                "id": "TC-IUM-6-CORE-04",
+                "moduleId": module["id"],
+                "grade": module["grade"],
+                "kind": module["kind"],
+                "historicalLessonRange": copy.deepcopy(module["lessonRange"]),
+                "competencyIds": list(module["competencyIds"]),
+                "centralLearningAction": module["centralLearningAction"],
+                "centralLearningProduct": module["centralLearningProduct"],
+                "prerequisiteModuleIds": list(module["prerequisiteModuleIds"]),
+                "pathBudgets": contract["pathBudgets"][:2],
+            }
+        )
+        if include_targeted_extension:
+            targeted_extension = copy.deepcopy(contract["pathBudgets"][0])
+            targeted_extension["pathId"] = "targeted-extension"
+            contract["pathBudgets"].append(targeted_extension)
+        return contract
+
     def contracts(self):
         return [self.core_contract(), self.flexible_contract()]
 
@@ -459,6 +505,27 @@ class IUM10ModuleContractTests(unittest.TestCase):
         self.assertEqual(set(result), {"IUM-5-CORE-01", "IUM-6-EXT-01"})
         self.assertEqual(result["IUM-5-CORE-01"]["id"], "TC-IUM-5-CORE-01")
         self.assertEqual(result["IUM-6-EXT-01"]["pathBudgets"][0]["pathId"], "standalone")
+
+    def test_accepts_grade_six_core_04_with_standard_paths(self):
+        contract = self.grade_six_core_04_contract()
+        result = validate_module_contracts(
+            [contract],
+            {"modules": [self.grade_six_core_04_module()]},
+        )
+
+        self.assertEqual(result, {"IUM-6-CORE-04": contract})
+
+    def test_accepts_grade_six_core_04_with_optional_targeted_extension(self):
+        contract = self.grade_six_core_04_contract(include_targeted_extension=True)
+        result = validate_module_contracts(
+            [contract],
+            {"modules": [self.grade_six_core_04_module()]},
+        )
+
+        self.assertEqual(
+            {budget["pathId"] for budget in result["IUM-6-CORE-04"]["pathBudgets"]},
+            {"baseline", "regular", "targeted-extension"},
+        )
 
     def test_rejects_unknown_duplicate_or_malformed_contract_identity(self):
         mutations = (

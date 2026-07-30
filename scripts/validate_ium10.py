@@ -392,9 +392,11 @@ def validate_module_contracts(module_contracts, module_payload):
                 standalone_range is None,
                 f"core module cannot have a standalone unit range: {module_id}",
             )
-            expected_path_ids = set(CORE_PATH_IDS[contract["grade"]])
+            expected_path_id_sets = {frozenset(CORE_PATH_IDS[contract["grade"]])}
             if module_id == "IUM-6-CORE-04":
-                expected_path_ids.add("targeted-extension")
+                expected_path_id_sets.add(
+                    frozenset(CORE_PATH_IDS[contract["grade"]] | {"targeted-extension"})
+                )
         else:
             _require(
                 isinstance(standalone_range, dict)
@@ -405,7 +407,7 @@ def validate_module_contracts(module_contracts, module_payload):
                 <= standalone_range["max"],
                 f"invalid standalone unit range: {module_id}",
             )
-            expected_path_ids = {"standalone"}
+            expected_path_id_sets = {frozenset({"standalone"})}
 
         path_budgets = contract["pathBudgets"]
         _require(isinstance(path_budgets, list), f"path budgets must be a list: {module_id}")
@@ -528,7 +530,8 @@ def validate_module_contracts(module_contracts, module_payload):
                 f"shared allocation minutes must equal counted shared minutes: {module_id}",
             )
         _require(
-            len(path_ids) == len(set(path_ids)) and set(path_ids) == expected_path_ids,
+            len(path_ids) == len(set(path_ids))
+            and frozenset(path_ids) in expected_path_id_sets,
             f"time contract paths differ from the IUM10 contract: {module_id}",
         )
         contracts_by_module_id[module_id] = contract
