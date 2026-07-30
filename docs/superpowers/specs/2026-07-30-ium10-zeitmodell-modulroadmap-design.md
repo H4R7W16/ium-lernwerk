@@ -1,6 +1,6 @@
 # IUM10 – Zeitmodell der Modulroadmap überarbeiten
 
-**Status:** `draft` – abschnittsweise vom Auftraggeber freigegeben; schriftliche Gesamtfreigabe dieser Spezifikation ausstehend  
+**Status:** `approved` – am 30. Juli 2026 schriftlich als Gesamtspezifikation freigegeben
 **Stand:** 30. Juli 2026  
 **Scope:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E  
 **Voraussetzung:** IUM09-Endbilanz 164 `covered` / 7 `partial` durch den Auftraggeber angenommen  
@@ -650,6 +650,6 @@ IUM10:
 
 ## 17. Nächster Schritt nach schriftlicher Freigabe
 
-Nach schriftlicher Freigabe dieser Spezifikation wird mit dem Skill `superpowers:writing-plans` ein ausführbarer, testgetriebener IUM10-Implementierungsplan erstellt.
+Die schriftliche Freigabe erfolgte am 30. Juli 2026. Als nächster Schritt wird mit dem Skill `superpowers:writing-plans` ein ausführbarer, testgetriebener IUM10-Implementierungsplan erstellt.
 
-Bis zu dieser Freigabe bleibt Implementierung gesperrt.
+Die Freigabe dieser Spezifikation erlaubt die Planung, nicht die automatische Implementierung oder Phase-1-Planung.
