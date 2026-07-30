@@ -1,0 +1,1871 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "baseline": {
+    "coverageCommit": "69c9d4f5504a297289615b4169fc4a9ea6d9b253",
+    "partialCount": 60,
+    "recordFingerprintSha256": "b7602352c67f61cdf075a65df167e12f7283b8f62867386545fea758b6e08892"
+  },
+  "entries": [
+    {
+      "competencyId": "BMB16-GYM-IK-GM-001",
+      "requirementText": "die Verhaltensregeln im Umgang mit digitalen Medien einhalten und die wichtigsten Komponenten für die Dateneingabe, -verarbeitung und -ausgabe benennen, beschreiben und sachgerecht nutzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt.",
+        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-GM-002",
+      "requirementText": "sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach.",
+        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-GM-003",
+      "requirementText": "elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet.",
+        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-002",
+      "requirementText": "einen digitalen Kommunikationsweg (zum Beispiel E-Mail) in seinen Grundfunktionen anwenden",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet.",
+        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-003",
+      "requirementText": "mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb von Projekten nutzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt.",
+        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-001",
+      "requirementText": "die persönliche Motivation bezüglich des eigenen Medienverhaltens beschreiben und die eigene Nutzung ihrem Alter entsprechend bewerten",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-002",
+      "requirementText": "die positiven Aspekte der Mediennutzung, aber auch die Risiken und Gefahren des (übermäßigen) Mediengebrauchs erläutern, bewerten und präventive Maßnahmen benennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-003",
+      "requirementText": "die Wirkung von Medien an Beispielen untersuchen, ihre Empfindungen dazu äußern und erste Gesetzmäßigkeiten ableiten",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-PP-002",
+      "requirementText": "bei der Erstellung eines digitalen Medienprodukts erste grundlegende Urheberrechts- und Datenschutzrichtlinien beachten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen.",
+        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-HK-003",
+      "requirementText": "Medien für Zusammenarbeit und Kooperation nutzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt.",
+        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-001",
+      "requirementText": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-002",
+      "requirementText": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-003",
+      "requirementText": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-004",
+      "requirementText": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet.",
+        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-SK-003",
+      "requirementText": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten.",
+        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-003",
+      "requirementText": "Variablen als änderbaren Wertespeicher erläutern",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert.",
+        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-001",
+      "requirementText": "Beispiele zur Verwendung von Codierungen im Alltag nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt.",
+        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-004",
+      "requirementText": "Datenmengen als „Länge einer Bitfolge“ erklären und mithilfe der Einheiten Bit, Byte, Kilobyte etc. beschreiben",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben.",
+        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-005",
+      "requirementText": "natürliche Zahlen (im Bereich 0–255) mithilfe des Binärsystems als Bitfolge darstellen, Bitfolgen als Zahlen interpretieren und das Prinzip des Binärsystems erklären",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt.",
+        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-004",
+      "requirementText": "besondere Sicherheitsaspekte im Umgang mit mobilen Geräten und Datenträgern nennen sowie mögliche Schutzmaßnahmen beschreiben",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-05",
+        "reason": "Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden.",
+        "followUp": "Kernkandidat IUM-7-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-006",
+      "requirementText": "den Sachverhalt der permanent anfallenden personenbezogenen Daten bei der Nutzung von Diensten und deren Speicherung an alltagsrelevanten Beispielen erläutern und dabei sowohl Nutzen als auch Risiken nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt.",
+        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-002",
+      "requirementText": "informatische Modelle mit der jeweiligen Realsituation vergleichen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-05",
+        "reason": "Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen.",
+        "followUp": "Kernkandidat IUM-7-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-005",
+      "requirementText": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet.",
+        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-006",
+      "requirementText": "im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt.",
+        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-002",
+      "requirementText": "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-04",
+        "reason": "Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert.",
+        "followUp": "Kernkandidat IUM-7-CORE-04 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-006",
+      "requirementText": "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert.",
+        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-003",
+      "requirementText": "charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion)",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-04",
+        "reason": "Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet.",
+        "followUp": "Kernkandidat IUM-7-CORE-04 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-005",
+      "requirementText": "geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt.",
+        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-001",
+      "requirementText": "mit dem Schulnetz zielorientiert arbeiten",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-05",
+        "reason": "Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz.",
+        "followUp": "Kernkandidat IUM-7-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-002",
+      "requirementText": "Dateien und Bezeichner aussagekräftig benennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-04",
+        "reason": "Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen.",
+        "followUp": "Kernkandidat IUM-7-CORE-04 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-003",
+      "requirementText": "Beziehungen zwischen Daten/Objekten erkennen und erläutern",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus.",
+        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ALG-001",
+      "requirementText": "digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-05",
+        "reason": "Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert.",
+        "followUp": "Kernkandidat IUM-5-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ALG-007",
+      "requirementText": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife (Variante mit konstanter Anzahl von Durchläufen und Variante mit Bedingung) • Verzweigung • Ausdrücke ohne Operatoren, mit arithmetischen Operatoren und mit Vergleichsoperatoren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben.",
+        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ALG-008",
+      "requirementText": "Übergabe und Rückgabe von Werten bei gegebenen Anweisungen und Ausdrücken identifizieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert.",
+        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ALG-009",
+      "requirementText": "den Datentyp (Zeichenkette, Zahl, Wahrheitswert) von Werten und Ausdrücken identifizieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert.",
+        "followUp": "Kernkandidat IUM-7-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-004",
+      "requirementText": "den grundlegenden Aufbau digitaler Systeme in den Schichten Hardware, Betriebssystem und Programmen erklären",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt.",
+        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-005",
+      "requirementText": "Bausteine eines Textes identifizieren und Möglichkeiten zu ihrer Formatierung nutzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen.",
+        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-006",
+      "requirementText": "eine Objektart zur visuellen Gestaltung nutzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar.",
+        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-008",
+      "requirementText": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen.",
+        "followUp": "Kernkandidat IUM-5-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-009",
+      "requirementText": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest.",
+        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-010",
+      "requirementText": "die Wirkungsabsicht von Medienprodukten herausarbeiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet.",
+        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-012",
+      "requirementText": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte anwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht.",
+        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DA-015",
+      "requirementText": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen.",
+        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-001",
+      "requirementText": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet.",
+        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-003",
+      "requirementText": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert.",
+        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-004",
+      "requirementText": "Nutzungs- und Rahmenbedingungen von Apps, Programmen und Onlinediensten exemplarisch herausarbeiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-02",
+        "reason": "Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet.",
+        "followUp": "Kernkandidat IUM-6-CORE-02 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-006",
+      "requirementText": "Möglichkeiten nennen, wie die spezifische Auswahl der Werbebotschaft zustande kommt",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-02",
+        "reason": "Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen.",
+        "followUp": "Kernkandidat IUM-6-CORE-02 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-013",
+      "requirementText": "sich mit in manipulativer Absicht verbreiteten Falschmeldungen im digitalen Raum auseinandersetzen und den eigenen Umgang damit reflektieren",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar.",
+        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-014",
+      "requirementText": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in Medien analysieren und deren Einfluss auf die Selbstwahrnehmung reflektieren",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-10",
+        "reason": "Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert.",
+        "followUp": "Kernkandidat IUM-7-CORE-10 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ID-009",
+      "requirementText": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-02",
+        "reason": "Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet.",
+        "followUp": "Kernkandidat IUM-5-CORE-02 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ID-020",
+      "requirementText": "Datenmengen als Länge einer Bitfolge erklären und zur Größenangabe die Einheiten Bit und Byte verwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben.",
+        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-ID-021",
+      "requirementText": "die Dezimalpräfixe Kilo, Mega, Giga und Tera zur Angabe von Datenmengen verwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet.",
+        "followUp": "Kernkandidat IUM-7-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-KS-001",
+      "requirementText": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt.",
+        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-KS-002",
+      "requirementText": "Auswirkungen von Konflikten und Problemen bei der digitalen Kommunikation reflektieren und diskutieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert.",
+        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-KS-014",
+      "requirementText": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-06",
+        "reason": "Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar.",
+        "followUp": "Kernkandidat IUM-6-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-KS-015",
+      "requirementText": "Ursachen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-06",
+        "reason": "Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt.",
+        "followUp": "Kernkandidat IUM-6-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt. Danach den Record erneut operator- und produktgenau auditieren."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-001",
+      "requirementText": "In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-002",
+      "requirementText": "Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-05",
+        "reason": "Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-003",
+      "requirementText": "Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Ein einzelnes Medienbildungsmodul weist die systematische jahrgangsweite Verbindung informatischer und medienbildnerischer Inhalte nicht nach."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein einzelnes Medienbildungsmodul weist die systematische jahrgangsweite Verbindung informatischer und medienbildnerischer Inhalte nicht nach.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein einzelnes Medienbildungsmodul weist die systematische jahrgangsweite Verbindung informatischer und medienbildnerischer Inhalte nicht nach.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-004",
+      "requirementText": "Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Roadmapebene, nicht im Einzelprodukt prüfbar."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Roadmapebene, nicht im Einzelprodukt prüfbar.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Roadmapebene, nicht im Einzelprodukt prüfbar.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    }
+  ]
+}

@@ -19,6 +19,61 @@ CAUSE_CLASS_COUNTS = Counter(
         "roadmap-level": 4,
     }
 )
+MODULE_DETAIL_IDS = frozenset(
+    {
+        "BMB16-GYM-IK-GM-001", "BMB16-GYM-IK-GM-003",
+        "BMB16-GYM-IK-MG-002", "BMB16-GYM-IK-PP-002",
+        "BMB16-GYM-PK-RK-004", "INF7-16-GYM-IK-ALG-003",
+        "INF7-16-GYM-IK-DC-001", "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-005", "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-IK-IGD-006", "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-005", "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-PK-KK-002", "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-MI-003", "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-PK-SV-002", "INF7-16-GYM-PK-SV-003",
+        "LH26-E-ALG-001", "LH26-E-ALG-007", "LH26-E-ALG-008",
+        "LH26-E-ALG-009", "LH26-E-DA-004", "LH26-E-DA-005",
+        "LH26-E-DA-006", "LH26-E-DA-008", "LH26-E-DA-009",
+        "LH26-E-DA-010", "LH26-E-DA-012", "LH26-E-DP-004",
+        "LH26-E-DP-006", "LH26-E-ID-009", "LH26-E-ID-020",
+        "LH26-E-ID-021", "LH26-E-KS-002", "LH26-E-KS-014",
+        "LH26-E-KS-015",
+    }
+)
+SCHOOL_CONTEXT_IDS = frozenset(
+    {
+        "BMB16-GYM-IK-GM-002", "BMB16-GYM-IK-KK-002",
+        "BMB16-GYM-IK-KK-003", "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-PK-SK-003", "INF7-16-GYM-PK-SV-001",
+        "LH26-E-DA-015", "LH26-E-DP-001", "LH26-E-KS-001",
+    }
+)
+PRIVATE_LOCAL_IDS = frozenset(
+    {
+        "BMB16-GYM-IK-MG-001", "BMB16-GYM-IK-MG-003",
+        "BMB16-GYM-PK-RK-001", "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-PK-RK-003", "LH26-E-DP-003", "LH26-E-DP-013",
+        "LH26-E-DP-014",
+    }
+)
+ROADMAP_LEVEL_IDS = frozenset(
+    {
+        "LH26-E-PROG-001", "LH26-E-PROG-002",
+        "LH26-E-PROG-003", "LH26-E-PROG-004",
+    }
+)
+BASELINE_PARTIAL_IDS = (
+    MODULE_DETAIL_IDS
+    | SCHOOL_CONTEXT_IDS
+    | PRIVATE_LOCAL_IDS
+    | ROADMAP_LEVEL_IDS
+)
+CAUSE_CLASS_BY_ID = {
+    **dict.fromkeys(MODULE_DETAIL_IDS, "module-detail"),
+    **dict.fromkeys(SCHOOL_CONTEXT_IDS, "school-context"),
+    **dict.fromkeys(PRIVATE_LOCAL_IDS, "private-local"),
+    **dict.fromkeys(ROADMAP_LEVEL_IDS, "roadmap-level"),
+}
 EVIDENCE_MODES = {"module-detail", "school-context", "private-local"}
 PRODUCT_VISIBILITIES = {"shared", "teacher-observable", "private-local"}
 TIME_IMPACT_LEVELS = {
@@ -57,6 +112,26 @@ def _canonical_sha256(value):
         separators=(",", ":"),
     ).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
+
+
+def coverage_baseline_fingerprint(entries):
+    baseline_records = sorted(
+        (
+            {
+                "competencyId": entry["competencyId"],
+                "requirementText": entry["requirementText"],
+                "before": {
+                    "coverageStatus": entry["before"]["coverageStatus"],
+                    "semanticAudit": entry["before"]["semanticAudit"],
+                    "evidenceModuleId": entry["before"]["evidenceModuleId"],
+                    "reason": entry["before"]["reason"],
+                },
+            }
+            for entry in entries
+        ),
+        key=lambda record: record["competencyId"],
+    )
+    return _canonical_sha256(baseline_records)
 
 
 def module_structure_fingerprint(module_payload):
@@ -203,3 +278,181 @@ def validate_coverage_evidence(module_payload, curriculum_contracts):
         "module structure fingerprint differs from immutable baseline",
     )
     return evidence_contracts
+
+
+def _require_exact_fields(payload, fields, context):
+    _require(
+        isinstance(payload, dict) and set(payload) == set(fields),
+        f"invalid fields: {context}",
+    )
+
+
+def validate_remediation_ledger(
+    remediation_payload,
+    curriculum_contracts,
+    evidence_contracts,
+):
+    _require_exact_fields(
+        remediation_payload,
+        {"schemaVersion", "status", "baseline", "entries"},
+        "remediation ledger",
+    )
+    _require(remediation_payload["schemaVersion"] == 1, "invalid ledger schema")
+    _require(remediation_payload["status"] == "working", "invalid ledger status")
+    _require_exact_fields(
+        remediation_payload["baseline"],
+        {"coverageCommit", "partialCount", "recordFingerprintSha256"},
+        "ledger baseline",
+    )
+    baseline = remediation_payload["baseline"]
+    _require(
+        baseline["coverageCommit"] == BASELINE_COVERAGE_COMMIT,
+        "ledger coverage commit differs from immutable baseline",
+    )
+    _require(
+        baseline["partialCount"] == BASELINE_PARTIAL_COUNT,
+        "ledger partial count differs from immutable baseline",
+    )
+    _require(
+        baseline["recordFingerprintSha256"]
+        == BASELINE_RECORD_FINGERPRINT_SHA256,
+        "ledger record fingerprint differs from immutable baseline",
+    )
+    entries = remediation_payload["entries"]
+    _require(isinstance(entries, list), "ledger entries must be a list")
+    _require(len(entries) == BASELINE_PARTIAL_COUNT, "ledger must contain 60 entries")
+    _require(
+        coverage_baseline_fingerprint(entries)
+        == BASELINE_RECORD_FINGERPRINT_SHA256,
+        "ledger before-record fingerprint differs from immutable baseline",
+    )
+    _require(isinstance(curriculum_contracts, dict), "curriculum contracts must be a mapping")
+    _require(isinstance(evidence_contracts, dict), "evidence contracts must be a mapping")
+
+    remediation_entries = {}
+    for entry in entries:
+        _require_exact_fields(
+            entry,
+            {
+                "competencyId", "requirementText", "causeClass", "before",
+                "decision", "evidenceContractId", "after", "changeRationale",
+                "timeImpact", "graphImpact", "residualGap",
+            },
+            "remediation entry",
+        )
+        competency_id = entry["competencyId"]
+        _require_nonempty_string(competency_id, "competencyId", "ledger entry")
+        _require(
+            competency_id not in remediation_entries,
+            f"ledger competency ids must be unique: {competency_id}",
+        )
+        _require(
+            competency_id in BASELINE_PARTIAL_IDS,
+            f"unknown baseline competency: {competency_id}",
+        )
+        _require(
+            entry["causeClass"] == CAUSE_CLASS_BY_ID[competency_id],
+            f"invalid cause class: {competency_id}",
+        )
+        _require(
+            competency_id in curriculum_contracts,
+            f"unknown competency: {competency_id}",
+        )
+        curriculum_contract = curriculum_contracts[competency_id]
+        _require(
+            isinstance(curriculum_contract, dict)
+            and curriculum_contract.get("text") == entry["requirementText"],
+            f"requirement text differs from curriculum contract: {competency_id}",
+        )
+        _require_exact_fields(
+            entry["before"],
+            {"coverageStatus", "semanticAudit", "evidenceModuleId", "reason"},
+            f"before record: {competency_id}",
+        )
+        _require(
+            entry["before"]["coverageStatus"] == "partial"
+            and entry["before"]["semanticAudit"] == "documented-gap",
+            f"invalid before status: {competency_id}",
+        )
+        for field in ("evidenceModuleId", "reason", "requirementText", "changeRationale"):
+            _require_nonempty_string(entry[field] if field in entry else entry["before"][field], field, competency_id)
+
+        decision = entry["decision"]
+        _require(decision in {"covered", "remain-partial"}, f"invalid decision: {competency_id}")
+        _require_exact_fields(
+            entry["after"],
+            {"coverageStatus", "semanticAudit"},
+            f"after record: {competency_id}",
+        )
+        _require_exact_fields(
+            entry["timeImpact"], {"level", "rationale"}, f"time impact: {competency_id}"
+        )
+        _require_exact_fields(
+            entry["graphImpact"], {"level", "rationale"}, f"graph impact: {competency_id}"
+        )
+        _require(
+            entry["timeImpact"]["level"] in TIME_IMPACT_LEVELS,
+            f"invalid time impact: {competency_id}",
+        )
+        _require(
+            entry["graphImpact"]["level"] in GRAPH_IMPACT_LEVELS,
+            f"invalid graph impact: {competency_id}",
+        )
+        _require_nonempty_string(entry["timeImpact"]["rationale"], "time rationale", competency_id)
+        _require_nonempty_string(entry["graphImpact"]["rationale"], "graph rationale", competency_id)
+
+        if decision == "covered":
+            contract_id = entry["evidenceContractId"]
+            _require_nonempty_string(contract_id, "evidenceContractId", competency_id)
+            _require(contract_id in evidence_contracts, f"unknown evidence contract: {competency_id}")
+            contract = evidence_contracts[contract_id]
+            _require(
+                contract["competencyId"] == competency_id,
+                f"evidence contract has wrong competency: {competency_id}",
+            )
+            _require(
+                contract_id
+                == f"CE-{entry['before']['evidenceModuleId']}-{competency_id}",
+                f"evidence contract differs from baseline module: {competency_id}",
+            )
+            _require(
+                entry["after"] == {
+                    "coverageStatus": "covered",
+                    "semanticAudit": "operator-product-match",
+                },
+                f"invalid covered after status: {competency_id}",
+            )
+            _require(entry["residualGap"] is None, f"covered record has residual gap: {competency_id}")
+        else:
+            _require(entry["evidenceContractId"] is None, f"remain-partial has evidence contract: {competency_id}")
+            _require(
+                entry["after"] == {
+                    "coverageStatus": "partial",
+                    "semanticAudit": "documented-gap",
+                },
+                f"invalid remain-partial after status: {competency_id}",
+            )
+            _require_exact_fields(
+                entry["residualGap"], {"reason", "risk", "followUp"}, f"residualGap: {competency_id}"
+            )
+            for field in ("reason", "risk", "followUp"):
+                _require_nonempty_string(entry["residualGap"][field], f"residualGap.{field}", competency_id)
+
+        if entry["graphImpact"]["level"] == "review-required":
+            _require(decision == "remain-partial", f"graph review requires remain-partial: {competency_id}")
+        if entry["causeClass"] == "roadmap-level":
+            _require(decision == "remain-partial", f"roadmap-level must remain-partial: {competency_id}")
+            _require(entry["evidenceContractId"] is None, f"roadmap-level has evidence contract: {competency_id}")
+            _require(entry["timeImpact"]["level"] == "roadmap-dependent", f"roadmap-level must be roadmap-dependent: {competency_id}")
+            _require(entry["graphImpact"]["level"] == "none", f"roadmap-level graph impact must be none: {competency_id}")
+        remediation_entries[competency_id] = entry
+
+    _require(
+        set(remediation_entries) == BASELINE_PARTIAL_IDS,
+        "ledger baseline competency ids differ from immutable baseline",
+    )
+    _require(
+        Counter(entry["causeClass"] for entry in entries) == CAUSE_CLASS_COUNTS,
+        "ledger cause class counts differ from immutable baseline",
+    )
+    return remediation_entries
