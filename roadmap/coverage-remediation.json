@@ -681,26 +681,22 @@
         "evidenceModuleId": "IUM-7-CORE-04",
         "reason": "Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-KK-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die eingebettete Erklärspur richtet Sachverhalt, eigene Idee, Lösungsweg und Ergebnis an eine konkret benannte Lerngruppe der Klassenstufe 7 ohne Programmvorwissen. Eine Adressaten- und Vorwissensnotiz mit begründeter Anpassung von Begriffserklärung oder Beispiel, vier strukturierte Abschnitte, ein fachlich korrektes Glossar und ein programmbezogenes Beispiel machen Zielgruppenbezug, informatische Terminologie und Struktur im vorhandenen Teamprodukt sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die zielgruppenbezogene Aufbereitung aller vier Gegenstände mit Glossar und Beispiel ergänzt eine eigenständige Erklärhandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Erklärspur nutzt denselben Teamplan, dasselbe kommentierte Programm und dieselbe Präsentation im bestehenden Kernmodul; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert.",
-        "followUp": "Kernkandidat IUM-7-CORE-04 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-KK-006",
@@ -739,26 +735,22 @@
         "evidenceModuleId": "IUM-7-CORE-04",
         "reason": "Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-MI-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die integrierte Abstraktionsspur vergleicht mindestens zwei konkrete Fälle oder Testeingaben, trennt invariante und verallgemeinerbare Bestandteile von variierenden Details, formuliert daraus ein verallgemeinertes Modell oder eine Teillösung und wendet diese auf beide Fälle sowie einen weiteren Prüffall zurück. Damit wird Abstraktion als Herausarbeiten und Rückanwenden statt als bloßes Weglassen sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Fallvergleich, explizite Abstraktion und Rückanwendung ergänzen eine eigene Modellierungs- und Prüfhandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Abstraktion nutzt vorhandenes Entwurfsmodell, Programmkommentare und Testprotokoll sowie die Voraussetzung IUM-7-CORE-03; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet.",
-        "followUp": "Kernkandidat IUM-7-CORE-04 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-MI-005",
@@ -828,26 +820,22 @@
         "evidenceModuleId": "IUM-7-CORE-04",
         "reason": "Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-SV-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Lernhandlung verlangt die tatsächliche Benennung oder Umbenennung von mindestens zwei vorhandenen Projektdateien sowie mehrerer verwendeter Programmbezeichner nach Rolle, Zweck und dokumentierter Namenskonvention. Eine integrierte Vorher-Nachher-Tabelle und der gespeicherte Projektbestand beziehungsweise die kommentierte Programmfassung weisen die Refaktorierung nach; eine allgemeine Clean-Code-Behauptung genügt nicht.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die tatsächliche Datei- und Bezeichnerrefaktorierung mit Konvention und Nachweis ergänzt eine eigene Strukturierungs- und Revisionshandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Umbenennungen betreffen ausschließlich die vorhandenen Teamplan-, Programm- und gegebenenfalls Testartefakte im bestehenden Kernmodul; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen.",
-        "followUp": "Kernkandidat IUM-7-CORE-04 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-003",

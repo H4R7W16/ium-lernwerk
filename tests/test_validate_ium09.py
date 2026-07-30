@@ -118,6 +118,10 @@ CORE7_CORE01_COMMON_PRODUCT = (
 CORE7_CORE01_BIT_SIZE_TABLE = (
     "gemeinsamen Datengrößentabelle des Bit-Codebuchs"
 )
+CORE7_CORE04_COMMON_PRODUCT = (
+    "demselben Teamplan, kommentierten Programm und derselben Präsentation"
+)
+CORE7_CORE04_NO_EXTRA_PRODUCT = "kein zusätzliches Einzelprodukt"
 
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
@@ -258,6 +262,15 @@ AUDITED_DECISIONS = {
     ),
     "LH26-E-ID-020": ("IUM-7-CORE-01", "module-detail", "covered"),
     "LH26-E-ID-021": ("IUM-7-CORE-01", "module-detail", "covered"),
+    "INF7-16-GYM-PK-KK-002": (
+        "IUM-7-CORE-04", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-MI-003": (
+        "IUM-7-CORE-04", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-SV-002": (
+        "IUM-7-CORE-04", "module-detail", "covered"
+    ),
 }
 
 
@@ -378,6 +391,22 @@ def curriculum_contracts():
                 "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext "
                 "informatischer Fragestellungen diskutieren"
             )
+        },
+        "INF7-16-GYM-PK-KK-002": {
+            "text": (
+                "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse "
+                "zielgruppenorientiert und unter Beachtung der informatischen "
+                "Terminologie erläutern und strukturiert darstellen"
+            )
+        },
+        "INF7-16-GYM-PK-MI-003": {
+            "text": (
+                "charakteristische und verallgemeinerbare Bestandteile "
+                "herausarbeiten (Abstraktion)"
+            )
+        },
+        "INF7-16-GYM-PK-SV-002": {
+            "text": "Dateien und Bezeichner aussagekräftig benennen"
         },
         "INF7-16-GYM-IK-ALG-003": {
             "text": "Variablen als änderbaren Wertespeicher erläutern"
@@ -647,6 +676,9 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-005",
                 "CE-IUM-7-CORE-01-LH26-E-ID-020",
                 "CE-IUM-7-CORE-01-LH26-E-ID-021",
+                "CE-IUM-7-CORE-04-INF7-16-GYM-PK-KK-002",
+                "CE-IUM-7-CORE-04-INF7-16-GYM-PK-MI-003",
+                "CE-IUM-7-CORE-04-INF7-16-GYM-PK-SV-002",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -1850,6 +1882,150 @@ class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
             "Übergabe und Rückgabe sowie Quelle, Ziel, Eingabe und Ergebnis "
             "getrennt aus",
             transfer["productEvidence"],
+        )
+
+
+class Core7Core04RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-7-CORE-04"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_core_04_integrates_three_distinct_traces_into_existing_team_product(self):
+        expected = {
+            "INF7-16-GYM-PK-KK-002",
+            "INF7-16-GYM-PK-MI-003",
+            "INF7-16-GYM-PK-SV-002",
+        }
+        self.assertEqual(set(self.contracts), expected)
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-7-CORE-03"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 7, "max": 10})
+        for competency_id in expected:
+            with self.subTest(competency_id=competency_id):
+                self.assertEqual(
+                    AUDITED_DECISIONS[competency_id],
+                    ("IUM-7-CORE-04", "module-detail", "covered"),
+                )
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "module-detail")
+                self.assertEqual(contract["productVisibility"], "shared")
+                self.assertIn(
+                    CORE7_CORE04_COMMON_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE7_CORE04_NO_EXTRA_PRODUCT,
+                    contract["productEvidence"],
+                )
+
+    def test_kk002_requires_audience_adaptation_all_four_objects_and_technical_structure(self):
+        contract = self.contracts.get("INF7-16-GYM-PK-KK-002")
+        self.assertIsNotNone(contract)
+        for term in (
+            "eine andere Lerngruppe der Klassenstufe 7, die das Programm "
+            "noch nicht kennt",
+            "vorgegebenen Vorwissensbeschreibung",
+            "Erklärungstiefe der Fachbegriffe sowie das Beispiel daran anpassen",
+            "Sachverhalt, eigene Idee, Lösungsweg und Ergebnis",
+            "zielgruppenorientiert",
+            "informatisch terminologisch korrekt",
+            "Problem/Sachverhalt → eigene Idee → Lösungsweg → Ergebnis",
+            "Algorithmus, Variable, Verzweigung, Schleife, Testfall und "
+            "Fehlerhypothese",
+            "Glossar",
+            "mindestens ein programmbezogenes Beispiel",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "sichtbare Adressaten- und Vorwissensnotiz",
+            "mindestens einer begründeten Anpassung von Begriffserklärung "
+            "oder Beispiel",
+            "vier ausdrücklich beschriftete Abschnitte",
+            "fachlich korrektes Glossar",
+            "programmbezogenes Beispiel",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertNotEqual(
+            contract["learningAction"],
+            "Arbeitsprozess und Lösung reflektieren und präsentieren.",
+        )
+
+    def test_mi003_compares_cases_separates_invariants_and_reapplies_abstraction(self):
+        contract = self.contracts.get("INF7-16-GYM-PK-MI-003")
+        self.assertIsNotNone(contract)
+        for term in (
+            "Mindestens zwei konkrete Fälle oder Testeingaben vergleichen",
+            "wesentlichen, invarianten und verallgemeinerbaren Bestandteile",
+            "zufälligen oder variierenden Details",
+            "als Abstraktion herausarbeiten",
+            "verallgemeinertes Modell oder eine verallgemeinerte Teillösung",
+            "auf beide Ausgangsfälle und einen weiteren Prüffall anwenden",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "integrierte Abstraktionsspur",
+            "mindestens zwei konkrete Fälle oder Testeingaben",
+            "Invariante",
+            "Variation",
+            "ein verallgemeinertes Modell oder eine verallgemeinerte Teillösung",
+            "Rückanwendung auf beide Ausgangsfälle und einen weiteren Prüffall",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertIn(
+            "Details lediglich löschen genügt nicht",
+            contract["productEvidence"],
+        )
+
+    def test_sv002_requires_actual_file_and_identifier_renaming_with_meaningful_names(self):
+        contract = self.contracts.get("INF7-16-GYM-PK-SV-002")
+        self.assertIsNotNone(contract)
+        for term in (
+            "Mindestens zwei tatsächlich verwendete Projektdateien",
+            "Teamplan-Datei",
+            "Programm- oder Quelldatei",
+            "nach Rolle und Zweck aussagekräftig benennen oder umbenennen",
+            "mehrere tatsächlich verwendete Bezeichner",
+            "Variablen sowie Funktionen oder Blöcke",
+            "dokumentierten Namenskonvention",
+            "in den gespeicherten Dateien und im Programm tatsächlich "
+            "durchführen",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "integrierte Vorher→Nachher-Namenstabelle",
+            "mindestens zwei vorhandene Projektdateien",
+            "mehrere Programmbezeichner",
+            "Rolle oder Zweck",
+            "gespeicherte Projektbestand",
+            "kommentierte Programmfassung",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        for opaque_name in ("x", "test1", "final_final"):
+            with self.subTest(opaque_name=opaque_name):
+                self.assertIn(
+                    f"nicht {opaque_name}",
+                    contract["learningAction"],
+                )
+        self.assertNotIn(
+            "Dateien und Bezeichner sauber benennen",
+            contract["learningAction"],
         )
 
 
