@@ -902,26 +902,22 @@
         "evidenceModuleId": "IUM-5-CORE-05",
         "reason": "Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-05-LH26-E-ALG-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Lernenden identifizieren aus einem gemischten Satz digitale Systeme, deren Funktionsweise wesentlich algorithmisch bestimmt ist, und begründen jede Einstufung am konkreten algorithmischen Prozess; die Klassifikations- und Begründungsspur bleibt in die vorhandene Algorithmus- und Laufprotokollansicht integriert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die zusätzliche Klassifikation und fallbezogene Begründung konkretisieren die zentrale Algorithmusarbeit, ihr Zeitbedarf innerhalb des unveränderten Korridors von fünf bis sieben Stunden muss jedoch in IUM10 geprüft werden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Klassifikations- und Begründungsspur wird am selben Algorithmusfall und im selben Laufprotokollprodukt bearbeitet; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert.",
-        "followUp": "Kernkandidat IUM-5-CORE-05 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ALG-007",
@@ -1678,19 +1674,19 @@
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der roadmapweite Record bleibt ohne Einzelmodulvertrag partial, weil nur ein jahrgangsübergreifend angelegter Sequenznachweis die altersangemessene und niederschwellige Progression sowie ihre Abgrenzung zur fachlichen Tiefe in Klasse 7 belegen kann; kein Einzelmodulvertrag oder Zusatzprodukt ersetzt diesen Nachweis.",
       "timeImpact": {
         "level": "roadmap-dependent",
-        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+        "rationale": "Die altersangemessene und niederschwellige Progression sowie ihre Abgrenzung zur fachlichen Tiefe in Klasse 7 können nur jahrgangsübergreifend in IUM10 geprüft werden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Der verbleibende Progressionsauftrag erzwingt in IUM09 keine neue Voraussetzung oder Modulabhängigkeit; der Modulgraph bleibt unverändert."
       },
       "residualGap": {
         "reason": "Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses.",
-        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+        "risk": "Ohne jahrgangsübergreifenden Sequenznachweis würde die Lesehilfe-Orientierung als erfüllt ausgegeben, obwohl weder die altersangemessene und niederschwellige Progression noch die Abgrenzung zur fachlichen Tiefe in Klasse 7 belegt sind.",
+        "followUp": "In IUM10 einen jahrgangsweiten Sequenznachweis erstellen, der die Algorithmenmodule der Klassen 5 bis 7 jahrgangsübergreifend verbindet, und darin die altersangemessene und niederschwellige Progression, die zunehmende fachliche Tiefe, die Zeitgewichtung und die Abgrenzung zur fachlichen Tiefe in Klasse 7 systematisch prüfen; kein Einzelmodulvertrag darf diesen Nachweis ersetzen. Ein zusätzliches Einzelprodukt genügt nicht."
       }
     },
     {

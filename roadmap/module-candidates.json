@@ -354,7 +354,17 @@
       "mediumRationale": "Eine digitale Ausführungsumgebung kann Schritte, Position, Zustand und Wiederholungen sichtbar koppeln und Abweichungen reproduzierbar machen.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
-      "status": "working"
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-05-LH26-E-ALG-001",
+          "competencyId": "LH26-E-ALG-001",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen aus einem gemischten Satz, der digitale Systeme, Nichtbeispiele und Grenzbeispiele enthält, digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist, und für jeden Fall am konkreten algorithmischen Prozess begründen, warum die Einstufung zutrifft oder nicht; die Klassifikations- und Begründungsspur wird unmittelbar mit dem im selben Fall ausgeführten grafischen Algorithmus und Laufprotokoll verknüpft.",
+          "productEvidence": "In derselben Produktansicht des vorhandenen ausführbaren grafischen Algorithmus mit Laufprotokoll steht eine integrierte Klassifikations- und Begründungsspur für alle vorgegebenen Fälle: Kennzeichnung als algorithmisch wesentlich bestimmt, Nicht- oder Grenzbeispiel, Benennung des konkreten algorithmischen Prozesses und fallbezogene Begründung; es entsteht kein unverbundenes Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ]
     },
     {
       "id": "IUM-5-CORE-06",

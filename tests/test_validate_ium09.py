@@ -161,6 +161,7 @@ AUDITED_DECISIONS = {
     ),
     "LH26-E-KS-001": ("IUM-5-CORE-03", "school-context", "covered"),
     "LH26-E-KS-002": ("IUM-5-CORE-03", "module-detail", "covered"),
+    "LH26-E-ALG-001": ("IUM-5-CORE-05", "module-detail", "covered"),
     "INF7-16-GYM-IK-ALG-003": (
         "IUM-7-CORE-03", "module-detail", "covered"
     ),
@@ -328,6 +329,12 @@ def curriculum_contracts():
                 "eigenen Umgang damit reflektieren"
             )
         },
+        "LH26-E-ALG-001": {
+            "text": (
+                "digitale Systeme identifizieren, deren Funktionsweise "
+                "wesentlich durch algorithmische Prozesse bestimmt ist"
+            )
+        },
         "LH26-E-KS-001": {
             "text": (
                 "schulische Kommunikationskanäle und Möglichkeiten zur "
@@ -441,6 +448,7 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-7-CORE-03-LH26-E-ALG-007",
                 "CE-IUM-7-CORE-03-LH26-E-ALG-008",
                 "CE-IUM-7-CORE-03-LH26-E-ALG-009",
+                "CE-IUM-5-CORE-05-LH26-E-ALG-001",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -777,6 +785,141 @@ class Core02RepositoryOrchestrationTests(unittest.TestCase):
             "kein separates Zusatzprodukt",
         ):
             self.assertIn(term, contract["productEvidence"])
+
+
+class Core05RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-05"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+        remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.remediation = {
+            entry["competencyId"]: entry
+            for entry in remediation_payload["entries"]
+            if entry["competencyId"] in {"LH26-E-ALG-001", "LH26-E-PROG-002"}
+        }
+
+        coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+        )
+        cls.coverage = {
+            entry["competencyId"]: entry
+            for entry in coverage_payload["entries"]
+            if entry["competencyId"] in {"LH26-E-ALG-001", "LH26-E-PROG-002"}
+        }
+
+    def test_alg001_identifies_and_justifies_mixed_cases_in_the_algorithm_product(self):
+        self.assertEqual(
+            AUDITED_DECISIONS["LH26-E-ALG-001"],
+            ("IUM-5-CORE-05", "module-detail", "covered"),
+        )
+        self.assertEqual(set(self.contracts), {"LH26-E-ALG-001"})
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-5-CORE-01"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 5, "max": 7})
+
+        contract = self.contracts["LH26-E-ALG-001"]
+        self.assertEqual(contract["mode"], "module-detail")
+        self.assertEqual(contract["productVisibility"], "teacher-observable")
+
+        for term in (
+            "aus einem gemischten Satz",
+            "digitale Systeme, Nichtbeispiele und Grenzbeispiele",
+            "digitale Systeme identifizieren",
+            "deren Funktionsweise wesentlich durch algorithmische Prozesse "
+            "bestimmt ist",
+            "für jeden Fall",
+            "am konkreten algorithmischen Prozess",
+            "begründen",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "derselben Produktansicht",
+            "ausführbaren grafischen Algorithmus",
+            "Laufprotokoll",
+            "integrierte Klassifikations- und Begründungsspur",
+            "alle vorgegebenen Fälle",
+            "konkreten algorithmischen Prozess",
+            "fallbezogene Begründung",
+            "kein unverbundenes Zusatzprodukt",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_prog002_stays_roadmap_dependent_without_an_evidence_contract(self):
+        self.assertEqual(
+            AUDITED_DECISIONS["LH26-E-PROG-002"],
+            ("IUM-5-CORE-05", "roadmap-level", "remain-partial"),
+        )
+        self.assertNotIn("LH26-E-PROG-002", self.contracts)
+
+        entry = self.remediation["LH26-E-PROG-002"]
+        coverage = self.coverage["LH26-E-PROG-002"]
+        residual_reason = (
+            "Ein Einzelmodul belegt noch nicht die übergreifend "
+            "niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses."
+        )
+        self.assertEqual(entry["decision"], "remain-partial")
+        self.assertIsNone(entry["evidenceContractId"])
+        self.assertEqual(
+            entry["after"],
+            {
+                "coverageStatus": "partial",
+                "semanticAudit": "documented-gap",
+            },
+        )
+        self.assertEqual(entry["timeImpact"]["level"], "roadmap-dependent")
+        self.assertEqual(entry["graphImpact"]["level"], "none")
+        self.assertEqual(entry["residualGap"]["reason"], residual_reason)
+        self.assertEqual(coverage["reason"], residual_reason)
+        self.assertEqual(entry["residualGap"]["risk"], coverage["risk"])
+        self.assertEqual(entry["residualGap"]["followUp"], coverage["followUp"])
+        for field in ("changeRationale",):
+            for term in (
+                "jahrgangsübergreifend",
+                "altersangemessene",
+                "niederschwellige",
+                "fachlichen Tiefe in Klasse 7",
+                "kein Einzelmodulvertrag",
+            ):
+                self.assertIn(term, entry[field])
+        self.assertIn(
+            "jahrgangsübergreifenden Sequenznachweis",
+            entry["residualGap"]["risk"],
+        )
+        self.assertIn(
+            "jahrgangsweiten Sequenznachweis",
+            entry["residualGap"]["followUp"],
+        )
+        self.assertIn(
+            "jahrgangsübergreifend",
+            entry["residualGap"]["followUp"],
+        )
+        for field in ("risk", "followUp"):
+            for term in (
+                "altersangemessene",
+                "niederschwellige",
+                "fachlichen Tiefe in Klasse 7",
+            ):
+                self.assertIn(term, entry["residualGap"][field])
 
 
 class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
