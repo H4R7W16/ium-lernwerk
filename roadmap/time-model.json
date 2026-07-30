@@ -1225,15 +1225,15 @@
         "IUM-6-CORE-02 übernimmt die geprüfte Akteurs- und Interessenkarte, ergänzt Datenarten und Erhebungstechniken, testet Auswahlhypothesen und begründet eine Schutzentscheidung."
       ],
       "preservedProductAndCurriculumEvidence": [
-        "Das Evidenzdossier behält für LH26-E-ID-004 bis LH26-E-ID-008 Suchmodell, Akteursinteressen, Quellenvergleich und Unsicherheitsurteil.",
-        "Das Datenfluss- und Auswahlmodell behält für LH26-E-DP-004, LH26-E-DP-006 bis LH26-E-DP-009 Datenarten, Auswahlhypothesen, Modellgrenze und Schutzentscheidung; die private Reflexion bleibt privat."
+        "IUM-6-CORE-01: Kompetenznachweis LH26-E-ID-004 bis LH26-E-ID-008; Produktnachweis ist das Evidenzdossier mit Suchmodell, Akteursinteressen, Quellenvergleich und Unsicherheitsurteil.",
+        "IUM-6-CORE-02: Kompetenznachweis LH26-E-DP-004 und LH26-E-DP-006 bis LH26-E-DP-009; Produktnachweis ist das Datenfluss- und Auswahlmodell mit Datenarten, Auswahlhypothesen, Modellgrenze und Schutzentscheidung; die private Reflexion bleibt privat."
       ],
       "prerequisites": [
         "IUM-6-CORE-02 folgt auf IUM-6-CORE-01 und verwendet dieselbe geprüfte Akteurs- und Interessenkarte.",
         "Die Auswahlfälle bleiben synthetisch; weder KI-Ausgaben noch private Reflexionsnotizen werden personenbezogen erhoben."
       ],
-      "risk": "Wenn Suchakteure und Auswahlakteure nur sprachlich gleichgesetzt oder unterschiedliche Fälle verwendet werden, trägt die gemeinsame Karte die beiden fachlichen Modellierungen nicht.",
-      "fallback": "Scheitert die gemeinsame Akteurs- und Auswahlspur, erhalten beide Module 90 Minuten eigenständige Aktivierungs-, Modellierungs- und Prüfzeit; die Baseline steigt um 90 Minuten, der Regelpfad um 45 Minuten und das Jahrgangsurteil wird neu berechnet.",
+      "risk": "baseline: Eine bloß sprachliche Gleichsetzung oder unterschiedliche Fälle verdecken 90 Minuten eigenständige Modellierungs- und Prüfzeit. regular: Derselbe Fehler überschätzt die Einsparung um 45 Minuten und entwertet die gemeinsame Karte.",
+      "fallback": "Scheitert die gemeinsame Akteurs- und Auswahlspur, erhalten beide Module eigenständige Aktivierungs-, Modellierungs- und Prüfzeit. Pfadfolgen: baseline: +90 Minuten; regular: +45 Minuten. Das Jahrgangsurteil wird neu berechnet.",
       "status": "working"
     },
     {
@@ -1249,15 +1249,15 @@
         "IUM-6-CORE-07 formuliert für denselben nichtpersonalen Fall Zielgruppe und Wirkungsabsicht, prüft Rechte, verarbeitet Feedback und dokumentiert eine sichtbare Revision."
       ],
       "preservedProductAndCurriculumEvidence": [
-        "Pro-und-Contra-Matrix, Wirkungseinschätzung und Fall-Handlungsplan belegen LH26-E-KS-011 bis LH26-E-KS-015, ohne private Reflexion offenzulegen.",
-        "Wirkungsbriefing, Asset- und Lizenznachweise, Medienprodukt, Feedbackprotokoll und Revision belegen LH26-E-DA-009 bis LH26-E-DA-015 eigenständig."
+        "IUM-6-CORE-06: Kompetenznachweis LH26-E-KS-011 bis LH26-E-KS-015; Produktnachweis sind Pro-und-Contra-Matrix, Wirkungseinschätzung und Fall-Handlungsplan, ohne private Reflexion offenzulegen.",
+        "IUM-6-CORE-07: Kompetenznachweis LH26-E-DA-009 bis LH26-E-DA-015; Produktnachweis sind Wirkungsbriefing, Asset- und Lizenznachweise, Medienprodukt, Feedbackprotokoll und Revision."
       ],
       "prerequisites": [
-        "Beide Module verwenden denselben kuratierten, fiktiven und nichtpersonalen Fall, ohne reale Konflikterfahrungen zu erheben.",
+        "IUM-6-CORE-06 und IUM-6-CORE-07 verwenden denselben kuratierten, fiktiven und nichtpersonalen Fall, ohne reale Konflikterfahrungen zu erheben.",
         "Konfliktentscheidung, Produktgestaltung, Rechteprüfung, Feedback und Revision bleiben als unterscheidbare Nachweisspuren erhalten."
       ],
-      "risk": "Eine bloße Kampagnenproduktion würde die Konfliktanalyse, Hilfswege oder private Grenze verdrängen; eine bloße Fallanalyse würde die tatsächliche Produktion und Revision ersetzen.",
-      "fallback": "Scheitert die gemeinsame Fall- und Revisionsspur, erhalten Konfliktanalyse und Medienproduktion 90 Minuten eigenständige Fall-, Zielgruppen-, Rechte-, Feedback- und Revisionszeit; das Jahrgangsurteil wird neu berechnet.",
+      "risk": "baseline: Eine bloße Kampagnenproduktion oder Fallanalyse verdeckt 90 Minuten für die jeweils verdrängte Konflikt-, Rechte- oder Revisionsspur. regular: Trotz 0 Minuten rechnerischer Einsparung kann eine unvollständige gemeinsame Spur fachliche Nachweise verdrängen.",
+      "fallback": "Scheitert die gemeinsame Fall- und Revisionsspur, erhalten Konfliktanalyse und Medienproduktion eigenständige Fall-, Zielgruppen-, Rechte-, Feedback- und Revisionszeit. Pfadfolgen: baseline: +90 Minuten; regular: +0 Minuten. Das Jahrgangsurteil wird neu berechnet.",
       "status": "working"
     },
     {
@@ -1273,15 +1273,15 @@
         "IUM-6-CORE-04 ruft dieses Produkt aktiv ab, überführt die Laufspur in Programmzustand und Trace und prüft eine veränderte Schleife mit Fällen."
       ],
       "preservedProductAndCurriculumEvidence": [
-        "Grafischer Algorithmus, Vorhersage, Laufprotokoll, Reparatur und Schleifenentscheidung bleiben als Nachweis für LH26-E-ALG-001 bis LH26-E-ALG-004 erhalten.",
-        "Lauffähiges Programm, Trace, Wirkungserklärung, Modifikation und Testfälle bleiben als eigenständiger Nachweis für LH26-E-ALG-005 und LH26-E-ALG-006 erhalten."
+        "IUM-5-CORE-05: Kompetenznachweis LH26-E-ALG-001 bis LH26-E-ALG-004; Produktnachweis sind grafischer Algorithmus, Vorhersage, Laufprotokoll, Reparatur und Schleifenentscheidung.",
+        "IUM-6-CORE-04: Kompetenznachweis LH26-E-ALG-005 und LH26-E-ALG-006; Produktnachweis sind lauffähiges Programm, Trace, Wirkungserklärung, Modifikation und Testfälle."
       ],
       "prerequisites": [
-        "Das vollständige Klasse-5-Algorithmusprodukt ist zum aktiven Abruf in IUM-6-CORE-04 verfügbar.",
+        "Das vollständige Algorithmusprodukt aus IUM-5-CORE-05 ist zum aktiven Abruf in IUM-6-CORE-04 verfügbar.",
         "Die Wiederaufnahme ersetzt weder die Klasse-6-Codeausführung noch Modifikation, Test und Revision."
       ],
-      "risk": "Ist das Klasse-5-Produkt nicht verfügbar oder fachlich unvollständig, würde eine angenommene Wiederaufnahme notwendige Aktivierungs- und Tracezeit verdecken.",
-      "fallback": "Scheitert die Wiederaufnahme, erhält IUM-6-CORE-04 45 Minuten eigenständige Aktivierungs-, Vorhersage- und Tracezeit; die Baseline steigt um 45 Minuten und das Jahrgangsurteil wird neu berechnet.",
+      "risk": "baseline: Ein fehlendes oder unvollständiges Klasse-5-Produkt verdeckt 45 Minuten notwendige Aktivierungs- und Tracezeit. regular: Bei 0 Minuten rechnerischer Einsparung bleibt das Risiko einer fachlich unvollständigen Wiederaufnahme bestehen.",
+      "fallback": "Scheitert die Wiederaufnahme, erhält IUM-6-CORE-04 eigenständige Aktivierungs-, Vorhersage- und Tracezeit. Pfadfolgen: baseline: +45 Minuten; regular: +0 Minuten. Das Jahrgangsurteil wird neu berechnet.",
       "status": "working"
     }
   ],

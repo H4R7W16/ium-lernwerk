@@ -356,8 +356,11 @@ class IUM10CapacityModelTests(unittest.TestCase):
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
         )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
 
-        validate_time_model_draft(time_model)
+        validate_time_model_draft(time_model, module_payload)
 
         self.assertEqual(
             set(time_model),
@@ -1637,25 +1640,112 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                     len(integration["preservedProductAndCurriculumEvidence"]),
                     2,
                 )
-                curriculum_evidence = " ".join(
-                    integration["preservedProductAndCurriculumEvidence"]
-                )
-                participant_competency_ids = {
-                    competency_id
-                    for module_id in integration["moduleIds"]
-                    for competency_id in contracts[module_id]["competencyIds"]
-                }
-                self.assertTrue(
-                    any(
-                        competency_id in curriculum_evidence
-                        for competency_id in participant_competency_ids
+                prerequisite_text = " ".join(integration["prerequisites"])
+                for module_id in integration["moduleIds"]:
+                    with self.subTest(
+                        integration_id=integration_id,
+                        module_id=module_id,
+                    ):
+                        learning_actions = [
+                            action
+                            for action in integration[
+                                "preservedLearningActions"
+                            ]
+                            if action.startswith(f"{module_id} ")
+                        ]
+                        evidence_records = [
+                            evidence
+                            for evidence in integration[
+                                "preservedProductAndCurriculumEvidence"
+                            ]
+                            if evidence.startswith(f"{module_id}: ")
+                        ]
+                        self.assertEqual(len(learning_actions), 1)
+                        self.assertEqual(len(evidence_records), 1)
+                        self.assertIn(
+                            "Kompetenznachweis",
+                            evidence_records[0],
+                        )
+                        self.assertIn(
+                            "Produktnachweis",
+                            evidence_records[0],
+                        )
+                        self.assertTrue(
+                            any(
+                                competency_id in evidence_records[0]
+                                for competency_id in contracts[module_id][
+                                    "competencyIds"
+                                ]
+                            )
+                        )
+                        self.assertIn(module_id, prerequisite_text)
+                for path_id, saved_minutes in expected[
+                    "savingsMinutesByPath"
+                ].items():
+                    self.assertIn(
+                        f"{path_id}: +{saved_minutes} Minuten",
+                        integration["fallback"],
                     )
-                )
+                    self.assertIn(
+                        f"{path_id}:",
+                        integration["risk"],
+                    )
                 self.assertIn(
                     f"{integration['sharedMinutes']} Minuten",
                     integration["fallback"],
                 )
                 self.assertIn("eigenständig", integration["fallback"].lower())
+
+    def test_rejects_grade_6_integration_when_participant_or_path_evidence_is_removed(self):
+        def remove_learning_action(integration):
+            del integration["preservedLearningActions"][0]
+
+        def remove_product_evidence(integration):
+            del integration["preservedProductAndCurriculumEvidence"][0]
+
+        def remove_concrete_prerequisites(integration):
+            integration["prerequisites"] = [
+                "Die Voraussetzungen werden vor der Integration allgemein geprüft."
+            ]
+
+        def remove_path_specific_fallback(integration):
+            integration["fallback"] = (
+                "Bei Problemen werden eigenständige Sequenzen bereitgestellt."
+            )
+
+        def remove_path_specific_risk(integration):
+            integration["risk"] = (
+                "Ein allgemeines Integrationsrisiko bleibt zu beobachten."
+            )
+
+        mutations = (
+            ("participant learning action", remove_learning_action),
+            ("participant product evidence", remove_product_evidence),
+            ("concrete prerequisites", remove_concrete_prerequisites),
+            ("path-specific fallback", remove_path_specific_fallback),
+            ("path-specific risk", remove_path_specific_risk),
+        )
+        for integration_id in EXPECTED_GRADE_6_INTEGRATIONS:
+            for label, mutate in mutations:
+                with self.subTest(
+                    integration_id=integration_id,
+                    removed=label,
+                ):
+                    adversarial_time_model = copy.deepcopy(self.time_model)
+                    integration = next(
+                        contract
+                        for contract in adversarial_time_model[
+                            "integrationContracts"
+                        ]
+                        if contract["id"] == integration_id
+                    )
+                    mutate(integration)
+
+                    with self.assertRaises(IUM10ValidationError):
+                        validate_time_model_draft(
+                            adversarial_time_model,
+                            self.grade_5_and_6_payload,
+                        )
 
     def test_repository_counts_each_grade_6_shared_allocation_only_in_its_counted_module(self):
         contracts, integrations, _ = self.validated_orchestration()
@@ -1809,14 +1899,52 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         }
 
         self.assertEqual(
-            {
-                variant_id: ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES[
-                    variant_id
-                ]
-                for variant_id in expected_overrides
-            },
+            ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES,
             expected_overrides,
         )
+
+    def test_rejects_stale_grade_6_variant_or_module_override_keys(self):
+        contracts = self.validated_grade_5_and_6_contracts()
+        integrations = validate_integration_contracts(
+            self.time_model["integrationContracts"],
+            contracts,
+        )
+        overrides = ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES
+        original_overrides = copy.deepcopy(overrides)
+
+        def add_stale_variant_override():
+            overrides["STALE-GRADE-6-OVERRIDE"] = {
+                "IUM-6-CORE-01": "regular",
+            }
+
+        def add_stale_module_override():
+            overrides["GRADE-6-EXTENDED-REFERENCE"][
+                "IUM-6-EXT-02"
+            ] = "standalone"
+
+        mutations = (
+            ("stale variant override", add_stale_variant_override),
+            ("stale module override", add_stale_module_override),
+        )
+        try:
+            for label, mutate in mutations:
+                with self.subTest(label=label):
+                    overrides.clear()
+                    overrides.update(copy.deepcopy(original_overrides))
+                    mutate()
+
+                    with self.assertRaisesRegex(
+                        IUM10ValidationError,
+                        "variant path override",
+                    ):
+                        validate_annual_variants(
+                            self.time_model["annualVariants"],
+                            contracts,
+                            integrations,
+                        )
+        finally:
+            overrides.clear()
+            overrides.update(original_overrides)
 
     def test_rejects_grade_6_flex_replacement_and_project_in_normal_variants(self):
         contracts, integrations, variants = self.validated_orchestration()
@@ -1891,7 +2019,10 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                     ]
 
     def test_repository_grade_6_judgement_is_green_but_semantic_and_pilot_statuses_stay_separate(self):
-        validate_time_model_draft(self.time_model)
+        validate_time_model_draft(
+            self.time_model,
+            self.grade_5_and_6_payload,
+        )
         judgements = [
             judgement
             for judgement in self.time_model["gradeJudgements"]
@@ -1951,11 +2082,11 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 records = adversarial_time_model[collection]
                 record = next(record for record in records if record["id"] == record_id)
                 record[field] = value
-                with self.assertRaisesRegex(
-                    IUM10ValidationError,
-                    "grade 6 green judgement",
-                ):
-                    validate_time_model_draft(adversarial_time_model)
+                with self.assertRaises(IUM10ValidationError):
+                    validate_time_model_draft(
+                        adversarial_time_model,
+                        self.grade_5_and_6_payload,
+                    )
 
         unjustified_amber = copy.deepcopy(self.time_model)
         next(
@@ -1967,7 +2098,113 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             IUM10ValidationError,
             "grade 6 green judgement",
         ):
-            validate_time_model_draft(unjustified_amber)
+            validate_time_model_draft(
+                unjustified_amber,
+                self.grade_5_and_6_payload,
+            )
+
+    def test_green_grade_6_judgement_runs_structural_and_exact_contract_validation(self):
+        def mutate_counted_module(time_model):
+            next(
+                integration
+                for integration in time_model["integrationContracts"]
+                if integration["id"] == "INT-6-ACTORS-SELECTION"
+            )["countedInModuleId"] = "IUM-6-CORE-03"
+
+        def mutate_module_pair(time_model):
+            next(
+                integration
+                for integration in time_model["integrationContracts"]
+                if integration["id"] == "INT-6-CONFLICT-PRODUCTION"
+            )["moduleIds"] = ["IUM-6-CORE-05", "IUM-6-CORE-07"]
+
+        def mutate_savings(time_model):
+            next(
+                integration
+                for integration in time_model["integrationContracts"]
+                if integration["id"] == "INT-6-ALGORITHM-REVISIT"
+            )["savingsMinutesByPath"]["baseline"] = 0
+
+        def mutate_variant_budget_path(time_model):
+            variant = next(
+                variant
+                for variant in time_model["annualVariants"]
+                if variant["id"] == "GRADE-6-EXTENDED-REFERENCE"
+            )
+            allocation = next(
+                allocation
+                for allocation in variant["allocations"]
+                if allocation["moduleId"] == "IUM-6-CORE-01"
+            )
+            allocation["budgetPathId"] = "baseline"
+
+        mutations = (
+            ("invalid counted module", mutate_counted_module),
+            ("invalid module pair", mutate_module_pair),
+            ("wrong exact savings", mutate_savings),
+            ("invalid variant budget path", mutate_variant_budget_path),
+        )
+        for label, mutate in mutations:
+            with self.subTest(label=label):
+                adversarial_time_model = copy.deepcopy(self.time_model)
+                mutate(adversarial_time_model)
+
+                with self.assertRaises(IUM10ValidationError):
+                    validate_time_model_draft(
+                        adversarial_time_model,
+                        self.grade_5_and_6_payload,
+                    )
+
+    def grade_6_amber_with_algorithm_bounds_residual(self, residual_evidence):
+        time_model = copy.deepcopy(self.time_model)
+        integration = next(
+            integration
+            for integration in time_model["integrationContracts"]
+            if integration["id"] == "INT-6-ALGORITHM-REVISIT"
+        )
+        integration["savingsMinutesByPath"]["baseline"] = 0
+        integration["fallback"] = integration["fallback"].replace(
+            "baseline: +45 Minuten",
+            "baseline: +0 Minuten",
+        )
+        judgement = next(
+            judgement
+            for judgement in time_model["gradeJudgements"]
+            if judgement["grade"] == 6
+        )
+        judgement["timeFeasibilityStatus"] = "amber"
+        judgement["rationale"] = "Das Zeiturteil ist wegen eines Restbefunds amber."
+        judgement["risk"] = residual_evidence
+        return time_model
+
+    def test_amber_grade_6_judgement_rejects_generic_or_id_only_residual_text(self):
+        invalid_residual_evidence = (
+            "Eine Integration hat einen Restbefund.",
+            "INT-6-ALGORITHM-REVISIT",
+        )
+        for residual_evidence in invalid_residual_evidence:
+            with self.subTest(residual_evidence=residual_evidence):
+                time_model = self.grade_6_amber_with_algorithm_bounds_residual(
+                    residual_evidence
+                )
+
+                with self.assertRaises(IUM10ValidationError):
+                    validate_time_model_draft(
+                        time_model,
+                        self.grade_5_and_6_payload,
+                    )
+
+    def test_amber_grade_6_judgement_accepts_exact_record_and_cause_evidence(self):
+        time_model = self.grade_6_amber_with_algorithm_bounds_residual(
+            "INT-6-ALGORITHM-REVISIT [contract-bounds-mismatch]"
+        )
+
+        result = validate_time_model_draft(
+            time_model,
+            self.grade_5_and_6_payload,
+        )
+
+        self.assertIs(result, time_model)
 
     def test_rejects_green_grade_6_judgement_with_duplicate_orchestration_records(self):
         duplicates = (
@@ -1985,11 +2222,67 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 )
                 adversarial_time_model[collection].append(copy.deepcopy(record))
 
-                with self.assertRaisesRegex(
-                    IUM10ValidationError,
-                    "grade 6 green judgement",
-                ):
-                    validate_time_model_draft(adversarial_time_model)
+                with self.assertRaises(IUM10ValidationError):
+                    validate_time_model_draft(
+                        adversarial_time_model,
+                        self.grade_5_and_6_payload,
+                    )
+
+    def test_rejects_green_grade_6_judgement_with_extra_flex_project_integration(self):
+        adversarial_time_model = copy.deepcopy(self.time_model)
+        integration_id = "INT-6-EXTRA-FLEX-PROJECT"
+        participant_ids = ("IUM-6-EXT-02", "IUM-6-PROJECT-01")
+        contracts = {
+            contract["moduleId"]: contract
+            for contract in adversarial_time_model["moduleContracts"]
+        }
+        for module_id in participant_ids:
+            contracts[module_id]["integrationContractIds"].append(
+                integration_id
+            )
+        counted_budget = contracts["IUM-6-PROJECT-01"]["pathBudgets"][0]
+        counted_budget["directMinutes"] -= 45
+        counted_budget["countedSharedMinutes"] += 45
+        counted_budget["sharedAllocations"].append(
+            {
+                "integrationContractId": integration_id,
+                "minutes": 45,
+            }
+        )
+        adversarial_time_model["integrationContracts"].append(
+            {
+                "id": integration_id,
+                "moduleIds": list(participant_ids),
+                "pathIds": ["standalone"],
+                "sharedPhaseOrProduct": (
+                    "Adversariale gemeinsame Flex-Projekt-Spur."
+                ),
+                "countedInModuleId": "IUM-6-PROJECT-01",
+                "sharedMinutes": 45,
+                "savingsMinutesByPath": {"standalone": 0},
+                "preservedLearningActions": [
+                    "Beide Module bearbeiten eine gemeinsame Spur."
+                ],
+                "preservedProductAndCurriculumEvidence": [
+                    "Ein gemeinsames Produkt bleibt sichtbar."
+                ],
+                "prerequisites": [
+                    "Beide Modulverträge liegen vor."
+                ],
+                "risk": "Die zusätzliche Integration ist nicht autorisiert.",
+                "fallback": "Beide Module arbeiten eigenständig.",
+                "status": "working",
+            }
+        )
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "grade 6 green judgement",
+        ):
+            validate_time_model_draft(
+                adversarial_time_model,
+                self.grade_5_and_6_payload,
+            )
 
     def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS) | set(

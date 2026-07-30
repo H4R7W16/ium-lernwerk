@@ -66,12 +66,90 @@ GRADE_6_INTEGRATION_IDS = frozenset(
         "INT-6-ALGORITHM-REVISIT",
     }
 )
+GRADE_6_INTEGRATION_BOUNDS = {
+    "INT-6-ACTORS-SELECTION": {
+        "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02"],
+        "pathIds": ["baseline", "regular"],
+        "countedInModuleId": "IUM-6-CORE-01",
+        "sharedMinutes": 90,
+        "savingsMinutesByPath": {"baseline": 90, "regular": 45},
+    },
+    "INT-6-CONFLICT-PRODUCTION": {
+        "moduleIds": ["IUM-6-CORE-06", "IUM-6-CORE-07"],
+        "pathIds": ["baseline", "regular"],
+        "countedInModuleId": "IUM-6-CORE-07",
+        "sharedMinutes": 90,
+        "savingsMinutesByPath": {"baseline": 90, "regular": 0},
+    },
+    "INT-6-ALGORITHM-REVISIT": {
+        "moduleIds": ["IUM-5-CORE-05", "IUM-6-CORE-04"],
+        "pathIds": ["baseline", "regular"],
+        "countedInModuleId": "IUM-6-CORE-04",
+        "sharedMinutes": 45,
+        "savingsMinutesByPath": {"baseline": 45, "regular": 0},
+    },
+}
 GRADE_6_VARIANT_TARGETS = {
     "GRADE-6-BASELINE": ("baseline", 30),
     "GRADE-6-REGULAR": ("regular", 34),
     "GRADE-6-EXTENDED-REFERENCE": ("extended", 38),
     "GRADE-6-EXTENDED-TRANSFER": ("extended", 38),
     "GRADE-6-EXTENDED-CODING": ("extended", 38),
+}
+_GRADE_6_BASELINE_ALLOCATIONS = {
+    "IUM-6-CORE-01": ("baseline", 5),
+    "IUM-6-CORE-02": ("baseline", 4),
+    "IUM-6-CORE-03": ("baseline", 4),
+    "IUM-6-CORE-04": ("baseline", 4),
+    "IUM-6-CORE-05": ("baseline", 4),
+    "IUM-6-CORE-06": ("baseline", 4),
+    "IUM-6-CORE-07": ("baseline", 5),
+}
+_GRADE_6_REGULAR_ALLOCATIONS = {
+    "IUM-6-CORE-01": ("regular", 6),
+    "IUM-6-CORE-02": ("regular", 5),
+    "IUM-6-CORE-03": ("regular", 4),
+    "IUM-6-CORE-04": ("regular", 5),
+    "IUM-6-CORE-05": ("regular", 4),
+    "IUM-6-CORE-06": ("regular", 4),
+    "IUM-6-CORE-07": ("regular", 6),
+}
+GRADE_6_VARIANT_BOUNDS = {
+    "GRADE-6-BASELINE": {
+        "allocations": _GRADE_6_BASELINE_ALLOCATIONS,
+        "integrationContractIds": GRADE_6_INTEGRATION_IDS,
+    },
+    "GRADE-6-REGULAR": {
+        "allocations": _GRADE_6_REGULAR_ALLOCATIONS,
+        "integrationContractIds": GRADE_6_INTEGRATION_IDS,
+    },
+    "GRADE-6-EXTENDED-REFERENCE": {
+        "allocations": {
+            **_GRADE_6_REGULAR_ALLOCATIONS,
+            "IUM-6-EXT-01": ("standalone", 4),
+        },
+        "integrationContractIds": GRADE_6_INTEGRATION_IDS,
+    },
+    "GRADE-6-EXTENDED-TRANSFER": {
+        "allocations": {
+            **_GRADE_6_REGULAR_ALLOCATIONS,
+            "IUM-6-TRANSFER-01": ("standalone", 4),
+        },
+        "integrationContractIds": GRADE_6_INTEGRATION_IDS,
+    },
+    "GRADE-6-EXTENDED-CODING": {
+        "allocations": {
+            **_GRADE_6_REGULAR_ALLOCATIONS,
+            "IUM-6-CORE-04": ("targeted-extension", 6),
+            "IUM-6-EXT-02": ("standalone", 3),
+        },
+        "integrationContractIds": frozenset(
+            {
+                "INT-6-ACTORS-SELECTION",
+                "INT-6-CONFLICT-PRODUCTION",
+            }
+        ),
+    },
 }
 _GRADE_6_REGULAR_CORE_OVERRIDES = {
     module_id: "regular" for module_id in GRADE_6_CORE_MODULE_IDS
@@ -128,65 +206,76 @@ def _canonical_sha256(value):
     return hashlib.sha256(encoded).hexdigest()
 
 
-def _validate_grade_6_judgement(time_model):
-    module_contracts = time_model.get("moduleContracts")
-    integration_contracts = time_model.get("integrationContracts")
-    annual_variants = time_model.get("annualVariants")
-    grade_judgements = time_model.get("gradeJudgements")
-    _require(
-        isinstance(module_contracts, list)
-        and isinstance(integration_contracts, list)
-        and isinstance(annual_variants, list)
-        and isinstance(grade_judgements, list),
-        "grade 6 orchestration collections must be lists",
+def _has_grade_6_orchestration(time_model):
+    integration_contracts = time_model.get("integrationContracts", [])
+    annual_variants = time_model.get("annualVariants", [])
+    grade_judgements = time_model.get("gradeJudgements", [])
+    return (
+        any(
+            isinstance(contract, dict)
+            and (
+                contract.get("id") in GRADE_6_INTEGRATION_IDS
+                or any(
+                    module_id in GRADE_6_CORE_MODULE_IDS
+                    for module_id in contract.get("moduleIds", [])
+                    if isinstance(module_id, str)
+                )
+            )
+            for contract in integration_contracts
+        )
+        or any(
+            isinstance(variant, dict) and variant.get("grade") == 6
+            for variant in annual_variants
+        )
+        or any(
+            isinstance(judgement, dict) and judgement.get("grade") == 6
+            for judgement in grade_judgements
+        )
     )
 
-    grade_6_module_contract_records = [
-        contract
-        for contract in module_contracts
-        if isinstance(contract, dict) and contract.get("grade") == 6
-    ]
+
+def _validate_grade_6_judgement(
+    time_model,
+    module_contracts,
+    integration_contracts,
+    annual_variants,
+):
+    grade_judgements = time_model.get("gradeJudgements")
+    _require(
+        isinstance(module_contracts, dict)
+        and isinstance(integration_contracts, dict)
+        and isinstance(annual_variants, dict)
+        and isinstance(grade_judgements, list),
+        "validated grade 6 orchestration indices and judgements are required",
+    )
+
     grade_6_module_contracts = {
-        contract.get("moduleId"): contract
-        for contract in grade_6_module_contract_records
+        module_id: contract
+        for module_id, contract in module_contracts.items()
+        if contract.get("grade") == 6
     }
-    grade_6_integration_records = [
-        contract
-        for contract in integration_contracts
-        if isinstance(contract, dict)
-        and (
-            contract.get("id") in GRADE_6_INTEGRATION_IDS
+    grade_6_integrations = {
+        integration_id: contract
+        for integration_id, contract in integration_contracts.items()
+        if (
+            integration_id in GRADE_6_INTEGRATION_IDS
             or any(
-                module_id in GRADE_6_CORE_MODULE_IDS
+                module_contracts.get(module_id, {}).get("grade") == 6
                 for module_id in contract.get("moduleIds", [])
                 if isinstance(module_id, str)
             )
         )
-    ]
-    grade_6_integrations = {
-        contract.get("id"): contract
-        for contract in grade_6_integration_records
     }
-    grade_6_variant_records = [
-        variant
-        for variant in annual_variants
-        if isinstance(variant, dict) and variant.get("grade") == 6
-    ]
     grade_6_variants = {
-        variant.get("id"): variant
-        for variant in grade_6_variant_records
+        variant_id: variant
+        for variant_id, variant in annual_variants.items()
+        if variant.get("grade") == 6
     }
     grade_6_judgements = [
         judgement
         for judgement in grade_judgements
         if isinstance(judgement, dict) and judgement.get("grade") == 6
     ]
-    orchestration_present = bool(
-        grade_6_integrations or grade_6_variants or grade_6_judgements
-    )
-    if not orchestration_present:
-        return
-
     _require(
         len(grade_6_judgements) == 1,
         "grade 6 orchestration needs exactly one judgement",
@@ -234,56 +323,89 @@ def _validate_grade_6_judgement(time_model):
         "grade 6 judgement decision options must be nonempty and unique",
     )
 
-    residual_markers = []
-    if (
-        not GRADE_6_CORE_MODULE_IDS <= set(grade_6_module_contracts)
-        or len(grade_6_module_contracts) != 11
-        or len(grade_6_module_contract_records)
-        != len(grade_6_module_contracts)
-    ):
-        residual_markers.append("module contracts")
-    for module_id, module_contract in grade_6_module_contracts.items():
-        if module_contract.get("status") not in {"working", "reviewed"}:
-            residual_markers.append(module_id)
-    if (
-        set(grade_6_integrations) != set(GRADE_6_INTEGRATION_IDS)
-        or len(grade_6_integration_records) != len(grade_6_integrations)
-    ):
-        residual_markers.append("integration")
-    for integration_id in GRADE_6_INTEGRATION_IDS:
-        integration = grade_6_integrations.get(integration_id)
-        if not isinstance(integration, dict) or integration.get("status") not in {
-            "working",
-            "reviewed",
-        }:
-            residual_markers.append(integration_id)
+    residuals = set()
+    expected_grade_6_module_ids = GRADE_6_CORE_MODULE_IDS | {
+        "IUM-6-EXT-01",
+        "IUM-6-EXT-02",
+        "IUM-6-TRANSFER-01",
+        "IUM-6-PROJECT-01",
+    }
+    actual_grade_6_module_ids = set(grade_6_module_contracts)
+    for module_id in expected_grade_6_module_ids - actual_grade_6_module_ids:
+        residuals.add((module_id, "missing-record"))
+    for module_id in actual_grade_6_module_ids - expected_grade_6_module_ids:
+        residuals.add((module_id, "unexpected-record"))
 
-    if (
-        set(grade_6_variants) != set(GRADE_6_VARIANT_TARGETS)
-        or len(grade_6_variant_records) != len(grade_6_variants)
+    actual_grade_6_integration_ids = set(grade_6_integrations)
+    expected_grade_6_integration_ids = set(GRADE_6_INTEGRATION_IDS)
+    for integration_id in (
+        expected_grade_6_integration_ids - actual_grade_6_integration_ids
     ):
-        residual_markers.append("30/34/38")
+        residuals.add((integration_id, "missing-record"))
+    for integration_id in (
+        actual_grade_6_integration_ids - expected_grade_6_integration_ids
+    ):
+        residuals.add((integration_id, "unexpected-record"))
+    for integration_id, expected_bounds in GRADE_6_INTEGRATION_BOUNDS.items():
+        integration = grade_6_integrations.get(integration_id)
+        if not isinstance(integration, dict):
+            continue
+        actual_bounds = (
+            {
+                field: integration.get(field)
+                for field in expected_bounds
+            }
+        )
+        if actual_bounds != expected_bounds:
+            residuals.add((integration_id, "contract-bounds-mismatch"))
+        if integration.get("status") not in {"working", "reviewed"}:
+            residuals.add((integration_id, "status-not-ready"))
+
+    actual_grade_6_variant_ids = set(grade_6_variants)
+    expected_grade_6_variant_ids = set(GRADE_6_VARIANT_TARGETS)
+    for variant_id in expected_grade_6_variant_ids - actual_grade_6_variant_ids:
+        residuals.add((variant_id, "missing-record"))
+    for variant_id in actual_grade_6_variant_ids - expected_grade_6_variant_ids:
+        residuals.add((variant_id, "unexpected-record"))
     for variant_id, (path_id, target_units) in GRADE_6_VARIANT_TARGETS.items():
         variant = grade_6_variants.get(variant_id)
+        if not isinstance(variant, dict):
+            continue
+        expected_bounds = GRADE_6_VARIANT_BOUNDS[variant_id]
+        actual_allocations = {
+            allocation["moduleId"]: (
+                allocation["budgetPathId"],
+                allocation["units"],
+            )
+            for allocation in variant.get("allocations", [])
+        }
         if (
-            not isinstance(variant, dict)
-            or variant.get("pathId") != path_id
+            variant.get("pathId") != path_id
             or variant.get("targetUnits") != target_units
-            or variant.get("available") is not True
-            or variant.get("status") not in {"working", "reviewed"}
+            or actual_allocations != expected_bounds["allocations"]
+            or set(variant.get("integrationContractIds", []))
+            != set(expected_bounds["integrationContractIds"])
         ):
-            residual_markers.append(variant_id)
+            residuals.add((variant_id, "contract-bounds-mismatch"))
+        if variant.get("available") is not True:
+            residuals.add((variant_id, "unavailable"))
+        if variant.get("status") not in {"working", "reviewed"}:
+            residuals.add((variant_id, "status-not-ready"))
 
-    ready_for_green = not residual_markers
+    ready_for_green = not residuals
     _require(
         (judgement["timeFeasibilityStatus"] == "green") == ready_for_green,
         "grade 6 green judgement requires exact 30/34/38 variants and passing integrations",
     )
     if not ready_for_green:
         residual_text = f"{judgement['rationale']} {judgement['risk']}"
+        required_evidence = {
+            f"{record_id} [{cause_code}]"
+            for record_id, cause_code in residuals
+        }
         _require(
-            any(marker in residual_text for marker in residual_markers),
-            "grade 6 amber judgement must name a concrete residual finding",
+            all(evidence in residual_text for evidence in required_evidence),
+            "grade 6 amber judgement must name every residual record ID and cause",
         )
 
 
@@ -325,8 +447,8 @@ def time_handoff_fingerprint(remediation_payload):
     )
 
 
-def validate_time_model_draft(time_model):
-    """Validate the top-level schema version required by the IUM10 draft."""
+def validate_time_model_draft(time_model, module_payload=None):
+    """Validate the draft and its available module-time orchestration."""
     _require(isinstance(time_model, dict), "time model draft must be an object")
     schema_version = time_model.get("schemaVersion")
     _require(
@@ -335,7 +457,49 @@ def validate_time_model_draft(time_model):
         and schema_version == 1,
         "schema version must be the integer 1",
     )
-    _validate_grade_6_judgement(time_model)
+    if _has_grade_6_orchestration(time_model):
+        _require(
+            isinstance(module_payload, dict)
+            and isinstance(module_payload.get("modules"), list),
+            "grade 6 draft validation requires the module graph payload",
+        )
+        module_contract_records = time_model.get("moduleContracts")
+        _require(
+            isinstance(module_contract_records, list),
+            "module contracts must be a list",
+        )
+        contracted_grades = {
+            contract.get("grade")
+            for contract in module_contract_records
+            if isinstance(contract, dict) and _positive_int(contract.get("grade"))
+        }
+        scoped_module_payload = {
+            "modules": [
+                module
+                for module in module_payload["modules"]
+                if isinstance(module, dict)
+                and module.get("grade") in contracted_grades
+            ]
+        }
+        validated_module_contracts = validate_module_contracts(
+            module_contract_records,
+            scoped_module_payload,
+        )
+        validated_integration_contracts = validate_integration_contracts(
+            time_model.get("integrationContracts"),
+            validated_module_contracts,
+        )
+        validated_annual_variants = validate_annual_variants(
+            time_model.get("annualVariants"),
+            validated_module_contracts,
+            validated_integration_contracts,
+        )
+        _validate_grade_6_judgement(
+            time_model,
+            validated_module_contracts,
+            validated_integration_contracts,
+            validated_annual_variants,
+        )
     return time_model
 
 
@@ -942,6 +1106,58 @@ def validate_integration_contracts(integration_contracts, module_contracts):
                 _nonempty_string_list(contract[field]) and contract[field],
                 f"integration {field} must be nonempty and unique: {contract_id}",
             )
+        if contract_id in GRADE_6_INTEGRATION_IDS:
+            prerequisite_text = " ".join(contract["prerequisites"])
+            for module_id in module_ids:
+                participant_actions = [
+                    action
+                    for action in contract["preservedLearningActions"]
+                    if action.startswith(f"{module_id} ")
+                ]
+                _require(
+                    len(participant_actions) == 1,
+                    "grade 6 integration needs exactly one explicit learning action "
+                    f"for participant {module_id}: {contract_id}",
+                )
+                participant_evidence = [
+                    evidence
+                    for evidence in contract[
+                        "preservedProductAndCurriculumEvidence"
+                    ]
+                    if evidence.startswith(f"{module_id}: ")
+                ]
+                competency_ids = module_contracts[module_id].get(
+                    "competencyIds",
+                    [],
+                )
+                _require(
+                    len(participant_evidence) == 1
+                    and "Kompetenznachweis" in participant_evidence[0]
+                    and "Produktnachweis" in participant_evidence[0]
+                    and any(
+                        competency_id in participant_evidence[0]
+                        for competency_id in competency_ids
+                    ),
+                    "grade 6 integration needs participant-specific competency "
+                    f"and product evidence for {module_id}: {contract_id}",
+                )
+                _require(
+                    module_id in prerequisite_text,
+                    "grade 6 integration prerequisites must name every participant: "
+                    f"{contract_id}/{module_id}",
+                )
+            for path_id in path_ids:
+                _require(
+                    f"{path_id}: +{savings[path_id]} Minuten"
+                    in contract["fallback"],
+                    "grade 6 integration fallback must name each path consequence: "
+                    f"{contract_id}/{path_id}",
+                )
+                _require(
+                    f"{path_id}:" in contract["risk"],
+                    "grade 6 integration risk must distinguish each path: "
+                    f"{contract_id}/{path_id}",
+                )
         _require(
             contract["status"] in {"working", "reviewed", "failed"},
             f"invalid integration status: {contract_id}",
@@ -1051,6 +1267,7 @@ def validate_annual_variants(
     }
     allocation_fields = {"moduleId", "budgetPathId", "units"}
     variants_by_id = {}
+    actual_budget_path_overrides_by_variant = {}
     for variant in annual_variants:
         _require(isinstance(variant, dict), "annual variant must be an object")
         _require(
@@ -1199,6 +1416,23 @@ def validate_annual_variants(
             allocation_module_ids.add(module_id)
             selected_budget_path_ids[module_id] = budget_path_id
             allocated_units += units
+        actual_budget_path_overrides = {
+            module_id: budget_path_id
+            for module_id, budget_path_id in selected_budget_path_ids.items()
+            if budget_path_id != variant["pathId"]
+        }
+        registered_budget_path_overrides = (
+            ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES.get(variant_id, {})
+        )
+        _require(
+            registered_budget_path_overrides == actual_budget_path_overrides,
+            "annual variant path override differs from actual allocation deviations: "
+            f"{variant_id}",
+        )
+        if actual_budget_path_overrides:
+            actual_budget_path_overrides_by_variant[variant_id] = (
+                actual_budget_path_overrides
+            )
         _require(
             allocated_units == variant["targetUnits"],
             f"annual allocation sum differs from target units: {variant_id}",
@@ -1294,6 +1528,13 @@ def validate_annual_variants(
             f"available annual variant uses a failed integration: {variant_id}",
         )
         variants_by_id[variant_id] = variant
+
+    if set(GRADE_6_VARIANT_TARGETS) <= set(variants_by_id):
+        _require(
+            ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES
+            == actual_budget_path_overrides_by_variant,
+            "annual variant path override registry differs from actual allocation deviations",
+        )
 
     return variants_by_id
 
