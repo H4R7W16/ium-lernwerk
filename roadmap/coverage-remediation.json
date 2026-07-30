@@ -881,10 +881,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die Daten- und Objektbeziehungsansicht lässt im selben Programmfall die fachliche Beziehung Eingabe → Variable → Ausdrucksergebnis → Ausgabe erkennen und erläutern. Quellen, gespeicherter Wert, berechnetes Ergebnis und ausgegebene Darstellung werden als Abhängigkeiten erklärt und nicht mit einer bloßen Zuweisung oder einem Variablenwert gleichgesetzt.",
+      "changeRationale": "Die Daten- und Objektbeziehungsansicht enthält im selben Programmfall einen gerichteten und beschrifteten Datenabhängigkeitsgraphen. Unterscheidbare Knoten repräsentieren Eingabedatum, Variablenzustände vor und nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt; gerichtete Kanten mit „liest“, „schreibt“ und „hängt ab von“ modellieren Beziehungen statt bloß zeitlicher Verarbeitung. Mindestens eine Abhängigkeit und ihre Änderungsfolge werden erläutert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Die ausdrückliche Erklärung der Datenbeziehung ergänzt eine eigene Erklärungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden."
+        "rationale": "Der beschriftete Datenabhängigkeitsgraph ergänzt eine eigene Modellierungs- und Erklärungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. Zusätzliche Modulzeit wird nicht behauptet, weil derselbe Programmfall und dasselbe grafische Werkzeug verwendet werden."
       },
       "graphImpact": {
         "level": "none",
@@ -966,10 +966,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die Übergabe- und Rückgabeansicht identifiziert bei gegebenen Anweisungen und gegebenen Ausdrücken sowohl Übergabe als auch Rückgabe von Werten. Quelle, Ziel, Eingabe und Ergebnis werden getrennt zugeordnet und bleiben von Variable und Datentyp unterscheidbar.",
+      "changeRationale": "Die Übergabe- und Rückgabeansicht identifiziert bei gegebenen Anweisungen und Ausdrücken den konkreten semantischen Wertfluss: von Quelle oder innerem Ausdruck zu konsumierendem Operanden, Parameter oder Ziel sowie vom ausgewerteten Ausdrucksergebnis zu äußerem Ausdruck oder Anweisung. Quelle, ausgewertetes Ergebnis, Empfänger und anschließende Verwendung bleiben getrennt. Eine Anweisung ohne definierten Ergebniswert liefert keinen Rückgabewert; ohne vorhandene Funktion wird keine Funktionsrückgabe unterstellt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Die explizite Quellen-/Zielzuordnung für Anweisungen und Ausdrücke ergänzt eine eigenständige Identifikationsspur; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden."
+        "rationale": "Die präzise Übergabe-/Ergebniswertzuordnung für Anweisungen und Ausdrücke ergänzt eine eigenständige Identifikationsspur; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. Zusätzliche Modulzeit wird nicht behauptet, weil derselbe Programmfall und dieselbe Traceansicht verwendet werden."
       },
       "graphImpact": {
         "level": "none",

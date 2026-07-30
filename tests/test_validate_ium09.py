@@ -789,14 +789,6 @@ class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
             modelling["productEvidence"],
         )
 
-        relationship = self.contracts["INF7-16-GYM-PK-SV-003"]
-        for term in (
-            "Daten- und Objektbeziehung",
-            "Eingabe → Variable → Ausdrucksergebnis → Ausgabe",
-            "erkennen und erläutern",
-        ):
-            self.assertIn(term, relationship["learningAction"])
-
         building_blocks = self.contracts["LH26-E-ALG-007"]
         for term in (
             "Anweisung",
@@ -810,18 +802,6 @@ class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
             self.assertIn(term, building_blocks["learningAction"])
             self.assertIn(term, building_blocks["productEvidence"])
 
-        transfer = self.contracts["LH26-E-ALG-008"]
-        for term in (
-            "gegebenen Anweisungen und gegebenen Ausdrücken",
-            "Übergabe und Rückgabe",
-            "Quelle",
-            "Ziel",
-            "Eingabe",
-            "Ergebnis",
-        ):
-            self.assertIn(term, transfer["learningAction"])
-            self.assertIn(term, transfer["productEvidence"])
-
         data_types = self.contracts["LH26-E-ALG-009"]
         for term in (
             "Zeichenkette",
@@ -831,6 +811,69 @@ class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
         ):
             self.assertIn(term, data_types["learningAction"])
             self.assertIn(term, data_types["productEvidence"])
+
+    def test_sv003_requires_a_labelled_dependency_graph_not_a_linear_trace_chain(self):
+        relationship = self.contracts["INF7-16-GYM-PK-SV-003"]
+        for field in ("learningAction", "productEvidence"):
+            with self.subTest(field=field):
+                self.assertNotIn(
+                    "Eingabe → Variable → Ausdrucksergebnis → Ausgabe",
+                    relationship[field],
+                )
+
+        for term in (
+            "gerichteten und beschrifteten Datenabhängigkeitsgraphen",
+            "Eingabedatum",
+            "Variablenzustand vor der Anweisung",
+            "Variablenzustand nach der Anweisung",
+            "Ausdrucksergebnis",
+            "Ausgabeobjekt",
+            "mindestens eine Abhängigkeit",
+            "Änderungsfolge",
+            "Beziehungen statt einer bloß zeitlichen Verarbeitung",
+        ):
+            self.assertIn(term, relationship["learningAction"])
+
+        for edge_label in ("liest", "schreibt", "hängt ab von"):
+            self.assertIn(edge_label, relationship["learningAction"])
+            self.assertIn(edge_label, relationship["productEvidence"])
+        self.assertIn("gerichtete Kanten", relationship["productEvidence"])
+        self.assertIn(
+            "Bedeutung der Abhängigkeit und Änderungsfolge",
+            relationship["productEvidence"],
+        )
+
+    def test_alg008_distinguishes_expression_results_from_statements_without_returns(self):
+        transfer = self.contracts["LH26-E-ALG-008"]
+        for term in (
+            "Übergabe und Rückgabe von Werten",
+            "von seiner Quelle oder aus einem inneren Ausdruck",
+            "konsumierenden Operanden, Parameter oder Ziel",
+            "ausgewerteter Ausdruck liefert seinen Ergebniswert",
+            "konsumierenden äußeren Ausdruck oder eine Anweisung",
+            "Anweisung ohne definierten Ergebniswert liefert keinen Rückgabewert",
+            "keine Funktionsrückgabe unterstellt",
+        ):
+            self.assertIn(term, transfer["learningAction"])
+
+        for term in (
+            "Quelle, konsumierenden Operand/Parameter/Ziel, ausgewertetes "
+            "Ergebnis und Empfänger",
+            "kein Rückgabewert",
+            "Funktionsrückgabe wird nicht behauptet",
+        ):
+            self.assertIn(term, transfer["productEvidence"])
+
+        self.assertNotIn(
+            "Übergabe und Rückgabe von Werten identifizieren und jeweils "
+            "Quelle, Ziel, Eingabe und Ergebnis eindeutig zuordnen",
+            transfer["learningAction"],
+        )
+        self.assertNotIn(
+            "Übergabe und Rückgabe sowie Quelle, Ziel, Eingabe und Ergebnis "
+            "getrennt aus",
+            transfer["productEvidence"],
+        )
 
 
 class Core08RepositoryOrchestrationTests(unittest.TestCase):
