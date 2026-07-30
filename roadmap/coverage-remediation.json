@@ -164,26 +164,22 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der private Evidenzvertrag trägt beide persönlichen Teilanforderungen vollständig: Das Mediennutzungsprotokoll beschreibt die persönliche Motivation in mindestens zwei eigenen Nutzungssituationen und bewertet die eigene Nutzung begründet mit altersbezogenen Kriterien; weder die private Produktspur noch die Anschlussaufgabe verlangt Offenlegung.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft, ob zwei persönliche Nutzungssituationen, altersbezogene Kriterien und die davon getrennte fiktive Kriterienanwendung innerhalb des 4–6-Stunden-Korridors tragfähig sind."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Motivationsbeschreibung und altersbezogene Bewertung vertiefen die bereits angelegte private Selbstreflexion in IUM-5-CORE-07 und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-002",
@@ -195,26 +191,22 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die fallbezogene Nutzen-Risiko-Matrix weist positive Aspekte, Risiken oder Gefahren ausdrücklich für übermäßigen Mediengebrauch, ihre kriterien- und beleggestützte Bewertung sowie passende präventive Maßnahmen gemeinsam nach und erfüllt damit Operatoren und Gegenstände vollständig.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf für Erläuterung, Bewertung und Präventionsbezug der dichten Nutzen-Risiko-Fallarbeit innerhalb des 4–6-Stunden-Korridors."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die vollständige Nutzen-Risiko-Bewertung konkretisiert die zentrale Falluntersuchung von Faszination, Konflikten und Medienwirkungen und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-003",
@@ -226,26 +218,22 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die private Wirkungsvergleichstabelle untersucht mindestens zwei Medienbeispiele, enthält ausdrücklich die eigenen Empfindungen zu jedem Beispiel und leitet aus dem Vergleich eine erste bedingte Gesetzmäßigkeit ab; die neue nichtpersonale Prüfung nutzt ausschließlich bereitgestellte Reaktionsdaten.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf für zwei Beispieluntersuchungen, private Empfindungsäußerung, Ableitung und unabhängige Revision einer Wirkungsaussage im bestehenden Stundenkorridor."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Beispielvergleich und bedingte Wirkungsaussage vertiefen die zentrale Untersuchung möglicher Medienwirkungen in IUM-5-CORE-07 und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-PP-002",
@@ -319,26 +307,22 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die private Vergleichsmatrix knüpft an eigene Erfahrungen an, beschreibt das eigene Nutzungsverhalten in mindestens zwei Situationen und vergleicht es anhand gemeinsamer Kriterien untereinander sowie mit einem vollständig vorgegebenen fiktiven Profil; die nichtpersonale Anschlussaufgabe vergleicht ausschließlich fiktive Profile.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft, ob Beschreibung, kriteriengeleiteter Mehrfachvergleich und unabhängiger Falltransfer innerhalb des bereits verdichteten 4–6-Stunden-Moduls tragfähig sind."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Der eigenerfahrungsbezogene Vergleich konkretisiert die bereits angelegte private Nutzungsreflexion und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-002",
@@ -350,26 +334,22 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die private Lebenswelt-Medien-Karte stellt konkrete Einflüsse digitaler Medien auf eigene Lebensbereiche dar und setzt Wirklichkeit und Medienwirklichkeit durch begründete Entsprechungen und Unterschiede in Beziehung; die Anschlussaufgabe wiederholt beide Operatoren an einem vollständig vorgegebenen fiktiven Lebensweltfall.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf für private Lebensweltdarstellung, begründete Wirklichkeitsbeziehung und unabhängigen fiktiven Falltransfer im 4–6-Stunden-Korridor."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Lebensweltbezug und Wirklichkeitsvergleich vertiefen die zentrale Untersuchung von Wahrnehmung und Medienwirkung und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-003",
@@ -381,26 +361,22 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die private Fallvergleichstabelle verlangt für mindestens zwei fiktive mediale Selbstdarstellungen eine Folgenabschätzung für dargestellte Person, Beteiligte und Publikum sowie ein begründetes Urteil anhand vorgegebener Kriterien; die Anschlussaufgabe funktioniert vollständig an einem neuen fiktiven Fall.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf für mehrperspektivische kurz- und längerfristige Folgenabschätzung, Kriterienurteil und unabhängigen Falltransfer im bestehenden Stundenkorridor."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Folgenbewertung fiktiver Selbstdarstellung ist eine fachlich passende Fallvertiefung der zentralen Medienwirkungsfrage und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-004",
@@ -1367,19 +1343,19 @@
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Eine private Notiz kann Faszination, Konflikte und Probleme der eigenen Mediennutzung beschreiben, erfüllt aber den Operator „diskutieren“ nicht. Eine Diskussion mit Lehrkraft oder Lerngruppe würde den privaten Inhalt direkt oder indirekt offenlegen; eine ausschließlich nichtpersonale Falldiskussion verlöre dagegen den geforderten Bezug zur eigenen Mediennutzung.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft, ob und wo eine datenschutzkonforme curriculare Verortung möglich ist; IUM09 behauptet für den persönlichen Diskussionsoperator weder Zeitbedarf noch Schließung."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Der Record bleibt dem bestehenden Mediennutzungsmodul zugeordnet; die offene Lücke wird nicht durch eine neue Voraussetzung oder Strukturbehauptung verdeckt."
       },
       "residualGap": {
-        "reason": "Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert.",
-        "followUp": "Kernkandidat IUM-5-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert. Danach den Record erneut operator- und produktgenau auditieren."
+        "reason": "Der geforderte Operator „diskutieren“ bezieht sich ausdrücklich auf Faszination, Konflikte und Probleme der eigenen Mediennutzung. Eine private lokale Beschreibung ist keine Diskussion; eine beobachtbare Diskussion würde persönliche Nutzung offenlegen, während eine nichtpersonale Falldiskussion den eigenen Bezug nicht erfüllt.",
+        "risk": "Eine formale Schließung über Gespräch, Lehrkraftbeobachtung oder Abgabe würde sensible persönliche Nutzungsinhalte direkt oder indirekt erheben; eine Schließung nur über fiktive Fälle würde den curricular verlangten eigenen Bezug unterschlagen.",
+        "followUp": "Im Curriculum- und Datenschutzreview klären, ob eine freiwillige, nicht bewertete und nicht als Abdeckungsnachweis verwendete Gesprächsgelegenheit pädagogisch angeboten werden soll; bis zu einer normativ und datenschutzfachlich tragfähigen Lösung bleibt der Record ohne Evidenzvertrag partial."
       }
     },
     {

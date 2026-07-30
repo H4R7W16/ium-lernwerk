@@ -85,6 +85,13 @@ AUDITED_DECISIONS = {
     "LH26-E-PROG-002": ("IUM-5-CORE-05", "roadmap-level", "remain-partial"),
     "LH26-E-PROG-003": ("IUM-7-CORE-08", "roadmap-level", "remain-partial"),
     "LH26-E-PROG-004": ("IUM-7-CORE-08", "roadmap-level", "remain-partial"),
+    "BMB16-GYM-IK-MG-001": ("IUM-5-CORE-07", "private-local", "covered"),
+    "BMB16-GYM-IK-MG-002": ("IUM-5-CORE-07", "module-detail", "covered"),
+    "BMB16-GYM-IK-MG-003": ("IUM-5-CORE-07", "private-local", "covered"),
+    "BMB16-GYM-PK-RK-001": ("IUM-5-CORE-07", "private-local", "covered"),
+    "BMB16-GYM-PK-RK-002": ("IUM-5-CORE-07", "private-local", "covered"),
+    "BMB16-GYM-PK-RK-003": ("IUM-5-CORE-07", "private-local", "covered"),
+    "LH26-E-DP-003": ("IUM-5-CORE-07", "private-local", "remain-partial"),
 }
 
 
@@ -110,6 +117,45 @@ def curriculum_contracts():
         "BMB16-GYM-IK-GM-001": {"text": "Konkrete Kompetenz."},
         "BMB16-GYM-IK-GM-002": {"text": "Zweite Kompetenz."},
         "BMB16-GYM-IK-GM-003": {"text": "Dritte Kompetenz."},
+        "BMB16-GYM-IK-MG-001": {
+            "text": (
+                "die persönliche Motivation bezüglich des eigenen "
+                "Medienverhaltens beschreiben und die eigene Nutzung ihrem "
+                "Alter entsprechend bewerten"
+            )
+        },
+        "BMB16-GYM-IK-MG-002": {
+            "text": (
+                "die positiven Aspekte der Mediennutzung, aber auch die "
+                "Risiken und Gefahren des (übermäßigen) Mediengebrauchs "
+                "erläutern, bewerten und präventive Maßnahmen benennen"
+            )
+        },
+        "BMB16-GYM-IK-MG-003": {
+            "text": (
+                "die Wirkung von Medien an Beispielen untersuchen, ihre "
+                "Empfindungen dazu äußern und erste Gesetzmäßigkeiten ableiten"
+            )
+        },
+        "BMB16-GYM-PK-RK-001": {
+            "text": (
+                "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten "
+                "beschreiben und vergleichen"
+            )
+        },
+        "BMB16-GYM-PK-RK-002": {
+            "text": (
+                "den Einfluss der digitalen Medien auf ihre Lebenswelt "
+                "darstellen und Wirklichkeit mit Medienwirklichkeit in "
+                "Beziehung setzen"
+            )
+        },
+        "BMB16-GYM-PK-RK-003": {
+            "text": (
+                "Auswirkungen der medialen Selbstdarstellung abschätzen und "
+                "in Grundzügen bewerten"
+            )
+        },
     }
 
 
@@ -181,6 +227,12 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
                 "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-002",
                 "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-003",
+                "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
+                "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
+                "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
+                "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
+                "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
+                "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-003",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
