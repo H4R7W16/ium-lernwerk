@@ -1114,26 +1114,22 @@
         "evidenceModuleId": "IUM-6-CORE-07",
         "reason": "Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-009",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Eine Mikrogeschichte ist als verpflichtendes kreatives Textprodukt in das bestehende offen nachnutzbare Medienprodukt integriert; eigenes Gestaltungs- und Wirkungsziel, Wirkungsfeedback, Soll-Ist-Abgleich und begründete Textrevision machen Erstellen und Auseinandersetzung mit der Wirkung sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Kreativtext, vorgelagertes Gestaltungsziel, Wirkungsfeedback und begründete Textrevision vertiefen die bestehende Produktion; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Mikrogeschichte wird in das vorhandene Wirkungs-, Rechte- und Revisionsprodukt integriert und benötigt keine neue Modulvoraussetzung."
       },
-      "residualGap": {
-        "reason": "Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest.",
-        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-010",
@@ -1145,26 +1141,22 @@
         "evidenceModuleId": "IUM-6-CORE-07",
         "reason": "Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-010",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Lernende arbeiten an einem vorhandenen, vorgegebenen und kuratierten Medienprodukt Zielgruppe und intendierte Wirkung anhand konkreter Inhalts- und Formbelege heraus und trennen beobachtbaren Befund von begründeter Inferenz; der optionale Transfer in das eigene Produkt ersetzt diese Analyse nicht.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die eigenständige Wirkungsabsichtsanalyse eines vorhandenen Produkts ergänzt das Wirkungsbriefing um einen anspruchsvollen Analyseschritt; IUM10 muss die Verdichtung im unveränderten Zeitkorridor prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Analyse des vorhandenen Produkts dient als kriterienbildender Schritt im bestehenden Wirkungsbriefing und benötigt keine neue Modulvoraussetzung."
       },
-      "residualGap": {
-        "reason": "Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet.",
-        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-012",
@@ -1176,26 +1168,22 @@
         "evidenceModuleId": "IUM-6-CORE-07",
         "reason": "Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-012",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Bei der tatsächlichen Erstellung und Gestaltung werden mindestens drei konkrete Bedienkonzepte angewandt; der schlanke Arbeits- und Revisionsnachweis ordnet mehrere Operationen ihren sichtbaren Produktänderungen zu, ohne Bildschirmaufzeichnung oder Interaktionsvollprotokoll zu verlangen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die explizite Anwendung mehrerer Bedienkonzepte und ihre Operation-zu-Änderung-Spur erzeugen reale Produktionstiefe; IUM10 muss den Zeitbedarf im unveränderten Korridor prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Bedienhandlungen werden direkt in die vorhandene Produktrevision integriert und benötigen keine neue Modulvoraussetzung."
       },
-      "residualGap": {
-        "reason": "Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht.",
-        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-015",
@@ -1207,26 +1195,22 @@
         "evidenceModuleId": "IUM-6-CORE-07",
         "reason": "Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-015",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Audit schließt die Lücke nur unter einem echten lokalen Gate: Mindestens zwei vor Ort verfügbare, schulisch freigegebene und datenschutzkonforme Teilwege werden vor Modulfreigabe benannt und mit demselben neutralen Produkt tatsächlich zum Bereitstellen oder Teilen und Abrufen oder Öffnen genutzt; die beobachtbare Spur speichert nur Weg, Operation und Zugriffsumfang.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Zwei tatsächliche lokale Teilwege mit Bereitstellen oder Teilen und Abrufen oder Öffnen benötigen schulische Konfiguration und Unterrichtszeit; IUM10 muss ihre Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die beiden lokalen Teilwege schließen an Export, Produktfreigabe und vorhandene schulische Arbeitswege im bestehenden Modul an; das harte lokale Konfigurationsgate ersetzt keine neue Modulvoraussetzung."
       },
-      "residualGap": {
-        "reason": "Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen.",
-        "followUp": "Kernkandidat IUM-6-CORE-07 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DP-001",

@@ -849,6 +849,42 @@
       "mediumRationale": "Digitale Produktion ist Gegenstand und Handlung: Versionen, Quellenmetadaten, Lizenzhinweise, Export und Feedbackrevision müssen am tatsächlichen Artefakt geprüft werden.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-009",
+          "competencyId": "LH26-E-DA-009",
+          "mode": "module-detail",
+          "learningAction": "Im selben Analyse-, Produktions- und Revisionsprozess eine Mikrogeschichte als verpflichtendes kreatives Textprodukt innerhalb des offen nachnutzbaren Medienprodukts erstellen: ein eigenes Gestaltungs- und Wirkungsziel vorab festlegen, ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte verwenden, die Textfassung gestalten, sichtbares Wirkungsfeedback einholen, sich mit der Wirkung auseinandersetzen, indem dieses Feedback in einem Soll-Ist-Abgleich ausgewertet wird, und die Mikrogeschichte begründet revidieren.",
+          "productEvidence": "Die Kreativtextspur desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte belegt: vorgelagertes eigenes Gestaltungs- und Wirkungsziel, Version 1, ein sichtbarer Feedbackbefund zur Wirkung, der Soll-Ist-Abgleich und die begründete Textrevision von Version 1 zu Version 2; dokumentiert werden ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte und deren Nachweise.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-010",
+          "competencyId": "LH26-E-DA-010",
+          "mode": "module-detail",
+          "learningAction": "An einem vorhandenen, vorgegebenen und kuratierten Medienprodukt dessen Wirkungsabsicht herausarbeiten: Zielgruppe und intendierte Wirkung bestimmen, jeweils konkrete Inhalts- und Formbelege anführen und jeden beobachtbaren Befund von begründeter Inferenz unterscheiden. Die Analyse bildet einen eigenen Schritt im bestehenden Wirkungsbriefing; ein anschließender Transfer in die eigene Gestaltung ist optional und ersetzt die Analyse nicht.",
+          "productEvidence": "Die separate Analyse- und Wirkungsabsichtsspur im Wirkungsbriefing desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte dokumentiert Zielgruppe, intendierte Wirkung und konkrete Inhalts- und Formbelege des vorgegebenen Produkts; sie hält Befund und begründete Inferenz getrennt fest. Transfer in das eigene Produkt ist optional und ersetzt die Analyse nicht. Die Produktionsanteile verwenden ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-012",
+          "competencyId": "LH26-E-DA-012",
+          "mode": "module-detail",
+          "learningAction": "Im selben Produktions- und Revisionsprozess bei der tatsächlichen Erstellung und Gestaltung mindestens drei unterscheidbare Bedienkonzepte anwenden: Auswählen → Eigenschaften ändern, direkte Manipulation, eine Wahl über Menü, Werkzeugleiste oder Tastaturbefehl sowie Rückgängig, Wiederholen oder Version werden jeweils an einer beabsichtigten Änderung des Medienprodukts ausgeführt. Dabei werden ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte bearbeitet.",
+          "productEvidence": "Der Arbeits- und Revisionsnachweis desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte ordnet mehrere tatsächlich angewandte Bedienkonzepte jeweils als Operation → Produktänderung zu und verweist auf die zugehörige sichtbare Revision. Er benötigt keine Bildschirmaufzeichnung oder Interaktionsvollprotokoll und hält keine vollständige Bedienhistorie fest.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-015",
+          "competencyId": "LH26-E-DA-015",
+          "mode": "school-context",
+          "learningAction": "Im selben lokalen Teilprozess mindestens zwei verschiedene Teilwege tatsächlich nutzen, um dasselbe neutrale, fiktive oder personenbezugsfreie Produkt mit anderen zu teilen: Weg A ist berechtigungsgesteuertes Teilen in einer freigegebenen schulischen Ablage oder Kollaboration; Weg B ist Dateiexport und Weitergabe über einen zweiten freigegebenen Kursraum oder Transferweg. Das Produkt auf beiden Wegen bereitstellen oder teilen und abrufen oder öffnen; verwendet werden ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte.",
+          "productEvidence": "Die lehrkraftbeobachtbare lokale Ausführungsspur desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte dokumentiert mindestens zwei Teilwegspuren A und B. Pro Weg werden ausschließlich Wegbezeichnung, ausgeführte Operation und Empfängerkreis oder Zugriffsumfang festgehalten; keine Zugangsdaten, privaten Links, Inhaltsprotokolle oder öffentlichen Schülerkonten werden erfasst. Die Spur bestätigt für beide Wege das tatsächliche Bereitstellen oder Teilen und Abrufen oder Öffnen desselben neutralen, fiktiven oder personenbezugsfreien Produkts.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Als lokales Gate werden vor der Modulfreigabe beide verschiedenen Teilwege A und B vor Ort verfügbar, schulisch freigegeben und datenschutzkonform benannt und im Modul tatsächlich benutzt: A ist eine berechtigungsgesteuerte schulische Ablage oder Kollaboration, B ein zweiter freigegebener Kursraum oder Transferweg. Die Konfiguration ermöglicht Bereitstellen oder Teilen und Abrufen oder Öffnen ohne Zugangsdaten, private Links, Inhaltsprotokolle oder öffentliche Schülerkonten zu erfassen."
+        }
+      ],
       "status": "working"
     },
     {

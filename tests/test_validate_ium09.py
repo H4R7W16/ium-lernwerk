@@ -89,6 +89,17 @@ CORE6_CORE06_PRIVACY_BOUNDARY = (
     "keine persönliche Konfliktoffenlegung, keine reale Betroffenheit und "
     "keine realen Namen, Konten, Nachrichten oder Screenshots"
 )
+CORE6_CORE07_COMMON_PRODUCT = (
+    "desselben offen nachnutzbaren Medienprodukts mit integrierter "
+    "Mikrogeschichte"
+)
+CORE6_CORE07_RIGHTS_BOUNDARY = (
+    "ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte"
+)
+CORE6_CORE07_LOCAL_PRIVACY_BOUNDARY = (
+    "keine Zugangsdaten, privaten Links, Inhaltsprotokolle oder öffentlichen "
+    "Schülerkonten"
+)
 CORE7_CORE03_TRACE_PRODUCT = (
     "sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen "
     "Code-, Ablauf- und Zustandstraceprodukts"
@@ -222,6 +233,10 @@ AUDITED_DECISIONS = {
     "LH26-E-DP-006": ("IUM-6-CORE-02", "module-detail", "covered"),
     "LH26-E-KS-014": ("IUM-6-CORE-06", "module-detail", "covered"),
     "LH26-E-KS-015": ("IUM-6-CORE-06", "module-detail", "covered"),
+    "LH26-E-DA-009": ("IUM-6-CORE-07", "module-detail", "covered"),
+    "LH26-E-DA-010": ("IUM-6-CORE-07", "module-detail", "covered"),
+    "LH26-E-DA-012": ("IUM-6-CORE-07", "module-detail", "covered"),
+    "LH26-E-DA-015": ("IUM-6-CORE-07", "school-context", "covered"),
 }
 
 
@@ -449,6 +464,28 @@ def curriculum_contracts():
                 "ausgrenzendes oder verletzendes Verhalten nennen"
             )
         },
+        "LH26-E-DA-009": {
+            "text": (
+                "kreative Textprodukte unter Berücksichtigung eigener "
+                "Gestaltungsziele erstellen und sich mit der Wirkung "
+                "auseinandersetzen"
+            )
+        },
+        "LH26-E-DA-010": {
+            "text": "die Wirkungsabsicht von Medienprodukten herausarbeiten"
+        },
+        "LH26-E-DA-012": {
+            "text": (
+                "bei der Erstellung und Gestaltung von Medienprodukten "
+                "Bedienkonzepte anwenden"
+            )
+        },
+        "LH26-E-DA-015": {
+            "text": (
+                "verschiedene Wege nutzen, um ein Medienprodukt mit anderen "
+                "zu teilen"
+            )
+        },
     }
 
 
@@ -552,6 +589,10 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-6-CORE-02-LH26-E-DP-006",
                 "CE-IUM-6-CORE-06-LH26-E-KS-014",
                 "CE-IUM-6-CORE-06-LH26-E-KS-015",
+                "CE-IUM-6-CORE-07-LH26-E-DA-009",
+                "CE-IUM-6-CORE-07-LH26-E-DA-010",
+                "CE-IUM-6-CORE-07-LH26-E-DA-012",
+                "CE-IUM-6-CORE-07-LH26-E-DA-015",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -1280,6 +1321,164 @@ class Core6Core06RepositoryOrchestrationTests(unittest.TestCase):
                 self.assertNotIn("private Reflexionsnotiz", combined)
                 self.assertNotIn("eigene Konflikterfahrung", combined)
                 self.assertNotIn("generischer Konfliktplan", combined)
+
+
+class Core6Core07RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-6-CORE-07"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_four_separate_contracts_share_one_existing_process_without_restructuring(self):
+        self.assertEqual(
+            set(self.contracts),
+            {
+                "LH26-E-DA-009",
+                "LH26-E-DA-010",
+                "LH26-E-DA-012",
+                "LH26-E-DA-015",
+            },
+        )
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-5-CORE-06", "IUM-6-CORE-01"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 6, "max": 9})
+        for contract in self.contracts.values():
+            with self.subTest(competency_id=contract["competencyId"]):
+                self.assertIn(
+                    CORE6_CORE07_COMMON_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE6_CORE07_RIGHTS_BOUNDARY,
+                    contract["learningAction"] + " " + contract["productEvidence"],
+                )
+
+    def test_da009_requires_creative_text_goal_effect_feedback_and_text_revision(self):
+        self.assertIn("LH26-E-DA-009", self.contracts)
+        contract = self.contracts["LH26-E-DA-009"]
+        self.assertEqual(contract["mode"], "module-detail")
+        self.assertEqual(contract["productVisibility"], "shared")
+        for term in (
+            "Mikrogeschichte als verpflichtendes kreatives Textprodukt",
+            "eigenes Gestaltungs- und Wirkungsziel vorab festlegen",
+            "sich mit der Wirkung auseinandersetzen",
+            "sichtbares Wirkungsfeedback",
+            "Soll-Ist-Abgleich",
+            "begründet revidieren",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            "vorgelagertes eigenes Gestaltungs- und Wirkungsziel",
+            "sichtbarer Feedbackbefund zur Wirkung",
+            "Soll-Ist-Abgleich",
+            "begründete Textrevision von Version 1 zu Version 2",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertNotIn("generisches Medienprodukt", contract["productEvidence"])
+
+    def test_da010_analyzes_intention_of_existing_curated_product(self):
+        self.assertIn("LH26-E-DA-010", self.contracts)
+        contract = self.contracts["LH26-E-DA-010"]
+        self.assertEqual(contract["mode"], "module-detail")
+        self.assertEqual(contract["productVisibility"], "shared")
+        for term in (
+            "vorhandenen, vorgegebenen und kuratierten Medienprodukt",
+            "dessen Wirkungsabsicht herausarbeiten",
+            "Zielgruppe",
+            "intendierte Wirkung",
+            "konkrete Inhalts- und Formbelege",
+            "beobachtbaren Befund",
+            "begründeter Inferenz",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            "separate Analyse- und Wirkungsabsichtsspur",
+            "Befund und begründete Inferenz getrennt",
+            "Transfer in das eigene Produkt ist optional",
+            "ersetzt die Analyse nicht",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_da012_applies_multiple_concrete_operation_to_change_concepts(self):
+        self.assertIn("LH26-E-DA-012", self.contracts)
+        contract = self.contracts["LH26-E-DA-012"]
+        self.assertEqual(contract["mode"], "module-detail")
+        self.assertEqual(contract["productVisibility"], "teacher-observable")
+        for term in (
+            "bei der tatsächlichen Erstellung und Gestaltung",
+            "mindestens drei",
+            "Auswählen → Eigenschaften ändern",
+            "direkte Manipulation",
+            "Menü, Werkzeugleiste oder Tastaturbefehl",
+            "Rückgängig, Wiederholen oder Version",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            "Arbeits- und Revisionsnachweis",
+            "Operation → Produktänderung",
+            "mehrere tatsächlich angewandte Bedienkonzepte",
+            "keine Bildschirmaufzeichnung oder Interaktionsvollprotokoll",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+        self.assertNotIn("Tool benutzt", contract["productEvidence"])
+
+    def test_da015_uses_at_least_two_local_approved_privacy_safe_sharing_paths(self):
+        self.assertIn("LH26-E-DA-015", self.contracts)
+        contract = self.contracts["LH26-E-DA-015"]
+        self.assertEqual(contract["mode"], "school-context")
+        self.assertEqual(contract["productVisibility"], "teacher-observable")
+        self.assertEqual(contract["executionType"], "actual-local-use")
+        for term in (
+            "mindestens zwei verschiedene Teilwege tatsächlich nutzen",
+            "berechtigungsgesteuertes Teilen in einer freigegebenen "
+            "schulischen Ablage oder Kollaboration",
+            "Dateiexport und Weitergabe über einen zweiten freigegebenen "
+            "Kursraum oder Transferweg",
+            "dasselbe neutrale, fiktive oder personenbezugsfreie Produkt",
+            "auf beiden Wegen bereitstellen oder teilen und abrufen oder öffnen",
+        ):
+            self.assertIn(term, contract["learningAction"])
+        for term in (
+            "mindestens zwei Teilwegspuren A und B",
+            "Wegbezeichnung",
+            "ausgeführte Operation",
+            "Empfängerkreis oder Zugriffsumfang",
+            CORE6_CORE07_LOCAL_PRIVACY_BOUNDARY,
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_da015_local_gate_names_both_paths_before_release(self):
+        self.assertIn("LH26-E-DA-015", self.contracts)
+        contract = self.contracts["LH26-E-DA-015"]
+        local_gate = contract["localConfigurationRequirement"]
+        for term in (
+            "vor der Modulfreigabe",
+            "beide verschiedenen Teilwege A und B",
+            "vor Ort verfügbar",
+            "schulisch freigegeben",
+            "datenschutzkonform",
+            "im Modul tatsächlich benutzt",
+            "berechtigungsgesteuerte schulische Ablage oder Kollaboration",
+            "zweiter freigegebener Kursraum oder Transferweg",
+        ):
+            self.assertIn(term, local_gate)
+        self.assertIn(
+            CORE6_CORE07_LOCAL_PRIVACY_BOUNDARY,
+            contract["productEvidence"] + " " + local_gate,
+        )
 
 
 class Core05RepositoryOrchestrationTests(unittest.TestCase):
