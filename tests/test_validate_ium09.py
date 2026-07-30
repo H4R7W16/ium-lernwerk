@@ -2949,7 +2949,12 @@ class RemediationLedgerTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM09ValidationError, "baseline module"):
             self.validate(
                 payload,
-                {contract_id: {"competencyId": entry["competencyId"]}},
+                {
+                    contract_id: {
+                        "competencyId": entry["competencyId"],
+                        "mode": entry["causeClass"],
+                    }
+                },
             )
 
     def test_validator_rejects_roadmap_level_departures(self):
@@ -2971,7 +2976,12 @@ class RemediationLedgerTests(unittest.TestCase):
                         "residualGap": None,
                     }
                 ),
-                {"CE-IUM-5-CORE-01-LH26-E-PROG-001": {"competencyId": "LH26-E-PROG-001"}},
+                {
+                    "CE-IUM-5-CORE-01-LH26-E-PROG-001": {
+                        "competencyId": "LH26-E-PROG-001",
+                        "mode": "roadmap-level",
+                    }
+                },
                 "roadmap-level",
             ),
             "contract": (
@@ -3268,6 +3278,81 @@ class RemediatedCoverageTests(unittest.TestCase):
         module_payload = copy.deepcopy(self.module_payload)
         module_payload["modules"][0]["grade"] = 6
         with self.assertRaisesRegex(IUM09ValidationError, "module structure fingerprint"):
+            validate_ium09(
+                module_payload,
+                self.coverage_payload,
+                self.remediation_payload,
+                self.curriculum_contracts,
+            )
+
+    def test_orchestrator_rejects_private_local_contract_reclassified_as_module_detail(self):
+        competency_id = "LH26-E-DP-014"
+        module_payload = copy.deepcopy(self.module_payload)
+        contract = next(
+            contract
+            for module in module_payload["modules"]
+            for contract in module.get("coverageEvidence", [])
+            if contract["competencyId"] == competency_id
+        )
+        contract["mode"] = "module-detail"
+        contract["productVisibility"] = "teacher-observable"
+        del contract["privacyBoundary"]
+        del contract["nonPersonalFollowUp"]
+
+        with self.assertRaisesRegex(
+            IUM09ValidationError,
+            f"evidence mode differs from cause class: {competency_id}",
+        ):
+            validate_ium09(
+                module_payload,
+                self.coverage_payload,
+                self.remediation_payload,
+                self.curriculum_contracts,
+            )
+
+    def test_orchestrator_rejects_school_context_contract_reclassified_as_module_detail(self):
+        competency_id = "INF7-16-GYM-PK-SV-001"
+        module_payload = copy.deepcopy(self.module_payload)
+        contract = next(
+            contract
+            for module in module_payload["modules"]
+            for contract in module.get("coverageEvidence", [])
+            if contract["competencyId"] == competency_id
+        )
+        contract["mode"] = "module-detail"
+        del contract["executionType"]
+        del contract["localConfigurationRequirement"]
+
+        with self.assertRaisesRegex(
+            IUM09ValidationError,
+            f"evidence mode differs from cause class: {competency_id}",
+        ):
+            validate_ium09(
+                module_payload,
+                self.coverage_payload,
+                self.remediation_payload,
+                self.curriculum_contracts,
+            )
+
+    def test_orchestrator_rejects_module_detail_contract_reclassified_as_school_context(self):
+        competency_id = "BMB16-GYM-IK-GM-001"
+        module_payload = copy.deepcopy(self.module_payload)
+        contract = next(
+            contract
+            for module in module_payload["modules"]
+            for contract in module.get("coverageEvidence", [])
+            if contract["competencyId"] == competency_id
+        )
+        contract["mode"] = "school-context"
+        contract["executionType"] = "actual-local-use"
+        contract["localConfigurationRequirement"] = (
+            "Vorab freigegebene lokale Konfiguration."
+        )
+
+        with self.assertRaisesRegex(
+            IUM09ValidationError,
+            f"evidence mode differs from cause class: {competency_id}",
+        ):
             validate_ium09(
                 module_payload,
                 self.coverage_payload,

@@ -407,6 +407,10 @@ def validate_remediation_ledger(
             _require(contract_id in evidence_contracts, f"unknown evidence contract: {competency_id}")
             contract = evidence_contracts[contract_id]
             _require(
+                contract["mode"] == entry["causeClass"],
+                f"evidence mode differs from cause class: {competency_id}",
+            )
+            _require(
                 contract["competencyId"] == competency_id,
                 f"evidence contract has wrong competency: {competency_id}",
             )
