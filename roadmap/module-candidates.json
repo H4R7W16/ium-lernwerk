@@ -1060,6 +1060,50 @@
       "centralQuestion": "Wie entsteht ein begründetes Urteil, wenn Akteure Einfluss nehmen, Daten anfallen und Belege widersprüchlich sind?",
       "centralLearningAction": "Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen bewerten, auf einer vorhandenen Infrastruktur kommunizieren, geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen und das gemeinsame Urteil mit Unsicherheit revidieren.",
       "centralLearningProduct": "Geteiltes Evidenz- und Entscheidungsdossier mit begründeter Werkzeugwahl, Kommunikationsspur, Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und gemeinsam revidiertem Standpunkt.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-IK-IGD-006",
+          "competencyId": "INF7-16-GYM-IK-IGD-006",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Datenanfall und Speicherung“ desselben geteilten Evidenz- und Entscheidungsdossiers am kuratierten alltagsrelevanten Dienstfall den Sachverhalt der permanent anfallenden personenbezogenen Daten bei der Dienstnutzung und ihrer Speicherung als Datenfolge erläutern sowie konkreten Nutzen und konkrete Risiken nennen.",
+          "productEvidence": "Klar benannter Abschnitt „Datenanfall und Speicherung“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und hält die Erklärung des permanenten Datenanfalls und der Speicherung am alltagsrelevanten Dienstfall sowie Nutzen und Risiken fest.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-005",
+          "competencyId": "INF7-16-GYM-PK-AB-005",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Auswirkungen und Perspektiven“ desselben geteilten Evidenz- und Entscheidungsdossiers die Auswirkungen der im Dienst- und Falschmeldungsfall eingesetzten Computersysteme auf Gesellschaft, Berufswelt und persönliches Lebensumfeld kriterien- und beleggestützt aus den benannten Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit bewerten und das Urteil gemeinsam revidieren.",
+          "productEvidence": "Klar benannter Abschnitt „Auswirkungen und Perspektiven“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und dokumentiert für Gesellschaft, Berufswelt und persönliches Lebensumfeld die Urteile aus den Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
+          "competencyId": "INF7-16-GYM-PK-AB-006",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Eigene ethische Position“ desselben geteilten Evidenz- und Entscheidungsdossiers zu der ausgewiesenen ethischen Informatikfrage, ob ein digitaler Dienst personenbezogene Daten zur Auswahl und Reichweitensteuerung verwenden darf, eine eigene Position einnehmen, sie mit Kriterien und Belegen begründen, ein Gegenargument prüfen und die Position argumentativ vertreten sowie revidieren.",
+          "productEvidence": "Klar benannter individueller Abschnitt „Eigene ethische Position“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und enthält zur ausgewiesenen ethischen Informatikfrage die eigene Position, Kriterien, Belege, ein geprüftes Gegenargument und die begründete Revision.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
+          "competencyId": "INF7-16-GYM-PK-KK-006",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Vielfalt in datenbasierten Systemen“ desselben geteilten Evidenz- und Entscheidungsdossiers Toleranz und Akzeptanz von Vielfalt an der konkreten informatischen Fragestellung diskutieren, wie datenbasierte Systeme unterschiedliche Lebenslagen und Identitäten in Datenerhebung, Kategorisierung und Ausspielung berücksichtigen oder benachteiligen; dazu aus mehreren benannten Perspektiven argumentieren und ein revidiertes Ergebnis festhalten.",
+          "productEvidence": "Klar benannter Abschnitt „Vielfalt in datenbasierten Systemen“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und dokumentiert zur konkreten informatischen Fragestellung Argumente aus mehreren benannten Perspektiven sowie ein revidiertes Ergebnis zu Toleranz und Akzeptanz von Vielfalt.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-LH26-E-DP-013",
+          "competencyId": "LH26-E-DP-013",
+          "mode": "private-local",
+          "learningAction": "Sich mit dem vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall im digitalen Raum anhand von Behauptung, manipulativer Absicht, Akteursdaten, Belegen, Gegenbelegen, Kriterien und Revision auseinandersetzen und anschließend den eigenen Umgang damit in einer privaten lokalen Reflexionsnotiz konkret reflektieren.",
+          "productEvidence": "Eine private lokale Reflexionsnotiz zum vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall mit konkreter Reflexion des eigenen Umgangs anhand von Belegprüfung, Unsicherheit und möglicher privater Revision; die Notiz verbleibt ausschließlich bei der lernenden Person.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Als klar benannter Abschnitt „Falschmeldungsfall und Revision“ desselben geteilten Evidenz- und Entscheidungsdossiers den vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall anhand von Behauptung und manipulativer Absicht prüfen; der Abschnitt verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision, funktioniert ohne Kenntnis der privaten Notiz und verlangt keine persönliche Handlungsoption als Abgabe."
+        }
+      ],
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",

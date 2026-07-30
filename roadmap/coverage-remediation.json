@@ -605,26 +605,22 @@
         "evidenceModuleId": "IUM-7-CORE-08",
         "reason": "Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-IK-IGD-006",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Abschnitt „Datenanfall und Speicherung“ des vorhandenen geteilten Evidenz- und Entscheidungsdossiers erklärt am kuratierten alltagsrelevanten Dienstfall sowohl das permanente Anfallen als auch die Speicherung personenbezogener Daten und nennt konkreten Nutzen sowie konkrete Risiken. Er bleibt durch dieselben Fälle, Akteursdaten, Belege, Kriterien und die gemeinsame Revision in die zentrale Modulhandlung integriert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die explizite Erklärung von Datenanfall, Speicherung, Nutzen und Risiken verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Der Record nutzt dieselben kuratierten Fälle und dieselbe Dossierrevision im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt.",
-        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-002",
@@ -667,26 +663,22 @@
         "evidenceModuleId": "IUM-7-CORE-08",
         "reason": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-005",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Abschnitt „Auswirkungen und Perspektiven“ desselben geteilten Evidenz- und Entscheidungsdossiers bewertet Auswirkungen der behandelten Computersysteme ausdrücklich auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus den benannten Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit. Kriterien, Belege, Gegenbelege und gemeinsame Revision machen das Urteil sichtbar, ohne ein Zusatzprodukt zu erzeugen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die vollständige Perspektiven- und Bereichsbreite verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Bewertung verwendet dieselben Fälle, Akteursdaten, Belege und Kriterien im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet.",
-        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-006",
@@ -698,26 +690,22 @@
         "evidenceModuleId": "IUM-7-CORE-08",
         "reason": "Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der individuelle Abschnitt „Eigene ethische Position“ desselben geteilten Evidenz- und Entscheidungsdossiers verlangt zu der ausgewiesenen ethischen Informatikfrage der datenbasierten Auswahl und Reichweitensteuerung eine eigene Position, die mit Kriterien und Belegen begründet, gegen ein Gegenargument geprüft, argumentativ vertreten und revidiert wird. Damit ist nicht nur ein Gruppenstandpunkt sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die individuelle ethische Argumentation mit Gegenargument und Revision verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Position nutzt dieselben Fälle, Akteursdaten, Belege und Kriterien im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt.",
-        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-KK-002",
@@ -760,26 +748,22 @@
         "evidenceModuleId": "IUM-7-CORE-08",
         "reason": "Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Abschnitt „Vielfalt in datenbasierten Systemen“ desselben geteilten Evidenz- und Entscheidungsdossiers diskutiert Toleranz und Akzeptanz von Vielfalt an der konkreten informatischen Frage, wie Datenerhebung, Kategorisierung und Ausspielung unterschiedliche Lebenslagen und Identitäten berücksichtigen oder benachteiligen. Mehrere benannte Perspektiven und ein revidiertes Ergebnis machen die Diskussion sichtbar; ein allgemeiner Sozialappell genügt nicht.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die konkrete informatische Vielfaltsdiskussion mit mehreren Perspektiven und Revision verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Diskussion verwendet dieselben Fälle, Akteursdaten, Belege und Kriterien im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert.",
-        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-PK-MI-003",
@@ -1434,26 +1418,22 @@
         "evidenceModuleId": "IUM-7-CORE-08",
         "reason": "Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-LH26-E-DP-013",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die Auseinandersetzung findet sichtbar am vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall statt; nur die konkrete Reflexion des eigenen Umgangs liegt in einer privaten lokalen Notiz. Der nichtpersonale Anschluss bleibt ein Abschnitt desselben geteilten Evidenz- und Entscheidungsdossiers, funktioniert ohne Kenntnis der privaten Notiz und verlangt keine persönliche Handlungsoption als Abgabe.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die private Reflexion und ihr unabhängiger nichtpersonaler Anschluss verdichten die bestehende Fallarbeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Privatnotiz und nichtpersonaler Anschluss verwenden den vollständig vorgegebenen Fall im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar.",
-        "followUp": "Kernkandidat IUM-7-CORE-08 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DP-014",

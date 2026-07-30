@@ -28,6 +28,14 @@ MG001_CRITERIA = (
     "Kriterienbasis: vollständig vorgegebener, im nichtpersonalen Auftrag "
     "enthaltener altersbezogener Kriterienkatalog."
 )
+CORE08_SHARED_DOSSIER = "desselben geteilten Evidenz- und Entscheidungsdossiers"
+CORE08_COMMON_MATERIAL = (
+    "dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, "
+    "Belege, Gegenbelege, Kriterien und die gemeinsame Revision"
+)
+CORE08_FALSE_INFORMATION_CASE = (
+    "vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall"
+)
 
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
@@ -102,6 +110,19 @@ AUDITED_DECISIONS = {
         "IUM-5-CORE-07", "private-local", "remain-partial"
     ),
     "LH26-E-DP-003": ("IUM-5-CORE-07", "private-local", "remain-partial"),
+    "INF7-16-GYM-IK-IGD-006": (
+        "IUM-7-CORE-08", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-AB-005": (
+        "IUM-7-CORE-08", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-AB-006": (
+        "IUM-7-CORE-08", "module-detail", "covered"
+    ),
+    "INF7-16-GYM-PK-KK-006": (
+        "IUM-7-CORE-08", "module-detail", "covered"
+    ),
+    "LH26-E-DP-013": ("IUM-7-CORE-08", "private-local", "covered"),
 }
 
 
@@ -164,6 +185,41 @@ def curriculum_contracts():
             "text": (
                 "Auswirkungen der medialen Selbstdarstellung abschätzen und "
                 "in Grundzügen bewerten"
+            )
+        },
+        "INF7-16-GYM-IK-IGD-006": {
+            "text": (
+                "den Sachverhalt der permanent anfallenden personenbezogenen "
+                "Daten bei der Nutzung von Diensten und deren Speicherung an "
+                "alltagsrelevanten Beispielen erläutern und dabei sowohl "
+                "Nutzen als auch Risiken nennen"
+            )
+        },
+        "INF7-16-GYM-PK-AB-005": {
+            "text": (
+                "Auswirkungen von Computersystemen auf Gesellschaft, "
+                "Berufswelt und persönliches Lebensumfeld aus verschiedenen "
+                "Perspektiven bewerten"
+            )
+        },
+        "INF7-16-GYM-PK-AB-006": {
+            "text": (
+                "im Zusammenhang mit einer digitalisierten Gesellschaft einen "
+                "eigenen Standpunkt zu ethischen Fragen in der Informatik "
+                "einnehmen und ihn argumentativ vertreten"
+            )
+        },
+        "INF7-16-GYM-PK-KK-006": {
+            "text": (
+                "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext "
+                "informatischer Fragestellungen diskutieren"
+            )
+        },
+        "LH26-E-DP-013": {
+            "text": (
+                "sich mit in manipulativer Absicht verbreiteten "
+                "Falschmeldungen im digitalen Raum auseinandersetzen und den "
+                "eigenen Umgang damit reflektieren"
             )
         },
     }
@@ -242,6 +298,11 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
                 "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
                 "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
+                "CE-IUM-7-CORE-08-INF7-16-GYM-IK-IGD-006",
+                "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-005",
+                "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
+                "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
+                "CE-IUM-7-CORE-08-LH26-E-DP-013",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -376,6 +437,108 @@ class Core07RepositoryOrchestrationTests(unittest.TestCase):
         for field in ("learningAction", "productEvidence", "nonPersonalFollowUp"):
             with self.subTest(mg001_field=field):
                 self.assertIn(MG001_CRITERIA, mg001[field])
+
+
+class Core08RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-7-CORE-08"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_core_08_orchestrates_five_records_in_one_dossier(self):
+        visible_ids = {
+            "INF7-16-GYM-IK-IGD-006",
+            "INF7-16-GYM-PK-AB-005",
+            "INF7-16-GYM-PK-AB-006",
+            "INF7-16-GYM-PK-KK-006",
+        }
+        private_id = "LH26-E-DP-013"
+        self.assertEqual(set(self.contracts), visible_ids | {private_id})
+
+        for competency_id in visible_ids:
+            with self.subTest(competency_id=competency_id):
+                product = self.contracts[competency_id]["productEvidence"]
+                self.assertIn(CORE08_SHARED_DOSSIER, product)
+                self.assertIn(CORE08_COMMON_MATERIAL, product)
+
+        igd006 = self.contracts["INF7-16-GYM-IK-IGD-006"]
+        for term in (
+            "permanent anfallenden",
+            "Speicherung",
+            "alltagsrelevanten Dienstfall",
+            "Nutzen",
+            "Risiken",
+        ):
+            self.assertIn(term, igd006["learningAction"])
+
+        ab005 = self.contracts["INF7-16-GYM-PK-AB-005"]
+        for term in (
+            "Gesellschaft",
+            "Berufswelt",
+            "persönliches Lebensumfeld",
+            "betroffene Person",
+            "Beschäftigte",
+            "Dienstanbieter",
+            "Öffentlichkeit",
+        ):
+            self.assertIn(term, ab005["learningAction"])
+
+        ab006 = self.contracts["INF7-16-GYM-PK-AB-006"]
+        for term in (
+            "eigene Position",
+            "ethischen Informatikfrage",
+            "Kriterien",
+            "Belegen",
+            "Gegenargument",
+            "argumentativ vertreten",
+        ):
+            self.assertIn(term, ab006["learningAction"])
+
+        kk006 = self.contracts["INF7-16-GYM-PK-KK-006"]
+        for term in (
+            "Toleranz",
+            "Akzeptanz",
+            "Vielfalt",
+            "informatischen Fragestellung",
+            "mehreren benannten Perspektiven",
+            "revidiertes Ergebnis",
+        ):
+            self.assertIn(term, kk006["learningAction"])
+
+        private = self.contracts[private_id]
+        self.assertEqual(private["productVisibility"], "private-local")
+        self.assertEqual(private["privacyBoundary"], PRIVATE_BOUNDARY_TEXT)
+        self.assertIn(
+            CORE08_FALSE_INFORMATION_CASE,
+            private["learningAction"],
+        )
+        self.assertIn("eigenen Umgang", private["learningAction"])
+        self.assertIn("private lokale Reflexionsnotiz", private["productEvidence"])
+        self.assertIn(CORE08_SHARED_DOSSIER, private["nonPersonalFollowUp"])
+        self.assertIn(CORE08_COMMON_MATERIAL, private["nonPersonalFollowUp"])
+        self.assertIn(
+            CORE08_FALSE_INFORMATION_CASE,
+            private["nonPersonalFollowUp"],
+        )
+        self.assertIn(
+            "ohne Kenntnis der privaten Notiz",
+            private["nonPersonalFollowUp"],
+        )
+        self.assertIn(
+            "keine persönliche Handlungsoption",
+            private["nonPersonalFollowUp"],
+        )
 
 
 class ModuleStructureFingerprintTests(unittest.TestCase):
