@@ -75,6 +75,20 @@ CORE6_CORE02_PRIVACY_BOUNDARY = (
     "Nutzungsdaten, Screenshots personalisierter Werbung oder "
     "personenbezogene Selbstauskünfte"
 )
+CORE6_CORE06_COMMON_CASES = (
+    "ausschließlich kuratierten fiktiven oder neutralisierten Fällen"
+)
+CORE6_CORE06_COMMON_PLAN = (
+    "desselben nichtpersonalen Fall-Handlungsplans"
+)
+CORE6_CORE06_FEATURE_STRATEGY_TRACE = (
+    "separate Merkmal-und-Strategie-Spur"
+)
+CORE6_CORE06_FACTOR_TRACE = "separate Faktorenkarte"
+CORE6_CORE06_PRIVACY_BOUNDARY = (
+    "keine persönliche Konfliktoffenlegung, keine reale Betroffenheit und "
+    "keine realen Namen, Konten, Nachrichten oder Screenshots"
+)
 CORE7_CORE03_TRACE_PRODUCT = (
     "sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen "
     "Code-, Ablauf- und Zustandstraceprodukts"
@@ -206,6 +220,8 @@ AUDITED_DECISIONS = {
     "LH26-E-DA-008": ("IUM-5-CORE-06", "module-detail", "covered"),
     "LH26-E-DP-004": ("IUM-6-CORE-02", "module-detail", "covered"),
     "LH26-E-DP-006": ("IUM-6-CORE-02", "module-detail", "covered"),
+    "LH26-E-KS-014": ("IUM-6-CORE-06", "module-detail", "covered"),
+    "LH26-E-KS-015": ("IUM-6-CORE-06", "module-detail", "covered"),
 }
 
 
@@ -419,6 +435,20 @@ def curriculum_contracts():
                 "Werbebotschaft zustande kommt"
             )
         },
+        "LH26-E-KS-014": {
+            "text": (
+                "Merkmale verletzenden oder ausgrenzenden Verhaltens in "
+                "digitalen Kommunikationsräumen beschreiben und exemplarisch "
+                "Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, "
+                "Hilfsangebote oder Meldemöglichkeiten nennen"
+            )
+        },
+        "LH26-E-KS-015": {
+            "text": (
+                "Ursachen oder begünstigende Faktoren in digitalen Räumen für "
+                "ausgrenzendes oder verletzendes Verhalten nennen"
+            )
+        },
     }
 
 
@@ -520,6 +550,8 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-06-LH26-E-DA-008",
                 "CE-IUM-6-CORE-02-LH26-E-DP-004",
                 "CE-IUM-6-CORE-02-LH26-E-DP-006",
+                "CE-IUM-6-CORE-06-LH26-E-KS-014",
+                "CE-IUM-6-CORE-06-LH26-E-KS-015",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -1125,6 +1157,129 @@ class Core6Core02RepositoryOrchestrationTests(unittest.TestCase):
             "Modellgrenze",
         ):
             self.assertIn(term, contract["productEvidence"])
+
+
+class Core6Core06RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-6-CORE-06"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_two_separate_traces_share_one_safe_nonpersonal_case_plan(self):
+        expected_traces = {
+            "LH26-E-KS-014": CORE6_CORE06_FEATURE_STRATEGY_TRACE,
+            "LH26-E-KS-015": CORE6_CORE06_FACTOR_TRACE,
+        }
+        self.assertEqual(set(self.contracts), set(expected_traces))
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-5-CORE-03", "IUM-5-CORE-07"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 5, "max": 7})
+
+        for competency_id, trace in expected_traces.items():
+            with self.subTest(competency_id=competency_id):
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "module-detail")
+                self.assertEqual(
+                    contract["productVisibility"],
+                    "teacher-observable",
+                )
+                self.assertIn(
+                    CORE6_CORE06_COMMON_CASES,
+                    contract["learningAction"],
+                )
+                self.assertIn(
+                    CORE6_CORE06_COMMON_PLAN,
+                    contract["productEvidence"],
+                )
+                self.assertIn(trace, contract["productEvidence"])
+                other_trace = next(
+                    candidate
+                    for other_id, candidate in expected_traces.items()
+                    if other_id != competency_id
+                )
+                self.assertNotIn(other_trace, contract["productEvidence"])
+
+    def test_ks014_describes_case_evidenced_features_and_names_three_strategy_types(self):
+        self.assertIn("LH26-E-KS-014", self.contracts)
+        contract = self.contracts["LH26-E-KS-014"]
+        for term in (
+            "Merkmale verletzenden oder ausgrenzenden Verhaltens in "
+            "digitalen Kommunikationsräumen beschreiben",
+            "wiederholte Abwertung",
+            "Ausschluss",
+            "Macht- oder Reichweitendynamik",
+            "nicht pauschal als Diagnose",
+            "exemplarische Handlungsstrategien nennen",
+            "Präventionsmaßnahme",
+            "Hilfsangebot oder Hilfsweg",
+            "Meldemöglichkeit",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "Situation → Merkmal → konkreter Fallbeleg",
+            "Prävention",
+            "Hilfe",
+            "Melden",
+            "begründete Eskalationsentscheidung",
+            "keine tatsächliche Meldung als Lernnachweis",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_ks015_names_multiple_factors_with_uncertainty_and_without_blame(self):
+        self.assertIn("LH26-E-KS-015", self.contracts)
+        contract = self.contracts["LH26-E-KS-015"]
+        for term in (
+            "Ursachenhypothesen oder begünstigende Faktoren in digitalen "
+            "Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
+            "vermeintliche Anonymität",
+            "Gruppendynamik",
+            "hohe Reichweite oder Persistenz",
+            "geringe Interventionsschwelle",
+            "algorithmische oder soziale Verstärkung",
+            "Ursachenhypothese",
+            "begünstigender Faktor",
+            "Unsicherheit",
+            "kein Victim Blaming",
+            "keine Ferndiagnose",
+            "keine behauptete Täterabsicht",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            "mehrere fallbezogene Faktoren",
+            "Zuordnung als Ursachenhypothese oder begünstigender Faktor",
+            "Unsicherheitsmarkierung",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_teacher_observes_only_the_nonpersonal_case_plan(self):
+        for contract in self.contracts.values():
+            with self.subTest(competency_id=contract["competencyId"]):
+                combined = (
+                    contract["learningAction"] + " " + contract["productEvidence"]
+                )
+                self.assertIn(CORE6_CORE06_PRIVACY_BOUNDARY, combined)
+                self.assertIn(
+                    "keine realen Hilfetelefonnummern",
+                    combined,
+                )
+                self.assertNotIn("private Reflexionsnotiz", combined)
+                self.assertNotIn("eigene Konflikterfahrung", combined)
+                self.assertNotIn("generischer Konfliktplan", combined)
 
 
 class Core05RepositoryOrchestrationTests(unittest.TestCase):

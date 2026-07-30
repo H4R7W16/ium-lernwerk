@@ -788,6 +788,24 @@
       "mediumRationale": "Eine geschützte digitale Fallsimulation kann Profile, Perspektiven, Sichtbarkeiten und Handlungsfolgen variieren; die persönliche Reflexion erfolgt lokal und wird weder übermittelt noch mit realer Klassenkommunikation verknüpft.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Pro-und-Contra-Matrix, Fallanalyse, Handlungsplan und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-6-CORE-06-LH26-E-KS-014",
+          "competencyId": "LH26-E-KS-014",
+          "mode": "module-detail",
+          "learningAction": "An ausschließlich kuratierten fiktiven oder neutralisierten Fällen Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen beschreiben: wiederholte Abwertung, Ausschluss sowie Macht- oder Reichweitendynamik werden jeweils am konkreten Fall belegt und nicht pauschal als Diagnose verwendet. Darauf bezogen exemplarische Handlungsstrategien nennen und unterscheidbar als Präventionsmaßnahme, Hilfsangebot oder Hilfsweg und Meldemöglichkeit zuordnen sowie eine begründete Eskalationsentscheidung treffen. Schulische Rollen und ein Plattformmeldeweg dürfen exemplarisch benannt werden; keine tatsächliche Meldung als Lernnachweis und keine realen Hilfetelefonnummern. Es gelten keine persönliche Konfliktoffenlegung, keine reale Betroffenheit und keine realen Namen, Konten, Nachrichten oder Screenshots.",
+          "productEvidence": "Die separate Merkmal-und-Strategie-Spur desselben nichtpersonalen Fall-Handlungsplans dokumentiert pro fiktivem oder neutralisiertem Fall Situation → Merkmal → konkreter Fallbeleg und ordnet anschließend Prävention, Hilfe und Melden als unterscheidbare Handlungsstrategien zu; eine begründete Eskalationsentscheidung schließt die Spur ab. Lehrkraftsichtbar ist nur dieser nichtpersonale Fallplan; es erfolgt keine tatsächliche Meldung als Lernnachweis, und es werden keine realen Hilfetelefonnummern, Namen, Konten, Nachrichten oder Screenshots erfasst.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-6-CORE-06-LH26-E-KS-015",
+          "competencyId": "LH26-E-KS-015",
+          "mode": "module-detail",
+          "learningAction": "An ausschließlich kuratierten fiktiven oder neutralisierten Fällen mehrere plausible digitale und soziale Ursachenhypothesen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen: vermeintliche Anonymität, Gruppendynamik, hohe Reichweite oder Persistenz, geringe Interventionsschwelle sowie algorithmische oder soziale Verstärkung werden fallbezogen geprüft. Jede Nennung wird als Ursachenhypothese oder begünstigender Faktor unterschieden und mit einer Unsicherheit markiert; es gelten kein Victim Blaming, keine Ferndiagnose und keine behauptete Täterabsicht. Außerdem gelten keine persönliche Konfliktoffenlegung, keine reale Betroffenheit und keine realen Namen, Konten, Nachrichten oder Screenshots; keine realen Hilfetelefonnummern werden verwendet.",
+          "productEvidence": "Die separate Faktorenkarte desselben nichtpersonalen Fall-Handlungsplans enthält mehrere fallbezogene Faktoren mit Belegstelle, die Zuordnung als Ursachenhypothese oder begünstigender Faktor und eine Unsicherheitsmarkierung. Sie behauptet weder Opferverantwortung noch Diagnose oder Täterabsicht. Lehrkraftsichtbar ist nur dieser nichtpersonale Fallplan; reale Namen, Konten, Nachrichten, Screenshots, Hilfetelefonnummern oder persönliche Konflikterfahrungen werden nicht erhoben.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
       "status": "working"
     },
     {

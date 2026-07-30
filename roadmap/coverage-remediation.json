@@ -1551,26 +1551,22 @@
         "evidenceModuleId": "IUM-6-CORE-06",
         "reason": "Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-014",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Vertrag löst den Doppeloperator recordgenau ein: Fallbelegte Merkmale werden beschrieben und exemplarische Strategien werden als Präventionsmaßnahme, Hilfsweg und Meldemöglichkeit unterscheidbar genannt. Die separate Merkmal-und-Strategie-Spur verknüpft Situation, Merkmal und Beleg mit den drei Strategiearten und einer begründeten Eskalationsentscheidung, ohne eine reale Meldung oder persönliche Offenlegung zu verlangen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die zusätzliche fallbelegte Merkmalsanalyse und die Zuordnung dreier Strategiearten konkretisieren den Fall-Handlungsplan substanziell; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Merkmal-und-Strategie-Spur erweitert den bestehenden nichtpersonalen Fall-Handlungsplan und nutzt unverändert die Voraussetzungen IUM-5-CORE-03 und IUM-5-CORE-07."
       },
-      "residualGap": {
-        "reason": "Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar.",
-        "followUp": "Kernkandidat IUM-6-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-KS-015",
@@ -1582,26 +1578,22 @@
         "evidenceModuleId": "IUM-6-CORE-06",
         "reason": "Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-015",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Vertrag verlangt mehrere fallbezogene digitale und soziale Faktoren und trennt Ursachenhypothese, begünstigenden Faktor und Unsicherheit. Die eigene Faktorenkarte im gemeinsamen Fall-Handlungsplan nennt konkrete Mechanismen, ohne Opferverantwortung, Täterabsicht oder Ferndiagnose zu behaupten.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die zusätzliche Faktorenanalyse mit begrifflicher Trennung und Unsicherheitsmarkierung konkretisiert den Fall-Handlungsplan substanziell; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Faktorenkarte ist eine separate Spur des bestehenden nichtpersonalen Fall-Handlungsplans und nutzt unverändert die Voraussetzungen IUM-5-CORE-03 und IUM-5-CORE-07."
       },
-      "residualGap": {
-        "reason": "Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt.",
-        "followUp": "Kernkandidat IUM-6-CORE-06 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-PROG-001",
