@@ -2593,14 +2593,42 @@ class Core7Core10RepositoryOrchestrationTests(unittest.TestCase):
             "Schönheitsidealen",
             "analysieren",
             "eigene Selbstwahrnehmung",
-            "reflektieren",
             "privaten lokalen Reflexionsnotiz",
+            "mindestens einem vorgegebenen fachlichen Kriterium",
+            "Rollenstereotyp, Normierung oder gestalterische Verstärkung",
+            "daraus eine persönliche Handlungsoption ableiten",
+            "mögliche ausschließlich private Revision",
         ):
             with self.subTest(term=term):
                 self.assertIn(term, contract["learningAction"])
-        self.assertIn(
+        for term in (
+            "eigene Erfahrung oder Selbstwahrnehmung",
+            "fachliches Kriterium",
+            "persönliche Handlungsoption",
+            "mögliche ausschließlich private Revision",
             "verbleibt ausschließlich bei der lernenden Person",
+        ):
+            with self.subTest(term=term):
+                self.assertIn(term, contract["productEvidence"])
+        self.assertIn(
+            (
+                "eigene Erfahrung oder Selbstwahrnehmung → fachliches "
+                "Kriterium → persönliche Handlungsoption → mögliche "
+                "ausschließlich private Revision"
+            ),
             contract["productEvidence"],
+        )
+
+    def test_dp014_record_boundary_forbids_observation_discussion_and_control(self):
+        contract = self.contracts["LH26-E-DP-014"]
+        self.assertIn("observationBoundary", contract)
+        self.assertEqual(
+            contract["observationBoundary"],
+            (
+                "Die Privatnotiz wird weder geöffnet noch beobachtet, "
+                "inhaltlich besprochen, vorgelegt oder in ihrer Erstellung "
+                "bestätigt oder kontrolliert."
+            ),
         )
 
     def test_dp014_nonpersonal_follow_up_is_independent_and_not_proxy_evidence(self):
@@ -2610,7 +2638,10 @@ class Core7Core10RepositoryOrchestrationTests(unittest.TestCase):
         for term in (
             "nichtpersonale Gegenperspektive",
             "vollständig vorgegebenen kuratierten Medienbeispielen",
-            "ohne Kenntnis der privaten Reflexionsnotiz",
+            (
+                "ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der "
+                "privaten Reflexionsnotiz"
+            ),
             "kein Nachweis der Reflexion der eigenen Selbstwahrnehmung",
             "keine Offenlegung",
         ):

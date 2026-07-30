@@ -1331,7 +1331,7 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die Darstellung von Geschlechterrollen und Schönheitsidealen wird an vollständig vorgegebenen kuratierten Medienbeispielen analysiert; nur ihr möglicher Einfluss auf die eigene Selbstwahrnehmung wird in einer privaten lokalen Notiz reflektiert. Das bestehende Vorher–Nachher-Medienprodukt führt unabhängig davon in eine nichtpersonale Gegenperspektive, funktioniert ohne Kenntnis der Notiz und gilt ausdrücklich nicht als Proxy-Nachweis des privaten Operatoranteils.",
+      "changeRationale": "Die Darstellung von Geschlechterrollen und Schönheitsidealen wird an vollständig vorgegebenen kuratierten Medienbeispielen analysiert. Nur die private Notiz verbindet eigene Erfahrung oder Selbstwahrnehmung, mindestens ein vorgegebenes fachliches Kriterium, eine daraus abgeleitete persönliche Handlungsoption und eine mögliche ausschließlich private Revision. Sie wird weder geöffnet noch beobachtet, inhaltlich besprochen, vorgelegt oder in ihrer Erstellung bestätigt oder kontrolliert. Das bestehende Vorher–Nachher-Medienprodukt führt unabhängig davon in eine nichtpersonale Gegenperspektive, funktioniert ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der Notiz und gilt ausdrücklich nicht als Proxy-Nachweis des privaten Operatoranteils.",
       "timeImpact": {
         "level": "review-required",
         "rationale": "Private Reflexion, nichtpersonale Gegenperspektive und ihre klare Trennung verdichten die bestehende Medienanalyse; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
