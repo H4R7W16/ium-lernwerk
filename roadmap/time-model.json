@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "baseline": {
+    "commit": "e53bad7cffe1541fc910db948235908bebe89caa",
+    "moduleStructureSha256": "da02be74104d88dd9adb0d7927feeab4eea5f65dcc616c5645b0f2145ca4d4fc",
+    "coverageProjectionSha256": "cb9e09fa755a15206054e87ad0d5a8784fead63ff59530da0088b34e11dd2974",
+    "timeHandoffSha256": "423b94122b931f4585b75aa74074f71b2e80a2b8b02cc92b32bf74585128f9bd"
+  },
+  "unit": {
+    "label": "Unterrichtseinheit",
+    "minutes": 45
+  },
+  "capacityModel": {
+    "officialWeeklyUnits": 1,
+    "officialStatus": "administrative-context",
+    "calendarEstimate": {
+      "schoolYear": "2026/2027",
+      "status": "dated-project-calculation",
+      "weekdayUnits": {
+        "monday": 40,
+        "tuesday": 40,
+        "wednesday": 39,
+        "thursday": 36,
+        "friday": 37
+      }
+    },
+    "capacityLevels": [
+      "calendar-capacity",
+      "local-capacity",
+      "planning-capacity"
+    ],
+    "planningPaths": [
+      {
+        "id": "baseline",
+        "units": 30,
+        "status": "working"
+      },
+      {
+        "id": "regular",
+        "units": 34,
+        "status": "working"
+      },
+      {
+        "id": "extended",
+        "units": 38,
+        "status": "working"
+      }
+    ],
+    "bufferRule": {
+      "formula": "localCapacityUnits - selectedPathUnits",
+      "minimumBufferUnits": 0,
+      "protectedLearningFunctions": [
+        "activation",
+        "concept-building",
+        "guided-practice",
+        "independent-action",
+        "product-evidence",
+        "feedback-or-self-check",
+        "revision",
+        "consolidation",
+        "transfer-or-retrieval"
+      ]
+    },
+    "status": "working"
+  },
+  "moduleContracts": [],
+  "integrationContracts": [],
+  "annualVariants": [],
+  "timeReviews": [],
+  "sequenceEvidence": [],
+  "gradeJudgements": [],
+  "risks": [],
+  "pilotAssignments": []
+}

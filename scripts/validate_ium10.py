@@ -83,6 +83,156 @@ def time_handoff_fingerprint(remediation_payload):
     )
 
 
+def validate_capacity_model(capacity_model, unit_contract):
+    """Validate IUM10's dated capacity assumptions and return planning paths."""
+    _require(isinstance(unit_contract, dict), "unit contract must be an object")
+    _require(
+        set(unit_contract) == {"label", "minutes"},
+        "unit contract fields differ from the IUM10 contract",
+    )
+    _require(
+        unit_contract["label"] == "Unterrichtseinheit",
+        "unit label must be Unterrichtseinheit",
+    )
+    _require(
+        isinstance(unit_contract["minutes"], int)
+        and not isinstance(unit_contract["minutes"], bool)
+        and unit_contract["minutes"] == 45,
+        "unit minutes must be exactly 45",
+    )
+
+    _require(isinstance(capacity_model, dict), "capacity model must be an object")
+    _require(
+        set(capacity_model)
+        == {
+            "officialWeeklyUnits",
+            "officialStatus",
+            "calendarEstimate",
+            "capacityLevels",
+            "planningPaths",
+            "bufferRule",
+            "status",
+        },
+        "capacity model fields differ from the IUM10 contract",
+    )
+    _require(
+        isinstance(capacity_model["officialWeeklyUnits"], int)
+        and not isinstance(capacity_model["officialWeeklyUnits"], bool)
+        and capacity_model["officialWeeklyUnits"] == 1,
+        "official weekly units must be exactly 1",
+    )
+    _require(
+        capacity_model["officialStatus"] == "administrative-context",
+        "official status must be administrative-context; 30+6 is only an explanatory risk text",
+    )
+
+    calendar_estimate = capacity_model["calendarEstimate"]
+    _require(isinstance(calendar_estimate, dict), "calendar estimate must be an object")
+    _require(
+        set(calendar_estimate) == {"schoolYear", "status", "weekdayUnits"},
+        "calendar estimate fields differ from the IUM10 contract",
+    )
+    _require(
+        calendar_estimate["schoolYear"] == "2026/2027",
+        "calendar school year must be 2026/2027",
+    )
+    _require(
+        calendar_estimate["status"] == "dated-project-calculation",
+        "calendar estimate must be a dated project calculation",
+    )
+    weekday_units = calendar_estimate["weekdayUnits"]
+    expected_weekday_units = {
+        "monday": 40,
+        "tuesday": 40,
+        "wednesday": 39,
+        "thursday": 36,
+        "friday": 37,
+    }
+    _require(isinstance(weekday_units, dict), "weekday units must be an object")
+    _require(
+        set(weekday_units) == set(expected_weekday_units),
+        "weekday unit fields differ from the IUM10 contract",
+    )
+    for weekday, expected_units in expected_weekday_units.items():
+        _require(
+            isinstance(weekday_units[weekday], int)
+            and not isinstance(weekday_units[weekday], bool)
+            and weekday_units[weekday] == expected_units,
+            f"weekday units for {weekday} differ from the IUM10 contract",
+        )
+
+    _require(
+        capacity_model["capacityLevels"]
+        == ["calendar-capacity", "local-capacity", "planning-capacity"],
+        "capacity levels differ from the IUM10 contract",
+    )
+
+    planning_paths = capacity_model["planningPaths"]
+    _require(isinstance(planning_paths, list), "planning paths must be a list")
+    _require(len(planning_paths) == 3, "planning paths must contain exactly three paths")
+    paths_by_id = {}
+    for path in planning_paths:
+        _require(isinstance(path, dict), "planning path must be an object")
+        _require(
+            set(path) == {"id", "units", "status"},
+            "planning path fields differ from the IUM10 contract",
+        )
+        _require(isinstance(path["id"], str), "planning path id must be a string")
+        _require(path["id"] not in paths_by_id, "planning path ids must be unique")
+        _require(
+            isinstance(path["units"], int) and not isinstance(path["units"], bool),
+            "planning path units must be an integer",
+        )
+        _require(path["status"] == "working", "planning path status must be working")
+        paths_by_id[path["id"]] = path
+    expected_path_units = {"baseline": 30, "regular": 34, "extended": 38}
+    _require(
+        set(paths_by_id) == set(expected_path_units),
+        "planning path ids differ from the IUM10 contract",
+    )
+    for path_id, expected_units in expected_path_units.items():
+        _require(
+            paths_by_id[path_id]["units"] == expected_units,
+            f"planning path {path_id} units differ from the IUM10 contract",
+        )
+
+    buffer_rule = capacity_model["bufferRule"]
+    _require(isinstance(buffer_rule, dict), "buffer rule must be an object")
+    _require(
+        set(buffer_rule)
+        == {"formula", "minimumBufferUnits", "protectedLearningFunctions"},
+        "buffer rule fields differ from the IUM10 contract",
+    )
+    _require(
+        buffer_rule["formula"] == "localCapacityUnits - selectedPathUnits",
+        "buffer formula must subtract the selected path from local capacity",
+    )
+    _require(
+        isinstance(buffer_rule["minimumBufferUnits"], int)
+        and not isinstance(buffer_rule["minimumBufferUnits"], bool)
+        and buffer_rule["minimumBufferUnits"] == 0,
+        "minimum buffer units must be the non-negative value 0",
+    )
+    _require(
+        buffer_rule["protectedLearningFunctions"]
+        == [
+            "activation",
+            "concept-building",
+            "guided-practice",
+            "independent-action",
+            "product-evidence",
+            "feedback-or-self-check",
+            "revision",
+            "consolidation",
+            "transfer-or-retrieval",
+        ],
+        "baseline path must retain all protected learning functions outside the buffer",
+    )
+    _require(capacity_model["status"] == "working", "capacity model status must be working")
+
+    return paths_by_id
+
+
 def validate_ium10_baseline(module_payload, coverage_payload, remediation_payload):
     """Validate the immutable IUM09 baseline consumed by IUM10."""
     modules = module_payload.get("modules") if isinstance(module_payload, dict) else None
