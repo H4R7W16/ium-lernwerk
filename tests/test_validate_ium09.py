@@ -36,6 +36,19 @@ CORE08_COMMON_MATERIAL = (
 CORE08_FALSE_INFORMATION_CASE = (
     "vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall"
 )
+CORE03_LOCAL_PROJECT = (
+    "desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen "
+    "Überarbeitung des bereits vorhandenen Kommunikationsleitfadens"
+)
+CORE03_SHARED_PRODUCT = (
+    "desselben gemeinsam revidierten Kommunikationsleitfadens mit "
+    "integrierten Fallkarten"
+)
+CORE03_SAFE_CONTENT = "ausschließlich neutrale und fiktive Inhalte"
+CORE03_DATA_BOUNDARY = (
+    "Zugangsdaten, private Nachrichten, personenbezogene Inhalte und "
+    "vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert"
+)
 
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
@@ -123,6 +136,20 @@ AUDITED_DECISIONS = {
         "IUM-7-CORE-08", "module-detail", "covered"
     ),
     "LH26-E-DP-013": ("IUM-7-CORE-08", "private-local", "covered"),
+    "BMB16-GYM-IK-KK-002": (
+        "IUM-5-CORE-03", "school-context", "covered"
+    ),
+    "BMB16-GYM-IK-KK-003": (
+        "IUM-5-CORE-03", "school-context", "covered"
+    ),
+    "BMB16-GYM-PK-HK-003": (
+        "IUM-5-CORE-03", "school-context", "covered"
+    ),
+    "BMB16-GYM-PK-RK-004": (
+        "IUM-5-CORE-03", "module-detail", "covered"
+    ),
+    "LH26-E-KS-001": ("IUM-5-CORE-03", "school-context", "covered"),
+    "LH26-E-KS-002": ("IUM-5-CORE-03", "module-detail", "covered"),
 }
 
 
@@ -148,6 +175,28 @@ def curriculum_contracts():
         "BMB16-GYM-IK-GM-001": {"text": "Konkrete Kompetenz."},
         "BMB16-GYM-IK-GM-002": {"text": "Zweite Kompetenz."},
         "BMB16-GYM-IK-GM-003": {"text": "Dritte Kompetenz."},
+        "BMB16-GYM-IK-KK-002": {
+            "text": (
+                "einen digitalen Kommunikationsweg (zum Beispiel E-Mail) "
+                "in seinen Grundfunktionen anwenden"
+            )
+        },
+        "BMB16-GYM-IK-KK-003": {
+            "text": (
+                "mindestens einen digitalen Kommunikationsweg zur Kooperation "
+                "und zum Austausch innerhalb von Projekten nutzen"
+            )
+        },
+        "BMB16-GYM-PK-HK-003": {
+            "text": "Medien für Zusammenarbeit und Kooperation nutzen"
+        },
+        "BMB16-GYM-PK-RK-004": {
+            "text": (
+                "Übertretungen rechtlicher und moralischer Grenzen in der "
+                "digitalen Welt erkennen und daraus Regeln für das eigene "
+                "soziale Verhalten ableiten"
+            )
+        },
         "BMB16-GYM-IK-MG-001": {
             "text": (
                 "die persönliche Motivation bezüglich des eigenen "
@@ -222,6 +271,18 @@ def curriculum_contracts():
                 "eigenen Umgang damit reflektieren"
             )
         },
+        "LH26-E-KS-001": {
+            "text": (
+                "schulische Kommunikationskanäle und Möglichkeiten zur "
+                "Kollaboration nutzen"
+            )
+        },
+        "LH26-E-KS-002": {
+            "text": (
+                "Auswirkungen von Konflikten und Problemen bei der digitalen "
+                "Kommunikation reflektieren und diskutieren"
+            )
+        },
     }
 
 
@@ -293,6 +354,12 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
                 "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-002",
                 "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-003",
+                "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-002",
+                "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-003",
+                "CE-IUM-5-CORE-03-BMB16-GYM-PK-HK-003",
+                "CE-IUM-5-CORE-03-BMB16-GYM-PK-RK-004",
+                "CE-IUM-5-CORE-03-LH26-E-KS-001",
+                "CE-IUM-5-CORE-03-LH26-E-KS-002",
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
@@ -437,6 +504,157 @@ class Core07RepositoryOrchestrationTests(unittest.TestCase):
         for field in ("learningAction", "productEvidence", "nonPersonalFollowUp"):
             with self.subTest(mg001_field=field):
                 self.assertIn(MG001_CRITERIA, mg001[field])
+
+
+class Core03RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-5-CORE-03"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_core_03_closes_six_records_in_one_safe_actual_local_project(self):
+        school_context_ids = {
+            "BMB16-GYM-IK-KK-002",
+            "BMB16-GYM-IK-KK-003",
+            "BMB16-GYM-PK-HK-003",
+            "LH26-E-KS-001",
+        }
+        module_detail_ids = {
+            "BMB16-GYM-PK-RK-004",
+            "LH26-E-KS-002",
+        }
+        self.assertEqual(
+            set(self.contracts),
+            school_context_ids | module_detail_ids,
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 4, "max": 6})
+
+        for competency_id, contract in self.contracts.items():
+            with self.subTest(competency_id=competency_id):
+                self.assertIn(
+                    CORE03_LOCAL_PROJECT,
+                    contract["learningAction"],
+                )
+                self.assertIn(
+                    CORE03_SHARED_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE03_SAFE_CONTENT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE03_DATA_BOUNDARY,
+                    contract["productEvidence"],
+                )
+        self.assertEqual(
+            sum(
+                contract["productEvidence"].count(CORE03_SHARED_PRODUCT)
+                for contract in self.contracts.values()
+            ),
+            6,
+        )
+
+        for competency_id in school_context_ids:
+            with self.subTest(school_context_id=competency_id):
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "school-context")
+                self.assertEqual(
+                    contract["executionType"],
+                    "actual-local-use",
+                )
+                self.assertIn("tatsächlich", contract["learningAction"])
+                self.assertIn(
+                    "vor Ort freigegeben",
+                    contract["localConfigurationRequirement"],
+                )
+                for product_name in (
+                    "Moodle", "Microsoft Teams", "Google Classroom", "IServ"
+                ):
+                    self.assertNotIn(
+                        product_name,
+                        contract["localConfigurationRequirement"],
+                    )
+
+        kk002 = self.contracts["BMB16-GYM-IK-KK-002"]["learningAction"]
+        for term in (
+            "digitalen Kommunikationsweg",
+            "Grundfunktionen tatsächlich anwenden",
+            "adressatengerecht verfassen",
+            "senden oder teilen",
+            "abrufen",
+            "neutralen Testanhang",
+            "entsprechende lokale Kernfunktion",
+        ):
+            self.assertIn(term, kk002)
+
+        kk003 = self.contracts["BMB16-GYM-IK-KK-003"]["learningAction"]
+        for term in (
+            "mindestens einen digitalen Kommunikationsweg",
+            "Kooperation",
+            "Austausch",
+            "innerhalb",
+            "tatsächlich nutzen",
+        ):
+            self.assertIn(term, kk003)
+
+        hk003 = self.contracts["BMB16-GYM-PK-HK-003"]["learningAction"]
+        for term in (
+            "Medien",
+            "Zusammenarbeit",
+            "Kooperation",
+            "tatsächlich nutzen",
+        ):
+            self.assertIn(term, hk003)
+
+        ks001 = self.contracts["LH26-E-KS-001"]
+        for term in (
+            "schulischen Kommunikationskanal",
+            "Möglichkeiten zur Kollaboration",
+            "tatsächlich nutzen",
+        ):
+            self.assertIn(term, ks001["learningAction"])
+        for term in (
+            "schulischen Kommunikationskanal",
+            "Kollaborationsmöglichkeit",
+            "technisch getrennt",
+            "beide",
+            "selben Projektlauf",
+        ):
+            self.assertIn(term, ks001["localConfigurationRequirement"])
+
+        rk004 = self.contracts["BMB16-GYM-PK-RK-004"]["learningAction"]
+        for term in (
+            "rechtliche Grenzübertretungen",
+            "moralische Grenzübertretungen",
+            "getrennt erkennen",
+            "begründete Regeln",
+            "eigenes soziales Verhalten ableiten",
+        ):
+            self.assertIn(term, rk004)
+
+        ks002 = self.contracts["LH26-E-KS-002"]["learningAction"]
+        for term in (
+            "Auswirkungen",
+            "fiktiven digitalen Konflikts",
+            "reflektieren",
+            "diskutieren",
+            "mehreren Perspektiven",
+            "mehrere Folgen",
+            "gemeinsame Revision",
+        ):
+            self.assertIn(term, ks002)
 
 
 class Core08RepositoryOrchestrationTests(unittest.TestCase):

@@ -102,26 +102,22 @@
         "evidenceModuleId": "IUM-5-CORE-03",
         "reason": "Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Vertrag schließt den Operator „anwenden“ nur über die tatsächliche lokale Ausführung: Lernende verfassen, senden oder teilen und rufen eine neutrale fiktive Nachricht im vor Ort freigegebenen schulischen Kanal ab und führen einen neutralen Testanhang beziehungsweise die entsprechende lokale Kernfunktion aus. Die beobachtbare Spur gehört zum selben Leitfadenprojekt und protokolliert weder Kommunikationsinhalte noch Zugangsdaten oder personenbezogene Inhalte.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 muss prüfen, ob die tatsächliche lokale Ausführung aller Grundfunktionen zusammen mit der gemeinsamen Leitfadenrevision im unveränderten Korridor von 4 bis 6 Stunden tragfähig ist."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Grundfunktionen werden im bestehenden Leitfadenprojekt und mit der vorhandenen Voraussetzung IUM-5-CORE-01 ausgeführt; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet.",
-        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-KK-003",
@@ -133,26 +129,22 @@
         "evidenceModuleId": "IUM-5-CORE-03",
         "reason": "Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der digitale Kommunikationsweg wird im selben tatsächlichen lokalen Mini-Projekt von Lernenden für Kooperation und Austausch genutzt: Neutrale fiktive Änderungsvorschläge zum vorhandenen Leitfaden werden geteilt, abgerufen, abgestimmt und in die gemeinsame Revision übernommen. Damit sind Projektkontext und Operator „nutzen“ ausgeführt statt nur beschrieben.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 muss den Zeitbedarf der tatsächlichen lokalen Kooperationsschritte innerhalb der gemeinsamen Leitfadenrevision gegen den unveränderten Korridor von 4 bis 6 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Kooperation und Austausch werden im bestehenden Leitfadenprojekt mit dem lokal freigegebenen Kanal ausgeführt; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt.",
-        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-001",
@@ -276,26 +268,22 @@
         "evidenceModuleId": "IUM-5-CORE-03",
         "reason": "Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-PK-HK-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Lernende nutzen im selben tatsächlichen lokalen Mini-Projekt das vor Ort freigegebene Medium, um neutrale fiktive Fallkarten und Regelvorschläge gemeinsam zu prüfen, zu bearbeiten, abzustimmen und zu revidieren. Damit sind Zusammenarbeit und Kooperation als reale Medienhandlung im vorhandenen Leitfadenprodukt sichtbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 muss prüfen, ob die tatsächliche Medienkooperation zusammen mit den übrigen Leitfadenhandlungen im unveränderten Korridor von 4 bis 6 Stunden orchestrierbar ist."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Medienkooperation ist Teil des bestehenden Leitfadenprojekts und benötigt keine neue Voraussetzung oder Modulabhängigkeit."
       },
-      "residualGap": {
-        "reason": "Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt.",
-        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-001",
@@ -392,26 +380,22 @@
         "evidenceModuleId": "IUM-5-CORE-03",
         "reason": "Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-PK-RK-004",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "In den integrierten fiktiven Fallkarten erkennen Lernende rechtliche und moralische Grenzübertretungen ausdrücklich getrennt und leiten daraus begründete Regeln für das eigene soziale Verhalten ab. Markierungen und Regelrevision bleiben Teil desselben Kommunikationsleitfadens und erzeugen keine zusätzliche Produktfamilie.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 muss die zusätzliche begründete Trennung rechtlicher und moralischer Grenzübertretungen innerhalb des unveränderten Korridors von 4 bis 6 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Fallkarten- und Regelrevision vertieft das bestehende Leitfadenprodukt und benötigt keine neue Modulabhängigkeit."
       },
-      "residualGap": {
-        "reason": "Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet.",
-        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-PK-SK-003",
@@ -1569,26 +1553,22 @@
         "evidenceModuleId": "IUM-5-CORE-03",
         "reason": "Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-LH26-E-KS-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Lernende nutzen im selben tatsächlichen lokalen Mini-Projekt sowohl den vor Ort freigegebenen schulischen Kommunikationskanal als auch die reale Kollaborationsmöglichkeit zum Teilen, Abrufen, gemeinsamen Bearbeiten und Übernehmen neutraler fiktiver Leitfadenbeiträge. Sind beide lokal technisch getrennt, werden beide im selben Projektlauf tatsächlich ausgeführt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 muss den Zeitbedarf der tatsächlichen Nutzung von Kommunikationskanal und Kollaborationsmöglichkeit im unveränderten Korridor von 4 bis 6 Stunden prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Beide lokalen Nutzungen gehören zum bestehenden Leitfadenprojekt und benötigen keine neue Modulabhängigkeit."
       },
-      "residualGap": {
-        "reason": "Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt.",
-        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-KS-002",
@@ -1600,26 +1580,22 @@
         "evidenceModuleId": "IUM-5-CORE-03",
         "reason": "Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-LH26-E-KS-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Lernende reflektieren und diskutieren die Auswirkungen eines fiktiven digitalen Konflikts aus mehreren Perspektiven und mit mehreren Folgen. Die Ergebnisse werden als gemeinsame Revision derselben integrierten Leitfaden-Fallkarte und der Regeln sichtbar; es entsteht kein separates Produkt und keine persönliche Offenlegung.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 muss prüfen, ob mehrperspektivische Reflexion, Diskussion und gemeinsame Revision zusammen mit der realen lokalen Ausführung im unveränderten Korridor von 4 bis 6 Stunden tragfähig sind."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Reflexion und Diskussion revidieren dieselben fiktiven Fallkarten im bestehenden Leitfadenprojekt; eine neue Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert.",
-        "followUp": "Kernkandidat IUM-5-CORE-03 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-KS-014",

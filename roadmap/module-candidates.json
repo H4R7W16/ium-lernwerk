@@ -206,7 +206,65 @@
       "mediumRationale": "Digitale Kommunikationswege müssen in ihrer realen Zeichen-, Anhangs-, Adressaten- und Teilungslogik erprobt werden; fiktive Fälle verhindern persönliche Offenlegung.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
-      "status": "working"
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-002",
+          "competencyId": "BMB16-GYM-IK-KK-002",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens einen vor Ort freigegebenen digitalen Kommunikationsweg in seinen Grundfunktionen tatsächlich anwenden: eine neutrale fiktive Nachricht adressatengerecht verfassen, senden oder teilen, abrufen und einen neutralen Testanhang oder eine entsprechende lokale Kernfunktion ausführen.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: Verfassen, Senden oder Teilen, Abrufen und Testanhang beziehungsweise lokale Kernfunktion sind als ausgeführte Schritte bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-003",
+          "competencyId": "BMB16-GYM-IK-KK-003",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb des Projekts tatsächlich nutzen, indem neutrale fiktive Änderungsvorschläge geteilt, abgerufen, abgestimmt und in die gemeinsame Revision übernommen werden.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: Teilen, Abrufen, Abstimmen und Übernehmen neutraler fiktiver Änderungsvorschläge sind als ausgeführte Kooperationsschritte bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-PK-HK-003",
+          "competencyId": "BMB16-GYM-PK-HK-003",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens Medien für Zusammenarbeit und Kooperation tatsächlich nutzen, indem Lernende neutrale fiktive Fallkarten und Regelvorschläge gemeinsam prüfen, bearbeiten, abstimmen und revidieren.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: gemeinsames Prüfen, Bearbeiten, Abstimmen und Revidieren ist als tatsächlich ausgeführte Medienkooperation bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-PK-RK-004",
+          "competencyId": "BMB16-GYM-PK-RK-004",
+          "mode": "module-detail",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens an integrierten fiktiven Fallkarten rechtliche Grenzübertretungen und moralische Grenzübertretungen getrennt erkennen und daraus begründete Regeln für eigenes soziales Verhalten ableiten und in der gemeinsamen Revision schärfen.",
+          "productEvidence": "Im selben Produktteil desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten sind pro fiktivem Fall rechtliche und moralische Grenzübertretung getrennt markiert und daraus begründete Regeln für das eigene soziale Verhalten abgeleitet; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-LH26-E-KS-001",
+          "competencyId": "LH26-E-KS-001",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebenen Möglichkeiten zur Kollaboration tatsächlich nutzen, um neutrale fiktive Beiträge zu teilen, abzurufen, gemeinsam zu bearbeiten und in die Revision zu übernehmen; bei technisch getrennten Werkzeugen werden beide im selben Projektlauf ausgeführt.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: Nutzung des schulischen Kommunikationskanals und der realen Kollaborationsmöglichkeit ist durch ausgeführtes Teilen, Abrufen, gemeinsames Bearbeiten und Übernehmen bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-LH26-E-KS-002",
+          "competencyId": "LH26-E-KS-002",
+          "mode": "module-detail",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens Auswirkungen eines fiktiven digitalen Konflikts aus mehreren Perspektiven auf mehrere Folgen reflektieren und diskutieren und die gemeinsame Revision der integrierten Fallkarte und der Regeln anhand der Ergebnisse sichtbar machen.",
+          "productEvidence": "Im selben Produktteil desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten dokumentiert die überarbeitete fiktive Konfliktfallkarte mehrere Perspektiven, mehrere Folgen, Ergebnisse der Reflexion und Diskussion sowie die daraus hervorgegangene gemeinsame Revision; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "shared"
+        }
+      ]
     },
     {
       "id": "IUM-5-CORE-04",
