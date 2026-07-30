@@ -455,7 +455,7 @@
       ],
       "standaloneUnitRange": null,
       "timeReviewIds": [],
-      "integrationContractIds": [],
+      "integrationContractIds": ["INT-6-ALGORITHM-REVISIT"],
       "schoolDependentSteps": [],
       "risk": "Der Erweiterungspfad muss reale zusätzliche Algorithmusausführung und Fehlerkorrektur statt bloßer Demonstration enthalten.",
       "pilotRequired": true,
@@ -640,8 +640,8 @@
           "pathId": "baseline",
           "units": 5,
           "minutes": 225,
-          "directMinutes": 225,
-          "countedSharedMinutes": 0,
+          "directMinutes": 135,
+          "countedSharedMinutes": 90,
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Prüfproblem, Vertrauensfrage und erwartete Evidenzspur klären."},
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Suche, Quellen und automatisierten Ergebnissen aktivieren."},
@@ -651,14 +651,16 @@
             {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Belege und Gegenbelege prüfen, die KI-Antwort revidieren und die Prüfstrategie übertragen."},
             {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Vertrauensurteile, Modellgrenzen und spätere Abrufanker gemeinsam sichern."}
           ],
-          "sharedAllocations": []
+          "sharedAllocations": [
+            {"integrationContractId": "INT-6-ACTORS-SELECTION", "minutes": 90}
+          ]
         },
         {
           "pathId": "regular",
           "units": 6,
           "minutes": 270,
-          "directMinutes": 270,
-          "countedSharedMinutes": 0,
+          "directMinutes": 180,
+          "countedSharedMinutes": 90,
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Prüfproblem, Vertrauensfrage und erwartete Evidenzspur klären."},
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Suche, Quellen und automatisierten Ergebnissen aktivieren."},
@@ -668,12 +670,14 @@
             {"phaseId": "review-revise-transfer", "minutes": 55, "learningFunction": "Belege, Gegenbelege und Unsicherheit vertieft prüfen, revidieren und übertragen."},
             {"phaseId": "shared-consolidation", "minutes": 30, "learningFunction": "Vertrauensurteile, Modellgrenzen und spätere Abrufanker erweitert sichern."}
           ],
-          "sharedAllocations": []
+          "sharedAllocations": [
+            {"integrationContractId": "INT-6-ACTORS-SELECTION", "minutes": 90}
+          ]
         }
       ],
       "standaloneUnitRange": null,
       "timeReviewIds": [],
-      "integrationContractIds": [],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION"],
       "schoolDependentSteps": ["controlled-browser-and-ai-output-environment"],
       "risk": "Such- und KI-Ausgaben können sich verändern; der Pilot muss prüfen, ob die kuratierten Belegpfade in der vorgesehenen Zeit reproduzierbar bleiben.",
       "pilotRequired": true,
@@ -728,7 +732,7 @@
       ],
       "standaloneUnitRange": null,
       "timeReviewIds": [],
-      "integrationContractIds": [],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION"],
       "schoolDependentSteps": ["synthetic-case-data-and-private-local-reflection"],
       "risk": "Die private Reflexion darf weder erhoben noch bewertet werden; zugleich müssen die synthetischen Fall- und Bedingungsdaten ausreichend vielfältig sein.",
       "pilotRequired": true,
@@ -805,8 +809,8 @@
           "pathId": "baseline",
           "units": 4,
           "minutes": 180,
-          "directMinutes": 180,
-          "countedSharedMinutes": 0,
+          "directMinutes": 135,
+          "countedSharedMinutes": 45,
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Vorhersageproblem, Programmwirkung und erwartete Testspur klären."},
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Das Algorithmusprodukt aus Klasse 5 und schrittweise Ausführung aktivieren."},
@@ -816,14 +820,16 @@
             {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Testfälle auswerten, Fehler revidieren und die Wirkung erneut erklären."},
             {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Zusammenhang von Code, Zustand, Schleife und Wirkung gemeinsam sichern."}
           ],
-          "sharedAllocations": []
+          "sharedAllocations": [
+            {"integrationContractId": "INT-6-ALGORITHM-REVISIT", "minutes": 45}
+          ]
         },
         {
           "pathId": "regular",
           "units": 5,
           "minutes": 225,
-          "directMinutes": 225,
-          "countedSharedMinutes": 0,
+          "directMinutes": 180,
+          "countedSharedMinutes": 45,
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Vorhersageproblem, Programmwirkung und erwartete Testspur klären."},
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Das Algorithmusprodukt aus Klasse 5 und schrittweise Ausführung aktivieren."},
@@ -833,7 +839,9 @@
             {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Zusätzliche Testfälle auswerten, Fehler revidieren und Wirkungen vergleichen."},
             {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Code-, Zustands- und Wirkungszusammenhänge erweitert sichern."}
           ],
-          "sharedAllocations": []
+          "sharedAllocations": [
+            {"integrationContractId": "INT-6-ALGORITHM-REVISIT", "minutes": 45}
+          ]
         },
         {
           "pathId": "targeted-extension",
@@ -855,7 +863,7 @@
       ],
       "standaloneUnitRange": null,
       "timeReviewIds": [],
-      "integrationContractIds": [],
+      "integrationContractIds": ["INT-6-ALGORITHM-REVISIT"],
       "schoolDependentSteps": ["local-programming-and-tracing-environment"],
       "risk": "Die gezielte Vertiefung ist nur tragfähig, wenn Trace, Modifikation und Tests eigenständig ausgeführt und nicht durch Demonstration ersetzt werden.",
       "pilotRequired": true,
@@ -965,7 +973,7 @@
       ],
       "standaloneUnitRange": null,
       "timeReviewIds": [],
-      "integrationContractIds": [],
+      "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
       "schoolDependentSteps": ["protected-fictional-case-environment-and-private-local-reflection"],
       "risk": "Fälle dürfen keine reale Betroffenheit offenlegen oder diagnostizieren; Hilfs- und Meldewege müssen lokal geprüft und nicht als tatsächliche Meldung simuliert werden.",
       "pilotRequired": true,
@@ -987,8 +995,8 @@
           "pathId": "baseline",
           "units": 5,
           "minutes": 225,
-          "directMinutes": 225,
-          "countedSharedMinutes": 0,
+          "directMinutes": 135,
+          "countedSharedMinutes": 90,
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Wirkungsauftrag, Zielgruppe, Produktspur und Rechteprüfung klären."},
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Recherche-, Gestaltungs- und Wirkungswissen aus früheren Modulen aktivieren."},
@@ -998,14 +1006,16 @@
             {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Feedback prüfen, die Version sichtbar revidieren und die Wirkung erneut einschätzen."},
             {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Wirkungs-, Rechte-, Feedback- und Revisionsnachweise gemeinsam sichern."}
           ],
-          "sharedAllocations": []
+          "sharedAllocations": [
+            {"integrationContractId": "INT-6-CONFLICT-PRODUCTION", "minutes": 90}
+          ]
         },
         {
           "pathId": "regular",
           "units": 6,
           "minutes": 270,
-          "directMinutes": 270,
-          "countedSharedMinutes": 0,
+          "directMinutes": 180,
+          "countedSharedMinutes": 90,
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Wirkungsauftrag, Zielgruppe, Produktspur und Rechteprüfung klären."},
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Recherche-, Gestaltungs- und Wirkungswissen aus früheren Modulen aktivieren."},
@@ -1015,12 +1025,14 @@
             {"phaseId": "review-revise-transfer", "minutes": 55, "learningFunction": "Zusätzliches Feedback prüfen, die Version vertieft revidieren und transferieren."},
             {"phaseId": "shared-consolidation", "minutes": 30, "learningFunction": "Wirkungs-, Rechte-, Feedback- und Revisionsnachweise erweitert sichern."}
           ],
-          "sharedAllocations": []
+          "sharedAllocations": [
+            {"integrationContractId": "INT-6-CONFLICT-PRODUCTION", "minutes": 90}
+          ]
         }
       ],
       "standaloneUnitRange": null,
       "timeReviewIds": [],
-      "integrationContractIds": [],
+      "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
       "schoolDependentSteps": ["local-production-rights-and-publication-route"],
       "risk": "Produktionswerkzeug, offene Assets, Lizenzprüfung und lokaler Veröffentlichungsweg können zusätzliche Unterstützungszeit erfordern.",
       "pilotRequired": true,
@@ -1199,6 +1211,78 @@
       "risk": "Bei abweichendem Thema oder nicht identischer Belegspur wäre die Zeitersparnis eine unzulässige Scheinintegration.",
       "fallback": "Scheitert die gemeinsame Belegspur, erhalten Recherche und Produktion wieder eigenständige Recherche-, Quellenprüfungs- und Produktionszeit; die Baseline benötigt dann 45 Minuten zusätzlich und das Jahrgangsurteil wird neu berechnet.",
       "status": "working"
+    },
+    {
+      "id": "INT-6-ACTORS-SELECTION",
+      "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02"],
+      "pathIds": ["baseline", "regular"],
+      "sharedPhaseOrProduct": "Gemeinsame Akteurs-, Interessen- und Evidenzkarte, die vom Such- und KI-Modell in ein Datenfluss- und Auswahlmodell mit begründeter Schutzentscheidung überführt wird.",
+      "countedInModuleId": "IUM-6-CORE-01",
+      "sharedMinutes": 90,
+      "savingsMinutesByPath": {"baseline": 90, "regular": 45},
+      "preservedLearningActions": [
+        "IUM-6-CORE-01 modelliert Suchakteure, Motive und automatisierte Verbreitung und prüft widersprüchliche Quellen sowie KI-Behauptungen.",
+        "IUM-6-CORE-02 übernimmt die geprüfte Akteurs- und Interessenkarte, ergänzt Datenarten und Erhebungstechniken, testet Auswahlhypothesen und begründet eine Schutzentscheidung."
+      ],
+      "preservedProductAndCurriculumEvidence": [
+        "Das Evidenzdossier behält für LH26-E-ID-004 bis LH26-E-ID-008 Suchmodell, Akteursinteressen, Quellenvergleich und Unsicherheitsurteil.",
+        "Das Datenfluss- und Auswahlmodell behält für LH26-E-DP-004, LH26-E-DP-006 bis LH26-E-DP-009 Datenarten, Auswahlhypothesen, Modellgrenze und Schutzentscheidung; die private Reflexion bleibt privat."
+      ],
+      "prerequisites": [
+        "IUM-6-CORE-02 folgt auf IUM-6-CORE-01 und verwendet dieselbe geprüfte Akteurs- und Interessenkarte.",
+        "Die Auswahlfälle bleiben synthetisch; weder KI-Ausgaben noch private Reflexionsnotizen werden personenbezogen erhoben."
+      ],
+      "risk": "Wenn Suchakteure und Auswahlakteure nur sprachlich gleichgesetzt oder unterschiedliche Fälle verwendet werden, trägt die gemeinsame Karte die beiden fachlichen Modellierungen nicht.",
+      "fallback": "Scheitert die gemeinsame Akteurs- und Auswahlspur, erhalten beide Module 90 Minuten eigenständige Aktivierungs-, Modellierungs- und Prüfzeit; die Baseline steigt um 90 Minuten, der Regelpfad um 45 Minuten und das Jahrgangsurteil wird neu berechnet.",
+      "status": "working"
+    },
+    {
+      "id": "INT-6-CONFLICT-PRODUCTION",
+      "moduleIds": ["IUM-6-CORE-06", "IUM-6-CORE-07"],
+      "pathIds": ["baseline", "regular"],
+      "sharedPhaseOrProduct": "Gemeinsame nichtpersonale Fall-, Zielgruppen-, Wirkungs-, Rechte- und Revisionsspur vom Konflikt-Handlungsplan bis zum offen nachnutzbaren Medienprodukt.",
+      "countedInModuleId": "IUM-6-CORE-07",
+      "sharedMinutes": 90,
+      "savingsMinutesByPath": {"baseline": 90, "regular": 0},
+      "preservedLearningActions": [
+        "IUM-6-CORE-06 analysiert an einem fiktiven Fall Selbstdarstellung, Konfliktbedingungen, Hilfswege und eine begründete Eskalationsentscheidung.",
+        "IUM-6-CORE-07 formuliert für denselben nichtpersonalen Fall Zielgruppe und Wirkungsabsicht, prüft Rechte, verarbeitet Feedback und dokumentiert eine sichtbare Revision."
+      ],
+      "preservedProductAndCurriculumEvidence": [
+        "Pro-und-Contra-Matrix, Wirkungseinschätzung und Fall-Handlungsplan belegen LH26-E-KS-011 bis LH26-E-KS-015, ohne private Reflexion offenzulegen.",
+        "Wirkungsbriefing, Asset- und Lizenznachweise, Medienprodukt, Feedbackprotokoll und Revision belegen LH26-E-DA-009 bis LH26-E-DA-015 eigenständig."
+      ],
+      "prerequisites": [
+        "Beide Module verwenden denselben kuratierten, fiktiven und nichtpersonalen Fall, ohne reale Konflikterfahrungen zu erheben.",
+        "Konfliktentscheidung, Produktgestaltung, Rechteprüfung, Feedback und Revision bleiben als unterscheidbare Nachweisspuren erhalten."
+      ],
+      "risk": "Eine bloße Kampagnenproduktion würde die Konfliktanalyse, Hilfswege oder private Grenze verdrängen; eine bloße Fallanalyse würde die tatsächliche Produktion und Revision ersetzen.",
+      "fallback": "Scheitert die gemeinsame Fall- und Revisionsspur, erhalten Konfliktanalyse und Medienproduktion 90 Minuten eigenständige Fall-, Zielgruppen-, Rechte-, Feedback- und Revisionszeit; das Jahrgangsurteil wird neu berechnet.",
+      "status": "working"
+    },
+    {
+      "id": "INT-6-ALGORITHM-REVISIT",
+      "moduleIds": ["IUM-5-CORE-05", "IUM-6-CORE-04"],
+      "pathIds": ["baseline", "regular"],
+      "sharedPhaseOrProduct": "Jahrgangsübergreifende Wiederaufnahme des ausführbaren grafischen Algorithmus mit Laufprotokoll als konkreter Vorhersage-, Trace- und Schleifenanker für das Klasse-6-Programm.",
+      "countedInModuleId": "IUM-6-CORE-04",
+      "sharedMinutes": 45,
+      "savingsMinutesByPath": {"baseline": 45, "regular": 0},
+      "preservedLearningActions": [
+        "IUM-5-CORE-05 lässt einen grafischen Algorithmus ausführen, Abweichungen reparieren und eine konstante Wiederholung begründen.",
+        "IUM-6-CORE-04 ruft dieses Produkt aktiv ab, überführt die Laufspur in Programmzustand und Trace und prüft eine veränderte Schleife mit Fällen."
+      ],
+      "preservedProductAndCurriculumEvidence": [
+        "Grafischer Algorithmus, Vorhersage, Laufprotokoll, Reparatur und Schleifenentscheidung bleiben als Nachweis für LH26-E-ALG-001 bis LH26-E-ALG-004 erhalten.",
+        "Lauffähiges Programm, Trace, Wirkungserklärung, Modifikation und Testfälle bleiben als eigenständiger Nachweis für LH26-E-ALG-005 und LH26-E-ALG-006 erhalten."
+      ],
+      "prerequisites": [
+        "Das vollständige Klasse-5-Algorithmusprodukt ist zum aktiven Abruf in IUM-6-CORE-04 verfügbar.",
+        "Die Wiederaufnahme ersetzt weder die Klasse-6-Codeausführung noch Modifikation, Test und Revision."
+      ],
+      "risk": "Ist das Klasse-5-Produkt nicht verfügbar oder fachlich unvollständig, würde eine angenommene Wiederaufnahme notwendige Aktivierungs- und Tracezeit verdecken.",
+      "fallback": "Scheitert die Wiederaufnahme, erhält IUM-6-CORE-04 45 Minuten eigenständige Aktivierungs-, Vorhersage- und Tracezeit; die Baseline steigt um 45 Minuten und das Jahrgangsurteil wird neu berechnet.",
+      "status": "working"
     }
   ],
   "annualVariants": [
@@ -1264,6 +1348,114 @@
       "status": "working",
       "rationale": "Vertiefte Algorithmusübung, Medienproduktion und Medienreflexion erhöhen den Kernpfad auf exakt 38 Unterrichtseinheiten.",
       "risk": "Die Vertiefungszeit darf nicht durch zusätzliche Produktanforderungen außerhalb der zentralen Lernprodukte überfrachtet werden."
+    },
+    {
+      "id": "GRADE-6-BASELINE",
+      "grade": 6,
+      "kind": "planning-path",
+      "pathId": "baseline",
+      "targetUnits": 30,
+      "allocations": [
+        {"moduleId": "IUM-6-CORE-01", "budgetPathId": "baseline", "units": 5},
+        {"moduleId": "IUM-6-CORE-02", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-6-CORE-03", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-6-CORE-04", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-6-CORE-05", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-6-CORE-06", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-6-CORE-07", "budgetPathId": "baseline", "units": 5}
+      ],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION", "INT-6-CONFLICT-PRODUCTION", "INT-6-ALGORITHM-REVISIT"],
+      "available": true,
+      "status": "working",
+      "rationale": "Alle sieben Kernmodule ergeben mit den drei fachlich gebundenen und jeweils nur einmal gezählten Integrationen exakt 30 Unterrichtseinheiten.",
+      "risk": "Fällt eine Integration aus, steigt der Zeitbedarf um ihren eigenständigen Rückfallbedarf und das grüne Zeiturteil muss auf amber wechseln."
+    },
+    {
+      "id": "GRADE-6-REGULAR",
+      "grade": 6,
+      "kind": "planning-path",
+      "pathId": "regular",
+      "targetUnits": 34,
+      "allocations": [
+        {"moduleId": "IUM-6-CORE-01", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-CORE-02", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-03", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-04", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-05", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-06", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-07", "budgetPathId": "regular", "units": 6}
+      ],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION", "INT-6-CONFLICT-PRODUCTION", "INT-6-ALGORITHM-REVISIT"],
+      "available": true,
+      "status": "working",
+      "rationale": "Zusätzliche Übung, eigenständige Handlung, Revision und Sicherung in vier Kernmodulen erhöhen den vollständigen Kernpfad auf exakt 34 Unterrichtseinheiten.",
+      "risk": "Die schulabhängigen Such-, Programmier-, Produktions- und Veröffentlichungswege müssen im lokalen Pilot innerhalb der ausgewiesenen Budgets geprüft werden."
+    },
+    {
+      "id": "GRADE-6-EXTENDED-REFERENCE",
+      "grade": 6,
+      "kind": "planning-path",
+      "pathId": "extended",
+      "targetUnits": 38,
+      "allocations": [
+        {"moduleId": "IUM-6-CORE-01", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-CORE-02", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-03", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-04", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-05", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-06", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-07", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-EXT-01", "budgetPathId": "standalone", "units": 4}
+      ],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION", "INT-6-CONFLICT-PRODUCTION", "INT-6-ALGORITHM-REVISIT"],
+      "available": true,
+      "status": "working",
+      "rationale": "Der vollständige 34-UE-Regelkern plus vier eigenständige Einheiten Quellenlabor in IUM-6-EXT-01 ergibt die Referenzvariante mit exakt 38 Unterrichtseinheiten.",
+      "risk": "Die KI-Prüfvertiefung benötigt kuratierte, reproduzierbare Antwort- und Quellenfälle und darf keine Live-KI-Verfügbarkeit voraussetzen."
+    },
+    {
+      "id": "GRADE-6-EXTENDED-TRANSFER",
+      "grade": 6,
+      "kind": "planning-path",
+      "pathId": "extended",
+      "targetUnits": 38,
+      "allocations": [
+        {"moduleId": "IUM-6-CORE-01", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-CORE-02", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-03", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-04", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-05", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-06", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-07", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-TRANSFER-01", "budgetPathId": "standalone", "units": 4}
+      ],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION", "INT-6-CONFLICT-PRODUCTION", "INT-6-ALGORITHM-REVISIT"],
+      "available": true,
+      "status": "working",
+      "rationale": "Der vollständige 34-UE-Regelkern plus vier eigenständige Transfereinheiten zur Speicherentscheidung ergibt exakt 38 Unterrichtseinheiten.",
+      "risk": "Der Transfer muss an einem wirklich neuen Projektfall erfolgen; eine Wiederholung der Kernaufgabe wäre keine tragfähige Erweiterung."
+    },
+    {
+      "id": "GRADE-6-EXTENDED-CODING",
+      "grade": 6,
+      "kind": "planning-path",
+      "pathId": "extended",
+      "targetUnits": 38,
+      "allocations": [
+        {"moduleId": "IUM-6-CORE-01", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-CORE-02", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-6-CORE-03", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-04", "budgetPathId": "targeted-extension", "units": 6},
+        {"moduleId": "IUM-6-CORE-05", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-06", "budgetPathId": "regular", "units": 4},
+        {"moduleId": "IUM-6-CORE-07", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-6-EXT-02", "budgetPathId": "standalone", "units": 3}
+      ],
+      "integrationContractIds": ["INT-6-ACTORS-SELECTION", "INT-6-CONFLICT-PRODUCTION"],
+      "available": true,
+      "status": "working",
+      "rationale": "Der Regelkern wird ausschließlich in IUM-6-CORE-04 um eine gezielte Programmier- und Testeinheit auf 35 UE vertieft; drei eigenständige Einheiten IUM-6-EXT-02 ergänzen ihn auf exakt 38 UE.",
+      "risk": "Targeted Extension und Netzvertiefung müssen zusätzliche eigenständige Ausführung, Tests, Störfälle und Revision enthalten; IUM-6-PROJECT-01 bleibt ausgeschlossen."
     }
   ],
   "timeReviews": [],
@@ -1279,6 +1471,17 @@
       "rationale": "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 Unterrichtseinheiten zeitlich grün; dieser Zeitstatus schließt die getrennt verbleibenden semantischen und Sequenzlücken ausdrücklich nicht.",
       "risk": "Ohne lokalen Pilot sind technische Anlaufzeit, Unterstützungsbedarf sowie tatsächliche Übungs- und Revisionszeit noch nicht empirisch geprüft.",
       "decisionOptions": ["pilot-grade-5-time-model", "retain-semantic-and-sequence-gaps"]
+    },
+    {
+      "grade": 6,
+      "semanticCoverageStatus": "partial",
+      "timeFeasibilityStatus": "green",
+      "sequenceEvidenceStatus": "partial",
+      "pilotStatus": "not-started",
+      "annualVariantIds": ["GRADE-6-BASELINE", "GRADE-6-REGULAR", "GRADE-6-EXTENDED-REFERENCE", "GRADE-6-EXTENDED-TRANSFER", "GRADE-6-EXTENDED-CODING"],
+      "rationale": "Die verfügbaren vollständigen Kernpfade ergeben exakt 30 und 34 Unterrichtseinheiten; alle drei Erweiterungsvarianten ergeben exakt 38 Unterrichtseinheiten und alle drei Integrationsverträge sind working. Dieses grüne Zeiturteil lässt semantische Coverage und Sequenznachweise ausdrücklich partial.",
+      "risk": "Der Pilot ist noch nicht gestartet; technische Anlaufzeit, Unterstützungsbedarf, tatsächliche Übungs- und Revisionszeit sowie die drei Integrationen sind noch nicht empirisch geprüft.",
+      "decisionOptions": ["pilot-grade-6-time-model", "fall-back-to-standalone-integration-time", "retain-semantic-and-sequence-gaps"]
     }
   ],
   "risks": [],

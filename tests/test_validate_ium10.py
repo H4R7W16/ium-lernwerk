@@ -64,6 +64,65 @@ EXPECTED_GRADE_6_FLEX_CONTRACTS = {
     },
 }
 
+EXPECTED_GRADE_6_INTEGRATIONS = {
+    "INT-6-ACTORS-SELECTION": {
+        "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02"],
+        "countedInModuleId": "IUM-6-CORE-01",
+        "sharedMinutes": 90,
+        "savingsMinutesByPath": {"baseline": 90, "regular": 45},
+    },
+    "INT-6-CONFLICT-PRODUCTION": {
+        "moduleIds": ["IUM-6-CORE-06", "IUM-6-CORE-07"],
+        "countedInModuleId": "IUM-6-CORE-07",
+        "sharedMinutes": 90,
+        "savingsMinutesByPath": {"baseline": 90, "regular": 0},
+    },
+    "INT-6-ALGORITHM-REVISIT": {
+        "moduleIds": ["IUM-5-CORE-05", "IUM-6-CORE-04"],
+        "countedInModuleId": "IUM-6-CORE-04",
+        "sharedMinutes": 45,
+        "savingsMinutesByPath": {"baseline": 45, "regular": 0},
+    },
+}
+
+EXPECTED_GRADE_6_VARIANTS = {
+    "GRADE-6-BASELINE": {
+        "pathId": "baseline",
+        "targetUnits": 30,
+        "coreUnits": 30,
+        "flexModuleId": None,
+        "flexUnits": 0,
+    },
+    "GRADE-6-REGULAR": {
+        "pathId": "regular",
+        "targetUnits": 34,
+        "coreUnits": 34,
+        "flexModuleId": None,
+        "flexUnits": 0,
+    },
+    "GRADE-6-EXTENDED-REFERENCE": {
+        "pathId": "extended",
+        "targetUnits": 38,
+        "coreUnits": 34,
+        "flexModuleId": "IUM-6-EXT-01",
+        "flexUnits": 4,
+    },
+    "GRADE-6-EXTENDED-TRANSFER": {
+        "pathId": "extended",
+        "targetUnits": 38,
+        "coreUnits": 34,
+        "flexModuleId": "IUM-6-TRANSFER-01",
+        "flexUnits": 4,
+    },
+    "GRADE-6-EXTENDED-CODING": {
+        "pathId": "extended",
+        "targetUnits": 38,
+        "coreUnits": 35,
+        "flexModuleId": "IUM-6-EXT-02",
+        "flexUnits": 3,
+    },
+}
+
 
 class IUM10BaselineTests(unittest.TestCase):
     @classmethod
@@ -1186,11 +1245,23 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
         module_payload = json.loads(
             (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
         )
+        cls.grade_5_and_6_payload = {
+            "modules": [
+                module
+                for module in module_payload["modules"]
+                if module["grade"] in {5, 6}
+            ]
+        }
         cls.grade_5_payload = {
             "modules": [
                 module for module in module_payload["modules"] if module["grade"] == 5
             ]
         }
+        cls.grade_5_and_6_contracts = [
+            contract
+            for contract in cls.time_model["moduleContracts"]
+            if contract["grade"] in {5, 6}
+        ]
         cls.grade_5_contracts = [
             contract
             for contract in cls.time_model["moduleContracts"]
@@ -1231,16 +1302,24 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
                     )
 
     def test_repository_integration_counts_shared_evidence_only_in_core_06(self):
-        contracts = validate_module_contracts(
-            self.grade_5_contracts,
-            self.grade_5_payload,
+        all_contracts = validate_module_contracts(
+            self.grade_5_and_6_contracts,
+            self.grade_5_and_6_payload,
         )
         integrations = validate_integration_contracts(
             self.time_model["integrationContracts"],
-            contracts,
+            all_contracts,
         )
+        contracts = {
+            module_id: contract
+            for module_id, contract in all_contracts.items()
+            if contract["grade"] == 5
+        }
 
-        self.assertEqual(set(integrations), {"INT-5-RESEARCH-PRODUCTION"})
+        self.assertEqual(
+            set(integrations),
+            {"INT-5-RESEARCH-PRODUCTION"} | set(EXPECTED_GRADE_6_INTEGRATIONS),
+        )
         integration = integrations["INT-5-RESEARCH-PRODUCTION"]
         self.assertEqual(
             integration["moduleIds"],
@@ -1264,6 +1343,8 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
                 module_id: (
                     ["INT-5-RESEARCH-PRODUCTION"]
                     if module_id in {"IUM-5-CORE-02", "IUM-5-CORE-06"}
+                    else ["INT-6-ALGORITHM-REVISIT"]
+                    if module_id == "IUM-5-CORE-05"
                     else []
                 )
                 for module_id in EXPECTED_GRADE_5_UNITS
@@ -1271,19 +1352,29 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
         )
 
     def test_repository_has_available_core_only_30_34_38_variants(self):
-        contracts = validate_module_contracts(
-            self.grade_5_contracts,
-            self.grade_5_payload,
+        all_contracts = validate_module_contracts(
+            self.grade_5_and_6_contracts,
+            self.grade_5_and_6_payload,
         )
         integrations = validate_integration_contracts(
             self.time_model["integrationContracts"],
-            contracts,
+            all_contracts,
         )
-        variants = validate_annual_variants(
+        all_variants = validate_annual_variants(
             self.time_model["annualVariants"],
-            contracts,
+            all_contracts,
             integrations,
         )
+        contracts = {
+            module_id: contract
+            for module_id, contract in all_contracts.items()
+            if contract["grade"] == 5
+        }
+        variants = {
+            variant_id: variant
+            for variant_id, variant in all_variants.items()
+            if variant["grade"] == 5
+        }
 
         expected_variants = {
             "GRADE-5-BASELINE": ("baseline", 30),
@@ -1351,6 +1442,13 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         module_payload = json.loads(
             (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
         )
+        cls.grade_5_and_6_payload = {
+            "modules": [
+                module
+                for module in module_payload["modules"]
+                if module["grade"] in {5, 6}
+            ]
+        }
         cls.grade_6_payload = {
             "modules": [
                 module for module in module_payload["modules"] if module["grade"] == 6
@@ -1364,12 +1462,48 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             for contract in cls.time_model["moduleContracts"]
             if contract["grade"] == 6
         ]
+        cls.grade_5_and_6_contracts = [
+            contract
+            for contract in cls.time_model["moduleContracts"]
+            if contract["grade"] in {5, 6}
+        ]
 
     def validated_contracts(self):
         return validate_module_contracts(
             self.grade_6_contracts,
             self.grade_6_payload,
         )
+
+    def validated_grade_5_and_6_contracts(self, contracts=None):
+        return validate_module_contracts(
+            (
+                self.grade_5_and_6_contracts
+                if contracts is None
+                else contracts
+            ),
+            self.grade_5_and_6_payload,
+        )
+
+    def validated_orchestration(self, time_model=None):
+        model = self.time_model if time_model is None else time_model
+        contracts = validate_module_contracts(
+            [
+                contract
+                for contract in model["moduleContracts"]
+                if contract["grade"] in {5, 6}
+            ],
+            self.grade_5_and_6_payload,
+        )
+        integrations = validate_integration_contracts(
+            model["integrationContracts"],
+            contracts,
+        )
+        variants = validate_annual_variants(
+            model["annualVariants"],
+            contracts,
+            integrations,
+        )
+        return contracts, integrations, variants
 
     def grade_6_orchestration_findings(self, time_model):
         grade_6_module_ids = set(self.grade_6_modules)
@@ -1399,32 +1533,26 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             "gradeJudgementIndexes": grade_6_judgement_indexes,
         }
 
-    def assert_grade_6_scope_stops_before_task_6_orchestration(self, time_model):
-        grade_6_module_ids = set(self.grade_6_modules)
-        grade_6_contracts = [
-            contract
-            for contract in time_model["moduleContracts"]
-            if contract["moduleId"] in grade_6_module_ids
-        ]
-        for contract in grade_6_contracts:
-            with self.subTest(module_id=contract["moduleId"]):
-                self.assertEqual(contract["integrationContractIds"], [])
-                for budget in contract["pathBudgets"]:
-                    self.assertEqual(budget["sharedAllocations"], [])
-                    self.assertEqual(budget["countedSharedMinutes"], 0)
-
+    def assert_grade_6_scope_matches_task_6_exactly(self, time_model):
         findings = self.grade_6_orchestration_findings(time_model)
-        self.assertEqual(findings["integrationContractIds"], [])
-        self.assertEqual(findings["annualVariantIds"], [])
-        self.assertEqual(findings["gradeJudgementIndexes"], [])
-
-    def test_repository_grade_6_scope_stops_before_task_6_orchestration(self):
-        self.assert_grade_6_scope_stops_before_task_6_orchestration(
-            self.time_model
+        self.assertEqual(
+            set(findings["integrationContractIds"]),
+            set(EXPECTED_GRADE_6_INTEGRATIONS),
         )
+        self.assertEqual(
+            set(findings["annualVariantIds"]),
+            set(EXPECTED_GRADE_6_VARIANTS),
+        )
+        self.assertEqual(len(findings["gradeJudgementIndexes"]), 1)
+
+    def test_repository_grade_6_scope_matches_task_6_exactly(self):
+        self.assert_grade_6_scope_matches_task_6_exactly(self.time_model)
 
     def test_scope_links_spoofed_grade_judgement_to_grade_6_variant(self):
         adversarial_time_model = copy.deepcopy(self.time_model)
+        repository_findings = self.grade_6_orchestration_findings(
+            self.time_model
+        )
         adversarial_time_model["annualVariants"].append(
             {
                 "id": "SPOOFED-ALLOCATION-VARIANT",
@@ -1469,17 +1597,399 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         )
 
         self.assertEqual(
-            findings["annualVariantIds"],
-            ["SPOOFED-ALLOCATION-VARIANT"],
+            set(findings["annualVariantIds"]),
+            set(EXPECTED_GRADE_6_VARIANTS)
+            | {"SPOOFED-ALLOCATION-VARIANT"},
         )
         self.assertEqual(
             findings["gradeJudgementIndexes"],
-            [spoofed_judgement_index],
+            repository_findings["gradeJudgementIndexes"]
+            + [spoofed_judgement_index],
         )
         with self.assertRaises(AssertionError):
-            self.assert_grade_6_scope_stops_before_task_6_orchestration(
+            self.assert_grade_6_scope_matches_task_6_exactly(
                 adversarial_time_model
             )
+
+    def test_repository_has_exactly_three_grade_6_integrations_with_exact_boundaries(self):
+        contracts, integrations, _ = self.validated_orchestration()
+        grade_6_integrations = {
+            integration_id: integration
+            for integration_id, integration in integrations.items()
+            if integration_id in EXPECTED_GRADE_6_INTEGRATIONS
+        }
+
+        self.assertEqual(
+            set(grade_6_integrations),
+            set(EXPECTED_GRADE_6_INTEGRATIONS),
+        )
+        for integration_id, expected in EXPECTED_GRADE_6_INTEGRATIONS.items():
+            with self.subTest(integration_id=integration_id):
+                integration = grade_6_integrations[integration_id]
+                self.assertEqual(integration["pathIds"], ["baseline", "regular"])
+                for field, value in expected.items():
+                    self.assertEqual(integration[field], value)
+                self.assertGreaterEqual(
+                    len(integration["preservedLearningActions"]),
+                    2,
+                )
+                self.assertGreaterEqual(
+                    len(integration["preservedProductAndCurriculumEvidence"]),
+                    2,
+                )
+                curriculum_evidence = " ".join(
+                    integration["preservedProductAndCurriculumEvidence"]
+                )
+                participant_competency_ids = {
+                    competency_id
+                    for module_id in integration["moduleIds"]
+                    for competency_id in contracts[module_id]["competencyIds"]
+                }
+                self.assertTrue(
+                    any(
+                        competency_id in curriculum_evidence
+                        for competency_id in participant_competency_ids
+                    )
+                )
+                self.assertIn(
+                    f"{integration['sharedMinutes']} Minuten",
+                    integration["fallback"],
+                )
+                self.assertIn("eigenständig", integration["fallback"].lower())
+
+    def test_repository_counts_each_grade_6_shared_allocation_only_in_its_counted_module(self):
+        contracts, integrations, _ = self.validated_orchestration()
+
+        for integration_id, expected in EXPECTED_GRADE_6_INTEGRATIONS.items():
+            locations = {
+                (module_id, budget["pathId"], allocation["minutes"])
+                for module_id, contract in contracts.items()
+                for budget in contract["pathBudgets"]
+                for allocation in budget["sharedAllocations"]
+                if allocation["integrationContractId"] == integration_id
+            }
+            self.assertEqual(
+                locations,
+                {
+                    (
+                        expected["countedInModuleId"],
+                        path_id,
+                        expected["sharedMinutes"],
+                    )
+                    for path_id in ("baseline", "regular")
+                },
+            )
+
+            adversarial_contracts = copy.deepcopy(contracts)
+            uncounted_module_id = next(
+                module_id
+                for module_id in expected["moduleIds"]
+                if module_id != expected["countedInModuleId"]
+            )
+            adversarial_contracts[uncounted_module_id]["pathBudgets"][0][
+                "sharedAllocations"
+            ].append(
+                {
+                    "integrationContractId": integration_id,
+                    "minutes": expected["sharedMinutes"],
+                }
+            )
+            with self.assertRaisesRegex(IUM10ValidationError, "exactly once"):
+                validate_integration_contracts(
+                    list(integrations.values()),
+                    adversarial_contracts,
+                )
+
+    def test_rejects_cross_grade_integration_without_prerequisite_and_revisit_chain(self):
+        contracts, integrations, _ = self.validated_orchestration()
+        adversarial_contracts = copy.deepcopy(contracts)
+        adversarial_contracts["IUM-5-CORE-05"]["revisitModuleIds"] = []
+
+        with self.assertRaisesRegex(IUM10ValidationError, "cross-grade"):
+            validate_integration_contracts(
+                list(integrations.values()),
+                adversarial_contracts,
+            )
+
+    def test_repository_has_exact_grade_6_30_34_and_three_38_variants(self):
+        contracts, _, variants = self.validated_orchestration()
+        grade_6_variants = {
+            variant_id: variant
+            for variant_id, variant in variants.items()
+            if variant["grade"] == 6
+        }
+        core_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS)
+
+        self.assertEqual(set(grade_6_variants), set(EXPECTED_GRADE_6_VARIANTS))
+        for variant_id, expected in EXPECTED_GRADE_6_VARIANTS.items():
+            with self.subTest(variant_id=variant_id):
+                variant = grade_6_variants[variant_id]
+                allocations = {
+                    allocation["moduleId"]: allocation
+                    for allocation in variant["allocations"]
+                }
+                self.assertEqual(variant["pathId"], expected["pathId"])
+                self.assertEqual(variant["targetUnits"], expected["targetUnits"])
+                self.assertIs(variant["available"], True)
+                self.assertEqual(variant["status"], "working")
+                self.assertEqual(
+                    core_module_ids & set(allocations),
+                    core_module_ids,
+                )
+                self.assertEqual(
+                    sum(
+                        allocation["units"]
+                        for module_id, allocation in allocations.items()
+                        if module_id in core_module_ids
+                    ),
+                    expected["coreUnits"],
+                )
+                self.assertNotIn("IUM-6-PROJECT-01", allocations)
+
+                flex_module_ids = {
+                    module_id
+                    for module_id in allocations
+                    if contracts[module_id]["kind"] != "core"
+                }
+                expected_flex_ids = (
+                    set()
+                    if expected["flexModuleId"] is None
+                    else {expected["flexModuleId"]}
+                )
+                self.assertEqual(flex_module_ids, expected_flex_ids)
+                self.assertEqual(
+                    sum(
+                        allocations[module_id]["units"]
+                        for module_id in flex_module_ids
+                    ),
+                    expected["flexUnits"],
+                )
+
+        coding_allocations = {
+            allocation["moduleId"]: allocation
+            for allocation in grade_6_variants[
+                "GRADE-6-EXTENDED-CODING"
+            ]["allocations"]
+        }
+        self.assertEqual(
+            coding_allocations["IUM-6-CORE-04"],
+            {
+                "moduleId": "IUM-6-CORE-04",
+                "budgetPathId": "targeted-extension",
+                "units": 6,
+            },
+        )
+        self.assertEqual(
+            coding_allocations["IUM-6-EXT-02"],
+            {
+                "moduleId": "IUM-6-EXT-02",
+                "budgetPathId": "standalone",
+                "units": 3,
+            },
+        )
+
+    def test_grade_6_extended_variants_use_explicit_budget_path_overrides(self):
+        core_regular_overrides = {
+            module_id: "regular" for module_id in EXPECTED_GRADE_6_CORE_UNITS
+        }
+        expected_overrides = {
+            "GRADE-6-EXTENDED-REFERENCE": {
+                **core_regular_overrides,
+                "IUM-6-EXT-01": "standalone",
+            },
+            "GRADE-6-EXTENDED-TRANSFER": {
+                **core_regular_overrides,
+                "IUM-6-TRANSFER-01": "standalone",
+            },
+            "GRADE-6-EXTENDED-CODING": {
+                **core_regular_overrides,
+                "IUM-6-CORE-04": "targeted-extension",
+                "IUM-6-EXT-02": "standalone",
+            },
+        }
+
+        self.assertEqual(
+            {
+                variant_id: ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES[
+                    variant_id
+                ]
+                for variant_id in expected_overrides
+            },
+            expected_overrides,
+        )
+
+    def test_rejects_grade_6_flex_replacement_and_project_in_normal_variants(self):
+        contracts, integrations, variants = self.validated_orchestration()
+        core_regular_overrides = {
+            module_id: "regular" for module_id in EXPECTED_GRADE_6_CORE_UNITS
+        }
+        adversarial_variants = []
+
+        flex_replacement = copy.deepcopy(variants["GRADE-6-BASELINE"])
+        flex_replacement["id"] = "GRADE-6-FLEX-REPLACEMENT"
+        flex_replacement["allocations"] = [
+            (
+                {
+                    "moduleId": "IUM-6-EXT-01",
+                    "budgetPathId": "standalone",
+                    "units": 4,
+                }
+                if allocation["moduleId"] == "IUM-6-CORE-03"
+                else allocation
+            )
+            for allocation in flex_replacement["allocations"]
+        ]
+        adversarial_variants.append(
+            (
+                flex_replacement,
+                {"IUM-6-EXT-01": "standalone"},
+                "all core modules",
+            )
+        )
+
+        project_variant = copy.deepcopy(variants["GRADE-6-REGULAR"])
+        project_variant.update(
+            {
+                "id": "GRADE-6-PROJECT-ADVERSARIAL",
+                "pathId": "extended",
+                "targetUnits": 44,
+            }
+        )
+        project_variant["allocations"].append(
+            {
+                "moduleId": "IUM-6-PROJECT-01",
+                "budgetPathId": "standalone",
+                "units": 10,
+            }
+        )
+        adversarial_variants.append(
+            (
+                project_variant,
+                {
+                    **core_regular_overrides,
+                    "IUM-6-PROJECT-01": "standalone",
+                },
+                "project modules",
+            )
+        )
+
+        for variant, overrides, message in adversarial_variants:
+            with self.subTest(variant_id=variant["id"]):
+                ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES[
+                    variant["id"]
+                ] = overrides
+                try:
+                    with self.assertRaisesRegex(IUM10ValidationError, message):
+                        validate_annual_variants(
+                            [variant],
+                            contracts,
+                            integrations,
+                        )
+                finally:
+                    del ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES[
+                        variant["id"]
+                    ]
+
+    def test_repository_grade_6_judgement_is_green_but_semantic_and_pilot_statuses_stay_separate(self):
+        validate_time_model_draft(self.time_model)
+        judgements = [
+            judgement
+            for judgement in self.time_model["gradeJudgements"]
+            if judgement["grade"] == 6
+        ]
+
+        self.assertEqual(len(judgements), 1)
+        judgement = judgements[0]
+        self.assertEqual(
+            {
+                "semanticCoverageStatus": judgement["semanticCoverageStatus"],
+                "timeFeasibilityStatus": judgement["timeFeasibilityStatus"],
+                "sequenceEvidenceStatus": judgement["sequenceEvidenceStatus"],
+                "pilotStatus": judgement["pilotStatus"],
+            },
+            {
+                "semanticCoverageStatus": "partial",
+                "timeFeasibilityStatus": "green",
+                "sequenceEvidenceStatus": "partial",
+                "pilotStatus": "not-started",
+            },
+        )
+        self.assertEqual(
+            set(judgement["annualVariantIds"]),
+            set(EXPECTED_GRADE_6_VARIANTS),
+        )
+        self.assertIn("semant", judgement["rationale"].lower())
+        self.assertIn("pilot", judgement["risk"].lower())
+
+    def test_rejects_green_grade_6_judgement_when_variants_or_integrations_do_not_pass(self):
+        mutations = (
+            (
+                "failed module contract",
+                "moduleContracts",
+                "TC-IUM-6-CORE-01",
+                "status",
+                "failed",
+            ),
+            (
+                "wrong 30 path",
+                "annualVariants",
+                "GRADE-6-BASELINE",
+                "targetUnits",
+                31,
+            ),
+            (
+                "failed integration",
+                "integrationContracts",
+                "INT-6-ACTORS-SELECTION",
+                "status",
+                "failed",
+            ),
+        )
+        for label, collection, record_id, field, value in mutations:
+            with self.subTest(label=label):
+                adversarial_time_model = copy.deepcopy(self.time_model)
+                records = adversarial_time_model[collection]
+                record = next(record for record in records if record["id"] == record_id)
+                record[field] = value
+                with self.assertRaisesRegex(
+                    IUM10ValidationError,
+                    "grade 6 green judgement",
+                ):
+                    validate_time_model_draft(adversarial_time_model)
+
+        unjustified_amber = copy.deepcopy(self.time_model)
+        next(
+            judgement
+            for judgement in unjustified_amber["gradeJudgements"]
+            if judgement["grade"] == 6
+        )["timeFeasibilityStatus"] = "amber"
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "grade 6 green judgement",
+        ):
+            validate_time_model_draft(unjustified_amber)
+
+    def test_rejects_green_grade_6_judgement_with_duplicate_orchestration_records(self):
+        duplicates = (
+            ("moduleContracts", "TC-IUM-6-CORE-01"),
+            ("integrationContracts", "INT-6-ACTORS-SELECTION"),
+            ("annualVariants", "GRADE-6-BASELINE"),
+        )
+        for collection, record_id in duplicates:
+            with self.subTest(collection=collection):
+                adversarial_time_model = copy.deepcopy(self.time_model)
+                record = next(
+                    record
+                    for record in adversarial_time_model[collection]
+                    if record["id"] == record_id
+                )
+                adversarial_time_model[collection].append(copy.deepcopy(record))
+
+                with self.assertRaisesRegex(
+                    IUM10ValidationError,
+                    "grade 6 green judgement",
+                ):
+                    validate_time_model_draft(adversarial_time_model)
 
     def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS) | set(
