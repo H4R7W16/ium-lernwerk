@@ -170,10 +170,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Der private Evidenzvertrag trägt beide persönlichen Teilanforderungen vollständig: Das Mediennutzungsprotokoll beschreibt die persönliche Motivation in mindestens zwei eigenen Nutzungssituationen und bewertet die eigene Nutzung begründet mit altersbezogenen Kriterien; weder die private Produktspur noch die Anschlussaufgabe verlangt Offenlegung.",
+      "changeRationale": "Der record-spezifische Abschnitt der einen integrierten privaten lokalen Reflexionsmatrix beschreibt die persönliche Motivation in denselben zwei einmal festgehaltenen eigenen Nutzungssituationen und bewertet die eigene Nutzung mit einem vollständig vorgegebenen, im nichtpersonalen Auftrag enthaltenen altersbezogenen Kriterienkatalog. Der nichtpersonale Operatoranteil fließt ausschließlich in dieselbe gemeinsame teilbare Wirkungskarte ein und benötigt keine Einsicht in die private Matrix.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "IUM10 prüft, ob zwei persönliche Nutzungssituationen, altersbezogene Kriterien und die davon getrennte fiktive Kriterienanwendung innerhalb des 4–6-Stunden-Korridors tragfähig sind."
+        "rationale": "IUM10 prüft, ob die gemeinsame Sequenz aus vorgegebenem Fall und Kriterienkatalog, integrierter privater Matrix, gemeinsamer Wirkungskarte und Sicherung innerhalb des 4–6-Stunden-Korridors tragfähig ist."
       },
       "graphImpact": {
         "level": "none",
@@ -197,10 +197,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die fallbezogene Nutzen-Risiko-Matrix weist positive Aspekte, Risiken oder Gefahren ausdrücklich für übermäßigen Mediengebrauch, ihre kriterien- und beleggestützte Bewertung sowie passende präventive Maßnahmen gemeinsam nach und erfüllt damit Operatoren und Gegenstände vollständig.",
+      "changeRationale": "Der Nutzen-Risiko-/Präventionsabschnitt derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte weist am vollständig vorgegebenen gemeinsamen Fall positive Aspekte, Risiken oder Gefahren ausdrücklich für übermäßigen Mediengebrauch, ihre kriterien- und beleggestützte Bewertung sowie passende präventive Maßnahmen nach; es entsteht kein separates Zusatzprodukt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "IUM10 prüft den Zeitbedarf für Erläuterung, Bewertung und Präventionsbezug der dichten Nutzen-Risiko-Fallarbeit innerhalb des 4–6-Stunden-Korridors."
+        "rationale": "IUM10 prüft den Zeitanteil von Erläuterung, Bewertung und Prävention innerhalb der einen gemeinsamen Fallanalyse, Wirkungskarte und Sicherung des 4–6-Stunden-Korridors."
       },
       "graphImpact": {
         "level": "none",
@@ -224,10 +224,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die private Wirkungsvergleichstabelle untersucht mindestens zwei Medienbeispiele, enthält ausdrücklich die eigenen Empfindungen zu jedem Beispiel und leitet aus dem Vergleich eine erste bedingte Gesetzmäßigkeit ab; die neue nichtpersonale Prüfung nutzt ausschließlich bereitgestellte Reaktionsdaten.",
+      "changeRationale": "Der Abschnitt „Empfindung und Wirkung“ der einen integrierten privaten lokalen Reflexionsmatrix untersucht dieselben zwei kuratierten Medienbeispiele, enthält die eigenen Empfindungen und eine erste bedingte Gesetzmäßigkeit. Der nichtpersonale Operatoranteil nutzt denselben vollständig vorgegebenen Fall und bereitgestellte Reaktionsdaten als Abschnitt derselben gemeinsamen Wirkungskarte, ohne private Inhalte zu benötigen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "IUM10 prüft den Zeitbedarf für zwei Beispieluntersuchungen, private Empfindungsäußerung, Ableitung und unabhängige Revision einer Wirkungsaussage im bestehenden Stundenkorridor."
+        "rationale": "IUM10 prüft den Zeitanteil für Beispieluntersuchung, private Empfindungsäußerung und bedingte Wirkungsaussage innerhalb der gemeinsamen Matrix-, Wirkungskarten- und Sicherungssequenz."
       },
       "graphImpact": {
         "level": "none",
@@ -313,10 +313,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die private Vergleichsmatrix knüpft an eigene Erfahrungen an, beschreibt das eigene Nutzungsverhalten in mindestens zwei Situationen und vergleicht es anhand gemeinsamer Kriterien untereinander sowie mit einem vollständig vorgegebenen fiktiven Profil; die nichtpersonale Anschlussaufgabe vergleicht ausschließlich fiktive Profile.",
+      "changeRationale": "Der Abschnitt „Nutzungsvergleich“ der einen integrierten privaten lokalen Reflexionsmatrix knüpft an eigene Erfahrungen an, beschreibt dieselben zwei einmal festgehaltenen eigenen Nutzungssituationen und vergleicht sie anhand des gemeinsamen Kriterienkatalogs mit den zwei Situationen des vollständig vorgegebenen Falls. Der nichtpersonale Vergleich wird nur als Operatoranteil derselben gemeinsamen Wirkungskarte ausgeführt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "IUM10 prüft, ob Beschreibung, kriteriengeleiteter Mehrfachvergleich und unabhängiger Falltransfer innerhalb des bereits verdichteten 4–6-Stunden-Moduls tragfähig sind."
+        "rationale": "IUM10 prüft den Zeitanteil für Beschreibung und kriteriengeleiteten Vergleich innerhalb der gemeinsam vorbereiteten Matrix-, Wirkungskarten- und Sicherungssequenz."
       },
       "graphImpact": {
         "level": "none",
@@ -340,10 +340,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Die private Lebenswelt-Medien-Karte stellt konkrete Einflüsse digitaler Medien auf eigene Lebensbereiche dar und setzt Wirklichkeit und Medienwirklichkeit durch begründete Entsprechungen und Unterschiede in Beziehung; die Anschlussaufgabe wiederholt beide Operatoren an einem vollständig vorgegebenen fiktiven Lebensweltfall.",
+      "changeRationale": "Der Abschnitt „Lebenswelt und Medienwirklichkeit“ der einen integrierten privaten lokalen Reflexionsmatrix nutzt dieselben zwei eigenen Nutzungssituationen und dieselben zwei kuratierten Medienbeispiele, um Lebenswelteinfluss sowie Entsprechungen und Unterschiede zwischen Wirklichkeit und Medienwirklichkeit darzustellen. Der nichtpersonale Operatoranteil wird am gemeinsamen vorgegebenen Fall in derselben teilbaren Wirkungskarte gesichert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "IUM10 prüft den Zeitbedarf für private Lebensweltdarstellung, begründete Wirklichkeitsbeziehung und unabhängigen fiktiven Falltransfer im 4–6-Stunden-Korridor."
+        "rationale": "IUM10 prüft den Zeitanteil für Lebensweltdarstellung und Wirklichkeitsbeziehung innerhalb der gemeinsam vorbereiteten Matrix-, Wirkungskarten- und Sicherungssequenz."
       },
       "graphImpact": {
         "level": "none",
@@ -361,22 +361,26 @@
         "evidenceModuleId": "IUM-5-CORE-07",
         "reason": "Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet."
       },
-      "decision": "covered",
-      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-003",
+      "decision": "remain-partial",
+      "evidenceContractId": null,
       "after": {
-        "coverageStatus": "covered",
-        "semanticAudit": "operator-product-match"
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Die private Fallvergleichstabelle verlangt für mindestens zwei fiktive mediale Selbstdarstellungen eine Folgenabschätzung für dargestellte Person, Beteiligte und Publikum sowie ein begründetes Urteil anhand vorgegebener Kriterien; die Anschlussaufgabe funktioniert vollständig an einem neuen fiktiven Fall.",
+      "changeRationale": "Der Quelltext verlangt Folgenabschätzung und Bewertung medialer Selbstdarstellung ohne persönlichen Bezug. Die festgeschriebene Ursachenklasse `private-local` würde eine unnötig private fiktive Erstleistung und einen redundanten zweiten Fallnachweis erzeugen; bis zu einer Design- und Ursachenreklassifikation kann der Record nicht belastbar geschlossen werden.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "IUM10 prüft den Zeitbedarf für mehrperspektivische kurz- und längerfristige Folgenabschätzung, Kriterienurteil und unabhängigen Falltransfer im bestehenden Stundenkorridor."
+        "rationale": "IUM10 prüft Zeitbedarf und Einordnung genau eines späteren sichtbaren Fallnachweises erst nach der notwendigen Design- und Ursachenreklassifikation."
       },
       "graphImpact": {
-        "level": "none",
-        "rationale": "Die Folgenbewertung fiktiver Selbstdarstellung ist eine fachlich passende Fallvertiefung der zentralen Medienwirkungsfrage und benötigt keine neue Voraussetzung."
+        "level": "review-required",
+        "rationale": "Eine belastbare Schließung setzt die spätere Reklassifikation von `private-local` zu `module-detail` und die Prüfung genau eines sichtbaren Fallnachweises voraus; deshalb bleibt der Record in IUM09 partial."
       },
-      "residualGap": null
+      "residualGap": {
+        "reason": "Der Quelltext fordert das Abschätzen und Bewerten medialer Selbstdarstellung ohne persönlichen Bezug; die festgeschriebene Ursachenklasse `private-local` ist für eine rein fiktive Fallleistung fehlklassifiziert und würde private Erstleistung und nichtpersonalen Nachweis redundant verdoppeln.",
+        "risk": "Eine Schließung im Modus `private-local` würde ohne Datenschutzgewinn eine fachlich unbeobachtbare fiktive Erstleistung erzeugen und dieselbe Operatorfolge in einer zweiten Fallaufgabe wiederholen; das verschleiert den erforderlichen normalen Fallnachweis.",
+        "followUp": "In einer späteren Design- und Ursachenreklassifikation den Wechsel zu `module-detail` prüfen und danach genau einen `shared`- oder `teacher-observable`-Fallnachweis für Folgenabschätzung und kriteriengestützte Bewertung vorsehen; bis dahin bleibt der Record ohne Evidenzvertrag partial."
+      }
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-004",

@@ -21,6 +21,14 @@ PRIVATE_BOUNDARY_TEXT = (
     "eingesammelt, gespeichert oder bewertet."
 )
 
+INTEGRATED_PRIVATE_PRODUCT = "integrierten privaten lokalen Reflexionsmatrix"
+COMMON_CASE_PRODUCT = "gemeinsamen teilbaren fallbezogenen Wirkungskarte"
+COMMON_CASE = "vollständig vorgegebenen gemeinsamen fiktiven Fall"
+MG001_CRITERIA = (
+    "Kriterienbasis: vollständig vorgegebener, im nichtpersonalen Auftrag "
+    "enthaltener altersbezogener Kriterienkatalog."
+)
+
 
 EXPECTED_CAUSE_CLASS_BY_ID = {
     **dict.fromkeys(
@@ -90,7 +98,9 @@ AUDITED_DECISIONS = {
     "BMB16-GYM-IK-MG-003": ("IUM-5-CORE-07", "private-local", "covered"),
     "BMB16-GYM-PK-RK-001": ("IUM-5-CORE-07", "private-local", "covered"),
     "BMB16-GYM-PK-RK-002": ("IUM-5-CORE-07", "private-local", "covered"),
-    "BMB16-GYM-PK-RK-003": ("IUM-5-CORE-07", "private-local", "covered"),
+    "BMB16-GYM-PK-RK-003": (
+        "IUM-5-CORE-07", "private-local", "remain-partial"
+    ),
     "LH26-E-DP-003": ("IUM-5-CORE-07", "private-local", "remain-partial"),
 }
 
@@ -232,7 +242,6 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
                 "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
                 "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
-                "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-003",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -304,6 +313,69 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
         del contract["nonPersonalFollowUp"]
         with self.assertRaisesRegex(IUM09ValidationError, "nonPersonalFollowUp"):
             self.validate(contract)
+
+
+class Core07RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-5-CORE-07"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in module["coverageEvidence"]
+        }
+
+    def test_core_07_uses_one_private_matrix_and_one_nonpersonal_case_product(self):
+        private_ids = {
+            "BMB16-GYM-IK-MG-001",
+            "BMB16-GYM-IK-MG-003",
+            "BMB16-GYM-PK-RK-001",
+            "BMB16-GYM-PK-RK-002",
+        }
+        self.assertEqual(
+            set(self.contracts),
+            private_ids | {"BMB16-GYM-IK-MG-002"},
+        )
+
+        for competency_id in private_ids:
+            with self.subTest(competency_id=competency_id):
+                contract = self.contracts[competency_id]
+                self.assertIn(
+                    INTEGRATED_PRIVATE_PRODUCT,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    COMMON_CASE_PRODUCT,
+                    contract["nonPersonalFollowUp"],
+                )
+                self.assertIn(COMMON_CASE, contract["nonPersonalFollowUp"])
+
+        shared_product_fields = [
+            self.contracts[competency_id]["nonPersonalFollowUp"]
+            for competency_id in private_ids
+        ] + [self.contracts["BMB16-GYM-IK-MG-002"]["productEvidence"]]
+        self.assertEqual(
+            sum(
+                field.count(COMMON_CASE_PRODUCT)
+                for field in shared_product_fields
+            ),
+            5,
+        )
+        self.assertTrue(
+            all(COMMON_CASE in field for field in shared_product_fields)
+        )
+
+        mg001 = self.contracts["BMB16-GYM-IK-MG-001"]
+        for field in ("learningAction", "productEvidence", "nonPersonalFollowUp"):
+            with self.subTest(mg001_field=field):
+                self.assertIn(MG001_CRITERIA, mg001[field])
 
 
 class ModuleStructureFingerprintTests(unittest.TestCase):
@@ -505,7 +577,11 @@ class RemediationLedgerTests(unittest.TestCase):
                     )
                 expected_graph = (
                     "review-required"
-                    if entry["competencyId"] == "BMB16-GYM-IK-GM-003"
+                    if entry["competencyId"]
+                    in {
+                        "BMB16-GYM-IK-GM-003",
+                        "BMB16-GYM-PK-RK-003",
+                    }
                     else "none"
                 )
                 self.assertEqual(entry["graphImpact"]["level"], expected_graph)
