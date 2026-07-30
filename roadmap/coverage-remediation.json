@@ -1436,26 +1436,22 @@
         "evidenceModuleId": "IUM-5-CORE-02",
         "reason": "Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-02-LH26-E-ID-009",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Die drei Strategien aktivieren sachbezogenes Vorwissen zur konkreten Suchfrage, verknüpfen eine neue Quelleninformation ausdrücklich als Übereinstimmung, Ergänzung oder Widerspruch und leiten daraus eine belegte Aussage oder Revision ab. Alle drei Schritte werden als eine integrierte Belegspur der bereits vorgesehenen Antwort beziehungsweise Revision im selben digitalen Quellendossier sichtbar; ein Zusatzprodukt oder eine persönliche Offenlegung ist nicht nötig.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die explizite Drei-Schritt-Verknüpfung aus Vorwissensanker, Quellenabgleich und Antwortrevision präzisiert die vorhandene Dossierarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von 5–7 Stunden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Vorwissensaktivierung, Quellenprüfung, belegte Antwort und Revision sind bereits im selben Kernmodul angelegt; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
       },
-      "residualGap": {
-        "reason": "Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet.",
-        "followUp": "Kernkandidat IUM-5-CORE-02 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-ID-020",

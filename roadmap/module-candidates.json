@@ -149,6 +149,16 @@
       "centralQuestion": "Wann trägt ein Suchergebnis wirklich zur Antwort auf unsere Frage bei?",
       "centralLearningAction": "Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren.",
       "centralLearningProduct": "Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-02-LH26-E-ID-009",
+          "competencyId": "LH26-E-ID-009",
+          "mode": "module-detail",
+          "learningAction": "Die Strategien Vorwissensanker, Quellenabgleich und Antwortrevision anwenden: zur konkreten Suchfrage sachbezogenes Vorwissen im selben digitalen Quellendossier festhalten, eine neue Quelleninformation ausdrücklich als Übereinstimmung, Ergänzung oder Widerspruch damit verknüpfen und aus diesem Abgleich eine belegte Aussage oder dokumentierte Revision der Antwort ableiten.",
+          "productEvidence": "Eine integrierte Belegspur derselben belegten Antwort oder dokumentierten Revision im digitalen Quellendossier mit gekennzeichnetem sachbezogenem Vorwissensanker, neuer Quelleninformation, Verknüpfung als Übereinstimmung, Ergänzung oder Widerspruch und daraus abgeleiteter weiterverarbeiteter Aussage; kein separates Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",

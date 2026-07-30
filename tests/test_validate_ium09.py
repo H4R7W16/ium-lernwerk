@@ -49,6 +49,9 @@ CORE03_DATA_BOUNDARY = (
     "Zugangsdaten, private Nachrichten, personenbezogene Inhalte und "
     "vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert"
 )
+CORE02_INTEGRATED_TRACE = (
+    "integrierte Belegspur derselben belegten Antwort oder dokumentierten Revision"
+)
 CORE7_CORE03_TRACE_PRODUCT = (
     "sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen "
     "Code-, Ablauf- und Zustandstraceprodukts"
@@ -170,6 +173,7 @@ AUDITED_DECISIONS = {
     "LH26-E-ALG-007": ("IUM-7-CORE-03", "module-detail", "covered"),
     "LH26-E-ALG-008": ("IUM-7-CORE-03", "module-detail", "covered"),
     "LH26-E-ALG-009": ("IUM-7-CORE-03", "module-detail", "covered"),
+    "LH26-E-ID-009": ("IUM-5-CORE-02", "module-detail", "covered"),
 }
 
 
@@ -336,6 +340,13 @@ def curriculum_contracts():
                 "Kommunikation reflektieren und diskutieren"
             )
         },
+        "LH26-E-ID-009": {
+            "text": (
+                "Strategien anwenden, um Informationen mit Vorwissen zu "
+                "verknüpfen und für eine gegebene Fragestellung "
+                "weiterzuverarbeiten"
+            )
+        },
     }
 
 
@@ -413,6 +424,7 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-03-BMB16-GYM-PK-RK-004",
                 "CE-IUM-5-CORE-03-LH26-E-KS-001",
                 "CE-IUM-5-CORE-03-LH26-E-KS-002",
+                "CE-IUM-5-CORE-02-LH26-E-ID-009",
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
                 "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
@@ -714,6 +726,57 @@ class Core03RepositoryOrchestrationTests(unittest.TestCase):
             "gemeinsame Revision",
         ):
             self.assertIn(term, ks002)
+
+
+class Core02RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-5-CORE-02"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_core_02_integrates_prior_knowledge_source_link_and_revision(self):
+        self.assertEqual(set(self.contracts), {"LH26-E-ID-009"})
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-5-CORE-01"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 5, "max": 7})
+
+        contract = self.contracts["LH26-E-ID-009"]
+        self.assertEqual(contract["mode"], "module-detail")
+        self.assertEqual(contract["productVisibility"], "teacher-observable")
+
+        for term in (
+            "Strategien Vorwissensanker, Quellenabgleich und Antwortrevision anwenden",
+            "zur konkreten Suchfrage sachbezogenes Vorwissen",
+            "im selben digitalen Quellendossier festhalten",
+            "eine neue Quelleninformation ausdrücklich als Übereinstimmung, "
+            "Ergänzung oder Widerspruch damit verknüpfen",
+            "aus diesem Abgleich eine belegte Aussage oder dokumentierte "
+            "Revision der Antwort ableiten",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            CORE02_INTEGRATED_TRACE,
+            "gekennzeichnetem sachbezogenem Vorwissensanker",
+            "neuer Quelleninformation",
+            "Verknüpfung als Übereinstimmung, Ergänzung oder Widerspruch",
+            "daraus abgeleiteter weiterverarbeiteter Aussage",
+            "kein separates Zusatzprodukt",
+        ):
+            self.assertIn(term, contract["productEvidence"])
 
 
 class Core7Core03RepositoryOrchestrationTests(unittest.TestCase):
