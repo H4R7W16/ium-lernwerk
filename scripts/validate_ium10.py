@@ -66,6 +66,100 @@ GRADE_6_INTEGRATION_IDS = frozenset(
         "INT-6-ALGORITHM-REVISIT",
     }
 )
+GRADE_7_INTEGRATION_IDS = frozenset(
+    {
+        "INT-7-DATA-CODING",
+        "INT-7-PROGRAMMING",
+        "INT-7-NET-SECURITY",
+        "INT-7-DATA-MEDIA-SOCIETY",
+    }
+)
+GRADE_7_CORE_MODULE_IDS = frozenset(
+    {
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-02",
+        "IUM-7-CORE-03",
+        "IUM-7-CORE-04",
+        "IUM-7-CORE-05",
+        "IUM-7-CORE-06",
+        "IUM-7-CORE-07",
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-09",
+        "IUM-7-CORE-10",
+    }
+)
+GRADE_7_FLEX_RANGES = {
+    "IUM-7-EXT-01": {"min": 3, "recommended": 4, "max": 5},
+    "IUM-7-TRANSFER-01": {"min": 3, "recommended": 4, "max": 5},
+    "IUM-7-PROJECT-01": {"min": 8, "recommended": 10, "max": 12},
+}
+GRADE_7_CORE_UNITS = {
+    "IUM-7-CORE-01": {"optimized": 5, "robust": 5, "historical-minimum": 6},
+    "IUM-7-CORE-02": {"optimized": 3, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-03": {"optimized": 5, "robust": 5, "historical-minimum": 6},
+    "IUM-7-CORE-04": {"optimized": 6, "robust": 6, "historical-minimum": 7},
+    "IUM-7-CORE-05": {"optimized": 4, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-06": {"optimized": 3, "robust": 3, "historical-minimum": 4},
+    "IUM-7-CORE-07": {"optimized": 4, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-08": {"optimized": 4, "robust": 6, "historical-minimum": 6},
+    "IUM-7-CORE-09": {"optimized": 2, "robust": 3, "historical-minimum": 4},
+    "IUM-7-CORE-10": {"optimized": 4, "robust": 6, "historical-minimum": 6},
+}
+GRADE_7_INTEGRATION_BOUNDS = {
+    "INT-7-DATA-CODING": {
+        "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02"],
+        "pathIds": ["optimized", "robust"],
+        "countedInModuleId": "IUM-7-CORE-02",
+        "sharedMinutes": 90,
+        "savingsMinutesByPath": {"optimized": 135, "robust": 90},
+    },
+    "INT-7-PROGRAMMING": {
+        "moduleIds": ["IUM-7-CORE-03", "IUM-7-CORE-04"],
+        "pathIds": ["optimized", "robust"],
+        "countedInModuleId": "IUM-7-CORE-04",
+        "sharedMinutes": 90,
+        "savingsMinutesByPath": {"optimized": 90, "robust": 90},
+    },
+    "INT-7-NET-SECURITY": {
+        "moduleIds": [
+            "IUM-7-CORE-05",
+            "IUM-7-CORE-06",
+            "IUM-7-CORE-07",
+        ],
+        "pathIds": ["optimized", "robust"],
+        "countedInModuleId": "IUM-7-CORE-07",
+        "sharedMinutes": 135,
+        "savingsMinutesByPath": {"optimized": 135, "robust": 135},
+    },
+    "INT-7-DATA-MEDIA-SOCIETY": {
+        "moduleIds": [
+            "IUM-7-CORE-08",
+            "IUM-7-CORE-09",
+            "IUM-7-CORE-10",
+        ],
+        "pathIds": ["optimized", "robust"],
+        "countedInModuleId": "IUM-7-CORE-10",
+        "sharedMinutes": 45,
+        "savingsMinutesByPath": {"optimized": 270, "robust": 45},
+    },
+}
+GRADE_7_VARIANT_TARGETS = {
+    "GRADE-7-OPTIMIZED-DEMAND": ("optimized", 40),
+    "GRADE-7-ROBUST-DEMAND": ("robust", 46),
+    "GRADE-7-HISTORICAL-MINIMUM": ("historical-minimum", 54),
+}
+GRADE_7_VARIANT_INTEGRATIONS = {
+    "GRADE-7-OPTIMIZED-DEMAND": GRADE_7_INTEGRATION_IDS,
+    "GRADE-7-ROBUST-DEMAND": GRADE_7_INTEGRATION_IDS,
+    "GRADE-7-HISTORICAL-MINIMUM": frozenset(),
+}
+GRADE_7_DECISION_OPTIONS = [
+    "additional-school-time",
+    "structural-integration-or-reclassification",
+    "curricular-reprioritization",
+    "preparatory-shift",
+    "explicitly-incomplete-path",
+]
 GRADE_6_INTEGRATION_BOUNDS = {
     "INT-6-ACTORS-SELECTION": {
         "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02"],
@@ -246,6 +340,46 @@ def _has_grade_6_orchestration(time_model, module_payload=None):
     )
 
 
+def _has_grade_7_orchestration(time_model, module_payload=None):
+    integration_contracts = time_model.get("integrationContracts", [])
+    annual_variants = time_model.get("annualVariants", [])
+    grade_judgements = time_model.get("gradeJudgements", [])
+    modules = (
+        module_payload.get("modules", [])
+        if isinstance(module_payload, dict)
+        else []
+    )
+    grade_7_module_ids = {
+        module.get("id")
+        for module in modules
+        if isinstance(module, dict)
+        and module.get("grade") == 7
+        and isinstance(module.get("id"), str)
+    }
+    return (
+        any(
+            isinstance(contract, dict)
+            and (
+                contract.get("id") in GRADE_7_INTEGRATION_IDS
+                or any(
+                    module_id in grade_7_module_ids
+                    for module_id in contract.get("moduleIds", [])
+                    if isinstance(module_id, str)
+                )
+            )
+            for contract in integration_contracts
+        )
+        or any(
+            isinstance(variant, dict) and variant.get("grade") == 7
+            for variant in annual_variants
+        )
+        or any(
+            isinstance(judgement, dict) and judgement.get("grade") == 7
+            for judgement in grade_judgements
+        )
+    )
+
+
 def _validate_grade_6_judgement(
     time_model,
     module_contracts,
@@ -421,6 +555,191 @@ def _validate_grade_6_judgement(
         )
 
 
+def _validate_grade_7_judgement(
+    time_model,
+    module_contracts,
+    integration_contracts,
+    annual_variants,
+):
+    grade_judgements = time_model.get("gradeJudgements")
+    _require(
+        isinstance(module_contracts, dict)
+        and isinstance(integration_contracts, dict)
+        and isinstance(annual_variants, dict)
+        and isinstance(grade_judgements, list),
+        "validated grade 7 orchestration indices and judgements are required",
+    )
+
+    grade_7_module_contracts = {
+        module_id: contract
+        for module_id, contract in module_contracts.items()
+        if contract.get("grade") == 7
+    }
+    grade_7_integrations = {
+        integration_id: contract
+        for integration_id, contract in integration_contracts.items()
+        if (
+            integration_id in GRADE_7_INTEGRATION_IDS
+            or any(
+                module_contracts.get(module_id, {}).get("grade") == 7
+                for module_id in contract.get("moduleIds", [])
+                if isinstance(module_id, str)
+            )
+        )
+    }
+    grade_7_variants = {
+        variant_id: variant
+        for variant_id, variant in annual_variants.items()
+        if (
+            variant.get("grade") == 7
+            or any(
+                module_contracts.get(allocation.get("moduleId"), {}).get("grade")
+                == 7
+                for allocation in variant.get("allocations", [])
+                if isinstance(allocation, dict)
+            )
+        )
+    }
+    grade_7_variant_ids = set(grade_7_variants)
+    grade_7_judgements = [
+        judgement
+        for judgement in grade_judgements
+        if (
+            isinstance(judgement, dict)
+            and (
+                judgement.get("grade") == 7
+                or bool(
+                    set(judgement.get("annualVariantIds", []))
+                    & grade_7_variant_ids
+                )
+            )
+        )
+    ]
+    _require(
+        len(grade_7_judgements) == 1,
+        "grade 7 orchestration needs exactly one judgement",
+    )
+    judgement = grade_7_judgements[0]
+    judgement_fields = {
+        "grade",
+        "semanticCoverageStatus",
+        "timeFeasibilityStatus",
+        "sequenceEvidenceStatus",
+        "pilotStatus",
+        "annualVariantIds",
+        "rationale",
+        "risk",
+        "decisionOptions",
+    }
+    _require(
+        set(judgement) == judgement_fields,
+        "grade 7 judgement fields differ from the IUM10 contract",
+    )
+    _require(
+        judgement["grade"] == 7
+        and judgement["semanticCoverageStatus"] == "partial"
+        and judgement["timeFeasibilityStatus"] == "red"
+        and judgement["sequenceEvidenceStatus"] == "partial"
+        and judgement["pilotStatus"] == "not-started",
+        "grade 7 status dimensions must remain partial/red/partial/not-started",
+    )
+    _require(
+        judgement["annualVariantIds"] == list(GRADE_7_VARIANT_TARGETS),
+        "grade 7 judgement must reference the exact demand scenarios",
+    )
+    _require(
+        judgement["decisionOptions"] == GRADE_7_DECISION_OPTIONS,
+        "grade 7 judgement must retain exactly five unimplemented options",
+    )
+    for field in ("rationale", "risk"):
+        _require(
+            isinstance(judgement[field], str) and judgement[field].strip(),
+            f"grade 7 judgement {field} must be a nonempty string",
+        )
+    rationale_lower = judgement["rationale"].lower()
+    _require(
+        "keine" in rationale_lower and "umgesetzt" in rationale_lower,
+        "grade 7 judgement must state that no decision option is implemented",
+    )
+
+    expected_module_ids = GRADE_7_CORE_MODULE_IDS | set(GRADE_7_FLEX_RANGES)
+    _require(
+        set(grade_7_module_contracts) == expected_module_ids,
+        "grade 7 needs exactly thirteen task 7 module contracts",
+    )
+    for module_id, expected_paths in GRADE_7_CORE_UNITS.items():
+        contract = grade_7_module_contracts[module_id]
+        actual_paths = {
+            budget["pathId"]: budget["units"]
+            for budget in contract.get("pathBudgets", [])
+            if isinstance(budget, dict)
+        }
+        _require(
+            contract.get("kind") == "core"
+            and actual_paths == expected_paths
+            and contract.get("status") in CONTRACT_STATUSES,
+            f"grade 7 core matrix differs from the approved contract: {module_id}",
+        )
+    for module_id, expected_range in GRADE_7_FLEX_RANGES.items():
+        contract = grade_7_module_contracts[module_id]
+        budgets = contract.get("pathBudgets", [])
+        _require(
+            contract.get("kind") != "core"
+            and contract.get("standaloneUnitRange") == expected_range
+            and len(budgets) == 1
+            and budgets[0].get("pathId") == "standalone"
+            and budgets[0].get("units") == expected_range["recommended"]
+            and contract.get("status") in CONTRACT_STATUSES,
+            f"grade 7 flex range differs from the approved contract: {module_id}",
+        )
+
+    _require(
+        set(grade_7_integrations) == set(GRADE_7_INTEGRATION_IDS),
+        "grade 7 needs exactly four approved cluster integrations",
+    )
+    for integration_id, expected_bounds in GRADE_7_INTEGRATION_BOUNDS.items():
+        integration = grade_7_integrations[integration_id]
+        actual_bounds = {
+            field: integration.get(field) for field in expected_bounds
+        }
+        _require(
+            actual_bounds == expected_bounds
+            and integration.get("status") in {"working", "reviewed"},
+            f"grade 7 cluster bounds differ from the approved contract: {integration_id}",
+        )
+
+    _require(
+        set(grade_7_variants) == set(GRADE_7_VARIANT_TARGETS),
+        "grade 7 permits only the three approved demand scenarios",
+    )
+    for variant_id, (path_id, target_units) in GRADE_7_VARIANT_TARGETS.items():
+        variant = grade_7_variants[variant_id]
+        actual_allocations = {
+            allocation["moduleId"]: (
+                allocation["budgetPathId"],
+                allocation["units"],
+            )
+            for allocation in variant.get("allocations", [])
+            if isinstance(allocation, dict)
+        }
+        expected_allocations = {
+            module_id: (path_id, path_units[path_id])
+            for module_id, path_units in GRADE_7_CORE_UNITS.items()
+        }
+        _require(
+            variant.get("grade") == 7
+            and variant.get("kind") == "demand-scenario"
+            and variant.get("pathId") == path_id
+            and variant.get("targetUnits") == target_units
+            and actual_allocations == expected_allocations
+            and set(variant.get("integrationContractIds", []))
+            == set(GRADE_7_VARIANT_INTEGRATIONS[variant_id])
+            and variant.get("available") is False
+            and variant.get("status") in {"working", "reviewed"},
+            f"grade 7 demand scenario differs from the approved contract: {variant_id}",
+        )
+
+
 def coverage_projection_fingerprint(coverage_payload, remediation_payload):
     remediation_by_id = {
         entry["competencyId"]: entry
@@ -469,11 +788,30 @@ def validate_time_model_draft(time_model, module_payload=None):
         and schema_version == 1,
         "schema version must be the integer 1",
     )
-    if _has_grade_6_orchestration(time_model, module_payload):
+    has_grade_6_orchestration = _has_grade_6_orchestration(
+        time_model,
+        module_payload,
+    )
+    has_grade_7_orchestration = _has_grade_7_orchestration(
+        time_model,
+        module_payload,
+    )
+    grade_7_is_in_current_scope = (
+        has_grade_6_orchestration
+        and isinstance(module_payload, dict)
+        and any(
+            isinstance(module, dict) and module.get("grade") == 7
+            for module in module_payload.get("modules", [])
+        )
+    )
+    has_grade_7_orchestration = (
+        has_grade_7_orchestration or grade_7_is_in_current_scope
+    )
+    if has_grade_6_orchestration or has_grade_7_orchestration:
         _require(
             isinstance(module_payload, dict)
             and isinstance(module_payload.get("modules"), list),
-            "grade 6 draft validation requires the module graph payload",
+            "grade 6/7 draft validation requires the module graph payload",
         )
         module_contract_records = time_model.get("moduleContracts")
         _require(
@@ -506,12 +844,20 @@ def validate_time_model_draft(time_model, module_payload=None):
             validated_module_contracts,
             validated_integration_contracts,
         )
-        _validate_grade_6_judgement(
-            time_model,
-            validated_module_contracts,
-            validated_integration_contracts,
-            validated_annual_variants,
-        )
+        if has_grade_6_orchestration:
+            _validate_grade_6_judgement(
+                time_model,
+                validated_module_contracts,
+                validated_integration_contracts,
+                validated_annual_variants,
+            )
+        if has_grade_7_orchestration:
+            _validate_grade_7_judgement(
+                time_model,
+                validated_module_contracts,
+                validated_integration_contracts,
+                validated_annual_variants,
+            )
     return time_model
 
 
@@ -1093,9 +1439,10 @@ def validate_integration_contracts(integration_contracts, module_contracts):
             f"integration savings paths differ from its paths: {contract_id}",
         )
         _require(
-            all(
-                _nonnegative_int(minutes) and minutes <= shared_minutes
-                for minutes in savings.values()
+            all(_nonnegative_int(minutes) for minutes in savings.values())
+            and (
+                contract_id in GRADE_7_INTEGRATION_IDS
+                or all(minutes <= shared_minutes for minutes in savings.values())
             ),
             f"integration savings must be non-negative integer minutes: {contract_id}",
         )
@@ -1118,7 +1465,7 @@ def validate_integration_contracts(integration_contracts, module_contracts):
                 _nonempty_string_list(contract[field]) and contract[field],
                 f"integration {field} must be nonempty and unique: {contract_id}",
             )
-        if contract_id in GRADE_6_INTEGRATION_IDS:
+        if contract_id in GRADE_6_INTEGRATION_IDS | GRADE_7_INTEGRATION_IDS:
             prerequisite_text = " ".join(contract["prerequisites"])
             for module_id in module_ids:
                 participant_actions = [
@@ -1128,7 +1475,7 @@ def validate_integration_contracts(integration_contracts, module_contracts):
                 ]
                 _require(
                     len(participant_actions) == 1,
-                    "grade 6 integration needs exactly one explicit learning action "
+                    "grade 6/7 integration needs exactly one explicit learning action "
                     f"for participant {module_id}: {contract_id}",
                 )
                 participant_evidence = [
@@ -1150,24 +1497,24 @@ def validate_integration_contracts(integration_contracts, module_contracts):
                         competency_id in participant_evidence[0]
                         for competency_id in competency_ids
                     ),
-                    "grade 6 integration needs participant-specific competency "
+                    "grade 6/7 integration needs participant-specific competency "
                     f"and product evidence for {module_id}: {contract_id}",
                 )
                 _require(
                     module_id in prerequisite_text,
-                    "grade 6 integration prerequisites must name every participant: "
+                    "grade 6/7 integration prerequisites must name every participant: "
                     f"{contract_id}/{module_id}",
                 )
             for path_id in path_ids:
                 _require(
                     f"{path_id}: +{savings[path_id]} Minuten"
                     in contract["fallback"],
-                    "grade 6 integration fallback must name each path consequence: "
+                    "grade 6/7 integration fallback must name each path consequence: "
                     f"{contract_id}/{path_id}",
                 )
                 _require(
                     f"{path_id}:" in contract["risk"],
-                    "grade 6 integration risk must distinguish each path: "
+                    "grade 6/7 integration risk must distinguish each path: "
                     f"{contract_id}/{path_id}",
                 )
         _require(

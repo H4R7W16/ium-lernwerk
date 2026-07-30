@@ -123,6 +123,83 @@ EXPECTED_GRADE_6_VARIANTS = {
     },
 }
 
+EXPECTED_GRADE_7_UNITS = {
+    "IUM-7-CORE-01": {"optimized": 5, "robust": 5, "historical-minimum": 6},
+    "IUM-7-CORE-02": {"optimized": 3, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-03": {"optimized": 5, "robust": 5, "historical-minimum": 6},
+    "IUM-7-CORE-04": {"optimized": 6, "robust": 6, "historical-minimum": 7},
+    "IUM-7-CORE-05": {"optimized": 4, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-06": {"optimized": 3, "robust": 3, "historical-minimum": 4},
+    "IUM-7-CORE-07": {"optimized": 4, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-08": {"optimized": 4, "robust": 6, "historical-minimum": 6},
+    "IUM-7-CORE-09": {"optimized": 2, "robust": 3, "historical-minimum": 4},
+    "IUM-7-CORE-10": {"optimized": 4, "robust": 6, "historical-minimum": 6},
+}
+
+EXPECTED_GRADE_7_FLEX_CONTRACTS = {
+    "IUM-7-EXT-01": {
+        "standaloneUnitRange": {"min": 3, "recommended": 4, "max": 5},
+        "prerequisiteModuleIds": ["IUM-7-CORE-01"],
+    },
+    "IUM-7-TRANSFER-01": {
+        "standaloneUnitRange": {"min": 3, "recommended": 4, "max": 5},
+        "prerequisiteModuleIds": [
+            "IUM-6-CORE-06",
+            "IUM-7-CORE-05",
+            "IUM-7-CORE-06",
+        ],
+    },
+    "IUM-7-PROJECT-01": {
+        "standaloneUnitRange": {"min": 8, "recommended": 10, "max": 12},
+        "prerequisiteModuleIds": ["IUM-7-CORE-08", "IUM-7-CORE-10"],
+    },
+}
+
+EXPECTED_GRADE_7_INTEGRATIONS = {
+    "INT-7-DATA-CODING": {
+        "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02"],
+        "countedInModuleId": "IUM-7-CORE-02",
+        "savingsMinutesByPath": {"optimized": 135, "robust": 90},
+    },
+    "INT-7-PROGRAMMING": {
+        "moduleIds": ["IUM-7-CORE-03", "IUM-7-CORE-04"],
+        "countedInModuleId": "IUM-7-CORE-04",
+        "savingsMinutesByPath": {"optimized": 90, "robust": 90},
+    },
+    "INT-7-NET-SECURITY": {
+        "moduleIds": [
+            "IUM-7-CORE-05",
+            "IUM-7-CORE-06",
+            "IUM-7-CORE-07",
+        ],
+        "countedInModuleId": "IUM-7-CORE-07",
+        "savingsMinutesByPath": {"optimized": 135, "robust": 135},
+    },
+    "INT-7-DATA-MEDIA-SOCIETY": {
+        "moduleIds": [
+            "IUM-7-CORE-08",
+            "IUM-7-CORE-09",
+            "IUM-7-CORE-10",
+        ],
+        "countedInModuleId": "IUM-7-CORE-10",
+        "savingsMinutesByPath": {"optimized": 270, "robust": 45},
+    },
+}
+
+EXPECTED_GRADE_7_VARIANTS = {
+    "GRADE-7-OPTIMIZED-DEMAND": ("optimized", 40),
+    "GRADE-7-ROBUST-DEMAND": ("robust", 46),
+    "GRADE-7-HISTORICAL-MINIMUM": ("historical-minimum", 54),
+}
+
+EXPECTED_GRADE_7_DECISION_OPTIONS = [
+    "additional-school-time",
+    "structural-integration-or-reclassification",
+    "curricular-reprioritization",
+    "preparatory-shift",
+    "explicitly-incomplete-path",
+]
+
 
 class IUM10BaselineTests(unittest.TestCase):
     @classmethod
@@ -359,7 +436,6 @@ class IUM10CapacityModelTests(unittest.TestCase):
         module_payload = json.loads(
             (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
         )
-
         validate_time_model_draft(time_model, module_payload)
 
         self.assertEqual(
@@ -1310,7 +1386,11 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
             self.grade_5_and_6_payload,
         )
         integrations = validate_integration_contracts(
-            self.time_model["integrationContracts"],
+            [
+                integration
+                for integration in self.time_model["integrationContracts"]
+                if set(integration["moduleIds"]) <= set(all_contracts)
+            ],
             all_contracts,
         )
         contracts = {
@@ -1360,11 +1440,22 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
             self.grade_5_and_6_payload,
         )
         integrations = validate_integration_contracts(
-            self.time_model["integrationContracts"],
+            [
+                integration
+                for integration in self.time_model["integrationContracts"]
+                if set(integration["moduleIds"]) <= set(all_contracts)
+            ],
             all_contracts,
         )
         all_variants = validate_annual_variants(
-            self.time_model["annualVariants"],
+            [
+                variant
+                for variant in self.time_model["annualVariants"]
+                if all(
+                    allocation["moduleId"] in all_contracts
+                    for allocation in variant["allocations"]
+                )
+            ],
             all_contracts,
             integrations,
         )
@@ -1445,6 +1536,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         module_payload = json.loads(
             (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
         )
+        cls.full_module_payload = module_payload
         cls.grade_5_and_6_payload = {
             "modules": [
                 module
@@ -1498,11 +1590,22 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             self.grade_5_and_6_payload,
         )
         integrations = validate_integration_contracts(
-            model["integrationContracts"],
+            [
+                integration
+                for integration in model["integrationContracts"]
+                if set(integration["moduleIds"]) <= set(contracts)
+            ],
             contracts,
         )
         variants = validate_annual_variants(
-            model["annualVariants"],
+            [
+                variant
+                for variant in model["annualVariants"]
+                if all(
+                    allocation["moduleId"] in contracts
+                    for allocation in variant["allocations"]
+                )
+            ],
             contracts,
             integrations,
         )
@@ -1744,7 +1847,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                     with self.assertRaises(IUM10ValidationError):
                         validate_time_model_draft(
                             adversarial_time_model,
-                            self.grade_5_and_6_payload,
+                            self.full_module_payload,
                         )
 
     def test_repository_counts_each_grade_6_shared_allocation_only_in_its_counted_module(self):
@@ -1906,7 +2009,11 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
     def test_rejects_stale_grade_6_variant_or_module_override_keys(self):
         contracts = self.validated_grade_5_and_6_contracts()
         integrations = validate_integration_contracts(
-            self.time_model["integrationContracts"],
+            [
+                integration
+                for integration in self.time_model["integrationContracts"]
+                if set(integration["moduleIds"]) <= set(contracts)
+            ],
             contracts,
         )
         overrides = ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES
@@ -1938,7 +2045,14 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                         "variant path override",
                     ):
                         validate_annual_variants(
-                            self.time_model["annualVariants"],
+                            [
+                                variant
+                                for variant in self.time_model["annualVariants"]
+                                if all(
+                                    allocation["moduleId"] in contracts
+                                    for allocation in variant["allocations"]
+                                )
+                            ],
                             contracts,
                             integrations,
                         )
@@ -2021,7 +2135,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
     def test_repository_grade_6_judgement_is_green_but_semantic_and_pilot_statuses_stay_separate(self):
         validate_time_model_draft(
             self.time_model,
-            self.grade_5_and_6_payload,
+            self.full_module_payload,
         )
         judgements = [
             judgement
@@ -2085,7 +2199,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 with self.assertRaises(IUM10ValidationError):
                     validate_time_model_draft(
                         adversarial_time_model,
-                        self.grade_5_and_6_payload,
+                        self.full_module_payload,
                     )
 
         unjustified_amber = copy.deepcopy(self.time_model)
@@ -2100,7 +2214,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         ):
             validate_time_model_draft(
                 unjustified_amber,
-                self.grade_5_and_6_payload,
+                self.full_module_payload,
             )
 
     def test_green_grade_6_judgement_runs_structural_and_exact_contract_validation(self):
@@ -2152,7 +2266,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 with self.assertRaises(IUM10ValidationError):
                     validate_time_model_draft(
                         adversarial_time_model,
-                        self.grade_5_and_6_payload,
+                        self.full_module_payload,
                     )
 
     def grade_6_amber_with_algorithm_bounds_residual(self, residual_evidence):
@@ -2179,6 +2293,32 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
 
     def task_5_draft_with_grade_6_module_contracts_only(self):
         time_model = copy.deepcopy(self.time_model)
+        time_model["moduleContracts"] = [
+            contract
+            for contract in time_model["moduleContracts"]
+            if contract["grade"] in {5, 6}
+        ]
+        retained_module_ids = {
+            contract["moduleId"] for contract in time_model["moduleContracts"]
+        }
+        time_model["integrationContracts"] = [
+            integration
+            for integration in time_model["integrationContracts"]
+            if set(integration["moduleIds"]) <= retained_module_ids
+        ]
+        time_model["annualVariants"] = [
+            variant
+            for variant in time_model["annualVariants"]
+            if all(
+                allocation["moduleId"] in retained_module_ids
+                for allocation in variant["allocations"]
+            )
+        ]
+        time_model["gradeJudgements"] = [
+            judgement
+            for judgement in time_model["gradeJudgements"]
+            if judgement["grade"] in {5, 6}
+        ]
         known_grade_6_integration_ids = set(EXPECTED_GRADE_6_INTEGRATIONS)
         time_model["integrationContracts"] = [
             integration
@@ -2278,7 +2418,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 with self.assertRaises(IUM10ValidationError):
                     validate_time_model_draft(
                         time_model,
-                        self.grade_5_and_6_payload,
+                        self.full_module_payload,
                     )
 
     def test_amber_grade_6_judgement_accepts_exact_record_and_cause_evidence(self):
@@ -2288,7 +2428,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
 
         result = validate_time_model_draft(
             time_model,
-            self.grade_5_and_6_payload,
+            self.full_module_payload,
         )
 
         self.assertIs(result, time_model)
@@ -2312,7 +2452,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 with self.assertRaises(IUM10ValidationError):
                     validate_time_model_draft(
                         adversarial_time_model,
-                        self.grade_5_and_6_payload,
+                        self.full_module_payload,
                     )
 
     def test_rejects_green_grade_6_judgement_with_extra_flex_project_integration(self):
@@ -2327,7 +2467,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         ):
             validate_time_model_draft(
                 adversarial_time_model,
-                self.grade_5_and_6_payload,
+                self.full_module_payload,
             )
 
     def test_bootstrap_rejects_isolated_grade_6_flex_project_integration(self):
@@ -2368,7 +2508,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         ):
             validate_time_model_draft(
                 adversarial_time_model,
-                self.grade_5_and_6_payload,
+                self.full_module_payload,
             )
 
     def test_grade_6_module_contracts_alone_do_not_bootstrap_orchestration(self):
@@ -2519,3 +2659,462 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 for allocation in variant["allocations"]
             )
         )
+
+
+class IUM10Grade7RepositoryTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module_payload = module_payload
+        cls.grade_7_payload = {
+            "modules": [
+                module for module in module_payload["modules"] if module["grade"] == 7
+            ]
+        }
+        cls.grade_7_modules = {
+            module["id"]: module for module in cls.grade_7_payload["modules"]
+        }
+        cls.grade_7_contracts = [
+            contract
+            for contract in cls.time_model["moduleContracts"]
+            if contract["grade"] == 7
+        ]
+
+    def test_repository_has_exactly_thirteen_grade_7_time_contracts(self):
+        expected_module_ids = set(EXPECTED_GRADE_7_UNITS) | set(
+            EXPECTED_GRADE_7_FLEX_CONTRACTS
+        )
+
+        self.assertEqual(
+            {contract["moduleId"] for contract in self.grade_7_contracts},
+            expected_module_ids,
+        )
+        contracts = validate_module_contracts(
+            self.grade_7_contracts,
+            self.grade_7_payload,
+        )
+        self.assertEqual(set(contracts), expected_module_ids)
+        self.assertEqual(len(contracts), 13)
+
+    def test_repository_grade_7_core_paths_match_the_approved_matrix(self):
+        contracts = {
+            contract["moduleId"]: contract for contract in self.grade_7_contracts
+        }
+        self.assertEqual(set(contracts) & set(EXPECTED_GRADE_7_UNITS), set(EXPECTED_GRADE_7_UNITS))
+
+        for module_id, expected_paths in EXPECTED_GRADE_7_UNITS.items():
+            with self.subTest(module_id=module_id):
+                budgets = {
+                    budget["pathId"]: budget
+                    for budget in contracts[module_id]["pathBudgets"]
+                }
+                self.assertEqual(
+                    {
+                        path_id: budget["units"]
+                        for path_id, budget in budgets.items()
+                    },
+                    expected_paths,
+                )
+
+    def test_repository_grade_7_flex_ranges_match_the_approved_contracts(self):
+        contracts = {
+            contract["moduleId"]: contract for contract in self.grade_7_contracts
+        }
+        self.assertEqual(
+            set(contracts) & set(EXPECTED_GRADE_7_FLEX_CONTRACTS),
+            set(EXPECTED_GRADE_7_FLEX_CONTRACTS),
+        )
+
+        for module_id, expected in EXPECTED_GRADE_7_FLEX_CONTRACTS.items():
+            with self.subTest(module_id=module_id):
+                contract = contracts[module_id]
+                self.assertEqual(
+                    contract["standaloneUnitRange"],
+                    expected["standaloneUnitRange"],
+                )
+                self.assertEqual(
+                    contract["prerequisiteModuleIds"],
+                    expected["prerequisiteModuleIds"],
+                )
+                self.assertEqual(
+                    contract["pathBudgets"][0]["units"],
+                    expected["standaloneUnitRange"]["recommended"],
+                )
+                self.assertFalse(
+                    any(
+                        allocation["moduleId"] == module_id
+                        for variant in self.time_model["annualVariants"]
+                        for allocation in variant["allocations"]
+                    )
+                )
+
+    def test_repository_grade_7_phase_budgets_are_positive_and_grammar_complete(self):
+        contracts = {
+            contract["moduleId"]: contract for contract in self.grade_7_contracts
+        }
+        self.assertEqual(set(contracts), set(self.grade_7_modules))
+
+        for module_id, contract in contracts.items():
+            expected_phase_ids = set(
+                self.grade_7_modules[module_id]["moduleGrammar"]
+            )
+            for budget in contract["pathBudgets"]:
+                with self.subTest(module_id=module_id, path_id=budget["pathId"]):
+                    phase_budgets = budget["phaseBudgets"]
+                    self.assertEqual(
+                        {phase["phaseId"] for phase in phase_budgets},
+                        expected_phase_ids,
+                    )
+                    self.assertTrue(
+                        all(
+                            phase["minutes"] > 0
+                            and phase["learningFunction"].strip()
+                            for phase in phase_budgets
+                        )
+                    )
+                    self.assertEqual(
+                        sum(phase["minutes"] for phase in phase_budgets),
+                        budget["units"] * 45,
+                    )
+
+    def test_repository_has_exactly_four_grade_7_cluster_integrations(self):
+        grade_7_integrations = {
+            integration["id"]: integration
+            for integration in self.time_model["integrationContracts"]
+            if integration["id"] in EXPECTED_GRADE_7_INTEGRATIONS
+        }
+        self.assertEqual(
+            set(grade_7_integrations),
+            set(EXPECTED_GRADE_7_INTEGRATIONS),
+        )
+
+        for integration_id, expected in EXPECTED_GRADE_7_INTEGRATIONS.items():
+            with self.subTest(integration_id=integration_id):
+                integration = grade_7_integrations[integration_id]
+                self.assertEqual(integration["pathIds"], ["optimized", "robust"])
+                for field, expected_value in expected.items():
+                    self.assertEqual(integration[field], expected_value)
+
+    def test_repository_has_only_the_three_unavailable_grade_7_demand_scenarios(self):
+        grade_7_variants = {
+            variant["id"]: variant
+            for variant in self.time_model["annualVariants"]
+            if variant["grade"] == 7
+        }
+        self.assertEqual(set(grade_7_variants), set(EXPECTED_GRADE_7_VARIANTS))
+
+        for variant_id, (path_id, target_units) in EXPECTED_GRADE_7_VARIANTS.items():
+            with self.subTest(variant_id=variant_id):
+                variant = grade_7_variants[variant_id]
+                allocations = {
+                    allocation["moduleId"]: allocation
+                    for allocation in variant["allocations"]
+                }
+                self.assertEqual(variant["kind"], "demand-scenario")
+                self.assertEqual(variant["pathId"], path_id)
+                self.assertEqual(variant["targetUnits"], target_units)
+                self.assertIs(variant["available"], False)
+                self.assertEqual(set(allocations), set(EXPECTED_GRADE_7_UNITS))
+                self.assertTrue(
+                    all(
+                        allocation["budgetPathId"] == path_id
+                        for allocation in allocations.values()
+                    )
+                )
+                self.assertEqual(
+                    sum(allocation["units"] for allocation in allocations.values()),
+                    target_units,
+                )
+
+    def test_repository_grade_7_judgement_is_red_with_five_unimplemented_options(self):
+        judgements = [
+            judgement
+            for judgement in self.time_model["gradeJudgements"]
+            if judgement["grade"] == 7
+        ]
+        self.assertEqual(len(judgements), 1)
+        judgement = judgements[0]
+        self.assertEqual(
+            {
+                "semanticCoverageStatus": judgement["semanticCoverageStatus"],
+                "timeFeasibilityStatus": judgement["timeFeasibilityStatus"],
+                "sequenceEvidenceStatus": judgement["sequenceEvidenceStatus"],
+                "pilotStatus": judgement["pilotStatus"],
+            },
+            {
+                "semanticCoverageStatus": "partial",
+                "timeFeasibilityStatus": "red",
+                "sequenceEvidenceStatus": "partial",
+                "pilotStatus": "not-started",
+            },
+        )
+        self.assertEqual(
+            judgement["annualVariantIds"],
+            list(EXPECTED_GRADE_7_VARIANTS),
+        )
+        self.assertEqual(
+            judgement["decisionOptions"],
+            EXPECTED_GRADE_7_DECISION_OPTIONS,
+        )
+
+    def validate_grade_7_model(self, time_model=None):
+        model = self.time_model if time_model is None else time_model
+        return validate_time_model_draft(model, self.module_payload)
+
+    def test_validator_accepts_the_exact_grade_7_orchestration(self):
+        result = self.validate_grade_7_model()
+
+        self.assertIs(result, self.time_model)
+
+    def test_validator_rejects_complete_removal_of_grade_7_orchestration(self):
+        adversarial = copy.deepcopy(self.time_model)
+        adversarial["moduleContracts"] = [
+            contract
+            for contract in adversarial["moduleContracts"]
+            if contract["grade"] != 7
+        ]
+        adversarial["integrationContracts"] = [
+            integration
+            for integration in adversarial["integrationContracts"]
+            if integration["id"] not in EXPECTED_GRADE_7_INTEGRATIONS
+        ]
+        adversarial["annualVariants"] = [
+            variant
+            for variant in adversarial["annualVariants"]
+            if variant["grade"] != 7
+        ]
+        adversarial["gradeJudgements"] = [
+            judgement
+            for judgement in adversarial["gradeJudgements"]
+            if judgement["grade"] != 7
+        ]
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_grade_7_model(adversarial)
+
+    def test_validator_rejects_any_grade_7_core_matrix_change(self):
+        adversarial = copy.deepcopy(self.time_model)
+        contract = next(
+            contract
+            for contract in adversarial["moduleContracts"]
+            if contract["moduleId"] == "IUM-7-CORE-01"
+        )
+        budget = next(
+            budget
+            for budget in contract["pathBudgets"]
+            if budget["pathId"] == "optimized"
+        )
+        budget["units"] = 6
+        budget["minutes"] += 45
+        budget["directMinutes"] += 45
+        next(
+            phase
+            for phase in budget["phaseBudgets"]
+            if phase["phaseId"] == "guided-practice"
+        )["minutes"] += 45
+        variant = next(
+            variant
+            for variant in adversarial["annualVariants"]
+            if variant["id"] == "GRADE-7-OPTIMIZED-DEMAND"
+        )
+        variant["targetUnits"] = 41
+        next(
+            allocation
+            for allocation in variant["allocations"]
+            if allocation["moduleId"] == "IUM-7-CORE-01"
+        )["units"] = 6
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_grade_7_model(adversarial)
+
+    def test_validator_rejects_changed_grade_7_cluster_bounds_or_evidence(self):
+        mutations = (
+            (
+                "savings",
+                lambda integration: integration["savingsMinutesByPath"].__setitem__(
+                    "robust",
+                    89,
+                ),
+            ),
+            (
+                "participant evidence",
+                lambda integration: integration[
+                    "preservedProductAndCurriculumEvidence"
+                ].pop(),
+            ),
+        )
+        for label, mutate in mutations:
+            with self.subTest(label=label):
+                adversarial = copy.deepcopy(self.time_model)
+                integration = next(
+                    integration
+                    for integration in adversarial["integrationContracts"]
+                    if integration["id"] == "INT-7-DATA-CODING"
+                )
+                mutate(integration)
+
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_grade_7_model(adversarial)
+
+    def test_validator_rejects_available_or_normal_grade_7_offerings(self):
+        available = copy.deepcopy(self.time_model)
+        next(
+            variant
+            for variant in available["annualVariants"]
+            if variant["id"] == "GRADE-7-OPTIMIZED-DEMAND"
+        )["available"] = True
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_grade_7_model(available)
+
+        historical_units = {
+            module_id: paths["historical-minimum"]
+            for module_id, paths in EXPECTED_GRADE_7_UNITS.items()
+        }
+        selected_modules_by_target = {
+            30: [1, 2, 3, 4, 8],
+            34: [1, 2, 3, 4, 5, 7],
+            38: [1, 2, 3, 4, 5, 6, 7],
+        }
+        for target_units, module_numbers in selected_modules_by_target.items():
+            with self.subTest(target_units=target_units):
+                adversarial = copy.deepcopy(self.time_model)
+                module_ids = [
+                    f"IUM-7-CORE-{module_number:02d}"
+                    for module_number in module_numbers
+                ]
+                adversarial["annualVariants"].append(
+                    {
+                        "id": f"GRADE-7-ADVERSARIAL-{target_units}",
+                        "grade": 7,
+                        "kind": "demand-scenario",
+                        "pathId": "historical-minimum",
+                        "targetUnits": target_units,
+                        "allocations": [
+                            {
+                                "moduleId": module_id,
+                                "budgetPathId": "historical-minimum",
+                                "units": historical_units[module_id],
+                            }
+                            for module_id in module_ids
+                        ],
+                        "integrationContractIds": [],
+                        "available": True,
+                        "status": "working",
+                        "rationale": "Adversariales normales Klasse-7-Angebot.",
+                        "risk": "Der Pfad lässt Kernmodule aus.",
+                    }
+                )
+
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_grade_7_model(adversarial)
+
+    def test_validator_rejects_flex_as_grade_7_core_replacement(self):
+        adversarial = copy.deepcopy(self.time_model)
+        variant_id = "GRADE-7-FLEX-REPLACEMENT"
+        historical_units = {
+            module_id: paths["historical-minimum"]
+            for module_id, paths in EXPECTED_GRADE_7_UNITS.items()
+        }
+        selected_core_ids = [
+            "IUM-7-CORE-01",
+            "IUM-7-CORE-02",
+            "IUM-7-CORE-03",
+            "IUM-7-CORE-05",
+            "IUM-7-CORE-06",
+        ]
+        adversarial["annualVariants"].append(
+            {
+                "id": variant_id,
+                "grade": 7,
+                "kind": "demand-scenario",
+                "pathId": "historical-minimum",
+                "targetUnits": 30,
+                "allocations": [
+                    *[
+                        {
+                            "moduleId": module_id,
+                            "budgetPathId": "historical-minimum",
+                            "units": historical_units[module_id],
+                        }
+                        for module_id in selected_core_ids
+                    ],
+                    {
+                        "moduleId": "IUM-7-EXT-01",
+                        "budgetPathId": "standalone",
+                        "units": 4,
+                    },
+                ],
+                "integrationContractIds": [],
+                "available": True,
+                "status": "working",
+                "rationale": "Adversarialer Flex-Ersatz für ausgelassene Kernmodule.",
+                "risk": "Der flexible Vertrag ersetzt Kernabdeckung.",
+            }
+        )
+        overrides = ium10_validator.ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES
+        overrides[variant_id] = {"IUM-7-EXT-01": "standalone"}
+        try:
+            with self.assertRaises(IUM10ValidationError):
+                self.validate_grade_7_model(adversarial)
+        finally:
+            del overrides[variant_id]
+
+    def test_validator_rejects_green_amber_or_changed_grade_7_options(self):
+        for time_status in ("green", "amber"):
+            with self.subTest(time_status=time_status):
+                adversarial = copy.deepcopy(self.time_model)
+                judgement = next(
+                    judgement
+                    for judgement in adversarial["gradeJudgements"]
+                    if judgement["grade"] == 7
+                )
+                judgement["timeFeasibilityStatus"] = time_status
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_grade_7_model(adversarial)
+
+        adversarial = copy.deepcopy(self.time_model)
+        judgement = next(
+            judgement
+            for judgement in adversarial["gradeJudgements"]
+            if judgement["grade"] == 7
+        )
+        judgement["decisionOptions"] = judgement["decisionOptions"][:-1]
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_grade_7_model(adversarial)
+
+    def test_repository_counts_grade_7_shared_time_only_in_counted_modules(self):
+        contracts = validate_module_contracts(
+            self.time_model["moduleContracts"],
+            self.module_payload,
+        )
+        integrations = validate_integration_contracts(
+            self.time_model["integrationContracts"],
+            contracts,
+        )
+
+        for integration_id, expected in EXPECTED_GRADE_7_INTEGRATIONS.items():
+            integration = integrations[integration_id]
+            locations = {
+                (module_id, budget["pathId"], allocation["minutes"])
+                for module_id, contract in contracts.items()
+                for budget in contract["pathBudgets"]
+                for allocation in budget["sharedAllocations"]
+                if allocation["integrationContractId"] == integration_id
+            }
+            self.assertEqual(
+                locations,
+                {
+                    (
+                        expected["countedInModuleId"],
+                        path_id,
+                        integration["sharedMinutes"],
+                    )
+                    for path_id in ("optimized", "robust")
+                },
+            )
