@@ -2177,6 +2177,93 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         judgement["risk"] = residual_evidence
         return time_model
 
+    def task_5_draft_with_grade_6_module_contracts_only(self):
+        time_model = copy.deepcopy(self.time_model)
+        known_grade_6_integration_ids = set(EXPECTED_GRADE_6_INTEGRATIONS)
+        time_model["integrationContracts"] = [
+            integration
+            for integration in time_model["integrationContracts"]
+            if integration["id"] not in known_grade_6_integration_ids
+        ]
+        time_model["annualVariants"] = [
+            variant
+            for variant in time_model["annualVariants"]
+            if variant["grade"] != 6
+        ]
+        time_model["gradeJudgements"] = [
+            judgement
+            for judgement in time_model["gradeJudgements"]
+            if judgement["grade"] != 6
+        ]
+        for contract in time_model["moduleContracts"]:
+            contract["integrationContractIds"] = [
+                integration_id
+                for integration_id in contract["integrationContractIds"]
+                if integration_id not in known_grade_6_integration_ids
+            ]
+            for budget in contract["pathBudgets"]:
+                retained_allocations = [
+                    allocation
+                    for allocation in budget["sharedAllocations"]
+                    if allocation["integrationContractId"]
+                    not in known_grade_6_integration_ids
+                ]
+                removed_minutes = budget["countedSharedMinutes"] - sum(
+                    allocation["minutes"]
+                    for allocation in retained_allocations
+                )
+                budget["sharedAllocations"] = retained_allocations
+                budget["countedSharedMinutes"] -= removed_minutes
+                budget["directMinutes"] += removed_minutes
+        return time_model
+
+    @staticmethod
+    def add_extra_grade_6_flex_project_integration(time_model):
+        integration_id = "INT-6-EXTRA-FLEX-PROJECT"
+        participant_ids = ("IUM-6-EXT-02", "IUM-6-PROJECT-01")
+        contracts = {
+            contract["moduleId"]: contract
+            for contract in time_model["moduleContracts"]
+        }
+        for module_id in participant_ids:
+            contracts[module_id]["integrationContractIds"].append(
+                integration_id
+            )
+        counted_budget = contracts["IUM-6-PROJECT-01"]["pathBudgets"][0]
+        counted_budget["directMinutes"] -= 45
+        counted_budget["countedSharedMinutes"] += 45
+        counted_budget["sharedAllocations"].append(
+            {
+                "integrationContractId": integration_id,
+                "minutes": 45,
+            }
+        )
+        time_model["integrationContracts"].append(
+            {
+                "id": integration_id,
+                "moduleIds": list(participant_ids),
+                "pathIds": ["standalone"],
+                "sharedPhaseOrProduct": (
+                    "Adversariale gemeinsame Flex-Projekt-Spur."
+                ),
+                "countedInModuleId": "IUM-6-PROJECT-01",
+                "sharedMinutes": 45,
+                "savingsMinutesByPath": {"standalone": 0},
+                "preservedLearningActions": [
+                    "Beide Module bearbeiten eine gemeinsame Spur."
+                ],
+                "preservedProductAndCurriculumEvidence": [
+                    "Ein gemeinsames Produkt bleibt sichtbar."
+                ],
+                "prerequisites": [
+                    "Beide Modulverträge liegen vor."
+                ],
+                "risk": "Die zusätzliche Integration ist nicht autorisiert.",
+                "fallback": "Beide Module arbeiten eigenständig.",
+                "status": "working",
+            }
+        )
+
     def test_amber_grade_6_judgement_rejects_generic_or_id_only_residual_text(self):
         invalid_residual_evidence = (
             "Eine Integration hat einen Restbefund.",
@@ -2230,49 +2317,8 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
 
     def test_rejects_green_grade_6_judgement_with_extra_flex_project_integration(self):
         adversarial_time_model = copy.deepcopy(self.time_model)
-        integration_id = "INT-6-EXTRA-FLEX-PROJECT"
-        participant_ids = ("IUM-6-EXT-02", "IUM-6-PROJECT-01")
-        contracts = {
-            contract["moduleId"]: contract
-            for contract in adversarial_time_model["moduleContracts"]
-        }
-        for module_id in participant_ids:
-            contracts[module_id]["integrationContractIds"].append(
-                integration_id
-            )
-        counted_budget = contracts["IUM-6-PROJECT-01"]["pathBudgets"][0]
-        counted_budget["directMinutes"] -= 45
-        counted_budget["countedSharedMinutes"] += 45
-        counted_budget["sharedAllocations"].append(
-            {
-                "integrationContractId": integration_id,
-                "minutes": 45,
-            }
-        )
-        adversarial_time_model["integrationContracts"].append(
-            {
-                "id": integration_id,
-                "moduleIds": list(participant_ids),
-                "pathIds": ["standalone"],
-                "sharedPhaseOrProduct": (
-                    "Adversariale gemeinsame Flex-Projekt-Spur."
-                ),
-                "countedInModuleId": "IUM-6-PROJECT-01",
-                "sharedMinutes": 45,
-                "savingsMinutesByPath": {"standalone": 0},
-                "preservedLearningActions": [
-                    "Beide Module bearbeiten eine gemeinsame Spur."
-                ],
-                "preservedProductAndCurriculumEvidence": [
-                    "Ein gemeinsames Produkt bleibt sichtbar."
-                ],
-                "prerequisites": [
-                    "Beide Modulverträge liegen vor."
-                ],
-                "risk": "Die zusätzliche Integration ist nicht autorisiert.",
-                "fallback": "Beide Module arbeiten eigenständig.",
-                "status": "working",
-            }
+        self.add_extra_grade_6_flex_project_integration(
+            adversarial_time_model
         )
 
         with self.assertRaisesRegex(
@@ -2283,6 +2329,56 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 adversarial_time_model,
                 self.grade_5_and_6_payload,
             )
+
+    def test_bootstrap_rejects_isolated_grade_6_flex_project_integration(self):
+        adversarial_time_model = (
+            self.task_5_draft_with_grade_6_module_contracts_only()
+        )
+        self.add_extra_grade_6_flex_project_integration(
+            adversarial_time_model
+        )
+        grade_6_module_ids = set(self.grade_6_modules)
+        grade_6_integration_ids = {
+            integration["id"]
+            for integration in adversarial_time_model[
+                "integrationContracts"
+            ]
+            if set(integration["moduleIds"]) & grade_6_module_ids
+        }
+        self.assertEqual(
+            grade_6_integration_ids,
+            {"INT-6-EXTRA-FLEX-PROJECT"},
+        )
+        self.assertFalse(
+            any(
+                variant["grade"] == 6
+                for variant in adversarial_time_model["annualVariants"]
+            )
+        )
+        self.assertFalse(
+            any(
+                judgement["grade"] == 6
+                for judgement in adversarial_time_model["gradeJudgements"]
+            )
+        )
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "grade 6 orchestration needs exactly one judgement",
+        ):
+            validate_time_model_draft(
+                adversarial_time_model,
+                self.grade_5_and_6_payload,
+            )
+
+    def test_grade_6_module_contracts_alone_do_not_bootstrap_orchestration(self):
+        task_5_time_model = (
+            self.task_5_draft_with_grade_6_module_contracts_only()
+        )
+
+        result = validate_time_model_draft(task_5_time_model)
+
+        self.assertIs(result, task_5_time_model)
 
     def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS) | set(

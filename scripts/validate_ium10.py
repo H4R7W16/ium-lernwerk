@@ -206,17 +206,29 @@ def _canonical_sha256(value):
     return hashlib.sha256(encoded).hexdigest()
 
 
-def _has_grade_6_orchestration(time_model):
+def _has_grade_6_orchestration(time_model, module_payload=None):
     integration_contracts = time_model.get("integrationContracts", [])
     annual_variants = time_model.get("annualVariants", [])
     grade_judgements = time_model.get("gradeJudgements", [])
+    modules = (
+        module_payload.get("modules", [])
+        if isinstance(module_payload, dict)
+        else []
+    )
+    grade_6_module_ids = {
+        module.get("id")
+        for module in modules
+        if isinstance(module, dict)
+        and module.get("grade") == 6
+        and isinstance(module.get("id"), str)
+    }
     return (
         any(
             isinstance(contract, dict)
             and (
                 contract.get("id") in GRADE_6_INTEGRATION_IDS
                 or any(
-                    module_id in GRADE_6_CORE_MODULE_IDS
+                    module_id in grade_6_module_ids
                     for module_id in contract.get("moduleIds", [])
                     if isinstance(module_id, str)
                 )
@@ -457,7 +469,7 @@ def validate_time_model_draft(time_model, module_payload=None):
         and schema_version == 1,
         "schema version must be the integer 1",
     )
-    if _has_grade_6_orchestration(time_model):
+    if _has_grade_6_orchestration(time_model, module_payload):
         _require(
             isinstance(module_payload, dict)
             and isinstance(module_payload.get("modules"), list),
