@@ -484,8 +484,16 @@ def validate_remediated_coverage(
         coverage_entries[competency_id] = entry
 
     _require(
+        len(coverage_entries) == 171,
+        "coverage must contain exactly 171 entries",
+    )
+    _require(
         set(coverage_entries) == set(curriculum_contracts),
         "coverage competency ids differ from curriculum contracts",
+    )
+    _require(
+        set(remediation_entries) == BASELINE_PARTIAL_IDS,
+        "remediation entries differ from immutable baseline partial ids",
     )
     _require(
         set(remediation_entries) <= set(coverage_entries),

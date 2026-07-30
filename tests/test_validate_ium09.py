@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from scripts.validate_ium09 import (
+    BASELINE_PARTIAL_IDS,
     BASELINE_MODULE_STRUCTURE_FINGERPRINT_SHA256,
     IUM09ValidationError,
     coverage_baseline_fingerprint,
@@ -629,6 +630,63 @@ class RemediatedCoverageTests(unittest.TestCase):
             validate_remediated_coverage(
                 coverage_payload,
                 self.validated_ledger_entries(),
+                {},
+                self.curriculum_contracts,
+            )
+
+    def test_rejects_coverage_chain_truncated_to_baseline_partial_ids(self):
+        coverage_payload = copy.deepcopy(self.coverage_payload)
+        coverage_payload["entries"] = [
+            entry
+            for entry in coverage_payload["entries"]
+            if entry["competencyId"] in BASELINE_PARTIAL_IDS
+        ]
+        curriculum_contracts = {
+            competency_id: self.curriculum_contracts[competency_id]
+            for competency_id in BASELINE_PARTIAL_IDS
+        }
+        with self.assertRaisesRegex(IUM09ValidationError, "exactly 171"):
+            validate_remediated_coverage(
+                coverage_payload,
+                self.validated_ledger_entries(),
+                {},
+                curriculum_contracts,
+            )
+
+    def test_rejects_remediation_mapping_with_legacy_covered_record(self):
+        remediation_entries = dict(self.validated_ledger_entries())
+        coverage_payload = copy.deepcopy(self.coverage_payload)
+        legacy_covered = next(
+            entry
+            for entry in coverage_payload["entries"]
+            if entry["competencyId"] not in BASELINE_PARTIAL_IDS
+        )
+        legacy_covered.update(
+            {
+                "coverageStatus": "partial",
+                "semanticAudit": "documented-gap",
+                "reason": "Unzulässige zusätzliche Restrisikoentscheidung.",
+            }
+        )
+        remediation_entries[legacy_covered["competencyId"]] = {
+            "competencyId": legacy_covered["competencyId"],
+            "requirementText": legacy_covered["requirementText"],
+            "decision": "remain-partial",
+            "evidenceContractId": None,
+            "after": {
+                "coverageStatus": "partial",
+                "semanticAudit": "documented-gap",
+            },
+            "residualGap": {
+                "reason": legacy_covered["reason"],
+                "risk": legacy_covered["risk"],
+                "followUp": legacy_covered["followUp"],
+            },
+        }
+        with self.assertRaisesRegex(IUM09ValidationError, "baseline partial ids"):
+            validate_remediated_coverage(
+                coverage_payload,
+                remediation_entries,
                 {},
                 self.curriculum_contracts,
             )
