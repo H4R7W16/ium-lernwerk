@@ -1371,6 +1371,48 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             self.grade_6_payload,
         )
 
+    def assert_grade_6_scope_stops_before_task_6_orchestration(self, time_model):
+        grade_6_module_ids = set(self.grade_6_modules)
+        grade_6_contracts = [
+            contract
+            for contract in time_model["moduleContracts"]
+            if contract["moduleId"] in grade_6_module_ids
+        ]
+        for contract in grade_6_contracts:
+            with self.subTest(module_id=contract["moduleId"]):
+                self.assertEqual(contract["integrationContractIds"], [])
+                for budget in contract["pathBudgets"]:
+                    self.assertEqual(budget["sharedAllocations"], [])
+                    self.assertEqual(budget["countedSharedMinutes"], 0)
+
+        grade_6_integration_ids = [
+            integration["id"]
+            for integration in time_model["integrationContracts"]
+            if set(integration["moduleIds"]) & grade_6_module_ids
+        ]
+        grade_6_variant_ids = [
+            variant["id"]
+            for variant in time_model["annualVariants"]
+            if variant["grade"] == 6
+            or any(
+                allocation["moduleId"] in grade_6_module_ids
+                for allocation in variant["allocations"]
+            )
+        ]
+        grade_6_judgement_indexes = [
+            index
+            for index, judgement in enumerate(time_model["gradeJudgements"])
+            if judgement["grade"] == 6
+        ]
+        self.assertEqual(grade_6_integration_ids, [])
+        self.assertEqual(grade_6_variant_ids, [])
+        self.assertEqual(grade_6_judgement_indexes, [])
+
+    def test_repository_grade_6_scope_stops_before_task_6_orchestration(self):
+        self.assert_grade_6_scope_stops_before_task_6_orchestration(
+            self.time_model
+        )
+
     def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS) | set(
             EXPECTED_GRADE_6_FLEX_CONTRACTS
