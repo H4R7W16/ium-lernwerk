@@ -63,6 +63,18 @@ CORE06_GIVEN_DESIGN_TRACE = (
     "kriterien- und beleggebundene Analyse- und Urteilsspur der "
     "vorgegebenen Gestaltung"
 )
+CORE6_CORE02_COMMON_MODEL = "desselben teilbaren Datenfluss- und Auswahlmodells"
+CORE6_CORE02_CONDITIONS_LAYER = "klar beschrifteten Bedingungen-Matrix"
+CORE6_CORE02_AD_PATH_LAYER = "klar beschrifteten Werbeauswahlpfaden"
+CORE6_CORE02_CURATED_CASES = (
+    "ausschließlich kuratierte fiktive oder neutralisierte "
+    "Fall- und Bedingungsdaten"
+)
+CORE6_CORE02_PRIVACY_BOUNDARY = (
+    "keine realen Konten, Profile, Werbeverläufe, Standort- oder "
+    "Nutzungsdaten, Screenshots personalisierter Werbung oder "
+    "personenbezogene Selbstauskünfte"
+)
 CORE7_CORE03_TRACE_PRODUCT = (
     "sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen "
     "Code-, Ablauf- und Zustandstraceprodukts"
@@ -192,6 +204,8 @@ AUDITED_DECISIONS = {
     "LH26-E-DA-005": ("IUM-5-CORE-06", "module-detail", "covered"),
     "LH26-E-DA-006": ("IUM-5-CORE-06", "module-detail", "covered"),
     "LH26-E-DA-008": ("IUM-5-CORE-06", "module-detail", "covered"),
+    "LH26-E-DP-004": ("IUM-6-CORE-02", "module-detail", "covered"),
+    "LH26-E-DP-006": ("IUM-6-CORE-02", "module-detail", "covered"),
 }
 
 
@@ -393,6 +407,18 @@ def curriculum_contracts():
                 "den Zusammenhang von Inhalt und Form analysieren"
             )
         },
+        "LH26-E-DP-004": {
+            "text": (
+                "Nutzungs- und Rahmenbedingungen von Apps, Programmen und "
+                "Onlinediensten exemplarisch herausarbeiten"
+            )
+        },
+        "LH26-E-DP-006": {
+            "text": (
+                "Möglichkeiten nennen, wie die spezifische Auswahl der "
+                "Werbebotschaft zustande kommt"
+            )
+        },
     }
 
 
@@ -492,6 +518,8 @@ class ValidateCoverageEvidenceTests(unittest.TestCase):
                 "CE-IUM-5-CORE-06-LH26-E-DA-005",
                 "CE-IUM-5-CORE-06-LH26-E-DA-006",
                 "CE-IUM-5-CORE-06-LH26-E-DA-008",
+                "CE-IUM-6-CORE-02-LH26-E-DP-004",
+                "CE-IUM-6-CORE-02-LH26-E-DP-006",
             },
         )
         self.assertEqual(result[private["id"]]["mode"], "private-local")
@@ -975,6 +1003,126 @@ class Core06RepositoryOrchestrationTests(unittest.TestCase):
             "Beleg",
             "begründetes Gesamturteil",
             "optionale Transfermarkierung",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+
+class Core6Core02RepositoryOrchestrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.module = next(
+            module
+            for module in payload["modules"]
+            if module["id"] == "IUM-6-CORE-02"
+        )
+        cls.contracts = {
+            contract["competencyId"]: contract
+            for contract in cls.module.get("coverageEvidence", [])
+        }
+
+    def test_two_distinct_layers_share_one_safe_model_without_private_evidence(self):
+        expected = {"LH26-E-DP-004", "LH26-E-DP-006"}
+        self.assertEqual(set(self.contracts), expected)
+        self.assertEqual(
+            self.module["prerequisiteModuleIds"],
+            ["IUM-5-CORE-07", "IUM-6-CORE-01"],
+        )
+        self.assertEqual(self.module["lessonRange"], {"min": 5, "max": 7})
+
+        for competency_id in expected:
+            with self.subTest(competency_id=competency_id):
+                contract = self.contracts[competency_id]
+                self.assertEqual(contract["mode"], "module-detail")
+                self.assertEqual(
+                    contract["productVisibility"],
+                    "teacher-observable",
+                )
+                self.assertIn(
+                    CORE6_CORE02_COMMON_MODEL,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE6_CORE02_CURATED_CASES,
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    CORE6_CORE02_PRIVACY_BOUNDARY,
+                    contract["productEvidence"],
+                )
+                self.assertNotIn(
+                    "private Reflexionsnotiz",
+                    contract["productEvidence"],
+                )
+                self.assertNotIn(
+                    "eigene Mediennutzung",
+                    contract["productEvidence"],
+                )
+                self.assertIn(
+                    "kein unverbundenes Zusatzprodukt",
+                    contract["productEvidence"],
+                )
+
+    def test_dp004_extracts_both_condition_types_from_multiple_examples_with_evidence(self):
+        self.assertIn("LH26-E-DP-004", self.contracts)
+        contract = self.contracts["LH26-E-DP-004"]
+        for term in (
+            "Nutzungs- und Rahmenbedingungen",
+            "mindestens zwei unterschiedlichen Dienst- oder Softwarebeispielen",
+            "Apps, Programmen oder Onlinediensten",
+            "konkreten kuratierten fiktiven oder neutralisierten "
+            "Bedingungen-Auszügen",
+            "herausarbeiten",
+            "Fundstelle belegen",
+            "Auswirkung auf die Nutzung und die Schutzentscheidung",
+            "keine Anmeldung",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            CORE6_CORE02_CONDITIONS_LAYER,
+            "mindestens zwei unterschiedliche Dienst- oder Softwarebeispiele",
+            "Zugang, Alter oder Kosten",
+            "Daten oder Berechtigungen",
+            "Werbung oder Finanzierung",
+            "Nutzungsrechte oder Kündigung",
+            "Bedingungen-Auszug",
+            "Fundstelle oder Beleg",
+            "Auswirkung auf Nutzung und Schutzentscheidung",
+        ):
+            self.assertIn(term, contract["productEvidence"])
+
+    def test_dp006_names_multiple_specific_ad_selection_paths_with_model_limits(self):
+        self.assertIn("LH26-E-DP-006", self.contracts)
+        contract = self.contracts["LH26-E-DP-006"]
+        for term in (
+            "Möglichkeiten nennen",
+            "spezifische Auswahl einer Werbebotschaft",
+            "mindestens drei unterscheidbare modellierte Auswahlwege",
+            "aktueller Inhalts- oder Suchkontext",
+            "fiktives Profilmerkmal",
+            "fiktives Nutzungsverhaltenssignal",
+            "Signal oder Datenmerkmal",
+            "Auswahlregel oder Auswahlmodell",
+            "konkrete Werbebotschaft",
+            "keine technische Gewissheit über einen konkreten Dienst",
+        ):
+            self.assertIn(term, contract["learningAction"])
+
+        for term in (
+            CORE6_CORE02_AD_PATH_LAYER,
+            "mindestens drei synthetische Fälle",
+            "Kontextpfad",
+            "Profilpfad",
+            "Verhaltenspfad",
+            "Signal oder Datenmerkmal",
+            "Auswahlregel oder Auswahlmodell",
+            "konkret ausgewählte Werbebotschaft",
+            "nicht bloß allgemeine Auswahlhypothesen",
+            "Modellgrenze",
         ):
             self.assertIn(term, contract["productEvidence"])
 

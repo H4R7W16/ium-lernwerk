@@ -1296,26 +1296,22 @@
         "evidenceModuleId": "IUM-6-CORE-02",
         "reason": "Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-02-LH26-E-DP-004",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Operator herausarbeiten, beide Gegenstände Nutzungs- und Rahmenbedingungen sowie die exemplarische Reichweite sind durch mindestens zwei kuratierte Dienst- oder Softwarebeispiele mit konkreten Bedingungen-Auszügen, Fundstellen und Nutzungs- beziehungsweise Schutzfolgen in einer integrierten Bedingungen-Matrix sichtbar belegt.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die zusätzliche Analyse von mindestens zwei Bedingungen-Beispielen konkretisiert das bestehende Modell substanziell; IUM10 muss ihren Zeitbedarf im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Bedingungen-Matrix ist eine Schicht des vorhandenen Datenfluss- und Auswahlmodells; die Voraussetzungen IUM-5-CORE-07 und IUM-6-CORE-01 bleiben unverändert."
       },
-      "residualGap": {
-        "reason": "Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet.",
-        "followUp": "Kernkandidat IUM-6-CORE-02 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DP-006",
@@ -1327,26 +1323,22 @@
         "evidenceModuleId": "IUM-6-CORE-02",
         "reason": "Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-02-LH26-E-DP-006",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Operator Möglichkeiten nennen und der Gegenstand der spezifischen Werbebotschaft sind durch mindestens drei unterscheidbare synthetische Auswahlpfade belegt, die Kontext-, Profil- und Verhaltenssignale jeweils mit Auswahlregel und konkreter Botschaft verbinden und ihre Modellgrenze markieren.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "Die getrennte Arbeit an mindestens drei Werbeauswahlpfaden konkretisiert die bestehenden Auswahlhypothesen substanziell; IUM10 muss ihren Zeitbedarf im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Werbeauswahlpfade sind eine Schicht des vorhandenen Datenfluss- und Auswahlmodells; die Voraussetzungen IUM-5-CORE-07 und IUM-6-CORE-01 bleiben unverändert."
       },
-      "residualGap": {
-        "reason": "Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen.",
-        "followUp": "Kernkandidat IUM-6-CORE-02 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DP-013",

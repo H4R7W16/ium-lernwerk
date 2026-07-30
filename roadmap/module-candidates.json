@@ -619,7 +619,25 @@
       "mediumRationale": "Eine lokale interaktive Fallumgebung macht Datenflüsse, Auswahlparameter und Gegenmaßnahmen veränderbar, ohne reale personenbezogene Daten zu sammeln.",
       "analogMaterials": [],
       "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Datenflussmodell, Schutzentscheidung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
-      "status": "working"
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-6-CORE-02-LH26-E-DP-004",
+          "competencyId": "LH26-E-DP-004",
+          "mode": "module-detail",
+          "learningAction": "An mindestens zwei unterschiedlichen Dienst- oder Softwarebeispielen aus Apps, Programmen oder Onlinediensten Nutzungs- und Rahmenbedingungen aus konkreten kuratierten fiktiven oder neutralisierten Bedingungen-Auszügen herausarbeiten, die jeweilige Fundstelle belegen und die Auswirkung auf die Nutzung und die Schutzentscheidung markieren; betrachtet werden Zugang, Alter oder Kosten, Daten oder Berechtigungen, Werbung oder Finanzierung sowie Nutzungsrechte oder Kündigung; keine Anmeldung und keine realen Konten, ausschließlich kuratierte Fälle.",
+          "productEvidence": "In einer klar beschrifteten Bedingungen-Matrix als eigener Schicht desselben teilbaren Datenfluss- und Auswahlmodells stehen mindestens zwei unterschiedliche Dienst- oder Softwarebeispiele jeweils in einer Zeile. Für jedes Beispiel sind die vier beschrifteten Prüffelder Zugang, Alter oder Kosten; Daten oder Berechtigungen; Werbung oder Finanzierung; Nutzungsrechte oder Kündigung mit Bedingungen-Auszug, Fundstelle oder Beleg und Auswirkung auf Nutzung und Schutzentscheidung ausgefüllt. Es gelten ausschließlich kuratierte fiktive oder neutralisierte Fall- und Bedingungsdaten; keine realen Konten, Profile, Werbeverläufe, Standort- oder Nutzungsdaten, Screenshots personalisierter Werbung oder personenbezogene Selbstauskünfte werden verwendet. Die Matrix ist eine integrierte Modellschicht und kein unverbundenes Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-6-CORE-02-LH26-E-DP-006",
+          "competencyId": "LH26-E-DP-006",
+          "mode": "module-detail",
+          "learningAction": "An mindestens drei synthetischen Fällen Möglichkeiten nennen, wie die spezifische Auswahl einer Werbebotschaft zustande kommen kann, und mindestens drei unterscheidbare modellierte Auswahlwege zuordnen: aktueller Inhalts- oder Suchkontext, fiktives Profilmerkmal und fiktives Nutzungsverhaltenssignal; jeder Weg verbindet Signal oder Datenmerkmal, Auswahlregel oder Auswahlmodell und konkrete Werbebotschaft. Die Darstellung kennzeichnet die vereinfachte Möglichkeit mit einer Modellgrenze und behauptet keine technische Gewissheit über einen konkreten Dienst.",
+          "productEvidence": "In eigenen klar beschrifteten Werbeauswahlpfaden als zweiter Schicht desselben teilbaren Datenfluss- und Auswahlmodells dokumentieren mindestens drei synthetische Fälle je einen Kontextpfad, Profilpfad und Verhaltenspfad; jeder nennt Signal oder Datenmerkmal, Auswahlregel oder Auswahlmodell und konkret ausgewählte Werbebotschaft, nicht bloß allgemeine Auswahlhypothesen. Eine Modellgrenze trennt die plausible Möglichkeit von behaupteter Gewissheit. Es gelten ausschließlich kuratierte fiktive oder neutralisierte Fall- und Bedingungsdaten; keine realen Konten, Profile, Werbeverläufe, Standort- oder Nutzungsdaten, Screenshots personalisierter Werbung oder personenbezogene Selbstauskünfte werden verwendet. Die Pfade sind eine integrierte Modellschicht und kein unverbundenes Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ]
     },
     {
       "id": "IUM-6-CORE-03",
