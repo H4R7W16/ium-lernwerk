@@ -93,8 +93,12 @@ CORE6_CORE07_COMMON_PRODUCT = (
     "desselben offen nachnutzbaren Medienprodukts mit integrierter "
     "Mikrogeschichte"
 )
-CORE6_CORE07_RIGHTS_BOUNDARY = (
-    "ausschließlich eigene, offen lizenzierte oder kuratierte Inhalte"
+CORE6_CORE07_PRODUCTION_RIGHTS = (
+    "ausschließlich eigene oder nachweislich rechtlich nutzbare und mit der "
+    "beabsichtigten offenen Nachnutzung kompatibel freigegebene Inhalte"
+)
+CORE6_CORE07_RIGHTS_DOCUMENTATION = (
+    "Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile"
 )
 CORE6_CORE07_LOCAL_PRIVACY_BOUNDARY = (
     "keine Zugangsdaten, privaten Links, Inhaltsprotokolle oder öffentlichen "
@@ -1361,10 +1365,21 @@ class Core6Core07RepositoryOrchestrationTests(unittest.TestCase):
                     CORE6_CORE07_COMMON_PRODUCT,
                     contract["productEvidence"],
                 )
-                self.assertIn(
-                    CORE6_CORE07_RIGHTS_BOUNDARY,
-                    contract["learningAction"] + " " + contract["productEvidence"],
+                combined = (
+                    contract["learningAction"] + " " + contract["productEvidence"]
                 )
+                self.assertIn(CORE6_CORE07_PRODUCTION_RIGHTS, combined)
+                self.assertIn(CORE6_CORE07_RIGHTS_DOCUMENTATION, combined)
+                self.assertNotIn(
+                    "eigene, offen lizenzierte oder kuratierte Inhalte",
+                    combined,
+                )
+                if contract["competencyId"] in {
+                    "LH26-E-DA-009",
+                    "LH26-E-DA-012",
+                    "LH26-E-DA-015",
+                }:
+                    self.assertNotIn("kuratiert", combined.lower())
 
     def test_da009_requires_creative_text_goal_effect_feedback_and_text_revision(self):
         self.assertIn("LH26-E-DA-009", self.contracts)
@@ -1406,11 +1421,23 @@ class Core6Core07RepositoryOrchestrationTests(unittest.TestCase):
             self.assertIn(term, contract["learningAction"])
         for term in (
             "separate Analyse- und Wirkungsabsichtsspur",
+            "vorhandenen vorgegebenen kuratierten Analyseprodukts",
             "Befund und begründete Inferenz getrennt",
             "Transfer in das eigene Produkt ist optional",
             "ersetzt die Analyse nicht",
+            "ohne nachgewiesene kompatible Freigabe weder in das offen "
+            "nachnutzbare Produkt übernommen noch mit ihm weiterveröffentlicht",
+            "notwendige Analysebelege werden rechtlich zulässig und "
+            "quellenbezogen dokumentiert",
+            "optionale Transfer verwendet ausschließlich eigene oder "
+            "nachweislich rechtlich nutzbare",
         ):
             self.assertIn(term, contract["productEvidence"])
+        self.assertNotIn(
+            "kuratiertes Analyseprodukt wird in das offen nachnutzbare Produkt "
+            "übernommen",
+            contract["learningAction"] + " " + contract["productEvidence"],
+        )
 
     def test_da012_applies_multiple_concrete_operation_to_change_concepts(self):
         self.assertIn("LH26-E-DA-012", self.contracts)

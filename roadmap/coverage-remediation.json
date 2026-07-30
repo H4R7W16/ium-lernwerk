@@ -1120,10 +1120,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Der Audit schließt die Lücke recordgenau: Eine Mikrogeschichte ist als verpflichtendes kreatives Textprodukt in das bestehende offen nachnutzbare Medienprodukt integriert; eigenes Gestaltungs- und Wirkungsziel, Wirkungsfeedback, Soll-Ist-Abgleich und begründete Textrevision machen Erstellen und Auseinandersetzung mit der Wirkung sichtbar.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Eine Mikrogeschichte ist als verpflichtendes kreatives Textprodukt in das bestehende offen nachnutzbare Medienprodukt integriert; eigenes Gestaltungs- und Wirkungsziel, Wirkungsfeedback, Soll-Ist-Abgleich und begründete Textrevision machen Erstellen und Auseinandersetzung mit der Wirkung sichtbar. Produktionsinhalte sind eigene oder nachweislich rechtlich nutzbare und mit der offenen Nachnutzung kompatibel freigegebene Inhalte; Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile werden dokumentiert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Kreativtext, vorgelagertes Gestaltungsziel, Wirkungsfeedback und begründete Textrevision vertiefen die bestehende Produktion; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
+        "rationale": "Kreativtext, vorgelagertes Gestaltungsziel, Wirkungsfeedback, begründete Textrevision und Rechtekompatibilitätsnachweis vertiefen die bestehende Produktion; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
@@ -1147,10 +1147,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Der Audit schließt die Lücke recordgenau: Lernende arbeiten an einem vorhandenen, vorgegebenen und kuratierten Medienprodukt Zielgruppe und intendierte Wirkung anhand konkreter Inhalts- und Formbelege heraus und trennen beobachtbaren Befund von begründeter Inferenz; der optionale Transfer in das eigene Produkt ersetzt diese Analyse nicht.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Lernende arbeiten an einem vorhandenen, vorgegebenen und kuratierten Medienprodukt Zielgruppe und intendierte Wirkung anhand konkreter Inhalts- und Formbelege heraus und trennen beobachtbaren Befund von begründeter Inferenz; der optionale Transfer in das eigene Produkt ersetzt diese Analyse nicht. Kuratierung legitimiert keine Übernahme: Ohne nachgewiesene kompatible Freigabe wird der Analysegegenstand weder in das offen nachnutzbare Produkt übernommen noch mit ihm weiterveröffentlicht; Analysebelege bleiben rechtlich zulässig und quellenbezogen, Produktionsassets erfüllen den strengeren offenen Rechtepfad.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Die eigenständige Wirkungsabsichtsanalyse eines vorhandenen Produkts ergänzt das Wirkungsbriefing um einen anspruchsvollen Analyseschritt; IUM10 muss die Verdichtung im unveränderten Zeitkorridor prüfen."
+        "rationale": "Die eigenständige Wirkungsabsichtsanalyse, die rechtlich zulässige quellenbezogene Belegspur und die getrennte Rechteprüfung eines optionalen Transfers ergänzen das Wirkungsbriefing; IUM10 muss die Verdichtung im unveränderten Zeitkorridor prüfen."
       },
       "graphImpact": {
         "level": "none",
@@ -1174,10 +1174,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Der Audit schließt die Lücke recordgenau: Bei der tatsächlichen Erstellung und Gestaltung werden mindestens drei konkrete Bedienkonzepte angewandt; der schlanke Arbeits- und Revisionsnachweis ordnet mehrere Operationen ihren sichtbaren Produktänderungen zu, ohne Bildschirmaufzeichnung oder Interaktionsvollprotokoll zu verlangen.",
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Bei der tatsächlichen Erstellung und Gestaltung werden mindestens drei konkrete Bedienkonzepte an eigenen oder nachweislich rechtlich nutzbaren und mit offener Nachnutzung kompatibel freigegebenen Inhalten angewandt; der schlanke Arbeits- und Revisionsnachweis ordnet mehrere Operationen ihren sichtbaren Produktänderungen zu und dokumentiert Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile, ohne Bildschirmaufzeichnung oder Interaktionsvollprotokoll zu verlangen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Die explizite Anwendung mehrerer Bedienkonzepte und ihre Operation-zu-Änderung-Spur erzeugen reale Produktionstiefe; IUM10 muss den Zeitbedarf im unveränderten Korridor prüfen."
+        "rationale": "Die explizite Anwendung mehrerer Bedienkonzepte, ihre Operation-zu-Änderung-Spur und der Rechtekompatibilitätsnachweis erzeugen reale Produktionstiefe; IUM10 muss den Zeitbedarf im unveränderten Korridor prüfen."
       },
       "graphImpact": {
         "level": "none",
@@ -1201,10 +1201,10 @@
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Der Audit schließt die Lücke nur unter einem echten lokalen Gate: Mindestens zwei vor Ort verfügbare, schulisch freigegebene und datenschutzkonforme Teilwege werden vor Modulfreigabe benannt und mit demselben neutralen Produkt tatsächlich zum Bereitstellen oder Teilen und Abrufen oder Öffnen genutzt; die beobachtbare Spur speichert nur Weg, Operation und Zugriffsumfang.",
+      "changeRationale": "Der Audit schließt die Lücke nur unter einem echten lokalen Gate: Mindestens zwei vor Ort verfügbare, schulisch freigegebene und datenschutzkonforme Teilwege werden vor Modulfreigabe benannt und mit demselben neutralen Produkt tatsächlich zum Bereitstellen oder Teilen und Abrufen oder Öffnen genutzt; geteilt werden nur eigene oder nachweislich rechtlich nutzbare und mit offener Nachnutzung kompatibel freigegebene Inhalte mit dokumentierter Provenienz, konkreter Lizenz oder Freigabe, Änderungen und eigenen Anteilen, während die beobachtbare Ausführungsspur nur Weg, Operation und Zugriffsumfang speichert.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Zwei tatsächliche lokale Teilwege mit Bereitstellen oder Teilen und Abrufen oder Öffnen benötigen schulische Konfiguration und Unterrichtszeit; IUM10 muss ihre Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
+        "rationale": "Zwei tatsächliche lokale Teilwege mit Bereitstellen oder Teilen, Abrufen oder Öffnen und Rechtekompatibilitätsnachweis benötigen schulische Konfiguration und Unterrichtszeit; IUM10 muss ihre Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
       },
       "graphImpact": {
         "level": "none",
