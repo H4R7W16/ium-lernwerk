@@ -1,12 +1,12 @@
 # IuM-Lernwerk - erste Modulroadmap für Gymnasium 5-7
 
 Status: `working`
-Stand: 29. Juli 2026
+Stand: 30. Juli 2026
 Geltungsbereich: Baden-Württemberg, Gymnasium, Niveau E
 
 Diese Roadmap ordnet die 31 geprüften Modulkandidaten zu einem reviewfähigen Lernwerk-Kosmos. Sie ist weder Stundentafel noch fertiges Schulcurriculum. Insbesondere trennt sie drei Aussagen:
 
-1. **Semantischer Coverage-Audit:** Alle 171 Curriculumrecords sind einem Kernkandidaten zugeordnet und einzeln gegen Operator, Gegenstand, zentrale Lernhandlung und Produktnachweis geprüft. 111 Records besitzen einen expliziten Match; bei 60 Records ist die noch zu schließende Lücke dokumentiert.
+1. **Semantischer Coverage-Audit:** Alle 171 Curriculumrecords sind einem Kernkandidaten zugeordnet und einzeln gegen Operator, Gegenstand, zentrale Lernhandlung und Produktnachweis geprüft. Die Ausgangsbilanz vor IUM09 betrug 111 `covered` und 60 `partial`; nach dem recordgenauen Audit stehen 164 `covered` und 7 `partial` fest.
 2. **Abhängigkeit:** Der Kandidatengraph ist fachlich progressiv, azyklisch und jahrgangskonsistent.
 3. **Zeitliche Umsetzbarkeit:** Eine vollständige Kandidatenfolge muss zusätzlich in die reale Unterrichtszeit passen. Dieser Nachweis ist für die Klassen 6 und 7 noch nicht erbracht.
 
@@ -103,17 +103,109 @@ Jahrgangsrücksprünge sind im Validator verboten. Kernmodule dürfen nicht von 
 
 `coverage-plan.json` enthält 171 Einträge:
 
-| Quellengewicht | Records | Status im Coverage-Plan |
+### Ausgangsbilanz vor IUM09
+
+| Quellengewicht | Records | Status vor IUM09 |
 |---|---:|---|
-| `enacted` - Basiskurs Medienbildung und Aufbaukurs Informatik | 76 | 45 `covered`, 31 `partial` |
-| `orientation` - Lesehilfe 2026/2027 | 95 | 66 `covered`, 29 `partial` |
+| `enacted` | 76 | 45 `covered`, 31 `partial` |
+| `orientation` | 95 | 66 `covered`, 29 `partial` |
 | Gesamt | 171 | 111 `covered`, 60 `partial`, 0 `deferred` |
 
-`covered` bedeutet hier ausschließlich, dass Operator und Gegenstand in einer zentralen Lernhandlung ausgeführt und in einem passenden Lernprodukt sichtbar werden. `partial` bedeutet nicht „unzugeordnet“: Der Record besitzt einen Kern-Andockpunkt, aber der explizite Operator-Produkt-Nachweis ist noch unvollständig. Für jeden dieser 60 Records nennt `coverage-plan.json` eine konkrete Begründung, das Risiko einer Überbehauptung und eine Nacharbeit.
+Diese festgeschriebene Ausgangsbilanz ist die Bezugsgröße des Nacharbeitsledgers und keine aktuelle Statusangabe.
+
+### Auditierte Endbilanz nach IUM09
+
+| Quellengewicht | Records | Auditierter Endstand |
+|---|---:|---|
+| `enacted` | 76 | 74 `covered`, 2 `partial` |
+| `orientation` | 95 | 90 `covered`, 5 `partial` |
+| Gesamt | 171 | 164 `covered`, 7 `partial`, 0 `deferred` |
+
+Von den 60 Ausgangslücken wurden 53 mit einem recordgenauen Evidenzvertrag geschlossen; 7 bleiben begründet `partial`. Verbleibend sind `BMB16-GYM-IK-GM-003`, `BMB16-GYM-PK-RK-003`, `LH26-E-DP-003` sowie `LH26-E-PROG-001` bis `LH26-E-PROG-004`.
+
+`covered` bedeutet hier ausschließlich, dass Operator und Gegenstand in einer verbindlichen Lernhandlung ausgeführt und in einer passenden Produktspur sichtbar werden. `partial` bedeutet nicht „unzugeordnet“: Der Record besitzt einen Kern-Andockpunkt, aber der explizite Operator-Produkt-Nachweis ist noch unvollständig. Das Nacharbeitsledger bewahrt für alle 60 Ausgangsrecords den unveränderten Vorherbefund, die Auditentscheidung und die Zeit- und Graphfolgen.
 
 Jeder Eintrag enthält den exakten Anforderungstext, einen ausgewählten Evidenz-Kernkandidaten und ein recordgenaues `matchRationale` mit dessen unveränderter Lernhandlung und Produktbeschreibung. Der Validator erzwingt diese Nachweiskette und verhindert fachfremde oder veraltete Verweise. Er entscheidet jedoch keine natürlichsprachliche Fachsemantik; die Einstufung `covered` oder `partial` bleibt Ergebnis des dokumentierten manuellen Fachaudits.
 
-Der Status ist **keine** Aussage, dass die 171 Records im Ein-Wochenstunden-Jahr mit der erforderlichen Tiefe unterrichtet werden können. Die semantische und die zeitliche Lücke bleiben getrennt sichtbar; eine formal grüne ID-Menge darf keine von beiden verdecken.
+### Ergebnis nach Ursachenklasse
+
+| Ursachenklasse | Ausgangslücken | Geschlossen | Verbleibend |
+|---|---:|---:|---:|
+| `module-detail` | 39 | 38 | 1 |
+| `private-local` | 8 | 6 | 2 |
+| `roadmap-level` | 4 | 0 | 4 |
+| `school-context` | 9 | 9 | 0 |
+
+### IUM10-Zeitübergabe
+
+Alle 60 `timeImpact`-Einträge sind nach dem Ausgangsmodul gruppiert. `review-required` verlangt einen recordgenauen Zeitreview im unveränderten Modul; `roadmap-dependent` verlangt einen jahrgangs- oder roadmapweiten Sequenznachweis.
+
+| Modul | Record-ID | `timeImpact.level` | Begründung |
+|---|---|---|---|
+| `IUM-5-CORE-01` | `BMB16-GYM-IK-GM-001` | `review-required` | IUM10 prüft den Zeitbedarf für Geräteerkundung, Regelanwendung und die beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritte innerhalb des bestehenden Stundenkorridors. |
+| `IUM-5-CORE-01` | `BMB16-GYM-IK-GM-002` | `review-required` | IUM10 prüft den Zeitbedarf und die Reihenfolge für lokale Anmeldung, Orientierung und Betriebssystemarbeit unter der jeweils vor Ort verfügbaren Schulkonfiguration. |
+| `IUM-5-CORE-01` | `BMB16-GYM-IK-GM-003` | `review-required` | IUM10 prüft Zeitfolge und Zeitbedarf einer fachlich zusammenhängenden Mehrwerkzeug-Handlung außerhalb der bereits dichten Geräte-, Betriebssystem- und Regelhandlungen dieses Moduls. |
+| `IUM-5-CORE-01` | `BMB16-GYM-PK-SK-003` | `review-required` | IUM10 prüft, wie Einführung, Benennung und beobachtete Anwendung lokaler Medienregeln in den bestehenden Stundenkorridor eingeordnet werden. |
+| `IUM-5-CORE-01` | `LH26-E-DA-004` | `review-required` | IUM10 prüft den zusätzlichen Erklärungs- und Sicherungsbedarf des Schichtenmodells gemeinsam mit der Geräte- und Betriebssystemsequenz. |
+| `IUM-5-CORE-01` | `LH26-E-DP-001` | `review-required` | IUM10 prüft den Zeitbedarf für tatsächliche Regelanwendung, Begründung und Konfliktbearbeitung in der lokalen Geräte- und Dateiarbeitssequenz. |
+| `IUM-5-CORE-01` | `LH26-E-PROG-001` | `roadmap-dependent` | IUM10 prüft die jahrgangsweite Balance, Progression und Zeitgewichtung über alle betroffenen Kernmodule als Sequenznachweis. |
+| `IUM-5-CORE-02` | `LH26-E-ID-009` | `review-required` | Die explizite Drei-Schritt-Verknüpfung aus Vorwissensanker, Quellenabgleich und Antwortrevision präzisiert die vorhandene Dossierarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von 5–7 Stunden. |
+| `IUM-5-CORE-03` | `BMB16-GYM-IK-KK-002` | `review-required` | IUM10 muss prüfen, ob die tatsächliche lokale Ausführung aller Grundfunktionen zusammen mit der gemeinsamen Leitfadenrevision im unveränderten Korridor von 4 bis 6 Stunden tragfähig ist. |
+| `IUM-5-CORE-03` | `BMB16-GYM-IK-KK-003` | `review-required` | IUM10 muss den Zeitbedarf der tatsächlichen lokalen Kooperationsschritte innerhalb der gemeinsamen Leitfadenrevision gegen den unveränderten Korridor von 4 bis 6 Stunden prüfen. |
+| `IUM-5-CORE-03` | `BMB16-GYM-PK-HK-003` | `review-required` | IUM10 muss prüfen, ob die tatsächliche Medienkooperation zusammen mit den übrigen Leitfadenhandlungen im unveränderten Korridor von 4 bis 6 Stunden orchestrierbar ist. |
+| `IUM-5-CORE-03` | `BMB16-GYM-PK-RK-004` | `review-required` | IUM10 muss die zusätzliche begründete Trennung rechtlicher und moralischer Grenzübertretungen innerhalb des unveränderten Korridors von 4 bis 6 Stunden prüfen. |
+| `IUM-5-CORE-03` | `LH26-E-KS-001` | `review-required` | IUM10 muss den Zeitbedarf der tatsächlichen Nutzung von Kommunikationskanal und Kollaborationsmöglichkeit im unveränderten Korridor von 4 bis 6 Stunden prüfen. |
+| `IUM-5-CORE-03` | `LH26-E-KS-002` | `review-required` | IUM10 muss prüfen, ob mehrperspektivische Reflexion, Diskussion und gemeinsame Revision zusammen mit der realen lokalen Ausführung im unveränderten Korridor von 4 bis 6 Stunden tragfähig sind. |
+| `IUM-5-CORE-05` | `LH26-E-ALG-001` | `review-required` | Die zusätzliche Klassifikation und fallbezogene Begründung konkretisieren die zentrale Algorithmusarbeit, ihr Zeitbedarf innerhalb des unveränderten Korridors von fünf bis sieben Stunden muss jedoch in IUM10 geprüft werden. |
+| `IUM-5-CORE-05` | `LH26-E-PROG-002` | `roadmap-dependent` | Die altersangemessene und niederschwellige Progression sowie ihre Abgrenzung zur fachlichen Tiefe in Klasse 7 können nur jahrgangsübergreifend in IUM10 geprüft werden. |
+| `IUM-5-CORE-06` | `BMB16-GYM-IK-PP-002` | `review-required` | Die getrennte Rechte- und Datenschutzprüfung konkretisiert die Produktarbeit substanziell; IUM10 muss ihren Zeitbedarf im Korridor von fünf bis sieben Unterrichtseinheiten prüfen. |
+| `IUM-5-CORE-06` | `LH26-E-DA-005` | `review-required` | Identifikation und funktionale Nutzung mehrerer Formatierungsoptionen vertiefen die vorhandene Revision; IUM10 muss den Zeitbedarf im Korridor von fünf bis sieben Unterrichtseinheiten prüfen. |
+| `IUM-5-CORE-06` | `LH26-E-DA-006` | `review-required` | Die verpflichtende Bildnutzung mit Rechteprüfung und begründeter Gestaltungsentscheidung erzeugt reale Produktionstiefe; IUM10 muss den Zeitbedarf prüfen. |
+| `IUM-5-CORE-06` | `LH26-E-DA-008` | `review-required` | Die eigenständige Analyse und Beurteilung einer vorgegebenen Gestaltung ergänzt die bestehende Produktrevision um eine anspruchsvolle Lernhandlung; IUM10 muss die Verdichtung im Zeitkorridor prüfen. |
+| `IUM-5-CORE-07` | `BMB16-GYM-IK-MG-001` | `review-required` | IUM10 prüft, ob die gemeinsame Sequenz aus vorgegebenem Fall und Kriterienkatalog, integrierter privater Matrix, gemeinsamer Wirkungskarte und Sicherung innerhalb des 4–6-Stunden-Korridors tragfähig ist. |
+| `IUM-5-CORE-07` | `BMB16-GYM-IK-MG-002` | `review-required` | IUM10 prüft den Zeitanteil von Erläuterung, Bewertung und Prävention innerhalb der einen gemeinsamen Fallanalyse, Wirkungskarte und Sicherung des 4–6-Stunden-Korridors. |
+| `IUM-5-CORE-07` | `BMB16-GYM-IK-MG-003` | `review-required` | IUM10 prüft den Zeitanteil für Beispieluntersuchung, private Empfindungsäußerung und bedingte Wirkungsaussage innerhalb der gemeinsamen Matrix-, Wirkungskarten- und Sicherungssequenz. |
+| `IUM-5-CORE-07` | `BMB16-GYM-PK-RK-001` | `review-required` | IUM10 prüft den Zeitanteil für Beschreibung und kriteriengeleiteten Vergleich innerhalb der gemeinsam vorbereiteten Matrix-, Wirkungskarten- und Sicherungssequenz. |
+| `IUM-5-CORE-07` | `BMB16-GYM-PK-RK-002` | `review-required` | IUM10 prüft den Zeitanteil für Lebensweltdarstellung und Wirklichkeitsbeziehung innerhalb der gemeinsam vorbereiteten Matrix-, Wirkungskarten- und Sicherungssequenz. |
+| `IUM-5-CORE-07` | `BMB16-GYM-PK-RK-003` | `review-required` | IUM10 prüft Zeitbedarf und Einordnung genau eines späteren sichtbaren Fallnachweises erst nach der notwendigen Design- und Ursachenreklassifikation. |
+| `IUM-5-CORE-07` | `LH26-E-DP-003` | `review-required` | IUM10 prüft, ob und wo eine datenschutzkonforme curriculare Verortung möglich ist; IUM09 behauptet für den persönlichen Diskussionsoperator weder Zeitbedarf noch Schließung. |
+| `IUM-6-CORE-02` | `LH26-E-DP-004` | `review-required` | Die zusätzliche Analyse von mindestens zwei Bedingungen-Beispielen konkretisiert das bestehende Modell substanziell; IUM10 muss ihren Zeitbedarf im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten prüfen. |
+| `IUM-6-CORE-02` | `LH26-E-DP-006` | `review-required` | Die getrennte Arbeit an mindestens drei Werbeauswahlpfaden konkretisiert die bestehenden Auswahlhypothesen substanziell; IUM10 muss ihren Zeitbedarf im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten prüfen. |
+| `IUM-6-CORE-06` | `LH26-E-KS-014` | `review-required` | Die zusätzliche fallbelegte Merkmalsanalyse und die Zuordnung dreier Strategiearten konkretisieren den Fall-Handlungsplan substanziell; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten. |
+| `IUM-6-CORE-06` | `LH26-E-KS-015` | `review-required` | Die zusätzliche Faktorenanalyse mit begrifflicher Trennung und Unsicherheitsmarkierung konkretisiert den Fall-Handlungsplan substanziell; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten. |
+| `IUM-6-CORE-07` | `LH26-E-DA-009` | `review-required` | Kreativtext, vorgelagertes Gestaltungsziel, Wirkungsfeedback, begründete Textrevision und Rechtekompatibilitätsnachweis vertiefen die bestehende Produktion; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen. |
+| `IUM-6-CORE-07` | `LH26-E-DA-010` | `review-required` | Die eigenständige Wirkungsabsichtsanalyse, die rechtlich zulässige quellenbezogene Belegspur und die getrennte Rechteprüfung eines optionalen Transfers ergänzen das Wirkungsbriefing; IUM10 muss die Verdichtung im unveränderten Zeitkorridor prüfen. |
+| `IUM-6-CORE-07` | `LH26-E-DA-012` | `review-required` | Die explizite Anwendung mehrerer Bedienkonzepte, ihre Operation-zu-Änderung-Spur und der Rechtekompatibilitätsnachweis erzeugen reale Produktionstiefe; IUM10 muss den Zeitbedarf im unveränderten Korridor prüfen. |
+| `IUM-6-CORE-07` | `LH26-E-DA-015` | `review-required` | Zwei tatsächliche lokale Teilwege mit Bereitstellen oder Teilen, Abrufen oder Öffnen und Rechtekompatibilitätsnachweis benötigen schulische Konfiguration und Unterrichtszeit; IUM10 muss ihre Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen. |
+| `IUM-7-CORE-01` | `INF7-16-GYM-IK-DC-001` | `review-required` | Die Sammlung, fachliche Prüfung und Zuordnung mehrerer Alltagscodierungen verdichtet das bestehende Bit-Codebuch; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten. |
+| `IUM-7-CORE-01` | `INF7-16-GYM-IK-DC-004` | `review-required` | Bitfolgenlänge, Bit-Byte-Beziehung und die größeren dezimalen Einheiten erweitern die bestehende Codierungsarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten. |
+| `IUM-7-CORE-01` | `INF7-16-GYM-IK-DC-005` | `review-required` | Die systematische Methode, beide Umwandlungsrichtungen, führende Nullen und repräsentative Prüf- und Grenzfälle verdichten die vorhandene Binärarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten. |
+| `IUM-7-CORE-01` | `LH26-E-ID-020` | `review-required` | Die separate quellentreue Bit-und-Byte-Spur verdichtet die gemeinsame Datengrößentabelle des bestehenden Bit-Codebuchs; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten. |
+| `IUM-7-CORE-01` | `LH26-E-ID-021` | `review-required` | Vier Dezimalpräfixe, korrekte Symbole und ausgeführte Umrechnungen verdichten die gemeinsame Datengrößentabelle des bestehenden Bit-Codebuchs; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten. |
+| `IUM-7-CORE-03` | `INF7-16-GYM-IK-ALG-003` | `review-required` | Die explizite Wertespeichererklärung und die begründete Zustandsänderung verdichten das vorhandene Traceprodukt; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von 6–8 Stunden. |
+| `IUM-7-CORE-03` | `INF7-16-GYM-PK-MI-005` | `review-required` | Tatsächliches Erstellen, Bearbeiten und Korrigieren der grafischen Modellierung ergänzt eine eigenständige Werkzeughandlung; IUM10 prüft den Zeitbedarf im unveränderten Korridor von 6–8 Stunden. |
+| `IUM-7-CORE-03` | `INF7-16-GYM-PK-SV-003` | `review-required` | Der beschriftete Datenabhängigkeitsgraph ergänzt eine eigene Modellierungs- und Erklärungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. Zusätzliche Modulzeit wird nicht behauptet, weil derselbe Programmfall und dasselbe grafische Werkzeug verwendet werden. |
+| `IUM-7-CORE-03` | `LH26-E-ALG-007` | `review-required` | Die vollständige Breite aus zwei Schleifenvarianten und drei Ausdrucksformen erweitert die explizite Beschreibungsarbeit deutlich; IUM10 prüft die Tragfähigkeit im unveränderten Korridor von 6–8 Stunden. |
+| `IUM-7-CORE-03` | `LH26-E-ALG-008` | `review-required` | Die präzise Übergabe-/Ergebniswertzuordnung für Anweisungen und Ausdrücke ergänzt eine eigenständige Identifikationsspur; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. Zusätzliche Modulzeit wird nicht behauptet, weil derselbe Programmfall und dieselbe Traceansicht verwendet werden. |
+| `IUM-7-CORE-03` | `LH26-E-ALG-009` | `review-required` | Die explizite Typzuordnung für Werte und Ausdrücke ergänzt eine eigene Begründungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. |
+| `IUM-7-CORE-04` | `INF7-16-GYM-PK-KK-002` | `review-required` | Die zielgruppenbezogene Aufbereitung aller vier Gegenstände mit Glossar und Beispiel ergänzt eine eigenständige Erklärhandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden. |
+| `IUM-7-CORE-04` | `INF7-16-GYM-PK-MI-003` | `review-required` | Fallvergleich, explizite Abstraktion und Rückanwendung ergänzen eine eigene Modellierungs- und Prüfhandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden. |
+| `IUM-7-CORE-04` | `INF7-16-GYM-PK-SV-002` | `review-required` | Die tatsächliche Datei- und Bezeichnerrefaktorierung mit Konvention und Nachweis ergänzt eine eigene Strukturierungs- und Revisionshandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden. |
+| `IUM-7-CORE-05` | `INF7-16-GYM-IK-IGD-004` | `review-required` | Vier ausdrückliche Risiko–Maßnahme-Paare samt Schutzwirkung und Grenze verdichten das bestehende Bedrohungsmodell; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen. |
+| `IUM-7-CORE-05` | `INF7-16-GYM-PK-AB-002` | `review-required` | Die tatsächliche oder kuratierte nichtpersonale Beobachtung, der kriterielle Vergleich und die Modellrevision verdichten die bestehende Modellarbeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen. |
+| `IUM-7-CORE-05` | `INF7-16-GYM-PK-SV-001` | `review-required` | Die tatsächliche lokale Speicher-, Abruf- und Prüfhandlung benötigt vor Ort Konfigurations- und Unterrichtszeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen. |
+| `IUM-7-CORE-08` | `INF7-16-GYM-IK-IGD-006` | `review-required` | Die explizite Erklärung von Datenanfall, Speicherung, Nutzen und Risiken verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
+| `IUM-7-CORE-08` | `INF7-16-GYM-PK-AB-005` | `review-required` | Die vollständige Perspektiven- und Bereichsbreite verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
+| `IUM-7-CORE-08` | `INF7-16-GYM-PK-AB-006` | `review-required` | Die individuelle ethische Argumentation mit Gegenargument und Revision verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
+| `IUM-7-CORE-08` | `INF7-16-GYM-PK-KK-006` | `review-required` | Die konkrete informatische Vielfaltsdiskussion mit mehreren Perspektiven und Revision verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
+| `IUM-7-CORE-08` | `LH26-E-DP-013` | `review-required` | Die private Reflexion und ihr unabhängiger nichtpersonaler Anschluss verdichten die bestehende Fallarbeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
+| `IUM-7-CORE-08` | `LH26-E-PROG-003` | `roadmap-dependent` | Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft. |
+| `IUM-7-CORE-08` | `LH26-E-PROG-004` | `roadmap-dependent` | Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft. |
+| `IUM-7-CORE-10` | `LH26-E-DP-014` | `review-required` | Private Reflexion, nichtpersonale Gegenperspektive und ihre klare Trennung verdichten die bestehende Medienanalyse; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
+
+Die vier Progressionsrecords `LH26-E-PROG-001`, `LH26-E-PROG-002`, `LH26-E-PROG-003` und `LH26-E-PROG-004` bleiben ausdrücklich `partial`, ohne Einzelmodulvertrag und mit `roadmap-dependent` als verpflichtende IUM10-Prüfaufträge.
+
+Aus der Endbilanz von 164 `covered` und 7 `partial` folgt **weder Vollabdeckung noch eine bessere Jahresfreigabe**. Modulgraph, Abhängigkeiten, Stundenkorridore sowie die Urteile `amber` für Klasse 5 und `red` für die Klassen 6 und 7 bleiben unverändert. Die semantische und die zeitliche Lücke bleiben getrennt sichtbar; IUM10 muss alle 60 Zeitfolgen prüfen.
 
 Quellenüberlappungen bleiben über `curriculum/crosswalk.json` nachvollziehbar. Ein Record wird nicht gelöscht, nur weil ein anderer Record einen ähnlichen Handlungskern besitzt.
 
@@ -180,13 +272,13 @@ Der Pilot soll die Modulgrammatik, Accessibility, Offlinefähigkeit, lokale Spei
 5. **Flexible Module:** Im Ein-Wochenstunden-Modell ist derzeit kein verlässlicher Zusatzkorridor vorhanden. Austausch- oder Integrationsvarianten brauchen einen eigenen Coverage-Nachweis.
 6. **Beurteilungsinstrumentarium:** `assessmentWorkingNotes` bleibt reduzierbar. Private Reflexion, automatische Punkte und personenbezogene Kompetenzprofile sind ausgeschlossen.
 7. **Goldstandard-Pilot:** `IUM-5-CORE-05` ist eine begründete Empfehlung, aber noch keine Nutzerfreigabe zur Implementierung.
-8. **Semantische Lücken:** 60 Records sind curricular verortet, aber noch nicht vollständig durch Lernhandlung und Produkt eingelöst. Sie müssen vor einer Vollabdeckungsbehauptung einzeln geschlossen oder begründet `partial` bleiben.
+8. **Semantische Lücken:** 7 Records sind curricular verortet, aber nach IUM09 weiterhin nicht vollständig durch Lernhandlung und Produkt eingelöst. Sie bleiben bis zur ausgewiesenen Folgeentscheidung sichtbar `partial`.
 9. **Vollständigkeitsbehauptung:** 171/171 zugeordnete Records dürfen weder als 171/171 semantisch abgedeckte noch als zeitlich gesicherte Unterrichtsabdeckung kommuniziert werden.
 
 ## Freigabestatus
 
 - Fachlicher Kandidatengraph: reviewfähig.
-- Coverage-Audit: 171/171 zugeordnet und geprüft; 111 `covered`, 60 `partial`, 0 `deferred`.
+- Coverage-Audit: Ausgangsbilanz 111 `covered`/60 `partial`; auditierte Endbilanz 164 `covered`/7 `partial`/0 `deferred`.
 - Jahresroadmap Klasse 5: `amber`.
 - Jahresroadmap Klassen 6 und 7: `red`.
-- Phase-1-Modulspezifikation: für den Goldstandard-Pilot nach Task-15-Abschlussreview und Nutzerentscheidung; eine Vollabdeckungsfreigabe setzt zusätzlich die recordgenaue Bearbeitung der 60 `partial`-Lücken voraus.
+- Phase-1-Modulspezifikation: für den Goldstandard-Pilot nach Task-15-Abschlussreview und Nutzerentscheidung; die sieben verbleibenden Lücken und der vollständige IUM10-Zeitreview verhindern weiterhin eine Vollabdeckungs- oder Jahresfreigabe.

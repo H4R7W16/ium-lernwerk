@@ -1609,10 +1609,10 @@
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Ausgangszustand: Die dokumentierte Lücke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schließung wird nicht vorweggenommen.",
       "timeImpact": {
         "level": "roadmap-dependent",
-        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft."
       },
       "graphImpact": {
         "level": "none",
@@ -1640,10 +1640,10 @@
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Ausgangszustand: Die dokumentierte Lücke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schließung wird nicht vorweggenommen.",
       "timeImpact": {
         "level": "roadmap-dependent",
-        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft."
       },
       "graphImpact": {
         "level": "none",

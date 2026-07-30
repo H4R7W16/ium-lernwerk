@@ -6,7 +6,9 @@ Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Ba
 
 Phase 0 erstellt die überprüfbare Grundlage für spätere Lernmodule. Sie enthält Quellenregister, kuratierte Claims, quellentreue Curriculumdaten, ein Fachprofil sowie eine Modulroadmap. Eine Lernendenanwendung gehört nicht zu dieser Phase.
 
-Der Phase-0-Abschlussreview vom 29. Juli 2026 weist den Bestand als **reviewfähig mit offenen Lücken** aus. Alle 171 curricularen Anforderungsrecords sind einem Kernkandidaten zugeordnet; 111 sind auf Kandidatenebene `covered`, 60 bleiben mit recordgenauer Begründung `partial`. Die Jahreskorridore von 31–44, 35–50 und 54–78 Einheiten sind für Klasse 5 `amber` und für die Klassen 6 und 7 `red`. Daraus folgt ausdrücklich weder eine Vollabdeckungs- noch eine Umsetzbarkeitsfreigabe.
+Der Phase-0-Abschlussreview vom 29. Juli 2026 wies als Ausgangsbilanz 111 `covered` und 60 `partial` aus. Der recordgenaue IUM09-Audit vom 30. Juli 2026 umfasst weiterhin alle 171 curricularen Anforderungsrecords: 164 sind auf Kandidatenebene `covered`, 7 bleiben `partial`. Von 60 Ausgangslücken wurden 53 geschlossen; 7 bleiben im Ledger offen.
+
+Die Jahreskorridore von 31–44, 35–50 und 54–78 Einheiten bleiben für Klasse 5 `amber` und für die Klassen 6 und 7 `red`. Die Roadmap ist damit weiterhin zeitlich nicht freigegeben. Aus der verbesserten semantischen Bilanz folgt ausdrücklich weder eine Vollabdeckungs- noch eine Umsetzbarkeitsfreigabe; alle 60 im Ledger dokumentierten Zeitfolgen gehen an IUM10.
 
 Zentrale Einstiege:
 
@@ -18,7 +20,7 @@ Zentrale Einstiege:
 - [verbindliche Gesamtspezifikation](docs/superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md)
 - [IUM09-Spezifikation zur curricularen Partial-Nacharbeit](docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md), [Implementierungsplan](docs/superpowers/plans/2026-07-29-ium09-curriculare-partial-nacharbeit-implementation.md) und [Nacharbeitsledger](roadmap/coverage-remediation.json)
 
-Die Ausgangsbilanz wird erst durch die dokumentierten modulweisen Audits verändert; der Ledger legt keine Endbilanz vorweg.
+Die Roadmap trennt die unveränderliche Ausgangsbilanz von der auditierten Endbilanz und veröffentlicht Ursachenklassen, verbleibende Lücken sowie die vollständige IUM10-Zeitübergabe.
 
 Vor jeder Phase-1-Spezifikation stehen vier getrennte Nutzerentscheidungen: Forschungsbasis, Fachprofil, curriculare Vollständigkeit und Modulroadmap. Die offenen `partial`- und Zeitlücken dürfen dabei angenommen, revidiert oder zur Nacharbeit zurückgegeben, aber nicht durch eine pauschale Freigabe unsichtbar gemacht werden.
 

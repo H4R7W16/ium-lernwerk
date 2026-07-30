@@ -1,6 +1,7 @@
 import copy
 import json
 import unittest
+from collections import Counter
 from pathlib import Path
 
 from scripts.validate_ium09 import (
@@ -40,6 +41,23 @@ CORE03_LOCAL_PROJECT = (
     "desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen "
     "Überarbeitung des bereits vorhandenen Kommunikationsleitfadens"
 )
+
+
+def markdown_section(markdown, heading):
+    lines = markdown.splitlines()
+    if heading not in lines:
+        raise AssertionError(f"Markdown section missing: {heading}")
+    start = lines.index(heading)
+    level = len(heading) - len(heading.lstrip("#"))
+    end = len(lines)
+    for index in range(start + 1, len(lines)):
+        candidate = lines[index]
+        if candidate.startswith("#"):
+            candidate_level = len(candidate) - len(candidate.lstrip("#"))
+            if candidate_level <= level:
+                end = index
+                break
+    return "\n".join(lines[start + 1:end]).strip()
 CORE03_SHARED_PRODUCT = (
     "desselben gemeinsam revidierten Kommunikationsleitfadens mit "
     "integrierten Fallkarten"
@@ -2787,6 +2805,35 @@ class RemediationLedgerTests(unittest.TestCase):
         self.assertEqual(actual, EXPECTED_CAUSE_CLASS_BY_ID)
         self.assertEqual(len(self.ledger_payload["entries"]), 60)
 
+    def test_audited_decisions_exhaustively_mirror_repository_ledger(self):
+        self.assertEqual(set(AUDITED_DECISIONS), BASELINE_PARTIAL_IDS)
+        actual = {
+            entry["competencyId"]: (
+                entry["before"]["evidenceModuleId"],
+                entry["causeClass"],
+                entry["decision"],
+            )
+            for entry in self.ledger_payload["entries"]
+        }
+        self.assertEqual(actual, AUDITED_DECISIONS)
+
+    def test_progression_handoffs_do_not_contain_known_encoding_corruption(self):
+        entries = {
+            entry["competencyId"]: entry
+            for entry in self.ledger_payload["entries"]
+        }
+        for competency_id in {
+            "LH26-E-PROG-003",
+            "LH26-E-PROG-004",
+        }:
+            with self.subTest(competency_id=competency_id):
+                entry = entries[competency_id]
+                self.assertNotIn("?", entry["changeRationale"])
+                self.assertIn("Lücke", entry["changeRationale"])
+                self.assertIn("Schließung", entry["changeRationale"])
+                self.assertNotIn("?", entry["timeImpact"]["rationale"])
+                self.assertIn("geprüft", entry["timeImpact"]["rationale"])
+
     def test_repository_ledger_fingerprint_matches_approved_before_records(self):
         self.assertEqual(
             coverage_baseline_fingerprint(self.ledger_payload["entries"]),
@@ -3227,6 +3274,221 @@ class RemediatedCoverageTests(unittest.TestCase):
                 self.remediation_payload,
                 self.curriculum_contracts,
             )
+
+
+class IUM09PublicationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.coverage_entries = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+        )["entries"]
+        cls.ledger_entries = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )["entries"]
+        cls.roadmap = (root / "roadmap/module-roadmap.md").read_text(
+            encoding="utf-8"
+        )
+        cls.readme = (root / "README.md").read_text(encoding="utf-8")
+
+    def test_roadmap_separates_machine_derived_baseline_and_final_balance(self):
+        coverage_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.coverage_entries
+        }
+        ledger_ids = {
+            entry["competencyId"]
+            for entry in self.ledger_entries
+        }
+        legacy_entries = [
+            entry
+            for entry in self.coverage_entries
+            if entry["competencyId"] not in ledger_ids
+        ]
+        baseline_counts = Counter(
+            entry["coverageStatus"]
+            for entry in legacy_entries
+        )
+        baseline_counts.update(
+            entry["before"]["coverageStatus"]
+            for entry in self.ledger_entries
+        )
+        baseline_by_weight = Counter(
+            (entry["normativeWeight"], entry["coverageStatus"])
+            for entry in legacy_entries
+        )
+        baseline_by_weight.update(
+            (
+                coverage_by_id[entry["competencyId"]]["normativeWeight"],
+                entry["before"]["coverageStatus"],
+            )
+            for entry in self.ledger_entries
+        )
+        final_counts = Counter(
+            entry["coverageStatus"]
+            for entry in self.coverage_entries
+        )
+        final_by_weight = Counter(
+            (entry["normativeWeight"], entry["coverageStatus"])
+            for entry in self.coverage_entries
+        )
+        coverage_section = markdown_section(
+            self.roadmap, "## Curriculare Abdeckung"
+        )
+        baseline_section = markdown_section(
+            coverage_section, "### Ausgangsbilanz vor IUM09"
+        )
+        final_section = markdown_section(
+            coverage_section, "### Auditierte Endbilanz nach IUM09"
+        )
+
+        self.assertIn(
+            (
+                f"| `enacted` | 76 | "
+                f"{baseline_by_weight[('enacted', 'covered')]} `covered`, "
+                f"{baseline_by_weight[('enacted', 'partial')]} `partial` |"
+            ),
+            baseline_section,
+        )
+        self.assertIn(
+            (
+                f"| `orientation` | 95 | "
+                f"{baseline_by_weight[('orientation', 'covered')]} `covered`, "
+                f"{baseline_by_weight[('orientation', 'partial')]} `partial` |"
+            ),
+            baseline_section,
+        )
+        self.assertIn(
+            (
+                f"| Gesamt | {len(self.coverage_entries)} | "
+                f"{baseline_counts['covered']} `covered`, "
+                f"{baseline_counts['partial']} `partial`, 0 `deferred` |"
+            ),
+            baseline_section,
+        )
+        self.assertIn(
+            (
+                f"| `enacted` | 76 | "
+                f"{final_by_weight[('enacted', 'covered')]} `covered`, "
+                f"{final_by_weight[('enacted', 'partial')]} `partial` |"
+            ),
+            final_section,
+        )
+        self.assertIn(
+            (
+                f"| `orientation` | 95 | "
+                f"{final_by_weight[('orientation', 'covered')]} `covered`, "
+                f"{final_by_weight[('orientation', 'partial')]} `partial` |"
+            ),
+            final_section,
+        )
+        self.assertIn(
+            (
+                f"| Gesamt | {len(self.coverage_entries)} | "
+                f"{final_counts['covered']} `covered`, "
+                f"{final_counts['partial']} `partial`, 0 `deferred` |"
+            ),
+            final_section,
+        )
+
+    def test_roadmap_publishes_machine_derived_cause_class_balance(self):
+        cause_section = markdown_section(
+            markdown_section(self.roadmap, "## Curriculare Abdeckung"),
+            "### Ergebnis nach Ursachenklasse",
+        )
+        for cause_class in sorted(
+            {entry["causeClass"] for entry in self.ledger_entries}
+        ):
+            entries = [
+                entry
+                for entry in self.ledger_entries
+                if entry["causeClass"] == cause_class
+            ]
+            with self.subTest(cause_class=cause_class):
+                self.assertIn(
+                    (
+                        f"| `{cause_class}` | {len(entries)} | "
+                        f"{sum(entry['decision'] == 'covered' for entry in entries)} | "
+                        f"{sum(entry['decision'] == 'remain-partial' for entry in entries)} |"
+                    ),
+                    cause_section,
+                )
+
+    def test_roadmap_publishes_every_time_handoff_grouped_by_module(self):
+        handoff_section = markdown_section(
+            markdown_section(self.roadmap, "## Curriculare Abdeckung"),
+            "### IUM10-Zeitübergabe",
+        )
+        actual_rows = []
+        for line in handoff_section.splitlines():
+            if not line.startswith("| `IUM-"):
+                continue
+            cells = [cell.strip() for cell in line.strip("|").split("|")]
+            self.assertEqual(len(cells), 4)
+            actual_rows.append(
+                (
+                    cells[0].strip("`"),
+                    cells[1].strip("`"),
+                    cells[2].strip("`"),
+                    cells[3],
+                )
+            )
+        expected_rows = sorted(
+            (
+                entry["before"]["evidenceModuleId"],
+                entry["competencyId"],
+                entry["timeImpact"]["level"],
+                entry["timeImpact"]["rationale"],
+            )
+            for entry in self.ledger_entries
+            if entry["timeImpact"]["level"]
+            in {"review-required", "roadmap-dependent"}
+        )
+        self.assertEqual(actual_rows, expected_rows)
+        self.assertEqual(len(actual_rows), 60)
+        self.assertEqual(len({row[0] for row in actual_rows}), 15)
+        progression_ids = {
+            "LH26-E-PROG-001",
+            "LH26-E-PROG-002",
+            "LH26-E-PROG-003",
+            "LH26-E-PROG-004",
+        }
+        self.assertEqual(
+            {
+                record_id
+                for _, record_id, level, _ in actual_rows
+                if level == "roadmap-dependent"
+            },
+            progression_ids,
+        )
+
+    def test_readme_publishes_final_balance_ledger_and_time_boundary(self):
+        final_counts = Counter(
+            entry["coverageStatus"]
+            for entry in self.coverage_entries
+        )
+        decision_counts = Counter(
+            entry["decision"]
+            for entry in self.ledger_entries
+        )
+        self.assertIn(
+            (
+                f"{final_counts['covered']} sind auf Kandidatenebene `covered`, "
+                f"{final_counts['partial']} bleiben `partial`"
+            ),
+            self.readme,
+        )
+        self.assertIn(
+            (
+                f"Von {len(self.ledger_entries)} Ausgangslücken wurden "
+                f"{decision_counts['covered']} geschlossen; "
+                f"{decision_counts['remain-partial']} bleiben im Ledger offen."
+            ),
+            self.readme,
+        )
+        self.assertIn("weiterhin zeitlich nicht freigegeben", self.readme)
 
 
 if __name__ == "__main__":

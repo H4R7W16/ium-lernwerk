@@ -21,6 +21,23 @@ from scripts.validate_phase0 import (
 )
 
 
+def markdown_section(markdown, heading):
+    lines = markdown.splitlines()
+    if heading not in lines:
+        raise AssertionError(f"Markdown section missing: {heading}")
+    start = lines.index(heading)
+    level = len(heading) - len(heading.lstrip("#"))
+    end = len(lines)
+    for index in range(start + 1, len(lines)):
+        candidate = lines[index]
+        if candidate.startswith("#"):
+            candidate_level = len(candidate) - len(candidate.lstrip("#"))
+            if candidate_level <= level:
+                end = index
+                break
+    return "\n".join(lines[start + 1:end]).strip()
+
+
 def valid_source(**overrides):
     source = {
         "id": "SRC-001",
@@ -2063,6 +2080,90 @@ class CoverageRepositoryTests(unittest.TestCase):
         for module_id in module_contracts:
             with self.subTest(module_id=module_id):
                 self.assertIn(module_id, roadmap)
+        coverage_section = markdown_section(
+            roadmap, "## Curriculare Abdeckung"
+        )
+        baseline_section = markdown_section(
+            coverage_section, "### Ausgangsbilanz vor IUM09"
+        )
+        final_section = markdown_section(
+            coverage_section, "### Auditierte Endbilanz nach IUM09"
+        )
+        baseline_status_counts = Counter(
+            entry["coverageStatus"]
+            for entry in legacy_covered_entries
+        )
+        baseline_status_counts.update(
+            entry["before"]["coverageStatus"]
+            for entry in remediation_entries.values()
+        )
+        self.assertIn(
+            (
+                f"| Gesamt | {len(coverage_payload['entries'])} | "
+                f"{baseline_status_counts['covered']} `covered`, "
+                f"{baseline_status_counts['partial']} `partial`, "
+                "0 `deferred` |"
+            ),
+            baseline_section,
+        )
+        self.assertIn(
+            (
+                f"| Gesamt | {len(coverage_payload['entries'])} | "
+                f"{actual_status_counts['covered']} `covered`, "
+                f"{actual_status_counts['partial']} `partial`, "
+                "0 `deferred` |"
+            ),
+            final_section,
+        )
+        cause_section = markdown_section(
+            coverage_section, "### Ergebnis nach Ursachenklasse"
+        )
+        for cause_class in sorted(
+            {entry["causeClass"] for entry in remediation_entries.values()}
+        ):
+            cause_entries = [
+                entry
+                for entry in remediation_entries.values()
+                if entry["causeClass"] == cause_class
+            ]
+            with self.subTest(cause_class=cause_class):
+                self.assertIn(
+                    (
+                        f"| `{cause_class}` | {len(cause_entries)} | "
+                        f"{sum(entry['decision'] == 'covered' for entry in cause_entries)} | "
+                        f"{sum(entry['decision'] == 'remain-partial' for entry in cause_entries)} |"
+                    ),
+                    cause_section,
+                )
+        handoff_section = markdown_section(
+            coverage_section, "### IUM10-Zeitübergabe"
+        )
+        published_handoffs = []
+        for line in handoff_section.splitlines():
+            if not line.startswith("| `IUM-"):
+                continue
+            cells = [cell.strip() for cell in line.strip("|").split("|")]
+            self.assertEqual(len(cells), 4)
+            published_handoffs.append(
+                (
+                    cells[0].strip("`"),
+                    cells[1].strip("`"),
+                    cells[2].strip("`"),
+                    cells[3],
+                )
+            )
+        expected_handoffs = sorted(
+            (
+                entry["before"]["evidenceModuleId"],
+                entry["competencyId"],
+                entry["timeImpact"]["level"],
+                entry["timeImpact"]["rationale"],
+            )
+            for entry in remediation_entries.values()
+            if entry["timeImpact"]["level"]
+            in {"review-required", "roadmap-dependent"}
+        )
+        self.assertEqual(published_handoffs, expected_handoffs)
         for required_text in (
             "30 Unterrichtseinheiten Kern",
             "6 Unterrichtseinheiten Puffer",
@@ -2070,8 +2171,6 @@ class CoverageRepositoryTests(unittest.TestCase):
             "35-50",
             "54-78",
             "zeitlich nicht freigegeben",
-            f"{actual_status_counts['covered']} `covered`",
-            f"{actual_status_counts['partial']} `partial`",
             "Operator und Gegenstand",
             "IUM-5-CORE-05",
             "keine Phase-2-Implementierungsplanung",
