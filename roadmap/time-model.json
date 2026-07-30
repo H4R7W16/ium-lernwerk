@@ -623,6 +623,555 @@
       "risk": "Die private Reflexion darf weder als beobachtbare Produktspur noch als personenbezogene Diagnose verwendet werden.",
       "pilotRequired": true,
       "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-01",
+      "moduleId": "IUM-6-CORE-01",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 6, "max": 8},
+      "competencyIds": ["LH26-E-ID-004", "LH26-E-ID-005", "LH26-E-ID-006", "LH26-E-ID-007", "LH26-E-ID-008", "LH26-E-ID-011", "LH26-E-ID-012"],
+      "centralLearningAction": "Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren.",
+      "centralLearningProduct": "Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-02"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Prüfproblem, Vertrauensfrage und erwartete Evidenzspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Suche, Quellen und automatisierten Ergebnissen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Indexprinzip, Akteursinteressen, automatisierte Verbreitung und Unsicherheit aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Widersprüchliche Quellen und eine KI-Behauptung angeleitet prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 60, "learningFunction": "Das Evidenzdossier eigenständig mit Suchmodell, Belegkette und Unsicherheitsurteil erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Belege und Gegenbelege prüfen, die KI-Antwort revidieren und die Prüfstrategie übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Vertrauensurteile, Modellgrenzen und spätere Abrufanker gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Prüfproblem, Vertrauensfrage und erwartete Evidenzspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Suche, Quellen und automatisierten Ergebnissen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Indexprinzip, Akteursinteressen, automatisierte Verbreitung und Unsicherheit aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Weitere widersprüchliche Quellen und KI-Behauptungen angeleitet prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das Evidenzdossier mit zusätzlicher Beleg- und Gegenbelegspur eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 55, "learningFunction": "Belege, Gegenbelege und Unsicherheit vertieft prüfen, revidieren und übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 30, "learningFunction": "Vertrauensurteile, Modellgrenzen und spätere Abrufanker erweitert sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["controlled-browser-and-ai-output-environment"],
+      "risk": "Such- und KI-Ausgaben können sich verändern; der Pilot muss prüfen, ob die kuratierten Belegpfade in der vorgesehenen Zeit reproduzierbar bleiben.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-02",
+      "moduleId": "IUM-6-CORE-02",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": ["LH26-E-DP-004", "LH26-E-DP-006", "LH26-E-DP-007", "LH26-E-DP-008", "LH26-E-DP-009"],
+      "centralLearningAction": "Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen, Handlungsoptionen zur informationellen Selbstbestimmung begründen und eine private Selbstreflexion zur eigenen Mediennutzung durchführen.",
+      "centralLearningProduct": "Teilbares Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-07", "IUM-6-CORE-01"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Datenflussfrage, Schutzentscheidung und private Reflexionsgrenze klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Akteurs-, Interessen- und Evidenzmodelle aus der vorausgehenden Suche aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Datenarten, Erhebungstechniken, Auswahlhypothesen und informationelle Selbstbestimmung aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Datenflüsse und Auswahlwege an synthetischen Fällen angeleitet modellieren."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das teilbare Datenfluss- und Auswahlmodell mit begründeter Schutzentscheidung eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Auswahlhypothesen testen, Modellgrenzen prüfen und die Schutzentscheidung revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Datenfluss, Akteursinteressen, Schutzoptionen und private Grenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Datenflussfrage, Schutzentscheidung und private Reflexionsgrenze klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Akteurs-, Interessen- und Evidenzmodelle aus der vorausgehenden Suche aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Datenarten, Erhebungstechniken, Auswahlhypothesen und informationelle Selbstbestimmung aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Zusätzliche Datenflüsse, Bedingungen und Auswahlwege angeleitet modellieren."},
+            {"phaseId": "independent-action-product", "minutes": 60, "learningFunction": "Das Modell um weitere Auswahlwege und eine vertiefte Schutzentscheidung erweitern."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Weitere Auswahlhypothesen testen, Modellgrenzen prüfen und die Schutzentscheidung revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Datenfluss, Akteursinteressen, Schutzoptionen und private Grenzen erweitert sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["synthetic-case-data-and-private-local-reflection"],
+      "risk": "Die private Reflexion darf weder erhoben noch bewertet werden; zugleich müssen die synthetischen Fall- und Bedingungsdaten ausreichend vielfältig sein.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-03",
+      "moduleId": "IUM-6-CORE-03",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 4, "max": 6},
+      "competencyIds": ["LH26-E-ID-013", "LH26-E-ID-014", "LH26-E-ID-015"],
+      "centralLearningAction": "Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern.",
+      "centralLearningProduct": "Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-05"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Umkehrbarkeitsproblem und erwartete Codebuchspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Vorschriften, Zeichenfolgen und eindeutigen Schritten aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Zweck, Codierungsvorschrift, Eindeutigkeit und Umkehrbarkeit aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Texte angeleitet codieren, decodieren und mit Gegenbeispielen prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das kommentierte Codebuch mit Beispielen und Decodiertest eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Mehrdeutigkeiten sichtbar machen, die Vereinbarung revidieren und erneut testen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Merkmale umkehrbarer Codierungen und Prüfschritte gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Umkehrbarkeitsproblem und erwartete Codebuchspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Vorschriften, Zeichenfolgen und eindeutigen Schritten aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Zweck, Codierungsvorschrift, Eindeutigkeit und Umkehrbarkeit aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Texte angeleitet codieren, decodieren und mit Gegenbeispielen prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das kommentierte Codebuch mit Beispielen und Decodiertest eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Mehrdeutigkeiten sichtbar machen, die Vereinbarung revidieren und erneut testen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Merkmale umkehrbarer Codierungen und Prüfschritte gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-coding-and-decoding-tool"],
+      "risk": "Zu starke Werkzeugunterstützung kann die eigenständige Prüfung von Vorschrift, Gegenbeispiel und Umkehrbarkeit verdecken.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-04",
+      "moduleId": "IUM-6-CORE-04",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": ["LH26-E-ALG-005", "LH26-E-ALG-006"],
+      "centralLearningAction": "Code vorhersagen, schrittweise mit Zustand ausführen, Wirkung erklären, eine feste Schleife begründet verändern und die Änderung mit Fällen prüfen.",
+      "centralLearningProduct": "Lauffähiges kleines Programm mit Trace, Wirkungserklärung, begründeter Modifikation und dokumentierten Testfällen.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-05"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Vorhersageproblem, Programmwirkung und erwartete Testspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Das Algorithmusprodukt aus Klasse 5 und schrittweise Ausführung aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Programmzustand, Trace, feste Schleife und Wirkungsbezug aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Code angeleitet vorhersagen, tracen und mit Fällen prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das lauffähige Programm mit Trace und begründeter Modifikation eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Testfälle auswerten, Fehler revidieren und die Wirkung erneut erklären."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Zusammenhang von Code, Zustand, Schleife und Wirkung gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Vorhersageproblem, Programmwirkung und erwartete Testspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Das Algorithmusprodukt aus Klasse 5 und schrittweise Ausführung aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Programmzustand, Trace, feste Schleife und Wirkungsbezug aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Weitere Codevarianten angeleitet vorhersagen, tracen und mit Fällen prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 60, "learningFunction": "Das Programm um zusätzliche Modifikation und Testfälle eigenständig erweitern."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Zusätzliche Testfälle auswerten, Fehler revidieren und Wirkungen vergleichen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Code-, Zustands- und Wirkungszusammenhänge erweitert sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "targeted-extension",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Vorhersageproblem, Programmwirkung und erwartete Testspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Das Algorithmusprodukt aus Klasse 5 und schrittweise Ausführung aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Programmzustand, Trace, feste Schleife und Wirkungsbezug aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Variierte Schleifen- und Zustandsfälle mit zusätzlicher Erklärung angeleitet bearbeiten."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das Programm mit weiterer begründeter Modifikation und robuster Testspur erweitern."},
+            {"phaseId": "review-revise-transfer", "minutes": 55, "learningFunction": "Fehler systematisch revidieren, Varianten vergleichen und auf neue Fälle übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 30, "learningFunction": "Schleifen-, Test- und Debuggingstrategien für späteren Abruf sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-programming-and-tracing-environment"],
+      "risk": "Die gezielte Vertiefung ist nur tragfähig, wenn Trace, Modifikation und Tests eigenständig ausgeführt und nicht durch Demonstration ersetzt werden.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-05",
+      "moduleId": "IUM-6-CORE-05",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 4, "max": 6},
+      "competencyIds": ["LH26-E-KS-008", "LH26-E-KS-009", "LH26-E-KS-010"],
+      "centralLearningAction": "Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren.",
+      "centralLearningProduct": "Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-04"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Systementscheidung, Modellzweck und erwartete Vergleichsspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Den schulischen Datenweg aus Klasse 5 als Ausgangsmodell aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Netz-, Client–Server- und Speichermodelle mit Kriterien und Grenzen aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Modelle an einem schulischen Fall angeleitet vergleichen und erklären."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das vergleichende Systemmodell mit Kriterienentscheidung eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Einen neuen Fall und Störfall prüfen, Modellgrenzen markieren und die Entscheidung revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Datenweg, Speicherorte, Kriterien und Modellgrenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Systementscheidung, Modellzweck und erwartete Vergleichsspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Den schulischen Datenweg aus Klasse 5 als Ausgangsmodell aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Netz-, Client–Server- und Speichermodelle mit Kriterien und Grenzen aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Modelle an einem schulischen Fall angeleitet vergleichen und erklären."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das vergleichende Systemmodell mit Kriterienentscheidung eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Einen neuen Fall und Störfall prüfen, Modellgrenzen markieren und die Entscheidung revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Datenweg, Speicherorte, Kriterien und Modellgrenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-network-and-storage-simulation"],
+      "risk": "Ein zu glatt laufendes Simulationsszenario kann Modellgrenzen und reale Zugriffs- oder Ausfallbedingungen verdecken.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-06",
+      "moduleId": "IUM-6-CORE-06",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": ["LH26-E-KS-011", "LH26-E-KS-012", "LH26-E-KS-013", "LH26-E-KS-014", "LH26-E-KS-015"],
+      "centralLearningAction": "Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen.",
+      "centralLearningProduct": "Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-03", "IUM-5-CORE-07"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Nichtpersonalen Konfliktfall, Handlungsauftrag und private Grenze klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Kommunikation, Wirkung und persönlicher Schutzgrenze aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Nutzungsargumente, Selbstdarstellung, Konfliktmerkmale, Hilfswege und Eskalation aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Fiktive Profile und Konfliktverläufe angeleitet einschätzen."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Matrix, Wirkungseinschätzung und nichtpersonalen Fall-Handlungsplan eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Handlungsoptionen rechtlich und kommunikativ prüfen und die Eskalationsentscheidung revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Fallmerkmale, Hilfswege, Meldegrenzen und private Reflexionsgrenze gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Nichtpersonalen Konfliktfall, Handlungsauftrag und private Grenze klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Kommunikation, Wirkung und persönlicher Schutzgrenze aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Nutzungsargumente, Selbstdarstellung, Konfliktmerkmale, Hilfswege und Eskalation aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Fiktive Profile und Konfliktverläufe angeleitet einschätzen."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Matrix, Wirkungseinschätzung und nichtpersonalen Fall-Handlungsplan eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Handlungsoptionen rechtlich und kommunikativ prüfen und die Eskalationsentscheidung revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Fallmerkmale, Hilfswege, Meldegrenzen und private Reflexionsgrenze gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["protected-fictional-case-environment-and-private-local-reflection"],
+      "risk": "Fälle dürfen keine reale Betroffenheit offenlegen oder diagnostizieren; Hilfs- und Meldewege müssen lokal geprüft und nicht als tatsächliche Meldung simuliert werden.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-CORE-07",
+      "moduleId": "IUM-6-CORE-07",
+      "grade": 6,
+      "kind": "core",
+      "historicalLessonRange": {"min": 6, "max": 9},
+      "competencyIds": ["LH26-E-DA-009", "LH26-E-DA-010", "LH26-E-DA-011", "LH26-E-DA-012", "LH26-E-DA-013", "LH26-E-DA-014", "LH26-E-DA-015"],
+      "centralLearningAction": "Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren.",
+      "centralLearningProduct": "Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-06", "IUM-6-CORE-01"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Wirkungsauftrag, Zielgruppe, Produktspur und Rechteprüfung klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Recherche-, Gestaltungs- und Wirkungswissen aus früheren Modulen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Wirkungsbriefing, Gestaltungsbegründung, offene Lizenzen und Revisionskriterien aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Asset-, Lizenz- und Gestaltungsentscheidungen angeleitet prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 60, "learningFunction": "Das offen nachnutzbare Medienprodukt mit Assetnachweisen eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Feedback prüfen, die Version sichtbar revidieren und die Wirkung erneut einschätzen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Wirkungs-, Rechte-, Feedback- und Revisionsnachweise gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Wirkungsauftrag, Zielgruppe, Produktspur und Rechteprüfung klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Recherche-, Gestaltungs- und Wirkungswissen aus früheren Modulen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Wirkungsbriefing, Gestaltungsbegründung, offene Lizenzen und Revisionskriterien aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Weitere Asset-, Lizenz- und Gestaltungsvarianten angeleitet prüfen."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das Medienprodukt mit zusätzlichen Asset- und Wirkungsnachweisen eigenständig ausarbeiten."},
+            {"phaseId": "review-revise-transfer", "minutes": 55, "learningFunction": "Zusätzliches Feedback prüfen, die Version vertieft revidieren und transferieren."},
+            {"phaseId": "shared-consolidation", "minutes": 30, "learningFunction": "Wirkungs-, Rechte-, Feedback- und Revisionsnachweise erweitert sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-production-rights-and-publication-route"],
+      "risk": "Produktionswerkzeug, offene Assets, Lizenzprüfung und lokaler Veröffentlichungsweg können zusätzliche Unterstützungszeit erfordern.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-EXT-01",
+      "moduleId": "IUM-6-EXT-01",
+      "grade": 6,
+      "kind": "extension",
+      "historicalLessonRange": {"min": 3, "max": 4},
+      "competencyIds": ["LH26-E-ID-011", "LH26-E-ID-012"],
+      "centralLearningAction": "Mehrere KI-Behauptungen in prüfbare Teile zerlegen, unabhängige Belege und Gegenbelege suchen, Unsicherheit kalibrieren und die Prüfstrategie vergleichen.",
+      "centralLearningProduct": "Vergleichsmatrix dreier Behauptungsprüfungen mit Belegkette, Gegenbeleg, Unsicherheit und Strategie-Revision.",
+      "prerequisiteModuleIds": ["IUM-6-CORE-01"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "standalone",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Vertiefte Behauptungsprüfung und erwartete Vergleichsspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Evidenzdossier und Prüfstrategie aus dem Kernmodul aktivieren."},
+            {"phaseId": "guided-practice", "minutes": 35, "learningFunction": "Behauptungen, Belege, Gegenbelege und Unsicherheit angeleitet kalibrieren."},
+            {"phaseId": "independent-action-product", "minutes": 50, "learningFunction": "Die Vergleichsmatrix dreier Behauptungsprüfungen eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Belegketten und Unsicherheitsurteile prüfen und die Strategie sichtbar revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 30, "learningFunction": "Prüfstrategien, Grenzen und Abrufanker gemeinsam vergleichen und sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": {"min": 3, "recommended": 4, "max": 4},
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["controlled-browser-and-ai-output-environment"],
+      "risk": "Drei belastbare Behauptungsprüfungen benötigen stabile kuratierte Such- und KI-Ausgaben; wechselnde Ergebnisse dürfen die Vergleichbarkeit nicht aufheben.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-EXT-02",
+      "moduleId": "IUM-6-EXT-02",
+      "grade": 6,
+      "kind": "extension",
+      "historicalLessonRange": {"min": 2, "max": 3},
+      "competencyIds": ["LH26-E-KS-008", "LH26-E-KS-009"],
+      "centralLearningAction": "Weiterleitungsregeln in zusätzlichen Störfällen variieren, Paketwege protokollieren und die eigene Modellgrenze präzisieren.",
+      "centralLearningProduct": "Erweiterter Paketwegvergleich mit Störfall, Alternativroute und revidierter Modellgrenze.",
+      "prerequisiteModuleIds": ["IUM-6-CORE-05"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "standalone",
+          "units": 3,
+          "minutes": 135,
+          "directMinutes": 135,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Störfall, Alternativroute und erwartete Vergleichsspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 10, "learningFunction": "Netz-, Datenweg- und Modellwissen aus dem Kernmodul aktivieren."},
+            {"phaseId": "guided-practice", "minutes": 25, "learningFunction": "Weiterleitungsregeln und Paketwege in Störfällen angeleitet variieren."},
+            {"phaseId": "independent-action-product", "minutes": 40, "learningFunction": "Den erweiterten Paketwegvergleich mit Alternativroute eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Routen prüfen, Modellgrenzen präzisieren und auf einen weiteren Störfall übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Weiterleitungsregeln, Störfallfolgen und Modellgrenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": {"min": 2, "recommended": 3, "max": 3},
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-network-routing-simulation"],
+      "risk": "Die Vertiefung setzt ein tragfähiges Netzmodell voraus; reine Bedienzeit der Simulation darf nicht als fachliche Übungszeit zählen.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-TRANSFER-01",
+      "moduleId": "IUM-6-TRANSFER-01",
+      "grade": 6,
+      "kind": "transfer",
+      "historicalLessonRange": {"min": 2, "max": 4},
+      "competencyIds": ["LH26-E-KS-010", "LH26-E-DA-002"],
+      "centralLearningAction": "Anforderungen eines unbekannten Projekts gewichten, Speicheroptionen vergleichen, Datenweg und Zugriff modellieren und die Entscheidung nach einem Störfall revidieren.",
+      "centralLearningProduct": "Begründete Speicherentscheidung mit Kriteriengewichtung, Datenweg, Störfallprüfung und Revision.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-01", "IUM-6-CORE-05"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "standalone",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Unbekanntes Projekt, Entscheidungskriterien und erwartete Nachweisspur klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Arbeitsfähigkeits-, Datenweg- und Speichermodelle aus den Voraussetzungen aktivieren."},
+            {"phaseId": "independent-action-product", "minutes": 70, "learningFunction": "Speicheroptionen gewichten und die begründete Speicherentscheidung eigenständig erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 50, "learningFunction": "Datenweg und Zugriff im Störfall prüfen und die Entscheidung sichtbar revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Kriteriengewichtung, Modellgrenzen und Transferstrategie gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": {"min": 2, "recommended": 4, "max": 4},
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-project-and-storage-scenario"],
+      "risk": "Der Transfer ist nur belastbar, wenn der unbekannte Fall eine eigenständige Kriteriengewichtung und Störfallrevision verlangt.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-6-PROJECT-01",
+      "moduleId": "IUM-6-PROJECT-01",
+      "grade": 6,
+      "kind": "project",
+      "historicalLessonRange": {"min": 8, "max": 12},
+      "competencyIds": ["LH26-E-ID-002", "LH26-E-ID-003", "LH26-E-ID-010", "LH26-E-ID-011", "LH26-E-DA-009", "LH26-E-DA-010", "LH26-E-DA-011", "LH26-E-DA-013", "LH26-E-DA-014", "LH26-E-DA-015"],
+      "centralLearningAction": "Eine reale, nicht sensible Schulfrage recherchieren, Zielgruppe und Wirkung planen, offene Assets prüfen, ein Produkt arbeitsteilig erstellen, testen und veröffentlichungsreif revidieren.",
+      "centralLearningProduct": "Offen lizenziertes Kampagnenpaket mit Evidenzdossier, Gestaltungsbriefing, Assetnachweisen, Feedback, Revision und Exportentscheidung.",
+      "prerequisiteModuleIds": ["IUM-6-CORE-01", "IUM-6-CORE-07"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "standalone",
+          "units": 10,
+          "minutes": 450,
+          "directMinutes": 450,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 20, "learningFunction": "Nicht sensible Schulfrage, Zielgruppe, Rollen, Produkt und Veröffentlichungskriterien klären."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Recherche-, Evidenz-, Wirkungs-, Rechte- und Revisionswissen aus den Kernmodulen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 60, "learningFunction": "Projektplanung, Arbeitsteilung, Assetprüfung, Gestaltungsbriefing und Exportentscheidung aufbauen."},
+            {"phaseId": "independent-action-product", "minutes": 180, "learningFunction": "Das offen lizenzierte Kampagnenpaket arbeitsteilig und mit prüfbaren Assetnachweisen erstellen."},
+            {"phaseId": "review-revise-transfer", "minutes": 120, "learningFunction": "Zwischenstände testen, Feedback prüfen, das Paket veröffentlichungsreif revidieren und exportieren."},
+            {"phaseId": "shared-consolidation", "minutes": 50, "learningFunction": "Evidenz, Wirkung, Rechte, Zusammenarbeit, Revision und Projektgrenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": {"min": 8, "recommended": 10, "max": 12},
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["local-project-question-production-and-publication-route"],
+      "risk": "Die 8–12 UE Projektzeit ist ausdrücklich zusätzliche Projekt- oder Schwerpunktzeit außerhalb der normalen 30/34/38-Jahrespfade; sie darf nicht verdeckt in Kern- oder Pufferzeit eingerechnet werden.",
+      "pilotRequired": true,
+      "status": "working"
     }
   ],
   "integrationContracts": [

@@ -31,6 +31,39 @@ EXPECTED_GRADE_5_UNITS = {
     "IUM-5-CORE-07": {"baseline": 4, "regular": 5, "extended": 6},
 }
 
+EXPECTED_GRADE_6_CORE_UNITS = {
+    "IUM-6-CORE-01": {"baseline": 5, "regular": 6},
+    "IUM-6-CORE-02": {"baseline": 4, "regular": 5},
+    "IUM-6-CORE-03": {"baseline": 4, "regular": 4},
+    "IUM-6-CORE-04": {
+        "baseline": 4,
+        "regular": 5,
+        "targeted-extension": 6,
+    },
+    "IUM-6-CORE-05": {"baseline": 4, "regular": 4},
+    "IUM-6-CORE-06": {"baseline": 4, "regular": 4},
+    "IUM-6-CORE-07": {"baseline": 5, "regular": 6},
+}
+
+EXPECTED_GRADE_6_FLEX_CONTRACTS = {
+    "IUM-6-EXT-01": {
+        "standaloneUnitRange": {"min": 3, "recommended": 4, "max": 4},
+        "prerequisiteModuleIds": ["IUM-6-CORE-01"],
+    },
+    "IUM-6-EXT-02": {
+        "standaloneUnitRange": {"min": 2, "recommended": 3, "max": 3},
+        "prerequisiteModuleIds": ["IUM-6-CORE-05"],
+    },
+    "IUM-6-TRANSFER-01": {
+        "standaloneUnitRange": {"min": 2, "recommended": 4, "max": 4},
+        "prerequisiteModuleIds": ["IUM-5-CORE-01", "IUM-6-CORE-05"],
+    },
+    "IUM-6-PROJECT-01": {
+        "standaloneUnitRange": {"min": 8, "recommended": 10, "max": 12},
+        "prerequisiteModuleIds": ["IUM-6-CORE-01", "IUM-6-CORE-07"],
+    },
+}
+
 
 class IUM10BaselineTests(unittest.TestCase):
     @classmethod
@@ -1158,10 +1191,15 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
                 module for module in module_payload["modules"] if module["grade"] == 5
             ]
         }
+        cls.grade_5_contracts = [
+            contract
+            for contract in cls.time_model["moduleContracts"]
+            if contract["grade"] == 5
+        ]
 
     def test_repository_has_seven_complete_grade_5_time_contracts(self):
         contracts = validate_module_contracts(
-            self.time_model["moduleContracts"],
+            self.grade_5_contracts,
             self.grade_5_payload,
         )
 
@@ -1194,7 +1232,7 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
 
     def test_repository_integration_counts_shared_evidence_only_in_core_06(self):
         contracts = validate_module_contracts(
-            self.time_model["moduleContracts"],
+            self.grade_5_contracts,
             self.grade_5_payload,
         )
         integrations = validate_integration_contracts(
@@ -1234,7 +1272,7 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
 
     def test_repository_has_available_core_only_30_34_38_variants(self):
         contracts = validate_module_contracts(
-            self.time_model["moduleContracts"],
+            self.grade_5_contracts,
             self.grade_5_payload,
         )
         integrations = validate_integration_contracts(
@@ -1300,4 +1338,175 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
         self.assertEqual(
             judgement["annualVariantIds"],
             ["GRADE-5-BASELINE", "GRADE-5-REGULAR", "GRADE-5-EXTENDED"],
+        )
+
+
+class IUM10Grade6RepositoryTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.grade_6_payload = {
+            "modules": [
+                module for module in module_payload["modules"] if module["grade"] == 6
+            ]
+        }
+        cls.grade_6_modules = {
+            module["id"]: module for module in cls.grade_6_payload["modules"]
+        }
+        cls.grade_6_contracts = [
+            contract
+            for contract in cls.time_model["moduleContracts"]
+            if contract["grade"] == 6
+        ]
+
+    def validated_contracts(self):
+        return validate_module_contracts(
+            self.grade_6_contracts,
+            self.grade_6_payload,
+        )
+
+    def test_repository_has_exactly_eleven_complete_grade_6_time_contracts(self):
+        expected_module_ids = set(EXPECTED_GRADE_6_CORE_UNITS) | set(
+            EXPECTED_GRADE_6_FLEX_CONTRACTS
+        )
+        self.assertEqual(
+            {contract["moduleId"] for contract in self.grade_6_contracts},
+            expected_module_ids,
+        )
+        contracts = self.validated_contracts()
+        self.assertEqual(set(contracts), expected_module_ids)
+        self.assertEqual(len(contracts), 11)
+
+    def test_repository_grade_6_core_paths_match_the_approved_matrix(self):
+        contracts = self.validated_contracts()
+
+        for module_id, expected_paths in EXPECTED_GRADE_6_CORE_UNITS.items():
+            with self.subTest(module_id=module_id):
+                budgets = {
+                    budget["pathId"]: budget
+                    for budget in contracts[module_id]["pathBudgets"]
+                }
+                self.assertEqual(
+                    {
+                        path_id: budget["units"]
+                        for path_id, budget in budgets.items()
+                    },
+                    expected_paths,
+                )
+
+    def test_repository_grade_6_flex_ranges_and_prerequisites_match_the_graph(self):
+        contracts = self.validated_contracts()
+
+        for module_id, expected in EXPECTED_GRADE_6_FLEX_CONTRACTS.items():
+            with self.subTest(module_id=module_id):
+                contract = contracts[module_id]
+                self.assertEqual(
+                    contract["standaloneUnitRange"],
+                    expected["standaloneUnitRange"],
+                )
+                self.assertEqual(
+                    contract["prerequisiteModuleIds"],
+                    expected["prerequisiteModuleIds"],
+                )
+                self.assertEqual(
+                    contract["prerequisiteModuleIds"],
+                    self.grade_6_modules[module_id]["prerequisiteModuleIds"],
+                )
+                self.assertEqual(
+                    contract["pathBudgets"][0]["units"],
+                    expected["standaloneUnitRange"]["recommended"],
+                )
+
+    def test_repository_grade_6_phase_budgets_are_positive_and_grammar_complete(self):
+        contracts = self.validated_contracts()
+
+        for module_id, contract in contracts.items():
+            expected_phase_ids = set(
+                self.grade_6_modules[module_id]["moduleGrammar"]
+            )
+            for budget in contract["pathBudgets"]:
+                with self.subTest(module_id=module_id, path_id=budget["pathId"]):
+                    phase_budgets = budget["phaseBudgets"]
+                    self.assertEqual(
+                        {phase["phaseId"] for phase in phase_budgets},
+                        expected_phase_ids,
+                    )
+                    self.assertTrue(
+                        all(
+                            phase["minutes"] > 0
+                            and phase["learningFunction"].strip()
+                            for phase in phase_budgets
+                        )
+                    )
+                    self.assertEqual(
+                        sum(phase["minutes"] for phase in phase_budgets),
+                        budget["units"] * 45,
+                    )
+
+    def test_repository_extra_grade_6_core_time_only_expands_allowed_functions(self):
+        contracts = self.validated_contracts()
+        allowed_growth_phases = {
+            "activate-prior-knowledge",
+            "build-concept",
+            "guided-practice",
+            "independent-action-product",
+            "review-revise-transfer",
+            "shared-consolidation",
+        }
+
+        for module_id in EXPECTED_GRADE_6_CORE_UNITS:
+            budgets = {
+                budget["pathId"]: budget
+                for budget in contracts[module_id]["pathBudgets"]
+            }
+            ordered_path_ids = [
+                path_id
+                for path_id in ("baseline", "regular", "targeted-extension")
+                if path_id in budgets
+            ]
+            for earlier_path_id, later_path_id in zip(
+                ordered_path_ids,
+                ordered_path_ids[1:],
+            ):
+                earlier = {
+                    phase["phaseId"]: phase["minutes"]
+                    for phase in budgets[earlier_path_id]["phaseBudgets"]
+                }
+                later = {
+                    phase["phaseId"]: phase["minutes"]
+                    for phase in budgets[later_path_id]["phaseBudgets"]
+                }
+                growth_phases = {
+                    phase_id
+                    for phase_id in earlier
+                    if later[phase_id] > earlier[phase_id]
+                }
+                with self.subTest(
+                    module_id=module_id,
+                    earlier_path_id=earlier_path_id,
+                    later_path_id=later_path_id,
+                ):
+                    self.assertTrue(growth_phases <= allowed_growth_phases)
+                    if budgets[later_path_id]["units"] > budgets[earlier_path_id]["units"]:
+                        self.assertTrue(growth_phases)
+
+    def test_repository_project_requires_focus_time_outside_normal_year_paths(self):
+        contracts = self.validated_contracts()
+        project = contracts["IUM-6-PROJECT-01"]
+
+        self.assertIn("zusätzliche", project["risk"].lower())
+        self.assertIn("schwerpunktzeit", project["risk"].lower())
+        self.assertIn("30/34/38", project["risk"])
+        self.assertFalse(
+            any(
+                allocation["moduleId"] == project["moduleId"]
+                for variant in self.time_model["annualVariants"]
+                for allocation in variant["allocations"]
+            )
         )
