@@ -64,12 +64,674 @@
     },
     "status": "working"
   },
-  "moduleContracts": [],
-  "integrationContracts": [],
-  "annualVariants": [],
+  "moduleContracts": [
+    {
+      "id": "TC-IUM-5-CORE-01",
+      "moduleId": "IUM-5-CORE-01",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": [
+        "LH26-E-PROG-001",
+        "LH26-E-DP-001",
+        "LH26-E-KS-006",
+        "LH26-E-KS-007",
+        "LH26-E-DA-001",
+        "LH26-E-DA-002",
+        "LH26-E-DA-003",
+        "LH26-E-DA-004",
+        "BMB16-GYM-PK-SK-001",
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-PK-SK-003",
+        "BMB16-GYM-IK-GM-001",
+        "BMB16-GYM-IK-GM-002",
+        "BMB16-GYM-IK-GM-003"
+      ],
+      "centralLearningAction": "Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen.",
+      "centralLearningProduct": "Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "prerequisiteModuleIds": [],
+      "revisitModuleIds": ["IUM-5-CORE-02", "IUM-5-CORE-03", "IUM-5-CORE-04", "IUM-5-CORE-05", "IUM-5-CORE-06"],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Vorwissen zu Geräten, Speicherorten und sicheren Arbeitswegen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Systemschichten, Verzeichnisse, Zugangsschutz und Wiederanlauf begrifflich aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Anmeldung, Navigation, Speichern und Wiederfinden angeleitet ausführen."},
+            {"phaseId": "independent-action-product", "minutes": 55, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste."},
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Arbeitswegkarte an einem Störfall prüfen, revidieren und erneut ausführen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Sichere Arbeitswege gemeinsam sichern und für spätere Module abrufbar machen."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Vorwissen zu Geräten, Speicherorten und sicheren Arbeitswegen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Systemschichten, Verzeichnisse, Zugangsschutz und Wiederanlauf begrifflich aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 60, "learningFunction": "Anmeldung, Navigation, Speichern und Wiederfinden an zusätzlichen Fällen angeleitet ausführen."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Arbeitswegkarte an mehreren Störfällen prüfen, revidieren und erneut ausführen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Sichere Arbeitswege gemeinsam sichern und für spätere Module abrufbar machen."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "extended",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Vorwissen zu Geräten, Speicherorten und sicheren Arbeitswegen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Systemschichten, Verzeichnisse, Zugangsschutz und Wiederanlauf begrifflich aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 60, "learningFunction": "Anmeldung, Navigation, Speichern und Wiederfinden an zusätzlichen Fällen angeleitet ausführen."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Arbeitswegkarte an mehreren Störfällen prüfen, revidieren und erneut ausführen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Sichere Arbeitswege gemeinsam sichern und für spätere Module abrufbar machen."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["actual-local-school-login-and-file-work"],
+      "risk": "Lokale Anmeldung, Verzeichnisstruktur und technische Anlaufzeit können schulabhängig zusätzliche Unterrichtszeit beanspruchen.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-5-CORE-02",
+      "moduleId": "IUM-5-CORE-02",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": [
+        "LH26-E-ID-001",
+        "LH26-E-ID-002",
+        "LH26-E-ID-003",
+        "LH26-E-ID-009",
+        "LH26-E-ID-010",
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-001",
+        "BMB16-GYM-IK-IW-002",
+        "BMB16-GYM-IK-IW-003"
+      ],
+      "centralLearningAction": "Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren.",
+      "centralLearningProduct": "Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+      "revisitModuleIds": ["IUM-5-CORE-06", "IUM-5-CORE-07"],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Sachbezogenes Vorwissen als überprüfbaren Ausgangspunkt aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Suchstrategien, Quellenkriterien und Belegbeziehungen aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 40, "learningFunction": "Suchwege und Kriterienprüfung an kuratierten Quellen angeleitet üben."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision."},
+            {"phaseId": "review-revise-transfer", "minutes": 25, "learningFunction": "Antwort und Quellenauswahl mit einem Gegenbeleg prüfen und revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 15, "learningFunction": "Tragfähige Recherche- und Belegstrategien gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Sachbezogenes Vorwissen als überprüfbaren Ausgangspunkt aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Suchstrategien, Quellenkriterien und Belegbeziehungen aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Suchwege und Kriterienprüfung an zusätzlichen Quellen angeleitet üben."},
+            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Antwort und Quellenauswahl mit mehreren Gegenbelegen prüfen und revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Tragfähige Recherche- und Belegstrategien gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "extended",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Sachbezogenes Vorwissen als überprüfbaren Ausgangspunkt aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Suchstrategien, Quellenkriterien und Belegbeziehungen aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Suchwege und Kriterienprüfung an zusätzlichen Quellen angeleitet üben."},
+            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Antwort und Quellenauswahl mit mehreren Gegenbelegen prüfen und revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Tragfähige Recherche- und Belegstrategien gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+      "schoolDependentSteps": [],
+      "risk": "Die gemeinsame Belegspur trägt nur, wenn Recherchefrage und Medienprodukt fachlich dieselben Quellen nutzen.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-5-CORE-03",
+      "moduleId": "IUM-5-CORE-03",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 4, "max": 6},
+      "competencyIds": [
+        "LH26-E-KS-001",
+        "LH26-E-KS-002",
+        "LH26-E-KS-003",
+        "LH26-E-KS-004",
+        "LH26-E-KS-005",
+        "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-PK-RK-004",
+        "BMB16-GYM-IK-KK-001",
+        "BMB16-GYM-IK-KK-002",
+        "BMB16-GYM-IK-KK-003"
+      ],
+      "centralLearningAction": "Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen.",
+      "centralLearningProduct": "Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Kommunikationssituationen, Adressaten und privaten Daten aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Adressatenbezug, Kommunikationsregeln, Datenschutz und Hilfewege aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 40, "learningFunction": "Fiktive Nachrichten und Konfliktfälle angeleitet prüfen und überarbeiten."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall."},
+            {"phaseId": "review-revise-transfer", "minutes": 25, "learningFunction": "Leitfaden im lokalen Kommunikationsfall prüfen, revidieren und übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 15, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Kommunikationssituationen, Adressaten und privaten Daten aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Adressatenbezug, Kommunikationsregeln, Datenschutz und Hilfewege aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Fiktive Nachrichten und Konfliktfälle im lokalen Kanal angeleitet prüfen und überarbeiten."},
+            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Leitfaden in kooperativer Anwendung prüfen, revidieren und übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "extended",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Vorwissen zu Kommunikationssituationen, Adressaten und privaten Daten aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Adressatenbezug, Kommunikationsregeln, Datenschutz und Hilfewege aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Fiktive Nachrichten und Konfliktfälle im lokalen Kanal angeleitet prüfen und überarbeiten."},
+            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Leitfaden in kooperativer Anwendung prüfen, revidieren und übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["actual-local-communication-and-collaboration"],
+      "risk": "Technische Trennung von Kommunikations- und Kollaborationskanal kann zusätzliche lokale Ausführungszeit erfordern.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-5-CORE-04",
+      "moduleId": "IUM-5-CORE-04",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 3, "max": 4},
+      "competencyIds": ["BMB16-GYM-IK-GM-002"],
+      "centralLearningAction": "In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen.",
+      "centralLearningProduct": "Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 3,
+          "minutes": 135,
+          "directMinutes": 135,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 10, "learningFunction": "Den bekannten schulischen Anmelde- und Speicherweg aktivieren."},
+            {"phaseId": "build-concept", "minutes": 20, "learningFunction": "Oberfläche, Gerät, lokales Netz, Ablage und Rollen modellhaft unterscheiden."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Einen schulischen Datenweg stark gestützt rekonstruieren."},
+            {"phaseId": "independent-action-product", "minutes": 35, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6."},
+            {"phaseId": "review-revise-transfer", "minutes": 20, "learningFunction": "Modellgrenzen prüfen und offene Internet- und Cloudfragen markieren."},
+            {"phaseId": "shared-consolidation", "minutes": 10, "learningFunction": "Datenwegrollen und offene Modellfragen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 3,
+          "minutes": 135,
+          "directMinutes": 135,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 10, "learningFunction": "Den bekannten schulischen Anmelde- und Speicherweg aktivieren."},
+            {"phaseId": "build-concept", "minutes": 20, "learningFunction": "Oberfläche, Gerät, lokales Netz, Ablage und Rollen modellhaft unterscheiden."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Einen schulischen Datenweg stark gestützt rekonstruieren."},
+            {"phaseId": "independent-action-product", "minutes": 35, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6."},
+            {"phaseId": "review-revise-transfer", "minutes": 20, "learningFunction": "Modellgrenzen prüfen und offene Internet- und Cloudfragen markieren."},
+            {"phaseId": "shared-consolidation", "minutes": 10, "learningFunction": "Datenwegrollen und offene Modellfragen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "extended",
+          "units": 3,
+          "minutes": 135,
+          "directMinutes": 135,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 10, "learningFunction": "Den bekannten schulischen Anmelde- und Speicherweg aktivieren."},
+            {"phaseId": "build-concept", "minutes": 20, "learningFunction": "Oberfläche, Gerät, lokales Netz, Ablage und Rollen modellhaft unterscheiden."},
+            {"phaseId": "guided-practice", "minutes": 30, "learningFunction": "Einen schulischen Datenweg stark gestützt rekonstruieren."},
+            {"phaseId": "independent-action-product", "minutes": 35, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6."},
+            {"phaseId": "review-revise-transfer", "minutes": 20, "learningFunction": "Modellgrenzen prüfen und offene Internet- und Cloudfragen markieren."},
+            {"phaseId": "shared-consolidation", "minutes": 10, "learningFunction": "Datenwegrollen und offene Modellfragen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["actual-local-school-data-route"],
+      "risk": "Das gestützte Klasse-5-Modell darf die in Klasse 6 erst zu klärenden Internet- und Cloudbeziehungen nicht vorwegnehmen.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-5-CORE-05",
+      "moduleId": "IUM-5-CORE-05",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": ["LH26-E-PROG-002", "LH26-E-ALG-001", "LH26-E-ALG-002", "LH26-E-ALG-003", "LH26-E-ALG-004"],
+      "centralLearningAction": "Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren.",
+      "centralLearningProduct": "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-01"],
+      "revisitModuleIds": ["IUM-6-CORE-04"],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Vorwissen zu präzisen Abläufen und Wiederholungen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Algorithmus, Ausführung, Abweichung und konstante Wiederholung aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Grafische Algorithmen angeleitet ausführen und Laufspuren vergleichen."},
+            {"phaseId": "independent-action-product", "minutes": 55, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung."},
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Abweichungen erklären, Algorithmus reparieren und Wiederholung begründen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Algorithmische Grundbausteine und Prüfstrategien gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Vorwissen zu präzisen Abläufen und Wiederholungen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Algorithmus, Ausführung, Abweichung und konstante Wiederholung aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Grafische Algorithmen angeleitet ausführen und Laufspuren vergleichen."},
+            {"phaseId": "independent-action-product", "minutes": 55, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung."},
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Abweichungen erklären, Algorithmus reparieren und Wiederholung begründen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Algorithmische Grundbausteine und Prüfstrategien gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "extended",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Vorwissen zu präzisen Abläufen und Wiederholungen aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Algorithmus, Ausführung, Abweichung und konstante Wiederholung aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 60, "learningFunction": "Zusätzliche grafische Algorithmen angeleitet ausführen und Laufspuren vergleichen."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Weitere Abweichungen erklären, Algorithmus revidieren und Wiederholung übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Algorithmische Grundbausteine und Prüfstrategien gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": [],
+      "risk": "Der Erweiterungspfad muss reale zusätzliche Algorithmusausführung und Fehlerkorrektur statt bloßer Demonstration enthalten.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-5-CORE-06",
+      "moduleId": "IUM-5-CORE-06",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 5, "max": 7},
+      "competencyIds": [
+        "LH26-E-DA-005",
+        "LH26-E-DA-006",
+        "LH26-E-DA-007",
+        "LH26-E-DA-008",
+        "BMB16-GYM-PK-HK-002",
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-PP-002",
+        "BMB16-GYM-IK-PP-003"
+      ],
+      "centralLearningAction": "Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen.",
+      "centralLearningProduct": "Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-01", "IUM-5-CORE-02"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 180,
+          "countedSharedMinutes": 45,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Die gemeinsame Quellen- und Belegspur aus der Recherche aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Inhalt-Form-Beziehungen, Gestaltungskriterien, Quellen und Rechte aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Formatierung, Bildgestaltung und Kriterienanalyse angeleitet erproben."},
+            {"phaseId": "independent-action-product", "minutes": 55, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung."},
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Produkt kriteriengebunden testen, sichtbar revidieren und einschätzen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Gestaltungsentscheidungen, Quellen- und Rechtebelege gemeinsam sichern."}
+          ],
+          "sharedAllocations": [{"integrationContractId": "INT-5-RESEARCH-PRODUCTION", "minutes": 45}]
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 180,
+          "countedSharedMinutes": 45,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Die gemeinsame Quellen- und Belegspur aus der Recherche aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Inhalt-Form-Beziehungen, Gestaltungskriterien, Quellen und Rechte aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 45, "learningFunction": "Formatierung, Bildgestaltung und Kriterienanalyse angeleitet erproben."},
+            {"phaseId": "independent-action-product", "minutes": 55, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung."},
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Produkt kriteriengebunden testen, sichtbar revidieren und einschätzen."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Gestaltungsentscheidungen, Quellen- und Rechtebelege gemeinsam sichern."}
+          ],
+          "sharedAllocations": [{"integrationContractId": "INT-5-RESEARCH-PRODUCTION", "minutes": 45}]
+        },
+        {
+          "pathId": "extended",
+          "units": 7,
+          "minutes": 315,
+          "directMinutes": 270,
+          "countedSharedMinutes": 45,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Die gemeinsame Quellen- und Belegspur aus der Recherche aktivieren."},
+            {"phaseId": "build-concept", "minutes": 40, "learningFunction": "Inhalt-Form-Beziehungen, Gestaltungskriterien, Quellen und Rechte vertieft aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 70, "learningFunction": "Weitere Formatierungs-, Bild- und Analysevarianten angeleitet erproben."},
+            {"phaseId": "independent-action-product", "minutes": 95, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung."},
+            {"phaseId": "review-revise-transfer", "minutes": 50, "learningFunction": "Produkt mehrfach kriteriengebunden testen, sichtbar revidieren, präsentieren und einschätzen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Gestaltungsentscheidungen, Quellen- und Rechtebelege gemeinsam sichern."}
+          ],
+          "sharedAllocations": [{"integrationContractId": "INT-5-RESEARCH-PRODUCTION", "minutes": 45}]
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+      "schoolDependentSteps": ["local-presentation-or-publication-route"],
+      "risk": "Produktionswerkzeug, Präsentationsweg und Rechteprüfung können lokal zusätzliche Anlauf- und Unterstützungszeit benötigen.",
+      "pilotRequired": true,
+      "status": "working"
+    },
+    {
+      "id": "TC-IUM-5-CORE-07",
+      "moduleId": "IUM-5-CORE-07",
+      "grade": 5,
+      "kind": "core",
+      "historicalLessonRange": {"min": 4, "max": 6},
+      "competencyIds": [
+        "LH26-E-DP-002",
+        "LH26-E-DP-003",
+        "LH26-E-DP-005",
+        "BMB16-GYM-PK-RK-001",
+        "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-PK-RK-003",
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002",
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "centralLearningAction": "Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren.",
+      "centralLearningProduct": "Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "prerequisiteModuleIds": ["IUM-5-CORE-02"],
+      "revisitModuleIds": [],
+      "pathBudgets": [
+        {
+          "pathId": "baseline",
+          "units": 4,
+          "minutes": 180,
+          "directMinutes": 180,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Nichtpersonales Vorwissen zu Medienmerkmalen, Nutzung und Wirkung aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Beobachtung, Wirkungshypothese, Gegenperspektive und Unsicherheit aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 40, "learningFunction": "Kuratierten Fall und fiktive Reaktionsdaten angeleitet untersuchen."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
+            {"phaseId": "review-revise-transfer", "minutes": 25, "learningFunction": "Wirkungsaussagen mit Gegenperspektiven prüfen und revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 15, "learningFunction": "Bedingte Wirkungsaussagen und private Grenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "regular",
+          "units": 5,
+          "minutes": 225,
+          "directMinutes": 225,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 10, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Nichtpersonales Vorwissen zu Medienmerkmalen, Nutzung und Wirkung aktivieren."},
+            {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Beobachtung, Wirkungshypothese, Gegenperspektive und Unsicherheit aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Zusätzliche kuratierte Fälle und fiktive Reaktionsdaten angeleitet untersuchen."},
+            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
+            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Wirkungsaussagen mit mehreren Gegenperspektiven prüfen und revidieren."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Bedingte Wirkungsaussagen und private Grenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        },
+        {
+          "pathId": "extended",
+          "units": 6,
+          "minutes": 270,
+          "directMinutes": 270,
+          "countedSharedMinutes": 0,
+          "phaseBudgets": [
+            {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren."},
+            {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Nichtpersonales Vorwissen zu Medienmerkmalen, Nutzung und Wirkung aktivieren."},
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Beobachtung, Wirkungshypothese, Gegenperspektive und Unsicherheit vertieft aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 60, "learningFunction": "Variierte kuratierte Fälle und fiktive Reaktionsdaten angeleitet untersuchen."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
+            {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Wirkungsaussagen vertieft prüfen, revidieren und auf neue Fälle übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Bedingte Wirkungsaussagen und private Grenzen gemeinsam sichern."}
+          ],
+          "sharedAllocations": []
+        }
+      ],
+      "standaloneUnitRange": null,
+      "timeReviewIds": [],
+      "integrationContractIds": [],
+      "schoolDependentSteps": ["private-local-reflection-remains-uncollected"],
+      "risk": "Die private Reflexion darf weder als beobachtbare Produktspur noch als personenbezogene Diagnose verwendet werden.",
+      "pilotRequired": true,
+      "status": "working"
+    }
+  ],
+  "integrationContracts": [
+    {
+      "id": "INT-5-RESEARCH-PRODUCTION",
+      "moduleIds": ["IUM-5-CORE-02", "IUM-5-CORE-06"],
+      "pathIds": ["baseline", "regular", "extended"],
+      "sharedPhaseOrProduct": "Gemeinsame Quellen- und Belegspur vom geprüften Quellendossier bis zum Quellenverzeichnis und Rechtebeleg des Informationsprodukts.",
+      "countedInModuleId": "IUM-5-CORE-06",
+      "sharedMinutes": 45,
+      "savingsMinutesByPath": {"baseline": 45, "regular": 0, "extended": 0},
+      "preservedLearningActions": [
+        "IUM-5-CORE-02 zerlegt die Suchfrage, dokumentiert Suchwege, prüft Quellen und revidiert die belegte Antwort.",
+        "IUM-5-CORE-06 wählt aus derselben geprüften Belegspur Inhalte aus, prüft Quellen und Rechte und begründet die Nutzung im Medienprodukt."
+      ],
+      "preservedProductAndCurriculumEvidence": [
+        "Das digitale Quellendossier behält Suchprotokoll, Kriterienvergleich, belegte Antwort und dokumentierte Revision.",
+        "Das Informationsprodukt behält Quellenverzeichnis, Rechtebeleg, Gestaltungsbegründung und sichtbare Revision.",
+        "Die identischen übernommenen Quellen sind in beiden Produkten nachvollziehbar miteinander verknüpft."
+      ],
+      "prerequisites": [
+        "Recherchefrage und Informationsprodukt behandeln denselben fachlichen Gegenstand.",
+        "Nur tatsächlich geprüfte und im Quellendossier belegte Quellen werden in das Informationsprodukt übernommen."
+      ],
+      "risk": "Bei abweichendem Thema oder nicht identischer Belegspur wäre die Zeitersparnis eine unzulässige Scheinintegration.",
+      "fallback": "Scheitert die gemeinsame Belegspur, erhalten Recherche und Produktion wieder eigenständige Recherche-, Quellenprüfungs- und Produktionszeit; die Baseline benötigt dann 45 Minuten zusätzlich und das Jahrgangsurteil wird neu berechnet.",
+      "status": "working"
+    }
+  ],
+  "annualVariants": [
+    {
+      "id": "GRADE-5-BASELINE",
+      "grade": 5,
+      "kind": "planning-path",
+      "pathId": "baseline",
+      "targetUnits": 30,
+      "allocations": [
+        {"moduleId": "IUM-5-CORE-01", "budgetPathId": "baseline", "units": 5},
+        {"moduleId": "IUM-5-CORE-02", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-5-CORE-03", "budgetPathId": "baseline", "units": 4},
+        {"moduleId": "IUM-5-CORE-04", "budgetPathId": "baseline", "units": 3},
+        {"moduleId": "IUM-5-CORE-05", "budgetPathId": "baseline", "units": 5},
+        {"moduleId": "IUM-5-CORE-06", "budgetPathId": "baseline", "units": 5},
+        {"moduleId": "IUM-5-CORE-07", "budgetPathId": "baseline", "units": 4}
+      ],
+      "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+      "available": true,
+      "status": "working",
+      "rationale": "Sieben Kernmodule ergeben mit einmal gezählter gemeinsamer Quellen- und Belegspur exakt 30 Unterrichtseinheiten.",
+      "risk": "Fällt die Recherche-Produktions-Integration aus, steigt der Basispfad um eine Unterrichtseinheit."
+    },
+    {
+      "id": "GRADE-5-REGULAR",
+      "grade": 5,
+      "kind": "planning-path",
+      "pathId": "regular",
+      "targetUnits": 34,
+      "allocations": [
+        {"moduleId": "IUM-5-CORE-01", "budgetPathId": "regular", "units": 6},
+        {"moduleId": "IUM-5-CORE-02", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-5-CORE-03", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-5-CORE-04", "budgetPathId": "regular", "units": 3},
+        {"moduleId": "IUM-5-CORE-05", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-5-CORE-06", "budgetPathId": "regular", "units": 5},
+        {"moduleId": "IUM-5-CORE-07", "budgetPathId": "regular", "units": 5}
+      ],
+      "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+      "available": true,
+      "status": "working",
+      "rationale": "Zusätzliche Übung, eigenständige Handlung und Revision in Arbeitsfähigkeit, Recherche, Kommunikation und Medienreflexion ergeben exakt 34 Unterrichtseinheiten.",
+      "risk": "Schulabhängige Technik- und Kanalzeiten müssen im lokalen Pilot innerhalb der ausgewiesenen Budgets geprüft werden."
+    },
+    {
+      "id": "GRADE-5-EXTENDED",
+      "grade": 5,
+      "kind": "planning-path",
+      "pathId": "extended",
+      "targetUnits": 38,
+      "allocations": [
+        {"moduleId": "IUM-5-CORE-01", "budgetPathId": "extended", "units": 6},
+        {"moduleId": "IUM-5-CORE-02", "budgetPathId": "extended", "units": 5},
+        {"moduleId": "IUM-5-CORE-03", "budgetPathId": "extended", "units": 5},
+        {"moduleId": "IUM-5-CORE-04", "budgetPathId": "extended", "units": 3},
+        {"moduleId": "IUM-5-CORE-05", "budgetPathId": "extended", "units": 6},
+        {"moduleId": "IUM-5-CORE-06", "budgetPathId": "extended", "units": 7},
+        {"moduleId": "IUM-5-CORE-07", "budgetPathId": "extended", "units": 6}
+      ],
+      "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+      "available": true,
+      "status": "working",
+      "rationale": "Vertiefte Algorithmusübung, Medienproduktion und Medienreflexion erhöhen den Kernpfad auf exakt 38 Unterrichtseinheiten.",
+      "risk": "Die Vertiefungszeit darf nicht durch zusätzliche Produktanforderungen außerhalb der zentralen Lernprodukte überfrachtet werden."
+    }
+  ],
   "timeReviews": [],
   "sequenceEvidence": [],
-  "gradeJudgements": [],
+  "gradeJudgements": [
+    {
+      "grade": 5,
+      "semanticCoverageStatus": "partial",
+      "timeFeasibilityStatus": "green",
+      "sequenceEvidenceStatus": "partial",
+      "pilotStatus": "not-started",
+      "annualVariantIds": ["GRADE-5-BASELINE", "GRADE-5-REGULAR", "GRADE-5-EXTENDED"],
+      "rationale": "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 Unterrichtseinheiten zeitlich grün; dieser Zeitstatus schließt die getrennt verbleibenden semantischen und Sequenzlücken ausdrücklich nicht.",
+      "risk": "Ohne lokalen Pilot sind technische Anlaufzeit, Unterstützungsbedarf sowie tatsächliche Übungs- und Revisionszeit noch nicht empirisch geprüft.",
+      "decisionOptions": ["pilot-grade-5-time-model", "retain-semantic-and-sequence-gaps"]
+    }
+  ],
   "risks": [],
   "pilotAssignments": []
 }

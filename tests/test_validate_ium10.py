@@ -11,11 +11,24 @@ from scripts.validate_ium10 import (
     IUM10ValidationError,
     coverage_projection_fingerprint,
     time_handoff_fingerprint,
+    validate_annual_variants,
     validate_capacity_model,
+    validate_integration_contracts,
     validate_module_contracts,
     validate_time_model_draft,
     validate_ium10_baseline,
 )
+
+
+EXPECTED_GRADE_5_UNITS = {
+    "IUM-5-CORE-01": {"baseline": 5, "regular": 6, "extended": 6},
+    "IUM-5-CORE-02": {"baseline": 4, "regular": 5, "extended": 5},
+    "IUM-5-CORE-03": {"baseline": 4, "regular": 5, "extended": 5},
+    "IUM-5-CORE-04": {"baseline": 3, "regular": 3, "extended": 3},
+    "IUM-5-CORE-05": {"baseline": 5, "regular": 5, "extended": 6},
+    "IUM-5-CORE-06": {"baseline": 5, "regular": 5, "extended": 7},
+    "IUM-5-CORE-07": {"baseline": 4, "regular": 5, "extended": 6},
+}
 
 
 class IUM10BaselineTests(unittest.TestCase):
@@ -245,7 +258,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM10ValidationError, "schema version"):
             validate_time_model_draft(time_model)
 
-    def test_repository_draft_has_the_capacity_contract_and_empty_future_contract_lists(self):
+    def test_repository_draft_has_the_capacity_contract_and_only_later_task_lists_empty(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
@@ -282,31 +295,10 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "timeHandoffSha256": BASELINE_TIME_HANDOFF_SHA256,
             },
         )
-        self.assertEqual(
-            {
-                field: time_model[field]
-                for field in (
-                    "moduleContracts",
-                    "integrationContracts",
-                    "annualVariants",
-                    "timeReviews",
-                    "sequenceEvidence",
-                    "gradeJudgements",
-                    "risks",
-                    "pilotAssignments",
-                )
-            },
-            {
-                "moduleContracts": [],
-                "integrationContracts": [],
-                "annualVariants": [],
-                "timeReviews": [],
-                "sequenceEvidence": [],
-                "gradeJudgements": [],
-                "risks": [],
-                "pilotAssignments": [],
-            },
-        )
+        self.assertEqual(time_model["timeReviews"], [])
+        self.assertEqual(time_model["sequenceEvidence"], [])
+        self.assertEqual(time_model["risks"], [])
+        self.assertEqual(time_model["pilotAssignments"], [])
         self.assertEqual(
             validate_capacity_model(time_model["capacityModel"], time_model["unit"]),
             {
@@ -661,3 +653,386 @@ class IUM10ModuleContractTests(unittest.TestCase):
         ]
         with self.assertRaises(IUM10ValidationError):
             self.validate_contracts(contracts=contracts)
+
+    def test_rejects_extra_path_time_without_more_practice_product_or_revision(self):
+        contracts = self.contracts()
+        regular = contracts[0]["pathBudgets"][1]
+        regular["units"] += 1
+        regular["minutes"] += 45
+        regular["directMinutes"] += 45
+        regular["phaseBudgets"][0]["minutes"] += 45
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "practice, product, or revision",
+        ):
+            self.validate_contracts(contracts=contracts)
+
+
+class IUM10IntegrationContractTests(unittest.TestCase):
+    CONTRACT_ID = "INT-TEST-SHARED-EVIDENCE"
+
+    @classmethod
+    def module_contracts(cls):
+        contracts = {}
+        for module_id, counted in (("MODULE-A", False), ("MODULE-B", True)):
+            path_budgets = []
+            for path_id in ("baseline", "regular", "extended"):
+                allocation = (
+                    [{"integrationContractId": cls.CONTRACT_ID, "minutes": 45}]
+                    if counted
+                    else []
+                )
+                path_budgets.append(
+                    {
+                        "pathId": path_id,
+                        "countedSharedMinutes": 45 if counted else 0,
+                        "sharedAllocations": allocation,
+                    }
+                )
+            contracts[module_id] = {
+                "moduleId": module_id,
+                "integrationContractIds": [cls.CONTRACT_ID],
+                "pathBudgets": path_budgets,
+            }
+        return contracts
+
+    @classmethod
+    def integration_contract(cls):
+        return {
+            "id": cls.CONTRACT_ID,
+            "moduleIds": ["MODULE-A", "MODULE-B"],
+            "pathIds": ["baseline", "regular", "extended"],
+            "sharedPhaseOrProduct": "Eine gemeinsame Quellen- und Belegspur.",
+            "countedInModuleId": "MODULE-B",
+            "sharedMinutes": 45,
+            "savingsMinutesByPath": {
+                "baseline": 45,
+                "regular": 0,
+                "extended": 0,
+            },
+            "preservedLearningActions": [
+                "MODULE-A prüft Quellen.",
+                "MODULE-B nutzt und belegt die Quellen.",
+            ],
+            "preservedProductAndCurriculumEvidence": [
+                "Quellendossier und Produktquellenverzeichnis bleiben prüfbar.",
+            ],
+            "prerequisites": ["Die Produktspur nutzt dasselbe Rechercheergebnis."],
+            "risk": "Getrennte Themen verhindern die gemeinsame Evidenzspur.",
+            "fallback": "Beide Module erhalten eigenständige Recherche- und Produktionszeit.",
+            "status": "working",
+        }
+
+    def validate_integrations(self, contracts=None, module_contracts=None):
+        return validate_integration_contracts(
+            [self.integration_contract()] if contracts is None else contracts,
+            self.module_contracts() if module_contracts is None else module_contracts,
+        )
+
+    def test_returns_integration_contracts_keyed_by_unique_id(self):
+        result = self.validate_integrations()
+
+        self.assertEqual(result, {self.CONTRACT_ID: self.integration_contract()})
+
+    def test_rejects_unknown_modules_paths_or_counted_module(self):
+        mutations = (
+            ("moduleIds", ["MODULE-A", "MODULE-MISSING"]),
+            ("pathIds", ["baseline", "regular", "missing"]),
+            ("countedInModuleId", "MODULE-MISSING"),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                contract = self.integration_contract()
+                contract[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_integrations(contracts=[contract])
+
+    def test_rejects_missing_or_unexpected_fields_fail_closed(self):
+        missing = self.integration_contract()
+        missing.pop("countedInModuleId")
+        unexpected = self.integration_contract()
+        unexpected["note"] = "Nicht Teil des Vertrags."
+
+        for contract in (missing, unexpected):
+            with self.subTest(fields=set(contract)):
+                with self.assertRaisesRegex(IUM10ValidationError, "fields"):
+                    self.validate_integrations(contracts=[contract])
+
+    def test_rejects_shared_minutes_counted_in_more_than_one_module(self):
+        module_contracts = self.module_contracts()
+        for budget in module_contracts["MODULE-A"]["pathBudgets"]:
+            budget["countedSharedMinutes"] = 45
+            budget["sharedAllocations"] = [
+                {"integrationContractId": self.CONTRACT_ID, "minutes": 45}
+            ]
+
+        with self.assertRaisesRegex(IUM10ValidationError, "exactly once"):
+            self.validate_integrations(module_contracts=module_contracts)
+
+    def test_rejects_boolean_values_as_minutes(self):
+        mutations = (
+            ("sharedMinutes", True),
+            ("savingsMinutesByPath.baseline", True),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                contract = self.integration_contract()
+                current = contract
+                parts = field.split(".")
+                for part in parts[:-1]:
+                    current = current[part]
+                current[parts[-1]] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_integrations(contracts=[contract])
+
+        module_contracts = self.module_contracts()
+        module_contracts["MODULE-B"]["pathBudgets"][0]["sharedAllocations"][0][
+            "minutes"
+        ] = True
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_integrations(module_contracts=module_contracts)
+
+
+class IUM10AnnualVariantTests(unittest.TestCase):
+    @staticmethod
+    def module_contracts():
+        return {
+            "MODULE-A": {
+                "moduleId": "MODULE-A",
+                "grade": 5,
+                "kind": "core",
+                "pathBudgets": [
+                    {"pathId": "baseline", "units": 2},
+                    {"pathId": "regular", "units": 3},
+                    {"pathId": "extended", "units": 3},
+                ],
+            },
+            "MODULE-B": {
+                "moduleId": "MODULE-B",
+                "grade": 5,
+                "kind": "core",
+                "pathBudgets": [
+                    {"pathId": "baseline", "units": 3},
+                    {"pathId": "regular", "units": 3},
+                    {"pathId": "extended", "units": 4},
+                ],
+            },
+        }
+
+    @staticmethod
+    def annual_variant():
+        return {
+            "id": "GRADE-5-TEST",
+            "grade": 5,
+            "kind": "planning-path",
+            "pathId": "baseline",
+            "targetUnits": 5,
+            "allocations": [
+                {"moduleId": "MODULE-A", "budgetPathId": "baseline", "units": 2},
+                {"moduleId": "MODULE-B", "budgetPathId": "baseline", "units": 3},
+            ],
+            "integrationContractIds": [],
+            "available": True,
+            "status": "working",
+            "rationale": "Der Kernpfad passt rechnerisch in fünf Testeinheiten.",
+            "risk": "Die Rechnung ist noch nicht pilotiert.",
+        }
+
+    def validate_variants(self, variants=None, module_contracts=None):
+        return validate_annual_variants(
+            [self.annual_variant()] if variants is None else variants,
+            self.module_contracts() if module_contracts is None else module_contracts,
+            {},
+        )
+
+    def test_returns_annual_variants_keyed_by_unique_id(self):
+        result = self.validate_variants()
+
+        self.assertEqual(result, {"GRADE-5-TEST": self.annual_variant()})
+
+    def test_rejects_unknown_modules_paths_allocation_units_or_target_sum(self):
+        mutations = (
+            ("allocations.0.moduleId", "MODULE-MISSING"),
+            ("allocations.0.budgetPathId", "missing"),
+            ("allocations.0.units", 3),
+            ("targetUnits", 6),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                variant = self.annual_variant()
+                current = variant
+                for part in field.split(".")[:-1]:
+                    current = current[int(part)] if part.isdigit() else current[part]
+                current[field.split(".")[-1]] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_variants(variants=[variant])
+
+    def test_rejects_missing_or_unexpected_fields_fail_closed(self):
+        missing = self.annual_variant()
+        missing.pop("available")
+        unexpected = self.annual_variant()
+        unexpected["note"] = "Nicht Teil des Vertrags."
+
+        for variant in (missing, unexpected):
+            with self.subTest(fields=set(variant)):
+                with self.assertRaisesRegex(IUM10ValidationError, "fields"):
+                    self.validate_variants(variants=[variant])
+
+    def test_rejects_boolean_values_as_units_or_availability(self):
+        mutations = (
+            ("targetUnits", True),
+            ("allocations.0.units", True),
+            ("available", 1),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                variant = self.annual_variant()
+                current = variant
+                for part in field.split(".")[:-1]:
+                    current = current[int(part)] if part.isdigit() else current[part]
+                current[field.split(".")[-1]] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_variants(variants=[variant])
+
+
+class IUM10Grade5RepositoryTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.grade_5_payload = {
+            "modules": [
+                module for module in module_payload["modules"] if module["grade"] == 5
+            ]
+        }
+
+    def test_repository_has_seven_complete_grade_5_time_contracts(self):
+        contracts = validate_module_contracts(
+            self.time_model["moduleContracts"],
+            self.grade_5_payload,
+        )
+
+        self.assertEqual(set(contracts), set(EXPECTED_GRADE_5_UNITS))
+        for module_id, expected_paths in EXPECTED_GRADE_5_UNITS.items():
+            with self.subTest(module_id=module_id):
+                contract = contracts[module_id]
+                budgets = {
+                    budget["pathId"]: budget for budget in contract["pathBudgets"]
+                }
+                self.assertEqual(
+                    {path_id: budget["units"] for path_id, budget in budgets.items()},
+                    expected_paths,
+                )
+                for budget in budgets.values():
+                    phases = {
+                        phase["phaseId"]: phase for phase in budget["phaseBudgets"]
+                    }
+                    self.assertEqual(len(phases), 7)
+                    self.assertTrue(
+                        phases["orientation-challenge"]["learningFunction"].endswith(
+                            contract["centralLearningAction"]
+                        )
+                    )
+                    self.assertTrue(
+                        phases["independent-action-product"]["learningFunction"].endswith(
+                            contract["centralLearningProduct"]
+                        )
+                    )
+
+    def test_repository_integration_counts_shared_evidence_only_in_core_06(self):
+        contracts = validate_module_contracts(
+            self.time_model["moduleContracts"],
+            self.grade_5_payload,
+        )
+        integrations = validate_integration_contracts(
+            self.time_model["integrationContracts"],
+            contracts,
+        )
+
+        self.assertEqual(set(integrations), {"INT-5-RESEARCH-PRODUCTION"})
+        integration = integrations["INT-5-RESEARCH-PRODUCTION"]
+        self.assertEqual(
+            integration["moduleIds"],
+            ["IUM-5-CORE-02", "IUM-5-CORE-06"],
+        )
+        self.assertEqual(integration["countedInModuleId"], "IUM-5-CORE-06")
+        self.assertEqual(integration["sharedMinutes"], 45)
+        self.assertEqual(
+            integration["savingsMinutesByPath"],
+            {"baseline": 45, "regular": 0, "extended": 0},
+        )
+        self.assertIn("Quellen", integration["sharedPhaseOrProduct"])
+        self.assertIn("Beleg", integration["sharedPhaseOrProduct"])
+        self.assertIn("eigenständig", integration["fallback"])
+
+    def test_repository_has_available_core_only_30_34_38_variants(self):
+        contracts = validate_module_contracts(
+            self.time_model["moduleContracts"],
+            self.grade_5_payload,
+        )
+        integrations = validate_integration_contracts(
+            self.time_model["integrationContracts"],
+            contracts,
+        )
+        variants = validate_annual_variants(
+            self.time_model["annualVariants"],
+            contracts,
+            integrations,
+        )
+
+        expected_variants = {
+            "GRADE-5-BASELINE": ("baseline", 30),
+            "GRADE-5-REGULAR": ("regular", 34),
+            "GRADE-5-EXTENDED": ("extended", 38),
+        }
+        self.assertEqual(set(variants), set(expected_variants))
+        for variant_id, (path_id, target_units) in expected_variants.items():
+            with self.subTest(variant_id=variant_id):
+                variant = variants[variant_id]
+                self.assertEqual(variant["pathId"], path_id)
+                self.assertEqual(variant["targetUnits"], target_units)
+                self.assertIs(variant["available"], True)
+                self.assertEqual(
+                    {allocation["moduleId"] for allocation in variant["allocations"]},
+                    set(EXPECTED_GRADE_5_UNITS),
+                )
+                self.assertTrue(
+                    all(
+                        contracts[allocation["moduleId"]]["kind"] == "core"
+                        for allocation in variant["allocations"]
+                    )
+                )
+
+    def test_repository_grade_5_judgement_separates_status_dimensions(self):
+        judgements = [
+            judgement
+            for judgement in self.time_model["gradeJudgements"]
+            if judgement["grade"] == 5
+        ]
+
+        self.assertEqual(len(judgements), 1)
+        judgement = judgements[0]
+        self.assertEqual(
+            {
+                "semanticCoverageStatus": judgement["semanticCoverageStatus"],
+                "timeFeasibilityStatus": judgement["timeFeasibilityStatus"],
+                "sequenceEvidenceStatus": judgement["sequenceEvidenceStatus"],
+                "pilotStatus": judgement["pilotStatus"],
+            },
+            {
+                "semanticCoverageStatus": "partial",
+                "timeFeasibilityStatus": "green",
+                "sequenceEvidenceStatus": "partial",
+                "pilotStatus": "not-started",
+            },
+        )
+        self.assertEqual(
+            judgement["annualVariantIds"],
+            ["GRADE-5-BASELINE", "GRADE-5-REGULAR", "GRADE-5-EXTENDED"],
+        )
