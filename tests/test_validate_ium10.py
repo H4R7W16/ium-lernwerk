@@ -195,10 +195,17 @@ EXPECTED_GRADE_7_VARIANTS = {
 EXPECTED_GRADE_7_DECISION_OPTIONS = [
     "additional-school-time",
     "structural-integration-or-reclassification",
-    "curricular-reprioritization",
-    "preparatory-shift",
+    "curricular-reprioritisation",
+    "earlier-preparation",
     "explicitly-incomplete-path",
 ]
+EXPECTED_GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
+    "Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 "
+    "Unterrichtseinheiten. Selbst die unpilotierte optimierte Untergrenze "
+    "überschreitet 30/34/38; daher existiert kein verfügbares "
+    "Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf "
+    "Folgeoptionen ist umgesetzt."
+)
 
 
 class IUM10BaselineTests(unittest.TestCase):
@@ -2862,6 +2869,10 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
             judgement["decisionOptions"],
             EXPECTED_GRADE_7_DECISION_OPTIONS,
         )
+        self.assertEqual(
+            judgement["rationale"],
+            EXPECTED_GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE,
+        )
 
     def validate_grade_7_model(self, time_model=None):
         model = self.time_model if time_model is None else time_model
@@ -2893,6 +2904,94 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
             judgement
             for judgement in adversarial["gradeJudgements"]
             if judgement["grade"] != 7
+        ]
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_grade_7_model(adversarial)
+
+    def test_validator_allows_intermediate_scope_that_excludes_grade_7_modules(self):
+        intermediate = copy.deepcopy(self.time_model)
+        intermediate["moduleContracts"] = [
+            contract
+            for contract in intermediate["moduleContracts"]
+            if contract["grade"] != 7
+        ]
+        intermediate["integrationContracts"] = [
+            integration
+            for integration in intermediate["integrationContracts"]
+            if integration["id"] not in EXPECTED_GRADE_7_INTEGRATIONS
+        ]
+        intermediate["annualVariants"] = [
+            variant
+            for variant in intermediate["annualVariants"]
+            if variant["grade"] != 7
+        ]
+        intermediate["gradeJudgements"] = [
+            judgement
+            for judgement in intermediate["gradeJudgements"]
+            if judgement["grade"] != 7
+        ]
+        intermediate_module_payload = {
+            "modules": [
+                module
+                for module in self.module_payload["modules"]
+                if module["grade"] != 7
+            ]
+        }
+
+        result = validate_time_model_draft(
+            intermediate,
+            intermediate_module_payload,
+        )
+
+        self.assertIs(result, intermediate)
+
+    def test_validator_rejects_coupled_removal_of_grade_6_and_grade_7_scope(self):
+        adversarial = copy.deepcopy(self.time_model)
+        removed_integration_ids = set(EXPECTED_GRADE_6_INTEGRATIONS) | set(
+            EXPECTED_GRADE_7_INTEGRATIONS
+        )
+        adversarial["moduleContracts"] = [
+            contract
+            for contract in adversarial["moduleContracts"]
+            if contract["grade"] != 7
+        ]
+        for contract in adversarial["moduleContracts"]:
+            contract["integrationContractIds"] = [
+                integration_id
+                for integration_id in contract["integrationContractIds"]
+                if integration_id not in removed_integration_ids
+            ]
+            for budget in contract["pathBudgets"]:
+                retained_allocations = [
+                    allocation
+                    for allocation in budget["sharedAllocations"]
+                    if allocation["integrationContractId"]
+                    not in removed_integration_ids
+                ]
+                removed_minutes = sum(
+                    allocation["minutes"]
+                    for allocation in budget["sharedAllocations"]
+                    if allocation["integrationContractId"]
+                    in removed_integration_ids
+                )
+                budget["sharedAllocations"] = retained_allocations
+                budget["countedSharedMinutes"] -= removed_minutes
+                budget["directMinutes"] += removed_minutes
+        adversarial["integrationContracts"] = [
+            integration
+            for integration in adversarial["integrationContracts"]
+            if integration["id"] not in removed_integration_ids
+        ]
+        adversarial["annualVariants"] = [
+            variant
+            for variant in adversarial["annualVariants"]
+            if variant["grade"] not in {6, 7}
+        ]
+        adversarial["gradeJudgements"] = [
+            judgement
+            for judgement in adversarial["gradeJudgements"]
+            if judgement["grade"] not in {6, 7}
         ]
 
         with self.assertRaises(IUM10ValidationError):
@@ -2961,6 +3060,31 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
 
                 with self.assertRaises(IUM10ValidationError):
                     self.validate_grade_7_model(adversarial)
+
+    def test_public_integration_validator_rejects_arbitrary_grade_7_savings(self):
+        contracts = validate_module_contracts(
+            self.time_model["moduleContracts"],
+            self.module_payload,
+        )
+        adversarial_integrations = copy.deepcopy(
+            self.time_model["integrationContracts"]
+        )
+        integration = next(
+            integration
+            for integration in adversarial_integrations
+            if integration["id"] == "INT-7-DATA-CODING"
+        )
+        integration["savingsMinutesByPath"]["optimized"] = 999
+        integration["fallback"] = integration["fallback"].replace(
+            "optimized: +135 Minuten",
+            "optimized: +999 Minuten",
+        )
+
+        with self.assertRaises(IUM10ValidationError):
+            validate_integration_contracts(
+                adversarial_integrations,
+                contracts,
+            )
 
     def test_validator_rejects_available_or_normal_grade_7_offerings(self):
         available = copy.deepcopy(self.time_model)
@@ -3085,6 +3209,21 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
             if judgement["grade"] == 7
         )
         judgement["decisionOptions"] = judgement["decisionOptions"][:-1]
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_grade_7_model(adversarial)
+
+    def test_validator_rejects_contradictory_grade_7_option_rationale(self):
+        adversarial = copy.deepcopy(self.time_model)
+        judgement = next(
+            judgement
+            for judgement in adversarial["gradeJudgements"]
+            if judgement["grade"] == 7
+        )
+        judgement["rationale"] = (
+            f"{EXPECTED_GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE} "
+            "Tatsächlich sind alle fünf Folgeoptionen umgesetzt."
+        )
+
         with self.assertRaises(IUM10ValidationError):
             self.validate_grade_7_model(adversarial)
 

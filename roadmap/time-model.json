@@ -2364,7 +2364,7 @@
       "annualVariantIds": ["GRADE-7-OPTIMIZED-DEMAND", "GRADE-7-ROBUST-DEMAND", "GRADE-7-HISTORICAL-MINIMUM"],
       "rationale": "Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 Unterrichtseinheiten. Selbst die unpilotierte optimierte Untergrenze überschreitet 30/34/38; daher existiert kein verfügbares Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf Folgeoptionen ist umgesetzt.",
       "risk": "Ohne neues Auftraggebergate dürfen weder Kernmodule entfernt noch flexible Module als Ersatz verwendet werden. Semantische Coverage, Sequenznachweis und Pilotstatus bleiben unabhängig vom roten Zeiturteil partial beziehungsweise not-started.",
-      "decisionOptions": ["additional-school-time", "structural-integration-or-reclassification", "curricular-reprioritization", "preparatory-shift", "explicitly-incomplete-path"]
+      "decisionOptions": ["additional-school-time", "structural-integration-or-reclassification", "curricular-reprioritisation", "earlier-preparation", "explicitly-incomplete-path"]
     }
   ],
   "risks": [],

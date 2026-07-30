@@ -156,10 +156,17 @@ GRADE_7_VARIANT_INTEGRATIONS = {
 GRADE_7_DECISION_OPTIONS = [
     "additional-school-time",
     "structural-integration-or-reclassification",
-    "curricular-reprioritization",
-    "preparatory-shift",
+    "curricular-reprioritisation",
+    "earlier-preparation",
     "explicitly-incomplete-path",
 ]
+GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
+    "Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 "
+    "Unterrichtseinheiten. Selbst die unpilotierte optimierte Untergrenze "
+    "überschreitet 30/34/38; daher existiert kein verfügbares "
+    "Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf "
+    "Folgeoptionen ist umgesetzt."
+)
 GRADE_6_INTEGRATION_BOUNDS = {
     "INT-6-ACTORS-SELECTION": {
         "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02"],
@@ -656,10 +663,9 @@ def _validate_grade_7_judgement(
             isinstance(judgement[field], str) and judgement[field].strip(),
             f"grade 7 judgement {field} must be a nonempty string",
         )
-    rationale_lower = judgement["rationale"].lower()
     _require(
-        "keine" in rationale_lower and "umgesetzt" in rationale_lower,
-        "grade 7 judgement must state that no decision option is implemented",
+        judgement["rationale"] == GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE,
+        "grade 7 judgement must use the canonical unimplemented-options rationale",
     )
 
     expected_module_ids = GRADE_7_CORE_MODULE_IDS | set(GRADE_7_FLEX_RANGES)
@@ -797,8 +803,7 @@ def validate_time_model_draft(time_model, module_payload=None):
         module_payload,
     )
     grade_7_is_in_current_scope = (
-        has_grade_6_orchestration
-        and isinstance(module_payload, dict)
+        isinstance(module_payload, dict)
         and any(
             isinstance(module, dict) and module.get("grade") == 7
             for module in module_payload.get("modules", [])
@@ -1438,13 +1443,23 @@ def validate_integration_contracts(integration_contracts, module_contracts):
             isinstance(savings, dict) and set(savings) == set(path_ids),
             f"integration savings paths differ from its paths: {contract_id}",
         )
+        expected_grade_7_bounds = GRADE_7_INTEGRATION_BOUNDS.get(contract_id)
+        matches_approved_grade_7_bounds = (
+            isinstance(expected_grade_7_bounds, dict)
+            and all(
+                contract.get(field) == expected_value
+                for field, expected_value in expected_grade_7_bounds.items()
+            )
+            and contract.get("status") in {"working", "reviewed"}
+        )
         _require(
             all(_nonnegative_int(minutes) for minutes in savings.values())
             and (
-                contract_id in GRADE_7_INTEGRATION_IDS
-                or all(minutes <= shared_minutes for minutes in savings.values())
+                all(minutes <= shared_minutes for minutes in savings.values())
+                or matches_approved_grade_7_bounds
             ),
-            f"integration savings must be non-negative integer minutes: {contract_id}",
+            "integration savings must stay within shared minutes unless the "
+            f"complete approved grade 7 bounds match: {contract_id}",
         )
 
         for field in (
