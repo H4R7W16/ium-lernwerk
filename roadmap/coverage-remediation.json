@@ -17,26 +17,22 @@
         "evidenceModuleId": "IUM-5-CORE-01",
         "reason": "Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der vorhandene Modulzweck trägt die vollständige Handlung: Lernende halten die lokale Medienordnung ein und benennen, beschreiben sowie nutzen Eingabe-, Verarbeitungs- und Ausgabekomponenten sachgerecht; die Gerätefunktionsmatrix weist jeden Operator an beobachteten Arbeitsschritten nach.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf für Geräteerkundung, Regelanwendung und die beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritte innerhalb des bestehenden Stundenkorridors."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Geräte- und Regelhandlungen konkretisieren den bestehenden Arbeitsplatzauftrag in IUM-5-CORE-01 und benötigen keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt.",
-        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-002",
@@ -48,26 +44,22 @@
         "evidenceModuleId": "IUM-5-CORE-01",
         "reason": "Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-002",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der lokale Arbeitsdurchlauf verlangt die tatsächliche Anmeldung im freigegebenen Schulnetz, das Zurechtfinden in Speicherorten und Programmen sowie die Nutzung von Betriebssystem-Grundfunktionen in einem zusammenhängenden Arbeitsweg; die Lehrkraft beobachtet die Ausführung ohne Zugangsdaten zu erfassen.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf und die Reihenfolge für lokale Anmeldung, Orientierung und Betriebssystemarbeit unter der jeweils vor Ort verfügbaren Schulkonfiguration."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die tatsächliche lokale Anmeldung und Betriebssystemnutzung gehören zum bestehenden Arbeitsplatzauftrag von IUM-5-CORE-01 und benötigen keine neue Modulvoraussetzung."
       },
-      "residualGap": {
-        "reason": "Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach.",
-        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-003",
@@ -85,19 +77,19 @@
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Modulzweck trägt Schulnetz, Betriebssystem, Dateien und Zugangsschutz, aber keine zusammenhängende weitgehend selbstständige Anwendung elementarer Funktionen mehrerer Standardprogramme und Mediengeräte; ein entsprechender Nachweis wäre ein unverbundenes Mehrwerkzeug-Zusatzprodukt oder verlangte eine andere modulare Verortung.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft Zeitfolge und Zeitbedarf einer fachlich zusammenhängenden Mehrwerkzeug-Handlung außerhalb der bereits dichten Geräte-, Betriebssystem- und Regelhandlungen dieses Moduls."
       },
       "graphImpact": {
-        "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "level": "review-required",
+        "rationale": "Eine belastbare Schließung verlangt die Prüfung einer anderen modularen Verortung oder strukturellen Zuordnung; deshalb bleibt der Record in IUM09 partial."
       },
       "residualGap": {
-        "reason": "Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet.",
-        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet. Danach den Record erneut operator- und produktgenau auditieren."
+        "reason": "Die weitgehend selbstständige Anwendung elementarer Funktionen mehrerer Standardprogramme und Mediengeräte wird vom auf Schulnetz, Betriebssystem, Dateien und Zugangsschutz fokussierten Modulzweck nicht als zusammenhängende Lernhandlung getragen; ein Nachweis würde ein unverbundenes Mehrwerkzeug-Zusatzprodukt oder eine andere modulare Verortung verlangen.",
+        "risk": "Eine Schließung allein in IUM-5-CORE-01 würde Bedienbreite mehrerer Standardprogramme und Mediengeräte ohne tragende Verbindung zur zentralen Arbeitsplatzfrage ergänzen und könnte den bestehenden Stundenkorridor überfrachten.",
+        "followUp": "IUM10 prüft Zeitfolge und modulare Verortung einer zusammenhängenden, weitgehend selbstständigen Mehrwerkzeug-Handlung; bis zu einer fachlich getragenen Verortung bleibt der Record ohne Evidenzvertrag partial."
       }
     },
     {
@@ -451,26 +443,22 @@
         "evidenceModuleId": "IUM-5-CORE-01",
         "reason": "Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-PK-SK-003",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Lernende benennen die vor Ort geltenden Verhaltensregeln und halten sie im tatsächlichen lokalen Geräte- und Dateiarbeitsauftrag ein; Regelcheck und festgelegte Beobachtungspunkte bilden Benennen und Einhalten prüfbar ab.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft, wie Einführung, Benennung und beobachtete Anwendung lokaler Medienregeln in den bestehenden Stundenkorridor eingeordnet werden."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die Regelanwendung ist Bestandteil des sicheren lokalen Arbeitsplatzauftrags und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten.",
-        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "INF7-16-GYM-IK-ALG-003",
@@ -1102,26 +1090,22 @@
         "evidenceModuleId": "IUM-5-CORE-01",
         "reason": "Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-LH26-E-DA-004",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Das Schichtenmodell präzisiert die bereits zentrale Systemerklärung: Lernende erklären Hardware, Betriebssystem und Programme als unterscheidbare, zusammenwirkende Schichten und ordnen die beobachteten Arbeitsschritte zu; die kommentierte Schichtenansicht macht die Beziehungen prüfbar.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den zusätzlichen Erklärungs- und Sicherungsbedarf des Schichtenmodells gemeinsam mit der Geräte- und Betriebssystemsequenz."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Das Schichtenmodell konkretisiert die vorhandene System- und Arbeitswegkarte und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt.",
-        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DA-005",
@@ -1350,26 +1334,22 @@
         "evidenceModuleId": "IUM-5-CORE-01",
         "reason": "Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet."
       },
-      "decision": "remain-partial",
-      "evidenceContractId": null,
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-LH26-E-DP-001",
       "after": {
-        "coverageStatus": "partial",
-        "semanticAudit": "documented-gap"
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der Vertrag verbindet tatsächliches Beachten der vor Ort geltenden schulischen Medienregeln mit einer fachlichen Auseinandersetzung über Zwecke, Folgen und einen vorgegebenen Regelkonflikt; Regelabschnitt und Lehrkraftbeobachtung weisen beide Operatoren aus.",
       "timeImpact": {
         "level": "review-required",
-        "rationale": "Der Zeitbedarf einer m?glichen fachlichen Nacharbeit wird in IUM10 gepr?ft."
+        "rationale": "IUM10 prüft den Zeitbedarf für tatsächliche Regelanwendung, Begründung und Konfliktbearbeitung in der lokalen Geräte- und Dateiarbeitssequenz."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "Die schulische Regelanwendung und -auseinandersetzung vertieft den bestehenden sicheren Arbeitsplatzauftrag und benötigt keine neue Voraussetzung."
       },
-      "residualGap": {
-        "reason": "Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet.",
-        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet.",
-        "followUp": "Kernkandidat IUM-5-CORE-01 um eine zentrale Lernhandlung und einen Produktnachweis ergänzen, die folgende Lücke schließen: Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet. Danach den Record erneut operator- und produktgenau auditieren."
-      }
+      "residualGap": null
     },
     {
       "competencyId": "LH26-E-DP-003",
@@ -1759,14 +1739,14 @@
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap"
       },
-      "changeRationale": "Ausgangszustand: Die dokumentierte L?cke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schlie?ung wird nicht vorweggenommen.",
+      "changeRationale": "Der vorregistrierte Auditentscheid wird bestätigt: Die jahrgangsübergreifende Balance des sicheren, verantwortungsvollen und reflektierten Umgangs in Klassen 5 und 6 kann nicht durch einen Einzelmodulvertrag oder ein zusätzliches Produkt in IUM-5-CORE-01 nachgewiesen werden.",
       "timeImpact": {
         "level": "roadmap-dependent",
-        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis gepr?ft."
+        "rationale": "IUM10 prüft die jahrgangsweite Balance, Progression und Zeitgewichtung über alle betroffenen Kernmodule als Sequenznachweis."
       },
       "graphImpact": {
         "level": "none",
-        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+        "rationale": "IUM09 verändert für den roadmapweiten Nachweis weder Modulgraph noch Voraussetzungen; ein Einzelmodulvertrag bleibt ausdrücklich ausgeschlossen."
       },
       "residualGap": {
         "reason": "Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6.",

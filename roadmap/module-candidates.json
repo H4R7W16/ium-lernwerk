@@ -57,6 +57,54 @@
       "centralQuestion": "Wie richten wir einen digitalen Arbeitsplatz ein, der verständlich, sicher und wieder auffindbar bleibt?",
       "centralLearningAction": "Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen.",
       "centralLearningProduct": "Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
+          "competencyId": "BMB16-GYM-IK-GM-001",
+          "mode": "module-detail",
+          "learningAction": "Die Verhaltensregeln der lokalen Medienordnung in einer Geräteerkundung einhalten sowie Eingabe-, Verarbeitungs- und Ausgabekomponenten benennen, ihre Funktion beschreiben und sachgerecht nutzen.",
+          "productEvidence": "Kommentierte Gerätefunktionsmatrix mit Regelcheck und je einem beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-002",
+          "competencyId": "BMB16-GYM-IK-GM-002",
+          "mode": "school-context",
+          "learningAction": "Sich mit der vor Ort freigegebenen schulischen Anmeldung tatsächlich im lokalen Schulnetz anmelden, darin zu den benötigten Speicherorten und Programmen navigieren und die Grundfunktionen des Betriebssystems für einen vollständigen Arbeitsweg nutzen.",
+          "productEvidence": "Lehrkraftbeobachteter lokaler Arbeitsdurchlauf mit Anmeldung, Navigation, Öffnen, Speichern und Wiederfinden einer unpersönlichen Testdatei; dokumentiert werden nur die ausgeführten Schritte, niemals Zugangsdaten.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Die vor Ort freigegebene schulische Anmeldung, Verzeichnisstruktur und Betriebssystemumgebung werden tatsächlich verwendet; Zugangsdaten werden nicht dokumentiert."
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-BMB16-GYM-PK-SK-003",
+          "competencyId": "BMB16-GYM-PK-SK-003",
+          "mode": "school-context",
+          "learningAction": "Die vor Ort geltenden Verhaltensregeln für schulische Mediennutzung benennen und während des tatsächlichen lokalen Geräte- und Dateiarbeitsauftrags einhalten.",
+          "productEvidence": "Kommentierter Regelcheck mit benannten lokalen Regeln und lehrkraftbeobachteter Anwendung an festgelegten Prüfpunkten des Arbeitsauftrags; Zugangsdaten und private Inhalte werden nicht dokumentiert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Die vor Ort geltende schulische Mediennutzungsordnung sowie die freigegebene Geräte- und Dateiumgebung werden tatsächlich verwendet."
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-LH26-E-DA-004",
+          "competencyId": "LH26-E-DA-004",
+          "mode": "module-detail",
+          "learningAction": "Den grundlegenden Aufbau des im Arbeitsauftrag genutzten digitalen Systems als Zusammenspiel der Schichten Hardware, Betriebssystem und Programme erklären und die beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritte den drei Schichten zuordnen.",
+          "productEvidence": "Kommentierte Schichtenansicht in der System- und Arbeitswegkarte, die Hardware, Betriebssystem und Programme trennt und ihre Beziehungen am ausgeführten Arbeitsweg erklärt.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-LH26-E-DP-001",
+          "competencyId": "LH26-E-DP-001",
+          "mode": "school-context",
+          "learningAction": "Die vor Ort geltenden Regeln für die schulische Mediennutzung in einer tatsächlichen lokalen Geräte- und Dateiarbeit beachten, ihre Zwecke und Folgen für den Arbeitsweg erläutern und einen vorgegebenen Regelkonflikt begründet bearbeiten.",
+          "productEvidence": "Kommentierter Regelabschnitt der Arbeitswegkarte mit angewandten lokalen Regeln, ihren Begründungen und einer begründeten Lösung für einen vorgegebenen Regelkonflikt; die tatsächliche Regelanwendung wird durch die Lehrkraft beobachtet.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Die vor Ort geltenden Regeln für schulische Mediennutzung sowie die freigegebene Geräte- und Dateiumgebung werden tatsächlich angewendet; Zugangsdaten und private Inhalte bleiben undokumentiert."
+        }
+      ],
       "moduleGrammar": [
         "orientation-challenge",
         "activate-prior-knowledge",

@@ -73,6 +73,14 @@ EXPECTED_CAUSE_CLASS_BY_ID = {
 }
 
 AUDITED_DECISIONS = {
+    "BMB16-GYM-IK-GM-001": ("IUM-5-CORE-01", "module-detail", "covered"),
+    "BMB16-GYM-IK-GM-002": ("IUM-5-CORE-01", "school-context", "covered"),
+    "BMB16-GYM-IK-GM-003": (
+        "IUM-5-CORE-01", "module-detail", "remain-partial"
+    ),
+    "BMB16-GYM-PK-SK-003": ("IUM-5-CORE-01", "school-context", "covered"),
+    "LH26-E-DA-004": ("IUM-5-CORE-01", "module-detail", "covered"),
+    "LH26-E-DP-001": ("IUM-5-CORE-01", "school-context", "covered"),
     "LH26-E-PROG-001": ("IUM-5-CORE-01", "roadmap-level", "remain-partial"),
     "LH26-E-PROG-002": ("IUM-5-CORE-05", "roadmap-level", "remain-partial"),
     "LH26-E-PROG-003": ("IUM-7-CORE-08", "roadmap-level", "remain-partial"),
@@ -275,6 +283,7 @@ class ModuleStructureFingerprintTests(unittest.TestCase):
         for field, mutate in mutations.items():
             with self.subTest(field=field):
                 payload = copy.deepcopy(self.repository_payload)
+                payload["modules"][0].pop("coverageEvidence", None)
                 mutate(payload["modules"][0])
                 with self.assertRaisesRegex(
                     IUM09ValidationError, "module structure fingerprint"
@@ -342,10 +351,19 @@ class RemediationLedgerTests(unittest.TestCase):
             entry["competencyId"]: entry
             for entry in cls.coverage_payload["entries"]
         }
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.repository_evidence_contracts = validate_coverage_evidence(
+            module_payload, cls.curriculum_contracts
+        )
 
     def validate(self, payload, evidence_contracts=None):
+        contracts = dict(self.repository_evidence_contracts)
+        if evidence_contracts is not None:
+            contracts.update(evidence_contracts)
         return validate_remediation_ledger(
-            payload, self.curriculum_contracts, evidence_contracts or {}
+            payload, self.curriculum_contracts, contracts
         )
 
     def test_repository_ledger_has_immutable_baseline_metadata(self):
@@ -380,35 +398,65 @@ class RemediationLedgerTests(unittest.TestCase):
             "b7602352c67f61cdf075a65df167e12f7283b8f62867386545fea758b6e08892",
         )
 
-    def test_repository_ledger_preserves_each_partial_gap_until_audit(self):
+    def test_repository_ledger_preserves_before_records_and_matches_audits(self):
         for entry in self.ledger_payload["entries"]:
             with self.subTest(competency_id=entry["competencyId"]):
                 source = self.coverage_entries[entry["competencyId"]]
                 self.assertEqual(entry["requirementText"], source["requirementText"])
+                audit = AUDITED_DECISIONS.get(entry["competencyId"])
+                if audit is None:
+                    expected_module = entry["before"]["evidenceModuleId"]
+                    expected_cause = entry["causeClass"]
+                    expected_decision = "remain-partial"
+                    self.assertEqual(
+                        entry["before"],
+                        {
+                            "coverageStatus": source["coverageStatus"],
+                            "semanticAudit": source["semanticAudit"],
+                            "evidenceModuleId": source["evidenceModuleId"],
+                            "reason": source["reason"],
+                        },
+                    )
+                else:
+                    expected_module, expected_cause, expected_decision = audit
                 self.assertEqual(
-                    entry["before"],
-                    {
-                        "coverageStatus": source["coverageStatus"],
-                        "semanticAudit": source["semanticAudit"],
-                        "evidenceModuleId": source["evidenceModuleId"],
-                        "reason": source["reason"],
-                    },
+                    entry["before"]["evidenceModuleId"], expected_module
                 )
-                self.assertEqual(entry["decision"], "remain-partial")
-                self.assertIsNone(entry["evidenceContractId"])
-                self.assertEqual(
-                    entry["after"],
-                    {"coverageStatus": "partial", "semanticAudit": "documented-gap"},
+                self.assertEqual(entry["causeClass"], expected_cause)
+                self.assertEqual(entry["decision"], expected_decision)
+                if expected_decision == "covered":
+                    self.assertIsNotNone(entry["evidenceContractId"])
+                    self.assertEqual(
+                        entry["after"],
+                        {
+                            "coverageStatus": "covered",
+                            "semanticAudit": "operator-product-match",
+                        },
+                    )
+                    self.assertIsNone(entry["residualGap"])
+                else:
+                    self.assertIsNone(entry["evidenceContractId"])
+                    self.assertEqual(
+                        entry["after"],
+                        {
+                            "coverageStatus": "partial",
+                            "semanticAudit": "documented-gap",
+                        },
+                    )
+                    self.assertEqual(
+                        entry["residualGap"],
+                        {
+                            "reason": source["reason"],
+                            "risk": source["risk"],
+                            "followUp": source["followUp"],
+                        },
+                    )
+                expected_graph = (
+                    "review-required"
+                    if entry["competencyId"] == "BMB16-GYM-IK-GM-003"
+                    else "none"
                 )
-                self.assertEqual(
-                    entry["residualGap"],
-                    {
-                        "reason": source["reason"],
-                        "risk": source["risk"],
-                        "followUp": source["followUp"],
-                    },
-                )
-                self.assertEqual(entry["graphImpact"]["level"], "none")
+                self.assertEqual(entry["graphImpact"]["level"], expected_graph)
                 expected_time = (
                     "roadmap-dependent"
                     if entry["causeClass"] == "roadmap-level"
@@ -428,7 +476,12 @@ class RemediationLedgerTests(unittest.TestCase):
 
     def test_validator_rejects_incomplete_residual_gap(self):
         payload = copy.deepcopy(self.ledger_payload)
-        del payload["entries"][0]["residualGap"]["followUp"]
+        entry = next(
+            entry
+            for entry in payload["entries"]
+            if entry["decision"] == "remain-partial"
+        )
+        del entry["residualGap"]["followUp"]
         with self.assertRaisesRegex(IUM09ValidationError, "residualGap"):
             self.validate(payload)
 
@@ -524,18 +577,27 @@ class RemediatedCoverageTests(unittest.TestCase):
             entry["competencyId"]: {"text": entry["requirementText"]}
             for entry in cls.coverage_payload["entries"]
         }
+        cls.repository_evidence_contracts = validate_coverage_evidence(
+            cls.module_payload, cls.curriculum_contracts
+        )
 
     def validated_ledger_entries(self):
         return validate_remediation_ledger(
             self.remediation_payload,
             self.curriculum_contracts,
-            {},
+            self.repository_evidence_contracts,
         )
 
     def covered_chain_payloads(self):
         module_payload = copy.deepcopy(self.module_payload)
         contract = evidence_contract()
-        module_payload["modules"][0]["coverageEvidence"] = [contract]
+        evidence = module_payload["modules"][0]["coverageEvidence"]
+        evidence[:] = [
+            contract
+            if item["competencyId"] == contract["competencyId"]
+            else item
+            for item in evidence
+        ]
         coverage_payload = copy.deepcopy(self.coverage_payload)
         coverage_entry = next(
             entry
@@ -580,7 +642,7 @@ class RemediatedCoverageTests(unittest.TestCase):
         result = validate_remediated_coverage(
             self.coverage_payload,
             self.validated_ledger_entries(),
-            {},
+            self.repository_evidence_contracts,
             self.curriculum_contracts,
         )
         self.assertEqual(
@@ -592,29 +654,42 @@ class RemediatedCoverageTests(unittest.TestCase):
         for field in ("reason", "risk", "followUp"):
             with self.subTest(field=field):
                 coverage_payload = copy.deepcopy(self.coverage_payload)
-                coverage_payload["entries"][0][field] += " Abweichung."
+                partial_entry = next(
+                    entry
+                    for entry in coverage_payload["entries"]
+                    if entry["coverageStatus"] == "partial"
+                )
+                partial_entry[field] += " Abweichung."
                 with self.assertRaisesRegex(IUM09ValidationError, "residual"):
                     validate_remediated_coverage(
                         coverage_payload,
                         self.validated_ledger_entries(),
-                        {},
+                        self.repository_evidence_contracts,
                         self.curriculum_contracts,
                     )
 
     def test_rejects_status_change_without_matching_ledger_decision(self):
         coverage_payload = copy.deepcopy(self.coverage_payload)
-        coverage_payload["entries"][0].update(
+        partial_entry = next(
+            entry
+            for entry in coverage_payload["entries"]
+            if entry["coverageStatus"] == "partial"
+        )
+        partial_entry.update(
             {
                 "coverageStatus": "covered",
                 "semanticAudit": "operator-product-match",
-                "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
+                "evidenceContractId": (
+                    f"CE-{partial_entry['evidenceModuleId']}-"
+                    f"{partial_entry['competencyId']}"
+                ),
             }
         )
         with self.assertRaisesRegex(IUM09ValidationError, "coverage status"):
             validate_remediated_coverage(
                 coverage_payload,
                 self.validated_ledger_entries(),
-                {},
+                self.repository_evidence_contracts,
                 self.curriculum_contracts,
             )
 
@@ -630,7 +705,7 @@ class RemediatedCoverageTests(unittest.TestCase):
             validate_remediated_coverage(
                 coverage_payload,
                 self.validated_ledger_entries(),
-                {},
+                self.repository_evidence_contracts,
                 self.curriculum_contracts,
             )
 
@@ -649,7 +724,7 @@ class RemediatedCoverageTests(unittest.TestCase):
             validate_remediated_coverage(
                 coverage_payload,
                 self.validated_ledger_entries(),
-                {},
+                self.repository_evidence_contracts,
                 curriculum_contracts,
             )
 
@@ -687,7 +762,7 @@ class RemediatedCoverageTests(unittest.TestCase):
             validate_remediated_coverage(
                 coverage_payload,
                 remediation_entries,
-                {},
+                self.repository_evidence_contracts,
                 self.curriculum_contracts,
             )
 
@@ -698,7 +773,11 @@ class RemediatedCoverageTests(unittest.TestCase):
                     module_payload, coverage_payload, remediation_payload, contract = (
                         self.covered_chain_payloads()
                     )
-                    coverage_entry = coverage_payload["entries"][0]
+                    coverage_entry = next(
+                        entry
+                        for entry in coverage_payload["entries"]
+                        if entry["competencyId"] == contract["competencyId"]
+                    )
                     value = (
                         coverage_entry["requirementText"]
                         if field == "requirementText"
@@ -727,11 +806,15 @@ class RemediatedCoverageTests(unittest.TestCase):
                         )
 
     def test_rejects_evidence_contract_without_a_covered_ledger_decision(self):
+        evidence_contracts = dict(self.repository_evidence_contracts)
+        evidence_contracts["CE-orphan"] = {
+            "competencyId": "BMB16-GYM-IK-GM-001"
+        }
         with self.assertRaisesRegex(IUM09ValidationError, "referenced"):
             validate_remediated_coverage(
                 self.coverage_payload,
                 self.validated_ledger_entries(),
-                {"CE-orphan": {"competencyId": "BMB16-GYM-IK-GM-001"}},
+                evidence_contracts,
                 self.curriculum_contracts,
             )
 
