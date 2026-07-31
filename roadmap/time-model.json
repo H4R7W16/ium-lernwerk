@@ -3809,13 +3809,391 @@
       "privacyDisposition": {"contractId": "PC-IUM-7-CORE-10", "observableBasis": "nonpersonal-follow-up", "evidenceContractId": "CE-IUM-7-CORE-10-LH26-E-DP-014", "privateArtifactContribution": {"product": "excluded", "evidence": "excluded", "additionalTimeClaim": "excluded"}, "privateActivityTimeTreatment": "module-budget-only"}
     }
   ],
-  "sequenceEvidence": [],
+  "sequenceEvidence": [
+    {
+      "id": "SE-LH26-E-PROG-001",
+      "competencyId": "LH26-E-PROG-001",
+      "timeReviewId": "TR-LH26-E-PROG-001",
+      "moduleIds": ["IUM-5-CORE-01", "IUM-5-CORE-02", "IUM-5-CORE-03", "IUM-5-CORE-04", "IUM-5-CORE-05", "IUM-5-CORE-06", "IUM-5-CORE-07", "IUM-6-CORE-01", "IUM-6-CORE-02", "IUM-6-CORE-03", "IUM-6-CORE-04", "IUM-6-CORE-05", "IUM-6-CORE-06", "IUM-6-CORE-07"],
+      "grades": [5, 6],
+      "progression": [
+        {
+          "grade": 5,
+          "moduleIds": ["IUM-5-CORE-01", "IUM-5-CORE-02", "IUM-5-CORE-03", "IUM-5-CORE-04", "IUM-5-CORE-05", "IUM-5-CORE-06", "IUM-5-CORE-07"],
+          "learningDepth": "Lernende führen reale digitale Arbeitswege aus, prüfen Quellen, kommunizieren adressatengerecht, modellieren Datenwege und revidieren sowohl ein Medienprodukt als auch eine nichtpersonale Fallanalyse."
+        },
+        {
+          "grade": 6,
+          "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02", "IUM-6-CORE-03", "IUM-6-CORE-04", "IUM-6-CORE-05", "IUM-6-CORE-06", "IUM-6-CORE-07"],
+          "learningDepth": "Lernende revidieren Such- und KI-Ergebnisse mit Belegen, modellieren Datenflüsse und Auswahl, begründen System- und Konfliktentscheidungen und prüfen sowie überarbeiten offen lizenzierte Medienprodukte zunehmend selbstständig."
+        }
+      ],
+      "operatorProductDepth": [
+        {
+          "grade": 5,
+          "operatorDepth": "Ausführen, beschreiben, prüfen, modellieren, begründen und nach vorgegebenen Kriterien revidieren.",
+          "productDepth": "Arbeitswegkarte, Quellendossier, Kommunikationsleitfaden, Datenwegmodell, grafischer Algorithmus, Medienprodukt und Wirkungskarte bilden die vollständige sichtbare Basis."
+        },
+        {
+          "grade": 6,
+          "operatorDepth": "Beleggestützt vergleichen, modellieren, testen, abwägen, selbstständiger entscheiden und nach Gegenbeleg oder Feedback revidieren.",
+          "productDepth": "Evidenzdossier, Datenflussmodell, Codebuch, Programm, Systemmodell, Fall-Handlungsplan und offen nachnutzbares Medienprodukt vertiefen die Arbeitsfähigkeit."
+        }
+      ],
+      "perspectiveWeighting": [
+        {
+          "perspective": "digital-work-capability",
+          "moduleIds": ["IUM-5-CORE-01", "IUM-5-CORE-04", "IUM-5-CORE-06", "IUM-6-CORE-03", "IUM-6-CORE-05", "IUM-6-CORE-07"],
+          "rationale": "Arbeitswege, Systemmodelle und eigenständigere digitale Produktion sichern die anwendungsbezogene Arbeitsfähigkeit."
+        },
+        {
+          "perspective": "information-and-data",
+          "moduleIds": ["IUM-5-CORE-02", "IUM-5-CORE-04", "IUM-6-CORE-01", "IUM-6-CORE-02", "IUM-6-CORE-03", "IUM-6-CORE-05"],
+          "rationale": "Quellenprüfung, Datenwege, Datenarten, Auswahlmechanismen und Systemgrenzen verbinden Information und Daten."
+        },
+        {
+          "perspective": "communication-and-responsibility",
+          "moduleIds": ["IUM-5-CORE-03", "IUM-5-CORE-07", "IUM-6-CORE-06", "IUM-6-CORE-07"],
+          "rationale": "Kommunikationsregeln, nichtpersonale Konfliktfälle, Wirkungsfragen und Rechte tragen verantwortungsvolle und reflektierte Entscheidungen."
+        },
+        {
+          "perspective": "algorithmic-orientation",
+          "moduleIds": ["IUM-5-CORE-05", "IUM-6-CORE-04"],
+          "rationale": "Grafische Algorithmen und die aktive Programmwiederaufnahme ergänzen die Medienbildungsbasis um informatische Denk- und Vorgehensweisen."
+        }
+      ],
+      "timeEvidence": [
+        {
+          "variantId": "GRADE-5-BASELINE",
+          "available": true,
+          "targetUnits": 30,
+          "scopeModuleIds": ["IUM-5-CORE-01", "IUM-5-CORE-02", "IUM-5-CORE-03", "IUM-5-CORE-04", "IUM-5-CORE-05", "IUM-5-CORE-06", "IUM-5-CORE-07"],
+          "scopeUnits": 30,
+          "weightGroups": [],
+          "rationale": "Der verfügbare Klasse-5-Basispfad umfasst alle sieben Kernmodule mit 30 Unterrichtseinheiten."
+        },
+        {
+          "variantId": "GRADE-6-BASELINE",
+          "available": true,
+          "targetUnits": 30,
+          "scopeModuleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02", "IUM-6-CORE-03", "IUM-6-CORE-04", "IUM-6-CORE-05", "IUM-6-CORE-06", "IUM-6-CORE-07"],
+          "scopeUnits": 30,
+          "weightGroups": [],
+          "rationale": "Der verfügbare Klasse-6-Basispfad umfasst alle sieben Kernmodule mit 30 Unterrichtseinheiten."
+        }
+      ],
+      "remainingBoundary": "Der fachliche Sequenznachweis schließt die Progressionslücke, ersetzt aber weder Pilotierung noch Zeitfreigabe der weiterhin working geführten Jahrespfade.",
+      "fachAuditStatus": "passed",
+      "coverageDecision": "covered",
+      "coverageConsequence": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match",
+        "rationale": "Die vollständigen Kernwege der Klassen 5 und 6 zeigen die geforderte sichere, verantwortungsvolle und reflektierte digitale Arbeitsfähigkeit mit zunehmender Selbstständigkeit auf tatsächlich verfügbaren Jahrespfaden."
+      },
+      "evidenceBoundary": {
+        "privateEvidence": "excluded",
+        "singleModuleProxy": "excluded",
+        "automatedPersonalAssessment": "excluded",
+        "rationale": "Der Nachweis beruht ausschließlich auf der vollständigen Modulfolge und ihren nichtpersonalen Produktspuren; private Artefakte, Einzelmodulabkürzungen und automatische Personenbewertung sind ausgeschlossen."
+      },
+      "status": "working"
+    },
+    {
+      "id": "SE-LH26-E-PROG-002",
+      "competencyId": "LH26-E-PROG-002",
+      "timeReviewId": "TR-LH26-E-PROG-002",
+      "moduleIds": ["IUM-5-CORE-05", "IUM-6-CORE-04", "IUM-7-CORE-03", "IUM-7-CORE-04"],
+      "grades": [5, 6, 7],
+      "progression": [
+        {
+          "grade": 5,
+          "moduleIds": ["IUM-5-CORE-05"],
+          "learningDepth": "Lernende sagen einen grafischen Algorithmus voraus, führen ihn aus, protokollieren und reparieren ihn und modellieren konstante Wiederholung grundlegend."
+        },
+        {
+          "grade": 6,
+          "moduleIds": ["IUM-6-CORE-04"],
+          "learningDepth": "Lernende sagen Code mit Zustand voraus, führen ihn schrittweise aus, verändern eine feste Schleife begründet und prüfen die Änderung mit Fällen."
+        },
+        {
+          "grade": 7,
+          "moduleIds": ["IUM-7-CORE-03", "IUM-7-CORE-04"],
+          "learningDepth": "Lernende tracen Verzweigung und bedingte Schleife, erklären Werte und Datentypen, implementieren einen Algorithmus, testen Normal-, Grenz- und Gegenfälle und debuggen hypothesengeleitet."
+        }
+      ],
+      "operatorProductDepth": [
+        {
+          "grade": 5,
+          "operatorDepth": "Vorhersagen, ausführen, protokollieren, reparieren und eine einfache Schleifenentscheidung begründen.",
+          "productDepth": "Ein ausführbarer grafischer Algorithmus mit Laufprotokoll und reparierter Fassung bleibt bewusst niederschwellig."
+        },
+        {
+          "grade": 6,
+          "operatorDepth": "Zustand schrittweise verfolgen, Wirkung erklären, feste Wiederholung verändern und mit Fällen prüfen.",
+          "productDepth": "Ein lauffähiges kleines Programm verbindet Trace, begründete Modifikation und dokumentierte Testfälle."
+        },
+        {
+          "grade": 7,
+          "operatorDepth": "Kontrollfluss und Typen erklären, implementieren, systematisch testen, Fehlerhypothesen bilden und begründet reparieren.",
+          "productDepth": "Synchrones Code-Ablauf-Zustandstrace und kommentiertes Teamprogramm mit Entwurfsmodell, Testprotokoll und Debuggingspur markieren die Aufbaukurstiefe."
+        }
+      ],
+      "perspectiveWeighting": [
+        {
+          "perspective": "algorithmic-thinking",
+          "moduleIds": ["IUM-5-CORE-05", "IUM-6-CORE-04", "IUM-7-CORE-03"],
+          "rationale": "Grafische Ausführung, aktive Wiederaufnahme und Kontrollflussmodellierung steigern die algorithmische Tiefe nachvollziehbar."
+        },
+        {
+          "perspective": "implementation-testing-debugging",
+          "moduleIds": ["IUM-7-CORE-04"],
+          "rationale": "Erst die Klasse-7-Implementierung fordert systematische Fälle, Fehlerhypothese und begründete Reparatur und grenzt damit die niederschwellige Orientierung ab."
+        }
+      ],
+      "timeEvidence": [
+        {
+          "variantId": "GRADE-5-BASELINE",
+          "available": true,
+          "targetUnits": 30,
+          "scopeModuleIds": ["IUM-5-CORE-05"],
+          "scopeUnits": 5,
+          "weightGroups": [],
+          "rationale": "Im verfügbaren Klasse-5-Basispfad erhält der grundlegende grafische Algorithmus 5 Unterrichtseinheiten."
+        },
+        {
+          "variantId": "GRADE-6-BASELINE",
+          "available": true,
+          "targetUnits": 30,
+          "scopeModuleIds": ["IUM-6-CORE-04"],
+          "scopeUnits": 4,
+          "weightGroups": [],
+          "rationale": "Im verfügbaren Klasse-6-Basispfad erhält die aktive Programm- und Schleifenwiederaufnahme 4 Unterrichtseinheiten."
+        },
+        {
+          "variantId": "GRADE-7-OPTIMIZED-DEMAND",
+          "available": false,
+          "targetUnits": 40,
+          "scopeModuleIds": ["IUM-7-CORE-03", "IUM-7-CORE-04"],
+          "scopeUnits": 11,
+          "weightGroups": [],
+          "rationale": "Das nicht verfügbare optimierte Klasse-7-Bedarfsszenario weist für Kontrollfluss 5 und für Implementierung, Test und Debugging 6 Unterrichtseinheiten als Vergleichstiefe aus."
+        }
+      ],
+      "remainingBoundary": "Die semantische Abgrenzung der grundlegenden Klassen-5-/6-Orientierung ist belegt; das Klasse-7-Vergleichsmodell bleibt mit 40 Unterrichtseinheiten nicht verfügbar und red.",
+      "fachAuditStatus": "passed",
+      "coverageDecision": "covered",
+      "coverageConsequence": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match",
+        "rationale": "Die verfügbaren Klasse-5-/6-Pfade tragen die niederschwellige Orientierung, während die explizit nicht verfügbare Klasse-7-Vergleichstiefe ihre fachliche Grenze sichtbar macht, ohne Verfügbarkeit zu behaupten."
+      },
+      "evidenceBoundary": {
+        "privateEvidence": "excluded",
+        "singleModuleProxy": "excluded",
+        "automatedPersonalAssessment": "excluded",
+        "rationale": "Der Nachweis folgt der viergliedrigen Modulfolge und ihren nichtpersonalen Algorithmus- und Programmprodukten; Einzelmodulproxy und automatische Personenbewertung sind ausgeschlossen."
+      },
+      "status": "working"
+    },
+    {
+      "id": "SE-LH26-E-PROG-003",
+      "competencyId": "LH26-E-PROG-003",
+      "timeReviewId": "TR-LH26-E-PROG-003",
+      "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+      "grades": [7],
+      "progression": [
+        {
+          "grade": 7,
+          "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "learningDepth": "Die vollständige Kernfolge führt Codierung, Datenmengen, Kontrollfluss, Implementierung, Netze und Verschlüsselung fort und verbindet sie anschließend mit Daten-, Akteurs-, Wirkungs-, Geschäftsmodell-, Rollen- und Mediengestaltungsfragen."
+        }
+      ],
+      "operatorProductDepth": [
+        {
+          "grade": 7,
+          "operatorDepth": "Darstellen, berechnen, modellieren, implementieren, testen, angreifen, bewerten, Belege und Gegenbelege prüfen, Wirkung begrenzen und Produkte begründet revidieren.",
+          "productDepth": "Bit-Codebuch, Bildcodec, Trace, Programm, Netz- und Sicherheitsmodelle, Angriffsprotokoll sowie Evidenzdossier, Mechanismuskarte und revidiertes Medienprodukt bilden eine jahrgangsweite Produktfolge."
+        }
+      ],
+      "perspectiveWeighting": [
+        {
+          "perspective": "technical",
+          "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"],
+          "rationale": "Codierung, Datenmengen, Kontrollfluss, Implementierung, Netze und Verschlüsselung sichern die fortgeführten informatischen Inhalte."
+        },
+        {
+          "perspective": "application",
+          "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "rationale": "Ausführen, testen, modellieren, prüfen und revidieren verbinden technische Gegenstände mit realitätsnahen Anwendungssituationen."
+        },
+        {
+          "perspective": "societal",
+          "moduleIds": ["IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "rationale": "Schutzentscheidungen, Akteure, Interessen, Rechte, Monetarisierung und allgemeine Wirkungen machen gesellschaftliche Folgen sichtbar."
+        },
+        {
+          "perspective": "media",
+          "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "rationale": "Das Evidenzdossier, die Mechanismuskarte und das revidierte Medienprodukt verbinden drei vollständige Medienbildungsmodule statt eines CORE-08-Proxys."
+        }
+      ],
+      "timeEvidence": [
+        {
+          "variantId": "GRADE-7-OPTIMIZED-DEMAND",
+          "available": false,
+          "targetUnits": 40,
+          "scopeModuleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "scopeUnits": 40,
+          "weightGroups": [
+            {"id": "core-01-07", "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"], "units": 30},
+            {"id": "core-08-10", "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"], "units": 10}
+          ],
+          "rationale": "Die optimierte vollständige Kernbedarfsrechnung verteilt 30 Unterrichtseinheiten auf CORE-01–07 und 10 auf CORE-08–10, bleibt aber nicht verfügbar."
+        },
+        {
+          "variantId": "GRADE-7-ROBUST-DEMAND",
+          "available": false,
+          "targetUnits": 46,
+          "scopeModuleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "scopeUnits": 46,
+          "weightGroups": [
+            {"id": "core-01-07", "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"], "units": 31},
+            {"id": "core-08-10", "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"], "units": 15}
+          ],
+          "rationale": "Die robuste vollständige Kernbedarfsrechnung verteilt 31 Unterrichtseinheiten auf CORE-01–07 und 15 auf CORE-08–10, bleibt aber nicht verfügbar."
+        },
+        {
+          "variantId": "GRADE-7-HISTORICAL-MINIMUM",
+          "available": false,
+          "targetUnits": 54,
+          "scopeModuleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "scopeUnits": 54,
+          "weightGroups": [
+            {"id": "core-01-07", "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"], "units": 38},
+            {"id": "core-08-10", "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"], "units": 16}
+          ],
+          "rationale": "Die historische vollständige Mindestbedarfsrechnung verteilt 38 Unterrichtseinheiten auf CORE-01–07 und 16 auf CORE-08–10, bleibt aber nicht verfügbar."
+        }
+      ],
+      "remainingBoundary": "Der fachliche Audit weist die jahrgangsweite Verbindung nach, doch ausschließlich nicht verfügbare Klasse-7-Bedarfsszenarien mit 40, 46 und 54 Unterrichtseinheiten verhindern den Wechsel zu covered.",
+      "fachAuditStatus": "passed",
+      "coverageDecision": "remain-partial",
+      "coverageConsequence": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "rationale": "Ohne tatsächlich verfügbaren Klasse-7-Jahrespfad bleibt die roadmapweite Coverage trotz bestandenem Fachaudit partial."
+      },
+      "evidenceBoundary": {
+        "privateEvidence": "excluded",
+        "singleModuleProxy": "excluded",
+        "automatedPersonalAssessment": "excluded",
+        "rationale": "Die Evidenz stammt aus der vollständigen nichtpersonalen Produktfolge aller zehn Kernmodule; private Reflexionen, CORE-08 oder das gemeinsame Dossier als Proxy und automatische Personenbewertung sind ausgeschlossen."
+      },
+      "status": "working"
+    },
+    {
+      "id": "SE-LH26-E-PROG-004",
+      "competencyId": "LH26-E-PROG-004",
+      "timeReviewId": "TR-LH26-E-PROG-004",
+      "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+      "grades": [7],
+      "progression": [
+        {
+          "grade": 7,
+          "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "learningDepth": "Die vollständige Kernfolge verknüpft technische Modellierung und Implementierung, anwendungsbezogene Prüf- und Entscheidungsprozesse, gesellschaftliche Akteurs-, Schutz- und Rechtsfragen sowie medienbezogene Wirkungs- und Gestaltungsfragen."
+        }
+      ],
+      "operatorProductDepth": [
+        {
+          "grade": 7,
+          "operatorDepth": "Technische Sachverhalte darstellen und implementieren, Anwendungen prüfen und revidieren, gesellschaftliche Folgen bewerten und Medienwirkungen mit Gegenperspektive gestalten und begrenzen.",
+          "productDepth": "Die Folge aus informatischen Modellen und Programmen, Schutz- und Angriffsentscheidungen sowie drei unterscheidbaren Medienbildungsprodukten macht alle vier Perspektiven sichtbar."
+        }
+      ],
+      "perspectiveWeighting": [
+        {
+          "perspective": "technical",
+          "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"],
+          "rationale": "Die ersten sieben Kernmodule tragen die technische Modellierungs-, Implementierungs-, Netz- und Sicherheitsperspektive."
+        },
+        {
+          "perspective": "application",
+          "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "rationale": "Alle Kernmodule verlangen ausgeführte, geprüfte oder revidierte Anwendungen statt bloßer Begriffsnennung."
+        },
+        {
+          "perspective": "societal",
+          "moduleIds": ["IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "rationale": "Schutzbedarf, Sicherheitsgrenzen, Akteure, Interessen, Geschäftsmodelle, Rechte und Wirkungen verbinden informatische und gesellschaftliche Fragen."
+        },
+        {
+          "perspective": "media",
+          "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "rationale": "Drei Medienbildungsmodule tragen gemeinsam Evidenzprüfung, Wirkungs- und Monetarisierungsanalyse sowie transparente Mediengestaltung; CORE-08 allein genügt nicht."
+        }
+      ],
+      "timeEvidence": [
+        {
+          "variantId": "GRADE-7-OPTIMIZED-DEMAND",
+          "available": false,
+          "targetUnits": 40,
+          "scopeModuleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "scopeUnits": 40,
+          "weightGroups": [
+            {"id": "core-01-07", "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"], "units": 30},
+            {"id": "core-08-10", "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"], "units": 10}
+          ],
+          "rationale": "Das optimierte Bedarfsszenario gewichtet CORE-01–07 mit 30 und CORE-08–10 mit 10 Unterrichtseinheiten, ist aber kein verfügbarer Jahrespfad."
+        },
+        {
+          "variantId": "GRADE-7-ROBUST-DEMAND",
+          "available": false,
+          "targetUnits": 46,
+          "scopeModuleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "scopeUnits": 46,
+          "weightGroups": [
+            {"id": "core-01-07", "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"], "units": 31},
+            {"id": "core-08-10", "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"], "units": 15}
+          ],
+          "rationale": "Das robuste Bedarfsszenario gewichtet CORE-01–07 mit 31 und CORE-08–10 mit 15 Unterrichtseinheiten, ist aber kein verfügbarer Jahrespfad."
+        },
+        {
+          "variantId": "GRADE-7-HISTORICAL-MINIMUM",
+          "available": false,
+          "targetUnits": 54,
+          "scopeModuleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07", "IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+          "scopeUnits": 54,
+          "weightGroups": [
+            {"id": "core-01-07", "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02", "IUM-7-CORE-03", "IUM-7-CORE-04", "IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"], "units": 38},
+            {"id": "core-08-10", "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"], "units": 16}
+          ],
+          "rationale": "Das historische Mindestbedarfsszenario gewichtet CORE-01–07 mit 38 und CORE-08–10 mit 16 Unterrichtseinheiten, ist aber kein verfügbarer Jahrespfad."
+        }
+      ],
+      "remainingBoundary": "Die vier Perspektiven und ihre Zeitgewichtung sind fachlich belegt; ohne verfügbaren Klasse-7-Jahrespfad bleibt die roadmapweite Anforderung dennoch partial und das Jahresurteil red.",
+      "fachAuditStatus": "passed",
+      "coverageDecision": "remain-partial",
+      "coverageConsequence": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "rationale": "Die Perspektivenverknüpfung darf bei ausschließlich nicht verfügbaren 40/46/54-Bedarfsszenarien nicht als covered ausgegeben werden."
+      },
+      "evidenceBoundary": {
+        "privateEvidence": "excluded",
+        "singleModuleProxy": "excluded",
+        "automatedPersonalAssessment": "excluded",
+        "rationale": "Nur die vollständige nichtpersonale Modul- und Zeitgewichtung zählt; private Reflexionen, Einzelmodul- oder Dossierproxy und automatische Personenbewertung sind ausgeschlossen."
+      },
+      "status": "working"
+    }
+  ],
   "gradeJudgements": [
     {
       "grade": 5,
       "semanticCoverageStatus": "partial",
       "timeFeasibilityStatus": "green",
-      "sequenceEvidenceStatus": "partial",
+      "sequenceEvidenceStatus": "covered",
       "pilotStatus": "not-started",
       "annualVariantIds": ["GRADE-5-BASELINE", "GRADE-5-REGULAR", "GRADE-5-EXTENDED"],
       "rationale": "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 Unterrichtseinheiten zeitlich grün; dieser Zeitstatus schließt die getrennt verbleibenden semantischen und Sequenzlücken ausdrücklich nicht.",
@@ -3826,7 +4204,7 @@
       "grade": 6,
       "semanticCoverageStatus": "partial",
       "timeFeasibilityStatus": "green",
-      "sequenceEvidenceStatus": "partial",
+      "sequenceEvidenceStatus": "covered",
       "pilotStatus": "not-started",
       "annualVariantIds": ["GRADE-6-BASELINE", "GRADE-6-REGULAR", "GRADE-6-EXTENDED-REFERENCE", "GRADE-6-EXTENDED-TRANSFER", "GRADE-6-EXTENDED-CODING"],
       "rationale": "Die verfügbaren vollständigen Kernpfade ergeben exakt 30 und 34 Unterrichtseinheiten; alle drei Erweiterungsvarianten ergeben exakt 38 Unterrichtseinheiten und alle drei Integrationsverträge sind working. Dieses grüne Zeiturteil lässt semantische Coverage und Sequenznachweise ausdrücklich partial.",

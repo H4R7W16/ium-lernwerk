@@ -1109,8 +1109,8 @@ TASK22_CORE08_STABLE_FIELDS_SHA256 = (
 TASK22_INTEGRATION_CONTRACT_SHA256 = (
     "c54c7a46659d67cf3090c9ee5f142dbdf9e72cf896a59f7e38fba4cd89d980bf"
 )
-TASK22_SEQUENCE_EVIDENCE_SHA256 = (
-    "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+TASK24_SEQUENCE_EVIDENCE_SHA256 = (
+    "162edbea8795bfa36d10eab2c49b789e471a865a8337577f3ef7f85f224f9304"
 )
 PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256 = (
     "6e78f073474c34b7ac89ada55cd4ab22fa021f0279bed8619091335aa2a0ef41"
@@ -2386,7 +2386,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
             ],
         )
 
-    def test_repository_draft_has_the_capacity_contract_and_unimplemented_lists_empty(self):
+    def test_repository_draft_has_capacity_contract_and_task24_sequence_records(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
@@ -2426,7 +2426,15 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "timeHandoffSha256": BASELINE_TIME_HANDOFF_SHA256,
             },
         )
-        self.assertEqual(time_model["sequenceEvidence"], [])
+        self.assertEqual(
+            {item["competencyId"] for item in time_model["sequenceEvidence"]},
+            {
+                "LH26-E-PROG-001",
+                "LH26-E-PROG-002",
+                "LH26-E-PROG-003",
+                "LH26-E-PROG-004",
+            },
+        )
         self.assertEqual(time_model["risks"], [])
         self.assertEqual(time_model["pilotAssignments"], [])
         self.assertEqual(
@@ -9123,7 +9131,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         self.assertEqual(
             self._canonical_sha256(sequence_evidence),
-            TASK22_SEQUENCE_EVIDENCE_SHA256,
+            TASK24_SEQUENCE_EVIDENCE_SHA256,
         )
         self.assertEqual(len(TASK22_REVIEW_TEXT_PROJECTION_SHA256), 7)
         for competency_id, expected_sha256 in (
@@ -9732,7 +9740,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         self.assertEqual(
             self._canonical_sha256(sequence_evidence),
-            TASK22_SEQUENCE_EVIDENCE_SHA256,
+            TASK24_SEQUENCE_EVIDENCE_SHA256,
         )
 
         review = reviews_by_competency_id["LH26-E-DP-014"]
@@ -10296,7 +10304,7 @@ class IUM10Grade5RepositoryTests(unittest.TestCase):
             {
                 "semanticCoverageStatus": "partial",
                 "timeFeasibilityStatus": "green",
-                "sequenceEvidenceStatus": "partial",
+                "sequenceEvidenceStatus": "covered",
                 "pilotStatus": "not-started",
             },
         )
@@ -10935,7 +10943,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
             {
                 "semanticCoverageStatus": "partial",
                 "timeFeasibilityStatus": "green",
-                "sequenceEvidenceStatus": "partial",
+                "sequenceEvidenceStatus": "covered",
                 "pilotStatus": "not-started",
             },
         )
@@ -12044,3 +12052,447 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
                     for path_id in ("optimized", "robust")
                 },
             )
+
+
+class IUM10SequenceEvidenceTests(unittest.TestCase):
+    PRE_TASK24_TIME_REVIEWS_SHA256 = (
+        "500eb6a77aea0f0bc5d1804665a3719ceb88b0b577cf9b707c25b4bad0a3f2aa"
+    )
+    PRE_TASK24_MODULE_CONTRACTS_SHA256 = (
+        "187f5df570ea77b8c2168810e99506c9998db6ceadf9f592418cf53fdb720a7c"
+    )
+    PRE_TASK24_INTEGRATION_CONTRACTS_SHA256 = (
+        "9c624435b24c07916993e43e6839c69835d1e3a8b5d69468b6503b6cf6d94b31"
+    )
+    PRE_TASK24_PRIVACY_CONTRACTS_SHA256 = (
+        "80f7f31cc51165ba214202dd36c207217387b4831600eb7e852725bf00c4b23b"
+    )
+    PRE_TASK24_ANNUAL_VARIANTS_SHA256 = (
+        "1c2c3c3b562a16108672175cf8f983bdb02608a2e5d0589abaabbd8a2b6af406"
+    )
+    PRE_TASK24_PROG34_COVERAGE_SHA256 = (
+        "8377a5d1128ff8f8efc58f858ea77ed04cd4c13ca2e2f3876cbbed4da0ff7dbf"
+    )
+    PRE_TASK24_REMEDIATION_SHA256 = (
+        "b0a7ab3aafc7820c8602536675ce98fad03bce924c86c411443ad528888242c5"
+    )
+    EXPECTED_DECISIONS = {
+        "LH26-E-PROG-001": "covered",
+        "LH26-E-PROG-002": "covered",
+        "LH26-E-PROG-003": "remain-partial",
+        "LH26-E-PROG-004": "remain-partial",
+    }
+    PROG001_ACTION = (
+        "Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und "
+        "Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und "
+        "gegen Störfälle prüfen."
+    )
+    PROG001_PRODUCT = (
+        "Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, "
+        "Schutzentscheidungen und Wiederanlauf-Checkliste."
+    )
+    PROG002_ACTION = (
+        "Alltagshandlungen präzisieren, grafische Algorithmen ausführen, "
+        "Abweichungen erklären und eine konstante Wiederholung als Grundbaustein "
+        "modellieren."
+    )
+    PROG002_PRODUCT = (
+        "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, "
+        "reparierter Fassung und begründeter Schleifenentscheidung."
+    )
+
+    def setUp(self):
+        root = Path(__file__).resolve().parents[1]
+        self.root = root
+        self.time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        self.coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+        )
+        self.remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        module_contracts = validate_module_contracts(
+            self.time_model["moduleContracts"],
+            module_payload,
+        )
+        integration_contracts = validate_integration_contracts(
+            self.time_model["integrationContracts"],
+            module_contracts,
+        )
+        self.annual_variants = validate_annual_variants(
+            self.time_model["annualVariants"],
+            module_contracts,
+            integration_contracts,
+        )
+        privacy_contracts = validate_privacy_contracts(
+            self.time_model["privacyContracts"],
+            module_contracts,
+        )
+        self.time_reviews = validate_time_reviews(
+            self.time_model["timeReviews"],
+            self.remediation_payload,
+            module_contracts,
+            integration_contracts,
+            self.annual_variants,
+            require_complete=False,
+            privacy_contracts=privacy_contracts,
+        )
+
+    @staticmethod
+    def _canonical_sha256(value):
+        encoded = json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        return hashlib.sha256(encoded).hexdigest()
+
+    def _sequence_records(self):
+        records = copy.deepcopy(self.time_model["sequenceEvidence"])
+        self.assertEqual(
+            len(records),
+            4,
+            "Task 24 muss vor Mutationsprüfungen vier Sequenznachweise liefern",
+        )
+        return records
+
+    def _validate(
+        self,
+        sequence_evidence=None,
+        *,
+        time_reviews=None,
+        annual_variants=None,
+        coverage_payload=None,
+    ):
+        validator = getattr(ium10_validator, "validate_sequence_evidence", None)
+        self.assertIsNotNone(
+            validator,
+            "Task 24 muss die öffentliche validate_sequence_evidence-Schnittstelle bereitstellen",
+        )
+        return validator(
+            self.time_model["sequenceEvidence"]
+            if sequence_evidence is None
+            else sequence_evidence,
+            self.time_reviews if time_reviews is None else time_reviews,
+            self.annual_variants
+            if annual_variants is None
+            else annual_variants,
+            self.coverage_payload
+            if coverage_payload is None
+            else coverage_payload,
+        )
+
+    def test_public_sequence_validator_accepts_exact_repository_contract(self):
+        result = self._validate()
+
+        self.assertEqual(set(result), set(self.EXPECTED_DECISIONS))
+        for competency_id, decision in self.EXPECTED_DECISIONS.items():
+            with self.subTest(competency_id=competency_id):
+                evidence = result[competency_id]
+                self.assertEqual(evidence["id"], f"SE-{competency_id}")
+                self.assertEqual(
+                    evidence["timeReviewId"],
+                    f"TR-{competency_id}",
+                )
+                self.assertEqual(evidence["fachAuditStatus"], "passed")
+                self.assertEqual(evidence["coverageDecision"], decision)
+                self.assertEqual(evidence["status"], "working")
+
+    def test_repository_sequence_scopes_and_time_weights_are_exact(self):
+        result = self._validate()
+        grade_5_core = {f"IUM-5-CORE-{number:02d}" for number in range(1, 8)}
+        grade_6_core = {f"IUM-6-CORE-{number:02d}" for number in range(1, 8)}
+        grade_7_core = {f"IUM-7-CORE-{number:02d}" for number in range(1, 11)}
+
+        self.assertEqual(result["LH26-E-PROG-001"]["grades"], [5, 6])
+        self.assertEqual(
+            set(result["LH26-E-PROG-001"]["moduleIds"]),
+            grade_5_core | grade_6_core,
+        )
+        self.assertEqual(result["LH26-E-PROG-002"]["grades"], [5, 6, 7])
+        self.assertEqual(
+            result["LH26-E-PROG-002"]["moduleIds"],
+            [
+                "IUM-5-CORE-05",
+                "IUM-6-CORE-04",
+                "IUM-7-CORE-03",
+                "IUM-7-CORE-04",
+            ],
+        )
+        for competency_id in ("LH26-E-PROG-003", "LH26-E-PROG-004"):
+            with self.subTest(competency_id=competency_id):
+                evidence = result[competency_id]
+                self.assertEqual(evidence["grades"], [7])
+                self.assertEqual(set(evidence["moduleIds"]), grade_7_core)
+                weights = {
+                    item["variantId"]: {
+                        group["id"]: group["units"]
+                        for group in item["weightGroups"]
+                    }
+                    for item in evidence["timeEvidence"]
+                }
+                self.assertEqual(
+                    weights,
+                    {
+                        "GRADE-7-OPTIMIZED-DEMAND": {
+                            "core-01-07": 30,
+                            "core-08-10": 10,
+                        },
+                        "GRADE-7-ROBUST-DEMAND": {
+                            "core-01-07": 31,
+                            "core-08-10": 15,
+                        },
+                        "GRADE-7-HISTORICAL-MINIMUM": {
+                            "core-01-07": 38,
+                            "core-08-10": 16,
+                        },
+                    },
+                )
+
+    def test_sequence_validator_rejects_identity_scope_and_depth_mutations(self):
+        mutations = (
+            ("duplicate id", lambda records: records.append(copy.deepcopy(records[0]))),
+            (
+                "unknown record",
+                lambda records: records[0].__setitem__(
+                    "competencyId", "LH26-E-PROG-999"
+                ),
+            ),
+            (
+                "wrong review binding",
+                lambda records: records[0].__setitem__(
+                    "timeReviewId", "TR-LH26-E-PROG-002"
+                ),
+            ),
+            ("missing grade", lambda records: records[0]["grades"].pop()),
+            ("missing module", lambda records: records[0]["moduleIds"].pop()),
+            (
+                "empty progression",
+                lambda records: records[0]["progression"][0].__setitem__(
+                    "learningDepth", ""
+                ),
+            ),
+            (
+                "empty product depth",
+                lambda records: records[1]["operatorProductDepth"][0].__setitem__(
+                    "productDepth", ""
+                ),
+            ),
+            (
+                "single perspective proxy",
+                lambda records: records[2].__setitem__(
+                    "perspectiveWeighting",
+                    records[2]["perspectiveWeighting"][:1],
+                ),
+            ),
+            (
+                "private evidence included",
+                lambda records: records[2]["evidenceBoundary"].__setitem__(
+                    "privateEvidence", "included"
+                ),
+            ),
+            (
+                "single module proxy included",
+                lambda records: records[3]["evidenceBoundary"].__setitem__(
+                    "singleModuleProxy", "included"
+                ),
+            ),
+            (
+                "automatic personal assessment included",
+                lambda records: records[3]["evidenceBoundary"].__setitem__(
+                    "automatedPersonalAssessment", "included"
+                ),
+            ),
+        )
+        for label, mutate in mutations:
+            with self.subTest(mutation=label):
+                records = self._sequence_records()
+                mutate(records)
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(records)
+
+    def test_sequence_validator_rejects_nonzero_or_allocated_roadmap_review(self):
+        mutations = (
+            ("decision", "covered"),
+            ("additionalMinutes", 5),
+            ("phaseIds", ["build-concept"]),
+            ("integrationContractIds", ["INT-7-PROGRAMMING"]),
+            ("pathAvailability", ["GRADE-5-BASELINE"]),
+            ("sequenceEvidenceId", "SE-WRONG"),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                reviews = copy.deepcopy(self.time_reviews)
+                reviews["TR-LH26-E-PROG-001"][field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(time_reviews=reviews)
+
+    def test_sequence_validator_derives_availability_and_units_from_variants(self):
+        mutations = (
+            (
+                "unknown variant",
+                lambda item: item.__setitem__("variantId", "GRADE-5-UNKNOWN"),
+            ),
+            (
+                "wrong availability",
+                lambda item: item.__setitem__("available", False),
+            ),
+            (
+                "wrong target units",
+                lambda item: item.__setitem__("targetUnits", 31),
+            ),
+            (
+                "wrong scoped units",
+                lambda item: item.__setitem__("scopeUnits", 29),
+            ),
+            (
+                "wrong scoped modules",
+                lambda item: item["scopeModuleIds"].pop(),
+            ),
+        )
+        for label, mutate in mutations:
+            with self.subTest(mutation=label):
+                records = self._sequence_records()
+                mutate(records[0]["timeEvidence"][0])
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(records)
+
+        records = self._sequence_records()
+        records[2]["timeEvidence"][0]["weightGroups"][0]["units"] = 29
+        with self.assertRaises(IUM10ValidationError):
+            self._validate(records)
+
+    def test_covered_requires_passed_audit_and_a_genuinely_available_path(self):
+        records = self._sequence_records()
+        records[0]["fachAuditStatus"] = "failed"
+        with self.assertRaises(IUM10ValidationError):
+            self._validate(records)
+
+        records = self._sequence_records()
+        variants = copy.deepcopy(self.annual_variants)
+        for item in records[0]["timeEvidence"]:
+            item["available"] = False
+            variants[item["variantId"]]["available"] = False
+        with self.assertRaises(IUM10ValidationError):
+            self._validate(records, annual_variants=variants)
+
+    def test_prog003_and_prog004_cannot_be_covered_by_unavailable_grade7_scenarios(self):
+        for competency_id in ("LH26-E-PROG-003", "LH26-E-PROG-004"):
+            with self.subTest(competency_id=competency_id):
+                records = self._sequence_records()
+                evidence = next(
+                    item for item in records
+                    if item["competencyId"] == competency_id
+                )
+                evidence["coverageDecision"] = "covered"
+                evidence["coverageConsequence"] = {
+                    "coverageStatus": "covered",
+                    "semanticAudit": "operator-product-match",
+                    "rationale": "Die roten Bedarfsszenarien genügen angeblich.",
+                }
+                coverage = copy.deepcopy(self.coverage_payload)
+                entry = next(
+                    item for item in coverage["entries"]
+                    if item["competencyId"] == competency_id
+                )
+                entry["coverageStatus"] = "covered"
+                entry["semanticAudit"] = "operator-product-match"
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(records, coverage_payload=coverage)
+
+    def test_coverage_decision_and_original_strings_are_fail_closed(self):
+        coverage = copy.deepcopy(self.coverage_payload)
+        entry = next(
+            item for item in coverage["entries"]
+            if item["competencyId"] == "LH26-E-PROG-001"
+        )
+        entry["coverageStatus"] = "partial"
+        entry["semanticAudit"] = "documented-gap"
+        with self.assertRaises(IUM10ValidationError):
+            self._validate(coverage_payload=coverage)
+
+        anchors = {
+            "LH26-E-PROG-001": (self.PROG001_ACTION, self.PROG001_PRODUCT),
+            "LH26-E-PROG-002": (self.PROG002_ACTION, self.PROG002_PRODUCT),
+        }
+        for competency_id, (action, product) in anchors.items():
+            for field, anchor in (("evidence", action), ("matchRationale", product)):
+                with self.subTest(competency_id=competency_id, field=field):
+                    coverage = copy.deepcopy(self.coverage_payload)
+                    entry = next(
+                        item for item in coverage["entries"]
+                        if item["competencyId"] == competency_id
+                    )
+                    entry[field] = entry[field].replace(anchor, "entfernt")
+                    with self.assertRaises(IUM10ValidationError):
+                        self._validate(coverage_payload=coverage)
+
+    def test_task24_preserves_time_model_and_prog003_prog004_inputs(self):
+        self.assertEqual(len(self.time_model["timeReviews"]), 60)
+        self.assertEqual(
+            self._canonical_sha256(self.time_model["timeReviews"]),
+            self.PRE_TASK24_TIME_REVIEWS_SHA256,
+        )
+        for field, expected in (
+            ("moduleContracts", self.PRE_TASK24_MODULE_CONTRACTS_SHA256),
+            (
+                "integrationContracts",
+                self.PRE_TASK24_INTEGRATION_CONTRACTS_SHA256,
+            ),
+            ("privacyContracts", self.PRE_TASK24_PRIVACY_CONTRACTS_SHA256),
+            ("annualVariants", self.PRE_TASK24_ANNUAL_VARIANTS_SHA256),
+        ):
+            with self.subTest(field=field):
+                self.assertEqual(
+                    self._canonical_sha256(self.time_model[field]),
+                    expected,
+                )
+        prog34 = [
+            entry for entry in self.coverage_payload["entries"]
+            if entry["competencyId"]
+            in {"LH26-E-PROG-003", "LH26-E-PROG-004"}
+        ]
+        self.assertEqual(
+            self._canonical_sha256(prog34),
+            self.PRE_TASK24_PROG34_COVERAGE_SHA256,
+        )
+        self.assertEqual(
+            self._canonical_sha256(self.remediation_payload),
+            self.PRE_TASK24_REMEDIATION_SHA256,
+        )
+
+    def test_grade_sequence_statuses_follow_the_four_sequence_decisions(self):
+        judgements = {
+            item["grade"]: item for item in self.time_model["gradeJudgements"]
+        }
+        self.assertEqual(
+            {
+                grade: judgement["sequenceEvidenceStatus"]
+                for grade, judgement in judgements.items()
+            },
+            {5: "covered", 6: "covered", 7: "partial"},
+        )
+        self.assertEqual(
+            {
+                grade: judgement["timeFeasibilityStatus"]
+                for grade, judgement in judgements.items()
+            },
+            {5: "green", 6: "green", 7: "red"},
+        )
+
+    def test_task24_does_not_add_task25_cross_artifact_references(self):
+        for entry in self.coverage_payload["entries"]:
+            if entry["competencyId"] in self.EXPECTED_DECISIONS:
+                self.assertNotIn("timeReviewId", entry)
+                self.assertNotIn("sequenceEvidenceId", entry)
+        for entry in self.remediation_payload["entries"]:
+            self.assertNotIn("timeReviewId", entry)
+            self.assertNotIn("sequenceEvidenceId", entry)

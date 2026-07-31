@@ -27,6 +27,12 @@ ROADMAP_DEPENDENT_IDS = frozenset(
         "LH26-E-PROG-004",
     }
 )
+COVERED_SEQUENCE_IDS = frozenset(
+    {"LH26-E-PROG-001", "LH26-E-PROG-002"}
+)
+GRADE_7_BALANCE_SEQUENCE_IDS = frozenset(
+    {"LH26-E-PROG-003", "LH26-E-PROG-004"}
+)
 PHASE_IDS = (
     "orientation-challenge",
     "activate-prior-knowledge",
@@ -142,6 +148,137 @@ GRADE_7_CORE_MODULE_IDS = frozenset(
         "IUM-7-CORE-10",
     }
 )
+GRADE_5_CORE_MODULE_IDS = frozenset(
+    f"IUM-5-CORE-{number:02d}" for number in range(1, 8)
+)
+SEQUENCE_EVIDENCE_FIELDS = {
+    "id",
+    "competencyId",
+    "timeReviewId",
+    "moduleIds",
+    "grades",
+    "progression",
+    "operatorProductDepth",
+    "perspectiveWeighting",
+    "timeEvidence",
+    "remainingBoundary",
+    "fachAuditStatus",
+    "coverageDecision",
+    "coverageConsequence",
+    "evidenceBoundary",
+    "status",
+}
+SEQUENCE_PROGRESSION_FIELDS = {"grade", "moduleIds", "learningDepth"}
+SEQUENCE_DEPTH_FIELDS = {"grade", "operatorDepth", "productDepth"}
+SEQUENCE_PERSPECTIVE_FIELDS = {"perspective", "moduleIds", "rationale"}
+SEQUENCE_TIME_EVIDENCE_FIELDS = {
+    "variantId",
+    "available",
+    "targetUnits",
+    "scopeModuleIds",
+    "scopeUnits",
+    "weightGroups",
+    "rationale",
+}
+SEQUENCE_WEIGHT_GROUP_FIELDS = {"id", "moduleIds", "units"}
+SEQUENCE_COVERAGE_CONSEQUENCE_FIELDS = {
+    "coverageStatus",
+    "semanticAudit",
+    "rationale",
+}
+SEQUENCE_EVIDENCE_BOUNDARY_FIELDS = {
+    "privateEvidence",
+    "singleModuleProxy",
+    "automatedPersonalAssessment",
+    "rationale",
+}
+SEQUENCE_SCOPES = {
+    "LH26-E-PROG-001": {
+        "grades": [5, 6],
+        "moduleIds": sorted(GRADE_5_CORE_MODULE_IDS)
+        + sorted(GRADE_6_CORE_MODULE_IDS),
+        "variantModuleIds": {
+            "GRADE-5-BASELINE": sorted(GRADE_5_CORE_MODULE_IDS),
+            "GRADE-6-BASELINE": sorted(GRADE_6_CORE_MODULE_IDS),
+        },
+        "coverageDecision": "covered",
+    },
+    "LH26-E-PROG-002": {
+        "grades": [5, 6, 7],
+        "moduleIds": [
+            "IUM-5-CORE-05",
+            "IUM-6-CORE-04",
+            "IUM-7-CORE-03",
+            "IUM-7-CORE-04",
+        ],
+        "variantModuleIds": {
+            "GRADE-5-BASELINE": ["IUM-5-CORE-05"],
+            "GRADE-6-BASELINE": ["IUM-6-CORE-04"],
+            "GRADE-7-OPTIMIZED-DEMAND": [
+                "IUM-7-CORE-03",
+                "IUM-7-CORE-04",
+            ],
+        },
+        "coverageDecision": "covered",
+    },
+    "LH26-E-PROG-003": {
+        "grades": [7],
+        "moduleIds": sorted(GRADE_7_CORE_MODULE_IDS),
+        "variantModuleIds": {
+            variant_id: sorted(GRADE_7_CORE_MODULE_IDS)
+            for variant_id in (
+                "GRADE-7-OPTIMIZED-DEMAND",
+                "GRADE-7-ROBUST-DEMAND",
+                "GRADE-7-HISTORICAL-MINIMUM",
+            )
+        },
+        "coverageDecision": "remain-partial",
+    },
+    "LH26-E-PROG-004": {
+        "grades": [7],
+        "moduleIds": sorted(GRADE_7_CORE_MODULE_IDS),
+        "variantModuleIds": {
+            variant_id: sorted(GRADE_7_CORE_MODULE_IDS)
+            for variant_id in (
+                "GRADE-7-OPTIMIZED-DEMAND",
+                "GRADE-7-ROBUST-DEMAND",
+                "GRADE-7-HISTORICAL-MINIMUM",
+            )
+        },
+        "coverageDecision": "remain-partial",
+    },
+}
+SEQUENCE_GRADE_7_WEIGHT_GROUPS = {
+    "core-01-07": [f"IUM-7-CORE-{number:02d}" for number in range(1, 8)],
+    "core-08-10": [f"IUM-7-CORE-{number:02d}" for number in range(8, 11)],
+}
+SEQUENCE_COVERAGE_ANCHORS = {
+    "LH26-E-PROG-001": (
+        "In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die "
+        "Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt "
+        "stehen der sichere, verantwortungsvolle und reflektierte Umgang mit "
+        "digitalen Medien, Informationen, Daten, Kommunikationsangeboten und "
+        "digitalen Arbeitsmitteln.",
+        "Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und "
+        "Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen "
+        "Störfälle prüfen.",
+        "Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, "
+        "Schutzentscheidungen und Wiederanlauf-Checkliste.",
+    ),
+    "LH26-E-PROG-002": (
+        "Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits "
+        "ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen "
+        "und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen "
+        "in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist "
+        "bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe "
+        "des bisherigen Aufbaukurses Informatik in Klasse 7.",
+        "Alltagshandlungen präzisieren, grafische Algorithmen ausführen, "
+        "Abweichungen erklären und eine konstante Wiederholung als Grundbaustein "
+        "modellieren.",
+        "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, "
+        "reparierter Fassung und begründeter Schleifenentscheidung.",
+    ),
+}
 GRADE_7_FLEX_RANGES = {
     "IUM-7-EXT-01": {"min": 3, "recommended": 4, "max": 5},
     "IUM-7-TRANSFER-01": {"min": 3, "recommended": 4, "max": 5},
@@ -2699,6 +2836,430 @@ def validate_time_reviews(
     return reviews_by_id
 
 
+def validate_sequence_evidence(
+    sequence_evidence,
+    time_reviews,
+    annual_variants,
+    coverage_payload,
+):
+    """Validate the four roadmap-wide sequence records by competency id."""
+    _require(
+        isinstance(sequence_evidence, list) and len(sequence_evidence) == 4,
+        "sequence evidence must contain exactly four records",
+    )
+    _require(
+        isinstance(time_reviews, dict),
+        "validated time reviews must be keyed by review id",
+    )
+    _require(
+        isinstance(annual_variants, dict),
+        "validated annual variants must be keyed by variant id",
+    )
+    coverage_entries = (
+        coverage_payload.get("entries")
+        if isinstance(coverage_payload, dict)
+        else None
+    )
+    _require(
+        isinstance(coverage_entries, list),
+        "coverage payload must contain entries",
+    )
+    coverage_by_id = {}
+    for entry in coverage_entries:
+        _require(
+            isinstance(entry, dict)
+            and isinstance(entry.get("competencyId"), str),
+            "coverage entry must have a competency id",
+        )
+        competency_id = entry["competencyId"]
+        _require(
+            competency_id not in coverage_by_id,
+            f"duplicate coverage competency id: {competency_id}",
+        )
+        coverage_by_id[competency_id] = entry
+
+    validated = {}
+    sequence_ids = set()
+    for evidence in sequence_evidence:
+        _require(
+            isinstance(evidence, dict)
+            and set(evidence) == SEQUENCE_EVIDENCE_FIELDS,
+            "sequence evidence fields differ from the IUM10 contract",
+        )
+        competency_id = evidence["competencyId"]
+        _require(
+            competency_id in SEQUENCE_SCOPES,
+            f"unknown sequence competency id: {competency_id}",
+        )
+        _require(
+            competency_id not in validated,
+            f"duplicate sequence competency id: {competency_id}",
+        )
+        sequence_id = evidence["id"]
+        _require(
+            sequence_id == f"SE-{competency_id}"
+            and sequence_id not in sequence_ids,
+            f"sequence id mismatch or duplicate: {competency_id}",
+        )
+        sequence_ids.add(sequence_id)
+
+        expected_scope = SEQUENCE_SCOPES[competency_id]
+        _require(
+            evidence["grades"] == expected_scope["grades"],
+            f"sequence grades differ from the approved scope: {competency_id}",
+        )
+        _require(
+            evidence["moduleIds"] == expected_scope["moduleIds"],
+            f"sequence modules differ from the approved scope: {competency_id}",
+        )
+
+        review_id = f"TR-{competency_id}"
+        review = time_reviews.get(review_id)
+        _require(
+            evidence["timeReviewId"] == review_id
+            and isinstance(review, dict)
+            and review.get("id") == review_id
+            and review.get("competencyId") == competency_id,
+            f"sequence review binding is invalid: {competency_id}",
+        )
+        _require(
+            review.get("sourceTimeImpactLevel") == "roadmap-dependent"
+            and review.get("decision") == "unresolved"
+            and review.get("additionalMinutes") == 0
+            and review.get("phaseIds") == []
+            and review.get("integrationContractIds") == []
+            and review.get("pathAvailability") == []
+            and review.get("sequenceEvidenceId") == sequence_id,
+            f"sequence review must remain unresolved and unallocated: {competency_id}",
+        )
+
+        expected_modules_by_grade = {
+            grade: [
+                module_id
+                for module_id in expected_scope["moduleIds"]
+                if module_id.startswith(f"IUM-{grade}-")
+            ]
+            for grade in expected_scope["grades"]
+        }
+        progression = evidence["progression"]
+        _require(
+            isinstance(progression, list)
+            and len(progression) == len(expected_modules_by_grade),
+            f"sequence progression must cover every grade: {competency_id}",
+        )
+        progression_by_grade = {}
+        for step in progression:
+            _require(
+                isinstance(step, dict)
+                and set(step) == SEQUENCE_PROGRESSION_FIELDS,
+                f"sequence progression fields are invalid: {competency_id}",
+            )
+            grade = step["grade"]
+            _require(
+                grade in expected_modules_by_grade
+                and grade not in progression_by_grade
+                and step["moduleIds"] == expected_modules_by_grade[grade]
+                and isinstance(step["learningDepth"], str)
+                and step["learningDepth"].strip(),
+                f"sequence progression is incomplete: {competency_id}/{grade}",
+            )
+            progression_by_grade[grade] = step
+        _require(
+            set(progression_by_grade) == set(expected_modules_by_grade),
+            f"sequence progression grades are incomplete: {competency_id}",
+        )
+
+        depth_records = evidence["operatorProductDepth"]
+        _require(
+            isinstance(depth_records, list)
+            and len(depth_records) == len(expected_modules_by_grade),
+            f"operator/product depth must cover every grade: {competency_id}",
+        )
+        depth_by_grade = {}
+        for depth in depth_records:
+            _require(
+                isinstance(depth, dict)
+                and set(depth) == SEQUENCE_DEPTH_FIELDS,
+                f"operator/product depth fields are invalid: {competency_id}",
+            )
+            grade = depth["grade"]
+            _require(
+                grade in expected_modules_by_grade
+                and grade not in depth_by_grade
+                and isinstance(depth["operatorDepth"], str)
+                and depth["operatorDepth"].strip()
+                and isinstance(depth["productDepth"], str)
+                and depth["productDepth"].strip(),
+                f"operator/product depth is incomplete: {competency_id}/{grade}",
+            )
+            depth_by_grade[grade] = depth
+        _require(
+            set(depth_by_grade) == set(expected_modules_by_grade),
+            f"operator/product depth grades are incomplete: {competency_id}",
+        )
+
+        perspectives = evidence["perspectiveWeighting"]
+        _require(
+            isinstance(perspectives, list) and bool(perspectives),
+            f"perspective weighting must be nonempty: {competency_id}",
+        )
+        perspective_ids = set()
+        perspective_module_ids = set()
+        for perspective in perspectives:
+            _require(
+                isinstance(perspective, dict)
+                and set(perspective) == SEQUENCE_PERSPECTIVE_FIELDS,
+                f"perspective weighting fields are invalid: {competency_id}",
+            )
+            perspective_id = perspective["perspective"]
+            module_ids = perspective["moduleIds"]
+            _require(
+                isinstance(perspective_id, str)
+                and perspective_id.strip()
+                and perspective_id not in perspective_ids
+                and _nonempty_string_list(module_ids)
+                and bool(module_ids)
+                and set(module_ids) <= set(expected_scope["moduleIds"])
+                and isinstance(perspective["rationale"], str)
+                and perspective["rationale"].strip(),
+                f"perspective weighting is incomplete: {competency_id}",
+            )
+            perspective_ids.add(perspective_id)
+            perspective_module_ids.update(module_ids)
+        _require(
+            perspective_module_ids == set(expected_scope["moduleIds"]),
+            f"perspective weighting must cover the complete sequence: {competency_id}",
+        )
+        if competency_id in GRADE_7_BALANCE_SEQUENCE_IDS:
+            _require(
+                perspective_ids
+                == {"technical", "application", "societal", "media"},
+                f"grade 7 sequence needs all four perspectives: {competency_id}",
+            )
+            media_modules = next(
+                item["moduleIds"]
+                for item in perspectives
+                if item["perspective"] == "media"
+            )
+            _require(
+                set(media_modules)
+                == {"IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"},
+                f"grade 7 media perspective cannot use a CORE-08 proxy: {competency_id}",
+            )
+
+        time_evidence = evidence["timeEvidence"]
+        expected_variant_modules = expected_scope["variantModuleIds"]
+        _require(
+            isinstance(time_evidence, list)
+            and len(time_evidence) == len(expected_variant_modules),
+            f"sequence time evidence has the wrong size: {competency_id}",
+        )
+        time_evidence_by_variant = {}
+        for time_record in time_evidence:
+            _require(
+                isinstance(time_record, dict)
+                and set(time_record) == SEQUENCE_TIME_EVIDENCE_FIELDS,
+                f"sequence time evidence fields are invalid: {competency_id}",
+            )
+            variant_id = time_record["variantId"]
+            variant = annual_variants.get(variant_id)
+            _require(
+                variant_id in expected_variant_modules
+                and variant_id not in time_evidence_by_variant
+                and isinstance(variant, dict),
+                f"unknown or duplicate sequence variant: {competency_id}/{variant_id}",
+            )
+            allocations = variant.get("allocations")
+            _require(
+                isinstance(allocations, list),
+                f"sequence variant allocations are invalid: {variant_id}",
+            )
+            allocation_units = {}
+            for allocation in allocations:
+                _require(
+                    isinstance(allocation, dict)
+                    and isinstance(allocation.get("moduleId"), str)
+                    and allocation["moduleId"] not in allocation_units
+                    and _positive_int(allocation.get("units")),
+                    f"sequence variant allocation is invalid: {variant_id}",
+                )
+                allocation_units[allocation["moduleId"]] = allocation["units"]
+            scope_module_ids = expected_variant_modules[variant_id]
+            _require(
+                time_record["scopeModuleIds"] == scope_module_ids
+                and set(scope_module_ids) <= set(allocation_units),
+                f"sequence time scope differs from variant allocations: {competency_id}/{variant_id}",
+            )
+            derived_scope_units = sum(
+                allocation_units[module_id] for module_id in scope_module_ids
+            )
+            _require(
+                time_record["available"] is variant.get("available")
+                and _positive_int(variant.get("targetUnits"))
+                and time_record["targetUnits"] == variant["targetUnits"]
+                and time_record["scopeUnits"] == derived_scope_units
+                and isinstance(time_record["rationale"], str)
+                and time_record["rationale"].strip(),
+                f"sequence time facts are not derived from the variant: {competency_id}/{variant_id}",
+            )
+            weight_groups = time_record["weightGroups"]
+            if competency_id in GRADE_7_BALANCE_SEQUENCE_IDS:
+                _require(
+                    isinstance(weight_groups, list)
+                    and len(weight_groups) == len(SEQUENCE_GRADE_7_WEIGHT_GROUPS),
+                    f"grade 7 sequence needs both time weight groups: {competency_id}/{variant_id}",
+                )
+                groups_by_id = {}
+                for group in weight_groups:
+                    _require(
+                        isinstance(group, dict)
+                        and set(group) == SEQUENCE_WEIGHT_GROUP_FIELDS,
+                        f"sequence time weight fields are invalid: {competency_id}/{variant_id}",
+                    )
+                    group_id = group["id"]
+                    expected_group_modules = SEQUENCE_GRADE_7_WEIGHT_GROUPS.get(
+                        group_id
+                    )
+                    _require(
+                        isinstance(expected_group_modules, list)
+                        and group_id not in groups_by_id
+                        and group["moduleIds"] == expected_group_modules
+                        and group["units"]
+                        == sum(
+                            allocation_units[module_id]
+                            for module_id in expected_group_modules
+                        ),
+                        f"sequence time weight is not allocation-derived: {competency_id}/{variant_id}/{group_id}",
+                    )
+                    groups_by_id[group_id] = group
+                _require(
+                    set(groups_by_id) == set(SEQUENCE_GRADE_7_WEIGHT_GROUPS),
+                    f"grade 7 time weight groups are incomplete: {competency_id}/{variant_id}",
+                )
+            else:
+                _require(
+                    weight_groups == [],
+                    f"only grade 7 balance records use weight groups: {competency_id}/{variant_id}",
+                )
+            time_evidence_by_variant[variant_id] = time_record
+        _require(
+            set(time_evidence_by_variant) == set(expected_variant_modules),
+            f"sequence variants differ from the approved scope: {competency_id}",
+        )
+
+        _require(
+            isinstance(evidence["remainingBoundary"], str)
+            and evidence["remainingBoundary"].strip(),
+            f"sequence remaining boundary must be nonempty: {competency_id}",
+        )
+        _require(
+            evidence["fachAuditStatus"] == "passed",
+            f"sequence fach audit must be passed: {competency_id}",
+        )
+        decision = evidence["coverageDecision"]
+        _require(
+            decision == expected_scope["coverageDecision"],
+            f"sequence coverage decision differs from the fach audit: {competency_id}",
+        )
+        if decision == "covered":
+            _require(
+                any(item["available"] is True for item in time_evidence),
+                f"covered sequence needs a genuinely available annual path: {competency_id}",
+            )
+            expected_coverage_status = "covered"
+            expected_semantic_audit = "operator-product-match"
+        else:
+            expected_coverage_status = "partial"
+            expected_semantic_audit = "documented-gap"
+
+        consequence = evidence["coverageConsequence"]
+        _require(
+            isinstance(consequence, dict)
+            and set(consequence) == SEQUENCE_COVERAGE_CONSEQUENCE_FIELDS
+            and consequence["coverageStatus"] == expected_coverage_status
+            and consequence["semanticAudit"] == expected_semantic_audit
+            and isinstance(consequence["rationale"], str)
+            and consequence["rationale"].strip(),
+            f"sequence coverage consequence is invalid: {competency_id}",
+        )
+        coverage_entry = coverage_by_id.get(competency_id)
+        _require(
+            isinstance(coverage_entry, dict)
+            and coverage_entry.get("coverageStatus") == expected_coverage_status
+            and coverage_entry.get("semanticAudit") == expected_semantic_audit,
+            f"sequence decision differs from coverage plan: {competency_id}",
+        )
+        if decision == "covered":
+            _require(
+                "reason" not in coverage_entry,
+                f"covered sequence cannot retain a contradictory gap reason: {competency_id}",
+            )
+            for anchor in SEQUENCE_COVERAGE_ANCHORS[competency_id]:
+                _require(
+                    coverage_entry.get("requirementText")
+                    == SEQUENCE_COVERAGE_ANCHORS[competency_id][0]
+                    and isinstance(coverage_entry.get("evidence"), str)
+                    and anchor in coverage_entry["evidence"]
+                    and isinstance(coverage_entry.get("matchRationale"), str)
+                    and anchor in coverage_entry["matchRationale"],
+                    f"coverage sequence lacks an immutable source/action/product string: {competency_id}",
+                )
+
+        boundary = evidence["evidenceBoundary"]
+        _require(
+            isinstance(boundary, dict)
+            and set(boundary) == SEQUENCE_EVIDENCE_BOUNDARY_FIELDS
+            and boundary["privateEvidence"] == "excluded"
+            and boundary["singleModuleProxy"] == "excluded"
+            and boundary["automatedPersonalAssessment"] == "excluded"
+            and isinstance(boundary["rationale"], str)
+            and boundary["rationale"].strip(),
+            f"sequence evidence boundary is invalid: {competency_id}",
+        )
+        _require(
+            evidence["status"] == "working",
+            f"sequence evidence status must be working: {competency_id}",
+        )
+        validated[competency_id] = evidence
+
+    _require(
+        set(validated) == ROADMAP_DEPENDENT_IDS,
+        "sequence evidence ids differ from the four roadmap-dependent records",
+    )
+    return validated
+
+
+def _validate_sequence_judgement_statuses(grade_judgements, sequence_evidence):
+    _require(
+        isinstance(grade_judgements, list)
+        and isinstance(sequence_evidence, dict)
+        and set(sequence_evidence) == ROADMAP_DEPENDENT_IDS,
+        "sequence judgements require all four validated sequence records",
+    )
+    judgements_by_grade = {}
+    for judgement in grade_judgements:
+        if not isinstance(judgement, dict) or judgement.get("grade") not in {5, 6, 7}:
+            continue
+        grade = judgement["grade"]
+        _require(
+            grade not in judgements_by_grade,
+            f"duplicate grade judgement: {grade}",
+        )
+        judgements_by_grade[grade] = judgement
+    _require(
+        set(judgements_by_grade) == {5, 6, 7},
+        "sequence evidence needs grade 5, 6, and 7 judgements",
+    )
+    expected_statuses = {5: "covered", 6: "covered", 7: "partial"}
+    for grade, expected_status in expected_statuses.items():
+        _require(
+            judgements_by_grade[grade].get("sequenceEvidenceStatus")
+            == expected_status,
+            f"grade {grade} sequence evidence status must be {expected_status}",
+        )
+    return judgements_by_grade
+
+
 def validate_ium10_baseline(module_payload, coverage_payload, remediation_payload):
     """Validate the immutable IUM09 baseline consumed by IUM10."""
     modules = module_payload.get("modules") if isinstance(module_payload, dict) else None
@@ -2720,8 +3281,20 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
     _require(isinstance(coverage_entries, list), "coverage payload must contain entries")
     coverage_ids = {entry["competencyId"] for entry in coverage_entries}
     _require(len(coverage_ids) == len(coverage_entries) == 171, "coverage ids must be exactly 171 and unique")
+    historical_coverage_statuses = []
+    for entry in coverage_entries:
+        competency_id = entry["competencyId"]
+        if competency_id in COVERED_SEQUENCE_IDS:
+            _require(
+                entry.get("coverageStatus") == "covered"
+                and entry.get("semanticAudit") == "operator-product-match",
+                f"task 24 sequence upgrade is missing: {competency_id}",
+            )
+            historical_coverage_statuses.append("partial")
+        else:
+            historical_coverage_statuses.append(entry["coverageStatus"])
     _require(
-        Counter(entry["coverageStatus"] for entry in coverage_entries)
+        Counter(historical_coverage_statuses)
         == Counter({"covered": 164, "partial": 7}),
         "coverage status counts differ from immutable IUM09 baseline",
     )
@@ -2824,6 +3397,16 @@ def validate_ium10_repository(root):
         require_complete=False,
         privacy_contracts=privacy_contracts,
     )
+    sequence_evidence = validate_sequence_evidence(
+        time_model["sequenceEvidence"],
+        time_reviews,
+        annual_variants,
+        coverage_payload,
+    )
+    _validate_sequence_judgement_statuses(
+        time_model["gradeJudgements"],
+        sequence_evidence,
+    )
     return {
         "baseline": baseline,
         "capacityPaths": capacity_paths,
@@ -2832,6 +3415,7 @@ def validate_ium10_repository(root):
         "annualVariants": annual_variants,
         "privacyContracts": privacy_contracts,
         "timeReviews": time_reviews,
+        "sequenceEvidence": sequence_evidence,
     }
 
 
