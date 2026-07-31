@@ -2022,6 +2022,8 @@ def validate_time_reviews(
     }
     reviews_by_id = {}
     reviewed_competency_ids = set()
+    claimed_minutes_by_phase = Counter()
+    claimed_minutes_by_budget = Counter()
     for review in time_reviews:
         _require(isinstance(review, dict), "time review must be an object")
         _require(
@@ -2071,7 +2073,6 @@ def validate_time_reviews(
         )
         for field in (
             "rationale",
-            "coverageConsequence",
             "risk",
             "followUp",
         ):
@@ -2079,6 +2080,11 @@ def validate_time_reviews(
                 isinstance(review[field], str) and review[field].strip(),
                 f"time review {field} must be a nonempty string: {competency_id}",
             )
+        _require(
+            review["coverageConsequence"] == "semantic-status-unchanged",
+            "time review cannot preempt semantic coverage status: "
+            f"{competency_id}",
+        )
         _require(
             isinstance(review["status"], str)
             and review["status"] in CONTRACT_STATUSES,
@@ -2127,11 +2133,16 @@ def validate_time_reviews(
             f"invalid time review integration ids: {competency_id}",
         )
         for integration_id in integration_ids:
+            integration_contract = integration_contracts.get(integration_id)
             _require(
-                integration_id in integration_contracts
+                isinstance(integration_contract, dict)
                 and module_id
-                in integration_contracts[integration_id].get("moduleIds", []),
+                in integration_contract.get("moduleIds", []),
                 f"time review references unknown integration: {competency_id}",
+            )
+            _require(
+                integration_contract.get("status") != "failed",
+                f"time review references failed integration: {competency_id}",
             )
 
         path_availability = review["pathAvailability"]
@@ -2148,6 +2159,130 @@ def validate_time_reviews(
             set(path_availability) <= set(annual_variants),
             f"time review references unknown annual variant: {competency_id}",
         )
+        decision = review["decision"]
+        for variant_id in path_availability:
+            annual_variant = annual_variants[variant_id]
+            allocations = (
+                annual_variant.get("allocations")
+                if isinstance(annual_variant, dict)
+                else None
+            )
+            _require(
+                isinstance(allocations, list),
+                f"invalid validated annual variant: {variant_id}",
+            )
+            module_allocations = [
+                allocation
+                for allocation in allocations
+                if isinstance(allocation, dict)
+                and allocation.get("moduleId") == module_id
+            ]
+            _require(
+                len(module_allocations) <= 1,
+                "time review path must allocate its module at most once: "
+                f"{competency_id}/{variant_id}",
+            )
+            if module_allocations:
+                budget_path_id = module_allocations[0].get("budgetPathId")
+                matching_budgets = [
+                    budget
+                    for budget in module_contract.get("pathBudgets", [])
+                    if isinstance(budget, dict)
+                    and budget.get("pathId") == budget_path_id
+                ]
+                _require(
+                    len(matching_budgets) == 1,
+                    "time review path references an unknown module budget: "
+                    f"{competency_id}/{variant_id}",
+                )
+            else:
+                _require(
+                    decision == "integrated" and bool(integration_ids),
+                    "time review path must allocate its reviewed module unless "
+                    "a cross-grade integration carries it: "
+                    f"{competency_id}/{variant_id}",
+                )
+
+            declared_integration_ids = annual_variant.get(
+                "integrationContractIds",
+                [],
+            )
+            _require(
+                isinstance(declared_integration_ids, list),
+                f"invalid validated annual variant integrations: {variant_id}",
+            )
+            for integration_id in integration_ids:
+                integration = integration_contracts[integration_id]
+                _require(
+                    integration_id in declared_integration_ids,
+                    "time review integration is not used by its annual variant: "
+                    f"{competency_id}/{variant_id}/{integration_id}",
+                )
+                participant_ids = set(integration.get("moduleIds", []))
+                participant_allocations = [
+                    allocation
+                    for allocation in allocations
+                    if isinstance(allocation, dict)
+                    and allocation.get("moduleId") in participant_ids
+                ]
+                _require(
+                    bool(participant_allocations),
+                    "time review integration has no allocated participant: "
+                    f"{competency_id}/{variant_id}/{integration_id}",
+                )
+                for allocation in participant_allocations:
+                    participant_id = allocation["moduleId"]
+                    participant_contract = module_contracts.get(participant_id)
+                    selected_path_id = allocation.get("budgetPathId")
+                    _require(
+                        isinstance(participant_contract, dict)
+                        and selected_path_id in integration.get("pathIds", [])
+                        and any(
+                            isinstance(budget, dict)
+                            and budget.get("pathId") == selected_path_id
+                            for budget in participant_contract.get(
+                                "pathBudgets",
+                                [],
+                            )
+                        ),
+                        "time review integration is not applicable to a selected "
+                        "participant budget: "
+                        f"{competency_id}/{variant_id}/{integration_id}",
+                    )
+                counted_module_id = integration.get("countedInModuleId")
+                counted_allocations = [
+                    allocation
+                    for allocation in participant_allocations
+                    if allocation.get("moduleId") == counted_module_id
+                ]
+                _require(
+                    len(counted_allocations) == 1,
+                    "time review integration counted module is not allocated: "
+                    f"{competency_id}/{variant_id}/{integration_id}",
+                )
+                counted_path_id = counted_allocations[0].get("budgetPathId")
+                counted_contract = module_contracts[counted_module_id]
+                counted_budgets = [
+                    budget
+                    for budget in counted_contract.get("pathBudgets", [])
+                    if isinstance(budget, dict)
+                    and budget.get("pathId") == counted_path_id
+                ]
+                _require(
+                    len(counted_budgets) == 1
+                    and any(
+                        isinstance(allocation, dict)
+                        and allocation.get("integrationContractId")
+                        == integration_id
+                        for allocation in counted_budgets[0].get(
+                            "sharedAllocations",
+                            [],
+                        )
+                    ),
+                    "time review integration is declared but not selected in "
+                    "the counted module budget: "
+                    f"{competency_id}/{variant_id}/{integration_id}",
+                )
 
         is_roadmap_dependent = (
             review["sourceTimeImpactLevel"] == "roadmap-dependent"
@@ -2170,7 +2305,6 @@ def validate_time_reviews(
                 f"{competency_id}",
             )
 
-        decision = review["decision"]
         additional_minutes = review["additionalMinutes"]
         if decision == "absorbed":
             _require(
@@ -2268,6 +2402,38 @@ def validate_time_reviews(
                     "additional minutes must already be included in the selected "
                     f"module budget: {competency_id}/{variant_id}",
                 )
+                phase_minutes_by_id = {
+                    phase_budget.get("phaseId"): phase_budget.get("minutes")
+                    for phase_budget in budget.get("phaseBudgets", [])
+                    if isinstance(phase_budget, dict)
+                    and isinstance(phase_budget.get("phaseId"), str)
+                    and _nonnegative_int(phase_budget.get("minutes"))
+                }
+                budget_key = (module_id, variant_id, budget_path_id)
+                claimed_minutes_by_budget[budget_key] += additional_minutes
+                budget_minutes = budget.get("minutes")
+                if not _nonnegative_int(budget_minutes):
+                    budget_minutes = sum(phase_minutes_by_id.values())
+                _require(
+                    claimed_minutes_by_budget[budget_key] <= budget_minutes,
+                    "cumulative additional minutes exceed the selected module "
+                    f"budget: {competency_id}/{variant_id}",
+                )
+                for phase_id in phase_ids:
+                    phase_key = (
+                        module_id,
+                        variant_id,
+                        budget_path_id,
+                        phase_id,
+                    )
+                    claimed_minutes_by_phase[phase_key] += additional_minutes
+                    _require(
+                        claimed_minutes_by_phase[phase_key]
+                        <= phase_minutes_by_id[phase_id],
+                        "cumulative additional minutes exceed the selected "
+                        "phase budget: "
+                        f"{competency_id}/{variant_id}/{phase_id}",
+                    )
 
         reviews_by_id[review_id] = review
 

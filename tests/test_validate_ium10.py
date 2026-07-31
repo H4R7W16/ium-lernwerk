@@ -1343,10 +1343,31 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
+        cls.module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.time_payload = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
         cls.handoffs_by_id = {
             entry["competencyId"]: entry
             for entry in cls.remediation_payload["entries"]
         }
+        cls.repository_module_contracts = validate_module_contracts(
+            cls.time_payload["moduleContracts"],
+            cls.module_payload,
+        )
+        cls.repository_integration_contracts = validate_integration_contracts(
+            cls.time_payload["integrationContracts"],
+            cls.repository_module_contracts,
+        )
+        cls.repository_annual_variants = validate_annual_variants(
+            cls.time_payload["annualVariants"],
+            cls.repository_module_contracts,
+            cls.repository_integration_contracts,
+        )
 
     @classmethod
     def module_contracts(cls):
@@ -1363,6 +1384,17 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 "pathBudgets": [
                     {
                         "pathId": "baseline",
+                        "minutes": 90,
+                        "sharedAllocations": (
+                            [
+                                {
+                                    "integrationContractId": cls.INTEGRATION_ID,
+                                    "minutes": 45,
+                                }
+                            ]
+                            if module_id == "IUM-5-CORE-03"
+                            else []
+                        ),
                         "phaseBudgets": [
                             {
                                 "phaseId": "guided-practice",
@@ -1406,6 +1438,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     for module_id in sorted(cls.module_contracts())
                 ],
                 "available": True,
+                "integrationContractIds": [cls.INTEGRATION_ID],
             }
         }
 
@@ -1602,6 +1635,139 @@ class IUM10TimeReviewTests(unittest.TestCase):
         with self.assertRaises(IUM10ValidationError):
             self.validate_reviews(
                 [review],
+                annual_variants=annual_variants,
+            )
+
+    def test_rejects_cumulative_additional_minutes_above_one_phase_capacity(self):
+        first = self.review("BMB16-GYM-IK-GM-001", "additional-time")
+        second = self.review("BMB16-GYM-IK-GM-002", "additional-time")
+        first["additionalMinutes"] = 45
+        second["additionalMinutes"] = 45
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([first, second])
+
+    def test_accepts_cumulative_minutes_in_distinct_phase_capacities(self):
+        guided = self.review("BMB16-GYM-IK-GM-001", "additional-time")
+        product = self.review("BMB16-GYM-IK-GM-002", "additional-time")
+        guided["additionalMinutes"] = 45
+        product["additionalMinutes"] = 45
+        product["phaseIds"] = ["independent-action-product"]
+
+        result = self.validate_reviews([guided, product])
+
+        self.assertEqual(result, {guided["id"]: guided, product["id"]: product})
+
+    def test_aggregates_each_overlapping_path_availability_list(self):
+        annual_variants = self.annual_variants()
+        second_variant = copy.deepcopy(annual_variants[self.VARIANT_ID])
+        second_variant["id"] = "GRADE-TEST-SECOND"
+        annual_variants[second_variant["id"]] = second_variant
+        first = self.review("BMB16-GYM-IK-GM-001", "additional-time")
+        second = self.review("BMB16-GYM-IK-GM-002", "additional-time")
+        first["additionalMinutes"] = 30
+        second["additionalMinutes"] = 30
+        first["pathAvailability"] = [self.VARIANT_ID, second_variant["id"]]
+        second["pathAvailability"] = [second_variant["id"]]
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [first, second],
+                annual_variants=annual_variants,
+            )
+
+    def test_coverage_consequence_cannot_preempt_semantic_status(self):
+        review = self.review("BMB16-GYM-IK-GM-001", "absorbed")
+
+        result = self.validate_reviews([review])
+
+        self.assertEqual(
+            result[review["id"]]["coverageConsequence"],
+            "semantic-status-unchanged",
+        )
+
+        promoted = copy.deepcopy(review)
+        promoted["coverageConsequence"] = "promote-to-covered"
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([promoted])
+
+    def test_rejects_unrelated_grade_six_variant_for_grade_five_review(self):
+        review = self.review("BMB16-GYM-IK-GM-001", "absorbed")
+        review["pathAvailability"] = ["GRADE-6-BASELINE"]
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [review],
+                module_contracts=self.repository_module_contracts,
+                integration_contracts=self.repository_integration_contracts,
+                annual_variants=self.repository_annual_variants,
+            )
+
+    def test_accepts_cross_grade_integration_in_the_later_grade_variant(self):
+        review = self.review("LH26-E-ALG-001", "integrated")
+        review["phaseIds"] = []
+        review["integrationContractIds"] = ["INT-6-ALGORITHM-REVISIT"]
+        review["pathAvailability"] = ["GRADE-6-BASELINE"]
+
+        result = self.validate_reviews(
+            [review],
+            module_contracts=self.repository_module_contracts,
+            integration_contracts=self.repository_integration_contracts,
+            annual_variants=self.repository_annual_variants,
+        )
+
+        self.assertEqual(result, {review["id"]: review})
+
+    def test_rejects_integration_not_used_by_the_named_variant(self):
+        review = self.review("LH26-E-ALG-001", "integrated")
+        review["phaseIds"] = []
+        review["integrationContractIds"] = ["INT-6-ALGORITHM-REVISIT"]
+        review["pathAvailability"] = ["GRADE-5-BASELINE"]
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [review],
+                module_contracts=self.repository_module_contracts,
+                integration_contracts=self.repository_integration_contracts,
+                annual_variants=self.repository_annual_variants,
+            )
+
+    def test_rejects_failed_integration_from_upstream_valid_indexes(self):
+        time_payload = copy.deepcopy(self.time_payload)
+        for integration in time_payload["integrationContracts"]:
+            if integration["id"] == "INT-6-ALGORITHM-REVISIT":
+                integration["status"] = "failed"
+        module_contracts = validate_module_contracts(
+            time_payload["moduleContracts"],
+            self.module_payload,
+        )
+        integration_contracts = validate_integration_contracts(
+            time_payload["integrationContracts"],
+            module_contracts,
+        )
+        variant = copy.deepcopy(
+            next(
+                variant
+                for variant in time_payload["annualVariants"]
+                if variant["id"] == "GRADE-6-BASELINE"
+            )
+        )
+        variant["available"] = False
+        annual_variants = validate_annual_variants(
+            [variant],
+            module_contracts,
+            integration_contracts,
+        )
+        review = self.review("LH26-E-ALG-001", "integrated")
+        review["phaseIds"] = []
+        review["integrationContractIds"] = ["INT-6-ALGORITHM-REVISIT"]
+        review["pathAvailability"] = ["GRADE-6-BASELINE"]
+
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [review],
+                module_contracts=module_contracts,
+                integration_contracts=integration_contracts,
                 annual_variants=annual_variants,
             )
 
