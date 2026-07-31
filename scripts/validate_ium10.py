@@ -34,6 +34,23 @@ PHASE_IDS = (
     "shared-consolidation",
 )
 CONTRACT_STATUSES = {"working", "reviewed"}
+PRIVACY_CONTRACT_FIELDS = {
+    "id",
+    "moduleId",
+    "scope",
+    "artifactOwner",
+    "artifactCustody",
+    "institutionalHandling",
+    "status",
+}
+INSTITUTIONAL_HANDLING_FIELDS = {
+    "access",
+    "observation",
+    "collection",
+    "transfer",
+    "storage",
+    "assessment",
+}
 CORE_PATH_IDS = {
     5: {"baseline", "regular", "extended"},
     6: {"baseline", "regular"},
@@ -782,6 +799,73 @@ def time_handoff_fingerprint(remediation_payload):
     return _canonical_sha256(
         sorted(handoffs, key=lambda record: record["competencyId"])
     )
+
+
+def validate_privacy_contracts(privacy_contracts, module_contracts):
+    """Validate privacy contracts and return them keyed by contract id."""
+    _require(
+        isinstance(privacy_contracts, list),
+        "privacy contracts must be a list",
+    )
+    _require(
+        isinstance(module_contracts, dict),
+        "validated module contracts must be keyed by module id",
+    )
+
+    contracts_by_id = {}
+    contracted_module_ids = set()
+    for contract in privacy_contracts:
+        _require(isinstance(contract, dict), "privacy contract must be an object")
+        _require(
+            set(contract) == PRIVACY_CONTRACT_FIELDS,
+            "privacy contract fields differ from the IUM10 contract",
+        )
+        module_id = contract["moduleId"]
+        contract_id = contract["id"]
+        _require(
+            isinstance(module_id, str) and module_id in module_contracts,
+            f"privacy contract references unknown module: {module_id}",
+        )
+        _require(
+            contract_id == f"PC-{module_id}",
+            f"invalid privacy contract id: {module_id}",
+        )
+        _require(
+            contract_id not in contracts_by_id
+            and module_id not in contracted_module_ids,
+            f"privacy contract ids and module ids must be unique: {module_id}",
+        )
+        _require(
+            contract["scope"] == "private-local-reflection",
+            f"invalid privacy scope: {module_id}",
+        )
+        _require(
+            contract["artifactOwner"] == "learner",
+            f"invalid artifactOwner: {module_id}",
+        )
+        _require(
+            contract["artifactCustody"] == "learner-controlled",
+            f"invalid artifactCustody: {module_id}",
+        )
+        handling = contract["institutionalHandling"]
+        _require(
+            isinstance(handling, dict)
+            and set(handling) == INSTITUTIONAL_HANDLING_FIELDS,
+            f"invalid institutionalHandling fields: {module_id}",
+        )
+        for field in sorted(INSTITUTIONAL_HANDLING_FIELDS):
+            _require(
+                handling[field] == "prohibited",
+                f"{module_id} institutional handling {field} must be prohibited",
+            )
+        _require(
+            isinstance(contract["status"], str)
+            and contract["status"] in CONTRACT_STATUSES,
+            f"invalid privacy status: {module_id}",
+        )
+        contracts_by_id[contract_id] = contract
+        contracted_module_ids.add(module_id)
+    return contracts_by_id
 
 
 def validate_time_model_draft(time_model, module_payload=None):

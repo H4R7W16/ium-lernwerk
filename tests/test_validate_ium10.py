@@ -18,6 +18,7 @@ from scripts.validate_ium10 import (
     validate_capacity_model,
     validate_integration_contracts,
     validate_module_contracts,
+    validate_privacy_contracts,
     validate_time_reviews,
     validate_time_model_draft,
     validate_ium10_baseline,
@@ -2047,6 +2048,156 @@ class IUM10AnnualVariantTests(unittest.TestCase):
         )
 
         self.assertEqual(set(result), {"GRADE-5-OVERRIDE-TEST"})
+
+
+class IUM10PrivacyContractTests(unittest.TestCase):
+    MODULE_ID = "IUM-5-CORE-07"
+    CONTRACT_ID = "PC-IUM-5-CORE-07"
+
+    @classmethod
+    def module_contracts(cls):
+        return {
+            cls.MODULE_ID: {
+                "moduleId": cls.MODULE_ID,
+                "status": "working",
+            }
+        }
+
+    @classmethod
+    def privacy_contract(cls):
+        return {
+            "id": cls.CONTRACT_ID,
+            "moduleId": cls.MODULE_ID,
+            "scope": "private-local-reflection",
+            "artifactOwner": "learner",
+            "artifactCustody": "learner-controlled",
+            "institutionalHandling": {
+                "access": "prohibited",
+                "observation": "prohibited",
+                "collection": "prohibited",
+                "transfer": "prohibited",
+                "storage": "prohibited",
+                "assessment": "prohibited",
+            },
+            "status": "working",
+        }
+
+    def test_accepts_the_exact_module_privacy_contract(self):
+        result = validate_privacy_contracts(
+            [self.privacy_contract()],
+            self.module_contracts(),
+        )
+
+        self.assertEqual(set(result), {self.CONTRACT_ID})
+        self.assertEqual(result[self.CONTRACT_ID]["moduleId"], self.MODULE_ID)
+
+    def test_rejects_each_missing_or_extra_top_level_field(self):
+        for field in tuple(self.privacy_contract()):
+            with self.subTest(missing=field):
+                contract = self.privacy_contract()
+                del contract[field]
+                with self.assertRaisesRegex(IUM10ValidationError, "fields"):
+                    validate_privacy_contracts(
+                        [contract],
+                        self.module_contracts(),
+                    )
+
+        contract = self.privacy_contract()
+        contract["note"] = "x"
+        with self.assertRaisesRegex(IUM10ValidationError, "fields"):
+            validate_privacy_contracts([contract], self.module_contracts())
+
+    def test_rejects_each_invalid_or_empty_top_level_value(self):
+        mutations = (
+            ("wrong id", lambda c: c.__setitem__("id", "PC-WRONG"), "id"),
+            ("wrong scope", lambda c: c.__setitem__("scope", "shared"), "scope"),
+            ("wrong owner", lambda c: c.__setitem__("artifactOwner", "teacher"), "artifactOwner"),
+            ("wrong custody", lambda c: c.__setitem__("artifactCustody", "institution"), "artifactCustody"),
+            ("boolean status", lambda c: c.__setitem__("status", True), "status"),
+            ("wrong status", lambda c: c.__setitem__("status", "accepted"), "status"),
+        )
+        for label, mutate, message in mutations:
+            with self.subTest(label=label):
+                contract = self.privacy_contract()
+                mutate(contract)
+                with self.assertRaisesRegex(IUM10ValidationError, message):
+                    validate_privacy_contracts([contract], self.module_contracts())
+
+        for field in (
+            "id",
+            "moduleId",
+            "scope",
+            "artifactOwner",
+            "artifactCustody",
+            "status",
+        ):
+            with self.subTest(empty=field):
+                contract = self.privacy_contract()
+                contract[field] = ""
+                with self.assertRaises(IUM10ValidationError):
+                    validate_privacy_contracts(
+                        [contract],
+                        self.module_contracts(),
+                    )
+
+    def test_rejects_every_nonprohibited_institutional_handling_value(self):
+        for field in (
+            "access",
+            "observation",
+            "collection",
+            "transfer",
+            "storage",
+            "assessment",
+        ):
+            with self.subTest(field=field):
+                contract = self.privacy_contract()
+                contract["institutionalHandling"][field] = "allowed"
+                with self.assertRaisesRegex(
+                    IUM10ValidationError,
+                    f"{self.MODULE_ID}.*{field}",
+                ):
+                    validate_privacy_contracts([contract], self.module_contracts())
+
+    def test_rejects_each_missing_or_extra_handling_field(self):
+        extra = self.privacy_contract()
+        extra["institutionalHandling"]["profiling"] = "prohibited"
+        with self.assertRaisesRegex(IUM10ValidationError, "institutionalHandling"):
+            validate_privacy_contracts([extra], self.module_contracts())
+
+        for field in tuple(
+            self.privacy_contract()["institutionalHandling"]
+        ):
+            with self.subTest(missing=field):
+                contract = self.privacy_contract()
+                del contract["institutionalHandling"][field]
+                with self.assertRaisesRegex(
+                    IUM10ValidationError,
+                    "institutionalHandling",
+                ):
+                    validate_privacy_contracts(
+                        [contract],
+                        self.module_contracts(),
+                    )
+
+    def test_rejects_duplicates_and_orphans(self):
+        duplicate = copy.deepcopy(self.privacy_contract())
+        orphan = self.privacy_contract()
+        orphan["id"] = "PC-IUM-5-CORE-99"
+        orphan["moduleId"] = "IUM-5-CORE-99"
+
+        cases = (
+            (
+                "duplicate",
+                [self.privacy_contract(), duplicate],
+                self.module_contracts(),
+                "unique",
+            ),
+            ("orphan", [orphan], self.module_contracts(), "unknown module"),
+        )
+        for label, contracts, modules, message in cases:
+            with self.subTest(label=label):
+                with self.assertRaisesRegex(IUM10ValidationError, message):
+                    validate_privacy_contracts(contracts, modules)
 
 
 class IUM10TimeReviewTests(unittest.TestCase):
