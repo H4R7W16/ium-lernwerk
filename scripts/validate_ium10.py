@@ -1,7 +1,10 @@
+import argparse
 import copy
 import hashlib
 import json
+import sys
 from collections import Counter
+from pathlib import Path
 
 from scripts.validate_ium09 import module_structure_fingerprint
 
@@ -2753,3 +2756,100 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
         "coverageIds": coverage_ids,
         "handoffIds": handoff_ids,
     }
+
+
+def _load_repository_json(root, relative_path):
+    with (root / relative_path).open(encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def validate_ium10_repository(root):
+    """Load and validate the composed IUM10 repository contract."""
+    root = Path(root)
+    module_payload = _load_repository_json(
+        root,
+        "roadmap/module-candidates.json",
+    )
+    coverage_payload = _load_repository_json(
+        root,
+        "roadmap/coverage-plan.json",
+    )
+    remediation_payload = _load_repository_json(
+        root,
+        "roadmap/coverage-remediation.json",
+    )
+    time_model = _load_repository_json(root, "roadmap/time-model.json")
+
+    baseline = validate_ium10_baseline(
+        module_payload,
+        coverage_payload,
+        remediation_payload,
+    )
+    validate_time_model_draft(time_model, module_payload)
+    capacity_paths = validate_capacity_model(
+        time_model["capacityModel"],
+        time_model["unit"],
+    )
+    module_contracts = validate_module_contracts(
+        time_model["moduleContracts"],
+        module_payload,
+    )
+    integration_contracts = validate_integration_contracts(
+        time_model["integrationContracts"],
+        module_contracts,
+    )
+    annual_variants = validate_annual_variants(
+        time_model["annualVariants"],
+        module_contracts,
+        integration_contracts,
+    )
+    privacy_contracts = validate_privacy_contracts(
+        time_model["privacyContracts"],
+        module_contracts,
+    )
+    time_reviews = validate_time_reviews(
+        time_model["timeReviews"],
+        remediation_payload,
+        module_contracts,
+        integration_contracts,
+        annual_variants,
+        require_complete=False,
+        privacy_contracts=privacy_contracts,
+    )
+    return {
+        "baseline": baseline,
+        "capacityPaths": capacity_paths,
+        "moduleContracts": module_contracts,
+        "integrationContracts": integration_contracts,
+        "annualVariants": annual_variants,
+        "privacyContracts": privacy_contracts,
+        "timeReviews": time_reviews,
+    }
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Validate the composed IUM10 repository contract.",
+    )
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=Path(__file__).resolve().parents[1],
+        help="Repository root containing roadmap JSON inputs.",
+    )
+    arguments = parser.parse_args(argv)
+    try:
+        result = validate_ium10_repository(arguments.root)
+    except (IUM10ValidationError, OSError, json.JSONDecodeError) as error:
+        print(f"IUM10 repository validation failed: {error}", file=sys.stderr)
+        return 1
+    print(
+        "IUM10 repository validation passed: "
+        f"{len(result['timeReviews'])} registered time reviews "
+        "(partial baseline)"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

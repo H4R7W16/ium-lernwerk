@@ -1,6 +1,10 @@
 import copy
 import hashlib
 import json
+import shutil
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -1025,6 +1029,82 @@ class IUM10BaselineTests(unittest.TestCase):
 
                 with self.assertRaises(IUM10ValidationError):
                     self.validate_baseline(remediation_payload=remediation_payload)
+
+
+class IUM10RepositoryRunnerTests(unittest.TestCase):
+    REPOSITORY_INPUTS = (
+        "roadmap/module-candidates.json",
+        "roadmap/coverage-plan.json",
+        "roadmap/coverage-remediation.json",
+        "roadmap/time-model.json",
+    )
+
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+
+    def run_validator(self, *arguments):
+        return subprocess.run(
+            [
+                sys.executable,
+                "-B",
+                "-m",
+                "scripts.validate_ium10",
+                *map(str, arguments),
+            ],
+            cwd=self.root,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            check=False,
+        )
+
+    def copy_repository_inputs(self, target_root):
+        for relative_path in self.REPOSITORY_INPUTS:
+            source = self.root / relative_path
+            target = target_root / relative_path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+
+    def test_module_command_validates_repository_and_reports_partial_review_count(self):
+        result = self.run_validator()
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(
+            result.stdout,
+            "IUM10 repository validation passed: "
+            "27 registered time reviews (partial baseline)\n",
+        )
+        self.assertEqual(result.stderr, "")
+
+    def test_module_command_rejects_corrupted_structured_disposition(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            fixture_root = Path(temporary_directory)
+            self.copy_repository_inputs(fixture_root)
+            time_model_path = fixture_root / "roadmap/time-model.json"
+            time_model = json.loads(time_model_path.read_text(encoding="utf-8"))
+            review = next(
+                review
+                for review in time_model["timeReviews"]
+                if review["competencyId"] == "BMB16-GYM-IK-MG-001"
+            )
+            review["privacyDisposition"]["privateArtifactContribution"][
+                "product"
+            ] = "included"
+            time_model_path.write_text(
+                json.dumps(time_model, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            result = self.run_validator("--root", fixture_root)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(result.stdout, "")
+        self.assertIn(
+            "private artifact product must be excluded",
+            result.stderr,
+        )
+        self.assertNotIn("validation passed", result.stderr)
 
 
 class IUM10CapacityModelTests(unittest.TestCase):
@@ -2352,7 +2432,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "module-budget-only",
                 )
 
-    def test_repository_core07_privacy_migration_preserves_time_and_coverage_balance(self):
+    def test_repository_structured_dispositions_preserve_time_and_coverage_balance(self):
         reviews = [
             review
             for review in self.time_payload["timeReviews"]
