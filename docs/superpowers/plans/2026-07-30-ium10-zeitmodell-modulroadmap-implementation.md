@@ -1051,16 +1051,18 @@ git commit -m "data: audit IUM-5-CORE-06 time impacts"
 
 ### Task 14: `IUM-5-CORE-07` mit sieben Zeitübergaben auditieren
 
+**Status:** Abgeschlossen über den freigegebenen Privacy-Vertrag-Unterplan auf Commit `393020a448ada18b05780606a5092fbe558af258`. Schema 2, ein Modulvertrag, sieben strukturierte Dispositionen und der echte zusammengesetzte IUM10-Runner sind unabhängig reviewt; Zeit-, Coverage- und Graphentscheidungen blieben unverändert.
+
 **Records:** `BMB16-GYM-IK-MG-001`, `BMB16-GYM-IK-MG-002`, `BMB16-GYM-IK-MG-003`, `BMB16-GYM-PK-RK-001`, `BMB16-GYM-PK-RK-002`, `BMB16-GYM-PK-RK-003`, `LH26-E-DP-003`
 
 **Files:** `roadmap/time-model.json`, `tests/test_validate_ium10.py`
 
-- [ ] `git status --short --branch` prüfen.
-- [ ] Medienwirkung, private Selbstreflexion, Kriterienurteil und nichtpersonale Anschlussprodukte getrennt auditieren.
-- [ ] Private Inhalte weder als Produktzeit noch als beobachtbare Nachweisspur modellieren.
-- [ ] `BMB16-GYM-PK-RK-003` und `LH26-E-DP-003` ohne neuen semantischen Nachweis unverändert `partial` lassen.
-- [ ] Sieben Ergebnisse registrieren, roten Test ausführen und sieben Reviews ergänzen.
-- [ ] Tests/CLI grün ausführen, synchronisieren und committen:
+- [x] `git status --short --branch` prüfen.
+- [x] Medienwirkung, private Selbstreflexion, Kriterienurteil und nichtpersonale Anschlussprodukte getrennt auditieren.
+- [x] Private Inhalte weder als Produktzeit noch als beobachtbare Nachweisspur modellieren.
+- [x] `BMB16-GYM-PK-RK-003` und `LH26-E-DP-003` ohne neuen semantischen Nachweis unverändert `partial` lassen.
+- [x] Sieben Ergebnisse registrieren, roten Test ausführen und sieben Reviews ergänzen.
+- [x] Tests/CLI grün ausführen, synchronisieren und committen:
 
 ```powershell
 git fetch --prune

@@ -8,6 +8,8 @@
 
 **Tech Stack:** Python 3 Standardbibliothek, `unittest`, JSON, bestehende IUM09-/IUM10-Validatoren, Git.
 
+**Status:** Abgeschlossen auf Commit `393020a448ada18b05780606a5092fbe558af258`; unabhängiges Gesamt-Review und einmaliges scoped Re-Review sauber. Kein Push; Rückkehr zum Parent-Plan mit Task 15.
+
 ## Global Constraints
 
 - Autoritative Spezifikation: `docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md`.
