@@ -401,6 +401,8 @@ TASK18_FORBIDDEN_TEXT = {
     "INF7-16-GYM-IK-DC-001": (
         "beispiele werden nur genannt", "codierung und verschlüsselung werden gleichgesetzt",
         "codierung wird mit verschlüsselung gleichgesetzt",
+        "grade-7-optimized-demand ist verfügbar",
+        "jahresurteil bleibt nicht red",
     ),
     "INF7-16-GYM-IK-DC-004": (
         "bitfolgenlänge ohne bit-byte-beziehung", "größere einheiten bleiben unklar",
@@ -409,15 +411,17 @@ TASK18_FORBIDDEN_TEXT = {
     "INF7-16-GYM-IK-DC-005": (
         "nur eine umwandlungsrichtung", "ohne stellenwerterklärung",
         "ohne führende nullen", "ohne grenzfälle", "ohne stellenwechselfälle",
-        "ohne unbekannten prüffall",
+        "ohne unbekannten prüffall", "nur die vorwärtsumwandlung",
+        "nur die rückwärtsumwandlung",
     ),
     "LH26-E-ID-020": (
         "größere präfixe sind für diesen record pflicht",
         "kilo, mega, giga und tera werden vorausgesetzt",
+        "kilo und mega sind für id-020 verpflichtend",
     ),
     "LH26-E-ID-021": (
         "präfixe werden nur genannt", "binärpräfixe werden vermischt",
-        "kib", "mib", "gib", "tib",
+        "kib", "mib", "gib", "tib", "ohne umrechnung nur aufgezählt",
     ),
 }
 TASK18_REVIEW_ANCHORS = {
@@ -434,6 +438,23 @@ TASK18_REVIEW_ANCHORS = {
     "LH26-E-ID-021": (
         "über die bloße Dezimalkennzeichnung in DC-004 hinaus",
         "tatsächlich ausgeführten Umrechnungen", "nicht doppelt",
+    ),
+}
+TASK18_REVIEW_TEXT_PROJECTION_SHA256 = {
+    "INF7-16-GYM-IK-DC-001": (
+        "6254abf3c0e4d9258277401942d231add017790316497cb8ec41817e775b7a9a"
+    ),
+    "INF7-16-GYM-IK-DC-004": (
+        "3a8017b772f75928cdc586b5109579a661654f958b798a60d5557f01ebb805e2"
+    ),
+    "INF7-16-GYM-IK-DC-005": (
+        "465033f5c6bb22e73eb31c08187a702d4f134b4f280926506bc1afc904afb355"
+    ),
+    "LH26-E-ID-020": (
+        "a1e53e36c7480c1c920cfe369f0f12e11c67cc8c2dd084ab1d7f94296abbbd87"
+    ),
+    "LH26-E-ID-021": (
+        "34b4c2cd951463a9c1832c3412f4204bf2fbef992189dab56918306bf920bd93"
     ),
 }
 TASK18_INTEGRATION_FORBIDDEN_TEXT = (
@@ -5030,6 +5051,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
         for competency_id, expected in expectations.items():
             review = reviews_by_competency_id[competency_id]
             self.assertEqual(
+                review["id"],
+                f"TR-{review['competencyId']}",
+            )
+            self.assertEqual(
                 tuple(review[field] for field in matrix_fields),
                 tuple(expected[field] for field in matrix_fields),
             )
@@ -6448,6 +6473,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             evidence_mode="module-detail",
             evidence_visibility="teacher-observable",
         )
+        for competency_id, expected_sha256 in (
+            TASK18_REVIEW_TEXT_PROJECTION_SHA256.items()
+        ):
+            self._assert_canonical_projection(
+                reviews_by_competency_id[competency_id],
+                fields=("rationale", "risk", "followUp"),
+                expected_sha256=expected_sha256,
+            )
 
         self._assert_core01_task18_semantic_boundaries(
             evidence_by_competency_id=evidence,
@@ -6501,6 +6534,94 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.time_payload["timeReviews"]
         )
 
+    def test_core01_task18_rejects_original_review_contradictions(self):
+        contradictions = (
+            (
+                "INF7-16-GYM-IK-DC-001",
+                "GRADE-7-OPTIMIZED-DEMAND ist verfügbar und das "
+                "Jahresurteil bleibt nicht red.",
+            ),
+            (
+                "LH26-E-ID-020",
+                "Kilo und Mega sind für ID-020 verpflichtend.",
+            ),
+            (
+                "LH26-E-ID-021",
+                "Die Präfixe werden ohne Umrechnung nur aufgezählt.",
+            ),
+            (
+                "INF7-16-GYM-IK-DC-005",
+                "Nur die Vorwärtsumwandlung genügt.",
+            ),
+        )
+        for competency_id, contradiction in contradictions:
+            with self.subTest(
+                competency_id=competency_id,
+                contradiction=contradiction,
+            ):
+                evidence, reviews, integration = (
+                    self._task18_semantic_probe_inputs()
+                )
+                reviews[competency_id]["followUp"] += f" {contradiction}"
+                with self.assertRaises(AssertionError):
+                    self._assert_core01_task18_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_audit_review_matrix_rejects_id_competency_mismatch(self):
+        task_reviews = copy.deepcopy(
+            self.time_payload["timeReviews"][
+                PRE_TASK18_TIME_REVIEW_COUNT:
+                PRE_TASK18_TIME_REVIEW_COUNT + len(TASK18_AUDIT_EXPECTATIONS)
+            ]
+        )
+        task_reviews[0]["id"], task_reviews[1]["id"] = (
+            task_reviews[1]["id"],
+            task_reviews[0]["id"],
+        )
+        handoffs = {
+            item["competencyId"]: item
+            for item in self.remediation_payload["entries"]
+        }
+        coverage = {
+            item["competencyId"]: item
+            for item in self.coverage_payload["entries"]
+        }
+        module = next(
+            item for item in self.module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-01"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in module["coverageEvidence"]
+        }
+        with self.assertRaises(AssertionError):
+            self._assert_audit_review_matrix(
+                task_reviews,
+                expectations=TASK18_AUDIT_EXPECTATIONS,
+                module_id="IUM-7-CORE-01",
+                handoffs=handoffs,
+                coverage=coverage,
+                evidence=evidence,
+                cause_class="module-detail",
+                evidence_mode="module-detail",
+                evidence_visibility="teacher-observable",
+            )
+
+    def test_core01_task18_rejects_noncanonical_review_text_projection(self):
+        for competency_id in TASK18_AUDIT_EXPECTATIONS:
+            with self.subTest(competency_id=competency_id):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                review = next(
+                    item for item in reviews
+                    if item["competencyId"] == competency_id
+                )
+                review["risk"] += " Beliebige Ergänzung."
+                with self.assertRaises(AssertionError):
+                    self._assert_core01_task18_audit_contract(reviews)
+
     def test_core01_task18_contract_allows_later_review(self):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
         reviews.append(
@@ -6521,6 +6642,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ("INF7-16-GYM-IK-DC-004", "Bitfolgenlänge ohne Bit-Byte-Beziehung genügt."),
             ("INF7-16-GYM-IK-DC-004", "Größere Einheiten bleiben unklar."),
             ("INF7-16-GYM-IK-DC-005", "Nur eine Umwandlungsrichtung wird bearbeitet."),
+            ("INF7-16-GYM-IK-DC-005", "Nur die Rückwärtsumwandlung genügt."),
             ("INF7-16-GYM-IK-DC-005", "Ohne Stellenwerterklärung."),
             ("INF7-16-GYM-IK-DC-005", "Ohne führende Nullen."),
             ("INF7-16-GYM-IK-DC-005", "Ohne Grenzfälle."),
