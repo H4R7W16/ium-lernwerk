@@ -235,7 +235,7 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": ["TR-LH26-E-ID-009"],
       "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
       "schoolDependentSteps": [],
       "risk": "Die gemeinsame Belegspur trägt nur, wenn Recherchefrage und Medienprodukt fachlich dieselben Quellen nutzen.",
@@ -2475,6 +2475,31 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Schulabhängige Regelwerke können unterschiedlich komplex sein; reale Zugangsdaten oder private Inhalte dürfen die operative Datengrenze nicht überschreiten, werden aber nicht als fachliches Lernergebnis bewertet.",
       "followUp": "Im Pilot ausschließlich prüfen, ob Regelanwendung, Zweck- und Folgenerklärung sowie die begründete Konfliktlösung im Regelabschnitt erreicht werden und ob die operative Datengrenze eingehalten bleibt.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-ID-009",
+      "competencyId": "LH26-E-ID-009",
+      "moduleId": "IUM-5-CORE-02",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Vorwissensanker, ausdrücklicher Quellenabgleich und die daraus abgeleitete belegte Aussage oder Revision werden nicht als Kriterienliste ergänzt, sondern bereits als ausgeführte Recherche-, Beleg- und Urteilsarbeit im selben digitalen Quellendossier erstellt und revidiert; die drei positiven Phasen tragen damit dieselbe Produktspur ohne zusätzliche Minuten.",
+      "phaseIds": [
+        "activate-prior-knowledge",
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloße Kriteriennennung oder ein abgehakter Quellencheck würde die verlangte Verknüpfung und Weiterverarbeitung unterschreiten; INT-5-RESEARCH-PRODUCTION trägt diese record-spezifische Vorwissens- und Urteilsspur nicht automatisch, solange sie im späteren Informationsprodukt nicht tatsächlich identisch fortgeführt wird.",
+      "followUp": "Im Pilot prüfen, ob Vorwissensanker, neue Quelleninformation, ausdrückliche Beziehung und daraus abgeleitete Aussage oder Revision in derselben Dossierspur beobachtbar erreicht werden; die Integration nur bei nachweislich identischer Quellen- und Belegspur nutzen.",
       "status": "working"
     },
     {

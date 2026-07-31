@@ -29,6 +29,7 @@ TIME_AUDIT_DECISIONS = {
     "BMB16-GYM-PK-SK-003": "absorbed",
     "LH26-E-DA-004": "additional-time",
     "LH26-E-DP-001": "additional-time",
+    "LH26-E-ID-009": "absorbed",
     "LH26-E-PROG-001": "unresolved",
 }
 
@@ -1963,6 +1964,37 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     dp001_review["followUp"],
                 )
             ),
+        )
+        id009_review = reviews_by_competency_id["LH26-E-ID-009"]
+        self.assertEqual(
+            (
+                id009_review["decision"],
+                id009_review["additionalMinutes"],
+                id009_review["phaseIds"],
+                id009_review["integrationContractIds"],
+                id009_review["pathAvailability"],
+            ),
+            (
+                "absorbed",
+                0,
+                [
+                    "activate-prior-knowledge",
+                    "independent-action-product",
+                    "review-revise-transfer",
+                ],
+                [],
+                [
+                    "GRADE-5-BASELINE",
+                    "GRADE-5-REGULAR",
+                    "GRADE-5-EXTENDED",
+                ],
+            ),
+        )
+        self.assertEqual(
+            self.repository_module_contracts["IUM-5-CORE-02"][
+                "timeReviewIds"
+            ],
+            ["TR-LH26-E-ID-009"],
         )
         progression_review = reviews_by_competency_id["LH26-E-PROG-001"]
         self.assertEqual(progression_review["phaseIds"], [])
