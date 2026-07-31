@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -3287,55 +3288,87 @@ class IUM10TimeReviewTests(unittest.TestCase):
 
     def _assert_core07_no_affirmative_private_handling(self, text):
         normalized_text = " ".join(text.casefold().split())
-        for delimiter in (".", ";", "!", "?"):
-            normalized_text = normalized_text.replace(delimiter, "\n")
-        for statement in normalized_text.splitlines():
-            if not any(
-                private_marker in statement
-                for private_marker in ("privat", "persönlich")
-            ):
-                continue
-            if not any(
-                handling_action in statement
-                for handling_action in (
-                    "erhoben",
-                    "erhebt",
-                    "übertragen",
-                    "überträgt",
-                    "eingesammelt",
-                    "gesammelt",
-                    "sammelt",
-                    "gespeichert",
-                    "speichert",
-                    "bewertet",
-                    "beobachtet",
-                    "eingesehen",
-                    "angerechnet",
-                    "einsicht nehmen",
-                    "einsicht erhalten",
-                    "zugriff auf",
-                    "zugreif",
+        sentences = re.split(r"[.!?]+", normalized_text)
+        for sentence in sentences:
+            private_context = False
+            for clause in self._core07_private_handling_clauses(sentence):
+                if re.search(r"\b(?:privat|persönlich)\w*", clause):
+                    private_context = True
+                if not private_context:
+                    continue
+                if not self._core07_clause_has_handling_action(clause):
+                    continue
+                has_local_negative = re.search(
+                    (
+                        r"\b(?:nicht|nie|weder|ohne|keinerlei|"
+                        r"kein(?:e|en|em|er|es)?)\b"
+                    ),
+                    clause,
                 )
-            ):
-                continue
-            has_explicit_boundary = any(
-                boundary_marker in statement
-                for boundary_marker in (
-                    "nicht",
-                    "nie",
-                    "weder",
-                    "keine",
-                    "ohne",
-                    "ausserhalb",
+                describes_prohibited_privacy_risk = re.search(
+                    (
+                        r"\b(?:einsicht|abgabe|lehrkraftbeobachtung|"
+                        r"bewertung)\b.*\bwürde\b.*"
+                        r"\b(?:datenschutzgrenze|privatsphäre)\b.*"
+                        r"\b(?:verletzen|unterlaufen)\b"
+                    ),
+                    clause,
                 )
-            )
-            self.assertTrue(
-                has_explicit_boundary,
-                msg=(
-                    "affirmative private collection, storage, observation, "
-                    f"or assessment statement: {statement!r}"
-                ),
-            )
+                self.assertTrue(
+                    (
+                        has_local_negative
+                        or describes_prohibited_privacy_risk
+                    ),
+                    msg=(
+                        "affirmative private collection, storage, "
+                        "observation, or assessment clause: "
+                        f"{clause!r}"
+                    ),
+                )
+
+    def _core07_private_handling_clauses(self, sentence):
+        clause_break = re.compile(
+            r"\s*;\s*"
+            r"|\s*,?\s+\b(?:aber|jedoch|sondern|hingegen|"
+            r"allerdings|dennoch)\b\s+"
+            r"|\s+\b(?:und|oder)\b\s+(?="
+            r"(?:(?:sie|er|es|man|wir|ihr|lehrkräfte|lernende)\s+)?"
+            r"(?:dürfen|darf|werden|wird|wurden|wurde|sollen|soll|"
+            r"können|kann|müssen|muss)\b"
+            r")"
+            r"|\s*,\s*(?="
+            r"(?:(?:und|oder|doch)\s+)?"
+            r"(?:(?:sie|er|es|man|wir|ihr|lehrkräfte|lernende)\s+)?"
+            r"(?:dürfen|darf|werden|wird|wurden|wurde|sollen|soll|"
+            r"können|kann|müssen|muss)\b"
+            r")"
+        )
+        return [
+            clause.strip(" ,")
+            for clause in clause_break.split(sentence)
+            if clause.strip(" ,")
+        ]
+
+    def _core07_clause_has_handling_action(self, clause):
+        handling_action = re.compile(
+            r"\b(?:"
+            r"(?:ein)?sammel(?:n|t|st|te|ten)?|"
+            r"(?:ein)?gesammelt|"
+            r"speicher(?:n|t|st|te|ten)?|gespeichert|"
+            r"bewert(?:en|et|est|ete|eten)|"
+            r"erheb(?:en|t|st)|erhoben|"
+            r"übertrag(?:en|e|t|st)|überträg(?:t|st)|"
+            r"beobacht(?:en|et|est|ete|eten)|"
+            r"einseh(?:en|e|t|st)|einsieht|eingesehen|"
+            r"anrechn(?:en|et|est)|angerechnet|"
+            r"kontrollier(?:en|t|st|te|ten)|"
+            r"abgeb(?:en|t)|abgegeben"
+            r")\b"
+            r"|\beinsicht\s+(?:nehmen|erhalten)\b"
+            r"|\bzugriff\s+auf\b"
+            r"|\b(?:greift|greifen)\b.{0,40}\bzu\b"
+        )
+        return handling_action.search(clause) is not None
 
     def _assert_core06_extended_product_depth(self, core06_contract):
         budgets_by_path = {
@@ -3938,8 +3971,8 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 module_payload=module_payload,
             )
 
-    def test_core07_rejects_affirmative_private_modal_statements(self):
-        affirmative_modal_statements = (
+    def test_core07_rejects_affirmative_private_action_clauses(self):
+        affirmative_private_actions = (
             "Private Inhalte dürfen gespeichert werden.",
             (
                 "Persönliche Reflexionen dürfen eingesammelt und bewertet "
@@ -3950,9 +3983,23 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 "Private Inhalte werden nicht erhoben. Private Inhalte "
                 "dürfen gespeichert werden."
             ),
+            "Private Inhalte dürfen Lehrkräfte einsammeln.",
+            "Speichern dürfen Lehrkräfte private Inhalte.",
+            "Private Inhalte dürfen Lehrkräfte bewerten.",
+            (
+                "Private Inhalte werden nicht erhoben, dürfen aber "
+                "gespeichert werden."
+            ),
+            (
+                "Private Inhalte werden nicht erhoben und dürfen "
+                "gespeichert werden."
+            ),
+            "Private Inhalte dürfen Lehrkräfte übertragen.",
+            "Private Aktivitäten dürfen Lehrkräfte beobachten.",
+            "Private Inhalte dürfen Lehrkräfte einsehen.",
         )
-        for statement in affirmative_modal_statements:
-            with self.subTest(affirmative_private_modal=statement):
+        for statement in affirmative_private_actions:
+            with self.subTest(affirmative_private_action=statement):
                 with self.assertRaises(AssertionError):
                     self._assert_core07_no_affirmative_private_handling(
                         statement
@@ -3962,6 +4009,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
         for statement in (
             "Private Inhalte dürfen nicht gespeichert werden.",
             PRIVATE_LOCAL_BOUNDARY,
+            (
+                "Private Inhalte werden nicht erhoben, und sie dürfen "
+                "nicht gespeichert werden."
+            ),
         ):
             with self.subTest(negative_private_boundary=statement):
                 self._assert_core07_no_affirmative_private_handling(
