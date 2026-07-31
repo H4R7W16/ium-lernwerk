@@ -2096,7 +2096,15 @@ class IUM10PrivacyContractTests(unittest.TestCase):
             with self.subTest(missing=field):
                 contract = self.privacy_contract()
                 del contract[field]
-                with self.assertRaisesRegex(IUM10ValidationError, "fields"):
+                module_reference = (
+                    self.MODULE_ID
+                    if field != "moduleId"
+                    else "<missing moduleId>"
+                )
+                with self.assertRaisesRegex(
+                    IUM10ValidationError,
+                    f"{module_reference}.*missing.*{field}",
+                ):
                     validate_privacy_contracts(
                         [contract],
                         self.module_contracts(),
@@ -2104,7 +2112,10 @@ class IUM10PrivacyContractTests(unittest.TestCase):
 
         contract = self.privacy_contract()
         contract["note"] = "x"
-        with self.assertRaisesRegex(IUM10ValidationError, "fields"):
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            f"{self.MODULE_ID}.*unexpected.*note",
+        ):
             validate_privacy_contracts([contract], self.module_contracts())
 
     def test_rejects_each_invalid_or_empty_top_level_value(self):

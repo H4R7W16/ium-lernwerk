@@ -816,9 +816,14 @@ def validate_privacy_contracts(privacy_contracts, module_contracts):
     contracted_module_ids = set()
     for contract in privacy_contracts:
         _require(isinstance(contract, dict), "privacy contract must be an object")
+        module_reference = contract.get("moduleId", "<missing moduleId>")
+        missing_fields = sorted(PRIVACY_CONTRACT_FIELDS - set(contract))
+        unexpected_fields = sorted(set(contract) - PRIVACY_CONTRACT_FIELDS)
         _require(
-            set(contract) == PRIVACY_CONTRACT_FIELDS,
-            "privacy contract fields differ from the IUM10 contract",
+            not missing_fields and not unexpected_fields,
+            "privacy contract "
+            f"{module_reference} fields differ: "
+            f"missing {missing_fields}; unexpected {unexpected_fields}",
         )
         module_id = contract["moduleId"]
         contract_id = contract["id"]
