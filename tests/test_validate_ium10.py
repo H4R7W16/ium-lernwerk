@@ -1165,6 +1165,24 @@ class IUM10CapacityModelTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM10ValidationError, "schema version"):
             validate_time_model_draft(time_model)
 
+    def test_repository_draft_has_schema_two_and_the_core07_privacy_contract(self):
+        root = Path(__file__).resolve().parents[1]
+        time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+
+        validate_time_model_draft(time_model, module_payload)
+
+        self.assertEqual(time_model["schemaVersion"], 2)
+        self.assertIn("privacyContracts", time_model)
+        self.assertEqual(
+            [contract["id"] for contract in time_model["privacyContracts"]],
+            ["PC-IUM-5-CORE-07"],
+        )
+
     def test_repository_draft_has_the_capacity_contract_and_unimplemented_lists_empty(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
@@ -1186,6 +1204,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "moduleContracts",
                 "integrationContracts",
                 "annualVariants",
+                "privacyContracts",
                 "timeReviews",
                 "sequenceEvidence",
                 "gradeJudgements",
@@ -1193,7 +1212,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "pilotAssignments",
             },
         )
-        self.assertEqual(time_model["schemaVersion"], 1)
+        self.assertEqual(time_model["schemaVersion"], 2)
         self.assertEqual(time_model["status"], "draft")
         self.assertEqual(
             time_model["baseline"],
@@ -2271,6 +2290,68 @@ class IUM10TimeReviewTests(unittest.TestCase):
             cls.repository_module_contracts,
             cls.repository_integration_contracts,
         )
+        cls.repository_privacy_contracts = validate_privacy_contracts(
+            cls.time_payload["privacyContracts"],
+            cls.repository_module_contracts,
+        )
+
+    def test_repository_core07_privacy_dispositions_match_the_audited_matrix(self):
+        expected = {
+            "BMB16-GYM-IK-MG-001": (
+                "nonpersonal-follow-up",
+                "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
+            ),
+            "BMB16-GYM-IK-MG-002": (
+                "nonpersonal-module-detail",
+                "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
+            ),
+            "BMB16-GYM-IK-MG-003": (
+                "nonpersonal-follow-up",
+                "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
+            ),
+            "BMB16-GYM-PK-RK-001": (
+                "nonpersonal-follow-up",
+                "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
+            ),
+            "BMB16-GYM-PK-RK-002": (
+                "nonpersonal-follow-up",
+                "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
+            ),
+            "BMB16-GYM-PK-RK-003": ("none", None),
+            "LH26-E-DP-003": ("none", None),
+        }
+        reviews = [
+            review
+            for review in self.time_payload["timeReviews"]
+            if review["moduleId"] == "IUM-5-CORE-07"
+        ]
+        self.assertEqual(len(reviews), 7)
+        for review in reviews:
+            with self.subTest(competency_id=review["competencyId"]):
+                disposition = review["privacyDisposition"]
+                self.assertEqual(
+                    disposition["contractId"],
+                    "PC-IUM-5-CORE-07",
+                )
+                self.assertEqual(
+                    (
+                        disposition["observableBasis"],
+                        disposition["evidenceContractId"],
+                    ),
+                    expected[review["competencyId"]],
+                )
+                self.assertEqual(
+                    set(
+                        disposition[
+                            "privateArtifactContribution"
+                        ].values()
+                    ),
+                    {"excluded"},
+                )
+                self.assertEqual(
+                    disposition["privateActivityTimeTreatment"],
+                    "module-budget-only",
+                )
 
     @classmethod
     def module_contracts(cls):
@@ -2975,6 +3056,18 @@ class IUM10TimeReviewTests(unittest.TestCase):
         with self.assertRaises(IUM10ValidationError):
             self.validate_reviews([partial], require_complete=True)
 
+        complete_nonprivacy_baseline = copy.deepcopy(self.remediation_payload)
+        for entry in complete_nonprivacy_baseline["entries"]:
+            if entry["before"]["evidenceModuleId"] in {
+                "IUM-7-CORE-08",
+                "IUM-7-CORE-10",
+            }:
+                entry["causeClass"] = "module-detail"
+        repository_private_reviews = {
+            review["competencyId"]: review
+            for review in self.time_payload["timeReviews"]
+            if review["moduleId"] == "IUM-5-CORE-07"
+        }
         reviews = []
         for entry in self.remediation_payload["entries"]:
             decision = (
@@ -2982,9 +3075,30 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 if entry["timeImpact"]["level"] == "roadmap-dependent"
                 else "absorbed"
             )
-            reviews.append(self.review(entry["competencyId"], decision))
+            repository_private_review = repository_private_reviews.get(
+                entry["competencyId"]
+            )
+            if (
+                repository_private_review is not None
+                and repository_private_review["privacyDisposition"][
+                    "observableBasis"
+                ]
+                == "none"
+            ):
+                decision = "unresolved"
+            review = self.review(entry["competencyId"], decision)
+            if repository_private_review is not None:
+                review["privacyDisposition"] = copy.deepcopy(
+                    repository_private_review["privacyDisposition"]
+                )
+            reviews.append(review)
 
-        result = self.validate_reviews(reviews, require_complete=True)
+        result = self.validate_reviews(
+            reviews,
+            remediation_payload=complete_nonprivacy_baseline,
+            require_complete=True,
+            privacy_contracts=self.repository_privacy_contracts,
+        )
 
         self.assertEqual(len(result), 60)
         self.assertEqual(
@@ -4548,6 +4662,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_integration_contracts,
             self.repository_annual_variants,
             require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
         )
         reviews_by_competency_id = {
             review["competencyId"]: review for review in result.values()
@@ -4583,6 +4698,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_integration_contracts,
             self.repository_annual_variants,
             require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
         )
         reviews_by_competency_id = {
             review["competencyId"]: review for review in result.values()
@@ -4677,6 +4793,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_integration_contracts,
             self.repository_annual_variants,
             require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
         )
         reviews_by_competency_id = {
             review["competencyId"]: review for review in result.values()
@@ -4744,6 +4861,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_integration_contracts,
             self.repository_annual_variants,
             require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
         )
         reviews_by_competency_id = {
             review["competencyId"]: review for review in result.values()
@@ -4819,6 +4937,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_integration_contracts,
             self.repository_annual_variants,
             require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
         )
         return {
             review["competencyId"]: review for review in result.values()
@@ -5343,6 +5462,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_integration_contracts,
             self.repository_annual_variants,
             require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
         )
         reviews_by_competency_id = {
             review["competencyId"]: review for review in result.values()

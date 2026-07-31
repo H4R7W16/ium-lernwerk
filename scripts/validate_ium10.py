@@ -914,8 +914,8 @@ def validate_time_model_draft(time_model, module_payload=None):
     _require(
         isinstance(schema_version, int)
         and not isinstance(schema_version, bool)
-        and schema_version == 1,
-        "schema version must be the integer 1",
+        and schema_version == 2,
+        "schema version must be the integer 2",
     )
     has_grade_6_orchestration = _has_grade_6_orchestration(
         time_model,
@@ -962,6 +962,10 @@ def validate_time_model_draft(time_model, module_payload=None):
         validated_module_contracts = validate_module_contracts(
             module_contract_records,
             scoped_module_payload,
+        )
+        validate_privacy_contracts(
+            time_model.get("privacyContracts"),
+            validated_module_contracts,
         )
         validated_integration_contracts = validate_integration_contracts(
             time_model.get("integrationContracts"),

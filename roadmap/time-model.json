@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "draft",
   "baseline": {
     "commit": "e53bad7cffe1541fc910db948235908bebe89caa",
@@ -2362,6 +2362,24 @@
       "risk": "Die historische Summe ist keine Empfehlung und kein verfügbares Angebot; sie dient ausschließlich als nachvollziehbare Vergleichsgrenze der IUM09-Modulzeiten."
     }
   ],
+  "privacyContracts": [
+    {
+      "id": "PC-IUM-5-CORE-07",
+      "moduleId": "IUM-5-CORE-07",
+      "scope": "private-local-reflection",
+      "artifactOwner": "learner",
+      "artifactCustody": "learner-controlled",
+      "institutionalHandling": {
+        "access": "prohibited",
+        "observation": "prohibited",
+        "collection": "prohibited",
+        "transfer": "prohibited",
+        "storage": "prohibited",
+        "assessment": "prohibited"
+      },
+      "status": "working"
+    }
+  ],
   "timeReviews": [
     {
       "id": "TR-BMB16-GYM-IK-GM-001",
@@ -2820,6 +2838,17 @@
       "competencyId": "BMB16-GYM-IK-MG-001",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "nonpersonal-follow-up",
+        "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "additional-time",
       "rationale": "Die 15 Minuten sind ausschließlich dem nichtpersonalen Abschnitt „Altersbezogene Bewertung“ der gemeinsamen fallbezogenen Wirkungskarte zugeordnet: Die Lernenden bewerten den vollständig vorgegebenen fiktiven Fall mit dem vollständig vorgegebenen Kriterienkatalog und begründen angemessene oder problematische Merkmale. Inhalt, Bearbeitungsstand und Zeitbedarf der privaten Motivations- und Nutzungsbewertung werden weder beobachtet noch als Produkt- oder Evidenzspur angerechnet.",
       "phaseIds": ["independent-action-product"],
@@ -2841,6 +2870,17 @@
       "competencyId": "BMB16-GYM-IK-MG-002",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "nonpersonal-module-detail",
+        "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "additional-time",
       "rationale": "Das Erläutern eines positiven Nutzungsaspekts und eines Risikos oder einer Gefahr übermäßiger Nutzung, ihr kriterien- und beleggestütztes Bewerten sowie das Ableiten einer passenden Präventionsmaßnahme benötigen 20 Minuten angeleitete Fallanalyse und Revision im gemeinsamen Abschnitt „Nutzen, Risiken und Prävention“ derselben Wirkungskarte.",
       "phaseIds": [
@@ -2865,6 +2905,17 @@
       "competencyId": "BMB16-GYM-IK-MG-003",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "nonpersonal-follow-up",
+        "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "absorbed",
       "rationale": "Im nichtpersonalen Abschnitt „Wirkung und bedingte Gesetzmäßigkeit“ nutzen die Untersuchung derselben zwei kuratierten Medienbeispiele, der Vergleich vollständig vorgegebener fiktiver Reaktionsdaten sowie Ableitung und Revision einer bedingten Wirkungsaussage bereits dieselbe positive Wirkungs- und Revisionsspur der gemeinsamen Wirkungskarte. Private Empfindungen oder private Ableitungen sind weder Voraussetzung dieser Spur noch beobachtbares Produkt oder Evidenz und tragen keine zusätzlichen Minuten.",
       "phaseIds": [
@@ -2890,6 +2941,17 @@
       "competencyId": "BMB16-GYM-PK-RK-001",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "nonpersonal-follow-up",
+        "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "additional-time",
       "rationale": "Die 15 Minuten gelten ausschließlich dem nichtpersonalen Abschnitt „Nutzungsvergleich“ der gemeinsamen Wirkungskarte: Die zwei vollständig vorgegebenen Nutzungssituationen des fiktiven Falls werden mit dem vorgegebenen Kriterienkatalog beschrieben und verglichen; Gemeinsamkeiten und Unterschiede werden begründet festgehalten. Eigenes Nutzungsverhalten und die private Vergleichsmatrix bilden weder die beobachtbare Produktspur noch den Zeitnachweis.",
       "phaseIds": ["guided-practice"],
@@ -2911,6 +2973,17 @@
       "competencyId": "BMB16-GYM-PK-RK-002",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "nonpersonal-follow-up",
+        "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "additional-time",
       "rationale": "Die 15 Minuten sind ausschließlich dem nichtpersonalen Abschnitt „Lebenswelt und Medienwirklichkeit“ der gemeinsamen Wirkungskarte zugeordnet: Am vollständig vorgegebenen fiktiven Fall werden der Einfluss digitaler Medien auf dessen Lebenswelt sowie begründete Entsprechungen und Unterschiede zwischen Wirklichkeit und denselben kuratierten Medienbeispielen dargestellt. Die private Lebensweltreflexion ist keine beobachtbare Produkt- oder Evidenzspur.",
       "phaseIds": ["independent-action-product"],
@@ -2932,6 +3005,17 @@
       "competencyId": "BMB16-GYM-PK-RK-003",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "none",
+        "evidenceContractId": null,
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "unresolved",
       "rationale": "Ohne die ausstehende Ursachenreklassifikation von `private-local` zu `module-detail` existiert kein gültiger Evidenzvertrag für das Abschätzen und kriteriengestützte Bewerten medialer Selbstdarstellung. Deshalb werden weder eine private Erstleistung noch ein redundanter sichtbarer Fallnachweis und auch keine Einzelphase oder Zeit behauptet; der Record bleibt semantisch partial.",
       "phaseIds": [],
@@ -2949,6 +3033,17 @@
       "competencyId": "LH26-E-DP-003",
       "moduleId": "IUM-5-CORE-07",
       "sourceTimeImpactLevel": "review-required",
+      "privacyDisposition": {
+        "contractId": "PC-IUM-5-CORE-07",
+        "observableBasis": "none",
+        "evidenceContractId": null,
+        "privateArtifactContribution": {
+          "product": "excluded",
+          "evidence": "excluded",
+          "additionalTimeClaim": "excluded"
+        },
+        "privateActivityTimeTreatment": "module-budget-only"
+      },
       "decision": "unresolved",
       "rationale": "Der geforderte Diskussionsoperator bezieht sich ausdrücklich auf Faszination, Konflikte und Probleme der eigenen Mediennutzung. Eine private Beschreibung ist keine Diskussion; eine beobachtbare Diskussion würde persönliche Nutzung offenlegen, während eine ausschließlich fiktive Falldiskussion den eigenen Bezug nicht erfüllt. Deshalb werden keine Phase, keine Minuten und kein verfügbarer Pfad behauptet; der Record bleibt semantisch partial.",
       "phaseIds": [],
