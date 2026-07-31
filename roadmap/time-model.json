@@ -1820,7 +1820,7 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": ["LH26-E-DP-014"],
+      "timeReviewIds": ["TR-LH26-E-DP-014"],
       "integrationContractIds": ["INT-7-DATA-MEDIA-SOCIETY"],
       "schoolDependentSteps": ["local-media-editor-curated-assets-and-private-reflection-boundary"],
       "risk": "Der optimierte Pfad setzt vorbereitete offene Assets, denselben kuratierten Evidenzfall und unmittelbares Gegenfeedback voraus; private Reflexion darf nicht zur öffentlichen Spur werden.",
@@ -2393,6 +2393,22 @@
     {
       "id": "PC-IUM-7-CORE-08",
       "moduleId": "IUM-7-CORE-08",
+      "scope": "private-local-reflection",
+      "artifactOwner": "learner",
+      "artifactCustody": "learner-controlled",
+      "institutionalHandling": {
+        "access": "prohibited",
+        "observation": "prohibited",
+        "collection": "prohibited",
+        "transfer": "prohibited",
+        "storage": "prohibited",
+        "assessment": "prohibited"
+      },
+      "status": "working"
+    },
+    {
+      "id": "PC-IUM-7-CORE-10",
+      "moduleId": "IUM-7-CORE-10",
       "scope": "private-local-reflection",
       "artifactOwner": "learner",
       "artifactCustody": "learner-controlled",
@@ -3773,6 +3789,24 @@
       "followUp": "Task 24 soll SE-LH26-E-PROG-004 jahrgangsweit gegen den geringeren Informatikanteil, den größeren Medienbildungsanteil, die vier Perspektivbereiche, fachliche Tiefe, Zeitgewichtung und tatsächlich verfügbare Jahrespfade auditieren. Bis dahin keine Proxy-Evidenz, kein Personenprofil, keine automatischen Punkte und kein automatisches Scoring anlegen; alle Klasse-7-Bedarfsszenarien bleiben nicht verfügbar und rot.",
       "status": "working",
       "privacyDisposition": {"contractId": "PC-IUM-7-CORE-08", "observableBasis": "none", "evidenceContractId": null, "privateArtifactContribution": {"product": "excluded", "evidence": "excluded", "additionalTimeClaim": "excluded"}, "privateActivityTimeTreatment": "module-budget-only"}
+    },
+    {
+      "id": "TR-LH26-E-DP-014",
+      "competencyId": "LH26-E-DP-014",
+      "moduleId": "IUM-7-CORE-10",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die ausschließlich nichtpersonale Gegenperspektive benötigt 20 Minuten innerhalb der bestehenden CORE-10-Phase: Im bestehenden Vorher–Nachher-Medienprodukt benennt jede lernende Person an vollständig vorgegebenen kuratierten Medienbeispielen dargestellte Geschlechterrollen oder Schönheitsideale, analysiert die verwendeten Gestaltungsmittel, begründet eine mögliche allgemeine Wirkung und verändert das Medienprodukt nachvollziehbar. Diese sichtbare Nacharbeit funktioniert ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der privaten Reflexionsnotiz und ist weder Nachweis noch Proxy für deren Inhalt, Existenz, Fertigstellung oder Teilnahme. Die private Kette eigene Erfahrung oder Selbstwahrnehmung → fachliches Kriterium → persönliche Handlungsoption → mögliche ausschließlich private Revision bleibt vollständig privat, ausschließlich im vorhandenen Modulbudget und ist weder Produkt, Evidenz noch zusätzlicher Record-Zeitclaim. DP-014 ist weder integriert noch absorbiert. Optimized, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["review-revise-transfer"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": ["GRADE-7-OPTIMIZED-DEMAND", "GRADE-7-ROBUST-DEMAND", "GRADE-7-HISTORICAL-MINIMUM"],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Werden persönliche Inhalte, Existenz, Fertigstellung oder Teilnahme der Privatnotiz beobachtet, bestätigt, protokolliert, eingesammelt, übertragen, gespeichert, bewertet oder als Proxy genutzt, ist PC-IUM-7-CORE-10 verletzt. Fehlen Geschlechterrollen oder Schönheitsideale, Gestaltungsmittel, mögliche allgemeine Wirkung, begründete Veränderung oder die Unabhängigkeit vom privaten Artefakt, unterschreitet die sichtbare Nacharbeit den Fach- und Datenschutzvertrag. INT-7-DATA-MEDIA-SOCIETY bewahrt DP-014 nicht; die 45 bereits in IUM-7-CORE-10 gezählten gemeinsamen Minuten werden weder diesem Einzelrecord zugerechnet noch erneut gezählt, und die 270-Minuten-Einsparungsannahme ist kein zusätzlicher Zeitvorrat und begründet weder Integration, Absorption noch Verfügbarkeit.",
+      "followUp": "Im Pilot ausschließlich die nichtpersonale Gegenperspektive mit dargestellten Geschlechterrollen oder Schönheitsidealen, Gestaltungsmitteln, möglicher allgemeiner Wirkung und nachvollziehbar begründeter Veränderung des Medienprodukts fachlich unterscheidbar und lehrkraftbeobachtbar prüfen. Die Privatnotiz bleibt nach PC-IUM-7-CORE-10 lokal und vollständig ausgeschlossen; weder Inhalt noch Existenz, Fertigstellung oder Teilnahme bestätigen oder kontrollieren, keine persönliche Offenlegung verlangen und weder Personenprofil noch automatische Punkte oder automatisches Scoring anlegen. Die 20 Minuten beziehen sich nur auf diesen unabhängigen sichtbaren Anschluss; alle drei Bedarfsszenarien bleiben nicht verfügbar und rot.",
+      "status": "working",
+      "privacyDisposition": {"contractId": "PC-IUM-7-CORE-10", "observableBasis": "nonpersonal-follow-up", "evidenceContractId": "CE-IUM-7-CORE-10-LH26-E-DP-014", "privateArtifactContribution": {"product": "excluded", "evidence": "excluded", "additionalTimeClaim": "excluded"}, "privateActivityTimeTreatment": "module-budget-only"}
     }
   ],
   "sequenceEvidence": [],
