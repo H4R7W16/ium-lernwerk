@@ -4,6 +4,7 @@ import hashlib
 import json
 import sys
 from collections import Counter
+from functools import wraps
 from pathlib import Path
 
 if __package__:
@@ -28,6 +29,15 @@ BASELINE_COVERAGE_PROJECTION_SHA256 = (
 BASELINE_TIME_HANDOFF_SHA256 = (
     "423b94122b931f4585b75aa74074f71b2e80a2b8b02cc92b32bf74585128f9bd"
 )
+CURRENT_COVERAGE_SHA256 = (
+    "f39df261d7fab3733deafe9c1f4da4d15ca2778440d6d38828a088614e835776"
+)
+TIME_MODEL_BASELINE_FIELDS = {
+    "commit",
+    "moduleStructureSha256",
+    "coverageProjectionSha256",
+    "timeHandoffSha256",
+}
 ROADMAP_DEPENDENT_IDS = frozenset(
     {
         "LH26-E-PROG-001",
@@ -76,6 +86,9 @@ RISK_SCOPES = {
     "RISK-IUM10-GRADE7-CAPACITY": "grade-7",
     "RISK-IUM10-PRIVATE-LEARNING-ACTIONS": "private-local-reflection",
 }
+APPROVED_RISK_REGISTER_SHA256 = (
+    "88d9496759846a75d8c79b4df427c2c6befbcf78fe778fb21ea8a70906876db7"
+)
 PILOT_ASSIGNMENT_FIELDS = {
     "id",
     "moduleId",
@@ -602,6 +615,25 @@ def _require(condition, message):
         raise IUM10ValidationError(message)
 
 
+def _validation_boundary(label):
+    """Convert malformed public JSON-like inputs into the domain error."""
+    def decorate(function):
+        @wraps(function)
+        def guarded(*args, **kwargs):
+            try:
+                return function(*args, **kwargs)
+            except IUM10ValidationError:
+                raise
+            except (AttributeError, IndexError, KeyError, TypeError, ValueError) as error:
+                raise IUM10ValidationError(
+                    f"{label} has an invalid structure: {error}"
+                ) from None
+
+        return guarded
+
+    return decorate
+
+
 def _positive_int(value):
     return isinstance(value, int) and not isinstance(value, bool) and value > 0
 
@@ -626,6 +658,49 @@ def _canonical_sha256(value):
         separators=(",", ":"),
     ).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
+
+
+def _current_coverage_fingerprint(coverage_payload):
+    """Fingerprint the complete IUM10 source before making a deep projection."""
+    _require(
+        isinstance(coverage_payload, dict),
+        "coverage payload must be an object",
+    )
+    entries = coverage_payload.get("entries")
+    _require(
+        isinstance(entries, list) and len(entries) == 171,
+        "coverage payload must contain exactly 171 records",
+    )
+    canonical_entries = []
+    coverage_ids = set()
+    for entry in entries:
+        _require(
+            isinstance(entry, dict),
+            "coverage record must be an object",
+        )
+        competency_id = entry.get("competencyId")
+        _require(
+            isinstance(competency_id, str)
+            and competency_id.strip()
+            and competency_id not in coverage_ids,
+            f"duplicate or invalid coverage id: {competency_id}",
+        )
+        coverage_ids.add(competency_id)
+        canonical_entries.append(entry)
+    _require(
+        len(coverage_ids) == len(canonical_entries) == 171,
+        "current coverage fingerprint must contain exactly 171 records",
+    )
+    canonical_scope = {
+        field: value
+        for field, value in coverage_payload.items()
+        if field != "entries"
+    }
+    canonical_scope["entries"] = sorted(
+        canonical_entries,
+        key=lambda entry: entry["competencyId"],
+    )
+    return _canonical_sha256(canonical_scope)
 
 
 def _has_grade_6_orchestration(time_model, module_payload=None):
@@ -3391,9 +3466,17 @@ def validate_sequence_evidence(
 def _validate_sequence_judgement_statuses(grade_judgements, sequence_evidence):
     _require(
         isinstance(grade_judgements, list)
+        and len(grade_judgements) == 3
+        and all(isinstance(judgement, dict) for judgement in grade_judgements)
+        and [judgement.get("grade") for judgement in grade_judgements]
+        == [5, 6, 7]
+        and all(
+            _positive_int(judgement["grade"])
+            for judgement in grade_judgements
+        )
         and isinstance(sequence_evidence, dict)
         and set(sequence_evidence) == ROADMAP_DEPENDENT_IDS,
-        "sequence judgements require all four validated sequence records",
+        "sequence judgements require exact grade 5, 6, and 7 objects",
     )
     judgements_by_grade = {}
     for judgement in grade_judgements:
@@ -3461,21 +3544,12 @@ def validate_risks(risks):
         set(validated) == set(RISK_SCOPES),
         "risk ids differ from the approved register",
     )
-    grade_7_risk = validated["RISK-IUM10-GRADE7-CAPACITY"]["risk"].lower()
-    grade_7_impact = validated["RISK-IUM10-GRADE7-CAPACITY"]["impact"].lower()
     _require(
-        all(token in grade_7_risk for token in ("40", "46", "54"))
-        and "red" in grade_7_impact,
-        "grade 7 risk must preserve the 40/46/54 red capacity conflict",
-    )
-    private_text = " ".join(
-        validated["RISK-IUM10-PRIVATE-LEARNING-ACTIONS"][field]
-        for field in ("risk", "impact", "mitigation")
-    ).lower()
-    _require(
-        "privat" in private_text
-        and any(token in private_text for token in ("nicht beobachtet", "nicht erhoben", "ausgeschlossen")),
-        "private-learning risk must preserve the non-observation boundary",
+        _canonical_sha256(
+            sorted(validated.values(), key=lambda risk: risk["id"])
+        )
+        == APPROVED_RISK_REGISTER_SHA256,
+        "risk register differs from the approved canonical facts",
     )
     return validated
 
@@ -3651,12 +3725,18 @@ def _validate_final_grade_judgements(
     return judgements
 
 
+@_validation_boundary("IUM09 coverage projection")
 def ium09_coverage_projection(
     coverage_payload,
     remediation_payload,
     sequence_evidence,
 ):
     """Return a deep-copied coverage payload restored to IUM09 after-status."""
+    _require(
+        _current_coverage_fingerprint(coverage_payload)
+        == CURRENT_COVERAGE_SHA256,
+        "current coverage records differ from the approved IUM10 source",
+    )
     _require(
         isinstance(sequence_evidence, list) and len(sequence_evidence) == 4,
         "IUM09 projection requires exactly four sequence decisions",
@@ -3788,6 +3868,7 @@ def ium09_coverage_projection(
     return projection
 
 
+@_validation_boundary("IUM10 time references")
 def validate_time_references(
     module_payload,
     coverage_payload,
@@ -3895,7 +3976,11 @@ def validate_time_references(
                 review.get("decision"),
                 review.get("additionalMinutes"),
             )
-            and review.get("moduleId") == entry.get("before", {}).get("evidenceModuleId")
+            and review.get("id") == review_id
+            and review.get("competencyId") == competency_id
+            and _nonnegative_int(review.get("additionalMinutes"))
+            and isinstance(entry.get("before"), dict)
+            and review.get("moduleId") == entry["before"].get("evidenceModuleId")
             and review.get("sourceTimeImpactLevel") == entry.get("timeImpact", {}).get("level"),
             f"time review differs from its approved registration: {competency_id}",
         )
@@ -3969,10 +4054,20 @@ def validate_time_references(
     }
 
 
+@_validation_boundary("IUM10 baseline")
 def validate_ium10_baseline(module_payload, coverage_payload, remediation_payload):
     """Validate the immutable IUM09 baseline consumed by IUM10."""
     modules = module_payload.get("modules") if isinstance(module_payload, dict) else None
     _require(isinstance(modules, list), "module payload must contain modules")
+    _require(
+        all(
+            isinstance(module, dict)
+            and isinstance(module.get("id"), str)
+            and module["id"].strip()
+            for module in modules
+        ),
+        "module records must have string ids",
+    )
     module_ids = {module["id"] for module in modules}
     _require(len(module_ids) == len(modules) == 31, "module ids must be exactly 31 and unique")
     _require(
@@ -3988,6 +4083,15 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
         coverage_payload.get("entries") if isinstance(coverage_payload, dict) else None
     )
     _require(isinstance(coverage_entries, list), "coverage payload must contain entries")
+    _require(
+        all(
+            isinstance(entry, dict)
+            and isinstance(entry.get("competencyId"), str)
+            and entry["competencyId"].strip()
+            for entry in coverage_entries
+        ),
+        "coverage records must have string competency ids",
+    )
     coverage_ids = {entry["competencyId"] for entry in coverage_entries}
     _require(len(coverage_ids) == len(coverage_entries) == 171, "coverage ids must be exactly 171 and unique")
     historical_coverage_statuses = []
@@ -4012,6 +4116,11 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
         == BASELINE_COVERAGE_PROJECTION_SHA256,
         "coverage projection fingerprint differs from immutable IUM09 baseline",
     )
+    _require(
+        _current_coverage_fingerprint(coverage_payload)
+        == CURRENT_COVERAGE_SHA256,
+        "current coverage records differ from the approved IUM10 source",
+    )
 
     handoff_entries = (
         remediation_payload.get("entries")
@@ -4019,6 +4128,15 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
         else None
     )
     _require(isinstance(handoff_entries, list), "remediation payload must contain entries")
+    _require(
+        all(
+            isinstance(entry, dict)
+            and isinstance(entry.get("competencyId"), str)
+            and entry["competencyId"].strip()
+            for entry in handoff_entries
+        ),
+        "handoff records must have string competency ids",
+    )
     handoff_ids = {entry["competencyId"] for entry in handoff_entries}
     _require(len(handoff_ids) == len(handoff_entries) == 60, "handoff ids must be exactly 60 and unique")
     _require(
@@ -4048,6 +4166,48 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
     }
 
 
+def _validate_time_model_baseline(
+    stored_baseline,
+    module_payload,
+    coverage_payload,
+    remediation_payload,
+):
+    _require(
+        isinstance(stored_baseline, dict)
+        and set(stored_baseline) == TIME_MODEL_BASELINE_FIELDS,
+        "time model baseline fields differ from the immutable contract",
+    )
+    computed = {
+        "moduleStructureSha256": module_structure_fingerprint(module_payload),
+        "coverageProjectionSha256": coverage_projection_fingerprint(
+            coverage_payload,
+            remediation_payload,
+        ),
+        "timeHandoffSha256": time_handoff_fingerprint(remediation_payload),
+    }
+    expected = {
+        "commit": IUM10_BASELINE_COMMIT,
+        "moduleStructureSha256": BASELINE_MODULE_STRUCTURE_SHA256,
+        "coverageProjectionSha256": BASELINE_COVERAGE_PROJECTION_SHA256,
+        "timeHandoffSha256": BASELINE_TIME_HANDOFF_SHA256,
+    }
+    _require(
+        all(
+            isinstance(stored_baseline[field], str)
+            and stored_baseline[field] == expected[field]
+            for field in TIME_MODEL_BASELINE_FIELDS
+        ),
+        "stored time model baseline differs from authoritative constants",
+    )
+    _require(
+        all(
+            stored_baseline[field] == computed[field]
+            for field in computed
+        ),
+        "stored time model fingerprints differ from the current baseline artifacts",
+    )
+
+
 def validate_ium10(
     time_payload,
     module_payload,
@@ -4065,6 +4225,12 @@ def validate_ium10(
         "complete IUM10 time model status must be working",
     )
     baseline = validate_ium10_baseline(
+        module_payload,
+        coverage_payload,
+        remediation_payload,
+    )
+    _validate_time_model_baseline(
+        time_payload["baseline"],
         module_payload,
         coverage_payload,
         remediation_payload,

@@ -12672,6 +12672,103 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
             Counter({"covered": 164, "partial": 7}),
         )
 
+    def test_time_model_baseline_is_exact_and_bound_to_authoritative_fingerprints(self):
+        mutations = []
+
+        time_model = copy.deepcopy(self.time_model)
+        time_model["baseline"] = []
+        mutations.append(time_model)
+
+        for field, value in (
+            ("commit", "0" * 40),
+            ("moduleStructureSha256", "0" * 64),
+            ("coverageProjectionSha256", "0" * 64),
+            ("timeHandoffSha256", "0" * 64),
+        ):
+            time_model = copy.deepcopy(self.time_model)
+            time_model["baseline"][field] = value
+            mutations.append(time_model)
+
+        time_model = copy.deepcopy(self.time_model)
+        time_model["baseline"]["unexpected"] = "not-authorized"
+        mutations.append(time_model)
+
+        time_model = copy.deepcopy(self.time_model)
+        del time_model["baseline"]["commit"]
+        mutations.append(time_model)
+
+        for time_model in mutations:
+            with self.subTest(baseline=time_model["baseline"]):
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
+    def test_coverage_source_is_canonically_immutable_outside_projection_output(self):
+        target_id = "BMB16-GYM-IK-GM-001"
+        for field, value in (
+            ("requirementText", "Beschönigte Anforderung."),
+            ("risk", "Kein Restrisiko."),
+            ("followUp", "Keine Nacharbeit erforderlich."),
+            ("unexpected", {"nested": ["field"]}),
+        ):
+            with self.subTest(field=field):
+                coverage = copy.deepcopy(self.coverage_payload)
+                entry = next(
+                    item for item in coverage["entries"]
+                    if item["competencyId"] == target_id
+                )
+                entry[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(coverage_payload=coverage)
+
+        coverage = copy.deepcopy(self.coverage_payload)
+        projected_source = next(
+            item for item in coverage["entries"]
+            if item["competencyId"] == "LH26-E-PROG-001"
+        )
+        projected_source["requirementText"] = "Veränderte Progressionsanforderung."
+        with self.assertRaises(IUM10ValidationError):
+            self.validate(coverage_payload=coverage)
+        with self.assertRaises(IUM10ValidationError):
+            ium10_validator.ium09_coverage_projection(
+                coverage,
+                self.remediation_payload,
+                self.time_model["sequenceEvidence"],
+            )
+
+        coverage = copy.deepcopy(self.coverage_payload)
+        projected_source = next(
+            item for item in coverage["entries"]
+            if item["competencyId"] == "LH26-E-PROG-001"
+        )
+        projected_source["reason"] = "Unzulässige Quellmutation."
+        with self.assertRaises(IUM10ValidationError):
+            ium10_validator.ium09_coverage_projection(
+                coverage,
+                self.remediation_payload,
+                self.time_model["sequenceEvidence"],
+            )
+
+    def test_grade_judgements_are_exactly_three_ordered_dicts_with_integer_grades(self):
+        mutations = []
+        for value in (None, [], "grade-8"):
+            time_model = copy.deepcopy(self.time_model)
+            time_model["gradeJudgements"].append(value)
+            mutations.append(time_model)
+
+        for value in (None, True, 5.0, 8, "5", []):
+            time_model = copy.deepcopy(self.time_model)
+            time_model["gradeJudgements"][0]["grade"] = value
+            mutations.append(time_model)
+
+        time_model = copy.deepcopy(self.time_model)
+        time_model["gradeJudgements"].reverse()
+        mutations.append(time_model)
+
+        for time_model in mutations:
+            with self.subTest(grades=time_model["gradeJudgements"]):
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
     def test_projection_is_deep_and_changes_only_prog001_and_prog002(self):
         original = copy.deepcopy(self.coverage_payload)
         projected = ium10_validator.ium09_coverage_projection(
@@ -12798,6 +12895,151 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                         valid,
                     )
 
+    def test_reference_validator_binds_mapping_key_review_id_and_competency_id(self):
+        mutations = []
+
+        swapped = copy.deepcopy(self.validate())
+        first_id = "TR-BMB16-GYM-IK-GM-001"
+        second_id = "TR-BMB16-GYM-IK-GM-002"
+        swapped["timeReviews"][first_id], swapped["timeReviews"][second_id] = (
+            swapped["timeReviews"][second_id],
+            swapped["timeReviews"][first_id],
+        )
+        mutations.append(swapped)
+
+        mismatched_id = copy.deepcopy(self.validate())
+        mismatched_id["timeReviews"][first_id]["id"] = second_id
+        mutations.append(mismatched_id)
+
+        mismatched_competency = copy.deepcopy(self.validate())
+        mismatched_competency["timeReviews"][first_id]["competencyId"] = (
+            "BMB16-GYM-IK-GM-002"
+        )
+        mutations.append(mismatched_competency)
+
+        for validated_time_model in mutations:
+            with self.subTest():
+                with self.assertRaises(IUM10ValidationError):
+                    ium10_validator.validate_time_references(
+                        self.module_payload,
+                        self.coverage_payload,
+                        self.remediation_payload,
+                        validated_time_model,
+                    )
+
+    def test_reference_validator_rejects_noninteger_registered_minutes(self):
+        for competency_id, value in (
+            ("BMB16-GYM-IK-GM-001", 15.0),
+            ("LH26-E-ID-009", False),
+        ):
+            with self.subTest(competency_id=competency_id, value=value):
+                validated_time_model = copy.deepcopy(self.validate())
+                review_id = f"TR-{competency_id}"
+                validated_time_model["timeReviews"][review_id][
+                    "additionalMinutes"
+                ] = value
+                with self.assertRaises(IUM10ValidationError):
+                    ium10_validator.validate_time_references(
+                        self.module_payload,
+                        self.coverage_payload,
+                        self.remediation_payload,
+                        validated_time_model,
+                    )
+
+    def test_public_projection_and_reference_validators_fail_closed_on_bad_shapes(self):
+        valid = self.validate()
+        projection_mutations = []
+
+        coverage = copy.deepcopy(self.coverage_payload)
+        coverage["entries"][0] = []
+        projection_mutations.append(
+            (coverage, self.remediation_payload, self.time_model["sequenceEvidence"])
+        )
+
+        coverage = copy.deepcopy(self.coverage_payload)
+        coverage["entries"][0]["competencyId"] = []
+        projection_mutations.append(
+            (coverage, self.remediation_payload, self.time_model["sequenceEvidence"])
+        )
+
+        remediation = copy.deepcopy(self.remediation_payload)
+        remediation["entries"][0]["competencyId"] = []
+        projection_mutations.append(
+            (self.coverage_payload, remediation, self.time_model["sequenceEvidence"])
+        )
+
+        sequence = copy.deepcopy(self.time_model["sequenceEvidence"])
+        sequence[0]["competencyId"] = []
+        projection_mutations.append(
+            (self.coverage_payload, self.remediation_payload, sequence)
+        )
+
+        for coverage, remediation, sequence in projection_mutations:
+            with self.subTest(interface="projection"):
+                with self.assertRaises(IUM10ValidationError):
+                    ium10_validator.ium09_coverage_projection(
+                        coverage,
+                        remediation,
+                        sequence,
+                    )
+
+        reference_mutations = []
+        modules = copy.deepcopy(self.module_payload)
+        modules["modules"][0]["id"] = []
+        reference_mutations.append((modules, self.coverage_payload, self.remediation_payload, valid))
+
+        coverage = copy.deepcopy(self.coverage_payload)
+        coverage["entries"][0]["competencyId"] = []
+        reference_mutations.append((self.module_payload, coverage, self.remediation_payload, valid))
+
+        remediation = copy.deepcopy(self.remediation_payload)
+        remediation["entries"][0]["before"] = []
+        reference_mutations.append((self.module_payload, self.coverage_payload, remediation, valid))
+
+        malformed_model = copy.deepcopy(valid)
+        malformed_model["moduleContracts"]["IUM-5-CORE-01"] = []
+        reference_mutations.append(
+            (self.module_payload, self.coverage_payload, self.remediation_payload, malformed_model)
+        )
+
+        for module_payload, coverage_payload, remediation_payload, time_model in reference_mutations:
+            with self.subTest(interface="references"):
+                with self.assertRaises(IUM10ValidationError):
+                    ium10_validator.validate_time_references(
+                        module_payload,
+                        coverage_payload,
+                        remediation_payload,
+                        time_model,
+                    )
+
+    def test_public_baseline_validator_fails_closed_on_unhashable_records(self):
+        mutations = []
+
+        modules = copy.deepcopy(self.module_payload)
+        modules["modules"][0]["id"] = []
+        mutations.append((modules, self.coverage_payload, self.remediation_payload))
+
+        coverage = copy.deepcopy(self.coverage_payload)
+        coverage["entries"][0]["competencyId"] = []
+        mutations.append((self.module_payload, coverage, self.remediation_payload))
+
+        remediation = copy.deepcopy(self.remediation_payload)
+        remediation["entries"][0]["competencyId"] = []
+        mutations.append((self.module_payload, self.coverage_payload, remediation))
+
+        remediation = copy.deepcopy(self.remediation_payload)
+        remediation["entries"][0]["before"] = []
+        mutations.append((self.module_payload, self.coverage_payload, remediation))
+
+        for module_payload, coverage_payload, remediation_payload in mutations:
+            with self.subTest():
+                with self.assertRaises(IUM10ValidationError):
+                    validate_ium10_baseline(
+                        module_payload,
+                        coverage_payload,
+                        remediation_payload,
+                    )
+
     def test_full_validator_rejects_lesson_range_and_audited_review_mutations(self):
         modules = copy.deepcopy(self.module_payload)
         modules["modules"][0]["lessonRange"] = {"min": 6, "max": 8}
@@ -12864,10 +13106,39 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                         item for item in time_model["risks"]
                         if item["id"] == "RISK-IUM10-GRADE7-CAPACITY"
                     )
-                    risk["risk"] = "Kein KapazitÃ¤tskonflikt."
+                    risk["risk"] = "Kein Kapazitätskonflikt."
                     risk["impact"] = "Kein Handlungsbedarf."
                 else:
                     time_model["risks"][0]["status"] = True
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
+    def test_risk_register_is_bound_to_the_canonical_approved_facts(self):
+        mutations = []
+
+        grade_7_softening = copy.deepcopy(self.time_model)
+        grade_7_risk = next(
+            risk for risk in grade_7_softening["risks"]
+            if risk["id"] == "RISK-IUM10-GRADE7-CAPACITY"
+        )
+        grade_7_risk["risk"] = (
+            "Kein Kapazitätskonflikt: 40, 46 und 54 bleiben genannt."
+        )
+        grade_7_risk["impact"] = "Das Urteil wird dennoch red genannt."
+        mutations.append(grade_7_softening)
+
+        private_softening = copy.deepcopy(self.time_model)
+        private_risk = next(
+            risk for risk in private_softening["risks"]
+            if risk["id"] == "RISK-IUM10-PRIVATE-LEARNING-ACTIONS"
+        )
+        private_risk["mitigation"] = (
+            "Private Daten sind grundsätzlich ausgeschlossen, können aber beobachtet werden."
+        )
+        mutations.append(private_softening)
+
+        for time_model in mutations:
+            with self.subTest():
                 with self.assertRaises(IUM10ValidationError):
                     self.validate(time_model=time_model)
 

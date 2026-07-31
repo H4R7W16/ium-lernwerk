@@ -1854,15 +1854,28 @@ class CoverageRepositoryTests(unittest.TestCase):
         )
 
     def test_phase0_entrypoint_runs_ium10_then_ium09_once_on_projection(self):
+        call_order = []
+        validate_ium10 = validate_phase0_script.validate_ium10
+        validate_ium09 = validate_phase0_script.validate_ium09
+
+        def record_ium10(*args, **kwargs):
+            call_order.append("ium10")
+            return validate_ium10(*args, **kwargs)
+
+        def record_ium09(*args, **kwargs):
+            call_order.append("ium09")
+            return validate_ium09(*args, **kwargs)
+
         with mock.patch(
             "scripts.validate_phase0.validate_ium09",
-            wraps=validate_phase0_script.validate_ium09,
+            side_effect=record_ium09,
         ) as validate_ium09_mock, mock.patch(
             "scripts.validate_phase0.validate_ium10",
-            wraps=validate_phase0_script.validate_ium10,
+            side_effect=record_ium10,
         ) as validate_ium10_mock, mock.patch("builtins.print") as print_mock:
             validate_phase0_script.main()
 
+        self.assertEqual(call_order, ["ium10", "ium09"])
         validate_ium10_mock.assert_called_once()
         validate_ium09_mock.assert_called_once()
         (
