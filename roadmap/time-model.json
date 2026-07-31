@@ -762,7 +762,10 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-LH26-E-DP-004",
+        "TR-LH26-E-DP-006"
+      ],
       "integrationContractIds": ["INT-6-ACTORS-SELECTION"],
       "schoolDependentSteps": ["synthetic-case-data-and-private-local-reflection"],
       "risk": "Die private Reflexion darf weder erhoben noch bewertet werden; zugleich müssen die synthetischen Fall- und Bedingungsdaten ausreichend vielfältig sein.",
@@ -3054,6 +3057,62 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Gespräch, Lehrkraftbeobachtung, Abgabe oder Teilnahmeprotokollierung könnten sensible persönliche Nutzungsinhalte direkt oder indirekt erheben; ein fiktiver Fall würde dagegen die curriculare Lücke nur verdecken.",
       "followUp": "Im Curriculum- und Datenschutzreview klären, ob eine freiwillige, nicht bewertete und ausdrücklich nicht als Abdeckungs- oder Zeitnachweis verwendete Gesprächsgelegenheit pädagogisch angeboten werden soll; bis dahin bleibt der Record ohne Evidenzvertrag und Zeitzuweisung partial.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DP-004",
+      "competencyId": "LH26-E-DP-004",
+      "moduleId": "IUM-6-CORE-02",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "Die identische gemeinsame Akteurs-, Interessen- und Evidenzkarte aus INT-6-ACTORS-SELECTION trägt ausschließlich die aus IUM-6-CORE-01 übernommenen Akteure, Interessen und Belege in dasselbe Datenfluss- und Auswahlmodell. Das Herausarbeiten der Bedingungen-Auszüge aus mindestens zwei kuratierten Dienst- oder Softwarebeispielen, ihre Fundstellen und Auswirkungen auf Nutzung und Schutzentscheidung sowie die Bedingungen-Matrix bleiben eigene Lern- und Produktarbeit; dafür werden 20 Minuten in angeleiteter Praxis und eigenständiger Produkterstellung geprüft.",
+      "phaseIds": [
+        "guided-practice",
+        "independent-action-product"
+      ],
+      "additionalMinutes": 20,
+      "integrationContractIds": [
+        "INT-6-ACTORS-SELECTION"
+      ],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-6-BASELINE",
+        "GRADE-6-REGULAR",
+        "GRADE-6-EXTENDED-REFERENCE",
+        "GRADE-6-EXTENDED-TRANSFER",
+        "GRADE-6-EXTENDED-CODING"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Wenn die gemeinsame Karte auch Bedingungen-Auszüge, Fundstellen oder die vier Prüffelder der Bedingungen-Matrix tragen soll, wäre die Integration eine Scheineinsparung. Reale Konten, Profile, Werbeverläufe, Standort- oder Nutzungsdaten, Screenshots personalisierter Werbung und personenbezogene Selbstauskünfte dürfen weder Fallgrundlage noch Produkt- oder Evidenzspur werden.",
+      "followUp": "Im Pilot die identische gemeinsame Karte getrennt von den 20 Minuten Bedingungenarbeit prüfen: Für beide kuratierten Beispiele müssen Bedingungen-Auszug, Fundstelle, vier Prüffelder und die Auswirkung auf Nutzung und Schutzentscheidung in der Bedingungen-Matrix sichtbar werden. Die private Selbstreflexion trägt weder Produkt, Evidenz noch Zusatzminuten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DP-006",
+      "competencyId": "LH26-E-DP-006",
+      "moduleId": "IUM-6-CORE-02",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "Die identische gemeinsame Akteurs-, Interessen- und Evidenzkarte aus INT-6-ACTORS-SELECTION trägt ausschließlich die aus IUM-6-CORE-01 übernommenen Akteure, Interessen und Evidenzbezüge. Das Modellieren von drei synthetischen Werbeauswahlpfaden, die je Signal oder Datenmerkmal, Auswahlregel oder Auswahlmodell und konkrete Werbebotschaft verbinden, sowie das Prüfen und Revidieren ihrer Modellgrenze bleiben eigene Lern- und Produktarbeit; dafür werden 25 Minuten in eigenständiger Produkterstellung und Revision geprüft.",
+      "phaseIds": [
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 25,
+      "integrationContractIds": [
+        "INT-6-ACTORS-SELECTION"
+      ],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-6-BASELINE",
+        "GRADE-6-REGULAR",
+        "GRADE-6-EXTENDED-REFERENCE",
+        "GRADE-6-EXTENDED-TRANSFER",
+        "GRADE-6-EXTENDED-CODING"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Wenn die gemeinsame Karte auch Kontext-, Profil- oder Verhaltenspfad, Auswahlregel, konkrete Werbebotschaft oder Modellgrenze tragen soll, wäre die Integration eine Scheineinsparung. Reale Konten, Profile, Werbeverläufe, Standort- oder Nutzungsdaten, Screenshots personalisierter Werbung und personenbezogene Selbstauskünfte dürfen weder Fallgrundlage noch Produkt- oder Evidenzspur werden.",
+      "followUp": "Im Pilot die identische gemeinsame Karte getrennt von den 25 Minuten Werbeauswahlarbeit prüfen: Drei synthetische Fälle müssen Kontextpfad, Profilpfad und Verhaltenspfad jeweils mit Signal oder Datenmerkmal, Auswahlregel oder Auswahlmodell und konkreter Werbebotschaft verbinden und die Modellgrenze sichtbar revidieren. Die private Selbstreflexion trägt weder Produkt, Evidenz noch Zusatzminuten.",
       "status": "working"
     }
   ],

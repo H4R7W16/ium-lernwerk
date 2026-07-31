@@ -56,6 +56,8 @@ TIME_AUDIT_DECISIONS = {
     "BMB16-GYM-PK-RK-002": "additional-time",
     "BMB16-GYM-PK-RK-003": "unresolved",
     "LH26-E-DP-003": "unresolved",
+    "LH26-E-DP-004": "integrated",
+    "LH26-E-DP-006": "integrated",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -83,6 +85,72 @@ PRIOR_20_TIME_REVIEW_IDS = (
 PRIOR_20_TIME_REVIEW_STRUCTURE_SHA256 = (
     "f4bc3b75f2d575ce24faf3dd6bc16ea9823eb7b44c37391744c0f14a47563908"
 )
+PRE_TASK15_TIME_REVIEW_COUNT = 27
+PRE_TASK15_TIME_REVIEWS_SHA256 = (
+    "804105f7587a0f267ee45fa19fc69a3e54aa40ed33c0913bfd051fb343d60123"
+)
+TASK15_AUDIT_EXPECTATIONS = {
+    "LH26-E-DP-004": {
+        "decision": "integrated",
+        "additionalMinutes": 20,
+        "phaseIds": [
+            "guided-practice",
+            "independent-action-product",
+        ],
+        "integrationContractIds": ["INT-6-ACTORS-SELECTION"],
+        "evidenceContractId": "CE-IUM-6-CORE-02-LH26-E-DP-004",
+        "productAnchors": (
+            "mindestens zwei unterschiedliche Dienst- oder Softwarebeispiele",
+            "Bedingungen-Matrix",
+            "Zugang, Alter oder Kosten",
+            "Daten oder Berechtigungen",
+            "Werbung oder Finanzierung",
+            "Nutzungsrechte oder Kündigung",
+            "Fundstelle oder Beleg",
+            "Auswirkung auf Nutzung und Schutzentscheidung",
+        ),
+        "ownReviewAnchors": (
+            "Bedingungen-Auszüge",
+            "Fundstellen",
+            "Bedingungen-Matrix",
+            "20 Minuten",
+        ),
+    },
+    "LH26-E-DP-006": {
+        "decision": "integrated",
+        "additionalMinutes": 25,
+        "phaseIds": [
+            "independent-action-product",
+            "review-revise-transfer",
+        ],
+        "integrationContractIds": ["INT-6-ACTORS-SELECTION"],
+        "evidenceContractId": "CE-IUM-6-CORE-02-LH26-E-DP-006",
+        "productAnchors": (
+            "mindestens drei synthetische Fälle",
+            "Kontextpfad",
+            "Profilpfad",
+            "Verhaltenspfad",
+            "Signal oder Datenmerkmal",
+            "Auswahlregel oder Auswahlmodell",
+            "konkret ausgewählte Werbebotschaft",
+            "Modellgrenze",
+        ),
+        "ownReviewAnchors": (
+            "drei synthetischen Werbeauswahlpfaden",
+            "Auswahlregel",
+            "konkreter Werbebotschaft",
+            "Modellgrenze",
+            "25 Minuten",
+        ),
+    },
+}
+TASK15_PATH_AVAILABILITY = [
+    "GRADE-6-BASELINE",
+    "GRADE-6-REGULAR",
+    "GRADE-6-EXTENDED-REFERENCE",
+    "GRADE-6-EXTENDED-TRANSFER",
+    "GRADE-6-EXTENDED-CODING",
+]
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
     "eingesammelt, gespeichert oder bewertet."
@@ -1073,7 +1141,7 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "27 registered time reviews (partial baseline)\n",
+            "29 registered time reviews (partial baseline)\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -4684,6 +4752,245 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     self._assert_prior20_repository_contract(
                         prior_reviews
                     )
+
+    def test_repository_core02_task15_audit_contract(self):
+        reviews = self.time_payload["timeReviews"]
+        expected_review_ids = [
+            f"TR-{competency_id}"
+            for competency_id in TASK15_AUDIT_EXPECTATIONS
+        ]
+        self.assertEqual(
+            [review["id"] for review in reviews[PRE_TASK15_TIME_REVIEW_COUNT:]],
+            expected_review_ids,
+        )
+
+        prior_reviews = reviews[:PRE_TASK15_TIME_REVIEW_COUNT]
+        canonical_prior_reviews = json.dumps(
+            prior_reviews,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        self.assertEqual(
+            hashlib.sha256(canonical_prior_reviews).hexdigest(),
+            PRE_TASK15_TIME_REVIEWS_SHA256,
+        )
+
+        reviews_by_competency_id = (
+            self._repository_reviews_by_competency_id()
+        )
+        core02_contract = self.repository_module_contracts[
+            "IUM-6-CORE-02"
+        ]
+        self.assertEqual(
+            core02_contract["timeReviewIds"],
+            expected_review_ids,
+        )
+        self.assertEqual(
+            set(reviews_by_competency_id) - set(TIME_AUDIT_DECISIONS),
+            set(),
+        )
+
+        remediation_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.remediation_payload["entries"]
+        }
+        coverage_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.coverage_payload["entries"]
+        }
+        core02_module = next(
+            module
+            for module in self.module_payload["modules"]
+            if module["id"] == "IUM-6-CORE-02"
+        )
+        evidence_by_id = {
+            evidence["competencyId"]: evidence
+            for evidence in core02_module["coverageEvidence"]
+        }
+        phase_minutes_by_path = {
+            budget["pathId"]: {
+                phase["phaseId"]: phase["minutes"]
+                for phase in budget["phaseBudgets"]
+            }
+            for budget in core02_contract["pathBudgets"]
+        }
+        annual_variants_by_id = {
+            variant["id"]: variant
+            for variant in self.time_payload["annualVariants"]
+        }
+
+        integration = self.repository_integration_contracts[
+            "INT-6-ACTORS-SELECTION"
+        ]
+        self.assertEqual(
+            integration["countedInModuleId"],
+            "IUM-6-CORE-01",
+        )
+        shared_trace = integration["sharedPhaseOrProduct"]
+        for shared_anchor in (
+            "Akteurs-",
+            "Interessen-",
+            "Evidenzkarte",
+        ):
+            self.assertIn(shared_anchor, shared_trace)
+        for record_specific_product in (
+            "Bedingungen-Matrix",
+            "Werbeauswahlpfade",
+        ):
+            self.assertNotIn(record_specific_product, shared_trace)
+
+        forbidden_personal_evidence = (
+            ("reale Konten", "realen Konten"),
+            ("Profile",),
+            ("Werbeverläufe",),
+            ("Standort- oder Nutzungsdaten",),
+            ("Screenshots personalisierter Werbung",),
+            ("personenbezogene Selbstauskünfte",),
+        )
+        for competency_id, expected in TASK15_AUDIT_EXPECTATIONS.items():
+            with self.subTest(task15_competency_id=competency_id):
+                review = reviews_by_competency_id[competency_id]
+                self.assertEqual(review["id"], f"TR-{competency_id}")
+                self.assertEqual(review["moduleId"], "IUM-6-CORE-02")
+                self.assertEqual(
+                    review["sourceTimeImpactLevel"],
+                    "review-required",
+                )
+                self.assertEqual(
+                    {
+                        field: review[field]
+                        for field in (
+                            "decision",
+                            "additionalMinutes",
+                            "phaseIds",
+                            "integrationContractIds",
+                        )
+                    },
+                    {
+                        field: expected[field]
+                        for field in (
+                            "decision",
+                            "additionalMinutes",
+                            "phaseIds",
+                            "integrationContractIds",
+                        )
+                    },
+                )
+                self.assertIsNone(review["sequenceEvidenceId"])
+                self.assertEqual(
+                    review["pathAvailability"],
+                    TASK15_PATH_AVAILABILITY,
+                )
+                self.assertEqual(
+                    review["coverageConsequence"],
+                    "semantic-status-unchanged",
+                )
+                self.assertEqual(review["status"], "working")
+
+                handoff = remediation_by_id[competency_id]
+                coverage = coverage_by_id[competency_id]
+                evidence = evidence_by_id[competency_id]
+                expected_evidence_id = expected["evidenceContractId"]
+                self.assertEqual(
+                    (
+                        handoff["causeClass"],
+                        handoff["before"]["evidenceModuleId"],
+                        handoff["timeImpact"]["level"],
+                        handoff["evidenceContractId"],
+                        coverage["evidenceModuleId"],
+                        coverage["evidenceContractId"],
+                        evidence["id"],
+                        evidence["mode"],
+                        evidence["productVisibility"],
+                    ),
+                    (
+                        "module-detail",
+                        "IUM-6-CORE-02",
+                        "review-required",
+                        expected_evidence_id,
+                        "IUM-6-CORE-02",
+                        expected_evidence_id,
+                        expected_evidence_id,
+                        "module-detail",
+                        "teacher-observable",
+                    ),
+                )
+
+                for phase_id in expected["phaseIds"]:
+                    self.assertTrue(
+                        all(
+                            phase_minutes[phase_id] > 0
+                            for phase_minutes in phase_minutes_by_path.values()
+                        )
+                    )
+                self.assertLessEqual(
+                    expected["additionalMinutes"],
+                    min(
+                        sum(
+                            phase_minutes[phase_id]
+                            for phase_id in expected["phaseIds"]
+                        )
+                        for phase_minutes in phase_minutes_by_path.values()
+                    ),
+                )
+
+                for variant_id in TASK15_PATH_AVAILABILITY:
+                    variant = annual_variants_by_id[variant_id]
+                    allocation = next(
+                        allocation
+                        for allocation in variant["allocations"]
+                        if allocation["moduleId"] == "IUM-6-CORE-02"
+                    )
+                    self.assertTrue(variant["available"])
+                    self.assertIn(
+                        allocation["budgetPathId"],
+                        phase_minutes_by_path,
+                    )
+                    self.assertIn(
+                        "INT-6-ACTORS-SELECTION",
+                        variant["integrationContractIds"],
+                    )
+
+                evidence_text = " ".join(
+                    (
+                        evidence["learningAction"],
+                        evidence["productEvidence"],
+                    )
+                )
+                review_text = " ".join(
+                    review[field]
+                    for field in ("rationale", "risk", "followUp")
+                )
+                for anchor in expected["productAnchors"]:
+                    self.assertIn(anchor, evidence_text)
+                for anchor in expected["ownReviewAnchors"]:
+                    self.assertIn(anchor, review_text)
+                self.assertIn(
+                    "identische gemeinsame Akteurs-, Interessen- und "
+                    "Evidenzkarte",
+                    review_text,
+                )
+                for forbidden_trace_group in forbidden_personal_evidence:
+                    self.assertTrue(
+                        any(
+                            forbidden_trace.casefold()
+                            in evidence_text.casefold()
+                            for forbidden_trace in forbidden_trace_group
+                        )
+                    )
+                    self.assertTrue(
+                        any(
+                            forbidden_trace.casefold()
+                            in review_text.casefold()
+                            for forbidden_trace in forbidden_trace_group
+                        )
+                    )
+                self.assertIn("private Selbstreflexion", review_text)
+                self.assertIn(
+                    "weder Produkt, Evidenz noch Zusatzminuten",
+                    review_text,
+                )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
         prior_reviews = self.time_payload["timeReviews"][
