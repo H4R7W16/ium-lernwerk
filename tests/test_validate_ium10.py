@@ -75,8 +75,8 @@ PRIOR_20_TIME_REVIEW_IDS = (
     "TR-LH26-E-DA-006",
     "TR-LH26-E-DA-008",
 )
-PRIOR_20_TIME_REVIEWS_SHA256 = (
-    "48a289cdfee61288c31806064660a01f294820f99a74150ef87536496613945f"
+PRIOR_20_TIME_REVIEW_STRUCTURE_SHA256 = (
+    "f4bc3b75f2d575ce24faf3dd6bc16ea9823eb7b44c37391744c0f14a47563908"
 )
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
@@ -3296,77 +3296,41 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ):
                 continue
             if not any(
-                handling_stem in statement
-                for handling_stem in (
-                    "erheb",
-                    "übertrag",
-                    "sammel",
-                    "speicher",
-                    "bewert",
-                    "beobacht",
-                    "einsicht",
-                    "einseh",
-                    "angerechn",
-                    "abgabe",
-                    "kontroll",
+                handling_action in statement
+                for handling_action in (
+                    "erhoben",
+                    "erhebt",
+                    "übertragen",
+                    "überträgt",
+                    "eingesammelt",
+                    "gesammelt",
+                    "sammelt",
+                    "gespeichert",
+                    "speichert",
+                    "bewertet",
+                    "beobachtet",
+                    "eingesehen",
+                    "angerechnet",
+                    "einsicht nehmen",
+                    "einsicht erhalten",
+                    "zugriff auf",
+                    "zugreif",
                 )
             ):
                 continue
-            self.assertFalse(
-                any(
-                    affirmative_pattern in statement
-                    for affirmative_pattern in (
-                        "werden erhoben",
-                        "werden übertragen",
-                        "werden eingesammelt",
-                        "werden gesammelt",
-                        "werden gespeichert",
-                        "werden bewertet",
-                        "werden beobachtet",
-                        "werden eingesehen",
-                        "werden angerechnet",
-                        "wird erhoben",
-                        "wird übertragen",
-                        "wird eingesammelt",
-                        "wird gesammelt",
-                        "wird gespeichert",
-                        "wird bewertet",
-                        "wird beobachtet",
-                        "wird eingesehen",
-                        "wird angerechnet",
-                    )
-                ),
-                msg=(
-                    "affirmative private collection, storage, observation, "
-                    f"or assessment statement: {statement!r}"
-                ),
-            )
             has_explicit_boundary = any(
                 boundary_marker in statement
                 for boundary_marker in (
                     "nicht",
+                    "nie",
                     "weder",
                     "keine",
                     "ohne",
                     "ausserhalb",
-                    "darf",
-                    "dürfen",
-                )
-            )
-            describes_privacy_risk = (
-                "würde" in statement
-                and any(
-                    risk_marker in statement
-                    for risk_marker in (
-                        "verletz",
-                        "verdeck",
-                        "unterlauf",
-                        "verwandeln",
-                    )
                 )
             )
             self.assertTrue(
-                has_explicit_boundary or describes_privacy_risk,
+                has_explicit_boundary,
                 msg=(
                     "affirmative private collection, storage, observation, "
                     f"or assessment statement: {statement!r}"
@@ -3872,6 +3836,48 @@ class IUM10TimeReviewTests(unittest.TestCase):
             review["competencyId"]: review for review in result.values()
         }
 
+    def _assert_prior20_repository_contract(self, prior_reviews):
+        self.assertEqual(
+            tuple(review["id"] for review in prior_reviews),
+            PRIOR_20_TIME_REVIEW_IDS,
+        )
+        canonical_structure = json.dumps(
+            self._prior20_structural_projection(prior_reviews),
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        self.assertEqual(
+            hashlib.sha256(canonical_structure).hexdigest(),
+            PRIOR_20_TIME_REVIEW_STRUCTURE_SHA256,
+        )
+
+    def _prior20_structural_projection(self, prior_reviews):
+        return [
+            {
+                "id": review["id"],
+                "competencyId": review["competencyId"],
+                "moduleId": review["moduleId"],
+                "grade": self.repository_module_contracts[
+                    review["moduleId"]
+                ]["grade"],
+                "timeImpactLevel": review["sourceTimeImpactLevel"],
+                "decision": review["decision"],
+                "phaseIds": review["phaseIds"],
+                "additionalMinutes": review["additionalMinutes"],
+                "integrationContractIds": review[
+                    "integrationContractIds"
+                ],
+                "pathAvailability": review["pathAvailability"],
+                "sequenceEvidenceId": review["sequenceEvidenceId"],
+                "status": review["status"],
+                "coverageConsequence": review[
+                    "coverageConsequence"
+                ],
+            }
+            for review in prior_reviews
+        ]
+
     def test_core07_rejects_broken_authoritative_evidence_chain(self):
         reviews_by_competency_id = (
             self._repository_reviews_by_competency_id()
@@ -3931,6 +3937,36 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 self.repository_module_contracts,
                 module_payload=module_payload,
             )
+
+    def test_core07_rejects_affirmative_private_modal_statements(self):
+        affirmative_modal_statements = (
+            "Private Inhalte dürfen gespeichert werden.",
+            (
+                "Persönliche Reflexionen dürfen eingesammelt und bewertet "
+                "werden."
+            ),
+            "Gespeichert werden dürfen private Inhalte.",
+            (
+                "Private Inhalte werden nicht erhoben. Private Inhalte "
+                "dürfen gespeichert werden."
+            ),
+        )
+        for statement in affirmative_modal_statements:
+            with self.subTest(affirmative_private_modal=statement):
+                with self.assertRaises(AssertionError):
+                    self._assert_core07_no_affirmative_private_handling(
+                        statement
+                    )
+
+    def test_core07_accepts_explicitly_negated_private_handling(self):
+        for statement in (
+            "Private Inhalte dürfen nicht gespeichert werden.",
+            PRIVATE_LOCAL_BOUNDARY,
+        ):
+            with self.subTest(negative_private_boundary=statement):
+                self._assert_core07_no_affirmative_private_handling(
+                    statement
+                )
 
     def test_core07_accepts_semantically_equivalent_product_phase(self):
         reviews_by_competency_id = (
@@ -3995,24 +4031,63 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 module_contracts,
             )
 
+    def test_prior20_structural_guard_allows_equivalent_prose(self):
+        prior_reviews = copy.deepcopy(
+            self.time_payload["timeReviews"][
+                : len(PRIOR_20_TIME_REVIEW_IDS)
+            ]
+        )
+        original_projection = self._prior20_structural_projection(
+            prior_reviews
+        )
+        prior_reviews[0]["rationale"] = (
+            "Innerhalb der Gerätearbeit brauchen die Erkundung der Geräte "
+            "und die beobachtete Zuordnung von Eingabe, Verarbeitung und "
+            "Ausgabe eine eigene angeleitete Zeitspur. Die "
+            "Gerätefunktionsmatrix bleibt Bestandteil der kommentierten "
+            "System- und Arbeitswegkarte."
+        )
+        prior_reviews[0]["risk"] = (
+            "Abweichende Mediengeräte oder fehlende Komponenten können die "
+            "Erkundung und Beobachtung zeitlich verlängern."
+        )
+        prior_reviews[0]["followUp"] = (
+            "Im Pilot aggregiert erfassen, ob Geräte verfügbar sind, wie "
+            "viel Unterstützung nötig ist und ob die "
+            "Gerätefunktionsmatrix erreicht wird."
+        )
+
+        self.assertEqual(
+            self._prior20_structural_projection(prior_reviews),
+            original_projection,
+        )
+        self._assert_prior20_repository_contract(prior_reviews)
+
+    def test_prior20_structural_guard_rejects_structural_mutations(self):
+        mutations = (
+            ("decision", "absorbed"),
+            ("additionalMinutes", 99),
+            ("phaseIds", ["review-revise-transfer"]),
+            ("id", "TR-BROKEN-PRIOR20-ID"),
+        )
+        for field, value in mutations:
+            with self.subTest(prior20_structural_field=field):
+                prior_reviews = copy.deepcopy(
+                    self.time_payload["timeReviews"][
+                        : len(PRIOR_20_TIME_REVIEW_IDS)
+                    ]
+                )
+                prior_reviews[0][field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_prior20_repository_contract(
+                        prior_reviews
+                    )
+
     def test_repository_time_reviews_match_the_audited_decisions(self):
         prior_reviews = self.time_payload["timeReviews"][
             : len(PRIOR_20_TIME_REVIEW_IDS)
         ]
-        self.assertEqual(
-            tuple(review["id"] for review in prior_reviews),
-            PRIOR_20_TIME_REVIEW_IDS,
-        )
-        canonical_prior_reviews = json.dumps(
-            prior_reviews,
-            ensure_ascii=False,
-            sort_keys=True,
-            separators=(",", ":"),
-        ).encode("utf-8")
-        self.assertEqual(
-            hashlib.sha256(canonical_prior_reviews).hexdigest(),
-            PRIOR_20_TIME_REVIEWS_SHA256,
-        )
+        self._assert_prior20_repository_contract(prior_reviews)
 
         result = validate_time_reviews(
             self.time_payload["timeReviews"],
