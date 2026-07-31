@@ -331,17 +331,26 @@ def validate_remediation_ledger(
 
     remediation_entries = {}
     for entry in entries:
-        _require_exact_fields(
-            entry,
-            {
-                "competencyId", "requirementText", "causeClass", "before",
-                "decision", "evidenceContractId", "after", "changeRationale",
-                "timeImpact", "graphImpact", "residualGap",
+        historical_fields = {
+            "competencyId", "requirementText", "causeClass", "before",
+            "decision", "evidenceContractId", "after", "changeRationale",
+            "timeImpact", "graphImpact", "residualGap",
+        }
+        _require(
+            isinstance(entry, dict)
+            and frozenset(entry)
+            in {
+                frozenset(historical_fields),
+                frozenset(historical_fields | {"timeReviewId"}),
             },
-            "remediation entry",
+            "invalid fields: remediation entry",
         )
         competency_id = entry["competencyId"]
         _require_nonempty_string(competency_id, "competencyId", "ledger entry")
+        if "timeReviewId" in entry:
+            _require_nonempty_string(
+                entry["timeReviewId"], "timeReviewId", competency_id
+            )
         _require(
             competency_id not in remediation_entries,
             f"ledger competency ids must be unique: {competency_id}",

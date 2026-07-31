@@ -20,12 +20,13 @@
     "coreCoverage": "Alle Kompetenz-, Prozesskompetenz- und Progressionsrecords werden im Kernpfad mindestens einmal abgedeckt; Beispiele und Operatoren werden nicht als eigenständige Pflichtkompetenzen gezählt.",
     "hybridModel": "Core bildet einen progressiven, vollständig abdeckenden Pfad. Extension, transfer und project bleiben optionale Kandidaten mit expliziten Kernvoraussetzungen.",
     "gradeBoundary": "Die konkrete Verteilung der kombinierten Lesehilfe-Vorgaben 5/6 ist eine didaktische Arbeitsentscheidung mit Status working.",
-    "timeBoundary": "lessonRange ist ein erster Modulkorridor. Jahreskorridore, Puffer und Abdeckungskonflikte sind im Abdeckungs- und Zeitmodell der Modulroadmap geprüft; deren Jahrgangsstatus ist für die Freigabe maßgeblich.",
+    "timeBoundary": "lessonRange ist die historische, eigenständige Kandidatenschätzung. roadmap/time-model.json ist für Jahreszuweisung, Pfadstatus und Zeitfreigabe autoritativ.",
     "assessmentBoundary": "assessmentWorkingNotes ist reduzierbar und erzeugt weder Noten noch personenbezogene Kompetenzprofile."
   },
   "modules": [
     {
       "id": "IUM-5-CORE-01",
+      "timeContractId": "TC-IUM-5-CORE-01",
       "title": "Im Schulnetz sicher arbeitsfähig werden",
       "grade": 5,
       "kind": "core",
@@ -121,6 +122,7 @@
     },
     {
       "id": "IUM-5-CORE-02",
+      "timeContractId": "TC-IUM-5-CORE-02",
       "title": "Eine Suchfrage mit Belegen beantworten",
       "grade": 5,
       "kind": "core",
@@ -175,6 +177,7 @@
     },
     {
       "id": "IUM-5-CORE-03",
+      "timeContractId": "TC-IUM-5-CORE-03",
       "title": "Digital verständlich, sicher und fair kommunizieren",
       "grade": 5,
       "kind": "core",
@@ -278,6 +281,7 @@
     },
     {
       "id": "IUM-5-CORE-04",
+      "timeContractId": "TC-IUM-5-CORE-04",
       "title": "Einen schulischen Datenweg sichtbar machen",
       "grade": 5,
       "kind": "core",
@@ -319,6 +323,7 @@
     },
     {
       "id": "IUM-5-CORE-05",
+      "timeContractId": "TC-IUM-5-CORE-05",
       "title": "Präzise Abläufe ausführbar machen",
       "grade": 5,
       "kind": "core",
@@ -368,6 +373,7 @@
     },
     {
       "id": "IUM-5-CORE-06",
+      "timeContractId": "TC-IUM-5-CORE-06",
       "title": "Ein Medienprodukt zielgerichtet gestalten",
       "grade": 5,
       "kind": "core",
@@ -446,6 +452,7 @@
     },
     {
       "id": "IUM-5-CORE-07",
+      "timeContractId": "TC-IUM-5-CORE-07",
       "title": "Mediennutzung und Werbung an Fällen untersuchen",
       "grade": 5,
       "kind": "core",
@@ -539,6 +546,7 @@
     },
     {
       "id": "IUM-6-CORE-01",
+      "timeContractId": "TC-IUM-6-CORE-01",
       "title": "Suchmaschinen, Akteure und KI-Ergebnisse prüfen",
       "grade": 6,
       "kind": "core",
@@ -581,6 +589,7 @@
     },
     {
       "id": "IUM-6-CORE-02",
+      "timeContractId": "TC-IUM-6-CORE-02",
       "title": "Datenfluss und personalisierte Auswahl modellieren",
       "grade": 6,
       "kind": "core",
@@ -641,6 +650,7 @@
     },
     {
       "id": "IUM-6-CORE-03",
+      "timeContractId": "TC-IUM-6-CORE-03",
       "title": "Codierungen entwerfen und auf Umkehrbarkeit prüfen",
       "grade": 6,
       "kind": "core",
@@ -678,6 +688,7 @@
     },
     {
       "id": "IUM-6-CORE-04",
+      "timeContractId": "TC-IUM-6-CORE-04",
       "title": "Programme mit festen Schleifen lesen und verändern",
       "grade": 6,
       "kind": "core",
@@ -714,6 +725,7 @@
     },
     {
       "id": "IUM-6-CORE-05",
+      "timeContractId": "TC-IUM-6-CORE-05",
       "title": "Netz- und Speicherentscheidungen mit Modellen begründen",
       "grade": 6,
       "kind": "core",
@@ -751,6 +763,7 @@
     },
     {
       "id": "IUM-6-CORE-06",
+      "timeContractId": "TC-IUM-6-CORE-06",
       "title": "Konflikte in sozialen Räumen fallbezogen bearbeiten",
       "grade": 6,
       "kind": "core",
@@ -810,6 +823,7 @@
     },
     {
       "id": "IUM-6-CORE-07",
+      "timeContractId": "TC-IUM-6-CORE-07",
       "title": "Wirkungsabsicht, Rechte und Revision verbinden",
       "grade": 6,
       "kind": "core",
@@ -889,6 +903,7 @@
     },
     {
       "id": "IUM-7-CORE-01",
+      "timeContractId": "TC-IUM-7-CORE-01",
       "title": "Codierungen zwischen Zeichen, Zahlen und Bits entwerfen",
       "grade": 7,
       "kind": "core",
@@ -976,6 +991,7 @@
     },
     {
       "id": "IUM-7-CORE-02",
+      "timeContractId": "TC-IUM-7-CORE-02",
       "title": "Bilder als Daten modellieren und Ressourcenfolgen prüfen",
       "grade": 7,
       "kind": "core",
@@ -1019,6 +1035,7 @@
     },
     {
       "id": "IUM-7-CORE-03",
+      "timeContractId": "TC-IUM-7-CORE-03",
       "title": "Kontrollfluss, Werte und Zustände tracen",
       "grade": 7,
       "kind": "core",
@@ -1119,6 +1136,7 @@
     },
     {
       "id": "IUM-7-CORE-04",
+      "timeContractId": "TC-IUM-7-CORE-04",
       "title": "Programme entwerfen, testen und debuggen",
       "grade": 7,
       "kind": "core",
@@ -1193,6 +1211,7 @@
     },
     {
       "id": "IUM-7-CORE-05",
+      "timeContractId": "TC-IUM-7-CORE-05",
       "title": "Netze, Speicher und Geräteschutz modellieren",
       "grade": 7,
       "kind": "core",
@@ -1263,6 +1282,7 @@
     },
     {
       "id": "IUM-7-CORE-06",
+      "timeContractId": "TC-IUM-7-CORE-06",
       "title": "Verschlüsselung erklären und passend auswählen",
       "grade": 7,
       "kind": "core",
@@ -1306,6 +1326,7 @@
     },
     {
       "id": "IUM-7-CORE-07",
+      "timeContractId": "TC-IUM-7-CORE-07",
       "title": "Einfache Verschlüsselung angreifen und bewerten",
       "grade": 7,
       "kind": "core",
@@ -1355,6 +1376,7 @@
     },
     {
       "id": "IUM-7-CORE-08",
+      "timeContractId": "TC-IUM-7-CORE-08",
       "title": "Daten, Akteure und Desinformation beurteilen",
       "grade": 7,
       "kind": "core",
@@ -1450,6 +1472,7 @@
     },
     {
       "id": "IUM-7-CORE-09",
+      "timeContractId": "TC-IUM-7-CORE-09",
       "title": "Gamingmechanismen ohne Personendiagnose analysieren",
       "grade": 7,
       "kind": "core",
@@ -1492,6 +1515,7 @@
     },
     {
       "id": "IUM-7-CORE-10",
+      "timeContractId": "TC-IUM-7-CORE-10",
       "title": "Medienbilder analysieren und wirkungsbewusst verändern",
       "grade": 7,
       "kind": "core",
@@ -1550,6 +1574,7 @@
     },
     {
       "id": "IUM-6-EXT-02",
+      "timeContractId": "TC-IUM-6-EXT-02",
       "title": "Paketpost im Klassennetz vertiefen",
       "grade": 6,
       "kind": "extension",
@@ -1591,6 +1616,7 @@
     },
     {
       "id": "IUM-6-EXT-01",
+      "timeContractId": "TC-IUM-6-EXT-01",
       "title": "KI-Antworten im Quellenlabor vertiefen",
       "grade": 6,
       "kind": "extension",
@@ -1627,6 +1653,7 @@
     },
     {
       "id": "IUM-7-EXT-01",
+      "timeContractId": "TC-IUM-7-EXT-01",
       "title": "Codewortgrenzen formal untersuchen",
       "grade": 7,
       "kind": "extension",
@@ -1663,6 +1690,7 @@
     },
     {
       "id": "IUM-6-TRANSFER-01",
+      "timeContractId": "TC-IUM-6-TRANSFER-01",
       "title": "Einen Speicherort für ein Schulprojekt entscheiden",
       "grade": 6,
       "kind": "transfer",
@@ -1699,6 +1727,7 @@
     },
     {
       "id": "IUM-7-TRANSFER-01",
+      "timeContractId": "TC-IUM-7-TRANSFER-01",
       "title": "Einen sicheren Kommunikationsweg begründen",
       "grade": 7,
       "kind": "transfer",
@@ -1737,6 +1766,7 @@
     },
     {
       "id": "IUM-6-PROJECT-01",
+      "timeContractId": "TC-IUM-6-PROJECT-01",
       "title": "Eine offene Informationskampagne gestalten",
       "grade": 6,
       "kind": "project",
@@ -1783,6 +1813,7 @@
     },
     {
       "id": "IUM-7-PROJECT-01",
+      "timeContractId": "TC-IUM-7-PROJECT-01",
       "title": "Täuschung sichtbar machen und verantwortbar redesignen",
       "grade": 7,
       "kind": "project",

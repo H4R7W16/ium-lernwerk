@@ -4,6 +4,7 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
+import scripts.validate_ium10 as ium10_validator
 from scripts.validate_ium09 import (
     BASELINE_PARTIAL_IDS,
     BASELINE_MODULE_STRUCTURE_FINGERPRINT_SHA256,
@@ -15,6 +16,25 @@ from scripts.validate_ium09 import (
     validate_remediation_ledger,
     validate_remediated_coverage,
 )
+
+
+def load_repository_ium09_coverage(root):
+    coverage_payload = json.loads(
+        (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+    )
+    remediation_payload = json.loads(
+        (root / "roadmap/coverage-remediation.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    time_model = json.loads(
+        (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+    )
+    return ium10_validator.ium09_coverage_projection(
+        coverage_payload,
+        remediation_payload,
+        time_model["sequenceEvidence"],
+    )
 
 
 PRIVATE_BOUNDARY_TEXT = (
@@ -1678,9 +1698,7 @@ class Core05RepositoryOrchestrationTests(unittest.TestCase):
             if entry["competencyId"] in {"LH26-E-ALG-001", "LH26-E-PROG-002"}
         }
 
-        coverage_payload = json.loads(
-            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
-        )
+        coverage_payload = load_repository_ium09_coverage(root)
         cls.coverage = {
             entry["competencyId"]: entry
             for entry in coverage_payload["entries"]
@@ -2750,9 +2768,7 @@ class RemediationLedgerTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         root = Path(__file__).resolve().parents[1]
-        cls.coverage_payload = json.loads(
-            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
-        )
+        cls.coverage_payload = load_repository_ium09_coverage(root)
         cls.ledger_payload = json.loads(
             (root / "roadmap/coverage-remediation.json").read_text(encoding="utf-8")
         )
@@ -2804,6 +2820,32 @@ class RemediationLedgerTests(unittest.TestCase):
         }
         self.assertEqual(actual, EXPECTED_CAUSE_CLASS_BY_ID)
         self.assertEqual(len(self.ledger_payload["entries"]), 60)
+
+    def test_repository_ledger_has_all_task25_time_review_references(self):
+        self.assertEqual(
+            {
+                entry["timeReviewId"]
+                for entry in self.ledger_payload["entries"]
+            },
+            {
+                f"TR-{entry['competencyId']}"
+                for entry in self.ledger_payload["entries"]
+            },
+        )
+
+    def test_historical_fixture_may_omit_time_review_references(self):
+        payload = copy.deepcopy(self.ledger_payload)
+        for entry in payload["entries"]:
+            entry.pop("timeReviewId", None)
+        self.assertEqual(len(self.validate(payload)), 60)
+
+    def test_present_time_review_reference_must_be_a_nonempty_string(self):
+        for value in (None, "", "   ", 1, True, 1.0):
+            with self.subTest(value=value):
+                payload = copy.deepcopy(self.ledger_payload)
+                payload["entries"][0]["timeReviewId"] = value
+                with self.assertRaises(IUM09ValidationError):
+                    self.validate(payload)
 
     def test_audited_decisions_exhaustively_mirror_repository_ledger(self):
         self.assertEqual(set(AUDITED_DECISIONS), BASELINE_PARTIAL_IDS)
@@ -3021,9 +3063,7 @@ class RemediatedCoverageTests(unittest.TestCase):
         cls.module_payload = json.loads(
             (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
         )
-        cls.coverage_payload = json.loads(
-            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
-        )
+        cls.coverage_payload = load_repository_ium09_coverage(root)
         cls.remediation_payload = json.loads(
             (root / "roadmap/coverage-remediation.json").read_text(
                 encoding="utf-8"
@@ -3365,9 +3405,7 @@ class IUM09PublicationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         root = Path(__file__).resolve().parents[1]
-        cls.coverage_entries = json.loads(
-            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
-        )["entries"]
+        cls.coverage_entries = load_repository_ium09_coverage(root)["entries"]
         cls.ledger_entries = json.loads(
             (root / "roadmap/coverage-remediation.json").read_text(
                 encoding="utf-8"

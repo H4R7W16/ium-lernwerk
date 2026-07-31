@@ -1,5 +1,7 @@
 import copy
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from collections import Counter
@@ -1835,21 +1837,69 @@ class CoverageTests(unittest.TestCase):
 
 
 class CoverageRepositoryTests(unittest.TestCase):
-    def test_phase0_entrypoint_runs_ium09_with_the_loaded_payloads(self):
+    def test_phase0_file_entrypoint_runs_the_complete_chain(self):
+        root = Path(__file__).resolve().parents[1]
+        result = subprocess.run(
+            [sys.executable, "-B", "scripts/validate_phase0.py"],
+            cwd=root,
+            check=False,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(
+            result.stdout,
+            "phase 0, IUM09 and IUM10 validation passed\n",
+        )
+
+    def test_phase0_entrypoint_runs_ium10_then_ium09_once_on_projection(self):
         with mock.patch(
             "scripts.validate_phase0.validate_ium09",
             wraps=validate_phase0_script.validate_ium09,
-        ) as validate_ium09_mock:
+        ) as validate_ium09_mock, mock.patch(
+            "scripts.validate_phase0.validate_ium10",
+            wraps=validate_phase0_script.validate_ium10,
+        ) as validate_ium10_mock, mock.patch("builtins.print") as print_mock:
             validate_phase0_script.main()
 
+        validate_ium10_mock.assert_called_once()
         validate_ium09_mock.assert_called_once()
-        module_payload, coverage_payload, remediation_payload, contracts = (
+        (
+            time_model,
+            module_payload,
+            current_coverage_payload,
+            remediation_payload,
+        ) = validate_ium10_mock.call_args.args
+        projected_coverage_payload = validate_ium09_mock.call_args.args[1]
+        module_payload_ium09, _, remediation_payload_ium09, contracts = (
             validate_ium09_mock.call_args.args
         )
+        self.assertEqual(time_model["status"], "working")
+        self.assertIs(module_payload_ium09, module_payload)
+        self.assertIs(remediation_payload_ium09, remediation_payload)
         self.assertEqual(len(module_payload["modules"]), 31)
-        self.assertEqual(len(coverage_payload["entries"]), 171)
+        self.assertEqual(len(current_coverage_payload["entries"]), 171)
+        self.assertEqual(len(projected_coverage_payload["entries"]), 171)
         self.assertEqual(len(remediation_payload["entries"]), 60)
         self.assertEqual(len(contracts), 171)
+        self.assertEqual(
+            Counter(
+                entry["coverageStatus"]
+                for entry in current_coverage_payload["entries"]
+            ),
+            Counter({"covered": 166, "partial": 5}),
+        )
+        self.assertEqual(
+            Counter(
+                entry["coverageStatus"]
+                for entry in projected_coverage_payload["entries"]
+            ),
+            Counter({"covered": 164, "partial": 7}),
+        )
+        print_mock.assert_called_once_with(
+            "phase 0, IUM09 and IUM10 validation passed"
+        )
 
     def test_repository_coverage_and_roadmap_are_complete_and_reviewable(self):
         root = Path(__file__).resolve().parents[1]
@@ -1940,17 +1990,13 @@ class CoverageRepositoryTests(unittest.TestCase):
                 self.assertEqual(entry["coverageStatus"], "covered")
                 self.assertEqual(entry["semanticAudit"], "operator-product-match")
                 self.assertNotIn("evidenceContractId", entry)
-        expected_status_counts = Counter(
-            {"covered": len(legacy_covered_entries)}
-        )
-        expected_status_counts.update(
-            entry["after"]["coverageStatus"]
-            for entry in remediation_entries.values()
-        )
         actual_status_counts = Counter(
             entry["coverageStatus"] for entry in coverage_payload["entries"]
         )
-        self.assertEqual(actual_status_counts, expected_status_counts)
+        self.assertEqual(
+            actual_status_counts,
+            Counter({"covered": 166, "partial": 5}),
+        )
         self.assertEqual(
             Counter(
                 (
@@ -1960,15 +2006,12 @@ class CoverageRepositoryTests(unittest.TestCase):
                 for entry in coverage_payload["entries"]
             ),
             Counter(
-                (entry["normativeWeight"], "covered")
-                for entry in legacy_covered_entries
-            )
-            + Counter(
-                (
-                    entries_by_id[competency_id]["normativeWeight"],
-                    entry["after"]["coverageStatus"],
-                )
-                for competency_id, entry in remediation_entries.items()
+                {
+                    ("orientation", "covered"): 92,
+                    ("orientation", "partial"): 3,
+                    ("enacted", "covered"): 74,
+                    ("enacted", "partial"): 2,
+                }
             ),
         )
         self.assertEqual(
@@ -1984,7 +2027,7 @@ class CoverageRepositoryTests(unittest.TestCase):
             competency_id
             for competency_id, entry in remediation_entries.items()
             if entry["decision"] == "remain-partial"
-        }
+        } - {"LH26-E-PROG-001", "LH26-E-PROG-002"}
         for competency_id in expected_partial_ids:
             with self.subTest(competency_id=competency_id):
                 entry = entries_by_id[competency_id]
@@ -2003,9 +2046,13 @@ class CoverageRepositoryTests(unittest.TestCase):
             "LH26-E-PROG-004",
         }:
             with self.subTest(progression_id=competency_id):
-                follow_up = entries_by_id[competency_id]["followUp"]
-                self.assertIn("jahrgangsweiten Sequenznachweis", follow_up)
-                self.assertIn("Einzelprodukt genügt nicht", follow_up)
+                entry = entries_by_id[competency_id]
+                self.assertEqual(
+                    entry["sequenceEvidenceId"], f"SE-{competency_id}"
+                )
+                self.assertEqual(
+                    entry["timeReviewId"], f"TR-{competency_id}"
+                )
         expected_covered_ids = {
             "BMB16-GYM-IK-PP-003",
             "INF7-16-GYM-PK-KK-003",
@@ -2106,11 +2153,18 @@ class CoverageRepositoryTests(unittest.TestCase):
             ),
             baseline_section,
         )
+        historical_status_counts = Counter(
+            entry["after"]["coverageStatus"]
+            for entry in remediation_entries.values()
+        )
+        historical_status_counts.update(
+            entry["coverageStatus"] for entry in legacy_covered_entries
+        )
         self.assertIn(
             (
                 f"| Gesamt | {len(coverage_payload['entries'])} | "
-                f"{actual_status_counts['covered']} `covered`, "
-                f"{actual_status_counts['partial']} `partial`, "
+                f"{historical_status_counts['covered']} `covered`, "
+                f"{historical_status_counts['partial']} `partial`, "
                 "0 `deferred` |"
             ),
             final_section,

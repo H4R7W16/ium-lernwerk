@@ -9,6 +9,7 @@
   "entries": [
     {
       "competencyId": "BMB16-GYM-IK-GM-001",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-001",
       "requirementText": "die Verhaltensregeln im Umgang mit digitalen Medien einhalten und die wichtigsten Komponenten für die Dateneingabe, -verarbeitung und -ausgabe benennen, beschreiben und sachgerecht nutzen",
       "causeClass": "module-detail",
       "before": {
@@ -36,6 +37,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-002",
       "requirementText": "sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten",
       "causeClass": "school-context",
       "before": {
@@ -63,6 +65,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-003",
       "requirementText": "elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden",
       "causeClass": "module-detail",
       "before": {
@@ -94,6 +97,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-KK-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-KK-002",
       "requirementText": "einen digitalen Kommunikationsweg (zum Beispiel E-Mail) in seinen Grundfunktionen anwenden",
       "causeClass": "school-context",
       "before": {
@@ -121,6 +125,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-KK-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-KK-003",
       "requirementText": "mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb von Projekten nutzen",
       "causeClass": "school-context",
       "before": {
@@ -148,6 +153,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-001",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-001",
       "requirementText": "die persönliche Motivation bezüglich des eigenen Medienverhaltens beschreiben und die eigene Nutzung ihrem Alter entsprechend bewerten",
       "causeClass": "private-local",
       "before": {
@@ -175,6 +181,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-002",
       "requirementText": "die positiven Aspekte der Mediennutzung, aber auch die Risiken und Gefahren des (übermäßigen) Mediengebrauchs erläutern, bewerten und präventive Maßnahmen benennen",
       "causeClass": "module-detail",
       "before": {
@@ -202,6 +209,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-003",
       "requirementText": "die Wirkung von Medien an Beispielen untersuchen, ihre Empfindungen dazu äußern und erste Gesetzmäßigkeiten ableiten",
       "causeClass": "private-local",
       "before": {
@@ -229,6 +237,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-PP-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-PP-002",
       "requirementText": "bei der Erstellung eines digitalen Medienprodukts erste grundlegende Urheberrechts- und Datenschutzrichtlinien beachten",
       "causeClass": "module-detail",
       "before": {
@@ -256,6 +265,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-HK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-HK-003",
       "requirementText": "Medien für Zusammenarbeit und Kooperation nutzen",
       "causeClass": "school-context",
       "before": {
@@ -283,6 +293,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-001",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-001",
       "requirementText": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
       "causeClass": "private-local",
       "before": {
@@ -310,6 +321,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-002",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-002",
       "requirementText": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
       "causeClass": "private-local",
       "before": {
@@ -337,6 +349,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-003",
       "requirementText": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
       "causeClass": "private-local",
       "before": {
@@ -368,6 +381,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-004",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-004",
       "requirementText": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
       "causeClass": "module-detail",
       "before": {
@@ -395,6 +409,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-SK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-SK-003",
       "requirementText": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
       "causeClass": "school-context",
       "before": {
@@ -422,6 +437,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-ALG-003",
+      "timeReviewId": "TR-INF7-16-GYM-IK-ALG-003",
       "requirementText": "Variablen als änderbaren Wertespeicher erläutern",
       "causeClass": "module-detail",
       "before": {
@@ -449,6 +465,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-001",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-001",
       "requirementText": "Beispiele zur Verwendung von Codierungen im Alltag nennen",
       "causeClass": "module-detail",
       "before": {
@@ -476,6 +493,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-004",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-004",
       "requirementText": "Datenmengen als „Länge einer Bitfolge“ erklären und mithilfe der Einheiten Bit, Byte, Kilobyte etc. beschreiben",
       "causeClass": "module-detail",
       "before": {
@@ -503,6 +521,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-005",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-005",
       "requirementText": "natürliche Zahlen (im Bereich 0–255) mithilfe des Binärsystems als Bitfolge darstellen, Bitfolgen als Zahlen interpretieren und das Prinzip des Binärsystems erklären",
       "causeClass": "module-detail",
       "before": {
@@ -530,6 +549,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-IGD-004",
+      "timeReviewId": "TR-INF7-16-GYM-IK-IGD-004",
       "requirementText": "besondere Sicherheitsaspekte im Umgang mit mobilen Geräten und Datenträgern nennen sowie mögliche Schutzmaßnahmen beschreiben",
       "causeClass": "module-detail",
       "before": {
@@ -557,6 +577,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-IGD-006",
+      "timeReviewId": "TR-INF7-16-GYM-IK-IGD-006",
       "requirementText": "den Sachverhalt der permanent anfallenden personenbezogenen Daten bei der Nutzung von Diensten und deren Speicherung an alltagsrelevanten Beispielen erläutern und dabei sowohl Nutzen als auch Risiken nennen",
       "causeClass": "module-detail",
       "before": {
@@ -584,6 +605,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-002",
       "requirementText": "informatische Modelle mit der jeweiligen Realsituation vergleichen",
       "causeClass": "module-detail",
       "before": {
@@ -611,6 +633,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-005",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-005",
       "requirementText": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten",
       "causeClass": "module-detail",
       "before": {
@@ -638,6 +661,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-006",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-006",
       "requirementText": "im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten",
       "causeClass": "module-detail",
       "before": {
@@ -665,6 +689,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-KK-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-KK-002",
       "requirementText": "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen",
       "causeClass": "module-detail",
       "before": {
@@ -692,6 +717,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-KK-006",
+      "timeReviewId": "TR-INF7-16-GYM-PK-KK-006",
       "requirementText": "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren",
       "causeClass": "module-detail",
       "before": {
@@ -719,6 +745,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-MI-003",
+      "timeReviewId": "TR-INF7-16-GYM-PK-MI-003",
       "requirementText": "charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion)",
       "causeClass": "module-detail",
       "before": {
@@ -746,6 +773,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-MI-005",
+      "timeReviewId": "TR-INF7-16-GYM-PK-MI-005",
       "requirementText": "geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen",
       "causeClass": "module-detail",
       "before": {
@@ -773,6 +801,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-001",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-001",
       "requirementText": "mit dem Schulnetz zielorientiert arbeiten",
       "causeClass": "school-context",
       "before": {
@@ -800,6 +829,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-002",
       "requirementText": "Dateien und Bezeichner aussagekräftig benennen",
       "causeClass": "module-detail",
       "before": {
@@ -827,6 +857,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-003",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-003",
       "requirementText": "Beziehungen zwischen Daten/Objekten erkennen und erläutern",
       "causeClass": "module-detail",
       "before": {
@@ -854,6 +885,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-001",
+      "timeReviewId": "TR-LH26-E-ALG-001",
       "requirementText": "digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist",
       "causeClass": "module-detail",
       "before": {
@@ -881,6 +913,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-007",
+      "timeReviewId": "TR-LH26-E-ALG-007",
       "requirementText": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife (Variante mit konstanter Anzahl von Durchläufen und Variante mit Bedingung) • Verzweigung • Ausdrücke ohne Operatoren, mit arithmetischen Operatoren und mit Vergleichsoperatoren",
       "causeClass": "module-detail",
       "before": {
@@ -908,6 +941,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-008",
+      "timeReviewId": "TR-LH26-E-ALG-008",
       "requirementText": "Übergabe und Rückgabe von Werten bei gegebenen Anweisungen und Ausdrücken identifizieren",
       "causeClass": "module-detail",
       "before": {
@@ -935,6 +969,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-009",
+      "timeReviewId": "TR-LH26-E-ALG-009",
       "requirementText": "den Datentyp (Zeichenkette, Zahl, Wahrheitswert) von Werten und Ausdrücken identifizieren",
       "causeClass": "module-detail",
       "before": {
@@ -962,6 +997,7 @@
     },
     {
       "competencyId": "LH26-E-DA-004",
+      "timeReviewId": "TR-LH26-E-DA-004",
       "requirementText": "den grundlegenden Aufbau digitaler Systeme in den Schichten Hardware, Betriebssystem und Programmen erklären",
       "causeClass": "module-detail",
       "before": {
@@ -989,6 +1025,7 @@
     },
     {
       "competencyId": "LH26-E-DA-005",
+      "timeReviewId": "TR-LH26-E-DA-005",
       "requirementText": "Bausteine eines Textes identifizieren und Möglichkeiten zu ihrer Formatierung nutzen",
       "causeClass": "module-detail",
       "before": {
@@ -1016,6 +1053,7 @@
     },
     {
       "competencyId": "LH26-E-DA-006",
+      "timeReviewId": "TR-LH26-E-DA-006",
       "requirementText": "eine Objektart zur visuellen Gestaltung nutzen",
       "causeClass": "module-detail",
       "before": {
@@ -1043,6 +1081,7 @@
     },
     {
       "competencyId": "LH26-E-DA-008",
+      "timeReviewId": "TR-LH26-E-DA-008",
       "requirementText": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
       "causeClass": "module-detail",
       "before": {
@@ -1070,6 +1109,7 @@
     },
     {
       "competencyId": "LH26-E-DA-009",
+      "timeReviewId": "TR-LH26-E-DA-009",
       "requirementText": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
       "causeClass": "module-detail",
       "before": {
@@ -1097,6 +1137,7 @@
     },
     {
       "competencyId": "LH26-E-DA-010",
+      "timeReviewId": "TR-LH26-E-DA-010",
       "requirementText": "die Wirkungsabsicht von Medienprodukten herausarbeiten",
       "causeClass": "module-detail",
       "before": {
@@ -1124,6 +1165,7 @@
     },
     {
       "competencyId": "LH26-E-DA-012",
+      "timeReviewId": "TR-LH26-E-DA-012",
       "requirementText": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte anwenden",
       "causeClass": "module-detail",
       "before": {
@@ -1151,6 +1193,7 @@
     },
     {
       "competencyId": "LH26-E-DA-015",
+      "timeReviewId": "TR-LH26-E-DA-015",
       "requirementText": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
       "causeClass": "school-context",
       "before": {
@@ -1178,6 +1221,7 @@
     },
     {
       "competencyId": "LH26-E-DP-001",
+      "timeReviewId": "TR-LH26-E-DP-001",
       "requirementText": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
       "causeClass": "school-context",
       "before": {
@@ -1205,6 +1249,7 @@
     },
     {
       "competencyId": "LH26-E-DP-003",
+      "timeReviewId": "TR-LH26-E-DP-003",
       "requirementText": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
       "causeClass": "private-local",
       "before": {
@@ -1236,6 +1281,7 @@
     },
     {
       "competencyId": "LH26-E-DP-004",
+      "timeReviewId": "TR-LH26-E-DP-004",
       "requirementText": "Nutzungs- und Rahmenbedingungen von Apps, Programmen und Onlinediensten exemplarisch herausarbeiten",
       "causeClass": "module-detail",
       "before": {
@@ -1263,6 +1309,7 @@
     },
     {
       "competencyId": "LH26-E-DP-006",
+      "timeReviewId": "TR-LH26-E-DP-006",
       "requirementText": "Möglichkeiten nennen, wie die spezifische Auswahl der Werbebotschaft zustande kommt",
       "causeClass": "module-detail",
       "before": {
@@ -1290,6 +1337,7 @@
     },
     {
       "competencyId": "LH26-E-DP-013",
+      "timeReviewId": "TR-LH26-E-DP-013",
       "requirementText": "sich mit in manipulativer Absicht verbreiteten Falschmeldungen im digitalen Raum auseinandersetzen und den eigenen Umgang damit reflektieren",
       "causeClass": "private-local",
       "before": {
@@ -1317,6 +1365,7 @@
     },
     {
       "competencyId": "LH26-E-DP-014",
+      "timeReviewId": "TR-LH26-E-DP-014",
       "requirementText": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in Medien analysieren und deren Einfluss auf die Selbstwahrnehmung reflektieren",
       "causeClass": "private-local",
       "before": {
@@ -1344,6 +1393,7 @@
     },
     {
       "competencyId": "LH26-E-ID-009",
+      "timeReviewId": "TR-LH26-E-ID-009",
       "requirementText": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
       "causeClass": "module-detail",
       "before": {
@@ -1371,6 +1421,7 @@
     },
     {
       "competencyId": "LH26-E-ID-020",
+      "timeReviewId": "TR-LH26-E-ID-020",
       "requirementText": "Datenmengen als Länge einer Bitfolge erklären und zur Größenangabe die Einheiten Bit und Byte verwenden",
       "causeClass": "module-detail",
       "before": {
@@ -1398,6 +1449,7 @@
     },
     {
       "competencyId": "LH26-E-ID-021",
+      "timeReviewId": "TR-LH26-E-ID-021",
       "requirementText": "die Dezimalpräfixe Kilo, Mega, Giga und Tera zur Angabe von Datenmengen verwenden",
       "causeClass": "module-detail",
       "before": {
@@ -1425,6 +1477,7 @@
     },
     {
       "competencyId": "LH26-E-KS-001",
+      "timeReviewId": "TR-LH26-E-KS-001",
       "requirementText": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
       "causeClass": "school-context",
       "before": {
@@ -1452,6 +1505,7 @@
     },
     {
       "competencyId": "LH26-E-KS-002",
+      "timeReviewId": "TR-LH26-E-KS-002",
       "requirementText": "Auswirkungen von Konflikten und Problemen bei der digitalen Kommunikation reflektieren und diskutieren",
       "causeClass": "module-detail",
       "before": {
@@ -1479,6 +1533,7 @@
     },
     {
       "competencyId": "LH26-E-KS-014",
+      "timeReviewId": "TR-LH26-E-KS-014",
       "requirementText": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
       "causeClass": "module-detail",
       "before": {
@@ -1506,6 +1561,7 @@
     },
     {
       "competencyId": "LH26-E-KS-015",
+      "timeReviewId": "TR-LH26-E-KS-015",
       "requirementText": "Ursachen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
       "causeClass": "module-detail",
       "before": {
@@ -1533,6 +1589,7 @@
     },
     {
       "competencyId": "LH26-E-PROG-001",
+      "timeReviewId": "TR-LH26-E-PROG-001",
       "requirementText": "In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.",
       "causeClass": "roadmap-level",
       "before": {
@@ -1564,6 +1621,7 @@
     },
     {
       "competencyId": "LH26-E-PROG-002",
+      "timeReviewId": "TR-LH26-E-PROG-002",
       "requirementText": "Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.",
       "causeClass": "roadmap-level",
       "before": {
@@ -1595,6 +1653,7 @@
     },
     {
       "competencyId": "LH26-E-PROG-003",
+      "timeReviewId": "TR-LH26-E-PROG-003",
       "requirementText": "Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.",
       "causeClass": "roadmap-level",
       "before": {
@@ -1626,6 +1685,7 @@
     },
     {
       "competencyId": "LH26-E-PROG-004",
+      "timeReviewId": "TR-LH26-E-PROG-004",
       "requirementText": "Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.",
       "causeClass": "roadmap-level",
       "before": {

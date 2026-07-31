@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "status": "draft",
+  "status": "working",
   "baseline": {
     "commit": "e53bad7cffe1541fc910db948235908bebe89caa",
     "moduleStructureSha256": "da02be74104d88dd9adb0d7927feeab4eea5f65dcc616c5645b0f2145ca4d4fc",
@@ -4223,6 +4223,792 @@
       "decisionOptions": ["additional-school-time", "structural-integration-or-reclassification", "curricular-reprioritisation", "earlier-preparation", "explicitly-incomplete-path"]
     }
   ],
-  "risks": [],
-  "pilotAssignments": []
+  "risks": [
+    {
+      "id": "RISK-IUM10-UNPILOTED-TIME",
+      "scope": "all-module-contracts",
+      "risk": "Die working-Zeitannahmen aller 31 Modulverträge sind noch nicht im Unterricht pilotiert.",
+      "impact": "Der tatsächliche Zeitbedarf kann Pfadstatus und spätere Zeitfreigabe verändern.",
+      "mitigation": "Vor einer Zeitfreigabe jeden Modulvertrag mit seinem modulaggregierten Pilotauftrag prüfen und Abweichungen nur auf Modulebene nacharbeiten.",
+      "status": "working"
+    },
+    {
+      "id": "RISK-IUM10-TECHNICAL-STARTUP",
+      "scope": "school-dependent-steps",
+      "risk": "Schulabhängige Technik, Anmeldung und lokale Werkzeuge können zusätzliche Anlauf- und Unterstützungszeit erzeugen.",
+      "impact": "Geplante Lernhandlungen oder Revisionsphasen können unter realen Standortbedingungen zu kurz ausfallen.",
+      "mitigation": "Technische Anlaufzeit und Unterstützungsbedarf im jeweiligen Modul aggregiert erfassen und die lokale Planung nichtpersonal anpassen.",
+      "status": "working"
+    },
+    {
+      "id": "RISK-IUM10-INTEGRATION-FALLBACK",
+      "scope": "integration-contracts",
+      "risk": "Eine unpilotierte Integrationsannahme kann im konkreten Unterricht ihren gemeinsamen Produkt- oder Phasenvertrag verfehlen.",
+      "impact": "Fällt eine Integration aus, gilt der eigenständige Rückfallbedarf und der Jahrespfad kann seine Zielzeit überschreiten.",
+      "mitigation": "Integrationen modulbezogen prüfen und bei Ausfall ohne personenbezogene Auswertung auf die dokumentierte Standalone-Zeit zurückfallen.",
+      "status": "working"
+    },
+    {
+      "id": "RISK-IUM10-GRADE7-CAPACITY",
+      "scope": "grade-7",
+      "risk": "Die Klasse-7-Bedarfsszenarien mit 40, 46 und 54 Unterrichtseinheiten überschreiten alle den 30/34/38-Rahmen.",
+      "impact": "Für Klasse 7 ist kein Jahrespfad verfügbar; das Zeiturteil bleibt red und darf nicht als Angebot ausgegeben werden.",
+      "mitigation": "Eine der fünf dokumentierten Folgeoptionen benötigt ein gesondertes Auftraggebergate; bis dahin bleiben 40/46/54 unavailable und red.",
+      "status": "working"
+    },
+    {
+      "id": "RISK-IUM10-PRIVATE-LEARNING-ACTIONS",
+      "scope": "private-local-reflection",
+      "risk": "Private lokale Lernhandlungen könnten durch Pilot- oder Evidenzpraxis versehentlich zu beobachteten oder personenbezogenen Spuren werden.",
+      "impact": "Dies würde den Privacy-Vertrag verletzen und unzulässige personenbezogene Diagnostik erzeugen.",
+      "mitigation": "Private Inhalte werden nicht beobachtet, nicht erhoben und nicht bewertet; Pilotdaten bleiben ausschließlich modulaggregiert und nichtpersonal.",
+      "status": "working"
+    }
+  ],
+  "pilotAssignments": [
+    {
+      "id": "PILOT-IUM-5-CORE-01",
+      "moduleId": "IUM-5-CORE-01",
+      "timeContractId": "TC-IUM-5-CORE-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-5-CORE-02",
+      "moduleId": "IUM-5-CORE-02",
+      "timeContractId": "TC-IUM-5-CORE-02",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-5-CORE-03",
+      "moduleId": "IUM-5-CORE-03",
+      "timeContractId": "TC-IUM-5-CORE-03",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-5-CORE-04",
+      "moduleId": "IUM-5-CORE-04",
+      "timeContractId": "TC-IUM-5-CORE-04",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-5-CORE-05",
+      "moduleId": "IUM-5-CORE-05",
+      "timeContractId": "TC-IUM-5-CORE-05",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-5-CORE-06",
+      "moduleId": "IUM-5-CORE-06",
+      "timeContractId": "TC-IUM-5-CORE-06",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-5-CORE-07",
+      "moduleId": "IUM-5-CORE-07",
+      "timeContractId": "TC-IUM-5-CORE-07",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-01",
+      "moduleId": "IUM-6-CORE-01",
+      "timeContractId": "TC-IUM-6-CORE-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-02",
+      "moduleId": "IUM-6-CORE-02",
+      "timeContractId": "TC-IUM-6-CORE-02",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-03",
+      "moduleId": "IUM-6-CORE-03",
+      "timeContractId": "TC-IUM-6-CORE-03",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-04",
+      "moduleId": "IUM-6-CORE-04",
+      "timeContractId": "TC-IUM-6-CORE-04",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-05",
+      "moduleId": "IUM-6-CORE-05",
+      "timeContractId": "TC-IUM-6-CORE-05",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-06",
+      "moduleId": "IUM-6-CORE-06",
+      "timeContractId": "TC-IUM-6-CORE-06",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-CORE-07",
+      "moduleId": "IUM-6-CORE-07",
+      "timeContractId": "TC-IUM-6-CORE-07",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-EXT-01",
+      "moduleId": "IUM-6-EXT-01",
+      "timeContractId": "TC-IUM-6-EXT-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-EXT-02",
+      "moduleId": "IUM-6-EXT-02",
+      "timeContractId": "TC-IUM-6-EXT-02",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-TRANSFER-01",
+      "moduleId": "IUM-6-TRANSFER-01",
+      "timeContractId": "TC-IUM-6-TRANSFER-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-6-PROJECT-01",
+      "moduleId": "IUM-6-PROJECT-01",
+      "timeContractId": "TC-IUM-6-PROJECT-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-01",
+      "moduleId": "IUM-7-CORE-01",
+      "timeContractId": "TC-IUM-7-CORE-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-02",
+      "moduleId": "IUM-7-CORE-02",
+      "timeContractId": "TC-IUM-7-CORE-02",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-03",
+      "moduleId": "IUM-7-CORE-03",
+      "timeContractId": "TC-IUM-7-CORE-03",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-04",
+      "moduleId": "IUM-7-CORE-04",
+      "timeContractId": "TC-IUM-7-CORE-04",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-05",
+      "moduleId": "IUM-7-CORE-05",
+      "timeContractId": "TC-IUM-7-CORE-05",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-06",
+      "moduleId": "IUM-7-CORE-06",
+      "timeContractId": "TC-IUM-7-CORE-06",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-07",
+      "moduleId": "IUM-7-CORE-07",
+      "timeContractId": "TC-IUM-7-CORE-07",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-08",
+      "moduleId": "IUM-7-CORE-08",
+      "timeContractId": "TC-IUM-7-CORE-08",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-09",
+      "moduleId": "IUM-7-CORE-09",
+      "timeContractId": "TC-IUM-7-CORE-09",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-CORE-10",
+      "moduleId": "IUM-7-CORE-10",
+      "timeContractId": "TC-IUM-7-CORE-10",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-EXT-01",
+      "moduleId": "IUM-7-EXT-01",
+      "timeContractId": "TC-IUM-7-EXT-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-TRANSFER-01",
+      "moduleId": "IUM-7-TRANSFER-01",
+      "timeContractId": "TC-IUM-7-TRANSFER-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    },
+    {
+      "id": "PILOT-IUM-7-PROJECT-01",
+      "moduleId": "IUM-7-PROJECT-01",
+      "timeContractId": "TC-IUM-7-PROJECT-01",
+      "aggregationLevel": "module",
+      "measures": [
+        "actualTeachingMinutes",
+        "technicalStartupMinutes",
+        "supportDemand",
+        "practiceAndRevisionDemand",
+        "interruptions",
+        "resumedInLaterLesson",
+        "learningProductOutcome"
+      ],
+      "personalData": "prohibited",
+      "personalTelemetry": "prohibited",
+      "excludedUses": [
+        "grades",
+        "competence-profiles",
+        "individual-diagnostics"
+      ],
+      "status": "not-started",
+      "fallback": "nonpersonal-module-replanning"
+    }
+  ]
 }

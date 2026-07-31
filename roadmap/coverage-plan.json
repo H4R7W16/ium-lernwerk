@@ -15,6 +15,7 @@
   "entries": [
     {
       "competencyId": "BMB16-GYM-IK-GM-001",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-001",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-01"
@@ -31,6 +32,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-01",
@@ -48,6 +50,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-GM-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-01"
@@ -124,6 +127,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-KK-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-KK-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-03"
@@ -140,6 +144,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-KK-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-KK-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-03"
@@ -156,6 +161,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-001",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-001",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -172,6 +178,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -188,6 +195,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-MG-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -219,6 +227,7 @@
     },
     {
       "competencyId": "BMB16-GYM-IK-PP-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-PP-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-06"
@@ -280,6 +289,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-HK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-HK-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-03"
@@ -296,6 +306,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-001",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-001",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -312,6 +323,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-002",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -328,6 +340,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -344,6 +357,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-RK-004",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-004",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-03"
@@ -390,6 +404,7 @@
     },
     {
       "competencyId": "BMB16-GYM-PK-SK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-SK-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-5-CORE-01"
@@ -436,6 +451,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-ALG-003",
+      "timeReviewId": "TR-INF7-16-GYM-IK-ALG-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-03"
@@ -512,6 +528,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-001",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-001",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-01"
@@ -561,6 +578,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-004",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-004",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-01",
@@ -578,6 +596,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-DC-005",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-005",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-01"
@@ -685,6 +704,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-IGD-004",
+      "timeReviewId": "TR-INF7-16-GYM-IK-IGD-004",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-05"
@@ -716,6 +736,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-IK-IGD-006",
+      "timeReviewId": "TR-INF7-16-GYM-IK-IGD-006",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-08"
@@ -793,6 +814,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-05"
@@ -841,6 +863,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-005",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-005",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-08",
@@ -859,6 +882,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-AB-006",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-006",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-08",
@@ -892,6 +916,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-KK-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-KK-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-04",
@@ -956,6 +981,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-KK-006",
+      "timeReviewId": "TR-INF7-16-GYM-PK-KK-006",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-08",
@@ -1004,6 +1030,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-MI-003",
+      "timeReviewId": "TR-INF7-16-GYM-PK-MI-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-04"
@@ -1035,6 +1062,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-MI-005",
+      "timeReviewId": "TR-INF7-16-GYM-PK-MI-005",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-03"
@@ -1127,6 +1155,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-001",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-001",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-05"
@@ -1143,6 +1172,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-002",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-04"
@@ -1159,6 +1189,7 @@
     },
     {
       "competencyId": "INF7-16-GYM-PK-SV-003",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-003",
       "normativeWeight": "enacted",
       "moduleIds": [
         "IUM-7-CORE-03"
@@ -1205,6 +1236,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-001",
+      "timeReviewId": "TR-LH26-E-ALG-001",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-05"
@@ -1296,6 +1328,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-007",
+      "timeReviewId": "TR-LH26-E-ALG-007",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-03"
@@ -1312,6 +1345,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-008",
+      "timeReviewId": "TR-LH26-E-ALG-008",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-03"
@@ -1328,6 +1362,7 @@
     },
     {
       "competencyId": "LH26-E-ALG-009",
+      "timeReviewId": "TR-LH26-E-ALG-009",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-03"
@@ -1434,6 +1469,7 @@
     },
     {
       "competencyId": "LH26-E-DA-004",
+      "timeReviewId": "TR-LH26-E-DA-004",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-01"
@@ -1450,6 +1486,7 @@
     },
     {
       "competencyId": "LH26-E-DA-005",
+      "timeReviewId": "TR-LH26-E-DA-005",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-06"
@@ -1466,6 +1503,7 @@
     },
     {
       "competencyId": "LH26-E-DA-006",
+      "timeReviewId": "TR-LH26-E-DA-006",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-06"
@@ -1497,6 +1535,7 @@
     },
     {
       "competencyId": "LH26-E-DA-008",
+      "timeReviewId": "TR-LH26-E-DA-008",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-06"
@@ -1513,6 +1552,7 @@
     },
     {
       "competencyId": "LH26-E-DA-009",
+      "timeReviewId": "TR-LH26-E-DA-009",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-07"
@@ -1529,6 +1569,7 @@
     },
     {
       "competencyId": "LH26-E-DA-010",
+      "timeReviewId": "TR-LH26-E-DA-010",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-07"
@@ -1560,6 +1601,7 @@
     },
     {
       "competencyId": "LH26-E-DA-012",
+      "timeReviewId": "TR-LH26-E-DA-012",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-07"
@@ -1606,6 +1648,7 @@
     },
     {
       "competencyId": "LH26-E-DA-015",
+      "timeReviewId": "TR-LH26-E-DA-015",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-07"
@@ -1652,6 +1695,7 @@
     },
     {
       "competencyId": "LH26-E-DP-001",
+      "timeReviewId": "TR-LH26-E-DP-001",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-01"
@@ -1683,6 +1727,7 @@
     },
     {
       "competencyId": "LH26-E-DP-003",
+      "timeReviewId": "TR-LH26-E-DP-003",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-07"
@@ -1699,6 +1744,7 @@
     },
     {
       "competencyId": "LH26-E-DP-004",
+      "timeReviewId": "TR-LH26-E-DP-004",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-02"
@@ -1730,6 +1776,7 @@
     },
     {
       "competencyId": "LH26-E-DP-006",
+      "timeReviewId": "TR-LH26-E-DP-006",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-02"
@@ -1836,6 +1883,7 @@
     },
     {
       "competencyId": "LH26-E-DP-013",
+      "timeReviewId": "TR-LH26-E-DP-013",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-08"
@@ -1852,6 +1900,7 @@
     },
     {
       "competencyId": "LH26-E-DP-014",
+      "timeReviewId": "TR-LH26-E-DP-014",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-10"
@@ -2048,6 +2097,7 @@
     },
     {
       "competencyId": "LH26-E-ID-009",
+      "timeReviewId": "TR-LH26-E-ID-009",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-02"
@@ -2214,6 +2264,7 @@
     },
     {
       "competencyId": "LH26-E-ID-020",
+      "timeReviewId": "TR-LH26-E-ID-020",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-01"
@@ -2230,6 +2281,7 @@
     },
     {
       "competencyId": "LH26-E-ID-021",
+      "timeReviewId": "TR-LH26-E-ID-021",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-01"
@@ -2261,6 +2313,7 @@
     },
     {
       "competencyId": "LH26-E-KS-001",
+      "timeReviewId": "TR-LH26-E-KS-001",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-03"
@@ -2277,6 +2330,7 @@
     },
     {
       "competencyId": "LH26-E-KS-002",
+      "timeReviewId": "TR-LH26-E-KS-002",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-03"
@@ -2458,6 +2512,7 @@
     },
     {
       "competencyId": "LH26-E-KS-014",
+      "timeReviewId": "TR-LH26-E-KS-014",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-06"
@@ -2474,6 +2529,7 @@
     },
     {
       "competencyId": "LH26-E-KS-015",
+      "timeReviewId": "TR-LH26-E-KS-015",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-6-CORE-06"
@@ -2595,6 +2651,8 @@
     },
     {
       "competencyId": "LH26-E-PROG-001",
+      "timeReviewId": "TR-LH26-E-PROG-001",
+      "sequenceEvidenceId": "SE-LH26-E-PROG-001",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-01"
@@ -2610,6 +2668,8 @@
     },
     {
       "competencyId": "LH26-E-PROG-002",
+      "timeReviewId": "TR-LH26-E-PROG-002",
+      "sequenceEvidenceId": "SE-LH26-E-PROG-002",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-5-CORE-05"
@@ -2625,6 +2685,8 @@
     },
     {
       "competencyId": "LH26-E-PROG-003",
+      "timeReviewId": "TR-LH26-E-PROG-003",
+      "sequenceEvidenceId": "SE-LH26-E-PROG-003",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-08"
@@ -2641,6 +2703,8 @@
     },
     {
       "competencyId": "LH26-E-PROG-004",
+      "timeReviewId": "TR-LH26-E-PROG-004",
+      "sequenceEvidenceId": "SE-LH26-E-PROG-004",
       "normativeWeight": "orientation",
       "moduleIds": [
         "IUM-7-CORE-08"

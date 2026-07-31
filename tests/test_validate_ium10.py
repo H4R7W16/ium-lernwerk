@@ -6,10 +6,14 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from collections import Counter
 from contextlib import nullcontext
 from pathlib import Path
 
 import scripts.validate_ium10 as ium10_validator
+from scripts.validate_ium09 import (
+    BASELINE_PARTIAL_IDS as BASELINE_TIME_HANDOFF_IDS,
+)
 from scripts.validate_ium10 import (
     BASELINE_COVERAGE_PROJECTION_SHA256,
     BASELINE_MODULE_STRUCTURE_SHA256,
@@ -2186,14 +2190,14 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
 
-    def test_module_command_validates_repository_and_reports_partial_review_count(self):
+    def test_module_command_validates_complete_repository_counts(self):
         result = self.run_validator()
 
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "60 registered time reviews (partial baseline)\n",
+            "31 module contracts, 60 time reviews, and 4 sequence records\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -2416,7 +2420,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
             },
         )
         self.assertEqual(time_model["schemaVersion"], 2)
-        self.assertEqual(time_model["status"], "draft")
+        self.assertEqual(time_model["status"], "working")
         self.assertEqual(
             time_model["baseline"],
             {
@@ -2435,8 +2439,8 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "LH26-E-PROG-004",
             },
         )
-        self.assertEqual(time_model["risks"], [])
-        self.assertEqual(time_model["pilotAssignments"], [])
+        self.assertEqual(len(time_model["risks"]), 5)
+        self.assertEqual(len(time_model["pilotAssignments"]), 31)
         self.assertEqual(
             validate_capacity_model(time_model["capacityModel"], time_model["unit"]),
             {
@@ -9974,6 +9978,11 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self._assert_core10_task23_audit_contract(reviews)
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
+        self.assertEqual(
+            set(TIME_AUDIT_DECISIONS),
+            set(BASELINE_TIME_HANDOFF_IDS),
+        )
+        self.assertEqual(len(TIME_AUDIT_DECISIONS), 60)
         prior_reviews = self.time_payload["timeReviews"][
             : len(PRIOR_20_TIME_REVIEW_IDS)
         ]
@@ -12538,7 +12547,12 @@ class IUM10SequenceEvidenceTests(unittest.TestCase):
                     expected,
                 )
         prog34 = [
-            entry for entry in self.coverage_payload["entries"]
+            {
+                field: value
+                for field, value in entry.items()
+                if field not in {"timeReviewId", "sequenceEvidenceId"}
+            }
+            for entry in self.coverage_payload["entries"]
             if entry["competencyId"]
             in {"LH26-E-PROG-003", "LH26-E-PROG-004"}
         ]
@@ -12546,8 +12560,11 @@ class IUM10SequenceEvidenceTests(unittest.TestCase):
             self._canonical_sha256(prog34),
             self.PRE_TASK24_PROG34_COVERAGE_SHA256,
         )
+        historical_remediation = copy.deepcopy(self.remediation_payload)
+        for entry in historical_remediation["entries"]:
+            entry.pop("timeReviewId", None)
         self.assertEqual(
-            self._canonical_sha256(self.remediation_payload),
+            self._canonical_sha256(historical_remediation),
             self.PRE_TASK24_REMEDIATION_SHA256,
         )
 
@@ -12570,11 +12587,324 @@ class IUM10SequenceEvidenceTests(unittest.TestCase):
             {5: "green", 6: "green", 7: "red"},
         )
 
-    def test_task24_does_not_add_task25_cross_artifact_references(self):
+    def test_task25_adds_exact_cross_artifact_references(self):
+        handoff_ids = {
+            entry["competencyId"]
+            for entry in self.remediation_payload["entries"]
+        }
+        sequence_ids = {
+            "LH26-E-PROG-001",
+            "LH26-E-PROG-002",
+            "LH26-E-PROG-003",
+            "LH26-E-PROG-004",
+        }
         for entry in self.coverage_payload["entries"]:
-            if entry["competencyId"] in self.EXPECTED_DECISIONS:
+            competency_id = entry["competencyId"]
+            if competency_id in handoff_ids:
+                self.assertEqual(
+                    entry["timeReviewId"], f"TR-{competency_id}"
+                )
+            else:
                 self.assertNotIn("timeReviewId", entry)
+            if competency_id in sequence_ids:
+                self.assertEqual(
+                    entry["sequenceEvidenceId"], f"SE-{competency_id}"
+                )
+            else:
                 self.assertNotIn("sequenceEvidenceId", entry)
         for entry in self.remediation_payload["entries"]:
-            self.assertNotIn("timeReviewId", entry)
-            self.assertNotIn("sequenceEvidenceId", entry)
+            competency_id = entry["competencyId"]
+            self.assertEqual(
+                entry["timeReviewId"], f"TR-{competency_id}"
+            )
+
+
+class IUM10FinalIntegrationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (cls.root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        cls.module_payload = json.loads(
+            (cls.root / "roadmap/module-candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.coverage_payload = json.loads(
+            (cls.root / "roadmap/coverage-plan.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.remediation_payload = json.loads(
+            (cls.root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+    def validate(self, **overrides):
+        return ium10_validator.validate_ium10(
+            overrides.get("time_model", self.time_model),
+            overrides.get("module_payload", self.module_payload),
+            overrides.get("coverage_payload", self.coverage_payload),
+            overrides.get("remediation_payload", self.remediation_payload),
+        )
+
+    def test_complete_orchestrator_returns_31_60_4_and_historical_projection(self):
+        result = self.validate()
+        self.assertEqual(len(result["moduleContracts"]), 31)
+        self.assertEqual(len(result["timeReviews"]), 60)
+        self.assertEqual(len(result["sequenceEvidence"]), 4)
+        self.assertEqual(len(result["gradeJudgements"]), 3)
+        self.assertEqual(len(result["pilotAssignments"]), 31)
+        self.assertEqual(
+            Counter(
+                entry["coverageStatus"]
+                for entry in self.coverage_payload["entries"]
+            ),
+            Counter({"covered": 166, "partial": 5}),
+        )
+        self.assertEqual(
+            Counter(
+                entry["coverageStatus"]
+                for entry in result["ium09CoverageProjection"]["entries"]
+            ),
+            Counter({"covered": 164, "partial": 7}),
+        )
+
+    def test_projection_is_deep_and_changes_only_prog001_and_prog002(self):
+        original = copy.deepcopy(self.coverage_payload)
+        projected = ium10_validator.ium09_coverage_projection(
+            self.coverage_payload,
+            self.remediation_payload,
+            self.time_model["sequenceEvidence"],
+        )
+        self.assertEqual(self.coverage_payload, original)
+        self.assertIsNot(projected, self.coverage_payload)
+        source_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.coverage_payload["entries"]
+        }
+        projected_by_id = {
+            entry["competencyId"]: entry for entry in projected["entries"]
+        }
+        changed = {
+            competency_id
+            for competency_id in source_by_id
+            if source_by_id[competency_id] != projected_by_id[competency_id]
+        }
+        self.assertEqual(
+            changed, {"LH26-E-PROG-001", "LH26-E-PROG-002"}
+        )
+        remediation_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.remediation_payload["entries"]
+        }
+        for competency_id in changed:
+            entry = projected_by_id[competency_id]
+            remediation = remediation_by_id[competency_id]
+            self.assertEqual(entry["coverageStatus"], "partial")
+            self.assertEqual(entry["semanticAudit"], "documented-gap")
+            self.assertEqual(
+                {field: entry[field] for field in ("reason", "risk", "followUp")},
+                remediation["residualGap"],
+            )
+
+    def test_projection_rejects_unknown_duplicate_or_contradictory_sequence(self):
+        mutations = []
+        unknown = copy.deepcopy(self.time_model["sequenceEvidence"])
+        unknown[0]["id"] = "SE-LH26-E-PROG-999"
+        unknown[0]["competencyId"] = "LH26-E-PROG-999"
+        mutations.append(unknown)
+        duplicate = copy.deepcopy(self.time_model["sequenceEvidence"])
+        duplicate[1] = copy.deepcopy(duplicate[0])
+        mutations.append(duplicate)
+        contradictory = copy.deepcopy(self.time_model["sequenceEvidence"])
+        contradictory[0]["coverageConsequence"]["coverageStatus"] = "partial"
+        mutations.append(contradictory)
+        for sequence in mutations:
+            with self.subTest(sequence=sequence[0]["competencyId"]):
+                with self.assertRaises(IUM10ValidationError):
+                    ium10_validator.ium09_coverage_projection(
+                        self.coverage_payload,
+                        self.remediation_payload,
+                        sequence,
+                    )
+
+    def test_projection_rejects_coverage_that_contradicts_sequence_decision(self):
+        coverage = copy.deepcopy(self.coverage_payload)
+        entry = next(
+            item for item in coverage["entries"]
+            if item["competencyId"] == "LH26-E-PROG-003"
+        )
+        entry["coverageStatus"] = "covered"
+        entry["semanticAudit"] = "operator-product-match"
+        with self.assertRaises(IUM10ValidationError):
+            ium10_validator.ium09_coverage_projection(
+                coverage,
+                self.remediation_payload,
+                self.time_model["sequenceEvidence"],
+            )
+
+    def test_public_reference_validator_accepts_exact_repository_links(self):
+        result = self.validate()
+        references = ium10_validator.validate_time_references(
+            self.module_payload,
+            self.coverage_payload,
+            self.remediation_payload,
+            result,
+        )
+        self.assertEqual(len(references["timeContractIds"]), 31)
+        self.assertEqual(len(references["timeReviewIds"]), 60)
+        self.assertEqual(len(references["sequenceEvidenceIds"]), 4)
+
+    def test_reference_validator_rejects_missing_swapped_duplicate_and_unknown_links(self):
+        valid = self.validate()
+        mutations = []
+        modules = copy.deepcopy(self.module_payload)
+        del modules["modules"][0]["timeContractId"]
+        mutations.append((modules, self.coverage_payload, self.remediation_payload))
+        modules = copy.deepcopy(self.module_payload)
+        modules["modules"][1]["timeContractId"] = modules["modules"][0]["timeContractId"]
+        mutations.append((modules, self.coverage_payload, self.remediation_payload))
+        remediation = copy.deepcopy(self.remediation_payload)
+        remediation["entries"][0]["timeReviewId"] = "TR-UNKNOWN"
+        mutations.append((self.module_payload, self.coverage_payload, remediation))
+        coverage = copy.deepcopy(self.coverage_payload)
+        del next(
+            entry for entry in coverage["entries"]
+            if entry["competencyId"] in BASELINE_TIME_HANDOFF_IDS
+        )["timeReviewId"]
+        mutations.append((self.module_payload, coverage, self.remediation_payload))
+        coverage = copy.deepcopy(self.coverage_payload)
+        next(
+            entry for entry in coverage["entries"]
+            if entry["competencyId"] not in BASELINE_TIME_HANDOFF_IDS
+        )["timeReviewId"] = "TR-UNKNOWN"
+        mutations.append((self.module_payload, coverage, self.remediation_payload))
+        coverage = copy.deepcopy(self.coverage_payload)
+        next(
+            entry for entry in coverage["entries"]
+            if entry["competencyId"] == "LH26-E-PROG-001"
+        )["sequenceEvidenceId"] = "SE-LH26-E-PROG-002"
+        mutations.append((self.module_payload, coverage, self.remediation_payload))
+        for module_payload, coverage_payload, remediation_payload in mutations:
+            with self.subTest():
+                with self.assertRaises(IUM10ValidationError):
+                    ium10_validator.validate_time_references(
+                        module_payload,
+                        coverage_payload,
+                        remediation_payload,
+                        valid,
+                    )
+
+    def test_full_validator_rejects_lesson_range_and_audited_review_mutations(self):
+        modules = copy.deepcopy(self.module_payload)
+        modules["modules"][0]["lessonRange"] = {"min": 6, "max": 8}
+        with self.assertRaises(IUM10ValidationError):
+            self.validate(module_payload=modules)
+
+        modules = copy.deepcopy(self.module_payload)
+        modules["modelNotes"]["timeBoundary"] = "Unklare Zeitgrenze."
+        with self.assertRaises(IUM10ValidationError):
+            self.validate(module_payload=modules)
+
+        for value in (5.0, True):
+            with self.subTest(judgement_grade=value):
+                time_model = copy.deepcopy(self.time_model)
+                time_model["gradeJudgements"][0]["grade"] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
+        for field, value in (
+            ("moduleId", "IUM-5-CORE-02"),
+            ("sourceTimeImpactLevel", "roadmap-dependent"),
+            ("additionalMinutes", 15.0),
+            ("additionalMinutes", True),
+        ):
+            with self.subTest(field=field, value=value):
+                time_model = copy.deepcopy(self.time_model)
+                review = next(
+                    item for item in time_model["timeReviews"]
+                    if item["competencyId"] == "BMB16-GYM-IK-GM-001"
+                )
+                review[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
+        time_model = copy.deepcopy(self.time_model)
+        review = next(
+            item for item in time_model["timeReviews"]
+            if item["competencyId"] == "LH26-E-ID-009"
+        )
+        review["decision"] = "additional-time"
+        review["additionalMinutes"] = 5
+        with self.assertRaises(IUM10ValidationError):
+            self.validate(time_model=time_model)
+
+    def test_risk_register_is_structured_and_grade7_conflict_is_fail_closed(self):
+        result = self.validate()
+        self.assertEqual(
+            set(result["risks"]),
+            {
+                "RISK-IUM10-UNPILOTED-TIME",
+                "RISK-IUM10-TECHNICAL-STARTUP",
+                "RISK-IUM10-INTEGRATION-FALLBACK",
+                "RISK-IUM10-GRADE7-CAPACITY",
+                "RISK-IUM10-PRIVATE-LEARNING-ACTIONS",
+            },
+        )
+        for mutation in ("missing", "softened", "status-bool"):
+            with self.subTest(mutation=mutation):
+                time_model = copy.deepcopy(self.time_model)
+                if mutation == "missing":
+                    time_model["risks"].pop()
+                elif mutation == "softened":
+                    risk = next(
+                        item for item in time_model["risks"]
+                        if item["id"] == "RISK-IUM10-GRADE7-CAPACITY"
+                    )
+                    risk["risk"] = "Kein KapazitÃ¤tskonflikt."
+                    risk["impact"] = "Kein Handlungsbedarf."
+                else:
+                    time_model["risks"][0]["status"] = True
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
+    def test_pilot_assignments_are_module_aggregated_and_nonpersonal(self):
+        result = self.validate()
+        expected_measures = {
+            "actualTeachingMinutes",
+            "technicalStartupMinutes",
+            "supportDemand",
+            "practiceAndRevisionDemand",
+            "interruptions",
+            "resumedInLaterLesson",
+            "learningProductOutcome",
+        }
+        self.assertEqual(len(result["pilotAssignments"]), 31)
+        for pilot in result["pilotAssignments"].values():
+            self.assertEqual(pilot["aggregationLevel"], "module")
+            self.assertEqual(set(pilot["measures"]), expected_measures)
+            self.assertEqual(pilot["personalData"], "prohibited")
+            self.assertEqual(pilot["personalTelemetry"], "prohibited")
+            self.assertEqual(
+                pilot["excludedUses"],
+                ["grades", "competence-profiles", "individual-diagnostics"],
+            )
+        for field, value in (
+            ("aggregationLevel", "learner"),
+            ("personalData", "allowed"),
+            ("personalTelemetry", "allowed"),
+            ("status", True),
+        ):
+            with self.subTest(field=field):
+                time_model = copy.deepcopy(self.time_model)
+                time_model["pilotAssignments"][0][field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
+
+        time_model = copy.deepcopy(self.time_model)
+        time_model["pilotAssignments"][0]["measures"].pop()
+        with self.assertRaises(IUM10ValidationError):
+            self.validate(time_model=time_model)

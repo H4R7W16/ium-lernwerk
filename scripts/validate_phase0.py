@@ -6,8 +6,10 @@ from pathlib import Path
 
 if __package__:
     from .validate_ium09 import validate_ium09
+    from .validate_ium10 import validate_ium10
 else:
     from validate_ium09 import validate_ium09
+    from validate_ium10 import validate_ium10
 
 
 class ValidationError(ValueError):
@@ -1513,13 +1515,23 @@ def main():
         required_curriculum_contracts,
         module_contracts,
     )
-    validate_ium09(
+    remediation_payload = load_json(
+        root / "roadmap/coverage-remediation.json"
+    )
+    time_model = load_json(root / "roadmap/time-model.json")
+    ium10_result = validate_ium10(
+        time_model,
         module_candidates,
         coverage_payload,
-        load_json(root / "roadmap/coverage-remediation.json"),
+        remediation_payload,
+    )
+    validate_ium09(
+        module_candidates,
+        ium10_result["ium09CoverageProjection"],
+        remediation_payload,
         required_curriculum_contracts,
     )
-    print("phase 0 validation passed")
+    print("phase 0, IUM09 and IUM10 validation passed")
 
 
 if __name__ == "__main__":

@@ -6,7 +6,16 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from scripts.validate_ium09 import module_structure_fingerprint
+if __package__:
+    from .validate_ium09 import (
+        BASELINE_PARTIAL_IDS,
+        module_structure_fingerprint,
+    )
+else:
+    from validate_ium09 import (
+        BASELINE_PARTIAL_IDS,
+        module_structure_fingerprint,
+    )
 
 
 IUM10_BASELINE_COMMIT = "e53bad7cffe1541fc910db948235908bebe89caa"
@@ -43,6 +52,61 @@ PHASE_IDS = (
     "shared-consolidation",
 )
 CONTRACT_STATUSES = {"working", "reviewed"}
+TIME_MODEL_FIELDS = {
+    "schemaVersion",
+    "status",
+    "baseline",
+    "unit",
+    "capacityModel",
+    "moduleContracts",
+    "integrationContracts",
+    "annualVariants",
+    "privacyContracts",
+    "timeReviews",
+    "sequenceEvidence",
+    "gradeJudgements",
+    "risks",
+    "pilotAssignments",
+}
+RISK_FIELDS = {"id", "scope", "risk", "impact", "mitigation", "status"}
+RISK_SCOPES = {
+    "RISK-IUM10-UNPILOTED-TIME": "all-module-contracts",
+    "RISK-IUM10-TECHNICAL-STARTUP": "school-dependent-steps",
+    "RISK-IUM10-INTEGRATION-FALLBACK": "integration-contracts",
+    "RISK-IUM10-GRADE7-CAPACITY": "grade-7",
+    "RISK-IUM10-PRIVATE-LEARNING-ACTIONS": "private-local-reflection",
+}
+PILOT_ASSIGNMENT_FIELDS = {
+    "id",
+    "moduleId",
+    "timeContractId",
+    "aggregationLevel",
+    "measures",
+    "personalData",
+    "personalTelemetry",
+    "excludedUses",
+    "status",
+    "fallback",
+}
+PILOT_MEASURES = [
+    "actualTeachingMinutes",
+    "technicalStartupMinutes",
+    "supportDemand",
+    "practiceAndRevisionDemand",
+    "interruptions",
+    "resumedInLaterLesson",
+    "learningProductOutcome",
+]
+PILOT_EXCLUDED_USES = [
+    "grades",
+    "competence-profiles",
+    "individual-diagnostics",
+]
+AUTHORITATIVE_TIME_BOUNDARY = (
+    "lessonRange ist die historische, eigenständige Kandidatenschätzung. "
+    "roadmap/time-model.json ist für Jahreszuweisung, Pfadstatus und "
+    "Zeitfreigabe autoritativ."
+)
 PRIVACY_CONTRACT_FIELDS = {
     "id",
     "moduleId",
@@ -460,6 +524,72 @@ ANNUAL_VARIANT_BUDGET_PATH_OVERRIDES = {
         "IUM-6-CORE-04": "targeted-extension",
         "IUM-6-EXT-02": "standalone",
     },
+}
+
+# Recordgenaue, in Tasks 9-23 fachlich auditierte Registrierung. Sie ist
+# absichtlich unabhängig von den JSON-Daten, damit ein formal plausibler
+# Tausch von Entscheidung oder Minuten nicht unbemerkt bleibt.
+APPROVED_TIME_AUDIT = {
+    "BMB16-GYM-IK-GM-001": ("IUM-5-CORE-01", "review-required", "additional-time", 15),
+    "BMB16-GYM-IK-GM-002": ("IUM-5-CORE-01", "review-required", "additional-time", 15),
+    "BMB16-GYM-IK-GM-003": ("IUM-5-CORE-01", "review-required", "additional-time", 20),
+    "BMB16-GYM-PK-SK-003": ("IUM-5-CORE-01", "review-required", "absorbed", 0),
+    "LH26-E-DA-004": ("IUM-5-CORE-01", "review-required", "additional-time", 15),
+    "LH26-E-DP-001": ("IUM-5-CORE-01", "review-required", "additional-time", 15),
+    "LH26-E-ID-009": ("IUM-5-CORE-02", "review-required", "absorbed", 0),
+    "BMB16-GYM-IK-KK-002": ("IUM-5-CORE-03", "review-required", "additional-time", 15),
+    "BMB16-GYM-IK-KK-003": ("IUM-5-CORE-03", "review-required", "absorbed", 0),
+    "BMB16-GYM-PK-HK-003": ("IUM-5-CORE-03", "review-required", "absorbed", 0),
+    "BMB16-GYM-PK-RK-004": ("IUM-5-CORE-03", "review-required", "additional-time", 15),
+    "LH26-E-KS-001": ("IUM-5-CORE-03", "review-required", "additional-time", 20),
+    "LH26-E-KS-002": ("IUM-5-CORE-03", "review-required", "additional-time", 20),
+    "LH26-E-ALG-001": ("IUM-5-CORE-05", "review-required", "absorbed", 0),
+    "LH26-E-PROG-001": ("IUM-5-CORE-01", "roadmap-dependent", "unresolved", 0),
+    "LH26-E-PROG-002": ("IUM-5-CORE-05", "roadmap-dependent", "unresolved", 0),
+    "BMB16-GYM-IK-PP-002": ("IUM-5-CORE-06", "review-required", "integrated", 15),
+    "LH26-E-DA-005": ("IUM-5-CORE-06", "review-required", "additional-time", 15),
+    "LH26-E-DA-006": ("IUM-5-CORE-06", "review-required", "additional-time", 25),
+    "LH26-E-DA-008": ("IUM-5-CORE-06", "review-required", "additional-time", 20),
+    "BMB16-GYM-IK-MG-001": ("IUM-5-CORE-07", "review-required", "additional-time", 15),
+    "BMB16-GYM-IK-MG-002": ("IUM-5-CORE-07", "review-required", "additional-time", 20),
+    "BMB16-GYM-IK-MG-003": ("IUM-5-CORE-07", "review-required", "absorbed", 0),
+    "BMB16-GYM-PK-RK-001": ("IUM-5-CORE-07", "review-required", "additional-time", 15),
+    "BMB16-GYM-PK-RK-002": ("IUM-5-CORE-07", "review-required", "additional-time", 15),
+    "BMB16-GYM-PK-RK-003": ("IUM-5-CORE-07", "review-required", "unresolved", 0),
+    "LH26-E-DP-003": ("IUM-5-CORE-07", "review-required", "unresolved", 0),
+    "LH26-E-DP-004": ("IUM-6-CORE-02", "review-required", "integrated", 20),
+    "LH26-E-DP-006": ("IUM-6-CORE-02", "review-required", "integrated", 25),
+    "LH26-E-KS-014": ("IUM-6-CORE-06", "review-required", "additional-time", 25),
+    "LH26-E-KS-015": ("IUM-6-CORE-06", "review-required", "additional-time", 20),
+    "LH26-E-DA-009": ("IUM-6-CORE-07", "review-required", "additional-time", 30),
+    "LH26-E-DA-010": ("IUM-6-CORE-07", "review-required", "additional-time", 20),
+    "LH26-E-DA-012": ("IUM-6-CORE-07", "review-required", "absorbed", 0),
+    "LH26-E-DA-015": ("IUM-6-CORE-07", "review-required", "additional-time", 20),
+    "INF7-16-GYM-IK-DC-001": ("IUM-7-CORE-01", "review-required", "additional-time", 15),
+    "INF7-16-GYM-IK-DC-004": ("IUM-7-CORE-01", "review-required", "additional-time", 15),
+    "INF7-16-GYM-IK-DC-005": ("IUM-7-CORE-01", "review-required", "integrated", 30),
+    "LH26-E-ID-020": ("IUM-7-CORE-01", "review-required", "absorbed", 0),
+    "LH26-E-ID-021": ("IUM-7-CORE-01", "review-required", "additional-time", 15),
+    "INF7-16-GYM-IK-ALG-003": ("IUM-7-CORE-03", "review-required", "integrated", 20),
+    "INF7-16-GYM-PK-MI-005": ("IUM-7-CORE-03", "review-required", "additional-time", 20),
+    "INF7-16-GYM-PK-SV-003": ("IUM-7-CORE-03", "review-required", "additional-time", 20),
+    "LH26-E-ALG-007": ("IUM-7-CORE-03", "review-required", "integrated", 25),
+    "LH26-E-ALG-008": ("IUM-7-CORE-03", "review-required", "additional-time", 15),
+    "LH26-E-ALG-009": ("IUM-7-CORE-03", "review-required", "additional-time", 15),
+    "INF7-16-GYM-PK-KK-002": ("IUM-7-CORE-04", "review-required", "additional-time", 25),
+    "INF7-16-GYM-PK-MI-003": ("IUM-7-CORE-04", "review-required", "additional-time", 25),
+    "INF7-16-GYM-PK-SV-002": ("IUM-7-CORE-04", "review-required", "additional-time", 20),
+    "INF7-16-GYM-IK-IGD-004": ("IUM-7-CORE-05", "review-required", "integrated", 30),
+    "INF7-16-GYM-PK-AB-002": ("IUM-7-CORE-05", "review-required", "additional-time", 30),
+    "INF7-16-GYM-PK-SV-001": ("IUM-7-CORE-05", "review-required", "additional-time", 30),
+    "INF7-16-GYM-IK-IGD-006": ("IUM-7-CORE-08", "review-required", "additional-time", 20),
+    "INF7-16-GYM-PK-AB-005": ("IUM-7-CORE-08", "review-required", "integrated", 25),
+    "INF7-16-GYM-PK-AB-006": ("IUM-7-CORE-08", "review-required", "additional-time", 20),
+    "INF7-16-GYM-PK-KK-006": ("IUM-7-CORE-08", "review-required", "integrated", 25),
+    "LH26-E-DP-013": ("IUM-7-CORE-08", "review-required", "additional-time", 15),
+    "LH26-E-PROG-003": ("IUM-7-CORE-08", "roadmap-dependent", "unresolved", 0),
+    "LH26-E-PROG-004": ("IUM-7-CORE-08", "roadmap-dependent", "unresolved", 0),
+    "LH26-E-DP-014": ("IUM-7-CORE-10", "review-required", "additional-time", 20),
 }
 
 
@@ -3267,7 +3397,11 @@ def _validate_sequence_judgement_statuses(grade_judgements, sequence_evidence):
     )
     judgements_by_grade = {}
     for judgement in grade_judgements:
-        if not isinstance(judgement, dict) or judgement.get("grade") not in {5, 6, 7}:
+        if (
+            not isinstance(judgement, dict)
+            or not _positive_int(judgement.get("grade"))
+            or judgement.get("grade") not in {5, 6, 7}
+        ):
             continue
         grade = judgement["grade"]
         _require(
@@ -3287,6 +3421,552 @@ def _validate_sequence_judgement_statuses(grade_judgements, sequence_evidence):
             f"grade {grade} sequence evidence status must be {expected_status}",
         )
     return judgements_by_grade
+
+
+def validate_risks(risks):
+    """Validate the small, non-numeric IUM10 risk register."""
+    _require(
+        isinstance(risks, list) and len(risks) == len(RISK_SCOPES),
+        "risk register must contain exactly five records",
+    )
+    validated = {}
+    for risk in risks:
+        _require(
+            isinstance(risk, dict) and set(risk) == RISK_FIELDS,
+            "risk fields differ from the IUM10 contract",
+        )
+        risk_id = risk["id"]
+        _require(
+            isinstance(risk_id, str)
+            and risk_id in RISK_SCOPES
+            and risk_id not in validated,
+            f"unknown or duplicate risk id: {risk_id}",
+        )
+        _require(
+            risk["scope"] == RISK_SCOPES[risk_id],
+            f"risk scope differs from the approved register: {risk_id}",
+        )
+        for field in ("risk", "impact", "mitigation"):
+            _require(
+                isinstance(risk[field], str) and risk[field].strip(),
+                f"risk {field} must be a nonempty string: {risk_id}",
+            )
+        _require(
+            risk["status"] == "working"
+            and isinstance(risk["status"], str),
+            f"risk status must remain working: {risk_id}",
+        )
+        validated[risk_id] = risk
+    _require(
+        set(validated) == set(RISK_SCOPES),
+        "risk ids differ from the approved register",
+    )
+    grade_7_risk = validated["RISK-IUM10-GRADE7-CAPACITY"]["risk"].lower()
+    grade_7_impact = validated["RISK-IUM10-GRADE7-CAPACITY"]["impact"].lower()
+    _require(
+        all(token in grade_7_risk for token in ("40", "46", "54"))
+        and "red" in grade_7_impact,
+        "grade 7 risk must preserve the 40/46/54 red capacity conflict",
+    )
+    private_text = " ".join(
+        validated["RISK-IUM10-PRIVATE-LEARNING-ACTIONS"][field]
+        for field in ("risk", "impact", "mitigation")
+    ).lower()
+    _require(
+        "privat" in private_text
+        and any(token in private_text for token in ("nicht beobachtet", "nicht erhoben", "ausgeschlossen")),
+        "private-learning risk must preserve the non-observation boundary",
+    )
+    return validated
+
+
+def validate_pilot_assignments(pilot_assignments, module_contracts):
+    """Validate one privacy-safe, module-aggregated time pilot per contract."""
+    _require(
+        isinstance(module_contracts, dict) and len(module_contracts) == 31,
+        "pilot assignments require exactly 31 validated module contracts",
+    )
+    _require(
+        isinstance(pilot_assignments, list)
+        and len(pilot_assignments) == len(module_contracts),
+        "pilot assignments must contain exactly one record per module contract",
+    )
+    validated = {}
+    contracted_module_ids = set()
+    for pilot in pilot_assignments:
+        _require(
+            isinstance(pilot, dict)
+            and set(pilot) == PILOT_ASSIGNMENT_FIELDS,
+            "pilot assignment fields differ from the IUM10 contract",
+        )
+        module_id = pilot["moduleId"]
+        contract = (
+            module_contracts.get(module_id)
+            if isinstance(module_id, str)
+            else None
+        )
+        pilot_id = pilot["id"]
+        _require(
+            isinstance(module_id, str)
+            and isinstance(contract, dict)
+            and module_id not in contracted_module_ids,
+            f"unknown or duplicate pilot module: {module_id}",
+        )
+        _require(
+            pilot_id == f"PILOT-{module_id}"
+            and pilot_id not in validated,
+            f"invalid or duplicate pilot id: {module_id}",
+        )
+        _require(
+            pilot["timeContractId"] == contract["id"]
+            == f"TC-{module_id}",
+            f"pilot time contract differs from module: {module_id}",
+        )
+        _require(
+            contract.get("status") == "working",
+            f"unpiloted time contract must remain working: {module_id}",
+        )
+        _require(
+            pilot["aggregationLevel"] == "module",
+            f"pilot aggregation must remain on module level: {module_id}",
+        )
+        measures = pilot["measures"]
+        _require(
+            isinstance(measures, list)
+            and all(isinstance(measure, str) for measure in measures)
+            and measures == PILOT_MEASURES,
+            f"pilot measures differ from the approved module aggregate: {module_id}",
+        )
+        _require(
+            pilot["personalData"] == "prohibited"
+            and pilot["personalTelemetry"] == "prohibited",
+            f"pilot personal data and telemetry must be prohibited: {module_id}",
+        )
+        _require(
+            pilot["excludedUses"] == PILOT_EXCLUDED_USES,
+            f"pilot must exclude grades, profiles, and individual diagnostics: {module_id}",
+        )
+        _require(
+            pilot["status"] == "not-started"
+            and isinstance(pilot["status"], str),
+            f"pilot status must remain not-started: {module_id}",
+        )
+        _require(
+            pilot["fallback"] == "nonpersonal-module-replanning",
+            f"pilot fallback must remain nonpersonal: {module_id}",
+        )
+        validated[pilot_id] = pilot
+        contracted_module_ids.add(module_id)
+    _require(
+        contracted_module_ids == set(module_contracts),
+        "pilot modules differ from the 31 time contracts",
+    )
+    return validated
+
+
+def _validate_final_grade_judgements(
+    grade_judgements,
+    sequence_evidence,
+    annual_variants,
+):
+    judgements = _validate_sequence_judgement_statuses(
+        grade_judgements,
+        sequence_evidence,
+    )
+    fields = {
+        "grade",
+        "semanticCoverageStatus",
+        "timeFeasibilityStatus",
+        "sequenceEvidenceStatus",
+        "pilotStatus",
+        "annualVariantIds",
+        "rationale",
+        "risk",
+        "decisionOptions",
+    }
+    expected = {
+        5: {
+            "semantic": "partial",
+            "time": "green",
+            "sequence": "covered",
+            "variants": [
+                "GRADE-5-BASELINE",
+                "GRADE-5-REGULAR",
+                "GRADE-5-EXTENDED",
+            ],
+            "options": [
+                "pilot-grade-5-time-model",
+                "retain-semantic-and-sequence-gaps",
+            ],
+        },
+        6: {
+            "semantic": "partial",
+            "time": "green",
+            "sequence": "covered",
+            "variants": [
+                "GRADE-6-BASELINE",
+                "GRADE-6-REGULAR",
+                "GRADE-6-EXTENDED-REFERENCE",
+                "GRADE-6-EXTENDED-TRANSFER",
+                "GRADE-6-EXTENDED-CODING",
+            ],
+            "options": [
+                "pilot-grade-6-time-model",
+                "fall-back-to-standalone-integration-time",
+                "retain-semantic-and-sequence-gaps",
+            ],
+        },
+        7: {
+            "semantic": "partial",
+            "time": "red",
+            "sequence": "partial",
+            "variants": [
+                "GRADE-7-OPTIMIZED-DEMAND",
+                "GRADE-7-ROBUST-DEMAND",
+                "GRADE-7-HISTORICAL-MINIMUM",
+            ],
+            "options": GRADE_7_DECISION_OPTIONS,
+        },
+    }
+    for grade, judgement in judgements.items():
+        contract = expected[grade]
+        _require(
+            set(judgement) == fields
+            and judgement["semanticCoverageStatus"] == contract["semantic"]
+            and judgement["timeFeasibilityStatus"] == contract["time"]
+            and judgement["sequenceEvidenceStatus"] == contract["sequence"]
+            and judgement["pilotStatus"] == "not-started"
+            and judgement["annualVariantIds"] == contract["variants"]
+            and judgement["decisionOptions"] == contract["options"]
+            and all(
+                variant_id in annual_variants
+                for variant_id in judgement["annualVariantIds"]
+            )
+            and isinstance(judgement["rationale"], str)
+            and judgement["rationale"].strip()
+            and isinstance(judgement["risk"], str)
+            and judgement["risk"].strip(),
+            f"grade {grade} judgement differs from the approved final contract",
+        )
+    return judgements
+
+
+def ium09_coverage_projection(
+    coverage_payload,
+    remediation_payload,
+    sequence_evidence,
+):
+    """Return a deep-copied coverage payload restored to IUM09 after-status."""
+    _require(
+        isinstance(sequence_evidence, list) and len(sequence_evidence) == 4,
+        "IUM09 projection requires exactly four sequence decisions",
+    )
+    sequence_by_id = {}
+    expected_decisions = {
+        "LH26-E-PROG-001": "covered",
+        "LH26-E-PROG-002": "covered",
+        "LH26-E-PROG-003": "remain-partial",
+        "LH26-E-PROG-004": "remain-partial",
+    }
+    for evidence in sequence_evidence:
+        _require(
+            isinstance(evidence, dict),
+            "sequence decision must be an object",
+        )
+        competency_id = evidence.get("competencyId")
+        _require(
+            isinstance(competency_id, str)
+            and competency_id in expected_decisions
+            and competency_id not in sequence_by_id
+            and evidence.get("id") == f"SE-{competency_id}"
+            and evidence.get("timeReviewId") == f"TR-{competency_id}",
+            f"unknown, duplicate, or mismatched sequence decision: {competency_id}",
+        )
+        decision = expected_decisions[competency_id]
+        expected_status = "covered" if decision == "covered" else "partial"
+        expected_audit = (
+            "operator-product-match"
+            if decision == "covered"
+            else "documented-gap"
+        )
+        consequence = evidence.get("coverageConsequence")
+        _require(
+            evidence.get("coverageDecision") == decision
+            and isinstance(consequence, dict)
+            and consequence.get("coverageStatus") == expected_status
+            and consequence.get("semanticAudit") == expected_audit,
+            f"contradictory sequence decision: {competency_id}",
+        )
+        sequence_by_id[competency_id] = evidence
+    _require(
+        set(sequence_by_id) == ROADMAP_DEPENDENT_IDS,
+        "sequence decisions differ from the four roadmap records",
+    )
+
+    remediation_entries = (
+        remediation_payload.get("entries")
+        if isinstance(remediation_payload, dict)
+        else None
+    )
+    _require(
+        isinstance(remediation_entries, list)
+        and len(remediation_entries) == 60,
+        "IUM09 projection requires all 60 remediation records",
+    )
+    remediation_by_id = {}
+    for remediation in remediation_entries:
+        _require(
+            isinstance(remediation, dict)
+            and isinstance(remediation.get("competencyId"), str)
+            and remediation["competencyId"] not in remediation_by_id,
+            "remediation ids for IUM09 projection must be unique",
+        )
+        remediation_by_id[remediation["competencyId"]] = remediation
+    _require(
+        set(remediation_by_id) == BASELINE_PARTIAL_IDS,
+        "IUM09 projection remediation ids differ from the baseline",
+    )
+
+    projection = copy.deepcopy(coverage_payload)
+    entries = projection.get("entries") if isinstance(projection, dict) else None
+    _require(
+        isinstance(entries, list) and len(entries) == 171,
+        "IUM09 projection requires exactly 171 coverage records",
+    )
+    coverage_ids = set()
+    for entry in entries:
+        _require(
+            isinstance(entry, dict)
+            and isinstance(entry.get("competencyId"), str)
+            and entry["competencyId"] not in coverage_ids,
+            "coverage ids for IUM09 projection must be unique",
+        )
+        coverage_ids.add(entry["competencyId"])
+        competency_id = entry["competencyId"]
+        if competency_id in expected_decisions:
+            decision = expected_decisions[competency_id]
+            expected_status = "covered" if decision == "covered" else "partial"
+            expected_audit = (
+                "operator-product-match"
+                if decision == "covered"
+                else "documented-gap"
+            )
+            _require(
+                entry.get("coverageStatus") == expected_status
+                and entry.get("semanticAudit") == expected_audit,
+                f"coverage contradicts sequence decision: {competency_id}",
+            )
+        if competency_id not in COVERED_SEQUENCE_IDS:
+            continue
+        remediation = remediation_by_id[competency_id]
+        after = remediation.get("after")
+        residual_gap = remediation.get("residualGap")
+        _require(
+            remediation.get("decision") == "remain-partial"
+            and after
+            == {
+                "coverageStatus": "partial",
+                "semanticAudit": "documented-gap",
+            }
+            and isinstance(residual_gap, dict)
+            and set(residual_gap) == {"reason", "risk", "followUp"}
+            and all(
+                isinstance(residual_gap[field], str)
+                and residual_gap[field].strip()
+                for field in ("reason", "risk", "followUp")
+            )
+            and entry.get("coverageStatus") == "covered"
+            and entry.get("semanticAudit") == "operator-product-match",
+            f"invalid IUM09 projection source: {competency_id}",
+        )
+        entry.update(after)
+        entry.update(residual_gap)
+    _require(
+        len(coverage_ids) == 171,
+        "IUM09 projection coverage ids must be unique",
+    )
+    return projection
+
+
+def validate_time_references(
+    module_payload,
+    coverage_payload,
+    remediation_payload,
+    validated_time_model,
+):
+    """Validate all cross-artifact IUM10 references."""
+    _require(
+        isinstance(validated_time_model, dict),
+        "validated time model must be an indexed mapping",
+    )
+    module_contracts = validated_time_model.get("moduleContracts")
+    time_reviews = validated_time_model.get("timeReviews")
+    sequence_evidence = validated_time_model.get("sequenceEvidence")
+    _require(
+        isinstance(module_contracts, dict) and len(module_contracts) == 31,
+        "validated time model must contain 31 module contracts",
+    )
+    _require(
+        isinstance(time_reviews, dict) and len(time_reviews) == 60,
+        "validated time model must contain 60 time reviews",
+    )
+    _require(
+        isinstance(sequence_evidence, dict) and len(sequence_evidence) == 4,
+        "validated time model must contain four sequence records",
+    )
+    _require(
+        set(APPROVED_TIME_AUDIT) == set(BASELINE_PARTIAL_IDS)
+        and len(APPROVED_TIME_AUDIT) == 60,
+        "approved time audit registry must contain the 60 baseline handoffs",
+    )
+
+    modules = module_payload.get("modules") if isinstance(module_payload, dict) else None
+    model_notes = (
+        module_payload.get("modelNotes")
+        if isinstance(module_payload, dict)
+        else None
+    )
+    _require(
+        isinstance(model_notes, dict)
+        and model_notes.get("timeBoundary") == AUTHORITATIVE_TIME_BOUNDARY,
+        "module modelNotes.timeBoundary differs from the authoritative time boundary",
+    )
+    _require(
+        isinstance(modules, list) and len(modules) == 31,
+        "module references require exactly 31 modules",
+    )
+    time_contract_ids = set()
+    for module in modules:
+        _require(isinstance(module, dict), "module reference must be an object")
+        module_id = module.get("id")
+        contract_id = module.get("timeContractId")
+        contract = (
+            module_contracts.get(module_id)
+            if isinstance(module_id, str)
+            else None
+        )
+        _require(
+            isinstance(module_id, str)
+            and isinstance(contract_id, str)
+            and contract_id == f"TC-{module_id}"
+            and contract_id not in time_contract_ids
+            and isinstance(contract, dict)
+            and contract.get("id") == contract_id
+            and contract.get("moduleId") == module_id
+            and contract.get("historicalLessonRange") == module.get("lessonRange"),
+            f"invalid module time reference: {module_id}",
+        )
+        time_contract_ids.add(contract_id)
+    _require(
+        time_contract_ids == {contract["id"] for contract in module_contracts.values()},
+        "module time references differ from the 31 contracts",
+    )
+
+    remediation_entries = remediation_payload.get("entries") if isinstance(remediation_payload, dict) else None
+    _require(
+        isinstance(remediation_entries, list) and len(remediation_entries) == 60,
+        "remediation references require exactly 60 records",
+    )
+    remediation_by_id = {}
+    time_review_ids = set()
+    for entry in remediation_entries:
+        _require(isinstance(entry, dict), "remediation reference must be an object")
+        competency_id = entry.get("competencyId")
+        review_id = entry.get("timeReviewId")
+        review = (
+            time_reviews.get(review_id)
+            if isinstance(review_id, str)
+            else None
+        )
+        _require(
+            isinstance(competency_id, str)
+            and competency_id not in remediation_by_id
+            and review_id == f"TR-{competency_id}"
+            and review_id not in time_review_ids
+            and isinstance(review, dict),
+            f"invalid remediation time reference: {competency_id}",
+        )
+        approved = APPROVED_TIME_AUDIT.get(competency_id)
+        _require(
+            approved
+            == (
+                review.get("moduleId"),
+                review.get("sourceTimeImpactLevel"),
+                review.get("decision"),
+                review.get("additionalMinutes"),
+            )
+            and review.get("moduleId") == entry.get("before", {}).get("evidenceModuleId")
+            and review.get("sourceTimeImpactLevel") == entry.get("timeImpact", {}).get("level"),
+            f"time review differs from its approved registration: {competency_id}",
+        )
+        _require(
+            "sequenceEvidenceId" not in entry,
+            f"remediation cannot carry a sequence evidence reference: {competency_id}",
+        )
+        remediation_by_id[competency_id] = entry
+        time_review_ids.add(review_id)
+    _require(
+        set(remediation_by_id) == set(BASELINE_PARTIAL_IDS)
+        and time_review_ids == set(time_reviews),
+        "remediation time references differ from the 60 reviews",
+    )
+
+    coverage_entries = coverage_payload.get("entries") if isinstance(coverage_payload, dict) else None
+    _require(
+        isinstance(coverage_entries, list) and len(coverage_entries) == 171,
+        "coverage references require exactly 171 records",
+    )
+    coverage_ids = set()
+    coverage_time_review_ids = set()
+    coverage_sequence_ids = set()
+    for entry in coverage_entries:
+        _require(isinstance(entry, dict), "coverage reference must be an object")
+        competency_id = entry.get("competencyId")
+        _require(
+            isinstance(competency_id, str) and competency_id not in coverage_ids,
+            f"duplicate or invalid coverage reference id: {competency_id}",
+        )
+        coverage_ids.add(competency_id)
+        if competency_id in remediation_by_id:
+            expected_review_id = f"TR-{competency_id}"
+            _require(
+                entry.get("timeReviewId") == expected_review_id
+                and expected_review_id not in coverage_time_review_ids,
+                f"invalid coverage time reference: {competency_id}",
+            )
+            coverage_time_review_ids.add(expected_review_id)
+        else:
+            _require(
+                "timeReviewId" not in entry,
+                f"legacy coverage record cannot carry a time review: {competency_id}",
+            )
+        if competency_id in ROADMAP_DEPENDENT_IDS:
+            expected_sequence_id = f"SE-{competency_id}"
+            _require(
+                entry.get("sequenceEvidenceId") == expected_sequence_id
+                and expected_sequence_id not in coverage_sequence_ids
+                and competency_id in sequence_evidence,
+                f"invalid coverage sequence reference: {competency_id}",
+            )
+            coverage_sequence_ids.add(expected_sequence_id)
+        else:
+            _require(
+                "sequenceEvidenceId" not in entry,
+                f"non-roadmap coverage record cannot carry sequence evidence: {competency_id}",
+            )
+    _require(
+        coverage_time_review_ids == time_review_ids,
+        "coverage time references differ from the 60 reviews",
+    )
+    _require(
+        coverage_sequence_ids == {f"SE-{competency_id}" for competency_id in ROADMAP_DEPENDENT_IDS},
+        "coverage sequence references differ from the four records",
+    )
+    return {
+        "timeContractIds": time_contract_ids,
+        "timeReviewIds": time_review_ids,
+        "sequenceEvidenceIds": coverage_sequence_ids,
+    }
 
 
 def validate_ium10_baseline(module_payload, coverage_payload, remediation_payload):
@@ -3368,6 +4048,118 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
     }
 
 
+def validate_ium10(
+    time_payload,
+    module_payload,
+    coverage_payload,
+    remediation_payload,
+):
+    """Validate the complete IUM10 chain and return indexed contracts."""
+    _require(
+        isinstance(time_payload, dict) and set(time_payload) == TIME_MODEL_FIELDS,
+        "time model top-level fields differ from the IUM10 contract",
+    )
+    _require(
+        time_payload.get("status") == "working"
+        and isinstance(time_payload.get("status"), str),
+        "complete IUM10 time model status must be working",
+    )
+    baseline = validate_ium10_baseline(
+        module_payload,
+        coverage_payload,
+        remediation_payload,
+    )
+    _require(
+        isinstance(time_payload.get("schemaVersion"), int)
+        and not isinstance(time_payload["schemaVersion"], bool)
+        and time_payload["schemaVersion"] == 2,
+        "schema version must be the integer 2",
+    )
+    capacity_paths = validate_capacity_model(
+        time_payload["capacityModel"],
+        time_payload["unit"],
+    )
+    module_contracts = validate_module_contracts(
+        time_payload["moduleContracts"],
+        module_payload,
+    )
+    integration_contracts = validate_integration_contracts(
+        time_payload["integrationContracts"],
+        module_contracts,
+    )
+    annual_variants = validate_annual_variants(
+        time_payload["annualVariants"],
+        module_contracts,
+        integration_contracts,
+    )
+    _validate_grade_6_judgement(
+        time_payload,
+        module_contracts,
+        integration_contracts,
+        annual_variants,
+    )
+    _validate_grade_7_judgement(
+        time_payload,
+        module_contracts,
+        integration_contracts,
+        annual_variants,
+    )
+    privacy_contracts = validate_privacy_contracts(
+        time_payload["privacyContracts"],
+        module_contracts,
+    )
+    time_reviews = validate_time_reviews(
+        time_payload["timeReviews"],
+        remediation_payload,
+        module_contracts,
+        integration_contracts,
+        annual_variants,
+        require_complete=True,
+        privacy_contracts=privacy_contracts,
+    )
+    sequence_evidence = validate_sequence_evidence(
+        time_payload["sequenceEvidence"],
+        time_reviews,
+        annual_variants,
+        coverage_payload,
+    )
+    grade_judgements = _validate_final_grade_judgements(
+        time_payload["gradeJudgements"],
+        sequence_evidence,
+        annual_variants,
+    )
+    risks = validate_risks(time_payload["risks"])
+    pilot_assignments = validate_pilot_assignments(
+        time_payload["pilotAssignments"],
+        module_contracts,
+    )
+    result = {
+        "baseline": baseline,
+        "capacityPaths": capacity_paths,
+        "moduleContracts": module_contracts,
+        "integrationContracts": integration_contracts,
+        "annualVariants": annual_variants,
+        "privacyContracts": privacy_contracts,
+        "timeReviews": time_reviews,
+        "sequenceEvidence": sequence_evidence,
+        "gradeJudgements": grade_judgements,
+        "risks": risks,
+        "pilotAssignments": pilot_assignments,
+    }
+    result["timeReferences"] = validate_time_references(
+        module_payload,
+        coverage_payload,
+        remediation_payload,
+        result,
+    )
+    result["ium09CoverageProjection"] = ium09_coverage_projection(
+        coverage_payload,
+        remediation_payload,
+        time_payload["sequenceEvidence"],
+    )
+    return result
+
+
 def _load_repository_json(root, relative_path):
     with (root / relative_path).open(encoding="utf-8") as handle:
         return json.load(handle)
@@ -3390,62 +4182,12 @@ def validate_ium10_repository(root):
     )
     time_model = _load_repository_json(root, "roadmap/time-model.json")
 
-    baseline = validate_ium10_baseline(
+    return validate_ium10(
+        time_model,
         module_payload,
         coverage_payload,
         remediation_payload,
     )
-    validate_time_model_draft(time_model, module_payload)
-    capacity_paths = validate_capacity_model(
-        time_model["capacityModel"],
-        time_model["unit"],
-    )
-    module_contracts = validate_module_contracts(
-        time_model["moduleContracts"],
-        module_payload,
-    )
-    integration_contracts = validate_integration_contracts(
-        time_model["integrationContracts"],
-        module_contracts,
-    )
-    annual_variants = validate_annual_variants(
-        time_model["annualVariants"],
-        module_contracts,
-        integration_contracts,
-    )
-    privacy_contracts = validate_privacy_contracts(
-        time_model["privacyContracts"],
-        module_contracts,
-    )
-    time_reviews = validate_time_reviews(
-        time_model["timeReviews"],
-        remediation_payload,
-        module_contracts,
-        integration_contracts,
-        annual_variants,
-        require_complete=False,
-        privacy_contracts=privacy_contracts,
-    )
-    sequence_evidence = validate_sequence_evidence(
-        time_model["sequenceEvidence"],
-        time_reviews,
-        annual_variants,
-        coverage_payload,
-    )
-    _validate_sequence_judgement_statuses(
-        time_model["gradeJudgements"],
-        sequence_evidence,
-    )
-    return {
-        "baseline": baseline,
-        "capacityPaths": capacity_paths,
-        "moduleContracts": module_contracts,
-        "integrationContracts": integration_contracts,
-        "annualVariants": annual_variants,
-        "privacyContracts": privacy_contracts,
-        "timeReviews": time_reviews,
-        "sequenceEvidence": sequence_evidence,
-    }
 
 
 def main(argv=None):
@@ -3466,8 +4208,9 @@ def main(argv=None):
         return 1
     print(
         "IUM10 repository validation passed: "
-        f"{len(result['timeReviews'])} registered time reviews "
-        "(partial baseline)"
+        f"{len(result['moduleContracts'])} module contracts, "
+        f"{len(result['timeReviews'])} time reviews, and "
+        f"{len(result['sequenceEvidence'])} sequence records"
     )
     return 0
 
