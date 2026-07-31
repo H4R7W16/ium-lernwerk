@@ -65,6 +65,27 @@ EXPECTED_DP001_RULE_FOLLOW_UP = (
     "Folgenerklärung sowie die begründete Konfliktlösung im Regelabschnitt "
     "erreicht werden und ob die operative Datengrenze eingehalten bleibt."
 )
+EXPECTED_ID009_EXECUTED_DOSSIER_RATIONALE = (
+    "Vorwissensanker, ausdrücklicher Quellenabgleich und die daraus abgeleitete "
+    "belegte Aussage oder Revision werden nicht als Kriterienliste ergänzt, "
+    "sondern bereits als ausgeführte Recherche-, Beleg- und Urteilsarbeit im "
+    "selben digitalen Quellendossier erstellt und revidiert; die drei "
+    "positiven Phasen tragen damit dieselbe Produktspur ohne zusätzliche "
+    "Minuten."
+)
+EXPECTED_ID009_INTEGRATION_BOUNDARY_RISK = (
+    "Eine bloße Kriteriennennung oder ein abgehakter Quellencheck würde die "
+    "verlangte Verknüpfung und Weiterverarbeitung unterschreiten; "
+    "INT-5-RESEARCH-PRODUCTION trägt diese record-spezifische Vorwissens- und "
+    "Urteilsspur nicht automatisch, solange sie im späteren Informationsprodukt "
+    "nicht tatsächlich identisch fortgeführt wird."
+)
+EXPECTED_ID009_IDENTICAL_TRAIL_FOLLOW_UP = (
+    "Im Pilot prüfen, ob Vorwissensanker, neue Quelleninformation, "
+    "ausdrückliche Beziehung und daraus abgeleitete Aussage oder Revision in "
+    "derselben Dossierspur beobachtbar erreicht werden; die Integration nur "
+    "bei nachweislich identischer Quellen- und Belegspur nutzen."
+)
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -1870,6 +1891,78 @@ class IUM10TimeReviewTests(unittest.TestCase):
             set(self.handoffs_by_id),
         )
 
+    def _assert_id009_repository_contract(
+        self,
+        reviews_by_competency_id,
+        module_contracts,
+    ):
+        id009_review = reviews_by_competency_id["LH26-E-ID-009"]
+        self.assertEqual(
+            (
+                id009_review["decision"],
+                id009_review["additionalMinutes"],
+                id009_review["phaseIds"],
+                id009_review["integrationContractIds"],
+                id009_review["pathAvailability"],
+            ),
+            (
+                "absorbed",
+                0,
+                [
+                    "activate-prior-knowledge",
+                    "independent-action-product",
+                    "review-revise-transfer",
+                ],
+                [],
+                [
+                    "GRADE-5-BASELINE",
+                    "GRADE-5-REGULAR",
+                    "GRADE-5-EXTENDED",
+                ],
+            ),
+        )
+        self.assertEqual(
+            module_contracts["IUM-5-CORE-02"]["timeReviewIds"],
+            ["TR-LH26-E-ID-009"],
+        )
+        self.assertEqual(
+            id009_review["rationale"],
+            EXPECTED_ID009_EXECUTED_DOSSIER_RATIONALE,
+        )
+        self.assertEqual(
+            id009_review["risk"],
+            EXPECTED_ID009_INTEGRATION_BOUNDARY_RISK,
+        )
+        self.assertEqual(
+            id009_review["followUp"],
+            EXPECTED_ID009_IDENTICAL_TRAIL_FOLLOW_UP,
+        )
+
+    def test_id009_repository_contract_rejects_generic_audit_text(self):
+        result = validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+        )
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in result.values()
+        }
+
+        for field in ("rationale", "risk", "followUp"):
+            with self.subTest(field=field):
+                weakened_reviews = copy.deepcopy(reviews_by_competency_id)
+                weakened_reviews["LH26-E-ID-009"][field] = (
+                    "Generischer nichtleerer Audittext."
+                )
+                with self.assertRaises(AssertionError):
+                    self._assert_id009_repository_contract(
+                        weakened_reviews,
+                        self.repository_module_contracts,
+                    )
+
     def test_repository_time_reviews_match_the_audited_decisions(self):
         result = validate_time_reviews(
             self.time_payload["timeReviews"],
@@ -1965,36 +2058,9 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 )
             ),
         )
-        id009_review = reviews_by_competency_id["LH26-E-ID-009"]
-        self.assertEqual(
-            (
-                id009_review["decision"],
-                id009_review["additionalMinutes"],
-                id009_review["phaseIds"],
-                id009_review["integrationContractIds"],
-                id009_review["pathAvailability"],
-            ),
-            (
-                "absorbed",
-                0,
-                [
-                    "activate-prior-knowledge",
-                    "independent-action-product",
-                    "review-revise-transfer",
-                ],
-                [],
-                [
-                    "GRADE-5-BASELINE",
-                    "GRADE-5-REGULAR",
-                    "GRADE-5-EXTENDED",
-                ],
-            ),
-        )
-        self.assertEqual(
-            self.repository_module_contracts["IUM-5-CORE-02"][
-                "timeReviewIds"
-            ],
-            ["TR-LH26-E-ID-009"],
+        self._assert_id009_repository_contract(
+            reviews_by_competency_id,
+            self.repository_module_contracts,
         )
         progression_review = reviews_by_competency_id["LH26-E-PROG-001"]
         self.assertEqual(progression_review["phaseIds"], [])
