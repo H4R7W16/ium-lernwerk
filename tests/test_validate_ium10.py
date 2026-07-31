@@ -558,6 +558,8 @@ TASK19_REQUIRED_TEXT = {
 TASK19_FORBIDDEN_TEXT = {
     "INF7-16-GYM-IK-ALG-003": (
         "variable wird nur als unveränderlicher wert bezeichnet",
+        "variable ist konstant",
+        "alte zustand ist entbehrlich",
         "zustandsänderung ohne alten wert",
         "zustandsänderung ohne neuen wert",
         "zustandsänderung ohne auslösende anweisung",
@@ -566,12 +568,15 @@ TASK19_FORBIDDEN_TEXT = {
     ),
     "INF7-16-GYM-PK-MI-005": (
         "eine bloße anzeige oder demo genügt",
+        "nur anzeigen reicht aus",
+        "erstellen, bearbeiten und korrigieren entfallen",
         "das werkzeug wird nur gezeigt",
         "derselbe programmfall genügt zur absorption",
         "dasselbe grafische werkzeug allein rechtfertigt integration",
     ),
     "INF7-16-GYM-PK-SV-003": (
         "zeitliche reihenfolge allein genügt",
+        "weder gerichtete kanten noch labels",
         "ein graph ohne gerichtete datenabhängigkeit genügt",
         "derselbe programmfall genügt zur absorption",
         "dasselbe grafische werkzeug allein rechtfertigt integration",
@@ -584,6 +589,7 @@ TASK19_FORBIDDEN_TEXT = {
     ),
     "LH26-E-ALG-008": (
         "jede anweisung hat einen rückgabewert",
+        "jede anweisung liefert immer ein ergebnis",
         "funktionsrückgabe wird ohne funktion unterstellt",
         "derselbe programmfall genügt zur absorption",
         "dieselbe traceansicht allein rechtfertigt integration",
@@ -600,7 +606,7 @@ TASK19_REVIEW_TEXT_PROJECTION_SHA256 = {
         "9cfa7ecc46a24905c233707318cd4903c0c8b1994dc81a13c278269de87a80c8"
     ),
     "INF7-16-GYM-PK-MI-005": (
-        "7626b0755c5f0e31e509c386f9225b70b80a2f5183974f01b0a267481c2dba24"
+        "1dd9902c75088ebabdceb99cb1cc03b78475c10e38e20c76e0b36c00f93ab3d3"
     ),
     "INF7-16-GYM-PK-SV-003": (
         "4bb10e02783d9144d4b01ca1d3b20993e030abdcba7934dc7ad6d958c2552e48"
@@ -619,8 +625,21 @@ TASK19_INTEGRATION_FORBIDDEN_TEXT = (
     "ersetzt Implementierung", "ersetzt Codeausführung",
     "ersetzt Normal-, Grenz- und Gegenfalltests", "ersetzt Debugging",
     "trägt die Implementierung", "trägt die Tests", "trägt das Debugging",
+    "gemeinsame Spur macht eine eigene Implementierung unnötig",
     "ein nur demonstrierter Trace genügt",
+    "Vorführung des Ablaufs reicht für die Anrechnung",
     "ein anderer Programmfall genügt",
+)
+TASK19_MI005_FALLBACK_REQUIRED_TEXT = (
+    "alternatives editierbares grafisches Modellierungswerkzeug oder Hilfsmittel",
+    "Lernenden selbst ein Modell erstellen, bearbeiten und korrigieren",
+    "statische, angezeigte oder vorbereitete Ersatzdarstellung genügt nicht",
+    "ohne ein solches Fallback",
+    "nicht als pilotiert oder zeitlich bestätigt",
+)
+TASK19_MI005_FALLBACK_FORBIDDEN_TEXT = (
+    "vorbereitete Ersatzdarstellung nutzen",
+    "bei Ausfall genügt eine statische Ersatzdarstellung",
 )
 TASK19_INTEGRATION_CONTRACT_SHA256 = (
     "693e68feee70291680a324372235ff2fb03d6eddab76941354a26bc47f13911c"
@@ -6922,10 +6941,19 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 "ist ein verfügbarer 38-ue-pfad",
                 "ist ein grüner 38-ue-pfad",
                 "ist ein freigegebener 38-ue-pfad",
+                "der 38-ue-pfad ist freigegeben",
                 "jahresurteil bleibt nicht red",
                 "jahresurteil ist nicht red",
             ):
                 self.assertNotIn(false_release, path_text.casefold())
+
+        mi005_follow_up = reviews_by_competency_id[
+            "INF7-16-GYM-PK-MI-005"
+        ]["followUp"]
+        for anchor in TASK19_MI005_FALLBACK_REQUIRED_TEXT:
+            self.assertIn(anchor, mi005_follow_up)
+        for forbidden in TASK19_MI005_FALLBACK_FORBIDDEN_TEXT:
+            self.assertNotIn(forbidden.casefold(), mi005_follow_up.casefold())
 
         integrated_ids = {
             competency_id
@@ -7160,6 +7188,82 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     self._task19_semantic_probe_inputs()
                 )
                 reviews[competency_id]["followUp"] += f" {contradiction}"
+                with self.assertRaises(AssertionError):
+                    self._assert_core03_task19_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_core03_task19_rejects_exact_reviewer_semantic_probes(self):
+        reviewer_probes = (
+            (
+                "review",
+                "INF7-16-GYM-IK-ALG-003",
+                "Die Variable ist konstant und der alte Zustand ist entbehrlich.",
+            ),
+            (
+                "review",
+                "INF7-16-GYM-PK-MI-005",
+                "Nur Anzeigen reicht aus; Erstellen, Bearbeiten und Korrigieren entfallen.",
+            ),
+            (
+                "review",
+                "INF7-16-GYM-PK-SV-003",
+                "Der Graph muss weder gerichtete Kanten noch Labels enthalten.",
+            ),
+            (
+                "review",
+                "LH26-E-ALG-008",
+                "Jede Anweisung liefert immer ein Ergebnis.",
+            ),
+            (
+                "review",
+                "LH26-E-ALG-009",
+                "Der 38-UE-Pfad ist freigegeben.",
+            ),
+            (
+                "integration",
+                None,
+                "Die gemeinsame Spur macht eine eigene Implementierung unnötig.",
+            ),
+            (
+                "integration",
+                None,
+                "Die Vorführung des Ablaufs reicht für die Anrechnung.",
+            ),
+        )
+        for target, competency_id, contradiction in reviewer_probes:
+            with self.subTest(
+                target=target,
+                competency_id=competency_id,
+                contradiction=contradiction,
+            ):
+                evidence, reviews, integration = (
+                    self._task19_semantic_probe_inputs()
+                )
+                if target == "integration":
+                    integration["sharedPhaseOrProduct"] += f" {contradiction}"
+                else:
+                    reviews[competency_id]["followUp"] += f" {contradiction}"
+                with self.assertRaises(AssertionError):
+                    self._assert_core03_task19_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_core03_task19_rejects_static_mi005_fallback(self):
+        static_fallbacks = (
+            "Bei Ausfall eine vorbereitete Ersatzdarstellung nutzen.",
+            "Bei Ausfall genügt eine statische Ersatzdarstellung.",
+        )
+        for static_fallback in static_fallbacks:
+            with self.subTest(static_fallback=static_fallback):
+                evidence, reviews, integration = (
+                    self._task19_semantic_probe_inputs()
+                )
+                reviews["INF7-16-GYM-PK-MI-005"]["followUp"] = static_fallback
                 with self.assertRaises(AssertionError):
                     self._assert_core03_task19_semantic_boundaries(
                         evidence_by_competency_id=evidence,

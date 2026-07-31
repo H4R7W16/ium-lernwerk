@@ -3421,7 +3421,7 @@
       ],
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Ohne tatsächlich bearbeitete und korrigierte Modellfassung würde der Einsatzoperator unterschritten. Eine lokale Werkzeughürde oder die bloße gemeinsame Oberfläche darf nicht als fachliche Integration oder als verfügbarer grüner 38-UE-Pfad umgedeutet werden.",
-      "followUp": "Vor und im Pilot die plattformneutrale lokale Modellierungsumgebung prüfen und innerhalb der 20 Minuten tatsächliches Erstellen, Bearbeiten und Korrigieren beobachten; bei Ausfall eine vorbereitete Ersatzdarstellung nutzen, ohne das rote Jahresurteil zu negieren.",
+      "followUp": "Vor und im Pilot die plattformneutrale lokale Modellierungsumgebung prüfen und innerhalb der 20 Minuten tatsächliches Erstellen, Bearbeiten und Korrigieren beobachten; bei Ausfall ein alternatives editierbares grafisches Modellierungswerkzeug oder Hilfsmittel bereitstellen, in dem die Lernenden selbst ein Modell erstellen, bearbeiten und korrigieren. Eine statische, angezeigte oder vorbereitete Ersatzdarstellung genügt nicht; ohne ein solches Fallback gilt MI-005 nicht als pilotiert oder zeitlich bestätigt. Das rote Jahresurteil bleibt bestehen.",
       "status": "working"
     },
     {
