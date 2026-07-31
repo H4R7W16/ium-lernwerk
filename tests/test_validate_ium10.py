@@ -59,6 +59,8 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-DP-003": "unresolved",
     "LH26-E-DP-004": "integrated",
     "LH26-E-DP-006": "integrated",
+    "LH26-E-KS-014": "integrated",
+    "LH26-E-KS-015": "integrated",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -176,6 +178,81 @@ TASK15_REVIEW_EXCLUSION_SHA256 = {
     ),
     "LH26-E-DP-006": (
         "c4b8bdf6a73e789228f6dfdebc8df708921a85738d7bb6a85eddf76fafee3c76"
+    ),
+}
+PRE_TASK16_TIME_REVIEW_COUNT = 29
+PRE_TASK16_TIME_REVIEWS_SHA256 = (
+    "ce391c2dd9175314bfcc2c18ef8a7a1cbed87bb85ce8d70e3589f2c7475a4a43"
+)
+TASK16_AUDIT_EXPECTATIONS = {
+    "LH26-E-KS-014": {
+        "decision": "integrated",
+        "additionalMinutes": 25,
+        "phaseIds": [
+            "guided-practice",
+            "independent-action-product",
+            "review-revise-transfer",
+        ],
+        "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
+        "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-014",
+        "productAnchors": (
+            "wiederholte Abwertung",
+            "Ausschluss",
+            "Macht- oder Reichweitendynamik",
+            "Situation → Merkmal → konkreter Fallbeleg",
+            "Prävention, Hilfe und Melden",
+            "begründete Eskalationsentscheidung",
+        ),
+        "reviewAnchors": (
+            "Merkmal-und-Strategie-Spur",
+            "konkrete Fallbelege",
+            "25 Minuten",
+        ),
+    },
+    "LH26-E-KS-015": {
+        "decision": "integrated",
+        "additionalMinutes": 20,
+        "phaseIds": [
+            "build-concept",
+            "independent-action-product",
+        ],
+        "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
+        "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-015",
+        "productAnchors": (
+            "mehrere plausible digitale und soziale",
+            "Ursachenhypothese",
+            "begünstigender Faktor",
+            "Unsicherheit",
+            "Belegstelle",
+            "kein Victim Blaming",
+            "keine Ferndiagnose",
+            "keine behauptete Täterabsicht",
+        ),
+        "reviewAnchors": (
+            "Faktorenkarte",
+            "Ursachenhypothese",
+            "begünstigender Faktor",
+            "Unsicherheitsmarkierung",
+            "20 Minuten",
+        ),
+    },
+}
+TASK16_PATH_AVAILABILITY = [
+    "GRADE-6-BASELINE",
+    "GRADE-6-REGULAR",
+    "GRADE-6-EXTENDED-REFERENCE",
+    "GRADE-6-EXTENDED-TRANSFER",
+    "GRADE-6-EXTENDED-CODING",
+]
+TASK16_INTEGRATION_CONTRACT_SHA256 = (
+    "6f324c8b4eebe4795b95eb994df048ef65a616cba409921ac78884c670345787"
+)
+TASK16_REVIEW_EXCLUSION_SHA256 = {
+    "LH26-E-KS-014": (
+        "bb47e4a4b45e8d9f733355183a795d5a2ca0cec7db67e20afdcba12c8e59fb49"
+    ),
+    "LH26-E-KS-015": (
+        "0b845e92d301b9bb34a7195d5bcc45a00e24fc64c6b25f59e493c713df2db360"
     ),
 }
 PRIVATE_LOCAL_BOUNDARY = (
@@ -1168,7 +1245,7 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "29 registered time reviews (partial baseline)\n",
+            "31 registered time reviews (partial baseline)\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -5153,6 +5230,281 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 reviews,
                 use_subtests=False,
             )
+
+    def _assert_core06_task16_audit_contract(
+        self,
+        reviews,
+        integration_contracts=None,
+    ):
+        if integration_contracts is None:
+            integration_contracts = self.repository_integration_contracts
+
+        expected_ids = [
+            f"TR-{competency_id}"
+            for competency_id in TASK16_AUDIT_EXPECTATIONS
+        ]
+        task16_reviews = reviews[
+            PRE_TASK16_TIME_REVIEW_COUNT:
+            PRE_TASK16_TIME_REVIEW_COUNT + len(expected_ids)
+        ]
+        self.assertEqual(
+            [review["id"] for review in task16_reviews],
+            expected_ids,
+        )
+        for review_id in expected_ids:
+            self.assertEqual(
+                sum(review["id"] == review_id for review in reviews),
+                1,
+            )
+        self.assertEqual(
+            self._canonical_sha256(
+                reviews[:PRE_TASK16_TIME_REVIEW_COUNT]
+            ),
+            PRE_TASK16_TIME_REVIEWS_SHA256,
+        )
+
+        core06_contract = self.repository_module_contracts[
+            "IUM-6-CORE-06"
+        ]
+        self.assertEqual(core06_contract["timeReviewIds"], expected_ids)
+        integration = integration_contracts[
+            "INT-6-CONFLICT-PRODUCTION"
+        ]
+        self.assertEqual(
+            self._canonical_sha256(integration),
+            TASK16_INTEGRATION_CONTRACT_SHA256,
+        )
+        self.assertEqual(
+            (
+                integration["moduleIds"],
+                integration["pathIds"],
+                integration["countedInModuleId"],
+            ),
+            (
+                ["IUM-6-CORE-06", "IUM-6-CORE-07"],
+                ["baseline", "regular"],
+                "IUM-6-CORE-07",
+            ),
+        )
+        for own_trace in ("Merkmal-und-Strategie-Spur", "Faktorenkarte"):
+            self.assertNotIn(
+                own_trace,
+                integration["sharedPhaseOrProduct"],
+            )
+
+        handoffs = {
+            entry["competencyId"]: entry
+            for entry in self.remediation_payload["entries"]
+        }
+        coverage = {
+            entry["competencyId"]: entry
+            for entry in self.coverage_payload["entries"]
+        }
+        core06_module = next(
+            module
+            for module in self.module_payload["modules"]
+            if module["id"] == "IUM-6-CORE-06"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in core06_module["coverageEvidence"]
+        }
+        for review in task16_reviews:
+            competency_id = review["competencyId"]
+            expected = TASK16_AUDIT_EXPECTATIONS[competency_id]
+            self.assertEqual(
+                {
+                    field: review[field]
+                    for field in (
+                        "decision",
+                        "additionalMinutes",
+                        "phaseIds",
+                        "integrationContractIds",
+                    )
+                },
+                {
+                    field: expected[field]
+                    for field in (
+                        "decision",
+                        "additionalMinutes",
+                        "phaseIds",
+                        "integrationContractIds",
+                    )
+                },
+            )
+            self.assertEqual(
+                (
+                    review["moduleId"],
+                    review["sourceTimeImpactLevel"],
+                    review["sequenceEvidenceId"],
+                    review["pathAvailability"],
+                    review["coverageConsequence"],
+                    review["status"],
+                ),
+                (
+                    "IUM-6-CORE-06",
+                    "review-required",
+                    None,
+                    TASK16_PATH_AVAILABILITY,
+                    "semantic-status-unchanged",
+                    "working",
+                ),
+            )
+            self.assertNotIn("privacyDisposition", review)
+            evidence_id = expected["evidenceContractId"]
+            self.assertEqual(
+                (
+                    handoffs[competency_id]["causeClass"],
+                    handoffs[competency_id]["before"]["evidenceModuleId"],
+                    handoffs[competency_id]["timeImpact"]["level"],
+                    handoffs[competency_id]["evidenceContractId"],
+                    coverage[competency_id]["evidenceModuleId"],
+                    coverage[competency_id]["evidenceContractId"],
+                    evidence[competency_id]["id"],
+                    evidence[competency_id]["mode"],
+                    evidence[competency_id]["productVisibility"],
+                ),
+                (
+                    "module-detail",
+                    "IUM-6-CORE-06",
+                    "review-required",
+                    evidence_id,
+                    "IUM-6-CORE-06",
+                    evidence_id,
+                    evidence_id,
+                    "module-detail",
+                    "teacher-observable",
+                ),
+            )
+            product_text = " ".join(
+                (
+                    evidence[competency_id]["learningAction"],
+                    evidence[competency_id]["productEvidence"],
+                )
+            )
+            review_text = " ".join(
+                review[field]
+                for field in ("rationale", "risk", "followUp")
+            )
+            for anchor in expected["productAnchors"]:
+                self.assertIn(anchor, product_text)
+            for anchor in expected["reviewAnchors"]:
+                self.assertIn(anchor, review_text)
+            self.assertIn(
+                "identische gemeinsame nichtpersonale Fallspur",
+                review_text,
+            )
+            self.assertEqual(
+                self._canonical_sha256(
+                    {field: review[field] for field in ("risk", "followUp")}
+                ),
+                TASK16_REVIEW_EXCLUSION_SHA256[competency_id],
+            )
+
+        variants = {
+            variant["id"]: variant
+            for variant in self.repository_annual_variants.values()
+        }
+        for variant_id in TASK16_PATH_AVAILABILITY:
+            variant = variants[variant_id]
+            allocation = next(
+                item
+                for item in variant["allocations"]
+                if item["moduleId"] == "IUM-6-CORE-06"
+            )
+            self.assertTrue(variant["available"])
+            self.assertIn(allocation["budgetPathId"], ("baseline", "regular"))
+            self.assertIn(
+                "INT-6-CONFLICT-PRODUCTION",
+                variant["integrationContractIds"],
+            )
+
+        claims_by_phase = {}
+        for review in task16_reviews:
+            for phase_id in review["phaseIds"]:
+                claims_by_phase[phase_id] = (
+                    claims_by_phase.get(phase_id, 0)
+                    + review["additionalMinutes"]
+                )
+        self.assertEqual(
+            claims_by_phase,
+            {
+                "guided-practice": 25,
+                "independent-action-product": 45,
+                "review-revise-transfer": 25,
+                "build-concept": 20,
+            },
+        )
+        for budget in core06_contract["pathBudgets"]:
+            phase_minutes = {
+                phase["phaseId"]: phase["minutes"]
+                for phase in budget["phaseBudgets"]
+            }
+            for phase_id, claimed_minutes in claims_by_phase.items():
+                self.assertLessEqual(
+                    claimed_minutes,
+                    phase_minutes[phase_id],
+                )
+
+    def test_repository_core06_task16_audit_contract(self):
+        validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
+        )
+        self._assert_core06_task16_audit_contract(
+            self.time_payload["timeReviews"]
+        )
+
+    def test_core06_task16_contract_allows_later_review(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(
+            {"id": "TR-LATER-TASK16", "competencyId": "LATER-TASK16"}
+        )
+        self._assert_core06_task16_audit_contract(reviews)
+
+    def test_core06_task16_contract_rejects_duplicate_id(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(copy.deepcopy(reviews[PRE_TASK16_TIME_REVIEW_COUNT]))
+        with self.assertRaises(AssertionError):
+            self._assert_core06_task16_audit_contract(reviews)
+
+    def test_core06_task16_contract_rejects_overextended_integration(self):
+        integrations = copy.deepcopy(self.repository_integration_contracts)
+        integrations["INT-6-CONFLICT-PRODUCTION"][
+            "sharedPhaseOrProduct"
+        ] += " Sie trägt Merkmal-und-Strategie-Spur und Faktorenkarte."
+        with self.assertRaises(AssertionError):
+            self._assert_core06_task16_audit_contract(
+                self.time_payload["timeReviews"],
+                integration_contracts=integrations,
+            )
+
+    def test_core06_task16_contract_rejects_personal_evidence(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews[PRE_TASK16_TIME_REVIEW_COUNT]["risk"] = (
+            "Reale persönliche Konfliktdaten werden als Evidenz verwendet."
+        )
+        with self.assertRaises(AssertionError):
+            self._assert_core06_task16_audit_contract(reviews)
+
+    def test_core06_task16_contract_rejects_ks015_harmful_claims(self):
+        for harmful_claim in (
+            "Victim Blaming wird als Ursachenhypothese verwendet.",
+            "Eine Ferndiagnose wird als Ursachenhypothese verwendet.",
+            "Eine Täterabsicht wird als sicher behauptet.",
+        ):
+            with self.subTest(harmful_claim=harmful_claim):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                reviews[PRE_TASK16_TIME_REVIEW_COUNT + 1]["risk"] = (
+                    harmful_claim
+                )
+                with self.assertRaises(AssertionError):
+                    self._assert_core06_task16_audit_contract(reviews)
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
         prior_reviews = self.time_payload["timeReviews"][
