@@ -2102,6 +2102,11 @@ def _validate_privacy_disposition(
             f"invalid nonpersonal-module-detail observableBasis: {competency_id}",
         )
     else:
+        sequence_evidence_id = review["sequenceEvidenceId"]
+        sequence_reference_is_allowed = (
+            review["sourceTimeImpactLevel"] == "roadmap-dependent"
+            and sequence_evidence_id == f"SE-{competency_id}"
+        )
         _require(
             expected_evidence_id is None
             and review["decision"] == "unresolved"
@@ -2109,7 +2114,10 @@ def _validate_privacy_disposition(
             and review["phaseIds"] == []
             and review["pathAvailability"] == []
             and review["integrationContractIds"] == []
-            and review["sequenceEvidenceId"] is None,
+            and (
+                sequence_evidence_id is None
+                or sequence_reference_is_allowed
+            ),
             f"none privacy basis must remain unresolved and unallocated: {competency_id}",
         )
 

@@ -82,6 +82,13 @@ TIME_AUDIT_DECISIONS = {
     "INF7-16-GYM-IK-IGD-004": "integrated",
     "INF7-16-GYM-PK-AB-002": "additional-time",
     "INF7-16-GYM-PK-SV-001": "additional-time",
+    "INF7-16-GYM-IK-IGD-006": "additional-time",
+    "INF7-16-GYM-PK-AB-005": "integrated",
+    "INF7-16-GYM-PK-AB-006": "additional-time",
+    "INF7-16-GYM-PK-KK-006": "integrated",
+    "LH26-E-DP-013": "additional-time",
+    "LH26-E-PROG-003": "unresolved",
+    "LH26-E-PROG-004": "unresolved",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -886,6 +893,226 @@ TASK21_INTEGRATION_CONTRACT_SHA256 = (
 )
 TASK21_CORE05_STABLE_FIELDS_SHA256 = (
     "f8d91f833997fdedef5c642343794fccb9a898680d7f043f50e815490fe3c11c"
+)
+PRE_TASK22_TIME_REVIEW_COUNT = 52
+PRE_TASK22_TIME_REVIEWS_SHA256 = (
+    "eed12ea254379c0d9a319c6bdcca43364881bbf82d2c74c0f6b50c4c6c283327"
+)
+TASK22_AUDIT_EXPECTATIONS = {
+    "INF7-16-GYM-IK-IGD-006": dict(
+        decision="additional-time", additionalMinutes=20,
+        phaseIds=["build-concept"], integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+        sourceTimeImpactLevel="review-required", sequenceEvidenceId=None,
+    ),
+    "INF7-16-GYM-PK-AB-005": dict(
+        decision="integrated", additionalMinutes=25,
+        phaseIds=["independent-action-product"],
+        integrationContractIds=["INT-7-DATA-MEDIA-SOCIETY"],
+        pathAvailability=GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY,
+        sourceTimeImpactLevel="review-required", sequenceEvidenceId=None,
+    ),
+    "INF7-16-GYM-PK-AB-006": dict(
+        decision="additional-time", additionalMinutes=20,
+        phaseIds=["review-revise-transfer"], integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+        sourceTimeImpactLevel="review-required", sequenceEvidenceId=None,
+    ),
+    "INF7-16-GYM-PK-KK-006": dict(
+        decision="integrated", additionalMinutes=25,
+        phaseIds=["guided-practice"],
+        integrationContractIds=["INT-7-DATA-MEDIA-SOCIETY"],
+        pathAvailability=GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY,
+        sourceTimeImpactLevel="review-required", sequenceEvidenceId=None,
+    ),
+    "LH26-E-DP-013": dict(
+        decision="additional-time", additionalMinutes=15,
+        phaseIds=["review-revise-transfer"], integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+        sourceTimeImpactLevel="review-required", sequenceEvidenceId=None,
+        causeClass="private-local", evidenceMode="private-local",
+        evidenceVisibility="private-local",
+    ),
+    "LH26-E-PROG-003": dict(
+        decision="unresolved", additionalMinutes=0, phaseIds=[],
+        integrationContractIds=[], pathAvailability=[],
+        sourceTimeImpactLevel="roadmap-dependent",
+        sequenceEvidenceId="SE-LH26-E-PROG-003",
+        causeClass="roadmap-level", evidenceContractId=None,
+    ),
+    "LH26-E-PROG-004": dict(
+        decision="unresolved", additionalMinutes=0, phaseIds=[],
+        integrationContractIds=[], pathAvailability=[],
+        sourceTimeImpactLevel="roadmap-dependent",
+        sequenceEvidenceId="SE-LH26-E-PROG-004",
+        causeClass="roadmap-level", evidenceContractId=None,
+    ),
+}
+TASK22_PRIVACY_EXPECTATIONS = {
+    "INF7-16-GYM-IK-IGD-006": ("nonpersonal-module-detail", "CE-IUM-7-CORE-08-INF7-16-GYM-IK-IGD-006"),
+    "INF7-16-GYM-PK-AB-005": ("nonpersonal-module-detail", "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-005"),
+    "INF7-16-GYM-PK-AB-006": ("nonpersonal-module-detail", "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006"),
+    "INF7-16-GYM-PK-KK-006": ("nonpersonal-module-detail", "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006"),
+    "LH26-E-DP-013": ("nonpersonal-follow-up", "CE-IUM-7-CORE-08-LH26-E-DP-013"),
+    "LH26-E-PROG-003": ("none", None),
+    "LH26-E-PROG-004": ("none", None),
+}
+TASK22_PRIVACY_CONTRACT = {
+    "id": "PC-IUM-7-CORE-08",
+    "moduleId": "IUM-7-CORE-08",
+    "scope": "private-local-reflection",
+    "artifactOwner": "learner",
+    "artifactCustody": "learner-controlled",
+    "institutionalHandling": {
+        "access": "prohibited",
+        "observation": "prohibited",
+        "collection": "prohibited",
+        "transfer": "prohibited",
+        "storage": "prohibited",
+        "assessment": "prohibited",
+    },
+    "status": "working",
+}
+TASK22_REVIEW_TEXT_PROJECTION_SHA256 = {
+    "INF7-16-GYM-IK-IGD-006": "5bdef373e12f9a8ea353d4379c1070a03c6d4b9d33de8acf353b0af64db37aa5",
+    "INF7-16-GYM-PK-AB-005": "a344ff1e501340f81632dcb14ca308c79bcf2da6545431976cbe6b7ccd550593",
+    "INF7-16-GYM-PK-AB-006": "316bebe9e78a3b2c801dd31e907100147e66d57eeb5119feaba8f058df00a273",
+    "INF7-16-GYM-PK-KK-006": "48b63315c3757fe911b3dbceb72d127d22ec8d2c9f75ad8217a90a9ad23d9a73",
+    "LH26-E-DP-013": "a752f95c866561f19c5178dae49c84586fca81b6677b1f40ef3fc1e68991a56b",
+    "LH26-E-PROG-003": "35511c67e198cef3e87126a1078d25f34bc152f3b408501ff927b094123349d3",
+    "LH26-E-PROG-004": "881ef00a2c0d3917251a0e1c587492a9b6ecedf6d6c75d19bb9046004e22fce4",
+}
+TASK22_REQUIRED_TEXT = {
+    "INF7-16-GYM-IK-IGD-006": (
+        "vollständig kuratierten alltagsrelevanten Dienstfall",
+        "permanente Anfallen personenbezogener Daten",
+        "während der Dienstnutzung", "Datenfolge",
+        "Speicherung ausdrücklich als eigene Folge",
+        "mindestens einen konkreten Nutzen", "konkrete Risiken",
+        "dieselben kuratierten Akteursdaten", "Belege", "Gegenbelege",
+        "Kriterien", "gemeinsame Revision", "Persönliche Live-Daten",
+    ),
+    "INF7-16-GYM-PK-AB-005": (
+        "Gesellschaft", "Berufswelt", "persönliches Lebensumfeld",
+        "betroffene Person", "Beschäftigte", "Dienstanbieter",
+        "Öffentlichkeit", "kriterien- und beleggestützt", "Gegenbeleg",
+        "Unsicherheit", "gemeinsames revidiertes Urteil",
+        "analytischer Gegenstandsbereich", "keine Offenlegung",
+        "CORE-09-Mechanismuskarte ersetzt", "vollständige CORE-08-Breite",
+    ),
+    "INF7-16-GYM-PK-AB-006": (
+        "Jede lernende Person", "Darf ein digitaler Dienst personenbezogene "
+        "Daten zur Auswahl und Reichweitensteuerung verwenden?",
+        "eigene Position", "Kriterien", "Belegen",
+        "mindestens ein Gegenargument", "argumentativ",
+        "begründete Revision", "individuellen Abschnitt",
+    ),
+    "INF7-16-GYM-PK-KK-006": (
+        "Wie berücksichtigen oder benachteiligen Datenerhebung, "
+        "Kategorisierung und Ausspielung unterschiedliche Lebenslagen und "
+        "Identitäten?",
+        "Toleranz und Akzeptanz von Vielfalt", "mehreren benannten Perspektiven",
+        "fachbezogene Argumente", "revidiertes Ergebnis",
+        "keine Offenlegung eigener Identität", "persönlicher Betroffenheit",
+    ),
+    "LH26-E-DP-013": (
+        "vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall",
+        "Behauptung", "manipulative Absicht", "Akteursdaten", "Belege",
+        "Gegenbelege", "Kriterien", "gemeinsame Revision",
+        "private lokale Reflexionsnotiz", "eigenen Umgang", "Belegprüfung",
+        "Unsicherheit", "möglicher privater Revision",
+        "nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet",
+        "ohne Kenntnis der Privatnotiz",
+        "keine persönliche Handlungsoption als Abgabe",
+        "ausschließlich auf den nichtpersonalen Anschluss",
+        "weder Produkt, Evidenz noch zusätzlicher Record-Zeitclaim",
+    ),
+    "LH26-E-PROG-003": (
+        "systematische jahrgangsweite Verbindung",
+        "fortgeführter informatischer Inhalte", "stärkerer Medienbildung",
+        "weder durch ein Einzelmodul noch durch das gemeinsame Dossier",
+        "SE-LH26-E-PROG-003", "Task 24", "vollständige Module",
+        "fachliche Tiefe", "Perspektivenbalance", "Zeitgewichtung",
+    ),
+    "LH26-E-PROG-004": (
+        "geringere Informatikanteil", "größere Medienbildungsanteil",
+        "technischer, anwendungsbezogener, gesellschaftlicher und "
+        "medienbezogener Perspektiven", "jahrgangsweit und zeitgewichtet",
+        "Ein zusätzliches Einzelprodukt", "SE-LH26-E-PROG-004", "Task 24",
+    ),
+}
+TASK22_FORBIDDEN_TEXT = {
+    "INF7-16-GYM-IK-IGD-006": (
+        "eine einmalige dateneingabe genügt",
+        "speicherung ohne datenanfall genügt",
+        "pauschaler nutzen und risiken genügen",
+        "persönliche live-daten werden genutzt",
+        "das gemeinsame dossier absorbiert igd-006",
+    ),
+    "INF7-16-GYM-PK-AB-005": (
+        "gesellschaft entfällt", "berufswelt entfällt",
+        "persönliches lebensumfeld entfällt",
+        "die perspektive betroffene person entfällt",
+        "die perspektive beschäftigte entfällt",
+        "die perspektive dienstanbieter entfällt",
+        "die perspektive öffentlichkeit entfällt",
+        "unbelegte bewertung genügt", "revision entfällt",
+        "persönliche erfahrungen müssen offengelegt werden",
+        "die core-09-mechanismuskarte ersetzt den core-08-abschnitt vollständig",
+    ),
+    "INF7-16-GYM-PK-AB-006": (
+        "ein gruppenstandpunkt genügt", "bloße meinungsabfrage genügt",
+        "die informatikfrage entfällt", "kriterien und belege entfallen",
+        "gegenargument entfällt", "argumentative vertretung entfällt",
+        "revision entfällt", "ein überzeugungsprofil wird angelegt",
+        "das gemeinsame dossier integriert ab-006",
+    ),
+    "INF7-16-GYM-PK-KK-006": (
+        "ein allgemeiner sozialappell genügt", "datenerhebung entfällt",
+        "kategorisierung entfällt", "ausspielung entfällt",
+        "perspektiven entfallen", "revision entfällt",
+        "eigene identität wird offengelegt",
+        "allgemeine vielfaltserwähnung genügt",
+    ),
+    "LH26-E-DP-013": (
+        "die private notiz wird als abgabe eingesammelt",
+        "private notiz ist produkt", "private notiz ist evidenz",
+        "private notiz erhält zusätzlichen zeitclaim",
+        "private notiz wird bewertet", "fertigstellung wird protokolliert",
+        "teilnahme wird beobachtet",
+        "der gemeinsame abschnitt benötigt kenntnis der privatnotiz",
+        "persönliche handlungsoption ist abgabe",
+        "das gemeinsame dossier integriert dp-013",
+    ),
+    "LH26-E-PROG-003": (
+        "das dossier absorbiert prog-003", "coverage ist covered",
+        "sequence-evidence-objekt wurde angelegt",
+    ),
+    "LH26-E-PROG-004": (
+        "das dossier absorbiert prog-004", "coverage ist covered",
+        "sequence-evidence-objekt wurde angelegt",
+    ),
+}
+TASK22_INTEGRATION_FORBIDDEN_TEXT = (
+    "INF7-16-GYM-IK-IGD-006", "INF7-16-GYM-PK-AB-006", "LH26-E-DP-013",
+    "LH26-E-PROG-003", "LH26-E-PROG-004",
+    "Datenfolge wird vollständig vom Dossier getragen",
+    "ethische Position wird vollständig vom Dossier getragen",
+    "private Reflexion wird gemeinsam getragen",
+    "Mechanismuskarte ersetzt Auswirkungen und Perspektiven",
+    "allgemeine Vielfaltserwähnung ersetzt die informatische Vielfaltsfrage",
+)
+TASK22_CORE08_STABLE_FIELDS_SHA256 = (
+    "cd5b6abf1305692d5ab3b76f407cca690df5a4982c7dd346130ae6331f0929c7"
+)
+TASK22_INTEGRATION_CONTRACT_SHA256 = (
+    "c54c7a46659d67cf3090c9ee5f142dbdf9e72cf896a59f7e38fba4cd89d980bf"
+)
+TASK22_SEQUENCE_EVIDENCE_SHA256 = (
+    "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+)
+PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256 = (
+    "6e78f073474c34b7ac89ada55cd4ab22fa021f0279bed8619091335aa2a0ef41"
 )
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
@@ -1877,7 +2104,7 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "52 registered time reviews (partial baseline)\n",
+            "59 registered time reviews (partial baseline)\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -2048,7 +2275,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM10ValidationError, "schema version"):
             validate_time_model_draft(time_model)
 
-    def test_repository_draft_has_schema_two_and_the_core07_private_local_contract(self):
+    def test_repository_draft_has_schema_two_and_the_migrated_private_local_contracts(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
@@ -2063,7 +2290,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
         self.assertIn("privacyContracts", time_model)
         self.assertEqual(
             [contract["id"] for contract in time_model["privacyContracts"]],
-            ["PC-IUM-5-CORE-07"],
+            ["PC-IUM-5-CORE-07", "PC-IUM-7-CORE-08"],
         )
 
     def test_repository_draft_has_the_capacity_contract_and_unimplemented_lists_empty(self):
@@ -3466,14 +3693,18 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
 
     @staticmethod
-    def private_disposition(competency_id, observable_basis):
+    def private_disposition(
+        competency_id,
+        observable_basis,
+        module_id="IUM-5-CORE-07",
+    ):
         return {
-            "contractId": "PC-IUM-5-CORE-07",
+            "contractId": f"PC-{module_id}",
             "observableBasis": observable_basis,
             "evidenceContractId": (
                 None
                 if observable_basis == "none"
-                else f"CE-IUM-5-CORE-07-{competency_id}"
+                else f"CE-{module_id}-{competency_id}"
             ),
             "privateArtifactContribution": {
                 "product": "excluded",
@@ -3583,6 +3814,52 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     self.validate_reviews(
                         [review],
                         privacy_contracts=self.core07_privacy_contracts(),
+                    )
+
+    def test_task22_accepts_none_basis_with_exact_roadmap_sequence_reference(self):
+        competency_id = "LH26-E-PROG-003"
+        review = self.review(competency_id, "unresolved")
+        review["privacyDisposition"] = self.private_disposition(
+            competency_id, "none", "IUM-7-CORE-08"
+        )
+        privacy_contracts = validate_privacy_contracts(
+            [TASK22_PRIVACY_CONTRACT],
+            self.module_contracts(),
+        )
+
+        result = self.validate_reviews(
+            [review],
+            privacy_contracts=privacy_contracts,
+        )
+
+        self.assertEqual(set(result), {f"TR-{competency_id}"})
+
+    def test_task22_none_basis_keeps_nonroadmap_and_allocated_reviews_closed(self):
+        competency_id = "LH26-E-PROG-003"
+        privacy_contracts = validate_privacy_contracts(
+            [TASK22_PRIVACY_CONTRACT],
+            self.module_contracts(),
+        )
+        mutations = (
+            ("non-roadmap level", "sourceTimeImpactLevel", "review-required"),
+            ("positive minutes", "additionalMinutes", 15),
+            ("phase", "phaseIds", ["guided-practice"]),
+            ("path", "pathAvailability", [self.VARIANT_ID]),
+            ("integration", "integrationContractIds", [self.INTEGRATION_ID]),
+            ("wrong sequence", "sequenceEvidenceId", "SE-WRONG"),
+            ("missing sequence", "sequenceEvidenceId", None),
+        )
+        for label, field, value in mutations:
+            with self.subTest(label=label):
+                review = self.review(competency_id, "unresolved")
+                review["privacyDisposition"] = self.private_disposition(
+                    competency_id, "none", "IUM-7-CORE-08"
+                )
+                review[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews(
+                        [review],
+                        privacy_contracts=privacy_contracts,
                     )
 
     def test_rejects_non_string_observable_basis_as_validation_error(self):
@@ -4026,10 +4303,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
 
         complete_nonprivacy_baseline = copy.deepcopy(self.remediation_payload)
         for entry in complete_nonprivacy_baseline["entries"]:
-            if entry["competencyId"] in {
-                "LH26-E-DP-013",
-                "LH26-E-DP-014",
-            }:
+            if entry["competencyId"] == "LH26-E-DP-014":
                 entry["causeClass"] = "module-detail"
         original_handoffs_by_id = {
             entry["competencyId"]: entry
@@ -4042,12 +4316,12 @@ class IUM10TimeReviewTests(unittest.TestCase):
         }
         self.assertEqual(
             changed_handoff_ids,
-            {"LH26-E-DP-013", "LH26-E-DP-014"},
+            {"LH26-E-DP-014"},
         )
-        repository_private_reviews = {
+        repository_disposed_reviews = {
             review["competencyId"]: review
             for review in self.time_payload["timeReviews"]
-            if review["moduleId"] == "IUM-5-CORE-07"
+            if "privacyDisposition" in review
         }
         reviews = []
         for entry in self.remediation_payload["entries"]:
@@ -4056,21 +4330,21 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 if entry["timeImpact"]["level"] == "roadmap-dependent"
                 else "absorbed"
             )
-            repository_private_review = repository_private_reviews.get(
+            repository_disposed_review = repository_disposed_reviews.get(
                 entry["competencyId"]
             )
             if (
-                repository_private_review is not None
-                and repository_private_review["privacyDisposition"][
+                repository_disposed_review is not None
+                and repository_disposed_review["privacyDisposition"][
                     "observableBasis"
                 ]
                 == "none"
             ):
                 decision = "unresolved"
             review = self.review(entry["competencyId"], decision)
-            if repository_private_review is not None:
+            if repository_disposed_review is not None:
                 review["privacyDisposition"] = copy.deepcopy(
-                    repository_private_review["privacyDisposition"]
+                    repository_disposed_review["privacyDisposition"]
                 )
             reviews.append(review)
 
@@ -5482,28 +5756,48 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 ),
                 (
                     module_id,
-                    "review-required",
-                    None,
+                    expected.get("sourceTimeImpactLevel", "review-required"),
+                    expected.get("sequenceEvidenceId"),
                     "semantic-status-unchanged",
                     "working",
                 ),
             )
-            self._assert_authoritative_evidence_chain(
-                competency_id,
-                module_id=module_id,
-                expected_evidence_id=expected.get(
-                    "evidenceContractId",
-                    f"CE-{module_id}-{competency_id}",
-                ),
-                expected_cause_class=expected.get("causeClass", cause_class),
-                expected_mode=expected.get("evidenceMode", evidence_mode),
-                expected_visibility=expected.get(
-                    "evidenceVisibility", evidence_visibility
-                ),
-                handoffs=handoffs,
-                coverage=coverage,
-                evidence=evidence,
+            expected_evidence_id = expected.get(
+                "evidenceContractId", f"CE-{module_id}-{competency_id}"
             )
+            if expected_evidence_id is None:
+                self.assertEqual(
+                    (
+                        handoffs[competency_id]["causeClass"],
+                        handoffs[competency_id]["before"]["evidenceModuleId"],
+                        handoffs[competency_id]["timeImpact"]["level"],
+                        handoffs[competency_id]["evidenceContractId"],
+                        coverage[competency_id]["evidenceModuleId"],
+                        coverage[competency_id].get("evidenceContractId"),
+                        coverage[competency_id]["coverageStatus"],
+                        coverage[competency_id]["semanticAudit"],
+                        competency_id in evidence,
+                    ),
+                    (
+                        expected["causeClass"], module_id,
+                        expected["sourceTimeImpactLevel"], None,
+                        module_id, None, "partial", "documented-gap", False,
+                    ),
+                )
+            else:
+                self._assert_authoritative_evidence_chain(
+                    competency_id,
+                    module_id=module_id,
+                    expected_evidence_id=expected_evidence_id,
+                    expected_cause_class=expected.get("causeClass", cause_class),
+                    expected_mode=expected.get("evidenceMode", evidence_mode),
+                    expected_visibility=expected.get(
+                        "evidenceVisibility", evidence_visibility
+                    ),
+                    handoffs=handoffs,
+                    coverage=coverage,
+                    evidence=evidence,
+                )
         return reviews_by_competency_id
 
     def _assert_audit_paths(
@@ -8556,6 +8850,583 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 },
             )
 
+    def _assert_core08_task22_semantic_boundaries(
+        self,
+        *,
+        evidence_by_competency_id,
+        reviews_by_competency_id,
+        integration_contract,
+        privacy_contract,
+    ):
+        for competency_id, review in reviews_by_competency_id.items():
+            evidence = evidence_by_competency_id.get(competency_id, {})
+            evidence_text = " ".join(
+                str(evidence[field])
+                for field in (
+                    "learningAction",
+                    "productEvidence",
+                    "privacyBoundary",
+                    "nonPersonalFollowUp",
+                )
+                if field in evidence
+            )
+            review_text = " ".join(
+                review[field] for field in ("rationale", "risk", "followUp")
+            )
+            audit_text = f"{evidence_text} {review_text}"
+            for anchor in TASK22_REQUIRED_TEXT[competency_id]:
+                self.assertIn(anchor, audit_text)
+            for forbidden in TASK22_FORBIDDEN_TEXT[competency_id]:
+                self.assertNotIn(forbidden.casefold(), audit_text.casefold())
+            for anchor in (
+                "nicht verfügbare Bedarfsszenarien",
+                "Jahresurteil",
+                "red",
+                "Personenprofil",
+                "automatische Punkte",
+                "automatisches Scoring",
+            ):
+                semantic_probe = (
+                    "automatisch" if anchor == "automatische Punkte" else anchor
+                )
+                self.assertIn(semantic_probe.casefold(), review_text.casefold())
+            for false_release in (
+                "ist ein verfügbarer 38-ue-pfad",
+                "ist ein grüner 38-ue-pfad",
+                "ist ein freigegebener 38-ue-pfad",
+                "jahresurteil bleibt nicht red",
+                "personenprofil wird angelegt",
+                "automatische punkte werden vergeben",
+                "automatisches scoring wird eingesetzt",
+            ):
+                self.assertNotIn(false_release, review_text.casefold())
+
+            disposition = review["privacyDisposition"]
+            self.assertEqual(
+                (
+                    disposition["contractId"],
+                    disposition["observableBasis"],
+                    disposition["evidenceContractId"],
+                    set(disposition["privateArtifactContribution"].values()),
+                    disposition["privateActivityTimeTreatment"],
+                ),
+                (
+                    "PC-IUM-7-CORE-08",
+                    TASK22_PRIVACY_EXPECTATIONS[competency_id][0],
+                    TASK22_PRIVACY_EXPECTATIONS[competency_id][1],
+                    {"excluded"},
+                    "module-budget-only",
+                ),
+            )
+
+        dp_evidence = evidence_by_competency_id["LH26-E-DP-013"]
+        self.assertEqual(dp_evidence["privacyBoundary"], PRIVATE_LOCAL_BOUNDARY)
+        self.assertIn("ohne Kenntnis der privaten Notiz", dp_evidence["nonPersonalFollowUp"])
+        self.assertIn(
+            "keine persönliche Handlungsoption als Abgabe",
+            dp_evidence["nonPersonalFollowUp"],
+        )
+        self.assertEqual(privacy_contract, TASK22_PRIVACY_CONTRACT)
+
+        integration_text = " ".join(
+            [integration_contract["sharedPhaseOrProduct"]]
+            + integration_contract["preservedLearningActions"]
+            + integration_contract["preservedProductAndCurriculumEvidence"]
+            + integration_contract["prerequisites"]
+            + [integration_contract["risk"], integration_contract["fallback"]]
+        )
+        for anchor in (
+            "INF7-16-GYM-PK-AB-005",
+            "INF7-16-GYM-PK-KK-006",
+        ):
+            self.assertIn(anchor, integration_text)
+        for forbidden in TASK22_INTEGRATION_FORBIDDEN_TEXT:
+            self.assertNotIn(forbidden.casefold(), integration_text.casefold())
+        self.assertEqual(
+            (
+                integration_contract["countedInModuleId"],
+                integration_contract["sharedMinutes"],
+                integration_contract["savingsMinutesByPath"],
+            ),
+            ("IUM-7-CORE-10", 45, {"optimized": 270, "robust": 45}),
+        )
+
+    def _assert_core08_task22_audit_contract(
+        self,
+        reviews,
+        *,
+        integration_contracts=None,
+        annual_variants=None,
+        module_payload=None,
+        coverage_payload=None,
+        privacy_contracts=None,
+        sequence_evidence=None,
+    ):
+        integration_contracts = (
+            integration_contracts or self.repository_integration_contracts
+        )
+        annual_variants = annual_variants or self.repository_annual_variants
+        module_payload = module_payload or self.module_payload
+        coverage_payload = coverage_payload or self.coverage_payload
+        privacy_contracts = privacy_contracts or self.repository_privacy_contracts
+        sequence_evidence = (
+            self.time_payload["sequenceEvidence"]
+            if sequence_evidence is None
+            else sequence_evidence
+        )
+        expected_ids, task_reviews = self._assert_audit_review_slice(
+            reviews,
+            start=PRE_TASK22_TIME_REVIEW_COUNT,
+            expectations=TASK22_AUDIT_EXPECTATIONS,
+            prior_sha256=PRE_TASK22_TIME_REVIEWS_SHA256,
+        )
+        core_contract, phase_minutes, integration = (
+            self._assert_grade7_audit_context(
+                expected_time_review_ids=expected_ids,
+                module_id="IUM-7-CORE-08",
+                integration_id="INT-7-DATA-MEDIA-SOCIETY",
+                core_stable_sha256=TASK22_CORE08_STABLE_FIELDS_SHA256,
+                integration_contract_sha256=TASK22_INTEGRATION_CONTRACT_SHA256,
+                annual_variants=annual_variants,
+                integration_contracts=integration_contracts,
+            )
+        )
+        for budget in core_contract["pathBudgets"]:
+            self.assertEqual(
+                (budget["countedSharedMinutes"], budget["sharedAllocations"]),
+                (0, []),
+            )
+
+        handoffs = {
+            item["competencyId"]: item
+            for item in self.remediation_payload["entries"]
+        }
+        coverage = {
+            item["competencyId"]: item
+            for item in coverage_payload["entries"]
+        }
+        module = next(
+            item
+            for item in module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-08"
+        )
+        evidence = {
+            item["competencyId"]: item for item in module["coverageEvidence"]
+        }
+        reviews_by_competency_id = self._assert_audit_review_matrix(
+            task_reviews,
+            expectations=TASK22_AUDIT_EXPECTATIONS,
+            module_id="IUM-7-CORE-08",
+            handoffs=handoffs,
+            coverage=coverage,
+            evidence=evidence,
+            cause_class="module-detail",
+            evidence_mode="module-detail",
+            evidence_visibility="shared",
+        )
+
+        self.assertEqual(set(privacy_contracts), {
+            "PC-IUM-5-CORE-07", "PC-IUM-7-CORE-08"
+        })
+        self.assertEqual(
+            self._canonical_sha256(privacy_contracts["PC-IUM-5-CORE-07"]),
+            PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256,
+        )
+        self.assertEqual(
+            privacy_contracts["PC-IUM-7-CORE-08"],
+            TASK22_PRIVACY_CONTRACT,
+        )
+        self.assertEqual(
+            self._canonical_sha256(sequence_evidence),
+            TASK22_SEQUENCE_EVIDENCE_SHA256,
+        )
+        self.assertEqual(len(TASK22_REVIEW_TEXT_PROJECTION_SHA256), 7)
+        for competency_id, expected_sha256 in (
+            TASK22_REVIEW_TEXT_PROJECTION_SHA256.items()
+        ):
+            self._assert_canonical_projection(
+                reviews_by_competency_id[competency_id],
+                fields=("rationale", "risk", "followUp"),
+                expected_sha256=expected_sha256,
+            )
+        self._assert_core08_task22_semantic_boundaries(
+            evidence_by_competency_id=evidence,
+            reviews_by_competency_id=reviews_by_competency_id,
+            integration_contract=integration,
+            privacy_contract=privacy_contracts["PC-IUM-7-CORE-08"],
+        )
+        self._assert_fully_counted_phase_claims(
+            task_reviews,
+            phase_minutes_by_path=phase_minutes,
+            expected_claims_by_phase={
+                "build-concept": 20,
+                "independent-action-product": 25,
+                "review-revise-transfer": 35,
+                "guided-practice": 25,
+            },
+        )
+
+    def _validate_repository_time_reviews(
+        self,
+        reviews,
+        *,
+        privacy_contracts=None,
+    ):
+        return validate_time_reviews(
+            reviews,
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+            privacy_contracts=(
+                self.repository_privacy_contracts
+                if privacy_contracts is None
+                else privacy_contracts
+            ),
+        )
+
+    def test_repository_core08_task22_audit_contract(self):
+        self._validate_repository_time_reviews(self.time_payload["timeReviews"])
+        self._assert_core08_task22_audit_contract(
+            self.time_payload["timeReviews"]
+        )
+
+    def test_repository_core08_task22_privacy_contract_enables_dp013_review(self):
+        competency_id = "LH26-E-DP-013"
+        review = next(
+            item for item in self.time_payload["timeReviews"]
+            if item["competencyId"] == competency_id
+        )
+        result = self._validate_repository_time_reviews([review])
+
+        self.assertEqual(set(result), {f"TR-{competency_id}"})
+
+    def _task22_semantic_probe_inputs(self):
+        module = next(
+            item
+            for item in self.module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-08"
+        )
+        evidence = {
+            item["competencyId"]: copy.deepcopy(item)
+            for item in module["coverageEvidence"]
+            if item["competencyId"] in TASK22_AUDIT_EXPECTATIONS
+        }
+        reviews = {
+            item["competencyId"]: copy.deepcopy(item)
+            for item in self.time_payload["timeReviews"]
+            if item["competencyId"] in TASK22_AUDIT_EXPECTATIONS
+        }
+        integration = copy.deepcopy(
+            self.repository_integration_contracts[
+                "INT-7-DATA-MEDIA-SOCIETY"
+            ]
+        )
+        privacy = copy.deepcopy(
+            self.repository_privacy_contracts["PC-IUM-7-CORE-08"]
+        )
+        return evidence, reviews, integration, privacy
+
+    def _assert_task22_semantic_failure(
+        self,
+        evidence,
+        reviews,
+        integration,
+        privacy,
+    ):
+        with self.assertRaises(AssertionError):
+            self._assert_core08_task22_semantic_boundaries(
+                evidence_by_competency_id=evidence,
+                reviews_by_competency_id=reviews,
+                integration_contract=integration,
+                privacy_contract=privacy,
+            )
+
+    def _assert_task22_review_text_failure(self, competency_id, text):
+        evidence, reviews, integration, privacy = (
+            self._task22_semantic_probe_inputs()
+        )
+        reviews[competency_id]["followUp"] += f" {text}"
+        self._assert_task22_semantic_failure(
+            evidence, reviews, integration, privacy
+        )
+
+    def test_core08_task22_rejects_direct_semantic_contradictions(self):
+        for competency_id, contradictions in TASK22_FORBIDDEN_TEXT.items():
+            for contradiction in contradictions:
+                with self.subTest(
+                    competency_id=competency_id,
+                    contradiction=contradiction,
+                ):
+                    self._assert_task22_review_text_failure(
+                        competency_id, f"{contradiction.capitalize()}."
+                    )
+
+        common_contradictions = (
+            (
+                "INF7-16-GYM-IK-IGD-006",
+                "GRADE-7-OPTIMIZED-DEMAND ist ein verfügbarer 38-UE-Pfad.",
+            ),
+            (
+                "INF7-16-GYM-PK-AB-005",
+                "GRADE-7-OPTIMIZED-DEMAND ist ein grüner 38-UE-Pfad.",
+            ),
+            (
+                "LH26-E-PROG-003",
+                "GRADE-7-OPTIMIZED-DEMAND ist ein freigegebener 38-UE-Pfad.",
+            ),
+            ("LH26-E-PROG-004", "Jahresurteil bleibt nicht red."),
+        )
+        for competency_id, contradiction in common_contradictions:
+            with self.subTest(
+                competency_id=competency_id,
+                path_contradiction=contradiction,
+            ):
+                self._assert_task22_review_text_failure(
+                    competency_id, contradiction
+                )
+
+    def test_core08_task22_rejects_integration_overreach_semantically(self):
+        text_overreaches = (
+            (
+                "preservedProductAndCurriculumEvidence",
+                "INF7-16-GYM-IK-IGD-006 wird vollständig bewahrt.",
+            ),
+            (
+                "preservedProductAndCurriculumEvidence",
+                "INF7-16-GYM-PK-AB-006 und LH26-E-DP-013 werden bewahrt.",
+            ),
+            (
+                "preservedProductAndCurriculumEvidence",
+                "LH26-E-PROG-003 und LH26-E-PROG-004 werden bewahrt.",
+            ),
+            (
+                "sharedPhaseOrProduct",
+                "Die Mechanismuskarte ersetzt Auswirkungen und Perspektiven.",
+            ),
+            (
+                "sharedPhaseOrProduct",
+                "Allgemeine Vielfaltserwähnung ersetzt die informatische "
+                "Vielfaltsfrage.",
+            ),
+        )
+        for field, overreach in text_overreaches:
+            with self.subTest(field=field, overreach=overreach):
+                evidence, reviews, integration, privacy = (
+                    self._task22_semantic_probe_inputs()
+                )
+                if isinstance(integration[field], list):
+                    integration[field].append(overreach)
+                else:
+                    integration[field] += f" {overreach}"
+                self._assert_task22_semantic_failure(
+                    evidence, reviews, integration, privacy
+                )
+
+        for field, value in (
+            ("countedInModuleId", "IUM-7-CORE-08"),
+            ("sharedMinutes", 270),
+            ("savingsMinutesByPath", {"optimized": 45, "robust": 45}),
+        ):
+            with self.subTest(field=field, value=value):
+                evidence, reviews, integration, privacy = (
+                    self._task22_semantic_probe_inputs()
+                )
+                integration[field] = value
+                self._assert_task22_semantic_failure(
+                    evidence, reviews, integration, privacy
+                )
+
+    def test_core08_task22_privacy_mutations_fail_closed_in_validator(self):
+        time_payload = copy.deepcopy(self.time_payload)
+        without_core08 = [
+            contract
+            for contract in time_payload["privacyContracts"]
+            if contract["id"] != "PC-IUM-7-CORE-08"
+        ]
+        privacy_contracts = validate_privacy_contracts(
+            without_core08,
+            self.repository_module_contracts,
+        )
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "private-local time review needs privacy contract",
+        ):
+            self._validate_repository_time_reviews(
+                [next(
+                    review for review in time_payload["timeReviews"]
+                    if review["competencyId"] == "LH26-E-DP-013"
+                )],
+                privacy_contracts=privacy_contracts,
+            )
+
+        for handling in (
+            "access", "observation", "collection", "transfer", "storage",
+            "assessment",
+        ):
+            with self.subTest(institutional_handling=handling):
+                contracts = copy.deepcopy(self.time_payload["privacyContracts"])
+                next(
+                    item for item in contracts
+                    if item["id"] == "PC-IUM-7-CORE-08"
+                )["institutionalHandling"][handling] = "allowed"
+                with self.assertRaises(IUM10ValidationError):
+                    validate_privacy_contracts(
+                        contracts,
+                        self.repository_module_contracts,
+                    )
+
+        disposition_mutations = (
+            ("missing disposition", None, None),
+            ("wrong contract", "contractId", "PC-WRONG"),
+            ("wrong basis", "observableBasis", "nonpersonal-follow-up"),
+            ("wrong evidence", "evidenceContractId", "CE-WRONG"),
+            ("product included", "privateArtifactContribution.product", "included"),
+            ("evidence included", "privateArtifactContribution.evidence", "included"),
+            (
+                "time included",
+                "privateArtifactContribution.additionalTimeClaim",
+                "included",
+            ),
+            ("other time treatment", "privateActivityTimeTreatment", "separate"),
+        )
+        for label, field, value in disposition_mutations:
+            with self.subTest(disposition=label):
+                payload = copy.deepcopy(self.time_payload)
+                review = next(
+                    item for item in payload["timeReviews"]
+                    if item["competencyId"] == "INF7-16-GYM-IK-IGD-006"
+                )
+                if field is None:
+                    del review["privacyDisposition"]
+                elif field.startswith("privateArtifactContribution."):
+                    nested = field.split(".", 1)[1]
+                    review["privacyDisposition"][
+                        "privateArtifactContribution"
+                    ][nested] = value
+                else:
+                    review["privacyDisposition"][field] = value
+                privacy_contracts = validate_privacy_contracts(
+                    payload["privacyContracts"],
+                    self.repository_module_contracts,
+                )
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate_repository_time_reviews(
+                        payload["timeReviews"],
+                        privacy_contracts=privacy_contracts,
+                    )
+
+    def test_core08_task22_rejects_matrix_progression_and_path_mutations(self):
+        review_mutations = (
+            ("INF7-16-GYM-IK-IGD-006", "decision", "integrated"),
+            (
+                "INF7-16-GYM-PK-AB-005", "pathAvailability",
+                GRADE7_DEMAND_PATH_AVAILABILITY,
+            ),
+            (
+                "INF7-16-GYM-PK-AB-006", "integrationContractIds",
+                ["INT-7-DATA-MEDIA-SOCIETY"],
+            ),
+            ("INF7-16-GYM-PK-KK-006", "phaseIds", ["build-concept"]),
+            ("LH26-E-DP-013", "additionalMinutes", 0),
+            ("LH26-E-PROG-003", "phaseIds", ["build-concept"]),
+            ("LH26-E-PROG-003", "additionalMinutes", 5),
+            (
+                "LH26-E-PROG-004", "pathAvailability",
+                GRADE7_DEMAND_PATH_AVAILABILITY,
+            ),
+            (
+                "LH26-E-PROG-004", "integrationContractIds",
+                ["INT-7-DATA-MEDIA-SOCIETY"],
+            ),
+            ("LH26-E-PROG-004", "sequenceEvidenceId", "SE-WRONG"),
+        )
+        for competency_id, field, value in review_mutations:
+            with self.subTest(competency_id=competency_id, field=field):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                next(
+                    item for item in reviews
+                    if item["competencyId"] == competency_id
+                )[field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core08_task22_audit_contract(reviews)
+
+        coverage_payload = copy.deepcopy(self.coverage_payload)
+        next(
+            item for item in coverage_payload["entries"]
+            if item["competencyId"] == "LH26-E-PROG-003"
+        )["coverageStatus"] = "covered"
+        with self.assertRaises(AssertionError):
+            self._assert_core08_task22_audit_contract(
+                self.time_payload["timeReviews"],
+                coverage_payload=coverage_payload,
+            )
+
+        sequence_evidence = [{
+            "id": "SE-LH26-E-PROG-003",
+            "competencyId": "LH26-E-PROG-003",
+        }]
+        with self.assertRaises(AssertionError):
+            self._assert_core08_task22_audit_contract(
+                self.time_payload["timeReviews"],
+                sequence_evidence=sequence_evidence,
+            )
+
+        for variant_id, field, value in (
+            ("GRADE-7-OPTIMIZED-DEMAND", "available", True),
+            ("GRADE-7-ROBUST-DEMAND", "targetUnits", 38),
+        ):
+            with self.subTest(variant=variant_id, field=field):
+                variants = copy.deepcopy(self.repository_annual_variants)
+                variants[variant_id][field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core08_task22_audit_contract(
+                        self.time_payload["timeReviews"],
+                        annual_variants=variants,
+                    )
+
+    def test_core08_task22_audit_contract_invokes_semantic_boundaries(self):
+        module_payload = copy.deepcopy(self.module_payload)
+        module = next(
+            item for item in module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-08"
+        )
+        evidence = next(
+            item for item in module["coverageEvidence"]
+            if item["competencyId"] == "LH26-E-DP-013"
+        )
+        evidence["nonPersonalFollowUp"] += (
+            " Der gemeinsame Abschnitt benötigt Kenntnis der Privatnotiz."
+        )
+        with self.assertRaises(AssertionError):
+            self._assert_core08_task22_audit_contract(
+                self.time_payload["timeReviews"],
+                module_payload=module_payload,
+            )
+
+    def test_core08_task22_rejects_noncanonical_review_text_projection(self):
+        self.assertEqual(len(TASK22_REVIEW_TEXT_PROJECTION_SHA256), 7)
+        for competency_id in TASK22_AUDIT_EXPECTATIONS:
+            with self.subTest(competency_id=competency_id):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                next(
+                    item for item in reviews
+                    if item["competencyId"] == competency_id
+                )["risk"] += " Beliebige Ergänzung."
+                with self.assertRaises(AssertionError):
+                    self._assert_core08_task22_audit_contract(reviews)
+
+    def test_core08_task22_contract_allows_later_review_and_rejects_duplicate(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append({"id": "TR-LATER-TASK22", "competencyId": "LATER-TASK22"})
+        self._assert_core08_task22_audit_contract(reviews)
+
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(copy.deepcopy(reviews[PRE_TASK22_TIME_REVIEW_COUNT]))
+        with self.assertRaises(AssertionError):
+            self._assert_core08_task22_audit_contract(reviews)
+
     def test_repository_time_reviews_match_the_audited_decisions(self):
         prior_reviews = self.time_payload["timeReviews"][
             : len(PRIOR_20_TIME_REVIEW_IDS)
@@ -9672,6 +10543,10 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
         retained_module_ids = {
             contract["moduleId"] for contract in time_model["moduleContracts"]
         }
+        time_model["privacyContracts"] = [
+            contract for contract in time_model["privacyContracts"]
+            if contract["moduleId"] in retained_module_ids
+        ]
         time_model["integrationContracts"] = [
             integration
             for integration in time_model["integrationContracts"]
@@ -10294,6 +11169,11 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
             judgement
             for judgement in intermediate["gradeJudgements"]
             if judgement["grade"] != 7
+        ]
+        intermediate["privacyContracts"] = [
+            contract
+            for contract in intermediate["privacyContracts"]
+            if contract["moduleId"] != "IUM-7-CORE-08"
         ]
         intermediate_module_payload = {
             "modules": [
