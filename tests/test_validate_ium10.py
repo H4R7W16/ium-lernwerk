@@ -3327,21 +3327,44 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 )
 
     def _core07_private_handling_clauses(self, sentence):
+        actor = (
+            r"(?:sie|er|es|man|wir|ihr|lehrkräfte|lehrkraft|"
+            r"lernende|lernenden|schüler|schülerinnen)"
+        )
+        modal_or_passive = (
+            r"(?:dürfen|darf|werden|wird|wurden|wurde|sollen|soll|"
+            r"können|kann|müssen|muss)"
+        )
+        finite_handling_action = (
+            r"(?:"
+            r"(?:ein)?sammel(?:n|e|st|t|te|ten)?|"
+            r"speicher(?:n|e|st|t|te|ten)?|"
+            r"bewert(?:en|e|est|et|ete|eten)|"
+            r"erheb(?:en|e|st|t)|erhob(?:en|st|t)?|"
+            r"übertrag(?:en|e|st|t)|überträg(?:st|t)|"
+            r"übertrug(?:en|st|t)?|"
+            r"beobacht(?:en|e|est|et|ete|eten)|"
+            r"einseh(?:en|e|st|t)|einsieh(?:st|t)|"
+            r"einsah(?:en|st|t)?|"
+            r"anrechn(?:en|e|est|et|ete|eten)|"
+            r"kontrollier(?:en|e|st|t|te|ten)|"
+            r"abgeb(?:en|e|st|t)|abgib(?:st|t)|"
+            r"zugreif(?:en|e|st|t)|greif(?:en|e|st|t)|"
+            r"griff(?:en|st|t)?"
+            r")"
+        )
+        clause_start = (
+            rf"(?:{actor}\b\s+"
+            rf"(?:{modal_or_passive}|{finite_handling_action})\b"
+            rf"|{modal_or_passive}\b"
+            rf"|{finite_handling_action}\b\s+{actor}\b)"
+        )
         clause_break = re.compile(
             r"\s*;\s*"
             r"|\s*,?\s+\b(?:aber|jedoch|sondern|hingegen|"
             r"allerdings|dennoch)\b\s+"
-            r"|\s+\b(?:und|oder)\b\s+(?="
-            r"(?:(?:sie|er|es|man|wir|ihr|lehrkräfte|lernende)\s+)?"
-            r"(?:dürfen|darf|werden|wird|wurden|wurde|sollen|soll|"
-            r"können|kann|müssen|muss)\b"
-            r")"
-            r"|\s*,\s*(?="
-            r"(?:(?:und|oder|doch)\s+)?"
-            r"(?:(?:sie|er|es|man|wir|ihr|lehrkräfte|lernende)\s+)?"
-            r"(?:dürfen|darf|werden|wird|wurden|wurde|sollen|soll|"
-            r"können|kann|müssen|muss)\b"
-            r")"
+            rf"|\s+\b(?:und|oder)\b\s+(?={clause_start})"
+            rf"|\s*,\s*(?:(?:und|oder|doch)\s+)?(?={clause_start})"
         )
         return [
             clause.strip(" ,")
@@ -3352,21 +3375,25 @@ class IUM10TimeReviewTests(unittest.TestCase):
     def _core07_clause_has_handling_action(self, clause):
         handling_action = re.compile(
             r"\b(?:"
-            r"(?:ein)?sammel(?:n|t|st|te|ten)?|"
+            r"(?:ein)?sammel(?:n|e|st|t|te|ten)?|"
             r"(?:ein)?gesammelt|"
-            r"speicher(?:n|t|st|te|ten)?|gespeichert|"
-            r"bewert(?:en|et|est|ete|eten)|"
-            r"erheb(?:en|t|st)|erhoben|"
-            r"übertrag(?:en|e|t|st)|überträg(?:t|st)|"
-            r"beobacht(?:en|et|est|ete|eten)|"
-            r"einseh(?:en|e|t|st)|einsieht|eingesehen|"
-            r"anrechn(?:en|et|est)|angerechnet|"
-            r"kontrollier(?:en|t|st|te|ten)|"
-            r"abgeb(?:en|t)|abgegeben"
+            r"speicher(?:n|e|st|t|te|ten)?|gespeichert|"
+            r"bewert(?:en|e|est|et|ete|eten)|"
+            r"erheb(?:en|e|st|t)|erhob(?:en|st|t)?|erhoben|"
+            r"übertrag(?:en|e|st|t)|überträg(?:st|t)|"
+            r"übertrug(?:en|st|t)?|"
+            r"beobacht(?:en|e|est|et|ete|eten)|"
+            r"einseh(?:en|e|st|t)|einsieh(?:st|t)|"
+            r"einsah(?:en|st|t)?|eingesehen|"
+            r"anrechn(?:en|e|est|et|ete|eten)|angerechnet|"
+            r"kontrollier(?:en|e|st|t|te|ten)|"
+            r"abgeb(?:en|e|st|t)|abgib(?:st|t)|abgegeben|"
+            r"zugriff(?:e|en|s)?|"
+            r"zugreif(?:en|e|st|t)|zugegriffen"
             r")\b"
             r"|\beinsicht\s+(?:nehmen|erhalten)\b"
-            r"|\bzugriff\s+auf\b"
-            r"|\b(?:greift|greifen)\b.{0,40}\bzu\b"
+            r"|\b(?:greif(?:en|e|st|t)|griff(?:en|st|t)?)\b"
+            r".{0,40}\bzu\b"
         )
         return handling_action.search(clause) is not None
 
@@ -4005,6 +4032,42 @@ class IUM10TimeReviewTests(unittest.TestCase):
                         statement
                     )
 
+    def test_core07_rejects_zugreifen_access_forms(self):
+        for statement in (
+            "Lehrkräfte dürfen auf private Inhalte zugreifen.",
+            "Auf private Inhalte dürfen Lehrkräfte zugreifen.",
+        ):
+            with self.subTest(affirmative_private_access=statement):
+                with self.assertRaises(AssertionError):
+                    self._assert_core07_no_affirmative_private_handling(
+                        statement
+                    )
+
+    def test_core07_rejects_later_affirmative_full_verb_clauses(self):
+        for statement in (
+            (
+                "Private Inhalte werden nicht erhoben und Lehrkräfte "
+                "speichern sie."
+            ),
+            (
+                "Private Inhalte werden nicht erhoben, Lehrkräfte "
+                "speichern sie."
+            ),
+            (
+                "Private Inhalte werden nicht erhoben und sie werden "
+                "bewertet."
+            ),
+            (
+                "Private Inhalte werden nicht erhoben und speichern wir "
+                "sie."
+            ),
+        ):
+            with self.subTest(later_affirmative_private_action=statement):
+                with self.assertRaises(AssertionError):
+                    self._assert_core07_no_affirmative_private_handling(
+                        statement
+                    )
+
     def test_core07_accepts_explicitly_negated_private_handling(self):
         for statement in (
             "Private Inhalte dürfen nicht gespeichert werden.",
@@ -4012,6 +4075,13 @@ class IUM10TimeReviewTests(unittest.TestCase):
             (
                 "Private Inhalte werden nicht erhoben, und sie dürfen "
                 "nicht gespeichert werden."
+            ),
+            (
+                "Private Inhalte werden nicht erhoben und Lehrkräfte "
+                "speichern sie nicht."
+            ),
+            (
+                "Lehrkräfte dürfen nicht auf private Inhalte zugreifen."
             ),
         ):
             with self.subTest(negative_private_boundary=statement):
