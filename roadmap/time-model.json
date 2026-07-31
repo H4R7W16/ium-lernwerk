@@ -318,7 +318,14 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-BMB16-GYM-IK-KK-002",
+        "TR-BMB16-GYM-IK-KK-003",
+        "TR-BMB16-GYM-PK-HK-003",
+        "TR-BMB16-GYM-PK-RK-004",
+        "TR-LH26-E-KS-001",
+        "TR-LH26-E-KS-002"
+      ],
       "integrationContractIds": [],
       "schoolDependentSteps": ["actual-local-communication-and-collaboration"],
       "risk": "Technische Trennung von Kommunikations- und Kollaborationskanal kann zusätzliche lokale Ausführungszeit erfordern.",
@@ -2500,6 +2507,146 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Eine bloße Kriteriennennung oder ein abgehakter Quellencheck würde die verlangte Verknüpfung und Weiterverarbeitung unterschreiten; INT-5-RESEARCH-PRODUCTION trägt diese record-spezifische Vorwissens- und Urteilsspur nicht automatisch, solange sie im späteren Informationsprodukt nicht tatsächlich identisch fortgeführt wird.",
       "followUp": "Im Pilot prüfen, ob Vorwissensanker, neue Quelleninformation, ausdrückliche Beziehung und daraus abgeleitete Aussage oder Revision in derselben Dossierspur beobachtbar erreicht werden; die Integration nur bei nachweislich identischer Quellen- und Belegspur nutzen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-KK-002",
+      "competencyId": "BMB16-GYM-IK-KK-002",
+      "moduleId": "IUM-5-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Das tatsächliche lokale Verfassen, Senden oder Teilen, Abrufen und Ausführen eines neutralen Testanhangs beziehungsweise der lokalen Kernfunktion benötigt 15 Minuten angeleitete Praxis im freigegebenen schulischen Kommunikationskanal; eine Simulation der Grundfunktionen reicht nicht aus.",
+      "phaseIds": [
+        "guided-practice"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Lokale Anmeldung, Kanaloberfläche, Anhangsfunktion oder Berechtigungen können technische Anlaufzeit verursachen; Zugangsdaten und Kommunikationsinhalte werden nicht dokumentiert.",
+      "followUp": "Im Pilot die technische Anlaufzeit und die tatsächlich ausgeführten Grundfunktionen ausschließlich aggregiert prüfen und eine neutrale lokale Ersatzaufgabe bereithalten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-KK-003",
+      "competencyId": "BMB16-GYM-IK-KK-003",
+      "moduleId": "IUM-5-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Teilen, Abrufen, Abstimmen und Übernehmen neutraler fiktiver Änderungsvorschläge sind dieselbe tatsächlich ausgeführte lokale Kooperationshandlung und dieselbe Revisionsspur des Kommunikationsleitfadens, deren Ausführungszeit bei LH26-E-KS-001 gezählt wird; es entsteht keine weitere Zeit- oder Produktspur.",
+      "phaseIds": [
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloß beschriebene, demonstrierte oder simulierte Projektkommunikation würde den Operator nutzen trotz vorhandener Leitfadenrevision unterschreiten.",
+      "followUp": "Im Pilot bestätigen, dass alle vier Kooperationsschritte im lokalen Mini-Projekt tatsächlich ausgeführt werden und in derselben nichtpersonalen Revisionsspur sichtbar bleiben.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-PK-HK-003",
+      "competencyId": "BMB16-GYM-PK-HK-003",
+      "moduleId": "IUM-5-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Gemeinsames Prüfen, Bearbeiten, Abstimmen und Revidieren der neutralen fiktiven Fallkarten und Regelvorschläge nutzt dieselbe tatsächliche lokale Medienkooperation und dieselbe Produktspur wie LH26-E-KS-001; dafür wird keine zweite Zeitspur angesetzt.",
+      "phaseIds": [
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine arbeitsteilige Sammlung ohne gemeinsame Bearbeitung, Abstimmung und Revision wäre keine ausgeführte Kooperation und dürfte nicht als absorbiert gelten.",
+      "followUp": "Im Pilot die gemeinsame Bearbeitung und Revision als beobachtbare nichtpersonale Produktspur prüfen, ohne Nachrichten oder vollständige Kommunikationsprotokolle zu speichern.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-PK-RK-004",
+      "competencyId": "BMB16-GYM-PK-RK-004",
+      "moduleId": "IUM-5-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Rechtliche und moralische Grenzübertretungen müssen an fiktiven Fällen ausdrücklich getrennt erkannt und in begründete Regeln für das eigene soziale Verhalten überführt werden; diese Unterscheidungs- und Regelbildungsarbeit benötigt 15 Minuten eigene Begriffszeit im vorhandenen Leitfadenprodukt.",
+      "phaseIds": [
+        "build-concept"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine undifferenzierte Regel- oder Verbotsliste würde weder die rechtlich-moralische Trennung noch die begründete Ableitung für soziales Verhalten sichtbar machen.",
+      "followUp": "Im Pilot prüfen, ob jede neutrale Fallkarte die getrennte Markierung und eine daraus begründete Regelrevision enthält.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-KS-001",
+      "competencyId": "LH26-E-KS-001",
+      "moduleId": "IUM-5-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Der vor Ort freigegebene schulische Kommunikationskanal und die reale Kollaborationsmöglichkeit werden im selben Mini-Projekt tatsächlich zum Teilen, Abrufen, gemeinsamen Bearbeiten und Übernehmen neutraler Beiträge genutzt; dafür sind 20 Minuten eigenständige lokale Ausführungszeit enthalten, eine Simulation wird nicht angerechnet.",
+      "phaseIds": [
+        "independent-action-product"
+      ],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Technisch getrennte Kommunikations- und Kollaborationswerkzeuge oder lokale Zugangsprobleme können die ausgewiesene Ausführungszeit verdrängen; Zugangsdaten bleiben undokumentiert.",
+      "followUp": "Vor dem Pilot beide lokal freigegebenen Funktionen festlegen und aggregiert prüfen, ob Teilen, Abrufen, gemeinsames Bearbeiten und Übernehmen tatsächlich innerhalb der 20 Minuten gelingen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-KS-002",
+      "competencyId": "LH26-E-KS-002",
+      "moduleId": "IUM-5-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Mehrere Perspektiven und Folgen eines fiktiven digitalen Konflikts werden gemeinsam reflektiert und diskutiert; respektvolle Reaktionen und passende Hilfewege werden geprüft und die Fallkarte sowie die Regeln anschließend sichtbar revidiert. Diese Reflexions-, Diskussions- und Revisionsarbeit benötigt 20 Minuten.",
+      "phaseIds": [
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine kurze Meinungsabfrage ohne Perspektivenwechsel, begründete Diskussion und sichtbare Revision würde Konfliktfolgen, respektvolle Reaktion und Hilfeweg nur erwähnen.",
+      "followUp": "Im Pilot an neutralen fiktiven Fällen prüfen, ob mehrere Perspektiven und Folgen, eine respektvolle Reaktion, ein passender Hilfeweg und die daraus entstandene gemeinsame Revision sichtbar erreicht werden.",
       "status": "working"
     },
     {

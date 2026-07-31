@@ -26,10 +26,16 @@ TIME_AUDIT_DECISIONS = {
     "BMB16-GYM-IK-GM-001": "additional-time",
     "BMB16-GYM-IK-GM-002": "additional-time",
     "BMB16-GYM-IK-GM-003": "additional-time",
+    "BMB16-GYM-IK-KK-002": "additional-time",
+    "BMB16-GYM-IK-KK-003": "absorbed",
     "BMB16-GYM-PK-SK-003": "absorbed",
+    "BMB16-GYM-PK-HK-003": "absorbed",
+    "BMB16-GYM-PK-RK-004": "additional-time",
     "LH26-E-DA-004": "additional-time",
     "LH26-E-DP-001": "additional-time",
     "LH26-E-ID-009": "absorbed",
+    "LH26-E-KS-001": "additional-time",
+    "LH26-E-KS-002": "additional-time",
     "LH26-E-PROG-001": "unresolved",
 }
 
@@ -86,6 +92,173 @@ EXPECTED_ID009_IDENTICAL_TRAIL_FOLLOW_UP = (
     "derselben Dossierspur beobachtbar erreicht werden; die Integration nur "
     "bei nachweislich identischer Quellen- und Belegspur nutzen."
 )
+
+CORE03_AUDIT_EXPECTATIONS = {
+    "BMB16-GYM-IK-KK-002": {
+        "decision": "additional-time",
+        "additionalMinutes": 15,
+        "phaseIds": ["guided-practice"],
+        "rationale": (
+            "Das tatsächliche lokale Verfassen, Senden oder Teilen, Abrufen "
+            "und Ausführen eines neutralen Testanhangs beziehungsweise der "
+            "lokalen Kernfunktion benötigt 15 Minuten angeleitete Praxis im "
+            "freigegebenen schulischen Kommunikationskanal; eine Simulation "
+            "der Grundfunktionen reicht nicht aus."
+        ),
+        "risk": (
+            "Lokale Anmeldung, Kanaloberfläche, Anhangsfunktion oder "
+            "Berechtigungen können technische Anlaufzeit verursachen; "
+            "Zugangsdaten und Kommunikationsinhalte werden nicht dokumentiert."
+        ),
+        "followUp": (
+            "Im Pilot die technische Anlaufzeit und die tatsächlich "
+            "ausgeführten Grundfunktionen ausschließlich aggregiert prüfen "
+            "und eine neutrale lokale Ersatzaufgabe bereithalten."
+        ),
+    },
+    "BMB16-GYM-IK-KK-003": {
+        "decision": "absorbed",
+        "additionalMinutes": 0,
+        "phaseIds": [
+            "independent-action-product",
+            "review-revise-transfer",
+        ],
+        "rationale": (
+            "Teilen, Abrufen, Abstimmen und Übernehmen neutraler fiktiver "
+            "Änderungsvorschläge sind dieselbe tatsächlich ausgeführte "
+            "lokale Kooperationshandlung und dieselbe Revisionsspur des "
+            "Kommunikationsleitfadens, deren Ausführungszeit bei "
+            "LH26-E-KS-001 gezählt wird; es entsteht keine weitere "
+            "Zeit- oder Produktspur."
+        ),
+        "risk": (
+            "Eine bloß beschriebene, demonstrierte oder simulierte "
+            "Projektkommunikation würde den Operator nutzen trotz vorhandener "
+            "Leitfadenrevision unterschreiten."
+        ),
+        "followUp": (
+            "Im Pilot bestätigen, dass alle vier Kooperationsschritte im "
+            "lokalen Mini-Projekt tatsächlich ausgeführt werden und in "
+            "derselben nichtpersonalen Revisionsspur sichtbar bleiben."
+        ),
+    },
+    "BMB16-GYM-PK-HK-003": {
+        "decision": "absorbed",
+        "additionalMinutes": 0,
+        "phaseIds": [
+            "independent-action-product",
+            "review-revise-transfer",
+        ],
+        "rationale": (
+            "Gemeinsames Prüfen, Bearbeiten, Abstimmen und Revidieren der "
+            "neutralen fiktiven Fallkarten und Regelvorschläge nutzt dieselbe "
+            "tatsächliche lokale Medienkooperation und dieselbe Produktspur "
+            "wie LH26-E-KS-001; dafür wird keine zweite Zeitspur angesetzt."
+        ),
+        "risk": (
+            "Eine arbeitsteilige Sammlung ohne gemeinsame Bearbeitung, "
+            "Abstimmung und Revision wäre keine ausgeführte Kooperation und "
+            "dürfte nicht als absorbiert gelten."
+        ),
+        "followUp": (
+            "Im Pilot die gemeinsame Bearbeitung und Revision als "
+            "beobachtbare nichtpersonale Produktspur prüfen, ohne Nachrichten "
+            "oder vollständige Kommunikationsprotokolle zu speichern."
+        ),
+    },
+    "BMB16-GYM-PK-RK-004": {
+        "decision": "additional-time",
+        "additionalMinutes": 15,
+        "phaseIds": ["build-concept"],
+        "rationale": (
+            "Rechtliche und moralische Grenzübertretungen müssen an "
+            "fiktiven Fällen ausdrücklich getrennt erkannt und in begründete "
+            "Regeln für das eigene soziale Verhalten überführt werden; diese "
+            "Unterscheidungs- und Regelbildungsarbeit benötigt 15 Minuten "
+            "eigene Begriffszeit im vorhandenen Leitfadenprodukt."
+        ),
+        "risk": (
+            "Eine undifferenzierte Regel- oder Verbotsliste würde weder die "
+            "rechtlich-moralische Trennung noch die begründete Ableitung für "
+            "soziales Verhalten sichtbar machen."
+        ),
+        "followUp": (
+            "Im Pilot prüfen, ob jede neutrale Fallkarte die getrennte "
+            "Markierung und eine daraus begründete Regelrevision enthält."
+        ),
+    },
+    "LH26-E-KS-001": {
+        "decision": "additional-time",
+        "additionalMinutes": 20,
+        "phaseIds": ["independent-action-product"],
+        "rationale": (
+            "Der vor Ort freigegebene schulische Kommunikationskanal und die "
+            "reale Kollaborationsmöglichkeit werden im selben Mini-Projekt "
+            "tatsächlich zum Teilen, Abrufen, gemeinsamen Bearbeiten und "
+            "Übernehmen neutraler Beiträge genutzt; dafür sind 20 Minuten "
+            "eigenständige lokale Ausführungszeit enthalten, eine Simulation "
+            "wird nicht angerechnet."
+        ),
+        "risk": (
+            "Technisch getrennte Kommunikations- und "
+            "Kollaborationswerkzeuge oder lokale Zugangsprobleme können die "
+            "ausgewiesene Ausführungszeit verdrängen; Zugangsdaten bleiben "
+            "undokumentiert."
+        ),
+        "followUp": (
+            "Vor dem Pilot beide lokal freigegebenen Funktionen festlegen und "
+            "aggregiert prüfen, ob Teilen, Abrufen, gemeinsames Bearbeiten "
+            "und Übernehmen tatsächlich innerhalb der 20 Minuten gelingen."
+        ),
+    },
+    "LH26-E-KS-002": {
+        "decision": "additional-time",
+        "additionalMinutes": 20,
+        "phaseIds": ["review-revise-transfer"],
+        "rationale": (
+            "Mehrere Perspektiven und Folgen eines fiktiven digitalen "
+            "Konflikts werden gemeinsam reflektiert und diskutiert; "
+            "respektvolle Reaktionen und passende Hilfewege werden geprüft "
+            "und die Fallkarte sowie die Regeln anschließend sichtbar "
+            "revidiert. Diese Reflexions-, Diskussions- und Revisionsarbeit "
+            "benötigt 20 Minuten."
+        ),
+        "risk": (
+            "Eine kurze Meinungsabfrage ohne Perspektivenwechsel, begründete "
+            "Diskussion und sichtbare Revision würde Konfliktfolgen, "
+            "respektvolle Reaktion und Hilfeweg nur erwähnen."
+        ),
+        "followUp": (
+            "Im Pilot an neutralen fiktiven Fällen prüfen, ob mehrere "
+            "Perspektiven und Folgen, eine respektvolle Reaktion, ein "
+            "passender Hilfeweg und die daraus entstandene gemeinsame "
+            "Revision sichtbar erreicht werden."
+        ),
+    },
+}
+
+CORE03_REGULAR_PHASE_INCREMENTS = {
+    "guided-practice": (
+        15,
+        "Fiktive Nachrichten und Konfliktfälle im lokalen Kanal angeleitet "
+        "prüfen und überarbeiten.",
+    ),
+    "independent-action-product": (
+        20,
+        "Das zentrale Lernprodukt eigenständig erstellen: "
+        "Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, "
+        "Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+    ),
+    "review-revise-transfer": (
+        5,
+        "Leitfaden in kooperativer Anwendung prüfen, revidieren und "
+        "übertragen.",
+    ),
+    "shared-consolidation": (
+        5,
+        "Kommunikationsregeln und Hilfewege gemeinsam sichern.",
+    ),
+}
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -1938,6 +2111,143 @@ class IUM10TimeReviewTests(unittest.TestCase):
             EXPECTED_ID009_IDENTICAL_TRAIL_FOLLOW_UP,
         )
 
+    def _assert_core03_repository_contract(
+        self,
+        reviews_by_competency_id,
+        module_contracts,
+    ):
+        core03_contract = module_contracts["IUM-5-CORE-03"]
+        self.assertEqual(
+            core03_contract["timeReviewIds"],
+            [
+                f"TR-{competency_id}"
+                for competency_id in CORE03_AUDIT_EXPECTATIONS
+            ],
+        )
+        self.assertEqual(
+            core03_contract["schoolDependentSteps"],
+            ["actual-local-communication-and-collaboration"],
+        )
+        self.assertEqual(
+            core03_contract["centralLearningAction"],
+            "Analoge und digitale Situationen vergleichen, Nachrichten "
+            "adressatengerecht verfassen, private Daten schützen und "
+            "Konfliktfolgen an fiktiven Fällen abwägen.",
+        )
+
+        expected_paths = [
+            "GRADE-5-BASELINE",
+            "GRADE-5-REGULAR",
+            "GRADE-5-EXTENDED",
+        ]
+        for competency_id, expected in CORE03_AUDIT_EXPECTATIONS.items():
+            with self.subTest(core03_competency_id=competency_id):
+                review = reviews_by_competency_id[competency_id]
+                self.assertEqual(
+                    {
+                        "decision": review["decision"],
+                        "additionalMinutes": review["additionalMinutes"],
+                        "phaseIds": review["phaseIds"],
+                        "rationale": review["rationale"],
+                        "risk": review["risk"],
+                        "followUp": review["followUp"],
+                    },
+                    expected,
+                )
+                self.assertEqual(review["moduleId"], "IUM-5-CORE-03")
+                self.assertEqual(
+                    review["sourceTimeImpactLevel"],
+                    "review-required",
+                )
+                self.assertEqual(review["integrationContractIds"], [])
+                self.assertIsNone(review["sequenceEvidenceId"])
+                self.assertEqual(review["pathAvailability"], expected_paths)
+
+        budgets_by_path = {
+            budget["pathId"]: budget
+            for budget in core03_contract["pathBudgets"]
+        }
+        baseline_phases = {
+            phase["phaseId"]: phase
+            for phase in budgets_by_path["baseline"]["phaseBudgets"]
+        }
+        regular_phases = {
+            phase["phaseId"]: phase
+            for phase in budgets_by_path["regular"]["phaseBudgets"]
+        }
+        self.assertEqual(
+            {
+                phase_id: (
+                    regular_phases[phase_id]["minutes"]
+                    - baseline_phases[phase_id]["minutes"],
+                    regular_phases[phase_id]["learningFunction"],
+                )
+                for phase_id in regular_phases
+                if (
+                    regular_phases[phase_id]["minutes"]
+                    != baseline_phases[phase_id]["minutes"]
+                )
+            },
+            CORE03_REGULAR_PHASE_INCREMENTS,
+        )
+        self.assertEqual(
+            sum(
+                increment
+                for increment, _learning_function
+                in CORE03_REGULAR_PHASE_INCREMENTS.values()
+            ),
+            45,
+        )
+
+        core03_module = next(
+            module
+            for module in self.module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-03"
+        )
+        evidence_by_competency_id = {
+            evidence["competencyId"]: evidence
+            for evidence in core03_module["coverageEvidence"]
+        }
+        self.assertEqual(
+            {
+                competency_id: (
+                    evidence_by_competency_id[competency_id]["mode"],
+                    evidence_by_competency_id[competency_id]["executionType"],
+                    evidence_by_competency_id[competency_id][
+                        "productVisibility"
+                    ],
+                )
+                for competency_id in (
+                    "BMB16-GYM-IK-KK-002",
+                    "BMB16-GYM-IK-KK-003",
+                    "BMB16-GYM-PK-HK-003",
+                    "LH26-E-KS-001",
+                )
+            },
+            {
+                "BMB16-GYM-IK-KK-002": (
+                    "school-context",
+                    "actual-local-use",
+                    "teacher-observable",
+                ),
+                "BMB16-GYM-IK-KK-003": (
+                    "school-context",
+                    "actual-local-use",
+                    "teacher-observable",
+                ),
+                "BMB16-GYM-PK-HK-003": (
+                    "school-context",
+                    "actual-local-use",
+                    "teacher-observable",
+                ),
+                "LH26-E-KS-001": (
+                    "school-context",
+                    "actual-local-use",
+                    "teacher-observable",
+                ),
+            },
+        )
+
     def test_id009_repository_contract_rejects_generic_audit_text(self):
         result = validate_time_reviews(
             self.time_payload["timeReviews"],
@@ -2059,6 +2369,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ),
         )
         self._assert_id009_repository_contract(
+            reviews_by_competency_id,
+            self.repository_module_contracts,
+        )
+        self._assert_core03_repository_contract(
             reviews_by_competency_id,
             self.repository_module_contracts,
         )
