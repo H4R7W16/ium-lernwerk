@@ -1460,7 +1460,7 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": ["INF7-16-GYM-PK-KK-002", "INF7-16-GYM-PK-MI-003", "INF7-16-GYM-PK-SV-002"],
+      "timeReviewIds": ["TR-INF7-16-GYM-PK-KK-002", "TR-INF7-16-GYM-PK-MI-003", "TR-INF7-16-GYM-PK-SV-002"],
       "integrationContractIds": ["INT-7-PROGRAMMING"],
       "schoolDependentSteps": ["local-programming-teamwork-and-test-environment"],
       "risk": "Die optimierte Programmierzeit setzt stabile lokale Ausführung, vorbereitete Teamrollen und die direkte Wiederaufnahme des Traceprodukts voraus.",
@@ -3505,6 +3505,69 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Nur Zahlen zu typisieren, Typnamen ohne Begründung zu nennen oder Wert und Datentyp gleichzusetzen würde den Orientierungsrecord unterschreiten. Derselbe Trace allein macht die Typbegründung nicht zeitneutral.",
       "followUp": "Im Pilot innerhalb der 15 Minuten für Werte und Ausdrücke alle drei Datentypen sowie ihre Rollen als Eingabe, Zwischenergebnis, Bedingung und Ausgabe sichtbar und begründet zuordnen; die roten Bedarfsszenarien bleiben nicht verfügbar.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-KK-002",
+      "competencyId": "INF7-16-GYM-PK-KK-002",
+      "moduleId": "IUM-7-CORE-04",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die zielgruppenorientierte Erklärspur benötigt 25 Minuten eigene Produkt- und Revisionszeit: Für eine konkret benannte andere Lerngruppe der Klasse 7 ohne Programmvorwissen hält jede lernende Person eine eigene zielgruppenbezogene Erklärung oder begründete Anpassungsentscheidung fest. Eine Adressaten- und Vorwissensnotiz begründet eine Anpassung von Erklärungstiefe oder Beispiel; vier sichtbare Abschnitte zu Sachverhalt, eigener Idee, Lösungsweg und Ergebnis, ein fachlich korrektes Glossar zu Algorithmus, Variable, Verzweigung, Schleife, Testfall und Fehlerhypothese sowie mindestens ein programmbezogenes Beispiel entstehen im gemeinsamen Teamplan, kommentierten Programm und in der Präsentation. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; dieselbe Produktoberfläche begründet für KK-002 weder recordbezogene Integration noch Absorption. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product", "review-revise-transfer"],
+      "additionalMinutes": 25,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Allgemein verständliche Sprache ohne konkrete Zielgruppe und Vorwissensbezug, eine unvollständige Viererstruktur, ein fehlendes oder fachlich falsches Glossar, ein fehlendes programmbezogenes Beispiel oder die bloße Präsentation des Teamprodukts unterschreiten die Fachhandlung. Wenn ein Teammitglied die Erklärung für alle erledigt oder die 90 gemeinsamen Programmierminuten erneut angerechnet werden, fehlen individuell zurechenbare Fachhandlung und recordeigene Zeit.",
+      "followUp": "Im Pilot innerhalb der 25 Minuten für jede lernende Person eine eigene Erklärung oder begründete Anpassungsentscheidung beobachten und im gemeinsamen Artefakt eindeutig zuordnen; außerdem Adressaten- und Vorwissensnotiz, Anpassung, alle vier Abschnitte, sechs Glossarbegriffe und Beispiel prüfen. Dafür werden weder Personenprofil noch automatisches Scoring angelegt; optimized, robust und historical-minimum bleiben nicht verfügbare rote Bedarfsszenarien.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-MI-003",
+      "competencyId": "INF7-16-GYM-PK-MI-003",
+      "moduleId": "IUM-7-CORE-04",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die Abstraktionsspur benötigt 25 Minuten eigene angeleitete Produktzeit: Jede lernende Person vergleicht mindestens zwei konkrete Fälle oder Testeingaben, trifft eine eigene Invariante-/Variationsentscheidung, trennt invariante, charakteristische und verallgemeinerbare Bestandteile von Variation oder Zufallsdetails, formuliert daraus ein verallgemeinertes Modell oder eine Teillösung und wendet diese auf beide Ausgangsfälle und einen weiteren Prüffall an. Die Ergebnisse dürfen im gemeinsamen Teamplan, kommentierten Programm und in der Präsentation liegen, bleiben dort aber eindeutig zurechenbar. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; derselbe Fall oder dasselbe Produkt begründet für MI-003 weder recordbezogene Integration noch Absorption. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["guided-practice", "independent-action-product"],
+      "additionalMinutes": 25,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Bloßes Weglassen von Details, nur ein betrachteter Fall, eine Verallgemeinerung ohne Trennung von Invariante und Variation oder ohne Rückanwendung auf beide Ausgangsfälle und einen weiteren Prüffall unterschreiten die Abstraktion. Wenn ein Teammitglied die Invariante-/Variationsentscheidung und Rückanwendung für alle erledigt oder die gemeinsame Programmierzeit doppelt zählt, fehlt die individuell zurechenbare Fachhandlung.",
+      "followUp": "Im Pilot innerhalb der 25 Minuten je lernender Person Fallvergleich, eigene Invariante-/Variationsentscheidung, verallgemeinertes Modell oder Teillösung sowie die Rückanwendung auf beide Ausgangsfälle und einen weiteren Prüffall beobachten oder im gemeinsamen Artefakt eindeutig zuordnen. Kein Personenprofil und kein automatisches Scoring anlegen; die drei roten Bedarfsszenarien bleiben nicht verfügbar.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-SV-002",
+      "competencyId": "INF7-16-GYM-PK-SV-002",
+      "moduleId": "IUM-7-CORE-04",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die Namensrefaktorierung benötigt 20 Minuten eigene Produkt- und Revisionszeit: Das Team benennt mindestens zwei tatsächlich verwendete Projektdateien nach Rolle und Zweck aussagekräftig oder benennt sie entsprechend um und refaktoriert mehrere tatsächlich verwendete Programmbezeichner einschließlich Variablen und, je nach Umgebung, Funktionen oder Blöcke nach einer dokumentierten Namenskonvention. Die Vorher-Nachher-Tabelle nennt alten und neuen Namen, Rolle oder Zweck und Konvention; gespeicherter Projektbestand und Programm zeigen die tatsächliche Umbenennung. Jede lernende Person führt mindestens eine Datei- oder Programmbezeichner-Umbenennung tatsächlich aus und begründet sie, während das Teamprodukt insgesamt die vollständige Recordbreite erfüllt. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; dasselbe Programm begründet für SV-002 weder recordbezogene Integration noch Absorption. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product", "review-revise-transfer"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine Clean-Code-Behauptung oder reine Namenstabelle ohne tatsächlich gespeicherte Umbenennung, eine fehlende Namenskonvention oder nichtssagende Namen wie x, test1 und final_final unterschreiten den Record. Wenn ein Teammitglied alle Umbenennungen für die anderen erledigt oder dieselbe Programmdatei als Integrationsbeleg dient, fehlen individuell zurechenbare Fachhandlung und recordeigene Zeit.",
+      "followUp": "Im Pilot innerhalb der 20 Minuten mindestens zwei tatsächlich verwendete Projektdateien, mehrere Programmbezeichner einschließlich Variablen und Funktionen oder Blöcken, dokumentierte Namenskonvention, vollständige Vorher-Nachher-Tabelle und gespeicherte Umbenennungen prüfen. Je lernender Person mindestens eine tatsächlich ausgeführte und begründete Umbenennung beobachten oder eindeutig zuordnen; weder Personenprofil noch automatisches Scoring anlegen und kein grünes 38-UE-Signal ableiten.",
       "status": "working"
     }
   ],

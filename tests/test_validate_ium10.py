@@ -76,6 +76,9 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-ALG-007": "integrated",
     "LH26-E-ALG-008": "additional-time",
     "LH26-E-ALG-009": "additional-time",
+    "INF7-16-GYM-PK-KK-002": "additional-time",
+    "INF7-16-GYM-PK-MI-003": "additional-time",
+    "INF7-16-GYM-PK-SV-002": "additional-time",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -646,6 +649,112 @@ TASK19_INTEGRATION_CONTRACT_SHA256 = (
 )
 TASK19_CORE03_STABLE_FIELDS_SHA256 = (
     "a2f4d566b6b2721fc59228f9e4c49ff8dc4db93aed27c46353feaaf11ad8490a"
+)
+PRE_TASK20_TIME_REVIEW_COUNT = 46
+PRE_TASK20_TIME_REVIEWS_SHA256 = (
+    "8f6b0b7c43badfd9d7989ec78b75688de23d963adc0c2ea526e7faf51ae903f6"
+)
+TASK20_AUDIT_EXPECTATIONS = {
+    "INF7-16-GYM-PK-KK-002": dict(
+        decision="additional-time", additionalMinutes=25,
+        phaseIds=["independent-action-product", "review-revise-transfer"],
+        integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+    "INF7-16-GYM-PK-MI-003": dict(
+        decision="additional-time", additionalMinutes=25,
+        phaseIds=["guided-practice", "independent-action-product"],
+        integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+    "INF7-16-GYM-PK-SV-002": dict(
+        decision="additional-time", additionalMinutes=20,
+        phaseIds=["independent-action-product", "review-revise-transfer"],
+        integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+}
+TASK20_REQUIRED_TEXT = {
+    "INF7-16-GYM-PK-KK-002": (
+        "konkret benannte andere Lerngruppe der Klasse 7 ohne Programmvorwissen",
+        "Adressaten- und Vorwissensnotiz",
+        "Anpassung von Erklärungstiefe oder Beispiel",
+        "vier sichtbare Abschnitte", "Sachverhalt", "eigener Idee",
+        "Lösungsweg", "Ergebnis", "fachlich korrektes Glossar",
+        "Algorithmus", "Variable", "Verzweigung", "Schleife",
+        "Testfall", "Fehlerhypothese", "programmbezogenes Beispiel",
+        "jede lernende Person", "eigene zielgruppenbezogene Erklärung",
+        "begründete Anpassungsentscheidung",
+    ),
+    "INF7-16-GYM-PK-MI-003": (
+        "mindestens zwei konkrete Fälle oder Testeingaben",
+        "eigene Invariante-/Variationsentscheidung", "invariante",
+        "charakteristische", "verallgemeinerbare Bestandteile",
+        "Variation oder Zufallsdetails", "verallgemeinertes Modell",
+        "Teillösung", "beide Ausgangsfälle", "weiteren Prüffall",
+        "Jede lernende Person",
+    ),
+    "INF7-16-GYM-PK-SV-002": (
+        "mindestens zwei tatsächlich verwendete Projektdateien",
+        "Rolle und Zweck", "mehrere tatsächlich verwendete Programmbezeichner",
+        "Variablen", "Funktionen oder Blöcke", "dokumentierten Namenskonvention",
+        "Vorher-Nachher-Tabelle", "alten und neuen Namen",
+        "gespeicherter Projektbestand und Programm",
+        "tatsächliche Umbenennung", "Jede lernende Person",
+        "mindestens eine Datei- oder Programmbezeichner-Umbenennung",
+    ),
+}
+TASK20_FORBIDDEN_TEXT = {
+    "INF7-16-GYM-PK-KK-002": (
+        "allgemein verständliche sprache genügt",
+        "zielgruppe und vorwissen sind entbehrlich",
+        "viererstruktur entfällt", "glossar oder beispiel entfallen",
+        "präsentation des teamprodukts genügt",
+        "ein teammitglied erledigt die erklärung für alle",
+        "dasselbe teamprodukt begründet recordbezogene integration",
+        "die 90 minuten werden für kk-002 erneut angerechnet",
+    ),
+    "INF7-16-GYM-PK-MI-003": (
+        "details nur löschen genügt", "ein fall genügt",
+        "invariante und variation müssen nicht getrennt werden",
+        "rückanwendung entfällt",
+        "ein teammitglied erledigt die abstraktion für alle",
+        "derselbe fall begründet recordbezogene integration",
+        "die 90 minuten werden für mi-003 erneut angerechnet",
+    ),
+    "INF7-16-GYM-PK-SV-002": (
+        "clean-code-behauptung genügt",
+        "namenstabelle ohne umbenennung genügt",
+        "namenskonvention entfällt",
+        "x, test1 und final_final sind aussagekräftig",
+        "ein teammitglied benennt für alle um",
+        "dasselbe programm begründet recordbezogene integration",
+        "die 90 minuten werden für sv-002 erneut angerechnet",
+    ),
+}
+TASK20_REVIEW_TEXT_PROJECTION_SHA256 = {
+    "INF7-16-GYM-PK-KK-002": (
+        "2c57a058d6e8d8756a63ee35ff337e4ce7e24c10351116f4c1ad804c87ed7e1f"
+    ),
+    "INF7-16-GYM-PK-MI-003": (
+        "4af02921932096de8f1273cb903a3988e9ac34d09f903f43fd5809db6a5bc601"
+    ),
+    "INF7-16-GYM-PK-SV-002": (
+        "b01eee857e465660c697dd8920a6ab47e1c7b6ada948bed5c382258c59780f1c"
+    ),
+}
+TASK20_INTEGRATION_FORBIDDEN_TEXT = (
+    "INF7-16-GYM-PK-KK-002", "INF7-16-GYM-PK-MI-003",
+    "INF7-16-GYM-PK-SV-002", "Zielgruppenkommunikation",
+    "Abstraktionshandlung", "Namensrefaktorierung",
+    "gemeinsame Präsentation trägt die drei Zielrecords",
+    "Teamarbeit ersetzt die individuelle Fachhandlung",
+)
+TASK20_INTEGRATION_CONTRACT_SHA256 = (
+    "693e68feee70291680a324372235ff2fb03d6eddab76941354a26bc47f13911c"
+)
+TASK20_CORE04_STABLE_FIELDS_SHA256 = (
+    "c814b012ffc480cf88881dc6d52247c1dd3115db5404f1114fa2c6c60777d82d"
 )
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
@@ -1637,7 +1746,7 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "46 registered time reviews (partial baseline)\n",
+            "49 registered time reviews (partial baseline)\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -6491,6 +6600,68 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         return phase_minutes
 
+    def _assert_grade7_audit_context(
+        self,
+        *,
+        expected_time_review_ids,
+        module_id,
+        integration_id,
+        core_stable_sha256,
+        integration_contract_sha256,
+        annual_variants,
+        integration_contracts,
+    ):
+        core_contract = self.repository_module_contracts[module_id]
+        self.assertEqual(
+            core_contract["timeReviewIds"],
+            expected_time_review_ids,
+        )
+        stable_fields = tuple(
+            field for field in core_contract if field != "timeReviewIds"
+        )
+        self._assert_canonical_projection(
+            core_contract,
+            fields=stable_fields,
+            expected_sha256=core_stable_sha256,
+        )
+        phase_minutes = self._assert_grade7_demand_scenarios(
+            annual_variants,
+            core_contract,
+            module_id=module_id,
+            integration_id=integration_id,
+        )
+        grade7_variants = [
+            item for item in annual_variants.values() if item["grade"] == 7
+        ]
+        self.assertEqual(
+            self._canonical_sha256(grade7_variants),
+            TASK18_GRADE7_VARIANTS_SHA256,
+        )
+        grade7_judgement = next(
+            item
+            for item in self.time_payload["gradeJudgements"]
+            if item["grade"] == 7
+        )
+        self.assertEqual(
+            (
+                grade7_judgement["timeFeasibilityStatus"],
+                grade7_judgement["annualVariantIds"],
+            ),
+            ("red", GRADE7_DEMAND_PATH_AVAILABILITY),
+        )
+        self.assertEqual(
+            self._canonical_sha256(grade7_judgement),
+            TASK18_GRADE7_JUDGEMENT_SHA256,
+        )
+        integration = integration_contracts[integration_id]
+        self._assert_canonical_projection(
+            integration,
+            fields=tuple(integration),
+            expected_sha256=integration_contract_sha256,
+            exact_fields=True,
+        )
+        return core_contract, phase_minutes, integration
+
     def _assert_grade7_task18_demand_scenarios(
         self,
         annual_variants,
@@ -6576,50 +6747,18 @@ class IUM10TimeReviewTests(unittest.TestCase):
             expectations=TASK18_AUDIT_EXPECTATIONS,
             prior_sha256=PRE_TASK18_TIME_REVIEWS_SHA256,
         )
-        core_contract = self.repository_module_contracts["IUM-7-CORE-01"]
-        self.assertEqual(core_contract["timeReviewIds"], expected_ids)
-        stable_fields = tuple(
-            field for field in core_contract if field != "timeReviewIds"
-        )
-        self._assert_canonical_projection(
-            core_contract,
-            fields=stable_fields,
-            expected_sha256=TASK18_CORE01_STABLE_FIELDS_SHA256,
-        )
-        phase_minutes = self._assert_grade7_task18_demand_scenarios(
-            annual_variants,
-            core_contract,
-        )
-        grade7_variants = [
-            item for item in annual_variants.values() if item["grade"] == 7
-        ]
-        self.assertEqual(
-            self._canonical_sha256(grade7_variants),
-            TASK18_GRADE7_VARIANTS_SHA256,
-        )
-        grade7_judgement = next(
-            item
-            for item in self.time_payload["gradeJudgements"]
-            if item["grade"] == 7
-        )
-        self.assertEqual(
-            (
-                grade7_judgement["timeFeasibilityStatus"],
-                grade7_judgement["annualVariantIds"],
-            ),
-            ("red", GRADE7_DEMAND_PATH_AVAILABILITY),
-        )
-        self.assertEqual(
-            self._canonical_sha256(grade7_judgement),
-            TASK18_GRADE7_JUDGEMENT_SHA256,
-        )
-
-        integration = integration_contracts["INT-7-DATA-CODING"]
-        self._assert_canonical_projection(
-            integration,
-            fields=tuple(integration),
-            expected_sha256=TASK18_INTEGRATION_CONTRACT_SHA256,
-            exact_fields=True,
+        core_contract, phase_minutes, integration = (
+            self._assert_grade7_audit_context(
+                expected_time_review_ids=expected_ids,
+                module_id="IUM-7-CORE-01",
+                integration_id="INT-7-DATA-CODING",
+                core_stable_sha256=TASK18_CORE01_STABLE_FIELDS_SHA256,
+                integration_contract_sha256=(
+                    TASK18_INTEGRATION_CONTRACT_SHA256
+                ),
+                annual_variants=annual_variants,
+                integration_contracts=integration_contracts,
+            )
         )
         self.assertEqual(
             (
@@ -7018,50 +7157,18 @@ class IUM10TimeReviewTests(unittest.TestCase):
             expectations=TASK19_AUDIT_EXPECTATIONS,
             prior_sha256=PRE_TASK19_TIME_REVIEWS_SHA256,
         )
-        core_contract = self.repository_module_contracts["IUM-7-CORE-03"]
-        self.assertEqual(core_contract["timeReviewIds"], expected_ids)
-        stable_fields = tuple(
-            field for field in core_contract if field != "timeReviewIds"
-        )
-        self._assert_canonical_projection(
-            core_contract,
-            fields=stable_fields,
-            expected_sha256=TASK19_CORE03_STABLE_FIELDS_SHA256,
-        )
-        phase_minutes = self._assert_grade7_task19_demand_scenarios(
-            annual_variants,
-            core_contract,
-        )
-        grade7_variants = [
-            item for item in annual_variants.values() if item["grade"] == 7
-        ]
-        self.assertEqual(
-            self._canonical_sha256(grade7_variants),
-            TASK18_GRADE7_VARIANTS_SHA256,
-        )
-        grade7_judgement = next(
-            item
-            for item in self.time_payload["gradeJudgements"]
-            if item["grade"] == 7
-        )
-        self.assertEqual(
-            (
-                grade7_judgement["timeFeasibilityStatus"],
-                grade7_judgement["annualVariantIds"],
-            ),
-            ("red", GRADE7_DEMAND_PATH_AVAILABILITY),
-        )
-        self.assertEqual(
-            self._canonical_sha256(grade7_judgement),
-            TASK18_GRADE7_JUDGEMENT_SHA256,
-        )
-
-        integration = integration_contracts["INT-7-PROGRAMMING"]
-        self._assert_canonical_projection(
-            integration,
-            fields=tuple(integration),
-            expected_sha256=TASK19_INTEGRATION_CONTRACT_SHA256,
-            exact_fields=True,
+        core_contract, phase_minutes, integration = (
+            self._assert_grade7_audit_context(
+                expected_time_review_ids=expected_ids,
+                module_id="IUM-7-CORE-03",
+                integration_id="INT-7-PROGRAMMING",
+                core_stable_sha256=TASK19_CORE03_STABLE_FIELDS_SHA256,
+                integration_contract_sha256=(
+                    TASK19_INTEGRATION_CONTRACT_SHA256
+                ),
+                annual_variants=annual_variants,
+                integration_contracts=integration_contracts,
+            )
         )
         self.assertEqual(
             (
@@ -7368,6 +7475,455 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "independent-action-product": 55,
                     "review-revise-transfer": 40,
                     "build-concept": 25,
+                },
+            )
+
+    def _assert_grade7_task20_demand_scenarios(
+        self,
+        annual_variants,
+        core_contract,
+    ):
+        return self._assert_grade7_demand_scenarios(
+            annual_variants,
+            core_contract,
+            module_id="IUM-7-CORE-04",
+            integration_id="INT-7-PROGRAMMING",
+        )
+
+    def _assert_core04_task20_semantic_boundaries(
+        self,
+        *,
+        evidence_by_competency_id,
+        reviews_by_competency_id,
+        integration_contract,
+    ):
+        audit_texts = {
+            competency_id: " ".join(
+                evidence_by_competency_id[competency_id][field]
+                for field in ("learningAction", "productEvidence")
+            ) + " " + " ".join(
+                reviews_by_competency_id[competency_id][field]
+                for field in ("rationale", "risk", "followUp")
+            )
+            for competency_id in TASK20_AUDIT_EXPECTATIONS
+        }
+        for competency_id, text in audit_texts.items():
+            for anchor in TASK20_REQUIRED_TEXT[competency_id]:
+                self.assertIn(anchor, text)
+            for forbidden in TASK20_FORBIDDEN_TEXT[competency_id]:
+                self.assertNotIn(forbidden.casefold(), text.casefold())
+
+            review = reviews_by_competency_id[competency_id]
+            review_text = " ".join(
+                review[field] for field in ("rationale", "risk", "followUp")
+            )
+            self.assertIn("nicht verfügbare Bedarfsszenarien", review_text)
+            self.assertIn("Jahresurteil bleibt red", review_text)
+            self.assertIn("Personenprofil", review_text)
+            self.assertIn("automatisches Scoring", review_text)
+            for false_release in (
+                "ist ein verfügbarer 38-ue-pfad",
+                "ist ein grüner 38-ue-pfad",
+                "ist ein freigegebener 38-ue-pfad",
+                "der 38-ue-pfad ist freigegeben",
+                "jahresurteil bleibt nicht red",
+                "jahresurteil ist nicht red",
+            ):
+                self.assertNotIn(false_release, review_text.casefold())
+            self.assertEqual(review["decision"], "additional-time")
+            self.assertGreater(review["additionalMinutes"], 0)
+            self.assertEqual(review["integrationContractIds"], [])
+            self.assertEqual(
+                review["pathAvailability"],
+                GRADE7_DEMAND_PATH_AVAILABILITY,
+            )
+
+        individually_attributable = {
+            "INF7-16-GYM-PK-KK-002": (
+                "jede lernende Person",
+                "eigene zielgruppenbezogene Erklärung oder begründete "
+                "Anpassungsentscheidung",
+                "eindeutig zuordnen",
+            ),
+            "INF7-16-GYM-PK-MI-003": (
+                "Jede lernende Person",
+                "eigene Invariante-/Variationsentscheidung",
+                "eindeutig zurechenbar",
+            ),
+            "INF7-16-GYM-PK-SV-002": (
+                "Jede lernende Person",
+                "mindestens eine Datei- oder Programmbezeichner-Umbenennung",
+                "tatsächlich aus",
+                "begründet sie",
+            ),
+        }
+        for competency_id, anchors in individually_attributable.items():
+            review_text = " ".join(
+                reviews_by_competency_id[competency_id][field]
+                for field in ("rationale", "risk", "followUp")
+            )
+            for anchor in anchors:
+                self.assertIn(anchor, review_text)
+
+        integration_text = " ".join(
+            [integration_contract["sharedPhaseOrProduct"]]
+            + integration_contract["preservedLearningActions"]
+            + integration_contract["preservedProductAndCurriculumEvidence"]
+            + integration_contract["prerequisites"]
+            + [integration_contract["risk"], integration_contract["fallback"]]
+        )
+        for anchor in (
+            "LH26-E-ALG-010",
+            "INF7-16-GYM-IK-ALG-005",
+            "eigenständige Codeausführung, Tests, Debugging",
+        ):
+            self.assertIn(anchor, integration_text)
+        self.assertEqual(integration_contract["sharedMinutes"], 90)
+        self.assertEqual(
+            integration_contract["countedInModuleId"],
+            "IUM-7-CORE-04",
+        )
+        for forbidden in TASK20_INTEGRATION_FORBIDDEN_TEXT:
+            self.assertNotIn(forbidden.casefold(), integration_text.casefold())
+
+    def _assert_core04_task20_audit_contract(
+        self,
+        reviews,
+        *,
+        integration_contracts=None,
+        annual_variants=None,
+        module_payload=None,
+    ):
+        integration_contracts = (
+            integration_contracts or self.repository_integration_contracts
+        )
+        annual_variants = annual_variants or self.repository_annual_variants
+        module_payload = module_payload or self.module_payload
+        expected_ids, task_reviews = self._assert_audit_review_slice(
+            reviews,
+            start=PRE_TASK20_TIME_REVIEW_COUNT,
+            expectations=TASK20_AUDIT_EXPECTATIONS,
+            prior_sha256=PRE_TASK20_TIME_REVIEWS_SHA256,
+        )
+        core_contract, phase_minutes, integration = (
+            self._assert_grade7_audit_context(
+                expected_time_review_ids=expected_ids,
+                module_id="IUM-7-CORE-04",
+                integration_id="INT-7-PROGRAMMING",
+                core_stable_sha256=TASK20_CORE04_STABLE_FIELDS_SHA256,
+                integration_contract_sha256=(
+                    TASK20_INTEGRATION_CONTRACT_SHA256
+                ),
+                annual_variants=annual_variants,
+                integration_contracts=integration_contracts,
+            )
+        )
+        self.assertEqual(
+            (
+                integration["moduleIds"],
+                integration["pathIds"],
+                integration["countedInModuleId"],
+            ),
+            (
+                ["IUM-7-CORE-03", "IUM-7-CORE-04"],
+                ["optimized", "robust"],
+                "IUM-7-CORE-04",
+            ),
+        )
+
+        handoffs = {
+            item["competencyId"]: item
+            for item in self.remediation_payload["entries"]
+        }
+        coverage = {
+            item["competencyId"]: item
+            for item in self.coverage_payload["entries"]
+        }
+        module = next(
+            item
+            for item in module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-04"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in module["coverageEvidence"]
+        }
+        reviews_by_competency_id = self._assert_audit_review_matrix(
+            task_reviews,
+            expectations=TASK20_AUDIT_EXPECTATIONS,
+            module_id="IUM-7-CORE-04",
+            handoffs=handoffs,
+            coverage=coverage,
+            evidence=evidence,
+            cause_class="module-detail",
+            evidence_mode="module-detail",
+            evidence_visibility="shared",
+        )
+        for competency_id, expected_sha256 in (
+            TASK20_REVIEW_TEXT_PROJECTION_SHA256.items()
+        ):
+            self._assert_canonical_projection(
+                reviews_by_competency_id[competency_id],
+                fields=("rationale", "risk", "followUp"),
+                expected_sha256=expected_sha256,
+            )
+        self._assert_core04_task20_semantic_boundaries(
+            evidence_by_competency_id=evidence,
+            reviews_by_competency_id=reviews_by_competency_id,
+            integration_contract=integration,
+        )
+        self._assert_fully_counted_phase_claims(
+            task_reviews,
+            phase_minutes_by_path=phase_minutes,
+            expected_claims_by_phase={
+                "independent-action-product": 70,
+                "review-revise-transfer": 45,
+                "guided-practice": 25,
+            },
+        )
+
+    def _task20_semantic_probe_inputs(self):
+        module = next(
+            item
+            for item in self.module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-04"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in module["coverageEvidence"]
+        }
+        reviews = {
+            item["competencyId"]: copy.deepcopy(item)
+            for item in self.time_payload["timeReviews"]
+            if item["competencyId"] in TASK20_AUDIT_EXPECTATIONS
+        }
+        integration = copy.deepcopy(
+            self.repository_integration_contracts["INT-7-PROGRAMMING"]
+        )
+        return evidence, reviews, integration
+
+    def test_repository_core04_task20_audit_contract(self):
+        validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
+        )
+        self._assert_core04_task20_audit_contract(
+            self.time_payload["timeReviews"]
+        )
+
+    def test_core04_task20_rejects_direct_semantic_contradictions(self):
+        contradictions = (
+            ("INF7-16-GYM-PK-KK-002", "Allgemein verständliche Sprache genügt."),
+            ("INF7-16-GYM-PK-KK-002", "Zielgruppe und Vorwissen sind entbehrlich."),
+            ("INF7-16-GYM-PK-KK-002", "Viererstruktur entfällt."),
+            ("INF7-16-GYM-PK-KK-002", "Glossar oder Beispiel entfallen."),
+            ("INF7-16-GYM-PK-KK-002", "Präsentation des Teamprodukts genügt."),
+            ("INF7-16-GYM-PK-MI-003", "Details nur löschen genügt."),
+            ("INF7-16-GYM-PK-MI-003", "Ein Fall genügt."),
+            (
+                "INF7-16-GYM-PK-MI-003",
+                "Invariante und Variation müssen nicht getrennt werden.",
+            ),
+            ("INF7-16-GYM-PK-MI-003", "Rückanwendung entfällt."),
+            ("INF7-16-GYM-PK-SV-002", "Clean-Code-Behauptung genügt."),
+            (
+                "INF7-16-GYM-PK-SV-002",
+                "Namenstabelle ohne Umbenennung genügt.",
+            ),
+            ("INF7-16-GYM-PK-SV-002", "Namenskonvention entfällt."),
+            (
+                "INF7-16-GYM-PK-SV-002",
+                "x, test1 und final_final sind aussagekräftig.",
+            ),
+            (
+                "INF7-16-GYM-PK-KK-002",
+                "Ein Teammitglied erledigt die Erklärung für alle.",
+            ),
+            (
+                "INF7-16-GYM-PK-MI-003",
+                "Ein Teammitglied erledigt die Abstraktion für alle.",
+            ),
+            (
+                "INF7-16-GYM-PK-SV-002",
+                "Ein Teammitglied benennt für alle um.",
+            ),
+            (
+                "INF7-16-GYM-PK-KK-002",
+                "Dasselbe Teamprodukt begründet recordbezogene Integration.",
+            ),
+            (
+                "INF7-16-GYM-PK-MI-003",
+                "Derselbe Fall begründet recordbezogene Integration.",
+            ),
+            (
+                "INF7-16-GYM-PK-SV-002",
+                "Dasselbe Programm begründet recordbezogene Integration.",
+            ),
+            (
+                "INF7-16-GYM-PK-KK-002",
+                "Die 90 Minuten werden für KK-002 erneut angerechnet.",
+            ),
+            (
+                "INF7-16-GYM-PK-MI-003",
+                "Die 90 Minuten werden für MI-003 erneut angerechnet.",
+            ),
+            (
+                "INF7-16-GYM-PK-SV-002",
+                "Die 90 Minuten werden für SV-002 erneut angerechnet.",
+            ),
+            (
+                "INF7-16-GYM-PK-KK-002",
+                "GRADE-7-OPTIMIZED-DEMAND ist ein verfügbarer 38-UE-Pfad.",
+            ),
+            (
+                "INF7-16-GYM-PK-MI-003",
+                "Das Jahresurteil bleibt nicht red.",
+            ),
+        )
+        for competency_id, contradiction in contradictions:
+            with self.subTest(
+                competency_id=competency_id,
+                contradiction=contradiction,
+            ):
+                evidence, reviews, integration = (
+                    self._task20_semantic_probe_inputs()
+                )
+                reviews[competency_id]["followUp"] += f" {contradiction}"
+                with self.assertRaises(AssertionError):
+                    self._assert_core04_task20_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_core04_task20_rejects_integration_overreach_semantically(self):
+        overreaches = (
+            (
+                "sharedPhaseOrProduct",
+                " Zielgruppenkommunikation, Abstraktionshandlung und "
+                "Namensrefaktorierung werden gemeinsam getragen.",
+            ),
+            (
+                "sharedPhaseOrProduct",
+                " Teamarbeit ersetzt die individuelle Fachhandlung.",
+            ),
+            (
+                "preservedProductAndCurriculumEvidence",
+                "Kompetenznachweis INF7-16-GYM-PK-KK-002, "
+                "INF7-16-GYM-PK-MI-003 und INF7-16-GYM-PK-SV-002.",
+            ),
+        )
+        for field, overreach in overreaches:
+            with self.subTest(integration_field=field, overreach=overreach):
+                evidence, reviews, integration = (
+                    self._task20_semantic_probe_inputs()
+                )
+                if isinstance(integration[field], list):
+                    integration[field].append(overreach)
+                else:
+                    integration[field] += overreach
+                with self.assertRaises(AssertionError):
+                    self._assert_core04_task20_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_core04_task20_rejects_noncanonical_review_text_projection(self):
+        for competency_id in TASK20_AUDIT_EXPECTATIONS:
+            with self.subTest(competency_id=competency_id):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                review = next(
+                    item
+                    for item in reviews
+                    if item["competencyId"] == competency_id
+                )
+                review["risk"] += " Beliebige Ergänzung."
+                with self.assertRaises(AssertionError):
+                    self._assert_core04_task20_audit_contract(reviews)
+
+    def test_core04_task20_contract_allows_later_review(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(
+            {"id": "TR-LATER-TASK20", "competencyId": "LATER-TASK20"}
+        )
+        self._assert_core04_task20_audit_contract(reviews)
+
+    def test_core04_task20_contract_rejects_duplicate_id(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(copy.deepcopy(reviews[PRE_TASK20_TIME_REVIEW_COUNT]))
+        with self.assertRaises(AssertionError):
+            self._assert_core04_task20_audit_contract(reviews)
+
+    def test_core04_task20_rejects_matrix_path_and_phase_mutations(self):
+        review_mutations = (
+            ("INF7-16-GYM-PK-KK-002", "decision", "absorbed"),
+            ("INF7-16-GYM-PK-MI-003", "additionalMinutes", 0),
+            (
+                "INF7-16-GYM-PK-SV-002",
+                "integrationContractIds",
+                ["INT-7-PROGRAMMING"],
+            ),
+            (
+                "INF7-16-GYM-PK-KK-002",
+                "pathAvailability",
+                GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY,
+            ),
+            ("INF7-16-GYM-PK-MI-003", "phaseIds", ["build-concept"]),
+            ("INF7-16-GYM-PK-SV-002", "decision", "integrated"),
+        )
+        for competency_id, field, value in review_mutations:
+            with self.subTest(review_matrix=(competency_id, field)):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                next(
+                    item
+                    for item in reviews
+                    if item["competencyId"] == competency_id
+                )[field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core04_task20_audit_contract(reviews)
+
+        for variant_id, field, value in (
+            ("GRADE-7-OPTIMIZED-DEMAND", "available", True),
+            ("GRADE-7-ROBUST-DEMAND", "targetUnits", 38),
+        ):
+            with self.subTest(variant=(variant_id, field)):
+                variants = copy.deepcopy(self.repository_annual_variants)
+                variants[variant_id][field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_grade7_task20_demand_scenarios(
+                        variants,
+                        self.repository_module_contracts["IUM-7-CORE-04"],
+                    )
+
+        task_reviews = copy.deepcopy(
+            self.time_payload["timeReviews"][
+                PRE_TASK20_TIME_REVIEW_COUNT:
+                PRE_TASK20_TIME_REVIEW_COUNT + len(TASK20_AUDIT_EXPECTATIONS)
+            ]
+        )
+        next(
+            item
+            for item in task_reviews
+            if item["competencyId"] == "INF7-16-GYM-PK-SV-002"
+        )["additionalMinutes"] = 30
+        phase_minutes = self._assert_grade7_task20_demand_scenarios(
+            self.repository_annual_variants,
+            self.repository_module_contracts["IUM-7-CORE-04"],
+        )
+        with self.assertRaises(AssertionError):
+            self._assert_fully_counted_phase_claims(
+                task_reviews,
+                phase_minutes_by_path=phase_minutes,
+                expected_claims_by_phase={
+                    "independent-action-product": 80,
+                    "review-revise-transfer": 55,
+                    "guided-practice": 25,
                 },
             )
 
