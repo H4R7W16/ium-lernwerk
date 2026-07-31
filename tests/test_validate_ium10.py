@@ -5727,6 +5727,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             "plattform ist für alle schulen verpflichtend",
             "plattform wird für alle schulen vorausgesetzt",
             "allgemeine plattformpflicht",
+            "ist für beide wege verpflichtend",
         ):
             self.assertNotIn(generic_platform_duty, da015_text)
 
@@ -5978,6 +5979,15 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "localConfigurationRequirement",
                 ),
                 " Eine digitale Plattform ist für alle Schulen verpflichtend.",
+            ),
+            (
+                "da015-moodle-duty-for-both-routes",
+                (
+                    "evidence",
+                    "LH26-E-DA-015",
+                    "localConfigurationRequirement",
+                ),
+                " Moodle ist für beide Wege verpflichtend.",
             ),
             (
                 "record-integration-overreach",
