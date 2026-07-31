@@ -34,9 +34,11 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-DA-004": "additional-time",
     "LH26-E-DP-001": "additional-time",
     "LH26-E-ID-009": "absorbed",
+    "LH26-E-ALG-001": "absorbed",
     "LH26-E-KS-001": "additional-time",
     "LH26-E-KS-002": "additional-time",
     "LH26-E-PROG-001": "unresolved",
+    "LH26-E-PROG-002": "unresolved",
 }
 
 EXPECTED_GM003_TIME_PLACEMENT_RATIONALE = (
@@ -280,6 +282,70 @@ CORE03_REGULAR_DELTA_REVIEW_PROVENANCE = {
     "independent-action-product": (20, "LH26-E-KS-001"),
     "review-revise-transfer": (10, "LH26-E-KS-002"),
 }
+
+CORE05_ALG001_AUDIT_EXPECTATION = {
+    "decision": "absorbed",
+    "additionalMinutes": 0,
+    "phaseIds": [
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+    ],
+    "rationale": (
+        "Die Klassifikation digitaler Systeme und die fallbezogene "
+        "Begründung werden am selben grafischen Algorithmus tatsächlich "
+        "erprobt: Die Lernenden führen ihn aus, erklären die Laufspur, "
+        "korrigieren eine Abweichung und sichern Einstufung und Begründung "
+        "im beobachtbaren Algorithmusprodukt. Die drei positiven Phasen "
+        "tragen damit dieselbe Produktspur ohne zusätzliche Minuten; eine "
+        "bloße Demonstration genügt nicht."
+    ),
+    "risk": (
+        "Eine vorgeführte Algorithmusanimation oder bloße Kennzeichnung "
+        "digitaler Systeme ohne eigene Ausführung, Erklärung der Laufspur, "
+        "Fehlerkorrektur und sichtbare Klassifikations- und Begründungsspur "
+        "würde den Identifikationsoperator unterschreiten."
+    ),
+    "followUp": (
+        "Im Pilot prüfen, ob jede Einstufung mit der selbst ausgeführten "
+        "Laufspur verknüpft ist und Erprobung, Erklärung, Reparatur sowie "
+        "Klassifikations- und Begründungsspur im gemeinsamen Produkt "
+        "beobachtbar erreicht werden."
+    ),
+}
+CORE05_PROG002_AUDIT_EXPECTATION = {
+    "decision": "unresolved",
+    "additionalMinutes": 0,
+    "phaseIds": [],
+    "rationale": (
+        "Die altersangemessene und niederschwellige "
+        "Algorithmenprogression sowie ihre Abgrenzung zur Implementierungs- "
+        "und Debuggingtiefe in Klasse 7 können weder einer Einzelphase noch "
+        "dem Produkt von IUM-5-CORE-05 zugerechnet werden und bleiben bis "
+        "zum jahrgangsübergreifenden Sequenzaudit unverortet."
+    ),
+    "risk": (
+        "Ohne vollständigen Sequenznachweis würden die positive "
+        "Klasse-5-Produktzeit und ihre Wiederaufnahme in Klasse 6 eine nicht "
+        "belegte niederschwellige Progression und Abgrenzung zur fachlichen "
+        "Tiefe in Klasse 7 suggerieren."
+    ),
+    "followUp": (
+        "In Task 24 Algorithmenprodukt Klasse 5, aktive Wiederaufnahme "
+        "Klasse 6, Implementierungs- und Debuggingtiefe Klasse 7, "
+        "Zeitgewichtung und verfügbare Jahrespfade ausschließlich über "
+        "SE-LH26-E-PROG-002 auditieren."
+    ),
+}
+EXPECTED_CORE05_ALGORITHM_ACTION = (
+    "Alltagshandlungen präzisieren, grafische Algorithmen ausführen, "
+    "Abweichungen erklären und eine konstante Wiederholung als Grundbaustein "
+    "modellieren."
+)
+EXPECTED_CORE05_ALGORITHM_PRODUCT = (
+    "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, "
+    "reparierter Fassung und begründeter Schleifenentscheidung."
+)
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -2272,6 +2338,109 @@ class IUM10TimeReviewTests(unittest.TestCase):
         self.assertNotIn("respekt", ks002_review_text)
         self.assertNotIn("hilfeweg", ks002_review_text)
 
+    def _assert_core05_repository_contract(
+        self,
+        reviews_by_competency_id,
+        module_contracts,
+    ):
+        core05_contract = module_contracts["IUM-5-CORE-05"]
+        self.assertEqual(
+            core05_contract["timeReviewIds"],
+            [
+                "TR-LH26-E-ALG-001",
+                "TR-LH26-E-PROG-002",
+            ],
+        )
+
+        expected_paths = [
+            "GRADE-5-BASELINE",
+            "GRADE-5-REGULAR",
+            "GRADE-5-EXTENDED",
+        ]
+        alg001_review = reviews_by_competency_id["LH26-E-ALG-001"]
+        self.assertEqual(
+            {
+                "decision": alg001_review["decision"],
+                "additionalMinutes": alg001_review["additionalMinutes"],
+                "phaseIds": alg001_review["phaseIds"],
+                "rationale": alg001_review["rationale"],
+                "risk": alg001_review["risk"],
+                "followUp": alg001_review["followUp"],
+            },
+            CORE05_ALG001_AUDIT_EXPECTATION,
+        )
+        self.assertEqual(alg001_review["moduleId"], "IUM-5-CORE-05")
+        self.assertEqual(
+            alg001_review["sourceTimeImpactLevel"],
+            "review-required",
+        )
+        self.assertEqual(alg001_review["integrationContractIds"], [])
+        self.assertIsNone(alg001_review["sequenceEvidenceId"])
+        self.assertEqual(alg001_review["pathAvailability"], expected_paths)
+
+        prog002_review = reviews_by_competency_id["LH26-E-PROG-002"]
+        self.assertEqual(
+            {
+                "decision": prog002_review["decision"],
+                "additionalMinutes": prog002_review["additionalMinutes"],
+                "phaseIds": prog002_review["phaseIds"],
+                "rationale": prog002_review["rationale"],
+                "risk": prog002_review["risk"],
+                "followUp": prog002_review["followUp"],
+            },
+            CORE05_PROG002_AUDIT_EXPECTATION,
+        )
+        self.assertEqual(prog002_review["moduleId"], "IUM-5-CORE-05")
+        self.assertEqual(
+            prog002_review["sourceTimeImpactLevel"],
+            "roadmap-dependent",
+        )
+        self.assertEqual(prog002_review["integrationContractIds"], [])
+        self.assertEqual(
+            prog002_review["sequenceEvidenceId"],
+            "SE-LH26-E-PROG-002",
+        )
+        self.assertEqual(prog002_review["pathAvailability"], [])
+
+        core05_module = next(
+            module
+            for module in self.module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-05"
+        )
+        self.assertEqual(
+            core05_module["centralLearningAction"],
+            EXPECTED_CORE05_ALGORITHM_ACTION,
+        )
+        self.assertEqual(
+            core05_module["centralLearningProduct"],
+            EXPECTED_CORE05_ALGORITHM_PRODUCT,
+        )
+        alg001_evidence = next(
+            evidence
+            for evidence in core05_module["coverageEvidence"]
+            if evidence["competencyId"] == "LH26-E-ALG-001"
+        )
+        self.assertEqual(alg001_evidence["mode"], "module-detail")
+        self.assertEqual(
+            alg001_evidence["productVisibility"],
+            "teacher-observable",
+        )
+        for required_trace in (
+            "ausgeführten grafischen Algorithmus",
+            "Laufprotokoll",
+            "fallbezogene Begründung",
+        ):
+            with self.subTest(core05_required_trace=required_trace):
+                self.assertIn(
+                    required_trace,
+                    " ".join(
+                        (
+                            alg001_evidence["learningAction"],
+                            alg001_evidence["productEvidence"],
+                        )
+                    ),
+                )
+
     def _assert_core03_regular_delta_review_provenance(
         self,
         reviews_by_competency_id,
@@ -2617,6 +2786,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_module_contracts,
         )
         self._assert_core03_repository_contract(
+            reviews_by_competency_id,
+            self.repository_module_contracts,
+        )
+        self._assert_core05_repository_contract(
             reviews_by_competency_id,
             self.repository_module_contracts,
         )

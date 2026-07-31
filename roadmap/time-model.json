@@ -469,7 +469,10 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-LH26-E-ALG-001",
+        "TR-LH26-E-PROG-002"
+      ],
       "integrationContractIds": ["INT-6-ALGORITHM-REVISIT"],
       "schoolDependentSteps": [],
       "risk": "Der Erweiterungspfad muss reale zusätzliche Algorithmusausführung und Fehlerkorrektur statt bloßer Demonstration enthalten.",
@@ -2650,6 +2653,31 @@
       "status": "working"
     },
     {
+      "id": "TR-LH26-E-ALG-001",
+      "competencyId": "LH26-E-ALG-001",
+      "moduleId": "IUM-5-CORE-05",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Die Klassifikation digitaler Systeme und die fallbezogene Begründung werden am selben grafischen Algorithmus tatsächlich erprobt: Die Lernenden führen ihn aus, erklären die Laufspur, korrigieren eine Abweichung und sichern Einstufung und Begründung im beobachtbaren Algorithmusprodukt. Die drei positiven Phasen tragen damit dieselbe Produktspur ohne zusätzliche Minuten; eine bloße Demonstration genügt nicht.",
+      "phaseIds": [
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine vorgeführte Algorithmusanimation oder bloße Kennzeichnung digitaler Systeme ohne eigene Ausführung, Erklärung der Laufspur, Fehlerkorrektur und sichtbare Klassifikations- und Begründungsspur würde den Identifikationsoperator unterschreiten.",
+      "followUp": "Im Pilot prüfen, ob jede Einstufung mit der selbst ausgeführten Laufspur verknüpft ist und Erprobung, Erklärung, Reparatur sowie Klassifikations- und Begründungsspur im gemeinsamen Produkt beobachtbar erreicht werden.",
+      "status": "working"
+    },
+    {
       "id": "TR-LH26-E-PROG-001",
       "competencyId": "LH26-E-PROG-001",
       "moduleId": "IUM-5-CORE-01",
@@ -2664,6 +2692,23 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Ohne vollständigen Sequenznachweis würden einzelne positive Modulzeiten eine nicht belegte jahrgangsübergreifende Gesamtbalance suggerieren.",
       "followUp": "In Task 24 Progression, Perspektivenbalance, Zeitgewichtung und verfügbare Jahrespfade ausschließlich über SE-LH26-E-PROG-001 auditieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-PROG-002",
+      "competencyId": "LH26-E-PROG-002",
+      "moduleId": "IUM-5-CORE-05",
+      "sourceTimeImpactLevel": "roadmap-dependent",
+      "decision": "unresolved",
+      "rationale": "Die altersangemessene und niederschwellige Algorithmenprogression sowie ihre Abgrenzung zur Implementierungs- und Debuggingtiefe in Klasse 7 können weder einer Einzelphase noch dem Produkt von IUM-5-CORE-05 zugerechnet werden und bleiben bis zum jahrgangsübergreifenden Sequenzaudit unverortet.",
+      "phaseIds": [],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": "SE-LH26-E-PROG-002",
+      "pathAvailability": [],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Ohne vollständigen Sequenznachweis würden die positive Klasse-5-Produktzeit und ihre Wiederaufnahme in Klasse 6 eine nicht belegte niederschwellige Progression und Abgrenzung zur fachlichen Tiefe in Klasse 7 suggerieren.",
+      "followUp": "In Task 24 Algorithmenprodukt Klasse 5, aktive Wiederaufnahme Klasse 6, Implementierungs- und Debuggingtiefe Klasse 7, Zeitgewichtung und verfügbare Jahrespfade ausschließlich über SE-LH26-E-PROG-002 auditieren.",
       "status": "working"
     }
   ],
