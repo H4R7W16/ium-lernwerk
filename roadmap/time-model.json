@@ -598,7 +598,7 @@
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Nichtpersonales Vorwissen zu Medienmerkmalen, Nutzung und Wirkung aktivieren."},
             {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Beobachtung, Wirkungshypothese, Gegenperspektive und Unsicherheit aufbauen."},
             {"phaseId": "guided-practice", "minutes": 40, "learningFunction": "Kuratierten Fall und fiktive Reaktionsdaten angeleitet untersuchen."},
-            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
+            {"phaseId": "independent-action-product", "minutes": 45, "learningFunction": "Als beobachtbare Produkt-, Zeit- und Evidenzspur zählt ausschließlich die nichtpersonale gemeinsame Wirkungskarte; die private Reflexionsnotiz wird weder eingesehen noch angerechnet. Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
             {"phaseId": "review-revise-transfer", "minutes": 25, "learningFunction": "Wirkungsaussagen mit Gegenperspektiven prüfen und revidieren."},
             {"phaseId": "shared-consolidation", "minutes": 15, "learningFunction": "Bedingte Wirkungsaussagen und private Grenzen gemeinsam sichern."}
           ],
@@ -615,7 +615,7 @@
             {"phaseId": "activate-prior-knowledge", "minutes": 15, "learningFunction": "Nichtpersonales Vorwissen zu Medienmerkmalen, Nutzung und Wirkung aktivieren."},
             {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Beobachtung, Wirkungshypothese, Gegenperspektive und Unsicherheit aufbauen."},
             {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Zusätzliche kuratierte Fälle und fiktive Reaktionsdaten angeleitet untersuchen."},
-            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
+            {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Als beobachtbare Produkt-, Zeit- und Evidenzspur zählt ausschließlich die nichtpersonale gemeinsame Wirkungskarte; die private Reflexionsnotiz wird weder eingesehen noch angerechnet. Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
             {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Wirkungsaussagen mit mehreren Gegenperspektiven prüfen und revidieren."},
             {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Bedingte Wirkungsaussagen und private Grenzen gemeinsam sichern."}
           ],
@@ -632,7 +632,7 @@
             {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Nichtpersonales Vorwissen zu Medienmerkmalen, Nutzung und Wirkung aktivieren."},
             {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Beobachtung, Wirkungshypothese, Gegenperspektive und Unsicherheit vertieft aufbauen."},
             {"phaseId": "guided-practice", "minutes": 60, "learningFunction": "Variierte kuratierte Fälle und fiktive Reaktionsdaten angeleitet untersuchen."},
-            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
+            {"phaseId": "independent-action-product", "minutes": 75, "learningFunction": "Als beobachtbare Produkt-, Zeit- und Evidenzspur zählt ausschließlich die nichtpersonale gemeinsame Wirkungskarte; die private Reflexionsnotiz wird weder eingesehen noch angerechnet. Das zentrale Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person."},
             {"phaseId": "review-revise-transfer", "minutes": 40, "learningFunction": "Wirkungsaussagen vertieft prüfen, revidieren und auf neue Fälle übertragen."},
             {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Bedingte Wirkungsaussagen und private Grenzen gemeinsam sichern."}
           ],
@@ -640,7 +640,15 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-BMB16-GYM-IK-MG-001",
+        "TR-BMB16-GYM-IK-MG-002",
+        "TR-BMB16-GYM-IK-MG-003",
+        "TR-BMB16-GYM-PK-RK-001",
+        "TR-BMB16-GYM-PK-RK-002",
+        "TR-BMB16-GYM-PK-RK-003",
+        "TR-LH26-E-DP-003"
+      ],
       "integrationContractIds": [],
       "schoolDependentSteps": ["private-local-reflection-remains-uncollected"],
       "risk": "Die private Reflexion darf weder als beobachtbare Produktspur noch als personenbezogene Diagnose verwendet werden.",
@@ -2805,6 +2813,152 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Wenn nur das eigene Produkt bewertet oder eine Gestaltungswirkung ohne konkreten Beleg behauptet wird, verschmelzen Analyse, Urteil und Revision zu einer nicht belastbaren Kurzreflexion.",
       "followUp": "Im Pilot prüfen, ob Inhalt, Form, Wirkung und Beleg der vorgegebenen Gestaltung sowie ein begründetes Gesamturteil innerhalb der Analysezeit vollständig vor einer optionalen Übertragung in die eigene Revision entstehen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-MG-001",
+      "competencyId": "BMB16-GYM-IK-MG-001",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die 15 Minuten sind ausschließlich dem nichtpersonalen Abschnitt „Altersbezogene Bewertung“ der gemeinsamen fallbezogenen Wirkungskarte zugeordnet: Die Lernenden bewerten den vollständig vorgegebenen fiktiven Fall mit dem vollständig vorgegebenen Kriterienkatalog und begründen angemessene oder problematische Merkmale. Inhalt, Bearbeitungsstand und Zeitbedarf der privaten Motivations- und Nutzungsbewertung werden weder beobachtet noch als Produkt- oder Evidenzspur angerechnet.",
+      "phaseIds": ["independent-action-product"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine Einsicht, Abgabe, Lehrkraftbeobachtung oder Bewertung der privaten Reflexionsmatrix würde persönliche Nutzungsmotivation erheben und die Datenschutzgrenze verletzen; das sichtbare Fallurteil darf keine Rückschlüsse auf den privaten Inhalt verlangen.",
+      "followUp": "Im Pilot ausschließlich aggregiert prüfen, ob das nichtpersonale fiktive Fallurteil innerhalb der 15 Minuten entsteht und ohne Einsicht in die private Matrix funktioniert; private Inhalte und Bearbeitungszeiten werden nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-MG-002",
+      "competencyId": "BMB16-GYM-IK-MG-002",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Das Erläutern eines positiven Nutzungsaspekts und eines Risikos oder einer Gefahr übermäßiger Nutzung, ihr kriterien- und beleggestütztes Bewerten sowie das Ableiten einer passenden Präventionsmaßnahme benötigen 20 Minuten angeleitete Fallanalyse und Revision im gemeinsamen Abschnitt „Nutzen, Risiken und Prävention“ derselben Wirkungskarte.",
+      "phaseIds": [
+        "guided-practice",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloße Liste von Nutzen, Risiken oder Verboten würde Erläuterung, belegtes Kriterienurteil und passende Prävention nicht ausführen; persönliche Nutzungsdaten sind für den vollständig vorgegebenen fiktiven Fall weder nötig noch zulässig.",
+      "followUp": "Im Pilot am nichtpersonalen Fallprodukt prüfen, ob positiver Aspekt, Risiko oder Gefahr, Kriterien und Belege, begründetes Urteil und passende Präventionsmaßnahme innerhalb der 20 Minuten vollständig sichtbar werden.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-MG-003",
+      "competencyId": "BMB16-GYM-IK-MG-003",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Im nichtpersonalen Abschnitt „Wirkung und bedingte Gesetzmäßigkeit“ nutzen die Untersuchung derselben zwei kuratierten Medienbeispiele, der Vergleich vollständig vorgegebener fiktiver Reaktionsdaten sowie Ableitung und Revision einer bedingten Wirkungsaussage bereits dieselbe positive Wirkungs- und Revisionsspur der gemeinsamen Wirkungskarte. Private Empfindungen oder private Ableitungen sind weder Voraussetzung dieser Spur noch beobachtbares Produkt oder Evidenz und tragen keine zusätzlichen Minuten.",
+      "phaseIds": [
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Aus der nichtpersonalen Wirkungsaussage dürfen weder private Empfindungen abgeleitet noch Einsicht, Gespräch, Abgabe oder Bewertung der privaten Reflexionsmatrix verlangt werden.",
+      "followUp": "Im Pilot ausschließlich die nichtpersonale Untersuchung der fiktiven Reaktionsdaten sowie die bedingte Wirkungsaussage und ihre Revision in der gemeinsamen Wirkungskarte prüfen; private Empfindungen und Ableitungen werden nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-PK-RK-001",
+      "competencyId": "BMB16-GYM-PK-RK-001",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die 15 Minuten gelten ausschließlich dem nichtpersonalen Abschnitt „Nutzungsvergleich“ der gemeinsamen Wirkungskarte: Die zwei vollständig vorgegebenen Nutzungssituationen des fiktiven Falls werden mit dem vorgegebenen Kriterienkatalog beschrieben und verglichen; Gemeinsamkeiten und Unterschiede werden begründet festgehalten. Eigenes Nutzungsverhalten und die private Vergleichsmatrix bilden weder die beobachtbare Produktspur noch den Zeitnachweis.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine Übernahme eigener Nutzungssituationen in die gemeinsame Wirkungskarte oder eine Lehrkraftkontrolle der privaten Matrix würde die nichtpersonale Anschlussaufgabe in eine verdeckte Erhebung persönlicher Mediennutzung verwandeln.",
+      "followUp": "Im Pilot nur prüfen, ob der fiktive Nutzungsvergleich mit gemeinsamen Kriterien, Gemeinsamkeiten und Unterschieden innerhalb der 15 Minuten gelingt und ohne Angaben aus der privaten Matrix verständlich bleibt.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-PK-RK-002",
+      "competencyId": "BMB16-GYM-PK-RK-002",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die 15 Minuten sind ausschließlich dem nichtpersonalen Abschnitt „Lebenswelt und Medienwirklichkeit“ der gemeinsamen Wirkungskarte zugeordnet: Am vollständig vorgegebenen fiktiven Fall werden der Einfluss digitaler Medien auf dessen Lebenswelt sowie begründete Entsprechungen und Unterschiede zwischen Wirklichkeit und denselben kuratierten Medienbeispielen dargestellt. Die private Lebensweltreflexion ist keine beobachtbare Produkt- oder Evidenzspur.",
+      "phaseIds": ["independent-action-product"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Persönliche Lebensbereiche dürfen weder abgefragt noch aus dem nichtpersonalen Fallprodukt erschlossen werden; sonst würde die gemeinsame Wirkungskarte die private Datenschutzgrenze unterlaufen.",
+      "followUp": "Im Pilot ausschließlich die fiktive Lebensweltdarstellung und die begründete Beziehung zwischen Wirklichkeit und Medienwirklichkeit im gemeinsamen Produkt prüfen; die private Matrix bleibt vollständig außerhalb von Erhebung und Feedback.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-PK-RK-003",
+      "competencyId": "BMB16-GYM-PK-RK-003",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "unresolved",
+      "rationale": "Ohne die ausstehende Ursachenreklassifikation von `private-local` zu `module-detail` existiert kein gültiger Evidenzvertrag für das Abschätzen und kriteriengestützte Bewerten medialer Selbstdarstellung. Deshalb werden weder eine private Erstleistung noch ein redundanter sichtbarer Fallnachweis und auch keine Einzelphase oder Zeit behauptet; der Record bleibt semantisch partial.",
+      "phaseIds": [],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine vorzeitige Zeitzuweisung würde eine fachlich unbeobachtbare fiktive Privatleistung und denselben Operator noch einmal als sichtbare Fallaufgabe modellieren und damit die Fehlklassifikation verdecken.",
+      "followUp": "Nach einer späteren Design- und Ursachenreklassifikation genau einen shared- oder teacher-observable Fallnachweis für Folgenabschätzung und Kriterienurteil entwerfen und erst dann seinen positiven Zeitbedarf auditieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DP-003",
+      "competencyId": "LH26-E-DP-003",
+      "moduleId": "IUM-5-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "unresolved",
+      "rationale": "Der geforderte Diskussionsoperator bezieht sich ausdrücklich auf Faszination, Konflikte und Probleme der eigenen Mediennutzung. Eine private Beschreibung ist keine Diskussion; eine beobachtbare Diskussion würde persönliche Nutzung offenlegen, während eine ausschließlich fiktive Falldiskussion den eigenen Bezug nicht erfüllt. Deshalb werden keine Phase, keine Minuten und kein verfügbarer Pfad behauptet; der Record bleibt semantisch partial.",
+      "phaseIds": [],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Gespräch, Lehrkraftbeobachtung, Abgabe oder Teilnahmeprotokollierung könnten sensible persönliche Nutzungsinhalte direkt oder indirekt erheben; ein fiktiver Fall würde dagegen die curriculare Lücke nur verdecken.",
+      "followUp": "Im Curriculum- und Datenschutzreview klären, ob eine freiwillige, nicht bewertete und ausdrücklich nicht als Abdeckungs- oder Zeitnachweis verwendete Gesprächsgelegenheit pädagogisch angeboten werden soll; bis dahin bleibt der Record ohne Evidenzvertrag und Zeitzuweisung partial.",
       "status": "working"
     }
   ],

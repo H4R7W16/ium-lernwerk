@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 import unittest
 from pathlib import Path
@@ -43,7 +44,44 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-DA-005": "additional-time",
     "LH26-E-DA-006": "additional-time",
     "LH26-E-DA-008": "additional-time",
+    "BMB16-GYM-IK-MG-001": "additional-time",
+    "BMB16-GYM-IK-MG-002": "additional-time",
+    "BMB16-GYM-IK-MG-003": "absorbed",
+    "BMB16-GYM-PK-RK-001": "additional-time",
+    "BMB16-GYM-PK-RK-002": "additional-time",
+    "BMB16-GYM-PK-RK-003": "unresolved",
+    "LH26-E-DP-003": "unresolved",
 }
+
+PRIOR_20_TIME_REVIEW_IDS = (
+    "TR-BMB16-GYM-IK-GM-001",
+    "TR-BMB16-GYM-IK-GM-002",
+    "TR-BMB16-GYM-IK-GM-003",
+    "TR-BMB16-GYM-PK-SK-003",
+    "TR-LH26-E-DA-004",
+    "TR-LH26-E-DP-001",
+    "TR-LH26-E-ID-009",
+    "TR-BMB16-GYM-IK-KK-002",
+    "TR-BMB16-GYM-IK-KK-003",
+    "TR-BMB16-GYM-PK-HK-003",
+    "TR-BMB16-GYM-PK-RK-004",
+    "TR-LH26-E-KS-001",
+    "TR-LH26-E-KS-002",
+    "TR-LH26-E-ALG-001",
+    "TR-LH26-E-PROG-001",
+    "TR-LH26-E-PROG-002",
+    "TR-BMB16-GYM-IK-PP-002",
+    "TR-LH26-E-DA-005",
+    "TR-LH26-E-DA-006",
+    "TR-LH26-E-DA-008",
+)
+PRIOR_20_TIME_REVIEWS_SHA256 = (
+    "48a289cdfee61288c31806064660a01f294820f99a74150ef87536496613945f"
+)
+PRIVATE_LOCAL_BOUNDARY = (
+    "Das private lokale Artefakt wird nicht erhoben, übertragen, "
+    "eingesammelt, gespeichert oder bewertet."
+)
 
 EXPECTED_GM003_TIME_PLACEMENT_RATIONALE = (
     "Die 20 Minuten sind ausschließlich als Zeitanteil der bereits "
@@ -568,6 +606,243 @@ CORE06_INT5_FALLBACK = (
     "Zeit für Lizenz, Nutzung, Datenschutz, Adressatenwahl und Produktion "
     "bleibt im Integrations- wie im Fallbackfall unverändert erhalten."
 )
+
+CORE07_NONPERSONAL_PRODUCT_FUNCTION = (
+    "Als beobachtbare Produkt-, Zeit- und Evidenzspur zählt ausschließlich "
+    "die nichtpersonale gemeinsame Wirkungskarte; die private "
+    "Reflexionsnotiz wird weder eingesehen noch angerechnet. Das zentrale "
+    "Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte "
+    "mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und "
+    "revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt "
+    "ausschließlich bei der lernenden Person."
+)
+CORE07_AUDIT_EXPECTATIONS = {
+    "BMB16-GYM-IK-MG-001": {
+        "decision": "additional-time",
+        "additionalMinutes": 15,
+        "phaseIds": ["independent-action-product"],
+        "rationale": (
+            "Die 15 Minuten sind ausschließlich dem nichtpersonalen "
+            "Abschnitt „Altersbezogene Bewertung“ der gemeinsamen "
+            "fallbezogenen Wirkungskarte zugeordnet: Die Lernenden bewerten "
+            "den vollständig vorgegebenen fiktiven Fall mit dem vollständig "
+            "vorgegebenen Kriterienkatalog und begründen angemessene oder "
+            "problematische Merkmale. Inhalt, Bearbeitungsstand und "
+            "Zeitbedarf der privaten Motivations- und Nutzungsbewertung "
+            "werden weder beobachtet noch als Produkt- oder Evidenzspur "
+            "angerechnet."
+        ),
+        "risk": (
+            "Eine Einsicht, Abgabe, Lehrkraftbeobachtung oder Bewertung der "
+            "privaten Reflexionsmatrix würde persönliche Nutzungsmotivation "
+            "erheben und die Datenschutzgrenze verletzen; das sichtbare "
+            "Fallurteil darf keine Rückschlüsse auf den privaten Inhalt "
+            "verlangen."
+        ),
+        "followUp": (
+            "Im Pilot ausschließlich aggregiert prüfen, ob das "
+            "nichtpersonale fiktive Fallurteil innerhalb der 15 Minuten "
+            "entsteht und ohne Einsicht in die private Matrix funktioniert; "
+            "private Inhalte und Bearbeitungszeiten werden nicht erhoben, "
+            "übertragen, eingesammelt, gespeichert oder bewertet."
+        ),
+    },
+    "BMB16-GYM-IK-MG-002": {
+        "decision": "additional-time",
+        "additionalMinutes": 20,
+        "phaseIds": [
+            "guided-practice",
+            "review-revise-transfer",
+        ],
+        "rationale": (
+            "Das Erläutern eines positiven Nutzungsaspekts und eines Risikos "
+            "oder einer Gefahr übermäßiger Nutzung, ihr kriterien- und "
+            "beleggestütztes Bewerten sowie das Ableiten einer passenden "
+            "Präventionsmaßnahme benötigen 20 Minuten angeleitete Fallanalyse "
+            "und Revision im gemeinsamen Abschnitt „Nutzen, Risiken und "
+            "Prävention“ derselben Wirkungskarte."
+        ),
+        "risk": (
+            "Eine bloße Liste von Nutzen, Risiken oder Verboten würde "
+            "Erläuterung, belegtes Kriterienurteil und passende Prävention "
+            "nicht ausführen; persönliche Nutzungsdaten sind für den "
+            "vollständig vorgegebenen fiktiven Fall weder nötig noch "
+            "zulässig."
+        ),
+        "followUp": (
+            "Im Pilot am nichtpersonalen Fallprodukt prüfen, ob positiver "
+            "Aspekt, Risiko oder Gefahr, Kriterien und Belege, begründetes "
+            "Urteil und passende Präventionsmaßnahme innerhalb der 20 "
+            "Minuten vollständig sichtbar werden."
+        ),
+    },
+    "BMB16-GYM-IK-MG-003": {
+        "decision": "absorbed",
+        "additionalMinutes": 0,
+        "phaseIds": [
+            "guided-practice",
+            "independent-action-product",
+            "review-revise-transfer",
+        ],
+        "rationale": (
+            "Im nichtpersonalen Abschnitt „Wirkung und bedingte "
+            "Gesetzmäßigkeit“ nutzen die Untersuchung derselben zwei "
+            "kuratierten Medienbeispiele, der Vergleich vollständig "
+            "vorgegebener fiktiver Reaktionsdaten sowie Ableitung und "
+            "Revision einer bedingten Wirkungsaussage bereits dieselbe "
+            "positive Wirkungs- und Revisionsspur der gemeinsamen "
+            "Wirkungskarte. Private Empfindungen oder private Ableitungen "
+            "sind weder Voraussetzung dieser Spur noch beobachtbares Produkt "
+            "oder Evidenz und tragen keine zusätzlichen Minuten."
+        ),
+        "risk": (
+            "Aus der nichtpersonalen Wirkungsaussage dürfen weder private "
+            "Empfindungen abgeleitet noch Einsicht, Gespräch, Abgabe oder "
+            "Bewertung der privaten Reflexionsmatrix verlangt werden."
+        ),
+        "followUp": (
+            "Im Pilot ausschließlich die nichtpersonale Untersuchung der "
+            "fiktiven Reaktionsdaten sowie die bedingte Wirkungsaussage und "
+            "ihre Revision in der gemeinsamen Wirkungskarte prüfen; private "
+            "Empfindungen und Ableitungen werden nicht erhoben, übertragen, "
+            "eingesammelt, gespeichert oder bewertet."
+        ),
+    },
+    "BMB16-GYM-PK-RK-001": {
+        "decision": "additional-time",
+        "additionalMinutes": 15,
+        "phaseIds": ["guided-practice"],
+        "rationale": (
+            "Die 15 Minuten gelten ausschließlich dem nichtpersonalen "
+            "Abschnitt „Nutzungsvergleich“ der gemeinsamen Wirkungskarte: "
+            "Die zwei vollständig vorgegebenen Nutzungssituationen des "
+            "fiktiven Falls werden mit dem vorgegebenen Kriterienkatalog "
+            "beschrieben und verglichen; Gemeinsamkeiten und Unterschiede "
+            "werden begründet festgehalten. Eigenes Nutzungsverhalten und "
+            "die private Vergleichsmatrix bilden weder die beobachtbare "
+            "Produktspur noch den Zeitnachweis."
+        ),
+        "risk": (
+            "Eine Übernahme eigener Nutzungssituationen in die gemeinsame "
+            "Wirkungskarte oder eine Lehrkraftkontrolle der privaten Matrix "
+            "würde die nichtpersonale Anschlussaufgabe in eine verdeckte "
+            "Erhebung persönlicher Mediennutzung verwandeln."
+        ),
+        "followUp": (
+            "Im Pilot nur prüfen, ob der fiktive Nutzungsvergleich mit "
+            "gemeinsamen Kriterien, Gemeinsamkeiten und Unterschieden "
+            "innerhalb der 15 Minuten gelingt und ohne Angaben aus der "
+            "privaten Matrix verständlich bleibt."
+        ),
+    },
+    "BMB16-GYM-PK-RK-002": {
+        "decision": "additional-time",
+        "additionalMinutes": 15,
+        "phaseIds": ["independent-action-product"],
+        "rationale": (
+            "Die 15 Minuten sind ausschließlich dem nichtpersonalen "
+            "Abschnitt „Lebenswelt und Medienwirklichkeit“ der gemeinsamen "
+            "Wirkungskarte zugeordnet: Am vollständig vorgegebenen fiktiven "
+            "Fall werden der Einfluss digitaler Medien auf dessen Lebenswelt "
+            "sowie begründete Entsprechungen und Unterschiede zwischen "
+            "Wirklichkeit und denselben kuratierten Medienbeispielen "
+            "dargestellt. Die private Lebensweltreflexion ist keine "
+            "beobachtbare Produkt- oder Evidenzspur."
+        ),
+        "risk": (
+            "Persönliche Lebensbereiche dürfen weder abgefragt noch aus dem "
+            "nichtpersonalen Fallprodukt erschlossen werden; sonst würde die "
+            "gemeinsame Wirkungskarte die private Datenschutzgrenze "
+            "unterlaufen."
+        ),
+        "followUp": (
+            "Im Pilot ausschließlich die fiktive Lebensweltdarstellung und "
+            "die begründete Beziehung zwischen Wirklichkeit und "
+            "Medienwirklichkeit im gemeinsamen Produkt prüfen; die private "
+            "Matrix bleibt vollständig außerhalb von Erhebung und Feedback."
+        ),
+    },
+    "BMB16-GYM-PK-RK-003": {
+        "decision": "unresolved",
+        "additionalMinutes": 0,
+        "phaseIds": [],
+        "rationale": (
+            "Ohne die ausstehende Ursachenreklassifikation von "
+            "`private-local` zu `module-detail` existiert kein gültiger "
+            "Evidenzvertrag für das Abschätzen und kriteriengestützte "
+            "Bewerten medialer Selbstdarstellung. Deshalb werden weder eine "
+            "private Erstleistung noch ein redundanter sichtbarer "
+            "Fallnachweis und auch keine Einzelphase oder Zeit behauptet; "
+            "der Record bleibt semantisch partial."
+        ),
+        "risk": (
+            "Eine vorzeitige Zeitzuweisung würde eine fachlich "
+            "unbeobachtbare fiktive Privatleistung und denselben Operator "
+            "noch einmal als sichtbare Fallaufgabe modellieren und damit die "
+            "Fehlklassifikation verdecken."
+        ),
+        "followUp": (
+            "Nach einer späteren Design- und Ursachenreklassifikation genau "
+            "einen shared- oder teacher-observable Fallnachweis für "
+            "Folgenabschätzung und Kriterienurteil entwerfen und erst dann "
+            "seinen positiven Zeitbedarf auditieren."
+        ),
+    },
+    "LH26-E-DP-003": {
+        "decision": "unresolved",
+        "additionalMinutes": 0,
+        "phaseIds": [],
+        "rationale": (
+            "Der geforderte Diskussionsoperator bezieht sich ausdrücklich "
+            "auf Faszination, Konflikte und Probleme der eigenen "
+            "Mediennutzung. Eine private Beschreibung ist keine Diskussion; "
+            "eine beobachtbare Diskussion würde persönliche Nutzung "
+            "offenlegen, während eine ausschließlich fiktive Falldiskussion "
+            "den eigenen Bezug nicht erfüllt. Deshalb werden keine Phase, "
+            "keine Minuten und kein verfügbarer Pfad behauptet; der Record "
+            "bleibt semantisch partial."
+        ),
+        "risk": (
+            "Gespräch, Lehrkraftbeobachtung, Abgabe oder "
+            "Teilnahmeprotokollierung könnten sensible persönliche "
+            "Nutzungsinhalte direkt oder indirekt erheben; ein fiktiver Fall "
+            "würde dagegen die curriculare Lücke nur verdecken."
+        ),
+        "followUp": (
+            "Im Curriculum- und Datenschutzreview klären, ob eine "
+            "freiwillige, nicht bewertete und ausdrücklich nicht als "
+            "Abdeckungs- oder Zeitnachweis verwendete Gesprächsgelegenheit "
+            "pädagogisch angeboten werden soll; bis dahin bleibt der Record "
+            "ohne Evidenzvertrag und Zeitzuweisung partial."
+        ),
+    },
+}
+CORE07_PRIVATE_FOLLOW_UP_TRACES = {
+    "BMB16-GYM-IK-MG-001": (
+        "Altersbezogene Bewertung",
+        "fiktiven Fall",
+        "Kriterienkatalog",
+    ),
+    "BMB16-GYM-IK-MG-003": (
+        "Wirkung und bedingte Gesetzmäßigkeit",
+        "fiktiver Reaktionsdaten",
+        "bedingte Wirkungsaussage",
+    ),
+    "BMB16-GYM-PK-RK-001": (
+        "Nutzungsvergleich",
+        "vorgegebenen Nutzungssituationen",
+        "Gemeinsamkeiten und Unterschiede",
+    ),
+    "BMB16-GYM-PK-RK-002": (
+        "Lebenswelt und Medienwirklichkeit",
+        "fiktiven Fall",
+        "Wirklichkeit und Medienwirklichkeit",
+    ),
+}
+CORE07_PARTIAL_IDS = {
+    "BMB16-GYM-PK-RK-003",
+    "LH26-E-DP-003",
+}
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -2788,6 +3063,195 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         self._assert_core06_integration_boundary(integration_contracts)
 
+    def _assert_core07_repository_contract(
+        self,
+        reviews_by_competency_id,
+        module_contracts,
+        remediation_payload=None,
+        module_payload=None,
+        coverage_payload=None,
+    ):
+        if remediation_payload is None:
+            remediation_payload = self.remediation_payload
+        if module_payload is None:
+            module_payload = self.module_payload
+        if coverage_payload is None:
+            coverage_payload = self.coverage_payload
+
+        core07_contract = module_contracts["IUM-5-CORE-07"]
+        expected_review_ids = [
+            f"TR-{competency_id}"
+            for competency_id in CORE07_AUDIT_EXPECTATIONS
+        ]
+        self.assertEqual(
+            core07_contract["timeReviewIds"],
+            expected_review_ids,
+        )
+        self.assertEqual(core07_contract["integrationContractIds"], [])
+        self.assertEqual(
+            core07_contract["schoolDependentSteps"],
+            ["private-local-reflection-remains-uncollected"],
+        )
+        for budget in core07_contract["pathBudgets"]:
+            with self.subTest(
+                core07_nonpersonal_product_path=budget["pathId"]
+            ):
+                product_phase = next(
+                    phase
+                    for phase in budget["phaseBudgets"]
+                    if phase["phaseId"] == "independent-action-product"
+                )
+                self.assertEqual(
+                    product_phase["learningFunction"],
+                    CORE07_NONPERSONAL_PRODUCT_FUNCTION,
+                )
+
+        expected_paths = [
+            "GRADE-5-BASELINE",
+            "GRADE-5-REGULAR",
+            "GRADE-5-EXTENDED",
+        ]
+        for competency_id, expected in CORE07_AUDIT_EXPECTATIONS.items():
+            with self.subTest(core07_competency_id=competency_id):
+                review = reviews_by_competency_id[competency_id]
+                self.assertEqual(
+                    {
+                        field: review[field]
+                        for field in (
+                            "decision",
+                            "additionalMinutes",
+                            "phaseIds",
+                            "rationale",
+                            "risk",
+                            "followUp",
+                        )
+                    },
+                    expected,
+                )
+                self.assertEqual(review["moduleId"], "IUM-5-CORE-07")
+                self.assertEqual(
+                    review["sourceTimeImpactLevel"],
+                    "review-required",
+                )
+                self.assertEqual(review["integrationContractIds"], [])
+                self.assertIsNone(review["sequenceEvidenceId"])
+                self.assertEqual(
+                    review["pathAvailability"],
+                    (
+                        []
+                        if expected["decision"] == "unresolved"
+                        else expected_paths
+                    ),
+                )
+                self.assertEqual(
+                    review["coverageConsequence"],
+                    "semantic-status-unchanged",
+                )
+
+        coverage_by_id = {
+            entry["competencyId"]: entry
+            for entry in coverage_payload["entries"]
+        }
+        remediation_by_id = {
+            entry["competencyId"]: entry
+            for entry in remediation_payload["entries"]
+        }
+        self.assertEqual(
+            coverage_projection_fingerprint(
+                coverage_payload,
+                remediation_payload,
+            ),
+            BASELINE_COVERAGE_PROJECTION_SHA256,
+        )
+        for competency_id in CORE07_AUDIT_EXPECTATIONS:
+            expected_status = (
+                "partial"
+                if competency_id in CORE07_PARTIAL_IDS
+                else "covered"
+            )
+            with self.subTest(core07_semantic_status=competency_id):
+                self.assertEqual(
+                    coverage_by_id[competency_id]["coverageStatus"],
+                    expected_status,
+                )
+                self.assertEqual(
+                    remediation_by_id[competency_id]["after"][
+                        "coverageStatus"
+                    ],
+                    expected_status,
+                )
+
+        core07_module = next(
+            module
+            for module in module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-07"
+        )
+        evidence_by_competency_id = {
+            evidence["competencyId"]: evidence
+            for evidence in core07_module["coverageEvidence"]
+        }
+        for competency_id, required_traces in (
+            CORE07_PRIVATE_FOLLOW_UP_TRACES.items()
+        ):
+            with self.subTest(core07_private_follow_up=competency_id):
+                evidence = evidence_by_competency_id[competency_id]
+                review = reviews_by_competency_id[competency_id]
+                self._assert_core07_private_time_boundary(
+                    review,
+                    evidence,
+                    required_traces,
+                )
+
+        for competency_id in CORE07_PARTIAL_IDS:
+            with self.subTest(core07_partial_boundary=competency_id):
+                handoff = remediation_by_id[competency_id]
+                review = reviews_by_competency_id[competency_id]
+                self.assertIsNone(handoff["evidenceContractId"])
+                self.assertEqual(review["decision"], "unresolved")
+                self.assertEqual(review["additionalMinutes"], 0)
+                self.assertEqual(review["phaseIds"], [])
+                self.assertEqual(review["pathAvailability"], [])
+
+    def _assert_core07_private_time_boundary(
+        self,
+        review,
+        evidence,
+        required_traces,
+    ):
+        self.assertEqual(evidence["mode"], "private-local")
+        self.assertEqual(evidence["productVisibility"], "private-local")
+        self.assertEqual(
+            evidence["privacyBoundary"],
+            PRIVATE_LOCAL_BOUNDARY,
+        )
+        self.assertTrue(evidence["nonPersonalFollowUp"].strip())
+
+        review_text = " ".join(
+            review[field]
+            for field in ("rationale", "risk", "followUp")
+        )
+        for required_trace in required_traces:
+            with self.subTest(core07_nonpersonal_trace=required_trace):
+                self.assertIn(
+                    required_trace,
+                    evidence["nonPersonalFollowUp"],
+                )
+                self.assertIn(required_trace, review_text)
+        self.assertIn("nichtpersonal", review_text.casefold())
+        self.assertNotIn("teacher-observable", review_text.casefold())
+        self.assertTrue(
+            any(
+                boundary_trace in review_text.casefold()
+                for boundary_trace in (
+                    "weder beobachtet",
+                    "nicht erhoben",
+                    "keine beobachtbare",
+                    "weder die beobachtbare",
+                    "außerhalb von erhebung",
+                )
+            )
+        )
+
     def _assert_core06_extended_product_depth(self, core06_contract):
         budgets_by_path = {
             budget["pathId"]: budget
@@ -3275,6 +3739,24 @@ class IUM10TimeReviewTests(unittest.TestCase):
             )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
+        prior_reviews = self.time_payload["timeReviews"][
+            : len(PRIOR_20_TIME_REVIEW_IDS)
+        ]
+        self.assertEqual(
+            tuple(review["id"] for review in prior_reviews),
+            PRIOR_20_TIME_REVIEW_IDS,
+        )
+        canonical_prior_reviews = json.dumps(
+            prior_reviews,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        self.assertEqual(
+            hashlib.sha256(canonical_prior_reviews).hexdigest(),
+            PRIOR_20_TIME_REVIEWS_SHA256,
+        )
+
         result = validate_time_reviews(
             self.time_payload["timeReviews"],
             self.remediation_payload,
@@ -3382,6 +3864,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_module_contracts,
         )
         self._assert_core06_repository_contract(
+            reviews_by_competency_id,
+            self.repository_module_contracts,
+        )
+        self._assert_core07_repository_contract(
             reviews_by_competency_id,
             self.repository_module_contracts,
         )
