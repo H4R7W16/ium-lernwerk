@@ -1,6 +1,6 @@
 # IUM10 – Maschinenlesbarer Privacy-Vertrag
 
-**Status:** `review-ready` – Gesamtdesign am 31. Juli 2026 abschnittsweise freigegeben; schriftliche Gesamtfreigabe steht aus  
+**Status:** `approved` – am 31. Juli 2026 schriftlich als Gesamtspezifikation freigegeben
 **Stand:** 31. Juli 2026  
 **Scope:** IuM-Lernwerk, IUM10 Task 14, allgemeines Schema für Klassen 5–7 mit erster vollständiger Migration von `IUM-5-CORE-07`  
 **Voraussetzung:** IUM10-Zeitmodelldesign freigegeben; Tasks 1–13 umgesetzt und reviewt  
@@ -428,4 +428,3 @@ Dieser Architekturtask:
 - führt keine Diagnostik oder personenbezogene Speicherung ein;
 - verändert keine Phase-1-Plattformentscheidung;
 - veröffentlicht oder pusht noch keinen Zwischenstand.
-
