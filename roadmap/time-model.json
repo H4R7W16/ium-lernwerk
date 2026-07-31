@@ -1400,7 +1400,7 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": ["INF7-16-GYM-IK-ALG-003", "INF7-16-GYM-PK-MI-005", "INF7-16-GYM-PK-SV-003", "LH26-E-ALG-007", "LH26-E-ALG-008", "LH26-E-ALG-009"],
+      "timeReviewIds": ["TR-INF7-16-GYM-IK-ALG-003", "TR-INF7-16-GYM-PK-MI-005", "TR-INF7-16-GYM-PK-SV-003", "TR-LH26-E-ALG-007", "TR-LH26-E-ALG-008", "TR-LH26-E-ALG-009"],
       "integrationContractIds": ["INT-7-PROGRAMMING"],
       "schoolDependentSteps": ["local-tracing-and-modeling-environment"],
       "risk": "Die Tracingumgebung muss Code, Ablauf und Zustand synchron halten; reine Demonstration ersetzt weder eigene Vorhersage noch Korrektur.",
@@ -3381,6 +3381,130 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Eine bloße Präfixnennung ohne ausgeführte Umrechnungen oder die Vermischung mit Binärpräfixen würde den Orientierungsrecord unterschreiten. Derselbe Tabellenname allein rechtfertigt weder Absorption noch Integration der zusätzlichen Umrechnungshandlungen.",
       "followUp": "Im Pilot innerhalb der 15 Minuten alle vier Dezimalpotenzen, korrekten Symbole und vier ausgeführten Umrechnungen prüfen; die Trennung von DC-004, Binärpräfixen und den weiterhin roten Bedarfsszenarien sichtbar halten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-IK-ALG-003",
+      "competencyId": "INF7-16-GYM-IK-ALG-003",
+      "moduleId": "IUM-7-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "INT-7-PROGRAMMING trägt ausschließlich die im Vertrag ausdrücklich bewahrte synchrone Kontrollfluss- und Zustandsspur desselben vollständig korrigierten Tracefalls bis IUM-7-CORE-04. Die Variable wird ausdrücklich als änderbarer Wertespeicher erklärt; jede Zustandsänderung nennt alten Wert, neuen Wert und auslösende Anweisung. Dafür bleiben 20 Minuten eigene angeleitete Trace- und Begründungsarbeit; Implementierung, Codeausführung, Tests und Debugging werden weder ersetzt noch angerechnet. Die beiden genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 20,
+      "integrationContractIds": ["INT-7-PROGRAMMING"],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Derselbe Programmfall oder dieselbe Traceansicht allein rechtfertigt weder Absorption noch Integration; ohne alten Wert, neuen Wert und auslösende Anweisung bliebe nur eine unbegründete Zustandsliste. GRADE-7-HISTORICAL-MINIMUM selektiert INT-7-PROGRAMMING nicht.",
+      "followUp": "Im Pilot prüfen, ob der identische vollständig korrigierte Trace in optimized und robust fortgeführt wird und die 20 Minuten für die eigene Wertespeichererklärung und jede begründete Zustandsänderung genügen; die roten Bedarfsszenarien nicht als Jahresfreigabe kommunizieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-MI-005",
+      "competencyId": "INF7-16-GYM-PK-MI-005",
+      "moduleId": "IUM-7-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Der tatsächliche Einsatz eines plattformneutralen grafischen Modellierungswerkzeugs benötigt 20 Minuten eigene Produkt- und Revisionszeit: Die grafische Ablauf- und Zustandsmodellierung wird im Werkzeug erstellt, bearbeitet und korrigiert. Eine Anzeige, Demo oder bloße Tracingoberfläche genügt nicht. Dass derselbe Programmfall und dasselbe Werkzeug für andere Ansichten verwendet werden, spart Wechselzeit, ist aber keine identische Werkzeughandlung und begründet weder Absorption noch INT-7-PROGRAMMING. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product", "review-revise-transfer"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Ohne tatsächlich bearbeitete und korrigierte Modellfassung würde der Einsatzoperator unterschritten. Eine lokale Werkzeughürde oder die bloße gemeinsame Oberfläche darf nicht als fachliche Integration oder als verfügbarer grüner 38-UE-Pfad umgedeutet werden.",
+      "followUp": "Vor und im Pilot die plattformneutrale lokale Modellierungsumgebung prüfen und innerhalb der 20 Minuten tatsächliches Erstellen, Bearbeiten und Korrigieren beobachten; bei Ausfall eine vorbereitete Ersatzdarstellung nutzen, ohne das rote Jahresurteil zu negieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-SV-003",
+      "competencyId": "INF7-16-GYM-PK-SV-003",
+      "moduleId": "IUM-7-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Der gerichtete, beschriftete Datenabhängigkeitsgraph benötigt 20 Minuten eigene Produkt- und Revisionszeit. Unterscheidbare Daten-, Zustands- und Ergebnisknoten für Eingabedatum, Variablenzustand vor und nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt werden mit gerichteten Kanten „liest“, „schreibt“ und „hängt ab von“ verbunden; mindestens eine Abhängigkeit und ihre Änderungsfolge werden erklärt. Derselbe Programmfall und dasselbe grafische Werkzeug sparen nur Synchronisationszeit und begründen weder Absorption noch Integration. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product", "review-revise-transfer"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloß zeitliche Reihenfolge ohne gerichtete Datenabhängigkeit, beschriftete Kanten und erklärte Änderungsfolge unterschreitet die Lernhandlung. Die gemeinsame Oberfläche allein darf nicht als identische Produktspur oder grüner 38-UE-Pfad gelten.",
+      "followUp": "Im Pilot innerhalb der 20 Minuten prüfen, ob Graph, Beziehungslabels, mindestens eine Abhängigkeit und deren Änderungsfolge eigenständig erstellt, erklärt und revidiert werden; die drei roten Bedarfsszenarien bleiben nicht verfügbar.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-ALG-007",
+      "competencyId": "LH26-E-ALG-007",
+      "moduleId": "IUM-7-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "INT-7-PROGRAMMING trägt ausschließlich die im Vertrag ausdrücklich bewahrte kanonische Kontrollfluss- und Tracekontinuität desselben vollständig korrigierten Falls bis IUM-7-CORE-04. Die vollständige Beschreibung von Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator bleibt 25 Minuten eigene Begriffsarbeit. Implementierung, Codeausführung, Normal-, Grenz- und Gegenfalltests sowie Debugging werden nicht ersetzt. Die beiden genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["build-concept"],
+      "additionalMinutes": 25,
+      "integrationContractIds": ["INT-7-PROGRAMMING"],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Ein nur demonstrierter Trace, ein anderer Programmfall oder derselbe Fall ohne alle sieben Belegstellen trägt die Integration nicht. GRADE-7-HISTORICAL-MINIMUM selektiert INT-7-PROGRAMMING nicht; optimized ist weder verfügbar noch grün oder als 38-UE-Pfad freigegeben.",
+      "followUp": "Im Pilot die direkte Kontinuität des vollständig korrigierten Tracefalls und innerhalb der 25 Minuten alle sieben unterscheidbaren Baustein- und Ausdrucksbelege prüfen; Tests, Debugging und Implementierung bleiben eigenständige CORE-04-Handlungen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-ALG-008",
+      "competencyId": "LH26-E-ALG-008",
+      "moduleId": "IUM-7-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die semantische Wertflussidentifikation benötigt 15 Minuten eigene angeleitete Analyse: Ein Wert wird von Quelle oder innerem Ausdruck zum konsumierenden Operanden, Parameter oder Ziel verfolgt und das Ausdrucksergebnis seinem empfangenden äußeren Ausdruck oder seiner Anweisung zugeordnet. Eine Anweisung ohne definierten Ergebniswert hat keinen Rückgabewert; ohne vorhandene Funktion wird keine Funktionsrückgabe unterstellt. Derselbe Programmfall und dieselbe Traceansicht allein begründen weder Absorption noch Integration. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloße Pfeilfolge ohne Quelle, Konsument, Ergebnis und Empfänger oder die Behauptung eines Rückgabewerts für jede Anweisung würde den semantischen Wertfluss verfälschen. Gemeinsamer Kontext ist keine identische Identifikationshandlung.",
+      "followUp": "Im Pilot innerhalb der 15 Minuten an mehreren Tracepositionen Quelle, konsumierenden Operanden, Parameter oder Ziel, Ausdrucksergebnis und Empfänger unterscheiden sowie wertlose Anweisungen und fehlende Funktionsrückgaben korrekt markieren; kein grünes Pfadsignal ableiten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-ALG-009",
+      "competencyId": "LH26-E-ALG-009",
+      "moduleId": "IUM-7-CORE-03",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die Typzuordnung benötigt 15 Minuten eigene Produktzeit: Bei Werten und Ausdrücken werden Zeichenkette, Zahl und Wahrheitswert identifiziert und ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe begründet. Datentyp, konkreter Wert und Ausdruck bleiben unterscheidbar. Dass dieselben Werte und Ausdrücke im gemeinsamen Trace stehen, begründet ohne identische Zuordnungs- und Begründungsspur weder Absorption noch Integration. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Nur Zahlen zu typisieren, Typnamen ohne Begründung zu nennen oder Wert und Datentyp gleichzusetzen würde den Orientierungsrecord unterschreiten. Derselbe Trace allein macht die Typbegründung nicht zeitneutral.",
+      "followUp": "Im Pilot innerhalb der 15 Minuten für Werte und Ausdrücke alle drei Datentypen sowie ihre Rollen als Eingabe, Zwischenergebnis, Bedingung und Ausgabe sichtbar und begründet zuordnen; die roten Bedarfsszenarien bleiben nicht verfügbar.",
       "status": "working"
     }
   ],
