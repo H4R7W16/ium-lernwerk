@@ -2536,6 +2536,24 @@ class IUM10TimeReviewTests(unittest.TestCase):
                         privacy_contracts=self.core07_privacy_contracts(),
                     )
 
+    def test_rejects_non_string_observable_basis_as_validation_error(self):
+        competency_id = "BMB16-GYM-IK-MG-001"
+        review = self.review(competency_id, "additional-time")
+        review["privacyDisposition"] = self.private_disposition(
+            competency_id,
+            "nonpersonal-follow-up",
+        )
+        review["privacyDisposition"]["observableBasis"] = []
+
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            f"observableBasis.*{competency_id}",
+        ):
+            self.validate_reviews(
+                [review],
+                privacy_contracts=self.core07_privacy_contracts(),
+            )
+
     def test_rejects_each_missing_or_extra_disposition_field(self):
         competency_id = "BMB16-GYM-IK-MG-001"
         disposition = self.private_disposition(

@@ -2076,7 +2076,7 @@ def _validate_privacy_disposition(
     )
     basis = disposition["observableBasis"]
     _require(
-        basis in OBSERVABLE_BASES,
+        isinstance(basis, str) and basis in OBSERVABLE_BASES,
         f"invalid observableBasis: {competency_id}",
     )
     expected_evidence_id = handoff["evidenceContractId"]
