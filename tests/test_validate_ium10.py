@@ -79,6 +79,9 @@ TIME_AUDIT_DECISIONS = {
     "INF7-16-GYM-PK-KK-002": "additional-time",
     "INF7-16-GYM-PK-MI-003": "additional-time",
     "INF7-16-GYM-PK-SV-002": "additional-time",
+    "INF7-16-GYM-IK-IGD-004": "integrated",
+    "INF7-16-GYM-PK-AB-002": "additional-time",
+    "INF7-16-GYM-PK-SV-001": "additional-time",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -755,6 +758,134 @@ TASK20_INTEGRATION_CONTRACT_SHA256 = (
 )
 TASK20_CORE04_STABLE_FIELDS_SHA256 = (
     "c814b012ffc480cf88881dc6d52247c1dd3115db5404f1114fa2c6c60777d82d"
+)
+PRE_TASK21_TIME_REVIEW_COUNT = 49
+PRE_TASK21_TIME_REVIEWS_SHA256 = (
+    "0c7e4b41925b9d268d299ee8ae9c36aeaaf66f585b85fd10d2452daff6b180ee"
+)
+TASK21_AUDIT_EXPECTATIONS = {
+    "INF7-16-GYM-IK-IGD-004": dict(
+        decision="integrated", additionalMinutes=30,
+        phaseIds=["guided-practice"],
+        integrationContractIds=["INT-7-NET-SECURITY"],
+        pathAvailability=GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY,
+        evidenceMode="module-detail",
+    ),
+    "INF7-16-GYM-PK-AB-002": dict(
+        decision="additional-time", additionalMinutes=30,
+        phaseIds=["review-revise-transfer"], integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+        evidenceMode="module-detail",
+    ),
+    "INF7-16-GYM-PK-SV-001": dict(
+        decision="additional-time", additionalMinutes=30,
+        phaseIds=["independent-action-product"],
+        integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+        causeClass="school-context", evidenceMode="school-context",
+    ),
+}
+TASK21_REQUIRED_TEXT = {
+    "INF7-16-GYM-IK-IGD-004": (
+        "mehreren vollständig vorgegebenen fiktiven Bedrohungsfällen",
+        "mobile Geräte und Datenträger", "mindestens vier Paaren",
+        "Verlust, Diebstahl oder unbefugter Zugriff", "Displaysperre",
+        "Geräte- oder Datenträgerverschlüsselung",
+        "nicht vertrauenswürdige Wechseldatenträger oder Schadsoftware",
+        "freigegebenen Datenträgern und Pfaden", "Updates",
+        "Schadsoftwareprüfung", "unsichere Übertragung",
+        "freigegebenem Übertragungsweg", "Sicht- und Zugriffsschutz",
+        "Beschädigung oder Ausfall", "Backup", "geprüfter Wiederherstellung",
+        "Risiko", "mögliche Maßnahme", "Schutzwirkung", "Grenze",
+        "Zielkonflikt", "Persönliche Geräte werden nicht verändert",
+        "Gerätekennungen nicht erhoben", "Jede lernende Person",
+        "eigene vollständige Risiko–Maßnahme-Spur",
+    ),
+    "INF7-16-GYM-PK-AB-002": (
+        "innerhalb der bestehenden CORE-05-Phase",
+        "Modellelement", "Vorhersage", "Datenweg",
+        "entsprechenden beobachteten realen Schritt",
+        "sicheren, nichtpersonalen tatsächlichen oder kuratierten",
+        "Client–Server- und Speicherworkflows", "Übereinstimmungen",
+        "Abweichungen", "Auslassungen", "Modellgrenze",
+        "begründete Modellrevision", "lokale Freigabegate",
+        "Paketaufzeichnung", "private Protokolle", "Zugangsdaten",
+        "Jede lernende Person", "eigene Modell–Realsituation-Tabelle",
+    ),
+    "INF7-16-GYM-PK-SV-001": (
+        "innerhalb der bestehenden CORE-05-Phase",
+        "tatsächliche lokale Schulnetznutzung", "Freigabe-",
+        "Orientierungs- und technischer Anlaufzeit", "Jede lernende Person",
+        "vor Ort freigegebenes, lokal verfügbares und datenschutzkonformes",
+        "neutrales Arbeitsziel", "freigegebenen Speicherort oder Pfad",
+        "neutrales, fiktives und personenfreies Testartefakt",
+        "ruft es erneut ab", "öffnet es", "verifiziert das Aufgabenergebnis",
+        "falls er lokal unterstützt ist", "ausschließlich Arbeitsziel",
+        "Pfadbezeichnung oder Pfadkategorie", "ausgeführte Operationen",
+        "Ergebnis der Abruf- und Öffnungsprüfung", "actual-local-use",
+        "bleibt der Record partial", "Zeitentscheidung unbestätigt",
+    ),
+}
+TASK21_FORBIDDEN_TEXT = {
+    "INF7-16-GYM-IK-IGD-004": (
+        "allgemeine sicherheitstipps genügen",
+        "drei risiko–maßnahme-paare genügen",
+        "schutzwirkung und grenze entfallen",
+        "die maßnahmen bieten vollständigen schutz",
+        "persönliche geräte werden verändert",
+        "gerätekennungen werden erhoben",
+        "ein teammitglied erstellt die risiko–maßnahme-spur für alle",
+        "integration verkürzt die igd-004-schutzhandlung",
+        "die 135 minuten werden in core-05 erneut gezählt",
+    ),
+    "INF7-16-GYM-PK-AB-002": (
+        "das modell ist vereinfacht und das genügt",
+        "ein modell-modell-vergleich genügt", "beobachtung entfällt",
+        "abweichung und auslassung entfallen", "modellgrenze entfällt",
+        "begründete revision entfällt", "paketmitschnitt ist zulässig",
+        "private logs werden gespeichert", "zugangsdaten werden dokumentiert",
+        "ein teammitglied erstellt tabelle und revision für alle",
+        "dasselbe systemmodell absorbiert ab-002",
+        "die 135 minuten werden von ab-002 abgezogen",
+    ),
+    "INF7-16-GYM-PK-SV-001": (
+        "eine simulation schließt sv-001", "eine demonstration schließt sv-001",
+        "eine screenshotspur schließt sv-001",
+        "eine kuratierte ersatzspur schließt sv-001",
+        "das vorab-freigabegate entfällt",
+        "ohne lokale konfiguration gilt der record als geschlossen",
+        "technische anlaufzeit entfällt", "zugangsdaten werden dokumentiert",
+        "ip-adressen werden dokumentiert", "private dateien werden erhoben",
+        "ein teammitglied führt die lokale nutzung für alle aus",
+        "derselbe workflow integriert sv-001",
+        "die 135 minuten werden von sv-001 abgezogen",
+    ),
+}
+TASK21_REVIEW_TEXT_PROJECTION_SHA256 = {
+    "INF7-16-GYM-IK-IGD-004": (
+        "6f9abd219616f9cb046bc022c7fd7f8666b0f3fde40706c032891ce1b66f3edb"
+    ),
+    "INF7-16-GYM-PK-AB-002": (
+        "650a123acca1c6bf9ff4da4927eda9f7de5e1a0c71d8b74581a4b2b3fce3a8d2"
+    ),
+    "INF7-16-GYM-PK-SV-001": (
+        "233c77e6ac344ec055fad301c2cd5ff656a409586ce51f32e97b5152525fc231"
+    ),
+}
+TASK21_INTEGRATION_FORBIDDEN_TEXT = (
+    "INF7-16-GYM-PK-AB-002", "INF7-16-GYM-PK-SV-001",
+    "Modell–Realsituation-Vergleich wird gemeinsam getragen",
+    "tatsächliche lokale Schulnetznutzung wird gemeinsam getragen",
+    "gemeinsames Modell ersetzt Beobachtung und Revision",
+    "gemeinsamer Datenweg ersetzt die tatsächliche lokale Ausführung",
+    "135 Minuten werden in IUM-7-CORE-05 erneut gezählt",
+    "IGD-004-Schutzhandlung wird verkürzt",
+)
+TASK21_INTEGRATION_CONTRACT_SHA256 = (
+    "db03def06edd105a8f992efb176ea4f654cc38cc53c9e968007197c45eb15c33"
+)
+TASK21_CORE05_STABLE_FIELDS_SHA256 = (
+    "f8d91f833997fdedef5c642343794fccb9a898680d7f043f50e815490fe3c11c"
 )
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
@@ -1746,7 +1877,7 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "49 registered time reviews (partial baseline)\n",
+            "52 registered time reviews (partial baseline)\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -7924,6 +8055,504 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "independent-action-product": 80,
                     "review-revise-transfer": 55,
                     "guided-practice": 25,
+                },
+            )
+
+    def _assert_core05_task21_semantic_boundaries(
+        self,
+        *,
+        evidence_by_competency_id,
+        reviews_by_competency_id,
+        integration_contract,
+    ):
+        audit_texts = {}
+        for competency_id in TASK21_AUDIT_EXPECTATIONS:
+            evidence = evidence_by_competency_id[competency_id]
+            evidence_text = " ".join(
+                str(evidence[field])
+                for field in (
+                    "learningAction",
+                    "productEvidence",
+                    "executionType",
+                    "localConfigurationRequirement",
+                )
+                if field in evidence
+            )
+            review = reviews_by_competency_id[competency_id]
+            review_text = " ".join(
+                review[field] for field in ("rationale", "risk", "followUp")
+            )
+            audit_texts[competency_id] = f"{evidence_text} {review_text}"
+
+            for anchor in TASK21_REQUIRED_TEXT[competency_id]:
+                self.assertIn(anchor, audit_texts[competency_id])
+            for forbidden in TASK21_FORBIDDEN_TEXT[competency_id]:
+                self.assertNotIn(
+                    forbidden.casefold(), audit_texts[competency_id].casefold()
+                )
+            for anchor in (
+                "nicht verfügbare Bedarfsszenarien",
+                "Jahresurteil bleibt red",
+                "Personenprofil",
+                "automatische Punkte",
+                "automatisches Scoring",
+            ):
+                self.assertIn(anchor, review_text)
+            for false_release in (
+                "ist ein verfügbarer 38-ue-pfad",
+                "ist ein grüner 38-ue-pfad",
+                "ist ein freigegebener 38-ue-pfad",
+                "jahresurteil bleibt nicht red",
+                "personenprofil wird angelegt",
+                "automatische punkte werden vergeben",
+                "automatisches scoring wird eingesetzt",
+            ):
+                self.assertNotIn(false_release, review_text.casefold())
+
+        individual_anchors = {
+            "INF7-16-GYM-IK-IGD-004": (
+                "Jede lernende Person",
+                "eigene vollständige Risiko–Maßnahme-Spur",
+                "lehrkraftbeobachtbar oder eindeutig zurechenbar",
+            ),
+            "INF7-16-GYM-PK-AB-002": (
+                "Jede lernende Person", "eigene Modell–Realsituation-Tabelle",
+                "lehrkraftbeobachtbar oder eindeutig zurechenbar",
+            ),
+            "INF7-16-GYM-PK-SV-001": (
+                "Jede lernende Person", "tatsächliche Speicher- oder Upload-",
+                "Abruf-, Öffnungs- und Prüfhandlung",
+                "lehrkraftbeobachtbar oder eindeutig zurechenbar",
+            ),
+        }
+        for competency_id, anchors in individual_anchors.items():
+            review_text = " ".join(
+                reviews_by_competency_id[competency_id][field]
+                for field in ("rationale", "risk", "followUp")
+            )
+            for anchor in anchors:
+                self.assertIn(anchor, review_text)
+
+        sv_evidence = evidence_by_competency_id[
+            "INF7-16-GYM-PK-SV-001"
+        ]
+        self.assertEqual(sv_evidence["executionType"], "actual-local-use")
+        for anchor in (
+            "Vor Freigabe benennt die Lehrkraft",
+            "lokal verfügbares, schulisch freigegebenes und "
+            "datenschutzkonformes Schulnetz",
+            "neutrale Aufgabe",
+            "bleibt der Record partial",
+        ):
+            self.assertIn(anchor, sv_evidence["localConfigurationRequirement"])
+
+        integration_text = " ".join(
+            [integration_contract["sharedPhaseOrProduct"]]
+            + integration_contract["preservedLearningActions"]
+            + integration_contract["preservedProductAndCurriculumEvidence"]
+            + integration_contract["prerequisites"]
+            + [integration_contract["risk"], integration_contract["fallback"]]
+        )
+        for anchor in (
+            "INF7-16-GYM-IK-IGD-004",
+            "Bedrohung und begründete Schutzmaßnahme",
+        ):
+            self.assertIn(anchor, integration_text)
+        self.assertEqual(integration_contract["sharedMinutes"], 135)
+        self.assertEqual(
+            integration_contract["countedInModuleId"], "IUM-7-CORE-07"
+        )
+        for forbidden in TASK21_INTEGRATION_FORBIDDEN_TEXT:
+            self.assertNotIn(forbidden.casefold(), integration_text.casefold())
+
+    def _assert_core05_task21_audit_contract(
+        self,
+        reviews,
+        *,
+        integration_contracts=None,
+        annual_variants=None,
+        module_payload=None,
+    ):
+        integration_contracts = (
+            integration_contracts or self.repository_integration_contracts
+        )
+        annual_variants = annual_variants or self.repository_annual_variants
+        module_payload = module_payload or self.module_payload
+        expected_ids, task_reviews = self._assert_audit_review_slice(
+            reviews,
+            start=PRE_TASK21_TIME_REVIEW_COUNT,
+            expectations=TASK21_AUDIT_EXPECTATIONS,
+            prior_sha256=PRE_TASK21_TIME_REVIEWS_SHA256,
+        )
+        core_contract, phase_minutes, integration = (
+            self._assert_grade7_audit_context(
+                expected_time_review_ids=expected_ids,
+                module_id="IUM-7-CORE-05",
+                integration_id="INT-7-NET-SECURITY",
+                core_stable_sha256=TASK21_CORE05_STABLE_FIELDS_SHA256,
+                integration_contract_sha256=(
+                    TASK21_INTEGRATION_CONTRACT_SHA256
+                ),
+                annual_variants=annual_variants,
+                integration_contracts=integration_contracts,
+            )
+        )
+        self.assertEqual(
+            (
+                integration["moduleIds"],
+                integration["pathIds"],
+                integration["countedInModuleId"],
+                integration["sharedMinutes"],
+            ),
+            (
+                ["IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"],
+                ["optimized", "robust"],
+                "IUM-7-CORE-07",
+                135,
+            ),
+        )
+        for budget in core_contract["pathBudgets"]:
+            self.assertEqual(
+                (budget["countedSharedMinutes"], budget["sharedAllocations"]),
+                (0, []),
+            )
+
+        handoffs = {
+            item["competencyId"]: item
+            for item in self.remediation_payload["entries"]
+        }
+        coverage = {
+            item["competencyId"]: item
+            for item in self.coverage_payload["entries"]
+        }
+        module = next(
+            item
+            for item in module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-05"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in module["coverageEvidence"]
+        }
+        reviews_by_competency_id = self._assert_audit_review_matrix(
+            task_reviews,
+            expectations=TASK21_AUDIT_EXPECTATIONS,
+            module_id="IUM-7-CORE-05",
+            handoffs=handoffs,
+            coverage=coverage,
+            evidence=evidence,
+            cause_class="module-detail",
+            evidence_mode="module-detail",
+            evidence_visibility="teacher-observable",
+        )
+        for competency_id, expected_sha256 in (
+            TASK21_REVIEW_TEXT_PROJECTION_SHA256.items()
+        ):
+            self._assert_canonical_projection(
+                reviews_by_competency_id[competency_id],
+                fields=("rationale", "risk", "followUp"),
+                expected_sha256=expected_sha256,
+            )
+        self._assert_core05_task21_semantic_boundaries(
+            evidence_by_competency_id=evidence,
+            reviews_by_competency_id=reviews_by_competency_id,
+            integration_contract=integration,
+        )
+        self._assert_fully_counted_phase_claims(
+            task_reviews,
+            phase_minutes_by_path=phase_minutes,
+            expected_claims_by_phase={
+                "guided-practice": 30,
+                "review-revise-transfer": 30,
+                "independent-action-product": 30,
+            },
+        )
+
+    def test_repository_core05_task21_audit_contract(self):
+        validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
+        )
+        self._assert_core05_task21_audit_contract(
+            self.time_payload["timeReviews"]
+        )
+
+    def _task21_semantic_probe_inputs(self):
+        module = next(
+            item
+            for item in self.module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-05"
+        )
+        evidence = {
+            item["competencyId"]: copy.deepcopy(item)
+            for item in module["coverageEvidence"]
+            if item["competencyId"] in TASK21_AUDIT_EXPECTATIONS
+        }
+        reviews = {
+            item["competencyId"]: copy.deepcopy(item)
+            for item in self.time_payload["timeReviews"]
+            if item["competencyId"] in TASK21_AUDIT_EXPECTATIONS
+        }
+        integration = copy.deepcopy(
+            self.repository_integration_contracts["INT-7-NET-SECURITY"]
+        )
+        return evidence, reviews, integration
+
+    def test_core05_task21_rejects_direct_semantic_contradictions(self):
+        contradictions = {
+            "INF7-16-GYM-IK-IGD-004": (
+                "Allgemeine Sicherheitstipps genügen.",
+                "Drei Risiko–Maßnahme-Paare genügen.",
+                "Schutzwirkung und Grenze entfallen.",
+                "Die Maßnahmen bieten vollständigen Schutz.",
+                "Persönliche Geräte werden verändert.",
+                "Gerätekennungen werden erhoben.",
+                "Ein Teammitglied erstellt die Risiko–Maßnahme-Spur für alle.",
+                "Integration verkürzt die IGD-004-Schutzhandlung.",
+                "Die 135 Minuten werden in CORE-05 erneut gezählt.",
+                "Personenprofil wird angelegt.",
+            ),
+            "INF7-16-GYM-PK-AB-002": (
+                "Das Modell ist vereinfacht und das genügt.",
+                "Ein Modell-Modell-Vergleich genügt.", "Beobachtung entfällt.",
+                "Abweichung und Auslassung entfallen.", "Modellgrenze entfällt.",
+                "Begründete Revision entfällt.", "Paketmitschnitt ist zulässig.",
+                "Private Logs werden gespeichert.", "Zugangsdaten werden dokumentiert.",
+                "Ein Teammitglied erstellt Tabelle und Revision für alle.",
+                "Dasselbe Systemmodell absorbiert AB-002.",
+                "Die 135 Minuten werden von AB-002 abgezogen.",
+                "Das Jahresurteil bleibt nicht red.",
+                "Automatische Punkte werden vergeben.",
+            ),
+            "INF7-16-GYM-PK-SV-001": (
+                "Eine Simulation schließt SV-001.",
+                "Eine Demonstration schließt SV-001.",
+                "Eine Screenshotspur schließt SV-001.",
+                "Eine kuratierte Ersatzspur schließt SV-001.",
+                "Das Vorab-Freigabegate entfällt.",
+                "Ohne lokale Konfiguration gilt der Record als geschlossen.",
+                "Technische Anlaufzeit entfällt.", "IP-Adressen werden dokumentiert.",
+                "Private Dateien werden erhoben.",
+                "Ein Teammitglied führt die lokale Nutzung für alle aus.",
+                "Derselbe Workflow integriert SV-001.",
+                "Die 135 Minuten werden von SV-001 abgezogen.",
+                "GRADE-7-OPTIMIZED-DEMAND ist ein verfügbarer 38-UE-Pfad.",
+                "Automatisches Scoring wird eingesetzt.",
+            ),
+        }
+        for competency_id, cases in contradictions.items():
+            for contradiction in cases:
+                self._assert_task21_semantic_contradiction(
+                    competency_id, contradiction
+                )
+
+    def _assert_task21_semantic_contradiction(
+        self, competency_id, contradiction
+    ):
+        with self.subTest(
+            competency_id=competency_id,
+            contradiction=contradiction,
+        ):
+            evidence, reviews, integration = (
+                self._task21_semantic_probe_inputs()
+            )
+            reviews[competency_id]["followUp"] += f" {contradiction}"
+            with self.assertRaises(AssertionError):
+                self._assert_core05_task21_semantic_boundaries(
+                    evidence_by_competency_id=evidence,
+                    reviews_by_competency_id=reviews,
+                    integration_contract=integration,
+                )
+
+    def test_core05_task21_rejects_local_execution_substitutes_semantically(self):
+        mutations = (
+            ("executionType", "actual-local-use", "simulated-local-use"),
+            (
+                "localConfigurationRequirement",
+                "bleibt der Record partial",
+                "gilt der Record als geschlossen",
+            ),
+        )
+        for field, old, new in mutations:
+            with self.subTest(field=field, replacement=new):
+                evidence, reviews, integration = (
+                    self._task21_semantic_probe_inputs()
+                )
+                sv_evidence = evidence["INF7-16-GYM-PK-SV-001"]
+                sv_evidence[field] = sv_evidence[field].replace(old, new)
+                with self.assertRaises(AssertionError):
+                    self._assert_core05_task21_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_core05_task21_rejects_integration_overreach_semantically(self):
+        overreaches = (
+            (
+                "sharedPhaseOrProduct",
+                " Modell–Realsituation-Vergleich wird gemeinsam getragen.",
+            ),
+            (
+                "sharedPhaseOrProduct",
+                " Tatsächliche lokale Schulnetznutzung wird gemeinsam getragen.",
+            ),
+            (
+                "preservedProductAndCurriculumEvidence",
+                "Kompetenznachweise INF7-16-GYM-PK-AB-002 und "
+                "INF7-16-GYM-PK-SV-001.",
+            ),
+            (
+                "sharedPhaseOrProduct",
+                " Gemeinsames Modell ersetzt Beobachtung und Revision.",
+            ),
+            (
+                "sharedPhaseOrProduct",
+                " Gemeinsamer Datenweg ersetzt die tatsächliche lokale "
+                "Ausführung.",
+            ),
+        )
+        for field, overreach in overreaches:
+            with self.subTest(integration_field=field, overreach=overreach):
+                evidence, reviews, integration = (
+                    self._task21_semantic_probe_inputs()
+                )
+                if isinstance(integration[field], list):
+                    integration[field].append(overreach)
+                else:
+                    integration[field] += overreach
+                with self.assertRaises(AssertionError):
+                    self._assert_core05_task21_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+        for field, value in (
+            ("countedInModuleId", "IUM-7-CORE-05"),
+            ("sharedMinutes", 270),
+        ):
+            with self.subTest(integration_field=field, value=value):
+                evidence, reviews, integration = (
+                    self._task21_semantic_probe_inputs()
+                )
+                integration[field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core05_task21_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+        evidence, reviews, integration = self._task21_semantic_probe_inputs()
+        integration["preservedLearningActions"][0] = integration[
+            "preservedLearningActions"
+        ][0].replace(
+            "Bedrohung und begründete Schutzmaßnahme",
+            "Bedrohung ohne eigene Schutzhandlung",
+        )
+        with self.assertRaises(AssertionError):
+            self._assert_core05_task21_semantic_boundaries(
+                evidence_by_competency_id=evidence,
+                reviews_by_competency_id=reviews,
+                integration_contract=integration,
+            )
+
+    def test_core05_task21_rejects_noncanonical_review_text_projection(self):
+        self.assertEqual(len(TASK21_REVIEW_TEXT_PROJECTION_SHA256), 3)
+        for competency_id in TASK21_AUDIT_EXPECTATIONS:
+            with self.subTest(competency_id=competency_id):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                next(
+                    item
+                    for item in reviews
+                    if item["competencyId"] == competency_id
+                )["risk"] += " Beliebige Ergänzung."
+                with self.assertRaises(AssertionError):
+                    self._assert_core05_task21_audit_contract(reviews)
+
+    def test_core05_task21_contract_allows_later_review(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(
+            {"id": "TR-LATER-TASK21", "competencyId": "LATER-TASK21"}
+        )
+        self._assert_core05_task21_audit_contract(reviews)
+
+    def test_core05_task21_contract_rejects_duplicate_id(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(copy.deepcopy(reviews[PRE_TASK21_TIME_REVIEW_COUNT]))
+        with self.assertRaises(AssertionError):
+            self._assert_core05_task21_audit_contract(reviews)
+
+    def test_core05_task21_rejects_matrix_path_and_phase_mutations(self):
+        review_mutations = (
+            ("INF7-16-GYM-IK-IGD-004", "decision", "additional-time"),
+            (
+                "INF7-16-GYM-IK-IGD-004",
+                "pathAvailability",
+                GRADE7_DEMAND_PATH_AVAILABILITY,
+            ),
+            (
+                "INF7-16-GYM-PK-AB-002",
+                "integrationContractIds",
+                ["INT-7-NET-SECURITY"],
+            ),
+            ("INF7-16-GYM-PK-AB-002", "phaseIds", ["guided-practice"]),
+            ("INF7-16-GYM-PK-SV-001", "additionalMinutes", 0),
+            ("INF7-16-GYM-PK-SV-001", "decision", "integrated"),
+        )
+        for competency_id, field, value in review_mutations:
+            with self.subTest(review_matrix=(competency_id, field)):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                next(
+                    item
+                    for item in reviews
+                    if item["competencyId"] == competency_id
+                )[field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core05_task21_audit_contract(reviews)
+
+        for variant_id, field, value in (
+            ("GRADE-7-OPTIMIZED-DEMAND", "available", True),
+            ("GRADE-7-ROBUST-DEMAND", "targetUnits", 38),
+        ):
+            with self.subTest(variant=(variant_id, field)):
+                variants = copy.deepcopy(self.repository_annual_variants)
+                variants[variant_id][field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core05_task21_audit_contract(
+                        self.time_payload["timeReviews"],
+                        annual_variants=variants,
+                    )
+
+        task_reviews = copy.deepcopy(
+            self.time_payload["timeReviews"][PRE_TASK21_TIME_REVIEW_COUNT:52]
+        )
+        next(
+            item
+            for item in task_reviews
+            if item["competencyId"] == "INF7-16-GYM-IK-IGD-004"
+        )["additionalMinutes"] = 40
+        core_contract = self.repository_module_contracts["IUM-7-CORE-05"]
+        phase_minutes = self._assert_grade7_demand_scenarios(
+            self.repository_annual_variants,
+            core_contract,
+            module_id="IUM-7-CORE-05",
+            integration_id="INT-7-NET-SECURITY",
+        )
+        with self.assertRaises(AssertionError):
+            self._assert_fully_counted_phase_claims(
+                task_reviews,
+                phase_minutes_by_path=phase_minutes,
+                expected_claims_by_phase={
+                    "guided-practice": 40,
+                    "review-revise-transfer": 30,
+                    "independent-action-product": 30,
                 },
             )
 

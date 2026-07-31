@@ -1520,7 +1520,7 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": ["INF7-16-GYM-IK-IGD-004", "INF7-16-GYM-PK-AB-002", "INF7-16-GYM-PK-SV-001"],
+      "timeReviewIds": ["TR-INF7-16-GYM-IK-IGD-004", "TR-INF7-16-GYM-PK-AB-002", "TR-INF7-16-GYM-PK-SV-001"],
       "integrationContractIds": ["INT-7-NET-SECURITY"],
       "schoolDependentSteps": ["local-network-and-storage-model-environment"],
       "risk": "Lokale Infrastruktur und Schutzwege variieren; das Modell muss ohne Live-Netzzugriff mit kuratierten Störfällen ausführbar bleiben.",
@@ -3568,6 +3568,68 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Eine Clean-Code-Behauptung oder reine Namenstabelle ohne tatsächlich gespeicherte Umbenennung, eine fehlende Namenskonvention oder nichtssagende Namen wie x, test1 und final_final unterschreiten den Record. Wenn ein Teammitglied alle Umbenennungen für die anderen erledigt oder dieselbe Programmdatei als Integrationsbeleg dient, fehlen individuell zurechenbare Fachhandlung und recordeigene Zeit.",
       "followUp": "Im Pilot innerhalb der 20 Minuten mindestens zwei tatsächlich verwendete Projektdateien, mehrere Programmbezeichner einschließlich Variablen und Funktionen oder Blöcken, dokumentierte Namenskonvention, vollständige Vorher-Nachher-Tabelle und gespeicherte Umbenennungen prüfen. Je lernender Person mindestens eine tatsächlich ausgeführte und begründete Umbenennung beobachten oder eindeutig zuordnen; weder Personenprofil noch automatisches Scoring anlegen und kein grünes 38-UE-Signal ableiten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-IK-IGD-004",
+      "competencyId": "INF7-16-GYM-IK-IGD-004",
+      "moduleId": "IUM-7-CORE-05",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "Die Schutzspur benötigt 30 Minuten angeleitete Facharbeit innerhalb der bestehenden CORE-05-Phase: Jede lernende Person bearbeitet mehrere vollständig vorgegebene fiktive Bedrohungsfälle für mobile Geräte und Datenträger und dokumentiert eine eigene vollständige Risiko–Maßnahme-Spur mit mindestens vier Paaren. Verlust, Diebstahl oder unbefugter Zugriff werden mit Displaysperre sowie lokal zulässiger Geräte- oder Datenträgerverschlüsselung verbunden; nicht vertrauenswürdige Wechseldatenträger oder Schadsoftware mit ausschließlich freigegebenen Datenträgern und Pfaden, Updates und vorgesehener Schadsoftwareprüfung; unsichere Übertragung oder öffentliche Umgebung mit freigegebenem Übertragungsweg sowie Sicht- und Zugriffsschutz; Beschädigung oder Ausfall mit Backup und geprüfter Wiederherstellung. Je Paar werden Risiko, mögliche Maßnahme, Schutzwirkung und mindestens eine Grenze oder ein Zielkonflikt festgehalten. Persönliche Geräte werden nicht verändert und Gerätekennungen nicht erhoben. IGD-004 ist über INT-7-NET-SECURITY integriert, weil dessen Vertrag die Schutzmaßnahme und INF7-16-GYM-IK-IGD-004 ausdrücklich bewahrt; die 30 Minuten bleiben dennoch eigene angeleitete Facharbeit. Die 135 gemeinsamen Minuten werden ausschließlich in IUM-7-CORE-07 gezählt, nicht in CORE-05 erneut angerechnet oder pro Record abgezogen. Optimized und robust bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 30,
+      "integrationContractIds": ["INT-7-NET-SECURITY"],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Allgemeine Sicherheitstipps, weniger als vier vollständige Risiko–Maßnahme-Paare, eine fehlende Schutzwirkung oder Grenze, pauschale Vollschutzversprechen oder die tatsächliche Veränderung persönlicher Geräte unterschreiten die Fachhandlung. Wenn ein Teammitglied die vollständige Risiko–Maßnahme-Spur für andere erledigt, Gerätekennungen erhoben werden oder Integration die Schutzhandlung verkürzt, fehlen individuelle Zurechenbarkeit und Datenschutz.",
+      "followUp": "Im Pilot innerhalb der 30 Minuten für jede lernende Person mindestens vier vollständige Risiko–Maßnahme-Paare mit Wirkung und Grenze im gemeinsamen System- und Bedrohungsmodell lehrkraftbeobachtbar oder eindeutig zurechenbar prüfen. Dabei weder Personenprofil noch automatische Punkte oder automatisches Scoring anlegen; die beiden integrierten Bedarfsszenarien bleiben nicht verfügbar und rot.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-AB-002",
+      "competencyId": "INF7-16-GYM-PK-AB-002",
+      "moduleId": "IUM-7-CORE-05",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Der Modell–Realsituation-Vergleich benötigt 30 Minuten eigene Revisionszeit innerhalb der bestehenden CORE-05-Phase: Jede lernende Person erstellt im gemeinsamen System- und Bedrohungsmodell eine eigene Modell–Realsituation-Tabelle und stellt Modellelement, Vorhersage und Datenweg jeweils dem entsprechenden beobachteten realen Schritt einer sicheren, nichtpersonalen tatsächlichen oder kuratierten Beobachtungsspur des neutralen freigegebenen Client–Server- und Speicherworkflows gegenüber. Sie identifiziert Übereinstimmungen, Abweichungen und Auslassungen, benennt die Modellgrenze und nimmt mindestens eine begründete Modellrevision vor. Bei tatsächlicher Beobachtung gilt dasselbe lokale Freigabegate wie für die Schulnetznutzung; Paketaufzeichnung, private Protokolle und Zugangsdaten sind ausgeschlossen. INT-7-NET-SECURITY wird nicht beansprucht: Dasselbe Systemmodell ersetzt weder Beobachtung noch Modell–Realsituation-Vergleich, Modellgrenze oder begründete Revision; AB-002 ist im Integrationsvertrag nicht bewahrt. Optimized, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["review-revise-transfer"],
+      "additionalMinutes": 30,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Die bloße Behauptung, das Modell sei vereinfacht, ein Vergleich zweier Modelle, eine fehlende tatsächliche oder kuratierte Beobachtung oder das Auslassen von Abweichung, Auslassung, Modellgrenze oder begründeter Revision unterschreiten den Record. Paketmitschnitt, private Logs oder Zugangsdaten verletzen die Datenschutzgrenze. Erledigt ein Teammitglied Tabelle und Revision für andere oder wird derselbe Workflow als Integration beziehungsweise Absorption angerechnet, fehlen individuelle Fachhandlung und recordeigene Zeit.",
+      "followUp": "Im Pilot innerhalb der 30 Minuten je lernender Person die eigene Tabelle mit Modellelement, Vorhersage, Datenweg, entsprechendem beobachteten realen Schritt, Übereinstimmung, Abweichung oder Auslassung, Modellgrenze und begründeter Revision lehrkraftbeobachtbar oder eindeutig zurechenbar prüfen. Bei tatsächlicher Beobachtung das lokale Freigabegate vorab dokumentieren, aber weder Personenprofil noch automatische Punkte oder automatisches Scoring und keine ausgeschlossenen technischen oder privaten Daten speichern; alle drei Bedarfsszenarien bleiben nicht verfügbar und rot.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-PK-SV-001",
+      "competencyId": "INF7-16-GYM-PK-SV-001",
+      "moduleId": "IUM-7-CORE-05",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die tatsächliche lokale Schulnetznutzung benötigt 30 Minuten eigene Produktzeit innerhalb der bestehenden CORE-05-Phase einschließlich sichtbarer lokaler Freigabe-, Orientierungs- und technischer Anlaufzeit: Jede lernende Person nutzt ein vor Ort freigegebenes, lokal verfügbares und datenschutzkonformes Schulnetz, wählt für ein neutrales Arbeitsziel einen freigegebenen Speicherort oder Pfad, speichert oder lädt ein neutrales, fiktives und personenfreies Testartefakt, ruft es erneut ab, öffnet es und verifiziert das Aufgabenergebnis. Ein zweiter freigegebener Zugriffskontext wird nur genutzt, falls er lokal unterstützt ist. Der Nachweis enthält ausschließlich Arbeitsziel, freigegebene Pfadbezeichnung oder Pfadkategorie, ausgeführte Operationen und Ergebnis der Abruf- und Öffnungsprüfung; Zugangsdaten, Netzwerk- oder IP-Adressen, Gerätekennungen, Tokens, private Dateien, Inhaltsprotokolle und vollständige Zugriffsprotokolle bleiben ausgeschlossen. Simulation, Lehrkraftdemonstration, vorbereitete Screenshotspur oder kuratierte Ersatzspur schließen SV-001 nicht. INT-7-NET-SECURITY wird nicht beansprucht: Derselbe Datenweg oder Speicherort ersetzt weder die tatsächliche lokale Ausführung noch das lokale Freigabegate. Optimized, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product"],
+      "additionalMinutes": 30,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Fehlt vorab eine von der Lehrkraft benannte lokal verfügbare, schulisch freigegebene und datenschutzkonforme Konfiguration samt neutraler Aufgabe, bleibt der Record partial und die Zeitentscheidung unbestätigt. Simulation, Demonstration, Screenshot oder kuratierte Ersatzspur, fehlende Anlaufzeit, Delegation der Speicher-, Abruf-, Öffnungs- oder Prüfhandlung sowie technische oder private Nachweisdaten unterschreiten die Fach- und Datenschutzgrenze. Dasselbe Systemmodell oder derselbe Workflow begründet keine Integration oder Absorption.",
+      "followUp": "Vor dem Pilot das lokale Freigabegate mit neutraler Aufgabe und freigegebenem Speicherort oder Pfad prüfen. Innerhalb der 30 Minuten je lernender Person die tatsächliche Speicher- oder Upload-, Abruf-, Öffnungs- und Prüfhandlung lehrkraftbeobachtbar oder eindeutig zurechenbar durchführen; kein zusätzliches Einzelprodukt verlangen und weder Personenprofil noch automatische Punkte oder automatisches Scoring und keine ausgeschlossenen technischen oder privaten Daten speichern. Alle drei Bedarfsszenarien bleiben nicht verfügbar und rot.",
       "status": "working"
     }
   ],
