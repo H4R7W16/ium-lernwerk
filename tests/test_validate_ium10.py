@@ -607,45 +607,11 @@ CORE06_INT5_FALLBACK = (
     "bleibt im Integrations- wie im Fallbackfall unverändert erhalten."
 )
 
-CORE07_NONPERSONAL_PRODUCT_FUNCTION = (
-    "Als beobachtbare Produkt-, Zeit- und Evidenzspur zählt ausschließlich "
-    "die nichtpersonale gemeinsame Wirkungskarte; die private "
-    "Reflexionsnotiz wird weder eingesehen noch angerechnet. Das zentrale "
-    "Lernprodukt eigenständig erstellen: Teilbare fallbezogene Wirkungskarte "
-    "mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und "
-    "revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt "
-    "ausschließlich bei der lernenden Person."
-)
-CORE07_AUDIT_EXPECTATIONS = {
+CORE07_REVIEW_CONTRACTS = {
     "BMB16-GYM-IK-MG-001": {
         "decision": "additional-time",
         "additionalMinutes": 15,
         "phaseIds": ["independent-action-product"],
-        "rationale": (
-            "Die 15 Minuten sind ausschließlich dem nichtpersonalen "
-            "Abschnitt „Altersbezogene Bewertung“ der gemeinsamen "
-            "fallbezogenen Wirkungskarte zugeordnet: Die Lernenden bewerten "
-            "den vollständig vorgegebenen fiktiven Fall mit dem vollständig "
-            "vorgegebenen Kriterienkatalog und begründen angemessene oder "
-            "problematische Merkmale. Inhalt, Bearbeitungsstand und "
-            "Zeitbedarf der privaten Motivations- und Nutzungsbewertung "
-            "werden weder beobachtet noch als Produkt- oder Evidenzspur "
-            "angerechnet."
-        ),
-        "risk": (
-            "Eine Einsicht, Abgabe, Lehrkraftbeobachtung oder Bewertung der "
-            "privaten Reflexionsmatrix würde persönliche Nutzungsmotivation "
-            "erheben und die Datenschutzgrenze verletzen; das sichtbare "
-            "Fallurteil darf keine Rückschlüsse auf den privaten Inhalt "
-            "verlangen."
-        ),
-        "followUp": (
-            "Im Pilot ausschließlich aggregiert prüfen, ob das "
-            "nichtpersonale fiktive Fallurteil innerhalb der 15 Minuten "
-            "entsteht und ohne Einsicht in die private Matrix funktioniert; "
-            "private Inhalte und Bearbeitungszeiten werden nicht erhoben, "
-            "übertragen, eingesammelt, gespeichert oder bewertet."
-        ),
     },
     "BMB16-GYM-IK-MG-002": {
         "decision": "additional-time",
@@ -654,27 +620,6 @@ CORE07_AUDIT_EXPECTATIONS = {
             "guided-practice",
             "review-revise-transfer",
         ],
-        "rationale": (
-            "Das Erläutern eines positiven Nutzungsaspekts und eines Risikos "
-            "oder einer Gefahr übermäßiger Nutzung, ihr kriterien- und "
-            "beleggestütztes Bewerten sowie das Ableiten einer passenden "
-            "Präventionsmaßnahme benötigen 20 Minuten angeleitete Fallanalyse "
-            "und Revision im gemeinsamen Abschnitt „Nutzen, Risiken und "
-            "Prävention“ derselben Wirkungskarte."
-        ),
-        "risk": (
-            "Eine bloße Liste von Nutzen, Risiken oder Verboten würde "
-            "Erläuterung, belegtes Kriterienurteil und passende Prävention "
-            "nicht ausführen; persönliche Nutzungsdaten sind für den "
-            "vollständig vorgegebenen fiktiven Fall weder nötig noch "
-            "zulässig."
-        ),
-        "followUp": (
-            "Im Pilot am nichtpersonalen Fallprodukt prüfen, ob positiver "
-            "Aspekt, Risiko oder Gefahr, Kriterien und Belege, begründetes "
-            "Urteil und passende Präventionsmaßnahme innerhalb der 20 "
-            "Minuten vollständig sichtbar werden."
-        ),
     },
     "BMB16-GYM-IK-MG-003": {
         "decision": "absorbed",
@@ -684,159 +629,118 @@ CORE07_AUDIT_EXPECTATIONS = {
             "independent-action-product",
             "review-revise-transfer",
         ],
-        "rationale": (
-            "Im nichtpersonalen Abschnitt „Wirkung und bedingte "
-            "Gesetzmäßigkeit“ nutzen die Untersuchung derselben zwei "
-            "kuratierten Medienbeispiele, der Vergleich vollständig "
-            "vorgegebener fiktiver Reaktionsdaten sowie Ableitung und "
-            "Revision einer bedingten Wirkungsaussage bereits dieselbe "
-            "positive Wirkungs- und Revisionsspur der gemeinsamen "
-            "Wirkungskarte. Private Empfindungen oder private Ableitungen "
-            "sind weder Voraussetzung dieser Spur noch beobachtbares Produkt "
-            "oder Evidenz und tragen keine zusätzlichen Minuten."
-        ),
-        "risk": (
-            "Aus der nichtpersonalen Wirkungsaussage dürfen weder private "
-            "Empfindungen abgeleitet noch Einsicht, Gespräch, Abgabe oder "
-            "Bewertung der privaten Reflexionsmatrix verlangt werden."
-        ),
-        "followUp": (
-            "Im Pilot ausschließlich die nichtpersonale Untersuchung der "
-            "fiktiven Reaktionsdaten sowie die bedingte Wirkungsaussage und "
-            "ihre Revision in der gemeinsamen Wirkungskarte prüfen; private "
-            "Empfindungen und Ableitungen werden nicht erhoben, übertragen, "
-            "eingesammelt, gespeichert oder bewertet."
-        ),
     },
     "BMB16-GYM-PK-RK-001": {
         "decision": "additional-time",
         "additionalMinutes": 15,
         "phaseIds": ["guided-practice"],
-        "rationale": (
-            "Die 15 Minuten gelten ausschließlich dem nichtpersonalen "
-            "Abschnitt „Nutzungsvergleich“ der gemeinsamen Wirkungskarte: "
-            "Die zwei vollständig vorgegebenen Nutzungssituationen des "
-            "fiktiven Falls werden mit dem vorgegebenen Kriterienkatalog "
-            "beschrieben und verglichen; Gemeinsamkeiten und Unterschiede "
-            "werden begründet festgehalten. Eigenes Nutzungsverhalten und "
-            "die private Vergleichsmatrix bilden weder die beobachtbare "
-            "Produktspur noch den Zeitnachweis."
-        ),
-        "risk": (
-            "Eine Übernahme eigener Nutzungssituationen in die gemeinsame "
-            "Wirkungskarte oder eine Lehrkraftkontrolle der privaten Matrix "
-            "würde die nichtpersonale Anschlussaufgabe in eine verdeckte "
-            "Erhebung persönlicher Mediennutzung verwandeln."
-        ),
-        "followUp": (
-            "Im Pilot nur prüfen, ob der fiktive Nutzungsvergleich mit "
-            "gemeinsamen Kriterien, Gemeinsamkeiten und Unterschieden "
-            "innerhalb der 15 Minuten gelingt und ohne Angaben aus der "
-            "privaten Matrix verständlich bleibt."
-        ),
     },
     "BMB16-GYM-PK-RK-002": {
         "decision": "additional-time",
         "additionalMinutes": 15,
         "phaseIds": ["independent-action-product"],
-        "rationale": (
-            "Die 15 Minuten sind ausschließlich dem nichtpersonalen "
-            "Abschnitt „Lebenswelt und Medienwirklichkeit“ der gemeinsamen "
-            "Wirkungskarte zugeordnet: Am vollständig vorgegebenen fiktiven "
-            "Fall werden der Einfluss digitaler Medien auf dessen Lebenswelt "
-            "sowie begründete Entsprechungen und Unterschiede zwischen "
-            "Wirklichkeit und denselben kuratierten Medienbeispielen "
-            "dargestellt. Die private Lebensweltreflexion ist keine "
-            "beobachtbare Produkt- oder Evidenzspur."
-        ),
-        "risk": (
-            "Persönliche Lebensbereiche dürfen weder abgefragt noch aus dem "
-            "nichtpersonalen Fallprodukt erschlossen werden; sonst würde die "
-            "gemeinsame Wirkungskarte die private Datenschutzgrenze "
-            "unterlaufen."
-        ),
-        "followUp": (
-            "Im Pilot ausschließlich die fiktive Lebensweltdarstellung und "
-            "die begründete Beziehung zwischen Wirklichkeit und "
-            "Medienwirklichkeit im gemeinsamen Produkt prüfen; die private "
-            "Matrix bleibt vollständig außerhalb von Erhebung und Feedback."
-        ),
     },
     "BMB16-GYM-PK-RK-003": {
         "decision": "unresolved",
         "additionalMinutes": 0,
         "phaseIds": [],
-        "rationale": (
-            "Ohne die ausstehende Ursachenreklassifikation von "
-            "`private-local` zu `module-detail` existiert kein gültiger "
-            "Evidenzvertrag für das Abschätzen und kriteriengestützte "
-            "Bewerten medialer Selbstdarstellung. Deshalb werden weder eine "
-            "private Erstleistung noch ein redundanter sichtbarer "
-            "Fallnachweis und auch keine Einzelphase oder Zeit behauptet; "
-            "der Record bleibt semantisch partial."
-        ),
-        "risk": (
-            "Eine vorzeitige Zeitzuweisung würde eine fachlich "
-            "unbeobachtbare fiktive Privatleistung und denselben Operator "
-            "noch einmal als sichtbare Fallaufgabe modellieren und damit die "
-            "Fehlklassifikation verdecken."
-        ),
-        "followUp": (
-            "Nach einer späteren Design- und Ursachenreklassifikation genau "
-            "einen shared- oder teacher-observable Fallnachweis für "
-            "Folgenabschätzung und Kriterienurteil entwerfen und erst dann "
-            "seinen positiven Zeitbedarf auditieren."
-        ),
     },
     "LH26-E-DP-003": {
         "decision": "unresolved",
         "additionalMinutes": 0,
         "phaseIds": [],
-        "rationale": (
-            "Der geforderte Diskussionsoperator bezieht sich ausdrücklich "
-            "auf Faszination, Konflikte und Probleme der eigenen "
-            "Mediennutzung. Eine private Beschreibung ist keine Diskussion; "
-            "eine beobachtbare Diskussion würde persönliche Nutzung "
-            "offenlegen, während eine ausschließlich fiktive Falldiskussion "
-            "den eigenen Bezug nicht erfüllt. Deshalb werden keine Phase, "
-            "keine Minuten und kein verfügbarer Pfad behauptet; der Record "
-            "bleibt semantisch partial."
-        ),
-        "risk": (
-            "Gespräch, Lehrkraftbeobachtung, Abgabe oder "
-            "Teilnahmeprotokollierung könnten sensible persönliche "
-            "Nutzungsinhalte direkt oder indirekt erheben; ein fiktiver Fall "
-            "würde dagegen die curriculare Lücke nur verdecken."
-        ),
-        "followUp": (
-            "Im Curriculum- und Datenschutzreview klären, ob eine "
-            "freiwillige, nicht bewertete und ausdrücklich nicht als "
-            "Abdeckungs- oder Zeitnachweis verwendete Gesprächsgelegenheit "
-            "pädagogisch angeboten werden soll; bis dahin bleibt der Record "
-            "ohne Evidenzvertrag und Zeitzuweisung partial."
-        ),
     },
 }
-CORE07_PRIVATE_FOLLOW_UP_TRACES = {
+CORE07_PRIVATE_CONCEPTS = {
     "BMB16-GYM-IK-MG-001": (
-        "Altersbezogene Bewertung",
-        "fiktiven Fall",
-        "Kriterienkatalog",
+        "fictional-criteria-judgement",
+        "nonpersonal-product",
     ),
     "BMB16-GYM-IK-MG-003": (
-        "Wirkung und bedingte Gesetzmäßigkeit",
-        "fiktiver Reaktionsdaten",
-        "bedingte Wirkungsaussage",
+        "media-effect",
+        "nonpersonal-product",
     ),
     "BMB16-GYM-PK-RK-001": (
-        "Nutzungsvergleich",
-        "vorgegebenen Nutzungssituationen",
-        "Gemeinsamkeiten und Unterschiede",
+        "fictional-use-comparison",
+        "nonpersonal-product",
     ),
     "BMB16-GYM-PK-RK-002": (
-        "Lebenswelt und Medienwirklichkeit",
-        "fiktiven Fall",
-        "Wirklichkeit und Medienwirklichkeit",
+        "fictional-media-reality",
+        "nonpersonal-product",
+    ),
+}
+CORE07_SEMANTIC_TRACE_GROUPS = {
+    "media-effect": (
+        ("wirkung",),
+        ("fiktiv",),
+        ("reaktionsdaten",),
+        ("bedingt",),
+        ("revid", "revision"),
+    ),
+    "fictional-criteria-judgement": (
+        ("fiktiv",),
+        ("kriter",),
+        ("bewert", "urteil"),
+        ("begründ",),
+    ),
+    "fictional-use-comparison": (
+        ("fiktiv",),
+        ("nutzungssituation",),
+        ("vergleich",),
+        ("gemeinsamkeit",),
+        ("unterschied",),
+    ),
+    "fictional-media-reality": (
+        ("fiktiv",),
+        ("lebenswelt",),
+        ("wirklichkeit",),
+        ("medienwirklichkeit",),
+    ),
+    "shared-benefit-risk-prevention": (
+        ("positiv", "nutzen"),
+        ("risiko", "gefahr"),
+        ("kriter",),
+        ("beleg",),
+        ("prävent",),
+    ),
+    "nonpersonal-product": (
+        ("nichtpersonal", "fiktiv"),
+        ("wirkungskarte",),
+    ),
+    "local-private-activity": (
+        ("privat",),
+        ("reflexionsnotiz", "reflexionsmatrix", "matrix"),
+        (
+            "verbleibt",
+            "bleibt bei",
+            "bearbeit",
+            "beschreib",
+            "untersuch",
+            "darstell",
+            "äußer",
+            "anknüpf",
+        ),
+    ),
+    "independence": (
+        (
+            "ohne einsicht",
+            "ohne kenntnis",
+            "keine angaben",
+            "benötigt keine",
+        ),
+    ),
+    "no-observation": (
+        (
+            "nicht eingesehen",
+            "weder eingesehen",
+            "nicht beobachtet",
+            "weder beobachtet",
+        ),
+        (
+            "nicht angerechnet",
+            "nicht als nachweis angerechnet",
+            "noch angerechnet",
+        ),
     ),
 }
 CORE07_PARTIAL_IDS = {
@@ -3081,7 +2985,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
         core07_contract = module_contracts["IUM-5-CORE-07"]
         expected_review_ids = [
             f"TR-{competency_id}"
-            for competency_id in CORE07_AUDIT_EXPECTATIONS
+            for competency_id in CORE07_REVIEW_CONTRACTS
         ]
         self.assertEqual(
             core07_contract["timeReviewIds"],
@@ -3093,59 +2997,68 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ["private-local-reflection-remains-uncollected"],
         )
         for budget in core07_contract["pathBudgets"]:
-            with self.subTest(
-                core07_nonpersonal_product_path=budget["pathId"]
-            ):
-                product_phase = next(
-                    phase
-                    for phase in budget["phaseBudgets"]
-                    if phase["phaseId"] == "independent-action-product"
-                )
-                self.assertEqual(
-                    product_phase["learningFunction"],
-                    CORE07_NONPERSONAL_PRODUCT_FUNCTION,
-                )
+            product_phase = next(
+                phase
+                for phase in budget["phaseBudgets"]
+                if phase["phaseId"] == "independent-action-product"
+            )
+            self._assert_core07_product_phase_boundary(
+                product_phase["learningFunction"]
+            )
 
         expected_paths = [
             "GRADE-5-BASELINE",
             "GRADE-5-REGULAR",
             "GRADE-5-EXTENDED",
         ]
-        for competency_id, expected in CORE07_AUDIT_EXPECTATIONS.items():
-            with self.subTest(core07_competency_id=competency_id):
-                review = reviews_by_competency_id[competency_id]
-                self.assertEqual(
-                    {
-                        field: review[field]
-                        for field in (
-                            "decision",
-                            "additionalMinutes",
-                            "phaseIds",
-                            "rationale",
-                            "risk",
-                            "followUp",
+        phase_ids_by_path = {
+            budget["pathId"]: {
+                phase["phaseId"] for phase in budget["phaseBudgets"]
+            }
+            for budget in core07_contract["pathBudgets"]
+        }
+        for competency_id, expected in CORE07_REVIEW_CONTRACTS.items():
+            review = reviews_by_competency_id[competency_id]
+            self.assertEqual(
+                {
+                    field: review[field]
+                    for field in (
+                        "decision",
+                        "additionalMinutes",
+                        "phaseIds",
+                    )
+                },
+                expected,
+            )
+            self.assertEqual(review["moduleId"], "IUM-5-CORE-07")
+            self.assertEqual(
+                review["sourceTimeImpactLevel"],
+                "review-required",
+            )
+            self.assertEqual(review["integrationContractIds"], [])
+            self.assertIsNone(review["sequenceEvidenceId"])
+            self.assertEqual(
+                review["pathAvailability"],
+                (
+                    []
+                    if expected["decision"] == "unresolved"
+                    else expected_paths
+                ),
+            )
+            self.assertEqual(
+                review["coverageConsequence"],
+                "semantic-status-unchanged",
+            )
+            for field in ("rationale", "risk", "followUp"):
+                self.assertTrue(review[field].strip())
+            for phase_id in review["phaseIds"]:
+                self.assertTrue(
+                    all(
+                        phase_id in available_phase_ids
+                        for available_phase_ids in (
+                            phase_ids_by_path.values()
                         )
-                    },
-                    expected,
-                )
-                self.assertEqual(review["moduleId"], "IUM-5-CORE-07")
-                self.assertEqual(
-                    review["sourceTimeImpactLevel"],
-                    "review-required",
-                )
-                self.assertEqual(review["integrationContractIds"], [])
-                self.assertIsNone(review["sequenceEvidenceId"])
-                self.assertEqual(
-                    review["pathAvailability"],
-                    (
-                        []
-                        if expected["decision"] == "unresolved"
-                        else expected_paths
-                    ),
-                )
-                self.assertEqual(
-                    review["coverageConsequence"],
-                    "semantic-status-unchanged",
+                    )
                 )
 
         coverage_by_id = {
@@ -3163,60 +3076,95 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ),
             BASELINE_COVERAGE_PROJECTION_SHA256,
         )
-        for competency_id in CORE07_AUDIT_EXPECTATIONS:
-            expected_status = (
-                "partial"
-                if competency_id in CORE07_PARTIAL_IDS
-                else "covered"
-            )
-            with self.subTest(core07_semantic_status=competency_id):
-                self.assertEqual(
-                    coverage_by_id[competency_id]["coverageStatus"],
-                    expected_status,
-                )
-                self.assertEqual(
-                    remediation_by_id[competency_id]["after"][
-                        "coverageStatus"
-                    ],
-                    expected_status,
-                )
-
         core07_module = next(
             module
             for module in module_payload["modules"]
             if module["id"] == "IUM-5-CORE-07"
         )
-        evidence_by_competency_id = {
-            evidence["competencyId"]: evidence
-            for evidence in core07_module["coverageEvidence"]
-        }
-        for competency_id, required_traces in (
-            CORE07_PRIVATE_FOLLOW_UP_TRACES.items()
-        ):
-            with self.subTest(core07_private_follow_up=competency_id):
-                evidence = evidence_by_competency_id[competency_id]
-                review = reviews_by_competency_id[competency_id]
-                self._assert_core07_private_time_boundary(
-                    review,
-                    evidence,
-                    required_traces,
-                )
+        core07_evidence = core07_module["coverageEvidence"]
+        for competency_id in CORE07_REVIEW_CONTRACTS:
+            expected_status = (
+                "partial"
+                if competency_id in CORE07_PARTIAL_IDS
+                else "covered"
+            )
+            coverage = coverage_by_id[competency_id]
+            handoff = remediation_by_id[competency_id]
+            review = reviews_by_competency_id[competency_id]
+            self.assertEqual(coverage["coverageStatus"], expected_status)
+            self.assertEqual(
+                handoff["after"]["coverageStatus"],
+                expected_status,
+            )
+            self.assertEqual(
+                coverage["evidenceModuleId"],
+                "IUM-5-CORE-07",
+            )
+            self.assertEqual(
+                handoff["before"]["evidenceModuleId"],
+                "IUM-5-CORE-07",
+            )
 
-        for competency_id in CORE07_PARTIAL_IDS:
-            with self.subTest(core07_partial_boundary=competency_id):
-                handoff = remediation_by_id[competency_id]
-                review = reviews_by_competency_id[competency_id]
+            if competency_id in CORE07_PARTIAL_IDS:
                 self.assertIsNone(handoff["evidenceContractId"])
+                self.assertIsNone(coverage.get("evidenceContractId"))
+                self.assertFalse(
+                    any(
+                        evidence["competencyId"] == competency_id
+                        for evidence in core07_evidence
+                    )
+                )
                 self.assertEqual(review["decision"], "unresolved")
                 self.assertEqual(review["additionalMinutes"], 0)
                 self.assertEqual(review["phaseIds"], [])
                 self.assertEqual(review["pathAvailability"], [])
+                self.assertIn(
+                    "partial",
+                    " ".join(
+                        review[field]
+                        for field in ("rationale", "risk", "followUp")
+                    ).casefold(),
+                )
+                continue
+
+            evidence_contract_id = handoff["evidenceContractId"]
+            self.assertIsInstance(evidence_contract_id, str)
+            self.assertTrue(evidence_contract_id)
+            self.assertEqual(
+                coverage.get("evidenceContractId"),
+                evidence_contract_id,
+            )
+            matching_evidence = [
+                evidence
+                for evidence in core07_evidence
+                if (
+                    evidence["id"] == evidence_contract_id
+                    and evidence["competencyId"] == competency_id
+                )
+            ]
+            self.assertEqual(len(matching_evidence), 1)
+            evidence = matching_evidence[0]
+            if competency_id in CORE07_PRIVATE_CONCEPTS:
+                self._assert_core07_private_time_boundary(
+                    review,
+                    evidence,
+                    CORE07_PRIVATE_CONCEPTS[competency_id],
+                )
+            else:
+                self.assertEqual(
+                    competency_id,
+                    "BMB16-GYM-IK-MG-002",
+                )
+                self._assert_core07_module_detail_boundary(
+                    review,
+                    evidence,
+                )
 
     def _assert_core07_private_time_boundary(
         self,
         review,
         evidence,
-        required_traces,
+        concept_names,
     ):
         self.assertEqual(evidence["mode"], "private-local")
         self.assertEqual(evidence["productVisibility"], "private-local")
@@ -3226,31 +3174,204 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         self.assertTrue(evidence["nonPersonalFollowUp"].strip())
 
-        review_text = " ".join(
+        local_activity_text = " ".join(
+            evidence[field]
+            for field in ("learningAction", "productEvidence")
+        )
+        self._assert_core07_trace_groups(
+            local_activity_text,
+            CORE07_SEMANTIC_TRACE_GROUPS["local-private-activity"],
+        )
+        review_text = ". ".join(
             review[field]
             for field in ("rationale", "risk", "followUp")
         )
-        for required_trace in required_traces:
-            with self.subTest(core07_nonpersonal_trace=required_trace):
-                self.assertIn(
-                    required_trace,
-                    evidence["nonPersonalFollowUp"],
-                )
-                self.assertIn(required_trace, review_text)
+        for concept_name in concept_names:
+            trace_groups = CORE07_SEMANTIC_TRACE_GROUPS[concept_name]
+            self._assert_core07_trace_groups(
+                evidence["nonPersonalFollowUp"],
+                trace_groups,
+            )
+            self._assert_core07_trace_groups(
+                review_text,
+                trace_groups,
+            )
+        self._assert_core07_trace_groups(
+            evidence["nonPersonalFollowUp"],
+            CORE07_SEMANTIC_TRACE_GROUPS["independence"],
+        )
         self.assertIn("nichtpersonal", review_text.casefold())
         self.assertNotIn("teacher-observable", review_text.casefold())
-        self.assertTrue(
-            any(
-                boundary_trace in review_text.casefold()
-                for boundary_trace in (
+        self._assert_core07_trace_groups(
+            review_text,
+            (
+                (
                     "weder beobachtet",
                     "nicht erhoben",
                     "keine beobachtbare",
                     "weder die beobachtbare",
                     "außerhalb von erhebung",
+                    "ohne angaben",
+                ),
+            ),
+        )
+        self._assert_core07_no_affirmative_private_handling(
+            evidence["nonPersonalFollowUp"]
+        )
+        self._assert_core07_no_affirmative_private_handling(review_text)
+
+    def _assert_core07_module_detail_boundary(self, review, evidence):
+        self.assertEqual(evidence["mode"], "module-detail")
+        self.assertEqual(evidence["productVisibility"], "shared")
+        self.assertNotIn("privacyBoundary", evidence)
+        self.assertNotIn("nonPersonalFollowUp", evidence)
+        evidence_text = " ".join(
+            evidence[field]
+            for field in ("learningAction", "productEvidence")
+        )
+        review_text = ". ".join(
+            review[field]
+            for field in ("rationale", "risk", "followUp")
+        )
+        trace_groups = CORE07_SEMANTIC_TRACE_GROUPS[
+            "shared-benefit-risk-prevention"
+        ]
+        self._assert_core07_trace_groups(evidence_text, trace_groups)
+        self._assert_core07_trace_groups(review_text, trace_groups)
+        self.assertIn("nichtpersonal", review_text.casefold())
+        self._assert_core07_no_affirmative_private_handling(review_text)
+
+    def _assert_core07_product_phase_boundary(self, learning_function):
+        self._assert_core07_trace_groups(
+            learning_function,
+            CORE07_SEMANTIC_TRACE_GROUPS["nonpersonal-product"],
+        )
+        self._assert_core07_trace_groups(
+            learning_function,
+            CORE07_SEMANTIC_TRACE_GROUPS["local-private-activity"],
+        )
+        self._assert_core07_trace_groups(
+            learning_function,
+            CORE07_SEMANTIC_TRACE_GROUPS["no-observation"],
+        )
+        self._assert_core07_trace_groups(
+            learning_function,
+            (
+                ("produkt",),
+                ("zeit",),
+                ("evidenz",),
+                ("beobachtung",),
+                ("erklärung",),
+                ("gegenperspektive",),
+                ("unsicherheit",),
+                ("revidier",),
+            ),
+        )
+        self._assert_core07_no_affirmative_private_handling(
+            learning_function
+        )
+
+    def _assert_core07_trace_groups(self, text, trace_groups):
+        normalized_text = " ".join(text.casefold().split())
+        for alternatives in trace_groups:
+            self.assertTrue(
+                any(
+                    trace.casefold() in normalized_text
+                    for trace in alternatives
+                ),
+                msg=(
+                    "missing CORE07 semantic trace group "
+                    f"{alternatives!r}"
+                ),
+            )
+
+    def _assert_core07_no_affirmative_private_handling(self, text):
+        normalized_text = " ".join(text.casefold().split())
+        for delimiter in (".", ";", "!", "?"):
+            normalized_text = normalized_text.replace(delimiter, "\n")
+        for statement in normalized_text.splitlines():
+            if not any(
+                private_marker in statement
+                for private_marker in ("privat", "persönlich")
+            ):
+                continue
+            if not any(
+                handling_stem in statement
+                for handling_stem in (
+                    "erheb",
+                    "übertrag",
+                    "sammel",
+                    "speicher",
+                    "bewert",
+                    "beobacht",
+                    "einsicht",
+                    "einseh",
+                    "angerechn",
+                    "abgabe",
+                    "kontroll",
+                )
+            ):
+                continue
+            self.assertFalse(
+                any(
+                    affirmative_pattern in statement
+                    for affirmative_pattern in (
+                        "werden erhoben",
+                        "werden übertragen",
+                        "werden eingesammelt",
+                        "werden gesammelt",
+                        "werden gespeichert",
+                        "werden bewertet",
+                        "werden beobachtet",
+                        "werden eingesehen",
+                        "werden angerechnet",
+                        "wird erhoben",
+                        "wird übertragen",
+                        "wird eingesammelt",
+                        "wird gesammelt",
+                        "wird gespeichert",
+                        "wird bewertet",
+                        "wird beobachtet",
+                        "wird eingesehen",
+                        "wird angerechnet",
+                    )
+                ),
+                msg=(
+                    "affirmative private collection, storage, observation, "
+                    f"or assessment statement: {statement!r}"
+                ),
+            )
+            has_explicit_boundary = any(
+                boundary_marker in statement
+                for boundary_marker in (
+                    "nicht",
+                    "weder",
+                    "keine",
+                    "ohne",
+                    "ausserhalb",
+                    "darf",
+                    "dürfen",
                 )
             )
-        )
+            describes_privacy_risk = (
+                "würde" in statement
+                and any(
+                    risk_marker in statement
+                    for risk_marker in (
+                        "verletz",
+                        "verdeck",
+                        "unterlauf",
+                        "verwandeln",
+                    )
+                )
+            )
+            self.assertTrue(
+                has_explicit_boundary or describes_privacy_risk,
+                msg=(
+                    "affirmative private collection, storage, observation, "
+                    f"or assessment statement: {statement!r}"
+                ),
+            )
 
     def _assert_core06_extended_product_depth(self, core06_contract):
         budgets_by_path = {
@@ -3736,6 +3857,142 @@ class IUM10TimeReviewTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self._assert_core06_integration_boundary(
                 overbroad_integrations
+            )
+
+    def _repository_reviews_by_competency_id(self):
+        result = validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+        )
+        return {
+            review["competencyId"]: review for review in result.values()
+        }
+
+    def test_core07_rejects_broken_authoritative_evidence_chain(self):
+        reviews_by_competency_id = (
+            self._repository_reviews_by_competency_id()
+        )
+
+        for source_name in ("remediation", "coverage"):
+            with self.subTest(broken_core07_chain=source_name):
+                remediation_payload = copy.deepcopy(
+                    self.remediation_payload
+                )
+                coverage_payload = copy.deepcopy(self.coverage_payload)
+                payload = (
+                    remediation_payload
+                    if source_name == "remediation"
+                    else coverage_payload
+                )
+                next(
+                    entry
+                    for entry in payload["entries"]
+                    if entry["competencyId"]
+                    == "BMB16-GYM-IK-MG-001"
+                )["evidenceContractId"] = (
+                    f"CE-BROKEN-CORE07-{source_name.upper()}"
+                )
+
+                with self.assertRaises(AssertionError):
+                    self._assert_core07_repository_contract(
+                        reviews_by_competency_id,
+                        self.repository_module_contracts,
+                        remediation_payload=remediation_payload,
+                        coverage_payload=coverage_payload,
+                    )
+
+    def test_core07_rejects_contradictory_private_handling(self):
+        reviews_by_competency_id = (
+            self._repository_reviews_by_competency_id()
+        )
+        module_payload = copy.deepcopy(self.module_payload)
+        core07_module = next(
+            module
+            for module in module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-07"
+        )
+        evidence = next(
+            evidence
+            for evidence in core07_module["coverageEvidence"]
+            if evidence["competencyId"] == "BMB16-GYM-IK-MG-001"
+        )
+        evidence["nonPersonalFollowUp"] += (
+            " Die privaten Inhalte werden eingesammelt, gespeichert und "
+            "bewertet."
+        )
+
+        with self.assertRaises(AssertionError):
+            self._assert_core07_repository_contract(
+                reviews_by_competency_id,
+                self.repository_module_contracts,
+                module_payload=module_payload,
+            )
+
+    def test_core07_accepts_semantically_equivalent_product_phase(self):
+        reviews_by_competency_id = (
+            self._repository_reviews_by_competency_id()
+        )
+        module_contracts = copy.deepcopy(
+            self.repository_module_contracts
+        )
+        equivalent_learning_function = (
+            "Nur die teilbare nichtpersonale Wirkungskarte bildet die "
+            "beobachtbare Produkt-, Zeit- und Evidenzspur. Die lernende "
+            "Person bearbeitet daneben eine private lokale "
+            "Reflexionsnotiz; sie bleibt bei ihr, wird nicht eingesehen, "
+            "nicht beobachtet und nicht als Nachweis angerechnet. Das "
+            "zentrale Lernprodukt eigenständig erstellen: Teilbare "
+            "fallbezogene Wirkungskarte mit Beobachtung, möglicher "
+            "Erklärung, Gegenperspektive, Unsicherheit und revidierbarer "
+            "Handlungsoption."
+        )
+        for budget in module_contracts["IUM-5-CORE-07"]["pathBudgets"]:
+            product_phase = next(
+                phase
+                for phase in budget["phaseBudgets"]
+                if phase["phaseId"] == "independent-action-product"
+            )
+            product_phase["learningFunction"] = (
+                equivalent_learning_function
+            )
+
+        self._assert_core07_repository_contract(
+            reviews_by_competency_id,
+            module_contracts,
+        )
+
+    def test_core07_rejects_product_phase_without_private_local_activity(self):
+        reviews_by_competency_id = (
+            self._repository_reviews_by_competency_id()
+        )
+        module_contracts = copy.deepcopy(
+            self.repository_module_contracts
+        )
+        without_private_activity = (
+            "Nur die teilbare nichtpersonale Wirkungskarte bildet die "
+            "beobachtbare Produkt-, Zeit- und Evidenzspur. Private Inhalte "
+            "werden nicht erhoben, gespeichert oder bewertet. Das zentrale "
+            "Lernprodukt eigenständig erstellen: Teilbare fallbezogene "
+            "Wirkungskarte mit Beobachtung, möglicher Erklärung, "
+            "Gegenperspektive, Unsicherheit und revidierbarer "
+            "Handlungsoption."
+        )
+        for budget in module_contracts["IUM-5-CORE-07"]["pathBudgets"]:
+            product_phase = next(
+                phase
+                for phase in budget["phaseBudgets"]
+                if phase["phaseId"] == "independent-action-product"
+            )
+            product_phase["learningFunction"] = without_private_activity
+
+        with self.assertRaises(AssertionError):
+            self._assert_core07_repository_contract(
+                reviews_by_competency_id,
+                module_contracts,
             )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
