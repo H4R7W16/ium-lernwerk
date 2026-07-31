@@ -2230,6 +2230,25 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         )
         self.assertNotIn("validation passed", result.stderr)
 
+    def test_module_command_reports_structural_list_as_validation_error_without_traceback(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            fixture_root = Path(temporary_directory)
+            self.copy_repository_inputs(fixture_root)
+            time_model_path = fixture_root / "roadmap/time-model.json"
+            time_model = json.loads(time_model_path.read_text(encoding="utf-8"))
+            time_model["annualVariants"][0]["kind"] = []
+            time_model_path.write_text(
+                json.dumps(time_model, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            result = self.run_validator("--root", fixture_root)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(result.stdout, "")
+        self.assertIn("IUM10 repository validation failed:", result.stderr)
+        self.assertNotIn("Traceback", result.stderr)
+
 
 class IUM10CapacityModelTests(unittest.TestCase):
     @staticmethod
@@ -13011,6 +13030,20 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                         remediation_payload,
                         time_model,
                     )
+
+    def test_public_full_validator_converts_json_list_enums_to_domain_errors(self):
+        mutations = (
+            ("timeReviews", "decision"),
+            ("gradeJudgements", "semanticCoverageStatus"),
+            ("annualVariants", "kind"),
+            ("integrationContracts", "status"),
+        )
+        for collection, field in mutations:
+            with self.subTest(collection=collection, field=field):
+                time_model = copy.deepcopy(self.time_model)
+                time_model[collection][0][field] = []
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
 
     def test_public_baseline_validator_fails_closed_on_unhashable_records(self):
         mutations = []

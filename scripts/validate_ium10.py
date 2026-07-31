@@ -4208,6 +4208,7 @@ def _validate_time_model_baseline(
     )
 
 
+@_validation_boundary("IUM10 validation")
 def validate_ium10(
     time_payload,
     module_payload,
