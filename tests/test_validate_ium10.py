@@ -241,7 +241,7 @@ TASK16_AUDIT_EXPECTATIONS = {
         ),
     },
 }
-TASK16_PATH_AVAILABILITY = [
+GRADE6_PATH_AVAILABILITY = [
     "GRADE-6-BASELINE",
     "GRADE-6-REGULAR",
     "GRADE-6-EXTENDED-REFERENCE",
@@ -5438,7 +5438,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             for item in core06_module["coverageEvidence"]
         }
         phase_minutes_by_path = self._assert_available_audit_paths(
-            TASK16_PATH_AVAILABILITY,
+            GRADE6_PATH_AVAILABILITY,
             module_id="IUM-6-CORE-06",
             module_contract=core06_contract,
             annual_variants=self.repository_annual_variants,
@@ -5480,7 +5480,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "IUM-6-CORE-06",
                     "review-required",
                     None,
-                    TASK16_PATH_AVAILABILITY,
+                    GRADE6_PATH_AVAILABILITY,
                     "semantic-status-unchanged",
                     "working",
                 ),
@@ -5644,6 +5644,106 @@ class IUM10TimeReviewTests(unittest.TestCase):
             "Die Integration trägt außerdem die Faktorenkarte.",
         )
 
+    def _assert_core07_task17_semantic_boundaries(
+        self,
+        *,
+        evidence_by_competency_id,
+        reviews_by_competency_id,
+        integration_contract,
+    ):
+        def audit_text(evidence, review, evidence_fields):
+            return " ".join(
+                [evidence[field] for field in evidence_fields]
+                + [review[field] for field in ("rationale", "risk", "followUp")]
+            )
+
+        da012_evidence = evidence_by_competency_id["LH26-E-DA-012"]
+        da012_text = audit_text(
+            da012_evidence,
+            reviews_by_competency_id["LH26-E-DA-012"],
+            ("learningAction", "productEvidence"),
+        )
+        for required_execution in (
+            "mindestens drei unterscheidbare Bedienkonzepte anwenden",
+            "Operation → Produktänderung",
+            "zugehörige sichtbare Revision",
+        ):
+            self.assertIn(required_execution, da012_text)
+        da012_casefold = da012_text.casefold()
+        for non_execution in (
+            "nur aufgelistet",
+            "bloß aufgelistet",
+            "nur beschrieben",
+            "bloß beschrieben",
+            "nur simuliert",
+            "bloß simuliert",
+            "ohne tatsächliche produktänderung",
+            "ohne zugehörige revision",
+        ):
+            self.assertNotIn(non_execution, da012_casefold)
+
+        da015_evidence = evidence_by_competency_id["LH26-E-DA-015"]
+        da015_review = reviews_by_competency_id["LH26-E-DA-015"]
+        self.assertEqual(da015_evidence["executionType"], "actual-local-use")
+        local_gate = da015_evidence["localConfigurationRequirement"]
+        for local_gate_requirement in (
+            "beide verschiedenen Teilwege A und B vor Ort verfügbar",
+            "schulisch freigegeben und datenschutzkonform",
+            "im Modul tatsächlich benutzt",
+        ):
+            self.assertIn(local_gate_requirement, local_gate)
+        self.assertIn(
+            "Ersatzroute",
+            audit_text(da015_evidence, da015_review, ()),
+        )
+        self.assertIn(
+            "keine Zugangsdaten, privaten Links, Inhaltsprotokolle oder "
+            "öffentlichen Schülerkonten werden erfasst",
+            da015_evidence["productEvidence"],
+        )
+        da015_text = audit_text(
+            da015_evidence,
+            da015_review,
+            (
+                "learningAction",
+                "productEvidence",
+                "localConfigurationRequirement",
+            ),
+        ).casefold()
+        for unsafe_evidence in (
+            "als nachweis gespeichert",
+            "als evidenz gespeichert",
+            "als nachweis erfasst",
+            "als evidenz erfasst",
+            "zugangsdaten werden gespeichert",
+            "private links werden gespeichert",
+            "inhaltsprotokolle werden gespeichert",
+            "öffentliche schülerkonten werden gespeichert",
+            "öffentliche schülerkonten werden vorausgesetzt",
+            "öffentliche schülerkonten werden angelegt",
+        ):
+            self.assertNotIn(unsafe_evidence, da015_text)
+        for generic_platform_duty in (
+            "plattform ist für alle schulen verpflichtend",
+            "plattform wird für alle schulen vorausgesetzt",
+            "allgemeine plattformpflicht",
+        ):
+            self.assertNotIn(generic_platform_duty, da015_text)
+
+        for competency_id in TASK17_AUDIT_EXPECTATIONS:
+            self.assertEqual(
+                reviews_by_competency_id[competency_id]["integrationContractIds"],
+                [],
+            )
+        integration_text = integration_contract["sharedPhaseOrProduct"].casefold()
+        for record_specific_trace in (
+            "mikrogeschichte",
+            "analyse- und wirkungsabsichtsspur",
+            "bedienkonzepte",
+            "teilwegspuren a und b",
+        ):
+            self.assertNotIn(record_specific_trace, integration_text)
+
     def _assert_core07_task17_audit_contract(
         self,
         reviews,
@@ -5672,7 +5772,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             exact_fields=True,
         )
         phase_minutes = self._assert_available_audit_paths(
-            TASK16_PATH_AVAILABILITY,
+            GRADE6_PATH_AVAILABILITY,
             module_id="IUM-6-CORE-07",
             module_contract=core_contract,
             annual_variants=self.repository_annual_variants,
@@ -5734,7 +5834,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             )
             expected_review = (
                 decision, minutes, list(phases), [], "IUM-6-CORE-07",
-                "review-required", None, TASK16_PATH_AVAILABILITY,
+                "review-required", None, GRADE6_PATH_AVAILABILITY,
                 "semantic-status-unchanged", "working",
             )
             self.assertEqual(tuple(review[field] for field in fields),
@@ -5767,6 +5867,12 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 audit_text,
             )
             self.assertNotIn("werden als Evidenz verwendet", audit_text)
+
+        self._assert_core07_task17_semantic_boundaries(
+            evidence_by_competency_id=evidence,
+            reviews_by_competency_id=reviews_by_id,
+            integration_contract=integration,
+        )
 
         for anchor in (
             "Gestaltungs- und Wirkungsziel",
@@ -5823,6 +5929,96 @@ class IUM10TimeReviewTests(unittest.TestCase):
         reviews.append(copy.deepcopy(reviews[PRE_TASK17_TIME_REVIEW_COUNT]))
         with self.assertRaises(AssertionError):
             self._assert_core07_task17_audit_contract(reviews)
+
+    def _task17_semantic_probe_inputs(self):
+        module_payload = copy.deepcopy(self.module_payload)
+        core07 = next(
+            item for item in module_payload["modules"]
+            if item["id"] == "IUM-6-CORE-07"
+        )
+        return (
+            module_payload,
+            {item["competencyId"]: item for item in core07["coverageEvidence"]},
+            {
+                item["competencyId"]: copy.deepcopy(item)
+                for item in self.time_payload["timeReviews"]
+                if item["competencyId"] in TASK17_AUDIT_EXPECTATIONS
+            },
+            copy.deepcopy(
+                self.repository_integration_contracts[
+                    "INT-6-CONFLICT-PRODUCTION"
+                ]
+            ),
+        )
+
+    def test_core07_task17_semantics_rejects_boundary_overrides(
+        self,
+    ):
+        mutations = (
+            (
+                "da012-list-only",
+                ("evidence", "LH26-E-DA-012", "productEvidence"),
+                " Tatsächlich werden die drei Bedienkonzepte nur aufgelistet.",
+            ),
+            (
+                "da015-credentials-stored",
+                ("evidence", "LH26-E-DA-015", "productEvidence"),
+                " Zugangsdaten werden gespeichert.",
+            ),
+            (
+                "da015-private-links-stored",
+                ("evidence", "LH26-E-DA-015", "productEvidence"),
+                " Private Links werden gespeichert.",
+            ),
+            (
+                "da015-platform-duty",
+                (
+                    "evidence",
+                    "LH26-E-DA-015",
+                    "localConfigurationRequirement",
+                ),
+                " Eine digitale Plattform ist für alle Schulen verpflichtend.",
+            ),
+            (
+                "record-integration-overreach",
+                ("integration", "sharedPhaseOrProduct"),
+                " Sie trägt Mikrogeschichte, Analyse- und "
+                "Wirkungsabsichtsspur, Bedienkonzepte und Teilwegspuren A und B.",
+            ),
+        )
+        for label, path, suffix in mutations:
+            with self.subTest(semantic_boundary=label):
+                _, evidence, reviews, integration = (
+                    self._task17_semantic_probe_inputs()
+                )
+                target = {
+                    "evidence": evidence,
+                    "integration": integration,
+                }[path[0]]
+                for key in path[1:-1]:
+                    target = target[key]
+                target[path[-1]] += suffix
+
+                with self.assertRaises(AssertionError):
+                    self._assert_core07_task17_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+    def test_core07_task17_audit_contract_invokes_semantic_boundaries(self):
+        module_payload, evidence, _, _ = (
+            self._task17_semantic_probe_inputs()
+        )
+        evidence["LH26-E-DA-012"]["productEvidence"] += (
+            " Tatsächlich werden die drei Bedienkonzepte nur aufgelistet."
+        )
+
+        with self.assertRaises(AssertionError):
+            self._assert_core07_task17_audit_contract(
+                self.time_payload["timeReviews"],
+                module_payload=module_payload,
+            )
 
     def test_core07_task17_contract_rejects_review_mutations(self):
         mutations = [
