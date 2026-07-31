@@ -145,7 +145,15 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-BMB16-GYM-IK-GM-001",
+        "TR-BMB16-GYM-IK-GM-002",
+        "TR-BMB16-GYM-IK-GM-003",
+        "TR-BMB16-GYM-PK-SK-003",
+        "TR-LH26-E-DA-004",
+        "TR-LH26-E-DP-001",
+        "TR-LH26-E-PROG-001"
+      ],
       "integrationContractIds": [],
       "schoolDependentSteps": ["actual-local-school-login-and-file-work"],
       "risk": "Lokale Anmeldung, Verzeichnisstruktur und technische Anlaufzeit können schulabhängig zusätzliche Unterrichtszeit beanspruchen.",
@@ -2330,7 +2338,163 @@
       "risk": "Die historische Summe ist keine Empfehlung und kein verfügbares Angebot; sie dient ausschließlich als nachvollziehbare Vergleichsgrenze der IUM09-Modulzeiten."
     }
   ],
-  "timeReviews": [],
+  "timeReviews": [
+    {
+      "id": "TR-BMB16-GYM-IK-GM-001",
+      "competencyId": "BMB16-GYM-IK-GM-001",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Geräteerkundung und die beobachtete Zuordnung von Eingabe, Verarbeitung und Ausgabe benötigen innerhalb der Gerätearbeit eine eigene angeleitete Zeitspur; die Gerätefunktionsmatrix bleibt Teil der kommentierten System- und Arbeitswegkarte.",
+      "phaseIds": [
+        "guided-practice"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Unterschiedliche Mediengeräte oder nicht verfügbare Komponenten können die Geräteerkundung und ihre Beobachtung verlängern.",
+      "followUp": "Im Pilot Geräteverfügbarkeit, Unterstützungszeit und Erreichen der Gerätefunktionsmatrix aggregiert prüfen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-GM-002",
+      "competencyId": "BMB16-GYM-IK-GM-002",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Tatsächliche schulische Anmeldung, Orientierung in der lokalen Verzeichnisstruktur sowie Öffnen, Speichern und Wiederfinden einer unpersönlichen Testdatei benötigen eine eigene angeleitete Ausführungszeit im bereits positiven Arbeitsweg.",
+      "phaseIds": [
+        "guided-practice"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Schulabhängige technische Anlaufzeit, Zugangsstörungen oder abweichende Speicherpfade können die ausgewiesene Lernzeit verdrängen; Zugangsdaten bleiben undokumentiert.",
+      "followUp": "Technische Anlauf- und Unterstützungsminuten im Pilot ausschließlich aggregiert erfassen und eine lokale Ersatzroute für Anmelde- oder Speicherstörungen bereithalten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-GM-003",
+      "competencyId": "BMB16-GYM-IK-GM-003",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Eine fachlich zusammenhängende, weitgehend selbstständige Mehrwerkzeug-Handlung würde innerhalb der eigenständigen Arbeitsphase positive eigene Zeit benötigen; diese Zeitzuweisung liefert jedoch weder den fehlenden Mehrwerkzeug-Produktnachweis noch eine fachlich tragfähige modulare Verortung.",
+      "phaseIds": [
+        "independent-action-product"
+      ],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Die positive Zeitzuweisung könnte fälschlich als semantischer Nachweis gelesen werden, obwohl Standardprogramme und Mediengeräte im zentralen Lernprodukt nicht als zusammenhängende Mehrwerkzeug-Handlung ausgewiesen sind.",
+      "followUp": "Die fachlich tragfähige modulare Verortung und einen belastbaren Mehrwerkzeug-Produktnachweis gesondert auditieren; der Record bleibt bis dahin semantisch partial.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-PK-SK-003",
+      "competencyId": "BMB16-GYM-PK-SK-003",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Benennen und Einhalten der lokalen Medienordnung nutzen dieselbe angeleitete Geräte- und Dateiarbeit sowie denselben kommentierten Regelcheck der System- und Arbeitswegkarte; die positive Phase trägt daher die Anforderung ohne zusätzliche Minuten.",
+      "phaseIds": [
+        "guided-practice"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Lokale Medienordnungen unterscheiden sich und die beobachtete Regeleinhaltung kann bei großen Lerngruppen mehr Orchestrierungszeit beanspruchen.",
+      "followUp": "Im Pilot prüfen, ob Regelbenennung und festgelegte Beobachtungspunkte innerhalb der angeleiteten Arbeitsphase vollständig erreicht werden.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-004",
+      "competencyId": "LH26-E-DA-004",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die Erklärung des Daten- und Funktionsbezugs zwischen Hardware, Betriebssystem und Programmen benötigt im Begriffsaufbau eigene Zeit; die kommentierte Schichtenansicht bleibt eine Teilspur der vorhandenen System- und Arbeitswegkarte.",
+      "phaseIds": [
+        "build-concept"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine rein benennende Schichtenansicht würde den verlangten Erklärungszusammenhang zwischen beobachtetem Arbeitsweg und Systemschichten unterschreiten.",
+      "followUp": "Im Pilot prüfen, ob die Lernenden den beobachteten Eingabe-, Verarbeitungs- und Ausgabeweg innerhalb der Begriffszeit begründet den drei Schichten zuordnen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DP-001",
+      "competencyId": "LH26-E-DP-001",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Das Beachten lokaler Regeln wird in der Geräte- und Dateiarbeit ausgeführt; die darüber hinaus verlangte Auseinandersetzung mit Zweck, Folgen, Datenschutzgrenze und Regelkonflikt benötigt eine eigene Revisions- und Transferzeit im Regelabschnitt der Arbeitswegkarte.",
+      "phaseIds": [
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Schulabhängige Regelwerke können unterschiedlich komplex sein; Zugangsdaten und private Inhalte dürfen auch bei Konfliktbearbeitung nicht in die Produktspur gelangen.",
+      "followUp": "Im Pilot die Zeit für Begründung und Konfliktbearbeitung sowie die Einhaltung der Datenschutzgrenze aggregiert prüfen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-PROG-001",
+      "competencyId": "LH26-E-PROG-001",
+      "moduleId": "IUM-5-CORE-01",
+      "sourceTimeImpactLevel": "roadmap-dependent",
+      "decision": "unresolved",
+      "rationale": "Die Balance des sicheren, verantwortungsvollen und reflektierten Umgangs über Klassen 5 und 6 kann weder einer Einzelphase noch dem Produkt von IUM-5-CORE-01 zugerechnet werden und bleibt bis zum jahrgangsweiten Sequenzaudit unverortet.",
+      "phaseIds": [],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": "SE-LH26-E-PROG-001",
+      "pathAvailability": [],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Ohne vollständigen Sequenznachweis würden einzelne positive Modulzeiten eine nicht belegte jahrgangsübergreifende Gesamtbalance suggerieren.",
+      "followUp": "In Task 24 Progression, Perspektivenbalance, Zeitgewichtung und verfügbare Jahrespfade ausschließlich über SE-LH26-E-PROG-001 auditieren.",
+      "status": "working"
+    }
+  ],
   "sequenceEvidence": [],
   "gradeJudgements": [
     {

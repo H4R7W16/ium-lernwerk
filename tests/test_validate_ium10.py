@@ -22,7 +22,15 @@ from scripts.validate_ium10 import (
 )
 
 
-TIME_AUDIT_DECISIONS = {}
+TIME_AUDIT_DECISIONS = {
+    "BMB16-GYM-IK-GM-001": "additional-time",
+    "BMB16-GYM-IK-GM-002": "additional-time",
+    "BMB16-GYM-IK-GM-003": "additional-time",
+    "BMB16-GYM-PK-SK-003": "absorbed",
+    "LH26-E-DA-004": "additional-time",
+    "LH26-E-DP-001": "additional-time",
+    "LH26-E-PROG-001": "unresolved",
+}
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -439,7 +447,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM10ValidationError, "schema version"):
             validate_time_model_draft(time_model)
 
-    def test_repository_draft_has_the_capacity_contract_and_only_later_task_lists_empty(self):
+    def test_repository_draft_has_the_capacity_contract_and_unimplemented_lists_empty(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
@@ -478,7 +486,6 @@ class IUM10CapacityModelTests(unittest.TestCase):
                 "timeHandoffSha256": BASELINE_TIME_HANDOFF_SHA256,
             },
         )
-        self.assertEqual(time_model["timeReviews"], [])
         self.assertEqual(time_model["sequenceEvidence"], [])
         self.assertEqual(time_model["risks"], [])
         self.assertEqual(time_model["pilotAssignments"], [])
@@ -1827,6 +1834,45 @@ class IUM10TimeReviewTests(unittest.TestCase):
         self.assertEqual(
             {review["competencyId"] for review in result.values()},
             set(self.handoffs_by_id),
+        )
+
+    def test_repository_time_reviews_match_the_audited_decisions(self):
+        result = validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+        )
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in result.values()
+        }
+
+        self.assertEqual(
+            set(reviews_by_competency_id),
+            set(TIME_AUDIT_DECISIONS),
+        )
+        for competency_id, expected_decision in TIME_AUDIT_DECISIONS.items():
+            with self.subTest(competency_id=competency_id):
+                review = reviews_by_competency_id[competency_id]
+                self.assertEqual(review["decision"], expected_decision)
+                self.assertEqual(
+                    review["coverageConsequence"],
+                    "semantic-status-unchanged",
+                )
+
+        self.assertGreater(
+            reviews_by_competency_id["BMB16-GYM-IK-GM-003"][
+                "additionalMinutes"
+            ],
+            0,
+        )
+        progression_review = reviews_by_competency_id["LH26-E-PROG-001"]
+        self.assertEqual(progression_review["phaseIds"], [])
+        self.assertEqual(
+            progression_review["sequenceEvidenceId"],
+            "SE-LH26-E-PROG-001",
         )
 
 
