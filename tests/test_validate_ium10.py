@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from contextlib import nullcontext
 from pathlib import Path
 
 import scripts.validate_ium10 as ium10_validator
@@ -151,6 +152,32 @@ TASK15_PATH_AVAILABILITY = [
     "GRADE-6-EXTENDED-TRANSFER",
     "GRADE-6-EXTENDED-CODING",
 ]
+TASK15_INTEGRATION_CONTRACT_FIELDS = (
+    "id",
+    "moduleIds",
+    "pathIds",
+    "sharedPhaseOrProduct",
+    "countedInModuleId",
+    "sharedMinutes",
+    "savingsMinutesByPath",
+    "preservedLearningActions",
+    "preservedProductAndCurriculumEvidence",
+    "prerequisites",
+    "risk",
+    "fallback",
+    "status",
+)
+TASK15_INTEGRATION_CONTRACT_SHA256 = (
+    "6ca11792977d1f6f26dd5d3752bf935c067d5bf85e2f45bb70489670a670519f"
+)
+TASK15_REVIEW_EXCLUSION_SHA256 = {
+    "LH26-E-DP-004": (
+        "94bec0d9e9bf16f44fb717d950cc458046a3365c35912c1f101a3cd9895ac628"
+    ),
+    "LH26-E-DP-006": (
+        "c4b8bdf6a73e789228f6dfdebc8df708921a85738d7bb6a85eddf76fafee3c76"
+    ),
+}
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
     "eingesammelt, gespeichert oder bewertet."
@@ -4605,6 +4632,31 @@ class IUM10TimeReviewTests(unittest.TestCase):
             for review in prior_reviews
         ]
 
+    def _task15_integration_contract_projection(self, integration):
+        self.assertEqual(
+            set(integration),
+            set(TASK15_INTEGRATION_CONTRACT_FIELDS),
+        )
+        return {
+            field: integration[field]
+            for field in TASK15_INTEGRATION_CONTRACT_FIELDS
+        }
+
+    def _task15_review_exclusion_projection(self, review):
+        return {
+            field: review[field]
+            for field in ("risk", "followUp")
+        }
+
+    def _canonical_sha256(self, value):
+        canonical = json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        return hashlib.sha256(canonical).hexdigest()
+
     def test_core07_rejects_broken_authoritative_evidence_chain(self):
         reviews_by_competency_id = (
             self._repository_reviews_by_competency_id()
@@ -4753,16 +4805,52 @@ class IUM10TimeReviewTests(unittest.TestCase):
                         prior_reviews
                     )
 
-    def test_repository_core02_task15_audit_contract(self):
-        reviews = self.time_payload["timeReviews"]
+    def _assert_core02_task15_audit_contract(
+        self,
+        reviews,
+        module_contracts=None,
+        integration_contracts=None,
+        annual_variants=None,
+        remediation_payload=None,
+        coverage_payload=None,
+        module_payload=None,
+        use_subtests=True,
+    ):
+        if module_contracts is None:
+            module_contracts = self.repository_module_contracts
+        if integration_contracts is None:
+            integration_contracts = self.repository_integration_contracts
+        if annual_variants is None:
+            annual_variants = self.repository_annual_variants
+        if remediation_payload is None:
+            remediation_payload = self.remediation_payload
+        if coverage_payload is None:
+            coverage_payload = self.coverage_payload
+        if module_payload is None:
+            module_payload = self.module_payload
+
         expected_review_ids = [
             f"TR-{competency_id}"
             for competency_id in TASK15_AUDIT_EXPECTATIONS
         ]
+        task15_review_end = (
+            PRE_TASK15_TIME_REVIEW_COUNT + len(expected_review_ids)
+        )
+        task15_reviews = reviews[
+            PRE_TASK15_TIME_REVIEW_COUNT:task15_review_end
+        ]
         self.assertEqual(
-            [review["id"] for review in reviews[PRE_TASK15_TIME_REVIEW_COUNT:]],
+            [review["id"] for review in task15_reviews],
             expected_review_ids,
         )
+        for expected_review_id in expected_review_ids:
+            self.assertEqual(
+                sum(
+                    review["id"] == expected_review_id
+                    for review in reviews
+                ),
+                1,
+            )
 
         prior_reviews = reviews[:PRE_TASK15_TIME_REVIEW_COUNT]
         canonical_prior_reviews = json.dumps(
@@ -4776,32 +4864,30 @@ class IUM10TimeReviewTests(unittest.TestCase):
             PRE_TASK15_TIME_REVIEWS_SHA256,
         )
 
-        reviews_by_competency_id = (
-            self._repository_reviews_by_competency_id()
-        )
-        core02_contract = self.repository_module_contracts[
-            "IUM-6-CORE-02"
-        ]
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in task15_reviews
+        }
+        core02_contract = module_contracts["IUM-6-CORE-02"]
         self.assertEqual(
             core02_contract["timeReviewIds"],
             expected_review_ids,
         )
         self.assertEqual(
-            set(reviews_by_competency_id) - set(TIME_AUDIT_DECISIONS),
-            set(),
+            set(reviews_by_competency_id),
+            set(TASK15_AUDIT_EXPECTATIONS),
         )
 
         remediation_by_id = {
             entry["competencyId"]: entry
-            for entry in self.remediation_payload["entries"]
+            for entry in remediation_payload["entries"]
         }
         coverage_by_id = {
             entry["competencyId"]: entry
-            for entry in self.coverage_payload["entries"]
+            for entry in coverage_payload["entries"]
         }
         core02_module = next(
             module
-            for module in self.module_payload["modules"]
+            for module in module_payload["modules"]
             if module["id"] == "IUM-6-CORE-02"
         )
         evidence_by_id = {
@@ -4817,12 +4903,16 @@ class IUM10TimeReviewTests(unittest.TestCase):
         }
         annual_variants_by_id = {
             variant["id"]: variant
-            for variant in self.time_payload["annualVariants"]
+            for variant in annual_variants.values()
         }
 
-        integration = self.repository_integration_contracts[
-            "INT-6-ACTORS-SELECTION"
-        ]
+        integration = integration_contracts["INT-6-ACTORS-SELECTION"]
+        self.assertEqual(
+            self._canonical_sha256(
+                self._task15_integration_contract_projection(integration)
+            ),
+            TASK15_INTEGRATION_CONTRACT_SHA256,
+        )
         self.assertEqual(
             integration["countedInModuleId"],
             "IUM-6-CORE-01",
@@ -4849,7 +4939,12 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ("personenbezogene Selbstauskünfte",),
         )
         for competency_id, expected in TASK15_AUDIT_EXPECTATIONS.items():
-            with self.subTest(task15_competency_id=competency_id):
+            subtest = (
+                self.subTest(task15_competency_id=competency_id)
+                if use_subtests
+                else nullcontext()
+            )
+            with subtest:
                 review = reviews_by_competency_id[competency_id]
                 self.assertEqual(review["id"], f"TR-{competency_id}")
                 self.assertEqual(review["moduleId"], "IUM-6-CORE-02")
@@ -4962,6 +5057,12 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     review[field]
                     for field in ("rationale", "risk", "followUp")
                 )
+                self.assertEqual(
+                    self._canonical_sha256(
+                        self._task15_review_exclusion_projection(review)
+                    ),
+                    TASK15_REVIEW_EXCLUSION_SHA256[competency_id],
+                )
                 for anchor in expected["productAnchors"]:
                     self.assertIn(anchor, evidence_text)
                 for anchor in expected["ownReviewAnchors"]:
@@ -4991,6 +5092,67 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "weder Produkt, Evidenz noch Zusatzminuten",
                     review_text,
                 )
+
+    def test_repository_core02_task15_audit_contract(self):
+        self._assert_core02_task15_audit_contract(
+            self.time_payload["timeReviews"]
+        )
+
+    def test_core02_task15_contract_allows_later_review(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(
+            {
+                "id": "TR-LATER-REVIEW",
+                "competencyId": "LATER-REVIEW",
+            }
+        )
+
+        self._assert_core02_task15_audit_contract(reviews)
+
+    def test_core02_task15_contract_rejects_later_duplicate_task15_id(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(copy.deepcopy(reviews[PRE_TASK15_TIME_REVIEW_COUNT]))
+
+        with self.assertRaises(AssertionError):
+            self._assert_core02_task15_audit_contract(reviews)
+
+    def test_core02_task15_contract_rejects_overextended_shared_trace(self):
+        integration_contracts = copy.deepcopy(
+            self.repository_integration_contracts
+        )
+        integration_contracts["INT-6-ACTORS-SELECTION"][
+            "sharedPhaseOrProduct"
+        ] = (
+            "Gemeinsame Akteurs-, Interessen- und Evidenzkarte; sie trägt "
+            "zusätzlich Bedingungen-Auszüge und Fundstellen, Auswahlregeln, "
+            "konkrete Werbebotschaft, Modellgrenze und Urteil."
+        )
+
+        with self.assertRaises(AssertionError):
+            self._assert_core02_task15_audit_contract(
+                self.time_payload["timeReviews"],
+                integration_contracts=integration_contracts,
+            )
+
+    def test_core02_task15_contract_rejects_personal_evidence_claim(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        review = next(
+            review
+            for review in reviews
+            if review["id"] == "TR-LH26-E-DP-004"
+        )
+        review["risk"] = (
+            "Reale Konten, Profile, Werbeverläufe, Standort- oder "
+            "Nutzungsdaten, Screenshots personalisierter Werbung und "
+            "personenbezogene Selbstauskünfte werden als Fallgrundlage sowie "
+            "Produkt- und Evidenzspur verwendet."
+        )
+
+        with self.assertRaises(AssertionError):
+            self._assert_core02_task15_audit_contract(
+                reviews,
+                use_subtests=False,
+            )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
         prior_reviews = self.time_payload["timeReviews"][
