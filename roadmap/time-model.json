@@ -1068,7 +1068,12 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-LH26-E-DA-009",
+        "TR-LH26-E-DA-010",
+        "TR-LH26-E-DA-012",
+        "TR-LH26-E-DA-015"
+      ],
       "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
       "schoolDependentSteps": ["local-production-rights-and-publication-route"],
       "risk": "Produktionswerkzeug, offene Assets, Lizenzprüfung und lokaler Veröffentlichungsweg können zusätzliche Unterstützungszeit erfordern.",
@@ -3169,6 +3174,105 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Wenn die Integration auch Faktorenkarte, Ursachenhypothesen, begünstigende Faktoren, Belegstellen oder Unsicherheitsmarkierungen tragen soll, wäre sie eine Scheineinsparung. Victim Blaming, Ferndiagnose und behauptete Täterabsicht sind unzulässig; reale Betroffenheit, persönliche Konfliktoffenlegung, reale Namen, Konten, Nachrichten, Screenshots oder Hilfetelefonnummern dürfen weder Fallgrundlage noch Produkt- oder Evidenzspur werden.",
       "followUp": "Im Pilot die identische gemeinsame Fallspur getrennt von den 20 Minuten Faktorenarbeit prüfen: Mehrere digitale und soziale Faktoren müssen fallbezogen mit Belegstelle als Ursachenhypothese oder begünstigender Faktor eingeordnet und mit Unsicherheit markiert werden, ohne Opferverantwortung, Diagnose oder Täterabsicht zu behaupten. Private Reflexion sowie reale Betroffenheit, persönliche Konfliktoffenlegung, Namen, Konten, Nachrichten, Screenshots und Hilfetelefonnummern tragen weder Produkt, Evidenz noch Zusatzminuten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-009",
+      "competencyId": "LH26-E-DA-009",
+      "moduleId": "IUM-6-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die verpflichtende Mikrogeschichte benötigt 30 Minuten recordeigene Begriffs-, Produktions- und Revisionszeit: Vor Version 1 werden Gestaltungs- und Wirkungsziel festgelegt; sichtbares Wirkungsfeedback wird im Soll-Ist-Abgleich ausgewertet und führt zu einer begründeten Textrevision von Version 1 zu Version 2. Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile sichern die offene Nachnutzung. INT-6-CONFLICT-PRODUCTION wird nicht beansprucht, weil derselbe fiktive Fall oder dasselbe Endprodukt ohne nachweislich identische Zielgruppen-, Wirkungs-, Rechte- und Revisionsfelder keine recordgenaue Integration begründet.",
+      "phaseIds": [
+        "build-concept",
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 30,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-6-BASELINE",
+        "GRADE-6-REGULAR",
+        "GRADE-6-EXTENDED-REFERENCE",
+        "GRADE-6-EXTENDED-TRANSFER",
+        "GRADE-6-EXTENDED-CODING"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloße Einbettung der Mikrogeschichte, ein allgemeines Feedback oder eine kosmetische Überarbeitung würde das vorgelagerte Gestaltungsziel, den sichtbaren Feedbackbefund, den Soll-Ist-Abgleich und die begründete Textrevision unterschreiten; eine pauschale Anrechnung der Konflikt-Produktions-Integration wäre eine Scheineinsparung.",
+      "followUp": "Im Pilot innerhalb der 30 Minuten prüfen, ob Gestaltungs- und Wirkungsziel, Version 1, sichtbarer Feedbackbefund, Soll-Ist-Abgleich, begründete Version 2 sowie Provenienz, Lizenz oder Freigabe, Änderungen, eigene Anteile und offene Nachnutzung vollständig sichtbar werden.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-010",
+      "competencyId": "LH26-E-DA-010",
+      "moduleId": "IUM-6-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die eigenständige Analyse eines vorhandenen, vorgegebenen und kuratierten Medienprodukts benötigt 20 Minuten angeleitete Analysezeit: Zielgruppe und intendierte Wirkung werden mit konkreten Inhalts- und Formbelegen herausgearbeitet und beobachtbarer Befund wird von begründeter Inferenz getrennt. Ein optionaler Transfer in die eigene Gestaltung ersetzt diese Analyse nicht. Ohne kompatible Freigabe wird der Analysegegenstand weder übernommen noch weiterveröffentlicht; Produktionsassets folgen dem strengeren offenen Rechtepfad. INT-6-CONFLICT-PRODUCTION wird nicht beansprucht, weil diese Analyse nicht identisch als Konflikt-Produktionsarbeit ausgeführt wird.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-6-BASELINE",
+        "GRADE-6-REGULAR",
+        "GRADE-6-EXTENDED-REFERENCE",
+        "GRADE-6-EXTENDED-TRANSFER",
+        "GRADE-6-EXTENDED-CODING"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Wenn der optionale Transfer die Analyse ersetzt, Befund und Inferenz verschmelzen oder das kuratierte Analyseprodukt ohne kompatible Freigabe übernommen oder weiterveröffentlicht wird, fehlt die eigenständige recordgenaue Leistung; derselbe Fall oder dasselbe Endprodukt rechtfertigt keine Integration.",
+      "followUp": "Im Pilot innerhalb der 20 Minuten prüfen, ob Zielgruppe, intendierte Wirkung, konkrete Inhalts- und Formbelege sowie die Trennung von Befund und Inferenz am vorhandenen Produkt vollständig vor einem optionalen Transfer entstehen und Analysebelege und Produktionsassets ihre getrennten Rechtepfade einhalten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-012",
+      "competencyId": "LH26-E-DA-012",
+      "moduleId": "IUM-6-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Mindestens drei unterscheidbare Bedienkonzepte werden als Operation → sichtbare Produktänderung → zugehörige Revision in derselben tatsächlichen Produktions- und Revisionszeit ausgeführt. Diese Spur wird ohne zusätzliche Minuten absorbiert, weil die konkreten Bedienhandlungen die bereits budgetierte Erstellung und sichtbare Revision des Medienprodukts selbst vollziehen; sie erzeugen weder eine bloße Bedienliste noch ein separates Bedienprodukt. INT-6-CONFLICT-PRODUCTION wird nicht beansprucht, weil dasselbe Endprodukt keine identische Bedienleistung im Konfliktmodul belegt.",
+      "phaseIds": [
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-6-BASELINE",
+        "GRADE-6-REGULAR",
+        "GRADE-6-EXTENDED-REFERENCE",
+        "GRADE-6-EXTENDED-TRANSFER",
+        "GRADE-6-EXTENDED-CODING"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine Liste, Demonstration oder Erinnerung von Bedienkonzepten ohne mindestens drei tatsächlich ausgeführte Operationen, sichtbare Produktänderungen und zugehörige Revision würde den Anwendungsoperator unterschreiten; Bildschirmaufzeichnung, Interaktionsvollprotokoll oder pauschale Integrationsanrechnung sind weder nötig noch zulässig.",
+      "followUp": "Im Pilot prüfen, ob mindestens drei unterscheidbare Bedienkonzepte jeweils als Operation, sichtbare Produktänderung und zugehörige Revision lehrkraftbeobachtbar werden und innerhalb der vorhandenen Produktions- und Revisionszeit ohne Bildschirmaufzeichnung oder vollständige Bedienhistorie gelingen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-015",
+      "competencyId": "LH26-E-DA-015",
+      "moduleId": "IUM-6-CORE-07",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Zwei verschiedene vor Ort verfügbare, schulisch freigegebene und datenschutzkonforme Teilwege benötigen 20 Minuten tatsächliche lokale Ausführung: Dasselbe neutrale, fiktive oder personenbezugsfreie Produkt wird auf Weg A und Weg B jeweils bereitgestellt oder geteilt und abgerufen oder geöffnet. Dokumentiert werden nur Weg, ausgeführte Operation und Empfängerkreis oder Zugriffsumfang. Das lokale Konfigurationsgate und eine Ersatzroute sichern die Durchführung, ohne eine allgemeine Plattformvoraussetzung zu setzen. INT-6-CONFLICT-PRODUCTION wird nicht beansprucht, weil die lokale Teilwegausführung keine identische Konflikt-Produktionsleistung ist.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-6-BASELINE",
+        "GRADE-6-REGULAR",
+        "GRADE-6-EXTENDED-REFERENCE",
+        "GRADE-6-EXTENDED-TRANSFER",
+        "GRADE-6-EXTENDED-CODING"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine Simulation, bloße Beschreibung oder Plattformpflicht würde den Nutzungsoperator unterschreiten. Zugangsdaten, private Links, Inhaltsprotokolle und öffentliche Schülerkonten dürfen weder Evidenz noch dokumentierte Ausführungsspur werden; ein fehlender lokaler Weg benötigt die vorbereitete Ersatzroute.",
+      "followUp": "Vor dem Pilot beide unterschiedlichen lokalen Teilwege und die Ersatzroute vor Ort konfigurieren, schulisch freigeben und datenschutzkonform prüfen; innerhalb der 20 Minuten für beide Wege tatsächliches Bereitstellen oder Teilen und Abrufen oder Öffnen ausschließlich über Weg, Operation und Zugriffsumfang beobachten.",
       "status": "working"
     }
   ],
