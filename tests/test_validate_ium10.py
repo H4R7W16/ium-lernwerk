@@ -2352,6 +2352,64 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "module-budget-only",
                 )
 
+    def test_repository_core07_privacy_migration_preserves_time_and_coverage_balance(self):
+        reviews = [
+            review
+            for review in self.time_payload["timeReviews"]
+            if review["moduleId"] == "IUM-5-CORE-07"
+        ]
+        self.assertEqual(len(reviews), 7)
+        self.assertEqual(
+            sum(
+                review["additionalMinutes"]
+                for review in reviews
+                if review["additionalMinutes"] > 0
+            ),
+            65,
+        )
+        self.assertEqual(
+            {
+                review["competencyId"]
+                for review in reviews
+                if review["decision"] == "unresolved"
+            },
+            {"BMB16-GYM-PK-RK-003", "LH26-E-DP-003"},
+        )
+        self.assertEqual(
+            {
+                review["privacyDisposition"]["observableBasis"]
+                for review in reviews
+            },
+            {
+                "nonpersonal-follow-up",
+                "nonpersonal-module-detail",
+                "none",
+            },
+        )
+        self.assertEqual(
+            sum(
+                review["privacyDisposition"]["observableBasis"]
+                == "nonpersonal-follow-up"
+                for review in reviews
+            ),
+            4,
+        )
+        self.assertEqual(
+            sum(
+                review["privacyDisposition"]["observableBasis"]
+                == "nonpersonal-module-detail"
+                for review in reviews
+            ),
+            1,
+        )
+        self.assertEqual(
+            sum(
+                review["privacyDisposition"]["observableBasis"] == "none"
+                for review in reviews
+            ),
+            2,
+        )
+
     def test_repository_core07_rejects_each_private_contribution_mutation(self):
         fields = ("product", "evidence", "additionalTimeClaim")
         for field in fields:
