@@ -1164,7 +1164,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM10ValidationError, "schema version"):
             validate_time_model_draft(time_model)
 
-    def test_repository_draft_has_schema_two_and_the_core07_privacy_contract(self):
+    def test_repository_draft_has_schema_two_and_the_core07_private_local_contract(self):
         root = Path(__file__).resolve().parents[1]
         time_model = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
@@ -2294,7 +2294,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             cls.repository_module_contracts,
         )
 
-    def test_repository_core07_privacy_dispositions_match_the_audited_matrix(self):
+    def test_repository_core07_private_local_dispositions_match_the_audited_matrix(self):
         expected = {
             "BMB16-GYM-IK-MG-001": (
                 "nonpersonal-follow-up",
