@@ -354,35 +354,36 @@ EXPECTED_CORE05_ALGORITHM_PRODUCT = (
 CORE06_AUDIT_EXPECTATIONS = {
     "BMB16-GYM-IK-PP-002": {
         "decision": "integrated",
-        "additionalMinutes": 0,
+        "additionalMinutes": 15,
         "phaseIds": [
-            "build-concept",
             "independent-action-product",
-            "shared-consolidation",
+            "review-revise-transfer",
         ],
         "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
         "rationale": (
             "Die 45 gemeinsamen Minuten von INT-5-RESEARCH-PRODUCTION tragen "
-            "ausschließlich die identische Quellen- und Belegspur vom "
-            "geprüften Quellendossier bis zu Quelle, Lizenz und zulässiger "
-            "Nutzung desselben Fremdmaterials im Informationsprodukt. Planung "
-            "der datensparsamen Produktion, getrennte Datenschutzentscheidung, "
-            "fiktive oder sachbezogene Inhalte und der begrenzte "
-            "Adressatenkreis werden in den drei positiven Modulphasen "
-            "ausgeführt; die Integration ersetzt diese Handlungen nicht."
+            "ausschließlich Identität und inhaltlichen Beleg derselben "
+            "geprüften Quelle vom Quellendossier bis zum Quellenverzeichnis. "
+            "Lizenz und zulässige Nutzung jedes Fremdmaterials sowie die "
+            "getrennte Datenschutz- und Veröffentlichungsentscheidung mit "
+            "fiktiven oder sachbezogenen Inhalten und begrenztem "
+            "Adressatenkreis benötigen 15 Minuten eigene Produktions- und "
+            "Revisionszeit; die Integration trägt weder diese Entscheidungen "
+            "noch die Produktion."
         ),
         "risk": (
-            "Bei abweichenden Quellen, einem bloßen Rechte- oder "
-            "Datenschutz-Check oder fehlender getrennter Inhalts- und "
-            "Veröffentlichungsentscheidung wäre die Quellenintegration eine "
-            "Scheineinsparung; echte personenbezogene Daten dürfen nicht zur "
-            "Produkt- oder Feedbackspur werden."
+            "Bei abweichenden Quellen oder einer Ausweitung der gemeinsamen "
+            "Spur auf Lizenz, Nutzung, Datenschutz, Adressatenwahl oder "
+            "Produktion wäre die Integration eine Scheineinsparung; echte "
+            "personenbezogene Daten dürfen nicht zur Produkt- oder "
+            "Feedbackspur werden."
         ),
         "followUp": (
-            "Im Pilot für jedes Fremdmaterial die identische Dossierquelle, "
-            "Lizenz und zulässige Nutzung sowie getrennt Datenvermeidung, "
-            "fiktive oder sachbezogene Inhalte und begrenzten Adressatenkreis "
-            "im produzierten Informationsprodukt prüfen."
+            "Im Pilot die identische Quellen- und Belegspur getrennt von den "
+            "15 Minuten eigener Arbeit prüfen: für jedes Fremdmaterial Lizenz "
+            "und zulässige Nutzung sowie separat Datenvermeidung, fiktive oder "
+            "sachbezogene Inhalte und begrenzten Adressatenkreis im "
+            "produzierten Informationsprodukt nachweisen."
         ),
     },
     "LH26-E-DA-005": {
@@ -399,7 +400,7 @@ CORE06_AUDIT_EXPECTATIONS = {
             "konkreter Formatierungen benötigen 15 Minuten angeleitete "
             "Gestaltungs- und Revisionszeit im selben Vorher-Nachher-Produkt. "
             "Der Erweiterungspfad vertieft diese Arbeit mit zusätzlich "
-            "25 Minuten angeleiteter Praxis und 15 Minuten Revision."
+            "30 Minuten angeleiteter Praxis und 20 Minuten Revision."
         ),
         "risk": (
             "Eine vorbereitete Vorlage oder bloße Formatierungsdemonstration "
@@ -416,16 +417,17 @@ CORE06_AUDIT_EXPECTATIONS = {
     },
     "LH26-E-DA-006": {
         "decision": "additional-time",
-        "additionalMinutes": 20,
+        "additionalMinutes": 25,
         "phaseIds": ["independent-action-product"],
         "integrationContractIds": [],
         "rationale": (
             "Auswahl und tatsächliche Nutzung eines rechtegeprüften Bildes, "
             "die Entscheidung zu Position, Größe oder Ausschnitt und die "
             "Begründung seiner Funktion für Aussage und Zielgruppe benötigen "
-            "20 Minuten eigenständige Produktionszeit. Die zusätzlichen "
+            "25 Minuten eigenständige Produktionszeit. Die zusätzlichen "
             "40 Produktminuten des Erweiterungspfads ermöglichen eine "
-            "vertiefte Bild- und Gestaltungsentscheidung."
+            "zweite Gestaltungsfassung, ihren Vergleich und eine dokumentierte "
+            "Auswahl und Iteration innerhalb derselben Produktspur."
         ),
         "risk": (
             "Bildsuche, Import, lokale Werkzeugbedienung oder Rechteprüfung "
@@ -450,7 +452,7 @@ CORE06_AUDIT_EXPECTATIONS = {
             "Die kriterien- und beleggebundene Analyse einer vorgegebenen "
             "Gestaltung, die Zuordnung von Inhalt, Form und Wirkung sowie das "
             "begründete Gesamturteil benötigen 20 Minuten eigene angeleitete "
-            "Analysezeit vor der Produktrevision. Die zusätzlichen 25 "
+            "Analysezeit vor der Produktrevision. Die zusätzlichen 30 "
             "Praxisminuten des Erweiterungspfads vertiefen diese Urteilsspur; "
             "ein Transfer in die eigene Revision ersetzt sie nicht."
         ),
@@ -472,22 +474,100 @@ CORE06_AUDIT_EXPECTATIONS = {
 CORE06_EXTENDED_PHASE_DELTAS = {
     "orientation-challenge": 0,
     "activate-prior-knowledge": 0,
-    "build-concept": 5,
-    "guided-practice": 25,
+    "build-concept": 0,
+    "guided-practice": 30,
     "independent-action-product": 40,
-    "review-revise-transfer": 15,
-    "shared-consolidation": 5,
+    "review-revise-transfer": 20,
+    "shared-consolidation": 0,
 }
 CORE06_POSITIVE_DELTA_REVIEW_PROVENANCE = {
-    "build-concept": ["BMB16-GYM-IK-PP-002"],
     "guided-practice": ["LH26-E-DA-005", "LH26-E-DA-008"],
     "independent-action-product": [
         "BMB16-GYM-IK-PP-002",
         "LH26-E-DA-006",
     ],
-    "review-revise-transfer": ["LH26-E-DA-005"],
-    "shared-consolidation": ["BMB16-GYM-IK-PP-002"],
+    "review-revise-transfer": [
+        "BMB16-GYM-IK-PP-002",
+        "LH26-E-DA-005",
+    ],
 }
+CORE06_EXTENDED_PRODUCT_FUNCTION = (
+    "Zwei adressatengerechte Gestaltungsfassungen desselben "
+    "Informationsprodukts erstellen; beide mit derselben getrennten Rechte- "
+    "und Datenschutzspur, Baustein- und Formatierungsspur, Bildnutzungs- und "
+    "Gestaltungsentscheidung sowie den aus der Analyse der vorgegebenen "
+    "Gestaltung gewonnenen Kriterien vergleichen, eine Fassung begründet "
+    "auswählen und sie sichtbar iterieren. Alternativenvergleich, "
+    "Auswahlbegründung und zusätzliche Vorher–Nachher-Iteration bleiben im "
+    "teacher-observable Produktdossier. Das zentrale Lernprodukt eigenständig "
+    "erstellen: Adressatengerechtes Informationsprodukt mit "
+    "Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, "
+    "Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener "
+    "Qualitätseinschätzung."
+)
+CORE06_INT5_SHARED_PHASE_OR_PRODUCT = (
+    "Gemeinsame geprüfte Quellen- und Belegspur vom digitalen Quellendossier "
+    "bis zum Quellenverzeichnis des Informationsprodukts; geteilt werden "
+    "ausschließlich Quellenidentität und inhaltlicher Beleg."
+)
+CORE06_INT5_PRESERVED_LEARNING_ACTIONS = [
+    (
+        "IUM-5-CORE-02 zerlegt die Suchfrage, dokumentiert Suchwege, prüft "
+        "Quellen und revidiert die belegte Antwort."
+    ),
+    (
+        "IUM-5-CORE-06 übernimmt ausschließlich dieselbe geprüfte "
+        "Quellenidentität und denselben inhaltlichen Beleg in das "
+        "Quellenverzeichnis; Lizenz, Nutzung, Datenschutz, Adressatenwahl und "
+        "Produktion bleiben eigenständige Lernhandlungen."
+    ),
+]
+CORE06_INT5_PRESERVED_PRODUCT_EVIDENCE = [
+    (
+        "Das digitale Quellendossier behält Suchprotokoll, Kriterienvergleich, "
+        "belegte Antwort und dokumentierte Revision."
+    ),
+    (
+        "Das Informationsprodukt behält die nachvollziehbare Zuordnung "
+        "derselben Quelle und desselben inhaltlichen Belegs zum "
+        "Quellenverzeichnis."
+    ),
+    (
+        "Die identische Quellenreferenz und der identische inhaltliche Beleg "
+        "sind in beiden Produkten nachvollziehbar miteinander verknüpft; "
+        "Rechte-, Datenschutz-, Adressaten- und Produktionsnachweise sind "
+        "nicht geteilt."
+    ),
+]
+CORE06_INT5_PREREQUISITES = [
+    (
+        "Recherchefrage und Informationsprodukt behandeln denselben "
+        "fachlichen Gegenstand."
+    ),
+    (
+        "Dieselbe im Quellendossier geprüfte Quellenreferenz und derselbe "
+        "inhaltliche Beleg werden in das Informationsprodukt übernommen."
+    ),
+    (
+        "Lizenz, zulässige Nutzung, Datenschutz, Adressatenwahl und "
+        "Produktion erhalten unabhängig von der Integration eigene positive "
+        "Modulzeit."
+    ),
+]
+CORE06_INT5_RISK = (
+    "Bei abweichendem Thema, nicht identischer Quellenreferenz oder nicht "
+    "identischem inhaltlichem Beleg wäre die Zeitersparnis unzulässig. Eine "
+    "Anrechnung von Lizenz, Nutzung, Datenschutz, Adressatenwahl oder "
+    "Produktion wäre ebenfalls eine Scheinintegration."
+)
+CORE06_INT5_FALLBACK = (
+    "Scheitert die identische Quellen- und Belegspur, erhalten Recherche und "
+    "Medienprodukt wieder eigenständige Zeit für Quellenauswahl, "
+    "Quellenprüfung und Belegzuordnung; die Baseline benötigt dann 45 Minuten "
+    "zusätzlich und das Jahrgangsurteil wird neu berechnet. Die eigenständige "
+    "Zeit für Lizenz, Nutzung, Datenschutz, Adressatenwahl und Produktion "
+    "bleibt im Integrations- wie im Fallbackfall unverändert erhalten."
+)
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -2587,7 +2667,16 @@ class IUM10TimeReviewTests(unittest.TestCase):
         self,
         reviews_by_competency_id,
         module_contracts,
+        remediation_payload=None,
+        module_payload=None,
+        integration_contracts=None,
     ):
+        if remediation_payload is None:
+            remediation_payload = self.remediation_payload
+        if module_payload is None:
+            module_payload = self.module_payload
+        if integration_contracts is None:
+            integration_contracts = self.repository_integration_contracts
         core06_contract = module_contracts["IUM-5-CORE-06"]
         expected_review_ids = [
             f"TR-{competency_id}"
@@ -2688,22 +2777,140 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 actual_phase_deltas["independent-action-product"],
                 actual_phase_deltas["review-revise-transfer"],
             ),
-            (40, 15),
+            (40, 20),
         )
-        actual_delta_provenance = {
-            phase_id: [
-                competency_id
-                for competency_id in CORE06_AUDIT_EXPECTATIONS
-                if phase_id
-                in reviews_by_competency_id[competency_id]["phaseIds"]
+        self._assert_core06_extended_product_depth(core06_contract)
+        self._assert_core06_canonical_delta_provenance(
+            reviews_by_competency_id,
+            core06_contract,
+            remediation_payload,
+            module_payload,
+        )
+        self._assert_core06_integration_boundary(integration_contracts)
+
+    def _assert_core06_extended_product_depth(self, core06_contract):
+        budgets_by_path = {
+            budget["pathId"]: budget
+            for budget in core06_contract["pathBudgets"]
+        }
+        regular_product_function = next(
+            phase["learningFunction"]
+            for phase in budgets_by_path["regular"]["phaseBudgets"]
+            if phase["phaseId"] == "independent-action-product"
+        )
+        extended_product_function = next(
+            phase["learningFunction"]
+            for phase in budgets_by_path["extended"]["phaseBudgets"]
+            if phase["phaseId"] == "independent-action-product"
+        )
+        self.assertNotEqual(
+            extended_product_function,
+            regular_product_function,
+        )
+        self.assertEqual(
+            extended_product_function,
+            CORE06_EXTENDED_PRODUCT_FUNCTION,
+        )
+
+    def _assert_core06_canonical_delta_provenance(
+        self,
+        reviews_by_competency_id,
+        core06_contract,
+        remediation_payload,
+        module_payload,
+    ):
+        handoffs_by_id = {
+            entry["competencyId"]: entry
+            for entry in remediation_payload["entries"]
+        }
+        core06_module = next(
+            module
+            for module in module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-06"
+        )
+        canonical_chains = {}
+        for competency_id in CORE06_AUDIT_EXPECTATIONS:
+            handoff = handoffs_by_id[competency_id]
+            evidence_contract_id = handoff["evidenceContractId"]
+            matching_evidence = [
+                evidence
+                for evidence in core06_module["coverageEvidence"]
+                if evidence["id"] == evidence_contract_id
+                and evidence["competencyId"] == competency_id
             ]
-            for phase_id, delta in actual_phase_deltas.items()
-            if delta > 0
+            self.assertEqual(len(matching_evidence), 1)
+            self.assertEqual(
+                reviews_by_competency_id[competency_id]["moduleId"],
+                core06_module["id"],
+            )
+            canonical_chains[competency_id] = (
+                handoff,
+                matching_evidence[0],
+                reviews_by_competency_id[competency_id],
+            )
+
+        budgets_by_path = {
+            budget["pathId"]: budget
+            for budget in core06_contract["pathBudgets"]
+        }
+        regular_phase_minutes = {
+            phase["phaseId"]: phase["minutes"]
+            for phase in budgets_by_path["regular"]["phaseBudgets"]
+        }
+        extended_phase_minutes = {
+            phase["phaseId"]: phase["minutes"]
+            for phase in budgets_by_path["extended"]["phaseBudgets"]
+        }
+        positive_deltas = {
+            phase_id: extended_phase_minutes[phase_id] - regular_minutes
+            for phase_id, regular_minutes in regular_phase_minutes.items()
+            if extended_phase_minutes[phase_id] - regular_minutes > 0
         }
         self.assertEqual(
-            actual_delta_provenance,
-            CORE06_POSITIVE_DELTA_REVIEW_PROVENANCE,
+            set(positive_deltas),
+            set(CORE06_POSITIVE_DELTA_REVIEW_PROVENANCE),
         )
+        for phase_id, competency_ids in (
+            CORE06_POSITIVE_DELTA_REVIEW_PROVENANCE.items()
+        ):
+            with self.subTest(core06_delta_phase=phase_id):
+                for competency_id in competency_ids:
+                    self.assertIn(competency_id, canonical_chains)
+                    self.assertIn(
+                        phase_id,
+                        canonical_chains[competency_id][2]["phaseIds"],
+                    )
+                supported_minutes = sum(
+                    canonical_chains[competency_id][2][
+                        "additionalMinutes"
+                    ]
+                    for competency_id in competency_ids
+                )
+                self.assertGreaterEqual(
+                    supported_minutes,
+                    positive_deltas[phase_id],
+                )
+
+    def _assert_core06_integration_boundary(self, integration_contracts):
+        integration = integration_contracts["INT-5-RESEARCH-PRODUCTION"]
+        self.assertEqual(
+            integration["sharedPhaseOrProduct"],
+            CORE06_INT5_SHARED_PHASE_OR_PRODUCT,
+        )
+        self.assertEqual(
+            integration["preservedLearningActions"],
+            CORE06_INT5_PRESERVED_LEARNING_ACTIONS,
+        )
+        self.assertEqual(
+            integration["preservedProductAndCurriculumEvidence"],
+            CORE06_INT5_PRESERVED_PRODUCT_EVIDENCE,
+        )
+        self.assertEqual(
+            integration["prerequisites"],
+            CORE06_INT5_PREREQUISITES,
+        )
+        self.assertEqual(integration["risk"], CORE06_INT5_RISK)
+        self.assertEqual(integration["fallback"], CORE06_INT5_FALLBACK)
 
     def _assert_core03_regular_delta_review_provenance(
         self,
@@ -2949,6 +3156,123 @@ class IUM10TimeReviewTests(unittest.TestCase):
                         weakened_reviews,
                         self.repository_module_contracts,
                     )
+
+    def test_core06_rejects_identical_or_generic_extended_product_depth(self):
+        core06_contract = self.repository_module_contracts[
+            "IUM-5-CORE-06"
+        ]
+        self._assert_core06_extended_product_depth(core06_contract)
+
+        budgets_by_path = {
+            budget["pathId"]: budget
+            for budget in core06_contract["pathBudgets"]
+        }
+        regular_product_function = next(
+            phase["learningFunction"]
+            for phase in budgets_by_path["regular"]["phaseBudgets"]
+            if phase["phaseId"] == "independent-action-product"
+        )
+        for label, weakened_function in (
+            ("identical", regular_product_function),
+            (
+                "generic",
+                "Das zentrale Lernprodukt mit mehr Zeit vertiefen.",
+            ),
+        ):
+            with self.subTest(weakened_product_depth=label):
+                weakened_contract = copy.deepcopy(core06_contract)
+                extended_budget = next(
+                    budget
+                    for budget in weakened_contract["pathBudgets"]
+                    if budget["pathId"] == "extended"
+                )
+                extended_product_phase = next(
+                    phase
+                    for phase in extended_budget["phaseBudgets"]
+                    if phase["phaseId"] == "independent-action-product"
+                )
+                extended_product_phase["learningFunction"] = (
+                    weakened_function
+                )
+                with self.assertRaises(AssertionError):
+                    self._assert_core06_extended_product_depth(
+                        weakened_contract
+                    )
+
+    def test_core06_rejects_broken_canonical_delta_provenance(self):
+        result = validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+        )
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in result.values()
+        }
+        core06_contract = self.repository_module_contracts[
+            "IUM-5-CORE-06"
+        ]
+        self._assert_core06_canonical_delta_provenance(
+            reviews_by_competency_id,
+            core06_contract,
+            self.remediation_payload,
+            self.module_payload,
+        )
+
+        broken_handoff = copy.deepcopy(self.remediation_payload)
+        next(
+            entry
+            for entry in broken_handoff["entries"]
+            if entry["competencyId"] == "BMB16-GYM-IK-PP-002"
+        )["evidenceContractId"] = "CE-BROKEN-CANONICAL-CHAIN"
+        with self.assertRaises(AssertionError):
+            self._assert_core06_canonical_delta_provenance(
+                reviews_by_competency_id,
+                core06_contract,
+                broken_handoff,
+                self.module_payload,
+            )
+
+        unsupported_phase_contract = copy.deepcopy(core06_contract)
+        extended_budget = next(
+            budget
+            for budget in unsupported_phase_contract["pathBudgets"]
+            if budget["pathId"] == "extended"
+        )
+        phase_minutes = {
+            phase["phaseId"]: phase
+            for phase in extended_budget["phaseBudgets"]
+        }
+        phase_minutes["build-concept"]["minutes"] += 5
+        phase_minutes["guided-practice"]["minutes"] -= 5
+        with self.assertRaises(AssertionError):
+            self._assert_core06_canonical_delta_provenance(
+                reviews_by_competency_id,
+                unsupported_phase_contract,
+                self.remediation_payload,
+                self.module_payload,
+            )
+
+    def test_core06_rejects_overbroad_int5_shared_trace(self):
+        self._assert_core06_integration_boundary(
+            self.repository_integration_contracts
+        )
+
+        overbroad_integrations = copy.deepcopy(
+            self.repository_integration_contracts
+        )
+        overbroad_integrations["INT-5-RESEARCH-PRODUCTION"][
+            "sharedPhaseOrProduct"
+        ] = (
+            "Gemeinsame Quellen-, Rechte-, Lizenz-, Datenschutz-, "
+            "Adressaten- und Produktionsspur."
+        )
+        with self.assertRaises(AssertionError):
+            self._assert_core06_integration_boundary(
+                overbroad_integrations
+            )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
         result = validate_time_reviews(

@@ -543,11 +543,11 @@
           "phaseBudgets": [
             {"phaseId": "orientation-challenge", "minutes": 15, "learningFunction": "Die zentrale Lernhandlung vorbereiten: Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen."},
             {"phaseId": "activate-prior-knowledge", "minutes": 20, "learningFunction": "Die gemeinsame Quellen- und Belegspur aus der Recherche aktivieren."},
-            {"phaseId": "build-concept", "minutes": 40, "learningFunction": "Inhalt-Form-Beziehungen, Gestaltungskriterien, Quellen und Rechte vertieft aufbauen."},
-            {"phaseId": "guided-practice", "minutes": 70, "learningFunction": "Weitere Formatierungs-, Bild- und Analysevarianten angeleitet erproben."},
-            {"phaseId": "independent-action-product", "minutes": 95, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung."},
-            {"phaseId": "review-revise-transfer", "minutes": 50, "learningFunction": "Produkt mehrfach kriteriengebunden testen, sichtbar revidieren, präsentieren und einschätzen."},
-            {"phaseId": "shared-consolidation", "minutes": 25, "learningFunction": "Gestaltungsentscheidungen, Quellen- und Rechtebelege gemeinsam sichern."}
+            {"phaseId": "build-concept", "minutes": 35, "learningFunction": "Inhalt-Form-Beziehungen, Gestaltungskriterien, Quellen und Rechte aufbauen."},
+            {"phaseId": "guided-practice", "minutes": 75, "learningFunction": "Bausteine in einer konkreten Textfassung identifizieren, mehrere Formatierungsoptionen funktional erproben und eine vorgegebene Gestaltung nach Inhalt, Form, Wirkung und Beleg analysieren; die Ergebnisse als Kriterien für zwei eigene Fassungen sichern."},
+            {"phaseId": "independent-action-product", "minutes": 95, "learningFunction": "Zwei adressatengerechte Gestaltungsfassungen desselben Informationsprodukts erstellen; beide mit derselben getrennten Rechte- und Datenschutzspur, Baustein- und Formatierungsspur, Bildnutzungs- und Gestaltungsentscheidung sowie den aus der Analyse der vorgegebenen Gestaltung gewonnenen Kriterien vergleichen, eine Fassung begründet auswählen und sie sichtbar iterieren. Alternativenvergleich, Auswahlbegründung und zusätzliche Vorher–Nachher-Iteration bleiben im teacher-observable Produktdossier. Das zentrale Lernprodukt eigenständig erstellen: Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung."},
+            {"phaseId": "review-revise-transfer", "minutes": 55, "learningFunction": "Die ausgewählte Fassung mit getrennter Lizenz-, Nutzungs-, Datenschutz- und Adressatenentscheidung prüfen, konkrete Formatierungen im Vorher-Nachher-Vergleich sichtbar revidieren und Alternativenvergleich, Auswahlbegründung sowie zusätzliche Iteration sichern."},
+            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Gestaltungsentscheidungen, Quellen- und Rechtebelege gemeinsam sichern."}
           ],
           "sharedAllocations": [{"integrationContractId": "INT-5-RESEARCH-PRODUCTION", "minutes": 45}]
         }
@@ -1912,25 +1912,26 @@
       "id": "INT-5-RESEARCH-PRODUCTION",
       "moduleIds": ["IUM-5-CORE-02", "IUM-5-CORE-06"],
       "pathIds": ["baseline", "regular", "extended"],
-      "sharedPhaseOrProduct": "Gemeinsame Quellen- und Belegspur vom geprüften Quellendossier bis zum Quellenverzeichnis und Rechtebeleg des Informationsprodukts.",
+      "sharedPhaseOrProduct": "Gemeinsame geprüfte Quellen- und Belegspur vom digitalen Quellendossier bis zum Quellenverzeichnis des Informationsprodukts; geteilt werden ausschließlich Quellenidentität und inhaltlicher Beleg.",
       "countedInModuleId": "IUM-5-CORE-06",
       "sharedMinutes": 45,
       "savingsMinutesByPath": {"baseline": 45, "regular": 0, "extended": 0},
       "preservedLearningActions": [
         "IUM-5-CORE-02 zerlegt die Suchfrage, dokumentiert Suchwege, prüft Quellen und revidiert die belegte Antwort.",
-        "IUM-5-CORE-06 wählt aus derselben geprüften Belegspur Inhalte aus, prüft Quellen und Rechte und begründet die Nutzung im Medienprodukt."
+        "IUM-5-CORE-06 übernimmt ausschließlich dieselbe geprüfte Quellenidentität und denselben inhaltlichen Beleg in das Quellenverzeichnis; Lizenz, Nutzung, Datenschutz, Adressatenwahl und Produktion bleiben eigenständige Lernhandlungen."
       ],
       "preservedProductAndCurriculumEvidence": [
         "Das digitale Quellendossier behält Suchprotokoll, Kriterienvergleich, belegte Antwort und dokumentierte Revision.",
-        "Das Informationsprodukt behält Quellenverzeichnis, Rechtebeleg, Gestaltungsbegründung und sichtbare Revision.",
-        "Die identischen übernommenen Quellen sind in beiden Produkten nachvollziehbar miteinander verknüpft."
+        "Das Informationsprodukt behält die nachvollziehbare Zuordnung derselben Quelle und desselben inhaltlichen Belegs zum Quellenverzeichnis.",
+        "Die identische Quellenreferenz und der identische inhaltliche Beleg sind in beiden Produkten nachvollziehbar miteinander verknüpft; Rechte-, Datenschutz-, Adressaten- und Produktionsnachweise sind nicht geteilt."
       ],
       "prerequisites": [
         "Recherchefrage und Informationsprodukt behandeln denselben fachlichen Gegenstand.",
-        "Nur tatsächlich geprüfte und im Quellendossier belegte Quellen werden in das Informationsprodukt übernommen."
+        "Dieselbe im Quellendossier geprüfte Quellenreferenz und derselbe inhaltliche Beleg werden in das Informationsprodukt übernommen.",
+        "Lizenz, zulässige Nutzung, Datenschutz, Adressatenwahl und Produktion erhalten unabhängig von der Integration eigene positive Modulzeit."
       ],
-      "risk": "Bei abweichendem Thema oder nicht identischer Belegspur wäre die Zeitersparnis eine unzulässige Scheinintegration.",
-      "fallback": "Scheitert die gemeinsame Belegspur, erhalten Recherche und Produktion wieder eigenständige Recherche-, Quellenprüfungs- und Produktionszeit; die Baseline benötigt dann 45 Minuten zusätzlich und das Jahrgangsurteil wird neu berechnet.",
+      "risk": "Bei abweichendem Thema, nicht identischer Quellenreferenz oder nicht identischem inhaltlichem Beleg wäre die Zeitersparnis unzulässig. Eine Anrechnung von Lizenz, Nutzung, Datenschutz, Adressatenwahl oder Produktion wäre ebenfalls eine Scheinintegration.",
+      "fallback": "Scheitert die identische Quellen- und Belegspur, erhalten Recherche und Medienprodukt wieder eigenständige Zeit für Quellenauswahl, Quellenprüfung und Belegzuordnung; die Baseline benötigt dann 45 Minuten zusätzlich und das Jahrgangsurteil wird neu berechnet. Die eigenständige Zeit für Lizenz, Nutzung, Datenschutz, Adressatenwahl und Produktion bleibt im Integrations- wie im Fallbackfall unverändert erhalten.",
       "status": "working"
     },
     {
@@ -2722,13 +2723,12 @@
       "moduleId": "IUM-5-CORE-06",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "Die 45 gemeinsamen Minuten von INT-5-RESEARCH-PRODUCTION tragen ausschließlich die identische Quellen- und Belegspur vom geprüften Quellendossier bis zu Quelle, Lizenz und zulässiger Nutzung desselben Fremdmaterials im Informationsprodukt. Planung der datensparsamen Produktion, getrennte Datenschutzentscheidung, fiktive oder sachbezogene Inhalte und der begrenzte Adressatenkreis werden in den drei positiven Modulphasen ausgeführt; die Integration ersetzt diese Handlungen nicht.",
+      "rationale": "Die 45 gemeinsamen Minuten von INT-5-RESEARCH-PRODUCTION tragen ausschließlich Identität und inhaltlichen Beleg derselben geprüften Quelle vom Quellendossier bis zum Quellenverzeichnis. Lizenz und zulässige Nutzung jedes Fremdmaterials sowie die getrennte Datenschutz- und Veröffentlichungsentscheidung mit fiktiven oder sachbezogenen Inhalten und begrenztem Adressatenkreis benötigen 15 Minuten eigene Produktions- und Revisionszeit; die Integration trägt weder diese Entscheidungen noch die Produktion.",
       "phaseIds": [
-        "build-concept",
         "independent-action-product",
-        "shared-consolidation"
+        "review-revise-transfer"
       ],
-      "additionalMinutes": 0,
+      "additionalMinutes": 15,
       "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
       "sequenceEvidenceId": null,
       "pathAvailability": [
@@ -2737,8 +2737,8 @@
         "GRADE-5-EXTENDED"
       ],
       "coverageConsequence": "semantic-status-unchanged",
-      "risk": "Bei abweichenden Quellen, einem bloßen Rechte- oder Datenschutz-Check oder fehlender getrennter Inhalts- und Veröffentlichungsentscheidung wäre die Quellenintegration eine Scheineinsparung; echte personenbezogene Daten dürfen nicht zur Produkt- oder Feedbackspur werden.",
-      "followUp": "Im Pilot für jedes Fremdmaterial die identische Dossierquelle, Lizenz und zulässige Nutzung sowie getrennt Datenvermeidung, fiktive oder sachbezogene Inhalte und begrenzten Adressatenkreis im produzierten Informationsprodukt prüfen.",
+      "risk": "Bei abweichenden Quellen oder einer Ausweitung der gemeinsamen Spur auf Lizenz, Nutzung, Datenschutz, Adressatenwahl oder Produktion wäre die Integration eine Scheineinsparung; echte personenbezogene Daten dürfen nicht zur Produkt- oder Feedbackspur werden.",
+      "followUp": "Im Pilot die identische Quellen- und Belegspur getrennt von den 15 Minuten eigener Arbeit prüfen: für jedes Fremdmaterial Lizenz und zulässige Nutzung sowie separat Datenvermeidung, fiktive oder sachbezogene Inhalte und begrenzten Adressatenkreis im produzierten Informationsprodukt nachweisen.",
       "status": "working"
     },
     {
@@ -2747,7 +2747,7 @@
       "moduleId": "IUM-5-CORE-06",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Das Identifizieren von Überschrift, Fließtext, Bildunterschrift und Listenbaustein sowie die funktionale Nutzung mehrerer konkreter Formatierungen benötigen 15 Minuten angeleitete Gestaltungs- und Revisionszeit im selben Vorher-Nachher-Produkt. Der Erweiterungspfad vertieft diese Arbeit mit zusätzlich 25 Minuten angeleiteter Praxis und 15 Minuten Revision.",
+      "rationale": "Das Identifizieren von Überschrift, Fließtext, Bildunterschrift und Listenbaustein sowie die funktionale Nutzung mehrerer konkreter Formatierungen benötigen 15 Minuten angeleitete Gestaltungs- und Revisionszeit im selben Vorher-Nachher-Produkt. Der Erweiterungspfad vertieft diese Arbeit mit zusätzlich 30 Minuten angeleiteter Praxis und 20 Minuten Revision.",
       "phaseIds": [
         "guided-practice",
         "review-revise-transfer"
@@ -2771,9 +2771,9 @@
       "moduleId": "IUM-5-CORE-06",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Auswahl und tatsächliche Nutzung eines rechtegeprüften Bildes, die Entscheidung zu Position, Größe oder Ausschnitt und die Begründung seiner Funktion für Aussage und Zielgruppe benötigen 20 Minuten eigenständige Produktionszeit. Die zusätzlichen 40 Produktminuten des Erweiterungspfads ermöglichen eine vertiefte Bild- und Gestaltungsentscheidung.",
+      "rationale": "Auswahl und tatsächliche Nutzung eines rechtegeprüften Bildes, die Entscheidung zu Position, Größe oder Ausschnitt und die Begründung seiner Funktion für Aussage und Zielgruppe benötigen 25 Minuten eigenständige Produktionszeit. Die zusätzlichen 40 Produktminuten des Erweiterungspfads ermöglichen eine zweite Gestaltungsfassung, ihren Vergleich und eine dokumentierte Auswahl und Iteration innerhalb derselben Produktspur.",
       "phaseIds": ["independent-action-product"],
-      "additionalMinutes": 20,
+      "additionalMinutes": 25,
       "integrationContractIds": [],
       "sequenceEvidenceId": null,
       "pathAvailability": [
@@ -2792,7 +2792,7 @@
       "moduleId": "IUM-5-CORE-06",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die kriterien- und beleggebundene Analyse einer vorgegebenen Gestaltung, die Zuordnung von Inhalt, Form und Wirkung sowie das begründete Gesamturteil benötigen 20 Minuten eigene angeleitete Analysezeit vor der Produktrevision. Die zusätzlichen 25 Praxisminuten des Erweiterungspfads vertiefen diese Urteilsspur; ein Transfer in die eigene Revision ersetzt sie nicht.",
+      "rationale": "Die kriterien- und beleggebundene Analyse einer vorgegebenen Gestaltung, die Zuordnung von Inhalt, Form und Wirkung sowie das begründete Gesamturteil benötigen 20 Minuten eigene angeleitete Analysezeit vor der Produktrevision. Die zusätzlichen 30 Praxisminuten des Erweiterungspfads vertiefen diese Urteilsspur; ein Transfer in die eigene Revision ersetzt sie nicht.",
       "phaseIds": ["guided-practice"],
       "additionalMinutes": 20,
       "integrationContractIds": [],
