@@ -2391,7 +2391,7 @@
       "moduleId": "IUM-5-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Eine fachlich zusammenhängende, weitgehend selbstständige Mehrwerkzeug-Handlung würde innerhalb der eigenständigen Arbeitsphase positive eigene Zeit benötigen; diese Zeitzuweisung liefert jedoch weder den fehlenden Mehrwerkzeug-Produktnachweis noch eine fachlich tragfähige modulare Verortung.",
+      "rationale": "Die 20 Minuten sind ausschließlich als Zeitanteil der bereits vorgesehenen eigenständigen Dateiordnungs- und Speicherhandlung in der Arbeitswegkarte verortet. Diese operative Zeitplatzierung erzeugt weder eine neue Mehrwerkzeug-Lernhandlung noch einen Produkt- oder Evidenznachweis für die weitgehend selbstständige Anwendung mehrerer Standardprogramme und Mediengeräte; der Record bleibt semantisch partial.",
       "phaseIds": [
         "independent-action-product"
       ],
@@ -2405,7 +2405,7 @@
       ],
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Die positive Zeitzuweisung könnte fälschlich als semantischer Nachweis gelesen werden, obwohl Standardprogramme und Mediengeräte im zentralen Lernprodukt nicht als zusammenhängende Mehrwerkzeug-Handlung ausgewiesen sind.",
-      "followUp": "Die fachlich tragfähige modulare Verortung und einen belastbaren Mehrwerkzeug-Produktnachweis gesondert auditieren; der Record bleibt bis dahin semantisch partial.",
+      "followUp": "Ausschließlich den noch fehlenden beobachtbaren semantischen Produktnachweis für eine zusammenhängende, weitgehend selbstständige Mehrwerkzeug-Handlung auditieren; die modulare Zeitplatzierung ist geklärt.",
       "status": "working"
     },
     {
@@ -2460,7 +2460,7 @@
       "moduleId": "IUM-5-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Das Beachten lokaler Regeln wird in der Geräte- und Dateiarbeit ausgeführt; die darüber hinaus verlangte Auseinandersetzung mit Zweck, Folgen, Datenschutzgrenze und Regelkonflikt benötigt eine eigene Revisions- und Transferzeit im Regelabschnitt der Arbeitswegkarte.",
+      "rationale": "Die 15 Minuten sind ausschließlich für das Anwenden der lokalen Medienregeln, das Erläutern ihrer Zwecke und Folgen sowie die begründete Bearbeitung eines Regelkonflikts im kommentierten Regelabschnitt der Arbeitswegkarte vorgesehen. Zugangsdaten und private Inhalte bilden dabei nur eine operative Datengrenze; sie sind kein beobachtetes fachliches Lernergebnis und keine positive Produktspur.",
       "phaseIds": [
         "review-revise-transfer"
       ],
@@ -2473,8 +2473,8 @@
         "GRADE-5-EXTENDED"
       ],
       "coverageConsequence": "semantic-status-unchanged",
-      "risk": "Schulabhängige Regelwerke können unterschiedlich komplex sein; Zugangsdaten und private Inhalte dürfen auch bei Konfliktbearbeitung nicht in die Produktspur gelangen.",
-      "followUp": "Im Pilot die Zeit für Begründung und Konfliktbearbeitung sowie die Einhaltung der Datenschutzgrenze aggregiert prüfen.",
+      "risk": "Schulabhängige Regelwerke können unterschiedlich komplex sein; reale Zugangsdaten oder private Inhalte dürfen die operative Datengrenze nicht überschreiten, werden aber nicht als fachliches Lernergebnis bewertet.",
+      "followUp": "Im Pilot ausschließlich prüfen, ob Regelanwendung, Zweck- und Folgenerklärung sowie die begründete Konfliktlösung im Regelabschnitt erreicht werden und ob die operative Datengrenze eingehalten bleibt.",
       "status": "working"
     },
     {

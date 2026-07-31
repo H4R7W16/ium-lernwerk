@@ -32,6 +32,39 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-PROG-001": "unresolved",
 }
 
+EXPECTED_GM003_TIME_PLACEMENT_RATIONALE = (
+    "Die 20 Minuten sind ausschließlich als Zeitanteil der bereits "
+    "vorgesehenen eigenständigen Dateiordnungs- und Speicherhandlung in der "
+    "Arbeitswegkarte verortet. Diese operative Zeitplatzierung erzeugt weder "
+    "eine neue Mehrwerkzeug-Lernhandlung noch einen Produkt- oder "
+    "Evidenznachweis für die weitgehend selbstständige Anwendung mehrerer "
+    "Standardprogramme und Mediengeräte; der Record bleibt semantisch partial."
+)
+EXPECTED_GM003_PRODUCT_ONLY_FOLLOW_UP = (
+    "Ausschließlich den noch fehlenden beobachtbaren semantischen "
+    "Produktnachweis für eine zusammenhängende, weitgehend selbstständige "
+    "Mehrwerkzeug-Handlung auditieren; die modulare Zeitplatzierung ist "
+    "geklärt."
+)
+EXPECTED_DP001_RULE_RATIONALE = (
+    "Die 15 Minuten sind ausschließlich für das Anwenden der lokalen "
+    "Medienregeln, das Erläutern ihrer Zwecke und Folgen sowie die begründete "
+    "Bearbeitung eines Regelkonflikts im kommentierten Regelabschnitt der "
+    "Arbeitswegkarte vorgesehen. Zugangsdaten und private Inhalte bilden "
+    "dabei nur eine operative Datengrenze; sie sind kein beobachtetes "
+    "fachliches Lernergebnis und keine positive Produktspur."
+)
+EXPECTED_DP001_OPERATIONAL_BOUNDARY_RISK = (
+    "Schulabhängige Regelwerke können unterschiedlich komplex sein; reale "
+    "Zugangsdaten oder private Inhalte dürfen die operative Datengrenze nicht "
+    "überschreiten, werden aber nicht als fachliches Lernergebnis bewertet."
+)
+EXPECTED_DP001_RULE_FOLLOW_UP = (
+    "Im Pilot ausschließlich prüfen, ob Regelanwendung, Zweck- und "
+    "Folgenerklärung sowie die begründete Konfliktlösung im Regelabschnitt "
+    "erreicht werden und ob die operative Datengrenze eingehalten bleibt."
+)
+
 
 EXPECTED_GRADE_5_UNITS = {
     "IUM-5-CORE-01": {"baseline": 5, "regular": 6, "extended": 6},
@@ -1862,11 +1895,74 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "semantic-status-unchanged",
                 )
 
-        self.assertGreater(
-            reviews_by_competency_id["BMB16-GYM-IK-GM-003"][
-                "additionalMinutes"
-            ],
-            0,
+        gm003_review = reviews_by_competency_id["BMB16-GYM-IK-GM-003"]
+        self.assertEqual(
+            (
+                gm003_review["decision"],
+                gm003_review["additionalMinutes"],
+                gm003_review["phaseIds"],
+                gm003_review["pathAvailability"],
+            ),
+            (
+                "additional-time",
+                20,
+                ["independent-action-product"],
+                [
+                    "GRADE-5-BASELINE",
+                    "GRADE-5-REGULAR",
+                    "GRADE-5-EXTENDED",
+                ],
+            ),
+        )
+        self.assertEqual(
+            gm003_review["rationale"],
+            EXPECTED_GM003_TIME_PLACEMENT_RATIONALE,
+        )
+        self.assertEqual(
+            gm003_review["followUp"],
+            EXPECTED_GM003_PRODUCT_ONLY_FOLLOW_UP,
+        )
+
+        dp001_review = reviews_by_competency_id["LH26-E-DP-001"]
+        self.assertEqual(
+            (
+                dp001_review["decision"],
+                dp001_review["additionalMinutes"],
+                dp001_review["phaseIds"],
+                dp001_review["pathAvailability"],
+            ),
+            (
+                "additional-time",
+                15,
+                ["review-revise-transfer"],
+                [
+                    "GRADE-5-BASELINE",
+                    "GRADE-5-REGULAR",
+                    "GRADE-5-EXTENDED",
+                ],
+            ),
+        )
+        self.assertEqual(
+            dp001_review["rationale"],
+            EXPECTED_DP001_RULE_RATIONALE,
+        )
+        self.assertEqual(
+            dp001_review["risk"],
+            EXPECTED_DP001_OPERATIONAL_BOUNDARY_RISK,
+        )
+        self.assertEqual(
+            dp001_review["followUp"],
+            EXPECTED_DP001_RULE_FOLLOW_UP,
+        )
+        self.assertNotIn(
+            "Datenschutz",
+            " ".join(
+                (
+                    dp001_review["rationale"],
+                    dp001_review["risk"],
+                    dp001_review["followUp"],
+                )
+            ),
         )
         progression_review = reviews_by_competency_id["LH26-E-PROG-001"]
         self.assertEqual(progression_review["phaseIds"], [])
