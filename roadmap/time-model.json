@@ -1280,7 +1280,7 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": ["INF7-16-GYM-IK-DC-001", "INF7-16-GYM-IK-DC-004", "INF7-16-GYM-IK-DC-005", "LH26-E-ID-020", "LH26-E-ID-021"],
+      "timeReviewIds": ["TR-INF7-16-GYM-IK-DC-001", "TR-INF7-16-GYM-IK-DC-004", "TR-INF7-16-GYM-IK-DC-005", "TR-LH26-E-ID-020", "TR-LH26-E-ID-021"],
       "integrationContractIds": ["INT-7-DATA-CODING"],
       "schoolDependentSteps": ["local-bit-codebook-and-decoding-environment"],
       "risk": "Die optimierte Untergrenze setzt eine vorbereitete lokale Codierumgebung und die tragfähige Clusterintegration voraus; Bedienprobleme dürfen fachliche Übungszeit nicht verdrängen.",
@@ -3273,6 +3273,114 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Eine Simulation, bloße Beschreibung oder Plattformpflicht würde den Nutzungsoperator unterschreiten. Zugangsdaten, private Links, Inhaltsprotokolle und öffentliche Schülerkonten dürfen weder Evidenz noch dokumentierte Ausführungsspur werden; ein fehlender lokaler Weg benötigt die vorbereitete Ersatzroute.",
       "followUp": "Vor dem Pilot beide unterschiedlichen lokalen Teilwege und die Ersatzroute vor Ort konfigurieren, schulisch freigeben und datenschutzkonform prüfen; innerhalb der 20 Minuten für beide Wege tatsächliches Bereitstellen oder Teilen und Abrufen oder Öffnen ausschließlich über Weg, Operation und Zugriffsumfang beobachten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-IK-DC-001",
+      "competencyId": "INF7-16-GYM-IK-DC-001",
+      "moduleId": "IUM-7-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die Alltagscodierungs-Landkarte benötigt 15 Minuten recordeigene Produktzeit: Mindestens vier Alltagsverwendungen werden nicht nur genannt, sondern jeweils mit Bedeutung, Darstellung und Verwendungszweck fachlich korrekt zugeordnet; Codierung nicht mit Verschlüsselung gleichsetzen bleibt eine ausdrückliche Grenze. INT-7-DATA-CODING wird nicht beansprucht, weil die bestehende gemeinsame Bit-, Code- und Datenmengenspur keine identische Alltagslandkarte bis IUM-7-CORE-02 trägt. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["independent-action-product"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloße Beispielnennung ohne Zuordnung oder die Gleichsetzung von Codierung und Verschlüsselung würde die Lernhandlung unterschreiten. Derselbe Produktname allein begründet keine Integration; lokale Codierumgebung und Clusterintegration bleiben unpilotierte Bedingungen.",
+      "followUp": "Im Pilot innerhalb der 15 Minuten prüfen, ob mindestens vier fachlich korrekte Beispiele mit Bedeutung, Darstellung und Verwendungszweck sichtbar zugeordnet und von Verschlüsselung abgegrenzt werden; die roten Bedarfsszenarien nicht als Jahresfreigabe kommunizieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-IK-DC-004",
+      "competencyId": "INF7-16-GYM-IK-DC-004",
+      "moduleId": "IUM-7-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die enacted Datengrößenspur benötigt 15 Minuten recordeigenen Begriffsaufbau und gemeinsame Sicherung: Datenmenge wird als Länge einer Bitfolge erklärt, 0100000101000010 als 16 Bit bestimmt, mit 8 Bit = 1 Byte in 16 Bit = 2 Byte überführt und mit kB, MB, GB und TB ausdrücklich dezimal gekennzeichnet. INT-7-DATA-CODING wird recordbezogen nicht beansprucht: Der Vertrag teilt eine allgemeine Datenmengenspur, bewahrt für DC-004 aber nicht ausdrücklich dieselbe vollständige Bit-/Byte- und Dezimalpräfixhandlung; eine zusätzliche Präfixhandlung darf er nicht erfinden. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["build-concept", "shared-consolidation"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Bitfolgenlänge ohne Bit-Byte-Anwendung, unklare größere Einheiten oder eine Vermischung mit Binärpräfixen würden den enacted Record unterschreiten. Eine pauschale Anrechnung der Clusterintegration wäre ohne identischen recordbezogenen Nachweis eine Scheineinsparung.",
+      "followUp": "Im Pilot innerhalb der 15 Minuten Erklärung, 16-Bit-Zählung, 8-Bit-Byte-Beziehung, 2-Byte-Ergebnis und dezimale Kennzeichnung von kB, MB, GB und TB gemeinsam sichern; das rote Jahresurteil bleibt von der lokalen Pilotierung unberührt.",
+      "status": "working"
+    },
+    {
+      "id": "TR-INF7-16-GYM-IK-DC-005",
+      "competencyId": "INF7-16-GYM-IK-DC-005",
+      "moduleId": "IUM-7-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "INT-7-DATA-CODING trägt ausschließlich die im Vertrag ausdrücklich mit DC-005 belegte bestehende geprüfte Bit- und Codespur desselben getesteten Bit-Codebuchs bis IUM-7-CORE-02. Die systematische 8-Bit-Stellenwertmethode mit Zahl → 8-Bit-Folge und 8-Bit-Folge → Zahl, Stellenwerten 2^7 bis 2^0 und Summe der Stellenwerte, führenden Nullen, den Grenz- und Stellenwechselfällen 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000 und 255 ↔ 11111111 sowie der unbekannte Prüffall bleiben 30 Minuten eigene Übungs-, Produkt- und Revisionsarbeit. Die beiden genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": [
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 30,
+      "integrationContractIds": ["INT-7-DATA-CODING"],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Wenn die Integration eine eigene Stellenwertmethode, führende Nullen, Grenz- und Stellenwechselprüfung oder den unbekannten Prüffall tragen soll, wäre sie eine Scheineinsparung. GRADE-7-HISTORICAL-MINIMUM selektiert INT-7-DATA-CODING nicht und kann deshalb in diesem integrierten Review nicht als Pfadverfügbarkeit erscheinen.",
+      "followUp": "Im Pilot die identische übergebene Bit- und Codespur getrennt von den 30 Minuten eigener Methoden-, Übungs- und Prüfarbeit beobachten; optimized und robust bleiben unpilotierte rote Bedarfsszenarien, keine verfügbaren Jahrespfade.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-ID-020",
+      "competencyId": "LH26-E-ID-020",
+      "moduleId": "IUM-7-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "absorbed",
+      "rationale": "Der quellentreu auf Bitfolgenlänge, Bit und Byte begrenzte und beschriftete Tabellenausschnitt ist exakt derselbe Bit-und-Byte-Ausschnitt wie DC-004: 0100000101000010 → 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte. Er sichert die Reichweite ausschließlich für Bit und Byte, erzeugt aber keine zweite Zeitbeanspruchung; deshalb wird er in denselben Phasen ohne Zusatzminuten absorbiert. Größere Präfixe bleiben getrennt und INT-7-DATA-CODING wird für diesen absorbierten Record nicht zusätzlich beansprucht. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["build-concept", "shared-consolidation"],
+      "additionalMinutes": 0,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine zweite Bepreisung derselben Tabellenhandlung wäre Doppelzählung; eine stillschweigende Pflicht von Kilo, Mega, Giga oder Tera würde die quellentreue Reichweite dieses Orientierungsrecords überschreiten.",
+      "followUp": "Im Pilot die Identität des Bit-und-Byte-Ausschnitts mit DC-004 und die sichtbare Beschriftung als eigene quellentreue Spur prüfen; größere Präfixe nicht als Voraussetzung dieses Records behandeln und kein grünes Pfadsignal ableiten.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-ID-021",
+      "competencyId": "LH26-E-ID-021",
+      "moduleId": "IUM-7-CORE-01",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die Dezimalpräfixspur benötigt 15 Minuten recordeigenen Begriffsaufbau und Produktarbeit über die bloße Dezimalkennzeichnung in DC-004 hinaus: Kilo, Mega, Giga und Tera werden mit 10^3, 10^6, 10^9 und 10^12 sowie kB, MB, GB und TB in den tatsächlich ausgeführten Umrechnungen 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte verwendet. Die bloßen Einheitendefinitionen aus DC-004 werden nicht doppelt bepreist; INT-7-DATA-CODING trägt keine zusätzliche Präfixumrechnung. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "phaseIds": ["build-concept", "independent-action-product"],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-7-OPTIMIZED-DEMAND",
+        "GRADE-7-ROBUST-DEMAND",
+        "GRADE-7-HISTORICAL-MINIMUM"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine bloße Präfixnennung ohne ausgeführte Umrechnungen oder die Vermischung mit Binärpräfixen würde den Orientierungsrecord unterschreiten. Derselbe Tabellenname allein rechtfertigt weder Absorption noch Integration der zusätzlichen Umrechnungshandlungen.",
+      "followUp": "Im Pilot innerhalb der 15 Minuten alle vier Dezimalpotenzen, korrekten Symbole und vier ausgeführten Umrechnungen prüfen; die Trennung von DC-004, Binärpräfixen und den weiterhin roten Bedarfsszenarien sichtbar halten.",
       "status": "working"
     }
   ],

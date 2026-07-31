@@ -65,6 +65,11 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-DA-010": "additional-time",
     "LH26-E-DA-012": "absorbed",
     "LH26-E-DA-015": "additional-time",
+    "INF7-16-GYM-IK-DC-001": "additional-time",
+    "INF7-16-GYM-IK-DC-004": "additional-time",
+    "INF7-16-GYM-IK-DC-005": "integrated",
+    "LH26-E-ID-020": "absorbed",
+    "LH26-E-ID-021": "additional-time",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -324,6 +329,129 @@ TASK17_REQUIRED_TEXT = {
         "Schülerkonten dürfen weder Evidenz",
     ),
 }
+PRE_TASK18_TIME_REVIEW_COUNT = 35
+PRE_TASK18_TIME_REVIEWS_SHA256 = (
+    "957ec9dbbc6140834e4f97574e08103eec131979367a0838e81263bd4fea1dc6"
+)
+GRADE7_DEMAND_PATH_AVAILABILITY = [
+    "GRADE-7-OPTIMIZED-DEMAND",
+    "GRADE-7-ROBUST-DEMAND",
+    "GRADE-7-HISTORICAL-MINIMUM",
+]
+GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY = [
+    "GRADE-7-OPTIMIZED-DEMAND",
+    "GRADE-7-ROBUST-DEMAND",
+]
+TASK18_AUDIT_EXPECTATIONS = {
+    "INF7-16-GYM-IK-DC-001": dict(
+        decision="additional-time", additionalMinutes=15,
+        phaseIds=["independent-action-product"], integrationContractIds=[],
+        pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+    "INF7-16-GYM-IK-DC-004": dict(
+        decision="additional-time", additionalMinutes=15,
+        phaseIds=["build-concept", "shared-consolidation"],
+        integrationContractIds=[], pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+    "INF7-16-GYM-IK-DC-005": dict(
+        decision="integrated", additionalMinutes=30,
+        phaseIds=["guided-practice", "independent-action-product", "review-revise-transfer"],
+        integrationContractIds=["INT-7-DATA-CODING"],
+        pathAvailability=GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY,
+    ),
+    "LH26-E-ID-020": dict(
+        decision="absorbed", additionalMinutes=0,
+        phaseIds=["build-concept", "shared-consolidation"],
+        integrationContractIds=[], pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+    "LH26-E-ID-021": dict(
+        decision="additional-time", additionalMinutes=15,
+        phaseIds=["build-concept", "independent-action-product"],
+        integrationContractIds=[], pathAvailability=GRADE7_DEMAND_PATH_AVAILABILITY,
+    ),
+}
+TASK18_REQUIRED_TEXT = {
+    "INF7-16-GYM-IK-DC-001": (
+        "mindestens vier", "Bedeutung", "Darstellung", "Verwendungszweck",
+        "Codierung nicht mit Verschlüsselung gleichsetzen",
+    ),
+    "INF7-16-GYM-IK-DC-004": (
+        "Länge einer Bitfolge", "0100000101000010", "16 Bit",
+        "8 Bit = 1 Byte", "16 Bit = 2 Byte", "kB", "MB", "GB", "TB",
+        "ausdrücklich dezimal",
+    ),
+    "INF7-16-GYM-IK-DC-005": (
+        "Zahl → 8-Bit-Folge", "8-Bit-Folge → Zahl", "Stellenwertmethode",
+        "2^7", "2^0", "Summe der Stellenwerte", "führende Nullen",
+        "0 ↔ 00000000", "127 ↔ 01111111", "128 ↔ 10000000",
+        "255 ↔ 11111111", "unbekannten Prüffall",
+    ),
+    "LH26-E-ID-020": (
+        "Länge einer Bitfolge", "0100000101000010", "16 Bit",
+        "8 Bit = 1 Byte", "16 Bit = 2 Byte", "ausschließlich",
+    ),
+    "LH26-E-ID-021": (
+        "Kilo", "Mega", "Giga", "Tera", "10^3", "10^6", "10^9",
+        "10^12", "kB", "MB", "GB", "TB", "2 kB = 2 × 10^3 Byte",
+        "3 MB = 3 × 10^6 Byte", "4 GB = 4 × 10^9 Byte",
+        "5 TB = 5 × 10^12 Byte",
+    ),
+}
+TASK18_FORBIDDEN_TEXT = {
+    "INF7-16-GYM-IK-DC-001": (
+        "beispiele werden nur genannt", "codierung und verschlüsselung werden gleichgesetzt",
+        "codierung wird mit verschlüsselung gleichgesetzt",
+    ),
+    "INF7-16-GYM-IK-DC-004": (
+        "bitfolgenlänge ohne bit-byte-beziehung", "größere einheiten bleiben unklar",
+        "größere einheiten werden binär ausgewiesen",
+    ),
+    "INF7-16-GYM-IK-DC-005": (
+        "nur eine umwandlungsrichtung", "ohne stellenwerterklärung",
+        "ohne führende nullen", "ohne grenzfälle", "ohne stellenwechselfälle",
+        "ohne unbekannten prüffall",
+    ),
+    "LH26-E-ID-020": (
+        "größere präfixe sind für diesen record pflicht",
+        "kilo, mega, giga und tera werden vorausgesetzt",
+    ),
+    "LH26-E-ID-021": (
+        "präfixe werden nur genannt", "binärpräfixe werden vermischt",
+        "kib", "mib", "gib", "tib",
+    ),
+}
+TASK18_REVIEW_ANCHORS = {
+    "INF7-16-GYM-IK-DC-005": (
+        "ausschließlich", "bestehende geprüfte Bit- und Codespur",
+        "bis IUM-7-CORE-02", "Stellenwertmethode",
+        "Grenz- und Stellenwechselfälle", "unbekannte Prüffall",
+    ),
+    "LH26-E-ID-020": (
+        "exakt derselbe Bit-und-Byte-Ausschnitt wie DC-004",
+        "0100000101000010 → 16 Bit", "8 Bit = 1 Byte", "16 Bit = 2 Byte",
+        "keine zweite Zeitbeanspruchung",
+    ),
+    "LH26-E-ID-021": (
+        "über die bloße Dezimalkennzeichnung in DC-004 hinaus",
+        "tatsächlich ausgeführten Umrechnungen", "nicht doppelt",
+    ),
+}
+TASK18_INTEGRATION_FORBIDDEN_TEXT = (
+    "alltagscodierungs-landkarte", "stellenwertmethode", "grenzfallprüfung",
+    "führende nullen", "dezimalpräfixumrechnung",
+)
+TASK18_INTEGRATION_CONTRACT_SHA256 = (
+    "159dce0cbf75630d5ab14d2fc76cbc8a9e226b4297ab718d1fa3eb6ae4cec6f2"
+)
+TASK18_CORE01_STABLE_FIELDS_SHA256 = (
+    "556c09ce1718903c73afa087de58dafc85db567f3d061ef89aa175e7cecea8ca"
+)
+TASK18_GRADE7_VARIANTS_SHA256 = (
+    "445004380123fc9bccb245bfc33d6b43b466047e4cb70220386d426ec736dfdd"
+)
+TASK18_GRADE7_JUDGEMENT_SHA256 = (
+    "0fb10a96a001e1f920d7f9197d87899c9523d96c1e8649cfc99cd11c14f3f128"
+)
 PRIVATE_LOCAL_BOUNDARY = (
     "Das private lokale Artefakt wird nicht erhoben, übertragen, "
     "eingesammelt, gespeichert oder bewertet."
@@ -1314,7 +1442,7 @@ class IUM10RepositoryRunnerTests(unittest.TestCase):
         self.assertEqual(
             result.stdout,
             "IUM10 repository validation passed: "
-            "35 registered time reviews (partial baseline)\n",
+            "40 registered time reviews (partial baseline)\n",
         )
         self.assertEqual(result.stderr, "")
 
@@ -4872,7 +5000,74 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         return evidence_entry
 
-    def _assert_available_audit_paths(
+    def _assert_audit_review_matrix(
+        self,
+        audit_reviews,
+        *,
+        expectations,
+        module_id,
+        handoffs,
+        coverage,
+        evidence,
+        cause_class,
+        evidence_mode,
+        evidence_visibility,
+    ):
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in audit_reviews
+        }
+        self.assertEqual(
+            set(reviews_by_competency_id),
+            set(expectations),
+        )
+        matrix_fields = (
+            "decision",
+            "additionalMinutes",
+            "phaseIds",
+            "integrationContractIds",
+            "pathAvailability",
+        )
+        for competency_id, expected in expectations.items():
+            review = reviews_by_competency_id[competency_id]
+            self.assertEqual(
+                tuple(review[field] for field in matrix_fields),
+                tuple(expected[field] for field in matrix_fields),
+            )
+            self.assertEqual(
+                (
+                    review["moduleId"],
+                    review["sourceTimeImpactLevel"],
+                    review["sequenceEvidenceId"],
+                    review["coverageConsequence"],
+                    review["status"],
+                ),
+                (
+                    module_id,
+                    "review-required",
+                    None,
+                    "semantic-status-unchanged",
+                    "working",
+                ),
+            )
+            self._assert_authoritative_evidence_chain(
+                competency_id,
+                module_id=module_id,
+                expected_evidence_id=expected.get(
+                    "evidenceContractId",
+                    f"CE-{module_id}-{competency_id}",
+                ),
+                expected_cause_class=expected.get("causeClass", cause_class),
+                expected_mode=expected.get("evidenceMode", evidence_mode),
+                expected_visibility=expected.get(
+                    "evidenceVisibility", evidence_visibility
+                ),
+                handoffs=handoffs,
+                coverage=coverage,
+                evidence=evidence,
+            )
+        return reviews_by_competency_id
+
+    def _assert_audit_paths(
         self,
         path_availability,
         *,
@@ -4880,6 +5075,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
         module_contract,
         annual_variants,
         integration_id=None,
+        expected_available=True,
+        expected_kind=None,
+        expected_targets=None,
+        expected_grade=None,
     ):
         phase_minutes_by_path = {
             budget["pathId"]: {
@@ -4898,7 +5097,16 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 for item in variant["allocations"]
                 if item["moduleId"] == module_id
             )
-            self.assertTrue(variant["available"])
+            self.assertEqual(variant["available"], expected_available)
+            if expected_kind is not None:
+                self.assertEqual(variant["kind"], expected_kind)
+            if expected_grade is not None:
+                self.assertEqual(variant["grade"], expected_grade)
+            if expected_targets is not None:
+                self.assertEqual(
+                    variant["targetUnits"],
+                    expected_targets[variant_id],
+                )
             self.assertIn(
                 allocation["budgetPathId"],
                 phase_minutes_by_path,
@@ -5159,7 +5367,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             evidence["competencyId"]: evidence
             for evidence in core02_module["coverageEvidence"]
         }
-        phase_minutes_by_path = self._assert_available_audit_paths(
+        phase_minutes_by_path = self._assert_audit_paths(
             TASK15_PATH_AVAILABILITY,
             module_id="IUM-6-CORE-02",
             module_contract=core02_contract,
@@ -5199,6 +5407,24 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ("Screenshots personalisierter Werbung",),
             ("personenbezogene Selbstauskünfte",),
         )
+        task15_matrix = {
+            competency_id: {
+                **expected,
+                "pathAvailability": TASK15_PATH_AVAILABILITY,
+            }
+            for competency_id, expected in TASK15_AUDIT_EXPECTATIONS.items()
+        }
+        reviews_by_competency_id = self._assert_audit_review_matrix(
+            task15_reviews,
+            expectations=task15_matrix,
+            module_id="IUM-6-CORE-02",
+            handoffs=remediation_by_id,
+            coverage=coverage_by_id,
+            evidence=evidence_by_id,
+            cause_class="module-detail",
+            evidence_mode="module-detail",
+            evidence_visibility="teacher-observable",
+        )
         for competency_id, expected in TASK15_AUDIT_EXPECTATIONS.items():
             subtest = (
                 self.subTest(task15_competency_id=competency_id)
@@ -5207,55 +5433,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             )
             with subtest:
                 review = reviews_by_competency_id[competency_id]
-                self.assertEqual(review["id"], f"TR-{competency_id}")
-                self.assertEqual(review["moduleId"], "IUM-6-CORE-02")
-                self.assertEqual(
-                    review["sourceTimeImpactLevel"],
-                    "review-required",
-                )
-                self.assertEqual(
-                    {
-                        field: review[field]
-                        for field in (
-                            "decision",
-                            "additionalMinutes",
-                            "phaseIds",
-                            "integrationContractIds",
-                        )
-                    },
-                    {
-                        field: expected[field]
-                        for field in (
-                            "decision",
-                            "additionalMinutes",
-                            "phaseIds",
-                            "integrationContractIds",
-                        )
-                    },
-                )
-                self.assertIsNone(review["sequenceEvidenceId"])
-                self.assertEqual(
-                    review["pathAvailability"],
-                    TASK15_PATH_AVAILABILITY,
-                )
-                self.assertEqual(
-                    review["coverageConsequence"],
-                    "semantic-status-unchanged",
-                )
-                self.assertEqual(review["status"], "working")
-
-                expected_evidence_id = expected["evidenceContractId"]
-                evidence = self._assert_authoritative_evidence_chain(
-                    competency_id,
-                    module_id="IUM-6-CORE-02",
-                    expected_evidence_id=expected_evidence_id,
-                    expected_cause_class="module-detail",
-                    expected_mode="module-detail",
-                    expected_visibility="teacher-observable",
-                    handoffs=remediation_by_id,
-                    coverage=coverage_by_id,
-                    evidence=evidence_by_id,
-                )
+                evidence = evidence_by_id[competency_id]
 
                 evidence_text = " ".join(
                     (
@@ -5437,67 +5615,35 @@ class IUM10TimeReviewTests(unittest.TestCase):
             item["competencyId"]: item
             for item in core06_module["coverageEvidence"]
         }
-        phase_minutes_by_path = self._assert_available_audit_paths(
+        phase_minutes_by_path = self._assert_audit_paths(
             GRADE6_PATH_AVAILABILITY,
             module_id="IUM-6-CORE-06",
             module_contract=core06_contract,
             annual_variants=self.repository_annual_variants,
             integration_id="INT-6-CONFLICT-PRODUCTION",
         )
-        for review in task16_reviews:
-            competency_id = review["competencyId"]
+        task16_matrix = {
+            competency_id: {
+                **expected,
+                "pathAvailability": GRADE6_PATH_AVAILABILITY,
+            }
+            for competency_id, expected in TASK16_AUDIT_EXPECTATIONS.items()
+        }
+        reviews_by_id = self._assert_audit_review_matrix(
+            task16_reviews,
+            expectations=task16_matrix,
+            module_id="IUM-6-CORE-06",
+            handoffs=handoffs,
+            coverage=coverage,
+            evidence=evidence,
+            cause_class="module-detail",
+            evidence_mode="module-detail",
+            evidence_visibility="teacher-observable",
+        )
+        for competency_id, review in reviews_by_id.items():
             expected = TASK16_AUDIT_EXPECTATIONS[competency_id]
-            self.assertEqual(
-                {
-                    field: review[field]
-                    for field in (
-                        "decision",
-                        "additionalMinutes",
-                        "phaseIds",
-                        "integrationContractIds",
-                    )
-                },
-                {
-                    field: expected[field]
-                    for field in (
-                        "decision",
-                        "additionalMinutes",
-                        "phaseIds",
-                        "integrationContractIds",
-                    )
-                },
-            )
-            self.assertEqual(
-                (
-                    review["moduleId"],
-                    review["sourceTimeImpactLevel"],
-                    review["sequenceEvidenceId"],
-                    review["pathAvailability"],
-                    review["coverageConsequence"],
-                    review["status"],
-                ),
-                (
-                    "IUM-6-CORE-06",
-                    "review-required",
-                    None,
-                    GRADE6_PATH_AVAILABILITY,
-                    "semantic-status-unchanged",
-                    "working",
-                ),
-            )
             self.assertNotIn("privacyDisposition", review)
-            evidence_id = expected["evidenceContractId"]
-            evidence_entry = self._assert_authoritative_evidence_chain(
-                competency_id,
-                module_id="IUM-6-CORE-06",
-                expected_evidence_id=evidence_id,
-                expected_cause_class="module-detail",
-                expected_mode="module-detail",
-                expected_visibility="teacher-observable",
-                handoffs=handoffs,
-                coverage=coverage,
-                evidence=evidence,
-            )
+            evidence_entry = evidence[competency_id]
             product_text = " ".join(
                 (
                     evidence_entry["learningAction"],
@@ -5772,7 +5918,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             expected_sha256=TASK16_INTEGRATION_CONTRACT_SHA256,
             exact_fields=True,
         )
-        phase_minutes = self._assert_available_audit_paths(
+        phase_minutes = self._assert_audit_paths(
             GRADE6_PATH_AVAILABILITY,
             module_id="IUM-6-CORE-07",
             module_contract=core_contract,
@@ -5823,34 +5969,29 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         evidence = {item["competencyId"]: item
                     for item in module["coverageEvidence"]}
-        reviews_by_id = {item["competencyId"]: item for item in task_reviews}
-        for competency_id, expected in TASK17_AUDIT_EXPECTATIONS.items():
-            decision, minutes, phases, cause, mode, visibility = expected
-            review = reviews_by_id[competency_id]
-            fields = (
-                "decision", "additionalMinutes", "phaseIds",
-                "integrationContractIds", "moduleId",
-                "sourceTimeImpactLevel", "sequenceEvidenceId",
-                "pathAvailability", "coverageConsequence", "status",
+        task17_matrix = {
+            competency_id: dict(
+                decision=expected[0], additionalMinutes=expected[1],
+                phaseIds=list(expected[2]), integrationContractIds=[],
+                pathAvailability=GRADE6_PATH_AVAILABILITY,
+                causeClass=expected[3], evidenceMode=expected[4],
+                evidenceVisibility=expected[5],
             )
-            expected_review = (
-                decision, minutes, list(phases), [], "IUM-6-CORE-07",
-                "review-required", None, GRADE6_PATH_AVAILABILITY,
-                "semantic-status-unchanged", "working",
-            )
-            self.assertEqual(tuple(review[field] for field in fields),
-                             expected_review)
-            evidence_entry = self._assert_authoritative_evidence_chain(
-                competency_id,
-                module_id="IUM-6-CORE-07",
-                expected_evidence_id=f"CE-IUM-6-CORE-07-{competency_id}",
-                expected_cause_class=cause,
-                expected_mode=mode,
-                expected_visibility=visibility,
-                handoffs=handoffs,
-                coverage=coverage,
-                evidence=evidence,
-            )
+            for competency_id, expected in TASK17_AUDIT_EXPECTATIONS.items()
+        }
+        reviews_by_id = self._assert_audit_review_matrix(
+            task_reviews,
+            expectations=task17_matrix,
+            module_id="IUM-6-CORE-07",
+            handoffs=handoffs,
+            coverage=coverage,
+            evidence=evidence,
+            cause_class=None,
+            evidence_mode=None,
+            evidence_visibility=None,
+        )
+        for competency_id, review in reviews_by_id.items():
+            evidence_entry = evidence[competency_id]
             audit_text = " ".join(
                 (
                     evidence_entry["learningAction"],
@@ -6113,6 +6254,335 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self._assert_core07_task17_audit_contract(
                 self.time_payload["timeReviews"],
                 integration_contracts=integrations,
+            )
+
+    def _assert_grade7_task18_demand_scenarios(
+        self,
+        annual_variants,
+        core_contract,
+    ):
+        phase_minutes = self._assert_audit_paths(
+            GRADE7_DEMAND_PATH_AVAILABILITY,
+            module_id="IUM-7-CORE-01",
+            module_contract=core_contract,
+            annual_variants=annual_variants,
+            expected_available=False,
+            expected_kind="demand-scenario",
+            expected_grade=7,
+            expected_targets={
+                "GRADE-7-OPTIMIZED-DEMAND": 40,
+                "GRADE-7-ROBUST-DEMAND": 46,
+                "GRADE-7-HISTORICAL-MINIMUM": 54,
+            },
+        )
+        variants = {item["id"]: item for item in annual_variants.values()}
+        for variant_id in GRADE7_INTEGRATED_DEMAND_PATH_AVAILABILITY:
+            self.assertIn(
+                "INT-7-DATA-CODING",
+                variants[variant_id]["integrationContractIds"],
+            )
+        self.assertNotIn(
+            "INT-7-DATA-CODING",
+            variants["GRADE-7-HISTORICAL-MINIMUM"][
+                "integrationContractIds"
+            ],
+        )
+        return phase_minutes
+
+    def _assert_core01_task18_semantic_boundaries(
+        self,
+        *,
+        evidence_by_competency_id,
+        reviews_by_competency_id,
+        integration_contract,
+    ):
+        audit_texts = {
+            competency_id: " ".join(
+                evidence_by_competency_id[competency_id][field]
+                for field in ("learningAction", "productEvidence")
+            ) + " " + " ".join(
+                reviews_by_competency_id[competency_id][field]
+                for field in ("rationale", "risk", "followUp")
+            )
+            for competency_id in TASK18_AUDIT_EXPECTATIONS
+        }
+        for competency_id, text in audit_texts.items():
+            for anchor in TASK18_REQUIRED_TEXT[competency_id]:
+                self.assertIn(anchor, text)
+            for forbidden in TASK18_FORBIDDEN_TEXT[competency_id]:
+                self.assertNotIn(forbidden.casefold(), text.casefold())
+            for anchor in TASK18_REVIEW_ANCHORS.get(competency_id, ()):
+                self.assertIn(
+                    anchor,
+                    reviews_by_competency_id[competency_id]["rationale"],
+                )
+
+        id020_review = reviews_by_competency_id["LH26-E-ID-020"]
+        self.assertEqual(
+            (
+                id020_review["decision"],
+                id020_review["additionalMinutes"],
+                id020_review["integrationContractIds"],
+            ),
+            ("absorbed", 0, []),
+        )
+        shared_text = integration_contract["sharedPhaseOrProduct"].casefold()
+        for forbidden in TASK18_INTEGRATION_FORBIDDEN_TEXT:
+            self.assertNotIn(forbidden.casefold(), shared_text)
+
+        for competency_id, review in reviews_by_competency_id.items():
+            path_text = " ".join(
+                review[field] for field in ("rationale", "risk", "followUp")
+            )
+            self.assertIn("nicht verfügbare Bedarfsszenarien", path_text)
+            self.assertIn("Jahresurteil bleibt red", path_text)
+            for false_release in (
+                "verfügbarer Jahrespfad",
+                "grüner Jahrespfad",
+                "freigegebener Jahrespfad",
+            ):
+                self.assertNotIn(false_release, path_text.casefold())
+
+    def _assert_core01_task18_audit_contract(
+        self,
+        reviews,
+        *,
+        integration_contracts=None,
+        annual_variants=None,
+        module_payload=None,
+    ):
+        integration_contracts = (
+            integration_contracts or self.repository_integration_contracts
+        )
+        annual_variants = annual_variants or self.repository_annual_variants
+        module_payload = module_payload or self.module_payload
+        expected_ids, task_reviews = self._assert_audit_review_slice(
+            reviews,
+            start=PRE_TASK18_TIME_REVIEW_COUNT,
+            expectations=TASK18_AUDIT_EXPECTATIONS,
+            prior_sha256=PRE_TASK18_TIME_REVIEWS_SHA256,
+        )
+        core_contract = self.repository_module_contracts["IUM-7-CORE-01"]
+        self.assertEqual(core_contract["timeReviewIds"], expected_ids)
+        stable_fields = tuple(
+            field for field in core_contract if field != "timeReviewIds"
+        )
+        self._assert_canonical_projection(
+            core_contract,
+            fields=stable_fields,
+            expected_sha256=TASK18_CORE01_STABLE_FIELDS_SHA256,
+        )
+        phase_minutes = self._assert_grade7_task18_demand_scenarios(
+            annual_variants,
+            core_contract,
+        )
+        grade7_variants = [
+            item for item in annual_variants.values() if item["grade"] == 7
+        ]
+        self.assertEqual(
+            self._canonical_sha256(grade7_variants),
+            TASK18_GRADE7_VARIANTS_SHA256,
+        )
+        grade7_judgement = next(
+            item
+            for item in self.time_payload["gradeJudgements"]
+            if item["grade"] == 7
+        )
+        self.assertEqual(
+            (
+                grade7_judgement["timeFeasibilityStatus"],
+                grade7_judgement["annualVariantIds"],
+            ),
+            ("red", GRADE7_DEMAND_PATH_AVAILABILITY),
+        )
+        self.assertEqual(
+            self._canonical_sha256(grade7_judgement),
+            TASK18_GRADE7_JUDGEMENT_SHA256,
+        )
+
+        integration = integration_contracts["INT-7-DATA-CODING"]
+        self._assert_canonical_projection(
+            integration,
+            fields=tuple(integration),
+            expected_sha256=TASK18_INTEGRATION_CONTRACT_SHA256,
+            exact_fields=True,
+        )
+        self.assertEqual(
+            (
+                integration["moduleIds"],
+                integration["pathIds"],
+                integration["countedInModuleId"],
+            ),
+            (
+                ["IUM-7-CORE-01", "IUM-7-CORE-02"],
+                ["optimized", "robust"],
+                "IUM-7-CORE-02",
+            ),
+        )
+
+        handoffs = {
+            item["competencyId"]: item
+            for item in self.remediation_payload["entries"]
+        }
+        coverage = {
+            item["competencyId"]: item
+            for item in self.coverage_payload["entries"]
+        }
+        module = next(
+            item
+            for item in module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-01"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in module["coverageEvidence"]
+        }
+        reviews_by_competency_id = self._assert_audit_review_matrix(
+            task_reviews,
+            expectations=TASK18_AUDIT_EXPECTATIONS,
+            module_id="IUM-7-CORE-01",
+            handoffs=handoffs,
+            coverage=coverage,
+            evidence=evidence,
+            cause_class="module-detail",
+            evidence_mode="module-detail",
+            evidence_visibility="teacher-observable",
+        )
+
+        self._assert_core01_task18_semantic_boundaries(
+            evidence_by_competency_id=evidence,
+            reviews_by_competency_id=reviews_by_competency_id,
+            integration_contract=integration,
+        )
+        self._assert_fully_counted_phase_claims(
+            task_reviews,
+            phase_minutes_by_path=phase_minutes,
+            expected_claims_by_phase={
+                "independent-action-product": 60,
+                "build-concept": 30,
+                "shared-consolidation": 15,
+                "guided-practice": 30,
+                "review-revise-transfer": 30,
+            },
+        )
+
+    def _task18_semantic_probe_inputs(self):
+        module_payload = copy.deepcopy(self.module_payload)
+        module = next(
+            item
+            for item in module_payload["modules"]
+            if item["id"] == "IUM-7-CORE-01"
+        )
+        evidence = {
+            item["competencyId"]: item
+            for item in module["coverageEvidence"]
+        }
+        reviews = {
+            item["competencyId"]: copy.deepcopy(item)
+            for item in self.time_payload["timeReviews"]
+            if item["competencyId"] in TASK18_AUDIT_EXPECTATIONS
+        }
+        integration = copy.deepcopy(
+            self.repository_integration_contracts["INT-7-DATA-CODING"]
+        )
+        return evidence, reviews, integration
+
+    def test_repository_core01_task18_audit_contract(self):
+        validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+            privacy_contracts=self.repository_privacy_contracts,
+        )
+        self._assert_core01_task18_audit_contract(
+            self.time_payload["timeReviews"]
+        )
+
+    def test_core01_task18_contract_allows_later_review(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(
+            {"id": "TR-LATER-TASK18", "competencyId": "LATER-TASK18"}
+        )
+        self._assert_core01_task18_audit_contract(reviews)
+
+    def test_core01_task18_contract_rejects_duplicate_id(self):
+        reviews = copy.deepcopy(self.time_payload["timeReviews"])
+        reviews.append(copy.deepcopy(reviews[PRE_TASK18_TIME_REVIEW_COUNT]))
+        with self.assertRaises(AssertionError):
+            self._assert_core01_task18_audit_contract(reviews)
+
+    def test_core01_task18_rejects_semantic_and_matrix_mutations(self):
+        evidence_suffixes = (
+            ("INF7-16-GYM-IK-DC-001", "Beispiele werden nur genannt."),
+            ("INF7-16-GYM-IK-DC-001", "Codierung und Verschlüsselung werden gleichgesetzt."),
+            ("INF7-16-GYM-IK-DC-004", "Bitfolgenlänge ohne Bit-Byte-Beziehung genügt."),
+            ("INF7-16-GYM-IK-DC-004", "Größere Einheiten bleiben unklar."),
+            ("INF7-16-GYM-IK-DC-005", "Nur eine Umwandlungsrichtung wird bearbeitet."),
+            ("INF7-16-GYM-IK-DC-005", "Ohne Stellenwerterklärung."),
+            ("INF7-16-GYM-IK-DC-005", "Ohne führende Nullen."),
+            ("INF7-16-GYM-IK-DC-005", "Ohne Grenzfälle."),
+            ("INF7-16-GYM-IK-DC-005", "Ohne Stellenwechselfälle."),
+            ("INF7-16-GYM-IK-DC-005", "Ohne unbekannten Prüffall."),
+            ("LH26-E-ID-020", "Größere Präfixe sind für diesen Record Pflicht."),
+            ("LH26-E-ID-021", "Präfixe werden nur genannt."),
+            ("LH26-E-ID-021", "Binärpräfixe werden vermischt: KiB und MiB."),
+        )
+        for competency_id, suffix in evidence_suffixes:
+            with self.subTest(evidence_shortcut=(competency_id, suffix)):
+                evidence, reviews, integration = self._task18_semantic_probe_inputs()
+                evidence[competency_id]["productEvidence"] += f" {suffix}"
+                with self.assertRaises(AssertionError):
+                    self._assert_core01_task18_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+        semantic_mutations = (
+            ("LH26-E-ID-020", {"decision": "additional-time", "additionalMinutes": 15}),
+            ("integration", "Alltagscodierungs-Landkarte, Stellenwertmethode, Grenzfallprüfung, führende Nullen und Dezimalpräfixumrechnung."),
+        )
+        for target, value in semantic_mutations:
+            with self.subTest(semantic_boundary=target):
+                evidence, reviews, integration = self._task18_semantic_probe_inputs()
+                if target == "integration":
+                    integration["sharedPhaseOrProduct"] += f" {value}"
+                else:
+                    reviews[target].update(value)
+                with self.assertRaises(AssertionError):
+                    self._assert_core01_task18_semantic_boundaries(
+                        evidence_by_competency_id=evidence,
+                        reviews_by_competency_id=reviews,
+                        integration_contract=integration,
+                    )
+
+        review_mutations = (
+            ("INF7-16-GYM-IK-DC-001", "decision", "absorbed"),
+            ("INF7-16-GYM-IK-DC-004", "additionalMinutes", 0),
+            ("INF7-16-GYM-IK-DC-005", "integrationContractIds", []),
+            ("LH26-E-ID-020", "decision", "additional-time"),
+            ("LH26-E-ID-021", "phaseIds", ["guided-practice"]),
+            ("INF7-16-GYM-IK-DC-005", "pathAvailability", GRADE7_DEMAND_PATH_AVAILABILITY),
+        )
+        for competency_id, field, value in review_mutations:
+            with self.subTest(review_matrix=(competency_id, field)):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                next(
+                    item for item in reviews
+                    if item["competencyId"] == competency_id
+                )[field] = value
+                with self.assertRaises(AssertionError):
+                    self._assert_core01_task18_audit_contract(reviews)
+
+        variants = copy.deepcopy(self.repository_annual_variants)
+        variants["GRADE-7-OPTIMIZED-DEMAND"]["available"] = True
+        with self.assertRaises(AssertionError):
+            self._assert_grade7_task18_demand_scenarios(
+                variants,
+                self.repository_module_contracts["IUM-7-CORE-01"],
             )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
