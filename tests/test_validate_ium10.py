@@ -2389,14 +2389,13 @@ class IUM10TimeReviewTests(unittest.TestCase):
         integration_contracts=None,
         annual_variants=None,
         require_complete=False,
+        privacy_contracts=None,
     ):
         return validate_time_reviews(
             reviews,
-            (
-                self.remediation_payload
-                if remediation_payload is None
-                else remediation_payload
-            ),
+            self.remediation_payload
+            if remediation_payload is None
+            else remediation_payload,
             self.module_contracts()
             if module_contracts is None
             else module_contracts,
@@ -2407,7 +2406,250 @@ class IUM10TimeReviewTests(unittest.TestCase):
             if annual_variants is None
             else annual_variants,
             require_complete,
+            privacy_contracts=privacy_contracts,
         )
+
+    @classmethod
+    def core07_privacy_contracts(cls):
+        return validate_privacy_contracts(
+            [IUM10PrivacyContractTests.privacy_contract()],
+            cls.module_contracts(),
+        )
+
+    @staticmethod
+    def private_disposition(competency_id, observable_basis):
+        return {
+            "contractId": "PC-IUM-5-CORE-07",
+            "observableBasis": observable_basis,
+            "evidenceContractId": (
+                None
+                if observable_basis == "none"
+                else f"CE-IUM-5-CORE-07-{competency_id}"
+            ),
+            "privateArtifactContribution": {
+                "product": "excluded",
+                "evidence": "excluded",
+                "additionalTimeClaim": "excluded",
+            },
+            "privateActivityTimeTreatment": "module-budget-only",
+        }
+
+    def test_accepts_private_local_review_with_nonpersonal_follow_up(self):
+        competency_id = "BMB16-GYM-IK-MG-001"
+        review = self.review(competency_id, "additional-time")
+        review["privacyDisposition"] = self.private_disposition(
+            competency_id,
+            "nonpersonal-follow-up",
+        )
+
+        result = self.validate_reviews(
+            [review],
+            privacy_contracts=self.core07_privacy_contracts(),
+        )
+
+        self.assertEqual(set(result), {f"TR-{competency_id}"})
+
+    def test_rejects_private_local_review_without_module_contract(self):
+        review = self.review("BMB16-GYM-IK-MG-001", "additional-time")
+        with self.assertRaisesRegex(IUM10ValidationError, "private-local.*privacy"):
+            self.validate_reviews([review], privacy_contracts={})
+
+    def test_rejects_protected_module_review_without_disposition(self):
+        review = self.review("BMB16-GYM-IK-MG-001", "additional-time")
+        with self.assertRaisesRegex(IUM10ValidationError, "privacyDisposition"):
+            self.validate_reviews(
+                [review],
+                privacy_contracts=self.core07_privacy_contracts(),
+            )
+
+    def test_rejects_orphan_disposition_on_unprotected_module(self):
+        review = self.review("BMB16-GYM-IK-GM-001", "additional-time")
+        review["privacyDisposition"] = self.private_disposition(
+            "BMB16-GYM-IK-GM-001",
+            "nonpersonal-follow-up",
+        )
+        with self.assertRaisesRegex(IUM10ValidationError, "orphan"):
+            self.validate_reviews([review], privacy_contracts={})
+
+    def test_rejects_private_disposition_reference_and_basis_drift(self):
+        competency_id = "BMB16-GYM-IK-MG-001"
+        mutations = (
+            ("contract", ("contractId",), "PC-WRONG", "contractId"),
+            (
+                "basis",
+                ("observableBasis",),
+                "nonpersonal-module-detail",
+                "observableBasis",
+            ),
+            (
+                "unknown basis",
+                ("observableBasis",),
+                "personal-artifact",
+                "observableBasis",
+            ),
+            (
+                "evidence",
+                ("evidenceContractId",),
+                "CE-WRONG",
+                "evidenceContractId",
+            ),
+            (
+                "time treatment",
+                ("privateActivityTimeTreatment",),
+                "record-minutes",
+                "module-budget-only",
+            ),
+            (
+                "product",
+                ("privateArtifactContribution", "product"),
+                "included",
+                "product",
+            ),
+            (
+                "evidence contribution",
+                ("privateArtifactContribution", "evidence"),
+                "included",
+                "evidence",
+            ),
+            (
+                "time contribution",
+                ("privateArtifactContribution", "additionalTimeClaim"),
+                "included",
+                "additionalTimeClaim",
+            ),
+        )
+        for label, path, value, message in mutations:
+            with self.subTest(label=label):
+                review = self.review(competency_id, "additional-time")
+                disposition = self.private_disposition(
+                    competency_id,
+                    "nonpersonal-follow-up",
+                )
+                target = disposition
+                for key in path[:-1]:
+                    target = target[key]
+                target[path[-1]] = value
+                review["privacyDisposition"] = disposition
+                with self.assertRaisesRegex(IUM10ValidationError, message):
+                    self.validate_reviews(
+                        [review],
+                        privacy_contracts=self.core07_privacy_contracts(),
+                    )
+
+    def test_rejects_each_missing_or_extra_disposition_field(self):
+        competency_id = "BMB16-GYM-IK-MG-001"
+        disposition = self.private_disposition(
+            competency_id,
+            "nonpersonal-follow-up",
+        )
+        cases = []
+        for field in tuple(disposition):
+            mutated = copy.deepcopy(disposition)
+            del mutated[field]
+            cases.append((f"missing {field}", mutated, "privacyDisposition"))
+        extra = copy.deepcopy(disposition)
+        extra["note"] = "x"
+        cases.append(("extra disposition", extra, "privacyDisposition"))
+
+        for field in tuple(disposition["privateArtifactContribution"]):
+            mutated = copy.deepcopy(disposition)
+            del mutated["privateArtifactContribution"][field]
+            cases.append(
+                (f"missing contribution {field}", mutated, "privateArtifactContribution")
+            )
+        extra_contribution = copy.deepcopy(disposition)
+        extra_contribution["privateArtifactContribution"]["note"] = "x"
+        cases.append(
+            (
+                "extra contribution",
+                extra_contribution,
+                "privateArtifactContribution",
+            )
+        )
+
+        for label, mutated, message in cases:
+            with self.subTest(label=label):
+                review = self.review(competency_id, "additional-time")
+                review["privacyDisposition"] = mutated
+                with self.assertRaisesRegex(IUM10ValidationError, message):
+                    self.validate_reviews(
+                        [review],
+                        privacy_contracts=self.core07_privacy_contracts(),
+                    )
+
+    def test_rejects_cross_module_privacy_contract_reference(self):
+        competency_id = "BMB16-GYM-IK-MG-001"
+        core07 = IUM10PrivacyContractTests.privacy_contract()
+        other = IUM10PrivacyContractTests.privacy_contract()
+        other["id"] = "PC-IUM-5-CORE-01"
+        other["moduleId"] = "IUM-5-CORE-01"
+        privacy_contracts = validate_privacy_contracts(
+            [core07, other],
+            self.module_contracts(),
+        )
+        review = self.review(competency_id, "additional-time")
+        review["privacyDisposition"] = self.private_disposition(
+            competency_id,
+            "nonpersonal-follow-up",
+        )
+        review["privacyDisposition"]["contractId"] = other["id"]
+
+        with self.assertRaisesRegex(IUM10ValidationError, "contractId"):
+            self.validate_reviews(
+                [review],
+                privacy_contracts=privacy_contracts,
+            )
+
+    def test_accepts_module_detail_and_unresolved_privacy_dispositions(self):
+        module_detail_id = "BMB16-GYM-IK-MG-002"
+        unresolved_id = "BMB16-GYM-PK-RK-003"
+        module_detail = self.review(module_detail_id, "additional-time")
+        module_detail["privacyDisposition"] = self.private_disposition(
+            module_detail_id,
+            "nonpersonal-module-detail",
+        )
+        unresolved = self.review(unresolved_id, "unresolved")
+        unresolved["privacyDisposition"] = self.private_disposition(
+            unresolved_id,
+            "none",
+        )
+
+        result = self.validate_reviews(
+            [module_detail, unresolved],
+            privacy_contracts=self.core07_privacy_contracts(),
+        )
+
+        self.assertEqual(
+            set(result),
+            {f"TR-{module_detail_id}", f"TR-{unresolved_id}"},
+        )
+
+    def test_rejects_none_with_evidence_phase_path_integration_sequence_or_minutes(self):
+        competency_id = "BMB16-GYM-PK-RK-003"
+        mutations = (
+            ("evidence", ("privacyDisposition", "evidenceContractId"), "CE-WRONG"),
+            ("phase", ("phaseIds",), ["guided-practice"]),
+            ("path", ("pathAvailability",), [self.VARIANT_ID]),
+            ("integration", ("integrationContractIds",), [self.INTEGRATION_ID]),
+            ("sequence", ("sequenceEvidenceId",), "SE-WRONG"),
+            ("minutes", ("additionalMinutes",), 15),
+        )
+        for label, path, value in mutations:
+            with self.subTest(label=label):
+                review = self.review(competency_id, "unresolved")
+                review["privacyDisposition"] = self.private_disposition(
+                    competency_id,
+                    "none",
+                )
+                target = review
+                for key in path[:-1]:
+                    target = target[key]
+                target[path[-1]] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews(
+                        [review],
+                        privacy_contracts=self.core07_privacy_contracts(),
+                    )
 
     def test_accepts_hand_built_absorbed_integrated_additional_and_unresolved_reviews(self):
         decisions = ("absorbed", "integrated", "additional-time", "unresolved")

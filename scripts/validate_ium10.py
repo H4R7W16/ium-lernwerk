@@ -51,6 +51,40 @@ INSTITUTIONAL_HANDLING_FIELDS = {
     "storage",
     "assessment",
 }
+TIME_REVIEW_FIELDS = {
+    "id",
+    "competencyId",
+    "moduleId",
+    "sourceTimeImpactLevel",
+    "decision",
+    "rationale",
+    "phaseIds",
+    "additionalMinutes",
+    "integrationContractIds",
+    "sequenceEvidenceId",
+    "pathAvailability",
+    "coverageConsequence",
+    "risk",
+    "followUp",
+    "status",
+}
+PRIVACY_DISPOSITION_FIELDS = {
+    "contractId",
+    "observableBasis",
+    "evidenceContractId",
+    "privateArtifactContribution",
+    "privateActivityTimeTreatment",
+}
+PRIVATE_ARTIFACT_CONTRIBUTION_FIELDS = {
+    "product",
+    "evidence",
+    "additionalTimeClaim",
+}
+OBSERVABLE_BASES = {
+    "nonpersonal-follow-up",
+    "nonpersonal-module-detail",
+    "none",
+}
 CORE_PATH_IDS = {
     5: {"baseline", "regular", "extended"},
     6: {"baseline", "regular"},
@@ -2002,6 +2036,93 @@ def validate_annual_variants(
     return variants_by_id
 
 
+def _validate_privacy_disposition(
+    review,
+    handoff,
+    privacy_contracts_by_id,
+    privacy_contract_by_module_id,
+):
+    competency_id = review["competencyId"]
+    module_id = review["moduleId"]
+    has_contract = module_id in privacy_contract_by_module_id
+    cause_class = handoff["causeClass"]
+
+    _require(
+        cause_class != "private-local" or has_contract,
+        f"private-local time review needs privacy contract: {competency_id}",
+    )
+    if not has_contract:
+        _require(
+            "privacyDisposition" not in review,
+            f"orphan privacyDisposition: {competency_id}",
+        )
+        return
+
+    _require(
+        "privacyDisposition" in review,
+        f"privacyDisposition missing: {competency_id}",
+    )
+    disposition = review["privacyDisposition"]
+    _require(
+        isinstance(disposition, dict)
+        and set(disposition) == PRIVACY_DISPOSITION_FIELDS,
+        f"privacyDisposition fields invalid: {competency_id}",
+    )
+    contract = privacy_contract_by_module_id[module_id]
+    _require(
+        disposition["contractId"] == contract["id"]
+        and disposition["contractId"] in privacy_contracts_by_id,
+        f"privacyDisposition contractId mismatch: {competency_id}",
+    )
+    basis = disposition["observableBasis"]
+    _require(
+        basis in OBSERVABLE_BASES,
+        f"invalid observableBasis: {competency_id}",
+    )
+    expected_evidence_id = handoff["evidenceContractId"]
+    _require(
+        disposition["evidenceContractId"] == expected_evidence_id,
+        f"privacyDisposition evidenceContractId mismatch: {competency_id}",
+    )
+    if basis == "nonpersonal-follow-up":
+        _require(
+            cause_class == "private-local" and expected_evidence_id is not None,
+            f"invalid nonpersonal-follow-up observableBasis: {competency_id}",
+        )
+    elif basis == "nonpersonal-module-detail":
+        _require(
+            cause_class == "module-detail" and expected_evidence_id is not None,
+            f"invalid nonpersonal-module-detail observableBasis: {competency_id}",
+        )
+    else:
+        _require(
+            expected_evidence_id is None
+            and review["decision"] == "unresolved"
+            and review["additionalMinutes"] == 0
+            and review["phaseIds"] == []
+            and review["pathAvailability"] == []
+            and review["integrationContractIds"] == []
+            and review["sequenceEvidenceId"] is None,
+            f"none privacy basis must remain unresolved and unallocated: {competency_id}",
+        )
+
+    contribution = disposition["privateArtifactContribution"]
+    _require(
+        isinstance(contribution, dict)
+        and set(contribution) == PRIVATE_ARTIFACT_CONTRIBUTION_FIELDS,
+        f"privateArtifactContribution fields invalid: {competency_id}",
+    )
+    for field in sorted(PRIVATE_ARTIFACT_CONTRIBUTION_FIELDS):
+        _require(
+            contribution[field] == "excluded",
+            f"{competency_id} private artifact {field} must be excluded",
+        )
+    _require(
+        disposition["privateActivityTimeTreatment"] == "module-budget-only",
+        f"privateActivityTimeTreatment must be module-budget-only: {competency_id}",
+    )
+
+
 def validate_time_reviews(
     time_reviews,
     remediation_payload,
@@ -2009,6 +2130,8 @@ def validate_time_reviews(
     integration_contracts,
     annual_variants,
     require_complete=False,
+    *,
+    privacy_contracts=None,
 ):
     """Validate time reviews and return them keyed by review id."""
     _require(
@@ -2026,6 +2149,20 @@ def validate_time_reviews(
     _require(
         isinstance(annual_variants, dict),
         "validated annual variants must be keyed by variant id",
+    )
+    if privacy_contracts is None:
+        privacy_contracts = {}
+    _require(
+        isinstance(privacy_contracts, dict),
+        "validated privacy contracts must be keyed by contract id",
+    )
+    privacy_contract_by_module_id = {
+        contract["moduleId"]: contract
+        for contract in privacy_contracts.values()
+    }
+    _require(
+        len(privacy_contract_by_module_id) == len(privacy_contracts),
+        "validated privacy contracts must use unique module ids",
     )
 
     handoff_entries = (
@@ -2046,6 +2183,8 @@ def validate_time_reviews(
         competency_id = handoff.get("competencyId")
         before = handoff.get("before")
         time_impact = handoff.get("timeImpact")
+        cause_class = handoff.get("causeClass")
+        evidence_contract_id = handoff.get("evidenceContractId")
         _require(
             isinstance(competency_id, str)
             and competency_id.strip()
@@ -2058,6 +2197,18 @@ def validate_time_reviews(
             and isinstance(time_impact.get("rationale"), str)
             and time_impact["rationale"].strip(),
             "invalid IUM09 time handoff",
+        )
+        _require(
+            isinstance(cause_class, str) and cause_class.strip(),
+            f"time handoff causeClass missing: {competency_id}",
+        )
+        _require(
+            evidence_contract_id is None
+            or (
+                isinstance(evidence_contract_id, str)
+                and evidence_contract_id.strip()
+            ),
+            f"invalid time handoff evidenceContractId: {competency_id}",
         )
         _require(
             competency_id not in handoffs_by_id,
@@ -2092,23 +2243,6 @@ def validate_time_reviews(
     )
 
     _require(isinstance(time_reviews, list), "time reviews must be a list")
-    review_fields = {
-        "id",
-        "competencyId",
-        "moduleId",
-        "sourceTimeImpactLevel",
-        "decision",
-        "rationale",
-        "phaseIds",
-        "additionalMinutes",
-        "integrationContractIds",
-        "sequenceEvidenceId",
-        "pathAvailability",
-        "coverageConsequence",
-        "risk",
-        "followUp",
-        "status",
-    }
     reviews_by_id = {}
     reviewed_competency_ids = set()
     claimed_minutes_by_phase = Counter()
@@ -2116,7 +2250,11 @@ def validate_time_reviews(
     for review in time_reviews:
         _require(isinstance(review, dict), "time review must be an object")
         _require(
-            set(review) == review_fields,
+            frozenset(review)
+            in {
+                frozenset(TIME_REVIEW_FIELDS),
+                frozenset(TIME_REVIEW_FIELDS | {"privacyDisposition"}),
+            },
             "time review fields differ from the IUM10 contract",
         )
 
@@ -2442,6 +2580,13 @@ def validate_time_reviews(
                 bool(path_availability),
                 f"resolved time review needs an available path: {competency_id}",
             )
+
+        _validate_privacy_disposition(
+            review,
+            handoff,
+            privacy_contracts,
+            privacy_contract_by_module_id,
+        )
 
         if additional_minutes > 0:
             budgets_by_path_id = {
