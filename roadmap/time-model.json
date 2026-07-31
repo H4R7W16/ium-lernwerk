@@ -553,7 +553,12 @@
         }
       ],
       "standaloneUnitRange": null,
-      "timeReviewIds": [],
+      "timeReviewIds": [
+        "TR-BMB16-GYM-IK-PP-002",
+        "TR-LH26-E-DA-005",
+        "TR-LH26-E-DA-006",
+        "TR-LH26-E-DA-008"
+      ],
       "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
       "schoolDependentSteps": ["local-presentation-or-publication-route"],
       "risk": "Produktionswerkzeug, Präsentationsweg und Rechteprüfung können lokal zusätzliche Anlauf- und Unterstützungszeit benötigen.",
@@ -2709,6 +2714,97 @@
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Ohne vollständigen Sequenznachweis würden die positive Klasse-5-Produktzeit und ihre Wiederaufnahme in Klasse 6 eine nicht belegte niederschwellige Progression und Abgrenzung zur fachlichen Tiefe in Klasse 7 suggerieren.",
       "followUp": "In Task 24 Algorithmenprodukt Klasse 5, aktive Wiederaufnahme Klasse 6, Implementierungs- und Debuggingtiefe Klasse 7, Zeitgewichtung und verfügbare Jahrespfade ausschließlich über SE-LH26-E-PROG-002 auditieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-BMB16-GYM-IK-PP-002",
+      "competencyId": "BMB16-GYM-IK-PP-002",
+      "moduleId": "IUM-5-CORE-06",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "integrated",
+      "rationale": "Die 45 gemeinsamen Minuten von INT-5-RESEARCH-PRODUCTION tragen ausschließlich die identische Quellen- und Belegspur vom geprüften Quellendossier bis zu Quelle, Lizenz und zulässiger Nutzung desselben Fremdmaterials im Informationsprodukt. Planung der datensparsamen Produktion, getrennte Datenschutzentscheidung, fiktive oder sachbezogene Inhalte und der begrenzte Adressatenkreis werden in den drei positiven Modulphasen ausgeführt; die Integration ersetzt diese Handlungen nicht.",
+      "phaseIds": [
+        "build-concept",
+        "independent-action-product",
+        "shared-consolidation"
+      ],
+      "additionalMinutes": 0,
+      "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Bei abweichenden Quellen, einem bloßen Rechte- oder Datenschutz-Check oder fehlender getrennter Inhalts- und Veröffentlichungsentscheidung wäre die Quellenintegration eine Scheineinsparung; echte personenbezogene Daten dürfen nicht zur Produkt- oder Feedbackspur werden.",
+      "followUp": "Im Pilot für jedes Fremdmaterial die identische Dossierquelle, Lizenz und zulässige Nutzung sowie getrennt Datenvermeidung, fiktive oder sachbezogene Inhalte und begrenzten Adressatenkreis im produzierten Informationsprodukt prüfen.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-005",
+      "competencyId": "LH26-E-DA-005",
+      "moduleId": "IUM-5-CORE-06",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Das Identifizieren von Überschrift, Fließtext, Bildunterschrift und Listenbaustein sowie die funktionale Nutzung mehrerer konkreter Formatierungen benötigen 15 Minuten angeleitete Gestaltungs- und Revisionszeit im selben Vorher-Nachher-Produkt. Der Erweiterungspfad vertieft diese Arbeit mit zusätzlich 25 Minuten angeleiteter Praxis und 15 Minuten Revision.",
+      "phaseIds": [
+        "guided-practice",
+        "review-revise-transfer"
+      ],
+      "additionalMinutes": 15,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Eine vorbereitete Vorlage oder bloße Formatierungsdemonstration könnte Identifikation, eigene funktionale Nutzung und sichtbare Revision verdrängen; dann wäre die ausgewiesene Zeit keine recordgenaue Lernzeit.",
+      "followUp": "Im Pilot prüfen, ob die Lernenden die vier Textbausteine selbst markieren, mehrere Formatierungen funktional einsetzen und ihre adressatengerechte Wirkung im Vorher-Nachher-Vergleich innerhalb der ausgewiesenen Zeit revidieren.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-006",
+      "competencyId": "LH26-E-DA-006",
+      "moduleId": "IUM-5-CORE-06",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Auswahl und tatsächliche Nutzung eines rechtegeprüften Bildes, die Entscheidung zu Position, Größe oder Ausschnitt und die Begründung seiner Funktion für Aussage und Zielgruppe benötigen 20 Minuten eigenständige Produktionszeit. Die zusätzlichen 40 Produktminuten des Erweiterungspfads ermöglichen eine vertiefte Bild- und Gestaltungsentscheidung.",
+      "phaseIds": ["independent-action-product"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Bildsuche, Import, lokale Werkzeugbedienung oder Rechteprüfung können die Gestaltungsentscheidung verdrängen; INT-5-RESEARCH-PRODUCTION darf nur bei tatsächlich identischer Dossierquelle genutzt werden und wird für diesen Record nicht pauschal angerechnet.",
+      "followUp": "Im Pilot Produktions- und Unterstützungszeit aggregiert prüfen und sicherstellen, dass Bildnutzung, konkrete Gestaltungsentscheidung, Rechtebeleg und adressatengerechte Funktionsbegründung sichtbar erreicht werden.",
+      "status": "working"
+    },
+    {
+      "id": "TR-LH26-E-DA-008",
+      "competencyId": "LH26-E-DA-008",
+      "moduleId": "IUM-5-CORE-06",
+      "sourceTimeImpactLevel": "review-required",
+      "decision": "additional-time",
+      "rationale": "Die kriterien- und beleggebundene Analyse einer vorgegebenen Gestaltung, die Zuordnung von Inhalt, Form und Wirkung sowie das begründete Gesamturteil benötigen 20 Minuten eigene angeleitete Analysezeit vor der Produktrevision. Die zusätzlichen 25 Praxisminuten des Erweiterungspfads vertiefen diese Urteilsspur; ein Transfer in die eigene Revision ersetzt sie nicht.",
+      "phaseIds": ["guided-practice"],
+      "additionalMinutes": 20,
+      "integrationContractIds": [],
+      "sequenceEvidenceId": null,
+      "pathAvailability": [
+        "GRADE-5-BASELINE",
+        "GRADE-5-REGULAR",
+        "GRADE-5-EXTENDED"
+      ],
+      "coverageConsequence": "semantic-status-unchanged",
+      "risk": "Wenn nur das eigene Produkt bewertet oder eine Gestaltungswirkung ohne konkreten Beleg behauptet wird, verschmelzen Analyse, Urteil und Revision zu einer nicht belastbaren Kurzreflexion.",
+      "followUp": "Im Pilot prüfen, ob Inhalt, Form, Wirkung und Beleg der vorgegebenen Gestaltung sowie ein begründetes Gesamturteil innerhalb der Analysezeit vollständig vor einer optionalen Übertragung in die eigene Revision entstehen.",
       "status": "working"
     }
   ],

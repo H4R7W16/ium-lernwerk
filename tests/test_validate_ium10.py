@@ -39,6 +39,10 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-KS-002": "additional-time",
     "LH26-E-PROG-001": "unresolved",
     "LH26-E-PROG-002": "unresolved",
+    "BMB16-GYM-IK-PP-002": "integrated",
+    "LH26-E-DA-005": "additional-time",
+    "LH26-E-DA-006": "additional-time",
+    "LH26-E-DA-008": "additional-time",
 }
 
 EXPECTED_GM003_TIME_PLACEMENT_RATIONALE = (
@@ -346,6 +350,144 @@ EXPECTED_CORE05_ALGORITHM_PRODUCT = (
     "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, "
     "reparierter Fassung und begründeter Schleifenentscheidung."
 )
+
+CORE06_AUDIT_EXPECTATIONS = {
+    "BMB16-GYM-IK-PP-002": {
+        "decision": "integrated",
+        "additionalMinutes": 0,
+        "phaseIds": [
+            "build-concept",
+            "independent-action-product",
+            "shared-consolidation",
+        ],
+        "integrationContractIds": ["INT-5-RESEARCH-PRODUCTION"],
+        "rationale": (
+            "Die 45 gemeinsamen Minuten von INT-5-RESEARCH-PRODUCTION tragen "
+            "ausschließlich die identische Quellen- und Belegspur vom "
+            "geprüften Quellendossier bis zu Quelle, Lizenz und zulässiger "
+            "Nutzung desselben Fremdmaterials im Informationsprodukt. Planung "
+            "der datensparsamen Produktion, getrennte Datenschutzentscheidung, "
+            "fiktive oder sachbezogene Inhalte und der begrenzte "
+            "Adressatenkreis werden in den drei positiven Modulphasen "
+            "ausgeführt; die Integration ersetzt diese Handlungen nicht."
+        ),
+        "risk": (
+            "Bei abweichenden Quellen, einem bloßen Rechte- oder "
+            "Datenschutz-Check oder fehlender getrennter Inhalts- und "
+            "Veröffentlichungsentscheidung wäre die Quellenintegration eine "
+            "Scheineinsparung; echte personenbezogene Daten dürfen nicht zur "
+            "Produkt- oder Feedbackspur werden."
+        ),
+        "followUp": (
+            "Im Pilot für jedes Fremdmaterial die identische Dossierquelle, "
+            "Lizenz und zulässige Nutzung sowie getrennt Datenvermeidung, "
+            "fiktive oder sachbezogene Inhalte und begrenzten Adressatenkreis "
+            "im produzierten Informationsprodukt prüfen."
+        ),
+    },
+    "LH26-E-DA-005": {
+        "decision": "additional-time",
+        "additionalMinutes": 15,
+        "phaseIds": [
+            "guided-practice",
+            "review-revise-transfer",
+        ],
+        "integrationContractIds": [],
+        "rationale": (
+            "Das Identifizieren von Überschrift, Fließtext, Bildunterschrift "
+            "und Listenbaustein sowie die funktionale Nutzung mehrerer "
+            "konkreter Formatierungen benötigen 15 Minuten angeleitete "
+            "Gestaltungs- und Revisionszeit im selben Vorher-Nachher-Produkt. "
+            "Der Erweiterungspfad vertieft diese Arbeit mit zusätzlich "
+            "25 Minuten angeleiteter Praxis und 15 Minuten Revision."
+        ),
+        "risk": (
+            "Eine vorbereitete Vorlage oder bloße Formatierungsdemonstration "
+            "könnte Identifikation, eigene funktionale Nutzung und sichtbare "
+            "Revision verdrängen; dann wäre die ausgewiesene Zeit keine "
+            "recordgenaue Lernzeit."
+        ),
+        "followUp": (
+            "Im Pilot prüfen, ob die Lernenden die vier Textbausteine selbst "
+            "markieren, mehrere Formatierungen funktional einsetzen und ihre "
+            "adressatengerechte Wirkung im Vorher-Nachher-Vergleich innerhalb "
+            "der ausgewiesenen Zeit revidieren."
+        ),
+    },
+    "LH26-E-DA-006": {
+        "decision": "additional-time",
+        "additionalMinutes": 20,
+        "phaseIds": ["independent-action-product"],
+        "integrationContractIds": [],
+        "rationale": (
+            "Auswahl und tatsächliche Nutzung eines rechtegeprüften Bildes, "
+            "die Entscheidung zu Position, Größe oder Ausschnitt und die "
+            "Begründung seiner Funktion für Aussage und Zielgruppe benötigen "
+            "20 Minuten eigenständige Produktionszeit. Die zusätzlichen "
+            "40 Produktminuten des Erweiterungspfads ermöglichen eine "
+            "vertiefte Bild- und Gestaltungsentscheidung."
+        ),
+        "risk": (
+            "Bildsuche, Import, lokale Werkzeugbedienung oder Rechteprüfung "
+            "können die Gestaltungsentscheidung verdrängen; "
+            "INT-5-RESEARCH-PRODUCTION darf nur bei tatsächlich identischer "
+            "Dossierquelle genutzt werden und wird für diesen Record nicht "
+            "pauschal angerechnet."
+        ),
+        "followUp": (
+            "Im Pilot Produktions- und Unterstützungszeit aggregiert prüfen "
+            "und sicherstellen, dass Bildnutzung, konkrete "
+            "Gestaltungsentscheidung, Rechtebeleg und adressatengerechte "
+            "Funktionsbegründung sichtbar erreicht werden."
+        ),
+    },
+    "LH26-E-DA-008": {
+        "decision": "additional-time",
+        "additionalMinutes": 20,
+        "phaseIds": ["guided-practice"],
+        "integrationContractIds": [],
+        "rationale": (
+            "Die kriterien- und beleggebundene Analyse einer vorgegebenen "
+            "Gestaltung, die Zuordnung von Inhalt, Form und Wirkung sowie das "
+            "begründete Gesamturteil benötigen 20 Minuten eigene angeleitete "
+            "Analysezeit vor der Produktrevision. Die zusätzlichen 25 "
+            "Praxisminuten des Erweiterungspfads vertiefen diese Urteilsspur; "
+            "ein Transfer in die eigene Revision ersetzt sie nicht."
+        ),
+        "risk": (
+            "Wenn nur das eigene Produkt bewertet oder eine "
+            "Gestaltungswirkung ohne konkreten Beleg behauptet wird, "
+            "verschmelzen Analyse, Urteil und Revision zu einer nicht "
+            "belastbaren Kurzreflexion."
+        ),
+        "followUp": (
+            "Im Pilot prüfen, ob Inhalt, Form, Wirkung und Beleg der "
+            "vorgegebenen Gestaltung sowie ein begründetes Gesamturteil "
+            "innerhalb der Analysezeit vollständig vor einer optionalen "
+            "Übertragung in die eigene Revision entstehen."
+        ),
+    },
+}
+
+CORE06_EXTENDED_PHASE_DELTAS = {
+    "orientation-challenge": 0,
+    "activate-prior-knowledge": 0,
+    "build-concept": 5,
+    "guided-practice": 25,
+    "independent-action-product": 40,
+    "review-revise-transfer": 15,
+    "shared-consolidation": 5,
+}
+CORE06_POSITIVE_DELTA_REVIEW_PROVENANCE = {
+    "build-concept": ["BMB16-GYM-IK-PP-002"],
+    "guided-practice": ["LH26-E-DA-005", "LH26-E-DA-008"],
+    "independent-action-product": [
+        "BMB16-GYM-IK-PP-002",
+        "LH26-E-DA-006",
+    ],
+    "review-revise-transfer": ["LH26-E-DA-005"],
+    "shared-consolidation": ["BMB16-GYM-IK-PP-002"],
+}
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -2441,6 +2583,128 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     ),
                 )
 
+    def _assert_core06_repository_contract(
+        self,
+        reviews_by_competency_id,
+        module_contracts,
+    ):
+        core06_contract = module_contracts["IUM-5-CORE-06"]
+        expected_review_ids = [
+            f"TR-{competency_id}"
+            for competency_id in CORE06_AUDIT_EXPECTATIONS
+        ]
+        self.assertEqual(core06_contract["timeReviewIds"], expected_review_ids)
+
+        expected_paths = [
+            "GRADE-5-BASELINE",
+            "GRADE-5-REGULAR",
+            "GRADE-5-EXTENDED",
+        ]
+        for competency_id, expected in CORE06_AUDIT_EXPECTATIONS.items():
+            with self.subTest(core06_competency_id=competency_id):
+                review = reviews_by_competency_id[competency_id]
+                self.assertEqual(
+                    {
+                        field: review[field]
+                        for field in (
+                            "decision",
+                            "additionalMinutes",
+                            "phaseIds",
+                            "integrationContractIds",
+                            "rationale",
+                            "risk",
+                            "followUp",
+                        )
+                    },
+                    expected,
+                )
+                self.assertEqual(review["moduleId"], "IUM-5-CORE-06")
+                self.assertEqual(
+                    review["sourceTimeImpactLevel"],
+                    "review-required",
+                )
+                self.assertIsNone(review["sequenceEvidenceId"])
+                self.assertEqual(review["pathAvailability"], expected_paths)
+
+        self.assertEqual(
+            {
+                competency_id: review["integrationContractIds"]
+                for competency_id, review in reviews_by_competency_id.items()
+                if competency_id in CORE06_AUDIT_EXPECTATIONS
+            },
+            {
+                "BMB16-GYM-IK-PP-002": [
+                    "INT-5-RESEARCH-PRODUCTION"
+                ],
+                "LH26-E-DA-005": [],
+                "LH26-E-DA-006": [],
+                "LH26-E-DA-008": [],
+            },
+        )
+        for required_product_trace in (
+            "Adressatengerechtes Informationsprodukt",
+            "Quellenverzeichnis",
+            "Vorher–Nachher-Revision",
+        ):
+            with self.subTest(
+                core06_required_product_trace=required_product_trace
+            ):
+                self.assertIn(
+                    required_product_trace,
+                    core06_contract["centralLearningProduct"],
+                )
+
+        budgets_by_path = {
+            budget["pathId"]: budget
+            for budget in core06_contract["pathBudgets"]
+        }
+        self.assertEqual(
+            {
+                path_id: budget["units"]
+                for path_id, budget in budgets_by_path.items()
+            },
+            {"baseline": 5, "regular": 5, "extended": 7},
+        )
+        self.assertEqual(
+            budgets_by_path["baseline"]["phaseBudgets"],
+            budgets_by_path["regular"]["phaseBudgets"],
+        )
+        regular_phase_minutes = {
+            phase["phaseId"]: phase["minutes"]
+            for phase in budgets_by_path["regular"]["phaseBudgets"]
+        }
+        extended_phase_minutes = {
+            phase["phaseId"]: phase["minutes"]
+            for phase in budgets_by_path["extended"]["phaseBudgets"]
+        }
+        actual_phase_deltas = {
+            phase_id: extended_phase_minutes[phase_id] - minutes
+            for phase_id, minutes in regular_phase_minutes.items()
+        }
+        self.assertEqual(actual_phase_deltas, CORE06_EXTENDED_PHASE_DELTAS)
+        self.assertEqual(sum(actual_phase_deltas.values()), 90)
+        self.assertEqual(
+            (
+                actual_phase_deltas["independent-action-product"],
+                actual_phase_deltas["review-revise-transfer"],
+            ),
+            (40, 15),
+        )
+        actual_delta_provenance = {
+            phase_id: [
+                competency_id
+                for competency_id in CORE06_AUDIT_EXPECTATIONS
+                if phase_id
+                in reviews_by_competency_id[competency_id]["phaseIds"]
+            ]
+            for phase_id, delta in actual_phase_deltas.items()
+            if delta > 0
+        }
+        self.assertEqual(
+            actual_delta_provenance,
+            CORE06_POSITIVE_DELTA_REVIEW_PROVENANCE,
+        )
+
     def _assert_core03_regular_delta_review_provenance(
         self,
         reviews_by_competency_id,
@@ -2790,6 +3054,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
             self.repository_module_contracts,
         )
         self._assert_core05_repository_contract(
+            reviews_by_competency_id,
+            self.repository_module_contracts,
+        )
+        self._assert_core06_repository_contract(
             reviews_by_competency_id,
             self.repository_module_contracts,
         )
