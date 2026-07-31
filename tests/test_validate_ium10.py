@@ -216,26 +216,46 @@ CORE03_AUDIT_EXPECTATIONS = {
         "additionalMinutes": 20,
         "phaseIds": ["review-revise-transfer"],
         "rationale": (
-            "Mehrere Perspektiven und Folgen eines fiktiven digitalen "
-            "Konflikts werden gemeinsam reflektiert und diskutiert; "
-            "respektvolle Reaktionen und passende Hilfewege werden geprüft "
-            "und die Fallkarte sowie die Regeln anschließend sichtbar "
-            "revidiert. Diese Reflexions-, Diskussions- und Revisionsarbeit "
-            "benötigt 20 Minuten."
+            "Die Auswirkungen eines fiktiven digitalen Konflikts werden aus "
+            "mehreren Perspektiven auf mehrere Folgen reflektiert und "
+            "gemeinsam diskutiert; Ergebnisse werden in der integrierten "
+            "Fallkarte und den Regeln sichtbar revidiert. Diese Reflexions-, "
+            "Diskussions- und Revisionsarbeit benötigt 20 Minuten."
         ),
         "risk": (
-            "Eine kurze Meinungsabfrage ohne Perspektivenwechsel, begründete "
-            "Diskussion und sichtbare Revision würde Konfliktfolgen, "
-            "respektvolle Reaktion und Hilfeweg nur erwähnen."
+            "Eine kurze Meinungsabfrage ohne mehrere Perspektiven, mehrere "
+            "Folgen, begründete Diskussion und sichtbare gemeinsame Revision "
+            "würde die recordgenaue Konfliktanalyse unterschreiten."
         ),
         "followUp": (
             "Im Pilot an neutralen fiktiven Fällen prüfen, ob mehrere "
-            "Perspektiven und Folgen, eine respektvolle Reaktion, ein "
-            "passender Hilfeweg und die daraus entstandene gemeinsame "
-            "Revision sichtbar erreicht werden."
+            "Perspektiven und Folgen, Ergebnisse der Reflexion und Diskussion "
+            "sowie die daraus entstandene gemeinsame Revision sichtbar "
+            "erreicht werden."
         ),
     },
 }
+
+EXPECTED_KS002_LEARNING_ACTION = (
+    "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen "
+    "Überarbeitung des bereits vorhandenen Kommunikationsleitfadens "
+    "Auswirkungen eines fiktiven digitalen Konflikts aus mehreren "
+    "Perspektiven auf mehrere Folgen reflektieren und diskutieren und die "
+    "gemeinsame Revision der integrierten Fallkarte und der Regeln anhand der "
+    "Ergebnisse sichtbar machen."
+)
+EXPECTED_KS002_PRODUCT_EVIDENCE = (
+    "Im selben Produktteil desselben gemeinsam revidierten "
+    "Kommunikationsleitfadens mit integrierten Fallkarten dokumentiert die "
+    "überarbeitete fiktive Konfliktfallkarte mehrere Perspektiven, mehrere "
+    "Folgen, Ergebnisse der Reflexion und Diskussion sowie die daraus "
+    "hervorgegangene gemeinsame Revision; verwendet werden ausschließlich "
+    "neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich "
+    "die ausgeführten Schritte und die gemeinsame Revision fest; "
+    "Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private "
+    "Nachrichten, personenbezogene Inhalte und vollständige "
+    "Kommunikationsprotokolle werden weder erhoben noch gespeichert."
+)
 
 CORE03_REGULAR_PHASE_INCREMENTS = {
     "guided-practice": (
@@ -250,14 +270,15 @@ CORE03_REGULAR_PHASE_INCREMENTS = {
         "Beispielnachrichten und einem überarbeiteten Konfliktfall.",
     ),
     "review-revise-transfer": (
-        5,
+        10,
         "Leitfaden in kooperativer Anwendung prüfen, revidieren und "
         "übertragen.",
     ),
-    "shared-consolidation": (
-        5,
-        "Kommunikationsregeln und Hilfewege gemeinsam sichern.",
-    ),
+}
+CORE03_REGULAR_DELTA_REVIEW_PROVENANCE = {
+    "guided-practice": (15, "BMB16-GYM-IK-KK-002"),
+    "independent-action-product": (20, "LH26-E-KS-001"),
+    "review-revise-transfer": (10, "LH26-E-KS-002"),
 }
 
 
@@ -1583,6 +1604,23 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
+        cls.coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.bmb_payload = json.loads(
+            (
+                root
+                / "curriculum/basiskurs-medienbildung/competencies.json"
+            ).read_text(encoding="utf-8")
+        )
+        cls.lesehilfe_payload = json.loads(
+            (
+                root
+                / "curriculum/lesehilfe-2026-27/competencies.json"
+            ).read_text(encoding="utf-8")
+        )
         cls.time_payload = json.loads(
             (root / "roadmap/time-model.json").read_text(encoding="utf-8")
         )
@@ -2163,42 +2201,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 self.assertIsNone(review["sequenceEvidenceId"])
                 self.assertEqual(review["pathAvailability"], expected_paths)
 
-        budgets_by_path = {
-            budget["pathId"]: budget
-            for budget in core03_contract["pathBudgets"]
-        }
-        baseline_phases = {
-            phase["phaseId"]: phase
-            for phase in budgets_by_path["baseline"]["phaseBudgets"]
-        }
-        regular_phases = {
-            phase["phaseId"]: phase
-            for phase in budgets_by_path["regular"]["phaseBudgets"]
-        }
-        self.assertEqual(
-            {
-                phase_id: (
-                    regular_phases[phase_id]["minutes"]
-                    - baseline_phases[phase_id]["minutes"],
-                    regular_phases[phase_id]["learningFunction"],
-                )
-                for phase_id in regular_phases
-                if (
-                    regular_phases[phase_id]["minutes"]
-                    != baseline_phases[phase_id]["minutes"]
-                )
-            },
-            CORE03_REGULAR_PHASE_INCREMENTS,
-        )
-        self.assertEqual(
-            sum(
-                increment
-                for increment, _learning_function
-                in CORE03_REGULAR_PHASE_INCREMENTS.values()
-            ),
-            45,
-        )
-
         core03_module = next(
             module
             for module in self.module_payload["modules"]
@@ -2246,6 +2248,248 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     "teacher-observable",
                 ),
             },
+        )
+        self._assert_core03_regular_delta_review_provenance(
+            reviews_by_competency_id,
+            core03_contract,
+            evidence_by_competency_id,
+        )
+        self.assertEqual(
+            evidence_by_competency_id["LH26-E-KS-002"],
+            {
+                "id": "CE-IUM-5-CORE-03-LH26-E-KS-002",
+                "competencyId": "LH26-E-KS-002",
+                "mode": "module-detail",
+                "learningAction": EXPECTED_KS002_LEARNING_ACTION,
+                "productEvidence": EXPECTED_KS002_PRODUCT_EVIDENCE,
+                "productVisibility": "shared",
+            },
+        )
+        ks002_review_text = " ".join(
+            reviews_by_competency_id["LH26-E-KS-002"][field]
+            for field in ("rationale", "risk", "followUp")
+        ).casefold()
+        self.assertNotIn("respekt", ks002_review_text)
+        self.assertNotIn("hilfeweg", ks002_review_text)
+
+    def _assert_core03_regular_delta_review_provenance(
+        self,
+        reviews_by_competency_id,
+        core03_contract,
+        evidence_by_competency_id,
+    ):
+        budgets_by_path = {
+            budget["pathId"]: budget
+            for budget in core03_contract["pathBudgets"]
+        }
+        baseline_phases = {
+            phase["phaseId"]: phase
+            for phase in budgets_by_path["baseline"]["phaseBudgets"]
+        }
+        regular_phases = {
+            phase["phaseId"]: phase
+            for phase in budgets_by_path["regular"]["phaseBudgets"]
+        }
+        actual_increments = {
+            phase_id: (
+                regular_phases[phase_id]["minutes"]
+                - baseline_phases[phase_id]["minutes"],
+                regular_phases[phase_id]["learningFunction"],
+            )
+            for phase_id in regular_phases
+            if (
+                regular_phases[phase_id]["minutes"]
+                != baseline_phases[phase_id]["minutes"]
+            )
+        }
+        self.assertEqual(
+            actual_increments,
+            CORE03_REGULAR_PHASE_INCREMENTS,
+        )
+        self.assertEqual(
+            sum(
+                increment
+                for increment, _learning_function
+                in actual_increments.values()
+            ),
+            45,
+        )
+        self.assertEqual(
+            set(actual_increments),
+            set(CORE03_REGULAR_DELTA_REVIEW_PROVENANCE),
+        )
+        for phase_id, (
+            expected_increment,
+            competency_id,
+        ) in CORE03_REGULAR_DELTA_REVIEW_PROVENANCE.items():
+            review = reviews_by_competency_id[competency_id]
+            handoff = self.handoffs_by_id[competency_id]
+            evidence = evidence_by_competency_id[competency_id]
+            self.assertEqual(
+                actual_increments[phase_id][0],
+                expected_increment,
+            )
+            self.assertIn(phase_id, review["phaseIds"])
+            self.assertGreaterEqual(
+                review["additionalMinutes"],
+                expected_increment,
+            )
+            self.assertEqual(
+                handoff["evidenceContractId"],
+                evidence["id"],
+            )
+            self.assertEqual(
+                evidence["competencyId"],
+                review["competencyId"],
+            )
+
+    def _assert_core03_ks002_review_contract(self, review):
+        expected = CORE03_AUDIT_EXPECTATIONS["LH26-E-KS-002"]
+        self.assertEqual(
+            {
+                "decision": review["decision"],
+                "additionalMinutes": review["additionalMinutes"],
+                "phaseIds": review["phaseIds"],
+                "rationale": review["rationale"],
+                "risk": review["risk"],
+                "followUp": review["followUp"],
+            },
+            expected,
+        )
+        review_text = " ".join(
+            review[field]
+            for field in ("rationale", "risk", "followUp")
+        ).casefold()
+        self.assertNotIn("respekt", review_text)
+        self.assertNotIn("hilfeweg", review_text)
+
+    def test_core03_ks002_rejects_nonrecord_evidence(self):
+        result = validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+        )
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in result.values()
+        }
+
+        for field, nonrecord_claim in (
+            (
+                "rationale",
+                " Zusätzlich wird eine respektvolle Reaktion eingeübt.",
+            ),
+            (
+                "risk",
+                " Zusätzlich könnte ein Hilfeweg fehlen.",
+            ),
+            (
+                "followUp",
+                " Zusätzlich einen Hilfeweg beobachten.",
+            ),
+        ):
+            with self.subTest(field=field):
+                weakened_reviews = copy.deepcopy(reviews_by_competency_id)
+                weakened_reviews["LH26-E-KS-002"][field] += nonrecord_claim
+                with self.assertRaises(AssertionError):
+                    self._assert_core03_ks002_review_contract(
+                        weakened_reviews["LH26-E-KS-002"],
+                    )
+
+    def test_core03_regular_delta_rejects_unreviewed_consolidation(self):
+        result = validate_time_reviews(
+            self.time_payload["timeReviews"],
+            self.remediation_payload,
+            self.repository_module_contracts,
+            self.repository_integration_contracts,
+            self.repository_annual_variants,
+            require_complete=False,
+        )
+        reviews_by_competency_id = {
+            review["competencyId"]: review for review in result.values()
+        }
+        weakened_contract = copy.deepcopy(
+            self.repository_module_contracts["IUM-5-CORE-03"]
+        )
+        regular_budget = next(
+            budget
+            for budget in weakened_contract["pathBudgets"]
+            if budget["pathId"] == "regular"
+        )
+        phases = {
+            phase["phaseId"]: phase
+            for phase in regular_budget["phaseBudgets"]
+        }
+        phases["review-revise-transfer"]["minutes"] -= 5
+        phases["shared-consolidation"]["minutes"] += 5
+        core03_module = next(
+            module
+            for module in self.module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-03"
+        )
+        evidence_by_competency_id = {
+            evidence["competencyId"]: evidence
+            for evidence in core03_module["coverageEvidence"]
+        }
+
+        with self.assertRaises(AssertionError):
+            self._assert_core03_regular_delta_review_provenance(
+                reviews_by_competency_id,
+                weakened_contract,
+                evidence_by_competency_id,
+            )
+
+    def test_core03_respect_and_help_keep_their_canonical_records(self):
+        coverage_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.coverage_payload["entries"]
+        }
+        bmb_by_id = {
+            record["id"]: record for record in self.bmb_payload["records"]
+        }
+        lesehilfe_by_id = {
+            record["id"]: record
+            for record in self.lesehilfe_payload["records"]
+        }
+
+        self.assertEqual(
+            (
+                bmb_by_id["BMB16-GYM-IK-KK-001"]["sourceText"],
+                coverage_by_id["BMB16-GYM-IK-KK-001"][
+                    "evidenceModuleId"
+                ],
+                coverage_by_id["BMB16-GYM-IK-KK-001"][
+                    "requirementText"
+                ],
+            ),
+            (
+                "wichtige Regeln zur Kommunikation im Netz herausarbeiten "
+                "und sich angemessen verhalten: zum Beispiel respektvolle "
+                "Kommunikation (Netiquette), Umgang mit privaten Daten, "
+                "Unterscheidung zwischen privaten und öffentlichen Daten, "
+                "Cybermobbing",
+                "IUM-5-CORE-03",
+                "wichtige Regeln zur Kommunikation im Netz herausarbeiten "
+                "und sich angemessen verhalten",
+            ),
+        )
+        self.assertEqual(
+            (
+                lesehilfe_by_id["LH26-E-KS-014"]["sourceText"],
+                coverage_by_id["LH26-E-KS-014"]["evidenceModuleId"],
+                coverage_by_id["LH26-E-KS-014"]["evidenceContractId"],
+            ),
+            (
+                "Merkmale verletzenden oder ausgrenzenden Verhaltens in "
+                "digitalen Kommunikationsräumen (zum Beispiel Cybermobbing, "
+                "Hassrede) beschreiben und exemplarisch Handlungsstrategien "
+                "im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder "
+                "Meldemöglichkeiten nennen",
+                "IUM-6-CORE-06",
+                "CE-IUM-6-CORE-06-LH26-E-KS-014",
+            ),
         )
 
     def test_id009_repository_contract_rejects_generic_audit_text(self):

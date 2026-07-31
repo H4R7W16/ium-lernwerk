@@ -294,8 +294,8 @@
             {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Adressatenbezug, Kommunikationsregeln, Datenschutz und Hilfewege aufbauen."},
             {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Fiktive Nachrichten und Konfliktfälle im lokalen Kanal angeleitet prüfen und überarbeiten."},
             {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall."},
-            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Leitfaden in kooperativer Anwendung prüfen, revidieren und übertragen."},
-            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Leitfaden in kooperativer Anwendung prüfen, revidieren und übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 15, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
           ],
           "sharedAllocations": []
         },
@@ -311,8 +311,8 @@
             {"phaseId": "build-concept", "minutes": 30, "learningFunction": "Adressatenbezug, Kommunikationsregeln, Datenschutz und Hilfewege aufbauen."},
             {"phaseId": "guided-practice", "minutes": 55, "learningFunction": "Fiktive Nachrichten und Konfliktfälle im lokalen Kanal angeleitet prüfen und überarbeiten."},
             {"phaseId": "independent-action-product", "minutes": 65, "learningFunction": "Das zentrale Lernprodukt eigenständig erstellen: Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall."},
-            {"phaseId": "review-revise-transfer", "minutes": 30, "learningFunction": "Leitfaden in kooperativer Anwendung prüfen, revidieren und übertragen."},
-            {"phaseId": "shared-consolidation", "minutes": 20, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
+            {"phaseId": "review-revise-transfer", "minutes": 35, "learningFunction": "Leitfaden in kooperativer Anwendung prüfen, revidieren und übertragen."},
+            {"phaseId": "shared-consolidation", "minutes": 15, "learningFunction": "Kommunikationsregeln und Hilfewege gemeinsam sichern."}
           ],
           "sharedAllocations": []
         }
@@ -2632,7 +2632,7 @@
       "moduleId": "IUM-5-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Mehrere Perspektiven und Folgen eines fiktiven digitalen Konflikts werden gemeinsam reflektiert und diskutiert; respektvolle Reaktionen und passende Hilfewege werden geprüft und die Fallkarte sowie die Regeln anschließend sichtbar revidiert. Diese Reflexions-, Diskussions- und Revisionsarbeit benötigt 20 Minuten.",
+      "rationale": "Die Auswirkungen eines fiktiven digitalen Konflikts werden aus mehreren Perspektiven auf mehrere Folgen reflektiert und gemeinsam diskutiert; Ergebnisse werden in der integrierten Fallkarte und den Regeln sichtbar revidiert. Diese Reflexions-, Diskussions- und Revisionsarbeit benötigt 20 Minuten.",
       "phaseIds": [
         "review-revise-transfer"
       ],
@@ -2645,8 +2645,8 @@
         "GRADE-5-EXTENDED"
       ],
       "coverageConsequence": "semantic-status-unchanged",
-      "risk": "Eine kurze Meinungsabfrage ohne Perspektivenwechsel, begründete Diskussion und sichtbare Revision würde Konfliktfolgen, respektvolle Reaktion und Hilfeweg nur erwähnen.",
-      "followUp": "Im Pilot an neutralen fiktiven Fällen prüfen, ob mehrere Perspektiven und Folgen, eine respektvolle Reaktion, ein passender Hilfeweg und die daraus entstandene gemeinsame Revision sichtbar erreicht werden.",
+      "risk": "Eine kurze Meinungsabfrage ohne mehrere Perspektiven, mehrere Folgen, begründete Diskussion und sichtbare gemeinsame Revision würde die recordgenaue Konfliktanalyse unterschreiten.",
+      "followUp": "Im Pilot an neutralen fiktiven Fällen prüfen, ob mehrere Perspektiven und Folgen, Ergebnisse der Reflexion und Diskussion sowie die daraus entstandene gemeinsame Revision sichtbar erreicht werden.",
       "status": "working"
     },
     {
