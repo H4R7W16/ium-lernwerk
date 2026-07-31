@@ -3058,11 +3058,24 @@ class IUM10TimeReviewTests(unittest.TestCase):
 
         complete_nonprivacy_baseline = copy.deepcopy(self.remediation_payload)
         for entry in complete_nonprivacy_baseline["entries"]:
-            if entry["before"]["evidenceModuleId"] in {
-                "IUM-7-CORE-08",
-                "IUM-7-CORE-10",
+            if entry["competencyId"] in {
+                "LH26-E-DP-013",
+                "LH26-E-DP-014",
             }:
                 entry["causeClass"] = "module-detail"
+        original_handoffs_by_id = {
+            entry["competencyId"]: entry
+            for entry in self.remediation_payload["entries"]
+        }
+        changed_handoff_ids = {
+            entry["competencyId"]
+            for entry in complete_nonprivacy_baseline["entries"]
+            if entry != original_handoffs_by_id[entry["competencyId"]]
+        }
+        self.assertEqual(
+            changed_handoff_ids,
+            {"LH26-E-DP-013", "LH26-E-DP-014"},
+        )
         repository_private_reviews = {
             review["competencyId"]: review
             for review in self.time_payload["timeReviews"]
