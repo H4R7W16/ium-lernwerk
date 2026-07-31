@@ -16,9 +16,13 @@ from scripts.validate_ium10 import (
     validate_capacity_model,
     validate_integration_contracts,
     validate_module_contracts,
+    validate_time_reviews,
     validate_time_model_draft,
     validate_ium10_baseline,
 )
+
+
+TIME_AUDIT_DECISIONS = {}
 
 
 EXPECTED_GRADE_5_UNITS = {
@@ -1319,6 +1323,345 @@ class IUM10AnnualVariantTests(unittest.TestCase):
         )
 
         self.assertEqual(set(result), {"GRADE-5-OVERRIDE-TEST"})
+
+
+class IUM10TimeReviewTests(unittest.TestCase):
+    VARIANT_ID = "GRADE-TEST-BASELINE"
+    INTEGRATION_ID = "INT-TEST-TIME-REVIEW"
+    REVIEW_REQUIRED_IDS = (
+        "BMB16-GYM-IK-GM-001",
+        "BMB16-GYM-IK-GM-002",
+        "BMB16-GYM-IK-GM-003",
+        "BMB16-GYM-IK-KK-002",
+    )
+
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.handoffs_by_id = {
+            entry["competencyId"]: entry
+            for entry in cls.remediation_payload["entries"]
+        }
+
+    @classmethod
+    def module_contracts(cls):
+        module_ids = {
+            entry["before"]["evidenceModuleId"]
+            for entry in cls.remediation_payload["entries"]
+        }
+        return {
+            module_id: {
+                "moduleId": module_id,
+                "centralLearningProduct": (
+                    f"Eine überprüfbare Produktspur für {module_id}."
+                ),
+                "pathBudgets": [
+                    {
+                        "pathId": "baseline",
+                        "phaseBudgets": [
+                            {
+                                "phaseId": "guided-practice",
+                                "minutes": 45,
+                            },
+                            {
+                                "phaseId": "independent-action-product",
+                                "minutes": 45,
+                            },
+                        ],
+                    }
+                ],
+            }
+            for module_id in module_ids
+        }
+
+    @classmethod
+    def integration_contracts(cls):
+        return {
+            cls.INTEGRATION_ID: {
+                "id": cls.INTEGRATION_ID,
+                "moduleIds": ["IUM-5-CORE-01", "IUM-5-CORE-03"],
+                "pathIds": ["baseline"],
+                "countedInModuleId": "IUM-5-CORE-03",
+                "sharedMinutes": 45,
+                "status": "working",
+            }
+        }
+
+    @classmethod
+    def annual_variants(cls):
+        return {
+            cls.VARIANT_ID: {
+                "id": cls.VARIANT_ID,
+                "allocations": [
+                    {
+                        "moduleId": module_id,
+                        "budgetPathId": "baseline",
+                        "units": 1,
+                    }
+                    for module_id in sorted(cls.module_contracts())
+                ],
+                "available": True,
+            }
+        }
+
+    @classmethod
+    def review(cls, competency_id, decision):
+        handoff = cls.handoffs_by_id[competency_id]
+        review = {
+            "id": f"TR-{competency_id}",
+            "competencyId": competency_id,
+            "moduleId": handoff["before"]["evidenceModuleId"],
+            "sourceTimeImpactLevel": handoff["timeImpact"]["level"],
+            "decision": decision,
+            "rationale": "Die Zeitentscheidung ist an der Lernhandlung geprüft.",
+            "phaseIds": ["guided-practice"],
+            "additionalMinutes": 0,
+            "integrationContractIds": [],
+            "sequenceEvidenceId": None,
+            "pathAvailability": [cls.VARIANT_ID],
+            "coverageConsequence": "semantic-status-unchanged",
+            "risk": "Die Zeitannahme muss im Modulbetrieb pilotiert werden.",
+            "followUp": "Die tatsächlichen Modulminuten aggregiert prüfen.",
+            "status": "working",
+        }
+        if decision == "integrated":
+            review["integrationContractIds"] = [cls.INTEGRATION_ID]
+        elif decision == "additional-time":
+            review["additionalMinutes"] = 15
+        elif decision == "unresolved":
+            review["phaseIds"] = []
+            review["pathAvailability"] = []
+        if handoff["timeImpact"]["level"] == "roadmap-dependent":
+            review["phaseIds"] = []
+            review["additionalMinutes"] = 0
+            review["integrationContractIds"] = []
+            review["sequenceEvidenceId"] = f"SE-{competency_id}"
+            review["pathAvailability"] = []
+        return review
+
+    def validate_reviews(
+        self,
+        reviews,
+        *,
+        remediation_payload=None,
+        module_contracts=None,
+        integration_contracts=None,
+        annual_variants=None,
+        require_complete=False,
+    ):
+        return validate_time_reviews(
+            reviews,
+            (
+                self.remediation_payload
+                if remediation_payload is None
+                else remediation_payload
+            ),
+            self.module_contracts()
+            if module_contracts is None
+            else module_contracts,
+            self.integration_contracts()
+            if integration_contracts is None
+            else integration_contracts,
+            self.annual_variants()
+            if annual_variants is None
+            else annual_variants,
+            require_complete,
+        )
+
+    def test_accepts_hand_built_absorbed_integrated_additional_and_unresolved_reviews(self):
+        decisions = ("absorbed", "integrated", "additional-time", "unresolved")
+        reviews = [
+            self.review(competency_id, decision)
+            for competency_id, decision in zip(
+                self.REVIEW_REQUIRED_IDS,
+                decisions,
+            )
+        ]
+
+        result = self.validate_reviews(reviews)
+
+        self.assertEqual(
+            set(result),
+            {f"TR-{competency_id}" for competency_id in self.REVIEW_REQUIRED_IDS},
+        )
+        self.assertEqual(
+            result["TR-BMB16-GYM-IK-GM-003"]["additionalMinutes"],
+            15,
+        )
+        self.assertEqual(
+            result["TR-BMB16-GYM-IK-GM-002"]["integrationContractIds"],
+            [self.INTEGRATION_ID],
+        )
+
+    def test_rejects_duplicate_review_id_wrong_module_or_wrong_source_level(self):
+        first = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+        second = self.review(self.REVIEW_REQUIRED_IDS[1], "absorbed")
+        second["id"] = first["id"]
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([first, second])
+
+        mutations = (
+            ("moduleId", "IUM-5-CORE-99"),
+            ("sourceTimeImpactLevel", "roadmap-dependent"),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                review = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+                review[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews([review])
+
+    def test_rejects_unknown_phase_integration_or_annual_variant(self):
+        mutations = (
+            ("phaseIds", ["unknown-phase"]),
+            ("integrationContractIds", ["INT-UNKNOWN"]),
+            ("pathAvailability", ["GRADE-UNKNOWN"]),
+        )
+        for field, value in mutations:
+            with self.subTest(field=field):
+                review = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+                review[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews([review])
+
+    def test_enforces_each_decision_minute_path_risk_and_product_contract(self):
+        mutations = (
+            ("absorbed with additional time", "absorbed", "additionalMinutes", 1),
+            (
+                "integrated without time or integration",
+                "integrated",
+                "integrationContractIds",
+                [],
+            ),
+            ("additional time with zero minutes", "additional-time", "additionalMinutes", 0),
+            ("unresolved with an available path", "unresolved", "pathAvailability", [self.VARIANT_ID]),
+            ("unresolved with empty risk", "unresolved", "risk", ""),
+            ("unresolved with empty follow-up", "unresolved", "followUp", ""),
+        )
+        for label, decision, field, value in mutations:
+            with self.subTest(label=label):
+                review = self.review(self.REVIEW_REQUIRED_IDS[0], decision)
+                review[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews([review])
+
+        review = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+        module_contracts = self.module_contracts()
+        module_contracts[review["moduleId"]]["centralLearningProduct"] = ""
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [review],
+                module_contracts=module_contracts,
+            )
+
+    def test_roadmap_dependent_review_uses_sequence_evidence_not_a_single_phase(self):
+        competency_id = "LH26-E-PROG-001"
+        review = self.review(competency_id, "unresolved")
+
+        result = self.validate_reviews([review])
+
+        self.assertEqual(
+            result[f"TR-{competency_id}"]["sequenceEvidenceId"],
+            f"SE-{competency_id}",
+        )
+        self.assertEqual(result[f"TR-{competency_id}"]["phaseIds"], [])
+
+        mutations = (
+            ("single phase evidence", "phaseIds", ["guided-practice"]),
+            ("missing sequence evidence", "sequenceEvidenceId", None),
+            ("wrong sequence evidence", "sequenceEvidenceId", "SE-OTHER"),
+        )
+        for label, field, value in mutations:
+            with self.subTest(label=label):
+                invalid = self.review(competency_id, "unresolved")
+                invalid[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews([invalid])
+
+    def test_additional_minutes_must_be_in_each_available_module_budget(self):
+        review = self.review(self.REVIEW_REQUIRED_IDS[0], "additional-time")
+        review["additionalMinutes"] = 45
+        self.validate_reviews([review])
+
+        review["additionalMinutes"] = 46
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([review])
+
+        annual_variants = self.annual_variants()
+        annual_variants[self.VARIANT_ID]["allocations"] = [
+            allocation
+            for allocation in annual_variants[self.VARIANT_ID]["allocations"]
+            if allocation["moduleId"] != review["moduleId"]
+        ]
+        review["additionalMinutes"] = 15
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [review],
+                annual_variants=annual_variants,
+            )
+
+    def test_rejects_boolean_minutes_and_non_exact_fields(self):
+        review = self.review(self.REVIEW_REQUIRED_IDS[0], "additional-time")
+        review["additionalMinutes"] = True
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([review])
+
+        missing = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+        missing.pop("coverageConsequence")
+        unexpected = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+        unexpected["note"] = "Nicht Teil des Vertrags."
+        for review in (missing, unexpected):
+            with self.subTest(fields=set(review)):
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate_reviews([review])
+
+    def test_partial_mode_requires_a_unique_subset_of_the_exact_baseline(self):
+        review = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+        self.assertEqual(
+            self.validate_reviews([review]),
+            {review["id"]: review},
+        )
+
+        incomplete_baseline = copy.deepcopy(self.remediation_payload)
+        incomplete_baseline["entries"].pop()
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews(
+                [review],
+                remediation_payload=incomplete_baseline,
+            )
+
+        unknown = copy.deepcopy(review)
+        unknown["id"] = "TR-COMP-UNKNOWN"
+        unknown["competencyId"] = "COMP-UNKNOWN"
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([unknown])
+
+    def test_complete_mode_requires_exactly_all_sixty_baseline_ids(self):
+        partial = self.review(self.REVIEW_REQUIRED_IDS[0], "absorbed")
+        with self.assertRaises(IUM10ValidationError):
+            self.validate_reviews([partial], require_complete=True)
+
+        reviews = []
+        for entry in self.remediation_payload["entries"]:
+            decision = (
+                "unresolved"
+                if entry["timeImpact"]["level"] == "roadmap-dependent"
+                else "absorbed"
+            )
+            reviews.append(self.review(entry["competencyId"], decision))
+
+        result = self.validate_reviews(reviews, require_complete=True)
+
+        self.assertEqual(len(result), 60)
+        self.assertEqual(
+            {review["competencyId"] for review in result.values()},
+            set(self.handoffs_by_id),
+        )
 
 
 class IUM10Grade5RepositoryTests(unittest.TestCase):

@@ -1913,6 +1913,377 @@ def validate_annual_variants(
     return variants_by_id
 
 
+def validate_time_reviews(
+    time_reviews,
+    remediation_payload,
+    module_contracts,
+    integration_contracts,
+    annual_variants,
+    require_complete=False,
+):
+    """Validate time reviews and return them keyed by review id."""
+    _require(
+        isinstance(require_complete, bool),
+        "require_complete must be a boolean",
+    )
+    _require(
+        isinstance(module_contracts, dict),
+        "validated module contracts must be keyed by module id",
+    )
+    _require(
+        isinstance(integration_contracts, dict),
+        "validated integration contracts must be keyed by contract id",
+    )
+    _require(
+        isinstance(annual_variants, dict),
+        "validated annual variants must be keyed by variant id",
+    )
+
+    handoff_entries = (
+        remediation_payload.get("entries")
+        if isinstance(remediation_payload, dict)
+        else None
+    )
+    _require(
+        isinstance(handoff_entries, list),
+        "remediation payload must contain entries",
+    )
+    handoffs_by_id = {}
+    for handoff in handoff_entries:
+        _require(
+            isinstance(handoff, dict),
+            "time handoff must be an object",
+        )
+        competency_id = handoff.get("competencyId")
+        before = handoff.get("before")
+        time_impact = handoff.get("timeImpact")
+        _require(
+            isinstance(competency_id, str)
+            and competency_id.strip()
+            and isinstance(before, dict)
+            and isinstance(before.get("evidenceModuleId"), str)
+            and before["evidenceModuleId"].strip()
+            and isinstance(time_impact, dict)
+            and time_impact.get("level")
+            in {"review-required", "roadmap-dependent"}
+            and isinstance(time_impact.get("rationale"), str)
+            and time_impact["rationale"].strip(),
+            "invalid IUM09 time handoff",
+        )
+        _require(
+            competency_id not in handoffs_by_id,
+            "time handoff ids must be unique",
+        )
+        handoffs_by_id[competency_id] = handoff
+    _require(
+        len(handoffs_by_id) == len(handoff_entries) == 60,
+        "time handoffs must be exactly 60 and unique",
+    )
+    _require(
+        Counter(
+            handoff["timeImpact"]["level"]
+            for handoff in handoff_entries
+        )
+        == Counter({"review-required": 56, "roadmap-dependent": 4}),
+        "time handoff level counts differ from immutable IUM09 baseline",
+    )
+    _require(
+        {
+            competency_id
+            for competency_id, handoff in handoffs_by_id.items()
+            if handoff["timeImpact"]["level"] == "roadmap-dependent"
+        }
+        == ROADMAP_DEPENDENT_IDS,
+        "roadmap-dependent handoff ids differ from immutable IUM09 baseline",
+    )
+    _require(
+        time_handoff_fingerprint(remediation_payload)
+        == BASELINE_TIME_HANDOFF_SHA256,
+        "time handoff fingerprint differs from immutable IUM09 baseline",
+    )
+
+    _require(isinstance(time_reviews, list), "time reviews must be a list")
+    review_fields = {
+        "id",
+        "competencyId",
+        "moduleId",
+        "sourceTimeImpactLevel",
+        "decision",
+        "rationale",
+        "phaseIds",
+        "additionalMinutes",
+        "integrationContractIds",
+        "sequenceEvidenceId",
+        "pathAvailability",
+        "coverageConsequence",
+        "risk",
+        "followUp",
+        "status",
+    }
+    reviews_by_id = {}
+    reviewed_competency_ids = set()
+    for review in time_reviews:
+        _require(isinstance(review, dict), "time review must be an object")
+        _require(
+            set(review) == review_fields,
+            "time review fields differ from the IUM10 contract",
+        )
+
+        competency_id = review["competencyId"]
+        _require(
+            isinstance(competency_id, str)
+            and competency_id in handoffs_by_id,
+            f"unknown competency for time review: {competency_id}",
+        )
+        _require(
+            competency_id not in reviewed_competency_ids,
+            f"competency needs at most one time review: {competency_id}",
+        )
+        reviewed_competency_ids.add(competency_id)
+
+        review_id = review["id"]
+        _require(
+            isinstance(review_id, str)
+            and review_id == f"TR-{competency_id}",
+            f"invalid time review id: {competency_id}",
+        )
+        _require(
+            review_id not in reviews_by_id,
+            "time review ids must be unique",
+        )
+
+        handoff = handoffs_by_id[competency_id]
+        module_id = review["moduleId"]
+        _require(
+            module_id == handoff["before"]["evidenceModuleId"]
+            and module_id in module_contracts,
+            f"time review module differs from IUM09 handoff: {competency_id}",
+        )
+        _require(
+            review["sourceTimeImpactLevel"]
+            == handoff["timeImpact"]["level"],
+            f"time review source level differs from IUM09 handoff: {competency_id}",
+        )
+        _require(
+            review["decision"]
+            in {"absorbed", "integrated", "additional-time", "unresolved"},
+            f"invalid time review decision: {competency_id}",
+        )
+        for field in (
+            "rationale",
+            "coverageConsequence",
+            "risk",
+            "followUp",
+        ):
+            _require(
+                isinstance(review[field], str) and review[field].strip(),
+                f"time review {field} must be a nonempty string: {competency_id}",
+            )
+        _require(
+            isinstance(review["status"], str)
+            and review["status"] in CONTRACT_STATUSES,
+            f"invalid time review status: {competency_id}",
+        )
+        _require(
+            _nonnegative_int(review["additionalMinutes"]),
+            f"additional minutes must be a non-negative integer: {competency_id}",
+        )
+
+        phase_ids = review["phaseIds"]
+        _require(
+            isinstance(phase_ids, list)
+            and all(
+                isinstance(phase_id, str) and phase_id.strip()
+                for phase_id in phase_ids
+            )
+            and len(phase_ids) == len(set(phase_ids)),
+            f"invalid time review phase ids: {competency_id}",
+        )
+        module_contract = module_contracts[module_id]
+        _require(
+            isinstance(module_contract, dict),
+            f"invalid validated module contract: {module_id}",
+        )
+        module_phase_ids = {
+            phase_budget.get("phaseId")
+            for budget in module_contract.get("pathBudgets", [])
+            if isinstance(budget, dict)
+            for phase_budget in budget.get("phaseBudgets", [])
+            if isinstance(phase_budget, dict)
+        }
+        _require(
+            set(phase_ids) <= module_phase_ids,
+            f"time review references unknown module phase: {competency_id}",
+        )
+
+        integration_ids = review["integrationContractIds"]
+        _require(
+            isinstance(integration_ids, list)
+            and all(
+                isinstance(integration_id, str) and integration_id.strip()
+                for integration_id in integration_ids
+            )
+            and len(integration_ids) == len(set(integration_ids)),
+            f"invalid time review integration ids: {competency_id}",
+        )
+        for integration_id in integration_ids:
+            _require(
+                integration_id in integration_contracts
+                and module_id
+                in integration_contracts[integration_id].get("moduleIds", []),
+                f"time review references unknown integration: {competency_id}",
+            )
+
+        path_availability = review["pathAvailability"]
+        _require(
+            isinstance(path_availability, list)
+            and all(
+                isinstance(variant_id, str) and variant_id.strip()
+                for variant_id in path_availability
+            )
+            and len(path_availability) == len(set(path_availability)),
+            f"invalid time review path availability: {competency_id}",
+        )
+        _require(
+            set(path_availability) <= set(annual_variants),
+            f"time review references unknown annual variant: {competency_id}",
+        )
+
+        is_roadmap_dependent = (
+            review["sourceTimeImpactLevel"] == "roadmap-dependent"
+        )
+        if is_roadmap_dependent:
+            _require(
+                phase_ids == [],
+                "roadmap-dependent review cannot use single-phase evidence: "
+                f"{competency_id}",
+            )
+            _require(
+                review["sequenceEvidenceId"] == f"SE-{competency_id}",
+                "roadmap-dependent review needs its sequence evidence id: "
+                f"{competency_id}",
+            )
+        else:
+            _require(
+                review["sequenceEvidenceId"] is None,
+                "review-required handoff cannot use sequence evidence: "
+                f"{competency_id}",
+            )
+
+        decision = review["decision"]
+        additional_minutes = review["additionalMinutes"]
+        if decision == "absorbed":
+            _require(
+                additional_minutes == 0
+                and bool(phase_ids)
+                and not integration_ids,
+                "absorbed review needs an existing positive phase and no "
+                f"additional or integration time: {competency_id}",
+            )
+            _require(
+                isinstance(module_contract.get("centralLearningProduct"), str)
+                and module_contract["centralLearningProduct"].strip(),
+                f"absorbed review needs an existing module product: {competency_id}",
+            )
+        elif decision == "integrated":
+            _require(
+                additional_minutes > 0 or bool(integration_ids),
+                "integrated review needs positive own or integration time: "
+                f"{competency_id}",
+            )
+            _require(
+                additional_minutes == 0 or bool(phase_ids),
+                "integrated own time needs a positive phase binding: "
+                f"{competency_id}",
+            )
+        elif decision == "additional-time":
+            _require(
+                additional_minutes > 0
+                and bool(phase_ids)
+                and not integration_ids,
+                "additional-time review needs positive phase-bound minutes "
+                f"without integration time: {competency_id}",
+            )
+        else:
+            _require(
+                additional_minutes == 0
+                and phase_ids == []
+                and not integration_ids
+                and path_availability == [],
+                "unresolved review cannot claim phases, time, integration, "
+                f"or an available path: {competency_id}",
+            )
+
+        if decision != "unresolved":
+            _require(
+                bool(path_availability),
+                f"resolved time review needs an available path: {competency_id}",
+            )
+
+        if additional_minutes > 0:
+            budgets_by_path_id = {
+                budget.get("pathId"): budget
+                for budget in module_contract.get("pathBudgets", [])
+                if isinstance(budget, dict)
+                and isinstance(budget.get("pathId"), str)
+            }
+            for variant_id in path_availability:
+                annual_variant = annual_variants[variant_id]
+                allocations = (
+                    annual_variant.get("allocations")
+                    if isinstance(annual_variant, dict)
+                    else None
+                )
+                _require(
+                    isinstance(allocations, list),
+                    f"invalid validated annual variant: {variant_id}",
+                )
+                module_allocations = [
+                    allocation
+                    for allocation in allocations
+                    if isinstance(allocation, dict)
+                    and allocation.get("moduleId") == module_id
+                ]
+                _require(
+                    len(module_allocations) == 1,
+                    "time review path must allocate its module exactly once: "
+                    f"{competency_id}/{variant_id}",
+                )
+                budget_path_id = module_allocations[0].get("budgetPathId")
+                _require(
+                    budget_path_id in budgets_by_path_id,
+                    "time review path references an unknown module budget: "
+                    f"{competency_id}/{variant_id}",
+                )
+                budget = budgets_by_path_id[budget_path_id]
+                included_phase_minutes = sum(
+                    phase_budget.get("minutes", 0)
+                    for phase_budget in budget.get("phaseBudgets", [])
+                    if isinstance(phase_budget, dict)
+                    and phase_budget.get("phaseId") in phase_ids
+                    and _nonnegative_int(phase_budget.get("minutes"))
+                )
+                _require(
+                    included_phase_minutes >= additional_minutes,
+                    "additional minutes must already be included in the selected "
+                    f"module budget: {competency_id}/{variant_id}",
+                )
+
+        reviews_by_id[review_id] = review
+
+    if require_complete:
+        _require(
+            reviewed_competency_ids == set(handoffs_by_id),
+            "complete time reviews must match all 60 baseline handoff ids",
+        )
+    else:
+        _require(
+            reviewed_competency_ids <= set(handoffs_by_id),
+            "partial time reviews must be a subset of baseline handoff ids",
+        )
+    return reviews_by_id
+
+
 def validate_ium10_baseline(module_payload, coverage_payload, remediation_payload):
     """Validate the immutable IUM09 baseline consumed by IUM10."""
     modules = module_payload.get("modules") if isinstance(module_payload, dict) else None
