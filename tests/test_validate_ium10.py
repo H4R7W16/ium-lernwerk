@@ -12370,6 +12370,88 @@ class IUM10SequenceEvidenceTests(unittest.TestCase):
         with self.assertRaises(IUM10ValidationError):
             self._validate(records)
 
+    def test_sequence_validator_rejects_non_integer_grade_and_unit_fields(self):
+        grade_mutations = (
+            ("scope grade float", ("grades", 0), 5.0),
+            ("scope grade bool", ("grades", 0), True),
+            ("progression grade float", ("progression", 0, "grade"), 5.0),
+            ("progression grade bool", ("progression", 0, "grade"), True),
+            (
+                "operator depth grade float",
+                ("operatorProductDepth", 0, "grade"),
+                5.0,
+            ),
+            (
+                "operator depth grade bool",
+                ("operatorProductDepth", 0, "grade"),
+                True,
+            ),
+        )
+        for label, path, value in grade_mutations:
+            with self.subTest(mutation=label):
+                records = self._sequence_records()
+                target = records[0]
+                for key in path[:-1]:
+                    target = target[key]
+                target[path[-1]] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(records)
+
+        unit_mutations = (
+            ("target units float", 0, "targetUnits", 30.0),
+            ("target units bool", 0, "targetUnits", True),
+            ("scope units float", 0, "scopeUnits", 30.0),
+            ("scope units bool", 0, "scopeUnits", True),
+            ("weight group units float", 2, "units", 30.0),
+            ("weight group units bool", 2, "units", True),
+        )
+        for label, record_index, field, value in unit_mutations:
+            with self.subTest(mutation=label):
+                records = self._sequence_records()
+                time_record = records[record_index]["timeEvidence"][0]
+                if field == "units":
+                    time_record["weightGroups"][0][field] = value
+                else:
+                    time_record[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(records)
+
+    def test_sequence_validator_rejects_python_bool_int_equality_proxies(self):
+        for value in (0.0, False):
+            with self.subTest(field="additionalMinutes", value=value):
+                reviews = copy.deepcopy(self.time_reviews)
+                reviews["TR-LH26-E-PROG-001"]["additionalMinutes"] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(time_reviews=reviews)
+
+        for value in (1, "available"):
+            with self.subTest(field="available", value=value):
+                records = self._sequence_records()
+                variants = copy.deepcopy(self.annual_variants)
+                variant_id = "GRADE-5-BASELINE"
+                variants[variant_id]["available"] = value
+                for evidence in records:
+                    for time_record in evidence["timeEvidence"]:
+                        if time_record["variantId"] == variant_id:
+                            time_record["available"] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(records, annual_variants=variants)
+
+    def test_sequence_validator_rejects_internally_inconsistent_variants(self):
+        mutations = (
+            ("id differs from dictionary key", "id", "GRADE-5-SPOOFED"),
+            ("kind differs from grade", "kind", "demand-scenario"),
+            ("grade differs from scope", "grade", 6),
+            ("grade float", "grade", 5.0),
+            ("grade bool", "grade", True),
+        )
+        for label, field, value in mutations:
+            with self.subTest(mutation=label):
+                variants = copy.deepcopy(self.annual_variants)
+                variants["GRADE-5-BASELINE"][field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self._validate(annual_variants=variants)
+
     def test_covered_requires_passed_audit_and_a_genuinely_available_path(self):
         records = self._sequence_records()
         records[0]["fachAuditStatus"] = "failed"

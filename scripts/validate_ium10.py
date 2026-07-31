@@ -2905,7 +2905,9 @@ def validate_sequence_evidence(
 
         expected_scope = SEQUENCE_SCOPES[competency_id]
         _require(
-            evidence["grades"] == expected_scope["grades"],
+            isinstance(evidence["grades"], list)
+            and all(_positive_int(grade) for grade in evidence["grades"])
+            and evidence["grades"] == expected_scope["grades"],
             f"sequence grades differ from the approved scope: {competency_id}",
         )
         _require(
@@ -2925,6 +2927,7 @@ def validate_sequence_evidence(
         _require(
             review.get("sourceTimeImpactLevel") == "roadmap-dependent"
             and review.get("decision") == "unresolved"
+            and _nonnegative_int(review.get("additionalMinutes"))
             and review.get("additionalMinutes") == 0
             and review.get("phaseIds") == []
             and review.get("integrationContractIds") == []
@@ -2956,7 +2959,8 @@ def validate_sequence_evidence(
             )
             grade = step["grade"]
             _require(
-                grade in expected_modules_by_grade
+                _positive_int(grade)
+                and grade in expected_modules_by_grade
                 and grade not in progression_by_grade
                 and step["moduleIds"] == expected_modules_by_grade[grade]
                 and isinstance(step["learningDepth"], str)
@@ -2984,7 +2988,8 @@ def validate_sequence_evidence(
             )
             grade = depth["grade"]
             _require(
-                grade in expected_modules_by_grade
+                _positive_int(grade)
+                and grade in expected_modules_by_grade
                 and grade not in depth_by_grade
                 and isinstance(depth["operatorDepth"], str)
                 and depth["operatorDepth"].strip()
@@ -3069,6 +3074,28 @@ def validate_sequence_evidence(
                 and isinstance(variant, dict),
                 f"unknown or duplicate sequence variant: {competency_id}/{variant_id}",
             )
+            scope_module_ids = expected_variant_modules[variant_id]
+            expected_variant_grades = {
+                int(module_id.split("-")[1]) for module_id in scope_module_ids
+            }
+            _require(
+                len(expected_variant_grades) == 1,
+                f"sequence variant scope spans multiple grades: {competency_id}/{variant_id}",
+            )
+            expected_variant_grade = next(iter(expected_variant_grades))
+            expected_variant_kind = (
+                "demand-scenario"
+                if expected_variant_grade == 7
+                else "planning-path"
+            )
+            _require(
+                variant.get("id") == variant_id
+                and _positive_int(variant.get("grade"))
+                and variant["grade"] == expected_variant_grade
+                and variant.get("kind") == expected_variant_kind
+                and isinstance(variant.get("available"), bool),
+                f"sequence variant identity is invalid: {competency_id}/{variant_id}",
+            )
             allocations = variant.get("allocations")
             _require(
                 isinstance(allocations, list),
@@ -3084,7 +3111,6 @@ def validate_sequence_evidence(
                     f"sequence variant allocation is invalid: {variant_id}",
                 )
                 allocation_units[allocation["moduleId"]] = allocation["units"]
-            scope_module_ids = expected_variant_modules[variant_id]
             _require(
                 time_record["scopeModuleIds"] == scope_module_ids
                 and set(scope_module_ids) <= set(allocation_units),
@@ -3094,9 +3120,12 @@ def validate_sequence_evidence(
                 allocation_units[module_id] for module_id in scope_module_ids
             )
             _require(
-                time_record["available"] is variant.get("available")
+                isinstance(time_record["available"], bool)
+                and time_record["available"] is variant.get("available")
                 and _positive_int(variant.get("targetUnits"))
+                and _positive_int(time_record["targetUnits"])
                 and time_record["targetUnits"] == variant["targetUnits"]
+                and _positive_int(time_record["scopeUnits"])
                 and time_record["scopeUnits"] == derived_scope_units
                 and isinstance(time_record["rationale"], str)
                 and time_record["rationale"].strip(),
@@ -3124,8 +3153,8 @@ def validate_sequence_evidence(
                         isinstance(expected_group_modules, list)
                         and group_id not in groups_by_id
                         and group["moduleIds"] == expected_group_modules
-                        and group["units"]
-                        == sum(
+                        and _positive_int(group["units"])
+                        and group["units"] == sum(
                             allocation_units[module_id]
                             for module_id in expected_group_modules
                         ),
