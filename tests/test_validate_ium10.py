@@ -3292,32 +3292,29 @@ class IUM10TimeReviewTests(unittest.TestCase):
         for sentence in sentences:
             private_context = False
             for clause in self._core07_private_handling_clauses(sentence):
-                if re.search(r"\b(?:privat|persönlich)\w*", clause):
+                clause_tokens = self._core07_privacy_tokens(clause)
+                if any(
+                    token.startswith(("privat", "persönlich"))
+                    for token in clause_tokens
+                ):
                     private_context = True
                 if not private_context:
                     continue
-                if not self._core07_clause_has_handling_action(clause):
+                if not self._core07_forbidden_privacy_action_indexes(
+                    clause_tokens
+                ):
                     continue
-                has_local_negative = re.search(
-                    (
-                        r"\b(?:nicht|nie|weder|ohne|keinerlei|"
-                        r"kein(?:e|en|em|er|es)?)\b"
-                    ),
-                    clause,
-                )
-                describes_prohibited_privacy_risk = re.search(
-                    (
-                        r"\b(?:einsicht|abgabe|lehrkraftbeobachtung|"
-                        r"bewertung)\b.*\bwürde\b.*"
-                        r"\b(?:datenschutzgrenze|privatsphäre)\b.*"
-                        r"\b(?:verletzen|unterlaufen)\b"
-                    ),
-                    clause,
+                has_local_negative = any(
+                    self._core07_is_privacy_negation_token(token)
+                    for token in clause_tokens
                 )
                 self.assertTrue(
                     (
                         has_local_negative
-                        or describes_prohibited_privacy_risk
+                        or self._core07_has_prohibitive_privacy_equivalent(
+                            clause,
+                            clause_tokens,
+                        )
                     ),
                     msg=(
                         "affirmative private collection, storage, "
@@ -3327,54 +3324,234 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 )
 
     def _core07_private_handling_clauses(self, sentence):
-        actor = (
-            r"(?:sie|er|es|man|wir|ihr|lehrkräfte|lehrkraft|"
-            r"lernende|lernenden|schüler|schülerinnen)"
-        )
-        modal_or_passive = (
-            r"(?:dürfen|darf|werden|wird|wurden|wurde|sollen|soll|"
-            r"können|kann|müssen|muss)"
-        )
-        finite_handling_action = (
-            r"(?:"
-            r"(?:ein)?sammel(?:n|e|st|t|te|ten)?|"
-            r"speicher(?:n|e|st|t|te|ten)?|"
-            r"bewert(?:en|e|est|et|ete|eten)|"
-            r"erheb(?:en|e|st|t)|erhob(?:en|st|t)?|"
-            r"übertrag(?:en|e|st|t)|überträg(?:st|t)|"
-            r"übertrug(?:en|st|t)?|"
-            r"beobacht(?:en|e|est|et|ete|eten)|"
-            r"einseh(?:en|e|st|t)|einsieh(?:st|t)|"
-            r"einsah(?:en|st|t)?|"
-            r"anrechn(?:en|e|est|et|ete|eten)|"
-            r"kontrollier(?:en|e|st|t|te|ten)|"
-            r"abgeb(?:en|e|st|t)|abgib(?:st|t)|"
-            r"zugreif(?:en|e|st|t)|greif(?:en|e|st|t)|"
-            r"griff(?:en|st|t)?"
-            r")"
-        )
-        clause_start = (
-            rf"(?:{actor}\b\s+"
-            rf"(?:{modal_or_passive}|{finite_handling_action})\b"
-            rf"|{modal_or_passive}\b"
-            rf"|{finite_handling_action}\b\s+{actor}\b)"
-        )
-        clause_break = re.compile(
-            r"\s*;\s*"
-            r"|\s*,?\s+\b(?:aber|jedoch|sondern|hingegen|"
-            r"allerdings|dennoch)\b\s+"
-            rf"|\s+\b(?:und|oder)\b\s+(?={clause_start})"
-            rf"|\s*,\s*(?:(?:und|oder|doch)\s+)?(?={clause_start})"
-        )
-        return [
-            clause.strip(" ,")
-            for clause in clause_break.split(sentence)
-            if clause.strip(" ,")
-        ]
+        tokens = self._core07_privacy_tokens(sentence)
+        hard_segments = []
+        segment_start = 0
+        adversatives = {
+            "aber",
+            "allerdings",
+            "dagegen",
+            "dennoch",
+            "doch",
+            "hingegen",
+            "jedoch",
+            "sondern",
+            "trotzdem",
+        }
+        for index, token in enumerate(tokens):
+            if token == ";" or token in adversatives:
+                if segment_start < index:
+                    hard_segments.append(tokens[segment_start:index])
+                segment_start = index + 1
+        if segment_start < len(tokens):
+            hard_segments.append(tokens[segment_start:])
 
-    def _core07_clause_has_handling_action(self, clause):
-        handling_action = re.compile(
-            r"\b(?:"
+        clauses = []
+        for segment in hard_segments:
+            segment_text = self._core07_join_privacy_tokens(segment)
+            if self._core07_describes_prohibited_privacy_risk(
+                segment_text
+            ):
+                clauses.append(segment_text)
+                continue
+            clauses.extend(
+                self._core07_split_privacy_coordination(segment)
+            )
+        return clauses
+
+    def _core07_privacy_tokens(self, text):
+        return re.findall(
+            r"[^\W\d_]+(?:-[^\W\d_]+)*-?|[,;]",
+            text.casefold(),
+            flags=re.UNICODE,
+        )
+
+    def _core07_join_privacy_tokens(self, tokens):
+        return " ".join(
+            token
+            for token in tokens
+            if token not in {",", ";"}
+        )
+
+    def _core07_split_privacy_coordination(self, tokens):
+        clauses = []
+        clause_start = 0
+        index = 0
+        coordination_boundaries = {",", "und", "oder"}
+        while index < len(tokens):
+            if tokens[index] not in coordination_boundaries:
+                index += 1
+                continue
+            if (
+                tokens[index] in {"und", "oder"}
+                and index > 0
+                and tokens[index - 1].endswith("-")
+            ):
+                index += 1
+                continue
+
+            following_start = index + 1
+            if (
+                tokens[index] == ","
+                and following_start < len(tokens)
+                and tokens[following_start] in {"und", "oder"}
+            ):
+                following_start += 1
+            if following_start >= len(tokens):
+                index += 1
+                continue
+
+            following_end = following_start
+            while (
+                following_end < len(tokens)
+                and tokens[following_end]
+                not in coordination_boundaries
+            ):
+                following_end += 1
+            following_chunk = tokens[following_start:following_end]
+            if self._core07_is_pure_action_coordination(
+                following_chunk
+            ):
+                index += 1
+                continue
+            if self._core07_is_correlative_negative_list_continuation(
+                tokens[clause_start:index],
+                following_chunk,
+                tokens[index],
+            ):
+                index += 1
+                continue
+
+            preceding_chunk = tokens[clause_start:index]
+            preceding_text = self._core07_join_privacy_tokens(
+                preceding_chunk
+            )
+            if preceding_text:
+                clauses.append(preceding_text)
+            clause_start = following_start
+            index = following_start
+
+        final_text = self._core07_join_privacy_tokens(
+            tokens[clause_start:]
+        )
+        if final_text:
+            clauses.append(final_text)
+        return clauses
+
+    def _core07_is_pure_action_coordination(self, tokens):
+        action_indexes = self._core07_forbidden_privacy_action_indexes(
+            tokens
+        )
+        if not action_indexes:
+            return False
+
+        first_action_index = min(action_indexes)
+        particles = {"ab", "an", "auf", "ein", "noch", "zu"}
+        for index, token in enumerate(tokens):
+            if index in action_indexes:
+                continue
+            if self._core07_is_privacy_negation_token(token):
+                continue
+            if token in particles:
+                continue
+            if self._core07_is_privacy_auxiliary_or_modal(token):
+                if index < first_action_index:
+                    return False
+                continue
+            return False
+        return True
+
+    def _core07_is_correlative_negative_list_continuation(
+        self,
+        preceding_tokens,
+        following_tokens,
+        boundary_token,
+    ):
+        if boundary_token not in {",", "oder"}:
+            return False
+        if not {"weder", "noch"}.issubset(preceding_tokens):
+            return False
+        action_indexes = self._core07_forbidden_privacy_action_indexes(
+            following_tokens
+        )
+        return all(
+            self._core07_is_nominal_privacy_action_token(
+                following_tokens[index]
+            )
+            for index in action_indexes
+        )
+
+    def _core07_is_nominal_privacy_action_token(self, token):
+        return token in {
+            "abgabe",
+            "anrechnung",
+            "bewertung",
+            "beobachtung",
+            "einsammlung",
+            "einsicht",
+            "erhebung",
+            "kontrolle",
+            "lehrkraftbeobachtung",
+            "sammlung",
+            "speicherung",
+            "übertragung",
+            "zugriff",
+            "zugriffe",
+            "zugriffen",
+            "zugriffs",
+        }
+
+    def _core07_is_privacy_negation_token(self, token):
+        return re.fullmatch(
+            r"(?:nicht|nie|niemals|weder|ohne|keinerlei|"
+            r"kein(?:e|en|em|er|es)?)",
+            token,
+        ) is not None
+
+    def _core07_is_privacy_auxiliary_or_modal(self, token):
+        return token in {
+            "bleiben",
+            "bleibt",
+            "darf",
+            "darfst",
+            "dürfen",
+            "dürft",
+            "dürfte",
+            "dürften",
+            "ist",
+            "kann",
+            "kannst",
+            "können",
+            "könnt",
+            "könnte",
+            "könnten",
+            "muss",
+            "musst",
+            "müssen",
+            "müsst",
+            "musste",
+            "mussten",
+            "sein",
+            "sind",
+            "soll",
+            "sollen",
+            "sollte",
+            "sollten",
+            "war",
+            "waren",
+            "werde",
+            "werden",
+            "werdet",
+            "wird",
+            "wirst",
+            "worden",
+            "wurde",
+            "wurden",
+        }
+
+    def _core07_forbidden_privacy_action_indexes(self, tokens):
+        action_token = re.compile(
+            r"(?:"
             r"(?:ein)?sammel(?:n|e|st|t|te|ten)?|"
             r"(?:ein)?gesammelt|"
             r"speicher(?:n|e|st|t|te|ten)?|gespeichert|"
@@ -3389,13 +3566,148 @@ class IUM10TimeReviewTests(unittest.TestCase):
             r"kontrollier(?:en|e|st|t|te|ten)|"
             r"abgeb(?:en|e|st|t)|abgib(?:st|t)|abgegeben|"
             r"zugriff(?:e|en|s)?|"
-            r"zugreif(?:en|e|st|t)|zugegriffen"
-            r")\b"
-            r"|\beinsicht\s+(?:nehmen|erhalten)\b"
-            r"|\b(?:greif(?:en|e|st|t)|griff(?:en|st|t)?)\b"
-            r".{0,40}\bzu\b"
+            r"zugreif(?:en|e|st|t)|zugegriffen|"
+            r"einsicht|abgabe|bewertung|beobachtung|"
+            r"einsammlung|erhebung|kontrolle|"
+            r"lehrkraftbeobachtung|sammlung|speicherung|"
+            r"übertragung|anrechnung"
+            r")"
         )
-        return handling_action.search(clause) is not None
+        action_indexes = {
+            index
+            for index, token in enumerate(tokens)
+            if action_token.fullmatch(token)
+        }
+        separable_actions = (
+            (
+                re.compile(
+                    r"(?:greif(?:en|e|st|t)|griff(?:en|st|t)?|"
+                    r"gegriffen)"
+                ),
+                "zu",
+            ),
+            (
+                re.compile(
+                    r"(?:seh(?:en|e|st|t)|sieh(?:st|t)|"
+                    r"sah(?:en|st|t)?|gesehen)"
+                ),
+                "ein",
+            ),
+            (
+                re.compile(
+                    r"(?:geb(?:en|e|t)|gib(?:st|t)|"
+                    r"gab(?:en|st|t)?|gegeben)"
+                ),
+                "ab",
+            ),
+            (
+                re.compile(
+                    r"(?:rechn(?:en|e|est|et|ete|eten)|gerechnet)"
+                ),
+                "an",
+            ),
+        )
+        stop_tokens = {",", ";", "aber", "jedoch", "sondern"}
+        for index, token in enumerate(tokens):
+            for action_start, particle in separable_actions:
+                if action_start.fullmatch(token) is None:
+                    continue
+                for particle_index in range(
+                    index + 1,
+                    min(index + 12, len(tokens)),
+                ):
+                    if tokens[particle_index] in stop_tokens:
+                        break
+                    if tokens[particle_index] == particle:
+                        action_indexes.update(
+                            {index, particle_index}
+                        )
+                        break
+        return action_indexes
+
+    def _core07_describes_prohibited_privacy_risk(self, clause):
+        violates_privacy_boundary = re.search(
+            (
+                r"\b(?:einsicht|abgabe|lehrkraftbeobachtung|"
+                r"bewertung)\b.*\bwürde\b.*"
+                r"\b(?:datenschutzgrenze|privatsphäre)\b.*"
+                r"\b(?:verletzen|unterlaufen)\b"
+            ),
+            clause,
+        )
+        transforms_task_into_hidden_collection = re.search(
+            (
+                r"\bwürde(?:n)?\b.*"
+                r"\b(?:anschlussaufgabe|aufgabe|produkt|wirkungskarte)\w*"
+                r"\b.*\bin\s+eine\s+(?:verdeckte|unzulässige)\s+"
+                r"erhebung\b.*\bverwandeln\b"
+            ),
+            clause,
+        )
+        return (
+            violates_privacy_boundary is not None
+            or transforms_task_into_hidden_collection is not None
+        )
+
+    def _core07_has_prohibitive_privacy_equivalent(
+        self,
+        clause,
+        clause_tokens,
+    ):
+        if self._core07_describes_prohibited_privacy_risk(clause):
+            return True
+        linking_tokens = {
+            "bleiben",
+            "bleibt",
+            "gelten",
+            "gilt",
+            "ist",
+            "sind",
+            "werden",
+            "wird",
+        }
+        prohibitive_tokens = {
+            "ausgeschlossen",
+            "untersagt",
+            "unzulässig",
+            "verboten",
+        }
+        for index, token in enumerate(clause_tokens):
+            if token not in prohibitive_tokens:
+                continue
+            preceding_tokens = clause_tokens[max(0, index - 3):index]
+            if (
+                any(
+                    preceding in linking_tokens
+                    for preceding in preceding_tokens
+                )
+                and "nicht" not in preceding_tokens
+            ):
+                return True
+        outside_indexes = {
+            index
+            for index, token in enumerate(clause_tokens)
+            if token in {"ausserhalb", "außerhalb"}
+        }
+        action_indexes = self._core07_forbidden_privacy_action_indexes(
+            clause_tokens
+        )
+        for outside_index in outside_indexes:
+            preceding_tokens = clause_tokens[
+                max(0, outside_index - 4):outside_index
+            ]
+            if (
+                any(
+                    preceding in linking_tokens
+                    for preceding in preceding_tokens
+                )
+                and any(
+                    action_index > outside_index
+                    for action_index in action_indexes
+                )
+            ):
+                return True
+        return False
 
     def _assert_core06_extended_product_depth(self, core06_contract):
         budgets_by_path = {
@@ -3998,96 +4310,222 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 module_payload=module_payload,
             )
 
-    def test_core07_rejects_affirmative_private_action_clauses(self):
-        affirmative_private_actions = (
-            "Private Inhalte dürfen gespeichert werden.",
-            (
-                "Persönliche Reflexionen dürfen eingesammelt und bewertet "
-                "werden."
+    def test_core07_rejects_affirmative_private_grammar_families(self):
+        affirmative_private_action_families = {
+            "modal-passive-and-inverted": (
+                "Private Inhalte dürfen gespeichert werden.",
+                (
+                    "Persönliche Reflexionen dürfen eingesammelt und "
+                    "bewertet werden."
+                ),
+                "Gespeichert werden dürfen private Inhalte.",
+                (
+                    "Private Inhalte werden nicht erhoben. Private Inhalte "
+                    "dürfen gespeichert werden."
+                ),
+                "Private Inhalte dürfen Lehrkräfte einsammeln.",
+                "Speichern dürfen Lehrkräfte private Inhalte.",
+                "Private Inhalte dürfen Lehrkräfte bewerten.",
+                (
+                    "Private Inhalte werden nicht erhoben, dürfen aber "
+                    "gespeichert werden."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und dürfen "
+                    "gespeichert werden."
+                ),
+                "Private Inhalte dürfen Lehrkräfte übertragen.",
+                "Private Aktivitäten dürfen Lehrkräfte beobachten.",
+                "Private Inhalte dürfen Lehrkräfte einsehen.",
             ),
-            "Gespeichert werden dürfen private Inhalte.",
-            (
-                "Private Inhalte werden nicht erhoben. Private Inhalte "
-                "dürfen gespeichert werden."
+            "coordinated-full-verb": (
+                (
+                    "Private Inhalte werden nicht erhoben und Lehrkräfte "
+                    "speichern sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben, Lehrkräfte "
+                    "speichern sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und sie werden "
+                    "bewertet."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und speichern "
+                    "wir sie."
+                ),
             ),
-            "Private Inhalte dürfen Lehrkräfte einsammeln.",
-            "Speichern dürfen Lehrkräfte private Inhalte.",
-            "Private Inhalte dürfen Lehrkräfte bewerten.",
-            (
-                "Private Inhalte werden nicht erhoben, dürfen aber "
-                "gespeichert werden."
+            "article-actor-coordination": (
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkräfte speichern sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben, die Lehrkräfte "
+                    "speichern sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkraft bewertet sie."
+                ),
             ),
-            (
-                "Private Inhalte werden nicht erhoben und dürfen "
-                "gespeichert werden."
+            "forbidden-action-morphology": (
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkräfte beobachten sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkräfte sammeln sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkräfte sammeln sie ein."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkräfte übertragen sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkraft greift darauf zu."
+                ),
+                "Lehrkräfte rechnen private Inhalte an.",
+                "Lehrkräfte geben private Inhalte ab.",
+                "Lehrkräfte kontrollieren private Inhalte.",
             ),
-            "Private Inhalte dürfen Lehrkräfte übertragen.",
-            "Private Aktivitäten dürfen Lehrkräfte beobachten.",
-            "Private Inhalte dürfen Lehrkräfte einsehen.",
-        )
-        for statement in affirmative_private_actions:
-            with self.subTest(affirmative_private_action=statement):
-                with self.assertRaises(AssertionError):
-                    self._assert_core07_no_affirmative_private_handling(
-                        statement
-                    )
-
-    def test_core07_rejects_zugreifen_access_forms(self):
-        for statement in (
-            "Lehrkräfte dürfen auf private Inhalte zugreifen.",
-            "Auf private Inhalte dürfen Lehrkräfte zugreifen.",
-        ):
-            with self.subTest(affirmative_private_access=statement):
-                with self.assertRaises(AssertionError):
-                    self._assert_core07_no_affirmative_private_handling(
-                        statement
-                    )
-
-    def test_core07_rejects_later_affirmative_full_verb_clauses(self):
-        for statement in (
-            (
-                "Private Inhalte werden nicht erhoben und Lehrkräfte "
-                "speichern sie."
+            "adverbial-and-separable-prefix": (
+                (
+                    "Private Inhalte werden nicht erhoben und anschließend "
+                    "speichern Lehrkräfte sie."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben, anschließend "
+                    "bewertet die Lehrkraft sie."
+                ),
+                "Lehrkräfte sehen private Inhalte ein.",
+                (
+                    "Private Inhalte werden nicht erhoben und Lehrkräfte "
+                    "sehen sie ein."
+                ),
             ),
-            (
-                "Private Inhalte werden nicht erhoben, Lehrkräfte "
-                "speichern sie."
+            "zugreifen-access": (
+                "Lehrkräfte dürfen auf private Inhalte zugreifen.",
+                "Auf private Inhalte dürfen Lehrkräfte zugreifen.",
             ),
-            (
-                "Private Inhalte werden nicht erhoben und sie werden "
-                "bewertet."
+            "prohibition-followed-by-affirmative-clause": (
+                (
+                    "Die private Matrix bleibt außerhalb der Erhebung und "
+                    "die Lehrkräfte speichern sie."
+                ),
             ),
-            (
-                "Private Inhalte werden nicht erhoben und speichern wir "
-                "sie."
-            ),
-        ):
-            with self.subTest(later_affirmative_private_action=statement):
-                with self.assertRaises(AssertionError):
-                    self._assert_core07_no_affirmative_private_handling(
-                        statement
-                    )
+        }
+        for family, statements in affirmative_private_action_families.items():
+            for statement in statements:
+                with self.subTest(
+                    affirmative_private_grammar_family=family,
+                    statement=statement,
+                ):
+                    with self.assertRaises(AssertionError):
+                        self._assert_core07_no_affirmative_private_handling(
+                            statement
+                        )
 
     def test_core07_accepts_explicitly_negated_private_handling(self):
-        for statement in (
-            "Private Inhalte dürfen nicht gespeichert werden.",
-            PRIVATE_LOCAL_BOUNDARY,
-            (
-                "Private Inhalte werden nicht erhoben, und sie dürfen "
-                "nicht gespeichert werden."
+        negative_private_action_families = {
+            "modal": (
+                "Private Inhalte dürfen nicht gespeichert werden.",
             ),
-            (
-                "Private Inhalte werden nicht erhoben und Lehrkräfte "
-                "speichern sie nicht."
+            "coordinated-action-list": (
+                PRIVATE_LOCAL_BOUNDARY,
+                (
+                    "Private Inhalte werden weder gesammelt noch "
+                    "gespeichert."
+                ),
+                (
+                    "Private Inhalte werden weder beobachtet noch als "
+                    "Produkt- oder Evidenzspur angerechnet."
+                ),
+                (
+                    "Aus der Wirkungsaussage dürfen weder private "
+                    "Empfindungen abgeleitet noch Einsicht, Gespräch, "
+                    "Abgabe oder Bewertung der privaten Reflexionsmatrix "
+                    "verlangt werden."
+                ),
             ),
-            (
-                "Lehrkräfte dürfen nicht auf private Inhalte zugreifen."
+            "locally-negated-clauses": (
+                (
+                    "Private Inhalte werden nicht erhoben, und sie dürfen "
+                    "nicht gespeichert werden."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und Lehrkräfte "
+                    "speichern sie nicht."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkräfte speichern sie nicht."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben, die Lehrkraft "
+                    "bewertet sie nicht."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und anschließend "
+                    "speichern Lehrkräfte sie nicht."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und Lehrkräfte "
+                    "sehen sie nicht ein."
+                ),
+                (
+                    "Private Inhalte werden nicht erhoben und die "
+                    "Lehrkraft greift nicht darauf zu."
+                ),
+                "Lehrkräfte rechnen private Inhalte nicht an.",
+                "Lehrkräfte geben private Inhalte nicht ab.",
+                "Lehrkräfte kontrollieren private Inhalte nicht.",
             ),
-        ):
-            with self.subTest(negative_private_boundary=statement):
-                self._assert_core07_no_affirmative_private_handling(
-                    statement
-                )
+            "semantically-equivalent-prohibitions": (
+                (
+                    "Lehrkräfte dürfen nicht auf private Inhalte "
+                    "zugreifen."
+                ),
+                "Lehrkräfte erhalten keinen Zugriff auf private Inhalte.",
+                (
+                    "Private Reflexionen bleiben lokal; Lehrkräfte greifen "
+                    "nicht darauf zu."
+                ),
+                (
+                    "Ohne private Inhalte einzusehen, arbeiten Lehrkräfte "
+                    "mit fiktiven Beispielen."
+                ),
+                "Das Speichern privater Inhalte ist verboten.",
+                (
+                    "Die Einsicht in private Inhalte bleibt "
+                    "ausgeschlossen."
+                ),
+                (
+                    "Eine Lehrkraftkontrolle der privaten Matrix würde die "
+                    "nichtpersonale Anschlussaufgabe in eine verdeckte "
+                    "Erhebung persönlicher Mediennutzung verwandeln."
+                ),
+                (
+                    "Die private Matrix bleibt vollständig außerhalb von "
+                    "Erhebung und Feedback."
+                ),
+            ),
+        }
+        for family, statements in negative_private_action_families.items():
+            for statement in statements:
+                with self.subTest(
+                    negative_private_grammar_family=family,
+                    statement=statement,
+                ):
+                    self._assert_core07_no_affirmative_private_handling(
+                        statement
+                    )
 
     def test_core07_accepts_semantically_equivalent_product_phase(self):
         reviews_by_competency_id = (
