@@ -3300,28 +3300,208 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     private_context = True
                 if not private_context:
                     continue
-                if not self._core07_forbidden_privacy_action_indexes(
-                    clause_tokens
-                ):
-                    continue
-                has_local_negative = any(
-                    self._core07_is_privacy_negation_token(token)
-                    for token in clause_tokens
+                privacy_actions = (
+                    self._core07_forbidden_privacy_actions(
+                        clause_tokens
+                    )
                 )
-                self.assertTrue(
-                    (
+                if not privacy_actions:
+                    continue
+                action_polarities = []
+                for action_position, action_indexes in enumerate(
+                    privacy_actions
+                ):
+                    has_local_negative = (
+                        self._core07_action_has_local_negative(
+                            clause_tokens,
+                            privacy_actions,
+                            action_position,
+                        )
+                    )
+                    inherits_list_negative = (
+                        action_position > 0
+                        and action_polarities[-1]
+                        and self._core07_actions_form_pure_coordination(
+                            clause_tokens,
+                            privacy_actions[action_position - 1],
+                            action_indexes,
+                        )
+                    )
+                    has_negative_polarity = (
                         has_local_negative
+                        or inherits_list_negative
                         or self._core07_has_prohibitive_privacy_equivalent(
                             clause,
                             clause_tokens,
+                            action_indexes,
                         )
-                    ),
-                    msg=(
-                        "affirmative private collection, storage, "
-                        "observation, or assessment clause: "
-                        f"{clause!r}"
-                    ),
+                    )
+                    action_polarities.append(has_negative_polarity)
+                    action_text = self._core07_join_privacy_tokens(
+                        [
+                            clause_tokens[index]
+                            for index in action_indexes
+                        ]
+                    )
+                    self.assertTrue(
+                        has_negative_polarity,
+                        msg=(
+                            "affirmative private collection, storage, "
+                            "observation, or assessment action "
+                            f"{action_text!r} in clause: {clause!r}"
+                        ),
+                    )
+
+    def _core07_action_has_local_negative(
+        self,
+        tokens,
+        actions,
+        action_position,
+    ):
+        action_indexes = actions[action_position]
+        action_start = min(action_indexes)
+        action_end = max(action_indexes)
+        previous_action_end = (
+            max(actions[action_position - 1])
+            if action_position > 0
+            else -1
+        )
+        prefix_start = previous_action_end + 1
+        coordination_tokens = {",", "noch", "oder", "und"}
+        for index in range(prefix_start, action_start):
+            if tokens[index] in coordination_tokens:
+                prefix_start = index + 1
+
+        next_action_start = (
+            min(actions[action_position + 1])
+            if action_position + 1 < len(actions)
+            else len(tokens)
+        )
+        suffix_end = next_action_start
+        for index in range(action_end + 1, next_action_start):
+            if tokens[index] in coordination_tokens:
+                suffix_end = index
+                break
+
+        local_indexes = set(range(prefix_start, action_start))
+        local_indexes.update(range(action_start, action_end + 1))
+        local_indexes.update(range(action_end + 1, suffix_end))
+        negated_prohibition_indexes = (
+            self._core07_negated_prohibition_indexes(tokens)
+        )
+        if any(
+            index not in negated_prohibition_indexes
+            and tokens[index] != "ohne"
+            and self._core07_is_privacy_negation_token(tokens[index])
+            for index in local_indexes
+        ):
+            return True
+        if (
+            "weder" in tokens[:action_start]
+            and "noch" in tokens[:action_start]
+        ):
+            return True
+        return self._core07_ohne_governs_privacy_action(
+            tokens,
+            action_indexes,
+            prefix_start,
+        )
+
+    def _core07_actions_form_pure_coordination(
+        self,
+        tokens,
+        preceding_action_indexes,
+        following_action_indexes,
+    ):
+        between_actions = tokens[
+            max(preceding_action_indexes) + 1:
+            min(following_action_indexes)
+        ]
+        return (
+            bool(between_actions)
+            and all(
+                token in {",", "noch", "oder", "und"}
+                for token in between_actions
+            )
+        )
+
+    def _core07_negated_prohibition_indexes(self, tokens):
+        linking_tokens = {
+            "bleiben",
+            "bleibt",
+            "gelten",
+            "gilt",
+            "ist",
+            "sind",
+            "werden",
+            "wird",
+        }
+        prohibitive_tokens = {
+            "ausgeschlossen",
+            "untersagt",
+            "unzulässig",
+            "verboten",
+        }
+        result = set()
+        for prohibition_index, token in enumerate(tokens):
+            if token not in prohibitive_tokens:
+                continue
+            linking_indexes = [
+                index
+                for index in range(
+                    max(0, prohibition_index - 4),
+                    prohibition_index,
                 )
+                if tokens[index] in linking_tokens
+            ]
+            if not linking_indexes:
+                continue
+            linking_index = max(linking_indexes)
+            result.update(
+                index
+                for index in range(
+                    linking_index + 1,
+                    prohibition_index,
+                )
+                if (
+                    tokens[index] != "ohne"
+                    and self._core07_is_privacy_negation_token(
+                        tokens[index]
+                    )
+                )
+            )
+        return result
+
+    def _core07_ohne_governs_privacy_action(
+        self,
+        tokens,
+        action_indexes,
+        prefix_start,
+    ):
+        action_start = min(action_indexes)
+        ohne_indexes = [
+            index
+            for index in range(prefix_start, action_start)
+            if tokens[index] == "ohne"
+        ]
+        if not ohne_indexes:
+            return False
+        ohne_index = max(ohne_indexes)
+        action_token = tokens[action_start]
+        if self._core07_is_nominal_privacy_action_token(action_token):
+            return ohne_index + 1 == action_start
+        if action_token in {
+            "abzugeben",
+            "anzurechnen",
+            "einzusammeln",
+            "einzusehen",
+            "zuzugreifen",
+        }:
+            return True
+        return (
+            action_start > ohne_index + 1
+            and tokens[action_start - 1] == "zu"
+        )
 
     def _core07_private_handling_clauses(self, sentence):
         tokens = self._core07_privacy_tokens(sentence)
@@ -3367,11 +3547,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
 
     def _core07_join_privacy_tokens(self, tokens):
-        return " ".join(
-            token
-            for token in tokens
-            if token not in {",", ";"}
-        )
+        return " ".join(tokens)
 
     def _core07_split_privacy_coordination(self, tokens):
         clauses = []
@@ -3550,10 +3726,20 @@ class IUM10TimeReviewTests(unittest.TestCase):
         }
 
     def _core07_forbidden_privacy_action_indexes(self, tokens):
+        return {
+            index
+            for action_indexes in (
+                self._core07_forbidden_privacy_actions(tokens)
+            )
+            for index in action_indexes
+        }
+
+    def _core07_forbidden_privacy_actions(self, tokens):
         action_token = re.compile(
             r"(?:"
             r"(?:ein)?sammel(?:n|e|st|t|te|ten)?|"
             r"(?:ein)?gesammelt|"
+            r"einzusammeln|"
             r"speicher(?:n|e|st|t|te|ten)?|gespeichert|"
             r"bewert(?:en|e|est|et|ete|eten)|"
             r"erheb(?:en|e|st|t)|erhob(?:en|st|t)?|erhoben|"
@@ -3561,20 +3747,22 @@ class IUM10TimeReviewTests(unittest.TestCase):
             r"übertrug(?:en|st|t)?|"
             r"beobacht(?:en|e|est|et|ete|eten)|"
             r"einseh(?:en|e|st|t)|einsieh(?:st|t)|"
-            r"einsah(?:en|st|t)?|eingesehen|"
+            r"einsah(?:en|st|t)?|eingesehen|einzusehen|"
             r"anrechn(?:en|e|est|et|ete|eten)|angerechnet|"
+            r"anzurechnen|"
             r"kontrollier(?:en|e|st|t|te|ten)|"
             r"abgeb(?:en|e|st|t)|abgib(?:st|t)|abgegeben|"
+            r"abzugeben|"
             r"zugriff(?:e|en|s)?|"
-            r"zugreif(?:en|e|st|t)|zugegriffen|"
+            r"zugreif(?:en|e|st|t)|zugegriffen|zuzugreifen|"
             r"einsicht|abgabe|bewertung|beobachtung|"
             r"einsammlung|erhebung|kontrolle|"
             r"lehrkraftbeobachtung|sammlung|speicherung|"
             r"übertragung|anrechnung"
             r")"
         )
-        action_indexes = {
-            index
+        actions = {
+            (index,)
             for index, token in enumerate(tokens)
             if action_token.fullmatch(token)
         }
@@ -3619,11 +3807,9 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     if tokens[particle_index] in stop_tokens:
                         break
                     if tokens[particle_index] == particle:
-                        action_indexes.update(
-                            {index, particle_index}
-                        )
+                        actions.add((index, particle_index))
                         break
-        return action_indexes
+        return sorted(actions, key=lambda action: (min(action), max(action)))
 
     def _core07_describes_prohibited_privacy_risk(self, clause):
         violates_privacy_boundary = re.search(
@@ -3653,6 +3839,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
         self,
         clause,
         clause_tokens,
+        action_indexes,
     ):
         if self._core07_describes_prohibited_privacy_risk(clause):
             return True
@@ -3672,16 +3859,29 @@ class IUM10TimeReviewTests(unittest.TestCase):
             "unzulässig",
             "verboten",
         }
-        for index, token in enumerate(clause_tokens):
+        negated_prohibition_indexes = (
+            self._core07_negated_prohibition_indexes(clause_tokens)
+        )
+        for prohibition_index, token in enumerate(clause_tokens):
             if token not in prohibitive_tokens:
                 continue
-            preceding_tokens = clause_tokens[max(0, index - 3):index]
-            if (
-                any(
-                    preceding in linking_tokens
-                    for preceding in preceding_tokens
+            linking_indexes = [
+                index
+                for index in range(
+                    max(0, prohibition_index - 4),
+                    prohibition_index,
                 )
-                and "nicht" not in preceding_tokens
+                if clause_tokens[index] in linking_tokens
+            ]
+            if not linking_indexes:
+                continue
+            linking_index = max(linking_indexes)
+            if (
+                max(action_indexes) < linking_index
+                and not any(
+                    linking_index < negative_index < prohibition_index
+                    for negative_index in negated_prohibition_indexes
+                )
             ):
                 return True
         outside_indexes = {
@@ -3689,9 +3889,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
             for index, token in enumerate(clause_tokens)
             if token in {"ausserhalb", "außerhalb"}
         }
-        action_indexes = self._core07_forbidden_privacy_action_indexes(
-            clause_tokens
-        )
         for outside_index in outside_indexes:
             preceding_tokens = clause_tokens[
                 max(0, outside_index - 4):outside_index
@@ -3701,10 +3898,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     preceding in linking_tokens
                     for preceding in preceding_tokens
                 )
-                and any(
-                    action_index > outside_index
-                    for action_index in action_indexes
-                )
+                and min(action_indexes) > outside_index
             ):
                 return True
         return False
@@ -4309,6 +4503,78 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 self.repository_module_contracts,
                 module_payload=module_payload,
             )
+
+    def _assert_core07_repository_rejects_follow_up_mutation(
+        self,
+        statement,
+    ):
+        reviews_by_competency_id = (
+            self._repository_reviews_by_competency_id()
+        )
+        module_payload = copy.deepcopy(self.module_payload)
+        core07_module = next(
+            module
+            for module in module_payload["modules"]
+            if module["id"] == "IUM-5-CORE-07"
+        )
+        evidence = next(
+            evidence
+            for evidence in core07_module["coverageEvidence"]
+            if evidence["competencyId"] == "BMB16-GYM-IK-MG-001"
+        )
+        evidence["nonPersonalFollowUp"] += f" {statement}"
+
+        with self.assertRaises(AssertionError):
+            self._assert_core07_repository_contract(
+                reviews_by_competency_id,
+                self.repository_module_contracts,
+                module_payload=module_payload,
+            )
+
+    def test_core07_repository_audit_rejects_positive_action_masked_by_later_negation(
+        self,
+    ):
+        for statement in (
+            "Private Inhalte werden gespeichert und nicht bewertet.",
+            (
+                "Persönliche Reflexionen werden übertragen und nie "
+                "beobachtet."
+            ),
+        ):
+            with self.subTest(statement=statement):
+                self._assert_core07_repository_rejects_follow_up_mutation(
+                    statement
+                )
+
+    def test_core07_repository_audit_rejects_action_under_negated_prohibition(
+        self,
+    ):
+        for statement in (
+            "Das Speichern privater Inhalte ist nicht verboten.",
+            (
+                "Die Einsicht in persönliche Reflexionen bleibt nicht "
+                "ausgeschlossen."
+            ),
+        ):
+            with self.subTest(statement=statement):
+                self._assert_core07_repository_rejects_follow_up_mutation(
+                    statement
+                )
+
+    def test_core07_repository_audit_rejects_action_masked_by_ohne_unrelated_object(
+        self,
+    ):
+        for statement in (
+            "Private Inhalte werden ohne Einwilligung gespeichert.",
+            (
+                "Persönliche Reflexionen werden ohne Rückmeldung "
+                "eingesammelt."
+            ),
+        ):
+            with self.subTest(statement=statement):
+                self._assert_core07_repository_rejects_follow_up_mutation(
+                    statement
+                )
 
     def test_core07_rejects_affirmative_private_grammar_families(self):
         affirmative_private_action_families = {
