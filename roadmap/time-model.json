@@ -3123,17 +3123,15 @@
       "competencyId": "LH26-E-KS-014",
       "moduleId": "IUM-6-CORE-06",
       "sourceTimeImpactLevel": "review-required",
-      "decision": "integrated",
-      "rationale": "Die identische gemeinsame nichtpersonale Fallspur aus INT-6-CONFLICT-PRODUCTION trägt ausschließlich denselben kuratierten Konfliktfall bis zur Medienproduktion. Das fallbelegte Beschreiben wiederholter Abwertung, Ausschluss und Macht- oder Reichweitendynamik, die separate Merkmal-und-Strategie-Spur mit unterscheidbarer Prävention, Hilfe und Melden sowie die begründete Eskalationsentscheidung bleiben eigene Lern- und Produktarbeit; dafür werden 25 Minuten in angeleiteter Fallanalyse, eigenständiger Produkterstellung und Revision geprüft.",
+      "decision": "additional-time",
+      "rationale": "Die Nutzung desselben kuratierten fiktiven Konfliktfalls vermeidet für diesen Record keine eigene Lern- oder Produktionszeit: Das fallbelegte Beschreiben wiederholter Abwertung, Ausschluss und Macht- oder Reichweitendynamik, die Merkmal-und-Strategie-Spur mit unterscheidbarer Prävention, Hilfe und Melden sowie die begründete Eskalationsentscheidung sind eigenständige Konfliktarbeit. Die modulweite Integration aus INT-6-CONFLICT-PRODUCTION darf nur bei einer tatsächlich identischen Zielgruppen-, Wirkungs-, Rechte- und Revisionsspur anderer Lernhandlungen wirken; dieser Review beansprucht sie nicht, sondern ausschließlich 25 Minuten recordeigene Konfliktarbeit in angeleiteter Fallanalyse, eigenständiger Produkterstellung und Revision.",
       "phaseIds": [
         "guided-practice",
         "independent-action-product",
         "review-revise-transfer"
       ],
       "additionalMinutes": 25,
-      "integrationContractIds": [
-        "INT-6-CONFLICT-PRODUCTION"
-      ],
+      "integrationContractIds": [],
       "sequenceEvidenceId": null,
       "pathAvailability": [
         "GRADE-6-BASELINE",
@@ -3152,16 +3150,14 @@
       "competencyId": "LH26-E-KS-015",
       "moduleId": "IUM-6-CORE-06",
       "sourceTimeImpactLevel": "review-required",
-      "decision": "integrated",
-      "rationale": "Die identische gemeinsame nichtpersonale Fallspur aus INT-6-CONFLICT-PRODUCTION trägt ausschließlich denselben kuratierten Konfliktfall bis zur Medienproduktion. Das Prüfen mehrerer digitaler und sozialer Faktoren, ihre Trennung als Ursachenhypothese oder begünstigender Faktor, die jeweilige Belegstelle und Unsicherheitsmarkierung sowie die separate Faktorenkarte bleiben eigene Lern- und Produktarbeit; dafür werden 20 Minuten in Begriffsaufbau und eigenständiger Produkterstellung geprüft.",
+      "decision": "additional-time",
+      "rationale": "Die Nutzung desselben kuratierten fiktiven Konfliktfalls vermeidet für diesen Record keine eigene Lern- oder Produktionszeit: Das Prüfen mehrerer digitaler und sozialer Faktoren, ihre Trennung als Ursachenhypothese oder begünstigender Faktor, die jeweilige Belegstelle und Unsicherheitsmarkierung sowie die Faktorenkarte sind eigenständige Faktorenarbeit. Die modulweite Integration aus INT-6-CONFLICT-PRODUCTION darf nur bei einer tatsächlich identischen Zielgruppen-, Wirkungs-, Rechte- und Revisionsspur anderer Lernhandlungen wirken; dieser Review beansprucht sie nicht, sondern ausschließlich 20 Minuten recordeigene Faktorenarbeit in Begriffsaufbau und eigenständiger Produkterstellung.",
       "phaseIds": [
         "build-concept",
         "independent-action-product"
       ],
       "additionalMinutes": 20,
-      "integrationContractIds": [
-        "INT-6-CONFLICT-PRODUCTION"
-      ],
+      "integrationContractIds": [],
       "sequenceEvidenceId": null,
       "pathAvailability": [
         "GRADE-6-BASELINE",

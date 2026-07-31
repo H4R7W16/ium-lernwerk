@@ -59,8 +59,8 @@ TIME_AUDIT_DECISIONS = {
     "LH26-E-DP-003": "unresolved",
     "LH26-E-DP-004": "integrated",
     "LH26-E-DP-006": "integrated",
-    "LH26-E-KS-014": "integrated",
-    "LH26-E-KS-015": "integrated",
+    "LH26-E-KS-014": "additional-time",
+    "LH26-E-KS-015": "additional-time",
 }
 
 PRIOR_20_TIME_REVIEW_IDS = (
@@ -186,14 +186,14 @@ PRE_TASK16_TIME_REVIEWS_SHA256 = (
 )
 TASK16_AUDIT_EXPECTATIONS = {
     "LH26-E-KS-014": {
-        "decision": "integrated",
+        "decision": "additional-time",
         "additionalMinutes": 25,
         "phaseIds": [
             "guided-practice",
             "independent-action-product",
             "review-revise-transfer",
         ],
-        "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
+        "integrationContractIds": [],
         "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-014",
         "productAnchors": (
             "wiederholte Abwertung",
@@ -210,13 +210,13 @@ TASK16_AUDIT_EXPECTATIONS = {
         ),
     },
     "LH26-E-KS-015": {
-        "decision": "integrated",
+        "decision": "additional-time",
         "additionalMinutes": 20,
         "phaseIds": [
             "build-concept",
             "independent-action-product",
         ],
-        "integrationContractIds": ["INT-6-CONFLICT-PRODUCTION"],
+        "integrationContractIds": [],
         "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-015",
         "productAnchors": (
             "mehrere plausible digitale und soziale",
@@ -247,12 +247,12 @@ TASK16_PATH_AVAILABILITY = [
 TASK16_INTEGRATION_CONTRACT_SHA256 = (
     "6f324c8b4eebe4795b95eb994df048ef65a616cba409921ac78884c670345787"
 )
-TASK16_REVIEW_EXCLUSION_SHA256 = {
+TASK16_REVIEW_TEXT_PROJECTION_SHA256 = {
     "LH26-E-KS-014": (
-        "bb47e4a4b45e8d9f733355183a795d5a2ca0cec7db67e20afdcba12c8e59fb49"
+        "f6f5fb23bac6e542d73ba142de46eddc5106fbde00c2ab3879a150c3589de488"
     ),
     "LH26-E-KS-015": (
-        "0b845e92d301b9bb34a7195d5bcc45a00e24fc64c6b25f59e493c713df2db360"
+        "a1a17a14a68f7026376053e93b91143de6760eac1cd338c3b877537550bdfb7b"
     ),
 }
 PRIVATE_LOCAL_BOUNDARY = (
@@ -4725,6 +4725,12 @@ class IUM10TimeReviewTests(unittest.TestCase):
             for field in ("risk", "followUp")
         }
 
+    def _task16_review_text_projection(self, review):
+        return {
+            field: review[field]
+            for field in ("rationale", "risk", "followUp")
+        }
+
     def _canonical_sha256(self, value):
         canonical = json.dumps(
             value,
@@ -5391,14 +5397,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             for anchor in expected["reviewAnchors"]:
                 self.assertIn(anchor, review_text)
             self.assertIn(
-                "identische gemeinsame nichtpersonale Fallspur",
+                "desselben kuratierten fiktiven Konfliktfalls",
                 review_text,
             )
             self.assertEqual(
                 self._canonical_sha256(
-                    {field: review[field] for field in ("risk", "followUp")}
+                    self._task16_review_text_projection(review)
                 ),
-                TASK16_REVIEW_EXCLUSION_SHA256[competency_id],
+                TASK16_REVIEW_TEXT_PROJECTION_SHA256[competency_id],
             )
 
         variants = {
@@ -5473,6 +5479,22 @@ class IUM10TimeReviewTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self._assert_core06_task16_audit_contract(reviews)
 
+    def test_core06_task16_contract_rejects_integrated_disposition(self):
+        for competency_id in TASK16_AUDIT_EXPECTATIONS:
+            with self.subTest(competency_id=competency_id):
+                reviews = copy.deepcopy(self.time_payload["timeReviews"])
+                review = next(
+                    review
+                    for review in reviews
+                    if review["competencyId"] == competency_id
+                )
+                review["decision"] = "integrated"
+                review["integrationContractIds"] = [
+                    "INT-6-CONFLICT-PRODUCTION"
+                ]
+                with self.assertRaises(AssertionError):
+                    self._assert_core06_task16_audit_contract(reviews)
+
     def test_core06_task16_contract_rejects_overextended_integration(self):
         integrations = copy.deepcopy(self.repository_integration_contracts)
         integrations["INT-6-CONFLICT-PRODUCTION"][
@@ -5484,27 +5506,60 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 integration_contracts=integrations,
             )
 
-    def test_core06_task16_contract_rejects_personal_evidence(self):
+    def _assert_core06_rationale_mutation_rejected(
+        self,
+        competency_id,
+        mutation,
+    ):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
-        reviews[PRE_TASK16_TIME_REVIEW_COUNT]["risk"] = (
-            "Reale persönliche Konfliktdaten werden als Evidenz verwendet."
+        review = next(
+            review
+            for review in reviews
+            if review["competencyId"] == competency_id
         )
+        review["rationale"] += f" {mutation}"
         with self.assertRaises(AssertionError):
             self._assert_core06_task16_audit_contract(reviews)
 
-    def test_core06_task16_contract_rejects_ks015_harmful_claims(self):
-        for harmful_claim in (
+    def test_core06_task16_contract_rejects_personal_evidence_in_rationale(
+        self,
+    ):
+        self._assert_core06_rationale_mutation_rejected(
+            "LH26-E-KS-014",
+            "Reale persönliche Konfliktdaten werden als Evidenz verwendet.",
+        )
+
+    def test_core06_task16_contract_rejects_victim_blaming_in_rationale(
+        self,
+    ):
+        self._assert_core06_rationale_mutation_rejected(
+            "LH26-E-KS-015",
             "Victim Blaming wird als Ursachenhypothese verwendet.",
+        )
+
+    def test_core06_task16_contract_rejects_remote_diagnosis_in_rationale(
+        self,
+    ):
+        self._assert_core06_rationale_mutation_rejected(
+            "LH26-E-KS-015",
             "Eine Ferndiagnose wird als Ursachenhypothese verwendet.",
+        )
+
+    def test_core06_task16_contract_rejects_offender_intent_in_rationale(
+        self,
+    ):
+        self._assert_core06_rationale_mutation_rejected(
+            "LH26-E-KS-015",
             "Eine Täterabsicht wird als sicher behauptet.",
-        ):
-            with self.subTest(harmful_claim=harmful_claim):
-                reviews = copy.deepcopy(self.time_payload["timeReviews"])
-                reviews[PRE_TASK16_TIME_REVIEW_COUNT + 1]["risk"] = (
-                    harmful_claim
-                )
-                with self.assertRaises(AssertionError):
-                    self._assert_core06_task16_audit_contract(reviews)
+        )
+
+    def test_core06_task16_contract_rejects_integration_overreach_in_rationale(
+        self,
+    ):
+        self._assert_core06_rationale_mutation_rejected(
+            "LH26-E-KS-015",
+            "Die Integration trägt außerdem die Faktorenkarte.",
+        )
 
     def test_repository_time_reviews_match_the_audited_decisions(self):
         prior_reviews = self.time_payload["timeReviews"][
