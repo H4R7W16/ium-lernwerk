@@ -12934,6 +12934,18 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
             overrides.get("remediation_payload", self.remediation_payload),
         )
 
+    @staticmethod
+    def synchronize_grade_7_working_availability(time_model, status):
+        next(
+            variant
+            for variant in time_model["annualVariants"]
+            if variant["id"] == "GRADE-7-WORKING-40"
+        )["availabilityStatus"] = status
+        for evidence in time_model["sequenceEvidence"]:
+            for time_evidence in evidence["timeEvidence"]:
+                if time_evidence["variantId"] == "GRADE-7-WORKING-40":
+                    time_evidence["availabilityStatus"] = status
+
     def test_complete_orchestrator_returns_31_60_4_and_historical_projection(self):
         result = self.validate()
         self.assertEqual(len(result["moduleContracts"]), 31)
@@ -13005,6 +13017,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 "pilotStatus": "completed",
             }
         )
+        self.synchronize_grade_7_working_availability(time_model, "available")
 
         available = self.validate(time_model=time_model)["gradeJudgements"][7]
         self.assertEqual(
@@ -13865,6 +13878,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 "pilotStatus": "completed",
             }
         )
+        self.synchronize_grade_7_working_availability(time_model, "available")
         result = self.validate(time_model=time_model)
         self.assertEqual(
             {
@@ -13956,6 +13970,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 "pilotStatus": "completed",
             }
         )
+        self.synchronize_grade_7_working_availability(time_model, "unavailable")
         result = self.validate(time_model=time_model)
         self.assertEqual(
             {
@@ -14331,6 +14346,210 @@ class IUM10Grade7OperationalStateTests(unittest.TestCase):
                 "pilotStatus": "completed",
             },
         )
+
+
+class IUM10Grade7FailClosedMutationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        cls.module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+        )
+        cls.remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+    @staticmethod
+    def _by_id(records, record_id):
+        return next(record for record in records if record["id"] == record_id)
+
+    def assert_public_validation_rejects(self, mutator, message):
+        payload = copy.deepcopy(self.time_model)
+        mutator(payload)
+        with self.assertRaisesRegex(IUM10ValidationError, message):
+            validate_ium10(
+                payload,
+                self.module_payload,
+                self.coverage_payload,
+                self.remediation_payload,
+            )
+
+    def test_rejects_each_grade_7_fail_closed_boundary_mutation(self):
+        def availability_contract(payload):
+            return payload["availabilityContracts"][0]
+
+        def annual_variant(payload, variant_id):
+            return self._by_id(payload["annualVariants"], variant_id)
+
+        def grade_7_judgement(payload):
+            return next(
+                judgement
+                for judgement in payload["gradeJudgements"]
+                if judgement["grade"] == 7
+            )
+
+        def set_failed_gate_with_false_green_state(payload):
+            contract = availability_contract(payload)
+            for gate in contract["gates"].values():
+                gate["status"] = "passed"
+            contract["gates"]["technical"]["status"] = "failed"
+            for pilot in payload["pilotAssignments"]:
+                if pilot["id"].startswith("PILOT-INT-7-") or pilot["id"] == (
+                    "PILOT-GRADE-7-WORKING-40"
+                ):
+                    pilot["status"] = "completed"
+            annual_variant(payload, "GRADE-7-WORKING-40")[
+                "availabilityStatus"
+            ] = "available"
+            for evidence in payload["sequenceEvidence"]:
+                for time_evidence in evidence["timeEvidence"]:
+                    if time_evidence["variantId"] == "GRADE-7-WORKING-40":
+                        time_evidence["availabilityStatus"] = "available"
+            grade_7_judgement(payload).update(
+                {
+                    "availabilityStatus": "available",
+                    "timeFeasibilityStatus": "green",
+                    "pilotStatus": "completed",
+                }
+            )
+
+        mutations = (
+            (
+                "missing core allocation",
+                lambda payload: annual_variant(payload, "GRADE-7-WORKING-40")[
+                    "allocations"
+                ].pop(),
+                "annual allocation sum differs from target units: GRADE-7-WORKING-40",
+            ),
+            (
+                "flex allocation in working path",
+                lambda payload: annual_variant(payload, "GRADE-7-WORKING-40")[
+                    "allocations"
+                ].append(
+                    {
+                        "moduleId": "IUM-7-FLEX-01",
+                        "budgetPathId": "standalone",
+                        "units": 2,
+                    }
+                ),
+                "annual variant references unknown module: GRADE-7-WORKING-40/IUM-7-FLEX-01",
+            ),
+            (
+                "comparison boundary promoted to variant",
+                lambda payload: annual_variant(payload, "GRADE-7-WORKING-40").update(
+                    {"targetUnits": 38}
+                ),
+                "annual allocation sum differs from target units: GRADE-7-WORKING-40",
+            ),
+            (
+                "comparison boundary changed",
+                lambda payload: availability_contract(payload).update(
+                    {"comparisonBoundaryUnits": 40}
+                ),
+                "availability contract comparison boundary units must be 38",
+            ),
+            (
+                "zero fallback delta",
+                lambda payload: availability_contract(payload)[
+                    "fallbackDeltaUnitsByIntegrationContractId"
+                ].update({"INT-7-DATA-CODING": 0}),
+                "availability contract fallback deltas differ",
+            ),
+            (
+                "boolean fallback delta",
+                lambda payload: availability_contract(payload)[
+                    "fallbackDeltaUnitsByIntegrationContractId"
+                ].update({"INT-7-DATA-CODING": True}),
+                "availability contract fallback deltas differ",
+            ),
+            (
+                "wrong maximum fallback sum",
+                lambda payload: availability_contract(payload).update(
+                    {"maximumFallbackUnits": 53}
+                ),
+                "availability contract maximum fallback units must be 54",
+            ),
+            (
+                "missing fallback cluster",
+                lambda payload: availability_contract(payload)[
+                    "fallbackDeltaUnitsByIntegrationContractId"
+                ].pop("INT-7-DATA-CODING"),
+                "availability contract fallback integration ids differ",
+            ),
+            (
+                "best effort failure mode",
+                lambda payload: availability_contract(payload).update(
+                    {"failureMode": "best-effort"}
+                ),
+                "availability contract failure mode must be fail-closed",
+            ),
+            (
+                "private reflection evidence allowed",
+                lambda payload: payload["pilotAssignments"][0].update(
+                    {"privateReflectionEvidence": "allowed"}
+                ),
+                "pilot privacy evidence must be prohibited",
+            ),
+            (
+                "student products accepted as time evidence",
+                lambda payload: payload["pilotAssignments"][0]["excludedUses"].remove(
+                    "student-products-as-time-evidence"
+                ),
+                "pilot excluded uses differ from the approved aggregate",
+            ),
+            (
+                "personal telemetry optional",
+                lambda payload: payload["pilotAssignments"][0].update(
+                    {"personalTelemetry": "optional"}
+                ),
+                "pilot privacy evidence must be prohibited",
+            ),
+            (
+                "passed pilot gate without evidence",
+                lambda payload: availability_contract(payload)["gates"]["pilot"].update(
+                    {"status": "passed"}
+                ),
+                "grade 7 pilot gate cannot pass without all required pilots completed",
+            ),
+            (
+                "failed gate falsely made available green",
+                set_failed_gate_with_false_green_state,
+                "grade 7 operational state differs from gates and pilots",
+            ),
+            (
+                "robust reference conditional",
+                lambda payload: annual_variant(payload, "GRADE-7-ROBUST-DEMAND").update(
+                    {"availabilityStatus": "conditional"}
+                ),
+                "grade 7 demand scenario differs from the approved contract: GRADE-7-ROBUST-DEMAND",
+            ),
+            (
+                "robust reference available",
+                lambda payload: annual_variant(payload, "GRADE-7-ROBUST-DEMAND").update(
+                    {"availabilityStatus": "available"}
+                ),
+                "grade 7 demand scenario differs from the approved contract: GRADE-7-ROBUST-DEMAND",
+            ),
+            (
+                "working variant reviewed without review gate",
+                lambda payload: annual_variant(payload, "GRADE-7-WORKING-40").update(
+                    {"status": "reviewed"}
+                ),
+                "grade 7 demand scenario differs from the approved contract: GRADE-7-WORKING-40",
+            ),
+        )
+
+        for name, mutator, message in mutations:
+            with self.subTest(name=name):
+                self.assert_public_validation_rejects(mutator, message)
 
 
 class IUM10PublishedRoadmapTests(unittest.TestCase):

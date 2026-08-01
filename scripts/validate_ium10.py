@@ -1328,14 +1328,18 @@ def _validate_grade_7_judgement(
             and set(variant.get("integrationContractIds", []))
             == set(GRADE_7_VARIANT_INTEGRATIONS[variant_id])
             and variant.get("availabilityStatus")
-            == ("conditional" if variant_id == "GRADE-7-WORKING-40" else "unavailable")
+            in (
+                AVAILABILITY_STATUSES
+                if variant_id == "GRADE-7-WORKING-40"
+                else {"unavailable"}
+            )
             and variant.get("availabilityContractId")
             == (
                 GRADE_7_AVAILABILITY_CONTRACT_ID
                 if variant_id == "GRADE-7-WORKING-40"
                 else None
             )
-            and variant.get("status") in {"working", "reviewed"},
+            and variant.get("status") == "working",
             f"grade 7 demand scenario differs from the approved contract: {variant_id}",
         )
 
@@ -4122,6 +4126,19 @@ def _validate_final_grade_judgements(
             for pilot_id in GRADE_7_REQUIRED_PILOT_IDS
         ),
         "grade 7 pilot gate cannot pass without all required pilots completed",
+    )
+    grade_7_variant = annual_variants["GRADE-7-WORKING-40"]
+    grade_7_judgement = judgements[7]
+    _require(
+        (
+            operational_state["availabilityStatus"],
+            operational_state["timeFeasibilityStatus"],
+        )
+        == (
+            grade_7_variant["availabilityStatus"],
+            grade_7_judgement["timeFeasibilityStatus"],
+        ),
+        "grade 7 operational state differs from gates and pilots",
     )
 
     for grade, judgement in judgements.items():
