@@ -12289,19 +12289,7 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
         finally:
             del overrides[variant_id]
 
-    def test_validator_rejects_green_amber_or_changed_grade_7_options(self):
-        for time_status in ("green", "red"):
-            with self.subTest(time_status=time_status):
-                adversarial = copy.deepcopy(self.time_model)
-                judgement = next(
-                    judgement
-                    for judgement in adversarial["gradeJudgements"]
-                    if judgement["grade"] == 7
-                )
-                judgement["timeFeasibilityStatus"] = time_status
-                with self.assertRaises(IUM10ValidationError):
-                    self.validate_grade_7_model(adversarial)
-
+    def test_validator_rejects_changed_grade_7_options(self):
         adversarial = copy.deepcopy(self.time_model)
         judgement = next(
             judgement
@@ -13596,6 +13584,138 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 judgement[field] = value
                 with self.assertRaises(IUM10ValidationError):
                     self.validate(time_model=time_model)
+
+    def test_public_validator_accepts_completed_grade_7_operational_state(self):
+        time_model = copy.deepcopy(self.time_model)
+        for gate in time_model["availabilityContracts"][0]["gates"].values():
+            gate["status"] = "passed"
+        required_pilot_ids = {
+            "PILOT-INT-7-DATA-CODING",
+            "PILOT-INT-7-PROGRAMMING",
+            "PILOT-INT-7-NET-SECURITY",
+            "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+            "PILOT-GRADE-7-WORKING-40",
+        }
+        for pilot in time_model["pilotAssignments"]:
+            if pilot["id"] in required_pilot_ids:
+                pilot["status"] = "completed"
+        judgement = next(
+            item for item in time_model["gradeJudgements"] if item["grade"] == 7
+        )
+        judgement.update(
+            {
+                "availabilityStatus": "available",
+                "timeFeasibilityStatus": "green",
+                "pilotStatus": "completed",
+            }
+        )
+        result = self.validate(time_model=time_model)
+        self.assertEqual(
+            {
+                field: result["gradeJudgements"][7][field]
+                for field in (
+                    "availabilityStatus",
+                    "timeFeasibilityStatus",
+                    "pilotStatus",
+                )
+            },
+            {
+                "availabilityStatus": "available",
+                "timeFeasibilityStatus": "green",
+                "pilotStatus": "completed",
+            },
+        )
+
+    def test_public_validator_keeps_initial_grade_7_operational_state(self):
+        result = self.validate()
+        judgement = result["gradeJudgements"][7]
+        self.assertEqual(
+            {
+                field: judgement[field]
+                for field in (
+                    "availabilityStatus",
+                    "timeFeasibilityStatus",
+                    "pilotStatus",
+                )
+            },
+            {
+                "availabilityStatus": "conditional",
+                "timeFeasibilityStatus": "amber",
+                "pilotStatus": "not-started",
+            },
+        )
+
+    def test_public_validator_accepts_in_progress_grade_7_pilots(self):
+        time_model = copy.deepcopy(self.time_model)
+        next(
+            pilot
+            for pilot in time_model["pilotAssignments"]
+            if pilot["id"] == "PILOT-INT-7-DATA-CODING"
+        )["status"] = "completed"
+        judgement = next(
+            item for item in time_model["gradeJudgements"] if item["grade"] == 7
+        )
+        judgement["pilotStatus"] = "in-progress"
+        result = self.validate(time_model=time_model)
+        self.assertEqual(
+            {
+                field: result["gradeJudgements"][7][field]
+                for field in (
+                    "availabilityStatus",
+                    "timeFeasibilityStatus",
+                    "pilotStatus",
+                )
+            },
+            {
+                "availabilityStatus": "conditional",
+                "timeFeasibilityStatus": "amber",
+                "pilotStatus": "in-progress",
+            },
+        )
+
+    def test_public_validator_accepts_failed_grade_7_gate_as_unavailable(self):
+        time_model = copy.deepcopy(self.time_model)
+        for gate in time_model["availabilityContracts"][0]["gates"].values():
+            gate["status"] = "passed"
+        time_model["availabilityContracts"][0]["gates"]["technical"][
+            "status"
+        ] = "failed"
+        required_pilot_ids = {
+            "PILOT-INT-7-DATA-CODING",
+            "PILOT-INT-7-PROGRAMMING",
+            "PILOT-INT-7-NET-SECURITY",
+            "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+            "PILOT-GRADE-7-WORKING-40",
+        }
+        for pilot in time_model["pilotAssignments"]:
+            if pilot["id"] in required_pilot_ids:
+                pilot["status"] = "completed"
+        judgement = next(
+            item for item in time_model["gradeJudgements"] if item["grade"] == 7
+        )
+        judgement.update(
+            {
+                "availabilityStatus": "unavailable",
+                "timeFeasibilityStatus": "red",
+                "pilotStatus": "completed",
+            }
+        )
+        result = self.validate(time_model=time_model)
+        self.assertEqual(
+            {
+                field: result["gradeJudgements"][7][field]
+                for field in (
+                    "availabilityStatus",
+                    "timeFeasibilityStatus",
+                    "pilotStatus",
+                )
+            },
+            {
+                "availabilityStatus": "unavailable",
+                "timeFeasibilityStatus": "red",
+                "pilotStatus": "completed",
+            },
+        )
 
 
 class IUM10Grade7AvailabilityContractTests(unittest.TestCase):

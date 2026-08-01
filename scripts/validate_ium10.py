@@ -1178,12 +1178,12 @@ def _validate_grade_7_judgement(
     )
     _require(
         judgement["grade"] == 7
-        and judgement["availabilityStatus"] == "conditional"
         and judgement["semanticCoverageStatus"] == "partial"
-        and judgement["timeFeasibilityStatus"] == "amber"
         and judgement["sequenceEvidenceStatus"] == "covered"
-        and judgement["pilotStatus"] == "not-started",
-        "grade 7 status dimensions must remain conditional/partial/amber/covered/not-started",
+        and isinstance(judgement["availabilityStatus"], str)
+        and isinstance(judgement["timeFeasibilityStatus"], str)
+        and isinstance(judgement["pilotStatus"], str),
+        "grade 7 semantic, sequence, or operational status fields are invalid",
     )
     _require(
         judgement["annualVariantIds"] == list(GRADE_7_VARIANT_TARGETS),
