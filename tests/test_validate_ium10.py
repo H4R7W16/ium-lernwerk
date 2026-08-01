@@ -21,6 +21,7 @@ from scripts.validate_ium10 import (
     IUM10_BASELINE_COMMIT,
     IUM10ValidationError,
     coverage_projection_fingerprint,
+    derive_grade_7_operational_state,
     time_handoff_fingerprint,
     validate_annual_variants,
     validate_capacity_model,
@@ -13218,6 +13219,76 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
         time_model["pilotAssignments"][0]["measures"].pop()
         with self.assertRaises(IUM10ValidationError):
             self.validate(time_model=time_model)
+
+
+class IUM10Grade7OperationalStateTests(unittest.TestCase):
+    required_pilot_ids = {
+        "PILOT-INT-7-DATA-CODING",
+        "PILOT-INT-7-PROGRAMMING",
+        "PILOT-INT-7-NET-SECURITY",
+        "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+        "PILOT-GRADE-7-WORKING-40",
+    }
+
+    def contract(self, gate_status="not-started"):
+        return {
+            "gates": {
+                gate_id: {"status": gate_status}
+                for gate_id in (
+                    "capacity", "integration", "technical", "privacy", "pilot"
+                )
+            }
+        }
+
+    def pilots(self, status="not-started"):
+        return {
+            pilot_id: {"id": pilot_id, "status": status}
+            for pilot_id in self.required_pilot_ids
+        }
+
+    def test_initial_contract_is_conditional_amber_and_not_started(self):
+        self.assertEqual(
+            derive_grade_7_operational_state(self.contract(), self.pilots()),
+            {
+                "availabilityStatus": "conditional",
+                "timeFeasibilityStatus": "amber",
+                "pilotStatus": "not-started",
+            },
+        )
+
+    def test_started_or_partly_completed_pilots_are_in_progress(self):
+        pilots = self.pilots()
+        pilots["PILOT-INT-7-DATA-CODING"]["status"] = "completed"
+        self.assertEqual(
+            derive_grade_7_operational_state(self.contract(), pilots)["pilotStatus"],
+            "in-progress",
+        )
+
+    def test_all_passed_gates_and_pilots_are_available_and_green(self):
+        self.assertEqual(
+            derive_grade_7_operational_state(
+                self.contract("passed"), self.pilots("completed")
+            ),
+            {
+                "availabilityStatus": "available",
+                "timeFeasibilityStatus": "green",
+                "pilotStatus": "completed",
+            },
+        )
+
+    def test_any_failed_gate_is_fail_closed_after_completed_pilots(self):
+        contract = self.contract("passed")
+        contract["gates"]["technical"]["status"] = "failed"
+        self.assertEqual(
+            derive_grade_7_operational_state(
+                contract, self.pilots("completed")
+            ),
+            {
+                "availabilityStatus": "unavailable",
+                "timeFeasibilityStatus": "red",
+                "pilotStatus": "completed",
+            },
+        )
 
 
 class IUM10PublishedRoadmapTests(unittest.TestCase):

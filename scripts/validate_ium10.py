@@ -115,11 +115,50 @@ PILOT_EXCLUDED_USES = [
     "competence-profiles",
     "individual-diagnostics",
 ]
+GRADE_7_REQUIRED_PILOT_IDS = frozenset(
+    {
+        "PILOT-INT-7-DATA-CODING",
+        "PILOT-INT-7-PROGRAMMING",
+        "PILOT-INT-7-NET-SECURITY",
+        "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+        "PILOT-GRADE-7-WORKING-40",
+    }
+)
 AUTHORITATIVE_TIME_BOUNDARY = (
     "lessonRange ist die historische, eigenständige Kandidatenschätzung. "
     "roadmap/time-model.json ist für Jahreszuweisung, Pfadstatus und "
     "Zeitfreigabe autoritativ."
 )
+
+
+def derive_grade_7_operational_state(availability_contract, pilot_assignments):
+    gate_statuses = {
+        gate["status"] for gate in availability_contract["gates"].values()
+    }
+    required_pilots = [
+        pilot_assignments[pilot_id]
+        for pilot_id in GRADE_7_REQUIRED_PILOT_IDS
+    ]
+    pilot_statuses = {pilot["status"] for pilot in required_pilots}
+    if pilot_statuses == {"not-started"}:
+        pilot_status = "not-started"
+    elif pilot_statuses == {"completed"}:
+        pilot_status = "completed"
+    else:
+        pilot_status = "in-progress"
+
+    if "failed" in gate_statuses:
+        availability_status, time_status = "unavailable", "red"
+    elif gate_statuses == {"passed"} and pilot_status == "completed":
+        availability_status, time_status = "available", "green"
+    else:
+        availability_status, time_status = "conditional", "amber"
+
+    return {
+        "availabilityStatus": availability_status,
+        "timeFeasibilityStatus": time_status,
+        "pilotStatus": pilot_status,
+    }
 PRIVACY_CONTRACT_FIELDS = {
     "id",
     "moduleId",
