@@ -62,6 +62,7 @@ PHASE_IDS = (
     "shared-consolidation",
 )
 CONTRACT_STATUSES = {"working", "reviewed"}
+AVAILABILITY_STATUSES = {"conditional", "available", "unavailable"}
 TIME_MODEL_FIELDS = {
     "schemaVersion",
     "status",
@@ -71,6 +72,7 @@ TIME_MODEL_FIELDS = {
     "moduleContracts",
     "integrationContracts",
     "annualVariants",
+    "availabilityContracts",
     "privacyContracts",
     "timeReviews",
     "sequenceEvidence",
@@ -87,7 +89,7 @@ RISK_SCOPES = {
     "RISK-IUM10-PRIVATE-LEARNING-ACTIONS": "private-local-reflection",
 }
 APPROVED_RISK_REGISTER_SHA256 = (
-    "88d9496759846a75d8c79b4df427c2c6befbcf78fe778fb21ea8a70906876db7"
+    "cee9ab121ccde252b243a930bb76a07209909145b77d12864de60dd790846492"
 )
 PILOT_ASSIGNMENT_FIELDS = {
     "id",
@@ -213,16 +215,17 @@ OBSERVABLE_BASES = {
 CORE_PATH_IDS = {
     5: {"baseline", "regular", "extended"},
     6: {"baseline", "regular"},
-    7: {"optimized", "robust", "historical-minimum"},
+    7: {"working-40", "robust", "historical-minimum"},
 }
 CORE_PATH_ORDER = {
     5: ("baseline", "regular", "extended"),
     6: ("baseline", "regular", "targeted-extension"),
-    7: ("optimized", "robust", "historical-minimum"),
+    7: ("working-40", "robust", "historical-minimum"),
 }
 ANNUAL_PATH_IDS_BY_KIND = {
     "planning-path": {"baseline", "regular", "extended"},
-    "demand-scenario": {"optimized", "robust", "historical-minimum"},
+    "working-target": {"working-40"},
+    "demand-scenario": {"robust", "historical-minimum"},
 }
 GRADE_6_CORE_MODULE_IDS = frozenset(
     {
@@ -289,7 +292,7 @@ SEQUENCE_DEPTH_FIELDS = {"grade", "operatorDepth", "productDepth"}
 SEQUENCE_PERSPECTIVE_FIELDS = {"perspective", "moduleIds", "rationale"}
 SEQUENCE_TIME_EVIDENCE_FIELDS = {
     "variantId",
-    "available",
+    "availabilityStatus",
     "targetUnits",
     "scopeModuleIds",
     "scopeUnits",
@@ -330,7 +333,7 @@ SEQUENCE_SCOPES = {
         "variantModuleIds": {
             "GRADE-5-BASELINE": ["IUM-5-CORE-05"],
             "GRADE-6-BASELINE": ["IUM-6-CORE-04"],
-            "GRADE-7-OPTIMIZED-DEMAND": [
+            "GRADE-7-WORKING-40": [
                 "IUM-7-CORE-03",
                 "IUM-7-CORE-04",
             ],
@@ -343,7 +346,7 @@ SEQUENCE_SCOPES = {
         "variantModuleIds": {
             variant_id: sorted(GRADE_7_CORE_MODULE_IDS)
             for variant_id in (
-                "GRADE-7-OPTIMIZED-DEMAND",
+                "GRADE-7-WORKING-40",
                 "GRADE-7-ROBUST-DEMAND",
                 "GRADE-7-HISTORICAL-MINIMUM",
             )
@@ -356,7 +359,7 @@ SEQUENCE_SCOPES = {
         "variantModuleIds": {
             variant_id: sorted(GRADE_7_CORE_MODULE_IDS)
             for variant_id in (
-                "GRADE-7-OPTIMIZED-DEMAND",
+                "GRADE-7-WORKING-40",
                 "GRADE-7-ROBUST-DEMAND",
                 "GRADE-7-HISTORICAL-MINIMUM",
             )
@@ -401,31 +404,31 @@ GRADE_7_FLEX_RANGES = {
     "IUM-7-PROJECT-01": {"min": 8, "recommended": 10, "max": 12},
 }
 GRADE_7_CORE_UNITS = {
-    "IUM-7-CORE-01": {"optimized": 5, "robust": 5, "historical-minimum": 6},
-    "IUM-7-CORE-02": {"optimized": 3, "robust": 4, "historical-minimum": 5},
-    "IUM-7-CORE-03": {"optimized": 5, "robust": 5, "historical-minimum": 6},
-    "IUM-7-CORE-04": {"optimized": 6, "robust": 6, "historical-minimum": 7},
-    "IUM-7-CORE-05": {"optimized": 4, "robust": 4, "historical-minimum": 5},
-    "IUM-7-CORE-06": {"optimized": 3, "robust": 3, "historical-minimum": 4},
-    "IUM-7-CORE-07": {"optimized": 4, "robust": 4, "historical-minimum": 5},
-    "IUM-7-CORE-08": {"optimized": 4, "robust": 6, "historical-minimum": 6},
-    "IUM-7-CORE-09": {"optimized": 2, "robust": 3, "historical-minimum": 4},
-    "IUM-7-CORE-10": {"optimized": 4, "robust": 6, "historical-minimum": 6},
+    "IUM-7-CORE-01": {"working-40": 5, "robust": 5, "historical-minimum": 6},
+    "IUM-7-CORE-02": {"working-40": 3, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-03": {"working-40": 5, "robust": 5, "historical-minimum": 6},
+    "IUM-7-CORE-04": {"working-40": 6, "robust": 6, "historical-minimum": 7},
+    "IUM-7-CORE-05": {"working-40": 4, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-06": {"working-40": 3, "robust": 3, "historical-minimum": 4},
+    "IUM-7-CORE-07": {"working-40": 4, "robust": 4, "historical-minimum": 5},
+    "IUM-7-CORE-08": {"working-40": 4, "robust": 6, "historical-minimum": 6},
+    "IUM-7-CORE-09": {"working-40": 2, "robust": 3, "historical-minimum": 4},
+    "IUM-7-CORE-10": {"working-40": 4, "robust": 6, "historical-minimum": 6},
 }
 GRADE_7_INTEGRATION_BOUNDS = {
     "INT-7-DATA-CODING": {
         "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02"],
-        "pathIds": ["optimized", "robust"],
+        "pathIds": ["working-40", "robust"],
         "countedInModuleId": "IUM-7-CORE-02",
         "sharedMinutes": 90,
-        "savingsMinutesByPath": {"optimized": 135, "robust": 90},
+        "savingsMinutesByPath": {"working-40": 135, "robust": 90},
     },
     "INT-7-PROGRAMMING": {
         "moduleIds": ["IUM-7-CORE-03", "IUM-7-CORE-04"],
-        "pathIds": ["optimized", "robust"],
+        "pathIds": ["working-40", "robust"],
         "countedInModuleId": "IUM-7-CORE-04",
         "sharedMinutes": 90,
-        "savingsMinutesByPath": {"optimized": 90, "robust": 90},
+        "savingsMinutesByPath": {"working-40": 90, "robust": 90},
     },
     "INT-7-NET-SECURITY": {
         "moduleIds": [
@@ -433,10 +436,10 @@ GRADE_7_INTEGRATION_BOUNDS = {
             "IUM-7-CORE-06",
             "IUM-7-CORE-07",
         ],
-        "pathIds": ["optimized", "robust"],
+        "pathIds": ["working-40", "robust"],
         "countedInModuleId": "IUM-7-CORE-07",
         "sharedMinutes": 135,
-        "savingsMinutesByPath": {"optimized": 135, "robust": 135},
+        "savingsMinutesByPath": {"working-40": 135, "robust": 135},
     },
     "INT-7-DATA-MEDIA-SOCIETY": {
         "moduleIds": [
@@ -444,28 +447,26 @@ GRADE_7_INTEGRATION_BOUNDS = {
             "IUM-7-CORE-09",
             "IUM-7-CORE-10",
         ],
-        "pathIds": ["optimized", "robust"],
+        "pathIds": ["working-40", "robust"],
         "countedInModuleId": "IUM-7-CORE-10",
         "sharedMinutes": 45,
-        "savingsMinutesByPath": {"optimized": 270, "robust": 45},
+        "savingsMinutesByPath": {"working-40": 270, "robust": 45},
     },
 }
 GRADE_7_VARIANT_TARGETS = {
-    "GRADE-7-OPTIMIZED-DEMAND": ("optimized", 40),
+    "GRADE-7-WORKING-40": ("working-40", 40),
     "GRADE-7-ROBUST-DEMAND": ("robust", 46),
     "GRADE-7-HISTORICAL-MINIMUM": ("historical-minimum", 54),
 }
 GRADE_7_VARIANT_INTEGRATIONS = {
-    "GRADE-7-OPTIMIZED-DEMAND": GRADE_7_INTEGRATION_IDS,
+    "GRADE-7-WORKING-40": GRADE_7_INTEGRATION_IDS,
     "GRADE-7-ROBUST-DEMAND": GRADE_7_INTEGRATION_IDS,
     "GRADE-7-HISTORICAL-MINIMUM": frozenset(),
 }
 GRADE_7_DECISION_OPTIONS = [
-    "additional-school-time",
-    "structural-integration-or-reclassification",
-    "curricular-reprioritisation",
-    "earlier-preparation",
-    "explicitly-incomplete-path",
+    "pilot-grade-7-clusters",
+    "pilot-grade-7-end-to-end",
+    "fall-back-on-failed-required-gate",
 ]
 GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
     "Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 "
@@ -884,6 +885,7 @@ def _validate_grade_6_judgement(
     judgement = grade_6_judgements[0]
     judgement_fields = {
         "grade",
+        "availabilityStatus",
         "semanticCoverageStatus",
         "timeFeasibilityStatus",
         "sequenceEvidenceStatus",
@@ -988,7 +990,7 @@ def _validate_grade_6_judgement(
             != set(expected_bounds["integrationContractIds"])
         ):
             residuals.add((variant_id, "contract-bounds-mismatch"))
-        if variant.get("available") is not True:
+        if variant.get("availabilityStatus") != "available":
             residuals.add((variant_id, "unavailable"))
         if variant.get("status") not in {"working", "reviewed"}:
             residuals.add((variant_id, "status-not-ready"))
@@ -1077,6 +1079,7 @@ def _validate_grade_7_judgement(
     judgement = grade_7_judgements[0]
     judgement_fields = {
         "grade",
+        "availabilityStatus",
         "semanticCoverageStatus",
         "timeFeasibilityStatus",
         "sequenceEvidenceStatus",
@@ -1092,11 +1095,12 @@ def _validate_grade_7_judgement(
     )
     _require(
         judgement["grade"] == 7
+        and judgement["availabilityStatus"] == "conditional"
         and judgement["semanticCoverageStatus"] == "partial"
-        and judgement["timeFeasibilityStatus"] == "red"
-        and judgement["sequenceEvidenceStatus"] == "partial"
+        and judgement["timeFeasibilityStatus"] == "amber"
+        and judgement["sequenceEvidenceStatus"] == "covered"
         and judgement["pilotStatus"] == "not-started",
-        "grade 7 status dimensions must remain partial/red/partial/not-started",
+        "grade 7 status dimensions must remain conditional/partial/amber/covered/not-started",
     )
     _require(
         judgement["annualVariantIds"] == list(GRADE_7_VARIANT_TARGETS),
@@ -1104,7 +1108,7 @@ def _validate_grade_7_judgement(
     )
     _require(
         judgement["decisionOptions"] == GRADE_7_DECISION_OPTIONS,
-        "grade 7 judgement must retain exactly five unimplemented options",
+        "grade 7 judgement must retain exactly three approved decision options",
     )
     for field in ("rationale", "risk"):
         _require(
@@ -1182,13 +1186,15 @@ def _validate_grade_7_judgement(
         }
         _require(
             variant.get("grade") == 7
-            and variant.get("kind") == "demand-scenario"
+            and variant.get("kind")
+            == ("working-target" if variant_id == "GRADE-7-WORKING-40" else "demand-scenario")
             and variant.get("pathId") == path_id
             and variant.get("targetUnits") == target_units
             and actual_allocations == expected_allocations
             and set(variant.get("integrationContractIds", []))
             == set(GRADE_7_VARIANT_INTEGRATIONS[variant_id])
-            and variant.get("available") is False
+            and variant.get("availabilityStatus")
+            == ("conditional" if variant_id == "GRADE-7-WORKING-40" else "unavailable")
             and variant.get("status") in {"working", "reviewed"},
             f"grade 7 demand scenario differs from the approved contract: {variant_id}",
         )
@@ -1311,8 +1317,8 @@ def validate_time_model_draft(time_model, module_payload=None):
     _require(
         isinstance(schema_version, int)
         and not isinstance(schema_version, bool)
-        and schema_version == 2,
-        "schema version must be the integer 2",
+        and schema_version == 3,
+        "schema version must be the integer 3",
     )
     has_grade_6_orchestration = _has_grade_6_orchestration(
         time_model,
@@ -2188,7 +2194,8 @@ def validate_annual_variants(
         "targetUnits",
         "allocations",
         "integrationContractIds",
-        "available",
+        "availabilityStatus",
+        "availabilityContractId",
         "status",
         "rationale",
         "risk",
@@ -2216,7 +2223,7 @@ def validate_annual_variants(
             f"annual variant grade must be a positive integer: {variant_id}",
         )
         _require(
-            variant["kind"] in {"planning-path", "demand-scenario"},
+            variant["kind"] in ANNUAL_PATH_IDS_BY_KIND,
             f"invalid annual variant kind: {variant_id}",
         )
         _require(
@@ -2232,8 +2239,13 @@ def validate_annual_variants(
             f"annual variant target units must be a positive integer: {variant_id}",
         )
         _require(
-            isinstance(variant["available"], bool),
-            f"annual variant availability must be boolean: {variant_id}",
+            variant["availabilityStatus"] in AVAILABILITY_STATUSES
+            and (
+                variant["availabilityContractId"] is None
+                or isinstance(variant["availabilityContractId"], str)
+                and variant["availabilityContractId"].strip()
+            ),
+            f"annual variant availability status is invalid: {variant_id}",
         )
         _require(
             variant["status"] in {"working", "reviewed"},
@@ -2448,12 +2460,12 @@ def validate_annual_variants(
             f"annual variant references differ from required integrations: {variant_id}",
         )
         _require(
-            not variant["available"]
+            variant["availabilityStatus"] != "available"
             or all(
                 integration_contracts[integration_id].get("status") != "failed"
                 for integration_id in required_integration_ids
             ),
-            f"available annual variant uses a failed integration: {variant_id}",
+                f"available annual variant uses a failed integration: {variant_id}",
         )
         variants_by_id[variant_id] = variant
 
@@ -3371,7 +3383,9 @@ def validate_sequence_evidence(
             )
             expected_variant_grade = next(iter(expected_variant_grades))
             expected_variant_kind = (
-                "demand-scenario"
+                "working-target"
+                if variant_id == "GRADE-7-WORKING-40"
+                else "demand-scenario"
                 if expected_variant_grade == 7
                 else "planning-path"
             )
@@ -3380,7 +3394,7 @@ def validate_sequence_evidence(
                 and _positive_int(variant.get("grade"))
                 and variant["grade"] == expected_variant_grade
                 and variant.get("kind") == expected_variant_kind
-                and isinstance(variant.get("available"), bool),
+                and variant.get("availabilityStatus") in AVAILABILITY_STATUSES,
                 f"sequence variant identity is invalid: {competency_id}/{variant_id}",
             )
             allocations = variant.get("allocations")
@@ -3407,8 +3421,7 @@ def validate_sequence_evidence(
                 allocation_units[module_id] for module_id in scope_module_ids
             )
             _require(
-                isinstance(time_record["available"], bool)
-                and time_record["available"] is variant.get("available")
+                time_record["availabilityStatus"] == variant.get("availabilityStatus")
                 and _positive_int(variant.get("targetUnits"))
                 and _positive_int(time_record["targetUnits"])
                 and time_record["targetUnits"] == variant["targetUnits"]
@@ -3479,7 +3492,7 @@ def validate_sequence_evidence(
         )
         if decision == "covered":
             _require(
-                any(item["available"] is True for item in time_evidence),
+                any(item["availabilityStatus"] == "available" for item in time_evidence),
                 f"covered sequence needs a genuinely available annual path: {competency_id}",
             )
             expected_coverage_status = "covered"
@@ -3578,7 +3591,7 @@ def _validate_sequence_judgement_statuses(grade_judgements, sequence_evidence):
         set(judgements_by_grade) == {5, 6, 7},
         "sequence evidence needs grade 5, 6, and 7 judgements",
     )
-    expected_statuses = {5: "covered", 6: "covered", 7: "partial"}
+    expected_statuses = {5: "covered", 6: "covered", 7: "covered"}
     for grade, expected_status in expected_statuses.items():
         _require(
             judgements_by_grade[grade].get("sequenceEvidenceStatus")
@@ -3734,6 +3747,7 @@ def _validate_final_grade_judgements(
     )
     fields = {
         "grade",
+        "availabilityStatus",
         "semanticCoverageStatus",
         "timeFeasibilityStatus",
         "sequenceEvidenceStatus",
@@ -3745,6 +3759,7 @@ def _validate_final_grade_judgements(
     }
     expected = {
         5: {
+            "availability": "available",
             "semantic": "partial",
             "time": "green",
             "sequence": "covered",
@@ -3760,6 +3775,7 @@ def _validate_final_grade_judgements(
             "rationale": GRADE_5_JUDGEMENT_RATIONALE,
         },
         6: {
+            "availability": "available",
             "semantic": "covered",
             "time": "green",
             "sequence": "covered",
@@ -3777,11 +3793,12 @@ def _validate_final_grade_judgements(
             "rationale": GRADE_6_JUDGEMENT_RATIONALE,
         },
         7: {
+            "availability": "conditional",
             "semantic": "partial",
-            "time": "red",
-            "sequence": "partial",
+            "time": "amber",
+            "sequence": "covered",
             "variants": [
-                "GRADE-7-OPTIMIZED-DEMAND",
+                "GRADE-7-WORKING-40",
                 "GRADE-7-ROBUST-DEMAND",
                 "GRADE-7-HISTORICAL-MINIMUM",
             ],
@@ -3811,26 +3828,15 @@ def _validate_final_grade_judgements(
         )
         derived_semantic[contract["grade"]] = "partial"
 
-    derived_sequence = {grade: "covered" for grade in expected}
-    for evidence in sequence_evidence.values():
-        if evidence.get("coverageDecision") != "remain-partial":
-            continue
-        for grade in evidence.get("grades", []):
-            _require(
-                grade in derived_sequence,
-                "sequence evidence references an unknown judgement grade",
-            )
-            derived_sequence[grade] = "partial"
-
     for grade, judgement in judgements.items():
         contract = expected[grade]
         _require(
             set(judgement) == fields
+            and judgement["availabilityStatus"] == contract["availability"]
             and judgement["semanticCoverageStatus"] == contract["semantic"]
             and judgement["semanticCoverageStatus"] == derived_semantic[grade]
             and judgement["timeFeasibilityStatus"] == contract["time"]
             and judgement["sequenceEvidenceStatus"] == contract["sequence"]
-            and judgement["sequenceEvidenceStatus"] == derived_sequence[grade]
             and judgement["pilotStatus"] == "not-started"
             and judgement["annualVariantIds"] == contract["variants"]
             and judgement["decisionOptions"] == contract["options"]
@@ -4360,8 +4366,8 @@ def validate_ium10(
     _require(
         isinstance(time_payload.get("schemaVersion"), int)
         and not isinstance(time_payload["schemaVersion"], bool)
-        and time_payload["schemaVersion"] == 2,
-        "schema version must be the integer 2",
+        and time_payload["schemaVersion"] == 3,
+        "schema version must be the integer 3",
     )
     capacity_paths = validate_capacity_model(
         time_payload["capacityModel"],
