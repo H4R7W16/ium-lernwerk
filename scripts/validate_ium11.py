@@ -2,8 +2,11 @@ import argparse
 import copy
 import hashlib
 import json
+import os
 import re
 import sys
+import tempfile
+import uuid
 from pathlib import Path
 
 if __package__:
@@ -84,6 +87,33 @@ PACKAGE_ID_PATTERN = re.compile(
 )
 FINGERPRINT_PATTERN = re.compile(r"[0-9a-f]{64}")
 SCHOOL_YEAR_PATTERN = re.compile(r"[0-9]{4}-[0-9]{2}")
+DECISION_PACKAGE_ID_PATTERN = re.compile(
+    r"PKG-[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
+)
+DECISION_PACKAGE_FIELDS = {
+    "schemaVersion", "packageType", "packageId", "protocolVersion",
+    "protocolFingerprint", "toolVersion", "timeModelFingerprint",
+    "sourcePackageIds", "pilotResults", "moduleResults",
+    "integrationResults", "availabilityGateResults",
+    "timeAndFallbackSummary", "technicalPrivacySummary",
+    "developmentWarnings", "statementBoundary", "recommendation",
+    "reviewStatus", "retentionClass",
+}
+DECISION_PILOT_RESULT_FIELDS = {"scopeId", "packageId", "result"}
+DECISION_MODULE_RESULT_FIELDS = {"moduleId", "pilotAssignmentId", "result"}
+DECISION_INTEGRATION_RESULT_FIELDS = {
+    "integrationContractId", "pilotAssignmentId", "result",
+    "fallbackDeltaUnits",
+}
+AVAILABILITY_GATE_FIELDS = {
+    "capacity", "integration", "technical", "privacy", "pilot",
+}
+TIME_FALLBACK_SUMMARY_FIELDS = {
+    "plannedUnits", "actualUnits", "fallbackUnits", "requiredUnits",
+}
+TECHNICAL_PRIVACY_SUMMARY_FIELDS = {"technical", "privacy"}
+REVIEW_STATUS_FIELDS = {"fach", "engineeringPrivacy", "commissioner"}
+DECISION_NAMESPACE = uuid.UUID("32f31164-80d6-5ac9-851f-7579346166e5")
 
 
 class IUM11ValidationError(ValueError):
@@ -527,6 +557,380 @@ def validate_evidence_package(payload: dict, protocol: dict, time_model: dict) -
     return copy.deepcopy(payload)
 
 
+def _technical_path_passed(payload: dict) -> bool:
+    delivery = payload["deliveryTimeEvidence"]
+    technical_privacy = payload["technicalPrivacyEvidence"]
+    return (
+        technical_privacy["technicalFunction"] == "pass"
+        or (
+            delivery["fallbackActivated"]
+            and technical_privacy["fallbackEquivalentLearningFunction"]
+        )
+    )
+
+
+def derive_annual_result(
+    annual_payload: dict,
+    cluster_packages: list[dict],
+    protocol: dict,
+) -> dict:
+    _require(isinstance(cluster_packages, list), "annual result requires cluster packages")
+    _require(
+        all(
+            isinstance(item, dict) and item.get("scopeId") in protocol["clustersById"]
+            for item in cluster_packages
+        ),
+        "annual result requires known cluster packages",
+    )
+    ordered = sorted(
+        cluster_packages,
+        key=lambda item: protocol["clustersById"][item["scopeId"]]["order"],
+    )
+    _require(len(ordered) == 4, "annual result requires four cluster packages")
+    _require(
+        len({item["scopeId"] for item in ordered}) == 4,
+        "annual result requires distinct cluster packages",
+    )
+    annual_sources = [*ordered, annual_payload]
+    _require(
+        len({item["packageId"] for item in annual_sources}) == 5,
+        "annual result requires distinct source package IDs",
+    )
+    for field in (
+        "protocolVersion", "protocolFingerprint", "toolVersion",
+        "timeModelFingerprint",
+    ):
+        _require(
+            len({item[field] for item in annual_sources}) == 1,
+            f"annual source {field} values differ",
+        )
+    _require(annual_payload["protocolVersion"] == protocol["protocolVersion"], "annual protocolVersion differs")
+    _require(annual_payload["protocolFingerprint"] == protocol["protocolFingerprint"], "annual protocolFingerprint differs")
+    _require(annual_payload["toolVersion"] == protocol["toolVersion"], "annual toolVersion differs")
+    _require(annual_payload["timeModelFingerprint"] == protocol["timeModelFingerprint"], "annual timeModelFingerprint differs")
+    _require(
+        all(item["result"] == "pass" for item in ordered),
+        "annual result requires positive clusters",
+    )
+    _require(
+        [item["scopeId"] for item in ordered] == protocol["annualPilot"]["clusterIds"],
+        "annual cluster sequence differs",
+    )
+    for item in ordered:
+        cluster = protocol["clustersById"][item["scopeId"]]
+        _require(
+            item["deliveryTimeEvidence"]["actualUnits"] <= cluster["budgetUnits"],
+            f"cluster budget exceeded: {item['scopeId']}",
+        )
+
+    delivery = annual_payload["deliveryTimeEvidence"]
+    _require(delivery["actualUnits"] <= 40, "annual budget exceeded")
+    _require(
+        delivery["clusterOrder"] == protocol["annualPilot"]["clusterIds"],
+        "annual sequence differs",
+    )
+    annual_cluster_units = delivery["clusterActualUnits"]
+    for record, cluster_id in zip(
+        annual_cluster_units,
+        protocol["annualPilot"]["clusterIds"],
+        strict=True,
+    ):
+        _require(
+            record["clusterId"] == cluster_id
+            and record["actualUnits"] <= protocol["clustersById"][cluster_id]["budgetUnits"],
+            f"annual cluster budget exceeded: {cluster_id}",
+        )
+
+    integrations_passed = all(
+        item["result"] == "pass"
+        and item["handoffProductPresent"]
+        and item["handoffReused"]
+        and all(criterion["band"] == "strong" for criterion in item["criteria"])
+        for item in annual_payload["learningQualityEvidence"]["integrationResults"]
+    )
+    modules_passed = all(
+        item["result"] == "pass"
+        and all(criterion["band"] == "strong" for criterion in item["criteria"])
+        for item in annual_payload["learningQualityEvidence"]["moduleResults"]
+    )
+    pulse = evaluate_learner_pulse(annual_payload["learnerPulseEvidence"], protocol)
+    gates = {
+        "capacity": "passed",
+        "integration": "passed" if integrations_passed else "failed",
+        "technical": "passed" if _technical_path_passed(annual_payload) else "failed",
+        "privacy": "passed" if annual_payload["technicalPrivacyEvidence"]["privacyGate"] == "pass" else "failed",
+        "pilot": "passed" if (
+            annual_payload["result"] == "pass"
+            and modules_passed
+            and not pulse["warnings"]
+            and all(item["result"] == "pass" for item in ordered)
+        ) else "failed",
+    }
+    _require(
+        all(value == "passed" for value in gates.values()),
+        "annual result requires five passed availability gates",
+    )
+    return {
+        "result": "pass",
+        "actualUnits": delivery["actualUnits"],
+        "availabilityGateResults": gates,
+    }
+
+
+def _decision_package_id(source_package_ids: list[str]) -> str:
+    name = "|".join(sorted(source_package_ids))
+    return f"PKG-{uuid.uuid5(DECISION_NAMESPACE, name)}"
+
+
+def _expected_decision_scopes(protocol: dict) -> list[str]:
+    return [*protocol["annualPilot"]["clusterIds"], protocol["annualPilot"]["id"]]
+
+
+def _validate_decision_results(payload: dict, protocol: dict) -> None:
+    pilot_results = payload["pilotResults"]
+    expected_scopes = _expected_decision_scopes(protocol)
+    _require(isinstance(pilot_results, list) and len(pilot_results) == 5, "pilotResults must contain five records")
+    for result, scope_id in zip(pilot_results, expected_scopes, strict=True):
+        _require_exact_fields(result, DECISION_PILOT_RESULT_FIELDS, "pilot result")
+        _require(result["scopeId"] == scope_id, "pilot result sequence differs")
+        _require(isinstance(result["packageId"], str) and PACKAGE_ID_PATTERN.fullmatch(result["packageId"]), "pilot source packageId is invalid")
+        _require_enum(result["result"], protocol["results"], "pilot result")
+    _require(
+        [item["packageId"] for item in pilot_results] == payload["sourcePackageIds"],
+        "pilot result sources differ",
+    )
+
+    expected_modules = [
+        module
+        for cluster in protocol["clusters"]
+        for module in cluster["modules"]
+    ]
+    module_results = payload["moduleResults"]
+    _require(isinstance(module_results, list) and len(module_results) == 10, "moduleResults must contain ten records")
+    for result, module in zip(module_results, expected_modules, strict=True):
+        _require_exact_fields(result, DECISION_MODULE_RESULT_FIELDS, "decision module result")
+        _require(result["moduleId"] == module["moduleId"], "decision module sequence differs")
+        _require(result["pilotAssignmentId"] == module["pilotAssignmentId"], "decision module pilot assignment differs")
+        _require_enum(result["result"], protocol["results"], "decision module result")
+
+    integration_results = payload["integrationResults"]
+    _require(isinstance(integration_results, list) and len(integration_results) == 4, "integrationResults must contain four records")
+    for result, cluster in zip(integration_results, protocol["clusters"], strict=True):
+        _require_exact_fields(result, DECISION_INTEGRATION_RESULT_FIELDS, "decision integration result")
+        integration = cluster["integration"]
+        _require(result["integrationContractId"] == integration["integrationContractId"], "decision integration sequence differs")
+        _require(result["pilotAssignmentId"] == integration["pilotAssignmentId"], "decision integration pilot assignment differs")
+        _require_enum(result["result"], protocol["results"], "decision integration result")
+        _require_int(result["fallbackDeltaUnits"], "fallbackDeltaUnits")
+        expected_fallback = cluster["fallbackDeltaUnits"] if result["result"] == "fail" else 0
+        _require(result["fallbackDeltaUnits"] == expected_fallback, "integration fallback delta differs")
+
+
+def validate_decision_package(payload: dict, protocol: dict, time_model: dict) -> dict:
+    _require_exact_fields(payload, DECISION_PACKAGE_FIELDS, "decision package")
+    _require(payload["schemaVersion"] == 1 and type(payload["schemaVersion"]) is int, "decision schemaVersion must be 1")
+    _require(payload["packageType"] == "pilot-decision", "decision packageType differs")
+    _require(isinstance(payload["packageId"], str) and DECISION_PACKAGE_ID_PATTERN.fullmatch(payload["packageId"]), "decision packageId is invalid")
+    _require(payload["protocolVersion"] == protocol["protocolVersion"], "decision protocolVersion differs")
+    _require(payload["protocolFingerprint"] == protocol["protocolFingerprint"], "decision protocolFingerprint differs")
+    _require(payload["toolVersion"] == protocol["toolVersion"], "decision toolVersion differs")
+    _require(canonical_sha256(time_model) == protocol["timeModelFingerprint"], "time model differs from compiled protocol")
+    _require(payload["timeModelFingerprint"] == protocol["timeModelFingerprint"], "decision timeModelFingerprint differs")
+
+    source_ids = payload["sourcePackageIds"]
+    _require(isinstance(source_ids, list) and len(source_ids) == 5, "decision requires five source package IDs")
+    _require(len(set(source_ids)) == 5, "decision source package IDs must be distinct")
+    _require(all(isinstance(item, str) and PACKAGE_ID_PATTERN.fullmatch(item) for item in source_ids), "decision source package ID is invalid")
+    _require(payload["packageId"] == _decision_package_id(source_ids), "decision packageId is not deterministic")
+    _validate_decision_results(payload, protocol)
+
+    gates = payload["availabilityGateResults"]
+    _require_exact_fields(gates, AVAILABILITY_GATE_FIELDS, "availability gate results")
+    for value in gates.values():
+        _require_enum(value, ["passed", "failed"], "availability gate result")
+
+    summary = payload["timeAndFallbackSummary"]
+    _require_exact_fields(summary, TIME_FALLBACK_SUMMARY_FIELDS, "time and fallback summary")
+    for field in TIME_FALLBACK_SUMMARY_FIELDS:
+        _require_int(summary[field], f"time and fallback {field}")
+    _require(summary["plannedUnits"] == 40, "decision plannedUnits must be 40")
+    _require(summary["actualUnits"] <= 40, "decision actualUnits exceed 40 unit budget")
+    fallback_units = sum(item["fallbackDeltaUnits"] for item in payload["integrationResults"] if item["result"] == "fail")
+    _require(summary["fallbackUnits"] == fallback_units, "decision fallbackUnits differ from failed integrations")
+    _require(summary["fallbackUnits"] <= 14, "decision fallbackUnits exceed contract")
+    _require(summary["requiredUnits"] == 40 + summary["fallbackUnits"], "decision requiredUnits differ")
+
+    technical_privacy = payload["technicalPrivacySummary"]
+    _require_exact_fields(technical_privacy, TECHNICAL_PRIVACY_SUMMARY_FIELDS, "technical privacy summary")
+    for value in technical_privacy.values():
+        _require_enum(value, ["pass", "fail"], "technical privacy summary")
+
+    warnings = payload["developmentWarnings"]
+    _require(isinstance(warnings, list), "decision developmentWarnings must be a list")
+    for warning in warnings:
+        _require_exact_fields(warning, WARNING_FIELDS, "decision development warning")
+        _require(warning["id"] == f"WARN-{warning['itemId']}" and warning["status"] == "open", "decision development warning is invalid")
+    _require(warnings == sorted(warnings, key=lambda item: item["id"]), "decision developmentWarnings must be sorted")
+    _require(len({warning["id"] for warning in warnings}) == len(warnings), "decision developmentWarnings must be deduplicated")
+
+    _require(payload["statementBoundary"] == "documented-conditions-only", "decision statement boundary differs")
+    _require(payload["retentionClass"] == "until-decision", "decision retentionClass differs")
+    review_status = payload["reviewStatus"]
+    _require_exact_fields(review_status, REVIEW_STATUS_FIELDS, "review status")
+    for value in review_status.values():
+        _require_enum(value, ["not-started", "passed", "failed"], "review status")
+
+    expected_gates = {
+        "capacity": "passed" if summary["actualUnits"] <= 40 else "failed",
+        "integration": "passed" if all(item["result"] == "pass" for item in payload["integrationResults"]) else "failed",
+        "technical": "passed" if technical_privacy["technical"] == "pass" else "failed",
+        "privacy": "passed" if technical_privacy["privacy"] == "pass" else "failed",
+        "pilot": "passed" if all(item["result"] == "pass" for item in payload["pilotResults"]) else "failed",
+    }
+    _require(gates == expected_gates, "availability gate results differ from evidence summaries")
+    all_positive = all(item["result"] == "pass" for item in payload["pilotResults"])
+    all_gates_passed = all(value == "passed" for value in gates.values())
+    if all_positive and all_gates_passed:
+        _require(
+            all(item["result"] == "pass" for item in payload["moduleResults"]),
+            "positive pilot results conflict with module results",
+        )
+        _require(
+            not warnings,
+            "positive pilot results conflict with development warnings",
+        )
+    expected_recommendation = (
+        "eligible-for-working-availability-review"
+        if all_positive and all_gates_passed
+        else "not-evaluable"
+        if any(item["result"] == "not-evaluable" for item in payload["pilotResults"])
+        else "repeat-required"
+    )
+    _require_enum(
+        payload["recommendation"],
+        ["eligible-for-working-availability-review", "repeat-required", "not-evaluable"],
+        "decision recommendation",
+    )
+    _require(payload["recommendation"] == expected_recommendation, "decision recommendation differs from results")
+    if any(value == "passed" for value in review_status.values()):
+        _require(all_positive and all_gates_passed, "reviews cannot pass without a positive minimal pilot")
+    return copy.deepcopy(payload)
+
+
+def build_decision_package(
+    evidence_packages: list[dict],
+    protocol: dict,
+    time_model: dict,
+) -> dict:
+    time_model_before = canonical_sha256(time_model)
+    _require(time_model_before == protocol["timeModelFingerprint"], "time model differs before decision build")
+    _require(isinstance(evidence_packages, list) and len(evidence_packages) == 5, "decision requires exactly five evidence packages")
+    validated = [
+        validate_evidence_package(item, protocol, time_model)
+        for item in evidence_packages
+    ]
+    package_ids = [item["packageId"] for item in validated]
+    _require(len(set(package_ids)) == 5, "decision source package IDs must be distinct")
+    expected_scopes = _expected_decision_scopes(protocol)
+    packages_by_scope = {item["scopeId"]: item for item in validated}
+    _require(len(packages_by_scope) == 5 and set(packages_by_scope) == set(expected_scopes), "decision evidence scopes differ from contract")
+    ordered = [packages_by_scope[scope_id] for scope_id in expected_scopes]
+    for field in (
+        "protocolVersion", "protocolFingerprint", "toolVersion",
+        "timeModelFingerprint",
+    ):
+        _require(len({item[field] for item in ordered}) == 1, f"decision source {field} values differ")
+
+    cluster_packages = ordered[:4]
+    annual_payload = ordered[4]
+    annual_result = derive_annual_result(annual_payload, cluster_packages, protocol)
+    cluster_results = []
+    for source, cluster in zip(cluster_packages, protocol["clusters"], strict=True):
+        result = derive_cluster_result(source, cluster, protocol)
+        _require(source["result"] == result["result"], f"cluster result differs from evidence: {source['scopeId']}")
+        cluster_results.append(result)
+    _require(annual_payload["result"] == annual_result["result"], "annual result differs from evidence")
+
+    module_results = [
+        {
+            "moduleId": item["moduleId"],
+            "pilotAssignmentId": item["pilotAssignmentId"],
+            "result": item["result"],
+        }
+        for result in cluster_results
+        for item in result["moduleResults"]
+    ]
+    integration_results = []
+    for result in cluster_results:
+        item = result["integrationResult"]
+        integration_results.append({
+            "integrationContractId": item["integrationContractId"],
+            "pilotAssignmentId": item["pilotAssignmentId"],
+            "result": item["result"],
+            "fallbackDeltaUnits": result["fallbackDeltaUnits"] if item["result"] == "fail" else 0,
+        })
+    fallback_units = sum(
+        item["fallbackDeltaUnits"]
+        for item in integration_results
+        if item["result"] == "fail"
+    )
+    warning_by_id = {
+        warning["id"]: copy.deepcopy(warning)
+        for source in ordered
+        for warning in source["developmentWarnings"]
+    }
+    source_ids = [item["packageId"] for item in ordered]
+    pilot_results = [
+        {"scopeId": item["scopeId"], "packageId": item["packageId"], "result": item["result"]}
+        for item in ordered
+    ]
+    gates = annual_result["availabilityGateResults"]
+    recommendation = (
+        "eligible-for-working-availability-review"
+        if all(item["result"] == "pass" for item in pilot_results)
+        and all(value == "passed" for value in gates.values())
+        else "not-evaluable"
+        if any(item["result"] == "not-evaluable" for item in pilot_results)
+        else "repeat-required"
+    )
+    package = {
+        "schemaVersion": 1,
+        "packageType": "pilot-decision",
+        "packageId": _decision_package_id(source_ids),
+        "protocolVersion": protocol["protocolVersion"],
+        "protocolFingerprint": protocol["protocolFingerprint"],
+        "toolVersion": protocol["toolVersion"],
+        "timeModelFingerprint": protocol["timeModelFingerprint"],
+        "sourcePackageIds": source_ids,
+        "pilotResults": pilot_results,
+        "moduleResults": module_results,
+        "integrationResults": integration_results,
+        "availabilityGateResults": copy.deepcopy(gates),
+        "timeAndFallbackSummary": {
+            "plannedUnits": 40,
+            "actualUnits": annual_result["actualUnits"],
+            "fallbackUnits": fallback_units,
+            "requiredUnits": 40 + fallback_units,
+        },
+        "technicalPrivacySummary": {
+            "technical": "pass" if gates["technical"] == "passed" else "fail",
+            "privacy": "pass" if gates["privacy"] == "passed" else "fail",
+        },
+        "developmentWarnings": [warning_by_id[warning_id] for warning_id in sorted(warning_by_id)],
+        "statementBoundary": "documented-conditions-only",
+        "recommendation": recommendation,
+        "reviewStatus": {
+            "fach": "not-started",
+            "engineeringPrivacy": "not-started",
+            "commissioner": "not-started",
+        },
+        "retentionClass": "until-decision",
+    }
+    validated_package = validate_decision_package(package, protocol, time_model)
+    _require(canonical_sha256(time_model) == time_model_before, "time model mutated during decision build")
+    return validated_package
+
+
 def validate_ium11_repository(root: Path) -> dict:
     root = Path(root)
     time_model = _load_json(root / "roadmap/time-model.json")
@@ -536,12 +940,77 @@ def validate_ium11_repository(root: Path) -> dict:
     return {"ium10": ium10_result, "protocol": compiled}
 
 
+def _validate_private_decision_paths(
+    evidence_paths: list[Path],
+    output_path: Path,
+    repository_root: Path,
+) -> tuple[list[Path], Path]:
+    _require(len(evidence_paths) == 5, "private decision build requires exactly five --evidence paths")
+    repository_root = repository_root.resolve(strict=True)
+    resolved_inputs = []
+    for path in evidence_paths:
+        resolved = path.resolve(strict=True)
+        _require(resolved.is_file(), f"evidence path is not a file: {path}")
+        _require(not resolved.is_relative_to(repository_root), f"private evidence path is inside repository: {path}")
+        resolved_inputs.append(resolved)
+
+    _require(not output_path.exists(), "decision output already exists")
+    output_parent = output_path.parent.resolve(strict=True)
+    _require(output_parent.is_dir(), "decision output parent is not a directory")
+    resolved_output = output_parent / output_path.name
+    _require(output_path.name not in {"", ".", ".."}, "decision output filename is invalid")
+    _require(not resolved_output.is_relative_to(repository_root), "decision output path is inside repository")
+    _require(resolved_output not in resolved_inputs, "decision output overlaps an evidence input")
+    return resolved_inputs, resolved_output
+
+
+def _write_json_exclusive_atomic(path: Path, payload: dict) -> None:
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f".{path.name}.",
+        suffix=".tmp",
+        dir=path.parent,
+    )
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(payload, handle, ensure_ascii=False, indent=2)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.link(temporary_path, path)
+    finally:
+        temporary_path.unlink(missing_ok=True)
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Validate the IUM11 pilot protocol.")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1], help="Repository root containing roadmap and pilot JSON inputs.")
+    parser.add_argument("--evidence", type=Path, action="append", default=[], help="Private evidence package path; repeat exactly five times.")
+    parser.add_argument("--decision-output", type=Path, help="New private output path for the deterministic decision package.")
     arguments = parser.parse_args(argv)
     try:
         result = validate_ium11_repository(arguments.root)
+        private_mode = bool(arguments.evidence) or arguments.decision_output is not None
+        if private_mode:
+            _require(arguments.decision_output is not None, "private decision build requires --decision-output")
+            evidence_paths, output_path = _validate_private_decision_paths(
+                arguments.evidence,
+                arguments.decision_output,
+                arguments.root,
+            )
+            evidence_packages = [_load_json(path) for path in evidence_paths]
+            time_model = _load_json(Path(arguments.root) / "roadmap/time-model.json")
+            decision = build_decision_package(
+                evidence_packages,
+                result["protocol"],
+                time_model,
+            )
+            _write_json_exclusive_atomic(output_path, decision)
+            print(
+                "IUM11 private decision validation passed: "
+                f"5 evidence packages, output {output_path}"
+            )
+            return 0
     except (IUM10ValidationError, IUM11ValidationError, OSError, json.JSONDecodeError) as error:
         print(f"IUM11 repository validation failed: {error}", file=sys.stderr)
         return 1

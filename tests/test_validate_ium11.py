@@ -1,4 +1,5 @@
 import json
+import tempfile
 import uuid
 from contextlib import redirect_stderr
 from io import StringIO
@@ -9,10 +10,13 @@ from unittest.mock import patch
 from scripts.validate_ium10 import IUM10ValidationError
 from scripts.validate_ium11 import (
     IUM11ValidationError,
+    build_decision_package,
     canonical_sha256,
+    derive_annual_result,
     derive_cluster_result,
     evaluate_learner_pulse,
     main,
+    validate_decision_package,
     validate_evidence_package,
     validate_pilot_protocol,
 )
@@ -80,49 +84,72 @@ def valid_cluster_package(scope_id="CLUSTER-7-DATA-CODING"):
 
 
 def valid_annual_package():
-    payload = valid_cluster_package()
     root = Path(__file__).resolve().parents[1]
     time_model = load_json(root / "roadmap/time-model.json")
     protocol = validate_pilot_protocol(
-        load_json(root / "pilot/pilot-protocol.json"), time_model
+        load_json(root / "pilot/pilot-protocol.json"),
+        time_model,
     )
-    clusters = [
-        protocol["clustersById"][cluster_id]
-        for cluster_id in protocol["annualPilot"]["clusterIds"]
-    ]
+    clusters = protocol["clusters"]
     modules = [module for cluster in clusters for module in cluster["modules"]]
     completed_phases = sorted({
-        phase_id for module in modules for phase_id in module["requiredPhaseIds"]
+        phase_id
+        for module in modules
+        for phase_id in module["requiredPhaseIds"]
     })
-    payload["packageType"] = "annual-evidence"
-    payload["scopeType"] = "annual"
-    payload["scopeId"] = protocol["annualPilot"]["id"]
-    payload["deliveryTimeEvidence"] = {
-        "plannedUnits": protocol["annualPilot"]["budgetUnits"],
-        "actualUnits": protocol["annualPilot"]["budgetUnits"],
-        "completedPhaseIds": completed_phases,
-        "requiredLearningPhasesCompleted": True,
-        "fallbackActivated": False,
-        "technicalStartupMinutes": 3,
-        "supportDemandBand": "low",
-        "externalDisruptionCode": "none",
-        "clusterOrder": protocol["annualPilot"]["clusterIds"],
-        "clusterActualUnits": [
-            {"clusterId": cluster["id"], "actualUnits": cluster["budgetUnits"]}
-            for cluster in clusters
-        ],
+    return {
+        "schemaVersion": 1,
+        "packageType": "annual-evidence",
+        "packageId": f"PKG-{uuid.uuid4()}",
+        "protocolVersion": protocol["protocolVersion"],
+        "protocolFingerprint": protocol["protocolFingerprint"],
+        "toolVersion": protocol["toolVersion"],
+        "timeModelFingerprint": protocol["timeModelFingerprint"],
+        "scopeType": "annual",
+        "scopeId": "ANNUAL-7-WORKING-40",
+        "context": {"schoolYear": "2026-27", "term": "full-year", "classSizeBand": "20-29", "deviceClass": "mixed", "browserFamily": "chromium", "networkMode": "offline"},
+        "deliveryTimeEvidence": {
+            "plannedUnits": 40,
+            "actualUnits": 40,
+            "completedPhaseIds": completed_phases,
+            "requiredLearningPhasesCompleted": True,
+            "fallbackActivated": False,
+            "technicalStartupMinutes": 12,
+            "supportDemandBand": "low",
+            "externalDisruptionCode": "none",
+            "clusterOrder": [cluster["id"] for cluster in clusters],
+            "clusterActualUnits": [{"clusterId": cluster["id"], "actualUnits": cluster["budgetUnits"]} for cluster in clusters],
+        },
+        "learningQualityEvidence": {
+            "moduleResults": [
+                {"pilotAssignmentId": module["pilotAssignmentId"], "moduleId": module["moduleId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in module["criteria"]], "result": "pass"}
+                for module in modules
+            ],
+            "integrationResults": [
+                {"pilotAssignmentId": cluster["integration"]["pilotAssignmentId"], "integrationContractId": cluster["integration"]["integrationContractId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in cluster["integration"]["criteria"]], "handoffProductPresent": True, "handoffReused": True, "result": "pass"}
+                for cluster in clusters
+            ],
+        },
+        "learnerPulseEvidence": reported_pulse(),
+        "technicalPrivacyEvidence": {"technicalFunction": "pass", "fallbackEquivalentLearningFunction": False, "problemCode": "none", "severity": "none", "privacyGate": "pass"},
+        "result": "pass",
+        "developmentWarnings": [],
+        "retentionClass": "until-decision",
     }
-    payload["learningQualityEvidence"] = {
-        "moduleResults": [
-            {"pilotAssignmentId": module["pilotAssignmentId"], "moduleId": module["moduleId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in module["criteria"]], "result": "pass"}
-            for module in modules
-        ],
-        "integrationResults": [
-            {"pilotAssignmentId": cluster["integration"]["pilotAssignmentId"], "integrationContractId": cluster["integration"]["integrationContractId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in cluster["integration"]["criteria"]], "handoffProductPresent": True, "handoffReused": True, "result": "pass"}
-            for cluster in clusters
-        ],
-    }
-    return payload
+
+
+def five_positive_packages():
+    return [
+        valid_cluster_package("CLUSTER-7-DATA-CODING"),
+        valid_cluster_package("CLUSTER-7-PROGRAMMING"),
+        valid_cluster_package("CLUSTER-7-NET-SECURITY"),
+        valid_cluster_package("CLUSTER-7-DATA-MEDIA-SOCIETY"),
+        valid_annual_package(),
+    ]
+
+
+def packages_by_scope(packages):
+    return {package["scopeId"]: package for package in packages}
 
 
 class IUM11ProtocolContractTests(unittest.TestCase):
@@ -510,3 +537,288 @@ class IUM11ClusterResultTests(unittest.TestCase):
                         [warning["id"] for warning in result["developmentWarnings"]],
                         expected_warning_ids,
                     )
+
+
+class IUM11DecisionPackageTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"),
+            cls.time_model,
+        )
+
+    def test_positive_minimal_pilot_only_recommends_working_review(self):
+        package = build_decision_package(
+            five_positive_packages(),
+            self.protocol,
+            self.time_model,
+        )
+        self.assertEqual(
+            package["recommendation"],
+            "eligible-for-working-availability-review",
+        )
+        self.assertEqual(package["statementBoundary"], "documented-conditions-only")
+        self.assertEqual(package["reviewStatus"], {
+            "fach": "not-started",
+            "engineeringPrivacy": "not-started",
+            "commissioner": "not-started",
+        })
+        self.assertEqual(package["availabilityGateResults"], {
+            "capacity": "passed",
+            "integration": "passed",
+            "technical": "passed",
+            "privacy": "passed",
+            "pilot": "passed",
+        })
+        self.assertNotIn("timeModelMutation", package)
+
+    def test_annual_requires_four_positive_same_version_clusters(self):
+        mutations = [
+            lambda packages: packages.pop(0),
+            lambda packages: packages[0].__setitem__("result", "fail"),
+            lambda packages: packages[0].__setitem__("protocolVersion", "2.0.0"),
+            lambda packages: packages[0].__setitem__("timeModelFingerprint", "0" * 64),
+        ]
+        for mutate in mutations:
+            packages = five_positive_packages()
+            mutate(packages)
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_no_cluster_time_compensation(self):
+        packages = five_positive_packages()
+        packages_by_scope(packages)["CLUSTER-7-DATA-CODING"]["deliveryTimeEvidence"]["actualUnits"] = 9
+        packages_by_scope(packages)["CLUSTER-7-PROGRAMMING"]["deliveryTimeEvidence"]["actualUnits"] = 10
+        with self.assertRaisesRegex(IUM11ValidationError, "cluster budget"):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_annual_result_reobserves_every_annual_gate(self):
+        mutations = (
+            lambda annual: annual["learningQualityEvidence"]["moduleResults"][0]["criteria"][0].__setitem__("band", "weak"),
+            lambda annual: annual["learningQualityEvidence"]["integrationResults"][0].__setitem__("handoffReused", False),
+            lambda annual: annual["deliveryTimeEvidence"].__setitem__("requiredLearningPhasesCompleted", False),
+            lambda annual: annual["technicalPrivacyEvidence"].__setitem__("technicalFunction", "fail"),
+        )
+        for mutate in mutations:
+            packages = five_positive_packages()
+            mutate(packages[-1])
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_derive_annual_result_has_closed_public_shape(self):
+        packages = five_positive_packages()
+        result = derive_annual_result(packages[-1], packages[:4], self.protocol)
+        self.assertEqual(result, {
+            "result": "pass",
+            "actualUnits": 40,
+            "availabilityGateResults": {
+                "capacity": "passed",
+                "integration": "passed",
+                "technical": "passed",
+                "privacy": "passed",
+                "pilot": "passed",
+            },
+        })
+
+    def test_derive_annual_result_requires_distinct_version_bound_sources(self):
+        for mutate in (
+            lambda packages: packages[1].__setitem__("packageId", packages[0]["packageId"]),
+            lambda packages: packages[1].__setitem__("protocolVersion", "2.0.0"),
+            lambda packages: packages[1].__setitem__("protocolFingerprint", "0" * 64),
+            lambda packages: packages[1].__setitem__("toolVersion", "2.0.0"),
+            lambda packages: packages[1].__setitem__("timeModelFingerprint", "0" * 64),
+        ):
+            packages = five_positive_packages()
+            mutate(packages)
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    derive_annual_result(packages[-1], packages[:4], self.protocol)
+
+    def test_decision_is_deterministic_and_does_not_mutate_inputs(self):
+        packages = five_positive_packages()
+        packages_before = canonical_sha256(packages)
+        time_model_before = canonical_sha256(self.time_model)
+
+        first = build_decision_package(packages, self.protocol, self.time_model)
+        second = build_decision_package(list(reversed(packages)), self.protocol, self.time_model)
+
+        self.assertEqual(first, second)
+        self.assertRegex(
+            first["packageId"],
+            r"^PKG-[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+        )
+        self.assertEqual(canonical_sha256(packages), packages_before)
+        self.assertEqual(canonical_sha256(self.time_model), time_model_before)
+        self.assertEqual(
+            first["sourcePackageIds"],
+            [package["packageId"] for package in packages],
+        )
+
+    def test_decision_package_and_schema_are_recursively_closed(self):
+        package = build_decision_package(
+            five_positive_packages(),
+            self.protocol,
+            self.time_model,
+        )
+        self.assertEqual(set(package), {
+            "schemaVersion", "packageType", "packageId", "protocolVersion",
+            "protocolFingerprint", "toolVersion", "timeModelFingerprint",
+            "sourcePackageIds", "pilotResults", "moduleResults",
+            "integrationResults", "availabilityGateResults",
+            "timeAndFallbackSummary", "technicalPrivacySummary",
+            "developmentWarnings", "statementBoundary", "recommendation",
+            "reviewStatus", "retentionClass",
+        })
+        schema = load_json(self.root / "pilot/schemas/decision-package.schema.json")
+
+        def assert_objects_closed(node):
+            if isinstance(node, dict):
+                if node.get("type") == "object":
+                    self.assertIs(node.get("additionalProperties"), False)
+                for value in node.values():
+                    assert_objects_closed(value)
+            elif isinstance(node, list):
+                for value in node:
+                    assert_objects_closed(value)
+
+        assert_objects_closed(schema)
+        self.assertEqual(set(schema["required"]), set(package))
+
+    def test_public_decision_boundary_rejects_maturity_and_status_mutations(self):
+        for recommendation in ("reviewed", "standard", "available", "green"):
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package["recommendation"] = recommendation
+            with self.subTest(recommendation=recommendation):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_positive_recommendation_rejects_failed_modules_or_warnings(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["moduleResults"][0]["result"] = "fail"
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["developmentWarnings"] = [
+            {"id": "WARN-clarity", "itemId": "clarity", "status": "open"},
+        ]
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        for field, value in (("semanticCoverageStatus", "covered"), ("status", "available")):
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package[field] = value
+            with self.subTest(field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_public_decision_boundary_rejects_source_review_and_time_mutations(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["sourcePackageIds"].pop()
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][1]["scopeId"] = package["pilotResults"][0]["scopeId"]
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][0]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+        package["reviewStatus"]["fach"] = "passed"
+        with self.assertRaisesRegex(IUM11ValidationError, "Reviews|reviews"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["timeAndFallbackSummary"]["actualUnits"] = 41
+        package["availabilityGateResults"]["capacity"] = "failed"
+        package["recommendation"] = "repeat-required"
+        with self.assertRaisesRegex(IUM11ValidationError, "40|budget"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_build_rejects_duplicate_scopes_and_mixed_fingerprints(self):
+        packages = five_positive_packages()
+        packages[-1] = valid_cluster_package("CLUSTER-7-DATA-CODING")
+        with self.assertRaises(IUM11ValidationError):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+        packages = five_positive_packages()
+        packages[1]["protocolFingerprint"] = "0" * 64
+        with self.assertRaises(IUM11ValidationError):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+    def _private_cli_arguments(self, directory, packages=None):
+        packages = five_positive_packages() if packages is None else packages
+        arguments = ["--root", str(self.root)]
+        for index, package in enumerate(packages, start=1):
+            path = directory / f"evidence-{index}.json"
+            path.write_text(json.dumps(package), encoding="utf-8")
+            arguments.extend(("--evidence", str(path)))
+        return arguments
+
+    def test_private_offline_cli_writes_valid_decision_atomically(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            output = directory / "decision.json"
+            arguments = self._private_cli_arguments(directory)
+            arguments.extend(("--decision-output", str(output)))
+
+            self.assertEqual(main(arguments), 0)
+
+            self.assertTrue(output.is_file())
+            validate_decision_package(
+                load_json(output),
+                self.protocol,
+                self.time_model,
+            )
+            self.assertEqual(
+                sorted(path.name for path in directory.iterdir()),
+                ["decision.json", *[f"evidence-{index}.json" for index in range(1, 6)]],
+            )
+
+    def test_private_offline_cli_rejects_wrong_count_public_paths_and_existing_output(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+
+            output = directory / "wrong-count.json"
+            arguments = self._private_cli_arguments(directory, five_positive_packages()[:4])
+            arguments.extend(("--decision-output", str(output)))
+            self.assertEqual(main(arguments), 1)
+            self.assertFalse(output.exists())
+
+            output = directory / "public-path.json"
+            arguments = self._private_cli_arguments(directory)
+            arguments[3] = str(self.root / "pilot/pilot-protocol.json")
+            arguments.extend(("--decision-output", str(output)))
+            self.assertEqual(main(arguments), 1)
+            self.assertFalse(output.exists())
+
+            output = directory / "existing.json"
+            output.write_text("sentinel", encoding="utf-8")
+            arguments = self._private_cli_arguments(directory)
+            arguments.extend(("--decision-output", str(output)))
+            self.assertEqual(main(arguments), 1)
+            self.assertEqual(output.read_text(encoding="utf-8"), "sentinel")
+
+    def test_private_offline_cli_invalid_input_leaves_no_partial_file(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            output = directory / "decision.json"
+            arguments = self._private_cli_arguments(directory)
+            Path(arguments[3]).write_text("{not-json", encoding="utf-8")
+            arguments.extend(("--decision-output", str(output)))
+            files_before = sorted(path.name for path in directory.iterdir())
+
+            self.assertEqual(main(arguments), 1)
+
+            self.assertFalse(output.exists())
+            self.assertEqual(
+                sorted(path.name for path in directory.iterdir()),
+                files_before,
+            )
