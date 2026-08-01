@@ -13522,6 +13522,12 @@ class IUM10Grade7AvailabilityContractTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM10ValidationError, message):
             self.validate(time_model)
 
+    def assert_rejects_time_model_mutation(self, mutate, message):
+        time_model = copy.deepcopy(self.time_model)
+        mutate(time_model)
+        with self.assertRaisesRegex(IUM10ValidationError, message):
+            self.validate(time_model)
+
     def test_repository_has_exact_grade_7_availability_contract(self):
         result = self.validate()
         contract = result["availabilityContracts"]["AVAIL-GRADE-7-WORKING-40"]
@@ -13671,6 +13677,107 @@ class IUM10Grade7AvailabilityContractTests(unittest.TestCase):
         for name, mutate, message in mutations:
             with self.subTest(name=name):
                 self.assert_rejects_contract_mutation(mutate, message)
+
+    def test_rejects_availability_contract_and_gate_field_mutations(self):
+        def contract(contracts):
+            return contracts[0]
+
+        mutations = (
+            (
+                "missing contract field",
+                lambda contracts: contract(contracts).pop("comparisonBoundaryUnits"),
+                "availability contract fields differ",
+            ),
+            (
+                "unexpected contract field",
+                lambda contracts: contract(contracts).update({"note": "forbidden"}),
+                "availability contract fields differ",
+            ),
+            (
+                "missing gate field",
+                lambda contracts: contract(contracts)["gates"]["capacity"].pop(
+                    "requirement"
+                ),
+                "availability contract gate fields differ: capacity",
+            ),
+            (
+                "unexpected gate field",
+                lambda contracts: contract(contracts)["gates"]["capacity"].update(
+                    {"note": "forbidden"}
+                ),
+                "availability contract gate fields differ: capacity",
+            ),
+        )
+
+        for name, mutate, message in mutations:
+            with self.subTest(name=name):
+                self.assert_rejects_contract_mutation(mutate, message)
+
+    def test_rejects_availability_contract_status_and_risk_mutations(self):
+        def contract(contracts):
+            return contracts[0]
+
+        mutations = (
+            (
+                "wrong contract status",
+                lambda contracts: contract(contracts).update({"status": "reviewed"}),
+                "availability contract status must be working",
+            ),
+            (
+                "wrong risk string",
+                lambda contracts: contract(contracts).update({"risk": "unverbindlich"}),
+                "availability contract risk differs from the canonical contract",
+            ),
+            (
+                "missing risk string",
+                lambda contracts: contract(contracts).pop("risk"),
+                "availability contract fields differ",
+            ),
+        )
+
+        for name, mutate, message in mutations:
+            with self.subTest(name=name):
+                self.assert_rejects_contract_mutation(mutate, message)
+
+    def test_rejects_grade_7_variant_contract_id_mutations(self):
+        def variants(time_model):
+            return {
+                variant["id"]: variant for variant in time_model["annualVariants"]
+            }
+
+        mutations = (
+            (
+                "working contract id removed",
+                lambda time_model: variants(time_model)["GRADE-7-WORKING-40"].update(
+                    {"availabilityContractId": None}
+                ),
+            ),
+            (
+                "working contract id replaced",
+                lambda time_model: variants(time_model)["GRADE-7-WORKING-40"].update(
+                    {"availabilityContractId": "AVAIL-GRADE-7-UNKNOWN"}
+                ),
+            ),
+            (
+                "robust contract id added",
+                lambda time_model: variants(time_model)["GRADE-7-ROBUST-DEMAND"].update(
+                    {"availabilityContractId": "AVAIL-GRADE-7-WORKING-40"}
+                ),
+            ),
+            (
+                "historical contract id added",
+                lambda time_model: variants(time_model)[
+                    "GRADE-7-HISTORICAL-MINIMUM"
+                ].update({"availabilityContractId": "AVAIL-GRADE-7-WORKING-40"}),
+            ),
+        )
+
+        for name, mutate in mutations:
+            with self.subTest(name=name):
+                self.assert_rejects_time_model_mutation(
+                    mutate,
+                    "grade 7 demand scenario differs from the approved contract",
+                )
 
 
 class IUM10Grade7OperationalStateTests(unittest.TestCase):
