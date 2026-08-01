@@ -2,6 +2,7 @@ import argparse
 import copy
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,6 +49,41 @@ PROHIBITED_FIELD_NAMES = [
     "networkId", "browserId", "ipAddress", "telemetry", "privateReflection", "grade",
     "ranking", "competenceProfile", "automatedPersonalAssessment",
 ]
+EVIDENCE_PACKAGE_FIELDS = {
+    "schemaVersion", "packageType", "packageId", "protocolVersion",
+    "protocolFingerprint", "toolVersion", "timeModelFingerprint", "scopeType",
+    "scopeId", "context", "deliveryTimeEvidence", "learningQualityEvidence",
+    "learnerPulseEvidence", "technicalPrivacyEvidence", "result",
+    "developmentWarnings", "retentionClass",
+}
+CONTEXT_FIELDS = {
+    "schoolYear", "term", "classSizeBand", "deviceClass", "browserFamily",
+    "networkMode",
+}
+DELIVERY_FIELDS = {
+    "plannedUnits", "actualUnits", "completedPhaseIds",
+    "requiredLearningPhasesCompleted", "fallbackActivated",
+    "technicalStartupMinutes", "supportDemandBand", "externalDisruptionCode",
+}
+ANNUAL_DELIVERY_FIELDS = DELIVERY_FIELDS | {"clusterOrder", "clusterActualUnits"}
+LEARNING_QUALITY_FIELDS = {"moduleResults", "integrationResults"}
+MODULE_RESULT_FIELDS = {"pilotAssignmentId", "moduleId", "criteria", "result"}
+INTEGRATION_RESULT_FIELDS = {
+    "pilotAssignmentId", "integrationContractId", "criteria",
+    "handoffProductPresent", "handoffReused", "result",
+}
+CRITERION_FIELDS = {"criterionId", "band"}
+PULSE_ITEM_FIELDS = {"itemId", "agree", "partly", "disagree", "noAnswer"}
+TECHNICAL_PRIVACY_FIELDS = {
+    "technicalFunction", "fallbackEquivalentLearningFunction", "problemCode",
+    "severity", "privacyGate",
+}
+WARNING_FIELDS = {"id", "itemId", "status"}
+PACKAGE_ID_PATTERN = re.compile(
+    r"PKG-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
+)
+FINGERPRINT_PATTERN = re.compile(r"[0-9a-f]{64}")
+SCHOOL_YEAR_PATTERN = re.compile(r"20[0-9]{2}-[0-9]{2}")
 
 
 class IUM11ValidationError(ValueError):
@@ -231,6 +267,169 @@ def validate_pilot_protocol(protocol: dict, time_model: dict) -> dict:
     compiled["clustersById"] = {cluster["id"]: cluster for cluster in compiled_clusters}
     compiled["protocolFingerprint"] = canonical_sha256(protocol)
     return compiled
+
+
+def _require_int(value: object, label: str, minimum: int = 0) -> None:
+    _require(type(value) is int and value >= minimum, f"{label} must be an integer of at least {minimum}")
+
+
+def _require_bool(value: object, label: str) -> None:
+    _require(type(value) is bool, f"{label} must be a boolean")
+
+
+def _require_enum(value: object, values: list[str], label: str) -> None:
+    _require(isinstance(value, str) and value in values, f"{label} is invalid")
+
+
+def _validate_criteria(criteria: object, expected: list[dict], label: str, protocol: dict) -> None:
+    _require(isinstance(criteria, list) and len(criteria) == len(expected), f"{label} criteria differ from contract")
+    for criterion, expected_criterion in zip(criteria, expected, strict=True):
+        _require_exact_fields(criterion, CRITERION_FIELDS, f"{label} criterion")
+        _require(criterion["criterionId"] == expected_criterion["criterionId"], f"{label} criterion IDs differ from contract")
+        _require_enum(criterion["band"], protocol["bands"], f"{label} criterion band")
+
+
+def evaluate_learner_pulse(payload: dict, protocol: dict) -> dict:
+    if payload == {"status": "suppressed-small-group"}:
+        return {"status": "suppressed-small-group", "warnings": []}
+    _require_exact_fields(payload, {"status", "classResponseCount", "items"}, "learner pulse")
+    _require(payload["status"] == "reported", "learner pulse status is invalid")
+    _require_int(payload["classResponseCount"], "classResponseCount", protocol["minimumLearnerResponses"])
+    items = payload["items"]
+    expected_ids = [item["id"] for item in protocol["learnerPulseItems"]]
+    _require(isinstance(items, list) and len(items) == len(expected_ids), "learner pulse items differ from contract")
+    warnings = []
+    for expected_id, item in zip(expected_ids, items, strict=True):
+        _require_exact_fields(item, PULSE_ITEM_FIELDS, "learner pulse item")
+        _require(item["itemId"] == expected_id, "learner pulse item order differs")
+        for field in ("agree", "partly", "disagree", "noAnswer"):
+            _require_int(item[field], f"learner pulse {field}")
+        total = item["agree"] + item["partly"] + item["disagree"] + item["noAnswer"]
+        valid = item["agree"] + item["partly"] + item["disagree"]
+        _require(total == payload["classResponseCount"], "learner pulse sums differ")
+        _require(valid >= protocol["minimumLearnerResponses"], "reported learner pulse item has fewer than 10 valid responses")
+        ratio = protocol["learnerWarningRatio"]
+        if item["disagree"] * ratio["denominator"] >= valid * ratio["numerator"]:
+            warnings.append({"id": f"WARN-{expected_id}", "itemId": expected_id, "status": "open"})
+    return {"status": "reported", "warnings": warnings}
+
+
+def _validate_context(context: object, protocol: dict) -> None:
+    _require_exact_fields(context, CONTEXT_FIELDS, "context")
+    _require(isinstance(context["schoolYear"], str) and SCHOOL_YEAR_PATTERN.fullmatch(context["schoolYear"]), "schoolYear is invalid")
+    for field, values in protocol["contextEnums"].items():
+        _require_enum(context[field], values, f"context {field}")
+
+
+def _validate_delivery_time(payload: object, scope: dict, is_annual: bool) -> None:
+    expected_fields = ANNUAL_DELIVERY_FIELDS if is_annual else DELIVERY_FIELDS
+    _require_exact_fields(payload, expected_fields, "delivery time evidence")
+    for field in ("plannedUnits", "actualUnits", "technicalStartupMinutes"):
+        _require_int(payload[field], field)
+    _require(payload["plannedUnits"] == scope["budgetUnits"], "plannedUnits differs from scope budget")
+    _require(isinstance(payload["completedPhaseIds"], list), "completedPhaseIds must be a list")
+    _require(all(isinstance(phase_id, str) for phase_id in payload["completedPhaseIds"]), "completedPhaseIds must contain strings")
+    _require(payload["completedPhaseIds"] == sorted(set(payload["completedPhaseIds"])), "completedPhaseIds must be sorted and unique")
+    _require_bool(payload["requiredLearningPhasesCompleted"], "requiredLearningPhasesCompleted")
+    _require_bool(payload["fallbackActivated"], "fallbackActivated")
+    _require_enum(payload["supportDemandBand"], ["low", "medium", "high"], "supportDemandBand")
+    _require_enum(payload["externalDisruptionCode"], ["none", "interpretability-lost"], "externalDisruptionCode")
+    if is_annual:
+        cluster_ids = scope["clusterIds"]
+        _require(payload["clusterOrder"] == cluster_ids, "annual cluster order differs from contract")
+        cluster_actual_units = payload["clusterActualUnits"]
+        _require(isinstance(cluster_actual_units, list) and len(cluster_actual_units) == len(cluster_ids), "annual cluster actual units differ from contract")
+        for cluster_id, record in zip(cluster_ids, cluster_actual_units, strict=True):
+            _require_exact_fields(record, {"clusterId", "actualUnits"}, "annual cluster actual units")
+            _require(record["clusterId"] == cluster_id, "annual cluster actual unit order differs")
+            _require_int(record["actualUnits"], "annual cluster actualUnits")
+        _require(payload["actualUnits"] == sum(record["actualUnits"] for record in cluster_actual_units), "annual actualUnits sum differs")
+
+
+def _validate_learning_quality(payload: object, modules: list[dict], integrations: list[dict], protocol: dict) -> None:
+    _require_exact_fields(payload, LEARNING_QUALITY_FIELDS, "learning quality evidence")
+    module_results = payload["moduleResults"]
+    _require(isinstance(module_results, list) and len(module_results) == len(modules), "module results differ from contract")
+    for result, expected in zip(module_results, modules, strict=True):
+        _require_exact_fields(result, MODULE_RESULT_FIELDS, "module result")
+        _require(result["pilotAssignmentId"] == expected["pilotAssignmentId"], "module pilot assignment differs from contract")
+        _require(result["moduleId"] == expected["moduleId"], "module ID differs from contract")
+        _validate_criteria(result["criteria"], expected["criteria"], "module", protocol)
+        _require_enum(result["result"], protocol["results"], "module result")
+    integration_results = payload["integrationResults"]
+    _require(isinstance(integration_results, list) and len(integration_results) == len(integrations), "integration results differ from contract")
+    for result, expected in zip(integration_results, integrations, strict=True):
+        _require_exact_fields(result, INTEGRATION_RESULT_FIELDS, "integration result")
+        _require(result["pilotAssignmentId"] == expected["pilotAssignmentId"], "integration pilot assignment differs from contract")
+        _require(result["integrationContractId"] == expected["integrationContractId"], "integration contract differs from contract")
+        _validate_criteria(result["criteria"], expected["criteria"], "integration", protocol)
+        _require_bool(result["handoffProductPresent"], "handoffProductPresent")
+        _require_bool(result["handoffReused"], "handoffReused")
+        _require_enum(result["result"], protocol["results"], "integration result")
+
+
+def _validate_technical_privacy(payload: object) -> None:
+    _require_exact_fields(payload, TECHNICAL_PRIVACY_FIELDS, "technical privacy evidence")
+    _require_enum(payload["technicalFunction"], ["pass", "fail"], "technicalFunction")
+    _require_bool(payload["fallbackEquivalentLearningFunction"], "fallbackEquivalentLearningFunction")
+    _require_enum(payload["problemCode"], ["none", "startup", "execution", "import", "export"], "problemCode")
+    _require_enum(payload["severity"], ["none", "minor", "major", "blocking"], "severity")
+    _require(payload["privacyGate"] == "pass", "privacyGate fail cannot be exported")
+
+
+def _validate_development_warnings(payload: object, warnings: list[dict]) -> None:
+    _require(isinstance(payload, list), "developmentWarnings must be a list")
+    for warning in payload:
+        _require_exact_fields(warning, WARNING_FIELDS, "development warning")
+        _require(warning["id"] == f"WARN-{warning['itemId']}", "development warning ID is invalid")
+        _require(warning["status"] == "open", "development warning status is invalid")
+    _require(payload == warnings, "developmentWarnings differ from learner pulse warnings")
+
+
+def validate_evidence_package(payload: dict, protocol: dict, time_model: dict) -> dict:
+    _require_exact_fields(payload, EVIDENCE_PACKAGE_FIELDS, "evidence package")
+    _require(type(payload["schemaVersion"]) is int and payload["schemaVersion"] == 1, "package schemaVersion must be 1")
+    _require(isinstance(payload["packageId"], str) and PACKAGE_ID_PATTERN.fullmatch(payload["packageId"]), "packageId is invalid")
+    _require(isinstance(payload["packageType"], str), "packageType must be a string")
+    _require(isinstance(payload["scopeType"], str), "scopeType must be a string")
+    _require(isinstance(payload["scopeId"], str), "scopeId must be a string")
+    for field in ("protocolFingerprint", "timeModelFingerprint"):
+        _require(isinstance(payload[field], str) and FINGERPRINT_PATTERN.fullmatch(payload[field]), f"{field} is invalid")
+    _require(payload["protocolVersion"] == protocol["protocolVersion"] == "1.0.0", "protocolVersion differs from contract")
+    _require(payload["toolVersion"] == protocol["toolVersion"] == "1.0.0", "toolVersion differs from contract")
+    _require(payload["protocolFingerprint"] == protocol["protocolFingerprint"], "protocolFingerprint differs from contract")
+    _require(canonical_sha256(time_model) == protocol["timeModelFingerprint"], "time model differs from compiled protocol")
+    _require(payload["timeModelFingerprint"] == protocol["timeModelFingerprint"], "timeModelFingerprint differs from contract")
+    _require(payload["retentionClass"] == "until-decision", "retentionClass differs from contract")
+    _require_enum(payload["result"], protocol["results"], "package result")
+    _validate_context(payload["context"], protocol)
+
+    is_cluster = payload["packageType"] == "cluster-evidence" and payload["scopeType"] == "cluster"
+    is_annual = payload["packageType"] == "annual-evidence" and payload["scopeType"] == "annual"
+    _require(is_cluster or is_annual, "package type and scope type differ")
+    if is_cluster:
+        _require(payload["scopeId"] in protocol["clustersById"], "cluster scopeId differs from contract")
+        scope = protocol["clustersById"][payload["scopeId"]]
+        modules = scope["modules"]
+        integrations = [scope["integration"]]
+        expected_phase_ids = sorted({phase_id for module in modules for phase_id in module["requiredPhaseIds"]})
+    else:
+        scope = protocol["annualPilot"]
+        _require(payload["scopeId"] == scope["id"], "annual scopeId differs from contract")
+        clusters = [protocol["clustersById"][cluster_id] for cluster_id in scope["clusterIds"]]
+        modules = [module for cluster in clusters for module in cluster["modules"]]
+        integrations = [cluster["integration"] for cluster in clusters]
+        expected_phase_ids = sorted({phase_id for module in modules for phase_id in module["requiredPhaseIds"]})
+
+    _validate_delivery_time(payload["deliveryTimeEvidence"], scope, is_annual)
+    delivery = payload["deliveryTimeEvidence"]
+    _require(delivery["completedPhaseIds"] == expected_phase_ids, "completedPhaseIds differ from required learning phases")
+    _require(delivery["requiredLearningPhasesCompleted"] is True, "required learning phases must be complete")
+    _validate_learning_quality(payload["learningQualityEvidence"], modules, integrations, protocol)
+    learner_pulse = evaluate_learner_pulse(payload["learnerPulseEvidence"], protocol)
+    _validate_technical_privacy(payload["technicalPrivacyEvidence"])
+    _validate_development_warnings(payload["developmentWarnings"], learner_pulse["warnings"])
+    return copy.deepcopy(payload)
 
 
 def validate_ium11_repository(root: Path) -> dict:

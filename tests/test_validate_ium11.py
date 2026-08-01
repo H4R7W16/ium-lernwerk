@@ -1,4 +1,5 @@
 import json
+import uuid
 from contextlib import redirect_stderr
 from io import StringIO
 from pathlib import Path
@@ -6,11 +7,121 @@ import unittest
 from unittest.mock import patch
 
 from scripts.validate_ium10 import IUM10ValidationError
-from scripts.validate_ium11 import canonical_sha256, main, validate_pilot_protocol
+from scripts.validate_ium11 import (
+    IUM11ValidationError,
+    canonical_sha256,
+    evaluate_learner_pulse,
+    main,
+    validate_evidence_package,
+    validate_pilot_protocol,
+)
 
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def reported_pulse(agree=8, partly=2, disagree=1, no_answer=1):
+    count = agree + partly + disagree + no_answer
+    return {
+        "status": "reported",
+        "classResponseCount": count,
+        "items": [
+            {
+                "itemId": item_id,
+                "agree": agree,
+                "partly": partly,
+                "disagree": disagree,
+                "noAnswer": no_answer,
+            }
+            for item_id in ("clarity", "cognitiveEngagement", "supportUsefulness")
+        ],
+    }
+
+
+def valid_cluster_package(scope_id="CLUSTER-7-DATA-CODING"):
+    root = Path(__file__).resolve().parents[1]
+    time_model = load_json(root / "roadmap/time-model.json")
+    protocol = validate_pilot_protocol(
+        load_json(root / "pilot/pilot-protocol.json"), time_model
+    )
+    cluster = protocol["clustersById"][scope_id]
+    completed_phases = sorted({
+        phase_id
+        for module in cluster["modules"]
+        for phase_id in module["requiredPhaseIds"]
+    })
+    return {
+        "schemaVersion": 1,
+        "packageType": "cluster-evidence",
+        "packageId": f"PKG-{uuid.uuid4()}",
+        "protocolVersion": protocol["protocolVersion"],
+        "protocolFingerprint": protocol["protocolFingerprint"],
+        "toolVersion": protocol["toolVersion"],
+        "timeModelFingerprint": protocol["timeModelFingerprint"],
+        "scopeType": "cluster",
+        "scopeId": scope_id,
+        "context": {"schoolYear": "2026-27", "term": "first-half", "classSizeBand": "20-29", "deviceClass": "mixed", "browserFamily": "chromium", "networkMode": "offline"},
+        "deliveryTimeEvidence": {"plannedUnits": cluster["budgetUnits"], "actualUnits": cluster["budgetUnits"], "completedPhaseIds": completed_phases, "requiredLearningPhasesCompleted": True, "fallbackActivated": False, "technicalStartupMinutes": 3, "supportDemandBand": "low", "externalDisruptionCode": "none"},
+        "learningQualityEvidence": {
+            "moduleResults": [
+                {"pilotAssignmentId": module["pilotAssignmentId"], "moduleId": module["moduleId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in module["criteria"]], "result": "pass"}
+                for module in cluster["modules"]
+            ],
+            "integrationResults": [{"pilotAssignmentId": cluster["integration"]["pilotAssignmentId"], "integrationContractId": cluster["integration"]["integrationContractId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in cluster["integration"]["criteria"]], "handoffProductPresent": True, "handoffReused": True, "result": "pass"}],
+        },
+        "learnerPulseEvidence": reported_pulse(),
+        "technicalPrivacyEvidence": {"technicalFunction": "pass", "fallbackEquivalentLearningFunction": False, "problemCode": "none", "severity": "none", "privacyGate": "pass"},
+        "result": "pass",
+        "developmentWarnings": [],
+        "retentionClass": "until-decision",
+    }
+
+
+def valid_annual_package():
+    payload = valid_cluster_package()
+    root = Path(__file__).resolve().parents[1]
+    time_model = load_json(root / "roadmap/time-model.json")
+    protocol = validate_pilot_protocol(
+        load_json(root / "pilot/pilot-protocol.json"), time_model
+    )
+    clusters = [
+        protocol["clustersById"][cluster_id]
+        for cluster_id in protocol["annualPilot"]["clusterIds"]
+    ]
+    modules = [module for cluster in clusters for module in cluster["modules"]]
+    completed_phases = sorted({
+        phase_id for module in modules for phase_id in module["requiredPhaseIds"]
+    })
+    payload["packageType"] = "annual-evidence"
+    payload["scopeType"] = "annual"
+    payload["scopeId"] = protocol["annualPilot"]["id"]
+    payload["deliveryTimeEvidence"] = {
+        "plannedUnits": protocol["annualPilot"]["budgetUnits"],
+        "actualUnits": protocol["annualPilot"]["budgetUnits"],
+        "completedPhaseIds": completed_phases,
+        "requiredLearningPhasesCompleted": True,
+        "fallbackActivated": False,
+        "technicalStartupMinutes": 3,
+        "supportDemandBand": "low",
+        "externalDisruptionCode": "none",
+        "clusterOrder": protocol["annualPilot"]["clusterIds"],
+        "clusterActualUnits": [
+            {"clusterId": cluster["id"], "actualUnits": cluster["budgetUnits"]}
+            for cluster in clusters
+        ],
+    }
+    payload["learningQualityEvidence"] = {
+        "moduleResults": [
+            {"pilotAssignmentId": module["pilotAssignmentId"], "moduleId": module["moduleId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in module["criteria"]], "result": "pass"}
+            for module in modules
+        ],
+        "integrationResults": [
+            {"pilotAssignmentId": cluster["integration"]["pilotAssignmentId"], "integrationContractId": cluster["integration"]["integrationContractId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in cluster["integration"]["criteria"]], "handoffProductPresent": True, "handoffReused": True, "result": "pass"}
+            for cluster in clusters
+        ],
+    }
+    return payload
 
 
 class IUM11ProtocolContractTests(unittest.TestCase):
@@ -80,3 +191,172 @@ class IUM11ProtocolContractTests(unittest.TestCase):
             stderr.getvalue(),
             "IUM11 repository validation failed: broken IUM10 prerequisite\n",
         )
+
+
+class IUM11EvidencePackageTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"), cls.time_model
+        )
+
+    def test_unknown_or_personal_fields_fail_closed(self):
+        for field, value in [
+            ("studentName", "Ada"),
+            ("schoolName", "Beispielgymnasium"),
+            ("freeText", "Beobachtung"),
+            ("studentProductUrl", "file:///produkt.txt"),
+            ("ipAddress", "192.0.2.1"),
+        ]:
+            payload = valid_cluster_package()
+            payload[field] = value
+            with self.subTest(field=field):
+                with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_small_group_exports_no_counts(self):
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = {"status": "suppressed-small-group"}
+        validated = validate_evidence_package(payload, self.protocol, self.time_model)
+        self.assertEqual(
+            validated["learnerPulseEvidence"], {"status": "suppressed-small-group"}
+        )
+
+    def test_one_third_disagree_creates_warning(self):
+        pulse = reported_pulse(agree=8, partly=0, disagree=4, no_answer=0)
+        result = evaluate_learner_pulse(pulse, self.protocol)
+        self.assertEqual(result["warnings"][0]["itemId"], "clarity")
+        self.assertEqual(result["warnings"][0]["status"], "open")
+
+    def test_nested_and_warning_fields_fail_closed(self):
+        mutations = [
+            ("context", "schoolName", "Beispielgymnasium"),
+            ("deliveryTimeEvidence", "freeText", "Beobachtung"),
+            ("learningQualityEvidence", "studentProductUrl", "file:///produkt.txt"),
+            ("learnerPulseEvidence", "ipAddress", "192.0.2.1"),
+            ("technicalPrivacyEvidence", "telemetry", True),
+        ]
+        for parent, field, value in mutations:
+            payload = valid_cluster_package()
+            payload[parent][field] = value
+            with self.subTest(parent=parent, field=field):
+                with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["developmentWarnings"] = [
+            {"id": "WARN-clarity", "itemId": "clarity", "status": "open", "freeText": "x"}
+        ]
+        with self.assertRaisesRegex(IUM11ValidationError, "fields|warnings"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_pulse_rejects_non_aggregate_or_invalid_forms(self):
+        mutations = [
+            ("classResponseCount", True),
+            ("classResponseCount", 9),
+            ("items", reported_pulse()["items"] + [reported_pulse()["items"][0]]),
+        ]
+        for field, value in mutations:
+            payload = valid_cluster_package()
+            payload["learnerPulseEvidence"][field] = value
+            with self.subTest(field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"]["items"][0]["itemId"] = "supportUsefulness"
+        with self.assertRaisesRegex(IUM11ValidationError, "order"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = {"status": "suppressed-small-group", "classResponseCount": 9}
+        with self.assertRaises(IUM11ValidationError):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_package_rejects_contract_mismatches_and_untrusted_warnings(self):
+        mutations = [
+            ("schemaVersion", 2),
+            ("protocolVersion", "2.0.0"),
+            ("toolVersion", "2.0.0"),
+            ("protocolFingerprint", "0" * 64),
+            ("timeModelFingerprint", "0" * 64),
+        ]
+        for field, value in mutations:
+            payload = valid_cluster_package()
+            payload[field] = value
+            with self.subTest(field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = reported_pulse(agree=8, partly=0, disagree=4, no_answer=0)
+        payload["developmentWarnings"] = []
+        with self.assertRaisesRegex(IUM11ValidationError, "warnings"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_reported_pulse_with_nine_valid_responses_fails_closed(self):
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = reported_pulse(
+            agree=8, partly=0, disagree=1, no_answer=1
+        )
+        with self.assertRaisesRegex(IUM11ValidationError, "fewer than 10 valid"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_annual_package_requires_bound_cluster_totals(self):
+        payload = valid_annual_package()
+        self.assertEqual(
+            validate_evidence_package(payload, self.protocol, self.time_model)["scopeType"],
+            "annual",
+        )
+        payload["deliveryTimeEvidence"]["clusterActualUnits"][0]["actualUnits"] += 1
+        with self.assertRaisesRegex(IUM11ValidationError, "sum"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_all_prohibited_field_names_fail_closed_in_every_evidence_object(self):
+        targets = (
+            lambda package: package,
+            lambda package: package["context"],
+            lambda package: package["deliveryTimeEvidence"],
+            lambda package: package["learningQualityEvidence"],
+            lambda package: package["learnerPulseEvidence"],
+            lambda package: package["technicalPrivacyEvidence"],
+        )
+        for target in targets:
+            for field in self.protocol["prohibitedFieldNames"]:
+                payload = valid_cluster_package()
+                target(payload)[field] = "prohibited"
+                with self.subTest(target=target, field=field):
+                    with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                        validate_evidence_package(payload, self.protocol, self.time_model)
+
+        for field in self.protocol["prohibitedFieldNames"]:
+            payload = valid_cluster_package()
+            payload["developmentWarnings"] = [{
+                "id": "WARN-clarity", "itemId": "clarity", "status": "open", field: "prohibited"
+            }]
+            with self.subTest(target="warning", field=field):
+                with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_aggregate_types_and_privacy_gate_fail_closed(self):
+        mutations = [
+            ("deliveryTimeEvidence", "plannedUnits", True),
+            ("deliveryTimeEvidence", "actualUnits", -1),
+            ("deliveryTimeEvidence", "technicalStartupMinutes", True),
+            ("deliveryTimeEvidence", "fallbackActivated", 1),
+            ("technicalPrivacyEvidence", "fallbackEquivalentLearningFunction", 0),
+            ("technicalPrivacyEvidence", "privacyGate", "fail"),
+        ]
+        for parent, field, value in mutations:
+            payload = valid_cluster_package()
+            payload[parent][field] = value
+            with self.subTest(parent=parent, field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"]["items"][0]["agree"] = -1
+        with self.assertRaises(IUM11ValidationError):
+            validate_evidence_package(payload, self.protocol, self.time_model)
