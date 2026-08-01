@@ -1279,22 +1279,49 @@ def _validate_publication_declarations(
 
     def normalize(line: str) -> str:
         line = unicodedata.normalize("NFKC", line)
-        line = line.translate(str.maketrans({"–": "-", "—": "-", "‑": "-"}))
+        line = "".join(
+            "-" if unicodedata.category(character) == "Pd" else character
+            for character in line
+        )
         return re.sub(r"\s+", " ", line).strip().casefold()
 
-    def is_counterexample(line: str, match: re.Match) -> bool:
-        prefix = line[:match.start()]
-        suffix = line[match.end():]
-        prefix_negation = re.search(
-            r"\b(?:nicht|weder|kein(?:e|en|em|er|es)?)\b",
-            prefix,
+    def clauses(line: str) -> list[str]:
+        decimal_marker = "\uf000"
+        protected = re.sub(r"(?<=\d)\.(?=\d)", decimal_marker, line)
+        parts = re.split(
+            r"\s+sondern\s+|;|[!?]+|(?<!\d)\.(?:\s+|$)",
+            protected,
         )
-        suffix_correction = re.search(
+        return [
+            part.replace(decimal_marker, ".").strip(" ,")
+            for part in parts
+            if part.strip(" ,")
+        ]
+
+    def claim_is_negated(clause: str, match: re.Match) -> bool:
+        prefix = clause[:match.start()]
+        suffix = clause[match.end():]
+        double_negation_pattern = re.compile(
+            r"\bnicht\s+(?:ausdrücklich\s+)?"
+            r"(?:falsch|unzulässig|gesperrt|verboten)\b"
+        )
+        prefix = double_negation_pattern.sub("", prefix)
+        suffix = double_negation_pattern.sub("", suffix)
+        false_that = re.search(r"\bfalsch\s*,?\s+dass\b", prefix)
+        direct_negation = re.search(
+            r"\b(?:nicht|weder|kein(?:e|en|em|er|es)?)\b",
+            f"{prefix} {suffix}",
+        )
+        explicit_rejection = re.search(
             r"\b(?:falsch|unzulässig|gesperrt|verboten)\b|"
             r"\bkein(?:e|en|em|er|es)?\s+zulässige\b",
             suffix,
         )
-        return prefix_negation is not None or suffix_correction is not None
+        return (
+            false_that is not None
+            or direct_negation is not None
+            or explicit_rejection is not None
+        )
 
     version_contracts = (
         (
@@ -1373,7 +1400,7 @@ def _validate_publication_declarations(
         ),
     )
     technical_status_pattern = re.compile(
-        r"\b(status|[A-Za-z][A-Za-z0-9]*Status)\s*:\s*([A-Za-z][A-Za-z0-9-]*)"
+        r"\b(status|[a-z][a-z0-9]*status)\s*:\s*([a-z][a-z0-9-]*)"
     )
     maturity_status_pattern = re.compile(r"\b(?:available|reviewed|standard)\b")
     maturity_subject_pattern = re.compile(
@@ -1383,74 +1410,98 @@ def _validate_publication_declarations(
     completed_pilot_subject_pattern = re.compile(
         r"\bpilotierung\b|\breal\w*\s+pilot\b"
     )
+    canonical_status_pairs = {
+        (key.casefold(), value.casefold()): (key, value)
+        for key, value in declaration_contract["statusPairs"]
+    }
 
     seen_status_pairs: set[tuple[str, str]] = set()
     for raw_line in text.splitlines():
         if not raw_line.strip():
             continue
-        line = normalize(raw_line)
+        normalized_line = normalize(raw_line)
+        line_has_maturity_subject = bool(
+            maturity_subject_pattern.search(normalized_line)
+        )
+        line_has_completed_pilot_subject = bool(
+            completed_pilot_subject_pattern.search(normalized_line)
+        )
+        raw_status_counts = {
+            pair: raw_line.count(f"{pair[0]}: {pair[1]}")
+            for pair in declaration_contract["statusPairs"]
+        }
+        used_raw_status_counts = {
+            pair: 0 for pair in declaration_contract["statusPairs"]
+        }
 
-        for label, expected_version, patterns in version_contracts:
-            for pattern, canonical_form in patterns:
-                for match in re.finditer(pattern, line):
-                    version = match.group(1)
-                    if version != expected_version or not canonical_form:
-                        _require(
-                            is_counterexample(line, match),
-                            "publication "
-                            f"{label} declaration differs from contract: {relative_path}",
-                        )
+        for clause in clauses(normalized_line):
+            for label, expected_version, patterns in version_contracts:
+                for pattern, canonical_form in patterns:
+                    for match in re.finditer(pattern, clause):
+                        version = match.group(1)
+                        if version != expected_version or not canonical_form:
+                            _require(
+                                claim_is_negated(clause, match),
+                                "publication "
+                                f"{label} declaration differs from contract: "
+                                f"{relative_path}",
+                            )
 
-        for label, allowed_values, patterns in number_contracts:
-            for pattern in patterns:
-                for match in re.finditer(pattern, line):
-                    value = int(match.group(1))
-                    if value not in allowed_values:
-                        _require(
-                            is_counterexample(line, match),
-                            "publication "
-                            f"{label} declaration differs from contract: {relative_path}",
-                        )
+            for label, allowed_values, patterns in number_contracts:
+                for pattern in patterns:
+                    for match in re.finditer(pattern, clause):
+                        value = int(match.group(1))
+                        if value not in allowed_values:
+                            _require(
+                                claim_is_negated(clause, match),
+                                "publication "
+                                f"{label} declaration differs from contract: "
+                                f"{relative_path}",
+                            )
 
-        for match in re.finditer(r"\b(eligible-for-[a-z0-9-]+)\b", line):
-            if match.group(1) != allowed_recommendation:
-                _require(
-                    is_counterexample(line, match),
-                    f"publication recommendation differs from contract: {relative_path}",
-                )
-
-        for match in technical_status_pattern.finditer(raw_line):
-            pair = (match.group(1), match.group(2))
-            canonical_fragment = f"{pair[0]}: {pair[1]}"
-            if (
-                pair in declaration_contract["statusPairs"]
-                and match.group(0) == canonical_fragment
+            for match in re.finditer(
+                r"\b(eligible-for-[a-z0-9-]+)\b",
+                clause,
             ):
-                seen_status_pairs.add(pair)
-            else:
-                normalized_match = re.search(
-                    rf"\b{re.escape(pair[0].casefold())}\s*:\s*{re.escape(pair[1].casefold())}\b",
-                    line,
-                )
-                _require(
-                    normalized_match is not None
-                    and is_counterexample(line, normalized_match),
-                    f"publication status declaration differs from contract: {relative_path}",
-                )
+                if match.group(1) != allowed_recommendation:
+                    _require(
+                        claim_is_negated(clause, match),
+                        "publication recommendation differs from contract: "
+                        f"{relative_path}",
+                    )
 
-        if maturity_subject_pattern.search(line):
-            for match in maturity_status_pattern.finditer(line):
-                _require(
-                    is_counterexample(line, match),
-                    f"publication exceeds the pilot statement boundary: {relative_path}",
-                )
+            for match in technical_status_pattern.finditer(clause):
+                normalized_pair = (match.group(1), match.group(2))
+                canonical_pair = canonical_status_pairs.get(normalized_pair)
+                if (
+                    canonical_pair is not None
+                    and used_raw_status_counts[canonical_pair]
+                    < raw_status_counts[canonical_pair]
+                ):
+                    used_raw_status_counts[canonical_pair] += 1
+                    seen_status_pairs.add(canonical_pair)
+                else:
+                    _require(
+                        claim_is_negated(clause, match),
+                        "publication status declaration differs from contract: "
+                        f"{relative_path}",
+                    )
 
-        if completed_pilot_subject_pattern.search(line):
-            for match in re.finditer(r"\babgeschlossen\b", line):
-                _require(
-                    is_counterexample(line, match),
-                    f"publication exceeds the pilot statement boundary: {relative_path}",
-                )
+            if line_has_maturity_subject:
+                for match in maturity_status_pattern.finditer(clause):
+                    _require(
+                        claim_is_negated(clause, match),
+                        "publication exceeds the pilot statement boundary: "
+                        f"{relative_path}",
+                    )
+
+            if line_has_completed_pilot_subject:
+                for match in re.finditer(r"\babgeschlossen\b", clause):
+                    _require(
+                        claim_is_negated(clause, match),
+                        "publication exceeds the pilot statement boundary: "
+                        f"{relative_path}",
+                    )
 
     _require(
         seen_status_pairs == declaration_contract["statusPairs"],

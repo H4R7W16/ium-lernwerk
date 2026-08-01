@@ -1154,6 +1154,16 @@ class IUM11PublicationTests(unittest.TestCase):
             "Der Umfang umfasst 6 Pilotstufen.",
             "Die Privacy-Schwelle 9 gilt.",
             "Privacy-Schwelle: 9.",
+            "Der Umfang beträgt nicht 40 UE, sondern 41 UE.",
+            "Der Pfad ist nicht reviewed, sondern available.",
+            "Die Pilotierung ist nicht gescheitert, sondern abgeschlossen.",
+            "eligible-for-working-availability-review ist nicht zulässig, sondern eligible-for-standard-review.",
+            "Protokollversion 9.9.9 ist nicht falsch.",
+            "availabilitystatus: available",
+            "AVAILABILITYSTATUS: AVAILABLE",
+            "ａｖａｉｌａｂｉｌｉｔｙＳｔａｔｕｓ： ａｖａｉｌａｂｌｅ",
+            "Working‑40‑Pfad ist available.",
+            "Privacy‐Schwelle: 9.",
         )
         for relative_path in (
             "README.md",
@@ -1192,6 +1202,9 @@ class IUM11PublicationTests(unittest.TestCase):
             "Protokollversion 9.9.9 ist ausdrücklich falsch; maßgeblich bleibt 1.0.0.",
             "Der Working-40-Pfad ist nicht available oder reviewed.",
             "Der reale Pilot ist ausdrücklich nicht abgeschlossen.",
+            "Available ist der Pfad nicht.",
+            "Abgeschlossen ist die Pilotierung nicht.",
+            "Es ist falsch, dass der Umfang 41 UE beträgt.",
         )
         for relative_path in (
             "README.md",
