@@ -1129,20 +1129,31 @@ class IUM11PublicationTests(unittest.TestCase):
 
     def test_publication_contract_rejects_conflicting_declarations_in_every_document(self):
         conflicting_declarations = (
+            "Pilotierung abgeschlossen.",
+            "Available ist der Working-40-Pfad.",
+            "Der Working-40-Pfad: available.",
             "Der Working-40-Pfad ist available.",
             "Der Working-40-Pfad ist reviewed.",
             "Der Working-40-Pfad ist standard.",
             "Die reale Pilotierung wurde abgeschlossen.",
+            "Der reale Pilot ist abgeschlossen.",
+            "AvailabilityStatus: available",
+            "availabilityStatus : available",
             "availabilityStatus: reviewed",
             "status: available",
             "Empfehlung: eligible-for-standard-review.",
             "Protokollversion `9.9.9`.",
+            "Protokoll-Version 9.9.9.",
+            "Version des Protokolls: 9.9.9.",
             "Werkzeugversion `9.9.9`.",
             "Der Umfang beträgt 41 UE.",
             "Der Umfang umfasst 5 Cluster.",
+            "Cluster: 5.",
             "Der Umfang umfasst 11 Module.",
+            "Module: 11.",
             "Der Umfang umfasst 6 Pilotstufen.",
             "Die Privacy-Schwelle 9 gilt.",
+            "Privacy-Schwelle: 9.",
         )
         for relative_path in (
             "README.md",
@@ -1172,27 +1183,44 @@ class IUM11PublicationTests(unittest.TestCase):
                     publication.write_text(original, encoding="utf-8")
 
     def test_publication_contract_allows_negated_boundary_and_future_gate_lines(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            self.copy_publication_fixture(root)
-            readme = root / "README.md"
-            readme.write_text(
-                readme.read_text(encoding="utf-8")
-                + "\nDer Working-40-Pfad ist nicht available.\n"
-                + "Die reale Pilotierung wurde nicht abgeschlossen.\n",
-                encoding="utf-8",
-            )
-            review = (root / "pilot/docs/review-guide.md").read_text(
-                encoding="utf-8"
-            )
-            for declaration in (
-                "availabilityStatus: available",
-                "timeFeasibilityStatus: green",
-                "pilotStatus: completed",
-            ):
-                self.assertIn(declaration, review)
+        negative_counterexamples = (
+            "Keine reale Pilotierung ist abgeschlossen.",
+            "Weder IUM11 noch der Pfad ist standard.",
+            "Der Pfad umfasst nicht 41 UE, sondern 40 UE.",
+            "Das Instrument umfasst keine 5 Cluster, sondern 4 Cluster.",
+            "eligible-for-standard-review ist ausdrücklich keine zulässige Empfehlung.",
+            "Protokollversion 9.9.9 ist ausdrücklich falsch; maßgeblich bleibt 1.0.0.",
+            "Der Working-40-Pfad ist nicht available oder reviewed.",
+            "Der reale Pilot ist ausdrücklich nicht abgeschlossen.",
+        )
+        for relative_path in (
+            "README.md",
+            "pilot/docs/teacher-guide.md",
+            "pilot/docs/review-guide.md",
+        ):
+            with self.subTest(document=relative_path):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    publication = root / relative_path
+                    publication.write_text(
+                        publication.read_text(encoding="utf-8")
+                        + "\n"
+                        + "\n".join(negative_counterexamples)
+                        + "\n",
+                        encoding="utf-8",
+                    )
+                    review = (root / "pilot/docs/review-guide.md").read_text(
+                        encoding="utf-8"
+                    )
+                    for declaration in (
+                        "availabilityStatus: available",
+                        "timeFeasibilityStatus: green",
+                        "pilotStatus: completed",
+                    ):
+                        self.assertIn(declaration, review)
 
-            validate_ium11_script._validate_publication_contract(
-                root,
-                self.protocol,
-            )
+                    validate_ium11_script._validate_publication_contract(
+                        root,
+                        self.protocol,
+                    )

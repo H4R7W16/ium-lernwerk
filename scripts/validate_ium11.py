@@ -6,6 +6,7 @@ import os
 import re
 import sys
 import tempfile
+import unicodedata
 import uuid
 from pathlib import Path
 
@@ -1274,67 +1275,186 @@ def _validate_publication_declarations(
     protocol: dict,
 ) -> None:
     declaration_contract = PUBLICATION_DECLARATION_CONTRACTS[relative_path]
-    allowed_recommendation = protocol["allowedRecommendation"]
-    exact_value_contracts = (
+    allowed_recommendation = protocol["allowedRecommendation"].casefold()
+
+    def normalize(line: str) -> str:
+        line = unicodedata.normalize("NFKC", line)
+        line = line.translate(str.maketrans({"–": "-", "—": "-", "‑": "-"}))
+        return re.sub(r"\s+", " ", line).strip().casefold()
+
+    def is_counterexample(line: str, match: re.Match) -> bool:
+        prefix = line[:match.start()]
+        suffix = line[match.end():]
+        prefix_negation = re.search(
+            r"\b(?:nicht|weder|kein(?:e|en|em|er|es)?)\b",
+            prefix,
+        )
+        suffix_correction = re.search(
+            r"\b(?:falsch|unzulässig|gesperrt|verboten)\b|"
+            r"\bkein(?:e|en|em|er|es)?\s+zulässige\b",
+            suffix,
+        )
+        return prefix_negation is not None or suffix_correction is not None
+
+    version_contracts = (
         (
             "protocol version",
-            r"\bProtokollversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
-            {protocol["protocolVersion"]},
+            protocol["protocolVersion"],
+            (
+                (
+                    r"\bprotokollversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    True,
+                ),
+                (
+                    r"\bprotokoll-version\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    False,
+                ),
+                (
+                    r"\bversion\s+des\s+protokolls\s*:\s*`?"
+                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    False,
+                ),
+            ),
         ),
         (
             "tool version",
-            r"\bWerkzeugversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
-            {protocol["toolVersion"]},
+            protocol["toolVersion"],
+            (
+                (
+                    r"\bwerkzeugversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    True,
+                ),
+                (
+                    r"\bwerkzeug-version\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    False,
+                ),
+                (
+                    r"\bversion\s+des\s+werkzeugs\s*:\s*`?"
+                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    False,
+                ),
+            ),
         ),
-        ("unit count", r"\b([0-9]+)\s+UE\b", declaration_contract["unitCounts"]),
-        ("cluster count", r"\b([0-9]+)\s+Cluster(?:n)?\b", {4}),
-        ("module count", r"\b([0-9]+)\s+(?:Kern)?[Mm]odule(?:n)?\b", {10}),
-        ("pilot stage count", r"\b([0-9]+)\s+(?:Pilot)?[Ss]tufen\b", {5}),
-        ("privacy threshold", r"Privacy-?Schwelle\s+([0-9]+)\b", {10}),
+    )
+    number_contracts = (
         (
-            "recommendation",
-            r"\b(eligible-for-[a-z0-9-]+)\b",
-            {allowed_recommendation},
+            "unit count",
+            declaration_contract["unitCounts"],
+            (r"\b([0-9]+)\s+ue\b",),
+        ),
+        (
+            "cluster count",
+            {4},
+            (
+                r"\b([0-9]+)\s+cluster(?:n)?\b",
+                r"\bcluster\s*:\s*([0-9]+)\b",
+            ),
+        ),
+        (
+            "module count",
+            {10},
+            (
+                r"\b([0-9]+)\s+(?:kern)?module(?:n)?\b",
+                r"\bmodule\s*:\s*([0-9]+)\b",
+            ),
+        ),
+        (
+            "pilot stage count",
+            {5},
+            (
+                r"\b([0-9]+)\s+(?:pilot)?stufen\b",
+                r"\bstufen\s*:\s*([0-9]+)\b",
+            ),
+        ),
+        (
+            "privacy threshold",
+            {10},
+            (r"\bprivacy-schwelle\s*:?\s*([0-9]+)\b",),
         ),
     )
-    for label, pattern, expected_values in exact_value_contracts:
-        actual_values = set(re.findall(pattern, text, re.IGNORECASE))
-        if expected_values and all(isinstance(value, int) for value in expected_values):
-            actual_values = {int(value) for value in actual_values}
-        _require(
-            actual_values == expected_values,
-            f"publication {label} declarations differ from contract: {relative_path}",
-        )
-
-    status_pairs = set(
-        re.findall(
-            r"`?\b(status|[a-z][A-Za-z0-9]*Status):\s*`?([a-z][a-z0-9-]*)`?",
-            text,
-        )
+    technical_status_pattern = re.compile(
+        r"\b(status|[A-Za-z][A-Za-z0-9]*Status)\s*:\s*([A-Za-z][A-Za-z0-9-]*)"
     )
-    _require(
-        status_pairs == declaration_contract["statusPairs"],
-        f"publication status declarations differ from contract: {relative_path}",
+    maturity_status_pattern = re.compile(r"\b(?:available|reviewed|standard)\b")
+    maturity_subject_pattern = re.compile(
+        r"\b(?:working-40-pfad|grade-7-working-40|ium11|"
+        r"klasse-7-(?:pfad|variante)|(?:der|den|dem)\s+pfad)\b"
+    )
+    completed_pilot_subject_pattern = re.compile(
+        r"\bpilotierung\b|\breal\w*\s+pilot\b"
     )
 
-    positive_maturity_assertion = re.compile(
-        r"\b(?:der\s+)?(?:Working-40-Pfad|GRADE-7-WORKING-40|"
-        r"Klasse-7-(?:Pfad|Variante)|IUM11(?:-Pilotinstrument)?)\b"
-        r"[^.!?\n]{0,80}\b(?:ist|gilt\s+als|wurde\s+als|wird\s+als)\s+"
-        r"(?!nicht\b|weder\b|keine\b)(?:bereits\s+)?`?"
-        r"(?:available|reviewed|standard)`?\b",
-        re.IGNORECASE,
-    )
-    completed_pilot_assertion = re.compile(
-        r"\b(?:die\s+)?(?:reale\s+)?Pilotierung\s+"
-        r"(?:ist|wurde|wird|gilt\s+als)\s+"
-        r"(?!nicht\b|weder\b|keine\b)(?:bereits\s+)?abgeschlossen\b",
-        re.IGNORECASE,
-    )
+    seen_status_pairs: set[tuple[str, str]] = set()
+    for raw_line in text.splitlines():
+        if not raw_line.strip():
+            continue
+        line = normalize(raw_line)
+
+        for label, expected_version, patterns in version_contracts:
+            for pattern, canonical_form in patterns:
+                for match in re.finditer(pattern, line):
+                    version = match.group(1)
+                    if version != expected_version or not canonical_form:
+                        _require(
+                            is_counterexample(line, match),
+                            "publication "
+                            f"{label} declaration differs from contract: {relative_path}",
+                        )
+
+        for label, allowed_values, patterns in number_contracts:
+            for pattern in patterns:
+                for match in re.finditer(pattern, line):
+                    value = int(match.group(1))
+                    if value not in allowed_values:
+                        _require(
+                            is_counterexample(line, match),
+                            "publication "
+                            f"{label} declaration differs from contract: {relative_path}",
+                        )
+
+        for match in re.finditer(r"\b(eligible-for-[a-z0-9-]+)\b", line):
+            if match.group(1) != allowed_recommendation:
+                _require(
+                    is_counterexample(line, match),
+                    f"publication recommendation differs from contract: {relative_path}",
+                )
+
+        for match in technical_status_pattern.finditer(raw_line):
+            pair = (match.group(1), match.group(2))
+            canonical_fragment = f"{pair[0]}: {pair[1]}"
+            if (
+                pair in declaration_contract["statusPairs"]
+                and match.group(0) == canonical_fragment
+            ):
+                seen_status_pairs.add(pair)
+            else:
+                normalized_match = re.search(
+                    rf"\b{re.escape(pair[0].casefold())}\s*:\s*{re.escape(pair[1].casefold())}\b",
+                    line,
+                )
+                _require(
+                    normalized_match is not None
+                    and is_counterexample(line, normalized_match),
+                    f"publication status declaration differs from contract: {relative_path}",
+                )
+
+        if maturity_subject_pattern.search(line):
+            for match in maturity_status_pattern.finditer(line):
+                _require(
+                    is_counterexample(line, match),
+                    f"publication exceeds the pilot statement boundary: {relative_path}",
+                )
+
+        if completed_pilot_subject_pattern.search(line):
+            for match in re.finditer(r"\babgeschlossen\b", line):
+                _require(
+                    is_counterexample(line, match),
+                    f"publication exceeds the pilot statement boundary: {relative_path}",
+                )
+
     _require(
-        positive_maturity_assertion.search(text) is None
-        and completed_pilot_assertion.search(text) is None,
-        f"publication exceeds the pilot statement boundary: {relative_path}",
+        seen_status_pairs == declaration_contract["statusPairs"],
+        f"publication canonical status declarations differ from contract: {relative_path}",
     )
 
 
