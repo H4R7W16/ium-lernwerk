@@ -155,6 +155,29 @@ PUBLICATION_TEXT_PATHS = (
     "pilot/docs/teacher-guide.md",
     "pilot/docs/review-guide.md",
 )
+PUBLICATION_DECLARATION_CONTRACTS = {
+    "README.md": {
+        "unitCounts": {38, 40},
+        "statusPairs": {
+            ("status", "working"),
+            ("semanticCoverageStatus", "partial"),
+        },
+    },
+    "pilot/docs/teacher-guide.md": {
+        "unitCounts": {8, 10, 11, 40},
+        "statusPairs": set(),
+    },
+    "pilot/docs/review-guide.md": {
+        "unitCounts": {40},
+        "statusPairs": {
+            ("availabilityStatus", "available"),
+            ("timeFeasibilityStatus", "green"),
+            ("pilotStatus", "completed"),
+            ("status", "working"),
+            ("semanticCoverageStatus", "partial"),
+        },
+    },
+}
 
 
 class IUM11ValidationError(ValueError):
@@ -1245,6 +1268,76 @@ def _validate_in_memory_examples(
     }
 
 
+def _validate_publication_declarations(
+    relative_path: str,
+    text: str,
+    protocol: dict,
+) -> None:
+    declaration_contract = PUBLICATION_DECLARATION_CONTRACTS[relative_path]
+    allowed_recommendation = protocol["allowedRecommendation"]
+    exact_value_contracts = (
+        (
+            "protocol version",
+            r"\bProtokollversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
+            {protocol["protocolVersion"]},
+        ),
+        (
+            "tool version",
+            r"\bWerkzeugversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
+            {protocol["toolVersion"]},
+        ),
+        ("unit count", r"\b([0-9]+)\s+UE\b", declaration_contract["unitCounts"]),
+        ("cluster count", r"\b([0-9]+)\s+Cluster(?:n)?\b", {4}),
+        ("module count", r"\b([0-9]+)\s+(?:Kern)?[Mm]odule(?:n)?\b", {10}),
+        ("pilot stage count", r"\b([0-9]+)\s+(?:Pilot)?[Ss]tufen\b", {5}),
+        ("privacy threshold", r"Privacy-?Schwelle\s+([0-9]+)\b", {10}),
+        (
+            "recommendation",
+            r"\b(eligible-for-[a-z0-9-]+)\b",
+            {allowed_recommendation},
+        ),
+    )
+    for label, pattern, expected_values in exact_value_contracts:
+        actual_values = set(re.findall(pattern, text, re.IGNORECASE))
+        if expected_values and all(isinstance(value, int) for value in expected_values):
+            actual_values = {int(value) for value in actual_values}
+        _require(
+            actual_values == expected_values,
+            f"publication {label} declarations differ from contract: {relative_path}",
+        )
+
+    status_pairs = set(
+        re.findall(
+            r"`?\b(status|[a-z][A-Za-z0-9]*Status):\s*`?([a-z][a-z0-9-]*)`?",
+            text,
+        )
+    )
+    _require(
+        status_pairs == declaration_contract["statusPairs"],
+        f"publication status declarations differ from contract: {relative_path}",
+    )
+
+    positive_maturity_assertion = re.compile(
+        r"\b(?:der\s+)?(?:Working-40-Pfad|GRADE-7-WORKING-40|"
+        r"Klasse-7-(?:Pfad|Variante)|IUM11(?:-Pilotinstrument)?)\b"
+        r"[^.!?\n]{0,80}\b(?:ist|gilt\s+als|wurde\s+als|wird\s+als)\s+"
+        r"(?!nicht\b|weder\b|keine\b)(?:bereits\s+)?`?"
+        r"(?:available|reviewed|standard)`?\b",
+        re.IGNORECASE,
+    )
+    completed_pilot_assertion = re.compile(
+        r"\b(?:die\s+)?(?:reale\s+)?Pilotierung\s+"
+        r"(?:ist|wurde|wird|gilt\s+als)\s+"
+        r"(?!nicht\b|weder\b|keine\b)(?:bereits\s+)?abgeschlossen\b",
+        re.IGNORECASE,
+    )
+    _require(
+        positive_maturity_assertion.search(text) is None
+        and completed_pilot_assertion.search(text) is None,
+        f"publication exceeds the pilot statement boundary: {relative_path}",
+    )
+
+
 def _validate_publication_contract(root: Path, protocol: dict) -> dict[str, int]:
     root = Path(root)
     missing = [
@@ -1317,15 +1410,7 @@ def _validate_publication_contract(root: Path, protocol: dict) -> dict[str, int]
             allowed_recommendation in text,
             f"publication recommendation drift: {relative_path}",
         )
-        for forbidden_pattern in (
-            r"\bGRADE-7-WORKING-40 ist (?:available|reviewed|standard)\b",
-            r"\bPilotierung abgeschlossen\b",
-            r"\breale Pilotierung (?:ist )?abgeschlossen\b",
-        ):
-            _require(
-                re.search(forbidden_pattern, text, re.IGNORECASE) is None,
-                f"publication exceeds the pilot statement boundary: {relative_path}",
-            )
+        _validate_publication_declarations(relative_path, text, protocol)
 
     return {
         "productFiles": len(PUBLICATION_PRODUCT_PATHS),
