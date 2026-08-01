@@ -180,6 +180,33 @@ GRADE_7_REQUIRED_PILOT_IDS = frozenset(
         "PILOT-GRADE-7-WORKING-40",
     }
 )
+GRADE_7_WORKING_40_REVIEW_IDS = frozenset(
+    {
+        "TR-INF7-16-GYM-IK-DC-001",
+        "TR-INF7-16-GYM-IK-DC-004",
+        "TR-INF7-16-GYM-IK-DC-005",
+        "TR-INF7-16-GYM-IK-ALG-003",
+        "TR-INF7-16-GYM-IK-IGD-004",
+        "TR-INF7-16-GYM-IK-IGD-006",
+        "TR-INF7-16-GYM-PK-AB-002",
+        "TR-INF7-16-GYM-PK-AB-005",
+        "TR-INF7-16-GYM-PK-AB-006",
+        "TR-INF7-16-GYM-PK-KK-002",
+        "TR-INF7-16-GYM-PK-KK-006",
+        "TR-INF7-16-GYM-PK-MI-003",
+        "TR-INF7-16-GYM-PK-MI-005",
+        "TR-INF7-16-GYM-PK-SV-001",
+        "TR-INF7-16-GYM-PK-SV-002",
+        "TR-INF7-16-GYM-PK-SV-003",
+        "TR-LH26-E-ALG-007",
+        "TR-LH26-E-ALG-008",
+        "TR-LH26-E-ALG-009",
+        "TR-LH26-E-DP-013",
+        "TR-LH26-E-DP-014",
+        "TR-LH26-E-ID-020",
+        "TR-LH26-E-ID-021",
+    }
+)
 AUTHORITATIVE_TIME_BOUNDARY = (
     "lessonRange ist die historische, eigenständige Kandidatenschätzung. "
     "roadmap/time-model.json ist für Jahreszuweisung, Pfadstatus und "
@@ -1177,13 +1204,22 @@ def _validate_grade_7_judgement(
         "grade 7 judgement fields differ from the IUM10 contract",
     )
     _require(
-        judgement["grade"] == 7
-        and judgement["semanticCoverageStatus"] == "partial"
-        and judgement["sequenceEvidenceStatus"] == "covered"
-        and isinstance(judgement["availabilityStatus"], str)
+        judgement["grade"] == 7,
+        "grade 7 judgement must have grade 7",
+    )
+    _require(
+        judgement["semanticCoverageStatus"] == "partial",
+        "grade 7 semantic coverage status must remain partial",
+    )
+    _require(
+        judgement["sequenceEvidenceStatus"] == "covered",
+        "grade 7 sequence evidence status must remain covered",
+    )
+    _require(
+        isinstance(judgement["availabilityStatus"], str)
         and isinstance(judgement["timeFeasibilityStatus"], str)
         and isinstance(judgement["pilotStatus"], str),
-        "grade 7 semantic, sequence, or operational status fields are invalid",
+        "grade 7 operational status fields are invalid",
     )
     _require(
         judgement["annualVariantIds"] == list(GRADE_7_VARIANT_TARGETS),
@@ -3634,8 +3670,11 @@ def validate_sequence_evidence(
                 allocation_units[module_id] for module_id in scope_module_ids
             )
             _require(
-                time_record["availabilityStatus"] == variant.get("availabilityStatus")
-                and _positive_int(variant.get("targetUnits"))
+                time_record["availabilityStatus"] == variant["availabilityStatus"],
+                f"sequence time evidence availability differs: {competency_id}",
+            )
+            _require(
+                _positive_int(variant.get("targetUnits"))
                 and _positive_int(time_record["targetUnits"])
                 and time_record["targetUnits"] == variant["targetUnits"]
                 and _positive_int(time_record["scopeUnits"])
@@ -4262,6 +4301,9 @@ def validate_time_references(
     module_contracts = validated_time_model.get("moduleContracts")
     time_reviews = validated_time_model.get("timeReviews")
     sequence_evidence = validated_time_model.get("sequenceEvidence")
+    annual_variants = validated_time_model.get("annualVariants")
+    availability_contracts = validated_time_model.get("availabilityContracts")
+    pilot_assignments = validated_time_model.get("pilotAssignments")
     _require(
         isinstance(module_contracts, dict) and len(module_contracts) == 31,
         "validated time model must contain 31 module contracts",
@@ -4273,6 +4315,23 @@ def validate_time_references(
     _require(
         isinstance(sequence_evidence, dict) and len(sequence_evidence) == 4,
         "validated time model must contain four sequence records",
+    )
+    _require(
+        isinstance(annual_variants, dict)
+        and set(GRADE_7_VARIANT_TARGETS) <= set(annual_variants),
+        "validated time model must contain the grade 7 annual variants",
+    )
+    _require(
+        isinstance(availability_contracts, dict)
+        and set(availability_contracts) == {GRADE_7_AVAILABILITY_CONTRACT_ID}
+        and availability_contracts[GRADE_7_AVAILABILITY_CONTRACT_ID].get("variantId")
+        == "GRADE-7-WORKING-40",
+        "validated time model must contain the grade 7 availability contract",
+    )
+    _require(
+        isinstance(pilot_assignments, dict)
+        and GRADE_7_REQUIRED_PILOT_IDS <= set(pilot_assignments),
+        "validated time model must contain all required grade 7 pilots",
     )
     _require(
         set(APPROVED_TIME_AUDIT) == set(BASELINE_PARTIAL_IDS)
@@ -4426,10 +4485,31 @@ def validate_time_references(
         coverage_sequence_ids == {f"SE-{competency_id}" for competency_id in ROADMAP_DEPENDENT_IDS},
         "coverage sequence references differ from the four records",
     )
+    working_40_review_ids = set()
+    for review_id, review in time_reviews.items():
+        path_availability = review.get("pathAvailability") if isinstance(review, dict) else None
+        _require(
+            isinstance(path_availability, list)
+            and len(path_availability) == len(set(path_availability))
+            and all(
+                isinstance(variant_id, str) and variant_id in annual_variants
+                for variant_id in path_availability
+            ),
+            f"validated time review has invalid path availability: {review_id}",
+        )
+        if "GRADE-7-WORKING-40" in path_availability:
+            working_40_review_ids.add(review_id)
+    _require(
+        working_40_review_ids == GRADE_7_WORKING_40_REVIEW_IDS,
+        "working-40 path availability references differ from the approved contract",
+    )
     return {
         "timeContractIds": time_contract_ids,
         "timeReviewIds": time_review_ids,
         "sequenceEvidenceIds": coverage_sequence_ids,
+        "availabilityContractIds": set(availability_contracts),
+        "requiredGrade7PilotIds": set(GRADE_7_REQUIRED_PILOT_IDS),
+        "working40PathAvailabilityReviewIds": working_40_review_ids,
     }
 
 
@@ -4542,6 +4622,9 @@ def validate_ium10_baseline(module_payload, coverage_payload, remediation_payloa
         "moduleIds": module_ids,
         "coverageIds": coverage_ids,
         "handoffIds": handoff_ids,
+        "moduleStructureSha256": BASELINE_MODULE_STRUCTURE_SHA256,
+        "coverageProjectionSha256": BASELINE_COVERAGE_PROJECTION_SHA256,
+        "timeHandoffSha256": BASELINE_TIME_HANDOFF_SHA256,
     }
 
 

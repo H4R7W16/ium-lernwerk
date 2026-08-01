@@ -12956,6 +12956,235 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
             Counter({"covered": 164, "partial": 7}),
         )
 
+    def test_grade_7_keeps_sequence_and_semantic_statuses_when_operational_state_changes(self):
+        initial = self.validate()["gradeJudgements"][7]
+        self.assertEqual(
+            {
+                "availabilityStatus": initial["availabilityStatus"],
+                "timeFeasibilityStatus": initial["timeFeasibilityStatus"],
+                "sequenceEvidenceStatus": initial["sequenceEvidenceStatus"],
+                "pilotStatus": initial["pilotStatus"],
+                "semanticCoverageStatus": initial["semanticCoverageStatus"],
+            },
+            {
+                "availabilityStatus": "conditional",
+                "timeFeasibilityStatus": "amber",
+                "sequenceEvidenceStatus": "covered",
+                "pilotStatus": "not-started",
+                "semanticCoverageStatus": "partial",
+            },
+        )
+
+        time_model = copy.deepcopy(self.time_model)
+        for gate in time_model["availabilityContracts"][0]["gates"].values():
+            gate["status"] = "passed"
+        required_pilot_ids = {
+            "PILOT-INT-7-DATA-CODING",
+            "PILOT-INT-7-PROGRAMMING",
+            "PILOT-INT-7-NET-SECURITY",
+            "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+            "PILOT-GRADE-7-WORKING-40",
+        }
+        for pilot in time_model["pilotAssignments"]:
+            if pilot["id"] in required_pilot_ids:
+                pilot["status"] = "completed"
+        grade_7 = next(
+            item for item in time_model["gradeJudgements"] if item["grade"] == 7
+        )
+        grade_7.update(
+            {
+                "availabilityStatus": "available",
+                "timeFeasibilityStatus": "green",
+                "pilotStatus": "completed",
+            }
+        )
+
+        available = self.validate(time_model=time_model)["gradeJudgements"][7]
+        self.assertEqual(
+            {
+                "availabilityStatus": available["availabilityStatus"],
+                "timeFeasibilityStatus": available["timeFeasibilityStatus"],
+                "sequenceEvidenceStatus": available["sequenceEvidenceStatus"],
+                "pilotStatus": available["pilotStatus"],
+                "semanticCoverageStatus": available["semanticCoverageStatus"],
+            },
+            {
+                "availabilityStatus": "available",
+                "timeFeasibilityStatus": "green",
+                "sequenceEvidenceStatus": "covered",
+                "pilotStatus": "completed",
+                "semanticCoverageStatus": "partial",
+            },
+        )
+
+    def test_public_validator_rejects_grade_7_axis_and_sequence_mutations(self):
+        mutations = (
+            (
+                "semantic coverage cannot follow operational availability",
+                lambda payload: next(
+                    item
+                    for item in payload["gradeJudgements"]
+                    if item["grade"] == 7
+                ).__setitem__("semanticCoverageStatus", "covered"),
+                "grade 7 semantic coverage status must remain partial",
+            ),
+            (
+                "sequence coverage cannot follow remain-partial",
+                lambda payload: next(
+                    item
+                    for item in payload["gradeJudgements"]
+                    if item["grade"] == 7
+                ).__setitem__("sequenceEvidenceStatus", "partial"),
+                "grade 7 sequence evidence status must remain covered",
+            ),
+            (
+                "sequence audit must stay passed",
+                lambda payload: next(
+                    item
+                    for item in payload["sequenceEvidence"]
+                    if item["competencyId"] == "LH26-E-PROG-003"
+                ).__setitem__("fachAuditStatus", "failed"),
+                "sequence fach audit must be passed: LH26-E-PROG-003",
+            ),
+            (
+                "working path cannot be described as available or piloted",
+                lambda payload: next(
+                    item
+                    for item in payload["gradeJudgements"]
+                    if item["grade"] == 7
+                ).__setitem__(
+                    "rationale",
+                    "GRADE-7-WORKING-40 ist verfügbar, erprobt und vollständig pilotiert.",
+                ),
+                "grade 7 judgement must use the canonical unimplemented-options rationale",
+            ),
+        )
+        for name, mutate, message in mutations:
+            with self.subTest(name=name):
+                time_model = copy.deepcopy(self.time_model)
+                mutate(time_model)
+                with self.assertRaisesRegex(IUM10ValidationError, message):
+                    self.validate(time_model=time_model)
+
+        time_model = copy.deepcopy(self.time_model)
+        evidence = next(
+            item
+            for item in time_model["sequenceEvidence"]
+            if item["competencyId"] == "LH26-E-PROG-003"
+        )
+        working_evidence = next(
+            item
+            for item in evidence["timeEvidence"]
+            if item["variantId"] == "GRADE-7-WORKING-40"
+        )
+        working_evidence["availabilityStatus"] = "available"
+        with self.assertRaisesRegex(
+            IUM10ValidationError,
+            "sequence time evidence availability differs: LH26-E-PROG-003",
+        ):
+            self.validate(time_model=time_model)
+
+    def test_reference_validator_binds_schema_three_grade_7_references(self):
+        result = self.validate()
+        references = ium10_validator.validate_time_references(
+            self.module_payload,
+            self.coverage_payload,
+            self.remediation_payload,
+            result,
+        )
+        self.assertEqual(
+            references["availabilityContractIds"],
+            {"AVAIL-GRADE-7-WORKING-40"},
+        )
+        self.assertEqual(
+            references["requiredGrade7PilotIds"],
+            {
+                "PILOT-INT-7-DATA-CODING",
+                "PILOT-INT-7-PROGRAMMING",
+                "PILOT-INT-7-NET-SECURITY",
+                "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+                "PILOT-GRADE-7-WORKING-40",
+            },
+        )
+        self.assertEqual(
+            references["working40PathAvailabilityReviewIds"],
+            {
+                "TR-INF7-16-GYM-IK-DC-001",
+                "TR-INF7-16-GYM-IK-DC-004",
+                "TR-INF7-16-GYM-IK-DC-005",
+                "TR-INF7-16-GYM-IK-ALG-003",
+                "TR-INF7-16-GYM-IK-IGD-004",
+                "TR-INF7-16-GYM-IK-IGD-006",
+                "TR-INF7-16-GYM-PK-AB-002",
+                "TR-INF7-16-GYM-PK-AB-005",
+                "TR-INF7-16-GYM-PK-AB-006",
+                "TR-INF7-16-GYM-PK-KK-002",
+                "TR-INF7-16-GYM-PK-KK-006",
+                "TR-INF7-16-GYM-PK-MI-003",
+                "TR-INF7-16-GYM-PK-MI-005",
+                "TR-INF7-16-GYM-PK-SV-001",
+                "TR-INF7-16-GYM-PK-SV-002",
+                "TR-INF7-16-GYM-PK-SV-003",
+                "TR-LH26-E-ALG-007",
+                "TR-LH26-E-ALG-008",
+                "TR-LH26-E-ALG-009",
+                "TR-LH26-E-DP-013",
+                "TR-LH26-E-DP-014",
+                "TR-LH26-E-ID-020",
+                "TR-LH26-E-ID-021",
+            },
+        )
+
+        mutations = (
+            (
+                "availability contract removed",
+                lambda validated: validated["availabilityContracts"].pop(
+                    "AVAIL-GRADE-7-WORKING-40"
+                ),
+                "validated time model must contain the grade 7 availability contract",
+            ),
+            (
+                "annual pilot removed",
+                lambda validated: validated["pilotAssignments"].pop(
+                    "PILOT-GRADE-7-WORKING-40"
+                ),
+                "validated time model must contain all required grade 7 pilots",
+            ),
+            (
+                "working path removed from a review",
+                lambda validated: validated["timeReviews"][
+                    "TR-INF7-16-GYM-IK-DC-001"
+                ]["pathAvailability"].remove("GRADE-7-WORKING-40"),
+                "working-40 path availability references differ from the approved contract",
+            ),
+        )
+        for name, mutate, message in mutations:
+            with self.subTest(name=name):
+                invalid = copy.deepcopy(result)
+                mutate(invalid)
+                with self.assertRaisesRegex(IUM10ValidationError, message):
+                    ium10_validator.validate_time_references(
+                        self.module_payload,
+                        self.coverage_payload,
+                        self.remediation_payload,
+                        invalid,
+                    )
+
+    def test_schema_three_keeps_module_coverage_and_handoff_fingerprints(self):
+        result = self.validate()
+        self.assertEqual(
+            result["baseline"]["moduleStructureSha256"],
+            BASELINE_MODULE_STRUCTURE_SHA256,
+        )
+        self.assertEqual(
+            result["baseline"]["coverageProjectionSha256"],
+            BASELINE_COVERAGE_PROJECTION_SHA256,
+        )
+        self.assertEqual(
+            result["baseline"]["timeHandoffSha256"],
+            BASELINE_TIME_HANDOFF_SHA256,
+        )
+
     def test_time_model_baseline_is_exact_and_bound_to_authoritative_fingerprints(self):
         mutations = []
 
