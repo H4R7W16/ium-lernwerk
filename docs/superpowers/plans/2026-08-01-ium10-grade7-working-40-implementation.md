@@ -242,7 +242,7 @@ Für `scopeType: "module"` gilt `aggregationLevel: "module"` und `fallback: "non
 - Modify: `scripts/validate_ium10.py`
 - Modify: `tests/test_validate_ium10.py`
 
-- [ ] **Step 1: Import und vier fehlschlagende Unit-Tests schreiben**
+- [x] **Step 1: Import und vier fehlschlagende Unit-Tests schreiben**
 
 ```python
 class IUM10Grade7OperationalStateTests(unittest.TestCase):
@@ -315,7 +315,7 @@ class IUM10Grade7OperationalStateTests(unittest.TestCase):
         )
 ```
 
-- [ ] **Step 2: Den Red-Zustand nachweisen**
+- [x] **Step 2: Den Red-Zustand nachweisen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7OperationalStateTests -v
@@ -323,7 +323,7 @@ python -B -m unittest tests.test_validate_ium10.IUM10Grade7OperationalStateTests
 
 Expected: ImportError oder vier Fehler, weil die Funktion noch nicht existiert.
 
-- [ ] **Step 3: Minimale reine Ableitung implementieren**
+- [x] **Step 3: Minimale reine Ableitung implementieren**
 
 ```python
 GRADE_7_REQUIRED_PILOT_IDS = frozenset(
@@ -367,14 +367,14 @@ def derive_grade_7_operational_state(availability_contract, pilot_assignments):
     }
 ```
 
-- [ ] **Step 4: Fokussierte und vollständige Tests ausführen**
+- [x] **Step 4: Fokussierte und vollständige Tests ausführen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7OperationalStateTests -v
 python -B -m unittest discover -s tests -p "test_*.py"
 ```
 
-- [ ] **Step 5: Synchronisieren und committen**
+- [x] **Step 5: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -393,7 +393,7 @@ git commit -m "feat: derive grade 7 operational state"
 - Modify: `scripts/validate_ium10.py`
 - Modify: `tests/test_validate_ium10.py`
 
-- [ ] **Step 1: Repositorytests auf den freigegebenen Schema-3-Zustand umstellen**
+- [x] **Step 1: Repositorytests auf den freigegebenen Schema-3-Zustand umstellen**
 
 Die bisherigen Tests für Schema 2, Boolean-Verfügbarkeit, `GRADE-7-OPTIMIZED-DEMAND` und das rote Klasse-7-Urteil nicht ersatzlos löschen, sondern in positive Schema-3- und negative Altformatprüfungen überführen:
 
@@ -486,7 +486,7 @@ self.assertEqual(
 )
 ```
 
-- [ ] **Step 2: Den Red-Zustand nachweisen**
+- [x] **Step 2: Den Red-Zustand nachweisen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7RepositoryTests -v
@@ -495,7 +495,7 @@ python -B -m unittest tests.test_validate_ium10.IUM10AnnualVariantTests -v
 
 Expected: Fehlschläge zu Schema 2, Alt-ID, `optimized` und `available`.
 
-- [ ] **Step 3: Validator-Konstanten und Schemafelder migrieren**
+- [x] **Step 3: Validator-Konstanten und Schemafelder migrieren**
 
 ```python
 AVAILABILITY_STATUSES = {"conditional", "available", "unavailable"}
@@ -537,7 +537,7 @@ variant_fields = {
 
 `SEQUENCE_TIME_EVIDENCE_FIELDS` ersetzt ebenfalls `available` durch `availabilityStatus`. `_validate_grade_7_judgement` und `_validate_final_grade_judgements` ergänzen `availabilityStatus` als eigene Urteilsachse. Gleichzeitig wird der Klasse-7-Sequenzstatus auf `covered` gesetzt und nicht länger aus `coverageDecision == "remain-partial"` abgeleitet; nur `semanticCoverageStatus` folgt weiterhin dem Coverage-Ledger.
 
-- [ ] **Step 4: Kanonisches JSON atomar migrieren**
+- [x] **Step 4: Kanonisches JSON atomar migrieren**
 
 In `roadmap/time-model.json`:
 
@@ -584,7 +584,7 @@ APPROVED_RISK_REGISTER_SHA256 = (
 )
 ```
 
-- [ ] **Step 5: Altformat und verbotene 38-UE-Variante ausschließen**
+- [x] **Step 5: Altformat und verbotene 38-UE-Variante ausschließen**
 
 ```powershell
 rg -n '"available"\s*:|GRADE-7-OPTIMIZED-DEMAND|"optimized"' roadmap/time-model.json scripts/validate_ium10.py
@@ -592,7 +592,7 @@ rg -n '"available"\s*:|GRADE-7-OPTIMIZED-DEMAND|"optimized"' roadmap/time-model.
 
 Expected: kein Treffer in Produktmodell oder Validator. Negative Regressionstests dürfen die Alt-ID und das Altformat ausschließlich als Mutationsinput enthalten. Danach einen Mutationstest ergänzen, der eine `GRADE-7-WORKING-38`-Variante anhängt und mit `IUM10ValidationError` abgewiesen wird.
 
-- [ ] **Step 6: Fokussierte und vollständige Validierung**
+- [x] **Step 6: Fokussierte und vollständige Validierung**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10AnnualVariantTests -v
@@ -604,7 +604,7 @@ python -B scripts/validate_ium10.py
 
 Expected: alle Prüfungen grün; elf Jahresvarianten bleiben elf.
 
-- [ ] **Step 7: Synchronisieren und committen**
+- [x] **Step 7: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -622,7 +622,7 @@ git commit -m "feat: migrate grade 7 working 40 to schema 3"
 - Modify: `scripts/validate_ium10.py`
 - Modify: `tests/test_validate_ium10.py`
 
-- [ ] **Step 1: Positive und mutierte Vertragsfälle schreiben**
+- [x] **Step 1: Positive und mutierte Vertragsfälle schreiben**
 
 ```python
 def test_repository_has_exact_grade_7_availability_contract(self):
@@ -663,7 +663,7 @@ Mutationen müssen mindestens abweisen:
 - zweiter Verfügbarkeitsvertrag;
 - Vertragsreferenz auf Robust, Historisch oder eine unbekannte Variante.
 
-- [ ] **Step 2: Den Red-Zustand nachweisen**
+- [x] **Step 2: Den Red-Zustand nachweisen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7AvailabilityContractTests -v
@@ -671,7 +671,7 @@ python -B -m unittest tests.test_validate_ium10.IUM10Grade7AvailabilityContractT
 
 Expected: Fehler, weil `validate_availability_contracts` noch nicht existiert oder die Mutationen noch akzeptiert werden.
 
-- [ ] **Step 3: Exakten Validator implementieren**
+- [x] **Step 3: Exakten Validator implementieren**
 
 ```python
 AVAILABILITY_CONTRACT_FIELDS = {
@@ -709,7 +709,7 @@ contract["maximumFallbackUnits"] == (
 )
 ```
 
-- [ ] **Step 4: Orchestrator-Reihenfolge verdrahten**
+- [x] **Step 4: Orchestrator-Reihenfolge verdrahten**
 
 In `validate_ium10` gilt:
 
@@ -724,7 +724,7 @@ availability_contracts = validate_availability_contracts(
 
 `_validate_grade_7_judgement` erhält `availability_contracts` als Argument. Es prüft, dass nur `GRADE-7-WORKING-40` den Vertrag referenziert und Robust/Historisch keine implizite Freigabe erhalten.
 
-- [ ] **Step 5: Tests und CLI ausführen**
+- [x] **Step 5: Tests und CLI ausführen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7AvailabilityContractTests -v
@@ -733,7 +733,7 @@ python -B -m unittest discover -s tests -p "test_*.py"
 python -B scripts/validate_ium10.py
 ```
 
-- [ ] **Step 6: Synchronisieren und committen**
+- [x] **Step 6: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -752,7 +752,7 @@ git commit -m "feat: validate grade 7 availability contract"
 - Modify: `scripts/validate_ium10.py`
 - Modify: `tests/test_validate_ium10.py`
 
-- [ ] **Step 1: Failing Tests für 36 typisierte Privacy-safe-Aufträge schreiben**
+- [x] **Step 1: Failing Tests für 36 typisierte Privacy-safe-Aufträge schreiben**
 
 ```python
 def test_repository_has_exactly_thirty_six_typed_pilot_assignments(self):
@@ -782,7 +782,7 @@ def test_every_pilot_prohibits_personal_and_private_evidence(self):
 
 Mutationstests ersetzen nacheinander `personalData`, `personalTelemetry` oder `privateReflectionEvidence` durch `allowed`, entfernen einen Ausschluss, duplizieren einen Scope, vertauschen `scopeType`/`aggregationLevel` oder referenzieren einen falschen Vertrag. Jede Mutation muss an der öffentlichen `validate_ium10`-Grenze scheitern.
 
-- [ ] **Step 2: Den Red-Zustand nachweisen**
+- [x] **Step 2: Den Red-Zustand nachweisen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10FinalIntegrationTests.test_pilot_assignments_are_typed_aggregated_and_nonpersonal -v
@@ -790,7 +790,7 @@ python -B -m unittest tests.test_validate_ium10.IUM10FinalIntegrationTests.test_
 
 Expected: Fehlschlag bei 31 statt 36 beziehungsweise altem Feldschema.
 
-- [ ] **Step 3: Pilotvalidator auf das einheitliche Schema umstellen**
+- [x] **Step 3: Pilotvalidator auf das einheitliche Schema umstellen**
 
 ```python
 PILOT_ASSIGNMENT_FIELDS = {
@@ -843,7 +843,7 @@ PILOT_EXCLUDED_USES = [
 - exakt die acht ausgeschlossenen Nutzungen;
 - Status nur aus `PILOT_STATUSES`.
 
-- [ ] **Step 4: JSON verlustfrei migrieren und fünf Aufträge ergänzen**
+- [x] **Step 4: JSON verlustfrei migrieren und fünf Aufträge ergänzen**
 
 Die 31 bisherigen Modulaufträge behalten ID und Modulzuordnung:
 
@@ -886,7 +886,7 @@ Zusätzlich exakt `PILOT-INT-7-DATA-CODING`, `PILOT-INT-7-PROGRAMMING`, `PILOT-I
 
 `handoffProductPresent` speichert ausschließlich den aggregierten Ja/Nein-Befund zum vereinbarten Übergabeprodukt. Weder das Produkt selbst noch eine Zuordnung zu Lernenden wird gespeichert; der Befund darf allein keine positive Zeitmachbarkeit begründen.
 
-- [ ] **Step 5: Zustandsableitung gegen validierte Piloten verdrahten**
+- [x] **Step 5: Zustandsableitung gegen validierte Piloten verdrahten**
 
 ```python
 operational_state = derive_grade_7_operational_state(
@@ -897,7 +897,7 @@ operational_state = derive_grade_7_operational_state(
 
 `_validate_final_grade_judgements` verlangt für Klasse 7, dass `availabilityStatus`, `timeFeasibilityStatus` und `pilotStatus` exakt diesem Ergebnis entsprechen. Der `pilot`-Gate-Status `passed` ist nur zulässig, wenn alle fünf erforderlichen Aufträge `completed` sind.
 
-- [ ] **Step 6: Tests und vollständige Suite ausführen**
+- [x] **Step 6: Tests und vollständige Suite ausführen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10FinalIntegrationTests -v
@@ -906,7 +906,7 @@ python -B -m unittest discover -s tests -p "test_*.py"
 python -B scripts/validate_ium10.py
 ```
 
-- [ ] **Step 7: Synchronisieren und committen**
+- [x] **Step 7: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -924,7 +924,7 @@ git commit -m "feat: type privacy-safe pilot assignments"
 - Modify: `scripts/validate_ium10.py`
 - Modify: `tests/test_validate_ium10.py`
 
-- [ ] **Step 1: Failing Tests für die sechs unabhängigen Achsen schreiben**
+- [x] **Step 1: Failing Tests für die sechs unabhängigen Achsen schreiben**
 
 ```python
 def test_grade_7_initial_axes_match_the_approved_contract(self):
@@ -981,14 +981,14 @@ Mutationstests belegen zusätzlich:
 - ein Sequenzzeitbeleg mit von seiner Jahresvariante abweichendem `availabilityStatus` scheitert;
 - ein Resttext, der `GRADE-7-WORKING-40` als verfügbar oder erprobt bezeichnet, scheitert.
 
-- [ ] **Step 2: Red-Zustand nachweisen**
+- [x] **Step 2: Red-Zustand nachweisen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10SequenceEvidenceTests -v
 python -B -m unittest tests.test_validate_ium10.IUM10PublishedRoadmapTests.test_grade_judgements_match_current_coverage_and_sequence_evidence -v
 ```
 
-- [ ] **Step 3: Sequenzstatus aus Vertragsvollständigkeit ableiten**
+- [x] **Step 3: Sequenzstatus aus Vertragsvollständigkeit ableiten**
 
 Der atomare Schema-3-Schritt muss bereits folgenden Vertrag hergestellt haben; dieser Task sichert ihn mit Mutationen gegen spätere Rückkopplung ab:
 
@@ -1010,7 +1010,7 @@ for evidence in sequence_evidence.values():
 
 Die semantische Ableitung aus `coverage_payload` bleibt unverändert und ergibt für Klasse 7 weiterhin `partial`.
 
-- [ ] **Step 4: Referenzvalidator auf `availabilityStatus` synchronisieren**
+- [x] **Step 4: Referenzvalidator auf `availabilityStatus` synchronisieren**
 
 `validate_sequence_evidence` prüft jeden `timeEvidence`-Eintrag gegen die referenzierte Jahresvariante:
 
@@ -1024,7 +1024,7 @@ _require(
 
 `validate_time_references` bindet `AVAIL-GRADE-7-WORKING-40`, die fünf neuen Pilot-IDs, die neue Jahresvarianten-ID und alle umbenannten `pathAvailability`-Referenzen. Es darf keine Referenz auf `GRADE-7-OPTIMIZED-DEMAND` geben.
 
-- [ ] **Step 5: Regression für unveränderte Quellartefakte ergänzen**
+- [x] **Step 5: Regression für unveränderte Quellartefakte ergänzen**
 
 ```python
 def test_schema_three_keeps_module_coverage_and_handoff_fingerprints(self):
@@ -1048,7 +1048,7 @@ def test_schema_three_keeps_module_coverage_and_handoff_fingerprints(self):
     )
 ```
 
-- [ ] **Step 6: Tests und Validatoren ausführen**
+- [x] **Step 6: Tests und Validatoren ausführen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10SequenceEvidenceTests -v
@@ -1059,7 +1059,7 @@ python -B scripts/validate_ium09.py
 python -B scripts/validate_phase0.py
 ```
 
-- [ ] **Step 7: Synchronisieren und committen**
+- [x] **Step 7: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -1077,7 +1077,7 @@ git commit -m "fix: separate grade 7 sequence and semantic status"
 - Modify: `tests/test_validate_ium10.py`
 - Modify: `scripts/validate_ium10.py`
 
-- [ ] **Step 1: Eine tabellengetriebene Mutationssuite schreiben**
+- [x] **Step 1: Eine tabellengetriebene Mutationssuite schreiben**
 
 Die Suite mutiert eine tiefe Kopie des vollständigen Repositorymodells und ruft die öffentliche `validate_ium10`-Grenze auf:
 
@@ -1114,7 +1114,7 @@ Mindestens diese Mutationen sind einzeln verpflichtend:
 | robustes 46-UE-Modell auf `conditional` oder `available` setzen | Referenz bleibt unavailable |
 | Working-40-`status` auf `reviewed` setzen | kein automatisches Review |
 
-- [ ] **Step 2: Red-Zustand jeder Mutation einzeln beobachten**
+- [x] **Step 2: Red-Zustand jeder Mutation einzeln beobachten**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7FailClosedMutationTests -v
@@ -1122,7 +1122,7 @@ python -B -m unittest tests.test_validate_ium10.IUM10Grade7FailClosedMutationTes
 
 Expected: neue Tests schlagen zunächst an mindestens einer noch offenen Validatorgrenze fehl.
 
-- [ ] **Step 3: Nur nachgewiesene Lücken im Validator schließen**
+- [x] **Step 3: Nur nachgewiesene Lücken im Validator schließen**
 
 Keine Freitextheuristik einführen. Strukturierte IDs, Enums, Mengen-, Summen-, Typ- und Referenzverträge tragen die Gates. Für verbotene Kompensationen wird die exakte Liste verglichen; für Privacy werden nur strukturierte Felder geprüft.
 
@@ -1144,7 +1144,7 @@ _require(
 
 Die Startdaten bleiben `conditional / amber`; synthetische Mutationen dürfen die produktiven JSON-Statuswerte nicht hochstufen.
 
-- [ ] **Step 4: Vollständige Regression und statische Scans**
+- [x] **Step 4: Vollständige Regression und statische Scans**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10Grade7FailClosedMutationTests -v
@@ -1159,7 +1159,7 @@ git diff --check
 
 Expected: alle Tests/Validatoren grün; beide `rg`-Scans ohne Treffer; Diff-Gate grün.
 
-- [ ] **Step 5: Synchronisieren und committen**
+- [x] **Step 5: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -1178,7 +1178,7 @@ git commit -m "test: harden grade 7 fail closed boundaries"
 - Modify: `README.md`
 - Modify: `tests/test_validate_ium10.py`
 
-- [ ] **Step 1: Failing Publikationstests schreiben**
+- [x] **Step 1: Failing Publikationstests schreiben**
 
 Die bisherigen elf Varianten bleiben elf. Der veröffentlichte Klasse-7-Ausschnitt muss getrennte Zeilen enthalten:
 
@@ -1210,7 +1210,7 @@ self.assertNotIn("40 UE sind erprobt", roadmap)
 
 README-Tests verlangen `conditional` und `amber` für Klasse 7 und verbieten eine Aussage, die `working` mit `available` gleichsetzt.
 
-- [ ] **Step 2: Red-Zustand nachweisen**
+- [x] **Step 2: Red-Zustand nachweisen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10PublishedRoadmapTests -v
@@ -1218,7 +1218,7 @@ python -B -m unittest tests.test_validate_ium10.IUM10PublishedRoadmapTests -v
 
 Expected: alte 40/46/54-unavailable-/red-Texte, 31er-Pilottabelle und Alt-ID führen zu Fehlern.
 
-- [ ] **Step 3: `roadmap/module-roadmap.md` aktualisieren**
+- [x] **Step 3: `roadmap/module-roadmap.md` aktualisieren**
 
 Mindestens diese Abschnitte synchronisieren:
 
@@ -1237,7 +1237,7 @@ Mindestens diese Abschnitte synchronisieren:
 
 Alte Formulierungen, wonach alle drei Klasse-7-Szenarien unavailable/red seien, werden durch die genaue Dreiteilung conditional/amber versus unavailable ersetzt. Robust und Historisch dürfen nicht als Ersatzangebot erscheinen.
 
-- [ ] **Step 4: `README.md` aktualisieren**
+- [x] **Step 4: `README.md` aktualisieren**
 
 Der Kurzstatus nennt:
 
@@ -1249,7 +1249,7 @@ Klasse 7: conditional / amber / covered / not-started / partial
 
 Dabei die Achsen im Text ausschreiben, damit die Reihenfolge nicht missverständlich wird. Auf `roadmap/time-model.json` als kanonische Quelle und `roadmap/module-roadmap.md` als abgeleitete Lesefassung verweisen.
 
-- [ ] **Step 5: Altbezeichnungen und Behauptungen scannen**
+- [x] **Step 5: Altbezeichnungen und Behauptungen scannen**
 
 ```powershell
 rg -n 'GRADE-7-OPTIMIZED-DEMAND|"optimized"|Klasse 7 ist verfügbar|40 UE sind erprobt' roadmap/module-roadmap.md README.md
@@ -1257,7 +1257,7 @@ rg -n 'GRADE-7-OPTIMIZED-DEMAND|"optimized"|Klasse 7 ist verfügbar|40 UE sind e
 
 Expected: kein Treffer.
 
-- [ ] **Step 6: Publikations- und Gesamttests ausführen**
+- [x] **Step 6: Publikations- und Gesamttests ausführen**
 
 ```powershell
 python -B -m unittest tests.test_validate_ium10.IUM10PublishedRoadmapTests -v
@@ -1267,7 +1267,7 @@ python -B scripts/validate_phase0.py
 git diff --check
 ```
 
-- [ ] **Step 7: Synchronisieren und committen**
+- [x] **Step 7: Synchronisieren und committen**
 
 ```powershell
 git fetch --prune
@@ -1288,7 +1288,7 @@ git commit -m "docs: publish grade 7 conditional working path"
 - Review: `README.md`
 - Modify bei Befund: `tests/test_validate_ium10.py` und kleinster betroffener Produktpfad
 
-- [ ] **Step 1: Reviewbasis unveränderlich festhalten**
+- [x] **Step 1: Reviewbasis unveränderlich festhalten**
 
 ```powershell
 git status --short --branch
@@ -1298,7 +1298,7 @@ git diff dd0e4c745e0ef34368d2c2ecc87bb06fceb9194b...HEAD -- roadmap/time-model.j
 
 Base- und Head-Commit im Fachreviewbericht unter `.superpowers/sdd/2026-08-01-ium10-grade7-working-40-implementation/fachreview.md` notieren.
 
-- [ ] **Step 2: Fachliche Prüffragen einzeln beantworten**
+- [x] **Step 2: Fachliche Prüffragen einzeln beantworten**
 
 Der Review bestätigt oder beanstandet ausdrücklich:
 
@@ -1313,15 +1313,15 @@ Der Review bestätigt oder beanstandet ausdrücklich:
 9. kein privater Inhalt, keine persönliche Diagnostik und kein Schülerprodukt als Zeitnachweis;
 10. keine Publikationsaussage behauptet Pilotierung, Verfügbarkeit oder `reviewed`.
 
-- [ ] **Step 3: Jeden Befund testgetrieben bearbeiten**
+- [x] **Step 3: Jeden Befund testgetrieben bearbeiten**
 
 Bei jedem Befund zuerst einen fehlschlagenden Test ergänzen, dann die kleinste Korrektur vornehmen und den fokussierten Test erneut ausführen. Keine Änderung ohne reproduzierbaren Vertragstest.
 
-- [ ] **Step 4: Fachreview abschließen**
+- [x] **Step 4: Fachreview abschließen**
 
 Akzeptiert wird nur `APPROVED` oder `APPROVED AFTER FIXES` ohne offenen Critical-, Important- oder Minor-Befund. Bei verbleibendem fachlichem Dissens stoppt die Umsetzung vor Task 9.
 
-- [ ] **Step 5: Gegebenenfalls Fixcommit erstellen**
+- [x] **Step 5: Gegebenenfalls Fixcommit erstellen**
 
 ```powershell
 git fetch --prune
@@ -1346,7 +1346,7 @@ Wenn keine Änderungen nötig waren, keinen leeren Commit erzeugen.
 - Modify bei Befund: kleinster betroffener Test- und Produktpfad
 - Track: `docs/superpowers/plans/2026-08-01-ium10-grade7-working-40-implementation.md`
 
-- [ ] **Step 1: Engineeringreview auf dem Fachreview-Head starten**
+- [x] **Step 1: Engineeringreview auf dem Fachreview-Head starten**
 
 Der Bericht unter `.superpowers/sdd/2026-08-01-ium10-grade7-working-40-implementation/engineeringreview.md` prüft:
 
@@ -1362,11 +1362,11 @@ Der Bericht unter `.superpowers/sdd/2026-08-01-ium10-grade7-working-40-implement
 - Dokumentation wird aus JSON-Fakten geprüft und nicht über selbstreferenzielle Konstanten;
 - keine Änderungen außerhalb der File Map.
 
-- [ ] **Step 2: Befunde testgetrieben schließen**
+- [x] **Step 2: Befunde testgetrieben schließen**
 
 Für jeden Befund zuerst den kleinsten fehlschlagenden Test schreiben, den Fehler reproduzieren, minimal beheben und fokussiert erneut testen. Nach Fixes ein unabhängiges Re-Review desselben Diffs verlangen.
 
-- [ ] **Step 3: Vollständige maschinelle Verifikation ausführen**
+- [x] **Step 3: Vollständige maschinelle Verifikation ausführen**
 
 ```powershell
 python -B -m unittest discover -s tests -p "test_*.py"
@@ -1387,7 +1387,7 @@ Expected:
 - `git diff --check` ohne Ausgabe;
 - nur beabsichtigte Dateien geändert.
 
-- [ ] **Step 4: UTF-8, JSON und Python-Syntax prüfen**
+- [x] **Step 4: UTF-8, JSON und Python-Syntax prüfen**
 
 ```powershell
 python -B -c "import ast,json,pathlib; files=['scripts/validate_ium10.py','tests/test_validate_ium10.py']; [ast.parse(pathlib.Path(f).read_text(encoding='utf-8')) for f in files]; json.loads(pathlib.Path('roadmap/time-model.json').read_text(encoding='utf-8')); print('UTF8_JSON_AST=PASS')"
@@ -1395,7 +1395,7 @@ python -B -c "import ast,json,pathlib; files=['scripts/validate_ium10.py','tests
 
 Zusätzlich alle fünf geänderten Produktdateien auf `U+FFFD` prüfen. Expected: kein Ersatzzeichen.
 
-- [ ] **Step 5: Plan abhaken und finalen Fixcommit erstellen**
+- [x] **Step 5: Plan abhaken und finalen Fixcommit erstellen**
 
 Nur tatsächlich erledigte Checkboxen auf `[x]` setzen. Falls Task 9 Änderungen enthält:
 
@@ -1456,23 +1456,23 @@ Danach ein neues schriftliches Auftraggebergate einholen. Keine Pilotdaten oder 
 
 ## Final Acceptance Checklist
 
-- [ ] `schemaVersion == 3` und exakt ein `availabilityContract`.
-- [ ] `GRADE-7-WORKING-40` umfasst alle zehn Kernmodule in 40 UE.
-- [ ] Clustersummen `8/11/11/10` und Fallbackzuschläge `3/2/3/6` sind maschinengeprüft.
-- [ ] 38 UE existieren nur als nichtnormative `comparisonBoundaryUnits`.
-- [ ] Robust 46 und Historisch 54 bleiben `unavailable`.
-- [ ] Flexible Vertiefungs-, Transfer- und Projektmodule bleiben zusätzlich erhalten.
-- [ ] Anfangszustand Klasse 7 ist `working / conditional / amber / covered / not-started / partial`.
-- [ ] Jedes erforderliche gescheiterte Gate erzeugt `unavailable / red`.
-- [ ] `available / green` benötigt fünf bestandene Gates und fünf abgeschlossene Klasse-7-Pilotaufträge.
-- [ ] Genau 36 typisierte Pilotaufträge liegen vor: 31 Modul, 4 Integration, 1 Jahrespfad.
-- [ ] Pilotaufträge verbieten personenbezogene Daten, Telemetrie, private Reflexionsinhalte und Schülerprodukte als Zeitnachweis.
-- [ ] `LH26-E-PROG-003` und `LH26-E-PROG-004` bleiben semantisch `remain-partial`.
-- [ ] Klassen 5/6 sind nur von Boolean zu `availabilityStatus: available` migriert.
-- [ ] Modulstruktur-, Coverage- und Zeitübergabe-Fingerprints bleiben unverändert.
-- [ ] JSON, Validator, Tests, Roadmap und README sind referenziell synchron.
-- [ ] Alt-ID, Altpfad und Boolean-Verfügbarkeitsfeld fehlen in allen Produktdateien.
-- [ ] Getrenntes Fach- und Engineeringreview ohne offenen Befund.
-- [ ] Vollständige Testsuite, IUM10, IUM09, Phase 0, UTF-8, JSON, AST und Diff-Gate grün.
+- [x] `schemaVersion == 3` und exakt ein `availabilityContract`.
+- [x] `GRADE-7-WORKING-40` umfasst alle zehn Kernmodule in 40 UE.
+- [x] Clustersummen `8/11/11/10` und Fallbackzuschläge `3/2/3/6` sind maschinengeprüft.
+- [x] 38 UE existieren nur als nichtnormative `comparisonBoundaryUnits`.
+- [x] Robust 46 und Historisch 54 bleiben `unavailable`.
+- [x] Flexible Vertiefungs-, Transfer- und Projektmodule bleiben zusätzlich erhalten.
+- [x] Anfangszustand Klasse 7 ist `working / conditional / amber / covered / not-started / partial`.
+- [x] Jedes erforderliche gescheiterte Gate erzeugt `unavailable / red`.
+- [x] `available / green` benötigt fünf bestandene Gates und fünf abgeschlossene Klasse-7-Pilotaufträge.
+- [x] Genau 36 typisierte Pilotaufträge liegen vor: 31 Modul, 4 Integration, 1 Jahrespfad.
+- [x] Pilotaufträge verbieten personenbezogene Daten, Telemetrie, private Reflexionsinhalte und Schülerprodukte als Zeitnachweis.
+- [x] `LH26-E-PROG-003` und `LH26-E-PROG-004` bleiben semantisch `remain-partial`.
+- [x] Klassen 5/6 sind nur von Boolean zu `availabilityStatus: available` migriert.
+- [x] Modulstruktur-, Coverage- und Zeitübergabe-Fingerprints bleiben unverändert.
+- [x] JSON, Validator, Tests, Roadmap und README sind referenziell synchron.
+- [x] Alt-ID, Altpfad und Boolean-Verfügbarkeitsfeld fehlen in allen Produktdateien.
+- [x] Getrenntes Fach- und Engineeringreview ohne offenen Befund.
+- [x] Vollständige Testsuite, IUM10, IUM09, Phase 0, UTF-8, JSON, AST und Diff-Gate grün.
 - [ ] Branch, Remote und Draft-PR zeigen denselben finalen Commit.
-- [ ] Kein reales Pilotdatum, keine Plattform, keine Diagnostik und keine Phase 1 implementiert.
+- [x] Kein reales Pilotdatum, keine Plattform, keine Diagnostik und keine Phase 1 implementiert.
