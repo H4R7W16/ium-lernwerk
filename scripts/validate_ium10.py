@@ -89,7 +89,7 @@ RISK_SCOPES = {
     "RISK-IUM10-PRIVATE-LEARNING-ACTIONS": "private-local-reflection",
 }
 APPROVED_RISK_REGISTER_SHA256 = (
-    "cee9ab121ccde252b243a930bb76a07209909145b77d12864de60dd790846492"
+    "8da9e7b197a8dc4a7dcbecb277b07a3e121681cb27f91e26b75fcbc9a0e3a894"
 )
 PILOT_ASSIGNMENT_FIELDS = {
     "id",
@@ -469,11 +469,10 @@ GRADE_7_DECISION_OPTIONS = [
     "fall-back-on-failed-required-gate",
 ]
 GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
-    "Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 "
-    "Unterrichtseinheiten. Selbst die unpilotierte optimierte Untergrenze "
-    "überschreitet 30/34/38; daher existiert kein verfügbares "
-    "Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf "
-    "Folgeoptionen ist umgesetzt."
+    "Das vollständige 40-UE-Arbeitsziel der Klasse 7 bleibt bis zur "
+    "Pilotierung conditional und amber. Die 46- und 54-UE-Referenzrechnungen "
+    "bleiben unavailable; der Sequenznachweis ist covered, die semantische "
+    "Coverage partial und der Pilotstatus not-started."
 )
 GRADE_5_JUDGEMENT_RATIONALE = (
     "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 "

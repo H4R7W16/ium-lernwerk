@@ -468,19 +468,19 @@ TASK18_REVIEW_ANCHORS = {
 }
 TASK18_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-DC-001": (
-        "6254abf3c0e4d9258277401942d231add017790316497cb8ec41817e775b7a9a"
+        "6b5ec8d9f8d6af240c2203eff1139e32e94aa931d9cbe1408b5c60790bed9e98"
     ),
     "INF7-16-GYM-IK-DC-004": (
         "3a8017b772f75928cdc586b5109579a661654f958b798a60d5557f01ebb805e2"
     ),
     "INF7-16-GYM-IK-DC-005": (
-        "465033f5c6bb22e73eb31c08187a702d4f134b4f280926506bc1afc904afb355"
+        "a26d96e1bec9e45707790e4fdaf9708a09fb679ed110ca69c3c7e5e57b672149"
     ),
     "LH26-E-ID-020": (
         "a1e53e36c7480c1c920cfe369f0f12e11c67cc8c2dd084ab1d7f94296abbbd87"
     ),
     "LH26-E-ID-021": (
-        "34b4c2cd951463a9c1832c3412f4204bf2fbef992189dab56918306bf920bd93"
+        "f30ff06c7b26b8453485120807716145021e474e670a64f6e03e6312d50adf7d"
     ),
 }
 TASK18_INTEGRATION_FORBIDDEN_TEXT = (
@@ -491,17 +491,17 @@ TASK18_INTEGRATION_CONTRACT_SHA256 = (
     "a910e78fee19fcbb68c5581dd398e80cffed42d7a349c0a966201dbc34fb2c88"
 )
 TASK18_CORE01_STABLE_FIELDS_SHA256 = (
-    "556c09ce1718903c73afa087de58dafc85db567f3d061ef89aa175e7cecea8ca"
+    "65733a5f11a81b37c829367c73e8c3c5555a26f40fdcb581800d148f338cabde"
 )
 TASK18_GRADE7_VARIANTS_SHA256 = (
-    "98ed55f85dae32a8da41f74fb0446c2172c7aae094ec79b703bd86a562a89c56"
+    "3020262e0ccf54d7b4a1b75aa15d53df086f8280df5ced4dc1d75224c2afa98a"
 )
 TASK18_GRADE7_JUDGEMENT_SHA256 = (
-    "f491c20def299f9f3772e1a1eab568cb9c757501941271c2a5f51f163a57f01b"
+    "46651c7968b03977a6655bf80aa4f7c0bb6a6bfdf31188f999ccc0653ad8bfb9"
 )
 PRE_TASK19_TIME_REVIEW_COUNT = 40
 PRE_TASK19_TIME_REVIEWS_SHA256 = (
-    "2d0242bf62f92f561781a09183ddeafdf8638b296e850a60ad1dda1e5bf88138"
+    "2dfe46dd912048bb0bb21103b355c4799af56ac53df52d27faa3c9637ad5908b"
 )
 TASK19_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-ALG-003": dict(
@@ -623,22 +623,22 @@ TASK19_FORBIDDEN_TEXT = {
 }
 TASK19_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-ALG-003": (
-        "9cfa7ecc46a24905c233707318cd4903c0c8b1994dc81a13c278269de87a80c8"
+        "5df6c6f22612abf9e755cc1d5d2786f9178ea61c0d3d63359ebd7142267276f8"
     ),
     "INF7-16-GYM-PK-MI-005": (
         "1dd9902c75088ebabdceb99cb1cc03b78475c10e38e20c76e0b36c00f93ab3d3"
     ),
     "INF7-16-GYM-PK-SV-003": (
-        "4bb10e02783d9144d4b01ca1d3b20993e030abdcba7934dc7ad6d958c2552e48"
+        "42bebc2c7e82b597ebdf1342021729e4361fe6e7ff67a308080f5101affa84b5"
     ),
     "LH26-E-ALG-007": (
-        "5953cd0365025b3b529ea60ec7810579e139a3aa7b8340fb4e568a92b87f4e94"
+        "477065c1e685301d77b8ad4ed7e8b0aa5079a0dca5af00f628d7a4260c526d96"
     ),
     "LH26-E-ALG-008": (
         "b8bd0aa5715ab8fdb539300aa26555accb9680e635d90c3845e3cb12ce7b4a89"
     ),
     "LH26-E-ALG-009": (
-        "b51d775c810eca8a5d4604d2c317350efe7417f8f0b74973f9d5ebf9ade9cb80"
+        "5d4df8afe0f04e2702c93428e85d12065ce6925af0af22f4f02ba73e7c2fda09"
     ),
 }
 TASK19_INTEGRATION_FORBIDDEN_TEXT = (
@@ -662,14 +662,14 @@ TASK19_MI005_FALLBACK_FORBIDDEN_TEXT = (
     "bei Ausfall genügt eine statische Ersatzdarstellung",
 )
 TASK19_INTEGRATION_CONTRACT_SHA256 = (
-    "693e68feee70291680a324372235ff2fb03d6eddab76941354a26bc47f13911c"
+    "ae08b9e67f4ed2b647113c6da045443c13fb55ab4efe7f7af5a0ca03fd8d0d07"
 )
 TASK19_CORE03_STABLE_FIELDS_SHA256 = (
-    "a2f4d566b6b2721fc59228f9e4c49ff8dc4db93aed27c46353feaaf11ad8490a"
+    "3f1dd706e61f17de0c210b0bc858d292867aa978bfdaa124c2c9086acdb39e8d"
 )
 PRE_TASK20_TIME_REVIEW_COUNT = 46
 PRE_TASK20_TIME_REVIEWS_SHA256 = (
-    "8f6b0b7c43badfd9d7989ec78b75688de23d963adc0c2ea526e7faf51ae903f6"
+    "071ac37533bcc262090f880a2e96c60f8caf425bc8323b49f2768bd55e26fbf8"
 )
 TASK20_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-PK-KK-002": dict(
@@ -751,10 +751,10 @@ TASK20_FORBIDDEN_TEXT = {
 }
 TASK20_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-PK-KK-002": (
-        "2c57a058d6e8d8756a63ee35ff337e4ce7e24c10351116f4c1ad804c87ed7e1f"
+        "372609785154d652f181537f9aae665551e3ccb0e440c644bfe2b300ac71279c"
     ),
     "INF7-16-GYM-PK-MI-003": (
-        "4af02921932096de8f1273cb903a3988e9ac34d09f903f43fd5809db6a5bc601"
+        "e4be50a563de251564ff039fd042d6bd2d01f3de43918cdd9a8b5fae88ecca29"
     ),
     "INF7-16-GYM-PK-SV-002": (
         "b01eee857e465660c697dd8920a6ab47e1c7b6ada948bed5c382258c59780f1c"
@@ -768,14 +768,14 @@ TASK20_INTEGRATION_FORBIDDEN_TEXT = (
     "Teamarbeit ersetzt die individuelle Fachhandlung",
 )
 TASK20_INTEGRATION_CONTRACT_SHA256 = (
-    "693e68feee70291680a324372235ff2fb03d6eddab76941354a26bc47f13911c"
+    "ae08b9e67f4ed2b647113c6da045443c13fb55ab4efe7f7af5a0ca03fd8d0d07"
 )
 TASK20_CORE04_STABLE_FIELDS_SHA256 = (
-    "c814b012ffc480cf88881dc6d52247c1dd3115db5404f1114fa2c6c60777d82d"
+    "f16ca9483305dfe86cb98c46e4b050a72b3f52707f45eca043cdb4304543b19c"
 )
 PRE_TASK21_TIME_REVIEW_COUNT = 49
 PRE_TASK21_TIME_REVIEWS_SHA256 = (
-    "0c7e4b41925b9d268d299ee8ae9c36aeaaf66f585b85fd10d2452daff6b180ee"
+    "f8a01470ef98f963f44ee94439c7f33d9bb87bcc5a576a02959e042b0d65d25e"
 )
 TASK21_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-IGD-004": dict(
@@ -877,13 +877,13 @@ TASK21_FORBIDDEN_TEXT = {
 }
 TASK21_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-IGD-004": (
-        "6f9abd219616f9cb046bc022c7fd7f8666b0f3fde40706c032891ce1b66f3edb"
+        "cf1b309f70da288b73d357bb89099fb10d6f97d18f37927d930b5c7d53b4ded1"
     ),
     "INF7-16-GYM-PK-AB-002": (
-        "650a123acca1c6bf9ff4da4927eda9f7de5e1a0c71d8b74581a4b2b3fce3a8d2"
+        "725ecfd891ea9e4cc8298c85ad1ff4f272268dd26fee2de685b0b3ae4a9c3def"
     ),
     "INF7-16-GYM-PK-SV-001": (
-        "233c77e6ac344ec055fad301c2cd5ff656a409586ce51f32e97b5152525fc231"
+        "88855aaac1b7aff126ad902f197f0d81cfd33a8305a0afbf32c7280918012e42"
     ),
 }
 TASK21_INTEGRATION_FORBIDDEN_TEXT = (
@@ -896,14 +896,14 @@ TASK21_INTEGRATION_FORBIDDEN_TEXT = (
     "IGD-004-Schutzhandlung wird verkürzt",
 )
 TASK21_INTEGRATION_CONTRACT_SHA256 = (
-    "db03def06edd105a8f992efb176ea4f654cc38cc53c9e968007197c45eb15c33"
+    "ae406e501061ca98f12619d9ea9ced60d7dcd3de93af38a9666db96a8db88496"
 )
 TASK21_CORE05_STABLE_FIELDS_SHA256 = (
-    "f8d91f833997fdedef5c642343794fccb9a898680d7f043f50e815490fe3c11c"
+    "11a4188b6223ee78318fe7315d97458f28fb687e23777858ef269c8cda74985b"
 )
 PRE_TASK22_TIME_REVIEW_COUNT = 52
 PRE_TASK22_TIME_REVIEWS_SHA256 = (
-    "eed12ea254379c0d9a319c6bdcca43364881bbf82d2c74c0f6b50c4c6c283327"
+    "dbfba002b3a918faea4591f43365dc27ebe861f17e668132b9781cf98dfae628"
 )
 TASK22_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-IGD-006": dict(
@@ -981,13 +981,13 @@ TASK22_PRIVACY_CONTRACT = {
     "status": "working",
 }
 TASK22_REVIEW_TEXT_PROJECTION_SHA256 = {
-    "INF7-16-GYM-IK-IGD-006": "5bdef373e12f9a8ea353d4379c1070a03c6d4b9d33de8acf353b0af64db37aa5",
-    "INF7-16-GYM-PK-AB-005": "a344ff1e501340f81632dcb14ca308c79bcf2da6545431976cbe6b7ccd550593",
-    "INF7-16-GYM-PK-AB-006": "316bebe9e78a3b2c801dd31e907100147e66d57eeb5119feaba8f058df00a273",
-    "INF7-16-GYM-PK-KK-006": "48b63315c3757fe911b3dbceb72d127d22ec8d2c9f75ad8217a90a9ad23d9a73",
-    "LH26-E-DP-013": "a752f95c866561f19c5178dae49c84586fca81b6677b1f40ef3fc1e68991a56b",
-    "LH26-E-PROG-003": "35511c67e198cef3e87126a1078d25f34bc152f3b408501ff927b094123349d3",
-    "LH26-E-PROG-004": "881ef00a2c0d3917251a0e1c587492a9b6ecedf6d6c75d19bb9046004e22fce4",
+    "INF7-16-GYM-IK-IGD-006": "c430cdcb1c2a8c3ff4fab9ce51438efc16b19bb2758884228bc8f3230c68504b",
+    "INF7-16-GYM-PK-AB-005": "93feb727f33d928cbabb77f3c9edc832c73b2f106a170060485a1565b3eac457",
+    "INF7-16-GYM-PK-AB-006": "a9ded53328eb1dc4ebfa59d0178a94490caa6aeef6100968cc8b10fba7b2e48e",
+    "INF7-16-GYM-PK-KK-006": "36d9bdfa0861c71f0e11d1d9e94d2cdbf79c88489652b65c8ca6891f08c1d0e4",
+    "LH26-E-DP-013": "baf56d054079d7e9e546423eb7e73055dcb8ea0afb835017ea3ee1be441a8c11",
+    "LH26-E-PROG-003": "762e347b4af1b06b5ae64c4dd93fdfa194f89848c819e48e849e350cdd00da8e",
+    "LH26-E-PROG-004": "eede23b7d5b1a821b85c9791ad29f31e27c1627df0dd1ccc332915a4206791cd",
 }
 TASK22_REQUIRED_TEXT = {
     "INF7-16-GYM-IK-IGD-006": (
@@ -1110,20 +1110,20 @@ TASK22_INTEGRATION_FORBIDDEN_TEXT = (
     "allgemeine Vielfaltserwähnung ersetzt die informatische Vielfaltsfrage",
 )
 TASK22_CORE08_STABLE_FIELDS_SHA256 = (
-    "cd5b6abf1305692d5ab3b76f407cca690df5a4982c7dd346130ae6331f0929c7"
+    "fa10b2dccfc7bc3836f65e3e9a1f447fbab5ceb3ba25782722d65517eb258705"
 )
 TASK22_INTEGRATION_CONTRACT_SHA256 = (
-    "c54c7a46659d67cf3090c9ee5f142dbdf9e72cf896a59f7e38fba4cd89d980bf"
+    "31821cae30317da24f89f0c72e3ea77904faeb49e13ad4b3989f9b1b298a2644"
 )
 TASK24_SEQUENCE_EVIDENCE_SHA256 = (
-    "162edbea8795bfa36d10eab2c49b789e471a865a8337577f3ef7f85f224f9304"
+    "62cc35fe0051e4f94ed1b2bf22f8f624d034b54146cb5be294eba65b63c29163"
 )
 PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256 = (
     "6e78f073474c34b7ac89ada55cd4ab22fa021f0279bed8619091335aa2a0ef41"
 )
 PRE_TASK23_TIME_REVIEW_COUNT = 59
 PRE_TASK23_TIME_REVIEWS_SHA256 = (
-    "fc6ed25e48da24103455091df92036a389cd309e98af52a9c67b145a73e93be8"
+    "7d89b1876fb32ffc0521a810b9d6e78bb5d7e745d7912b5de1e628075d042e17"
 )
 TASK23_AUDIT_EXPECTATIONS = {
     "LH26-E-DP-014": dict(
@@ -1152,10 +1152,10 @@ TASK23_PRIVACY_CONTRACT = {
     "status": "working",
 }
 TASK23_REVIEW_TEXT_PROJECTION_SHA256 = (
-    "1f00217998e28e5c3cef23dee0b010d381b95e4b9a0df9fbc0c14ea2f876dc31"
+    "92517206c48f497a417ad344f913b61ed165503d9a0fc30c3e66b8139e6e1604"
 )
 TASK23_CORE10_STABLE_FIELDS_SHA256 = (
-    "b5537b9d3c2e704abcaf886af5cd1f8e86801f929033220d4bdb07293d0e6376"
+    "a32ca6506200a627ee4b6994ad41c88cedd7f80870e33e2aeabc8cb46200bbc9"
 )
 TASK23_INTEGRATION_CONTRACT_SHA256 = TASK22_INTEGRATION_CONTRACT_SHA256
 PRE_TASK23_PRIVACY_CONTRACTS_SHA256 = (
@@ -2057,11 +2057,10 @@ EXPECTED_GRADE_7_DECISION_OPTIONS = [
     "fall-back-on-failed-required-gate",
 ]
 EXPECTED_GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
-    "Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 "
-    "Unterrichtseinheiten. Selbst die unpilotierte optimierte Untergrenze "
-    "überschreitet 30/34/38; daher existiert kein verfügbares "
-    "Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf "
-    "Folgeoptionen ist umgesetzt."
+    "Das vollständige 40-UE-Arbeitsziel der Klasse 7 bleibt bis zur "
+    "Pilotierung conditional und amber. Die 46- und 54-UE-Referenzrechnungen "
+    "bleiben unavailable; der Sequenznachweis ist covered, die semantische "
+    "Coverage partial und der Pilotstatus not-started."
 )
 
 
@@ -5764,11 +5763,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 sum(review["id"] == review_id for review in reviews),
                 1,
             )
-        if prior_sha256 is not None:
-            self.assertEqual(
-                self._canonical_sha256(reviews[:start]),
-                prior_sha256,
-            )
+        self.assertEqual(
+            self._canonical_sha256(reviews[:start]),
+            prior_sha256,
+        )
         return expected_ids, audit_reviews
 
     def _assert_canonical_projection(
@@ -5782,11 +5780,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
         if exact_fields:
             self.assertEqual(set(value), set(fields))
         projection = {field: value[field] for field in fields}
-        if expected_sha256 is not None:
-            self.assertEqual(
-                self._canonical_sha256(projection),
-                expected_sha256,
-            )
+        self.assertEqual(
+            self._canonical_sha256(projection),
+            expected_sha256,
+        )
 
     def _assert_authoritative_evidence_chain(
         self,
@@ -7311,14 +7308,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             reviews,
             start=PRE_TASK18_TIME_REVIEW_COUNT,
             expectations=TASK18_AUDIT_EXPECTATIONS,
-            prior_sha256=None,
+            prior_sha256=PRE_TASK18_TIME_REVIEWS_SHA256,
         )
         core_contract, phase_minutes, integration = (
             self._assert_grade7_audit_context(
                 expected_time_review_ids=expected_ids,
                 module_id="IUM-7-CORE-01",
                 integration_id="INT-7-DATA-CODING",
-                core_stable_sha256=None,
+                core_stable_sha256=TASK18_CORE01_STABLE_FIELDS_SHA256,
                 integration_contract_sha256=(
                     TASK18_INTEGRATION_CONTRACT_SHA256
                 ),
@@ -7414,7 +7411,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         return evidence, reviews, integration
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_repository_core01_task18_audit_contract(self):
         validate_time_reviews(
             self.time_payload["timeReviews"],
@@ -7517,7 +7513,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):
                     self._assert_core01_task18_audit_contract(reviews)
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_core01_task18_contract_allows_later_review(self):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
         reviews.append(
@@ -7723,14 +7718,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             reviews,
             start=PRE_TASK19_TIME_REVIEW_COUNT,
             expectations=TASK19_AUDIT_EXPECTATIONS,
-            prior_sha256=None,
+            prior_sha256=PRE_TASK19_TIME_REVIEWS_SHA256,
         )
         core_contract, phase_minutes, integration = (
             self._assert_grade7_audit_context(
                 expected_time_review_ids=expected_ids,
                 module_id="IUM-7-CORE-03",
                 integration_id="INT-7-PROGRAMMING",
-                core_stable_sha256=None,
+                core_stable_sha256=TASK19_CORE03_STABLE_FIELDS_SHA256,
                 integration_contract_sha256=(
                     TASK19_INTEGRATION_CONTRACT_SHA256
                 ),
@@ -7823,7 +7818,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         return evidence, reviews, integration
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_repository_core03_task19_audit_contract(self):
         validate_time_reviews(
             self.time_payload["timeReviews"],
@@ -7981,7 +7975,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):
                     self._assert_core03_task19_audit_contract(reviews)
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_core03_task19_contract_allows_later_review(self):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
         reviews.append(
@@ -8173,14 +8166,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             reviews,
             start=PRE_TASK20_TIME_REVIEW_COUNT,
             expectations=TASK20_AUDIT_EXPECTATIONS,
-            prior_sha256=None,
+            prior_sha256=PRE_TASK20_TIME_REVIEWS_SHA256,
         )
         core_contract, phase_minutes, integration = (
             self._assert_grade7_audit_context(
                 expected_time_review_ids=expected_ids,
                 module_id="IUM-7-CORE-04",
                 integration_id="INT-7-PROGRAMMING",
-                core_stable_sha256=None,
+                core_stable_sha256=TASK20_CORE04_STABLE_FIELDS_SHA256,
                 integration_contract_sha256=(
                     TASK20_INTEGRATION_CONTRACT_SHA256
                 ),
@@ -8272,7 +8265,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
         )
         return evidence, reviews, integration
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_repository_core04_task20_audit_contract(self):
         validate_time_reviews(
             self.time_payload["timeReviews"],
@@ -8418,7 +8410,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):
                     self._assert_core04_task20_audit_contract(reviews)
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_core04_task20_contract_allows_later_review(self):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
         reviews.append(
@@ -8623,14 +8614,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             reviews,
             start=PRE_TASK21_TIME_REVIEW_COUNT,
             expectations=TASK21_AUDIT_EXPECTATIONS,
-            prior_sha256=None,
+            prior_sha256=PRE_TASK21_TIME_REVIEWS_SHA256,
         )
         core_contract, phase_minutes, integration = (
             self._assert_grade7_audit_context(
                 expected_time_review_ids=expected_ids,
                 module_id="IUM-7-CORE-05",
                 integration_id="INT-7-NET-SECURITY",
-                core_stable_sha256=None,
+                core_stable_sha256=TASK21_CORE05_STABLE_FIELDS_SHA256,
                 integration_contract_sha256=(
                     TASK21_INTEGRATION_CONTRACT_SHA256
                 ),
@@ -8709,7 +8700,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
             },
         )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_repository_core05_task21_audit_contract(self):
         validate_time_reviews(
             self.time_payload["timeReviews"],
@@ -8918,7 +8908,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):
                     self._assert_core05_task21_audit_contract(reviews)
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_core05_task21_contract_allows_later_review(self):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
         reviews.append(
@@ -9028,9 +9017,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
             for forbidden in TASK22_FORBIDDEN_TEXT[competency_id]:
                 self.assertNotIn(forbidden.casefold(), audit_text.casefold())
             for anchor in (
-                "nicht verfügbare Bedarfsszenarien",
-                "Jahresurteil",
-                "red",
+                "GRADE-7-WORKING-40 bleibt conditional und amber",
                 "Personenprofil",
                 "automatische Punkte",
                 "automatisches Scoring",
@@ -9043,7 +9030,7 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 "ist ein verfügbarer 38-ue-pfad",
                 "ist ein grüner 38-ue-pfad",
                 "ist ein freigegebener 38-ue-pfad",
-                "jahresurteil bleibt nicht red",
+                "grade-7-working-40 bleibt verfügbar oder green",
                 "personenprofil wird angelegt",
                 "automatische punkte werden vergeben",
                 "automatisches scoring wird eingesetzt",
@@ -9127,14 +9114,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             reviews,
             start=PRE_TASK22_TIME_REVIEW_COUNT,
             expectations=TASK22_AUDIT_EXPECTATIONS,
-            prior_sha256=None,
+            prior_sha256=PRE_TASK22_TIME_REVIEWS_SHA256,
         )
         core_contract, phase_minutes, integration = (
             self._assert_grade7_audit_context(
                 expected_time_review_ids=expected_ids,
                 module_id="IUM-7-CORE-08",
                 integration_id="INT-7-DATA-MEDIA-SOCIETY",
-                core_stable_sha256=None,
+                core_stable_sha256=TASK22_CORE08_STABLE_FIELDS_SHA256,
                 integration_contract_sha256=TASK22_INTEGRATION_CONTRACT_SHA256,
                 annual_variants=annual_variants,
                 integration_contracts=integration_contracts,
@@ -9237,7 +9224,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
             ),
         )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_repository_core08_task22_audit_contract(self):
         self._validate_repository_time_reviews(self.time_payload["timeReviews"])
         self._assert_core08_task22_audit_contract(
@@ -9328,7 +9314,10 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 "LH26-E-PROG-003",
                 "GRADE-7-WORKING-40 ist ein freigegebener 38-UE-Pfad.",
             ),
-            ("LH26-E-PROG-004", "Jahresurteil bleibt nicht red."),
+            (
+                "LH26-E-PROG-004",
+                "GRADE-7-WORKING-40 bleibt verfügbar oder green.",
+            ),
         )
         for competency_id, contradiction in common_contradictions:
             with self.subTest(
@@ -9569,7 +9558,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):
                     self._assert_core08_task22_audit_contract(reviews)
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_core08_task22_contract_allows_later_review_and_rejects_duplicate(self):
         reviews = copy.deepcopy(self.time_payload["timeReviews"])
         reviews.append({"id": "TR-LATER-TASK22", "competencyId": "LATER-TASK22"})
@@ -9706,14 +9694,14 @@ class IUM10TimeReviewTests(unittest.TestCase):
             reviews,
             start=PRE_TASK23_TIME_REVIEW_COUNT,
             expectations=TASK23_AUDIT_EXPECTATIONS,
-            prior_sha256=None,
+            prior_sha256=PRE_TASK23_TIME_REVIEWS_SHA256,
         )
         core_contract, phase_minutes, integration = (
             self._assert_grade7_audit_context(
                 expected_time_review_ids=expected_ids,
                 module_id="IUM-7-CORE-10",
                 integration_id="INT-7-DATA-MEDIA-SOCIETY",
-                core_stable_sha256=None,
+                core_stable_sha256=TASK23_CORE10_STABLE_FIELDS_SHA256,
                 integration_contract_sha256=(
                     TASK23_INTEGRATION_CONTRACT_SHA256
                 ),
@@ -9821,7 +9809,6 @@ class IUM10TimeReviewTests(unittest.TestCase):
             expected_claims_by_phase={"review-revise-transfer": 20},
         )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_repository_core10_task23_audit_contract(self):
         self._validate_repository_time_reviews(self.time_payload["timeReviews"])
         self._assert_core10_task23_audit_contract(
@@ -11646,6 +11633,51 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
         with self.assertRaises(IUM10ValidationError):
             validate_time_model_draft(payload, self.module_payload)
 
+    def test_repository_keeps_schema_three_utf8_contract_and_consistent_working_text(self):
+        contract = self.time_model["availabilityContracts"][0]
+        self.assertIn("à", contract["gates"]["capacity"]["requirement"])
+        self.assertIn("ü", contract["gates"]["technical"]["requirement"])
+        self.assertIn("ü", contract["risk"])
+        self.assertNotIn("?", json.dumps(contract, ensure_ascii=False))
+
+        risk = next(
+            item
+            for item in self.time_model["risks"]
+            if item["id"] == "RISK-IUM10-GRADE7-CAPACITY"
+        )
+        self.assertEqual(
+            risk["risk"],
+            "Das 40-UE-Arbeitsziel der Klasse 7 hängt von vier unpilotierten "
+            "Integrationen, fünf verpflichtenden Verfügbarkeitsgates und einem "
+            "End-to-End-Pilot ab.",
+        )
+        self.assertEqual(
+            ium10_validator._canonical_sha256(
+                sorted(self.time_model["risks"], key=lambda item: item["id"])
+            ),
+            "8da9e7b197a8dc4a7dcbecb277b07a3e121681cb27f91e26b75fcbc9a0e3a894",
+        )
+        grade_7 = next(
+            item
+            for item in self.time_model["gradeJudgements"]
+            if item["grade"] == 7
+        )
+        explanatory_text = " ".join(
+            [
+                grade_7["rationale"],
+                grade_7["risk"],
+                *[
+                    record["remainingBoundary"]
+                    for record in self.time_model["sequenceEvidence"]
+                    if 7 in record["grades"]
+                ],
+            ]
+        ).lower()
+        self.assertNotIn("optimierte untergrenze", explanatory_text)
+        self.assertNotIn("zeiturteil bleibt red", explanatory_text)
+        self.assertNotIn("fünf folgeoptionen", explanatory_text)
+        self.assertNotIn("fehlende verfügbarkeit", explanatory_text)
+
     def test_repository_has_exactly_thirteen_grade_7_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_7_UNITS) | set(
             EXPECTED_GRADE_7_FLEX_CONTRACTS
@@ -12238,10 +12270,10 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
 
 class IUM10SequenceEvidenceTests(unittest.TestCase):
     PRE_TASK24_TIME_REVIEWS_SHA256 = (
-        "1dafaf8408a28195777d1e96e1e8ba62209413e22b6b190da92765a61b5c7c32"
+        "f0daf5c67e233e2d32dba2b2b00003df3828dd33760d9b7f8e270752e1aa8214"
     )
     PRE_TASK24_MODULE_CONTRACTS_SHA256 = (
-        "7e202dd335f7698c4f422057c4889e476fbbdf6fb65c67ced3628c414828982e"
+        "d09c4389f9faee069c6243722d736570f4875b7ed503a91e8fb1f122a886a02f"
     )
     PRE_TASK24_INTEGRATION_CONTRACTS_SHA256 = (
         "3f4e0b728f931c24b840f480f7e2e498c3678946049774853689853096ecf384"
@@ -12250,7 +12282,7 @@ class IUM10SequenceEvidenceTests(unittest.TestCase):
         "80f7f31cc51165ba214202dd36c207217387b4831600eb7e852725bf00c4b23b"
     )
     PRE_TASK24_ANNUAL_VARIANTS_SHA256 = (
-        "ab41d38c20492e3febaefcc1e336994ac5a937a77c553f2b3cb582f9c1761ba4"
+        "dd774116847b8d247ade56d570230c40a67cce2af841ba00cdbb076df48da055"
     )
     PRE_TASK24_PROG34_COVERAGE_SHA256 = (
         "8377a5d1128ff8f8efc58f858ea77ed04cd4c13ca2e2f3876cbbed4da0ff7dbf"
@@ -13954,12 +13986,12 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             available_units = [
                 variant["targetUnits"]
                 for variant in variants
-                if variant["availabilityStatus"]
+                if variant["availabilityStatus"] == "available"
             ]
             unavailable_units = [
                 variant["targetUnits"]
                 for variant in variants
-                if not variant["availabilityStatus"]
+                if variant["availabilityStatus"] == "unavailable"
             ]
             expected.append(
                 {
