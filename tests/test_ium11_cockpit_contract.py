@@ -129,6 +129,16 @@ def pulse(disagree, valid, no_answer=0):
     }
 
 
+def form_value(package):
+    return {
+        field: copy.deepcopy(package[field])
+        for field in (
+            "context", "deliveryTimeEvidence", "learningQualityEvidence",
+            "learnerPulseEvidence", "technicalPrivacyEvidence",
+        )
+    }
+
+
 class IUM11CockpitParityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -323,16 +333,67 @@ class IUM11CockpitParityTests(unittest.TestCase):
             with self.subTest(package=package):
                 self.assert_python_and_javascript_reject(package)
 
+    def test_semantic_result_tampering_fails_at_validate_parse_and_create(self):
+        mutations = (
+            lambda package: package["learningQualityEvidence"]["moduleResults"][0]["criteria"][0].__setitem__("band", "mixed"),
+            lambda package: package["learningQualityEvidence"]["integrationResults"][0].__setitem__("handoffReused", False),
+        )
+        for mutate in mutations:
+            package = copy.deepcopy(self.examples["synthetic-cluster-pass.json"])
+            mutate(package)
+            serialized = json.dumps(package, ensure_ascii=False)
+            with self.subTest(mutation=mutate):
+                self.assert_python_and_javascript_reject(package)
+                self.assertTrue(javascript_rejects("parsePackage", serialized))
+                self.assertTrue(javascript_rejects(
+                    "createEvidencePackage", package["scopeId"], form_value(package)
+                ))
+
+        top_level = copy.deepcopy(self.examples["synthetic-cluster-pass.json"])
+        top_level["result"] = "fail"
+        self.assert_python_and_javascript_reject(top_level)
+        self.assertTrue(javascript_rejects(
+            "parsePackage", json.dumps(top_level, ensure_ascii=False)
+        ))
+
+    def test_annual_derivation_revalidates_imported_cluster_packages(self):
+        cases = []
+        manipulated = copy.deepcopy(self.positive_clusters)
+        manipulated[0]["learningQualityEvidence"]["moduleResults"][0]["criteria"][0]["band"] = "mixed"
+        cases.append(("manipulated", manipulated))
+        negative = copy.deepcopy(self.positive_clusters)
+        module = negative[0]["learningQualityEvidence"]["moduleResults"][0]
+        module["criteria"][0]["band"] = "mixed"
+        module["result"] = "fail"
+        negative[0]["result"] = "fail"
+        cases.append(("negative", negative))
+        duplicated = copy.deepcopy(self.positive_clusters)
+        duplicated[1] = copy.deepcopy(duplicated[0])
+        cases.append(("duplicated", duplicated))
+        mixed_version = copy.deepcopy(self.positive_clusters)
+        mixed_version[0]["protocolVersion"] = "2.0.0"
+        cases.append(("mixed-version", mixed_version))
+
+        for label, clusters in cases:
+            with self.subTest(label=label):
+                with self.assertRaises(IUM11ValidationError):
+                    derive_annual_result(self.annual, clusters, self.protocol)
+                self.assertTrue(javascript_rejects(
+                    "deriveAnnualResult", self.annual, clusters
+                ))
+
     def test_package_creation_serialization_and_parsing_are_closed_and_pure(self):
-        source = copy.deepcopy(self.examples["synthetic-cluster-pass.json"])
-        for field in (
-            "schemaVersion", "packageId", "protocolVersion", "protocolFingerprint",
-            "toolVersion", "timeModelFingerprint", "retentionClass",
-        ):
-            source.pop(field)
+        package = self.examples["synthetic-cluster-pass.json"]
+        source = form_value(package)
         original = copy.deepcopy(source)
-        created = call_javascript("createEvidencePackage", source)
+        created = call_javascript(
+            "createEvidencePackage", package["scopeId"], source
+        )
         self.assertEqual(source, original)
+        self.assertEqual(created["scopeId"], package["scopeId"])
+        self.assertEqual(created["packageType"], "cluster-evidence")
+        self.assertEqual(created["result"], "pass")
+        self.assertEqual(created["developmentWarnings"], [])
         self.assertRegex(
             created["packageId"],
             r"^PKG-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
@@ -345,6 +406,39 @@ class IUM11CockpitParityTests(unittest.TestCase):
         self.assertEqual(serialized, json.dumps(created, indent=2, ensure_ascii=False) + "\n")
         self.assertEqual(call_javascript("parsePackage", serialized), created)
         self.assertTrue(javascript_rejects("parsePackage", "[]"))
+
+    def test_package_creator_has_exact_signature_and_rejects_unknown_scope(self):
+        result = run_node("""
+          const api = require('./pilot/cockpit/assets/app.js');
+          process.stdout.write(String(api.createEvidencePackage.length));
+        """)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, "3")
+        self.assertTrue(javascript_rejects(
+            "createEvidencePackage", "CLUSTER-UNKNOWN", form_value(
+                self.examples["synthetic-cluster-pass.json"]
+            )
+        ))
+
+    def test_annual_creator_uses_four_clusters_without_serializing_them(self):
+        source = form_value(self.annual)
+        source["clusterPackages"] = copy.deepcopy(self.positive_clusters)
+        original = copy.deepcopy(source)
+        created = call_javascript(
+            "createEvidencePackage", self.annual["scopeId"], source
+        )
+        self.assertEqual(source, original)
+        self.assertNotIn("clusterPackages", created)
+        self.assertEqual(created["packageType"], "annual-evidence")
+        self.assertEqual(created["scopeType"], "annual")
+        self.assertEqual(created["result"], "pass")
+        serialized = call_javascript("serializePackage", created, with_protocol=False)
+        self.assertNotIn("clusterPackages", serialized)
+
+        source["clusterPackages"].pop()
+        self.assertTrue(javascript_rejects(
+            "createEvidencePackage", self.annual["scopeId"], source
+        ))
 
     def test_package_ids_are_unique_uuid_v4_values(self):
         ids = {

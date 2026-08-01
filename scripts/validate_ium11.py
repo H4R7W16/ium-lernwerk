@@ -361,20 +361,20 @@ def evaluate_learner_pulse(payload: dict, protocol: dict) -> dict:
     return {"status": "reported", "warnings": warnings}
 
 
-def _derive_module_results(payload: dict, cluster: dict) -> list[dict]:
+def _derive_module_results_for_modules(payload: dict, modules: list[dict]) -> list[dict]:
     evidence_by_module_id = {
         item["moduleId"]
         for item in payload["learningQualityEvidence"]["moduleResults"]
     }
     _require(
-        evidence_by_module_id == {module["moduleId"] for module in cluster["modules"]},
-        "module results differ from cluster",
+        evidence_by_module_id == {module["moduleId"] for module in modules},
+        "module results differ from contract",
     )
     results = []
     for module, evidence in zip(
-        cluster["modules"], payload["learningQualityEvidence"]["moduleResults"], strict=True
+        modules, payload["learningQualityEvidence"]["moduleResults"], strict=True
     ):
-        _require(evidence["moduleId"] == module["moduleId"], "module result order differs from cluster")
+        _require(evidence["moduleId"] == module["moduleId"], "module result order differs from contract")
         results.append({
             "pilotAssignmentId": module["pilotAssignmentId"],
             "moduleId": module["moduleId"],
@@ -386,28 +386,45 @@ def _derive_module_results(payload: dict, cluster: dict) -> list[dict]:
     return results
 
 
-def _derive_integration_result(payload: dict, cluster: dict) -> dict:
+def _derive_module_results(payload: dict, cluster: dict) -> list[dict]:
+    return _derive_module_results_for_modules(payload, cluster["modules"])
+
+
+def _derive_integration_results_for_contracts(
+    payload: dict,
+    integrations: list[dict],
+) -> list[dict]:
     evidence = payload["learningQualityEvidence"]["integrationResults"]
-    _require(len(evidence) == 1, "integration results differ from cluster")
-    evidence = evidence[0]
-    integration = cluster["integration"]
     _require(
-        evidence["integrationContractId"] == integration["integrationContractId"],
-        "integration result differs from cluster",
+        isinstance(evidence, list) and len(evidence) == len(integrations),
+        "integration results differ from contract",
     )
-    passed = (
-        all(criterion["band"] == "strong" for criterion in evidence["criteria"])
-        and evidence["handoffProductPresent"]
-        and evidence["handoffReused"]
-    )
-    return {
-        "pilotAssignmentId": integration["pilotAssignmentId"],
-        "integrationContractId": integration["integrationContractId"],
-        "criteria": copy.deepcopy(evidence["criteria"]),
-        "handoffProductPresent": evidence["handoffProductPresent"],
-        "handoffReused": evidence["handoffReused"],
-        "result": "pass" if passed else "fail",
-    }
+    results = []
+    for item, integration in zip(evidence, integrations, strict=True):
+        _require(
+            item["integrationContractId"] == integration["integrationContractId"],
+            "integration result differs from contract",
+        )
+        passed = (
+            all(criterion["band"] == "strong" for criterion in item["criteria"])
+            and item["handoffProductPresent"]
+            and item["handoffReused"]
+        )
+        results.append({
+            "pilotAssignmentId": integration["pilotAssignmentId"],
+            "integrationContractId": integration["integrationContractId"],
+            "criteria": copy.deepcopy(item["criteria"]),
+            "handoffProductPresent": item["handoffProductPresent"],
+            "handoffReused": item["handoffReused"],
+            "result": "pass" if passed else "fail",
+        })
+    return results
+
+
+def _derive_integration_result(payload: dict, cluster: dict) -> dict:
+    return _derive_integration_results_for_contracts(
+        payload, [cluster["integration"]]
+    )[0]
 
 
 def _cluster_required_phases_completed(payload: dict, cluster: dict) -> bool:
@@ -528,7 +545,7 @@ def _validate_development_warnings(payload: object, warnings: list[dict]) -> Non
     _require(payload == warnings, "developmentWarnings differ from learner pulse warnings")
 
 
-def validate_evidence_package(payload: dict, protocol: dict, time_model: dict) -> dict:
+def _validate_evidence_package_contract(payload: dict, protocol: dict) -> dict:
     _require_exact_fields(payload, EVIDENCE_PACKAGE_FIELDS, "evidence package")
     _require(type(payload["schemaVersion"]) is int and payload["schemaVersion"] == 1, "package schemaVersion must be 1")
     _require(isinstance(payload["packageId"], str) and PACKAGE_ID_PATTERN.fullmatch(payload["packageId"]), "packageId is invalid")
@@ -540,7 +557,6 @@ def validate_evidence_package(payload: dict, protocol: dict, time_model: dict) -
     _require(payload["protocolVersion"] == protocol["protocolVersion"] == "1.0.0", "protocolVersion differs from contract")
     _require(payload["toolVersion"] == protocol["toolVersion"] == "1.0.0", "toolVersion differs from contract")
     _require(payload["protocolFingerprint"] == protocol["protocolFingerprint"], "protocolFingerprint differs from contract")
-    _require(canonical_sha256(time_model) == protocol["timeModelFingerprint"], "time model differs from compiled protocol")
     _require(payload["timeModelFingerprint"] == protocol["timeModelFingerprint"], "timeModelFingerprint differs from contract")
     _require(payload["retentionClass"] == "until-decision", "retentionClass differs from contract")
     _require_enum(payload["result"], protocol["results"], "package result")
@@ -571,7 +587,42 @@ def validate_evidence_package(payload: dict, protocol: dict, time_model: dict) -
     learner_pulse = evaluate_learner_pulse(payload["learnerPulseEvidence"], protocol)
     _validate_technical_privacy(payload["technicalPrivacyEvidence"])
     _validate_development_warnings(payload["developmentWarnings"], learner_pulse["warnings"])
+    if is_cluster:
+        derived = derive_cluster_result(payload, scope, protocol)
+        _require(
+            payload["learningQualityEvidence"]["moduleResults"] == derived["moduleResults"],
+            "module results differ from derived evidence",
+        )
+        _require(
+            payload["learningQualityEvidence"]["integrationResults"]
+            == [derived["integrationResult"]],
+            "integration results differ from derived evidence",
+        )
+        _require(
+            payload["result"] == derived["result"],
+            "cluster budget or result differs from derived evidence",
+        )
+    else:
+        derived = _derive_annual_evidence_result(payload, protocol)
+        _require(
+            payload["learningQualityEvidence"]["moduleResults"] == derived["moduleResults"],
+            "annual module results differ from derived evidence",
+        )
+        _require(
+            payload["learningQualityEvidence"]["integrationResults"]
+            == derived["integrationResults"],
+            "annual integration results differ from derived evidence",
+        )
+        _require(payload["result"] == derived["result"], "annual result differs from derived evidence")
     return copy.deepcopy(payload)
+
+
+def validate_evidence_package(payload: dict, protocol: dict, time_model: dict) -> dict:
+    _require(
+        canonical_sha256(time_model) == protocol["timeModelFingerprint"],
+        "time model differs from compiled protocol",
+    )
+    return _validate_evidence_package_contract(payload, protocol)
 
 
 def _technical_path_passed(payload: dict) -> bool:
@@ -584,6 +635,77 @@ def _technical_path_passed(payload: dict) -> bool:
             and technical_privacy["fallbackEquivalentLearningFunction"]
         )
     )
+
+
+def _derive_annual_evidence_result(annual_payload: dict, protocol: dict) -> dict:
+    clusters = [
+        protocol["clustersById"][cluster_id]
+        for cluster_id in protocol["annualPilot"]["clusterIds"]
+    ]
+    modules = [module for cluster in clusters for module in cluster["modules"]]
+    integrations = [cluster["integration"] for cluster in clusters]
+    module_results = _derive_module_results_for_modules(annual_payload, modules)
+    integration_results = _derive_integration_results_for_contracts(
+        annual_payload, integrations
+    )
+    delivery = annual_payload["deliveryTimeEvidence"]
+    _require(delivery["actualUnits"] <= 40, "annual budget exceeded")
+    _require(
+        delivery["clusterOrder"] == protocol["annualPilot"]["clusterIds"],
+        "annual sequence differs",
+    )
+    annual_cluster_units = delivery["clusterActualUnits"]
+    for record, cluster_id in zip(
+        annual_cluster_units,
+        protocol["annualPilot"]["clusterIds"],
+        strict=True,
+    ):
+        _require(
+            record["clusterId"] == cluster_id
+            and record["actualUnits"] <= protocol["clustersById"][cluster_id]["budgetUnits"],
+            f"annual cluster budget exceeded: {cluster_id}",
+        )
+
+    integrations_passed = all(item["result"] == "pass" for item in integration_results)
+    modules_passed = all(item["result"] == "pass" for item in module_results)
+    pulse = evaluate_learner_pulse(annual_payload["learnerPulseEvidence"], protocol)
+    availability_conditions = {
+        "capacity": delivery["actualUnits"] == 40,
+        "integration": "passed" if integrations_passed else "failed",
+        "technical": "passed" if _technical_path_passed(annual_payload) else "failed",
+        "privacy": "passed" if annual_payload["technicalPrivacyEvidence"]["privacyGate"] == "pass" else "failed",
+    }
+    annual_not_evaluable = delivery["externalDisruptionCode"] == "interpretability-lost"
+    annual_failed = any([
+        not availability_conditions["capacity"],
+        availability_conditions["integration"] == "failed",
+        availability_conditions["technical"] == "failed",
+        availability_conditions["privacy"] == "failed",
+        not modules_passed,
+        bool(pulse["warnings"]),
+    ])
+    annual_result = (
+        "not-evaluable"
+        if annual_not_evaluable
+        else "fail"
+        if annual_failed
+        else "pass"
+    )
+    gates = {
+        "capacity": "passed" if availability_conditions["capacity"] else "failed",
+        "integration": availability_conditions["integration"],
+        "technical": availability_conditions["technical"],
+        "privacy": availability_conditions["privacy"],
+        "pilot": "passed" if annual_result == "pass" else "failed",
+    }
+    return {
+        "result": annual_result,
+        "actualUnits": delivery["actualUnits"],
+        "availabilityGateResults": gates,
+        "moduleResults": module_results,
+        "integrationResults": integration_results,
+        "developmentWarnings": pulse["warnings"],
+    }
 
 
 def derive_annual_result(
@@ -626,10 +748,6 @@ def derive_annual_result(
     _require(annual_payload["toolVersion"] == protocol["toolVersion"], "annual toolVersion differs")
     _require(annual_payload["timeModelFingerprint"] == protocol["timeModelFingerprint"], "annual timeModelFingerprint differs")
     _require(
-        all(item["result"] == "pass" for item in ordered),
-        "annual result requires positive clusters",
-    )
-    _require(
         [item["scopeId"] for item in ordered] == protocol["annualPilot"]["clusterIds"],
         "annual cluster sequence differs",
     )
@@ -639,71 +757,18 @@ def derive_annual_result(
             item["deliveryTimeEvidence"]["actualUnits"] <= cluster["budgetUnits"],
             f"cluster budget exceeded: {item['scopeId']}",
         )
-
-    delivery = annual_payload["deliveryTimeEvidence"]
-    _require(delivery["actualUnits"] <= 40, "annual budget exceeded")
+    for item in ordered:
+        _validate_evidence_package_contract(item, protocol)
     _require(
-        delivery["clusterOrder"] == protocol["annualPilot"]["clusterIds"],
-        "annual sequence differs",
+        all(item["result"] == "pass" for item in ordered),
+        "annual result requires positive clusters",
     )
-    annual_cluster_units = delivery["clusterActualUnits"]
-    for record, cluster_id in zip(
-        annual_cluster_units,
-        protocol["annualPilot"]["clusterIds"],
-        strict=True,
-    ):
-        _require(
-            record["clusterId"] == cluster_id
-            and record["actualUnits"] <= protocol["clustersById"][cluster_id]["budgetUnits"],
-            f"annual cluster budget exceeded: {cluster_id}",
-        )
 
-    integrations_passed = all(
-        item["result"] == "pass"
-        and item["handoffProductPresent"]
-        and item["handoffReused"]
-        and all(criterion["band"] == "strong" for criterion in item["criteria"])
-        for item in annual_payload["learningQualityEvidence"]["integrationResults"]
-    )
-    modules_passed = all(
-        item["result"] == "pass"
-        and all(criterion["band"] == "strong" for criterion in item["criteria"])
-        for item in annual_payload["learningQualityEvidence"]["moduleResults"]
-    )
-    pulse = evaluate_learner_pulse(annual_payload["learnerPulseEvidence"], protocol)
-    availability_conditions = {
-        "capacity": delivery["actualUnits"] == 40,
-        "integration": "passed" if integrations_passed else "failed",
-        "technical": "passed" if _technical_path_passed(annual_payload) else "failed",
-        "privacy": "passed" if annual_payload["technicalPrivacyEvidence"]["privacyGate"] == "pass" else "failed",
-    }
-    annual_not_evaluable = delivery["externalDisruptionCode"] == "interpretability-lost"
-    annual_failed = any([
-        not availability_conditions["capacity"],
-        availability_conditions["integration"] == "failed",
-        availability_conditions["technical"] == "failed",
-        availability_conditions["privacy"] == "failed",
-        not modules_passed,
-        bool(pulse["warnings"]),
-    ])
-    annual_result = (
-        "not-evaluable"
-        if annual_not_evaluable
-        else "fail"
-        if annual_failed
-        else "pass"
-    )
-    gates = {
-        "capacity": "passed" if availability_conditions["capacity"] else "failed",
-        "integration": availability_conditions["integration"],
-        "technical": availability_conditions["technical"],
-        "privacy": availability_conditions["privacy"],
-        "pilot": "passed" if annual_result == "pass" else "failed",
-    }
+    derived = _derive_annual_evidence_result(annual_payload, protocol)
     return {
-        "result": annual_result,
-        "actualUnits": delivery["actualUnits"],
-        "availabilityGateResults": gates,
+        "result": derived["result"],
+        "actualUnits": derived["actualUnits"],
+        "availabilityGateResults": derived["availabilityGateResults"],
     }
 
 

@@ -8,12 +8,10 @@
     'learnerPulseEvidence', 'technicalPrivacyEvidence', 'result',
     'developmentWarnings', 'retentionClass'
   ];
-  const SOURCE_PACKAGE_FIELDS = PACKAGE_FIELDS.filter(function (field) {
-    return ![
-      'schemaVersion', 'packageId', 'protocolVersion', 'protocolFingerprint',
-      'toolVersion', 'timeModelFingerprint', 'retentionClass'
-    ].includes(field);
-  });
+  const FORM_FIELDS = [
+    'context', 'deliveryTimeEvidence', 'learningQualityEvidence',
+    'learnerPulseEvidence', 'technicalPrivacyEvidence'
+  ];
   const CONTEXT_FIELDS = [
     'schoolYear', 'term', 'classSizeBand', 'deviceClass', 'browserFamily',
     'networkMode'
@@ -180,20 +178,20 @@
     return {status: 'reported', warnings: warnings};
   }
 
-  function deriveModuleResults(payload, cluster) {
+  function deriveModuleResultsForModules(payload, modules) {
     const evidence = payload.learningQualityEvidence.moduleResults;
-    requireCondition(Array.isArray(evidence), 'module results differ from cluster');
-    requireCondition(evidence.length === cluster.modules.length, 'module results differ from cluster');
+    requireCondition(Array.isArray(evidence), 'module results differ from contract');
+    requireCondition(evidence.length === modules.length, 'module results differ from contract');
     const evidenceIds = new Set(evidence.map(function (item) { return item.moduleId; }));
-    const expectedIds = new Set(cluster.modules.map(function (item) { return item.moduleId; }));
+    const expectedIds = new Set(modules.map(function (item) { return item.moduleId; }));
     requireCondition(
       evidenceIds.size === expectedIds.size &&
         Array.from(evidenceIds).every(function (item) { return expectedIds.has(item); }),
-      'module results differ from cluster'
+      'module results differ from contract'
     );
-    return cluster.modules.map(function (module, index) {
+    return modules.map(function (module, index) {
       const item = evidence[index];
-      requireCondition(item.moduleId === module.moduleId, 'module result order differs from cluster');
+      requireCondition(item.moduleId === module.moduleId, 'module result order differs from contract');
       return {
         pilotAssignmentId: module.pilotAssignmentId,
         moduleId: module.moduleId,
@@ -205,26 +203,38 @@
     });
   }
 
-  function deriveIntegrationResult(payload, cluster) {
+  function deriveModuleResults(payload, cluster) {
+    return deriveModuleResultsForModules(payload, cluster.modules);
+  }
+
+  function deriveIntegrationResultsForContracts(payload, integrations) {
     const evidence = payload.learningQualityEvidence.integrationResults;
-    requireCondition(Array.isArray(evidence) && evidence.length === 1, 'integration results differ from cluster');
-    const item = evidence[0];
-    const integration = cluster.integration;
     requireCondition(
-      item.integrationContractId === integration.integrationContractId,
-      'integration result differs from cluster'
+      Array.isArray(evidence) && evidence.length === integrations.length,
+      'integration results differ from contract'
     );
-    const passed = item.criteria.every(function (criterion) {
-      return criterion.band === 'strong';
-    }) && item.handoffProductPresent && item.handoffReused;
-    return {
-      pilotAssignmentId: integration.pilotAssignmentId,
-      integrationContractId: integration.integrationContractId,
-      criteria: cloneJson(item.criteria),
-      handoffProductPresent: item.handoffProductPresent,
-      handoffReused: item.handoffReused,
-      result: passed ? 'pass' : 'fail'
-    };
+    return integrations.map(function (integration, index) {
+      const item = evidence[index];
+      requireCondition(
+        item.integrationContractId === integration.integrationContractId,
+        'integration result differs from contract'
+      );
+      const passed = item.criteria.every(function (criterion) {
+        return criterion.band === 'strong';
+      }) && item.handoffProductPresent && item.handoffReused;
+      return {
+        pilotAssignmentId: integration.pilotAssignmentId,
+        integrationContractId: integration.integrationContractId,
+        criteria: cloneJson(item.criteria),
+        handoffProductPresent: item.handoffProductPresent,
+        handoffReused: item.handoffReused,
+        result: passed ? 'pass' : 'fail'
+      };
+    });
+  }
+
+  function deriveIntegrationResult(payload, cluster) {
+    return deriveIntegrationResultsForContracts(payload, [cluster.integration])[0];
   }
 
   function clusterRequiredPhasesCompleted(payload, cluster) {
@@ -449,6 +459,32 @@
     const learnerPulse = evaluateLearnerPulse(payload.learnerPulseEvidence, protocol);
     validateTechnicalPrivacy(payload.technicalPrivacyEvidence);
     validateWarnings(payload.developmentWarnings, learnerPulse.warnings);
+    if (isCluster) {
+      const derived = deriveClusterResult(payload, scope, protocol);
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.moduleResults, derived.moduleResults),
+        'module results differ from derived evidence'
+      );
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.integrationResults, [derived.integrationResult]),
+        'integration results differ from derived evidence'
+      );
+      requireCondition(
+        payload.result === derived.result,
+        'cluster budget or result differs from derived evidence'
+      );
+    } else {
+      const derived = deriveAnnualEvidenceResult(payload, protocol);
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.moduleResults, derived.moduleResults),
+        'annual module results differ from derived evidence'
+      );
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.integrationResults, derived.integrationResults),
+        'annual integration results differ from derived evidence'
+      );
+      requireCondition(payload.result === derived.result, 'annual result differs from derived evidence');
+    }
     return cloneJson(payload);
   }
 
@@ -456,6 +492,63 @@
     return payload.technicalPrivacyEvidence.technicalFunction === 'pass' ||
       (payload.deliveryTimeEvidence.fallbackActivated &&
         payload.technicalPrivacyEvidence.fallbackEquivalentLearningFunction);
+  }
+
+  function deriveAnnualEvidenceResult(annualPayload, protocol) {
+    const clusters = protocol.annualPilot.clusterIds.map(function (clusterId) {
+      return findCluster(protocol, clusterId);
+    });
+    const modules = clusters.reduce(function (all, cluster) {
+      return all.concat(cluster.modules);
+    }, []);
+    const integrations = clusters.map(function (cluster) { return cluster.integration; });
+    const moduleResults = deriveModuleResultsForModules(annualPayload, modules);
+    const integrationResults = deriveIntegrationResultsForContracts(
+      annualPayload, integrations
+    );
+    const delivery = annualPayload.deliveryTimeEvidence;
+    requireCondition(delivery.actualUnits <= 40, 'annual budget exceeded');
+    requireCondition(sameJson(delivery.clusterOrder, protocol.annualPilot.clusterIds), 'annual sequence differs');
+    requireCondition(
+      Array.isArray(delivery.clusterActualUnits) && delivery.clusterActualUnits.length === protocol.annualPilot.clusterIds.length,
+      'annual cluster actual units differ from contract'
+    );
+    delivery.clusterActualUnits.forEach(function (record, index) {
+      const clusterId = protocol.annualPilot.clusterIds[index];
+      requireCondition(
+        record.clusterId === clusterId && record.actualUnits <= findCluster(protocol, clusterId).budgetUnits,
+        `annual cluster budget exceeded: ${clusterId}`
+      );
+    });
+    const integrationsPassed = integrationResults.every(function (item) {
+      return item.result === 'pass';
+    });
+    const modulesPassed = moduleResults.every(function (item) {
+      return item.result === 'pass';
+    });
+    const pulse = evaluateLearnerPulse(annualPayload.learnerPulseEvidence, protocol);
+    const capacityPassed = delivery.actualUnits === 40;
+    const integration = integrationsPassed ? 'passed' : 'failed';
+    const technical = technicalPathPassed(annualPayload) ? 'passed' : 'failed';
+    const privacy = annualPayload.technicalPrivacyEvidence.privacyGate === 'pass' ? 'passed' : 'failed';
+    const notEvaluable = delivery.externalDisruptionCode === 'interpretability-lost';
+    const failed = !capacityPassed || integration === 'failed' || technical === 'failed' ||
+      privacy === 'failed' || !modulesPassed || pulse.warnings.length > 0;
+    const result = notEvaluable ? 'not-evaluable' : failed ? 'fail' : 'pass';
+    return {
+      result: result,
+      actualUnits: delivery.actualUnits,
+      availabilityGateResults: {
+        capacity: capacityPassed ? 'passed' : 'failed',
+        integration: integration,
+        technical: technical,
+        privacy: privacy,
+        pilot: result === 'pass' ? 'passed' : 'failed'
+      },
+      moduleResults: moduleResults,
+      integrationResults: integrationResults,
+      developmentWarnings: pulse.warnings
+    };
   }
 
   function deriveAnnualResult(annualPayload, clusterPackages, protocol) {
@@ -481,7 +574,6 @@
     requireCondition(annualPayload.protocolFingerprint === protocol.protocolFingerprint, 'annual protocolFingerprint differs');
     requireCondition(annualPayload.toolVersion === protocol.toolVersion, 'annual toolVersion differs');
     requireCondition(annualPayload.timeModelFingerprint === protocol.timeModelFingerprint, 'annual timeModelFingerprint differs');
-    requireCondition(ordered.every(function (item) { return item.result === 'pass'; }), 'annual result requires positive clusters');
     requireCondition(
       sameJson(ordered.map(function (item) { return item.scopeId; }), protocol.annualPilot.clusterIds),
       'annual cluster sequence differs'
@@ -490,48 +582,15 @@
       const cluster = findCluster(protocol, item.scopeId);
       requireCondition(item.deliveryTimeEvidence.actualUnits <= cluster.budgetUnits, `cluster budget exceeded: ${item.scopeId}`);
     });
-
-    const delivery = annualPayload.deliveryTimeEvidence;
-    requireCondition(delivery.actualUnits <= 40, 'annual budget exceeded');
-    requireCondition(sameJson(delivery.clusterOrder, protocol.annualPilot.clusterIds), 'annual sequence differs');
-    requireCondition(
-      Array.isArray(delivery.clusterActualUnits) && delivery.clusterActualUnits.length === protocol.annualPilot.clusterIds.length,
-      'annual cluster actual units differ from contract'
-    );
-    delivery.clusterActualUnits.forEach(function (record, index) {
-      const clusterId = protocol.annualPilot.clusterIds[index];
-      requireCondition(
-        record.clusterId === clusterId && record.actualUnits <= findCluster(protocol, clusterId).budgetUnits,
-        `annual cluster budget exceeded: ${clusterId}`
-      );
+    ordered.forEach(function (item) {
+      validateEvidencePackage(item, protocol);
     });
-    const integrationsPassed = annualPayload.learningQualityEvidence.integrationResults.every(function (item) {
-      return item.result === 'pass' && item.handoffProductPresent && item.handoffReused &&
-        item.criteria.every(function (criterion) { return criterion.band === 'strong'; });
-    });
-    const modulesPassed = annualPayload.learningQualityEvidence.moduleResults.every(function (item) {
-      return item.result === 'pass' &&
-        item.criteria.every(function (criterion) { return criterion.band === 'strong'; });
-    });
-    const pulse = evaluateLearnerPulse(annualPayload.learnerPulseEvidence, protocol);
-    const capacityPassed = delivery.actualUnits === 40;
-    const integration = integrationsPassed ? 'passed' : 'failed';
-    const technical = technicalPathPassed(annualPayload) ? 'passed' : 'failed';
-    const privacy = annualPayload.technicalPrivacyEvidence.privacyGate === 'pass' ? 'passed' : 'failed';
-    const notEvaluable = delivery.externalDisruptionCode === 'interpretability-lost';
-    const failed = !capacityPassed || integration === 'failed' || technical === 'failed' ||
-      privacy === 'failed' || !modulesPassed || pulse.warnings.length > 0;
-    const result = notEvaluable ? 'not-evaluable' : failed ? 'fail' : 'pass';
+    requireCondition(ordered.every(function (item) { return item.result === 'pass'; }), 'annual result requires positive clusters');
+    const derived = deriveAnnualEvidenceResult(annualPayload, protocol);
     return {
-      result: result,
-      actualUnits: delivery.actualUnits,
-      availabilityGateResults: {
-        capacity: capacityPassed ? 'passed' : 'failed',
-        integration: integration,
-        technical: technical,
-        privacy: privacy,
-        pilot: result === 'pass' ? 'passed' : 'failed'
-      }
+      result: derived.result,
+      actualUnits: derived.actualUnits,
+      availabilityGateResults: derived.availabilityGateResults
     };
   }
 
@@ -549,19 +608,68 @@
     return `PKG-${uuid}`;
   }
 
-  function createEvidencePackage(source, protocol) {
-    assertJsonCompatible(source, 'evidence package source');
-    assertExactKeys(source, SOURCE_PACKAGE_FIELDS, 'evidence package source');
+  function createEvidencePackage(scopeId, formValue, protocol) {
+    assertJsonCompatible(scopeId, 'scopeId');
+    assertJsonCompatible(formValue, 'evidence package form');
+    assertJsonCompatible(protocol, 'protocol');
+    requireCondition(typeof scopeId === 'string', 'scopeId must be a string');
+    const isAnnual = scopeId === protocol.annualPilot.id;
+    const cluster = isAnnual ? null : protocol.clusters.find(function (candidate) {
+      return candidate.id === scopeId;
+    });
+    requireCondition(isAnnual || Boolean(cluster), 'scopeId differs from contract');
+    assertExactKeys(
+      formValue,
+      isAnnual ? FORM_FIELDS.concat(['clusterPackages']) : FORM_FIELDS,
+      'evidence package form'
+    );
+    const evidence = {};
+    FORM_FIELDS.forEach(function (field) {
+      evidence[field] = cloneJson(formValue[field]);
+    });
     const payload = Object.assign({
       schemaVersion: 1,
+      packageType: isAnnual ? 'annual-evidence' : 'cluster-evidence',
       packageId: createPackageId(),
       protocolVersion: protocol.protocolVersion,
       protocolFingerprint: protocol.protocolFingerprint,
       toolVersion: protocol.toolVersion,
-      timeModelFingerprint: protocol.timeModelFingerprint
-    }, cloneJson(source), {
+      timeModelFingerprint: protocol.timeModelFingerprint,
+      scopeType: isAnnual ? 'annual' : 'cluster',
+      scopeId: scopeId
+    }, evidence, {
+      result: 'not-evaluable',
+      developmentWarnings: [],
       retentionClass: 'until-decision'
     });
+    if (isAnnual) {
+      const local = deriveAnnualEvidenceResult(payload, protocol);
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.moduleResults, local.moduleResults),
+        'annual module results differ from derived evidence'
+      );
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.integrationResults, local.integrationResults),
+        'annual integration results differ from derived evidence'
+      );
+      const derived = deriveAnnualResult(
+        payload, cloneJson(formValue.clusterPackages), protocol
+      );
+      payload.result = derived.result;
+      payload.developmentWarnings = local.developmentWarnings;
+    } else {
+      const derived = deriveClusterResult(payload, cluster, protocol);
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.moduleResults, derived.moduleResults),
+        'module results differ from derived evidence'
+      );
+      requireCondition(
+        sameJson(payload.learningQualityEvidence.integrationResults, [derived.integrationResult]),
+        'integration results differ from derived evidence'
+      );
+      payload.result = derived.result;
+      payload.developmentWarnings = derived.developmentWarnings;
+    }
     return validateEvidencePackage(payload, protocol);
   }
 

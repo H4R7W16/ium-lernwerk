@@ -1,3 +1,4 @@
+import copy
 import json
 import tempfile
 import uuid
@@ -392,6 +393,29 @@ class IUM11EvidencePackageTests(unittest.TestCase):
         with self.assertRaisesRegex(IUM11ValidationError, "warnings"):
             validate_evidence_package(payload, self.protocol, self.time_model)
 
+    def test_package_rejects_claimed_results_that_differ_from_derived_evidence(self):
+        cluster_mutations = (
+            lambda payload: payload["learningQualityEvidence"]["moduleResults"][0]["criteria"][0].__setitem__("band", "mixed"),
+            lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].__setitem__("handoffReused", False),
+        )
+        for mutate in cluster_mutations:
+            payload = valid_cluster_package()
+            mutate(payload)
+            with self.subTest(package_type="cluster", mutation=mutate):
+                with self.assertRaisesRegex(IUM11ValidationError, "result|results"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        annual = valid_annual_package()
+        annual["learningQualityEvidence"]["moduleResults"][0]["criteria"][0]["band"] = "weak"
+        with self.assertRaisesRegex(IUM11ValidationError, "result|results"):
+            validate_evidence_package(annual, self.protocol, self.time_model)
+
+        for payload in (valid_cluster_package(), valid_annual_package()):
+            payload["result"] = "fail"
+            with self.subTest(package_type=payload["packageType"], mutation="top-level"):
+                with self.assertRaisesRegex(IUM11ValidationError, "result"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
     def test_reported_pulse_with_nine_valid_responses_fails_closed(self):
         payload = valid_cluster_package()
         payload["learnerPulseEvidence"] = reported_pulse(
@@ -737,6 +761,29 @@ class IUM11DecisionPackageTests(unittest.TestCase):
             lambda packages: packages[1].__setitem__("toolVersion", "2.0.0"),
             lambda packages: packages[1].__setitem__("timeModelFingerprint", "0" * 64),
         ):
+            packages = five_positive_packages()
+            mutate(packages)
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    derive_annual_result(packages[-1], packages[:4], self.protocol)
+
+    def test_derive_annual_result_revalidates_every_cluster_semantically(self):
+        def claim_pass_for_mixed_evidence(packages):
+            packages[0]["learningQualityEvidence"]["moduleResults"][0]["criteria"][0]["band"] = "mixed"
+
+        def make_consistent_negative_cluster(packages):
+            module = packages[0]["learningQualityEvidence"]["moduleResults"][0]
+            module["criteria"][0]["band"] = "mixed"
+            module["result"] = "fail"
+            packages[0]["result"] = "fail"
+
+        mutations = (
+            claim_pass_for_mixed_evidence,
+            make_consistent_negative_cluster,
+            lambda packages: packages.__setitem__(1, copy.deepcopy(packages[0])),
+            lambda packages: packages[0].__setitem__("protocolVersion", "2.0.0"),
+        )
+        for mutate in mutations:
             packages = five_positive_packages()
             mutate(packages)
             with self.subTest(mutation=mutate):
