@@ -1,6 +1,6 @@
 # IUM11 – Pilotierungsdesign für `GRADE-7-WORKING-40`
 
-**Status:** `design-approved` – schriftliches Spezifikationsreview ausstehend
+**Status:** `approved` – am 1. August 2026 schriftlich freigegeben
 
 **Stand:** 1. August 2026
 
@@ -731,7 +731,8 @@ Vor Implementierungsabnahme müssen frisch bestehen:
 5. Schwellen, Fehlerbehandlung und Statusfolgen wurden freigegeben.
 6. Artefakte, Datenfluss, Rollen, Wiederverwendung und Prüfstrategie wurden freigegeben.
 7. Das Gesamtdesign wurde am 1. August 2026 ausdrücklich freigegeben.
-8. Als nächstes folgt das Review dieser schriftlichen Spezifikation.
-9. Erst nach schriftlicher Spezifikationsfreigabe darf mit `superpowers:writing-plans` ein TDD-Implementierungsplan erstellt werden.
+8. Die konsolidierte schriftliche Spezifikation wurde am 1. August 2026 ausdrücklich freigegeben.
+9. Als nächstes darf mit `superpowers:writing-plans` ein eigener TDD-Implementierungsplan erstellt werden.
+10. Der Implementierungsplan benötigt vor seiner Ausführung eine getrennte Wahl des Ausführungsmodus.
 
 Keine Freigabe dieses Dokuments erlaubt Cockpitimplementierung, Lernmodulentwicklung, reale Pilotierung, Datenerhebung, Statushochsetzung, Release oder Phase 1.
