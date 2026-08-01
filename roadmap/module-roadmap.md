@@ -1,136 +1,310 @@
-# IuM-Lernwerk - erste Modulroadmap für Gymnasium 5-7
+# IuM-Lernwerk – validierte Modulroadmap für Gymnasium 5–7
 
-Status: `working`
-Stand: 30. Juli 2026
-Geltungsbereich: Baden-Württemberg, Gymnasium, Niveau E
+Stand: 31. Juli 2026. Autoritative maschinenlesbare Quelle ist [time-model.json](time-model.json).
 
-Diese Roadmap ordnet die 31 geprüften Modulkandidaten zu einem reviewfähigen Lernwerk-Kosmos. Sie ist weder Stundentafel noch fertiges Schulcurriculum. Insbesondere trennt sie drei Aussagen:
+Diese Fassung veröffentlicht IUM10 als **reviewfähig**, nicht als zeitlich freigegeben. Semantische Coverage, Zeitmachbarkeit, Sequenznachweis und Pilotstatus sind vier getrennte Dimensionen.
 
-1. **Semantischer Coverage-Audit:** Alle 171 Curriculumrecords sind einem Kernkandidaten zugeordnet und einzeln gegen Operator, Gegenstand, zentrale Lernhandlung und Produktnachweis geprüft. Die Ausgangsbilanz vor IUM09 betrug 111 `covered` und 60 `partial`; nach dem recordgenauen Audit stehen 164 `covered` und 7 `partial` fest.
-2. **Abhängigkeit:** Der Kandidatengraph ist fachlich progressiv, azyklisch und jahrgangskonsistent.
-3. **Zeitliche Umsetzbarkeit:** Eine vollständige Kandidatenfolge muss zusätzlich in die reale Unterrichtszeit passen. Dieser Nachweis ist für die Klassen 6 und 7 noch nicht erbracht.
+## Zeitmodell und Freigabegrenze
 
+Projektannahme, datierte Kalenderrechnung, Arbeitsmodell und Freigabeurteil werden bewusst nicht miteinander vermischt.
+
+### Kapazitäts- und Freigabestatus
+
+| Dimension | Wert | Status / Grenze |
+| --- | --- | --- |
+| Projektannahme | 36 nominale UE = 30 Kern-UE + 6 Puffer-UE | Projektannahme; keine Vorgabe der Lesehilfe und keine amtliche Stundentafel |
+| Administrativer Kontext | 1 Wochen-UE | administrative-context |
+| Datierte Kalenderrechnung | 2026/2027: monday 40 UE, tuesday 40 UE, wednesday 39 UE, thursday 36 UE, friday 37 UE | dated-project-calculation; lokal und schulabhängig |
+| Arbeitsmodell | 30/34/38 | baseline: working<br>regular: working<br>extended: working |
+| Freigabeurteil | working | ungepilotiert; Auftraggeber-Zeitfreigabe ausstehend |
+
+Die Kalenderrechnung zählt mögliche Wochentage; Ferienlage, Feiertage, schulische Ereignisse, lokale Technik und reale Unterrichtsausfälle bleiben standortabhängig. Der 30/34/38-Rahmen ist ein Arbeitsmodell mit lokalem Puffer, keine amtliche Zusage.
+
+### Getrennte Jahrgangsurteile
+
+| Klasse | Semantische Coverage | Zeitmachbarkeit | Sequenznachweis | Pilot | Varianten | Begründung | Risiko | Entscheidungsoptionen |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 5 | partial | green | covered | not-started | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 Unterrichtseinheiten zeitlich grün. Die drei verbleibenden semantischen Lücken der Klasse 5 bleiben davon getrennt partial; die beiden Sequenznachweise PROG-001/002 sind covered. | Ohne lokalen Pilot sind technische Anlaufzeit, Unterstützungsbedarf sowie tatsächliche Übungs- und Revisionszeit noch nicht empirisch geprüft. | pilot-grade-5-time-model<br>retain-semantic-gaps |
+| 6 | covered | green | covered | not-started | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | Die verfügbaren vollständigen Kernpfade ergeben exakt 30 und 34 Unterrichtseinheiten; alle drei Erweiterungsvarianten ergeben exakt 38 Unterrichtseinheiten und alle drei Integrationsverträge sind working. Semantische Coverage und Sequenznachweise sind covered; Zeitmachbarkeit und Pilotstatus bleiben davon getrennt green beziehungsweise not-started. | Der Pilot ist noch nicht gestartet; technische Anlaufzeit, Unterstützungsbedarf, tatsächliche Übungs- und Revisionszeit sowie die drei Integrationen sind noch nicht empirisch geprüft. | pilot-grade-6-time-model<br>fall-back-to-standalone-integration-time |
+| 7 | partial | red | partial | not-started | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | Die drei vollständigen Kernbedarfsrechnungen liegen bei 40, 46 und 54 Unterrichtseinheiten. Selbst die unpilotierte optimierte Untergrenze überschreitet 30/34/38; daher existiert kein verfügbares Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf Folgeoptionen ist umgesetzt. | Ohne neues Auftraggebergate dürfen weder Kernmodule entfernt noch flexible Module als Ersatz verwendet werden. Semantische Coverage, Sequenznachweis und Pilotstatus bleiben unabhängig vom roten Zeiturteil partial beziehungsweise not-started. | additional-school-time<br>structural-integration-or-reclassification<br>curricular-reprioritisation<br>earlier-preparation<br>explicitly-incomplete-path |
+
+## Jahrgangsmatrizen
+
+### Jahresvarianten der Klassen 5 bis 7 (11/11)
+
+| Klasse | Variante | Typ | Budgetpfad | Summe (UE) | Allokationen | Integrationen | Verfügbar | Status | Begründung | Risiko |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 5 | GRADE-5-BASELINE | planning-path | baseline | 30 | IUM-5-CORE-01 / baseline / 5 UE<br>IUM-5-CORE-02 / baseline / 4 UE<br>IUM-5-CORE-03 / baseline / 4 UE<br>IUM-5-CORE-04 / baseline / 3 UE<br>IUM-5-CORE-05 / baseline / 5 UE<br>IUM-5-CORE-06 / baseline / 5 UE<br>IUM-5-CORE-07 / baseline / 4 UE | INT-5-RESEARCH-PRODUCTION | ja | working | Sieben Kernmodule ergeben mit einmal gezählter gemeinsamer Quellen- und Belegspur exakt 30 Unterrichtseinheiten. | Fällt die Recherche-Produktions-Integration aus, steigt der Basispfad um eine Unterrichtseinheit. |
+| 5 | GRADE-5-REGULAR | planning-path | regular | 34 | IUM-5-CORE-01 / regular / 6 UE<br>IUM-5-CORE-02 / regular / 5 UE<br>IUM-5-CORE-03 / regular / 5 UE<br>IUM-5-CORE-04 / regular / 3 UE<br>IUM-5-CORE-05 / regular / 5 UE<br>IUM-5-CORE-06 / regular / 5 UE<br>IUM-5-CORE-07 / regular / 5 UE | INT-5-RESEARCH-PRODUCTION | ja | working | Zusätzliche Übung, eigenständige Handlung und Revision in Arbeitsfähigkeit, Recherche, Kommunikation und Medienreflexion ergeben exakt 34 Unterrichtseinheiten. | Schulabhängige Technik- und Kanalzeiten müssen im lokalen Pilot innerhalb der ausgewiesenen Budgets geprüft werden. |
+| 5 | GRADE-5-EXTENDED | planning-path | extended | 38 | IUM-5-CORE-01 / extended / 6 UE<br>IUM-5-CORE-02 / extended / 5 UE<br>IUM-5-CORE-03 / extended / 5 UE<br>IUM-5-CORE-04 / extended / 3 UE<br>IUM-5-CORE-05 / extended / 6 UE<br>IUM-5-CORE-06 / extended / 7 UE<br>IUM-5-CORE-07 / extended / 6 UE | INT-5-RESEARCH-PRODUCTION | ja | working | Vertiefte Algorithmusübung, Medienproduktion und Medienreflexion erhöhen den Kernpfad auf exakt 38 Unterrichtseinheiten. | Die Vertiefungszeit darf nicht durch zusätzliche Produktanforderungen außerhalb der zentralen Lernprodukte überfrachtet werden. |
+| 6 | GRADE-6-BASELINE | planning-path | baseline | 30 | IUM-6-CORE-01 / baseline / 5 UE<br>IUM-6-CORE-02 / baseline / 4 UE<br>IUM-6-CORE-03 / baseline / 4 UE<br>IUM-6-CORE-04 / baseline / 4 UE<br>IUM-6-CORE-05 / baseline / 4 UE<br>IUM-6-CORE-06 / baseline / 4 UE<br>IUM-6-CORE-07 / baseline / 5 UE | INT-6-ACTORS-SELECTION<br>INT-6-CONFLICT-PRODUCTION<br>INT-6-ALGORITHM-REVISIT | ja | working | Alle sieben Kernmodule ergeben mit den drei fachlich gebundenen und jeweils nur einmal gezählten Integrationen exakt 30 Unterrichtseinheiten. | Fällt eine Integration aus, steigt der Zeitbedarf um ihren eigenständigen Rückfallbedarf und das grüne Zeiturteil muss auf amber wechseln. |
+| 6 | GRADE-6-REGULAR | planning-path | regular | 34 | IUM-6-CORE-01 / regular / 6 UE<br>IUM-6-CORE-02 / regular / 5 UE<br>IUM-6-CORE-03 / regular / 4 UE<br>IUM-6-CORE-04 / regular / 5 UE<br>IUM-6-CORE-05 / regular / 4 UE<br>IUM-6-CORE-06 / regular / 4 UE<br>IUM-6-CORE-07 / regular / 6 UE | INT-6-ACTORS-SELECTION<br>INT-6-CONFLICT-PRODUCTION<br>INT-6-ALGORITHM-REVISIT | ja | working | Zusätzliche Übung, eigenständige Handlung, Revision und Sicherung in vier Kernmodulen erhöhen den vollständigen Kernpfad auf exakt 34 Unterrichtseinheiten. | Die schulabhängigen Such-, Programmier-, Produktions- und Veröffentlichungswege müssen im lokalen Pilot innerhalb der ausgewiesenen Budgets geprüft werden. |
+| 6 | GRADE-6-EXTENDED-REFERENCE | planning-path | extended | 38 | IUM-6-CORE-01 / regular / 6 UE<br>IUM-6-CORE-02 / regular / 5 UE<br>IUM-6-CORE-03 / regular / 4 UE<br>IUM-6-CORE-04 / regular / 5 UE<br>IUM-6-CORE-05 / regular / 4 UE<br>IUM-6-CORE-06 / regular / 4 UE<br>IUM-6-CORE-07 / regular / 6 UE<br>IUM-6-EXT-01 / standalone / 4 UE | INT-6-ACTORS-SELECTION<br>INT-6-CONFLICT-PRODUCTION<br>INT-6-ALGORITHM-REVISIT | ja | working | Der vollständige 34-UE-Regelkern plus vier eigenständige Einheiten Quellenlabor in IUM-6-EXT-01 ergibt die Referenzvariante mit exakt 38 Unterrichtseinheiten. | Die KI-Prüfvertiefung benötigt kuratierte, reproduzierbare Antwort- und Quellenfälle und darf keine Live-KI-Verfügbarkeit voraussetzen. |
+| 6 | GRADE-6-EXTENDED-TRANSFER | planning-path | extended | 38 | IUM-6-CORE-01 / regular / 6 UE<br>IUM-6-CORE-02 / regular / 5 UE<br>IUM-6-CORE-03 / regular / 4 UE<br>IUM-6-CORE-04 / regular / 5 UE<br>IUM-6-CORE-05 / regular / 4 UE<br>IUM-6-CORE-06 / regular / 4 UE<br>IUM-6-CORE-07 / regular / 6 UE<br>IUM-6-TRANSFER-01 / standalone / 4 UE | INT-6-ACTORS-SELECTION<br>INT-6-CONFLICT-PRODUCTION<br>INT-6-ALGORITHM-REVISIT | ja | working | Der vollständige 34-UE-Regelkern plus vier eigenständige Transfereinheiten zur Speicherentscheidung ergibt exakt 38 Unterrichtseinheiten. | Der Transfer muss an einem wirklich neuen Projektfall erfolgen; eine Wiederholung der Kernaufgabe wäre keine tragfähige Erweiterung. |
+| 6 | GRADE-6-EXTENDED-CODING | planning-path | extended | 38 | IUM-6-CORE-01 / regular / 6 UE<br>IUM-6-CORE-02 / regular / 5 UE<br>IUM-6-CORE-03 / regular / 4 UE<br>IUM-6-CORE-04 / targeted-extension / 6 UE<br>IUM-6-CORE-05 / regular / 4 UE<br>IUM-6-CORE-06 / regular / 4 UE<br>IUM-6-CORE-07 / regular / 6 UE<br>IUM-6-EXT-02 / standalone / 3 UE | INT-6-ACTORS-SELECTION<br>INT-6-CONFLICT-PRODUCTION | ja | working | Der Regelkern wird ausschließlich in IUM-6-CORE-04 um eine gezielte Programmier- und Testeinheit auf 35 UE vertieft; drei eigenständige Einheiten IUM-6-EXT-02 ergänzen ihn auf exakt 38 UE. | Targeted Extension und Netzvertiefung müssen zusätzliche eigenständige Ausführung, Tests, Störfälle und Revision enthalten; IUM-6-PROJECT-01 bleibt ausgeschlossen. |
+| 7 | GRADE-7-OPTIMIZED-DEMAND | demand-scenario | optimized | 40 | IUM-7-CORE-01 / optimized / 5 UE<br>IUM-7-CORE-02 / optimized / 3 UE<br>IUM-7-CORE-03 / optimized / 5 UE<br>IUM-7-CORE-04 / optimized / 6 UE<br>IUM-7-CORE-05 / optimized / 4 UE<br>IUM-7-CORE-06 / optimized / 3 UE<br>IUM-7-CORE-07 / optimized / 4 UE<br>IUM-7-CORE-08 / optimized / 4 UE<br>IUM-7-CORE-09 / optimized / 2 UE<br>IUM-7-CORE-10 / optimized / 4 UE | INT-7-DATA-CODING<br>INT-7-PROGRAMMING<br>INT-7-NET-SECURITY<br>INT-7-DATA-MEDIA-SOCIETY | nein | working | Alle zehn Kernmodule ergeben unter Annahme der vier vollständig tragfähigen Clusterintegrationen eine optimierte Untergrenze von 40 Unterrichtseinheiten; dies ist eine Bedarfsrechnung und kein verfügbares Angebot. | Die starke Integration ist unpilotiert und überschreitet selbst bei vollständiger Tragfähigkeit den 38-UE-Rahmen; fällt ein Cluster aus, gilt sein eigenständiger Rückfallbedarf. |
+| 7 | GRADE-7-ROBUST-DEMAND | demand-scenario | robust | 46 | IUM-7-CORE-01 / robust / 5 UE<br>IUM-7-CORE-02 / robust / 4 UE<br>IUM-7-CORE-03 / robust / 5 UE<br>IUM-7-CORE-04 / robust / 6 UE<br>IUM-7-CORE-05 / robust / 4 UE<br>IUM-7-CORE-06 / robust / 3 UE<br>IUM-7-CORE-07 / robust / 4 UE<br>IUM-7-CORE-08 / robust / 6 UE<br>IUM-7-CORE-09 / robust / 3 UE<br>IUM-7-CORE-10 / robust / 6 UE | INT-7-DATA-CODING<br>INT-7-PROGRAMMING<br>INT-7-NET-SECURITY<br>INT-7-DATA-MEDIA-SOCIETY | nein | working | Der robustere Bedarf aller zehn Kernmodule beträgt mit denselben vier fachlich gebundenen Clusterintegrationen 46 Unterrichtseinheiten; auch dieser Bedarf ist kein verfügbares Jahresangebot. | Der robuste Bedarf überschreitet den 38-UE-Rahmen um acht Einheiten und ist ebenfalls unpilotiert; flexible Module oder Projekte sind ausdrücklich nicht eingerechnet. |
+| 7 | GRADE-7-HISTORICAL-MINIMUM | demand-scenario | historical-minimum | 54 | IUM-7-CORE-01 / historical-minimum / 6 UE<br>IUM-7-CORE-02 / historical-minimum / 5 UE<br>IUM-7-CORE-03 / historical-minimum / 6 UE<br>IUM-7-CORE-04 / historical-minimum / 7 UE<br>IUM-7-CORE-05 / historical-minimum / 5 UE<br>IUM-7-CORE-06 / historical-minimum / 4 UE<br>IUM-7-CORE-07 / historical-minimum / 5 UE<br>IUM-7-CORE-08 / historical-minimum / 6 UE<br>IUM-7-CORE-09 / historical-minimum / 4 UE<br>IUM-7-CORE-10 / historical-minimum / 6 UE | — | nein | working | Die historischen Mindestwerte aller zehn Kernmodule summieren sich ohne Clusteranrechnung auf 54 Unterrichtseinheiten und machen den unveränderten Ausgangsbedarf sichtbar. | Die historische Summe ist keine Empfehlung und kein verfügbares Angebot; sie dient ausschließlich als nachvollziehbare Vergleichsgrenze der IUM09-Modulzeiten. |
+
+Klasse 5 besitzt drei verfügbare Kernvarianten mit 30, 34 und 38 UE. Klasse 6 besitzt fünf verfügbare Varianten: 30 UE, 34 UE sowie drei fachlich unterschiedliche 38-UE-Erweiterungen. Klasse 7 besitzt ausschließlich nicht verfügbare Bedarfsszenarien mit 40, 46 und 54 UE; das Zeiturteil ist red. Die vier unpilotierten Cluster sind INT-7-DATA-CODING, INT-7-PROGRAMMING, INT-7-NET-SECURITY und INT-7-DATA-MEDIA-SOCIETY.
+
+### Klasse 7: noch nicht umgesetzte Folgeoptionen (5/5)
+
+| Option | Umgesetzt |
+| --- | --- |
+| additional-school-time | nein |
+| structural-integration-or-reclassification | nein |
+| curricular-reprioritisation | nein |
+| earlier-preparation | nein |
+| explicitly-incomplete-path | nein |
+
+Keine der fünf Optionen ist umgesetzt. Flexible Module oder Projekte ersetzen keine Kernmodule. Jede Änderung benötigt ein gesondertes Auftraggebergate.
+
+## Modulbestand und Medienwahl
+
+### Modulverträge (31/31)
+
+| Modul | Titel | Klasse | Art | Historischer Korridor | Zentrale Lernhandlung | Zentrales Produkt | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| IUM-5-CORE-01 | Im Schulnetz sicher arbeitsfähig werden | 5 | core | 5–7 | Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen. | Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste. | working |
+| IUM-5-CORE-02 | Eine Suchfrage mit Belegen beantworten | 5 | core | 5–7 | Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren. | Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision. | working |
+| IUM-5-CORE-03 | Digital verständlich, sicher und fair kommunizieren | 5 | core | 4–6 | Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen. | Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall. | working |
+| IUM-5-CORE-04 | Einen schulischen Datenweg sichtbar machen | 5 | core | 3–4 | In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen. | Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6. | working |
+| IUM-5-CORE-05 | Präzise Abläufe ausführbar machen | 5 | core | 5–7 | Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren. | Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung. | working |
+| IUM-5-CORE-06 | Ein Medienprodukt zielgerichtet gestalten | 5 | core | 5–7 | Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen. | Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung. | working |
+| IUM-5-CORE-07 | Mediennutzung und Werbung an Fällen untersuchen | 5 | core | 4–6 | Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren. | Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person. | working |
+| IUM-6-CORE-01 | Suchmaschinen, Akteure und KI-Ergebnisse prüfen | 6 | core | 6–8 | Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren. | Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil. | working |
+| IUM-6-CORE-02 | Datenfluss und personalisierte Auswahl modellieren | 6 | core | 5–7 | Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen, Handlungsoptionen zur informationellen Selbstbestimmung begründen und eine private Selbstreflexion zur eigenen Mediennutzung durchführen. | Teilbares Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person. | working |
+| IUM-6-CORE-03 | Codierungen entwerfen und auf Umkehrbarkeit prüfen | 6 | core | 4–6 | Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern. | Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung. | working |
+| IUM-6-CORE-04 | Programme mit festen Schleifen lesen und verändern | 6 | core | 5–7 | Code vorhersagen, schrittweise mit Zustand ausführen, Wirkung erklären, eine feste Schleife begründet verändern und die Änderung mit Fällen prüfen. | Lauffähiges kleines Programm mit Trace, Wirkungserklärung, begründeter Modifikation und dokumentierten Testfällen. | working |
+| IUM-6-CORE-05 | Netz- und Speicherentscheidungen mit Modellen begründen | 6 | core | 4–6 | Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren. | Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze. | working |
+| IUM-6-CORE-06 | Konflikte in sozialen Räumen fallbezogen bearbeiten | 6 | core | 5–7 | Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen. | Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person. | working |
+| IUM-6-CORE-07 | Wirkungsabsicht, Rechte und Revision verbinden | 6 | core | 6–9 | Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren. | Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision. | working |
+| IUM-6-EXT-01 | KI-Antworten im Quellenlabor vertiefen | 6 | extension | 3–4 | Mehrere KI-Behauptungen in prüfbare Teile zerlegen, unabhängige Belege und Gegenbelege suchen, Unsicherheit kalibrieren und die Prüfstrategie vergleichen. | Vergleichsmatrix dreier Behauptungsprüfungen mit Belegkette, Gegenbeleg, Unsicherheit und Strategie-Revision. | working |
+| IUM-6-EXT-02 | Paketpost im Klassennetz vertiefen | 6 | extension | 2–3 | Weiterleitungsregeln in zusätzlichen Störfällen variieren, Paketwege protokollieren und die eigene Modellgrenze präzisieren. | Erweiterter Paketwegvergleich mit Störfall, Alternativroute und revidierter Modellgrenze. | working |
+| IUM-6-TRANSFER-01 | Einen Speicherort für ein Schulprojekt entscheiden | 6 | transfer | 2–4 | Anforderungen eines unbekannten Projekts gewichten, Speicheroptionen vergleichen, Datenweg und Zugriff modellieren und die Entscheidung nach einem Störfall revidieren. | Begründete Speicherentscheidung mit Kriteriengewichtung, Datenweg, Störfallprüfung und Revision. | working |
+| IUM-6-PROJECT-01 | Eine offene Informationskampagne gestalten | 6 | project | 8–12 | Eine reale, nicht sensible Schulfrage recherchieren, Zielgruppe und Wirkung planen, offene Assets prüfen, ein Produkt arbeitsteilig erstellen, testen und veröffentlichungsreif revidieren. | Offen lizenziertes Kampagnenpaket mit Evidenzdossier, Gestaltungsbriefing, Assetnachweisen, Feedback, Revision und Exportentscheidung. | working |
+| IUM-7-CORE-01 | Codierungen zwischen Zeichen, Zahlen und Bits entwerfen | 7 | core | 6–9 | Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen. | Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest. | working |
+| IUM-7-CORE-02 | Bilder als Daten modellieren und Ressourcenfolgen prüfen | 7 | core | 5–7 | Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen. | Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil. | working |
+| IUM-7-CORE-03 | Kontrollfluss, Werte und Zustände tracen | 7 | core | 6–8 | Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren. | Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung. | working |
+| IUM-7-CORE-04 | Programme entwerfen, testen und debuggen | 7 | core | 7–10 | Arbeitsteilig als Team Aufgaben und Teillösungen planen, strukturieren und ausführen, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen, einen Fehler hypothesengeleitet reparieren sowie Arbeitsprozess und Lösung reflektieren und präsentieren. | Teamplan mit Zuständigkeiten sowie kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur, Lösungsbewertung, Teamreflexion und Präsentation. | working |
+| IUM-7-CORE-05 | Netze, Speicher und Geräteschutz modellieren | 7 | core | 5–7 | Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen. | System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze. | working |
+| IUM-7-CORE-06 | Verschlüsselung erklären und passend auswählen | 7 | core | 4–6 | Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen. | Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl. | working |
+| IUM-7-CORE-07 | Einfache Verschlüsselung angreifen und bewerten | 7 | core | 5–7 | Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten. | Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil. | working |
+| IUM-7-CORE-08 | Daten, Akteure und Desinformation beurteilen | 7 | core | 6–9 | Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen bewerten, auf einer vorhandenen Infrastruktur kommunizieren, geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen und das gemeinsame Urteil mit Unsicherheit revidieren. | Geteiltes Evidenz- und Entscheidungsdossier mit begründeter Werkzeugwahl, Kommunikationsspur, Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und gemeinsam revidiertem Standpunkt. | working |
+| IUM-7-CORE-09 | Gamingmechanismen ohne Personendiagnose analysieren | 7 | core | 4–6 | Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen. | Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person. | working |
+| IUM-7-CORE-10 | Medienbilder analysieren und wirkungsbewusst verändern | 7 | core | 6–9 | Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren. | Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision. | working |
+| IUM-7-EXT-01 | Codewortgrenzen formal untersuchen | 7 | extension | 3–5 | Codeworträume systematisch erzeugen, Zusammenhang und Grenzfälle berechnen, eine Behauptung mit Gegenbeispiel prüfen und verallgemeinern. | Interaktiver Codewortatlas mit Berechnung, Grenzfall, Gegenbeispiel und begründeter Verallgemeinerung. | working |
+| IUM-7-TRANSFER-01 | Einen sicheren Kommunikationsweg begründen | 7 | transfer | 3–5 | Schutzbedarf, Datenweg, Geräteverlust, Verschlüsselungsgrenze und rechtliche Anforderungen eines neuen Falls verbinden, Alternativen prüfen und eine Empfehlung vertreten. | Sicherheitsentscheidung mit Bedrohungsmodell, Kommunikationswegvergleich, Rechtsprüfung, Gegenargument und revidierter Empfehlung. | working |
+| IUM-7-PROJECT-01 | Täuschung sichtbar machen und verantwortbar redesignen | 7 | project | 8–12 | Eine kuratierte Darstellung evidenzbasiert analysieren, technische Eingriffe rekonstruieren, ein transparentes Gegenprodukt entwerfen, Wirkung und Rechte prüfen und nach Review revidieren. | Transparenz-Dossier und revidiertes Medienprodukt mit Eingriffsprotokoll, Beleg/Gegenbeleg, Wirkungsgrenze, Rechteprüfung und offener Kennzeichnung. | working |
+
+Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar. Sie ergänzen einen vollständigen Kernpfad, ersetzen aber weder fehlende Kernzeit noch curriculare Kernabdeckung und werden nicht stillschweigend zu Kernmodulen umklassifiziert.
+
+Digital ist das selbstverständliche Unterrichtsmedium. Analoge Materialien werden nur eingesetzt, wenn sich die Wahl des Mediums aus der Lernhandlung didaktisch begründet. Es gibt keine zwanghafte digitale/analoge Doppelstruktur; Offline- oder Ausdrucksvarianten dienen einer fachlichen Handlung oder einem belastbaren lokalen Rückfallweg.
+
+## Integrationsverträge
+
+Integration bedeutet eine gemeinsame, nachweisbare Lern- oder Produktspur. Die Zeit wird genau in einem Modul gezählt; die Lernhandlungen und Produktevidenzen aller beteiligten Module bleiben erhalten. Scheitert die gemeinsame Spur, gilt der dokumentierte Rückfall.
+
+### Integrationsverträge (8/8)
+
+| Vertrag | Module | Pfade | Gezählt in | Gemeinsame Phase / Produktspur | Gemeinsame Minuten | Einsparung je Pfad | Erhaltene Lernhandlungen | Erhaltene Produkt- / Curriculumevidenz | Voraussetzungen | Risiko | Rückfall | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| INT-5-RESEARCH-PRODUCTION | IUM-5-CORE-02<br>IUM-5-CORE-06 | baseline<br>regular<br>extended | IUM-5-CORE-06 | Gemeinsame geprüfte Quellen- und Belegspur vom digitalen Quellendossier bis zum Quellenverzeichnis des Informationsprodukts; geteilt werden ausschließlich Quellenidentität und inhaltlicher Beleg. | 45 | baseline: 45 min<br>regular: 0 min<br>extended: 0 min | IUM-5-CORE-02 zerlegt die Suchfrage, dokumentiert Suchwege, prüft Quellen und revidiert die belegte Antwort.<br>IUM-5-CORE-06 übernimmt ausschließlich dieselbe geprüfte Quellenidentität und denselben inhaltlichen Beleg in das Quellenverzeichnis; Lizenz, Nutzung, Datenschutz, Adressatenwahl und Produktion bleiben eigenständige Lernhandlungen. | Das digitale Quellendossier behält Suchprotokoll, Kriterienvergleich, belegte Antwort und dokumentierte Revision.<br>Das Informationsprodukt behält die nachvollziehbare Zuordnung derselben Quelle und desselben inhaltlichen Belegs zum Quellenverzeichnis.<br>Die identische Quellenreferenz und der identische inhaltliche Beleg sind in beiden Produkten nachvollziehbar miteinander verknüpft; Rechte-, Datenschutz-, Adressaten- und Produktionsnachweise sind nicht geteilt. | Recherchefrage und Informationsprodukt behandeln denselben fachlichen Gegenstand.<br>Dieselbe im Quellendossier geprüfte Quellenreferenz und derselbe inhaltliche Beleg werden in das Informationsprodukt übernommen.<br>Lizenz, zulässige Nutzung, Datenschutz, Adressatenwahl und Produktion erhalten unabhängig von der Integration eigene positive Modulzeit. | Bei abweichendem Thema, nicht identischer Quellenreferenz oder nicht identischem inhaltlichem Beleg wäre die Zeitersparnis unzulässig. Eine Anrechnung von Lizenz, Nutzung, Datenschutz, Adressatenwahl oder Produktion wäre ebenfalls eine Scheinintegration. | Scheitert die identische Quellen- und Belegspur, erhalten Recherche und Medienprodukt wieder eigenständige Zeit für Quellenauswahl, Quellenprüfung und Belegzuordnung; die Baseline benötigt dann 45 Minuten zusätzlich und das Jahrgangsurteil wird neu berechnet. Die eigenständige Zeit für Lizenz, Nutzung, Datenschutz, Adressatenwahl und Produktion bleibt im Integrations- wie im Fallbackfall unverändert erhalten. | working |
+| INT-6-ACTORS-SELECTION | IUM-6-CORE-01<br>IUM-6-CORE-02 | baseline<br>regular | IUM-6-CORE-01 | Gemeinsame Akteurs-, Interessen- und Evidenzkarte, die vom Such- und KI-Modell in ein Datenfluss- und Auswahlmodell mit begründeter Schutzentscheidung überführt wird. | 90 | baseline: 90 min<br>regular: 45 min | IUM-6-CORE-01 modelliert Suchakteure, Motive und automatisierte Verbreitung und prüft widersprüchliche Quellen sowie KI-Behauptungen.<br>IUM-6-CORE-02 übernimmt die geprüfte Akteurs- und Interessenkarte, ergänzt Datenarten und Erhebungstechniken, testet Auswahlhypothesen und begründet eine Schutzentscheidung. | IUM-6-CORE-01: Kompetenznachweis LH26-E-ID-004 bis LH26-E-ID-008; Produktnachweis ist das Evidenzdossier mit Suchmodell, Akteursinteressen, Quellenvergleich und Unsicherheitsurteil.<br>IUM-6-CORE-02: Kompetenznachweis LH26-E-DP-004 und LH26-E-DP-006 bis LH26-E-DP-009; Produktnachweis ist das Datenfluss- und Auswahlmodell mit Datenarten, Auswahlhypothesen, Modellgrenze und Schutzentscheidung; die private Reflexion bleibt privat. | IUM-6-CORE-02 folgt auf IUM-6-CORE-01 und verwendet dieselbe geprüfte Akteurs- und Interessenkarte.<br>Die Auswahlfälle bleiben synthetisch; weder KI-Ausgaben noch private Reflexionsnotizen werden personenbezogen erhoben. | baseline: Eine bloß sprachliche Gleichsetzung oder unterschiedliche Fälle verdecken 90 Minuten eigenständige Modellierungs- und Prüfzeit. regular: Derselbe Fehler überschätzt die Einsparung um 45 Minuten und entwertet die gemeinsame Karte. | Scheitert die gemeinsame Akteurs- und Auswahlspur, erhalten beide Module eigenständige Aktivierungs-, Modellierungs- und Prüfzeit. Pfadfolgen: baseline: +90 Minuten; regular: +45 Minuten. Das Jahrgangsurteil wird neu berechnet. | working |
+| INT-6-CONFLICT-PRODUCTION | IUM-6-CORE-06<br>IUM-6-CORE-07 | baseline<br>regular | IUM-6-CORE-07 | Gemeinsame nichtpersonale Fall-, Zielgruppen-, Wirkungs-, Rechte- und Revisionsspur vom Konflikt-Handlungsplan bis zum offen nachnutzbaren Medienprodukt. | 90 | baseline: 90 min<br>regular: 0 min | IUM-6-CORE-06 analysiert an einem fiktiven Fall Selbstdarstellung, Konfliktbedingungen, Hilfswege und eine begründete Eskalationsentscheidung.<br>IUM-6-CORE-07 formuliert für denselben nichtpersonalen Fall Zielgruppe und Wirkungsabsicht, prüft Rechte, verarbeitet Feedback und dokumentiert eine sichtbare Revision. | IUM-6-CORE-06: Kompetenznachweis LH26-E-KS-011 bis LH26-E-KS-015; Produktnachweis sind Pro-und-Contra-Matrix, Wirkungseinschätzung und Fall-Handlungsplan, ohne private Reflexion offenzulegen.<br>IUM-6-CORE-07: Kompetenznachweis LH26-E-DA-009 bis LH26-E-DA-015; Produktnachweis sind Wirkungsbriefing, Asset- und Lizenznachweise, Medienprodukt, Feedbackprotokoll und Revision. | IUM-6-CORE-06 und IUM-6-CORE-07 verwenden denselben kuratierten, fiktiven und nichtpersonalen Fall, ohne reale Konflikterfahrungen zu erheben.<br>Konfliktentscheidung, Produktgestaltung, Rechteprüfung, Feedback und Revision bleiben als unterscheidbare Nachweisspuren erhalten. | baseline: Eine bloße Kampagnenproduktion oder Fallanalyse verdeckt 90 Minuten für die jeweils verdrängte Konflikt-, Rechte- oder Revisionsspur. regular: Trotz 0 Minuten rechnerischer Einsparung kann eine unvollständige gemeinsame Spur fachliche Nachweise verdrängen. | Scheitert die gemeinsame Fall- und Revisionsspur, erhalten Konfliktanalyse und Medienproduktion eigenständige Fall-, Zielgruppen-, Rechte-, Feedback- und Revisionszeit. Pfadfolgen: baseline: +90 Minuten; regular: +0 Minuten. Das Jahrgangsurteil wird neu berechnet. | working |
+| INT-6-ALGORITHM-REVISIT | IUM-5-CORE-05<br>IUM-6-CORE-04 | baseline<br>regular | IUM-6-CORE-04 | Jahrgangsübergreifende Wiederaufnahme des ausführbaren grafischen Algorithmus mit Laufprotokoll als konkreter Vorhersage-, Trace- und Schleifenanker für das Klasse-6-Programm. | 45 | baseline: 45 min<br>regular: 0 min | IUM-5-CORE-05 lässt einen grafischen Algorithmus ausführen, Abweichungen reparieren und eine konstante Wiederholung begründen.<br>IUM-6-CORE-04 ruft dieses Produkt aktiv ab, überführt die Laufspur in Programmzustand und Trace und prüft eine veränderte Schleife mit Fällen. | IUM-5-CORE-05: Kompetenznachweis LH26-E-ALG-001 bis LH26-E-ALG-004; Produktnachweis sind grafischer Algorithmus, Vorhersage, Laufprotokoll, Reparatur und Schleifenentscheidung.<br>IUM-6-CORE-04: Kompetenznachweis LH26-E-ALG-005 und LH26-E-ALG-006; Produktnachweis sind lauffähiges Programm, Trace, Wirkungserklärung, Modifikation und Testfälle. | Das vollständige Algorithmusprodukt aus IUM-5-CORE-05 ist zum aktiven Abruf in IUM-6-CORE-04 verfügbar.<br>Die Wiederaufnahme ersetzt weder die Klasse-6-Codeausführung noch Modifikation, Test und Revision. | baseline: Ein fehlendes oder unvollständiges Klasse-5-Produkt verdeckt 45 Minuten notwendige Aktivierungs- und Tracezeit. regular: Bei 0 Minuten rechnerischer Einsparung bleibt das Risiko einer fachlich unvollständigen Wiederaufnahme bestehen. | Scheitert die Wiederaufnahme, erhält IUM-6-CORE-04 eigenständige Aktivierungs-, Vorhersage- und Tracezeit. Pfadfolgen: baseline: +45 Minuten; regular: +0 Minuten. Das Jahrgangsurteil wird neu berechnet. | working |
+| INT-7-DATA-CODING | IUM-7-CORE-01<br>IUM-7-CORE-02 | optimized<br>robust | IUM-7-CORE-02 | Gemeinsame Bit-, Code- und Datenmengenspur vom getesteten Bit-Codebuch zum Pixelraster, Bildcodec und Ressourcenvergleich. | 90 | optimized: 135 min<br>robust: 90 min | IUM-7-CORE-01 stellt Binärzahlen und Zeichencodes dar, codiert und decodiert ASCII, entwirft eine eigene Vorschrift und prüft Umkehrbarkeit.<br>IUM-7-CORE-02 übernimmt die geprüfte Bit- und Datenmengenspur, diskretisiert ein Bild, codiert Pixel, vergleicht Darstellungen und beurteilt Ressourcenfolgen. | IUM-7-CORE-01: Kompetenznachweis LH26-E-ID-016 und INF7-16-GYM-IK-DC-005; Produktnachweis ist das getestete Bit-Codebuch mit Binärdarstellung, Vorschrift, Berechnung und Umkehrbarkeitstest.<br>IUM-7-CORE-02: Kompetenznachweis LH26-E-ID-018 und INF7-16-GYM-IK-DC-006; Produktnachweis ist der Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und Ressourcenurteil. | IUM-7-CORE-01 stellt ein vollständig getestetes Bit-Codebuch mit eindeutiger Vorschrift und Datenmengenspur bereit.<br>IUM-7-CORE-02 verwendet exakt diese geprüfte Vorschrift für Pixelcodierung und Decodiertest; Bedienübungen werden nicht als fachlicher Nachweis angerechnet. | optimized: Unterschiedliche Codevorschriften oder eine nur erwähnte Datenmengenspur verdecken 135 Minuten eigenständige Codier-, Prüf- und Sicherungszeit. robust: Ohne dasselbe geprüfte Codebuch werden 90 Minuten Einsparung überschätzt. | Scheitert die gemeinsame Bit-, Code- und Datenmengenspur, arbeiten IUM-7-CORE-01 und IUM-7-CORE-02 eigenständig; die 90 Minuten gemeinsame Phase bleibt nicht anrechenbar. Pfadfolgen: optimized: +135 Minuten; robust: +90 Minuten. Das rote Jahrgangsurteil wird neu berechnet. | working |
+| INT-7-PROGRAMMING | IUM-7-CORE-03<br>IUM-7-CORE-04 | optimized<br>robust | IUM-7-CORE-04 | Gemeinsames Code-, Ablauf-, Zustands- und Testartefakt, das vom synchronen Trace unmittelbar in Implementierung, Test und hypothesengeleitetes Debugging übergeht. | 90 | optimized: 90 min<br>robust: 90 min | IUM-7-CORE-03 modelliert Kontrollfluss, Werte und Zustände, führt den Trace aus und korrigiert fehlerhafte Ablaufdarstellungen.<br>IUM-7-CORE-04 überführt genau diesen Trace in eine Implementierung, leitet Normal-, Grenz- und Gegenfälle ab und repariert einen Fehler hypothesengeleitet. | IUM-7-CORE-03: Kompetenznachweis LH26-E-ALG-007 und INF7-16-GYM-IK-ALG-003; Produktnachweis ist das synchrone Code-, Ablauf- und Zustandstrace mit Modellgrenze und Korrektur.<br>IUM-7-CORE-04: Kompetenznachweis LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; Produktnachweis ist das kommentierte Programm mit Entwurfsmodell, Testprotokoll, Debugginghypothese und begründeter Reparatur. | IUM-7-CORE-03 liefert einen vollständigen, korrigierten Trace mit Eingaben, Ausführungspositionen, Werten und Ausgabe.<br>IUM-7-CORE-04 implementiert denselben Fall und erhält eigenständige Codeausführung, Tests, Debugging, Teamreflexion und Präsentation. | optimized: Ein nur demonstrierter Trace oder ein anderer Programmfall verdeckt 90 Minuten eigenständige Entwurfs- und Testzeit. robust: Ohne direkte Produktkontinuität fehlen ebenfalls 90 Minuten für Reaktivierung und Abgleich. | Scheitert die gemeinsame Trace-, Implementierungs- und Testspur, arbeiten IUM-7-CORE-03 und IUM-7-CORE-04 eigenständig; 90 Minuten gemeinsame Phase werden nicht angerechnet. Pfadfolgen: optimized: +90 Minuten; robust: +90 Minuten. Das rote Jahrgangsurteil wird neu berechnet. | working |
+| INT-7-NET-SECURITY | IUM-7-CORE-05<br>IUM-7-CORE-06<br>IUM-7-CORE-07 | optimized<br>robust | IUM-7-CORE-07 | Gemeinsames System-, Bedrohungs-, Verschlüsselungs- und Angriffsmodell mit durchgängigem Datenweg, Schutzbedarf, Schlüsselmodell, Angriffsbefund und revidiertem Sicherheitsurteil. | 135 | optimized: 135 min<br>robust: 135 min | IUM-7-CORE-05 modelliert Netz, Client–Server-Ablauf, Speicherort, Bedrohung und begründete Schutzmaßnahme.<br>IUM-7-CORE-06 bestimmt den Schutzbedarf, trennt Codierung und Verschlüsselung und vergleicht Transport- mit Ende-zu-Ende-Schutz.<br>IUM-7-CORE-07 führt Caesar- und monoalphabetische Substitution sowie Brute Force und Häufigkeitsanalyse mit Hypothesen aus und bewertet die Sicherheit begrenzt. | IUM-7-CORE-05: Kompetenznachweis INF7-16-GYM-IK-RN-001 und INF7-16-GYM-IK-IGD-004; Produktnachweis ist das System- und Bedrohungsmodell mit Netzskizze, Speichervergleich und Schutzentscheidung.<br>IUM-7-CORE-06: Kompetenznachweis LH26-E-KS-016 und INF7-16-GYM-IK-IGD-001; Produktnachweis ist das Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg und Schutzgrenze.<br>IUM-7-CORE-07: Kompetenznachweis LH26-E-KS-019 und INF7-16-GYM-IK-IGD-003; Produktnachweis ist das Angriffsprotokoll mit Handverschlüsselung, Brute-Force- und Häufigkeitsbefund sowie revidiertem Sicherheitsurteil. | IUM-7-CORE-05 liefert für alle drei Module denselben kuratierten Datenweg, Speicherort, Schutzbedarf und Bedrohungsfall.<br>IUM-7-CORE-06 bindet an IUM-7-CORE-05 an und kennzeichnet Zweck, Schlüssel und Schutzgrenze ohne reale Sicherheit vorzutäuschen.<br>IUM-7-CORE-07 greift das Modell aus IUM-7-CORE-06 tatsächlich an; Ausführung, Hypothese, Befund und Revision bleiben eigenständige Nachweisspuren. | optimized: Unterschiedliche Datenwege oder ausgelassene Angriffe verdecken 135 Minuten Modellierungs-, Ausführungs- und Revisionszeit. robust: Auch im robusten Pfad fehlen bei gebrochener Modellkontinuität 135 Minuten eigenständige Wiederaufnahme. | Scheitert das gemeinsame Netz-, Schutz- und Angriffsmodell, arbeiten IUM-7-CORE-05, IUM-7-CORE-06 und IUM-7-CORE-07 eigenständig; 135 Minuten gemeinsame Phase werden nicht angerechnet. Pfadfolgen: optimized: +135 Minuten; robust: +135 Minuten. Das rote Jahrgangsurteil wird neu berechnet. | working |
+| INT-7-DATA-MEDIA-SOCIETY | IUM-7-CORE-08<br>IUM-7-CORE-09<br>IUM-7-CORE-10 | optimized<br>robust | IUM-7-CORE-10 | Gemeinsames kuratiertes Evidenz-, Mechanismus- und Medienrevisionsdossier mit Akteurskarte, Beleg/Gegenbeleg, Wirkungs- und Rechteprüfung sowie unterscheidbaren Produktspuren. | 45 | optimized: 270 min<br>robust: 45 min | IUM-7-CORE-08 identifiziert Akteure und Interessen, prüft Behauptung, Primär- und Gegenbelege sowie Daten- und Rechtsfolgen und revidiert den Standpunkt.<br>IUM-7-CORE-09 trennt an einem fiktiven Fall psychologische, soziale und ökonomische Gamingmechanismen, prüft Alternativen und bewertet eine Designentscheidung.<br>IUM-7-CORE-10 belegt Rollen- und Wirkungsmuster, bearbeitet ein Medienbild, prüft Rechte und revidiert das Produkt nach Gegenfeedback. | IUM-7-CORE-08: Kompetenznachweis LH26-E-DP-010 und INF7-16-GYM-PK-KK-006; Produktnachweis ist das Evidenz- und Entscheidungsdossier mit Akteurskarte, Beleg/Gegenbeleg, Rechts-/Datenprüfung und revidiertem Standpunkt.<br>IUM-7-CORE-09: Kompetenznachweis LH26-E-DP-015 und INF7-16-GYM-PK-AB-005; Produktnachweis ist die teilbare Mechanismuskarte mit Geschäftsmodell, Beleggrenze und Redesign-Alternative; private Reflexion bleibt privat.<br>IUM-7-CORE-10: Kompetenznachweis LH26-E-DA-016 und INF7-16-GYM-PK-KK-005; Produktnachweis ist das Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Rechteprüfung, Gegenperspektive und Revision. | IUM-7-CORE-08 stellt den vollständig kuratierten Fall, Akteursdaten, Belege, Gegenbelege, Rechte- und Datenprüfung für die gemeinsame Spur bereit.<br>IUM-7-CORE-09 nutzt denselben nichtpersonalen Fall; die private Reflexion wird weder erhoben noch als Ersatz für die Mechanismuskarte verwendet.<br>IUM-7-CORE-10 übernimmt denselben belegten Fall und erhält eigenständige Bearbeitung, Wirkungsbegründung, Rechteprüfung, Gegenfeedback und Revision. | optimized: Die außergewöhnliche Einsparung von 270 Minuten ist nur bei vollständiger Fall-, Evidenz-, Produkt- und Revisionskontinuität denkbar; jede bloß sprachliche Zusammenlegung macht sie unzulässig. robust: Eine gebrochene gemeinsame Spur benötigt 45 Minuten eigenständige Wiederaufnahme. | Scheitert das gemeinsame Evidenz-, Mechanismus- und Medienrevisionsdossier, arbeiten IUM-7-CORE-08, IUM-7-CORE-09 und IUM-7-CORE-10 eigenständig; die 45 Minuten gemeinsame Phase werden nicht angerechnet. Pfadfolgen: optimized: +270 Minuten; robust: +45 Minuten. Das rote Jahrgangsurteil wird neu berechnet. | working |
+
+## Vollständige IUM10-Zeitbilanz
+
+Die folgende Bilanz enthält jeden der 60 IUM09-Übergaberecords genau einmal und ist nach Modul gruppiert; innerhalb eines Moduls bleibt die Reihenfolge des Zeitmodells erhalten. additionalMinutes bezeichnet nur explizit zusätzlich zu budgetierende Minuten; die übrigen Entscheidungen können vorhandene positive Phasenzeit nutzen, integriert werden oder wegen einer Sequenzgrenze ungelöst bleiben.
+
+### Zeitreviews (60/60)
+
+| Review | Modul | Kompetenz | Quelllevel | Entscheidung | Zusatzminuten | Pfadverfügbarkeit | Coveragefolge |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| TR-BMB16-GYM-IK-GM-001 | IUM-5-CORE-01 | BMB16-GYM-IK-GM-001 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-GM-002 | IUM-5-CORE-01 | BMB16-GYM-IK-GM-002 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-GM-003 | IUM-5-CORE-01 | BMB16-GYM-IK-GM-003 | review-required | additional-time | 20 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-PK-SK-003 | IUM-5-CORE-01 | BMB16-GYM-PK-SK-003 | review-required | absorbed | 0 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-DA-004 | IUM-5-CORE-01 | LH26-E-DA-004 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-DP-001 | IUM-5-CORE-01 | LH26-E-DP-001 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-PROG-001 | IUM-5-CORE-01 | LH26-E-PROG-001 | roadmap-dependent | unresolved | 0 | — | semantic-status-unchanged |
+| TR-LH26-E-ID-009 | IUM-5-CORE-02 | LH26-E-ID-009 | review-required | absorbed | 0 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-KK-002 | IUM-5-CORE-03 | BMB16-GYM-IK-KK-002 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-KK-003 | IUM-5-CORE-03 | BMB16-GYM-IK-KK-003 | review-required | absorbed | 0 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-PK-HK-003 | IUM-5-CORE-03 | BMB16-GYM-PK-HK-003 | review-required | absorbed | 0 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-PK-RK-004 | IUM-5-CORE-03 | BMB16-GYM-PK-RK-004 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-KS-001 | IUM-5-CORE-03 | LH26-E-KS-001 | review-required | additional-time | 20 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-KS-002 | IUM-5-CORE-03 | LH26-E-KS-002 | review-required | additional-time | 20 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-ALG-001 | IUM-5-CORE-05 | LH26-E-ALG-001 | review-required | absorbed | 0 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-PROG-002 | IUM-5-CORE-05 | LH26-E-PROG-002 | roadmap-dependent | unresolved | 0 | — | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-PP-002 | IUM-5-CORE-06 | BMB16-GYM-IK-PP-002 | review-required | integrated | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-DA-005 | IUM-5-CORE-06 | LH26-E-DA-005 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-DA-006 | IUM-5-CORE-06 | LH26-E-DA-006 | review-required | additional-time | 25 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-LH26-E-DA-008 | IUM-5-CORE-06 | LH26-E-DA-008 | review-required | additional-time | 20 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-MG-001 | IUM-5-CORE-07 | BMB16-GYM-IK-MG-001 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-MG-002 | IUM-5-CORE-07 | BMB16-GYM-IK-MG-002 | review-required | additional-time | 20 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-IK-MG-003 | IUM-5-CORE-07 | BMB16-GYM-IK-MG-003 | review-required | absorbed | 0 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-PK-RK-001 | IUM-5-CORE-07 | BMB16-GYM-PK-RK-001 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-PK-RK-002 | IUM-5-CORE-07 | BMB16-GYM-PK-RK-002 | review-required | additional-time | 15 | GRADE-5-BASELINE<br>GRADE-5-REGULAR<br>GRADE-5-EXTENDED | semantic-status-unchanged |
+| TR-BMB16-GYM-PK-RK-003 | IUM-5-CORE-07 | BMB16-GYM-PK-RK-003 | review-required | unresolved | 0 | — | semantic-status-unchanged |
+| TR-LH26-E-DP-003 | IUM-5-CORE-07 | LH26-E-DP-003 | review-required | unresolved | 0 | — | semantic-status-unchanged |
+| TR-LH26-E-DP-004 | IUM-6-CORE-02 | LH26-E-DP-004 | review-required | integrated | 20 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-DP-006 | IUM-6-CORE-02 | LH26-E-DP-006 | review-required | integrated | 25 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-KS-014 | IUM-6-CORE-06 | LH26-E-KS-014 | review-required | additional-time | 25 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-KS-015 | IUM-6-CORE-06 | LH26-E-KS-015 | review-required | additional-time | 20 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-DA-009 | IUM-6-CORE-07 | LH26-E-DA-009 | review-required | additional-time | 30 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-DA-010 | IUM-6-CORE-07 | LH26-E-DA-010 | review-required | additional-time | 20 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-DA-012 | IUM-6-CORE-07 | LH26-E-DA-012 | review-required | absorbed | 0 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-LH26-E-DA-015 | IUM-6-CORE-07 | LH26-E-DA-015 | review-required | additional-time | 20 | GRADE-6-BASELINE<br>GRADE-6-REGULAR<br>GRADE-6-EXTENDED-REFERENCE<br>GRADE-6-EXTENDED-TRANSFER<br>GRADE-6-EXTENDED-CODING | semantic-status-unchanged |
+| TR-INF7-16-GYM-IK-DC-001 | IUM-7-CORE-01 | INF7-16-GYM-IK-DC-001 | review-required | additional-time | 15 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-IK-DC-004 | IUM-7-CORE-01 | INF7-16-GYM-IK-DC-004 | review-required | additional-time | 15 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-IK-DC-005 | IUM-7-CORE-01 | INF7-16-GYM-IK-DC-005 | review-required | integrated | 30 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND | semantic-status-unchanged |
+| TR-LH26-E-ID-020 | IUM-7-CORE-01 | LH26-E-ID-020 | review-required | absorbed | 0 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-LH26-E-ID-021 | IUM-7-CORE-01 | LH26-E-ID-021 | review-required | additional-time | 15 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-IK-ALG-003 | IUM-7-CORE-03 | INF7-16-GYM-IK-ALG-003 | review-required | integrated | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-MI-005 | IUM-7-CORE-03 | INF7-16-GYM-PK-MI-005 | review-required | additional-time | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-SV-003 | IUM-7-CORE-03 | INF7-16-GYM-PK-SV-003 | review-required | additional-time | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-LH26-E-ALG-007 | IUM-7-CORE-03 | LH26-E-ALG-007 | review-required | integrated | 25 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND | semantic-status-unchanged |
+| TR-LH26-E-ALG-008 | IUM-7-CORE-03 | LH26-E-ALG-008 | review-required | additional-time | 15 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-LH26-E-ALG-009 | IUM-7-CORE-03 | LH26-E-ALG-009 | review-required | additional-time | 15 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-KK-002 | IUM-7-CORE-04 | INF7-16-GYM-PK-KK-002 | review-required | additional-time | 25 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-MI-003 | IUM-7-CORE-04 | INF7-16-GYM-PK-MI-003 | review-required | additional-time | 25 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-SV-002 | IUM-7-CORE-04 | INF7-16-GYM-PK-SV-002 | review-required | additional-time | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-IK-IGD-004 | IUM-7-CORE-05 | INF7-16-GYM-IK-IGD-004 | review-required | integrated | 30 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-AB-002 | IUM-7-CORE-05 | INF7-16-GYM-PK-AB-002 | review-required | additional-time | 30 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-SV-001 | IUM-7-CORE-05 | INF7-16-GYM-PK-SV-001 | review-required | additional-time | 30 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-IK-IGD-006 | IUM-7-CORE-08 | INF7-16-GYM-IK-IGD-006 | review-required | additional-time | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-AB-005 | IUM-7-CORE-08 | INF7-16-GYM-PK-AB-005 | review-required | integrated | 25 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-AB-006 | IUM-7-CORE-08 | INF7-16-GYM-PK-AB-006 | review-required | additional-time | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-INF7-16-GYM-PK-KK-006 | IUM-7-CORE-08 | INF7-16-GYM-PK-KK-006 | review-required | integrated | 25 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND | semantic-status-unchanged |
+| TR-LH26-E-DP-013 | IUM-7-CORE-08 | LH26-E-DP-013 | review-required | additional-time | 15 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+| TR-LH26-E-PROG-003 | IUM-7-CORE-08 | LH26-E-PROG-003 | roadmap-dependent | unresolved | 0 | — | semantic-status-unchanged |
+| TR-LH26-E-PROG-004 | IUM-7-CORE-08 | LH26-E-PROG-004 | roadmap-dependent | unresolved | 0 | — | semantic-status-unchanged |
+| TR-LH26-E-DP-014 | IUM-7-CORE-10 | LH26-E-DP-014 | review-required | additional-time | 20 | GRADE-7-OPTIMIZED-DEMAND<br>GRADE-7-ROBUST-DEMAND<br>GRADE-7-HISTORICAL-MINIMUM | semantic-status-unchanged |
+
+Die Zeitreviewentscheidung verändert die semantische Coverage nicht automatisch. Ein unresolved-Zeitreview kann durch einen vollständigen Sequenznachweis fachlich geschlossen werden; ohne verfügbaren Jahrespfad bleibt die roadmapweite Coverage jedoch partial.
+
+## Sequenz- und Coveragebilanz
+
+### Sequenznachweise (4/4)
+
+| Sequenz | Kompetenz | Zeitreview | Module | Klassen | Fachaudit | Coverageentscheidung | Coveragefolge | Verbleibende Grenze | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SE-LH26-E-PROG-001 | LH26-E-PROG-001 | TR-LH26-E-PROG-001 | IUM-5-CORE-01<br>IUM-5-CORE-02<br>IUM-5-CORE-03<br>IUM-5-CORE-04<br>IUM-5-CORE-05<br>IUM-5-CORE-06<br>IUM-5-CORE-07<br>IUM-6-CORE-01<br>IUM-6-CORE-02<br>IUM-6-CORE-03<br>IUM-6-CORE-04<br>IUM-6-CORE-05<br>IUM-6-CORE-06<br>IUM-6-CORE-07 | 5<br>6 | passed | covered | covered / operator-product-match / Die vollständigen Kernwege der Klassen 5 und 6 zeigen die geforderte sichere, verantwortungsvolle und reflektierte digitale Arbeitsfähigkeit mit zunehmender Selbstständigkeit auf tatsächlich verfügbaren Jahrespfaden. | Der fachliche Sequenznachweis schließt die Progressionslücke, ersetzt aber weder Pilotierung noch Zeitfreigabe der weiterhin working geführten Jahrespfade. | working |
+| SE-LH26-E-PROG-002 | LH26-E-PROG-002 | TR-LH26-E-PROG-002 | IUM-5-CORE-05<br>IUM-6-CORE-04<br>IUM-7-CORE-03<br>IUM-7-CORE-04 | 5<br>6<br>7 | passed | covered | covered / operator-product-match / Die verfügbaren Klasse-5-/6-Pfade tragen die niederschwellige Orientierung, während die explizit nicht verfügbare Klasse-7-Vergleichstiefe ihre fachliche Grenze sichtbar macht, ohne Verfügbarkeit zu behaupten. | Die semantische Abgrenzung der grundlegenden Klassen-5-/6-Orientierung ist belegt; das Klasse-7-Vergleichsmodell bleibt mit 40 Unterrichtseinheiten nicht verfügbar und red. | working |
+| SE-LH26-E-PROG-003 | LH26-E-PROG-003 | TR-LH26-E-PROG-003 | IUM-7-CORE-01<br>IUM-7-CORE-02<br>IUM-7-CORE-03<br>IUM-7-CORE-04<br>IUM-7-CORE-05<br>IUM-7-CORE-06<br>IUM-7-CORE-07<br>IUM-7-CORE-08<br>IUM-7-CORE-09<br>IUM-7-CORE-10 | 7 | passed | remain-partial | partial / documented-gap / Ohne tatsächlich verfügbaren Klasse-7-Jahrespfad bleibt die roadmapweite Coverage trotz bestandenem Fachaudit partial. | Der fachliche Audit weist die jahrgangsweite Verbindung nach, doch ausschließlich nicht verfügbare Klasse-7-Bedarfsszenarien mit 40, 46 und 54 Unterrichtseinheiten verhindern den Wechsel zu covered. | working |
+| SE-LH26-E-PROG-004 | LH26-E-PROG-004 | TR-LH26-E-PROG-004 | IUM-7-CORE-01<br>IUM-7-CORE-02<br>IUM-7-CORE-03<br>IUM-7-CORE-04<br>IUM-7-CORE-05<br>IUM-7-CORE-06<br>IUM-7-CORE-07<br>IUM-7-CORE-08<br>IUM-7-CORE-09<br>IUM-7-CORE-10 | 7 | passed | remain-partial | partial / documented-gap / Die Perspektivenverknüpfung darf bei ausschließlich nicht verfügbaren 40/46/54-Bedarfsszenarien nicht als covered ausgegeben werden. | Die vier Perspektiven und ihre Zeitgewichtung sind fachlich belegt; ohne verfügbaren Klasse-7-Jahrespfad bleibt die roadmapweite Anforderung dennoch partial und das Jahresurteil red. | working |
+
+Die Nachweise SE-LH26-E-PROG-001 und SE-LH26-E-PROG-002 schließen ihre semantischen Progressionslücken. SE-LH26-E-PROG-003 und SE-LH26-E-PROG-004 bestehen den Fachaudit, bleiben aber wegen ausschließlich nicht verfügbarer Klasse-7-Bedarfsszenarien partial.
+
+### Aktuelle und historische Coveragebilanz
+
+| Sicht | Gesamt | covered | partial | Bedeutung |
+| --- | --- | --- | --- | --- |
+| Aktuelle IUM10-Coverage | 171 | 166 | 5 | aktueller semantischer Stand |
+| Historische IUM09-Projektion | 171 | 164 | 7 | historische, rückprojizierte IUM09-Sicht |
+
+Die aktuelle Bilanz von 166 covered / 5 partial ist keine Zeitfreigabe. Die historische Projektion von 164 covered / 7 partial bleibt als nachvollziehbare IUM09-Sicht erhalten.
+
+## Risiken und Pilotgrenze
+
+### Risikoregister (5/5)
+
+| Risiko-ID | Geltungsbereich | Risiko | Auswirkung | Minderung | Status |
+| --- | --- | --- | --- | --- | --- |
+| RISK-IUM10-UNPILOTED-TIME | all-module-contracts | Die working-Zeitannahmen aller 31 Modulverträge sind noch nicht im Unterricht pilotiert. | Der tatsächliche Zeitbedarf kann Pfadstatus und spätere Zeitfreigabe verändern. | Vor einer Zeitfreigabe jeden Modulvertrag mit seinem modulaggregierten Pilotauftrag prüfen und Abweichungen nur auf Modulebene nacharbeiten. | working |
+| RISK-IUM10-TECHNICAL-STARTUP | school-dependent-steps | Schulabhängige Technik, Anmeldung und lokale Werkzeuge können zusätzliche Anlauf- und Unterstützungszeit erzeugen. | Geplante Lernhandlungen oder Revisionsphasen können unter realen Standortbedingungen zu kurz ausfallen. | Technische Anlaufzeit und Unterstützungsbedarf im jeweiligen Modul aggregiert erfassen und die lokale Planung nichtpersonal anpassen. | working |
+| RISK-IUM10-INTEGRATION-FALLBACK | integration-contracts | Eine unpilotierte Integrationsannahme kann im konkreten Unterricht ihren gemeinsamen Produkt- oder Phasenvertrag verfehlen. | Fällt eine Integration aus, gilt der eigenständige Rückfallbedarf und der Jahrespfad kann seine Zielzeit überschreiten. | Integrationen modulbezogen prüfen und bei Ausfall ohne personenbezogene Auswertung auf die dokumentierte Standalone-Zeit zurückfallen. | working |
+| RISK-IUM10-GRADE7-CAPACITY | grade-7 | Die Klasse-7-Bedarfsszenarien mit 40, 46 und 54 Unterrichtseinheiten überschreiten alle den 30/34/38-Rahmen. | Für Klasse 7 ist kein Jahrespfad verfügbar; das Zeiturteil bleibt red und darf nicht als Angebot ausgegeben werden. | Eine der fünf dokumentierten Folgeoptionen benötigt ein gesondertes Auftraggebergate; bis dahin bleiben 40/46/54 unavailable und red. | working |
+| RISK-IUM10-PRIVATE-LEARNING-ACTIONS | private-local-reflection | Private lokale Lernhandlungen könnten durch Pilot- oder Evidenzpraxis versehentlich zu beobachteten oder personenbezogenen Spuren werden. | Dies würde den Privacy-Vertrag verletzen und unzulässige personenbezogene Diagnostik erzeugen. | Private Inhalte werden nicht beobachtet, nicht erhoben und nicht bewertet; Pilotdaten bleiben ausschließlich modulaggregiert und nichtpersonal. | working |
+
+### Pilotstatus
+
+| Aufträge | Aggregation | Messgrößen | Personendaten | Persönliche Telemetrie | Ausgeschlossene Nutzungen | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 31 | module | actualTeachingMinutes<br>technicalStartupMinutes<br>supportDemand<br>practiceAndRevisionDemand<br>interruptions<br>resumedInLaterLesson<br>learningProductOutcome | prohibited | prohibited | grades<br>competence-profiles<br>individual-diagnostics | not-started |
+
+Pilotdaten bleiben ausschließlich modulaggregiert und nichtpersonal. Private lokale Reflexionen werden weder beobachtet noch erhoben oder bewertet; sie dürfen nicht durch Produkt-, Diagnose- oder Telemetrieproxies ersetzt werden.
+
+## Validierung und nächstes Gate
+
+Die maschinenlesbare Grundlage wird mit [validate_ium10.py](../scripts/validate_ium10.py), [validate_ium09.py](../scripts/validate_ium09.py) und dem Gesamteinstieg [validate_phase0.py](../scripts/validate_phase0.py) geprüft.
+
+IUM10 ist nach getrenntem Fach- und Engineeringreview **reviewfähig**. Die Auftraggeber-Zeitfreigabe bleibt ausstehend; Klasse 7 benötigt wegen des roten Zeiturteils einen gesonderten Entscheid. Phase 1 bleibt bis dahin ungeplant.
 ## Planungsannahmen und Zeitmodell
 
-- Die Lesehilfe 2026/2027 ist eine Orientierung und kein in Kraft gesetzter Bildungsplan. Sie erlaubt auf Seite 3 ausdrücklich eine Gewichtung nach Lerngruppe, schulischen Gegebenheiten und verfügbarer Unterrichtszeit.
-- Der Basiskurs Medienbildung und der Aufbaukurs Informatik bleiben im Übergang `enacted`. Ähnliche Records werden deshalb nicht stillschweigend zusammengezogen.
-- Die [amtliche FAQ zur Bildungsreform](https://km-baden-wuerttemberg.de/de/schule/schulartuebergreifend/faq-bildungsreform) weist für Informatik und Medienbildung am Gymnasium eine Wochenstunde je Jahrgang aus. Abgerufen am 29. Juli 2026.
-- Für die erste Belastungsprobe werden 36 nominelle Unterrichtseinheiten pro Schuljahr angesetzt. Das ist eine Projektannahme, keine amtliche Zahl.
-- Der realistische Referenzkorridor reserviert **30 Unterrichtseinheiten Kern** und **6 Unterrichtseinheiten Puffer** für Ausfall, Einstieg, Diagnosegelegenheiten, Sicherung und notwendige Wiederaufnahme.
-- Flexible Module werden nicht in den 30-Stunden-Kern hineingerechnet. Sie benötigen zusätzliche Zeit, eine begründete schulische Schwerpunktsetzung oder später eine geprüfte Austauschlogik ohne Verlust verbindlicher Abdeckung.
-- Hausaufgaben, Vertretungsstunden und fachfremde Projektzeit werden nicht als garantierte Unterrichtszeit eingerechnet.
+Die Projektannahme trennt 30 Unterrichtseinheiten Kern und 6 Unterrichtseinheiten Puffer von der datierten Kalenderrechnung. Die historischen eigenständigen Kandidatenkorridore 31-44, 35-50 und 54-78 bleiben als IUM09-Vergleichswerte erhalten; autoritativ für die aktuelle Zeitzuweisung ist das IUM10-Arbeitsmodell 30/34/38. Das Lernwerk ist weiterhin zeitlich nicht freigegeben.
 
 ## Kernfolge Klasse 5
 
-Die Reihenfolge beginnt mit sicherer Arbeitsfähigkeit. Danach können Recherche, Kommunikation, erster Systemblick und Algorithmen teilweise parallelisiert werden. Medienproduktion baut auf Arbeitsfähigkeit und Recherche auf; Medienreflexion folgt auf die Quellenarbeit.
-
-| Pos. | Modul | Zentrale Funktion | Voraussetzung | Kandidatenkorridor |
-|---:|---|---|---|---:|
-| 1 | `IUM-5-CORE-01` - Im Schulnetz sicher arbeitsfähig werden | Geräte-, Datei-, Zugangs- und Arbeitsroutinen | - | 5-7 |
-| 2 | `IUM-5-CORE-02` - Eine Suchfrage mit Belegen beantworten | Recherche, Auswahl, Beleg und Revision | `IUM-5-CORE-01` | 5-7 |
-| 3 | `IUM-5-CORE-03` - Digital verständlich, sicher und fair kommunizieren | Kommunikationsregeln und Schutzhandlungen | `IUM-5-CORE-01` | 4-6 |
-| 4 | `IUM-5-CORE-04` - Einen schulischen Datenweg sichtbar machen | stark gestützte Systemeinführung | `IUM-5-CORE-01` | 3-4 |
-| 5 | `IUM-5-CORE-05` - Präzise Abläufe ausführbar machen | erste Algorithmen, Laufprotokoll und Schleifenidee | `IUM-5-CORE-01` | 5-7 |
-| 6 | `IUM-5-CORE-06` - Ein Medienprodukt zielgerichtet gestalten | Produkt, Quelle, Zweck und Revision | `IUM-5-CORE-01`, `IUM-5-CORE-02` | 5-7 |
-| 7 | `IUM-5-CORE-07` - Mediennutzung und Werbung an Fällen untersuchen | Wirkung, Werbung und private Selbstreflexion | `IUM-5-CORE-02` | 4-6 |
-
-Planungsurteil: Die Summe von **31-44** Einheiten liegt am unteren Rand nahe am Referenzkorridor. Ein vollständiger Durchlauf ist nur mit belastbaren Kurzfassungen aller sieben Module möglich; die fünf verbleibenden Einheiten bis 36 bilden dann einen knappen, aber sichtbaren Puffer. Klasse 5 ist deshalb `amber`, nicht uneingeschränkt freigegeben.
+Die aktuelle Klasse-5-Matrix steht unter Jahresvarianten; Lernhandlungen und Produkte stehen unter Modulverträge.
 
 ## Kernfolge Klasse 6
 
-Klasse 6 hebt die in Klasse 5 aufgebauten Praktiken auf Mechanismen, Modelle und begründete Entscheidungen. Recherche und Akteursanalyse stehen früh, weil Datenfluss, Konfliktfälle und Medienproduktion darauf aufbauen.
-
-| Pos. | Modul | Zentrale Funktion | Voraussetzung | Kandidatenkorridor |
-|---:|---|---|---|---:|
-| 1 | `IUM-6-CORE-01` - Suchmaschinen, Akteure und KI-Ergebnisse prüfen | Suche, Akteure, Motive, KI und Evidenz | `IUM-5-CORE-02` | 6-8 |
-| 2 | `IUM-6-CORE-02` - Datenfluss und personalisierte Auswahl modellieren | Datenerhebung, Auswahlmechanismus und Selbstbestimmung | `IUM-5-CORE-07`, `IUM-6-CORE-01` | 5-7 |
-| 3 | `IUM-6-CORE-03` - Codierungen entwerfen und auf Umkehrbarkeit prüfen | Codieren, Decodieren und Darstellungswechsel | `IUM-5-CORE-05` | 4-6 |
-| 4 | `IUM-6-CORE-04` - Programme mit festen Schleifen lesen und verändern | Tracing, feste Schleife, Änderung und Test | `IUM-5-CORE-05` | 5-7 |
-| 5 | `IUM-6-CORE-05` - Netz- und Speicherentscheidungen mit Modellen begründen | Netz, Client-Server und Speichervergleich | `IUM-5-CORE-04` | 4-6 |
-| 6 | `IUM-6-CORE-06` - Konflikte in sozialen Räumen fallbezogen bearbeiten | Selbstdarstellung, Pro/Contra, Recht und Hilfswege | `IUM-5-CORE-03`, `IUM-5-CORE-07` | 5-7 |
-| 7 | `IUM-6-CORE-07` - Wirkungsabsicht, Rechte und Revision verbinden | Medienprodukt, Lizenz, Feedback und Revision | `IUM-5-CORE-06`, `IUM-6-CORE-01` | 6-9 |
-
-Planungsurteil: Die Summe von **35-50** Einheiten lässt am Minimum nur eine von 36 Einheiten als Puffer. Das unterschreitet die Referenzannahme um fünf Kernstunden und ist für einen robusten Jahresplan nicht ausreichend. Klasse 6 ist **zeitlich nicht freigegeben**, bis Integration, Kürzung oder zusätzliche Zeit fachlich geprüft sind.
+Die aktuelle Klasse-6-Matrix einschließlich aller drei 38-UE-Varianten steht unter Jahresvarianten.
 
 ## Kernfolge Klasse 7
 
-Die Folge verbindet drei Pfade: Daten/Codierung, Programmieren sowie Netze/Sicherheit. Der gesellschaftlich-mediale Pfad baut auf der Recherche- und Datenflussarbeit aus Klasse 6 auf. Innerhalb eines Pfades ist die Reihenfolge verbindlich; Pfade können im Schuljahr verzahnt werden.
-
-| Pos. | Modul | Zentrale Funktion | Voraussetzung | Kandidatenkorridor |
-|---:|---|---|---|---:|
-| 1 | `IUM-7-CORE-01` - Codierungen zwischen Zeichen, Zahlen und Bits entwerfen | Zeichen, Zahl, Bit und eigene Codierung | `IUM-6-CORE-03` | 6-9 |
-| 2 | `IUM-7-CORE-02` - Bilder als Daten modellieren und Ressourcenfolgen prüfen | Pixel, Datenmenge und Ressourcenbezug | `IUM-7-CORE-01` | 5-7 |
-| 3 | `IUM-7-CORE-03` - Kontrollfluss, Werte und Zustände tracen | Verzweigung, Schleife, Ausdruck, Wert und Typ | `IUM-6-CORE-04` | 6-8 |
-| 4 | `IUM-7-CORE-04` - Programme entwerfen, testen und debuggen | Implementation, Test, Fehlerhypothese und Revision | `IUM-7-CORE-03` | 7-10 |
-| 5 | `IUM-7-CORE-05` - Netze, Speicher und Geräteschutz modellieren | Datenweg, Speicher, Gerät und Schutzbedarf | `IUM-6-CORE-05` | 5-7 |
-| 6 | `IUM-7-CORE-06` - Verschlüsselung erklären und passend auswählen | Codierung versus Verschlüsselung, Modell und Auswahl | `IUM-7-CORE-01`, `IUM-7-CORE-05` | 4-6 |
-| 7 | `IUM-7-CORE-07` - Einfache Verschlüsselung angreifen und bewerten | Caesar/Substitution, Angriff und Sicherheitsurteil | `IUM-7-CORE-06` | 5-7 |
-| 8 | `IUM-7-CORE-08` - Daten, Akteure und Desinformation beurteilen | Behauptung, Beleg, Interesse, Einfluss und Revision | `IUM-6-CORE-01`, `IUM-6-CORE-02` | 6-9 |
-| 9 | `IUM-7-CORE-09` - Gamingmechanismen ohne Personendiagnose analysieren | Spielgestaltung, soziale Lage, Monetarisierung und private Reflexion | `IUM-6-CORE-02`, `IUM-7-CORE-08` | 4-6 |
-| 10 | `IUM-7-CORE-10` - Medienbilder analysieren und wirkungsbewusst verändern | Manipulation, Rollenbild, Wirkung, Rechte und Gegenprodukt | `IUM-6-CORE-07`, `IUM-7-CORE-08` | 6-9 |
-
-Planungsurteil: Die Summe von **54-78** Einheiten überschreitet bereits am Minimum das nominelle Ein-Stunden-Jahr um 18 und den 30-Stunden-Kernkorridor um 24 Einheiten. Eine vollständige Durchführung mit fachlicher Tiefe ist unter der Referenzannahme unmöglich. Klasse 7 ist **zeitlich nicht freigegeben**. Die Lücke darf nicht durch bloße Umbenennung von Modulen oder durch unbelegte Selbstlernzeit geschlossen werden.
+Die drei vollständigen Bedarfsszenarien 40/46/54 sind nicht verfügbar und bleiben red.
 
 ## Flexible Kandidaten
 
-Flexible Kandidaten bleiben Teil des freigegebenen Hybridmodells, werden aber nicht pro Jahrgang erzwungen. In Klasse 5 gibt es derzeit bewusst keinen flexiblen Kandidaten, weil schon der Kernkorridor knapp ist.
-
-| Modul | Art | Andockpunkt | Nutzen | Zusätzlicher Korridor |
-|---|---|---|---|---:|
-| `IUM-6-EXT-01` - KI-Antworten im Quellenlabor vertiefen | extension | `IUM-6-CORE-01` | Gegenbelege und Unsicherheit vertiefen | 3-4 |
-| `IUM-6-EXT-02` - Paketpost im Klassennetz vertiefen | extension | `IUM-6-CORE-05` | Störfälle und alternative Wege modellieren | 2-3 |
-| `IUM-6-TRANSFER-01` - Einen Speicherort für ein Schulprojekt entscheiden | transfer | `IUM-5-CORE-01`, `IUM-6-CORE-05` | Systemmodell auf eine reale Schulentscheidung übertragen | 2-4 |
-| `IUM-6-PROJECT-01` - Eine offene Informationskampagne gestalten | project | `IUM-6-CORE-01`, `IUM-6-CORE-07` | Recherche, Rechte, Wirkung und Revision integrieren | 8-12 |
-| `IUM-7-EXT-01` - Codewortgrenzen formal untersuchen | extension | `IUM-7-CORE-01` | Präfixfreiheit und formale Codierung vertiefen | 3-5 |
-| `IUM-7-TRANSFER-01` - Einen sicheren Kommunikationsweg begründen | transfer | `IUM-6-CORE-06`, `IUM-7-CORE-05`, `IUM-7-CORE-06` | Technik, Schutzbedarf und soziale Lage verbinden | 3-5 |
-| `IUM-7-PROJECT-01` - Täuschung sichtbar machen und verantwortbar redesignen | project | `IUM-7-CORE-08`, `IUM-7-CORE-10` | Desinformation, Gestaltung, Rechte und Wirkung integrieren | 8-12 |
-
-Ein flexibles Modul darf nur eingesetzt werden, wenn seine Voraussetzungen tatsächlich bearbeitet wurden. Es ist kein Ersatz für einen fehlenden Kernbaustein, solange keine recordgenaue Austauschprüfung vorliegt.
+Flexible Vertiefungs-, Transfer- und Projektmodule bleiben im Modulbestand sichtbar und ersetzen keine Kernabdeckung.
 
 ## Begründung der Abhängigkeiten
 
-| Progressionskette | Begründung |
-|---|---|
-| Arbeitsfähigkeit -> Recherche -> Medienproduktion | Quellen, Dateien und Export müssen beherrscht werden, bevor ein Produkt nachvollziehbar belegt und revidiert werden kann. |
-| präziser Ablauf -> feste Schleife -> Kontrollfluss -> Implementation | Ausführen und Darstellen gehen dem Tracing voraus; Tracing und Zustandsmodell gehen eigenständigem Implementieren, Testen und Debuggen voraus. |
-| schulischer Datenweg -> Netz/Client-Server/Speicher -> Schutzmodell -> Verschlüsselung/Angriff | Klasse 5 benennt Rollen stark gestützt, Klasse 6 erklärt Systembeziehungen, Klasse 7 verbindet Datenweg und Schutzbedarf mit Verfahren und Sicherheitsurteil. |
-| Mediennutzung/Werbung -> Datenfluss/Personalisierung -> Akteure/Desinformation/Gaming | Beobachtung und private Reflexion werden erst danach zu Mechanismus-, Interessen- und Evidenzanalysen vertieft. |
-| einfaches Medienprodukt -> Wirkungsabsicht/Rechte/Revision -> Manipulation/Gegenprodukt | Technische Produktion wird schrittweise um Zielgruppe, Lizenz, Feedback, Wirkungsveränderung und ethische Begründung erweitert. |
+Voraussetzungen, Wiederaufnahmen und Integrationen werden durch die Modul- und Integrationsverträge maschinell validiert.
 
-Jahrgangsrücksprünge sind im Validator verboten. Kernmodule dürfen nicht von flexiblen Modulen abhängen; flexible Kandidaten dürfen ausschließlich an Kernmodule andocken.
+## Jahreskorridore und Puffer
+
+Historische lessonRange-Korridore und die aktuelle Jahreszuweisung bleiben getrennt; 30 Kern- plus 6 Puffer-UE sind eine Projektannahme, keine amtliche Norm.
+
+## Analoge Materialien
+
+Analoge Materialien werden nur eingesetzt, wenn das Medium aus der Lernhandlung didaktisch begründet ist; es gibt keine zwanghafte Doppelstruktur.
+
+## Erhöhter Prüfbedarf
+
+Unpilotierte Integrationen, schulabhängige Technik, Nullzeitentscheidungen, private Grenzen und der Klasse-7-Konflikt bleiben im Review sichtbar.
+
+## Empfehlung für den ersten Goldstandard-Pilot
+
+Pilotaufträge bleiben modulaggregiert und nichtpersonal; die Zeitfreigabe folgt nicht aus einer Einzelmessung.
+
+## Offene Entscheidungen und Risiken
+
+Die Auftraggeber-Zeitfreigabe und der Klasse-7-Entscheid bleiben offen; es erfolgt keine Phase-1-Implementierungsplanung.
 
 ## Curriculare Abdeckung
 
-`coverage-plan.json` enthält 171 Einträge:
+Die folgende IUM09-Sicht ist ein historischer Nachweis. IUM10 weist die aktuelle semantische Coverage separat mit 166 covered / 5 partial aus. Covered verlangt, dass Operator und Gegenstand in Lernhandlung und Produktspur sichtbar werden.
 
 ### Ausgangsbilanz vor IUM09
 
 | Quellengewicht | Records | Status vor IUM09 |
-|---|---:|---|
+| --- | ---: | --- |
 | `enacted` | 76 | 45 `covered`, 31 `partial` |
 | `orientation` | 95 | 66 `covered`, 29 `partial` |
 | Gesamt | 171 | 111 `covered`, 60 `partial`, 0 `deferred` |
 
-Diese festgeschriebene Ausgangsbilanz ist die Bezugsgröße des Nacharbeitsledgers und keine aktuelle Statusangabe.
-
 ### Auditierte Endbilanz nach IUM09
 
 | Quellengewicht | Records | Auditierter Endstand |
-|---|---:|---|
+| --- | ---: | --- |
 | `enacted` | 76 | 74 `covered`, 2 `partial` |
 | `orientation` | 95 | 90 `covered`, 5 `partial` |
 | Gesamt | 171 | 164 `covered`, 7 `partial`, 0 `deferred` |
 
-Von den 60 Ausgangslücken wurden 53 mit einem recordgenauen Evidenzvertrag geschlossen; 7 bleiben begründet `partial`. Verbleibend sind `BMB16-GYM-IK-GM-003`, `BMB16-GYM-PK-RK-003`, `LH26-E-DP-003` sowie `LH26-E-PROG-001` bis `LH26-E-PROG-004`.
-
-`covered` bedeutet hier ausschließlich, dass Operator und Gegenstand in einer verbindlichen Lernhandlung ausgeführt und in einer passenden Produktspur sichtbar werden. `partial` bedeutet nicht „unzugeordnet“: Der Record besitzt einen Kern-Andockpunkt, aber der explizite Operator-Produkt-Nachweis ist noch unvollständig. Das Nacharbeitsledger bewahrt für alle 60 Ausgangsrecords den unveränderten Vorherbefund, die Auditentscheidung und die Zeit- und Graphfolgen.
-
-Jeder Eintrag enthält den exakten Anforderungstext, einen ausgewählten Evidenz-Kernkandidaten und ein recordgenaues `matchRationale` mit dessen unveränderter Lernhandlung und Produktbeschreibung. Der Validator erzwingt diese Nachweiskette und verhindert fachfremde oder veraltete Verweise. Er entscheidet jedoch keine natürlichsprachliche Fachsemantik; die Einstufung `covered` oder `partial` bleibt Ergebnis des dokumentierten manuellen Fachaudits.
-
 ### Ergebnis nach Ursachenklasse
 
 | Ursachenklasse | Ausgangslücken | Geschlossen | Verbleibend |
-|---|---:|---:|---:|
+| --- | ---: | ---: | ---: |
 | `module-detail` | 39 | 38 | 1 |
 | `private-local` | 8 | 6 | 2 |
 | `roadmap-level` | 4 | 0 | 4 |
@@ -138,10 +312,10 @@ Jeder Eintrag enthält den exakten Anforderungstext, einen ausgewählten Evidenz
 
 ### IUM10-Zeitübergabe
 
-Alle 60 `timeImpact`-Einträge sind nach dem Ausgangsmodul gruppiert. `review-required` verlangt einen recordgenauen Zeitreview im unveränderten Modul; `roadmap-dependent` verlangt einen jahrgangs- oder roadmapweiten Sequenznachweis.
+Diese Tabelle bewahrt die historische, recordgenaue IUM09-Übergabe. Die auditierten IUM10-Entscheidungen stehen in der aktuellen 60/60-Zeitreviewtabelle.
 
 | Modul | Record-ID | `timeImpact.level` | Begründung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `IUM-5-CORE-01` | `BMB16-GYM-IK-GM-001` | `review-required` | IUM10 prüft den Zeitbedarf für Geräteerkundung, Regelanwendung und die beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritte innerhalb des bestehenden Stundenkorridors. |
 | `IUM-5-CORE-01` | `BMB16-GYM-IK-GM-002` | `review-required` | IUM10 prüft den Zeitbedarf und die Reihenfolge für lokale Anmeldung, Orientierung und Betriebssystemarbeit unter der jeweils vor Ort verfügbaren Schulkonfiguration. |
 | `IUM-5-CORE-01` | `BMB16-GYM-IK-GM-003` | `review-required` | IUM10 prüft Zeitfolge und Zeitbedarf einer fachlich zusammenhängenden Mehrwerkzeug-Handlung außerhalb der bereits dichten Geräte-, Betriebssystem- und Regelhandlungen dieses Moduls. |
@@ -202,83 +376,3 @@ Alle 60 `timeImpact`-Einträge sind nach dem Ausgangsmodul gruppiert. `review-re
 | `IUM-7-CORE-08` | `LH26-E-PROG-003` | `roadmap-dependent` | Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft. |
 | `IUM-7-CORE-08` | `LH26-E-PROG-004` | `roadmap-dependent` | Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft. |
 | `IUM-7-CORE-10` | `LH26-E-DP-014` | `review-required` | Private Reflexion, nichtpersonale Gegenperspektive und ihre klare Trennung verdichten die bestehende Medienanalyse; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen. |
-
-Die vier Progressionsrecords `LH26-E-PROG-001`, `LH26-E-PROG-002`, `LH26-E-PROG-003` und `LH26-E-PROG-004` bleiben ausdrücklich `partial`, ohne Einzelmodulvertrag und mit `roadmap-dependent` als verpflichtende IUM10-Prüfaufträge.
-
-Aus der Endbilanz von 164 `covered` und 7 `partial` folgt **weder Vollabdeckung noch eine bessere Jahresfreigabe**. Modulgraph, Abhängigkeiten, Stundenkorridore sowie die Urteile `amber` für Klasse 5 und `red` für die Klassen 6 und 7 bleiben unverändert. Die semantische und die zeitliche Lücke bleiben getrennt sichtbar; IUM10 muss alle 60 Zeitfolgen prüfen.
-
-Quellenüberlappungen bleiben über `curriculum/crosswalk.json` nachvollziehbar. Ein Record wird nicht gelöscht, nur weil ein anderer Record einen ähnlichen Handlungskern besitzt.
-
-## Jahreskorridore und Puffer
-
-| Klasse | Kernkandidaten | Kandidatensumme | Referenz: Kern + Puffer | Abweichung zum 30er-Kern | Urteil |
-|---:|---:|---:|---:|---:|---|
-| 5 | 7 | 31-44 | 30 + 6 | mindestens +1 | `amber`: nur am unteren Rand annähernd belastbar |
-| 6 | 7 | 35-50 | 30 + 6 | mindestens +5 | `red`: zeitlich nicht freigegeben |
-| 7 | 10 | 54-78 | 30 + 6 | mindestens +24 | `red`: zeitlich nicht freigegeben |
-
-Vor einer Phase-1-Modulspezifikation sind vier Arbeiten nötig:
-
-1. Modulübergänge auf gemeinsame Aktivierung, Übung und Sicherung prüfen, damit Wiederaufnahme nicht zu doppeltem Stundenbedarf führt.
-2. Für Klasse 6 besonders `IUM-6-CORE-01`/`02` und `IUM-6-CORE-06`/`07` auf fachlich tragfähige Integration prüfen.
-3. Für Klasse 7 die Pfade Daten/Codierung, Programmieren, Sicherheit und Medienreflexion gegen 30 Kernstunden neu schneiden. Kein Pfad darf allein durch Überschriftenkürzung als abgedeckt gelten.
-4. In einem Goldstandard-Pilot reale Lernzeit, Unterbrechungen, Unterstützungsbedarf und Sicherungszeit anonym auf Modulebene protokollieren.
-
-Mögliche schulische Zusatzstunden oder fächerverbindende Projekte sind Chancen, aber keine Basisannahme. Eine Roadmapvariante mit zusätzlicher Zeit darf erst nach lokaler Entscheidung ausgewiesen werden.
-
-## Analoge Materialien
-
-| Modul | Analoges Element | Eigenständiger didaktischer Mehrwert | Digitale Rückbindung |
-|---|---|---|---|
-| `IUM-5-CORE-04` | Rollen- und Datenwegkarten | trennt Gerät, Anmeldung, lokales Netz und Ablage körperlich sichtbar; entlastet die erste Begriffsbildung | Folge in der digitalen Schulumgebung rekonstruieren und als unvollständiges Modell markieren |
-| `IUM-6-EXT-02` | Störfallkarten für das Paketnetz | zwingt zu lokalen Weiterleitungsentscheidungen, ohne den Lösungsweg vorzugeben | Störfall digital reproduzieren und alternative Pfade vergleichen |
-| `IUM-7-CORE-07` | Caesar-Scheibe beziehungsweise manuelles Angriffsprotokoll | macht Schlüsselraum, Regelmäßigkeit und Angriffshandlung ohne Blackbox greifbar | Angriff anschließend in der digitalen Kryptografieumgebung wiederholen und skalieren |
-
-Es gibt keine analoge Doppelstruktur zu jedem Modul. Ausdrucke entstehen nur, wenn Materialität, Verteilung, Körperhandlung oder gemeinsame Sichtbarkeit einen eigenen Lernbeitrag leisten.
-
-## Erhöhter Prüfbedarf
-
-| Module | Prüfbedarf | Release-Regel |
-|---|---|---|
-| `IUM-5-CORE-03`, `IUM-6-CORE-06` | verletzende Kommunikation, Hilfs- und Meldewege | nur fiktive Fälle; keine Offenlegungspflicht; aktuelle schulische Hilfswege prüfen |
-| `IUM-5-CORE-07`, `IUM-7-CORE-09` | eigene Medien- beziehungsweise Spielnutzung | private Reflexion wird nicht erhoben, gespeichert oder bewertet |
-| `IUM-6-CORE-01`, `IUM-7-CORE-08` | KI-Ergebnisse, Suche, Desinformation und aktuelle Beispiele | Quellen und Beispiele vor jedem Release auf Aktualität, Herkunft und Gegenbelege prüfen |
-| `IUM-6-CORE-02`, `IUM-7-CORE-05` | Datenerhebung, Personalisierung, Geräte- und Zugriffsschutz | keine realen Konten oder Nutzungsprofile; Bedrohungsmodelle altersangemessen begrenzen |
-| `IUM-6-CORE-07`, `IUM-7-CORE-10`, `IUM-6-PROJECT-01`, `IUM-7-PROJECT-01` | Urheberrecht, Lizenzen, Persönlichkeitsrechte und manipulative Medien | Rechts- und Lizenzhinweise mit Standdatum; nur geklärte Assets; keine täuschende Veröffentlichung |
-| `IUM-7-CORE-06`, `IUM-7-CORE-07`, `IUM-7-TRANSFER-01` | Sicherheitsbegriffe und Kryptografie | Modellgrenzen ausdrücklich machen; keine Scheinsicherheit oder operative Angriffsanleitung gegen reale Systeme |
-
-## Empfehlung für den ersten Goldstandard-Pilot
-
-Empfohlen wird `IUM-5-CORE-05` - **Präzise Abläufe ausführbar machen**.
-
-Auswahlkriterien:
-
-- hohe Progressionswirkung: Voraussetzung für Programmieren in Klasse 6 und 7;
-- genuine digitale Funktion: Schritt, Position, Zustand und Wiederholung können ausführbar gekoppelt werden;
-- sichtbares Lernprodukt: Algorithmus, Vorhersage, Laufprotokoll, Reparatur und Schleifenbegründung;
-- niedriger Datenschutz-, Rechte- und Aktualitätsdruck;
-- mehrere Repräsentationen und gestuftes Ausblenden sind ohne künstliche Medienverdopplung möglich;
-- der Kandidatenkorridor von 5-7 Einheiten ist klein genug, um den 30-Stunden-Kern real zu testen;
-- Fehlvorstellungen und Unterstützungsbedarf lassen sich an anonymisierten Aufgabenereignissen beziehungsweise Lehrkraftbeobachtungen untersuchen, ohne Personenprofil.
-
-Der Pilot soll die Modulgrammatik, Accessibility, Offlinefähigkeit, lokale Speicherung, Exportierbarkeit und reale Lernzeit prüfen. Diese Empfehlung ist ausdrücklich **keine Phase-2-Implementierungsplanung** und legt weder Plattformarchitektur noch Produktionsmeilensteine fest.
-
-## Offene Entscheidungen und Risiken
-
-1. **Zeitmodell:** Klasse 6 und besonders Klasse 7 passen noch nicht in den Referenzkorridor. Vor einer Implementierungsfreigabe ist ein neuer, recordgenau geprüfter Zuschnitt nötig.
-2. **Quellenstand:** Die Lesehilfe ist `orientation`; der angekündigte Fachplan kann Wortlaut, Schwerpunkt und Verteilung verändern. Ein Source-Refresh-Gate bleibt verpflichtend.
-3. **Gleichzeitige Geltung:** Für das Übergangsjahr werden Lesehilfe und bestehende Bildungspläne getrennt abgedeckt. Ob und wann einzelne alte Anforderungen entfallen, darf nur amtlich entschieden werden.
-4. **Klassen 5/6:** Die konkrete Aufteilung des gemeinsamen Lesehilfebands bleibt eine didaktische Arbeitsentscheidung.
-5. **Flexible Module:** Im Ein-Wochenstunden-Modell ist derzeit kein verlässlicher Zusatzkorridor vorhanden. Austausch- oder Integrationsvarianten brauchen einen eigenen Coverage-Nachweis.
-6. **Beurteilungsinstrumentarium:** `assessmentWorkingNotes` bleibt reduzierbar. Private Reflexion, automatische Punkte und personenbezogene Kompetenzprofile sind ausgeschlossen.
-7. **Goldstandard-Pilot:** `IUM-5-CORE-05` ist eine begründete Empfehlung, aber noch keine Nutzerfreigabe zur Implementierung.
-8. **Semantische Lücken:** 7 Records sind curricular verortet, aber nach IUM09 weiterhin nicht vollständig durch Lernhandlung und Produkt eingelöst. Sie bleiben bis zur ausgewiesenen Folgeentscheidung sichtbar `partial`.
-9. **Vollständigkeitsbehauptung:** 171/171 zugeordnete Records dürfen weder als 171/171 semantisch abgedeckte noch als zeitlich gesicherte Unterrichtsabdeckung kommuniziert werden.
-
-## Freigabestatus
-
-- Fachlicher Kandidatengraph: reviewfähig.
-- Coverage-Audit: Ausgangsbilanz 111 `covered`/60 `partial`; auditierte Endbilanz 164 `covered`/7 `partial`/0 `deferred`.
-- Jahresroadmap Klasse 5: `amber`.
-- Jahresroadmap Klassen 6 und 7: `red`.
-- Phase-1-Modulspezifikation: für den Goldstandard-Pilot nach Task-15-Abschlussreview und Nutzerentscheidung; die sieben verbleibenden Lücken und der vollständige IUM10-Zeitreview verhindern weiterhin eine Vollabdeckungs- oder Jahresfreigabe.
