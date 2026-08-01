@@ -1415,7 +1415,7 @@ git add docs/superpowers/plans/2026-08-01-ium10-grade7-working-40-implementation
 git commit -m "docs: complete grade 7 working 40 plan"
 ```
 
-- [ ] **Step 6: Push und Draft-PR aktualisieren**
+- [x] **Step 6: Push und Draft-PR aktualisieren**
 
 ```powershell
 git push origin feat/ium-phase0
@@ -1425,7 +1425,7 @@ gh pr view 1 --repo H4R7W16/ium-lernwerk --json url,isDraft,headRefName,headRefO
 
 Der PR-Text nennt Schema 3, `GRADE-7-WORKING-40`, `conditional / amber / covered / not-started / partial`, 36 nichtpersonale Pilotaufträge, fail-closed-Fallback, unveränderte Baseline-Fingerprints, tatsächliche Testzahl und beide Reviewurteile.
 
-- [ ] **Step 7: Remote-Synchronität beweisen**
+- [x] **Step 7: Remote-Synchronität beweisen**
 
 ```powershell
 git fetch --prune
@@ -1437,7 +1437,7 @@ git status --short --branch
 
 Expected: lokaler Head, Remote-Head und PR-Head identisch; Branch sauber; PR bleibt Draft.
 
-- [ ] **Step 8: Nutzerhandoff**
+- [x] **Step 8: Nutzerhandoff**
 
 Berichten:
 
@@ -1474,5 +1474,5 @@ Danach ein neues schriftliches Auftraggebergate einholen. Keine Pilotdaten oder 
 - [x] Alt-ID, Altpfad und Boolean-Verfügbarkeitsfeld fehlen in allen Produktdateien.
 - [x] Getrenntes Fach- und Engineeringreview ohne offenen Befund.
 - [x] Vollständige Testsuite, IUM10, IUM09, Phase 0, UTF-8, JSON, AST und Diff-Gate grün.
-- [ ] Branch, Remote und Draft-PR zeigen denselben finalen Commit.
+- [x] Branch, Remote und Draft-PR zeigen denselben finalen Commit.
 - [x] Kein reales Pilotdatum, keine Plattform, keine Diagnostik und keine Phase 1 implementiert.
