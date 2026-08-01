@@ -356,6 +356,64 @@ class IUM11CockpitParityTests(unittest.TestCase):
             "parsePackage", json.dumps(top_level, ensure_ascii=False)
         ))
 
+    def test_reordered_nested_object_keys_are_equal_across_runtimes(self):
+        package = copy.deepcopy(self.examples["synthetic-cluster-pass.json"])
+        package["context"] = {
+            key: package["context"][key]
+            for key in reversed(list(package["context"]))
+        }
+        module = package["learningQualityEvidence"]["moduleResults"][0]
+        module["criteria"][0] = {
+            key: module["criteria"][0][key]
+            for key in reversed(list(module["criteria"][0]))
+        }
+        package["learningQualityEvidence"]["moduleResults"][0] = {
+            key: module[key]
+            for key in reversed(list(module))
+        }
+        package["learnerPulseEvidence"] = pulse(4, 12)
+        package["developmentWarnings"] = [
+            {
+                "status": "open",
+                "itemId": item_id,
+                "id": f"WARN-{item_id}",
+            }
+            for item_id in ("clarity", "cognitiveEngagement", "supportUsefulness")
+        ]
+        package["result"] = "fail"
+
+        python_result = validate_evidence_package(
+            package, self.protocol, self.time_model
+        )
+        validation = run_node(
+            NODE_CALL,
+            {
+                "operation": "validateEvidencePackage",
+                "args": [package],
+                "withProtocol": True,
+            },
+        )
+        self.assertEqual(validation.returncode, 0, validation.stderr)
+        self.assertEqual(json.loads(validation.stdout), python_result)
+        serialized = json.dumps(package, ensure_ascii=False)
+        self.assertEqual(call_javascript("parsePackage", serialized), python_result)
+        created = call_javascript(
+            "createEvidencePackage", package["scopeId"], form_value(package)
+        )
+        self.assertEqual(created["result"], "fail")
+        self.assertEqual(
+            [warning["id"] for warning in created["developmentWarnings"]],
+            [
+                "WARN-clarity", "WARN-cognitiveEngagement",
+                "WARN-supportUsefulness",
+            ],
+        )
+
+    def test_array_order_remains_part_of_the_cross_runtime_contract(self):
+        package = copy.deepcopy(self.examples["synthetic-cluster-pass.json"])
+        package["learningQualityEvidence"]["moduleResults"].reverse()
+        self.assert_python_and_javascript_reject(package)
+
     def test_annual_derivation_revalidates_imported_cluster_packages(self):
         cases = []
         manipulated = copy.deepcopy(self.positive_clusters)
