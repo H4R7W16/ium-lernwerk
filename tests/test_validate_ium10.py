@@ -1117,7 +1117,7 @@ TASK22_INTEGRATION_CONTRACT_SHA256 = (
     "31821cae30317da24f89f0c72e3ea77904faeb49e13ad4b3989f9b1b298a2644"
 )
 TASK24_SEQUENCE_EVIDENCE_SHA256 = (
-    "8fd467496196b051027dc4866bf62a7b176828900bfd41bdd1298e06543d0b14"
+    "b13b8d2c05af98c0ddbec7f53be04837b19c7c9516c52f8314937f045685b253"
 )
 PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256 = (
     "6e78f073474c34b7ac89ada55cd4ab22fa021f0279bed8619091335aa2a0ef41"
@@ -15109,6 +15109,47 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             judgements[7]["availabilityStatus"],
             "conditional",
         )
+
+    def test_grade_7_partial_sequence_rationales_bind_to_operational_gates(self):
+        grade_7 = next(
+            judgement
+            for judgement in self.time_model["gradeJudgements"]
+            if judgement["grade"] == 7
+        )
+        self.assertEqual(grade_7["sequenceEvidenceStatus"], "covered")
+        relevant_evidence = [
+            evidence
+            for evidence in self.time_model["sequenceEvidence"]
+            if 7 in evidence["grades"]
+            and evidence["fachAuditStatus"] == "passed"
+            and evidence["coverageDecision"] == "remain-partial"
+        ]
+        self.assertEqual(
+            {evidence["id"] for evidence in relevant_evidence},
+            {"SE-LH26-E-PROG-003", "SE-LH26-E-PROG-004"},
+        )
+        required_fragments = (
+            "GRADE-7-WORKING-40",
+            "conditional",
+            "ungepilotiert",
+            "Verfügbarkeitsgates",
+            "nachgelagerte semantische Coverage-Freigabe",
+        )
+        open_sequence_patterns = (
+            r"\bausstehend(?:er|en)?\s+Sequenznachweis\b",
+            r"\bbis\s+zum\s+vollständigen\s+Sequenznachweis\b",
+            r"\b(?:offen(?:er|en)?|fehlend(?:er|en)?|unvollständig(?:er|en)?)"
+            r"\s+Sequenznachweis\b",
+            r"\bSequenznachweis(?:es)?\b.{0,50}\b(?:ausstehend|offen|"
+            r"fehlend|unvollständig|nicht erbracht|nicht abgeschlossen)\b",
+        )
+        for evidence in relevant_evidence:
+            rationale = evidence["coverageConsequence"]["rationale"]
+            with self.subTest(sequence_evidence=evidence["id"]):
+                for fragment in required_fragments:
+                    self.assertIn(fragment, rationale)
+                for pattern in open_sequence_patterns:
+                    self.assertNotRegex(rationale, pattern)
 
     def test_readme_time_summary_is_derived_from_annual_variants(self):
         rows = self._table(self.readme, "### Zeitmodell in Zahlen")

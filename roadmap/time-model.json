@@ -7783,7 +7783,7 @@
       "coverageConsequence": {
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap",
-        "rationale": "Trotz bestandenem Fachaudit bleibt die roadmapweite semantische Coverage partial, bis der ausstehende Sequenznachweis vollständig geprüft ist."
+        "rationale": "Der fachliche Sequenznachweis ist covered. Die roadmapweite semantische Coverage bleibt partial, weil GRADE-7-WORKING-40 noch conditional und ungepilotiert ist: Die fünf Verfügbarkeitsgates und die nachgelagerte semantische Coverage-Freigabe stehen noch aus."
       },
       "evidenceBoundary": {
         "privateEvidence": "excluded",
@@ -8026,7 +8026,7 @@
       "coverageConsequence": {
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap",
-        "rationale": "Die Perspektivenverknüpfung ist fachlich covered; die semantische Coverage bleibt bis zum vollständigen Sequenznachweis partial."
+        "rationale": "Die fachlich covered Perspektivenverknüpfung schließt den Sequenznachweis. Die semantische Coverage bleibt partial, weil GRADE-7-WORKING-40 noch conditional und ungepilotiert ist: Die fünf Verfügbarkeitsgates und die nachgelagerte semantische Coverage-Freigabe stehen noch aus."
       },
       "evidenceBoundary": {
         "privateEvidence": "excluded",
