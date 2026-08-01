@@ -10,6 +10,7 @@ from scripts.validate_ium10 import IUM10ValidationError
 from scripts.validate_ium11 import (
     IUM11ValidationError,
     canonical_sha256,
+    derive_cluster_result,
     evaluate_learner_pulse,
     main,
     validate_evidence_package,
@@ -366,3 +367,143 @@ class IUM11EvidencePackageTests(unittest.TestCase):
         payload["learnerPulseEvidence"]["items"][0]["agree"] = -1
         with self.assertRaises(IUM11ValidationError):
             validate_evidence_package(payload, self.protocol, self.time_model)
+
+
+class IUM11ClusterResultTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(root / "pilot/pilot-protocol.json"), cls.time_model
+        )
+
+    def derive(self, payload):
+        cluster = self.protocol["clustersById"][payload["scopeId"]]
+        return derive_cluster_result(payload, cluster, self.protocol)
+
+    def test_positive_cluster_requires_every_gate(self):
+        expected_module_counts = {
+            "CLUSTER-7-DATA-CODING": 2,
+            "CLUSTER-7-PROGRAMMING": 2,
+            "CLUSTER-7-NET-SECURITY": 3,
+            "CLUSTER-7-DATA-MEDIA-SOCIETY": 3,
+        }
+        for scope_id, module_count in expected_module_counts.items():
+            payload = valid_cluster_package(scope_id=scope_id)
+            with self.subTest(scope_id=scope_id):
+                result = self.derive(payload)
+                self.assertEqual(result["result"], "pass")
+                self.assertEqual(
+                    [item["result"] for item in result["moduleResults"]],
+                    ["pass"] * module_count,
+                )
+                self.assertEqual(result["integrationResult"]["result"], "pass")
+                self.assertEqual(result["developmentWarnings"], [])
+                self.assertEqual(result["fallbackDeltaUnits"], 0)
+
+    def test_mixed_or_weak_must_criterion_fails(self):
+        for scope_id in self.protocol["clustersById"]:
+            baseline = valid_cluster_package(scope_id=scope_id)
+            for module_index, module in enumerate(baseline["learningQualityEvidence"]["moduleResults"]):
+                for criterion_index, _ in enumerate(module["criteria"]):
+                    for band in ("mixed", "weak"):
+                        payload = valid_cluster_package(scope_id=scope_id)
+                        payload["learningQualityEvidence"]["moduleResults"][module_index]["criteria"][criterion_index]["band"] = band
+                        with self.subTest(scope_id=scope_id, module_index=module_index, criterion_index=criterion_index, band=band):
+                            result = self.derive(payload)
+                            self.assertEqual(result["result"], "fail")
+                            self.assertEqual(result["moduleResults"][module_index]["result"], "fail")
+
+    def test_each_cluster_applies_non_compensating_budget_and_fallback_delta(self):
+        expected_fallback_deltas = {
+            "CLUSTER-7-DATA-CODING": 3,
+            "CLUSTER-7-PROGRAMMING": 2,
+            "CLUSTER-7-NET-SECURITY": 3,
+            "CLUSTER-7-DATA-MEDIA-SOCIETY": 6,
+        }
+        for scope_id, fallback_delta in expected_fallback_deltas.items():
+            payload = valid_cluster_package(scope_id=scope_id)
+            payload["deliveryTimeEvidence"]["actualUnits"] += 1
+            with self.subTest(scope_id=scope_id):
+                result = self.derive(payload)
+                self.assertEqual(result["result"], "fail")
+                self.assertEqual(result["fallbackDeltaUnits"], fallback_delta)
+
+    def test_each_missing_phase_fails_even_if_claimed_complete(self):
+        for scope_id in self.protocol["clustersById"]:
+            payload = valid_cluster_package(scope_id=scope_id)
+            expected_phase_ids = payload["deliveryTimeEvidence"]["completedPhaseIds"]
+            for missing_phase_id in expected_phase_ids:
+                changed = valid_cluster_package(scope_id=scope_id)
+                changed["deliveryTimeEvidence"]["completedPhaseIds"] = [
+                    phase_id for phase_id in expected_phase_ids if phase_id != missing_phase_id
+                ]
+                with self.subTest(scope_id=scope_id, missing_phase_id=missing_phase_id):
+                    self.assertEqual(self.derive(changed)["result"], "fail")
+
+    def test_integration_handoff_and_technical_gates_fail(self):
+        mutations = (
+            ("handoff product absent", lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].update(handoffProductPresent=False)),
+            ("handoff not reused", lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].update(handoffReused=False)),
+            ("technical function failed", lambda payload: payload["technicalPrivacyEvidence"].update(technicalFunction="fail")),
+            ("non-equivalent fallback", lambda payload: payload["deliveryTimeEvidence"].update(fallbackActivated=True) or payload["technicalPrivacyEvidence"].update(fallbackEquivalentLearningFunction=False)),
+            ("privacy gate failed", lambda payload: payload["technicalPrivacyEvidence"].update(privacyGate="fail")),
+        )
+        for scope_id in self.protocol["clustersById"]:
+            for label, mutate in mutations:
+                payload = valid_cluster_package(scope_id=scope_id)
+                mutate(payload)
+                with self.subTest(scope_id=scope_id, label=label):
+                    result = self.derive(payload)
+                    self.assertEqual(result["result"], "fail")
+                    self.assertEqual(result["integrationResult"]["result"], "fail" if "handoff" in label else "pass")
+
+    def test_mixed_or_weak_integration_criterion_fails(self):
+        for scope_id in self.protocol["clustersById"]:
+            for criterion_index in (0, 1):
+                for band in ("mixed", "weak"):
+                    payload = valid_cluster_package(scope_id=scope_id)
+                    payload["learningQualityEvidence"]["integrationResults"][0]["criteria"][criterion_index]["band"] = band
+                    with self.subTest(scope_id=scope_id, criterion_index=criterion_index, band=band):
+                        result = self.derive(payload)
+                        self.assertEqual(result["result"], "fail")
+                        self.assertEqual(result["integrationResult"]["result"], "fail")
+
+    def test_equivalent_activated_fallback_remains_positive_within_budget(self):
+        for scope_id in self.protocol["clustersById"]:
+            payload = valid_cluster_package(scope_id=scope_id)
+            payload["deliveryTimeEvidence"]["fallbackActivated"] = True
+            payload["technicalPrivacyEvidence"]["fallbackEquivalentLearningFunction"] = True
+            with self.subTest(scope_id=scope_id):
+                self.assertEqual(self.derive(payload)["result"], "pass")
+
+    def test_interpretability_loss_has_priority_over_other_failures(self):
+        payload = valid_cluster_package()
+        payload["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        payload["deliveryTimeEvidence"]["actualUnits"] += 1
+
+        result = self.derive(payload)
+
+        self.assertEqual(result["result"], "not-evaluable")
+        self.assertEqual(result["fallbackDeltaUnits"], 0)
+
+    def test_learner_warning_boundaries_are_derived_from_valid_responses(self):
+        cases = (
+            (3, 10, "pass", []),
+            (4, 12, "fail", ["WARN-clarity", "WARN-cognitiveEngagement", "WARN-supportUsefulness"]),
+            (4, 13, "pass", []),
+        )
+        for scope_id in self.protocol["clustersById"]:
+            for disagree, valid, expected_result, expected_warning_ids in cases:
+                payload = valid_cluster_package(scope_id=scope_id)
+                payload["learnerPulseEvidence"] = reported_pulse(
+                    agree=valid - disagree, partly=0, disagree=disagree, no_answer=0
+                )
+                with self.subTest(scope_id=scope_id, disagree=disagree, valid=valid):
+                    result = self.derive(payload)
+                    self.assertEqual(result["result"], expected_result)
+                    self.assertEqual(
+                        [warning["id"] for warning in result["developmentWarnings"]],
+                        expected_warning_ids,
+                    )

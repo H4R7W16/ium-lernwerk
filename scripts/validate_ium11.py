@@ -314,6 +314,99 @@ def evaluate_learner_pulse(payload: dict, protocol: dict) -> dict:
     return {"status": "reported", "warnings": warnings}
 
 
+def _derive_module_results(payload: dict, cluster: dict) -> list[dict]:
+    evidence_by_module_id = {
+        item["moduleId"]
+        for item in payload["learningQualityEvidence"]["moduleResults"]
+    }
+    _require(
+        evidence_by_module_id == {module["moduleId"] for module in cluster["modules"]},
+        "module results differ from cluster",
+    )
+    results = []
+    for module, evidence in zip(
+        cluster["modules"], payload["learningQualityEvidence"]["moduleResults"], strict=True
+    ):
+        _require(evidence["moduleId"] == module["moduleId"], "module result order differs from cluster")
+        results.append({
+            "pilotAssignmentId": module["pilotAssignmentId"],
+            "moduleId": module["moduleId"],
+            "criteria": copy.deepcopy(evidence["criteria"]),
+            "result": "pass" if all(
+                criterion["band"] == "strong" for criterion in evidence["criteria"]
+            ) else "fail",
+        })
+    return results
+
+
+def _derive_integration_result(payload: dict, cluster: dict) -> dict:
+    evidence = payload["learningQualityEvidence"]["integrationResults"]
+    _require(len(evidence) == 1, "integration results differ from cluster")
+    evidence = evidence[0]
+    integration = cluster["integration"]
+    _require(
+        evidence["integrationContractId"] == integration["integrationContractId"],
+        "integration result differs from cluster",
+    )
+    passed = (
+        all(criterion["band"] == "strong" for criterion in evidence["criteria"])
+        and evidence["handoffProductPresent"]
+        and evidence["handoffReused"]
+    )
+    return {
+        "pilotAssignmentId": integration["pilotAssignmentId"],
+        "integrationContractId": integration["integrationContractId"],
+        "criteria": copy.deepcopy(evidence["criteria"]),
+        "handoffProductPresent": evidence["handoffProductPresent"],
+        "handoffReused": evidence["handoffReused"],
+        "result": "pass" if passed else "fail",
+    }
+
+
+def _cluster_required_phases_completed(payload: dict, cluster: dict) -> bool:
+    expected_phase_ids = sorted({
+        phase_id
+        for module in cluster["modules"]
+        for phase_id in module["requiredPhaseIds"]
+    })
+    delivery = payload["deliveryTimeEvidence"]
+    return (
+        delivery["requiredLearningPhasesCompleted"] is True
+        and delivery["completedPhaseIds"] == expected_phase_ids
+    )
+
+
+def derive_cluster_result(payload: dict, cluster: dict, protocol: dict) -> dict:
+    delivery = payload["deliveryTimeEvidence"]
+    technical_privacy = payload["technicalPrivacyEvidence"]
+    not_evaluable = delivery["externalDisruptionCode"] == "interpretability-lost"
+    module_results = _derive_module_results(payload, cluster)
+    integration_result = _derive_integration_result(payload, cluster)
+    pulse = evaluate_learner_pulse(payload["learnerPulseEvidence"], protocol)
+    fallback_is_equivalent = (
+        not delivery["fallbackActivated"]
+        or technical_privacy["fallbackEquivalentLearningFunction"]
+    )
+    failed = any([
+        delivery["actualUnits"] > cluster["budgetUnits"],
+        not _cluster_required_phases_completed(payload, cluster),
+        any(item["result"] != "pass" for item in module_results),
+        integration_result["result"] != "pass",
+        technical_privacy["technicalFunction"] != "pass",
+        not fallback_is_equivalent,
+        technical_privacy["privacyGate"] != "pass",
+        bool(pulse["warnings"]),
+    ])
+    result = "not-evaluable" if not_evaluable else "fail" if failed else "pass"
+    return {
+        "result": result,
+        "moduleResults": module_results,
+        "integrationResult": integration_result,
+        "developmentWarnings": pulse["warnings"],
+        "fallbackDeltaUnits": cluster["fallbackDeltaUnits"] if result == "fail" else 0,
+    }
+
+
 def _validate_context(context: object, protocol: dict) -> None:
     _require_exact_fields(context, CONTEXT_FIELDS, "context")
     _require(isinstance(context["schoolYear"], str) and SCHOOL_YEAR_PATTERN.fullmatch(context["schoolYear"]), "schoolYear is invalid")
