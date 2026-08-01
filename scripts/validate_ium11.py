@@ -131,6 +131,30 @@ SYNTHETIC_POSITIVE_EXAMPLE_NAMES = (
     "synthetic-annual-pass.json",
 )
 SYNTHETIC_DECISION_NAME = "synthetic-decision-eligible.json"
+PUBLICATION_PRODUCT_PATHS = (
+    "README.md",
+    "pilot/pilot-protocol.json",
+    "pilot/schemas/evidence-package.schema.json",
+    "pilot/schemas/decision-package.schema.json",
+    "pilot/cockpit/index.html",
+    "pilot/cockpit/assets/styles.css",
+    "pilot/cockpit/assets/app.js",
+    "pilot/cockpit/assets/protocol.js",
+    "pilot/docs/teacher-guide.md",
+    "pilot/docs/review-guide.md",
+    *tuple(f"pilot/examples/{name}" for name in sorted(SYNTHETIC_EXAMPLE_NAMES)),
+    "scripts/validate_ium11.py",
+    "scripts/build_ium11_cockpit.py",
+    "scripts/validate_phase0.py",
+    "tests/test_validate_ium11.py",
+    "tests/test_ium11_cockpit_contract.py",
+    "tests/test_validate_phase0.py",
+)
+PUBLICATION_TEXT_PATHS = (
+    "README.md",
+    "pilot/docs/teacher-guide.md",
+    "pilot/docs/review-guide.md",
+)
 
 
 class IUM11ValidationError(ValueError):
@@ -1118,16 +1142,282 @@ def _validate_synthetic_examples(
     return packages, counts
 
 
+def _validate_schema_is_closed(schema: dict, label: str) -> None:
+    _require(isinstance(schema, dict), f"{label} schema must be an object")
+    _require(
+        schema.get("$schema") == "https://json-schema.org/draft/2020-12/schema",
+        f"{label} schema draft differs from contract",
+    )
+
+    def visit(node: object) -> None:
+        if isinstance(node, dict):
+            if node.get("type") == "object":
+                _require(
+                    node.get("additionalProperties") is False,
+                    f"{label} schema object must be closed",
+                )
+            for value in node.values():
+                visit(value)
+        elif isinstance(node, list):
+            for value in node:
+                visit(value)
+
+    visit(schema)
+
+
+def _validate_in_memory_examples(
+    example_packages: list[dict],
+    protocol: dict,
+    time_model: dict,
+) -> dict[str, int]:
+    _require(isinstance(example_packages, list), "example packages must be a list")
+    _require(len(example_packages) == 7, "exactly seven synthetic example packages are required")
+    _require(all(isinstance(package, dict) for package in example_packages), "example package must be an object")
+
+    evidence_packages = [
+        package for package in example_packages
+        if package.get("packageType") != "pilot-decision"
+    ]
+    decision_packages = [
+        package for package in example_packages
+        if package.get("packageType") == "pilot-decision"
+    ]
+    _require(len(evidence_packages) == 6, "synthetic evidence example count differs from contract")
+    _require(len(decision_packages) == 1, "synthetic decision example count differs from contract")
+    for package in evidence_packages:
+        validate_evidence_package(package, protocol, time_model)
+
+    expected_cluster_ids = protocol["annualPilot"]["clusterIds"]
+    positive_clusters = []
+    for cluster_id in expected_cluster_ids:
+        matches = [
+            package for package in evidence_packages
+            if package["scopeId"] == cluster_id and package["result"] == "pass"
+        ]
+        _require(len(matches) == 1, f"positive synthetic cluster differs from contract: {cluster_id}")
+        positive_clusters.append(matches[0])
+    annual_matches = [
+        package for package in evidence_packages
+        if package["scopeId"] == protocol["annualPilot"]["id"] and package["result"] == "pass"
+    ]
+    _require(len(annual_matches) == 1, "positive synthetic annual example differs from contract")
+    annual = annual_matches[0]
+    _require(
+        derive_annual_result(annual, positive_clusters, protocol)["result"] == "pass",
+        "annual example is not derivable",
+    )
+
+    negative_matches = [
+        package for package in evidence_packages
+        if package["scopeType"] == "cluster" and package["result"] == "fail"
+    ]
+    _require(len(negative_matches) == 1, "negative synthetic cluster count differs from contract")
+    negative = negative_matches[0]
+    negative_result = derive_cluster_result(
+        negative,
+        protocol["clustersById"][negative["scopeId"]],
+        protocol,
+    )
+    _require(
+        negative["scopeId"] == "CLUSTER-7-PROGRAMMING"
+        and negative["deliveryTimeEvidence"]["actualUnits"] == 12,
+        "negative synthetic cluster differs from contract",
+    )
+    _require(
+        negative_result["result"] == "fail"
+        and negative_result["fallbackDeltaUnits"] == 2
+        and negative_result["developmentWarnings"] == [],
+        "negative synthetic cluster is not derivable",
+    )
+
+    positive_packages = [*positive_clusters, annual]
+    decision = decision_packages[0]
+    validate_decision_package(decision, protocol, time_model)
+    _require(
+        decision == build_decision_package(positive_packages, protocol, time_model),
+        "synthetic decision differs from positive examples",
+    )
+    return {
+        "clusterPass": 4,
+        "clusterFail": 1,
+        "annualPass": 1,
+        "decisionEligible": 1,
+    }
+
+
+def _validate_publication_contract(root: Path, protocol: dict) -> dict[str, int]:
+    root = Path(root)
+    missing = [
+        relative_path
+        for relative_path in PUBLICATION_PRODUCT_PATHS
+        if not (root / relative_path).is_file()
+    ]
+    _require(not missing, f"IUM11 product files are missing: {missing}")
+
+    allowed_json_paths = {
+        "pilot/pilot-protocol.json",
+        "pilot/schemas/evidence-package.schema.json",
+        "pilot/schemas/decision-package.schema.json",
+        *{
+            f"pilot/examples/{name}"
+            for name in SYNTHETIC_EXAMPLE_NAMES
+        },
+    }
+    actual_json_paths = {
+        path.relative_to(root).as_posix()
+        for path in (root / "pilot").rglob("*.json")
+    }
+    _require(
+        actual_json_paths == allowed_json_paths,
+        "pilot JSON files differ from the public synthetic-only contract",
+    )
+    example_names = {
+        path.name for path in (root / "pilot/examples").glob("*.json")
+    }
+    _require(
+        example_names == SYNTHETIC_EXAMPLE_NAMES
+        and all(name.startswith("synthetic-") for name in example_names),
+        "pilot examples must be exclusively and explicitly synthetic",
+    )
+
+    protocol_version = protocol["protocolVersion"]
+    tool_version = protocol["toolVersion"]
+    allowed_recommendation = protocol["allowedRecommendation"]
+    publications = {
+        relative_path: (root / relative_path).read_text(encoding="utf-8")
+        for relative_path in PUBLICATION_TEXT_PATHS
+    }
+    for relative_path, text in publications.items():
+        _require(
+            f"Protokollversion `{protocol_version}`" in text,
+            f"publication protocol version drift: {relative_path}",
+        )
+        _require(
+            f"Werkzeugversion `{tool_version}`" in text,
+            f"publication tool version drift: {relative_path}",
+        )
+        _require("40 UE" in text, f"publication 40 UE drift: {relative_path}")
+        _require(
+            re.search(r"\b4 Cluster(?:n)?\b", text) is not None,
+            f"publication cluster count drift: {relative_path}",
+        )
+        _require(
+            re.search(r"\b10 (?:Kern)?[Mm]odule(?:n)?\b", text) is not None,
+            f"publication module count drift: {relative_path}",
+        )
+        _require(
+            "5 Pilotstufen" in text,
+            f"publication pilot stage count drift: {relative_path}",
+        )
+        _require(
+            re.search(r"Privacy-?Schwelle 10", text, re.IGNORECASE) is not None,
+            f"publication privacy threshold drift: {relative_path}",
+        )
+        _require(
+            allowed_recommendation in text,
+            f"publication recommendation drift: {relative_path}",
+        )
+        for forbidden_pattern in (
+            r"\bGRADE-7-WORKING-40 ist (?:available|reviewed|standard)\b",
+            r"\bPilotierung abgeschlossen\b",
+            r"\breale Pilotierung (?:ist )?abgeschlossen\b",
+        ):
+            _require(
+                re.search(forbidden_pattern, text, re.IGNORECASE) is None,
+                f"publication exceeds the pilot statement boundary: {relative_path}",
+            )
+
+    return {
+        "productFiles": len(PUBLICATION_PRODUCT_PATHS),
+        "syntheticExamples": len(SYNTHETIC_EXAMPLE_NAMES),
+        "publications": len(PUBLICATION_TEXT_PATHS),
+    }
+
+
+def validate_ium11(
+    time_model: dict,
+    ium10_result: dict,
+    protocol: dict,
+    evidence_schema: dict,
+    decision_schema: dict,
+    example_packages: list[dict],
+    cockpit_root: Path,
+) -> dict:
+    """Validate the complete in-memory IUM11 contract."""
+    _require(isinstance(ium10_result, dict), "IUM10 result must be an object")
+    _require("gradeJudgements" in ium10_result, "IUM10 result differs from contract")
+    time_model_before = canonical_sha256(time_model)
+    compiled = validate_pilot_protocol(protocol, time_model)
+    _validate_schema_is_closed(evidence_schema, "evidence")
+    _validate_schema_is_closed(decision_schema, "decision")
+    example_counts = _validate_in_memory_examples(
+        example_packages,
+        compiled,
+        time_model,
+    )
+
+    cockpit_root = Path(cockpit_root)
+    for relative_path in (
+        "index.html",
+        "assets/styles.css",
+        "assets/app.js",
+        "assets/protocol.js",
+    ):
+        _require(
+            (cockpit_root / relative_path).is_file(),
+            f"cockpit product file is missing: {relative_path}",
+        )
+    if __package__:
+        from .build_ium11_cockpit import compile_cockpit_contract, render_protocol_js
+    else:
+        from build_ium11_cockpit import compile_cockpit_contract, render_protocol_js
+    repository_root = cockpit_root.parents[1]
+    publication = _validate_publication_contract(repository_root, compiled)
+    expected_protocol_js = render_protocol_js(compile_cockpit_contract(repository_root))
+    _require(
+        (cockpit_root / "assets/protocol.js").read_bytes()
+        == expected_protocol_js.encode("utf-8"),
+        "cockpit protocol build differs from source contract",
+    )
+    _require(
+        canonical_sha256(time_model) == time_model_before,
+        "time model mutated during IUM11 validation",
+    )
+    return {
+        "ium10": ium10_result,
+        "protocol": compiled,
+        "exampleCounts": example_counts,
+        "publication": publication,
+    }
+
+
 def validate_ium11_repository(root: Path, *, require_decision: bool = True) -> dict:
     root = Path(root)
     time_model = _load_json(root / "roadmap/time-model.json")
     time_model_before = canonical_sha256(time_model)
     ium10_result = validate_ium10_repository(root)
     protocol = _load_json(root / "pilot/pilot-protocol.json")
-    compiled = validate_pilot_protocol(protocol, time_model)
-    _, example_counts = _validate_synthetic_examples(
-        root, compiled, time_model, require_decision=require_decision
-    )
+    if require_decision:
+        result = validate_ium11(
+            time_model,
+            ium10_result,
+            protocol,
+            _load_json(root / "pilot/schemas/evidence-package.schema.json"),
+            _load_json(root / "pilot/schemas/decision-package.schema.json"),
+            [
+                _load_json(path)
+                for path in sorted((root / "pilot/examples").glob("*.json"))
+            ],
+            root / "pilot/cockpit",
+        )
+        compiled = result["protocol"]
+        example_counts = result["exampleCounts"]
+    else:
+        compiled = validate_pilot_protocol(protocol, time_model)
+        _, example_counts = _validate_synthetic_examples(
+            root, compiled, time_model, require_decision=False
+        )
+    _reject_repository_evidence_outside_examples(root)
     _require(canonical_sha256(time_model) == time_model_before, "time model mutated during repository validation")
     return {"ium10": ium10_result, "protocol": compiled, "exampleCounts": example_counts}
 

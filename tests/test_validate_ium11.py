@@ -1,5 +1,6 @@
 import copy
 import json
+import shutil
 import tempfile
 import uuid
 from contextlib import redirect_stderr
@@ -8,6 +9,7 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 
+import scripts.validate_ium11 as validate_ium11_script
 from scripts.validate_ium10 import IUM10ValidationError
 from scripts.validate_ium11 import (
     IUM11ValidationError,
@@ -1016,3 +1018,111 @@ class IUM11DecisionPackageTests(unittest.TestCase):
                 sorted(path.name for path in directory.iterdir()),
                 files_before,
             )
+
+
+class IUM11PublicationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"),
+            cls.time_model,
+        )
+
+    def copy_publication_fixture(self, destination):
+        shutil.copytree(self.root / "pilot", destination / "pilot")
+        for relative_path in (
+            "README.md",
+            "scripts/validate_ium11.py",
+            "scripts/build_ium11_cockpit.py",
+            "scripts/validate_phase0.py",
+            "tests/test_validate_ium11.py",
+            "tests/test_ium11_cockpit_contract.py",
+            "tests/test_validate_phase0.py",
+            "docs/superpowers/plans/2026-08-01-ium11-grade7-working-40-pilot-implementation.md",
+        ):
+            source = self.root / relative_path
+            target = destination / relative_path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+
+    def test_readme_states_exact_pilot_boundary(self):
+        text = (self.root / "README.md").read_text(encoding="utf-8")
+        self.assertIn("IUM11-Pilotinstrument", text)
+        self.assertIn("keine reale Pilotierung", text)
+        self.assertIn("eligible-for-working-availability-review", text)
+        self.assertIn(
+            "Flexible Vertiefungs-, Transfer- und Projektmodule bleiben",
+            text,
+        )
+        for forbidden in [
+            "GRADE-7-WORKING-40 ist available",
+            "GRADE-7-WORKING-40 ist reviewed",
+            "Pilotierung abgeschlossen",
+        ]:
+            self.assertNotIn(forbidden, text)
+
+    def test_guides_name_privacy_retention_and_repeat_rules(self):
+        teacher = (self.root / "pilot/docs/teacher-guide.md").read_text(
+            encoding="utf-8"
+        )
+        review = (self.root / "pilot/docs/review-guide.md").read_text(
+            encoding="utf-8"
+        )
+        for anchor in [
+            "unter zehn",
+            "keine Freitexte",
+            "bis zur Auftraggeberentscheidung",
+            "löschen",
+            "fail",
+            "not-evaluable",
+            "wiederholen",
+        ]:
+            self.assertIn(anchor, teacher)
+        for anchor in [
+            "Fachreview",
+            "Engineering-/Privacyreview",
+            "Auftraggebergate",
+            "zweite unabhängige",
+            "documented-conditions-only",
+        ]:
+            self.assertIn(anchor, review)
+
+    def test_repository_publication_contract_is_complete_and_current(self):
+        result = validate_ium11_script._validate_publication_contract(
+            self.root,
+            self.protocol,
+        )
+        self.assertEqual(
+            result,
+            {"productFiles": 23, "syntheticExamples": 7, "publications": 3},
+        )
+
+    def test_publication_contract_rejects_documentation_version_drift(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace("1.0.0", "2.0.0"),
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(IUM11ValidationError, "version|Version"):
+                validate_ium11_script._validate_publication_contract(
+                    root,
+                    self.protocol,
+                )
+
+    def test_repository_scan_rejects_unexpected_pilot_json(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            (root / "pilot/real-evidence.json").write_text("{}\n", encoding="utf-8")
+
+            with self.assertRaisesRegex(IUM11ValidationError, "JSON|json"):
+                validate_ium11_script._validate_publication_contract(
+                    root,
+                    self.protocol,
+                )

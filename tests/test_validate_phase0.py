@@ -1850,21 +1850,27 @@ class CoverageRepositoryTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(
             result.stdout,
-            "phase 0, IUM09 and IUM10 validation passed\n",
+            "phase 0, IUM09, IUM10 and IUM11 validation passed\n",
         )
 
     def test_phase0_entrypoint_runs_ium10_then_ium09_once_on_projection(self):
         call_order = []
+        ium10_results = []
         validate_ium10 = validate_phase0_script.validate_ium10
         validate_ium09 = validate_phase0_script.validate_ium09
 
         def record_ium10(*args, **kwargs):
             call_order.append("ium10")
-            return validate_ium10(*args, **kwargs)
+            result = validate_ium10(*args, **kwargs)
+            ium10_results.append(result)
+            return result
 
         def record_ium09(*args, **kwargs):
             call_order.append("ium09")
             return validate_ium09(*args, **kwargs)
+
+        def record_ium11(*args, **kwargs):
+            call_order.append("ium11")
 
         with mock.patch(
             "scripts.validate_phase0.validate_ium09",
@@ -1872,12 +1878,16 @@ class CoverageRepositoryTests(unittest.TestCase):
         ) as validate_ium09_mock, mock.patch(
             "scripts.validate_phase0.validate_ium10",
             side_effect=record_ium10,
-        ) as validate_ium10_mock, mock.patch("builtins.print") as print_mock:
+        ) as validate_ium10_mock, mock.patch(
+            "scripts.validate_phase0.validate_ium11",
+            side_effect=record_ium11,
+        ) as validate_ium11_mock, mock.patch("builtins.print") as print_mock:
             validate_phase0_script.main()
 
-        self.assertEqual(call_order, ["ium10", "ium09"])
+        self.assertEqual(call_order, ["ium10", "ium09", "ium11"])
         validate_ium10_mock.assert_called_once()
         validate_ium09_mock.assert_called_once()
+        validate_ium11_mock.assert_called_once()
         (
             time_model,
             module_payload,
@@ -1888,7 +1898,32 @@ class CoverageRepositoryTests(unittest.TestCase):
         module_payload_ium09, _, remediation_payload_ium09, contracts = (
             validate_ium09_mock.call_args.args
         )
+        (
+            time_model_ium11,
+            ium10_result_ium11,
+            protocol,
+            evidence_schema,
+            decision_schema,
+            example_packages,
+            cockpit_root,
+        ) = validate_ium11_mock.call_args.args
         self.assertEqual(time_model["status"], "working")
+        self.assertIs(time_model_ium11, time_model)
+        self.assertIs(ium10_result_ium11, ium10_results[0])
+        self.assertEqual(protocol["protocolVersion"], "1.0.0")
+        self.assertEqual(
+            evidence_schema["$schema"],
+            "https://json-schema.org/draft/2020-12/schema",
+        )
+        self.assertEqual(
+            decision_schema["$schema"],
+            "https://json-schema.org/draft/2020-12/schema",
+        )
+        self.assertEqual(len(example_packages), 7)
+        self.assertEqual(
+            cockpit_root,
+            Path(__file__).resolve().parents[1] / "pilot/cockpit",
+        )
         self.assertIs(module_payload_ium09, module_payload)
         self.assertIs(remediation_payload_ium09, remediation_payload)
         self.assertEqual(len(module_payload["modules"]), 31)
@@ -1911,7 +1946,7 @@ class CoverageRepositoryTests(unittest.TestCase):
             Counter({"covered": 164, "partial": 7}),
         )
         print_mock.assert_called_once_with(
-            "phase 0, IUM09 and IUM10 validation passed"
+            "phase 0, IUM09, IUM10 and IUM11 validation passed"
         )
 
     def test_repository_coverage_and_roadmap_are_complete_and_reviewable(self):

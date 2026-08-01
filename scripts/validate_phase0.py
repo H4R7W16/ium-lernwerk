@@ -7,9 +7,11 @@ from pathlib import Path
 if __package__:
     from .validate_ium09 import validate_ium09
     from .validate_ium10 import validate_ium10
+    from .validate_ium11 import validate_ium11
 else:
     from validate_ium09 import validate_ium09
     from validate_ium10 import validate_ium10
+    from validate_ium11 import validate_ium11
 
 
 class ValidationError(ValueError):
@@ -1531,7 +1533,19 @@ def main():
         remediation_payload,
         required_curriculum_contracts,
     )
-    print("phase 0, IUM09 and IUM10 validation passed")
+    validate_ium11(
+        time_model,
+        ium10_result,
+        load_json(root / "pilot/pilot-protocol.json"),
+        load_json(root / "pilot/schemas/evidence-package.schema.json"),
+        load_json(root / "pilot/schemas/decision-package.schema.json"),
+        [
+            load_json(path)
+            for path in sorted((root / "pilot/examples").glob("*.json"))
+        ],
+        root / "pilot/cockpit",
+    )
+    print("phase 0, IUM09, IUM10 and IUM11 validation passed")
 
 
 if __name__ == "__main__":

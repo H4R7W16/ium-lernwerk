@@ -39,6 +39,18 @@ In der historischen IUM09-Projektion gilt weiterhin: 164 sind auf Kandidateneben
 
 Flexible Vertiefungs-, Transfer- und Projektmodule bleiben zusätzlich außerhalb der 40 UE sichtbar und ersetzen weder fehlende Kernzeit noch gescheiterte Kernintegrationen. Digital ist das selbstverständliche Unterrichtsmedium; analoge Materialien werden nur eingesetzt, wenn die Lernhandlung ihre Verwendung didaktisch begründet. Eine zwanghafte Doppelstruktur ist nicht vorgesehen.
 
+## IUM11-Pilotinstrument
+
+IUM11 veröffentlicht das lokale, privacy-sichere Entwicklungsinstrument für den Working-40-Pfad der Klasse 7. Es bindet Protokollversion `1.0.0` und Werkzeugversion `1.0.0` an 40 UE, 4 Cluster, 10 Kernmodule und 5 Pilotstufen. Das Instrument und seine Beispiele sind synthetisch geprüft; dies ist keine reale Pilotierung und keine Statushochsetzung. Selbst bei fünf positiven Stufen ist ausschließlich die Empfehlung `eligible-for-working-availability-review` zulässig.
+
+- [Pilotprotokoll](pilot/pilot-protocol.json)
+- [Lokales Offline-Cockpit](pilot/cockpit/index.html)
+- [Lehrkräfteanleitung](pilot/docs/teacher-guide.md)
+- [Reviewanleitung](pilot/docs/review-guide.md)
+- [IUM11-Validator](scripts/validate_ium11.py)
+
+Das Cockpit wird direkt lokal geöffnet, verarbeitet nur Klassenaggregate im Arbeitsspeicher und speichert erst durch einen bewussten JSON-Download. Unter der Privacy-Schwelle 10 werden keine Lernendenzählwerte exportiert. Reale Evidenz- und Entscheidungspakete bleiben außerhalb dieses öffentlichen Repositorys. Die Klasse-7-Achsen bleiben `conditional / amber / covered / not-started / partial`; `status: working` und `semanticCoverageStatus: partial` werden nicht verändert.
+
 ## Zentrale Einstiege
 
 - [Validierte Modulroadmap](roadmap/module-roadmap.md)
@@ -58,6 +70,9 @@ IUM10 ist nicht `reviewed`; eine Zeitfreigabe ist nicht erteilt. Phase 1 bleibt 
 
 ```powershell
 python -B -m unittest discover -s tests -p "test_*.py"
+python -B scripts/build_ium11_cockpit.py --check
+node --check pilot/cockpit/assets/app.js
+python -B scripts/validate_ium11.py
 python -B scripts/validate_ium10.py
 python -B scripts/validate_ium09.py
 python -B scripts/validate_phase0.py
