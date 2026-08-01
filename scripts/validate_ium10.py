@@ -1458,7 +1458,13 @@ def validate_availability_contracts(
     _require(
         all(
             _positive_int(delta)
-            and delta == GRADE_7_FALLBACK_DELTAS[integration_id]
+            for integration_id, delta in fallback_deltas.items()
+        ),
+        "availability contract fallback deltas must be positive integers",
+    )
+    _require(
+        all(
+            delta == GRADE_7_FALLBACK_DELTAS[integration_id]
             for integration_id, delta in fallback_deltas.items()
         ),
         "availability contract fallback deltas differ",

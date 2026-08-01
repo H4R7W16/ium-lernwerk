@@ -14095,7 +14095,7 @@ class IUM10Grade7AvailabilityContractTests(unittest.TestCase):
                 lambda contracts: contract(contracts)[
                     "fallbackDeltaUnitsByIntegrationContractId"
                 ].update({"INT-7-DATA-CODING": True}),
-                "availability contract fallback deltas differ",
+                "availability contract fallback deltas must be positive integers",
             ),
             (
                 "boolean maximum fallback",
@@ -14435,12 +14435,12 @@ class IUM10Grade7FailClosedMutationTests(unittest.TestCase):
                     "allocations"
                 ].append(
                     {
-                        "moduleId": "IUM-7-FLEX-01",
+                        "moduleId": "IUM-7-EXT-01",
                         "budgetPathId": "standalone",
-                        "units": 2,
+                        "units": 4,
                     }
                 ),
-                "annual variant references unknown module: GRADE-7-WORKING-40/IUM-7-FLEX-01",
+                "annual allocation budget path differs from variant path: GRADE-7-WORKING-40/IUM-7-EXT-01",
             ),
             (
                 "comparison boundary promoted to variant",
@@ -14461,14 +14461,14 @@ class IUM10Grade7FailClosedMutationTests(unittest.TestCase):
                 lambda payload: availability_contract(payload)[
                     "fallbackDeltaUnitsByIntegrationContractId"
                 ].update({"INT-7-DATA-CODING": 0}),
-                "availability contract fallback deltas differ",
+                "availability contract fallback deltas must be positive integers",
             ),
             (
                 "boolean fallback delta",
                 lambda payload: availability_contract(payload)[
                     "fallbackDeltaUnitsByIntegrationContractId"
                 ].update({"INT-7-DATA-CODING": True}),
-                "availability contract fallback deltas differ",
+                "availability contract fallback deltas must be positive integers",
             ),
             (
                 "wrong maximum fallback sum",
