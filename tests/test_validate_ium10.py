@@ -14912,6 +14912,30 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
                 }
             )
         self.assertEqual(sequence_rows, expected_sequences)
+        summary_start = self.roadmap.index(
+            "Die Nachweise SE-LH26-E-PROG-001 und SE-LH26-E-PROG-002"
+        )
+        summary_end = self.roadmap.index(
+            "### Aktuelle und historische Coveragebilanz", summary_start
+        )
+        sequence_summary = self.roadmap[summary_start:summary_end].strip()
+        self.assertIn("SE-LH26-E-PROG-003 und SE-LH26-E-PROG-004", sequence_summary)
+        self.assertIn("Fachaudit", sequence_summary)
+        self.assertIn("sequenziell covered", sequence_summary)
+        self.assertIn("semantische Coverage bleibt partial", sequence_summary)
+        self.assertIn("GRADE-7-WORKING-40 bleibt conditional und amber", sequence_summary)
+        self.assertIn("GRADE-7-ROBUST-DEMAND", sequence_summary)
+        self.assertIn("GRADE-7-HISTORICAL-MINIMUM", sequence_summary)
+        self.assertIn("unavailable und red", sequence_summary)
+        normalized_summary = sequence_summary.lower()
+        for collective_claim in (
+            "alle klasse-7-szenarien",
+            "ausschließlich nicht verfügbare klasse-7",
+            "alle klasse-7-bedarfsszenarien",
+            "ausschließlich nicht verfügbare klasse-7-bedarfsszenarien",
+        ):
+            with self.subTest(collective_claim=collective_claim):
+                self.assertNotIn(collective_claim, normalized_summary)
 
         current_counts = Counter(
             entry["coverageStatus"]
