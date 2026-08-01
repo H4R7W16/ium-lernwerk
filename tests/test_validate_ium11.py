@@ -447,7 +447,7 @@ class IUM11ClusterResultTests(unittest.TestCase):
             ("handoff product absent", lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].update(handoffProductPresent=False)),
             ("handoff not reused", lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].update(handoffReused=False)),
             ("technical function failed", lambda payload: payload["technicalPrivacyEvidence"].update(technicalFunction="fail")),
-            ("non-equivalent fallback", lambda payload: payload["deliveryTimeEvidence"].update(fallbackActivated=True) or payload["technicalPrivacyEvidence"].update(fallbackEquivalentLearningFunction=False)),
+            ("non-equivalent fallback", lambda payload: payload["deliveryTimeEvidence"].update(fallbackActivated=True) or payload["technicalPrivacyEvidence"].update(technicalFunction="fail", fallbackEquivalentLearningFunction=False)),
             ("privacy gate failed", lambda payload: payload["technicalPrivacyEvidence"].update(privacyGate="fail")),
         )
         for scope_id in self.protocol["clustersById"]:
@@ -470,11 +470,14 @@ class IUM11ClusterResultTests(unittest.TestCase):
                         self.assertEqual(result["result"], "fail")
                         self.assertEqual(result["integrationResult"]["result"], "fail")
 
-    def test_equivalent_activated_fallback_remains_positive_within_budget(self):
+    def test_equivalent_activated_fallback_replaces_failed_technical_function_within_budget(self):
         for scope_id in self.protocol["clustersById"]:
             payload = valid_cluster_package(scope_id=scope_id)
             payload["deliveryTimeEvidence"]["fallbackActivated"] = True
-            payload["technicalPrivacyEvidence"]["fallbackEquivalentLearningFunction"] = True
+            payload["technicalPrivacyEvidence"].update(
+                technicalFunction="fail",
+                fallbackEquivalentLearningFunction=True,
+            )
             with self.subTest(scope_id=scope_id):
                 self.assertEqual(self.derive(payload)["result"], "pass")
 

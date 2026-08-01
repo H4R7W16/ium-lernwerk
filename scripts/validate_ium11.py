@@ -383,17 +383,19 @@ def derive_cluster_result(payload: dict, cluster: dict, protocol: dict) -> dict:
     module_results = _derive_module_results(payload, cluster)
     integration_result = _derive_integration_result(payload, cluster)
     pulse = evaluate_learner_pulse(payload["learnerPulseEvidence"], protocol)
-    fallback_is_equivalent = (
-        not delivery["fallbackActivated"]
-        or technical_privacy["fallbackEquivalentLearningFunction"]
+    technical_path_passed = (
+        technical_privacy["technicalFunction"] == "pass"
+        or (
+            delivery["fallbackActivated"]
+            and technical_privacy["fallbackEquivalentLearningFunction"]
+        )
     )
     failed = any([
         delivery["actualUnits"] > cluster["budgetUnits"],
         not _cluster_required_phases_completed(payload, cluster),
         any(item["result"] != "pass" for item in module_results),
         integration_result["result"] != "pass",
-        technical_privacy["technicalFunction"] != "pass",
-        not fallback_is_equivalent,
+        not technical_path_passed,
         technical_privacy["privacyGate"] != "pass",
         bool(pulse["warnings"]),
     ])
