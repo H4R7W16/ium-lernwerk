@@ -137,29 +137,39 @@ APPROVED_RISK_REGISTER_SHA256 = (
 )
 PILOT_ASSIGNMENT_FIELDS = {
     "id",
-    "moduleId",
-    "timeContractId",
+    "scopeType",
+    "scopeIds",
+    "contractIds",
     "aggregationLevel",
     "measures",
     "personalData",
     "personalTelemetry",
+    "privateReflectionEvidence",
     "excludedUses",
     "status",
     "fallback",
 }
+PILOT_SCOPE_TYPES = {"module", "integration", "annual-variant"}
+PILOT_STATUSES = {"not-started", "in-progress", "completed"}
 PILOT_MEASURES = [
-    "actualTeachingMinutes",
-    "technicalStartupMinutes",
-    "supportDemand",
-    "practiceAndRevisionDemand",
-    "interruptions",
-    "resumedInLaterLesson",
-    "learningProductOutcome",
+    "plannedTeachingUnits",
+    "actualTeachingUnits",
+    "handoffProductPresent",
+    "fallbackActivated",
+    "aggregatedTechnicalStartupMinutes",
+    "aggregatedSupportDemand",
+    "requiredLearningPhasesCompleted",
+    "gateOutcome",
 ]
 PILOT_EXCLUDED_USES = [
     "grades",
     "competence-profiles",
     "individual-diagnostics",
+    "learner-identifiers",
+    "personal-learning-paths",
+    "private-reflection-content",
+    "student-products-as-time-evidence",
+    "automated-personal-assessment",
 ]
 GRADE_7_REQUIRED_PILOT_IDS = frozenset(
     {
@@ -178,14 +188,42 @@ AUTHORITATIVE_TIME_BOUNDARY = (
 
 
 def derive_grade_7_operational_state(availability_contract, pilot_assignments):
+    _require(
+        isinstance(availability_contract, dict)
+        and isinstance(availability_contract.get("gates"), dict)
+        and set(availability_contract["gates"]) == GRADE_7_AVAILABILITY_GATE_IDS,
+        "grade 7 operational state requires the five availability gates",
+    )
+    _require(
+        isinstance(pilot_assignments, dict)
+        and GRADE_7_REQUIRED_PILOT_IDS <= set(pilot_assignments),
+        "grade 7 operational state requires all five required pilots",
+    )
+    _require(
+        all(
+            isinstance(gate, dict)
+            and gate.get("status") in AVAILABILITY_GATE_STATUSES
+            for gate in availability_contract["gates"].values()
+        ),
+        "grade 7 operational state has invalid gate statuses",
+    )
+    required_pilots = {
+        pilot_id: pilot_assignments[pilot_id]
+        for pilot_id in GRADE_7_REQUIRED_PILOT_IDS
+    }
+    _require(
+        all(
+            isinstance(pilot, dict)
+            and pilot.get("id") == pilot_id
+            and pilot.get("status") in PILOT_STATUSES
+            for pilot_id, pilot in required_pilots.items()
+        ),
+        "grade 7 operational state has invalid required pilots",
+    )
     gate_statuses = {
         gate["status"] for gate in availability_contract["gates"].values()
     }
-    required_pilots = [
-        pilot_assignments[pilot_id]
-        for pilot_id in GRADE_7_REQUIRED_PILOT_IDS
-    ]
-    pilot_statuses = {pilot["status"] for pilot in required_pilots}
+    pilot_statuses = {pilot["status"] for pilot in required_pilots.values()}
     if pilot_statuses == {"not-started"}:
         pilot_status = "not-started"
     elif pilot_statuses == {"completed"}:
@@ -3824,86 +3862,103 @@ def validate_risks(risks):
     return validated
 
 
-def validate_pilot_assignments(pilot_assignments, module_contracts):
-    """Validate one privacy-safe, module-aggregated time pilot per contract."""
+def validate_pilot_assignments(
+    pilot_assignments,
+    module_contracts,
+    integration_contracts,
+    annual_variants,
+    availability_contracts,
+):
+    """Validate all privacy-safe pilots against their approved scope contracts."""
     _require(
         isinstance(module_contracts, dict) and len(module_contracts) == 31,
         "pilot assignments require exactly 31 validated module contracts",
     )
     _require(
-        isinstance(pilot_assignments, list)
-        and len(pilot_assignments) == len(module_contracts),
-        "pilot assignments must contain exactly one record per module contract",
+        isinstance(integration_contracts, dict)
+        and set(GRADE_7_INTEGRATION_IDS) <= set(integration_contracts),
+        "pilot assignments require all four validated grade 7 integrations",
+    )
+    _require(
+        isinstance(annual_variants, dict)
+        and "GRADE-7-WORKING-40" in annual_variants,
+        "pilot assignments require the grade 7 working annual variant",
+    )
+    _require(
+        isinstance(availability_contracts, dict)
+        and GRADE_7_AVAILABILITY_CONTRACT_ID in availability_contracts,
+        "pilot assignments require the grade 7 availability contract",
+    )
+    expected = {}
+    for module_id, contract in module_contracts.items():
+        expected[f"PILOT-{module_id}"] = {
+            "scopeType": "module",
+            "scopeIds": [module_id],
+            "contractIds": [contract["id"]],
+            "aggregationLevel": "module",
+            "fallback": "nonpersonal-module-replanning",
+        }
+    for integration_id in sorted(GRADE_7_INTEGRATION_IDS):
+        expected[f"PILOT-{integration_id}"] = {
+            "scopeType": "integration",
+            "scopeIds": [integration_id],
+            "contractIds": [integration_id],
+            "aggregationLevel": "integration",
+            "fallback": "standalone-module-time",
+        }
+    expected["PILOT-GRADE-7-WORKING-40"] = {
+        "scopeType": "annual-variant",
+        "scopeIds": ["GRADE-7-WORKING-40"],
+        "contractIds": [GRADE_7_AVAILABILITY_CONTRACT_ID],
+        "aggregationLevel": "annual-variant",
+        "fallback": "nonpersonal-annual-replanning",
+    }
+    _require(
+        isinstance(pilot_assignments, list) and len(pilot_assignments) == 36,
+        "pilot assignments must contain exactly 36 typed records",
     )
     validated = {}
-    contracted_module_ids = set()
     for pilot in pilot_assignments:
         _require(
             isinstance(pilot, dict)
             and set(pilot) == PILOT_ASSIGNMENT_FIELDS,
             "pilot assignment fields differ from the IUM10 contract",
         )
-        module_id = pilot["moduleId"]
-        contract = (
-            module_contracts.get(module_id)
-            if isinstance(module_id, str)
-            else None
-        )
         pilot_id = pilot["id"]
         _require(
-            isinstance(module_id, str)
-            and isinstance(contract, dict)
-            and module_id not in contracted_module_ids,
-            f"unknown or duplicate pilot module: {module_id}",
-        )
-        _require(
-            pilot_id == f"PILOT-{module_id}"
+            isinstance(pilot_id, str)
+            and pilot_id in expected
             and pilot_id not in validated,
-            f"invalid or duplicate pilot id: {module_id}",
+            f"unknown or duplicate pilot id: {pilot_id}",
+        )
+        contract = expected[pilot_id]
+        _require(
+            pilot["scopeType"] in PILOT_SCOPE_TYPES
+            and all(pilot[field] == value for field, value in contract.items()),
+            f"pilot scope contract differs from the approved assignment: {pilot_id}",
         )
         _require(
-            pilot["timeContractId"] == contract["id"]
-            == f"TC-{module_id}",
-            f"pilot time contract differs from module: {module_id}",
-        )
-        _require(
-            contract.get("status") == "working",
-            f"unpiloted time contract must remain working: {module_id}",
-        )
-        _require(
-            pilot["aggregationLevel"] == "module",
-            f"pilot aggregation must remain on module level: {module_id}",
-        )
-        measures = pilot["measures"]
-        _require(
-            isinstance(measures, list)
-            and all(isinstance(measure, str) for measure in measures)
-            and measures == PILOT_MEASURES,
-            f"pilot measures differ from the approved module aggregate: {module_id}",
+            pilot["measures"] == PILOT_MEASURES,
+            f"pilot measures differ from the approved aggregate: {pilot_id}",
         )
         _require(
             pilot["personalData"] == "prohibited"
-            and pilot["personalTelemetry"] == "prohibited",
-            f"pilot personal data and telemetry must be prohibited: {module_id}",
+            and pilot["personalTelemetry"] == "prohibited"
+            and pilot["privateReflectionEvidence"] == "prohibited",
+            f"pilot privacy evidence must be prohibited: {pilot_id}",
         )
         _require(
             pilot["excludedUses"] == PILOT_EXCLUDED_USES,
-            f"pilot must exclude grades, profiles, and individual diagnostics: {module_id}",
+            f"pilot excluded uses differ from the approved aggregate: {pilot_id}",
         )
         _require(
-            pilot["status"] == "not-started"
-            and isinstance(pilot["status"], str),
-            f"pilot status must remain not-started: {module_id}",
-        )
-        _require(
-            pilot["fallback"] == "nonpersonal-module-replanning",
-            f"pilot fallback must remain nonpersonal: {module_id}",
+            pilot["status"] in PILOT_STATUSES,
+            f"pilot status is invalid: {pilot_id}",
         )
         validated[pilot_id] = pilot
-        contracted_module_ids.add(module_id)
     _require(
-        contracted_module_ids == set(module_contracts),
-        "pilot modules differ from the 31 time contracts",
+        set(validated) == set(expected),
+        "pilot ids differ from the 36 approved assignments",
     )
     return validated
 
@@ -3915,6 +3970,8 @@ def _validate_final_grade_judgements(
     coverage_payload,
     time_reviews,
     module_contracts,
+    availability_contracts,
+    pilot_assignments,
 ):
     judgements = _validate_sequence_judgement_statuses(
         grade_judgements,
@@ -4003,16 +4060,36 @@ def _validate_final_grade_judgements(
         )
         derived_semantic[contract["grade"]] = "partial"
 
+    operational_state = derive_grade_7_operational_state(
+        availability_contracts[GRADE_7_AVAILABILITY_CONTRACT_ID],
+        pilot_assignments,
+    )
+    pilot_gate_status = availability_contracts[
+        GRADE_7_AVAILABILITY_CONTRACT_ID
+    ]["gates"]["pilot"]["status"]
+    _require(
+        pilot_gate_status != "passed"
+        or all(
+            pilot_assignments[pilot_id]["status"] == "completed"
+            for pilot_id in GRADE_7_REQUIRED_PILOT_IDS
+        ),
+        "grade 7 pilot gate cannot pass without all required pilots completed",
+    )
+
     for grade, judgement in judgements.items():
         contract = expected[grade]
+        grade_7_state = operational_state if grade == 7 else None
         _require(
             set(judgement) == fields
-            and judgement["availabilityStatus"] == contract["availability"]
+            and judgement["availabilityStatus"]
+            == (grade_7_state["availabilityStatus"] if grade_7_state else contract["availability"])
             and judgement["semanticCoverageStatus"] == contract["semantic"]
             and judgement["semanticCoverageStatus"] == derived_semantic[grade]
-            and judgement["timeFeasibilityStatus"] == contract["time"]
+            and judgement["timeFeasibilityStatus"]
+            == (grade_7_state["timeFeasibilityStatus"] if grade_7_state else contract["time"])
             and judgement["sequenceEvidenceStatus"] == contract["sequence"]
-            and judgement["pilotStatus"] == "not-started"
+            and judgement["pilotStatus"]
+            == (grade_7_state["pilotStatus"] if grade_7_state else "not-started")
             and judgement["annualVariantIds"] == contract["variants"]
             and judgement["decisionOptions"] == contract["options"]
             and all(
@@ -4598,6 +4675,14 @@ def validate_ium10(
         annual_variants,
         coverage_payload,
     )
+    risks = validate_risks(time_payload["risks"])
+    pilot_assignments = validate_pilot_assignments(
+        time_payload["pilotAssignments"],
+        module_contracts,
+        integration_contracts,
+        annual_variants,
+        availability_contracts,
+    )
     grade_judgements = _validate_final_grade_judgements(
         time_payload["gradeJudgements"],
         sequence_evidence,
@@ -4605,11 +4690,8 @@ def validate_ium10(
         coverage_payload,
         time_reviews,
         module_contracts,
-    )
-    risks = validate_risks(time_payload["risks"])
-    pilot_assignments = validate_pilot_assignments(
-        time_payload["pilotAssignments"],
-        module_contracts,
+        availability_contracts,
+        pilot_assignments,
     )
     result = {
         "baseline": baseline,

@@ -2466,7 +2466,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
             },
         )
         self.assertEqual(len(time_model["risks"]), 5)
-        self.assertEqual(len(time_model["pilotAssignments"]), 31)
+        self.assertEqual(len(time_model["pilotAssignments"]), 36)
         self.assertEqual(
             validate_capacity_model(time_model["capacityModel"], time_model["unit"]),
             {
@@ -12952,7 +12952,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
         self.assertEqual(len(result["timeReviews"]), 60)
         self.assertEqual(len(result["sequenceEvidence"]), 4)
         self.assertEqual(len(result["gradeJudgements"]), 3)
-        self.assertEqual(len(result["pilotAssignments"]), 31)
+        self.assertEqual(len(result["pilotAssignments"]), 36)
         self.assertEqual(
             Counter(
                 entry["coverageStatus"]
@@ -13452,43 +13452,150 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 with self.assertRaises(IUM10ValidationError):
                     self.validate(time_model=time_model)
 
-    def test_pilot_assignments_are_module_aggregated_and_nonpersonal(self):
+    def test_pilot_assignments_are_typed_aggregated_and_nonpersonal(self):
         result = self.validate()
-        expected_measures = {
-            "actualTeachingMinutes",
-            "technicalStartupMinutes",
-            "supportDemand",
-            "practiceAndRevisionDemand",
-            "interruptions",
-            "resumedInLaterLesson",
-            "learningProductOutcome",
-        }
-        self.assertEqual(len(result["pilotAssignments"]), 31)
+        expected_measures = [
+            "plannedTeachingUnits",
+            "actualTeachingUnits",
+            "handoffProductPresent",
+            "fallbackActivated",
+            "aggregatedTechnicalStartupMinutes",
+            "aggregatedSupportDemand",
+            "requiredLearningPhasesCompleted",
+            "gateOutcome",
+        ]
+        expected_excluded_uses = [
+            "grades",
+            "competence-profiles",
+            "individual-diagnostics",
+            "learner-identifiers",
+            "personal-learning-paths",
+            "private-reflection-content",
+            "student-products-as-time-evidence",
+            "automated-personal-assessment",
+        ]
+        self.assertEqual(len(result["pilotAssignments"]), 36)
+        self.assertEqual(
+            Counter(pilot["scopeType"] for pilot in result["pilotAssignments"].values()),
+            {"module": 31, "integration": 4, "annual-variant": 1},
+        )
+        self.assertEqual(
+            Counter(
+                pilot["aggregationLevel"]
+                for pilot in result["pilotAssignments"].values()
+            ),
+            {"module": 31, "integration": 4, "annual-variant": 1},
+        )
         for pilot in result["pilotAssignments"].values():
-            self.assertEqual(pilot["aggregationLevel"], "module")
-            self.assertEqual(set(pilot["measures"]), expected_measures)
+            self.assertEqual(pilot["measures"], expected_measures)
             self.assertEqual(pilot["personalData"], "prohibited")
             self.assertEqual(pilot["personalTelemetry"], "prohibited")
-            self.assertEqual(
-                pilot["excludedUses"],
-                ["grades", "competence-profiles", "individual-diagnostics"],
-            )
-        for field, value in (
-            ("aggregationLevel", "learner"),
-            ("personalData", "allowed"),
-            ("personalTelemetry", "allowed"),
-            ("status", True),
+            self.assertEqual(pilot["privateReflectionEvidence"], "prohibited")
+            self.assertEqual(pilot["excludedUses"], expected_excluded_uses)
+            self.assertEqual(pilot["status"], "not-started")
+
+    def test_pilot_assignments_fail_closed_on_contract_privacy_scope_and_order_mutations(self):
+        mutations = []
+        for field in (
+            "personalData",
+            "personalTelemetry",
+            "privateReflectionEvidence",
         ):
-            with self.subTest(field=field):
+            mutations.append(
+                (field, lambda pilots, field=field: pilots[0].__setitem__(field, "allowed"))
+            )
+        mutations.extend(
+            [
+                ("missing excluded use", lambda pilots: pilots[0]["excludedUses"].pop()),
+                (
+                    "additional excluded use",
+                    lambda pilots: pilots[0]["excludedUses"].append("unexpected-use"),
+                ),
+                (
+                    "duplicate scope",
+                    lambda pilots: pilots[1].__setitem__("scopeIds", pilots[0]["scopeIds"]),
+                ),
+                (
+                    "swapped type",
+                    lambda pilots: pilots[0].__setitem__("scopeType", "integration"),
+                ),
+                (
+                    "wrong aggregation",
+                    lambda pilots: pilots[0].__setitem__("aggregationLevel", "integration"),
+                ),
+                (
+                    "wrong contract",
+                    lambda pilots: pilots[0].__setitem__("contractIds", ["TC-IUM-5-CORE-02"]),
+                ),
+                (
+                    "wrong scope",
+                    lambda pilots: pilots[0].__setitem__("scopeIds", ["IUM-5-CORE-02"]),
+                ),
+                (
+                    "additional scope",
+                    lambda pilots: pilots[0]["scopeIds"].append("IUM-5-CORE-02"),
+                ),
+                ("missing field", lambda pilots: pilots[0].pop("fallback")),
+                (
+                    "additional field",
+                    lambda pilots: pilots[0].__setitem__("unexpected", True),
+                ),
+                ("missing measure", lambda pilots: pilots[0]["measures"].pop()),
+                (
+                    "additional measure",
+                    lambda pilots: pilots[0]["measures"].append("unexpected-measure"),
+                ),
+                (
+                    "reordered measure",
+                    lambda pilots: pilots[0]["measures"].reverse(),
+                ),
+                ("wrong status", lambda pilots: pilots[0].__setitem__("status", "approved")),
+                (
+                    "wrong fallback",
+                    lambda pilots: pilots[0].__setitem__("fallback", "personal-replanning"),
+                ),
+                (
+                    "wrong pilot id",
+                    lambda pilots: pilots[0].__setitem__("id", "PILOT-WRONG"),
+                ),
+                (
+                    "passed pilot gate without completed pilots",
+                    lambda pilots: None,
+                ),
+                ("missing pilot", lambda pilots: pilots.pop()),
+                (
+                    "additional pilot",
+                    lambda pilots: pilots.append(copy.deepcopy(pilots[0])),
+                ),
+            ]
+        )
+        for name, mutate in mutations:
+            with self.subTest(name=name):
                 time_model = copy.deepcopy(self.time_model)
-                time_model["pilotAssignments"][0][field] = value
+                mutate(time_model["pilotAssignments"])
+                if name == "passed pilot gate without completed pilots":
+                    time_model["availabilityContracts"][0]["gates"]["pilot"][
+                        "status"
+                    ] = "passed"
                 with self.assertRaises(IUM10ValidationError):
                     self.validate(time_model=time_model)
 
-        time_model = copy.deepcopy(self.time_model)
-        time_model["pilotAssignments"][0]["measures"].pop()
-        with self.assertRaises(IUM10ValidationError):
-            self.validate(time_model=time_model)
+    def test_grade_7_operational_statuses_must_match_validated_pilots(self):
+        for field, value in (
+            ("availabilityStatus", "available"),
+            ("timeFeasibilityStatus", "green"),
+            ("pilotStatus", "completed"),
+        ):
+            with self.subTest(field=field):
+                time_model = copy.deepcopy(self.time_model)
+                judgement = next(
+                    item
+                    for item in time_model["gradeJudgements"]
+                    if item["grade"] == 7
+                )
+                judgement[field] = value
+                with self.assertRaises(IUM10ValidationError):
+                    self.validate(time_model=time_model)
 
 
 class IUM10Grade7AvailabilityContractTests(unittest.TestCase):
