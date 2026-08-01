@@ -83,7 +83,7 @@ PACKAGE_ID_PATTERN = re.compile(
     r"PKG-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
 )
 FINGERPRINT_PATTERN = re.compile(r"[0-9a-f]{64}")
-SCHOOL_YEAR_PATTERN = re.compile(r"20[0-9]{2}-[0-9]{2}")
+SCHOOL_YEAR_PATTERN = re.compile(r"[0-9]{4}-[0-9]{2}")
 
 
 class IUM11ValidationError(ValueError):

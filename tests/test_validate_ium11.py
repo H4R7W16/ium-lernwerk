@@ -224,6 +224,12 @@ class IUM11EvidencePackageTests(unittest.TestCase):
             validated["learnerPulseEvidence"], {"status": "suppressed-small-group"}
         )
 
+    def test_school_year_accepts_any_four_digit_year_prefix(self):
+        payload = valid_cluster_package()
+        payload["context"]["schoolYear"] = "1999-00"
+        validated = validate_evidence_package(payload, self.protocol, self.time_model)
+        self.assertEqual(validated["context"]["schoolYear"], "1999-00")
+
     def test_one_third_disagree_creates_warning(self):
         pulse = reported_pulse(agree=8, partly=0, disagree=4, no_answer=0)
         result = evaluate_learner_pulse(pulse, self.protocol)
