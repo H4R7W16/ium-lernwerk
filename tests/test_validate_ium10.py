@@ -2260,6 +2260,12 @@ class IUM10CapacityModelTests(unittest.TestCase):
         return {
             "officialWeeklyUnits": 1,
             "officialStatus": "administrative-context",
+            "projectAssumption": {
+                "nominalUnits": 36,
+                "coreUnits": 30,
+                "bufferUnits": 6,
+                "status": "non-normative-project-assumption",
+            },
             "calendarEstimate": {
                 "schoolYear": "2026/2027",
                 "status": "dated-project-calculation",
@@ -2321,7 +2327,7 @@ class IUM10CapacityModelTests(unittest.TestCase):
         capacity_model = self.capacity_model()
         capacity_model["officialStatus"] = "30+6 official norm"
 
-        with self.assertRaisesRegex(IUM10ValidationError, "30\\+6"):
+        with self.assertRaisesRegex(IUM10ValidationError, "official status"):
             self.validate_capacity(capacity_model=capacity_model)
 
     def test_rejects_a_negative_local_buffer(self):
@@ -10969,7 +10975,7 @@ class IUM10Grade6RepositoryTests(unittest.TestCase):
                 "pilotStatus": judgement["pilotStatus"],
             },
             {
-                "semanticCoverageStatus": "partial",
+                "semanticCoverageStatus": "covered",
                 "timeFeasibilityStatus": "green",
                 "sequenceEvidenceStatus": "covered",
                 "pilotStatus": "not-started",
@@ -13212,3 +13218,625 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
         time_model["pilotAssignments"][0]["measures"].pop()
         with self.assertRaises(IUM10ValidationError):
             self.validate(time_model=time_model)
+
+
+class IUM10PublishedRoadmapTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (cls.root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        cls.module_payload = json.loads(
+            (cls.root / "roadmap/module-candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.coverage_payload = json.loads(
+            (cls.root / "roadmap/coverage-plan.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.remediation_payload = json.loads(
+            (cls.root / "roadmap/coverage-remediation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.validation_result = ium10_validator.validate_ium10_repository(
+            cls.root
+        )
+        cls.roadmap = (cls.root / "roadmap/module-roadmap.md").read_text(
+            encoding="utf-8"
+        )
+        cls.readme = (cls.root / "README.md").read_text(encoding="utf-8")
+
+    @staticmethod
+    def _list_cell(values):
+        return "<br>".join(str(value) for value in values) if values else "—"
+
+    @classmethod
+    def _table(cls, document, heading):
+        lines = document.splitlines()
+        try:
+            heading_index = lines.index(heading)
+        except ValueError as error:
+            raise AssertionError(f"missing published heading: {heading}") from error
+        table_index = heading_index + 1
+        while table_index < len(lines) and not lines[table_index].startswith("|"):
+            table_index += 1
+        if table_index + 1 >= len(lines):
+            raise AssertionError(f"missing published table after: {heading}")
+        headers = [cell.strip() for cell in lines[table_index].strip("|").split("|")]
+        separator = lines[table_index + 1]
+        if not separator.startswith("|") or "---" not in separator:
+            raise AssertionError(f"missing Markdown table separator after: {heading}")
+        rows = []
+        row_index = table_index + 2
+        while row_index < len(lines) and lines[row_index].startswith("|"):
+            cells = [
+                cell.strip()
+                for cell in lines[row_index].strip("|").split("|")
+            ]
+            if len(cells) != len(headers):
+                raise AssertionError(
+                    f"malformed row after {heading}: {lines[row_index]}"
+                )
+            rows.append(dict(zip(headers, cells)))
+            row_index += 1
+        return rows
+
+    def test_publishes_all_module_contracts_and_keeps_flexible_modules_visible(self):
+        rows = self._table(self.roadmap, "### Modulverträge (31/31)")
+        module_by_id = {
+            module["id"]: module for module in self.module_payload["modules"]
+        }
+        expected = []
+        for contract in self.time_model["moduleContracts"]:
+            module = module_by_id[contract["moduleId"]]
+            historical_range = contract["historicalLessonRange"]
+            self.assertEqual(set(historical_range), {"min", "max"})
+            expected.append(
+                {
+                    "Modul": contract["moduleId"],
+                    "Titel": module["title"],
+                    "Klasse": str(contract["grade"]),
+                    "Art": contract["kind"],
+                    "Historischer Korridor": (
+                        f'{historical_range["min"]}–{historical_range["max"]}'
+                    ),
+                    "Zentrale Lernhandlung": contract["centralLearningAction"],
+                    "Zentrales Produkt": contract["centralLearningProduct"],
+                    "Status": contract["status"],
+                }
+            )
+        self.assertEqual(rows, expected)
+        flexible_kinds = {"extension", "transfer", "project"}
+        self.assertEqual(
+            sum(row["Art"] in flexible_kinds for row in rows),
+            sum(
+                contract["kind"] in flexible_kinds
+                for contract in self.time_model["moduleContracts"]
+            ),
+        )
+        self.assertIn(
+            "Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar",
+            self.roadmap,
+        )
+        self.assertIn(
+            "Analoge Materialien werden nur eingesetzt, wenn sich die Wahl des Mediums aus der Lernhandlung didaktisch begründet",
+            self.roadmap,
+        )
+
+    def test_publishes_all_eleven_annual_variants_with_json_derived_sums(self):
+        rows = self._table(
+            self.roadmap,
+            "### Jahresvarianten der Klassen 5 bis 7 (11/11)",
+        )
+        expected = []
+        for variant in self.time_model["annualVariants"]:
+            allocated_units = sum(
+                allocation["units"] for allocation in variant["allocations"]
+            )
+            self.assertEqual(allocated_units, variant["targetUnits"])
+            expected.append(
+                {
+                    "Klasse": str(variant["grade"]),
+                    "Variante": variant["id"],
+                    "Typ": variant["kind"],
+                    "Budgetpfad": variant["pathId"],
+                    "Summe (UE)": str(allocated_units),
+                    "Allokationen": self._list_cell(
+                        [
+                            (
+                                f'{allocation["moduleId"]} / '
+                                f'{allocation["budgetPathId"]} / '
+                                f'{allocation["units"]} UE'
+                            )
+                            for allocation in variant["allocations"]
+                        ]
+                    ),
+                    "Integrationen": self._list_cell(
+                        variant["integrationContractIds"]
+                    ),
+                    "Verfügbar": "ja" if variant["available"] else "nein",
+                    "Status": variant["status"],
+                    "Begründung": variant["rationale"],
+                    "Risiko": variant["risk"],
+                }
+            )
+        self.assertEqual(rows, expected)
+        grouped_units = {
+            grade: sorted(
+                variant["targetUnits"]
+                for variant in self.time_model["annualVariants"]
+                if variant["grade"] == grade
+            )
+            for grade in (5, 6, 7)
+        }
+        self.assertEqual(grouped_units[5], [30, 34, 38])
+        self.assertEqual(grouped_units[6], [30, 34, 38, 38, 38])
+        self.assertEqual(grouped_units[7], [40, 46, 54])
+
+    def test_publishes_capacity_layers_and_unreleased_working_status(self):
+        rows = self._table(
+            self.roadmap,
+            "### Kapazitäts- und Freigabestatus",
+        )
+        capacity = self.time_model["capacityModel"]
+        self.assertIn("projectAssumption", capacity)
+        project_assumption = capacity["projectAssumption"]
+        self.assertEqual(
+            project_assumption["nominalUnits"],
+            project_assumption["coreUnits"]
+            + project_assumption["bufferUnits"],
+        )
+        calendar = capacity["calendarEstimate"]
+        expected = [
+            {
+                "Dimension": "Projektannahme",
+                "Wert": (
+                    f'{project_assumption["nominalUnits"]} nominale UE = '
+                    f'{project_assumption["coreUnits"]} Kern-UE + '
+                    f'{project_assumption["bufferUnits"]} Puffer-UE'
+                ),
+                "Status / Grenze": (
+                    "Projektannahme; keine Vorgabe der Lesehilfe und keine "
+                    "amtliche Stundentafel"
+                ),
+            },
+            {
+                "Dimension": "Administrativer Kontext",
+                "Wert": f'{capacity["officialWeeklyUnits"]} Wochen-UE',
+                "Status / Grenze": capacity["officialStatus"],
+            },
+            {
+                "Dimension": "Datierte Kalenderrechnung",
+                "Wert": (
+                    f'{calendar["schoolYear"]}: '
+                    + ", ".join(
+                        f"{weekday} {units} UE"
+                        for weekday, units in calendar["weekdayUnits"].items()
+                    )
+                ),
+                "Status / Grenze": (
+                    f'{calendar["status"]}; lokal und schulabhängig'
+                ),
+            },
+            {
+                "Dimension": "Arbeitsmodell",
+                "Wert": "/".join(
+                    str(path["units"])
+                    for path in capacity["planningPaths"]
+                ),
+                "Status / Grenze": self._list_cell(
+                    [
+                        f'{path["id"]}: {path["status"]}'
+                        for path in capacity["planningPaths"]
+                    ]
+                ),
+            },
+            {
+                "Dimension": "Freigabeurteil",
+                "Wert": self.time_model["status"],
+                "Status / Grenze": (
+                    "ungepilotiert; Auftraggeber-Zeitfreigabe ausstehend"
+                ),
+            },
+        ]
+        self.assertEqual(rows, expected)
+
+    def test_capacity_project_assumption_is_fail_closed_and_additive(self):
+        capacity = copy.deepcopy(self.time_model["capacityModel"])
+        capacity["projectAssumption"] = {
+            "nominalUnits": 36,
+            "coreUnits": 30,
+            "bufferUnits": 6,
+            "status": "non-normative-project-assumption",
+        }
+        try:
+            validate_capacity_model(capacity, self.time_model["unit"])
+        except IUM10ValidationError as error:
+            self.fail(
+                "valid additive project assumption must be accepted: "
+                f"{error}"
+            )
+
+        mutations = (
+            ("missing", None),
+            ("wrong-sum", {"nominalUnits": 35}),
+            ("bool-units", {"bufferUnits": True}),
+            ("wrong-status", {"status": "official"}),
+        )
+        for case, replacement in mutations:
+            with self.subTest(case=case):
+                invalid = copy.deepcopy(capacity)
+                if replacement is None:
+                    invalid.pop("projectAssumption")
+                else:
+                    invalid["projectAssumption"].update(replacement)
+                with self.assertRaises(IUM10ValidationError):
+                    validate_capacity_model(invalid, self.time_model["unit"])
+
+    def test_publishes_all_eight_integration_contracts_without_losing_fallbacks(self):
+        rows = self._table(self.roadmap, "### Integrationsverträge (8/8)")
+        expected = []
+        for contract in self.time_model["integrationContracts"]:
+            expected.append(
+                {
+                    "Vertrag": contract["id"],
+                    "Module": self._list_cell(contract["moduleIds"]),
+                    "Pfade": self._list_cell(contract["pathIds"]),
+                    "Gezählt in": contract["countedInModuleId"],
+                    "Gemeinsame Phase / Produktspur": contract[
+                        "sharedPhaseOrProduct"
+                    ],
+                    "Gemeinsame Minuten": str(contract["sharedMinutes"]),
+                    "Einsparung je Pfad": self._list_cell(
+                        [
+                            f"{path}: {minutes} min"
+                            for path, minutes in contract[
+                                "savingsMinutesByPath"
+                            ].items()
+                        ]
+                    ),
+                    "Erhaltene Lernhandlungen": self._list_cell(
+                        contract["preservedLearningActions"]
+                    ),
+                    "Erhaltene Produkt- / Curriculumevidenz": self._list_cell(
+                        contract["preservedProductAndCurriculumEvidence"]
+                    ),
+                    "Voraussetzungen": self._list_cell(
+                        contract["prerequisites"]
+                    ),
+                    "Risiko": contract["risk"],
+                    "Rückfall": contract["fallback"],
+                    "Status": contract["status"],
+                }
+            )
+        self.assertEqual(rows, expected)
+
+    def test_publishes_exactly_sixty_time_reviews_grouped_by_module(self):
+        rows = self._table(self.roadmap, "### Zeitreviews (60/60)")
+        module_order = {
+            contract["moduleId"]: index
+            for index, contract in enumerate(self.time_model["moduleContracts"])
+        }
+        grouped_reviews = sorted(
+            enumerate(self.time_model["timeReviews"]),
+            key=lambda indexed_review: (
+                module_order[indexed_review[1]["moduleId"]],
+                indexed_review[0],
+            ),
+        )
+        expected = [
+            {
+                "Review": review["id"],
+                "Modul": review["moduleId"],
+                "Kompetenz": review["competencyId"],
+                "Quelllevel": review["sourceTimeImpactLevel"],
+                "Entscheidung": review["decision"],
+                "Zusatzminuten": str(review["additionalMinutes"]),
+                "Pfadverfügbarkeit": self._list_cell(
+                    review["pathAvailability"]
+                ),
+                "Coveragefolge": review["coverageConsequence"],
+            }
+            for _, review in grouped_reviews
+        ]
+        self.assertEqual(len(rows), 60)
+        self.assertEqual(rows, expected)
+        closed_modules = set()
+        previous_module = None
+        for row in rows:
+            if previous_module is not None and row["Modul"] != previous_module:
+                closed_modules.add(previous_module)
+            self.assertNotIn(row["Modul"], closed_modules)
+            previous_module = row["Modul"]
+
+    def test_publishes_four_sequence_decisions_and_both_coverage_balances(self):
+        sequence_rows = self._table(
+            self.roadmap,
+            "### Sequenznachweise (4/4)",
+        )
+        expected_sequences = []
+        for evidence in self.time_model["sequenceEvidence"]:
+            consequence = evidence["coverageConsequence"]
+            expected_sequences.append(
+                {
+                    "Sequenz": evidence["id"],
+                    "Kompetenz": evidence["competencyId"],
+                    "Zeitreview": evidence["timeReviewId"],
+                    "Module": self._list_cell(evidence["moduleIds"]),
+                    "Klassen": self._list_cell(evidence["grades"]),
+                    "Fachaudit": evidence["fachAuditStatus"],
+                    "Coverageentscheidung": evidence["coverageDecision"],
+                    "Coveragefolge": (
+                        f'{consequence["coverageStatus"]} / '
+                        f'{consequence["semanticAudit"]} / '
+                        f'{consequence["rationale"]}'
+                    ),
+                    "Verbleibende Grenze": evidence["remainingBoundary"],
+                    "Status": evidence["status"],
+                }
+            )
+        self.assertEqual(sequence_rows, expected_sequences)
+
+        current_counts = Counter(
+            entry["coverageStatus"]
+            for entry in self.coverage_payload["entries"]
+        )
+        historical_counts = Counter(
+            entry["coverageStatus"]
+            for entry in self.validation_result[
+                "ium09CoverageProjection"
+            ]["entries"]
+        )
+        coverage_rows = self._table(
+            self.roadmap,
+            "### Aktuelle und historische Coveragebilanz",
+        )
+        self.assertEqual(
+            coverage_rows,
+            [
+                {
+                    "Sicht": "Aktuelle IUM10-Coverage",
+                    "Gesamt": str(len(self.coverage_payload["entries"])),
+                    "covered": str(current_counts["covered"]),
+                    "partial": str(current_counts["partial"]),
+                    "Bedeutung": "aktueller semantischer Stand",
+                },
+                {
+                    "Sicht": "Historische IUM09-Projektion",
+                    "Gesamt": str(
+                        len(
+                            self.validation_result[
+                                "ium09CoverageProjection"
+                            ]["entries"]
+                        )
+                    ),
+                    "covered": str(historical_counts["covered"]),
+                    "partial": str(historical_counts["partial"]),
+                    "Bedeutung": "historische, rückprojizierte IUM09-Sicht",
+                },
+            ],
+        )
+
+    def test_publishes_grade_judgements_and_five_unimplemented_grade7_options(self):
+        rows = self._table(self.roadmap, "### Getrennte Jahrgangsurteile")
+        expected = [
+            {
+                "Klasse": str(judgement["grade"]),
+                "Semantische Coverage": judgement["semanticCoverageStatus"],
+                "Zeitmachbarkeit": judgement["timeFeasibilityStatus"],
+                "Sequenznachweis": judgement["sequenceEvidenceStatus"],
+                "Pilot": judgement["pilotStatus"],
+                "Varianten": self._list_cell(judgement["annualVariantIds"]),
+                "Begründung": judgement["rationale"],
+                "Risiko": judgement["risk"],
+                "Entscheidungsoptionen": self._list_cell(
+                    judgement["decisionOptions"]
+                ),
+            }
+            for judgement in self.time_model["gradeJudgements"]
+        ]
+        self.assertEqual(rows, expected)
+        grade_7 = next(
+            judgement
+            for judgement in self.time_model["gradeJudgements"]
+            if judgement["grade"] == 7
+        )
+        self.assertEqual(grade_7["timeFeasibilityStatus"], "red")
+        option_rows = self._table(
+            self.roadmap,
+            "### Klasse 7: noch nicht umgesetzte Folgeoptionen (5/5)",
+        )
+        self.assertEqual(
+            option_rows,
+            [
+                {"Option": option, "Umgesetzt": "nein"}
+                for option in grade_7["decisionOptions"]
+            ],
+        )
+
+    def test_grade_judgements_match_current_coverage_and_sequence_evidence(self):
+        reviews_by_id = {
+            review["id"]: review for review in self.time_model["timeReviews"]
+        }
+        module_grades = {
+            contract["moduleId"]: contract["grade"]
+            for contract in self.time_model["moduleContracts"]
+        }
+        partial_grades = {
+            module_grades[reviews_by_id[entry["timeReviewId"]]["moduleId"]]
+            for entry in self.coverage_payload["entries"]
+            if entry["coverageStatus"] == "partial"
+        }
+        expected_semantic = {
+            grade: "partial" if grade in partial_grades else "covered"
+            for grade in (5, 6, 7)
+        }
+        expected_sequence = {
+            grade: (
+                "partial"
+                if any(
+                    grade in evidence["grades"]
+                    and evidence["coverageDecision"] == "remain-partial"
+                    for evidence in self.time_model["sequenceEvidence"]
+                )
+                else "covered"
+            )
+            for grade in (5, 6, 7)
+        }
+        judgements = {
+            judgement["grade"]: judgement
+            for judgement in self.time_model["gradeJudgements"]
+        }
+        self.assertEqual(
+            {
+                grade: judgement["semanticCoverageStatus"]
+                for grade, judgement in judgements.items()
+            },
+            expected_semantic,
+        )
+        self.assertEqual(
+            {
+                grade: judgement["sequenceEvidenceStatus"]
+                for grade, judgement in judgements.items()
+            },
+            expected_sequence,
+        )
+        self.assertNotIn(
+            "sequence-gaps",
+            " ".join(judgements[5]["decisionOptions"]),
+        )
+        self.assertNotIn(
+            "sequence-gaps",
+            " ".join(judgements[6]["decisionOptions"]),
+        )
+
+    def test_readme_time_summary_is_derived_from_annual_variants(self):
+        rows = self._table(self.readme, "### Zeitmodell in Zahlen")
+        expected = []
+        judgements = {
+            judgement["grade"]: judgement
+            for judgement in self.time_model["gradeJudgements"]
+        }
+        for grade in (5, 6, 7):
+            variants = [
+                variant
+                for variant in self.time_model["annualVariants"]
+                if variant["grade"] == grade
+            ]
+            available_units = [
+                variant["targetUnits"]
+                for variant in variants
+                if variant["available"]
+            ]
+            unavailable_units = [
+                variant["targetUnits"]
+                for variant in variants
+                if not variant["available"]
+            ]
+            expected.append(
+                {
+                    "Klasse": str(grade),
+                    "Verfügbare Pfade (UE)": (
+                        "/".join(str(value) for value in available_units)
+                        if available_units
+                        else "—"
+                    ),
+                    "Bedarf ohne Angebot (UE)": (
+                        "/".join(str(value) for value in unavailable_units)
+                        if unavailable_units
+                        else "—"
+                    ),
+                    "Zeiturteil": judgements[grade]["timeFeasibilityStatus"],
+                }
+            )
+        self.assertEqual(rows, expected)
+
+    def test_publishes_five_risks_and_module_aggregated_nonpersonal_pilot(self):
+        risk_rows = self._table(self.roadmap, "### Risikoregister (5/5)")
+        self.assertEqual(
+            risk_rows,
+            [
+                {
+                    "Risiko-ID": risk["id"],
+                    "Geltungsbereich": risk["scope"],
+                    "Risiko": risk["risk"],
+                    "Auswirkung": risk["impact"],
+                    "Minderung": risk["mitigation"],
+                    "Status": risk["status"],
+                }
+                for risk in self.time_model["risks"]
+            ],
+        )
+        pilots = self.time_model["pilotAssignments"]
+        pilot_rows = self._table(self.roadmap, "### Pilotstatus")
+        self.assertEqual(
+            pilot_rows,
+            [
+                {
+                    "Aufträge": str(len(pilots)),
+                    "Aggregation": self._list_cell(
+                        sorted({pilot["aggregationLevel"] for pilot in pilots})
+                    ),
+                    "Messgrößen": self._list_cell(pilots[0]["measures"]),
+                    "Personendaten": self._list_cell(
+                        sorted({pilot["personalData"] for pilot in pilots})
+                    ),
+                    "Persönliche Telemetrie": self._list_cell(
+                        sorted(
+                            {pilot["personalTelemetry"] for pilot in pilots}
+                        )
+                    ),
+                    "Ausgeschlossene Nutzungen": self._list_cell(
+                        pilots[0]["excludedUses"]
+                    ),
+                    "Status": self._list_cell(
+                        sorted({pilot["status"] for pilot in pilots})
+                    ),
+                }
+            ],
+        )
+
+    def test_readme_links_validators_and_keeps_time_gate_explicit(self):
+        required_links = {
+            "roadmap/module-roadmap.md",
+            "roadmap/time-model.json",
+            "scripts/validate_ium10.py",
+            "scripts/validate_ium09.py",
+            "scripts/validate_phase0.py",
+        }
+        for relative_path in required_links:
+            with self.subTest(relative_path=relative_path):
+                self.assertIn(f"]({relative_path})", self.readme)
+                self.assertTrue((self.root / relative_path).is_file())
+        current_counts = Counter(
+            entry["coverageStatus"]
+            for entry in self.coverage_payload["entries"]
+        )
+        historical_counts = Counter(
+            entry["coverageStatus"]
+            for entry in self.validation_result[
+                "ium09CoverageProjection"
+            ]["entries"]
+        )
+        self.assertIn(f'`{self.time_model["status"]}`', self.readme)
+        self.assertIn("Auftraggeber-Zeitfreigabe ausstehend", self.readme)
+        self.assertIn("Klasse 7", self.readme)
+        self.assertIn("`red`", self.readme)
+        self.assertIn(
+            f'{current_counts["covered"]} `covered` / '
+            f'{current_counts["partial"]} `partial`',
+            self.readme,
+        )
+        self.assertIn(
+            f'{historical_counts["covered"]} `covered` / '
+            f'{historical_counts["partial"]} `partial`',
+            self.readme,
+        )
+        self.assertIn(
+            "Semantische Coverage, Zeitmachbarkeit, Sequenznachweis und Pilotstatus",
+            self.readme,
+        )

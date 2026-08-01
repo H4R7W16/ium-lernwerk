@@ -14,6 +14,12 @@
   "capacityModel": {
     "officialWeeklyUnits": 1,
     "officialStatus": "administrative-context",
+    "projectAssumption": {
+      "nominalUnits": 36,
+      "coreUnits": 30,
+      "bufferUnits": 6,
+      "status": "non-normative-project-assumption"
+    },
     "calendarEstimate": {
       "schoolYear": "2026/2027",
       "status": "dated-project-calculation",
@@ -4196,20 +4202,20 @@
       "sequenceEvidenceStatus": "covered",
       "pilotStatus": "not-started",
       "annualVariantIds": ["GRADE-5-BASELINE", "GRADE-5-REGULAR", "GRADE-5-EXTENDED"],
-      "rationale": "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 Unterrichtseinheiten zeitlich grün; dieser Zeitstatus schließt die getrennt verbleibenden semantischen und Sequenzlücken ausdrücklich nicht.",
+      "rationale": "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 Unterrichtseinheiten zeitlich grün. Die drei verbleibenden semantischen Lücken der Klasse 5 bleiben davon getrennt partial; die beiden Sequenznachweise PROG-001/002 sind covered.",
       "risk": "Ohne lokalen Pilot sind technische Anlaufzeit, Unterstützungsbedarf sowie tatsächliche Übungs- und Revisionszeit noch nicht empirisch geprüft.",
-      "decisionOptions": ["pilot-grade-5-time-model", "retain-semantic-and-sequence-gaps"]
+      "decisionOptions": ["pilot-grade-5-time-model", "retain-semantic-gaps"]
     },
     {
       "grade": 6,
-      "semanticCoverageStatus": "partial",
+      "semanticCoverageStatus": "covered",
       "timeFeasibilityStatus": "green",
       "sequenceEvidenceStatus": "covered",
       "pilotStatus": "not-started",
       "annualVariantIds": ["GRADE-6-BASELINE", "GRADE-6-REGULAR", "GRADE-6-EXTENDED-REFERENCE", "GRADE-6-EXTENDED-TRANSFER", "GRADE-6-EXTENDED-CODING"],
-      "rationale": "Die verfügbaren vollständigen Kernpfade ergeben exakt 30 und 34 Unterrichtseinheiten; alle drei Erweiterungsvarianten ergeben exakt 38 Unterrichtseinheiten und alle drei Integrationsverträge sind working. Dieses grüne Zeiturteil lässt semantische Coverage und Sequenznachweise ausdrücklich partial.",
+      "rationale": "Die verfügbaren vollständigen Kernpfade ergeben exakt 30 und 34 Unterrichtseinheiten; alle drei Erweiterungsvarianten ergeben exakt 38 Unterrichtseinheiten und alle drei Integrationsverträge sind working. Semantische Coverage und Sequenznachweise sind covered; Zeitmachbarkeit und Pilotstatus bleiben davon getrennt green beziehungsweise not-started.",
       "risk": "Der Pilot ist noch nicht gestartet; technische Anlaufzeit, Unterstützungsbedarf, tatsächliche Übungs- und Revisionszeit sowie die drei Integrationen sind noch nicht empirisch geprüft.",
-      "decisionOptions": ["pilot-grade-6-time-model", "fall-back-to-standalone-integration-time", "retain-semantic-and-sequence-gaps"]
+      "decisionOptions": ["pilot-grade-6-time-model", "fall-back-to-standalone-integration-time"]
     },
     {
       "grade": 7,

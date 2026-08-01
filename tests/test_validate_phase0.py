@@ -2231,19 +2231,47 @@ class CoverageRepositoryTests(unittest.TestCase):
             in {"review-required", "roadmap-dependent"}
         )
         self.assertEqual(published_handoffs, expected_handoffs)
+        time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        capacity_model = time_model["capacityModel"]
+        self.assertIn("projectAssumption", capacity_model)
+        project_assumption = capacity_model["projectAssumption"]
+        self.assertEqual(
+            project_assumption["nominalUnits"],
+            project_assumption["coreUnits"]
+            + project_assumption["bufferUnits"],
+        )
+        historical_core_ranges = {
+            grade: (
+                sum(
+                    module["lessonRange"]["min"]
+                    for module in module_payload["modules"]
+                    if module["grade"] == grade and module["kind"] == "core"
+                ),
+                sum(
+                    module["lessonRange"]["max"]
+                    for module in module_payload["modules"]
+                    if module["grade"] == grade and module["kind"] == "core"
+                ),
+            )
+            for grade in (5, 6, 7)
+        }
         for required_text in (
-            "30 Unterrichtseinheiten Kern",
-            "6 Unterrichtseinheiten Puffer",
-            "31-44",
-            "35-50",
-            "54-78",
+            f'{project_assumption["coreUnits"]} Unterrichtseinheiten Kern',
+            f'{project_assumption["bufferUnits"]} Unterrichtseinheiten Puffer',
+            *(
+                f"{minimum}-{maximum}"
+                for minimum, maximum in historical_core_ranges.values()
+            ),
             "zeitlich nicht freigegeben",
             "Operator und Gegenstand",
             "IUM-5-CORE-05",
-            "keine Phase-2-Implementierungsplanung",
+            "keine Phase-1-Implementierungsplanung",
         ):
             with self.subTest(required_text=required_text):
                 self.assertIn(required_text, roadmap)
+        self.assertNotIn("keine Phase-2-Implementierungsplanung", roadmap)
 
 
 class OperatorMappingTests(unittest.TestCase):

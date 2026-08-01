@@ -435,6 +435,19 @@ GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
     "Klasse-7-Angebot und das Zeiturteil bleibt red. Keine der fünf "
     "Folgeoptionen ist umgesetzt."
 )
+GRADE_5_JUDGEMENT_RATIONALE = (
+    "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 "
+    "Unterrichtseinheiten zeitlich grün. Die drei verbleibenden semantischen "
+    "Lücken der Klasse 5 bleiben davon getrennt partial; die beiden "
+    "Sequenznachweise PROG-001/002 sind covered."
+)
+GRADE_6_JUDGEMENT_RATIONALE = (
+    "Die verfügbaren vollständigen Kernpfade ergeben exakt 30 und 34 "
+    "Unterrichtseinheiten; alle drei Erweiterungsvarianten ergeben exakt 38 "
+    "Unterrichtseinheiten und alle drei Integrationsverträge sind working. "
+    "Semantische Coverage und Sequenznachweise sind covered; Zeitmachbarkeit "
+    "und Pilotstatus bleiben davon getrennt green beziehungsweise not-started."
+)
 GRADE_6_INTEGRATION_BOUNDS = {
     "INT-6-ACTORS-SELECTION": {
         "moduleIds": ["IUM-6-CORE-01", "IUM-6-CORE-02"],
@@ -1362,6 +1375,7 @@ def validate_capacity_model(capacity_model, unit_contract):
         == {
             "officialWeeklyUnits",
             "officialStatus",
+            "projectAssumption",
             "calendarEstimate",
             "capacityLevels",
             "planningPaths",
@@ -1378,7 +1392,36 @@ def validate_capacity_model(capacity_model, unit_contract):
     )
     _require(
         capacity_model["officialStatus"] == "administrative-context",
-        "official status must be administrative-context; 30+6 is only an explanatory risk text",
+        "official status must be administrative-context; the project assumption is non-normative",
+    )
+
+    project_assumption = capacity_model["projectAssumption"]
+    _require(
+        isinstance(project_assumption, dict),
+        "project assumption must be an object",
+    )
+    _require(
+        set(project_assumption)
+        == {"nominalUnits", "coreUnits", "bufferUnits", "status"},
+        "project assumption fields differ from the IUM10 contract",
+    )
+    for field in ("nominalUnits", "coreUnits", "bufferUnits"):
+        _require(
+            isinstance(project_assumption[field], int)
+            and not isinstance(project_assumption[field], bool),
+            f"project assumption {field} must be an integer",
+        )
+    _require(
+        project_assumption["coreUnits"] == 30
+        and project_assumption["bufferUnits"] == 6
+        and project_assumption["nominalUnits"]
+        == project_assumption["coreUnits"]
+        + project_assumption["bufferUnits"],
+        "project assumption must remain the non-normative 30 plus 6 model",
+    )
+    _require(
+        project_assumption["status"] == "non-normative-project-assumption",
+        "project assumption status must remain non-normative",
     )
 
     calendar_estimate = capacity_model["calendarEstimate"]
@@ -3642,6 +3685,9 @@ def _validate_final_grade_judgements(
     grade_judgements,
     sequence_evidence,
     annual_variants,
+    coverage_payload,
+    time_reviews,
+    module_contracts,
 ):
     judgements = _validate_sequence_judgement_statuses(
         grade_judgements,
@@ -3670,11 +3716,12 @@ def _validate_final_grade_judgements(
             ],
             "options": [
                 "pilot-grade-5-time-model",
-                "retain-semantic-and-sequence-gaps",
+                "retain-semantic-gaps",
             ],
+            "rationale": GRADE_5_JUDGEMENT_RATIONALE,
         },
         6: {
-            "semantic": "partial",
+            "semantic": "covered",
             "time": "green",
             "sequence": "covered",
             "variants": [
@@ -3687,8 +3734,8 @@ def _validate_final_grade_judgements(
             "options": [
                 "pilot-grade-6-time-model",
                 "fall-back-to-standalone-integration-time",
-                "retain-semantic-and-sequence-gaps",
             ],
+            "rationale": GRADE_6_JUDGEMENT_RATIONALE,
         },
         7: {
             "semantic": "partial",
@@ -3700,15 +3747,51 @@ def _validate_final_grade_judgements(
                 "GRADE-7-HISTORICAL-MINIMUM",
             ],
             "options": GRADE_7_DECISION_OPTIONS,
+            "rationale": GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE,
         },
     }
+
+    derived_semantic = {grade: "covered" for grade in expected}
+    coverage_entries = coverage_payload.get("entries", [])
+    _require(
+        isinstance(coverage_entries, list),
+        "coverage entries are required for final grade judgements",
+    )
+    for entry in coverage_entries:
+        if not isinstance(entry, dict) or entry.get("coverageStatus") != "partial":
+            continue
+        review = time_reviews.get(entry.get("timeReviewId"))
+        _require(
+            isinstance(review, dict),
+            "every current partial coverage entry needs a validated time review",
+        )
+        contract = module_contracts.get(review.get("moduleId"))
+        _require(
+            isinstance(contract, dict) and contract.get("grade") in expected,
+            "every current partial coverage entry needs a validated module grade",
+        )
+        derived_semantic[contract["grade"]] = "partial"
+
+    derived_sequence = {grade: "covered" for grade in expected}
+    for evidence in sequence_evidence.values():
+        if evidence.get("coverageDecision") != "remain-partial":
+            continue
+        for grade in evidence.get("grades", []):
+            _require(
+                grade in derived_sequence,
+                "sequence evidence references an unknown judgement grade",
+            )
+            derived_sequence[grade] = "partial"
+
     for grade, judgement in judgements.items():
         contract = expected[grade]
         _require(
             set(judgement) == fields
             and judgement["semanticCoverageStatus"] == contract["semantic"]
+            and judgement["semanticCoverageStatus"] == derived_semantic[grade]
             and judgement["timeFeasibilityStatus"] == contract["time"]
             and judgement["sequenceEvidenceStatus"] == contract["sequence"]
+            and judgement["sequenceEvidenceStatus"] == derived_sequence[grade]
             and judgement["pilotStatus"] == "not-started"
             and judgement["annualVariantIds"] == contract["variants"]
             and judgement["decisionOptions"] == contract["options"]
@@ -3716,8 +3799,7 @@ def _validate_final_grade_judgements(
                 variant_id in annual_variants
                 for variant_id in judgement["annualVariantIds"]
             )
-            and isinstance(judgement["rationale"], str)
-            and judgement["rationale"].strip()
+            and judgement["rationale"] == contract["rationale"]
             and isinstance(judgement["risk"], str)
             and judgement["risk"].strip(),
             f"grade {grade} judgement differs from the approved final contract",
@@ -4294,6 +4376,9 @@ def validate_ium10(
         time_payload["gradeJudgements"],
         sequence_evidence,
         annual_variants,
+        coverage_payload,
+        time_reviews,
+        module_contracts,
     )
     risks = validate_risks(time_payload["risks"])
     pilot_assignments = validate_pilot_assignments(
