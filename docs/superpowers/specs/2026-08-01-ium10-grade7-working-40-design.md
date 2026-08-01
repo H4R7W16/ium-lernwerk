@@ -1,9 +1,13 @@
 # IUM10 – Klasse 7 als bedingt verfügbares 40-UE-Arbeitsziel
 
-**Status:** Gesamtdesign freigegeben; schriftliches Spezifikationsreview ausstehend  
-**Stand:** 1. August 2026  
-**Scope:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klasse 7, Niveau E  
-**Voraussetzung:** IUM10 für die Klassen 5 und 6 ist als `working` freigegeben  
+**Status:** Gesamtdesign freigegeben; schriftliches Spezifikationsreview ausstehend
+
+**Stand:** 1. August 2026
+
+**Scope:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klasse 7, Niveau E
+
+**Voraussetzung:** IUM10 für die Klassen 5 und 6 ist als `working` freigegeben
+
 **Implementierungsgrenze:** Diese Spezifikation entwirft den Klasse-7-Kapazitätsentscheid. Sie implementiert weder das Datenmodell noch Lernmodule, Pilotierungen oder Phase 1.
 
 ## 1. Zweck
@@ -103,7 +107,8 @@ Die 40 UE enthalten keinen zusätzlichen Jahres- oder Kalenderpuffer. Lokale Aus
 
 ### 4.1 `INT-7-DATA-CODING`
 
-**Module:** `IUM-7-CORE-01` und `IUM-7-CORE-02`  
+**Module:** `IUM-7-CORE-01` und `IUM-7-CORE-02`
+
 **Übergabeprodukt:** geprüfte Bit-, Code- und Datenmengenspur vom Bit-Codebuch zum Pixelraster, Bildcodec und Ressourcenvergleich.
 
 Erhalten bleiben insbesondere:
@@ -118,7 +123,8 @@ Scheitert die gemeinsame Spur, steigt der 40-UE-Bedarf um 3 UE.
 
 ### 4.2 `INT-7-PROGRAMMING`
 
-**Module:** `IUM-7-CORE-03` und `IUM-7-CORE-04`  
+**Module:** `IUM-7-CORE-03` und `IUM-7-CORE-04`
+
 **Übergabeprodukt:** gemeinsames Code-, Ablauf-, Zustands- und Testartefakt vom synchronen Trace bis zu Implementierung, Test und hypothesengeleitetem Debugging.
 
 Erhalten bleiben insbesondere:
@@ -133,7 +139,8 @@ Scheitert die gemeinsame Spur, steigt der 40-UE-Bedarf um 2 UE.
 
 ### 4.3 `INT-7-NET-SECURITY`
 
-**Module:** `IUM-7-CORE-05`, `IUM-7-CORE-06` und `IUM-7-CORE-07`  
+**Module:** `IUM-7-CORE-05`, `IUM-7-CORE-06` und `IUM-7-CORE-07`
+
 **Übergabeprodukt:** durchgängiges System-, Bedrohungs-, Verschlüsselungs- und Angriffsmodell mit Datenweg, Schutzbedarf, Schlüsselmodell, Angriffsbefund und revidiertem Sicherheitsurteil.
 
 Erhalten bleiben insbesondere:
@@ -149,7 +156,8 @@ Scheitert das gemeinsame Modell, steigt der 40-UE-Bedarf um 3 UE.
 
 ### 4.4 `INT-7-DATA-MEDIA-SOCIETY`
 
-**Module:** `IUM-7-CORE-08`, `IUM-7-CORE-09` und `IUM-7-CORE-10`  
+**Module:** `IUM-7-CORE-08`, `IUM-7-CORE-09` und `IUM-7-CORE-10`
+
 **Übergabeprodukt:** gemeinsames kuratiertes Evidenz-, Mechanismus- und Medienrevisionsdossier mit Akteurskarte, Beleg und Gegenbeleg, Wirkungs- und Rechteprüfung sowie unterscheidbaren Produktspuren.
 
 Erhalten bleiben insbesondere:
