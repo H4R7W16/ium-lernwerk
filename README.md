@@ -6,7 +6,7 @@ Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Ba
 
 Phase 0 umfasst Forschungsbasis, Curriculumdaten, Fachprofil, Modulverträge, Coverageaudit und das IUM10-Zeitmodell. Eine Lernendenanwendung und die Planung von Phase 1 gehören noch nicht zu diesem Stand.
 
-Das IUM10-Zeitmodell hat den Status `working`. Die vollständigen Jahresvarianten und Bedarfsszenarien sind aus dem maschinenlesbaren Zeitmodell abgeleitet:
+Das IUM10-Zeitmodell hat den Status `working`. [roadmap/time-model.json](roadmap/time-model.json) ist die kanonische Quelle mit Schema 3; [roadmap/module-roadmap.md](roadmap/module-roadmap.md) ist die daraus abgeleitete Lesefassung. Die vollständigen Jahresvarianten und Referenzrechnungen sind daraus projiziert:
 
 ### Zeitmodell in Zahlen
 
@@ -14,11 +14,21 @@ Das IUM10-Zeitmodell hat den Status `working`. Die vollständigen Jahresvariante
 | --- | --- | --- | --- |
 | 5 | 30/34/38 | — | green |
 | 6 | 30/34/38/38/38 | — | green |
-| 7 | — | 40/46/54 | red |
+| 7 | — | 46/54 | amber |
 
-Die drei 38-UE-Pfade der Klasse 6 bilden unterschiedliche Erweiterungen ab. Für Klasse 7 ist keine der Bedarfsrechnungen ein verfügbares Jahresangebot; das Zeiturteil bleibt `red`.
+Die drei 38-UE-Pfade der Klasse 6 bilden unterschiedliche Erweiterungen ab. Für Klasse 7 ist `GRADE-7-WORKING-40` ein `working`-Arbeitsziel mit `conditional`-Verfügbarkeit und `amber`-Zeitmachbarkeit; die 46- und 54-UE-Pfade sind `unavailable`/`red` und ausschließlich Referenzrechnungen, keine Ersatzangebote.
 
-Status: **Auftraggeber-Zeitfreigabe ausstehend**. `working` bedeutet reviewfähig und ungepilotiert, nicht freigegeben. Semantische Coverage, Zeitmachbarkeit, Sequenznachweis und Pilotstatus werden getrennt beurteilt:
+Status: **Auftraggeber-Zeitfreigabe ausstehend**. `working` ist der Status der 40-UE-Jahresvariante und bedeutet weder `available` noch `reviewed` oder zeitlich freigegeben. Die fünf Urteilachsen werden in dieser Reihenfolge ausgewiesen: Verfügbarkeit, Zeitmachbarkeit, Sequenznachweis, Pilotstatus, semantische Coverage.
+
+- Klasse 5: available / green / covered / not-started / partial
+- Klasse 6: available / green / covered / not-started / covered
+- Klasse 7: conditional / amber / covered / not-started / partial
+
+Klasse 7 bleibt nur unter dem Working-40-Vertrag bedingt: fünf Gates (`capacity`, `integration`, `technical`, `privacy`, `pilot`) sowie vier Integrationspiloten und ein Jahrespfadpilot sind noch nicht abgeschlossen. Ein gescheitertes erforderliches Gate führt fail-closed zu `unavailable`/`red`. Die additive Rückfallrechnung lautet `40 + 3 + 2 + 3 + 6 = 54`; 38 UE sind lediglich eine nichtnormative Vergleichsgrenze, keine Klasse-7-Jahresvariante.
+
+Die 36 privacy-sicheren Pilotaufträge bleiben aggregiert: 31 Modulaufträge, vier Integrationsaufträge und ein Jahrespfadauftrag. Private Reflexion, persönliche Telemetrie und Schülerprodukte als Zeitnachweis sind ausgeschlossen; `handoffProductPresent` ist nur ein aggregierter Ja/Nein-Befund und allein kein positiver Zeitnachweis.
+
+Die übrigen IUM10-Achsen bleiben ebenfalls getrennt beurteilt:
 
 - aktuelle IUM10-Coverage: 166 `covered` / 5 `partial`;
 - historische IUM09-Projektion: 164 `covered` / 7 `partial`;
@@ -27,7 +37,7 @@ Status: **Auftraggeber-Zeitfreigabe ausstehend**. `working` bedeutet reviewfähi
 
 In der historischen IUM09-Projektion gilt weiterhin: 164 sind auf Kandidatenebene `covered`, 7 bleiben `partial`. Von 60 Ausgangslücken wurden 53 geschlossen; 7 bleiben im Ledger offen. Trotz der verbesserten semantischen Coverage ist das Lernwerk weiterhin zeitlich nicht freigegeben.
 
-Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar und ersetzen keine fehlende Kernzeit. Digital ist das selbstverständliche Unterrichtsmedium; analoge Materialien werden nur eingesetzt, wenn die Lernhandlung ihre Verwendung didaktisch begründet. Eine zwanghafte Doppelstruktur ist nicht vorgesehen.
+Flexible Vertiefungs-, Transfer- und Projektmodule bleiben zusätzlich außerhalb der 40 UE sichtbar und ersetzen weder fehlende Kernzeit noch gescheiterte Kernintegrationen. Digital ist das selbstverständliche Unterrichtsmedium; analoge Materialien werden nur eingesetzt, wenn die Lernhandlung ihre Verwendung didaktisch begründet. Eine zwanghafte Doppelstruktur ist nicht vorgesehen.
 
 ## Zentrale Einstiege
 
@@ -42,7 +52,7 @@ Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar und ersetzen
 - [Forschungsarchitektur](docs/research/phase-0/README.md) und [Forschungssynthese](docs/research/phase-0/synthesis.md)
 - [Verbindliche Gesamtspezifikation](docs/superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md)
 
-IUM10 ist nach getrenntem Fach- und Engineeringreview reviewfähig. Die Zeitfreigabe und der Klasse-7-Entscheid bleiben Auftraggebergates; Phase 1 bleibt bis zu einem gesonderten Nutzerentscheid ungeplant.
+IUM10 ist nicht `reviewed`; eine Zeitfreigabe ist nicht erteilt. Phase 1 bleibt bis zu einem gesonderten Nutzerentscheid ungeplant.
 
 ## Validierung
 

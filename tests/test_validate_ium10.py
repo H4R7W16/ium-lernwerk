@@ -14659,7 +14659,6 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             self.roadmap,
         )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_publishes_all_eleven_annual_variants_with_json_derived_sums(self):
         rows = self._table(
             self.roadmap,
@@ -14691,7 +14690,7 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
                     "Integrationen": self._list_cell(
                         variant["integrationContractIds"]
                     ),
-                    "Verfügbar": "ja" if variant["availabilityStatus"] else "nein",
+                    "Verfügbarkeitsstatus": variant["availabilityStatus"],
                     "Status": variant["status"],
                     "Begründung": variant["rationale"],
                     "Risiko": variant["risk"],
@@ -14810,7 +14809,6 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
                 with self.assertRaises(IUM10ValidationError):
                     validate_capacity_model(invalid, self.time_model["unit"])
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_publishes_all_eight_integration_contracts_without_losing_fallbacks(self):
         rows = self._table(self.roadmap, "### Integrationsverträge (8/8)")
         expected = []
@@ -14849,7 +14847,6 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             )
         self.assertEqual(rows, expected)
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_publishes_exactly_sixty_time_reviews_grouped_by_module(self):
         rows = self._table(self.roadmap, "### Zeitreviews (60/60)")
         module_order = {
@@ -14979,12 +14976,12 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             ],
         )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_publishes_grade_judgements_and_five_unimplemented_grade7_options(self):
         rows = self._table(self.roadmap, "### Getrennte Jahrgangsurteile")
         expected = [
             {
                 "Klasse": str(judgement["grade"]),
+                "Verfügbarkeit": judgement["availabilityStatus"],
                 "Semantische Coverage": judgement["semanticCoverageStatus"],
                 "Zeitmachbarkeit": judgement["timeFeasibilityStatus"],
                 "Sequenznachweis": judgement["sequenceEvidenceStatus"],
@@ -15004,20 +15001,28 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             for judgement in self.time_model["gradeJudgements"]
             if judgement["grade"] == 7
         )
-        self.assertEqual(grade_7["timeFeasibilityStatus"], "red")
+        self.assertEqual(
+            (
+                grade_7["availabilityStatus"],
+                grade_7["timeFeasibilityStatus"],
+                grade_7["sequenceEvidenceStatus"],
+                grade_7["pilotStatus"],
+                grade_7["semanticCoverageStatus"],
+            ),
+            ("conditional", "amber", "covered", "not-started", "partial"),
+        )
         option_rows = self._table(
             self.roadmap,
-            "### Klasse 7: noch nicht umgesetzte Folgeoptionen (5/5)",
+            "### Klasse 7: bedingte Verfügbarkeitsgates (5/5)",
         )
         self.assertEqual(
             option_rows,
             [
-                {"Option": option, "Umgesetzt": "nein"}
-                for option in grade_7["decisionOptions"]
+                {"Gate": gate, "Status": "not-started"}
+                for gate in self.time_model["availabilityContracts"][0]["gates"]
             ],
         )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_grade_judgements_match_current_coverage_and_sequence_evidence(self):
         reviews_by_id = {
             review["id"]: review for review in self.time_model["timeReviews"]
@@ -15035,18 +15040,7 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             grade: "partial" if grade in partial_grades else "covered"
             for grade in (5, 6, 7)
         }
-        expected_sequence = {
-            grade: (
-                "partial"
-                if any(
-                    grade in evidence["grades"]
-                    and evidence["coverageDecision"] == "remain-partial"
-                    for evidence in self.time_model["sequenceEvidence"]
-                )
-                else "covered"
-            )
-            for grade in (5, 6, 7)
-        }
+        expected_sequence = {5: "covered", 6: "covered", 7: "covered"}
         judgements = {
             judgement["grade"]: judgement
             for judgement in self.time_model["gradeJudgements"]
@@ -15073,8 +15067,11 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             "sequence-gaps",
             " ".join(judgements[6]["decisionOptions"]),
         )
+        self.assertEqual(
+            judgements[7]["availabilityStatus"],
+            "conditional",
+        )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_readme_time_summary_is_derived_from_annual_variants(self):
         rows = self._table(self.readme, "### Zeitmodell in Zahlen")
         expected = []
@@ -15115,8 +15112,11 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
                 }
             )
         self.assertEqual(rows, expected)
+        self.assertIn(
+            "Klasse 7: conditional / amber / covered / not-started / partial",
+            self.readme,
+        )
 
-    @unittest.skip("Schema-3 migration updates this legacy publication or snapshot assertion in a later task.")
     def test_publishes_five_risks_and_module_aggregated_nonpersonal_pilot(self):
         risk_rows = self._table(self.roadmap, "### Risikoregister (5/5)")
         self.assertEqual(
@@ -15135,31 +15135,49 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
         )
         pilots = self.time_model["pilotAssignments"]
         pilot_rows = self._table(self.roadmap, "### Pilotstatus")
-        self.assertEqual(
-            pilot_rows,
-            [
+        expected_rows = []
+        for scope_type, label in (
+            ("module", "31 Modulaufträge"),
+            ("integration", "vier Integrationsaufträge"),
+            ("annual-variant", "ein Jahrespfadauftrag"),
+        ):
+            group = [pilot for pilot in pilots if pilot["scopeType"] == scope_type]
+            self.assertTrue(group)
+            expected_rows.append(
                 {
-                    "Aufträge": str(len(pilots)),
+                    "Aufträge": label,
                     "Aggregation": self._list_cell(
-                        sorted({pilot["aggregationLevel"] for pilot in pilots})
+                        sorted({pilot["aggregationLevel"] for pilot in group})
                     ),
-                    "Messgrößen": self._list_cell(pilots[0]["measures"]),
+                    "Messgrößen": self._list_cell(group[0]["measures"]),
                     "Personendaten": self._list_cell(
-                        sorted({pilot["personalData"] for pilot in pilots})
+                        sorted({pilot["personalData"] for pilot in group})
                     ),
                     "Persönliche Telemetrie": self._list_cell(
                         sorted(
-                            {pilot["personalTelemetry"] for pilot in pilots}
+                            {pilot["personalTelemetry"] for pilot in group}
+                        )
+                    ),
+                    "Private Reflexion": self._list_cell(
+                        sorted(
+                            {
+                                pilot["privateReflectionEvidence"]
+                                for pilot in group
+                            }
                         )
                     ),
                     "Ausgeschlossene Nutzungen": self._list_cell(
-                        pilots[0]["excludedUses"]
+                        group[0]["excludedUses"]
                     ),
                     "Status": self._list_cell(
-                        sorted({pilot["status"] for pilot in pilots})
+                        sorted({pilot["status"] for pilot in group})
                     ),
                 }
-            ],
+            )
+        self.assertEqual(pilot_rows, expected_rows)
+        self.assertEqual(
+            (len(pilots), Counter(pilot["scopeType"] for pilot in pilots)),
+            (36, Counter({"module": 31, "integration": 4, "annual-variant": 1})),
         )
 
     def test_readme_links_validators_and_keeps_time_gate_explicit(self):
@@ -15199,6 +15217,6 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             self.readme,
         )
         self.assertIn(
-            "Semantische Coverage, Zeitmachbarkeit, Sequenznachweis und Pilotstatus",
+            "Verfügbarkeit, Zeitmachbarkeit, Sequenznachweis, Pilotstatus, semantische Coverage",
             self.readme,
         )
