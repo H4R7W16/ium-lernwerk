@@ -1,8 +1,12 @@
 import json
+from contextlib import redirect_stderr
+from io import StringIO
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
-from scripts.validate_ium11 import canonical_sha256, validate_pilot_protocol
+from scripts.validate_ium10 import IUM10ValidationError
+from scripts.validate_ium11 import canonical_sha256, main, validate_pilot_protocol
 
 
 def load_json(path: Path) -> dict:
@@ -64,3 +68,15 @@ class IUM11ProtocolContractTests(unittest.TestCase):
             "eligible-for-working-availability-review",
         )
         self.assertEqual(compiled["forbiddenRecommendations"], ["reviewed", "standard"])
+
+    def test_main_formats_ium10_validation_errors_with_ium11_prefix(self):
+        stderr = StringIO()
+        with patch(
+            "scripts.validate_ium11.validate_ium11_repository",
+            side_effect=IUM10ValidationError("broken IUM10 prerequisite"),
+        ), redirect_stderr(stderr):
+            self.assertEqual(main([]), 1)
+        self.assertEqual(
+            stderr.getvalue(),
+            "IUM11 repository validation failed: broken IUM10 prerequisite\n",
+        )

@@ -6,9 +6,13 @@ import sys
 from pathlib import Path
 
 if __package__:
-    from .validate_ium10 import PHASE_IDS, validate_ium10_repository
+    from .validate_ium10 import (
+        IUM10ValidationError,
+        PHASE_IDS,
+        validate_ium10_repository,
+    )
 else:
-    from validate_ium10 import PHASE_IDS, validate_ium10_repository
+    from validate_ium10 import IUM10ValidationError, PHASE_IDS, validate_ium10_repository
 
 
 TIME_MODEL_FINGERPRINT = "873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1"
@@ -244,7 +248,7 @@ def main(argv=None) -> int:
     arguments = parser.parse_args(argv)
     try:
         result = validate_ium11_repository(arguments.root)
-    except (IUM11ValidationError, OSError, json.JSONDecodeError) as error:
+    except (IUM10ValidationError, IUM11ValidationError, OSError, json.JSONDecodeError) as error:
         print(f"IUM11 repository validation failed: {error}", file=sys.stderr)
         return 1
     protocol = result["protocol"]
