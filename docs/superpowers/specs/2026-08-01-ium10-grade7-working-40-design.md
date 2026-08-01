@@ -1,6 +1,6 @@
 # IUM10 – Klasse 7 als bedingt verfügbares 40-UE-Arbeitsziel
 
-**Status:** Gesamtdesign freigegeben; schriftliches Spezifikationsreview ausstehend
+**Status:** `approved` – am 1. August 2026 schriftlich freigegeben
 
 **Stand:** 1. August 2026
 
@@ -637,8 +637,8 @@ Nicht enthalten sind:
 ## 17. Freigabefolge
 
 1. Das abschnittsweise Gesamtdesign wurde am 1. August 2026 freigegeben.
-2. Diese schriftliche Spezifikation benötigt ein eigenes Nutzerreview.
-3. Erst nach der ausdrücklichen schriftlichen Spezifikationsfreigabe wird mit `superpowers:writing-plans` ein testgetriebener Implementierungsplan erstellt.
+2. Die schriftliche Spezifikation wurde am 1. August 2026 ausdrücklich freigegeben.
+3. Als nächster Entwicklungsschritt wird mit `superpowers:writing-plans` ein testgetriebener Implementierungsplan erstellt.
 4. Die Planfreigabe, Implementierung, Reviews, Pilotierung und spätere Statushochstufung bleiben jeweils eigene Gates.
 
 Die Freigabe dieser Spezifikation erlaubt die Planung. Sie erlaubt weder die automatische Implementierung noch die Ausweisung von `GRADE-7-WORKING-40` als verfügbares oder erprobtes Lehrwerksangebot.
