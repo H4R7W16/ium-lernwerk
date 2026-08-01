@@ -6639,7 +6639,7 @@
       ],
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Bitfolgenlänge ohne Bit-Byte-Anwendung, unklare größere Einheiten oder eine Vermischung mit Binärpräfixen würden den enacted Record unterschreiten. Eine pauschale Anrechnung der Clusterintegration wäre ohne identischen recordbezogenen Nachweis eine Scheineinsparung.",
-      "followUp": "Im Pilot innerhalb der 15 Minuten Erklärung, 16-Bit-Zählung, 8-Bit-Byte-Beziehung, 2-Byte-Ergebnis und dezimale Kennzeichnung von kB, MB, GB und TB gemeinsam sichern; das rote Jahresurteil bleibt von der lokalen Pilotierung unberührt.",
+      "followUp": "Im Pilot innerhalb der 15 Minuten Erklärung, 16-Bit-Zählung, 8-Bit-Byte-Beziehung, 2-Byte-Ergebnis und dezimale Kennzeichnung von kB, MB, GB und TB gemeinsam sichern. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "status": "working"
     },
     {
@@ -6761,7 +6761,7 @@
       ],
       "coverageConsequence": "semantic-status-unchanged",
       "risk": "Ohne tatsächlich bearbeitete und korrigierte Modellfassung würde der Einsatzoperator unterschritten. Eine lokale Werkzeughürde oder die bloße gemeinsame Oberfläche darf nicht als fachliche Integration oder als verfügbarer grüner 38-UE-Pfad umgedeutet werden.",
-      "followUp": "Vor und im Pilot die plattformneutrale lokale Modellierungsumgebung prüfen und innerhalb der 20 Minuten tatsächliches Erstellen, Bearbeiten und Korrigieren beobachten; bei Ausfall ein alternatives editierbares grafisches Modellierungswerkzeug oder Hilfsmittel bereitstellen, in dem die Lernenden selbst ein Modell erstellen, bearbeiten und korrigieren. Eine statische, angezeigte oder vorbereitete Ersatzdarstellung genügt nicht; ohne ein solches Fallback gilt MI-005 nicht als pilotiert oder zeitlich bestätigt. Das rote Jahresurteil bleibt bestehen.",
+      "followUp": "Vor und im Pilot die plattformneutrale lokale Modellierungsumgebung prüfen und innerhalb der 20 Minuten tatsächliches Erstellen, Bearbeiten und Korrigieren beobachten; bei Ausfall ein alternatives editierbares grafisches Modellierungswerkzeug oder Hilfsmittel bereitstellen, in dem die Lernenden selbst ein Modell erstellen, bearbeiten und korrigieren. Eine statische, angezeigte oder vorbereitete Ersatzdarstellung genügt nicht; ohne ein solches Fallback gilt MI-005 nicht als pilotiert oder zeitlich bestätigt. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "status": "working"
     },
     {
@@ -7040,7 +7040,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "Die Perspektivenbewertung benötigt 25 Minuten eigene Produktzeit innerhalb der bestehenden CORE-08-Phase: Im klar benannten Abschnitt „Auswirkungen und Perspektiven“ bewerten die Lernenden die Auswirkungen der behandelten Computersysteme auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus den vier Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit. Jedes Urteil ist kriterien- und beleggestützt, berücksichtigt einen Gegenbeleg oder eine ausgewiesene Unsicherheit und mündet in ein gemeinsames revidiertes Urteil. Persönliches Lebensumfeld bleibt ein analytischer Gegenstandsbereich und verlangt keine Offenlegung persönlicher Erfahrungen. INT-7-DATA-MEDIA-SOCIETY ist zulässig, weil der Vertrag INF7-16-GYM-PK-AB-005 ausdrücklich bewahrt; die CORE-09-Mechanismuskarte ersetzt die vollständige CORE-08-Breite jedoch nicht. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzszenarien bleiben unavailable und red.",
+      "rationale": "Die Perspektivenbewertung benötigt 25 Minuten eigene Produktzeit innerhalb der bestehenden CORE-08-Phase: Im klar benannten Abschnitt „Auswirkungen und Perspektiven“ bewerten die Lernenden die Auswirkungen der behandelten Computersysteme auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus den vier Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit. Jedes Urteil ist kriterien- und beleggestützt, berücksichtigt einen Gegenbeleg oder eine ausgewiesene Unsicherheit und mündet in ein gemeinsames revidiertes Urteil. Persönliches Lebensumfeld bleibt ein analytischer Gegenstandsbereich und verlangt keine Offenlegung persönlicher Erfahrungen. INT-7-DATA-MEDIA-SOCIETY ist zulässig, weil der Vertrag INF7-16-GYM-PK-AB-005 ausdrücklich bewahrt; die CORE-09-Mechanismuskarte ersetzt die vollständige CORE-08-Breite jedoch nicht. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product"
       ],
@@ -7075,7 +7075,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die individuelle ethische Informatikposition benötigt 20 Minuten eigene Revisionszeit innerhalb der bestehenden CORE-08-Phase: Jede lernende Person beantwortet im klar individuellen Abschnitt die ausgewiesene Informatikfrage „Darf ein digitaler Dienst personenbezogene Daten zur Auswahl und Reichweitensteuerung verwenden?“, nimmt eine eigene Position ein, begründet sie mit Kriterien und Belegen, prüft mindestens ein Gegenargument, vertritt die Position argumentativ und nimmt eine begründete Revision vor. Der geteilte Fall und das gemeinsame Dossier ersetzen diesen individuellen Abschnitt nicht. AB-006 ist im Integrationsvertrag nicht bewahrt und bleibt additional-time. GRADE-7-WORKING-40 bleibt conditional und amber; robust und historical-minimum bleiben unavailable.",
+      "rationale": "Die individuelle ethische Informatikposition benötigt 20 Minuten eigene Revisionszeit innerhalb der bestehenden CORE-08-Phase: Jede lernende Person beantwortet im klar individuellen Abschnitt die ausgewiesene Informatikfrage „Darf ein digitaler Dienst personenbezogene Daten zur Auswahl und Reichweitensteuerung verwenden?“, nimmt eine eigene Position ein, begründet sie mit Kriterien und Belegen, prüft mindestens ein Gegenargument, vertritt die Position argumentativ und nimmt eine begründete Revision vor. Der geteilte Fall und das gemeinsame Dossier ersetzen diesen individuellen Abschnitt nicht. AB-006 ist im Integrationsvertrag nicht bewahrt und bleibt additional-time. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "review-revise-transfer"
       ],
@@ -7109,7 +7109,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "Die informatische Vielfaltsdiskussion benötigt 25 Minuten eigene angeleitete Facharbeit innerhalb der bestehenden CORE-08-Phase: An der konkreten informatischen Fragestellung „Wie berücksichtigen oder benachteiligen Datenerhebung, Kategorisierung und Ausspielung unterschiedliche Lebenslagen und Identitäten?“ diskutieren die Lernenden ausdrücklich Toleranz und Akzeptanz von Vielfalt, entwickeln aus mehreren benannten Perspektiven fachbezogene Argumente und halten ein revidiertes Ergebnis fest. Die Analyse verlangt keine Offenlegung eigener Identität oder persönlicher Betroffenheit. INT-7-DATA-MEDIA-SOCIETY ist zulässig, weil der Vertrag INF7-16-GYM-PK-KK-006 ausdrücklich bewahrt; eine allgemeine Vielfaltserwähnung oder ein Sozialappell ersetzt die unterscheidbare CORE-08-Spur nicht. GRADE-7-WORKING-40 bleibt conditional und amber; robust bleibt unavailable.",
+      "rationale": "Die informatische Vielfaltsdiskussion benötigt 25 Minuten eigene angeleitete Facharbeit innerhalb der bestehenden CORE-08-Phase: An der konkreten informatischen Fragestellung „Wie berücksichtigen oder benachteiligen Datenerhebung, Kategorisierung und Ausspielung unterschiedliche Lebenslagen und Identitäten?“ diskutieren die Lernenden ausdrücklich Toleranz und Akzeptanz von Vielfalt, entwickeln aus mehreren benannten Perspektiven fachbezogene Argumente und halten ein revidiertes Ergebnis fest. Die Analyse verlangt keine Offenlegung eigener Identität oder persönlicher Betroffenheit. INT-7-DATA-MEDIA-SOCIETY ist zulässig, weil der Vertrag INF7-16-GYM-PK-KK-006 ausdrücklich bewahrt; eine allgemeine Vielfaltserwähnung oder ein Sozialappell ersetzt die unterscheidbare CORE-08-Spur nicht. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "guided-practice"
       ],

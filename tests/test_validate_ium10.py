@@ -471,7 +471,7 @@ TASK18_REVIEW_TEXT_PROJECTION_SHA256 = {
         "9f58044ba59c8c7421ffc6fd174cb8e019a8a6ac392c96568bd9d06b6add1aba"
     ),
     "INF7-16-GYM-IK-DC-004": (
-        "4f9430fa59980868cffb9d59e98e03e0d7d13eb83a17096fc7a78895d5ec273f"
+        "06ce57435834f9849acd520b75819528bf18743bfe0f9b4e0059b1623c9ab805"
     ),
     "INF7-16-GYM-IK-DC-005": (
         "54741a607e58021bebef90f44d20695ce4ed66880341e52d5e8f5efaf27da49d"
@@ -501,7 +501,7 @@ TASK18_GRADE7_JUDGEMENT_SHA256 = (
 )
 PRE_TASK19_TIME_REVIEW_COUNT = 40
 PRE_TASK19_TIME_REVIEWS_SHA256 = (
-    "66053ecbf5c9b2b3c33f93556d457f30851ea5a62c393a09df37dee4627590db"
+    "2cf8afda129b2546ffd8d03ad3b6a13ab070e2f864711c8b5a9661b09abbcf15"
 )
 TASK19_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-ALG-003": dict(
@@ -626,7 +626,7 @@ TASK19_REVIEW_TEXT_PROJECTION_SHA256 = {
         "f3e0499af47a69ddbae545d0001f3519d85e21116a4abeecb7dfeb4ca18d7bd9"
     ),
     "INF7-16-GYM-PK-MI-005": (
-        "e5698a74b893393c4cd601cdcd04aa23ea49004d7d011e8ca9a46111129b6ea9"
+        "5a60377ff9c81378f2004b80f3dc7bf41e0a9094dda1f500655d156232ac73fc"
     ),
     "INF7-16-GYM-PK-SV-003": (
         "364a6a1275d46b3c154899fe1fde708f5c51b94c8a85fd05dee0f4d689d2b512"
@@ -669,7 +669,7 @@ TASK19_CORE03_STABLE_FIELDS_SHA256 = (
 )
 PRE_TASK20_TIME_REVIEW_COUNT = 46
 PRE_TASK20_TIME_REVIEWS_SHA256 = (
-    "69261be0aadf92e7d465c200f755a15ae5aacfdfa2734322e7ab9dbc0365bcbc"
+    "2e57cebc02473d060071436b2c653c01701655de11498c24bd5944a9244fff7c"
 )
 TASK20_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-PK-KK-002": dict(
@@ -775,7 +775,7 @@ TASK20_CORE04_STABLE_FIELDS_SHA256 = (
 )
 PRE_TASK21_TIME_REVIEW_COUNT = 49
 PRE_TASK21_TIME_REVIEWS_SHA256 = (
-    "c431a250da9392a73f171c8242c8db232c8a5cf275af4a4a473ee83d0ec25030"
+    "8ebef26ad0795e929036aded83b3dad797142e750a937b3adb44b5e709ef1c54"
 )
 TASK21_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-IGD-004": dict(
@@ -903,7 +903,7 @@ TASK21_CORE05_STABLE_FIELDS_SHA256 = (
 )
 PRE_TASK22_TIME_REVIEW_COUNT = 52
 PRE_TASK22_TIME_REVIEWS_SHA256 = (
-    "d516419f035a1eb91506f75360dfaa7b6a997c19a00b6c8ee4fc59543593330e"
+    "27c6fa72392bd64bb7793aa8064fb541dc7daf2e984398bff6f5c4c08683970e"
 )
 TASK22_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-IGD-006": dict(
@@ -982,9 +982,9 @@ TASK22_PRIVACY_CONTRACT = {
 }
 TASK22_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-IGD-006": "7b82102f03d1ca3034169efbaa5596cec9bff423ee847e4bf9272d3b4b81d718",
-    "INF7-16-GYM-PK-AB-005": "93feb727f33d928cbabb77f3c9edc832c73b2f106a170060485a1565b3eac457",
-    "INF7-16-GYM-PK-AB-006": "a9ded53328eb1dc4ebfa59d0178a94490caa6aeef6100968cc8b10fba7b2e48e",
-    "INF7-16-GYM-PK-KK-006": "36d9bdfa0861c71f0e11d1d9e94d2cdbf79c88489652b65c8ca6891f08c1d0e4",
+    "INF7-16-GYM-PK-AB-005": "32b1cdb62682cd380cc5ec6ba966ad8ddbbf022e284641a33bf51ba35917c18c",
+    "INF7-16-GYM-PK-AB-006": "a3961687a2b7e7881448bd6503b43cd62f8a3848ccb22a52dc1339513eb4bf6f",
+    "INF7-16-GYM-PK-KK-006": "5a5a5f74175cab7904ef1f38bec5f0af4af19ce5f5644cc7f2baf7c1304907b6",
     "LH26-E-DP-013": "0b645d3d54158d1060c1048c8e6967527d3e813ce239b982c260b99921f691bf",
     "LH26-E-PROG-003": "fdf3ed7c8d50edfbf04a9fada8bc0b60987a482849b65af0e2c33c9a281190bc",
     "LH26-E-PROG-004": "f3e81c3f574a16f7dd3c11d3f50cbea18083eb2fd4b1c70454cc6372e2d328bd",
@@ -1123,7 +1123,7 @@ PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256 = (
 )
 PRE_TASK23_TIME_REVIEW_COUNT = 59
 PRE_TASK23_TIME_REVIEWS_SHA256 = (
-    "24201886cb0f49eb929556af4f273486df6e124732671b81f41c76dd71b76672"
+    "b47417cc7a1494ffa7b00e989d3cd16d68e4308e7e8d9be8fe38b5ac44638d23"
 )
 TASK23_AUDIT_EXPECTATIONS = {
     "LH26-E-DP-014": dict(
@@ -11682,12 +11682,12 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
             contract["moduleId"]: contract["grade"]
             for contract in self.time_model["moduleContracts"]
         }
-        grade_7_review_rationales = [
-            review["rationale"]
+        grade_7_reviews = [
+            review
             for review in self.time_model["timeReviews"]
             if module_grades[review["moduleId"]] == 7
         ]
-        self.assertEqual(len(grade_7_review_rationales), 25)
+        self.assertEqual(len(grade_7_reviews), 25)
 
         def _strings(value):
             if isinstance(value, str):
@@ -11698,29 +11698,76 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
                 return [text for item in value for text in _strings(item)]
             return []
 
-        grade_7_sequence_text = " ".join(
-            text
+        for review in grade_7_reviews:
+            with self.subTest(module_id=review["moduleId"]):
+                review_text = " ".join(_strings(review)).casefold()
+                self.assertIn(
+                    "grade-7-working-40 bleibt conditional und amber",
+                    review_text,
+                )
+                self.assertIn(
+                    "grade-7-robust-demand und grade-7-historical-minimum "
+                    "bleiben unavailable und red",
+                    review_text,
+                )
+                self.assertNotIn(
+                    "grade-7-working-40 bleibt unavailable", review_text
+                )
+                self.assertNotIn("grade-7-working-40 bleibt red", review_text)
+                self.assertNotIn("rotes jahresurteil", review_text)
+
+        grade_7_sequence_records = [
+            record
             for record in self.time_model["sequenceEvidence"]
             if 7 in record["grades"]
-            for text in _strings(record)
+        ]
+        sequence_by_id = {
+            record["id"]: record for record in grade_7_sequence_records
+        }
+        self.assertEqual(
+            sequence_by_id["SE-LH26-E-PROG-002"]["coverageDecision"],
+            "covered",
         )
-        migrated_text = " ".join(
-            [*grade_7_review_rationales, grade_7_sequence_text]
+        self.assertEqual(
+            sequence_by_id["SE-LH26-E-PROG-003"]["coverageDecision"],
+            "remain-partial",
+        )
+        self.assertEqual(
+            sequence_by_id["SE-LH26-E-PROG-004"]["coverageDecision"],
+            "remain-partial",
+        )
+        for record in grade_7_sequence_records:
+            for evidence in record["timeEvidence"]:
+                if not evidence["variantId"].startswith("GRADE-7-"):
+                    continue
+                evidence_text = " ".join(_strings(evidence)).casefold()
+                with self.subTest(
+                    sequence=record["id"], variant=evidence["variantId"]
+                ):
+                    if evidence["variantId"] == "GRADE-7-WORKING-40":
+                        self.assertEqual(evidence["availabilityStatus"], "conditional")
+                        self.assertIn("conditional", evidence_text)
+                        self.assertIn("amber", evidence_text)
+                        self.assertNotIn("unavailable", evidence_text)
+                        self.assertNotIn("red", evidence_text)
+                    elif evidence["variantId"] in {
+                        "GRADE-7-ROBUST-DEMAND",
+                        "GRADE-7-HISTORICAL-MINIMUM",
+                    }:
+                        self.assertEqual(evidence["availabilityStatus"], "unavailable")
+                        self.assertIn("unavailable", evidence_text)
+                        self.assertIn("red", evidence_text)
+                    else:
+                        self.fail(f"Unexpected Grade-7 variant: {evidence['variantId']}")
+
+        grade_7_sequence_text = " ".join(
+            text for record in grade_7_sequence_records for text in _strings(record)
         ).casefold()
         for contradiction in (
-            "nicht verfügbare bedarfsszenarien",
-            "jahresurteil bleibt red",
-            "kein verfügbarer jahrespfad",
-            "verhindern den wechsel zu covered",
-            "nicht verfügbare bedingte",
             "40-ue- vollständige",
             "40-ue- bedarfsszenario",
         ):
-            self.assertNotIn(contradiction, migrated_text)
-        self.assertIn("conditional", grade_7_sequence_text.casefold())
-        self.assertIn("amber", grade_7_sequence_text.casefold())
-        self.assertIn("unavailable", grade_7_sequence_text.casefold())
-        self.assertIn("red", grade_7_sequence_text.casefold())
+            self.assertNotIn(contradiction, grade_7_sequence_text)
 
     def test_repository_has_exactly_thirteen_grade_7_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_7_UNITS) | set(
@@ -12314,7 +12361,7 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
 
 class IUM10SequenceEvidenceTests(unittest.TestCase):
     PRE_TASK24_TIME_REVIEWS_SHA256 = (
-        "c67605cc1a0bfc2d439f6de5cb3bb0c1d62872e113a76ffd9368147329474b49"
+        "932bc3fff133c2a3702eeba7c3cd949c616be55096cc5f1e68152ff1e5935f14"
     )
     PRE_TASK24_MODULE_CONTRACTS_SHA256 = (
         "d09c4389f9faee069c6243722d736570f4875b7ed503a91e8fb1f122a886a02f"
