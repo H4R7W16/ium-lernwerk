@@ -654,24 +654,37 @@ def derive_annual_result(
         for item in annual_payload["learningQualityEvidence"]["moduleResults"]
     )
     pulse = evaluate_learner_pulse(annual_payload["learnerPulseEvidence"], protocol)
-    gates = {
-        "capacity": "passed",
+    availability_conditions = {
+        "capacity": delivery["actualUnits"] == 40,
         "integration": "passed" if integrations_passed else "failed",
         "technical": "passed" if _technical_path_passed(annual_payload) else "failed",
         "privacy": "passed" if annual_payload["technicalPrivacyEvidence"]["privacyGate"] == "pass" else "failed",
-        "pilot": "passed" if (
-            annual_payload["result"] == "pass"
-            and modules_passed
-            and not pulse["warnings"]
-            and all(item["result"] == "pass" for item in ordered)
-        ) else "failed",
     }
-    _require(
-        all(value == "passed" for value in gates.values()),
-        "annual result requires five passed availability gates",
+    annual_not_evaluable = delivery["externalDisruptionCode"] == "interpretability-lost"
+    annual_failed = any([
+        not availability_conditions["capacity"],
+        availability_conditions["integration"] == "failed",
+        availability_conditions["technical"] == "failed",
+        availability_conditions["privacy"] == "failed",
+        not modules_passed,
+        bool(pulse["warnings"]),
+    ])
+    annual_result = (
+        "not-evaluable"
+        if annual_not_evaluable
+        else "fail"
+        if annual_failed
+        else "pass"
     )
+    gates = {
+        "capacity": "passed" if availability_conditions["capacity"] else "failed",
+        "integration": availability_conditions["integration"],
+        "technical": availability_conditions["technical"],
+        "privacy": availability_conditions["privacy"],
+        "pilot": "passed" if annual_result == "pass" else "failed",
+    }
     return {
-        "result": "pass",
+        "result": annual_result,
         "actualUnits": delivery["actualUnits"],
         "availabilityGateResults": gates,
     }
@@ -699,6 +712,10 @@ def _validate_decision_results(payload: dict, protocol: dict) -> None:
         [item["packageId"] for item in pilot_results] == payload["sourcePackageIds"],
         "pilot result sources differ",
     )
+    _require(
+        all(item["result"] == "pass" for item in pilot_results[:4]),
+        "first four cluster pilot results must pass",
+    )
 
     expected_modules = [
         module
@@ -712,6 +729,10 @@ def _validate_decision_results(payload: dict, protocol: dict) -> None:
         _require(result["moduleId"] == module["moduleId"], "decision module sequence differs")
         _require(result["pilotAssignmentId"] == module["pilotAssignmentId"], "decision module pilot assignment differs")
         _require_enum(result["result"], protocol["results"], "decision module result")
+    _require(
+        all(item["result"] == "pass" for item in module_results),
+        "cluster module results must pass",
+    )
 
     integration_results = payload["integrationResults"]
     _require(isinstance(integration_results, list) and len(integration_results) == 4, "integrationResults must contain four records")
@@ -724,6 +745,10 @@ def _validate_decision_results(payload: dict, protocol: dict) -> None:
         _require_int(result["fallbackDeltaUnits"], "fallbackDeltaUnits")
         expected_fallback = cluster["fallbackDeltaUnits"] if result["result"] == "fail" else 0
         _require(result["fallbackDeltaUnits"] == expected_fallback, "integration fallback delta differs")
+    _require(
+        all(item["result"] == "pass" for item in integration_results),
+        "cluster integration results must pass",
+    )
 
 
 def validate_decision_package(payload: dict, protocol: dict, time_model: dict) -> dict:
@@ -767,9 +792,11 @@ def validate_decision_package(payload: dict, protocol: dict, time_model: dict) -
 
     warnings = payload["developmentWarnings"]
     _require(isinstance(warnings, list), "decision developmentWarnings must be a list")
+    known_warning_item_ids = {item["id"] for item in protocol["learnerPulseItems"]}
     for warning in warnings:
         _require_exact_fields(warning, WARNING_FIELDS, "decision development warning")
         _require(warning["id"] == f"WARN-{warning['itemId']}" and warning["status"] == "open", "decision development warning is invalid")
+        _require(warning["itemId"] in known_warning_item_ids, "decision development warning is unknown")
     _require(warnings == sorted(warnings, key=lambda item: item["id"]), "decision developmentWarnings must be sorted")
     _require(len({warning["id"] for warning in warnings}) == len(warnings), "decision developmentWarnings must be deduplicated")
 
@@ -780,30 +807,32 @@ def validate_decision_package(payload: dict, protocol: dict, time_model: dict) -
     for value in review_status.values():
         _require_enum(value, ["not-started", "passed", "failed"], "review status")
 
-    expected_gates = {
-        "capacity": "passed" if summary["actualUnits"] <= 40 else "failed",
-        "integration": "passed" if all(item["result"] == "pass" for item in payload["integrationResults"]) else "failed",
-        "technical": "passed" if technical_privacy["technical"] == "pass" else "failed",
-        "privacy": "passed" if technical_privacy["privacy"] == "pass" else "failed",
-        "pilot": "passed" if all(item["result"] == "pass" for item in payload["pilotResults"]) else "failed",
-    }
-    _require(gates == expected_gates, "availability gate results differ from evidence summaries")
-    all_positive = all(item["result"] == "pass" for item in payload["pilotResults"])
+    annual_result = payload["pilotResults"][-1]["result"]
+    _require(
+        gates["capacity"] == ("passed" if summary["actualUnits"] == 40 else "failed"),
+        "capacity gate differs from exact annual units",
+    )
+    _require(
+        gates["technical"] == ("passed" if technical_privacy["technical"] == "pass" else "failed"),
+        "technical gate differs from annual summary",
+    )
+    _require(
+        gates["privacy"] == ("passed" if technical_privacy["privacy"] == "pass" else "failed"),
+        "privacy gate differs from annual summary",
+    )
+    _require(
+        gates["pilot"] == ("passed" if annual_result == "pass" else "failed"),
+        "pilot gate differs from annual result",
+    )
     all_gates_passed = all(value == "passed" for value in gates.values())
-    if all_positive and all_gates_passed:
-        _require(
-            all(item["result"] == "pass" for item in payload["moduleResults"]),
-            "positive pilot results conflict with module results",
-        )
-        _require(
-            not warnings,
-            "positive pilot results conflict with development warnings",
-        )
+    if annual_result == "pass":
+        _require(all_gates_passed, "positive annual result requires five passed gates")
+        _require(not warnings, "positive annual result conflicts with development warnings")
     expected_recommendation = (
         "eligible-for-working-availability-review"
-        if all_positive and all_gates_passed
+        if annual_result == "pass" and all_gates_passed
         else "not-evaluable"
-        if any(item["result"] == "not-evaluable" for item in payload["pilotResults"])
+        if annual_result == "not-evaluable"
         else "repeat-required"
     )
     _require_enum(
@@ -813,7 +842,7 @@ def validate_decision_package(payload: dict, protocol: dict, time_model: dict) -
     )
     _require(payload["recommendation"] == expected_recommendation, "decision recommendation differs from results")
     if any(value == "passed" for value in review_status.values()):
-        _require(all_positive and all_gates_passed, "reviews cannot pass without a positive minimal pilot")
+        _require(annual_result == "pass" and all_gates_passed, "reviews cannot pass without a positive minimal pilot")
     return copy.deepcopy(payload)
 
 

@@ -588,6 +588,49 @@ class IUM11DecisionPackageTests(unittest.TestCase):
                 with self.assertRaises(IUM11ValidationError):
                     build_decision_package(packages, self.protocol, self.time_model)
 
+    def test_annual_interpretability_loss_builds_not_evaluable_decision(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        annual["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        annual["result"] = "not-evaluable"
+
+        package = build_decision_package(packages, self.protocol, self.time_model)
+
+        self.assertEqual(package["pilotResults"][-1]["result"], "not-evaluable")
+        self.assertEqual(package["availabilityGateResults"]["pilot"], "failed")
+        self.assertEqual(package["recommendation"], "not-evaluable")
+        validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_annual_failure_builds_repeat_required_decision(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        integration = annual["learningQualityEvidence"]["integrationResults"][0]
+        integration["handoffReused"] = False
+        integration["result"] = "fail"
+        annual["result"] = "fail"
+
+        package = build_decision_package(packages, self.protocol, self.time_model)
+
+        self.assertEqual(package["pilotResults"][-1]["result"], "fail")
+        self.assertEqual(package["availabilityGateResults"]["integration"], "failed")
+        self.assertEqual(package["availabilityGateResults"]["pilot"], "failed")
+        self.assertEqual(package["recommendation"], "repeat-required")
+        validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_39_annual_units_never_pass_capacity_or_become_eligible(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        annual["deliveryTimeEvidence"]["actualUnits"] = 39
+        annual["deliveryTimeEvidence"]["clusterActualUnits"][0]["actualUnits"] = 7
+        annual["result"] = "fail"
+
+        package = build_decision_package(packages, self.protocol, self.time_model)
+
+        self.assertEqual(package["timeAndFallbackSummary"]["actualUnits"], 39)
+        self.assertEqual(package["availabilityGateResults"]["capacity"], "failed")
+        self.assertEqual(package["recommendation"], "repeat-required")
+        validate_decision_package(package, self.protocol, self.time_model)
+
     def test_no_cluster_time_compensation(self):
         packages = five_positive_packages()
         packages_by_scope(packages)["CLUSTER-7-DATA-CODING"]["deliveryTimeEvidence"]["actualUnits"] = 9
@@ -716,6 +759,48 @@ class IUM11DecisionPackageTests(unittest.TestCase):
                 with self.assertRaises(IUM11ValidationError):
                     validate_decision_package(package, self.protocol, self.time_model)
 
+    def test_decision_rejects_negative_cluster_with_positive_annual_result(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][0]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+
+        with self.assertRaisesRegex(IUM11ValidationError, "cluster|first four"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_rejects_negative_cluster_module_or_integration_results(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+        package["moduleResults"][0]["result"] = "fail"
+        with self.assertRaisesRegex(IUM11ValidationError, "module"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["integrationResults"][0]["result"] = "fail"
+        package["integrationResults"][0]["fallbackDeltaUnits"] = 3
+        package["availabilityGateResults"]["integration"] = "failed"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["timeAndFallbackSummary"]["fallbackUnits"] = 3
+        package["timeAndFallbackSummary"]["requiredUnits"] = 43
+        package["recommendation"] = "repeat-required"
+        with self.assertRaisesRegex(IUM11ValidationError, "integration"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_rejects_unknown_development_warning(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+        package["developmentWarnings"] = [
+            {"id": "WARN-impossible", "itemId": "impossible", "status": "open"},
+        ]
+
+        with self.assertRaisesRegex(IUM11ValidationError, "warning"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
     def test_public_decision_boundary_rejects_source_review_and_time_mutations(self):
         package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
         package["sourcePackageIds"].pop()
@@ -728,7 +813,7 @@ class IUM11DecisionPackageTests(unittest.TestCase):
             validate_decision_package(package, self.protocol, self.time_model)
 
         package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
-        package["pilotResults"][0]["result"] = "fail"
+        package["pilotResults"][-1]["result"] = "fail"
         package["availabilityGateResults"]["pilot"] = "failed"
         package["recommendation"] = "repeat-required"
         package["reviewStatus"]["fach"] = "passed"
