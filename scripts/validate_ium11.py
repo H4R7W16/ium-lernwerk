@@ -114,6 +114,23 @@ TIME_FALLBACK_SUMMARY_FIELDS = {
 TECHNICAL_PRIVACY_SUMMARY_FIELDS = {"technical", "privacy"}
 REVIEW_STATUS_FIELDS = {"fach", "engineeringPrivacy", "commissioner"}
 DECISION_NAMESPACE = uuid.UUID("32f31164-80d6-5ac9-851f-7579346166e5")
+SYNTHETIC_EXAMPLE_NAMES = {
+    "synthetic-cluster-pass.json",
+    "synthetic-cluster-programming-pass.json",
+    "synthetic-cluster-net-security-pass.json",
+    "synthetic-cluster-data-media-society-pass.json",
+    "synthetic-cluster-fail.json",
+    "synthetic-annual-pass.json",
+    "synthetic-decision-eligible.json",
+}
+SYNTHETIC_POSITIVE_EXAMPLE_NAMES = (
+    "synthetic-cluster-pass.json",
+    "synthetic-cluster-programming-pass.json",
+    "synthetic-cluster-net-security-pass.json",
+    "synthetic-cluster-data-media-society-pass.json",
+    "synthetic-annual-pass.json",
+)
+SYNTHETIC_DECISION_NAME = "synthetic-decision-eligible.json"
 
 
 class IUM11ValidationError(ValueError):
@@ -960,13 +977,94 @@ def build_decision_package(
     return validated_package
 
 
-def validate_ium11_repository(root: Path) -> dict:
+def _load_synthetic_example_packages(
+    root: Path,
+    protocol: dict,
+    time_model: dict,
+    *,
+    require_decision: bool,
+) -> dict[str, dict]:
+    examples_path = root / "pilot/examples"
+    _require(examples_path.is_dir(), "synthetic examples directory is missing")
+    paths = sorted(examples_path.glob("*.json"))
+    names = {path.name for path in paths}
+    expected_names = SYNTHETIC_EXAMPLE_NAMES - {SYNTHETIC_DECISION_NAME}
+    _require(
+        names == (SYNTHETIC_EXAMPLE_NAMES if require_decision else expected_names)
+        or (not require_decision and names == SYNTHETIC_EXAMPLE_NAMES),
+        "synthetic example filenames differ from contract",
+    )
+    _require(all(path.name.startswith("synthetic-") for path in paths), "examples must be explicitly synthetic")
+
+    packages = {path.name: _load_json(path) for path in paths}
+    for name, package in packages.items():
+        if name != SYNTHETIC_DECISION_NAME:
+            validate_evidence_package(package, protocol, time_model)
+    return packages
+
+
+def _reject_repository_evidence_outside_examples(root: Path) -> None:
+    examples_path = (root / "pilot/examples").resolve(strict=True)
+    for path in root.rglob("*.json"):
+        resolved = path.resolve(strict=True)
+        if resolved.is_relative_to(examples_path):
+            continue
+        payload = _load_json(resolved)
+        if isinstance(payload, dict) and payload.get("packageType") in {
+            "cluster-evidence", "annual-evidence", "pilot-decision",
+        }:
+            raise IUM11ValidationError(f"evidence package outside pilot/examples: {path}")
+
+
+def _validate_synthetic_examples(
+    root: Path,
+    protocol: dict,
+    time_model: dict,
+    *,
+    require_decision: bool,
+) -> tuple[dict[str, dict], dict[str, int]]:
+    evidence_schema = _load_json(root / "pilot/schemas/evidence-package.schema.json")
+    decision_schema = _load_json(root / "pilot/schemas/decision-package.schema.json")
+    _require(evidence_schema.get("additionalProperties") is False, "evidence schema must be closed")
+    _require(decision_schema.get("additionalProperties") is False, "decision schema must be closed")
+    _reject_repository_evidence_outside_examples(root)
+    packages = _load_synthetic_example_packages(root, protocol, time_model, require_decision=require_decision)
+    positive = [packages[name] for name in SYNTHETIC_POSITIVE_EXAMPLE_NAMES]
+    positive_clusters = positive[:4]
+    annual = positive[-1]
+    _require([item["scopeId"] for item in positive_clusters] == protocol["annualPilot"]["clusterIds"], "positive cluster examples differ from contract")
+    _require(all(item["result"] == "pass" for item in positive_clusters), "positive cluster examples must pass")
+    _require(annual["scopeId"] == protocol["annualPilot"]["id"] and annual["result"] == "pass", "annual example must pass")
+    _require(derive_annual_result(annual, positive_clusters, protocol)["result"] == "pass", "annual example is not derivable")
+
+    negative = packages["synthetic-cluster-fail.json"]
+    negative_result = derive_cluster_result(negative, protocol["clustersById"][negative["scopeId"]], protocol)
+    _require(negative["scopeId"] == "CLUSTER-7-PROGRAMMING" and negative["result"] == "fail", "negative example differs from contract")
+    _require(negative["deliveryTimeEvidence"]["actualUnits"] == 12, "negative example must demonstrate twelve units")
+    _require(negative_result["result"] == "fail", "negative example must derive a failed result")
+    _require(negative_result["developmentWarnings"] == [], "negative example must not add learner warnings")
+    _require(negative_result["fallbackDeltaUnits"] == 2, "negative example must derive the programming fallback")
+
+    counts = {"clusterPass": 4, "clusterFail": 1, "annualPass": 1, "decisionEligible": 0}
+    if require_decision:
+        decision = packages[SYNTHETIC_DECISION_NAME]
+        _require(decision == build_decision_package(positive, protocol, time_model), "synthetic decision differs from positive examples")
+        counts["decisionEligible"] = 1
+    return packages, counts
+
+
+def validate_ium11_repository(root: Path, *, require_decision: bool = True) -> dict:
     root = Path(root)
     time_model = _load_json(root / "roadmap/time-model.json")
+    time_model_before = canonical_sha256(time_model)
     ium10_result = validate_ium10_repository(root)
     protocol = _load_json(root / "pilot/pilot-protocol.json")
     compiled = validate_pilot_protocol(protocol, time_model)
-    return {"ium10": ium10_result, "protocol": compiled}
+    _, example_counts = _validate_synthetic_examples(
+        root, compiled, time_model, require_decision=require_decision
+    )
+    _require(canonical_sha256(time_model) == time_model_before, "time model mutated during repository validation")
+    return {"ium10": ium10_result, "protocol": compiled, "exampleCounts": example_counts}
 
 
 def _validate_private_decision_paths(
@@ -1011,14 +1109,45 @@ def _write_json_exclusive_atomic(path: Path, payload: dict) -> None:
         temporary_path.unlink(missing_ok=True)
 
 
+def _write_json_replace_atomic(path: Path, payload: dict) -> None:
+    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(payload, handle, ensure_ascii=False, indent=2)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary_path, path)
+    finally:
+        temporary_path.unlink(missing_ok=True)
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Validate the IUM11 pilot protocol.")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1], help="Repository root containing roadmap and pilot JSON inputs.")
     parser.add_argument("--evidence", type=Path, action="append", default=[], help="Private evidence package path; repeat exactly five times.")
     parser.add_argument("--decision-output", type=Path, help="New private output path for the deterministic decision package.")
+    parser.add_argument("--write-synthetic-decision", type=Path, help="Regenerate only pilot/examples/synthetic-decision-eligible.json from committed synthetic positive examples.")
     arguments = parser.parse_args(argv)
     try:
-        result = validate_ium11_repository(arguments.root)
+        _require(not (arguments.write_synthetic_decision and (arguments.evidence or arguments.decision_output)), "synthetic decision mode cannot be combined with private decision paths")
+        result = validate_ium11_repository(arguments.root, require_decision=not arguments.write_synthetic_decision)
+        if arguments.write_synthetic_decision:
+            root = Path(arguments.root).resolve(strict=True)
+            _require(
+                arguments.write_synthetic_decision == Path("pilot/examples/synthetic-decision-eligible.json"),
+                "synthetic decision output path differs from the committed example path",
+            )
+            examples, _ = _validate_synthetic_examples(root, result["protocol"], _load_json(root / "roadmap/time-model.json"), require_decision=False)
+            decision = build_decision_package(
+                [examples[name] for name in SYNTHETIC_POSITIVE_EXAMPLE_NAMES],
+                result["protocol"],
+                _load_json(root / "roadmap/time-model.json"),
+            )
+            _write_json_replace_atomic(root / "pilot/examples" / SYNTHETIC_DECISION_NAME, decision)
+            print("IUM11 synthetic decision written: pilot/examples/synthetic-decision-eligible.json")
+            return 0
         private_mode = bool(arguments.evidence) or arguments.decision_output is not None
         if private_mode:
             _require(arguments.decision_output is not None, "private decision build requires --decision-output")

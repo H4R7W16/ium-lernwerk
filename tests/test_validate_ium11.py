@@ -10,6 +10,7 @@ from unittest.mock import patch
 from scripts.validate_ium10 import IUM10ValidationError
 from scripts.validate_ium11 import (
     IUM11ValidationError,
+    PROHIBITED_FIELD_NAMES,
     build_decision_package,
     canonical_sha256,
     derive_annual_result,
@@ -18,12 +19,73 @@ from scripts.validate_ium11 import (
     main,
     validate_decision_package,
     validate_evidence_package,
+    validate_ium11_repository,
     validate_pilot_protocol,
 )
 
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_positive_example_packages(root):
+    names = [
+        "synthetic-cluster-pass.json",
+        "synthetic-cluster-programming-pass.json",
+        "synthetic-cluster-net-security-pass.json",
+        "synthetic-cluster-data-media-society-pass.json",
+        "synthetic-annual-pass.json",
+    ]
+    return [load_json(root / "pilot/examples" / name) for name in names]
+
+
+def collect_keys(value):
+    if isinstance(value, dict):
+        return set(value) | set().union(*(collect_keys(item) for item in value.values()), set())
+    if isinstance(value, list):
+        return set().union(*(collect_keys(item) for item in value), set())
+    return set()
+
+
+class IUM11SyntheticExampleTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"), cls.time_model
+        )
+
+    def test_all_examples_are_closed_nonpersonal_and_derivable(self):
+        result = validate_ium11_repository(self.root)
+        self.assertEqual(result["exampleCounts"], {
+            "clusterPass": 4,
+            "clusterFail": 1,
+            "annualPass": 1,
+            "decisionEligible": 1,
+        })
+
+    def test_positive_examples_rebuild_committed_decision_byte_for_byte(self):
+        positive = load_positive_example_packages(self.root)
+        rebuilt = build_decision_package(positive, self.protocol, self.time_model)
+        committed = load_json(self.root / "pilot/examples/synthetic-decision-eligible.json")
+        self.assertEqual(rebuilt, committed)
+
+    def test_examples_contain_no_identifying_or_free_text_keys(self):
+        for path in sorted((self.root / "pilot/examples").glob("*.json")):
+            flattened_keys = collect_keys(load_json(path))
+            self.assertTrue(flattened_keys.isdisjoint(PROHIBITED_FIELD_NAMES), path)
+
+    def test_synthetic_cli_writes_only_the_committed_decision_path(self):
+        target = self.root / "pilot/examples/synthetic-decision-eligible.json"
+        self.assertEqual(
+            main([
+                "--root", str(self.root), "--write-synthetic-decision",
+                "pilot/examples/synthetic-decision-eligible.json",
+            ]),
+            0,
+        )
+        self.assertTrue(target.is_file())
 
 
 def reported_pulse(agree=8, partly=2, disagree=1, no_answer=1):
