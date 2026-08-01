@@ -12958,8 +12958,14 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
 
     def test_grade_7_keeps_sequence_and_semantic_statuses_when_operational_state_changes(self):
         initial = self.validate()["gradeJudgements"][7]
+        initial_variant = next(
+            item
+            for item in self.time_model["annualVariants"]
+            if item["id"] == "GRADE-7-WORKING-40"
+        )
         self.assertEqual(
             {
+                "status": initial_variant["status"],
                 "availabilityStatus": initial["availabilityStatus"],
                 "timeFeasibilityStatus": initial["timeFeasibilityStatus"],
                 "sequenceEvidenceStatus": initial["sequenceEvidenceStatus"],
@@ -12967,6 +12973,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 "semanticCoverageStatus": initial["semanticCoverageStatus"],
             },
             {
+                "status": "working",
                 "availabilityStatus": "conditional",
                 "timeFeasibilityStatus": "amber",
                 "sequenceEvidenceStatus": "covered",
@@ -13002,6 +13009,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
         available = self.validate(time_model=time_model)["gradeJudgements"][7]
         self.assertEqual(
             {
+                "status": initial_variant["status"],
                 "availabilityStatus": available["availabilityStatus"],
                 "timeFeasibilityStatus": available["timeFeasibilityStatus"],
                 "sequenceEvidenceStatus": available["sequenceEvidenceStatus"],
@@ -13009,6 +13017,7 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
                 "semanticCoverageStatus": available["semanticCoverageStatus"],
             },
             {
+                "status": "working",
                 "availabilityStatus": "available",
                 "timeFeasibilityStatus": "green",
                 "sequenceEvidenceStatus": "covered",
@@ -13083,6 +13092,24 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
             "sequence time evidence availability differs: LH26-E-PROG-003",
         ):
             self.validate(time_model=time_model)
+
+    def test_public_validator_rejects_available_or_piloted_grade_7_risk_text(self):
+        for risk in (
+            "GRADE-7-WORKING-40 ist available und bereits erprobt.",
+            "GRADE-7-WORKING-40 ist vollständig pilotiert.",
+        ):
+            with self.subTest(risk=risk):
+                time_model = copy.deepcopy(self.time_model)
+                next(
+                    item
+                    for item in time_model["gradeJudgements"]
+                    if item["grade"] == 7
+                )["risk"] = risk
+                with self.assertRaisesRegex(
+                    IUM10ValidationError,
+                    "grade 7 judgement must use the canonical initial risk",
+                ):
+                    self.validate(time_model=time_model)
 
     def test_reference_validator_binds_schema_three_grade_7_references(self):
         result = self.validate()

@@ -583,6 +583,11 @@ GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE = (
     "bleiben unavailable; der Sequenznachweis ist covered, die semantische "
     "Coverage partial und der Pilotstatus not-started."
 )
+GRADE_7_INITIAL_RISK = (
+    "Ohne neues Auftraggebergate dürfen weder Kernmodule entfernt noch flexible "
+    "Module als Ersatz verwendet werden. Die drei Pilot- und Rückfalloptionen "
+    "bleiben bis zu ihren eigenen Gates offen."
+)
 GRADE_5_JUDGEMENT_RATIONALE = (
     "Die verfügbaren Kernvarianten sind rechnerisch mit 30, 34 und 38 "
     "Unterrichtseinheiten zeitlich grün. Die drei verbleibenden semantischen "
@@ -1237,6 +1242,10 @@ def _validate_grade_7_judgement(
     _require(
         judgement["rationale"] == GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE,
         "grade 7 judgement must use the canonical unimplemented-options rationale",
+    )
+    _require(
+        judgement["risk"] == GRADE_7_INITIAL_RISK,
+        "grade 7 judgement must use the canonical initial risk",
     )
     _require(
         set(availability_contracts) == {GRADE_7_AVAILABILITY_CONTRACT_ID}
