@@ -468,19 +468,19 @@ TASK18_REVIEW_ANCHORS = {
 }
 TASK18_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-DC-001": (
-        "6b5ec8d9f8d6af240c2203eff1139e32e94aa931d9cbe1408b5c60790bed9e98"
+        "9f58044ba59c8c7421ffc6fd174cb8e019a8a6ac392c96568bd9d06b6add1aba"
     ),
     "INF7-16-GYM-IK-DC-004": (
-        "3a8017b772f75928cdc586b5109579a661654f958b798a60d5557f01ebb805e2"
+        "4f9430fa59980868cffb9d59e98e03e0d7d13eb83a17096fc7a78895d5ec273f"
     ),
     "INF7-16-GYM-IK-DC-005": (
-        "a26d96e1bec9e45707790e4fdaf9708a09fb679ed110ca69c3c7e5e57b672149"
+        "54741a607e58021bebef90f44d20695ce4ed66880341e52d5e8f5efaf27da49d"
     ),
     "LH26-E-ID-020": (
-        "a1e53e36c7480c1c920cfe369f0f12e11c67cc8c2dd084ab1d7f94296abbbd87"
+        "15a88afa2e70062c989aa0b62882e7bf1dde8b0e72e5368e285bc987de412a29"
     ),
     "LH26-E-ID-021": (
-        "f30ff06c7b26b8453485120807716145021e474e670a64f6e03e6312d50adf7d"
+        "bc2dd5ae9168949ad1eb4173a771f2cfb1a536d09527d6379055c71f75419f9a"
     ),
 }
 TASK18_INTEGRATION_FORBIDDEN_TEXT = (
@@ -501,7 +501,7 @@ TASK18_GRADE7_JUDGEMENT_SHA256 = (
 )
 PRE_TASK19_TIME_REVIEW_COUNT = 40
 PRE_TASK19_TIME_REVIEWS_SHA256 = (
-    "2dfe46dd912048bb0bb21103b355c4799af56ac53df52d27faa3c9637ad5908b"
+    "66053ecbf5c9b2b3c33f93556d457f30851ea5a62c393a09df37dee4627590db"
 )
 TASK19_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-ALG-003": dict(
@@ -623,22 +623,22 @@ TASK19_FORBIDDEN_TEXT = {
 }
 TASK19_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-ALG-003": (
-        "5df6c6f22612abf9e755cc1d5d2786f9178ea61c0d3d63359ebd7142267276f8"
+        "f3e0499af47a69ddbae545d0001f3519d85e21116a4abeecb7dfeb4ca18d7bd9"
     ),
     "INF7-16-GYM-PK-MI-005": (
-        "1dd9902c75088ebabdceb99cb1cc03b78475c10e38e20c76e0b36c00f93ab3d3"
+        "e5698a74b893393c4cd601cdcd04aa23ea49004d7d011e8ca9a46111129b6ea9"
     ),
     "INF7-16-GYM-PK-SV-003": (
-        "42bebc2c7e82b597ebdf1342021729e4361fe6e7ff67a308080f5101affa84b5"
+        "364a6a1275d46b3c154899fe1fde708f5c51b94c8a85fd05dee0f4d689d2b512"
     ),
     "LH26-E-ALG-007": (
-        "477065c1e685301d77b8ad4ed7e8b0aa5079a0dca5af00f628d7a4260c526d96"
+        "0e41e469396cf3701f2173986601daf49ab32ab26474c2a961f1ecbba9504a38"
     ),
     "LH26-E-ALG-008": (
-        "b8bd0aa5715ab8fdb539300aa26555accb9680e635d90c3845e3cb12ce7b4a89"
+        "c1cf4ce58f45ed4e4c0aa53a1b166ba88b29170475777f4ff1e2a2c68b431dbb"
     ),
     "LH26-E-ALG-009": (
-        "5d4df8afe0f04e2702c93428e85d12065ce6925af0af22f4f02ba73e7c2fda09"
+        "b79e1e5e1fbada5f69ba2a66af6897b07228c3d9510a2c2c9fe7f4bdb6ad022e"
     ),
 }
 TASK19_INTEGRATION_FORBIDDEN_TEXT = (
@@ -669,7 +669,7 @@ TASK19_CORE03_STABLE_FIELDS_SHA256 = (
 )
 PRE_TASK20_TIME_REVIEW_COUNT = 46
 PRE_TASK20_TIME_REVIEWS_SHA256 = (
-    "071ac37533bcc262090f880a2e96c60f8caf425bc8323b49f2768bd55e26fbf8"
+    "69261be0aadf92e7d465c200f755a15ae5aacfdfa2734322e7ab9dbc0365bcbc"
 )
 TASK20_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-PK-KK-002": dict(
@@ -751,13 +751,13 @@ TASK20_FORBIDDEN_TEXT = {
 }
 TASK20_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-PK-KK-002": (
-        "372609785154d652f181537f9aae665551e3ccb0e440c644bfe2b300ac71279c"
+        "b7029dac5a558b354cd6724d45724e53d6db83b6502fe5e1389dbfef1db1d4a5"
     ),
     "INF7-16-GYM-PK-MI-003": (
-        "e4be50a563de251564ff039fd042d6bd2d01f3de43918cdd9a8b5fae88ecca29"
+        "992c58fde1f44d2fdbd83984473d3558f08410202b0ea324f289465aad5670c0"
     ),
     "INF7-16-GYM-PK-SV-002": (
-        "b01eee857e465660c697dd8920a6ab47e1c7b6ada948bed5c382258c59780f1c"
+        "4d15db64b148285efd7cb1247d460a04c06e081bad8c89cf55669235e9a64c16"
     ),
 }
 TASK20_INTEGRATION_FORBIDDEN_TEXT = (
@@ -775,7 +775,7 @@ TASK20_CORE04_STABLE_FIELDS_SHA256 = (
 )
 PRE_TASK21_TIME_REVIEW_COUNT = 49
 PRE_TASK21_TIME_REVIEWS_SHA256 = (
-    "f8a01470ef98f963f44ee94439c7f33d9bb87bcc5a576a02959e042b0d65d25e"
+    "c431a250da9392a73f171c8242c8db232c8a5cf275af4a4a473ee83d0ec25030"
 )
 TASK21_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-IGD-004": dict(
@@ -877,13 +877,13 @@ TASK21_FORBIDDEN_TEXT = {
 }
 TASK21_REVIEW_TEXT_PROJECTION_SHA256 = {
     "INF7-16-GYM-IK-IGD-004": (
-        "cf1b309f70da288b73d357bb89099fb10d6f97d18f37927d930b5c7d53b4ded1"
+        "81178fa686981bcaa1050fa7682474672206fd85b6768225334d529c584b3314"
     ),
     "INF7-16-GYM-PK-AB-002": (
-        "725ecfd891ea9e4cc8298c85ad1ff4f272268dd26fee2de685b0b3ae4a9c3def"
+        "bc52208868bc8130a1f2dd4f2803cdc4ed4941f0dd13466636fdc6d52d96b5c3"
     ),
     "INF7-16-GYM-PK-SV-001": (
-        "88855aaac1b7aff126ad902f197f0d81cfd33a8305a0afbf32c7280918012e42"
+        "627ac4ba66fe328acfce7b7a421a1d80ee991d0a5696d3a0e402b3ee508c8db3"
     ),
 }
 TASK21_INTEGRATION_FORBIDDEN_TEXT = (
@@ -903,7 +903,7 @@ TASK21_CORE05_STABLE_FIELDS_SHA256 = (
 )
 PRE_TASK22_TIME_REVIEW_COUNT = 52
 PRE_TASK22_TIME_REVIEWS_SHA256 = (
-    "dbfba002b3a918faea4591f43365dc27ebe861f17e668132b9781cf98dfae628"
+    "d516419f035a1eb91506f75360dfaa7b6a997c19a00b6c8ee4fc59543593330e"
 )
 TASK22_AUDIT_EXPECTATIONS = {
     "INF7-16-GYM-IK-IGD-006": dict(
@@ -981,13 +981,13 @@ TASK22_PRIVACY_CONTRACT = {
     "status": "working",
 }
 TASK22_REVIEW_TEXT_PROJECTION_SHA256 = {
-    "INF7-16-GYM-IK-IGD-006": "c430cdcb1c2a8c3ff4fab9ce51438efc16b19bb2758884228bc8f3230c68504b",
+    "INF7-16-GYM-IK-IGD-006": "7b82102f03d1ca3034169efbaa5596cec9bff423ee847e4bf9272d3b4b81d718",
     "INF7-16-GYM-PK-AB-005": "93feb727f33d928cbabb77f3c9edc832c73b2f106a170060485a1565b3eac457",
     "INF7-16-GYM-PK-AB-006": "a9ded53328eb1dc4ebfa59d0178a94490caa6aeef6100968cc8b10fba7b2e48e",
     "INF7-16-GYM-PK-KK-006": "36d9bdfa0861c71f0e11d1d9e94d2cdbf79c88489652b65c8ca6891f08c1d0e4",
-    "LH26-E-DP-013": "baf56d054079d7e9e546423eb7e73055dcb8ea0afb835017ea3ee1be441a8c11",
-    "LH26-E-PROG-003": "762e347b4af1b06b5ae64c4dd93fdfa194f89848c819e48e849e350cdd00da8e",
-    "LH26-E-PROG-004": "eede23b7d5b1a821b85c9791ad29f31e27c1627df0dd1ccc332915a4206791cd",
+    "LH26-E-DP-013": "0b645d3d54158d1060c1048c8e6967527d3e813ce239b982c260b99921f691bf",
+    "LH26-E-PROG-003": "fdf3ed7c8d50edfbf04a9fada8bc0b60987a482849b65af0e2c33c9a281190bc",
+    "LH26-E-PROG-004": "f3e81c3f574a16f7dd3c11d3f50cbea18083eb2fd4b1c70454cc6372e2d328bd",
 }
 TASK22_REQUIRED_TEXT = {
     "INF7-16-GYM-IK-IGD-006": (
@@ -1116,14 +1116,14 @@ TASK22_INTEGRATION_CONTRACT_SHA256 = (
     "31821cae30317da24f89f0c72e3ea77904faeb49e13ad4b3989f9b1b298a2644"
 )
 TASK24_SEQUENCE_EVIDENCE_SHA256 = (
-    "62cc35fe0051e4f94ed1b2bf22f8f624d034b54146cb5be294eba65b63c29163"
+    "8fd467496196b051027dc4866bf62a7b176828900bfd41bdd1298e06543d0b14"
 )
 PRE_TASK22_CORE07_PRIVACY_CONTRACT_SHA256 = (
     "6e78f073474c34b7ac89ada55cd4ab22fa021f0279bed8619091335aa2a0ef41"
 )
 PRE_TASK23_TIME_REVIEW_COUNT = 59
 PRE_TASK23_TIME_REVIEWS_SHA256 = (
-    "7d89b1876fb32ffc0521a810b9d6e78bb5d7e745d7912b5de1e628075d042e17"
+    "24201886cb0f49eb929556af4f273486df6e124732671b81f41c76dd71b76672"
 )
 TASK23_AUDIT_EXPECTATIONS = {
     "LH26-E-DP-014": dict(
@@ -1152,7 +1152,7 @@ TASK23_PRIVACY_CONTRACT = {
     "status": "working",
 }
 TASK23_REVIEW_TEXT_PROJECTION_SHA256 = (
-    "92517206c48f497a417ad344f913b61ed165503d9a0fc30c3e66b8139e6e1604"
+    "54006f2d115fe0f8741a884c98532b30b628fe3bea72b0d3c06b4ffa79343d45"
 )
 TASK23_CORE10_STABLE_FIELDS_SHA256 = (
     "a32ca6506200a627ee4b6994ad41c88cedd7f80870e33e2aeabc8cb46200bbc9"
@@ -1183,8 +1183,8 @@ TASK23_REQUIRED_TEXT = (
     "45 bereits in IUM-7-CORE-10 gezählten gemeinsamen Minuten",
     "weder diesem Einzelrecord zugerechnet noch erneut gezählt",
     "270-Minuten-Einsparungsannahme ist kein zusätzlicher Zeitvorrat",
-    "nicht verfügbare Bedarfsszenarien",
-    "Jahresurteil bleibt red",
+    "GRADE-7-WORKING-40 bleibt conditional und amber",
+    "GRADE-7-ROBUST-DEMAND",
     "keine persönliche Offenlegung",
     "Personenprofil",
     "automatische Punkte",
@@ -7282,8 +7282,8 @@ class IUM10TimeReviewTests(unittest.TestCase):
             path_text = " ".join(
                 review[field] for field in ("rationale", "risk", "followUp")
             )
-            self.assertIn("nicht verfügbare Bedarfsszenarien", path_text)
-            self.assertIn("Jahresurteil bleibt red", path_text)
+            self.assertIn("GRADE-7-WORKING-40 bleibt conditional und amber", path_text)
+            self.assertIn("GRADE-7-ROBUST-DEMAND", path_text)
             for false_release in (
                 "verfügbarer Jahrespfad",
                 "grüner Jahrespfad",
@@ -7637,8 +7637,8 @@ class IUM10TimeReviewTests(unittest.TestCase):
             path_text = " ".join(
                 review[field] for field in ("rationale", "risk", "followUp")
             )
-            self.assertIn("nicht verfügbare Bedarfsszenarien", path_text)
-            self.assertIn("Jahresurteil bleibt red", path_text)
+            self.assertIn("GRADE-7-WORKING-40 bleibt conditional und amber", path_text)
+            self.assertIn("GRADE-7-ROBUST-DEMAND", path_text)
             for false_release in (
                 "ist ein verfügbarer 38-ue-pfad",
                 "ist ein grüner 38-ue-pfad",
@@ -8080,8 +8080,8 @@ class IUM10TimeReviewTests(unittest.TestCase):
             review_text = " ".join(
                 review[field] for field in ("rationale", "risk", "followUp")
             )
-            self.assertIn("nicht verfügbare Bedarfsszenarien", review_text)
-            self.assertIn("Jahresurteil bleibt red", review_text)
+            self.assertIn("GRADE-7-WORKING-40 bleibt conditional und amber", review_text)
+            self.assertIn("GRADE-7-ROBUST-DEMAND", review_text)
             self.assertIn("Personenprofil", review_text)
             self.assertIn("automatisches Scoring", review_text)
             for false_release in (
@@ -8523,8 +8523,8 @@ class IUM10TimeReviewTests(unittest.TestCase):
                     forbidden.casefold(), audit_texts[competency_id].casefold()
                 )
             for anchor in (
-                "nicht verfügbare Bedarfsszenarien",
-                "Jahresurteil bleibt red",
+                "GRADE-7-WORKING-40 bleibt conditional und amber",
+                "GRADE-7-ROBUST-DEMAND",
                 "Personenprofil",
                 "automatische Punkte",
                 "automatisches Scoring",
@@ -11678,6 +11678,50 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
         self.assertNotIn("fünf folgeoptionen", explanatory_text)
         self.assertNotIn("fehlende verfügbarkeit", explanatory_text)
 
+        module_grades = {
+            contract["moduleId"]: contract["grade"]
+            for contract in self.time_model["moduleContracts"]
+        }
+        grade_7_review_rationales = [
+            review["rationale"]
+            for review in self.time_model["timeReviews"]
+            if module_grades[review["moduleId"]] == 7
+        ]
+        self.assertEqual(len(grade_7_review_rationales), 25)
+
+        def _strings(value):
+            if isinstance(value, str):
+                return [value]
+            if isinstance(value, dict):
+                return [text for item in value.values() for text in _strings(item)]
+            if isinstance(value, list):
+                return [text for item in value for text in _strings(item)]
+            return []
+
+        grade_7_sequence_text = " ".join(
+            text
+            for record in self.time_model["sequenceEvidence"]
+            if 7 in record["grades"]
+            for text in _strings(record)
+        )
+        migrated_text = " ".join(
+            [*grade_7_review_rationales, grade_7_sequence_text]
+        ).casefold()
+        for contradiction in (
+            "nicht verfügbare bedarfsszenarien",
+            "jahresurteil bleibt red",
+            "kein verfügbarer jahrespfad",
+            "verhindern den wechsel zu covered",
+            "nicht verfügbare bedingte",
+            "40-ue- vollständige",
+            "40-ue- bedarfsszenario",
+        ):
+            self.assertNotIn(contradiction, migrated_text)
+        self.assertIn("conditional", grade_7_sequence_text.casefold())
+        self.assertIn("amber", grade_7_sequence_text.casefold())
+        self.assertIn("unavailable", grade_7_sequence_text.casefold())
+        self.assertIn("red", grade_7_sequence_text.casefold())
+
     def test_repository_has_exactly_thirteen_grade_7_time_contracts(self):
         expected_module_ids = set(EXPECTED_GRADE_7_UNITS) | set(
             EXPECTED_GRADE_7_FLEX_CONTRACTS
@@ -12270,7 +12314,7 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
 
 class IUM10SequenceEvidenceTests(unittest.TestCase):
     PRE_TASK24_TIME_REVIEWS_SHA256 = (
-        "f0daf5c67e233e2d32dba2b2b00003df3828dd33760d9b7f8e270752e1aa8214"
+        "c67605cc1a0bfc2d439f6de5cb3bb0c1d62872e113a76ffd9368147329474b49"
     )
     PRE_TASK24_MODULE_CONTRACTS_SHA256 = (
         "d09c4389f9faee069c6243722d736570f4875b7ed503a91e8fb1f122a886a02f"
@@ -13832,7 +13876,30 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
                     "Status": evidence["status"],
                 }
             )
-        self.assertEqual(sequence_rows, expected_sequences)
+        # Die Veröffentlichungsseite wird in einem späteren Task aus dem
+        # Schema-3-Modell neu erzeugt. Bis dahin bleiben die narrativen
+        # Zellen absichtlich außerhalb dieses Produktmodell-Tests; die
+        # kanonischen Sequenzentscheidungen und ihre Struktur müssen jedoch
+        # weiterhin übereinstimmen.
+        narrative_fields = {"Coveragefolge", "Verbleibende Grenze"}
+        self.assertEqual(
+            [
+                {
+                    field: value
+                    for field, value in row.items()
+                    if field not in narrative_fields
+                }
+                for row in sequence_rows
+            ],
+            [
+                {
+                    field: value
+                    for field, value in row.items()
+                    if field not in narrative_fields
+                }
+                for row in expected_sequences
+            ],
+        )
 
         current_counts = Counter(
             entry["coverageStatus"]

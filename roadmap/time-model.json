@@ -6601,7 +6601,7 @@
       "moduleId": "IUM-7-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die Alltagscodierungs-Landkarte benötigt 15 Minuten recordeigene Produktzeit: Mindestens vier Alltagsverwendungen werden nicht nur genannt, sondern jeweils mit Bedeutung, Darstellung und Verwendungszweck fachlich korrekt zugeordnet; Codierung nicht mit Verschlüsselung gleichsetzen bleibt eine ausdrückliche Grenze. INT-7-DATA-CODING wird nicht beansprucht, weil die bestehende gemeinsame Bit-, Code- und Datenmengenspur keine identische Alltagslandkarte bis IUM-7-CORE-02 trägt. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die Alltagscodierungs-Landkarte benötigt 15 Minuten recordeigene Produktzeit: Mindestens vier Alltagsverwendungen werden nicht nur genannt, sondern jeweils mit Bedeutung, Darstellung und Verwendungszweck fachlich korrekt zugeordnet; Codierung nicht mit Verschlüsselung gleichsetzen bleibt eine ausdrückliche Grenze. INT-7-DATA-CODING wird nicht beansprucht, weil die bestehende gemeinsame Bit-, Code- und Datenmengenspur keine identische Alltagslandkarte bis IUM-7-CORE-02 trägt. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product"
       ],
@@ -6624,7 +6624,7 @@
       "moduleId": "IUM-7-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die enacted Datengrößenspur benötigt 15 Minuten recordeigenen Begriffsaufbau und gemeinsame Sicherung: Datenmenge wird als Länge einer Bitfolge erklärt, 0100000101000010 als 16 Bit bestimmt, mit 8 Bit = 1 Byte in 16 Bit = 2 Byte überführt und mit kB, MB, GB und TB ausdrücklich dezimal gekennzeichnet. INT-7-DATA-CODING wird recordbezogen nicht beansprucht: Der Vertrag teilt eine allgemeine Datenmengenspur, bewahrt für DC-004 aber nicht ausdrücklich dieselbe vollständige Bit-/Byte- und Dezimalpräfixhandlung; eine zusätzliche Präfixhandlung darf er nicht erfinden. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die enacted Datengrößenspur benötigt 15 Minuten recordeigenen Begriffsaufbau und gemeinsame Sicherung: Datenmenge wird als Länge einer Bitfolge erklärt, 0100000101000010 als 16 Bit bestimmt, mit 8 Bit = 1 Byte in 16 Bit = 2 Byte überführt und mit kB, MB, GB und TB ausdrücklich dezimal gekennzeichnet. INT-7-DATA-CODING wird recordbezogen nicht beansprucht: Der Vertrag teilt eine allgemeine Datenmengenspur, bewahrt für DC-004 aber nicht ausdrücklich dieselbe vollständige Bit-/Byte- und Dezimalpräfixhandlung; eine zusätzliche Präfixhandlung darf er nicht erfinden. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "build-concept",
         "shared-consolidation"
@@ -6648,7 +6648,7 @@
       "moduleId": "IUM-7-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "INT-7-DATA-CODING trägt ausschließlich die im Vertrag ausdrücklich mit DC-005 belegte bestehende geprüfte Bit- und Codespur desselben getesteten Bit-Codebuchs bis IUM-7-CORE-02. Die systematische 8-Bit-Stellenwertmethode mit Zahl → 8-Bit-Folge und 8-Bit-Folge → Zahl, Stellenwerten 2^7 bis 2^0 und Summe der Stellenwerte, führenden Nullen, den Grenz- und Stellenwechselfällen 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000 und 255 ↔ 11111111 sowie der unbekannte Prüffall bleiben 30 Minuten eigene Übungs-, Produkt- und Revisionsarbeit. Die beiden genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "INT-7-DATA-CODING trägt ausschließlich die im Vertrag ausdrücklich mit DC-005 belegte bestehende geprüfte Bit- und Codespur desselben getesteten Bit-Codebuchs bis IUM-7-CORE-02. Die systematische 8-Bit-Stellenwertmethode mit Zahl → 8-Bit-Folge und 8-Bit-Folge → Zahl, Stellenwerten 2^7 bis 2^0 und Summe der Stellenwerte, führenden Nullen, den Grenz- und Stellenwechselfällen 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000 und 255 ↔ 11111111 sowie der unbekannte Prüffall bleiben 30 Minuten eigene Übungs-, Produkt- und Revisionsarbeit. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "guided-practice",
         "independent-action-product",
@@ -6674,7 +6674,7 @@
       "moduleId": "IUM-7-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "absorbed",
-      "rationale": "Der quellentreu auf Bitfolgenlänge, Bit und Byte begrenzte und beschriftete Tabellenausschnitt ist exakt derselbe Bit-und-Byte-Ausschnitt wie DC-004: 0100000101000010 → 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte. Er sichert die Reichweite ausschließlich für Bit und Byte, erzeugt aber keine zweite Zeitbeanspruchung; deshalb wird er in denselben Phasen ohne Zusatzminuten absorbiert. Größere Präfixe bleiben getrennt und INT-7-DATA-CODING wird für diesen absorbierten Record nicht zusätzlich beansprucht. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Der quellentreu auf Bitfolgenlänge, Bit und Byte begrenzte und beschriftete Tabellenausschnitt ist exakt derselbe Bit-und-Byte-Ausschnitt wie DC-004: 0100000101000010 → 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte. Er sichert die Reichweite ausschließlich für Bit und Byte, erzeugt aber keine zweite Zeitbeanspruchung; deshalb wird er in denselben Phasen ohne Zusatzminuten absorbiert. Größere Präfixe bleiben getrennt und INT-7-DATA-CODING wird für diesen absorbierten Record nicht zusätzlich beansprucht. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "build-concept",
         "shared-consolidation"
@@ -6698,7 +6698,7 @@
       "moduleId": "IUM-7-CORE-01",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die Dezimalpräfixspur benötigt 15 Minuten recordeigenen Begriffsaufbau und Produktarbeit über die bloße Dezimalkennzeichnung in DC-004 hinaus: Kilo, Mega, Giga und Tera werden mit 10^3, 10^6, 10^9 und 10^12 sowie kB, MB, GB und TB in den tatsächlich ausgeführten Umrechnungen 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte verwendet. Die bloßen Einheitendefinitionen aus DC-004 werden nicht doppelt bepreist; INT-7-DATA-CODING trägt keine zusätzliche Präfixumrechnung. Die genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die Dezimalpräfixspur benötigt 15 Minuten recordeigenen Begriffsaufbau und Produktarbeit über die bloße Dezimalkennzeichnung in DC-004 hinaus: Kilo, Mega, Giga und Tera werden mit 10^3, 10^6, 10^9 und 10^12 sowie kB, MB, GB und TB in den tatsächlich ausgeführten Umrechnungen 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte verwendet. Die bloßen Einheitendefinitionen aus DC-004 werden nicht doppelt bepreist; INT-7-DATA-CODING trägt keine zusätzliche Präfixumrechnung. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "build-concept",
         "independent-action-product"
@@ -6722,7 +6722,7 @@
       "moduleId": "IUM-7-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "INT-7-PROGRAMMING trägt ausschließlich die im Vertrag ausdrücklich bewahrte synchrone Kontrollfluss- und Zustandsspur desselben vollständig korrigierten Tracefalls bis IUM-7-CORE-04. Die Variable wird ausdrücklich als änderbarer Wertespeicher erklärt; jede Zustandsänderung nennt alten Wert, neuen Wert und auslösende Anweisung. Dafür bleiben 20 Minuten eigene angeleitete Trace- und Begründungsarbeit; Implementierung, Codeausführung, Tests und Debugging werden weder ersetzt noch angerechnet. Die beiden genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "INT-7-PROGRAMMING trägt ausschließlich die im Vertrag ausdrücklich bewahrte synchrone Kontrollfluss- und Zustandsspur desselben vollständig korrigierten Tracefalls bis IUM-7-CORE-04. Die Variable wird ausdrücklich als änderbarer Wertespeicher erklärt; jede Zustandsänderung nennt alten Wert, neuen Wert und auslösende Anweisung. Dafür bleiben 20 Minuten eigene angeleitete Trace- und Begründungsarbeit; Implementierung, Codeausführung, Tests und Debugging werden weder ersetzt noch angerechnet. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "guided-practice"
       ],
@@ -6746,7 +6746,7 @@
       "moduleId": "IUM-7-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Der tatsächliche Einsatz eines plattformneutralen grafischen Modellierungswerkzeugs benötigt 20 Minuten eigene Produkt- und Revisionszeit: Die grafische Ablauf- und Zustandsmodellierung wird im Werkzeug erstellt, bearbeitet und korrigiert. Eine Anzeige, Demo oder bloße Tracingoberfläche genügt nicht. Dass derselbe Programmfall und dasselbe Werkzeug für andere Ansichten verwendet werden, spart Wechselzeit, ist aber keine identische Werkzeughandlung und begründet weder Absorption noch INT-7-PROGRAMMING. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Der tatsächliche Einsatz eines plattformneutralen grafischen Modellierungswerkzeugs benötigt 20 Minuten eigene Produkt- und Revisionszeit: Die grafische Ablauf- und Zustandsmodellierung wird im Werkzeug erstellt, bearbeitet und korrigiert. Eine Anzeige, Demo oder bloße Tracingoberfläche genügt nicht. Dass derselbe Programmfall und dasselbe Werkzeug für andere Ansichten verwendet werden, spart Wechselzeit, ist aber keine identische Werkzeughandlung und begründet weder Absorption noch INT-7-PROGRAMMING. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product",
         "review-revise-transfer"
@@ -6770,7 +6770,7 @@
       "moduleId": "IUM-7-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Der gerichtete, beschriftete Datenabhängigkeitsgraph benötigt 20 Minuten eigene Produkt- und Revisionszeit. Unterscheidbare Daten-, Zustands- und Ergebnisknoten für Eingabedatum, Variablenzustand vor und nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt werden mit gerichteten Kanten „liest“, „schreibt“ und „hängt ab von“ verbunden; mindestens eine Abhängigkeit und ihre Änderungsfolge werden erklärt. Derselbe Programmfall und dasselbe grafische Werkzeug sparen nur Synchronisationszeit und begründen weder Absorption noch Integration. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Der gerichtete, beschriftete Datenabhängigkeitsgraph benötigt 20 Minuten eigene Produkt- und Revisionszeit. Unterscheidbare Daten-, Zustands- und Ergebnisknoten für Eingabedatum, Variablenzustand vor und nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt werden mit gerichteten Kanten „liest“, „schreibt“ und „hängt ab von“ verbunden; mindestens eine Abhängigkeit und ihre Änderungsfolge werden erklärt. Derselbe Programmfall und dasselbe grafische Werkzeug sparen nur Synchronisationszeit und begründen weder Absorption noch Integration. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product",
         "review-revise-transfer"
@@ -6794,7 +6794,7 @@
       "moduleId": "IUM-7-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "INT-7-PROGRAMMING trägt ausschließlich die im Vertrag ausdrücklich bewahrte kanonische Kontrollfluss- und Tracekontinuität desselben vollständig korrigierten Falls bis IUM-7-CORE-04. Die vollständige Beschreibung von Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator bleibt 25 Minuten eigene Begriffsarbeit. Implementierung, Codeausführung, Normal-, Grenz- und Gegenfalltests sowie Debugging werden nicht ersetzt. Die beiden genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "INT-7-PROGRAMMING trägt ausschließlich die im Vertrag ausdrücklich bewahrte kanonische Kontrollfluss- und Tracekontinuität desselben vollständig korrigierten Falls bis IUM-7-CORE-04. Die vollständige Beschreibung von Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator bleibt 25 Minuten eigene Begriffsarbeit. Implementierung, Codeausführung, Normal-, Grenz- und Gegenfalltests sowie Debugging werden nicht ersetzt. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "build-concept"
       ],
@@ -6818,7 +6818,7 @@
       "moduleId": "IUM-7-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die semantische Wertflussidentifikation benötigt 15 Minuten eigene angeleitete Analyse: Ein Wert wird von Quelle oder innerem Ausdruck zum konsumierenden Operanden, Parameter oder Ziel verfolgt und das Ausdrucksergebnis seinem empfangenden äußeren Ausdruck oder seiner Anweisung zugeordnet. Eine Anweisung ohne definierten Ergebniswert hat keinen Rückgabewert; ohne vorhandene Funktion wird keine Funktionsrückgabe unterstellt. Derselbe Programmfall und dieselbe Traceansicht allein begründen weder Absorption noch Integration. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die semantische Wertflussidentifikation benötigt 15 Minuten eigene angeleitete Analyse: Ein Wert wird von Quelle oder innerem Ausdruck zum konsumierenden Operanden, Parameter oder Ziel verfolgt und das Ausdrucksergebnis seinem empfangenden äußeren Ausdruck oder seiner Anweisung zugeordnet. Eine Anweisung ohne definierten Ergebniswert hat keinen Rückgabewert; ohne vorhandene Funktion wird keine Funktionsrückgabe unterstellt. Derselbe Programmfall und dieselbe Traceansicht allein begründen weder Absorption noch Integration. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "guided-practice"
       ],
@@ -6841,7 +6841,7 @@
       "moduleId": "IUM-7-CORE-03",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die Typzuordnung benötigt 15 Minuten eigene Produktzeit: Bei Werten und Ausdrücken werden Zeichenkette, Zahl und Wahrheitswert identifiziert und ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe begründet. Datentyp, konkreter Wert und Ausdruck bleiben unterscheidbar. Dass dieselben Werte und Ausdrücke im gemeinsamen Trace stehen, begründet ohne identische Zuordnungs- und Begründungsspur weder Absorption noch Integration. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die Typzuordnung benötigt 15 Minuten eigene Produktzeit: Bei Werten und Ausdrücken werden Zeichenkette, Zahl und Wahrheitswert identifiziert und ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe begründet. Datentyp, konkreter Wert und Ausdruck bleiben unterscheidbar. Dass dieselben Werte und Ausdrücke im gemeinsamen Trace stehen, begründet ohne identische Zuordnungs- und Begründungsspur weder Absorption noch Integration. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product"
       ],
@@ -6864,7 +6864,7 @@
       "moduleId": "IUM-7-CORE-04",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die zielgruppenorientierte Erklärspur benötigt 25 Minuten eigene Produkt- und Revisionszeit: Für eine konkret benannte andere Lerngruppe der Klasse 7 ohne Programmvorwissen hält jede lernende Person eine eigene zielgruppenbezogene Erklärung oder begründete Anpassungsentscheidung fest. Eine Adressaten- und Vorwissensnotiz begründet eine Anpassung von Erklärungstiefe oder Beispiel; vier sichtbare Abschnitte zu Sachverhalt, eigener Idee, Lösungsweg und Ergebnis, ein fachlich korrektes Glossar zu Algorithmus, Variable, Verzweigung, Schleife, Testfall und Fehlerhypothese sowie mindestens ein programmbezogenes Beispiel entstehen im gemeinsamen Teamplan, kommentierten Programm und in der Präsentation. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; dieselbe Produktoberfläche begründet für KK-002 weder recordbezogene Integration noch Absorption. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die zielgruppenorientierte Erklärspur benötigt 25 Minuten eigene Produkt- und Revisionszeit: Für eine konkret benannte andere Lerngruppe der Klasse 7 ohne Programmvorwissen hält jede lernende Person eine eigene zielgruppenbezogene Erklärung oder begründete Anpassungsentscheidung fest. Eine Adressaten- und Vorwissensnotiz begründet eine Anpassung von Erklärungstiefe oder Beispiel; vier sichtbare Abschnitte zu Sachverhalt, eigener Idee, Lösungsweg und Ergebnis, ein fachlich korrektes Glossar zu Algorithmus, Variable, Verzweigung, Schleife, Testfall und Fehlerhypothese sowie mindestens ein programmbezogenes Beispiel entstehen im gemeinsamen Teamplan, kommentierten Programm und in der Präsentation. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; dieselbe Produktoberfläche begründet für KK-002 weder recordbezogene Integration noch Absorption. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product",
         "review-revise-transfer"
@@ -6888,7 +6888,7 @@
       "moduleId": "IUM-7-CORE-04",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die Abstraktionsspur benötigt 25 Minuten eigene angeleitete Produktzeit: Jede lernende Person vergleicht mindestens zwei konkrete Fälle oder Testeingaben, trifft eine eigene Invariante-/Variationsentscheidung, trennt invariante, charakteristische und verallgemeinerbare Bestandteile von Variation oder Zufallsdetails, formuliert daraus ein verallgemeinertes Modell oder eine Teillösung und wendet diese auf beide Ausgangsfälle und einen weiteren Prüffall an. Die Ergebnisse dürfen im gemeinsamen Teamplan, kommentierten Programm und in der Präsentation liegen, bleiben dort aber eindeutig zurechenbar. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; derselbe Fall oder dasselbe Produkt begründet für MI-003 weder recordbezogene Integration noch Absorption. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die Abstraktionsspur benötigt 25 Minuten eigene angeleitete Produktzeit: Jede lernende Person vergleicht mindestens zwei konkrete Fälle oder Testeingaben, trifft eine eigene Invariante-/Variationsentscheidung, trennt invariante, charakteristische und verallgemeinerbare Bestandteile von Variation oder Zufallsdetails, formuliert daraus ein verallgemeinertes Modell oder eine Teillösung und wendet diese auf beide Ausgangsfälle und einen weiteren Prüffall an. Die Ergebnisse dürfen im gemeinsamen Teamplan, kommentierten Programm und in der Präsentation liegen, bleiben dort aber eindeutig zurechenbar. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; derselbe Fall oder dasselbe Produkt begründet für MI-003 weder recordbezogene Integration noch Absorption. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "guided-practice",
         "independent-action-product"
@@ -6912,7 +6912,7 @@
       "moduleId": "IUM-7-CORE-04",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die Namensrefaktorierung benötigt 20 Minuten eigene Produkt- und Revisionszeit: Das Team benennt mindestens zwei tatsächlich verwendete Projektdateien nach Rolle und Zweck aussagekräftig oder benennt sie entsprechend um und refaktoriert mehrere tatsächlich verwendete Programmbezeichner einschließlich Variablen und, je nach Umgebung, Funktionen oder Blöcke nach einer dokumentierten Namenskonvention. Die Vorher-Nachher-Tabelle nennt alten und neuen Namen, Rolle oder Zweck und Konvention; gespeicherter Projektbestand und Programm zeigen die tatsächliche Umbenennung. Jede lernende Person führt mindestens eine Datei- oder Programmbezeichner-Umbenennung tatsächlich aus und begründet sie, während das Teamprodukt insgesamt die vollständige Recordbreite erfüllt. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; dasselbe Programm begründet für SV-002 weder recordbezogene Integration noch Absorption. Die drei genannten IDs bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die Namensrefaktorierung benötigt 20 Minuten eigene Produkt- und Revisionszeit: Das Team benennt mindestens zwei tatsächlich verwendete Projektdateien nach Rolle und Zweck aussagekräftig oder benennt sie entsprechend um und refaktoriert mehrere tatsächlich verwendete Programmbezeichner einschließlich Variablen und, je nach Umgebung, Funktionen oder Blöcke nach einer dokumentierten Namenskonvention. Die Vorher-Nachher-Tabelle nennt alten und neuen Namen, Rolle oder Zweck und Konvention; gespeicherter Projektbestand und Programm zeigen die tatsächliche Umbenennung. Jede lernende Person führt mindestens eine Datei- oder Programmbezeichner-Umbenennung tatsächlich aus und begründet sie, während das Teamprodukt insgesamt die vollständige Recordbreite erfüllt. INT-7-PROGRAMMING wird nicht beansprucht: Seine 90 Minuten bewahren nur LH26-E-ALG-010 und INF7-16-GYM-IK-ALG-005; dasselbe Programm begründet für SV-002 weder recordbezogene Integration noch Absorption. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product",
         "review-revise-transfer"
@@ -6936,7 +6936,7 @@
       "moduleId": "IUM-7-CORE-05",
       "sourceTimeImpactLevel": "review-required",
       "decision": "integrated",
-      "rationale": "Die Schutzspur benötigt 30 Minuten angeleitete Facharbeit innerhalb der bestehenden CORE-05-Phase: Jede lernende Person bearbeitet mehrere vollständig vorgegebene fiktive Bedrohungsfälle für mobile Geräte und Datenträger und dokumentiert eine eigene vollständige Risiko–Maßnahme-Spur mit mindestens vier Paaren. Verlust, Diebstahl oder unbefugter Zugriff werden mit Displaysperre sowie lokal zulässiger Geräte- oder Datenträgerverschlüsselung verbunden; nicht vertrauenswürdige Wechseldatenträger oder Schadsoftware mit ausschließlich freigegebenen Datenträgern und Pfaden, Updates und vorgesehener Schadsoftwareprüfung; unsichere Übertragung oder öffentliche Umgebung mit freigegebenem Übertragungsweg sowie Sicht- und Zugriffsschutz; Beschädigung oder Ausfall mit Backup und geprüfter Wiederherstellung. Je Paar werden Risiko, mögliche Maßnahme, Schutzwirkung und mindestens eine Grenze oder ein Zielkonflikt festgehalten. Persönliche Geräte werden nicht verändert und Gerätekennungen nicht erhoben. IGD-004 ist über INT-7-NET-SECURITY integriert, weil dessen Vertrag die Schutzmaßnahme und INF7-16-GYM-IK-IGD-004 ausdrücklich bewahrt; die 30 Minuten bleiben dennoch eigene angeleitete Facharbeit. Die 135 gemeinsamen Minuten werden ausschließlich in IUM-7-CORE-07 gezählt, nicht in CORE-05 erneut angerechnet oder pro Record abgezogen. GRADE-7-WORKING-40 und robust bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die Schutzspur benötigt 30 Minuten angeleitete Facharbeit innerhalb der bestehenden CORE-05-Phase: Jede lernende Person bearbeitet mehrere vollständig vorgegebene fiktive Bedrohungsfälle für mobile Geräte und Datenträger und dokumentiert eine eigene vollständige Risiko–Maßnahme-Spur mit mindestens vier Paaren. Verlust, Diebstahl oder unbefugter Zugriff werden mit Displaysperre sowie lokal zulässiger Geräte- oder Datenträgerverschlüsselung verbunden; nicht vertrauenswürdige Wechseldatenträger oder Schadsoftware mit ausschließlich freigegebenen Datenträgern und Pfaden, Updates und vorgesehener Schadsoftwareprüfung; unsichere Übertragung oder öffentliche Umgebung mit freigegebenem Übertragungsweg sowie Sicht- und Zugriffsschutz; Beschädigung oder Ausfall mit Backup und geprüfter Wiederherstellung. Je Paar werden Risiko, mögliche Maßnahme, Schutzwirkung und mindestens eine Grenze oder ein Zielkonflikt festgehalten. Persönliche Geräte werden nicht verändert und Gerätekennungen nicht erhoben. IGD-004 ist über INT-7-NET-SECURITY integriert, weil dessen Vertrag die Schutzmaßnahme und INF7-16-GYM-IK-IGD-004 ausdrücklich bewahrt; die 30 Minuten bleiben dennoch eigene angeleitete Facharbeit. Die 135 gemeinsamen Minuten werden ausschließlich in IUM-7-CORE-07 gezählt, nicht in CORE-05 erneut angerechnet oder pro Record abgezogen. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "guided-practice"
       ],
@@ -6960,7 +6960,7 @@
       "moduleId": "IUM-7-CORE-05",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Der Modell–Realsituation-Vergleich benötigt 30 Minuten eigene Revisionszeit innerhalb der bestehenden CORE-05-Phase: Jede lernende Person erstellt im gemeinsamen System- und Bedrohungsmodell eine eigene Modell–Realsituation-Tabelle und stellt Modellelement, Vorhersage und Datenweg jeweils dem entsprechenden beobachteten realen Schritt einer sicheren, nichtpersonalen tatsächlichen oder kuratierten Beobachtungsspur des neutralen freigegebenen Client–Server- und Speicherworkflows gegenüber. Sie identifiziert Übereinstimmungen, Abweichungen und Auslassungen, benennt die Modellgrenze und nimmt mindestens eine begründete Modellrevision vor. Bei tatsächlicher Beobachtung gilt dasselbe lokale Freigabegate wie für die Schulnetznutzung; Paketaufzeichnung, private Protokolle und Zugangsdaten sind ausgeschlossen. INT-7-NET-SECURITY wird nicht beansprucht: Dasselbe Systemmodell ersetzt weder Beobachtung noch Modell–Realsituation-Vergleich, Modellgrenze oder begründete Revision; AB-002 ist im Integrationsvertrag nicht bewahrt. GRADE-7-WORKING-40, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Der Modell–Realsituation-Vergleich benötigt 30 Minuten eigene Revisionszeit innerhalb der bestehenden CORE-05-Phase: Jede lernende Person erstellt im gemeinsamen System- und Bedrohungsmodell eine eigene Modell–Realsituation-Tabelle und stellt Modellelement, Vorhersage und Datenweg jeweils dem entsprechenden beobachteten realen Schritt einer sicheren, nichtpersonalen tatsächlichen oder kuratierten Beobachtungsspur des neutralen freigegebenen Client–Server- und Speicherworkflows gegenüber. Sie identifiziert Übereinstimmungen, Abweichungen und Auslassungen, benennt die Modellgrenze und nimmt mindestens eine begründete Modellrevision vor. Bei tatsächlicher Beobachtung gilt dasselbe lokale Freigabegate wie für die Schulnetznutzung; Paketaufzeichnung, private Protokolle und Zugangsdaten sind ausgeschlossen. INT-7-NET-SECURITY wird nicht beansprucht: Dasselbe Systemmodell ersetzt weder Beobachtung noch Modell–Realsituation-Vergleich, Modellgrenze oder begründete Revision; AB-002 ist im Integrationsvertrag nicht bewahrt. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "review-revise-transfer"
       ],
@@ -6983,7 +6983,7 @@
       "moduleId": "IUM-7-CORE-05",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die tatsächliche lokale Schulnetznutzung benötigt 30 Minuten eigene Produktzeit innerhalb der bestehenden CORE-05-Phase einschließlich sichtbarer lokaler Freigabe-, Orientierungs- und technischer Anlaufzeit: Jede lernende Person nutzt ein vor Ort freigegebenes, lokal verfügbares und datenschutzkonformes Schulnetz, wählt für ein neutrales Arbeitsziel einen freigegebenen Speicherort oder Pfad, speichert oder lädt ein neutrales, fiktives und personenfreies Testartefakt, ruft es erneut ab, öffnet es und verifiziert das Aufgabenergebnis. Ein zweiter freigegebener Zugriffskontext wird nur genutzt, falls er lokal unterstützt ist. Der Nachweis enthält ausschließlich Arbeitsziel, freigegebene Pfadbezeichnung oder Pfadkategorie, ausgeführte Operationen und Ergebnis der Abruf- und Öffnungsprüfung; Zugangsdaten, Netzwerk- oder IP-Adressen, Gerätekennungen, Tokens, private Dateien, Inhaltsprotokolle und vollständige Zugriffsprotokolle bleiben ausgeschlossen. Simulation, Lehrkraftdemonstration, vorbereitete Screenshotspur oder kuratierte Ersatzspur schließen SV-001 nicht. INT-7-NET-SECURITY wird nicht beansprucht: Derselbe Datenweg oder Speicherort ersetzt weder die tatsächliche lokale Ausführung noch das lokale Freigabegate. GRADE-7-WORKING-40, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die tatsächliche lokale Schulnetznutzung benötigt 30 Minuten eigene Produktzeit innerhalb der bestehenden CORE-05-Phase einschließlich sichtbarer lokaler Freigabe-, Orientierungs- und technischer Anlaufzeit: Jede lernende Person nutzt ein vor Ort freigegebenes, lokal verfügbares und datenschutzkonformes Schulnetz, wählt für ein neutrales Arbeitsziel einen freigegebenen Speicherort oder Pfad, speichert oder lädt ein neutrales, fiktives und personenfreies Testartefakt, ruft es erneut ab, öffnet es und verifiziert das Aufgabenergebnis. Ein zweiter freigegebener Zugriffskontext wird nur genutzt, falls er lokal unterstützt ist. Der Nachweis enthält ausschließlich Arbeitsziel, freigegebene Pfadbezeichnung oder Pfadkategorie, ausgeführte Operationen und Ergebnis der Abruf- und Öffnungsprüfung; Zugangsdaten, Netzwerk- oder IP-Adressen, Gerätekennungen, Tokens, private Dateien, Inhaltsprotokolle und vollständige Zugriffsprotokolle bleiben ausgeschlossen. Simulation, Lehrkraftdemonstration, vorbereitete Screenshotspur oder kuratierte Ersatzspur schließen SV-001 nicht. INT-7-NET-SECURITY wird nicht beansprucht: Derselbe Datenweg oder Speicherort ersetzt weder die tatsächliche lokale Ausführung noch das lokale Freigabegate. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "independent-action-product"
       ],
@@ -7006,7 +7006,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Der Begriffsaufbau benötigt 20 Minuten innerhalb der bestehenden CORE-08-Phase: Am vollständig kuratierten alltagsrelevanten Dienstfall erklären die Lernenden das permanente Anfallen personenbezogener Daten während der Dienstnutzung als nachvollziehbare Datenfolge und die Speicherung ausdrücklich als eigene Folge. Der unterscheidbare Abschnitt „Datenanfall und Speicherung“ nennt mindestens einen konkreten Nutzen und konkrete Risiken und verwendet dieselben kuratierten Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision des Dossiers. Persönliche Live-Daten werden nicht genutzt. IGD-006 ist im Integrationsvertrag nicht als Curriculumevidenz bewahrt und bleibt additional-time; die gemeinsame Fallkontinuität spart nur Material- und Synchronisationswechsel. GRADE-7-WORKING-40, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Der Begriffsaufbau benötigt 20 Minuten innerhalb der bestehenden CORE-08-Phase: Am vollständig kuratierten alltagsrelevanten Dienstfall erklären die Lernenden das permanente Anfallen personenbezogener Daten während der Dienstnutzung als nachvollziehbare Datenfolge und die Speicherung ausdrücklich als eigene Folge. Der unterscheidbare Abschnitt „Datenanfall und Speicherung“ nennt mindestens einen konkreten Nutzen und konkrete Risiken und verwendet dieselben kuratierten Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision des Dossiers. Persönliche Live-Daten werden nicht genutzt. IGD-006 ist im Integrationsvertrag nicht als Curriculumevidenz bewahrt und bleibt additional-time; die gemeinsame Fallkontinuität spart nur Material- und Synchronisationswechsel. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "build-concept"
       ],
@@ -7144,7 +7144,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Der nichtpersonale Fall- und Revisionsabschnitt benötigt 15 Minuten innerhalb der bestehenden CORE-08-Phase: Am vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall hält der sichtbare Abschnitt „Falschmeldungsfall und Revision“ Behauptung, manipulative Absicht, Akteursdaten, Belege, Gegenbelege, Kriterien und gemeinsame Revision fest. Die private lokale Reflexionsnotiz zum eigenen Umgang, zur Belegprüfung, zu Unsicherheit und möglicher privater Revision verbleibt ausschließlich bei der lernenden Person und wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet. Der gemeinsame Abschnitt funktioniert ohne Kenntnis der Privatnotiz und verlangt keine persönliche Handlungsoption als Abgabe. Die 15 Minuten beziehen sich ausschließlich auf den nichtpersonalen Anschluss; private Reflexionszeit bleibt im Modulbudget und ist weder Produkt, Evidenz noch zusätzlicher Record-Zeitclaim. DP-013 ist nicht integriert. GRADE-7-WORKING-40, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Der nichtpersonale Fall- und Revisionsabschnitt benötigt 15 Minuten innerhalb der bestehenden CORE-08-Phase: Am vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall hält der sichtbare Abschnitt „Falschmeldungsfall und Revision“ Behauptung, manipulative Absicht, Akteursdaten, Belege, Gegenbelege, Kriterien und gemeinsame Revision fest. Die private lokale Reflexionsnotiz zum eigenen Umgang, zur Belegprüfung, zu Unsicherheit und möglicher privater Revision verbleibt ausschließlich bei der lernenden Person und wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet. Der gemeinsame Abschnitt funktioniert ohne Kenntnis der Privatnotiz und verlangt keine persönliche Handlungsoption als Abgabe. Die 15 Minuten beziehen sich ausschließlich auf den nichtpersonalen Anschluss; private Reflexionszeit bleibt im Modulbudget und ist weder Produkt, Evidenz noch zusätzlicher Record-Zeitclaim. DP-013 ist nicht integriert. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "review-revise-transfer"
       ],
@@ -7178,7 +7178,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "roadmap-dependent",
       "decision": "unresolved",
-      "rationale": "Die systematische jahrgangsweite Verbindung fortgeführter informatischer Inhalte mit stärkerer Medienbildung lässt sich weder durch ein Einzelmodul noch durch das gemeinsame Dossier nachweisen. Der Record bleibt unresolved mit 0 Minuten, ohne Phase, Integration und Pfad; ausschließlich SE-LH26-E-PROG-003 bezeichnet den noch in Task 24 zu erstellenden Sequenznachweis über vollständige Module, fachliche Tiefe, Perspektivenbalance, Zeitgewichtung und Jahrespfade. Da Klasse 7 nur nicht verfügbare Bedarfsszenarien besitzt, bleibt die Coverage partial und das Jahresurteil red.",
+      "rationale": "Die systematische jahrgangsweite Verbindung fortgeführter informatischer Inhalte mit stärkerer Medienbildung lässt sich weder durch ein Einzelmodul noch durch das gemeinsame Dossier nachweisen. Der Record bleibt unresolved mit 0 Minuten, ohne Phase, Integration und Pfad; ausschließlich SE-LH26-E-PROG-003 bezeichnet den noch in Task 24 zu erstellenden Sequenznachweis über vollständige Module, fachliche Tiefe, Perspektivenbalance, Zeitgewichtung und Jahrespfade. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red. Die semantische Coverage bleibt partial.",
       "phaseIds": [],
       "additionalMinutes": 0,
       "integrationContractIds": [],
@@ -7206,7 +7206,7 @@
       "moduleId": "IUM-7-CORE-08",
       "sourceTimeImpactLevel": "roadmap-dependent",
       "decision": "unresolved",
-      "rationale": "Der geringere Informatikanteil, der größere Medienbildungsanteil und die systematische Verbindung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven sind nur jahrgangsweit und zeitgewichtet prüfbar. Ein zusätzliches Einzelprodukt, CORE-08 allein oder das gemeinsame Dossier genügt nicht. Der Record bleibt unresolved mit 0 Minuten, ohne Phase, Integration und Pfad; ausschließlich SE-LH26-E-PROG-004 bezeichnet den noch in Task 24 zu erstellenden Sequenznachweis. Da Klasse 7 nur nicht verfügbare Bedarfsszenarien besitzt, bleibt die Coverage partial und das Jahresurteil red.",
+      "rationale": "Der geringere Informatikanteil, der größere Medienbildungsanteil und die systematische Verbindung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven sind nur jahrgangsweit und zeitgewichtet prüfbar. Ein zusätzliches Einzelprodukt, CORE-08 allein oder das gemeinsame Dossier genügt nicht. Der Record bleibt unresolved mit 0 Minuten, ohne Phase, Integration und Pfad; ausschließlich SE-LH26-E-PROG-004 bezeichnet den noch in Task 24 zu erstellenden Sequenznachweis. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red. Die semantische Coverage bleibt partial.",
       "phaseIds": [],
       "additionalMinutes": 0,
       "integrationContractIds": [],
@@ -7234,7 +7234,7 @@
       "moduleId": "IUM-7-CORE-10",
       "sourceTimeImpactLevel": "review-required",
       "decision": "additional-time",
-      "rationale": "Die ausschließlich nichtpersonale Gegenperspektive benötigt 20 Minuten innerhalb der bestehenden CORE-10-Phase: Im bestehenden Vorher–Nachher-Medienprodukt benennt jede lernende Person an vollständig vorgegebenen kuratierten Medienbeispielen dargestellte Geschlechterrollen oder Schönheitsideale, analysiert die verwendeten Gestaltungsmittel, begründet eine mögliche allgemeine Wirkung und verändert das Medienprodukt nachvollziehbar. Diese sichtbare Nacharbeit funktioniert ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der privaten Reflexionsnotiz und ist weder Nachweis noch Proxy für deren Inhalt, Existenz, Fertigstellung oder Teilnahme. Die private Kette eigene Erfahrung oder Selbstwahrnehmung → fachliches Kriterium → persönliche Handlungsoption → mögliche ausschließlich private Revision bleibt vollständig privat, ausschließlich im vorhandenen Modulbudget und ist weder Produkt, Evidenz noch zusätzlicher Record-Zeitclaim. DP-014 ist weder integriert noch absorbiert. GRADE-7-WORKING-40, robust und historical-minimum bezeichnen nicht verfügbare Bedarfsszenarien; das Jahresurteil bleibt red.",
+      "rationale": "Die ausschließlich nichtpersonale Gegenperspektive benötigt 20 Minuten innerhalb der bestehenden CORE-10-Phase: Im bestehenden Vorher–Nachher-Medienprodukt benennt jede lernende Person an vollständig vorgegebenen kuratierten Medienbeispielen dargestellte Geschlechterrollen oder Schönheitsideale, analysiert die verwendeten Gestaltungsmittel, begründet eine mögliche allgemeine Wirkung und verändert das Medienprodukt nachvollziehbar. Diese sichtbare Nacharbeit funktioniert ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der privaten Reflexionsnotiz und ist weder Nachweis noch Proxy für deren Inhalt, Existenz, Fertigstellung oder Teilnahme. Die private Kette eigene Erfahrung oder Selbstwahrnehmung → fachliches Kriterium → persönliche Handlungsoption → mögliche ausschließlich private Revision bleibt vollständig privat, ausschließlich im vorhandenen Modulbudget und ist weder Produkt, Evidenz noch zusätzlicher Record-Zeitclaim. DP-014 ist weder integriert noch absorbiert. GRADE-7-WORKING-40 bleibt conditional und amber; die Referenzpfade GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red.",
       "phaseIds": [
         "review-revise-transfer"
       ],
@@ -7531,16 +7531,16 @@
           ],
           "scopeUnits": 11,
           "weightGroups": [],
-          "rationale": "Das nicht verfügbare bedingte 40-UE- Klasse-7-Bedarfsszenario weist für Kontrollfluss 5 und für Implementierung, Test und Debugging 6 Unterrichtseinheiten als Vergleichstiefe aus."
+          "rationale": "Das 40-UE-Arbeitsziel der Klasse 7 weist für Kontrollfluss 5 und für Implementierung, Test und Debugging 6 Unterrichtseinheiten als Vergleichstiefe aus; es bleibt conditional und amber."
         }
       ],
-      "remainingBoundary": "Die semantische Abgrenzung der grundlegenden Klassen-5-/6-Orientierung ist belegt; das Klasse-7-Vergleichsmodell bleibt mit 40 Unterrichtseinheiten nicht verfügbar und red.",
+      "remainingBoundary": "Die semantische Abgrenzung der grundlegenden Klassen-5-/6-Orientierung ist belegt; das 40-UE-Arbeitsziel der Klasse 7 bleibt conditional und amber und ist covered.",
       "fachAuditStatus": "passed",
       "coverageDecision": "covered",
       "coverageConsequence": {
         "coverageStatus": "covered",
         "semanticAudit": "operator-product-match",
-        "rationale": "Die verfügbaren Klasse-5-/6-Pfade tragen die niederschwellige Orientierung, während die explizit nicht verfügbare Klasse-7-Vergleichstiefe ihre fachliche Grenze sichtbar macht, ohne Verfügbarkeit zu behaupten."
+        "rationale": "Die verfügbaren Klasse-5-/6-Pfade tragen die niederschwellige Orientierung; das 40-UE-Arbeitsziel der Klasse 7 markiert conditional und amber die fachliche Aufbaugrenze."
       },
       "evidenceBoundary": {
         "privateEvidence": "excluded",
@@ -7688,7 +7688,7 @@
               "units": 10
             }
           ],
-          "rationale": "Die bedingte 40-UE- vollständige Kernbedarfsrechnung verteilt 30 Unterrichtseinheiten auf CORE-01–07 und 10 auf CORE-08–10, bleibt aber nicht verfügbar."
+          "rationale": "Das vollständige 40-UE-Arbeitsziel verteilt 30 Unterrichtseinheiten auf CORE-01–07 und 10 auf CORE-08–10; es bleibt conditional und amber."
         },
         {
           "variantId": "GRADE-7-ROBUST-DEMAND",
@@ -7731,7 +7731,7 @@
               "units": 15
             }
           ],
-          "rationale": "Die robuste vollständige Kernbedarfsrechnung verteilt 31 Unterrichtseinheiten auf CORE-01–07 und 15 auf CORE-08–10, bleibt aber nicht verfügbar."
+          "rationale": "Der robuste 46-UE-Referenzpfad verteilt 31 Unterrichtseinheiten auf CORE-01–07 und 15 auf CORE-08–10; er bleibt unavailable und red."
         },
         {
           "variantId": "GRADE-7-HISTORICAL-MINIMUM",
@@ -7774,16 +7774,16 @@
               "units": 16
             }
           ],
-          "rationale": "Die historische vollständige Mindestbedarfsrechnung verteilt 38 Unterrichtseinheiten auf CORE-01–07 und 16 auf CORE-08–10, bleibt aber nicht verfügbar."
+          "rationale": "Der historische 54-UE-Referenzpfad verteilt 38 Unterrichtseinheiten auf CORE-01–07 und 16 auf CORE-08–10; er bleibt unavailable und red."
         }
       ],
-      "remainingBoundary": "Der fachliche Audit weist die jahrgangsweite Verbindung nach, doch ausschließlich nicht verfügbare Klasse-7-Bedarfsszenarien mit 40, 46 und 54 Unterrichtseinheiten verhindern den Wechsel zu covered.",
+      "remainingBoundary": "Der fachliche Audit weist die jahrgangsweite Verbindung nach. Das 40-UE-Arbeitsziel bleibt conditional und amber; die 46- und 54-UE-Referenzpfade bleiben unavailable und red. Die semantische Coverage bleibt partial.",
       "fachAuditStatus": "passed",
       "coverageDecision": "remain-partial",
       "coverageConsequence": {
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap",
-        "rationale": "Ohne tatsächlich verfügbaren Klasse-7-Jahrespfad bleibt die roadmapweite Coverage trotz bestandenem Fachaudit partial."
+        "rationale": "Trotz bestandenem Fachaudit bleibt die roadmapweite semantische Coverage partial, bis der ausstehende Sequenznachweis vollständig geprüft ist."
       },
       "evidenceBoundary": {
         "privateEvidence": "excluded",
@@ -7931,7 +7931,7 @@
               "units": 10
             }
           ],
-          "rationale": "Das bedingte 40-UE- Bedarfsszenario gewichtet CORE-01–07 mit 30 und CORE-08–10 mit 10 Unterrichtseinheiten, ist aber kein verfügbarer Jahrespfad."
+          "rationale": "Das 40-UE-Arbeitsziel gewichtet CORE-01–07 mit 30 und CORE-08–10 mit 10 Unterrichtseinheiten; es bleibt conditional und amber."
         },
         {
           "variantId": "GRADE-7-ROBUST-DEMAND",
@@ -7974,7 +7974,7 @@
               "units": 15
             }
           ],
-          "rationale": "Das robuste Bedarfsszenario gewichtet CORE-01–07 mit 31 und CORE-08–10 mit 15 Unterrichtseinheiten, ist aber kein verfügbarer Jahrespfad."
+          "rationale": "Der robuste 46-UE-Referenzpfad gewichtet CORE-01–07 mit 31 und CORE-08–10 mit 15 Unterrichtseinheiten; er bleibt unavailable und red."
         },
         {
           "variantId": "GRADE-7-HISTORICAL-MINIMUM",
@@ -8017,16 +8017,16 @@
               "units": 16
             }
           ],
-          "rationale": "Das historische Mindestbedarfsszenario gewichtet CORE-01–07 mit 38 und CORE-08–10 mit 16 Unterrichtseinheiten, ist aber kein verfügbarer Jahrespfad."
+          "rationale": "Der historische 54-UE-Referenzpfad gewichtet CORE-01–07 mit 38 und CORE-08–10 mit 16 Unterrichtseinheiten; er bleibt unavailable und red."
         }
       ],
-      "remainingBoundary": "Die vier Perspektiven und ihre Zeitgewichtung sind fachlich belegt; ohne verfügbaren Klasse-7-Jahrespfad bleibt die roadmapweite Anforderung dennoch partial und das Jahresurteil red.",
+      "remainingBoundary": "Die vier Perspektiven und ihre Zeitgewichtung sind fachlich belegt. Das 40-UE-Arbeitsziel bleibt conditional und amber; die 46- und 54-UE-Referenzpfade bleiben unavailable und red. Die semantische Coverage bleibt partial.",
       "fachAuditStatus": "passed",
       "coverageDecision": "remain-partial",
       "coverageConsequence": {
         "coverageStatus": "partial",
         "semanticAudit": "documented-gap",
-        "rationale": "Die Perspektivenverknüpfung darf bei ausschließlich nicht verfügbaren 40/46/54-Bedarfsszenarien nicht als covered ausgegeben werden."
+        "rationale": "Die Perspektivenverknüpfung ist fachlich covered; die semantische Coverage bleibt bis zum vollständigen Sequenznachweis partial."
       },
       "evidenceBoundary": {
         "privateEvidence": "excluded",
