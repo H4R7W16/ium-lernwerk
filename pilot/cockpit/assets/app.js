@@ -884,7 +884,7 @@
     parts.modules.forEach(function (module) {
       const criteria = module.criteria.map(function (criterion) {
         const id = `criterion-${slug(criterion.criterionId)}`;
-        return `<div class="field"><label for="${id}">${escapeHtml(criterion.criterionId)}</label><select id="${id}">${optionMarkup(BAND_VALUES)}</select></div>`;
+        return `<div class="field"><label for="${id}">${escapeHtml(criterion.criterionId)}</label><select id="${id}" required><option value="">Bitte auswählen</option>${optionMarkup(BAND_VALUES)}</select></div>`;
       }).join('');
       qualityMarkup.push(`<div class="criterion-card"><h3>Modul ${escapeHtml(module.moduleId)}</h3><div class="criterion-grid">${criteria}</div></div>`);
     });
@@ -892,7 +892,7 @@
       const integrationId = slug(integration.integrationContractId);
       const criteria = integration.criteria.map(function (criterion) {
         const id = `criterion-${slug(criterion.criterionId)}`;
-        return `<div class="field"><label for="${id}">${escapeHtml(criterion.criterionId)}</label><select id="${id}">${optionMarkup(BAND_VALUES)}</select></div>`;
+        return `<div class="field"><label for="${id}">${escapeHtml(criterion.criterionId)}</label><select id="${id}" required><option value="">Bitte auswählen</option>${optionMarkup(BAND_VALUES)}</select></div>`;
       }).join('');
       qualityMarkup.push(
         `<div class="criterion-card"><h3>Integration ${escapeHtml(integration.integrationContractId)}</h3><div class="criterion-grid">${criteria}</div>` +

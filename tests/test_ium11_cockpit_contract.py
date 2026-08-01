@@ -219,11 +219,24 @@ global.window = {};
 require('./pilot/cockpit/assets/protocol.js');
 
 const request = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
+const staticHtml = require('node:fs').readFileSync('./pilot/cockpit/index.html', 'utf8');
 const focused = [];
 const downloads = [];
 const objectUrls = new Map();
 let resetCount = 0;
 let objectUrlCounter = 0;
+
+function firstOptionValue(markup) {
+  const option = markup.match(/<option\s+value="([^"]*)"/);
+  return option ? option[1] : '';
+}
+
+function staticSelectDefault(id) {
+  const match = staticHtml.match(
+    new RegExp(`<select[^>]*id="${id}"[^>]*>([\\s\\S]*?)<\\/select>`)
+  );
+  return match ? firstOptionValue(match[1]) : '';
+}
 
 class FakeElement {
   constructor(id) {
@@ -232,10 +245,29 @@ class FakeElement {
     this.disabled = false;
     this.files = [];
     this.hidden = false;
-    this.innerHTML = '';
+    this._innerHTML = '';
     this.listeners = {};
     this.textContent = '';
-    this.value = '';
+    this.defaultValue = staticSelectDefault(id);
+    this.value = this.defaultValue;
+  }
+  get innerHTML() { return this._innerHTML; }
+  set innerHTML(markup) {
+    this._innerHTML = markup;
+    const ownDefault = firstOptionValue(markup);
+    if (ownDefault || /<option\s+value=""/.test(markup)) {
+      this.defaultValue = ownDefault;
+      this.value = ownDefault;
+    }
+    const selects = markup.matchAll(/<select[^>]*id="([^"]+)"([^>]*)>([\s\S]*?)<\/select>/g);
+    for (const match of selects) {
+      const child = element(match[1]);
+      child.defaultValue = firstOptionValue(match[3]);
+      child.value = child.defaultValue;
+      child.required = /\brequired\b/.test(match[2]);
+    }
+    const inputs = markup.matchAll(/<input[^>]*id="([^"]+)"[^>]*>/g);
+    for (const match of inputs) element(match[1]);
   }
   addEventListener(type, handler) {
     (this.listeners[type] ||= []).push(handler);
@@ -265,7 +297,7 @@ form.reset = function () {
   for (const item of elements.values()) {
     item.checked = false;
     item.files = [];
-    item.value = '';
+    item.value = item.defaultValue;
   }
 };
 
@@ -337,7 +369,7 @@ async function selectScope(scopeId) {
   await element('scope-id').dispatch('change');
 }
 
-function seedPackage(payload) {
+function seedPackage(payload, options = {}) {
   const contextIds = {
     schoolYear: 'context-school-year', term: 'context-term',
     classSizeBand: 'context-class-size-band', deviceClass: 'context-device-class',
@@ -352,8 +384,10 @@ function seedPackage(payload) {
   element('actual-units').value = String(delivery.actualUnits);
   element('fallback-activated').checked = delivery.fallbackActivated;
   element('technical-startup-minutes').value = String(delivery.technicalStartupMinutes);
-  element('support-demand-band').value = delivery.supportDemandBand;
-  element('external-disruption-code').value = delivery.externalDisruptionCode;
+  if (!options.preserveOutcomeSelects) {
+    element('support-demand-band').value = delivery.supportDemandBand;
+    element('external-disruption-code').value = delivery.externalDisruptionCode;
+  }
   for (const phaseId of delivery.completedPhaseIds) {
     element(`phase-${slug(phaseId)}`).checked = true;
   }
@@ -362,19 +396,25 @@ function seedPackage(payload) {
   }
   for (const moduleResult of payload.learningQualityEvidence.moduleResults) {
     for (const criterion of moduleResult.criteria) {
-      element(`criterion-${slug(criterion.criterionId)}`).value = criterion.band;
+      if (!options.preserveCriteria) {
+        element(`criterion-${slug(criterion.criterionId)}`).value = criterion.band;
+      }
     }
   }
   for (const integrationResult of payload.learningQualityEvidence.integrationResults) {
     for (const criterion of integrationResult.criteria) {
-      element(`criterion-${slug(criterion.criterionId)}`).value = criterion.band;
+      if (!options.preserveCriteria) {
+        element(`criterion-${slug(criterion.criterionId)}`).value = criterion.band;
+      }
     }
     const integrationId = slug(integrationResult.integrationContractId);
     element(`handoff-present-${integrationId}`).checked = integrationResult.handoffProductPresent;
     element(`handoff-reused-${integrationId}`).checked = integrationResult.handoffReused;
   }
   const pulse = payload.learnerPulseEvidence;
-  element('learner-pulse-status').value = pulse.status;
+  if (!options.preserveOutcomeSelects) {
+    element('learner-pulse-status').value = pulse.status;
+  }
   if (pulse.status === 'reported') {
     element('class-response-count').value = String(pulse.classResponseCount);
     for (const item of pulse.items) {
@@ -384,11 +424,13 @@ function seedPackage(payload) {
     }
   }
   const technical = payload.technicalPrivacyEvidence;
-  element('technical-function').value = technical.technicalFunction;
   element('fallback-equivalent').checked = technical.fallbackEquivalentLearningFunction;
-  element('problem-code').value = technical.problemCode;
-  element('severity').value = technical.severity;
-  element('privacy-gate').value = technical.privacyGate;
+  if (!options.preserveOutcomeSelects) {
+    element('technical-function').value = technical.technicalFunction;
+    element('problem-code').value = technical.problemCode;
+    element('severity').value = technical.severity;
+    element('privacy-gate').value = technical.privacyGate;
+  }
 }
 
 async function importPackages(packages) {
@@ -411,6 +453,20 @@ async function importPackages(packages) {
     await makeReady();
     await selectScope(request.package.scopeId);
     seedPackage(request.package);
+    await form.dispatch('input');
+    await element('validate-button').click();
+    await element('download-button').click();
+    output = {
+      downloadDisabled: element('download-button').disabled,
+      downloads,
+      error: element('error-summary').textContent,
+      focused,
+      result: element('derived-result').textContent,
+    };
+  } else if (request.scenario === 'unselected-result-controls') {
+    await makeReady();
+    await selectScope(request.package.scopeId);
+    seedPackage(request.package, request.options);
     await form.dispatch('input');
     await element('validate-button').click();
     await element('download-button').click();
@@ -469,10 +525,15 @@ async function importPackages(packages) {
 """
 
 
-def run_cockpit_flow(scenario, *, package=None, packages=None):
+def run_cockpit_flow(scenario, *, package=None, packages=None, options=None):
     result = run_node(
         COCKPIT_FLOW_NODE,
-        {"scenario": scenario, "package": package, "packages": packages},
+        {
+            "scenario": scenario,
+            "package": package,
+            "packages": packages,
+            "options": options,
+        },
     )
     if result.returncode != 0:
         raise AssertionError(result.stderr)
@@ -508,6 +569,30 @@ class IUM11CockpitFlowTests(unittest.TestCase):
         self.assertEqual(result["result"], "fail")
         self.assertEqual(result["focused"][-1], "error-summary")
         self.assertIn(package["scopeId"], result["error"])
+        self.assertEqual(result["error"].count("Nächster Schritt:"), 1)
+
+    def test_untouched_criteria_cannot_produce_pass_or_download(self):
+        result = run_cockpit_flow(
+            "unselected-result-controls",
+            package=self.cluster,
+            options={"preserveCriteria": True},
+        )
+        self.assertNotEqual(result["result"], "pass")
+        self.assertTrue(result["downloadDisabled"])
+        self.assertEqual(result["downloads"], [])
+        self.assertEqual(result["focused"][-1], "error-summary")
+        self.assertEqual(result["error"].count("Nächster Schritt:"), 1)
+
+    def test_untouched_technical_privacy_selects_cannot_produce_pass_or_download(self):
+        result = run_cockpit_flow(
+            "unselected-result-controls",
+            package=self.cluster,
+            options={"preserveOutcomeSelects": True},
+        )
+        self.assertNotEqual(result["result"], "pass")
+        self.assertTrue(result["downloadDisabled"])
+        self.assertEqual(result["downloads"], [])
+        self.assertEqual(result["focused"][-1], "error-summary")
         self.assertEqual(result["error"].count("Nächster Schritt:"), 1)
 
     def test_suppressed_small_group_download_contains_no_counts(self):
