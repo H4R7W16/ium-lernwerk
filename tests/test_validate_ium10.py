@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -14617,6 +14618,39 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             row_index += 1
         return rows
 
+    @staticmethod
+    def _assert_grade_7_sequence_summary(summary):
+        required_patterns = (
+            r"SE-LH26-E-PROG-003 und SE-LH26-E-PROG-004 bestehen den "
+            r"Fachaudit und sind sequenziell covered; ihre semantische "
+            r"Coverage bleibt partial\.",
+            r"GRADE-7-WORKING-40 bleibt conditional und amber; "
+            r"(?:nur|ausschließlich) GRADE-7-ROBUST-DEMAND und "
+            r"GRADE-7-HISTORICAL-MINIMUM bleiben unavailable und red\.",
+        )
+        for pattern in required_patterns:
+            if not re.search(pattern, summary):
+                raise AssertionError(f"missing bound Grade-7 status: {pattern}")
+
+        for sentence in re.split(r"(?<=[.!?])\s+", summary):
+            normalized_sentence = sentence.lower()
+            has_collective = re.search(
+                r"\b(?:alle(?:\s+drei)?|sämtliche|ausschließlich)\b",
+                normalized_sentence,
+            )
+            has_grade_7_paths = re.search(
+                r"\bklasse-7-(?:pfade|szenarien|bedarfsszenarien)\b",
+                normalized_sentence,
+            )
+            has_collective_negative_status = re.search(
+                r"\b(?:unavailable|nicht verfügbar|red)\b",
+                normalized_sentence,
+            )
+            if has_collective and has_grade_7_paths and has_collective_negative_status:
+                raise AssertionError(
+                    "collective Grade-7 unavailable/red attribution is forbidden"
+                )
+
     def test_publishes_all_module_contracts_and_keeps_flexible_modules_visible(self):
         rows = self._table(self.roadmap, "### Modulverträge (31/31)")
         module_by_id = {
@@ -14919,23 +14953,26 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             "### Aktuelle und historische Coveragebilanz", summary_start
         )
         sequence_summary = self.roadmap[summary_start:summary_end].strip()
-        self.assertIn("SE-LH26-E-PROG-003 und SE-LH26-E-PROG-004", sequence_summary)
-        self.assertIn("Fachaudit", sequence_summary)
-        self.assertIn("sequenziell covered", sequence_summary)
-        self.assertIn("semantische Coverage bleibt partial", sequence_summary)
-        self.assertIn("GRADE-7-WORKING-40 bleibt conditional und amber", sequence_summary)
-        self.assertIn("GRADE-7-ROBUST-DEMAND", sequence_summary)
-        self.assertIn("GRADE-7-HISTORICAL-MINIMUM", sequence_summary)
-        self.assertIn("unavailable und red", sequence_summary)
-        normalized_summary = sequence_summary.lower()
-        for collective_claim in (
-            "alle klasse-7-szenarien",
-            "ausschließlich nicht verfügbare klasse-7",
-            "alle klasse-7-bedarfsszenarien",
-            "ausschließlich nicht verfügbare klasse-7-bedarfsszenarien",
-        ):
-            with self.subTest(collective_claim=collective_claim):
-                self.assertNotIn(collective_claim, normalized_summary)
+        self._assert_grade_7_sequence_summary(sequence_summary)
+        with self.assertRaisesRegex(AssertionError, "collective Grade-7"):
+            self._assert_grade_7_sequence_summary(
+                sequence_summary
+                + " Alle drei Klasse-7-Pfade bleiben unavailable und red."
+            )
+        self._assert_grade_7_sequence_summary(
+            "Alle Klasse-7-Szenarien werden pfadgenau unterschieden. "
+            + sequence_summary
+        )
+        wrong_named_attribution = sequence_summary.replace(
+            "GRADE-7-WORKING-40 bleibt conditional und amber; nur "
+            "GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM "
+            "bleiben unavailable und red.",
+            "GRADE-7-WORKING-40 bleibt unavailable und red; nur "
+            "GRADE-7-ROBUST-DEMAND und GRADE-7-HISTORICAL-MINIMUM "
+            "bleiben conditional und amber.",
+        )
+        with self.assertRaisesRegex(AssertionError, "missing bound Grade-7"):
+            self._assert_grade_7_sequence_summary(wrong_named_attribution)
 
         current_counts = Counter(
             entry["coverageStatus"]
