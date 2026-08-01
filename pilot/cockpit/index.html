@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IUM11 – lokales Pilot-Cockpit</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <p class="eyebrow">IUM11 · Protokoll 1.0.0</p>
+      <h1>Lokales Pilot-Cockpit</h1>
+      <p>Aggregierte Evidenz prüfen und als JSON-Paket sichern – ohne Konto, Netzwerk oder dauerhafte Browserspeicherung.</p>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="privacy-note" role="note">
+      <span aria-hidden="true">🔒</span>
+      <p><strong>Datensparsam arbeiten:</strong> Erfassen Sie ausschließlich Klassenaggregate. Namen, institutionelle Bezeichnungen, Freitexte und Lernprodukte gehören nicht in dieses Cockpit.</p>
+    </div>
+
+    <form id="pilot-form" novalidate>
+      <section aria-labelledby="step-1-title">
+        <h2 id="step-1-title">1. Bereitschaft prüfen</h2>
+        <p>Der Pilot startet nur, wenn alle sieben Voraussetzungen erfüllt sind.</p>
+        <fieldset class="checklist">
+          <legend>Verbindliches Bereitschaftsgate</legend>
+          <div class="check-row">
+            <input id="readiness-materials" type="checkbox" data-readiness="materials">
+            <label for="readiness-materials">Fachlich reviewfähige Lernmaterialien liegen für alle Module des Scopes vor.</label>
+          </div>
+          <div class="check-row">
+            <input id="readiness-handbook" type="checkbox" data-readiness="handbook">
+            <label for="readiness-handbook">Das zugehörige Lehrkräftehandbuch liegt vor.</label>
+          </div>
+          <div class="check-row">
+            <input id="readiness-anchor-tasks" type="checkbox" data-readiness="anchor-tasks">
+            <label for="readiness-anchor-tasks">Ankeraufgaben und Kriterien sind vollständig.</label>
+          </div>
+          <div class="check-row">
+            <input id="readiness-tools-fallback" type="checkbox" data-readiness="tools-fallback">
+            <label for="readiness-tools-fallback">Digitale Werkzeuge und gleichwertige lokale Fallbacks funktionieren.</label>
+          </div>
+          <div class="check-row">
+            <input id="readiness-privacy" type="checkbox" data-readiness="privacy">
+            <label for="readiness-privacy">Die Privacygrenzen wurden geprüft.</label>
+          </div>
+          <div class="check-row">
+            <input id="readiness-capacity" type="checkbox" data-readiness="capacity">
+            <label for="readiness-capacity">Die reale Kapazität für den gewählten Pilotpfad ist gesichert.</label>
+          </div>
+          <div class="check-row">
+            <input id="readiness-fingerprint" type="checkbox" data-readiness="fingerprint">
+            <label for="readiness-fingerprint">Vertrags- und Protokollfingerprint sind aktuell.</label>
+          </div>
+        </fieldset>
+        <p id="readiness-status" class="status-line">○ 0 von 7 Voraussetzungen bestätigt.</p>
+      </section>
+
+      <section aria-labelledby="step-2-title">
+        <h2 id="step-2-title">2. Pilotstufe und Kontext</h2>
+        <fieldset id="pilot-context-fields" disabled>
+          <legend>Scope und sechs grobe Kontextklassen</legend>
+          <div class="form-grid">
+            <div class="field full-width">
+              <label for="scope-id">Pilotstufe</label>
+              <select id="scope-id" required>
+                <option value="">Bitte auswählen</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="context-school-year">Beginn des Schuljahrs</label>
+              <input id="context-school-year" name="schoolYear" data-context-field="schoolYear" type="number" min="2020" max="2099" step="1" inputmode="numeric" required>
+              <p class="hint">Vierstellig, z. B. 2026 für 2026-27.</p>
+            </div>
+            <div class="field">
+              <label for="context-term">Halbjahr</label>
+              <select id="context-term" name="term" data-context-field="term" required></select>
+            </div>
+            <div class="field">
+              <label for="context-class-size-band">Klassengrößenband</label>
+              <select id="context-class-size-band" name="classSizeBand" data-context-field="classSizeBand" required></select>
+            </div>
+            <div class="field">
+              <label for="context-device-class">Geräteart</label>
+              <select id="context-device-class" name="deviceClass" data-context-field="deviceClass" required></select>
+            </div>
+            <div class="field">
+              <label for="context-browser-family">Browserfamilie</label>
+              <select id="context-browser-family" name="browserFamily" data-context-field="browserFamily" required></select>
+            </div>
+            <div class="field">
+              <label for="context-network-mode">Netzwerkmodus</label>
+              <select id="context-network-mode" name="networkMode" data-context-field="networkMode" required></select>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+
+      <section aria-labelledby="step-3-title">
+        <h2 id="step-3-title">3. Aggregierte Evidenz erfassen</h2>
+        <p id="annual-lock-note" class="status-line" hidden>○ Für den Jahresmodus müssen zuerst vier positive, versionsgleiche Clusterpakete in Protokollreihenfolge importiert werden.</p>
+        <fieldset id="evidence-fields" disabled>
+          <legend>Evidenz für den gewählten Scope</legend>
+
+          <fieldset>
+            <legend>Zeit und Pflichtphasen</legend>
+            <p id="planned-units" class="contract-value">Geplantes Budget: –</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="actual-units">Tatsächlich benötigte UE</label>
+                <input id="actual-units" type="number" min="0" step="1" required>
+              </div>
+              <div class="field">
+                <label for="technical-startup-minutes">Technische Startzeit in Minuten</label>
+                <input id="technical-startup-minutes" type="number" min="0" step="1" required>
+              </div>
+              <div class="field">
+                <label for="support-demand-band">Unterstützungsbedarf</label>
+                <select id="support-demand-band" required>
+                  <option value="low">niedrig</option>
+                  <option value="medium">mittel</option>
+                  <option value="high">hoch</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="external-disruption-code">Externe Störung</label>
+                <select id="external-disruption-code" required>
+                  <option value="none">keine</option>
+                  <option value="interpretability-lost">Interpretierbarkeit verloren</option>
+                </select>
+              </div>
+            </div>
+            <div class="check-row">
+              <input id="fallback-activated" type="checkbox">
+              <label for="fallback-activated">Lokaler Fallback wurde aktiviert.</label>
+            </div>
+            <div id="phase-fields" class="dynamic-fields" aria-labelledby="phase-title">
+              <h3 id="phase-title">Abgeschlossene Pflichtphasen</h3>
+            </div>
+            <div id="annual-unit-fields" class="dynamic-fields" aria-labelledby="annual-units-title" hidden>
+              <h3 id="annual-units-title">Tatsächliche UE je Cluster</h3>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Modul- und Integrationskriterien</legend>
+            <p class="hint">Die Bänder sind Projekt-Akzeptanzgrenzen und keine Noten.</p>
+            <div id="quality-fields" class="dynamic-fields"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Klassenaggregierter Lernendenimpuls</legend>
+            <div class="field">
+              <label for="learner-pulse-status">Meldestatus</label>
+              <select id="learner-pulse-status" required>
+                <option value="reported">Summen berichten</option>
+                <option value="suppressed-small-group">Unter zehn gültige Antworten – Summen unterdrücken</option>
+              </select>
+            </div>
+            <fieldset id="learner-count-fields">
+              <legend>Bereits außerhalb des Cockpits gezählte Klassensummen</legend>
+              <div class="field narrow-field">
+                <label for="class-response-count">Antworten insgesamt</label>
+                <input id="class-response-count" type="number" min="10" step="1" required>
+              </div>
+              <div id="pulse-fields" class="dynamic-fields"></div>
+            </fieldset>
+          </fieldset>
+
+          <fieldset>
+            <legend>Technik und Privacy</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="technical-function">Technische Funktion</label>
+                <select id="technical-function" required>
+                  <option value="pass">funktioniert</option>
+                  <option value="fail">funktioniert nicht</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="problem-code">Problemcode</label>
+                <select id="problem-code" required>
+                  <option value="none">kein Problem</option>
+                  <option value="startup">Start</option>
+                  <option value="execution">Durchführung</option>
+                  <option value="import">Import</option>
+                  <option value="export">Export</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="severity">Schweregrad</label>
+                <select id="severity" required>
+                  <option value="none">keiner</option>
+                  <option value="minor">gering</option>
+                  <option value="major">erheblich</option>
+                  <option value="blocking">blockierend</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="privacy-gate">Privacygate</label>
+                <select id="privacy-gate" required>
+                  <option value="pass">bestanden</option>
+                  <option value="fail">verletzt</option>
+                </select>
+              </div>
+            </div>
+            <div class="check-row">
+              <input id="fallback-equivalent" type="checkbox">
+              <label for="fallback-equivalent">Der aktivierte Fallback erhält dieselbe Lernfunktion.</label>
+            </div>
+          </fieldset>
+        </fieldset>
+      </section>
+
+      <section aria-labelledby="step-4-title">
+        <h2 id="step-4-title">4. Prüfen und exportieren</h2>
+        <div id="error-summary" class="error-summary" role="alert" tabindex="-1" hidden></div>
+        <p id="status-message" class="status-line" aria-live="polite">○ Noch kein Paket geprüft.</p>
+
+        <div class="result-panel" aria-labelledby="result-title">
+          <h3 id="result-title">Neu abgeleitetes Ergebnis</h3>
+          <p><strong id="derived-result">–</strong></p>
+          <ul id="warning-list"></ul>
+          <p><strong>Aussagegrenze:</strong> ausschließlich dokumentierte Einsatzbedingungen; keine Statusfreigabe und kein Wirksamkeitsnachweis.</p>
+        </div>
+
+        <fieldset id="import-fields" disabled>
+          <legend>Vier Clusterpakete für den Jahresmodus importieren</legend>
+          <label for="cluster-import">Lokale JSON-Dateien in Protokollreihenfolge auswählen</label>
+          <input id="cluster-import" type="file" accept="application/json,.json" multiple>
+          <button id="import-button" type="button" disabled>Clusterpakete importieren</button>
+          <p id="import-status" class="status-line">○ 0 von 4 Clusterpaketen geprüft.</p>
+        </fieldset>
+
+        <div class="button-row">
+          <button id="validate-button" type="button" disabled>Neu ableiten und prüfen</button>
+          <button id="download-button" type="button" disabled>Validiertes JSON herunterladen</button>
+          <button id="clear-button" class="secondary" type="button">Flüchtigen Zustand verwerfen</button>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">Alle Eingaben bleiben bis zum bewussten JSON-Download im Arbeitsspeicher dieses Browserfensters.</div>
+  </footer>
+  <script src="assets/protocol.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

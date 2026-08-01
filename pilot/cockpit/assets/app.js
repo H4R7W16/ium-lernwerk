@@ -712,6 +712,655 @@
     return validateEvidencePackage(payload, protocol);
   }
 
+  const READINESS_IDS = [
+    'readiness-materials', 'readiness-handbook', 'readiness-anchor-tasks',
+    'readiness-tools-fallback', 'readiness-privacy', 'readiness-capacity',
+    'readiness-fingerprint'
+  ];
+  const CONTEXT_CONTROL_IDS = {
+    term: 'context-term',
+    classSizeBand: 'context-class-size-band',
+    deviceClass: 'context-device-class',
+    browserFamily: 'context-browser-family',
+    networkMode: 'context-network-mode'
+  };
+  const FLOW_CAUSES = {
+    'readiness-incomplete': 'Das Bereitschaftsgate ist unvollständig.',
+    'scope-required': 'Es wurde keine zulässige Pilotstufe gewählt.',
+    'annual-clusters-required': 'Der Jahresmodus benötigt vier positive, versionsgleiche Clusterpakete in Protokollreihenfolge.',
+    'privacy-blocked': 'Das Privacygate ist verletzt; dieses Paket darf nicht exportiert werden.',
+    'invalid-evidence': 'Die aggregierten Eingaben sind unvollständig oder widersprüchlich.',
+    'import-invalid': 'Der lokale Import ist beschädigt oder verletzt den Paketvertrag.',
+    'learner-warning': 'Eine verpflichtende Entwicklungswarnung verhindert ein positives Ergebnis.',
+    'export-blocked': 'Es liegt kein frisch abgeleitetes und validiertes Paket für den Download vor.'
+  };
+
+  function slug(value) {
+    return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function optionMarkup(values, labels) {
+    return values.map(function (value) {
+      const label = labels && labels[value] ? labels[value] : value;
+      return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`;
+    }).join('');
+  }
+
+  function makeFlowError(code, scopeId, nextStep) {
+    return {code: code, scopeId: scopeId || 'nicht gewählt', nextStep: nextStep};
+  }
+
+  function isFlowError(value) {
+    return isObject(value) &&
+      Object.keys(value).sort().join(',') === 'code,nextStep,scopeId';
+  }
+
+  function createDomAdapter(sourceDocument) {
+    function get(id) {
+      const element = sourceDocument.getElementById(id);
+      requireCondition(Boolean(element), `cockpit control is missing: ${id}`);
+      return element;
+    }
+    return {
+      checked: function (id) { return get(id).checked === true; },
+      files: function (id) { return Array.from(get(id).files || []); },
+      focus: function (id) { get(id).focus(); },
+      on: function (id, type, handler) { get(id).addEventListener(type, handler); },
+      reset: function () {
+        const form = sourceDocument.querySelector('form');
+        requireCondition(Boolean(form), 'cockpit form is missing');
+        form.reset();
+      },
+      setDisabled: function (id, disabled) { get(id).disabled = disabled; },
+      setHidden: function (id, hidden) { get(id).hidden = hidden; },
+      setHtml: function (id, html) { get(id).innerHTML = html; },
+      setText: function (id, value) { get(id).textContent = value; },
+      value: function (id) { return get(id).value; }
+    };
+  }
+
+  function readInteger(dom, id, label) {
+    const source = String(dom.value(id)).trim();
+    requireCondition(source !== '', `${label} is required`);
+    const value = Number(source);
+    requireCondition(Number.isInteger(value) && value >= 0, `${label} must be a nonnegative integer`);
+    return value;
+  }
+
+  function scopeParts(scopeId, protocol) {
+    if (scopeId === protocol.annualPilot.id) {
+      const clusters = protocol.annualPilot.clusterIds.map(function (clusterId) {
+        return findCluster(protocol, clusterId);
+      });
+      return {
+        scope: protocol.annualPilot,
+        modules: clusters.reduce(function (all, cluster) {
+          return all.concat(cluster.modules);
+        }, []),
+        integrations: clusters.map(function (cluster) { return cluster.integration; }),
+        isAnnual: true
+      };
+    }
+    const cluster = findCluster(protocol, scopeId);
+    return {
+      scope: cluster,
+      modules: cluster.modules,
+      integrations: [cluster.integration],
+      isAnnual: false
+    };
+  }
+
+  function renderProtocolOptions(dom, protocol) {
+    const scopeOptions = protocol.clusters.map(function (cluster) {
+      return `<option value="${escapeHtml(cluster.id)}">Cluster ${cluster.order}: ${escapeHtml(cluster.id)} (${cluster.budgetUnits} UE)</option>`;
+    });
+    scopeOptions.push(
+      `<option value="${escapeHtml(protocol.annualPilot.id)}">Jahrespfad (${protocol.annualPilot.budgetUnits} UE)</option>`
+    );
+    dom.setHtml('scope-id', '<option value="">Bitte auswählen</option>' + scopeOptions.join(''));
+    const labels = {
+      'first-half': 'erstes Halbjahr',
+      'second-half': 'zweites Halbjahr',
+      'full-year': 'gesamtes Schuljahr',
+      'under-10': 'unter 10',
+      '10-19': '10 bis 19',
+      '20-29': '20 bis 29',
+      '30-plus': '30 oder mehr',
+      desktop: 'Desktop', laptop: 'Laptop', tablet: 'Tablet', mixed: 'gemischt',
+      chromium: 'Chromium', firefox: 'Firefox', safari: 'Safari',
+      offline: 'offline',
+      'school-network': 'Schulnetz',
+      'local-fallback': 'lokaler Fallback'
+    };
+    Object.keys(CONTEXT_CONTROL_IDS).forEach(function (field) {
+      dom.setHtml(
+        CONTEXT_CONTROL_IDS[field],
+        optionMarkup(protocol.contextEnums[field], labels)
+      );
+    });
+    const pulseMarkup = protocol.learnerPulseItems.map(function (item) {
+      const itemId = slug(item.id);
+      const countFields = [
+        ['agree', 'stimme zu'], ['partly', 'teils/teils'],
+        ['disagree', 'stimme nicht zu'], ['noAnswer', 'keine Antwort']
+      ].map(function (definition) {
+        const id = `pulse-${itemId}-${slug(definition[0])}`;
+        return `<div class="field"><label for="${id}">${escapeHtml(definition[1])}</label><input id="${id}" type="number" min="0" step="1" required></div>`;
+      }).join('');
+      return `<div class="pulse-card"><h3>${escapeHtml(item.prompt)}</h3><div class="pulse-grid">${countFields}</div></div>`;
+    }).join('');
+    dom.setHtml('pulse-fields', pulseMarkup);
+  }
+
+  function renderScopeFields(dom, scopeId, protocol) {
+    if (!scopeId) {
+      dom.setText('planned-units', 'Geplantes Budget: –');
+      dom.setHtml('phase-fields', '<h3 id="phase-title">Abgeschlossene Pflichtphasen</h3>');
+      dom.setHtml('quality-fields', '');
+      dom.setHtml('annual-unit-fields', '<h3 id="annual-units-title">Tatsächliche UE je Cluster</h3>');
+      dom.setHidden('annual-unit-fields', true);
+      return;
+    }
+    const parts = scopeParts(scopeId, protocol);
+    dom.setText('planned-units', `Geplantes Budget: ${parts.scope.budgetUnits} UE`);
+    const phaseMarkup = requiredPhaseIds(parts.modules).map(function (phaseId) {
+      const id = `phase-${slug(phaseId)}`;
+      return `<div class="check-row"><input id="${id}" type="checkbox"><label for="${id}">${escapeHtml(phaseId)}</label></div>`;
+    }).join('');
+    dom.setHtml(
+      'phase-fields',
+      '<h3 id="phase-title">Abgeschlossene Pflichtphasen</h3>' + phaseMarkup
+    );
+    const qualityMarkup = [];
+    parts.modules.forEach(function (module) {
+      const criteria = module.criteria.map(function (criterion) {
+        const id = `criterion-${slug(criterion.criterionId)}`;
+        return `<div class="field"><label for="${id}">${escapeHtml(criterion.criterionId)}</label><select id="${id}">${optionMarkup(BAND_VALUES)}</select></div>`;
+      }).join('');
+      qualityMarkup.push(`<div class="criterion-card"><h3>Modul ${escapeHtml(module.moduleId)}</h3><div class="criterion-grid">${criteria}</div></div>`);
+    });
+    parts.integrations.forEach(function (integration) {
+      const integrationId = slug(integration.integrationContractId);
+      const criteria = integration.criteria.map(function (criterion) {
+        const id = `criterion-${slug(criterion.criterionId)}`;
+        return `<div class="field"><label for="${id}">${escapeHtml(criterion.criterionId)}</label><select id="${id}">${optionMarkup(BAND_VALUES)}</select></div>`;
+      }).join('');
+      qualityMarkup.push(
+        `<div class="criterion-card"><h3>Integration ${escapeHtml(integration.integrationContractId)}</h3><div class="criterion-grid">${criteria}</div>` +
+        `<div class="check-row"><input id="handoff-present-${integrationId}" type="checkbox"><label for="handoff-present-${integrationId}">Übergabeprodukt liegt vor.</label></div>` +
+        `<div class="check-row"><input id="handoff-reused-${integrationId}" type="checkbox"><label for="handoff-reused-${integrationId}">Übergabeprodukt wurde funktional weiterverwendet.</label></div></div>`
+      );
+    });
+    dom.setHtml('quality-fields', qualityMarkup.join(''));
+    if (parts.isAnnual) {
+      const annualUnits = protocol.clusters.map(function (cluster) {
+        const id = `annual-units-${slug(cluster.id)}`;
+        return `<div class="field"><label for="${id}">${escapeHtml(cluster.id)} (maximal ${cluster.budgetUnits} UE)</label><input id="${id}" type="number" min="0" max="${cluster.budgetUnits}" step="1" required></div>`;
+      }).join('');
+      dom.setHtml(
+        'annual-unit-fields',
+        '<h3 id="annual-units-title">Tatsächliche UE je Cluster</h3><div class="form-grid">' + annualUnits + '</div>'
+      );
+      dom.setHidden('annual-unit-fields', false);
+    } else {
+      dom.setHtml('annual-unit-fields', '<h3 id="annual-units-title">Tatsächliche UE je Cluster</h3>');
+      dom.setHidden('annual-unit-fields', true);
+    }
+  }
+
+  function collectContext(dom, protocol) {
+    const startYear = readInteger(dom, 'context-school-year', 'schoolYear');
+    requireCondition(startYear >= 2020 && startYear <= 2099, 'schoolYear is invalid');
+    const context = {
+      schoolYear: `${startYear}-${String((startYear + 1) % 100).padStart(2, '0')}`
+    };
+    Object.keys(CONTEXT_CONTROL_IDS).forEach(function (field) {
+      const value = dom.value(CONTEXT_CONTROL_IDS[field]);
+      requireEnum(value, protocol.contextEnums[field], `context ${field}`);
+      context[field] = value;
+    });
+    return context;
+  }
+
+  function collectDeliveryTime(dom, parts, protocol) {
+    const phases = requiredPhaseIds(parts.modules);
+    const completed = phases.filter(function (phaseId) {
+      return dom.checked(`phase-${slug(phaseId)}`);
+    });
+    const delivery = {
+      plannedUnits: parts.scope.budgetUnits,
+      actualUnits: readInteger(dom, 'actual-units', 'actualUnits'),
+      completedPhaseIds: completed,
+      requiredLearningPhasesCompleted: completed.length === phases.length,
+      fallbackActivated: dom.checked('fallback-activated'),
+      technicalStartupMinutes: readInteger(dom, 'technical-startup-minutes', 'technicalStartupMinutes'),
+      supportDemandBand: dom.value('support-demand-band'),
+      externalDisruptionCode: dom.value('external-disruption-code')
+    };
+    if (parts.isAnnual) {
+      delivery.clusterOrder = protocol.annualPilot.clusterIds.slice();
+      delivery.clusterActualUnits = protocol.clusters.map(function (cluster) {
+        return {
+          clusterId: cluster.id,
+          actualUnits: readInteger(dom, `annual-units-${slug(cluster.id)}`, `${cluster.id} actualUnits`)
+        };
+      });
+    }
+    return delivery;
+  }
+
+  function collectLearningQuality(dom, parts) {
+    const moduleResults = parts.modules.map(function (module) {
+      const criteria = module.criteria.map(function (criterion) {
+        return {
+          criterionId: criterion.criterionId,
+          band: dom.value(`criterion-${slug(criterion.criterionId)}`)
+        };
+      });
+      return {
+        pilotAssignmentId: module.pilotAssignmentId,
+        moduleId: module.moduleId,
+        criteria: criteria,
+        result: criteria.every(function (criterion) { return criterion.band === 'strong'; }) ? 'pass' : 'fail'
+      };
+    });
+    const integrationResults = parts.integrations.map(function (integration) {
+      const integrationId = slug(integration.integrationContractId);
+      const criteria = integration.criteria.map(function (criterion) {
+        return {
+          criterionId: criterion.criterionId,
+          band: dom.value(`criterion-${slug(criterion.criterionId)}`)
+        };
+      });
+      const handoffProductPresent = dom.checked(`handoff-present-${integrationId}`);
+      const handoffReused = dom.checked(`handoff-reused-${integrationId}`);
+      return {
+        pilotAssignmentId: integration.pilotAssignmentId,
+        integrationContractId: integration.integrationContractId,
+        criteria: criteria,
+        handoffProductPresent: handoffProductPresent,
+        handoffReused: handoffReused,
+        result: criteria.every(function (criterion) { return criterion.band === 'strong'; }) &&
+          handoffProductPresent && handoffReused ? 'pass' : 'fail'
+      };
+    });
+    return {moduleResults: moduleResults, integrationResults: integrationResults};
+  }
+
+  function collectLearnerPulse(dom, protocol) {
+    const status = dom.value('learner-pulse-status');
+    if (status === 'suppressed-small-group') {
+      return {status: 'suppressed-small-group'};
+    }
+    requireCondition(status === 'reported', 'learner pulse status is invalid');
+    return {
+      status: 'reported',
+      classResponseCount: readInteger(dom, 'class-response-count', 'classResponseCount'),
+      items: protocol.learnerPulseItems.map(function (item) {
+        const itemId = slug(item.id);
+        return {
+          itemId: item.id,
+          agree: readInteger(dom, `pulse-${itemId}-agree`, `${item.id} agree`),
+          partly: readInteger(dom, `pulse-${itemId}-partly`, `${item.id} partly`),
+          disagree: readInteger(dom, `pulse-${itemId}-disagree`, `${item.id} disagree`),
+          noAnswer: readInteger(dom, `pulse-${itemId}-noanswer`, `${item.id} noAnswer`)
+        };
+      })
+    };
+  }
+
+  function collectTechnicalPrivacy(dom) {
+    return {
+      technicalFunction: dom.value('technical-function'),
+      fallbackEquivalentLearningFunction: dom.checked('fallback-equivalent'),
+      problemCode: dom.value('problem-code'),
+      severity: dom.value('severity'),
+      privacyGate: dom.value('privacy-gate')
+    };
+  }
+
+  function collectFormValue(dom, state, protocol) {
+    const parts = scopeParts(state.scopeId, protocol);
+    const formValue = {
+      context: collectContext(dom, protocol),
+      deliveryTimeEvidence: collectDeliveryTime(dom, parts, protocol),
+      learningQualityEvidence: collectLearningQuality(dom, parts),
+      learnerPulseEvidence: collectLearnerPulse(dom, protocol),
+      technicalPrivacyEvidence: collectTechnicalPrivacy(dom)
+    };
+    if (parts.isAnnual) {
+      formValue.clusterPackages = protocol.annualPilot.clusterIds.map(function (clusterId) {
+        return cloneJson(state.importedClusters.get(clusterId));
+      });
+    }
+    return formValue;
+  }
+
+  function downloadPackage(payload) {
+    const blob = new Blob([serializePackage(payload)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `ium11-${payload.scopeId.toLowerCase()}-${payload.packageId}.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function readLocalFile(file) {
+    return new Promise(function (resolve, reject) {
+      const reader = new FileReader();
+      reader.onload = function () { resolve(String(reader.result)); };
+      reader.onerror = function () { reject(new Error('local JSON file could not be read')); };
+      reader.readAsText(file);
+    });
+  }
+
+  function hasAnnualImports(state, protocol) {
+    const imported = Array.from(state.importedClusters.values());
+    return imported.length === protocol.annualPilot.clusterIds.length &&
+      sameJson(
+        imported.map(function (payload) { return payload.scopeId; }),
+        protocol.annualPilot.clusterIds
+      ) &&
+      imported.every(function (payload) {
+        return payload.packageType === 'cluster-evidence' &&
+          payload.result === 'pass' &&
+          payload.protocolVersion === protocol.protocolVersion &&
+          payload.protocolFingerprint === protocol.protocolFingerprint &&
+          payload.toolVersion === protocol.toolVersion &&
+          payload.timeModelFingerprint === protocol.timeModelFingerprint;
+      });
+  }
+
+  function initializeCockpit(sourceDocument, protocol) {
+    const dom = createDomAdapter(sourceDocument);
+    const state = {
+      readiness: new Set(),
+      scopeId: null,
+      importedClusters: new Map(),
+      draft: null,
+      validatedPackage: null
+    };
+
+    function readinessComplete() {
+      return state.readiness.size === READINESS_IDS.length;
+    }
+
+    function showError(error) {
+      const cause = FLOW_CAUSES[error.code] || FLOW_CAUSES['invalid-evidence'];
+      dom.setText(
+        'error-summary',
+        `Ursache: ${cause} Betroffener Scope: ${error.scopeId}. Nächster Schritt: ${error.nextStep}`
+      );
+      dom.setHidden('error-summary', false);
+      dom.focus('error-summary');
+    }
+
+    function clearError() {
+      dom.setText('error-summary', '');
+      dom.setHidden('error-summary', true);
+    }
+
+    function renderWarnings(warnings) {
+      if (!warnings.length) {
+        dom.setHtml('warning-list', '<li>✓ Keine offene Entwicklungswarnung.</li>');
+        return;
+      }
+      dom.setHtml(
+        'warning-list',
+        warnings.map(function (warning) {
+          return `<li>⚠ Entwicklungswarnung: ${escapeHtml(warning.itemId)}</li>`;
+        }).join('')
+      );
+    }
+
+    function invalidateDraft() {
+      state.draft = null;
+      state.validatedPackage = null;
+      dom.setDisabled('download-button', true);
+    }
+
+    function updateControls() {
+      const ready = readinessComplete();
+      const annualSelected = state.scopeId === protocol.annualPilot.id;
+      const annualReady = annualSelected && hasAnnualImports(state, protocol);
+      const evidenceEnabled = ready && Boolean(state.scopeId) && (!annualSelected || annualReady);
+      dom.setDisabled('pilot-context-fields', !ready);
+      dom.setDisabled('import-fields', !ready || !annualSelected);
+      dom.setDisabled(
+        'import-button',
+        !ready || !annualSelected || dom.files('cluster-import').length !== 4
+      );
+      dom.setDisabled('evidence-fields', !evidenceEnabled);
+      dom.setDisabled('validate-button', !evidenceEnabled);
+      dom.setDisabled('download-button', !state.validatedPackage);
+      dom.setHidden('annual-lock-note', !annualSelected || annualReady);
+      dom.setText(
+        'readiness-status',
+        `${ready ? '✓' : '○'} ${state.readiness.size} von ${READINESS_IDS.length} Voraussetzungen bestätigt.`
+      );
+      dom.setText(
+        'import-status',
+        `${annualReady ? '✓' : '○'} ${state.importedClusters.size} von 4 Clusterpaketen geprüft.`
+      );
+    }
+
+    function refreshReadiness() {
+      state.readiness.clear();
+      READINESS_IDS.forEach(function (id) {
+        if (dom.checked(id)) {
+          state.readiness.add(id);
+        }
+      });
+      if (!readinessComplete()) {
+        invalidateDraft();
+      }
+      updateControls();
+    }
+
+    function selectScope() {
+      invalidateDraft();
+      state.importedClusters.clear();
+      state.scopeId = dom.value('scope-id') || null;
+      renderScopeFields(dom, state.scopeId, protocol);
+      clearError();
+      dom.setText('derived-result', '–');
+      renderWarnings([]);
+      updateControls();
+    }
+
+    function updatePulseVisibility() {
+      const suppressed = dom.value('learner-pulse-status') === 'suppressed-small-group';
+      dom.setHidden('learner-count-fields', suppressed);
+      dom.setDisabled('learner-count-fields', suppressed);
+      invalidateDraft();
+      updateControls();
+    }
+
+    async function importClusterPackages() {
+      invalidateDraft();
+      state.importedClusters.clear();
+      try {
+        const files = dom.files('cluster-import');
+        if (files.length !== 4) {
+          throw makeFlowError(
+            'annual-clusters-required', state.scopeId,
+            'Wählen Sie genau vier aktuelle Clusterpakete in Protokollreihenfolge aus.'
+          );
+        }
+        const sources = await Promise.all(files.map(readLocalFile));
+        const parsed = sources.map(function (source) {
+          return parsePackage(source, protocol);
+        });
+        const expectedIds = protocol.annualPilot.clusterIds;
+        requireCondition(
+          sameJson(parsed.map(function (payload) { return payload.scopeId; }), expectedIds),
+          'cluster import order differs from protocol'
+        );
+        requireCondition(
+          new Set(parsed.map(function (payload) { return payload.packageId; })).size === 4,
+          'cluster imports require distinct package IDs'
+        );
+        requireCondition(
+          parsed.every(function (payload) {
+            return payload.packageType === 'cluster-evidence' && payload.result === 'pass';
+          }),
+          'annual imports require positive cluster packages'
+        );
+        parsed.forEach(function (payload) {
+          state.importedClusters.set(payload.scopeId, payload);
+        });
+        clearError();
+        dom.setText('status-message', '✓ Vier Clusterpakete wurden lokal geprüft. Der Jahresmodus ist freigeschaltet.');
+      } catch (error) {
+        state.importedClusters.clear();
+        const flowError = isFlowError(error) ? error : makeFlowError(
+          'import-invalid', state.scopeId,
+          'Korrigieren oder ersetzen Sie die lokale JSON-Datei und importieren Sie alle vier Pakete erneut.'
+        );
+        showError(flowError);
+        dom.setText('status-message', '✕ Import abgewiesen; kein Wert wurde übernommen.');
+      }
+      updateControls();
+    }
+
+    function validateDraft() {
+      clearError();
+      invalidateDraft();
+      try {
+        if (!readinessComplete()) {
+          throw makeFlowError(
+            'readiness-incomplete', state.scopeId,
+            'Bestätigen Sie alle sieben Bereitschaftsvoraussetzungen.'
+          );
+        }
+        if (!state.scopeId) {
+          throw makeFlowError(
+            'scope-required', state.scopeId,
+            'Wählen Sie eine Pilotstufe aus.'
+          );
+        }
+        if (state.scopeId === protocol.annualPilot.id && !hasAnnualImports(state, protocol)) {
+          throw makeFlowError(
+            'annual-clusters-required', state.scopeId,
+            'Importieren Sie vier positive Clusterpakete in Protokollreihenfolge.'
+          );
+        }
+        const formValue = collectFormValue(dom, state, protocol);
+        if (formValue.technicalPrivacyEvidence.privacyGate === 'fail') {
+          const parts = scopeParts(state.scopeId, protocol);
+          const derived = parts.isAnnual
+            ? deriveAnnualEvidenceResult(formValue, protocol)
+            : deriveClusterResult(formValue, parts.scope, protocol);
+          state.draft = cloneJson(formValue);
+          dom.setText('derived-result', derived.result);
+          renderWarnings(derived.developmentWarnings || []);
+          throw makeFlowError(
+            'privacy-blocked', state.scopeId,
+            'Entfernen Sie die Privacyverletzung und führen Sie den Pilot erneut durch.'
+          );
+        }
+        const created = createEvidencePackage(state.scopeId, formValue, protocol);
+        state.draft = cloneJson(created);
+        state.validatedPackage = validateEvidencePackage(created, protocol);
+        dom.setText('derived-result', state.validatedPackage.result);
+        renderWarnings(state.validatedPackage.developmentWarnings);
+        if (state.validatedPackage.developmentWarnings.length) {
+          showError(makeFlowError(
+            'learner-warning', state.scopeId,
+            'Bearbeiten Sie die benannte Lernbedingung und wiederholen Sie diesen Pilot-Scope.'
+          ));
+          dom.setText('status-message', '⚠ Paket validiert; Ergebnis fail mit offener Entwicklungswarnung.');
+        } else {
+          dom.setText(
+            'status-message',
+            `✓ Paket frisch abgeleitet und validiert; Ergebnis ${state.validatedPackage.result}.`
+          );
+        }
+      } catch (error) {
+        if (!isFlowError(error)) {
+          state.draft = null;
+          state.validatedPackage = null;
+          showError(makeFlowError(
+            'invalid-evidence', state.scopeId,
+            'Prüfen Sie die markierten Aggregat-, Summen- und Pflichtangaben und leiten Sie erneut ab.'
+          ));
+          dom.setText('status-message', '✕ Paket nicht validiert; Download bleibt gesperrt.');
+        } else {
+          showError(error);
+          dom.setText('status-message', '✕ Gate nicht bestanden; Download bleibt gesperrt.');
+        }
+      }
+      updateControls();
+    }
+
+    function exportValidatedPackage() {
+      try {
+        if (!state.validatedPackage) {
+          throw makeFlowError(
+            'export-blocked', state.scopeId,
+            'Leiten Sie das Paket nach der letzten Eingabeänderung erneut ab.'
+          );
+        }
+        const validated = validateEvidencePackage(state.validatedPackage, protocol);
+        requireCondition(validated.technicalPrivacyEvidence.privacyGate === 'pass', 'privacyGate blocks export');
+        downloadPackage(validated);
+        dom.setText('status-message', '✓ Das validierte JSON-Paket wurde bewusst heruntergeladen.');
+      } catch (error) {
+        showError(isFlowError(error) ? error : makeFlowError(
+          'export-blocked', state.scopeId,
+          'Prüfen Sie Privacy und Evidenz erneut, bevor Sie einen Download auslösen.'
+        ));
+      }
+      updateControls();
+    }
+
+    function clearState() {
+      state.readiness.clear();
+      state.scopeId = null;
+      state.importedClusters.clear();
+      state.draft = null;
+      state.validatedPackage = null;
+      dom.reset();
+      renderScopeFields(dom, null, protocol);
+      clearError();
+      dom.setText('derived-result', '–');
+      renderWarnings([]);
+      dom.setText('status-message', '○ Flüchtiger Zustand vollständig verworfen.');
+      updateControls();
+    }
+
+    renderProtocolOptions(dom, protocol);
+    renderScopeFields(dom, null, protocol);
+    renderWarnings([]);
+    READINESS_IDS.forEach(function (id) {
+      dom.on(id, 'change', refreshReadiness);
+    });
+    dom.on('scope-id', 'change', selectScope);
+    dom.on('learner-pulse-status', 'change', updatePulseVisibility);
+    dom.on('cluster-import', 'change', updateControls);
+    dom.on('import-button', 'click', importClusterPackages);
+    dom.on('validate-button', 'click', validateDraft);
+    dom.on('download-button', 'click', exportValidatedPackage);
+    dom.on('clear-button', 'click', clearState);
+    dom.on('pilot-form', 'input', function () {
+      invalidateDraft();
+      updateControls();
+    });
+    updatePulseVisibility();
+    refreshReadiness();
+    return state;
+  }
+
   const api = {
     evaluateLearnerPulse: evaluateLearnerPulse,
     deriveClusterResult: deriveClusterResult,
@@ -728,5 +1377,16 @@
   }
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = api;
+  }
+  if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+    const start = function () {
+      requireCondition(Boolean(window.IUM11_PROTOCOL), 'IUM11 protocol is missing');
+      initializeCockpit(document, window.IUM11_PROTOCOL);
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start, {once: true});
+    } else {
+      start();
+    }
   }
 }());

@@ -5,6 +5,7 @@ import re
 import subprocess
 import tempfile
 import unittest
+from html.parser import HTMLParser
 from pathlib import Path
 
 from scripts.validate_ium11 import (
@@ -18,6 +19,79 @@ from scripts.validate_ium11 import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+class CockpitHTMLParser(HTMLParser):
+    CONTROL_TAGS = {"input", "select", "textarea"}
+    INTERACTIVE_TAGS = {"a", "button", "details", "input", "select", "summary", "textarea"}
+
+    def __init__(self):
+        super().__init__()
+        self.elements = []
+        self.label_targets = set()
+        self.controls = []
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        self.elements.append((tag, attributes))
+        if tag == "label" and attributes.get("for"):
+            self.label_targets.add(attributes["for"])
+        if tag in self.CONTROL_TAGS and attributes.get("type") != "hidden":
+            self.controls.append((tag, attributes))
+
+    def count(self, tag):
+        return sum(element_tag == tag for element_tag, _ in self.elements)
+
+    def has_element(self, *, id, attributes=None):
+        required = attributes or {}
+        return any(
+            values.get("id") == id
+            and all(values.get(name) == value for name, value in required.items())
+            for _, values in self.elements
+        )
+
+    def labels_cover_all_controls(self):
+        return all(
+            attributes.get("id")
+            and (
+                attributes["id"] in self.label_targets
+                or "aria-label" in attributes
+                or "aria-labelledby" in attributes
+            )
+            for _, attributes in self.controls
+        )
+
+    def has_positive_tabindex(self):
+        return any(
+            attributes.get("tabindex", "").lstrip("+").isdigit()
+            and int(attributes["tabindex"]) > 0
+            for _, attributes in self.elements
+        )
+
+    def has_click_only_noninteractive_elements(self):
+        return any(
+            "onclick" in attributes and tag not in self.INTERACTIVE_TAGS
+            for tag, attributes in self.elements
+        )
+
+
+def parse_html(path):
+    parser = CockpitHTMLParser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    return parser
+
+
+def read_cockpit_sources(root):
+    cockpit = root / "pilot/cockpit"
+    return "\n".join(
+        (cockpit / relative_path).read_text(encoding="utf-8")
+        for relative_path in (
+            "index.html",
+            "assets/styles.css",
+            "assets/protocol.js",
+            "assets/app.js",
+        )
+    )
 
 
 def run_node(source, payload=None):
@@ -74,6 +148,452 @@ class IUM11CockpitBuildTests(unittest.TestCase):
         self.assertFalse(
             (ROOT / "pilot/cockpit/assets/protocol.js").read_bytes().startswith(b"\xef\xbb\xbf")
         )
+
+
+class IUM11CockpitMarkupTests(unittest.TestCase):
+    def setUp(self):
+        self.root = ROOT
+
+    def test_cockpit_has_required_landmarks_and_status_regions(self):
+        document = parse_html(self.root / "pilot/cockpit/index.html")
+        self.assertEqual(document.count("main"), 1)
+        self.assertTrue(
+            document.has_element(id="error-summary", attributes={"tabindex": "-1"})
+        )
+        self.assertTrue(
+            document.has_element(
+                id="status-message", attributes={"aria-live": "polite"}
+            )
+        )
+        self.assertTrue(document.labels_cover_all_controls())
+
+    def test_cockpit_contains_no_network_or_persistence_capability(self):
+        combined = read_cockpit_sources(self.root)
+        for token in [
+            "fetch(", "XMLHttpRequest", "WebSocket", "EventSource", "sendBeacon",
+            "localStorage", "sessionStorage", "indexedDB", "document.cookie",
+            "serviceWorker", "http://", "https://", "@import", "url(//",
+        ]:
+            with self.subTest(token=token):
+                self.assertNotIn(token, combined)
+
+    def test_controls_use_native_keyboard_semantics(self):
+        document = parse_html(self.root / "pilot/cockpit/index.html")
+        self.assertFalse(document.has_positive_tabindex())
+        self.assertFalse(document.has_click_only_noninteractive_elements())
+
+    def test_cockpit_has_four_steps_seven_gates_and_json_only_import(self):
+        source = (self.root / "pilot/cockpit/index.html").read_text(encoding="utf-8")
+        document = parse_html(self.root / "pilot/cockpit/index.html")
+        self.assertEqual(document.count("section"), 4)
+        self.assertEqual(source.count('data-readiness="'), 7)
+        self.assertEqual(source.count('data-context-field="'), 6)
+        for number, title in (
+            (1, "Bereitschaft prüfen"),
+            (2, "Pilotstufe und Kontext"),
+            (3, "Aggregierte Evidenz erfassen"),
+            (4, "Prüfen und exportieren"),
+        ):
+            self.assertIn(f"{number}. {title}", source)
+        self.assertTrue(
+            document.has_element(
+                id="cluster-import",
+                attributes={"accept": "application/json,.json"},
+            )
+        )
+
+    def test_css_declares_focus_touch_reflow_and_reduced_motion_baseline(self):
+        source = (self.root / "pilot/cockpit/assets/styles.css").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("max-width: 72rem", source)
+        self.assertRegex(source, r":focus-visible\s*\{[^}]*outline:\s*[3-9]px")
+        self.assertIn("min-block-size: 44px", source)
+        self.assertIn("min-inline-size: 44px", source)
+        self.assertIn("prefers-reduced-motion: reduce", source)
+        self.assertIn("overflow-wrap: anywhere", source)
+
+
+COCKPIT_FLOW_NODE = r"""
+global.window = {};
+require('./pilot/cockpit/assets/protocol.js');
+
+const request = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
+const focused = [];
+const downloads = [];
+const objectUrls = new Map();
+let resetCount = 0;
+let objectUrlCounter = 0;
+
+class FakeElement {
+  constructor(id) {
+    this.id = id;
+    this.checked = false;
+    this.disabled = false;
+    this.files = [];
+    this.hidden = false;
+    this.innerHTML = '';
+    this.listeners = {};
+    this.textContent = '';
+    this.value = '';
+  }
+  addEventListener(type, handler) {
+    (this.listeners[type] ||= []).push(handler);
+  }
+  async dispatch(type) {
+    const event = {target: this, preventDefault() {}};
+    for (const handler of this.listeners[type] || []) {
+      await handler(event);
+    }
+  }
+  click() {
+    return this.dispatch('click');
+  }
+  focus() {
+    focused.push(this.id);
+  }
+}
+
+const elements = new Map();
+const element = (id) => {
+  if (!elements.has(id)) elements.set(id, new FakeElement(id));
+  return elements.get(id);
+};
+const form = element('pilot-form');
+form.reset = function () {
+  resetCount += 1;
+  for (const item of elements.values()) {
+    item.checked = false;
+    item.files = [];
+    item.value = '';
+  }
+};
+
+global.document = {
+  readyState: 'complete',
+  getElementById: element,
+  querySelector(selector) {
+    return selector === 'form' ? form : null;
+  },
+  createElement(tag) {
+    const created = new FakeElement(tag);
+    if (tag === 'a') {
+      created.click = function () {
+        const blob = objectUrls.get(created.href);
+        downloads.push({name: created.download, source: blob.parts.join('')});
+      };
+    }
+    return created;
+  },
+  addEventListener() {},
+};
+
+global.Blob = class {
+  constructor(parts, options) {
+    this.parts = parts;
+    this.type = options.type;
+  }
+};
+global.URL = {
+  createObjectURL(blob) {
+    const url = `blob:ium11-${++objectUrlCounter}`;
+    objectUrls.set(url, blob);
+    return url;
+  },
+  revokeObjectURL(url) {
+    objectUrls.delete(url);
+  },
+};
+global.FileReader = class {
+  readAsText(file) {
+    if (file.error) {
+      this.onerror({target: this});
+      return;
+    }
+    this.result = file.text;
+    this.onload({target: this});
+  }
+};
+
+require('./pilot/cockpit/assets/app.js');
+const protocol = window.IUM11_PROTOCOL;
+
+const slug = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const readinessIds = [
+  'readiness-materials', 'readiness-handbook', 'readiness-anchor-tasks',
+  'readiness-tools-fallback', 'readiness-privacy', 'readiness-capacity',
+  'readiness-fingerprint',
+];
+
+async function makeReady(count = 7) {
+  for (const id of readinessIds.slice(0, count)) {
+    element(id).checked = true;
+    await element(id).dispatch('change');
+  }
+}
+
+async function selectScope(scopeId) {
+  element('scope-id').value = scopeId;
+  await element('scope-id').dispatch('change');
+}
+
+function seedPackage(payload) {
+  const contextIds = {
+    schoolYear: 'context-school-year', term: 'context-term',
+    classSizeBand: 'context-class-size-band', deviceClass: 'context-device-class',
+    browserFamily: 'context-browser-family', networkMode: 'context-network-mode',
+  };
+  for (const [field, id] of Object.entries(contextIds)) {
+    element(id).value = field === 'schoolYear'
+      ? payload.context[field].slice(0, 4)
+      : payload.context[field];
+  }
+  const delivery = payload.deliveryTimeEvidence;
+  element('actual-units').value = String(delivery.actualUnits);
+  element('fallback-activated').checked = delivery.fallbackActivated;
+  element('technical-startup-minutes').value = String(delivery.technicalStartupMinutes);
+  element('support-demand-band').value = delivery.supportDemandBand;
+  element('external-disruption-code').value = delivery.externalDisruptionCode;
+  for (const phaseId of delivery.completedPhaseIds) {
+    element(`phase-${slug(phaseId)}`).checked = true;
+  }
+  for (const record of delivery.clusterActualUnits || []) {
+    element(`annual-units-${slug(record.clusterId)}`).value = String(record.actualUnits);
+  }
+  for (const moduleResult of payload.learningQualityEvidence.moduleResults) {
+    for (const criterion of moduleResult.criteria) {
+      element(`criterion-${slug(criterion.criterionId)}`).value = criterion.band;
+    }
+  }
+  for (const integrationResult of payload.learningQualityEvidence.integrationResults) {
+    for (const criterion of integrationResult.criteria) {
+      element(`criterion-${slug(criterion.criterionId)}`).value = criterion.band;
+    }
+    const integrationId = slug(integrationResult.integrationContractId);
+    element(`handoff-present-${integrationId}`).checked = integrationResult.handoffProductPresent;
+    element(`handoff-reused-${integrationId}`).checked = integrationResult.handoffReused;
+  }
+  const pulse = payload.learnerPulseEvidence;
+  element('learner-pulse-status').value = pulse.status;
+  if (pulse.status === 'reported') {
+    element('class-response-count').value = String(pulse.classResponseCount);
+    for (const item of pulse.items) {
+      for (const field of ['agree', 'partly', 'disagree', 'noAnswer']) {
+        element(`pulse-${slug(item.itemId)}-${slug(field)}`).value = String(item[field]);
+      }
+    }
+  }
+  const technical = payload.technicalPrivacyEvidence;
+  element('technical-function').value = technical.technicalFunction;
+  element('fallback-equivalent').checked = technical.fallbackEquivalentLearningFunction;
+  element('problem-code').value = technical.problemCode;
+  element('severity').value = technical.severity;
+  element('privacy-gate').value = technical.privacyGate;
+}
+
+async function importPackages(packages) {
+  element('cluster-import').files = packages.map((payload) => ({
+    text: JSON.stringify(payload),
+  }));
+  await element('cluster-import').dispatch('change');
+  await element('import-button').click();
+}
+
+(async function () {
+  let output;
+  if (request.scenario === 'readiness') {
+    const initial = element('pilot-context-fields').disabled;
+    await makeReady(6);
+    const afterSix = element('pilot-context-fields').disabled;
+    await makeReady(7);
+    output = {initial, afterSix, afterSeven: element('pilot-context-fields').disabled};
+  } else if (request.scenario === 'validate') {
+    await makeReady();
+    await selectScope(request.package.scopeId);
+    seedPackage(request.package);
+    await form.dispatch('input');
+    await element('validate-button').click();
+    await element('download-button').click();
+    output = {
+      downloadDisabled: element('download-button').disabled,
+      downloads,
+      error: element('error-summary').textContent,
+      focused,
+      result: element('derived-result').textContent,
+    };
+  } else if (request.scenario === 'annual-import') {
+    await makeReady();
+    await selectScope(protocol.annualPilot.id);
+    const before = element('evidence-fields').disabled;
+    await importPackages(request.packages);
+    output = {
+      before,
+      after: element('evidence-fields').disabled,
+      error: element('error-summary').textContent,
+      focused,
+      status: element('import-status').textContent,
+    };
+  } else if (request.scenario === 'annual-validate') {
+    await makeReady();
+    await selectScope(protocol.annualPilot.id);
+    await importPackages(request.packages);
+    seedPackage(request.package);
+    await form.dispatch('input');
+    await element('validate-button').click();
+    await element('download-button').click();
+    output = {
+      downloadDisabled: element('download-button').disabled,
+      downloads,
+      error: element('error-summary').textContent,
+      result: element('derived-result').textContent,
+    };
+  } else if (request.scenario === 'clear') {
+    await makeReady();
+    await selectScope(protocol.annualPilot.id);
+    await importPackages(request.packages);
+    await element('clear-button').click();
+    await makeReady();
+    await selectScope(protocol.annualPilot.id);
+    output = {
+      annualLocked: element('evidence-fields').disabled,
+      downloadDisabled: element('download-button').disabled,
+      resetCount,
+      importStatus: element('import-status').textContent,
+    };
+  }
+  process.stdout.write(JSON.stringify(output));
+}()).catch((error) => {
+  process.stderr.write(error.stack || String(error));
+  process.exitCode = 1;
+});
+"""
+
+
+def run_cockpit_flow(scenario, *, package=None, packages=None):
+    result = run_node(
+        COCKPIT_FLOW_NODE,
+        {"scenario": scenario, "package": package, "packages": packages},
+    )
+    if result.returncode != 0:
+        raise AssertionError(result.stderr)
+    return json.loads(result.stdout)
+
+
+class IUM11CockpitFlowTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        example_root = ROOT / "pilot/examples"
+        cls.cluster = load_json(example_root / "synthetic-cluster-pass.json")
+        cls.clusters = [
+            load_json(example_root / name)
+            for name in (
+                "synthetic-cluster-pass.json",
+                "synthetic-cluster-programming-pass.json",
+                "synthetic-cluster-net-security-pass.json",
+                "synthetic-cluster-data-media-society-pass.json",
+            )
+        ]
+        cls.annual = load_json(example_root / "synthetic-annual-pass.json")
+
+    def test_all_seven_readiness_gates_are_required(self):
+        result = run_cockpit_flow("readiness")
+        self.assertEqual(result, {"initial": True, "afterSix": True, "afterSeven": False})
+
+    def test_privacy_failure_focuses_explanation_and_blocks_download(self):
+        package = copy.deepcopy(self.cluster)
+        package["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+        result = run_cockpit_flow("validate", package=package)
+        self.assertTrue(result["downloadDisabled"])
+        self.assertEqual(result["downloads"], [])
+        self.assertEqual(result["result"], "fail")
+        self.assertEqual(result["focused"][-1], "error-summary")
+        self.assertIn(package["scopeId"], result["error"])
+        self.assertEqual(result["error"].count("Nächster Schritt:"), 1)
+
+    def test_suppressed_small_group_download_contains_no_counts(self):
+        package = copy.deepcopy(self.cluster)
+        package["learnerPulseEvidence"] = {"status": "suppressed-small-group"}
+        result = run_cockpit_flow("validate", package=package)
+        self.assertFalse(result["downloadDisabled"])
+        self.assertEqual(len(result["downloads"]), 1)
+        exported = json.loads(result["downloads"][0]["source"])
+        self.assertEqual(
+            exported["learnerPulseEvidence"], {"status": "suppressed-small-group"}
+        )
+
+    def test_warning_focuses_summary_and_prevents_pass(self):
+        package = copy.deepcopy(self.cluster)
+        package["learnerPulseEvidence"] = pulse(4, 12)
+        result = run_cockpit_flow("validate", package=package)
+        self.assertEqual(result["result"], "fail")
+        self.assertEqual(result["focused"][-1], "error-summary")
+        self.assertIn("Entwicklungswarnung", result["error"])
+
+    def test_unknown_import_field_is_rejected_before_annual_unlock(self):
+        packages = copy.deepcopy(self.clusters)
+        packages[1]["studentName"] = "Ada"
+        result = run_cockpit_flow("annual-import", packages=packages)
+        self.assertTrue(result["after"])
+        self.assertEqual(result["focused"][-1], "error-summary")
+        self.assertIn("Import", result["error"])
+
+    def test_annual_mode_unlocks_only_for_four_positive_same_version_clusters(self):
+        incomplete = run_cockpit_flow("annual-import", packages=self.clusters[:3])
+        self.assertTrue(incomplete["before"])
+        self.assertTrue(incomplete["after"])
+
+        mixed = copy.deepcopy(self.clusters)
+        mixed[0]["protocolVersion"] = "2.0.0"
+        self.assertTrue(run_cockpit_flow("annual-import", packages=mixed)["after"])
+
+        negative = copy.deepcopy(self.clusters)
+        negative[0]["learningQualityEvidence"]["moduleResults"][0]["criteria"][0][
+            "band"
+        ] = "mixed"
+        negative[0]["learningQualityEvidence"]["moduleResults"][0]["result"] = "fail"
+        negative[0]["result"] = "fail"
+        self.assertTrue(run_cockpit_flow("annual-import", packages=negative)["after"])
+
+        duplicate = copy.deepcopy(self.clusters)
+        duplicate[1] = copy.deepcopy(duplicate[0])
+        self.assertTrue(run_cockpit_flow("annual-import", packages=duplicate)["after"])
+
+        reordered = copy.deepcopy(self.clusters)
+        reordered[0], reordered[1] = reordered[1], reordered[0]
+        self.assertTrue(run_cockpit_flow("annual-import", packages=reordered)["after"])
+
+        accepted = run_cockpit_flow("annual-import", packages=self.clusters)
+        self.assertTrue(accepted["before"])
+        self.assertFalse(accepted["after"])
+        self.assertIn("4 von 4", accepted["status"])
+
+    def test_unlocked_annual_mode_derives_and_downloads_a_valid_package(self):
+        result = run_cockpit_flow(
+            "annual-validate", package=self.annual, packages=self.clusters
+        )
+        self.assertFalse(result["downloadDisabled"])
+        self.assertEqual(result["result"], "pass")
+        self.assertEqual(len(result["downloads"]), 1)
+        exported = json.loads(result["downloads"][0]["source"])
+        self.assertEqual(exported["scopeId"], "ANNUAL-7-WORKING-40")
+        self.assertNotIn("clusterPackages", exported)
+
+    def test_clear_state_removes_all_in_memory_values(self):
+        result = run_cockpit_flow("clear", packages=self.clusters)
+        self.assertTrue(result["annualLocked"])
+        self.assertTrue(result["downloadDisabled"])
+        self.assertEqual(result["resetCount"], 1)
+        self.assertIn("0 von 4", result["importStatus"])
+
+    def test_download_filename_contains_only_scope_and_random_package_id(self):
+        result = run_cockpit_flow("validate", package=self.cluster)
+        self.assertEqual(len(result["downloads"]), 1)
+        exported = json.loads(result["downloads"][0]["source"])
+        self.assertEqual(
+            result["downloads"][0]["name"],
+            f"ium11-{exported['scopeId'].lower()}-{exported['packageId']}.json",
+        )
+        self.assertNotIn(exported["context"]["schoolYear"], result["downloads"][0]["name"])
 
 
 NODE_CALL = r"""
