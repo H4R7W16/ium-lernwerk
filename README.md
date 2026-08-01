@@ -33,7 +33,7 @@ Die übrigen IUM10-Achsen bleiben ebenfalls getrennt beurteilt:
 - aktuelle IUM10-Coverage: 166 `covered` / 5 `partial`;
 - historische IUM09-Projektion: 164 `covered` / 7 `partial`;
 - 60/60 Zeitreviews und 4/4 Sequenznachweise sind dokumentiert;
-- Pilotaufträge bleiben modulaggregiert und nichtpersonal, ohne persönliche Diagnostik oder Telemetrie.
+- Pilotaufträge bleiben auf Modul-, Integrations- oder Jahrespfadebene aggregiert und nichtpersonal, ohne persönliche Diagnostik oder Telemetrie.
 
 In der historischen IUM09-Projektion gilt weiterhin: 164 sind auf Kandidatenebene `covered`, 7 bleiben `partial`. Von 60 Ausgangslücken wurden 53 geschlossen; 7 bleiben im Ledger offen. Trotz der verbesserten semantischen Coverage ist das Lernwerk weiterhin zeitlich nicht freigegeben.
 

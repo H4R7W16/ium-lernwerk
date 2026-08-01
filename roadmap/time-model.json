@@ -8137,7 +8137,7 @@
       "scope": "private-local-reflection",
       "risk": "Private lokale Lernhandlungen könnten durch Pilot- oder Evidenzpraxis versehentlich zu beobachteten oder personenbezogenen Spuren werden.",
       "impact": "Dies würde den Privacy-Vertrag verletzen und unzulässige personenbezogene Diagnostik erzeugen.",
-      "mitigation": "Private Inhalte werden nicht beobachtet, nicht erhoben und nicht bewertet; Pilotdaten bleiben ausschließlich modulaggregiert und nichtpersonal.",
+      "mitigation": "Private Inhalte werden nicht beobachtet, nicht erhoben und nicht bewertet; Pilotdaten bleiben auf Modul-, Integrations- oder Jahrespfadebene aggregiert und nichtpersonal.",
       "status": "working"
     }
   ],

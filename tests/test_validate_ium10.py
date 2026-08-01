@@ -11655,7 +11655,7 @@ class IUM10Grade7RepositoryTests(unittest.TestCase):
             ium10_validator._canonical_sha256(
                 sorted(self.time_model["risks"], key=lambda item: item["id"])
             ),
-            "8da9e7b197a8dc4a7dcbecb277b07a3e121681cb27f91e26b75fcbc9a0e3a894",
+            "1f17a9196807afc2b8e858ff7d40de72e693c635a6b8688ae4bedca9e1abf96e",
         )
         grade_7 = next(
             item
@@ -14911,30 +14911,7 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
                     "Status": evidence["status"],
                 }
             )
-        # Die Veröffentlichungsseite wird in einem späteren Task aus dem
-        # Schema-3-Modell neu erzeugt. Bis dahin bleiben die narrativen
-        # Zellen absichtlich außerhalb dieses Produktmodell-Tests; die
-        # kanonischen Sequenzentscheidungen und ihre Struktur müssen jedoch
-        # weiterhin übereinstimmen.
-        narrative_fields = {"Coveragefolge", "Verbleibende Grenze"}
-        self.assertEqual(
-            [
-                {
-                    field: value
-                    for field, value in row.items()
-                    if field not in narrative_fields
-                }
-                for row in sequence_rows
-            ],
-            [
-                {
-                    field: value
-                    for field, value in row.items()
-                    if field not in narrative_fields
-                }
-                for row in expected_sequences
-            ],
-        )
+        self.assertEqual(sequence_rows, expected_sequences)
 
         current_counts = Counter(
             entry["coverageStatus"]
@@ -15179,6 +15156,41 @@ class IUM10PublishedRoadmapTests(unittest.TestCase):
             (len(pilots), Counter(pilot["scopeType"] for pilot in pilots)),
             (36, Counter({"module": 31, "integration": 4, "annual-variant": 1})),
         )
+        forbidden_public_claim = "Pilotaufträge bleiben modulaggregiert"
+        forbidden_risk_claim = "Pilotdaten bleiben ausschließlich modulaggregiert"
+        for document in (self.roadmap, self.readme):
+            self.assertNotIn(forbidden_public_claim, document)
+            self.assertNotIn(forbidden_risk_claim, document)
+        private_risk = next(
+            risk
+            for risk in self.time_model["risks"]
+            if risk["id"] == "RISK-IUM10-PRIVATE-LEARNING-ACTIONS"
+        )
+        self.assertEqual(
+            private_risk["mitigation"],
+            "Private Inhalte werden nicht beobachtet, nicht erhoben und nicht "
+            "bewertet; Pilotdaten bleiben auf Modul-, Integrations- oder "
+            "Jahrespfadebene aggregiert und nichtpersonal.",
+        )
+        allowed_module_scope = next(
+            risk
+            for risk in self.time_model["risks"]
+            if risk["id"] == "RISK-IUM10-UNPILOTED-TIME"
+        )
+        self.assertIn("modulaggregierten Pilotauftrag", allowed_module_scope["mitigation"])
+        documents = (self.roadmap, self.readme)
+        forbidden_claims = (
+            "Klasse 7 ist verfügbar",
+            "40 UE sind erprobt",
+            "GRADE-7-WORKING-40 ist available",
+            "GRADE-7-WORKING-40 ist reviewed",
+            "GRADE-7-ROBUST-DEMAND ist ein verfügbares Ersatzangebot",
+            "GRADE-7-HISTORICAL-MINIMUM ist ein verfügbares Ersatzangebot",
+        )
+        for document in documents:
+            for claim in forbidden_claims:
+                with self.subTest(claim=claim):
+                    self.assertNotIn(claim, document)
 
     def test_readme_links_validators_and_keeps_time_gate_explicit(self):
         required_links = {
