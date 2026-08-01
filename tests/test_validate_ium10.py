@@ -13491,6 +13491,188 @@ class IUM10FinalIntegrationTests(unittest.TestCase):
             self.validate(time_model=time_model)
 
 
+class IUM10Grade7AvailabilityContractTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = json.loads(
+            (root / "roadmap/time-model.json").read_text(encoding="utf-8")
+        )
+        cls.module_payload = json.loads(
+            (root / "roadmap/module-candidates.json").read_text(encoding="utf-8")
+        )
+        cls.coverage_payload = json.loads(
+            (root / "roadmap/coverage-plan.json").read_text(encoding="utf-8")
+        )
+        cls.remediation_payload = json.loads(
+            (root / "roadmap/coverage-remediation.json").read_text(encoding="utf-8")
+        )
+
+    def validate(self, time_model=None):
+        return validate_ium10(
+            self.time_model if time_model is None else time_model,
+            self.module_payload,
+            self.coverage_payload,
+            self.remediation_payload,
+        )
+
+    def assert_rejects_contract_mutation(self, mutate, message):
+        time_model = copy.deepcopy(self.time_model)
+        mutate(time_model["availabilityContracts"])
+        with self.assertRaisesRegex(IUM10ValidationError, message):
+            self.validate(time_model)
+
+    def test_repository_has_exact_grade_7_availability_contract(self):
+        result = self.validate()
+        contract = result["availabilityContracts"]["AVAIL-GRADE-7-WORKING-40"]
+
+        self.assertEqual(contract["variantId"], "GRADE-7-WORKING-40")
+        self.assertEqual(contract["requiredCapacityUnits"], 40)
+        self.assertEqual(contract["comparisonBoundaryUnits"], 38)
+        self.assertEqual(
+            set(contract["gates"]),
+            {"capacity", "integration", "technical", "privacy", "pilot"},
+        )
+        self.assertEqual(
+            contract["fallbackDeltaUnitsByIntegrationContractId"],
+            {
+                "INT-7-DATA-CODING": 3,
+                "INT-7-PROGRAMMING": 2,
+                "INT-7-NET-SECURITY": 3,
+                "INT-7-DATA-MEDIA-SOCIETY": 6,
+            },
+        )
+        self.assertEqual(
+            contract["requiredCapacityUnits"]
+            + sum(contract["fallbackDeltaUnitsByIntegrationContractId"].values()),
+            contract["maximumFallbackUnits"],
+        )
+
+    def test_rejects_availability_contract_mutations_fail_closed(self):
+        def contract(contracts):
+            return contracts[0]
+
+        mutations = (
+            (
+                "missing gate",
+                lambda contracts: contract(contracts)["gates"].pop("pilot"),
+                "availability contract gate ids differ",
+            ),
+            (
+                "unexpected gate",
+                lambda contracts: contract(contracts)["gates"].update(
+                    {"review": {"status": "not-started", "requirement": "Nein."}}
+                ),
+                "availability contract gate ids differ",
+            ),
+            (
+                "invalid gate status",
+                lambda contracts: contract(contracts)["gates"]["capacity"].update(
+                    {"status": "conditional"}
+                ),
+                "availability contract gate status is invalid",
+            ),
+            (
+                "boolean required capacity",
+                lambda contracts: contract(contracts).update(
+                    {"requiredCapacityUnits": True}
+                ),
+                "availability contract required capacity units must be 40",
+            ),
+            (
+                "boolean comparison boundary",
+                lambda contracts: contract(contracts).update(
+                    {"comparisonBoundaryUnits": True}
+                ),
+                "availability contract comparison boundary units must be 38",
+            ),
+            (
+                "boolean fallback delta",
+                lambda contracts: contract(contracts)[
+                    "fallbackDeltaUnitsByIntegrationContractId"
+                ].update({"INT-7-DATA-CODING": True}),
+                "availability contract fallback deltas differ",
+            ),
+            (
+                "boolean maximum fallback",
+                lambda contracts: contract(contracts).update(
+                    {"maximumFallbackUnits": True}
+                ),
+                "availability contract maximum fallback units must be 54",
+            ),
+            (
+                "wrong comparison boundary",
+                lambda contracts: contract(contracts).update(
+                    {"comparisonBoundaryUnits": 39}
+                ),
+                "availability contract comparison boundary units must be 38",
+            ),
+            (
+                "wrong fallback cluster",
+                lambda contracts: contract(contracts)[
+                    "fallbackDeltaUnitsByIntegrationContractId"
+                ].update({"INT-7-UNKNOWN": 3}),
+                "availability contract fallback integration ids differ",
+            ),
+            (
+                "wrong fallback delta",
+                lambda contracts: contract(contracts)[
+                    "fallbackDeltaUnitsByIntegrationContractId"
+                ].update({"INT-7-DATA-CODING": 4}),
+                "availability contract fallback deltas differ",
+            ),
+            (
+                "wrong maximum fallback",
+                lambda contracts: contract(contracts).update(
+                    {"maximumFallbackUnits": 53}
+                ),
+                "availability contract maximum fallback units must be 54",
+            ),
+            (
+                "missing forbidden compensation",
+                lambda contracts: contract(contracts)["forbiddenCompensations"].pop(),
+                "availability contract forbidden compensations differ",
+            ),
+            (
+                "wrong failure mode",
+                lambda contracts: contract(contracts).update(
+                    {"failureMode": "best-effort"}
+                ),
+                "availability contract failure mode must be fail-closed",
+            ),
+            (
+                "second availability contract",
+                lambda contracts: contracts.append(copy.deepcopy(contract(contracts))),
+                "availability contracts need exactly one contract",
+            ),
+            (
+                "robust variant reference",
+                lambda contracts: contract(contracts).update(
+                    {"variantId": "GRADE-7-ROBUST-DEMAND"}
+                ),
+                "availability contract must reference GRADE-7-WORKING-40",
+            ),
+            (
+                "historical variant reference",
+                lambda contracts: contract(contracts).update(
+                    {"variantId": "GRADE-7-HISTORICAL-MINIMUM"}
+                ),
+                "availability contract must reference GRADE-7-WORKING-40",
+            ),
+            (
+                "unknown variant reference",
+                lambda contracts: contract(contracts).update(
+                    {"variantId": "GRADE-7-UNKNOWN"}
+                ),
+                "availability contract must reference GRADE-7-WORKING-40",
+            ),
+        )
+
+        for name, mutate, message in mutations:
+            with self.subTest(name=name):
+                self.assert_rejects_contract_mutation(mutate, message)
+
+
 class IUM10Grade7OperationalStateTests(unittest.TestCase):
     required_pilot_ids = {
         "PILOT-INT-7-DATA-CODING",

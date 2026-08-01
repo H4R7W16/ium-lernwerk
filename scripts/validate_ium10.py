@@ -63,6 +63,50 @@ PHASE_IDS = (
 )
 CONTRACT_STATUSES = {"working", "reviewed"}
 AVAILABILITY_STATUSES = {"conditional", "available", "unavailable"}
+AVAILABILITY_CONTRACT_FIELDS = {
+    "id",
+    "variantId",
+    "requiredCapacityUnits",
+    "comparisonBoundaryUnits",
+    "gates",
+    "fallbackDeltaUnitsByIntegrationContractId",
+    "maximumFallbackUnits",
+    "forbiddenCompensations",
+    "failureMode",
+    "status",
+    "risk",
+}
+AVAILABILITY_GATE_FIELDS = {"status", "requirement"}
+AVAILABILITY_GATE_STATUSES = {"not-started", "passed", "failed"}
+GRADE_7_AVAILABILITY_CONTRACT_ID = "AVAIL-GRADE-7-WORKING-40"
+GRADE_7_AVAILABILITY_GATE_IDS = {
+    "capacity",
+    "integration",
+    "technical",
+    "privacy",
+    "pilot",
+}
+GRADE_7_FALLBACK_DELTAS = {
+    "INT-7-DATA-CODING": 3,
+    "INT-7-PROGRAMMING": 2,
+    "INT-7-NET-SECURITY": 3,
+    "INT-7-DATA-MEDIA-SOCIETY": 6,
+}
+GRADE_7_FORBIDDEN_COMPENSATIONS = [
+    "core-module-removal",
+    "required-learning-action-removal",
+    "operator-mention-only",
+    "demonstration-instead-of-independent-application",
+    "homework-shift",
+    "unsupervised-self-study-as-guaranteed-time",
+    "private-reflection-as-evidence",
+    "flexible-module-substitution",
+    "comparison-boundary-as-grade-7-path",
+]
+GRADE_7_AVAILABILITY_CONTRACT_RISK = (
+    "Fehlende, widersprüchliche oder gescheiterte Evidenz darf keinen positiven "
+    "Verfügbarkeits- oder Zeitstatus erzeugen."
+)
 TIME_MODEL_FIELDS = {
     "schemaVersion",
     "status",
@@ -1016,12 +1060,14 @@ def _validate_grade_7_judgement(
     module_contracts,
     integration_contracts,
     annual_variants,
+    availability_contracts,
 ):
     grade_judgements = time_model.get("gradeJudgements")
     _require(
         isinstance(module_contracts, dict)
         and isinstance(integration_contracts, dict)
         and isinstance(annual_variants, dict)
+        and isinstance(availability_contracts, dict)
         and isinstance(grade_judgements, list),
         "validated grade 7 orchestration indices and judgements are required",
     )
@@ -1118,6 +1164,12 @@ def _validate_grade_7_judgement(
         judgement["rationale"] == GRADE_7_UNIMPLEMENTED_OPTIONS_RATIONALE,
         "grade 7 judgement must use the canonical unimplemented-options rationale",
     )
+    _require(
+        set(availability_contracts) == {GRADE_7_AVAILABILITY_CONTRACT_ID}
+        and availability_contracts[GRADE_7_AVAILABILITY_CONTRACT_ID]["variantId"]
+        == "GRADE-7-WORKING-40",
+        "grade 7 needs exactly the working-40 availability contract",
+    )
 
     expected_module_ids = GRADE_7_CORE_MODULE_IDS | set(GRADE_7_FLEX_RANGES)
     _require(
@@ -1194,6 +1246,12 @@ def _validate_grade_7_judgement(
             == set(GRADE_7_VARIANT_INTEGRATIONS[variant_id])
             and variant.get("availabilityStatus")
             == ("conditional" if variant_id == "GRADE-7-WORKING-40" else "unavailable")
+            and variant.get("availabilityContractId")
+            == (
+                GRADE_7_AVAILABILITY_CONTRACT_ID
+                if variant_id == "GRADE-7-WORKING-40"
+                else None
+            )
             and variant.get("status") in {"working", "reviewed"},
             f"grade 7 demand scenario differs from the approved contract: {variant_id}",
         )
@@ -1235,6 +1293,118 @@ def time_handoff_fingerprint(remediation_payload):
     return _canonical_sha256(
         sorted(handoffs, key=lambda record: record["competencyId"])
     )
+
+
+def validate_availability_contracts(
+    availability_contracts,
+    annual_variants,
+    integration_contracts,
+):
+    """Validate the single fail-closed Grade-7 availability contract."""
+    _require(
+        isinstance(availability_contracts, list)
+        and len(availability_contracts) == 1,
+        "availability contracts need exactly one contract",
+    )
+    _require(
+        isinstance(annual_variants, dict),
+        "validated annual variants must be keyed by variant id",
+    )
+    _require(
+        isinstance(integration_contracts, dict),
+        "validated integration contracts must be keyed by contract id",
+    )
+
+    contract = availability_contracts[0]
+    _require(
+        isinstance(contract, dict) and set(contract) == AVAILABILITY_CONTRACT_FIELDS,
+        "availability contract fields differ from the IUM10 contract",
+    )
+    _require(
+        contract["id"] == GRADE_7_AVAILABILITY_CONTRACT_ID,
+        "availability contract id must be AVAIL-GRADE-7-WORKING-40",
+    )
+    _require(
+        contract["variantId"] == "GRADE-7-WORKING-40",
+        "availability contract must reference GRADE-7-WORKING-40",
+    )
+    _require(
+        contract["variantId"] in annual_variants,
+        "availability contract references an unknown annual variant",
+    )
+    _require(
+        _positive_int(contract["requiredCapacityUnits"])
+        and contract["requiredCapacityUnits"] == 40,
+        "availability contract required capacity units must be 40",
+    )
+    _require(
+        _positive_int(contract["comparisonBoundaryUnits"])
+        and contract["comparisonBoundaryUnits"] == 38,
+        "availability contract comparison boundary units must be 38",
+    )
+
+    gates = contract["gates"]
+    _require(
+        isinstance(gates, dict) and set(gates) == GRADE_7_AVAILABILITY_GATE_IDS,
+        "availability contract gate ids differ from the IUM10 contract",
+    )
+    for gate_id, gate in gates.items():
+        _require(
+            isinstance(gate, dict) and set(gate) == AVAILABILITY_GATE_FIELDS,
+            f"availability contract gate fields differ: {gate_id}",
+        )
+        _require(
+            gate["status"] in AVAILABILITY_GATE_STATUSES,
+            f"availability contract gate status is invalid: {gate_id}",
+        )
+        _require(
+            isinstance(gate["requirement"], str) and gate["requirement"].strip(),
+            f"availability contract gate requirement must be nonempty: {gate_id}",
+        )
+
+    fallback_deltas = contract["fallbackDeltaUnitsByIntegrationContractId"]
+    _require(
+        isinstance(fallback_deltas, dict)
+        and set(fallback_deltas) == set(GRADE_7_FALLBACK_DELTAS),
+        "availability contract fallback integration ids differ",
+    )
+    _require(
+        all(
+            _positive_int(delta)
+            and delta == GRADE_7_FALLBACK_DELTAS[integration_id]
+            for integration_id, delta in fallback_deltas.items()
+        ),
+        "availability contract fallback deltas differ",
+    )
+    _require(
+        set(fallback_deltas) <= set(integration_contracts),
+        "availability contract references an unknown integration contract",
+    )
+    _require(
+        _positive_int(contract["maximumFallbackUnits"])
+        and contract["maximumFallbackUnits"] == 54
+        and contract["maximumFallbackUnits"]
+        == contract["requiredCapacityUnits"] + sum(fallback_deltas.values()),
+        "availability contract maximum fallback units must be 54",
+    )
+    _require(
+        isinstance(contract["forbiddenCompensations"], list)
+        and contract["forbiddenCompensations"] == GRADE_7_FORBIDDEN_COMPENSATIONS,
+        "availability contract forbidden compensations differ",
+    )
+    _require(
+        contract["failureMode"] == "fail-closed",
+        "availability contract failure mode must be fail-closed",
+    )
+    _require(
+        contract["status"] == "working" and isinstance(contract["status"], str),
+        "availability contract status must be working",
+    )
+    _require(
+        contract["risk"] == GRADE_7_AVAILABILITY_CONTRACT_RISK,
+        "availability contract risk differs from the canonical contract",
+    )
+    return {contract["id"]: contract}
 
 
 def validate_privacy_contracts(privacy_contracts, module_contracts):
@@ -1386,11 +1556,17 @@ def validate_time_model_draft(time_model, module_payload=None):
                 validated_annual_variants,
             )
         if has_grade_7_orchestration:
+            validated_availability_contracts = validate_availability_contracts(
+                time_model.get("availabilityContracts"),
+                validated_annual_variants,
+                validated_integration_contracts,
+            )
             _validate_grade_7_judgement(
                 time_model,
                 validated_module_contracts,
                 validated_integration_contracts,
                 validated_annual_variants,
+                validated_availability_contracts,
             )
     return time_model
 
@@ -4385,6 +4561,11 @@ def validate_ium10(
         module_contracts,
         integration_contracts,
     )
+    availability_contracts = validate_availability_contracts(
+        time_payload["availabilityContracts"],
+        annual_variants,
+        integration_contracts,
+    )
     _validate_grade_6_judgement(
         time_payload,
         module_contracts,
@@ -4396,6 +4577,7 @@ def validate_ium10(
         module_contracts,
         integration_contracts,
         annual_variants,
+        availability_contracts,
     )
     privacy_contracts = validate_privacy_contracts(
         time_payload["privacyContracts"],
@@ -4435,6 +4617,7 @@ def validate_ium10(
         "moduleContracts": module_contracts,
         "integrationContracts": integration_contracts,
         "annualVariants": annual_variants,
+        "availabilityContracts": availability_contracts,
         "privacyContracts": privacy_contracts,
         "timeReviews": time_reviews,
         "sequenceEvidence": sequence_evidence,
