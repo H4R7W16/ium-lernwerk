@@ -1208,6 +1208,38 @@ class IUM11PublicationTests(unittest.TestCase):
                     self.ium10_result,
                 )
 
+    def test_publication_contract_rejects_crlf_and_cr_block_bytes(self):
+        for newline_name, newline in (("CRLF", b"\r\n"), ("CR", b"\r")):
+            with self.subTest(newline=newline_name):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    guide = root / "pilot/docs/teacher-guide.md"
+                    payload = guide.read_bytes()
+                    start = payload.index(PUBLICATION_START_MARKER.encode("ascii"))
+                    end = (
+                        payload.index(PUBLICATION_END_MARKER.encode("ascii"), start)
+                        + len(PUBLICATION_END_MARKER)
+                    )
+                    block = payload[start:end]
+                    self.assertNotIn(b"\r", block)
+                    guide.write_bytes(
+                        payload[:start]
+                        + block.replace(b"\n", newline)
+                        + payload[end:]
+                    )
+
+                    with self.assertRaisesRegex(
+                        IUM11ValidationError,
+                        "publication contract block drift",
+                    ):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
     def test_publication_contract_rejects_missing_and_duplicate_markers(self):
         mutations = (
             lambda text: text.replace(PUBLICATION_END_MARKER, "", 1),
@@ -1227,6 +1259,84 @@ class IUM11PublicationTests(unittest.TestCase):
                         mutate(guide.read_text(encoding="utf-8")),
                         encoding="utf-8",
                     )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_validator_rejects_shifted_or_hidden_publication_blocks(self):
+        def move_readme_block_outside_section(text):
+            block = extract_publication_block(text)
+            return block + "\n\n" + text.replace(block, "", 1)
+
+        def move_guide_block_after_intro(text):
+            block = extract_publication_block(text)
+            without_block = text.replace(block, "", 1)
+            heading_end = without_block.index("\n") + 1
+            return (
+                without_block[:heading_end]
+                + "\nEinleitender Hinweis.\n\n"
+                + block
+                + without_block[heading_end:]
+            )
+
+        def hide_readme_heading(text):
+            return text.replace(
+                "## IUM11-Pilotinstrument",
+                "```markdown\n## IUM11-Pilotinstrument\n```",
+                1,
+            )
+
+        def wrap_block(text, opening, closing):
+            block = extract_publication_block(text)
+            return text.replace(
+                block,
+                f"{opening}\n{block}\n{closing}",
+                1,
+            )
+
+        def add_second_h1(text):
+            block = extract_publication_block(text)
+            return text.replace(block, "# Zweite Hauptüberschrift\n\n" + block, 1)
+
+        cases = (
+            ("README.md", "outside-readme-section", move_readme_block_outside_section),
+            ("README.md", "hidden-readme-heading", hide_readme_heading),
+            (
+                "pilot/docs/teacher-guide.md",
+                "after-guide-introduction",
+                move_guide_block_after_intro,
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                "backtick-fence",
+                lambda text: wrap_block(text, "```markdown", "```"),
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                "tilde-fence",
+                lambda text: wrap_block(text, "~~~markdown", "~~~"),
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                "html-comment",
+                lambda text: wrap_block(text, "<!-- hidden", "-->"),
+            ),
+            ("pilot/docs/review-guide.md", "second-h1", add_second_h1),
+        )
+        for relative_path, mutation_name, mutate in cases:
+            with self.subTest(mutation=mutation_name):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    target = root / relative_path
+                    target.write_bytes(
+                        mutate(target.read_bytes().decode("utf-8")).encode("utf-8")
+                    )
+
                     with self.assertRaises(IUM11ValidationError):
                         validate_ium11_script._validate_publication_contract(
                             root,
@@ -1284,9 +1394,8 @@ class IUM11PublicationTests(unittest.TestCase):
             root = Path(temporary)
             self.copy_publication_fixture(root)
             guide = root / "pilot/docs/teacher-guide.md"
-            guide.write_text(
-                guide.read_text(encoding="utf-8") + "\n" + sentence + "\n",
-                encoding="utf-8",
+            guide.write_bytes(
+                guide.read_bytes() + ("\n" + sentence + "\n").encode("utf-8")
             )
             validate_ium11_script._validate_publication_contract(
                 root,
@@ -1300,10 +1409,9 @@ class IUM11PublicationTests(unittest.TestCase):
             root = Path(temporary)
             self.copy_publication_fixture(root)
             readme = root / "README.md"
-            readme.write_text(
-                "## Andere Phase\navailabilityStatus: available\n\n"
-                + readme.read_text(encoding="utf-8"),
-                encoding="utf-8",
+            readme.write_bytes(
+                b"## Andere Phase\navailabilityStatus: available\n\n"
+                + readme.read_bytes()
             )
             validate_ium11_script._validate_publication_contract(
                 root,

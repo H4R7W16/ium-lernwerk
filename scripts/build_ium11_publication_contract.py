@@ -12,6 +12,7 @@ try:
         render_publication_contract_json,
         render_publication_markdown_block,
         replace_publication_block,
+        validate_publication_embedding,
     )
     from .validate_ium10 import validate_ium10_repository
     from .validate_ium11 import validate_pilot_protocol
@@ -23,6 +24,7 @@ except ImportError:
         render_publication_contract_json,
         render_publication_markdown_block,
         replace_publication_block,
+        validate_publication_embedding,
     )
     from validate_ium10 import validate_ium10_repository
     from validate_ium11 import validate_pilot_protocol
@@ -56,7 +58,8 @@ def expected_publication_outputs(root):
     outputs = {root / CONTRACT_PATH: render_publication_contract_json(contract)}
     for relative_path in PUBLICATION_PATHS:
         target = root / relative_path
-        source = target.read_text(encoding="utf-8")
+        source = target.read_bytes().decode("utf-8")
+        validate_publication_embedding(relative_path, source)
         outputs[target] = replace_publication_block(source, block).encode("utf-8")
     return outputs
 

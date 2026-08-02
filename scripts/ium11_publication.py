@@ -505,17 +505,118 @@ def replace_publication_block(text, block):
     return text.replace(current, block, 1)
 
 
-def _readme_ium11_section(text):
-    headings = list(re.finditer(r"^## IUM11-Pilotinstrument[ \t]*$", text, re.MULTILINE))
+def _fenced_code_ranges(text):
+    ranges = []
+    active = None
+    offset = 0
+    for line in text.splitlines(keepends=True):
+        body = line.rstrip("\r\n")
+        if active is None:
+            opening = re.match(r"^[ ]{0,3}(`{3,}|~{3,})", body)
+            if opening:
+                token = opening.group(1)
+                active = (token[0], len(token), offset)
+        else:
+            character, minimum_length, start = active
+            closing = re.fullmatch(
+                rf"[ ]{{0,3}}{re.escape(character)}{{{minimum_length},}}[ \t]*",
+                body,
+            )
+            if closing:
+                ranges.append((start, offset + len(line)))
+                active = None
+        offset += len(line)
+    if active is not None:
+        ranges.append((active[2], len(text)))
+    return ranges
+
+
+def _position_in_ranges(position, ranges):
+    return any(start <= position < end for start, end in ranges)
+
+
+def _position_in_html_comment(text, position):
+    prefix = text[:position]
+    return prefix.rfind("<!--") > prefix.rfind("-->")
+
+
+def _readme_ium11_section_span(text):
+    headings = list(re.finditer(
+        r"^## IUM11-Pilotinstrument[ \t]*(?=\r?$)",
+        text,
+        re.MULTILINE,
+    ))
     _require(len(headings) == 1, "README IUM11 section must occur once")
     start = headings[0].end()
-    next_heading = re.search(r"^## (?!IUM11-Pilotinstrument[ \t]*$)", text[start:], re.MULTILINE)
+    next_heading = re.search(r"^##(?!#)[ \t]+", text[start:], re.MULTILINE)
     end = start + next_heading.start() if next_heading else len(text)
+    return headings[0].start(), start, end
+
+
+def _readme_ium11_section(text):
+    _, start, end = _readme_ium11_section_span(text)
     return text[start:end]
+
+
+def _visible_h1_spans(text, fenced_ranges):
+    headings = []
+    offset = 0
+    for line in text.splitlines(keepends=True):
+        body = line.rstrip("\r\n")
+        if (
+            re.match(r"^#(?!#)[ \t]+\S", body)
+            and not _position_in_ranges(offset, fenced_ranges)
+            and not _position_in_html_comment(text, offset)
+        ):
+            headings.append((offset, offset + len(line)))
+        offset += len(line)
+    return headings
+
+
+def validate_publication_embedding(relative_path, text):
+    """Require the generated block in its visible canonical Markdown anchor."""
+    block = extract_publication_block(text)
+    block_start = text.index(block)
+    block_end = block_start + len(block)
+    end_marker_start = block_end - len(PUBLICATION_END_MARKER)
+    fenced_ranges = _fenced_code_ranges(text)
+    _require(
+        not _position_in_ranges(block_start, fenced_ranges)
+        and not _position_in_ranges(end_marker_start, fenced_ranges),
+        f"{relative_path}: publication marker must not be inside a code fence",
+    )
+    _require(
+        not _position_in_html_comment(text, block_start)
+        and not _position_in_html_comment(text, end_marker_start),
+        f"{relative_path}: publication marker must not be inside an HTML comment",
+    )
+
+    normalized_path = str(relative_path).replace("\\", "/")
+    if normalized_path == "README.md":
+        heading_start, section_start, section_end = _readme_ium11_section_span(text)
+        _require(
+            not _position_in_ranges(heading_start, fenced_ranges)
+            and not _position_in_html_comment(text, heading_start),
+            "README.md: IUM11 section heading must be visible",
+        )
+        _require(
+            section_start <= block_start and block_end <= section_end,
+            "README.md: publication block must be inside the IUM11 section",
+        )
+        return
+
+    headings = _visible_h1_spans(text, fenced_ranges)
+    _require(len(headings) == 1, f"{relative_path}: guide must contain exactly one H1")
+    _, heading_end = headings[0]
+    _require(
+        heading_end <= block_start and not text[heading_end:block_start].strip(),
+        f"{relative_path}: publication block must be first content after H1",
+    )
 
 
 def validate_publication_text_boundary(relative_path, text):
     """Reject lexical publication declarations outside the generated IUM11 block."""
+    validate_publication_embedding(relative_path, text)
     block = extract_publication_block(text)
     remaining = text.replace(block, "", 1)
     inspected = (

@@ -10,6 +10,7 @@ from unittest import mock
 from scripts.ium11_publication import (
     IUM11PublicationError,
     PUBLICATION_END_MARKER,
+    PUBLICATION_PATHS,
     PUBLICATION_START_MARKER,
     compile_publication_contract,
     extract_publication_block,
@@ -119,6 +120,19 @@ class IUM11PublicationCompilerTests(unittest.TestCase):
         self.assertEqual(contract["preservationBoundary"], {
             "flexibleModulesOutsideCorePreserved": True,
             "flexibleModuleSubstitution": "forbidden",
+        })
+        self.assertEqual(contract["futureDecisionBoundary"], {
+            "requiresCommissionerDecision": True,
+            "allowedChanges": [
+                {"field": "availabilityStatus", "value": "available"},
+                {"field": "timeFeasibilityStatus", "value": "green"},
+                {"field": "pilotStatus", "value": "completed"},
+            ],
+            "unchangedAxes": [
+                {"field": "status", "value": "working"},
+                {"field": "semanticCoverageStatus", "value": "partial"},
+            ],
+            "secondIndependentAnnualRunRequiredForMaturity": True,
         })
 
     def test_emits_exact_nested_field_sets(self):
@@ -408,7 +422,7 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                 first,
             )
 
-    def test_check_is_read_only_and_reports_every_drift(self):
+    def test_repository_check_subprocess_is_current_and_read_only(self):
         before = {
             ROOT / relative: (ROOT / relative).read_bytes()
             for relative in (CONTRACT_PATH, "README.md", "pilot/docs/teacher-guide.md", "pilot/docs/review-guide.md")
@@ -427,6 +441,140 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
             for path in before
         }
         self.assertEqual(after, before)
+
+    def test_check_is_read_only_and_reports_every_drift(self):
+        relative_paths = (
+            CONTRACT_PATH,
+            "README.md",
+            "pilot/docs/teacher-guide.md",
+            "pilot/docs/review-guide.md",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = Path(temporary) / "repository"
+            shutil.copytree(
+                ROOT,
+                fixture,
+                ignore=shutil.ignore_patterns(".git", "__pycache__"),
+            )
+            (fixture / CONTRACT_PATH).write_bytes(b"{}\n")
+            for index, relative_path in enumerate(PUBLICATION_PATHS, start=2):
+                target = fixture / relative_path
+                payload = target.read_bytes()
+                self.assertEqual(payload.count(PUBLICATION_START_MARKER.encode()), 1)
+                self.assertEqual(payload.count(PUBLICATION_END_MARKER.encode()), 1)
+                self.assertIn(b"schemaVersion: 1", payload)
+                target.write_bytes(
+                    payload.replace(
+                        b"schemaVersion: 1",
+                        f"schemaVersion: {index}".encode("ascii"),
+                        1,
+                    )
+                )
+
+            before = {
+                fixture / relative_path: (fixture / relative_path).read_bytes()
+                for relative_path in relative_paths
+            }
+            with self.assertRaises(IUM11PublicationError) as raised:
+                build_publication_contract(fixture, check=True)
+            self.assertEqual(
+                {path: path.read_bytes() for path in before},
+                before,
+            )
+            message = str(raised.exception).replace("\\", "/")
+            for relative_path in relative_paths:
+                with self.subTest(relative_path=relative_path):
+                    self.assertIn(relative_path, message)
+
+    def test_builder_rejects_shifted_or_hidden_blocks_before_writing(self):
+        def move_readme_block_outside_section(text):
+            block = extract_publication_block(text)
+            return block + "\n\n" + text.replace(block, "", 1)
+
+        def move_guide_block_after_intro(text):
+            block = extract_publication_block(text)
+            without_block = text.replace(block, "", 1)
+            heading_end = without_block.index("\n") + 1
+            return (
+                without_block[:heading_end]
+                + "\nEinleitender Hinweis.\n\n"
+                + block
+                + without_block[heading_end:]
+            )
+
+        def hide_readme_heading(text):
+            return text.replace(
+                "## IUM11-Pilotinstrument",
+                "```markdown\n## IUM11-Pilotinstrument\n```",
+                1,
+            )
+
+        def wrap_block(text, opening, closing):
+            block = extract_publication_block(text)
+            return text.replace(
+                block,
+                f"{opening}\n{block}\n{closing}",
+                1,
+            )
+
+        def add_second_h1(text):
+            block = extract_publication_block(text)
+            return text.replace(block, "# Zweite Hauptüberschrift\n\n" + block, 1)
+
+        cases = (
+            ("README.md", "outside-readme-section", move_readme_block_outside_section),
+            ("README.md", "hidden-readme-heading", hide_readme_heading),
+            (
+                "pilot/docs/teacher-guide.md",
+                "after-guide-introduction",
+                move_guide_block_after_intro,
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                "backtick-fence",
+                lambda text: wrap_block(text, "```markdown", "```"),
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                "tilde-fence",
+                lambda text: wrap_block(text, "~~~markdown", "~~~"),
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                "html-comment",
+                lambda text: wrap_block(text, "<!-- hidden", "-->"),
+            ),
+            ("pilot/docs/review-guide.md", "second-h1", add_second_h1),
+        )
+        for relative_path, mutation_name, mutate in cases:
+            with self.subTest(mutation=mutation_name):
+                with tempfile.TemporaryDirectory() as temporary:
+                    fixture = Path(temporary) / "repository"
+                    shutil.copytree(
+                        ROOT,
+                        fixture,
+                        ignore=shutil.ignore_patterns(".git", "__pycache__"),
+                    )
+                    target = fixture / relative_path
+                    target.write_bytes(
+                        mutate(target.read_bytes().decode("utf-8")).encode("utf-8")
+                    )
+                    publication_targets = (
+                        CONTRACT_PATH,
+                        *PUBLICATION_PATHS,
+                    )
+                    before = {
+                        fixture / path: (fixture / path).read_bytes()
+                        for path in publication_targets
+                    }
+
+                    with self.assertRaises(IUM11PublicationError):
+                        build_publication_contract(fixture)
+
+                    self.assertEqual(
+                        {path: path.read_bytes() for path in before},
+                        before,
+                    )
 
     def test_build_failure_is_per_file_atomic_and_later_check_reports_drift(self):
         with tempfile.TemporaryDirectory() as temporary:

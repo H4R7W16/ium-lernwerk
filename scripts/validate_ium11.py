@@ -1318,16 +1318,22 @@ def _validate_publication_contract(
         )
 
         publications = {
-            relative_path: (root / relative_path).read_text(encoding="utf-8")
+            relative_path: (root / relative_path).read_bytes()
             for relative_path in PUBLICATION_PATHS
         }
-        for relative_path, text in publications.items():
+        for relative_path, payload in publications.items():
+            try:
+                text = payload.decode("utf-8")
+            except UnicodeDecodeError as error:
+                raise IUM11PublicationError(
+                    f"{relative_path}: publication must be UTF-8"
+                ) from error
+            validate_publication_text_boundary(relative_path, text)
             actual_block = extract_publication_block(text)
             _require(
-                actual_block == expected_block,
+                actual_block.encode("utf-8") == expected_block.encode("utf-8"),
                 f"publication contract block drift: {relative_path}",
             )
-            validate_publication_text_boundary(relative_path, text)
     except IUM11PublicationError as error:
         raise IUM11ValidationError(str(error)) from error
 
