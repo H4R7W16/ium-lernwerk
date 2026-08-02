@@ -1,8 +1,8 @@
 # IuM-Lernwerk – Phase 1 Plattformfundament
 
-**Status:** zur schriftlichen Nutzerreview
+**Status:** schriftlich freigegeben am 3. August 2026
 
-**Fassung:** 1.0
+**Fassung:** 1.1
 
 **Datum:** 3. August 2026
 
@@ -95,13 +95,15 @@ Phase 1 verwendet:
 - frameworkfreie TypeScript-Controller zur progressiven Verbesserung;
 - JSON Schema 2020-12 als kanonischen Datenvertrag;
 - IndexedDB mit der kleinen Promise-Abstraktion `idb`;
-- `@vite-pwa/astro` mit `injectManifest` für einen kontrollierten eigenen Service Worker;
+- `vite-plugin-pwa` direkt in Astros Vite-Konfiguration mit `injectManifest` für einen kontrollierten eigenen Service Worker;
 - Vitest für reine Vertrags- und Unit-Tests;
 - Playwright für reale Browserabläufe;
 - eine automatisierte WCAG-Prüfung, ergänzt durch verbindliche manuelle Aufgaben;
 - GitHub Actions für Build und automatische Qualitätsgates.
 
 Konkrete Abhängigkeitsversionen werden im Implementierungsplan nach einem aktuellen Kompatibilitätscheck festgelegt und anschließend exakt in `package-lock.json` versiegelt. CI verwendet `npm ci`; Builds mit frei aufgelösten Versionen sind unzulässig.
+
+Kompatibilitätspräzisierung vom 3. August 2026: Das aktuelle `@vite-pwa/astro` 1.2.0 deklariert nur Astro 1 bis 5 als Peerbereich, während Astro 7.1.6 Vite 8 verwendet. `vite-plugin-pwa` 1.3.0 unterstützt Vite 3 bis 8 und wird deshalb ohne die veraltete Astro-Integrationshülle direkt über `astro.config.ts` eingebunden. PWA-Strategie, eigener Service Worker und Updatevertrag bleiben unverändert.
 
 ## 6. Zielstruktur
 
@@ -667,7 +669,7 @@ Aktuell geprüft am 2./3. August 2026:
 
 1. Astro, *Content Loader API*: https://docs.astro.build/en/reference/content-loader-reference/
 2. npm, *Workspaces*: https://docs.npmjs.com/cli/using-npm/workspaces/
-3. Vite PWA, *Astro integration*: https://vite-pwa-org.netlify.app/frameworks/astro
+3. Vite PWA, *Framework-agnostic setup*: https://vite-pwa-org.netlify.app/frameworks/
 4. Vite PWA, *Advanced injectManifest*: https://vite-pwa-org.netlify.app/guide/inject-manifest
 5. Jake Archibald, *idb – IndexedDB with usability*: https://github.com/jakearchibald/idb
 6. MDN, *StorageManager*: https://developer.mozilla.org/en-US/docs/Web/API/StorageManager
