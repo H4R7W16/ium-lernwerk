@@ -1098,6 +1098,20 @@ class IUM11PublicationTests(unittest.TestCase):
         ]:
             self.assertIn(anchor, review)
 
+    def test_teacher_guide_keeps_operational_disagree_warning_rule(self):
+        teacher = (self.root / "pilot/docs/teacher-guide.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "Ab zehn gültigen Antworten erzeugt mindestens ein Drittel "
+            "`disagree` eine offene Entwicklungswarnung.",
+            teacher,
+        )
+        self.assertNotIn(
+            "Die Schwellenregel für offene Entwicklungswarnungen steht im Faktenblock.",
+            teacher,
+        )
+
     def test_generated_contract_is_the_exact_source_for_all_publication_blocks(self):
         contract = load_json(self.root / "pilot/docs/publication-contract.json")
         self.assertEqual(contract["sourceBindings"]["protocolVersion"], "1.0.0")

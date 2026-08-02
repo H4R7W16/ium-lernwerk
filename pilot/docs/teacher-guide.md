@@ -59,7 +59,7 @@ Nur durchgängig `strong` kann einen positiven Modul-, Integrations- oder Jahres
 
 Erheben Sie ausschließlich die drei Protokollitems `clarity`, `cognitiveEngagement` und `supportUsefulness` mit den Kategorien `agree`, `partly`, `disagree` und `no-answer`. Es gibt keine Freitexte. Zählen Sie die Antworten außerhalb des Cockpits und geben Sie dort je Item nur die vier Klassensummen ein. Einzelantworten, Reihenfolgen und Zuordnungen werden nicht übertragen.
 
-Bei unter zehn gültigen Antworten wählen Sie `suppressed-small-group`; alle Zählwerte bleiben unterdrückt. Die Schwellenregel für offene Entwicklungswarnungen steht im Faktenblock. Verwenden Sie dafür ausschließlich die im Cockpit neu berechnete ganzzahlige Schwelle.
+Bei unter zehn gültigen Antworten wählen Sie `suppressed-small-group`; alle Zählwerte bleiben unterdrückt. Ab zehn gültigen Antworten erzeugt mindestens ein Drittel `disagree` eine offene Entwicklungswarnung. Verwenden Sie dafür ausschließlich die im Cockpit neu berechnete ganzzahlige Schwelle.
 
 Eine optionale analoge Zählhilfe dient nur temporär der Durchführung. Vernichten Sie sie unmittelbar nach der Übertragung der Summen. Sie begründet keine parallele analoge Vollstruktur.
 
