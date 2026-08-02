@@ -1,0 +1,1659 @@
+import copy
+import json
+import shutil
+import tempfile
+import uuid
+from contextlib import redirect_stderr
+from io import StringIO
+from pathlib import Path
+import unittest
+from unittest.mock import patch
+
+import scripts.validate_ium11 as validate_ium11_script
+from scripts.ium11_publication import (
+    PUBLICATION_END_MARKER,
+    PUBLICATION_START_MARKER,
+    extract_publication_block,
+    render_publication_markdown_block,
+)
+from scripts.validate_ium10 import IUM10ValidationError, validate_ium10_repository
+from scripts.validate_ium11 import (
+    IUM11ValidationError,
+    PROHIBITED_FIELD_NAMES,
+    build_decision_package,
+    canonical_sha256,
+    derive_annual_result,
+    derive_cluster_result,
+    evaluate_learner_pulse,
+    main,
+    validate_decision_package,
+    validate_evidence_package,
+    validate_ium11_repository,
+    validate_pilot_protocol,
+)
+
+
+def load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_positive_example_packages(root):
+    names = [
+        "synthetic-cluster-pass.json",
+        "synthetic-cluster-programming-pass.json",
+        "synthetic-cluster-net-security-pass.json",
+        "synthetic-cluster-data-media-society-pass.json",
+        "synthetic-annual-pass.json",
+    ]
+    return [load_json(root / "pilot/examples" / name) for name in names]
+
+
+def collect_keys(value):
+    if isinstance(value, dict):
+        return set(value) | set().union(*(collect_keys(item) for item in value.values()), set())
+    if isinstance(value, list):
+        return set().union(*(collect_keys(item) for item in value), set())
+    return set()
+
+
+class IUM11SyntheticExampleTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"), cls.time_model
+        )
+
+    def test_all_examples_are_closed_nonpersonal_and_derivable(self):
+        result = validate_ium11_repository(self.root)
+        self.assertEqual(result["exampleCounts"], {
+            "clusterPass": 4,
+            "clusterFail": 1,
+            "annualPass": 1,
+            "decisionEligible": 1,
+        })
+
+    def test_positive_examples_rebuild_committed_decision_byte_for_byte(self):
+        positive = load_positive_example_packages(self.root)
+        rebuilt = build_decision_package(positive, self.protocol, self.time_model)
+        committed = load_json(self.root / "pilot/examples/synthetic-decision-eligible.json")
+        self.assertEqual(rebuilt, committed)
+
+    def test_examples_contain_no_identifying_or_free_text_keys(self):
+        for path in sorted((self.root / "pilot/examples").glob("*.json")):
+            flattened_keys = collect_keys(load_json(path))
+            self.assertTrue(flattened_keys.isdisjoint(PROHIBITED_FIELD_NAMES), path)
+
+    def test_synthetic_cli_writes_only_the_committed_decision_path(self):
+        target = self.root / "pilot/examples/synthetic-decision-eligible.json"
+        self.assertEqual(
+            main([
+                "--root", str(self.root), "--write-synthetic-decision",
+                "pilot/examples/synthetic-decision-eligible.json",
+            ]),
+            0,
+        )
+        self.assertTrue(target.is_file())
+
+
+def reported_pulse(agree=8, partly=2, disagree=1, no_answer=1):
+    count = agree + partly + disagree + no_answer
+    return {
+        "status": "reported",
+        "classResponseCount": count,
+        "items": [
+            {
+                "itemId": item_id,
+                "agree": agree,
+                "partly": partly,
+                "disagree": disagree,
+                "noAnswer": no_answer,
+            }
+            for item_id in ("clarity", "cognitiveEngagement", "supportUsefulness")
+        ],
+    }
+
+
+def valid_cluster_package(scope_id="CLUSTER-7-DATA-CODING"):
+    root = Path(__file__).resolve().parents[1]
+    time_model = load_json(root / "roadmap/time-model.json")
+    protocol = validate_pilot_protocol(
+        load_json(root / "pilot/pilot-protocol.json"), time_model
+    )
+    cluster = protocol["clustersById"][scope_id]
+    completed_phases = sorted({
+        phase_id
+        for module in cluster["modules"]
+        for phase_id in module["requiredPhaseIds"]
+    })
+    return {
+        "schemaVersion": 1,
+        "packageType": "cluster-evidence",
+        "packageId": f"PKG-{uuid.uuid4()}",
+        "protocolVersion": protocol["protocolVersion"],
+        "protocolFingerprint": protocol["protocolFingerprint"],
+        "toolVersion": protocol["toolVersion"],
+        "timeModelFingerprint": protocol["timeModelFingerprint"],
+        "scopeType": "cluster",
+        "scopeId": scope_id,
+        "context": {"schoolYear": "2026-27", "term": "first-half", "classSizeBand": "20-29", "deviceClass": "mixed", "browserFamily": "chromium", "networkMode": "offline"},
+        "deliveryTimeEvidence": {"plannedUnits": cluster["budgetUnits"], "actualUnits": cluster["budgetUnits"], "completedPhaseIds": completed_phases, "requiredLearningPhasesCompleted": True, "fallbackActivated": False, "technicalStartupMinutes": 3, "supportDemandBand": "low", "externalDisruptionCode": "none"},
+        "learningQualityEvidence": {
+            "moduleResults": [
+                {"pilotAssignmentId": module["pilotAssignmentId"], "moduleId": module["moduleId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in module["criteria"]], "result": "pass"}
+                for module in cluster["modules"]
+            ],
+            "integrationResults": [{"pilotAssignmentId": cluster["integration"]["pilotAssignmentId"], "integrationContractId": cluster["integration"]["integrationContractId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in cluster["integration"]["criteria"]], "handoffProductPresent": True, "handoffReused": True, "result": "pass"}],
+        },
+        "learnerPulseEvidence": reported_pulse(),
+        "technicalPrivacyEvidence": {"technicalFunction": "pass", "fallbackEquivalentLearningFunction": False, "problemCode": "none", "severity": "none", "privacyGate": "pass"},
+        "result": "pass",
+        "developmentWarnings": [],
+        "retentionClass": "until-decision",
+    }
+
+
+def valid_annual_package():
+    root = Path(__file__).resolve().parents[1]
+    time_model = load_json(root / "roadmap/time-model.json")
+    protocol = validate_pilot_protocol(
+        load_json(root / "pilot/pilot-protocol.json"),
+        time_model,
+    )
+    clusters = protocol["clusters"]
+    modules = [module for cluster in clusters for module in cluster["modules"]]
+    completed_phases = sorted({
+        phase_id
+        for module in modules
+        for phase_id in module["requiredPhaseIds"]
+    })
+    return {
+        "schemaVersion": 1,
+        "packageType": "annual-evidence",
+        "packageId": f"PKG-{uuid.uuid4()}",
+        "protocolVersion": protocol["protocolVersion"],
+        "protocolFingerprint": protocol["protocolFingerprint"],
+        "toolVersion": protocol["toolVersion"],
+        "timeModelFingerprint": protocol["timeModelFingerprint"],
+        "scopeType": "annual",
+        "scopeId": "ANNUAL-7-WORKING-40",
+        "context": {"schoolYear": "2026-27", "term": "full-year", "classSizeBand": "20-29", "deviceClass": "mixed", "browserFamily": "chromium", "networkMode": "offline"},
+        "deliveryTimeEvidence": {
+            "plannedUnits": 40,
+            "actualUnits": 40,
+            "completedPhaseIds": completed_phases,
+            "requiredLearningPhasesCompleted": True,
+            "fallbackActivated": False,
+            "technicalStartupMinutes": 12,
+            "supportDemandBand": "low",
+            "externalDisruptionCode": "none",
+            "clusterOrder": [cluster["id"] for cluster in clusters],
+            "clusterActualUnits": [{"clusterId": cluster["id"], "actualUnits": cluster["budgetUnits"]} for cluster in clusters],
+        },
+        "learningQualityEvidence": {
+            "moduleResults": [
+                {"pilotAssignmentId": module["pilotAssignmentId"], "moduleId": module["moduleId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in module["criteria"]], "result": "pass"}
+                for module in modules
+            ],
+            "integrationResults": [
+                {"pilotAssignmentId": cluster["integration"]["pilotAssignmentId"], "integrationContractId": cluster["integration"]["integrationContractId"], "criteria": [{"criterionId": criterion["criterionId"], "band": "strong"} for criterion in cluster["integration"]["criteria"]], "handoffProductPresent": True, "handoffReused": True, "result": "pass"}
+                for cluster in clusters
+            ],
+        },
+        "learnerPulseEvidence": reported_pulse(),
+        "technicalPrivacyEvidence": {"technicalFunction": "pass", "fallbackEquivalentLearningFunction": False, "problemCode": "none", "severity": "none", "privacyGate": "pass"},
+        "result": "pass",
+        "developmentWarnings": [],
+        "retentionClass": "until-decision",
+    }
+
+
+def five_positive_packages():
+    return [
+        valid_cluster_package("CLUSTER-7-DATA-CODING"),
+        valid_cluster_package("CLUSTER-7-PROGRAMMING"),
+        valid_cluster_package("CLUSTER-7-NET-SECURITY"),
+        valid_cluster_package("CLUSTER-7-DATA-MEDIA-SOCIETY"),
+        valid_annual_package(),
+    ]
+
+
+def packages_by_scope(packages):
+    return {package["scopeId"]: package for package in packages}
+
+
+class IUM11ProtocolContractTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = load_json(cls.root / "pilot/pilot-protocol.json")
+
+    def test_time_model_fingerprint_is_canonical_and_pinned(self):
+        self.assertEqual(
+            canonical_sha256(self.time_model),
+            "873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1",
+        )
+        self.assertEqual(
+            self.protocol["timeModelFingerprint"],
+            canonical_sha256(self.time_model),
+        )
+
+    def test_protocol_binds_exact_cluster_sequence(self):
+        compiled = validate_pilot_protocol(self.protocol, self.time_model)
+        self.assertEqual(
+            [
+                (
+                    cluster["id"],
+                    cluster["moduleIds"],
+                    cluster["budgetUnits"],
+                    cluster["fallbackDeltaUnits"],
+                )
+                for cluster in compiled["clusters"]
+            ],
+            [
+                ("CLUSTER-7-DATA-CODING", ["IUM-7-CORE-01", "IUM-7-CORE-02"], 8, 3),
+                ("CLUSTER-7-PROGRAMMING", ["IUM-7-CORE-03", "IUM-7-CORE-04"], 11, 2),
+                (
+                    "CLUSTER-7-NET-SECURITY",
+                    ["IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"],
+                    11,
+                    3,
+                ),
+                (
+                    "CLUSTER-7-DATA-MEDIA-SOCIETY",
+                    ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+                    10,
+                    6,
+                ),
+            ],
+        )
+
+    def test_protocol_keeps_status_and_recommendation_boundaries(self):
+        compiled = validate_pilot_protocol(self.protocol, self.time_model)
+        self.assertEqual(compiled["status"], "working")
+        self.assertEqual(
+            compiled["allowedRecommendation"],
+            "eligible-for-working-availability-review",
+        )
+        self.assertEqual(compiled["forbiddenRecommendations"], ["reviewed", "standard"])
+
+    def test_main_formats_ium10_validation_errors_with_ium11_prefix(self):
+        stderr = StringIO()
+        with patch(
+            "scripts.validate_ium11.validate_ium11_repository",
+            side_effect=IUM10ValidationError("broken IUM10 prerequisite"),
+        ), redirect_stderr(stderr):
+            self.assertEqual(main([]), 1)
+        self.assertEqual(
+            stderr.getvalue(),
+            "IUM11 repository validation failed: broken IUM10 prerequisite\n",
+        )
+
+
+class IUM11EvidencePackageTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"), cls.time_model
+        )
+
+    def test_unknown_or_personal_fields_fail_closed(self):
+        for field, value in [
+            ("studentName", "Ada"),
+            ("schoolName", "Beispielgymnasium"),
+            ("freeText", "Beobachtung"),
+            ("studentProductUrl", "file:///produkt.txt"),
+            ("ipAddress", "192.0.2.1"),
+        ]:
+            payload = valid_cluster_package()
+            payload[field] = value
+            with self.subTest(field=field):
+                with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_small_group_exports_no_counts(self):
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = {"status": "suppressed-small-group"}
+        validated = validate_evidence_package(payload, self.protocol, self.time_model)
+        self.assertEqual(
+            validated["learnerPulseEvidence"], {"status": "suppressed-small-group"}
+        )
+
+    def test_class_size_band_and_learner_response_count_must_be_consistent(self):
+        cases = (
+            ("under-10", reported_pulse(agree=12, partly=0, disagree=0, no_answer=0)),
+            ("10-19", reported_pulse(agree=20, partly=0, disagree=0, no_answer=0)),
+            ("20-29", reported_pulse(agree=30, partly=0, disagree=0, no_answer=0)),
+        )
+        for class_size_band, learner_pulse in cases:
+            payload = valid_cluster_package()
+            payload["context"]["classSizeBand"] = class_size_band
+            payload["learnerPulseEvidence"] = learner_pulse
+            with self.subTest(class_size_band=class_size_band):
+                with self.assertRaisesRegex(IUM11ValidationError, "classSizeBand"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_annual_package_requires_full_year_context(self):
+        payload = valid_annual_package()
+        payload["context"]["term"] = "first-half"
+
+        with self.assertRaisesRegex(IUM11ValidationError, "full-year"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_evidence_schema_encodes_context_consistency(self):
+        schema = load_json(self.root / "pilot/schemas/evidence-package.schema.json")
+        annual_branch = schema["oneOf"][1]["properties"]
+        self.assertEqual(
+            annual_branch["context"]["properties"]["term"],
+            {"const": "full-year"},
+        )
+        class_band_conditions = {
+            item["if"]["properties"]["context"]["properties"]["classSizeBand"]["const"]: item["then"]
+            for item in schema["allOf"]
+        }
+        self.assertEqual(
+            class_band_conditions["under-10"]["properties"]["learnerPulseEvidence"]["properties"]["status"],
+            {"const": "suppressed-small-group"},
+        )
+        for class_size_band, maximum in (("10-19", 19), ("20-29", 29)):
+            self.assertEqual(
+                class_band_conditions[class_size_band]["properties"]["learnerPulseEvidence"]["properties"]["classResponseCount"],
+                {"maximum": maximum},
+            )
+
+    def test_school_year_accepts_any_four_digit_year_prefix(self):
+        payload = valid_cluster_package()
+        payload["context"]["schoolYear"] = "1999-00"
+        validated = validate_evidence_package(payload, self.protocol, self.time_model)
+        self.assertEqual(validated["context"]["schoolYear"], "1999-00")
+
+    def test_one_third_disagree_creates_warning(self):
+        pulse = reported_pulse(agree=8, partly=0, disagree=4, no_answer=0)
+        result = evaluate_learner_pulse(pulse, self.protocol)
+        self.assertEqual(result["warnings"][0]["itemId"], "clarity")
+        self.assertEqual(result["warnings"][0]["status"], "open")
+
+    def test_nested_and_warning_fields_fail_closed(self):
+        mutations = [
+            ("context", "schoolName", "Beispielgymnasium"),
+            ("deliveryTimeEvidence", "freeText", "Beobachtung"),
+            ("learningQualityEvidence", "studentProductUrl", "file:///produkt.txt"),
+            ("learnerPulseEvidence", "ipAddress", "192.0.2.1"),
+            ("technicalPrivacyEvidence", "telemetry", True),
+        ]
+        for parent, field, value in mutations:
+            payload = valid_cluster_package()
+            payload[parent][field] = value
+            with self.subTest(parent=parent, field=field):
+                with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["developmentWarnings"] = [
+            {"id": "WARN-clarity", "itemId": "clarity", "status": "open", "freeText": "x"}
+        ]
+        with self.assertRaisesRegex(IUM11ValidationError, "fields|warnings"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_pulse_rejects_non_aggregate_or_invalid_forms(self):
+        mutations = [
+            ("classResponseCount", True),
+            ("classResponseCount", 9),
+            ("items", reported_pulse()["items"] + [reported_pulse()["items"][0]]),
+        ]
+        for field, value in mutations:
+            payload = valid_cluster_package()
+            payload["learnerPulseEvidence"][field] = value
+            with self.subTest(field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"]["items"][0]["itemId"] = "supportUsefulness"
+        with self.assertRaisesRegex(IUM11ValidationError, "order"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = {"status": "suppressed-small-group", "classResponseCount": 9}
+        with self.assertRaises(IUM11ValidationError):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_package_rejects_contract_mismatches_and_untrusted_warnings(self):
+        mutations = [
+            ("schemaVersion", 2),
+            ("protocolVersion", "2.0.0"),
+            ("toolVersion", "2.0.0"),
+            ("protocolFingerprint", "0" * 64),
+            ("timeModelFingerprint", "0" * 64),
+        ]
+        for field, value in mutations:
+            payload = valid_cluster_package()
+            payload[field] = value
+            with self.subTest(field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = reported_pulse(agree=8, partly=0, disagree=4, no_answer=0)
+        payload["developmentWarnings"] = []
+        with self.assertRaisesRegex(IUM11ValidationError, "warnings"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_package_rejects_claimed_results_that_differ_from_derived_evidence(self):
+        cluster_mutations = (
+            lambda payload: payload["learningQualityEvidence"]["moduleResults"][0]["criteria"][0].__setitem__("band", "mixed"),
+            lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].__setitem__("handoffReused", False),
+        )
+        for mutate in cluster_mutations:
+            payload = valid_cluster_package()
+            mutate(payload)
+            with self.subTest(package_type="cluster", mutation=mutate):
+                with self.assertRaisesRegex(IUM11ValidationError, "result|results"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        annual = valid_annual_package()
+        annual["learningQualityEvidence"]["moduleResults"][0]["criteria"][0]["band"] = "weak"
+        with self.assertRaisesRegex(IUM11ValidationError, "result|results"):
+            validate_evidence_package(annual, self.protocol, self.time_model)
+
+        for payload in (valid_cluster_package(), valid_annual_package()):
+            payload["result"] = "fail"
+            with self.subTest(package_type=payload["packageType"], mutation="top-level"):
+                with self.assertRaisesRegex(IUM11ValidationError, "result"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_reported_pulse_with_nine_valid_responses_fails_closed(self):
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"] = reported_pulse(
+            agree=8, partly=0, disagree=1, no_answer=1
+        )
+        with self.assertRaisesRegex(IUM11ValidationError, "fewer than 10 valid"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_annual_package_requires_bound_cluster_totals(self):
+        payload = valid_annual_package()
+        self.assertEqual(
+            validate_evidence_package(payload, self.protocol, self.time_model)["scopeType"],
+            "annual",
+        )
+        payload["deliveryTimeEvidence"]["clusterActualUnits"][0]["actualUnits"] += 1
+        with self.assertRaisesRegex(IUM11ValidationError, "sum"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_all_prohibited_field_names_fail_closed_in_every_evidence_object(self):
+        targets = (
+            lambda package: package,
+            lambda package: package["context"],
+            lambda package: package["deliveryTimeEvidence"],
+            lambda package: package["learningQualityEvidence"],
+            lambda package: package["learnerPulseEvidence"],
+            lambda package: package["technicalPrivacyEvidence"],
+        )
+        for target in targets:
+            for field in self.protocol["prohibitedFieldNames"]:
+                payload = valid_cluster_package()
+                target(payload)[field] = "prohibited"
+                with self.subTest(target=target, field=field):
+                    with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                        validate_evidence_package(payload, self.protocol, self.time_model)
+
+        for field in self.protocol["prohibitedFieldNames"]:
+            payload = valid_cluster_package()
+            payload["developmentWarnings"] = [{
+                "id": "WARN-clarity", "itemId": "clarity", "status": "open", field: "prohibited"
+            }]
+            with self.subTest(target="warning", field=field):
+                with self.assertRaisesRegex(IUM11ValidationError, "fields|prohibited"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_aggregate_types_and_privacy_gate_fail_closed(self):
+        mutations = [
+            ("deliveryTimeEvidence", "plannedUnits", True),
+            ("deliveryTimeEvidence", "actualUnits", -1),
+            ("deliveryTimeEvidence", "technicalStartupMinutes", True),
+            ("deliveryTimeEvidence", "fallbackActivated", 1),
+            ("technicalPrivacyEvidence", "fallbackEquivalentLearningFunction", 0),
+            ("technicalPrivacyEvidence", "privacyGate", "fail"),
+        ]
+        for parent, field, value in mutations:
+            payload = valid_cluster_package()
+            payload[parent][field] = value
+            with self.subTest(parent=parent, field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+        payload = valid_cluster_package()
+        payload["learnerPulseEvidence"]["items"][0]["agree"] = -1
+        with self.assertRaises(IUM11ValidationError):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+
+class IUM11ClusterResultTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(root / "pilot/pilot-protocol.json"), cls.time_model
+        )
+
+    def derive(self, payload):
+        cluster = self.protocol["clustersById"][payload["scopeId"]]
+        return derive_cluster_result(payload, cluster, self.protocol)
+
+    def test_positive_cluster_requires_every_gate(self):
+        expected_module_counts = {
+            "CLUSTER-7-DATA-CODING": 2,
+            "CLUSTER-7-PROGRAMMING": 2,
+            "CLUSTER-7-NET-SECURITY": 3,
+            "CLUSTER-7-DATA-MEDIA-SOCIETY": 3,
+        }
+        for scope_id, module_count in expected_module_counts.items():
+            payload = valid_cluster_package(scope_id=scope_id)
+            with self.subTest(scope_id=scope_id):
+                result = self.derive(payload)
+                self.assertEqual(result["result"], "pass")
+                self.assertEqual(
+                    [item["result"] for item in result["moduleResults"]],
+                    ["pass"] * module_count,
+                )
+                self.assertEqual(result["integrationResult"]["result"], "pass")
+                self.assertEqual(result["developmentWarnings"], [])
+                self.assertEqual(result["fallbackDeltaUnits"], 0)
+
+    def test_mixed_or_weak_must_criterion_fails(self):
+        for scope_id in self.protocol["clustersById"]:
+            baseline = valid_cluster_package(scope_id=scope_id)
+            for module_index, module in enumerate(baseline["learningQualityEvidence"]["moduleResults"]):
+                for criterion_index, _ in enumerate(module["criteria"]):
+                    for band in ("mixed", "weak"):
+                        payload = valid_cluster_package(scope_id=scope_id)
+                        payload["learningQualityEvidence"]["moduleResults"][module_index]["criteria"][criterion_index]["band"] = band
+                        with self.subTest(scope_id=scope_id, module_index=module_index, criterion_index=criterion_index, band=band):
+                            result = self.derive(payload)
+                            self.assertEqual(result["result"], "fail")
+                            self.assertEqual(result["moduleResults"][module_index]["result"], "fail")
+
+    def test_each_cluster_applies_non_compensating_budget_and_fallback_delta(self):
+        expected_fallback_deltas = {
+            "CLUSTER-7-DATA-CODING": 3,
+            "CLUSTER-7-PROGRAMMING": 2,
+            "CLUSTER-7-NET-SECURITY": 3,
+            "CLUSTER-7-DATA-MEDIA-SOCIETY": 6,
+        }
+        for scope_id, fallback_delta in expected_fallback_deltas.items():
+            payload = valid_cluster_package(scope_id=scope_id)
+            payload["deliveryTimeEvidence"]["actualUnits"] += 1
+            with self.subTest(scope_id=scope_id):
+                result = self.derive(payload)
+                self.assertEqual(result["result"], "fail")
+                self.assertEqual(result["fallbackDeltaUnits"], fallback_delta)
+
+    def test_each_missing_phase_fails_even_if_claimed_complete(self):
+        for scope_id in self.protocol["clustersById"]:
+            payload = valid_cluster_package(scope_id=scope_id)
+            expected_phase_ids = payload["deliveryTimeEvidence"]["completedPhaseIds"]
+            for missing_phase_id in expected_phase_ids:
+                changed = valid_cluster_package(scope_id=scope_id)
+                changed["deliveryTimeEvidence"]["completedPhaseIds"] = [
+                    phase_id for phase_id in expected_phase_ids if phase_id != missing_phase_id
+                ]
+                with self.subTest(scope_id=scope_id, missing_phase_id=missing_phase_id):
+                    self.assertEqual(self.derive(changed)["result"], "fail")
+
+    def test_integration_handoff_and_technical_gates_fail(self):
+        mutations = (
+            ("handoff product absent", lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].update(handoffProductPresent=False)),
+            ("handoff not reused", lambda payload: payload["learningQualityEvidence"]["integrationResults"][0].update(handoffReused=False)),
+            ("technical function failed", lambda payload: payload["technicalPrivacyEvidence"].update(technicalFunction="fail")),
+            ("non-equivalent fallback", lambda payload: payload["deliveryTimeEvidence"].update(fallbackActivated=True) or payload["technicalPrivacyEvidence"].update(technicalFunction="fail", fallbackEquivalentLearningFunction=False)),
+            ("privacy gate failed", lambda payload: payload["technicalPrivacyEvidence"].update(privacyGate="fail")),
+        )
+        for scope_id in self.protocol["clustersById"]:
+            for label, mutate in mutations:
+                payload = valid_cluster_package(scope_id=scope_id)
+                mutate(payload)
+                with self.subTest(scope_id=scope_id, label=label):
+                    result = self.derive(payload)
+                    self.assertEqual(result["result"], "fail")
+                    self.assertEqual(result["integrationResult"]["result"], "fail" if "handoff" in label else "pass")
+
+    def test_mixed_or_weak_integration_criterion_fails(self):
+        for scope_id in self.protocol["clustersById"]:
+            for criterion_index in (0, 1):
+                for band in ("mixed", "weak"):
+                    payload = valid_cluster_package(scope_id=scope_id)
+                    payload["learningQualityEvidence"]["integrationResults"][0]["criteria"][criterion_index]["band"] = band
+                    with self.subTest(scope_id=scope_id, criterion_index=criterion_index, band=band):
+                        result = self.derive(payload)
+                        self.assertEqual(result["result"], "fail")
+                        self.assertEqual(result["integrationResult"]["result"], "fail")
+
+    def test_equivalent_activated_fallback_replaces_failed_technical_function_within_budget(self):
+        for scope_id in self.protocol["clustersById"]:
+            payload = valid_cluster_package(scope_id=scope_id)
+            payload["deliveryTimeEvidence"]["fallbackActivated"] = True
+            payload["technicalPrivacyEvidence"].update(
+                technicalFunction="fail",
+                fallbackEquivalentLearningFunction=True,
+            )
+            with self.subTest(scope_id=scope_id):
+                self.assertEqual(self.derive(payload)["result"], "pass")
+
+    def test_interpretability_loss_has_priority_over_other_failures(self):
+        payload = valid_cluster_package()
+        payload["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        payload["deliveryTimeEvidence"]["actualUnits"] += 1
+
+        result = self.derive(payload)
+
+        self.assertEqual(result["result"], "not-evaluable")
+        self.assertEqual(result["fallbackDeltaUnits"], 0)
+
+    def test_privacy_failure_has_priority_over_interpretability_loss(self):
+        payload = valid_cluster_package()
+        payload["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        payload["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+
+        result = self.derive(payload)
+
+        self.assertEqual(result["result"], "fail")
+
+    def test_learner_warning_boundaries_are_derived_from_valid_responses(self):
+        cases = (
+            (3, 10, "pass", []),
+            (4, 12, "fail", ["WARN-clarity", "WARN-cognitiveEngagement", "WARN-supportUsefulness"]),
+            (4, 13, "pass", []),
+        )
+        for scope_id in self.protocol["clustersById"]:
+            for disagree, valid, expected_result, expected_warning_ids in cases:
+                payload = valid_cluster_package(scope_id=scope_id)
+                payload["learnerPulseEvidence"] = reported_pulse(
+                    agree=valid - disagree, partly=0, disagree=disagree, no_answer=0
+                )
+                with self.subTest(scope_id=scope_id, disagree=disagree, valid=valid):
+                    result = self.derive(payload)
+                    self.assertEqual(result["result"], expected_result)
+                    self.assertEqual(
+                        [warning["id"] for warning in result["developmentWarnings"]],
+                        expected_warning_ids,
+                    )
+
+
+class IUM11DecisionPackageTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"),
+            cls.time_model,
+        )
+
+    def test_positive_minimal_pilot_only_recommends_working_review(self):
+        package = build_decision_package(
+            five_positive_packages(),
+            self.protocol,
+            self.time_model,
+        )
+        self.assertEqual(
+            package["recommendation"],
+            "eligible-for-working-availability-review",
+        )
+        self.assertEqual(package["statementBoundary"], "documented-conditions-only")
+        self.assertEqual(package["reviewStatus"], {
+            "fach": "not-started",
+            "engineeringPrivacy": "not-started",
+            "commissioner": "not-started",
+        })
+        self.assertEqual(package["availabilityGateResults"], {
+            "capacity": "passed",
+            "integration": "passed",
+            "technical": "passed",
+            "privacy": "passed",
+            "pilot": "passed",
+        })
+        self.assertNotIn("timeModelMutation", package)
+
+    def test_annual_requires_four_positive_same_version_clusters(self):
+        mutations = [
+            lambda packages: packages.pop(0),
+            lambda packages: packages[0].__setitem__("result", "fail"),
+            lambda packages: packages[0].__setitem__("protocolVersion", "2.0.0"),
+            lambda packages: packages[0].__setitem__("timeModelFingerprint", "0" * 64),
+        ]
+        for mutate in mutations:
+            packages = five_positive_packages()
+            mutate(packages)
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_annual_sources_require_one_school_year(self):
+        packages = five_positive_packages()
+        packages[0]["context"]["schoolYear"] = "2025-26"
+
+        with self.assertRaisesRegex(IUM11ValidationError, "schoolYear"):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_annual_interpretability_loss_builds_not_evaluable_decision(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        annual["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        annual["result"] = "not-evaluable"
+
+        package = build_decision_package(packages, self.protocol, self.time_model)
+
+        self.assertEqual(package["pilotResults"][-1]["result"], "not-evaluable")
+        self.assertEqual(package["availabilityGateResults"]["pilot"], "failed")
+        self.assertEqual(package["recommendation"], "not-evaluable")
+        validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_annual_privacy_failure_has_priority_over_interpretability_loss(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        annual["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        annual["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+
+        result = derive_annual_result(annual, packages[:4], self.protocol)
+
+        self.assertEqual(result["result"], "fail")
+        self.assertEqual(result["availabilityGateResults"]["privacy"], "failed")
+
+    def test_annual_failure_builds_repeat_required_decision(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        integration = annual["learningQualityEvidence"]["integrationResults"][0]
+        integration["handoffReused"] = False
+        integration["result"] = "fail"
+        annual["result"] = "fail"
+
+        package = build_decision_package(packages, self.protocol, self.time_model)
+
+        self.assertEqual(package["pilotResults"][-1]["result"], "fail")
+        self.assertEqual(package["availabilityGateResults"]["integration"], "failed")
+        self.assertEqual(package["availabilityGateResults"]["pilot"], "failed")
+        self.assertEqual(package["recommendation"], "repeat-required")
+        validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_39_annual_units_never_pass_capacity_or_become_eligible(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        annual["deliveryTimeEvidence"]["actualUnits"] = 39
+        annual["deliveryTimeEvidence"]["clusterActualUnits"][0]["actualUnits"] = 7
+        annual["result"] = "fail"
+
+        package = build_decision_package(packages, self.protocol, self.time_model)
+
+        self.assertEqual(package["timeAndFallbackSummary"]["actualUnits"], 39)
+        self.assertEqual(package["availabilityGateResults"]["capacity"], "failed")
+        self.assertEqual(package["recommendation"], "repeat-required")
+        validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_no_cluster_time_compensation(self):
+        packages = five_positive_packages()
+        packages_by_scope(packages)["CLUSTER-7-DATA-CODING"]["deliveryTimeEvidence"]["actualUnits"] = 9
+        packages_by_scope(packages)["CLUSTER-7-PROGRAMMING"]["deliveryTimeEvidence"]["actualUnits"] = 10
+        with self.assertRaisesRegex(IUM11ValidationError, "cluster budget"):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_annual_result_reobserves_every_annual_gate(self):
+        mutations = (
+            lambda annual: annual["learningQualityEvidence"]["moduleResults"][0]["criteria"][0].__setitem__("band", "weak"),
+            lambda annual: annual["learningQualityEvidence"]["integrationResults"][0].__setitem__("handoffReused", False),
+            lambda annual: annual["deliveryTimeEvidence"].__setitem__("requiredLearningPhasesCompleted", False),
+            lambda annual: annual["technicalPrivacyEvidence"].__setitem__("technicalFunction", "fail"),
+        )
+        for mutate in mutations:
+            packages = five_positive_packages()
+            mutate(packages[-1])
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    build_decision_package(packages, self.protocol, self.time_model)
+
+    def test_derive_annual_result_has_closed_public_shape(self):
+        packages = five_positive_packages()
+        result = derive_annual_result(packages[-1], packages[:4], self.protocol)
+        self.assertEqual(result, {
+            "result": "pass",
+            "actualUnits": 40,
+            "availabilityGateResults": {
+                "capacity": "passed",
+                "integration": "passed",
+                "technical": "passed",
+                "privacy": "passed",
+                "pilot": "passed",
+            },
+        })
+
+    def test_derive_annual_result_requires_distinct_version_bound_sources(self):
+        for mutate in (
+            lambda packages: packages[1].__setitem__("packageId", packages[0]["packageId"]),
+            lambda packages: packages[1].__setitem__("protocolVersion", "2.0.0"),
+            lambda packages: packages[1].__setitem__("protocolFingerprint", "0" * 64),
+            lambda packages: packages[1].__setitem__("toolVersion", "2.0.0"),
+            lambda packages: packages[1].__setitem__("timeModelFingerprint", "0" * 64),
+        ):
+            packages = five_positive_packages()
+            mutate(packages)
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    derive_annual_result(packages[-1], packages[:4], self.protocol)
+
+    def test_derive_annual_result_revalidates_every_cluster_semantically(self):
+        def claim_pass_for_mixed_evidence(packages):
+            packages[0]["learningQualityEvidence"]["moduleResults"][0]["criteria"][0]["band"] = "mixed"
+
+        def make_consistent_negative_cluster(packages):
+            module = packages[0]["learningQualityEvidence"]["moduleResults"][0]
+            module["criteria"][0]["band"] = "mixed"
+            module["result"] = "fail"
+            packages[0]["result"] = "fail"
+
+        mutations = (
+            claim_pass_for_mixed_evidence,
+            make_consistent_negative_cluster,
+            lambda packages: packages.__setitem__(1, copy.deepcopy(packages[0])),
+            lambda packages: packages[0].__setitem__("protocolVersion", "2.0.0"),
+        )
+        for mutate in mutations:
+            packages = five_positive_packages()
+            mutate(packages)
+            with self.subTest(mutation=mutate):
+                with self.assertRaises(IUM11ValidationError):
+                    derive_annual_result(packages[-1], packages[:4], self.protocol)
+
+    def test_decision_is_deterministic_and_does_not_mutate_inputs(self):
+        packages = five_positive_packages()
+        packages_before = canonical_sha256(packages)
+        time_model_before = canonical_sha256(self.time_model)
+
+        first = build_decision_package(packages, self.protocol, self.time_model)
+        second = build_decision_package(list(reversed(packages)), self.protocol, self.time_model)
+
+        self.assertEqual(first, second)
+        self.assertRegex(
+            first["packageId"],
+            r"^PKG-[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+        )
+        self.assertEqual(canonical_sha256(packages), packages_before)
+        self.assertEqual(canonical_sha256(self.time_model), time_model_before)
+        self.assertEqual(
+            first["sourcePackageIds"],
+            [package["packageId"] for package in packages],
+        )
+
+    def test_decision_package_and_schema_are_recursively_closed(self):
+        package = build_decision_package(
+            five_positive_packages(),
+            self.protocol,
+            self.time_model,
+        )
+        self.assertEqual(set(package), {
+            "schemaVersion", "packageType", "packageId", "protocolVersion",
+            "protocolFingerprint", "toolVersion", "timeModelFingerprint",
+            "sourcePackageIds", "pilotResults", "moduleResults",
+            "integrationResults", "availabilityGateResults",
+            "timeAndFallbackSummary", "technicalPrivacySummary",
+            "developmentWarnings", "statementBoundary", "recommendation",
+            "reviewStatus", "retentionClass",
+        })
+        schema = load_json(self.root / "pilot/schemas/decision-package.schema.json")
+
+        def assert_objects_closed(node):
+            if isinstance(node, dict):
+                if node.get("type") == "object":
+                    self.assertIs(node.get("additionalProperties"), False)
+                for value in node.values():
+                    assert_objects_closed(value)
+            elif isinstance(node, list):
+                for value in node:
+                    assert_objects_closed(value)
+
+        assert_objects_closed(schema)
+        self.assertEqual(set(schema["required"]), set(package))
+
+    def test_public_decision_boundary_rejects_maturity_and_status_mutations(self):
+        for recommendation in ("reviewed", "standard", "available", "green"):
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package["recommendation"] = recommendation
+            with self.subTest(recommendation=recommendation):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_positive_recommendation_rejects_failed_modules_or_warnings(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["moduleResults"][0]["result"] = "fail"
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["developmentWarnings"] = [
+            {"id": "WARN-clarity", "itemId": "clarity", "status": "open"},
+        ]
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        for field, value in (("semanticCoverageStatus", "covered"), ("status", "available")):
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package[field] = value
+            with self.subTest(field=field):
+                with self.assertRaises(IUM11ValidationError):
+                    validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_rejects_negative_cluster_with_positive_annual_result(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][0]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+
+        with self.assertRaisesRegex(IUM11ValidationError, "cluster|first four"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_rejects_negative_cluster_module_or_integration_results(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+        package["moduleResults"][0]["result"] = "fail"
+        with self.assertRaisesRegex(IUM11ValidationError, "module"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["integrationResults"][0]["result"] = "fail"
+        package["integrationResults"][0]["fallbackDeltaUnits"] = 3
+        package["availabilityGateResults"]["integration"] = "failed"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["timeAndFallbackSummary"]["fallbackUnits"] = 3
+        package["timeAndFallbackSummary"]["requiredUnits"] = 43
+        package["recommendation"] = "repeat-required"
+        with self.assertRaisesRegex(IUM11ValidationError, "integration"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_rejects_unknown_development_warning(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+        package["developmentWarnings"] = [
+            {"id": "WARN-impossible", "itemId": "impossible", "status": "open"},
+        ]
+
+        with self.assertRaisesRegex(IUM11ValidationError, "warning"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_public_decision_boundary_rejects_source_review_and_time_mutations(self):
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["sourcePackageIds"].pop()
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][1]["scopeId"] = package["pilotResults"][0]["scopeId"]
+        with self.assertRaises(IUM11ValidationError):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["pilotResults"][-1]["result"] = "fail"
+        package["availabilityGateResults"]["pilot"] = "failed"
+        package["recommendation"] = "repeat-required"
+        package["reviewStatus"]["fach"] = "passed"
+        with self.assertRaisesRegex(IUM11ValidationError, "Reviews|reviews"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+        package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+        package["timeAndFallbackSummary"]["actualUnits"] = 41
+        package["availabilityGateResults"]["capacity"] = "failed"
+        package["recommendation"] = "repeat-required"
+        with self.assertRaisesRegex(IUM11ValidationError, "40|budget"):
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_review_statuses_follow_the_three_gate_sequence(self):
+        invalid_statuses = (
+            {"fach": "not-started", "engineeringPrivacy": "passed", "commissioner": "not-started"},
+            {"fach": "not-started", "engineeringPrivacy": "failed", "commissioner": "not-started"},
+            {"fach": "passed", "engineeringPrivacy": "not-started", "commissioner": "passed"},
+            {"fach": "passed", "engineeringPrivacy": "failed", "commissioner": "failed"},
+        )
+        for review_status in invalid_statuses:
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package["reviewStatus"] = review_status
+            with self.subTest(review_status=review_status):
+                with self.assertRaisesRegex(IUM11ValidationError, "review|Review"):
+                    validate_decision_package(package, self.protocol, self.time_model)
+
+        for commissioner in ("passed", "failed"):
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package["reviewStatus"] = {
+                "fach": "passed",
+                "engineeringPrivacy": "passed",
+                "commissioner": commissioner,
+            }
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_schema_encodes_review_sequence(self):
+        schema = load_json(self.root / "pilot/schemas/decision-package.schema.json")
+        review_status = schema["$defs"]["reviewStatus"]
+        self.assertEqual(len(review_status["allOf"]), 2)
+        engineering_rule, commissioner_rule = review_status["allOf"]
+        self.assertEqual(
+            engineering_rule["then"]["properties"]["fach"], {"const": "passed"}
+        )
+        self.assertEqual(
+            commissioner_rule["then"]["properties"],
+            {
+                "fach": {"const": "passed"},
+                "engineeringPrivacy": {"const": "passed"},
+            },
+        )
+
+    def test_build_rejects_duplicate_scopes_and_mixed_fingerprints(self):
+        packages = five_positive_packages()
+        packages[-1] = valid_cluster_package("CLUSTER-7-DATA-CODING")
+        with self.assertRaises(IUM11ValidationError):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+        packages = five_positive_packages()
+        packages[1]["protocolFingerprint"] = "0" * 64
+        with self.assertRaises(IUM11ValidationError):
+            build_decision_package(packages, self.protocol, self.time_model)
+
+    def _private_cli_arguments(self, directory, packages=None):
+        packages = five_positive_packages() if packages is None else packages
+        arguments = ["--root", str(self.root)]
+        for index, package in enumerate(packages, start=1):
+            path = directory / f"evidence-{index}.json"
+            path.write_text(json.dumps(package), encoding="utf-8")
+            arguments.extend(("--evidence", str(path)))
+        return arguments
+
+    def test_private_offline_cli_writes_valid_decision_atomically(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            output = directory / "decision.json"
+            arguments = self._private_cli_arguments(directory)
+            arguments.extend(("--decision-output", str(output)))
+
+            self.assertEqual(main(arguments), 0)
+
+            self.assertTrue(output.is_file())
+            validate_decision_package(
+                load_json(output),
+                self.protocol,
+                self.time_model,
+            )
+            self.assertEqual(
+                sorted(path.name for path in directory.iterdir()),
+                ["decision.json", *[f"evidence-{index}.json" for index in range(1, 6)]],
+            )
+
+    def test_private_offline_cli_rejects_wrong_count_public_paths_and_existing_output(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+
+            output = directory / "wrong-count.json"
+            arguments = self._private_cli_arguments(directory, five_positive_packages()[:4])
+            arguments.extend(("--decision-output", str(output)))
+            self.assertEqual(main(arguments), 1)
+            self.assertFalse(output.exists())
+
+            output = directory / "public-path.json"
+            arguments = self._private_cli_arguments(directory)
+            arguments[3] = str(self.root / "pilot/pilot-protocol.json")
+            arguments.extend(("--decision-output", str(output)))
+            self.assertEqual(main(arguments), 1)
+            self.assertFalse(output.exists())
+
+            output = directory / "existing.json"
+            output.write_text("sentinel", encoding="utf-8")
+            arguments = self._private_cli_arguments(directory)
+            arguments.extend(("--decision-output", str(output)))
+            self.assertEqual(main(arguments), 1)
+            self.assertEqual(output.read_text(encoding="utf-8"), "sentinel")
+
+    def test_private_offline_cli_invalid_input_leaves_no_partial_file(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            output = directory / "decision.json"
+            arguments = self._private_cli_arguments(directory)
+            Path(arguments[3]).write_text("{not-json", encoding="utf-8")
+            arguments.extend(("--decision-output", str(output)))
+            files_before = sorted(path.name for path in directory.iterdir())
+
+            self.assertEqual(main(arguments), 1)
+
+            self.assertFalse(output.exists())
+            self.assertEqual(
+                sorted(path.name for path in directory.iterdir()),
+                files_before,
+            )
+
+
+class IUM11PublicationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.time_model = load_json(cls.root / "roadmap/time-model.json")
+        cls.protocol = validate_pilot_protocol(
+            load_json(cls.root / "pilot/pilot-protocol.json"),
+            cls.time_model,
+        )
+        cls.ium10_result = validate_ium10_repository(cls.root)
+
+    def copy_publication_fixture(self, destination):
+        shutil.copytree(self.root / "pilot", destination / "pilot")
+        for relative_path in (
+            "README.md",
+            "scripts/ium11_publication.py",
+            "scripts/build_ium11_publication_contract.py",
+            "scripts/validate_ium11.py",
+            "scripts/build_ium11_cockpit.py",
+            "scripts/validate_phase0.py",
+            "tests/test_validate_ium11.py",
+            "tests/test_ium11_publication_contract.py",
+            "tests/test_ium11_cockpit_contract.py",
+            "tests/test_validate_phase0.py",
+            "docs/superpowers/plans/2026-08-01-ium11-grade7-working-40-pilot-implementation.md",
+            "docs/superpowers/specs/2026-08-02-ium11-publication-contract-reset-design.md",
+        ):
+            source = self.root / relative_path
+            target = destination / relative_path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+
+    def test_readme_states_exact_pilot_boundary(self):
+        text = (self.root / "README.md").read_text(encoding="utf-8")
+        self.assertIn("IUM11-Pilotinstrument", text)
+        self.assertIn("keine reale Pilotierung", text)
+        self.assertIn(
+            "Flexible Vertiefungs-, Transfer- und Projektmodule bleiben",
+            text,
+        )
+        for forbidden in [
+            "GRADE-7-WORKING-40 ist available",
+            "GRADE-7-WORKING-40 ist reviewed",
+            "Pilotierung abgeschlossen",
+        ]:
+            self.assertNotIn(forbidden, text)
+
+    def test_guides_name_privacy_retention_and_repeat_rules(self):
+        teacher = (self.root / "pilot/docs/teacher-guide.md").read_text(
+            encoding="utf-8"
+        )
+        review = (self.root / "pilot/docs/review-guide.md").read_text(
+            encoding="utf-8"
+        )
+        for anchor in [
+            "unter zehn",
+            "keine Freitexte",
+            "bis zur Auftraggeberentscheidung",
+            "löschen",
+            "fail",
+            "not-evaluable",
+            "wiederholen",
+        ]:
+            self.assertIn(anchor, teacher)
+        for anchor in [
+            "Fachreview",
+            "Engineering-/Privacyreview",
+            "Auftraggebergate",
+            "zweite unabhängige",
+        ]:
+            self.assertIn(anchor, review)
+
+    def test_teacher_guide_keeps_operational_disagree_warning_rule(self):
+        teacher = (self.root / "pilot/docs/teacher-guide.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "Ab zehn gültigen Antworten erzeugt mindestens ein Drittel "
+            "`disagree` eine offene Entwicklungswarnung.",
+            teacher,
+        )
+        self.assertNotIn(
+            "Die Schwellenregel für offene Entwicklungswarnungen steht im Faktenblock.",
+            teacher,
+        )
+
+    def test_teacher_guide_states_operational_class_band_thresholds(self):
+        teacher = (self.root / "pilot/docs/teacher-guide.md").read_text(
+            encoding="utf-8"
+        )
+        for approved_boundary in (
+            "`strong`: Mindestens drei Viertel erfüllen das Kriterium mit den "
+            "vorgesehenen Hilfen.",
+            "`mixed`: Mindestens die Hälfte, aber weniger als drei Viertel, "
+            "erfüllt das Kriterium.",
+            "`weak`: Weniger als die Hälfte erfüllt das Kriterium, oder die "
+            "zentrale Lernhandlung kommt nicht zustande.",
+            "Die Bänder sind Projekt-Akzeptanzgrenzen, keine Noten und keine "
+            "individuellen Kompetenzprofile.",
+        ):
+            with self.subTest(approved_boundary=approved_boundary):
+                self.assertIn(approved_boundary, teacher)
+
+    def test_generated_contract_is_the_exact_source_for_all_publication_blocks(self):
+        contract = load_json(self.root / "pilot/docs/publication-contract.json")
+        self.assertEqual(contract["sourceBindings"]["protocolVersion"], "1.0.0")
+        self.assertEqual(contract["sourceBindings"]["toolVersion"], "1.0.0")
+        self.assertEqual(contract["corePath"]["targetUnits"], 40)
+        self.assertEqual(contract["corePath"]["clusterCount"], 4)
+        self.assertEqual(contract["corePath"]["moduleCount"], 10)
+        self.assertEqual(contract["corePath"]["pilotStageCount"], 5)
+        self.assertEqual(contract["currentAxes"]["status"], "working")
+        self.assertEqual(contract["statementBoundary"], "documented-conditions-only")
+
+        expected_block = render_publication_markdown_block(contract)
+        for relative_path in (
+            "README.md",
+            "pilot/docs/teacher-guide.md",
+            "pilot/docs/review-guide.md",
+        ):
+            with self.subTest(relative_path=relative_path):
+                text = (self.root / relative_path).read_text(encoding="utf-8")
+                self.assertEqual(extract_publication_block(text), expected_block)
+
+    def test_readme_runs_publication_drift_check_before_ium11_validation(self):
+        text = (self.root / "README.md").read_text(encoding="utf-8")
+        build_check = "python -B scripts/build_ium11_publication_contract.py --check"
+        validation = "python -B scripts/validate_ium11.py"
+        self.assertEqual(text.count(build_check), 1)
+        self.assertLess(text.index(build_check), text.index(validation))
+
+    def test_repository_publication_contract_is_complete_and_current(self):
+        result = validate_ium11_script._validate_publication_contract(
+            self.root,
+            self.protocol,
+            self.time_model,
+            self.ium10_result,
+        )
+        self.assertEqual(
+            result,
+            {
+                "productFiles": 27,
+                "syntheticExamples": 7,
+                "publications": 3,
+                "publicationContracts": 1,
+            },
+        )
+
+    def test_publication_contract_rejects_generated_json_and_block_drift(self):
+        mutations = (
+            ("pilot/docs/publication-contract.json", b"{}\n"),
+            ("pilot/docs/teacher-guide.md", b"marker drift"),
+        )
+        for relative_path, replacement in mutations:
+            with self.subTest(relative_path=relative_path):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    target = root / relative_path
+                    if relative_path.endswith(".json"):
+                        target.write_bytes(replacement)
+                    else:
+                        target.write_text(
+                            target.read_text(encoding="utf-8").replace(
+                                PUBLICATION_START_MARKER,
+                                "<!-- IUM11-PUBLICATION-CONTRACT:BROKEN -->",
+                                1,
+                            ),
+                            encoding="utf-8",
+                        )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_publication_contract_rejects_exact_block_tampering(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "status: working",
+                    "status: broken",
+                    1,
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaises(IUM11ValidationError):
+                validate_ium11_script._validate_publication_contract(
+                    root,
+                    self.protocol,
+                    self.time_model,
+                    self.ium10_result,
+                )
+
+    def test_publication_contract_rejects_crlf_and_cr_text_bytes(self):
+        for newline_name, newline in (("CRLF", b"\r\n"), ("CR", b"\r")):
+            with self.subTest(newline=newline_name):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    guide = root / "pilot/docs/teacher-guide.md"
+                    payload = guide.read_bytes()
+                    start = payload.index(PUBLICATION_START_MARKER.encode("ascii"))
+                    end = (
+                        payload.index(PUBLICATION_END_MARKER.encode("ascii"), start)
+                        + len(PUBLICATION_END_MARKER)
+                    )
+                    block = payload[start:end]
+                    self.assertNotIn(b"\r", block)
+                    guide.write_bytes(
+                        payload[:start]
+                        + block.replace(b"\n", newline)
+                        + payload[end:]
+                    )
+
+                    with self.assertRaisesRegex(
+                        IUM11ValidationError,
+                        "publication text must use LF",
+                    ):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_publication_contract_rejects_missing_and_duplicate_markers(self):
+        mutations = (
+            lambda text: text.replace(PUBLICATION_END_MARKER, "", 1),
+            lambda text: text.replace(
+                PUBLICATION_START_MARKER,
+                PUBLICATION_START_MARKER + "\n" + PUBLICATION_START_MARKER,
+                1,
+            ),
+        )
+        for mutate in mutations:
+            with self.subTest(mutation=mutate):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    guide = root / "pilot/docs/teacher-guide.md"
+                    guide.write_text(
+                        mutate(guide.read_text(encoding="utf-8")),
+                        encoding="utf-8",
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_full_validator_rejects_noncanonical_publication_layout(self):
+        mutations = (
+            (
+                "README.md",
+                lambda text: text.replace(
+                    "<!-- IUM11-PUBLICATION-SCOPE:END -->",
+                    "",
+                    1,
+                ),
+            ),
+            (
+                "README.md",
+                lambda text: text.replace(
+                    "<!-- IUM11-PUBLICATION-SCOPE:END -->",
+                    "<!-- IUM11-PUBLICATION-SCOPE:END -->\n"
+                    "<!-- IUM11-PUBLICATION-SCOPE:END -->",
+                    1,
+                ),
+            ),
+            (
+                "README.md",
+                lambda text: text.replace(
+                    "## IUM11-Pilotinstrument\n\n",
+                    "## IUM11-Pilotinstrument\nHinweis\n\n",
+                    1,
+                ),
+            ),
+            (
+                "README.md",
+                lambda text: text.replace(
+                    "<!-- IUM11-PUBLICATION-SCOPE:END -->\n\n"
+                    "## Zentrale Einstiege",
+                    "<!-- IUM11-PUBLICATION-SCOPE:END -->\nHinweis\n\n"
+                    "## Zentrale Einstiege",
+                    1,
+                ),
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                lambda text: "Vorspann\n" + text,
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                lambda text: text.replace(
+                    "# Reviewanleitung zum IUM11-Pilotinstrument",
+                    "# Andere Reviewanleitung",
+                    1,
+                ),
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                lambda text: text.replace(
+                    "\n## 1. Zweck",
+                    "\r\n## 1. Zweck",
+                    1,
+                ),
+            ),
+        )
+        for relative_path, mutate in mutations:
+            with self.subTest(relative_path=relative_path, mutation=mutate):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    path = root / relative_path
+                    path.write_bytes(
+                        mutate(path.read_bytes().decode("utf-8")).encode("utf-8")
+                    )
+
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+
+    def test_repository_scan_rejects_unexpected_pilot_json(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            (root / "pilot/real-evidence.json").write_text("{}\n", encoding="utf-8")
+
+            with self.assertRaisesRegex(IUM11ValidationError, "JSON|json"):
+                validate_ium11_script._validate_publication_contract(
+                    root,
+                    self.protocol,
+                    self.time_model,
+                    self.ium10_result,
+                )
+
+    def test_publication_boundary_rejects_reserved_literal_outside_generated_block(self):
+        for relative_path in (
+            "README.md",
+            "pilot/docs/teacher-guide.md",
+            "pilot/docs/review-guide.md",
+        ):
+            with self.subTest(relative_path=relative_path):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    publication = root / relative_path
+                    text = publication.read_text(encoding="utf-8")
+                    if relative_path == "README.md":
+                        text = text.replace(
+                            "<!-- IUM11-PUBLICATION-SCOPE:END -->",
+                            "availabilityStatus: available\n\n"
+                            "<!-- IUM11-PUBLICATION-SCOPE:END -->",
+                            1,
+                        )
+                    else:
+                        text += "\navailabilityStatus: available\n"
+                    publication.write_bytes(text.encode("utf-8"))
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_full_validator_rejects_embedded_semver_and_exact_axis_assignments(self):
+        axis_names = (
+            "status",
+            "availabilityStatus",
+            "timeFeasibilityStatus",
+            "sequenceEvidenceStatus",
+            "pilotStatus",
+            "semanticCoverageStatus",
+        )
+        declarations = ["Version v9.9.9", "Build abc19.9.9rc"]
+        for axis_name in axis_names:
+            for quote in ("", '\"', "'", "`"):
+                key = f"{quote}{axis_name}{quote}"
+                declarations.extend((
+                    f"{key}: draft",
+                    f"{key} = draft",
+                ))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            original = guide.read_bytes()
+            for declaration in declarations:
+                with self.subTest(declaration=declaration):
+                    guide.write_bytes(
+                        original + ("\n" + declaration + "\n").encode("utf-8")
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+                guide.write_bytes(original)
+
+    def test_full_validator_allows_unicode_identifier_continuations_before_bare_axes(self):
+        axis_names = (
+            "status",
+            "availabilityStatus",
+            "timeFeasibilityStatus",
+            "sequenceEvidenceStatus",
+            "pilotStatus",
+            "semanticCoverageStatus",
+        )
+        identifier_prefixes = (
+            "a\u0301",
+            "\u00e9",
+            "a7",
+            "a_",
+            "a\u200c",
+            "a\u200d",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            original = guide.read_bytes()
+
+            for prefix in identifier_prefixes:
+                for axis_name in axis_names:
+                    declaration = f"{prefix}{axis_name}: draft"
+                    with self.subTest(
+                        prefix=prefix.encode("unicode_escape"),
+                        axis=axis_name,
+                    ):
+                        guide.write_bytes(
+                            original + ("\n" + declaration + "\n").encode("utf-8")
+                        )
+                        try:
+                            validate_ium11_script._validate_publication_contract(
+                                root,
+                                self.protocol,
+                                self.time_model,
+                                self.ium10_result,
+                            )
+                        except IUM11ValidationError as error:
+                            self.fail(
+                                "identifier continuation was treated as a boundary: "
+                                f"{error}"
+                            )
+
+            for declaration in (
+                "status: draft",
+                " status = draft",
+                "(status: draft",
+                "-status = draft",
+            ):
+                with self.subTest(boundary=declaration):
+                    guide.write_bytes(
+                        original + ("\n" + declaration + "\n").encode("utf-8")
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+            guide.write_bytes(original + b"\nStatus: draft\n")
+            validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )
+            guide.write_bytes(original)
+
+    def test_publication_boundary_does_not_parse_german_grammar(self):
+        sentence = "Die Pilotierung ist nicht beendet, obwohl das Fachreview beendet ist."
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            guide.write_bytes(
+                guide.read_bytes() + ("\n" + sentence + "\n").encode("utf-8")
+            )
+            validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )
+
+    def test_readme_boundary_is_scoped_to_the_ium11_section(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            readme = root / "README.md"
+            readme.write_bytes(
+                readme.read_bytes().replace(
+                    b"## Zentrale Einstiege",
+                    b"## Zentrale Einstiege\n\navailabilityStatus: available",
+                    1,
+                )
+            )
+            validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )

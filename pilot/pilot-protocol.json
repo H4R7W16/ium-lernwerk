@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "IUM11-GRADE-7-WORKING-40-PILOT",
+  "status": "working",
+  "protocolVersion": "1.0.0",
+  "toolVersion": "1.0.0",
+  "timeModelFingerprintAlgorithm": "sha256-canonical-json-v1",
+  "timeModelFingerprint": "873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1",
+  "variantId": "GRADE-7-WORKING-40",
+  "availabilityContractId": "AVAIL-GRADE-7-WORKING-40",
+  "allowedRecommendation": "eligible-for-working-availability-review",
+  "forbiddenRecommendations": ["reviewed", "standard"],
+  "minimumLearnerResponses": 10,
+  "learnerWarningRatio": {"numerator": 1, "denominator": 3},
+  "bands": ["strong", "mixed", "weak"],
+  "results": ["pass", "fail", "not-evaluable"],
+  "prohibitedFieldNames": [
+    "studentName", "studentInitials", "schoolName", "teacherName",
+    "className", "courseName", "email", "accountId", "learnerId",
+    "lessonDate", "timetable", "freeText", "studentProduct",
+    "studentProductUrl", "filePath", "screenshot", "photo", "audio",
+    "video", "individualResponse", "responseSequence", "deviceId",
+    "networkId", "browserId", "ipAddress", "telemetry",
+    "privateReflection", "grade", "ranking", "competenceProfile",
+    "automatedPersonalAssessment"
+  ],
+  "evidenceTracks": [
+    "deliveryTimeEvidence",
+    "learningQualityEvidence",
+    "learnerPulseEvidence",
+    "technicalPrivacyEvidence"
+  ],
+  "learnerPulseItems": [
+    {"id": "clarity", "prompt": "Ich wusste, was ich fachlich bearbeiten sollte."},
+    {"id": "cognitiveEngagement", "prompt": "Ich musste erklären, prüfen, testen oder begründen – nicht nur klicken oder abschreiben."},
+    {"id": "supportUsefulness", "prompt": "Die Hilfen halfen mir weiter, ohne die Lösung vorzugeben."}
+  ],
+  "contextEnums": {
+    "term": ["first-half", "second-half", "full-year"],
+    "classSizeBand": ["under-10", "10-19", "20-29", "30-plus"],
+    "deviceClass": ["desktop", "laptop", "tablet", "mixed"],
+    "browserFamily": ["chromium", "firefox", "safari", "mixed"],
+    "networkMode": ["offline", "school-network", "local-fallback"]
+  },
+  "clusters": [
+    {
+      "id": "CLUSTER-7-DATA-CODING",
+      "order": 1,
+      "pilotAssignmentId": "PILOT-INT-7-DATA-CODING",
+      "integrationContractId": "INT-7-DATA-CODING",
+      "moduleIds": ["IUM-7-CORE-01", "IUM-7-CORE-02"],
+      "modulePilotAssignmentIds": ["PILOT-IUM-7-CORE-01", "PILOT-IUM-7-CORE-02"],
+      "budgetUnits": 8,
+      "fallbackDeltaUnits": 3,
+      "handoffCriterionId": "handoffProductPresent"
+    },
+    {
+      "id": "CLUSTER-7-PROGRAMMING",
+      "order": 2,
+      "pilotAssignmentId": "PILOT-INT-7-PROGRAMMING",
+      "integrationContractId": "INT-7-PROGRAMMING",
+      "moduleIds": ["IUM-7-CORE-03", "IUM-7-CORE-04"],
+      "modulePilotAssignmentIds": ["PILOT-IUM-7-CORE-03", "PILOT-IUM-7-CORE-04"],
+      "budgetUnits": 11,
+      "fallbackDeltaUnits": 2,
+      "handoffCriterionId": "handoffProductPresent"
+    },
+    {
+      "id": "CLUSTER-7-NET-SECURITY",
+      "order": 3,
+      "pilotAssignmentId": "PILOT-INT-7-NET-SECURITY",
+      "integrationContractId": "INT-7-NET-SECURITY",
+      "moduleIds": ["IUM-7-CORE-05", "IUM-7-CORE-06", "IUM-7-CORE-07"],
+      "modulePilotAssignmentIds": ["PILOT-IUM-7-CORE-05", "PILOT-IUM-7-CORE-06", "PILOT-IUM-7-CORE-07"],
+      "budgetUnits": 11,
+      "fallbackDeltaUnits": 3,
+      "handoffCriterionId": "handoffProductPresent"
+    },
+    {
+      "id": "CLUSTER-7-DATA-MEDIA-SOCIETY",
+      "order": 4,
+      "pilotAssignmentId": "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+      "integrationContractId": "INT-7-DATA-MEDIA-SOCIETY",
+      "moduleIds": ["IUM-7-CORE-08", "IUM-7-CORE-09", "IUM-7-CORE-10"],
+      "modulePilotAssignmentIds": ["PILOT-IUM-7-CORE-08", "PILOT-IUM-7-CORE-09", "PILOT-IUM-7-CORE-10"],
+      "budgetUnits": 10,
+      "fallbackDeltaUnits": 6,
+      "handoffCriterionId": "handoffProductPresent"
+    }
+  ],
+  "annualPilot": {
+    "id": "ANNUAL-7-WORKING-40",
+    "pilotAssignmentId": "PILOT-GRADE-7-WORKING-40",
+    "variantId": "GRADE-7-WORKING-40",
+    "clusterIds": [
+      "CLUSTER-7-DATA-CODING",
+      "CLUSTER-7-PROGRAMMING",
+      "CLUSTER-7-NET-SECURITY",
+      "CLUSTER-7-DATA-MEDIA-SOCIETY"
+    ],
+    "budgetUnits": 40
+  }
+}

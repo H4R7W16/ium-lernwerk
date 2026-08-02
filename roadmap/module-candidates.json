@@ -1,0 +1,1857 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "scope": {
+    "schoolType": "Gymnasium",
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "level": "E",
+    "curriculumStatusBoundary": {
+      "SRC-CUR-LESEHILFE-2026-27": "orientation",
+      "SRC-CUR-BMB-2016": "enacted",
+      "SRC-CUR-INF7-2016": "enacted"
+    }
+  },
+  "modelNotes": {
+    "candidateBoundary": "Die Records sind reviewfähige Modulkandidaten, keine fertigen Module und keine normative Stundentafel.",
+    "coreCoverage": "Alle Kompetenz-, Prozesskompetenz- und Progressionsrecords werden im Kernpfad mindestens einmal abgedeckt; Beispiele und Operatoren werden nicht als eigenständige Pflichtkompetenzen gezählt.",
+    "hybridModel": "Core bildet einen progressiven, vollständig abdeckenden Pfad. Extension, transfer und project bleiben optionale Kandidaten mit expliziten Kernvoraussetzungen.",
+    "gradeBoundary": "Die konkrete Verteilung der kombinierten Lesehilfe-Vorgaben 5/6 ist eine didaktische Arbeitsentscheidung mit Status working.",
+    "timeBoundary": "lessonRange ist die historische, eigenständige Kandidatenschätzung. roadmap/time-model.json ist für Jahreszuweisung, Pfadstatus und Zeitfreigabe autoritativ.",
+    "assessmentBoundary": "assessmentWorkingNotes ist reduzierbar und erzeugt weder Noten noch personenbezogene Kompetenzprofile."
+  },
+  "modules": [
+    {
+      "id": "IUM-5-CORE-01",
+      "timeContractId": "TC-IUM-5-CORE-01",
+      "title": "Im Schulnetz sicher arbeitsfähig werden",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-PROG-001",
+        "LH26-E-DP-001",
+        "LH26-E-KS-006",
+        "LH26-E-KS-007",
+        "LH26-E-DA-001",
+        "LH26-E-DA-002",
+        "LH26-E-DA-003",
+        "LH26-E-DA-004",
+        "BMB16-GYM-PK-SK-001",
+        "BMB16-GYM-PK-SK-002",
+        "BMB16-GYM-PK-SK-003",
+        "BMB16-GYM-IK-GM-001",
+        "BMB16-GYM-IK-GM-002",
+        "BMB16-GYM-IK-GM-003"
+      ],
+      "prerequisiteModuleIds": [],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie richten wir einen digitalen Arbeitsplatz ein, der verständlich, sicher und wieder auffindbar bleibt?",
+      "centralLearningAction": "Gerätekomponenten, Betriebssystem, Verzeichnisse, Speicherorte und Zugangsschutz in einem realen Arbeitsauftrag nutzen, erklären und gegen Störfälle prüfen.",
+      "centralLearningProduct": "Kommentierte System- und Arbeitswegkarte mit eigener Verzeichnisstruktur, Schutzentscheidungen und Wiederanlauf-Checkliste.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
+          "competencyId": "BMB16-GYM-IK-GM-001",
+          "mode": "module-detail",
+          "learningAction": "Die Verhaltensregeln der lokalen Medienordnung in einer Geräteerkundung einhalten sowie Eingabe-, Verarbeitungs- und Ausgabekomponenten benennen, ihre Funktion beschreiben und sachgerecht nutzen.",
+          "productEvidence": "Kommentierte Gerätefunktionsmatrix mit Regelcheck und je einem beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-002",
+          "competencyId": "BMB16-GYM-IK-GM-002",
+          "mode": "school-context",
+          "learningAction": "Sich mit der vor Ort freigegebenen schulischen Anmeldung tatsächlich im lokalen Schulnetz anmelden, darin zu den benötigten Speicherorten und Programmen navigieren und die Grundfunktionen des Betriebssystems für einen vollständigen Arbeitsweg nutzen.",
+          "productEvidence": "Lehrkraftbeobachteter lokaler Arbeitsdurchlauf mit Anmeldung, Navigation, Öffnen, Speichern und Wiederfinden einer unpersönlichen Testdatei; dokumentiert werden nur die ausgeführten Schritte, niemals Zugangsdaten.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Die vor Ort freigegebene schulische Anmeldung, Verzeichnisstruktur und Betriebssystemumgebung werden tatsächlich verwendet; Zugangsdaten werden nicht dokumentiert."
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-BMB16-GYM-PK-SK-003",
+          "competencyId": "BMB16-GYM-PK-SK-003",
+          "mode": "school-context",
+          "learningAction": "Die vor Ort geltenden Verhaltensregeln für schulische Mediennutzung benennen und während des tatsächlichen lokalen Geräte- und Dateiarbeitsauftrags einhalten.",
+          "productEvidence": "Kommentierter Regelcheck mit benannten lokalen Regeln und lehrkraftbeobachteter Anwendung an festgelegten Prüfpunkten des Arbeitsauftrags; Zugangsdaten und private Inhalte werden nicht dokumentiert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Die vor Ort geltende schulische Mediennutzungsordnung sowie die freigegebene Geräte- und Dateiumgebung werden tatsächlich verwendet."
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-LH26-E-DA-004",
+          "competencyId": "LH26-E-DA-004",
+          "mode": "module-detail",
+          "learningAction": "Den grundlegenden Aufbau des im Arbeitsauftrag genutzten digitalen Systems als Zusammenspiel der Schichten Hardware, Betriebssystem und Programme erklären und die beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritte den drei Schichten zuordnen.",
+          "productEvidence": "Kommentierte Schichtenansicht in der System- und Arbeitswegkarte, die Hardware, Betriebssystem und Programme trennt und ihre Beziehungen am ausgeführten Arbeitsweg erklärt.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-5-CORE-01-LH26-E-DP-001",
+          "competencyId": "LH26-E-DP-001",
+          "mode": "school-context",
+          "learningAction": "Die vor Ort geltenden Regeln für die schulische Mediennutzung in einer tatsächlichen lokalen Geräte- und Dateiarbeit beachten, ihre Zwecke und Folgen für den Arbeitsweg erläutern und einen vorgegebenen Regelkonflikt begründet bearbeiten.",
+          "productEvidence": "Kommentierter Regelabschnitt der Arbeitswegkarte mit angewandten lokalen Regeln, ihren Begründungen und einer begründeten Lösung für einen vorgegebenen Regelkonflikt; die tatsächliche Regelanwendung wird durch die Lehrkraft beobachtet.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Die vor Ort geltenden Regeln für schulische Mediennutzung sowie die freigegebene Geräte- und Dateiumgebung werden tatsächlich angewendet; Zugangsdaten und private Inhalte bleiben undokumentiert."
+        }
+      ],
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Dateioperationen, Zugriffswege und Wiederanlauf lassen sich nur in einer digitalen Arbeitsumgebung authentisch ausführen und unmittelbar prüfen.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-02",
+      "timeContractId": "TC-IUM-5-CORE-02",
+      "title": "Eine Suchfrage mit Belegen beantworten",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-001",
+        "LH26-E-ID-002",
+        "LH26-E-ID-003",
+        "LH26-E-ID-009",
+        "LH26-E-ID-010",
+        "BMB16-GYM-PK-HK-001",
+        "BMB16-GYM-IK-IW-001",
+        "BMB16-GYM-IK-IW-002",
+        "BMB16-GYM-IK-IW-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wann trägt ein Suchergebnis wirklich zur Antwort auf unsere Frage bei?",
+      "centralLearningAction": "Eine Suchfrage zerlegen, Suchwege dokumentieren, Quellen mit vorgegebenen Kriterien prüfen, Informationen auswählen und die Auswahl nach einem Gegenbeleg revidieren.",
+      "centralLearningProduct": "Digitales Quellendossier mit Suchprotokoll, Kriterienvergleich, belegter Antwort und dokumentierter Revision.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-02-LH26-E-ID-009",
+          "competencyId": "LH26-E-ID-009",
+          "mode": "module-detail",
+          "learningAction": "Die Strategien Vorwissensanker, Quellenabgleich und Antwortrevision anwenden: zur konkreten Suchfrage sachbezogenes Vorwissen im selben digitalen Quellendossier festhalten, eine neue Quelleninformation ausdrücklich als Übereinstimmung, Ergänzung oder Widerspruch damit verknüpfen und aus diesem Abgleich eine belegte Aussage oder dokumentierte Revision der Antwort ableiten.",
+          "productEvidence": "Eine integrierte Belegspur derselben belegten Antwort oder dokumentierten Revision im digitalen Quellendossier mit gekennzeichnetem sachbezogenem Vorwissensanker, neuer Quelleninformation, Verknüpfung als Übereinstimmung, Ergänzung oder Widerspruch und daraus abgeleiteter weiterverarbeiteter Aussage; kein separates Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Browser, Suchmaschine, Quellenwechsel und Hyperlinks sind zugleich Werkzeug und Untersuchungsgegenstand; der digitale Weg muss für die Belegprüfung erhalten bleiben.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-03",
+      "timeContractId": "TC-IUM-5-CORE-03",
+      "title": "Digital verständlich, sicher und fair kommunizieren",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-001",
+        "LH26-E-KS-002",
+        "LH26-E-KS-003",
+        "LH26-E-KS-004",
+        "LH26-E-KS-005",
+        "BMB16-GYM-PK-HK-003",
+        "BMB16-GYM-PK-RK-004",
+        "BMB16-GYM-IK-KK-001",
+        "BMB16-GYM-IK-KK-002",
+        "BMB16-GYM-IK-KK-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Welche Regel hilft in welcher digitalen Kommunikationssituation – und warum?",
+      "centralLearningAction": "Analoge und digitale Situationen vergleichen, Nachrichten adressatengerecht verfassen, private Daten schützen und Konfliktfolgen an fiktiven Fällen abwägen.",
+      "centralLearningProduct": "Kommunikationsleitfaden mit Fallkarten, begründeten Regeln, Beispielnachrichten und einem überarbeiteten Konfliktfall.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Kommunikationswege müssen in ihrer realen Zeichen-, Anhangs-, Adressaten- und Teilungslogik erprobt werden; fiktive Fälle verhindern persönliche Offenlegung.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-002",
+          "competencyId": "BMB16-GYM-IK-KK-002",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens einen vor Ort freigegebenen digitalen Kommunikationsweg in seinen Grundfunktionen tatsächlich anwenden: eine neutrale fiktive Nachricht adressatengerecht verfassen, senden oder teilen, abrufen und einen neutralen Testanhang oder eine entsprechende lokale Kernfunktion ausführen.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: Verfassen, Senden oder Teilen, Abrufen und Testanhang beziehungsweise lokale Kernfunktion sind als ausgeführte Schritte bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-003",
+          "competencyId": "BMB16-GYM-IK-KK-003",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb des Projekts tatsächlich nutzen, indem neutrale fiktive Änderungsvorschläge geteilt, abgerufen, abgestimmt und in die gemeinsame Revision übernommen werden.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: Teilen, Abrufen, Abstimmen und Übernehmen neutraler fiktiver Änderungsvorschläge sind als ausgeführte Kooperationsschritte bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-PK-HK-003",
+          "competencyId": "BMB16-GYM-PK-HK-003",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens Medien für Zusammenarbeit und Kooperation tatsächlich nutzen, indem Lernende neutrale fiktive Fallkarten und Regelvorschläge gemeinsam prüfen, bearbeiten, abstimmen und revidieren.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: gemeinsames Prüfen, Bearbeiten, Abstimmen und Revidieren ist als tatsächlich ausgeführte Medienkooperation bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-BMB16-GYM-PK-RK-004",
+          "competencyId": "BMB16-GYM-PK-RK-004",
+          "mode": "module-detail",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens an integrierten fiktiven Fallkarten rechtliche Grenzübertretungen und moralische Grenzübertretungen getrennt erkennen und daraus begründete Regeln für eigenes soziales Verhalten ableiten und in der gemeinsamen Revision schärfen.",
+          "productEvidence": "Im selben Produktteil desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten sind pro fiktivem Fall rechtliche und moralische Grenzübertretung getrennt markiert und daraus begründete Regeln für das eigene soziale Verhalten abgeleitet; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-LH26-E-KS-001",
+          "competencyId": "LH26-E-KS-001",
+          "mode": "school-context",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebenen Möglichkeiten zur Kollaboration tatsächlich nutzen, um neutrale fiktive Beiträge zu teilen, abzurufen, gemeinsam zu bearbeiten und in die Revision zu übernehmen; bei technisch getrennten Werkzeugen werden beide im selben Projektlauf ausgeführt.",
+          "productEvidence": "Beobachtbare Ausführungsspur desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten: Nutzung des schulischen Kommunikationskanals und der realen Kollaborationsmöglichkeit ist durch ausgeführtes Teilen, Abrufen, gemeinsames Bearbeiten und Übernehmen bestätigt; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Den vor Ort freigegebenen schulischen Kommunikationskanal und die vor Ort freigegebene Kollaborationsmöglichkeit festlegen; sind sie technisch getrennt, werden beide im selben Projektlauf tatsächlich genutzt."
+        },
+        {
+          "id": "CE-IUM-5-CORE-03-LH26-E-KS-002",
+          "competencyId": "LH26-E-KS-002",
+          "mode": "module-detail",
+          "learningAction": "Im Rahmen desselben tatsächlichen lokalen Mini-Projekts zur gemeinsamen Überarbeitung des bereits vorhandenen Kommunikationsleitfadens Auswirkungen eines fiktiven digitalen Konflikts aus mehreren Perspektiven auf mehrere Folgen reflektieren und diskutieren und die gemeinsame Revision der integrierten Fallkarte und der Regeln anhand der Ergebnisse sichtbar machen.",
+          "productEvidence": "Im selben Produktteil desselben gemeinsam revidierten Kommunikationsleitfadens mit integrierten Fallkarten dokumentiert die überarbeitete fiktive Konfliktfallkarte mehrere Perspektiven, mehrere Folgen, Ergebnisse der Reflexion und Diskussion sowie die daraus hervorgegangene gemeinsame Revision; verwendet werden ausschließlich neutrale und fiktive Inhalte. Der Ausführungsnachweis hält ausschließlich die ausgeführten Schritte und die gemeinsame Revision fest; Kommunikationsinhalte werden nicht protokolliert; Zugangsdaten, private Nachrichten, personenbezogene Inhalte und vollständige Kommunikationsprotokolle werden weder erhoben noch gespeichert.",
+          "productVisibility": "shared"
+        }
+      ]
+    },
+    {
+      "id": "IUM-5-CORE-04",
+      "timeContractId": "TC-IUM-5-CORE-04",
+      "title": "Einen schulischen Datenweg sichtbar machen",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "BMB16-GYM-IK-GM-002"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 4
+      },
+      "centralQuestion": "Was geschieht zwischen Anmeldung, Datei und schulischer Ablage, obwohl wir meist nur die Oberfläche sehen?",
+      "centralLearningAction": "In einer stark gestützten Einführung einen schulischen Anmelde- und Datenweg aus Oberfläche, Gerät, lokalem Schulnetz und Ablage rekonstruieren, Rollen markieren und als Anschlussfrage festhalten, was Internet und Cloud zusätzlich erklären müssen.",
+      "centralLearningProduct": "Gestütztes Datenwegmodell für eine schulische Handlung mit Geräte-, Netz- und Ablagerollen sowie ausdrücklich offenen Modellfragen für die Vertiefung in Klasse 6.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Die digitale Schulumgebung ist selbst Untersuchungsgegenstand: Eine geführte Systemansicht macht Anmeldung, Dateiablage und Zugriffsrollen schrittweise nachvollziehbar und hält offene Modellfragen für Klasse 6 fest.",
+      "analogMaterials": [
+        {
+          "title": "Rollen- und Datenwegkarten",
+          "didacticRationale": "Gerät, Anmeldung, lokales Schulnetz und Ablage werden als unterscheidbare Rollen körperlich angeordnet; die stark gestützte Folge entlastet die erste Begriffsbildung.",
+          "digitalReconnection": "Die gelegte Folge wird anschließend in der digitalen Schulumgebung rekonstruiert, mit der realen Systemreaktion verglichen und als noch unvollständiges Modell markiert."
+        }
+      ],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-5-CORE-05",
+      "timeContractId": "TC-IUM-5-CORE-05",
+      "title": "Präzise Abläufe ausführbar machen",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-PROG-002",
+        "LH26-E-ALG-001",
+        "LH26-E-ALG-002",
+        "LH26-E-ALG-003",
+        "LH26-E-ALG-004"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie genau muss eine Vorschrift sein, damit Mensch und digitales System denselben Ablauf ausführen?",
+      "centralLearningAction": "Alltagshandlungen präzisieren, grafische Algorithmen ausführen, Abweichungen erklären und eine konstante Wiederholung als Grundbaustein modellieren.",
+      "centralLearningProduct": "Ausführbarer grafischer Algorithmus mit Vorhersage, Laufprotokoll, reparierter Fassung und begründeter Schleifenentscheidung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine digitale Ausführungsumgebung kann Schritte, Position, Zustand und Wiederholungen sichtbar koppeln und Abweichungen reproduzierbar machen.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-05-LH26-E-ALG-001",
+          "competencyId": "LH26-E-ALG-001",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen aus einem gemischten Satz, der digitale Systeme, Nichtbeispiele und Grenzbeispiele enthält, digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist, und für jeden Fall am konkreten algorithmischen Prozess begründen, warum die Einstufung zutrifft oder nicht; die Klassifikations- und Begründungsspur wird unmittelbar mit dem im selben Fall ausgeführten grafischen Algorithmus und Laufprotokoll verknüpft.",
+          "productEvidence": "In derselben Produktansicht des vorhandenen ausführbaren grafischen Algorithmus mit Laufprotokoll steht eine integrierte Klassifikations- und Begründungsspur für alle vorgegebenen Fälle: Kennzeichnung als algorithmisch wesentlich bestimmt, Nicht- oder Grenzbeispiel, Benennung des konkreten algorithmischen Prozesses und fallbezogene Begründung; es entsteht kein unverbundenes Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ]
+    },
+    {
+      "id": "IUM-5-CORE-06",
+      "timeContractId": "TC-IUM-5-CORE-06",
+      "title": "Ein Medienprodukt zielgerichtet gestalten",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DA-005",
+        "LH26-E-DA-006",
+        "LH26-E-DA-007",
+        "LH26-E-DA-008",
+        "BMB16-GYM-PK-HK-002",
+        "BMB16-GYM-IK-PP-001",
+        "BMB16-GYM-IK-PP-002",
+        "BMB16-GYM-IK-PP-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01",
+        "IUM-5-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Welche Gestaltung hilft einer Zielgruppe, eine belegte Aussage richtig zu verstehen?",
+      "centralLearningAction": "Inhalt strukturieren, Formentscheidungen begründen, Quellen und Rechte prüfen, ein digitales Produkt testen, nach Kriterien sichtbar überarbeiten, vor einem Publikum vorstellen und seine Qualität anhand der Kriterien einschätzen.",
+      "centralLearningProduct": "Adressatengerechtes Informationsprodukt mit Quellenverzeichnis, Gestaltungsbegründung, Kriterienfeedback, Vorher–Nachher-Revision, Präsentationsnotiz und kriteriengebundener Qualitätseinschätzung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Layout, Medienobjekte, Quellenlinks und Revision sind genuine digitale Produkteigenschaften; Versionen können direkt verglichen und barrierearme Varianten geprüft werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-06-BMB16-GYM-IK-PP-002",
+          "competencyId": "BMB16-GYM-IK-PP-002",
+          "mode": "module-detail",
+          "learningAction": "Bei der Erstellung desselben adressatengerechten Informationsprodukts für jedes verwendete Fremdmaterial Quelle, Lizenz und zulässige Nutzung prüfen und dokumentieren; getrennt davon eine datensparsame Inhalts- und Veröffentlichungsentscheidung treffen, ausschließlich fiktive oder sachbezogene Inhalte verwenden, keine echten personenbezogenen Daten aufnehmen und einen begrenzten Adressatenkreis wählen.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision weist eine getrennte Rechte- und Datenschutzspur die quellen- und lizenzbezogene Entscheidung pro Fremdmaterial sowie getrennt die Datenschutzentscheidung nach: Datenvermeidung, fiktive oder sachbezogene Inhalte, keine echten personenbezogenen Daten und ein begrenzter Adressatenkreis; keine Einwilligungsdokumente und keine private Offenlegung werden verlangt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-06-LH26-E-DA-005",
+          "competencyId": "LH26-E-DA-005",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen in einer vorgegebenen konkreten Textfassung die Bausteine Überschrift, Fließtext, Bildunterschrift und Listenbaustein identifizieren und anschließend mehrere konkrete Formatierungsoptionen – Formatvorlage oder Absatzformat, Liste und Hervorhebung – tatsächlich und funktional nutzen.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision zeigt eine Baustein- und Formatierungsspur die markierten Textbausteine und im Vorher-Nachher-Vergleich mehrere tatsächlich eingesetzte Formatierungen mit ihrer jeweiligen Funktion.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-06-LH26-E-DA-006",
+          "competencyId": "LH26-E-DA-006",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen ein Bild als verpflichtend nachzuweisende visuelle Objektart nach der Rechteprüfung tatsächlich nutzen, eine Entscheidung zu Position, Größe oder Ausschnitt treffen und seine visuelle Funktion für die belegte Aussage begründen; weitere Gestaltungsobjekte bleiben optional.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision dokumentiert eine Bildnutzungs- und Gestaltungsentscheidung das eingesetzte Bild, die sichtbare Entscheidung zu Position, Größe oder Ausschnitt und seine begründete Funktion für die Aussage.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-5-CORE-06-LH26-E-DA-008",
+          "competencyId": "LH26-E-DA-008",
+          "mode": "module-detail",
+          "learningAction": "Die Lernenden sollen eine vorgegebene Gestaltung in ihrer Wirkung anhand vorgegebener Kriterien und konkreter Belege beurteilen und den Zusammenhang von Inhalt und Form analysieren; erst anschließend können sie eine ausgewählte Erkenntnis in die eigene Überarbeitung übertragen, dieser Transfer ersetzt Analyse und Urteil nicht.",
+          "productEvidence": "In demselben adressatengerechten Informationsprodukt mit integrierter Gestaltungsbegründung und Vorher-Nachher-Revision enthält eine kriterien- und beleggebundene Analyse- und Urteilsspur der vorgegebenen Gestaltung für jedes untersuchte Gestaltungselement die Zuordnung von Inhalt, Form, Wirkung und Beleg, ein begründetes Gesamturteil sowie eine optionale Transfermarkierung zur eigenen Revision.",
+          "productVisibility": "teacher-observable"
+        }
+      ]
+    },
+    {
+      "id": "IUM-5-CORE-07",
+      "timeContractId": "TC-IUM-5-CORE-07",
+      "title": "Mediennutzung und Werbung an Fällen untersuchen",
+      "grade": 5,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-002",
+        "LH26-E-DP-003",
+        "LH26-E-DP-005",
+        "BMB16-GYM-PK-RK-001",
+        "BMB16-GYM-PK-RK-002",
+        "BMB16-GYM-PK-RK-003",
+        "BMB16-GYM-IK-MG-001",
+        "BMB16-GYM-IK-MG-002",
+        "BMB16-GYM-IK-MG-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie beeinflussen Gestaltung, Einbettung und Nutzungssituation unsere Wahrnehmung, ohne dass daraus eine Personendiagnose folgt?",
+      "centralLearningAction": "Werbung, Faszination, Konflikte und mögliche Medienwirkungen in kuratierten Fällen beschreiben, Gestaltungsmerkmale belegen und alternative Erklärungen prüfen; anschließend eine private Selbstreflexion zur eigenen Mediennutzung durchführen und eine persönliche Handlungsoption formulieren.",
+      "centralLearningProduct": "Teilbare fallbezogene Wirkungskarte mit Beobachtung, möglicher Erklärung, Gegenperspektive, Unsicherheit und revidierbarer Handlungsoption; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
+          "competencyId": "BMB16-GYM-IK-MG-001",
+          "mode": "private-local",
+          "learningAction": "Im Abschnitt „Motivation und altersbezogene Bewertung“ der integrierten privaten lokalen Reflexionsmatrix die persönliche Motivation für das eigene Medienverhalten in denselben zwei einmal festgehaltenen eigenen Nutzungssituationen beschreiben und die eigene Nutzung begründet bewerten. Kriterienbasis: vollständig vorgegebener, im nichtpersonalen Auftrag enthaltener altersbezogener Kriterienkatalog.",
+          "productEvidence": "Record-spezifischer Abschnitt „Motivation und altersbezogene Bewertung“ der integrierten privaten lokalen Reflexionsmatrix mit denselben zwei eigenen Nutzungssituationen, der jeweils beschriebenen persönlichen Motivation und einem begründeten Urteil zur eigenen Nutzung. Kriterienbasis: vollständig vorgegebener, im nichtpersonalen Auftrag enthaltener altersbezogener Kriterienkatalog.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Als Abschnitt „Altersbezogene Bewertung“ derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte den vollständig vorgegebenen gemeinsamen fiktiven Fall bewerten und begründen, welche Merkmale angemessen oder problematisch sind. Kriterienbasis: vollständig vorgegebener, im nichtpersonalen Auftrag enthaltener altersbezogener Kriterienkatalog. Fall und Kriterienkatalog sind im Auftrag vollständig enthalten; der Abschnitt funktioniert ohne Einsicht in die integrierte private Matrix."
+        },
+        {
+          "id": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
+          "competencyId": "BMB16-GYM-IK-MG-002",
+          "mode": "module-detail",
+          "learningAction": "Am vollständig vorgegebenen gemeinsamen fiktiven Fall mit denselben zwei Nutzungssituationen, demselben Kriterienkatalog und denselben kuratierten Materialien positive Aspekte der Mediennutzung sowie Risiken und Gefahren des übermäßigen Mediengebrauchs erläutern, beide mit Kriterien und Belegen bewerten und passende präventive Maßnahmen benennen.",
+          "productEvidence": "Abschnitt „Nutzen, Risiken und Prävention“ derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte zum vollständig vorgegebenen gemeinsamen fiktiven Fall mit erläutertem positivem Aspekt, erläutertem Risiko oder einer Gefahr übermäßiger Nutzung, kriterien- und beleggestütztem Urteil sowie passend benannter präventiver Maßnahme.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
+          "competencyId": "BMB16-GYM-IK-MG-003",
+          "mode": "private-local",
+          "learningAction": "Im Abschnitt „Empfindung und Wirkung“ der integrierten privaten lokalen Reflexionsmatrix die Wirkung derselben zwei kuratierten Medienbeispiele aus dem gemeinsamen fiktiven Fall untersuchen, die eigenen Empfindungen dazu äußern und aus dem Vergleich eine erste bedingte Gesetzmäßigkeit der Medienwirkung ableiten.",
+          "productEvidence": "Record-spezifischer Abschnitt „Empfindung und Wirkung“ der integrierten privaten lokalen Reflexionsmatrix mit Merkmalen und Wirkungsangeboten derselben zwei kuratierten Medienbeispiele, den jeweils geäußerten eigenen Empfindungen und einer daraus abgeleiteten ersten bedingten Gesetzmäßigkeit.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Als Abschnitt „Wirkung und bedingte Gesetzmäßigkeit“ derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte den vollständig vorgegebenen gemeinsamen fiktiven Fall anhand derselben zwei kuratierten Medienbeispiele und vollständig vorgegebener fiktiver Reaktionsdaten untersuchen sowie eine bedingte Wirkungsaussage ableiten und revidieren; der Abschnitt funktioniert ohne Kenntnis privater Empfindungen oder Ableitungen."
+        },
+        {
+          "id": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
+          "competencyId": "BMB16-GYM-PK-RK-001",
+          "mode": "private-local",
+          "learningAction": "Im Abschnitt „Nutzungsvergleich“ der integrierten privaten lokalen Reflexionsmatrix an eigene Erfahrungen anknüpfen, das eigene Nutzungsverhalten in denselben zwei einmal festgehaltenen Nutzungssituationen beschreiben und anhand des vorgegebenen Kriterienkatalogs untereinander sowie mit den zwei Nutzungssituationen des gemeinsamen fiktiven Falls vergleichen.",
+          "productEvidence": "Record-spezifischer Abschnitt „Nutzungsvergleich“ der integrierten privaten lokalen Reflexionsmatrix mit der Beschreibung des eigenen Nutzungsverhaltens in denselben zwei Situationen, den zwei vollständig vorgegebenen Situationen des gemeinsamen fiktiven Falls, gemeinsamen Vergleichskriterien sowie festgehaltenen Gemeinsamkeiten und Unterschieden.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Als Abschnitt „Nutzungsvergleich“ derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte die zwei vollständig vorgegebenen Nutzungssituationen des vollständig vorgegebenen gemeinsamen fiktiven Falls anhand des im Auftrag enthaltenen Kriterienkatalogs beschreiben und vergleichen sowie begründete Gemeinsamkeiten und Unterschiede festhalten; der Abschnitt benötigt keine Angaben aus der integrierten privaten Matrix."
+        },
+        {
+          "id": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
+          "competencyId": "BMB16-GYM-PK-RK-002",
+          "mode": "private-local",
+          "learningAction": "Im Abschnitt „Lebenswelt und Medienwirklichkeit“ der integrierten privaten lokalen Reflexionsmatrix an denselben zwei einmal festgehaltenen eigenen Nutzungssituationen den Einfluss digitaler Medien auf konkrete eigene Lebensbereiche darstellen und mit denselben zwei kuratierten Medienbeispielen Wirklichkeit und Medienwirklichkeit durch begründete Entsprechungen und Unterschiede in Beziehung setzen.",
+          "productEvidence": "Record-spezifischer Abschnitt „Lebenswelt und Medienwirklichkeit“ der integrierten privaten lokalen Reflexionsmatrix mit Einflüssen digitaler Medien in denselben zwei eigenen Nutzungssituationen sowie begründeten Entsprechungen und Unterschieden zwischen Wirklichkeit und den zwei kuratierten Medienbeispielen.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Als Abschnitt „Lebenswelt und Medienwirklichkeit“ derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte am vollständig vorgegebenen gemeinsamen fiktiven Fall den Einfluss digitaler Medien auf dessen Lebenswelt darstellen und anhand derselben zwei kuratierten Medienbeispiele Wirklichkeit und Medienwirklichkeit durch Entsprechungen und Unterschiede in Beziehung setzen; der Abschnitt funktioniert ohne Kenntnis der integrierten privaten Matrix."
+        }
+      ],
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Kuratiertes digitales Medienmaterial erlaubt das genaue Markieren eingebetteter Werbung und den Vergleich veränderbarer Gestaltungsmerkmale; die anschließende private Reflexion funktioniert lokal ohne Übermittlung persönlicher Nutzungsangaben.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur die fallbezogene Wirkungskarte, ihre Belege und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; Lern- und Leistungssituation bleiben getrennt.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-01",
+      "timeContractId": "TC-IUM-6-CORE-01",
+      "title": "Suchmaschinen, Akteure und KI-Ergebnisse prüfen",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-004",
+        "LH26-E-ID-005",
+        "LH26-E-ID-006",
+        "LH26-E-ID-007",
+        "LH26-E-ID-008",
+        "LH26-E-ID-011",
+        "LH26-E-ID-012"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 8
+      },
+      "centralQuestion": "Wie entstehen sichtbare Such- und KI-Ergebnisse – und wann verdienen sie Vertrauen?",
+      "centralLearningAction": "Indexprinzip, Akteure, Motive und automatisierte Verbreitung modellieren, widersprüchliche Quellen prüfen und eine KI-Antwort mit unabhängigen Belegen revidieren.",
+      "centralLearningProduct": "Evidenzdossier mit Suchmodell, Akteurs- und Interessenkarte, Quellenvergleich, KI-Behauptungsprüfung und Unsicherheitsurteil.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Suchindizes, verlinkte Quellen und KI-Ausgaben sind digitale Mechanismen; ein kontrollierter Browserraum erlaubt reproduzierbare Vergleiche und direkte Belegnavigation.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-02",
+      "timeContractId": "TC-IUM-6-CORE-02",
+      "title": "Datenfluss und personalisierte Auswahl modellieren",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D",
+        "STRAND-B",
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-004",
+        "LH26-E-DP-006",
+        "LH26-E-DP-007",
+        "LH26-E-DP-008",
+        "LH26-E-DP-009"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-07",
+        "IUM-6-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Welche Daten gelangen zu welchen Akteuren, und wie können sie eine Auswahl beeinflussen?",
+      "centralLearningAction": "Datenarten und Erhebungstechniken in fiktiven Fällen identifizieren, Akteursinteressen erklären, Auswahlhypothesen testen, Handlungsoptionen zur informationellen Selbstbestimmung begründen und eine private Selbstreflexion zur eigenen Mediennutzung durchführen.",
+      "centralLearningProduct": "Teilbares Datenfluss- und Auswahlmodell mit Datenarten, Akteuren, Interessen, Modellgrenze und begründeter Schutzentscheidung; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine lokale interaktive Fallumgebung macht Datenflüsse, Auswahlparameter und Gegenmaßnahmen veränderbar, ohne reale personenbezogene Daten zu sammeln.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Datenflussmodell, Schutzentscheidung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
+      "status": "working",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-6-CORE-02-LH26-E-DP-004",
+          "competencyId": "LH26-E-DP-004",
+          "mode": "module-detail",
+          "learningAction": "An mindestens zwei unterschiedlichen Dienst- oder Softwarebeispielen aus Apps, Programmen oder Onlinediensten Nutzungs- und Rahmenbedingungen aus konkreten kuratierten fiktiven oder neutralisierten Bedingungen-Auszügen herausarbeiten, die jeweilige Fundstelle belegen und die Auswirkung auf die Nutzung und die Schutzentscheidung markieren; betrachtet werden Zugang, Alter oder Kosten, Daten oder Berechtigungen, Werbung oder Finanzierung sowie Nutzungsrechte oder Kündigung; keine Anmeldung und keine realen Konten, ausschließlich kuratierte Fälle.",
+          "productEvidence": "In einer klar beschrifteten Bedingungen-Matrix als eigener Schicht desselben teilbaren Datenfluss- und Auswahlmodells stehen mindestens zwei unterschiedliche Dienst- oder Softwarebeispiele jeweils in einer Zeile. Für jedes Beispiel sind die vier beschrifteten Prüffelder Zugang, Alter oder Kosten; Daten oder Berechtigungen; Werbung oder Finanzierung; Nutzungsrechte oder Kündigung mit Bedingungen-Auszug, Fundstelle oder Beleg und Auswirkung auf Nutzung und Schutzentscheidung ausgefüllt. Es gelten ausschließlich kuratierte fiktive oder neutralisierte Fall- und Bedingungsdaten; keine realen Konten, Profile, Werbeverläufe, Standort- oder Nutzungsdaten, Screenshots personalisierter Werbung oder personenbezogene Selbstauskünfte werden verwendet. Die Matrix ist eine integrierte Modellschicht und kein unverbundenes Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-6-CORE-02-LH26-E-DP-006",
+          "competencyId": "LH26-E-DP-006",
+          "mode": "module-detail",
+          "learningAction": "An mindestens drei synthetischen Fällen Möglichkeiten nennen, wie die spezifische Auswahl einer Werbebotschaft zustande kommen kann, und mindestens drei unterscheidbare modellierte Auswahlwege zuordnen: aktueller Inhalts- oder Suchkontext, fiktives Profilmerkmal und fiktives Nutzungsverhaltenssignal; jeder Weg verbindet Signal oder Datenmerkmal, Auswahlregel oder Auswahlmodell und konkrete Werbebotschaft. Die Darstellung kennzeichnet die vereinfachte Möglichkeit mit einer Modellgrenze und behauptet keine technische Gewissheit über einen konkreten Dienst.",
+          "productEvidence": "In eigenen klar beschrifteten Werbeauswahlpfaden als zweiter Schicht desselben teilbaren Datenfluss- und Auswahlmodells dokumentieren mindestens drei synthetische Fälle je einen Kontextpfad, Profilpfad und Verhaltenspfad; jeder nennt Signal oder Datenmerkmal, Auswahlregel oder Auswahlmodell und konkret ausgewählte Werbebotschaft, nicht bloß allgemeine Auswahlhypothesen. Eine Modellgrenze trennt die plausible Möglichkeit von behaupteter Gewissheit. Es gelten ausschließlich kuratierte fiktive oder neutralisierte Fall- und Bedingungsdaten; keine realen Konten, Profile, Werbeverläufe, Standort- oder Nutzungsdaten, Screenshots personalisierter Werbung oder personenbezogene Selbstauskünfte werden verwendet. Die Pfade sind eine integrierte Modellschicht und kein unverbundenes Zusatzprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ]
+    },
+    {
+      "id": "IUM-6-CORE-03",
+      "timeContractId": "TC-IUM-6-CORE-03",
+      "title": "Codierungen entwerfen und auf Umkehrbarkeit prüfen",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-013",
+        "LH26-E-ID-014",
+        "LH26-E-ID-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie muss eine Vereinbarung aussehen, damit Information eindeutig übertragen und zurückgewonnen werden kann?",
+      "centralLearningAction": "Codierungen nach Zweck vergleichen, Text codieren und decodieren, mehrdeutige Vorschriften durch Gegenbeispiele prüfen und eine eigene umkehrbare Vereinbarung verbessern.",
+      "centralLearningProduct": "Kommentiertes Codebuch mit Zweck, Vorschrift, Beispielen, Gegenbeispiel, Decodiertest und revidierter Fassung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein lokales digitales Codierwerkzeug ermöglicht sofortige Umkehrtests, systematische Gegenbeispiele und den Wechsel zwischen Information, Zeichen und Code.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-04",
+      "timeContractId": "TC-IUM-6-CORE-04",
+      "title": "Programme mit festen Schleifen lesen und verändern",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-ALG-005",
+        "LH26-E-ALG-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie erklären wir nicht nur, dass Code läuft, sondern wie jeder Schritt zur Wirkung beiträgt?",
+      "centralLearningAction": "Code vorhersagen, schrittweise mit Zustand ausführen, Wirkung erklären, eine feste Schleife begründet verändern und die Änderung mit Fällen prüfen.",
+      "centralLearningProduct": "Lauffähiges kleines Programm mit Trace, Wirkungserklärung, begründeter Modifikation und dokumentierten Testfällen.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine lokale Programmier- und Tracingumgebung koppelt Codeposition, Zustand und Ausgabe; Änderungen und Testfälle werden unmittelbar reproduzierbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-05",
+      "timeContractId": "TC-IUM-6-CORE-05",
+      "title": "Netz- und Speicherentscheidungen mit Modellen begründen",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-008",
+        "LH26-E-KS-009",
+        "LH26-E-KS-010"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-04"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Welches Netz- oder Speichermodell erklärt eine konkrete Schulaufgabe gut genug – und wo endet es?",
+      "centralLearningAction": "Aus dem gestützten schulischen Datenweg Netz-, Client–Server- und Speichermodelle erarbeiten, erklären, kriteriengeleitet vergleichen und anschließend auf einen neuen Fall übertragen, Modellgrenzen markieren und eine Entscheidung revidieren.",
+      "centralLearningProduct": "Vergleichendes Systemmodell mit Datenweg, Speicherorten, Kriterienmatrix, begründeter Entscheidung und Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Szenarien erlauben das Umschalten von Netzwegen, Diensten und Speicherorten; Entscheidungen können gegen simulierte Ausfälle und Zugriffsänderungen geprüft werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-06",
+      "timeContractId": "TC-IUM-6-CORE-06",
+      "title": "Konflikte in sozialen Räumen fallbezogen bearbeiten",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-011",
+        "LH26-E-KS-012",
+        "LH26-E-KS-013",
+        "LH26-E-KS-014",
+        "LH26-E-KS-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-03",
+        "IUM-5-CORE-07"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie lassen sich soziale Medien und digitale Konflikte beurteilen, ohne Betroffene zur Offenlegung zu zwingen?",
+      "centralLearningAction": "Gründe für und gegen die Nutzung Sozialer Medien diskutieren, die Wirkung von Selbstdarstellung an fiktiven Profilen einschätzen, rechtliche und kommunikative Bedingungen eines Konflikts prüfen sowie eine private Selbstreflexion zur eigenen Mediennutzung im rechtlichen Rahmen durchführen.",
+      "centralLearningProduct": "Teilbare Pro-und-Contra-Matrix, Wirkungseinschätzung und nichtpersonaler Fall-Handlungsplan mit Hilfswegen und begründeter Eskalationsentscheidung; die private Reflexionsnotiz bleibt bei der lernenden Person.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine geschützte digitale Fallsimulation kann Profile, Perspektiven, Sichtbarkeiten und Handlungsfolgen variieren; die persönliche Reflexion erfolgt lokal und wird weder übermittelt noch mit realer Klassenkommunikation verknüpft.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Pro-und-Contra-Matrix, Fallanalyse, Handlungsplan und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-6-CORE-06-LH26-E-KS-014",
+          "competencyId": "LH26-E-KS-014",
+          "mode": "module-detail",
+          "learningAction": "An ausschließlich kuratierten fiktiven oder neutralisierten Fällen Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen beschreiben: wiederholte Abwertung, Ausschluss sowie Macht- oder Reichweitendynamik werden jeweils am konkreten Fall belegt und nicht pauschal als Diagnose verwendet. Darauf bezogen exemplarische Handlungsstrategien nennen und unterscheidbar als Präventionsmaßnahme, Hilfsangebot oder Hilfsweg und Meldemöglichkeit zuordnen sowie eine begründete Eskalationsentscheidung treffen. Schulische Rollen und ein Plattformmeldeweg dürfen exemplarisch benannt werden; keine tatsächliche Meldung als Lernnachweis und keine realen Hilfetelefonnummern. Es gelten keine persönliche Konfliktoffenlegung, keine reale Betroffenheit und keine realen Namen, Konten, Nachrichten oder Screenshots.",
+          "productEvidence": "Die separate Merkmal-und-Strategie-Spur desselben nichtpersonalen Fall-Handlungsplans dokumentiert pro fiktivem oder neutralisiertem Fall Situation → Merkmal → konkreter Fallbeleg und ordnet anschließend Prävention, Hilfe und Melden als unterscheidbare Handlungsstrategien zu; eine begründete Eskalationsentscheidung schließt die Spur ab. Lehrkraftsichtbar ist nur dieser nichtpersonale Fallplan; es erfolgt keine tatsächliche Meldung als Lernnachweis, und es werden keine realen Hilfetelefonnummern, Namen, Konten, Nachrichten oder Screenshots erfasst.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-6-CORE-06-LH26-E-KS-015",
+          "competencyId": "LH26-E-KS-015",
+          "mode": "module-detail",
+          "learningAction": "An ausschließlich kuratierten fiktiven oder neutralisierten Fällen mehrere plausible digitale und soziale Ursachenhypothesen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen: vermeintliche Anonymität, Gruppendynamik, hohe Reichweite oder Persistenz, geringe Interventionsschwelle sowie algorithmische oder soziale Verstärkung werden fallbezogen geprüft. Jede Nennung wird als Ursachenhypothese oder begünstigender Faktor unterschieden und mit einer Unsicherheit markiert; es gelten kein Victim Blaming, keine Ferndiagnose und keine behauptete Täterabsicht. Außerdem gelten keine persönliche Konfliktoffenlegung, keine reale Betroffenheit und keine realen Namen, Konten, Nachrichten oder Screenshots; keine realen Hilfetelefonnummern werden verwendet.",
+          "productEvidence": "Die separate Faktorenkarte desselben nichtpersonalen Fall-Handlungsplans enthält mehrere fallbezogene Faktoren mit Belegstelle, die Zuordnung als Ursachenhypothese oder begünstigender Faktor und eine Unsicherheitsmarkierung. Sie behauptet weder Opferverantwortung noch Diagnose oder Täterabsicht. Lehrkraftsichtbar ist nur dieser nichtpersonale Fallplan; reale Namen, Konten, Nachrichten, Screenshots, Hilfetelefonnummern oder persönliche Konflikterfahrungen werden nicht erhoben.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-CORE-07",
+      "timeContractId": "TC-IUM-6-CORE-07",
+      "title": "Wirkungsabsicht, Rechte und Revision verbinden",
+      "grade": 6,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DA-009",
+        "LH26-E-DA-010",
+        "LH26-E-DA-011",
+        "LH26-E-DA-012",
+        "LH26-E-DA-013",
+        "LH26-E-DA-014",
+        "LH26-E-DA-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-06",
+        "IUM-6-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie lässt sich eine beabsichtigte Wirkung gestalten, rechtlich verantworten und durch Revision verbessern?",
+      "centralLearningAction": "Wirkungsabsicht und Zielgruppe formulieren, Gestaltungsentscheidungen begründen, offene oder eigene Inhalte rechtskonform verwenden, Feedback prüfen und eine Version sichtbar revidieren.",
+      "centralLearningProduct": "Offen nachnutzbares Medienprodukt mit Wirkungsbriefing, Assetnachweisen, Lizenzprüfung, Feedbackprotokoll und dokumentierter Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Produktion ist Gegenstand und Handlung: Versionen, Quellenmetadaten, Lizenzhinweise, Export und Feedbackrevision müssen am tatsächlichen Artefakt geprüft werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-009",
+          "competencyId": "LH26-E-DA-009",
+          "mode": "module-detail",
+          "learningAction": "Im selben Analyse-, Produktions- und Revisionsprozess eine Mikrogeschichte als verpflichtendes kreatives Textprodukt innerhalb des offen nachnutzbaren Medienprodukts erstellen: ein eigenes Gestaltungs- und Wirkungsziel vorab festlegen, ausschließlich eigene oder nachweislich rechtlich nutzbare und mit der beabsichtigten offenen Nachnutzung kompatibel freigegebene Inhalte verwenden, die Textfassung gestalten, sichtbares Wirkungsfeedback einholen, sich mit der Wirkung auseinandersetzen, indem dieses Feedback in einem Soll-Ist-Abgleich ausgewertet wird, und die Mikrogeschichte begründet revidieren.",
+          "productEvidence": "Die Kreativtextspur desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte belegt: vorgelagertes eigenes Gestaltungs- und Wirkungsziel, Version 1, ein sichtbarer Feedbackbefund zur Wirkung, der Soll-Ist-Abgleich und die begründete Textrevision von Version 1 zu Version 2. Für alle Produktionsinhalte werden Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile dokumentiert.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-010",
+          "competencyId": "LH26-E-DA-010",
+          "mode": "module-detail",
+          "learningAction": "An einem vorhandenen, vorgegebenen und kuratierten Medienprodukt dessen Wirkungsabsicht herausarbeiten: Zielgruppe und intendierte Wirkung bestimmen, jeweils konkrete Inhalts- und Formbelege anführen und jeden beobachtbaren Befund von begründeter Inferenz unterscheiden. Die Analyse bildet einen eigenen Schritt im bestehenden Wirkungsbriefing; ein anschließender Transfer in die eigene Gestaltung ist optional und ersetzt die Analyse nicht.",
+          "productEvidence": "Die separate Analyse- und Wirkungsabsichtsspur im Wirkungsbriefing desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte dokumentiert Zielgruppe, intendierte Wirkung und konkrete Inhalts- und Formbelege des vorhandenen vorgegebenen kuratierten Analyseprodukts; sie hält Befund und begründete Inferenz getrennt fest. Transfer in das eigene Produkt ist optional und ersetzt die Analyse nicht. Das Analyseprodukt wird ohne nachgewiesene kompatible Freigabe weder in das offen nachnutzbare Produkt übernommen noch mit ihm weiterveröffentlicht; notwendige Analysebelege werden rechtlich zulässig und quellenbezogen dokumentiert. Der optionale Transfer verwendet ausschließlich eigene oder nachweislich rechtlich nutzbare und mit der beabsichtigten offenen Nachnutzung kompatibel freigegebene Inhalte; für Produktionsanteile werden Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile dokumentiert.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-012",
+          "competencyId": "LH26-E-DA-012",
+          "mode": "module-detail",
+          "learningAction": "Im selben Produktions- und Revisionsprozess bei der tatsächlichen Erstellung und Gestaltung mindestens drei unterscheidbare Bedienkonzepte anwenden: Auswählen → Eigenschaften ändern, direkte Manipulation, eine Wahl über Menü, Werkzeugleiste oder Tastaturbefehl sowie Rückgängig, Wiederholen oder Version werden jeweils an einer beabsichtigten Änderung des Medienprodukts ausgeführt. Dabei werden ausschließlich eigene oder nachweislich rechtlich nutzbare und mit der beabsichtigten offenen Nachnutzung kompatibel freigegebene Inhalte bearbeitet.",
+          "productEvidence": "Der Arbeits- und Revisionsnachweis desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte ordnet mehrere tatsächlich angewandte Bedienkonzepte jeweils als Operation → Produktänderung zu und verweist auf die zugehörige sichtbare Revision. Er benötigt keine Bildschirmaufzeichnung oder Interaktionsvollprotokoll und hält keine vollständige Bedienhistorie fest. Für die bearbeiteten Inhalte werden Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile dokumentiert.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-6-CORE-07-LH26-E-DA-015",
+          "competencyId": "LH26-E-DA-015",
+          "mode": "school-context",
+          "learningAction": "Im selben lokalen Teilprozess mindestens zwei verschiedene Teilwege tatsächlich nutzen, um dasselbe neutrale, fiktive oder personenbezugsfreie Produkt mit anderen zu teilen: Weg A ist berechtigungsgesteuertes Teilen in einer freigegebenen schulischen Ablage oder Kollaboration; Weg B ist Dateiexport und Weitergabe über einen zweiten freigegebenen Kursraum oder Transferweg. Das Produkt auf beiden Wegen bereitstellen oder teilen und abrufen oder öffnen; verwendet werden ausschließlich eigene oder nachweislich rechtlich nutzbare und mit der beabsichtigten offenen Nachnutzung kompatibel freigegebene Inhalte.",
+          "productEvidence": "Die lehrkraftbeobachtbare lokale Ausführungsspur desselben offen nachnutzbaren Medienprodukts mit integrierter Mikrogeschichte dokumentiert mindestens zwei Teilwegspuren A und B. Pro Weg werden ausschließlich Wegbezeichnung, ausgeführte Operation und Empfängerkreis oder Zugriffsumfang festgehalten; keine Zugangsdaten, privaten Links, Inhaltsprotokolle oder öffentlichen Schülerkonten werden erfasst. Die Spur bestätigt für beide Wege das tatsächliche Bereitstellen oder Teilen und Abrufen oder Öffnen desselben neutralen, fiktiven oder personenbezugsfreien Produkts. Für die geteilten Inhalte werden Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile dokumentiert.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Als lokales Gate werden vor der Modulfreigabe beide verschiedenen Teilwege A und B vor Ort verfügbar, schulisch freigegeben und datenschutzkonform benannt und im Modul tatsächlich benutzt: A ist eine berechtigungsgesteuerte schulische Ablage oder Kollaboration, B ein zweiter freigegebener Kursraum oder Transferweg. Die Konfiguration ermöglicht Bereitstellen oder Teilen und Abrufen oder Öffnen ohne Zugangsdaten, private Links, Inhaltsprotokolle oder öffentliche Schülerkonten zu erfassen."
+        }
+      ],
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-01",
+      "timeContractId": "TC-IUM-7-CORE-01",
+      "title": "Codierungen zwischen Zeichen, Zahlen und Bits entwerfen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-016",
+        "LH26-E-ID-017",
+        "LH26-E-ID-020",
+        "LH26-E-ID-021",
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-007",
+        "INF7-16-GYM-IK-DC-008"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-03"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie wird aus einer vereinbarten Bedeutung eine eindeutige Bitfolge – und welche Grenzen setzt der Zeichenvorrat?",
+      "centralLearningAction": "Binärzahlen und Zeichencodes darstellen, ASCII codieren und decodieren, eine eigene Bitcodierung entwerfen, Codeworträume berechnen und mit Gegenbeispielen prüfen.",
+      "centralLearningProduct": "Getestetes Bit-Codebuch mit Binärdarstellungen, ASCII-Beispielen, eigener Vorschrift, Codewortberechnung und Umkehrbarkeitstest.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein lokales Bitlabor macht Zeichen-, Zahlen- und Bitdarstellung synchron sichtbar und erzeugt systematische Test- und Grenzfälle ohne Formatierungsfehler durch Fremdwerkzeuge.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-001",
+          "competencyId": "INF7-16-GYM-IK-DC-001",
+          "mode": "module-detail",
+          "learningAction": "In der Alltagscodierungsansicht mehrere Verwendungen von Codierungen im Alltag nennen und für Strichcode oder QR-Code, Morsecode, Brailleschrift und ASCII-Zeichencode jeweils Bedeutung, Darstellung und Verwendungszweck sinnvoll zuordnen. Dabei Codierung nicht mit Verschlüsselung gleichsetzen.",
+          "productEvidence": "Die Alltagscodierungs-Landkarte als erste der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs enthält mindestens vier fachlich korrekte Beispiele mit der Zuordnung Bedeutung ↔ Darstellung ↔ Verwendungszweck; sie ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-004",
+          "competencyId": "INF7-16-GYM-IK-DC-004",
+          "mode": "module-detail",
+          "learningAction": "Die Datenmenge als Länge einer Bitfolge erklären: Für 0100000101000010 die Länge 16 Bit bestimmen, mit 8 Bit = 1 Byte als 2 Byte beschreiben und Größenangaben in Bit, Byte, kB, MB, GB und TB verwenden. Die größeren Einheiten werden dezimal mit 1 kB = 10^3 Byte, 1 MB = 10^6 Byte, 1 GB = 10^9 Byte und 1 TB = 10^12 Byte gekennzeichnet.",
+          "productEvidence": "Die enacted Datengrößenspur als zweite der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs dokumentiert in der gemeinsamen Datengrößentabelle des Bit-Codebuchs 0100000101000010, die Länge 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte sowie Größenangaben in Bit, Byte, kB, MB, GB und TB; die Präfixe sind ausdrücklich dezimal ausgewiesen. Die Spur ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-005",
+          "competencyId": "INF7-16-GYM-IK-DC-005",
+          "mode": "module-detail",
+          "learningAction": "Mit einer systematischen Stellenwertmethode jede natürliche Zahl von 0 bis 255 in beide Richtungen bearbeiten: Zahl → 8-Bit-Folge und 8-Bit-Folge → Zahl. Dazu die Stellenwerte 2^7, 2^6, 2^5, 2^4, 2^3, 2^2, 2^1 und 2^0 sowie die Summe der Stellenwerte erklären, führende Nullen als Teil der eindeutigen 8-Bit-Darstellung verwenden und 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000, 255 ↔ 11111111 sowie einen unbekannten Prüffall korrekt bearbeiten.",
+          "productEvidence": "Die Binärumwandlungs- und Prinzipspur als dritte der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs weist das Verfahren für jede natürliche Zahl von 0 bis 255 mit einer systematischen Methode statt einer vollständigen Aufzählung nach: Zahl → 8-Bit-Folge, 8-Bit-Folge → Zahl, Stellenwertzeile 2^7, 2^6, 2^5, 2^4, 2^3, 2^2, 2^1 und 2^0, Summe der Stellenwerte, führende Nullen, die Grenz- und Stellenwechselfälle 0 ↔ 00000000, 127 ↔ 01111111, 128 ↔ 10000000 und 255 ↔ 11111111 sowie ein korrekt gelöster unbekannter Prüffall. Die Spur ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-LH26-E-ID-020",
+          "competencyId": "LH26-E-ID-020",
+          "mode": "module-detail",
+          "learningAction": "Quellentreu die Datenmenge als Länge einer Bitfolge erklären und für konkrete Bitfolgen Bit und Byte verwenden, einschließlich 8 Bit = 1 Byte und 16 Bit = 2 Byte.",
+          "productEvidence": "Die separate Bit-und-Byte-Spur als vierte der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs verweist auf einen eigenen Ausschnitt der gemeinsamen Datengrößentabelle des Bit-Codebuchs und hält für 0100000101000010 ausschließlich die Bitfolgenlänge 16 Bit, 8 Bit = 1 Byte und 16 Bit = 2 Byte fest; sie ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-01-LH26-E-ID-021",
+          "competencyId": "LH26-E-ID-021",
+          "mode": "module-detail",
+          "learningAction": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera tatsächlich zur Angabe von Datenmengen verwenden und mit 10^3, 10^6, 10^9 und 10^12 sowie den Einheitensymbolen kB, MB, GB und TB korrekt umrechnen: 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte.",
+          "productEvidence": "Die separate Dezimalpräfixspur als fünfte der fünf klar beschrifteten Ansichten desselben getesteten Bit-Codebuchs ergänzt einen eigenen Ausschnitt der gemeinsamen Datengrößentabelle des Bit-Codebuchs um Kilo, Mega, Giga und Tera mit 10^3, 10^6, 10^9 und 10^12 und den tatsächlich ausgeführten Umrechnungen 2 kB = 2 × 10^3 Byte, 3 MB = 3 × 10^6 Byte, 4 GB = 4 × 10^9 Byte und 5 TB = 5 × 10^12 Byte; sie ist kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-02",
+      "timeContractId": "TC-IUM-7-CORE-02",
+      "title": "Bilder als Daten modellieren und Ressourcenfolgen prüfen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-018",
+        "LH26-E-ID-019",
+        "LH26-E-ID-022",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-006",
+        "INF7-16-GYM-IK-DC-007"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Wie werden Bildentscheidungen zu Bits, Datenmengen und Ressourcenfolgen?",
+      "centralLearningAction": "Ein Bild diskretisieren, Pixel nach einer Vorschrift codieren, Datenmenge bestimmen, Darstellungsalternativen vergleichen und Ressourcenfolgen mit begrenzter Aussagekraft beurteilen.",
+      "centralLearningProduct": "Kleiner Bildcodec mit Pixelraster, Bitfolge, Decodiertest, Datenmengenvergleich und begründetem Ressourcenurteil.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein interaktives Pixel- und Bitraster verbindet sichtbare Bildänderung unmittelbar mit Code und Datenmenge; Varianten können kontrolliert verglichen werden.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-03",
+      "timeContractId": "TC-IUM-7-CORE-03",
+      "title": "Kontrollfluss, Werte und Zustände tracen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-ALG-007",
+        "LH26-E-ALG-008",
+        "LH26-E-ALG-009",
+        "LH26-E-ALG-011",
+        "LH26-E-ALG-012",
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-002",
+        "INF7-16-GYM-IK-ALG-003",
+        "INF7-16-GYM-IK-ALG-006",
+        "INF7-16-GYM-IK-ALG-007",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-SV-004",
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-MI-004",
+        "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-PK-AB-001"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-04"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 8
+      },
+      "centralQuestion": "Wie verändern Kontrollstrukturen, Werte und Ausdrücke den Zustand eines Programms Schritt für Schritt?",
+      "centralLearningAction": "Abläufe und Eingaben modellieren, Code mit Verzweigung und bedingter Schleife tracen, Werteübergabe und Datentypen erklären und fehlerhafte Ablaufdarstellungen korrigieren.",
+      "centralLearningProduct": "Synchrones Code-, Ablauf- und Zustandstrace mit Eingaben, Ausführungsposition, Werten, Ausgabe, Modellgrenze und korrigierter Fassung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine Tracingumgebung kann Codeposition, Kontrollfluss, Werte, Typen und Ausgabe synchronisieren; dieselbe Ausführung bleibt für Vorhersage und Gegenfall reproduzierbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-03-INF7-16-GYM-IK-ALG-003",
+          "competencyId": "INF7-16-GYM-IK-ALG-003",
+          "mode": "module-detail",
+          "learningAction": "Im selben gegebenen Programmfall die Variable ausdrücklich als änderbaren Wertespeicher erläutern und beim schrittweisen Trace jede Zustandsänderung vom alten zum neuen Wert mit der auslösenden Anweisung erklären.",
+          "productEvidence": "Die klar benannte Wertespeicher- und Zustandsansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie zeigt Variable, alten Wert, auslösende Anweisung und Zustandsänderung vom alten zum neuen Wert; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-MI-005",
+          "competencyId": "INF7-16-GYM-PK-MI-005",
+          "mode": "module-detail",
+          "learningAction": "Für denselben Programmfall ein plattformneutrales grafisches Modellierungswerkzeug tatsächlich einsetzen und damit die grafische Ablauf- und Zustandsmodellierung erstellen, bearbeiten und korrigieren; eine bloße Anzeige oder Tracingoberfläche genügt nicht.",
+          "productEvidence": "Die klar benannte grafische Ablauf- und Zustandsmodellierungsansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie belegt den Werkzeugeinsatz mit bearbeiteter und korrigierter Modellfassung; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-SV-003",
+          "competencyId": "INF7-16-GYM-PK-SV-003",
+          "mode": "module-detail",
+          "learningAction": "Im selben Programmfall einen gerichteten und beschrifteten Datenabhängigkeitsgraphen erstellen, Beziehungen zwischen Daten/Objekten erkennen und erläutern: Die Knoten Eingabedatum, Variablenzustand vor der Anweisung, Variablenzustand nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt repräsentieren Daten, Zustände oder Ergebnisse; gerichtete Kanten mit den Beziehungslabels „liest“, „schreibt“ und „hängt ab von“ modellieren Beziehungen statt einer bloß zeitlichen Verarbeitung und mindestens eine Abhängigkeit sowie die dadurch ausgelöste Änderungsfolge werden erklärt.",
+          "productEvidence": "Die klar benannte Daten- und Objektbeziehungsansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie enthält den gerichteten und beschrifteten Datenabhängigkeitsgraphen mit den Knoten Eingabedatum, Variablenzustand vor der Anweisung, Variablenzustand nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt; gerichtete Kanten sind mit „liest“, „schreibt“ und „hängt ab von“ beschriftet; Bedeutung der Abhängigkeit und Änderungsfolge werden für mindestens eine Kante erklärt; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-LH26-E-ALG-007",
+          "competencyId": "LH26-E-ALG-007",
+          "mode": "module-detail",
+          "learningAction": "Im selben Programmfall alle atomaren algorithmischen Grundbausteine beschreiben: Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator.",
+          "productEvidence": "Die klar benannte Grundbaustein- und Ausdrucksansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie enthält beschriftete Belegstellen für Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-LH26-E-ALG-008",
+          "competencyId": "LH26-E-ALG-008",
+          "mode": "module-detail",
+          "learningAction": "Bei gegebenen Anweisungen und Ausdrücken im selben Programmfall Übergabe und Rückgabe von Werten semantisch identifizieren: Ein Wert gelangt von seiner Quelle oder aus einem inneren Ausdruck an einen konsumierenden Operanden, Parameter oder Ziel; ein ausgewerteter Ausdruck liefert seinen Ergebniswert an einen konsumierenden äußeren Ausdruck oder eine Anweisung. Für jede gegebene Anweisung wird festgehalten, ob sie einen definierten Ergebniswert besitzt: Eine Anweisung ohne definierten Ergebniswert liefert keinen Rückgabewert; ohne eine im Programmfall vorhandene Funktion wird keine Funktionsrückgabe unterstellt.",
+          "productEvidence": "Die klar benannte Übergabe- und Rückgabeansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie unterscheidet je Traceposition Quelle, konsumierenden Operand/Parameter/Ziel, ausgewertetes Ergebnis und Empfänger sowie die anschließende Verwendung; für Anweisungen ohne definierten Ergebniswert markiert sie „kein Rückgabewert“, und eine Funktionsrückgabe wird nicht behauptet; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-03-LH26-E-ALG-009",
+          "competencyId": "LH26-E-ALG-009",
+          "mode": "module-detail",
+          "learningAction": "Bei Werten und Ausdrücken desselben Programmfalls die Datentypen Zeichenkette, Zahl und Wahrheitswert identifizieren und ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe begründen.",
+          "productEvidence": "Die klar benannte Datentypansicht ist eine der sechs synchron verknüpften Ansichten/Spalten desselben vorhandenen Code-, Ablauf- und Zustandstraceprodukts mit demselben Programmfall, denselben Ausführungspositionen, Eingaben, Werten, Ausgaben und derselben korrigierten Fassung; sie kennzeichnet bei Werten und Ausdrücken Zeichenkette, Zahl und Wahrheitswert sowie deren Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe; alle sechs Spuren bleiben synchron und bilden keine zusätzlichen Einzelprodukte.",
+          "productVisibility": "teacher-observable"
+        }
+      ],
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-04",
+      "timeContractId": "TC-IUM-7-CORE-04",
+      "title": "Programme entwerfen, testen und debuggen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-ALG-010",
+        "INF7-16-GYM-IK-ALG-004",
+        "INF7-16-GYM-IK-ALG-005",
+        "INF7-16-GYM-PK-SV-002",
+        "INF7-16-GYM-PK-SV-005",
+        "INF7-16-GYM-PK-MI-003",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-PK-MI-008",
+        "INF7-16-GYM-PK-MI-009",
+        "INF7-16-GYM-PK-MI-010",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-03"
+      ],
+      "lessonRange": {
+        "min": 7,
+        "max": 10
+      },
+      "centralQuestion": "Wann ist ein Programm nicht nur lauffähig, sondern verständlich, geprüft und angemessen?",
+      "centralLearningAction": "Arbeitsteilig als Team Aufgaben und Teillösungen planen, strukturieren und ausführen, einen Algorithmus implementieren, fremde Bausteine nachvollziehbar adaptieren, Normal-, Grenz- und Gegenfälle testen, einen Fehler hypothesengeleitet reparieren sowie Arbeitsprozess und Lösung reflektieren und präsentieren.",
+      "centralLearningProduct": "Teamplan mit Zuständigkeiten sowie kommentiertes Programm mit Entwurfsmodell, Quellenhinweisen, Testprotokoll, Debugginghypothese, begründeter Reparatur, Lösungsbewertung, Teamreflexion und Präsentation.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Implementation, Zustandsbeobachtung, Testwiederholung und Codevergleich verlangen eine lokale Programmierumgebung; Quellbausteine und Revisionen bleiben nachvollziehbar exportierbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-KK-002",
+          "competencyId": "INF7-16-GYM-PK-KK-002",
+          "mode": "module-detail",
+          "learningAction": "Für eine andere Lerngruppe der Klassenstufe 7, die das Programm noch nicht kennt, auf Grundlage einer vorgegebenen Vorwissensbeschreibung Sachverhalt, eigene Idee, Lösungsweg und Ergebnis zielgruppenorientiert, informatisch terminologisch korrekt und in der Reihenfolge Problem/Sachverhalt → eigene Idee → Lösungsweg → Ergebnis erläutern und strukturiert darstellen; Algorithmus, Variable, Verzweigung, Schleife, Testfall und Fehlerhypothese in einem Glossar korrekt erklären, mindestens ein programmbezogenes Beispiel verwenden und die Auswahl und Erklärungstiefe der Fachbegriffe sowie das Beispiel daran anpassen.",
+          "productEvidence": "Die zielgruppenorientierte Erklärspur in demselben Teamplan, kommentierten Programm und derselben Präsentation enthält eine sichtbare Adressaten- und Vorwissensnotiz mit mindestens einer begründeten Anpassung von Begriffserklärung oder Beispiel, vier ausdrücklich beschriftete Abschnitte zu Sachverhalt, eigener Idee, Lösungsweg und Ergebnis, ein fachlich korrektes Glossar zu Algorithmus, Variable, Verzweigung, Schleife, Testfall und Fehlerhypothese sowie mindestens ein programmbezogenes Beispiel; die Erklärspur ist in die vorhandene Programmdokumentation und Präsentation eingebettet und bildet kein zusätzliches Einzelprodukt.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-MI-003",
+          "competencyId": "INF7-16-GYM-PK-MI-003",
+          "mode": "module-detail",
+          "learningAction": "Mindestens zwei konkrete Fälle oder Testeingaben vergleichen, die wesentlichen, invarianten und verallgemeinerbaren Bestandteile von zufälligen oder variierenden Details trennen und als Abstraktion herausarbeiten; daraus ein verallgemeinertes Modell oder eine verallgemeinerte Teillösung formulieren und auf beide Ausgangsfälle und einen weiteren Prüffall anwenden.",
+          "productEvidence": "Die integrierte Abstraktionsspur in demselben Teamplan, kommentierten Programm und derselben Präsentation verbindet Entwurfsmodell, Programmkommentare und Testprotokoll: Sie stellt mindestens zwei konkrete Fälle oder Testeingaben gegenüber, kennzeichnet Invariante und Variation getrennt, formuliert ein verallgemeinertes Modell oder eine verallgemeinerte Teillösung und dokumentiert die Rückanwendung auf beide Ausgangsfälle und einen weiteren Prüffall; Details lediglich löschen genügt nicht, und die Spur bildet kein zusätzliches Einzelprodukt.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-SV-002",
+          "competencyId": "INF7-16-GYM-PK-SV-002",
+          "mode": "module-detail",
+          "learningAction": "Mindestens zwei tatsächlich verwendete Projektdateien – die Teamplan-Datei und die Programm- oder Quelldatei, gegebenenfalls ergänzt durch die Testprotokoll-Datei – nach Rolle und Zweck aussagekräftig benennen oder umbenennen; außerdem mehrere tatsächlich verwendete Bezeichner, darunter Variablen sowie Funktionen oder Blöcke je nach Programmierumgebung, nach einer dokumentierten Namenskonvention auswählen oder refaktorieren und die Umbenennung in den gespeicherten Dateien und im Programm tatsächlich durchführen; zulässig sind sprechende Rollen- und Zwecknamen, nicht x, nicht test1 und nicht final_final.",
+          "productEvidence": "Die integrierte Vorher→Nachher-Namenstabelle in demselben Teamplan, kommentierten Programm und derselben Präsentation weist für mindestens zwei vorhandene Projektdateien und mehrere Programmbezeichner jeweils alten Namen, neuen aussagekräftigen Namen, Rolle oder Zweck und angewandte Namenskonvention aus; der gespeicherte Projektbestand und die kommentierte Programmfassung zeigen die tatsächliche Umbenennung, sodass kein zusätzliches Einzelprodukt entsteht.",
+          "productVisibility": "shared"
+        }
+      ],
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-05",
+      "timeContractId": "TC-IUM-7-CORE-05",
+      "title": "Netze, Speicher und Geräteschutz modellieren",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-RN-002",
+        "INF7-16-GYM-IK-RN-003",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-003",
+        "INF7-16-GYM-PK-AB-004"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Welches Systemmodell trägt eine begründete Entscheidung zu Netz, Speicherort und Geräteschutz?",
+      "centralLearningAction": "Lokale Netze und Internet vergleichen, Client–Server-Abläufe auf Alltagsfälle übertragen, Speicherorte kriteriengeleitet bewerten und Schutzmaßnahmen gegen ein Bedrohungsszenario prüfen.",
+      "centralLearningProduct": "System- und Bedrohungsmodell mit Netzskizze, Client–Server-Sequenz, Speichervergleich, Schutzentscheidung und Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Interaktive Netz- und Speicherszenarien machen Ausfall, Zugriff, Datenweg und Schutzmaßnahme variierbar und erlauben direkte Modell-Realitäts-Vergleiche.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-05-INF7-16-GYM-IK-IGD-004",
+          "competencyId": "INF7-16-GYM-IK-IGD-004",
+          "mode": "module-detail",
+          "learningAction": "An mehreren vollständig vorgegebenen fiktiven Bedrohungsfällen besondere Sicherheitsaspekte für mobile Geräte und Datenträger nennen und jeweils eine mögliche Schutzmaßnahme beschreiben: Verlust, Diebstahl oder unbefugter Zugriff → Displaysperre sowie, soweit in der lokal freigegebenen Umgebung umsetzbar, Geräte- oder Datenträgerverschlüsselung; nicht vertrauenswürdiger Wechseldatenträger oder Schadsoftware → ausschließlich freigegebene Datenträger und Pfade, Updates und vorgesehene Schadsoftwareprüfung; unsichere Übertragung oder öffentliche Umgebung → freigegebener Übertragungsweg sowie Sicht- und Zugriffsschutz; Beschädigung oder Ausfall → Backup und geprüfte Wiederherstellung. Für jedes Risiko–Maßnahme-Paar Schutzwirkung und mindestens eine Grenze oder einen Zielkonflikt beschreiben. Persönliche Geräte werden nicht verändert; Gerätekennungen werden nicht erhoben.",
+          "productEvidence": "Eigene Risiko–Maßnahme-Spur in demselben System- und Bedrohungsmodell und demselben neutralen schulischen Speicherworkflow: Matrix mit mindestens vier ausdrücklichen Risiko→Maßnahme-Paaren sowie je Risiko, möglicher Schutzmaßnahme, Schutzwirkung und Grenze oder Zielkonflikt; kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-AB-002",
+          "competencyId": "INF7-16-GYM-PK-AB-002",
+          "mode": "module-detail",
+          "learningAction": "Das informatische Systemmodell mit der entsprechenden Realsituation vergleichen: Modellelement, Vorhersage und Datenweg jeweils einem beobachteten realen Schritt in einer sicheren, nichtpersonalen tatsächlichen oder kuratierten Beobachtungsspur des vor Ort freigegebenen neutralen Client–Server- und Speicherworkflows gegenüberstellen; Übereinstimmungen, Abweichungen und Auslassungen identifizieren, die Modellgrenze benennen und mindestens eine begründete Modellrevision vornehmen. Bei tatsächlicher Beobachtung gilt dasselbe lokale Freigabegate wie für die Schulnetznutzung. Es erfolgen weder eine Paketaufzeichnung noch die Erhebung privater Protokolle oder von Zugangsdaten.",
+          "productEvidence": "Eigene Modell–Realsituation-Spur in demselben System- und Bedrohungsmodell und demselben neutralen schulischen Speicherworkflow: separate Modell–Realsituation-Tabelle mit Modellelement/Vorhersage/Datenweg, entsprechendem beobachteten realen Schritt, Übereinstimmung, Abweichung oder Auslassung, Modellgrenze und begründeter Revision; kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable"
+        },
+        {
+          "id": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-SV-001",
+          "competencyId": "INF7-16-GYM-PK-SV-001",
+          "mode": "school-context",
+          "learningAction": "Das vor Ort freigegebene Schulnetz tatsächlich nutzen: für ein vorgegebenes neutrales Arbeitsziel einen geeigneten freigegebenen Speicherort oder Pfad auswählen, ein neutrales, fiktives und personenfreies Testartefakt dort speichern oder hochladen, es erneut abrufen und öffnen und so das Aufgabenergebnis verifizieren; einen zweiten freigegebenen Zugriffskontext nutzen, falls lokal unterstützt, ohne Nachweis von Zugangsdaten.",
+          "productEvidence": "Eigene Ausführungsspur in demselben System- und Bedrohungsmodell und demselben neutralen schulischen Speicherworkflow: ausschließlich Arbeitsziel, freigegebene Pfadbezeichnung oder Pfadkategorie, ausgeführte Operationen und Ergebnis der Abruf- und Öffnungsprüfung; keine Zugangsdaten, keine Netzwerkadressen, keine IP-Adressen, keine Gerätekennungen, keine Tokens, keine privaten Dateien, keine Inhaltsprotokolle und keine vollständigen Zugriffsprotokolle; kein zusätzliches Einzelprodukt.",
+          "productVisibility": "teacher-observable",
+          "executionType": "actual-local-use",
+          "localConfigurationRequirement": "Vor Freigabe benennt die Lehrkraft ein bestehendes lokal verfügbares, schulisch freigegebenes und datenschutzkonformes Schulnetz, einen freigegebenen Speicherort oder Pfad und eine neutrale Aufgabe für die tatsächliche Ausführung; ist dies nicht möglich, bleibt der Record partial."
+        }
+      ],
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-06",
+      "timeContractId": "TC-IUM-7-CORE-06",
+      "title": "Verschlüsselung erklären und passend auswählen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-016",
+        "LH26-E-KS-017",
+        "LH26-E-KS-018",
+        "LH26-E-KS-022",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-01",
+        "IUM-7-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wann schützt Verschlüsselung eine Kommunikation – und worin unterscheidet sie sich von Codierung?",
+      "centralLearningAction": "Schutzbedarf bestimmen, Codierung und Verschlüsselung nach Zweck und Schlüssel trennen, Transport- und Ende-zu-Ende-Modell vergleichen und eine begründete Verfahrensentscheidung treffen.",
+      "centralLearningProduct": "Sicherheits-Erklärmodell mit Klartext, Geheimtext, Schlüssel, Datenweg, Schutzgrenze, Verfahrensvergleich und begründeter Auswahl.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Eine lokale Visualisierung kann Schlüssel, Datenweg und sichtbare Zwischenzustände kontrolliert ein- und ausblenden; dadurch werden Schutzgrenzen direkt prüfbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-07",
+      "timeContractId": "TC-IUM-7-CORE-07",
+      "title": "Einfache Verschlüsselung angreifen und bewerten",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-019",
+        "LH26-E-KS-020",
+        "LH26-E-KS-021",
+        "INF7-16-GYM-IK-IGD-002",
+        "INF7-16-GYM-IK-IGD-003",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-KK-002"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-06"
+      ],
+      "lessonRange": {
+        "min": 5,
+        "max": 7
+      },
+      "centralQuestion": "Was zeigt ein erfolgreicher Angriff über die Sicherheit eines Verfahrens – und was nicht?",
+      "centralLearningAction": "Caesar- und monoalphabetische Substitution durchführen, Brute Force und Häufigkeitsanalyse mit Hypothesen anwenden, Angriffswege vergleichen und Sicherheit begrenzt bewerten.",
+      "centralLearningProduct": "Angriffsprotokoll mit Handverschlüsselung, Hypothese, Brute-Force- und Häufigkeitsbefund, Vergleich und revidiertem Sicherheitsurteil.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Werkzeuge machen vollständige Schlüsselsuche, Häufigkeiten und Variantenvergleich effizient prüfbar; der händische Einstieg erhält das Verfahrensverständnis.",
+      "analogMaterials": [
+        {
+          "title": "Caesar-Scheibe und händisches Kurzprotokoll",
+          "didacticRationale": "Die Zuordnung von Klartext, Geheimtext und Schlüssel bleibt als nachvollziehbare Transformation sichtbar, bevor Automatisierung die einzelnen Schritte verdeckt.",
+          "digitalReconnection": "Der manuelle Fall wird im lokalen Angriffslabor reproduziert, mit vollständiger Schlüsselsuche erweitert und gegen Häufigkeitsanalyse verglichen."
+        }
+      ],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-08",
+      "timeContractId": "TC-IUM-7-CORE-08",
+      "title": "Daten, Akteure und Desinformation beurteilen",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D",
+        "STRAND-B"
+      ],
+      "competencyIds": [
+        "LH26-E-PROG-003",
+        "LH26-E-PROG-004",
+        "LH26-E-DP-010",
+        "LH26-E-DP-011",
+        "LH26-E-DP-012",
+        "LH26-E-DP-013",
+        "INF7-16-GYM-PK-MI-001",
+        "INF7-16-GYM-PK-KK-004",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-IK-IGD-005",
+        "INF7-16-GYM-IK-IGD-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-01",
+        "IUM-6-CORE-02"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie entsteht ein begründetes Urteil, wenn Akteure Einfluss nehmen, Daten anfallen und Belege widersprüchlich sind?",
+      "centralLearningAction": "Akteure und Interessen identifizieren, Behauptungen zerlegen, Primär- und Gegenbelege prüfen, Daten- und Rechtsfolgen bewerten, auf einer vorhandenen Infrastruktur kommunizieren, geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen und das gemeinsame Urteil mit Unsicherheit revidieren.",
+      "centralLearningProduct": "Geteiltes Evidenz- und Entscheidungsdossier mit begründeter Werkzeugwahl, Kommunikationsspur, Akteurskarte, Behauptungsprüfung, Gegenbeleg, Rechts-/Datenprüfung, Unsicherheit und gemeinsam revidiertem Standpunkt.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-IK-IGD-006",
+          "competencyId": "INF7-16-GYM-IK-IGD-006",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Datenanfall und Speicherung“ desselben geteilten Evidenz- und Entscheidungsdossiers am kuratierten alltagsrelevanten Dienstfall den Sachverhalt der permanent anfallenden personenbezogenen Daten bei der Dienstnutzung und ihrer Speicherung als Datenfolge erläutern sowie konkreten Nutzen und konkrete Risiken nennen.",
+          "productEvidence": "Klar benannter Abschnitt „Datenanfall und Speicherung“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und hält die Erklärung des permanenten Datenanfalls und der Speicherung am alltagsrelevanten Dienstfall sowie Nutzen und Risiken fest.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-005",
+          "competencyId": "INF7-16-GYM-PK-AB-005",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Auswirkungen und Perspektiven“ desselben geteilten Evidenz- und Entscheidungsdossiers die Auswirkungen der im Dienst- und Falschmeldungsfall eingesetzten Computersysteme auf Gesellschaft, Berufswelt und persönliches Lebensumfeld kriterien- und beleggestützt aus den benannten Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit bewerten und das Urteil gemeinsam revidieren.",
+          "productEvidence": "Klar benannter Abschnitt „Auswirkungen und Perspektiven“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und dokumentiert für Gesellschaft, Berufswelt und persönliches Lebensumfeld die Urteile aus den Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
+          "competencyId": "INF7-16-GYM-PK-AB-006",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Eigene ethische Position“ desselben geteilten Evidenz- und Entscheidungsdossiers zu der ausgewiesenen ethischen Informatikfrage, ob ein digitaler Dienst personenbezogene Daten zur Auswahl und Reichweitensteuerung verwenden darf, eine eigene Position einnehmen, sie mit Kriterien und Belegen begründen, ein Gegenargument prüfen und die Position argumentativ vertreten sowie revidieren.",
+          "productEvidence": "Klar benannter individueller Abschnitt „Eigene ethische Position“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und enthält zur ausgewiesenen ethischen Informatikfrage die eigene Position, Kriterien, Belege, ein geprüftes Gegenargument und die begründete Revision.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
+          "competencyId": "INF7-16-GYM-PK-KK-006",
+          "mode": "module-detail",
+          "learningAction": "Im Abschnitt „Vielfalt in datenbasierten Systemen“ desselben geteilten Evidenz- und Entscheidungsdossiers Toleranz und Akzeptanz von Vielfalt an der konkreten informatischen Fragestellung diskutieren, wie datenbasierte Systeme unterschiedliche Lebenslagen und Identitäten in Datenerhebung, Kategorisierung und Ausspielung berücksichtigen oder benachteiligen; dazu aus mehreren benannten Perspektiven argumentieren und ein revidiertes Ergebnis festhalten.",
+          "productEvidence": "Klar benannter Abschnitt „Vielfalt in datenbasierten Systemen“ desselben geteilten Evidenz- und Entscheidungsdossiers; er verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision und dokumentiert zur konkreten informatischen Fragestellung Argumente aus mehreren benannten Perspektiven sowie ein revidiertes Ergebnis zu Toleranz und Akzeptanz von Vielfalt.",
+          "productVisibility": "shared"
+        },
+        {
+          "id": "CE-IUM-7-CORE-08-LH26-E-DP-013",
+          "competencyId": "LH26-E-DP-013",
+          "mode": "private-local",
+          "learningAction": "Sich mit dem vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall im digitalen Raum anhand von Behauptung, manipulativer Absicht, Akteursdaten, Belegen, Gegenbelegen, Kriterien und Revision auseinandersetzen und anschließend den eigenen Umgang damit in einer privaten lokalen Reflexionsnotiz konkret reflektieren.",
+          "productEvidence": "Eine private lokale Reflexionsnotiz zum vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall mit konkreter Reflexion des eigenen Umgangs anhand von Belegprüfung, Unsicherheit und möglicher privater Revision; die Notiz verbleibt ausschließlich bei der lernenden Person.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "nonPersonalFollowUp": "Als klar benannter Abschnitt „Falschmeldungsfall und Revision“ desselben geteilten Evidenz- und Entscheidungsdossiers den vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall anhand von Behauptung und manipulativer Absicht prüfen; der Abschnitt verwendet dieselben kuratierten Dienst- und Falschmeldungsfälle, Akteursdaten, Belege, Gegenbelege, Kriterien und die gemeinsame Revision, funktioniert ohne Kenntnis der privaten Notiz und verlangt keine persönliche Handlungsoption als Abgabe."
+        }
+      ],
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Quellenketten, Versionen und verlinkte Belege müssen am tatsächlichen Material untersucht werden; kuratierte Fälle verhindern algorithmische Live-Zufälle und persönliche Datenspuren.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-09",
+      "timeContractId": "TC-IUM-7-CORE-09",
+      "title": "Gamingmechanismen ohne Personendiagnose analysieren",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-015",
+        "LH26-E-DP-016",
+        "LH26-E-DP-017",
+        "LH26-E-DP-018",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-PK-KK-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-02",
+        "IUM-7-CORE-08"
+      ],
+      "lessonRange": {
+        "min": 4,
+        "max": 6
+      },
+      "centralQuestion": "Wie greifen Spielgestaltung, soziale Situation und Geschäftsmodell ineinander, ohne individuelles Verhalten zu diagnostizieren?",
+      "centralLearningAction": "Psychologische, soziale und ökonomische Mechanismen an fiktiven Fällen trennen, Belege und alternative Erklärungen prüfen, Monetarisierung sichtbar machen, eine Designentscheidung bewerten und eine private Selbstreflexion zur eigenen Nutzung digitaler Spiele durchführen.",
+      "centralLearningProduct": "Teilbare Mechanismuskarte und Redesign-Notiz mit Gestaltungsmerkmal, sozialem Kontext, Geschäftsmodell, Beleggrenze und begründeter Alternative; die private Reflexionsnotiz verbleibt ausschließlich bei der lernenden Person.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Kuratiertes digitales Spielmaterial macht Interaktion, Feedbackschleifen und Monetarisierung sichtbar; fiktive Profile tragen die gemeinsame Analyse, während die persönliche Reflexion lokal ohne Übermittlung von Nutzungsdaten erfolgt.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Nur Mechanismuskarte, Redesign-Begründung und Revision können anhand transparenter Kriterien besprochen werden. Die private Selbstreflexion wird nicht erhoben, gespeichert oder bewertet; es entsteht kein Personenprofil.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-CORE-10",
+      "timeContractId": "TC-IUM-7-CORE-10",
+      "title": "Medienbilder analysieren und wirkungsbewusst verändern",
+      "grade": 7,
+      "kind": "core",
+      "strandIds": [
+        "STRAND-E",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-014",
+        "LH26-E-DA-016",
+        "LH26-E-DA-017",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-07",
+        "IUM-7-CORE-08"
+      ],
+      "lessonRange": {
+        "min": 6,
+        "max": 9
+      },
+      "centralQuestion": "Wie verändert eine technische Bearbeitung die Wirkung eines Medienbilds – und wie wird diese Entscheidung transparent und verantwortbar?",
+      "centralLearningAction": "Rollen- und Wirkungsmuster belegen, technische Veränderungsformen vergleichen, ein Medienprodukt mit ausgewiesener Wirkungsabsicht entwerfen, Rechte prüfen und nach Gegenfeedback revidieren.",
+      "centralLearningProduct": "Vorher–Nachher-Medienprodukt mit Bearbeitungsnachweis, Wirkungsbegründung, Gegenperspektive, Rechteprüfung und dokumentierter Revision.",
+      "coverageEvidence": [
+        {
+          "id": "CE-IUM-7-CORE-10-LH26-E-DP-014",
+          "competencyId": "LH26-E-DP-014",
+          "mode": "private-local",
+          "learningAction": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in vollständig vorgegebenen kuratierten Medienbeispielen analysieren und deren möglichen Einfluss auf die eigene Selbstwahrnehmung anschließend ausschließlich in einer privaten lokalen Reflexionsnotiz reflektieren: eine eigene Erfahrung oder Selbstwahrnehmung mit mindestens einem vorgegebenen fachlichen Kriterium (Rollenstereotyp, Normierung oder gestalterische Verstärkung) in Beziehung setzen, daraus eine persönliche Handlungsoption ableiten und eine mögliche ausschließlich private Revision nach einer privaten Gegenprüfung festhalten.",
+          "productEvidence": "Eine private lokale Reflexionsnotiz, die eigene Erfahrung oder Selbstwahrnehmung → fachliches Kriterium → persönliche Handlungsoption → mögliche ausschließlich private Revision nachvollziehbar verbindet; sie verbleibt ausschließlich bei der lernenden Person.",
+          "productVisibility": "private-local",
+          "privacyBoundary": "Das private lokale Artefakt wird nicht erhoben, übertragen, eingesammelt, gespeichert oder bewertet.",
+          "observationBoundary": "Die Privatnotiz wird weder geöffnet noch beobachtet, inhaltlich besprochen, vorgelegt oder in ihrer Erstellung bestätigt oder kontrolliert.",
+          "nonPersonalFollowUp": "Unabhängig davon im bestehenden Vorher–Nachher-Medienprodukt eine nichtpersonale Gegenperspektive zu den vollständig vorgegebenen kuratierten Medienbeispielen ausarbeiten: dargestellte Geschlechterrollen oder Schönheitsideale, gestalterische Mittel, eine mögliche allgemeine Wirkung und eine begründete Veränderung werden sichtbar dokumentiert. Diese Anschlussaufgabe funktioniert ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der privaten Reflexionsnotiz, ist kein Nachweis der Reflexion der eigenen Selbstwahrnehmung und verlangt keine Offenlegung persönlicher Inhalte."
+        }
+      ],
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Technische Veränderung, Ebenen, Versionen und Export sind genuin digitale Produktionshandlungen; ein lokaler Editor hält Original, Bearbeitung und Metadaten kontrollierbar zusammen.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-EXT-02",
+      "timeContractId": "TC-IUM-6-EXT-02",
+      "title": "Paketpost im Klassennetz vertiefen",
+      "grade": 6,
+      "kind": "extension",
+      "strandIds": [
+        "STRAND-C"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-008",
+        "LH26-E-KS-009"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 2,
+        "max": 3
+      },
+      "centralQuestion": "Welche lokalen Regeln lassen ein verteiltes Netz auch bei einer Störung weiterarbeiten?",
+      "centralLearningAction": "Weiterleitungsregeln in zusätzlichen Störfällen variieren, Paketwege protokollieren und die eigene Modellgrenze präzisieren.",
+      "centralLearningProduct": "Erweiterter Paketwegvergleich mit Störfall, Alternativroute und revidierter Modellgrenze.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Die digitale Simulation erlaubt reproduzierbare Störungen und direkten Vergleich mehrerer Routen; das analoge Rollenspiel fokussiert lokale Entscheidungen.",
+      "analogMaterials": [
+        {
+          "title": "Störfallkarten für das Paketnetz",
+          "didacticRationale": "Unvorhersehbare lokale Ausfälle erzwingen gemeinsame Weiterleitungsentscheidungen, ohne dass eine fertige Simulation den Lösungsweg vorgibt.",
+          "digitalReconnection": "Jeder analoge Störfall wird anschließend digital rekonstruiert und auf alternative Pfade sowie Modellgrenzen geprüft."
+        }
+      ],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-EXT-01",
+      "timeContractId": "TC-IUM-6-EXT-01",
+      "title": "KI-Antworten im Quellenlabor vertiefen",
+      "grade": 6,
+      "kind": "extension",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-011",
+        "LH26-E-ID-012"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 4
+      },
+      "centralQuestion": "Welche Prüfstrategie bleibt tragfähig, wenn eine KI-Antwort plausibel klingt und Quellen widersprechen?",
+      "centralLearningAction": "Mehrere KI-Behauptungen in prüfbare Teile zerlegen, unabhängige Belege und Gegenbelege suchen, Unsicherheit kalibrieren und die Prüfstrategie vergleichen.",
+      "centralLearningProduct": "Vergleichsmatrix dreier Behauptungsprüfungen mit Belegkette, Gegenbeleg, Unsicherheit und Strategie-Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein lokaler, kuratierter Antwortsatz hält Fälle reproduzierbar; Browserlinks ermöglichen die notwendige unabhängige Quellenprüfung ohne Live-KI-Abhängigkeit.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-EXT-01",
+      "timeContractId": "TC-IUM-7-EXT-01",
+      "title": "Codewortgrenzen formal untersuchen",
+      "grade": 7,
+      "kind": "extension",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-A"
+      ],
+      "competencyIds": [
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-008"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-01"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 5
+      },
+      "centralQuestion": "Wie begrenzen Zeichenvorrat und Codelänge die Zahl unterscheidbarer Codewörter?",
+      "centralLearningAction": "Codeworträume systematisch erzeugen, Zusammenhang und Grenzfälle berechnen, eine Behauptung mit Gegenbeispiel prüfen und verallgemeinern.",
+      "centralLearningProduct": "Interaktiver Codewortatlas mit Berechnung, Grenzfall, Gegenbeispiel und begründeter Verallgemeinerung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "guided-practice",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Ein digitales Kombinationslabor kann Codeworträume vollständig und fehlerarm erzeugen; Lernende verbinden die sichtbaren Muster mit eigener Berechnung.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-TRANSFER-01",
+      "timeContractId": "TC-IUM-6-TRANSFER-01",
+      "title": "Einen Speicherort für ein Schulprojekt entscheiden",
+      "grade": 6,
+      "kind": "transfer",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-010",
+        "LH26-E-DA-002"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-5-CORE-01",
+        "IUM-6-CORE-05"
+      ],
+      "lessonRange": {
+        "min": 2,
+        "max": 4
+      },
+      "centralQuestion": "Welcher Speicherort trägt Zusammenarbeit, Zugriff und Schutz in einem neuen Schulprojekt?",
+      "centralLearningAction": "Anforderungen eines unbekannten Projekts gewichten, Speicheroptionen vergleichen, Datenweg und Zugriff modellieren und die Entscheidung nach einem Störfall revidieren.",
+      "centralLearningProduct": "Begründete Speicherentscheidung mit Kriteriengewichtung, Datenweg, Störfallprüfung und Revision.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Die digitale Szenarioumgebung kann Rechte, Netzverfügbarkeit und Gerätezustand verändern; dadurch wird die Entscheidung gegen reale Systembedingungen geprüft.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-TRANSFER-01",
+      "timeContractId": "TC-IUM-7-TRANSFER-01",
+      "title": "Einen sicheren Kommunikationsweg begründen",
+      "grade": 7,
+      "kind": "transfer",
+      "strandIds": [
+        "STRAND-C",
+        "STRAND-D"
+      ],
+      "competencyIds": [
+        "LH26-E-KS-017",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-IK-IGD-005"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-06",
+        "IUM-7-CORE-05",
+        "IUM-7-CORE-06"
+      ],
+      "lessonRange": {
+        "min": 3,
+        "max": 5
+      },
+      "centralQuestion": "Welcher Kommunikationsweg schützt eine konkrete Nachricht unter technischen und rechtlichen Bedingungen angemessen?",
+      "centralLearningAction": "Schutzbedarf, Datenweg, Geräteverlust, Verschlüsselungsgrenze und rechtliche Anforderungen eines neuen Falls verbinden, Alternativen prüfen und eine Empfehlung vertreten.",
+      "centralLearningProduct": "Sicherheitsentscheidung mit Bedrohungsmodell, Kommunikationswegvergleich, Rechtsprüfung, Gegenargument und revidierter Empfehlung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Fallvarianten machen Geräte-, Dienst- und Verschlüsselungszustände veränderbar; der Datenweg bleibt als prüfbares Modell sichtbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-6-PROJECT-01",
+      "timeContractId": "TC-IUM-6-PROJECT-01",
+      "title": "Eine offene Informationskampagne gestalten",
+      "grade": 6,
+      "kind": "project",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-ID-002",
+        "LH26-E-ID-003",
+        "LH26-E-ID-010",
+        "LH26-E-ID-011",
+        "LH26-E-DA-009",
+        "LH26-E-DA-010",
+        "LH26-E-DA-011",
+        "LH26-E-DA-013",
+        "LH26-E-DA-014",
+        "LH26-E-DA-015"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-6-CORE-01",
+        "IUM-6-CORE-07"
+      ],
+      "lessonRange": {
+        "min": 8,
+        "max": 12
+      },
+      "centralQuestion": "Wie entsteht eine überzeugende Informationskampagne, die Belege, Wirkung und offene Nachnutzung verantwortet?",
+      "centralLearningAction": "Eine reale, nicht sensible Schulfrage recherchieren, Zielgruppe und Wirkung planen, offene Assets prüfen, ein Produkt arbeitsteilig erstellen, testen und veröffentlichungsreif revidieren.",
+      "centralLearningProduct": "Offen lizenziertes Kampagnenpaket mit Evidenzdossier, Gestaltungsbriefing, Assetnachweisen, Feedback, Revision und Exportentscheidung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Digitale Recherche, kollaborative Produktion, Assetmetadaten, Versionen und offener Export bilden den Projektgegenstand; das Ergebnis bleibt ohne Konto nachnutzbar.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    },
+    {
+      "id": "IUM-7-PROJECT-01",
+      "timeContractId": "TC-IUM-7-PROJECT-01",
+      "title": "Täuschung sichtbar machen und verantwortbar redesignen",
+      "grade": 7,
+      "kind": "project",
+      "strandIds": [
+        "STRAND-B",
+        "STRAND-D",
+        "STRAND-E"
+      ],
+      "competencyIds": [
+        "LH26-E-DP-012",
+        "LH26-E-DP-013",
+        "LH26-E-DP-014",
+        "LH26-E-DA-016",
+        "LH26-E-DA-017"
+      ],
+      "prerequisiteModuleIds": [
+        "IUM-7-CORE-08",
+        "IUM-7-CORE-10"
+      ],
+      "lessonRange": {
+        "min": 8,
+        "max": 12
+      },
+      "centralQuestion": "Wie lässt sich eine manipulative Darstellung erklären und so redesignen, dass Eingriff, Wirkung und Beleglage transparent werden?",
+      "centralLearningAction": "Eine kuratierte Darstellung evidenzbasiert analysieren, technische Eingriffe rekonstruieren, ein transparentes Gegenprodukt entwerfen, Wirkung und Rechte prüfen und nach Review revidieren.",
+      "centralLearningProduct": "Transparenz-Dossier und revidiertes Medienprodukt mit Eingriffsprotokoll, Beleg/Gegenbeleg, Wirkungsgrenze, Rechteprüfung und offener Kennzeichnung.",
+      "moduleGrammar": [
+        "orientation-challenge",
+        "activate-prior-knowledge",
+        "build-concept",
+        "independent-action-product",
+        "review-revise-transfer",
+        "shared-consolidation"
+      ],
+      "mediumRationale": "Original, Bearbeitungsebenen, Metadaten, Quellen und Versionen müssen digital vergleichbar bleiben; kuratiertes Material begrenzt Schutz- und Rechtsrisiken.",
+      "analogMaterials": [],
+      "assessmentWorkingNotes": "Reduzierbarer Arbeitsbestand: Produkt, Erklärung und dokumentierte Revision können anhand transparenter Kriterien besprochen werden. Lern- und Leistungssituation bleiben getrennt; es entstehen weder automatische Punkte noch Personenprofile.",
+      "status": "working"
+    }
+  ]
+}

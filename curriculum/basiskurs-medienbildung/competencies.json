@@ -1,0 +1,1439 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "SRC-CUR-BMB-2016",
+  "metadata": {
+    "title": "Gymnasium – Basiskurs Medienbildung (Bildungsplan 2016)",
+    "publisher": "Ministerium für Kultus Baden-Württemberg und Zentrum für Schulqualität und Lehrerbildung Baden-Württemberg",
+    "year": 2016,
+    "sourceUrl": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/BMB",
+    "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF",
+    "sha256": "84609F1CAF3BDB5D3CFDD0BD6287C348F773F6BD5A2DD40F95D9711B1F338536",
+    "pageCount": 28,
+    "pdfMetadata": {
+      "format": "A4",
+      "creator": "Adobe InDesign CC 2015",
+      "created": "2016-05-20",
+      "modified": "2016-06-23"
+    },
+    "checked": "2026-07-28",
+    "normativeStatus": "enacted",
+    "decreeDate": "2016-03-23",
+    "effectiveDate": "2016-08-01",
+    "scope": {
+      "schoolType": "Gymnasium",
+      "course": "Basiskurs Medienbildung",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium"
+    },
+    "license": "Keine offene Lizenz für die amtliche Quelle ausgewiesen; die PDF und ihre Renderdateien sind nicht Bestandteil dieses Repositorys.",
+    "extractionMethod": "Wortlautprüfung gegen die amtlichen HTML-Abschnitte und vollständige Renderkontrolle der amtlichen PDF-Seiten 11 bis 18; PDF-Text wurde ergänzend mit pdfplumber extrahiert.",
+    "normalization": "Reine Layout-Zeilenumbrüche und Layout-Trennungen wurden aufgelöst; Orthografie, sichtbare semantische Bindestriche, notwendige Satzergänzungen und parenthetische Einschränkungen wurden bewahrt.",
+    "textModel": "Kompetenztext, explizite Beispielzeile und Operatorbeschreibung sind getrennt. sourceText bewahrt den jeweils erfassten vollständigen normalisierten Quellwortlaut; exampleIds und parentRecordId bilden Beispielbeziehungen ab.",
+    "officialTermListPresent": false,
+    "termNote": "Die Quelle enthält keine eigenständige amtliche Begriffsliste; sichtbare Begriffe bleiben ausschließlich im quellentreuen Kompetenz-, Beispiel- oder Operatorwortlaut.",
+    "operatorOfficialIdNote": "Die Operatorzeilen tragen keine eigene amtliche Zeilennummer. officialId ist deshalb null; der sichtbare amtliche Name steht in operator und der Abschnitt 4. Operatoren im Locator.",
+    "excluded": [
+      "Leitperspektiven als Kompetenzrecords",
+      "Fachverweise als Kompetenzrecords",
+      "Lesehilfe-Mappings"
+    ],
+    "sectionRecordCounts": {
+      "2.1 Sachkompetenz": 3,
+      "2.2 Handlungskompetenz": 3,
+      "2.3 Reflexionskompetenz": 4,
+      "3.1.1 Information und Wissen": 6,
+      "3.1.2 Produktion und Präsentation": 6,
+      "3.1.3 Kommunikation und Kooperation": 6,
+      "3.1.4 Mediengesellschaft": 6,
+      "3.1.5 Grundlagen digitaler Medienarbeit": 6,
+      "4. Operatoren": 19
+    },
+    "recordCountsBySectionAndType": {
+      "2.1 Sachkompetenz": {
+        "process-competency": 3
+      },
+      "2.2 Handlungskompetenz": {
+        "process-competency": 3
+      },
+      "2.3 Reflexionskompetenz": {
+        "process-competency": 4
+      },
+      "3.1.1 Information und Wissen": {
+        "competency": 3,
+        "example": 3
+      },
+      "3.1.2 Produktion und Präsentation": {
+        "competency": 3,
+        "example": 3
+      },
+      "3.1.3 Kommunikation und Kooperation": {
+        "competency": 3,
+        "example": 3
+      },
+      "3.1.4 Mediengesellschaft": {
+        "competency": 3,
+        "example": 3
+      },
+      "3.1.5 Grundlagen digitaler Medienarbeit": {
+        "competency": 3,
+        "example": 3
+      },
+      "4. Operatoren": {
+        "operator": 19
+      }
+    },
+    "recordCountsByType": {
+      "process-competency": 10,
+      "competency": 15,
+      "example": 15,
+      "operator": 19
+    },
+    "recordCountsByStatus": {
+      "verified": 59
+    },
+    "recordCount": 59,
+    "localInterpretationCount": 0,
+    "sourceNote": "Die amtliche HTML-Seite 2.1 lieferte bei der Prüfung zeitweise einen internen Serverfehler; der Wortlaut dieses Abschnitts wurde deshalb gegen die gerenderte amtliche PDF-Seite 11 geprüft."
+  },
+  "records": [
+    {
+      "id": "BMB16-GYM-PK-SK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.1 (1)",
+      "text": "Fachbegriffe richtig verwenden",
+      "sourceText": "Fachbegriffe richtig verwenden",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.1 Sachkompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.1 Sachkompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-SK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.1 (2)",
+      "text": "Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden",
+      "sourceText": "Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.1 Sachkompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.1 Sachkompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-SK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.1 (3)",
+      "text": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
+      "sourceText": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.1 Sachkompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.1 Sachkompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-HK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.2 (1)",
+      "text": "Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten",
+      "sourceText": "Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.2 Handlungskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.2 Handlungskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-HK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.2 (2)",
+      "text": "einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren",
+      "sourceText": "einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.2 Handlungskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.2 Handlungskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-HK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.2 (3)",
+      "text": "Medien für Zusammenarbeit und Kooperation nutzen",
+      "sourceText": "Medien für Zusammenarbeit und Kooperation nutzen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.2 Handlungskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.2 Handlungskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-RK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.3 (1)",
+      "text": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
+      "sourceText": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.3 Reflexionskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.3 Reflexionskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-RK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.3 (2)",
+      "text": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
+      "sourceText": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.3 Reflexionskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.3 Reflexionskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-RK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.3 (3)",
+      "text": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "sourceText": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.3 Reflexionskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.3 Reflexionskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-PK-RK-004",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "2.3 (4)",
+      "text": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
+      "sourceText": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "2.3 Reflexionskompetenz",
+      "recordType": "process-competency",
+      "sourceLocator": {
+        "page": 11,
+        "printedPage": 9,
+        "section": "2.3 Reflexionskompetenz",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_PK_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "BMB16-GYM-IK-IW-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.1 (1)",
+      "text": "einen aktuellen Internetbrowser und Suchmaschinen zu Recherchezwecken einsetzen",
+      "sourceText": "einen aktuellen Internetbrowser und Suchmaschinen zu Recherchezwecken einsetzen: zum Beispiel Aufbau einer Internetadresse, Aufbau einer Internetseite, altersgerechte Suchmaschinen, geeignete Suchbegriffe und Suchstrategien",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.1 Information und Wissen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "printedPage": 10,
+        "section": "3.1.1 Information und Wissen",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-IW-001-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-IW-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.1 (1)",
+      "text": "Aufbau einer Internetadresse, Aufbau einer Internetseite, altersgerechte Suchmaschinen, geeignete Suchbegriffe und Suchstrategien",
+      "sourceText": "zum Beispiel Aufbau einer Internetadresse, Aufbau einer Internetseite, altersgerechte Suchmaschinen, geeignete Suchbegriffe und Suchstrategien",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.1 Information und Wissen",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 12,
+        "printedPage": 10,
+        "section": "3.1.1 Information und Wissen",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-IW-001"
+    },
+    {
+      "id": "BMB16-GYM-IK-IW-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.1 (2)",
+      "text": "unterschiedliche Informationsquellen anhand vorgegebener Merkmale in ihrer Qualität beschreiben und einschätzen",
+      "sourceText": "unterschiedliche Informationsquellen anhand vorgegebener Merkmale in ihrer Qualität beschreiben und einschätzen: zum Beispiel Darstellungsweise und -absicht, Kriterien vertrauenswürdiger Internetseiten, Vergleich verschiedener Informationsquellen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.1 Information und Wissen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "printedPage": 10,
+        "section": "3.1.1 Information und Wissen",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-IW-002-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-IW-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.1 (2)",
+      "text": "Darstellungsweise und -absicht, Kriterien vertrauenswürdiger Internetseiten, Vergleich verschiedener Informationsquellen",
+      "sourceText": "zum Beispiel Darstellungsweise und -absicht, Kriterien vertrauenswürdiger Internetseiten, Vergleich verschiedener Informationsquellen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.1 Information und Wissen",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 12,
+        "printedPage": 10,
+        "section": "3.1.1 Information und Wissen",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-IW-002"
+    },
+    {
+      "id": "BMB16-GYM-IK-IW-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.1 (3)",
+      "text": "die gewonnenen Informationen weitgehend selbstständig auswählen und strukturieren",
+      "sourceText": "die gewonnenen Informationen weitgehend selbstständig auswählen und strukturieren: zum Beispiel Zusammenfassen, Sortieren, mediales Darstellen der Rechercheergebnisse (Text, Grafik, Tabelle, Mind-Map oder andere)",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.1 Information und Wissen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "printedPage": 10,
+        "section": "3.1.1 Information und Wissen",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-IW-003-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-IW-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.1 (3)",
+      "text": "Zusammenfassen, Sortieren, mediales Darstellen der Rechercheergebnisse (Text, Grafik, Tabelle, Mind-Map oder andere)",
+      "sourceText": "zum Beispiel Zusammenfassen, Sortieren, mediales Darstellen der Rechercheergebnisse (Text, Grafik, Tabelle, Mind-Map oder andere)",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.1 Information und Wissen",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 12,
+        "printedPage": 10,
+        "section": "3.1.1 Information und Wissen",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_01",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-IW-003"
+    },
+    {
+      "id": "BMB16-GYM-IK-PP-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.2 (1)",
+      "text": "ein einfaches digitales Medienprodukt (Text oder digitale Präsentation oder Audio- beziehungsweise Videobeitrag oder andere) weitgehend selbstständig erstellen und gestalten",
+      "sourceText": "ein einfaches digitales Medienprodukt (Text oder digitale Präsentation oder Audio- beziehungsweise Videobeitrag oder andere) weitgehend selbstständig erstellen und gestalten: zum Beispiel Beziehung zwischen Inhalt und Form, medienspezifische Gestaltung (Farbe, Schrift, Bilder, Effekte)",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.2 Produktion und Präsentation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 13,
+        "printedPage": 11,
+        "section": "3.1.2 Produktion und Präsentation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-PP-001-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-PP-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.2 (1)",
+      "text": "Beziehung zwischen Inhalt und Form, medienspezifische Gestaltung (Farbe, Schrift, Bilder, Effekte)",
+      "sourceText": "zum Beispiel Beziehung zwischen Inhalt und Form, medienspezifische Gestaltung (Farbe, Schrift, Bilder, Effekte)",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.2 Produktion und Präsentation",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 13,
+        "printedPage": 11,
+        "section": "3.1.2 Produktion und Präsentation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-PP-001"
+    },
+    {
+      "id": "BMB16-GYM-IK-PP-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.2 (2)",
+      "text": "bei der Erstellung eines digitalen Medienprodukts erste grundlegende Urheberrechts- und Datenschutzrichtlinien beachten",
+      "sourceText": "bei der Erstellung eines digitalen Medienprodukts erste grundlegende Urheberrechts- und Datenschutzrichtlinien beachten: zum Beispiel grundsätzliche Verwendung freier oder selbstproduzierter Inhalte, wichtige Kriterien bei der Veröffentlichung",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.2 Produktion und Präsentation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 13,
+        "printedPage": 11,
+        "section": "3.1.2 Produktion und Präsentation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-PP-002-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-PP-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.2 (2)",
+      "text": "grundsätzliche Verwendung freier oder selbstproduzierter Inhalte, wichtige Kriterien bei der Veröffentlichung",
+      "sourceText": "zum Beispiel grundsätzliche Verwendung freier oder selbstproduzierter Inhalte, wichtige Kriterien bei der Veröffentlichung",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.2 Produktion und Präsentation",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 13,
+        "printedPage": 11,
+        "section": "3.1.2 Produktion und Präsentation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-PP-002"
+    },
+    {
+      "id": "BMB16-GYM-IK-PP-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.2 (3)",
+      "text": "ihr eigenes digitales Medienprodukt vor einem Publikum vorstellen und die Qualität anhand vorgegebener Kriterien einschätzen",
+      "sourceText": "ihr eigenes digitales Medienprodukt vor einem Publikum vorstellen und die Qualität anhand vorgegebener Kriterien einschätzen: zum Beispiel Bewertungskriterien einer Medienproduktion, Bewertungskriterien einer Präsentation, Einsatz von Hilfsmitteln, Feedback-Kultur",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.2 Produktion und Präsentation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 13,
+        "printedPage": 11,
+        "section": "3.1.2 Produktion und Präsentation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-PP-003-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-PP-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.2 (3)",
+      "text": "Bewertungskriterien einer Medienproduktion, Bewertungskriterien einer Präsentation, Einsatz von Hilfsmitteln, Feedback-Kultur",
+      "sourceText": "zum Beispiel Bewertungskriterien einer Medienproduktion, Bewertungskriterien einer Präsentation, Einsatz von Hilfsmitteln, Feedback-Kultur",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.2 Produktion und Präsentation",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 13,
+        "printedPage": 11,
+        "section": "3.1.2 Produktion und Präsentation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_02",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-PP-003"
+    },
+    {
+      "id": "BMB16-GYM-IK-KK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.3 (1)",
+      "text": "wichtige Regeln zur Kommunikation im Netz herausarbeiten und sich angemessen verhalten",
+      "sourceText": "wichtige Regeln zur Kommunikation im Netz herausarbeiten und sich angemessen verhalten: zum Beispiel respektvolle Kommunikation (Netiquette), Umgang mit privaten Daten, Unterscheidung zwischen privaten und öffentlichen Daten, Cybermobbing",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.3 Kommunikation und Kooperation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "printedPage": 12,
+        "section": "3.1.3 Kommunikation und Kooperation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-KK-001-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-KK-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.3 (1)",
+      "text": "respektvolle Kommunikation (Netiquette), Umgang mit privaten Daten, Unterscheidung zwischen privaten und öffentlichen Daten, Cybermobbing",
+      "sourceText": "zum Beispiel respektvolle Kommunikation (Netiquette), Umgang mit privaten Daten, Unterscheidung zwischen privaten und öffentlichen Daten, Cybermobbing",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.3 Kommunikation und Kooperation",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 14,
+        "printedPage": 12,
+        "section": "3.1.3 Kommunikation und Kooperation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-KK-001"
+    },
+    {
+      "id": "BMB16-GYM-IK-KK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.3 (2)",
+      "text": "einen digitalen Kommunikationsweg (zum Beispiel E-Mail) in seinen Grundfunktionen anwenden",
+      "sourceText": "einen digitalen Kommunikationsweg (zum Beispiel E-Mail) in seinen Grundfunktionen anwenden: zum Beispiel geeignete Mailadresse beziehungsweise Nutzernamen auswählen, Verfassen von Texten, Umgang mit Anhängen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.3 Kommunikation und Kooperation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "printedPage": 12,
+        "section": "3.1.3 Kommunikation und Kooperation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-KK-002-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-KK-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.3 (2)",
+      "text": "geeignete Mailadresse beziehungsweise Nutzernamen auswählen, Verfassen von Texten, Umgang mit Anhängen",
+      "sourceText": "zum Beispiel geeignete Mailadresse beziehungsweise Nutzernamen auswählen, Verfassen von Texten, Umgang mit Anhängen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.3 Kommunikation und Kooperation",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 14,
+        "printedPage": 12,
+        "section": "3.1.3 Kommunikation und Kooperation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-KK-002"
+    },
+    {
+      "id": "BMB16-GYM-IK-KK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.3 (3)",
+      "text": "mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb von Projekten nutzen",
+      "sourceText": "mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb von Projekten nutzen: zum Beispiel Tauschverzeichnis, E-Mail, digitale Lernplattformen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.3 Kommunikation und Kooperation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "printedPage": 12,
+        "section": "3.1.3 Kommunikation und Kooperation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-KK-003-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-KK-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.3 (3)",
+      "text": "Tauschverzeichnis, E-Mail, digitale Lernplattformen",
+      "sourceText": "zum Beispiel Tauschverzeichnis, E-Mail, digitale Lernplattformen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.3 Kommunikation und Kooperation",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 14,
+        "printedPage": 12,
+        "section": "3.1.3 Kommunikation und Kooperation",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_03",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-KK-003"
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.4 (1)",
+      "text": "die persönliche Motivation bezüglich des eigenen Medienverhaltens beschreiben und die eigene Nutzung ihrem Alter entsprechend bewerten",
+      "sourceText": "die persönliche Motivation bezüglich des eigenen Medienverhaltens beschreiben und die eigene Nutzung ihrem Alter entsprechend bewerten: zum Beispiel Nutzung mobiler Endgeräte, Games, Messaging-Dienste, Soziale Netzwerke, Tages- oder Wochenprotokoll des eigenen Mediengebrauchs",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.4 Mediengesellschaft",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "printedPage": 13,
+        "section": "3.1.4 Mediengesellschaft",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-MG-001-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.4 (1)",
+      "text": "Nutzung mobiler Endgeräte, Games, Messaging-Dienste, Soziale Netzwerke, Tages- oder Wochenprotokoll des eigenen Mediengebrauchs",
+      "sourceText": "zum Beispiel Nutzung mobiler Endgeräte, Games, Messaging-Dienste, Soziale Netzwerke, Tages- oder Wochenprotokoll des eigenen Mediengebrauchs",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.4 Mediengesellschaft",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 15,
+        "printedPage": 13,
+        "section": "3.1.4 Mediengesellschaft",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-MG-001"
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.4 (2)",
+      "text": "die positiven Aspekte der Mediennutzung, aber auch die Risiken und Gefahren des (übermäßigen) Mediengebrauchs erläutern, bewerten und präventive Maßnahmen benennen",
+      "sourceText": "die positiven Aspekte der Mediennutzung, aber auch die Risiken und Gefahren des (übermäßigen) Mediengebrauchs erläutern, bewerten und präventive Maßnahmen benennen: zum Beispiel Motive der Nutzung digitaler Medien (Informationsrecherche, mediale Teilhabe, soziale Kommunikation, Ablenkung, Spaß), Suchtpotenziale, Wirkung medialer Gewalt",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.4 Mediengesellschaft",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "printedPage": 13,
+        "section": "3.1.4 Mediengesellschaft",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-MG-002-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.4 (2)",
+      "text": "Motive der Nutzung digitaler Medien (Informationsrecherche, mediale Teilhabe, soziale Kommunikation, Ablenkung, Spaß), Suchtpotenziale, Wirkung medialer Gewalt",
+      "sourceText": "zum Beispiel Motive der Nutzung digitaler Medien (Informationsrecherche, mediale Teilhabe, soziale Kommunikation, Ablenkung, Spaß), Suchtpotenziale, Wirkung medialer Gewalt",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.4 Mediengesellschaft",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 15,
+        "printedPage": 13,
+        "section": "3.1.4 Mediengesellschaft",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-MG-002"
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.4 (3)",
+      "text": "die Wirkung von Medien an Beispielen untersuchen, ihre Empfindungen dazu äußern und erste Gesetzmäßigkeiten ableiten",
+      "sourceText": "die Wirkung von Medien an Beispielen untersuchen, ihre Empfindungen dazu äußern und erste Gesetzmäßigkeiten ableiten: zum Beispiel (manipulative) Wirkung von Bildern und Musik, Gestaltung von Text und Bild in der Werbung, Kriterien an einer eigenen Medienproduktion anwenden und die Wirkung überprüfen (zum Beispiel mittels Bildvertonung)",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.4 Mediengesellschaft",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "printedPage": 13,
+        "section": "3.1.4 Mediengesellschaft",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-MG-003-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.4 (3)",
+      "text": "(manipulative) Wirkung von Bildern und Musik, Gestaltung von Text und Bild in der Werbung, Kriterien an einer eigenen Medienproduktion anwenden und die Wirkung überprüfen (zum Beispiel mittels Bildvertonung)",
+      "sourceText": "zum Beispiel (manipulative) Wirkung von Bildern und Musik, Gestaltung von Text und Bild in der Werbung, Kriterien an einer eigenen Medienproduktion anwenden und die Wirkung überprüfen (zum Beispiel mittels Bildvertonung)",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.4 Mediengesellschaft",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 15,
+        "printedPage": 13,
+        "section": "3.1.4 Mediengesellschaft",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_04",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-MG-003"
+    },
+    {
+      "id": "BMB16-GYM-IK-GM-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.5 (1)",
+      "text": "die Verhaltensregeln im Umgang mit digitalen Medien einhalten und die wichtigsten Komponenten für die Dateneingabe, -verarbeitung und -ausgabe benennen, beschreiben und sachgerecht nutzen",
+      "sourceText": "die Verhaltensregeln im Umgang mit digitalen Medien einhalten und die wichtigsten Komponenten für die Dateneingabe, -verarbeitung und -ausgabe benennen, beschreiben und sachgerecht nutzen: zum Beispiel Nutzungsordnung, sorgsamer und funktionsgerechter Umgang mit Hardware",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.5 Grundlagen digitaler Medienarbeit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "printedPage": 14,
+        "section": "3.1.5 Grundlagen digitaler Medienarbeit",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-GM-001-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-GM-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.5 (1)",
+      "text": "Nutzungsordnung, sorgsamer und funktionsgerechter Umgang mit Hardware",
+      "sourceText": "zum Beispiel Nutzungsordnung, sorgsamer und funktionsgerechter Umgang mit Hardware",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.5 Grundlagen digitaler Medienarbeit",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 16,
+        "printedPage": 14,
+        "section": "3.1.5 Grundlagen digitaler Medienarbeit",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-GM-001"
+    },
+    {
+      "id": "BMB16-GYM-IK-GM-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.5 (2)",
+      "text": "sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten",
+      "sourceText": "sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten: zum Beispiel sicheres Passwort, Benutzername, Verzeichnisse, Dateibenennung, Desktop/Benutzeroberfläche",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.5 Grundlagen digitaler Medienarbeit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "printedPage": 14,
+        "section": "3.1.5 Grundlagen digitaler Medienarbeit",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-GM-002-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-GM-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.5 (2)",
+      "text": "sicheres Passwort, Benutzername, Verzeichnisse, Dateibenennung, Desktop/Benutzeroberfläche",
+      "sourceText": "zum Beispiel sicheres Passwort, Benutzername, Verzeichnisse, Dateibenennung, Desktop/Benutzeroberfläche",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.5 Grundlagen digitaler Medienarbeit",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 16,
+        "printedPage": 14,
+        "section": "3.1.5 Grundlagen digitaler Medienarbeit",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-GM-002"
+    },
+    {
+      "id": "BMB16-GYM-IK-GM-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.5 (3)",
+      "text": "elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden",
+      "sourceText": "elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden: zum Beispiel Grundfunktionen von Text- und Bildbearbeitungsprogrammen, Präsentationsprogrammen, Internetbrowser, gegebenenfalls Audio-, Videosoftware",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.5 Grundlagen digitaler Medienarbeit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "printedPage": 14,
+        "section": "3.1.5 Grundlagen digitaler Medienarbeit",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "BMB16-GYM-IK-GM-003-EX-001"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-GM-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": "3.1.5 (3)",
+      "text": "Grundfunktionen von Text- und Bildbearbeitungsprogrammen, Präsentationsprogrammen, Internetbrowser, gegebenenfalls Audio-, Videosoftware",
+      "sourceText": "zum Beispiel Grundfunktionen von Text- und Bildbearbeitungsprogrammen, Präsentationsprogrammen, Internetbrowser, gegebenenfalls Audio-, Videosoftware",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "3.1.5 Grundlagen digitaler Medienarbeit",
+      "recordType": "example",
+      "sourceLocator": {
+        "page": 16,
+        "printedPage": 14,
+        "section": "3.1.5 Grundlagen digitaler Medienarbeit",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_IK_5_05",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "parentRecordId": "BMB16-GYM-IK-GM-003"
+    },
+    {
+      "id": "BMB16-GYM-OP-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen",
+      "sourceText": "auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "ableiten",
+      "afb": "III"
+    },
+    {
+      "id": "BMB16-GYM-OP-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten",
+      "sourceText": "Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "analysieren",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen",
+      "sourceText": "Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "auswählen",
+      "afb": "I"
+    },
+    {
+      "id": "BMB16-GYM-OP-004",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen",
+      "sourceText": "entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "(be-)nennen, einbringen",
+      "afb": "I"
+    },
+    {
+      "id": "BMB16-GYM-OP-005",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen",
+      "sourceText": "bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "beachten, einhalten, verhalten",
+      "afb": "I"
+    },
+    {
+      "id": "BMB16-GYM-OP-006",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen",
+      "sourceText": "technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "bedienen, anwenden, nutzen",
+      "afb": "I"
+    },
+    {
+      "id": "BMB16-GYM-OP-007",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben",
+      "sourceText": "wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "beschreiben",
+      "afb": "I"
+    },
+    {
+      "id": "BMB16-GYM-OP-008",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen",
+      "sourceText": "Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "bewerten",
+      "afb": "III"
+    },
+    {
+      "id": "BMB16-GYM-OP-009",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Strukturen und Zusammenhänge beschreiben und verdeutlichen",
+      "sourceText": "Strukturen und Zusammenhänge beschreiben und verdeutlichen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "darstellen",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-010",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen",
+      "sourceText": "Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "einschätzen",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-011",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden",
+      "sourceText": "bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 17,
+        "printedPage": 15,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "einsetzen",
+      "afb": "I"
+    },
+    {
+      "id": "BMB16-GYM-OP-012",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären",
+      "sourceText": "Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "erläutern",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-013",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "ein Medienprodukt entwickeln und anfertigen",
+      "sourceText": "ein Medienprodukt entwickeln und anfertigen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "erstellen",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-014",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen",
+      "sourceText": "ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "gestalten",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-015",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen",
+      "sourceText": "Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "(heraus-)arbeiten, aufbereiten",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-016",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "einen Medienbeitrag in einzelne Arbeitsschritte zergliedern",
+      "sourceText": "einen Medienbeitrag in einzelne Arbeitsschritte zergliedern",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "planen",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-017",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen",
+      "sourceText": "ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "präsentieren, vorstellen",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-018",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "ein Rechercheergebnis in eine gegliederte Form bringen",
+      "sourceText": "ein Rechercheergebnis in eine gegliederte Form bringen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "strukturieren",
+      "afb": "II"
+    },
+    {
+      "id": "BMB16-GYM-OP-019",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "officialId": null,
+      "text": "vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen",
+      "sourceText": "vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen",
+      "grades": [
+        5
+      ],
+      "level": "Gymnasium",
+      "area": "Operatoren",
+      "recordType": "operator",
+      "sourceLocator": {
+        "page": 18,
+        "printedPage": 16,
+        "section": "4. Operatoren",
+        "url": "https://www.bildungsplaene-bw.de/%2CLde/BP2016BW_ALLG_GYM_BMB_OP",
+        "pdfUrl": "https://www.bildungsplaene-bw.de/site/bildungsplan-rebrush2024/bpExport/3220850/Lde/index.html?_finish=Erstellen&_page=0&requestMode=PDF"
+      },
+      "status": "verified",
+      "operator": "überprüfen",
+      "afb": "III"
+    }
+  ]
+}

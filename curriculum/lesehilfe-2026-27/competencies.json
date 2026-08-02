@@ -1,0 +1,2382 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+  "metadata": {
+    "title": "Lesehilfe Informatik und Medienbildung für die Klassen 5 bis 7 im Schuljahr 2026/2027",
+    "publisher": "Ministerium für Kultus Baden-Württemberg",
+    "publication": "Juli 2026",
+    "asset": "Assets/PDFs/Lesehilfe Informatik und Medienbildung Klassen 5 bis 7 2026-2027.pdf",
+    "sha256": "1BC94255AD35D75782B819C1CA425D7C1F21CEDC6B2012378EC828BAC1451008",
+    "pageCount": 18,
+    "checked": "2026-07-28",
+    "sourceDirectUrl": null,
+    "sourceUrlStatus": "Die amtliche Direkt-URL dieser konkreten Ausgabe ist nicht verifiziert; die amtliche FAQ verlinkte bei der erneuten Prüfung am 28.07.2026 weiterhin die Ausgabe 2025/2026.",
+    "normativeStatus": "orientation",
+    "binding": false,
+    "statusNote": "Planungs- und Übergangsorientierung; kein in Kraft gesetzter Bildungsplan und kein Ersatz für die weiterhin geltenden Bildungspläne oder sonstigen verbindlichen Vorgaben.",
+    "scope": {
+      "schoolType": "Gymnasium",
+      "grades": [
+        5,
+        6,
+        7
+      ],
+      "level": "E"
+    },
+    "license": "Keine offene Lizenz für die amtliche PDF ausgewiesen; die PDF und ihre Renderdateien sind nicht Bestandteil dieses Repositorys.",
+    "extractionMethod": "Text- und Tabellenextraktion mit pdfplumber; vollständige Renderkontrolle der PDF-Seiten 2 bis 17; Kompetenzzählung zusätzlich gegen 26 PDF-Tabellen geprüft.",
+    "textModel": "text trennt ausdrücklich ausgewiesene Beispiele ab; sourceText bewahrt den vollständigen normalisierten Wortlaut der Tabellenzelle. exampleIds und parentRecordId bilden die Beziehung ab.",
+    "normalization": "Reine Layout-Zeilenumbrüche und Layout-Trennungen wurden aufgelöst; sichtbare semantische Bindestriche, Orthografie, Groß- und Kleinschreibung sowie Listenbestandteile wurden bewahrt.",
+    "competencyCountsByArea": {
+      "Digitalität und Partizipation": 18,
+      "Information und Daten": 22,
+      "Algorithmen": 12,
+      "Kommunikation und Sicherheit": 22,
+      "Digitales Arbeiten": 17
+    },
+    "competencyCount": 91,
+    "recordCountsByType": {
+      "competency": 91,
+      "example": 30,
+      "progression-note": 4
+    },
+    "recordCountsByStatus": {
+      "verified": 125
+    },
+    "recordCount": 125,
+    "operatorNote": "Die Quelle enthält keine eigenständige amtliche Operatorenliste; Kompetenzverben wurden nicht als abgeleitete Operatorrecords dupliziert.",
+    "localInterpretationCount": 0
+  },
+  "records": [
+    {
+      "id": "LH26-E-PROG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.",
+      "sourceText": "In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Querschnitt",
+      "recordType": "progression-note",
+      "sourceLocator": {
+        "page": 2,
+        "section": "Inhaltliche Ausrichtung in den Klassen 5 und 6"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-PROG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.",
+      "sourceText": "Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Querschnitt",
+      "recordType": "progression-note",
+      "sourceLocator": {
+        "page": 2,
+        "section": "Inhaltliche Ausrichtung in den Klassen 5 und 6"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-PROG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.",
+      "sourceText": "Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Querschnitt",
+      "recordType": "progression-note",
+      "sourceLocator": {
+        "page": 3,
+        "section": "Neuausrichtung in Klasse 7"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-PROG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.",
+      "sourceText": "Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Querschnitt",
+      "recordType": "progression-note",
+      "sourceLocator": {
+        "page": 3,
+        "section": "Neuausrichtung in Klasse 7"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
+      "sourceText": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die eigene Mediennutzung beschreiben und reflektieren",
+      "sourceText": "die eigene Mediennutzung beschreiben und reflektieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
+      "sourceText": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Nutzungs- und Rahmenbedingungen von Apps, Programmen und Onlinediensten exemplarisch herausarbeiten",
+      "sourceText": "Nutzungs- und Rahmenbedingungen von Apps, Programmen und Onlinediensten exemplarisch herausarbeiten",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Werbung in verschiedenen digitalen Medien identifizieren und ihre Einbettung in die dargestellten Inhalte beschreiben",
+      "sourceText": "Werbung in verschiedenen digitalen Medien identifizieren und ihre Einbettung in die dargestellten Inhalte beschreiben",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(unter anderem durch Erfassung von Nutzerverhalten)",
+      "sourceText": "(unter anderem durch Erfassung von Nutzerverhalten)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DP-006",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Möglichkeiten nennen, wie die spezifische Auswahl der Werbebotschaft zustande kommt",
+      "sourceText": "Möglichkeiten nennen, wie die spezifische Auswahl der Werbebotschaft zustande kommt (unter anderem durch Erfassung von Nutzerverhalten)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 5,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Bewusste Mediennutzung"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DP-EX-001"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "alltägliche Situationen nennen, in denen personenbezogene Daten oder Metadaten erhoben werden und dafür genutzte Techniken beschreiben",
+      "sourceText": "alltägliche Situationen nennen, in denen personenbezogene Daten oder Metadaten erhoben werden und dafür genutzte Techniken beschreiben",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Von der Mediennutzung zur informationellen Selbstbestimmung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel wirtschaftliche Verwertung, zielgerichtete Beeinflussung, Kontrolle, Nutzerfreundlichkeit)",
+      "sourceText": "(zum Beispiel wirtschaftliche Verwertung, zielgerichtete Beeinflussung, Kontrolle, Nutzerfreundlichkeit)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DP-008",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Von der Mediennutzung zur informationellen Selbstbestimmung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Interessen von Akteuren erklären, die mit personenbezogenen Daten arbeiten",
+      "sourceText": "Interessen von Akteuren erklären, die mit personenbezogenen Daten arbeiten (zum Beispiel wirtschaftliche Verwertung, zielgerichtete Beeinflussung, Kontrolle, Nutzerfreundlichkeit)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Von der Mediennutzung zur informationellen Selbstbestimmung"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DP-EX-002"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die eigene Mediennutzung vor dem Hintergrund der informationellen Selbstbestimmung reflektieren",
+      "sourceText": "die eigene Mediennutzung vor dem Hintergrund der informationellen Selbstbestimmung reflektieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Digitalität und Partizipation: Von der Mediennutzung zur informationellen Selbstbestimmung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "digitale Werkzeuge und Angebote zur Informationsgewinnung nutzen",
+      "sourceText": "digitale Werkzeuge und Angebote zur Informationsgewinnung nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Information und Daten: Informationen suchen und prüfen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(unter anderem auf Herkunft und Plausibilität)",
+      "sourceText": "(unter anderem auf Herkunft und Plausibilität)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ID-002",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Information und Daten: Informationen suchen und prüfen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Informationen kriterienbasiert überprüfen",
+      "sourceText": "Informationen kriterienbasiert (unter anderem auf Herkunft und Plausibilität) überprüfen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Information und Daten: Informationen suchen und prüfen"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ID-EX-001"
+      ]
+    },
+    {
+      "id": "LH26-E-ID-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel in Form einer Aufzählung oder Tabelle)",
+      "sourceText": "(zum Beispiel in Form einer Aufzählung oder Tabelle)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ID-003",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Information und Daten: Informationen suchen und prüfen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Informationen auswählen und strukturiert darstellen",
+      "sourceText": "Informationen auswählen und strukturiert darstellen (zum Beispiel in Form einer Aufzählung oder Tabelle)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Information und Daten: Informationen suchen und prüfen"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ID-EX-002"
+      ]
+    },
+    {
+      "id": "LH26-E-ID-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die grundlegende Funktionsweise einer indexbasierten Suche erläutern",
+      "sourceText": "die grundlegende Funktionsweise einer indexbasierten Suche erläutern",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 6,
+        "section": "Klassen 5/6 – Information und Daten: Informationen suchen und prüfen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "verschiedene Arten von Akteuren nennen, die Informationen im Internet veröffentlichen oder verbreiten",
+      "sourceText": "verschiedene Arten von Akteuren nennen, die Informationen im Internet veröffentlichen oder verbreiten",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Aufmerksamkeit, Profit, Einflussnahme auf Meinungen, Altruismus)",
+      "sourceText": "(zum Beispiel Aufmerksamkeit, Profit, Einflussnahme auf Meinungen, Altruismus)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ID-006",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "analysieren, aus welchen Motiven Inhalte im Internet veröffentlicht oder verbreitet werden",
+      "sourceText": "analysieren, aus welchen Motiven Inhalte im Internet veröffentlicht oder verbreitet werden (zum Beispiel Aufmerksamkeit, Profit, Einflussnahme auf Meinungen, Altruismus)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ID-EX-003"
+      ]
+    },
+    {
+      "id": "LH26-E-ID-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Authentizität, Unabhängigkeit, Profit)",
+      "sourceText": "(zum Beispiel Authentizität, Unabhängigkeit, Profit)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ID-007",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Interessenkonflikte von Akteuren bei der Erstellung von Content erklären",
+      "sourceText": "Interessenkonflikte von Akteuren bei der Erstellung von Content erklären (zum Beispiel Authentizität, Unabhängigkeit, Profit)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ID-EX-004"
+      ]
+    },
+    {
+      "id": "LH26-E-ID-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "anhand von Beispielen beschreiben, dass Content automatisiert generiert, veröffentlicht und verbreitet werden kann",
+      "sourceText": "anhand von Beispielen beschreiben, dass Content automatisiert generiert, veröffentlicht und verbreitet werden kann",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
+      "sourceText": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Kriterien für Vertrauenswürdigkeit von Informationen nennen",
+      "sourceText": "Kriterien für Vertrauenswürdigkeit von Informationen nennen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "widersprüchliche Informationen aus unterschiedlichen Quellen herausarbeiten und ihre Vertrauenswürdigkeit einschätzen",
+      "sourceText": "widersprüchliche Informationen aus unterschiedlichen Quellen herausarbeiten und ihre Vertrauenswürdigkeit einschätzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "beschreiben, inwiefern KI-generierte Rechercheergebnisse die Informationsgewinnung unterstützen, aber auch zu Fehleinschätzungen führen können",
+      "sourceText": "beschreiben, inwiefern KI-generierte Rechercheergebnisse die Informationsgewinnung unterstützen, aber auch zu Fehleinschätzungen führen können",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 7,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "an alltäglichen Beispielen erklären, weshalb Informationen für verschiedene Zwecke auf unterschiedliche Art und Weise codiert werden",
+      "sourceText": "an alltäglichen Beispielen erklären, weshalb Informationen für verschiedene Zwecke auf unterschiedliche Art und Weise codiert werden",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel für Menschen mit Einschränkungen, für Computersysteme, zur Übermittlung über weite Distanzen)",
+      "sourceText": "(zum Beispiel für Menschen mit Einschränkungen, für Computersysteme, zur Übermittlung über weite Distanzen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ID-014",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "anhand von Beispielen erläutern, wie unterschiedliche Einsatzzwecke die Wahl der Codierung zur Informationsübertragung bestimmen",
+      "sourceText": "anhand von Beispielen erläutern, wie unterschiedliche Einsatzzwecke die Wahl der Codierung zur Informationsübertragung bestimmen (zum Beispiel für Menschen mit Einschränkungen, für Computersysteme, zur Übermittlung über weite Distanzen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ID-EX-005"
+      ]
+    },
+    {
+      "id": "LH26-E-ID-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Code 39, Morsecode, Brailleschrift)",
+      "sourceText": "(zum Beispiel Code 39, Morsecode, Brailleschrift)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ID-015",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Codierungsvorschriften für Texte anwenden",
+      "sourceText": "Codierungsvorschriften für Texte anwenden (zum Beispiel Code 39, Morsecode, Brailleschrift)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Information und Daten: Informationen einordnen und codieren"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ID-EX-006"
+      ]
+    },
+    {
+      "id": "LH26-E-ALG-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Apps, Navigationsdienste oder Suchmaschinen)",
+      "sourceText": "(zum Beispiel Apps, Navigationsdienste oder Suchmaschinen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ALG-001",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist",
+      "sourceText": "digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist (zum Beispiel Apps, Navigationsdienste oder Suchmaschinen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ALG-EX-001"
+      ]
+    },
+    {
+      "id": "LH26-E-ALG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Algorithmen als Abfolge von präzisen Handlungsvorschriften beschreiben",
+      "sourceText": "Algorithmen als Abfolge von präzisen Handlungsvorschriften beschreiben",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Programmablaufpläne oder Flussdiagramme)",
+      "sourceText": "(zum Beispiel Programmablaufpläne oder Flussdiagramme)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ALG-003",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "einfache grafische Darstellungen von Algorithmen erläutern und die dargestellten Handlungsschritte durchführen",
+      "sourceText": "einfache grafische Darstellungen von Algorithmen (zum Beispiel Programmablaufpläne oder Flussdiagramme) erläutern und die dargestellten Handlungsschritte durchführen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 8,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ALG-EX-002"
+      ]
+    },
+    {
+      "id": "LH26-E-ALG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife mit konstanter Anzahl von Durchläufen",
+      "sourceText": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife mit konstanter Anzahl von Durchläufen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel blockbasierten)",
+      "sourceText": "(zum Beispiel blockbasierten)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ALG-005",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die algorithmischen Grundbausteine in einer geeigneten Programmiersprache verwenden",
+      "sourceText": "die algorithmischen Grundbausteine in einer geeigneten (zum Beispiel blockbasierten) Programmiersprache verwenden",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ALG-EX-003"
+      ]
+    },
+    {
+      "id": "LH26-E-ALG-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Codeabschnitte schrittweise analysieren und deren Wirkung beschreiben",
+      "sourceText": "Codeabschnitte schrittweise analysieren und deren Wirkung beschreiben",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Algorithmen: Erste Schritte in der Programmierung"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
+      "sourceText": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "beispielsweise in einem Klassenchat",
+      "sourceText": "beispielsweise in einem Klassenchat",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-KS-002",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Auswirkungen von Konflikten und Problemen bei der digitalen Kommunikation reflektieren und diskutieren",
+      "sourceText": "Auswirkungen von Konflikten und Problemen bei der digitalen Kommunikation, beispielsweise in einem Klassenchat, reflektieren und diskutieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-KS-EX-001"
+      ]
+    },
+    {
+      "id": "LH26-E-KS-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Gemeinsamkeiten und Unterschiede analoger und digitaler Kommunikation herausarbeiten",
+      "sourceText": "Gemeinsamkeiten und Unterschiede analoger und digitaler Kommunikation herausarbeiten",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Bedingungen für gelingende und situationsgerechte Kommunikation im digitalen Raum nennen",
+      "sourceText": "Bedingungen für gelingende und situationsgerechte Kommunikation im digitalen Raum nennen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Kommunikationsregeln im Umgang mit digitalen Medien beachten und mögliche Folgen missbräuchlicher digitaler Kommunikation reflektieren",
+      "sourceText": "Kommunikationsregeln im Umgang mit digitalen Medien beachten und mögliche Folgen missbräuchlicher digitaler Kommunikation reflektieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 9,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "persönliche Gründe für den Schutz des eigenen Zugangs auf digitalen Geräten und zu Diensten erläutern",
+      "sourceText": "persönliche Gründe für den Schutz des eigenen Zugangs auf digitalen Geräten und zu Diensten erläutern",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Maßnahmen zum Schutz des eigenen Zugangs beschreiben und anwenden",
+      "sourceText": "Maßnahmen zum Schutz des eigenen Zugangs beschreiben und anwenden",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Kommunikation im digitalen Raum"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "das Internet als vermaschtes Netz aus Knoten und Leitungen grafisch darstellen und den Weg einer Nachricht durch Weiterleitungen über Zwischenschritte beschreiben",
+      "sourceText": "das Internet als vermaschtes Netz aus Knoten und Leitungen grafisch darstellen und den Weg einer Nachricht durch Weiterleitungen über Zwischenschritte beschreiben",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "das Prinzip der Client-Server-Kommunikation anhand von Alltagsbeispielen erläutern",
+      "sourceText": "das Prinzip der Client-Server-Kommunikation anhand von Alltagsbeispielen erläutern",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Verfügbarkeit, Kollaboration, Teilen, Sicherheit, Betreiber)",
+      "sourceText": "(zum Beispiel Verfügbarkeit, Kollaboration, Teilen, Sicherheit, Betreiber)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-KS-010",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Speicherorte wie interne oder portable Speichermedien, Server im lokalen Netz oder die Cloud nennen und kriteriengeleitet vergleichen",
+      "sourceText": "Speicherorte wie interne oder portable Speichermedien, Server im lokalen Netz oder die Cloud nennen und kriteriengeleitet (zum Beispiel Verfügbarkeit, Kollaboration, Teilen, Sicherheit, Betreiber) vergleichen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-KS-EX-002"
+      ]
+    },
+    {
+      "id": "LH26-E-KS-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Recht am eigenen Bild)",
+      "sourceText": "(zum Beispiel Recht am eigenen Bild)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-KS-011",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die eigene Mediennutzung vor dem Hintergrund des rechtlichen Rahmens reflektieren",
+      "sourceText": "die eigene Mediennutzung vor dem Hintergrund des rechtlichen Rahmens (zum Beispiel Recht am eigenen Bild) reflektieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-KS-EX-003"
+      ]
+    },
+    {
+      "id": "LH26-E-KS-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Gründe für und gegen die Nutzung von Sozialen Medien nennen und diskutieren",
+      "sourceText": "Gründe für und gegen die Nutzung von Sozialen Medien nennen und diskutieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 10,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Emotionen oder Überzeugungen)",
+      "sourceText": "(zum Beispiel Emotionen oder Überzeugungen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-KS-013",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Wirkung von Selbstdarstellung einschätzen",
+      "sourceText": "die Wirkung (zum Beispiel Emotionen oder Überzeugungen) von Selbstdarstellung einschätzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-KS-EX-004"
+      ]
+    },
+    {
+      "id": "LH26-E-KS-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Cybermobbing, Hassrede)",
+      "sourceText": "(zum Beispiel Cybermobbing, Hassrede)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-KS-014",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
+      "sourceText": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen (zum Beispiel Cybermobbing, Hassrede) beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-KS-EX-005"
+      ]
+    },
+    {
+      "id": "LH26-E-KS-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Ursachen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
+      "sourceText": "Ursachen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Kommunikation und Sicherheit: Internet und soziale Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Komponenten der Hardware für die Eingabe zielorientiert und funktionsgerecht nutzen",
+      "sourceText": "Komponenten der Hardware für die Eingabe zielorientiert und funktionsgerecht nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Speicherorte hinsichtlich ihrer Zugriffsmöglichkeiten beschreiben sowie eine eigene Verzeichnisstruktur erstellen und nutzen",
+      "sourceText": "Speicherorte hinsichtlich ihrer Zugriffsmöglichkeiten beschreiben sowie eine eigene Verzeichnisstruktur erstellen und nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Kontextmenü, Auswählen und Verändern, Zwischenablage, rückgängig machen, Teilen von Daten)",
+      "sourceText": "(zum Beispiel Kontextmenü, Auswählen und Verändern, Zwischenablage, rückgängig machen, Teilen von Daten)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-003",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "ein Betriebssystem funktionsgerecht nutzen und dabei Bedienkonzepte anwenden",
+      "sourceText": "ein Betriebssystem funktionsgerecht nutzen und dabei Bedienkonzepte (zum Beispiel Kontextmenü, Auswählen und Verändern, Zwischenablage, rückgängig machen, Teilen von Daten) anwenden",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-001"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "den grundlegenden Aufbau digitaler Systeme in den Schichten Hardware, Betriebssystem und Programmen erklären",
+      "sourceText": "den grundlegenden Aufbau digitaler Systeme in den Schichten Hardware, Betriebssystem und Programmen erklären",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 11,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Zeichen, Absatz)",
+      "sourceText": "(zum Beispiel Zeichen, Absatz)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-005",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Bausteine eines Textes identifizieren und Möglichkeiten zu ihrer Formatierung nutzen",
+      "sourceText": "Bausteine eines Textes (zum Beispiel Zeichen, Absatz) identifizieren und Möglichkeiten zu ihrer Formatierung nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-002"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Bilder, Tabelle, Formen)",
+      "sourceText": "(zum Beispiel Bilder, Tabelle, Formen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-006",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "eine Objektart zur visuellen Gestaltung nutzen",
+      "sourceText": "eine Objektart zur visuellen Gestaltung (zum Beispiel Bilder, Tabelle, Formen) nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-003"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Überschriften, Zeilenumbruch, Absatzumbruch, Aufzählung)",
+      "sourceText": "(zum Beispiel Überschriften, Zeilenumbruch, Absatzumbruch, Aufzählung)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-007",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Möglichkeiten zur Strukturierung nutzen",
+      "sourceText": "Möglichkeiten zur Strukturierung (zum Beispiel Überschriften, Zeilenumbruch, Absatzumbruch, Aufzählung) nutzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-004"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
+      "sourceText": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
+      "sourceText": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Bedienkonzepte in digitalen Werkzeugen"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Animation, Audioprodukt, E-Book)",
+      "sourceText": "(zum Beispiel Animation, Audioprodukt, E-Book)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-010",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Wirkungsabsicht von Medienprodukten herausarbeiten",
+      "sourceText": "die Wirkungsabsicht von Medienprodukten (zum Beispiel Animation, Audioprodukt, E-Book) herausarbeiten",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-005"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Selbstdarstellung, Werbung)",
+      "sourceText": "(zum Beispiel Selbstdarstellung, Werbung)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-011",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "ein Medienprodukt mit einer intendierten Wirkung erstellen",
+      "sourceText": "ein Medienprodukt mit einer intendierten Wirkung (zum Beispiel Selbstdarstellung, Werbung) erstellen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-006"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-EX-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Kontextmenü zur Änderung der Formatierung, Zwischenablage für Elemente, softwarespezifische Funktionen)",
+      "sourceText": "(zum Beispiel Kontextmenü zur Änderung der Formatierung, Zwischenablage für Elemente, softwarespezifische Funktionen)",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-012",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte anwenden",
+      "sourceText": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte (zum Beispiel Kontextmenü zur Änderung der Formatierung, Zwischenablage für Elemente, softwarespezifische Funktionen) anwenden",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 12,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-007"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Bedeutung von Quellenangaben beschreiben und sich mit Regeln des Urheberrechts am Beispiel eines Lizenzmodells auseinandersetzen",
+      "sourceText": "die Bedeutung von Quellenangaben beschreiben und sich mit Regeln des Urheberrechts am Beispiel eines Lizenzmodells auseinandersetzen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 13,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "ein Medienprodukt im Hinblick auf die Einhaltung der Regeln des Urheberrechts analysieren und die Regeln bei der Überarbeitung des Produkts anwenden",
+      "sourceText": "ein Medienprodukt im Hinblick auf die Einhaltung der Regeln des Urheberrechts analysieren und die Regeln bei der Überarbeitung des Produkts anwenden",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 13,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
+      "sourceText": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
+      "grades": [
+        5,
+        6
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 13,
+        "section": "Klassen 5/6 – Digitales Arbeiten: Gestaltung und Produktion digitaler Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Unterschiedliche Arten von Akteuren im digitalen Raum identifizieren und deren Interessen beschreiben",
+      "sourceText": "Unterschiedliche Arten von Akteuren im digitalen Raum identifizieren und deren Interessen beschreiben",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel durch Algorithmen, Bewertungen, Kommentare, Werbung)",
+      "sourceText": "(zum Beispiel durch Algorithmen, Bewertungen, Kommentare, Werbung)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DP-011",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Einflussnahme im digitalen Raum beschreiben",
+      "sourceText": "Einflussnahme im digitalen Raum (zum Beispiel durch Algorithmen, Bewertungen, Kommentare, Werbung) beschreiben",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DP-EX-003"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Vertrauenswürdigkeit von Inhalten und Quellen einschätzen sowie Hinweise auf Desinformation identifizieren",
+      "sourceText": "die Vertrauenswürdigkeit von Inhalten und Quellen einschätzen sowie Hinweise auf Desinformation identifizieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Fake News, Deepfakes)",
+      "sourceText": "(zum Beispiel Fake News, Deepfakes)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DP-013",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "sich mit in manipulativer Absicht verbreiteten Falschmeldungen im digitalen Raum auseinandersetzen und den eigenen Umgang damit reflektieren",
+      "sourceText": "sich mit in manipulativer Absicht verbreiteten Falschmeldungen im digitalen Raum (zum Beispiel Fake News, Deepfakes) auseinandersetzen und den eigenen Umgang damit reflektieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DP-EX-004"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in Medien analysieren und deren Einfluss auf die Selbstwahrnehmung reflektieren",
+      "sourceText": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in Medien analysieren und deren Einfluss auf die Selbstwahrnehmung reflektieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Motivation, Immersion, Storytelling)",
+      "sourceText": "(zum Beispiel Motivation, Immersion, Storytelling)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DP-015",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "sich mit psychologischen Aspekten von Gaming auseinandersetzen",
+      "sourceText": "sich mit psychologischen Aspekten von Gaming (zum Beispiel Motivation, Immersion, Storytelling) auseinandersetzen",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DP-EX-005"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Zugehörigkeit, Vereinsamung, Gruppendruck, Teamplay)",
+      "sourceText": "(zum Beispiel Zugehörigkeit, Vereinsamung, Gruppendruck, Teamplay)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DP-016",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "soziale Aspekte von Gaming beschreiben",
+      "sourceText": "soziale Aspekte von Gaming (zum Beispiel Zugehörigkeit, Vereinsamung, Gruppendruck, Teamplay) beschreiben",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 14,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DP-EX-006"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Monetarisierungsmodelle von digitalen Spielen identifizieren",
+      "sourceText": "Monetarisierungsmodelle von digitalen Spielen identifizieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DP-018",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die eigene Nutzung von digitalen Spielen reflektieren",
+      "sourceText": "die eigene Nutzung von digitalen Spielen reflektieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitalität und Partizipation",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Digitalität und Partizipation: Gaming und Manipulation durch Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "eine Codierungsvorschrift entwerfen, um Text in eine Bitfolge zu überführen und dabei die Bedeutung der Umkehrbarkeit für das fehlerfreie Codieren und Decodieren begründen",
+      "sourceText": "eine Codierungsvorschrift entwerfen, um Text in eine Bitfolge zu überführen und dabei die Bedeutung der Umkehrbarkeit für das fehlerfreie Codieren und Decodieren begründen",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Texte in ihre ASCII-codierte Bitfolge überführen und umgekehrt",
+      "sourceText": "Texte in ihre ASCII-codierte Bitfolge überführen und umgekehrt",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-018",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "ein Schwarzweißbild durch Diskretisierung in Pixel überführen",
+      "sourceText": "ein Schwarzweißbild durch Diskretisierung in Pixel überführen",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-019",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Pixelgrafiken nach einer vorgegebenen Codierungsvorschrift in eine Bitfolge überführen und umgekehrt",
+      "sourceText": "Pixelgrafiken nach einer vorgegebenen Codierungsvorschrift in eine Bitfolge überführen und umgekehrt",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-020",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Datenmengen als Länge einer Bitfolge erklären und zur Größenangabe die Einheiten Bit und Byte verwenden",
+      "sourceText": "Datenmengen als Länge einer Bitfolge erklären und zur Größenangabe die Einheiten Bit und Byte verwenden",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-021",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Dezimalpräfixe Kilo, Mega, Giga und Tera zur Angabe von Datenmengen verwenden",
+      "sourceText": "die Dezimalpräfixe Kilo, Mega, Giga und Tera zur Angabe von Datenmengen verwenden",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ID-022",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "den Zusammenhang zwischen Datenmenge und Ressourcenverbrauch anhand eines Alltagsbeispiels beschreiben und kritisch reflektieren",
+      "sourceText": "den Zusammenhang zwischen Datenmenge und Ressourcenverbrauch anhand eines Alltagsbeispiels beschreiben und kritisch reflektieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Information und Daten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 15,
+        "section": "Klasse 7 – Information und Daten: Grundlagen digitaler Daten"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife (Variante mit konstanter Anzahl von Durchläufen und Variante mit Bedingung) • Verzweigung • Ausdrücke ohne Operatoren, mit arithmetischen Operatoren und mit Vergleichsoperatoren",
+      "sourceText": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife (Variante mit konstanter Anzahl von Durchläufen und Variante mit Bedingung) • Verzweigung • Ausdrücke ohne Operatoren, mit arithmetischen Operatoren und mit Vergleichsoperatoren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Übergabe und Rückgabe von Werten bei gegebenen Anweisungen und Ausdrücken identifizieren",
+      "sourceText": "Übergabe und Rückgabe von Werten bei gegebenen Anweisungen und Ausdrücken identifizieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "den Datentyp (Zeichenkette, Zahl, Wahrheitswert) von Werten und Ausdrücken identifizieren",
+      "sourceText": "den Datentyp (Zeichenkette, Zahl, Wahrheitswert) von Werten und Ausdrücken identifizieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel blockbasierten)",
+      "sourceText": "(zum Beispiel blockbasierten)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ALG-010",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "algorithmische Grundbausteine zielorientiert verwenden, um Algorithmen in einer geeigneten Programmiersprache zu implementieren",
+      "sourceText": "algorithmische Grundbausteine zielorientiert verwenden, um Algorithmen in einer geeigneten (zum Beispiel blockbasierten) Programmiersprache zu implementieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ALG-EX-004"
+      ]
+    },
+    {
+      "id": "LH26-E-ALG-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Bewegungsverlauf einer Figur)",
+      "sourceText": "(zum Beispiel Bewegungsverlauf einer Figur)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-ALG-011",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-ALG-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Codeabschnitte analysieren, deren Ablauf darstellen und deren Wirkung beschreiben",
+      "sourceText": "Codeabschnitte analysieren, deren Ablauf darstellen (zum Beispiel Bewegungsverlauf einer Figur) und deren Wirkung beschreiben",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-ALG-EX-005"
+      ]
+    },
+    {
+      "id": "LH26-E-ALG-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "den Einfluss von übergebenen Werten auf die Programmausführung analysieren",
+      "sourceText": "den Einfluss von übergebenen Werten auf die Programmausführung analysieren",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Algorithmen",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 16,
+        "section": "Klasse 7 – Algorithmen: Algorithmische Grundbausteine"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Gründe und alltagsnahe Beispiele für den Einsatz von Verschlüsselung nennen",
+      "sourceText": "Gründe und alltagsnahe Beispiele für den Einsatz von Verschlüsselung nennen",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Konzepte Transportverschlüsselung und Ende-zu-Ende-Verschlüsselung beschreiben",
+      "sourceText": "die Konzepte Transportverschlüsselung und Ende-zu-Ende-Verschlüsselung beschreiben",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-018",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die Begriffe Verschlüsselungsverfahren, Klartext, Geheimtext, Schlüssel, verschlüsseln und entschlüsseln verwenden",
+      "sourceText": "die Begriffe Verschlüsselungsverfahren, Klartext, Geheimtext, Schlüssel, verschlüsseln und entschlüsseln verwenden",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-019",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "das Caesar-Verfahren beschreiben und händisch durchführen",
+      "sourceText": "das Caesar-Verfahren beschreiben und händisch durchführen",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-020",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Angriffe auf mit dem Caesar-Verfahren erzeugte Geheimtexte mittels Brute Force und Häufigkeitsanalyse beschreiben, durchführen und damit die Sicherheit des Verschlüsselungsverfahrens bewerten",
+      "sourceText": "Angriffe auf mit dem Caesar-Verfahren erzeugte Geheimtexte mittels Brute Force und Häufigkeitsanalyse beschreiben, durchführen und damit die Sicherheit des Verschlüsselungsverfahrens bewerten",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-021",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "die allgemeine monoalphabetische Substitution beschreiben",
+      "sourceText": "die allgemeine monoalphabetische Substitution beschreiben",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-KS-022",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Unterschiede zwischen Codierung und Verschlüsselung beschreiben (Zweck, Schlüssel)",
+      "sourceText": "Unterschiede zwischen Codierung und Verschlüsselung beschreiben (Zweck, Schlüssel)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Kommunikation und Sicherheit",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Kommunikation und Sicherheit: Einfache kryptographische Verfahren"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-EX-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "(zum Beispiel Filter, Bildausschnitte)",
+      "sourceText": "(zum Beispiel Filter, Bildausschnitte)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "example",
+      "parentRecordId": "LH26-E-DA-016",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Digitales Arbeiten: Manipulation von Medien"
+      },
+      "status": "verified"
+    },
+    {
+      "id": "LH26-E-DA-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "Formen der technischen Veränderung und Manipulation von Medien beschreiben",
+      "sourceText": "Formen der technischen Veränderung und Manipulation von Medien beschreiben (zum Beispiel Filter, Bildausschnitte)",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Digitales Arbeiten: Manipulation von Medien"
+      },
+      "status": "verified",
+      "exampleIds": [
+        "LH26-E-DA-EX-008"
+      ]
+    },
+    {
+      "id": "LH26-E-DA-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "text": "in ihrer Wirkung veränderte Medienprodukte entwerfen und erstellen",
+      "sourceText": "in ihrer Wirkung veränderte Medienprodukte entwerfen und erstellen",
+      "grades": [
+        7
+      ],
+      "level": "E",
+      "area": "Digitales Arbeiten",
+      "recordType": "competency",
+      "sourceLocator": {
+        "page": 17,
+        "section": "Klasse 7 – Digitales Arbeiten: Manipulation von Medien"
+      },
+      "status": "verified"
+    }
+  ]
+}

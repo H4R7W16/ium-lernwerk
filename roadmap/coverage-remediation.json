@@ -1,0 +1,1719 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "baseline": {
+    "coverageCommit": "69c9d4f5504a297289615b4169fc4a9ea6d9b253",
+    "partialCount": 60,
+    "recordFingerprintSha256": "b7602352c67f61cdf075a65df167e12f7283b8f62867386545fea758b6e08892"
+  },
+  "entries": [
+    {
+      "competencyId": "BMB16-GYM-IK-GM-001",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-001",
+      "requirementText": "die Verhaltensregeln im Umgang mit digitalen Medien einhalten und die wichtigsten Komponenten für die Dateneingabe, -verarbeitung und -ausgabe benennen, beschreiben und sachgerecht nutzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Die Komponenten für Dateneingabe, -verarbeitung und -ausgabe werden nicht vollständig benannt, beschrieben und genutzt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der vorhandene Modulzweck trägt die vollständige Handlung: Lernende halten die lokale Medienordnung ein und benennen, beschreiben sowie nutzen Eingabe-, Verarbeitungs- und Ausgabekomponenten sachgerecht; die Gerätefunktionsmatrix weist jeden Operator an beobachteten Arbeitsschritten nach.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitbedarf für Geräteerkundung, Regelanwendung und die beobachteten Eingabe-, Verarbeitungs- und Ausgabeschritte innerhalb des bestehenden Stundenkorridors."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Geräte- und Regelhandlungen konkretisieren den bestehenden Arbeitsplatzauftrag in IUM-5-CORE-01 und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-GM-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-002",
+      "requirementText": "sich in einem schulischen Netzwerk anmelden, sich darin zurechtfinden und mit den Grundfunktionen des Betriebssystems arbeiten",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Praktische Betriebssystemarbeit und das schulische Datenwegmodell sind auf zwei Kandidaten verteilt; kein einzelner Kandidat weist Anmeldung, Zurechtfinden und Betriebssystem-Grundfunktionen gemeinsam in Lernhandlung und Produkt nach."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-IK-GM-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der lokale Arbeitsdurchlauf verlangt die tatsächliche Anmeldung im freigegebenen Schulnetz, das Zurechtfinden in Speicherorten und Programmen sowie die Nutzung von Betriebssystem-Grundfunktionen in einem zusammenhängenden Arbeitsweg; die Lehrkraft beobachtet die Ausführung ohne Zugangsdaten zu erfassen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitbedarf und die Reihenfolge für lokale Anmeldung, Orientierung und Betriebssystemarbeit unter der jeweils vor Ort verfügbaren Schulkonfiguration."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die tatsächliche lokale Anmeldung und Betriebssystemnutzung gehören zum bestehenden Arbeitsplatzauftrag von IUM-5-CORE-01 und benötigen keine neue Modulvoraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-GM-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-GM-003",
+      "requirementText": "elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Elementare Funktionen mehrerer Standardprogramme und Mediengeräte werden nicht ausdrücklich selbstständig angewendet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Der Modulzweck trägt Schulnetz, Betriebssystem, Dateien und Zugangsschutz, aber keine zusammenhängende weitgehend selbstständige Anwendung elementarer Funktionen mehrerer Standardprogramme und Mediengeräte; ein entsprechender Nachweis wäre ein unverbundenes Mehrwerkzeug-Zusatzprodukt oder verlangte eine andere modulare Verortung.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft Zeitfolge und Zeitbedarf einer fachlich zusammenhängenden Mehrwerkzeug-Handlung außerhalb der bereits dichten Geräte-, Betriebssystem- und Regelhandlungen dieses Moduls."
+      },
+      "graphImpact": {
+        "level": "review-required",
+        "rationale": "Eine belastbare Schließung verlangt die Prüfung einer anderen modularen Verortung oder strukturellen Zuordnung; deshalb bleibt der Record in IUM09 partial."
+      },
+      "residualGap": {
+        "reason": "Die weitgehend selbstständige Anwendung elementarer Funktionen mehrerer Standardprogramme und Mediengeräte wird vom auf Schulnetz, Betriebssystem, Dateien und Zugangsschutz fokussierten Modulzweck nicht als zusammenhängende Lernhandlung getragen; ein Nachweis würde ein unverbundenes Mehrwerkzeug-Zusatzprodukt oder eine andere modulare Verortung verlangen.",
+        "risk": "Eine Schließung allein in IUM-5-CORE-01 würde Bedienbreite mehrerer Standardprogramme und Mediengeräte ohne tragende Verbindung zur zentralen Arbeitsplatzfrage ergänzen und könnte den bestehenden Stundenkorridor überfrachten.",
+        "followUp": "IUM10 prüft Zeitfolge und modulare Verortung einer zusammenhängenden, weitgehend selbstständigen Mehrwerkzeug-Handlung; bis zu einer fachlich getragenen Verortung bleibt der Record ohne Evidenzvertrag partial."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-KK-002",
+      "requirementText": "einen digitalen Kommunikationsweg (zum Beispiel E-Mail) in seinen Grundfunktionen anwenden",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein digitaler Kommunikationsweg wird nicht in seinen Grundfunktionen praktisch angewendet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Vertrag schließt den Operator „anwenden“ nur über die tatsächliche lokale Ausführung: Lernende verfassen, senden oder teilen und rufen eine neutrale fiktive Nachricht im vor Ort freigegebenen schulischen Kanal ab und führen einen neutralen Testanhang beziehungsweise die entsprechende lokale Kernfunktion aus. Die beobachtbare Spur gehört zum selben Leitfadenprojekt und protokolliert weder Kommunikationsinhalte noch Zugangsdaten oder personenbezogene Inhalte.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 muss prüfen, ob die tatsächliche lokale Ausführung aller Grundfunktionen zusammen mit der gemeinsamen Leitfadenrevision im unveränderten Korridor von 4 bis 6 Stunden tragfähig ist."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Grundfunktionen werden im bestehenden Leitfadenprojekt und mit der vorhandenen Voraussetzung IUM-5-CORE-01 ausgeführt; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-KK-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-KK-003",
+      "requirementText": "mindestens einen digitalen Kommunikationsweg zur Kooperation und zum Austausch innerhalb von Projekten nutzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein digitaler Kommunikationsweg wird nicht zur Kooperation und zum Austausch innerhalb eines Projekts genutzt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-IK-KK-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der digitale Kommunikationsweg wird im selben tatsächlichen lokalen Mini-Projekt von Lernenden für Kooperation und Austausch genutzt: Neutrale fiktive Änderungsvorschläge zum vorhandenen Leitfaden werden geteilt, abgerufen, abgestimmt und in die gemeinsame Revision übernommen. Damit sind Projektkontext und Operator „nutzen“ ausgeführt statt nur beschrieben.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 muss den Zeitbedarf der tatsächlichen lokalen Kooperationsschritte innerhalb der gemeinsamen Leitfadenrevision gegen den unveränderten Korridor von 4 bis 6 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Kooperation und Austausch werden im bestehenden Leitfadenprojekt mit dem lokal freigegebenen Kanal ausgeführt; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-001",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-001",
+      "requirementText": "die persönliche Motivation bezüglich des eigenen Medienverhaltens beschreiben und die eigene Nutzung ihrem Alter entsprechend bewerten",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Die persönliche Nutzungsmotivation und eine altersbezogene Bewertung der eigenen Nutzung werden nicht vollständig sichtbar."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der record-spezifische Abschnitt der einen integrierten privaten lokalen Reflexionsmatrix beschreibt die persönliche Motivation in denselben zwei einmal festgehaltenen eigenen Nutzungssituationen und bewertet die eigene Nutzung mit einem vollständig vorgegebenen, im nichtpersonalen Auftrag enthaltenen altersbezogenen Kriterienkatalog. Der nichtpersonale Operatoranteil fließt ausschließlich in dieselbe gemeinsame teilbare Wirkungskarte ein und benötigt keine Einsicht in die private Matrix.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft, ob die gemeinsame Sequenz aus vorgegebenem Fall und Kriterienkatalog, integrierter privater Matrix, gemeinsamer Wirkungskarte und Sicherung innerhalb des 4–6-Stunden-Korridors tragfähig ist."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Motivationsbeschreibung und altersbezogene Bewertung vertiefen die bereits angelegte private Selbstreflexion in IUM-5-CORE-07 und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-002",
+      "requirementText": "die positiven Aspekte der Mediennutzung, aber auch die Risiken und Gefahren des (übermäßigen) Mediengebrauchs erläutern, bewerten und präventive Maßnahmen benennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Positive Aspekte, Risiken übermäßiger Nutzung und präventive Maßnahmen werden nicht gemeinsam erläutert und bewertet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Nutzen-Risiko-/Präventionsabschnitt derselben gemeinsamen teilbaren fallbezogenen Wirkungskarte weist am vollständig vorgegebenen gemeinsamen Fall positive Aspekte, Risiken oder Gefahren ausdrücklich für übermäßigen Mediengebrauch, ihre kriterien- und beleggestützte Bewertung sowie passende präventive Maßnahmen nach; es entsteht kein separates Zusatzprodukt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitanteil von Erläuterung, Bewertung und Prävention innerhalb der einen gemeinsamen Fallanalyse, Wirkungskarte und Sicherung des 4–6-Stunden-Korridors."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die vollständige Nutzen-Risiko-Bewertung konkretisiert die zentrale Falluntersuchung von Faszination, Konflikten und Medienwirkungen und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-MG-003",
+      "timeReviewId": "TR-BMB16-GYM-IK-MG-003",
+      "requirementText": "die Wirkung von Medien an Beispielen untersuchen, ihre Empfindungen dazu äußern und erste Gesetzmäßigkeiten ableiten",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Eigene Empfindungen zu Medienwirkungen und daraus abgeleitete erste Gesetzmäßigkeiten fehlen im sichtbaren Nachweis."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-IK-MG-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Abschnitt „Empfindung und Wirkung“ der einen integrierten privaten lokalen Reflexionsmatrix untersucht dieselben zwei kuratierten Medienbeispiele, enthält die eigenen Empfindungen und eine erste bedingte Gesetzmäßigkeit. Der nichtpersonale Operatoranteil nutzt denselben vollständig vorgegebenen Fall und bereitgestellte Reaktionsdaten als Abschnitt derselben gemeinsamen Wirkungskarte, ohne private Inhalte zu benötigen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitanteil für Beispieluntersuchung, private Empfindungsäußerung und bedingte Wirkungsaussage innerhalb der gemeinsamen Matrix-, Wirkungskarten- und Sicherungssequenz."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Beispielvergleich und bedingte Wirkungsaussage vertiefen die zentrale Untersuchung möglicher Medienwirkungen in IUM-5-CORE-07 und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-IK-PP-002",
+      "timeReviewId": "TR-BMB16-GYM-IK-PP-002",
+      "requirementText": "bei der Erstellung eines digitalen Medienprodukts erste grundlegende Urheberrechts- und Datenschutzrichtlinien beachten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Urheberrecht und Quellen werden geprüft, der ebenfalls verlangte Datenschutz wird in Lernhandlung und Produkt aber nicht ausdrücklich nachgewiesen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-BMB16-GYM-IK-PP-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Bei der Erstellung werden für jedes Fremdmaterial Quelle, Lizenz und zulässige Nutzung geprüft sowie getrennt eine datensparsame Inhalts- und Veröffentlichungsentscheidung getroffen; die integrierte Produktspur weist beide Dimensionen ohne echte personenbezogene Daten, Einwilligungsdokumente oder private Offenlegung nach.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die getrennte Rechte- und Datenschutzprüfung konkretisiert die Produktarbeit substanziell; IUM10 muss ihren Zeitbedarf im Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Rechte-, Quellen- und Veröffentlichungsentscheidungen gehören zur vorhandenen Medienproduktion in IUM-5-CORE-06 und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-HK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-HK-003",
+      "requirementText": "Medien für Zusammenarbeit und Kooperation nutzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein Medium wird nicht tatsächlich für Zusammenarbeit oder Kooperation eingesetzt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-PK-HK-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Lernende nutzen im selben tatsächlichen lokalen Mini-Projekt das vor Ort freigegebene Medium, um neutrale fiktive Fallkarten und Regelvorschläge gemeinsam zu prüfen, zu bearbeiten, abzustimmen und zu revidieren. Damit sind Zusammenarbeit und Kooperation als reale Medienhandlung im vorhandenen Leitfadenprodukt sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 muss prüfen, ob die tatsächliche Medienkooperation zusammen mit den übrigen Leitfadenhandlungen im unveränderten Korridor von 4 bis 6 Stunden orchestrierbar ist."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Medienkooperation ist Teil des bestehenden Leitfadenprojekts und benötigt keine neue Voraussetzung oder Modulabhängigkeit."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-001",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-001",
+      "requirementText": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Das eigene Nutzungsverhalten wird privat reflektiert, aber nicht ausdrücklich beschrieben und mit anderem Nutzungsverhalten verglichen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Abschnitt „Nutzungsvergleich“ der einen integrierten privaten lokalen Reflexionsmatrix knüpft an eigene Erfahrungen an, beschreibt dieselben zwei einmal festgehaltenen eigenen Nutzungssituationen und vergleicht sie anhand des gemeinsamen Kriterienkatalogs mit den zwei Situationen des vollständig vorgegebenen Falls. Der nichtpersonale Vergleich wird nur als Operatoranteil derselben gemeinsamen Wirkungskarte ausgeführt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitanteil für Beschreibung und kriteriengeleiteten Vergleich innerhalb der gemeinsam vorbereiteten Matrix-, Wirkungskarten- und Sicherungssequenz."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der eigenerfahrungsbezogene Vergleich konkretisiert die bereits angelegte private Nutzungsreflexion und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-002",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-002",
+      "requirementText": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Der Einfluss digitaler Medien auf die eigene Lebenswelt und das Verhältnis von Wirklichkeit und Medienwirklichkeit werden nicht ausdrücklich dargestellt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-07-BMB16-GYM-PK-RK-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Abschnitt „Lebenswelt und Medienwirklichkeit“ der einen integrierten privaten lokalen Reflexionsmatrix nutzt dieselben zwei eigenen Nutzungssituationen und dieselben zwei kuratierten Medienbeispiele, um Lebenswelteinfluss sowie Entsprechungen und Unterschiede zwischen Wirklichkeit und Medienwirklichkeit darzustellen. Der nichtpersonale Operatoranteil wird am gemeinsamen vorgegebenen Fall in derselben teilbaren Wirkungskarte gesichert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitanteil für Lebensweltdarstellung und Wirklichkeitsbeziehung innerhalb der gemeinsam vorbereiteten Matrix-, Wirkungskarten- und Sicherungssequenz."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Lebensweltbezug und Wirklichkeitsvergleich vertiefen die zentrale Untersuchung von Wahrnehmung und Medienwirkung und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-003",
+      "requirementText": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Auswirkungen medialer Selbstdarstellung werden nicht ausdrücklich abgeschätzt und bewertet."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Der Quelltext verlangt Folgenabschätzung und Bewertung medialer Selbstdarstellung ohne persönlichen Bezug. Die festgeschriebene Ursachenklasse `private-local` würde eine unnötig private fiktive Erstleistung und einen redundanten zweiten Fallnachweis erzeugen; bis zu einer Design- und Ursachenreklassifikation kann der Record nicht belastbar geschlossen werden.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft Zeitbedarf und Einordnung genau eines späteren sichtbaren Fallnachweises erst nach der notwendigen Design- und Ursachenreklassifikation."
+      },
+      "graphImpact": {
+        "level": "review-required",
+        "rationale": "Eine belastbare Schließung setzt die spätere Reklassifikation von `private-local` zu `module-detail` und die Prüfung genau eines sichtbaren Fallnachweises voraus; deshalb bleibt der Record in IUM09 partial."
+      },
+      "residualGap": {
+        "reason": "Der Quelltext fordert das Abschätzen und Bewerten medialer Selbstdarstellung ohne persönlichen Bezug; die festgeschriebene Ursachenklasse `private-local` ist für eine rein fiktive Fallleistung fehlklassifiziert und würde private Erstleistung und nichtpersonalen Nachweis redundant verdoppeln.",
+        "risk": "Eine Schließung im Modus `private-local` würde ohne Datenschutzgewinn eine fachlich unbeobachtbare fiktive Erstleistung erzeugen und dieselbe Operatorfolge in einer zweiten Fallaufgabe wiederholen; das verschleiert den erforderlichen normalen Fallnachweis.",
+        "followUp": "In einer späteren Design- und Ursachenreklassifikation den Wechsel zu `module-detail` prüfen und danach genau einen `shared`- oder `teacher-observable`-Fallnachweis für Folgenabschätzung und kriteriengestützte Bewertung vorsehen; bis dahin bleibt der Record ohne Evidenzvertrag partial."
+      }
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-004",
+      "timeReviewId": "TR-BMB16-GYM-PK-RK-004",
+      "requirementText": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Rechtliche und moralische Grenzüberschreitungen werden nicht unterschieden und daraus keine eigenen Sozialregeln abgeleitet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-BMB16-GYM-PK-RK-004",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "In den integrierten fiktiven Fallkarten erkennen Lernende rechtliche und moralische Grenzübertretungen ausdrücklich getrennt und leiten daraus begründete Regeln für das eigene soziale Verhalten ab. Markierungen und Regelrevision bleiben Teil desselben Kommunikationsleitfadens und erzeugen keine zusätzliche Produktfamilie.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 muss die zusätzliche begründete Trennung rechtlicher und moralischer Grenzübertretungen innerhalb des unveränderten Korridors von 4 bis 6 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Fallkarten- und Regelrevision vertieft das bestehende Leitfadenprodukt und benötigt keine neue Modulabhängigkeit."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-SK-003",
+      "timeReviewId": "TR-BMB16-GYM-PK-SK-003",
+      "requirementText": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Verhaltensregeln für den Medienumgang werden nicht ausdrücklich benannt und in einer beobachtbaren Handlung eingehalten."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-BMB16-GYM-PK-SK-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Lernende benennen die vor Ort geltenden Verhaltensregeln und halten sie im tatsächlichen lokalen Geräte- und Dateiarbeitsauftrag ein; Regelcheck und festgelegte Beobachtungspunkte bilden Benennen und Einhalten prüfbar ab.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft, wie Einführung, Benennung und beobachtete Anwendung lokaler Medienregeln in den bestehenden Stundenkorridor eingeordnet werden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Regelanwendung ist Bestandteil des sicheren lokalen Arbeitsplatzauftrags und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-ALG-003",
+      "timeReviewId": "TR-INF7-16-GYM-IK-ALG-003",
+      "requirementText": "Variablen als änderbaren Wertespeicher erläutern",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Variablen werden nicht ausdrücklich als änderbare Wertespeicher erläutert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-INF7-16-GYM-IK-ALG-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Wertespeicher- und Zustandsansicht des vorhandenen synchronen Traceprodukts erläutert die Variable ausdrücklich als änderbaren Wertespeicher und zeigt jede Zustandsänderung vom alten zum neuen Wert mit der auslösenden Anweisung. Variable, Wert, Anweisung und Zustandsänderung bleiben unterscheidbar und sind mit demselben Programmfall synchronisiert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die explizite Wertespeichererklärung und die begründete Zustandsänderung verdichten das vorhandene Traceprodukt; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von 6–8 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Erklärung nutzt denselben Programmfall und die vorhandene Voraussetzung IUM-6-CORE-04; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-001",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-001",
+      "requirementText": "Beispiele zur Verwendung von Codierungen im Alltag nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Alltagsbeispiele für den Einsatz von Codierungen werden nicht ausdrücklich gesammelt und benannt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke mit einer sichtbaren Alltagscodierungs-Landkarte im bestehenden Bit-Codebuch: Die Lernenden nennen mindestens vier fachlich korrekte Alltagsverwendungen, ordnen Bedeutung, Darstellung und Verwendungszweck zu und grenzen Codierung ausdrücklich von Verschlüsselung ab.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die Sammlung, fachliche Prüfung und Zuordnung mehrerer Alltagscodierungen verdichtet das bestehende Bit-Codebuch; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Alltagscodierungs-Landkarte ist eine beschriftete Ansicht desselben Bit-Codebuchs und nutzt die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-004",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-004",
+      "requirementText": "Datenmengen als „Länge einer Bitfolge“ erklären und mithilfe der Einheiten Bit, Byte, Kilobyte etc. beschreiben",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Datenmengen werden nicht mit Bit, Byte und den größeren Einheiten beziehungsweise Präfixen beschrieben."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-004",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die enacted Anforderung durch eine konkrete Datengrößenspur: Eine Bitfolge wird als Länge in Bit erklärt, mit 8 Bit = 1 Byte in Byte beschrieben und zusammen mit kB, MB, GB und TB in einer ausdrücklich dezimal gekennzeichneten Tabelle verwendet.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Bitfolgenlänge, Bit-Byte-Beziehung und die größeren dezimalen Einheiten erweitern die bestehende Codierungsarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Datengrößenspur ergänzt das vorhandene Bit-Codebuch und die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-DC-005",
+      "timeReviewId": "TR-INF7-16-GYM-IK-DC-005",
+      "requirementText": "natürliche Zahlen (im Bereich 0–255) mithilfe des Binärsystems als Bitfolge darstellen, Bitfolgen als Zahlen interpretieren und das Prinzip des Binärsystems erklären",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Natürliche Zahlen im Bereich 0 bis 255 werden nicht systematisch in beide Richtungen umgewandelt und das Binärprinzip wird nicht ausdrücklich erklärt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-INF7-16-GYM-IK-DC-005",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt alle drei enacted Teilanforderungen mit einer systematischen 8-Bit-Stellenwertmethode für den gesamten Bereich 0 bis 255: Zahl und Bitfolge werden in beide Richtungen umgewandelt, das Binärprinzip wird über Stellenwerte und Summe erklärt und Grenz-, Stellenwechsel- sowie unbekannte Prüffälle werden sichtbar bearbeitet.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die systematische Methode, beide Umwandlungsrichtungen, führende Nullen und repräsentative Prüf- und Grenzfälle verdichten die vorhandene Binärarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Binärumwandlungs- und Prinzipspur ist eine Ansicht des bestehenden Bit-Codebuchs und nutzt die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-004",
+      "timeReviewId": "TR-INF7-16-GYM-IK-IGD-004",
+      "requirementText": "besondere Sicherheitsaspekte im Umgang mit mobilen Geräten und Datenträgern nennen sowie mögliche Schutzmaßnahmen beschreiben",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-05",
+        "reason": "Besondere Sicherheitsaspekte mobiler Geräte und Datenträger werden nicht ausdrücklich benannt und mit Schutzmaßnahmen verbunden."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-05-INF7-16-GYM-IK-IGD-004",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die integrierte Risiko–Maßnahme-Spur nennt an vollständig vorgegebenen fiktiven Fällen besondere Sicherheitsaspekte mobiler Geräte und Datenträger und beschreibt für Verlust, Schadsoftware, unsichere Übertragung sowie Beschädigung jeweils mögliche Schutzmaßnahmen, deren Wirkung und Grenze. Sie bleibt als Matrix mit dem vorhandenen System- und Bedrohungsmodell verbunden, ohne persönliche Geräte zu verändern oder Gerätekennungen zu erheben.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Vier ausdrückliche Risiko–Maßnahme-Paare samt Schutzwirkung und Grenze verdichten das bestehende Bedrohungsmodell; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Risiko–Maßnahme-Matrix ist eine Spur des vorhandenen System- und Bedrohungsmodells und nutzt die bestehende Voraussetzung IUM-6-CORE-05; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-IK-IGD-006",
+      "timeReviewId": "TR-INF7-16-GYM-IK-IGD-006",
+      "requirementText": "den Sachverhalt der permanent anfallenden personenbezogenen Daten bei der Nutzung von Diensten und deren Speicherung an alltagsrelevanten Beispielen erläutern und dabei sowohl Nutzen als auch Risiken nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Das permanente Anfallen und Speichern personenbezogener Daten wird nicht an Alltagsbeispielen mit Nutzen und Risiken erklärt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-IK-IGD-006",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Abschnitt „Datenanfall und Speicherung“ des vorhandenen geteilten Evidenz- und Entscheidungsdossiers erklärt am kuratierten alltagsrelevanten Dienstfall sowohl das permanente Anfallen als auch die Speicherung personenbezogener Daten und nennt konkreten Nutzen sowie konkrete Risiken. Er bleibt durch dieselben Fälle, Akteursdaten, Belege, Kriterien und die gemeinsame Revision in die zentrale Modulhandlung integriert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die explizite Erklärung von Datenanfall, Speicherung, Nutzen und Risiken verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Record nutzt dieselben kuratierten Fälle und dieselbe Dossierrevision im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-002",
+      "requirementText": "informatische Modelle mit der jeweiligen Realsituation vergleichen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-05",
+        "reason": "Das informatische Modell wird nicht ausdrücklich mit der entsprechenden Realsituation verglichen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-AB-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die separate Modell–Realsituation-Tabelle stellt Modellelement, Vorhersage und Datenweg den entsprechenden beobachteten realen Schritten einer tatsächlichen oder kuratierten nichtpersonalen Spur des neutralen schulischen Client–Server- und Speicherworkflows gegenüber und verlangt Übereinstimmungen, Abweichungen oder Auslassungen, Modellgrenze und begründete Revision. Eine tatsächliche Beobachtung nutzt dasselbe lokale Freigabegate wie die Schulnetznutzung; die Modellspur ist in das vorhandene Systemmodell integriert und geht über die bloße Feststellung einer Vereinfachung hinaus.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die tatsächliche oder kuratierte nichtpersonale Beobachtung, der kriterielle Vergleich und die Modellrevision verdichten die bestehende Modellarbeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Modell–Realsituation-Vergleich nutzt das vorhandene Systemmodell, den neutralen Speicherworkflow und die bestehende Voraussetzung IUM-6-CORE-05; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-005",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-005",
+      "requirementText": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld werden nicht in dieser Breite aus mehreren Perspektiven bewertet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-005",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Abschnitt „Auswirkungen und Perspektiven“ desselben geteilten Evidenz- und Entscheidungsdossiers bewertet Auswirkungen der behandelten Computersysteme ausdrücklich auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus den benannten Perspektiven betroffene Person, Beschäftigte, Dienstanbieter und Öffentlichkeit. Kriterien, Belege, Gegenbelege und gemeinsame Revision machen das Urteil sichtbar, ohne ein Zusatzprodukt zu erzeugen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die vollständige Perspektiven- und Bereichsbreite verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Bewertung verwendet dieselben Fälle, Akteursdaten, Belege und Kriterien im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-AB-006",
+      "timeReviewId": "TR-INF7-16-GYM-PK-AB-006",
+      "requirementText": "im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Ein eigener argumentativ vertretener Standpunkt zu einer ausgewiesenen ethischen Frage der Informatik wird nicht ausdrücklich verlangt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-AB-006",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der individuelle Abschnitt „Eigene ethische Position“ desselben geteilten Evidenz- und Entscheidungsdossiers verlangt zu der ausgewiesenen ethischen Informatikfrage der datenbasierten Auswahl und Reichweitensteuerung eine eigene Position, die mit Kriterien und Belegen begründet, gegen ein Gegenargument geprüft, argumentativ vertreten und revidiert wird. Damit ist nicht nur ein Gruppenstandpunkt sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die individuelle ethische Argumentation mit Gegenargument und Revision verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Position nutzt dieselben Fälle, Akteursdaten, Belege und Kriterien im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-KK-002",
+      "requirementText": "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-04",
+        "reason": "Die Erläuterung wird nicht durchgängig zielgruppenorientiert, terminologisch korrekt und strukturiert als eigener Nachweis gefordert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-KK-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die eingebettete Erklärspur richtet Sachverhalt, eigene Idee, Lösungsweg und Ergebnis an eine konkret benannte Lerngruppe der Klassenstufe 7 ohne Programmvorwissen. Eine Adressaten- und Vorwissensnotiz mit begründeter Anpassung von Begriffserklärung oder Beispiel, vier strukturierte Abschnitte, ein fachlich korrektes Glossar und ein programmbezogenes Beispiel machen Zielgruppenbezug, informatische Terminologie und Struktur im vorhandenen Teamprodukt sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die zielgruppenbezogene Aufbereitung aller vier Gegenstände mit Glossar und Beispiel ergänzt eine eigenständige Erklärhandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Erklärspur nutzt denselben Teamplan, dasselbe kommentierte Programm und dieselbe Präsentation im bestehenden Kernmodul; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-KK-006",
+      "timeReviewId": "TR-INF7-16-GYM-PK-KK-006",
+      "requirementText": "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Toleranz und Akzeptanz von Vielfalt werden im informatischen Kontext nicht ausdrücklich diskutiert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-INF7-16-GYM-PK-KK-006",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Abschnitt „Vielfalt in datenbasierten Systemen“ desselben geteilten Evidenz- und Entscheidungsdossiers diskutiert Toleranz und Akzeptanz von Vielfalt an der konkreten informatischen Frage, wie Datenerhebung, Kategorisierung und Ausspielung unterschiedliche Lebenslagen und Identitäten berücksichtigen oder benachteiligen. Mehrere benannte Perspektiven und ein revidiertes Ergebnis machen die Diskussion sichtbar; ein allgemeiner Sozialappell genügt nicht.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die konkrete informatische Vielfaltsdiskussion mit mehreren Perspektiven und Revision verdichtet das bestehende Dossier; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Diskussion verwendet dieselben Fälle, Akteursdaten, Belege und Kriterien im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-003",
+      "timeReviewId": "TR-INF7-16-GYM-PK-MI-003",
+      "requirementText": "charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion)",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-04",
+        "reason": "Charakteristische und verallgemeinerbare Bestandteile werden nicht ausdrücklich als Abstraktion herausgearbeitet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-MI-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die integrierte Abstraktionsspur vergleicht mindestens zwei konkrete Fälle oder Testeingaben, trennt invariante und verallgemeinerbare Bestandteile von variierenden Details, formuliert daraus ein verallgemeinertes Modell oder eine Teillösung und wendet diese auf beide Fälle sowie einen weiteren Prüffall zurück. Damit wird Abstraktion als Herausarbeiten und Rückanwenden statt als bloßes Weglassen sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Fallvergleich, explizite Abstraktion und Rückanwendung ergänzen eine eigene Modellierungs- und Prüfhandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Abstraktion nutzt vorhandenes Entwurfsmodell, Programmkommentare und Testprotokoll sowie die Voraussetzung IUM-7-CORE-03; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-MI-005",
+      "timeReviewId": "TR-INF7-16-GYM-PK-MI-005",
+      "requirementText": "geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Ein geeignetes Programm oder Hilfsmittel wird nicht ausdrücklich zur grafisch gestützten Modellierung eingesetzt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-MI-005",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die grafische Ablauf- und Zustandsmodellierungsansicht verlangt den tatsächlichen Einsatz eines plattformneutralen grafischen Modellierungswerkzeugs zum Erstellen, Bearbeiten und Korrigieren der Modellierung. Die bearbeitete und korrigierte Modellfassung ist Produktspur im selben synchronen Trace; eine bloße Anzeige oder Tracingoberfläche genügt nicht.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Tatsächliches Erstellen, Bearbeiten und Korrigieren der grafischen Modellierung ergänzt eine eigenständige Werkzeughandlung; IUM10 prüft den Zeitbedarf im unveränderten Korridor von 6–8 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Das plattformneutrale Werkzeug bearbeitet die vorhandene Ablauf- und Zustandsspur im selben Modul; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-001",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-001",
+      "requirementText": "mit dem Schulnetz zielorientiert arbeiten",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-05",
+        "reason": "Die Lernenden arbeiten nicht tatsächlich zielorientiert im vorhandenen Schulnetz."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-05-INF7-16-GYM-PK-SV-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Vertrag schließt den Record ausschließlich über eine tatsächliche zielorientierte Handlung im vor Ort freigegebenen Schulnetz: Speicherort zum neutralen Arbeitsziel auswählen, ein fiktives personenfreies Testartefakt speichern oder hochladen, erneut abrufen und öffnen sowie das Ergebnis verifizieren. Das harte lokale Freigabegate hält die Lücke offen, falls keine schulisch freigegebene und datenschutzkonforme Konfiguration benannt werden kann.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die tatsächliche lokale Speicher-, Abruf- und Prüfhandlung benötigt vor Ort Konfigurations- und Unterrichtszeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 5–7 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die tatsächliche lokale Nutzung führt den vorhandenen neutralen Netz- und Speicherworkflow aus und nutzt die bestehende Voraussetzung IUM-6-CORE-05; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-002",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-002",
+      "requirementText": "Dateien und Bezeichner aussagekräftig benennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-04",
+        "reason": "Aussagekräftige Datei- und Bezeichnernamen werden weder gefordert noch im Produkt nachgewiesen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-04-INF7-16-GYM-PK-SV-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Lernhandlung verlangt die tatsächliche Benennung oder Umbenennung von mindestens zwei vorhandenen Projektdateien sowie mehrerer verwendeter Programmbezeichner nach Rolle, Zweck und dokumentierter Namenskonvention. Eine integrierte Vorher-Nachher-Tabelle und der gespeicherte Projektbestand beziehungsweise die kommentierte Programmfassung weisen die Refaktorierung nach; eine allgemeine Clean-Code-Behauptung genügt nicht.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die tatsächliche Datei- und Bezeichnerrefaktorierung mit Konvention und Nachweis ergänzt eine eigene Strukturierungs- und Revisionshandlung; IUM10 prüft die Verdichtung im unveränderten Korridor von 7–10 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Umbenennungen betreffen ausschließlich die vorhandenen Teamplan-, Programm- und gegebenenfalls Testartefakte im bestehenden Kernmodul; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "INF7-16-GYM-PK-SV-003",
+      "timeReviewId": "TR-INF7-16-GYM-PK-SV-003",
+      "requirementText": "Beziehungen zwischen Daten/Objekten erkennen und erläutern",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Das Code- und Zustandstrace weist keine ausdrücklich erkannten und erläuterten Beziehungen zwischen Daten oder Objekten aus."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-INF7-16-GYM-PK-SV-003",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Daten- und Objektbeziehungsansicht enthält im selben Programmfall einen gerichteten und beschrifteten Datenabhängigkeitsgraphen. Unterscheidbare Knoten repräsentieren Eingabedatum, Variablenzustände vor und nach der Anweisung, Ausdrucksergebnis und Ausgabeobjekt; gerichtete Kanten mit „liest“, „schreibt“ und „hängt ab von“ modellieren Beziehungen statt bloß zeitlicher Verarbeitung. Mindestens eine Abhängigkeit und ihre Änderungsfolge werden erläutert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Der beschriftete Datenabhängigkeitsgraph ergänzt eine eigene Modellierungs- und Erklärungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. Zusätzliche Modulzeit wird nicht behauptet, weil derselbe Programmfall und dasselbe grafische Werkzeug verwendet werden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Beziehung wird am selben vorhandenen Programmfall und Trace erklärt; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ALG-001",
+      "timeReviewId": "TR-LH26-E-ALG-001",
+      "requirementText": "digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-05",
+        "reason": "Digitale Systeme, deren Funktion wesentlich algorithmisch bestimmt ist, werden nicht ausdrücklich identifiziert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-05-LH26-E-ALG-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Lernenden identifizieren aus einem gemischten Satz digitale Systeme, deren Funktionsweise wesentlich algorithmisch bestimmt ist, und begründen jede Einstufung am konkreten algorithmischen Prozess; die Klassifikations- und Begründungsspur bleibt in die vorhandene Algorithmus- und Laufprotokollansicht integriert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die zusätzliche Klassifikation und fallbezogene Begründung konkretisieren die zentrale Algorithmusarbeit, ihr Zeitbedarf innerhalb des unveränderten Korridors von fünf bis sieben Stunden muss jedoch in IUM10 geprüft werden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Klassifikations- und Begründungsspur wird am selben Algorithmusfall und im selben Laufprotokollprodukt bearbeitet; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ALG-007",
+      "timeReviewId": "TR-LH26-E-ALG-007",
+      "requirementText": "algorithmische Grundbausteine beschreiben: • Anweisung • Schleife (Variante mit konstanter Anzahl von Durchläufen und Variante mit Bedingung) • Verzweigung • Ausdrücke ohne Operatoren, mit arithmetischen Operatoren und mit Vergleichsoperatoren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Arithmetische Ausdrücke und Vergleichsausdrücke werden neben den Kontrollstrukturen nicht ausdrücklich beschrieben."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-LH26-E-ALG-007",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Grundbaustein- und Ausdrucksansicht beschreibt im selben Programmfall vollständig und unterscheidbar Anweisung, Schleife mit konstanter Durchlaufzahl, Schleife mit Bedingung, Verzweigung, Ausdruck ohne Operator, Ausdruck mit arithmetischem Operator und Ausdruck mit Vergleichsoperator. Jede atomare Anforderung besitzt eine beschriftete Belegstelle im synchronen Traceprodukt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die vollständige Breite aus zwei Schleifenvarianten und drei Ausdrucksformen erweitert die explizite Beschreibungsarbeit deutlich; IUM10 prüft die Tragfähigkeit im unveränderten Korridor von 6–8 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Alle Grundbausteine werden im selben vorhandenen Programmfall und Traceprodukt beschrieben; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ALG-008",
+      "timeReviewId": "TR-LH26-E-ALG-008",
+      "requirementText": "Übergabe und Rückgabe von Werten bei gegebenen Anweisungen und Ausdrücken identifizieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Die Rückgabe von Werten bei Anweisungen und Ausdrücken wird nicht ausdrücklich identifiziert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-LH26-E-ALG-008",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Übergabe- und Rückgabeansicht identifiziert bei gegebenen Anweisungen und Ausdrücken den konkreten semantischen Wertfluss: von Quelle oder innerem Ausdruck zu konsumierendem Operanden, Parameter oder Ziel sowie vom ausgewerteten Ausdrucksergebnis zu äußerem Ausdruck oder Anweisung. Quelle, ausgewertetes Ergebnis, Empfänger und anschließende Verwendung bleiben getrennt. Eine Anweisung ohne definierten Ergebniswert liefert keinen Rückgabewert; ohne vorhandene Funktion wird keine Funktionsrückgabe unterstellt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die präzise Übergabe-/Ergebniswertzuordnung für Anweisungen und Ausdrücke ergänzt eine eigenständige Identifikationsspur; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden. Zusätzliche Modulzeit wird nicht behauptet, weil derselbe Programmfall und dieselbe Traceansicht verwendet werden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Übergabe und Rückgabe werden im selben vorhandenen Programmfall und Traceprodukt identifiziert; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ALG-009",
+      "timeReviewId": "TR-LH26-E-ALG-009",
+      "requirementText": "den Datentyp (Zeichenkette, Zahl, Wahrheitswert) von Werten und Ausdrücken identifizieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-03",
+        "reason": "Datentypen werden erklärt und Werte protokolliert, aber die Datentypen von Werten und Ausdrücken werden nicht ausdrücklich identifiziert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-03-LH26-E-ALG-009",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Datentypansicht identifiziert bei Werten und Ausdrücken die drei Datentypen Zeichenkette, Zahl und Wahrheitswert und begründet ihre Zuordnung zu Eingabe, Zwischenergebnis, Bedingung und Ausgabe. Datentyp, Wert und Ausdruck bleiben als getrennte Kategorien sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die explizite Typzuordnung für Werte und Ausdrücke ergänzt eine eigene Begründungsspur im vorhandenen Traceprodukt; IUM10 prüft die Verdichtung im unveränderten Korridor von 6–8 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Typidentifikation nutzt dieselben Werte und Ausdrücke des vorhandenen Programmfalls; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-004",
+      "timeReviewId": "TR-LH26-E-DA-004",
+      "requirementText": "den grundlegenden Aufbau digitaler Systeme in den Schichten Hardware, Betriebssystem und Programmen erklären",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Das Zusammenspiel der drei Schichten Hardware, Betriebssystem und Programme wird nicht ausdrücklich als Schichtenmodell erklärt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-LH26-E-DA-004",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Das Schichtenmodell präzisiert die bereits zentrale Systemerklärung: Lernende erklären Hardware, Betriebssystem und Programme als unterscheidbare, zusammenwirkende Schichten und ordnen die beobachteten Arbeitsschritte zu; die kommentierte Schichtenansicht macht die Beziehungen prüfbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den zusätzlichen Erklärungs- und Sicherungsbedarf des Schichtenmodells gemeinsam mit der Geräte- und Betriebssystemsequenz."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Das Schichtenmodell konkretisiert die vorhandene System- und Arbeitswegkarte und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-005",
+      "timeReviewId": "TR-LH26-E-DA-005",
+      "requirementText": "Bausteine eines Textes identifizieren und Möglichkeiten zu ihrer Formatierung nutzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Ein generisches Medienprodukt belegt weder das Identifizieren von Textbausteinen noch die Nutzung konkreter Formatierungsoptionen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-LH26-E-DA-005",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: In einer konkreten Textfassung werden Überschrift, Fließtext, Bildunterschrift und Listenbaustein identifiziert und mehrere konkrete Formatierungsoptionen tatsächlich funktional genutzt; die Baustein- und Formatierungsspur macht beides im Vorher-Nachher-Vergleich sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Identifikation und funktionale Nutzung mehrerer Formatierungsoptionen vertiefen die vorhandene Revision; IUM10 muss den Zeitbedarf im Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Baustein- und Formatierungsarbeit wird in die vorhandene Informationsproduktrevision integriert und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-006",
+      "timeReviewId": "TR-LH26-E-DA-006",
+      "requirementText": "eine Objektart zur visuellen Gestaltung nutzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Die Nutzung einer bestimmten Objektart zur visuellen Gestaltung wird in Lernhandlung und Produkt nicht verpflichtend sichtbar."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-LH26-E-DA-006",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Ein Bild wird als benannte und einzige verpflichtende visuelle Objektart tatsächlich genutzt; Position, Größe oder Ausschnitt sowie seine Funktion für die Aussage werden in einer unterscheidbaren Bildnutzungs- und Gestaltungsentscheidung sichtbar.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die verpflichtende Bildnutzung mit Rechteprüfung und begründeter Gestaltungsentscheidung erzeugt reale Produktionstiefe; IUM10 muss den Zeitbedarf prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Bildnutzung und Gestaltungsbegründung sind im vorhandenen digitalen Informationsprodukt orchestrierbar und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-008",
+      "timeReviewId": "TR-LH26-E-DA-008",
+      "requirementText": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-06",
+        "reason": "Bewertet wird das eigene Produkt; die Wirkung einer vorgegebenen Gestaltung und die Analyse ihres Inhalt-Form-Zusammenhangs werden nicht ausdrücklich nachgewiesen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-06-LH26-E-DA-008",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Eine vorgegebene Gestaltung wird kriterien- und beleggebunden hinsichtlich ihrer Wirkung beurteilt und ihr Inhalt-Form-Zusammenhang analysiert; die eigene Revision ist nur ein möglicher anschließender Transfer und ersetzt Analyse und Urteil nicht.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die eigenständige Analyse und Beurteilung einer vorgegebenen Gestaltung ergänzt die bestehende Produktrevision um eine anspruchsvolle Lernhandlung; IUM10 muss die Verdichtung im Zeitkorridor prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Analyse der vorgegebenen Gestaltung dient als kriterienbildender Schritt für die vorhandene Revision und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-009",
+      "timeReviewId": "TR-LH26-E-DA-009",
+      "requirementText": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Der Kandidat erzeugt ein generisches Medienprodukt und legt kein kreatives Textprodukt als verpflichtenden Nachweis fest."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-009",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Eine Mikrogeschichte ist als verpflichtendes kreatives Textprodukt in das bestehende offen nachnutzbare Medienprodukt integriert; eigenes Gestaltungs- und Wirkungsziel, Wirkungsfeedback, Soll-Ist-Abgleich und begründete Textrevision machen Erstellen und Auseinandersetzung mit der Wirkung sichtbar. Produktionsinhalte sind eigene oder nachweislich rechtlich nutzbare und mit der offenen Nachnutzung kompatibel freigegebene Inhalte; Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile werden dokumentiert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Kreativtext, vorgelagertes Gestaltungsziel, Wirkungsfeedback, begründete Textrevision und Rechtekompatibilitätsnachweis vertiefen die bestehende Produktion; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Mikrogeschichte wird in das vorhandene Wirkungs-, Rechte- und Revisionsprodukt integriert und benötigt keine neue Modulvoraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-010",
+      "timeReviewId": "TR-LH26-E-DA-010",
+      "requirementText": "die Wirkungsabsicht von Medienprodukten herausarbeiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Eine eigene Wirkungsabsicht wird formuliert; die Wirkungsabsicht eines vorhandenen Medienprodukts wird nicht herausgearbeitet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-010",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Lernende arbeiten an einem vorhandenen, vorgegebenen und kuratierten Medienprodukt Zielgruppe und intendierte Wirkung anhand konkreter Inhalts- und Formbelege heraus und trennen beobachtbaren Befund von begründeter Inferenz; der optionale Transfer in das eigene Produkt ersetzt diese Analyse nicht. Kuratierung legitimiert keine Übernahme: Ohne nachgewiesene kompatible Freigabe wird der Analysegegenstand weder in das offen nachnutzbare Produkt übernommen noch mit ihm weiterveröffentlicht; Analysebelege bleiben rechtlich zulässig und quellenbezogen, Produktionsassets erfüllen den strengeren offenen Rechtepfad.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die eigenständige Wirkungsabsichtsanalyse, die rechtlich zulässige quellenbezogene Belegspur und die getrennte Rechteprüfung eines optionalen Transfers ergänzen das Wirkungsbriefing; IUM10 muss die Verdichtung im unveränderten Zeitkorridor prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Analyse des vorhandenen Produkts dient als kriterienbildender Schritt im bestehenden Wirkungsbriefing und benötigt keine neue Modulvoraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-012",
+      "timeReviewId": "TR-LH26-E-DA-012",
+      "requirementText": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte anwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Bedienkonzepte werden bei der Produkterstellung nicht ausdrücklich angewendet und im Produktnachweis kenntlich gemacht."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-012",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke recordgenau: Bei der tatsächlichen Erstellung und Gestaltung werden mindestens drei konkrete Bedienkonzepte an eigenen oder nachweislich rechtlich nutzbaren und mit offener Nachnutzung kompatibel freigegebenen Inhalten angewandt; der schlanke Arbeits- und Revisionsnachweis ordnet mehrere Operationen ihren sichtbaren Produktänderungen zu und dokumentiert Provenienz, konkrete Lizenz oder Freigabe, Änderungen und eigene Anteile, ohne Bildschirmaufzeichnung oder Interaktionsvollprotokoll zu verlangen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die explizite Anwendung mehrerer Bedienkonzepte, ihre Operation-zu-Änderung-Spur und der Rechtekompatibilitätsnachweis erzeugen reale Produktionstiefe; IUM10 muss den Zeitbedarf im unveränderten Korridor prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Bedienhandlungen werden direkt in die vorhandene Produktrevision integriert und benötigen keine neue Modulvoraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DA-015",
+      "timeReviewId": "TR-LH26-E-DA-015",
+      "requirementText": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-07",
+        "reason": "Das offen nachnutzbare Produkt belegt nicht die praktische Nutzung mehrerer unterschiedlicher Wege zum Teilen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-07-LH26-E-DA-015",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Lücke nur unter einem echten lokalen Gate: Mindestens zwei vor Ort verfügbare, schulisch freigegebene und datenschutzkonforme Teilwege werden vor Modulfreigabe benannt und mit demselben neutralen Produkt tatsächlich zum Bereitstellen oder Teilen und Abrufen oder Öffnen genutzt; geteilt werden nur eigene oder nachweislich rechtlich nutzbare und mit offener Nachnutzung kompatibel freigegebene Inhalte mit dokumentierter Provenienz, konkreter Lizenz oder Freigabe, Änderungen und eigenen Anteilen, während die beobachtbare Ausführungsspur nur Weg, Operation und Zugriffsumfang speichert.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Zwei tatsächliche lokale Teilwege mit Bereitstellen oder Teilen, Abrufen oder Öffnen und Rechtekompatibilitätsnachweis benötigen schulische Konfiguration und Unterrichtszeit; IUM10 muss ihre Orchestrierbarkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die beiden lokalen Teilwege schließen an Export, Produktfreigabe und vorhandene schulische Arbeitswege im bestehenden Modul an; das harte lokale Konfigurationsgate ersetzt keine neue Modulvoraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DP-001",
+      "timeReviewId": "TR-LH26-E-DP-001",
+      "requirementText": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Schulische Mediennutzungsregeln werden im Kandidaten weder ausdrücklich untersucht noch als verbindliche Regeln angewendet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-01-LH26-E-DP-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Vertrag verbindet tatsächliches Beachten der vor Ort geltenden schulischen Medienregeln mit einer fachlichen Auseinandersetzung über Zwecke, Folgen und einen vorgegebenen Regelkonflikt; Regelabschnitt und Lehrkraftbeobachtung weisen beide Operatoren aus.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft den Zeitbedarf für tatsächliche Regelanwendung, Begründung und Konfliktbearbeitung in der lokalen Geräte- und Dateiarbeitssequenz."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die schulische Regelanwendung und -auseinandersetzung vertieft den bestehenden sicheren Arbeitsplatzauftrag und benötigt keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DP-003",
+      "timeReviewId": "TR-LH26-E-DP-003",
+      "requirementText": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-07",
+        "reason": "Faszination, Konflikte und Probleme werden an Fällen analysiert und privat reflektiert, aber nicht bezogen auf die eigene Nutzung beschrieben und diskutiert."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Eine private Notiz kann Faszination, Konflikte und Probleme der eigenen Mediennutzung beschreiben, erfüllt aber den Operator „diskutieren“ nicht. Eine Diskussion mit Lehrkraft oder Lerngruppe würde den privaten Inhalt direkt oder indirekt offenlegen; eine ausschließlich nichtpersonale Falldiskussion verlöre dagegen den geforderten Bezug zur eigenen Mediennutzung.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 prüft, ob und wo eine datenschutzkonforme curriculare Verortung möglich ist; IUM09 behauptet für den persönlichen Diskussionsoperator weder Zeitbedarf noch Schließung."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Record bleibt dem bestehenden Mediennutzungsmodul zugeordnet; die offene Lücke wird nicht durch eine neue Voraussetzung oder Strukturbehauptung verdeckt."
+      },
+      "residualGap": {
+        "reason": "Der geforderte Operator „diskutieren“ bezieht sich ausdrücklich auf Faszination, Konflikte und Probleme der eigenen Mediennutzung. Eine private lokale Beschreibung ist keine Diskussion; eine beobachtbare Diskussion würde persönliche Nutzung offenlegen, während eine nichtpersonale Falldiskussion den eigenen Bezug nicht erfüllt.",
+        "risk": "Eine formale Schließung über Gespräch, Lehrkraftbeobachtung oder Abgabe würde sensible persönliche Nutzungsinhalte direkt oder indirekt erheben; eine Schließung nur über fiktive Fälle würde den curricular verlangten eigenen Bezug unterschlagen.",
+        "followUp": "Im Curriculum- und Datenschutzreview klären, ob eine freiwillige, nicht bewertete und nicht als Abdeckungsnachweis verwendete Gesprächsgelegenheit pädagogisch angeboten werden soll; bis zu einer normativ und datenschutzfachlich tragfähigen Lösung bleibt der Record ohne Evidenzvertrag partial."
+      }
+    },
+    {
+      "competencyId": "LH26-E-DP-004",
+      "timeReviewId": "TR-LH26-E-DP-004",
+      "requirementText": "Nutzungs- und Rahmenbedingungen von Apps, Programmen und Onlinediensten exemplarisch herausarbeiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-02",
+        "reason": "Nutzungs- und Rahmenbedingungen von Apps, Programmen oder Onlinediensten werden nicht exemplarisch herausgearbeitet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-02-LH26-E-DP-004",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Operator herausarbeiten, beide Gegenstände Nutzungs- und Rahmenbedingungen sowie die exemplarische Reichweite sind durch mindestens zwei kuratierte Dienst- oder Softwarebeispiele mit konkreten Bedingungen-Auszügen, Fundstellen und Nutzungs- beziehungsweise Schutzfolgen in einer integrierten Bedingungen-Matrix sichtbar belegt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die zusätzliche Analyse von mindestens zwei Bedingungen-Beispielen konkretisiert das bestehende Modell substanziell; IUM10 muss ihren Zeitbedarf im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Bedingungen-Matrix ist eine Schicht des vorhandenen Datenfluss- und Auswahlmodells; die Voraussetzungen IUM-5-CORE-07 und IUM-6-CORE-01 bleiben unverändert."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DP-006",
+      "timeReviewId": "TR-LH26-E-DP-006",
+      "requirementText": "Möglichkeiten nennen, wie die spezifische Auswahl der Werbebotschaft zustande kommt",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-02",
+        "reason": "Die Auswahlhypothesen werden nicht ausdrücklich auf die spezifische Auswahl von Werbebotschaften bezogen."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-02-LH26-E-DP-006",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Operator Möglichkeiten nennen und der Gegenstand der spezifischen Werbebotschaft sind durch mindestens drei unterscheidbare synthetische Auswahlpfade belegt, die Kontext-, Profil- und Verhaltenssignale jeweils mit Auswahlregel und konkreter Botschaft verbinden und ihre Modellgrenze markieren.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die getrennte Arbeit an mindestens drei Werbeauswahlpfaden konkretisiert die bestehenden Auswahlhypothesen substanziell; IUM10 muss ihren Zeitbedarf im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Werbeauswahlpfade sind eine Schicht des vorhandenen Datenfluss- und Auswahlmodells; die Voraussetzungen IUM-5-CORE-07 und IUM-6-CORE-01 bleiben unverändert."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DP-013",
+      "timeReviewId": "TR-LH26-E-DP-013",
+      "requirementText": "sich mit in manipulativer Absicht verbreiteten Falschmeldungen im digitalen Raum auseinandersetzen und den eigenen Umgang damit reflektieren",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Das Modul endet bei einem gemeinsam revidierten Standpunkt und macht die Reflexion des eigenen Umgangs mit manipulativen Falschmeldungen nicht sichtbar."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-08-LH26-E-DP-013",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Auseinandersetzung findet sichtbar am vollständig vorgegebenen kuratierten manipulativen Falschmeldungsfall statt; nur die konkrete Reflexion des eigenen Umgangs liegt in einer privaten lokalen Notiz. Der nichtpersonale Anschluss bleibt ein Abschnitt desselben geteilten Evidenz- und Entscheidungsdossiers, funktioniert ohne Kenntnis der privaten Notiz und verlangt keine persönliche Handlungsoption als Abgabe.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die private Reflexion und ihr unabhängiger nichtpersonaler Anschluss verdichten die bestehende Fallarbeit; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Privatnotiz und nichtpersonaler Anschluss verwenden den vollständig vorgegebenen Fall im bestehenden Kernmodul; eine neue Voraussetzung ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-DP-014",
+      "timeReviewId": "TR-LH26-E-DP-014",
+      "requirementText": "Die Darstellung von Geschlechterrollen und Schönheitsidealen in Medien analysieren und deren Einfluss auf die Selbstwahrnehmung reflektieren",
+      "causeClass": "private-local",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-10",
+        "reason": "Der Einfluss von Geschlechterrollen und Schönheitsidealen auf die eigene Selbstwahrnehmung wird nicht ausdrücklich reflektiert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-10-LH26-E-DP-014",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die Darstellung von Geschlechterrollen und Schönheitsidealen wird an vollständig vorgegebenen kuratierten Medienbeispielen analysiert. Nur die private Notiz verbindet eigene Erfahrung oder Selbstwahrnehmung, mindestens ein vorgegebenes fachliches Kriterium, eine daraus abgeleitete persönliche Handlungsoption und eine mögliche ausschließlich private Revision. Sie wird weder geöffnet noch beobachtet, inhaltlich besprochen, vorgelegt oder in ihrer Erstellung bestätigt oder kontrolliert. Das bestehende Vorher–Nachher-Medienprodukt führt unabhängig davon in eine nichtpersonale Gegenperspektive, funktioniert ohne Kenntnis, Vorlage, Bestätigung oder Besprechung der Notiz und gilt ausdrücklich nicht als Proxy-Nachweis des privaten Operatoranteils.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Private Reflexion, nichtpersonale Gegenperspektive und ihre klare Trennung verdichten die bestehende Medienanalyse; IUM10 muss die Orchestrierbarkeit im unveränderten Korridor von 6–9 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Kuratiertes Medienbeispiel, Privatnotiz und nichtpersonale Gegenperspektive bleiben im vorhandenen Kernmodul und benötigen keine neue Voraussetzung."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ID-009",
+      "timeReviewId": "TR-LH26-E-ID-009",
+      "requirementText": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-02",
+        "reason": "Die ausgewählten Informationen werden nicht ausdrücklich mit Vorwissen verknüpft und daraus weiterverarbeitet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-02-LH26-E-ID-009",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Die drei Strategien aktivieren sachbezogenes Vorwissen zur konkreten Suchfrage, verknüpfen eine neue Quelleninformation ausdrücklich als Übereinstimmung, Ergänzung oder Widerspruch und leiten daraus eine belegte Aussage oder Revision ab. Alle drei Schritte werden als eine integrierte Belegspur der bereits vorgesehenen Antwort beziehungsweise Revision im selben digitalen Quellendossier sichtbar; ein Zusatzprodukt oder eine persönliche Offenlegung ist nicht nötig.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die explizite Drei-Schritt-Verknüpfung aus Vorwissensanker, Quellenabgleich und Antwortrevision präzisiert die vorhandene Dossierarbeit; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von 5–7 Stunden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Vorwissensaktivierung, Quellenprüfung, belegte Antwort und Revision sind bereits im selben Kernmodul angelegt; eine neue Voraussetzung oder Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ID-020",
+      "timeReviewId": "TR-LH26-E-ID-020",
+      "requirementText": "Datenmengen als Länge einer Bitfolge erklären und zur Größenangabe die Einheiten Bit und Byte verwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Datenmenge wird nicht ausdrücklich als Bitfolgenlänge erklärt und mit den Einheiten Bit und Byte angegeben."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-LH26-E-ID-020",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit hält die Orientierungsanforderung quellentreu getrennt: Eine eigene Bit-und-Byte-Spur erklärt Datenmenge als Bitfolgenlänge und verwendet ausschließlich Bit und Byte; die gemeinsame Datengrößentabelle wird referenziert, ohne größere Präfixe stillschweigend zur Voraussetzung dieses Records zu machen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die separate quellentreue Bit-und-Byte-Spur verdichtet die gemeinsame Datengrößentabelle des bestehenden Bit-Codebuchs; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Bit-und-Byte-Spur nutzt dieselbe Tabelle, dasselbe Bit-Codebuch und die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-ID-021",
+      "timeReviewId": "TR-LH26-E-ID-021",
+      "requirementText": "die Dezimalpräfixe Kilo, Mega, Giga und Tera zur Angabe von Datenmengen verwenden",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-01",
+        "reason": "Die Dezimalpräfixe Kilo, Mega, Giga und Tera werden in Handlung und Produkt nicht verwendet."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-7-CORE-01-LH26-E-ID-021",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Audit schließt die Orientierungsanforderung mit einer eigenen Dezimalpräfixspur: Kilo, Mega, Giga und Tera werden nicht nur genannt, sondern mit 10^3, 10^6, 10^9 und 10^12, korrekten Einheitensymbolen und je einer ausgeführten Umrechnung verwendet; Binärpräfixe werden nicht vermischt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Vier Dezimalpräfixe, korrekte Symbole und ausgeführte Umrechnungen verdichten die gemeinsame Datengrößentabelle des bestehenden Bit-Codebuchs; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von sechs bis neun Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Dezimalpräfixspur nutzt dieselbe Tabelle, dasselbe Bit-Codebuch und die vorhandene Voraussetzung IUM-6-CORE-03; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-KS-001",
+      "timeReviewId": "TR-LH26-E-KS-001",
+      "requirementText": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
+      "causeClass": "school-context",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Ein schulischer Kommunikationskanal und eine digitale Kollaborationsmöglichkeit werden nicht tatsächlich benutzt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-LH26-E-KS-001",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Lernende nutzen im selben tatsächlichen lokalen Mini-Projekt sowohl den vor Ort freigegebenen schulischen Kommunikationskanal als auch die reale Kollaborationsmöglichkeit zum Teilen, Abrufen, gemeinsamen Bearbeiten und Übernehmen neutraler fiktiver Leitfadenbeiträge. Sind beide lokal technisch getrennt, werden beide im selben Projektlauf tatsächlich ausgeführt.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 muss den Zeitbedarf der tatsächlichen Nutzung von Kommunikationskanal und Kollaborationsmöglichkeit im unveränderten Korridor von 4 bis 6 Stunden prüfen."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Beide lokalen Nutzungen gehören zum bestehenden Leitfadenprojekt und benötigen keine neue Modulabhängigkeit."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-KS-002",
+      "timeReviewId": "TR-LH26-E-KS-002",
+      "requirementText": "Auswirkungen von Konflikten und Problemen bei der digitalen Kommunikation reflektieren und diskutieren",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-03",
+        "reason": "Konfliktfolgen werden zwar abgewogen, aber nicht ausdrücklich gemeinsam reflektiert und diskutiert."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-5-CORE-03-LH26-E-KS-002",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Lernende reflektieren und diskutieren die Auswirkungen eines fiktiven digitalen Konflikts aus mehreren Perspektiven und mit mehreren Folgen. Die Ergebnisse werden als gemeinsame Revision derselben integrierten Leitfaden-Fallkarte und der Regeln sichtbar; es entsteht kein separates Produkt und keine persönliche Offenlegung.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "IUM10 muss prüfen, ob mehrperspektivische Reflexion, Diskussion und gemeinsame Revision zusammen mit der realen lokalen Ausführung im unveränderten Korridor von 4 bis 6 Stunden tragfähig sind."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Reflexion und Diskussion revidieren dieselben fiktiven Fallkarten im bestehenden Leitfadenprojekt; eine neue Modulabhängigkeit ist nicht nötig."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-KS-014",
+      "timeReviewId": "TR-LH26-E-KS-014",
+      "requirementText": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-06",
+        "reason": "Merkmale verletzenden oder ausgrenzenden Verhaltens sowie Präventionsmaßnahmen werden neben Hilfs- und Meldewegen nicht vollständig sichtbar."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-014",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Vertrag löst den Doppeloperator recordgenau ein: Fallbelegte Merkmale werden beschrieben und exemplarische Strategien werden als Präventionsmaßnahme, Hilfsweg und Meldemöglichkeit unterscheidbar genannt. Die separate Merkmal-und-Strategie-Spur verknüpft Situation, Merkmal und Beleg mit den drei Strategiearten und einer begründeten Eskalationsentscheidung, ohne eine reale Meldung oder persönliche Offenlegung zu verlangen.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die zusätzliche fallbelegte Merkmalsanalyse und die Zuordnung dreier Strategiearten konkretisieren den Fall-Handlungsplan substanziell; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Merkmal-und-Strategie-Spur erweitert den bestehenden nichtpersonalen Fall-Handlungsplan und nutzt unverändert die Voraussetzungen IUM-5-CORE-03 und IUM-5-CORE-07."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-KS-015",
+      "timeReviewId": "TR-LH26-E-KS-015",
+      "requirementText": "Ursachen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
+      "causeClass": "module-detail",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-6-CORE-06",
+        "reason": "Ursachen und begünstigende Faktoren für verletzendes oder ausgrenzendes Verhalten werden nicht ausdrücklich benannt."
+      },
+      "decision": "covered",
+      "evidenceContractId": "CE-IUM-6-CORE-06-LH26-E-KS-015",
+      "after": {
+        "coverageStatus": "covered",
+        "semanticAudit": "operator-product-match"
+      },
+      "changeRationale": "Der Vertrag verlangt mehrere fallbezogene digitale und soziale Faktoren und trennt Ursachenhypothese, begünstigenden Faktor und Unsicherheit. Die eigene Faktorenkarte im gemeinsamen Fall-Handlungsplan nennt konkrete Mechanismen, ohne Opferverantwortung, Täterabsicht oder Ferndiagnose zu behaupten.",
+      "timeImpact": {
+        "level": "review-required",
+        "rationale": "Die zusätzliche Faktorenanalyse mit begrifflicher Trennung und Unsicherheitsmarkierung konkretisiert den Fall-Handlungsplan substanziell; IUM10 prüft ihre Tragfähigkeit im unveränderten Korridor von fünf bis sieben Unterrichtseinheiten."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Die Faktorenkarte ist eine separate Spur des bestehenden nichtpersonalen Fall-Handlungsplans und nutzt unverändert die Voraussetzungen IUM-5-CORE-03 und IUM-5-CORE-07."
+      },
+      "residualGap": null
+    },
+    {
+      "competencyId": "LH26-E-PROG-001",
+      "timeReviewId": "TR-LH26-E-PROG-001",
+      "requirementText": "In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-01",
+        "reason": "Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Der vorregistrierte Auditentscheid wird bestätigt: Die jahrgangsübergreifende Balance des sicheren, verantwortungsvollen und reflektierten Umgangs in Klassen 5 und 6 kann nicht durch einen Einzelmodulvertrag oder ein zusätzliches Produkt in IUM-5-CORE-01 nachgewiesen werden.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "IUM10 prüft die jahrgangsweite Balance, Progression und Zeitgewichtung über alle betroffenen Kernmodule als Sequenznachweis."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "IUM09 verändert für den roadmapweiten Nachweis weder Modulgraph noch Voraussetzungen; ein Einzelmodulvertrag bleibt ausdrücklich ausgeschlossen."
+      },
+      "residualGap": {
+        "reason": "Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Der einzelne Kandidat zeigt weder die jahrgangsübergreifende Gesamtbalance noch den vollständigen sicheren, verantwortungsvollen und reflektierten Umgang der Klassen 5 und 6.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „In den Klassen 5 und 6 knüpft die Lesehilfe im Wesentlichen an die Themen und Zielsetzungen des „Basiskurs Medienbildung“ an. Im Mittelpunkt stehen der sichere, verantwortungsvolle und reflektierte Umgang mit digitalen Medien, Informationen, Daten, Kommunikationsangeboten und digitalen Arbeitsmitteln.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-002",
+      "timeReviewId": "TR-LH26-E-PROG-002",
+      "requirementText": "Ergänzend wird mit dem Bereich „Erste Schritte mit Algorithmen“ bereits ein grundlegendes Element der Informatik aufgenommen. Die Schülerinnen und Schüler begegnen dabei ersten algorithmischen Denk- und Vorgehensweisen in einer altersangemessenen und niederschwelligen Form. Die Behandlung ist bewusst grundlegend angelegt und erreicht noch nicht die fachliche Tiefe des bisherigen Aufbaukurses Informatik in Klasse 7.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-5-CORE-05",
+        "reason": "Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Der roadmapweite Record bleibt ohne Einzelmodulvertrag partial, weil nur ein jahrgangsübergreifend angelegter Sequenznachweis die altersangemessene und niederschwellige Progression sowie ihre Abgrenzung zur fachlichen Tiefe in Klasse 7 belegen kann; kein Einzelmodulvertrag oder Zusatzprodukt ersetzt diesen Nachweis.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die altersangemessene und niederschwellige Progression sowie ihre Abgrenzung zur fachlichen Tiefe in Klasse 7 können nur jahrgangsübergreifend in IUM10 geprüft werden."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der verbleibende Progressionsauftrag erzwingt in IUM09 keine neue Voraussetzung oder Modulabhängigkeit; der Modulgraph bleibt unverändert."
+      },
+      "residualGap": {
+        "reason": "Ein Einzelmodul belegt noch nicht die übergreifend niederschwellige Abgrenzung zur fachlichen Tiefe des Aufbaukurses.",
+        "risk": "Ohne jahrgangsübergreifenden Sequenznachweis würde die Lesehilfe-Orientierung als erfüllt ausgegeben, obwohl weder die altersangemessene und niederschwellige Progression noch die Abgrenzung zur fachlichen Tiefe in Klasse 7 belegt sind.",
+        "followUp": "In IUM10 einen jahrgangsweiten Sequenznachweis erstellen, der die Algorithmenmodule der Klassen 5 bis 7 jahrgangsübergreifend verbindet, und darin die altersangemessene und niederschwellige Progression, die zunehmende fachliche Tiefe, die Zeitgewichtung und die Abgrenzung zur fachlichen Tiefe in Klasse 7 systematisch prüfen; kein Einzelmodulvertrag darf diesen Nachweis ersetzen. Ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-003",
+      "timeReviewId": "TR-LH26-E-PROG-003",
+      "requirementText": "Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Ein einzelnes Medienbildungsmodul weist die systematische jahrgangsweite Verbindung informatischer und medienbildnerischer Inhalte nicht nach."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte Lücke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schließung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Ein einzelnes Medienbildungsmodul weist die systematische jahrgangsweite Verbindung informatischer und medienbildnerischer Inhalte nicht nach.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Ein einzelnes Medienbildungsmodul weist die systematische jahrgangsweite Verbindung informatischer und medienbildnerischer Inhalte nicht nach.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    },
+    {
+      "competencyId": "LH26-E-PROG-004",
+      "timeReviewId": "TR-LH26-E-PROG-004",
+      "requirementText": "Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.",
+      "causeClass": "roadmap-level",
+      "before": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap",
+        "evidenceModuleId": "IUM-7-CORE-08",
+        "reason": "Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Roadmapebene, nicht im Einzelprodukt prüfbar."
+      },
+      "decision": "remain-partial",
+      "evidenceContractId": null,
+      "after": {
+        "coverageStatus": "partial",
+        "semanticAudit": "documented-gap"
+      },
+      "changeRationale": "Ausgangszustand: Die dokumentierte Lücke bleibt bis zum modulweisen Fachaudit sichtbar; eine Schließung wird nicht vorweggenommen.",
+      "timeImpact": {
+        "level": "roadmap-dependent",
+        "rationale": "Die jahrgangsweite Balance und Progression wird in IUM10 als Sequenznachweis geprüft."
+      },
+      "graphImpact": {
+        "level": "none",
+        "rationale": "Der Ausgangsrecord bleibt im bestehenden Modul; eine neue Voraussetzung wird nicht behauptet."
+      },
+      "residualGap": {
+        "reason": "Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Roadmapebene, nicht im Einzelprodukt prüfbar.",
+        "risk": "Ohne Nachbesserung würde der Record als vollständig abgedeckt ausgegeben, obwohl folgende beobachtbare Lücke bleibt: Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Roadmapebene, nicht im Einzelprodukt prüfbar.",
+        "followUp": "Einen jahrgangsweiten Sequenznachweis über alle betroffenen Kernmodule erstellen und darin Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung gegen die Progressionsanforderung „Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.“ prüfen. Danach die Roadmapentscheidung erneut auditieren; ein zusätzliches Einzelprodukt genügt nicht."
+      }
+    }
+  ]
+}

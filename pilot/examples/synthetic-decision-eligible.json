@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "packageType": "pilot-decision",
+  "packageId": "PKG-0e488e5a-0f44-58aa-ac8e-d84df9bd3a80",
+  "protocolVersion": "1.0.0",
+  "protocolFingerprint": "14762ec54166640ffc2894514e16159650275beeca3852fb8904624435ffd0df",
+  "toolVersion": "1.0.0",
+  "timeModelFingerprint": "873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1",
+  "sourcePackageIds": [
+    "PKG-11111111-1111-4111-8111-111111111111",
+    "PKG-22222222-2222-4222-8222-222222222222",
+    "PKG-33333333-3333-4333-8333-333333333333",
+    "PKG-44444444-4444-4444-8444-444444444444",
+    "PKG-55555555-5555-4555-8555-555555555555"
+  ],
+  "pilotResults": [
+    {
+      "scopeId": "CLUSTER-7-DATA-CODING",
+      "packageId": "PKG-11111111-1111-4111-8111-111111111111",
+      "result": "pass"
+    },
+    {
+      "scopeId": "CLUSTER-7-PROGRAMMING",
+      "packageId": "PKG-22222222-2222-4222-8222-222222222222",
+      "result": "pass"
+    },
+    {
+      "scopeId": "CLUSTER-7-NET-SECURITY",
+      "packageId": "PKG-33333333-3333-4333-8333-333333333333",
+      "result": "pass"
+    },
+    {
+      "scopeId": "CLUSTER-7-DATA-MEDIA-SOCIETY",
+      "packageId": "PKG-44444444-4444-4444-8444-444444444444",
+      "result": "pass"
+    },
+    {
+      "scopeId": "ANNUAL-7-WORKING-40",
+      "packageId": "PKG-55555555-5555-4555-8555-555555555555",
+      "result": "pass"
+    }
+  ],
+  "moduleResults": [
+    {
+      "moduleId": "IUM-7-CORE-01",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-01",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-02",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-02",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-03",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-03",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-04",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-04",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-05",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-05",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-06",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-06",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-07",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-07",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-08",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-08",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-09",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-09",
+      "result": "pass"
+    },
+    {
+      "moduleId": "IUM-7-CORE-10",
+      "pilotAssignmentId": "PILOT-IUM-7-CORE-10",
+      "result": "pass"
+    }
+  ],
+  "integrationResults": [
+    {
+      "integrationContractId": "INT-7-DATA-CODING",
+      "pilotAssignmentId": "PILOT-INT-7-DATA-CODING",
+      "result": "pass",
+      "fallbackDeltaUnits": 0
+    },
+    {
+      "integrationContractId": "INT-7-PROGRAMMING",
+      "pilotAssignmentId": "PILOT-INT-7-PROGRAMMING",
+      "result": "pass",
+      "fallbackDeltaUnits": 0
+    },
+    {
+      "integrationContractId": "INT-7-NET-SECURITY",
+      "pilotAssignmentId": "PILOT-INT-7-NET-SECURITY",
+      "result": "pass",
+      "fallbackDeltaUnits": 0
+    },
+    {
+      "integrationContractId": "INT-7-DATA-MEDIA-SOCIETY",
+      "pilotAssignmentId": "PILOT-INT-7-DATA-MEDIA-SOCIETY",
+      "result": "pass",
+      "fallbackDeltaUnits": 0
+    }
+  ],
+  "availabilityGateResults": {
+    "capacity": "passed",
+    "integration": "passed",
+    "technical": "passed",
+    "privacy": "passed",
+    "pilot": "passed"
+  },
+  "timeAndFallbackSummary": {
+    "plannedUnits": 40,
+    "actualUnits": 40,
+    "fallbackUnits": 0,
+    "requiredUnits": 40
+  },
+  "technicalPrivacySummary": {
+    "technical": "pass",
+    "privacy": "pass"
+  },
+  "developmentWarnings": [],
+  "statementBoundary": "documented-conditions-only",
+  "recommendation": "eligible-for-working-availability-review",
+  "reviewStatus": {
+    "fach": "not-started",
+    "engineeringPrivacy": "not-started",
+    "commissioner": "not-started"
+  },
+  "retentionClass": "until-decision"
+}

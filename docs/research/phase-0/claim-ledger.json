@@ -1,0 +1,719 @@
+{
+  "schemaVersion": 1,
+  "claims": [
+    {
+      "id": "CLAIM-INF-001",
+      "package": "informatikdidaktik",
+      "statement": "Literaturbasierte K-8-Lerntrajektorien ordnen Sequenz, Wiederholung und Bedingungen als schrittweise Netze von Lernzielen; Kontext, Aufgabe und Programmiersprache beeinflussen die konkrete Ordnung.",
+      "scope": "K-8-Forschungssynthese zu grundlegenden Kontrollstrukturen; für Klassen 5 bis 7 als Progressionsrahmen, nicht als evaluierter Stoffverteilungsplan.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-RICH-LT-2017"],
+      "limitations": "Die zugrunde liegende Forschung ist lückenhaft und kontextabhängig; die Trajektorien prüfen kein vollständiges Curriculum und legen keine baden-württembergischen Klassenstufen fest.",
+      "designImplications": [
+        "Kontrollstrukturen über steigende Lernhandlungen und Repräsentationen statt nur über Begriffslisten staffeln.",
+        "Die konkrete Zuordnung zu Klasse 5, 6 und 7 als Projektinferenz kennzeichnen und pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-002",
+      "package": "informatikdidaktik",
+      "statement": "In einer Mixed-Methods-Studie mit 11- bis 14-Jährigen erzielte die PRIMM-Interventionsgruppe nach Unterricht mit Predict, Run, Investigate, Modify und Make höhere Posttestwerte als die Kontrollgruppe.",
+      "scope": "Verpflichtender schulischer Programmierunterricht in 13 englischen Schulen; 493 Lernende in der Intervention und 180 in Kontrollgruppen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-PRIMM-2019"],
+      "limitations": "Die Gruppen waren nicht durchgängig randomisiert, Schulen und Umsetzung variierten und der berichtete Effekt war klein (r=.13); die Studie isoliert nicht jede PRIMM-Phase einzeln.",
+      "designImplications": [
+        "Predict-Run-Investigate-Modify-Make als wiederkehrende Modulfolge für Programmierlernen erproben.",
+        "Lehrkraftmoderation und fachliche Gespräche als Teil des Designs vorsehen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-003",
+      "package": "informatikdidaktik",
+      "statement": "Tracing, korrektes Schreiben von Syntax, Verstehen wiederverwendbarer Lösungsmuster und Schreiben mit solchen Mustern sind unterscheidbare Programmierpraktiken, die explizit und inkrementell unterrichtet werden können.",
+      "scope": "Theorie und explorative Studie zu Einführung in Programmierung mit überwiegend erwachsenen Hochschulneulingen.",
+      "status": "reviewed",
+      "evidenceLevel": "low",
+      "sourceIds": ["SRC-INF-XIE-SKILLS-2019"],
+      "limitations": "Die empirische Prüfung umfasste nur neun Teilnehmende und erlaubte keine belastbaren Signifikanz- oder Effektstärkeaussagen; die Übertragung auf 10- bis 13-Jährige ist ungeprüft.",
+      "designImplications": [
+        "Code vorhersagen, Syntax erzeugen, Muster erklären und Code entwickeln als getrennte Lernhandlungen ausweisen.",
+        "Die Sequenz für Klassen 5 bis 7 als prüfbare Heuristik pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-004",
+      "package": "informatikdidaktik",
+      "statement": "Die Forschung zu worked examples in Programmieraktivitäten stützt vor allem aktiv zu verarbeitende Beispiele für Code-Tracing und Code-Generierung, darunter Subgoal-Hinweise, unvollständige Beispiele und Parsons-Probleme.",
+      "scope": "Review heterogener Programmierlernsettings, überwiegend in tertiären Einführungskursen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-WORKED-EXAMPLES-2023"],
+      "limitations": "Die Altersgruppe 10 bis 13 ist unterrepräsentiert; Aufgaben, Medien und Ergebnismaße unterscheiden sich stark, sodass keine einheitliche optimale Beispielgestaltung folgt.",
+      "designImplications": [
+        "Beispiele mit Vorhersage, Selbsterklärung, Ergänzung oder Korrektur koppeln.",
+        "Unterstützung sichtbar von vollständigen Beispielen über Lücken und Modifikationen zur Eigenkonstruktion ausblenden."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-005",
+      "package": "informatikdidaktik",
+      "statement": "Ein explizites notional-machine-Modell kann Programmtext, Ausführungsprozess und veränderlichen Zustand verbinden; der Lernwert einer Visualisierung hängt wesentlich von der aktiven Auseinandersetzung mit ihr ab.",
+      "scope": "Theoretisch-kritische Synthese zur Einführung in Programmierung, überwiegend auf Hochschulforschung gestützt.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-NOTIONAL-MACHINE-2013"],
+      "limitations": "Ein notional-machine-Modell ist sprach-, paradigm- und zweckabhängig; die Synthese liefert keinen direkt geprüften Standard für Klassen 5 bis 7 und Visualisierung ist keine hinreichende Bedingung für Lernen.",
+      "designImplications": [
+        "Codezeile, Ausführungsposition, Zustand und Ausgabe in konsistenten Spuren oder Tabellen verbinden.",
+        "Lernende Visualisierungen vorhersagen, ergänzen, erklären und korrigieren lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-006",
+      "package": "informatikdidaktik",
+      "statement": "Dokumentierte Schwierigkeiten beim Einführungsprogrammieren betreffen unter anderem Variablen und Zuweisung, Kontrollfluss, Schleifen, Aufrufe sowie das Verhältnis von Syntax, Semantik und Programmplan.",
+      "scope": "Literaturreview zu Einführung in Programmierung mit Schwerpunkt CS1 und einzelnen K-12-Bezügen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-MISCONCEPTIONS-2017", "SRC-INF-NOTIONAL-MACHINE-2013"],
+      "limitations": "Definitionen von Fehlvorstellung und Schwierigkeit sind uneinheitlich, viele Befunde stammen aus Hochschulkontexten und nicht jeder Fehler belegt ein stabiles Fehlkonzept.",
+      "designImplications": [
+        "Kurze Aufgaben zu Vorhersage, Erklärung, Vergleich und Reparatur für unmittelbares Feedback einbauen.",
+        "Keine dauerhaften personenbezogenen Fehlvorstellungsprofile speichern."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-007",
+      "package": "informatikdidaktik",
+      "statement": "Eine literaturbasierte K-8-Lerntrajektorie beschreibt Debugging entlang der Dimensionen Strategien zum Finden und Beheben, Fehlertypen und Rolle von Fehlern im Problemlösen.",
+      "scope": "Forschungssynthese zu Debugging in K-8; keine Evaluation einer vollständigen Unterrichtsreihe.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-RICH-DEBUG-2019"],
+      "limitations": "Die Trajektorie synthetisiert Forschungsziele und mögliche Ordnungen, weist aber keine kausale Wirkung einer bestimmten Sequenz oder eines bestimmten Werkzeugs nach.",
+      "designImplications": [
+        "Bemerken, Lokalisieren, Klassifizieren, Hypothese, gezielten Test, Reparatur und Begründung schrittweise unterscheiden.",
+        "Fehler als erwartbaren Teil des Problemlösens und nicht nur als zu beseitigendes Defizit rahmen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-008",
+      "package": "informatikdidaktik",
+      "statement": "In zwei Klassen einer selektiven High School zeigte eine blockbasierte Oberfläche nach fünf Wochen größere Lernzuwächse als eine isomorphe Textoberfläche; nach zehn weiteren Wochen Java waren Unterschiede in Leistung, Haltung und Programmierpraktiken nicht mehr nachweisbar.",
+      "scope": "Quasi-experimentelle Untersuchung mit 60 Lernenden in einem Wahlkurs und demselben Lehrer.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-BLOCK-TEXT-2017", "SRC-INF-BLOCK-TEXT-TRANSFER-2019"],
+      "limitations": "Nur zwei nicht randomisierte Klassen, selektive Schule, spezifische Werkzeuge und Übergang zu Java; weder eine allgemeine Überlegenheit noch ein fester Alterswechsel lässt sich ableiten.",
+      "designImplications": [
+        "Block- oder Textdarstellung aus Lernziel, Syntaxlast und Anschlussweg begründen.",
+        "Übergänge mit isomorphen Beispielen, Übersetzungsaufgaben oder strukturierten Editoren ausdrücklich stützen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-009",
+      "package": "informatikdidaktik",
+      "statement": "Unplugged-Aktivitäten können eng umrissene Informatik- und Computational-Thinking-Ziele unterstützen, doch die K-12-Evidenz rechtfertigt keine pauschale Wirksamkeits- oder Transferannahme.",
+      "scope": "Kritischer Review von 40 K-12-Publikationen plus Quasi-Experiment mit 73 Lernenden im Alter von 10 bis 12 Jahren.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-UNPLUGGED-REVIEW-2021", "SRC-INF-UNPLUGGED-PRIMARY-2017"],
+      "limitations": "Studien verwenden heterogene CT-Konstrukte, vermischen teils Programmierung und unplugged Anteile und zeigen wenig robuste Equity- oder Langzeitbefunde; im Quasi-Experiment ähnelten sich Intervention und Testformat.",
+      "designImplications": [
+        "Analog nur einsetzen, wenn Manipulation, Verkörperung oder gemeinsames Modellieren eine fachliche Funktion erfüllt.",
+        "Repräsentationszuordnung, Analogiegrenze und digitales oder formales Anschlussprodukt angeben."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-010",
+      "package": "informatikdidaktik",
+      "statement": "Ein systematisches Review mit Zielausrichtung auf 3- bis 15-Jährige dokumentiert fragmentarische und teils widersprüchliche Vorstellungen von Internet, Wi-Fi, Infrastruktur, zentraler Speicherung, Türmen, Satelliten und Datenfluss.",
+      "scope": "Systematisches Review von 27 qualitativen und Mixed-Methods-Studien mit insgesamt 2.214 Teilnehmenden; in vier eingeschlossenen Studien umfassten die Stichproben auch 16- bis 17-Jährige. Die thematische Analyse ergab 60 Themen: 55 Konzeptionen und fünf andere Ideen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-INF-INTERNET-CONCEPTIONS-2023"],
+      "limitations": "Die Einzelstudien decken verschiedene Altersgruppen, Länder und Technikstände von 2002 bis 2022 ab; die Gesamtstichprobe ist nicht vollständig auf den Zielbereich 3 bis 15 Jahre begrenzt, und das früheste dokumentierte Auftreten ist kein Entwicklungsgrenzwert.",
+      "designImplications": [
+        "Vorstellungen durch nicht personenbezogen gespeicherte Zeichnungen, Erklärungen und Modellvergleiche sichtbar machen.",
+        "Von alltagsnahen Gerätevorstellungen schrittweise zu mehrstufigen Paketweg-, Router-, Client-Server- und Speicherungsmodellen führen."
+      ]
+    },
+    {
+      "id": "CLAIM-INF-011",
+      "package": "informatikdidaktik",
+      "statement": "Die CSTA-Standards 2026 führen Algorithmen und Design, Programmierung, Daten und Analyse, Systeme und Sicherheit sowie Computing und Gesellschaft als verbundene Inhaltsbereiche und kombinieren sie mit fachlichen Praktiken.",
+      "scope": "US-amerikanischer professioneller PK-12-Standard mit einem Middle-School-Band für Grades 6 bis 8.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-INF-CSTA-2026"],
+      "limitations": "Der Standard ist kein empirischer Wirksamkeitsnachweis und weder rechtlich noch curricular verbindlich für Baden-Württemberg; seine Klassenbänder lassen sich nicht direkt auf Klassen 5 bis 7 übertragen.",
+      "designImplications": [
+        "Daten, Netze und Sicherheit als eigenständige fachliche Stränge führen und mit Erstellen, Abstrahieren, Testen und gesellschaftlicher Reflexion verbinden.",
+        "Die konkrete Progression ausschließlich nach Abgleich mit den amtlichen baden-württembergischen Quellen festlegen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-001",
+      "package": "medienbildung",
+      "statement": "Forschung zu kindlicher Online-Privatsphäre untersucht überwiegend bewusst preisgegebene Daten und zwischenmenschliche Situationen; Metadaten, abgeleitete Daten sowie kommerzielle und institutionelle Kontexte sind seltener berücksichtigt.",
+      "scope": "Systematische Evidenzkartierung internationaler Forschung zu Kindern und Jugendlichen; für Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E, als Begründung einer erweiterten Datenperspektive.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-MED-PRIVACY-MAP-2019"],
+      "limitations": "Die Kartierung ist keine Wirksamkeitsstudie, bündelt heterogene Altersgruppen und bildet schnell veränderliche Plattformen nur zeitgebunden ab; die konkrete Unterrichtssequenz ist Projektinferenz.",
+      "designImplications": [
+        "Datenflüsse von Eingabe über Metadatum und Profilinferenz bis zur Verwendung rekonstruieren lassen.",
+        "Fiktive Beispiele verwenden und keine persönlichen Verläufe oder Kontodaten erheben."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-002",
+      "package": "medienbildung",
+      "statement": "Medienbildungsinterventionen zeigen über Wissens-, Einstellungs- und Verhaltensmaße hinweg im Mittel kleine positive Effekte, deren Stärke und Dauer stark nach Outcome und Kontext variieren.",
+      "scope": "Meta-Analyse von 160 Interventionen aus den Jahren 1983 bis 2023 mit Kindern, Jugendlichen und Erwachsenen; kein Nachweis für eine einzelne Modulgrammatik.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-INTERVENTIONS-META-2025"],
+      "limitations": "Themen, Populationen, Medien, Maßnahmen und Messungen waren heterogen; breite Mittelwerte belegen weder eine bestimmte Unterrichtsfolge noch eine Überlegenheit digitaler Durchführung.",
+      "designImplications": [
+        "Module auf aktive Lernhandlungen wie Erklären, Analysieren, Belegprüfung, Produktion und Revision ausrichten.",
+        "Interventionseffekte nach konkretem Outcome prüfen und nicht pauschal auf Medienkompetenz übertragen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-003",
+      "package": "medienbildung",
+      "statement": "Experimentelle Medienbildungsinterventionen gegen Desinformation verbesserten im Mittel Glaubenskorrektur, Unterscheidungsleistung oder Teilungsentscheidungen; mehrteilige Interventionen erzielten stärkere Effekte als Einzelsitzungen.",
+      "scope": "Meta-Analyse von 49 Experimenten mit 81.155 überwiegend erwachsenen oder studentischen Teilnehmenden; Transfer auf 10- bis 13-Jährige ist ungeprüft.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-MISINFO-META-2024"],
+      "limitations": "Kultur, Inhalt, Messung und Intervention unterschieden sich; die Zielgruppe 10 bis 13 ist kaum repräsentiert und der berichtete Gesamteffekt gilt nicht automatisch für eine konkrete Aufgabe.",
+      "designImplications": [
+        "Informationsprüfung über mehrere Module als wiederkehrenden Prüf- und Revisionszyklus anlegen.",
+        "Primärquelle, unabhängigen Beleg, Gegenbeleg, Kontext und Unsicherheitsurteil explizit dokumentieren lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-004",
+      "package": "medienbildung",
+      "statement": "Die empirische Schnittmenge von generativer KI, Fehlinformation und Bildung ist klein und heterogen; ein in einem systematischen Scoping Review enthaltenes Middle-School-Angebot steigerte die Deepfake-Erkennungsleistung im Posttest nicht.",
+      "scope": "Systematisches Scoping Review von 20 empirischen Studien über K-12 und Hochschule; unmittelbare Zielgruppenevidenz für Gymnasium Klassen 5–7 ist sehr begrenzt.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-MED-GENAI-MISINFO-2026"],
+      "limitations": "Modelle, Versionen, Fächer und Altersgruppen unterscheiden sich und ändern sich schnell; weder eine wirksame Standardsequenz noch generelle Wirkungslosigkeit folgt aus der Evidenz.",
+      "designImplications": [
+        "KI-Ausgaben in prüfbare Teilbehauptungen zerlegen und gegen Primärquellen sowie unabhängige Evidenz prüfen lassen.",
+        "Kein KI- oder Detektorlabel als Endurteil verwenden und keine personenbezogenen Daten eingeben."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-005",
+      "package": "medienbildung",
+      "statement": "In einer qualitativen Studie deuteten 11- bis 13-Jährige Videoempfehlungen als Ergebnis eigener, familiärer und plattformseitiger Handlungen, als emotional wirksam und als Ausdruck eines Geschäftsmodells.",
+      "scope": "26 Fokusgruppen mit 120 Kindern an Primarschulen im deutschsprachigen Kanton Zürich; zielgruppennaher Einblick in vorhandene Algorithmusvorstellungen.",
+      "status": "reviewed",
+      "evidenceLevel": "low",
+      "sourceIds": ["SRC-MED-ALGORITHM-LITERACY-2025"],
+      "limitations": "Die Studie zeigt keine Verteilung von Kompetenzniveaus, beobachtet keine reale Nutzung und untersucht nur YouTube in einer Region; sie belegt keine Unterrichtswirkung.",
+      "designImplications": [
+        "Vorstellungen mit fiktiven Profil- und Empfehlungskarten aktivieren und an kontrollierten Beispielen prüfen.",
+        "Daten, Auswahl, Aufmerksamkeit und Erlös in einem reduzierten Modell verbinden und dessen Grenzen markieren."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-006",
+      "package": "medienbildung",
+      "statement": "Influencerwerbung verbindet Unterhaltung, soziale Nähe und kommerzielle Kommunikation; Kennzeichnungen können 9- bis 12-Jährigen beim Erkennen von Werbung helfen, neutralisieren Überzeugungswirkung aber nicht automatisch.",
+      "scope": "Forschungsreview mit Schwerpunkt auf Kindern unter 12 und YouTube; Plattform- und Forschungsstand bis 2019.",
+      "status": "reviewed",
+      "evidenceLevel": "low",
+      "sourceIds": ["SRC-MED-INFLUENCER-REVIEW-2019"],
+      "limitations": "Die empirische Basis war klein, plattformspezifisch und stark auf Lebensmittel konzentriert; heutige Plattform- und Rechtsstände sind separat zu prüfen.",
+      "designImplications": [
+        "Akteur, Gegenleistung, inhaltliche Kontrolle, Zielgruppe, Kennzeichnung und Gestaltungsmittel markieren lassen.",
+        "Einen Beitrag transparent revidieren lassen, ohne Disclosure als vollständigen Persuasionsschutz darzustellen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-007",
+      "package": "medienbildung",
+      "statement": "Schulische Cybermobbingprogramme reduzieren Täterhandeln und Viktimisierung im Mittel moderat.",
+      "scope": "Systematische Review und Meta-Analyse von 24 Publikationen mit 26 Evaluationen bei schulpflichtigen Lernenden.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-CYBERBULLY-META-2019"],
+      "limitations": "Programme, Definitionen und Selbstberichtmaße unterschieden sich; wirksame Einzelkomponenten und die Überlappung mit Offline-Mobbing bleiben unklar, Mittelwerte garantieren keinen Schutz im Einzelfall.",
+      "designImplications": [
+        "Fiktive Fälle mit Rollenklärung, Reichweitenanalyse, Beweissicherung sowie Hilfe-, Blockier- und Meldeentscheidungen bearbeiten.",
+        "Persönliche Offenlegung, Peerdiagnostik und zentrale Fallspeicherung ausschließen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-008",
+      "package": "medienbildung",
+      "statement": "In beobachtenden Studien sind Zusammenhänge zwischen sozialer Mediennutzung und internalisierenden Symptomen bei Jugendlichen im Mittel klein.",
+      "scope": "Systematische Review und Meta-Analyse von 143 Studien mit mehr als einer Million Jugendlichen in klinischen und Community-Stichproben.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-MENTAL-HEALTH-META-2024"],
+      "limitations": "Experimentelle Studien waren ausgeschlossen; Richtung, individuelle Wirkung und Drittvariablen bleiben offen, Engagementmaße waren stark heterogen und häufig selbstberichtet.",
+      "designImplications": [
+        "Wirkungsclaims nach Studiendesign, Effektgröße, Heterogenität, Moderator, Selbstbericht und alternativer Erklärung prüfen lassen.",
+        "Keine Pauschalaussagen oder psychischen Risikoprofile für einzelne Lernende erzeugen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-009",
+      "package": "medienbildung",
+      "statement": "In kontrollierten Evaluationen schulischer Medienkompetenzinterventionen zeigten sich bei 10- bis 15-Jährigen unmittelbar nach der Intervention im Mittel kleine positive Effekte auf Medienkompetenz und Körperbild.",
+      "scope": "Systematische Review und Meta-Analyse von 17 kontrollierten Programmen mit 7.392 Lernenden der Klassen 5 bis 9.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-MED-BODY-IMAGE-META-2022"],
+      "limitations": "Der aggregierte Körperbildeffekt bestand beim Follow-up nicht fort (g = 0.03, nicht signifikant), während der kleine Medienkompetenzeffekt stabil blieb (g = 0.20); Heterogenität war für beide Outcomes erheblich, Programme und Messinstrumente unterschieden sich, und Geschlechter sowie intersektionale Rollenbilder sind ungleich abgedeckt.",
+      "designImplications": [
+        "Auswahl, Perspektive, Retusche, Wiederholung, Vergleich und Popularitätsmetriken an kuratierten Beispielen untersuchen.",
+        "Persönliche Körperdaten und Körpervergleiche ausschließen und Gegenprodukte anhand von Kriterien revidieren."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-010",
+      "package": "medienbildung",
+      "statement": "Lootbox-Ausgaben korrelieren klein bis mittel mit Symptomen problematischen Glücksspiels und exzessiven Gamings.",
+      "scope": "Meta-Analyse von 15 Studien zur Glücksspiel-Symptomatik und sieben Studien zu exzessivem Gaming in heterogenen Gamer-Stichproben.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-MED-LOOTBOX-META-2021"],
+      "limitations": "Die Studien waren überwiegend querschnittlich und selbstberichtet, Altersgruppen und Mechaniken heterogen und 10- bis 13-Jährige unterrepräsentiert; Kausalrichtung und individuelles Risiko bleiben offen.",
+      "designImplications": [
+        "Zufallsbelohnung, Echtgeldpfad, Zwischenwährung, Wahrscheinlichkeit, Knappheit und Kaufanreiz in einem geldfreien Modell sichtbar machen.",
+        "Mechanismuskarten oder Redesigns statt personenbezogener Risikowerte erstellen lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-011",
+      "package": "medienbildung",
+      "statement": "DigComp 3.0 strukturiert digitale Kompetenz in die fünf Bereiche Informationssuche, -bewertung und -management; Kommunikation und Zusammenarbeit; Inhaltserstellung; Sicherheit, Wohlbefinden und verantwortungsvolle Nutzung; sowie Problemerkennung und -lösung und integriert KI-bezogene Kompetenzen querschnittlich.",
+      "scope": "Europäischer professioneller Referenzrahmen, fünfte Ausgabe 2025; nicht altersspezifisch und nicht curricular verbindlich für Baden-Württemberg.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-MED-DIGCOMP-3-2025"],
+      "limitations": "Der Rahmen ist kein Wirksamkeitsbeleg, kein Kinder-Curriculum und keine verbindliche Vorgabe für Baden-Württemberg.",
+      "designImplications": [
+        "DigComp als Kontrollperspektive auf beobachtbare digitale Handlungen verwenden.",
+        "Verbindlichkeit und Klassenprogression ausschließlich aus dem amtlichen BW-Curriculum-Mapping ableiten."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-012",
+      "package": "medienbildung",
+      "statement": "Der DCE Planner 2026 beschreibt 320 exemplarische Outcomes in zehn Domänen und vier Altersbändern, darunter 8–11 und 12–15, mit Privatsphäre, Sicherheit, Medien- und Informationskompetenz sowie aktiver Partizipation.",
+      "scope": "Flexibler professioneller Curriculumrahmen des Europarats, veröffentlicht am 12. März 2026; die Zielgruppe 10 bis 13 liegt über zwei Altersbänder.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-MED-DCE-PLANNER-2026"],
+      "limitations": "Die Outcomes sind normative Beispiele, kein fixes Curriculum und kein empirischer Wirkungsnachweis; sie sind für Baden-Württemberg nicht verbindlich.",
+      "designImplications": [
+        "Urteil und Partizipation als sichere Handlung mit Adressat, Öffentlichkeit, Rechten, Verantwortung, Belegen und Rückmeldung operationalisieren.",
+        "Die Zuordnung zu Klassen 5 bis 7 als Projektinferenz kennzeichnen und curricular prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-MED-013",
+      "package": "medienbildung",
+      "statement": "CC BY-SA 4.0 erlaubt Vervielfältigung, öffentliche Weitergabe und Bearbeitung unter Lizenzbedingungen, insbesondere Namensnennung und ShareAlike bei veröffentlichten Bearbeitungen.",
+      "scope": "Kanonischer Text einer internationalen Creative-Commons-Standardlizenz; normative Grundlage für offen lizenzierte Medienproduktion.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-MED-CC-BY-SA-4"],
+      "limitations": "Die Lizenz ist keine Rechtsberatung und erfasst nur Rechte, die die lizenzgebende Person einräumen darf; Persönlichkeits-, Marken-, Datenschutz- und Drittmaterialrechte können fortbestehen.",
+      "designImplications": [
+        "Eine lokale Produktakte mit Titel, Urheber, Quelle, Lizenz, Link, Änderungen und eigenen Anteilen führen.",
+        "Kuratiertes oder eigenes Material verwenden und Rechtsstände datiert ausweisen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-001",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Der IBBW-Syntheserahmen ordnet Unterrichtsqualität nach der Qualität von kognitiver Aktivierung, konstruktiver Unterstützung und Klassenführung; Methode und Medium erhalten ihren Wert über die ermöglichten Lernprozesse.",
+      "scope": "Professioneller Syntheserahmen für Unterrichtspraxis aller Schularten; hier auf digital gestützten, lehrkraftorchestrierten IuM-Unterricht in Klasse 5 bis 7 bezogen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-IBBW-WU"],
+      "limitations": "Keine einheitliche Interventionsmeta-Analyse und kein domänenspezifischer Wirksamkeitsnachweis für IuM 5 bis 7.",
+      "designImplications": [
+        "Jede Aktivität mit Ziel, fachlicher Lernhandlung, Unterstützung, Rückmeldung und Sicherung spezifizieren.",
+        "Digital nur mit fachlich-didaktischer Funktion einsetzen; analoge Varianten nur bei eigener Lernfunktion vorsehen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-002",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Domänenspezifisches Vorwissen sagt spätere Wissensstände deutlich voraus, den normalisierten Wissenszuwachs im Mittel jedoch kaum; die Beziehung zwischen Vorwissen und Lernen variiert stark.",
+      "scope": "Meta-Analyse verschiedener Altersgruppen und Domänen mit 8.776 Effektgrößen.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-PRIOR-2022"],
+      "limitations": "Überwiegend Zusammenhänge; keine direkte Evaluation einer Vorwissensphase für IuM 5 bis 7. Eine falsche Antwort belegt kein stabiles Fehlkonzept.",
+      "designImplications": [
+        "Vorwissen mit kurzen Vorhersagen, Skizzen, Code- oder Medienbeispielen lokal und aufgabenbezogen aktivieren.",
+        "Keine zentralen Vorwissens- oder Fehlvorstellungsprofile anlegen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-003",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Cognitive Load Theory begründet, warum Aufgabe, Vorwissen, Darstellung und Lernumgebung gemeinsam betrachtet, unnötige Verarbeitung reduziert und Unterstützung mit wachsender Expertise angepasst werden sollten.",
+      "scope": "Theoretischer Forschungsüberblick zum Lernen komplexer Aufgaben.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-CLT-2020"],
+      "limitations": "Keine Meta-Effektzahl für ein bestimmtes Design; mentale Anstrengung, Bearbeitungszeit oder Bedienleichtigkeit sind keine Lernoutcomes. Die IuM-Übertragung ist inferenziell.",
+      "designImplications": [
+        "Zusammengehörige Informationen integrieren, Bedien- und Suchlast reduzieren und Repräsentationen konsistent halten.",
+        "Digital für veränderliche Zustände, Testfälle und synchrone Repräsentationen nutzen; Papier bei lernförderlicher räumlicher Übersicht zulassen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-004",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Worked examples verbesserten in einer Mathematikmeta-Analyse die Leistung gegenüber Vergleichsbedingungen im Mittel; daraus folgt weder passive Beispielbetrachtung noch ein universelles Fadingrezept.",
+      "scope": "43 Artikel mit 55 Studien und 181 Effekten von Primarstufe bis Hochschule im Fach Mathematik.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-WORKED-2023"],
+      "limitations": "Heterogene Altersgruppen, Beispieltypen und Outcomes; die Effektzahl ist nicht direkt auf Programmier- oder Medienproduktionsaufgaben übertragbar.",
+      "designImplications": [
+        "Beispiele durch Vorhersagen, Begründungen, Variantenvergleiche, Lückenergänzung und Tests aktiv verarbeiten lassen.",
+        "Fading domänennah vom vollständigen Beispiel über Lücken und Modifikation zur Eigenkonstruktion pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-005",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Induzierte Selbsterklärung zeigt über unterschiedliche Aufgaben und Bildungsstufen im Mittel positive Lernoutcomes, ist aber kein automatischer Zusatznutzen unabhängig von Prompt und Aufgabe.",
+      "scope": "Meta-Analyse von 69 Effekten aus 64 Berichten mit heterogenen Fächern, Altersgruppen und Promptformen.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-SELFEXPLAIN-2018"],
+      "limitations": "Ein engerer Worked-example-Kontext zeigt auch ungünstige Moderation durch zusätzliche Selbsterklärungsprompts; häufige generische Warum-Fragen sind nicht belegt.",
+      "designImplications": [
+        "Wenige fachlich fokussierte Prompts für kausale Beziehungen, Vorhersagen, Begründungen oder Reparaturen einsetzen.",
+        "Digitale Antworten lokal verarbeiten oder im Gespräch nutzen, ohne Persönlichkeits- oder Kompetenzprofile zu bilden."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-006",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Computerbasiertes Scaffolding unterstützt in problemzentrierten STEM-Settings kognitive Outcomes im Mittel; die Evidenz zeigt keine robuste Überlegenheit einer bestimmten Anpassungs- oder Fadinglogik.",
+      "scope": "Meta-Analyse von 144 experimentellen Studien mit 333 Outcomes von Primarstufe bis Erwachsenenbildung.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-SCAFFOLD-2017"],
+      "limitations": "Heterogene STEM-Domänen und Bildungsstufen; keine spezifische Evidenz für IuM 5 bis 7 und keine robuste Moderation durch Fadinglogiken.",
+      "designImplications": [
+        "Hilfen an konkrete fachliche Hürden koppeln und die zentrale Entscheidung der Lernenden erhalten.",
+        "Fading an sichtbarer fachlicher Bewältigung statt an Zeit, Klickzahl oder zentraler Telemetrie ausrichten."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-007",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Classroom Quizzing verbessert gegenüber Wiederlernen und anderen Vergleichsstrategien akademische Leistung im Mittel; der Nutzen hängt von Aufgabe, Vergleich, Wiederholung, Feedback und Testpassung ab.",
+      "scope": "Meta-Analyse von 222 unabhängigen Studien mit 48.478 Lernenden über viele Bildungsstufen, Fächer, Formate und Messzeitpunkte.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-QUIZZING-2021"],
+      "limitations": "Der Gesamtwert sagt nichts über eine konkrete IuM-Aufgabe aus; Retrieval ist aktiver Abruf und nicht Wiederlesen oder Wiederanschauen.",
+      "designImplications": [
+        "Kurze Abrufe als Rekonstruktion, Vorhersage, Erklärung oder Anwendung mit korrigierender Rückmeldung gestalten.",
+        "Antworten lokal halten und weder bewerten noch personenbezogen profilieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-008",
+      "package": "lernpsychologie-unterricht",
+      "statement": "In curriculumsnahen Klassenzimmerstudien war verteiltes Üben massiertem Üben im Mittel überlegen, besonders für verzögerte Messungen; die genaue Terminierung bleibt kontextabhängig.",
+      "scope": "Meta-Analyse von 22 Berichten mit 31 Effekten und mehr als 3.000 Lernenden.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-SPACING-2025"],
+      "limitations": "Begrenzte Moderatoranalysen; komplexe IuM-Inhalte und 10- bis 13-Jährige sind nicht separat abgesichert.",
+      "designImplications": [
+        "Zentrale Konzepte in späteren Modulen mit Abstand und veränderter Lernhandlung wieder aufnehmen.",
+        "Curriculare Wiedervorlagen ohne personenbezogene Erinnerungsprofile organisieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-009",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Retrieval Practice kann Transfer gegenüber nicht-testender Wiederexposition unterstützen; positiver Transfer hängt von Elaboriertheit, Antwortbeziehung und initialem Abruf ab und entsteht nicht automatisch.",
+      "scope": "Meta-Analyse von 192 Transfereffekten aus 122 Experimenten mit 10.382 Teilnehmenden.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-TRANSFER-2018"],
+      "limitations": "Heterogene Forschung und Hinweise auf Publikationsbias; die Transferart muss benannt werden und Oberflächenvariation allein genügt nicht.",
+      "designImplications": [
+        "Transferaufgaben mit veränderter Repräsentation, Oberfläche oder Anwendung, aber gleichem fachlichen Prinzip entwerfen.",
+        "Unmittelbaren Lernerfolg, späteres Behalten und Transfer mit getrennten Kriterien und Messzeitpunkten prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-010",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Feedback zeigt im Mittel positive, aber extrem heterogene Lernoutcomes; Informationsgehalt, Outcome, Design und Kontext unterscheiden die Effekte, und ein relevanter Anteil ist negativ.",
+      "scope": "Meta-Analyse von 994 Effekten aus 435 Studien mit etwa 61.000 Personen.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-FEEDBACK-2020"],
+      "limitations": "Viele Fächer, Altersstufen, Designs und Feedbackarten sowie ältere Studien; ein Gesamtwert erlaubt keine universelle Regel zu Timing, Kanal oder Form.",
+      "designImplications": [
+        "Rückmeldung als am Produkt, an der Strategie oder am nächsten Prüfschritt nutzbare Information formulieren.",
+        "Sicherheitsrelevante Fehler rasch korrigieren und reversible Lösungswege vor Rückmeldung erklären oder vergleichen lassen."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-011",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Autonomieunterstützung und Struktur sind keine Gegensätze: Sie treten positiv miteinander auf und sind beide mit Motivation, Engagement und Bedürfnisbefriedigung verbunden.",
+      "scope": "Systematischer Review und Meta-Analyse von 94 Studien mit 110 Effektgrößen zur Beziehung von Autonomieunterstützung und Struktur über verschiedene Schulstufen, Fächer, Kulturen und Erhebungsmethoden.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-AUTONOMY-2025"],
+      "limitations": "Überwiegend korrelative Daten, eine sehr große PISA-Stichprobe und extreme Heterogenität (I² = 98.94 %). Die Beziehung war in der Primarstufe kleiner (r = .29) als in der Sekundarstufe (r = .56) und hing von der Erhebungsmethode ab; acht von 94 Studien berichteten negative Beziehungen. Zusammenhänge mit Outcomes wurden bei Kontrolle des jeweils anderen Konstrukts kleiner. Daraus folgen weder eine robuste Synergie noch eine generelle kausale Leistungswirkung.",
+      "designImplications": [
+        "Sinnvolle Entscheidungen über Beispiel, Strategie oder Produkt innerhalb klarer Ziele, Kriterien, Zeitrahmen und Hilfen ermöglichen.",
+        "Selbstregulation als sichtbares Planen, Prüfen und Revidieren statt als angenommene Eigenschaft einer Oberfläche gestalten."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-012",
+      "package": "lernpsychologie-unterricht",
+      "statement": "Problem Solving before Instruction war Instruction before Problem Solving im Mittel überlegen, wenn die Exploration Bedingungen von Productive Failure erfüllte; für jüngere Lernende und domänenübergreifende Fähigkeiten zeigte sich teils die Gegenrichtung.",
+      "scope": "Meta-Analyse von 53 Studien mit 166 Vergleichen, überwiegend Mathematik, Klassen 6 bis 10 und Hochschule.",
+      "status": "reviewed",
+      "evidenceLevel": "high",
+      "sourceIds": ["SRC-LP-PF-2021"],
+      "limitations": "Bei Klassen 2 bis 5 sowie domänenübergreifenden Fähigkeiten tendierten Effekte zugunsten früher Instruktion; der Befund gilt nicht für unbegleitetes Entdecken und nicht ohne anschließende Instruktion.",
+      "designImplications": [
+        "Exploration auf vorbereitete Kontrastfälle, kontrollierte Simulationen oder begrenzte Lösungsräume stützen.",
+        "Anschließend Lösungswege vergleichen, das Zielkonzept instruieren und gemeinsam sichern; Klasse 5 besonders vorsichtig pilotieren."
+      ]
+    },
+    {
+      "id": "CLAIM-LP-013",
+      "package": "lernpsychologie-unterricht",
+      "statement": "In nicht randomisierten, pretest-adjustierten Treatment-Kontroll-Vergleichen lagen unmittelbare Posttest-Outcomes nach expliziten Selbstregulationstrainings im Mittel höher als in den Kontrollbedingungen; daraus folgt weder ein gesicherter kausaler Effekt noch eine universelle Trainingssequenz.",
+      "scope": "Meta-Analyse von 30 Artikeln mit 48 Vergleichen und 263 Effektgrößen für Klassen 1 bis 6 beziehungsweise Lernende im Durchschnitt bis etwa 12 Jahre in realen Klassenräumen.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-LP-SRL-2008"],
+      "limitations": "Evidenzstand 2008 mit heterogenen Programmen, Messungen und Implementationen; nur Teilüberlappung mit Klasse 5 bis 7. Die Zuweisung zu Treatment und Kontrolle war nicht randomisiert; trotz Pretest-Adjustierung bleibt Restkonfundierung möglich. Nur vier Studien berichteten Follow-ups, für die keine Follow-up- oder Behaltens-Effektgrößen synthetisiert wurden; die Evidenz betrifft damit überwiegend unmittelbare Posttests. Computerbasierte Interventionen waren ausgeschlossen, ein digitales IuM-Setting wurde nicht untersucht. Die Mittelwerte garantieren weder eine einzelne Sequenz noch eine bestimmte Umsetzung durch Lehrkräfte.",
+      "designImplications": [
+        "Selbstregulation als explizite fachliche Lernhandlungen gestalten: planen, eine Strategie wählen, den Zwischenstand überwachen sowie prüfen und revidieren.",
+        "Aktuelle Handlungen und Produkte für Rückmeldung nutzen, ohne Selbstregulation als feste Eigenschaft zu diagnostizieren oder personenbezogene Telemetrie zu erzeugen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-001",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "WCAG 2.2 ist eine testbare technische Accessibility-Baseline; selbst vollständige AA-Konformität deckt nicht jedes Bedürfnis ab und belegt weder schulische Usability noch Lernwirksamkeit.",
+      "scope": "W3C Recommendation vom 12. Dezember 2024 für Webinhalte auf Desktop- und Mobilgeräten, geprüft am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-WCAG22-2024"],
+      "limitations": "Die rechtliche Verbindlichkeit hängt von Betreiber, Veröffentlichungsform und anwendbarem Recht ab. WCAG ist kein alters- oder fachspezifischer Wirksamkeitsstandard.",
+      "designImplications": [
+        "WCAG 2.2 AA als vollständiges technisches Gate in die Phase-1-Spezifikation aufnehmen.",
+        "Accessibility-Konformität, schulische Usability und fachliches Lernen mit getrennten Verfahren prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-002",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "WCAG 2.2 verlangt für interaktive Kernfunktionen unter anderem Tastaturbedienbarkeit, Freiheit von Tastaturfallen, sichtbaren und nicht vollständig verdeckten Fokus, eine Alternative zu nicht wesentlichem Ziehen und Mindestzielgrößen beziehungsweise definierte Ausnahmen.",
+      "scope": "WCAG-2.2-Erfolgskriterien 2.1.1, 2.1.2, 2.4.7, 2.4.11, 2.5.7 und 2.5.8 auf Level A beziehungsweise AA.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-WCAG22-2024"],
+      "limitations": "Die Auswahl ist nicht der vollständige AA-Prüfumfang. Touchfähigkeit belegt weder Tastatur- noch Assistive-Technology-Bedienbarkeit.",
+      "designImplications": [
+        "Drag-and-drop, Canvas, Sortieren und Verbinden mit fachlich gleichwertigen Bedienalternativen spezifizieren.",
+        "Vollständige Lernaufgaben getrennt mit Tastatur, Touch und assistiven Technologien testen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-003",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "W3C WAI empfiehlt, Menschen mit Behinderungen früh und fortlaufend einzubeziehen und Nutzerbeteiligung mit WCAG-Konformitätsprüfung zu kombinieren.",
+      "scope": "Professionelle WAI-Orientierung für Webprojekte, zuletzt aktualisiert am 5. Mai 2020.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-WAI-USERS-2020"],
+      "limitations": "Kein kontrollierter Wirksamkeitsnachweis und keine repräsentative Stichprobenvorgabe für IuM 5 bis 7. Einzelnes Nutzerfeedback ersetzt keine technische Vollprüfung.",
+      "designImplications": [
+        "Repräsentative Lernaufgaben mit der Zielaltersgruppe und unterschiedlichen Zugangsbedürfnissen erproben.",
+        "Befunde zu Bedienbarkeit, Accessibility und Lernen getrennt dokumentieren."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-004",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Bei der Verarbeitung personenbezogener Daten verlangt die DSGVO Datenminimierung sowie wirksamen Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen; die EDPB-Leitlinie konkretisiert deren lebenszyklusbezogene und nachweisbare Umsetzung.",
+      "scope": "EU-Recht nach Art. 5 Abs. 1 lit. c und Art. 25 DSGVO sowie finale EDPB-Leitlinie 4/2019, Version 2.0; Stand 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-GDPR-2016", "SRC-DLE-EDPB-DPBDD-2020"],
+      "limitations": "Konto- und Backendfreiheit verhindern nicht automatisch personenbezogene Freitexte, Hosting-Logs, Drittrequests oder personenbezogene Exporte und belegen keine Compliance. Verantwortlichkeit und Rechtsgrundlage bleiben einzelfallabhängig.",
+      "designImplications": [
+        "Keine Namen, Konten oder Telemetrie im Kern vorsehen und alle Datenarten, Zwecke, Speicherorte und Löschwege dokumentieren.",
+        "Hosting- und Exportdatenflüsse vor öffentlichem Betrieb einer zuständigen Datenschutzprüfung zuführen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-005",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "§ 25 TDDDG erfasst Speicherung von Informationen in Endeinrichtungen und Zugriff auf dort vorhandene Informationen; von der grundsätzlichen Einwilligungsanforderung bestehen eng beschriebene Ausnahmen.",
+      "scope": "Geltendes Bundesrecht Deutschland, insbesondere § 25 Abs. 1 und 2 TDDDG, geprüft am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-TDDDG-25-2024"],
+      "limitations": "Ob lokale Lernstandspeicherung im konkreten Schulbetrieb unbedingt erforderlich ist, wer Anbieter oder Endnutzer ist und welche Einwilligungsregeln gelten, ist nicht entschieden. Keine Rechtsberatung.",
+      "designImplications": [
+        "Nicht notwendige Endgerätespeicherung vermeiden und Zweck sowie lokale Datenarten transparent ausweisen.",
+        "Die konkrete TDDDG-Einordnung vor Deployment prüfen; keinen pauschalen Banner aus dem Claim ableiten."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-006",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Browserstorage ist zunächst best-effort, kann unter Speicherdruck gelöscht oder durch Browserpolicy blockiert werden; Persistenz und Quota sind keine universelle Garantie.",
+      "scope": "WHATWG Storage Living Standard, Stand 15. März 2026, und HTML Living Standard Web Storage, abgerufen am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-WHATWG-STORAGE-2026", "SRC-DLE-WHATWG-HTML-STORAGE-2026"],
+      "limitations": "Der HTML-Fehlervertrag für localStorage belegt nur die Verfügbarkeitsgrenze; das Projekt plant IndexedDB. Auch ein persistenter Bucket ersetzt kein nutzergesteuertes Backup außerhalb des Browsers.",
+      "designImplications": [
+        "Speicherfähigkeit durch Schreib-, Lese- und Löschprobe prüfen und bei Fehler einen sichtbaren flüchtigen Modus anbieten.",
+        "Versionierten Export als browserunabhängigen Sicherungs- und Gerätewechselweg spezifizieren."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-007",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Web-App-Installationsmetadaten und Service-Worker-Fähigkeiten sind von vollständiger Offlinekorrektheit zu unterscheiden; weder Manifest noch Registrierung beweist einen funktionierenden Offlinekern.",
+      "scope": "W3C Web Application Manifest Working Draft und Service Workers Candidate Recommendation Draft, beide vom 23. Juli 2026.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-APP-MANIFEST-2026", "SRC-DLE-SERVICE-WORKERS-2026"],
+      "limitations": "App Manifest ist ausdrücklich instabil; Service Workers ist work in progress. Beide sind nicht als fertige W3C Recommendations endorsiert, und Browser- sowie Schulpolicies variieren.",
+      "designImplications": [
+        "Installation, Kernressourcen offline, Lernstand offline, externe Ressourcen und Wiederanbindung getrennt spezifizieren.",
+        "Offlineabnahme auf realen Zielgeräten und nicht über bloße API- oder Registrierungsprüfung durchführen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-008",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "HTTP-Frische und Revalidierung sowie Service-Worker-Installations-, Warte-, Aktivierungs- und Cachezustände bilden getrennte Updateebenen; kompatible Kombinationen alter und neuer Ressourcen entstehen nicht automatisch.",
+      "scope": "IETF Standards Track RFC 9111 von 2022 und W3C Service Workers Candidate Recommendation Draft vom 23. Juli 2026.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-HTTP-CACHE-2022", "SRC-DLE-SERVICE-WORKERS-2026"],
+      "limitations": "Die Standards definieren keine projektspezifische atomare Release- oder Lernstandsmigration. Browsercache, CacheStorage und lokale Lernstände sind verschiedene Zustände.",
+      "designImplications": [
+        "Versionierten Cache-, Release- und Migrationsvertrag als Phase-1-Anforderung definieren.",
+        "Teilcache, Altclient, laufende Arbeit, neues Deployment, Rollback und inkompatiblen Import regressiv testen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-009",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Die UNESCO-Empfehlung beschreibt OER als gemeinfreie oder offen lizenzierte Lern-, Lehr- und Forschungsmaterialien, die kostenlosen Zugang, Wiederverwendung, Umnutzung, Bearbeitung und Weiterverbreitung erlauben.",
+      "scope": "Internationale Empfehlung der UNESCO General Conference vom 25. November 2019.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-UNESCO-OER-2019"],
+      "limitations": "Die Empfehlung lizenziert kein Projektmaterial, ist kein deutsches Gesetz und kein Lernwirksamkeitsnachweis. Kostenloser Lesezugriff allein erfüllt den beschriebenen Nachnutzungsraum nicht.",
+      "designImplications": [
+        "Quellformate, bearbeitbare Assets und vollständige Rechteketten als Teil der OER-Auslieferung behandeln.",
+        "Öffentlichen Zugriff und tatsächliche rechtliche sowie technische Bearbeitbarkeit getrennt prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-010",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "CC BY 4.0 erlaubt Vervielfältigung, öffentliche Weitergabe und Bearbeitung unter kontextangemessen erfüllbaren Attribution-, Lizenz- und Änderungskennzeichnungspflichten.",
+      "scope": "Kanonischer internationaler Lizenztext Creative Commons Attribution 4.0.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-CC-BY-4"],
+      "limitations": "Die Lizenz erfasst nur Rechte, die die lizenzgebende Person einräumen kann; Persönlichkeits-, Datenschutz-, Marken-, Patent- und Drittmaterialrechte können fortbestehen. Keine Rechtsberatung.",
+      "designImplications": [
+        "Jedes importierte Asset mit Titel, Urheber, Quelle, Lizenzversion und -link sowie Änderungsvermerk erfassen.",
+        "Nicht von der CC-Lizenz erfasste Rechte separat prüfen und dokumentieren."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-011",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "CC BY-SA 4.0 verlangt beim Teilen eigener Bearbeitungen eine zulässige Adapterlizenz; Lizenzkompatibilität ist versions- und richtungsspezifisch, wobei die offizielle Liste die GPLv3-Kompatibilität ausdrücklich nur einseitig ausweist.",
+      "scope": "Kanonischer CC-BY-SA-4.0-Lizenztext und offizielle Creative-Commons-Kompatibilitätsliste, geprüft am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "normative",
+      "sourceIds": ["SRC-DLE-CC-BY-SA-4", "SRC-DLE-CC-COMPAT-2026"],
+      "limitations": "Bearbeitung, Sammlung, technische Modifikation und Schrankenanwendung sind einzelfallabhängig; die Kompatibilitätsliste kann erweitert werden. Keine pauschale Rechtsberatung.",
+      "designImplications": [
+        "Jede Materialkombination mit Lizenzversion, Richtung, Werkart und Bearbeitungsstatus dokumentieren.",
+        "NC- oder ND-Material nicht ohne dokumentierte Einzelfallentscheidung in den offenen Kern übernehmen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-012",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Apple-MDM kann Safari und Web Clips deaktivieren sowie Webzugriffe über Listen oder WebKit-Filter beschränken; schulische Browserunterstützung ist daher ein datiertes Konfigurationsziel.",
+      "scope": "Aktuelle Apple-Herstellerdokumentation für verwaltete iPadOS-Geräte, abgerufen am 2026-07-28.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-APPLE-RESTRICTIONS-2026", "SRC-DLE-APPLE-WEBFILTER-2026"],
+      "limitations": "Die Quellen belegen keine konkrete Schulkonfiguration, keine universelle iPad-Supportmatrix und keine Eigenschaften von Chromium oder Firefox.",
+      "designImplications": [
+        "Reale verwaltete iPads und benannte Browserhauptversionen als datierte Abnahmematrix führen.",
+        "MDM, Filter, Download, Einbettung, Web-Clip-Nutzung und Storage je Zielkonfiguration prüfen."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-013",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "HTTP-Caching kann Latenz und Netzwerkaufwand durch Wiederverwendung und Revalidierung reduzieren; die Web Sustainability Guidelines sind dagegen nur ein nicht endorsierter W3C Group Note Draft und kein Nachhaltigkeitsstandard.",
+      "scope": "IETF Standards Track RFC 9111 von 2022 und W3C Group Note Draft vom 28. Juli 2026.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-HTTP-CACHE-2022", "SRC-DLE-WSG-DRAFT-2026"],
+      "limitations": "Weniger Transfers beweisen keine konkrete Umweltwirkung. WSG besitzt keinen vorläufigen Interoperabilitäts- oder Implementierungsbericht und kann ersetzt oder obsolet werden.",
+      "designImplications": [
+        "Roh-, Transfer-, Cache- und Offlinegrößen messen und begründete Performancebudgets definieren.",
+        "WSG nur als datierte Arbeitscheckliste nutzen und keine pauschalen Nachhaltigkeitslabels vergeben."
+      ]
+    },
+    {
+      "id": "CLAIM-DLE-014",
+      "package": "digitale-lernumgebungen-oer",
+      "statement": "Ein systematischer Review von 43 Studien berichtet über Fächer und Umsetzungen gemischte beziehungsweise inkonsistente akademische Outcomes zur iPad- oder Mobilgerätenutzung; daraus folgt weder ein kausaler Effekt noch ein quantitativer Nulleffekt.",
+      "scope": "Systematischer Review von Studien aus 2010 bis 2019 in schulischen Lernbereichen; nur 21 der 43 Studien untersuchten ausschließlich 9- bis 14-Jährige, die übrigen schlossen teils breitere Altersstichproben ein; Suche durchgeführt im März 2019.",
+      "status": "reviewed",
+      "evidenceLevel": "medium",
+      "sourceIds": ["SRC-DLE-IPAD-REVIEW-2021"],
+      "limitations": "Die meisten Studien waren explorativ und qualitativ, Interventionen häufig kurz; Längsschnitt- und Within-Subject-Experimente fehlten weitgehend. Heterogene Fächer, Altersstichproben, Gerätenutzungen und Pädagogiken sowie der Suchstand März 2019 begrenzen die Synthese. Keine Untersuchung des IuM-Lernwerks, von WCAG-Konformität, Local First oder PWA-Technik; keine kausale oder pauschale Nullfolgerung.",
+      "designImplications": [
+        "Jede digitale Funktion mit einer fachlich-didaktischen Lernfunktion und eigener Erprobung begründen.",
+        "Bloße iPad-Verfügbarkeit nicht als Lernwirksamkeits- oder Qualitätskriterium verwenden."
+      ]
+    }
+  ]
+}

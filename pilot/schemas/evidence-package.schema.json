@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h4r7w16.github.io/ium-lernwerk/pilot/schemas/evidence-package.schema.json",
+  "title": "IUM11 evidence package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "packageType", "packageId", "protocolVersion", "protocolFingerprint", "toolVersion", "timeModelFingerprint", "scopeType", "scopeId", "context", "deliveryTimeEvidence", "learningQualityEvidence", "learnerPulseEvidence", "technicalPrivacyEvidence", "result", "developmentWarnings", "retentionClass"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "packageType": {"enum": ["cluster-evidence", "annual-evidence"]},
+    "packageId": {"type": "string", "pattern": "^PKG-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"},
+    "protocolVersion": {"const": "1.0.0"},
+    "protocolFingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "toolVersion": {"const": "1.0.0"},
+    "timeModelFingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "scopeType": {"enum": ["cluster", "annual"]},
+    "scopeId": {"type": "string"},
+    "context": {"$ref": "#/$defs/context"},
+    "deliveryTimeEvidence": {"oneOf": [{"$ref": "#/$defs/clusterDelivery"}, {"$ref": "#/$defs/annualDelivery"}]},
+    "learningQualityEvidence": {"$ref": "#/$defs/learningQuality"},
+    "learnerPulseEvidence": {"$ref": "#/$defs/learnerPulse"},
+    "technicalPrivacyEvidence": {"$ref": "#/$defs/technicalPrivacy"},
+    "result": {"enum": ["pass", "fail", "not-evaluable"]},
+    "developmentWarnings": {"type": "array", "items": {"$ref": "#/$defs/warning"}},
+    "retentionClass": {"const": "until-decision"}
+  },
+  "oneOf": [
+    {"properties": {"packageType": {"const": "cluster-evidence"}, "scopeType": {"const": "cluster"}, "deliveryTimeEvidence": {"$ref": "#/$defs/clusterDelivery"}}},
+    {"properties": {"packageType": {"const": "annual-evidence"}, "scopeType": {"const": "annual"}, "context": {"properties": {"term": {"const": "full-year"}}}, "deliveryTimeEvidence": {"$ref": "#/$defs/annualDelivery"}}}
+  ],
+  "allOf": [
+    {
+      "if": {"properties": {"context": {"properties": {"classSizeBand": {"const": "under-10"}}}}},
+      "then": {"properties": {"learnerPulseEvidence": {"properties": {"status": {"const": "suppressed-small-group"}}}}}
+    },
+    {
+      "if": {"properties": {"context": {"properties": {"classSizeBand": {"const": "10-19"}}}}},
+      "then": {"properties": {"learnerPulseEvidence": {"properties": {"classResponseCount": {"maximum": 19}}}}}
+    },
+    {
+      "if": {"properties": {"context": {"properties": {"classSizeBand": {"const": "20-29"}}}}},
+      "then": {"properties": {"learnerPulseEvidence": {"properties": {"classResponseCount": {"maximum": 29}}}}}
+    }
+  ],
+  "$defs": {
+    "context": {"type": "object", "additionalProperties": false, "required": ["schoolYear", "term", "classSizeBand", "deviceClass", "browserFamily", "networkMode"], "properties": {"schoolYear": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"}, "term": {"enum": ["first-half", "second-half", "full-year"]}, "classSizeBand": {"enum": ["under-10", "10-19", "20-29", "30-plus"]}, "deviceClass": {"enum": ["desktop", "laptop", "tablet", "mixed"]}, "browserFamily": {"enum": ["chromium", "firefox", "safari", "mixed"]}, "networkMode": {"enum": ["offline", "school-network", "local-fallback"]}}},
+    "clusterDelivery": {"type": "object", "additionalProperties": false, "required": ["plannedUnits", "actualUnits", "completedPhaseIds", "requiredLearningPhasesCompleted", "fallbackActivated", "technicalStartupMinutes", "supportDemandBand", "externalDisruptionCode"], "properties": {"plannedUnits": {"type": "integer", "minimum": 0}, "actualUnits": {"type": "integer", "minimum": 0}, "completedPhaseIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "requiredLearningPhasesCompleted": {"type": "boolean"}, "fallbackActivated": {"type": "boolean"}, "technicalStartupMinutes": {"type": "integer", "minimum": 0}, "supportDemandBand": {"enum": ["low", "medium", "high"]}, "externalDisruptionCode": {"enum": ["none", "interpretability-lost"]}}},
+    "annualDelivery": {"type": "object", "additionalProperties": false, "required": ["plannedUnits", "actualUnits", "completedPhaseIds", "requiredLearningPhasesCompleted", "fallbackActivated", "technicalStartupMinutes", "supportDemandBand", "externalDisruptionCode", "clusterOrder", "clusterActualUnits"], "properties": {"plannedUnits": {"type": "integer", "minimum": 0}, "actualUnits": {"type": "integer", "minimum": 0}, "completedPhaseIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "requiredLearningPhasesCompleted": {"type": "boolean"}, "fallbackActivated": {"type": "boolean"}, "technicalStartupMinutes": {"type": "integer", "minimum": 0}, "supportDemandBand": {"enum": ["low", "medium", "high"]}, "externalDisruptionCode": {"enum": ["none", "interpretability-lost"]}, "clusterOrder": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "clusterActualUnits": {"type": "array", "items": {"$ref": "#/$defs/clusterActualUnits"}}}},
+    "clusterActualUnits": {"type": "object", "additionalProperties": false, "required": ["clusterId", "actualUnits"], "properties": {"clusterId": {"type": "string"}, "actualUnits": {"type": "integer", "minimum": 0}}},
+    "learningQuality": {"type": "object", "additionalProperties": false, "required": ["moduleResults", "integrationResults"], "properties": {"moduleResults": {"type": "array", "items": {"$ref": "#/$defs/moduleResult"}}, "integrationResults": {"type": "array", "items": {"$ref": "#/$defs/integrationResult"}}}},
+    "moduleResult": {"type": "object", "additionalProperties": false, "required": ["pilotAssignmentId", "moduleId", "criteria", "result"], "properties": {"pilotAssignmentId": {"type": "string"}, "moduleId": {"type": "string"}, "criteria": {"type": "array", "items": {"$ref": "#/$defs/criterion"}}, "result": {"enum": ["pass", "fail", "not-evaluable"]}}},
+    "integrationResult": {"type": "object", "additionalProperties": false, "required": ["pilotAssignmentId", "integrationContractId", "criteria", "handoffProductPresent", "handoffReused", "result"], "properties": {"pilotAssignmentId": {"type": "string"}, "integrationContractId": {"type": "string"}, "criteria": {"type": "array", "items": {"$ref": "#/$defs/criterion"}}, "handoffProductPresent": {"type": "boolean"}, "handoffReused": {"type": "boolean"}, "result": {"enum": ["pass", "fail", "not-evaluable"]}}},
+    "criterion": {"type": "object", "additionalProperties": false, "required": ["criterionId", "band"], "properties": {"criterionId": {"type": "string"}, "band": {"enum": ["strong", "mixed", "weak"]}}},
+    "learnerPulse": {"oneOf": [{"type": "object", "additionalProperties": false, "required": ["status"], "properties": {"status": {"const": "suppressed-small-group"}}}, {"type": "object", "additionalProperties": false, "required": ["status", "classResponseCount", "items"], "properties": {"status": {"const": "reported"}, "classResponseCount": {"type": "integer", "minimum": 10}, "items": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/pulseItem"}}}}]},
+    "pulseItem": {"type": "object", "additionalProperties": false, "required": ["itemId", "agree", "partly", "disagree", "noAnswer"], "properties": {"itemId": {"enum": ["clarity", "cognitiveEngagement", "supportUsefulness"]}, "agree": {"type": "integer", "minimum": 0}, "partly": {"type": "integer", "minimum": 0}, "disagree": {"type": "integer", "minimum": 0}, "noAnswer": {"type": "integer", "minimum": 0}}},
+    "technicalPrivacy": {"type": "object", "additionalProperties": false, "required": ["technicalFunction", "fallbackEquivalentLearningFunction", "problemCode", "severity", "privacyGate"], "properties": {"technicalFunction": {"enum": ["pass", "fail"]}, "fallbackEquivalentLearningFunction": {"type": "boolean"}, "problemCode": {"enum": ["none", "startup", "execution", "import", "export"]}, "severity": {"enum": ["none", "minor", "major", "blocking"]}, "privacyGate": {"const": "pass"}}},
+    "warning": {"type": "object", "additionalProperties": false, "required": ["id", "itemId", "status"], "properties": {"id": {"type": "string", "pattern": "^WARN-(clarity|cognitiveEngagement|supportUsefulness)$"}, "itemId": {"enum": ["clarity", "cognitiveEngagement", "supportUsefulness"]}, "status": {"const": "open"}}}
+  }
+}

@@ -1,0 +1,1200 @@
+{
+  "schemaVersion": 1,
+  "status": "working",
+  "scope": {
+    "schoolType": "Gymnasium",
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "level": "E",
+    "sources": [
+      "SRC-CUR-BMB-2016",
+      "SRC-CUR-INF7-2016"
+    ]
+  },
+  "modelNotes": {
+    "sourceFidelity": "exactOfficialTerm, sourceDefinition und sourceAfb bewahren die Semantik des jeweiligen amtlichen Quellenrecords.",
+    "complexityBands": "likelyComplexityBand ist eine Projekt-Heuristik für Aufgabenreview, keine universelle Operatorenhierarchie. Der amtliche AFB bleibt separat und quellengebunden.",
+    "processCompetencies": "Prozesskompetenzen werden nicht zu Operatoren umetikettiert; sie bleiben kind=process-competency und context-dependent.",
+    "lesehilfe": "Die Lesehilfe enthält keine eigenständige amtliche Operatorenliste. Kompetenzverben werden deshalb nicht als erfundene Operatorrecords dupliziert."
+  },
+  "entryCounts": {
+    "operator": 41,
+    "process-competency": 37,
+    "total": 78
+  },
+  "entries": [
+    {
+      "id": "OPMAP-001",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Fachbegriffe richtig verwenden",
+      "sourceRecordId": "BMB16-GYM-PK-SK-001",
+      "sourceDefinition": "Fachbegriffe richtig verwenden",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: fachsprachlich korrekte Handlungsausführung oder Kurzbeschreibung. Sichtbares Erfolgskriterium: Die Lernenden können Fachbegriffe richtig verwenden.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-002",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden",
+      "sourceRecordId": "BMB16-GYM-PK-SK-002",
+      "sourceDefinition": "Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: fachsprachlich korrekte Handlungsausführung oder Kurzbeschreibung. Sichtbares Erfolgskriterium: Die Lernenden können Grundfunktionen von digitalen Medien und von Programmen bedienen und anwenden.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-003",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
+      "sourceRecordId": "BMB16-GYM-PK-SK-003",
+      "sourceDefinition": "Verhaltensregeln im Umgang mit Medien benennen und einhalten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: fachsprachlich korrekte Handlungsausführung oder Kurzbeschreibung. Sichtbares Erfolgskriterium: Die Lernenden können Verhaltensregeln im Umgang mit Medien benennen und einhalten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-004",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten",
+      "sourceRecordId": "BMB16-GYM-PK-HK-001",
+      "sourceDefinition": "Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Rechercheartefakt, Medienprodukt oder Kooperationsprodukt. Sichtbares Erfolgskriterium: Die Lernenden können Themen recherchieren, Quellen auswählen, Informationen erschließen und sinnvoll aufbereiten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-005",
+      "kind": "process-competency",
+      "exactOfficialTerm": "einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren",
+      "sourceRecordId": "BMB16-GYM-PK-HK-002",
+      "sourceDefinition": "einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Rechercheartefakt, Medienprodukt oder Kooperationsprodukt. Sichtbares Erfolgskriterium: Die Lernenden können einfache digitale Medienprodukte planen, gestalten und im geeigneten Kontext präsentieren.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-006",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Medien für Zusammenarbeit und Kooperation nutzen",
+      "sourceRecordId": "BMB16-GYM-PK-HK-003",
+      "sourceDefinition": "Medien für Zusammenarbeit und Kooperation nutzen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Rechercheartefakt, Medienprodukt oder Kooperationsprodukt. Sichtbares Erfolgskriterium: Die Lernenden können Medien für Zusammenarbeit und Kooperation nutzen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-007",
+      "kind": "process-competency",
+      "exactOfficialTerm": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
+      "sourceRecordId": "BMB16-GYM-PK-RK-001",
+      "sourceDefinition": "anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können anknüpfend an ihre eigenen Erfahrungen das Nutzungsverhalten beschreiben und vergleichen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-008",
+      "kind": "process-competency",
+      "exactOfficialTerm": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
+      "sourceRecordId": "BMB16-GYM-PK-RK-002",
+      "sourceDefinition": "den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können den Einfluss der digitalen Medien auf ihre Lebenswelt darstellen und Wirklichkeit mit Medienwirklichkeit in Beziehung setzen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-009",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "sourceRecordId": "BMB16-GYM-PK-RK-003",
+      "sourceDefinition": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-010",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
+      "sourceRecordId": "BMB16-GYM-PK-RK-004",
+      "sourceDefinition": "Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Fallanalyse, Vergleich oder begründete Reflexion. Sichtbares Erfolgskriterium: Die Lernenden können Übertretungen rechtlicher und moralischer Grenzen in der digitalen Welt erkennen und daraus Regeln für das eigene soziale Verhalten ableiten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-011",
+      "kind": "operator",
+      "exactOfficialTerm": "ableiten",
+      "sourceRecordId": "BMB16-GYM-OP-001",
+      "sourceDefinition": "auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „ableiten“: auf der Grundlage von Erkenntnissen sachgerechte Schlussfolgerungen ziehen.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-012",
+      "kind": "operator",
+      "exactOfficialTerm": "analysieren",
+      "sourceRecordId": "BMB16-GYM-OP-002",
+      "sourceDefinition": "Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „analysieren“: Materialien oder Sachverhalte systematisch und gezielt untersuchen und auswerten.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-013",
+      "kind": "operator",
+      "exactOfficialTerm": "auswählen",
+      "sourceRecordId": "BMB16-GYM-OP-003",
+      "sourceDefinition": "Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „auswählen“: Medien beziehungsweise Informationen nach funktionalen Kriterien aussuchen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-014",
+      "kind": "operator",
+      "exactOfficialTerm": "(be-)nennen, einbringen",
+      "sourceRecordId": "BMB16-GYM-OP-004",
+      "sourceDefinition": "entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „(be-)nennen, einbringen“: entweder Informationen aus vorgegebenem Material entnehmen oder Kenntnisse beziehungsweise Erfahrungen ohne Materialvorgabe anführen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-015",
+      "kind": "operator",
+      "exactOfficialTerm": "beachten, einhalten, verhalten",
+      "sourceRecordId": "BMB16-GYM-OP-005",
+      "sourceDefinition": "bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „beachten, einhalten, verhalten“: bei der Verwendung von Medien Regeln, Gesetze, Normen und Richtlinien ihres Gebrauchs berücksichtigen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-016",
+      "kind": "operator",
+      "exactOfficialTerm": "bedienen, anwenden, nutzen",
+      "sourceRecordId": "BMB16-GYM-OP-006",
+      "sourceDefinition": "technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „bedienen, anwenden, nutzen“: technische Funktionen und Bedienelemente beherrschen und gezielt einsetzen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-017",
+      "kind": "operator",
+      "exactOfficialTerm": "beschreiben",
+      "sourceRecordId": "BMB16-GYM-OP-007",
+      "sourceDefinition": "wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „beschreiben“: wesentliche Informationen aus vorgegebenem Material oder aus Kenntnissen zusammenhängend und schlüssig wiedergeben.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-018",
+      "kind": "operator",
+      "exactOfficialTerm": "bewerten",
+      "sourceRecordId": "BMB16-GYM-OP-008",
+      "sourceDefinition": "Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „bewerten“: Aussagen, Behauptungen, Vorschläge oder Maßnahmen beurteilen, eine persönliche Stellungnahme abgeben und dabei die eigenen Wertmaßstäbe offenlegen.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-019",
+      "kind": "operator",
+      "exactOfficialTerm": "darstellen",
+      "sourceRecordId": "BMB16-GYM-OP-009",
+      "sourceDefinition": "Strukturen und Zusammenhänge beschreiben und verdeutlichen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „darstellen“: Strukturen und Zusammenhänge beschreiben und verdeutlichen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-020",
+      "kind": "operator",
+      "exactOfficialTerm": "einschätzen",
+      "sourceRecordId": "BMB16-GYM-OP-010",
+      "sourceDefinition": "Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „einschätzen“: Sachverhalte, Vorgänge, Material begründet in einen vorgegebenen Zusammenhang stellen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-021",
+      "kind": "operator",
+      "exactOfficialTerm": "einsetzen",
+      "sourceRecordId": "BMB16-GYM-OP-011",
+      "sourceDefinition": "bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „einsetzen“: bestimmte Medien beziehungsweise deren Funktion kennen und zweckgebunden verwenden.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-022",
+      "kind": "operator",
+      "exactOfficialTerm": "erläutern",
+      "sourceRecordId": "BMB16-GYM-OP-012",
+      "sourceDefinition": "Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „erläutern“: Sachverhalte im Zusammenhang beschreiben und anschaulich mit Beispielen oder Belegen erklären.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-023",
+      "kind": "operator",
+      "exactOfficialTerm": "erstellen",
+      "sourceRecordId": "BMB16-GYM-OP-013",
+      "sourceDefinition": "ein Medienprodukt entwickeln und anfertigen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „erstellen“: ein Medienprodukt entwickeln und anfertigen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-024",
+      "kind": "operator",
+      "exactOfficialTerm": "gestalten",
+      "sourceRecordId": "BMB16-GYM-OP-014",
+      "sourceDefinition": "ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „gestalten“: ein Medienprodukt gemäß seiner Wirksamkeit nach bestimmten Kriterien anfertigen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-025",
+      "kind": "operator",
+      "exactOfficialTerm": "(heraus-)arbeiten, aufbereiten",
+      "sourceRecordId": "BMB16-GYM-OP-015",
+      "sourceDefinition": "Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „(heraus-)arbeiten, aufbereiten“: Informationen und Sachverhalte unter bestimmten Gesichtspunkten aus vorgegebenem Material entnehmen, wiedergeben und neue Erkenntnisse (zum Beispiel Regeln) daraus ziehen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-026",
+      "kind": "operator",
+      "exactOfficialTerm": "planen",
+      "sourceRecordId": "BMB16-GYM-OP-016",
+      "sourceDefinition": "einen Medienbeitrag in einzelne Arbeitsschritte zergliedern",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „planen“: einen Medienbeitrag in einzelne Arbeitsschritte zergliedern.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-027",
+      "kind": "operator",
+      "exactOfficialTerm": "präsentieren, vorstellen",
+      "sourceRecordId": "BMB16-GYM-OP-017",
+      "sourceDefinition": "ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „präsentieren, vorstellen“: ein Medienprodukt einem Publikum strukturiert und sprachlich korrekt vorführen, zeigen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-028",
+      "kind": "operator",
+      "exactOfficialTerm": "strukturieren",
+      "sourceRecordId": "BMB16-GYM-OP-018",
+      "sourceDefinition": "ein Rechercheergebnis in eine gegliederte Form bringen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „strukturieren“: ein Rechercheergebnis in eine gegliederte Form bringen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-029",
+      "kind": "operator",
+      "exactOfficialTerm": "überprüfen",
+      "sourceRecordId": "BMB16-GYM-OP-019",
+      "sourceDefinition": "vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „überprüfen“: vorgegebene Aussagen beziehungsweise Behauptungen an konkreten Sachverhalten und innerer Stimmigkeit messen.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        5
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-030",
+      "kind": "process-competency",
+      "exactOfficialTerm": "mit dem Schulnetz zielorientiert arbeiten",
+      "sourceRecordId": "INF7-16-GYM-PK-SV-001",
+      "sourceDefinition": "mit dem Schulnetz zielorientiert arbeiten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können mit dem Schulnetz zielorientiert arbeiten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-031",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Dateien und Bezeichner aussagekräftig benennen",
+      "sourceRecordId": "INF7-16-GYM-PK-SV-002",
+      "sourceDefinition": "Dateien und Bezeichner aussagekräftig benennen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Dateien und Bezeichner aussagekräftig benennen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-032",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Beziehungen zwischen Daten/Objekten erkennen und erläutern",
+      "sourceRecordId": "INF7-16-GYM-PK-SV-003",
+      "sourceDefinition": "Beziehungen zwischen Daten/Objekten erkennen und erläutern",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Beziehungen zwischen Daten/Objekten erkennen und erläutern.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-033",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Handlungsschritte chronologisch ordnen (auch aufgrund von kausalen Zusammenhängen)",
+      "sourceRecordId": "INF7-16-GYM-PK-SV-004",
+      "sourceDefinition": "Handlungsschritte chronologisch ordnen (auch aufgrund von kausalen Zusammenhängen)",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Handlungsschritte chronologisch ordnen (auch aufgrund von kausalen Zusammenhängen).",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-034",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Teillösungen zur Lösung des Gesamtproblems nutzen",
+      "sourceRecordId": "INF7-16-GYM-PK-SV-005",
+      "sourceDefinition": "Teillösungen zur Lösung des Gesamtproblems nutzen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Teillösungen zur Lösung des Gesamtproblems nutzen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-035",
+      "kind": "process-competency",
+      "exactOfficialTerm": "die für die Problemstellung relevanten Informationen herausarbeiten und fehlende beziehungsweise ergänzende Informationen beschaffen",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-001",
+      "sourceDefinition": "die für die Problemstellung relevanten Informationen herausarbeiten und fehlende beziehungsweise ergänzende Informationen beschaffen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können die für die Problemstellung relevanten Informationen herausarbeiten und fehlende beziehungsweise ergänzende Informationen beschaffen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-036",
+      "kind": "process-competency",
+      "exactOfficialTerm": "für (Teil-)Abläufe notwendige Eingabedaten und Ergebnisse beschreiben",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-002",
+      "sourceDefinition": "für (Teil-)Abläufe notwendige Eingabedaten und Ergebnisse beschreiben",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können für (Teil-)Abläufe notwendige Eingabedaten und Ergebnisse beschreiben.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-037",
+      "kind": "process-competency",
+      "exactOfficialTerm": "charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion)",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-003",
+      "sourceDefinition": "charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion)",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können charakteristische und verallgemeinerbare Bestandteile herausarbeiten (Abstraktion).",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-038",
+      "kind": "process-competency",
+      "exactOfficialTerm": "relevante Abläufe, Daten und ihre Beziehungen in informatischen Modellen darstellen",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-004",
+      "sourceDefinition": "relevante Abläufe, Daten und ihre Beziehungen in informatischen Modellen darstellen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können relevante Abläufe, Daten und ihre Beziehungen in informatischen Modellen darstellen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-039",
+      "kind": "process-competency",
+      "exactOfficialTerm": "geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-005",
+      "sourceDefinition": "geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können geeignete Programme und Hilfsmittel zur grafisch gestützten Modellierung einsetzen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-040",
+      "kind": "process-competency",
+      "exactOfficialTerm": "unterschiedliche Perspektiven in die Entwicklung einer Lösung mit einbeziehen",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-006",
+      "sourceDefinition": "unterschiedliche Perspektiven in die Entwicklung einer Lösung mit einbeziehen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können unterschiedliche Perspektiven in die Entwicklung einer Lösung mit einbeziehen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-041",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Abläufe in einer Programmiersprache implementieren",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-007",
+      "sourceDefinition": "Abläufe in einer Programmiersprache implementieren",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Abläufe in einer Programmiersprache implementieren.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-042",
+      "kind": "process-competency",
+      "exactOfficialTerm": "vorhandene Codebausteine aus verschiedenen Quellen adaptiert in eigene Programme einbauen",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-008",
+      "sourceDefinition": "vorhandene Codebausteine aus verschiedenen Quellen adaptiert in eigene Programme einbauen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können vorhandene Codebausteine aus verschiedenen Quellen adaptiert in eigene Programme einbauen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-043",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Programme gezielt testen",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-009",
+      "sourceDefinition": "Programme gezielt testen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können Programme gezielt testen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-044",
+      "kind": "process-competency",
+      "exactOfficialTerm": "die Angemessenheit von Lösungen und die erreichten Resultate bewerten",
+      "sourceRecordId": "INF7-16-GYM-PK-MI-010",
+      "sourceDefinition": "die Angemessenheit von Lösungen und die erreichten Resultate bewerten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: strukturierter Lösungsweg, informatisches Modell, Code oder Testprotokoll. Sichtbares Erfolgskriterium: Die Lernenden können die Angemessenheit von Lösungen und die erreichten Resultate bewerten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-045",
+      "kind": "process-competency",
+      "exactOfficialTerm": "fachspezifische Schreib- und Notationsweisen verwenden",
+      "sourceRecordId": "INF7-16-GYM-PK-KK-001",
+      "sourceDefinition": "fachspezifische Schreib- und Notationsweisen verwenden",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können fachspezifische Schreib- und Notationsweisen verwenden.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-046",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen",
+      "sourceRecordId": "INF7-16-GYM-PK-KK-002",
+      "sourceDefinition": "Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können Sachverhalte, eigene Ideen, Lösungswege und Ergebnisse zielgruppenorientiert und unter Beachtung der informatischen Terminologie erläutern und strukturiert darstellen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-047",
+      "kind": "process-competency",
+      "exactOfficialTerm": "arbeitsteilig als Team ihre Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren",
+      "sourceRecordId": "INF7-16-GYM-PK-KK-003",
+      "sourceDefinition": "arbeitsteilig als Team ihre Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können arbeitsteilig als Team ihre Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-048",
+      "kind": "process-competency",
+      "exactOfficialTerm": "zielorientiert auf einer vorhandenen Infrastruktur kommunizieren und geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen",
+      "sourceRecordId": "INF7-16-GYM-PK-KK-004",
+      "sourceDefinition": "zielorientiert auf einer vorhandenen Infrastruktur kommunizieren und geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können zielorientiert auf einer vorhandenen Infrastruktur kommunizieren und geeignete digitale Werkzeuge zum Teilen von Informationen einsetzen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-049",
+      "kind": "process-competency",
+      "exactOfficialTerm": "in Erarbeitung, Kooperation und Darstellung alltagsrelevante rechtliche Regelungen befolgen und verantwortungsvoll mit eigenen und fremden personenbezogenen Daten umgehen",
+      "sourceRecordId": "INF7-16-GYM-PK-KK-005",
+      "sourceDefinition": "in Erarbeitung, Kooperation und Darstellung alltagsrelevante rechtliche Regelungen befolgen und verantwortungsvoll mit eigenen und fremden personenbezogenen Daten umgehen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können in Erarbeitung, Kooperation und Darstellung alltagsrelevante rechtliche Regelungen befolgen und verantwortungsvoll mit eigenen und fremden personenbezogenen Daten umgehen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-050",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren",
+      "sourceRecordId": "INF7-16-GYM-PK-KK-006",
+      "sourceDefinition": "Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: adressatengerechte Erklärung, Teamplan oder Präsentation. Sichtbares Erfolgskriterium: Die Lernenden können Aspekte von Toleranz und Akzeptanz von Vielfalt im Kontext informatischer Fragestellungen diskutieren.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-051",
+      "kind": "process-competency",
+      "exactOfficialTerm": "durch Analyse Erkenntnisse über das Verhalten von informatischen Systemen gewinnen",
+      "sourceRecordId": "INF7-16-GYM-PK-AB-001",
+      "sourceDefinition": "durch Analyse Erkenntnisse über das Verhalten von informatischen Systemen gewinnen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können durch Analyse Erkenntnisse über das Verhalten von informatischen Systemen gewinnen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-052",
+      "kind": "process-competency",
+      "exactOfficialTerm": "informatische Modelle mit der jeweiligen Realsituation vergleichen",
+      "sourceRecordId": "INF7-16-GYM-PK-AB-002",
+      "sourceDefinition": "informatische Modelle mit der jeweiligen Realsituation vergleichen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können informatische Modelle mit der jeweiligen Realsituation vergleichen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-053",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Kenntnisse über den inneren Ablauf informatischer Systeme im Alltag nutzen",
+      "sourceRecordId": "INF7-16-GYM-PK-AB-003",
+      "sourceDefinition": "Kenntnisse über den inneren Ablauf informatischer Systeme im Alltag nutzen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können Kenntnisse über den inneren Ablauf informatischer Systeme im Alltag nutzen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-054",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Entscheidungen auf der Grundlage informatischen Sachverstands treffen und diese sachgerecht begründen",
+      "sourceRecordId": "INF7-16-GYM-PK-AB-004",
+      "sourceDefinition": "Entscheidungen auf der Grundlage informatischen Sachverstands treffen und diese sachgerecht begründen",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können Entscheidungen auf der Grundlage informatischen Sachverstands treffen und diese sachgerecht begründen.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-055",
+      "kind": "process-competency",
+      "exactOfficialTerm": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten",
+      "sourceRecordId": "INF7-16-GYM-PK-AB-005",
+      "sourceDefinition": "Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können Auswirkungen von Computersystemen auf Gesellschaft, Berufswelt und persönliches Lebensumfeld aus verschiedenen Perspektiven bewerten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-056",
+      "kind": "process-competency",
+      "exactOfficialTerm": "im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten",
+      "sourceRecordId": "INF7-16-GYM-PK-AB-006",
+      "sourceDefinition": "im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten",
+      "sourceAfb": null,
+      "expectedObservableAction": "Produkt: Analyse, Modellvergleich, begründete Entscheidung oder Urteil. Sichtbares Erfolgskriterium: Die Lernenden können im Zusammenhang mit einer digitalisierten Gesellschaft einen eigenen Standpunkt zu ethischen Fragen in der Informatik einnehmen und ihn argumentativ vertreten.",
+      "likelyComplexityBand": "context-dependent",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Die Prozesskompetenz ist kein einzelner Aufgabenoperator. Ihre Komplexität hängt von Problem, Unterstützung, Selbstständigkeit und gefordertem Produkt ab.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-057",
+      "kind": "operator",
+      "exactOfficialTerm": "analysieren",
+      "sourceRecordId": "INF7-16-GYM-OP-001",
+      "sourceDefinition": "eine konkrete Materialgrundlage unter einer gegebenen Fragestellung auf wichtige Bestandteile, Eigenschaften oder Zusammenhänge untersuchen",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „analysieren“: eine konkrete Materialgrundlage unter einer gegebenen Fragestellung auf wichtige Bestandteile, Eigenschaften oder Zusammenhänge untersuchen.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-058",
+      "kind": "operator",
+      "exactOfficialTerm": "anwenden",
+      "sourceRecordId": "INF7-16-GYM-OP-002",
+      "sourceDefinition": "einen bekannten Zusammenhang oder eine bekannte Methode auf einen (anderen) Sachverhalt beziehen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „anwenden“: einen bekannten Zusammenhang oder eine bekannte Methode auf einen (anderen) Sachverhalt beziehen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-059",
+      "kind": "operator",
+      "exactOfficialTerm": "auswerten",
+      "sourceRecordId": "INF7-16-GYM-OP-003",
+      "sourceDefinition": "Daten, Einzelergebnisse oder sonstige Sachverhalte zu einer abschließenden, begründeten Gesamtaussage zusammenführen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „auswerten“: Daten, Einzelergebnisse oder sonstige Sachverhalte zu einer abschließenden, begründeten Gesamtaussage zusammenführen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-060",
+      "kind": "operator",
+      "exactOfficialTerm": "begründen",
+      "sourceRecordId": "INF7-16-GYM-OP-004",
+      "sourceDefinition": "eine Aussage oder einen Sachverhalt durch Berechnungen, nach gültigen Schlussregeln, durch Herleitungen oder inhaltliche Argumentation verifizieren oder falsifizieren",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „begründen“: eine Aussage oder einen Sachverhalt durch Berechnungen, nach gültigen Schlussregeln, durch Herleitungen oder inhaltliche Argumentation verifizieren oder falsifizieren.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-061",
+      "kind": "operator",
+      "exactOfficialTerm": "benennen",
+      "sourceRecordId": "INF7-16-GYM-OP-005",
+      "sourceDefinition": "Fachbegriffe kriteriengeleitet zuordnen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „benennen“: Fachbegriffe kriteriengeleitet zuordnen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-062",
+      "kind": "operator",
+      "exactOfficialTerm": "berechnen",
+      "sourceRecordId": "INF7-16-GYM-OP-006",
+      "sourceDefinition": "Ergebnisse von einem Ansatz oder einer Formel ausgehend durch Rechenoperationen gewinnen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „berechnen“: Ergebnisse von einem Ansatz oder einer Formel ausgehend durch Rechenoperationen gewinnen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-063",
+      "kind": "operator",
+      "exactOfficialTerm": "beschreiben",
+      "sourceRecordId": "INF7-16-GYM-OP-007",
+      "sourceDefinition": "Strukturen, Sachverhalte, Verfahren, Prozesse und Eigenschaften von Objekten in der Regel unter Verwendung der Fachsprache in vollständigen Sätzen wiedergeben (hier sind auch Einschränkungen möglich: „Beschreiben Sie in Stichworten“) beziehungsweise in einer vorgeschriebenen Form darstellen (zum Beispiel: „Beschreiben Sie als Term“)",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „beschreiben“: Strukturen, Sachverhalte, Verfahren, Prozesse und Eigenschaften von Objekten in der Regel unter Verwendung der Fachsprache in vollständigen Sätzen wiedergeben (hier sind auch Einschränkungen möglich: „Beschreiben Sie in Stichworten“) beziehungsweise in einer vorgeschriebenen Form darstellen (zum Beispiel: „Beschreiben Sie als Term“).",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-064",
+      "kind": "operator",
+      "exactOfficialTerm": "bewerten",
+      "sourceRecordId": "INF7-16-GYM-OP-008",
+      "sourceDefinition": "einen Sachverhalt nach fachwissenschaftlichen oder fachmethodischen Kriterien, persönlichem oder gesellschaftlichem Wertebezug begründet einschätzen und ein selbstständiges Urteil formulieren",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „bewerten“: einen Sachverhalt nach fachwissenschaftlichen oder fachmethodischen Kriterien, persönlichem oder gesellschaftlichem Wertebezug begründet einschätzen und ein selbstständiges Urteil formulieren.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-065",
+      "kind": "operator",
+      "exactOfficialTerm": "darstellen",
+      "sourceRecordId": "INF7-16-GYM-OP-009",
+      "sourceDefinition": "Zusammenhänge, Sachverhalte oder Arbeitsverfahren in strukturierter oder formal definierter Form (zum Beispiel grafisch) wiedergeben",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „darstellen“: Zusammenhänge, Sachverhalte oder Arbeitsverfahren in strukturierter oder formal definierter Form (zum Beispiel grafisch) wiedergeben.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-066",
+      "kind": "operator",
+      "exactOfficialTerm": "durchführen",
+      "sourceRecordId": "INF7-16-GYM-OP-010",
+      "sourceDefinition": "nach bekannten Regeln oder Anweisungen von einer Aufgabenstellung zu einem definierten Ziel gelangen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: nachvollziehbares Handlungsergebnis, Protokoll oder funktionierendes Artefakt. Sichtbares Erfolgskriterium für „durchführen“: nach bekannten Regeln oder Anweisungen von einer Aufgabenstellung zu einem definierten Ziel gelangen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-067",
+      "kind": "operator",
+      "exactOfficialTerm": "entwerfen",
+      "sourceRecordId": "INF7-16-GYM-OP-011",
+      "sourceDefinition": "nach vorgegebenen Bedingungen ein sinnvolles Konzept selbstständig planen/erarbeiten",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: Plan, Medienprodukt, Entwurf oder adressatengerechte Präsentation. Sichtbares Erfolgskriterium für „entwerfen“: nach vorgegebenen Bedingungen ein sinnvolles Konzept selbstständig planen/erarbeiten.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-068",
+      "kind": "operator",
+      "exactOfficialTerm": "erklären",
+      "sourceRecordId": "INF7-16-GYM-OP-012",
+      "sourceDefinition": "Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „erklären“: Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-069",
+      "kind": "operator",
+      "exactOfficialTerm": "erläutern",
+      "sourceRecordId": "INF7-16-GYM-OP-013",
+      "sourceDefinition": "Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen und durch zusätzliche Informationen oder Beispiele verständlich machen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „erläutern“: Sachverhalte, Strukturen, Prozesse und Zusammenhänge erfassen sowie auf Vorkenntnisse oder allgemeine Aussagen und Gesetze unter Verwendung der Fachsprache zurückführen und durch zusätzliche Informationen oder Beispiele verständlich machen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität. Gleichnamige Operatoren anderer Quellen werden wegen abweichender Definition oder AFB-Zuordnung nicht stillschweigend zusammengelegt.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-070",
+      "kind": "operator",
+      "exactOfficialTerm": "implementieren",
+      "sourceRecordId": "INF7-16-GYM-OP-014",
+      "sourceDefinition": "Datenstrukturen oder Algorithmen in einer Programmiersprache umsetzen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: ausführbarer Code, kommentierter Code oder Testprotokoll. Sichtbares Erfolgskriterium für „implementieren“: Datenstrukturen oder Algorithmen in einer Programmiersprache umsetzen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-071",
+      "kind": "operator",
+      "exactOfficialTerm": "interpretieren",
+      "sourceRecordId": "INF7-16-GYM-OP-015",
+      "sourceDefinition": "Sachverhalte und Zusammenhänge im Hinblick auf Erklärungsmöglichkeiten untersuchen und abwägend herausstellen",
+      "sourceAfb": "III",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „interpretieren“: Sachverhalte und Zusammenhänge im Hinblick auf Erklärungsmöglichkeiten untersuchen und abwägend herausstellen.",
+      "likelyComplexityBand": "independent-transfer-design-and-evaluation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-072",
+      "kind": "operator",
+      "exactOfficialTerm": "kommentieren",
+      "sourceRecordId": "INF7-16-GYM-OP-016",
+      "sourceDefinition": "einen gegebenen Sachverhalt oder einen gegebenen Algorithmus mit erläuternden Hinweisen versehen",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: ausführbarer Code, kommentierter Code oder Testprotokoll. Sichtbares Erfolgskriterium für „kommentieren“: einen gegebenen Sachverhalt oder einen gegebenen Algorithmus mit erläuternden Hinweisen versehen.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-073",
+      "kind": "operator",
+      "exactOfficialTerm": "nennen",
+      "sourceRecordId": "INF7-16-GYM-OP-017",
+      "sourceDefinition": "Elemente, Sachverhalte, Begriffe, Daten, Fakten ohne Erläuterung wiedergeben",
+      "sourceAfb": "I",
+      "expectedObservableAction": "Produkt: fachsprachliche Kurzantwort, Erklärung oder strukturierte Darstellung. Sichtbares Erfolgskriterium für „nennen“: Elemente, Sachverhalte, Begriffe, Daten, Fakten ohne Erläuterung wiedergeben.",
+      "likelyComplexityBand": "guided-reproduction-and-operation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-074",
+      "kind": "operator",
+      "exactOfficialTerm": "skizzieren",
+      "sourceRecordId": "INF7-16-GYM-OP-018",
+      "sourceDefinition": "die wesentlichen Eigenschaften eines Objekts grafisch vereinfacht darstellen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „skizzieren“: die wesentlichen Eigenschaften eines Objekts grafisch vereinfacht darstellen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-075",
+      "kind": "operator",
+      "exactOfficialTerm": "testen",
+      "sourceRecordId": "INF7-16-GYM-OP-019",
+      "sourceDefinition": "systematisch ein gegebenes oder selbst erstelltes Programm auf Fehler untersuchen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: ausführbarer Code, kommentierter Code oder Testprotokoll. Sichtbares Erfolgskriterium für „testen“: systematisch ein gegebenes oder selbst erstelltes Programm auf Fehler untersuchen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-076",
+      "kind": "operator",
+      "exactOfficialTerm": "überführen",
+      "sourceRecordId": "INF7-16-GYM-OP-020",
+      "sourceDefinition": "eine Darstellungsform in eine andere Darstellungsform bringen",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: Diagramm, Modell, strukturierte Darstellung oder Darstellungswechsel. Sichtbares Erfolgskriterium für „überführen“: eine Darstellungsform in eine andere Darstellungsform bringen.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-077",
+      "kind": "operator",
+      "exactOfficialTerm": "untersuchen",
+      "sourceRecordId": "INF7-16-GYM-OP-021",
+      "sourceDefinition": "Objekte, Sachverhalte und Fragestellungen nach fachlichen Kriterien zielorientiert erkunden und Zusammenhänge herausarbeiten",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „untersuchen“: Objekte, Sachverhalte und Fragestellungen nach fachlichen Kriterien zielorientiert erkunden und Zusammenhänge herausarbeiten.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    },
+    {
+      "id": "OPMAP-078",
+      "kind": "operator",
+      "exactOfficialTerm": "vergleichen",
+      "sourceRecordId": "INF7-16-GYM-OP-022",
+      "sourceDefinition": "Gemeinsamkeiten, Ähnlichkeiten und Unterschiede herausarbeiten",
+      "sourceAfb": "II",
+      "expectedObservableAction": "Produkt: kriteriengestützte Analyse, Begründung, Vergleich oder Urteil. Sichtbares Erfolgskriterium für „vergleichen“: Gemeinsamkeiten, Ähnlichkeiten und Unterschiede herausarbeiten.",
+      "likelyComplexityBand": "structured-application-and-relation",
+      "applicableGrades": [
+        7
+      ],
+      "notesOnAmbiguity": "Der amtliche AFB gilt für diesen Quellenkontext; Material, Selbstständigkeit, Hilfen und Produkt verändern die tatsächliche Aufgabenkomplexität.",
+      "status": "working"
+    }
+  ]
+}

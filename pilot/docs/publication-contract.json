@@ -1,0 +1,99 @@
+{
+  "allowedRecommendation": "eligible-for-working-availability-review",
+  "contractVersion": "1.0.0",
+  "corePath": {
+    "clusterCount": 4,
+    "clusters": [
+      {
+        "budgetUnits": 8,
+        "fallbackDeltaUnits": 3,
+        "id": "CLUSTER-7-DATA-CODING",
+        "order": 1
+      },
+      {
+        "budgetUnits": 11,
+        "fallbackDeltaUnits": 2,
+        "id": "CLUSTER-7-PROGRAMMING",
+        "order": 2
+      },
+      {
+        "budgetUnits": 11,
+        "fallbackDeltaUnits": 3,
+        "id": "CLUSTER-7-NET-SECURITY",
+        "order": 3
+      },
+      {
+        "budgetUnits": 10,
+        "fallbackDeltaUnits": 6,
+        "id": "CLUSTER-7-DATA-MEDIA-SOCIETY",
+        "order": 4
+      }
+    ],
+    "moduleCount": 10,
+    "pilotStageCount": 5,
+    "targetUnits": 40,
+    "variantId": "GRADE-7-WORKING-40"
+  },
+  "currentAxes": {
+    "availabilityStatus": "conditional",
+    "pilotStatus": "not-started",
+    "semanticCoverageStatus": "partial",
+    "sequenceEvidenceStatus": "covered",
+    "status": "working",
+    "timeFeasibilityStatus": "amber"
+  },
+  "forbiddenMaturityValues": [
+    "reviewed",
+    "standard"
+  ],
+  "futureDecisionBoundary": {
+    "allowedChanges": [
+      {
+        "field": "availabilityStatus",
+        "value": "available"
+      },
+      {
+        "field": "timeFeasibilityStatus",
+        "value": "green"
+      },
+      {
+        "field": "pilotStatus",
+        "value": "completed"
+      }
+    ],
+    "requiresCommissionerDecision": true,
+    "secondIndependentAnnualRunRequiredForMaturity": true,
+    "unchangedAxes": [
+      {
+        "field": "status",
+        "value": "working"
+      },
+      {
+        "field": "semanticCoverageStatus",
+        "value": "partial"
+      }
+    ]
+  },
+  "id": "IUM11-PUBLICATION-CONTRACT",
+  "preservationBoundary": {
+    "flexibleModuleSubstitution": "forbidden",
+    "flexibleModulesOutsideCorePreserved": true
+  },
+  "privacyBoundary": {
+    "minimumLearnerResponses": 10,
+    "personalDataAllowed": false,
+    "realPackagesInRepositoryAllowed": false
+  },
+  "realPilotCompleted": false,
+  "schemaVersion": 1,
+  "sourceBindings": {
+    "protocolPath": "pilot/pilot-protocol.json",
+    "protocolVersion": "1.0.0",
+    "timeModelFingerprint": "873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1",
+    "timeModelFingerprintAlgorithm": "sha256-canonical-json-v1",
+    "timeModelPath": "roadmap/time-model.json",
+    "toolVersion": "1.0.0"
+  },
+  "statementBoundary": "documented-conditions-only",
+  "syntheticValidationOnly": true
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://h4r7w16.github.io/ium-lernwerk/pilot/schemas/decision-package.schema.json",
+  "title": "IUM11 Pilot Decision Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "packageType",
+    "packageId",
+    "protocolVersion",
+    "protocolFingerprint",
+    "toolVersion",
+    "timeModelFingerprint",
+    "sourcePackageIds",
+    "pilotResults",
+    "moduleResults",
+    "integrationResults",
+    "availabilityGateResults",
+    "timeAndFallbackSummary",
+    "technicalPrivacySummary",
+    "developmentWarnings",
+    "statementBoundary",
+    "recommendation",
+    "reviewStatus",
+    "retentionClass"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "packageType": {"const": "pilot-decision"},
+    "packageId": {"type": "string", "pattern": "^PKG-[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"},
+    "protocolVersion": {"const": "1.0.0"},
+    "protocolFingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "toolVersion": {"const": "1.0.0"},
+    "timeModelFingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "sourcePackageIds": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^PKG-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}
+    },
+    "pilotResults": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"$ref": "#/$defs/pilotResult"}},
+    "moduleResults": {"type": "array", "minItems": 10, "maxItems": 10, "items": {"$ref": "#/$defs/moduleResult"}},
+    "integrationResults": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/integrationResult"}},
+    "availabilityGateResults": {"$ref": "#/$defs/availabilityGateResults"},
+    "timeAndFallbackSummary": {"$ref": "#/$defs/timeAndFallbackSummary"},
+    "technicalPrivacySummary": {"$ref": "#/$defs/technicalPrivacySummary"},
+    "developmentWarnings": {"type": "array", "items": {"$ref": "#/$defs/developmentWarning"}},
+    "statementBoundary": {"const": "documented-conditions-only"},
+    "recommendation": {"enum": ["eligible-for-working-availability-review", "repeat-required", "not-evaluable"]},
+    "reviewStatus": {"$ref": "#/$defs/reviewStatus"},
+    "retentionClass": {"const": "until-decision"}
+  },
+  "$defs": {
+    "pilotResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scopeId", "packageId", "result"],
+      "properties": {
+        "scopeId": {"type": "string"},
+        "packageId": {"type": "string", "pattern": "^PKG-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"},
+        "result": {"enum": ["pass", "fail", "not-evaluable"]}
+      }
+    },
+    "moduleResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["moduleId", "pilotAssignmentId", "result"],
+      "properties": {
+        "moduleId": {"type": "string"},
+        "pilotAssignmentId": {"type": "string"},
+        "result": {"enum": ["pass", "fail", "not-evaluable"]}
+      }
+    },
+    "integrationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["integrationContractId", "pilotAssignmentId", "result", "fallbackDeltaUnits"],
+      "properties": {
+        "integrationContractId": {"type": "string"},
+        "pilotAssignmentId": {"type": "string"},
+        "result": {"enum": ["pass", "fail", "not-evaluable"]},
+        "fallbackDeltaUnits": {"type": "integer", "minimum": 0}
+      }
+    },
+    "availabilityGateResults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capacity", "integration", "technical", "privacy", "pilot"],
+      "properties": {
+        "capacity": {"enum": ["passed", "failed"]},
+        "integration": {"enum": ["passed", "failed"]},
+        "technical": {"enum": ["passed", "failed"]},
+        "privacy": {"enum": ["passed", "failed"]},
+        "pilot": {"enum": ["passed", "failed"]}
+      }
+    },
+    "timeAndFallbackSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plannedUnits", "actualUnits", "fallbackUnits", "requiredUnits"],
+      "properties": {
+        "plannedUnits": {"const": 40},
+        "actualUnits": {"type": "integer", "minimum": 0, "maximum": 40},
+        "fallbackUnits": {"type": "integer", "minimum": 0, "maximum": 14},
+        "requiredUnits": {"type": "integer", "minimum": 40, "maximum": 54}
+      }
+    },
+    "technicalPrivacySummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["technical", "privacy"],
+      "properties": {
+        "technical": {"enum": ["pass", "fail"]},
+        "privacy": {"enum": ["pass", "fail"]}
+      }
+    },
+    "developmentWarning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "itemId", "status"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^WARN-.+$"},
+        "itemId": {"type": "string"},
+        "status": {"const": "open"}
+      }
+    },
+    "reviewStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fach", "engineeringPrivacy", "commissioner"],
+      "properties": {
+        "fach": {"enum": ["not-started", "passed", "failed"]},
+        "engineeringPrivacy": {"enum": ["not-started", "passed", "failed"]},
+        "commissioner": {"enum": ["not-started", "passed", "failed"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"engineeringPrivacy": {"enum": ["passed", "failed"]}}},
+          "then": {"properties": {"fach": {"const": "passed"}}}
+        },
+        {
+          "if": {"properties": {"commissioner": {"enum": ["passed", "failed"]}}},
+          "then": {"properties": {"fach": {"const": "passed"}, "engineeringPrivacy": {"const": "passed"}}}
+        }
+      ]
+    }
+  }
+}
