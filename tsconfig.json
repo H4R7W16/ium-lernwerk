@@ -7,6 +7,12 @@
     },
     {
       "path": "./packages/local-state"
+    },
+    {
+      "path": "./packages/export-import"
+    },
+    {
+      "path": "./packages/module-runtime"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
+  },
+  "references": [
+    {
+      "path": "../module-contract"
+    },
+    {
+      "path": "../export-import"
+    }
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}
