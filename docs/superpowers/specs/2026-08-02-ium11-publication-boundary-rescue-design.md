@@ -1,6 +1,6 @@
 # IUM11-Rettungsdesign für die Publikationsgrenze
 
-**Status:** Entwurf zur schriftlichen Freigabe
+**Status:** schriftlich freigegeben am 2026-08-02
 
 **Datum:** 2026-08-02
 
