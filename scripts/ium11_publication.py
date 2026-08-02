@@ -28,6 +28,8 @@ _TIME_MODEL_FINGERPRINT = (
 )
 _VARIANT_ID = "GRADE-7-WORKING-40"
 _AVAILABILITY_CONTRACT_ID = "AVAIL-GRADE-7-WORKING-40"
+_ANNUAL_PILOT_ID = "ANNUAL-7-WORKING-40"
+_ANNUAL_PILOT_ASSIGNMENT_ID = "PILOT-GRADE-7-WORKING-40"
 _CURRENT_AXES = {
     "status": "working",
     "availabilityStatus": "conditional",
@@ -149,9 +151,17 @@ def _referenced_pilot_ids(compiled_protocol):
         "module boundary requires ten unique cluster modules",
     )
     annual_pilot = compiled_protocol.get("annualPilot")
-    _require(isinstance(annual_pilot, dict), "pilot boundary requires annual pilot")
+    _require(isinstance(annual_pilot, dict), "annual pilot boundary requires an object")
+    _require(
+        annual_pilot.get("id") == _ANNUAL_PILOT_ID
+        and annual_pilot.get("variantId") == _VARIANT_ID
+        and annual_pilot.get("clusterIds") == list(_CLUSTER_IDS)
+        and annual_pilot.get("budgetUnits") == 40
+        and annual_pilot.get("pilotAssignmentId") == _ANNUAL_PILOT_ASSIGNMENT_ID,
+        "annual pilot boundary differs from Working-40 contract",
+    )
     annual_pilot_id = annual_pilot.get("pilotAssignmentId")
-    _require(isinstance(annual_pilot_id, str), "pilot boundary requires annual assignment")
+    _require(isinstance(annual_pilot_id, str), "annual pilot boundary requires assignment")
     pilot_ids.append(annual_pilot_id)
     _require(len(pilot_ids) == 15 and len(set(pilot_ids)) == 15, "pilot boundary requires fifteen assignments")
     return pilot_ids, module_ids, cluster_rows
@@ -225,6 +235,21 @@ def compile_publication_contract(compiled_protocol, time_model, ium10_result):
         and len(set(allocation_module_ids)) == 10,
         "module boundary differs from variant allocations",
     )
+    allocation_units_by_module = {
+        allocation["moduleId"]: allocation.get("units")
+        for allocation in allocations
+        if isinstance(allocation, dict)
+    }
+    _require(
+        all(type(units) is int for units in allocation_units_by_module.values()),
+        "module allocation boundary has invalid units",
+    )
+    for cluster in compiled_protocol["clusters"]:
+        _require(
+            cluster["budgetUnits"]
+            == sum(allocation_units_by_module[module_id] for module_id in cluster["moduleIds"]),
+            "cluster budget boundary differs from raw allocations",
+        )
     _require(
         sum(allocation.get("units", 0) for allocation in allocations) == 40,
         "module allocation boundary differs from target units",
@@ -259,6 +284,14 @@ def compile_publication_contract(compiled_protocol, time_model, ium10_result):
         ),
         "privacy boundary requires prohibited personal data",
     )
+    annual_assignment = pilot_assignments.get(_ANNUAL_PILOT_ASSIGNMENT_ID)
+    _require(
+        isinstance(annual_assignment, dict)
+        and annual_assignment.get("scopeType") == "annual-variant"
+        and annual_assignment.get("scopeIds") == [_VARIANT_ID]
+        and annual_assignment.get("contractIds") == [_AVAILABILITY_CONTRACT_ID],
+        "annual pilot assignment boundary differs from Working-40 contract",
+    )
     _require(
         compiled_protocol.get("minimumLearnerResponses") == 10,
         "privacy boundary requires ten learner responses",
@@ -289,6 +322,11 @@ def compile_publication_contract(compiled_protocol, time_model, ium10_result):
         if axis in ("status", "availabilityStatus"):
             _require(raw_variant.get(axis) == expected, f"{axis} boundary differs from raw variant")
             _require(indexed_variant.get(axis) == expected, f"{axis} boundary differs from IUM10 variant")
+            if axis == "availabilityStatus":
+                _require(
+                    judgement.get(axis) == expected,
+                    f"{axis} boundary differs from Grade 7 judgement",
+                )
         elif axis == "status":
             _require(compiled_protocol.get(axis) == expected, "status boundary differs from protocol")
         else:

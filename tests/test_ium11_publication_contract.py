@@ -219,3 +219,46 @@ class IUM11PublicationCompilerTests(unittest.TestCase):
         protocol["clusters"][0]["id"] = "CLUSTER-7-UNBOUND"
         with self.assertRaisesRegex(IUM11PublicationError, "cluster"):
             self.compile(protocol=protocol)
+
+    def test_rejects_compensating_cluster_budget_drift(self):
+        protocol = copy.deepcopy(self.protocol)
+        protocol["clusters"][0]["budgetUnits"] = 7
+        protocol["clusters"][1]["budgetUnits"] = 12
+
+        with self.assertRaisesRegex(IUM11PublicationError, "budget"):
+            self.compile(protocol=protocol)
+
+    def test_rejects_annual_pilot_variant_drift(self):
+        protocol = copy.deepcopy(self.protocol)
+        protocol["annualPilot"]["variantId"] = "GRADE-7-ROBUST-DEMAND"
+
+        with self.assertRaisesRegex(IUM11PublicationError, "annual pilot"):
+            self.compile(protocol=protocol)
+
+    def test_rejects_annual_pilot_identity_and_assignment_drift(self):
+        protocol = copy.deepcopy(self.protocol)
+        protocol["annualPilot"]["id"] = "ANNUAL-7-UNBOUND"
+        with self.assertRaisesRegex(IUM11PublicationError, "annual pilot"):
+            self.compile(protocol=protocol)
+
+        protocol = copy.deepcopy(self.protocol)
+        protocol["annualPilot"]["pilotAssignmentId"] = "PILOT-INT-7-DATA-CODING"
+        with self.assertRaisesRegex(IUM11PublicationError, "annual pilot"):
+            self.compile(protocol=protocol)
+
+    def test_rejects_annual_pilot_cluster_order_drift(self):
+        protocol = copy.deepcopy(self.protocol)
+        protocol["annualPilot"]["clusterIds"][0], protocol["annualPilot"]["clusterIds"][1] = (
+            protocol["annualPilot"]["clusterIds"][1],
+            protocol["annualPilot"]["clusterIds"][0],
+        )
+
+        with self.assertRaisesRegex(IUM11PublicationError, "annual pilot"):
+            self.compile(protocol=protocol)
+
+    def test_rejects_grade_7_judgement_availability_drift(self):
+        ium10_result = copy.deepcopy(self.ium10_result)
+        ium10_result["gradeJudgements"][7]["availabilityStatus"] = "available"
+
+        with self.assertRaisesRegex(IUM11PublicationError, "availabilityStatus"):
+            self.compile(ium10_result=ium10_result)
