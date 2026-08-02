@@ -42,48 +42,13 @@
 
 - Modify: `README.md`
 - Modify: `pilot/docs/review-guide.md`
-- Modify: `tests/test_validate_ium11.py:1061-1131`
 
 **Interfaces:**
 
 - Consumes: vorhandene Überschrift `## IUM11-Pilotinstrument`, vorhandener Faktenblock und `## Zentrale Einstiege`.
 - Produces: exakter README-Anker `<!-- IUM11-PUBLICATION-SCOPE:END -->` sowie überprüfbare Reviewtexte für die spätere Layoutvalidierung.
 
-- [ ] **Step 1: Failing Tests für den README-Endanker und die Rendering-Checkliste schreiben**
-
-Direkt bei den bestehenden Dokumenttests in `tests/test_validate_ium11.py` ergänzen:
-
-```python
-def test_readme_has_exact_ium11_scope_end_anchor(self):
-    text = (self.root / "README.md").read_text(encoding="utf-8")
-    marker = "<!-- IUM11-PUBLICATION-SCOPE:END -->"
-    self.assertEqual(text.count(marker), 1)
-    self.assertIn(f"{marker}\n\n## Zentrale Einstiege", text)
-
-def test_review_guide_defines_manual_publication_rendering_gate(self):
-    text = (self.root / "pilot/docs/review-guide.md").read_text(encoding="utf-8")
-    for phrase in (
-        "GitHub-kompatiblen Renderer",
-        "vollständige Faktentabelle sichtbar",
-        "weder als Code noch als Kommentar",
-        "widerspricht dem Faktenblock nicht",
-        "Flexible Vertiefungs-, Transfer- und Projektmodule",
-    ):
-        with self.subTest(phrase=phrase):
-            self.assertIn(phrase, text)
-```
-
-- [ ] **Step 2: Red-Zustand belegen**
-
-Run:
-
-```powershell
-python -B -m unittest tests.test_validate_ium11.IUM11PublicationTests.test_readme_has_exact_ium11_scope_end_anchor tests.test_validate_ium11.IUM11PublicationTests.test_review_guide_defines_manual_publication_rendering_gate
-```
-
-Expected: FAIL, weil Endanker und Checklistenformulierungen noch fehlen. Falls der tatsächliche Klassenname abweicht, mit `rg -n "class .*Tests" tests/test_validate_ium11.py` bestimmen und nur den Modulpfad korrigieren.
-
-- [ ] **Step 3: README-Endanker setzen**
+- [ ] **Step 1: README-Endanker setzen**
 
 In `README.md` unmittelbar vor `## Zentrale Einstiege` exakt einfügen:
 
@@ -95,7 +60,7 @@ In `README.md` unmittelbar vor `## Zentrale Einstiege` exakt einfügen:
 
 Der letzte handgepflegte IUM11-Absatz bleibt vor dem Marker unverändert.
 
-- [ ] **Step 4: Redaktionelle Rendering-Checkliste ergänzen**
+- [ ] **Step 2: Redaktionelle Rendering-Checkliste ergänzen**
 
 In `pilot/docs/review-guide.md` vor `## Retention und Veröffentlichung nach der Entscheidung` ergänzen:
 
@@ -113,25 +78,28 @@ Prüfen Sie README, Lehrkräfteanleitung und Reviewanleitung vor der Task-8-Abna
 Dokumentieren Sie das Ergebnis im Task-8-Review. Diese Prüfung ist ein redaktionelles Gate und keine automatische Markdown- oder HTML-Interpretation.
 ```
 
-- [ ] **Step 5: Dokumenttests und bestehende Publikationsprüfung ausführen**
+- [ ] **Step 3: Redaktionelle Struktur direkt prüfen**
+
+README und Reviewanleitung vollständig lesen und prüfen, dass der Marker exakt zwischen IUM11-Prosa und `## Zentrale Einstiege` steht und die Checkliste alle fünf Punkte der freigegebenen Spezifikation abbildet. Dafür keinen Test auf konkrete Prosaformulierungen hinzufügen: Die Anleitung ist für Menschen bestimmt und ein Textänderungsdetektor würde kein Produktionsverhalten prüfen.
+
+- [ ] **Step 4: Bestehende Publikationsprüfung ausführen**
 
 Run:
 
 ```powershell
-python -B -m unittest tests.test_validate_ium11.IUM11PublicationTests.test_readme_has_exact_ium11_scope_end_anchor tests.test_validate_ium11.IUM11PublicationTests.test_review_guide_defines_manual_publication_rendering_gate
 python -B scripts/build_ium11_publication_contract.py --check
 python -B scripts/validate_ium11.py
 ```
 
 Expected: alle Befehle PASS; der vorhandene Build bewahrt den neuen Marker, da er nur den Faktenblock ersetzt.
 
-- [ ] **Step 6: Task 1 committen**
+- [ ] **Step 5: Task 1 committen**
 
 ```powershell
 git fetch --prune
 git pull --ff-only
 git diff --check
-git add -- README.md pilot/docs/review-guide.md tests/test_validate_ium11.py
+git add -- README.md pilot/docs/review-guide.md
 git diff --cached --check
 git commit -m "docs: add ium11 publication review gate"
 ```
