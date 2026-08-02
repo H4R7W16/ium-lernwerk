@@ -1164,6 +1164,12 @@ class IUM11PublicationTests(unittest.TestCase):
             "ａｖａｉｌａｂｉｌｉｔｙＳｔａｔｕｓ： ａｖａｉｌａｂｌｅ",
             "Working‑40‑Pfad ist available.",
             "Privacy‐Schwelle: 9.",
+            "Der Pfad ist available und nicht reviewed.",
+            "Der Pfad ist reviewed, nicht standard.",
+            "Protokollversion 9.9.9, nicht Werkzeugversion 9.9.9.",
+            "Das Instrument ist available.",
+            "Der IUM11-Pilot ist abgeschlossen.",
+            "Protokollversion: 9.9.9.",
         )
         for relative_path in (
             "README.md",
@@ -1205,6 +1211,9 @@ class IUM11PublicationTests(unittest.TestCase):
             "Available ist der Pfad nicht.",
             "Abgeschlossen ist die Pilotierung nicht.",
             "Es ist falsch, dass der Umfang 41 UE beträgt.",
+            "Die Pilotierung ist nicht abgeschlossen. Das Fachreview ist abgeschlossen.",
+            "Die Pilotierung ist nicht abgeschlossen; das Fachreview ist abgeschlossen.",
+            "Der Pfad ist weder available noch reviewed.",
         )
         for relative_path in (
             "README.md",

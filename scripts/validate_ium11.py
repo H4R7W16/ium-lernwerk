@@ -1285,18 +1285,66 @@ def _validate_publication_declarations(
         )
         return re.sub(r"\s+", " ", line).strip().casefold()
 
-    def clauses(line: str) -> list[str]:
+    relevant_claim_pattern = re.compile(
+        r"\b(?:available|reviewed|standard|abgeschlossen|"
+        r"eligible-for-[a-z0-9-]+|protokoll(?:-?version)?|"
+        r"werkzeug(?:-?version)?|cluster|(?:kern)?module|"
+        r"(?:pilot)?stufen|privacy-schwelle)\b|"
+        r"\b[0-9]+\s+ue\b|"
+        r"\b[a-z][a-z0-9]*status\s*:"
+    )
+    dependent_claim_start_pattern = re.compile(
+        r"^(?:dass|weil|obwohl|wobei|wenn|falls|waehrend)\b"
+    )
+
+    def clauses(line: str) -> list[tuple[str, str | None]]:
         decimal_marker = "\uf000"
         protected = re.sub(r"(?<=\d)\.(?=\d)", decimal_marker, line)
-        parts = re.split(
-            r"\s+sondern\s+|;|[!?]+|(?<!\d)\.(?:\s+|$)",
-            protected,
+
+        def split_coordinated(
+            fragment: str,
+            separator_before: str | None,
+        ) -> list[tuple[str, str | None]]:
+            for match in re.finditer(
+                r"(?P<comma>,\s*)|(?P<and>\s+und\s+)",
+                fragment,
+            ):
+                left = fragment[:match.start()].strip(" ,")
+                right = fragment[match.end():].strip(" ,")
+                if (
+                    left
+                    and right
+                    and relevant_claim_pattern.search(left)
+                    and relevant_claim_pattern.search(right)
+                    and not dependent_claim_start_pattern.search(right)
+                ):
+                    separator = "comma" if match.lastgroup == "comma" else "and"
+                    return [
+                        (left.replace(decimal_marker, "."), separator_before),
+                        *split_coordinated(right, separator),
+                    ]
+            cleaned = fragment.replace(decimal_marker, ".").strip(" ,")
+            return [(cleaned, separator_before)] if cleaned else []
+
+        parts: list[tuple[str, str | None]] = []
+        separator_before: str | None = None
+        cursor = 0
+        separator_pattern = re.compile(
+            r"(?P<sondern>\s+sondern\s+)|"
+            r"(?P<semicolon>;)|"
+            r"(?P<sentence>[!?]+|\.(?:\s+|$))"
         )
-        return [
-            part.replace(decimal_marker, ".").strip(" ,")
-            for part in parts
-            if part.strip(" ,")
-        ]
+        for match in separator_pattern.finditer(protected):
+            parts.extend(
+                split_coordinated(
+                    protected[cursor:match.start()],
+                    separator_before,
+                )
+            )
+            separator_before = match.lastgroup
+            cursor = match.end()
+        parts.extend(split_coordinated(protected[cursor:], separator_before))
+        return parts
 
     def claim_is_negated(clause: str, match: re.Match) -> bool:
         prefix = clause[:match.start()]
@@ -1333,6 +1381,11 @@ def _validate_publication_declarations(
                     True,
                 ),
                 (
+                    r"\bprotokollversion\s*:\s*`?"
+                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    False,
+                ),
+                (
                     r"\bprotokoll-version\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
                     False,
                 ),
@@ -1350,6 +1403,11 @@ def _validate_publication_declarations(
                 (
                     r"\bwerkzeugversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
                     True,
+                ),
+                (
+                    r"\bwerkzeugversion\s*:\s*`?"
+                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
+                    False,
                 ),
                 (
                     r"\bwerkzeug-version\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
@@ -1405,10 +1463,11 @@ def _validate_publication_declarations(
     maturity_status_pattern = re.compile(r"\b(?:available|reviewed|standard)\b")
     maturity_subject_pattern = re.compile(
         r"\b(?:working-40-pfad|grade-7-working-40|ium11|"
-        r"klasse-7-(?:pfad|variante)|(?:der|den|dem)\s+pfad)\b"
+        r"klasse-7-(?:pfad|variante)|instrument|"
+        r"(?:der|den|dem)\s+pfad)\b"
     )
     completed_pilot_subject_pattern = re.compile(
-        r"\bpilotierung\b|\breal\w*\s+pilot\b"
+        r"\bpilotierung\b|\bium11-pilot\b|\breal\w*\s+pilot\b"
     )
     canonical_status_pairs = {
         (key.casefold(), value.casefold()): (key, value)
@@ -1420,12 +1479,6 @@ def _validate_publication_declarations(
         if not raw_line.strip():
             continue
         normalized_line = normalize(raw_line)
-        line_has_maturity_subject = bool(
-            maturity_subject_pattern.search(normalized_line)
-        )
-        line_has_completed_pilot_subject = bool(
-            completed_pilot_subject_pattern.search(normalized_line)
-        )
         raw_status_counts = {
             pair: raw_line.count(f"{pair[0]}: {pair[1]}")
             for pair in declaration_contract["statusPairs"]
@@ -1434,7 +1487,21 @@ def _validate_publication_declarations(
             pair: 0 for pair in declaration_contract["statusPairs"]
         }
 
-        for clause in clauses(normalized_line):
+        previous_has_maturity_subject = False
+        previous_has_completed_pilot_subject = False
+        for clause, separator_before in clauses(normalized_line):
+            has_maturity_subject = bool(
+                maturity_subject_pattern.search(clause)
+            ) or (
+                separator_before == "sondern"
+                and previous_has_maturity_subject
+            )
+            has_completed_pilot_subject = bool(
+                completed_pilot_subject_pattern.search(clause)
+            ) or (
+                separator_before == "sondern"
+                and previous_has_completed_pilot_subject
+            )
             for label, expected_version, patterns in version_contracts:
                 for pattern, canonical_form in patterns:
                     for match in re.finditer(pattern, clause):
@@ -1487,7 +1554,7 @@ def _validate_publication_declarations(
                         f"{relative_path}",
                     )
 
-            if line_has_maturity_subject:
+            if has_maturity_subject:
                 for match in maturity_status_pattern.finditer(clause):
                     _require(
                         claim_is_negated(clause, match),
@@ -1495,13 +1562,18 @@ def _validate_publication_declarations(
                         f"{relative_path}",
                     )
 
-            if line_has_completed_pilot_subject:
+            if has_completed_pilot_subject:
                 for match in re.finditer(r"\babgeschlossen\b", clause):
                     _require(
                         claim_is_negated(clause, match),
                         "publication exceeds the pilot statement boundary: "
                         f"{relative_path}",
                     )
+
+            previous_has_maturity_subject = has_maturity_subject
+            previous_has_completed_pilot_subject = (
+                has_completed_pilot_subject
+            )
 
     _require(
         seen_status_pairs == declaration_contract["statusPairs"],
