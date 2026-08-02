@@ -6,17 +6,34 @@ import os
 import re
 import sys
 import tempfile
-import unicodedata
 import uuid
 from pathlib import Path
 
 if __package__:
+    from .ium11_publication import (
+        IUM11PublicationError,
+        PUBLICATION_PATHS,
+        compile_publication_contract,
+        extract_publication_block,
+        render_publication_contract_json,
+        render_publication_markdown_block,
+        validate_publication_text_boundary,
+    )
     from .validate_ium10 import (
         IUM10ValidationError,
         PHASE_IDS,
         validate_ium10_repository,
     )
 else:
+    from ium11_publication import (
+        IUM11PublicationError,
+        PUBLICATION_PATHS,
+        compile_publication_contract,
+        extract_publication_block,
+        render_publication_contract_json,
+        render_publication_markdown_block,
+        validate_publication_text_boundary,
+    )
     from validate_ium10 import IUM10ValidationError, PHASE_IDS, validate_ium10_repository
 
 
@@ -135,6 +152,7 @@ SYNTHETIC_DECISION_NAME = "synthetic-decision-eligible.json"
 PUBLICATION_PRODUCT_PATHS = (
     "README.md",
     "pilot/pilot-protocol.json",
+    "pilot/docs/publication-contract.json",
     "pilot/schemas/evidence-package.schema.json",
     "pilot/schemas/decision-package.schema.json",
     "pilot/cockpit/index.html",
@@ -144,41 +162,16 @@ PUBLICATION_PRODUCT_PATHS = (
     "pilot/docs/teacher-guide.md",
     "pilot/docs/review-guide.md",
     *tuple(f"pilot/examples/{name}" for name in sorted(SYNTHETIC_EXAMPLE_NAMES)),
+    "scripts/ium11_publication.py",
+    "scripts/build_ium11_publication_contract.py",
     "scripts/validate_ium11.py",
     "scripts/build_ium11_cockpit.py",
     "scripts/validate_phase0.py",
     "tests/test_validate_ium11.py",
+    "tests/test_ium11_publication_contract.py",
     "tests/test_ium11_cockpit_contract.py",
     "tests/test_validate_phase0.py",
 )
-PUBLICATION_TEXT_PATHS = (
-    "README.md",
-    "pilot/docs/teacher-guide.md",
-    "pilot/docs/review-guide.md",
-)
-PUBLICATION_DECLARATION_CONTRACTS = {
-    "README.md": {
-        "unitCounts": {38, 40},
-        "statusPairs": {
-            ("status", "working"),
-            ("semanticCoverageStatus", "partial"),
-        },
-    },
-    "pilot/docs/teacher-guide.md": {
-        "unitCounts": {8, 10, 11, 40},
-        "statusPairs": set(),
-    },
-    "pilot/docs/review-guide.md": {
-        "unitCounts": {40},
-        "statusPairs": {
-            ("availabilityStatus", "available"),
-            ("timeFeasibilityStatus", "green"),
-            ("pilotStatus", "completed"),
-            ("status", "working"),
-            ("semanticCoverageStatus", "partial"),
-        },
-    },
-}
 
 
 class IUM11ValidationError(ValueError):
@@ -1269,396 +1262,12 @@ def _validate_in_memory_examples(
     }
 
 
-def _validate_publication_declarations(
-    relative_path: str,
-    text: str,
-    protocol: dict,
-) -> None:
-    declaration_contract = PUBLICATION_DECLARATION_CONTRACTS[relative_path]
-    allowed_recommendation = protocol["allowedRecommendation"].casefold()
-
-    def normalize(line: str) -> str:
-        line = unicodedata.normalize("NFKC", line)
-        line = "".join(
-            "-" if unicodedata.category(character) == "Pd" else character
-            for character in line
-        )
-        return re.sub(r"\s+", " ", line).strip().casefold()
-
-    relevant_claim_pattern = re.compile(
-        r"\b(?:available|reviewed|standard|abgeschlossen|"
-        r"eligible-for-[a-z0-9-]+|protokoll(?:-?version)?|"
-        r"werkzeug(?:-?version)?|cluster|(?:kern)?module|"
-        r"(?:pilot)?stufen|privacy-schwelle|working-40-pfad|"
-        r"grade-7-working-40|ium11|klasse-7-(?:pfad|variante)|"
-        r"instrument|pfad|pilotierung|real\w*\s+pilot)\b|"
-        r"\b[0-9]+\s+ue\b|"
-        r"\b(?:status|[a-z][a-z0-9]*status)\s*:"
-    )
-    dependent_claim_starts = {
-        "dass", "falls", "obwohl", "waehrend", "weil", "wenn", "wobei",
-        "während",
-    }
-
-    def claim_fragments(line: str) -> list[tuple[str, str | None]]:
-        decimal_marker = "\uf000"
-        protected = re.sub(r"(?<=\d)\.(?=\d)", decimal_marker, line)
-        separator_pattern = re.compile(
-            r"(?P<sondern>,\s*sondern\s+|\s+sondern\s+)|"
-            r"(?P<semicolon>;)|"
-            r"(?P<sentence>[!?]+|\.(?:\s+|$))|"
-            r"(?P<and>\s+und\s+)|"
-            r"(?P<or>\s+oder\s+)|"
-            r"(?P<comma>,\s*)"
-        )
-        raw_parts: list[tuple[str, str | None, str]] = []
-        separator_before: str | None = None
-        joiner_before = ""
-        cursor = 0
-        for match in separator_pattern.finditer(protected):
-            raw_parts.append(
-                (
-                    protected[cursor:match.start()],
-                    separator_before,
-                    joiner_before,
-                )
-            )
-            separator_before = match.lastgroup
-            joiner_before = match.group(0)
-            cursor = match.end()
-        raw_parts.append((protected[cursor:], separator_before, joiner_before))
-
-        parsed_parts: list[list[str | None]] = []
-        coordinated_separators = {"and", "or", "comma", "sondern"}
-        for raw_part, separator, joiner in raw_parts:
-            part = raw_part.strip(" ,")
-            if not part:
-                continue
-            first_word = (
-                part.lstrip("`*_([").partition(" ")[0].strip("`*_()[]")
-            )
-            is_independent_claim = first_word not in dependent_claim_starts
-            if separator in coordinated_separators and parsed_parts:
-                previous_part = str(parsed_parts[-1][0])
-                separates_claims = (
-                    relevant_claim_pattern.search(previous_part) is not None
-                    and relevant_claim_pattern.search(part) is not None
-                    and is_independent_claim
-                )
-                if not separates_claims:
-                    parsed_parts[-1][0] = previous_part + joiner + part
-                    continue
-            parsed_parts.append([part, separator])
-
-        return [
-            (str(part).replace(decimal_marker, "."), separator)
-            for part, separator in parsed_parts
-        ]
-
-    double_negation_pattern = re.compile(
-        r"\bnicht\s+(?:ausdrücklich\s+)?"
-        r"(?:falsch|unzulässig|gesperrt|verboten)\b"
-    )
-
-    def has_explicit_negative_polarity(clause: str) -> bool:
-        without_double_negation = double_negation_pattern.sub("", clause)
-        return (
-            re.search(r"\bfalsch\s*,?\s+dass\b", without_double_negation)
-            is not None
-            or re.search(
-                r"\b(?:nicht|weder|kein(?:e|en|em|er|es)?)\b",
-                without_double_negation,
-            )
-            is not None
-            or re.search(
-                r"\b(?:falsch|unzulässig|gesperrt|verboten)\b|"
-                r"\bkein(?:e|en|em|er|es)?\s+zulässige\b",
-                without_double_negation,
-            )
-            is not None
-        )
-
-    def claim_is_negated(
-        clause: str,
-        match: re.Match,
-        inherited_negation: bool = False,
-    ) -> bool:
-        prefix = clause[:match.start()]
-        suffix = clause[match.end():]
-        prefix = double_negation_pattern.sub("", prefix)
-        suffix = double_negation_pattern.sub("", suffix)
-        false_that = re.search(r"\bfalsch\s*,?\s+dass\b", prefix)
-        direct_negation = re.search(
-            r"\b(?:nicht|weder|kein(?:e|en|em|er|es)?)\b",
-            f"{prefix} {suffix}",
-        )
-        explicit_rejection = re.search(
-            r"\b(?:falsch|unzulässig|gesperrt|verboten)\b|"
-            r"\bkein(?:e|en|em|er|es)?\s+zulässige\b",
-            suffix,
-        )
-        return (
-            inherited_negation
-            or false_that is not None
-            or direct_negation is not None
-            or explicit_rejection is not None
-        )
-
-    version_contracts = (
-        (
-            "protocol version",
-            protocol["protocolVersion"],
-            (
-                (
-                    r"\bprotokollversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    True,
-                ),
-                (
-                    r"\bprotokollversion\s*:\s*`?"
-                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    False,
-                ),
-                (
-                    r"\bprotokoll-version\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    False,
-                ),
-                (
-                    r"\bversion\s+des\s+protokolls\s*:\s*`?"
-                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    False,
-                ),
-            ),
-        ),
-        (
-            "tool version",
-            protocol["toolVersion"],
-            (
-                (
-                    r"\bwerkzeugversion\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    True,
-                ),
-                (
-                    r"\bwerkzeugversion\s*:\s*`?"
-                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    False,
-                ),
-                (
-                    r"\bwerkzeug-version\s+`?([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    False,
-                ),
-                (
-                    r"\bversion\s+des\s+werkzeugs\s*:\s*`?"
-                    r"([0-9]+\.[0-9]+\.[0-9]+)`?",
-                    False,
-                ),
-            ),
-        ),
-    )
-    number_contracts = (
-        (
-            "unit count",
-            declaration_contract["unitCounts"],
-            (r"\b([0-9]+)\s+ue\b",),
-        ),
-        (
-            "cluster count",
-            {4},
-            (
-                r"\b([0-9]+)\s+cluster(?:n)?\b",
-                r"\bcluster\s*:\s*([0-9]+)\b",
-            ),
-        ),
-        (
-            "module count",
-            {10},
-            (
-                r"\b([0-9]+)\s+(?:kern)?module(?:n)?\b",
-                r"\bmodule\s*:\s*([0-9]+)\b",
-            ),
-        ),
-        (
-            "pilot stage count",
-            {5},
-            (
-                r"\b([0-9]+)\s+(?:pilot)?stufen\b",
-                r"\bstufen\s*:\s*([0-9]+)\b",
-            ),
-        ),
-        (
-            "privacy threshold",
-            {10},
-            (r"\bprivacy-schwelle\s*:?\s*([0-9]+)\b",),
-        ),
-    )
-    technical_status_pattern = re.compile(
-        r"\b(status|[a-z][a-z0-9]*status)\s*:\s*([a-z][a-z0-9-]*)"
-    )
-    maturity_status_pattern = re.compile(r"\b(?:available|reviewed|standard)\b")
-    maturity_subject_pattern = re.compile(
-        r"\b(?:working-40-pfad|grade-7-working-40|ium11|"
-        r"klasse-7-(?:pfad|variante)|instrument|"
-        r"(?:der|den|dem)\s+pfad)\b"
-    )
-    completed_pilot_subject_pattern = re.compile(
-        r"\bpilotierung\b|\bium11-pilot\b|\breal\w*\s+pilot\b"
-    )
-    canonical_status_pairs = {
-        (key.casefold(), value.casefold()): (key, value)
-        for key, value in declaration_contract["statusPairs"]
-    }
-
-    seen_status_pairs: set[tuple[str, str]] = set()
-    for raw_line in text.splitlines():
-        if not raw_line.strip():
-            continue
-        normalized_line = normalize(raw_line)
-        raw_status_counts = {
-            pair: raw_line.count(f"{pair[0]}: {pair[1]}")
-            for pair in declaration_contract["statusPairs"]
-        }
-        used_raw_status_counts = {
-            pair: 0 for pair in declaration_contract["statusPairs"]
-        }
-
-        maturity_subject_context = False
-        completed_pilot_subject_context = False
-        previous_separator: str | None = None
-        previous_explicit_negation = False
-        common_or_negation = False
-        for clause, separator_before in claim_fragments(normalized_line):
-            if separator_before in {None, "semicolon", "sentence"}:
-                maturity_subject_context = False
-                completed_pilot_subject_context = False
-
-            direct_maturity_subject = bool(
-                maturity_subject_pattern.search(clause)
-            )
-            direct_completed_pilot_subject = bool(
-                completed_pilot_subject_pattern.search(clause)
-            )
-            has_maturity_subject = (
-                direct_maturity_subject or maturity_subject_context
-            )
-            has_completed_pilot_subject = (
-                direct_completed_pilot_subject
-                or completed_pilot_subject_context
-            )
-            maturity_subject_context = has_maturity_subject
-            completed_pilot_subject_context = has_completed_pilot_subject
-
-            explicit_negation = has_explicit_negative_polarity(clause)
-            if separator_before == "or":
-                if previous_separator != "or":
-                    common_or_negation = previous_explicit_negation
-                inherited_negation = (
-                    common_or_negation and not explicit_negation
-                )
-            else:
-                common_or_negation = False
-                inherited_negation = False
-
-            for label, expected_version, patterns in version_contracts:
-                for pattern, canonical_form in patterns:
-                    for match in re.finditer(pattern, clause):
-                        version = match.group(1)
-                        if version != expected_version or not canonical_form:
-                            _require(
-                                claim_is_negated(
-                                    clause,
-                                    match,
-                                    inherited_negation,
-                                ),
-                                "publication "
-                                f"{label} declaration differs from contract: "
-                                f"{relative_path}",
-                            )
-
-            for label, allowed_values, patterns in number_contracts:
-                for pattern in patterns:
-                    for match in re.finditer(pattern, clause):
-                        value = int(match.group(1))
-                        if value not in allowed_values:
-                            _require(
-                                claim_is_negated(
-                                    clause,
-                                    match,
-                                    inherited_negation,
-                                ),
-                                "publication "
-                                f"{label} declaration differs from contract: "
-                                f"{relative_path}",
-                            )
-
-            for match in re.finditer(
-                r"\b(eligible-for-[a-z0-9-]+)\b",
-                clause,
-            ):
-                if match.group(1) != allowed_recommendation:
-                    _require(
-                        claim_is_negated(
-                            clause,
-                            match,
-                            inherited_negation,
-                        ),
-                        "publication recommendation differs from contract: "
-                        f"{relative_path}",
-                    )
-
-            for match in technical_status_pattern.finditer(clause):
-                normalized_pair = (match.group(1), match.group(2))
-                canonical_pair = canonical_status_pairs.get(normalized_pair)
-                if (
-                    canonical_pair is not None
-                    and used_raw_status_counts[canonical_pair]
-                    < raw_status_counts[canonical_pair]
-                ):
-                    used_raw_status_counts[canonical_pair] += 1
-                    seen_status_pairs.add(canonical_pair)
-                else:
-                    _require(
-                        claim_is_negated(
-                            clause,
-                            match,
-                            inherited_negation,
-                        ),
-                        "publication status declaration differs from contract: "
-                        f"{relative_path}",
-                    )
-
-            if has_maturity_subject:
-                for match in maturity_status_pattern.finditer(clause):
-                    _require(
-                        claim_is_negated(
-                            clause,
-                            match,
-                            inherited_negation,
-                        ),
-                        "publication exceeds the pilot statement boundary: "
-                        f"{relative_path}",
-                    )
-
-            if has_completed_pilot_subject:
-                for match in re.finditer(r"\babgeschlossen\b", clause):
-                    _require(
-                        claim_is_negated(
-                            clause,
-                            match,
-                            inherited_negation,
-                        ),
-                        "publication exceeds the pilot statement boundary: "
-                        f"{relative_path}",
-                    )
-
-            previous_separator = separator_before
-            previous_explicit_negation = explicit_negation
-
-    _require(
-        seen_status_pairs == declaration_contract["statusPairs"],
-        f"publication canonical status declarations differ from contract: {relative_path}",
-    )
-
-
-def _validate_publication_contract(root: Path, protocol: dict) -> dict[str, int]:
+def _validate_publication_contract(
+    root: Path,
+    compiled_protocol: dict,
+    time_model: dict,
+    ium10_result: dict,
+) -> dict[str, int]:
     root = Path(root)
     missing = [
         relative_path
@@ -1668,6 +1277,7 @@ def _validate_publication_contract(root: Path, protocol: dict) -> dict[str, int]
     _require(not missing, f"IUM11 product files are missing: {missing}")
 
     allowed_json_paths = {
+        "pilot/docs/publication-contract.json",
         "pilot/pilot-protocol.json",
         "pilot/schemas/evidence-package.schema.json",
         "pilot/schemas/decision-package.schema.json",
@@ -1693,49 +1303,39 @@ def _validate_publication_contract(root: Path, protocol: dict) -> dict[str, int]
         "pilot examples must be exclusively and explicitly synthetic",
     )
 
-    protocol_version = protocol["protocolVersion"]
-    tool_version = protocol["toolVersion"]
-    allowed_recommendation = protocol["allowedRecommendation"]
-    publications = {
-        relative_path: (root / relative_path).read_text(encoding="utf-8")
-        for relative_path in PUBLICATION_TEXT_PATHS
-    }
-    for relative_path, text in publications.items():
-        _require(
-            f"Protokollversion `{protocol_version}`" in text,
-            f"publication protocol version drift: {relative_path}",
+    try:
+        expected_contract = compile_publication_contract(
+            compiled_protocol,
+            time_model,
+            ium10_result,
         )
+        expected_json = render_publication_contract_json(expected_contract)
+        expected_block = render_publication_markdown_block(expected_contract)
         _require(
-            f"Werkzeugversion `{tool_version}`" in text,
-            f"publication tool version drift: {relative_path}",
+            (root / "pilot/docs/publication-contract.json").read_bytes()
+            == expected_json,
+            "publication contract JSON differs from compiled contract",
         )
-        _require("40 UE" in text, f"publication 40 UE drift: {relative_path}")
-        _require(
-            re.search(r"\b4 Cluster(?:n)?\b", text) is not None,
-            f"publication cluster count drift: {relative_path}",
-        )
-        _require(
-            re.search(r"\b10 (?:Kern)?[Mm]odule(?:n)?\b", text) is not None,
-            f"publication module count drift: {relative_path}",
-        )
-        _require(
-            "5 Pilotstufen" in text,
-            f"publication pilot stage count drift: {relative_path}",
-        )
-        _require(
-            re.search(r"Privacy-?Schwelle 10", text, re.IGNORECASE) is not None,
-            f"publication privacy threshold drift: {relative_path}",
-        )
-        _require(
-            allowed_recommendation in text,
-            f"publication recommendation drift: {relative_path}",
-        )
-        _validate_publication_declarations(relative_path, text, protocol)
+
+        publications = {
+            relative_path: (root / relative_path).read_text(encoding="utf-8")
+            for relative_path in PUBLICATION_PATHS
+        }
+        for relative_path, text in publications.items():
+            actual_block = extract_publication_block(text)
+            _require(
+                actual_block == expected_block,
+                f"publication contract block drift: {relative_path}",
+            )
+            validate_publication_text_boundary(relative_path, text)
+    except IUM11PublicationError as error:
+        raise IUM11ValidationError(str(error)) from error
 
     return {
         "productFiles": len(PUBLICATION_PRODUCT_PATHS),
         "syntheticExamples": len(SYNTHETIC_EXAMPLE_NAMES),
-        "publications": len(PUBLICATION_TEXT_PATHS),
+        "publications": len(PUBLICATION_PATHS),
+        "publicationContracts": 1,
     }
 
 
@@ -1777,7 +1377,12 @@ def validate_ium11(
     else:
         from build_ium11_cockpit import compile_cockpit_contract, render_protocol_js
     repository_root = cockpit_root.parents[1]
-    publication = _validate_publication_contract(repository_root, compiled)
+    publication = _validate_publication_contract(
+        repository_root,
+        compiled,
+        time_model,
+        ium10_result,
+    )
     expected_protocol_js = render_protocol_js(compile_cockpit_contract(repository_root))
     _require(
         (cockpit_root / "assets/protocol.js").read_bytes()

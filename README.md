@@ -41,7 +41,24 @@ Flexible Vertiefungs-, Transfer- und Projektmodule bleiben zusätzlich außerhal
 
 ## IUM11-Pilotinstrument
 
-IUM11 veröffentlicht das lokale, privacy-sichere Entwicklungsinstrument für den Working-40-Pfad der Klasse 7. Es bindet Protokollversion `1.0.0` und Werkzeugversion `1.0.0` an 40 UE, 4 Cluster, 10 Kernmodule und 5 Pilotstufen. Das Instrument und seine Beispiele sind synthetisch geprüft; dies ist keine reale Pilotierung und keine Statushochsetzung. Selbst bei fünf positiven Stufen ist ausschließlich die Empfehlung `eligible-for-working-availability-review` zulässig.
+<!-- IUM11-PUBLICATION-CONTRACT:START -->
+<!-- Generiert aus Pilotprotokoll und Zeitmodell; nicht manuell bearbeiten. -->
+| Bereich | Verbindliche Fakten |
+| --- | --- |
+| Vertragsbindung | schemaVersion: 1; id: IUM11-PUBLICATION-CONTRACT; contractVersion: 1.0.0; protocolPath: pilot/pilot-protocol.json; timeModelPath: roadmap/time-model.json; protocolVersion: 1.0.0; toolVersion: 1.0.0; timeModelFingerprintAlgorithm: sha256-canonical-json-v1; timeModelFingerprint: 873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1 |
+| Kernpfad | variantId: GRADE-7-WORKING-40; targetUnits: 40; clusterCount: 4; moduleCount: 10; pilotStageCount: 5 |
+| Clusterbudgets und Rückfälle | id: CLUSTER-7-DATA-CODING; order: 1; budgetUnits: 8; fallbackDeltaUnits: 3; id: CLUSTER-7-PROGRAMMING; order: 2; budgetUnits: 11; fallbackDeltaUnits: 2; id: CLUSTER-7-NET-SECURITY; order: 3; budgetUnits: 11; fallbackDeltaUnits: 3; id: CLUSTER-7-DATA-MEDIA-SOCIETY; order: 4; budgetUnits: 10; fallbackDeltaUnits: 6 |
+| Privacygrenze | minimumLearnerResponses: 10; personalDataAllowed: false; realPackagesInRepositoryAllowed: false |
+| Aktuelle Urteilachsen | status: working; availabilityStatus: conditional; timeFeasibilityStatus: amber; sequenceEvidenceStatus: covered; pilotStatus: not-started; semanticCoverageStatus: partial |
+| Aussagegrenze | statementBoundary: documented-conditions-only |
+| Zulässige Empfehlung | allowedRecommendation: eligible-for-working-availability-review |
+| Gesperrte Reifegrade | forbiddenMaturityValues: reviewed; forbiddenMaturityValues: standard |
+| Spätere Auftraggeberentscheidung | requiresCommissionerDecision: true; secondIndependentAnnualRunRequiredForMaturity: true; allowedChanges: availabilityStatus: available; allowedChanges: timeFeasibilityStatus: green; allowedChanges: pilotStatus: completed; unchangedAxes: status: working; unchangedAxes: semanticCoverageStatus: partial |
+| Reale Pilotierung | realPilotCompleted: false; syntheticValidationOnly: true |
+| Flexible Module | flexibleModulesOutsideCorePreserved: true; flexibleModuleSubstitution: forbidden; Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar erhalten. |
+<!-- IUM11-PUBLICATION-CONTRACT:END -->
+
+IUM11 veröffentlicht ein lokales, privacy-sicheres Entwicklungsinstrument für den Klasse-7-Kernpfad. Die verbindlichen, automatisch erzeugten Fakten stehen im vorstehenden Faktenblock. Das Instrument und seine Beispiele sind synthetisch geprüft; dies ist keine reale Pilotierung und keine Statushochsetzung.
 
 - [Pilotprotokoll](pilot/pilot-protocol.json)
 - [Lokales Offline-Cockpit](pilot/cockpit/index.html)
@@ -49,7 +66,7 @@ IUM11 veröffentlicht das lokale, privacy-sichere Entwicklungsinstrument für de
 - [Reviewanleitung](pilot/docs/review-guide.md)
 - [IUM11-Validator](scripts/validate_ium11.py)
 
-Das Cockpit wird direkt lokal geöffnet, verarbeitet nur Klassenaggregate im Arbeitsspeicher und speichert erst durch einen bewussten JSON-Download. Unter der Privacy-Schwelle 10 werden keine Lernendenzählwerte exportiert. Reale Evidenz- und Entscheidungspakete bleiben außerhalb dieses öffentlichen Repositorys. Die Klasse-7-Achsen bleiben `conditional / amber / covered / not-started / partial`; `status: working` und `semanticCoverageStatus: partial` werden nicht verändert.
+Das Cockpit wird direkt lokal geöffnet, verarbeitet nur Klassenaggregate im Arbeitsspeicher und speichert erst durch einen bewussten JSON-Download. Kleine Gruppen werden unterdrückt und exportieren keine Lernendenzählwerte. Reale Evidenz- und Entscheidungspakete bleiben außerhalb dieses öffentlichen Repositorys. Die verbindlichen Urteilachsen werden nicht durch das Instrument verändert.
 
 ## Zentrale Einstiege
 
@@ -72,6 +89,7 @@ IUM10 ist nicht `reviewed`; eine Zeitfreigabe ist nicht erteilt. Phase 1 bleibt 
 python -B -m unittest discover -s tests -p "test_*.py"
 python -B scripts/build_ium11_cockpit.py --check
 node --check pilot/cockpit/assets/app.js
+python -B scripts/build_ium11_publication_contract.py --check
 python -B scripts/validate_ium11.py
 python -B scripts/validate_ium10.py
 python -B scripts/validate_ium09.py

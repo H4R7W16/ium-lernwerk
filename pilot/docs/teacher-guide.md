@@ -1,10 +1,25 @@
 # Lehrkräfteanleitung zum IUM11-Pilotinstrument
 
+<!-- IUM11-PUBLICATION-CONTRACT:START -->
+<!-- Generiert aus Pilotprotokoll und Zeitmodell; nicht manuell bearbeiten. -->
+| Bereich | Verbindliche Fakten |
+| --- | --- |
+| Vertragsbindung | schemaVersion: 1; id: IUM11-PUBLICATION-CONTRACT; contractVersion: 1.0.0; protocolPath: pilot/pilot-protocol.json; timeModelPath: roadmap/time-model.json; protocolVersion: 1.0.0; toolVersion: 1.0.0; timeModelFingerprintAlgorithm: sha256-canonical-json-v1; timeModelFingerprint: 873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1 |
+| Kernpfad | variantId: GRADE-7-WORKING-40; targetUnits: 40; clusterCount: 4; moduleCount: 10; pilotStageCount: 5 |
+| Clusterbudgets und Rückfälle | id: CLUSTER-7-DATA-CODING; order: 1; budgetUnits: 8; fallbackDeltaUnits: 3; id: CLUSTER-7-PROGRAMMING; order: 2; budgetUnits: 11; fallbackDeltaUnits: 2; id: CLUSTER-7-NET-SECURITY; order: 3; budgetUnits: 11; fallbackDeltaUnits: 3; id: CLUSTER-7-DATA-MEDIA-SOCIETY; order: 4; budgetUnits: 10; fallbackDeltaUnits: 6 |
+| Privacygrenze | minimumLearnerResponses: 10; personalDataAllowed: false; realPackagesInRepositoryAllowed: false |
+| Aktuelle Urteilachsen | status: working; availabilityStatus: conditional; timeFeasibilityStatus: amber; sequenceEvidenceStatus: covered; pilotStatus: not-started; semanticCoverageStatus: partial |
+| Aussagegrenze | statementBoundary: documented-conditions-only |
+| Zulässige Empfehlung | allowedRecommendation: eligible-for-working-availability-review |
+| Gesperrte Reifegrade | forbiddenMaturityValues: reviewed; forbiddenMaturityValues: standard |
+| Spätere Auftraggeberentscheidung | requiresCommissionerDecision: true; secondIndependentAnnualRunRequiredForMaturity: true; allowedChanges: availabilityStatus: available; allowedChanges: timeFeasibilityStatus: green; allowedChanges: pilotStatus: completed; unchangedAxes: status: working; unchangedAxes: semanticCoverageStatus: partial |
+| Reale Pilotierung | realPilotCompleted: false; syntheticValidationOnly: true |
+| Flexible Module | flexibleModulesOutsideCorePreserved: true; flexibleModuleSubstitution: forbidden; Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar erhalten. |
+<!-- IUM11-PUBLICATION-CONTRACT:END -->
+
 ## 1. Zweck und Aussagegrenze
 
-Das IUM11-Pilotinstrument prüft die Klasse-7-Variante `GRADE-7-WORKING-40` unter dokumentierten Einsatzbedingungen. Es arbeitet mit Protokollversion `1.0.0` und Werkzeugversion `1.0.0`. Die 40 UE Kernzeit verteilen sich auf 4 Cluster mit insgesamt 10 Modulen und 5 Pilotstufen: vier Clusterläufe und einen nachgelagerten Jahreslauf.
-
-Ein positiver Minimalpilot darf ausschließlich `eligible-for-working-availability-review` empfehlen. Er ist weder eine Statusfreigabe noch ein Wirksamkeitsnachweis. Die Aussage bleibt auf `documented-conditions-only` begrenzt.
+Das IUM11-Pilotinstrument prüft den Klasse-7-Kernpfad unter dokumentierten Einsatzbedingungen. Die verbindlichen Fakten, Aussagegrenzen und späteren Entscheidungsvorbehalte stehen im automatisch erzeugten Faktenblock. Ein positiver Minimalpilot ist weder eine Statusfreigabe noch ein Wirksamkeitsnachweis.
 
 ## 2. Bereitschaftsgate vor jedem Lauf
 
@@ -22,14 +37,9 @@ Ist ein Punkt offen, beginnt der Lauf nicht. Dokumentieren Sie die Klärung auß
 
 ## 3. Reihenfolge und Jahresvoraussetzung
 
-Führen Sie die vier Cluster in Protokollreihenfolge mit ihren harten, nicht verrechenbaren Budgets durch:
+Führen Sie die vorgesehenen Cluster in Protokollreihenfolge mit ihren harten, nicht verrechenbaren Budgets durch. Die konkrete Reihenfolge und die Budgets stehen im Faktenblock.
 
-1. Daten und Codierung: 8 UE
-2. Programmieren: 11 UE
-3. Netze und Sicherheit: 11 UE
-4. Daten, Medien und Gesellschaft: 10 UE
-
-Zeiten zwischen Clustern werden nicht verrechnet. Additive Fallbackbedarfe sind nur Bedarfsableitungen und kein automatisch verfügbares Angebot. Der Jahreslauf wird erst freigeschaltet, wenn vier positive, versionsgleiche Clusterpakete in dieser Reihenfolge lokal importiert wurden.
+Zeiten zwischen Clustern werden nicht verrechnet. Additive Fallbackbedarfe sind nur Bedarfsableitungen und kein automatisch verfügbares Angebot. Der Jahreslauf wird erst freigeschaltet, wenn die erforderlichen versionsgleichen Clusterpakete in dieser Reihenfolge lokal importiert wurden.
 
 ## 4. Lernprodukte lokal prüfen
 
@@ -49,7 +59,7 @@ Nur durchgängig `strong` kann einen positiven Modul-, Integrations- oder Jahres
 
 Erheben Sie ausschließlich die drei Protokollitems `clarity`, `cognitiveEngagement` und `supportUsefulness` mit den Kategorien `agree`, `partly`, `disagree` und `no-answer`. Es gibt keine Freitexte. Zählen Sie die Antworten außerhalb des Cockpits und geben Sie dort je Item nur die vier Klassensummen ein. Einzelantworten, Reihenfolgen und Zuordnungen werden nicht übertragen.
 
-Bei unter zehn gültigen Antworten wählen Sie `suppressed-small-group`; alle Zählwerte bleiben unterdrückt. Ab der Privacy-Schwelle 10 erzeugt mindestens ein Drittel `disagree` eine offene Entwicklungswarnung. Verwenden Sie dafür ausschließlich die im Cockpit neu berechnete ganzzahlige Schwelle.
+Bei unter zehn gültigen Antworten wählen Sie `suppressed-small-group`; alle Zählwerte bleiben unterdrückt. Die Schwellenregel für offene Entwicklungswarnungen steht im Faktenblock. Verwenden Sie dafür ausschließlich die im Cockpit neu berechnete ganzzahlige Schwelle.
 
 Eine optionale analoge Zählhilfe dient nur temporär der Durchführung. Vernichten Sie sie unmittelbar nach der Übertragung der Summen. Sie begründet keine parallele analoge Vollstruktur.
 

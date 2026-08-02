@@ -1856,8 +1856,10 @@ class CoverageRepositoryTests(unittest.TestCase):
     def test_phase0_entrypoint_runs_ium10_then_ium09_once_on_projection(self):
         call_order = []
         ium10_results = []
+        ium11_results = []
         validate_ium10 = validate_phase0_script.validate_ium10
         validate_ium09 = validate_phase0_script.validate_ium09
+        validate_ium11 = validate_phase0_script.validate_ium11
 
         def record_ium10(*args, **kwargs):
             call_order.append("ium10")
@@ -1871,6 +1873,9 @@ class CoverageRepositoryTests(unittest.TestCase):
 
         def record_ium11(*args, **kwargs):
             call_order.append("ium11")
+            result = validate_ium11(*args, **kwargs)
+            ium11_results.append(result)
+            return result
 
         with mock.patch(
             "scripts.validate_phase0.validate_ium09",
@@ -1888,6 +1893,16 @@ class CoverageRepositoryTests(unittest.TestCase):
         validate_ium10_mock.assert_called_once()
         validate_ium09_mock.assert_called_once()
         validate_ium11_mock.assert_called_once()
+        self.assertEqual(len(ium11_results), 1)
+        self.assertEqual(
+            ium11_results[0]["publication"],
+            {
+                "productFiles": 27,
+                "syntheticExamples": 7,
+                "publications": 3,
+                "publicationContracts": 1,
+            },
+        )
         (
             time_model,
             module_payload,

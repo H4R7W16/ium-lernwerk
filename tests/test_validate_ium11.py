@@ -10,7 +10,13 @@ import unittest
 from unittest.mock import patch
 
 import scripts.validate_ium11 as validate_ium11_script
-from scripts.validate_ium10 import IUM10ValidationError
+from scripts.ium11_publication import (
+    PUBLICATION_END_MARKER,
+    PUBLICATION_START_MARKER,
+    extract_publication_block,
+    render_publication_markdown_block,
+)
+from scripts.validate_ium10 import IUM10ValidationError, validate_ium10_repository
 from scripts.validate_ium11 import (
     IUM11ValidationError,
     PROHIBITED_FIELD_NAMES,
@@ -1029,18 +1035,23 @@ class IUM11PublicationTests(unittest.TestCase):
             load_json(cls.root / "pilot/pilot-protocol.json"),
             cls.time_model,
         )
+        cls.ium10_result = validate_ium10_repository(cls.root)
 
     def copy_publication_fixture(self, destination):
         shutil.copytree(self.root / "pilot", destination / "pilot")
         for relative_path in (
             "README.md",
+            "scripts/ium11_publication.py",
+            "scripts/build_ium11_publication_contract.py",
             "scripts/validate_ium11.py",
             "scripts/build_ium11_cockpit.py",
             "scripts/validate_phase0.py",
             "tests/test_validate_ium11.py",
+            "tests/test_ium11_publication_contract.py",
             "tests/test_ium11_cockpit_contract.py",
             "tests/test_validate_phase0.py",
             "docs/superpowers/plans/2026-08-01-ium11-grade7-working-40-pilot-implementation.md",
+            "docs/superpowers/specs/2026-08-02-ium11-publication-contract-reset-design.md",
         ):
             source = self.root / relative_path
             target = destination / relative_path
@@ -1051,7 +1062,6 @@ class IUM11PublicationTests(unittest.TestCase):
         text = (self.root / "README.md").read_text(encoding="utf-8")
         self.assertIn("IUM11-Pilotinstrument", text)
         self.assertIn("keine reale Pilotierung", text)
-        self.assertIn("eligible-for-working-availability-review", text)
         self.assertIn(
             "Flexible Vertiefungs-, Transfer- und Projektmodule bleiben",
             text,
@@ -1085,35 +1095,131 @@ class IUM11PublicationTests(unittest.TestCase):
             "Engineering-/Privacyreview",
             "Auftraggebergate",
             "zweite unabhängige",
-            "documented-conditions-only",
         ]:
             self.assertIn(anchor, review)
+
+    def test_generated_contract_is_the_exact_source_for_all_publication_blocks(self):
+        contract = load_json(self.root / "pilot/docs/publication-contract.json")
+        self.assertEqual(contract["sourceBindings"]["protocolVersion"], "1.0.0")
+        self.assertEqual(contract["sourceBindings"]["toolVersion"], "1.0.0")
+        self.assertEqual(contract["corePath"]["targetUnits"], 40)
+        self.assertEqual(contract["corePath"]["clusterCount"], 4)
+        self.assertEqual(contract["corePath"]["moduleCount"], 10)
+        self.assertEqual(contract["corePath"]["pilotStageCount"], 5)
+        self.assertEqual(contract["currentAxes"]["status"], "working")
+        self.assertEqual(contract["statementBoundary"], "documented-conditions-only")
+
+        expected_block = render_publication_markdown_block(contract)
+        for relative_path in (
+            "README.md",
+            "pilot/docs/teacher-guide.md",
+            "pilot/docs/review-guide.md",
+        ):
+            with self.subTest(relative_path=relative_path):
+                text = (self.root / relative_path).read_text(encoding="utf-8")
+                self.assertEqual(extract_publication_block(text), expected_block)
+
+    def test_readme_runs_publication_drift_check_before_ium11_validation(self):
+        text = (self.root / "README.md").read_text(encoding="utf-8")
+        build_check = "python -B scripts/build_ium11_publication_contract.py --check"
+        validation = "python -B scripts/validate_ium11.py"
+        self.assertEqual(text.count(build_check), 1)
+        self.assertLess(text.index(build_check), text.index(validation))
 
     def test_repository_publication_contract_is_complete_and_current(self):
         result = validate_ium11_script._validate_publication_contract(
             self.root,
             self.protocol,
+            self.time_model,
+            self.ium10_result,
         )
         self.assertEqual(
             result,
-            {"productFiles": 23, "syntheticExamples": 7, "publications": 3},
+            {
+                "productFiles": 27,
+                "syntheticExamples": 7,
+                "publications": 3,
+                "publicationContracts": 1,
+            },
         )
 
-    def test_publication_contract_rejects_documentation_version_drift(self):
+    def test_publication_contract_rejects_generated_json_and_block_drift(self):
+        mutations = (
+            ("pilot/docs/publication-contract.json", b"{}\n"),
+            ("pilot/docs/teacher-guide.md", b"marker drift"),
+        )
+        for relative_path, replacement in mutations:
+            with self.subTest(relative_path=relative_path):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    target = root / relative_path
+                    if relative_path.endswith(".json"):
+                        target.write_bytes(replacement)
+                    else:
+                        target.write_text(
+                            target.read_text(encoding="utf-8").replace(
+                                PUBLICATION_START_MARKER,
+                                "<!-- IUM11-PUBLICATION-CONTRACT:BROKEN -->",
+                                1,
+                            ),
+                            encoding="utf-8",
+                        )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_publication_contract_rejects_exact_block_tampering(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             self.copy_publication_fixture(root)
             guide = root / "pilot/docs/teacher-guide.md"
             guide.write_text(
-                guide.read_text(encoding="utf-8").replace("1.0.0", "2.0.0"),
+                guide.read_text(encoding="utf-8").replace(
+                    "status: working",
+                    "status: broken",
+                    1,
+                ),
                 encoding="utf-8",
             )
-
-            with self.assertRaisesRegex(IUM11ValidationError, "version|Version"):
+            with self.assertRaises(IUM11ValidationError):
                 validate_ium11_script._validate_publication_contract(
                     root,
                     self.protocol,
+                    self.time_model,
+                    self.ium10_result,
                 )
+
+    def test_publication_contract_rejects_missing_and_duplicate_markers(self):
+        mutations = (
+            lambda text: text.replace(PUBLICATION_END_MARKER, "", 1),
+            lambda text: text.replace(
+                PUBLICATION_START_MARKER,
+                PUBLICATION_START_MARKER + "\n" + PUBLICATION_START_MARKER,
+                1,
+            ),
+        )
+        for mutate in mutations:
+            with self.subTest(mutation=mutate):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    guide = root / "pilot/docs/teacher-guide.md"
+                    guide.write_text(
+                        mutate(guide.read_text(encoding="utf-8")),
+                        encoding="utf-8",
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
 
     def test_repository_scan_rejects_unexpected_pilot_json(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -1125,133 +1231,69 @@ class IUM11PublicationTests(unittest.TestCase):
                 validate_ium11_script._validate_publication_contract(
                     root,
                     self.protocol,
+                    self.time_model,
+                    self.ium10_result,
                 )
 
-    def test_publication_contract_rejects_conflicting_declarations_in_every_document(self):
-        conflicting_declarations = (
-            "Pilotierung abgeschlossen.",
-            "Available ist der Working-40-Pfad.",
-            "Der Working-40-Pfad: available.",
-            "Der Working-40-Pfad ist available.",
-            "Der Working-40-Pfad ist reviewed.",
-            "Der Working-40-Pfad ist standard.",
-            "Die reale Pilotierung wurde abgeschlossen.",
-            "Der reale Pilot ist abgeschlossen.",
-            "AvailabilityStatus: available",
-            "availabilityStatus : available",
-            "availabilityStatus: reviewed",
-            "status: available",
-            "Empfehlung: eligible-for-standard-review.",
-            "Protokollversion `9.9.9`.",
-            "Protokoll-Version 9.9.9.",
-            "Version des Protokolls: 9.9.9.",
-            "Werkzeugversion `9.9.9`.",
-            "Der Umfang beträgt 41 UE.",
-            "Der Umfang umfasst 5 Cluster.",
-            "Cluster: 5.",
-            "Der Umfang umfasst 11 Module.",
-            "Module: 11.",
-            "Der Umfang umfasst 6 Pilotstufen.",
-            "Die Privacy-Schwelle 9 gilt.",
-            "Privacy-Schwelle: 9.",
-            "Der Umfang beträgt nicht 40 UE, sondern 41 UE.",
-            "Der Pfad ist nicht reviewed, sondern available.",
-            "Die Pilotierung ist nicht gescheitert, sondern abgeschlossen.",
-            "eligible-for-working-availability-review ist nicht zulässig, sondern eligible-for-standard-review.",
-            "Protokollversion 9.9.9 ist nicht falsch.",
-            "availabilitystatus: available",
-            "AVAILABILITYSTATUS: AVAILABLE",
-            "ａｖａｉｌａｂｉｌｉｔｙＳｔａｔｕｓ： ａｖａｉｌａｂｌｅ",
-            "Working‑40‑Pfad ist available.",
-            "Privacy‐Schwelle: 9.",
-            "Der Pfad ist available und nicht reviewed.",
-            "Der Pfad ist reviewed, nicht standard.",
-            "Protokollversion 9.9.9, nicht Werkzeugversion 9.9.9.",
-            "Das Instrument ist available.",
-            "Der IUM11-Pilot ist abgeschlossen.",
-            "Protokollversion: 9.9.9.",
-            "Der Pfad ist available oder nicht reviewed.",
-            "Protokollversion 9.9.9 oder nicht Werkzeugversion 9.9.9.",
-            "Der Pfad ist nicht reviewed und available.",
-            "Der Pfad ist nicht reviewed, available.",
-            "Der Pfad ist nicht reviewed und nicht standard, sondern available.",
-        )
+    def test_publication_boundary_rejects_reserved_literal_outside_generated_block(self):
         for relative_path in (
             "README.md",
             "pilot/docs/teacher-guide.md",
             "pilot/docs/review-guide.md",
         ):
-            with self.subTest(document=relative_path):
+            with self.subTest(relative_path=relative_path):
                 with tempfile.TemporaryDirectory() as temporary:
                     root = Path(temporary)
                     self.copy_publication_fixture(root)
                     publication = root / relative_path
-                    original = publication.read_text(encoding="utf-8")
-                    for declaration in conflicting_declarations:
-                        with self.subTest(
-                            document=relative_path,
-                            declaration=declaration,
-                        ):
-                            publication.write_text(
-                                f"{original}\n\n{declaration}\n",
-                                encoding="utf-8",
-                            )
-                            with self.assertRaises(IUM11ValidationError):
-                                validate_ium11_script._validate_publication_contract(
-                                    root,
-                                    self.protocol,
-                                )
-                    publication.write_text(original, encoding="utf-8")
+                    text = publication.read_text(encoding="utf-8")
+                    if relative_path == "README.md":
+                        text = text.replace(
+                            "## Zentrale Einstiege",
+                            "availabilityStatus: available\n\n## Zentrale Einstiege",
+                            1,
+                        )
+                    else:
+                        text += "\navailabilityStatus: available\n"
+                    publication.write_text(text, encoding="utf-8")
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
 
-    def test_publication_contract_allows_negated_boundary_and_future_gate_lines(self):
-        negative_counterexamples = (
-            "Keine reale Pilotierung ist abgeschlossen.",
-            "Weder IUM11 noch der Pfad ist standard.",
-            "Der Pfad umfasst nicht 41 UE, sondern 40 UE.",
-            "Das Instrument umfasst keine 5 Cluster, sondern 4 Cluster.",
-            "eligible-for-standard-review ist ausdrücklich keine zulässige Empfehlung.",
-            "Protokollversion 9.9.9 ist ausdrücklich falsch; maßgeblich bleibt 1.0.0.",
-            "Der Working-40-Pfad ist nicht available oder reviewed.",
-            "Der reale Pilot ist ausdrücklich nicht abgeschlossen.",
-            "Available ist der Pfad nicht.",
-            "Abgeschlossen ist die Pilotierung nicht.",
-            "Es ist falsch, dass der Umfang 41 UE beträgt.",
-            "Die Pilotierung ist nicht abgeschlossen. Das Fachreview ist abgeschlossen.",
-            "Die Pilotierung ist nicht abgeschlossen; das Fachreview ist abgeschlossen.",
-            "Der Pfad ist weder available noch reviewed.",
-            "Weder ist der Pfad available noch reviewed.",
-            "Der Pfad ist nicht available oder reviewed. Das Fachreview ist abgeschlossen.",
-            "Weder ist der Pfad available noch reviewed; das Fachreview ist abgeschlossen.",
-            "Die Pilotierung ist nicht abgeschlossen; das Fachreview ist abgeschlossen. Das Auftraggebergate ist abgeschlossen.",
-        )
-        for relative_path in (
-            "README.md",
-            "pilot/docs/teacher-guide.md",
-            "pilot/docs/review-guide.md",
-        ):
-            with self.subTest(document=relative_path):
-                with tempfile.TemporaryDirectory() as temporary:
-                    root = Path(temporary)
-                    self.copy_publication_fixture(root)
-                    publication = root / relative_path
-                    publication.write_text(
-                        publication.read_text(encoding="utf-8")
-                        + "\n"
-                        + "\n".join(negative_counterexamples)
-                        + "\n",
-                        encoding="utf-8",
-                    )
-                    review = (root / "pilot/docs/review-guide.md").read_text(
-                        encoding="utf-8"
-                    )
-                    for declaration in (
-                        "availabilityStatus: available",
-                        "timeFeasibilityStatus: green",
-                        "pilotStatus: completed",
-                    ):
-                        self.assertIn(declaration, review)
+    def test_publication_boundary_does_not_parse_german_grammar(self):
+        sentence = "Die Pilotierung ist nicht beendet, obwohl das Fachreview beendet ist."
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            guide.write_text(
+                guide.read_text(encoding="utf-8") + "\n" + sentence + "\n",
+                encoding="utf-8",
+            )
+            validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )
 
-                    validate_ium11_script._validate_publication_contract(
-                        root,
-                        self.protocol,
-                    )
+    def test_readme_boundary_is_scoped_to_the_ium11_section(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            readme = root / "README.md"
+            readme.write_text(
+                "## Andere Phase\navailabilityStatus: available\n\n"
+                + readme.read_text(encoding="utf-8"),
+                encoding="utf-8",
+            )
+            validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )

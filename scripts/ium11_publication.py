@@ -375,3 +375,157 @@ def compile_publication_contract(compiled_protocol, time_model, ium10_result):
         "realPilotCompleted": False,
         "syntheticValidationOnly": True,
     }
+
+
+RESERVED_OUTSIDE_BLOCK_PATTERNS = (
+    re.compile(r"\b[0-9]+\.[0-9]+\.[0-9]+\b"),
+    re.compile(r"\beligible-for-[a-z0-9-]+\b", re.IGNORECASE),
+    re.compile(
+        r"\b(?:status|availabilityStatus|timeFeasibilityStatus|"
+        r"sequenceEvidenceStatus|pilotStatus|semanticCoverageStatus)\s*:",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\b(?:working|available|unavailable|reviewed|standard|conditional|"
+        r"green|amber|red|covered|not-started|partial|completed|"
+        r"documented-conditions-only)\b",
+        re.IGNORECASE,
+    ),
+    re.compile(r"\bGRADE-7-WORKING-40\b", re.IGNORECASE),
+    re.compile(r"\b[0-9]+\s*UE\b", re.IGNORECASE),
+    re.compile(r"\b[0-9]+\s*(?:Cluster|Module?|Pilotstufen?)\b", re.IGNORECASE),
+    re.compile(r"\bPrivacy-?Schwelle\s*:?[ ]*[0-9]+\b", re.IGNORECASE),
+)
+
+
+def render_publication_contract_json(contract):
+    return (
+        json.dumps(contract, ensure_ascii=False, sort_keys=True, indent=2)
+        + "\n"
+    ).encode("utf-8")
+
+
+def _markdown_value(value):
+    if value is True:
+        text = "true"
+    elif value is False:
+        text = "false"
+    else:
+        text = str(value)
+    return text.replace("|", "\\|").replace("\n", " ")
+
+
+def _facts(*pairs):
+    return "; ".join(f"{field}: {_markdown_value(value)}" for field, value in pairs)
+
+
+def render_publication_markdown_block(contract):
+    """Render the stable, human-readable projection of the publication contract."""
+    source = contract["sourceBindings"]
+    core = contract["corePath"]
+    privacy = contract["privacyBoundary"]
+    axes = contract["currentAxes"]
+    future = contract["futureDecisionBoundary"]
+    preservation = contract["preservationBoundary"]
+    rows = [
+        ("Vertragsbindung", _facts(
+            ("schemaVersion", contract["schemaVersion"]),
+            ("id", contract["id"]),
+            ("contractVersion", contract["contractVersion"]),
+            *((field, source[field]) for field in (
+                "protocolPath", "timeModelPath", "protocolVersion", "toolVersion",
+                "timeModelFingerprintAlgorithm", "timeModelFingerprint",
+            )),
+        )),
+        ("Kernpfad", _facts(*((field, core[field]) for field in (
+            "variantId", "targetUnits", "clusterCount", "moduleCount", "pilotStageCount",
+        )))),
+        ("Clusterbudgets und Rückfälle", "; ".join(_facts(*((field, cluster[field]) for field in (
+            "id", "order", "budgetUnits", "fallbackDeltaUnits",
+        ))) for cluster in core["clusters"])),
+        ("Privacygrenze", _facts(*((field, privacy[field]) for field in (
+            "minimumLearnerResponses", "personalDataAllowed", "realPackagesInRepositoryAllowed",
+        )))),
+        ("Aktuelle Urteilachsen", _facts(*((field, axes[field]) for field in (
+            "status", "availabilityStatus", "timeFeasibilityStatus", "sequenceEvidenceStatus",
+            "pilotStatus", "semanticCoverageStatus",
+        )))),
+        ("Aussagegrenze", _facts(("statementBoundary", contract["statementBoundary"]))),
+        ("Zulässige Empfehlung", _facts(("allowedRecommendation", contract["allowedRecommendation"]))),
+        ("Gesperrte Reifegrade", "; ".join(
+            _facts(("forbiddenMaturityValues", value))
+            for value in contract["forbiddenMaturityValues"]
+        )),
+        ("Spätere Auftraggeberentscheidung", "; ".join((
+            _facts(
+                ("requiresCommissionerDecision", future["requiresCommissionerDecision"]),
+                ("secondIndependentAnnualRunRequiredForMaturity", future["secondIndependentAnnualRunRequiredForMaturity"]),
+            ),
+            *(
+                _facts(("allowedChanges", f"{item['field']}: {item['value']}"))
+                for item in future["allowedChanges"]
+            ),
+            *(
+                _facts(("unchangedAxes", f"{item['field']}: {item['value']}"))
+                for item in future["unchangedAxes"]
+            ),
+        ))),
+        ("Reale Pilotierung", _facts(
+            ("realPilotCompleted", contract["realPilotCompleted"]),
+            ("syntheticValidationOnly", contract["syntheticValidationOnly"]),
+        )),
+        ("Flexible Module", _facts(
+            ("flexibleModulesOutsideCorePreserved", preservation["flexibleModulesOutsideCorePreserved"]),
+            ("flexibleModuleSubstitution", preservation["flexibleModuleSubstitution"]),
+        ) + "; Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar erhalten."),
+    ]
+    table_rows = ["| Bereich | Verbindliche Fakten |", "| --- | --- |"]
+    table_rows.extend(f"| {label} | {facts} |" for label, facts in rows)
+    return "\n".join((
+        PUBLICATION_START_MARKER,
+        "<!-- Generiert aus Pilotprotokoll und Zeitmodell; nicht manuell bearbeiten. -->",
+        *table_rows,
+        PUBLICATION_END_MARKER,
+    ))
+
+
+def extract_publication_block(text):
+    _require(text.count(PUBLICATION_START_MARKER) == 1, "publication start marker must occur once")
+    _require(text.count(PUBLICATION_END_MARKER) == 1, "publication end marker must occur once")
+    start = text.index(PUBLICATION_START_MARKER)
+    end = text.index(PUBLICATION_END_MARKER)
+    _require(start < end, "publication markers are out of order")
+    return text[start:end + len(PUBLICATION_END_MARKER)]
+
+
+def replace_publication_block(text, block):
+    current = extract_publication_block(text)
+    _require(block.startswith(PUBLICATION_START_MARKER), "rendered block start differs")
+    _require(block.endswith(PUBLICATION_END_MARKER), "rendered block end differs")
+    return text.replace(current, block, 1)
+
+
+def _readme_ium11_section(text):
+    headings = list(re.finditer(r"^## IUM11-Pilotinstrument[ \t]*$", text, re.MULTILINE))
+    _require(len(headings) == 1, "README IUM11 section must occur once")
+    start = headings[0].end()
+    next_heading = re.search(r"^## (?!IUM11-Pilotinstrument[ \t]*$)", text[start:], re.MULTILINE)
+    end = start + next_heading.start() if next_heading else len(text)
+    return text[start:end]
+
+
+def validate_publication_text_boundary(relative_path, text):
+    """Reject lexical publication declarations outside the generated IUM11 block."""
+    block = extract_publication_block(text)
+    remaining = text.replace(block, "", 1)
+    inspected = (
+        _readme_ium11_section(remaining)
+        if str(relative_path).replace("\\", "/") == "README.md"
+        else remaining
+    )
+    for pattern in RESERVED_OUTSIDE_BLOCK_PATTERNS:
+        match = pattern.search(inspected)
+        if match:
+            raise IUM11PublicationError(
+                f"{relative_path}: reserved publication form {match.group(0)!r}"
+            )

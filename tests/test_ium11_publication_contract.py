@@ -1,11 +1,28 @@
 import copy
 import json
+import shutil
+import subprocess
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from scripts.ium11_publication import (
     IUM11PublicationError,
+    PUBLICATION_END_MARKER,
+    PUBLICATION_START_MARKER,
     compile_publication_contract,
+    extract_publication_block,
+    render_publication_contract_json,
+    render_publication_markdown_block,
+    replace_publication_block,
+    validate_publication_text_boundary,
+)
+from scripts.build_ium11_publication_contract import (
+    CONTRACT_PATH,
+    build_publication_contract,
+    compile_repository_publication_contract,
+    expected_publication_outputs,
 )
 from scripts.validate_ium10 import validate_ium10_repository
 from scripts.validate_ium11 import validate_pilot_protocol
@@ -262,3 +279,194 @@ class IUM11PublicationCompilerTests(unittest.TestCase):
 
         with self.assertRaisesRegex(IUM11PublicationError, "availabilityStatus"):
             self.compile(ium10_result=ium10_result)
+
+
+class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
+    def test_json_and_markdown_are_deterministic_utf8_lf(self):
+        contract = self.compile()
+        rendered_json = render_publication_contract_json(contract)
+        rendered_block = render_publication_markdown_block(contract)
+        self.assertIsInstance(rendered_json, bytes)
+        self.assertFalse(rendered_json.startswith(b"\xef\xbb\xbf"))
+        self.assertTrue(rendered_json.endswith(b"\n"))
+        self.assertNotIn(b"\r\n", rendered_json)
+        self.assertEqual(json.loads(rendered_json.decode("utf-8")), contract)
+        self.assertEqual(rendered_block.count(PUBLICATION_START_MARKER), 1)
+        self.assertEqual(rendered_block.count(PUBLICATION_END_MARKER), 1)
+        self.assertIn(
+            "Flexible Vertiefungs-, Transfer- und Projektmodule bleiben",
+            rendered_block,
+        )
+        self.assertIn("status: working", rendered_block)
+        self.assertIn("pilotStatus: not-started", rendered_block)
+        self.assertIn("availabilityStatus: available", rendered_block)
+
+    def test_marker_replacement_requires_one_ordered_pair(self):
+        block = render_publication_markdown_block(self.compile())
+        source = (
+            f"vor\n{PUBLICATION_START_MARKER}\nalt\n"
+            f"{PUBLICATION_END_MARKER}\nnach\n"
+        )
+        replaced = replace_publication_block(source, block)
+        self.assertEqual(extract_publication_block(replaced), block)
+        for malformed in (
+            "ohne marker\n",
+            f"{PUBLICATION_START_MARKER}\n",
+            f"{PUBLICATION_END_MARKER}\n{PUBLICATION_START_MARKER}\n",
+            source + source,
+            f"{PUBLICATION_START_MARKER}\n{PUBLICATION_START_MARKER}\n"
+            f"{PUBLICATION_END_MARKER}\n{PUBLICATION_END_MARKER}\n",
+        ):
+            with self.subTest(malformed=malformed):
+                with self.assertRaises(IUM11PublicationError):
+                    replace_publication_block(malformed, block)
+
+    def test_outside_block_boundary_is_lexical_and_readme_scoped(self):
+        block = render_publication_markdown_block(self.compile())
+        guide = f"# Anleitung\n\n{block}\n\nErklärende deutsche Prosa.\n"
+        validate_publication_text_boundary("pilot/docs/teacher-guide.md", guide)
+        reserved = (
+            "Version 9.9.9", "eligible-for-standard-review",
+            "status: available", "available", "GRADE-7-WORKING-40",
+            "41 UE", "5 Cluster", "11 Module", "6 Pilotstufen",
+            "Privacy-Schwelle 9",
+        )
+        for declaration in reserved:
+            with self.subTest(declaration=declaration):
+                with self.assertRaises(IUM11PublicationError) as raised:
+                    validate_publication_text_boundary(
+                        "pilot/docs/teacher-guide.md", guide + declaration + "\n",
+                    )
+                self.assertIn("pilot/docs/teacher-guide.md", str(raised.exception))
+
+        readme = (
+            "## Phase 0\nKlasse 5: available.\n\n"
+            "## IUM11-Pilotinstrument\n" + block + "\nErklärende Prosa.\n\n"
+            "## Zentrale Einstiege\nIUM10 ist working.\n"
+        )
+        validate_publication_text_boundary("README.md", readme)
+
+    def test_every_reserved_form_is_rejected_outside_each_publication_block(self):
+        block = render_publication_markdown_block(self.compile())
+        declarations = (
+            "9.9.9", "eligible-for-standard-review", "status: available",
+            "available", "GRADE-7-WORKING-40", "41 UE", "5 Cluster",
+            "11 Module", "6 Pilotstufen", "Privacy-Schwelle 9",
+        )
+        documents = {
+            "README.md": (
+                "## IUM11-Pilotinstrument\n" + block + "\n",
+                "\n## Zentrale Einstiege\n",
+            ),
+            "pilot/docs/teacher-guide.md": ("# Anleitung\n" + block + "\n", ""),
+            "pilot/docs/review-guide.md": ("# Review\n" + block + "\n", ""),
+        }
+        for relative_path, (prefix, suffix) in documents.items():
+            validate_publication_text_boundary(relative_path, prefix + suffix)
+            for declaration in declarations:
+                with self.subTest(relative_path=relative_path, declaration=declaration):
+                    with self.assertRaises(IUM11PublicationError):
+                        validate_publication_text_boundary(
+                            relative_path,
+                            prefix + declaration + "\n" + suffix,
+                        )
+
+    def test_boundary_requires_exactly_one_readme_section_and_one_marker_pair(self):
+        block = render_publication_markdown_block(self.compile())
+        cases = (
+            ("## Andere Überschrift\n" + block, "README IUM11 section"),
+            (
+                "## IUM11-Pilotinstrument\n" + block + "\n"
+                "## IUM11-Pilotinstrument\nOhne zweiten Block\n",
+                "README IUM11 section",
+            ),
+            ("# Anleitung\n" + block + "\n" + PUBLICATION_START_MARKER, "publication start marker"),
+        )
+        for text, message in cases:
+            with self.subTest(text=text):
+                with self.assertRaisesRegex(IUM11PublicationError, message):
+                    validate_publication_text_boundary("README.md", text)
+
+    def test_real_build_matches_compiled_contract_and_is_idempotent(self):
+        contract = compile_repository_publication_contract(ROOT)
+        expected = expected_publication_outputs(ROOT)
+        self.assertEqual(expected[ROOT / CONTRACT_PATH], render_publication_contract_json(contract))
+        block = render_publication_markdown_block(contract)
+        for relative_path in ("README.md", "pilot/docs/teacher-guide.md", "pilot/docs/review-guide.md"):
+            self.assertEqual(
+                extract_publication_block(expected[ROOT / relative_path].decode("utf-8")),
+                block,
+            )
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = Path(temporary) / "repository"
+            shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+            build_publication_contract(fixture)
+            first = {path: path.read_bytes() for path in expected_publication_outputs(fixture)}
+            build_publication_contract(fixture)
+            self.assertEqual(
+                {path: path.read_bytes() for path in expected_publication_outputs(fixture)},
+                first,
+            )
+
+    def test_check_is_read_only_and_reports_every_drift(self):
+        before = {
+            ROOT / relative: (ROOT / relative).read_bytes()
+            for relative in (CONTRACT_PATH, "README.md", "pilot/docs/teacher-guide.md", "pilot/docs/review-guide.md")
+            if (ROOT / relative).exists()
+        }
+        result = subprocess.run(
+            ["python", "-B", "scripts/build_ium11_publication_contract.py", "--check"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        after = {
+            path: path.read_bytes()
+            for path in before
+        }
+        self.assertEqual(after, before)
+
+    def test_build_failure_is_per_file_atomic_and_later_check_reports_drift(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = Path(temporary) / "repository"
+            shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+            outputs = expected_publication_outputs(fixture)
+            for path in outputs:
+                if path.name == "publication-contract.json":
+                    path.write_bytes(b"{}\n")
+                else:
+                    path.write_text(
+                        replace_publication_block(
+                            path.read_text(encoding="utf-8"),
+                            f"{PUBLICATION_START_MARKER}\nstale\n{PUBLICATION_END_MARKER}",
+                        ),
+                        encoding="utf-8",
+                    )
+            originals = {path: path.read_bytes() for path in outputs if path.exists()}
+            real_replace = __import__("os").replace
+            replacements = 0
+
+            def fail_second_replace(source, destination):
+                nonlocal replacements
+                replacements += 1
+                if replacements == 2:
+                    raise OSError("simulated interruption")
+                return real_replace(source, destination)
+
+            with mock.patch(
+                "scripts.build_ium11_publication_contract.os.replace",
+                side_effect=fail_second_replace,
+            ):
+                with self.assertRaisesRegex(OSError, "simulated interruption"):
+                    build_publication_contract(fixture)
+
+            for path, original in originals.items():
+                self.assertIn(path.read_bytes(), (original, outputs[path]))
+            self.assertFalse(list(fixture.rglob(".*.tmp")))
+            with self.assertRaises(IUM11PublicationError) as raised:
+                build_publication_contract(fixture, check=True)
+            self.assertIn("drift", str(raised.exception))
+            build_publication_contract(fixture)
+            build_publication_contract(fixture, check=True)

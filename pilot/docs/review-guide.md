@@ -1,8 +1,25 @@
 # Reviewanleitung zum IUM11-Pilotinstrument
 
+<!-- IUM11-PUBLICATION-CONTRACT:START -->
+<!-- Generiert aus Pilotprotokoll und Zeitmodell; nicht manuell bearbeiten. -->
+| Bereich | Verbindliche Fakten |
+| --- | --- |
+| Vertragsbindung | schemaVersion: 1; id: IUM11-PUBLICATION-CONTRACT; contractVersion: 1.0.0; protocolPath: pilot/pilot-protocol.json; timeModelPath: roadmap/time-model.json; protocolVersion: 1.0.0; toolVersion: 1.0.0; timeModelFingerprintAlgorithm: sha256-canonical-json-v1; timeModelFingerprint: 873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1 |
+| Kernpfad | variantId: GRADE-7-WORKING-40; targetUnits: 40; clusterCount: 4; moduleCount: 10; pilotStageCount: 5 |
+| Clusterbudgets und Rückfälle | id: CLUSTER-7-DATA-CODING; order: 1; budgetUnits: 8; fallbackDeltaUnits: 3; id: CLUSTER-7-PROGRAMMING; order: 2; budgetUnits: 11; fallbackDeltaUnits: 2; id: CLUSTER-7-NET-SECURITY; order: 3; budgetUnits: 11; fallbackDeltaUnits: 3; id: CLUSTER-7-DATA-MEDIA-SOCIETY; order: 4; budgetUnits: 10; fallbackDeltaUnits: 6 |
+| Privacygrenze | minimumLearnerResponses: 10; personalDataAllowed: false; realPackagesInRepositoryAllowed: false |
+| Aktuelle Urteilachsen | status: working; availabilityStatus: conditional; timeFeasibilityStatus: amber; sequenceEvidenceStatus: covered; pilotStatus: not-started; semanticCoverageStatus: partial |
+| Aussagegrenze | statementBoundary: documented-conditions-only |
+| Zulässige Empfehlung | allowedRecommendation: eligible-for-working-availability-review |
+| Gesperrte Reifegrade | forbiddenMaturityValues: reviewed; forbiddenMaturityValues: standard |
+| Spätere Auftraggeberentscheidung | requiresCommissionerDecision: true; secondIndependentAnnualRunRequiredForMaturity: true; allowedChanges: availabilityStatus: available; allowedChanges: timeFeasibilityStatus: green; allowedChanges: pilotStatus: completed; unchangedAxes: status: working; unchangedAxes: semanticCoverageStatus: partial |
+| Reale Pilotierung | realPilotCompleted: false; syntheticValidationOnly: true |
+| Flexible Module | flexibleModulesOutsideCorePreserved: true; flexibleModuleSubstitution: forbidden; Flexible Vertiefungs-, Transfer- und Projektmodule bleiben sichtbar erhalten. |
+<!-- IUM11-PUBLICATION-CONTRACT:END -->
+
 ## Aussagegrenze und Prüfgegenstand
 
-Geprüft wird das IUM11-Instrument für 40 UE, 4 Cluster, 10 Module und 5 Pilotstufen mit Protokollversion `1.0.0` und Werkzeugversion `1.0.0`. Ein positiver Minimalpilot trägt ausschließlich die Aussage `documented-conditions-only` und höchstens die Empfehlung `eligible-for-working-availability-review`. Die drei folgenden Gates werden personell und protokollarisch getrennt entschieden.
+Geprüft wird das IUM11-Instrument unter den verbindlichen Bedingungen des automatisch erzeugten Faktenblocks. Ein positiver Minimalpilot ist keine allgemeine Wirksamkeits- oder Reifeaussage. Die folgenden Gates werden personell und protokollarisch getrennt entschieden.
 
 ## Gate 1: Fachreview
 
@@ -27,26 +44,20 @@ Das Engineering-/Privacyreview prüft gemeinsam, aber getrennt dokumentiert:
 - Protokoll-, Werkzeug- und Zeitmodellfingerprints sowie versionsgleiche Imports;
 - Offlinebetrieb und No-Persistence ohne Backend, Konto, Netzwerk, Cookie, Telemetrie oder Browserspeicher;
 - Abwesenheit verbotener Felder, Rohprodukte, Links, Freitexte und Einzelantworten;
-- Unterdrückung unter der Privacy-Schwelle 10 und die ganzzahlige Warnschwelle;
+- Unterdrückung kleiner Gruppen und die ganzzahlige Warnschwelle;
 - harte Clusterbudgets und ausschließlich additive Rückfallbedarfe;
 - Privacy-Exportblockade und fail-closed Fehlerwege;
 - Tastaturbedienung, Fokus, Fehlerresümee, Live-Status, Reflow, Kontrast und mindestens 44 × 44 CSS-Pixel große Bedienziele;
 - die aktuelle Browserbaseline und lokale Dateiabläufe für Import, Prüfung und Download;
-- Synchronität von Protokoll `1.0.0`, Werkzeug `1.0.0`, Schemas, Code, Anleitungen, 40 UE, 4 Clustern, 10 Modulen und 5 Stufen.
+- Synchronität von Protokoll, Werkzeug, Schemas, Code und Anleitungen mit dem Faktenblock.
 
 Ein offener Engineering-, Privacy- oder Accessibilitybefund verhindert das Gate.
 
 ## Gate 3: Auftraggebergate
 
-Das Auftraggebergate erhält nur validierte Klassenaggregate, das Entscheidungspaket und die getrennten Reviewurteile. Bei positivem Minimalpilot sind als spätere, ausdrücklich zu beschließende Änderungen genau zulässig:
+Das Auftraggebergate erhält nur validierte Klassenaggregate, das Entscheidungspaket und die getrennten Reviewurteile. Die ausschließlich später und ausdrücklich zu beschließenden Änderungen sowie die unveränderlichen Achsen stehen im Faktenblock.
 
-- `availabilityStatus: available`
-- `timeFeasibilityStatus: green`
-- `pilotStatus: completed`
-
-Das Instrument mutiert diese Werte nicht. Die Achsen `status: working` und `semanticCoverageStatus: partial` bleiben unverändert. Die Minimalpilotaussage bleibt `documented-conditions-only`; sie ist keine allgemeine Wirksamkeits- oder Reifeaussage.
-
-`reviewed` und `standard` bleiben gesperrt. Für eine spätere Reifeentscheidung ist mindestens eine zweite unabhängige End-to-End-Jahresdurchführung unter den dann dokumentierten Bedingungen sowie ein erneutes Fachreview, Engineering-/Privacyreview und Auftraggebergate erforderlich.
+Das Instrument mutiert diese Werte nicht. Für eine spätere Reifeentscheidung ist mindestens eine zweite unabhängige End-to-End-Jahresdurchführung unter den dann dokumentierten Bedingungen sowie ein erneutes Fachreview, Engineering-/Privacyreview und Auftraggebergate erforderlich.
 
 ## Retention und Veröffentlichung nach der Entscheidung
 
