@@ -868,6 +868,55 @@ class IUM11CockpitParityTests(unittest.TestCase):
         self.assert_python_and_javascript_reject(missing_phase)
         self.assert_python_and_javascript_reject(privacy)
 
+    def test_privacy_failure_precedes_interpretability_loss_across_runtimes(self):
+        cluster_package = copy.deepcopy(
+            self.examples["synthetic-cluster-programming-pass.json"]
+        )
+        cluster_package["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        cluster_package["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+        cluster = self.protocol["clustersById"][cluster_package["scopeId"]]
+        python_cluster = derive_cluster_result(cluster_package, cluster, self.protocol)
+        javascript_cluster = call_javascript(
+            "deriveClusterResult",
+            cluster_package,
+            self.compiled_contract["clusters"][cluster["order"] - 1],
+        )
+        self.assertEqual(javascript_cluster, python_cluster)
+        self.assertEqual(javascript_cluster["result"], "fail")
+
+        annual = copy.deepcopy(self.annual)
+        annual["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        annual["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+        python_annual = derive_annual_result(
+            annual, self.positive_clusters, self.protocol
+        )
+        javascript_annual = call_javascript(
+            "deriveAnnualResult", annual, self.positive_clusters
+        )
+        self.assertEqual(javascript_annual, python_annual)
+        self.assertEqual(javascript_annual["result"], "fail")
+
+    def test_context_consistency_fails_closed_across_runtimes(self):
+        cases = []
+        under_ten = copy.deepcopy(self.examples["synthetic-cluster-pass.json"])
+        under_ten["context"]["classSizeBand"] = "under-10"
+        cases.append(under_ten)
+        annual_half_year = copy.deepcopy(self.annual)
+        annual_half_year["context"]["term"] = "first-half"
+        cases.append(annual_half_year)
+
+        for package in cases:
+            with self.subTest(scope_id=package["scopeId"]):
+                self.assert_python_and_javascript_reject(package)
+
+        clusters = copy.deepcopy(self.positive_clusters)
+        clusters[0]["context"]["schoolYear"] = "2025-26"
+        with self.assertRaisesRegex(IUM11ValidationError, "schoolYear"):
+            derive_annual_result(self.annual, clusters, self.protocol)
+        self.assertTrue(
+            javascript_rejects("deriveAnnualResult", self.annual, clusters)
+        )
+
     def test_equivalent_fallback_replaces_technical_failure(self):
         package = copy.deepcopy(self.examples["synthetic-cluster-programming-pass.json"])
         package["deliveryTimeEvidence"]["fallbackActivated"] = True

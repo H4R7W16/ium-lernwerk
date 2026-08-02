@@ -485,6 +485,7 @@ def derive_cluster_result(payload: dict, cluster: dict, protocol: dict) -> dict:
     delivery = payload["deliveryTimeEvidence"]
     technical_privacy = payload["technicalPrivacyEvidence"]
     not_evaluable = delivery["externalDisruptionCode"] == "interpretability-lost"
+    privacy_failed = technical_privacy["privacyGate"] != "pass"
     module_results = _derive_module_results(payload, cluster)
     integration_result = _derive_integration_result(payload, cluster)
     pulse = evaluate_learner_pulse(payload["learnerPulseEvidence"], protocol)
@@ -501,10 +502,18 @@ def derive_cluster_result(payload: dict, cluster: dict, protocol: dict) -> dict:
         any(item["result"] != "pass" for item in module_results),
         integration_result["result"] != "pass",
         not technical_path_passed,
-        technical_privacy["privacyGate"] != "pass",
+        privacy_failed,
         bool(pulse["warnings"]),
     ])
-    result = "not-evaluable" if not_evaluable else "fail" if failed else "pass"
+    result = (
+        "fail"
+        if privacy_failed
+        else "not-evaluable"
+        if not_evaluable
+        else "fail"
+        if failed
+        else "pass"
+    )
     return {
         "result": result,
         "moduleResults": module_results,
@@ -519,6 +528,28 @@ def _validate_context(context: object, protocol: dict) -> None:
     _require(isinstance(context["schoolYear"], str) and SCHOOL_YEAR_PATTERN.fullmatch(context["schoolYear"]), "schoolYear is invalid")
     for field, values in protocol["contextEnums"].items():
         _require_enum(context[field], values, f"context {field}")
+
+
+def _validate_context_learner_pulse_consistency(
+    context: dict,
+    learner_pulse: dict,
+) -> None:
+    class_size_band = context["classSizeBand"]
+    if class_size_band == "under-10":
+        _require(
+            learner_pulse["status"] == "suppressed-small-group",
+            "classSizeBand under-10 requires suppressed-small-group",
+        )
+        return
+    if learner_pulse["status"] != "reported":
+        return
+    maximum_by_band = {"10-19": 19, "20-29": 29}
+    maximum = maximum_by_band.get(class_size_band)
+    if maximum is not None:
+        _require(
+            learner_pulse["classResponseCount"] <= maximum,
+            f"classResponseCount exceeds classSizeBand {class_size_band}",
+        )
 
 
 def _validate_delivery_time(payload: object, scope: dict, is_annual: bool) -> None:
@@ -615,6 +646,7 @@ def _validate_evidence_package_contract(payload: dict, protocol: dict) -> dict:
     else:
         scope = protocol["annualPilot"]
         _require(payload["scopeId"] == scope["id"], "annual scopeId differs from contract")
+        _require(payload["context"]["term"] == "full-year", "annual context term must be full-year")
         clusters = [protocol["clustersById"][cluster_id] for cluster_id in scope["clusterIds"]]
         modules = [module for cluster in clusters for module in cluster["modules"]]
         integrations = [cluster["integration"] for cluster in clusters]
@@ -626,6 +658,9 @@ def _validate_evidence_package_contract(payload: dict, protocol: dict) -> dict:
     _require(delivery["requiredLearningPhasesCompleted"] is True, "required learning phases must be complete")
     _validate_learning_quality(payload["learningQualityEvidence"], modules, integrations, protocol)
     learner_pulse = evaluate_learner_pulse(payload["learnerPulseEvidence"], protocol)
+    _validate_context_learner_pulse_consistency(
+        payload["context"], payload["learnerPulseEvidence"]
+    )
     _validate_technical_privacy(payload["technicalPrivacyEvidence"])
     _validate_development_warnings(payload["developmentWarnings"], learner_pulse["warnings"])
     if is_cluster:
@@ -717,6 +752,7 @@ def _derive_annual_evidence_result(annual_payload: dict, protocol: dict) -> dict
         "privacy": "passed" if annual_payload["technicalPrivacyEvidence"]["privacyGate"] == "pass" else "failed",
     }
     annual_not_evaluable = delivery["externalDisruptionCode"] == "interpretability-lost"
+    annual_privacy_failed = availability_conditions["privacy"] == "failed"
     annual_failed = any([
         not availability_conditions["capacity"],
         availability_conditions["integration"] == "failed",
@@ -726,7 +762,9 @@ def _derive_annual_evidence_result(annual_payload: dict, protocol: dict) -> dict
         bool(pulse["warnings"]),
     ])
     annual_result = (
-        "not-evaluable"
+        "fail"
+        if annual_privacy_failed
+        else "not-evaluable"
         if annual_not_evaluable
         else "fail"
         if annual_failed
@@ -784,6 +822,10 @@ def derive_annual_result(
             len({item[field] for item in annual_sources}) == 1,
             f"annual source {field} values differ",
         )
+    _require(
+        len({item["context"]["schoolYear"] for item in annual_sources}) == 1,
+        "annual source schoolYear values differ",
+    )
     _require(annual_payload["protocolVersion"] == protocol["protocolVersion"], "annual protocolVersion differs")
     _require(annual_payload["protocolFingerprint"] == protocol["protocolFingerprint"], "annual protocolFingerprint differs")
     _require(annual_payload["toolVersion"] == protocol["toolVersion"], "annual toolVersion differs")
@@ -929,6 +971,17 @@ def validate_decision_package(payload: dict, protocol: dict, time_model: dict) -
     _require_exact_fields(review_status, REVIEW_STATUS_FIELDS, "review status")
     for value in review_status.values():
         _require_enum(value, ["not-started", "passed", "failed"], "review status")
+    if review_status["engineeringPrivacy"] != "not-started":
+        _require(
+            review_status["fach"] == "passed",
+            "engineering/privacy review requires passed fach review",
+        )
+    if review_status["commissioner"] != "not-started":
+        _require(
+            review_status["fach"] == "passed"
+            and review_status["engineeringPrivacy"] == "passed",
+            "commissioner review requires passed fach and engineering/privacy reviews",
+        )
 
     annual_result = payload["pilotResults"][-1]["result"]
     _require(

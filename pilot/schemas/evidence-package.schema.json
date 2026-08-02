@@ -26,7 +26,21 @@
   },
   "oneOf": [
     {"properties": {"packageType": {"const": "cluster-evidence"}, "scopeType": {"const": "cluster"}, "deliveryTimeEvidence": {"$ref": "#/$defs/clusterDelivery"}}},
-    {"properties": {"packageType": {"const": "annual-evidence"}, "scopeType": {"const": "annual"}, "deliveryTimeEvidence": {"$ref": "#/$defs/annualDelivery"}}}
+    {"properties": {"packageType": {"const": "annual-evidence"}, "scopeType": {"const": "annual"}, "context": {"properties": {"term": {"const": "full-year"}}}, "deliveryTimeEvidence": {"$ref": "#/$defs/annualDelivery"}}}
+  ],
+  "allOf": [
+    {
+      "if": {"properties": {"context": {"properties": {"classSizeBand": {"const": "under-10"}}}}},
+      "then": {"properties": {"learnerPulseEvidence": {"properties": {"status": {"const": "suppressed-small-group"}}}}}
+    },
+    {
+      "if": {"properties": {"context": {"properties": {"classSizeBand": {"const": "10-19"}}}}},
+      "then": {"properties": {"learnerPulseEvidence": {"properties": {"classResponseCount": {"maximum": 19}}}}}
+    },
+    {
+      "if": {"properties": {"context": {"properties": {"classSizeBand": {"const": "20-29"}}}}},
+      "then": {"properties": {"learnerPulseEvidence": {"properties": {"classResponseCount": {"maximum": 29}}}}}
+    }
   ],
   "$defs": {
     "context": {"type": "object", "additionalProperties": false, "required": ["schoolYear", "term", "classSizeBand", "deviceClass", "browserFamily", "networkMode"], "properties": {"schoolYear": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"}, "term": {"enum": ["first-half", "second-half", "full-year"]}, "classSizeBand": {"enum": ["under-10", "10-19", "20-29", "30-plus"]}, "deviceClass": {"enum": ["desktop", "laptop", "tablet", "mixed"]}, "browserFamily": {"enum": ["chromium", "firefox", "safari", "mixed"]}, "networkMode": {"enum": ["offline", "school-network", "local-fallback"]}}},

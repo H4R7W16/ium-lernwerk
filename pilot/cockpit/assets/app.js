@@ -279,6 +279,7 @@
     const delivery = payload.deliveryTimeEvidence;
     const technicalPrivacy = payload.technicalPrivacyEvidence;
     const notEvaluable = delivery.externalDisruptionCode === 'interpretability-lost';
+    const privacyFailed = technicalPrivacy.privacyGate !== 'pass';
     const moduleResults = deriveModuleResults(payload, cluster);
     const integrationResult = deriveIntegrationResult(payload, cluster);
     const pulse = evaluateLearnerPulse(payload.learnerPulseEvidence, protocol);
@@ -289,9 +290,9 @@
       moduleResults.some(function (item) { return item.result !== 'pass'; }) ||
       integrationResult.result !== 'pass' ||
       !technicalPathPassed ||
-      technicalPrivacy.privacyGate !== 'pass' ||
+      privacyFailed ||
       pulse.warnings.length > 0;
-    const result = notEvaluable ? 'not-evaluable' : failed ? 'fail' : 'pass';
+    const result = privacyFailed ? 'fail' : (notEvaluable ? 'not-evaluable' : (failed ? 'fail' : 'pass'));
     return {
       result: result,
       moduleResults: moduleResults,
@@ -325,6 +326,27 @@
     Object.keys(protocol.contextEnums).forEach(function (field) {
       requireEnum(context[field], protocol.contextEnums[field], `context ${field}`);
     });
+  }
+
+  function validateContextLearnerPulseConsistency(context, learnerPulse) {
+    if (context.classSizeBand === 'under-10') {
+      requireCondition(
+        learnerPulse.status === 'suppressed-small-group',
+        'classSizeBand under-10 requires suppressed-small-group'
+      );
+      return;
+    }
+    if (learnerPulse.status !== 'reported') {
+      return;
+    }
+    const maximumByBand = {'10-19': 19, '20-29': 29};
+    const maximum = maximumByBand[context.classSizeBand];
+    if (maximum !== undefined) {
+      requireCondition(
+        learnerPulse.classResponseCount <= maximum,
+        `classResponseCount exceeds classSizeBand ${context.classSizeBand}`
+      );
+    }
   }
 
   function validateDeliveryTime(payload, scope, isAnnual) {
@@ -458,6 +480,7 @@
     } else {
       scope = protocol.annualPilot;
       requireCondition(payload.scopeId === scope.id, 'annual scopeId differs from contract');
+      requireCondition(payload.context.term === 'full-year', 'annual context term must be full-year');
       const clusters = scope.clusterIds.map(function (clusterId) {
         return findCluster(protocol, clusterId);
       });
@@ -478,6 +501,7 @@
     );
     validateLearningQuality(payload.learningQualityEvidence, modules, integrations);
     const learnerPulse = evaluateLearnerPulse(payload.learnerPulseEvidence, protocol);
+    validateContextLearnerPulseConsistency(payload.context, payload.learnerPulseEvidence);
     validateTechnicalPrivacy(payload.technicalPrivacyEvidence);
     validateWarnings(payload.developmentWarnings, learnerPulse.warnings);
     if (isCluster) {
@@ -553,9 +577,10 @@
     const technical = technicalPathPassed(annualPayload) ? 'passed' : 'failed';
     const privacy = annualPayload.technicalPrivacyEvidence.privacyGate === 'pass' ? 'passed' : 'failed';
     const notEvaluable = delivery.externalDisruptionCode === 'interpretability-lost';
+    const privacyFailed = privacy === 'failed';
     const failed = !capacityPassed || integration === 'failed' || technical === 'failed' ||
       privacy === 'failed' || !modulesPassed || pulse.warnings.length > 0;
-    const result = notEvaluable ? 'not-evaluable' : failed ? 'fail' : 'pass';
+    const result = privacyFailed ? 'fail' : (notEvaluable ? 'not-evaluable' : (failed ? 'fail' : 'pass'));
     return {
       result: result,
       actualUnits: delivery.actualUnits,
@@ -591,6 +616,10 @@
     ['protocolVersion', 'protocolFingerprint', 'toolVersion', 'timeModelFingerprint'].forEach(function (field) {
       requireCondition(new Set(annualSources.map(function (item) { return item[field]; })).size === 1, `annual source ${field} values differ`);
     });
+    requireCondition(
+      new Set(annualSources.map(function (item) { return item.context.schoolYear; })).size === 1,
+      'annual source schoolYear values differ'
+    );
     requireCondition(annualPayload.protocolVersion === protocol.protocolVersion, 'annual protocolVersion differs');
     requireCondition(annualPayload.protocolFingerprint === protocol.protocolFingerprint, 'annual protocolFingerprint differs');
     requireCondition(annualPayload.toolVersion === protocol.toolVersion, 'annual toolVersion differs');

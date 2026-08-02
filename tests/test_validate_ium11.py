@@ -323,6 +323,48 @@ class IUM11EvidencePackageTests(unittest.TestCase):
             validated["learnerPulseEvidence"], {"status": "suppressed-small-group"}
         )
 
+    def test_class_size_band_and_learner_response_count_must_be_consistent(self):
+        cases = (
+            ("under-10", reported_pulse(agree=12, partly=0, disagree=0, no_answer=0)),
+            ("10-19", reported_pulse(agree=20, partly=0, disagree=0, no_answer=0)),
+            ("20-29", reported_pulse(agree=30, partly=0, disagree=0, no_answer=0)),
+        )
+        for class_size_band, learner_pulse in cases:
+            payload = valid_cluster_package()
+            payload["context"]["classSizeBand"] = class_size_band
+            payload["learnerPulseEvidence"] = learner_pulse
+            with self.subTest(class_size_band=class_size_band):
+                with self.assertRaisesRegex(IUM11ValidationError, "classSizeBand"):
+                    validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_annual_package_requires_full_year_context(self):
+        payload = valid_annual_package()
+        payload["context"]["term"] = "first-half"
+
+        with self.assertRaisesRegex(IUM11ValidationError, "full-year"):
+            validate_evidence_package(payload, self.protocol, self.time_model)
+
+    def test_evidence_schema_encodes_context_consistency(self):
+        schema = load_json(self.root / "pilot/schemas/evidence-package.schema.json")
+        annual_branch = schema["oneOf"][1]["properties"]
+        self.assertEqual(
+            annual_branch["context"]["properties"]["term"],
+            {"const": "full-year"},
+        )
+        class_band_conditions = {
+            item["if"]["properties"]["context"]["properties"]["classSizeBand"]["const"]: item["then"]
+            for item in schema["allOf"]
+        }
+        self.assertEqual(
+            class_band_conditions["under-10"]["properties"]["learnerPulseEvidence"]["properties"]["status"],
+            {"const": "suppressed-small-group"},
+        )
+        for class_size_band, maximum in (("10-19", 19), ("20-29", 29)):
+            self.assertEqual(
+                class_band_conditions[class_size_band]["properties"]["learnerPulseEvidence"]["properties"]["classResponseCount"],
+                {"maximum": maximum},
+            )
+
     def test_school_year_accepts_any_four_digit_year_prefix(self):
         payload = valid_cluster_package()
         payload["context"]["schoolYear"] = "1999-00"
@@ -612,6 +654,15 @@ class IUM11ClusterResultTests(unittest.TestCase):
         self.assertEqual(result["result"], "not-evaluable")
         self.assertEqual(result["fallbackDeltaUnits"], 0)
 
+    def test_privacy_failure_has_priority_over_interpretability_loss(self):
+        payload = valid_cluster_package()
+        payload["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        payload["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+
+        result = self.derive(payload)
+
+        self.assertEqual(result["result"], "fail")
+
     def test_learner_warning_boundaries_are_derived_from_valid_responses(self):
         cases = (
             (3, 10, "pass", []),
@@ -682,6 +733,13 @@ class IUM11DecisionPackageTests(unittest.TestCase):
                 with self.assertRaises(IUM11ValidationError):
                     build_decision_package(packages, self.protocol, self.time_model)
 
+    def test_annual_sources_require_one_school_year(self):
+        packages = five_positive_packages()
+        packages[0]["context"]["schoolYear"] = "2025-26"
+
+        with self.assertRaisesRegex(IUM11ValidationError, "schoolYear"):
+            build_decision_package(packages, self.protocol, self.time_model)
+
     def test_annual_interpretability_loss_builds_not_evaluable_decision(self):
         packages = five_positive_packages()
         annual = packages[-1]
@@ -694,6 +752,17 @@ class IUM11DecisionPackageTests(unittest.TestCase):
         self.assertEqual(package["availabilityGateResults"]["pilot"], "failed")
         self.assertEqual(package["recommendation"], "not-evaluable")
         validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_annual_privacy_failure_has_priority_over_interpretability_loss(self):
+        packages = five_positive_packages()
+        annual = packages[-1]
+        annual["deliveryTimeEvidence"]["externalDisruptionCode"] = "interpretability-lost"
+        annual["technicalPrivacyEvidence"]["privacyGate"] = "fail"
+
+        result = derive_annual_result(annual, packages[:4], self.protocol)
+
+        self.assertEqual(result["result"], "fail")
+        self.assertEqual(result["availabilityGateResults"]["privacy"], "failed")
 
     def test_annual_failure_builds_repeat_required_decision(self):
         packages = five_positive_packages()
@@ -943,6 +1012,45 @@ class IUM11DecisionPackageTests(unittest.TestCase):
         package["recommendation"] = "repeat-required"
         with self.assertRaisesRegex(IUM11ValidationError, "40|budget"):
             validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_review_statuses_follow_the_three_gate_sequence(self):
+        invalid_statuses = (
+            {"fach": "not-started", "engineeringPrivacy": "passed", "commissioner": "not-started"},
+            {"fach": "not-started", "engineeringPrivacy": "failed", "commissioner": "not-started"},
+            {"fach": "passed", "engineeringPrivacy": "not-started", "commissioner": "passed"},
+            {"fach": "passed", "engineeringPrivacy": "failed", "commissioner": "failed"},
+        )
+        for review_status in invalid_statuses:
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package["reviewStatus"] = review_status
+            with self.subTest(review_status=review_status):
+                with self.assertRaisesRegex(IUM11ValidationError, "review|Review"):
+                    validate_decision_package(package, self.protocol, self.time_model)
+
+        for commissioner in ("passed", "failed"):
+            package = build_decision_package(five_positive_packages(), self.protocol, self.time_model)
+            package["reviewStatus"] = {
+                "fach": "passed",
+                "engineeringPrivacy": "passed",
+                "commissioner": commissioner,
+            }
+            validate_decision_package(package, self.protocol, self.time_model)
+
+    def test_decision_schema_encodes_review_sequence(self):
+        schema = load_json(self.root / "pilot/schemas/decision-package.schema.json")
+        review_status = schema["$defs"]["reviewStatus"]
+        self.assertEqual(len(review_status["allOf"]), 2)
+        engineering_rule, commissioner_rule = review_status["allOf"]
+        self.assertEqual(
+            engineering_rule["then"]["properties"]["fach"], {"const": "passed"}
+        )
+        self.assertEqual(
+            commissioner_rule["then"]["properties"],
+            {
+                "fach": {"const": "passed"},
+                "engineeringPrivacy": {"const": "passed"},
+            },
+        )
 
     def test_build_rejects_duplicate_scopes_and_mixed_fingerprints(self):
         packages = five_positive_packages()

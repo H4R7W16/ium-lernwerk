@@ -1,9 +1,12 @@
 # IUM10 – Zeitmodell der Modulroadmap überarbeiten
 
 **Status:** `approved` – am 30. Juli 2026 schriftlich als Gesamtspezifikation freigegeben
-**Stand:** 30. Juli 2026  
-**Scope:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E  
-**Voraussetzung:** IUM09-Endbilanz 164 `covered` / 7 `partial` durch den Auftraggeber angenommen  
+**Stand:** 30. Juli 2026
+
+**Scope:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
+
+**Voraussetzung:** IUM09-Endbilanz 164 `covered` / 7 `partial` durch den Auftraggeber angenommen
+
 **Implementierungsgrenze:** Diese Spezifikation entwirft IUM10. Sie implementiert weder das Zeitmodell noch Phase 1.
 
 ## 1. Zweck und Entscheidungszusammenfassung
@@ -110,13 +113,16 @@ Diese Zahlen sind eine datierte Projektberechnung für den Belastungstest. Sie s
 
 Das Modell unterscheidet drei Kapazitätsebenen:
 
-1. **Kalenderkapazität**  
+1. **Kalenderkapazität**
+
    Rechnerisch mögliche Fachstunden nach landesweit festen Ferien und Feiertagen.
 
-2. **Lokale Kapazität**  
+2. **Lokale Kapazität**
+
    Erwartbare Stunden nach beweglichen Ferientagen, pädagogischen Tagen, Praktika, Veranstaltungen und bekannten schulischen Besonderheiten.
 
-3. **Planungskapazität**  
+3. **Planungskapazität**
+
    Der vom Lernwerk angebotene und von der Lehrkraft gewählte Jahrespfad.
 
 ### 3.4 Drei Jahrespfade

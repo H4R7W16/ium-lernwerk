@@ -134,7 +134,17 @@
         "fach": {"enum": ["not-started", "passed", "failed"]},
         "engineeringPrivacy": {"enum": ["not-started", "passed", "failed"]},
         "commissioner": {"enum": ["not-started", "passed", "failed"]}
-      }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"engineeringPrivacy": {"enum": ["passed", "failed"]}}},
+          "then": {"properties": {"fach": {"const": "passed"}}}
+        },
+        {
+          "if": {"properties": {"commissioner": {"enum": ["passed", "failed"]}}},
+          "then": {"properties": {"fach": {"const": "passed"}, "engineeringPrivacy": {"const": "passed"}}}
+        }
+      ]
     }
   }
 }
