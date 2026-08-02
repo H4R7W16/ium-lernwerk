@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "TEST-CURRICULUM",
+  "records": [
+    {
+      "id": "TEST-COMP-001",
+      "text": "Technische Referenzkompetenz ohne Unterrichtsgeltung",
+      "recordType": "test-fixture"
+    }
+  ]
+}

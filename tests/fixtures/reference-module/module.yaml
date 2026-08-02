@@ -1,0 +1,55 @@
+schemaVersion: 1
+id: TEST-PLATFORM-REFERENCE
+version: 1.0.0
+title: Technische Systemprobe
+status: draft
+grade: 5
+kind: core
+strands:
+  - TEST-STRAND
+time:
+  minLessons: 1
+  maxLessons: 1
+  contractId: TEST-TIME-001
+prerequisites: []
+curriculum:
+  competencyIds:
+    - TEST-COMP-001
+  coverageEvidenceIds:
+    - TEST-COV-001
+learningDesign:
+  centralQuestion: Wie bleibt ein technischer Zustand lokal erhalten?
+  goals:
+    - Einen synthetischen Zustand technisch verändern
+  actions:
+    - Synthetische Eingabe ändern
+    - Lokalen Zustand exportieren und wieder einlesen
+  product: Synthetischer Referenzzustand
+  misconceptions: []
+  scaffolds: []
+components:
+  - fixture-workspace
+media:
+  digitalFunction: Den technischen Local-First-Datenfluss ohne Unterrichtsgeltung prüfen
+  analogMaterials: []
+data:
+  stateSchemaVersion: 1
+  fields:
+    - text
+    - choice
+  exportable: true
+  deletable: true
+offline:
+  core: true
+  externalResources: []
+accessibility:
+  alternatives: []
+  manualChecks:
+    - keyboard
+    - screenreader
+licenses:
+  content: CC-BY-SA-4.0
+  code: MIT
+  assetEvidencePath: assets/licenses.json
+quality:
+  evidenceRefs: []
