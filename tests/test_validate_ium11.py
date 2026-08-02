@@ -1393,6 +1393,18 @@ class IUM11PublicationTests(unittest.TestCase):
         def wrap_whole_document(text, opening, closing):
             return f"{opening}\n{text}\n{closing}\n"
 
+        def embed_readme_structure_in_multiline_void_tag(text):
+            block = extract_publication_block(text)
+            start = text.index("## IUM11-Pilotinstrument")
+            end = text.index(block) + len(block)
+            return (
+                text[:start]
+                + "<img hidden alt='\n"
+                + text[start:end]
+                + "\n'>\n"
+                + text[end:]
+            )
+
         cases = (
             (
                 "README.md",
@@ -1493,6 +1505,21 @@ class IUM11PublicationTests(unittest.TestCase):
                     "</div></article>",
                 ),
             ),
+            (
+                "README.md",
+                "multiline-void-tag-token",
+                embed_readme_structure_in_multiline_void_tag,
+            ),
+            (
+                "README.md",
+                "self-closing-details-before-structure",
+                lambda text: "<details />\n" + text,
+            ),
+            (
+                "README.md",
+                "self-closing-custom-element-before-structure",
+                lambda text: "<status-badge />\n" + text,
+            ),
         )
         for relative_path, mutation_name, mutate in cases:
             with self.subTest(mutation=mutation_name):
@@ -1518,8 +1545,9 @@ class IUM11PublicationTests(unittest.TestCase):
             self.copy_publication_fixture(root)
             readme = root / "README.md"
             readme.write_bytes(
-                b'<img hidden alt="unrelated">\n'
-                + b'<status-badge data-purpose="unrelated" />\n'
+                b'<img hidden alt="unrelated" />\n'
+                + b'<details data-purpose="unrelated" />\n</details>\n'
+                + b'<status-badge data-purpose="unrelated" />\n</status-badge>\n'
                 + readme.read_bytes()
                 + b'\n<div hidden data-purpose="unrelated">Redaktioneller Hinweis.</div>\n'
             )
@@ -1591,6 +1619,161 @@ class IUM11PublicationTests(unittest.TestCase):
                             self.time_model,
                             self.ium10_result,
                         )
+
+    def test_full_validator_uses_commonmark_fence_info_for_readme_scope(self):
+        cases = (
+            (
+                "invalid-backtick-info",
+                "```markdown`bad\n"
+                "## Sichtbarer Folgeabschnitt\n"
+                "```\n"
+                "status: draft\n\n"
+                "## Verdeckter Folgeabschnitt\n",
+                False,
+            ),
+            (
+                "tilde-info-may-contain-backticks",
+                "~~~markdown`valid\n"
+                "## Pseudoabschnitt\n"
+                "~~~\n"
+                "status: draft\n\n"
+                "## Sichtbarer Folgeabschnitt\n",
+                True,
+            ),
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            readme = root / "README.md"
+            original = readme.read_bytes()
+            anchor = b"## Zentrale Einstiege"
+            self.assertEqual(original.count(anchor), 1)
+
+            for case_name, fragment, should_reject in cases:
+                with self.subTest(case=case_name):
+                    readme.write_bytes(
+                        original.replace(anchor, fragment.encode("utf-8") + anchor, 1)
+                    )
+                    if should_reject:
+                        with self.assertRaises(IUM11ValidationError):
+                            validate_ium11_script._validate_publication_contract(
+                                root,
+                                self.protocol,
+                                self.time_model,
+                                self.ium10_result,
+                            )
+                    else:
+                        try:
+                            validate_ium11_script._validate_publication_contract(
+                                root,
+                                self.protocol,
+                                self.time_model,
+                                self.ium10_result,
+                            )
+                        except IUM11ValidationError as error:
+                            self.fail(
+                                f"invalid backtick info changed README scope: {error}"
+                            )
+            readme.write_bytes(original)
+
+    def test_full_validator_masks_only_commonmark_indented_code_before_html(self):
+        cases = (
+            (
+                "four-space-code",
+                "    <div hidden>\n"
+                "## Sichtbarer Folgeabschnitt\n"
+                "    </div>\n"
+                "status: draft\n\n"
+                "## Spaeterer Abschnitt\n",
+                False,
+            ),
+            (
+                "tab-code",
+                "\t<div hidden>\n"
+                "## Sichtbarer Folgeabschnitt\n"
+                "\t</div>\n"
+                "status: draft\n\n"
+                "## Spaeterer Abschnitt\n",
+                False,
+            ),
+            (
+                "hanging-indent",
+                "Fortgesetzter Absatz.\n"
+                "    <div hidden>\n"
+                "## Pseudoabschnitt\n"
+                "</div>\n"
+                "status: draft\n\n"
+                "## Sichtbarer Folgeabschnitt\n",
+                True,
+            ),
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            readme = root / "README.md"
+            original = readme.read_bytes()
+            anchor = b"## Zentrale Einstiege"
+
+            for case_name, fragment, should_reject in cases:
+                with self.subTest(case=case_name):
+                    readme.write_bytes(
+                        original.replace(anchor, fragment.encode("utf-8") + anchor, 1)
+                    )
+                    if should_reject:
+                        with self.assertRaises(IUM11ValidationError):
+                            validate_ium11_script._validate_publication_contract(
+                                root,
+                                self.protocol,
+                                self.time_model,
+                                self.ium10_result,
+                            )
+                    else:
+                        try:
+                            validate_ium11_script._validate_publication_contract(
+                                root,
+                                self.protocol,
+                                self.time_model,
+                                self.ium10_result,
+                            )
+                        except IUM11ValidationError as error:
+                            self.fail(f"indented code created raw HTML state: {error}")
+            readme.write_bytes(original)
+
+    def test_full_validator_setext_scope_requires_commonmark_paragraph_text(self):
+        non_paragraph_starts = (
+            ("block-quote", "> zitierter Absatz"),
+            ("bullet-list", "- Listeneintrag"),
+            ("ordered-list", "1. Listeneintrag"),
+            ("fenced-code", "```markdown"),
+            ("atx-heading", "### Unterabschnitt"),
+            ("thematic-break", "***"),
+            ("indented-code", "    Codezeile"),
+            ("html-block", "<img alt='Hinweis'>"),
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            readme = root / "README.md"
+            original = readme.read_bytes()
+            anchor = b"## Zentrale Einstiege"
+
+            for case_name, candidate in non_paragraph_starts:
+                with self.subTest(case=case_name):
+                    fragment = f"{candidate}\n---\n"
+                    if case_name == "fenced-code":
+                        fragment += "```\n"
+                    fragment += "status: draft\n\n"
+                    readme.write_bytes(
+                        original.replace(anchor, fragment.encode("utf-8") + anchor, 1)
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+            readme.write_bytes(original)
 
     def test_validator_rejects_commonmark_indented_h2_and_h1_headings(self):
         def add_readme_h2(text, indentation, heading_text):
@@ -1764,6 +1947,79 @@ class IUM11PublicationTests(unittest.TestCase):
                             self.ium10_result,
                         )
                 guide.write_bytes(original)
+
+    def test_full_validator_allows_unicode_identifier_continuations_before_bare_axes(self):
+        axis_names = (
+            "status",
+            "availabilityStatus",
+            "timeFeasibilityStatus",
+            "sequenceEvidenceStatus",
+            "pilotStatus",
+            "semanticCoverageStatus",
+        )
+        identifier_prefixes = (
+            "a\u0301",
+            "\u00e9",
+            "a7",
+            "a_",
+            "a\u200c",
+            "a\u200d",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            original = guide.read_bytes()
+
+            for prefix in identifier_prefixes:
+                for axis_name in axis_names:
+                    declaration = f"{prefix}{axis_name}: draft"
+                    with self.subTest(
+                        prefix=prefix.encode("unicode_escape"),
+                        axis=axis_name,
+                    ):
+                        guide.write_bytes(
+                            original + ("\n" + declaration + "\n").encode("utf-8")
+                        )
+                        try:
+                            validate_ium11_script._validate_publication_contract(
+                                root,
+                                self.protocol,
+                                self.time_model,
+                                self.ium10_result,
+                            )
+                        except IUM11ValidationError as error:
+                            self.fail(
+                                "identifier continuation was treated as a boundary: "
+                                f"{error}"
+                            )
+
+            for declaration in (
+                "status: draft",
+                " status = draft",
+                "(status: draft",
+                "-status = draft",
+            ):
+                with self.subTest(boundary=declaration):
+                    guide.write_bytes(
+                        original + ("\n" + declaration + "\n").encode("utf-8")
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+            guide.write_bytes(original + b"\nStatus: draft\n")
+            validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )
+            guide.write_bytes(original)
 
     def test_publication_boundary_does_not_parse_german_grammar(self):
         sentence = "Die Pilotierung ist nicht beendet, obwohl das Fachreview beendet ist."

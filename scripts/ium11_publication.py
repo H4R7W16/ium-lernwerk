@@ -378,16 +378,23 @@ def compile_publication_contract(compiled_protocol, time_model, ium10_result):
     }
 
 
+_AXIS_ASSIGNMENT_PATTERN = re.compile(
+    r"(?:(?P<axis_quote>[\"'`])(?:status|availabilityStatus|"
+    r"timeFeasibilityStatus|sequenceEvidenceStatus|pilotStatus|"
+    r"semanticCoverageStatus)(?P=axis_quote)|(?P<bare_axis>status|"
+    r"availabilityStatus|timeFeasibilityStatus|sequenceEvidenceStatus|"
+    r"pilotStatus|semanticCoverageStatus)(?!\w))\s*[:=]",
+)
+
+
+def _is_python_identifier_continuation(character):
+    return bool(character) and ("a" + character).isidentifier()
+
+
 RESERVED_OUTSIDE_BLOCK_PATTERNS = (
     re.compile(r"[0-9]+\.[0-9]+\.[0-9]+"),
     re.compile(r"\beligible-for-[a-z0-9-]+\b", re.IGNORECASE),
-    re.compile(
-        r"(?:(?P<axis_quote>[\"'`])(?:status|availabilityStatus|"
-        r"timeFeasibilityStatus|sequenceEvidenceStatus|pilotStatus|"
-        r"semanticCoverageStatus)(?P=axis_quote)|(?<!\w)(?:status|"
-        r"availabilityStatus|timeFeasibilityStatus|sequenceEvidenceStatus|"
-        r"pilotStatus|semanticCoverageStatus)(?!\w))\s*[:=]",
-    ),
+    _AXIS_ASSIGNMENT_PATTERN,
     re.compile(
         r"\b(?:working|available|unavailable|reviewed|standard|conditional|"
         r"green|amber|red|covered|not-started|partial|completed|"
@@ -508,6 +515,16 @@ def replace_publication_block(text, block):
     return text.replace(current, block, 1)
 
 
+def _fence_opening(body):
+    opening = re.match(r"^[ ]{0,3}(`{3,}|~{3,})", body)
+    if opening is None:
+        return None
+    token = opening.group(1)
+    if token.startswith("`") and "`" in body[opening.end():]:
+        return None
+    return token
+
+
 def _fenced_code_ranges(text):
     ranges = []
     active = None
@@ -515,9 +532,8 @@ def _fenced_code_ranges(text):
     for line in text.splitlines(keepends=True):
         body = line.rstrip("\r\n")
         if active is None:
-            opening = re.match(r"^[ ]{0,3}(`{3,}|~{3,})", body)
-            if opening:
-                token = opening.group(1)
+            token = _fence_opening(body)
+            if token is not None:
                 active = (token[0], len(token), offset)
         else:
             character, minimum_length, start = active
@@ -531,6 +547,53 @@ def _fenced_code_ranges(text):
         offset += len(line)
     if active is not None:
         ranges.append((active[2], len(text)))
+    return ranges
+
+
+def _leading_indentation_width(body):
+    width = 0
+    for character in body:
+        if character == " ":
+            width += 1
+        elif character == "\t":
+            width += 4 - (width % 4)
+        else:
+            break
+    return width
+
+
+def _indented_code_ranges(text, fenced_ranges):
+    ranges = []
+    active_start = None
+    previous_blank = True
+    offset = 0
+    for line in text.splitlines(keepends=True):
+        body = line.rstrip("\r\n")
+        blank = not body.strip(" \t")
+        indentation = _leading_indentation_width(body)
+        in_fence = _position_in_ranges(offset, fenced_ranges)
+
+        if active_start is not None and not blank and indentation < 4:
+            ranges.append((active_start, offset))
+            active_start = None
+
+        if (
+            active_start is None
+            and not in_fence
+            and not blank
+            and indentation >= 4
+            and previous_blank
+        ):
+            active_start = offset
+
+        if in_fence:
+            previous_blank = False
+        elif active_start is None:
+            previous_blank = blank
+        offset += len(line)
+
+    if active_start is not None:
+        ranges.append((active_start, len(text)))
     return ranges
 
 
@@ -603,16 +666,31 @@ class _RawHtmlContainerParser(HTMLParser):
         line, column = self.getpos()
         return self.line_starts[line - 1] + column
 
+    def _record_start_tag_token(self):
+        start = self._offset()
+        token = self.get_starttag_text()
+        end = start + len(token) if token is not None else start
+        self.ranges.append((start, end))
+        return start
+
     def handle_starttag(self, tag, attrs):
         normalized = tag.lower()
+        opening_start = self._record_start_tag_token()
         if normalized not in _HTML_VOID_TAGS:
-            self.open_containers.append((normalized, self._offset()))
+            self.open_containers.append((normalized, opening_start))
 
     def handle_startendtag(self, tag, attrs):
-        return None
+        normalized = tag.lower()
+        opening_start = self._record_start_tag_token()
+        if normalized not in _HTML_VOID_TAGS:
+            self.open_containers.append((normalized, opening_start))
 
     def handle_endtag(self, tag):
         normalized = tag.lower()
+        closing_start = self._offset()
+        closing_end = self.source.find(">", closing_start)
+        closing_end = len(self.source) if closing_end < 0 else closing_end + 1
+        self.ranges.append((closing_start, closing_end))
         matching_index = next(
             (
                 index
@@ -623,9 +701,6 @@ class _RawHtmlContainerParser(HTMLParser):
         )
         if matching_index is None:
             return
-        closing_start = self._offset()
-        closing_end = self.source.find(">", closing_start)
-        closing_end = len(self.source) if closing_end < 0 else closing_end + 1
         for _, opening_start in self.open_containers[matching_index:]:
             self.ranges.append((opening_start, closing_end))
         del self.open_containers[matching_index:]
@@ -639,8 +714,8 @@ class _RawHtmlContainerParser(HTMLParser):
         return sorted(self.ranges)
 
 
-def _raw_html_container_ranges(text, fenced_ranges, comment_ranges):
-    searchable = _mask_ranges(text, (*fenced_ranges, *comment_ranges))
+def _raw_html_container_ranges(text, code_ranges, comment_ranges):
+    searchable = _mask_ranges(text, (*code_ranges, *comment_ranges))
     parser = _RawHtmlContainerParser(searchable)
     parser.feed(searchable)
     return parser.finish()
@@ -648,13 +723,15 @@ def _raw_html_container_ranges(text, fenced_ranges, comment_ranges):
 
 def _markdown_visibility_ranges(text):
     fenced_ranges = _fenced_code_ranges(text)
-    comment_ranges = _html_comment_ranges(text, fenced_ranges)
+    indented_ranges = _indented_code_ranges(text, fenced_ranges)
+    code_ranges = (*fenced_ranges, *indented_ranges)
+    comment_ranges = _html_comment_ranges(text, code_ranges)
     raw_html_ranges = _raw_html_container_ranges(
         text,
-        fenced_ranges,
+        code_ranges,
         comment_ranges,
     )
-    return fenced_ranges, comment_ranges, raw_html_ranges
+    return fenced_ranges, indented_ranges, comment_ranges, raw_html_ranges
 
 
 def _position_enclosed_by_comment(position, comment_ranges):
@@ -671,6 +748,36 @@ def _is_thematic_break(body):
         r"[ ]{0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})",
         body,
     ))
+
+
+def _is_html_block_start(body):
+    return bool(re.match(
+        r"^[ ]{0,3}(?:</?[A-Za-z][A-Za-z0-9-]*(?:[ \t/>]|$)|"
+        r"<!--|<\?|<![A-Z]|<!\[CDATA\[)",
+        body,
+        re.IGNORECASE,
+    ))
+
+
+def _is_setext_paragraph_text(body):
+    stripped = body.lstrip(" ")
+    indentation = len(body) - len(stripped)
+    if (
+        not stripped
+        or indentation > 3
+        or stripped.startswith("\t")
+        or _fence_opening(body) is not None
+        or _atx_heading_level(body) is not None
+        or _is_thematic_break(body)
+        or _is_html_block_start(body)
+        or re.match(r"^[ ]{0,3}>", body)
+        or re.match(
+            r"^[ ]{0,3}(?:[-+*](?:[ \t]+|$)|[0-9]{1,9}[.)](?:[ \t]+|$))",
+            body,
+        )
+    ):
+        return False
+    return True
 
 
 def _visible_heading_spans(text, invisible_ranges):
@@ -693,16 +800,10 @@ def _visible_heading_spans(text, invisible_ranges):
         if not setext_match or index == 0:
             continue
         previous_start, _, previous_body = lines[index - 1]
+        if not _is_setext_paragraph_text(previous_body):
+            continue
         stripped_previous = previous_body.lstrip(" ")
         previous_indentation = len(previous_body) - len(stripped_previous)
-        if (
-            not stripped_previous
-            or previous_indentation > 3
-            or stripped_previous.startswith("\t")
-            or _atx_heading_level(previous_body) is not None
-            or _is_thematic_break(previous_body)
-        ):
-            continue
         text_position = previous_start + previous_indentation
         underline_position = line_start + setext_match.start(1)
         if (
@@ -766,12 +867,27 @@ def validate_publication_embedding(relative_path, text):
     block_start = text.index(block)
     block_end = block_start + len(block)
     end_marker_start = block_end - len(PUBLICATION_END_MARKER)
-    fenced_ranges, comment_ranges, raw_html_ranges = _markdown_visibility_ranges(text)
-    invisible_ranges = (*fenced_ranges, *comment_ranges, *raw_html_ranges)
+    (
+        fenced_ranges,
+        indented_ranges,
+        comment_ranges,
+        raw_html_ranges,
+    ) = _markdown_visibility_ranges(text)
+    invisible_ranges = (
+        *fenced_ranges,
+        *indented_ranges,
+        *comment_ranges,
+        *raw_html_ranges,
+    )
     _require(
         not _position_in_ranges(block_start, fenced_ranges)
         and not _position_in_ranges(end_marker_start, fenced_ranges),
         f"{relative_path}: publication marker must not be inside a code fence",
+    )
+    _require(
+        not _position_in_ranges(block_start, indented_ranges)
+        and not _position_in_ranges(end_marker_start, indented_ranges),
+        f"{relative_path}: publication marker must not be inside indented code",
     )
     _require(
         not _position_enclosed_by_comment(block_start, comment_ranges)
@@ -816,8 +932,11 @@ def validate_publication_text_boundary(relative_path, text):
         else remaining
     )
     for pattern in RESERVED_OUTSIDE_BLOCK_PATTERNS:
-        match = pattern.search(inspected)
-        if match:
+        for match in pattern.finditer(inspected):
+            if pattern is _AXIS_ASSIGNMENT_PATTERN and match.group("bare_axis"):
+                preceding = inspected[match.start() - 1] if match.start() else ""
+                if _is_python_identifier_continuation(preceding):
+                    continue
             raise IUM11PublicationError(
                 f"{relative_path}: reserved publication form {match.group(0)!r}"
             )

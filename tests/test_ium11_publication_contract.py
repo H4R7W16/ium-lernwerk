@@ -426,6 +426,164 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                     guide + non_assignment + "\n",
                 )
 
+    def test_boundary_allows_unicode_identifier_continuations_before_bare_axes(self):
+        block = render_publication_markdown_block(self.compile())
+        guide = f"# Anleitung\n\n{block}\n\nErklaerende deutsche Prosa.\n"
+        axis_names = (
+            "status",
+            "availabilityStatus",
+            "timeFeasibilityStatus",
+            "sequenceEvidenceStatus",
+            "pilotStatus",
+            "semanticCoverageStatus",
+        )
+        identifier_prefixes = (
+            "a\u0301",
+            "\u00e9",
+            "a7",
+            "a_",
+            "a\u200c",
+            "a\u200d",
+        )
+
+        for prefix in identifier_prefixes:
+            for axis_name in axis_names:
+                declaration = f"{prefix}{axis_name}: draft"
+                with self.subTest(prefix=prefix.encode("unicode_escape"), axis=axis_name):
+                    try:
+                        validate_publication_text_boundary(
+                            "pilot/docs/teacher-guide.md",
+                            guide + declaration + "\n",
+                        )
+                    except IUM11PublicationError as error:
+                        self.fail(
+                            f"identifier continuation was treated as a boundary: {error}"
+                        )
+
+        for declaration in (
+            "status: draft",
+            " status = draft",
+            "(status: draft",
+            "-status = draft",
+        ):
+            with self.subTest(boundary=declaration):
+                with self.assertRaises(IUM11PublicationError):
+                    validate_publication_text_boundary(
+                        "pilot/docs/teacher-guide.md",
+                        guide + declaration + "\n",
+                    )
+
+        validate_publication_text_boundary(
+            "pilot/docs/teacher-guide.md",
+            guide + "Status: draft\n",
+        )
+
+    def test_readme_scope_uses_commonmark_fence_info_rules(self):
+        block = render_publication_markdown_block(self.compile())
+        cases = (
+            (
+                "invalid-backtick-info",
+                "```markdown`bad\n"
+                "## Sichtbarer Folgeabschnitt\n"
+                "```\n"
+                "status: draft\n\n"
+                "## Verdeckter Folgeabschnitt\n",
+                False,
+            ),
+            (
+                "tilde-info-may-contain-backticks",
+                "~~~markdown`valid\n"
+                "## Pseudoabschnitt\n"
+                "~~~\n"
+                "status: draft\n\n"
+                "## Sichtbarer Folgeabschnitt\n",
+                True,
+            ),
+        )
+        for case_name, fragment, should_reject in cases:
+            with self.subTest(case=case_name):
+                readme = "## IUM11-Pilotinstrument\n" + block + "\n\n" + fragment
+                if should_reject:
+                    with self.assertRaises(IUM11PublicationError):
+                        validate_publication_text_boundary("README.md", readme)
+                else:
+                    try:
+                        validate_publication_text_boundary("README.md", readme)
+                    except IUM11PublicationError as error:
+                        self.fail(f"invalid backtick info changed README scope: {error}")
+
+    def test_markdown_visibility_masks_only_commonmark_indented_code_before_html(self):
+        block = render_publication_markdown_block(self.compile())
+        cases = (
+            (
+                "four-space-code",
+                "    <div hidden>\n"
+                "## Sichtbarer Folgeabschnitt\n"
+                "    </div>\n"
+                "status: draft\n\n"
+                "## Spaeterer Abschnitt\n",
+                False,
+            ),
+            (
+                "tab-code",
+                "\t<div hidden>\n"
+                "## Sichtbarer Folgeabschnitt\n"
+                "\t</div>\n"
+                "status: draft\n\n"
+                "## Spaeterer Abschnitt\n",
+                False,
+            ),
+            (
+                "hanging-indent",
+                "Fortgesetzter Absatz.\n"
+                "    <div hidden>\n"
+                "## Pseudoabschnitt\n"
+                "</div>\n"
+                "status: draft\n\n"
+                "## Sichtbarer Folgeabschnitt\n",
+                True,
+            ),
+        )
+        for case_name, fragment, should_reject in cases:
+            with self.subTest(case=case_name):
+                readme = "## IUM11-Pilotinstrument\n" + block + "\n\n" + fragment
+                if should_reject:
+                    with self.assertRaises(IUM11PublicationError):
+                        validate_publication_text_boundary("README.md", readme)
+                else:
+                    try:
+                        validate_publication_text_boundary("README.md", readme)
+                    except IUM11PublicationError as error:
+                        self.fail(f"indented code created raw HTML state: {error}")
+
+    def test_setext_scope_requires_commonmark_paragraph_text(self):
+        block = render_publication_markdown_block(self.compile())
+        non_paragraph_starts = (
+            ("block-quote", "> zitierter Absatz"),
+            ("bullet-list", "- Listeneintrag"),
+            ("ordered-list", "1. Listeneintrag"),
+            ("fenced-code", "```markdown"),
+            ("atx-heading", "### Unterabschnitt"),
+            ("thematic-break", "***"),
+            ("indented-code", "    Codezeile"),
+            ("html-block", "<img alt='Hinweis'>"),
+        )
+        for case_name, candidate in non_paragraph_starts:
+            with self.subTest(case=case_name):
+                fragment = f"{candidate}\n---\n"
+                if case_name == "fenced-code":
+                    fragment += "```\n"
+                readme = (
+                    "## IUM11-Pilotinstrument\n"
+                    + block
+                    + "\n\n"
+                    + fragment
+                    + "status: draft\n\n"
+                    + "## Sichtbarer Folgeabschnitt\n"
+                )
+                with self.assertRaises(IUM11PublicationError):
+                    validate_publication_text_boundary("README.md", readme)
+
     def test_readme_boundary_uses_visible_commonmark_h2(self):
         block = render_publication_markdown_block(self.compile())
         hidden_h2_fragments = (
@@ -747,6 +905,18 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
         def wrap_whole_document(text, opening, closing):
             return f"{opening}\n{text}\n{closing}\n"
 
+        def embed_readme_structure_in_multiline_void_tag(text):
+            block = extract_publication_block(text)
+            start = text.index("## IUM11-Pilotinstrument")
+            end = text.index(block) + len(block)
+            return (
+                text[:start]
+                + "<img hidden alt='\n"
+                + text[start:end]
+                + "\n'>\n"
+                + text[end:]
+            )
+
         cases = (
             (
                 "README.md",
@@ -847,6 +1017,21 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                     "</div></article>",
                 ),
             ),
+            (
+                "README.md",
+                "multiline-void-tag-token",
+                embed_readme_structure_in_multiline_void_tag,
+            ),
+            (
+                "README.md",
+                "self-closing-details-before-structure",
+                lambda text: "<details />\n" + text,
+            ),
+            (
+                "README.md",
+                "self-closing-custom-element-before-structure",
+                lambda text: "<status-badge />\n" + text,
+            ),
         )
         for relative_path, mutation_name, mutate in cases:
             with self.subTest(mutation=mutation_name):
@@ -879,8 +1064,9 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
             )
             readme = fixture / "README.md"
             readme.write_bytes(
-                b'<img hidden alt="unrelated">\n'
-                + b'<status-badge data-purpose="unrelated" />\n'
+                b'<img hidden alt="unrelated" />\n'
+                + b'<details data-purpose="unrelated" />\n</details>\n'
+                + b'<status-badge data-purpose="unrelated" />\n</status-badge>\n'
                 + readme.read_bytes()
                 + b'\n<div hidden data-purpose="unrelated">Redaktioneller Hinweis.</div>\n'
             )
