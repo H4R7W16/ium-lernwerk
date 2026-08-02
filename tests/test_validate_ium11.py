@@ -124,6 +124,22 @@ class IUM11SyntheticExampleTests(unittest.TestCase):
 
             validate_ium11_script._reject_repository_evidence_outside_examples(root)
 
+    def test_repository_evidence_scan_ignores_dependency_and_build_trees(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "pilot/examples").mkdir(parents=True)
+            for relative_path in (
+                "node_modules/package/package.json",
+                "apps/portal/node_modules/package/package.json",
+                "dist/manifest.json",
+                "reports/phase1/result.json",
+            ):
+                target = root / relative_path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text('{"invalidForPython": true,}', encoding="utf-8")
+
+            validate_ium11_script._reject_repository_evidence_outside_examples(root)
+
 
 def reported_pulse(agree=8, partly=2, disagree=1, no_answer=1):
     count = agree + partly + disagree + no_answer

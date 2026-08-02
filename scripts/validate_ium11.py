@@ -38,6 +38,10 @@ else:
 
 
 TIME_MODEL_FINGERPRINT = "873774e52b6c9a20e08e5079c898a014493a39305be5efa35a601248ff36a2c1"
+REPOSITORY_SCAN_IGNORED_DIRS = frozenset({
+    ".git", ".worktrees", "node_modules", "dist", "reports",
+    "playwright-report", "test-results",
+})
 PROTOCOL_FIELDS = {
     "schemaVersion", "id", "status", "protocolVersion", "toolVersion",
     "timeModelFingerprintAlgorithm", "timeModelFingerprint", "variantId",
@@ -1166,7 +1170,7 @@ def _reject_repository_evidence_outside_examples(root: Path) -> None:
     examples_path = (root / "pilot/examples").resolve(strict=True)
     for path in root.rglob("*.json"):
         relative_path = path.relative_to(root)
-        if relative_path.parts[0] in {".git", ".worktrees"}:
+        if any(part in REPOSITORY_SCAN_IGNORED_DIRS for part in relative_path.parts[:-1]):
             continue
         resolved = path.resolve(strict=True)
         if resolved.is_relative_to(examples_path):

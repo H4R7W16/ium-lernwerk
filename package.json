@@ -1,0 +1,37 @@
+{
+  "name": "ium-lernwerk",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.12.0 <23",
+    "npm": ">=10.9.0 <11"
+  },
+  "scripts": {
+    "contracts:generate": "tsx scripts/generate-contract-types.ts",
+    "contracts:check": "tsx scripts/generate-contract-types.ts --check",
+    "typecheck": "npm run contracts:generate && tsc -b --pretty false",
+    "test:platform": "npm run contracts:generate && vitest run",
+    "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\""
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.1",
+    "@vite-pwa/assets-generator": "1.0.2",
+    "astro": "7.1.6",
+    "fake-indexeddb": "6.2.5",
+    "json-schema-to-typescript": "15.0.4",
+    "tsx": "4.23.4",
+    "typescript": "6.0.3",
+    "vite-plugin-pwa": "1.3.0",
+    "vitest": "4.1.10",
+    "workbox-core": "7.4.1",
+    "workbox-precaching": "7.4.1",
+    "workbox-routing": "7.4.1",
+    "yaml": "2.9.0"
+  }
+}

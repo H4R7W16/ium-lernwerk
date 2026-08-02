@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.de/schemas/module-manifest.schema.json",
+  "title": "ModuleManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "version",
+    "title",
+    "status",
+    "grade",
+    "kind",
+    "strands",
+    "time",
+    "prerequisites",
+    "curriculum",
+    "learningDesign",
+    "components",
+    "media",
+    "data",
+    "offline",
+    "accessibility",
+    "licenses",
+    "quality"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^(?:IUM-[567]-(?:CORE|EXT|TRANSFER|PROJECT)-[0-9]{2}|TEST-[A-Z0-9-]+)$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "working",
+        "reviewed",
+        "standard"
+      ]
+    },
+    "grade": {
+      "enum": [
+        5,
+        6,
+        7
+      ]
+    },
+    "kind": {
+      "enum": [
+        "core",
+        "extension",
+        "transfer",
+        "project"
+      ]
+    },
+    "strands": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minLessons",
+        "maxLessons",
+        "contractId"
+      ],
+      "properties": {
+        "minLessons": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxLessons": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "contractId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "curriculum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "competencyIds",
+        "coverageEvidenceIds"
+      ],
+      "properties": {
+        "competencyIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "coverageEvidenceIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "learningDesign": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "centralQuestion",
+        "goals",
+        "actions",
+        "product",
+        "misconceptions",
+        "scaffolds"
+      ],
+      "properties": {
+        "centralQuestion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "product": {
+          "type": "string",
+          "minLength": 1
+        },
+        "misconceptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scaffolds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "digitalFunction",
+        "analogMaterials"
+      ],
+      "properties": {
+        "digitalFunction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "analogMaterials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "purpose",
+              "rationale",
+              "returnToLearning"
+            ],
+            "properties": {
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              },
+              "returnToLearning": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stateSchemaVersion",
+        "fields",
+        "exportable",
+        "deletable"
+      ],
+      "properties": {
+        "stateSchemaVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][A-Za-z0-9]*$"
+          }
+        },
+        "exportable": {
+          "const": true
+        },
+        "deletable": {
+          "const": true
+        }
+      }
+    },
+    "offline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core",
+        "externalResources"
+      ],
+      "properties": {
+        "core": {
+          "type": "boolean"
+        },
+        "externalResources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "purpose",
+              "fallback"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alternatives",
+        "manualChecks"
+      ],
+      "properties": {
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "manualChecks": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "licenses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "content",
+        "code",
+        "assetEvidencePath"
+      ],
+      "properties": {
+        "content": {
+          "const": "CC-BY-SA-4.0"
+        },
+        "code": {
+          "const": "MIT"
+        },
+        "assetEvidencePath": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceRefs"
+      ],
+      "properties": {
+        "evidenceRefs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

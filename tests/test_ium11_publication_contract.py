@@ -34,6 +34,16 @@ EXPECTED_GUIDE_HEADINGS = {
     "pilot/docs/teacher-guide.md": "# Lehrkräfteanleitung zum IUM11-Pilotinstrument",
     "pilot/docs/review-guide.md": "# Reviewanleitung zum IUM11-Pilotinstrument",
 }
+REPOSITORY_COPY_IGNORE = shutil.ignore_patterns(
+    ".git",
+    ".worktrees",
+    "__pycache__",
+    "node_modules",
+    "dist",
+    "reports",
+    "playwright-report",
+    "test-results",
+)
 
 
 def canonical_readme(block, body="Erklärende deutsche Prosa."):
@@ -680,7 +690,7 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
             )
         with tempfile.TemporaryDirectory() as temporary:
             fixture = Path(temporary) / "repository"
-            shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+            shutil.copytree(ROOT, fixture, ignore=REPOSITORY_COPY_IGNORE)
             build_publication_contract(fixture)
             first = {path: path.read_bytes() for path in expected_publication_outputs(fixture)}
             build_publication_contract(fixture)
@@ -721,7 +731,7 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
             shutil.copytree(
                 ROOT,
                 fixture,
-                ignore=shutil.ignore_patterns(".git", "__pycache__"),
+                ignore=REPOSITORY_COPY_IGNORE,
             )
             (fixture / CONTRACT_PATH).write_bytes(b"{}\n")
             for index, relative_path in enumerate(PUBLICATION_PATHS, start=2):
@@ -815,7 +825,7 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                     shutil.copytree(
                         ROOT,
                         fixture,
-                        ignore=shutil.ignore_patterns(".git", "__pycache__"),
+                        ignore=REPOSITORY_COPY_IGNORE,
                     )
                     target = fixture / relative_path
                     target.write_bytes(
@@ -837,7 +847,7 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
     def test_build_failure_is_per_file_atomic_and_later_check_reports_drift(self):
         with tempfile.TemporaryDirectory() as temporary:
             fixture = Path(temporary) / "repository"
-            shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+            shutil.copytree(ROOT, fixture, ignore=REPOSITORY_COPY_IGNORE)
             outputs = expected_publication_outputs(fixture)
             for path in outputs:
                 if path.name == "publication-contract.json":
