@@ -1,13 +1,19 @@
 import hashlib
 import json
 import re
-from html.parser import HTMLParser
 
 
 PUBLICATION_CONTRACT_ID = "IUM11-PUBLICATION-CONTRACT"
 PUBLICATION_CONTRACT_VERSION = "1.0.0"
 PUBLICATION_START_MARKER = "<!-- IUM11-PUBLICATION-CONTRACT:START -->"
 PUBLICATION_END_MARKER = "<!-- IUM11-PUBLICATION-CONTRACT:END -->"
+README_HEADING = "## IUM11-Pilotinstrument"
+README_SCOPE_END_MARKER = "<!-- IUM11-PUBLICATION-SCOPE:END -->"
+README_NEXT_HEADING = "## Zentrale Einstiege"
+GUIDE_HEADINGS = {
+    "pilot/docs/teacher-guide.md": "# Lehrkräfteanleitung zum IUM11-Pilotinstrument",
+    "pilot/docs/review-guide.md": "# Reviewanleitung zum IUM11-Pilotinstrument",
+}
 PUBLICATION_PATHS = (
     "README.md",
     "pilot/docs/teacher-guide.md",
@@ -515,422 +521,65 @@ def replace_publication_block(text, block):
     return text.replace(current, block, 1)
 
 
-def _fence_opening(body):
-    opening = re.match(r"^[ ]{0,3}(`{3,}|~{3,})", body)
-    if opening is None:
-        return None
-    token = opening.group(1)
-    if token.startswith("`") and "`" in body[opening.end():]:
-        return None
-    return token
+def _exact_line_count(text, line):
+    return text.split("\n").count(line)
 
 
-def _fenced_code_ranges(text):
-    ranges = []
-    active = None
-    offset = 0
-    for line in text.splitlines(keepends=True):
-        body = line.rstrip("\r\n")
-        if active is None:
-            token = _fence_opening(body)
-            if token is not None:
-                active = (token[0], len(token), offset)
-        else:
-            character, minimum_length, start = active
-            closing = re.fullmatch(
-                rf"[ ]{{0,3}}{re.escape(character)}{{{minimum_length},}}[ \t]*",
-                body,
-            )
-            if closing:
-                ranges.append((start, offset + len(line)))
-                active = None
-        offset += len(line)
-    if active is not None:
-        ranges.append((active[2], len(text)))
-    return ranges
-
-
-def _leading_indentation_width(body):
-    width = 0
-    for character in body:
-        if character == " ":
-            width += 1
-        elif character == "\t":
-            width += 4 - (width % 4)
-        else:
-            break
-    return width
-
-
-def _indented_code_ranges(text, fenced_ranges):
-    ranges = []
-    active_start = None
-    previous_blank = True
-    offset = 0
-    for line in text.splitlines(keepends=True):
-        body = line.rstrip("\r\n")
-        blank = not body.strip(" \t")
-        indentation = _leading_indentation_width(body)
-        in_fence = _position_in_ranges(offset, fenced_ranges)
-
-        if active_start is not None and not blank and indentation < 4:
-            ranges.append((active_start, offset))
-            active_start = None
-
-        if (
-            active_start is None
-            and not in_fence
-            and not blank
-            and indentation >= 4
-            and previous_blank
-        ):
-            active_start = offset
-
-        if in_fence:
-            previous_blank = False
-        elif active_start is None:
-            previous_blank = blank
-        offset += len(line)
-
-    if active_start is not None:
-        ranges.append((active_start, len(text)))
-    return ranges
-
-
-def _position_in_ranges(position, ranges):
-    return any(start <= position < end for start, end in ranges)
-
-
-def _mask_ranges(text, ranges):
-    masked = list(text)
-    for start, end in ranges:
-        for index in range(start, end):
-            if masked[index] not in "\r\n":
-                masked[index] = " "
-    return "".join(masked)
-
-
-def _html_comment_ranges(text, fenced_ranges):
-    searchable = _mask_ranges(text, fenced_ranges)
-    ranges = []
-    cursor = 0
-    while True:
-        start = searchable.find("<!--", cursor)
-        if start < 0:
-            break
-        closing = searchable.find("-->", start + 4)
-        if closing < 0:
-            ranges.append((start, len(text)))
-            break
-        end = closing + 3
-        ranges.append((start, end))
-        cursor = end
-    return ranges
-
-
-_HTML_VOID_TAGS = frozenset({
-    "area",
-    "base",
-    "basefont",
-    "bgsound",
-    "br",
-    "col",
-    "command",
-    "embed",
-    "frame",
-    "hr",
-    "img",
-    "input",
-    "keygen",
-    "link",
-    "meta",
-    "param",
-    "source",
-    "track",
-    "wbr",
-})
-
-
-class _RawHtmlContainerParser(HTMLParser):
-    def __init__(self, source):
-        super().__init__(convert_charrefs=False)
-        self.source = source
-        self.line_starts = [0]
-        self.line_starts.extend(
-            match.end() for match in re.finditer("\n", source)
-        )
-        self.open_containers = []
-        self.ranges = []
-
-    def _offset(self):
-        line, column = self.getpos()
-        return self.line_starts[line - 1] + column
-
-    def _record_start_tag_token(self):
-        start = self._offset()
-        token = self.get_starttag_text()
-        end = start + len(token) if token is not None else start
-        self.ranges.append((start, end))
-        return start
-
-    def handle_starttag(self, tag, attrs):
-        normalized = tag.lower()
-        opening_start = self._record_start_tag_token()
-        if normalized not in _HTML_VOID_TAGS:
-            self.open_containers.append((normalized, opening_start))
-
-    def handle_startendtag(self, tag, attrs):
-        normalized = tag.lower()
-        opening_start = self._record_start_tag_token()
-        if normalized not in _HTML_VOID_TAGS:
-            self.open_containers.append((normalized, opening_start))
-
-    def handle_endtag(self, tag):
-        normalized = tag.lower()
-        closing_start = self._offset()
-        closing_end = self.source.find(">", closing_start)
-        closing_end = len(self.source) if closing_end < 0 else closing_end + 1
-        self.ranges.append((closing_start, closing_end))
-        matching_index = next(
-            (
-                index
-                for index in range(len(self.open_containers) - 1, -1, -1)
-                if self.open_containers[index][0] == normalized
-            ),
-            None,
-        )
-        if matching_index is None:
-            return
-        for _, opening_start in self.open_containers[matching_index:]:
-            self.ranges.append((opening_start, closing_end))
-        del self.open_containers[matching_index:]
-
-    def finish(self):
-        self.close()
-        self.ranges.extend(
-            (opening_start, len(self.source))
-            for _, opening_start in self.open_containers
-        )
-        return sorted(self.ranges)
-
-
-def _raw_html_container_ranges(text, code_ranges, comment_ranges):
-    searchable = _mask_ranges(text, (*code_ranges, *comment_ranges))
-    parser = _RawHtmlContainerParser(searchable)
-    parser.feed(searchable)
-    return parser.finish()
-
-
-def _markdown_visibility_ranges(text):
-    fenced_ranges = _fenced_code_ranges(text)
-    indented_ranges = _indented_code_ranges(text, fenced_ranges)
-    code_ranges = (*fenced_ranges, *indented_ranges)
-    comment_ranges = _html_comment_ranges(text, code_ranges)
-    raw_html_ranges = _raw_html_container_ranges(
-        text,
-        code_ranges,
-        comment_ranges,
-    )
-    return fenced_ranges, indented_ranges, comment_ranges, raw_html_ranges
-
-
-def _position_enclosed_by_comment(position, comment_ranges):
-    return any(start < position < end for start, end in comment_ranges)
-
-
-def _atx_heading_level(body):
-    match = re.match(r"^[ ]{0,3}(#{1,6})(?:[ \t]+|$)", body)
-    return len(match.group(1)) if match else None
-
-
-def _is_thematic_break(body):
-    return bool(re.fullmatch(
-        r"[ ]{0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})",
-        body,
-    ))
-
-
-def _is_html_block_start(body):
-    return bool(re.match(
-        r"^[ ]{0,3}(?:</?[A-Za-z][A-Za-z0-9-]*(?:[ \t/>]|$)|"
-        r"<!--|<\?|<![A-Z]|<!\[CDATA\[)",
-        body,
-        re.IGNORECASE,
-    ))
-
-
-def _is_setext_paragraph_text(body):
-    stripped = body.lstrip(" ")
-    indentation = len(body) - len(stripped)
-    if (
-        not stripped
-        or indentation > 3
-        or stripped.startswith("\t")
-        or _fence_opening(body) is not None
-        or _atx_heading_level(body) is not None
-        or _is_thematic_break(body)
-        or _is_html_block_start(body)
-        or re.match(r"^[ ]{0,3}>", body)
-        or re.match(
-            r"^[ ]{0,3}(?:[-+*](?:[ \t]+|$)|[0-9]{1,9}[.)](?:[ \t]+|$))",
-            body,
-        )
-    ):
-        return False
-    return True
-
-
-def _visible_heading_spans(text, invisible_ranges):
-    lines = []
-    offset = 0
-    for line in text.splitlines(keepends=True):
-        body = line.rstrip("\r\n")
-        lines.append((offset, offset + len(line), body))
-        offset += len(line)
-
-    headings = []
-    for index, (line_start, line_end, body) in enumerate(lines):
-        atx_match = re.match(r"^[ ]{0,3}(#{1,6})(?:[ \t]+|$)", body)
-        if atx_match:
-            marker_position = line_start + atx_match.start(1)
-            if not _position_in_ranges(marker_position, invisible_ranges):
-                headings.append((len(atx_match.group(1)), line_start, line_end))
-
-        setext_match = re.fullmatch(r"[ ]{0,3}(=+|-+)[ \t]*", body)
-        if not setext_match or index == 0:
-            continue
-        previous_start, _, previous_body = lines[index - 1]
-        if not _is_setext_paragraph_text(previous_body):
-            continue
-        stripped_previous = previous_body.lstrip(" ")
-        previous_indentation = len(previous_body) - len(stripped_previous)
-        text_position = previous_start + previous_indentation
-        underline_position = line_start + setext_match.start(1)
-        if (
-            _position_in_ranges(text_position, invisible_ranges)
-            or _position_in_ranges(underline_position, invisible_ranges)
-        ):
-            continue
-        level = 1 if setext_match.group(1).startswith("=") else 2
-        headings.append((level, previous_start, line_end))
-    return headings
-
-
-def _readme_ium11_section_span(text, invisible_ranges=None):
-    headings = list(re.finditer(
-        r"^## IUM11-Pilotinstrument[ \t]*(?=\r?$)",
-        text,
-        re.MULTILINE,
-    ))
-    _require(len(headings) == 1, "README IUM11 section must occur once")
-    if invisible_ranges is None:
-        visibility_ranges = _markdown_visibility_ranges(text)
-        invisible_ranges = tuple(
-            span
-            for ranges in visibility_ranges
-            for span in ranges
-        )
-    heading = headings[0]
-    _require(
-        not _position_in_ranges(heading.start(), invisible_ranges),
-        "README.md: IUM11 section heading must be visible",
-    )
-    start = heading.end()
-    next_headings = [
-        heading_start
-        for level, heading_start, _ in _visible_heading_spans(
-            text,
-            invisible_ranges,
-        )
-        if level == 2 and heading_start >= start
-    ]
-    end = min(next_headings) if next_headings else len(text)
-    return heading.start(), start, end
-
-
-def _readme_ium11_section(text):
-    _, start, end = _readme_ium11_section_span(text)
-    return text[start:end]
-
-
-def _visible_h1_spans(text, invisible_ranges):
-    return [
-        (start, end)
-        for level, start, end in _visible_heading_spans(text, invisible_ranges)
-        if level == 1
-    ]
-
-
-def validate_publication_embedding(relative_path, text):
-    """Require the generated block in its visible canonical Markdown anchor."""
+def _publication_layout(relative_path, text):
+    normalized_path = str(relative_path).replace("\\", "/")
+    _require("\r" not in text, f"{relative_path}: publication text must use LF")
     block = extract_publication_block(text)
     block_start = text.index(block)
     block_end = block_start + len(block)
-    end_marker_start = block_end - len(PUBLICATION_END_MARKER)
-    (
-        fenced_ranges,
-        indented_ranges,
-        comment_ranges,
-        raw_html_ranges,
-    ) = _markdown_visibility_ranges(text)
-    invisible_ranges = (
-        *fenced_ranges,
-        *indented_ranges,
-        *comment_ranges,
-        *raw_html_ranges,
-    )
-    _require(
-        not _position_in_ranges(block_start, fenced_ranges)
-        and not _position_in_ranges(end_marker_start, fenced_ranges),
-        f"{relative_path}: publication marker must not be inside a code fence",
-    )
-    _require(
-        not _position_in_ranges(block_start, indented_ranges)
-        and not _position_in_ranges(end_marker_start, indented_ranges),
-        f"{relative_path}: publication marker must not be inside indented code",
-    )
-    _require(
-        not _position_enclosed_by_comment(block_start, comment_ranges)
-        and not _position_enclosed_by_comment(end_marker_start, comment_ranges),
-        f"{relative_path}: publication marker must not be inside an HTML comment",
-    )
-    _require(
-        not _position_in_ranges(block_start, raw_html_ranges)
-        and not _position_in_ranges(end_marker_start, raw_html_ranges),
-        f"{relative_path}: publication marker must not be inside raw HTML",
-    )
 
-    normalized_path = str(relative_path).replace("\\", "/")
     if normalized_path == "README.md":
-        _, section_start, section_end = _readme_ium11_section_span(
-            text,
-            invisible_ranges,
+        _require(
+            _exact_line_count(text, README_HEADING) == 1,
+            "README.md: IUM11 section heading must occur once",
         )
         _require(
-            section_start <= block_start and block_end <= section_end,
-            "README.md: publication block must be inside the IUM11 section",
+            text.count(README_SCOPE_END_MARKER) == 1,
+            "README.md: IUM11 scope end marker must occur once",
         )
-        return
+        _require(
+            f"{README_HEADING}\n\n{block}" in text,
+            "README.md: publication block must immediately follow IUM11 heading",
+        )
+        scope_end = text.index(README_SCOPE_END_MARKER)
+        _require(
+            block_end < scope_end,
+            "README.md: IUM11 scope end marker must follow publication block",
+        )
+        _require(
+            text[scope_end - 2:scope_end] == "\n\n",
+            "README.md: IUM11 scope end marker must follow one blank line",
+        )
+        _require(
+            text.startswith(
+                f"{README_SCOPE_END_MARKER}\n\n{README_NEXT_HEADING}",
+                scope_end,
+            ),
+            "README.md: IUM11 scope end marker must precede central entries",
+        )
+        return block, text[block_end:scope_end]
 
-    headings = _visible_h1_spans(text, invisible_ranges)
-    _require(len(headings) == 1, f"{relative_path}: guide must contain exactly one H1")
-    _, heading_end = headings[0]
+    heading = GUIDE_HEADINGS.get(normalized_path)
+    _require(heading is not None, f"unsupported publication path: {relative_path}")
     _require(
-        heading_end <= block_start and not text[heading_end:block_start].strip(),
-        f"{relative_path}: publication block must be first content after H1",
+        text.startswith(f"{heading}\n\n{block}"),
+        f"{relative_path}: publication block must immediately follow canonical H1",
     )
+    return block, text[:block_start] + text[block_end:]
+
+
+def validate_publication_embedding(relative_path, text):
+    """Require the generated block in its exact source-controlled anchor."""
+    _publication_layout(relative_path, text)
 
 
 def validate_publication_text_boundary(relative_path, text):
     """Reject lexical publication declarations outside the generated IUM11 block."""
-    validate_publication_embedding(relative_path, text)
-    block = extract_publication_block(text)
-    remaining = text.replace(block, "", 1)
-    inspected = (
-        _readme_ium11_section(remaining)
-        if str(relative_path).replace("\\", "/") == "README.md"
-        else remaining
-    )
+    _, inspected = _publication_layout(relative_path, text)
     for pattern in RESERVED_OUTSIDE_BLOCK_PATTERNS:
         for match in pattern.finditer(inspected):
             if pattern is _AXIS_ASSIGNMENT_PATTERN and match.group("bare_axis"):

@@ -29,6 +29,26 @@ from scripts.validate_ium10 import validate_ium10_repository
 from scripts.validate_ium11 import validate_pilot_protocol
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_README_SCOPE_END_MARKER = "<!-- IUM11-PUBLICATION-SCOPE:END -->"
+EXPECTED_GUIDE_HEADINGS = {
+    "pilot/docs/teacher-guide.md": "# Lehrkräfteanleitung zum IUM11-Pilotinstrument",
+    "pilot/docs/review-guide.md": "# Reviewanleitung zum IUM11-Pilotinstrument",
+}
+
+
+def canonical_readme(block, body="Erklärende deutsche Prosa."):
+    return (
+        "# Projekt\n\n"
+        "## IUM11-Pilotinstrument\n\n"
+        f"{block}\n\n{body}\n\n"
+        f"{EXPECTED_README_SCOPE_END_MARKER}\n\n"
+        "## Zentrale Einstiege\n\n"
+        "Späterer Inhalt.\n"
+    )
+
+
+def canonical_guide(relative_path, block, body="Erklärende deutsche Prosa."):
+    return f"{EXPECTED_GUIDE_HEADINGS[relative_path]}\n\n{block}\n\n{body}\n"
 
 
 def load_json(path):
@@ -335,9 +355,137 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                 with self.assertRaises(IUM11PublicationError):
                     replace_publication_block(malformed, block)
 
+    def test_embedding_requires_readme_end_marker(self):
+        block = render_publication_markdown_block(self.compile())
+        readme = canonical_readme(block)
+        validate_publication_text_boundary("README.md", readme)
+
+        for malformed in (
+            readme.replace(EXPECTED_README_SCOPE_END_MARKER, "", 1),
+            readme.replace(
+                EXPECTED_README_SCOPE_END_MARKER,
+                EXPECTED_README_SCOPE_END_MARKER
+                + "\n"
+                + EXPECTED_README_SCOPE_END_MARKER,
+                1,
+            ),
+            readme.replace(
+                EXPECTED_README_SCOPE_END_MARKER,
+                "Hinweis\n" + EXPECTED_README_SCOPE_END_MARKER,
+                1,
+            ),
+        ):
+            with self.subTest(malformed=malformed[-100:]):
+                with self.assertRaises(IUM11PublicationError):
+                    validate_publication_text_boundary("README.md", malformed)
+
+    def test_embedding_requires_readme_block_immediately_after_heading(self):
+        block = render_publication_markdown_block(self.compile())
+        readme = canonical_readme(block).replace(
+            "## IUM11-Pilotinstrument\n\n" + block,
+            "## IUM11-Pilotinstrument\nHinweis\n\n" + block,
+            1,
+        )
+
+        with self.assertRaises(IUM11PublicationError):
+            validate_publication_text_boundary("README.md", readme)
+
+    def test_embedding_requires_ordered_readme_scope_suffix(self):
+        block = render_publication_markdown_block(self.compile())
+        readme = canonical_readme(block)
+        cases = (
+            readme.replace(
+                "\n\n" + EXPECTED_README_SCOPE_END_MARKER,
+                "",
+                1,
+            ).replace(
+                "## IUM11-Pilotinstrument\n\n" + block,
+                "## IUM11-Pilotinstrument\n\n"
+                + EXPECTED_README_SCOPE_END_MARKER
+                + "\n\n"
+                + block,
+                1,
+            ),
+            readme.replace(
+                EXPECTED_README_SCOPE_END_MARKER + "\n\n## Zentrale Einstiege",
+                EXPECTED_README_SCOPE_END_MARKER
+                + "\nHinweis\n\n## Zentrale Einstiege",
+                1,
+            ),
+            readme.replace(
+                "## Zentrale Einstiege",
+                "## Andere Einstiege",
+                1,
+            ),
+        )
+        for malformed in cases:
+            with self.subTest(malformed=malformed[-120:]):
+                with self.assertRaises(IUM11PublicationError):
+                    validate_publication_text_boundary("README.md", malformed)
+
+    def test_embedding_requires_lf_publication_text(self):
+        block = render_publication_markdown_block(self.compile())
+        documents = {
+            "README.md": canonical_readme(block),
+            "pilot/docs/teacher-guide.md": canonical_guide(
+                "pilot/docs/teacher-guide.md",
+                block,
+            ),
+        }
+        for relative_path, document in documents.items():
+            with self.subTest(relative_path=relative_path):
+                with self.assertRaises(IUM11PublicationError):
+                    validate_publication_text_boundary(
+                        relative_path,
+                        document.replace(
+                            "Erklärende deutsche Prosa.\n",
+                            "Erklärende deutsche Prosa.\r\n",
+                            1,
+                        ),
+                    )
+
+    def test_embedding_requires_exact_guide_prefix(self):
+        block = render_publication_markdown_block(self.compile())
+        relative_path = "pilot/docs/teacher-guide.md"
+        guide = canonical_guide(relative_path, block)
+        validate_publication_text_boundary(relative_path, guide)
+
+        for malformed in (
+            "Vorspann\n" + guide,
+            guide.replace(
+                EXPECTED_GUIDE_HEADINGS[relative_path],
+                "# Andere Anleitung",
+                1,
+            ),
+            guide.replace(
+                EXPECTED_GUIDE_HEADINGS[relative_path] + "\n\n",
+                EXPECTED_GUIDE_HEADINGS[relative_path] + "\nHinweis\n\n",
+                1,
+            ),
+        ):
+            with self.subTest(malformed=malformed[:100]):
+                with self.assertRaises(IUM11PublicationError):
+                    validate_publication_text_boundary(relative_path, malformed)
+
+    def test_readme_boundary_ends_at_explicit_scope_marker(self):
+        block = render_publication_markdown_block(self.compile())
+        validate_publication_text_boundary(
+            "README.md",
+            canonical_readme(block).replace(
+                "Späterer Inhalt.",
+                "Späterer Inhalt mit available.",
+            ),
+        )
+
+        with self.assertRaises(IUM11PublicationError):
+            validate_publication_text_boundary(
+                "README.md",
+                canonical_readme(block, "IUM11 ist available."),
+            )
+
     def test_outside_block_boundary_is_lexical_and_readme_scoped(self):
         block = render_publication_markdown_block(self.compile())
-        guide = f"# Anleitung\n\n{block}\n\nErklärende deutsche Prosa.\n"
+        guide = canonical_guide("pilot/docs/teacher-guide.md", block)
         validate_publication_text_boundary("pilot/docs/teacher-guide.md", guide)
         reserved = (
             "Version 9.9.9", "eligible-for-standard-review",
@@ -355,8 +503,10 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
 
         readme = (
             "## Phase 0\nKlasse 5: available.\n\n"
-            "## IUM11-Pilotinstrument\n" + block + "\nErklärende Prosa.\n\n"
-            "## Zentrale Einstiege\nIUM10 ist working.\n"
+            + canonical_readme(block).replace(
+                "Späterer Inhalt.",
+                "IUM10 ist working.",
+            )
         )
         validate_publication_text_boundary("README.md", readme)
 
@@ -368,26 +518,37 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
             "11 Module", "6 Pilotstufen", "Privacy-Schwelle 9",
         )
         documents = {
-            "README.md": (
-                "## IUM11-Pilotinstrument\n" + block + "\n",
-                "\n## Zentrale Einstiege\n",
+            "README.md": canonical_readme(block),
+            "pilot/docs/teacher-guide.md": canonical_guide(
+                "pilot/docs/teacher-guide.md",
+                block,
             ),
-            "pilot/docs/teacher-guide.md": ("# Anleitung\n" + block + "\n", ""),
-            "pilot/docs/review-guide.md": ("# Review\n" + block + "\n", ""),
+            "pilot/docs/review-guide.md": canonical_guide(
+                "pilot/docs/review-guide.md",
+                block,
+            ),
         }
-        for relative_path, (prefix, suffix) in documents.items():
-            validate_publication_text_boundary(relative_path, prefix + suffix)
+        for relative_path, document in documents.items():
+            validate_publication_text_boundary(relative_path, document)
             for declaration in declarations:
                 with self.subTest(relative_path=relative_path, declaration=declaration):
-                    with self.assertRaises(IUM11PublicationError):
-                        validate_publication_text_boundary(
-                            relative_path,
-                            prefix + declaration + "\n" + suffix,
+                    mutated = (
+                        document.replace(
+                            EXPECTED_README_SCOPE_END_MARKER,
+                            declaration
+                            + "\n\n"
+                            + EXPECTED_README_SCOPE_END_MARKER,
+                            1,
                         )
+                        if relative_path == "README.md"
+                        else document + declaration + "\n"
+                    )
+                    with self.assertRaises(IUM11PublicationError):
+                        validate_publication_text_boundary(relative_path, mutated)
 
     def test_boundary_rejects_embedded_semver_and_exact_axis_assignments(self):
         block = render_publication_markdown_block(self.compile())
-        guide = f"# Anleitung\n\n{block}\n\nErklärende Prosa.\n"
+        guide = canonical_guide("pilot/docs/teacher-guide.md", block)
         axis_names = (
             "status",
             "availabilityStatus",
@@ -428,7 +589,11 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
 
     def test_boundary_allows_unicode_identifier_continuations_before_bare_axes(self):
         block = render_publication_markdown_block(self.compile())
-        guide = f"# Anleitung\n\n{block}\n\nErklaerende deutsche Prosa.\n"
+        guide = canonical_guide(
+            "pilot/docs/teacher-guide.md",
+            block,
+            "Erklaerende deutsche Prosa.",
+        )
         axis_names = (
             "status",
             "availabilityStatus",
@@ -478,221 +643,20 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
             guide + "Status: draft\n",
         )
 
-    def test_readme_scope_uses_commonmark_fence_info_rules(self):
+    def test_embedding_rejects_duplicate_heading_and_publication_markers(self):
         block = render_publication_markdown_block(self.compile())
+        readme = canonical_readme(block)
         cases = (
             (
-                "invalid-backtick-info",
-                "```markdown`bad\n"
-                "## Sichtbarer Folgeabschnitt\n"
-                "```\n"
-                "status: draft\n\n"
-                "## Verdeckter Folgeabschnitt\n",
-                False,
+                readme.replace(
+                    "## IUM11-Pilotinstrument",
+                    "## IUM11-Pilotinstrument\n## IUM11-Pilotinstrument",
+                    1,
+                ),
+                "IUM11 section heading",
             ),
-            (
-                "tilde-info-may-contain-backticks",
-                "~~~markdown`valid\n"
-                "## Pseudoabschnitt\n"
-                "~~~\n"
-                "status: draft\n\n"
-                "## Sichtbarer Folgeabschnitt\n",
-                True,
-            ),
-        )
-        for case_name, fragment, should_reject in cases:
-            with self.subTest(case=case_name):
-                readme = "## IUM11-Pilotinstrument\n" + block + "\n\n" + fragment
-                if should_reject:
-                    with self.assertRaises(IUM11PublicationError):
-                        validate_publication_text_boundary("README.md", readme)
-                else:
-                    try:
-                        validate_publication_text_boundary("README.md", readme)
-                    except IUM11PublicationError as error:
-                        self.fail(f"invalid backtick info changed README scope: {error}")
-
-    def test_markdown_visibility_masks_only_commonmark_indented_code_before_html(self):
-        block = render_publication_markdown_block(self.compile())
-        cases = (
-            (
-                "four-space-code",
-                "    <div hidden>\n"
-                "## Sichtbarer Folgeabschnitt\n"
-                "    </div>\n"
-                "status: draft\n\n"
-                "## Spaeterer Abschnitt\n",
-                False,
-            ),
-            (
-                "tab-code",
-                "\t<div hidden>\n"
-                "## Sichtbarer Folgeabschnitt\n"
-                "\t</div>\n"
-                "status: draft\n\n"
-                "## Spaeterer Abschnitt\n",
-                False,
-            ),
-            (
-                "hanging-indent",
-                "Fortgesetzter Absatz.\n"
-                "    <div hidden>\n"
-                "## Pseudoabschnitt\n"
-                "</div>\n"
-                "status: draft\n\n"
-                "## Sichtbarer Folgeabschnitt\n",
-                True,
-            ),
-        )
-        for case_name, fragment, should_reject in cases:
-            with self.subTest(case=case_name):
-                readme = "## IUM11-Pilotinstrument\n" + block + "\n\n" + fragment
-                if should_reject:
-                    with self.assertRaises(IUM11PublicationError):
-                        validate_publication_text_boundary("README.md", readme)
-                else:
-                    try:
-                        validate_publication_text_boundary("README.md", readme)
-                    except IUM11PublicationError as error:
-                        self.fail(f"indented code created raw HTML state: {error}")
-
-    def test_setext_scope_requires_commonmark_paragraph_text(self):
-        block = render_publication_markdown_block(self.compile())
-        non_paragraph_starts = (
-            ("block-quote", "> zitierter Absatz"),
-            ("bullet-list", "- Listeneintrag"),
-            ("ordered-list", "1. Listeneintrag"),
-            ("fenced-code", "```markdown"),
-            ("atx-heading", "### Unterabschnitt"),
-            ("thematic-break", "***"),
-            ("indented-code", "    Codezeile"),
-            ("html-block", "<img alt='Hinweis'>"),
-        )
-        for case_name, candidate in non_paragraph_starts:
-            with self.subTest(case=case_name):
-                fragment = f"{candidate}\n---\n"
-                if case_name == "fenced-code":
-                    fragment += "```\n"
-                readme = (
-                    "## IUM11-Pilotinstrument\n"
-                    + block
-                    + "\n\n"
-                    + fragment
-                    + "status: draft\n\n"
-                    + "## Sichtbarer Folgeabschnitt\n"
-                )
-                with self.assertRaises(IUM11PublicationError):
-                    validate_publication_text_boundary("README.md", readme)
-
-    def test_readme_boundary_uses_visible_commonmark_h2(self):
-        block = render_publication_markdown_block(self.compile())
-        hidden_h2_fragments = (
-            "```markdown\n## Pseudoabschnitt\n```\n",
-            "~~~markdown\n## Pseudoabschnitt\n~~~\n",
-            "<!--\n## Pseudoabschnitt\n-->\n",
-            "<template>\n## Pseudoabschnitt\n</template>\n",
-            "<pre hidden>\n## Pseudoabschnitt\n</pre>\n",
-            "<script type=\"text/plain\">\n## Pseudoabschnitt\n</script>\n",
-            "<style media=\"all\">\n## Pseudoabschnitt\n</style>\n",
-            "<textarea>\n## Pseudoabschnitt\n</textarea>\n",
-            "<details>\n## Pseudoabschnitt\n</details>\n",
-        )
-        for fragment in hidden_h2_fragments:
-            with self.subTest(fragment=fragment.splitlines()[0]):
-                readme = (
-                    "## IUM11-Pilotinstrument\n"
-                    + block
-                    + "\n\n"
-                    + fragment
-                    + "status: draft\n\n"
-                    + "## Sichtbarer Folgeabschnitt\n"
-                )
-                with self.assertRaises(IUM11PublicationError):
-                    validate_publication_text_boundary("README.md", readme)
-
-        readme_with_setext_boundary = (
-            "## IUM11-Pilotinstrument\nEinleitung.\n\n"
-            "Sichtbarer Folgeabschnitt\n---\n\n"
-            + block
-            + "\n"
-        )
-        with self.assertRaisesRegex(
-            IUM11PublicationError,
-            "publication block must be inside the IUM11 section",
-        ):
-            validate_publication_text_boundary(
-                "README.md",
-                readme_with_setext_boundary,
-            )
-
-        for non_boundary in ("### Unterabschnitt\n", "---\n"):
-            with self.subTest(non_boundary=non_boundary.strip()):
-                readme = (
-                    "## IUM11-Pilotinstrument\n"
-                    + block
-                    + "\n\n"
-                    + non_boundary
-                    + "status: draft\n\n"
-                    + "## Sichtbarer Folgeabschnitt\n"
-                )
-                with self.assertRaises(IUM11PublicationError):
-                    validate_publication_text_boundary("README.md", readme)
-
-        readme_with_fenced_html = (
-            "## IUM11-Pilotinstrument\n"
-            + block
-            + "\n\n```html\n<template>\n```\n\n"
-            + "   ## Sichtbarer Folgeabschnitt\nstatus: draft\n"
-        )
-        validate_publication_text_boundary("README.md", readme_with_fenced_html)
-
-    def test_guides_count_visible_atx_and_setext_h1(self):
-        block = render_publication_markdown_block(self.compile())
-        setext_guide = f"Lehrkräfteanleitung\n===\n\n{block}\n\nHinweis.\n"
-        try:
-            validate_publication_text_boundary(
-                "pilot/docs/teacher-guide.md",
-                setext_guide,
-            )
-        except IUM11PublicationError as error:
-            self.fail(f"visible Setext H1 was not counted: {error}")
-
-        two_visible_h1s = (
-            f"# Lehrkräfteanleitung\n\n{block}\n\n"
-            "Zweite Hauptüberschrift\n===\n"
-        )
-        with self.assertRaisesRegex(
-            IUM11PublicationError,
-            "guide must contain exactly one H1",
-        ):
-            validate_publication_text_boundary(
-                "pilot/docs/teacher-guide.md",
-                two_visible_h1s,
-            )
-
-        hidden_setext_h1s = (
-            "```markdown\nVersteckt\n===\n```\n",
-            "<!--\nVersteckt\n===\n-->\n",
-            "<template>\nVersteckt\n===\n</template>\n",
-        )
-        for hidden_h1 in hidden_setext_h1s:
-            with self.subTest(hidden_h1=hidden_h1.splitlines()[0]):
-                guide = f"# Lehrkräfteanleitung\n\n{block}\n\n{hidden_h1}"
-                validate_publication_text_boundary(
-                    "pilot/docs/teacher-guide.md",
-                    guide,
-                )
-
-    def test_boundary_requires_exactly_one_readme_section_and_one_marker_pair(self):
-        block = render_publication_markdown_block(self.compile())
-        cases = (
-            ("## Andere Überschrift\n" + block, "README IUM11 section"),
-            (
-                "## IUM11-Pilotinstrument\n" + block + "\n"
-                "## IUM11-Pilotinstrument\nOhne zweiten Block\n",
-                "README IUM11 section",
-            ),
-            ("# Anleitung\n" + block + "\n" + PUBLICATION_START_MARKER, "publication start marker"),
+            (readme + PUBLICATION_START_MARKER, "publication start marker"),
+            (readme + PUBLICATION_END_MARKER, "publication end marker"),
         )
         for text, message in cases:
             with self.subTest(text=text):
@@ -784,65 +748,60 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                 with self.subTest(relative_path=relative_path):
                     self.assertIn(relative_path, message)
 
-    def test_builder_rejects_shifted_or_hidden_blocks_before_writing(self):
+    def test_builder_rejects_noncanonical_layout_before_writing(self):
         def move_readme_block_outside_section(text):
             block = extract_publication_block(text)
             return block + "\n\n" + text.replace(block, "", 1)
 
         def move_guide_block_after_intro(text):
             block = extract_publication_block(text)
-            without_block = text.replace(block, "", 1)
-            heading_end = without_block.index("\n") + 1
-            return (
-                without_block[:heading_end]
-                + "\nEinleitender Hinweis.\n\n"
-                + block
-                + without_block[heading_end:]
-            )
-
-        def hide_readme_heading(text):
-            return text.replace(
-                "## IUM11-Pilotinstrument",
-                "```markdown\n## IUM11-Pilotinstrument\n```",
-                1,
-            )
-
-        def wrap_block(text, opening, closing):
-            block = extract_publication_block(text)
             return text.replace(
                 block,
-                f"{opening}\n{block}\n{closing}",
+                "Einleitender Hinweis.\n\n" + block,
                 1,
             )
-
-        def add_second_h1(text):
-            block = extract_publication_block(text)
-            return text.replace(block, "# Zweite Hauptüberschrift\n\n" + block, 1)
 
         cases = (
             ("README.md", "outside-readme-section", move_readme_block_outside_section),
-            ("README.md", "hidden-readme-heading", hide_readme_heading),
+            (
+                "README.md",
+                "missing-scope-end",
+                lambda text: text.replace(EXPECTED_README_SCOPE_END_MARKER, "", 1),
+            ),
+            (
+                "README.md",
+                "duplicate-scope-end",
+                lambda text: text.replace(
+                    EXPECTED_README_SCOPE_END_MARKER,
+                    EXPECTED_README_SCOPE_END_MARKER
+                    + "\n"
+                    + EXPECTED_README_SCOPE_END_MARKER,
+                    1,
+                ),
+            ),
+            (
+                "README.md",
+                "wrong-section-heading",
+                lambda text: text.replace(
+                    "## IUM11-Pilotinstrument",
+                    "## Anderer Abschnitt",
+                    1,
+                ),
+            ),
             (
                 "pilot/docs/teacher-guide.md",
                 "after-guide-introduction",
                 move_guide_block_after_intro,
             ),
             (
-                "pilot/docs/teacher-guide.md",
-                "backtick-fence",
-                lambda text: wrap_block(text, "```markdown", "```"),
-            ),
-            (
                 "pilot/docs/review-guide.md",
-                "tilde-fence",
-                lambda text: wrap_block(text, "~~~markdown", "~~~"),
+                "wrong-guide-heading",
+                lambda text: text.replace(
+                    EXPECTED_GUIDE_HEADINGS["pilot/docs/review-guide.md"],
+                    "# Andere Reviewanleitung",
+                    1,
+                ),
             ),
-            (
-                "pilot/docs/review-guide.md",
-                "html-comment",
-                lambda text: wrap_block(text, "<!-- hidden", "-->"),
-            ),
-            ("pilot/docs/review-guide.md", "second-h1", add_second_h1),
         )
         for relative_path, mutation_name, mutate in cases:
             with self.subTest(mutation=mutation_name):
@@ -857,10 +816,7 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                     target.write_bytes(
                         mutate(target.read_bytes().decode("utf-8")).encode("utf-8")
                     )
-                    publication_targets = (
-                        CONTRACT_PATH,
-                        *PUBLICATION_PATHS,
-                    )
+                    publication_targets = (CONTRACT_PATH, *PUBLICATION_PATHS)
                     before = {
                         fixture / path: (fixture / path).read_bytes()
                         for path in publication_targets
@@ -873,320 +829,6 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                         {path: path.read_bytes() for path in before},
                         before,
                     )
-
-    def test_builder_rejects_raw_html_wrapped_structures_before_writing(self):
-        def wrap_readme_heading_and_block(text, opening, closing):
-            block = extract_publication_block(text)
-            start = text.index("## IUM11-Pilotinstrument")
-            end = text.index(block) + len(block)
-            return (
-                text[:start]
-                + opening
-                + "\n"
-                + text[start:end]
-                + "\n"
-                + closing
-                + text[end:]
-            )
-
-        def wrap_guide_heading_and_block(text, opening, closing):
-            block = extract_publication_block(text)
-            end = text.index(block) + len(block)
-            return opening + "\n" + text[:end] + "\n" + closing + text[end:]
-
-        def wrap_block(text, opening, closing):
-            block = extract_publication_block(text)
-            return text.replace(
-                block,
-                f"{opening}\n{block}\n{closing}",
-                1,
-            )
-
-        def wrap_whole_document(text, opening, closing):
-            return f"{opening}\n{text}\n{closing}\n"
-
-        def embed_readme_structure_in_multiline_void_tag(text):
-            block = extract_publication_block(text)
-            start = text.index("## IUM11-Pilotinstrument")
-            end = text.index(block) + len(block)
-            return (
-                text[:start]
-                + "<img hidden alt='\n"
-                + text[start:end]
-                + "\n'>\n"
-                + text[end:]
-            )
-
-        cases = (
-            (
-                "README.md",
-                "template",
-                lambda text: wrap_readme_heading_and_block(
-                    text,
-                    '<TEMPLATE data-mode="hidden">',
-                    "</TEMPLATE>",
-                ),
-            ),
-            (
-                "pilot/docs/teacher-guide.md",
-                "pre-hidden",
-                lambda text: wrap_guide_heading_and_block(
-                    text,
-                    "<pre hidden>",
-                    "</pre>",
-                ),
-            ),
-            (
-                "README.md",
-                "script",
-                lambda text: wrap_block(
-                    text,
-                    '<script type="text/plain">',
-                    "</script>",
-                ),
-            ),
-            (
-                "README.md",
-                "style",
-                lambda text: wrap_block(
-                    text,
-                    '<STYLE media="all">',
-                    "</STYLE>",
-                ),
-            ),
-            (
-                "README.md",
-                "textarea",
-                lambda text: wrap_block(
-                    text,
-                    '<textarea aria-label="raw">',
-                    "</textarea>",
-                ),
-            ),
-            (
-                "README.md",
-                "details",
-                lambda text: wrap_block(
-                    text,
-                    "<details open>",
-                    "</details>",
-                ),
-            ),
-            (
-                "pilot/docs/teacher-guide.md",
-                "nested-unclosed",
-                lambda text: wrap_block(
-                    text,
-                    "<details><template>",
-                    "</template>",
-                ),
-            ),
-            (
-                "README.md",
-                "div-hidden",
-                lambda text: wrap_readme_heading_and_block(
-                    text,
-                    "<div hidden>",
-                    "</div>",
-                ),
-            ),
-            (
-                "pilot/docs/teacher-guide.md",
-                "section-hidden-whole-guide",
-                lambda text: wrap_whole_document(
-                    text,
-                    "<section hidden>",
-                    "</section>",
-                ),
-            ),
-            (
-                "README.md",
-                "iframe-hidden",
-                lambda text: wrap_block(
-                    text,
-                    "<iframe hidden>",
-                    "</iframe>",
-                ),
-            ),
-            (
-                "pilot/docs/review-guide.md",
-                "nested-generic-hidden-whole-guide",
-                lambda text: wrap_whole_document(
-                    text,
-                    '<article data-layer="outer"><div hidden data-layer="inner">',
-                    "</div></article>",
-                ),
-            ),
-            (
-                "README.md",
-                "multiline-void-tag-token",
-                embed_readme_structure_in_multiline_void_tag,
-            ),
-            (
-                "README.md",
-                "self-closing-details-before-structure",
-                lambda text: "<details />\n" + text,
-            ),
-            (
-                "README.md",
-                "self-closing-custom-element-before-structure",
-                lambda text: "<status-badge />\n" + text,
-            ),
-        )
-        for relative_path, mutation_name, mutate in cases:
-            with self.subTest(mutation=mutation_name):
-                with tempfile.TemporaryDirectory() as temporary:
-                    fixture = Path(temporary) / "repository"
-                    shutil.copytree(
-                        ROOT,
-                        fixture,
-                        ignore=shutil.ignore_patterns(".git", "__pycache__"),
-                    )
-                    target = fixture / relative_path
-                    target.write_bytes(
-                        mutate(target.read_bytes().decode("utf-8")).encode("utf-8")
-                    )
-
-                    with mock.patch(
-                        "scripts.build_ium11_publication_contract._write_replace_atomic"
-                    ) as writer:
-                        with self.assertRaises(IUM11PublicationError):
-                            build_publication_contract(fixture)
-                    writer.assert_not_called()
-
-    def test_builder_allows_unrelated_raw_html_outside_publication_structures(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            fixture = Path(temporary) / "repository"
-            shutil.copytree(
-                ROOT,
-                fixture,
-                ignore=shutil.ignore_patterns(".git", "__pycache__"),
-            )
-            readme = fixture / "README.md"
-            readme.write_bytes(
-                b'<img hidden alt="unrelated" />\n'
-                + b'<details data-purpose="unrelated" />\n</details>\n'
-                + b'<status-badge data-purpose="unrelated" />\n</status-badge>\n'
-                + readme.read_bytes()
-                + b'\n<div hidden data-purpose="unrelated">Redaktioneller Hinweis.</div>\n'
-            )
-
-            outputs = build_publication_contract(fixture, check=True)
-
-            self.assertEqual(len(outputs), 4)
-
-    def test_builder_rejects_block_after_visible_setext_h2_before_writing(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            fixture = Path(temporary) / "repository"
-            shutil.copytree(
-                ROOT,
-                fixture,
-                ignore=shutil.ignore_patterns(".git", "__pycache__"),
-            )
-            readme = fixture / "README.md"
-            text = readme.read_bytes().decode("utf-8")
-            block = extract_publication_block(text)
-            readme.write_bytes(
-                text.replace(
-                    block,
-                    "Sichtbarer Folgeabschnitt\n---\n\n" + block,
-                    1,
-                ).encode("utf-8")
-            )
-
-            with mock.patch(
-                "scripts.build_ium11_publication_contract._write_replace_atomic"
-            ) as writer:
-                with self.assertRaisesRegex(
-                    IUM11PublicationError,
-                    "publication block must be inside the IUM11 section",
-                ):
-                    build_publication_contract(fixture)
-            writer.assert_not_called()
-
-    def test_builder_rejects_commonmark_indented_h2_and_h1_headings(self):
-        def add_readme_h2(text, indentation, heading_text):
-            block = extract_publication_block(text)
-            return text.replace(
-                block,
-                f"{' ' * indentation}##{heading_text}\n\n{block}",
-                1,
-            )
-
-        def add_guide_h1(text, indentation, heading_text):
-            return text + f"\n{' ' * indentation}#{heading_text}\n"
-
-        cases = (
-            (
-                "README.md",
-                add_readme_h2,
-                "README.md: publication block must be inside the IUM11 section",
-            ),
-            (
-                "pilot/docs/teacher-guide.md",
-                add_guide_h1,
-                "pilot/docs/teacher-guide.md: guide must contain exactly one H1",
-            ),
-        )
-        for indentation in (1, 2, 3):
-            for heading_text in (" Nachfolgender Abschnitt", ""):
-                for relative_path, mutate, expected_error in cases:
-                    with self.subTest(
-                        indentation=indentation,
-                        heading_text=heading_text,
-                        relative_path=relative_path,
-                    ):
-                        with tempfile.TemporaryDirectory() as temporary:
-                            fixture = Path(temporary) / "repository"
-                            shutil.copytree(
-                                ROOT,
-                                fixture,
-                                ignore=shutil.ignore_patterns(".git", "__pycache__"),
-                            )
-                            target = fixture / relative_path
-                            target.write_bytes(
-                                mutate(
-                                    target.read_bytes().decode("utf-8"),
-                                    indentation,
-                                    heading_text,
-                                ).encode("utf-8")
-                            )
-
-                            with self.assertRaises(IUM11PublicationError) as raised:
-                                build_publication_contract(fixture)
-
-                            self.assertEqual(str(raised.exception), expected_error)
-
-    def test_builder_accepts_four_space_pseudo_headings(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            fixture = Path(temporary) / "repository"
-            shutil.copytree(
-                ROOT,
-                fixture,
-                ignore=shutil.ignore_patterns(".git", "__pycache__"),
-            )
-            readme = fixture / "README.md"
-            readme_text = readme.read_bytes().decode("utf-8")
-            readme_block = extract_publication_block(readme_text)
-            readme.write_bytes(
-                readme_text.replace(
-                    readme_block,
-                    f"    ## Codebeispiel\n\n{readme_block}",
-                    1,
-                ).encode("utf-8")
-            )
-            guide = fixture / "pilot/docs/teacher-guide.md"
-            guide.write_bytes(
-                (
-                    guide.read_bytes().decode("utf-8")
-                    + "\n    # Eingerücktes Codebeispiel\n"
-                ).encode("utf-8")
-            )
-
-            outputs = build_publication_contract(fixture, check=True)
-
-            self.assertEqual(len(outputs), 4)
-
     def test_build_failure_is_per_file_atomic_and_later_check_reports_drift(self):
         with tempfile.TemporaryDirectory() as temporary:
             fixture = Path(temporary) / "repository"
@@ -1196,12 +838,11 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                 if path.name == "publication-contract.json":
                     path.write_bytes(b"{}\n")
                 else:
-                    path.write_text(
+                    path.write_bytes(
                         replace_publication_block(
-                            path.read_text(encoding="utf-8"),
+                            path.read_bytes().decode("utf-8"),
                             f"{PUBLICATION_START_MARKER}\nstale\n{PUBLICATION_END_MARKER}",
-                        ),
-                        encoding="utf-8",
+                        ).encode("utf-8")
                     )
             originals = {path: path.read_bytes() for path in outputs if path.exists()}
             real_replace = __import__("os").replace
