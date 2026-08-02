@@ -8,6 +8,8 @@
 
 **Tech Stack:** JSON, JSON Schema Draft 2020-12, Python 3.11+ Standardbibliothek, `unittest`, Vanilla HTML/CSS/JavaScript ohne Paketmanager oder Laufzeitabhängigkeit, Node.js 18+ ausschließlich für JavaScript-Vertragstests, Git und GitHub CLI.
 
+**Ausführungsbilanz 2026-08-02:** Tasks 1–10 abgeschlossen; Fachreview und Engineering-/Privacy-/Accessibilityreview jeweils `APPROVED AFTER FIXES`; 636/636 Tests und alle vier Repositoryvalidatoren grün. Fixstand `dce092e`; der PR bleibt Draft. Reale Pilotierung, Statusmutation, Release und Phase 1 wurden nicht ausgeführt.
+
 ## Global Constraints
 
 - Maßgebliche Spezifikation ist `docs/superpowers/specs/2026-08-01-ium11-grade7-working-40-pilot-design.md`, am 1. August 2026 schriftlich freigegeben.
@@ -327,7 +329,7 @@ Die `packageId` eines Entscheidungspakets wird deterministisch als UUIDv5 aus de
 - Consumes: `roadmap/time-model.json`, `scripts.validate_ium10.validate_ium10_repository`
 - Produces: `canonical_sha256`, `validate_pilot_protocol`, `validate_ium11_repository`, kompilierter Protokollvertrag mit `protocolFingerprint`
 
-- [ ] **Step 1: Failing Tests für Fingerprint, Protokollform und vier Cluster schreiben**
+- [x] **Step 1: Failing Tests für Fingerprint, Protokollform und vier Cluster schreiben**
 
 ```python
 def load_json(path: Path) -> dict:
@@ -376,7 +378,7 @@ class IUM11ProtocolContractTests(unittest.TestCase):
         self.assertEqual(compiled["forbiddenRecommendations"], ["reviewed", "standard"])
 ```
 
-- [ ] **Step 2: Fokussierten Test ausführen und roten Zustand bestätigen**
+- [x] **Step 2: Fokussierten Test ausführen und roten Zustand bestätigen**
 
 Run:
 
@@ -386,7 +388,7 @@ python -B -m unittest tests.test_validate_ium11.IUM11ProtocolContractTests -v
 
 Expected: Import- oder Dateifehler, weil IUM11-Protokoll und Validator noch fehlen.
 
-- [ ] **Step 3: `pilot-protocol.json` mit exakt freigegebenen IDs und Schwellen anlegen**
+- [x] **Step 3: `pilot-protocol.json` mit exakt freigegebenen IDs und Schwellen anlegen**
 
 Der Top-Level-Vertrag lautet:
 
@@ -465,7 +467,7 @@ PROTOCOL_FIELDS = {
 }
 ```
 
-- [ ] **Step 4: Kanonische Fingerprint- und geschlossene Protokollvalidierung implementieren**
+- [x] **Step 4: Kanonische Fingerprint- und geschlossene Protokollvalidierung implementieren**
 
 ```python
 def canonical_sha256(payload: object) -> str:
@@ -523,7 +525,7 @@ Jeder kompilierte Cluster ergänzt genau diese abgeleiteten Strukturen:
 
 Die übrigen Module und Integrationen verwenden dieselbe algorithmische ID-Bildung mit ihren konkreten kanonischen IDs. Der kompilierte Rückgabewert ergänzt `protocolFingerprint = canonical_sha256(protocol)`, `clustersById = {cluster["id"]: cluster for cluster in clusters}` und `annualPilot`; er mutiert weder Eingaben noch Zeitmodell.
 
-- [ ] **Step 5: Repositoryeinstieg implementieren**
+- [x] **Step 5: Repositoryeinstieg implementieren**
 
 ```python
 def validate_ium11_repository(root: Path) -> dict:
@@ -537,7 +539,7 @@ def validate_ium11_repository(root: Path) -> dict:
 
 Die CLI akzeptiert `--root`, gibt Fehler als `IUM11 repository validation failed: ...` auf `stderr` aus und meldet im grünen Zustand Protokollversion, vier Cluster, zehn Module und einen Jahrespfad.
 
-- [ ] **Step 6: Fokussierte und vollständige Regression ausführen**
+- [x] **Step 6: Fokussierte und vollständige Regression ausführen**
 
 Run:
 
@@ -549,7 +551,7 @@ python -B scripts/validate_ium11.py
 
 Expected: alle neuen Protokolltests und alle bisherigen 482 Tests grün; CLI meldet `4 clusters, 10 module bindings, and 1 annual pilot`.
 
-- [ ] **Step 7: Task-Commit erstellen**
+- [x] **Step 7: Task-Commit erstellen**
 
 ```powershell
 git add pilot/pilot-protocol.json scripts/validate_ium11.py tests/test_validate_ium11.py
@@ -567,7 +569,7 @@ git commit -m "feat: add ium11 pilot protocol"
 - Consumes: kompilierter Protokollvertrag aus Task 1
 - Produces: `evaluate_learner_pulse`, `validate_evidence_package`, geschlossenes Cluster-/Jahresschema
 
-- [ ] **Step 1: Failing Tests für Felder, Privacy, Unterdrückung und Warnung schreiben**
+- [x] **Step 1: Failing Tests für Felder, Privacy, Unterdrückung und Warnung schreiben**
 
 Lege oberhalb der Testklasse einen vollständig aus dem kompilierten Protokoll erzeugten Factorywert an:
 
@@ -653,7 +655,7 @@ class IUM11EvidencePackageTests(unittest.TestCase):
         self.assertEqual(result["warnings"][0]["status"], "open")
 ```
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -663,7 +665,7 @@ python -B -m unittest tests.test_validate_ium11.IUM11EvidencePackageTests -v
 
 Expected: fehlendes Schema beziehungsweise fehlende Auswertungsfunktionen.
 
-- [ ] **Step 3: JSON Schema Draft 2020-12 als geschlossenen Vertrag anlegen**
+- [x] **Step 3: JSON Schema Draft 2020-12 als geschlossenen Vertrag anlegen**
 
 Das Schema verwendet:
 
@@ -707,7 +709,7 @@ oder:
 }
 ```
 
-- [ ] **Step 4: Manuelle fail-closed Validierung ohne Fremdabhängigkeit implementieren**
+- [x] **Step 4: Manuelle fail-closed Validierung ohne Fremdabhängigkeit implementieren**
 
 Verwende feste Feldmengen für Top-Level, Kontext und alle vier Evidenzspuren. Prüfe Typen mit `type(value) is int` beziehungsweise `type(value) is bool`, damit Python-Bools nicht als Integer akzeptiert werden. Prüfe:
 
@@ -733,11 +735,11 @@ def evaluate_learner_pulse(payload: dict, protocol: dict) -> dict:
 
 `validate_evidence_package` prüft Paket-/Protokoll-/Tool-/Zeitmodellversion, Scopebindung, ausschließlich erlaubte Kontextwerte, Pflichtphasen, Kriterien-IDs, Bands, Technik-/Privacy-Enums, widerspruchsfreie Summen und exakt die aus den Eingaben neu abgeleiteten Warnungen. Das übergebene `result` wird niemals vertraut, sondern in Task 3/4 neu berechnet und verglichen.
 
-- [ ] **Step 5: Privacy- und Schemamutationen vollständig parametrisieren**
+- [x] **Step 5: Privacy- und Schemamutationen vollständig parametrisieren**
 
 Mutiere nacheinander jedes verbotene Feld in Top-Level, `context`, allen Evidenzspuren und Warnungen. Mutiere außerdem bool/int, negative Summen, gemischte Versionen, falsche Fingerprints, freie Texte, Produktpfade, vierte Lernendenfrage, falsche Antwortreihenfolge, unter zehn reportete Antworten und `suppressed-small-group` mit zusätzlichen Zählwerten. Jede Mutation muss an `validate_evidence_package` scheitern.
 
-- [ ] **Step 6: Tests und CLI ausführen**
+- [x] **Step 6: Tests und CLI ausführen**
 
 Run:
 
@@ -749,7 +751,7 @@ python -B scripts/validate_ium11.py
 
 Expected: alle Evidenz-, Privacy- und Regressionstests grün.
 
-- [ ] **Step 7: Task-Commit erstellen**
+- [x] **Step 7: Task-Commit erstellen**
 
 ```powershell
 git add pilot/schemas/evidence-package.schema.json scripts/validate_ium11.py tests/test_validate_ium11.py
@@ -766,7 +768,7 @@ git commit -m "feat: validate ium11 evidence packages"
 - Consumes: validiertes Cluster-Evidenzpaket und kompilierte Clusterkonfiguration
 - Produces: `derive_cluster_result` mit Ergebnis, zehn möglichen Modul-Unterbefunden, Integrationsbefund, Warnungen und Rückfallwert
 
-- [ ] **Step 1: Failing Tests für sämtliche harte Clustergates schreiben**
+- [x] **Step 1: Failing Tests für sämtliche harte Clustergates schreiben**
 
 ```python
 class IUM11ClusterResultTests(unittest.TestCase):
@@ -801,7 +803,7 @@ class IUM11ClusterResultTests(unittest.TestCase):
         self.assertEqual(self.derive(payload)["result"], "not-evaluable")
 ```
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -811,7 +813,7 @@ python -B -m unittest tests.test_validate_ium11.IUM11ClusterResultTests -v
 
 Expected: `derive_cluster_result` fehlt oder liefert noch keine vollständige Ableitung.
 
-- [ ] **Step 3: Muss-Kriterien und Modul-Unterbefunde rein ableiten**
+- [x] **Step 3: Muss-Kriterien und Modul-Unterbefunde rein ableiten**
 
 Jedes Modul erhält genau die Kriterien:
 
@@ -829,7 +831,7 @@ f"CRIT-{integration_id}-HANDOFF-EVIDENCE"  → preservedProductAndCurriculumEvid
 
 Die IDs werden durch Ersetzen von `IUM-` beziehungsweise `INT-` nicht verkürzt; Beispiele sind `CRIT-IUM-7-CORE-01-ACTION` und `CRIT-INT-7-DATA-CODING-HANDOFF-EVIDENCE`. `validate_pilot_protocol` kompiliert diese Kriterien deterministisch, `validate_evidence_package` verlangt jedes genau einmal.
 
-- [ ] **Step 4: Ergebnispriorität und Rückfalllogik implementieren**
+- [x] **Step 4: Ergebnispriorität und Rückfalllogik implementieren**
 
 ```python
 def derive_cluster_result(payload: dict, cluster: dict, protocol: dict) -> dict:
@@ -862,11 +864,11 @@ def derive_cluster_result(payload: dict, cluster: dict, protocol: dict) -> dict:
 
 Privacyverletzung wird vor dieser Ableitung abgefangen, als `fail` klassifiziert und blockiert Export/Weiterverarbeitung. Ein technischer Fallback ist nur positiv, wenn `fallbackActivated` wahr, `fallbackEquivalentLearningFunction` wahr und das Budget eingehalten ist. `requiredLearningPhasesCompleted` ist nur dann wahr, wenn die exportierte, sortierte Phasenmenge exakt der kompilierten Pflichtphasenmenge aller Clustermodule entspricht.
 
-- [ ] **Step 5: Alle vier Cluster und Grenzwerte parametrisiert testen**
+- [x] **Step 5: Alle vier Cluster und Grenzwerte parametrisiert testen**
 
 Prüfe pro Cluster positiven Lauf, `budget + 1`, jede fehlende Phase, jedes `mixed`/`weak`, fehlendes oder nicht weiterverwendetes Übergabeprodukt, Technikfehler, nichtgleichwertigen Fallback, Privacyfehler und Lernendenwarnung. Prüfe Warnungsgrenzen `2/7` ohne Warnung, `3/9` mit Warnung und `4/12` mit Warnung. Prüfe Rückfälle exakt `3/2/3/6` und dass `not-evaluable` keinen positiven Pilotbefund erzeugt.
 
-- [ ] **Step 6: Fokussierte und vollständige Tests ausführen**
+- [x] **Step 6: Fokussierte und vollständige Tests ausführen**
 
 Run:
 
@@ -878,7 +880,7 @@ python -B scripts/validate_ium11.py
 
 Expected: alle vier Clusterverträge und sämtliche Regressionen grün.
 
-- [ ] **Step 7: Task-Commit erstellen**
+- [x] **Step 7: Task-Commit erstellen**
 
 ```powershell
 git add scripts/validate_ium11.py tests/test_validate_ium11.py
@@ -896,7 +898,7 @@ git commit -m "feat: derive ium11 cluster outcomes"
 - Consumes: genau vier aktuelle Clusterpakete, genau ein Jahrespaket, kompilierter Protokollvertrag
 - Produces: `derive_annual_result`, `build_decision_package`, `validate_decision_package`
 
-- [ ] **Step 1: Failing Tests für Jahresvoraussetzungen und Empfehlung schreiben**
+- [x] **Step 1: Failing Tests für Jahresvoraussetzungen und Empfehlung schreiben**
 
 Ergänze diese exakten Hilfen:
 
@@ -1016,7 +1018,7 @@ class IUM11DecisionPackageTests(unittest.TestCase):
             build_decision_package(packages, self.protocol, self.time_model)
 ```
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -1026,7 +1028,7 @@ python -B -m unittest tests.test_validate_ium11.IUM11DecisionPackageTests -v
 
 Expected: Entscheidungsschema und Ableitungsfunktionen fehlen.
 
-- [ ] **Step 3: Geschlossenes Entscheidungsschema anlegen**
+- [x] **Step 3: Geschlossenes Entscheidungsschema anlegen**
 
 Verwende Draft 2020-12, `additionalProperties: false` auf jeder Objektebene und die im Abschnitt „Verbindliche Paketformen“ festgelegten Top-Level-Felder. Zentrale Konstanten:
 
@@ -1049,7 +1051,7 @@ not-evaluable
 
 `reviewStatus` besitzt ausschließlich `fach`, `engineeringPrivacy`, `commissioner`; jeder Wert ist `not-started`, `passed` oder `failed`. Ein vom Validator erzeugtes Paket beginnt immer dreimal mit `not-started`.
 
-- [ ] **Step 4: Jahresableitung ohne Querkompensation implementieren**
+- [x] **Step 4: Jahresableitung ohne Querkompensation implementieren**
 
 ```python
 def derive_annual_result(
@@ -1077,7 +1079,7 @@ def derive_annual_result(
 
 Der Jahresbefund verlangt im Jahrespaket erneut alle vier Clusterbudgets, Übergaben, Pflichtphasen, Technik-/Privacybefunde und die fünf Gates `capacity`, `integration`, `technical`, `privacy`, `pilot` als `passed`. Frühere Clusterpakete ersetzen keine Jahresbeobachtung.
 
-- [ ] **Step 5: Entscheidungspaket deterministisch bauen und erneut validieren**
+- [x] **Step 5: Entscheidungspaket deterministisch bauen und erneut validieren**
 
 `build_decision_package`:
 
@@ -1107,11 +1109,11 @@ python -B scripts/validate_ium11.py `
 
 `--evidence` muss genau fünfmal erscheinen, `--decision-output` darf noch nicht existieren, und Ein- sowie Ausgabepfade werden vor dem Schreiben vollständig validiert. Liegt ein Pfad innerhalb des öffentlichen Repositorys, wird der Vorgang abgelehnt; einzige Ausnahme ist der in Task 5 getrennt getestete synthetische Schreibpfad. Fehler hinterlassen keine Teildatei.
 
-- [ ] **Step 6: Mutationstests für unzulässige Reifeaussagen ergänzen**
+- [x] **Step 6: Mutationstests für unzulässige Reifeaussagen ergänzen**
 
 Mutiere `recommendation` zu `reviewed`, `standard`, `available` und `green`; setze Reviews ohne positives Minimalpilotpaket auf `passed`; entferne eine Quelle; dupliziere eine Scope-ID; mische Fingerprints; ändere Gesamtzeit auf 41; verrechne einen Überlauf quer; markiere `semanticCoverageStatus` als `covered`; füge eine Statusmutation hinzu. Jede Mutation muss an der öffentlichen Entscheidungsgrenze scheitern.
 
-- [ ] **Step 7: Fokussierte und vollständige Tests ausführen**
+- [x] **Step 7: Fokussierte und vollständige Tests ausführen**
 
 Run:
 
@@ -1123,7 +1125,7 @@ python -B scripts/validate_ium11.py
 
 Expected: Jahres-, Entscheidungs- und alle bisherigen Tests grün; `roadmap/time-model.json` bleibt byteidentisch zum Taskbeginn.
 
-- [ ] **Step 8: Task-Commit erstellen**
+- [x] **Step 8: Task-Commit erstellen**
 
 ```powershell
 git add pilot/schemas/decision-package.schema.json scripts/validate_ium11.py tests/test_validate_ium11.py
@@ -1147,7 +1149,7 @@ git commit -m "feat: build ium11 pilot decisions"
 - Consumes: Paketvalidatoren und Ableitungsfunktionen aus Tasks 2–4
 - Produces: öffentliche, offensichtlich synthetische Referenzpakete und vollständigen Repositorybefund
 
-- [ ] **Step 1: Failing Repositorytests für alle Beispiele schreiben**
+- [x] **Step 1: Failing Repositorytests für alle Beispiele schreiben**
 
 Die Testhilfen sind exakt:
 
@@ -1194,7 +1196,7 @@ class IUM11SyntheticExampleTests(unittest.TestCase):
             self.assertTrue(flattened_keys.isdisjoint(PROHIBITED_FIELD_NAMES), path)
 ```
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -1204,7 +1206,7 @@ python -B -m unittest tests.test_validate_ium11.IUM11SyntheticExampleTests -v
 
 Expected: Beispieldateien fehlen.
 
-- [ ] **Step 3: Vier positive Clusterbeispiele mit neutralen Kontextwerten anlegen**
+- [x] **Step 3: Vier positive Clusterbeispiele mit neutralen Kontextwerten anlegen**
 
 Alle positiven Cluster verwenden:
 
@@ -1231,13 +1233,13 @@ Alle positiven Cluster verwenden:
 
 Jede Datei erhält eine feste RFC-4122-v4-konforme synthetische `packageId` mit `PKG-`-Präfix, den aktuellen `protocolFingerprint`, ihre richtige Scope-ID, das exakte Clusterbudget, alle kompilierten Pflichtphasen und Muss-Kriterien `strong`, ein vorhandenes und weiterverwendetes Übergabeprodukt, positiven Technik-/Privacybefund und einen Lernendenimpuls mit mindestens zehn gültigen Antworten unter der Warnungsgrenze.
 
-- [ ] **Step 4: Negatives Cluster- und positives Jahresbeispiel anlegen**
+- [x] **Step 4: Negatives Cluster- und positives Jahresbeispiel anlegen**
 
 `synthetic-cluster-fail.json` verwendet `CLUSTER-7-PROGRAMMING`, `actualUnits: 12`, Ergebnis `fail` und Rückfall `2`; alle anderen Felder bleiben gültig, damit genau das Budgetgate den negativen Befund erklärt.
 
 `synthetic-annual-pass.json` verwendet Scope `ANNUAL-7-WORKING-40`, `term: full-year`, exakt 40 UE, die Reihenfolge der vier Cluster-IDs, erneute positive Cluster-/Übergabe-/Phasenbefunde und alle fünf Gates `passed`.
 
-- [ ] **Step 5: Entscheidungspaket ausschließlich durch Produktionsfunktion erzeugen**
+- [x] **Step 5: Entscheidungspaket ausschließlich durch Produktionsfunktion erzeugen**
 
 Verwende einmalig die Python-Produktionsfunktion und prüfe den erzeugten Wert vor dem Commit:
 
@@ -1248,7 +1250,7 @@ python -B scripts/validate_ium11.py
 
 Der CLI-Schreibmodus akzeptiert ausschließlich den exakten Pfad unter `pilot/examples/`, überschreibt keine andere Datei und verwendet nur die fünf committed positiven Evidenzbeispiele. Er ist kein Schreibweg für reale Daten.
 
-- [ ] **Step 6: Repositoryvalidator auf Schemas, Beispiele und Statusinvariante erweitern**
+- [x] **Step 6: Repositoryvalidator auf Schemas, Beispiele und Statusinvariante erweitern**
 
 `validate_ium11_repository` lädt beide Schemas, alle sieben Beispiele und verifiziert zusätzlich:
 
@@ -1260,7 +1262,7 @@ Der CLI-Schreibmodus akzeptiert ausschließlich den exakten Pfad unter `pilot/ex
 - negative Beispieldatei bleibt von der positiven Entscheidung ausgeschlossen;
 - Entscheidung lässt `status: working` und `semanticCoverageStatus: partial` unangetastet.
 
-- [ ] **Step 7: Fokussierte und vollständige Tests ausführen**
+- [x] **Step 7: Fokussierte und vollständige Tests ausführen**
 
 Run:
 
@@ -1272,7 +1274,7 @@ python -B scripts/validate_ium11.py
 
 Expected: Beispiele sind schema-, privacy- und ableitungskonform; vollständige Suite grün.
 
-- [ ] **Step 8: Task-Commit erstellen**
+- [x] **Step 8: Task-Commit erstellen**
 
 ```powershell
 git add pilot/examples scripts/validate_ium11.py tests/test_validate_ium11.py
@@ -1291,7 +1293,7 @@ git commit -m "test: add ium11 synthetic evidence set"
 - Consumes: `pilot-protocol.json`, `time-model.json`, Python-Ableitungsregeln und synthetische Beispiele
 - Produces: deterministisches `window.IUM11_PROTOCOL`, reine JavaScript-Vertragsfunktionen und Cross-Runtime-Parität
 
-- [ ] **Step 1: Failing Build- und Node-Vertragstests schreiben**
+- [x] **Step 1: Failing Build- und Node-Vertragstests schreiben**
 
 ```python
 def run_node(source):
@@ -1325,7 +1327,7 @@ class IUM11CockpitBuildTests(unittest.TestCase):
         ]))
 ```
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -1335,7 +1337,7 @@ python -B -m unittest tests.test_ium11_cockpit_contract.IUM11CockpitBuildTests -
 
 Expected: Buildskript und JavaScript-Dateien fehlen.
 
-- [ ] **Step 3: Kompilierung ohne Statusduplikation implementieren**
+- [x] **Step 3: Kompilierung ohne Statusduplikation implementieren**
 
 `compile_cockpit_contract` ruft `validate_pilot_protocol` auf und erzeugt ausschließlich:
 
@@ -1373,7 +1375,7 @@ def render_protocol_js(compiled_contract: dict) -> str:
 
 Der Build ist byteidentisch und schreibt atomar über eine temporäre Datei im Zielverzeichnis.
 
-- [ ] **Step 4: Reine JavaScript-Schwellen- und Paketfunktionen implementieren**
+- [x] **Step 4: Reine JavaScript-Schwellen- und Paketfunktionen implementieren**
 
 ```javascript
 function evaluateLearnerPulse(payload, protocol) {
@@ -1403,11 +1405,11 @@ function evaluateLearnerPulse(payload, protocol) {
 
 `deriveClusterResult` und `deriveAnnualResult` folgen exakt den Python-Prädikaten aus Tasks 3/4. `validateEvidencePackage` lehnt zusätzliche Schlüssel rekursiv ab. `serializePackage` gibt `JSON.stringify(payload, null, 2) + '\n'` zurück; `parsePackage` akzeptiert nur JSON-Objekte und validiert sofort. `createPackageId` verwendet `crypto.randomUUID()` und erzeugt `` `PKG-${uuid}` ``; unter Node wird `require('node:crypto').randomUUID` verwendet.
 
-- [ ] **Step 5: Cross-Runtime-Tests gegen alle Beispiele ergänzen**
+- [x] **Step 5: Cross-Runtime-Tests gegen alle Beispiele ergänzen**
 
 Für jede synthetische Evidenzdatei ruft der Test Python und Node auf und vergleicht `result`, Warnungs-IDs, Modul-/Integrationsresultate und Rückfallwerte. Zusätzliche Grenzfälle sind `2/7`, `3/9`, `4/12`, `9` reportete Antworten, `suppressed-small-group` mit Zusatzfeld, Budget+1, fehlende Phase, `mixed`, Privacyfehler und falscher Fingerprint.
 
-- [ ] **Step 6: Build-, Node- und vollständige Tests ausführen**
+- [x] **Step 6: Build-, Node- und vollständige Tests ausführen**
 
 Run:
 
@@ -1420,7 +1422,7 @@ python -B -m unittest discover -s tests -p "test_*.py"
 
 Expected: Build byteidentisch, Node-Syntax grün, Python/JavaScript-Parität für alle Fälle.
 
-- [ ] **Step 7: Task-Commit erstellen**
+- [x] **Step 7: Task-Commit erstellen**
 
 ```powershell
 git add scripts/build_ium11_cockpit.py pilot/cockpit/assets/protocol.js pilot/cockpit/assets/app.js tests/test_ium11_cockpit_contract.py
@@ -1439,7 +1441,7 @@ git commit -m "feat: add ium11 cockpit contract core"
 - Consumes: `window.IUM11_PROTOCOL` und reine JavaScript-Funktionen aus Task 6
 - Produces: lokaler Formularfluss für Bereitschaft, Kontext, vier Evidenzspuren, Prüfung, JSON-Download und Dateiimport
 
-- [ ] **Step 1: Failing HTML-, Offline- und Accessibility-Vertragstests schreiben**
+- [x] **Step 1: Failing HTML-, Offline- und Accessibility-Vertragstests schreiben**
 
 Implementiere in derselben Testdatei `CockpitHTMLParser(HTMLParser)`. Der Parser sammelt Starttags, Attribute, `label[for]`, Control-IDs, Landmarks und positive `tabindex`-Werte. `parse_html(path)` liest UTF-8 und gibt den gefütterten Parser zurück; `read_cockpit_sources(root)` konkateniert ausschließlich `index.html`, `styles.css`, `protocol.js` und `app.js`.
 
@@ -1468,7 +1470,7 @@ class IUM11CockpitMarkupTests(unittest.TestCase):
         self.assertFalse(document.has_click_only_noninteractive_elements())
 ```
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -1478,7 +1480,7 @@ python -B -m unittest tests.test_ium11_cockpit_contract.IUM11CockpitMarkupTests 
 
 Expected: HTML und CSS fehlen.
 
-- [ ] **Step 3: Semantische Oberfläche mit vier klaren Schritten anlegen**
+- [x] **Step 3: Semantische Oberfläche mit vier klaren Schritten anlegen**
 
 `index.html` besitzt genau einen `<main>` und vier nummerierte Abschnitte:
 
@@ -1491,7 +1493,7 @@ Kein Element fordert Namen, Schule, Klasse, Kurs, Datum, Freitext oder Produktup
 
 Jeder Validierungsfehler wird intern als `{code, scopeId, nextStep}` repräsentiert. Sichtbare Meldungen nennen dadurch immer Ursache, betroffenen Scope und genau einen zulässigen nächsten Schritt; es gibt keinen „trotzdem exportieren“-Pfad.
 
-- [ ] **Step 4: Zustandsmaschine und sicheren Export/Import verdrahten**
+- [x] **Step 4: Zustandsmaschine und sicheren Export/Import verdrahten**
 
 ```javascript
 const state = {
@@ -1524,11 +1526,11 @@ function clearState() {
 
 Export ist deaktiviert, solange Validierung fehlschlägt, Privacy `fail` ist oder Ergebnis nicht neu abgeleitet wurde. Bei Auswahl des Jahres-Scope verlangt die Oberfläche vor der Eingabe vier lokale Clusterdateien. Sie akzeptiert nur vier verschiedene, positive und versionsgleiche Pakete in Protokollreihenfolge und hält sie ausschließlich in `state.importedClusters`; erst dann wird die Jahreserfassung freigeschaltet. Schließen/Neuladen verwirft den Zustand. Import liest ausschließlich mit `FileReader.readAsText`, ruft `parsePackage` auf, zeigt Fehler im fokussierten Fehlerresümee und übernimmt nie ungeprüfte Werte in den Zustand.
 
-- [ ] **Step 5: CSS-Baseline für Fokus, Kontrast, Reflow und Touch anlegen**
+- [x] **Step 5: CSS-Baseline für Fokus, Kontrast, Reflow und Touch anlegen**
 
 Nutze Systemschriften, relative Einheiten, `max-width: 72rem`, sichtbares `:focus-visible` mit mindestens 3 px Kontur, Textkontrast mindestens 4.5:1, Status zusätzlich zu Farbe als Text/Icon, `min-block-size: 44px` und `min-inline-size: 44px` für Buttons/Inputs. Bei `prefers-reduced-motion: reduce` werden Übergänge deaktiviert. Bei 320 CSS-Pixel Breite entsteht kein horizontaler Seiten-Scroll.
 
-- [ ] **Step 6: Node-Flowtests für Bereitschaft, Exportblockade und Import schreiben**
+- [x] **Step 6: Node-Flowtests für Bereitschaft, Exportblockade und Import schreiben**
 
 Teste mit einer kleinen DOM-Adaptergrenze statt Browserglobalen in den reinen Funktionen:
 
@@ -1541,7 +1543,7 @@ Teste mit einer kleinen DOM-Adaptergrenze statt Browserglobalen in den reinen Fu
 - Jahresmodus bleibt ohne vier positive versionsgleiche Clusterimporte gesperrt;
 - Dateiname enthält nur Scope und zufällige Paket-ID.
 
-- [ ] **Step 7: Fokussierte und vollständige Verifikation ausführen**
+- [x] **Step 7: Fokussierte und vollständige Verifikation ausführen**
 
 Run:
 
@@ -1554,7 +1556,7 @@ python -B -m unittest discover -s tests -p "test_*.py"
 
 Expected: Markup-, Offline-, Accessibility-, Node- und Regressionstests grün.
 
-- [ ] **Step 8: Task-Commit erstellen**
+- [x] **Step 8: Task-Commit erstellen**
 
 ```powershell
 git add pilot/cockpit/index.html pilot/cockpit/assets/styles.css pilot/cockpit/assets/app.js tests/test_ium11_cockpit_contract.py
@@ -1576,7 +1578,7 @@ git commit -m "feat: add offline ium11 pilot cockpit"
 - Consumes: vollständiges IUM11-Instrument aus Tasks 1–7
 - Produces: ausführbare Lehrkräfte-/Reviewprozesse, öffentliche Einstiege und erweiterte Phase-0-Kette
 
-- [ ] **Step 1: Failing Publikations- und Orchestrierungstests schreiben**
+- [x] **Step 1: Failing Publikations- und Orchestrierungstests schreiben**
 
 ```python
 class IUM11PublicationTests(unittest.TestCase):
@@ -1604,7 +1606,7 @@ class IUM11PublicationTests(unittest.TestCase):
 
 Erweitere den bestehenden Phase-0-Test auf Aufrufreihenfolge `ium10`, `ium09`, `ium11` und die Ausgabe `phase 0, IUM09, IUM10 and IUM11 validation passed\n`.
 
-- [ ] **Step 2: Roten Lauf bestätigen**
+- [x] **Step 2: Roten Lauf bestätigen**
 
 Run:
 
@@ -1615,7 +1617,7 @@ python -B -m unittest tests.test_validate_phase0.CoverageRepositoryTests.test_ph
 
 Expected: Anleitungen/README-Einstiege fehlen und Phase 0 ruft IUM11 noch nicht auf.
 
-- [ ] **Step 3: Lehrkräfteanleitung mit ausführbarem Ablauf schreiben**
+- [x] **Step 3: Lehrkräfteanleitung mit ausführbarem Ablauf schreiben**
 
 `teacher-guide.md` enthält in dieser Reihenfolge:
 
@@ -1635,7 +1637,7 @@ Expected: Anleitungen/README-Einstiege fehlen und Phase 0 ruft IUM11 noch nicht 
 
 Eine optionale analoge Zählhilfe wird nur als temporäre, nach Übertragung zu vernichtende Durchführungshilfe beschrieben; es entsteht keine parallele Vollstruktur.
 
-- [ ] **Step 4: Reviewanleitung mit drei getrennten Gates schreiben**
+- [x] **Step 4: Reviewanleitung mit drei getrennten Gates schreiben**
 
 `review-guide.md` enthält:
 
@@ -1647,7 +1649,7 @@ Eine optionale analoge Zählhilfe wird nur als temporäre, nach Übertragung zu 
 - Sperre für `reviewed`/`standard` und Erfordernis einer zweiten unabhängigen Jahresdurchführung;
 - Retentions- und Veröffentlichungsschritt nach der Entscheidung.
 
-- [ ] **Step 5: README auf das Instrument und unveränderten Produktstatus synchronisieren**
+- [x] **Step 5: README auf das Instrument und unveränderten Produktstatus synchronisieren**
 
 Ergänze unter Phase 0 einen Abschnitt „IUM11-Pilotinstrument“ mit Links auf Protokoll, Cockpit, Lehrkräfteanleitung, Reviewanleitung und IUM11-Validator. Erkläre, dass das Instrument synthetisch geprüft, aber nicht real pilotiert ist. Aktualisiere die Validierungsbefehle um:
 
@@ -1659,7 +1661,7 @@ python -B scripts/validate_ium11.py
 
 Die Klasse-7-Zeile und sechs Anfangsachsen bleiben unverändert; flexible Module bleiben sichtbar.
 
-- [ ] **Step 6: IUM11 in die Phase-0-Kette aufnehmen**
+- [x] **Step 6: IUM11 in die Phase-0-Kette aufnehmen**
 
 ```python
 if __package__:
@@ -1682,7 +1684,7 @@ print("phase 0, IUM09, IUM10 and IUM11 validation passed")
 
 Der Test mockt alle drei Validatoren und verlangt jeden genau einmal. IUM11 erhält dasselbe `time_model`-Objekt und dasselbe `ium10_result`; IUM10 wird nicht doppelt ausgeführt.
 
-- [ ] **Step 7: Repositoryscan für reale Daten und Dokumentationsdrift ergänzen**
+- [x] **Step 7: Repositoryscan für reale Daten und Dokumentationsdrift ergänzen**
 
 `validate_ium11` verlangt:
 
@@ -1693,7 +1695,7 @@ Der Test mockt alle drei Validatoren und verlangt jeden genau einmal. IUM11 erh�
 - keine Publikation behauptet `available`, `reviewed`, `standard` oder abgeschlossene reale Pilotierung;
 - Protokollbuild byteidentisch.
 
-- [ ] **Step 8: Fokussierte und vollständige Verifikation ausführen**
+- [x] **Step 8: Fokussierte und vollständige Verifikation ausführen**
 
 Run:
 
@@ -1709,7 +1711,7 @@ python -B scripts/validate_phase0.py
 
 Expected: Publikation, Orchestrierung, vollständige Suite und alle vier CLI-Wege grün.
 
-- [ ] **Step 9: Task-Commit erstellen**
+- [x] **Step 9: Task-Commit erstellen**
 
 ```powershell
 git add pilot/docs/teacher-guide.md pilot/docs/review-guide.md README.md scripts/validate_ium11.py scripts/validate_phase0.py tests/test_validate_ium11.py tests/test_validate_phase0.py
@@ -1732,7 +1734,7 @@ git commit -m "docs: publish ium11 pilot instrument"
 - Consumes: vollständig grüne Tasks 1–8
 - Produces: unabhängiges Fachurteil `APPROVED`, `APPROVED AFTER FIXES` oder `CHANGES REQUIRED`
 
-- [ ] **Step 1: Reviewpaket mit exaktem Scope erstellen**
+- [x] **Step 1: Reviewpaket mit exaktem Scope erstellen**
 
 Das Review beantwortet jede Frage einzeln mit `PASS` oder einem Befund nach Schweregrad:
 
@@ -1747,19 +1749,19 @@ Das Review beantwortet jede Frage einzeln mit `PASS` oder einem Befund nach Schw
 9. Bleiben flexible Vertiefungs-, Transfer- und Projektmodule erhalten und außerhalb der Kernzeit?
 10. Begrenzen Guides und Entscheidungspaket den Minimalpilot auf dokumentierte Einsatzbedingungen?
 
-- [ ] **Step 2: Fachreview auf aktuellem Gesamtdiff durchführen**
+- [x] **Step 2: Fachreview auf aktuellem Gesamtdiff durchführen**
 
 Der Reviewer liest Spezifikation, Protokoll, Guides, relevante Zeitmodellverträge und Fachprofil. Er prüft keine bloßen Suchtreffer, sondern verfolgt jede Modul-/Integrationsbindung bis zu ihrem kanonischen Vertrag.
 
-- [ ] **Step 3: Jeden Befund testgetrieben schließen**
+- [x] **Step 3: Jeden Befund testgetrieben schließen**
 
 Für jeden Critical-, Important- oder Minor-Befund zuerst einen fokussierten fehlschlagenden Test ergänzen, den Fehler reproduzieren, die kleinste Produktkorrektur implementieren und fokussiert sowie vollständig erneut testen. Keine Spezifikationsabschwächung zur Testbehebung.
 
-- [ ] **Step 4: Unabhängiges Re-Review ausführen**
+- [x] **Step 4: Unabhängiges Re-Review ausführen**
 
 Das Re-Review verwendet den neuen Gesamtdiff und bestätigt für jede der zehn Fragen `PASS`. `APPROVED AFTER FIXES` ist zulässig; offene Befunde sind nicht zulässig.
 
-- [ ] **Step 5: Gegebenenfalls Fix-Commit erstellen**
+- [x] **Step 5: Gegebenenfalls Fix-Commit erstellen**
 
 Explizit nur tatsächlich geänderte Produkt- und Testdateien stagen:
 
@@ -1786,7 +1788,7 @@ Bei befundleerem Review entsteht kein leerer Commit.
 - Consumes: fachlich freigegebene Tasks 1–9
 - Produces: technisch, datenschutzbezogen und zugänglich geprüfter Implementierungsstand ohne reale Daten und ohne Statusmutation
 
-- [ ] **Step 1: Whole-branch Reviewpaket erzeugen**
+- [x] **Step 1: Whole-branch Reviewpaket erzeugen**
 
 Basis ist der Commit unmittelbar vor Task 1. Prüfe den vollständigen Diff und mindestens diese Bereiche einzeln:
 
@@ -1809,7 +1811,7 @@ Basis ist der Commit unmittelbar vor Task 1. Prüfe den vollständigen Diff und 
 17. README-/Guide-/Schema-/Code-Synchronität;
 18. UTF-8, JSON, Python-AST, JavaScript-Syntax und Diffhygiene.
 
-- [ ] **Step 2: Cockpit visuell und interaktiv in einer aktuellen Browserengine prüfen**
+- [x] **Step 2: Cockpit visuell und interaktiv in einer aktuellen Browserengine prüfen**
 
 Öffne `pilot/cockpit/index.html` direkt als lokale Datei. Falls die Prüfumgebung `file://` nicht darstellt, starte ausschließlich als Reviewharness:
 
@@ -1819,11 +1821,11 @@ python -B -m http.server 8765 --bind 127.0.0.1 --directory pilot/cockpit
 
 Prüfe bei 320, 768 und 1280 CSS-Pixel Breite: vollständige Tastaturbedienung, sichtbare Fokusreihenfolge, Error-Summary-Fokus, `aria-live`-Meldung, 200-%-Zoom, Reflow ohne horizontalen Seitenscroll, Kontrast, Touchziele, Import eines gültigen und beschädigten Pakets, Privacy-Exportblockade, JSON-Download und Zustandsverlust nach Reload. Die Netzwerkansicht darf außer lokalen Dokument-/Assetabrufen keine Requests zeigen.
 
-- [ ] **Step 3: Befunde testgetrieben schließen und re-reviewen**
+- [x] **Step 3: Befunde testgetrieben schließen und re-reviewen**
 
 Jeder Befund erhält zuerst eine reproduzierende Unit-, Node-, Markup- oder Repositoryprüfung. Danach kleinste Korrektur, fokussierter grüner Lauf, vollständiger Lauf und unabhängiges Re-Review. Offene Critical-/Important-/Minor-Befunde verhindern Handoff.
 
-- [ ] **Step 4: Frische Gesamtverifikation ausführen**
+- [x] **Step 4: Frische Gesamtverifikation ausführen**
 
 Run:
 
@@ -1850,7 +1852,7 @@ rg -n "studentName|schoolName|teacherName|className|courseName|freeText|studentP
 
 Expected: vollständige Suite ohne Fehler oder Skips; alle Validatoren grün; Build byteidentisch; Syntax-/Diffgates grün; die drei `rg`-Scans ohne unzulässige Treffer. Schema-URLs in `$id` und lizenzbezogene Dokumentationslinks werden beim Netzwerk-Scan als ausdrücklich geprüfte, nicht ausführbare Metadaten ausgenommen.
 
-- [ ] **Step 5: UTF-8-, JSON- und AST-Gate ausführen**
+- [x] **Step 5: UTF-8-, JSON- und AST-Gate ausführen**
 
 ```powershell
 python -B -c "import ast,json,pathlib; py=['scripts/validate_ium11.py','scripts/build_ium11_cockpit.py','tests/test_validate_ium11.py','tests/test_ium11_cockpit_contract.py']; [ast.parse(pathlib.Path(p).read_text(encoding='utf-8')) for p in py]; js=['pilot/pilot-protocol.json','pilot/schemas/evidence-package.schema.json','pilot/schemas/decision-package.schema.json',*map(str,pathlib.Path('pilot/examples').glob('*.json'))]; [json.loads(pathlib.Path(p).read_text(encoding='utf-8')) for p in js]; print('IUM11_UTF8_JSON_AST=PASS')"
@@ -1858,7 +1860,7 @@ python -B -c "import ast,json,pathlib; py=['scripts/validate_ium11.py','scripts/
 
 Expected: `IUM11_UTF8_JSON_AST=PASS`.
 
-- [ ] **Step 6: Finalen Fix- oder Verifikationscommit erstellen**
+- [x] **Step 6: Finalen Fix- oder Verifikationscommit erstellen**
 
 Nur bei tatsächlichen Änderungen:
 
@@ -1877,7 +1879,7 @@ git add docs/superpowers/plans/2026-08-01-ium11-grade7-working-40-pilot-implemen
 git commit -m "docs: record ium11 pilot verification"
 ```
 
-- [ ] **Step 7: Remote synchronisieren, pushen und Draft-PR aktualisieren**
+- [x] **Step 7: Remote synchronisieren, pushen und Draft-PR aktualisieren**
 
 ```powershell
 git fetch --prune
@@ -1887,7 +1889,7 @@ git push origin feat/ium-phase0
 
 Der PR-Text nennt Protokollversion, Zeitmodellfingerprint, vier Cluster, zehn Modul-Unterbefunde, fünf Stufen, Small-Group-Unterdrückung, Offline/No-Persistence, tatsächliche Testzahl, vier Validatoren und beide Reviewurteile. Er behauptet keine reale Pilotierung oder Statushochsetzung. Der PR bleibt Draft.
 
-- [ ] **Step 8: Remote- und Statusnachweis prüfen**
+- [x] **Step 8: Remote- und Statusnachweis prüfen**
 
 ```powershell
 git status --short --branch
@@ -1898,7 +1900,7 @@ gh pr view 1 --json isDraft,headRefOid,url,body
 
 Expected: Worktree sauber; lokaler, Remote- und PR-Head identisch; PR bleibt Draft und enthält die IUM11-Verifikationsbilanz.
 
-- [ ] **Step 9: Nutzerhandoff mit harten Grenzen erstellen**
+- [x] **Step 9: Nutzerhandoff mit harten Grenzen erstellen**
 
 Der Handoff nennt:
 
@@ -1912,34 +1914,34 @@ Der Handoff nennt:
 
 ## Final Acceptance Checklist
 
-- [ ] `pilot/pilot-protocol.json` bindet exakt Schema/Protokoll/Tool `1 / 1.0.0 / 1.0.0` und den kanonischen Zeitmodellfingerprint.
-- [ ] Vier Cluster enthalten alle zehn Kernmodule genau einmal in `8 / 11 / 11 / 10 UE`.
-- [ ] Rückfälle sind exakt `3 / 2 / 3 / 6` und addieren höchstens auf 54 UE.
-- [ ] Zehn Modul- und vier Integrations-Unterbefunde binden an die kanonischen Lernhandlungen, Produkte, Phasen und Integrationsnachweise.
-- [ ] Evidenz- und Entscheidungsschema sind rekursiv geschlossen und lehnen unbekannte Felder ab.
-- [ ] Nur sechs grobe Kontextfelder sind zulässig; exakte Unterrichtsdaten und institutionelle Bezeichnungen fehlen.
-- [ ] Lernendenimpuls besitzt exakt drei Items und vier Kategorien.
-- [ ] Unter zehn gültigen Antworten werden alle Zählwerte unterdrückt.
-- [ ] `disagree * 3 >= validResponses` erzeugt deterministisch eine offene Warnung.
-- [ ] Cluster-`pass` verlangt Budget, Phasen, `strong`, Übergabe, Technik/Fallback, Privacy und warnungsfreien Zustand.
-- [ ] Privacyverletzung ist `fail` und blockiert Export; Pflicht-/Versions-/Fingerprintfehler sind `not-evaluable`.
-- [ ] Keine Clusterzeit wird mit einem anderen Cluster verrechnet.
-- [ ] Jahrespilot verlangt vier positive versionsgleiche Cluster und beobachtet 40 UE sowie Übergänge erneut.
-- [ ] Entscheidungspaket mutiert weder `time-model.json` noch einen Produktstatus.
-- [ ] Ein positiver Minimalpilot empfiehlt ausschließlich `eligible-for-working-availability-review`.
-- [ ] `reviewed` und `standard` können weder Python noch JavaScript erzeugen.
-- [ ] Offline-Cockpit besitzt keinen Netzwerk-, Konto-, Backend-, Cookie-, Telemetrie- oder Persistenzweg.
-- [ ] Import, Fehlerdarstellung, bewusster Download und Zustandsverlust nach Reload funktionieren.
-- [ ] Native Tastaturbedienung, Labels, sichtbarer Fokus, Error Summary, Live-Status, Reflow, Kontrast und Touchziele sind geprüft.
-- [ ] Kompilierter Cockpitvertrag ist byteidentisch reproduzierbar.
-- [ ] Python und JavaScript liefern für alle synthetischen und mutierten Grenzfälle dieselben Resultate.
-- [ ] Öffentliche Beispiele sind ausschließlich synthetisch; reale Pakete sind im Repository verboten.
-- [ ] Lehrkräfte- und Reviewanleitung decken Bereitschaft, Aggregation, Wiederholung, Retention, Löschung und drei menschliche Gates ab.
-- [ ] README nennt Instrument und Aussagegrenze, ohne reale Pilotierung oder Statushochsetzung zu behaupten.
-- [ ] Phase 0 ruft IUM10, IUM09 und IUM11 genau einmal in dokumentierter Reihenfolge auf.
-- [ ] `roadmap/time-model.json`, Curriculum, Modulroadmap und bestehende IUM09/IUM10-Validatoren bleiben unverändert.
-- [ ] Flexible Vertiefungs-, Transfer- und Projektmodule bleiben explizit erhalten.
-- [ ] Fachreview ist ohne offene Befunde freigegeben.
-- [ ] Engineering-/Privacy-/Accessibilityreview ist ohne offene Befunde freigegeben.
-- [ ] Vollständige Testsuite, IUM11-, IUM10-, IUM09- und Phase-0-Validator, Build-, UTF-8-, JSON-, AST-, JavaScript- und Diffgates sind frisch grün.
-- [ ] Branch, Remote und Draft-PR sind synchron; keine reale Pilotierung, Statusmutation, Releasefreigabe oder Phase 1 wurde ausgeführt.
+- [x] `pilot/pilot-protocol.json` bindet exakt Schema/Protokoll/Tool `1 / 1.0.0 / 1.0.0` und den kanonischen Zeitmodellfingerprint.
+- [x] Vier Cluster enthalten alle zehn Kernmodule genau einmal in `8 / 11 / 11 / 10 UE`.
+- [x] Rückfälle sind exakt `3 / 2 / 3 / 6` und addieren höchstens auf 54 UE.
+- [x] Zehn Modul- und vier Integrations-Unterbefunde binden an die kanonischen Lernhandlungen, Produkte, Phasen und Integrationsnachweise.
+- [x] Evidenz- und Entscheidungsschema sind rekursiv geschlossen und lehnen unbekannte Felder ab.
+- [x] Nur sechs grobe Kontextfelder sind zulässig; exakte Unterrichtsdaten und institutionelle Bezeichnungen fehlen.
+- [x] Lernendenimpuls besitzt exakt drei Items und vier Kategorien.
+- [x] Unter zehn gültigen Antworten werden alle Zählwerte unterdrückt.
+- [x] `disagree * 3 >= validResponses` erzeugt deterministisch eine offene Warnung.
+- [x] Cluster-`pass` verlangt Budget, Phasen, `strong`, Übergabe, Technik/Fallback, Privacy und warnungsfreien Zustand.
+- [x] Privacyverletzung ist `fail` und blockiert Export; Pflicht-/Versions-/Fingerprintfehler sind `not-evaluable`.
+- [x] Keine Clusterzeit wird mit einem anderen Cluster verrechnet.
+- [x] Jahrespilot verlangt vier positive versionsgleiche Cluster und beobachtet 40 UE sowie Übergänge erneut.
+- [x] Entscheidungspaket mutiert weder `time-model.json` noch einen Produktstatus.
+- [x] Ein positiver Minimalpilot empfiehlt ausschließlich `eligible-for-working-availability-review`.
+- [x] `reviewed` und `standard` können weder Python noch JavaScript erzeugen.
+- [x] Offline-Cockpit besitzt keinen Netzwerk-, Konto-, Backend-, Cookie-, Telemetrie- oder Persistenzweg.
+- [x] Import, Fehlerdarstellung, bewusster Download und Zustandsverlust nach Reload funktionieren.
+- [x] Native Tastaturbedienung, Labels, sichtbarer Fokus, Error Summary, Live-Status, Reflow, Kontrast und Touchziele sind geprüft.
+- [x] Kompilierter Cockpitvertrag ist byteidentisch reproduzierbar.
+- [x] Python und JavaScript liefern für alle synthetischen und mutierten Grenzfälle dieselben Resultate.
+- [x] Öffentliche Beispiele sind ausschließlich synthetisch; reale Pakete sind im Repository verboten.
+- [x] Lehrkräfte- und Reviewanleitung decken Bereitschaft, Aggregation, Wiederholung, Retention, Löschung und drei menschliche Gates ab.
+- [x] README nennt Instrument und Aussagegrenze, ohne reale Pilotierung oder Statushochsetzung zu behaupten.
+- [x] Phase 0 ruft IUM10, IUM09 und IUM11 genau einmal in dokumentierter Reihenfolge auf.
+- [x] `roadmap/time-model.json`, Curriculum, Modulroadmap und bestehende IUM09/IUM10-Validatoren bleiben unverändert.
+- [x] Flexible Vertiefungs-, Transfer- und Projektmodule bleiben explizit erhalten.
+- [x] Fachreview ist ohne offene Befunde freigegeben.
+- [x] Engineering-/Privacy-/Accessibilityreview ist ohne offene Befunde freigegeben.
+- [x] Vollständige Testsuite, IUM11-, IUM10-, IUM09- und Phase-0-Validator, Build-, UTF-8-, JSON-, AST-, JavaScript- und Diffgates sind frisch grün.
+- [x] Branch, Remote und Draft-PR sind synchron; keine reale Pilotierung, Statusmutation, Releasefreigabe oder Phase 1 wurde ausgeführt.
