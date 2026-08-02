@@ -1165,6 +1165,9 @@ def _load_synthetic_example_packages(
 def _reject_repository_evidence_outside_examples(root: Path) -> None:
     examples_path = (root / "pilot/examples").resolve(strict=True)
     for path in root.rglob("*.json"):
+        relative_path = path.relative_to(root)
+        if relative_path.parts[0] in {".git", ".worktrees"}:
+            continue
         resolved = path.resolve(strict=True)
         if resolved.is_relative_to(examples_path):
             continue

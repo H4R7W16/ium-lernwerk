@@ -96,6 +96,34 @@ class IUM11SyntheticExampleTests(unittest.TestCase):
         )
         self.assertTrue(target.is_file())
 
+    def test_repository_checkout_contract_forces_lf_publication_files(self):
+        attributes = (self.root / ".gitattributes").read_text(encoding="utf-8")
+        self.assertIn("* text=auto eol=lf", attributes.splitlines())
+        for relative_path in (
+            "README.md",
+            "pilot/docs/teacher-guide.md",
+            "pilot/docs/review-guide.md",
+            "pilot/docs/publication-contract.json",
+        ):
+            with self.subTest(relative_path=relative_path):
+                self.assertNotIn(
+                    b"\r",
+                    (self.root / relative_path).read_bytes(),
+                    "publication contract files must remain LF in Windows checkouts",
+                )
+
+    def test_repository_evidence_scan_ignores_managed_worktrees(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "pilot/examples").mkdir(parents=True)
+            nested = root / ".worktrees/feature/pilot/examples"
+            nested.mkdir(parents=True)
+            (nested / "synthetic-cluster-pass.json").write_text(
+                json.dumps(valid_cluster_package()), encoding="utf-8"
+            )
+
+            validate_ium11_script._reject_repository_evidence_outside_examples(root)
+
 
 def reported_pulse(agree=8, partly=2, disagree=1, no_answer=1):
     count = agree + partly + disagree + no_answer
