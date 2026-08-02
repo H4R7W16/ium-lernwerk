@@ -1,6 +1,6 @@
 # IUM11-Architekturreset für den Publikationsvertrag
 
-**Status:** zur schriftlichen Freigabe
+**Status:** schriftlich freigegeben am 2026-08-02
 **Datum:** 2026-08-02
 **Scope:** Abschluss von IUM11-Implementierungstask 8 nach ausgelöstem Fünf-Runden-Breaker
 
