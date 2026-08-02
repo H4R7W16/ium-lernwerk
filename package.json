@@ -16,6 +16,11 @@
     "registry:production": "tsx scripts/build-module-registry.ts production",
     "registry:fixture": "tsx scripts/build-module-registry.ts fixture",
     "boundaries:check": "tsx scripts/check-workspace-boundaries.ts",
+    "build": "tsx scripts/build-portal.ts production /",
+    "build:fixture": "tsx scripts/build-portal.ts fixture /",
+    "build:fixture:subpath": "tsx scripts/build-portal.ts fixture /ium-lernwerk/",
+    "check:astro": "tsx scripts/check-astro.ts",
+    "preview:fixture": "npm run build:fixture && astro preview --root apps/lernwerk-portal --host 127.0.0.1 --port 4321",
     "typecheck": "npm run contracts:generate && tsc -b --pretty false",
     "test:platform": "npm run contracts:generate && vitest run",
     "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\""

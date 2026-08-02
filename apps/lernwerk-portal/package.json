@@ -1,0 +1,14 @@
+{
+  "name": "@ium/lernwerk-portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "astro build"
+  },
+  "dependencies": {
+    "@ium/module-contract": "0.1.0",
+    "@ium/ui-components": "0.1.0",
+    "astro": "7.1.6"
+  }
+}

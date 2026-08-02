@@ -1,0 +1,33 @@
+---
+import ConnectionStatus from '@ium/ui-components/components/ConnectionStatus';
+import ErrorSummary from '@ium/ui-components/components/ErrorSummary';
+import StorageStatus from '@ium/ui-components/components/StorageStatus';
+import UpdatePrompt from '@ium/ui-components/components/UpdatePrompt';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import registry from '../../generated/module-registry.json';
+
+export function getStaticPaths() {
+  return registry.modules.map((module) => ({
+    params: { id: module.id.toLowerCase() },
+    props: { module },
+  }));
+}
+
+const { module } = Astro.props;
+---
+
+<BaseLayout title={module.title}>
+  <p class="eyebrow">Synthetische technische Referenz · keine Curriculumwirkung</p>
+  <h1>{module.title}</h1>
+  <p>{module.centralQuestion}</p>
+  <div class="status-grid">
+    <StorageStatus />
+    <ConnectionStatus />
+  </div>
+  <ErrorSummary />
+  <UpdatePrompt />
+  <section aria-labelledby="fixture-title">
+    <h2 id="fixture-title">Technischer Platzhalter</h2>
+    <p>Die interaktive Systemprobe wird im nächsten vertikalen Lauf ergänzt.</p>
+  </section>
+</BaseLayout>

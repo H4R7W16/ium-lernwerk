@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import registry from '../generated/module-registry.json';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Lernmodule">
+  <header class="page-intro">
+    <p class="eyebrow">Informatik und Medienbildung · Baden-Württemberg</p>
+    <h1>Verstehen, erproben, gestalten</h1>
+    <p>Ein modularer digitaler Lernwerk-Kosmos für wirksames Lernen.</p>
+  </header>
+
+  {registry.modules.length === 0 ? (
+    <section class="empty-state" aria-labelledby="empty-title">
+      <h2 id="empty-title">Noch keine Lernmodule veröffentlicht</h2>
+      <p>Das Plattformfundament ist vorbereitet. Fachliche Module folgen erst nach eigener Prüfung.</p>
+    </section>
+  ) : (
+    <section aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Technische Referenz</h2>
+      <ul class="module-grid">
+        {registry.modules.map((module) => (
+          <li>
+            <article class="module-card">
+              <p class="eyebrow">Klasse {module.grade} · Systemprobe</p>
+              <h3>{module.title}</h3>
+              <p>{module.centralQuestion}</p>
+              <a href={`${base}module/${module.id.toLowerCase()}/`}>Systemprobe öffnen</a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</BaseLayout>

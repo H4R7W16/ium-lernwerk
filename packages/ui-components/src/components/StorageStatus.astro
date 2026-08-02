@@ -1,0 +1,17 @@
+---
+interface Props {
+  mode?: 'persistent' | 'volatile-selected' | 'volatile-fallback';
+}
+
+const { mode = 'volatile-selected' } = Astro.props;
+const labels = {
+  persistent: 'Dauerhaft lokal gespeichert',
+  'volatile-selected': 'Nur für diese Sitzung',
+  'volatile-fallback': 'Dauerhaftes Speichern nicht verfügbar',
+} as const;
+---
+
+<section class="status-card" aria-labelledby="storage-status-title" data-storage-mode={mode}>
+  <h2 id="storage-status-title">Speicherstatus</h2>
+  <p aria-live="polite" data-storage-status>{labels[mode]}</p>
+</section>

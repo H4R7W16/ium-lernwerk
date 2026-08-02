@@ -1,0 +1,56 @@
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+
+.status-card,
+.error-summary,
+.update-prompt {
+  padding: 1rem;
+  border: 0.125rem solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+
+.status-card h2,
+.error-summary h2,
+.update-prompt h2 {
+  margin-block-start: 0;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+button,
+.file-action {
+  display: inline-flex;
+  min-block-size: 2.75rem;
+  min-inline-size: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border: 0.125rem solid var(--accent);
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.danger {
+  border-color: var(--danger);
+  background: var(--danger);
+}
+
+.file-action input {
+  inline-size: 1px;
+  block-size: 1px;
+  position: absolute;
+  clip-path: inset(50%);
+}

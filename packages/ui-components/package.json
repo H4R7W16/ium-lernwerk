@@ -1,0 +1,10 @@
+{
+  "name": "@ium/ui-components",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./components/*": "./src/components/*.astro",
+    "./styles/*": "./src/styles/*"
+  }
+}

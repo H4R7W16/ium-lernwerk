@@ -1,0 +1,19 @@
+---
+import DataControls from '@ium/ui-components/components/DataControls';
+import ErrorSummary from '@ium/ui-components/components/ErrorSummary';
+import StorageStatus from '@ium/ui-components/components/StorageStatus';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Lokale Daten">
+  <h1>Lokale Daten verwalten</h1>
+  <p>Arbeitsstände bleiben auf diesem Gerät. Es gibt kein Konto und keine zentrale Übertragung.</p>
+  <ErrorSummary />
+  <StorageStatus />
+  <DataControls />
+  <section aria-labelledby="delete-all-title">
+    <h2 id="delete-all-title">Alle Lernwerkdaten löschen</h2>
+    <p>Diese Aktion entfernt alle lokalen Arbeitsstände erst nach deiner Bestätigung.</p>
+    <button type="button" class="danger" data-delete-all>Alle lokalen Daten löschen</button>
+  </section>
+</BaseLayout>
