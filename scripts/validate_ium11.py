@@ -1289,70 +1289,102 @@ def _validate_publication_declarations(
         r"\b(?:available|reviewed|standard|abgeschlossen|"
         r"eligible-for-[a-z0-9-]+|protokoll(?:-?version)?|"
         r"werkzeug(?:-?version)?|cluster|(?:kern)?module|"
-        r"(?:pilot)?stufen|privacy-schwelle)\b|"
+        r"(?:pilot)?stufen|privacy-schwelle|working-40-pfad|"
+        r"grade-7-working-40|ium11|klasse-7-(?:pfad|variante)|"
+        r"instrument|pfad|pilotierung|real\w*\s+pilot)\b|"
         r"\b[0-9]+\s+ue\b|"
-        r"\b[a-z][a-z0-9]*status\s*:"
+        r"\b(?:status|[a-z][a-z0-9]*status)\s*:"
     )
-    dependent_claim_start_pattern = re.compile(
-        r"^(?:dass|weil|obwohl|wobei|wenn|falls|waehrend)\b"
-    )
+    dependent_claim_starts = {
+        "dass", "falls", "obwohl", "waehrend", "weil", "wenn", "wobei",
+        "während",
+    }
 
-    def clauses(line: str) -> list[tuple[str, str | None]]:
+    def claim_fragments(line: str) -> list[tuple[str, str | None]]:
         decimal_marker = "\uf000"
         protected = re.sub(r"(?<=\d)\.(?=\d)", decimal_marker, line)
-
-        def split_coordinated(
-            fragment: str,
-            separator_before: str | None,
-        ) -> list[tuple[str, str | None]]:
-            for match in re.finditer(
-                r"(?P<comma>,\s*)|(?P<and>\s+und\s+)",
-                fragment,
-            ):
-                left = fragment[:match.start()].strip(" ,")
-                right = fragment[match.end():].strip(" ,")
-                if (
-                    left
-                    and right
-                    and relevant_claim_pattern.search(left)
-                    and relevant_claim_pattern.search(right)
-                    and not dependent_claim_start_pattern.search(right)
-                ):
-                    separator = "comma" if match.lastgroup == "comma" else "and"
-                    return [
-                        (left.replace(decimal_marker, "."), separator_before),
-                        *split_coordinated(right, separator),
-                    ]
-            cleaned = fragment.replace(decimal_marker, ".").strip(" ,")
-            return [(cleaned, separator_before)] if cleaned else []
-
-        parts: list[tuple[str, str | None]] = []
-        separator_before: str | None = None
-        cursor = 0
         separator_pattern = re.compile(
-            r"(?P<sondern>\s+sondern\s+)|"
+            r"(?P<sondern>,\s*sondern\s+|\s+sondern\s+)|"
             r"(?P<semicolon>;)|"
-            r"(?P<sentence>[!?]+|\.(?:\s+|$))"
+            r"(?P<sentence>[!?]+|\.(?:\s+|$))|"
+            r"(?P<and>\s+und\s+)|"
+            r"(?P<or>\s+oder\s+)|"
+            r"(?P<comma>,\s*)"
         )
+        raw_parts: list[tuple[str, str | None, str]] = []
+        separator_before: str | None = None
+        joiner_before = ""
+        cursor = 0
         for match in separator_pattern.finditer(protected):
-            parts.extend(
-                split_coordinated(
+            raw_parts.append(
+                (
                     protected[cursor:match.start()],
                     separator_before,
+                    joiner_before,
                 )
             )
             separator_before = match.lastgroup
+            joiner_before = match.group(0)
             cursor = match.end()
-        parts.extend(split_coordinated(protected[cursor:], separator_before))
-        return parts
+        raw_parts.append((protected[cursor:], separator_before, joiner_before))
 
-    def claim_is_negated(clause: str, match: re.Match) -> bool:
+        parsed_parts: list[list[str | None]] = []
+        coordinated_separators = {"and", "or", "comma", "sondern"}
+        for raw_part, separator, joiner in raw_parts:
+            part = raw_part.strip(" ,")
+            if not part:
+                continue
+            first_word = (
+                part.lstrip("`*_([").partition(" ")[0].strip("`*_()[]")
+            )
+            is_independent_claim = first_word not in dependent_claim_starts
+            if separator in coordinated_separators and parsed_parts:
+                previous_part = str(parsed_parts[-1][0])
+                separates_claims = (
+                    relevant_claim_pattern.search(previous_part) is not None
+                    and relevant_claim_pattern.search(part) is not None
+                    and is_independent_claim
+                )
+                if not separates_claims:
+                    parsed_parts[-1][0] = previous_part + joiner + part
+                    continue
+            parsed_parts.append([part, separator])
+
+        return [
+            (str(part).replace(decimal_marker, "."), separator)
+            for part, separator in parsed_parts
+        ]
+
+    double_negation_pattern = re.compile(
+        r"\bnicht\s+(?:ausdrücklich\s+)?"
+        r"(?:falsch|unzulässig|gesperrt|verboten)\b"
+    )
+
+    def has_explicit_negative_polarity(clause: str) -> bool:
+        without_double_negation = double_negation_pattern.sub("", clause)
+        return (
+            re.search(r"\bfalsch\s*,?\s+dass\b", without_double_negation)
+            is not None
+            or re.search(
+                r"\b(?:nicht|weder|kein(?:e|en|em|er|es)?)\b",
+                without_double_negation,
+            )
+            is not None
+            or re.search(
+                r"\b(?:falsch|unzulässig|gesperrt|verboten)\b|"
+                r"\bkein(?:e|en|em|er|es)?\s+zulässige\b",
+                without_double_negation,
+            )
+            is not None
+        )
+
+    def claim_is_negated(
+        clause: str,
+        match: re.Match,
+        inherited_negation: bool = False,
+    ) -> bool:
         prefix = clause[:match.start()]
         suffix = clause[match.end():]
-        double_negation_pattern = re.compile(
-            r"\bnicht\s+(?:ausdrücklich\s+)?"
-            r"(?:falsch|unzulässig|gesperrt|verboten)\b"
-        )
         prefix = double_negation_pattern.sub("", prefix)
         suffix = double_negation_pattern.sub("", suffix)
         false_that = re.search(r"\bfalsch\s*,?\s+dass\b", prefix)
@@ -1366,7 +1398,8 @@ def _validate_publication_declarations(
             suffix,
         )
         return (
-            false_that is not None
+            inherited_negation
+            or false_that is not None
             or direct_negation is not None
             or explicit_rejection is not None
         )
@@ -1487,28 +1520,54 @@ def _validate_publication_declarations(
             pair: 0 for pair in declaration_contract["statusPairs"]
         }
 
-        previous_has_maturity_subject = False
-        previous_has_completed_pilot_subject = False
-        for clause, separator_before in clauses(normalized_line):
-            has_maturity_subject = bool(
+        maturity_subject_context = False
+        completed_pilot_subject_context = False
+        previous_separator: str | None = None
+        previous_explicit_negation = False
+        common_or_negation = False
+        for clause, separator_before in claim_fragments(normalized_line):
+            if separator_before in {None, "semicolon", "sentence"}:
+                maturity_subject_context = False
+                completed_pilot_subject_context = False
+
+            direct_maturity_subject = bool(
                 maturity_subject_pattern.search(clause)
-            ) or (
-                separator_before == "sondern"
-                and previous_has_maturity_subject
             )
-            has_completed_pilot_subject = bool(
+            direct_completed_pilot_subject = bool(
                 completed_pilot_subject_pattern.search(clause)
-            ) or (
-                separator_before == "sondern"
-                and previous_has_completed_pilot_subject
             )
+            has_maturity_subject = (
+                direct_maturity_subject or maturity_subject_context
+            )
+            has_completed_pilot_subject = (
+                direct_completed_pilot_subject
+                or completed_pilot_subject_context
+            )
+            maturity_subject_context = has_maturity_subject
+            completed_pilot_subject_context = has_completed_pilot_subject
+
+            explicit_negation = has_explicit_negative_polarity(clause)
+            if separator_before == "or":
+                if previous_separator != "or":
+                    common_or_negation = previous_explicit_negation
+                inherited_negation = (
+                    common_or_negation and not explicit_negation
+                )
+            else:
+                common_or_negation = False
+                inherited_negation = False
+
             for label, expected_version, patterns in version_contracts:
                 for pattern, canonical_form in patterns:
                     for match in re.finditer(pattern, clause):
                         version = match.group(1)
                         if version != expected_version or not canonical_form:
                             _require(
-                                claim_is_negated(clause, match),
+                                claim_is_negated(
+                                    clause,
+                                    match,
+                                    inherited_negation,
+                                ),
                                 "publication "
                                 f"{label} declaration differs from contract: "
                                 f"{relative_path}",
@@ -1520,7 +1579,11 @@ def _validate_publication_declarations(
                         value = int(match.group(1))
                         if value not in allowed_values:
                             _require(
-                                claim_is_negated(clause, match),
+                                claim_is_negated(
+                                    clause,
+                                    match,
+                                    inherited_negation,
+                                ),
                                 "publication "
                                 f"{label} declaration differs from contract: "
                                 f"{relative_path}",
@@ -1532,7 +1595,11 @@ def _validate_publication_declarations(
             ):
                 if match.group(1) != allowed_recommendation:
                     _require(
-                        claim_is_negated(clause, match),
+                        claim_is_negated(
+                            clause,
+                            match,
+                            inherited_negation,
+                        ),
                         "publication recommendation differs from contract: "
                         f"{relative_path}",
                     )
@@ -1549,7 +1616,11 @@ def _validate_publication_declarations(
                     seen_status_pairs.add(canonical_pair)
                 else:
                     _require(
-                        claim_is_negated(clause, match),
+                        claim_is_negated(
+                            clause,
+                            match,
+                            inherited_negation,
+                        ),
                         "publication status declaration differs from contract: "
                         f"{relative_path}",
                     )
@@ -1557,7 +1628,11 @@ def _validate_publication_declarations(
             if has_maturity_subject:
                 for match in maturity_status_pattern.finditer(clause):
                     _require(
-                        claim_is_negated(clause, match),
+                        claim_is_negated(
+                            clause,
+                            match,
+                            inherited_negation,
+                        ),
                         "publication exceeds the pilot statement boundary: "
                         f"{relative_path}",
                     )
@@ -1565,15 +1640,17 @@ def _validate_publication_declarations(
             if has_completed_pilot_subject:
                 for match in re.finditer(r"\babgeschlossen\b", clause):
                     _require(
-                        claim_is_negated(clause, match),
+                        claim_is_negated(
+                            clause,
+                            match,
+                            inherited_negation,
+                        ),
                         "publication exceeds the pilot statement boundary: "
                         f"{relative_path}",
                     )
 
-            previous_has_maturity_subject = has_maturity_subject
-            previous_has_completed_pilot_subject = (
-                has_completed_pilot_subject
-            )
+            previous_separator = separator_before
+            previous_explicit_negation = explicit_negation
 
     _require(
         seen_status_pairs == declaration_contract["statusPairs"],

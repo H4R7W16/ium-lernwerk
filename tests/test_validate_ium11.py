@@ -1170,6 +1170,11 @@ class IUM11PublicationTests(unittest.TestCase):
             "Das Instrument ist available.",
             "Der IUM11-Pilot ist abgeschlossen.",
             "Protokollversion: 9.9.9.",
+            "Der Pfad ist available oder nicht reviewed.",
+            "Protokollversion 9.9.9 oder nicht Werkzeugversion 9.9.9.",
+            "Der Pfad ist nicht reviewed und available.",
+            "Der Pfad ist nicht reviewed, available.",
+            "Der Pfad ist nicht reviewed und nicht standard, sondern available.",
         )
         for relative_path in (
             "README.md",
@@ -1214,6 +1219,10 @@ class IUM11PublicationTests(unittest.TestCase):
             "Die Pilotierung ist nicht abgeschlossen. Das Fachreview ist abgeschlossen.",
             "Die Pilotierung ist nicht abgeschlossen; das Fachreview ist abgeschlossen.",
             "Der Pfad ist weder available noch reviewed.",
+            "Weder ist der Pfad available noch reviewed.",
+            "Der Pfad ist nicht available oder reviewed. Das Fachreview ist abgeschlossen.",
+            "Weder ist der Pfad available noch reviewed; das Fachreview ist abgeschlossen.",
+            "Die Pilotierung ist nicht abgeschlossen; das Fachreview ist abgeschlossen. Das Auftraggebergate ist abgeschlossen.",
         )
         for relative_path in (
             "README.md",
