@@ -68,6 +68,8 @@ IUM11 veröffentlicht ein lokales, privacy-sicheres Entwicklungsinstrument für 
 
 Das Cockpit wird direkt lokal geöffnet, verarbeitet nur Klassenaggregate im Arbeitsspeicher und speichert erst durch einen bewussten JSON-Download. Kleine Gruppen werden unterdrückt und exportieren keine Lernendenzählwerte. Reale Evidenz- und Entscheidungspakete bleiben außerhalb dieses öffentlichen Repositorys. Die verbindlichen Urteilachsen werden nicht durch das Instrument verändert.
 
+<!-- IUM11-PUBLICATION-SCOPE:END -->
+
 ## Zentrale Einstiege
 
 - [Validierte Modulroadmap](roadmap/module-roadmap.md)

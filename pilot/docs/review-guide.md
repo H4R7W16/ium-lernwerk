@@ -59,6 +59,18 @@ Das Auftraggebergate erhält nur validierte Klassenaggregate, das Entscheidungsp
 
 Das Instrument mutiert diese Werte nicht. Für eine spätere Reifeentscheidung ist mindestens eine zweite unabhängige End-to-End-Jahresdurchführung unter den dann dokumentierten Bedingungen sowie ein erneutes Fachreview, Engineering-/Privacyreview und Auftraggebergate erforderlich.
 
+## Redaktionelles Publikationsgate
+
+Prüfen Sie README, Lehrkräfteanleitung und Reviewanleitung vor der Task-8-Abnahme in einem GitHub-kompatiblen Renderer:
+
+- Die vorgesehene Überschrift und die vollständige Faktentabelle sichtbar rendern.
+- Die Faktentabelle weder als Code noch als Kommentar oder versteckten HTML-Inhalt darstellen.
+- Faktenblock, erläuternde Prosa und Links in der vorgesehenen Reihenfolge anzeigen.
+- Prüfen, dass die freie Prosa dem Faktenblock nicht widerspricht.
+- Flexible Vertiefungs-, Transfer- und Projektmodule sichtbar erhalten.
+
+Dokumentieren Sie das Ergebnis im Task-8-Review. Diese Prüfung ist ein redaktionelles Gate und keine automatische Markdown- oder HTML-Interpretation.
+
 ## Retention und Veröffentlichung nach der Entscheidung
 
 Bis zur Auftraggeberentscheidung bleiben reale Pakete nichtöffentlich und zugriffsbeschränkt außerhalb des Repositorys. Nach der Entscheidung werden sie und lokale Zuordnungen gelöscht, sofern keine abweichende institutionelle Pflicht besteht. Veröffentlicht werden nur Protokoll, Schemas, Instrument, Anleitungen, Reviewurteile ohne personenbezogene Inhalte und ausdrücklich synthetische Beispiele. Eine Veröffentlichung behauptet weder eine reale Pilotdurchführung noch eine automatische Statusänderung.
