@@ -551,7 +551,8 @@ def _publication_layout(relative_path, text):
             "README.md: IUM11 scope end marker must follow publication block",
         )
         _require(
-            text[scope_end - 2:scope_end] == "\n\n",
+            text[scope_end - 2:scope_end] == "\n\n"
+            and text[scope_end - 3:scope_end] != "\n\n\n",
             "README.md: IUM11 scope end marker must follow one blank line",
         )
         _require(

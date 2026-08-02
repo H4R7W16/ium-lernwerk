@@ -374,6 +374,11 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                 "Hinweis\n" + EXPECTED_README_SCOPE_END_MARKER,
                 1,
             ),
+            readme.replace(
+                "\n\n" + EXPECTED_README_SCOPE_END_MARKER,
+                "\n\n\n" + EXPECTED_README_SCOPE_END_MARKER,
+                1,
+            ),
         ):
             with self.subTest(malformed=malformed[-100:]):
                 with self.assertRaises(IUM11PublicationError):
