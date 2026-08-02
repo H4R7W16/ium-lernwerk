@@ -576,6 +576,89 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                         before,
                     )
 
+    def test_builder_rejects_commonmark_indented_h2_and_h1_headings(self):
+        def add_readme_h2(text, indentation, heading_text):
+            block = extract_publication_block(text)
+            return text.replace(
+                block,
+                f"{' ' * indentation}##{heading_text}\n\n{block}",
+                1,
+            )
+
+        def add_guide_h1(text, indentation, heading_text):
+            return text + f"\n{' ' * indentation}#{heading_text}\n"
+
+        cases = (
+            (
+                "README.md",
+                add_readme_h2,
+                "README.md: publication block must be inside the IUM11 section",
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                add_guide_h1,
+                "pilot/docs/teacher-guide.md: guide must contain exactly one H1",
+            ),
+        )
+        for indentation in (1, 2, 3):
+            for heading_text in (" Nachfolgender Abschnitt", ""):
+                for relative_path, mutate, expected_error in cases:
+                    with self.subTest(
+                        indentation=indentation,
+                        heading_text=heading_text,
+                        relative_path=relative_path,
+                    ):
+                        with tempfile.TemporaryDirectory() as temporary:
+                            fixture = Path(temporary) / "repository"
+                            shutil.copytree(
+                                ROOT,
+                                fixture,
+                                ignore=shutil.ignore_patterns(".git", "__pycache__"),
+                            )
+                            target = fixture / relative_path
+                            target.write_bytes(
+                                mutate(
+                                    target.read_bytes().decode("utf-8"),
+                                    indentation,
+                                    heading_text,
+                                ).encode("utf-8")
+                            )
+
+                            with self.assertRaises(IUM11PublicationError) as raised:
+                                build_publication_contract(fixture)
+
+                            self.assertEqual(str(raised.exception), expected_error)
+
+    def test_builder_accepts_four_space_pseudo_headings(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = Path(temporary) / "repository"
+            shutil.copytree(
+                ROOT,
+                fixture,
+                ignore=shutil.ignore_patterns(".git", "__pycache__"),
+            )
+            readme = fixture / "README.md"
+            readme_text = readme.read_bytes().decode("utf-8")
+            readme_block = extract_publication_block(readme_text)
+            readme.write_bytes(
+                readme_text.replace(
+                    readme_block,
+                    f"    ## Codebeispiel\n\n{readme_block}",
+                    1,
+                ).encode("utf-8")
+            )
+            guide = fixture / "pilot/docs/teacher-guide.md"
+            guide.write_bytes(
+                (
+                    guide.read_bytes().decode("utf-8")
+                    + "\n    # Eingerücktes Codebeispiel\n"
+                ).encode("utf-8")
+            )
+
+            outputs = build_publication_contract(fixture, check=True)
+
+            self.assertEqual(len(outputs), 4)
+
     def test_build_failure_is_per_file_atomic_and_later_check_reports_drift(self):
         with tempfile.TemporaryDirectory() as temporary:
             fixture = Path(temporary) / "repository"

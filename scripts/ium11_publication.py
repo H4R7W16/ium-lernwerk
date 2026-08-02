@@ -548,7 +548,11 @@ def _readme_ium11_section_span(text):
     ))
     _require(len(headings) == 1, "README IUM11 section must occur once")
     start = headings[0].end()
-    next_heading = re.search(r"^##(?!#)[ \t]+", text[start:], re.MULTILINE)
+    next_heading = re.search(
+        r"^[ ]{0,3}##(?!#)(?:[ \t]+|(?=\r?$))",
+        text[start:],
+        re.MULTILINE,
+    )
     end = start + next_heading.start() if next_heading else len(text)
     return headings[0].start(), start, end
 
@@ -564,7 +568,7 @@ def _visible_h1_spans(text, fenced_ranges):
     for line in text.splitlines(keepends=True):
         body = line.rstrip("\r\n")
         if (
-            re.match(r"^#(?!#)[ \t]+\S", body)
+            re.match(r"^[ ]{0,3}#(?!#)(?:[ \t]+.*)?$", body)
             and not _position_in_ranges(offset, fenced_ranges)
             and not _position_in_html_comment(text, offset)
         ):
