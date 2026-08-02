@@ -1112,6 +1112,23 @@ class IUM11PublicationTests(unittest.TestCase):
             teacher,
         )
 
+    def test_teacher_guide_states_operational_class_band_thresholds(self):
+        teacher = (self.root / "pilot/docs/teacher-guide.md").read_text(
+            encoding="utf-8"
+        )
+        for approved_boundary in (
+            "`strong`: Mindestens drei Viertel erfüllen das Kriterium mit den "
+            "vorgesehenen Hilfen.",
+            "`mixed`: Mindestens die Hälfte, aber weniger als drei Viertel, "
+            "erfüllt das Kriterium.",
+            "`weak`: Weniger als die Hälfte erfüllt das Kriterium, oder die "
+            "zentrale Lernhandlung kommt nicht zustande.",
+            "Die Bänder sind Projekt-Akzeptanzgrenzen, keine Noten und keine "
+            "individuellen Kompetenzprofile.",
+        ):
+            with self.subTest(approved_boundary=approved_boundary):
+                self.assertIn(approved_boundary, teacher)
+
     def test_generated_contract_is_the_exact_source_for_all_publication_blocks(self):
         contract = load_json(self.root / "pilot/docs/publication-contract.json")
         self.assertEqual(contract["sourceBindings"]["protocolVersion"], "1.0.0")
@@ -1345,6 +1362,168 @@ class IUM11PublicationTests(unittest.TestCase):
                             self.ium10_result,
                         )
 
+    def test_full_validator_rejects_raw_html_wrapped_publication_structures(self):
+        def wrap_readme_heading_and_block(text, opening, closing):
+            block = extract_publication_block(text)
+            start = text.index("## IUM11-Pilotinstrument")
+            end = text.index(block) + len(block)
+            return (
+                text[:start]
+                + opening
+                + "\n"
+                + text[start:end]
+                + "\n"
+                + closing
+                + text[end:]
+            )
+
+        def wrap_guide_heading_and_block(text, opening, closing):
+            block = extract_publication_block(text)
+            end = text.index(block) + len(block)
+            return opening + "\n" + text[:end] + "\n" + closing + text[end:]
+
+        def wrap_block(text, opening, closing):
+            block = extract_publication_block(text)
+            return text.replace(
+                block,
+                f"{opening}\n{block}\n{closing}",
+                1,
+            )
+
+        cases = (
+            (
+                "README.md",
+                "template",
+                lambda text: wrap_readme_heading_and_block(
+                    text,
+                    '<TEMPLATE data-mode="hidden">',
+                    "</TEMPLATE>",
+                ),
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                "pre-hidden",
+                lambda text: wrap_guide_heading_and_block(
+                    text,
+                    "<pre hidden>",
+                    "</pre>",
+                ),
+            ),
+            (
+                "README.md",
+                "script",
+                lambda text: wrap_block(
+                    text,
+                    '<script type="text/plain">',
+                    "</script>",
+                ),
+            ),
+            (
+                "README.md",
+                "style",
+                lambda text: wrap_block(
+                    text,
+                    '<STYLE media="all">',
+                    "</STYLE>",
+                ),
+            ),
+            (
+                "README.md",
+                "textarea",
+                lambda text: wrap_block(
+                    text,
+                    '<textarea aria-label="raw">',
+                    "</textarea>",
+                ),
+            ),
+            (
+                "README.md",
+                "details",
+                lambda text: wrap_block(
+                    text,
+                    "<details open>",
+                    "</details>",
+                ),
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                "nested-unclosed",
+                lambda text: wrap_block(
+                    text,
+                    "<details><template>",
+                    "</template>",
+                ),
+            ),
+        )
+        for relative_path, mutation_name, mutate in cases:
+            with self.subTest(mutation=mutation_name):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    target = root / relative_path
+                    target.write_bytes(
+                        mutate(target.read_bytes().decode("utf-8")).encode("utf-8")
+                    )
+
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
+    def test_full_validator_uses_visible_commonmark_h2_boundaries(self):
+        hidden_h2_fragments = (
+            "```markdown\n## Pseudoabschnitt\n```\n",
+            "~~~markdown\n## Pseudoabschnitt\n~~~\n",
+            "<!--\n## Pseudoabschnitt\n-->\n",
+            "<template>\n## Pseudoabschnitt\n</template>\n",
+            "<pre hidden>\n## Pseudoabschnitt\n</pre>\n",
+            "<script type=\"text/plain\">\n## Pseudoabschnitt\n</script>\n",
+            "<style media=\"all\">\n## Pseudoabschnitt\n</style>\n",
+            "<textarea>\n## Pseudoabschnitt\n</textarea>\n",
+            "<details>\n## Pseudoabschnitt\n</details>\n",
+        )
+        mutations = [
+            (
+                fragment.splitlines()[0],
+                lambda text, fragment=fragment: text.replace(
+                    "## Zentrale Einstiege",
+                    fragment + "status: draft\n\n## Zentrale Einstiege",
+                    1,
+                ),
+            )
+            for fragment in hidden_h2_fragments
+        ]
+        mutations.append((
+            "visible-setext-h2",
+            lambda text: text.replace(
+                extract_publication_block(text),
+                "Sichtbarer Folgeabschnitt\n---\n\n"
+                + extract_publication_block(text),
+                1,
+            ),
+        ))
+
+        for mutation_name, mutate in mutations:
+            with self.subTest(mutation=mutation_name):
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    self.copy_publication_fixture(root)
+                    readme = root / "README.md"
+                    readme.write_bytes(
+                        mutate(readme.read_bytes().decode("utf-8")).encode("utf-8")
+                    )
+
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+
     def test_validator_rejects_commonmark_indented_h2_and_h1_headings(self):
         def add_readme_h2(text, indentation, heading_text):
             block = extract_publication_block(text)
@@ -1480,6 +1659,43 @@ class IUM11PublicationTests(unittest.TestCase):
                             self.time_model,
                             self.ium10_result,
                         )
+
+    def test_full_validator_rejects_embedded_semver_and_exact_axis_assignments(self):
+        axis_names = (
+            "status",
+            "availabilityStatus",
+            "timeFeasibilityStatus",
+            "sequenceEvidenceStatus",
+            "pilotStatus",
+            "semanticCoverageStatus",
+        )
+        declarations = ["Version v9.9.9", "Build abc19.9.9rc"]
+        for axis_name in axis_names:
+            for quote in ("", '\"', "'", "`"):
+                key = f"{quote}{axis_name}{quote}"
+                declarations.extend((
+                    f"{key}: draft",
+                    f"{key} = draft",
+                ))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            guide = root / "pilot/docs/teacher-guide.md"
+            original = guide.read_bytes()
+            for declaration in declarations:
+                with self.subTest(declaration=declaration):
+                    guide.write_bytes(
+                        original + ("\n" + declaration + "\n").encode("utf-8")
+                    )
+                    with self.assertRaises(IUM11ValidationError):
+                        validate_ium11_script._validate_publication_contract(
+                            root,
+                            self.protocol,
+                            self.time_model,
+                            self.ium10_result,
+                        )
+                guide.write_bytes(original)
 
     def test_publication_boundary_does_not_parse_german_grammar(self):
         sentence = "Die Pilotierung ist nicht beendet, obwohl das Fachreview beendet ist."

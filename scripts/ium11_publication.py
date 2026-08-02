@@ -1,6 +1,7 @@
 import hashlib
 import json
 import re
+from html.parser import HTMLParser
 
 
 PUBLICATION_CONTRACT_ID = "IUM11-PUBLICATION-CONTRACT"
@@ -378,12 +379,14 @@ def compile_publication_contract(compiled_protocol, time_model, ium10_result):
 
 
 RESERVED_OUTSIDE_BLOCK_PATTERNS = (
-    re.compile(r"\b[0-9]+\.[0-9]+\.[0-9]+\b"),
+    re.compile(r"[0-9]+\.[0-9]+\.[0-9]+"),
     re.compile(r"\beligible-for-[a-z0-9-]+\b", re.IGNORECASE),
     re.compile(
-        r"\b(?:status|availabilityStatus|timeFeasibilityStatus|"
-        r"sequenceEvidenceStatus|pilotStatus|semanticCoverageStatus)\s*:",
-        re.IGNORECASE,
+        r"(?:(?P<axis_quote>[\"'`])(?:status|availabilityStatus|"
+        r"timeFeasibilityStatus|sequenceEvidenceStatus|pilotStatus|"
+        r"semanticCoverageStatus)(?P=axis_quote)|(?<!\w)(?:status|"
+        r"availabilityStatus|timeFeasibilityStatus|sequenceEvidenceStatus|"
+        r"pilotStatus|semanticCoverageStatus)(?!\w))\s*[:=]",
     ),
     re.compile(
         r"\b(?:working|available|unavailable|reviewed|standard|conditional|"
@@ -535,26 +538,200 @@ def _position_in_ranges(position, ranges):
     return any(start <= position < end for start, end in ranges)
 
 
-def _position_in_html_comment(text, position):
-    prefix = text[:position]
-    return prefix.rfind("<!--") > prefix.rfind("-->")
+def _mask_ranges(text, ranges):
+    masked = list(text)
+    for start, end in ranges:
+        for index in range(start, end):
+            if masked[index] not in "\r\n":
+                masked[index] = " "
+    return "".join(masked)
 
 
-def _readme_ium11_section_span(text):
+def _html_comment_ranges(text, fenced_ranges):
+    searchable = _mask_ranges(text, fenced_ranges)
+    ranges = []
+    cursor = 0
+    while True:
+        start = searchable.find("<!--", cursor)
+        if start < 0:
+            break
+        closing = searchable.find("-->", start + 4)
+        if closing < 0:
+            ranges.append((start, len(text)))
+            break
+        end = closing + 3
+        ranges.append((start, end))
+        cursor = end
+    return ranges
+
+
+_RAW_HTML_CONTAINER_TAGS = frozenset({
+    "details",
+    "pre",
+    "script",
+    "style",
+    "template",
+    "textarea",
+})
+
+
+class _RawHtmlContainerParser(HTMLParser):
+    def __init__(self, source):
+        super().__init__(convert_charrefs=False)
+        self.source = source
+        self.line_starts = [0]
+        self.line_starts.extend(
+            match.end() for match in re.finditer("\n", source)
+        )
+        self.open_containers = []
+        self.ranges = []
+
+    def _offset(self):
+        line, column = self.getpos()
+        return self.line_starts[line - 1] + column
+
+    def handle_starttag(self, tag, attrs):
+        normalized = tag.lower()
+        if normalized in _RAW_HTML_CONTAINER_TAGS:
+            self.open_containers.append((normalized, self._offset()))
+
+    def handle_startendtag(self, tag, attrs):
+        return None
+
+    def handle_endtag(self, tag):
+        normalized = tag.lower()
+        matching_index = next(
+            (
+                index
+                for index in range(len(self.open_containers) - 1, -1, -1)
+                if self.open_containers[index][0] == normalized
+            ),
+            None,
+        )
+        if matching_index is None:
+            return
+        closing_start = self._offset()
+        closing_end = self.source.find(">", closing_start)
+        closing_end = len(self.source) if closing_end < 0 else closing_end + 1
+        for _, opening_start in self.open_containers[matching_index:]:
+            self.ranges.append((opening_start, closing_end))
+        del self.open_containers[matching_index:]
+
+    def finish(self):
+        self.close()
+        self.ranges.extend(
+            (opening_start, len(self.source))
+            for _, opening_start in self.open_containers
+        )
+        return sorted(self.ranges)
+
+
+def _raw_html_container_ranges(text, fenced_ranges, comment_ranges):
+    searchable = _mask_ranges(text, (*fenced_ranges, *comment_ranges))
+    parser = _RawHtmlContainerParser(searchable)
+    parser.feed(searchable)
+    return parser.finish()
+
+
+def _markdown_visibility_ranges(text):
+    fenced_ranges = _fenced_code_ranges(text)
+    comment_ranges = _html_comment_ranges(text, fenced_ranges)
+    raw_html_ranges = _raw_html_container_ranges(
+        text,
+        fenced_ranges,
+        comment_ranges,
+    )
+    return fenced_ranges, comment_ranges, raw_html_ranges
+
+
+def _position_enclosed_by_comment(position, comment_ranges):
+    return any(start < position < end for start, end in comment_ranges)
+
+
+def _atx_heading_level(body):
+    match = re.match(r"^[ ]{0,3}(#{1,6})(?:[ \t]+|$)", body)
+    return len(match.group(1)) if match else None
+
+
+def _is_thematic_break(body):
+    return bool(re.fullmatch(
+        r"[ ]{0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})",
+        body,
+    ))
+
+
+def _visible_heading_spans(text, invisible_ranges):
+    lines = []
+    offset = 0
+    for line in text.splitlines(keepends=True):
+        body = line.rstrip("\r\n")
+        lines.append((offset, offset + len(line), body))
+        offset += len(line)
+
+    headings = []
+    for index, (line_start, line_end, body) in enumerate(lines):
+        atx_match = re.match(r"^[ ]{0,3}(#{1,6})(?:[ \t]+|$)", body)
+        if atx_match:
+            marker_position = line_start + atx_match.start(1)
+            if not _position_in_ranges(marker_position, invisible_ranges):
+                headings.append((len(atx_match.group(1)), line_start, line_end))
+
+        setext_match = re.fullmatch(r"[ ]{0,3}(=+|-+)[ \t]*", body)
+        if not setext_match or index == 0:
+            continue
+        previous_start, _, previous_body = lines[index - 1]
+        stripped_previous = previous_body.lstrip(" ")
+        previous_indentation = len(previous_body) - len(stripped_previous)
+        if (
+            not stripped_previous
+            or previous_indentation > 3
+            or stripped_previous.startswith("\t")
+            or _atx_heading_level(previous_body) is not None
+            or _is_thematic_break(previous_body)
+        ):
+            continue
+        text_position = previous_start + previous_indentation
+        underline_position = line_start + setext_match.start(1)
+        if (
+            _position_in_ranges(text_position, invisible_ranges)
+            or _position_in_ranges(underline_position, invisible_ranges)
+        ):
+            continue
+        level = 1 if setext_match.group(1).startswith("=") else 2
+        headings.append((level, previous_start, line_end))
+    return headings
+
+
+def _readme_ium11_section_span(text, invisible_ranges=None):
     headings = list(re.finditer(
         r"^## IUM11-Pilotinstrument[ \t]*(?=\r?$)",
         text,
         re.MULTILINE,
     ))
     _require(len(headings) == 1, "README IUM11 section must occur once")
-    start = headings[0].end()
-    next_heading = re.search(
-        r"^[ ]{0,3}##(?!#)(?:[ \t]+|(?=\r?$))",
-        text[start:],
-        re.MULTILINE,
+    if invisible_ranges is None:
+        visibility_ranges = _markdown_visibility_ranges(text)
+        invisible_ranges = tuple(
+            span
+            for ranges in visibility_ranges
+            for span in ranges
+        )
+    heading = headings[0]
+    _require(
+        not _position_in_ranges(heading.start(), invisible_ranges),
+        "README.md: IUM11 section heading must be visible",
     )
-    end = start + next_heading.start() if next_heading else len(text)
-    return headings[0].start(), start, end
+    start = heading.end()
+    next_headings = [
+        heading_start
+        for level, heading_start, _ in _visible_heading_spans(
+            text,
+            invisible_ranges,
+        )
+        if level == 2 and heading_start >= start
+    ]
+    end = min(next_headings) if next_headings else len(text)
+    return heading.start(), start, end
 
 
 def _readme_ium11_section(text):
@@ -562,19 +739,12 @@ def _readme_ium11_section(text):
     return text[start:end]
 
 
-def _visible_h1_spans(text, fenced_ranges):
-    headings = []
-    offset = 0
-    for line in text.splitlines(keepends=True):
-        body = line.rstrip("\r\n")
-        if (
-            re.match(r"^[ ]{0,3}#(?!#)(?:[ \t]+.*)?$", body)
-            and not _position_in_ranges(offset, fenced_ranges)
-            and not _position_in_html_comment(text, offset)
-        ):
-            headings.append((offset, offset + len(line)))
-        offset += len(line)
-    return headings
+def _visible_h1_spans(text, invisible_ranges):
+    return [
+        (start, end)
+        for level, start, end in _visible_heading_spans(text, invisible_ranges)
+        if level == 1
+    ]
 
 
 def validate_publication_embedding(relative_path, text):
@@ -583,25 +753,29 @@ def validate_publication_embedding(relative_path, text):
     block_start = text.index(block)
     block_end = block_start + len(block)
     end_marker_start = block_end - len(PUBLICATION_END_MARKER)
-    fenced_ranges = _fenced_code_ranges(text)
+    fenced_ranges, comment_ranges, raw_html_ranges = _markdown_visibility_ranges(text)
+    invisible_ranges = (*fenced_ranges, *comment_ranges, *raw_html_ranges)
     _require(
         not _position_in_ranges(block_start, fenced_ranges)
         and not _position_in_ranges(end_marker_start, fenced_ranges),
         f"{relative_path}: publication marker must not be inside a code fence",
     )
     _require(
-        not _position_in_html_comment(text, block_start)
-        and not _position_in_html_comment(text, end_marker_start),
+        not _position_enclosed_by_comment(block_start, comment_ranges)
+        and not _position_enclosed_by_comment(end_marker_start, comment_ranges),
         f"{relative_path}: publication marker must not be inside an HTML comment",
+    )
+    _require(
+        not _position_in_ranges(block_start, raw_html_ranges)
+        and not _position_in_ranges(end_marker_start, raw_html_ranges),
+        f"{relative_path}: publication marker must not be inside raw HTML",
     )
 
     normalized_path = str(relative_path).replace("\\", "/")
     if normalized_path == "README.md":
-        heading_start, section_start, section_end = _readme_ium11_section_span(text)
-        _require(
-            not _position_in_ranges(heading_start, fenced_ranges)
-            and not _position_in_html_comment(text, heading_start),
-            "README.md: IUM11 section heading must be visible",
+        _, section_start, section_end = _readme_ium11_section_span(
+            text,
+            invisible_ranges,
         )
         _require(
             section_start <= block_start and block_end <= section_end,
@@ -609,7 +783,7 @@ def validate_publication_embedding(relative_path, text):
         )
         return
 
-    headings = _visible_h1_spans(text, fenced_ranges)
+    headings = _visible_h1_spans(text, invisible_ranges)
     _require(len(headings) == 1, f"{relative_path}: guide must contain exactly one H1")
     _, heading_end = headings[0]
     _require(

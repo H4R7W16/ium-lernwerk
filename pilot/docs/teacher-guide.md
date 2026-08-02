@@ -49,9 +49,9 @@ Prüfen Sie Ankerprodukte, Revisionen und Übergabeprodukte ausschließlich loka
 
 Bewerten Sie jedes protokollierte Muss-Kriterium für die Klasse als `strong`, `mixed` oder `weak`:
 
-- `strong`: Die geforderte Lernhandlung und das Lernprodukt sind im Klassenbefund tragfähig belegt.
-- `mixed`: Der Klassenbefund ist uneinheitlich oder nur teilweise tragfähig.
-- `weak`: Die geforderte Qualität ist im Klassenbefund nicht belegt.
+- `strong`: Mindestens drei Viertel erfüllen das Kriterium mit den vorgesehenen Hilfen.
+- `mixed`: Mindestens die Hälfte, aber weniger als drei Viertel, erfüllt das Kriterium.
+- `weak`: Weniger als die Hälfte erfüllt das Kriterium, oder die zentrale Lernhandlung kommt nicht zustande.
 
 Nur durchgängig `strong` kann einen positiven Modul-, Integrations- oder Jahresbefund tragen. Die Bänder sind Projekt-Akzeptanzgrenzen, keine Noten und keine individuellen Kompetenzprofile.
 
