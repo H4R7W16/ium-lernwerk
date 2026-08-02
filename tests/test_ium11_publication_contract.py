@@ -744,6 +744,9 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                 1,
             )
 
+        def wrap_whole_document(text, opening, closing):
+            return f"{opening}\n{text}\n{closing}\n"
+
         cases = (
             (
                 "README.md",
@@ -808,6 +811,42 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                     "</template>",
                 ),
             ),
+            (
+                "README.md",
+                "div-hidden",
+                lambda text: wrap_readme_heading_and_block(
+                    text,
+                    "<div hidden>",
+                    "</div>",
+                ),
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                "section-hidden-whole-guide",
+                lambda text: wrap_whole_document(
+                    text,
+                    "<section hidden>",
+                    "</section>",
+                ),
+            ),
+            (
+                "README.md",
+                "iframe-hidden",
+                lambda text: wrap_block(
+                    text,
+                    "<iframe hidden>",
+                    "</iframe>",
+                ),
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                "nested-generic-hidden-whole-guide",
+                lambda text: wrap_whole_document(
+                    text,
+                    '<article data-layer="outer"><div hidden data-layer="inner">',
+                    "</div></article>",
+                ),
+            ),
         )
         for relative_path, mutation_name, mutate in cases:
             with self.subTest(mutation=mutation_name):
@@ -829,6 +868,26 @@ class IUM11PublicationRenderTests(IUM11PublicationCompilerTests):
                         with self.assertRaises(IUM11PublicationError):
                             build_publication_contract(fixture)
                     writer.assert_not_called()
+
+    def test_builder_allows_unrelated_raw_html_outside_publication_structures(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = Path(temporary) / "repository"
+            shutil.copytree(
+                ROOT,
+                fixture,
+                ignore=shutil.ignore_patterns(".git", "__pycache__"),
+            )
+            readme = fixture / "README.md"
+            readme.write_bytes(
+                b'<img hidden alt="unrelated">\n'
+                + b'<status-badge data-purpose="unrelated" />\n'
+                + readme.read_bytes()
+                + b'\n<div hidden data-purpose="unrelated">Redaktioneller Hinweis.</div>\n'
+            )
+
+            outputs = build_publication_contract(fixture, check=True)
+
+            self.assertEqual(len(outputs), 4)
 
     def test_builder_rejects_block_after_visible_setext_h2_before_writing(self):
         with tempfile.TemporaryDirectory() as temporary:

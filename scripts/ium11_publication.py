@@ -565,13 +565,26 @@ def _html_comment_ranges(text, fenced_ranges):
     return ranges
 
 
-_RAW_HTML_CONTAINER_TAGS = frozenset({
-    "details",
-    "pre",
-    "script",
-    "style",
-    "template",
-    "textarea",
+_HTML_VOID_TAGS = frozenset({
+    "area",
+    "base",
+    "basefont",
+    "bgsound",
+    "br",
+    "col",
+    "command",
+    "embed",
+    "frame",
+    "hr",
+    "img",
+    "input",
+    "keygen",
+    "link",
+    "meta",
+    "param",
+    "source",
+    "track",
+    "wbr",
 })
 
 
@@ -592,7 +605,7 @@ class _RawHtmlContainerParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         normalized = tag.lower()
-        if normalized in _RAW_HTML_CONTAINER_TAGS:
+        if normalized not in _HTML_VOID_TAGS:
             self.open_containers.append((normalized, self._offset()))
 
     def handle_startendtag(self, tag, attrs):

@@ -1390,6 +1390,9 @@ class IUM11PublicationTests(unittest.TestCase):
                 1,
             )
 
+        def wrap_whole_document(text, opening, closing):
+            return f"{opening}\n{text}\n{closing}\n"
+
         cases = (
             (
                 "README.md",
@@ -1454,6 +1457,42 @@ class IUM11PublicationTests(unittest.TestCase):
                     "</template>",
                 ),
             ),
+            (
+                "README.md",
+                "div-hidden",
+                lambda text: wrap_readme_heading_and_block(
+                    text,
+                    "<div hidden>",
+                    "</div>",
+                ),
+            ),
+            (
+                "pilot/docs/teacher-guide.md",
+                "section-hidden-whole-guide",
+                lambda text: wrap_whole_document(
+                    text,
+                    "<section hidden>",
+                    "</section>",
+                ),
+            ),
+            (
+                "README.md",
+                "iframe-hidden",
+                lambda text: wrap_block(
+                    text,
+                    "<iframe hidden>",
+                    "</iframe>",
+                ),
+            ),
+            (
+                "pilot/docs/review-guide.md",
+                "nested-generic-hidden-whole-guide",
+                lambda text: wrap_whole_document(
+                    text,
+                    '<article data-layer="outer"><div hidden data-layer="inner">',
+                    "</div></article>",
+                ),
+            ),
         )
         for relative_path, mutation_name, mutate in cases:
             with self.subTest(mutation=mutation_name):
@@ -1472,6 +1511,35 @@ class IUM11PublicationTests(unittest.TestCase):
                             self.time_model,
                             self.ium10_result,
                         )
+
+    def test_full_validator_allows_unrelated_raw_html_outside_structures(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            readme = root / "README.md"
+            readme.write_bytes(
+                b'<img hidden alt="unrelated">\n'
+                + b'<status-badge data-purpose="unrelated" />\n'
+                + readme.read_bytes()
+                + b'\n<div hidden data-purpose="unrelated">Redaktioneller Hinweis.</div>\n'
+            )
+
+            result = validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )
+
+            self.assertEqual(
+                result,
+                {
+                    "productFiles": 27,
+                    "syntheticExamples": 7,
+                    "publications": 3,
+                    "publicationContracts": 1,
+                },
+            )
 
     def test_full_validator_uses_visible_commonmark_h2_boundaries(self):
         hidden_h2_fragments = (
