@@ -1,3 +1,22 @@
+---
+moduleId: IUM-5-CORE-05
+status: working
+gateB: closed
+device-verified: not-run
+reviews:
+  - path: ../reviews/ium-5-core-05-fach-didaktik.md
+    verdict: APPROVED
+    reviewedCommit: 4c26698590869b51e8d272cb4ddaf4920455d180
+  - path: ../reviews/ium-5-core-05-engineering-accessibility-privacy.md
+    verdict: APPROVED
+    reviewedCommit: 4c26698590869b51e8d272cb4ddaf4920455d180
+verification:
+  command: npm run verify:ium5
+  verifiedAt: 2026-08-03
+  successfulSteps: 24
+  totalSteps: 24
+---
+
 # IUM-5-CORE-05: Betrieb des Arbeitsstands
 
 `IUM-5-CORE-05 – Präzise Abläufe ausführbar machen` ist das erste vollständig implementierte Lernmodul des Lernwerks. Der Stand ist `working` und **nicht für Unterrichtseinsatz** freigegeben. Die automatisierte Gate-A-Prüfung belegt technische und vertragliche Eigenschaften; Gate B bleibt bis zu den vorgesehenen unabhängigen Reviews, Realgeräteprüfungen und Pilotbefunden geschlossen.
@@ -49,3 +68,12 @@ npm run verify:ium5
 ```
 
 Die fail-fast Kette prüft Verträge, Architekturgrenzen, Typen, Astro, Plattform, Builds und Lizenzen, Browser in Chromium/Firefox/WebKit, Zustand, Offlineverhalten, Accessibility sowie alle vorhandenen Legacy-Validatoren. Ein grüner Lauf belegt den reproduzierbaren `working`-Stand. Er ist weder eine Unterrichtsfreigabe noch ein Wirksamkeitsnachweis und schließt Gate B nicht.
+
+## Interne Reviewevidenz
+
+| Review | Geprüfter Commit | Urteil |
+| --- | --- | --- |
+| [Fachlich-didaktischer Review](../reviews/ium-5-core-05-fach-didaktik.md) | `4c26698590869b51e8d272cb4ddaf4920455d180` | `APPROVED` |
+| [Engineering, Accessibility, Privacy und Lizenzen](../reviews/ium-5-core-05-engineering-accessibility-privacy.md) | `4c26698590869b51e8d272cb4ddaf4920455d180` | `APPROVED` |
+
+Letzter vollständiger Lauf auf dem geprüften Commit: `npm run verify:ium5`, 2026-08-03, 24/24 Schritte erfolgreich. Die Reviews geben den internen Gate-A-Handoff frei; sie verändern weder `working` noch `device-verified: not-run` und öffnen Gate B nicht.
