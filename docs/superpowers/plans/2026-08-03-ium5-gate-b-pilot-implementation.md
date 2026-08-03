@@ -192,7 +192,7 @@ class ProtocolContractTests(unittest.TestCase):
 
 - [ ] **Step 2: Run the test and observe the missing-file failure**
 
-Run: `python -B -m unittest tests.test_validate_ium5_gate_b.ProtocolContractTests -v`  
+Run: `python -B -m unittest tests.test_validate_ium5_gate_b.ProtocolContractTests -v`
 Expected: FAIL because `protocol.json` does not exist.
 
 - [ ] **Step 3: Add the minimal protocol with all fixed enums and privacy rules**
@@ -213,7 +213,7 @@ FORBIDDEN_KEYS = {
 
 - [ ] **Step 5: Run the schema test and observe the expected missing-schema failure**
 
-Run: `python -B -m unittest tests.test_validate_ium5_gate_b.SchemaContractTests -v`  
+Run: `python -B -m unittest tests.test_validate_ium5_gate_b.SchemaContractTests -v`
 Expected: FAIL on the first absent schema.
 
 - [ ] **Step 6: Implement the three schemas minimally**
@@ -260,7 +260,7 @@ Tests must prove rejection of unknown nested fields, a seventh matrix row, missi
 
 - [ ] **Step 2: Run the focused tests and observe import failure**
 
-Run: `python -B -m unittest tests.test_validate_ium5_gate_b.ValidatorTests -v`  
+Run: `python -B -m unittest tests.test_validate_ium5_gate_b.ValidatorTests -v`
 Expected: FAIL because `scripts.validate_ium5_gate_b` does not exist.
 
 - [ ] **Step 3: Implement a small schema engine from the Python standard library**
@@ -337,7 +337,7 @@ cases = [
 
 - [ ] **Step 2: Observe the expected evaluator failure**
 
-Run: `python -B -m unittest tests.test_validate_ium5_gate_b.DecisionTests -v`  
+Run: `python -B -m unittest tests.test_validate_ium5_gate_b.DecisionTests -v`
 Expected: FAIL because semantic evaluation is incomplete.
 
 - [ ] **Step 3: Implement pure evaluation functions**
@@ -413,7 +413,7 @@ Assert the three allowed and three rejected combinations. Assert unknown mode, s
 
 - [ ] **Step 2: Run the focused unit and observe missing module failure**
 
-Run: `npm run test:platform -- tests/platform/publication-mode.test.ts`  
+Run: `npm run test:platform -- tests/platform/publication-mode.test.ts`
 Expected: FAIL because `scripts/publication-mode.ts` is missing.
 
 - [ ] **Step 3: Implement the closed parser and compatibility assertion**
@@ -500,7 +500,7 @@ Build to a temporary directory using a fixed SHA and Preview-ID. Enumerate every
 
 - [ ] **Step 2: Observe the absent-marker failure**
 
-Run: `npm run test:platform -- tests/platform/ium5-gate-b-preview.test.ts`  
+Run: `npm run test:platform -- tests/platform/ium5-gate-b-preview.test.ts`
 Expected: FAIL because mode metadata and banner are absent.
 
 - [ ] **Step 3: Add conditional metadata and the persistent banner to BaseLayout**
@@ -581,7 +581,7 @@ Also hash or compare the parsed existing fixture workflow against a checked-in i
 
 - [ ] **Step 2: Run the workflow test and observe missing file failure**
 
-Run: `npm run test:platform -- tests/platform/pages-workflow.test.ts`  
+Run: `npm run test:platform -- tests/platform/pages-workflow.test.ts`
 Expected: FAIL because the new workflow does not exist.
 
 - [ ] **Step 3: Add the minimal manual workflow**
@@ -706,7 +706,7 @@ Scan guides for prohibited collection instructions such as `Name:`, `Schule:`, `
 
 - [ ] **Step 3: Observe missing-doc failures**
 
-Run: `npm run test:platform -- tests/platform/ium5-gate-b-docs.test.ts`  
+Run: `npm run test:platform -- tests/platform/ium5-gate-b-docs.test.ts`
 Expected: FAIL for the first missing guide.
 
 - [ ] **Step 4: Write the technical runbook as an executable checklist**
@@ -765,7 +765,7 @@ Parse the HTML as text/DOM fixture. Assert exact checkbox/radio counts, labels, 
 
 - [ ] **Step 2: Observe the missing-file failure**
 
-Run: `npm run test:platform -- tests/platform/ium5-gate-b-observation-sheet.test.ts`  
+Run: `npm run test:platform -- tests/platform/ium5-gate-b-observation-sheet.test.ts`
 Expected: FAIL because the print artifact is absent.
 
 - [ ] **Step 3: Implement semantic one-page HTML**
@@ -824,7 +824,7 @@ and to forbid Pages deploy actions in `.github/workflows/ci.yml`.
 
 - [ ] **Step 2: Observe CI contract failure**
 
-Run: `npm run test:platform -- tests/platform/pages-workflow.test.ts`  
+Run: `npm run test:platform -- tests/platform/pages-workflow.test.ts`
 Expected: FAIL because CI does not yet include Gate-B checks.
 
 - [ ] **Step 3: Wire the smallest CI additions**

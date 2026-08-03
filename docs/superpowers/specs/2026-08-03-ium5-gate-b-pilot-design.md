@@ -1,10 +1,10 @@
 # IUM-5-CORE-05 Gate-B-Prüfung: Spezifikation
 
-**Stand:** 2026-08-03  
-**Version:** 0.1  
-**Spezifikationsstatus:** `review`  
-**Designstatus:** durch den Auftraggeber freigegeben  
-**Produktstatus:** unverändert `working`  
+**Stand:** 2026-08-03
+**Version:** 0.1
+**Spezifikationsstatus:** `review`
+**Designstatus:** durch den Auftraggeber freigegeben
+**Produktstatus:** unverändert `working`
 **Gerätestatus:** unverändert `device-verified: not-run`
 
 ## 1. Zweck und Entscheidungsgrenze
