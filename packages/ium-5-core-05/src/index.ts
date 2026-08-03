@@ -40,6 +40,13 @@ export {
   parseWorkbenchPayload,
   projectPersistentPayload,
 } from './payload.js';
+export {
+  insertCommand,
+  moveCommand,
+  nextCommandId,
+  removeCommand,
+  replaceRepeat,
+} from './editor.js';
 export type {
   EvidenceTrace,
   Prediction,

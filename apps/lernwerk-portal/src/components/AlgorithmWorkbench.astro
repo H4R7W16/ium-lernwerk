@@ -176,10 +176,6 @@ const resourceJson = JSON.stringify(resources).replace(
       <textarea id="repair-hypothesis" rows="4" maxlength="1000"></textarea>
     </div>
     <button type="button" data-repair-confirm>Reparaturhypothese bestätigen</button>
-    <div class="field">
-      <label for="repeat-count">Wiederholungszahl</label>
-      <input id="repeat-count" type="number" min="2" max="9" inputmode="numeric" />
-    </div>
     <button type="button" data-revision-confirm>Revision übernehmen</button>
     <div class="field">
       <label for="loop-decision">Begründung zur festen Wiederholung</label>
@@ -296,3 +292,8 @@ const resourceJson = JSON.stringify(resources).replace(
 
   <script is:inline type="application/json" data-workbench-resources set:html={resourceJson}></script>
 </section>
+
+<script>
+  import { connectAlgorithmWorkbench } from '../controllers/algorithm-workbench/workbench-controller.js';
+  void connectAlgorithmWorkbench();
+</script>
