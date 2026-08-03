@@ -2,14 +2,14 @@
 
 ## Ergebnis und Aussagegrenze
 
-Das freigegebene Plattformfundament ist mit dem geprüften Implementierungsstand `215c5a1` automatisiert verifiziert und erreicht den Status `implemented`. Es umfasst die contract-first Workspace-Architektur, einen production-empty Portalbuild, ein strikt isoliertes synthetisches Referenzmodul, Local-First-Zustand, Import/Export/Löschen, statische Root-/Subpath-Builds, kontrollierten Offline-/Updatebetrieb, Barrierefreiheitsverträge, Lizenz-/SBOM-Prüfung und GitHub-CI.
+Das freigegebene Plattformfundament ist mit dem geprüften Implementierungsstand `fe1b510` automatisiert verifiziert und erreicht den Status `implemented`. Es umfasst die contract-first Workspace-Architektur, einen production-empty Portalbuild, ein strikt isoliertes synthetisches Referenzmodul, Local-First-Zustand, Import/Export/Löschen, statische Root-/Subpath-Builds, kontrollierten Offline-/Updatebetrieb, Barrierefreiheitsverträge, Lizenz-/SBOM-Prüfung und GitHub-CI.
 
 Diese Aussage ist technisch. Sie belegt weder reale Unterrichtswirksamkeit noch Safari auf einem verwalteten iPad, Schulnetz-, MDM-, Web-Clip-, Filter- oder LMS-Verhalten. `device-verified` bleibt deshalb ausdrücklich `not-run`; Phase 2 bleibt blockiert.
 
 ## Reproduktionsstand
 
 - Ausgangscommit: `b00971e59992bae29eb20646fa9248c7f6e1d2b0`
-- geprüfter Implementierungscommit: `215c5a1` (`main` nach plattformübergreifender CI-Nacharbeit)
+- geprüfter Implementierungscommit: `fe1b510` (`main` nach plattformübergreifender CI-Nacharbeit)
 - Branch: `main`
 - Node.js: `22.20.0`
 - npm: `10.9.3`
@@ -86,6 +86,8 @@ Der erste integrierte Lauf auf einem frischen `main` fand zusätzlich eine Clean
 Der erste GitHub-Linux-Lauf fand zwei weitere Portabilitätsgrenzen: Python-Versionen klassifizierten die Unicode-Join-Control-Zeichen U+200C/U+200D unterschiedlich, und Linux installiert zusätzliche build-only `sharp-libvips`-Pakete. `eb47e02` macht die Textgrenze Unicode-versionsdeterministisch und ergänzt eine eng begrenzte LGPL-Buildausnahme mit Regressionstest. Ein anschließend lokal sichtbar gewordener Test-Race beim globalen Löschen wurde in `5fb5d28` durch Warten auf den autoritativen Speicherstatus beseitigt; 15 Wiederholungsläufe in drei Engines und danach der vollständige Browserlauf waren grün.
 
 Der zweite GitHub-Linux-Lauf zeigte im Offline-Job eine Integrationsgrenze zwischen Astro und `vite-plugin-pwa`: Der erzeugte Kandidaten-Worker konnte noch den nicht injizierten Platzhalter `self.__WB_MANIFEST` enthalten und scheiterte deshalb bei der Service-Worker-Auswertung. `215c5a1` ergänzt einen deterministischen Post-Build-Finalisierer. Er injiziert das Manifest ausschließlich, wenn genau ein Platzhalter verblieben ist, prüft dessen Entfernung und lässt bereits korrekt injizierte Worker byte-identisch. Zwei neue Regressionstests sichern beide Pfade; die vollständige lokale Verifikation bestand danach mit 39 Plattformtests.
+
+Der nachfolgende Linux-Lauf bestätigte den Offline-Fix, deckte aber einen Browsertest-Race auf: Der sichtbare Initialstatus „Lokal gespeichert“ konnte eine noch gar nicht gestartete Speicherung der neuen Eingabe vortäuschen. `fe1b510` löst in den betroffenen Tests den Flush ausdrücklich aus und wartet auf dessen bestätigten Abschluss. Zwanzig serielle Firefox-Wiederholungen der beiden Datenpfade sowie die vollständige 19-stufige Verifikation waren anschließend grün.
 
 ## Lokaler Chromium-Sicht- und Bediencheck
 
