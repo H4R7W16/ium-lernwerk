@@ -25,6 +25,34 @@ const resourceJson = JSON.stringify(resources).replace(
   /[<>&\u2028\u2029]/g,
   (character) => `\\u${character.codePointAt(0)?.toString(16).padStart(4, '0')}`,
 );
+const phaseLabels: Readonly<Record<string, string>> = {
+  'ue1-orientation': 'UE 1 · Einstieg',
+  'ue1-prior-knowledge': 'UE 1 · Vorwissen',
+  'ue1-concept': 'UE 1 · Begriff',
+  'ue2-concept': 'UE 2 · Zustände',
+  'ue2-guided': 'UE 2 · Vorhersage',
+  'ue3-guided': 'UE 3 · Fehlersuche',
+  'ue3-product': 'UE 3 · Entwurf',
+  'ue4-product': 'UE 4 · Ausführung',
+  'ue4-revision': 'UE 4 · Revision',
+  'ue5-transfer': 'UE 5 · Transfer',
+  'ue5-consolidation': 'UE 5 · Sicherung',
+  'ue6-extension': 'UE 6 · Erweiterung',
+};
+const transferLabels: Readonly<Record<string, string>> = {
+  navigation: 'Navigation',
+  'search-service': 'Suchdienst',
+  'digital-timetable': 'Digitale Stundenplananzeige',
+  'paper-map': 'Papierkarte',
+  'mechanical-timer': 'Mechanischer Kurzzeitwecker',
+  'controlled-vehicle': 'Steuerbares Fahrzeug',
+};
+const selfCheckLabels: Readonly<Record<string, string>> = {
+  'unambiguous-instruction': 'Sind alle Anweisungen eindeutig?',
+  'trace-matches-prediction': 'Passt die Laufspur zur Vorhersage?',
+  'repair-follows-evidence': 'Ist die Reparatur durch die Belegspur begründet?',
+  'repeat-is-appropriate': 'Ist die feste Wiederholung passend?',
+};
 ---
 
 <section
@@ -46,25 +74,75 @@ const resourceJson = JSON.stringify(resources).replace(
       Baue einen eindeutigen Lieferalgorithmus, sage seine Ausführung voraus,
       prüfe die Laufspur und begründe eine gezielte Revision.
     </p>
-    <p><strong>225 Minuten · 5 Unterrichtseinheiten</strong></p>
+    <p><strong data-path-summary>225 Minuten · 5 Unterrichtseinheiten</strong></p>
   </header>
 
   <nav class="phase-navigation" aria-label="Lernphasen">
     <ol>
-      {resources.content.segments.slice(0, 11).map((segment) => (
-        <li>
-          <button type="button" data-phase-id={segment.id}>
-            UE {segment.lesson}: {segment.title}
+      {resources.content.segments.map((segment) => (
+        <li data-extended-phase={segment.id === 'ue6-extension' ? '' : undefined}>
+          <button
+            type="button"
+            data-phase-id={segment.id}
+            data-phase-title={segment.title}
+            data-phase-function={segment.learningFunction}
+          >
+            {phaseLabels[segment.id]}
           </button>
         </li>
       ))}
     </ol>
   </nav>
 
+  <section aria-labelledby="active-phase-title" data-active-phase>
+    <h3 id="active-phase-title" tabindex="-1" data-active-phase-heading>
+      {resources.content.segments[0]?.title}
+    </h3>
+    <p data-active-phase-function>{resources.content.segments[0]?.learningFunction}</p>
+  </section>
+
+  <section aria-labelledby="task-families-title">
+    <h3 id="task-families-title">Aufgabenfamilien</h3>
+    <div class="command-palette">
+      <button type="button" data-task-family-open="precision">Präzisionskontrast öffnen</button>
+      <button type="button" data-task-family-open="active-example">Aktives Beispiel öffnen</button>
+      <button type="button" data-task-family-open="error-cases">Gezielte Fehlerfälle öffnen</button>
+      <button type="button" data-task-family-open="product">Eigenen Lieferauftrag öffnen</button>
+      <button type="button" data-task-family-open="magnifier">Algorithmus-Lupe öffnen</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="precision-family-title" data-task-family-panel="precision" hidden>
+    <h3 id="precision-family-title">Präzisionskontrast</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'precision-routine')?.instruction}</p>
+  </section>
+  <section aria-labelledby="active-example-family-title" data-task-family-panel="active-example" hidden>
+    <h3 id="active-example-family-title">Aktives Beispiel</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'active-example')?.instruction}</p>
+  </section>
+  <section aria-labelledby="error-family-title" data-task-family-panel="error-cases" hidden>
+    <h3 id="error-family-title">Gezielte Fehlerfälle</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'error-comparison')?.instruction}</p>
+  </section>
+  <section aria-labelledby="product-family-title" data-task-family-panel="product">
+    <h3 id="product-family-title">Eigener Lieferauftrag</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'own-product')?.instruction}</p>
+    <div class="command-palette">
+      <button type="button" data-open-scenario="product-a">Karte A auswählen</button>
+      <button type="button" data-open-scenario="product-b">Karte B auswählen</button>
+      <button type="button" data-open-scenario="product-c">Karte C auswählen</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="extended-workshop-title" data-extended-workshop hidden>
+    <h3 id="extended-workshop-title">Zusätzliche Fehlerwerkstatt</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'extended-repair')?.instruction}</p>
+    <button type="button" data-open-scenario="extended-inherited">Zusätzlichen Fehlerfall laden</button>
+  </section>
+
   <section aria-labelledby="scenario-selection-title">
     <h3 id="scenario-selection-title">Aufgabe auswählen</h3>
     <div class="command-palette">
-      <button type="button" data-open-scenario="worked-sequence">Aktives Beispiel öffnen</button>
       <button type="button" data-open-scenario="error-order">Fehlerfall Reihenfolge öffnen</button>
       <button type="button" data-open-scenario="error-turn">Fehlerfall Drehung öffnen</button>
       <button type="button" data-open-scenario="error-missing-step">Fehlerfall Fehlender Schritt öffnen</button>
@@ -216,15 +294,25 @@ const resourceJson = JSON.stringify(resources).replace(
     <h3 id="supports-title">Hilfen selbst wählen</h3>
     <div class="support-grid">
       {resources.content.supports.map((support) => (
-        <details data-support-id={support.id}>
-          <summary>{support.title} öffnen</summary>
-          <p>{support.text}</p>
-        </details>
+        <div data-support-id={support.id}>
+          <button
+            type="button"
+            aria-expanded="false"
+            aria-controls={`support-${support.id}`}
+            data-support-toggle={support.id}
+          >
+            {support.title} öffnen
+          </button>
+          <section id={`support-${support.id}`} data-support-panel={support.id} hidden>
+            <h4>{support.title}</h4>
+            <p>{support.text}</p>
+          </section>
+        </div>
       ))}
     </div>
   </section>
 
-  <section aria-labelledby="magnifier-title">
+  <section aria-labelledby="magnifier-title" data-task-family-panel="magnifier">
     <h3 id="magnifier-title">Algorithmus-Lupe</h3>
     <p>Ordne Beispiele, Nichtbeispiele und Grenzfälle anhand deiner Kriterien ein.</p>
     <div data-transfer-cases>
@@ -234,9 +322,12 @@ const resourceJson = JSON.stringify(resources).replace(
           <p>{transferCase.description}</p>
           <div class="field">
             <label for={`classification-${transferCase.id}`}>
-              {transferCase.title} einordnen
+              {transferLabels[transferCase.id]} einordnen
             </label>
-            <select id={`classification-${transferCase.id}`}>
+            <select
+              id={`classification-${transferCase.id}`}
+              data-classification-case-id={transferCase.id}
+            >
               <option value="">Bitte wählen</option>
               <option value="algorithmic">algorithmisch</option>
               <option value="not-algorithmic">nicht algorithmisch</option>
@@ -245,13 +336,22 @@ const resourceJson = JSON.stringify(resources).replace(
           </div>
           <div class="field">
             <label for={`rationale-${transferCase.id}`}>
-              Begründung zu {transferCase.title}
+              Begründung zu {transferLabels[transferCase.id]}
             </label>
-            <textarea id={`rationale-${transferCase.id}`} rows="3" maxlength="1000"></textarea>
+            <textarea
+              id={`rationale-${transferCase.id}`}
+              rows="3"
+              maxlength="1000"
+              data-rationale-case-id={transferCase.id}
+            ></textarea>
           </div>
+          {transferCase.id === 'controlled-vehicle' && (
+            <p>Fehlende Information: direkt ferngesteuert oder gespeicherter Ablauf?</p>
+          )}
         </article>
       ))}
     </div>
+    <p role="alert" data-transfer-status hidden></p>
   </section>
 
   <section aria-labelledby="self-check-title">
@@ -260,7 +360,11 @@ const resourceJson = JSON.stringify(resources).replace(
       {resources.content.selfCheckQuestions.map((question) => (
         <div class="field">
           <label for={`self-check-${question.id}`}>{question.text}</label>
-          <select id={`self-check-${question.id}`}>
+          <select
+            id={`self-check-${question.id}`}
+            aria-label={selfCheckLabels[question.id]}
+            data-self-check-id={question.id}
+          >
             <option value="review">Noch prüfen</option>
             <option value="yes">Ja</option>
             <option value="not-applicable">Nicht zutreffend</option>
@@ -317,6 +421,15 @@ const resourceJson = JSON.stringify(resources).replace(
     <div class="actions">
       <button type="button" class="danger" data-delete-confirm>Löschen bestätigen</button>
       <button type="button" data-delete-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <dialog aria-labelledby="ium5-scenario-dialog-title" data-scenario-dialog>
+    <h3 id="ium5-scenario-dialog-title">Aufgabe wechseln?</h3>
+    <p>Der Wechsel verwirft die aktuelle Vorhersage und die zugehörigen Produktspuren.</p>
+    <div class="actions">
+      <button type="button" data-scenario-confirm>Wechsel bestätigen</button>
+      <button type="button" data-scenario-cancel>Abbrechen</button>
     </div>
   </dialog>
 

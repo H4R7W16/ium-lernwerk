@@ -196,7 +196,7 @@
       "id": "extended-repair",
       "family": "error-case",
       "title": "Neue Karte, geerbter Einzelfehler",
-      "instruction": "Sage die Ausführung des vorhandenen Algorithmus voraus, lokalisiere den Einzelfehler und revidiere selbstständig.",
+      "instruction": "Sage die Ausführung des vorhandenen Algorithmus voraus, führe ihn tatsächlich aus, lokalisiere die erste Abweichung, formuliere eine Reparaturhypothese, revidiere gezielt, führe erneut aus und vergleiche die neue Lösung mit deinem eigenen Produkt.",
       "scenarioIds": ["extended-inherited"]
     }
   ],

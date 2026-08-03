@@ -78,3 +78,21 @@ test('rejects a future module schema without changing active work', async ({ pag
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 });
+
+test('stores classifications and self-check but never support usage', async ({ page }) => {
+  await page.goto('/module/ium-5-core-05/');
+  await page.getByRole('button', { name: 'Drehhilfe öffnen' }).click();
+  await page.getByLabel('Navigation einordnen').selectOption('algorithmic');
+  await page.getByLabel('Begründung zu Navigation').fill(
+    'Die Route wird durch eine präzise Folge algorithmischer Schritte bestimmt.',
+  );
+  await page.getByLabel('Sind alle Anweisungen eindeutig?').selectOption('yes');
+  const download = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Arbeitsstand exportieren' }).click();
+  const path = await (await download).path();
+  expect(path).not.toBeNull();
+  const exported = JSON.parse(await readFile(path!, 'utf8'));
+  expect(exported.payload.systemClassifications).toHaveLength(1);
+  expect(exported.payload.selfCheck.unambiguous).toBe('yes');
+  expect(JSON.stringify(exported)).not.toMatch(/Drehhilfe|support|hint/i);
+});

@@ -157,3 +157,44 @@ test('rejects an invalid repeat edit before execution', async ({ page }) => {
     'Wiederholungszahl muss zwischen 2 und 9 liegen',
   );
 });
+
+test('exposes all five task families and the regular five-lesson path', async ({ page }) => {
+  await page.goto('/module/ium-5-core-05/');
+  for (const [button, heading] of [
+    ['Präzisionskontrast öffnen', 'Präzisionskontrast'],
+    ['Aktives Beispiel öffnen', 'Aktives Beispiel'],
+    ['Gezielte Fehlerfälle öffnen', 'Gezielte Fehlerfälle'],
+    ['Eigenen Lieferauftrag öffnen', 'Eigener Lieferauftrag'],
+    ['Algorithmus-Lupe öffnen', 'Algorithmus-Lupe'],
+  ] as const) {
+    await page.getByRole('button', { name: button }).click();
+    await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
+  }
+  await expect(page.getByText('225 Minuten · 5 Unterrichtseinheiten')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Zusätzliche Fehlerwerkstatt' }))
+    .toBeHidden();
+});
+
+test('shows the sixth lesson only through the explicit extended path', async ({ page }) => {
+  await page.goto('/module/ium-5-core-05/?path=extended');
+  await expect(page.getByText('270 Minuten · 6 Unterrichtseinheiten')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Zusätzliche Fehlerwerkstatt' }))
+    .toBeVisible();
+  await expect(page.getByText('extended-inherited')).not.toBeVisible();
+});
+
+test('persists the chosen phase and confirms a destructive scenario switch', async ({ page }) => {
+  await page.goto('/module/ium-5-core-05/');
+  await page.getByRole('button', { name: 'UE 5 · Transfer' }).click();
+  await expect(page.locator('[data-active-phase]')).toContainText('Algorithmus-Lupe');
+  await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
+  await confirmPrediction(page, 'E2', 'east', 'no');
+  await page.getByRole('button', { name: 'Karte A auswählen' }).click();
+  await expect(page.getByRole('heading', { name: 'Aufgabe wechseln?' })).toBeVisible();
+  await page.getByRole('button', { name: 'Wechsel bestätigen' }).click();
+  await expect(page.locator('[data-active-scenario]')).toContainText('product-a');
+  await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
+  await page.reload();
+  await expect(page.locator('[data-active-phase]')).toContainText('Algorithmus-Lupe');
+  await expect(page.locator('[data-active-scenario]')).toContainText('product-a');
+});

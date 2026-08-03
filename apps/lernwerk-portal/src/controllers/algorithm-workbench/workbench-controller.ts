@@ -17,7 +17,11 @@ import {
   type Direction,
   type EvidenceTrace,
   type ExecutionSession,
+  type LearningPhaseId,
   type Prediction,
+  type SelfCheckValue,
+  type SystemClassification,
+  type TransferCaseId,
   type WorkbenchPayload,
   type WorkbenchResources,
   type WorkbenchScenarioId,
@@ -324,10 +328,12 @@ export async function connectAlgorithmWorkbench(
 
   const loadScenario = (scenarioId: WorkbenchScenarioId): void => {
     const resource = requireScenario(scenarioId);
+    const currentPhase = payload.phaseId;
     activeResource = resource;
     algorithm = structuredClone(resource.starterAlgorithm ?? []);
     payload = {
       ...createInitialPayload(),
+      phaseId: currentPhase,
       scenarioId,
       initialAlgorithm: algorithm,
     };
@@ -347,6 +353,20 @@ export async function connectAlgorithmWorkbench(
     resetExecutionSurface(root);
     refreshGate();
     scheduleSave();
+  };
+
+  const scenarioDialog = requiredElement<HTMLDialogElement>(root, '[data-scenario-dialog]');
+  let pendingScenario: WorkbenchScenarioId | null = null;
+  const requestScenario = (scenarioId: WorkbenchScenarioId): void => {
+    if (scenarioId === payload.scenarioId && algorithm.length > 0) {
+      return;
+    }
+    if (payload.prediction !== null) {
+      pendingScenario = scenarioId;
+      scenarioDialog.showModal();
+      return;
+    }
+    loadScenario(scenarioId);
   };
 
   const openStandardRepairCase = (): void => {
@@ -475,6 +495,74 @@ export async function connectAlgorithmWorkbench(
     dispatch(root, 'ium5:loop-decision-confirm', { loopDecision: decision });
   };
 
+  const extendedPath = new URLSearchParams(location.search).get('path') === 'extended';
+  const renderActivePhase = (phaseId: LearningPhaseId, focus = false): void => {
+    const visiblePhaseId = phaseId === 'ue6-extension' && !extendedPath
+      ? 'ue5-consolidation'
+      : phaseId;
+    const segment = resources.content.segments.find((entry) => entry.id === visiblePhaseId);
+    if (!segment) {
+      return;
+    }
+    setText(root, '[data-active-phase-heading]', segment.title);
+    setText(root, '[data-active-phase-function]', segment.learningFunction);
+    for (const button of root.querySelectorAll<HTMLButtonElement>('[data-phase-id]')) {
+      if (button.dataset.phaseId === visiblePhaseId) {
+        button.setAttribute('aria-current', 'step');
+      } else {
+        button.removeAttribute('aria-current');
+      }
+    }
+    if (focus) {
+      root.querySelector<HTMLElement>('[data-active-phase-heading]')?.focus();
+    }
+  };
+
+  const transferCaseOrder = resources.content.transferCases.map((entry) => entry.id);
+  const updateTransferCase = (caseId: TransferCaseId): void => {
+    const select = requiredElement<HTMLSelectElement>(root, `[data-classification-case-id="${caseId}"]`);
+    const field = requiredElement<HTMLTextAreaElement>(root, `[data-rationale-case-id="${caseId}"]`);
+    const rationale = field.value.trim();
+    const withoutCurrent = payload.systemClassifications.filter((entry) => entry.caseId !== caseId);
+    if ([...rationale].length > 500) {
+      payload = { ...payload, systemClassifications: withoutCurrent };
+      const status = requiredElement<HTMLElement>(root, '[data-transfer-status]');
+      status.hidden = false;
+      status.textContent = 'Begründungen dürfen höchstens 500 Zeichen enthalten.';
+      scheduleSave();
+      return;
+    }
+    const classification = select.value;
+    if (
+      rationale.length === 0
+      || !['algorithmic', 'not-algorithmic', 'needs-information'].includes(classification)
+    ) {
+      payload = { ...payload, systemClassifications: withoutCurrent };
+      scheduleSave();
+      return;
+    }
+    const nextEntry: SystemClassification = {
+      caseId,
+      classification: classification as SystemClassification['classification'],
+      rationale,
+    };
+    const next = [...withoutCurrent, nextEntry].sort(
+      (left, right) => transferCaseOrder.indexOf(left.caseId) - transferCaseOrder.indexOf(right.caseId),
+    );
+    payload = { ...payload, systemClassifications: next };
+    const status = requiredElement<HTMLElement>(root, '[data-transfer-status]');
+    status.hidden = true;
+    status.textContent = '';
+    scheduleSave();
+  };
+
+  const selfCheckKey = (id: string): keyof WorkbenchPayload['selfCheck'] | null => ({
+    'unambiguous-instruction': 'unambiguous',
+    'trace-matches-prediction': 'traceMatches',
+    'repair-follows-evidence': 'repairJustified',
+    'repeat-is-appropriate': 'loopAppropriate',
+  } as const)[id] ?? null;
+
   const setDomainInteractionsBlocked = (blocked: boolean): void => {
     for (const control of root.querySelectorAll<
       HTMLButtonElement | HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -516,6 +604,23 @@ export async function connectAlgorithmWorkbench(
     success.value = next.prediction?.success ?? '';
     requiredElement<HTMLTextAreaElement>(root, '#repair-hypothesis').value = next.repairHypothesis;
     requiredElement<HTMLTextAreaElement>(root, '#loop-decision').value = next.loopDecision;
+    for (const transferCase of resources.content.transferCases) {
+      const saved = next.systemClassifications.find((entry) => entry.caseId === transferCase.id);
+      requiredElement<HTMLSelectElement>(
+        root,
+        `[data-classification-case-id="${transferCase.id}"]`,
+      ).value = saved?.classification ?? '';
+      requiredElement<HTMLTextAreaElement>(
+        root,
+        `[data-rationale-case-id="${transferCase.id}"]`,
+      ).value = saved?.rationale ?? '';
+    }
+    for (const select of root.querySelectorAll<HTMLSelectElement>('[data-self-check-id]')) {
+      const key = selfCheckKey(select.dataset.selfCheckId ?? '');
+      if (key) {
+        select.value = next.selfCheck[key];
+      }
+    }
     setHidden(root, '[data-preserved-product]', !usingStandardRepairCase);
     if (usingStandardRepairCase) {
       setText(root, '[data-preserved-draft]', JSON.stringify(next.initialAlgorithm, null, 2));
@@ -526,9 +631,19 @@ export async function connectAlgorithmWorkbench(
       root,
       next.prediction === null ? '' : 'Vorhersage aus lokalem Arbeitsstand geladen.',
     );
+    renderActivePhase(next.phaseId);
     refreshGate();
   };
 
+  setText(
+    root,
+    '[data-path-summary]',
+    extendedPath ? '270 Minuten · 6 Unterrichtseinheiten' : '225 Minuten · 5 Unterrichtseinheiten',
+  );
+  setHidden(root, '[data-extended-workshop]', !extendedPath);
+  for (const item of root.querySelectorAll<HTMLElement>('[data-extended-phase]')) {
+    item.hidden = !extendedPath;
+  }
   renderPayloadState(payload);
   setDomainInteractionsBlocked(stateBlocked);
   setSaveStatus(stateBlocked ? 'Lokales Speichern gesperrt' : statusForMode(selection.mode));
@@ -657,11 +772,27 @@ export async function connectAlgorithmWorkbench(
     root.querySelector<HTMLElement>('#workbench-title')?.focus();
   });
 
+  requiredElement<HTMLButtonElement>(root, '[data-scenario-cancel]').addEventListener('click', () => {
+    pendingScenario = null;
+    scenarioDialog.close();
+  });
+  requiredElement<HTMLButtonElement>(root, '[data-scenario-confirm]').addEventListener('click', () => {
+    if (pendingScenario !== null) {
+      loadScenario(pendingScenario);
+    }
+    pendingScenario = null;
+    scenarioDialog.close();
+  });
+
   root.addEventListener('input', (event) => {
     if (stateBlocked) {
       return;
     }
     const target = event.target;
+    if (target instanceof HTMLTextAreaElement && target.dataset.rationaleCaseId) {
+      updateTransferCase(target.dataset.rationaleCaseId as TransferCaseId);
+      return;
+    }
     if (!(target instanceof HTMLInputElement) || target.dataset.repeatIndex === undefined) {
       return;
     }
@@ -682,6 +813,33 @@ export async function connectAlgorithmWorkbench(
     changeAlgorithm(replaceRepeat(algorithm, index, { ...command, count }));
   });
 
+  root.addEventListener('change', (event) => {
+    if (stateBlocked) {
+      return;
+    }
+    const target = event.target;
+    if (target instanceof HTMLSelectElement && target.dataset.classificationCaseId) {
+      updateTransferCase(target.dataset.classificationCaseId as TransferCaseId);
+      return;
+    }
+    if (target instanceof HTMLSelectElement && target.dataset.selfCheckId) {
+      const key = selfCheckKey(target.dataset.selfCheckId);
+      if (
+        key
+        && ['yes', 'review', 'not-applicable'].includes(target.value)
+      ) {
+        payload = {
+          ...payload,
+          selfCheck: {
+            ...payload.selfCheck,
+            [key]: target.value as SelfCheckValue,
+          },
+        };
+        scheduleSave();
+      }
+    }
+  });
+
   root.addEventListener('click', (event) => {
     if (stateBlocked) {
       return;
@@ -690,9 +848,36 @@ export async function connectAlgorithmWorkbench(
     if (!(target instanceof Element)) {
       return;
     }
+    const phaseButton = target.closest<HTMLButtonElement>('[data-phase-id]');
+    if (phaseButton?.dataset.phaseId) {
+      const phaseId = phaseButton.dataset.phaseId as LearningPhaseId;
+      payload = { ...payload, phaseId };
+      renderActivePhase(phaseId, true);
+      scheduleSave();
+      return;
+    }
+    const familyButton = target.closest<HTMLButtonElement>('[data-task-family-open]');
+    if (familyButton?.dataset.taskFamilyOpen) {
+      setHidden(root, `[data-task-family-panel="${familyButton.dataset.taskFamilyOpen}"]`, false);
+      if (familyButton.dataset.taskFamilyOpen === 'active-example') {
+        requestScenario('worked-sequence');
+      }
+      return;
+    }
+    const supportButton = target.closest<HTMLButtonElement>('[data-support-toggle]');
+    if (supportButton?.dataset.supportToggle) {
+      const panel = requiredElement<HTMLElement>(
+        root,
+        `[data-support-panel="${supportButton.dataset.supportToggle}"]`,
+      );
+      const expanded = supportButton.getAttribute('aria-expanded') === 'true';
+      supportButton.setAttribute('aria-expanded', String(!expanded));
+      panel.hidden = expanded;
+      return;
+    }
     const scenarioButton = target.closest<HTMLButtonElement>('[data-open-scenario]');
     if (scenarioButton?.dataset.openScenario) {
-      loadScenario(scenarioButton.dataset.openScenario as WorkbenchScenarioId);
+      requestScenario(scenarioButton.dataset.openScenario as WorkbenchScenarioId);
       return;
     }
     const insert = target.closest<HTMLButtonElement>('[data-insert-command]');

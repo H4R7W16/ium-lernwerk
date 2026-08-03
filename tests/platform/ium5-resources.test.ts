@@ -77,6 +77,30 @@ describe('IUM-5-CORE-05 resources', () => {
       'repair-standard',
       'extended-inherited',
     ]);
+
+    const timeModel = await readJson('roadmap/time-model.json') as {
+      moduleContracts: readonly {
+        moduleId: string;
+        pathBudgets: readonly { pathId: string; phaseBudgets: readonly { minutes: number }[] }[];
+      }[];
+    };
+    const contract = timeModel.moduleContracts.find(
+      (entry) => entry.moduleId === 'IUM-5-CORE-05',
+    );
+    expect(contract?.pathBudgets.find((path) => path.pathId === 'regular')
+      ?.phaseBudgets.map((phase) => phase.minutes)).toEqual([15, 20, 35, 45, 55, 35, 20]);
+    expect(contract?.pathBudgets.find((path) => path.pathId === 'extended')
+      ?.phaseBudgets.map((phase) => phase.minutes)).toEqual([15, 20, 35, 60, 75, 40, 25]);
+
+    const extension = result.value.content.activities.find(
+      (activity) => activity.id === 'extended-repair',
+    );
+    expect(extension?.scenarioIds).toEqual(['extended-inherited']);
+    expect(extension?.instruction.toLocaleLowerCase('de-DE')).toMatch(/vorhers|ausführ/);
+    expect(extension?.instruction.toLocaleLowerCase('de-DE')).toMatch(/abweich|lokalis/);
+    expect(extension?.instruction.toLocaleLowerCase('de-DE')).toMatch(/hypothese/);
+    expect(extension?.instruction.toLocaleLowerCase('de-DE')).toMatch(/revid/);
+    expect(extension?.instruction.toLocaleLowerCase('de-DE')).toMatch(/vergleich/);
   });
 
   test('rejects unknown fields, learner-facing solutions and broken references', async () => {
