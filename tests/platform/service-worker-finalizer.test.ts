@@ -27,6 +27,7 @@ test('injects a remaining Workbox marker after the Astro build', async () => {
   expect(result).toEqual({ repaired: true, entryCount: 1 });
   expect(serviceWorker).not.toContain('self.__WB_MANIFEST');
   expect(serviceWorker).toContain('/ium-lernwerk/index.html');
+  expect(serviceWorker).toMatch(/"integrity":"sha384-[A-Za-z0-9+/=]+"/);
 });
 
 test('leaves an already injected worker byte-identical', async () => {

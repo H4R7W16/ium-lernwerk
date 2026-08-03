@@ -74,6 +74,10 @@ test('publishes the synthetic device fixture manually with least privilege', asy
     'npm exec -- tsx scripts/prepare-device-candidate.ts apps/lernwerk-portal/dist ${{ inputs.candidate_mode }}',
     "! grep -q 'self.__WB_MANIFEST' apps/lernwerk-portal/dist/sw.js",
   ]);
+  expect(source).not.toContain('npm run build\n');
+  expect(source).not.toContain('npm run build:ium5');
+  expect(source).not.toContain('IUM-5-CORE-05');
+  expect(source).not.toContain('algorithm-workbench');
   expect(
     build.steps?.find((step) => step.name === 'Build synthetic subpath fixture')?.env,
   ).toEqual({

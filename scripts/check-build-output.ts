@@ -105,7 +105,7 @@ export async function inspectBuild(distDir: string): Promise<BuildQualityReport>
     totalBuildBytes += bytes.byteLength;
     if (/\.(?:html|css|js|json|webmanifest)$/i.test(path)) {
       const source = bytes.toString('utf8');
-      if (source.includes('TEST-')) testIdentifiers.add(path);
+      if (/TEST-[A-Z0-9][A-Z0-9-]*/.test(source)) testIdentifiers.add(path);
       if (/\.js$/i.test(path)) {
         for (const url of externalRuntimeReferences(source)) thirdPartyUrls.add(url);
         if (/\beval\s*\(/.test(source)) violations.add(`dynamic-code:eval:${path}`);

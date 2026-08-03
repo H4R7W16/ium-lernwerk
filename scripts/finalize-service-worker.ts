@@ -1,6 +1,7 @@
 import { readFile, rm, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { injectManifest } from 'workbox-build';
+import { createPrecacheIntegrityTransform } from './precache-integrity.js';
 
 const INJECTION_POINT = 'self.__WB_MANIFEST';
 const MAXIMUM_FILE_SIZE_TO_CACHE = 2 * 1024 * 1024;
@@ -40,6 +41,7 @@ export async function finalizeServiceWorker(
       modifyURLPrefix: { '': base },
       maximumFileSizeToCacheInBytes: MAXIMUM_FILE_SIZE_TO_CACHE,
       injectionPoint: INJECTION_POINT,
+      manifestTransforms: [createPrecacheIntegrityTransform(outputDir, base)],
     });
     const finalizedSource = await readFile(serviceWorkerPath, 'utf8');
     if (finalizedSource.includes(INJECTION_POINT)) {

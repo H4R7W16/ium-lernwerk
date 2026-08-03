@@ -63,6 +63,10 @@ test('production IUM5 build stays local, licensed and inside approved budgets', 
     path: 'generated-modules/ium-5-core-05/delivery-robot.svg',
     license: 'CC-BY-SA-4.0',
   }));
+  const moduleHtml = await production.text('module/ium-5-core-05/index.html');
+  expect(moduleHtml).toContain('IUM-5-CORE-05');
+  expect(moduleHtml).toContain('working');
+  expect(moduleHtml).toContain('nicht für Unterrichtseinsatz');
 });
 
 test('inspection fails closed on remote code, dynamic evaluation and missing evidence', async () => {

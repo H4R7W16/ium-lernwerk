@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import type { AstroIntegration } from 'astro';
 import { VitePWA } from 'vite-plugin-pwa';
+import { createPrecacheIntegrityTransform } from '../../scripts/precache-integrity.js';
 
 const profile = process.env.IUM_BUILD_PROFILE ?? '';
 if (profile !== 'production' && profile !== 'fixture') {
@@ -76,6 +77,7 @@ const pwaPlugins = VitePWA({
     maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
     minify: true,
     enableWorkboxModulesLogs: false,
+    manifestTransforms: [createPrecacheIntegrityTransform(pwaOutputDirectory, base)],
   },
 });
 const pwaApi = (pwaPlugins[0] as unknown as {
