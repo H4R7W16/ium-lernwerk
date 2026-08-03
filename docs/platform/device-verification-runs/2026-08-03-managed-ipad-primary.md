@@ -29,18 +29,18 @@ Diese Angaben belegen nur die technische Vorbereitung des Prüflaufs, nicht das 
 
 | Feld | Eintrag |
 | --- | --- |
-| Datum | — |
-| Prüfperson | — |
-| Gerät und Modell | — |
-| Betriebssystem und Version | — |
-| Browser-Version | — |
-| MDM-Profil | — |
-| Web-Clip-Konfiguration | — |
-| Speicherrichtlinie / Löschfrist | — |
-| Filterrichtlinie / Proxy | — |
-| Netz (Schul-WLAN/Gastnetz) | — |
-| Getesteter Basispfad | — |
-| Evidenzpfad | — |
+| Datum | 2026-08-03 |
+| Prüfperson | Auftraggeber; datensparsam nicht namentlich protokolliert |
+| Gerät und Modell | unbekannt |
+| Betriebssystem und Version | unbekannt |
+| Browser-Version | unbekannt |
+| MDM-Profil | unbekannt |
+| Web-Clip-Konfiguration | unbekannt |
+| Speicherrichtlinie / Löschfrist | unbekannt |
+| Filterrichtlinie / Proxy | unbekannt |
+| Netz (Schul-WLAN/Gastnetz) | unbekannt |
+| Getesteter Basispfad | `https://h4r7w16.github.io/ium-lernwerk/` |
+| Evidenzpfad | datensparsame Auftraggeberbestätigungen in diesem Protokoll |
 
 ## Beobachtete Teilbefunde
 
@@ -138,6 +138,12 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig
 - die Schaltfläche startete weiterhin unmittelbar den Dateidownload, ohne einen zusätzlichen Dialog einzuführen.
 
 Damit ist die in Runde 7 festgestellte Produktlücke auf dem realen verwalteten iPad nachgeprüft und geschlossen. Diese Nutzerbestätigung belegt ausschließlich den beschriebenen iPad-Befund; die noch fehlenden Konfigurationsangaben und weiteren Zielkonfigurationen bleiben offen.
+
+### Metadatenstatus der iPad-Konfiguration
+
+Am 3. August 2026 teilte der Auftraggeber auf die gebündelte Abfrage von Gerätemodell, iPadOS-/Safari-Version, MDM-Profil, Web-Clip-, Speicher-, Filter-/Proxy- und Netzkonfiguration mit, dass diese Angaben unbekannt sind. Die Tabelle bildet diesen Befund ausdrücklich ab; fehlende Angaben werden nicht geschätzt oder aus den positiven Interaktionsrunden abgeleitet.
+
+Damit ist die funktionale iPad-Beobachtung dokumentiert, die exakte Zielkonfiguration jedoch nicht nachweisbar. Das Konfigurationskriterium bleibt offen und `device-verified: not-run` unverändert.
 
 ## Checkliste
 
