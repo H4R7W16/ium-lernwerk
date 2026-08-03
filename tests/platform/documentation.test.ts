@@ -41,8 +41,10 @@ describe('Phase 1 operations documentation', () => {
 
   test('keeps the real-device protocol explicitly not-run and evidence-driven', async () => {
     const protocol = await read('docs/platform/device-verification.md');
+    const frontMatter = protocol.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1];
 
-    expect(protocol).toMatch(/device-verified:\s*not-run/);
+    expect(frontMatter).toBeDefined();
+    expect(parseDocument(frontMatter!).get('device-verified')).toBe('not-run');
     for (const field of [
       'Datum',
       'Prüfperson',
