@@ -3,6 +3,11 @@ import { resolve } from 'node:path';
 import { buildRegistry, type BuildProfile } from './build-module-registry.js';
 import { finalizeServiceWorker } from './finalize-service-worker.js';
 import { prepareModuleAssets } from './prepare-module-assets.js';
+import {
+  createPublicationContract,
+  parsePublicationMode,
+  type PublicationMode,
+} from './publication-mode.js';
 
 function normalizeBase(value: string): string {
   if (
@@ -27,11 +32,19 @@ function assertProfile(value: string): asserts value is BuildProfile {
 
 export async function buildPortalToDirectory(options: {
   profile: BuildProfile;
+  publicationMode: PublicationMode;
   base: string;
   rootDir: string;
   outputDir: string;
   buildRevision?: string;
+  previewId?: string;
 }): Promise<void> {
+  const publication = createPublicationContract({
+    profile: options.profile,
+    mode: options.publicationMode,
+    buildRevision: options.buildRevision,
+    previewId: options.previewId,
+  });
   const base = normalizeBase(options.base);
   const appRoot = resolve(options.rootDir, 'apps/lernwerk-portal');
   await buildRegistry({
@@ -62,7 +75,9 @@ export async function buildPortalToDirectory(options: {
         IUM_BASE_PATH: base,
         IUM_OUTPUT_DIR: resolve(options.outputDir),
         PUBLIC_IUM_BASE_PATH: base,
-        PUBLIC_IUM_BUILD_REVISION: options.buildRevision ?? 'stable',
+        PUBLIC_IUM_PUBLICATION_MODE: publication.mode,
+        PUBLIC_IUM_BUILD_REVISION: publication.buildRevision,
+        PUBLIC_IUM_PREVIEW_ID: publication.previewId,
       },
     },
   );
@@ -77,13 +92,16 @@ export async function buildPortalToDirectory(options: {
 async function main(): Promise<void> {
   const profile = process.argv[2] ?? '';
   assertProfile(profile);
+  const publicationMode = parsePublicationMode(process.argv[3] ?? '');
   const rootDir = process.cwd();
   await buildPortalToDirectory({
     profile,
-    base: process.argv[3] ?? '/',
+    publicationMode,
+    base: process.argv[4] ?? '/',
     rootDir,
-    outputDir: process.argv[4] ?? resolve(rootDir, 'apps/lernwerk-portal/dist'),
+    outputDir: process.argv[5] ?? resolve(rootDir, 'apps/lernwerk-portal/dist'),
     buildRevision: process.env.IUM_BUILD_REVISION,
+    previewId: process.env.IUM_PREVIEW_ID,
   });
 }
 

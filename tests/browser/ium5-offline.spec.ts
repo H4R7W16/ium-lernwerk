@@ -28,6 +28,7 @@ async function publishIum5Candidate(options: {
   try {
     await buildPortalToDirectory({
       profile: 'production',
+      publicationMode: 'development',
       base: '/',
       rootDir: repoRoot,
       outputDir: candidate,

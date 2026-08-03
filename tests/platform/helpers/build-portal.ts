@@ -46,7 +46,13 @@ export async function buildPortal(
   base: string,
 ): Promise<BuiltPortal> {
   const distDir = await mkdtemp(join(repoRoot, '.ium-portal-test-'));
-  await buildPortalToDirectory({ profile, base, rootDir: repoRoot, outputDir: distDir });
+  await buildPortalToDirectory({
+    profile,
+    publicationMode: profile === 'production' ? 'development' : 'device-fixture',
+    base,
+    rootDir: repoRoot,
+    outputDir: distDir,
+  });
   const files = await collectFiles(distDir);
   const relativeFiles = files
     .map((path) => relative(distDir, path).split(sep).join('/'))

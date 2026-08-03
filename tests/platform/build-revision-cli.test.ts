@@ -22,6 +22,7 @@ test('the CLI embeds an explicit revision in a real subpath fixture build', asyn
       resolve('node_modules/tsx/dist/cli.mjs'),
       resolve('scripts/build-portal.ts'),
       'fixture',
+      'device-fixture',
       '/ium-lernwerk/',
       outputDirectory,
     ],
