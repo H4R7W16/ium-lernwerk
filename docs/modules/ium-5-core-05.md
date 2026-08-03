@@ -69,6 +69,40 @@ npm run verify:ium5
 
 Die fail-fast Kette prüft Verträge, Architekturgrenzen, Typen, Astro, Plattform, Builds und Lizenzen, Browser in Chromium/Firefox/WebKit, Zustand, Offlineverhalten, Accessibility sowie alle vorhandenen Legacy-Validatoren. Ein grüner Lauf belegt den reproduzierbaren `working`-Stand. Er ist weder eine Unterrichtsfreigabe noch ein Wirksamkeitsnachweis und schließt Gate B nicht.
 
+## Gate-B-Paket und lokale Prüfung
+
+Der Gate-B-Vertrag ist implementiert, aber nicht real ausgeführt. Protokoll und ausschließlich synthetische Beispiele lassen sich ohne Evidenzerhebung prüfen:
+
+```powershell
+python -B scripts/validate_ium5_gate_b.py protocol
+python -B scripts/validate_ium5_gate_b.py synthetic
+$env:IUM_BUILD_REVISION='1111111111111111111111111111111111111111'
+$env:IUM_PREVIEW_ID='ium5-gate-b-test-0001'
+npm run verify:ium5:gate-b
+Remove-Item Env:IUM_BUILD_REVISION
+Remove-Item Env:IUM_PREVIEW_ID
+```
+
+Der lokale Buildbefehl `npm run build:gate-b-preview` erzeugt die Produktionsvariante für `/ium-lernwerk/` mit Nichtfreigabebanner, `noindex`, vollständigem SHA, Preview-ID, `working` und `device-verified: not-run`. Ohne SHA und Preview-ID bricht er vor dem Build ab. Er fügt weder Telemetrie noch Gate-B-Speicherung hinzu und enthält nicht das synthetische Fixture-Modul.
+
+## Publikations- und Evidenzgrenze
+
+`.github/workflows/ium5-gate-b-preview.yml` beschreibt einen manuellen, bestätigungspflichtigen Pages-Pfad. Der Workflow wurde in diesem Implementierungsauftrag nicht gestartet. Eine spätere Pages-URL wäre öffentlich und keine Zugriffskontrolle; Kennzeichnung und `robots.txt` mindern Auffindbarkeit, ersetzen aber keine Autorisierung.
+
+Reale technische und Pilot-Evidenz bleibt außerhalb des Repositories und außerhalb von GitHub-Artefakten. Im Repository liegen nur geschlossene Schemas und synthetische Pakete. Papieraggregate werden nach geprüfter Übertragung vernichtet; reale digitale Pakete sind spätestens 30 Tage nach der Entscheidung einschließlich temporärer Kopien zu löschen.
+
+Falls eine später autorisierte Prüffassung zurückgenommen werden muss, wird sie deaktiviert oder durch einen ausdrücklich akzeptierten Stand ersetzt. Der vorhandene `device-fixture-pages.yml` bleibt semantisch unverändert und darf nur nach einer eigenen Entscheidung wieder den ausschließlich synthetischen Technikpfad bereitstellen.
+
+## Getrennte nächste Entscheidungen
+
+1. Technischer Eintritt anhand der realen Sechs-Zeilen-Matrix.
+2. Explorative Pilotentscheidung für `regular-225`.
+3. Bestätigungsentscheidung für `extended-270` mit anderer Lerngruppe.
+4. Eigenständige Entscheidung über die reale LMS-Route.
+5. Erst danach menschliche Entscheidung, ob der unveränderte Arbeitsstand einer `working`-Freigabeprüfung vorgelegt werden darf.
+
+Kein Validator, Review oder Workflow setzt `status: working` oder `device-verified: not-run` automatisch hoch. Die einzige positive Gate-B-Empfehlung `eligible-for-working-release-review` ist keine Freigabe.
+
 ## Interne Reviewevidenz
 
 | Review | Geprüfter Commit | Urteil |

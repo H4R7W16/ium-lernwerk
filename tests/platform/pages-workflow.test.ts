@@ -289,3 +289,42 @@ test('publishes the IUM5 Gate-B non-release preview only through its manual cont
   expect(source).not.toMatch(/module\.yaml|deviceVerified|device-verified|status mutation/i);
   expect(source).not.toContain('pilot/ium5-gate-b');
 });
+
+test('CI validates Gate-B without adding a deployment path or a fifth job', async () => {
+  const source = await readFile('.github/workflows/ci.yml', 'utf8');
+  const document = parseDocument(source);
+  expect(document.errors).toEqual([]);
+  const workflow = document.toJS() as {
+    jobs: Record<string, WorkflowJob>;
+  };
+
+  expect(Object.keys(workflow.jobs)).toEqual([
+    'legacy',
+    'contracts-build',
+    'browser',
+    'offline-quality',
+  ]);
+  const legacyCommands = workflow.jobs.legacy?.steps?.flatMap((step) => step.run ?? []) ?? [];
+  const pythonIndex = legacyCommands.indexOf('npm run test:python');
+  expect(legacyCommands.slice(pythonIndex + 1, pythonIndex + 3)).toEqual([
+    'python -B scripts/validate_ium5_gate_b.py protocol',
+    'python -B scripts/validate_ium5_gate_b.py synthetic',
+  ]);
+
+  const contracts = workflow.jobs['contracts-build']!;
+  expect(
+    contracts.steps?.find((step) => step.run === 'npm run build:gate-b-preview'),
+  ).toEqual({
+    env: {
+      IUM_BUILD_REVISION: '1111111111111111111111111111111111111111',
+      IUM_PREVIEW_ID: 'ium5-gate-b-ci-test-0001',
+    },
+    run: 'npm run build:gate-b-preview',
+  });
+
+  expect(source).not.toMatch(/actions\/(?:configure-pages|upload-pages-artifact|deploy-pages)@/);
+  for (const job of Object.values(workflow.jobs)) {
+    expect(job.permissions ?? {}).not.toHaveProperty('pages');
+    expect(job.permissions ?? {}).not.toHaveProperty('id-token');
+  }
+});

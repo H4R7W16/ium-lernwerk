@@ -4,7 +4,7 @@ Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Ba
 
 ## Phase 2: erstes Lernmodul im Arbeitsstand
 
-`IUM-5-CORE-05 – Präzise Abläufe ausführbar machen` ist als erstes vollständiges digitales Lernmodul lokal implementiert und bleibt ein **interner Arbeitsstand**. Es verbindet einen geschlossenen grafischen Algorithmuseditor mit Vorhersage, deterministischer Ausführung, Laufspur, begründeter Reparatur, fester Wiederholung, Transfer und Selbstcheck. Sein Status ist ausdrücklich `working`: Es ist **nicht für Unterrichtseinsatz** freigegeben, nicht im öffentlichen Pages-Fixture enthalten und noch nicht durch die reale Gate-B-Prüfung pilotiert. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
+`IUM-5-CORE-05 – Präzise Abläufe ausführbar machen` ist als erstes vollständiges digitales Lernmodul lokal implementiert und bleibt ein **interner Arbeitsstand**. Es verbindet einen geschlossenen grafischen Algorithmuseditor mit Vorhersage, deterministischer Ausführung, Laufspur, begründeter Reparatur, fester Wiederholung, Transfer und Selbstcheck. Sein Status ist ausdrücklich `working`: Es ist **nicht für Unterrichtseinsatz** freigegeben, nicht im derzeitigen öffentlichen Pages-Fixture enthalten und noch nicht durch die reale Gate-B-Prüfung pilotiert. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
 
 - [Freigegebene Modulspezifikation](docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md)
 - [Testgetriebener Implementierungsplan](docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md)
@@ -12,6 +12,33 @@ Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Ba
 - [Digitales Lehrkräftehandbuch](modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md)
 
 Die vollständige lokale Gate-A-Prüfkette startet mit `npm run verify:ium5`. Ein grüner Lauf schließt Gate B nicht und ersetzt weder Pilotierung noch reale Geräteprüfung.
+
+### Implementiertes Gate-B-Paket - nicht ausgeführt
+
+Das Repository enthält nun den technischen und fachlich-didaktischen Gate-B-Vertrag, geschlossene Evidenzschemas, sechs synthetische Beispiele, einen manuellen Previewworkflow, Leitfäden und einen begründeten analogen Beobachtungsbogen. Diese Implementierung ist **keine Ausführungsfreigabe**: Der Previewworkflow wurde nicht gestartet, reale technische Evidenz wurde nicht erhoben und keine Pilotierung oder LMS-Nutzung fand statt.
+
+```powershell
+python -B scripts/validate_ium5_gate_b.py protocol
+python -B scripts/validate_ium5_gate_b.py synthetic
+$env:IUM_BUILD_REVISION='1111111111111111111111111111111111111111'
+$env:IUM_PREVIEW_ID='ium5-gate-b-test-0001'
+npm run build:gate-b-preview
+npm run verify:ium5:gate-b
+Remove-Item Env:IUM_BUILD_REVISION
+Remove-Item Env:IUM_PREVIEW_ID
+```
+
+Der lokale Previewbuild liegt unter `/ium-lernwerk/` und trägt auf jeder HTML-Seite `noindex`, SHA, Preview-ID, `working`, `not-run` und den dauerhaften Nichtfreigabebanner. Der separate Workflow `.github/workflows/ium5-gate-b-preview.yml` ist ausschließlich manuell, auf `main` und nach expliziter Nichtfreigabebestätigung startbar. Eine daraus entstehende Pages-URL wäre öffentlich; der Link ist keine Zugriffskontrolle. Dieser Implementierungsstand autorisiert keinen Workflowstart.
+
+Reale Evidenzpakete und Rohbelege bleiben außerhalb von Git, GitHub-Artefakten und diesem öffentlichen Repository. Bei einer später gesondert autorisierten Rücknahme wird die Prüffassung deaktiviert; falls weiterhin ein HTTPS-Technikpfad benötigt wird, darf nur nach eigener Entscheidung wieder das synthetische `device-fixture-pages.yml` veröffentlicht werden.
+
+- [Gate-B-Protokoll](pilot/ium5-gate-b/protocol.json)
+- [Technisches Runbook](pilot/ium5-gate-b/docs/technical-runbook.md)
+- [Pilotleitfaden](pilot/ium5-gate-b/docs/pilot-guide.md)
+- [Reviewleitfaden](pilot/ium5-gate-b/docs/review-guide.md)
+- [Analoger Beobachtungsbogen](pilot/ium5-gate-b/print/observation-sheet.html)
+
+Spätere Entscheidungen bleiben getrennt: technischer Eintritt, explorativer Pilot, Bestätigung mit anderer Lerngruppe, reale LMS-Route und erst danach eine mögliche `working`-Freigabeprüfung. Keine davon ändert automatisch Modulstatus oder Gerätestatus.
 
 ## Phase 1: implementiertes Plattformfundament
 
