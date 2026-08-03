@@ -156,15 +156,20 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
       <h3 id="execution-room-title">Ausführungsraum</h3>
       <img
         src={robotAssetUrl}
-        alt="Sachlicher Lieferroboter in Seitenansicht"
+        alt=""
+        aria-hidden="true"
+        data-robot
         width="240"
         height="180"
       />
-      <p data-scene-description>
-        {firstScenario
-          ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}.`
-          : 'Keine validierte Szene verfügbar.'}
-      </p>
+      <section aria-labelledby="scene-description-title">
+        <h4 id="scene-description-title">Szenenbeschreibung</h4>
+        <p data-scene-description>
+          {firstScenario
+            ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}. Hindernisse werden mit Koordinaten genannt.`
+            : 'Keine validierte Szene verfügbar.'}
+        </p>
+      </section>
       <dl class="state-description">
         <div><dt>Aktueller Befehl</dt><dd data-current-command>Noch nicht gestartet</dd></div>
         <div><dt>Position</dt><dd data-current-position>–</dd></div>
@@ -172,7 +177,7 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
         <div><dt>Tragezustand</dt><dd data-current-carrying>–</dd></div>
         <div><dt>Schleifeniteration</dt><dd data-current-loop>–</dd></div>
       </dl>
-      <p role="status" aria-label="Ausführungsergebnis" data-execution-result>
+      <p role="status" aria-label="Ausführungsergebnis" tabindex="-1" data-execution-result>
         Noch keine Ausführung.
       </p>
       <p class="visually-hidden" aria-live="polite" data-execution-live></p>
@@ -238,8 +243,14 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
 
   <section aria-labelledby="trace-title">
     <h3 id="trace-title">Laufspur prüfen</h3>
-    <div class="table-scroll">
+    <div
+      class="table-scroll"
+      role="region"
+      aria-label="Laufspur horizontal scrollen"
+      tabindex="0"
+    >
       <table aria-label="Laufspur" data-trace-table>
+        <caption>Laufspur mit Vorherzustand, Nachherzustand und Ergebnis</caption>
         <thead>
           <tr>
             <th scope="col">Schritt</th>

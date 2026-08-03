@@ -304,7 +304,7 @@ export async function connectAlgorithmWorkbench(
     setExecutionEnabled(root, enabled);
   };
 
-  const changeAlgorithm = (next: Algorithm): void => {
+  const changeAlgorithm = (next: Algorithm, focusIndex?: number): void => {
     algorithm = next;
     const revising = payload.evidenceTrace !== null && payload.repairHypothesis.length > 0;
     payload = revising
@@ -314,6 +314,14 @@ export async function connectAlgorithmWorkbench(
     session = null;
     editorValid = true;
     renderAlgorithm(list, algorithm);
+    if (focusIndex !== undefined) {
+      const item = list.children.item(Math.min(focusIndex, Math.max(0, algorithm.length - 1)));
+      if (item instanceof HTMLElement && algorithm.length > 0) {
+        item.focus();
+      } else {
+        root.querySelector<HTMLButtonElement>('[data-insert-command]')?.focus();
+      }
+    }
     setPredictionStatus(root, '');
     const error = root.querySelector<HTMLElement>('[data-editor-error]');
     if (error) {
@@ -810,7 +818,7 @@ export async function connectAlgorithmWorkbench(
     if (command?.kind !== 'repeat') {
       return;
     }
-    changeAlgorithm(replaceRepeat(algorithm, index, { ...command, count }));
+    changeAlgorithm(replaceRepeat(algorithm, index, { ...command, count }), index);
   });
 
   root.addEventListener('change', (event) => {
@@ -894,14 +902,19 @@ export async function connectAlgorithmWorkbench(
       const index = Number(commandControl.dataset.commandIndex);
       switch (commandControl.dataset.commandAction) {
         case 'up':
-          changeAlgorithm(moveCommand(algorithm, index, -1));
+          changeAlgorithm(moveCommand(algorithm, index, -1), Math.max(0, index - 1));
           break;
         case 'down':
-          changeAlgorithm(moveCommand(algorithm, index, 1));
+          changeAlgorithm(
+            moveCommand(algorithm, index, 1),
+            Math.min(algorithm.length - 1, index + 1),
+          );
           break;
-        case 'remove':
-          changeAlgorithm(removeCommand(algorithm, index));
+        case 'remove': {
+          const next = removeCommand(algorithm, index);
+          changeAlgorithm(next, Math.min(index, Math.max(0, next.length - 1)));
           break;
+        }
       }
       return;
     }

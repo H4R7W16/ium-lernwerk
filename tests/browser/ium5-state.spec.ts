@@ -27,10 +27,12 @@ test('reload, export, delete and import preserve only the learning product', asy
   await page.getByRole('button', { name: 'Löschen bestätigen' }).click();
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(0);
+  await expect(page.locator('#workbench-title')).toBeFocused();
   await page.setInputFiles('input[type=file]', path!);
   await page.getByRole('button', { name: 'Import übernehmen' }).click();
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
+  await expect(page.locator('#workbench-title')).toBeFocused();
 });
 
 test('rejects a malformed module payload without changing active work', async ({ page }) => {

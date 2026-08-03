@@ -134,6 +134,9 @@ test('reports an obstacle and the hard step limit through button-built algorithm
     .toContainText('Hindernis');
 
   await page.reload();
+  await page.getByRole('button', { name: 'Arbeitsstand löschen' }).click();
+  await page.getByRole('button', { name: 'Löschen bestätigen' }).click();
+  await expect(page.locator('[data-save-status]')).toHaveText('Arbeitsstand gelöscht');
   await page.getByRole('button', { name: 'Links drehen einfügen' }).evaluate(
     (button) => {
       for (let index = 0; index < 101; index += 1) {

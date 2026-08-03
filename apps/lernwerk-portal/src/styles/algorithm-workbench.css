@@ -1,7 +1,39 @@
 .algorithm-workbench {
   display: grid;
   gap: 1.5rem;
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
   margin-block-start: 2rem;
+  overflow-wrap: anywhere;
+}
+
+.algorithm-workbench,
+.algorithm-workbench *,
+.algorithm-workbench *::before,
+.algorithm-workbench *::after {
+  box-sizing: border-box;
+}
+
+.algorithm-workbench > *,
+.workbench-focus > *,
+.algorithm-workbench form,
+.algorithm-workbench fieldset,
+.algorithm-workbench pre {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.algorithm-workbench pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.algorithm-workbench input,
+.algorithm-workbench select,
+.algorithm-workbench textarea,
+.algorithm-workbench button {
+  max-inline-size: 100%;
 }
 
 .algorithm-workbench > section,
@@ -69,11 +101,16 @@
 }
 
 .table-scroll {
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
 }
 
 table {
   inline-size: 100%;
+  min-inline-size: 38rem;
   border-collapse: collapse;
 }
 
@@ -109,5 +146,16 @@ details,
 @media (max-width: 48rem) {
   .workbench-focus {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .algorithm-workbench *,
+  .algorithm-workbench *::before,
+  .algorithm-workbench *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
   }
 }

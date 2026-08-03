@@ -47,6 +47,7 @@ export function renderAlgorithm(
 
   algorithm.forEach((command, index) => {
     const item = document.createElement('li');
+    item.tabIndex = -1;
     item.dataset.commandId = command.id;
     const description = document.createElement('span');
     description.textContent = `Befehl ${index + 1}: ${commandDescription(command)}`;
@@ -242,5 +243,8 @@ export function renderExecution(
   const strategy = root.querySelector<HTMLButtonElement>('[data-strategy-hint]');
   if (strategy) {
     strategy.hidden = session.status !== 'complete' && session.status !== 'error';
+  }
+  if (session.status === 'error') {
+    root.querySelector<HTMLElement>('[data-execution-result]')?.focus();
   }
 }
