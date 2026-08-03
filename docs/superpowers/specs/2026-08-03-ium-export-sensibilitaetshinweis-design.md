@@ -1,6 +1,7 @@
 # IuM Phase 1 – Sensibilitätshinweis beim Export
 
-**Status:** zur Schriftprüfung nach freigegebener Designentscheidung  
+**Status:** zur Schriftprüfung nach freigegebener Designentscheidung
+
 **Datum:** 2026-08-03
 
 ## Ausgangslage
