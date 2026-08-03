@@ -1,5 +1,4 @@
 import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
 import { join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -46,7 +45,7 @@ export async function buildPortal(
   profile: BuildProfile,
   base: string,
 ): Promise<BuiltPortal> {
-  const distDir = await mkdtemp(join(tmpdir(), 'ium-portal-'));
+  const distDir = await mkdtemp(join(repoRoot, '.ium-portal-test-'));
   await buildPortalToDirectory({ profile, base, rootDir: repoRoot, outputDir: distDir });
   const files = await collectFiles(distDir);
   const relativeFiles = files

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "baseAllowedExpressions": [
+    "0BSD",
+    "Apache-2.0",
+    "BlueOak-1.0.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "CC0-1.0",
+    "ISC",
+    "MIT"
+  ],
+  "reviewedExceptions": [
+    {
+      "name": "@axe-core/playwright",
+      "license": "MPL-2.0",
+      "scope": "qa-only",
+      "rationale": "Pinned accessibility test adapter; not included in the published static runtime."
+    },
+    {
+      "name": "axe-core",
+      "license": "MPL-2.0",
+      "scope": "qa-only",
+      "rationale": "Pinned accessibility analysis engine; not included in the published static runtime."
+    },
+    {
+      "namePattern": "^@img/sharp-",
+      "license": "Apache-2.0 AND LGPL-3.0-or-later",
+      "scope": "build-only",
+      "rationale": "Platform-specific libvips binary used only to generate local build assets; not shipped in the static portal."
+    },
+    {
+      "name": "argparse",
+      "license": "Python-2.0",
+      "scope": "build-only",
+      "rationale": "Transitive YAML/build parser dependency; not included in the published static runtime."
+    },
+    {
+      "name": "caniuse-lite",
+      "license": "CC-BY-4.0",
+      "scope": "build-only",
+      "rationale": "Browser capability dataset consumed by the build toolchain; not copied into the portal."
+    },
+    {
+      "name": "ico-endec",
+      "license": "MPL-2.0",
+      "scope": "build-only",
+      "rationale": "Transitive icon-generation utility; generated project icons carry their own recorded CC0 evidence."
+    },
+    {
+      "namePattern": "^lightningcss(?:-|$)",
+      "license": "MPL-2.0",
+      "scope": "build-only",
+      "rationale": "CSS compiler and platform binding used only during the static build."
+    },
+    {
+      "name": "type-fest",
+      "license": "(MIT OR CC0-1.0)",
+      "scope": "build-only",
+      "rationale": "SPDX dual-license expression for type-only build tooling; both alternatives are permitted."
+    }
+  ]
+}

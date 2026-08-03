@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Offline">
   <h1>Diese Seite ist gerade nicht offline verfügbar</h1>
   <p>Bereits gespeicherte Kernseiten und lokale Arbeitsstände bleiben nach bestätigter Offlinebereitschaft nutzbar.</p>
-  <a href={import.meta.env.BASE_URL}>Zur Lernwerk-Startseite</a>
+  <a href={base}>Zur Lernwerk-Startseite</a>
 </BaseLayout>

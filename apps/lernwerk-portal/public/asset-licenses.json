@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "path": "app-icon.svg",
+      "source": "Original project asset created for the IuM-Lernwerk platform",
+      "rightsHolder": "IuM-Lernwerk project",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "icons/maskable-512x512.png",
+      "source": "Deterministically generated from app-icon.svg with @vite-pwa/assets-generator 1.0.2",
+      "rightsHolder": "IuM-Lernwerk project",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "icons/pwa-192x192.png",
+      "source": "Deterministically generated from app-icon.svg with @vite-pwa/assets-generator 1.0.2",
+      "rightsHolder": "IuM-Lernwerk project",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "icons/pwa-512x512.png",
+      "source": "Deterministically generated from app-icon.svg with @vite-pwa/assets-generator 1.0.2",
+      "rightsHolder": "IuM-Lernwerk project",
+      "license": "CC0-1.0"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
   "name": "@ium/lernwerk-portal",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "astro build"

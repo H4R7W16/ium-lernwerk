@@ -30,6 +30,7 @@ const pwaPlugins = VitePWA({
   injectRegister: null,
   includeAssets: [
     'app-icon.svg',
+    'asset-licenses.json',
     'icons/pwa-192x192.png',
     'icons/pwa-512x512.png',
     'icons/maskable-512x512.png',
@@ -88,6 +89,20 @@ const finalizePwa: AstroIntegration = {
     },
   },
 };
+const fixtureIsolationPlugin = {
+  name: 'ium-fixture-output-isolation',
+  generateBundle(
+    _options: unknown,
+    bundle: Record<string, unknown>,
+  ) {
+    if (profile !== 'production') return;
+    for (const fileName of Object.keys(bundle)) {
+      if (fileName.includes('FixtureWorkspace.astro_astro_type_script')) {
+        delete bundle[fileName];
+      }
+    }
+  },
+};
 
 export default defineConfig({
   output: 'static',
@@ -98,7 +113,8 @@ export default defineConfig({
     format: 'directory',
   },
   vite: {
-    plugins: pwaPlugins,
+    cacheDir: resolve(pwaOutputDirectory, '.vite-cache'),
+    plugins: [fixtureIsolationPlugin, ...pwaPlugins],
   },
   ...(outputDirectory === undefined
     ? {}

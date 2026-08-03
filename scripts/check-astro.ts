@@ -26,6 +26,7 @@ async function main(): Promise<void> {
         ASTRO_TELEMETRY_DISABLED: '1',
         IUM_BUILD_PROFILE: 'fixture',
         IUM_BASE_PATH: '/',
+        PUBLIC_IUM_BASE_PATH: '/',
       },
     },
   );

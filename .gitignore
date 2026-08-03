@@ -7,5 +7,6 @@ dist/
 playwright-report/
 test-results/
 reports/
+.ium-portal-test-*/
 apps/lernwerk-portal/src/generated/
 packages/module-contract/src/generated/

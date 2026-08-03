@@ -2,6 +2,7 @@
   "name": "ium-lernwerk",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -22,7 +23,10 @@
     "build:fixture:subpath": "tsx scripts/build-portal.ts fixture /ium-lernwerk/",
     "check:astro": "tsx scripts/check-astro.ts",
     "preview:fixture": "tsx scripts/preview-portal.ts fixture / 4321",
+    "quality:build": "tsx scripts/check-build-output.ts",
+    "quality:licenses": "tsx scripts/check-dependency-licenses.ts",
     "test:browser": "playwright test tests/browser/platform.spec.ts",
+    "test:accessibility": "playwright test tests/browser/accessibility.spec.ts --project=chromium",
     "test:offline": "playwright test tests/browser/offline.spec.ts --project=chromium",
     "typecheck": "npm run contracts:generate && tsc -b --pretty false",
     "test:platform": "npm run contracts:generate && vitest run",
@@ -44,5 +48,10 @@
     "workbox-precaching": "7.4.1",
     "workbox-routing": "7.4.1",
     "yaml": "2.9.0"
+  },
+  "overrides": {
+    "@vite-pwa/assets-generator": {
+      "sharp": "0.35.3"
+    }
   }
 }

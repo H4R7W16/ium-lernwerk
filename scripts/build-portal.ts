@@ -55,6 +55,7 @@ export async function buildPortalToDirectory(options: {
         IUM_BUILD_PROFILE: options.profile,
         IUM_BASE_PATH: base,
         IUM_OUTPUT_DIR: resolve(options.outputDir),
+        PUBLIC_IUM_BASE_PATH: base,
         PUBLIC_IUM_BUILD_REVISION: options.buildRevision ?? 'stable',
       },
     },
