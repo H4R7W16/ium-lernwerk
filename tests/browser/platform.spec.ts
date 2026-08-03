@@ -1,4 +1,11 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
+
+async function fillAndConfirmPersistentSave(page: Page, value: string): Promise<void> {
+  const input = page.getByLabel('Synthetischer Text');
+  await input.fill(value);
+  await input.dispatchEvent('change');
+  await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
+}
 
 test('edit, reload, export, delete and import is lossless', async ({ page }) => {
   await page.goto('/module/test-platform-reference/');
@@ -31,8 +38,7 @@ test('selected volatile mode remains explicit', async ({ page }) => {
 
 test('wrong-module import is visible and leaves the active state unchanged', async ({ page }) => {
   await page.goto('/module/test-platform-reference/');
-  await page.getByLabel('Synthetischer Text').fill('Bleibt erhalten');
-  await expect(page.getByRole('status')).toContainText('Lokal gespeichert');
+  await fillAndConfirmPersistentSave(page, 'Bleibt erhalten');
   const wrongModuleState = {
     format: 'ium-learning-state',
     formatVersion: 1,
@@ -58,8 +64,7 @@ test('wrong-module import is visible and leaves the active state unchanged', asy
 
 test('global delete is confirmed and reread on the module route', async ({ page }) => {
   await page.goto('/module/test-platform-reference/');
-  await page.getByLabel('Synthetischer Text').fill('Global löschen');
-  await expect(page.getByRole('status')).toContainText('Lokal gespeichert');
+  await fillAndConfirmPersistentSave(page, 'Global löschen');
   await page.goto('/daten/');
   await page.getByRole('button', { name: 'Alle lokalen Daten löschen' }).click();
   await page.getByRole('button', { name: 'Alle Daten löschen' }).click();
