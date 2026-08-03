@@ -61,6 +61,18 @@ const resourceJson = JSON.stringify(resources).replace(
     </ol>
   </nav>
 
+  <section aria-labelledby="scenario-selection-title">
+    <h3 id="scenario-selection-title">Aufgabe auswählen</h3>
+    <div class="command-palette">
+      <button type="button" data-open-scenario="worked-sequence">Aktives Beispiel öffnen</button>
+      <button type="button" data-open-scenario="error-order">Fehlerfall Reihenfolge öffnen</button>
+      <button type="button" data-open-scenario="error-turn">Fehlerfall Drehung öffnen</button>
+      <button type="button" data-open-scenario="error-missing-step">Fehlerfall Fehlender Schritt öffnen</button>
+      <button type="button" data-open-scenario="error-repeat-count">Fehlerfall Wiederholungszahl öffnen</button>
+    </div>
+    <p data-active-scenario>Aktives Beispiel: worked-sequence</p>
+  </section>
+
   <div class="workbench-focus">
     <section class="execution-room" aria-labelledby="execution-room-title">
       <h3 id="execution-room-title">Ausführungsraum</h3>
@@ -101,6 +113,7 @@ const resourceJson = JSON.stringify(resources).replace(
       <ol aria-label="Algorithmus" data-algorithm-list>
         <li data-empty-algorithm>Noch keine Anweisung eingefügt.</li>
       </ol>
+      <p role="alert" data-editor-error hidden></p>
     </section>
   </div>
 
@@ -176,11 +189,28 @@ const resourceJson = JSON.stringify(resources).replace(
       <textarea id="repair-hypothesis" rows="4" maxlength="1000"></textarea>
     </div>
     <button type="button" data-repair-confirm>Reparaturhypothese bestätigen</button>
+    <p role="status" data-repair-status></p>
     <button type="button" data-revision-confirm>Revision übernehmen</button>
+    <section aria-labelledby="preserved-draft-title" data-preserved-product hidden>
+      <h4 id="preserved-draft-title">Unveränderter eigener Entwurf</h4>
+      <pre data-preserved-draft></pre>
+    </section>
     <div class="field">
       <label for="loop-decision">Begründung zur festen Wiederholung</label>
       <textarea id="loop-decision" rows="3" maxlength="1000"></textarea>
     </div>
+    <button type="button" data-loop-confirm>Schleifenentscheidung bestätigen</button>
+    <p role="status" data-loop-status></p>
+    <button type="button" data-strategy-hint hidden>Strategiehinweis öffnen</button>
+    <section aria-labelledby="strategy-title" data-strategy-content hidden>
+      <h4 id="strategy-title">Strategiehinweis</h4>
+      <p>Vergleiche die letzte passende mit der ersten abweichenden Spurzeile.</p>
+      <button type="button" data-full-example-open>Vollständiges Beispiel anzeigen</button>
+    </section>
+    <section aria-labelledby="full-example-title" data-full-example hidden>
+      <h4 id="full-example-title">Vollständiges Beispiel</h4>
+      <p data-full-example-text></p>
+    </section>
   </section>
 
   <section aria-labelledby="supports-title">
