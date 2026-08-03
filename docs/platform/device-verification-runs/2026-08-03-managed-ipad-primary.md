@@ -16,6 +16,8 @@ Dieses Protokoll wird ausschließlich mit real beobachteten Gerätebefunden erg�
 | Prüffassung | `https://h4r7w16.github.io/ium-lernwerk/` |
 | Bereitstellung | GitHub-Pages-Workflow `30790834978`, erfolgreich |
 | Kontrollierter Updatekandidat | `device-update-2026-08-03-1`, Workflow `30796505219`, erfolgreich |
+| Kontrollierter Fehlerkandidat | `device-broken-2026-08-03-1`, Workflow `30798577054`, bewusst unvollständig bereitgestellt |
+| Wiederherstellung | `device-update-2026-08-03-1`, Workflow `30799268044`, erfolgreich |
 | HTTPS | erzwungen |
 | Inhalt | synthetische technische Referenz; keine Curriculumwirkung |
 
@@ -88,6 +90,17 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig
 
 Dieser Teilbefund belegt die reale Updateaufforderung, explizite Nutzerentscheidung, Flush-vor-Aktivierung und Zustandserhaltung auf dem iPad. Evidenzpfad: dieser Abschnitt sowie GitHub-Pages-Lauf `30796505219`.
 
+### Runde 5 – Fehlerhafte Aktualisierung bleibt fail-closed
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen fünften Prüfrunde ohne gemeldete Abweichung:
+
+- der synthetische Zustand `Vor Fehlerkandidat` plus `Beta` wurde in der weiterhin funktionsfähigen Fassung lokal gespeichert;
+- nach vollständigem Schließen, erneutem Öffnen und der vorgesehenen Wartezeit erschien kein Aktualisierungshinweis für den bewusst unvollständigen Kandidaten;
+- nach Wechsel in den Offlinezustand blieben App, Navigation und der zuvor gespeicherte synthetische Zustand beim Neuladen nutzbar;
+- die Verbindung wurde anschließend wiederhergestellt.
+
+Der gekoppelte Befund aus dem öffentlich nachgewiesenen Fehlerkandidaten – HTML und finalisierter Service Worker HTTP 200, referenziertes Offline-Artefakt HTTP 404 – und der realen iPad-Beobachtung belegt das vorgesehene Fail-closed-Verhalten: Der fehlerhafte Kandidat verdrängte die bisherige funktionsfähige Version nicht. Die gültige Serverfassung wurde danach über GitHub-Pages-Lauf `30799268044` wiederhergestellt und mit HTTP 200 für HTML, Service Worker und Offline-Artefakt verifiziert.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
@@ -105,7 +118,7 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 - [x] Erster Offline-Aufruf ohne Cache: Browserverhalten ist dokumentiert und wird nicht als App-Leistung bewertet.
 - [x] Web-Clip beziehungsweise PWA-Installation: Startpfad und Scope stimmen.
 - [x] Aktualisierung: Hinweis erscheint; Zustand wird vor der bestätigten Aktualisierung gesichert.
-- [ ] Fehlerhafte Aktualisierung: Die bisherige funktionsfähige Version bleibt nutzbar.
+- [x] Fehlerhafte Aktualisierung: Die bisherige funktionsfähige Version bleibt nutzbar.
 
 ### Lokale Daten
 
