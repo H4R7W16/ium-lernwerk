@@ -14,6 +14,7 @@
 - Die Ausführung beginnt in einem isolierten Worktree und einem neuen Featurebranch, nicht direkt auf `main`.
 - Vor Commit oder Push gelten Fetch-/Fast-forward-Regeln aus `AGENTS.md`; kein Force-Push, History-Rewrite oder manueller Eingriff in `.git/`.
 - Jeder Verhaltenstask folgt TDD: roten Test schreiben, den erwarteten Fehlschlag beobachten, minimale Implementierung, grünen Test beobachten, Regressionen ausführen, diff prüfen, committen.
+- Testschritte werden gemäß `superpowers:test-driven-development/writing-good-tests.md` als beobachtbare Verhaltensprüfungen umgesetzt. Illustrative Text- oder Quellcode-Suchen in diesem Plan sind nur Hygienechecks und dürfen keinen Verhaltenstest ersetzen. Menschliche Leitfäden erhalten keine bloßen Wortlauttests; ihre fachliche, datenschutzbezogene und handlungspraktische Qualität wird im strukturierten Review geprüft. Workflowtests parsen die Konfiguration und prüfen deren ausführbare Semantik, Previewtests prüfen den gebauten beziehungsweise im Browser ausgeführten Stand.
 - Der Modulstatus bleibt in allen Dateien `working`; `docs/platform/device-verification.md` bleibt `device-verified: not-run`.
 - IUM19 implementiert nur das Paket. Keine reale Prüffassung veröffentlichen, keine technischen Realgeräteevidenzen erheben und keinen Unterrichtspilot durchführen.
 - Keine Namen, Konten, Schulen, Klassencodes, exakten Daten, Freitexte über Lernende, Lernprodukte, Einzelantworten, Gerätekennungen, IP-Adressen, Telemetrie, Punkte, Profile oder Geheimnisse.
@@ -888,7 +889,7 @@ Record branch, commit, PR, CI run, exact test totals, review verdicts and unchan
 
 - [ ] Written specification was explicitly approved before Task 1.
 - [ ] No subagent or parallel implementation path was used without explicit user choice.
-- [ ] All nine tasks used observed red-green TDD for behavioral changes.
+- [ ] All behavioral changes used observed red-green TDD; human-only documentation was reviewed instead of protected by source-text tests.
 - [ ] Protocol, three schemas and six synthetic examples validate.
 - [ ] Recursive unknown-field and privacy scans fail closed.
 - [ ] Pulse suppression below ten is regression-tested.
