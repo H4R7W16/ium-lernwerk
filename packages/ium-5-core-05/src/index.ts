@@ -29,6 +29,16 @@ export {
   TRANSFER_CASE_IDS,
   WORKBENCH_SCENARIO_IDS,
 } from './resources.js';
+export {
+  beginExecution,
+  finishExecution,
+  missionSucceeded,
+  stepExecution,
+} from './interpreter.js';
+export type {
+  ExecutionSession,
+  ExecutionStatus,
+} from './interpreter.js';
 export type {
   LearningPhaseId,
   LessonSegment,
