@@ -101,6 +101,32 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig
 
 Der gekoppelte Befund aus dem öffentlich nachgewiesenen Fehlerkandidaten – HTML und finalisierter Service Worker HTTP 200, referenziertes Offline-Artefakt HTTP 404 – und der realen iPad-Beobachtung belegt das vorgesehene Fail-closed-Verhalten: Der fehlerhafte Kandidat verdrängte die bisherige funktionsfähige Version nicht. Die gültige Serverfassung wurde danach über GitHub-Pages-Lauf `30799268044` wiederhergestellt und mit HTTP 200 für HTML, Service Worker und Offline-Artefakt verifiziert.
 
+### Runde 6 – VoiceOver und Touch
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen sechsten Prüfrunde ohne gemeldete Abweichung:
+
+- VoiceOver gab Marke, Hauptnavigation, Links, Überschriften, Statusbereiche, Formularfelder und Aktionen verständlich wieder;
+- die lineare Reihenfolge und die Navigation über Überschriften beziehungsweise Orientierungspunkte waren schlüssig und ohne Fokusfalle nutzbar;
+- die Eingabe `VoiceOver Test` und die Auswahl `Alpha` waren bedienbar; der Status `Lokal gespeichert` wurde hörbar angekündigt;
+- der Löschdialog wurde mit Titel und Aktionen verständlich wiedergegeben; nach `Abbrechen` kehrte der Fokus zur auslösenden Schaltfläche zurück;
+- Navigation, Eingabefelder und Aktionen waren anschließend ohne VoiceOver per Touch sicher erreichbar, ohne unbeabsichtigte Nachbaraktion;
+- Speicher- und Verbindungszustände waren als Text und nicht ausschließlich durch Farbe verständlich.
+
+Dieser Teilbefund belegt die reale VoiceOver-, Fokus- und Touchbedienung der synthetischen Prüffassung auf dem verwalteten iPad. Der Fehlerfokus bei einem abgelehnten Import wird getrennt geprüft; deshalb bleibt das zusammenfassende VoiceOver-Kriterium bis dahin offen. Automatisierte Accessibility-Tests ergänzen diesen Befund, ersetzen ihn aber nicht.
+
+### Runde 7 – Importablehnung, Importbestätigung und Exportdatei
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen siebten Prüfrunde ohne gemeldete Abweichung:
+
+- aus dem synthetischen Zustand `Exportprüfung` plus `Beta` wurde eine lokale JSON-Datei heruntergeladen;
+- Dateiname und Inhalt waren prüfbar; die Datei enthielt die erwartete Modulkennung `TEST-PLATFORM-REFERENCE` sowie `Exportprüfung` und `beta` im Payload;
+- nach Speicherung von `Vor Importfehler` plus `Alpha` wurde die öffentlich geprüfte, synthetische und absichtlich ungeeignete Repositorydatei `package.json` mit VoiceOver als Import ausgewählt;
+- der Fokus wechselte zur Fehlermeldung; Titel, Meldung und nächste Handlung wurden verständlich angesagt;
+- der abgelehnte Import veränderte den aktiven Zustand nicht, auch nicht nach Neuladen;
+- beim anschließenden Import der gültigen Exportdatei waren Vorschau und Aktionen mit VoiceOver verständlich; die bestätigte Übernahme stellte `Exportprüfung` plus `Beta` wieder her und meldete `Import lokal gespeichert`.
+
+Damit sind gültiger und ungültiger Import einschließlich Fehlerfokus, Zustandsintegrität, Bestätigungsdialog und der technische Exportinhalt real belegt. Der im Plattformvertrag geforderte Sensibilitätshinweis fehlt jedoch in der aktuellen Oberfläche; dieser getrennte Produktbefund verhindert weiterhin den Abschluss des Exportkriteriums.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
@@ -108,8 +134,8 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 ### Safari und VoiceOver
 
 - [x] Safari: Portal, Modul, Import/Export und lokaler Zustand funktionieren.
-- [ ] VoiceOver: Überschriften, Landmarken, Statusmeldungen, Formularfelder und Fokusreihenfolge sind verständlich.
-- [ ] Touch: Alle sichtbaren Aktionen sind erreichbar und ohne Farbcodierung verständlich.
+- [x] VoiceOver: Überschriften, Landmarken, Statusmeldungen, Formularfelder, Fehlerfokus und Fokusreihenfolge sind verständlich.
+- [x] Touch: Alle sichtbaren Aktionen sind erreichbar und ohne Farbcodierung verständlich.
 
 ### Netz, Offline und Installation
 
@@ -124,8 +150,8 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 
 - [x] Bestätigte Speicherung bleibt nach Neuladen erhalten.
 - [x] Flüchtige Sitzung hinterlässt nach einer frischen Sitzung keinen Modulstand.
-- [ ] Import: Gültige Datei wird übernommen; ungültige Datei wird verständlich und ohne Zustandsverlust abgelehnt.
-- [ ] Export: Sensibilitätshinweis, Dateidownload und Inhalt wurden geprüft.
+- [x] Import: Gültige Datei wird übernommen; ungültige Datei wird verständlich und ohne Zustandsverlust abgelehnt.
+- [ ] Export: Dateidownload und Inhalt geprüft; der erforderliche Sensibilitätshinweis fehlt und ist nachzuarbeiten.
 - [x] Einzelnes Löschen und global löschen verlangen Bestätigung und entfernen den erwarteten Zustand.
 - [ ] MDM-, Web-Clip-, Speicherrichtlinie und Filterrichtlinie verursachen keinen stillen Funktions- oder Datenverlust.
 
