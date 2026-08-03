@@ -8,6 +8,7 @@ interface Props {
 
 const { title } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const buildRevision = import.meta.env.PUBLIC_IUM_BUILD_REVISION ?? 'stable';
 ---
 
 <!doctype html>
@@ -16,6 +17,7 @@ const base = import.meta.env.BASE_URL;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    <meta name="ium-build-revision" content={buildRevision} />
     <title>{title} · IuM-Lernwerk</title>
   </head>
   <body>
@@ -34,8 +36,10 @@ const base = import.meta.env.BASE_URL;
       <p>Offenes Lernwerk · Inhalte CC BY-SA 4.0 · Code MIT</p>
     </footer>
     <script>
+      import { connectPwaRegistration } from '../controllers/pwa-registration.js';
       import { connectStatusAnnouncers } from '@ium/ui-components/controllers/status-announcer';
       connectStatusAnnouncers();
+      connectPwaRegistration();
     </script>
   </body>
 </html>

@@ -33,7 +33,7 @@ media:
   digitalFunction: Den technischen Local-First-Datenfluss ohne Unterrichtsgeltung prüfen
   analogMaterials: []
 data:
-  stateSchemaVersion: 1
+  stateSchemaVersion: 2
   fields:
     - text
     - choice

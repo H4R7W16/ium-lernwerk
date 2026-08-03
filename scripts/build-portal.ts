@@ -28,6 +28,7 @@ export async function buildPortalToDirectory(options: {
   base: string;
   rootDir: string;
   outputDir: string;
+  buildRevision?: string;
 }): Promise<void> {
   const base = normalizeBase(options.base);
   const appRoot = resolve(options.rootDir, 'apps/lernwerk-portal');
@@ -54,6 +55,7 @@ export async function buildPortalToDirectory(options: {
         IUM_BUILD_PROFILE: options.profile,
         IUM_BASE_PATH: base,
         IUM_OUTPUT_DIR: resolve(options.outputDir),
+        PUBLIC_IUM_BUILD_REVISION: options.buildRevision ?? 'stable',
       },
     },
   );

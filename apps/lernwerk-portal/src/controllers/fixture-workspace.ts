@@ -1,6 +1,7 @@
 import { createStateRepository } from '@ium/local-state';
 import type { ExportPort, PlatformError } from '@ium/module-contract';
 import { createModuleRuntime } from '@ium/module-runtime';
+import type { FlushRequestDetail } from './pwa-registration.js';
 import {
   announceDataChanged,
   announceError,
@@ -100,9 +101,17 @@ export async function connectFixtureWorkspace(
   const runtime = createModuleRuntime({
     moduleId,
     moduleVersion,
-    targetStateSchemaVersion: 1,
+    targetStateSchemaVersion: 2,
     repository: selection.repository,
-    migrations: [],
+    migrations: [
+      {
+        from: 1,
+        to: 2,
+        migrate(payload) {
+          return { ...payload };
+        },
+      },
+    ],
     clock: { now: () => new Date() },
     createWorkspaceId: randomWorkspaceId,
     exportPort: browserExportPort(workspace),
@@ -159,6 +168,9 @@ export async function connectFixtureWorkspace(
     }
     saveTimer = setTimeout(() => void flush(), SAVE_DELAY_MS);
   };
+  document.addEventListener('ium:flush-request', ((event: CustomEvent<FlushRequestDetail>) => {
+    event.detail.add(flush());
+  }) as EventListener);
   textInput.addEventListener('input', scheduleSave);
   choiceInput.addEventListener('input', scheduleSave);
   textInput.addEventListener('change', () => void flush());

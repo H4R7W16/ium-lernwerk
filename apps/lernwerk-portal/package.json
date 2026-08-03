@@ -12,6 +12,11 @@
     "@ium/module-contract": "0.1.0",
     "@ium/module-runtime": "0.1.0",
     "@ium/ui-components": "0.1.0",
-    "astro": "7.1.6"
+    "astro": "7.1.6",
+    "workbox-precaching": "7.4.1",
+    "workbox-routing": "7.4.1"
+  },
+  "devDependencies": {
+    "vite-plugin-pwa": "1.3.0"
   }
 }

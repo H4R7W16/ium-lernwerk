@@ -58,8 +58,11 @@ export async function buildPortal(
   const externalUrls = new Set<string>();
   for (const path of textFiles) {
     const source = await readFile(resolve(distDir, path), 'utf8');
-    for (const match of source.matchAll(/(?:https?:)?\/\/[^\s"'<>]+/g)) {
-      externalUrls.add(match[0]);
+    const pattern = path.endsWith('.js')
+      ? /\b(?:fetch|importScripts?)\(\s*["'](https?:\/\/[^"']+)/g
+      : /(https?:\/\/[^\s"'<>]+)/g;
+    for (const match of source.matchAll(pattern)) {
+      externalUrls.add(match[1]!);
     }
   }
 
