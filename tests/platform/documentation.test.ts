@@ -87,6 +87,16 @@ describe('Phase 1 verification entry points', () => {
     expect(verifier.indexOf('contracts:check')).toBeLessThan(verifier.indexOf('validate_phase0'));
   });
 
+  test('bootstraps ignored generated contracts before byte comparison', async () => {
+    const packageJson = JSON.parse(await read('package.json')) as {
+      scripts: Record<string, string>;
+    };
+
+    expect(packageJson.scripts['contracts:check']).toBe(
+      'npm run contracts:generate && tsx scripts/generate-contract-types.ts --check',
+    );
+  });
+
   test('defines the four bounded CI jobs with pinned runtime and approved actions', async () => {
     const source = await read('.github/workflows/ci.yml');
     const document = parseDocument(source);

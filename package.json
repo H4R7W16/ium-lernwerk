@@ -13,7 +13,7 @@
   },
   "scripts": {
     "contracts:generate": "tsx scripts/generate-contract-types.ts",
-    "contracts:check": "tsx scripts/generate-contract-types.ts --check",
+    "contracts:check": "npm run contracts:generate && tsx scripts/generate-contract-types.ts --check",
     "registry:production": "tsx scripts/build-module-registry.ts production",
     "registry:fixture": "tsx scripts/build-module-registry.ts fixture",
     "boundaries:check": "tsx scripts/check-workspace-boundaries.ts",
