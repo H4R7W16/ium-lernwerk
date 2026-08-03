@@ -394,7 +394,13 @@ _AXIS_ASSIGNMENT_PATTERN = re.compile(
 
 
 def _is_python_identifier_continuation(character):
-    return bool(character) and ("a" + character).isidentifier()
+    # Python's bundled Unicode database changed the treatment of the join
+    # controls between supported runner versions. The publication boundary
+    # must remain deterministic across those runtimes.
+    return bool(character) and (
+        character in ("\u200c", "\u200d")
+        or ("a" + character).isidentifier()
+    )
 
 
 RESERVED_OUTSIDE_BLOCK_PATTERNS = (

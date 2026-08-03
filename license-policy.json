@@ -30,6 +30,12 @@
       "rationale": "Platform-specific libvips binary used only to generate local build assets; not shipped in the static portal."
     },
     {
+      "namePattern": "^@img/sharp-libvips-",
+      "license": "LGPL-3.0-or-later",
+      "scope": "build-only",
+      "rationale": "Platform-specific libvips package used only to generate local build assets; not shipped in the static portal."
+    },
+    {
       "name": "argparse",
       "license": "Python-2.0",
       "scope": "build-only",
