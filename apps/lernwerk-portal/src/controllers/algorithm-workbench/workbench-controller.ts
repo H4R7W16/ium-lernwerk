@@ -950,4 +950,8 @@ export async function connectAlgorithmWorkbench(
       setText(root, '[data-full-example-text]', reference);
     }
   });
+
+  root.inert = false;
+  root.setAttribute('aria-busy', 'false');
+  root.dataset.initializationState = stateBlocked ? 'blocked' : 'ready';
 }
