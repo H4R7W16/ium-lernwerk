@@ -80,6 +80,7 @@ test('all disruption, support, fallback and abort choices are closed and labelle
   expect(inputs.filter((tag) => /name="support-demand"/.test(tag))).toHaveLength(4);
   expect(inputs.filter((tag) => /name="fallback-function"/.test(tag))).toHaveLength(4);
   expect(inputs.filter((tag) => /name="abort-action"/.test(tag))).toHaveLength(2);
+  expect(source.match(/<span class="option-pair">\s*<input[^>]+>\s*<label[^>]+>[^<]+<\/label>\s*<\/span>/g)).toHaveLength(10);
   for (const tag of inputs) {
     const id = tag.match(/id="([^"]+)"/)?.[1];
     expect(id).toBeDefined();

@@ -41,6 +41,7 @@
     .closed-group { padding: 1.2mm; border: .3mm solid #000; }
     .closed-group strong { display: block; margin-bottom: .7mm; }
     .closed-options { display: flex; flex-wrap: wrap; gap: .7mm 2.5mm; }
+    .option-pair { display: inline-flex; gap: .7mm; align-items: center; white-space: nowrap; break-inside: avoid; }
     footer { margin-top: 2mm; padding-top: 1.5mm; border-top: .5mm solid #000; }
     footer p + p { margin-top: 1mm; }
     .destroy { font-weight: 700; }
@@ -132,9 +133,22 @@
       </div>
     </div>
     <div class="closed-groups">
-      <div class="closed-group"><strong>Unterstützungsbedarf</strong><div class="closed-options"><input id="support-low" type="radio" name="support-demand" value="low"><label for="support-low">low</label><input id="support-medium" type="radio" name="support-demand" value="medium"><label for="support-medium">medium</label><input id="support-high" type="radio" name="support-demand" value="high"><label for="support-high">high</label><input id="support-not-observable" type="radio" name="support-demand" value="not-observable"><label for="support-not-observable">not-observable</label></div></div>
-      <div class="closed-group"><strong>Fallbackfunktion</strong><div class="closed-options"><input id="fallback-not-needed" type="radio" name="fallback-function" value="not-needed"><label for="fallback-not-needed">not-needed</label><input id="fallback-equivalent" type="radio" name="fallback-function" value="equivalent"><label for="fallback-equivalent">equivalent</label><input id="fallback-partial" type="radio" name="fallback-function" value="partial"><label for="fallback-partial">partial</label><input id="fallback-not-equivalent" type="radio" name="fallback-function" value="not-equivalent"><label for="fallback-not-equivalent">not-equivalent</label></div></div>
-      <div class="closed-group"><strong>Abbruchhandlung</strong><div class="closed-options"><input id="abort-continued" type="radio" name="abort-action" value="continued"><label for="abort-continued">continued</label><input id="abort-stopped" type="radio" name="abort-action" value="stopped"><label for="abort-stopped">stopped</label></div></div>
+      <div class="closed-group"><strong>Unterstützungsbedarf</strong><div class="closed-options">
+        <span class="option-pair"><input id="support-low" type="radio" name="support-demand" value="low"><label for="support-low">low</label></span>
+        <span class="option-pair"><input id="support-medium" type="radio" name="support-demand" value="medium"><label for="support-medium">medium</label></span>
+        <span class="option-pair"><input id="support-high" type="radio" name="support-demand" value="high"><label for="support-high">high</label></span>
+        <span class="option-pair"><input id="support-not-observable" type="radio" name="support-demand" value="not-observable"><label for="support-not-observable">not-observable</label></span>
+      </div></div>
+      <div class="closed-group"><strong>Fallbackfunktion</strong><div class="closed-options">
+        <span class="option-pair"><input id="fallback-not-needed" type="radio" name="fallback-function" value="not-needed"><label for="fallback-not-needed">not-needed</label></span>
+        <span class="option-pair"><input id="fallback-equivalent" type="radio" name="fallback-function" value="equivalent"><label for="fallback-equivalent">equivalent</label></span>
+        <span class="option-pair"><input id="fallback-partial" type="radio" name="fallback-function" value="partial"><label for="fallback-partial">partial</label></span>
+        <span class="option-pair"><input id="fallback-not-equivalent" type="radio" name="fallback-function" value="not-equivalent"><label for="fallback-not-equivalent">not-equivalent</label></span>
+      </div></div>
+      <div class="closed-group"><strong>Abbruchhandlung</strong><div class="closed-options">
+        <span class="option-pair"><input id="abort-continued" type="radio" name="abort-action" value="continued"><label for="abort-continued">continued</label></span>
+        <span class="option-pair"><input id="abort-stopped" type="radio" name="abort-action" value="stopped"><label for="abort-stopped">stopped</label></span>
+      </div></div>
     </div>
   </section>
 
