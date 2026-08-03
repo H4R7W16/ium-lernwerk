@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ium/export-import": "0.1.0",
+    "@ium/ium-5-core-05": "0.1.0",
     "@ium/local-state": "0.1.0",
     "@ium/module-contract": "0.1.0",
     "@ium/module-runtime": "0.1.0",

@@ -13,6 +13,9 @@
     },
     {
       "path": "./packages/module-runtime"
+    },
+    {
+      "path": "./packages/ium-5-core-05"
     }
   ]
 }
