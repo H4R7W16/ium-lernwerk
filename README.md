@@ -2,9 +2,20 @@
 
 Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Der Lernwerk-Kosmos verbindet verbindliche Kernpfade mit ausdrücklich erhaltenen Vertiefungs-, Transfer- und Projektmodulen.
 
+## Phase 1: implementiertes Plattformfundament
+
+Das freigegebene Plattformfundament ist als contract-first, Local-First und offline-fähige statische Webanwendung implementiert. Der Produktionsbuild bleibt bis zur Freigabe realer Lernmodule leer; ein strikt getrennter synthetischer Fixture-Build macht alle Daten-, Browser- und Offlineflüsse prüfbar. Die automatisierte Aussagegrenze ist `implemented`. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
+
+- [Freigegebene Spezifikation](docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md)
+- [Umsetzungsplan](docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md)
+- [Plattformbetrieb und Local-First-Datengrenzen](docs/platform/README.md)
+- [Geräte- und Schulnetzprotokoll](docs/platform/device-verification.md)
+
+Die vollständige automatisierte Prüfung startet mit `npm run verify:phase1`. CI ersetzt die reale Geräteprüfung nicht.
+
 ## Phase 0: validierte Grundlage
 
-Phase 0 umfasst Forschungsbasis, Curriculumdaten, Fachprofil, Modulverträge, Coverageaudit und das IUM10-Zeitmodell. Eine Lernendenanwendung und die Planung von Phase 1 gehören noch nicht zu diesem Stand.
+Phase 0 umfasst Forschungsbasis, Curriculumdaten, Fachprofil, Modulverträge, Coverageaudit und das IUM10-Zeitmodell. Das davon getrennte technische Plattformfundament liegt in Phase 1.
 
 Das IUM10-Zeitmodell hat den Status `working`. [roadmap/time-model.json](roadmap/time-model.json) ist die kanonische Quelle mit Schema 3; [roadmap/module-roadmap.md](roadmap/module-roadmap.md) ist die daraus abgeleitete Lesefassung. Die vollständigen Jahresvarianten und Referenzrechnungen sind daraus projiziert:
 
@@ -83,7 +94,7 @@ Das Cockpit wird direkt lokal geöffnet, verarbeitet nur Klassenaggregate im Arb
 - [Forschungsarchitektur](docs/research/phase-0/README.md) und [Forschungssynthese](docs/research/phase-0/synthesis.md)
 - [Verbindliche Gesamtspezifikation](docs/superpowers/specs/2026-07-27-ium-lernwerk-gesamtdesign.md)
 
-IUM10 ist nicht `reviewed`; eine Zeitfreigabe ist nicht erteilt. Phase 1 bleibt bis zu einem gesonderten Nutzerentscheid ungeplant.
+IUM10 ist nicht `reviewed`; eine Zeitfreigabe ist nicht erteilt. Die Implementierung des Phase-1-Plattformfundaments ändert diese inhaltliche und zeitliche Statusgrenze nicht.
 
 ## Validierung
 

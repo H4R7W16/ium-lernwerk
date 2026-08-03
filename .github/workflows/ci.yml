@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  legacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+          cache: npm
+      - run: npm ci
+      - run: npm run test:python
+      - run: python -B scripts/build_ium11_cockpit.py --check
+      - run: node --check pilot/cockpit/assets/app.js
+      - run: python -B scripts/build_ium11_publication_contract.py --check
+      - run: python -B scripts/validate_ium11.py
+      - run: python -B scripts/validate_ium10.py
+      - run: python -B scripts/validate_ium09.py
+      - run: python -B scripts/validate_phase0.py
+
+  contracts-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+          cache: npm
+      - run: npm ci
+      - run: npm run contracts:check
+      - run: npm run boundaries:check
+      - run: npm run typecheck
+      - run: npm run test:platform
+      - run: npm run build
+      - run: npm run build:fixture
+      - run: npm run build:fixture:subpath
+      - run: npm run quality:build
+      - run: npm run quality:licenses
+      - name: Upload quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase1-quality-reports
+          path: reports/phase1/
+          if-no-files-found: ignore
+
+  browser:
+    needs: contracts-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:browser
+      - name: Upload browser failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-failure-evidence
+          path: test-results/
+          if-no-files-found: ignore
+
+  offline-quality:
+    needs: contracts-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:offline
+      - run: npm run test:accessibility
+      - name: Upload offline and accessibility failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-quality-failure-evidence
+          path: test-results/
+          if-no-files-found: ignore

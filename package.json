@@ -30,7 +30,8 @@
     "test:offline": "playwright test tests/browser/offline.spec.ts --project=chromium",
     "typecheck": "npm run contracts:generate && tsc -b --pretty false",
     "test:platform": "npm run contracts:generate && vitest run",
-    "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\""
+    "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\"",
+    "verify:phase1": "tsx scripts/verify-phase1.ts"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
