@@ -219,4 +219,4 @@ Commit only privacy-reviewed metadata and repository-safe evidence links. Never 
 - Spec coverage: real iPad/Safari, VoiceOver, managed desktop browsers, keyboard, HTTPS, offline/update, storage, Web Clip, filters and LMS are each assigned to an explicit task.
 - Scope boundary: CI remains `implemented` evidence; no step permits emulation to set `device-verified`.
 - Privacy boundary: synthetic data only; policy evidence is reviewed before repository publication.
-- Execution status: the owner approved temporary GitHub Pages and confirmed an available managed target iPad. HTTPS publication is being implemented; real configuration and interaction evidence remain open until the guided device run.
+- Execution status: the owner approved temporary GitHub Pages and confirmed an available managed target iPad. Commit `8f9e7f5` is published at `https://h4r7w16.github.io/ium-lernwerk/` through successful manual workflow `30790834978`; real configuration and interaction evidence remain open until the guided device run.
