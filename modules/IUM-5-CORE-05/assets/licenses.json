@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "IUM-5-CORE-05",
+  "assets": [
+    {
+      "path": "delivery-robot.svg",
+      "source": "Original project asset drawn from geometric SVG primitives for IUM-5-CORE-05",
+      "rightsHolder": "IuM-Lernwerk project",
+      "license": "CC-BY-SA-4.0",
+      "changes": "Original creation; no external asset incorporated"
+    }
+  ]
+}

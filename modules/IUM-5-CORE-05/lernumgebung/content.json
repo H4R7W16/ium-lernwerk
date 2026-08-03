@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "IUM-5-CORE-05",
+  "centralQuestion": "Wie werden Anweisungen so präzise, dass ein System sie eindeutig ausführen kann?",
+  "paths": {
+    "regular": {
+      "totalMinutes": 225,
+      "segmentIds": [
+        "ue1-orientation",
+        "ue1-prior-knowledge",
+        "ue1-concept",
+        "ue2-concept",
+        "ue2-guided",
+        "ue3-guided",
+        "ue3-product",
+        "ue4-product",
+        "ue4-revision",
+        "ue5-transfer",
+        "ue5-consolidation"
+      ]
+    },
+    "extended": {
+      "totalMinutes": 270,
+      "segmentIds": [
+        "ue1-orientation",
+        "ue1-prior-knowledge",
+        "ue1-concept",
+        "ue2-concept",
+        "ue2-guided",
+        "ue3-guided",
+        "ue3-product",
+        "ue4-product",
+        "ue4-revision",
+        "ue5-transfer",
+        "ue5-consolidation",
+        "ue6-extension"
+      ]
+    }
+  },
+  "segments": [
+    {
+      "id": "ue1-orientation",
+      "lesson": 1,
+      "minutes": 15,
+      "title": "Der unklare Lieferauftrag",
+      "learningFunction": "Die Leitfrage an einer mehrdeutigen Alltagshandlung öffnen.",
+      "activityIds": ["precision-routine"]
+    },
+    {
+      "id": "ue1-prior-knowledge",
+      "lesson": 1,
+      "minutes": 20,
+      "title": "Präzision prüfen",
+      "learningFunction": "Vorwissen zu Reihenfolge, Eindeutigkeit und Wiederholung aktivieren.",
+      "activityIds": ["precision-routine"]
+    },
+    {
+      "id": "ue1-concept",
+      "lesson": 1,
+      "minutes": 10,
+      "title": "Algorithmus und Anweisung",
+      "learningFunction": "Algorithmus und ausführbare Anweisung am aktiven Beispiel unterscheiden.",
+      "activityIds": ["active-example"]
+    },
+    {
+      "id": "ue2-concept",
+      "lesson": 2,
+      "minutes": 25,
+      "title": "Zustand, Ausführung und Laufspur",
+      "learningFunction": "Zustände vor und nach einem Befehl explizit aufbauen.",
+      "activityIds": ["active-example"]
+    },
+    {
+      "id": "ue2-guided",
+      "lesson": 2,
+      "minutes": 20,
+      "title": "Nächsten Zustand vorhersagen",
+      "learningFunction": "Vorhersage und schrittweise Ausführung kontrolliert vergleichen.",
+      "activityIds": ["guided-trace"]
+    },
+    {
+      "id": "ue3-guided",
+      "lesson": 3,
+      "minutes": 25,
+      "title": "Erste Abweichung finden",
+      "learningFunction": "Fehlervarianten anhand der ersten abweichenden Spurzeile erklären.",
+      "activityIds": ["error-comparison"]
+    },
+    {
+      "id": "ue3-product",
+      "lesson": 3,
+      "minutes": 20,
+      "title": "Eigenen Lieferalgorithmus entwerfen",
+      "learningFunction": "Eine erste eigenständige, ausführbare Fassung erstellen und vorhersagen.",
+      "activityIds": ["own-product"]
+    },
+    {
+      "id": "ue4-product",
+      "lesson": 4,
+      "minutes": 35,
+      "title": "Ausführen und belegen",
+      "learningFunction": "Die eigene Fassung ausführen und eine relevante Belegspur auswählen.",
+      "activityIds": ["own-product"]
+    },
+    {
+      "id": "ue4-revision",
+      "lesson": 4,
+      "minutes": 10,
+      "title": "Reparaturhypothese prüfen",
+      "learningFunction": "Eine gefundene Abweichung gezielt und begründet revidieren.",
+      "activityIds": ["targeted-revision"]
+    },
+    {
+      "id": "ue5-transfer",
+      "lesson": 5,
+      "minutes": 25,
+      "title": "Algorithmus-Lupe",
+      "learningFunction": "Beispiele, Nichtbeispiele und einen Grenzfall anhand von Kriterien einordnen.",
+      "activityIds": ["system-transfer"]
+    },
+    {
+      "id": "ue5-consolidation",
+      "lesson": 5,
+      "minutes": 20,
+      "title": "Produkt prüfen und sichern",
+      "learningFunction": "Fachbegriffe, Schleifenentscheidung und Endfassung gemeinsam konsolidieren.",
+      "activityIds": ["consolidation"]
+    },
+    {
+      "id": "ue6-extension",
+      "lesson": 6,
+      "minutes": 45,
+      "title": "Geerbten Fehler eigenständig reparieren",
+      "learningFunction": "Eine neue Laufspur ohne Wiederholung der Einführung vorhersagen, prüfen und revidieren.",
+      "activityIds": ["extended-repair"]
+    }
+  ],
+  "activities": [
+    {
+      "id": "precision-routine",
+      "family": "precision",
+      "title": "Ist die Anweisung ausführbar?",
+      "instruction": "Vergleiche fast gleiche Alltagsschritte. Markiere die Stelle, an der Reihenfolge, Richtung oder Ziel noch nicht eindeutig sind, und formuliere sie präziser.",
+      "scenarioIds": []
+    },
+    {
+      "id": "active-example",
+      "family": "worked-example",
+      "title": "Vollständiges aktives Beispiel",
+      "instruction": "Sage jeweils Position, Blickrichtung und Tragezustand voraus, bevor du den nächsten Befehl ausführst. Erkläre danach den Unterschied zwischen Anweisung, Zustand und Laufspur.",
+      "scenarioIds": ["worked-sequence"]
+    },
+    {
+      "id": "guided-trace",
+      "family": "worked-example",
+      "title": "Spurzeilen vergleichen",
+      "instruction": "Ordne Vorher- und Nachherzustände und prüfe deine Ordnung durch schrittweise Ausführung.",
+      "scenarioIds": ["worked-sequence"]
+    },
+    {
+      "id": "error-comparison",
+      "family": "error-case",
+      "title": "Vier Arten von Abweichungen",
+      "instruction": "Prüfe falsche Reihenfolge, falsche Drehung, fehlenden Schritt und unpassende Wiederholungszahl. Benenne jeweils die erste abweichende Spurzeile.",
+      "scenarioIds": ["error-order", "error-turn", "error-missing-step", "error-repeat-count"]
+    },
+    {
+      "id": "own-product",
+      "family": "product",
+      "title": "Eigener ausführbarer Lieferauftrag",
+      "instruction": "Wähle eine gleichwertige Karte, baue ohne Vorgabe einen Algorithmus, halte deine Vorhersage fest und bestätige nur die Spur, die du als Beleg verwendest.",
+      "scenarioIds": ["product-a", "product-b", "product-c"]
+    },
+    {
+      "id": "targeted-revision",
+      "family": "error-case",
+      "title": "Hypothese und Revision",
+      "instruction": "Beziehe deine Hypothese auf die erste gefundene Abweichung. Ändere nur so viel wie nötig und prüfe anschließend die neue Spur.",
+      "scenarioIds": ["repair-standard"]
+    },
+    {
+      "id": "system-transfer",
+      "family": "transfer",
+      "title": "Algorithmus-Lupe für Systeme",
+      "instruction": "Ordne jeden Kurzfall mit eigenen Kriterien ein. Begründe auch, weshalb ein Fall kein algorithmisches System oder nur ein Grenzfall ist.",
+      "scenarioIds": []
+    },
+    {
+      "id": "consolidation",
+      "family": "precision",
+      "title": "Endfassung fachlich prüfen",
+      "instruction": "Nutze die vier Selbstcheckfragen, vergleiche Ausgangs- und Endfassung und formuliere deine Schleifenentscheidung.",
+      "scenarioIds": ["product-a", "product-b", "product-c"]
+    },
+    {
+      "id": "extended-repair",
+      "family": "error-case",
+      "title": "Neue Karte, geerbter Einzelfehler",
+      "instruction": "Sage die Ausführung des vorhandenen Algorithmus voraus, führe ihn tatsächlich aus, lokalisiere die erste Abweichung, formuliere eine Reparaturhypothese, revidiere gezielt, führe erneut aus und vergleiche die neue Lösung mit deinem eigenen Produkt.",
+      "scenarioIds": ["extended-inherited"]
+    }
+  ],
+  "supports": [
+    {
+      "id": "scene-description",
+      "title": "Koordinaten- und Szenenbeschreibung",
+      "text": "Lies zuerst Rastergröße, Startkoordinate, Blickrichtung, Gut, Ziel und Hindernisse als vollständigen Satz. Spalten laufen von links nach rechts, Zeilen von oben nach unten."
+    },
+    {
+      "id": "turning-aid",
+      "title": "Drehhilfe",
+      "text": "Eine Drehung verändert nur die Blickrichtung. Stelle dich gedanklich in die aktuelle Richtung und bestimme erst dann links oder rechts."
+    },
+    {
+      "id": "expanded-loop",
+      "title": "Ausgeschriebene Schleife",
+      "text": "Schreibe den Schleifenkörper für jede feste Wiederholung untereinander aus. Vergleiche Anzahl und Reihenfolge, bevor du den Block wieder zusammenfasst."
+    },
+    {
+      "id": "trace-table",
+      "title": "Laufspurtabelle",
+      "text": "Vergleiche pro Zeile Befehl, Vorherposition, Blick, Tragezustand, Nachherzustand und Ergebnis. Beginne immer bei der ersten Abweichung."
+    },
+    {
+      "id": "sentence-starters",
+      "title": "Satzstarter für Begründungen",
+      "text": "Meine Vorhersage war …; Die erste Abweichung sehe ich bei …; Ich vermute als Ursache …; Meine Änderung passt dazu, weil …"
+    },
+    {
+      "id": "first-deviation-questions",
+      "title": "Fragen zur ersten Abweichung",
+      "text": "Welche Spurzeile stimmt zuletzt noch überein? Welcher Quellbefehl folgt? Welcher Teil des Zustands ändert sich anders als vorhergesagt?"
+    }
+  ],
+  "transferCases": [
+    {
+      "id": "navigation",
+      "title": "Navigationssystem",
+      "description": "Ein Gerät berechnet aus aktuellem Ort und Ziel eine geordnete Folge von Abbiege- und Fahranweisungen und passt sie bei einer neuen Position erneut an."
+    },
+    {
+      "id": "search-service",
+      "title": "Suchdienst",
+      "description": "Ein digitaler Dienst verarbeitet eine Suchanfrage nach festgelegten Rechenschritten und ordnet passende Fundstellen."
+    },
+    {
+      "id": "digital-timetable",
+      "title": "Digitale Stundenplananzeige",
+      "description": "Eine Anzeige liest gespeicherte Plan- und Änderungsdaten und stellt für den gewählten Zeitpunkt die passenden Einträge dar."
+    },
+    {
+      "id": "paper-map",
+      "title": "Papierkarte",
+      "description": "Eine gedruckte Karte zeigt Wege und Orte, führt selbst aber keine Anweisungsfolge aus und verändert keinen Zustand."
+    },
+    {
+      "id": "mechanical-timer",
+      "title": "Mechanischer Kurzzeitwecker",
+      "description": "Ein aufgezogener Mechanismus läuft ab und löst nach der eingestellten Dauer ein Signal aus, ohne einen frei gewählten Ablauf zu verarbeiten."
+    },
+    {
+      "id": "controlled-vehicle",
+      "title": "Fern- oder programmsteuerbares Fahrzeug",
+      "description": "Dasselbe Fahrzeug kann unmittelbare Fernbefehle ausführen oder eine zuvor festgelegte Befehlsfolge selbstständig abarbeiten. Entscheidend ist die konkrete Betriebsart."
+    }
+  ],
+  "selfCheckQuestions": [
+    {
+      "id": "unambiguous-instruction",
+      "text": "Ist jede Anweisung in dieser Situation eindeutig?"
+    },
+    {
+      "id": "trace-matches-prediction",
+      "text": "Passt die Laufspur zu meiner Vorhersage?"
+    },
+    {
+      "id": "repair-follows-evidence",
+      "text": "Bezieht sich meine Reparatur auf die gefundene Abweichung und kann ich sie begründen?"
+    },
+    {
+      "id": "repeat-is-appropriate",
+      "text": "Ist meine feste Wiederholung passend – oder ist hier keine Schleife sinnvoll?"
+    }
+  ]
+}

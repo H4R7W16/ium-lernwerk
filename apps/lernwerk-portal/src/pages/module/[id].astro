@@ -3,22 +3,44 @@ import ConnectionStatus from '@ium/ui-components/components/ConnectionStatus';
 import ErrorSummary from '@ium/ui-components/components/ErrorSummary';
 import StorageStatus from '@ium/ui-components/components/StorageStatus';
 import UpdatePrompt from '@ium/ui-components/components/UpdatePrompt';
+import AlgorithmWorkbench from '../../components/AlgorithmWorkbench.astro';
 import FixtureWorkspace from '../../components/FixtureWorkspace.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import registry from '../../generated/module-registry.json';
+import type { WorkbenchResources } from '@ium/ium-5-core-05';
+
+type PageModule = Readonly<{
+  id: string;
+  version: string;
+  title: string;
+  centralQuestion: string;
+  publishedStatus: 'draft' | 'working' | 'reviewed' | 'standard' | null;
+  renderer: 'fixture-workspace' | 'algorithm-workbench';
+  workbench?: Readonly<{
+    content: WorkbenchResources['content'];
+    scenarios: WorkbenchResources['scenarios'];
+    robotAssetPath: string;
+  }>;
+}>;
 
 export function getStaticPaths() {
-  return registry.modules.map((module) => ({
+  return (registry.modules as unknown as readonly PageModule[]).map((module) => ({
     params: { id: module.id.toLowerCase() },
     props: { module },
   }));
 }
 
-const { module } = Astro.props;
+const { module } = Astro.props as { module: PageModule };
 ---
 
 <BaseLayout title={module.title}>
-  <p class="eyebrow">Synthetische technische Referenz · keine Curriculumwirkung</p>
+  {module.publishedStatus === 'working' ? (
+    <p class="working-banner" role="status">
+      Arbeitsstand · Status working · nicht für Unterrichtseinsatz
+    </p>
+  ) : (
+    <p class="eyebrow">Synthetische technische Referenz · keine Curriculumwirkung</p>
+  )}
   <h1>{module.title}</h1>
   <p>{module.centralQuestion}</p>
   <div class="status-grid">
@@ -27,5 +49,26 @@ const { module } = Astro.props;
   </div>
   <ErrorSummary />
   <UpdatePrompt />
-  <FixtureWorkspace moduleId={module.id} moduleVersion={module.version} />
+  {module.renderer === 'fixture-workspace' ? (
+    <FixtureWorkspace moduleId={module.id} moduleVersion={module.version} />
+  ) : module.renderer === 'algorithm-workbench' && module.workbench ? (
+    <AlgorithmWorkbench
+      moduleId={module.id}
+      moduleVersion={module.version}
+      resources={module.workbench}
+    />
+  ) : (
+    <p role="alert">Für dieses Modul fehlt ein freigegebener Renderer.</p>
+  )}
 </BaseLayout>
+
+<style>
+  .working-banner {
+    padding: 0.75rem 1rem;
+    border: 0.125rem solid #9a6700;
+    border-radius: 0.5rem;
+    background: #fff4ce;
+    color: #5c3b00;
+    font-weight: 800;
+  }
+</style>

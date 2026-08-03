@@ -2,6 +2,7 @@ import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { buildRegistry, type BuildProfile } from './build-module-registry.js';
 import { finalizeServiceWorker } from './finalize-service-worker.js';
+import { prepareModuleAssets } from './prepare-module-assets.js';
 
 function normalizeBase(value: string): string {
   if (
@@ -37,6 +38,10 @@ export async function buildPortalToDirectory(options: {
     profile: options.profile,
     rootDir: options.rootDir,
     outputDir: resolve(appRoot, 'src/generated'),
+  });
+  await prepareModuleAssets({
+    profile: options.profile,
+    rootDir: options.rootDir,
   });
   const result = spawnSync(
     process.execPath,

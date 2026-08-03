@@ -1,19 +1,20 @@
 # Phase 1: Plattformbetrieb
 
-Dieses Handbuch beschreibt das implementierte Plattformfundament des IuM-Lernwerks. Es dokumentiert den technischen Betrieb, nicht die Freigabe realer Unterrichtsinhalte. Automatisierte Prüfungen und CI können den Status `implemented` belegen; `device-verified` erfordert reale Geräte- und Schulnetztests und bleibt bis dahin `not-run`.
+Dieses Handbuch beschreibt das implementierte Plattformfundament des IuM-Lernwerks. Es dokumentiert den technischen Betrieb, nicht die Freigabe realer Unterrichtsinhalte. Automatisierte Prüfungen und CI können den Status `implemented` des Fundaments und den geprüften `working`-Stand eines Moduls belegen; `device-verified` erfordert reale Geräte- und Schulnetztests und bleibt bis dahin `not-run`.
 
 ## Buildvarianten und Start
 
-Der Produktionsbuild ist bewusst **production-empty**: Er erzeugt Portal, Verträge und Laufzeit, enthält aber noch kein Lernmodul. Der Fixture-Build ergänzt ausschließlich das synthetische Referenzmodul aus `tests/fixtures/reference-module/`. Diese Trennung verhindert, dass Testinhalte als Unterrichtsmaterial erscheinen.
+Der **Phase-1-Ausgangsstand** war bewusst **production-empty**: Er erzeugte Portal, Verträge und Laufzeit ohne Lernmodul. Der aktuelle lokale Produktionsbuild enthält nun `IUM-5-CORE-05` mit dem Status `working`. Das Modul ist nicht unterrichtlich freigegeben und wird durch den weiterhin strikt Fixture-only arbeitenden Pages-Workflow **nicht deployt**. Der Fixture-Build ergänzt ausschließlich das synthetische Referenzmodul aus `tests/fixtures/reference-module/`. Diese Trennung verhindert, dass Testinhalte oder das noch ungeprüfte Arbeitsmodul als veröffentlichtes Unterrichtsmaterial erscheinen.
 
 ```powershell
 npm ci
 npm run build
 npm run build:fixture
 npm run preview:fixture
+npm run preview:ium5
 ```
 
-`npm run build` erzeugt die Produktionsvariante für `/`. `npm run build:fixture` erzeugt die lokale Referenzvariante für `/`. Mit `npm run build:fixture:subpath` wird dieselbe Referenzvariante für `/ium-lernwerk/` gebaut. Alle Laufzeitverweise bleiben innerhalb des konfigurierten Basispfads; ein Server muss die erzeugten statischen Dateien unter genau diesem Pfad ausliefern.
+`npm run build` erzeugt die lokale Produktionsvariante einschließlich des `working`-Moduls für `/`; `npm run preview:ium5` stellt sie lokal bereit. `npm run build:fixture` erzeugt die synthetische Referenzvariante für `/`. Mit `npm run build:fixture:subpath` wird dieselbe Referenzvariante für `/ium-lernwerk/` gebaut. Alle Laufzeitverweise bleiben innerhalb des konfigurierten Basispfads; ein Server muss die erzeugten statischen Dateien unter genau diesem Pfad ausliefern.
 
 ## Local-First-Datenvertrag
 
@@ -46,9 +47,10 @@ Die vollständige, plattformunabhängige Prüfkette wird mit genau einem Befehl 
 
 ```powershell
 npm run verify:phase1
+npm run verify:ium5
 ```
 
-Sie prüft nacheinander Verträge, Architekturgrenzen, Typen, Plattformtests, alle drei Builds, Build- und Lizenzqualität, Browserfluss in Chromium/Firefox/WebKit, Offlineverhalten, Barrierefreiheit, Python-Tests sowie die Validatoren von IUM11 bis Phase 0. Sie bricht beim ersten Fehler ab.
+`verify:phase1` prüft das Plattformfundament. `verify:ium5` erweitert dieselbe fail-fast Kette um Astro-Prüfung sowie Browser-, Zustands-, Offline- und Accessibilitygates des Arbeitsmoduls. Beide prüfen außerdem Verträge, Architekturgrenzen, Typen, Builds, Build- und Lizenzqualität, Python-Tests sowie die Validatoren von IUM11 bis Phase 0 und brechen beim ersten Fehler ab.
 
 Für gezielte Entwicklung stehen zusätzlich diese Befehle bereit:
 

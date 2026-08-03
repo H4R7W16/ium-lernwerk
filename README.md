@@ -2,9 +2,20 @@
 
 Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Der Lernwerk-Kosmos verbindet verbindliche Kernpfade mit ausdrücklich erhaltenen Vertiefungs-, Transfer- und Projektmodulen.
 
+## Phase 2: erstes Lernmodul im Arbeitsstand
+
+`IUM-5-CORE-05 – Präzise Abläufe ausführbar machen` ist als erstes vollständiges digitales Lernmodul lokal implementiert und bleibt ein **interner Arbeitsstand**. Es verbindet einen geschlossenen grafischen Algorithmuseditor mit Vorhersage, deterministischer Ausführung, Laufspur, begründeter Reparatur, fester Wiederholung, Transfer und Selbstcheck. Sein Status ist ausdrücklich `working`: Es ist **nicht für Unterrichtseinsatz** freigegeben, nicht im öffentlichen Pages-Fixture enthalten und noch nicht durch die reale Gate-B-Prüfung pilotiert. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
+
+- [Freigegebene Modulspezifikation](docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md)
+- [Testgetriebener Implementierungsplan](docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md)
+- [Modulbetrieb und Datengrenzen](docs/modules/ium-5-core-05.md)
+- [Digitales Lehrkräftehandbuch](modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md)
+
+Die vollständige lokale Gate-A-Prüfkette startet mit `npm run verify:ium5`. Ein grüner Lauf schließt Gate B nicht und ersetzt weder Pilotierung noch reale Geräteprüfung.
+
 ## Phase 1: implementiertes Plattformfundament
 
-Das freigegebene Plattformfundament ist als contract-first, Local-First und offline-fähige statische Webanwendung implementiert. Der Produktionsbuild bleibt bis zur Freigabe realer Lernmodule leer; ein strikt getrennter synthetischer Fixture-Build macht alle Daten-, Browser- und Offlineflüsse prüfbar. Die automatisierte Aussagegrenze ist `implemented`. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
+Das freigegebene Plattformfundament ist als contract-first, Local-First und offline-fähige statische Webanwendung implementiert. Der frühere production-empty-Build war der Phase-1-Ausgangsstand; der strikt getrennte synthetische Fixture-Build macht die allgemeinen Daten-, Browser- und Offlineflüsse weiterhin prüfbar. Die automatisierte Aussagegrenze des Fundaments ist `implemented`. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
 
 - [Freigegebene Spezifikation](docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md)
 - [Umsetzungsplan](docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md)

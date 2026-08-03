@@ -23,15 +23,21 @@
     "build:fixture:subpath": "tsx scripts/build-portal.ts fixture /ium-lernwerk/",
     "check:astro": "tsx scripts/check-astro.ts",
     "preview:fixture": "tsx scripts/preview-portal.ts fixture / 4321",
+    "preview:ium5": "tsx scripts/preview-portal.ts production / 4322",
     "quality:build": "tsx scripts/check-build-output.ts",
     "quality:licenses": "tsx scripts/check-dependency-licenses.ts",
     "test:browser": "playwright test tests/browser/platform.spec.ts",
     "test:accessibility": "playwright test tests/browser/accessibility.spec.ts --project=chromium",
     "test:offline": "playwright test tests/browser/offline.spec.ts --project=chromium",
+    "test:ium5:browser": "playwright test tests/browser/ium5-workbench.spec.ts --config playwright.ium5.config.mts",
+    "test:ium5:state": "playwright test tests/browser/ium5-state.spec.ts --config playwright.ium5.config.mts --project=chromium",
+    "test:ium5:accessibility": "playwright test tests/browser/ium5-accessibility.spec.ts --config playwright.ium5.config.mts --project=chromium",
+    "test:ium5:offline": "playwright test tests/browser/ium5-offline.spec.ts --config playwright.ium5.config.mts --project=chromium",
     "typecheck": "npm run contracts:generate && tsc -b --pretty false",
     "test:platform": "npm run contracts:generate && vitest run",
     "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\"",
-    "verify:phase1": "tsx scripts/verify-phase1.ts"
+    "verify:phase1": "tsx scripts/verify-phase1.ts",
+    "verify:ium5": "tsx scripts/verify-ium5.ts"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title description">
+  <title id="title">Sachlicher Lieferroboter</title>
+  <desc id="description">Geometrische Seitenansicht eines kompakten Lieferroboters mit Transportfach und zwei Rädern.</desc>
+  <g fill="none" stroke="#17324d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#dcebf2" d="M42 58h142a18 18 0 0 1 18 18v55H42z"/>
+    <path fill="#ffffff" d="M69 78h82v36H69z"/>
+    <path d="M96 58V35h55"/>
+    <path fill="#f2b84b" d="M151 30h22v18h-22z"/>
+    <circle fill="#ffffff" cx="78" cy="139" r="22"/>
+    <circle fill="#ffffff" cx="169" cy="139" r="22"/>
+    <circle fill="#17324d" stroke="none" cx="78" cy="139" r="7"/>
+    <circle fill="#17324d" stroke="none" cx="169" cy="139" r="7"/>
+    <path d="M202 92h18v24h-18"/>
+  </g>
+</svg>

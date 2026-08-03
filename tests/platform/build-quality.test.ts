@@ -42,6 +42,33 @@ test('production output contains no fixture identifier', async () => {
   expect(report.violations).toEqual([]);
 });
 
+test('production IUM5 build stays local, licensed and inside approved budgets', async () => {
+  const production = await buildPortal('production', '/');
+  builds.push(production);
+  const report = await inspectBuild(production.distDir);
+
+  expect(report.coldTransferGzipBytes).toBeLessThanOrEqual(250 * 1024);
+  expect(report.initialJavaScriptGzipBytes).toBeLessThanOrEqual(100 * 1024);
+  expect(report.precacheDecodedBytes).toBeLessThanOrEqual(2 * 1024 * 1024);
+  expect(report.thirdPartyUrls).toEqual([]);
+  expect(report.testIdentifiers).toEqual([]);
+  expect(report.violations).toEqual([]);
+  expect(await production.glob(
+    'generated-modules/ium-5-core-05/delivery-robot.svg',
+  )).toEqual(['generated-modules/ium-5-core-05/delivery-robot.svg']);
+  const licenses = JSON.parse(
+    await production.text('asset-licenses.json'),
+  ) as { assets: readonly { path: string; license: string }[] };
+  expect(licenses.assets).toContainEqual(expect.objectContaining({
+    path: 'generated-modules/ium-5-core-05/delivery-robot.svg',
+    license: 'CC-BY-SA-4.0',
+  }));
+  const moduleHtml = await production.text('module/ium-5-core-05/index.html');
+  expect(moduleHtml).toContain('IUM-5-CORE-05');
+  expect(moduleHtml).toContain('working');
+  expect(moduleHtml).toContain('nicht für Unterrichtseinsatz');
+});
+
 test('inspection fails closed on remote code, dynamic evaluation and missing evidence', async () => {
   const fixture = await buildPortal('fixture', '/');
   builds.push(fixture);

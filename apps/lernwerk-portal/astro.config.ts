@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import type { AstroIntegration } from 'astro';
 import { VitePWA } from 'vite-plugin-pwa';
+import { createPrecacheIntegrityTransform } from '../../scripts/precache-integrity.js';
 
 const profile = process.env.IUM_BUILD_PROFILE ?? '';
 if (profile !== 'production' && profile !== 'fixture') {
@@ -76,6 +77,7 @@ const pwaPlugins = VitePWA({
     maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
     minify: true,
     enableWorkboxModulesLogs: false,
+    manifestTransforms: [createPrecacheIntegrityTransform(pwaOutputDirectory, base)],
   },
 });
 const pwaApi = (pwaPlugins[0] as unknown as {
@@ -89,15 +91,22 @@ const finalizePwa: AstroIntegration = {
     },
   },
 };
-const fixtureIsolationPlugin = {
-  name: 'ium-fixture-output-isolation',
+const profileIsolationPlugin = {
+  name: 'ium-profile-output-isolation',
   generateBundle(
     _options: unknown,
     bundle: Record<string, unknown>,
   ) {
-    if (profile !== 'production') return;
     for (const fileName of Object.keys(bundle)) {
-      if (fileName.includes('FixtureWorkspace.astro_astro_type_script')) {
+      const fixtureBundle = fileName.includes(
+        'FixtureWorkspace.astro_astro_type_script',
+      );
+      const workbenchBundle = fileName.includes('AlgorithmWorkbench')
+        || fileName.includes('algorithm-workbench');
+      if (
+        (profile === 'production' && fixtureBundle)
+        || (profile === 'fixture' && workbenchBundle)
+      ) {
         delete bundle[fileName];
       }
     }
@@ -114,7 +123,7 @@ export default defineConfig({
   },
   vite: {
     cacheDir: resolve(pwaOutputDirectory, '.vite-cache'),
-    plugins: [fixtureIsolationPlugin, ...pwaPlugins],
+    plugins: [profileIsolationPlugin, ...pwaPlugins],
   },
   ...(outputDirectory === undefined
     ? {}

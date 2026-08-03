@@ -6,6 +6,10 @@ import {
   validateModuleManifest,
   type ModuleManifest,
 } from '../packages/module-contract/src/index.js';
+import {
+  parseWorkbenchResources,
+  type WorkbenchResources,
+} from '../packages/ium-5-core-05/src/index.js';
 
 export type BuildProfile = 'production' | 'fixture';
 
@@ -27,6 +31,12 @@ export type ModuleRegistryEntry = Readonly<{
   entryPath: string;
   countsTowardCoverage: boolean;
   publishedStatus: ModuleManifest['status'] | null;
+  renderer: 'fixture-workspace' | 'algorithm-workbench';
+  workbench?: Readonly<{
+    content: WorkbenchResources['content'];
+    scenarios: WorkbenchResources['scenarios'];
+    robotAssetPath: 'generated-modules/ium-5-core-05/delivery-robot.svg';
+  }>;
 }>;
 
 export type ModuleRegistry = Readonly<{
@@ -175,6 +185,29 @@ async function loadManifest(path: string): Promise<ModuleManifest> {
   return result.value;
 }
 
+function rendererFor(
+  manifest: ModuleManifest,
+  profile: BuildProfile,
+): 'fixture-workspace' | 'algorithm-workbench' {
+  if (
+    profile === 'fixture'
+    && manifest.id === 'TEST-PLATFORM-REFERENCE'
+    && manifest.components.length === 1
+    && manifest.components[0] === 'fixture-workspace'
+  ) {
+    return 'fixture-workspace';
+  }
+  if (
+    profile === 'production'
+    && manifest.id === 'IUM-5-CORE-05'
+    && manifest.components.length === 1
+    && manifest.components[0] === 'algorithm-workbench'
+  ) {
+    return 'algorithm-workbench';
+  }
+  throw new Error(`No static renderer contract for ${manifest.id}`);
+}
+
 export async function buildRegistry(
   options: BuildRegistryOptions,
 ): Promise<ModuleRegistry> {
@@ -235,7 +268,8 @@ export async function buildRegistry(
         throw new Error(`Missing referenced module file: ${normalizeRelative(options.rootDir, requiredPath)}`);
       }
     }
-    entries.push({
+    const renderer = rendererFor(manifest, options.profile);
+    const baseEntry = {
       id: manifest.id,
       version: manifest.version,
       title: manifest.title,
@@ -247,7 +281,31 @@ export async function buildRegistry(
       entryPath: normalizeRelative(options.rootDir, entryPath),
       countsTowardCoverage: options.profile === 'production',
       publishedStatus: options.profile === 'production' ? manifest.status : null,
-    });
+      renderer,
+    } as const;
+    if (renderer === 'algorithm-workbench') {
+      const contentPath = insideRoot(manifestRoot, 'lernumgebung/content.json');
+      const scenariosPath = insideRoot(manifestRoot, 'lernumgebung/scenarios.json');
+      const resources = parseWorkbenchResources(
+        JSON.parse(await readFile(contentPath, 'utf8')) as unknown,
+        JSON.parse(await readFile(scenariosPath, 'utf8')) as unknown,
+      );
+      if (!resources.ok) {
+        throw new Error(
+          `Invalid workbench resources for ${manifest.id}: ${JSON.stringify(resources.issues)}`,
+        );
+      }
+      entries.push({
+        ...baseEntry,
+        workbench: {
+          content: resources.value.content,
+          scenarios: resources.value.scenarios,
+          robotAssetPath: 'generated-modules/ium-5-core-05/delivery-robot.svg',
+        },
+      });
+    } else {
+      entries.push(baseEntry);
+    }
   }
 
   entries.sort((left, right) => left.id.localeCompare(right.id));

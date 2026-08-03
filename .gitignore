@@ -9,4 +9,5 @@ test-results/
 reports/
 .ium-portal-test-*/
 apps/lernwerk-portal/src/generated/
+apps/lernwerk-portal/public/generated-modules/
 packages/module-contract/src/generated/

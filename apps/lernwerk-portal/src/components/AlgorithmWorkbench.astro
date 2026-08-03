@@ -1,0 +1,453 @@
+---
+import type { WorkbenchResources } from '@ium/ium-5-core-05';
+import workbenchStyles from '../styles/algorithm-workbench.css?raw';
+
+interface Props {
+  moduleId: string;
+  moduleVersion: string;
+  resources: Readonly<{
+    content: WorkbenchResources['content'];
+    scenarios: WorkbenchResources['scenarios'];
+    robotAssetPath: string;
+  }>;
+}
+
+const { moduleId, moduleVersion, resources } = Astro.props;
+const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
+const robotAssetUrl = `${base}${resources.robotAssetPath}`;
+const firstScenario = resources.scenarios[0]?.scenario;
+const positions = Array.from({ length: 6 }, (_, row) =>
+  Array.from({ length: 6 }, (_entry, column) =>
+    `${String.fromCharCode(65 + column)}${row + 1}`,
+  ),
+).flat();
+const resourceJson = JSON.stringify(resources).replace(
+  /[<>&\u2028\u2029]/g,
+  (character) => `\\u${character.codePointAt(0)?.toString(16).padStart(4, '0')}`,
+);
+const phaseLabels: Readonly<Record<string, string>> = {
+  'ue1-orientation': 'UE 1 · Einstieg',
+  'ue1-prior-knowledge': 'UE 1 · Vorwissen',
+  'ue1-concept': 'UE 1 · Begriff',
+  'ue2-concept': 'UE 2 · Zustände',
+  'ue2-guided': 'UE 2 · Vorhersage',
+  'ue3-guided': 'UE 3 · Fehlersuche',
+  'ue3-product': 'UE 3 · Entwurf',
+  'ue4-product': 'UE 4 · Ausführung',
+  'ue4-revision': 'UE 4 · Revision',
+  'ue5-transfer': 'UE 5 · Transfer',
+  'ue5-consolidation': 'UE 5 · Sicherung',
+  'ue6-extension': 'UE 6 · Erweiterung',
+};
+const transferLabels: Readonly<Record<string, string>> = {
+  navigation: 'Navigation',
+  'search-service': 'Suchdienst',
+  'digital-timetable': 'Digitale Stundenplananzeige',
+  'paper-map': 'Papierkarte',
+  'mechanical-timer': 'Mechanischer Kurzzeitwecker',
+  'controlled-vehicle': 'Steuerbares Fahrzeug',
+};
+const selfCheckLabels: Readonly<Record<string, string>> = {
+  'unambiguous-instruction': 'Sind alle Anweisungen eindeutig?',
+  'trace-matches-prediction': 'Passt die Laufspur zur Vorhersage?',
+  'repair-follows-evidence': 'Ist die Reparatur durch die Belegspur begründet?',
+  'repeat-is-appropriate': 'Ist die feste Wiederholung passend?',
+};
+---
+
+<section
+  class="algorithm-workbench"
+  aria-labelledby="workbench-title"
+  data-algorithm-workbench
+  data-module-id={moduleId}
+  data-module-version={moduleVersion}
+>
+  <style is:inline set:html={workbenchStyles}></style>
+  <p class="working-banner" role="status">
+    Arbeitsstand · Status working · nicht für Unterrichtseinsatz
+  </p>
+  <header class="workbench-intro">
+    <p class="eyebrow">Hybride Algorithmus-Werkstatt · Klasse 5</p>
+    <h2 id="workbench-title" tabindex="-1">Auftrag und Lernziel</h2>
+    <p>{resources.content.centralQuestion}</p>
+    <p>
+      Baue einen eindeutigen Lieferalgorithmus, sage seine Ausführung voraus,
+      prüfe die Laufspur und begründe eine gezielte Revision.
+    </p>
+    <p><strong data-path-summary>225 Minuten · 5 Unterrichtseinheiten</strong></p>
+  </header>
+
+  <nav class="phase-navigation" aria-label="Lernphasen">
+    <ol>
+      {resources.content.segments.map((segment) => (
+        <li data-extended-phase={segment.id === 'ue6-extension' ? '' : undefined}>
+          <button
+            type="button"
+            data-phase-id={segment.id}
+            data-phase-title={segment.title}
+            data-phase-function={segment.learningFunction}
+          >
+            {phaseLabels[segment.id]}
+          </button>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <section aria-labelledby="active-phase-title" data-active-phase>
+    <h3 id="active-phase-title" tabindex="-1" data-active-phase-heading>
+      {resources.content.segments[0]?.title}
+    </h3>
+    <p data-active-phase-function>{resources.content.segments[0]?.learningFunction}</p>
+  </section>
+
+  <section aria-labelledby="task-families-title">
+    <h3 id="task-families-title">Aufgabenfamilien</h3>
+    <div class="command-palette">
+      <button type="button" data-task-family-open="precision">Präzisionskontrast öffnen</button>
+      <button type="button" data-task-family-open="active-example">Aktives Beispiel öffnen</button>
+      <button type="button" data-task-family-open="error-cases">Gezielte Fehlerfälle öffnen</button>
+      <button type="button" data-task-family-open="product">Eigenen Lieferauftrag öffnen</button>
+      <button type="button" data-task-family-open="magnifier">Algorithmus-Lupe öffnen</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="precision-family-title" data-task-family-panel="precision" hidden>
+    <h3 id="precision-family-title">Präzisionskontrast</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'precision-routine')?.instruction}</p>
+  </section>
+  <section aria-labelledby="active-example-family-title" data-task-family-panel="active-example" hidden>
+    <h3 id="active-example-family-title">Aktives Beispiel</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'active-example')?.instruction}</p>
+  </section>
+  <section aria-labelledby="error-family-title" data-task-family-panel="error-cases" hidden>
+    <h3 id="error-family-title">Gezielte Fehlerfälle</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'error-comparison')?.instruction}</p>
+  </section>
+  <section aria-labelledby="product-family-title" data-task-family-panel="product">
+    <h3 id="product-family-title">Eigener Lieferauftrag</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'own-product')?.instruction}</p>
+    <div class="command-palette">
+      <button type="button" data-open-scenario="product-a">Karte A auswählen</button>
+      <button type="button" data-open-scenario="product-b">Karte B auswählen</button>
+      <button type="button" data-open-scenario="product-c">Karte C auswählen</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="extended-workshop-title" data-extended-workshop hidden>
+    <h3 id="extended-workshop-title">Zusätzliche Fehlerwerkstatt</h3>
+    <p>{resources.content.activities.find((activity) => activity.id === 'extended-repair')?.instruction}</p>
+    <button type="button" data-open-scenario="extended-inherited">Zusätzlichen Fehlerfall laden</button>
+  </section>
+
+  <section aria-labelledby="scenario-selection-title">
+    <h3 id="scenario-selection-title">Aufgabe auswählen</h3>
+    <div class="command-palette">
+      <button type="button" data-open-scenario="error-order">Fehlerfall Reihenfolge öffnen</button>
+      <button type="button" data-open-scenario="error-turn">Fehlerfall Drehung öffnen</button>
+      <button type="button" data-open-scenario="error-missing-step">Fehlerfall Fehlender Schritt öffnen</button>
+      <button type="button" data-open-scenario="error-repeat-count">Fehlerfall Wiederholungszahl öffnen</button>
+    </div>
+    <p data-active-scenario>Aktives Beispiel: worked-sequence</p>
+  </section>
+
+  <div class="workbench-focus">
+    <section class="execution-room" aria-labelledby="execution-room-title">
+      <h3 id="execution-room-title">Ausführungsraum</h3>
+      <img
+        src={robotAssetUrl}
+        alt=""
+        aria-hidden="true"
+        data-robot
+        width="240"
+        height="180"
+      />
+      <section aria-labelledby="scene-description-title">
+        <h4 id="scene-description-title">Szenenbeschreibung</h4>
+        <p data-scene-description>
+          {firstScenario
+            ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}. Hindernisse werden mit Koordinaten genannt.`
+            : 'Keine validierte Szene verfügbar.'}
+        </p>
+      </section>
+      <dl class="state-description">
+        <div><dt>Aktueller Befehl</dt><dd data-current-command>Noch nicht gestartet</dd></div>
+        <div><dt>Position</dt><dd data-current-position>–</dd></div>
+        <div><dt>Blickrichtung</dt><dd data-current-direction>–</dd></div>
+        <div><dt>Tragezustand</dt><dd data-current-carrying>–</dd></div>
+        <div><dt>Schleifeniteration</dt><dd data-current-loop>–</dd></div>
+      </dl>
+      <p role="status" aria-label="Ausführungsergebnis" tabindex="-1" data-execution-result>
+        Noch keine Ausführung.
+      </p>
+      <p class="visually-hidden" aria-live="polite" data-execution-live></p>
+    </section>
+
+    <section class="algorithm-editor" aria-labelledby="algorithm-editor-title">
+      <h3 id="algorithm-editor-title">Grafischer Algorithmuseditor</h3>
+      <div class="command-palette" aria-label="Befehle einfügen">
+        <button type="button" data-insert-command="pick-up">Nimm auf einfügen</button>
+        <button type="button" data-insert-command="move">Gehe einfügen</button>
+        <button type="button" data-insert-command="turn-left">Links drehen einfügen</button>
+        <button type="button" data-insert-command="turn-right">Rechts drehen einfügen</button>
+        <button type="button" data-insert-command="drop">Lege ab einfügen</button>
+        <button type="button" data-insert-command="repeat">Wiederholung einfügen</button>
+      </div>
+      <ol aria-label="Algorithmus" data-algorithm-list></ol>
+      <p data-empty-algorithm>Noch keine Anweisung eingefügt.</p>
+      <p role="alert" data-editor-error hidden></p>
+    </section>
+  </div>
+
+  <section aria-labelledby="prediction-title">
+    <h3 id="prediction-title">Vorhersage vor der Ausführung</h3>
+    <form data-prediction-form>
+      <div class="field">
+        <label for="prediction-position">Erwartete Endposition</label>
+        <select id="prediction-position" name="position">
+          <option value="">Bitte wählen</option>
+          {positions.map((position) => <option value={position}>{position}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="prediction-direction">Erwartete Blickrichtung</label>
+        <select id="prediction-direction" name="direction">
+          <option value="">Bitte wählen</option>
+          <option value="north">Norden</option>
+          <option value="east">Osten</option>
+          <option value="south">Süden</option>
+          <option value="west">Westen</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="prediction-success">Erwarteter Auftragserfolg</label>
+        <select id="prediction-success" name="success">
+          <option value="">Bitte wählen</option>
+          <option value="yes">Ja</option>
+          <option value="no">Nein</option>
+          <option value="unsure">Unsicher</option>
+        </select>
+      </div>
+      <button type="button" data-prediction-confirm>Vorhersage bestätigen</button>
+      <p role="status" data-prediction-status></p>
+    </form>
+  </section>
+
+  <section aria-labelledby="execution-controls-title">
+    <h3 id="execution-controls-title">Ausführung steuern</h3>
+    <div class="actions">
+      <button type="button" data-run-step disabled>Schritt ausführen</button>
+      <button type="button" data-run-all disabled>Vollständig ausführen</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="trace-title">
+    <h3 id="trace-title">Laufspur prüfen</h3>
+    <div
+      class="table-scroll"
+      role="region"
+      aria-label="Laufspur horizontal scrollen"
+      tabindex="0"
+    >
+      <table aria-label="Laufspur" data-trace-table>
+        <caption>Laufspur mit Vorherzustand, Nachherzustand und Ergebnis</caption>
+        <thead>
+          <tr>
+            <th scope="col">Schritt</th>
+            <th scope="col">Befehl</th>
+            <th scope="col">Iteration</th>
+            <th scope="col">Vorherzustand</th>
+            <th scope="col">Nachherzustand</th>
+            <th scope="col">Ergebnis</th>
+          </tr>
+        </thead>
+        <tbody><tr><td colspan="6">Noch keine Spur vorhanden.</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="revision-title">
+    <h3 id="revision-title">Abweichung erklären und reparieren</h3>
+    <fieldset>
+      <legend>Erster abweichender Schritt</legend>
+      <p data-evidence-options>Noch keine Spur zur Auswahl.</p>
+    </fieldset>
+    <div class="field">
+      <label for="repair-hypothesis">Reparaturhypothese</label>
+      <textarea id="repair-hypothesis" rows="4" maxlength="1000"></textarea>
+    </div>
+    <button type="button" data-repair-confirm>Reparaturhypothese bestätigen</button>
+    <p role="status" data-repair-status></p>
+    <button type="button" data-revision-confirm>Revision übernehmen</button>
+    <section aria-labelledby="preserved-draft-title" data-preserved-product hidden>
+      <h4 id="preserved-draft-title">Unveränderter eigener Entwurf</h4>
+      <pre data-preserved-draft></pre>
+    </section>
+    <div class="field">
+      <label for="loop-decision">Begründung zur festen Wiederholung</label>
+      <textarea id="loop-decision" rows="3" maxlength="1000"></textarea>
+    </div>
+    <button type="button" data-loop-confirm>Schleifenentscheidung bestätigen</button>
+    <p role="status" data-loop-status></p>
+    <button type="button" data-strategy-hint hidden>Strategiehinweis öffnen</button>
+    <section aria-labelledby="strategy-title" data-strategy-content hidden>
+      <h4 id="strategy-title">Strategiehinweis</h4>
+      <p>Vergleiche die letzte passende mit der ersten abweichenden Spurzeile.</p>
+      <button type="button" data-full-example-open>Vollständiges Beispiel anzeigen</button>
+    </section>
+    <section aria-labelledby="full-example-title" data-full-example hidden>
+      <h4 id="full-example-title">Vollständiges Beispiel</h4>
+      <p data-full-example-text></p>
+    </section>
+  </section>
+
+  <section aria-labelledby="supports-title">
+    <h3 id="supports-title">Hilfen selbst wählen</h3>
+    <div class="support-grid">
+      {resources.content.supports.map((support) => (
+        <div data-support-id={support.id}>
+          <button
+            type="button"
+            aria-expanded="false"
+            aria-controls={`support-${support.id}`}
+            data-support-toggle={support.id}
+          >
+            {support.title} öffnen
+          </button>
+          <section id={`support-${support.id}`} data-support-panel={support.id} hidden>
+            <h4>{support.title}</h4>
+            <p>{support.text}</p>
+          </section>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="magnifier-title" data-task-family-panel="magnifier">
+    <h3 id="magnifier-title">Algorithmus-Lupe</h3>
+    <p>Ordne Beispiele, Nichtbeispiele und Grenzfälle anhand deiner Kriterien ein.</p>
+    <div data-transfer-cases>
+      {resources.content.transferCases.map((transferCase) => (
+        <article data-transfer-case-id={transferCase.id}>
+          <h4>{transferCase.title}</h4>
+          <p>{transferCase.description}</p>
+          <div class="field">
+            <label for={`classification-${transferCase.id}`}>
+              {transferLabels[transferCase.id]} einordnen
+            </label>
+            <select
+              id={`classification-${transferCase.id}`}
+              data-classification-case-id={transferCase.id}
+            >
+              <option value="">Bitte wählen</option>
+              <option value="algorithmic">algorithmisch</option>
+              <option value="not-algorithmic">nicht algorithmisch</option>
+              <option value="needs-information">weitere Information nötig</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for={`rationale-${transferCase.id}`}>
+              Begründung zu {transferLabels[transferCase.id]}
+            </label>
+            <textarea
+              id={`rationale-${transferCase.id}`}
+              rows="3"
+              maxlength="1000"
+              data-rationale-case-id={transferCase.id}
+            ></textarea>
+          </div>
+          {transferCase.id === 'controlled-vehicle' && (
+            <p>Fehlende Information: direkt ferngesteuert oder gespeicherter Ablauf?</p>
+          )}
+        </article>
+      ))}
+    </div>
+    <p role="alert" data-transfer-status hidden></p>
+  </section>
+
+  <section aria-labelledby="self-check-title">
+    <h3 id="self-check-title">Selbstcheck</h3>
+    <div class="self-check-grid">
+      {resources.content.selfCheckQuestions.map((question) => (
+        <div class="field">
+          <label for={`self-check-${question.id}`}>{question.text}</label>
+          <select
+            id={`self-check-${question.id}`}
+            aria-label={selfCheckLabels[question.id]}
+            data-self-check-id={question.id}
+          >
+            <option value="review">Noch prüfen</option>
+            <option value="yes">Ja</option>
+            <option value="not-applicable">Nicht zutreffend</option>
+          </select>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="local-state-title">
+    <h3 id="local-state-title">Lokaler Arbeitsstand</h3>
+    <p data-save-status role="status">Wird vorbereitet</p>
+    <p data-state-error role="alert" hidden></p>
+    <p id="ium5-export-sensitivity-hint">
+      Exportdateien können Freitext oder Lernprodukte enthalten. Prüfe sie vor dem
+      Teilen und veröffentliche sie nicht ungeprüft.
+    </p>
+    <div class="actions">
+      <button type="button" aria-describedby="ium5-export-sensitivity-hint" data-workbench-export>
+        Arbeitsstand exportieren
+      </button>
+      <label class="file-action">
+        Importdatei auswählen
+        <input type="file" accept="application/json,.json" data-workbench-import />
+      </label>
+      <button type="button" class="danger" data-workbench-delete>Arbeitsstand löschen</button>
+    </div>
+  </section>
+
+  <section class="copy-fallback" aria-labelledby="ium5-copy-title" data-copy-fallback hidden>
+    <h3 id="ium5-copy-title">Export kopieren</h3>
+    <p>Der Dateidownload ist blockiert. Kopiere denselben validierten Inhalt.</p>
+    <label for="ium5-copy-text">Export zum Kopieren</label>
+    <textarea id="ium5-copy-text" rows="8" readonly data-copy-fallback-text></textarea>
+  </section>
+
+  <dialog aria-labelledby="ium5-import-dialog-title" data-import-dialog>
+    <h3 id="ium5-import-dialog-title">Import prüfen</h3>
+    <dl>
+      <dt>Modul</dt><dd data-preview-module></dd>
+      <dt>Version</dt><dd data-preview-version></dd>
+      <dt>Gespeichert</dt><dd data-preview-saved></dd>
+      <dt>Felder</dt><dd data-preview-fields></dd>
+    </dl>
+    <div class="actions">
+      <button type="button" data-import-confirm>Import übernehmen</button>
+      <button type="button" data-import-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <dialog aria-labelledby="ium5-delete-dialog-title" data-delete-dialog>
+    <h3 id="ium5-delete-dialog-title">Arbeitsstand löschen?</h3>
+    <p>Der aktive lokale Arbeitsstand wird nach Bestätigung entfernt.</p>
+    <div class="actions">
+      <button type="button" class="danger" data-delete-confirm>Löschen bestätigen</button>
+      <button type="button" data-delete-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <dialog aria-labelledby="ium5-scenario-dialog-title" data-scenario-dialog>
+    <h3 id="ium5-scenario-dialog-title">Aufgabe wechseln?</h3>
+    <p>Der Wechsel verwirft die aktuelle Vorhersage und die zugehörigen Produktspuren.</p>
+    <div class="actions">
+      <button type="button" data-scenario-confirm>Wechsel bestätigen</button>
+      <button type="button" data-scenario-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <script is:inline type="application/json" data-workbench-resources set:html={resourceJson}></script>
+</section>
+
+<script>
+  import { connectAlgorithmWorkbench } from '../controllers/algorithm-workbench/workbench-controller.js';
+  void connectAlgorithmWorkbench();
+</script>

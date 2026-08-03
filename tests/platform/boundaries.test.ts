@@ -49,3 +49,23 @@ test('rejects idb outside local-state', async () => {
     'DIRECT_IDB_IMPORT',
   );
 });
+
+test('recognizes IUM5 as a dependency-closed, framework-free core package', async () => {
+  const root = await createWorkspace(
+    'packages/ium-5-core-05',
+    {
+      name: '@ium/ium-5-core-05',
+      version: '0.1.0',
+      private: true,
+      dependencies: { astro: '7.1.6' },
+    },
+    "import 'astro';\nexport const body = document.body;\n",
+  );
+  const report = await checkWorkspaceBoundaries({ rootDir: root });
+  const codes = report.violations.map((violation) => violation.code);
+
+  expect(codes).not.toContain('UNKNOWN_WORKSPACE');
+  expect(codes).toContain('UNAPPROVED_DEPENDENCY');
+  expect(codes).toContain('FRAMEWORK_IMPORT_IN_CORE');
+  expect(codes).toContain('DOM_USAGE_IN_CORE');
+});
