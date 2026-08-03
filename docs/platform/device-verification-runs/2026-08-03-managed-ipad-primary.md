@@ -1,7 +1,7 @@
 ---
 title: Phase 1 – Geräteprüfung – verwaltetes iPad – 2026-08-03
 device-verified: not-run
-run-status: prepared
+run-status: in-progress
 ---
 
 # Geräteprüfung – verwaltetes iPad
@@ -50,13 +50,25 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung des geführten P
 
 Dieser Teilbefund belegt den ausgeführten Safari-/Local-First-Pfad. Modell, iPadOS-Version, Richtlinienangaben, exakte Statustexte und die weiteren Prüfschritte sind noch nicht protokolliert. Evidenzpfad: dieser Abschnitt als datensparsame Testnotiz der Auftraggeberbestätigung.
 
+### Runde 2 – Transfer, Löschung und flüchtiger Zustand
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen zweiten Prüfrunde ohne gemeldete Abweichung:
+
+- der synthetische Arbeitsstand ließ sich in Safari als JSON-Datei exportieren;
+- die bestätigte Einzellöschung entfernte Text und Auswahl;
+- der anschließende Import derselben Datei stellte `IUM Geräteprobe` und `Beta` vollständig wieder her;
+- die bestätigte globale Löschung entfernte den Arbeitsstand;
+- im ausdrücklich gewählten flüchtigen Modus verschwanden `Nur Sitzung` und `Alpha` nach dem Neuladen.
+
+Nicht ausdrücklich berichtet wurden der genaue Exporthinweis, die Dateiinhaltsprüfung und ein absichtlich ungültiger Import. Diese Punkte bleiben offen. Evidenzpfad: dieser Abschnitt als datensparsame Testnotiz der Auftraggeberbestätigung.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
 
 ### Safari und VoiceOver
 
-- [ ] Safari: Portal, Modul, Import/Export und lokaler Zustand funktionieren.
+- [x] Safari: Portal, Modul, Import/Export und lokaler Zustand funktionieren.
 - [ ] VoiceOver: Überschriften, Landmarken, Statusmeldungen, Formularfelder und Fokusreihenfolge sind verständlich.
 - [ ] Touch: Alle sichtbaren Aktionen sind erreichbar und ohne Farbcodierung verständlich.
 
@@ -72,10 +84,10 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 ### Lokale Daten
 
 - [x] Bestätigte Speicherung bleibt nach Neuladen erhalten.
-- [ ] Flüchtige Sitzung hinterlässt nach einer frischen Sitzung keinen Modulstand.
+- [x] Flüchtige Sitzung hinterlässt nach einer frischen Sitzung keinen Modulstand.
 - [ ] Import: Gültige Datei wird übernommen; ungültige Datei wird verständlich und ohne Zustandsverlust abgelehnt.
 - [ ] Export: Sensibilitätshinweis, Dateidownload und Inhalt wurden geprüft.
-- [ ] Einzelnes Löschen und global löschen verlangen Bestätigung und entfernen den erwarteten Zustand.
+- [x] Einzelnes Löschen und global löschen verlangen Bestätigung und entfernen den erwarteten Zustand.
 - [ ] MDM-, Web-Clip-, Speicherrichtlinie und Filterrichtlinie verursachen keinen stillen Funktions- oder Datenverlust.
 
 ## Ergebnis
