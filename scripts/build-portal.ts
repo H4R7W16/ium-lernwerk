@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { buildRegistry, type BuildProfile } from './build-module-registry.js';
+import { finalizeServiceWorker } from './finalize-service-worker.js';
 
 function normalizeBase(value: string): string {
   if (
@@ -65,6 +66,7 @@ export async function buildPortalToDirectory(options: {
       `Astro build failed (${result.status ?? 'no status'}):\n${result.stdout}${result.stderr}`,
     );
   }
+  await finalizeServiceWorker(resolve(options.outputDir), base);
 }
 
 async function main(): Promise<void> {
