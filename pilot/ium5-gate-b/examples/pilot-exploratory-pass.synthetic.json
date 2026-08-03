@@ -1,0 +1,148 @@
+{
+  "documentType": "ium5-gate-b-pilot-evidence",
+  "schemaVersion": 1,
+  "protocolId": "IUM5-GATE-B-1",
+  "evidenceId": "GB-PILOT-EXPLORE-01",
+  "module": {
+    "id": "IUM-5-CORE-05",
+    "version": "0.1.0",
+    "status": "working",
+    "deviceVerified": "not-run"
+  },
+  "build": {
+    "buildRevision": "1111111111111111111111111111111111111111",
+    "previewId": "ium5-gate-b-synthetic-001",
+    "publicationMode": "gate-b-preview"
+  },
+  "runKind": "exploratory",
+  "pathKind": "regular-225",
+  "context": {
+    "gradeBand": "grade-5",
+    "groupSizeBand": "20-29",
+    "seasonWindow": "autumn",
+    "contextRelation": "first-class"
+  },
+  "phases": [
+    {
+      "id": "LESSON-1",
+      "enacted": true,
+      "plannedMinutes": 45,
+      "actualBand": "35-45",
+      "deviationCode": "none"
+    },
+    {
+      "id": "LESSON-2",
+      "enacted": true,
+      "plannedMinutes": 45,
+      "actualBand": "35-45",
+      "deviationCode": "none"
+    },
+    {
+      "id": "LESSON-3",
+      "enacted": true,
+      "plannedMinutes": 45,
+      "actualBand": "35-45",
+      "deviationCode": "none"
+    },
+    {
+      "id": "LESSON-4",
+      "enacted": true,
+      "plannedMinutes": 45,
+      "actualBand": "35-45",
+      "deviationCode": "none"
+    },
+    {
+      "id": "LESSON-5",
+      "enacted": true,
+      "plannedMinutes": 45,
+      "actualBand": "35-45",
+      "deviationCode": "none"
+    }
+  ],
+  "observations": [
+    {
+      "id": "prediction-used",
+      "band": "met"
+    },
+    {
+      "id": "trace-explained",
+      "band": "met"
+    },
+    {
+      "id": "first-deviation-localized",
+      "band": "met"
+    },
+    {
+      "id": "repair-hypothesis",
+      "band": "met"
+    },
+    {
+      "id": "minimal-revision-retested",
+      "band": "met"
+    },
+    {
+      "id": "loop-decision-justified",
+      "band": "met"
+    },
+    {
+      "id": "systems-transfer",
+      "band": "met"
+    },
+    {
+      "id": "support-preserves-thinking",
+      "band": "met"
+    },
+    {
+      "id": "shared-consolidation",
+      "band": "met"
+    }
+  ],
+  "timeFit": "pass",
+  "sharedConsolidation": "completed",
+  "fallback": {
+    "used": false,
+    "function": "not-needed"
+  },
+  "supportDemand": "low",
+  "disruptions": [],
+  "learnerPulse": {
+    "status": "reported",
+    "items": [
+      {
+        "id": "clarity",
+        "status": "reported",
+        "validResponses": 10,
+        "agree": 7,
+        "partly": 2,
+        "disagree": 1,
+        "noAnswer": 0
+      },
+      {
+        "id": "cognitive-engagement",
+        "status": "reported",
+        "validResponses": 10,
+        "agree": 7,
+        "partly": 2,
+        "disagree": 1,
+        "noAnswer": 0
+      },
+      {
+        "id": "support-usefulness",
+        "status": "reported",
+        "validResponses": 10,
+        "agree": 7,
+        "partly": 2,
+        "disagree": 1,
+        "noAnswer": 0
+      }
+    ]
+  },
+  "privacy": {
+    "breachObserved": false,
+    "prohibitedDataCollected": false,
+    "paperSheetStatus": "destroyed",
+    "digitalPackageStorage": "outside-repository"
+  },
+  "result": "pass",
+  "retentionClass": "outside-repository-until-decision-plus-30-days"
+}

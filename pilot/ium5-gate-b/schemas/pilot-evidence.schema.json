@@ -79,19 +79,44 @@
         "status": {"enum": ["resolved", "unresolved"]}
       }
     },
-    "pulseItem": {
+    "reportedPulseItem": {
       "type": "object",
       "additionalProperties": false,
       "required": ["id", "status", "validResponses", "agree", "partly", "disagree", "noAnswer"],
       "properties": {
         "id": {"enum": ["clarity", "cognitive-engagement", "support-usefulness"]},
-        "status": {"enum": ["reported", "suppressed", "not-collected"]},
-        "validResponses": {"type": "integer", "minimum": 0, "maximum": 60},
+        "status": {"const": "reported"},
+        "validResponses": {"type": "integer", "minimum": 10, "maximum": 60},
         "agree": {"type": "integer", "minimum": 0, "maximum": 60},
         "partly": {"type": "integer", "minimum": 0, "maximum": 60},
         "disagree": {"type": "integer", "minimum": 0, "maximum": 60},
         "noAnswer": {"type": "integer", "minimum": 0, "maximum": 60}
       }
+    },
+    "suppressedPulseItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status"],
+      "properties": {
+        "id": {"enum": ["clarity", "cognitive-engagement", "support-usefulness"]},
+        "status": {"const": "suppressed"}
+      }
+    },
+    "notCollectedPulseItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status"],
+      "properties": {
+        "id": {"enum": ["clarity", "cognitive-engagement", "support-usefulness"]},
+        "status": {"const": "not-collected"}
+      }
+    },
+    "pulseItem": {
+      "oneOf": [
+        {"$ref": "#/$defs/reportedPulseItem"},
+        {"$ref": "#/$defs/suppressedPulseItem"},
+        {"$ref": "#/$defs/notCollectedPulseItem"}
+      ]
     },
     "learnerPulse": {
       "type": "object",

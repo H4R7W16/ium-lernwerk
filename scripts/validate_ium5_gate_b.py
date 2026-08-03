@@ -24,6 +24,36 @@ SCHEMA_BY_DOCUMENT_TYPE = {
     "ium5-gate-b-decision-package": "decision-package.schema.json",
 }
 
+TECHNICAL_ROW_IDS = (
+    "TECH-IPAD-TOUCH",
+    "TECH-IPAD-VO",
+    "TECH-DESKTOP-CHROMIUM",
+    "TECH-DESKTOP-FIREFOX",
+    "TECH-NET-OFFLINE-UPDATE",
+    "TECH-LMS-ROUTE",
+)
+OBSERVATION_IDS = (
+    "prediction-used",
+    "trace-explained",
+    "first-deviation-localized",
+    "repair-hypothesis",
+    "minimal-revision-retested",
+    "loop-decision-justified",
+    "systems-transfer",
+    "support-preserves-thinking",
+    "shared-consolidation",
+)
+PULSE_IDS = ("clarity", "cognitive-engagement", "support-usefulness")
+PULSE_COUNT_KEYS = {"validResponses", "agree", "partly", "disagree", "noAnswer"}
+SYNTHETIC_EXPECTATIONS = {
+    "technical-pass.synthetic.json": None,
+    "pilot-exploratory-pass.synthetic.json": None,
+    "pilot-confirmation-pass.synthetic.json": None,
+    "decision-pass.synthetic.json": "eligible-for-working-release-review",
+    "decision-revise.synthetic.json": "revise-required",
+    "decision-not-evaluable.synthetic.json": "not-evaluable",
+}
+
 EMAIL_RE = re.compile(r"(?<![\w.+-])[\w.+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?![\w.-])")
 IPV4_RE = re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
 IPV6_TOKEN_RE = re.compile(r"(?<![0-9A-Fa-f:])[0-9A-Fa-f:]{2,}(?![0-9A-Fa-f:])")
@@ -301,6 +331,241 @@ def _load_schema_for(document_type: str) -> tuple[dict[str, object] | None, list
     return schema, []
 
 
+def normalize_pulse(counts: dict[str, int]) -> dict[str, int | str]:
+    expected = {"agree", "partly", "disagree", "noAnswer"}
+    if set(counts) != expected:
+        raise ValueError("pulse counts must contain exactly four closed categories")
+    if any(type(value) is not int or value < 0 for value in counts.values()):
+        raise ValueError("pulse counts must be non-negative integers")
+    valid_responses = counts["agree"] + counts["partly"] + counts["disagree"]
+    if valid_responses == 0 and counts["noAnswer"] == 0:
+        return {"status": "not-collected"}
+    if valid_responses < int(load_protocol()["minimumLearnerResponses"]):
+        return {"status": "suppressed"}
+    return {
+        "status": "reported",
+        "validResponses": valid_responses,
+        **counts,
+    }
+
+
+def _validate_pulse(document: dict[str, object]) -> list[Issue]:
+    pulse = document.get("learnerPulse")
+    if not isinstance(pulse, dict) or not isinstance(pulse.get("items"), list):
+        return []
+    issues: list[Issue] = []
+    statuses: list[object] = []
+    observed_ids: list[object] = []
+    minimum = int(load_protocol()["minimumLearnerResponses"])
+    for index, item in enumerate(pulse["items"]):
+        if not isinstance(item, dict):
+            continue
+        pointer = f"$/learnerPulse/items/{index}"
+        status = item.get("status")
+        statuses.append(status)
+        observed_ids.append(item.get("id"))
+        present_counts = PULSE_COUNT_KEYS.intersection(item)
+        if status == "suppressed" and present_counts:
+            issues.append(Issue("PULSE_SUPPRESSED_VALUES", pointer, "suppressed item must not carry counts"))
+        if status == "not-collected" and present_counts:
+            issues.append(Issue("PULSE_NOT_COLLECTED_VALUES", pointer, "not-collected item must not carry counts"))
+        if status == "reported":
+            valid = item.get("validResponses")
+            if type(valid) is int and valid < minimum:
+                issues.append(Issue("PULSE_MINIMUM_SUPPRESSION", pointer, "reported total is below suppression threshold"))
+            category_values = [item.get(key) for key in ("agree", "partly", "disagree")]
+            if type(valid) is int and all(type(value) is int for value in category_values):
+                if sum(category_values) != valid:
+                    issues.append(Issue("PULSE_TOTAL_MISMATCH", pointer, "reported categories do not equal valid responses"))
+    if observed_ids and observed_ids != list(PULSE_IDS):
+        issues.append(Issue("PULSE_PROMPT_IDS", "$/learnerPulse/items", "prompt IDs must match protocol order"))
+    if statuses:
+        if all(status == "reported" for status in statuses):
+            expected_status = "reported"
+        elif all(status == "suppressed" for status in statuses):
+            expected_status = "suppressed"
+        elif all(status == "not-collected" for status in statuses):
+            expected_status = "not-collected"
+        else:
+            expected_status = "partly-suppressed"
+        if pulse.get("status") != expected_status:
+            issues.append(Issue("PULSE_STATUS_MISMATCH", "$/learnerPulse/status", "aggregate pulse status is inconsistent"))
+    return issues
+
+
+def evaluate_technical(document: object) -> str:
+    if not isinstance(document, dict):
+        return "not-evaluable"
+    privacy = document.get("privacy")
+    if isinstance(privacy, dict) and any(privacy.get(key) is True for key in privacy):
+        return "fail"
+    if document.get("policySummary") == "limited-accepted":
+        return "limited-accepted"
+    rows = document.get("rows")
+    if not isinstance(rows, list) or len(rows) != len(TECHNICAL_ROW_IDS):
+        return "not-evaluable"
+    if [row.get("id") for row in rows if isinstance(row, dict)] != list(TECHNICAL_ROW_IDS):
+        return "not-evaluable"
+    results = [row.get("result") for row in rows if isinstance(row, dict)]
+    if len(results) != len(rows) or "blocked" in results:
+        return "not-evaluable"
+    if any(result != "pass" for result in results):
+        return "fail"
+    for row in rows:
+        findings = row.get("findings", [])
+        if not isinstance(findings, list):
+            return "not-evaluable"
+        for finding in findings:
+            if not isinstance(finding, dict):
+                return "not-evaluable"
+            if finding.get("status") == "unresolved" and finding.get("severity") in {"high", "critical"}:
+                return "fail"
+    return "pass"
+
+
+def evaluate_pilot(document: object, expected_run_kind: str) -> str:
+    if not isinstance(document, dict):
+        return "not-evaluable"
+    privacy = document.get("privacy")
+    if isinstance(privacy, dict) and (
+        privacy.get("breachObserved") is True
+        or privacy.get("prohibitedDataCollected") is True
+    ):
+        return "revise-required"
+    expected_path = "regular-225" if expected_run_kind == "exploratory" else "extended-270"
+    expected_phase_count = 5 if expected_run_kind == "exploratory" else 6
+    if document.get("runKind") != expected_run_kind or document.get("pathKind") != expected_path:
+        return "not-evaluable"
+    phases = document.get("phases")
+    if not isinstance(phases, list) or [phase.get("id") for phase in phases if isinstance(phase, dict)] != [
+        f"LESSON-{index}" for index in range(1, expected_phase_count + 1)
+    ]:
+        return "not-evaluable"
+    if any(
+        phase.get("enacted") is not True or phase.get("actualBand") == "not-recorded"
+        for phase in phases
+        if isinstance(phase, dict)
+    ):
+        return "not-evaluable"
+    observations = document.get("observations")
+    if not isinstance(observations, list) or [item.get("id") for item in observations if isinstance(item, dict)] != list(OBSERVATION_IDS):
+        return "not-evaluable"
+    core_bands = [item.get("band") for item in observations[:6] if isinstance(item, dict)]
+    if len(core_bands) != 6 or "not-observable" in core_bands:
+        return "not-evaluable"
+    if "not-met" in core_bands or core_bands.count("partly") > 1:
+        return "revise-required"
+    if document.get("sharedConsolidation") in {"not-observable", None}:
+        return "not-evaluable"
+    if document.get("sharedConsolidation") != "completed":
+        return "revise-required"
+    if document.get("timeFit") == "not-evaluable" or document.get("timeFit") is None:
+        return "not-evaluable"
+    if document.get("timeFit") != "pass":
+        return "revise-required"
+    disruptions = document.get("disruptions")
+    if not isinstance(disruptions, list):
+        return "not-evaluable"
+    if any(isinstance(item, dict) and item.get("severity") == "critical" for item in disruptions):
+        return "revise-required"
+    return "pass"
+
+
+def _build_key(document: object) -> tuple[object, object] | None:
+    if not isinstance(document, dict) or not isinstance(document.get("build"), dict):
+        return None
+    build = document["build"]
+    return build.get("buildRevision"), build.get("previewId")
+
+
+def _privacy_breach_in_decision(document: dict[str, object]) -> bool:
+    technical = document.get("technicalEvidence")
+    if isinstance(technical, dict) and isinstance(technical.get("privacy"), dict):
+        if any(technical["privacy"].get(key) is True for key in technical["privacy"]):
+            return True
+    for key in ("exploratoryEvidence", "confirmationEvidence"):
+        pilot = document.get(key)
+        if isinstance(pilot, dict) and isinstance(pilot.get("privacy"), dict):
+            if pilot["privacy"].get("breachObserved") is True or pilot["privacy"].get("prohibitedDataCollected") is True:
+                return True
+    return False
+
+
+def evaluate_decision(document: object) -> dict[str, str]:
+    technical = document.get("technicalEvidence") if isinstance(document, dict) else None
+    exploratory = document.get("exploratoryEvidence") if isinstance(document, dict) else None
+    confirmation = document.get("confirmationEvidence") if isinstance(document, dict) else None
+    technical_result = evaluate_technical(technical)
+    exploratory_result = evaluate_pilot(exploratory, "exploratory")
+    confirmation_result = evaluate_pilot(confirmation, "confirmation")
+    recommendation = "not-evaluable"
+
+    if isinstance(document, dict) and _privacy_breach_in_decision(document):
+        recommendation = "revise-required"
+    elif not isinstance(document, dict) or any(
+        item is None for item in (technical, exploratory, confirmation)
+    ):
+        recommendation = "not-evaluable"
+    else:
+        build_keys = {
+            _build_key(document),
+            _build_key(technical),
+            _build_key(exploratory),
+            _build_key(confirmation),
+        }
+        exploratory_relation = exploratory.get("context", {}).get("contextRelation") if isinstance(exploratory, dict) else None
+        confirmation_relation = confirmation.get("context", {}).get("contextRelation") if isinstance(confirmation, dict) else None
+        complete_and_consistent = (
+            None not in build_keys
+            and len(build_keys) == 1
+            and exploratory_relation == "first-class"
+            and confirmation_relation in {
+                "different-class-same-teacher",
+                "different-class-different-teacher",
+            }
+        )
+        if not complete_and_consistent:
+            recommendation = "not-evaluable"
+        elif technical_result in {"limited-accepted", "not-evaluable"}:
+            recommendation = "not-evaluable"
+        elif exploratory_result == "not-evaluable" or confirmation_result == "not-evaluable":
+            recommendation = "not-evaluable"
+        elif technical_result == "fail" or "revise-required" in {
+            exploratory_result,
+            confirmation_result,
+        }:
+            recommendation = "revise-required"
+        else:
+            reviews = document.get("reviews")
+            retention = document.get("retention")
+            if not isinstance(reviews, dict) or not isinstance(retention, dict):
+                recommendation = "not-evaluable"
+            elif "rejected" in reviews.values():
+                recommendation = "revise-required"
+            elif not (
+                all(reviews.get(role) == "approved" for role in (
+                    "pilotTeacher",
+                    "fachDidaktik",
+                    "engineeringAccessibilityPrivacy",
+                    "coordination",
+                ))
+                and reviews.get("commissioner") == "accepted"
+                and retention.get("paperAggregates") in {"destroyed", "not-used"}
+                and retention.get("digitalRealPackages") == "deleted"
+            ):
+                recommendation = "not-evaluable"
+            else:
+                recommendation = "eligible-for-working-release-review"
+    return {
+        "technicalEntry": technical_result,
+        "exploratoryResult": exploratory_result,
+        "confirmationResult": confirmation_result,
+        "recommendation": recommendation,
+        "productStatus": "working",
+        "deviceVerified": "not-run",
+    }
+
+
 def validate_evidence(document: object) -> list[Issue]:
     issues = scan_forbidden_content(document)
     if not isinstance(document, dict):
@@ -324,6 +589,16 @@ def validate_evidence(document: object) -> list[Issue]:
         observed_ids = [row.get("id") for row in document["rows"] if isinstance(row, dict)]
         if observed_ids != expected_ids:
             issues.append(Issue("SEMANTIC_MATRIX_IDS", "$/rows", "matrix row IDs must match protocol order exactly"))
+        expected_result = evaluate_technical(document)
+        if document.get("result") != expected_result:
+            issues.append(Issue("EVIDENCE_RESULT_MISMATCH", "$/result", "technical result differs from derived result"))
+    elif document_type == "ium5-gate-b-pilot-evidence":
+        issues.extend(_validate_pulse(document))
+        run_kind = document.get("runKind")
+        if run_kind in {"exploratory", "confirmation"}:
+            expected_result = evaluate_pilot(document, run_kind)
+            if document.get("result") != expected_result:
+                issues.append(Issue("EVIDENCE_RESULT_MISMATCH", "$/result", "pilot result differs from derived result"))
     return issues
 
 
@@ -336,10 +611,11 @@ def validate_decision(document: object) -> tuple[list[Issue], dict[str, str] | N
     issues.extend(schema_issues)
     if schema is not None:
         issues.extend(_validate_schema(document, schema, "decision-package.schema.json"))
-    if issues:
-        return issues, None
-    derived = document.get("derived")
-    return [], dict(derived) if isinstance(derived, dict) else None
+    derived = evaluate_decision(document)
+    supplied = document.get("derived")
+    if supplied != derived:
+        issues.append(Issue("DECISION_DERIVED_MISMATCH", "$/derived", "stored derivation differs from computed result"))
+    return issues, derived
 
 
 def _read_document(path: Path) -> tuple[object | None, list[Issue]]:
@@ -352,6 +628,36 @@ def _read_document(path: Path) -> tuple[object | None, list[Issue]]:
 def _print_issues(issues: list[Issue]) -> None:
     for issue in issues:
         print(f"{issue.code}\t{issue.pointer}\t{issue.message}")
+
+
+def _validate_synthetic_examples() -> list[Issue]:
+    examples_root = GATE_B_ROOT / "examples"
+    expected_names = set(SYNTHETIC_EXPECTATIONS)
+    actual_names = {path.name for path in examples_root.glob("*.json")} if examples_root.is_dir() else set()
+    if actual_names != expected_names:
+        return [Issue("SYNTHETIC_EXAMPLES_INCOMPLETE", "$", "synthetic example set differs from contract")]
+    issues: list[Issue] = []
+    for name, expected_recommendation in SYNTHETIC_EXPECTATIONS.items():
+        document, load_issues = _read_document(examples_root / name)
+        example_issues = list(load_issues)
+        if not example_issues:
+            if expected_recommendation is None:
+                example_issues.extend(validate_evidence(document))
+            else:
+                decision_issues, derived = validate_decision(document)
+                example_issues.extend(decision_issues)
+                if derived is None or derived.get("recommendation") != expected_recommendation:
+                    example_issues.append(Issue("SYNTHETIC_OUTCOME_MISMATCH", "$", "decision outcome differs from contract"))
+        if example_issues:
+            issues.extend(
+                Issue(issue.code, f"$/examples/{name}{issue.pointer.removeprefix('$')}", issue.message)
+                for issue in example_issues
+            )
+            continue
+        print(f"SYNTHETIC_VALID\t{name}")
+        if expected_recommendation is not None:
+            print(f"SYNTHETIC_OUTCOME\t{name}\t{expected_recommendation}")
+    return issues
 
 
 def _run_cli(arguments: list[str] | None = None) -> int:
@@ -374,8 +680,11 @@ def _run_cli(arguments: list[str] | None = None) -> int:
         return 0
 
     if args.command == "synthetic":
-        print("SYNTHETIC_EXAMPLES_MISSING\t$\tsynthetic examples are not implemented")
-        return 1
+        issues = _validate_synthetic_examples()
+        if issues:
+            _print_issues(issues)
+            return 1
+        return 0
 
     document, issues = _read_document(args.path)
     if not issues:

@@ -1,3 +1,4 @@
+import copy
 import json
 from pathlib import Path
 import subprocess
@@ -81,6 +82,133 @@ def valid_technical_evidence() -> dict:
         },
         "result": "pass",
         "retentionClass": "outside-repository-until-decision-plus-30-days",
+    }
+
+
+OBSERVATION_IDS = (
+    "prediction-used",
+    "trace-explained",
+    "first-deviation-localized",
+    "repair-hypothesis",
+    "minimal-revision-retested",
+    "loop-decision-justified",
+    "systems-transfer",
+    "support-preserves-thinking",
+    "shared-consolidation",
+)
+
+
+def valid_pilot_evidence(run_kind: str) -> dict:
+    confirmation = run_kind == "confirmation"
+    phase_count = 6 if confirmation else 5
+    return {
+        "documentType": "ium5-gate-b-pilot-evidence",
+        "schemaVersion": 1,
+        "protocolId": "IUM5-GATE-B-1",
+        "evidenceId": f"GB-PILOT-{'CONFIRM-01' if confirmation else 'EXPLORE-01'}",
+        "module": {
+            "id": "IUM-5-CORE-05",
+            "version": "0.1.0",
+            "status": "working",
+            "deviceVerified": "not-run",
+        },
+        "build": {
+            "buildRevision": "1" * 40,
+            "previewId": "ium5-gate-b-synthetic-001",
+            "publicationMode": "gate-b-preview",
+        },
+        "runKind": run_kind,
+        "pathKind": "extended-270" if confirmation else "regular-225",
+        "context": {
+            "gradeBand": "grade-5",
+            "groupSizeBand": "20-29",
+            "seasonWindow": "autumn",
+            "contextRelation": (
+                "different-class-same-teacher" if confirmation else "first-class"
+            ),
+        },
+        "phases": [
+            {
+                "id": f"LESSON-{index}",
+                "enacted": True,
+                "plannedMinutes": 45,
+                "actualBand": "35-45",
+                "deviationCode": "none",
+            }
+            for index in range(1, phase_count + 1)
+        ],
+        "observations": [
+            {"id": observation_id, "band": "met"}
+            for observation_id in OBSERVATION_IDS
+        ],
+        "timeFit": "pass",
+        "sharedConsolidation": "completed",
+        "fallback": {"used": False, "function": "not-needed"},
+        "supportDemand": "low",
+        "disruptions": [],
+        "learnerPulse": {
+            "status": "reported",
+            "items": [
+                {
+                    "id": prompt_id,
+                    "status": "reported",
+                    "validResponses": 10,
+                    "agree": 7,
+                    "partly": 2,
+                    "disagree": 1,
+                    "noAnswer": 0,
+                }
+                for prompt_id in (
+                    "clarity",
+                    "cognitive-engagement",
+                    "support-usefulness",
+                )
+            ],
+        },
+        "privacy": {
+            "breachObserved": False,
+            "prohibitedDataCollected": False,
+            "paperSheetStatus": "destroyed",
+            "digitalPackageStorage": "outside-repository",
+        },
+        "result": "pass",
+        "retentionClass": "outside-repository-until-decision-plus-30-days",
+    }
+
+
+def valid_decision_package() -> dict:
+    technical = valid_technical_evidence()
+    exploratory = valid_pilot_evidence("exploratory")
+    confirmation = valid_pilot_evidence("confirmation")
+    return {
+        "documentType": "ium5-gate-b-decision-package",
+        "schemaVersion": 1,
+        "protocolId": "IUM5-GATE-B-1",
+        "decisionId": "GB-DECISION-SYNTHETIC-01",
+        "module": copy.deepcopy(technical["module"]),
+        "build": copy.deepcopy(technical["build"]),
+        "technicalEvidence": technical,
+        "exploratoryEvidence": exploratory,
+        "confirmationEvidence": confirmation,
+        "reviews": {
+            "pilotTeacher": "approved",
+            "fachDidaktik": "approved",
+            "engineeringAccessibilityPrivacy": "approved",
+            "coordination": "approved",
+            "commissioner": "accepted",
+        },
+        "retention": {
+            "paperAggregates": "destroyed",
+            "digitalRealPackages": "deleted",
+        },
+        "derived": {
+            "technicalEntry": "pass",
+            "exploratoryResult": "pass",
+            "confirmationResult": "pass",
+            "recommendation": "eligible-for-working-release-review",
+            "productStatus": "working",
+            "deviceVerified": "not-run",
+        },
     }
 
 
@@ -327,10 +455,199 @@ class CliTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
         self.assertEqual(after, before)
 
-    def test_synthetic_command_is_fail_closed_until_examples_exist(self):
+    def test_synthetic_command_checks_six_examples_and_three_outcomes(self):
         completed = self.run_cli("synthetic")
-        self.assertEqual(completed.returncode, 1)
-        self.assertIn("SYNTHETIC_EXAMPLES_MISSING", completed.stdout)
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        self.assertEqual(completed.stdout.count("SYNTHETIC_VALID\t"), 6)
+        self.assertEqual(completed.stdout.count("SYNTHETIC_OUTCOME\t"), 3)
+        for expected in (
+            "eligible-for-working-release-review",
+            "revise-required",
+            "not-evaluable",
+        ):
+            self.assertIn(expected, completed.stdout)
+
+
+class DecisionTests(unittest.TestCase):
+    def test_positive_package_is_eligible_only_for_working_release_review(self):
+        derived = validate_ium5_gate_b.evaluate_decision(valid_decision_package())
+        self.assertEqual(
+            derived,
+            {
+                "technicalEntry": "pass",
+                "exploratoryResult": "pass",
+                "confirmationResult": "pass",
+                "recommendation": "eligible-for-working-release-review",
+                "productStatus": "working",
+                "deviceVerified": "not-run",
+            },
+        )
+
+    def test_decision_table_has_stable_precedence(self):
+        cases = (
+            (
+                "technical row blocked",
+                lambda package: package["technicalEvidence"]["rows"][0].update(
+                    result="blocked"
+                ),
+                "not-evaluable",
+            ),
+            (
+                "privacy breach",
+                lambda package: package["exploratoryEvidence"]["privacy"].update(
+                    breachObserved=True
+                ),
+                "revise-required",
+            ),
+            (
+                "same class",
+                lambda package: package["confirmationEvidence"]["context"].update(
+                    contextRelation="first-class"
+                ),
+                "not-evaluable",
+            ),
+            (
+                "missing confirmation",
+                lambda package: package.pop("confirmationEvidence"),
+                "not-evaluable",
+            ),
+            (
+                "criterion not met",
+                lambda package: package["exploratoryEvidence"]["observations"][0].update(
+                    band="not-met"
+                ),
+                "revise-required",
+            ),
+            (
+                "two partly",
+                lambda package: (
+                    package["confirmationEvidence"]["observations"][0].update(
+                        band="partly"
+                    ),
+                    package["confirmationEvidence"]["observations"][1].update(
+                        band="partly"
+                    ),
+                ),
+                "revise-required",
+            ),
+            (
+                "review rejected",
+                lambda package: package["reviews"].update(pilotTeacher="rejected"),
+                "revise-required",
+            ),
+            (
+                "limited technical entry",
+                lambda package: package["technicalEvidence"].update(
+                    policySummary="limited-accepted"
+                ),
+                "not-evaluable",
+            ),
+            (
+                "build mismatch",
+                lambda package: package["confirmationEvidence"]["build"].update(
+                    buildRevision="2" * 40
+                ),
+                "not-evaluable",
+            ),
+            (
+                "unresolved high technical finding",
+                lambda package: package["technicalEvidence"]["rows"][0].update(
+                    findings=[
+                        {
+                            "code": "interaction-loss",
+                            "severity": "high",
+                            "status": "unresolved",
+                            "reproductionSteps": [],
+                        }
+                    ]
+                ),
+                "revise-required",
+            ),
+            (
+                "deletion not confirmed",
+                lambda package: package["retention"].update(
+                    digitalRealPackages="scheduled-within-30-days"
+                ),
+                "not-evaluable",
+            ),
+        )
+        for label, mutate, expected in cases:
+            with self.subTest(label=label):
+                package = valid_decision_package()
+                mutate(package)
+                derived = validate_ium5_gate_b.evaluate_decision(package)
+                self.assertEqual(derived["recommendation"], expected)
+
+    def test_privacy_breach_precedes_incomplete_evidence(self):
+        package = valid_decision_package()
+        package["technicalEvidence"]["privacy"]["telemetryObserved"] = True
+        del package["confirmationEvidence"]
+        derived = validate_ium5_gate_b.evaluate_decision(package)
+        self.assertEqual(derived["recommendation"], "revise-required")
+
+    def test_derived_values_are_checked_instead_of_trusted(self):
+        package = valid_decision_package()
+        package["derived"]["recommendation"] = "revise-required"
+        issues, derived = validate_ium5_gate_b.validate_decision(package)
+        self.assertIn("DECISION_DERIVED_MISMATCH", {issue.code for issue in issues})
+        self.assertEqual(
+            derived["recommendation"],
+            "eligible-for-working-release-review",
+        )
+
+
+class PulseSuppressionTests(unittest.TestCase):
+    def test_nine_valid_answers_are_suppressed_without_totals(self):
+        self.assertEqual(
+            validate_ium5_gate_b.normalize_pulse(
+                {"agree": 4, "partly": 3, "disagree": 2, "noAnswer": 5}
+            ),
+            {"status": "suppressed"},
+        )
+
+    def test_ten_valid_answers_may_be_reported(self):
+        self.assertEqual(
+            validate_ium5_gate_b.normalize_pulse(
+                {"agree": 7, "partly": 2, "disagree": 1, "noAnswer": 0}
+            ),
+            {
+                "status": "reported",
+                "validResponses": 10,
+                "agree": 7,
+                "partly": 2,
+                "disagree": 1,
+                "noAnswer": 0,
+            },
+        )
+
+    def test_reported_item_below_threshold_is_rejected(self):
+        document = valid_pilot_evidence("exploratory")
+        document["learnerPulse"]["items"][0].update(
+            validResponses=9,
+            agree=6,
+            partly=2,
+            disagree=1,
+        )
+        issues = validate_ium5_gate_b.validate_evidence(document)
+        self.assertIn("PULSE_MINIMUM_SUPPRESSION", {issue.code for issue in issues})
+
+    def test_suppressed_item_cannot_carry_counts(self):
+        document = valid_pilot_evidence("exploratory")
+        document["learnerPulse"]["items"][0]["status"] = "suppressed"
+        issues = validate_ium5_gate_b.validate_evidence(document)
+        self.assertIn("PULSE_SUPPRESSED_VALUES", {issue.code for issue in issues})
+
+    def test_suppressed_package_item_with_no_counts_is_valid(self):
+        document = valid_pilot_evidence("exploratory")
+        document["learnerPulse"] = {
+            "status": "partly-suppressed",
+            "items": [
+                {"id": "clarity", "status": "suppressed"},
+                document["learnerPulse"]["items"][1],
+                document["learnerPulse"]["items"][2],
+            ],
+        }
+        self.assertEqual(validate_ium5_gate_b.validate_evidence(document), [])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,505 @@
+{
+  "documentType": "ium5-gate-b-decision-package",
+  "schemaVersion": 1,
+  "protocolId": "IUM5-GATE-B-1",
+  "decisionId": "GB-DECISION-SYNTHETIC-01",
+  "module": {
+    "id": "IUM-5-CORE-05",
+    "version": "0.1.0",
+    "status": "working",
+    "deviceVerified": "not-run"
+  },
+  "build": {
+    "buildRevision": "1111111111111111111111111111111111111111",
+    "previewId": "ium5-gate-b-synthetic-001",
+    "publicationMode": "gate-b-preview"
+  },
+  "technicalEvidence": {
+    "documentType": "ium5-gate-b-technical-evidence",
+    "schemaVersion": 1,
+    "protocolId": "IUM5-GATE-B-1",
+    "evidenceId": "GB-TECH-SYNTHETIC-01",
+    "module": {
+      "id": "IUM-5-CORE-05",
+      "version": "0.1.0",
+      "status": "working",
+      "deviceVerified": "not-run"
+    },
+    "build": {
+      "buildRevision": "1111111111111111111111111111111111111111",
+      "previewId": "ium5-gate-b-synthetic-001",
+      "publicationMode": "gate-b-preview"
+    },
+    "policySummary": "documented",
+    "rows": [
+      {
+        "id": "TECH-IPAD-TOUCH",
+        "operatingSystem": {
+          "family": "linux",
+          "version": "1"
+        },
+        "browser": {
+          "family": "chromium",
+          "version": "1"
+        },
+        "managedStatus": "not-managed",
+        "policyStatus": "documented",
+        "networkContext": "school-network",
+        "checks": [
+          {
+            "id": "startup",
+            "result": "pass"
+          }
+        ],
+        "result": "pass",
+        "findings": [],
+        "privateEvidenceRef": "EVID-TECH-IPAD-TOUCH"
+      },
+      {
+        "id": "TECH-IPAD-VO",
+        "operatingSystem": {
+          "family": "linux",
+          "version": "1"
+        },
+        "browser": {
+          "family": "chromium",
+          "version": "1"
+        },
+        "managedStatus": "not-managed",
+        "policyStatus": "documented",
+        "networkContext": "school-network",
+        "checks": [
+          {
+            "id": "startup",
+            "result": "pass"
+          }
+        ],
+        "result": "pass",
+        "findings": [],
+        "privateEvidenceRef": "EVID-TECH-IPAD-VO"
+      },
+      {
+        "id": "TECH-DESKTOP-CHROMIUM",
+        "operatingSystem": {
+          "family": "linux",
+          "version": "1"
+        },
+        "browser": {
+          "family": "chromium",
+          "version": "1"
+        },
+        "managedStatus": "not-managed",
+        "policyStatus": "documented",
+        "networkContext": "school-network",
+        "checks": [
+          {
+            "id": "startup",
+            "result": "pass"
+          }
+        ],
+        "result": "pass",
+        "findings": [],
+        "privateEvidenceRef": "EVID-TECH-DESKTOP-CHROMIUM"
+      },
+      {
+        "id": "TECH-DESKTOP-FIREFOX",
+        "operatingSystem": {
+          "family": "linux",
+          "version": "1"
+        },
+        "browser": {
+          "family": "chromium",
+          "version": "1"
+        },
+        "managedStatus": "not-managed",
+        "policyStatus": "documented",
+        "networkContext": "school-network",
+        "checks": [
+          {
+            "id": "startup",
+            "result": "pass"
+          }
+        ],
+        "result": "pass",
+        "findings": [],
+        "privateEvidenceRef": "EVID-TECH-DESKTOP-FIREFOX"
+      },
+      {
+        "id": "TECH-NET-OFFLINE-UPDATE",
+        "operatingSystem": {
+          "family": "linux",
+          "version": "1"
+        },
+        "browser": {
+          "family": "chromium",
+          "version": "1"
+        },
+        "managedStatus": "not-managed",
+        "policyStatus": "documented",
+        "networkContext": "school-network",
+        "checks": [
+          {
+            "id": "startup",
+            "result": "pass"
+          }
+        ],
+        "result": "pass",
+        "findings": [],
+        "privateEvidenceRef": "EVID-TECH-NET-OFFLINE-UPDATE"
+      },
+      {
+        "id": "TECH-LMS-ROUTE",
+        "operatingSystem": {
+          "family": "linux",
+          "version": "1"
+        },
+        "browser": {
+          "family": "chromium",
+          "version": "1"
+        },
+        "managedStatus": "not-managed",
+        "policyStatus": "documented",
+        "networkContext": "school-network",
+        "checks": [
+          {
+            "id": "startup",
+            "result": "pass"
+          }
+        ],
+        "result": "pass",
+        "findings": [],
+        "privateEvidenceRef": "EVID-TECH-LMS-ROUTE"
+      }
+    ],
+    "limitedException": null,
+    "privacy": {
+      "unexpectedThirdPartyRequests": false,
+      "prohibitedDataObserved": false,
+      "telemetryObserved": false
+    },
+    "result": "pass",
+    "retentionClass": "outside-repository-until-decision-plus-30-days"
+  },
+  "exploratoryEvidence": {
+    "documentType": "ium5-gate-b-pilot-evidence",
+    "schemaVersion": 1,
+    "protocolId": "IUM5-GATE-B-1",
+    "evidenceId": "GB-PILOT-EXPLORE-01",
+    "module": {
+      "id": "IUM-5-CORE-05",
+      "version": "0.1.0",
+      "status": "working",
+      "deviceVerified": "not-run"
+    },
+    "build": {
+      "buildRevision": "1111111111111111111111111111111111111111",
+      "previewId": "ium5-gate-b-synthetic-001",
+      "publicationMode": "gate-b-preview"
+    },
+    "runKind": "exploratory",
+    "pathKind": "regular-225",
+    "context": {
+      "gradeBand": "grade-5",
+      "groupSizeBand": "20-29",
+      "seasonWindow": "autumn",
+      "contextRelation": "first-class"
+    },
+    "phases": [
+      {
+        "id": "LESSON-1",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-2",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-3",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-4",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-5",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      }
+    ],
+    "observations": [
+      {
+        "id": "prediction-used",
+        "band": "met"
+      },
+      {
+        "id": "trace-explained",
+        "band": "met"
+      },
+      {
+        "id": "first-deviation-localized",
+        "band": "met"
+      },
+      {
+        "id": "repair-hypothesis",
+        "band": "met"
+      },
+      {
+        "id": "minimal-revision-retested",
+        "band": "met"
+      },
+      {
+        "id": "loop-decision-justified",
+        "band": "met"
+      },
+      {
+        "id": "systems-transfer",
+        "band": "met"
+      },
+      {
+        "id": "support-preserves-thinking",
+        "band": "met"
+      },
+      {
+        "id": "shared-consolidation",
+        "band": "met"
+      }
+    ],
+    "timeFit": "pass",
+    "sharedConsolidation": "completed",
+    "fallback": {
+      "used": false,
+      "function": "not-needed"
+    },
+    "supportDemand": "low",
+    "disruptions": [],
+    "learnerPulse": {
+      "status": "reported",
+      "items": [
+        {
+          "id": "clarity",
+          "status": "reported",
+          "validResponses": 10,
+          "agree": 7,
+          "partly": 2,
+          "disagree": 1,
+          "noAnswer": 0
+        },
+        {
+          "id": "cognitive-engagement",
+          "status": "reported",
+          "validResponses": 10,
+          "agree": 7,
+          "partly": 2,
+          "disagree": 1,
+          "noAnswer": 0
+        },
+        {
+          "id": "support-usefulness",
+          "status": "reported",
+          "validResponses": 10,
+          "agree": 7,
+          "partly": 2,
+          "disagree": 1,
+          "noAnswer": 0
+        }
+      ]
+    },
+    "privacy": {
+      "breachObserved": false,
+      "prohibitedDataCollected": false,
+      "paperSheetStatus": "destroyed",
+      "digitalPackageStorage": "outside-repository"
+    },
+    "result": "pass",
+    "retentionClass": "outside-repository-until-decision-plus-30-days"
+  },
+  "confirmationEvidence": {
+    "documentType": "ium5-gate-b-pilot-evidence",
+    "schemaVersion": 1,
+    "protocolId": "IUM5-GATE-B-1",
+    "evidenceId": "GB-PILOT-CONFIRM-01",
+    "module": {
+      "id": "IUM-5-CORE-05",
+      "version": "0.1.0",
+      "status": "working",
+      "deviceVerified": "not-run"
+    },
+    "build": {
+      "buildRevision": "1111111111111111111111111111111111111111",
+      "previewId": "ium5-gate-b-synthetic-001",
+      "publicationMode": "gate-b-preview"
+    },
+    "runKind": "confirmation",
+    "pathKind": "extended-270",
+    "context": {
+      "gradeBand": "grade-5",
+      "groupSizeBand": "20-29",
+      "seasonWindow": "autumn",
+      "contextRelation": "different-class-same-teacher"
+    },
+    "phases": [
+      {
+        "id": "LESSON-1",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-2",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-3",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-4",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-5",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      },
+      {
+        "id": "LESSON-6",
+        "enacted": true,
+        "plannedMinutes": 45,
+        "actualBand": "35-45",
+        "deviationCode": "none"
+      }
+    ],
+    "observations": [
+      {
+        "id": "prediction-used",
+        "band": "met"
+      },
+      {
+        "id": "trace-explained",
+        "band": "met"
+      },
+      {
+        "id": "first-deviation-localized",
+        "band": "met"
+      },
+      {
+        "id": "repair-hypothesis",
+        "band": "met"
+      },
+      {
+        "id": "minimal-revision-retested",
+        "band": "met"
+      },
+      {
+        "id": "loop-decision-justified",
+        "band": "met"
+      },
+      {
+        "id": "systems-transfer",
+        "band": "met"
+      },
+      {
+        "id": "support-preserves-thinking",
+        "band": "met"
+      },
+      {
+        "id": "shared-consolidation",
+        "band": "met"
+      }
+    ],
+    "timeFit": "pass",
+    "sharedConsolidation": "completed",
+    "fallback": {
+      "used": false,
+      "function": "not-needed"
+    },
+    "supportDemand": "low",
+    "disruptions": [],
+    "learnerPulse": {
+      "status": "reported",
+      "items": [
+        {
+          "id": "clarity",
+          "status": "reported",
+          "validResponses": 10,
+          "agree": 7,
+          "partly": 2,
+          "disagree": 1,
+          "noAnswer": 0
+        },
+        {
+          "id": "cognitive-engagement",
+          "status": "reported",
+          "validResponses": 10,
+          "agree": 7,
+          "partly": 2,
+          "disagree": 1,
+          "noAnswer": 0
+        },
+        {
+          "id": "support-usefulness",
+          "status": "reported",
+          "validResponses": 10,
+          "agree": 7,
+          "partly": 2,
+          "disagree": 1,
+          "noAnswer": 0
+        }
+      ]
+    },
+    "privacy": {
+      "breachObserved": false,
+      "prohibitedDataCollected": false,
+      "paperSheetStatus": "destroyed",
+      "digitalPackageStorage": "outside-repository"
+    },
+    "result": "pass",
+    "retentionClass": "outside-repository-until-decision-plus-30-days"
+  },
+  "reviews": {
+    "pilotTeacher": "approved",
+    "fachDidaktik": "approved",
+    "engineeringAccessibilityPrivacy": "approved",
+    "coordination": "approved",
+    "commissioner": "accepted"
+  },
+  "retention": {
+    "paperAggregates": "destroyed",
+    "digitalRealPackages": "deleted"
+  },
+  "derived": {
+    "technicalEntry": "pass",
+    "exploratoryResult": "pass",
+    "confirmationResult": "pass",
+    "recommendation": "eligible-for-working-release-review",
+    "productStatus": "working",
+    "deviceVerified": "not-run"
+  }
+}
