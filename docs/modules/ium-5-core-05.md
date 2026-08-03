@@ -111,3 +111,12 @@ Kein Validator, Review oder Workflow setzt `status: working` oder `device-verifi
 | [Engineering, Accessibility, Privacy und Lizenzen](../reviews/ium-5-core-05-engineering-accessibility-privacy.md) | `4c26698590869b51e8d272cb4ddaf4920455d180` | `APPROVED` |
 
 Letzter vollständiger Lauf auf dem geprüften Commit: `npm run verify:ium5`, 2026-08-03, 24/24 Schritte erfolgreich. Die Reviews geben den internen Gate-A-Handoff frei; sie verändern weder `working` noch `device-verified: not-run` und öffnen Gate B nicht.
+
+### Gate-B-Implementierungsreviews
+
+| Review | Geprüfter Commit | Urteil |
+| --- | --- | --- |
+| [Fachlich-didaktischer Gate-B-Review](../reviews/ium5-gate-b-fach-didaktik.md) | `2b4353d5d1a786d4d1ceddba71e3a7b2bdfe28d9` | `APPROVED AFTER FIXES` |
+| [Engineering, Accessibility und Privacy](../reviews/ium5-gate-b-engineering-accessibility-privacy.md) | `2b4353d5d1a786d4d1ceddba71e3a7b2bdfe28d9` | `APPROVED AFTER FIXES` |
+
+Die Urteile bestätigen ausschließlich die Implementierungsqualität des Gate-B-Pakets. Es wurde weder ein Preview veröffentlicht noch eine reale Geräteprüfung oder Pilotierung durchgeführt; `working` und `device-verified: not-run` bleiben unverändert.
