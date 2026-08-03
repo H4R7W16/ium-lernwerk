@@ -89,15 +89,22 @@ const finalizePwa: AstroIntegration = {
     },
   },
 };
-const fixtureIsolationPlugin = {
-  name: 'ium-fixture-output-isolation',
+const profileIsolationPlugin = {
+  name: 'ium-profile-output-isolation',
   generateBundle(
     _options: unknown,
     bundle: Record<string, unknown>,
   ) {
-    if (profile !== 'production') return;
     for (const fileName of Object.keys(bundle)) {
-      if (fileName.includes('FixtureWorkspace.astro_astro_type_script')) {
+      const fixtureBundle = fileName.includes(
+        'FixtureWorkspace.astro_astro_type_script',
+      );
+      const workbenchBundle = fileName.includes('AlgorithmWorkbench')
+        || fileName.includes('algorithm-workbench');
+      if (
+        (profile === 'production' && fixtureBundle)
+        || (profile === 'fixture' && workbenchBundle)
+      ) {
         delete bundle[fileName];
       }
     }
@@ -114,7 +121,7 @@ export default defineConfig({
   },
   vite: {
     cacheDir: resolve(pwaOutputDirectory, '.vite-cache'),
-    plugins: [fixtureIsolationPlugin, ...pwaPlugins],
+    plugins: [profileIsolationPlugin, ...pwaPlugins],
   },
   ...(outputDirectory === undefined
     ? {}

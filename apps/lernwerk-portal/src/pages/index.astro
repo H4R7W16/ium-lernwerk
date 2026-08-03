@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import registry from '../generated/module-registry.json';
 
 const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
+const isProduction = registry.profile === 'production';
 ---
 
 <BaseLayout title="Lernmodule">
@@ -19,15 +20,23 @@ const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
     </section>
   ) : (
     <section aria-labelledby="catalog-title">
-      <h2 id="catalog-title">Technische Referenz</h2>
+      <h2 id="catalog-title">{isProduction ? 'Arbeitsmodule' : 'Technische Referenz'}</h2>
       <ul class="module-grid">
         {registry.modules.map((module) => (
           <li>
             <article class="module-card">
-              <p class="eyebrow">Klasse {module.grade} · Systemprobe</p>
+              {isProduction ? (
+                <p class="working-banner" role="status">
+                  Arbeitsstand · nicht für Unterrichtseinsatz
+                </p>
+              ) : (
+                <p class="eyebrow">Klasse {module.grade} · Systemprobe</p>
+              )}
               <h3>{module.title}</h3>
               <p>{module.centralQuestion}</p>
-              <a href={`${base}module/${module.id.toLowerCase()}/`}>Systemprobe öffnen</a>
+              <a href={`${base}module/${module.id.toLowerCase()}/`}>
+                {isProduction ? 'Arbeitsstand öffnen' : 'Systemprobe öffnen'}
+              </a>
             </article>
           </li>
         ))}
@@ -35,3 +44,14 @@ const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
     </section>
   )}
 </BaseLayout>
+
+<style>
+  .working-banner {
+    padding: 0.75rem 1rem;
+    border: 0.125rem solid #9a6700;
+    border-radius: 0.5rem;
+    background: #fff4ce;
+    color: #5c3b00;
+    font-weight: 800;
+  }
+</style>

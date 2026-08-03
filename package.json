@@ -23,6 +23,7 @@
     "build:fixture:subpath": "tsx scripts/build-portal.ts fixture /ium-lernwerk/",
     "check:astro": "tsx scripts/check-astro.ts",
     "preview:fixture": "tsx scripts/preview-portal.ts fixture / 4321",
+    "preview:ium5": "tsx scripts/preview-portal.ts production / 4322",
     "quality:build": "tsx scripts/check-build-output.ts",
     "quality:licenses": "tsx scripts/check-dependency-licenses.ts",
     "test:browser": "playwright test tests/browser/platform.spec.ts",

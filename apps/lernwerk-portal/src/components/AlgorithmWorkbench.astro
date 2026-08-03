@@ -1,0 +1,298 @@
+---
+import type { WorkbenchResources } from '@ium/ium-5-core-05';
+import workbenchStyles from '../styles/algorithm-workbench.css?raw';
+
+interface Props {
+  moduleId: string;
+  moduleVersion: string;
+  resources: Readonly<{
+    content: WorkbenchResources['content'];
+    scenarios: WorkbenchResources['scenarios'];
+    robotAssetPath: string;
+  }>;
+}
+
+const { moduleId, moduleVersion, resources } = Astro.props;
+const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
+const robotAssetUrl = `${base}${resources.robotAssetPath}`;
+const firstScenario = resources.scenarios[0]?.scenario;
+const positions = Array.from({ length: 6 }, (_, row) =>
+  Array.from({ length: 6 }, (_entry, column) =>
+    `${String.fromCharCode(65 + column)}${row + 1}`,
+  ),
+).flat();
+const resourceJson = JSON.stringify(resources).replace(
+  /[<>&\u2028\u2029]/g,
+  (character) => `\\u${character.codePointAt(0)?.toString(16).padStart(4, '0')}`,
+);
+---
+
+<section
+  class="algorithm-workbench"
+  aria-labelledby="workbench-title"
+  data-algorithm-workbench
+  data-module-id={moduleId}
+  data-module-version={moduleVersion}
+>
+  <style is:inline set:html={workbenchStyles}></style>
+  <p class="working-banner" role="status">
+    Arbeitsstand · Status working · nicht für Unterrichtseinsatz
+  </p>
+  <header class="workbench-intro">
+    <p class="eyebrow">Hybride Algorithmus-Werkstatt · Klasse 5</p>
+    <h2 id="workbench-title" tabindex="-1">Auftrag und Lernziel</h2>
+    <p>{resources.content.centralQuestion}</p>
+    <p>
+      Baue einen eindeutigen Lieferalgorithmus, sage seine Ausführung voraus,
+      prüfe die Laufspur und begründe eine gezielte Revision.
+    </p>
+    <p><strong>225 Minuten · 5 Unterrichtseinheiten</strong></p>
+  </header>
+
+  <nav class="phase-navigation" aria-label="Lernphasen">
+    <ol>
+      {resources.content.segments.slice(0, 11).map((segment) => (
+        <li>
+          <button type="button" data-phase-id={segment.id}>
+            UE {segment.lesson}: {segment.title}
+          </button>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <div class="workbench-focus">
+    <section class="execution-room" aria-labelledby="execution-room-title">
+      <h3 id="execution-room-title">Ausführungsraum</h3>
+      <img
+        src={robotAssetUrl}
+        alt="Sachlicher Lieferroboter in Seitenansicht"
+        width="240"
+        height="180"
+      />
+      <p data-scene-description>
+        {firstScenario
+          ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}.`
+          : 'Keine validierte Szene verfügbar.'}
+      </p>
+      <dl class="state-description">
+        <div><dt>Aktueller Befehl</dt><dd data-current-command>Noch nicht gestartet</dd></div>
+        <div><dt>Position</dt><dd data-current-position>–</dd></div>
+        <div><dt>Blickrichtung</dt><dd data-current-direction>–</dd></div>
+        <div><dt>Tragezustand</dt><dd data-current-carrying>–</dd></div>
+        <div><dt>Schleifeniteration</dt><dd data-current-loop>–</dd></div>
+      </dl>
+      <p role="status" aria-label="Ausführungsergebnis" data-execution-result>
+        Noch keine Ausführung.
+      </p>
+      <p class="visually-hidden" aria-live="polite" data-execution-live></p>
+    </section>
+
+    <section class="algorithm-editor" aria-labelledby="algorithm-editor-title">
+      <h3 id="algorithm-editor-title">Grafischer Algorithmuseditor</h3>
+      <div class="command-palette" aria-label="Befehle einfügen">
+        <button type="button" data-insert-command="pick-up">Nimm auf einfügen</button>
+        <button type="button" data-insert-command="move">Gehe einfügen</button>
+        <button type="button" data-insert-command="turn-left">Links drehen einfügen</button>
+        <button type="button" data-insert-command="turn-right">Rechts drehen einfügen</button>
+        <button type="button" data-insert-command="drop">Lege ab einfügen</button>
+        <button type="button" data-insert-command="repeat">Wiederholung einfügen</button>
+      </div>
+      <ol aria-label="Algorithmus" data-algorithm-list>
+        <li data-empty-algorithm>Noch keine Anweisung eingefügt.</li>
+      </ol>
+    </section>
+  </div>
+
+  <section aria-labelledby="prediction-title">
+    <h3 id="prediction-title">Vorhersage vor der Ausführung</h3>
+    <form data-prediction-form>
+      <div class="field">
+        <label for="prediction-position">Erwartete Endposition</label>
+        <select id="prediction-position" name="position">
+          <option value="">Bitte wählen</option>
+          {positions.map((position) => <option value={position}>{position}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="prediction-direction">Erwartete Blickrichtung</label>
+        <select id="prediction-direction" name="direction">
+          <option value="">Bitte wählen</option>
+          <option value="north">Norden</option>
+          <option value="east">Osten</option>
+          <option value="south">Süden</option>
+          <option value="west">Westen</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="prediction-success">Erwarteter Auftragserfolg</label>
+        <select id="prediction-success" name="success">
+          <option value="">Bitte wählen</option>
+          <option value="yes">Ja</option>
+          <option value="no">Nein</option>
+          <option value="unsure">Unsicher</option>
+        </select>
+      </div>
+      <button type="button" data-prediction-confirm>Vorhersage bestätigen</button>
+      <p role="status" data-prediction-status></p>
+    </form>
+  </section>
+
+  <section aria-labelledby="execution-controls-title">
+    <h3 id="execution-controls-title">Ausführung steuern</h3>
+    <div class="actions">
+      <button type="button" data-run-step disabled>Schritt ausführen</button>
+      <button type="button" data-run-all disabled>Vollständig ausführen</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="trace-title">
+    <h3 id="trace-title">Laufspur prüfen</h3>
+    <div class="table-scroll">
+      <table aria-label="Laufspur" data-trace-table>
+        <thead>
+          <tr>
+            <th scope="col">Schritt</th>
+            <th scope="col">Befehl</th>
+            <th scope="col">Iteration</th>
+            <th scope="col">Vorherzustand</th>
+            <th scope="col">Nachherzustand</th>
+            <th scope="col">Ergebnis</th>
+          </tr>
+        </thead>
+        <tbody><tr><td colspan="6">Noch keine Spur vorhanden.</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="revision-title">
+    <h3 id="revision-title">Abweichung erklären und reparieren</h3>
+    <fieldset>
+      <legend>Erster abweichender Schritt</legend>
+      <p data-evidence-options>Noch keine Spur zur Auswahl.</p>
+    </fieldset>
+    <div class="field">
+      <label for="repair-hypothesis">Reparaturhypothese</label>
+      <textarea id="repair-hypothesis" rows="4" maxlength="1000"></textarea>
+    </div>
+    <button type="button" data-repair-confirm>Reparaturhypothese bestätigen</button>
+    <div class="field">
+      <label for="repeat-count">Wiederholungszahl</label>
+      <input id="repeat-count" type="number" min="2" max="9" inputmode="numeric" />
+    </div>
+    <button type="button" data-revision-confirm>Revision übernehmen</button>
+    <div class="field">
+      <label for="loop-decision">Begründung zur festen Wiederholung</label>
+      <textarea id="loop-decision" rows="3" maxlength="1000"></textarea>
+    </div>
+  </section>
+
+  <section aria-labelledby="supports-title">
+    <h3 id="supports-title">Hilfen selbst wählen</h3>
+    <div class="support-grid">
+      {resources.content.supports.map((support) => (
+        <details data-support-id={support.id}>
+          <summary>{support.title} öffnen</summary>
+          <p>{support.text}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="magnifier-title">
+    <h3 id="magnifier-title">Algorithmus-Lupe</h3>
+    <p>Ordne Beispiele, Nichtbeispiele und Grenzfälle anhand deiner Kriterien ein.</p>
+    <div data-transfer-cases>
+      {resources.content.transferCases.map((transferCase) => (
+        <article data-transfer-case-id={transferCase.id}>
+          <h4>{transferCase.title}</h4>
+          <p>{transferCase.description}</p>
+          <div class="field">
+            <label for={`classification-${transferCase.id}`}>
+              {transferCase.title} einordnen
+            </label>
+            <select id={`classification-${transferCase.id}`}>
+              <option value="">Bitte wählen</option>
+              <option value="algorithmic">algorithmisch</option>
+              <option value="not-algorithmic">nicht algorithmisch</option>
+              <option value="needs-information">weitere Information nötig</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for={`rationale-${transferCase.id}`}>
+              Begründung zu {transferCase.title}
+            </label>
+            <textarea id={`rationale-${transferCase.id}`} rows="3" maxlength="1000"></textarea>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="self-check-title">
+    <h3 id="self-check-title">Selbstcheck</h3>
+    <div class="self-check-grid">
+      {resources.content.selfCheckQuestions.map((question) => (
+        <div class="field">
+          <label for={`self-check-${question.id}`}>{question.text}</label>
+          <select id={`self-check-${question.id}`}>
+            <option value="review">Noch prüfen</option>
+            <option value="yes">Ja</option>
+            <option value="not-applicable">Nicht zutreffend</option>
+          </select>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="local-state-title">
+    <h3 id="local-state-title">Lokaler Arbeitsstand</h3>
+    <p data-save-status role="status">Wird vorbereitet</p>
+    <p id="ium5-export-sensitivity-hint">
+      Exportdateien können Freitext oder Lernprodukte enthalten. Prüfe sie vor dem
+      Teilen und veröffentliche sie nicht ungeprüft.
+    </p>
+    <div class="actions">
+      <button type="button" aria-describedby="ium5-export-sensitivity-hint" data-workbench-export>
+        Arbeitsstand exportieren
+      </button>
+      <label class="file-action">
+        Importdatei auswählen
+        <input type="file" accept="application/json,.json" data-workbench-import />
+      </label>
+      <button type="button" class="danger" data-workbench-delete>Arbeitsstand löschen</button>
+    </div>
+  </section>
+
+  <section class="copy-fallback" aria-labelledby="ium5-copy-title" data-copy-fallback hidden>
+    <h3 id="ium5-copy-title">Export kopieren</h3>
+    <p>Der Dateidownload ist blockiert. Kopiere denselben validierten Inhalt.</p>
+    <label for="ium5-copy-text">Export zum Kopieren</label>
+    <textarea id="ium5-copy-text" rows="8" readonly data-copy-fallback-text></textarea>
+  </section>
+
+  <dialog aria-labelledby="ium5-import-dialog-title" data-import-dialog>
+    <h3 id="ium5-import-dialog-title">Import prüfen</h3>
+    <dl>
+      <dt>Modul</dt><dd data-preview-module></dd>
+      <dt>Version</dt><dd data-preview-version></dd>
+      <dt>Gespeichert</dt><dd data-preview-saved></dd>
+      <dt>Felder</dt><dd data-preview-fields></dd>
+    </dl>
+    <div class="actions">
+      <button type="button" data-import-confirm>Import übernehmen</button>
+      <button type="button" data-import-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <dialog aria-labelledby="ium5-delete-dialog-title" data-delete-dialog>
+    <h3 id="ium5-delete-dialog-title">Arbeitsstand löschen?</h3>
+    <p>Der aktive lokale Arbeitsstand wird nach Bestätigung entfernt.</p>
+    <div class="actions">
+      <button type="button" class="danger" data-delete-confirm>Löschen bestätigen</button>
+      <button type="button" data-delete-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <script is:inline type="application/json" data-workbench-resources set:html={resourceJson}></script>
+</section>
