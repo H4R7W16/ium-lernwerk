@@ -109,3 +109,16 @@ test('storage and connection states always expose text, not color alone', async 
     await expect(target).not.toHaveText('');
   }
 });
+
+test('export notice is visible and programmatically describes the direct action', async ({ page }) => {
+  await page.goto('/module/test-platform-reference/');
+  const notice = page.locator('#export-sensitivity-hint');
+  await expect(notice).toHaveText(
+    'Exportdateien können Freitext oder Lernprodukte enthalten. Prüfe sie vor dem Teilen und veröffentliche sie nicht ungeprüft.',
+  );
+  await expect(notice).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Exportieren' })).toHaveAttribute(
+    'aria-describedby',
+    'export-sensitivity-hint',
+  );
+});

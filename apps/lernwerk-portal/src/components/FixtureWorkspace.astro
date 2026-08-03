@@ -34,8 +34,14 @@ const { moduleId, moduleVersion } = Astro.props;
   </form>
 
   <p class="save-status" role="status" data-save-status>Wird vorbereitet</p>
+  <p id="export-sensitivity-hint">
+    Exportdateien können Freitext oder Lernprodukte enthalten. Prüfe sie vor dem Teilen und
+    veröffentliche sie nicht ungeprüft.
+  </p>
   <div class="actions">
-    <button type="button" data-fixture-export>Exportieren</button>
+    <button type="button" aria-describedby="export-sensitivity-hint" data-fixture-export>
+      Exportieren
+    </button>
     <label class="file-action">
       Importdatei auswählen
       <input type="file" accept="application/json,.json" data-fixture-import />
