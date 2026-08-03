@@ -3,6 +3,8 @@ import { parseDocument } from 'yaml';
 import { expect, test } from 'vitest';
 
 type WorkflowStep = {
+  env?: Record<string, string>;
+  name?: string;
   uses?: string;
   run?: string;
   with?: Record<string, unknown>;
@@ -25,12 +27,21 @@ test('publishes the synthetic device fixture manually with least privilege', asy
   const document = parseDocument(source);
   expect(document.errors).toEqual([]);
   const workflow = document.toJS() as {
-    on: Record<string, unknown>;
+    on: {
+      workflow_dispatch: {
+        inputs: Record<string, Record<string, unknown>>;
+      };
+    };
     concurrency: { group?: string; 'cancel-in-progress'?: boolean };
     jobs: Record<string, WorkflowJob>;
   };
 
   expect(Object.keys(workflow.on)).toEqual(['workflow_dispatch']);
+  expect(workflow.on.workflow_dispatch.inputs.build_revision).toEqual({
+    description: 'Synthetic revision for a controlled device update',
+    required: true,
+    type: 'string',
+  });
   expect(workflow.concurrency).toEqual({
     group: 'pages',
     'cancel-in-progress': false,
@@ -55,6 +66,11 @@ test('publishes the synthetic device fixture manually with least privilege', asy
     'npm run quality:build',
     "! grep -q 'self.__WB_MANIFEST' apps/lernwerk-portal/dist/sw.js",
   ]);
+  expect(
+    build.steps?.find((step) => step.name === 'Build synthetic subpath fixture')?.env,
+  ).toEqual({
+    IUM_BUILD_REVISION: '${{ inputs.build_revision }}',
+  });
   expect(build.steps?.at(-1)?.with).toEqual({
     path: 'apps/lernwerk-portal/dist',
   });

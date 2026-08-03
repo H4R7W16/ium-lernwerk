@@ -2,6 +2,11 @@ name: Device fixture Pages
 
 on:
   workflow_dispatch:
+    inputs:
+      build_revision:
+        description: Synthetic revision for a controlled device update
+        required: true
+        type: string
 
 concurrency:
   group: pages
@@ -26,6 +31,8 @@ jobs:
       - name: Verify platform contracts
         run: npm run test:platform
       - name: Build synthetic subpath fixture
+        env:
+          IUM_BUILD_REVISION: ${{ inputs.build_revision }}
         run: npm run build:fixture:subpath
       - name: Verify build budgets and isolation
         run: npm run quality:build

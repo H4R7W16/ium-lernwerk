@@ -62,6 +62,19 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig
 
 Nicht ausdrücklich berichtet wurden der genaue Exporthinweis, die Dateiinhaltsprüfung und ein absichtlich ungültiger Import. Diese Punkte bleiben offen. Evidenzpfad: dieser Abschnitt als datensparsame Testnotiz der Auftraggeberbestätigung.
 
+### Runde 3 – Offlinebetrieb und Home-Bildschirm
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen dritten Prüfrunde ohne gemeldete Abweichung:
+
+- Safari bestätigte nach der Online-Installation die Offlinebereitschaft;
+- die Systemprobe blieb ohne Netzverbindung aufrufbar und der synthetische Zustand `Offline erhalten` plus `Beta` blieb nach dem Neuladen erhalten;
+- Lernmodulübersicht und lokale Datenverwaltung ließen sich offline öffnen;
+- der zuvor nicht aufgerufene Pfad `/nicht-im-cache/` zeigte den vorgesehenen Offline-Rückfall;
+- nach Wiederherstellung der Verbindung blieb der synthetische Zustand erhalten;
+- die Installation zum Home-Bildschirm und der anschließende Start am korrekten IuM-Basispfad funktionierten.
+
+Dieser Teilbefund belegt den realen Safari-/Service-Worker-/Web-Clip-Pfad auf dem verwalteten iPad. Exakte Geräte- und Richtlinienangaben bleiben noch zu ergänzen. Evidenzpfad: dieser Abschnitt als datensparsame Testnotiz der Auftraggeberbestätigung.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
@@ -75,9 +88,9 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 ### Netz, Offline und Installation
 
 - [ ] Online: Erstaufruf lädt ohne externe Laufzeitressourcen oder unerwartete Drittanfragen.
-- [ ] Offline nach Online-Erstaufruf: Portal, Modul und Offline-Rückfall laden erneut.
-- [ ] Erster Offline-Aufruf ohne Cache: Browserverhalten ist dokumentiert und wird nicht als App-Leistung bewertet.
-- [ ] Web-Clip beziehungsweise PWA-Installation: Startpfad und Scope stimmen.
+- [x] Offline nach Online-Erstaufruf: Portal, Modul und Offline-Rückfall laden erneut.
+- [x] Erster Offline-Aufruf ohne Cache: Browserverhalten ist dokumentiert und wird nicht als App-Leistung bewertet.
+- [x] Web-Clip beziehungsweise PWA-Installation: Startpfad und Scope stimmen.
 - [ ] Aktualisierung: Hinweis erscheint; Zustand wird vor der bestätigten Aktualisierung gesichert.
 - [ ] Fehlerhafte Aktualisierung: Die bisherige funktionsfähige Version bleibt nutzbar.
 

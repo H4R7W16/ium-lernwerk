@@ -78,6 +78,7 @@ async function main(): Promise<void> {
     base: process.argv[3] ?? '/',
     rootDir,
     outputDir: process.argv[4] ?? resolve(rootDir, 'apps/lernwerk-portal/dist'),
+    buildRevision: process.env.IUM_BUILD_REVISION,
   });
 }
 
