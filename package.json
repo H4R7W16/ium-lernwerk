@@ -39,7 +39,8 @@
     "test:platform": "npm run contracts:generate && vitest run",
     "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\"",
     "verify:phase1": "tsx scripts/verify-phase1.ts",
-    "verify:ium5": "tsx scripts/verify-ium5.ts"
+    "verify:ium5": "tsx scripts/verify-ium5.ts",
+    "verify:ium5:gate-b": "tsx scripts/verify-ium5-gate-b.ts"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

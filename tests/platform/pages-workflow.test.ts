@@ -4,6 +4,7 @@ import { expect, test } from 'vitest';
 
 type WorkflowStep = {
   env?: Record<string, string>;
+  id?: string;
   name?: string;
   uses?: string;
   run?: string;
@@ -16,6 +17,7 @@ type WorkflowJob = {
   permissions?: Record<string, string>;
   environment?: { name?: string; url?: string };
   steps?: WorkflowStep[];
+  'runs-on'?: string;
 };
 
 test('publishes the synthetic device fixture manually with least privilege', async () => {
@@ -106,4 +108,184 @@ test('publishes the synthetic device fixture manually with least privilege', asy
       uses: 'actions/deploy-pages@v4',
     },
   ]);
+
+  expect(workflow).toEqual({
+    name: 'Device fixture Pages',
+    on: {
+      workflow_dispatch: {
+        inputs: {
+          build_revision: {
+            description: 'Synthetic revision for a controlled device update',
+            required: true,
+            type: 'string',
+          },
+          candidate_mode: {
+            description: 'Candidate integrity for the fail-closed device check',
+            required: true,
+            default: 'valid',
+            type: 'choice',
+            options: ['valid', 'broken-missing-offline'],
+          },
+        },
+      },
+    },
+    concurrency: { group: 'pages', 'cancel-in-progress': false },
+    jobs: {
+      build: {
+        if: "github.ref == 'refs/heads/main'",
+        permissions: { contents: 'read' },
+        'runs-on': 'ubuntu-latest',
+        steps: [
+          { name: 'Check out main', uses: 'actions/checkout@v6' },
+          {
+            name: 'Set up Node.js',
+            uses: 'actions/setup-node@v5',
+            with: { 'node-version': '22.20.0', cache: 'npm' },
+          },
+          { name: 'Install locked dependencies', run: 'npm ci' },
+          { name: 'Verify platform contracts', run: 'npm run test:platform' },
+          {
+            name: 'Build synthetic subpath fixture',
+            env: { IUM_BUILD_REVISION: '${{ inputs.build_revision }}' },
+            run: 'npm run build:fixture:subpath',
+          },
+          { name: 'Verify build budgets and isolation', run: 'npm run quality:build' },
+          {
+            name: 'Prepare explicit device candidate',
+            run: 'npm exec -- tsx scripts/prepare-device-candidate.ts apps/lernwerk-portal/dist ${{ inputs.candidate_mode }}',
+          },
+          {
+            name: 'Reject an unfinalized service worker',
+            run: "! grep -q 'self.__WB_MANIFEST' apps/lernwerk-portal/dist/sw.js",
+          },
+          { name: 'Configure GitHub Pages', uses: 'actions/configure-pages@v5' },
+          {
+            name: 'Upload GitHub Pages artifact',
+            uses: 'actions/upload-pages-artifact@v4',
+            with: { path: 'apps/lernwerk-portal/dist' },
+          },
+        ],
+      },
+      deploy: {
+        if: "github.ref == 'refs/heads/main'",
+        needs: 'build',
+        permissions: { contents: 'read', pages: 'write', 'id-token': 'write' },
+        environment: {
+          name: 'github-pages',
+          url: '${{ steps.deployment.outputs.page_url }}',
+        },
+        'runs-on': 'ubuntu-latest',
+        steps: [
+          {
+            name: 'Deploy GitHub Pages',
+            id: 'deployment',
+            uses: 'actions/deploy-pages@v4',
+          },
+        ],
+      },
+    },
+  });
+});
+
+test('publishes the IUM5 Gate-B non-release preview only through its manual contract', async () => {
+  const source = await readFile('.github/workflows/ium5-gate-b-preview.yml', 'utf8')
+    .catch(() => '');
+  expect(source, 'IUM5 Gate-B Pages workflow is missing').not.toBe('');
+  if (!source) return;
+
+  const document = parseDocument(source);
+  expect(document.errors).toEqual([]);
+  const workflow = document.toJS() as {
+    on: {
+      workflow_dispatch: {
+        inputs: Record<string, Record<string, unknown>>;
+      };
+    };
+    concurrency: { group?: string; 'cancel-in-progress'?: boolean };
+    jobs: Record<string, WorkflowJob>;
+  };
+
+  expect(Object.keys(workflow.on)).toEqual(['workflow_dispatch']);
+  expect(workflow.on.workflow_dispatch.inputs).toEqual({
+    acknowledge_non_release: {
+      description: 'I acknowledge that this is not a teaching or product release',
+      required: true,
+      type: 'boolean',
+    },
+    preview_id: {
+      description: 'Closed Gate-B preview identifier',
+      required: true,
+      type: 'string',
+    },
+  });
+  expect(workflow.concurrency).toEqual({
+    group: 'pages',
+    'cancel-in-progress': false,
+  });
+  expect(Object.keys(workflow.jobs)).toEqual(['build', 'deploy']);
+
+  const build = workflow.jobs.build!;
+  expect(build.if?.replace(/\s+/g, ' ').trim()).toBe(
+    "github.ref == 'refs/heads/main' && inputs.acknowledge_non_release == true",
+  );
+  expect(build.permissions).toEqual({ contents: 'read' });
+  expect(build['runs-on']).toBe('ubuntu-latest');
+  expect(build.steps?.flatMap((step) => step.run ?? [])).toEqual([
+    "node -e \"if (!/^ium5-gate-b-[a-z0-9-]{8,48}$/.test(process.env.PREVIEW_ID ?? '')) process.exit(1)\"",
+    'npm ci',
+    'npm run verify:ium5',
+    'npm run verify:ium5:gate-b',
+    'npm run build:gate-b-preview',
+    'npm run quality:build',
+  ]);
+  expect(build.steps?.flatMap((step) => step.uses ?? [])).toEqual([
+    'actions/checkout@v6',
+    'actions/setup-node@v5',
+    'actions/configure-pages@v5',
+    'actions/upload-pages-artifact@v4',
+  ]);
+  expect(build.steps?.filter((step) => step.env)).toEqual([
+    {
+      name: 'Validate Preview-ID',
+      env: { PREVIEW_ID: '${{ inputs.preview_id }}' },
+      run: "node -e \"if (!/^ium5-gate-b-[a-z0-9-]{8,48}$/.test(process.env.PREVIEW_ID ?? '')) process.exit(1)\"",
+    },
+    {
+      name: 'Build Gate-B preview',
+      env: {
+        IUM_BUILD_REVISION: '${{ github.sha }}',
+        IUM_PREVIEW_ID: '${{ inputs.preview_id }}',
+      },
+      run: 'npm run build:gate-b-preview',
+    },
+  ]);
+  expect(build.steps?.at(-1)?.with).toEqual({
+    path: 'apps/lernwerk-portal/dist',
+  });
+
+  const deploy = workflow.jobs.deploy!;
+  expect(deploy.needs).toBe('build');
+  expect(deploy.if).toBe("github.ref == 'refs/heads/main'");
+  expect(deploy.permissions).toEqual({
+    contents: 'read',
+    pages: 'write',
+    'id-token': 'write',
+  });
+  expect(deploy.environment).toEqual({
+    name: 'github-pages',
+    url: '${{ steps.deployment.outputs.page_url }}',
+  });
+  expect(deploy.steps).toEqual([
+    {
+      name: 'Deploy GitHub Pages',
+      id: 'deployment',
+      uses: 'actions/deploy-pages@v4',
+    },
+  ]);
+
+  expect(source).not.toMatch(/\b(?:schedule|push|pull_request|workflow_run):/);
+  expect(source).not.toContain('secrets.');
+  expect(source).not.toContain('actions/upload-artifact');
+  expect(source).not.toMatch(/module\.yaml|deviceVerified|device-verified|status mutation/i);
+  expect(source).not.toContain('pilot/ium5-gate-b');
 });
