@@ -141,3 +141,44 @@ test('blocked download falls back to the same copyable JSON', async () => {
   });
   expect(copiedText).toBe(new TextDecoder().decode(serializeState(activeState)));
 });
+
+test('IUM5 rejects a future state schema without changing active storage', async () => {
+  const repository = new MemoryStateRepository();
+  const activeState = state({
+    moduleId: 'IUM-5-CORE-05',
+    moduleVersion: '0.1.0',
+    stateSchemaVersion: 1,
+    payload: { phaseId: 'ue1-orientation' },
+  });
+  const futureState = state({
+    moduleId: 'IUM-5-CORE-05',
+    moduleVersion: '0.1.0',
+    stateSchemaVersion: 2,
+    payload: { phaseId: 'future-phase' },
+  });
+  await repository.save(activeState);
+  const runtime = createModuleRuntime({
+    moduleId: 'IUM-5-CORE-05',
+    moduleVersion: '0.1.0',
+    targetStateSchemaVersion: 1,
+    repository,
+    migrations: [],
+    clock: { now: () => new Date('2026-08-03T13:00:00.000Z') },
+    createWorkspaceId: () => '223e4567-e89b-42d3-a456-426614174000',
+  });
+  await runtime.start();
+
+  const result = runtime.previewImport(serializeState(futureState));
+
+  expect(result).toEqual({
+    ok: false,
+    error: expect.objectContaining({ code: 'MIGRATION_FAILED' }),
+  });
+  expect(await repository.load('IUM-5-CORE-05')).toEqual(activeState);
+  expect(await runtime.confirmImport()).toEqual({
+    ok: false,
+    error: expect.objectContaining({
+      technicalDetails: 'No import is waiting for confirmation',
+    }),
+  });
+});

@@ -35,6 +35,19 @@ export {
   missionSucceeded,
   stepExecution,
 } from './interpreter.js';
+export {
+  createInitialPayload,
+  parseWorkbenchPayload,
+  projectPersistentPayload,
+} from './payload.js';
+export type {
+  EvidenceTrace,
+  Prediction,
+  SelfCheck,
+  SelfCheckValue,
+  SystemClassification,
+  WorkbenchPayload,
+} from './payload.js';
 export type {
   ExecutionSession,
   ExecutionStatus,
