@@ -2,14 +2,14 @@
 
 ## Ergebnis und Aussagegrenze
 
-Das freigegebene Plattformfundament ist mit Stand `6e05394b9f181db7ee1bc83cf1ac5de89be1af74` automatisiert verifiziert und erreicht den Status `implemented`. Es umfasst die contract-first Workspace-Architektur, einen production-empty Portalbuild, ein strikt isoliertes synthetisches Referenzmodul, Local-First-Zustand, Import/Export/Löschen, statische Root-/Subpath-Builds, kontrollierten Offline-/Updatebetrieb, Barrierefreiheitsverträge, Lizenz-/SBOM-Prüfung und GitHub-CI.
+Das freigegebene Plattformfundament ist mit dem geprüften Implementierungsstand `8e0c092` automatisiert verifiziert und erreicht den Status `implemented`. Es umfasst die contract-first Workspace-Architektur, einen production-empty Portalbuild, ein strikt isoliertes synthetisches Referenzmodul, Local-First-Zustand, Import/Export/Löschen, statische Root-/Subpath-Builds, kontrollierten Offline-/Updatebetrieb, Barrierefreiheitsverträge, Lizenz-/SBOM-Prüfung und GitHub-CI.
 
 Diese Aussage ist technisch. Sie belegt weder reale Unterrichtswirksamkeit noch Safari auf einem verwalteten iPad, Schulnetz-, MDM-, Web-Clip-, Filter- oder LMS-Verhalten. `device-verified` bleibt deshalb ausdrücklich `not-run`; Phase 2 bleibt blockiert.
 
 ## Reproduktionsstand
 
 - Ausgangscommit: `b00971e59992bae29eb20646fa9248c7f6e1d2b0`
-- geprüfter Commit: `6e05394b9f181db7ee1bc83cf1ac5de89be1af74`
+- geprüfter Implementierungscommit: `8e0c092` (`main` nach Fast-forward und Clean-Clone-Korrektur)
 - Branch: `feat/ium-phase1-platform`
 - Node.js: `22.20.0`
 - npm: `10.9.3`
@@ -30,7 +30,7 @@ Die abschließende Prüfung begann mit `npm ci`: 656 Pakete wurden installiert, 
 | --- | --- |
 | Verifikationskette | 19/19 Schritte bestanden |
 | Architekturgrenzen | 6/6 Workspaces bestanden |
-| Plattformtests | 35/35 bestanden |
+| Plattformtests | 36/36 bestanden |
 | Browser-Datenflüsse | 18/18 bestanden |
 | Offline-/Update-Szenarien | 5/5 bestanden |
 | Barrierefreiheitsszenarien | 11/11 bestanden |
@@ -79,7 +79,9 @@ Messwerte des abschließenden Subpath-Builds:
 
 Die Negativgrenzen wurden einzeln kontrolliert. Abgewiesen wurden unbekannte Manifestfelder, Identitätsfelder im Lernzustand, Fixture-Verweise auf reale Curriculum-/Coverage-IDs, Fixture-Kennungen im Produktionsbuild, Importgröße `5 MiB + 1 Byte`, falsches Modul, nicht unterstützte Version, fehlgeschlagene Migration, fehlgeschriebene IndexedDB-Transaktion, unbedingtes `skipWaiting()`, externe Laufzeit-URL, künstlich unterschrittenes Buildbudget und eine künstlich verbotene MIT-Lizenz.
 
-Der Audit fand einen Testdefekt: Ein fälschlich auf `passed` gesetztes Geräte-Frontmatter blieb zunächst grün, weil `not-run` im Erläuterungstext vorkam. Commit `6e05394` liest nun gezielt das YAML-Frontmatter; die falsche Mutation wird rot, der echte Status `not-run` grün. Außerdem beseitigte `0d4f963` einen durch `git diff --check` gefundenen Whitespace-Befund. Weitere Produktbefunde entstanden nicht.
+Der Audit fand einen Testdefekt: Ein fälschlich auf `passed` gesetztes Geräte-Frontmatter blieb zunächst grün, weil `not-run` im Erläuterungstext vorkam. Commit `6e05394` liest nun gezielt das YAML-Frontmatter; die falsche Mutation wird rot, der echte Status `not-run` grün. Außerdem beseitigte `0d4f963` einen durch `git diff --check` gefundenen Whitespace-Befund.
+
+Der erste integrierte Lauf auf einem frischen `main` fand zusätzlich eine Clean-Clone-Lücke: `contracts:check` erwartete ignorierte generierte Typdateien. Commit `8e0c092` erzeugt diese vor dem weiterhin rein vergleichenden `--check`-Schritt. Der Regressionstest wurde rot-grün ausgeführt; anschließend bestand `npm ci && npm run verify:phase1` auf `main` ohne vorab vorhandene generierte Verträge. Weitere Produktbefunde entstanden nicht.
 
 ## Lokaler Chromium-Sicht- und Bediencheck
 
