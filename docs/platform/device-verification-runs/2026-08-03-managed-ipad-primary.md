@@ -37,6 +37,19 @@ Diese Angaben belegen nur die technische Vorbereitung des Prüflaufs, nicht das 
 | Getesteter Basispfad | — |
 | Evidenzpfad | — |
 
+## Beobachtete Teilbefunde
+
+### Runde 1 – Safari-Erstlauf und persistenter Zustand
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung des geführten Prüfschritts auf dem realen verwalteten iPad ohne gemeldete Abweichung:
+
+- die öffentliche HTTPS-Prüffassung ließ sich in Safari öffnen;
+- die technische Systemprobe ließ sich öffnen;
+- der synthetische Text `IUM Geräteprobe` und die Auswahl `Beta` wurden lokal gespeichert;
+- Text und Auswahl waren nach dem Neuladen weiterhin vorhanden.
+
+Dieser Teilbefund belegt den ausgeführten Safari-/Local-First-Pfad. Modell, iPadOS-Version, Richtlinienangaben, exakte Statustexte und die weiteren Prüfschritte sind noch nicht protokolliert. Evidenzpfad: dieser Abschnitt als datensparsame Testnotiz der Auftraggeberbestätigung.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
@@ -58,7 +71,7 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 
 ### Lokale Daten
 
-- [ ] Bestätigte Speicherung bleibt nach Neuladen erhalten.
+- [x] Bestätigte Speicherung bleibt nach Neuladen erhalten.
 - [ ] Flüchtige Sitzung hinterlässt nach einer frischen Sitzung keinen Modulstand.
 - [ ] Import: Gültige Datei wird übernommen; ungültige Datei wird verständlich und ohne Zustandsverlust abgelehnt.
 - [ ] Export: Sensibilitätshinweis, Dateidownload und Inhalt wurden geprüft.
