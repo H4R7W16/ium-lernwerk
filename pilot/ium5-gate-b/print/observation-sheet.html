@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IUM5 Gate B - Analoger Beobachtungsbogen</title>
+  <style>
+    @page { size: A4 portrait; margin: 10mm; }
+    * { box-sizing: border-box; }
+    html { background: #fff; color: #000; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0 auto; max-width: 190mm; font-size: 10pt; line-height: 1.12; }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: 15pt; line-height: 1.1; }
+    h2 { margin-bottom: 1.2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: .02em; }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 3mm; padding-bottom: 2mm; border-bottom: .5mm solid #000; }
+    .nonrelease { max-width: 70mm; padding: 1.5mm 2mm; border: .5mm solid #000; font-weight: 700; text-align: center; }
+    .identity { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 1mm 2mm; align-items: end; margin-top: 2mm; }
+    .write-line { min-width: 48mm; height: 5mm; border-bottom: .35mm solid #000; }
+    .run-kind { display: flex; flex-wrap: wrap; gap: 2mm 6mm; align-items: center; margin-top: 1.5mm; }
+    section { margin-top: 2mm; break-inside: avoid; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    caption { padding: 0 0 1mm; font-weight: 700; text-align: left; }
+    th, td { padding: .75mm 1mm; border: .3mm solid #000; vertical-align: middle; }
+    thead th { background: #e9e9e9; text-align: center; }
+    tbody th { font-weight: 400; text-align: left; }
+    .criterion { width: 58%; }
+    .choice-cell { width: 10.5%; text-align: center; }
+    input { inline-size: 4.5mm; block-size: 4.5mm; margin: 0; vertical-align: middle; accent-color: #000; }
+    label { cursor: pointer; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .phase-table th:first-child { width: 13%; text-align: center; }
+    .phase-table th:nth-child(2) { width: 20%; }
+    .phase-table th:nth-child(3) { width: 31%; }
+    .phase-table th:nth-child(4) { width: 36%; }
+    .code-line { display: inline-block; min-width: 26mm; height: 4.5mm; border-bottom: .3mm solid #000; vertical-align: bottom; }
+    .legend { margin-top: .8mm; font-size: 10pt; }
+    .lower-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3mm; }
+    .disruptions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5mm 2mm; }
+    .disruptions label { display: grid; grid-template-columns: 4.5mm 1fr; gap: 1mm; align-items: start; overflow-wrap: anywhere; }
+    .closed-groups { display: grid; gap: 1.5mm; }
+    .closed-group { padding: 1.2mm; border: .3mm solid #000; }
+    .closed-group strong { display: block; margin-bottom: .7mm; }
+    .closed-options { display: flex; flex-wrap: wrap; gap: .7mm 2.5mm; }
+    footer { margin-top: 2mm; padding-top: 1.5mm; border-top: .5mm solid #000; }
+    footer p + p { margin-top: 1mm; }
+    .destroy { font-weight: 700; }
+    @media print {
+      body { max-width: none; }
+      header, section, footer { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>IUM5 Gate B - Analoger Beobachtungsbogen</h1>
+      <p>IUM-5-CORE-05 | geschlossene Klassenbeobachtung | Status working</p>
+    </div>
+    <p class="nonrelease">Keine Unterrichts- oder Produktfreigabe</p>
+  </header>
+
+  <div class="identity" aria-label="Buildidentität">
+    <strong>SHA</strong><span class="write-line" data-build-field="sha" aria-label="Vollständiger Build-SHA"></span>
+    <strong>Preview-ID</strong><span class="write-line" data-build-field="preview-id" aria-label="Preview-ID"></span>
+  </div>
+  <div class="run-kind" role="group" aria-label="Laufart">
+    <strong>Laufart</strong>
+    <input id="run-exploratory" type="radio" name="run-kind" value="exploratory">
+    <label for="run-exploratory">exploratory / regular-225</label>
+    <input id="run-confirmation" type="radio" name="run-kind" value="confirmation">
+    <label for="run-confirmation">confirmation / extended-270</label>
+  </div>
+
+  <section aria-labelledby="observations-title">
+    <table>
+      <caption id="observations-title">Neun Beobachtungskriterien - je Zeile genau eine Kategorie markieren</caption>
+      <thead>
+        <tr><th class="criterion" scope="col">Beobachtbarer Klassenbefund</th><th class="choice-cell" scope="col">met</th><th class="choice-cell" scope="col">partly</th><th class="choice-cell" scope="col">not-met</th><th class="choice-cell" scope="col">not-observable</th></tr>
+      </thead>
+      <tbody>
+        <tr data-observation-id="prediction-used"><th scope="row">prediction-used: Vorhersage vor Ausführung genutzt</th><td><input id="prediction-used-met" type="radio" name="observation-prediction-used" value="met"><label for="prediction-used-met"><span class="visually-hidden">prediction-used met</span></label></td><td><input id="prediction-used-partly" type="radio" name="observation-prediction-used" value="partly"><label for="prediction-used-partly"><span class="visually-hidden">prediction-used partly</span></label></td><td><input id="prediction-used-not-met" type="radio" name="observation-prediction-used" value="not-met"><label for="prediction-used-not-met"><span class="visually-hidden">prediction-used not-met</span></label></td><td><input id="prediction-used-not-observable" type="radio" name="observation-prediction-used" value="not-observable"><label for="prediction-used-not-observable"><span class="visually-hidden">prediction-used not-observable</span></label></td></tr>
+        <tr data-observation-id="trace-explained"><th scope="row">trace-explained: Zustandsänderungen erklärt</th><td><input id="trace-explained-met" type="radio" name="observation-trace-explained" value="met"><label for="trace-explained-met"><span class="visually-hidden">trace-explained met</span></label></td><td><input id="trace-explained-partly" type="radio" name="observation-trace-explained" value="partly"><label for="trace-explained-partly"><span class="visually-hidden">trace-explained partly</span></label></td><td><input id="trace-explained-not-met" type="radio" name="observation-trace-explained" value="not-met"><label for="trace-explained-not-met"><span class="visually-hidden">trace-explained not-met</span></label></td><td><input id="trace-explained-not-observable" type="radio" name="observation-trace-explained" value="not-observable"><label for="trace-explained-not-observable"><span class="visually-hidden">trace-explained not-observable</span></label></td></tr>
+        <tr data-observation-id="first-deviation-localized"><th scope="row">first-deviation-localized: erste Abweichung lokalisiert</th><td><input id="first-deviation-localized-met" type="radio" name="observation-first-deviation-localized" value="met"><label for="first-deviation-localized-met"><span class="visually-hidden">first-deviation-localized met</span></label></td><td><input id="first-deviation-localized-partly" type="radio" name="observation-first-deviation-localized" value="partly"><label for="first-deviation-localized-partly"><span class="visually-hidden">first-deviation-localized partly</span></label></td><td><input id="first-deviation-localized-not-met" type="radio" name="observation-first-deviation-localized" value="not-met"><label for="first-deviation-localized-not-met"><span class="visually-hidden">first-deviation-localized not-met</span></label></td><td><input id="first-deviation-localized-not-observable" type="radio" name="observation-first-deviation-localized" value="not-observable"><label for="first-deviation-localized-not-observable"><span class="visually-hidden">first-deviation-localized not-observable</span></label></td></tr>
+        <tr data-observation-id="repair-hypothesis"><th scope="row">repair-hypothesis: Reparaturhypothese benannt</th><td><input id="repair-hypothesis-met" type="radio" name="observation-repair-hypothesis" value="met"><label for="repair-hypothesis-met"><span class="visually-hidden">repair-hypothesis met</span></label></td><td><input id="repair-hypothesis-partly" type="radio" name="observation-repair-hypothesis" value="partly"><label for="repair-hypothesis-partly"><span class="visually-hidden">repair-hypothesis partly</span></label></td><td><input id="repair-hypothesis-not-met" type="radio" name="observation-repair-hypothesis" value="not-met"><label for="repair-hypothesis-not-met"><span class="visually-hidden">repair-hypothesis not-met</span></label></td><td><input id="repair-hypothesis-not-observable" type="radio" name="observation-repair-hypothesis" value="not-observable"><label for="repair-hypothesis-not-observable"><span class="visually-hidden">repair-hypothesis not-observable</span></label></td></tr>
+        <tr data-observation-id="minimal-revision-retested"><th scope="row">minimal-revision-retested: minimale Änderung erneut geprüft</th><td><input id="minimal-revision-retested-met" type="radio" name="observation-minimal-revision-retested" value="met"><label for="minimal-revision-retested-met"><span class="visually-hidden">minimal-revision-retested met</span></label></td><td><input id="minimal-revision-retested-partly" type="radio" name="observation-minimal-revision-retested" value="partly"><label for="minimal-revision-retested-partly"><span class="visually-hidden">minimal-revision-retested partly</span></label></td><td><input id="minimal-revision-retested-not-met" type="radio" name="observation-minimal-revision-retested" value="not-met"><label for="minimal-revision-retested-not-met"><span class="visually-hidden">minimal-revision-retested not-met</span></label></td><td><input id="minimal-revision-retested-not-observable" type="radio" name="observation-minimal-revision-retested" value="not-observable"><label for="minimal-revision-retested-not-observable"><span class="visually-hidden">minimal-revision-retested not-observable</span></label></td></tr>
+        <tr data-observation-id="loop-decision-justified"><th scope="row">loop-decision-justified: Schleifenentscheidung begründet</th><td><input id="loop-decision-justified-met" type="radio" name="observation-loop-decision-justified" value="met"><label for="loop-decision-justified-met"><span class="visually-hidden">loop-decision-justified met</span></label></td><td><input id="loop-decision-justified-partly" type="radio" name="observation-loop-decision-justified" value="partly"><label for="loop-decision-justified-partly"><span class="visually-hidden">loop-decision-justified partly</span></label></td><td><input id="loop-decision-justified-not-met" type="radio" name="observation-loop-decision-justified" value="not-met"><label for="loop-decision-justified-not-met"><span class="visually-hidden">loop-decision-justified not-met</span></label></td><td><input id="loop-decision-justified-not-observable" type="radio" name="observation-loop-decision-justified" value="not-observable"><label for="loop-decision-justified-not-observable"><span class="visually-hidden">loop-decision-justified not-observable</span></label></td></tr>
+        <tr data-observation-id="systems-transfer"><th scope="row">systems-transfer: Systemklassen unterschieden</th><td><input id="systems-transfer-met" type="radio" name="observation-systems-transfer" value="met"><label for="systems-transfer-met"><span class="visually-hidden">systems-transfer met</span></label></td><td><input id="systems-transfer-partly" type="radio" name="observation-systems-transfer" value="partly"><label for="systems-transfer-partly"><span class="visually-hidden">systems-transfer partly</span></label></td><td><input id="systems-transfer-not-met" type="radio" name="observation-systems-transfer" value="not-met"><label for="systems-transfer-not-met"><span class="visually-hidden">systems-transfer not-met</span></label></td><td><input id="systems-transfer-not-observable" type="radio" name="observation-systems-transfer" value="not-observable"><label for="systems-transfer-not-observable"><span class="visually-hidden">systems-transfer not-observable</span></label></td></tr>
+        <tr data-observation-id="support-preserves-thinking"><th scope="row">support-preserves-thinking: Hilfen erhalten Denkhandlung</th><td><input id="support-preserves-thinking-met" type="radio" name="observation-support-preserves-thinking" value="met"><label for="support-preserves-thinking-met"><span class="visually-hidden">support-preserves-thinking met</span></label></td><td><input id="support-preserves-thinking-partly" type="radio" name="observation-support-preserves-thinking" value="partly"><label for="support-preserves-thinking-partly"><span class="visually-hidden">support-preserves-thinking partly</span></label></td><td><input id="support-preserves-thinking-not-met" type="radio" name="observation-support-preserves-thinking" value="not-met"><label for="support-preserves-thinking-not-met"><span class="visually-hidden">support-preserves-thinking not-met</span></label></td><td><input id="support-preserves-thinking-not-observable" type="radio" name="observation-support-preserves-thinking" value="not-observable"><label for="support-preserves-thinking-not-observable"><span class="visually-hidden">support-preserves-thinking not-observable</span></label></td></tr>
+        <tr data-observation-id="shared-consolidation"><th scope="row">shared-consolidation: gemeinsame Sicherung expliziert</th><td><input id="shared-consolidation-met" type="radio" name="observation-shared-consolidation" value="met"><label for="shared-consolidation-met"><span class="visually-hidden">shared-consolidation met</span></label></td><td><input id="shared-consolidation-partly" type="radio" name="observation-shared-consolidation" value="partly"><label for="shared-consolidation-partly"><span class="visually-hidden">shared-consolidation partly</span></label></td><td><input id="shared-consolidation-not-met" type="radio" name="observation-shared-consolidation" value="not-met"><label for="shared-consolidation-not-met"><span class="visually-hidden">shared-consolidation not-met</span></label></td><td><input id="shared-consolidation-not-observable" type="radio" name="observation-shared-consolidation" value="not-observable"><label for="shared-consolidation-not-observable"><span class="visually-hidden">shared-consolidation not-observable</span></label></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="phases-title">
+    <table class="phase-table">
+      <caption id="phases-title">Phasen und Zeit - ausschließlich Kürzel aus den Legenden eintragen</caption>
+      <thead><tr><th scope="col">Phase</th><th scope="col">durchgeführt</th><th scope="col">Zeitband</th><th scope="col">Abweichung</th></tr></thead>
+      <tbody>
+        <tr data-phase-id="LESSON-1"><th scope="row">LESSON-1</th><td>ja / nein</td><td><span class="code-line" data-closed-code="actual-band"></span></td><td><span class="code-line" data-closed-code="deviation"></span></td></tr>
+        <tr data-phase-id="LESSON-2"><th scope="row">LESSON-2</th><td>ja / nein</td><td><span class="code-line" data-closed-code="actual-band"></span></td><td><span class="code-line" data-closed-code="deviation"></span></td></tr>
+        <tr data-phase-id="LESSON-3"><th scope="row">LESSON-3</th><td>ja / nein</td><td><span class="code-line" data-closed-code="actual-band"></span></td><td><span class="code-line" data-closed-code="deviation"></span></td></tr>
+        <tr data-phase-id="LESSON-4"><th scope="row">LESSON-4</th><td>ja / nein</td><td><span class="code-line" data-closed-code="actual-band"></span></td><td><span class="code-line" data-closed-code="deviation"></span></td></tr>
+        <tr data-phase-id="LESSON-5"><th scope="row">LESSON-5</th><td>ja / nein</td><td><span class="code-line" data-closed-code="actual-band"></span></td><td><span class="code-line" data-closed-code="deviation"></span></td></tr>
+        <tr data-phase-id="LESSON-6"><th scope="row">LESSON-6</th><td>ja / nein / n.a.</td><td><span class="code-line" data-closed-code="actual-band"></span></td><td><span class="code-line" data-closed-code="deviation"></span></td></tr>
+      </tbody>
+    </table>
+    <p class="legend"><strong>Zeitband:</strong> U35 | 35-45 | 46-55 | O55 | NR. <strong>Abweichung:</strong> none | technical | support | orchestration | interruption | not-observable.</p>
+  </section>
+
+  <section class="lower-grid" aria-label="Geschlossene Begleitcodes">
+    <div>
+      <h2>Störungs- und Abbruchcodes - Mehrfachwahl möglich</h2>
+      <div class="disruptions">
+        <label for="d-wrong-build"><input id="d-wrong-build" type="checkbox" name="disruption-code" value="wrong-build">wrong-build</label>
+        <label for="d-preview-label-missing"><input id="d-preview-label-missing" type="checkbox" name="disruption-code" value="preview-label-missing">preview-label-missing</label>
+        <label for="d-startup-failure"><input id="d-startup-failure" type="checkbox" name="disruption-code" value="startup-failure">startup-failure</label>
+        <label for="d-interaction-loss"><input id="d-interaction-loss" type="checkbox" name="disruption-code" value="interaction-loss">interaction-loss</label>
+        <label for="d-state-loss"><input id="d-state-loss" type="checkbox" name="disruption-code" value="state-loss">state-loss</label>
+        <label for="d-import-export-failure"><input id="d-import-export-failure" type="checkbox" name="disruption-code" value="import-export-failure">import-export-failure</label>
+        <label for="d-offline-failure"><input id="d-offline-failure" type="checkbox" name="disruption-code" value="offline-failure">offline-failure</label>
+        <label for="d-update-failure"><input id="d-update-failure" type="checkbox" name="disruption-code" value="update-failure">update-failure</label>
+        <label for="d-screenreader-blocker"><input id="d-screenreader-blocker" type="checkbox" name="disruption-code" value="screenreader-blocker">screenreader-blocker</label>
+        <label for="d-keyboard-blocker"><input id="d-keyboard-blocker" type="checkbox" name="disruption-code" value="keyboard-blocker">keyboard-blocker</label>
+        <label for="d-touch-blocker"><input id="d-touch-blocker" type="checkbox" name="disruption-code" value="touch-blocker">touch-blocker</label>
+        <label for="d-layout-blocker"><input id="d-layout-blocker" type="checkbox" name="disruption-code" value="layout-blocker">layout-blocker</label>
+        <label for="d-network-policy-blocker"><input id="d-network-policy-blocker" type="checkbox" name="disruption-code" value="network-policy-blocker">network-policy-blocker</label>
+        <label for="d-lms-routing-blocker"><input id="d-lms-routing-blocker" type="checkbox" name="disruption-code" value="lms-routing-blocker">lms-routing-blocker</label>
+        <label for="d-unexpected-third-party-request"><input id="d-unexpected-third-party-request" type="checkbox" name="disruption-code" value="unexpected-third-party-request">unexpected-third-party-request</label>
+        <label for="d-privacy-contract-breach"><input id="d-privacy-contract-breach" type="checkbox" name="disruption-code" value="privacy-contract-breach">privacy-contract-breach</label>
+        <label for="d-instructional-time-collapse"><input id="d-instructional-time-collapse" type="checkbox" name="disruption-code" value="instructional-time-collapse">instructional-time-collapse</label>
+        <label for="d-other-closed-review-required"><input id="d-other-closed-review-required" type="checkbox" name="disruption-code" value="other-closed-review-required">other-closed-review-required</label>
+      </div>
+    </div>
+    <div class="closed-groups">
+      <div class="closed-group"><strong>Unterstützungsbedarf</strong><div class="closed-options"><input id="support-low" type="radio" name="support-demand" value="low"><label for="support-low">low</label><input id="support-medium" type="radio" name="support-demand" value="medium"><label for="support-medium">medium</label><input id="support-high" type="radio" name="support-demand" value="high"><label for="support-high">high</label><input id="support-not-observable" type="radio" name="support-demand" value="not-observable"><label for="support-not-observable">not-observable</label></div></div>
+      <div class="closed-group"><strong>Fallbackfunktion</strong><div class="closed-options"><input id="fallback-not-needed" type="radio" name="fallback-function" value="not-needed"><label for="fallback-not-needed">not-needed</label><input id="fallback-equivalent" type="radio" name="fallback-function" value="equivalent"><label for="fallback-equivalent">equivalent</label><input id="fallback-partial" type="radio" name="fallback-function" value="partial"><label for="fallback-partial">partial</label><input id="fallback-not-equivalent" type="radio" name="fallback-function" value="not-equivalent"><label for="fallback-not-equivalent">not-equivalent</label></div></div>
+      <div class="closed-group"><strong>Abbruchhandlung</strong><div class="closed-options"><input id="abort-continued" type="radio" name="abort-action" value="continued"><label for="abort-continued">continued</label><input id="abort-stopped" type="radio" name="abort-action" value="stopped"><label for="abort-stopped">stopped</label></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="destroy" data-destruction-reminder>Datenschutz: ausschließlich geschlossene Klassenaggregate; nach geprüfter Aggregatübertragung vernichten.</p>
+    <p data-media-rationale><strong>Medienbegründung:</strong> analog, damit die Aufmerksamkeit während der Beobachtung im Unterricht bleibt und der Nachweis unabhängig von der geprüften Anwendung entsteht.</p>
+  </footer>
+</body>
+</html>
