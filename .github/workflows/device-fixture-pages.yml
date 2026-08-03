@@ -7,6 +7,14 @@ on:
         description: Synthetic revision for a controlled device update
         required: true
         type: string
+      candidate_mode:
+        description: Candidate integrity for the fail-closed device check
+        required: true
+        default: valid
+        type: choice
+        options:
+          - valid
+          - broken-missing-offline
 
 concurrency:
   group: pages
@@ -36,6 +44,8 @@ jobs:
         run: npm run build:fixture:subpath
       - name: Verify build budgets and isolation
         run: npm run quality:build
+      - name: Prepare explicit device candidate
+        run: npm exec -- tsx scripts/prepare-device-candidate.ts apps/lernwerk-portal/dist ${{ inputs.candidate_mode }}
       - name: Reject an unfinalized service worker
         run: "! grep -q 'self.__WB_MANIFEST' apps/lernwerk-portal/dist/sw.js"
       - name: Configure GitHub Pages

@@ -42,6 +42,13 @@ test('publishes the synthetic device fixture manually with least privilege', asy
     required: true,
     type: 'string',
   });
+  expect(workflow.on.workflow_dispatch.inputs.candidate_mode).toEqual({
+    description: 'Candidate integrity for the fail-closed device check',
+    required: true,
+    default: 'valid',
+    type: 'choice',
+    options: ['valid', 'broken-missing-offline'],
+  });
   expect(workflow.concurrency).toEqual({
     group: 'pages',
     'cancel-in-progress': false,
@@ -64,6 +71,7 @@ test('publishes the synthetic device fixture manually with least privilege', asy
     'npm run test:platform',
     'npm run build:fixture:subpath',
     'npm run quality:build',
+    'npm exec -- tsx scripts/prepare-device-candidate.ts apps/lernwerk-portal/dist ${{ inputs.candidate_mode }}',
     "! grep -q 'self.__WB_MANIFEST' apps/lernwerk-portal/dist/sw.js",
   ]);
   expect(

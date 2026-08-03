@@ -15,6 +15,7 @@ Dieses Protokoll wird ausschließlich mit real beobachteten Gerätebefunden erg�
 | Kandidat | Commit `8f9e7f562c37f32d452244cb10db6da8d6097b49` |
 | Prüffassung | `https://h4r7w16.github.io/ium-lernwerk/` |
 | Bereitstellung | GitHub-Pages-Workflow `30790834978`, erfolgreich |
+| Kontrollierter Updatekandidat | `device-update-2026-08-03-1`, Workflow `30796505219`, erfolgreich |
 | HTTPS | erzwungen |
 | Inhalt | synthetische technische Referenz; keine Curriculumwirkung |
 
@@ -75,6 +76,18 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig
 
 Dieser Teilbefund belegt den realen Safari-/Service-Worker-/Web-Clip-Pfad auf dem verwalteten iPad. Exakte Geräte- und Richtlinienangaben bleiben noch zu ergänzen. Evidenzpfad: dieser Abschnitt als datensparsame Testnotiz der Auftraggeberbestätigung.
 
+### Runde 4 – Kontrollierte Aktualisierung
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen vierten Prüfrunde ohne gemeldete Abweichung:
+
+- der veröffentlichte Kandidat `device-update-2026-08-03-1` wurde als verfügbare Aktualisierung angezeigt;
+- vor der Aktivierung wurde der synthetische Zustand `Vor Update bestätigt` plus `Beta` lokal gespeichert;
+- die bewusst gewählte Aktion „Speichern und aktualisieren“ aktivierte den Kandidaten und lud die Seite neu;
+- Text und Auswahl blieben nach der Aktualisierung erhalten;
+- die aktualisierte Fassung blieb anschließend offline nutzbar.
+
+Dieser Teilbefund belegt die reale Updateaufforderung, explizite Nutzerentscheidung, Flush-vor-Aktivierung und Zustandserhaltung auf dem iPad. Evidenzpfad: dieser Abschnitt sowie GitHub-Pages-Lauf `30796505219`.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
@@ -91,7 +104,7 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 - [x] Offline nach Online-Erstaufruf: Portal, Modul und Offline-Rückfall laden erneut.
 - [x] Erster Offline-Aufruf ohne Cache: Browserverhalten ist dokumentiert und wird nicht als App-Leistung bewertet.
 - [x] Web-Clip beziehungsweise PWA-Installation: Startpfad und Scope stimmen.
-- [ ] Aktualisierung: Hinweis erscheint; Zustand wird vor der bestätigten Aktualisierung gesichert.
+- [x] Aktualisierung: Hinweis erscheint; Zustand wird vor der bestätigten Aktualisierung gesichert.
 - [ ] Fehlerhafte Aktualisierung: Die bisherige funktionsfähige Version bleibt nutzbar.
 
 ### Lokale Daten
