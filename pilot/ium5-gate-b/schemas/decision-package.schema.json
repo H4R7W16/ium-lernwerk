@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "decision-package.schema.json",
+  "title": "IUM5 Gate B decision package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documentType", "schemaVersion", "protocolId", "decisionId", "module", "build", "technicalEvidence", "exploratoryEvidence", "confirmationEvidence", "reviews", "retention", "derived"],
+  "properties": {
+    "documentType": {"const": "ium5-gate-b-decision-package"},
+    "schemaVersion": {"const": 1},
+    "protocolId": {"const": "IUM5-GATE-B-1"},
+    "decisionId": {"type": "string", "pattern": "^GB-DECISION-[A-Z0-9-]{8,40}$"},
+    "module": {"$ref": "technical-evidence.schema.json#/$defs/module"},
+    "build": {"$ref": "technical-evidence.schema.json#/$defs/build"},
+    "technicalEvidence": {"$ref": "technical-evidence.schema.json"},
+    "exploratoryEvidence": {"$ref": "pilot-evidence.schema.json"},
+    "confirmationEvidence": {"$ref": "pilot-evidence.schema.json"},
+    "reviews": {"$ref": "#/$defs/reviews"},
+    "retention": {"$ref": "#/$defs/retention"},
+    "derived": {"$ref": "#/$defs/derived"}
+  },
+  "$defs": {
+    "reviews": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pilotTeacher", "fachDidaktik", "engineeringAccessibilityPrivacy", "coordination", "commissioner"],
+      "properties": {
+        "pilotTeacher": {"enum": ["approved", "rejected", "not-run"]},
+        "fachDidaktik": {"enum": ["approved", "rejected", "not-run"]},
+        "engineeringAccessibilityPrivacy": {"enum": ["approved", "rejected", "not-run"]},
+        "coordination": {"enum": ["approved", "rejected", "not-run"]},
+        "commissioner": {"enum": ["review-pending", "accepted", "rejected"]}
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["paperAggregates", "digitalRealPackages"],
+      "properties": {
+        "paperAggregates": {"enum": ["destroyed", "not-used", "not-confirmed"]},
+        "digitalRealPackages": {"enum": ["scheduled-within-30-days", "deleted", "not-confirmed"]}
+      }
+    },
+    "derived": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["technicalEntry", "exploratoryResult", "confirmationResult", "recommendation", "productStatus", "deviceVerified"],
+      "properties": {
+        "technicalEntry": {"enum": ["pass", "fail", "limited-accepted", "not-evaluable"]},
+        "exploratoryResult": {"enum": ["pass", "revise-required", "not-evaluable"]},
+        "confirmationResult": {"enum": ["pass", "revise-required", "not-evaluable"]},
+        "recommendation": {"enum": ["eligible-for-working-release-review", "revise-required", "not-evaluable"]},
+        "productStatus": {"const": "working"},
+        "deviceVerified": {"const": "not-run"}
+      }
+    }
+  }
+}

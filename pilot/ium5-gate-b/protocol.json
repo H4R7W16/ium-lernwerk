@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "protocolId": "IUM5-GATE-B-1",
+  "toolVersion": "0.1.0",
+  "module": {
+    "id": "IUM-5-CORE-05",
+    "version": "0.1.0",
+    "status": "working",
+    "deviceVerified": "not-run"
+  },
+  "allowedRecommendation": "eligible-for-working-release-review",
+  "forbiddenRecommendations": ["reviewed", "standard", "released"],
+  "minimumLearnerResponses": 10,
+  "statusMutation": "forbidden",
+  "realEvidenceRepositoryPolicy": "outside-repository",
+  "retention": {
+    "paper": "destroy-after-verified-aggregation",
+    "digital": "delete-within-30-days-after-decision"
+  },
+  "technicalMatrix": [
+    {
+      "id": "TECH-IPAD-TOUCH",
+      "target": "managed-ipad-safari-touch",
+      "requiredChecks": ["regular-path", "local-first", "export", "import", "delete", "touch"]
+    },
+    {
+      "id": "TECH-IPAD-VO",
+      "target": "managed-ipad-safari-voiceover",
+      "requiredChecks": ["headings", "landmarks", "focus", "status", "text-scene", "trace", "errors"]
+    },
+    {
+      "id": "TECH-DESKTOP-CHROMIUM",
+      "target": "managed-desktop-chromium-keyboard",
+      "requiredChecks": ["regular-path", "keyboard", "reflow", "zoom", "file-dialogs"]
+    },
+    {
+      "id": "TECH-DESKTOP-FIREFOX",
+      "target": "managed-desktop-firefox-keyboard",
+      "requiredChecks": ["regular-path", "keyboard", "reflow", "zoom", "file-dialogs"]
+    },
+    {
+      "id": "TECH-NET-OFFLINE-UPDATE",
+      "target": "school-network-offline-update",
+      "requiredChecks": ["first-load", "offline-reload", "controlled-update", "failed-update", "no-third-party"]
+    },
+    {
+      "id": "TECH-LMS-ROUTE",
+      "target": "real-school-lms-route",
+      "requiredChecks": ["link-or-iframe", "own-tab-fallback", "policy-routing"]
+    }
+  ],
+  "pilotRuns": [
+    {
+      "runKind": "exploratory",
+      "pathKind": "regular-225",
+      "minutes": 225,
+      "requiredPhaseIds": ["LESSON-1", "LESSON-2", "LESSON-3", "LESSON-4", "LESSON-5"],
+      "contextRequirement": "first-class"
+    },
+    {
+      "runKind": "confirmation",
+      "pathKind": "extended-270",
+      "minutes": 270,
+      "requiredPhaseIds": ["LESSON-1", "LESSON-2", "LESSON-3", "LESSON-4", "LESSON-5", "LESSON-6"],
+      "contextRequirement": "different-class"
+    }
+  ],
+  "observationCriteria": [
+    {"id": "prediction-used", "label": "Vorhersage wird vor der Ausführung fachlich genutzt."},
+    {"id": "trace-explained", "label": "Laufspuren erklären Zustandsänderungen."},
+    {"id": "first-deviation-localized", "label": "Die erste Abweichung wird lokalisiert."},
+    {"id": "repair-hypothesis", "label": "Reparaturen folgen einer benannten Hypothese."},
+    {"id": "minimal-revision-retested", "label": "Minimale Revisionen werden erneut ausgeführt."},
+    {"id": "loop-decision-justified", "label": "Die Schleifenentscheidung wird begründet."},
+    {"id": "systems-transfer", "label": "Algorithmische und nichtalgorithmische Systeme werden unterschieden."},
+    {"id": "support-preserves-thinking", "label": "Hilfen unterstützen, ohne die Lernhandlung zu ersetzen."},
+    {"id": "shared-consolidation", "label": "Die gemeinsame Sicherung expliziert Begriffe und Strategien."}
+  ],
+  "learnerPulsePrompts": [
+    {"id": "clarity", "prompt": "Ich wusste, was ich als Nächstes tun sollte."},
+    {"id": "cognitive-engagement", "prompt": "Vorhersage und Laufspur haben mich zum Nachdenken über den Ablauf gebracht."},
+    {"id": "support-usefulness", "prompt": "Die Hilfen haben mir weitergeholfen, ohne mir die Lösung abzunehmen."}
+  ],
+  "resultEnums": {
+    "technicalRow": ["pass", "fail", "blocked"],
+    "technicalEntry": ["pass", "fail", "limited-accepted", "not-evaluable"],
+    "pilot": ["pass", "revise-required", "not-evaluable"],
+    "recommendation": ["eligible-for-working-release-review", "revise-required", "not-evaluable"]
+  },
+  "contextEnums": {
+    "groupSizeBand": ["10-19", "20-29", "30-plus", "not-recorded"],
+    "seasonWindow": ["school-year-start", "autumn", "winter", "spring", "summer", "not-recorded"],
+    "contextRelation": ["first-class", "different-class-same-teacher", "different-class-different-teacher"]
+  },
+  "disruptionCodes": [
+    "wrong-build",
+    "preview-label-missing",
+    "startup-failure",
+    "interaction-loss",
+    "state-loss",
+    "import-export-failure",
+    "offline-failure",
+    "update-failure",
+    "screenreader-blocker",
+    "keyboard-blocker",
+    "touch-blocker",
+    "layout-blocker",
+    "network-policy-blocker",
+    "lms-routing-blocker",
+    "unexpected-third-party-request",
+    "privacy-contract-breach",
+    "instructional-time-collapse",
+    "other-closed-review-required"
+  ],
+  "prohibitedFieldNames": [
+    "name",
+    "email",
+    "school",
+    "classCode",
+    "exactDate",
+    "ipAddress",
+    "macAddress",
+    "serialNumber",
+    "deviceId",
+    "freeText",
+    "score",
+    "grade",
+    "studentId",
+    "learningProduct",
+    "telemetry",
+    "individualResponse",
+    "screenshot",
+    "photo",
+    "audio",
+    "video"
+  ]
+}

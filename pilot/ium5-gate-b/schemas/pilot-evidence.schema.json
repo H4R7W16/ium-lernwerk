@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pilot-evidence.schema.json",
+  "title": "IUM5 Gate B pilot evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documentType", "schemaVersion", "protocolId", "evidenceId", "module", "build", "runKind", "pathKind", "context", "phases", "observations", "timeFit", "sharedConsolidation", "fallback", "supportDemand", "disruptions", "learnerPulse", "privacy", "result", "retentionClass"],
+  "properties": {
+    "documentType": {"const": "ium5-gate-b-pilot-evidence"},
+    "schemaVersion": {"const": 1},
+    "protocolId": {"const": "IUM5-GATE-B-1"},
+    "evidenceId": {"type": "string", "pattern": "^GB-PILOT-[A-Z0-9-]{8,40}$"},
+    "module": {"$ref": "technical-evidence.schema.json#/$defs/module"},
+    "build": {"$ref": "technical-evidence.schema.json#/$defs/build"},
+    "runKind": {"enum": ["exploratory", "confirmation"]},
+    "pathKind": {"enum": ["regular-225", "extended-270"]},
+    "context": {"$ref": "#/$defs/context"},
+    "phases": {"type": "array", "minItems": 5, "maxItems": 6, "items": {"$ref": "#/$defs/phase"}},
+    "observations": {"type": "array", "minItems": 9, "maxItems": 9, "items": {"$ref": "#/$defs/observation"}},
+    "timeFit": {"enum": ["pass", "revise-required", "not-evaluable"]},
+    "sharedConsolidation": {"enum": ["completed", "not-completed", "not-observable"]},
+    "fallback": {"$ref": "#/$defs/fallback"},
+    "supportDemand": {"enum": ["low", "medium", "high", "not-observable"]},
+    "disruptions": {"type": "array", "maxItems": 12, "items": {"$ref": "#/$defs/disruption"}},
+    "learnerPulse": {"$ref": "#/$defs/learnerPulse"},
+    "privacy": {"$ref": "#/$defs/privacy"},
+    "result": {"enum": ["pass", "revise-required", "not-evaluable"]},
+    "retentionClass": {"const": "outside-repository-until-decision-plus-30-days"}
+  },
+  "$defs": {
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gradeBand", "groupSizeBand", "seasonWindow", "contextRelation"],
+      "properties": {
+        "gradeBand": {"const": "grade-5"},
+        "groupSizeBand": {"enum": ["10-19", "20-29", "30-plus", "not-recorded"]},
+        "seasonWindow": {"enum": ["school-year-start", "autumn", "winter", "spring", "summer", "not-recorded"]},
+        "contextRelation": {"enum": ["first-class", "different-class-same-teacher", "different-class-different-teacher"]}
+      }
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "enacted", "plannedMinutes", "actualBand", "deviationCode"],
+      "properties": {
+        "id": {"enum": ["LESSON-1", "LESSON-2", "LESSON-3", "LESSON-4", "LESSON-5", "LESSON-6"]},
+        "enacted": {"type": "boolean"},
+        "plannedMinutes": {"const": 45},
+        "actualBand": {"enum": ["under-35", "35-45", "46-55", "over-55", "not-recorded"]},
+        "deviationCode": {"enum": ["none", "technical", "support", "orchestration", "interruption", "not-observable"]}
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "band"],
+      "properties": {
+        "id": {"enum": ["prediction-used", "trace-explained", "first-deviation-localized", "repair-hypothesis", "minimal-revision-retested", "loop-decision-justified", "systems-transfer", "support-preserves-thinking", "shared-consolidation"]},
+        "band": {"enum": ["met", "partly", "not-met", "not-observable"]}
+      }
+    },
+    "fallback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["used", "function"],
+      "properties": {
+        "used": {"type": "boolean"},
+        "function": {"enum": ["not-needed", "equivalent", "partial", "not-equivalent"]}
+      }
+    },
+    "disruption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "severity", "status"],
+      "properties": {
+        "code": {"$ref": "technical-evidence.schema.json#/$defs/disruptionCode"},
+        "severity": {"enum": ["low", "medium", "high", "critical"]},
+        "status": {"enum": ["resolved", "unresolved"]}
+      }
+    },
+    "pulseItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "validResponses", "agree", "partly", "disagree", "noAnswer"],
+      "properties": {
+        "id": {"enum": ["clarity", "cognitive-engagement", "support-usefulness"]},
+        "status": {"enum": ["reported", "suppressed", "not-collected"]},
+        "validResponses": {"type": "integer", "minimum": 0, "maximum": 60},
+        "agree": {"type": "integer", "minimum": 0, "maximum": 60},
+        "partly": {"type": "integer", "minimum": 0, "maximum": 60},
+        "disagree": {"type": "integer", "minimum": 0, "maximum": 60},
+        "noAnswer": {"type": "integer", "minimum": 0, "maximum": 60}
+      }
+    },
+    "learnerPulse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "items"],
+      "properties": {
+        "status": {"enum": ["reported", "partly-suppressed", "suppressed", "not-collected"]},
+        "items": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/pulseItem"}}
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["breachObserved", "prohibitedDataCollected", "paperSheetStatus", "digitalPackageStorage"],
+      "properties": {
+        "breachObserved": {"type": "boolean"},
+        "prohibitedDataCollected": {"type": "boolean"},
+        "paperSheetStatus": {"enum": ["not-used", "destroyed", "pending"]},
+        "digitalPackageStorage": {"const": "outside-repository"}
+      }
+    }
+  }
+}
