@@ -58,7 +58,10 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
 <section
   class="algorithm-workbench"
   aria-labelledby="workbench-title"
+  aria-busy="true"
+  inert
   data-algorithm-workbench
+  data-initialization-state="initializing"
   data-module-id={moduleId}
   data-module-version={moduleVersion}
 >

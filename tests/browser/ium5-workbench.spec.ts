@@ -1,5 +1,18 @@
 import { expect, test } from '@playwright/test';
 
+test('holds an early scenario click until the workbench is ready', async ({ page }) => {
+  await page.route('**/_astro/*.js', async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 1_000));
+    await route.continue();
+  });
+
+  await page.goto('/module/ium-5-core-05/', { waitUntil: 'commit' });
+  await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
+
+  await expect(page.getByLabel('Wiederholungszahl')).toBeVisible();
+  await expect(page.locator('[data-active-scenario]')).toContainText('error-repeat-count');
+});
+
 async function confirmPrediction(
   page: import('@playwright/test').Page,
   position: string,
