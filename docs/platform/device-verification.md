@@ -68,4 +68,3 @@ Alle Felder bleiben absichtlich offen, bis eine reale Prüfung stattgefunden hat
 | Nacharbeit / verantwortliche Rolle | — |
 
 `device-verified` darf erst auf `passed` gesetzt werden, wenn alle erforderlichen Zielkonfigurationen geprüft, offene Fehler geschlossen oder ausdrücklich als akzeptierte Einschränkung entschieden und die Evidenzpfade kontrolliert wurden.
-
