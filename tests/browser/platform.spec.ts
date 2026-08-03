@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 
 async function fillAndConfirmPersistentSave(page: Page, value: string): Promise<void> {
   const input = page.getByLabel('Synthetischer Text');
+  await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
   await input.fill(value);
   await input.dispatchEvent('change');
   await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
