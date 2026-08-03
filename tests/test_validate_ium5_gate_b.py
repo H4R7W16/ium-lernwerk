@@ -405,6 +405,7 @@ class ValidatorTests(unittest.TestCase):
             ("teacher@example.org", "PRIVACY_EMAIL_ADDRESS"),
             ("2001:db8::1", "PRIVACY_IP_ADDRESS"),
             ("Z" * 40, "PRIVACY_SECRET_40"),
+            (f"token={'Z' * 40};redacted", "PRIVACY_SECRET_40"),
         )
         for value, expected_code in cases:
             with self.subTest(expected_code=expected_code):

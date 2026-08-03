@@ -57,7 +57,7 @@ SYNTHETIC_EXPECTATIONS = {
 EMAIL_RE = re.compile(r"(?<![\w.+-])[\w.+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?![\w.-])")
 IPV4_RE = re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
 IPV6_TOKEN_RE = re.compile(r"(?<![0-9A-Fa-f:])[0-9A-Fa-f:]{2,}(?![0-9A-Fa-f:])")
-SECRET_40_RE = re.compile(r"^[A-Za-z0-9]{40}$")
+SECRET_40_RE = re.compile(r"(?<![A-Za-z0-9])[A-Za-z0-9]{40}(?![A-Za-z0-9])")
 GIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
 
@@ -261,7 +261,7 @@ def scan_forbidden_content(
         if _contains_ip_address(value):
             issues.append(Issue("PRIVACY_IP_ADDRESS", pointer, "IP address detected"))
         is_typed_git_sha = pointer.endswith("/build/buildRevision") and GIT_SHA_RE.fullmatch(value)
-        if SECRET_40_RE.fullmatch(value) and not is_typed_git_sha:
+        if SECRET_40_RE.search(value) and not is_typed_git_sha:
             issues.append(Issue("PRIVACY_SECRET_40", pointer, "40-character secret candidate detected"))
     return issues
 
