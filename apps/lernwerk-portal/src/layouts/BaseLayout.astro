@@ -8,7 +8,10 @@ interface Props {
 
 const { title } = Astro.props;
 const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
+const publicationMode = import.meta.env.PUBLIC_IUM_PUBLICATION_MODE ?? 'development';
 const buildRevision = import.meta.env.PUBLIC_IUM_BUILD_REVISION ?? 'stable';
+const previewId = import.meta.env.PUBLIC_IUM_PREVIEW_ID ?? '';
+const isGateBPreview = publicationMode === 'gate-b-preview';
 ---
 
 <!doctype html>
@@ -17,11 +20,21 @@ const buildRevision = import.meta.env.PUBLIC_IUM_BUILD_REVISION ?? 'stable';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    {isGateBPreview && <meta name="robots" content="noindex,nofollow,noarchive" />}
+    {isGateBPreview && <meta name="ium-publication-mode" content={publicationMode} />}
     <meta name="ium-build-revision" content={buildRevision} />
+    {isGateBPreview && <meta name="ium-preview-id" content={previewId} />}
+    {isGateBPreview && <meta name="ium-product-status" content="working" />}
+    {isGateBPreview && <meta name="ium-device-verified" content="not-run" />}
     <title>{title} · IuM-Lernwerk</title>
   </head>
   <body>
     <a class="skip-link" href="#hauptinhalt">Zum Hauptinhalt</a>
+    {isGateBPreview && (
+      <aside class="gate-b-preview" data-gate-b-preview role="status">
+        Gate-B-Prüffassung – keine Unterrichts- oder Produktfreigabe
+      </aside>
+    )}
     <header class="site-header">
       <a class="brand" href={base}>IuM-Lernwerk</a>
       <nav aria-label="Hauptnavigation">
