@@ -1,5 +1,5 @@
 import { createServer, type Server } from 'node:http';
-import { mkdtemp, readFile, rm, stat } from 'node:fs/promises';
+import { copyFile, cp, mkdtemp, readFile, readdir, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { extname, join, resolve } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
@@ -18,6 +18,37 @@ async function waitForOfflineReady(page: Page): Promise<void> {
   );
   await page.reload();
   await expect.poll(() => page.evaluate(() => navigator.serviceWorker.controller !== null)).toBe(true);
+}
+
+async function publishCandidateBuild(options: {
+  buildRevision: string;
+  removeBeforeWorker?: string[];
+}): Promise<void> {
+  const candidateOutput = await mkdtemp(join(tmpdir(), 'ium-update-candidate-'));
+  try {
+    await buildPortalToDirectory({
+      profile: 'fixture',
+      base: '/',
+      rootDir: repoRoot,
+      outputDir: candidateOutput,
+      buildRevision: options.buildRevision,
+    });
+    for (const entry of await readdir(candidateOutput, { withFileTypes: true })) {
+      if (entry.name === 'sw.js' || entry.name === '.vite-cache') continue;
+      await cp(
+        resolve(candidateOutput, entry.name),
+        resolve(rootOutput, entry.name),
+        { recursive: entry.isDirectory(), force: true },
+      );
+    }
+    for (const relativePath of options.removeBeforeWorker ?? []) {
+      await rm(resolve(rootOutput, relativePath), { force: true });
+    }
+    // A static release exposes its complete assets before its update entry point.
+    await copyFile(resolve(candidateOutput, 'sw.js'), resolve(rootOutput, 'sw.js'));
+  } finally {
+    await rm(candidateOutput, { recursive: true, force: true });
+  }
 }
 
 test('confirmed online install supports offline work, export and fallback', async ({ context, page }) => {
@@ -94,13 +125,7 @@ test('a waiting update activates only after the active runtime flushes', async (
   await page.goto('/module/test-platform-reference/');
   await waitForOfflineReady(page);
 
-  await buildPortalToDirectory({
-    profile: 'fixture',
-    base: '/',
-    rootDir: repoRoot,
-    outputDir: rootOutput,
-    buildRevision: 'candidate-2',
-  });
+  await publishCandidateBuild({ buildRevision: 'candidate-2' });
   await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.ready;
     await registration.update();
@@ -121,14 +146,10 @@ test('a candidate with a missing precache asset fails closed', async ({ context,
   await page.goto('/module/test-platform-reference/');
   await waitForOfflineReady(page);
 
-  await buildPortalToDirectory({
-    profile: 'fixture',
-    base: '/',
-    rootDir: repoRoot,
-    outputDir: rootOutput,
+  await publishCandidateBuild({
     buildRevision: 'candidate-broken',
+    removeBeforeWorker: ['offline/index.html'],
   });
-  await rm(resolve(rootOutput, 'offline/index.html'));
 
   const result = await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.ready;
