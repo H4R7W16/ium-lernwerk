@@ -2,15 +2,15 @@
 
 ## Ergebnis und Aussagegrenze
 
-Das freigegebene Plattformfundament ist mit dem geprüften Implementierungsstand `5fb5d28` automatisiert verifiziert und erreicht den Status `implemented`. Es umfasst die contract-first Workspace-Architektur, einen production-empty Portalbuild, ein strikt isoliertes synthetisches Referenzmodul, Local-First-Zustand, Import/Export/Löschen, statische Root-/Subpath-Builds, kontrollierten Offline-/Updatebetrieb, Barrierefreiheitsverträge, Lizenz-/SBOM-Prüfung und GitHub-CI.
+Das freigegebene Plattformfundament ist mit dem geprüften Implementierungsstand `215c5a1` automatisiert verifiziert und erreicht den Status `implemented`. Es umfasst die contract-first Workspace-Architektur, einen production-empty Portalbuild, ein strikt isoliertes synthetisches Referenzmodul, Local-First-Zustand, Import/Export/Löschen, statische Root-/Subpath-Builds, kontrollierten Offline-/Updatebetrieb, Barrierefreiheitsverträge, Lizenz-/SBOM-Prüfung und GitHub-CI.
 
 Diese Aussage ist technisch. Sie belegt weder reale Unterrichtswirksamkeit noch Safari auf einem verwalteten iPad, Schulnetz-, MDM-, Web-Clip-, Filter- oder LMS-Verhalten. `device-verified` bleibt deshalb ausdrücklich `not-run`; Phase 2 bleibt blockiert.
 
 ## Reproduktionsstand
 
 - Ausgangscommit: `b00971e59992bae29eb20646fa9248c7f6e1d2b0`
-- geprüfter Implementierungscommit: `5fb5d28` (`main` nach Fast-forward und plattformübergreifender CI-Nacharbeit)
-- Branch: `feat/ium-phase1-platform`
+- geprüfter Implementierungscommit: `215c5a1` (`main` nach plattformübergreifender CI-Nacharbeit)
+- Branch: `main`
 - Node.js: `22.20.0`
 - npm: `10.9.3`
 - Astro: `7.1.6`
@@ -30,7 +30,7 @@ Die abschließende Prüfung begann mit `npm ci`: 656 Pakete wurden installiert, 
 | --- | --- |
 | Verifikationskette | 19/19 Schritte bestanden |
 | Architekturgrenzen | 6/6 Workspaces bestanden |
-| Plattformtests | 37/37 bestanden |
+| Plattformtests | 39/39 bestanden |
 | Browser-Datenflüsse | 18/18 bestanden |
 | Offline-/Update-Szenarien | 5/5 bestanden |
 | Barrierefreiheitsszenarien | 11/11 bestanden |
@@ -84,6 +84,8 @@ Der Audit fand einen Testdefekt: Ein fälschlich auf `passed` gesetztes Geräte-
 Der erste integrierte Lauf auf einem frischen `main` fand zusätzlich eine Clean-Clone-Lücke: `contracts:check` erwartete ignorierte generierte Typdateien. Commit `8e0c092` erzeugt diese vor dem weiterhin rein vergleichenden `--check`-Schritt. Der Regressionstest wurde rot-grün ausgeführt; anschließend bestand `npm ci && npm run verify:phase1` auf `main` ohne vorab vorhandene generierte Verträge. Weitere Produktbefunde entstanden nicht.
 
 Der erste GitHub-Linux-Lauf fand zwei weitere Portabilitätsgrenzen: Python-Versionen klassifizierten die Unicode-Join-Control-Zeichen U+200C/U+200D unterschiedlich, und Linux installiert zusätzliche build-only `sharp-libvips`-Pakete. `eb47e02` macht die Textgrenze Unicode-versionsdeterministisch und ergänzt eine eng begrenzte LGPL-Buildausnahme mit Regressionstest. Ein anschließend lokal sichtbar gewordener Test-Race beim globalen Löschen wurde in `5fb5d28` durch Warten auf den autoritativen Speicherstatus beseitigt; 15 Wiederholungsläufe in drei Engines und danach der vollständige Browserlauf waren grün.
+
+Der zweite GitHub-Linux-Lauf zeigte im Offline-Job eine Integrationsgrenze zwischen Astro und `vite-plugin-pwa`: Der erzeugte Kandidaten-Worker konnte noch den nicht injizierten Platzhalter `self.__WB_MANIFEST` enthalten und scheiterte deshalb bei der Service-Worker-Auswertung. `215c5a1` ergänzt einen deterministischen Post-Build-Finalisierer. Er injiziert das Manifest ausschließlich, wenn genau ein Platzhalter verblieben ist, prüft dessen Entfernung und lässt bereits korrekt injizierte Worker byte-identisch. Zwei neue Regressionstests sichern beide Pfade; die vollständige lokale Verifikation bestand danach mit 39 Plattformtests.
 
 ## Lokaler Chromium-Sicht- und Bediencheck
 
