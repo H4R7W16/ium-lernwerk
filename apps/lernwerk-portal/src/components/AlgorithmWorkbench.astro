@@ -110,9 +110,8 @@ const resourceJson = JSON.stringify(resources).replace(
         <button type="button" data-insert-command="drop">Lege ab einfügen</button>
         <button type="button" data-insert-command="repeat">Wiederholung einfügen</button>
       </div>
-      <ol aria-label="Algorithmus" data-algorithm-list>
-        <li data-empty-algorithm>Noch keine Anweisung eingefügt.</li>
-      </ol>
+      <ol aria-label="Algorithmus" data-algorithm-list></ol>
+      <p data-empty-algorithm>Noch keine Anweisung eingefügt.</p>
       <p role="alert" data-editor-error hidden></p>
     </section>
   </div>
@@ -274,6 +273,7 @@ const resourceJson = JSON.stringify(resources).replace(
   <section aria-labelledby="local-state-title">
     <h3 id="local-state-title">Lokaler Arbeitsstand</h3>
     <p data-save-status role="status">Wird vorbereitet</p>
+    <p data-state-error role="alert" hidden></p>
     <p id="ium5-export-sensitivity-hint">
       Exportdateien können Freitext oder Lernprodukte enthalten. Prüfe sie vor dem
       Teilen und veröffentliche sie nicht ungeprüft.

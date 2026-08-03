@@ -37,11 +37,11 @@ export function renderAlgorithm(
   algorithm: Algorithm,
 ): void {
   list.replaceChildren();
+  const empty = list.parentElement?.querySelector<HTMLElement>('[data-empty-algorithm]');
+  if (empty) {
+    empty.hidden = algorithm.length > 0;
+  }
   if (algorithm.length === 0) {
-    const empty = document.createElement('li');
-    empty.textContent = 'Noch keine Anweisung eingefügt.';
-    empty.dataset.emptyAlgorithm = '';
-    list.append(empty);
     return;
   }
 
