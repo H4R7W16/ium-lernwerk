@@ -15,5 +15,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2 id="delete-all-title">Alle Lernwerkdaten löschen</h2>
     <p>Diese Aktion entfernt alle lokalen Arbeitsstände erst nach deiner Bestätigung.</p>
     <button type="button" class="danger" data-delete-all>Alle lokalen Daten löschen</button>
+    <dialog aria-labelledby="delete-all-dialog-title" data-delete-all-dialog>
+      <h3 id="delete-all-dialog-title">Alle lokalen Daten löschen?</h3>
+      <p>Diese Aktion betrifft alle Arbeitsstände dieses Lernwerks auf diesem Gerät.</p>
+      <div class="actions">
+        <button type="button" class="danger" data-delete-all-confirm>Alle Daten löschen</button>
+        <button type="button" data-delete-all-cancel>Abbrechen</button>
+      </div>
+    </dialog>
   </section>
 </BaseLayout>
+
+<script>
+  import { createStateRepository } from '@ium/local-state';
+  import { connectGlobalDataControls } from '@ium/ui-components/controllers/data-controls';
+  const selection = await createStateRepository({ preferredMode: 'persistent' });
+  void connectGlobalDataControls({
+    mode: selection.mode,
+    ...(selection.warning === undefined ? {} : { warning: selection.warning }),
+    deleteAll: () => selection.repository.deleteAll(),
+  });
+</script>

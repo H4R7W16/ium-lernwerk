@@ -1,0 +1,80 @@
+---
+interface Props {
+  moduleId: string;
+  moduleVersion: string;
+}
+
+const { moduleId, moduleVersion } = Astro.props;
+---
+
+<section
+  class="fixture-workspace"
+  aria-labelledby="fixture-title"
+  data-fixture-workspace
+  data-module-id={moduleId}
+  data-module-version={moduleVersion}
+>
+  <h2 id="fixture-title" tabindex="-1">Technische Systemprobe</h2>
+  <p>Nur synthetische Eingaben; keine Unterrichts- oder Curriculumwirkung.</p>
+  <p><a href="?storage=volatile">Bewusst nur für diese Sitzung arbeiten</a></p>
+
+  <form data-fixture-form>
+    <div class="field">
+      <label for="fixture-text">Synthetischer Text</label>
+      <input id="fixture-text" name="text" type="text" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label for="fixture-choice">Synthetische Auswahl</label>
+      <select id="fixture-choice" name="choice">
+        <option value="">Bitte wählen</option>
+        <option value="alpha">Alpha</option>
+        <option value="beta">Beta</option>
+      </select>
+    </div>
+  </form>
+
+  <p class="save-status" role="status" data-save-status>Wird vorbereitet</p>
+  <div class="actions">
+    <button type="button" data-fixture-export>Exportieren</button>
+    <label class="file-action">
+      Importdatei auswählen
+      <input type="file" accept="application/json,.json" data-fixture-import />
+    </label>
+    <button type="button" class="danger" data-fixture-delete>Arbeitsstand löschen</button>
+  </div>
+
+  <section class="copy-fallback" aria-labelledby="copy-fallback-title" data-copy-fallback hidden>
+    <h3 id="copy-fallback-title">Export kopieren</h3>
+    <p>Der Dateidownload ist hier blockiert. Kopiere denselben validierten Inhalt.</p>
+    <label for="copy-fallback-text">Export zum Kopieren</label>
+    <textarea id="copy-fallback-text" rows="8" readonly data-copy-fallback-text></textarea>
+  </section>
+
+  <dialog aria-labelledby="import-dialog-title" data-import-dialog>
+    <h3 id="import-dialog-title">Import prüfen</h3>
+    <dl>
+      <dt>Modul</dt><dd data-preview-module></dd>
+      <dt>Version</dt><dd data-preview-version></dd>
+      <dt>Gespeichert</dt><dd data-preview-saved></dd>
+      <dt>Felder</dt><dd data-preview-fields></dd>
+    </dl>
+    <div class="actions">
+      <button type="button" data-import-confirm>Import übernehmen</button>
+      <button type="button" data-import-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+
+  <dialog aria-labelledby="delete-dialog-title" data-delete-dialog>
+    <h3 id="delete-dialog-title">Arbeitsstand löschen?</h3>
+    <p>Der aktive lokale Arbeitsstand wird nach Bestätigung entfernt.</p>
+    <div class="actions">
+      <button type="button" class="danger" data-delete-confirm>Löschen bestätigen</button>
+      <button type="button" data-delete-cancel>Abbrechen</button>
+    </div>
+  </dialog>
+</section>
+
+<script>
+  import { connectFixtureWorkspace } from '../controllers/fixture-workspace.js';
+  void connectFixtureWorkspace();
+</script>

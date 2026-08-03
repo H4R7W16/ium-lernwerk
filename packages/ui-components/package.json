@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./components/*": "./src/components/*.astro",
+    "./controllers/*": "./src/controllers/*.ts",
     "./styles/*": "./src/styles/*"
   }
 }

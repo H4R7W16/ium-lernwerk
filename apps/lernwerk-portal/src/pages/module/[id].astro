@@ -3,6 +3,7 @@ import ConnectionStatus from '@ium/ui-components/components/ConnectionStatus';
 import ErrorSummary from '@ium/ui-components/components/ErrorSummary';
 import StorageStatus from '@ium/ui-components/components/StorageStatus';
 import UpdatePrompt from '@ium/ui-components/components/UpdatePrompt';
+import FixtureWorkspace from '../../components/FixtureWorkspace.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import registry from '../../generated/module-registry.json';
 
@@ -26,8 +27,5 @@ const { module } = Astro.props;
   </div>
   <ErrorSummary />
   <UpdatePrompt />
-  <section aria-labelledby="fixture-title">
-    <h2 id="fixture-title">Technischer Platzhalter</h2>
-    <p>Die interaktive Systemprobe wird im nächsten vertikalen Lauf ergänzt.</p>
-  </section>
+  <FixtureWorkspace moduleId={module.id} moduleVersion={module.version} />
 </BaseLayout>

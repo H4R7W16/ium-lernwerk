@@ -20,7 +20,8 @@
     "build:fixture": "tsx scripts/build-portal.ts fixture /",
     "build:fixture:subpath": "tsx scripts/build-portal.ts fixture /ium-lernwerk/",
     "check:astro": "tsx scripts/check-astro.ts",
-    "preview:fixture": "npm run build:fixture && astro preview --root apps/lernwerk-portal --host 127.0.0.1 --port 4321",
+    "preview:fixture": "tsx scripts/preview-portal.ts fixture / 4321",
+    "test:browser": "playwright test tests/browser/platform.spec.ts",
     "typecheck": "npm run contracts:generate && tsc -b --pretty false",
     "test:platform": "npm run contracts:generate && vitest run",
     "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\""

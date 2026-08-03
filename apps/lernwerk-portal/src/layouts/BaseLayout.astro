@@ -33,5 +33,9 @@ const base = import.meta.env.BASE_URL;
     <footer>
       <p>Offenes Lernwerk · Inhalte CC BY-SA 4.0 · Code MIT</p>
     </footer>
+    <script>
+      import { connectStatusAnnouncers } from '@ium/ui-components/controllers/status-announcer';
+      connectStatusAnnouncers();
+    </script>
   </body>
 </html>

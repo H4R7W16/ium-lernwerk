@@ -118,6 +118,56 @@ h1 {
   list-style: none;
 }
 
+.fixture-workspace,
+dialog {
+  max-inline-size: 46rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 0.125rem solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+
+dialog::backdrop {
+  background: rgb(15 23 42 / 70%);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  margin-block: 1rem;
+}
+
+input,
+select,
+textarea {
+  min-block-size: 2.75rem;
+  max-inline-size: 32rem;
+  padding: 0.6rem;
+  border: 0.125rem solid var(--line);
+  border-radius: 0.4rem;
+  background: white;
+  color: inherit;
+  font: inherit;
+}
+
+.save-status {
+  font-weight: 800;
+}
+
+.copy-fallback {
+  margin-block-start: 1rem;
+  padding: 1rem;
+  border: 0.125rem solid var(--accent);
+  border-radius: 0.75rem;
+}
+
+.copy-fallback textarea {
+  display: block;
+  inline-size: 100%;
+  margin-block-start: 0.5rem;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .skip-link {
     transition: transform 120ms ease-out;
