@@ -24,3 +24,16 @@ export {
   type ParseIssue,
   type ParseResult,
 } from './validation.js';
+export {
+  parseWorkbenchResources,
+  TRANSFER_CASE_IDS,
+  WORKBENCH_SCENARIO_IDS,
+} from './resources.js';
+export type {
+  LearningPhaseId,
+  LessonSegment,
+  TransferCaseId,
+  WorkbenchContent,
+  WorkbenchResources,
+  WorkbenchScenarioId,
+} from './resources.js';

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "IUM-5-CORE-05",
+  "source": "curriculum/lesehilfe-2026-27/competencies.json",
+  "records": [
+    {
+      "competencyId": "LH26-E-PROG-002",
+      "segmentIds": ["ue1-orientation", "ue1-prior-knowledge", "ue5-transfer"],
+      "learningActivity": "Alltagshandlungen und technische Kurzfälle auf eindeutige, ausführbare Anweisungsfolgen prüfen.",
+      "productEvidence": "Begründete Systemklassifikationen und präzisierte Ausgangsanweisung.",
+      "scopeBoundary": "Keine freie Programmierung und keine Implementierung in einer textuellen Sprache."
+    },
+    {
+      "competencyId": "LH26-E-ALG-001",
+      "segmentIds": ["ue1-concept", "ue2-concept", "ue5-consolidation"],
+      "learningActivity": "Algorithmus, Anweisung, Ausführung, Zustand und Laufspur am vollständigen Beispiel erklären.",
+      "productEvidence": "Fachsprachlich erläuterte Vorhersage und geprüfte Endfassung.",
+      "scopeBoundary": "Der Algorithmusbegriff bleibt an geschlossene grafische Befehle gebunden."
+    },
+    {
+      "competencyId": "LH26-E-ALG-002",
+      "segmentIds": ["ue2-guided", "ue3-guided", "ue4-product"],
+      "learningActivity": "Grafische Algorithmen schrittweise vorhersagen, ausführen und Laufspuren vergleichen.",
+      "productEvidence": "Bestätigte Belegspur mit Ausgangsfassung und strukturierter Vorhersage.",
+      "scopeBoundary": "Keine Verzweigung, bedingte Schleife oder Variable."
+    },
+    {
+      "competencyId": "LH26-E-ALG-003",
+      "segmentIds": ["ue3-guided", "ue4-revision", "ue6-extension"],
+      "learningActivity": "Die erste Abweichung lokalisieren, eine Reparaturhypothese formulieren und gezielt prüfen.",
+      "productEvidence": "Begründete Reparaturhypothese und unterscheidbare revidierte Fassung.",
+      "scopeBoundary": "Keine automatische Fehlerdiagnose oder personenbezogene Kompetenzzuschreibung."
+    },
+    {
+      "competencyId": "LH26-E-ALG-004",
+      "segmentIds": ["ue3-product", "ue4-product", "ue5-consolidation"],
+      "learningActivity": "Eine konstante Wiederholung aufbauen, ausgeschrieben prüfen und ihre Eignung begründen.",
+      "productEvidence": "Gespeicherte Schleifenentscheidung mit Bezug auf den konkreten Algorithmus.",
+      "scopeBoundary": "Nur feste Wiederholung mit zwei bis neun Durchläufen; vertiefte Schleifenkonzepte bleiben Klasse 7 vorbehalten."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+schemaVersion: 1
+id: IUM-5-CORE-05
+version: 0.1.0
+title: Präzise Abläufe ausführbar machen
+status: working
+grade: 5
+kind: core
+strands:
+  - STRAND-A
+time:
+  minLessons: 5
+  maxLessons: 6
+  contractId: TC-IUM-5-CORE-05
+prerequisites:
+  - IUM-5-CORE-01
+curriculum:
+  competencyIds:
+    - LH26-E-PROG-002
+    - LH26-E-ALG-001
+    - LH26-E-ALG-002
+    - LH26-E-ALG-003
+    - LH26-E-ALG-004
+  coverageEvidenceIds:
+    - CE-IUM-5-CORE-05-LH26-E-ALG-001
+    - TR-LH26-E-ALG-001
+    - SE-LH26-E-PROG-002
+learningDesign:
+  centralQuestion: Wie werden Anweisungen so präzise, dass ein System sie eindeutig ausführen kann?
+  goals:
+    - Einen Algorithmus als präzise Folge ausführbarer Anweisungen beschreiben
+    - Einen grafischen Algorithmus vorhersagen, ausführen und mit einer Laufspur erklären
+    - Die erste Abweichung lokalisieren und eine begründete Reparatur prüfen
+    - Eine feste Wiederholung passend einsetzen und ihre Modellgrenze benennen
+  actions:
+    - Alltagshandlungen präzisieren und auf Eindeutigkeit prüfen
+    - Algorithmen aus geschlossenen Befehlsblöcken aufbauen
+    - Zustände schrittweise vorhersagen und Laufspuren vergleichen
+    - Abweichungen mit einer Hypothese gezielt reparieren
+    - algorithmische und nichtalgorithmische Systeme an Kurzfällen unterscheiden
+  product: Ausführbarer grafischer Algorithmus mit Vorhersage, Belegspur, reparierter Fassung und begründeter Schleifenentscheidung
+  misconceptions:
+    - Eine für Menschen verständliche Formulierung sei automatisch eindeutig ausführbar
+    - Eine Drehung verändere zugleich die Position
+    - Jede häufig vorkommende Handlung erfordere eine Wiederholung
+    - Eine erfolgreiche Endposition belege ohne Laufspur die Korrektheit jedes Schritts
+  scaffolds:
+    - Koordinaten- und Szenenbeschreibung
+    - Drehhilfe aus aktueller Blickrichtung
+    - ausgeschriebene feste Wiederholung
+    - Laufspurtabelle mit Vorher- und Nachherzustand
+components:
+  - algorithm-workbench
+media:
+  digitalFunction: Der deterministische Interpreter koppelt Anweisung, Zustand, Wiederholung, Laufspur und reproduzierbare Revision fachlich sichtbar.
+  analogMaterials: []
+data:
+  stateSchemaVersion: 1
+  fields:
+    - phaseId
+    - scenarioId
+    - initialAlgorithm
+    - prediction
+    - evidenceTrace
+    - repairSource
+    - repairHypothesis
+    - revisedAlgorithm
+    - loopDecision
+    - systemClassifications
+    - selfCheck
+  exportable: true
+  deletable: true
+offline:
+  core: true
+  externalResources: []
+accessibility:
+  alternatives:
+    - Textbeschreibung für Raster, Roboter, Gut, Ziel und Hindernisse
+    - Textuelle Laufspur mit Vorherzustand, Nachherzustand und Ergebnis
+    - Beschriftete Einfüge-, Verschiebe- und Löschaktionen ohne Drag-and-drop
+  manualChecks:
+    - keyboard
+    - touch
+    - screenreader
+    - reflow-320-css-px
+    - zoom-200-percent
+licenses:
+  content: CC-BY-SA-4.0
+  code: MIT
+  assetEvidencePath: assets/licenses.json
+quality:
+  evidenceRefs:
+    - curriculum-mapping.json
+    - roadmap/time-model.json#TC-IUM-5-CORE-05
+    - docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md

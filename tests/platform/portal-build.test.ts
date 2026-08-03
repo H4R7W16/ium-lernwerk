@@ -10,13 +10,15 @@ afterEach(async () => {
   await Promise.all(builds.splice(0).map((build) => build.cleanup()));
 });
 
-test('production build is honest and has no module route', async () => {
+test('production build exposes only the working IUM5 module route', async () => {
   const output = await buildPortal('production', '/');
   builds.push(output);
   expect(await output.text('index.html')).toContain(
-    'Noch keine Lernmodule veröffentlicht',
+    'Präzise Abläufe ausführbar machen',
   );
-  expect(await output.glob('module/**/index.html')).toEqual([]);
+  expect(await output.glob('module/**/index.html')).toEqual([
+    'module/ium-5-core-05/index.html',
+  ]);
 });
 
 test('fixture build exposes only the synthetic route', async () => {

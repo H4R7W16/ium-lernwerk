@@ -1,0 +1,237 @@
+[
+  {
+    "scenario": {
+      "id": "worked-sequence",
+      "title": "Aktives Beispiel: Lieferung nach D2",
+      "width": 5,
+      "height": 4,
+      "start": { "position": { "column": 1, "row": 4 }, "direction": "north", "carrying": false },
+      "itemPosition": { "column": 1, "row": 4 },
+      "targetPosition": { "column": 4, "row": 2 },
+      "obstacles": [{ "column": 5, "row": 4 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 3, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 3, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "error-order",
+      "title": "Fehlerfall: falsche Reihenfolge",
+      "width": 5,
+      "height": 4,
+      "start": { "position": { "column": 1, "row": 4 }, "direction": "north", "carrying": false },
+      "itemPosition": { "column": 1, "row": 4 },
+      "targetPosition": { "column": 3, "row": 2 },
+      "obstacles": [{ "column": 5, "row": 1 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "move" },
+      { "id": "cmd-2", "kind": "pick-up" },
+      { "id": "cmd-3", "kind": "move" },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "error-turn",
+      "title": "Fehlerfall: falsche Drehung",
+      "width": 5,
+      "height": 4,
+      "start": { "position": { "column": 1, "row": 4 }, "direction": "north", "carrying": false },
+      "itemPosition": { "column": 1, "row": 4 },
+      "targetPosition": { "column": 3, "row": 2 },
+      "obstacles": [{ "column": 4, "row": 4 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-left" },
+      { "id": "cmd-5", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "error-missing-step",
+      "title": "Fehlerfall: fehlender Schritt",
+      "width": 5,
+      "height": 4,
+      "start": { "position": { "column": 1, "row": 4 }, "direction": "north", "carrying": false },
+      "itemPosition": { "column": 1, "row": 4 },
+      "targetPosition": { "column": 3, "row": 2 },
+      "obstacles": [{ "column": 5, "row": 3 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "move" },
+      { "id": "cmd-6", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 2, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "error-repeat-count",
+      "title": "Fehlerfall: feste Anzahl",
+      "width": 6,
+      "height": 3,
+      "start": { "position": { "column": 1, "row": 2 }, "direction": "east", "carrying": false },
+      "itemPosition": { "column": 1, "row": 2 },
+      "targetPosition": { "column": 6, "row": 2 },
+      "obstacles": [{ "column": 3, "row": 1 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 5, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "product-a",
+      "title": "Produktkarte A",
+      "width": 6,
+      "height": 6,
+      "start": { "position": { "column": 1, "row": 6 }, "direction": "north", "carrying": false },
+      "itemPosition": { "column": 1, "row": 6 },
+      "targetPosition": { "column": 4, "row": 2 },
+      "obstacles": [{ "column": 6, "row": 1 }, { "column": 6, "row": 6 }]
+    },
+    "starterAlgorithm": null,
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-right" },
+      { "id": "cmd-5", "kind": "repeat", "count": 3, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "product-b",
+      "title": "Produktkarte B",
+      "width": 6,
+      "height": 6,
+      "start": { "position": { "column": 6, "row": 6 }, "direction": "north", "carrying": false },
+      "itemPosition": { "column": 6, "row": 6 },
+      "targetPosition": { "column": 2, "row": 3 },
+      "obstacles": [{ "column": 1, "row": 1 }, { "column": 1, "row": 6 }]
+    },
+    "starterAlgorithm": null,
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 3, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-left" },
+      { "id": "cmd-5", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "product-c",
+      "title": "Produktkarte C",
+      "width": 6,
+      "height": 6,
+      "start": { "position": { "column": 2, "row": 1 }, "direction": "south", "carrying": false },
+      "itemPosition": { "column": 2, "row": 1 },
+      "targetPosition": { "column": 6, "row": 5 },
+      "obstacles": [{ "column": 6, "row": 1 }, { "column": 1, "row": 6 }]
+    },
+    "starterAlgorithm": null,
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-left" },
+      { "id": "cmd-5", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "repair-standard",
+      "title": "Standardisierte Revisionsspur",
+      "width": 5,
+      "height": 3,
+      "start": { "position": { "column": 1, "row": 2 }, "direction": "east", "carrying": false },
+      "itemPosition": { "column": 1, "row": 2 },
+      "targetPosition": { "column": 5, "row": 2 },
+      "obstacles": [{ "column": 3, "row": 3 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 3, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "drop" }
+    ]
+  },
+  {
+    "scenario": {
+      "id": "extended-inherited",
+      "title": "Erweiterung: geerbter Einzelfehler",
+      "width": 6,
+      "height": 6,
+      "start": { "position": { "column": 6, "row": 1 }, "direction": "west", "carrying": false },
+      "itemPosition": { "column": 6, "row": 1 },
+      "targetPosition": { "column": 2, "row": 5 },
+      "obstacles": [{ "column": 1, "row": 1 }, { "column": 6, "row": 6 }]
+    },
+    "starterAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 3, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-left" },
+      { "id": "cmd-5", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ],
+    "referenceAlgorithm": [
+      { "id": "cmd-1", "kind": "pick-up" },
+      { "id": "cmd-2", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-3", "kind": "move" }] },
+      { "id": "cmd-4", "kind": "turn-left" },
+      { "id": "cmd-5", "kind": "repeat", "count": 4, "body": [{ "id": "cmd-6", "kind": "move" }] },
+      { "id": "cmd-7", "kind": "drop" }
+    ]
+  }
+]
