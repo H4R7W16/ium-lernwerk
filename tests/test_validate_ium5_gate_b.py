@@ -1,6 +1,11 @@
 import json
 from pathlib import Path
+import subprocess
+import sys
+import tempfile
 import unittest
+
+from scripts import validate_ium5_gate_b
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +26,62 @@ def iter_object_schemas(value, pointer="$"):
     elif isinstance(value, list):
         for index, item in enumerate(value):
             yield from iter_object_schemas(item, f"{pointer}/{index}")
+
+
+TECHNICAL_ROW_IDS = (
+    "TECH-IPAD-TOUCH",
+    "TECH-IPAD-VO",
+    "TECH-DESKTOP-CHROMIUM",
+    "TECH-DESKTOP-FIREFOX",
+    "TECH-NET-OFFLINE-UPDATE",
+    "TECH-LMS-ROUTE",
+)
+
+
+def valid_technical_evidence() -> dict:
+    rows = []
+    for row_id in TECHNICAL_ROW_IDS:
+        rows.append(
+            {
+                "id": row_id,
+                "operatingSystem": {"family": "linux", "version": "1"},
+                "browser": {"family": "chromium", "version": "1"},
+                "managedStatus": "not-managed",
+                "policyStatus": "documented",
+                "networkContext": "school-network",
+                "checks": [{"id": "startup", "result": "pass"}],
+                "result": "pass",
+                "findings": [],
+                "privateEvidenceRef": f"EVID-TECH-{row_id.removeprefix('TECH-')}",
+            }
+        )
+    return {
+        "documentType": "ium5-gate-b-technical-evidence",
+        "schemaVersion": 1,
+        "protocolId": "IUM5-GATE-B-1",
+        "evidenceId": "GB-TECH-SYNTHETIC-01",
+        "module": {
+            "id": "IUM-5-CORE-05",
+            "version": "0.1.0",
+            "status": "working",
+            "deviceVerified": "not-run",
+        },
+        "build": {
+            "buildRevision": "1" * 40,
+            "previewId": "ium5-gate-b-synthetic-001",
+            "publicationMode": "gate-b-preview",
+        },
+        "policySummary": "documented",
+        "rows": rows,
+        "limitedException": None,
+        "privacy": {
+            "unexpectedThirdPartyRequests": False,
+            "prohibitedDataObserved": False,
+            "telemetryObserved": False,
+        },
+        "result": "pass",
+        "retentionClass": "outside-repository-until-decision-plus-30-days",
+    }
 
 
 class ProtocolContractTests(unittest.TestCase):
@@ -151,6 +212,125 @@ class SchemaContractTests(unittest.TestCase):
                     schema["properties"]["documentType"]["const"],
                     document_type,
                 )
+
+
+class ValidatorTests(unittest.TestCase):
+    def assert_issue(self, document: dict, code: str):
+        issues = validate_ium5_gate_b.validate_evidence(document)
+        self.assertIn(code, {issue.code for issue in issues}, issues)
+
+    def test_valid_technical_evidence_is_accepted(self):
+        self.assertEqual(
+            validate_ium5_gate_b.validate_evidence(valid_technical_evidence()),
+            [],
+        )
+
+    def test_unknown_nested_field_is_rejected(self):
+        document = valid_technical_evidence()
+        document["rows"][0]["browser"]["engine"] = "Blink"
+        self.assert_issue(document, "SCHEMA_ADDITIONAL_PROPERTY")
+
+    def test_seventh_matrix_row_is_rejected(self):
+        document = valid_technical_evidence()
+        document["rows"].append(dict(document["rows"][0]))
+        self.assert_issue(document, "SCHEMA_MAX_ITEMS")
+
+    def test_missing_build_revision_is_rejected(self):
+        document = valid_technical_evidence()
+        del document["build"]["buildRevision"]
+        self.assert_issue(document, "SCHEMA_REQUIRED")
+
+    def test_serial_number_field_is_rejected_by_privacy_scan(self):
+        document = valid_technical_evidence()
+        document["rows"][0]["serialNumber"] = "device-17"
+        self.assert_issue(document, "PRIVACY_FORBIDDEN_FIELD")
+
+    def test_ip_address_in_a_string_is_rejected_by_privacy_scan(self):
+        document = valid_technical_evidence()
+        document["rows"][0]["findings"] = [
+            {
+                "code": "network-policy-blocker",
+                "severity": "low",
+                "status": "resolved",
+                "reproductionSteps": ["Request observed at 192.0.2.17"],
+            }
+        ]
+        self.assert_issue(document, "PRIVACY_IP_ADDRESS")
+
+    def test_free_prose_field_is_rejected_by_privacy_scan(self):
+        document = valid_technical_evidence()
+        document["rows"][0]["freeText"] = "unstructured note"
+        self.assert_issue(document, "PRIVACY_FORBIDDEN_FIELD")
+
+    def test_matrix_ids_must_match_the_protocol_exactly(self):
+        document = valid_technical_evidence()
+        document["rows"][1]["id"] = TECHNICAL_ROW_IDS[0]
+        self.assert_issue(document, "SEMANTIC_MATRIX_IDS")
+
+    def test_lowercase_git_sha_is_not_treated_as_a_secret(self):
+        document = valid_technical_evidence()
+        document["build"]["buildRevision"] = "abcdef0123456789" * 2 + "abcdef01"
+        self.assertEqual(validate_ium5_gate_b.validate_evidence(document), [])
+
+    def test_sensitive_string_patterns_are_rejected(self):
+        cases = (
+            ("teacher@example.org", "PRIVACY_EMAIL_ADDRESS"),
+            ("2001:db8::1", "PRIVACY_IP_ADDRESS"),
+            ("Z" * 40, "PRIVACY_SECRET_40"),
+        )
+        for value, expected_code in cases:
+            with self.subTest(expected_code=expected_code):
+                issues = validate_ium5_gate_b.scan_forbidden_content(
+                    {"reproductionSteps": [value]}
+                )
+                self.assertIn(expected_code, {issue.code for issue in issues})
+
+
+class CliTests(unittest.TestCase):
+    SCRIPT = ROOT / "scripts/validate_ium5_gate_b.py"
+
+    def run_cli(self, *arguments):
+        return subprocess.run(
+            [sys.executable, "-B", str(self.SCRIPT), *map(str, arguments)],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+
+    def test_protocol_command_succeeds(self):
+        completed = self.run_cli("protocol")
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        self.assertIn("PROTOCOL_VALID", completed.stdout)
+
+    def test_invalid_evidence_command_fails_with_stable_error_code(self):
+        document = valid_technical_evidence()
+        document["rows"][0]["serialNumber"] = "device-17"
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "invalid.json"
+            path.write_text(json.dumps(document), encoding="utf-8")
+            completed = self.run_cli("evidence", path)
+
+        self.assertEqual(completed.returncode, 1)
+        self.assertIn("PRIVACY_FORBIDDEN_FIELD", completed.stdout)
+
+    def test_validation_does_not_modify_the_input_directory(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            path = directory / "evidence.json"
+            path.write_text(json.dumps(valid_technical_evidence()), encoding="utf-8")
+            before = {item.name: item.read_bytes() for item in directory.iterdir()}
+
+            completed = self.run_cli("evidence", path)
+
+            after = {item.name: item.read_bytes() for item in directory.iterdir()}
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        self.assertEqual(after, before)
+
+    def test_synthetic_command_is_fail_closed_until_examples_exist(self):
+        completed = self.run_cli("synthetic")
+        self.assertEqual(completed.returncode, 1)
+        self.assertIn("SYNTHETIC_EXAMPLES_MISSING", completed.stdout)
 
 
 if __name__ == "__main__":
