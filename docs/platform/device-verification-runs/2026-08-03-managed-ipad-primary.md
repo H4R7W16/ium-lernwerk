@@ -18,6 +18,8 @@ Dieses Protokoll wird ausschließlich mit real beobachteten Gerätebefunden erg�
 | Kontrollierter Updatekandidat | `device-update-2026-08-03-1`, Workflow `30796505219`, erfolgreich |
 | Kontrollierter Fehlerkandidat | `device-broken-2026-08-03-1`, Workflow `30798577054`, bewusst unvollständig bereitgestellt |
 | Wiederherstellung | `device-update-2026-08-03-1`, Workflow `30799268044`, erfolgreich |
+| Exporthinweis-Kandidat | `device-export-notice-2026-08-03-1`, Commit `038e16f6cbe804615fbd28e641c2bde42a27d9ff` |
+| Exporthinweis-Bereitstellung | GitHub-Pages-Workflow `30806326885`, erfolgreich |
 | HTTPS | erzwungen |
 | Inhalt | synthetische technische Referenz; keine Curriculumwirkung |
 
@@ -127,6 +129,16 @@ Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig
 
 Damit sind gültiger und ungültiger Import einschließlich Fehlerfokus, Zustandsintegrität, Bestätigungsdialog und der technische Exportinhalt real belegt. Der im Plattformvertrag geforderte Sensibilitätshinweis fehlt jedoch in der aktuellen Oberfläche; dieser getrennte Produktbefund verhindert weiterhin den Abschluss des Exportkriteriums.
 
+### Runde 8 – Sensibilitätshinweis beim Export
+
+Am 3. August 2026 bestätigte der Auftraggeber nach Ausführung der vollständig beschriebenen achten Prüfrunde mit dem veröffentlichten Kandidaten `device-export-notice-2026-08-03-1` ohne gemeldete Abweichung:
+
+- der Sensibilitätshinweis war im Exportbereich sichtbar;
+- beim Fokussieren der Schaltfläche `Exportieren` mit VoiceOver wurde der über `aria-describedby` verbundene Hinweis verständlich mit angesagt;
+- die Schaltfläche startete weiterhin unmittelbar den Dateidownload, ohne einen zusätzlichen Dialog einzuführen.
+
+Damit ist die in Runde 7 festgestellte Produktlücke auf dem realen verwalteten iPad nachgeprüft und geschlossen. Diese Nutzerbestätigung belegt ausschließlich den beschriebenen iPad-Befund; die noch fehlenden Konfigurationsangaben und weiteren Zielkonfigurationen bleiben offen.
+
 ## Checkliste
 
 Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen verwalteten iPad stattgefunden hat.
@@ -151,7 +163,7 @@ Alle Felder bleiben absichtlich offen, bis die jeweilige Prüfung auf dem realen
 - [x] Bestätigte Speicherung bleibt nach Neuladen erhalten.
 - [x] Flüchtige Sitzung hinterlässt nach einer frischen Sitzung keinen Modulstand.
 - [x] Import: Gültige Datei wird übernommen; ungültige Datei wird verständlich und ohne Zustandsverlust abgelehnt.
-- [ ] Export: Dateidownload und Inhalt geprüft; der erforderliche Sensibilitätshinweis fehlt und ist nachzuarbeiten.
+- [x] Export: Dateidownload und Inhalt geprüft; der Sensibilitätshinweis ist sichtbar und mit dem Exportbutton für VoiceOver verbunden.
 - [x] Einzelnes Löschen und global löschen verlangen Bestätigung und entfernen den erwarteten Zustand.
 - [ ] MDM-, Web-Clip-, Speicherrichtlinie und Filterrichtlinie verursachen keinen stillen Funktions- oder Datenverlust.
 
