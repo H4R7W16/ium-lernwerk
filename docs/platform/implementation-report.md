@@ -106,4 +106,6 @@ Die In-App-Browseroberfläche meldete keine bestätigte Service-Worker-Offlinebe
 
 `.github/workflows/ci.yml` definiert ausschließlich die Jobs `legacy`, `contracts-build`, `browser` und `offline-quality` mit Node `22.20.0`, `npm ci`, lokal installierten Playwright-Browsern und ignorierten Berichten als Artefakten. Es gibt weder Deployment noch Secrets, reale Daten oder Release-Status. Der Workflow ist syntaktisch, vertraglich und durch lokale Ausführung aller enthaltenen Gates geprüft; konkrete Remote-Lauf-IDs werden im Workspace-Handoff festgehalten.
 
+Für das getrennte Realgerätegate existiert zusätzlich der ausschließlich manuell auf `main` startbare Workflow `.github/workflows/device-fixture-pages.yml`. Er veröffentlicht den synthetischen Unterpfad-Fixture-Build als temporären HTTPS-Testkontext auf GitHub Pages. Das ist kein Produktionsrelease, keine Veröffentlichung curricularer Module und keine Geräte-Evidenz; `device-verified` bleibt bis zur realen Protokollausführung `not-run`.
+
 Nächster verbindlicher Schritt ist die reale Durchführung von [device-verification.md](device-verification.md) auf einem verwalteten Ziel-iPad mit Safari, VoiceOver, MDM/Web-Clip, Speicher- und Filterrichtlinie, Schulnetz, Offline-/Updatefall sowie LMS-Einbettung. Bis zu belastbarer Evidenz bleibt `device-verified: not-run` und Phase 2 gesperrt.

@@ -219,4 +219,4 @@ Commit only privacy-reviewed metadata and repository-safe evidence links. Never 
 - Spec coverage: real iPad/Safari, VoiceOver, managed desktop browsers, keyboard, HTTPS, offline/update, storage, Web Clip, filters and LMS are each assigned to an explicit task.
 - Scope boundary: CI remains `implemented` evidence; no step permits emulation to set `device-verified`.
 - Privacy boundary: synthetic data only; policy evidence is reviewed before repository publication.
-- Current blocker: no managed iPad is connected or otherwise controllable from the workspace, and no HTTPS test origin is approved or configured.
+- Execution status: the owner approved temporary GitHub Pages and confirmed an available managed target iPad. HTTPS publication is being implemented; real configuration and interaction evidence remain open until the guided device run.

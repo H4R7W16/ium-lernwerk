@@ -65,6 +65,12 @@ npm run test:python
 
 GitHub Actions teilt dieselben Gates in `legacy`, `contracts-build`, `browser` und `offline-quality`. Erfolgreiche CI bedeutet ausschließlich `implemented`. Sie ersetzt weder Prüfung auf einem verwalteten iPad noch Safari-, Schulnetz-, Filter-, MDM-, Web-Clip-, VoiceOver- oder LMS-Evidenz. Diese wird ausschließlich im [Geräteprotokoll](device-verification.md) dokumentiert.
 
+## Temporärer HTTPS-Pfad für die Geräteprüfung
+
+Der manuell gestartete Workflow `.github/workflows/device-fixture-pages.yml` veröffentlicht ausschließlich den synthetischen Fixture-Build unter `https://h4r7w16.github.io/ium-lernwerk/`. Er reagiert nicht auf normale Pushes und läuft nur auf `main`. Vor dem Upload prüft er Plattformverträge, Unterpfadbuild, Qualitätsbudgets und den vollständig injizierten Service Worker; Schreibrechte auf Pages und OIDC erhält ausschließlich der getrennte Deployjob.
+
+Dieser Pfad ist ein technisches Prüfmittel für IUM14. Er enthält kein curriculares Lernmodul, keine realen Daten, keine Konten, keine Telemetrie und keine Drittanbieter-Laufzeitressourcen. Eine erfolgreiche Bereitstellung belegt nur einen erreichbaren HTTPS-Testkontext. `device-verified` bleibt bis zur dokumentierten realen iPad-, Policy-, Schulnetz- und LMS-Prüfung `not-run`.
+
 ## Statusgrenze
 
 - Plattformfundament: `implemented`, sobald die vollständige automatisierte Prüfkette grün ist.
