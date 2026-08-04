@@ -93,8 +93,8 @@ Während der Ausarbeitung sind die Statuswerte `specified`, `open-decision` und 
 
 | LXP03-ID | erforderliches Ergebnis | normative Eingabe | Spezifikationsabschnitt | Referenzentwurfsprüfung | Reviewevidenz | Status |
 |---|---|---|---|---|---|---|
-| LXP03-01 | Vergleich von drei Kompositionsansätzen und Auswahlentscheidung | LXP01 §§ 8–10, 25–31; LXP02 Eigentümermatrix | Ansatzvergleich und Arbeitsentscheidung | alle drei Entwürfe | Mechanismus-/Kostenvergleich und Fail-Signale | open-decision |
-| LXP03-02 | gemeinsames situationsübergreifendes Entwurfsraster | LXP01 §§ 24–29; LXP02 Walkthroughschema | Gemeinsames Entwurfsraster | alle drei Entwürfe | identische Prüffelder und Kontextbudget | open-decision |
+| LXP03-01 | Vergleich von drei Kompositionsansätzen und Auswahlentscheidung | LXP01 §§ 8–10, 25–31; LXP02 Eigentümermatrix | Ansatzvergleich und Arbeitsentscheidung | alle drei Entwürfe | Mechanismus-/Kostenvergleich und Fail-Signale | specified |
+| LXP03-02 | gemeinsames situationsübergreifendes Entwurfsraster | LXP01 §§ 24–29; LXP02 Walkthroughschema | Gemeinsames Entwurfsraster | alle drei Entwürfe | identische Prüffelder und Kontextbudget | specified |
 | LXP03-03 | Wide-/Schmalentwurf Einstieg und Orientierung | LXP01 § 21; LXP02 Startboard/Einstiegsmodi | Referenzentwurf 1 | Situation 1 | Wireframes, Wireflow, Fokus- und Recoverypfad | open-decision |
 | LXP03-04 | Wide-/Schmalentwurf interaktive Kernlernhandlung | LXP01 § 22; LXP02 LS-DECIDE bis LS-SECURE | Referenzentwurf 2 | Situation 2 | vier Zustandskompositionen, Rückmeldung und Revision | open-decision |
 | LXP03-05 | Wide-/Schmalentwurf Sicherung, Transfer und Wiedereinstieg | LXP01 § 23; LXP02 Sicherungsraum/Belegkarte | Referenzentwurf 3 | Situation 3 | Beleg-, Transfer-, Export-, Pausen- und Abrufpfad | open-decision |
@@ -130,3 +130,131 @@ LXP03 übernimmt ohne semantische Änderung insbesondere:
 - Resilienz: `informativ`, `handlungseinschränkend`, `blockierend`, `offline bereit`, `offline eingeschränkt`, `nicht offline verfügbar`.
 
 Der sichtbare Auftrag verwendet fachlich konkrete Verben wie `Vorhersage festhalten`, `Algorithmus ausführen`, `erste Abweichung prüfen`, `Revision begründen` und `Belegkarte sichern`. Das generische `weiter` ist nie alleinige Primärhandlung.
+
+## Ansatzvergleich und Arbeitsentscheidung
+
+LXP01 hat das lehrkraftorchestrierte Lernstudio als Innenarchitektur und den offenen Lernwerk-Kosmos als Außenarchitektur festgelegt. LXP03 vergleicht deshalb keine alternativen Produktstrategien, sondern drei konkrete Arten, wie ein Lernstudiozustand als erfassbare, zugängliche und wiederaufnehmbare Situation komponiert werden kann.
+
+| Ansatz | Lernmechanismus | Stärke | kognitiver und Accessibility-Preis | Lehrkraftfolge | Verhalten in schmaler Ansicht | Fail-Signal |
+|---|---|---|---|---|---|---|
+| A – Dokument-Stack | Auftrag, Repräsentation, Werkzeug, Rückmeldung, Hilfe, Sicherung und Folgehandlung stehen als lange vertikale Abschnitte untereinander. | vertraute Dokumentnavigation; lineare Lesbarkeit; technisch robuste Grundform | aktuelle Ursache, Wirkung und Rückmeldung liegen weit auseinander; viele spätere Kontrollen konkurrieren; Fokus und Screenreaderpfad werden lang | Haltepunkte stehen im Text, sind aber nicht als aktueller Unterrichtszustand erkennbar | formal guter Reflow, aber wachsende Scroll- und Gedächtnislast | Primärhandlung oder relevanter Beleg ist nur durch Scrollsuche auffindbar; spätere Werkzeuge sind vor ihrer fachlichen Relevanz fokussierbar |
+| B – strikter Schritt-Wizard | jeder Lernzustand wird als isolierter Schritt mit genau einer Aktion gezeigt; Abschluss öffnet den nächsten Schritt. | geringe visuelle Konkurrenz; eindeutige Primäraktion; kurze Fokuspfade | notwendiger Kontext wird leicht verborgen; Vorhersage, Wirkung und Beleg müssen erinnert werden; Rücksprung und Gesamtkarte drohen sekundär zu werden | Lehrkraft kann Schritte gut ansagen, verliert aber flexible gemeinsame Haltepunkte und geparkte Zustände | kompakt, solange Inhalte kurz sind; komplexe Beziehungen zerfallen auf mehrere Ansichten | ein Guard wird zur bloßen Schrittfreigabe; Lernende müssen verborgenen Kontext erinnern; Rückkehr oder Gesamtkarte fehlt |
+| C – stabile Fokusbühne mit rekonstruierbarem Kontext | der aktuelle Lernzustand zeigt eine fachlich vollständige Beziehung aus Auftrag, relevantem Objekt, Handlung und Kriterium; Kontext, Hilfe, Gesamtkarte und Datenbereich bleiben gezielt erreichbar. | Ursache–Wirkung und Produktvergleich bleiben zusammen; eine Primärhandlung; Lehrkraft-/Lernendenlabels und sichere Rückkehr sind sichtbar | erfordert sorgfältige Informationspriorisierung, semantische Reihung und zustandsspezifische Komposition; nicht jede Situation sieht gleich aus | gemeinsame Haltepunkte, Rollen und Rückkehrzustände können am gleichen Lernbegriff verankert werden | keine bloße Verkleinerung: dieselbe Beziehung wird in eine feste logische Reihenfolge überführt | Eingabe, Wirkung oder Rückmeldung verliert ihren Bezug; sekundäre Navigation konkurriert; Text-/AT-Pfad verlangt eine andere Lernhandlung |
+
+### Auswahlentscheidung
+
+Gewählt wird **Ansatz C – stabile Fokusbühne mit rekonstruierbarem Kontext**.
+
+Die Entscheidung beruht nicht auf einem ästhetischen Stilurteil. Ansatz C kann als einziger gleichzeitig:
+
+- LXP02-Zustände als fachliche Bedeutung statt als Seite behandeln;
+- eine zentrale Denkhandlung fokussieren, ohne Ziel, Kriterium und Rückweg zu verbergen;
+- Ursache, Wirkung, Beleg und Revision im jeweils nötigen Zusammenhang halten;
+- Wide-, Schmal-, Tastatur-, Touch- und Text-/AT-Pfade aus derselben semantischen Reihenfolge ableiten;
+- Lehrkrafthaltepunkte und lokale Lernendenarbeit ohne Fernsteuerung verbinden;
+- RES-INFO, RES-LIMIT und RES-BLOCK dort sichtbar machen, wo sie die Handlung tatsächlich verändern;
+- Kontext und Gesamtkarte rekonstruierbar halten, ohne den Kosmos als zweiten Arbeitsraum zu öffnen.
+
+Die Arbeitsentscheidung ist eine zu prüfende Projektentscheidung, kein Usability- oder Wirkungsnachweis. LXP06 muss später zeigen, ob Lernende die relevanten Beziehungen tatsächlich schneller verstehen, ob der schmale Pfad ohne zusätzliche Gedächtnislast funktioniert und ob Lehrkräfte die Haltepunkte ohne parallele Notizen nutzen können.
+
+### Begrenzte Übernahme verworfener Elemente
+
+- Der Dokument-Stack bleibt für lange Lehrkraftreferenzen, Quellen und Lizenzinformationen geeignet, nicht als primärer Lernendenarbeitsraum.
+- Ein kurzer Dialogschritt ist für Löschung, inkompatiblen Import oder andere irreversible beziehungsweise blockierende Entscheidungen zulässig, wenn Ausgang, Risiko, sichere Primärhandlung und Abbruch vollständig sichtbar sind.
+- Eine lineare Abfolge darf einen echten fachlichen Guard ausdrücken, aber nie bloß Seitenbesuch oder Zeitablauf.
+
+## Gemeinsames Entwurfsraster
+
+### Funktion des Rasters
+
+Alle drei Referenzentwürfe verwenden dasselbe Prüfraster. Das Raster normiert keine Bildschirmkomponente. Es zwingt jeden Entwurf, Lernfunktion, sichtbare Beziehung, Interaktion, Unterrichtsorchestrierung, Persistenz und Ausfallgrenze gemeinsam zu beantworten.
+
+| Prüffeld | verpflichtende Antwort je Referenzentwurf |
+|---|---|
+| Zweck und fachlicher Zielzustand | Was verstehen, entscheiden, erklären, herstellen, prüfen oder revidieren Lernende danach besser? |
+| konkreter Fall und Lernprodukt | Welcher IUM5-Fall wird bearbeitet und welche Produktspur entsteht? |
+| Ausgangszustand und Zielzustand | Welche LXP02-Zustände, Guards und verbotenen Übergänge gelten? |
+| Lernendenmoment | Was ist als Ziel, Objekt, Handlung, Kriterium, Rückmeldung und nächster Schritt sichtbar? |
+| Lehrkraftmoment | Welcher Auftakt, Haltepunkt, gewöhnliche Evidenz, Rückfrage, Sozialformwechsel und Fallback trägt dieselbe Lernhandlung? |
+| Wide-Komposition | Welche Beziehung darf in einer weiten Ansicht gleichzeitig verstanden werden? |
+| Schmal-Komposition | In welcher semantischen Reihenfolge bleibt dieselbe Beziehung bei 320 CSS-Pixeln und 200 Prozent Zoom rekonstruierbar? |
+| Bediengleichwertigkeit | Welche identische fachliche Entscheidung leisten Touch, Tastatur und Text-/Assistive-Technology? |
+| Fokus und Statusmeldung | Wohin geht Fokus bei Zustandswechsel, Hilfe, Validierungsfehler, Recovery und Rückkehr? Was wird angekündigt? |
+| lokaler Zustand | Welche bestätigte Produktspur wird gespeichert, was bleibt flüchtig und was wird ausdrücklich nicht erfasst? |
+| Offline und Recovery | Welcher störungsfreie, handlungseinschränkende und blockierende Zustand tritt auf; welche Arbeit bleibt erhalten? |
+| Unterstützung und Feedback | Welche konkrete Hürde adressiert eine Hilfe, welche Rückmeldung erhält die Denkhandlung und wann wird ein vollständiges Beispiel zugänglich? |
+| Copy und Begriffe | Welche kontrollierten sichtbaren Labels und Ergebnisverben werden verwendet? |
+| WU-Check und Qualität | Wie tragen Tiefenstruktur, Aufgabenqualität, Unterstützung, Diagnose, digitale Funktion, Q1–Q8 und Anti-Patterns? |
+| Übergabe | Was ist lokaler Entwurfsbestand, was ist belastbarer Musterkandidat und was darf LXP04 nicht generalisieren? |
+
+### Gemeinsame semantische Anatomie
+
+Jeder Moment ordnet sechs Informationsfunktionen, ohne daraus sechs dauerhaft sichtbare Bereiche abzuleiten:
+
+1. **Kontext:** Modul, Unterrichtseinheit/Lernphase, Ziel und Rückkehranker.
+2. **Fokus:** aktueller fachlicher Auftrag und relevantes Qualitätskriterium.
+3. **Arbeitsobjekt:** Fall, Modell, Produkt, Beleg oder Ausgangs-/Revisionsfassung.
+4. **Handlung:** genau die aktuell erlaubte fachliche Primäraktion.
+5. **Wirkung und Rückmeldung:** beobachtbarer Zustand, Beleg, Abweichung oder sichere Systemfolge.
+6. **Anschluss:** nächster fachlicher Schritt, Haltepunkt, Hilfe, Pause, Gesamtkarte oder Recovery.
+
+Die Funktionen `Wirkung und Rückmeldung` dürfen in LS-DECIDE nicht die erwartete Wirkung vorwegnehmen. `Anschluss` darf keinen verbotenen Zustandsübergang anbieten. `Kontext` und `Fokus` bleiben auch dann verständlich, wenn Hilfe, Gesamtkarte oder Datenbereich geschlossen sind.
+
+### Kontext- und Dichtebudget
+
+Die folgenden Werte sind interne Projektbenchmarks für LXP03, keine aus Forschung abgeleiteten Universalgrenzen:
+
+- pro Moment genau eine primäre fachliche Handlung;
+- pro Moment genau eine dominante fachliche Beziehung, zum Beispiel `Vorhersage ↔ Ausgangszustand`, `Handlung ↔ Wirkung` oder `Beleg ↔ Revision`;
+- höchstens zwei direkt konkurrierende sekundäre Aktionen im Fokusbereich;
+- Gesamtkarte, Hilfe und Datenbereich besitzen stabile Zugänge, aber kein gleiches visuelles oder semantisches Primat wie die Lernhandlung;
+- technische Normalzustände werden nicht als eigene Fokusregion wiederholt;
+- ein RES-LIMIT-Zustand steht an der betroffenen Handlung; ein RES-BLOCK-Zustand unterbricht nur den gefährdeten Pfad;
+- sichtbare Lernendenarbeit wird nicht dupliziert, nur weil eine andere Darstellung geöffnet wird.
+
+Ein Entwurf fällt durch, wenn er diese Benchmarks nur einhält, indem notwendige Kriterien, Datenfolgen, Rückwege oder fachliche Zusammenhänge versteckt werden.
+
+### Wide- und Schmalregel
+
+`Wide` bezeichnet keine feste Pixelbreite, sondern eine Ansicht, in der die aktuelle fachliche Beziehung räumlich nebeneinander erfasst werden kann. `Schmal` bezeichnet eine Ansicht, in der dieselbe Beziehung in eine eindeutige semantische Reihenfolge überführt werden muss.
+
+Für alle Entwürfe gilt:
+
+```text
+Wide:   Kontext/Fokus → Arbeitsobjekt ↔ Handlung/Wirkung → Rückmeldung/Anschluss
+Schmal: Kontext/Fokus → Ausgangsobjekt → Primärhandlung → Wirkung/Beleg → Rückmeldung/Anschluss
+```
+
+Der Pfeil bedeutet logische Leserichtung, nicht visuelles Layout. Das Doppelpfeilzeichen markiert eine fachliche Korrespondenz. In schmaler Ansicht bleibt der Ausgangsanker in knapper Form am Wirkungs-/Rückmeldungsabschnitt verfügbar; Lernende müssen ihn nicht aus Erinnerung rekonstruieren.
+
+### Gemeinsamer Zustands- und Unterrichtswireflow
+
+```mermaid
+flowchart LR
+    A["Startboard: Orientierung und Startbereit"] --> B["Denken und entscheiden"]
+    B --> C["Fachlich handeln"]
+    C --> D["Wirkung beobachten"]
+    D --> E["Rückmeldung deuten"]
+    E --> F["Prüfen und revidieren"]
+    F --> B
+    E --> G["Sichern"]
+    G --> H["Übertragen"]
+    H --> I["Pausiert oder Lernwerk-Kosmos"]
+    I --> J["Wiedereinstieg mit aktivem Abruf"]
+    J --> B
+    T1["Lehrkraft: Auftakt"] -.-> A
+    T2["Lehrkraft: gemeinsamer Vergleich"] -.-> E
+    T3["Lehrkraft: Konsolidierung"] -.-> G
+    R["Wiederherstellung erforderlich"] -. "letzter bestätigter Stand" .-> B
+    C -. "verlust- oder funktionskritische Störung" .-> R
+    G -. "Speicher-/Versionsstörung" .-> R
+```
+
+### Beschriftungs- und Interaktionsregel
+
+- Primäraktionen nennen Ergebnis und Objekt: `Vorhersage festhalten`, `Algorithmus schrittweise ausführen`, `erste Abweichung prüfen`, `Revision erneut vorhersagen`, `Belegkarte sichern`.
+- Sekundäraktionen nennen ihr Ziel: `Lernweg ansehen`, `Hilfe zur Blickrichtung nutzen`, `zurück zum Startboard`, `pausieren`.
+- `lokal gespeichert` ist technischer Status; `sichern` ist eine fachliche Handlung.
+- Eine automatische Statusmeldung bestätigt Zustand oder Datenfolge, nie Leistung oder Kompetenz.
+- Hilfe öffnet kontextnah, erhält Ausgangsobjekt und Fokus-Rückkehr und speichert ihre Nutzung nicht.
+- Eine schmale oder assistive Darstellung darf keine Lösung offenlegen, die im visuellen Pfad erst erarbeitet werden muss.
