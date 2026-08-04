@@ -144,6 +144,8 @@ Der Begriffsledger ist die einzige Quelle für bevorzugte deutschsprachige Produ
 | DEC-LXP02-007 | Das Lernstudio verwendet elf fachliche Zustände einschließlich `Startbereit`, `Pausiert` und `Wiederherstellung erforderlich`; Zustände bilden keine Seiten oder Komponenten ab. | Die Schwelle zum Lernen, verlustfreie Unterbrechung und Recovery benötigen eine eigene verständliche Bedeutung, ohne Klickereignisse zu modellieren. | Referenzsituationen 1–3; Q1, Q4, Q5 und Q8 | specified |
 | DEC-LXP02-008 | Ein Fortschrittssignal ist ein fachlich bedeutsamer, belegter Stand und bleibt vom aktuellen Lernzustand getrennt. | Ein Lernzustand kann geöffnet sein, ohne dass eine Fähigkeit oder ein Ergebnis gesichert wurde; Navigation darf keinen Fortschritt erzeugen. | Referenzsituationen 1–3; Q3, Q4 und Q5 | specified |
 | DEC-LXP02-009 | Jedes dauerhaft gehaltene Sicherungsartefakt folgt der Belegkartengrammatik; Rohprodukte werden referenziert statt als zweite Chronik dupliziert. | Eine gemeinsame Grammatik trägt Wiederaufnahme und Transfer, ohne Portfolio-Plattform oder Versuchshistorie zu werden. | Referenzsituation 3; Q4, Q5 und Q8 | specified |
+| DEC-LXP02-010 | Lehrkraftimpulse steuern Unterricht und bereiten Ziele vor, verändern aber kein Lernendengerät aus der Ferne; Phasen- und Sozialformwechsel werden lokal bestätigt. | Lehrkraftorchestrierung muss ohne Konto, Klassenliste, Backend, Fernsteuerung oder personenbezogene Telemetrie funktionieren. | alle drei Referenzsituationen; Q6 und Q8 | specified |
+| DEC-LXP02-011 | Gemeinsame Anzeige verwendet neutrale Fälle oder ausdrücklich von Lernenden ausgewählte Ausschnitte; private lokale Artefakte bleiben standardmäßig lokal. | Fachlicher Vergleich darf keine persönliche Offenlegung oder verdeckte Abgabe erzwingen. | alle drei Referenzsituationen; Q3, Q6 und Q8 | specified |
 
 ## Informationsarchitektur des Lernwerk-Kosmos
 
@@ -612,3 +614,115 @@ Wiederverwendung kopiert keine gesamte Bearbeitungshistorie. Sie legt im Zielkon
 | Lehrkraft-Follow-up | LS-DECIDE/LS-ACT | eigenen Beleg bei Bedarf zeigen oder neutralen Fall bearbeiten | keine zentrale Sammlung, kein Personenvergleich | beobachtet Produkte/Gespräche, nutzt frischen Kurzfall und entscheidet über weitere Sicherung | nur lernendenseitig ausgewählte neue Spur | Geräteausfall führt zu neutralem gemeinsamen Fall; keine erfundene persönliche Evidenz |
 
 Der Walkthrough fällt durch, wenn Sicherung nur `fertig` bedeutet, Transfer lediglich das Oberflächendekor wechselt, persönlicher Freitext verlangt wird, Export automatisch erfolgt, die Lehrkraft personenbezogene Systemdaten benötigt oder ein Versionsfehler eine Karte still verwirft.
+
+## Lehrkraftspur und Unterrichtsorchestrierung
+
+### Rollen- und Produktgrenze
+
+Die Lehrkraftspur ist eine rollenbezogene Lesart derselben Module, Lernpfade, Unterrichtseinheiten, Lernphasen, Lernhandlungen, Zustände, Fortschrittssignale und Sicherungsartefakte. Sie ist kein zweites Produkt und kein Lehrkräftedashboard. Ihr aktueller Abschnitt bezieht sich stets auf das gleiche Zustandslabel wie der Lernendenpfad.
+
+Die Lehrkraftspur darf bereitstellen:
+
+- Curriculum- und Progressionsbezug, Lernziel und Lernfunktion;
+- Leitfrage, erwartetes Lernprodukt und Qualitätskriterien;
+- typische Vorstellungen, Fehler und fachliche Modellgrenzen;
+- Zeitkorridor, Materialbedarf, Offlinebereitschaft und vorgesehene Sozialformen;
+- gemeinsame Haltepunkte, Fragen, Hilfen, neutrale Kurzfälle und Fallbacks;
+- zulässige Phasen-/Pfadvarianten, Sicherung und spätere Wiedervorlage.
+
+Sie darf nicht bereitstellen oder implizieren:
+
+- Konten, Klassenlisten, personenbezogene Historien oder zentrale Lernstände;
+- Liveansichten von Geräten, Klick-, Zeit-, Fehler- oder Hilfestatistiken;
+- automatische Gruppierung, Diagnosen, Kompetenzprofile, Ranking oder Prognosen;
+- Fernsteuerung, automatisches Abschließen, Bewerten oder Umschreiben lokaler Lernendenarbeit.
+
+### Lehrkraftspur nach Unterrichtsphase
+
+| Unterrichtsphase | Orchestrierungsverantwortung | vor dem Unterricht sichtbar | während der aktuellen Lernhandlung sichtbar | nur bei Bedarf | gewöhnlich verfügbare Evidenz ohne Telemetrie |
+|---|---|---|---|---|---|
+| Vorbereitung | Ziel, Pfad, Zeit, Material, Geräte-/Offlinegrenzen und Haltepunkte prüfen | Curriculumbezug, Lernprodukt, Voraussetzungen, Zeitpfade, Sozialformoptionen, Material, Offlinecheck, typische Vorstellungen, neutraler Kurzfall | aktueller Einstieg und erster gemeinsamer Haltepunkt | Hintergrund, Quellen, Lizenz, alternative Pfade und technische Details | Modulvertrag, eigene fachliche Prüfung und vorbereitete neutrale Fälle; keine Klassendaten |
+| Start | Leitfrage rahmen, Zielabschnitt und Rollen transparent setzen | Startboardvertrag, Impuls, Vorwissens-/Erwartungshandlung, erster Haltepunkt | gleiches Lernziel, Phasenlabel, Zeitkorridor, Sozialform und Startaktion wie bei Lernenden | Voraussetzungen und Fallbacks | mündliche Antworten, sichtbare gemeinsame Modelle, Handzeichen oder kurze Partnererklärung |
+| Beobachtung | fachliche Produkte, Erklärungen und Interaktionen im Raum wahrnehmen | erwartbare Produktspuren, Qualitätskriterien und Beobachtungsfragen | aktueller Lernzustand, mögliche Abweichung, passende Rückfrage und nächster Haltepunkt | frischer Kurzfall bei fehlender oder unklarer Evidenz | Lernendenaussage, bewusst gezeigtes lokales Produkt, Gespräch, Laufspur am Gerät; keine Fernsicht |
+| Intervention | mit minimaler fachlicher Unterstützung den Lernzyklus erhalten | Interventionsvertrag, Auslöser, Folgen, Ausstiegskriterium | zur aktuellen Lernhandlung passende Rückfrage/Hilfe mit gleichem Label | vollständiges Beispiel nur nach fachlich begründeter Eskalation | beobachtbare Schwierigkeit, Frage, Produkt oder Unterrichtsdynamik; kein Personenprofil |
+| Übergang | Phase, Sozialform oder gemeinsamen Haltepunkt verständlich wechseln | zulässige Zielphase, Voraussetzungen, Zeit, Rollen, Schutz offener Arbeit | Grund, Ziel, gemeinsame Handlung, lokale Bestätigung und Rückkehr | Alternativpfad/Fallback | mündliche Bereitschaft, sichtbare Sicherung oder lokal bestätigter Übergang; kein zentraler Status |
+| Sicherung | Produkt, Beleg, Begriff, Kriterium und Modellgrenze gemeinsam konsolidieren | Sicherungsziel, Gesprächsstruktur, neutrale/ausgewählte Beispiele, Transferfall | LS-SECURE/LS-TRANSFER, gemeinsame Frage und Kartenfelder | Muster-/Gegenbeispiel und späterer Abruf | bewusst gezeigte Belegkarte, Tafel-/Gesprächsergebnis und frischer Transferfall |
+| Nachbereitung und Wiedereinstieg | nächsten Abruf, Anschluss und notwendige Revision des Unterrichts planen | erwarteter Sicherungsstand, Wiedervorlagepunkt, Anschlussmodul und offene Produktfrage | Startboard der Folgeeinheit mit gleichem Ziel-/Phasenbegriff | eigener Unterrichtsvermerk außerhalb des Lernendensystems | nichtpersonale Unterrichtsbeobachtung und freiwillig/bewusst exportiertes Produkt; keine automatische Sammlung |
+
+„Während sichtbar“ bedeutet bereitgestellte Orchestrierungsinformation, nicht ein automatisch erkannter Klassenstatus. Die Lehrkraft entscheidet auf Basis des Unterrichts, welche Information sie benötigt.
+
+### Interventionsverträge
+
+| Intervention | im gewöhnlichen Unterricht beobachtbarer Auslöser | Lehrkrafthandlung | lernendensichtbare Folge | erhaltener lokaler Stand | Ausstiegskriterium |
+|---|---|---|---|---|---|
+| aktuelles Ziel klären | Lernende können Auftrag, Ziel oder Qualitätskriterium nicht benennen | Leitfrage und Produktbezug erneut rahmen; eine Rückfrage stellen | Ziel/Kriterium wird im aktuellen Zustand erneut dominant, keine Rückstufung | alle Produktspuren und aktueller Zustand | Lernende können nächste fachliche Handlung und Kriterium benennen |
+| für gemeinsamen Vergleich pausieren | mehrere Produkte/Äußerungen zeigen eine gemeinsame begriffliche Frage oder einen ergiebigen Kontrast | Klasse verbal zum Haltepunkt rufen; neutralen/ausgewählten Fall projizieren | lokale Arbeit wird bestätigt pausiert; Vergleichsauftrag erscheint/ist ansagbar | letzter bestätigter Stand plus offene Handlung | gemeinsame Frage ist geklärt und Rückkehrzustand benannt |
+| Gerüst öffnen oder darauf verweisen | eine konkrete Hürde wird in Produkt, Frage oder Gespräch sichtbar | passende aufgabenbezogene Hilfe benennen; keine automatische Personenwahl | Lernende öffnen Hilfe bewusst und kehren mit erhaltenem Fokus zurück | Hilfenutzung wird nicht gespeichert; Produkt bleibt unverändert | Lernende können Kernhandlung wieder selbst übernehmen |
+| zur Revision zurückführen | Produkt widerspricht Beleg/Kriterium oder Lernende wollen ohne Interpretation weitergehen | Frage zur ersten Abweichung und Reparaturhypothese stellen | LS-INTERPRET/LS-REVISE wird mit Ausgangsstand und Beleg geöffnet | Ausgangs-, Beleg- und Revisionsstand bleiben getrennt | begründete Änderung ist erneut prüfbar |
+| Sozialform wechseln | fachliche Erklärung, Rollenvergleich oder gemeinsame Modellbildung benötigt Austausch | Ziel, geteiltes Objekt, Rollen, Zeit und Rückkehr nennen | Wechselauftrag mit lokaler Bestätigung; keine automatische Zusammenführung | private Artefakte bleiben lokal; nur ausgewähltes Objekt wird geteilt | beide/alle Rollen haben fachlich beigetragen und Rückkehr ist geklärt |
+| Transfer oder Vertiefung zurückstellen | Unterrichtszeit, fehlende Voraussetzung oder Sicherungsqualität reicht nicht | offenen Anschluss begründet markieren und nächsten Wiedervorlagepunkt setzen | Transfer bleibt `für später markiert`; Sicherung wird nicht als vollständig umgedeutet | Belegkarte, offener Transfer und Zielversion | späterer Start erfüllt Voraussetzung und zeigt den offenen Anschluss |
+| technische Störung auffangen | Gerät, Speicher, Offlineasset, Import oder Browserrichtlinie begrenzt die aktuelle Handlung | Schweregrad klären; sicheren lokalen/unterrichtlichen Fallback oder Pause wählen | LS-RECOVER oder LS-PAUSE mit betroffener Arbeit und nächster Option | letzter bestätigter Stand; kein Scheinfortschritt | Funktion/Stand ist validiert wiederhergestellt oder späterer Wiedereinstieg vereinbart |
+
+Keine Intervention darf Arbeit stillschweigend fertigstellen, benoten, löschen, überschreiben, als richtig/falsch klassifizieren oder einen Fortschrittswert erzeugen.
+
+## Rollen- und Sozialformwechsel
+
+### Sozialformvertrag
+
+Eine Sozialform ist Teil der Lernhandlung, kein dekorativer Methodenwechsel. Jeder Wechsel benennt:
+
+- fachlichen Zweck und erwartetes gemeinsames Ergebnis;
+- geteiltes Objekt und private lokale Artefakte;
+- Rollen mit jeweils sichtbarer Denkhandlung;
+- Zeitkorridor, Geräteanordnung und Rückkehr;
+- Bestätigung vor dem Teilen oder Verlassen;
+- Recovery, wenn Partner, Gruppe oder Gerät nicht verfügbar ist.
+
+### Übergabematrix
+
+| Sozialformwechsel | fachlicher Zweck | geteiltes Objekt | privat bleibendes Artefakt | Rollen/Sprech-Hörvertrag | Bestätigung | Geräteanordnung | Recovery bei fehlender Person/Gerät |
+|---|---|---|---|---|---|---|---|
+| Einzelarbeit → Partnerarbeit | Vorhersage, Modell oder Beleg erklären und durch eine zweite fachliche Prüfung schärfen | ausdrücklich ausgewählter Ausschnitt, neutraler Kurzfall oder aktuelle gemeinsame Aufgabe | unbestätigte Entwürfe, vollständige Belegkarte, lokale Daten-/Recoveryinformationen | bei 1:2 `steuern` und `vorhersagen/prüfen`; bei 1:1 `erklären` und `prüfen`, danach Wechsel | jede Person bestätigt, welches Objekt geteilt wird; kein automatisches Kopieren | 1:2 ein Gerät mit Rollenwechsel; 1:1 Geräte bleiben jeweils unter lokaler Kontrolle | ohne Partner: strukturierte Selbsterklärung plus frischer Prüffall; mit nur einem Gerät: 1:2-Rollen; ohne funktionsfähiges Gerät: nur fachlich definierter gleichwertiger Fallback, sonst LS-PAUSE/LS-RECOVER |
+| Partnerarbeit → Gruppenarbeit | unterschiedliche Lösungswege oder Fehlerursachen anhand gemeinsamer Kriterien vergleichen | pro Paar ein bewusst ausgewählter/neutralisierter Beleg oder vom Modul bereitgestellte Kontrastfälle | übrige Paarprodukte und persönliche Notizen | `vorstellen`, `Kriterium prüfen`, `Rückfrage stellen`, `Begründung bündeln`; Rollen rotieren | Paar bestätigt Auswahl; Gruppe bestätigt gemeinsame Vergleichsfrage | ein sichtbares gemeinsames Objekt, übrige Geräte nach Bedarf geschlossen/bei Eigentümerpaar | fehlendes Paar: neutraler Modulfall ersetzt nicht vorhandene Evidenz; Geräteausfall: ausgewähltes Objekt verbal/textlich, nur wenn gleichwertig, sonst später fortsetzen |
+| Gruppenarbeit → Plenum | Begriff, Modellgrenze, typische Abweichung oder Kriterienurteil gemeinsam sichern | neutraler Fall, systemseitiges Modell oder ausdrücklich ausgewählter Gruppenbeleg | alle nicht ausgewählten Produkte, Namen, lokale Historien und Datenkontrollen | Gruppe benennt Sprecher*in und prüfende Person; Plenum hört mit konkreter Vergleichsfrage | ausdrückliche Auswahl vor Projektion; Widerruf führt zum neutralen Fall | Lehrkraft-/Projektionsgerät zeigt neutralen oder freigegebenen Inhalt, keine Gerätespiegelung im Hintergrund | keine Freigabe: neutraler Kurzfall; Projektionsausfall: mündlich/textlich/analog nur bei gleicher Fachfunktion, sonst Haltepunkt verschieben |
+| Plenum → Einzelarbeit | gemeinsame Sicherung auf eigenes Produkt anwenden oder nächste individuelle Entscheidung vorbereiten | gemeinsame Kernaussage, Kriterium, Modellgrenze und nächster Auftrag | eigene Ausgangs-/Revisionsfassung und Belegkarte | jede Person formuliert/entscheidet wieder selbst; keine fortgesetzte Sprecherrolle | Rückkehrziel und eigener Stand werden lokal bestätigt | jedes verfügbare Gerät kehrt zum geparkten Zustand zurück; bei 1:2 folgt erneuter Rollenvertrag | fehlendes Gerät: Partnerarbeit nur, wenn beide Denkhandlungen erhalten bleiben; sonst Produkt sicher pausieren und später auf eigenem/validiertem Stand fortsetzen |
+
+Ein Rollenwechsel ohne fachlich symmetrische Denkhandlung ist unzulässig. Dauerhaftes Bedienen durch eine Person und bloßes Zuschauen durch eine andere gilt nicht als Partnerarbeit.
+
+### Gemeinsame Anzeige und Datenschutzgrenzen
+
+| Kategorie | zulässige Inhalte | Bedingung | Ersatz bei fehlender Freigabe |
+|---|---|---|---|
+| frei projizierbar/teilbar | Leitfrage, Modul-/Phasenkarte, neutrale Aufgaben, statische Modelle, Qualitätskriterien, systemseitige Muster-/Gegenbeispiele, Hilfen und Fallbackhinweise | keine personenbezogene oder lokale Lernendeninformation enthalten | nicht erforderlich |
+| nur nach lernendenseitiger Auswahl | eigener Produkt-/Belegkartenausschnitt, Vorhersage, Revision, Transferantwort oder bewusst erzeugter Export | Zweck, Umfang und Publikum sind klar; Auswahl kann widerrufen werden; keine Vollhistorie | neutraler oder synthetischer Kurzfall mit derselben Lernfunktion |
+| muss lokal bleiben | unbestätigte Entwürfe, vollständiger lokaler Lernstand, Import-/Exportinhalt, Datenkontrollen, Speicherfehlerdetails, private/sensible Freitexte, Recoverydateien und nicht ausgewählte Belegkarten | keine Projektion oder automatische Übertragung | abstrakte Fehlerklasse, neutraler Beleg oder lehrkraftseitig vorbereiteter Fall |
+
+Projizierte Zustände und Lehrkraftimpulse verwenden exakt dieselben Labels wie das Lernstudio: etwa `Denken und entscheiden`, `Rückmeldung deuten`, `Prüfen und revidieren`, `Sichern` und `Übertragen`. Lehrkraftkürzel oder Handbuchbegriffe dürfen diese Labels erläutern, aber nicht ersetzen.
+
+### Lehrkraft-Walkthrough über alle drei Referenzsituationen
+
+| Referenzsituation | Orchestrierungsmoment | Ebene | Lehrkrafthandlung und gleicher Lernbegriff | verfügbare Evidenz ohne Telemetrie | lokale/private Grenze |
+|---|---|---|---|---|---|
+| 1 Einstieg/Orientierung | vorbereiten | Klasse | Modul, Zielabschnitt, Zeitpfad, Sozialform, Offlinekern und Startboard prüfen | Modulvertrag und eigener Technikcheck | keine Klassendaten vor dem Start |
+| 1 Einstieg/Orientierung | starten | Klasse | Leitfrage rahmen, `Orientierung` und ersten Haltepunkt nennen | mündliche Reaktion, gemeinsamer Impuls | lokaler Fortsetzungskonflikt bleibt am jeweiligen Gerät |
+| 1 Einstieg/Orientierung | beobachten | Gruppe/Individuum | Ziel-, Produkt- und nächste-Schritt-Erklärung hören | Partnererklärung, Handzeichen, sichtbarer Start | keine automatische Startstatistik |
+| 1 Einstieg/Orientierung | intervenieren | Klasse/Gruppe | Ziel klären oder neutralen Vorwissensfall geben | gewöhnliche Antworten und Gespräch | keine Vorwissensprofile |
+| 1 Einstieg/Orientierung | übergehen | Klasse | Sozialform und `Denken und entscheiden` ansagen; lokale Bestätigung verlangen | sichtbare Unterrichtsbereitschaft | kein Fernsprung auf Geräten |
+| 1 Einstieg/Orientierung | sichern | Klasse | gemeinsame Leitfrage und erste Erwartung bündeln | Tafel-/Gesprächsergebnis | keine personenbezogene Sicherung nötig |
+| 1 Einstieg/Orientierung | wieder einsteigen | Klasse | gleiche Phasenlabels und knappe Abruffrage nutzen | neuer Kurzfall und mündliche Antworten | keine Rekonstruktion aus Nutzungsdauer |
+| 2 Kernhandlung | vorbereiten | Klasse | erwartbare Fehler, Rollen 1:2, Rückfragen, neutralen Fehlerfall und Haltepunkt prüfen | Fachvertrag und statische Fälle | keine Lernendenhistorien |
+| 2 Kernhandlung | starten | Klasse | `Denken und entscheiden` vor `Fachlich handeln` explizit rahmen | strukturierte Vorhersagen, wenn Lernende sie zeigen | Vorhersagen bleiben lokal |
+| 2 Kernhandlung | beobachten | Gruppe/Individuum | Produkt, Laufspur, Erklärung und erste Abweichung im Raum wahrnehmen | sichtbarer Fall, Gespräch, bewusst gezeigte Laufspur | kein Fehlerranking oder Gerätefeed |
+| 2 Kernhandlung | intervenieren | Individuum/Gruppe | Rückfrage zur ersten Abweichung oder strategisches Gerüst geben | Lernendenerklärung/Produkt | Hilfenutzung wird nicht protokolliert |
+| 2 Kernhandlung | übergehen | Klasse | gemeinsamen Vergleich pausieren; `Rückmeldung deuten` und Rollenwechsel setzen | neutraler/ausgewählter Kontrastfall | private Produkte bleiben lokal |
+| 2 Kernhandlung | sichern | Klasse | Revision gegen Kriterium vergleichen und LS-SECURE vorbereiten | ausgewählter Beleg, frischer Kurzfall | keine automatische Bewertung |
+| 2 Kernhandlung | wieder einsteigen | Klasse/Gruppe | neue Vorhersage vor erneutem Handeln verlangen | neuer Testbeleg und Erklärung | keine Versuchschronik |
+| 3 Sicherung/Transfer | vorbereiten | Klasse | Sicherungsziel, Belegkartengrammatik, Transferfall, Exportbedarf und Wiedervorlage planen | Fach-/Kartenvertrag | keine Sammelabgabe |
+| 3 Sicherung/Transfer | starten | Klasse | `Sichern` als Beleg-Kriterium-Revision-Verbindung rahmen | gemeinsame Beispiele | lokale Karten bleiben privat |
+| 3 Sicherung/Transfer | beobachten | Gruppe/Individuum | Kernaussage, Beleg, Modellgrenze und Transferbegründung besprechen | bewusst gezeigte Karte oder mündliche Erklärung | kein Fernzugriff auf Karten |
+| 3 Sicherung/Transfer | intervenieren | Gruppe/Individuum | fehlende Verbindung mit neutralem Gegenbeispiel oder Rückfrage klären | Gespräch und Produkt | keine Personenklassifikation |
+| 3 Sicherung/Transfer | übergehen | Klasse | von `Sichern` zu `Übertragen` oder begründet `für später markieren` wechseln | sichtbarer Sicherungsstand im Unterricht | offener Transfer wird lokal geparkt, nicht abgeschlossen |
+| 3 Sicherung/Transfer | sichern | Klasse | gemeinsame Konsolidierung und bewussten Exportentscheid treffen | neutraler/ausgewählter Beleg und Tafelbild | Export nur durch sichtbare lokale Handlung |
+| 3 Sicherung/Transfer | wieder einsteigen | Klasse | aktiven Abruf und neuen Transferfall mit gleichem Begriff starten | frischer Fall, Erklärung, freiwillig gezeigter alter Beleg | keine zentrale Wiedereinstiegsanalyse |
+
+Die Lehrkraftarchitektur fällt durch, wenn eine zentrale Unterrichtsentscheidung Live-Telemetrie, personenbezogene Daten, Fernsteuerung, abweichende Begriffe oder erzwungene Offenlegung lokaler Arbeit benötigt.
