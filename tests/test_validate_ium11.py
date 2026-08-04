@@ -1527,6 +1527,22 @@ class IUM11PublicationTests(unittest.TestCase):
                     self.ium10_result,
                 )
 
+    def test_publication_contract_ignores_a_separate_pilot_namespace(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.copy_publication_fixture(root)
+            sibling = root / "pilot/ium5-gate-b/protocol.json"
+            self.assertTrue(sibling.is_file())
+
+            result = validate_ium11_script._validate_publication_contract(
+                root,
+                self.protocol,
+                self.time_model,
+                self.ium10_result,
+            )
+
+            self.assertEqual(result["syntheticExamples"], 7)
+
     def test_publication_boundary_rejects_reserved_literal_outside_generated_block(self):
         for relative_path in (
             "README.md",

@@ -1346,9 +1346,15 @@ def _validate_publication_contract(
             for name in SYNTHETIC_EXAMPLE_NAMES
         },
     }
+    pilot_root = root / "pilot"
+    owned_json_paths = [
+        *pilot_root.glob("*.json"),
+        *(pilot_root / "docs").glob("*.json"),
+        *(pilot_root / "schemas").glob("*.json"),
+        *(pilot_root / "examples").glob("*.json"),
+    ]
     actual_json_paths = {
-        path.relative_to(root).as_posix()
-        for path in (root / "pilot").rglob("*.json")
+        path.relative_to(root).as_posix() for path in owned_json_paths
     }
     _require(
         actual_json_paths == allowed_json_paths,

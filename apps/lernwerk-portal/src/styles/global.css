@@ -47,6 +47,21 @@ input:focus-visible,
   transform: translateY(0);
 }
 
+.gate-b-preview {
+  position: sticky;
+  z-index: 5;
+  inset-block-start: 0;
+  inline-size: 100%;
+  margin: 0;
+  padding: 0.75rem max(1rem, env(safe-area-inset-right)) 0.75rem max(1rem, env(safe-area-inset-left));
+  border-block-end: 0.125rem solid #6b4100;
+  background: #fff0b3;
+  color: #4a2c00;
+  font-weight: 800;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
 .site-header,
 main,
 footer {

@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 import { buildPortalToDirectory } from './build-portal.js';
 import type { BuildProfile } from './build-module-registry.js';
+import { parsePublicationMode } from './publication-mode.js';
 
 function assertProfile(value: string): asserts value is BuildProfile {
   if (value !== 'production' && value !== 'fixture') {
@@ -12,12 +13,21 @@ function assertProfile(value: string): asserts value is BuildProfile {
 async function main(): Promise<void> {
   const profile = process.argv[2] ?? '';
   assertProfile(profile);
-  const base = process.argv[3] ?? '/';
-  const port = process.argv[4] ?? '4321';
+  const publicationMode = parsePublicationMode(process.argv[3] ?? '');
+  const base = process.argv[4] ?? '/';
+  const port = process.argv[5] ?? '4321';
   const rootDir = process.cwd();
   const appRoot = resolve(rootDir, 'apps/lernwerk-portal');
   const outputDir = resolve(appRoot, 'dist');
-  await buildPortalToDirectory({ profile, base, rootDir, outputDir });
+  await buildPortalToDirectory({
+    profile,
+    publicationMode,
+    base,
+    rootDir,
+    outputDir,
+    buildRevision: process.env.IUM_BUILD_REVISION,
+    previewId: process.env.IUM_PREVIEW_ID,
+  });
 
   const child = spawn(
     process.execPath,
@@ -38,6 +48,7 @@ async function main(): Promise<void> {
         ...process.env,
         ASTRO_TELEMETRY_DISABLED: '1',
         IUM_BUILD_PROFILE: profile,
+        IUM_PUBLICATION_MODE: publicationMode,
         IUM_BASE_PATH: base,
         IUM_OUTPUT_DIR: outputDir,
       },

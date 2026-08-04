@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "technical-evidence.schema.json",
+  "title": "IUM5 Gate B technical evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documentType", "schemaVersion", "protocolId", "evidenceId", "module", "build", "policySummary", "rows", "limitedException", "privacy", "result", "retentionClass"],
+  "properties": {
+    "documentType": {"const": "ium5-gate-b-technical-evidence"},
+    "schemaVersion": {"const": 1},
+    "protocolId": {"const": "IUM5-GATE-B-1"},
+    "evidenceId": {"type": "string", "pattern": "^GB-TECH-[A-Z0-9-]{8,40}$"},
+    "module": {"$ref": "#/$defs/module"},
+    "build": {"$ref": "#/$defs/build"},
+    "policySummary": {"enum": ["documented", "unavailable", "limited-accepted"]},
+    "rows": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {"$ref": "#/$defs/technicalRow"}
+    },
+    "limitedException": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/limitedException"}
+      ]
+    },
+    "privacy": {"$ref": "#/$defs/privacy"},
+    "result": {"enum": ["pass", "fail", "limited-accepted", "not-evaluable"]},
+    "retentionClass": {"const": "outside-repository-until-decision-plus-30-days"}
+  },
+  "$defs": {
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "status", "deviceVerified"],
+      "properties": {
+        "id": {"const": "IUM-5-CORE-05"},
+        "version": {"const": "0.1.0"},
+        "status": {"const": "working"},
+        "deviceVerified": {"const": "not-run"}
+      }
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["buildRevision", "previewId", "publicationMode"],
+      "properties": {
+        "buildRevision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "previewId": {"type": "string", "pattern": "^ium5-gate-b-[a-z0-9-]{8,48}$"},
+        "publicationMode": {"const": "gate-b-preview"}
+      }
+    },
+    "operatingSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "version"],
+      "properties": {
+        "family": {"enum": ["ipados", "windows", "chromeos", "macos", "linux", "not-applicable"]},
+        "version": {"type": "string", "minLength": 1, "maxLength": 32, "pattern": "^[A-Za-z0-9._ -]+$"}
+      }
+    },
+    "browser": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "version"],
+      "properties": {
+        "family": {"enum": ["safari", "chromium", "firefox", "not-applicable"]},
+        "version": {"type": "string", "minLength": 1, "maxLength": 32, "pattern": "^[A-Za-z0-9._ -]+$"}
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "result"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9-]{3,48}$"},
+        "result": {"enum": ["pass", "fail", "blocked"]}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "severity", "status", "reproductionSteps"],
+      "properties": {
+        "code": {"$ref": "#/$defs/disruptionCode"},
+        "severity": {"enum": ["none", "low", "medium", "high", "critical"]},
+        "status": {"enum": ["resolved", "unresolved"]},
+        "reproductionSteps": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "^[^@<>\\r\\n]+$"}
+        }
+      }
+    },
+    "technicalRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operatingSystem", "browser", "managedStatus", "policyStatus", "networkContext", "checks", "result", "findings", "privateEvidenceRef"],
+      "properties": {
+        "id": {"enum": ["TECH-IPAD-TOUCH", "TECH-IPAD-VO", "TECH-DESKTOP-CHROMIUM", "TECH-DESKTOP-FIREFOX", "TECH-NET-OFFLINE-UPDATE", "TECH-LMS-ROUTE"]},
+        "operatingSystem": {"$ref": "#/$defs/operatingSystem"},
+        "browser": {"$ref": "#/$defs/browser"},
+        "managedStatus": {"enum": ["managed", "not-managed", "unknown", "not-applicable"]},
+        "policyStatus": {"enum": ["documented", "unavailable", "limited-accepted", "not-applicable"]},
+        "networkContext": {"enum": ["school-network", "managed-network", "offline-test", "lms-context", "not-applicable"]},
+        "checks": {"type": "array", "minItems": 1, "maxItems": 12, "items": {"$ref": "#/$defs/check"}},
+        "result": {"enum": ["pass", "fail", "blocked"]},
+        "findings": {"type": "array", "maxItems": 12, "items": {"$ref": "#/$defs/finding"}},
+        "privateEvidenceRef": {"type": "string", "pattern": "^EVID-TECH-[A-Z0-9-]{6,40}$"}
+      }
+    },
+    "limitedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["missingRowId", "reasonCode", "acceptedByRole", "scope", "previewId", "compensatingControls", "abortCodes"],
+      "properties": {
+        "missingRowId": {"enum": ["TECH-IPAD-TOUCH", "TECH-IPAD-VO", "TECH-DESKTOP-CHROMIUM", "TECH-DESKTOP-FIREFOX", "TECH-NET-OFFLINE-UPDATE", "TECH-LMS-ROUTE"]},
+        "reasonCode": {"enum": ["unavailable-target", "no-access-window", "policy-metadata-unavailable"]},
+        "acceptedByRole": {"const": "commissioner"},
+        "scope": {"const": "one-exploratory-run-only"},
+        "previewId": {"type": "string", "pattern": "^ium5-gate-b-[a-z0-9-]{8,48}$"},
+        "compensatingControls": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["teacher-controlled-devices", "immediate-fallback", "engineering-on-call", "reduced-device-scope"]}},
+        "abortCodes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/disruptionCode"}}
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unexpectedThirdPartyRequests", "prohibitedDataObserved", "telemetryObserved"],
+      "properties": {
+        "unexpectedThirdPartyRequests": {"type": "boolean"},
+        "prohibitedDataObserved": {"type": "boolean"},
+        "telemetryObserved": {"type": "boolean"}
+      }
+    },
+    "disruptionCode": {
+      "enum": ["wrong-build", "preview-label-missing", "startup-failure", "interaction-loss", "state-loss", "import-export-failure", "offline-failure", "update-failure", "screenreader-blocker", "keyboard-blocker", "touch-blocker", "layout-blocker", "network-policy-blocker", "lms-routing-blocker", "unexpected-third-party-request", "privacy-contract-breach", "instructional-time-collapse", "other-closed-review-required"]
+    }
+  }
+}

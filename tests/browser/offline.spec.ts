@@ -28,6 +28,7 @@ async function publishCandidateBuild(options: {
   try {
     await buildPortalToDirectory({
       profile: 'fixture',
+      publicationMode: 'device-fixture',
       base: '/',
       rootDir: repoRoot,
       outputDir: candidateOutput,
@@ -191,6 +192,7 @@ test('subpath build confirms its exact service-worker scope and offline reload',
   try {
     await buildPortalToDirectory({
       profile: 'fixture',
+      publicationMode: 'device-fixture',
       base: '/ium-lernwerk/',
       rootDir: repoRoot,
       outputDir: output,

@@ -19,6 +19,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run test:python
+      - run: python -B scripts/validate_ium5_gate_b.py protocol
+      - run: python -B scripts/validate_ium5_gate_b.py synthetic
       - run: python -B scripts/build_ium11_cockpit.py --check
       - run: node --check pilot/cockpit/assets/app.js
       - run: python -B scripts/build_ium11_publication_contract.py --check
@@ -44,6 +46,10 @@ jobs:
       - run: npm run build
       - run: npm run build:fixture
       - run: npm run build:fixture:subpath
+      - env:
+          IUM_BUILD_REVISION: '1111111111111111111111111111111111111111'
+          IUM_PREVIEW_ID: ium5-gate-b-ci-test-0001
+        run: npm run build:gate-b-preview
       - run: npm run quality:build
       - run: npm run quality:licenses
       - name: Upload quality reports
