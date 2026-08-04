@@ -1,8 +1,8 @@
 # IuM-Lernwerk – Vertikale Referenzentwürfe der Learning Experience
 
 - **Task:** LXP03 Vertikale Referenzsituationen entwerfen und vergleichen
-- **Status:** in Ausarbeitung
-- **Fassung:** 0.1
+- **Status:** zur schriftlichen Nutzerreview
+- **Fassung:** 0.9
 - **Datum:** 5. August 2026
 - **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
 - **Ausgangsstand:** lokaler `main` auf `f2a9d3c`; `origin/main` auf `3498838`
@@ -869,17 +869,19 @@ Eine private Reflexion, ein Portfolioeintrag oder eine zweite vollständige Nach
 
 Die Karte speichert Referenzen auf Ausgang und Revision sowie einen vollständigen, unveränderbaren Beleg-Snapshot. Sie ersetzt weder die autoritativen Artefakte noch führt sie diese zusammen. Änderungen an der Aussage erzeugen eine neue Kartenfassung; Ausgangsalgorithmus und Laufspur bleiben erhalten.
 
-### Zustandskomposition 3
+### Kompositionsmomente 3 und LXP02-Zuordnung
 
-| Zustand | Leitfrage | Fokusbühne | Kontextband | Aktionskante | Guard |
-|---|---|---|---|---|---|
-| SEC-SELECT | Welcher Beleg trägt meine Aussage? | Ausgang, Laufspur und Revision in prüfbarer Beziehung | Ziel, Kriterien, Herkunft | `Beleg übernehmen` | ein eindeutiger Belegausschnitt ist ausgewählt |
-| SEC-WRITE | Was zeigt der Beleg – und was nicht? | Belegausschnitt neben editierbarer Aussage und Modellgrenze | ausgewählte Herkunft bleibt sichtbar | `Belegkarte sichern` | Aussage verweist auf Beleg; Modellgrenze ist ausgefüllt |
-| SEC-TRANSFER | Trägt die Aussage in einem neuen Systemfall? | neue Fallbeschreibung, eigene Entscheidung und Bezug zur Karte | Karte zunächst eingeklappt | `auf neuen Fall übertragen` | eigene Entscheidung vor vollständigem Kartenzugriff |
-| SEC-EXPORT | Welche Daten verlässt dieses Gerät? | Exportumfang, Sensitivität, Vorschau und Zielhandlung | Kartenfassung und lokale Eigentümerschaft | `exportieren` oder `abbrechen` | bewusste Bestätigung; kein voreingestelltes Teilen |
-| SEC-PAUSE | Ist der bestätigte Stand sicher? | Speicherstatus und nächster Einstieg | letzte bestätigte Kartenfassung | `pausieren` oder `zum Lernwerk-Kosmos` | kein unbestätigter Stand wird als gespeichert ausgegeben |
-| REENTRY-RECALL | Was erinnerst du vor dem Nachsehen? | kurze aktive Abruffrage mit eigener Antwort | Thema und ursprüngliches Ziel, nicht die Lösung | `Antwort festhalten` | Antwort wird getrennt gespeichert, bevor alte Karte sichtbar wird |
-| REENTRY-COMPARE | Was bleibt tragfähig, was muss sich ändern? | eigene Abrufantwort neben vollständiger alter Karte | Kartenfassung, Datum, Inhaltsversion | `weiterarbeiten`, `exportieren` oder `zum Lernwerk-Kosmos` | Vergleich ist möglich; keine automatische Verschmelzung |
+`SEC-*` und `REENTRY-*` sind lokale Prüfbezeichner für sichtbare Kompositionsmomente, keine neuen Lernzustände und keine IDs für LXP04. Jeder Moment bleibt einem freigegebenen LXP02-Zustand oder einem ausdrücklich dokumentierten Daten-/Dialogmoment innerhalb dieses Zustands zugeordnet.
+
+| Kompositionsmoment | LXP02-Zuordnung | Leitfrage | Fokusbühne | Kontextband | Aktionskante | Guard |
+|---|---|---|---|---|---|---|
+| SEC-SELECT | LS-SECURE | Welcher Beleg trägt meine Aussage? | Ausgang, Laufspur und Revision in prüfbarer Beziehung | Ziel, Kriterien, Herkunft | `Beleg übernehmen` | ein eindeutiger Belegausschnitt ist ausgewählt |
+| SEC-WRITE | LS-SECURE | Was zeigt der Beleg – und was nicht? | Belegausschnitt neben editierbarer Aussage und Modellgrenze | ausgewählte Herkunft bleibt sichtbar | `Belegkarte sichern` | Aussage verweist auf Beleg; Modellgrenze ist ausgefüllt |
+| SEC-TRANSFER | LS-TRANSFER | Trägt die Aussage in einem neuen Systemfall? | neue Fallbeschreibung, eigene Entscheidung und Bezug zur Karte | Karte zunächst eingeklappt | `auf neuen Fall übertragen` | eigene Entscheidung vor vollständigem Kartenzugriff |
+| SEC-EXPORT | Datenhandlung innerhalb LS-TRANSFER/LS-PAUSE | Welche Daten verlässt dieses Gerät? | Exportumfang, Sensitivität, Vorschau und Zielhandlung | Kartenfassung und lokale Eigentümerschaft | `exportieren` oder `abbrechen` | bewusste Bestätigung; kein voreingestelltes Teilen |
+| SEC-PAUSE | LS-PAUSE | Ist der bestätigte Stand sicher? | Speicherstatus und nächster Einstieg | letzte bestätigte Kartenfassung | `pausieren` oder `zum Lernwerk-Kosmos` | kein unbestätigter Stand wird als gespeichert ausgegeben |
+| REENTRY-RECALL | LS-ORIENT → LS-DECIDE | Was erinnerst du vor dem Nachsehen? | kurze aktive Abruffrage mit eigener Antwort | Thema und ursprüngliches Ziel, nicht die Lösung | `Antwort festhalten` | Antwort wird getrennt gespeichert, bevor alte Karte sichtbar wird |
+| REENTRY-COMPARE | LS-DECIDE | Was bleibt tragfähig, was muss sich ändern? | eigene Abrufantwort neben vollständiger alter Karte | Kartenfassung, Datum, Inhaltsversion | `weiterarbeiten`, `exportieren` oder `zum Lernwerk-Kosmos` | Vergleich ist möglich; keine automatische Verschmelzung |
 
 ### Wide-Komposition 3
 
@@ -1327,7 +1329,7 @@ Ein Kandidat darf in LXP04 erst zum wiederverwendbaren Muster werden, wenn sein 
 | aktive Wiederaufnahme vor Vollanzeige | 1 und 3; Situation 2 wird nach Pause zum bestätigten Fachzustand rekonstruiert | längere Unterbrechung beginnt mit kurzer eigener Antwort; alter Beleg bleibt getrennt und bewusst öffnbar | Zeitgrenze kurz/lang, Aufgabenformate und Persistenz der neuen Antwort |
 | eigentumsbewusste Datenhandlung | 1 und 3; Situation 2 erhält lokalen Stand ohne Exportzwang | Umfang, Sensitivität, lokale Eigentümerschaft und sichere Abbruchfolge vor Export/Löschen | Dateiformat, Lizenz-/Metadaten, OS-Integration, Migrationsformat |
 
-### Nicht-Generalisierungen
+### Nicht generalisieren
 
 Folgende Entscheidungen bleiben ausdrücklich außerhalb eines LXP04-Systemvertrags, solange keine neue situationsübergreifende Evidenz und gegebenenfalls fachliche Prüfung vorliegt:
 
@@ -1362,6 +1364,21 @@ Die Freigabe bewirkt **nicht**:
 - Änderung oder Implementierung von Produktcode;
 - IUM5-Neufassung, Preview, Deployment, Realgerätetest, Pilotierung, LMS-Anbindung oder Release;
 - Anhebung des Fachprofils, der Forschungsregeln oder der Referenzentwürfe auf empirisch validierte Wirksamkeit;
-- Generalisierung der unter `Nicht-Generalisierungen` aufgeführten Fach-, Stil- oder Technikentscheidungen.
+- Generalisierung der unter `Nicht generalisieren` aufgeführten Fach-, Stil- oder Technikentscheidungen.
 
 Konkrete Änderungswünsche am gebündelten Review halten LXP03 im Reviewstatus. Ein nachgewiesener Widerspruch zu LXP01/LXP02 wird dort ausdrücklich revidiert; er darf nicht still in LXP04 kompensiert werden.
+
+## Abschlussprüfung und Reviewstatus
+
+Das Reviewpaket ist entscheidungsvollständig und bewusst noch nicht freigegeben:
+
+- 12/12 LXP03-Ergebnisse sind `specified`;
+- drei konkrete Referenzentwürfe enthalten Wide-/Schmal-Komposition, Lernenden- und Lehrkraftspur, Touch, Tastatur, Text-/Assistive-Technology, Reduced Motion, Fokus, Local First, Offline und Recovery;
+- drei WU-Checks und drei Portabilitätsproben trennen Entwurfsevidenz von Wirkungs- oder Fachgültigkeitsbehauptungen;
+- 24/24 Q1–Q8-Urteile liegen vor: 17 `pass`, 7 `pass-with-explicit-risk`, kein blockierendes Urteil;
+- sieben LXP02-Darstellungsrisiken besitzen konkrete Antwort, Restunsicherheit, Eigentümerphase und Fail-Signal;
+- zwölf globale Anti-Patterns sind ausgeschlossen und als Regression-Signale dokumentiert;
+- Ansatz C ist gewählt; die Übergabe an LXP04 unterscheidet Musterkandidaten und ausdrückliche Nicht-Generalisierungen;
+- Repository-Scope bleibt dokumentarisch: Spezifikation und Ausführungsplan, kein Produktcode und keine vorgezogene Folgephase.
+
+Der einzige offene LXP03-Gatepunkt ist die ausdrückliche schriftliche Nutzerentscheidung zum Gesamtartefakt. Bis dahin bleibt die Fassung `0.9`, LXP03 im Reviewstatus und LXP04 geschlossen.
