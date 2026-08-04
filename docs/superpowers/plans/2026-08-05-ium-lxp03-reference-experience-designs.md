@@ -87,7 +87,7 @@ Use IDs `LXP03-01` through `LXP03-12` for the twelve results in the workspace ta
 
 ```powershell
 $specPath = 'docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md'
-(Select-String -Path $specPath -Pattern '^\| LXP03-' -Encoding UTF8).Count
+(Select-String -Path $specPath -Pattern '^\| LXP03-[0-9]{2} \|' -Encoding UTF8).Count
 rg -n 'Produktcode|LXP04|Preview|Pilot|LMS|Release|Freigabegate' $specPath
 git add $specPath
 git diff --cached --check
@@ -435,7 +435,7 @@ Expected: `20/20` markers.
 
 ```powershell
 $specPath = 'docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md'
-"traceability=$((Select-String -Path $specPath -Pattern '^\| LXP03-' -Encoding UTF8).Count)"
+"traceability=$((Select-String -Path $specPath -Pattern '^\| LXP03-[0-9]{2} \|' -Encoding UTF8).Count)"
 "quality=$((Select-String -Path $specPath -Pattern '^\| [123] \| Q[1-8] ' -Encoding UTF8).Count)"
 "risks=$((Select-String -Path $specPath -Pattern '^\| RISK-LXP02-' -Encoding UTF8).Count)"
 "portability=$((Select-String -Path $specPath -Pattern '^\| PORT-' -Encoding UTF8).Count)"
