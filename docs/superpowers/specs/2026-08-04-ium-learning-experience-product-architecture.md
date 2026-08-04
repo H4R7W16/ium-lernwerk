@@ -108,7 +108,7 @@ Der Begriffsledger ist die einzige Quelle für bevorzugte deutschsprachige Produ
 |---|---|---|---|---|
 | TERM-SPACE-COSMOS | Lernwerk-Kosmos | globaler Raum für Überblick, Zusammenhang, Auswahl und Rückkehr | Portal, Startseite, Bibliothek als gleichrangige Produktbegriffe | specified |
 | TERM-SPACE-STUDIO | Lernstudio | fokussierter Arbeitsraum innerhalb eines Moduls | Werkstatt als globaler Raum, Kursraum | specified |
-| TERM-SPACE-SECURE | Sicherungsraum | Raum für ausgewählte Belege, Revision, Transfer und Wiederaufnahme | Portfolio, Ablage, Archiv | open-decision |
+| TERM-SPACE-SECURE | Sicherungsraum | lokaler, auf den Lernweg begrenzter Raum zum Prüfen, Vergleichen, Revidieren, Exportieren und Wiederverwenden ausgewählter Belegkarten | Portfolio, Ablage, Archiv, Bewertungsordner | specified |
 | TERM-SPACE-TEACHER | Lehrkraftspur | rollenbezogene Orchestrierungsinformation zu denselben Lernhandlungen | Lehrkräftedashboard, Adminbereich | specified |
 | TERM-OBJECT-MODULE | Modul | fachlich und curricular verantwortete, wiederaufnehmbare Lerneinheit | Kurs, Kapitel | specified |
 | TERM-OBJECT-PATH | Lernpfad | begründete Folge von Unterrichtseinheiten und Lernphasen innerhalb eines Moduls; modulübergreifende Anschlüsse bleiben typisierte Beziehungen | Route, Journey | specified |
@@ -142,6 +142,8 @@ Der Begriffsledger ist die einzige Quelle für bevorzugte deutschsprachige Produ
 | DEC-LXP02-005 | `Themenregion` ist der sichtbare Oberbegriff im Kosmos; curriculare Lernstränge sind zugeordnete Lehrkraftmetadaten. | Eine zweite, nur für Lehrkräfte sichtbare Inhaltshierarchie würde Start, Rückkehr und Unterrichtsgespräch auseinanderführen. | Kosmos-Vertrag und alle drei Referenzsituationen; Q1 und Q6 | specified |
 | DEC-LXP02-006 | Bei einem lehrkraftgeleiteten Ziel besitzt der gemeinsame Unterrichtsstart Primat; ein abweichender lokaler Fortsetzungspunkt wird sichtbar geparkt und bleibt später unverändert erreichbar. | Unterrichtskoordination darf lokalen Lernstand weder überschreiben noch unbemerkt mit einem anderen Pfad verschmelzen. | Referenzsituationen 1 und 3; Q5, Q6 und Q8 | specified |
 | DEC-LXP02-007 | Das Lernstudio verwendet elf fachliche Zustände einschließlich `Startbereit`, `Pausiert` und `Wiederherstellung erforderlich`; Zustände bilden keine Seiten oder Komponenten ab. | Die Schwelle zum Lernen, verlustfreie Unterbrechung und Recovery benötigen eine eigene verständliche Bedeutung, ohne Klickereignisse zu modellieren. | Referenzsituationen 1–3; Q1, Q4, Q5 und Q8 | specified |
+| DEC-LXP02-008 | Ein Fortschrittssignal ist ein fachlich bedeutsamer, belegter Stand und bleibt vom aktuellen Lernzustand getrennt. | Ein Lernzustand kann geöffnet sein, ohne dass eine Fähigkeit oder ein Ergebnis gesichert wurde; Navigation darf keinen Fortschritt erzeugen. | Referenzsituationen 1–3; Q3, Q4 und Q5 | specified |
+| DEC-LXP02-009 | Jedes dauerhaft gehaltene Sicherungsartefakt folgt der Belegkartengrammatik; Rohprodukte werden referenziert statt als zweite Chronik dupliziert. | Eine gemeinsame Grammatik trägt Wiederaufnahme und Transfer, ohne Portfolio-Plattform oder Versuchshistorie zu werden. | Referenzsituation 3; Q4, Q5 und Q8 | specified |
 
 ## Informationsarchitektur des Lernwerk-Kosmos
 
@@ -497,3 +499,116 @@ IUM-5-CORE-05 ist fachlicher Prüfgegenstand, nicht Experience-Vorlage. Der folg
 3. IUM5s Vorhersage-, Laufspur-, Hypothesen-, Revisions- und Transferlogik ist fachlich kompatibel und wird nicht abgeschwächt. Sie ist der positive Belastungstest für die generische Zustandsfolge.
 
 Der Stresstest fällt durch, wenn eine erforderliche Vorhersage umgangen, Rückmeldung als Lösung gezeigt, Revision ohne Beleg durchgeführt, Sicherung aus einem Systemstatus abgeleitet oder Transfer ohne bestätigtes Sicherungsartefakt geöffnet werden kann.
+
+## Fachlicher Fortschritt, Sicherungsraum und Belegkarte
+
+### Trennung von Zustand, Fortschritt und Sicherung
+
+- **Lernzustand** bezeichnet die aktuell dominante fachliche Funktion im Lernstudio.
+- **Fortschrittssignal** bezeichnet einen nachvollziehbaren, fachlich bedeutsamen Stand, der aus einer Lernhandlung oder einem gesicherten Ergebnis stammt.
+- **Sicherungsartefakt** bezeichnet den lokal gehaltenen fachlichen Inhalt; die **Belegkarte** ist seine normalisierte, anschlussfähige Grammatik.
+
+Das Öffnen eines Lernzustands erzeugt kein Fortschrittssignal. Ein Fortschrittssignal erzeugt keine Note, Kompetenzstufe, Rangposition oder Prognose. Eine Belegkarte darf nur aus tatsächlich erzeugten Produktspuren, Beobachtungen, Interpretationen und Revisionen entstehen.
+
+### Zulässige fachliche Fortschrittssignale
+
+| Signal-ID | fachliches Signal | Evidenzquelle | Bedeutung für Lernende | Verwendung durch Lehrkräfte | lokale Persistenz | Verfall/Versionsverhalten | manuell revidierbar |
+|---|---|---|---|---|---|---|:---:|
+| PROG-ORIENTED | Ziel und Position geklärt | bestätigter Start-/Wiedereinstiegskontext; Lernende können Ziel, Position und nächsten Schritt benennen | „Ich weiß, woran ich jetzt arbeite und wie ich zurückkehre.“ | gemeinsamen Start und Haltepunkt rahmen; kein Vorwissensurteil | nur aktueller Fortsetzungskontext, kein dauerhaftes Leistungsmerkmal | verfällt bei geändertem Ziel-/Pfadvertrag und wird neu geklärt | ja, durch Rückkehr zur Orientierung |
+| PROG-EXPECTATION | Erwartung oder Hypothese formuliert | bestätigte strukturierte Vorhersage, Einordnung oder Reparaturhypothese | „Meine Ausgangsidee ist festgehalten und kann geprüft werden.“ | Vergleichs- und Rückfrageanlass im Unterricht, nicht zentral einsehbar | nur wenn für späteren Vergleich/Revision erforderlich | an Aufgaben-/Schemaversion gebunden; inkompatible Form bleibt als unveränderter Altbeleg | ja, als neue Fassung; Ausgangsidee bleibt für den Vergleich erhalten |
+| PROG-MODEL-TESTED | Modell, Produkt oder Strategie erprobt | validierte Handlung plus ausgewählter beobachtbarer Effekt/Testfall | „Ich habe meine Idee an einem nachvollziehbaren Fall geprüft.“ | Produkt/Beleg im Gespräch beobachten oder durch Lernende zeigen lassen | ausgewählter Test und fachlich nötiger Produktstand; keine Versuchsvollhistorie | Test gilt nur für den benannten Fall und die kompatible Inhaltsversion | ja, durch neuen ausdrücklich ausgewählten Testbeleg |
+| PROG-EFFECT-INTERPRETED | Wirkung oder Rückmeldung gedeutet | Vergleich von Erwartung, Beobachtung und Kriterium mit benanntem nächsten Prüfschritt | „Ich kann erklären, was das Ergebnis für meine Idee bedeutet.“ | begriffliche Rückfrage, gemeinsamer Vergleich oder frischer Kurzfall | Interpretation nur, wenn sie Sicherung/Revision trägt | bleibt mit Quellenbeleg versioniert; bei geänderter Semantik prüfpflichtig | ja, mit begründeter neuer Interpretation |
+| PROG-REVISION-JUSTIFIED | Abweichungsursache gezielt revidiert | Ausgangsstand, lokalisierter Beleg, Hypothese, Änderung und erneute Prüfung | „Meine Änderung bezieht sich auf die gefundene Ursache und ist geprüft.“ | Revisionsqualität anhand fachlicher Kriterien besprechen | eine freigegebene Ausgangs- und Revisionsfassung plus Beleg | inkompatible Versionen werden nicht automatisch verglichen oder migriert | ja; neue Revision ergänzt/ersetzt die bestätigte Revision nach bewusster Auswahl |
+| PROG-EXPLANATION-SECURED | Erklärung oder Kernaussage gesichert | bestätigte Belegkarte mit Kernaussage, Beleg, Kriterium und Modellgrenze | „Ich kann meine Aussage mit einem Beleg verbinden und ihre Grenze nennen.“ | gemeinsame Sicherung, Gespräch oder spätere Abruffrage | bestätigte Belegkarte und Wiedervorlagepunkt | bleibt bis bewusster Löschung; Inhaltsänderung kennzeichnet Prüfbedarf, nicht automatische Ungültigkeit | ja, als neue bestätigte Kartenfassung mit nachvollziehbarem Bezug |
+| PROG-TRANSFER-JUSTIFIED | Konzept begründet übertragen | veränderter Fall, angewendetes gesichertes Konzept, Begründung und benannte Grenze | „Ich kann das Konzept in einer veränderten Beziehung nutzen.“ | Transfergespräch, nächste Unterrichtseinheit oder späterer Anschluss | nur fachlich benötigte bestätigte Transferantwort | an Fall-/Konzeptversion gebunden; veralteter Anschluss wird sichtbar markiert | ja, durch neuen Transferbeleg; alte Fassung bleibt bis Bestätigung erhalten |
+| PROG-REENTRY-MARKED | sinnvoller Wiedervorlagepunkt gesetzt | gesichertes Artefakt plus nächster fachlicher Abruf-/Anschlussvertrag | „Ich weiß, woran ich später wiederanknüpfe.“ | nächste Stunde oder Modulverbindung vorbereiten | Verweis auf Belegkarte, Zielabschnitt und offene Handlung | wird bei entfallenem Ziel nicht umgebogen, sondern als nicht verfügbar mit Grund markiert | ja, durch bewusste Wahl eines anderen fachlich zulässigen Anschlusses |
+
+Nicht zulässig sind Signale aus Klickzahl, Seitenzahl, Scrollposition, Bearbeitungszeit, Zahl der Versuche, Hilfenutzung, Rang, Klassendurchschnitt, automatisch inferierter Fähigkeit oder einem pauschalen `fertig`. Ein Zeitkorridor unterstützt Unterrichtsplanung, ist aber kein Fortschrittssignal.
+
+### Verantwortungen und Grenzen des Sicherungsraums
+
+Der Sicherungsraum ermöglicht:
+
+1. ausgewählte Belegkarten im aktuellen Lernweg zu prüfen;
+2. Ausgangs- und Revisionsstand fachlich zu vergleichen;
+3. eine noch offene Sicherung gezielt zu vervollständigen oder zu revidieren;
+4. einen bestätigten Beleg für Transfer oder Wiedereinstieg wiederzuverwenden;
+5. Belegkarten bewusst zu exportieren, validiert zu re-importieren oder ausdrücklich zu löschen.
+
+Der Sicherungsraum ist keine Portfolio-Plattform, kein soziales Profil, kein zentraler Abgabeort, keine Bewertungsdatenbank und keine chronologische Aktivitätsübersicht. Er besitzt keine Freigabe-, Like-, Kommentar-, Rang- oder Hintergrundsynchronisationsfunktion. Lehrkräfte erhalten keinen Fernzugriff; Lernende können ein Produkt bewusst zeigen oder exportieren.
+
+### Zustände des Sicherungsraums
+
+| Zustand | sichtbare Bedeutung | primäre Handlung | erhaltene Daten | erlaubter Anschluss | verbotene Interpretation |
+|---|---|---|---|---|---|
+| leer | Für diesen Lernweg wurde noch kein Sicherungsartefakt bestätigt. | zur aktuellen Lernhandlung oder zum ersten Sicherungsanlass zurückkehren | keiner; kein leerer Kartenplatz als Fortschritt | LS-INTERPRET/LS-SECURE oder Kosmos | „0 %“, fehlende Kompetenz oder Versäumnis |
+| teilweise | Ein Produkt/Beleg liegt vor, aber Kernaussage, Revision, Kriterium oder Grenze ist noch offen. | `Sicherung fortsetzen` | alle bestätigten Teilfelder und referenzierten Rohprodukte | LS-SECURE; bei fachlichem Bedarf zurück zu LS-REVISE | abgeschlossen, abgabefähig oder automatisch mangelhaft |
+| vollständig | Die erforderlichen Felder der konkreten Lernhandlungsart sind bestätigt. | `für Transfer verwenden`, `revidieren` oder `exportieren` | bestätigte Belegkarte und nötige Rohproduktreferenzen | LS-TRANSFER, Wiedereinstieg oder bewusster Export | Kompetenzniveau, Note oder endgültig unveränderliche Fassung |
+| inkompatible Version | Karte und aktueller Inhalts-/Schemavertrag können nicht sicher gemeinsam verwendet werden. | `Export sichern` oder `Wiederherstellung prüfen` | Originalkarte unverändert und aktiver Stand getrennt | LS-RECOVER; nur nach vollständiger Migration wieder LS-SECURE | automatische Migration, Teilübernahme oder inhaltliche Ungültigkeit ohne Prüfung |
+| offline | Alle lokal vorhandenen Kartenfunktionen bleiben nutzbar; netzabhängige Anschlüsse sind begrenzt. | lokal prüfen, revidieren, exportieren oder verfügbaren Transfer öffnen | bestätigte lokale Karten und Rohproduktreferenzen | lokal verfügbarer Lern-/Transferweg | allgemeine Offlinebereitschaft, wenn ein Zielasset fehlt |
+
+Eine „vollständige“ Belegkarte ist vollständig relativ zu ihrer Lernhandlungsart, nicht zum gesamten Modul oder zu einer Person.
+
+### Belegkartengrammatik
+
+`Belegkarte` bezeichnet hier einen semantischen Inhaltsvertrag, keine visuell vorweggenommene Kartenkomponente.
+
+| Feld-ID | Inhalt | Ursprung | Bearbeitungsrecht | Erforderlichkeit | Datenschutz-/Versionsregel |
+|---|---|---|---|---|---|
+| EVC-CONTEXT | Modul, Unterrichtseinheit/Lernphase, Leitfrage und fachlicher Anlass | aus validiertem Inhaltsvertrag; Kontextbezeichnung systemseitig | Kontext nicht frei umdeuten; Lernfrage nur innerhalb angebotener fachlicher Variante wählen | immer | keine Namen, Klassen- oder Gerätekennungen; Modul-/Inhaltsversion mitführen |
+| EVC-CLAIM | eigene Entscheidung, Hypothese, Einordnung oder Modell | lernendenseitig erzeugt | lernendenseitig editierbar; strukturierte Auswahl oder knapper Text | je Lernhandlungsart; immer bei Vorhersage, Urteil oder Modellbildung | kein persönlicher Offenlegungszwang; Freitext nur fachlich erforderlich |
+| EVC-ACTION | ausgeführte Handlung oder verwendeter Test | aus bestätigter Lernhandlung und statischem Fallvertrag | fachliche Auswahl/Parameter editierbar; Systembezeichnung nicht | bei erprobender, herstellender oder prüfender Handlung | kein Klickprotokoll; nur der für den Beleg ausgewählte Test |
+| EVC-EFFECT | beobachteter Effekt, Zustand oder relevante Abweichung | systemseitig aus derselben semantischen Quelle oder lernendenseitig bei nichtautomatisierbarem Produkt | lernendenseitige Auswahl des relevanten Belegs; Fachzustand nicht frei fälschen | bei Handlung mit beobachtbarer Wirkung | keine Vollhistorie; Quellen-/Szenarioversion mitführen |
+| EVC-INTERPRET | Bedeutung der Rückmeldung im Verhältnis zu Erwartung und Kriterium | lernendenseitige Interpretation, durch strukturierte fachliche Prompts gestützt | lernendenseitig revidierbar | bei Prüfung, Feedback oder Revision | kein Personenurteil; automatisierte Rückmeldung bleibt getrennt vom Lernendentext |
+| EVC-REVISION | Ausgangsstand, gezielte Änderung und Begründung | bestätigte Produktfassungen plus lernendenseitige Begründung | Änderung und Begründung lernendenseitig; System hält Fassungsbezug | bei zentraler Revisionshandlung; sonst ausdrücklich `nicht erforderlich` | höchstens die fachlich freigegebene Vergleichsfassung, keine Versuchschronik |
+| EVC-CONCLUSION | gesicherte Kernaussage, Qualitätskriterium und Modellgrenze | lernendenseitig bestätigt aus Produkt/Beleg und gemeinsamer Sicherung | lernendenseitig editier- und erneut bestätigbar | immer für vollständige Karte | pauschale Kompetenzformeln und persönliche Reflexionspflicht ausgeschlossen |
+| EVC-TRANSFER | Verbindung zu verändertem Fall, späterem Abruf oder Anschlussmodul | lernendenseitige Transferantwort plus validierter Anschlussvertrag | Antwort lernendenseitig; Anschlussbezeichnung systemseitig | bei Transferkarte oder Wiedervorlage; sonst offen zulässig | kein automatisches Empfehlen aus Nutzungsverhalten |
+| EVC-RECOVERY | lokale Karten-ID, Schema-/Inhaltsversion und nur erforderlicher Bestätigungszeitpunkt | systemseitig für Konfliktklärung und Wiederherstellung | nicht fachlich editierbar; durch Export transparent | immer technisch, im Normalbetrieb nachrangig | Zeitpunkt dient ausschließlich Fassungs-/Recovery-Reihenfolge, nie Bearbeitungsanalyse |
+
+#### Pflichtfelder nach Lernhandlungsart
+
+| Lernhandlungsart | Kontext | Entscheidung/Modell | Handlung/Test | Effekt | Interpretation | Revision | Kernaussage/Grenze | Transfer |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Vorhersagen und prüfen | erforderlich | erforderlich | erforderlich | erforderlich | erforderlich | falls Abweichung zentral ist | erforderlich bei Sicherung | optional bis Transferphase |
+| Herstellen und revidieren | erforderlich | erforderlich als Entwurf/Modell | erforderlich | erforderlich als Qualitätsbeleg | erforderlich | erforderlich | erforderlich | optional bis Transferphase |
+| Analysieren und beurteilen | erforderlich | erforderlich als Einordnung/Urteil | erforderlich als Analysehandlung | erforderlich als Quelle/Beleg | erforderlich | falls Urteil revidiert wird | erforderlich | optional bis Transferphase |
+| Sichern und übertragen | erforderlich | referenziert aus Vorarbeit | referenziert | referenziert | erforderlich | referenziert oder `nicht erforderlich` mit Grund | erforderlich | erforderlich |
+
+Kein Kartentyp verlangt persönliche Gefühle, private Erfahrungen, Identitätsangaben oder sensibles Freitextmaterial. Eine persönliche Reflexion darf nur freiwillig und außerhalb des persistenten Pflichtvertrags angeboten werden, wenn sie für die Fachhandlung nicht erforderlich ist.
+
+### Export, Löschung und Re-Import
+
+| Vorgang | notwendige Bestätigung und Sprache | Sensibilität/Dateihoheit | Kompatibilitätsprüfung | Fehlererklärung | Wiederherstellungspfad |
+|---|---|---|---|---|---|
+| Export | bewusstes `Belegkarten exportieren`; vor Erzeugung werden Umfang, Modul, lokale Quelle und enthaltene Freitextfelder genannt | „Die Datei gehört dir. Sie verlässt dieses Gerät nur durch deine Handlung. Prüfe vor dem Teilen, ob dein Text persönliche Angaben enthält.“ | Export enthält Schema-, Modul- und Inhaltsversion sowie prüfbare Integrität; kein Upload | unterbrochener Download nennt, ob keine oder eine vollständige Datei erzeugt wurde | identischer kopierbarer Inhalt oder erneuter Export; lokaler Stand bleibt unverändert |
+| Löschung einzelner Karte | eindeutiges `Belegkarte löschen` mit Kartenkontext; Standardaktion ist Abbrechen | Hinweis: lokal gelöscht, auf diesem Gerät nicht aus einem Server wiederherstellbar; vorheriger Export wird optional angeboten | Zielkarte und abhängige Wiedervorlagen werden vor Bestätigung benannt | Löschfehler behauptet keinen Erfolg und erhält den bestätigten Stand | Abbrechen, Export, erneuter Versuch; nach bestätigter Löschung nur eigener externer Export als Quelle |
+| Löschung des Modulstands | nennt Modul, Zahl/Art der Karten und offene Arbeit; keine Sammelbestätigung mit anderem Zweck | lokale Datenhoheit und irreversible Folge werden verständlich erklärt | vollständiger Zielumfang wird unmittelbar vor atomarer Löschung neu gelesen | Teil- oder Scheinlöschung ist unzulässig; Ergebnis wird nachgelesen | Abbrechen, vorher exportieren oder nach Fehler unveränderten Stand weiterverwenden |
+| Re-Import | Datei wählen, Validierungsergebnis und Vorschau prüfen, dann `validierten Stand übernehmen` | Datei bleibt lokal; keine zentrale Prüfung oder Übertragung | Größe, Syntax, Identitätsfelder, Modul, Schema, Zukunftsversion, Migration und Integrität vollständig vor Mutation prüfen | nennt genauen Abweisungsgrund ohne Teilübernahme; fremde/fehlerhafte Datei bleibt unverändert | aktuellen Stand exportieren, Import abbrechen, kompatible Datei wählen; Übernahme ersetzt atomar den ausgewählten Modulstand, verschmilzt nie automatisch |
+
+Export und Re-Import werden ausschließlich durch Lernende oder im gemeinsamen Unterricht mit deren sichtbarer Handlung ausgelöst. Hintergrundsynchronisation, automatische Cloudkopie, zentrale Abgabe oder stilles Teilen sind ausgeschlossen.
+
+### Wiederverwendung im Lernweg
+
+Eine Belegkarte kann für Transfer oder Wiedereinstieg referenziert werden, wenn:
+
+- die lernende Person die konkrete Karte auswählt;
+- Ziel und Zweck der Wiederverwendung sichtbar sind;
+- Quellkontext, Kernaussage und Modellgrenze erhalten bleiben;
+- der Zielabschnitt dieselbe oder ausdrücklich anschlussfähige Fachbedeutung verwendet;
+- eine Versionseinschränkung den Quellbeleg nicht still umdeutet.
+
+Wiederverwendung kopiert keine gesamte Bearbeitungshistorie. Sie legt im Zielkontext einen Verweis oder eine bewusst bestätigte Arbeitskopie an und verändert die Quellkarte nicht.
+
+### Walkthrough Referenzsituation 3 – Sicherung, Transfer und Wiedereinstieg
+
+| Moment | Lernzustand | Lernende sehen/handeln | Systemreaktion | Lehrkraftschluss und Folge | lokaler Stand | Offline-/Fehlerwiederherstellung |
+|---|---|---|---|---|---|---|
+| Revisionsvergleich | LS-INTERPRET → LS-SECURE | Ausgangsprodukt, ausgewählten Beleg, gezielte Revision und Kriterium vergleichen | erzeugt Belegkartenentwurf aus bestätigten Spuren, keine neue Vollverschriftlichung | führt Vergleich an anonymisiertem/neutralem Beispiel und klärt Begriff | Ausgangs- und Revisionsfassung plus Beleg, keine Versuchshistorie | fehlender Schreibzugriff hält Entwurf offen und bietet bewussten Export |
+| Kernaussage sichern | LS-SECURE | Kernaussage, Beleg und Modellgrenze bestätigen oder fachlich revidieren | prüft nur Vollständigkeit/Vertrag, vergibt kein Urteil und kein Badge | bündelt gemeinsame Sicherung; Lernende bestätigen eigenen lokalen Stand | vollständige Belegkarte mit Recovery-Version | Speicherausfall meldet betroffene Felder; letzter bestätigter Stand bleibt |
+| Transfer verbinden | LS-SECURE → LS-TRANSFER | veränderten Fall bearbeiten und erklären, wie das gesicherte Konzept trägt oder an Grenze kommt | hält Quellkarte und Transferantwort unterscheidbar | moderiert frischen Transferfall ohne Personendashboard | bestätigte Transferverbindung zur Karte | nicht lokal verfügbarer Transfer wird vorgemerkt oder durch fachlich vorgesehene lokale Alternative ersetzt |
+| bewusster Export | LS-TRANSFER | Umfang und Sensibilität prüfen und optional exportieren | erzeugt ausschließlich auf Anforderung versionierte lokale Datei | entscheidet mit der Klasse, ob ein Export unterrichtlich nötig ist; erhält keine automatische Kopie | Karte bleibt unverändert; Exportereignis wird nicht als Verhalten protokolliert | unterbrochener Export bietet identischen kopierbaren Inhalt oder Wiederholung |
+| Pause und Ausstieg | LS-TRANSFER → LS-PAUSE/Kosmos | gesicherten Stand, nächsten Wiedervorlagepunkt und Rückweg bestätigen | setzt Fortsetzung auf nächsten Abruf, nicht auf Seitenende | nennt gemeinsamen Abschluss und nächste Unterrichtseinheit | Belegkarte, Transfer und Anschluss; keine Restzeit/Prozentzahl | bei unsicherem Speichern kein stiller Ausstieg; Export/Abbruch möglich |
+| späterer Wiedereinstieg | LS-ORIENT → LS-DECIDE | Belegkarte in Kurzform, aktive Abruffrage und neuen veränderten Fall bearbeiten | zeigt alten Stand erst nach/mit aktiver Erinnerung; hält neue Antwort getrennt | startet die Folgeeinheit mit gleichem Begriff und gemeinsamer Rückfrage | alter Beleg plus neuer Anschlussbeleg | inkompatible Version führt zu LS-RECOVER und erhält Originalkarte |
+| Lehrkraft-Follow-up | LS-DECIDE/LS-ACT | eigenen Beleg bei Bedarf zeigen oder neutralen Fall bearbeiten | keine zentrale Sammlung, kein Personenvergleich | beobachtet Produkte/Gespräche, nutzt frischen Kurzfall und entscheidet über weitere Sicherung | nur lernendenseitig ausgewählte neue Spur | Geräteausfall führt zu neutralem gemeinsamen Fall; keine erfundene persönliche Evidenz |
+
+Der Walkthrough fällt durch, wenn Sicherung nur `fertig` bedeutet, Transfer lediglich das Oberflächendekor wechselt, persönlicher Freitext verlangt wird, Export automatisch erfolgt, die Lehrkraft personenbezogene Systemdaten benötigt oder ein Versionsfehler eine Karte still verwirft.
