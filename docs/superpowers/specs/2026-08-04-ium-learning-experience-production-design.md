@@ -1,7 +1,7 @@
 # IuM-Lernwerk – Forschungsbasis und Experience-Strategie
 
 - **Task:** LXP01 Learning-UX-Forschungsbasis und Experience-Strategie entwickeln
-- **Status:** zur schriftlichen Nutzerprüfung nach freigegebenem Gesamtdesign
+- **Status:** schriftlich freigegeben
 - **Fassung:** 1.0
 - **Datum:** 4. August 2026
 - **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
@@ -1591,6 +1591,8 @@ Diese Spezifikation enthält bewusst nicht:
 - Kein Produktcode, Deployment, Pilot oder Release wurde begonnen.
 
 ## 34. Schriftliches Freigabegate
+
+**Freigabevermerk:** Der Nutzer hat die vollständige LXP01-Spezifikation am 4. August 2026 ausdrücklich mit „LXP01 freigegeben“ bestätigt.
 
 Mit der schriftlichen Freigabe werden verbindlich:
 
