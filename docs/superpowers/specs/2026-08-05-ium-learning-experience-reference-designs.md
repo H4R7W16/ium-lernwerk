@@ -96,12 +96,12 @@ Während der Ausarbeitung sind die Statuswerte `specified`, `open-decision` und 
 | LXP03-01 | Vergleich von drei Kompositionsansätzen und Auswahlentscheidung | LXP01 §§ 8–10, 25–31; LXP02 Eigentümermatrix | Ansatzvergleich und Arbeitsentscheidung | alle drei Entwürfe | Mechanismus-/Kostenvergleich und Fail-Signale | specified |
 | LXP03-02 | gemeinsames situationsübergreifendes Entwurfsraster | LXP01 §§ 24–29; LXP02 Walkthroughschema | Gemeinsames Entwurfsraster | alle drei Entwürfe | identische Prüffelder und Kontextbudget | specified |
 | LXP03-03 | Wide-/Schmalentwurf Einstieg und Orientierung | LXP01 § 21; LXP02 Startboard/Einstiegsmodi | Referenzentwurf 1 | Situation 1 | Wireframes, Wireflow, Fokus- und Recoverypfad | specified |
-| LXP03-04 | Wide-/Schmalentwurf interaktive Kernlernhandlung | LXP01 § 22; LXP02 LS-DECIDE bis LS-SECURE | Referenzentwurf 2 | Situation 2 | vier Zustandskompositionen, Rückmeldung und Revision | open-decision |
+| LXP03-04 | Wide-/Schmalentwurf interaktive Kernlernhandlung | LXP01 § 22; LXP02 LS-DECIDE bis LS-SECURE | Referenzentwurf 2 | Situation 2 | vier Zustandskompositionen, Rückmeldung und Revision | specified |
 | LXP03-05 | Wide-/Schmalentwurf Sicherung, Transfer und Wiedereinstieg | LXP01 § 23; LXP02 Sicherungsraum/Belegkarte | Referenzentwurf 3 | Situation 3 | Beleg-, Transfer-, Export-, Pausen- und Abrufpfad | open-decision |
 | LXP03-06 | verbundene Lernenden- und Lehrkraftspur | LXP01 §§ 12, 18, 21–24; LXP02 Lehrkraft-/Sozialformvertrag | Lehrkraftspur je Referenzentwurf | Situationen 1–3 | Haltepunkte, Rollen, gewöhnliche Evidenz und Fallback | open-decision |
 | LXP03-07 | gleichwertige Bedien- und Darstellungswege | LXP01 § 19; LXP02 A11Y-01 bis A11Y-12 | Accessibility je Referenzentwurf | Situationen 1–3 | Tastatur-, Touch-, Text-/AT-, Reduced-Motion- und Reflowpfad | open-decision |
 | LXP03-08 | konkrete Local-First-, Offline- und Recoveryabläufe | LXP01 § 20; LXP02 RES-INFO/LIMIT/BLOCK | Resilienz je Referenzentwurf | Situationen 1–3 | erhaltener Stand, sichere Primärhandlung und Rückweg | open-decision |
-| LXP03-09 | informationshaltige Rückmeldung, Hilfe und Revision | LXP01 § 16; LXP02 Zustands-/Guardvertrag | Feedback- und Hilfevertrag | Situation 2, Übergaben 1/3 | konkrete Copy, Eskalation und Revisionsbeleg | open-decision |
+| LXP03-09 | informationshaltige Rückmeldung, Hilfe und Revision | LXP01 § 16; LXP02 Zustands-/Guardvertrag | Feedback- und Hilfevertrag | Situation 2, Übergaben 1/3 | konkrete Copy, Eskalation und Revisionsbeleg | specified |
 | LXP03-10 | WU-Check und fachlich-didaktische Aufgabenprüfung | Fachprofil; IBBW WU 1/3/6/9 | Wirksamkeits- und Fachcheck | Situationen 1–3 | drei WU-Checks und Eigenleistungsbegründungen | open-decision |
 | LXP03-11 | Q1–Q8-, Anti-Pattern- und LXP02-Risikoprüfung | LXP01 §§ 25–29; LXP02 Qualitätsurteile | Vergleichende Qualitätsprüfung | Situationen 1–3 | 24 Urteile, 7 Risikoantworten und Anti-Pattern-Scan | open-decision |
 | LXP03-12 | Auswahl und präzise Übergabe an LXP04 | LXP01 § 31; LXP02 Eigentümermatrix | Auswahlentscheidung und LXP04-Übergabe | situationsübergreifend | Musterkandidaten, Nicht-Generalisierungen und Freigabegate | open-decision |
@@ -490,3 +490,355 @@ Der Entwurf fällt durch, wenn:
 - eine Begrüßung, Animation oder Fortschrittsanzeige die erste Denkhandlung ersetzt;
 - Lehrkraft und Lernende unterschiedliche Phasen- oder Aktionsbegriffe benötigen;
 - die Lehrkraft für Start oder Zwischenkontrolle personenbezogene Systemdaten benötigt.
+
+## Referenzentwurf 2 – interaktive Kernlernhandlung mit Feedback und Revision
+
+### Zweck und fachlicher Zielzustand
+
+Der Entwurf koppelt Vorhersage, Algorithmus, deterministische Ausführung, Laufspur, erste Abweichung, Reparaturhypothese und Revision so, dass Ausprobieren ohne Vergleich nicht zur tragenden Strategie wird.
+
+Nach der Situation können Lernende:
+
+- einen grafischen Algorithmus auf einen konkreten Startzustand beziehen;
+- Endposition, Blickrichtung und Auftragserfolg vor der Ausführung vorhersagen;
+- Handlung und beobachtete Zustandsänderung schrittweise verbinden;
+- die erste fachlich relevante Abweichung lokalisieren;
+- eine gezielte Reparaturhypothese bilden, revidieren und erneut prüfen;
+- anhand eines benannten Qualitätskriteriums erklären, was an der Revision tragfähiger ist.
+
+Der Entwurf bewertet keine Person und erzeugt kein Kompetenzniveau. Ein korrekter erster Lauf überspringt die Revisionshandlung nicht, sondern öffnet den im IUM5-Vertrag vorgesehenen neutralen Einzelfehlerfall.
+
+### Konkreter Fall und Lernprodukt
+
+**Fall `LIEFER-C4-01`:**
+
+- Raster: 5 × 5;
+- Start: Roboter auf `B4`, Blickrichtung Osten;
+- Gut: auf `C4`;
+- Ziel: `E2`;
+- Hindernis: `D3`;
+- erlaubte Befehle: `Gehe`, `Drehe links`, `Drehe rechts`, `Nimm auf`, `Lege ab`, `Wiederhole n-mal`;
+- Lernzielgrenze: keine Verzweigung, Variable, bedingte oder verschachtelte Schleife.
+
+Der konkrete Kartenfall ist Spezifikationsmaterial. Vor Produktimplementierung muss LXP05 ihn gegen Szenariovalidierung, curricularen Detailvertrag und tatsächliche Schwierigkeit prüfen; LXP03 behauptet keine erprobte Altersangemessenheit.
+
+Das sichtbare Lernprodukt besteht aus:
+
+1. bestätigter Ausgangsfassung des Algorithmus;
+2. strukturierter Vorhersage;
+3. ausgewählter Laufspur bis zum Abschluss oder zur ersten Abweichung;
+4. kurzer Reparaturhypothese;
+5. revidierter Fassung;
+6. neuer Vorhersage und bestätigtem Prüfergebnis;
+7. knapper Begründung der Änderung und der Schleifenentscheidung.
+
+Nicht gespeichert werden Zeitbedarf, Klickfolge, Zahl der Versuche, Hilfenutzung, Fokuswechsel oder vollständige Zwischenläufe.
+
+### Fachliche Zustandskomposition
+
+| Moment | LXP02-Zustand | dominante Beziehung | sichtbarer Kontext | primäre Handlung | Guard |
+|---|---|---|---|---|---|
+| Erwartung bilden | LS-DECIDE | `Ausgangszustand ↔ Vorhersage` | Auftrag, erlaubte Befehle, Qualitätskriterium, aktueller Entwurf | `Vorhersage festhalten` | Endposition, Blickrichtung und Erfolg `ja/nein/unsicher` sind vollständig, aber unbewertet |
+| gezielt ausführen | LS-ACT | `Algorithmusblock ↔ betroffener Zustand` | bestätigte Vorhersage, aktueller Befehl, Szene, Stopp-/Schrittregel | `nächsten Schritt ausführen` | Vorhersage liegt vor; Interpreter und Szenario sind lokal validiert |
+| Wirkung beobachten | LS-OBSERVE | `auslösender Schritt ↔ Vorher-/Nachherzustand` | ursprüngliche Vorhersage, Laufspur, Ziel und Kriterium | `relevanten Schritt auswählen` | Wirkung ist textlich/semantisch vollständig zugänglich |
+| Rückmeldung deuten | LS-INTERPRET | `Erwartung ↔ Beleg ↔ Kriterium` | erste Abweichung oder erfolgreicher Abschluss, ausgewählte Spur | `erste Abweichung prüfen` beziehungsweise `Beleg prüfen` | Beobachtung wurde der Handlung zugeordnet; Lösung bleibt verborgen |
+| gezielt revidieren | LS-REVISE | `Ausgangsfassung ↔ Beleg ↔ Änderung` | Hypothese, Kriterium und Rückkehr zur alten Fassung | `Revision begründen` | Änderung bezieht sich auf die lokalisierte Abweichung |
+| erneut prüfen | LS-DECIDE → LS-ACT → LS-OBSERVE → LS-INTERPRET | `neue Vorhersage ↔ neue Wirkung` | beide Fassungen bleiben unterscheidbar | `Revision erneut vorhersagen` | neue Erwartung liegt vor; kein Direktlauf nach Änderung |
+| Sicherung vorbereiten | LS-INTERPRET → LS-SECURE | `Ausgang ↔ Beleg ↔ Revision ↔ Kriterium` | Modellgrenze und Schleifenentscheidung | `Belegkarte vorbereiten` | Ergebnis ist gedeutet; notwendige Revision abgeschlossen |
+
+### Wide-Komposition 2
+
+Die weite Ansicht hält nicht die gesamte Lernreise gleichzeitig offen. Sie verändert die dominante Beziehung mit dem Lernzustand und erhält ein stabiles Kontextband.
+
+#### LS-DECIDE – Vorhersage
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Lernstudio · Denken und entscheiden · Lieferauftrag C4       Lernweg ansehen │
+│ Ziel: präzisen Ablauf vorhersagen und prüfen       Haltepunkt: vor Ausführung │
+├──────────────────────────────────────────────┬───────────────────────────────┤
+│ Ausgangsfall                                 │ Dein Algorithmus               │
+│ Raster/alternative Textszene                 │ 1 Gehe                         │
+│ Roboter B4 → Osten                           │ 2 Nimm auf                     │
+│ Gut C4 · Ziel E2 · Hindernis D3              │ 3 Gehe                         │
+│                                              │ 4 Drehe links                  │
+│ Qualitätskriterium                           │ 5 Gehe …                       │
+│ Jede Anweisung ist im Zustand eindeutig.     │ [Algorithmus bearbeiten]       │
+├──────────────────────────────────────────────┴───────────────────────────────┤
+│ Vorhersage                                                                  │
+│ Endposition [  ] · Blickrichtung [  ] · Auftrag erfüllt [ja/nein/unsicher] │
+│ [Vorhersage festhalten]                Hilfe zur Blickrichtung               │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Die Ausführung ist in diesem Zustand nicht fokussierbar. Ihre spätere Verfügbarkeit wird als Folge der Vorhersage verständlich angekündigt, nicht als deaktivierter rätselhafter Knopf.
+
+#### LS-ACT und LS-OBSERVE – Ausführung und Wirkung
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Lernstudio · Fachlich handeln / Wirkung beobachten          Lernweg ansehen │
+│ Vorhersage: E2 · Norden · ja                      [Vorhersage in Kurzform]   │
+├──────────────────────────────────────────────┬───────────────────────────────┤
+│ Ausführungszustand                           │ Algorithmus                    │
+│ Raster/alternative Textszene                 │ 1 Gehe                erledigt │
+│ Roboter C4 → Osten · trägt Gut               │ 2 Nimm auf            erledigt │
+│ Aktueller Schritt: 3 Gehe                    │ 3 Gehe                aktuell  │
+│                                              │ 4 Drehe links                  │
+│ [nächsten Schritt ausführen] [Lauf pausieren]│ 5 Gehe …                       │
+├──────────────────────────────────────────────┴───────────────────────────────┤
+│ Laufspur: Schritt 2 · Befehl Nimm auf · B4/Osten/leer → B4/Osten/trägt      │
+│ Statusmeldung: Gut aufgenommen. Der nächste Befehl ist „Gehe“.              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Aktueller Befehl, betroffener Zustand und Laufspurzeile stammen aus derselben semantischen Quelle. Die visuelle Szene ist nicht autoritativ gegenüber der Textdarstellung.
+
+#### LS-INTERPRET – Rückmeldung deuten
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Lernstudio · Rückmeldung deuten                              Lernweg ansehen │
+│ Prüfe die erste Abweichung, bevor du etwas änderst.                          │
+├──────────────────────────────────────────────┬───────────────────────────────┤
+│ Deine Vorhersage                             │ Beobachteter Lauf              │
+│ Ziel E2 · Norden · Auftrag erfüllt           │ Stopp in Schritt 5             │
+│                                              │ Roboter vor Hindernis D3        │
+│ Qualitätskriterium                           │ erste relevante Abweichung:     │
+│ Die Änderung bezieht sich auf den ersten     │ Blickrichtung nach Schritt 4    │
+│ verursachenden Schritt.                      │ [Schritt 4 in Spur prüfen]      │
+├──────────────────────────────────────────────┴───────────────────────────────┤
+│ Rückmeldung: Der Auftrag endet in Schritt 5 vor dem Hindernis.              │
+│ Vergleiche die Blickrichtung nach Schritt 4 mit deiner Vorhersage.          │
+│ Welche einzelne Änderung möchtest du zuerst prüfen?                         │
+│ [erste Abweichung prüfen]       [strategische Hilfe öffnen]                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### LS-REVISE – Revision
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Lernstudio · Prüfen und revidieren                          Lernweg ansehen │
+│ Hypothese: „Wenn ich Schritt 4 ändere, führt der nächste Weg am Hindernis…“ │
+├──────────────────────────────────────────────┬───────────────────────────────┤
+│ Ausgangsfassung · lesend                     │ Revisionsfassung · bearbeitbar │
+│ 3 Gehe                                       │ 3 Gehe                         │
+│ 4 Drehe links  ← erster Prüfpunkt            │ 4 Drehe rechts                 │
+│ 5 Gehe                                       │ 5 Gehe                         │
+│ [Ausgangsfassung vollständig ansehen]        │ [Änderung zurücknehmen]         │
+├──────────────────────────────────────────────┴───────────────────────────────┤
+│ Begründung: Meine Änderung prüft …, weil die Laufspur in Schritt … zeigt …  │
+│ [Revision begründen]                                                        │
+│ Danach: neue Vorhersage festhalten; keine direkte Ausführung.                │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Schmal-Komposition 2
+
+Die schmale Ansicht verwendet je Zustand dieselbe semantische Reihenfolge, ersetzt aber räumliche Gleichzeitigkeit durch knappe Anker und gezielte Rückverweise.
+
+#### LS-DECIDE
+
+```text
+Denken und entscheiden
+Lieferauftrag C4 · Haltepunkt vor Ausführung
+
+Ausgangsfall
+Roboter B4, Blick Osten. Gut C4. Ziel E2. Hindernis D3.
+[Textszene vollständig öffnen]
+
+Dein Algorithmus
+1 Gehe · 2 Nimm auf · 3 Gehe · 4 Drehe links · 5 Gehe …
+[Algorithmus bearbeiten]
+
+Qualitätskriterium
+Jede Anweisung ist im Zustand eindeutig.
+
+Vorhersage
+Endposition … · Blickrichtung … · Auftrag erfüllt …
+[Vorhersage festhalten]
+
+Hilfe zur Blickrichtung · Lernweg ansehen · pausieren
+```
+
+#### LS-ACT/LS-OBSERVE
+
+```text
+Fachlich handeln · Schritt 3 von 8
+Vorhersage in Kurzform: E2 · Norden · ja
+
+Aktueller Zustand
+C4 · Osten · trägt Gut
+Aktueller Befehl: Gehe
+
+[nächsten Schritt ausführen]
+[Lauf pausieren]
+
+Wirkung
+Position D4 · Osten · trägt Gut
+Laufspur Schritt 3: C4/Osten/trägt → D4/Osten/trägt
+
+[bisherige Laufspur öffnen] · [Algorithmus in Kurzform]
+```
+
+#### LS-INTERPRET/LS-REVISE
+
+```text
+Rückmeldung deuten
+Vorhersage in Kurzform: E2 · Norden · ja
+
+Beobachtung
+Stopp in Schritt 5 vor Hindernis D3.
+Erste relevante Abweichung: Blickrichtung nach Schritt 4.
+[Laufspur an Schritt 4 öffnen]
+
+Qualitätskriterium
+Die Änderung bezieht sich auf den ersten verursachenden Schritt.
+
+Welche einzelne Änderung möchtest du zuerst prüfen?
+[erste Abweichung prüfen]
+
+Prüfen und revidieren
+Ausgang: 4 Drehe links
+Revision: 4 Drehe rechts
+Begründung …
+[Revision begründen]
+Danach öffnet sich „Revision erneut vorhersagen“.
+```
+
+Beim Übergang von Beobachtung zu Interpretation wird die Vorhersage in Kurzform wiederholt; beim Übergang zur Revision werden relevante Laufspur und Ausgangsbefehl erneut verfügbar gemacht. Dadurch entsteht keine Gedächtnisprüfung aus verstecktem Kontext.
+
+### Wireflow 2
+
+```mermaid
+flowchart TD
+    A["LS-DECIDE · Vorhersage festhalten"] -->|Guard vollständig| B["LS-ACT · schrittweise ausführen"]
+    B --> C["LS-OBSERVE · Wirkung und Laufspur"]
+    C --> D["LS-INTERPRET · Erwartung, Beleg, Kriterium"]
+    D -->|Revisionsbedarf| E["LS-REVISE · Hypothese und gezielte Änderung"]
+    E --> F["LS-DECIDE · Revision erneut vorhersagen"]
+    F --> B
+    D -->|tragfähig| G["LS-SECURE · Belegkarte vorbereiten"]
+    H["Lehrkraft: gemeinsamer Vergleich"] -. "bestätigten Stand pausieren" .-> D
+    D -. "neutralen Fehlerfall" .-> H
+    I["RES-LIMIT: nichtzentrale Hilfe fehlt"] -. "lokale Strategiehilfe" .-> D
+    J["RES-BLOCK: Interpreter oder Speichern gefährdet"] -. "letzten bestätigten Stand erhalten" .-> K["LS-RECOVER"]
+    B -.-> J
+    E -.-> J
+```
+
+### Interaktionsgleichwertigkeit 2
+
+| Lernhandlung | Touchpfad | Tastaturpfad | Text-/Assistive-Technology-Pfad | gemeinsamer Beleg |
+|---|---|---|---|---|
+| Algorithmus bearbeiten | beschriftete Einfüge-, Nach-oben-, Nach-unten- und Löschaktionen; Drag optional | identische Schaltflächen; keine Dragpflicht; Fokus bleibt am verschobenen Block mit neuer Position | geordnete Liste; jeder Block nennt Position, Befehl und Schleifenzugehörigkeit | bestätigte Ausgangs- oder Revisionsfassung |
+| Vorhersage bilden | strukturierte Auswahlfelder | native/semantische Auswahl und klarer Validierungsfokus | Feldset mit Legende, drei benannten Antworten und Status | Endposition, Blickrichtung, Erfolg `ja/nein/unsicher` |
+| schrittweise ausführen | Schaltfläche `nächsten Schritt ausführen`; keine Wischgeste | Enter/Leertaste; Fokus bleibt an Kontrolle, Status wird angekündigt | aktueller Befehl, Vorher-/Nachherzustand und Ergebnis werden in logischer Reihenfolge angekündigt | dieselbe deterministische Laufspur |
+| Laufspur prüfen | Zeile auswählen; Szene und Zeile korrespondieren | Zeilen-/Schrittsteuerung mit zugänglichem Namen | Tabelle/Liste mit Schritt, Befehl, Vorher, Nachher, Ergebnis | ausgewählter relevanter Schritt |
+| erste Abweichung bestimmen | Schritt auswählen und Hypothese öffnen | identische Auswahl; Fokus zum Hypothesenauftrag | keine Vorauswahl durch Screenreadertext; gleicher Vergleichsauftrag | lokalisierter Beleg und knappe Hypothese |
+| revidieren | beschriftete Blockaktionen | identische Aktionen und Undo | Ausgangs- und Revisionsliste mit unterscheidbaren Bezeichnungen | revidierte Fassung plus Begründung |
+
+Der Text-/AT-Pfad ist keine Lösungsliste. Er beschreibt Szene, Zustand und Laufspur vollständig, verlangt aber dieselbe Vorhersage, Belegauswahl, Hypothese und Revision.
+
+### Reduced Motion
+
+Reduced Motion deaktiviert automatische Bewegung und Übergangsanimationen. Standard bleibt ohnehin schrittweise Ausführung. Der Pfad erhält:
+
+- dieselbe Reihenfolge der Grundbefehle;
+- denselben Vorher-/Nachherzustand;
+- dieselbe Laufspur;
+- dieselbe Möglichkeit, Schritt und relevante Abweichung auszuwählen;
+- dieselben Statusankündigungen und Guards.
+
+Eine optionale Gesamtlaufdarstellung darf bei reduziertem Bewegungswunsch nicht schneller, informationsärmer oder lösungsoffener sein. Sie ersetzt niemals die erste schrittweise Beobachtung.
+
+### Fokus- und Statusvertrag 2
+
+| Ereignis | Fokusziel | Ankündigung | Rückkehr/Erhalt |
+|---|---|---|---|
+| Vorhersage bestätigt | Überschrift `Fachlich handeln`, danach `nächsten Schritt ausführen` | `Vorhersage festgehalten. Sie wurde nicht bewertet.` | Vorhersage bleibt in Kurzform erreichbar |
+| Schritt ausgeführt | Fokus bleibt an Schrittsteuerung, sofern kein Fehler | aktueller Befehl und relevanter neuer Zustand einmalig | Algorithmusblock und Spurzeile programmatisch zugeordnet |
+| erster fachlicher Fehler | Überschrift/Fehlerzusammenfassung in LS-OBSERVE, dann relevanter Schritt | Ergebnis, verursachender Schritt, erhaltener Zustand | keine automatische Fokusverschiebung zur Lösung/Hilfe |
+| Hilfe geöffnet | konkrete Hilfeüberschrift | keine Bewertung, keine Nutzungsprotokollierung | Rückkehr zur auslösenden Handlung und zum gleichen Produktstand |
+| gemeinsamer Vergleich | nach bestätigtem Pausieren auf Haltepunktinformation | `Arbeit pausiert. Dein bestätigter Stand bleibt lokal erhalten.` | `fortsetzen` rekonstruiert den vorherigen LS-INTERPRET-/LS-REVISE-Kontext |
+| Revision bestätigt | Überschrift `Denken und entscheiden` für neue Vorhersage | `Revision festgehalten. Prüfe jetzt ihre erwartete Wirkung.` | Ausgangs- und Revisionsfassung bleiben erreichbar |
+| RES-BLOCK | Überschrift `Wiederherstellung erforderlich` | betroffene Arbeit, letzter bestätigter Stand, sichere Handlung | Original bleibt autoritativ; Rückkehr nach validierter Recovery |
+
+### Feedback- und Hilfevertrag
+
+#### Rückmeldungsstaffel
+
+| Stufe | Funktion | konkrete Copy | öffnet noch nicht |
+|---|---|---|---|
+| Ergebnis | beobachtbaren Zustand benennen | `Der Auftrag ist noch nicht erfüllt. Der Lauf endet in Schritt 5 vor dem Hindernis.` | Ursache, Reparatur oder Lösung |
+| Prozess | relevante Stelle lokalisieren | `Bis Schritt 4 stimmt die Laufspur mit deiner Vorhersage überein. Prüfe die Blickrichtung nach Schritt 4.` | konkrete Ersatzanweisung |
+| Strategie | nächsten Prüfschritt anbieten | `Vergleiche, wohin der Roboter nach „Drehe links“ blickt und auf welches Feld „Gehe“ dann führen würde.` | vollständige Befehlsfolge |
+| Kriterium | Produktbezug klären | `Deine Änderung ist erst begründet, wenn sie sich auf die erste gefundene Abweichung bezieht.` | Person- oder Kompetenzurteil |
+| Modell | Fachgrenze sichern | `Die Laufspur zeigt die Ausführung dieses Rastermodells. Reale Roboter können zusätzlich Sensoren und Unsicherheiten berücksichtigen.` | Verallgemeinerung auf alle Systeme |
+
+#### Hilfeschichten
+
+1. **Begriffs-/Bedienhilfe:** Blickrichtung, Koordinate, Befehl oder beschriftete Bedienaktion klären.
+2. **Darstellungshilfe:** Textszene, ausgeschriebene Schleife oder Laufspurtabelle öffnen.
+3. **Strategische Hilfe:** Frage zur ersten Abweichung oder zu einem einzelnen Zustandsvergleich.
+4. **Teilweise Vorgabe:** nur den fachlich begründeten Ausschnitt vorgeben, zum Beispiel einen unveränderten Präfix.
+5. **Vollständiges bearbeitetes Beispiel:** erst nach bewusster Eskalation; verlangt danach Vorhersage, Erklärung oder Vergleich und wird nicht zur kopierbaren Endlösung des aktuellen Falls.
+
+Jede Hilfe nennt die adressierte Hürde. Hilfen erscheinen nicht automatisch aufgrund von Zeit, Fehlversuchen oder Klicks. Nutzung wird weder gespeichert noch exportiert. Die Lehrkraft kann auf dieselben Hilfen verweisen, ohne eine Person im System zu markieren.
+
+### Partnerarbeit, Zwischenkontrolle und gemeinsamer Haltepunkt
+
+Bei 1:2-Geräteverhältnis gelten fachlich symmetrische Rollen:
+
+- `steuern`: führt nur die gemeinsam benannte und erwartete Aktion aus und liest den neuen Zustand vor;
+- `vorhersagen/prüfen`: formuliert Erwartung, vergleicht Laufspur und benennt den nächsten Prüfpunkt.
+
+Nach jedem abgeschlossenen Aufgabenfall wechseln die Rollen. Vor der Revision muss die steuernde Person die Reparaturhypothese in eigenen Worten wiedergeben; die prüfende Person muss die betroffene Laufspurzeile zeigen. Damit bleibt Verantwortung individuell sichtbar, ohne zwei getrennte Produktdateien zu erzeugen.
+
+**Zwischenkontrolle nach 5–10 Minuten oder früher bei einem gemeinsamen Muster:**
+
+- Minimalprodukt pro Paar: bestätigte Vorhersage plus genau eine ausgewählte Laufspurzeile mit kurzer Begründung;
+- Lehrkraftfrage: `Welche Beobachtung hat eure ursprüngliche Erwartung bestätigt oder verändert?`;
+- Zusammenführung: neutraler Fehlerfall oder ausdrücklich ausgewählter Ausschnitt, keine automatische Projektion;
+- Fallback bei fehlendem Produkt: frischer kurzer Fall mit drei Befehlen; beide Personen sagen Endzustand und ersten Prüfpunkt voraus;
+- Rückkehr: `fortsetzen` zum erhaltenen LS-INTERPRET- oder LS-REVISE-Zustand.
+
+### Lehrkraftspur 2
+
+| Moment | Lehrkrafthandlung | gewöhnliche Evidenz | mögliche Intervention | Ausstiegskriterium |
+|---|---|---|---|---|
+| Vorbereitung | neutralen Fehlerfall, Rollen, Kriterien, Hilfen und Haltepunkt prüfen | statischer Fachvertrag | fehlenden Offlinekern vor Unterricht klären | Kernfunktion und Alternativen sind ehrlich verfügbar |
+| Vorhersage | Vorhersage vor Ausführung rahmen | Partnererklärung, sichtbare strukturierte Auswahl | Ziel/Kriterium klären, nicht Ergebnis vorsagen | Lernende können Erwartung und nächsten Prüfschritt benennen |
+| Ausführung | gewöhnlich beobachten | bewusst gezeigte Szene/Laufspur, Gespräch | bei Bedienhürde konkrete Bedienhilfe, bei fachlicher Hürde strategische Frage | Handlung bleibt bei Lernenden |
+| Rückmeldung | gemeinsamen Vergleich am neutralen/gewählten Fall setzen | lokalisierte Spur und Begründung | zur ersten Abweichung zurückführen | Beleg und Hypothese sind verbunden |
+| Revision | Fassungen gegen Kriterium vergleichen lassen | Ausgang, Änderung, neue Erwartung | teilweise Vorgabe nur bei konkreter Hürde | Änderung ist erneut prüfbar |
+| Sicherungsübergang | Kernaussage und Modellgrenze vorbereiten | ausgewählter Beleg, frischer Kurzfall | fehlende Evidenz durch neuen Fall, nicht durch Versuchsdaten ersetzen | Ergebnis ist gedeutet, Revision belegt |
+
+### Local First, Offline und Recovery 2
+
+| Fall | Schwere | sichtbare Bedeutung | erhaltener Stand | Primärhandlung | fachliche Folge |
+|---|---|---|---|---|---|
+| Interpreter, Szene und Hilfen lokal | RES-INFO | `offline bereit` bleibt nachrangig | Ausgang, Vorhersage, Beleg und Revision lokal | normal weiterarbeiten | identische deterministische Kernhandlung |
+| nichtzentrale animierte Darstellung fehlt, Text-/Schrittpfad vollständig | RES-LIMIT | `Die Animation ist offline nicht verfügbar. Schrittweise Ausführung und Laufspur sind vollständig nutzbar.` | gesamter bestätigter Stand | `schrittweise ausführen` | gleichwertig, weil Entscheidung, Wirkung, Beleg und Revision erhalten bleiben |
+| strategisches Zusatzbeispiel fehlt, lokale Frage vorhanden | RES-LIMIT | konkrete fehlende Hilfe und lokale Alternative | Beleg und offene Interpretation | `lokale Strategiehilfe nutzen` oder `für später markieren` | Kernhandlung bleibt vollständig; keine Sofortlösung |
+| Interpreter oder Szenariovalidierung fehlt | RES-BLOCK | `Der Algorithmus kann auf diesem Gerät nicht fachlich zuverlässig ausgeführt werden.` | letzter bestätigter Entwurf/Vorhersage | `pausieren und Stand erhalten` oder unterstütztes Ziel nutzen | kein analoger Ersatz mit behaupteter Gleichwertigkeit |
+| Speichern nach Revision schlägt fehl | RES-BLOCK vor Verlassen/Weiterlauf, RES-LIMIT bei sicherem flüchtigem Exportpfad | betroffene Revision und autoritative Ausgangsfassung werden benannt | letzter bestätigter Stand plus editierbare Revision im Arbeitsspeicher | erneut speichern, vollständigen Export erzeugen oder pausieren | keine neue Ausführung, wenn ihre Evidenz nicht sicher dem Revisionsstand zugeordnet werden kann |
+| Inhaltsversion änderte Szenariosemantik | RES-BLOCK | alte/neue Fassung und betroffene Belege werden erklärt | Originalzustand und alte Belegspur unverändert | alte Fassung sicher fortsetzen oder Export sichern; Migration nur vollständig validiert | kein Vergleich von nicht isomorphen Laufspuren |
+
+### Fail-Kriterien Referenzentwurf 2
+
+Der Entwurf fällt durch, wenn:
+
+- Ausführung ohne erforderliche Vorhersage möglich ist;
+- Algorithmus, aktueller Befehl, Zustand oder Laufspur fachlich auseinanderlaufen;
+- eine Animation die Wirkung vorwegnimmt oder der Text-/AT-Pfad die Lösung verrät;
+- schmale Ansicht Ursache, Wirkung und Rückmeldung nur über Erinnerung verbindet;
+- Rückmeldung nur `richtig/falsch`, Personlob oder Sofortlösung liefert;
+- Revision ohne ausgewählten Beleg oder ohne neue Vorhersage erneut ausgeführt werden kann;
+- Hilfen die Kernhandlung übernehmen, automatisch personalisiert werden oder ihre Nutzung gespeichert wird;
+- Partnerarbeit eine dauerhafte Bedien- und Zuschauerrolle erzeugt;
+- der gemeinsame Haltepunkt private Arbeit automatisch projiziert oder lokalen Stand verliert;
+- Offline- oder Speicherzustand eine nicht verfügbare Handlung als funktionsfähig zeigt;
+- Trial-and-error, Versuchszahl, Punkte oder ein grüner Lauf als fachlicher Fortschritt gelten;
+- die Lehrkraft ein Fehlerranking, Gerätefeed oder personenbezogenes Dashboard benötigt.
