@@ -1,9 +1,10 @@
 # IuM-Lernwerk – Produktarchitektur, Navigation und Lernreise
 
 - **Task:** LXP02 Produktarchitektur Navigation und Lernreise spezifizieren
-- **Status:** zur schriftlichen Nutzerreview; noch nicht freigegeben
-- **Fassung:** 1.0-review
+- **Status:** schriftlich freigegeben
+- **Fassung:** 1.0
 - **Datum:** 4. August 2026
+- **Freigabe:** 5. August 2026 durch ausdrückliche schriftliche Nutzerantwort
 - **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
 - **Ausgangsstand:** lokaler `main` auf `daad655`; `origin/main` auf `3498838`
 - **Arbeitsgrenze:** codefreie Produktarchitektur; keine Produktimplementierung
@@ -37,7 +38,7 @@ orientieren
 
 Diese Spezifikation ist ausschließlich Produktarchitekturarbeit. Sie legt Informationsobjekte, Zustände, Rollen, Begriffe, Navigationsbedeutungen, Übergänge, Persistenz- und Wiederherstellungsverhalten sowie prüfbare Qualitätsgrenzen fest.
 
-Bis zur ausdrücklichen schriftlichen Freigabe trägt sie den Arbeitsstatus `in Ausarbeitung`. Ein technisch grüner Stand, ein vollständiger Walkthrough oder ein lokaler Commit ändert diesen Status nicht selbstständig.
+Die Spezifikation wurde am 5. August 2026 ausdrücklich schriftlich durch den Nutzer freigegeben. Sie ist damit der normative Produktarchitekturvertrag für die nachfolgenden Experience-Entwürfe. Die Freigabe öffnet ausschließlich die separate Planung von LXP03; sie ist keine Freigabe für LXP03-Ergebnisse, LXP04, Produktimplementierung, Preview, Deployment, Pilotierung, LMS oder Release.
 
 Nicht Gegenstand und nicht freigegeben sind:
 
@@ -1034,8 +1035,8 @@ Weiterhin nicht freigegeben sind Produktcode, konkrete Wireframes im LXP02-Artef
 | § 30 Konsequenzen LXP02 | zwölf Folgeergebnisse | geschlossene LXP02-Ergebnismatrix | mapped – 12/12 `specified` |
 | § 31 Konsequenzen LXP03 | drei konkrete vergleichbare Experience-Entwürfe | Eigentümermatrix und sieben explizite Darstellungsrisiken | mapped – noch nicht gestartet |
 | § 32 Nicht-Ziele | keine Wireframes, Marke, Komponenten, Router, Curriculum, Diagnose, Pilot oder Code | Status-/Scopegrenze und Folgephasenmatrix | mapped – dokumentarischer Scope |
-| § 33 Akzeptanzkriterien | Experience- und Architekturfolgen prüfbar verbinden | Traceability, Konsistenzprüfungen und Akzeptanzbilanz | mapped – schriftliche LXP02-Freigabe offen |
-| § 34 schriftliches Gate | LXP01 erlaubt nur LXP02; Folgephasen bleiben gesperrt | Reviewstatus, Nichtziele und ausdrücklicher LXP02-Nutzergate | mapped – Freigabe nicht vorweggenommen |
+| § 33 Akzeptanzkriterien | Experience- und Architekturfolgen prüfbar verbinden | Traceability, Konsistenzprüfungen und Akzeptanzbilanz | mapped – schriftliche LXP02-Freigabe am 5. August 2026 erhalten |
+| § 34 schriftliches Gate | LXP01 erlaubt nur LXP02; Folgephasen bleiben gesperrt | Reviewstatus, Nichtziele und ausdrücklicher LXP02-Nutzergate | mapped – LXP03 darf nun separat geplant, aber nicht vorweggenommen werden |
 
 ### Zustandsdiagramm- und Tabellenkonsistenz
 
@@ -1060,7 +1061,7 @@ Weiterhin nicht freigegeben sind Produktcode, konkrete Wireframes im LXP02-Artef
 
 **Bilanz:** 16/16 Diagrammkanten besitzen eine Übergangstabellenzeile. Alle elf Zustands-IDs sind im Begriffsledger, Zustandsvertrag, Offenlegungsvertrag und kontrollierten Beschriftungsvertrag konsistent. Die drei Walkthroughs verwenden ausschließlich diese Zustände oder ausdrücklich dokumentierte Außen-/Rückkehrkontexte.
 
-### Akzeptanz- und Scopebilanz vor Nutzerreview
+### Akzeptanz- und Scopebilanz nach Nutzerfreigabe
 
 - 12/12 LXP02-Folgeergebnisse sind `specified` und mit Referenzsituationen verknüpft.
 - Objekt-, Zustands-, Navigations-, Rollen-, Persistenz- und Begriffsmodell bilden einen gemeinsamen Vertrag.
@@ -1070,4 +1071,4 @@ Weiterhin nicht freigegeben sind Produktcode, konkrete Wireframes im LXP02-Artef
 - LXP01 §§ 9–34 sind vollständig zugeordnet; keine normative Konsequenz wurde still abgeschwächt.
 - kein Architekturpunkt hängt von einem unbestimmten Layout, einer Komponente, einem Router oder einer State-Library ab.
 - kein Produktcode, keine IUM5-Neufassung, kein LXP03-/LXP04-Artefakt, kein Preview, Deployment, Pilot, LMS oder Release wurde begonnen.
-- Die einzige verbleibende Akzeptanzbedingung ist die ausdrückliche schriftliche Nutzerfreigabe von LXP02.
+- Die ausdrückliche schriftliche Nutzerfreigabe von LXP02 wurde am 5. August 2026 erteilt; sämtliche LXP02-Akzeptanzbedingungen sind damit geschlossen.
