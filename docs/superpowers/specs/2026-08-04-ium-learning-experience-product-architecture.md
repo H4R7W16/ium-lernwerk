@@ -1,8 +1,8 @@
 # IuM-Lernwerk – Produktarchitektur, Navigation und Lernreise
 
 - **Task:** LXP02 Produktarchitektur Navigation und Lernreise spezifizieren
-- **Status:** in Ausarbeitung; noch nicht schriftlich freigegeben
-- **Fassung:** 0.1
+- **Status:** zur schriftlichen Nutzerreview; noch nicht freigegeben
+- **Fassung:** 1.0-review
 - **Datum:** 4. August 2026
 - **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
 - **Ausgangsstand:** lokaler `main` auf `daad655`; `origin/main` auf `3498838`
@@ -83,18 +83,18 @@ Während der Ausarbeitung sind ausschließlich `specified`, `open-decision` und 
 
 | **LXP02-ID** | erforderliches Ergebnis | normative Eingabe | Spezifikationsabschnitt | Referenzsituationsprüfung | Reviewevidenz | Status |
 |---|---|---|---|---|---|---|
-| LXP02-01 | Informationsarchitektur des Kosmos | LXP01 §§ 8, 11, 15, 24, 30 | Informationsarchitektur des Lernwerk-Kosmos | Referenzsituationen 1–3 | Objektvertrag, Kosmos-Sichten, Übergabe- und Navigationsinvarianten | open-decision |
-| LXP02-02 | Modulstart und Startboard | LXP01 §§ 10.1, 11.2, 21, 30 | Modulstart, Startboard und Wiedereinstieg | Referenzsituation 1 | Einstiegsmatrix, Startboard-Vertrag und Zwei-Spuren-Walkthrough | open-decision |
-| LXP02-03 | Zustandsmodell des Lernstudios | LXP01 §§ 9, 10, 11.3, 22, 30 | Zustandsmodell des Lernstudios | Referenzsituation 2 | Zustandsvokabular, Übergangstabelle und Zustandsdiagramm | open-decision |
-| LXP02-04 | Navigation zwischen Lernphasen und Unterrichtseinheiten | LXP01 §§ 14, 15, 17, 30 | Lernphasen- und Unterrichtseinheitsnavigation | Referenzsituationen 1–3 | Bedeutungsvertrag aller Navigationshandlungen und Schutz ungesicherter Arbeit | open-decision |
-| LXP02-05 | Gesamtkarte und progressive Offenlegung | LXP01 §§ 8.1, 15, 21–24, 29–30 | Gesamtkarte und progressive Offenlegung | Referenzsituationen 1–3 | Informationsklassen je Lernzustand und Widerspruchsentscheidung | open-decision |
-| LXP02-06 | Neu-, Fortsetzungs- und Wiedereinstieg | LXP01 §§ 10.8, 17, 21, 23, 30 | Modulstart, Startboard und Wiedereinstieg | Referenzsituationen 1 und 3 | fünf Einstiegsmodi, sechs Fortsetzungsfälle und Wiederherstellungsregeln | open-decision |
-| LXP02-07 | Sicherungsraum und Belegkarte | LXP01 §§ 10.7, 11.4, 16–17, 23–24, 30 | Fachlicher Fortschritt, Sicherungsraum und Belegkarte | Referenzsituation 3 | Fortschrittssignale, Belegkartengrammatik und Export-/Löschvertrag | open-decision |
-| LXP02-08 | Lehrkraftspur | LXP01 §§ 11.5, 12.2, 18, 21–24, 30 | Lehrkraftspur und Unterrichtsorchestrierung | Referenzsituationen 1–3 | Phasen- und Interventionsverträge ohne Telemetrie | open-decision |
-| LXP02-09 | Local-First-, Offline- und Fehlerzustände | LXP01 §§ 17, 20, 21–24, 30 | Local First, Offline, Fehler und Wiederherstellung | Referenzsituationen 1–3 | Schweregradmodell und Fallmatrix mit Erhaltungs- und Rückfallregeln | open-decision |
-| LXP02-10 | Rollen- und Sozialformwechsel | LXP01 §§ 12, 18, 21–24, 30 | Rollen- und Sozialformwechsel | Referenzsituationen 1–3 | Übergabeverträge für Einzel-, Partner-, Gruppen- und Plenumsarbeit | open-decision |
-| LXP02-11 | Begriffs- und Beschriftungsvertrag | LXP01 §§ 2, 10–20, 24–30 | Kontrollierter Begriffs- und Beschriftungsvertrag | Referenzsituationen 1–3 | kontrollierte Begriffstabelle und Konsistenzprüfung | open-decision |
-| LXP02-12 | Abgrenzung zu LXP03, LXP04 und Produktimplementierung | LXP01 §§ 3, 27, 30–34 | Abgrenzung und Übergabe an LXP03 und LXP04 | Referenzsituationen 1–3 | Positiv-/Negativscope und Eigentümermatrix der Folgephasen | open-decision |
+| LXP02-01 | Informationsarchitektur des Kosmos | LXP01 §§ 8, 11, 15, 24, 30 | Informationsarchitektur des Lernwerk-Kosmos | Referenzsituationen 1–3 | Objektvertrag, Kosmos-Sichten, Übergabe- und Navigationsinvarianten | specified |
+| LXP02-02 | Modulstart und Startboard | LXP01 §§ 10.1, 11.2, 21, 30 | Modulstart, Startboard und Wiedereinstieg | Referenzsituation 1 | Einstiegsmatrix, Startboard-Vertrag und Zwei-Spuren-Walkthrough | specified |
+| LXP02-03 | Zustandsmodell des Lernstudios | LXP01 §§ 9, 10, 11.3, 22, 30 | Zustandsmodell des Lernstudios | Referenzsituation 2 | Zustandsvokabular, Übergangstabelle und Zustandsdiagramm | specified |
+| LXP02-04 | Navigation zwischen Lernphasen und Unterrichtseinheiten | LXP01 §§ 14, 15, 17, 30 | Lernphasen- und Unterrichtseinheitsnavigation | Referenzsituationen 1–3 | Bedeutungsvertrag aller Navigationshandlungen und Schutz ungesicherter Arbeit | specified |
+| LXP02-05 | Gesamtkarte und progressive Offenlegung | LXP01 §§ 8.1, 15, 21–24, 29–30 | Gesamtkarte und progressive Offenlegung | Referenzsituationen 1–3 | Informationsklassen je Lernzustand und Widerspruchsentscheidung | specified |
+| LXP02-06 | Neu-, Fortsetzungs- und Wiedereinstieg | LXP01 §§ 10.8, 17, 21, 23, 30 | Modulstart, Startboard und Wiedereinstieg | Referenzsituationen 1 und 3 | fünf Einstiegsmodi, sechs Fortsetzungsfälle und Wiederherstellungsregeln | specified |
+| LXP02-07 | Sicherungsraum und Belegkarte | LXP01 §§ 10.7, 11.4, 16–17, 23–24, 30 | Fachlicher Fortschritt, Sicherungsraum und Belegkarte | Referenzsituation 3 | Fortschrittssignale, Belegkartengrammatik und Export-/Löschvertrag | specified |
+| LXP02-08 | Lehrkraftspur | LXP01 §§ 11.5, 12.2, 18, 21–24, 30 | Lehrkraftspur und Unterrichtsorchestrierung | Referenzsituationen 1–3 | Phasen- und Interventionsverträge ohne Telemetrie | specified |
+| LXP02-09 | Local-First-, Offline- und Fehlerzustände | LXP01 §§ 17, 20, 21–24, 30 | Local First, Offline, Fehler und Wiederherstellung | Referenzsituationen 1–3 | Schweregradmodell und Fallmatrix mit Erhaltungs- und Rückfallregeln | specified |
+| LXP02-10 | Rollen- und Sozialformwechsel | LXP01 §§ 12, 18, 21–24, 30 | Rollen- und Sozialformwechsel | Referenzsituationen 1–3 | Übergabeverträge für Einzel-, Partner-, Gruppen- und Plenumsarbeit | specified |
+| LXP02-11 | Begriffs- und Beschriftungsvertrag | LXP01 §§ 2, 10–20, 24–30 | Kontrollierter Begriffs- und Beschriftungsvertrag | Referenzsituationen 1–3 | kontrollierte Begriffstabelle und Konsistenzprüfung | specified |
+| LXP02-12 | Abgrenzung zu LXP03, LXP04 und Produktimplementierung | LXP01 §§ 3, 27, 30–34 | Abgrenzung und Übergabe an LXP03 und LXP04 | Referenzsituationen 1–3 | Positiv-/Negativscope und Eigentümermatrix der Folgephasen | specified |
 
 ## Begriffs- und Entscheidungsledger
 
@@ -812,6 +812,13 @@ Die folgende Tabelle ist der kontrollierte sichtbare Produktwortschatz. Er gilt 
 | SPACE-STUDIO | Lernstudio | fokussierter Raum der aktuellen Lernhandlung | gleicher Lernzustand plus Orchestrierungshinweise | Studio nur nach Einführung | Kursraum, Werkstatt als globaler Oberbegriff | `ins Lernstudio` nur nach startbereitem Kontext | Raumwechsel und aktuelles Ziel programmatisch benennen |
 | SPACE-SECURE | Sicherungsraum | Belegkarten prüfen, revidieren, exportieren und wiederverwenden | Sicherung/Transfer vorbereiten, kein Fernzugriff | Sicherungsraum | Portfolio, Ablage, Archiv | `Sicherungsraum öffnen` | Zweck und lokale Datenhoheit benennen |
 | SPACE-TEACHER | Lehrkraftspur | keine separate Lernendenansicht | Orchestrierungsinformation zu denselben Lernhandlungen | Lehrkraftspur | Dashboard, Adminbereich, Cockpit | `Lehrkraftspur zu [Lernphase]` | Rollenlabel ergänzt, ersetzt aber keinen Lernbegriff |
+| OBJ-REGION | Themenregion | zusammenhängenden fachlichen Gegenstandsbereich im Kosmos verstehen | curriculare Lernstränge und Abdeckung derselben Region prüfen | Themenregion | Curriculumregion, Fachgebiet | `Themenregion [Name]` | Überschrift und Elternkontext programmatisch bestimmen |
+| OBJ-FAMILY | Modulfamilie | verwandte Module mit Voraussetzungen und Lernprodukten vergleichen | Modulrollen, Zeit und Abhängigkeiten vergleichen | Modulfamilie | Sammlung, Paket, Kursreihe | `Modulfamilie [Name]` | nicht nur grafisch gruppieren; Beziehung textlich |
+| OBJ-MODULE | Modul | fachlich verantworteten wiederaufnehmbaren Lernweg öffnen | Curriculum-/Zeit-/Materialvertrag desselben Moduls nutzen | Modul | Kurs, Kapitel | `Modul [Titel]` nur bei nötiger Unterscheidung | Titel, Status und Voraussetzung zugänglich |
+| OBJ-PATH | Lernpfad | begründete Folge der Unterrichtseinheiten im Modul verstehen | regulären/alternativen Einsatzweg und Haltepunkte planen | Lernpfad | Route, Journey | `Lernpfad ansehen` | Reihenfolge, aktuelle Position und Beziehungen textlich |
+| OBJ-LESSON | Unterrichtseinheit | heutigen Zeit- und Handlungsabschnitt erkennen | Lernfunktion, Zeit, Material und Sicherungsziel planen | Einheit nach Einführung | Lektion, Stunde als Produktobjekt, UE in Lernendensprache | `Unterrichtseinheit [Funktion/Titel]` | Ziffer allein reicht nicht; Lernfunktion nennen |
+| OBJ-PHASE | Lernphase | fachliche Funktion innerhalb der Unterrichtseinheit verstehen | gleiche Phase orchestrieren | Lernphase | Abschnitt, Etappe, Station | konkretes Zustands-/Funktionslabel ergänzen | nicht nur Position/Farbe; Status textlich |
+| OBJ-ACTION | Lernhandlung | fachlich vollständige Denk-, Prüf-, Herstellungs- oder Revisionshandlung ausführen | Handlung beobachten, unterstützen und sichern | Lernhandlung | Aktivität, Aufgabe, Schritt ohne Funktion | outcome-spezifisches Verb bevorzugt | Auftrag, Kriterium und Wirkung zuordnen |
 | NAV-NEW | neu beginnen | einen noch nicht begonnenen Lernweg anlegen | neuen Zielabschnitt eröffnen | neu beginnen | starten bei vorhandenem Stand, zurücksetzen | nur ohne gültigen Fortsetzungsstand | Objekt im zugänglichen Namen mitführen |
 | NAV-CONTINUE | fortsetzen | einen gültigen verständlichen Stand direkt weiterführen | gleiche Phase wieder aufnehmen | fortsetzen | wiederherstellen, wieder einsteigen | nur bei kompatiblem Stand ohne nötige Rekontextualisierung | Zielzustand/-handlung zusätzlich nennen |
 | NAV-REENTER | wieder einsteigen | nach Unterbrechung Ziel, letzten Stand und nächsten Schritt rekonstruieren | Folge-/Wiedervorlagephase eröffnen | wieder einsteigen | fortsetzen, neu starten | nach längerer oder fachlich kontextrelevanter Unterbrechung | Kontextrekonstruktion vor Primäraktion |
@@ -860,6 +867,7 @@ Die folgende Tabelle ist der kontrollierte sichtbare Produktwortschatz. Er gilt 
 
 - Aktionen werden nach Ergebnis und Objekt beschriftet, nicht nach Icon, Position oder generischem `weiter`.
 - `zurück` rekonstruiert einen fachlichen Vorgängerkontext; `zur Phasenübersicht` und `zum Lernwerk-Kosmos` benennen andere Ziele.
+- Das unqualifizierte `zur Übersicht` ist wegen mehrerer möglicher Ziele nicht zulässig; verwendet werden `zur Phasenübersicht`, `Lernweg ansehen` oder `zum Lernwerk-Kosmos`.
 - `pausieren` erhält einen fortsetzbaren Stand; `verwerfen` entfernt nur benannte unbestätigte Änderungen; `löschen` entfernt bestätigte lokale Daten nach eigener Bestätigung.
 - `sichern` bezeichnet fachliche Sicherung; technisches Speichern wird als `lokal gespeichert`, `flüchtig` oder mit konkretem Fehlerzustand bezeichnet.
 - `fortsetzen` gilt für kompatiblen direkten Anschluss, `wieder einsteigen` für fachliche Rekontextualisierung und `wiederherstellen` für Störungsbehebung.
@@ -867,7 +875,7 @@ Die folgende Tabelle ist der kontrollierte sichtbare Produktwortschatz. Er gilt 
 
 ## Integrierte Architektur-Walkthroughs
 
-Alle drei Walkthroughs verwenden dasselbe Schema. Sie prüfen die Architektur, nicht eine konkrete Oberfläche. Jeder beginnt im Kosmos oder in einem dokumentierten Direinstieg und endet mit einem sicheren, wiederaufnehmbaren nächsten Kontext.
+Alle drei Walkthroughs verwenden dasselbe Schema. Sie prüfen die Architektur, nicht eine konkrete Oberfläche. Jeder beginnt im Kosmos oder in einem dokumentierten Direkteinstieg und endet mit einem sicheren, wiederaufnehmbaren nächsten Kontext.
 
 ### Referenzsituation 1 – Einstieg und Orientierung
 
@@ -875,7 +883,7 @@ Alle drei Walkthroughs verwenden dasselbe Schema. Sie prüfen die Architektur, n
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | A: neuen Lernweg im Kosmos finden | Lernwerk-Kosmos/Modulfamilie | kein aktiver Lernstudiozustand | passendes Modul und seinen Anschluss verstehen | Themenregion, Modulfamilie, Leitfrage, Lernprodukt, Voraussetzung, Zeitkorridor und Offlinebereitschaft | Modul vergleichen und Startboard öffnen | bewahrt Elternkontext; legt noch keinen Lernstand an | dasselbe Modul und seinen Curriculum-/Zeitbezug vorbereiten | nur vorhandene Arbeitsverweise, keine neue Position | nicht lokal vorhandenes Modul bleibt `nicht offline verfügbar` mit Alternative | zurück zur Modulfamilie oder zum vorherigen Kosmoskontext | Q1: Zweck/Elternkontext; Q2: begrenzte Vergleichsinformation; Q5: keine Pseudofortschreibung |
 | A: Neueinstieg bestätigen | Startboard | LS-ORIENT → LS-READY | Ziel, Produkt, Position und ersten Schritt klären | Leitfrage, Handlungsfähigkeit, Position, `neu beginnen`, Zeit, Sozialform/Material, Rückweg; Normaltechnik nachrangig | Bedingungen prüfen und `neu beginnen` | bestätigt Startbereitschaft; erzeugt Stand erst bei Aufnahme der Denkhandlung | Leitfrage rahmen, Zeitpfad/Sozialform wählen und ersten Haltepunkt nennen | bestätigter Modul-/Pfadkontext, noch kein Kompetenzsignal | fehlender Kerninhalt wird RES-BLOCK; Elternkontext bleibt | `zur Modulfamilie`, `zum Lernwerk-Kosmos`; Browser-Zurück zeitlich, ohne Mutation | Q1: alle fünf Nordsternfragen anschlussfähig; Q3: relevanter erreichbarer Start; Q8: ehrlicher Status |
-| B: lehrkraftgeleiteten Direktstart öffnen | dokumentierter Direktstart/Startboard | LS-ORIENT | gemeinsamen Zielabschnitt verstehen | gleiches Modul-/Phasenlabel, Leitfrage, Zeit, Sozialform, Material, Herkunft und lokaler Konflikt | Ziel prüfen und `zum gemeinsamen Start` wählen oder abbrechen | validiert Ziel und Offlinekern; keine Fernsteuerung | gemeinsamen Impuls und Zielphase setzen | kein Start vor lokaler Bestätigung | ungültiger/alter Direktstart führt zum Elternmodul, nicht zur Sackgasse | `Start abbrechen` zum Ursprung/Elternmodul | Q1: Zielklarheit; Q6: gleiche Begriffe; Q8: Direinstieg mit Elternkontext |
+| B: lehrkraftgeleiteten Direktstart öffnen | dokumentierter Direktstart/Startboard | LS-ORIENT | gemeinsamen Zielabschnitt verstehen | gleiches Modul-/Phasenlabel, Leitfrage, Zeit, Sozialform, Material, Herkunft und lokaler Konflikt | Ziel prüfen und `zum gemeinsamen Start` wählen oder abbrechen | validiert Ziel und Offlinekern; keine Fernsteuerung | gemeinsamen Impuls und Zielphase setzen | kein Start vor lokaler Bestätigung | ungültiger/alter Direktstart führt zum Elternmodul, nicht zur Sackgasse | `Start abbrechen` zum Ursprung/Elternmodul | Q1: Zielklarheit; Q6: gleiche Begriffe; Q8: Direkteinstieg mit Elternkontext |
 | B: abweichenden lokalen Stand parken | Startboard | LS-ORIENT → LS-READY | am gemeinsamen Unterricht teilnehmen, ohne frühere Arbeit zu verlieren | gemeinsames Ziel plus „Deine bisherige Arbeit bleibt erhalten“ und späterer Fortsetzungspunkt | gemeinsamen Start bestätigen | parkt alten Punkt getrennt; führt keine Zusammenführung/Abschlusswertung aus | Zielphase verbal rahmen; keine lokale Arbeit einsehen | alter Fortsetzungspunkt/Belege unverändert, neuer Unterrichtskontext getrennt | Versionskonflikt führt zu LS-RECOVER statt Überschreiben | Abbruch erhält beide Kontexte; alter Stand über „Aktuelle und letzte Arbeiten“ | Q3: begrenzte Agency; Q5: Kontinuität; Q6: Orchestrierung; Q8: Datenschutz |
 | schmale Ansicht und Tastaturpfad | Startboard/Lernstudio-Eintritt | LS-READY → LS-DECIDE | dieselbe erste Denkhandlung ohne räumlichen/visuellen Informationsverlust aufnehmen | Ziel/Primäraktion zuerst; Zeit/Sozialform kompakt; Rückweg, relevante Eingabe und Kriterium in stabiler semantischer Reihenfolge | per Tastatur `Vorhersage festhalten`; Touch/Textpfad verlangt dieselbe Entscheidung | Fokus wechselt zur Denkhandlung; Statusmeldung bestätigt Kontext, nicht Leistung | gibt Impuls mit demselben Aktionslabel | strukturierte Erwartung nur nach Bestätigung | Offline-/Speicherwarnung erhält Fokus-Rückkehr und vollständige Alternative | `zurück zum Startboard`, Phasenübersicht/Gesamtkarte orientierend erreichbar | Q2: eine Primärhandlung; Q7: Reflow, Tastatur, Touch, AT und Text gleichwertig |
 | ersten gemeinsamen Haltepunkt erreichen | Lernstudio | LS-DECIDE | Erwartung bilden und für Vergleich bereit sein | aktueller Auftrag, relevante Repräsentation, Kriterium, Partnerrolle und Haltepunkt | Vorhersage/Einordnung bestätigen oder Hilfe bewusst öffnen | öffnet Fachhandlung erst nach Guard; Hilfenutzung wird nicht gespeichert | beobachtet Gespräch/Produkt, kann Ziel klären oder neutralen Fall geben | fachlich nötige Erwartung, keine Persondiagnose | Speicherausfall bietet sicheren flüchtigen Pfad/Export oder Pause | `pausieren` bewahrt offenen Stand; Gesamtkarte zeigt Position | Q3: echte Denkentscheidung; Q4: Grundlage für späteres Feedback; Q6: gewöhnliche Evidenz |
@@ -929,7 +937,7 @@ Alle drei Walkthroughs verwenden dasselbe Schema. Sie prüfen die Architektur, n
 | 1 | Q5 Fortschritt und Kontinuität | pass | Fortsetzung nutzt letzten sinnvollen Zustand; Sicherung offen bleibt sichtbar; Versionen überschreiben nichts. | — | — |
 | 1 | Q6 Lehrkraftorchestrierung | pass | Lehrkraft startet dasselbe Ziel/Phasenlabel ohne Fernsteuerung oder Telemetrie; gewöhnliche Evidenz genügt. | — | — |
 | 1 | Q7 Accessibility und Gleichwertigkeit | pass-with-explicit-risk | Tastatur, Touch, Text/AT, Reflow, Fokus und Statusankündigung sind für Eintritt gebunden. | LXP03 Referenzsituation 1 und LXP04 Accessibility-Vertrag | Schmal-/Tastaturpfad verliert Bedingung, Fokus, Rückweg oder verlangt eine andere Entscheidung. |
-| 1 | Q8 Resilienz, Datenschutz und Offenheit | pass | Offlinebereitschaft, lokaler Konflikt, Direinstieg und Recovery sind sichtbar; keine Konten oder Analysen. | — | — |
+| 1 | Q8 Resilienz, Datenschutz und Offenheit | pass | Offlinebereitschaft, lokaler Konflikt, Direkteinstieg und Recovery sind sichtbar; keine Konten oder Analysen. | — | — |
 | 2 | Q1 Lernhandlungs-Klarheit | pass | Zustandsfolge macht Vorhersage, Handlung, Beobachtung, Interpretation, Revision und Sicherung unterscheidbar. | — | — |
 | 2 | Q2 kognitive Ökonomie | pass-with-explicit-risk | Pro Zustand sind Dominanz, Kontext, Hilfe und bewusst Unverfügbares definiert; Gesamtkarte bleibt sekundär. | LXP03 Referenzsituation 2, danach LXP04 | Handlung, Wirkung und Feedback können in einer konkreten Darstellung nicht gleichzeitig zusammenhängend verstanden werden. |
 | 2 | Q3 Agency und Motivation | pass | Vorhersage, Reparaturhypothese, gezielte Revision und Hilfenwahl sind echte fachliche Entscheidungen; keine Punkte/Ränge. | — | — |
@@ -995,3 +1003,71 @@ Keine dieser Entscheidungen wird an Farbe, Layout, Komponentengestalt oder Anima
 LXP03 darf Zustände, Grundlabels, Daten- oder Rollenfolgen nicht still neu definieren. Wenn ein konkreter Entwurf einen Architekturwiderspruch nachweist, wird LXP02 ausdrücklich revidiert und erneut geprüft. LXP04 darf keine Taxonomie aus einem einzelnen Entwurf generalisieren; es übernimmt nur über die drei Situationen bewährte Muster.
 
 Weiterhin nicht freigegeben sind Produktcode, konkrete Wireframes im LXP02-Artefakt, Komponentenimplementierung, IUM5-Neufassung, Preview, Deployment, Pilotierung, Realgerätetest, LMS und Release. LXP03 wird durch den Abschluss von LXP02 nicht automatisch angelegt oder gestartet.
+
+## LXP01-Konformitätsprüfung und Reviewstatus
+
+### Abgleich der normativen Abschnitte 9–34
+
+| LXP01-Abschnitt | normative Architekturfolge | LXP02-Nachweis | Ergebnis |
+|---|---|---|---|
+| § 9 Experience-Nordstern | ruhige fachliche Handlungsfähigkeit, Fokus, Revision und Lehrkraftorchestrierung | Entscheidung/Zweck, Zustandsmodell, progressive Offenlegung, Walkthroughs | mapped – kein Widerspruch |
+| § 10 Experience-Grammatik | vollständiger Loop von Orientierung bis Wiederanknüpfen | elf Lernzustände, Übergangstabelle, verbotene Übergänge | mapped – Loop vollständig |
+| § 11 Informationsräume | Kosmos, Startboard, Lernstudio, Sicherungsraum und Lehrkraftspur | eigene Verträge und Objektbeziehungen für alle fünf Räume | mapped – 5/5 |
+| § 12 Rollenmodell | Lernende, Lehrkraft, 1:2-Partnerrollen und Systemgrenze | Lehrkraftspur, Sozialformmatrix, Sharing-/Privacygrenzen | mapped – Rollen ohne Paralleltaxonomie |
+| § 13 Motivation | Relevanz, Kompetenz, begrenzte Autonomie, Zugehörigkeit, Fortschritt, Sorgfalt ohne Gamification | Einstieg, Fortschrittssignale, Rollenwechsel, Anti-Scoring und Qualitätsurteile | mapped – keine Belohnungsschicht |
+| § 14 Inhaltsrhythmus | Mikro-, Meso- und Makrorhythmus | Zustandsloop, Unterrichtseinheits-/Phasennavigation, Gesamtkarte | mapped – keine UI-Schrittzahl vorgegeben |
+| § 15 progressive Offenlegung | aktueller Fachschritt dominant, Gesamtkarte/Hilfe/Daten erreichbar, kein Informationsverlust | Informationsvertrag je Zustand plus Invarianten | mapped – Guards erhalten |
+| § 16 Rückmeldung/Revision | informationshaltiges Feedback und nachvollziehbarer Revisionsvertrag | LS-OBSERVE/INTERPRET/REVISE, verbotene Übergänge, IUM5-Stresstest | mapped – kein Urteil/Trial-and-error |
+| § 17 Fortschritt/Persistenz/Wiedereinstieg | drei Achsen, minimaler lokaler Stand und rekonstruierter Wiedereinstieg | Fortschrittssignale, Einstiegskonflikte, Belegkarte, Wiedervorlage | mapped – keine Personenbiografie |
+| § 18 Lehrkraftorchestrierung | Orientierung, Steuerung, Koordination ohne Telemetrie | Lehrkraftphasen, sieben Interventionen, 21 Orchestrierungsmomente | mapped – ohne Systemmonitoring |
+| § 19 Accessibility | WCAG-Baseline, kognitive Zugänglichkeit und fachliche Gleichwertigkeit | zwölf A11Y-Invarianten, Fokus-/Statusvertrag und Beschriftungen | mapped – Konkretisierung LXP03/LXP04 als explizites Risiko |
+| § 20 Local First/Offline/Datenschutz | Ruhe-, Handlungs-, Alarmmodus und ausgeschlossene Verhaltensdaten | drei Resilienzschwere, zehn Fallverträge, Karten-/Export-/Recoveryvertrag | mapped – Datenminimierung erhalten |
+| § 21 Referenzsituation 1 | Neu-/Wiedereinstieg, Lehrkraftstart und technische Ehrlichkeit | normalisierter Walkthrough 1 einschließlich schmal/Tastatur | mapped – Q1–Q8 bewertet |
+| § 22 Referenzsituation 2 | Vorhersage, Aktion, Beobachtung, Feedback, Revision | normalisierter Walkthrough 2 einschließlich Offlineeinschränkung und Plenumshalt | mapped – Q1–Q8 bewertet |
+| § 23 Referenzsituation 3 | Belegkarte, Transfer, Export, Wiedereinstieg | normalisierter Walkthrough 3 einschließlich Lehrkraft-Follow-up | mapped – Q1–Q8 bewertet |
+| § 24 gemeinsamer Vertrag | einheitliche Zweck-, Aktions-, Fortschritts-, Lehrkraft-, Accessibility-, Local-First- und Motivationslogik | identisches Walkthroughschema und kontrollierter Wortschatz | mapped – 3/3 normalisiert |
+| § 25 Qualitätsmodell | acht Dimensionen mit Gates | 24 Einzelurteile, Risiken, Eigentümerphase und Fail-Signal | mapped – 24/24, 0 fail |
+| § 26 globale Anti-Patterns | Mega-Seite, Pseudofortschritt, Gamification, Blackbox, Dashboard usw. ausschließen | Scopegrenze, Zustands-/Fortschritts-/Resilienzverbote und Walkthrough-Fail-Kriterien | mapped – kein Anti-Pattern als Architektur |
+| § 27 Validierungsstrategie | LXP02-Strukturprüfung und Folgeprüfungen | Traceability, drei Walkthroughs, 24 Urteile und Eigentümermatrix | mapped – spätere Evidenz nicht vorgetäuscht |
+| § 28 Mess-/Beobachtungsfragen | Einstieg, Kernhandlung, Sicherung, Lehrkraft und Accessibility beobachtbar machen | Fail-Kriterien und gewöhnliche nichttelemetrische Evidenz je Walkthrough | mapped – Messung LXP03/LXP06 vorbehalten |
+| § 29 Risiken/Gegenmaßnahmen | Segmentierung, Kosmoslast, Starrheit, Scoring, zweite Lehrkraftspur usw. auflösen | acht Architekturwidersprüche mit Priorität, Mechanismus, Preis, Prüfung | mapped – nicht an Styling delegiert |
+| § 30 Konsequenzen LXP02 | zwölf Folgeergebnisse | geschlossene LXP02-Ergebnismatrix | mapped – 12/12 `specified` |
+| § 31 Konsequenzen LXP03 | drei konkrete vergleichbare Experience-Entwürfe | Eigentümermatrix und sieben explizite Darstellungsrisiken | mapped – noch nicht gestartet |
+| § 32 Nicht-Ziele | keine Wireframes, Marke, Komponenten, Router, Curriculum, Diagnose, Pilot oder Code | Status-/Scopegrenze und Folgephasenmatrix | mapped – dokumentarischer Scope |
+| § 33 Akzeptanzkriterien | Experience- und Architekturfolgen prüfbar verbinden | Traceability, Konsistenzprüfungen und Akzeptanzbilanz | mapped – schriftliche LXP02-Freigabe offen |
+| § 34 schriftliches Gate | LXP01 erlaubt nur LXP02; Folgephasen bleiben gesperrt | Reviewstatus, Nichtziele und ausdrücklicher LXP02-Nutzergate | mapped – Freigabe nicht vorweggenommen |
+
+### Zustandsdiagramm- und Tabellenkonsistenz
+
+| Diagrammkante | Übergangstabellennachweis | Ergebnis |
+|---|---|---|
+| Start → LS-ORIENT | kein aktiver Lernzustand → LS-ORIENT | pass |
+| LS-ORIENT → LS-READY | Startbedingungen klären | pass |
+| LS-READY → LS-DECIDE | erste Denkhandlung aufnehmen | pass |
+| LS-DECIDE → LS-ACT | Entscheidung bestätigen | pass |
+| LS-ACT → LS-OBSERVE | fachlich handeln/Wirkung liegt vor | pass |
+| LS-OBSERVE → LS-INTERPRET | Wirkung vollständig erfassen | pass |
+| LS-INTERPRET → LS-REVISE | Abweichung/Hypothese | pass |
+| LS-REVISE → LS-DECIDE | Änderung erneut vorhersagen | pass |
+| LS-INTERPRET → LS-SECURE | tragfähiges Ergebnis auswählen | pass |
+| LS-SECURE → LS-TRANSFER | Sicherungsartefakt bestätigen | pass |
+| LS-TRANSFER → LS-ORIENT | nächsten Abschnitt anschließen | pass |
+| Lernzyklus → LS-PAUSE | generischer Pausenübergang | pass |
+| LS-PAUSE → bestätigter Lernzustand | Fortsetzungsübergang | pass |
+| Lernzyklus → LS-RECOVER | generischer Störungsübergang | pass |
+| LS-RECOVER → bestätigter Lernzustand/LS-PAUSE | validierte Wiederherstellung | pass |
+| LS-TRANSFER → Kosmos/Ende | bewusster sicherer Ausstieg | pass |
+
+**Bilanz:** 16/16 Diagrammkanten besitzen eine Übergangstabellenzeile. Alle elf Zustands-IDs sind im Begriffsledger, Zustandsvertrag, Offenlegungsvertrag und kontrollierten Beschriftungsvertrag konsistent. Die drei Walkthroughs verwenden ausschließlich diese Zustände oder ausdrücklich dokumentierte Außen-/Rückkehrkontexte.
+
+### Akzeptanz- und Scopebilanz vor Nutzerreview
+
+- 12/12 LXP02-Folgeergebnisse sind `specified` und mit Referenzsituationen verknüpft.
+- Objekt-, Zustands-, Navigations-, Rollen-, Persistenz- und Begriffsmodell bilden einen gemeinsamen Vertrag.
+- fünf Einstiegsmodi, sechs Fortsetzungs-/Konfliktfälle, elf Lernzustände, acht Fortschrittssignale, drei Resilienzschwere und zehn Resilienzfälle sind geschlossen.
+- exakt drei normalisierte Walkthroughs und 24 Qualitätsurteile liegen vor; kein Urteil ist `fail`.
+- sieben konkrete Darstellungsrisiken besitzen Eigentümerphase und Fail-Signal.
+- LXP01 §§ 9–34 sind vollständig zugeordnet; keine normative Konsequenz wurde still abgeschwächt.
+- kein Architekturpunkt hängt von einem unbestimmten Layout, einer Komponente, einem Router oder einer State-Library ab.
+- kein Produktcode, keine IUM5-Neufassung, kein LXP03-/LXP04-Artefakt, kein Preview, Deployment, Pilot, LMS oder Release wurde begonnen.
+- Die einzige verbleibende Akzeptanzbedingung ist die ausdrückliche schriftliche Nutzerfreigabe von LXP02.
