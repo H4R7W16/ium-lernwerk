@@ -95,7 +95,7 @@ Während der Ausarbeitung sind die Statuswerte `specified`, `open-decision` und 
 |---|---|---|---|---|---|---|
 | LXP03-01 | Vergleich von drei Kompositionsansätzen und Auswahlentscheidung | LXP01 §§ 8–10, 25–31; LXP02 Eigentümermatrix | Ansatzvergleich und Arbeitsentscheidung | alle drei Entwürfe | Mechanismus-/Kostenvergleich und Fail-Signale | specified |
 | LXP03-02 | gemeinsames situationsübergreifendes Entwurfsraster | LXP01 §§ 24–29; LXP02 Walkthroughschema | Gemeinsames Entwurfsraster | alle drei Entwürfe | identische Prüffelder und Kontextbudget | specified |
-| LXP03-03 | Wide-/Schmalentwurf Einstieg und Orientierung | LXP01 § 21; LXP02 Startboard/Einstiegsmodi | Referenzentwurf 1 | Situation 1 | Wireframes, Wireflow, Fokus- und Recoverypfad | open-decision |
+| LXP03-03 | Wide-/Schmalentwurf Einstieg und Orientierung | LXP01 § 21; LXP02 Startboard/Einstiegsmodi | Referenzentwurf 1 | Situation 1 | Wireframes, Wireflow, Fokus- und Recoverypfad | specified |
 | LXP03-04 | Wide-/Schmalentwurf interaktive Kernlernhandlung | LXP01 § 22; LXP02 LS-DECIDE bis LS-SECURE | Referenzentwurf 2 | Situation 2 | vier Zustandskompositionen, Rückmeldung und Revision | open-decision |
 | LXP03-05 | Wide-/Schmalentwurf Sicherung, Transfer und Wiedereinstieg | LXP01 § 23; LXP02 Sicherungsraum/Belegkarte | Referenzentwurf 3 | Situation 3 | Beleg-, Transfer-, Export-, Pausen- und Abrufpfad | open-decision |
 | LXP03-06 | verbundene Lernenden- und Lehrkraftspur | LXP01 §§ 12, 18, 21–24; LXP02 Lehrkraft-/Sozialformvertrag | Lehrkraftspur je Referenzentwurf | Situationen 1–3 | Haltepunkte, Rollen, gewöhnliche Evidenz und Fallback | open-decision |
@@ -258,3 +258,235 @@ flowchart LR
 - Eine automatische Statusmeldung bestätigt Zustand oder Datenfolge, nie Leistung oder Kompetenz.
 - Hilfe öffnet kontextnah, erhält Ausgangsobjekt und Fokus-Rückkehr und speichert ihre Nutzung nicht.
 - Eine schmale oder assistive Darstellung darf keine Lösung offenlegen, die im visuellen Pfad erst erarbeitet werden muss.
+
+## Referenzentwurf 1 – Einstieg und Orientierung
+
+### Zweck und fachlicher Zielzustand
+
+Der Entwurf macht eine Klasse ohne Vorlektüre handlungsfähig. Nach der Orientierung können Lernende in eigenen Worten benennen:
+
+- die Leitfrage: `Wie genau muss eine Vorschrift sein, damit Mensch und digitales System denselben Ablauf ausführen?`;
+- das aktuelle Zwischenprodukt: `einen präzisen Ablauf entwerfen, vorhersagen und prüfen`;
+- den heutigen ersten fachlichen Schritt: `zwei Ausführungen eines mehrdeutigen Auftrags vergleichen`;
+- die Arbeitsform und den ersten gemeinsamen Haltepunkt;
+- den sicheren Rückweg und – falls vorhanden – die Bedeutung ihres lokalen Standes.
+
+Die Orientierung selbst erzeugt kein Kompetenzsignal. `PROG-ORIENTED` entsteht erst, wenn Ziel, Position und nächste Handlung verstanden und die erste Denkhandlung aufgenommen wurden.
+
+### Konkreter Einsatzfall und sichtbare Arbeitsannahmen
+
+| Aspekt | Festlegung für den Referenzentwurf | Reifestatus |
+|---|---|---|
+| Lerngruppe | Klasse 5 Gymnasium, Niveau E, normale Unterrichtssituation ohne zusätzliches Kursprofil | sichtbare Arbeitsannahme; keine reale Klassenevidenz |
+| Unterrichtsfunktion | Auftakt der ersten Unterrichtseinheit des IUM5-Moduls | aus Modulvertrag abgeleitet |
+| Zeit | 10–15 Minuten bis zum ersten gemeinsamen Vergleich; kein individueller Restzeit-Countdown | Projektkorridor; später real zu prüfen |
+| Gerät | schulisches iPad im Primärfall; Tastatur-/Desktop- und Text-/AT-Pfad gleichwertig | Zielvertrag; `device-verified: not-run` bleibt bestehen |
+| Sozialform | gemeinsamer Auftakt, dann Einzelarbeit oder 1:2 mit `steuern` und `vorhersagen/prüfen` | Entwurfsentscheidung; später unterrichtlich zu prüfen |
+| Material | lokal verfügbarer Kerninhalt; kein zusätzliches Analogmaterial | aus Digitalentscheidung des Moduls |
+| lokaler Zustand | Varianten: kein Stand, kompatibler Fortsetzungsstand oder abweichender geparkter Stand | LXP02-Vertrag |
+| Diagnose | Ziel-/Produkt-/Nächster-Schritt-Erklärung, Handzeichen oder kurze Partnererklärung | gewöhnliche nichttelemetrische Evidenz |
+
+### Zustandsvarianten
+
+| Varianten-ID | Ausgang | sichtbare Primärentscheidung | erhaltener lokaler Stand | Übergang |
+|---|---|---|---|---|
+| S1-NEW | Modul noch nicht begonnen | `neu beginnen` | keiner; Stand entsteht erst mit der ersten Denkhandlung | LS-ORIENT → LS-READY → LS-DECIDE |
+| S1-TEACHER | lehrkraftgeleiteter Zielabschnitt; kein abweichender Stand | `zum gemeinsamen Start` | bestätigter Zielkontext, keine persönliche Historie | LS-ORIENT → LS-READY → LS-DECIDE |
+| S1-PARK | lehrkraftgeleiteter Zielabschnitt weicht vom lokalen Fortsetzungspunkt ab | `zum gemeinsamen Start`; vorherige Arbeit bleibt als `für später markiert` erreichbar | alter Fortsetzungspunkt und Belege unverändert; neuer Unterrichtskontext getrennt | LS-ORIENT → LS-READY → LS-DECIDE |
+| S1-CONTINUE | kurze Pause, gültiger und verständlicher Stand | `fortsetzen: Vorhersage festhalten` | unveränderter bestätigter Zustand; keine neue Historie | LS-PAUSE → zuletzt bestätigter Zustand |
+| S1-REENTER | längere Unterbrechung mit gültiger Belegkarte | aktive Abruffrage, dann `wieder einsteigen` | alte Karte unverändert; neue Antwort als Anschluss, nicht Überschreibung | LS-ORIENT → LS-DECIDE |
+| S1-RECOVER | Inhalt, Version, Speicher oder Import verhindert ehrliche Fortsetzung | `wiederherstellen`, `alte Fassung fortsetzen` oder `Export sichern` je Fall | letzter bestätigter Stand bleibt autoritativ | LS-RECOVER → bestätigter Zustand oder LS-PAUSE |
+
+`neu beginnen`, `fortsetzen`, `wieder einsteigen` und `wiederherstellen` stehen nie gleichzeitig als gleichgewichtige Primäraktionen. Der validierte Einstiegsmodus bestimmt genau eine Primärhandlung; alternative sichere Wege werden mit ihrer Folge benannt.
+
+### Wide-Komposition 1
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Lernwerk-Kosmos › Algorithmen › Präzise Abläufe              Lernweg ansehen │
+│ Unterrichtseinheit 1 · Orientierung                    lokal gespeichert      │
+├──────────────────────────────────────────────┬───────────────────────────────┤
+│ Worum geht es?                               │ Dein Start                     │
+│ Wie genau muss eine Vorschrift sein,         │ Noch kein lokaler Stand         │
+│ damit Mensch und digitales System            │                               │
+│ denselben Ablauf ausführen?                  │ Heute: gemeinsamer Auftakt      │
+│                                              │ ca. 10–15 Minuten bis zum       │
+│ Danach kannst du …                           │ ersten Vergleich                │
+│ einen präzisen Ablauf entwerfen,             │                               │
+│ vorhersagen und prüfen.                      │ Einzelarbeit oder 1:2           │
+│                                              │ Rollenwechsel am Haltepunkt     │
+│ Erster Schritt                               │                               │
+│ Vergleiche zwei Ausführungen eines           │ offline bereit                  │
+│ mehrdeutigen Auftrags.                       │                               │
+│                                              │ [neu beginnen]                  │
+│ Qualitätsfrage                               │                               │
+│ Welche Information braucht die ausführende  │ zurück zur Modulfamilie         │
+│ Person, damit nur eine Handlung möglich ist? │                               │
+├──────────────────────────────────────────────┴───────────────────────────────┤
+│ Hilfe zur Arbeitsform · Accessibility und Anzeige · Lokale Daten             │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Die linke/rechte Anordnung ist nicht normativ. Normativ sind Informationspriorität und Beziehung: Leitfrage, erwartbare Handlungsfähigkeit und erster Schritt besitzen Primat; Startmodus, Zeit, Sozialform und Offlinebereitschaft machen die Entscheidung ausführbar. Hilfe, Anzeige und lokale Daten sind erreichbar, aber nicht gleichgewichtig.
+
+#### Wide-Variante bei geparktem Stand
+
+Der Bereich `Dein Start` wird nicht um einen zweiten Startknopf ergänzt, sondern ersetzt seinen Zustandskern:
+
+```text
+Heute startet die Klasse bei „Mehrdeutigkeit prüfen“.
+Deine frühere Arbeit „Eigenen Ablauf revidieren“ bleibt unverändert erhalten.
+
+[zum gemeinsamen Start]
+[frühere Arbeit ansehen]
+```
+
+`frühere Arbeit ansehen` öffnet einen lesenden Orientierungskontext und mutiert weder den gemeinsamen Zielkontext noch den alten Stand. Die Folgen beider Handlungen sind vor der Entscheidung sichtbar.
+
+### Schmal-Komposition 1
+
+```text
+Lernwerk-Kosmos › Algorithmen
+Unterrichtseinheit 1 · Orientierung
+[Lernweg ansehen]
+
+Wie genau muss eine Vorschrift sein, damit Mensch und digitales System
+denselben Ablauf ausführen?
+
+Danach kannst du einen präzisen Ablauf entwerfen, vorhersagen und prüfen.
+
+Erster Schritt
+Vergleiche zwei Ausführungen eines mehrdeutigen Auftrags.
+Qualitätsfrage: Welche Information fehlt für eine eindeutige Ausführung?
+
+Dein Start
+Noch kein lokaler Stand.
+Heute gemeinsamer Auftakt · 10–15 Minuten · Einzelarbeit oder 1:2
+offline bereit
+
+[neu beginnen]
+[zurück zur Modulfamilie]
+
+Hilfe zur Arbeitsform
+Accessibility und Anzeige
+Lokale Daten
+```
+
+Die Schmal-Komposition ist keine gestapelte Vollansicht des Moduls. Sie enthält nur Startboardinformationen. Die semantische Reihenfolge lautet `Position → Leitfrage/Produkt → erster Schritt/Kriterium → lokaler Startmodus → Zeit/Sozialform/Offline → Primärhandlung → Rückweg und Hilfen`. Sticky- oder visuelle Fixierung ist keine Anforderung; Überschriften, Landmarken und Sprungziele müssen die Reihenfolge auch ohne CSS tragen.
+
+### Wireflow 1
+
+```mermaid
+flowchart TD
+    A["Kosmos oder gültiger Direktstart"] --> B["Startboard · Orientierung"]
+    B --> C{"Einstiegsmodus"}
+    C -->|neu| D["neu beginnen"]
+    C -->|gemeinsames Ziel| E["zum gemeinsamen Start"]
+    C -->|kurze Pause| F["fortsetzen: Vorhersage festhalten"]
+    C -->|längere Unterbrechung| G["aktive Abruffrage"]
+    C -->|Störung| H["Wiederherstellung erforderlich"]
+    E --> I{"abweichender lokaler Stand?"}
+    I -->|ja| J["alten Stand für später markieren"]
+    I -->|nein| K["Startbereit"]
+    J --> K
+    D --> K
+    F --> L["bestätigten Lernzustand rekonstruieren"]
+    G --> M["wieder einsteigen"]
+    H --> N["Stand validiert wiederherstellen oder erhalten pausieren"]
+    K --> O["gemeinsamer Impuls"]
+    O --> P["Denken und entscheiden"]
+    M --> P
+    L --> P
+    N --> P
+```
+
+### Konkrete Interaktionsabfolge
+
+1. Beim Öffnen erhält die Startboardüberschrift Fokus; eine Statusmeldung kündigt `Startboard geöffnet. Noch kein Lernfortschritt.` an.
+2. Lernende lesen Leitfrage, Produkt, ersten Schritt und Qualitätsfrage.
+3. Der validierte Startmodus zeigt genau eine Primäraktion.
+4. `Lernweg ansehen` öffnet die Gesamtkarte lesend; beim Schließen kehrt Fokus zur auslösenden Handlung zurück.
+5. `neu beginnen` oder `zum gemeinsamen Start` bestätigt zunächst den Startkontext, erzeugt aber noch kein fachliches Fortschrittssignal.
+6. Der gemeinsame Impuls stellt zwei widersprechende Ausführungen desselben Auftrags gegenüber.
+7. Die erste Denkhandlung verlangt eine Auswahl oder knappe Begründung, welche Information fehlt.
+8. Erst ihre Bestätigung setzt den fachlichen Fortsetzungspunkt und öffnet den ersten fokussierten Studiozustand.
+
+Die Primäraktion wird nicht deaktiviert, ohne die fehlende Bedingung textlich und programmatisch zu benennen. Bei einer behebbaren unvollständigen Eingabe bleibt Fokus am betroffenen Feld; bei einem blockierenden Offline- oder Versionsfall öffnet LS-RECOVER mit erhaltenem Stand und sicherem Abbruch.
+
+### Tastatur-, Touch- und Text-/Assistive-Technology-Pfad
+
+| Funktion | Tastatur | Touch | Text-/Assistive-Technology | Gleichwertigkeitsnachweis |
+|---|---|---|---|---|
+| Startboard erfassen | Landmarken `Navigation`, `Hauptinhalt`, `Dein Start`, `ergänzende Hilfe`; sichtbarer Fokus | identische Reihenfolge mit ausreichend großen Zielbereichen | Überschrift, Position, Leitfrage, Produkt, erster Schritt, Status und Primäraktion in derselben Reihenfolge | alle Pfade beantworten Ziel, Position, Produkt, nächste Handlung und Rückweg |
+| Lernweg öffnen | Schaltfläche `Lernweg ansehen`; Fokus auf Kartenüberschrift; Escape/Schließen zurück zum Auslöser | gleiche Schaltfläche; kein Wischzwang | Kartenbeziehungen als hierarchische Liste mit aktueller Position | Kartenansicht verändert keinen Stand und zeigt dieselben Eltern-/Anschlussbeziehungen |
+| Start bestätigen | Enter/Leertaste auf outcome-spezifischer Primäraktion | direkte Aktivierung; keine Geste | zugänglicher Name führt Modul und Zielhandlung mit | kein Pfad umgeht Offline-, Konflikt- oder Recoverybedingung |
+| Arbeitsformhilfe | kontextnahe Schaltfläche; Rückkehr zur auslösenden Zeile | identischer Zugang | Rollen und Wechselzeitpunkt vollständig textlich | keine automatische Rollenzuweisung oder gespeicherte Hilfenutzung |
+| Abbruch/Rückweg | benanntes Ziel statt Browserhistorie | identische Handlung | Ziel und Folge ungesicherter Arbeit werden vorgelesen | Stand bleibt unverändert; Fokus im Elternkontext ist definiert |
+
+### Fokus- und Statusvertrag
+
+| Ereignis | Fokusziel | Statusmeldung | Fokus-Rückkehr |
+|---|---|---|---|
+| Startboard geöffnet | Überschrift `Orientierung` | Startmodus und ob lokaler Stand vorhanden ist | nicht erforderlich |
+| Gesamtkarte geöffnet | Kartenüberschrift, danach aktuelle Position | `Lernweg geöffnet. Keine Arbeit wurde verändert.` | auslösende Schaltfläche `Lernweg ansehen` |
+| Hilfe geöffnet | Hilfeüberschrift und erste konkrete Option | keine Leistungsmeldung | auslösende Hilfehandlung |
+| Start bestätigt | Überschrift der ersten Denkhandlung | `Gemeinsamer Start bestätigt. Deine frühere Arbeit bleibt erhalten.` nur bei S1-PARK | Primärhandlung der Denkphase |
+| Validierungsfehler | Zusammenfassung oder erstes betroffenes Feld | fehlende Bedingung und sichere Korrektur | nach Korrektur am Feld/Primärziel |
+| RES-BLOCK | Überschrift `Wiederherstellung erforderlich` | betroffene Arbeit, erhaltener Stand und sichere Primärhandlung | nach Abbruch zum Startboardauslöser; nach Recovery zum bestätigten Zielzustand |
+
+Normaler Speichererfolg löst keinen Fokuswechsel und keine wiederholte Live-Region-Meldung aus. `lokal gespeichert` bleibt als erreichbarer Status verfügbar.
+
+### Lehrkraftspur 1
+
+| Moment | Lehrkrafthandlung | Lernendenhandlung | gewöhnliche Evidenz ohne Telemetrie | Haltepunkt/Entscheidung |
+|---|---|---|---|---|
+| Vorbereitung | Zielabschnitt, Zeitpfad, Geräte-/Offlinekern, Partneroption und neutralen Mehrdeutigkeitsfall prüfen | noch keine | eigener Technikcheck und Modulvertrag | bei fehlendem Kerninhalt nicht digital starten; fachlich gleichwertigen Fallback prüfen oder Phase verschieben |
+| gemeinsamer Start | Leitfrage rahmen und zwei widersprechende Ausführungen zeigen | Auftrag vergleichen | mündliche Beobachtung und erste Reaktionen | keine Erklärung der Lösung vor der Erwartungshandlung |
+| erste Denkhandlung | Auftrag `Welche Information fehlt?` und Qualitätsfrage geben | auswählen, ordnen oder knapp begründen | sichtbare Auswahl, Partnererklärung, Handzeichen | nach 5–10 Minuten beziehungsweise früher bei deutlicher gemeinsamer Unklarheit |
+| Zwischenkontrolle | zwei Begründungen oder einen neutralen Kontrast vergleichen | eigenes Kriterium prüfen | Gespräch und bewusst gezeigte Antwort | Ziel-, Produkt- und Nächster-Schritt-Erklärung muss möglich sein |
+| Sozialformwechsel | bei 1:2 Rollen `steuern` und `vorhersagen/prüfen` setzen; Wechsel am ersten Lauf | Rollenauftrag bestätigen | beide Personen erklären ihren nächsten fachlichen Beitrag | eine Person darf nicht dauerhaft nur bedienen |
+| Übergang | `Denken und entscheiden` ansagen und ersten Studioauftrag öffnen | Erwartung bilden | sichtbare Arbeitsbereitschaft, nicht Systemstatus | gemeinsamer Haltepunkt bleibt im Lernweg markiert |
+
+Kann eine lernende Person Ziel, Produkt oder nächsten Schritt nicht benennen, gibt die Lehrkraft einen frischen neutralen Kurzfall und lässt die drei Aussagen erneut formulieren. Der Lernweg erzeugt daraus kein Defizitprofil und keine automatische Rückstufung.
+
+### Local First, Offline und Recovery 1
+
+| Fall | Schwere | sichtbare Copy | erhaltener Stand | Primärhandlung | verbotene Folge |
+|---|---|---|---|---|---|
+| Kerninhalt vollständig lokal | RES-INFO | `offline bereit – dieser Abschnitt funktioniert ohne Netzwerk` | vorhandener lokaler Stand vollständig | normal starten/fortsetzen | Status vor Leitfrage wiederholen oder versteckte Netzanforderung |
+| abweichender gültiger lokaler Stand | fachlicher Konflikthinweis, kein Fehler | `Die Klasse startet heute bei „Mehrdeutigkeit prüfen“. Deine frühere Arbeit bleibt erhalten.` | alter Punkt und Belege unverändert | `zum gemeinsamen Start` | still überschreiben, zusammenführen oder abschließen |
+| erste Nutzung offline, Kern fehlt | RES-BLOCK | `Dieser Abschnitt ist auf diesem Gerät noch nicht offline verfügbar. Es wurde keine neue Arbeit angelegt.` | kein neuer Stand; vorhandene andere Arbeit unverändert | `mit Netzwerk erneut prüfen` oder lehrkraftseitig freigegebener Fallback | leeres Lernstudio öffnen oder Offlinebereitschaft vortäuschen |
+| Speichern vor erster Denkhandlung nicht verfügbar | RES-LIMIT, wenn sicher flüchtig plus Export möglich; sonst RES-BLOCK | betroffene Eingabe, letzter bestätigter Stand und Folge einer flüchtigen Fortsetzung | bisheriger Stand autoritativ; aktuelle Eingabe editierbar | `flüchtig fortsetzen und Export vorbereiten` oder `pausieren` | gespeicherten Erfolg behaupten oder Eingabe verlieren |
+| inkompatibler Fortsetzungsstand | RES-BLOCK | `Dieser Stand kann nicht sicher mit der aktuellen Fassung verbunden werden. Deine Datei und dein letzter bestätigter Stand bleiben unverändert.` | Original und aktiver Stand getrennt | `Export sichern` oder `Wiederherstellung öffnen` | Teilimport oder automatische Migration |
+
+### Konkrete sichtbare Copy
+
+**Neueinstieg:**
+
+> Du beginnst diesen Lernweg neu. Deine erste Aufgabe ist, zwei verschiedene Ausführungen desselben Auftrags zu vergleichen. Noch wird keine Lösung bewertet.
+
+**Geparkter Stand:**
+
+> Die Klasse startet heute bei „Mehrdeutigkeit prüfen“. Deine bisherige Arbeit „Eigenen Ablauf revidieren“ bleibt erhalten. Du kannst später genau dort fortsetzen.
+
+**Wiedereinstieg:**
+
+> Darum geht es: Ausführbare Anweisungen sind in einer gegebenen Situation eindeutig. Hier warst du: Du hast eine erste Abweichung in Schritt 4 begründet. Bevor du deine Belegkarte öffnest: Welche Information muss eine ausführbare Anweisung immer eindeutig festlegen?
+
+**Startbereitschaft:**
+
+> Startbereit. Der Kerninhalt ist offline verfügbar. Die erste Denkhandlung beginnt mit einer Vorhersage, nicht mit der Ausführung.
+
+### Fail-Kriterien Referenzentwurf 1
+
+Der Entwurf fällt durch, wenn:
+
+- Leitfrage, erwartbare Handlungsfähigkeit, erster Schritt oder Rückweg nicht ohne Scrollsuche erkennbar sind;
+- mehrere Einstiegsmodi als gleichgewichtige Primäraktionen erscheinen;
+- ein lehrkraftgeleiteter Start vorhandene lokale Arbeit überschreibt oder zusammenführt;
+- Technikstatus die Leitfrage dominiert oder Offlinebereitschaft unpräzise bleibt;
+- der Schmal-, Tastatur- oder Text-/AT-Pfad eine Bedingung, Folge oder Handlungsoption verliert;
+- die Gesamtkarte zum parallelen Arbeitsraum wird oder ihr Öffnen einen Zustand verändert;
+- eine Begrüßung, Animation oder Fortschrittsanzeige die erste Denkhandlung ersetzt;
+- Lehrkraft und Lernende unterschiedliche Phasen- oder Aktionsbegriffe benötigen;
+- die Lehrkraft für Start oder Zwischenkontrolle personenbezogene Systemdaten benötigt.
