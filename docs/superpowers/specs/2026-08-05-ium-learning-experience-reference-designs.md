@@ -97,7 +97,7 @@ Während der Ausarbeitung sind die Statuswerte `specified`, `open-decision` und 
 | LXP03-02 | gemeinsames situationsübergreifendes Entwurfsraster | LXP01 §§ 24–29; LXP02 Walkthroughschema | Gemeinsames Entwurfsraster | alle drei Entwürfe | identische Prüffelder und Kontextbudget | specified |
 | LXP03-03 | Wide-/Schmalentwurf Einstieg und Orientierung | LXP01 § 21; LXP02 Startboard/Einstiegsmodi | Referenzentwurf 1 | Situation 1 | Wireframes, Wireflow, Fokus- und Recoverypfad | specified |
 | LXP03-04 | Wide-/Schmalentwurf interaktive Kernlernhandlung | LXP01 § 22; LXP02 LS-DECIDE bis LS-SECURE | Referenzentwurf 2 | Situation 2 | vier Zustandskompositionen, Rückmeldung und Revision | specified |
-| LXP03-05 | Wide-/Schmalentwurf Sicherung, Transfer und Wiedereinstieg | LXP01 § 23; LXP02 Sicherungsraum/Belegkarte | Referenzentwurf 3 | Situation 3 | Beleg-, Transfer-, Export-, Pausen- und Abrufpfad | open-decision |
+| LXP03-05 | Wide-/Schmalentwurf Sicherung, Transfer und Wiedereinstieg | LXP01 § 23; LXP02 Sicherungsraum/Belegkarte | Referenzentwurf 3 | Situation 3 | Beleg-, Transfer-, Export-, Pausen- und Abrufpfad | specified |
 | LXP03-06 | verbundene Lernenden- und Lehrkraftspur | LXP01 §§ 12, 18, 21–24; LXP02 Lehrkraft-/Sozialformvertrag | Lehrkraftspur je Referenzentwurf | Situationen 1–3 | Haltepunkte, Rollen, gewöhnliche Evidenz und Fallback | open-decision |
 | LXP03-07 | gleichwertige Bedien- und Darstellungswege | LXP01 § 19; LXP02 A11Y-01 bis A11Y-12 | Accessibility je Referenzentwurf | Situationen 1–3 | Tastatur-, Touch-, Text-/AT-, Reduced-Motion- und Reflowpfad | open-decision |
 | LXP03-08 | konkrete Local-First-, Offline- und Recoveryabläufe | LXP01 § 20; LXP02 RES-INFO/LIMIT/BLOCK | Resilienz je Referenzentwurf | Situationen 1–3 | erhaltener Stand, sichere Primärhandlung und Rückweg | open-decision |
@@ -842,3 +842,265 @@ Der Entwurf fällt durch, wenn:
 - Offline- oder Speicherzustand eine nicht verfügbare Handlung als funktionsfähig zeigt;
 - Trial-and-error, Versuchszahl, Punkte oder ein grüner Lauf als fachlicher Fortschritt gelten;
 - die Lehrkraft ein Fehlerranking, Gerätefeed oder personenbezogenes Dashboard benötigt.
+
+## Referenzentwurf 3 – sichern, übertragen und später wieder einsteigen
+
+### Zweck und fachlicher Zielzustand
+
+Der dritte Entwurf beginnt nicht mit einer leeren Reflexionsseite, sondern mit dem realen, in Referenzentwurf 2 bestätigten Arbeitsstand. Lernende verdichten diesen Stand zu einer **Belegkarte**: Sie wählen eine fachlich tragende Spur, deuten sie, ordnen die Revision zu und formulieren, was der Fall zeigt und wo das verwendete Modell endet. Danach prüfen sie die Aussage an einem neuen, nicht robotischen Grenzfall. In einer späteren Sitzung beantworten sie zuerst eine kurze aktive Abruffrage; erst anschließend dürfen sie die alte Karte vollständig einblenden.
+
+Der fachliche Zielzustand lautet:
+
+> Ich kann eine Aussage über einen Algorithmus mit Ausgangsfassung, Laufspur und Revision belegen, auf einen neuen Systemfall übertragen und die Grenze meines Modells benennen.
+
+Eine private Reflexion, ein Portfolioeintrag oder eine zweite vollständige Nacherzählung ist nicht erforderlich. Die Belegkarte ist die minimale fachliche Produktform; ihre Bestandteile werden aus bereits erzeugten Artefakten ausgewählt und nur dort ergänzt, wo eine neue Deutung nötig ist.
+
+### Konkreter Sicherungsgegenstand `BELEG-LIEFER-C4-01`
+
+| Feld | Quelle | sichtbarer Inhalt | Lernhandlung | Mindestkriterium |
+|---|---|---|---|---|
+| Ausgangsalgorithmus | bestätigter Stand vor Revision | unveränderte Befehlsfolge und Szenarioversion | als Ausgang auswählen, nicht abschreiben | fachlich derselbe Stand wie in der gewählten Laufspur |
+| ausgewählter Beleg | lokalisierte Laufspur aus LS-OBSERVE | Schritte bis zur ersten Abweichung plus Zustand | einen tragenden Ausschnitt markieren | Ursache und Wirkung bleiben prüfbar verbunden |
+| Interpretation | eigene Deutung aus LS-INTERPRET | `Die Abweichung beginnt bei …, weil …` | Beleg und Hypothese verbinden | mehr als reine Ablaufwiedergabe |
+| Revision | bestätigte neue Fassung | konkrete Änderung mit neuer Vorhersage | Änderung dem Beleg zuordnen | Änderung ist fachlich motiviert und erneut geprüft |
+| Schleifenentscheidung | Vergleich Ausgang/Revision | `wiederholen`, `ändern` oder `sichern` mit Grund | nächsten fachlichen Schritt begründen | Entscheidung folgt aus Evidenz, nicht aus Laufstatus |
+| gesicherte Aussage | neue Kurzfassung | höchstens drei Sätze | Aussage formulieren und bestätigen | auf einen weiteren Fall anwendbar |
+| Modellgrenze | neuer Grenzhinweis | `Das Rastermodell zeigt …; es zeigt nicht …` | Reichweite begrenzen | keine Übertragung der Rasterannahmen auf alle Systeme |
+
+Die Karte speichert Referenzen auf Ausgang und Revision sowie einen vollständigen, unveränderbaren Beleg-Snapshot. Sie ersetzt weder die autoritativen Artefakte noch führt sie diese zusammen. Änderungen an der Aussage erzeugen eine neue Kartenfassung; Ausgangsalgorithmus und Laufspur bleiben erhalten.
+
+### Zustandskomposition 3
+
+| Zustand | Leitfrage | Fokusbühne | Kontextband | Aktionskante | Guard |
+|---|---|---|---|---|---|
+| SEC-SELECT | Welcher Beleg trägt meine Aussage? | Ausgang, Laufspur und Revision in prüfbarer Beziehung | Ziel, Kriterien, Herkunft | `Beleg übernehmen` | ein eindeutiger Belegausschnitt ist ausgewählt |
+| SEC-WRITE | Was zeigt der Beleg – und was nicht? | Belegausschnitt neben editierbarer Aussage und Modellgrenze | ausgewählte Herkunft bleibt sichtbar | `Belegkarte sichern` | Aussage verweist auf Beleg; Modellgrenze ist ausgefüllt |
+| SEC-TRANSFER | Trägt die Aussage in einem neuen Systemfall? | neue Fallbeschreibung, eigene Entscheidung und Bezug zur Karte | Karte zunächst eingeklappt | `auf neuen Fall übertragen` | eigene Entscheidung vor vollständigem Kartenzugriff |
+| SEC-EXPORT | Welche Daten verlässt dieses Gerät? | Exportumfang, Sensitivität, Vorschau und Zielhandlung | Kartenfassung und lokale Eigentümerschaft | `exportieren` oder `abbrechen` | bewusste Bestätigung; kein voreingestelltes Teilen |
+| SEC-PAUSE | Ist der bestätigte Stand sicher? | Speicherstatus und nächster Einstieg | letzte bestätigte Kartenfassung | `pausieren` oder `zum Lernwerk-Kosmos` | kein unbestätigter Stand wird als gespeichert ausgegeben |
+| REENTRY-RECALL | Was erinnerst du vor dem Nachsehen? | kurze aktive Abruffrage mit eigener Antwort | Thema und ursprüngliches Ziel, nicht die Lösung | `Antwort festhalten` | Antwort wird getrennt gespeichert, bevor alte Karte sichtbar wird |
+| REENTRY-COMPARE | Was bleibt tragfähig, was muss sich ändern? | eigene Abrufantwort neben vollständiger alter Karte | Kartenfassung, Datum, Inhaltsversion | `weiterarbeiten`, `exportieren` oder `zum Lernwerk-Kosmos` | Vergleich ist möglich; keine automatische Verschmelzung |
+
+### Wide-Komposition 3
+
+#### Zustand SEC-SELECT
+
+```text
+┌ Kontextband: Ziel · Belegkarte 1 von 1 · Kriterien · lokal gespeichert ┐
+├──────────────────────────────┬───────────────────────────────────────────┤
+│ AUSGANG UND REVISION         │ LAUFSPUR / BELEG                          │
+│ Ausgang: …                   │ Schritt 1 …                               │
+│ Revision: …                  │ Schritt 2 …                               │
+│ Änderung markiert            │ Schritt 3: erste Abweichung [ausgewählt] │
+│ [Fassungen vergleichen]      │ Zustand vorher / Befehl / Zustand nachher│
+├──────────────────────────────┴───────────────────────────────────────────┤
+│ Warum trägt dieser Ausschnitt? [eigene Kurzbegründung]                  │
+├──────────────────────────────────────────────────────────────────────────┤
+│ Aktionskante: [Beleg übernehmen] [anderen Beleg wählen] [pausieren]     │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Zustand SEC-WRITE
+
+```text
+┌ Kontextband: Belegkarte · Kriterium: Aussage + Grenze · lokal gespeichert ┐
+├───────────────────────────────────┬────────────────────────────────────────┤
+│ GEWÄHLTER BELEG                   │ DEINE AUSSAGE                           │
+│ Ausgang → Schritt 3 → Abweichung  │ [Die Abweichung beginnt …, weil …]     │
+│ Revision: Änderung an Befehl 2    │                                        │
+│ neue Vorhersage / bestätigte Spur │ MODELLGRENZE                           │
+│ [Quelle vollständig ansehen]      │ [Das Rastermodell zeigt …; nicht …]    │
+├───────────────────────────────────┴────────────────────────────────────────┤
+│ Aktionskante: [Belegkarte sichern] [auf neuen Fall übertragen] [pausieren]│
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Zustand SEC-TRANSFER
+
+```text
+┌ Kontextband: Transferfall · eigene Entscheidung zuerst · Karte eingeklappt ┐
+├───────────────────────────────────┬─────────────────────────────────────────┤
+│ NEUER FALL                        │ DEINE ENTSCHEIDUNG                       │
+│ Sortieranlage: Sensor, Regel,      │ [Ist das System ein Algorithmus?]       │
+│ Förderband, menschliche Freigabe. │ ( ) ja  ( ) nein  ( ) nur teilweise    │
+│ Zwei gleiche Eingaben führen bei  │ Begründung: [ … ]                       │
+│ verschiedener Freigabe zu         │ Welcher Teil deiner Aussage trägt? [ … ]│
+│ verschiedenen Ausgaben.           │ Wo endet das Rastermodell? [ … ]        │
+├───────────────────────────────────┴─────────────────────────────────────────┤
+│ [alte Karte einblenden] erst nach eigener Entscheidung                     │
+│ Aktionskante: [auf neuen Fall übertragen] [Belegkarte bearbeiten]          │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Zustand REENTRY-RECALL und REENTRY-COMPARE
+
+```text
+VOR DEM NACHSEHEN
+┌ Thema · ursprüngliches Ziel · aktive Abruffrage ─────────────────────────┐
+│ Woran erkennst du in einer Laufspur die erste Ursache einer Abweichung?  │
+│ [eigene Antwort]                                                         │
+│ [Antwort festhalten] [später fortsetzen]                                 │
+└───────────────────────────────────────────────────────────────────────────┘
+
+NACH DEM FESTHALTEN
+┌ DEINE HEUTIGE ANTWORT ────────────┬ ALTE BELEGKARTE · Fassung 2 ─────────┐
+│ unverändert, getrennt gespeichert │ Aussage · Beleg · Revision · Grenze  │
+│ [bearbeitbare Ergänzung]           │ [Quelle vollständig ansehen]         │
+├────────────────────────────────────┴───────────────────────────────────────┤
+│ Was bleibt tragfähig? [ … ]  Was muss sich ändern? [ … ]                 │
+│ [weiterarbeiten] [exportieren] [zum Lernwerk-Kosmos]                     │
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Schmal-Komposition 3
+
+Die schmale Ansicht erhält dieselben Informationsbeziehungen, aber zeigt jeweils nur einen vollständigen Arbeitszusammenhang. Quellenkontext und Beleg stehen vor dem Editieren; die Aktionskante bleibt am Ende des aktuellen Zusammenhangs.
+
+```text
+SEC-WRITE
+[Ziel · Kriterium · lokal gespeichert]
+[Gewählter Beleg: Ausgang → Schritt 3 → Abweichung]
+[Revision + neue Vorhersage]
+[Quelle vollständig ansehen]
+[Deine Aussage]
+[Modellgrenze]
+[Belegkarte sichern]
+[auf neuen Fall übertragen] [pausieren]
+
+SEC-TRANSFER
+[Neuer Fall vollständig]
+[Ist das System ein Algorithmus?]
+[eigene Entscheidung + Begründung]
+[tragender Teil] [Modellgrenze]
+[auf neuen Fall übertragen]
+[alte Karte einblenden]
+
+REENTRY
+[Thema · ursprüngliches Ziel]
+[aktive Abruffrage]
+[eigene Antwort]
+[Antwort festhalten]
+── danach ──
+[deine heutige Antwort]
+[alte Belegkarte vollständig]
+[bleibt tragfähig / muss sich ändern]
+[weiterarbeiten] [exportieren] [zum Lernwerk-Kosmos]
+```
+
+Der Quellbeleg darf auf schmalen Geräten horizontal nicht abgeschnitten werden. Tabellen werden zu vollständigen Schrittgruppen umgebrochen; Befehl, Vorzustand und Nachzustand bleiben in einer Gruppe. Weder Transferfall noch Abruffrage verschwinden hinter einem dauerhaft eingeblendeten Navigationspanel.
+
+### Wireflow 3
+
+```mermaid
+flowchart TD
+    A["LS-SECURE: bestätigte Revision und Beleg"] --> B["SEC-SELECT: Beleg auswählen"]
+    B -->|"Beleg eindeutig"| C["SEC-WRITE: Aussage und Modellgrenze"]
+    C -->|"Guard erfüllt"| D["Belegkarte sichern"]
+    D --> E{"nächste bewusste Handlung"}
+    E -->|"übertragen"| F["SEC-TRANSFER: neuer Systemfall"]
+    F -->|"eigene Entscheidung fest"| G["alte Karte optional einblenden"]
+    G --> H["Transferantwort getrennt sichern"]
+    E -->|"exportieren"| I["SEC-EXPORT: Umfang und Sensitivität prüfen"]
+    I -->|"bestätigt"| J["Datei erzeugen"]
+    I -->|"abbrechen"| D
+    E -->|"pausieren"| K["SEC-PAUSE: Stand bestätigen"]
+    K --> L["spätere Sitzung"]
+    L --> M["REENTRY-RECALL: aktive Abruffrage"]
+    M -->|"Antwort festgehalten"| N["REENTRY-COMPARE: alte Karte einblenden"]
+    N --> O["weiterarbeiten oder Lernwerk-Kosmos"]
+    C -->|"Speichern blockiert"| P["Original erhalten · Export oder Pause"]
+    N -->|"Version inkompatibel"| Q["Original öffnen oder vollständig migrierte Kopie"]
+```
+
+### Bediengleichwertigkeit 3
+
+| Handlung | Touch | Tastatur | Text-/Assistive-Technology | Gleichwertigkeitskriterium |
+|---|---|---|---|---|
+| Beleg auswählen | vollständige Schrittgruppe antippen, Auswahl bestätigen | Schrittgruppe fokussieren, `Leertaste`, Bestätigung | Gruppe mit Schritt, Vorzustand, Befehl und Nachzustand; Auswahlzustand angesagt | identischer Belegausschnitt und identische Begründung |
+| Quelle vergleichen | explizite Schaltfläche, kein Hover | Schaltfläche, Fokus bleibt bei Ursprung | benannte Beziehung `Ausgang`, `Revision`, `Änderung` | kein Weg benötigt räumliche Nähe allein |
+| Aussage bearbeiten | Standardtexteingabe | Standardtexteingabe mit sichtbarem Fokus | Feldname, Kriterium und Fehlermeldung programmatisch verbunden | keine Vorschlagsautomatik schreibt die Aussage |
+| Transfer entscheiden | große Auswahlflächen | Radiogruppe und Tabreihenfolge | Gruppentitel, Optionen und gewählte Antwort angesagt | alte Karte bleibt bis zur eigenen Entscheidung eingeklappt |
+| Abruf festhalten | Schaltfläche nach Eingabe | Schaltfläche; `Strg+Enter` nur als dokumentierte Alternative | Statusmeldung `Antwort festgehalten. Alte Belegkarte kann jetzt eingeblendet werden.` | heutige Antwort bleibt von alter Karte getrennt |
+| exportieren | Exportdialog mit sicherem Abbruch | Fokusfalle nur im geöffneten Dialog; `Esc` bricht ab | Titel, Umfang, Sensitivität und Zielhandlung angesagt | kein Export durch Wischgeste oder bloßes Schließen |
+
+### Reduced Motion 3
+
+Beim Einblenden der alten Karte, beim Fassungsvergleich und beim Wechsel zwischen Beleg und Transferfall gibt es keine zwingende Bewegung. Standard ist ein unmittelbarer Zustandswechsel mit aktualisierter Überschrift und Fokus. Falls LXP04 später eine Übergangsbewegung vorsieht, muss `prefers-reduced-motion` sie vollständig deaktivieren; Informationsreihenfolge und Statusmeldung bleiben identisch.
+
+### Fokus- und Statusvertrag 3
+
+- Nach `Beleg übernehmen` liegt der Fokus auf der Überschrift `Deine Aussage`; die Quelle bleibt davor erreichbar.
+- Bei fehlender Modellgrenze wird nicht gespeichert; Fokus geht auf `Modellgrenze`, die Meldung erklärt das fachliche Kriterium ohne Lösungssatz.
+- Nach `Belegkarte sichern` wird `Belegkarte lokal gespeichert, Fassung 2` in einer Statusregion angekündigt; Fokus bleibt auf der auslösenden Handlung.
+- Nach `Antwort festhalten` geht der Fokus auf `Alte Belegkarte einblenden`, nicht automatisch in die alte Karte.
+- Nach dem Einblenden geht der Fokus auf die Überschrift der alten Karte; `zur heutigen Antwort` führt exakt zurück.
+- Ein abgebrochener Export kehrt zu `exportieren` zurück und verändert weder Karte noch lokale Exporthistorie.
+- Bei Versionskonflikt beginnt der Fokus auf der Problemerklärung; Original öffnen, vollständig migrierte Kopie erzeugen und Export sichern sind explizite Geschwisterhandlungen.
+
+### Export, Eigentümerschaft und Sensitivität
+
+Vor jedem Export steht sichtbar:
+
+> **Die Datei gehört dir.** Sie enthält deinen Algorithmus, den gewählten Laufspur-Ausschnitt, deine Deutung, deine Revision und die Modellgrenze. Prüfe vor dem Weitergeben, ob Namen oder Angaben zu anderen Personen enthalten sind. Das Lernwerk teilt nichts automatisch.
+
+Der Dialog zeigt:
+
+- Kartenfassung und Inhaltsversion;
+- enthaltene Felder und Dateiformat;
+- ob ein lokal eingetragener Name enthalten ist;
+- dass Export eine Kopie erzeugt und die lokale Karte nicht löscht;
+- `exportieren` und `abbrechen` als gleichrangig verständliche, nicht vorausgewählte Handlungen.
+
+Ein System-Share-Sheet darf erst nach `exportieren` geöffnet werden. Abbruch bleibt folgenlos. Eine Lehrkraft erhält Dateien ausschließlich durch eine bewusste Übergabe außerhalb des Lernwerks; es gibt keine automatische Sammlung, keinen Klassenordner und keine Uploadpflicht.
+
+### Löschen und Versions-Recovery
+
+| Fall | sichtbare Erklärung | Erhaltung | erlaubte Handlung | verbotene Abkürzung |
+|---|---|---|---|---|
+| einzelne Belegkarte löschen | betroffene Karte und Fassung werden benannt | Ausgangsalgorithmus, Laufspur und Revision bleiben | Sicherheitsdialog, `Belegkarte löschen` oder `abbrechen`; Fokus kehrt bei Abbruch zurück | Löschen durch Wegwischen oder implizit mit Modulstand |
+| gesamtes lokales Lernwerk löschen | Umfang einschließlich aller Karten wird vorab aufgelistet | vorheriger Export bleibt außerhalb des Lernwerks | getrennte, bewusste Löschhandlung aus Verwaltung | Kopplung an `zum Lernwerk-Kosmos` oder Logout |
+| ältere kompatible Kartenfassung | Versionshinweis mit Daten, kein Alarmton | Original unverändert | nur lesen, exportieren oder explizit als neue Fassung weiterarbeiten | stilles Überschreiben |
+| inkompatible Inhaltsversion | betroffene Semantik und fehlende Zuordnung werden benannt | Originalkarte und vollständiger Snapshot unverändert | Original sicher öffnen/exportieren oder vollständig validierte Kopie migrieren | partielle Feldverschmelzung, stille Rekonstruktion oder Umdeutung alter Belege |
+| Migration scheitert | `Die Kopie konnte nicht vollständig geprüft werden.` | Original bleibt autoritativ | Original öffnen, Export sichern, später erneut versuchen | teilweise migrierte Karte als bestätigt anzeigen |
+
+### Lehrkraftspur 3
+
+| Moment | Lehrkrafthandlung | gewöhnliche Evidenz | mögliche Intervention | Diagnose-Fallback / Ausstiegskriterium |
+|---|---|---|---|---|
+| Belegauswahl | Belegkriterium und kurze Arbeitszeit setzen | gewählte Spur, Partnerbegründung | `Welche Stelle zeigt erstmals eine andere Wirkung?` | neutralen Beispielausschnitt gemeinsam prüfen; danach eigene Auswahl |
+| Aussage | eine gemeinsame Satzstruktur anbieten, keine Musterlösung | Verbindung aus Beleg, Ursache und Änderung | Belegreferenz einfordern, Fachwort klären | mündlich formulieren und selbst eintippen/diktieren; Aussage bleibt Lernendenprodukt |
+| gemeinsame Sicherung | neutralen oder freiwillig gewählten Beleg und Modellgrenze vergleichen | zwei begründete Kartenbestandteile | Unterschiede zwischen Aussage und Modellgrenze markieren | keine Sammlungspflicht; vorbereiteter neutraler Fall, wenn niemand teilen möchte |
+| Transfer | Abstimmung erst nach Einzelentscheidung | Entscheidung und Begründung, nicht nur Option | Gegenbeispiel oder Grenzfrage geben | vereinfachter Textfall mit derselben Klassifikationsentscheidung |
+| späterer Abruf | Abruffrage ohne alte Karte eröffnen | heutige Antwort und späterer Vergleich | Zeit zum Erinnern, dann Kartenfreigabe | mündliche Antwort oder Symbolauswahl mit anschließender Begründung |
+| Folgepunkt | nächsten Abrufzeitpunkt fachlich ankündigen | lokale Karte bleibt bei Lernenden | keine Geräteübersicht nötig | Lernende bringen Export freiwillig mit oder arbeiten an neutralem Fall |
+
+Der gemeinsame Sicherungsmoment darf eine fachliche Kernaussage und eine Modellgrenze festhalten, aber keine private Karte automatisch projizieren oder einsammeln. Die Lehrkraft kann das Erreichen des Haltepunkts durch ein Handzeichen, eine freiwillig gezeigte Ansicht oder ein kurzes Gespräch erkennen; ein Dashboard ist nicht erforderlich.
+
+### Local First, Offline und Recovery 3
+
+| Fall | Schwere | sichtbare Bedeutung | erhaltener Stand | Primärhandlung | fachliche Folge |
+|---|---|---|---|---|---|
+| Belegkarte und Transferfall lokal verfügbar | RES-INFO | `offline bereit` bleibt nachrangig | vollständige Karte, Transfer- und Abrufantworten | normal sichern und wieder einsteigen | identische Kernhandlung ohne Konto |
+| Exportziel oder System-Share-Sheet offline | RES-LIMIT | `Export kann vorbereitet, aber gerade nicht an ein externes Ziel übergeben werden.` | Karte und lokal erzeugbare Datei | lokale Datei erzeugen oder später exportieren | Sicherung und Transfer bleiben vollständig |
+| Zusatzmedien des Transferfalls fehlen, Textfall vollständig | RES-LIMIT | fehlendes Medium und gleichwertiger Textpfad werden benannt | Karte und eigene Entscheidung | Textfall verwenden | gleiche Klassifikations- und Begründungsleistung |
+| Kartenindex beschädigt, autoritative Snapshots lesbar | RES-LIMIT | `Einige Karten werden neu geordnet; deine Originale bleiben erhalten.` | unveränderte Snapshots | Index lokal rekonstruieren, Originale nur lesen | keine fachliche Umdeutung oder Datenzusammenführung |
+| Karte kann nicht bestätigt gespeichert werden | RES-BLOCK | ungesicherte Felder und letzte bestätigte Fassung werden benannt | letzte bestätigte Karte plus editierbarer flüchtiger Stand | erneut speichern, vollständigen Export erzeugen oder pausieren | kein Verlassen mit falscher Erfolgsmeldung |
+| inkompatible Inhaltsversion | RES-BLOCK für Bearbeitung, RES-INFO für sicheren Lese-/Exportmodus | Unterschiede und Grenzen werden erklärt | Originalkarte unverändert | Original lesen/exportieren oder vollständig validierte Kopie erzeugen | keine partielle Migration |
+| Löschvorgang unterbrochen | RES-BLOCK bis autoritativer Zustand geklärt | `Löschen wurde nicht bestätigt. Die Karte bleibt erhalten.` | Originalkarte | zur Karte zurückkehren oder Löschdialog erneut öffnen | niemals halbe Karte oder fehlende Quellenreferenz |
+
+### Fail-Kriterien Referenzentwurf 3
+
+Der Entwurf fällt durch, wenn:
+
+- Lernende ihren Arbeitsweg ein zweites Mal vollständig abschreiben müssen;
+- eine Belegkarte Aussage, Quelle und Revision nur nebeneinander zeigt, aber nicht fachlich verbindet;
+- `Belegkarte sichern`, `auf neuen Fall übertragen`, `exportieren`, `pausieren` oder `zum Lernwerk-Kosmos` als gleichbedeutendes `weiter` verschwimmen;
+- der Transferfall nur Roboteroberflächen austauscht oder ohne eigene Vorentscheidung die alte Lösung zeigt;
+- die aktive Abruffrage die alte Karte vor dem Festhalten der neuen Antwort vollständig offenlegt;
+- Abrufantwort, alte Karte oder migrierte Fassung still zusammengeführt werden;
+- Export automatisch teilt, Eigentümerschaft verschleiert oder einen Namen ungeprüft übernimmt;
+- Löschen ohne genaue Reichweite, sicheren Abbruch oder Fokus-Rückkehr möglich ist;
+- eine inkompatible Fassung teilweise migriert, überschrieben oder als fachlich bestätigt ausgegeben wird;
+- die Lehrkraft alle Karten einsammeln, private Gerätestände beobachten oder öffentliche Preisgabe erzwingen muss;
+- Offlinezustand, Speicherfehler oder beschädigter Index den Erhalt des autoritativen Originals nur behauptet;
+- die Belegkarte als generisches Portfolio, Bewertungspunkt oder personenbezogene Langzeitakte verwendet wird.
