@@ -119,6 +119,17 @@ Der Begriffsledger ist die einzige Quelle für bevorzugte deutschsprachige Produ
 | TERM-OBJECT-PHASE | Lernphase | fachlich-didaktische Funktion innerhalb einer Unterrichtseinheit | Abschnitt, Etappe, Station | specified |
 | TERM-OBJECT-ACTION | Lernhandlung | kleinste fachlich vollständige Denk-, Prüf-, Herstellungs- oder Revisionshandlung | Aufgabe, Schritt oder Aktivität ohne Funktionsklärung | specified |
 | TERM-OBJECT-SECURING | Sicherungsartefakt | lokal gehaltenes, ausgewähltes Ergebnis einer Lernhandlung mit Anschlussfunktion | Abgabe, Nachweis, Datei als generischer Oberbegriff | specified |
+| LS-ORIENT | Orientierung | Ziel, Kontext, Position, Voraussetzung und nächsten sinnvollen Einstieg verstehen | Willkommen, Intro, Startseite | specified |
+| LS-READY | Startbereit | Ziel, notwendige Voraussetzungen, Verfügbarkeit und Startfolgen sind geklärt | freigeschaltet, bereit ohne Bedingung | specified |
+| LS-DECIDE | Denken und entscheiden | Erwartung, Vorhersage, Einordnung, Strategie oder Qualitätsentscheidung bilden | Eingabe, Aufgabe bearbeiten | specified |
+| LS-ACT | Fachlich handeln | ein Modell, Produkt oder Prüfobjekt gezielt verändern oder ausführen | klicken, interagieren, spielen | specified |
+| LS-OBSERVE | Wirkung beobachten | Ergebnis, Zustandsänderung oder Beleg wahrnehmen und mit der Handlung verbinden | Ergebnis ansehen ohne fachliche Funktion | specified |
+| LS-INTERPRET | Rückmeldung deuten | Beobachtung mit Erwartung und Kriterium vergleichen und nächsten Prüfschritt bestimmen | richtig/falsch, Auswertung | specified |
+| LS-REVISE | Prüfen und revidieren | eine begründete Änderung wählen, durchführen und erneut prüfbar machen | korrigieren, noch einmal versuchen | specified |
+| LS-SECURE | Sichern | Kernaussage, Beleg, Revision und Grenze als anschlussfähigen Stand bestätigen | abschließen, abgeben | specified |
+| LS-TRANSFER | Übertragen | das gesicherte Konzept auf eine veränderte Beziehung oder einen neuen Fall anwenden | Bonus, Zusatzaufgabe | specified |
+| LS-PAUSE | Pausiert | einen bestätigten Zwischenstand verlassen und den Rückkehrpunkt verständlich bewahren | beendet, abgebrochen | specified |
+| LS-RECOVER | Wiederherstellung erforderlich | nach technischer oder versionsbezogener Störung den erhaltbaren Stand und sichere Optionen klären | Fehlerseite, kaputt | specified |
 
 ### Initiale Entscheidungen
 
@@ -130,6 +141,7 @@ Der Begriffsledger ist die einzige Quelle für bevorzugte deutschsprachige Produ
 | DEC-LXP02-004 | Lehrkraftspur und Lernendenspur verwenden dieselben Objekte, Zustände und Beschriftungen. | Unterrichtsorchestrierung darf kein zweites Produkt oder eine parallele Taxonomie erzeugen. | alle drei Referenzsituationen; Q6 | beschlossen durch LXP01 |
 | DEC-LXP02-005 | `Themenregion` ist der sichtbare Oberbegriff im Kosmos; curriculare Lernstränge sind zugeordnete Lehrkraftmetadaten. | Eine zweite, nur für Lehrkräfte sichtbare Inhaltshierarchie würde Start, Rückkehr und Unterrichtsgespräch auseinanderführen. | Kosmos-Vertrag und alle drei Referenzsituationen; Q1 und Q6 | specified |
 | DEC-LXP02-006 | Bei einem lehrkraftgeleiteten Ziel besitzt der gemeinsame Unterrichtsstart Primat; ein abweichender lokaler Fortsetzungspunkt wird sichtbar geparkt und bleibt später unverändert erreichbar. | Unterrichtskoordination darf lokalen Lernstand weder überschreiben noch unbemerkt mit einem anderen Pfad verschmelzen. | Referenzsituationen 1 und 3; Q5, Q6 und Q8 | specified |
+| DEC-LXP02-007 | Das Lernstudio verwendet elf fachliche Zustände einschließlich `Startbereit`, `Pausiert` und `Wiederherstellung erforderlich`; Zustände bilden keine Seiten oder Komponenten ab. | Die Schwelle zum Lernen, verlustfreie Unterbrechung und Recovery benötigen eine eigene verständliche Bedeutung, ohne Klickereignisse zu modellieren. | Referenzsituationen 1–3; Q1, Q4, Q5 und Q8 | specified |
 
 ## Informationsarchitektur des Lernwerk-Kosmos
 
@@ -317,3 +329,171 @@ Wenn aktiver Abruf lernfunktional ist, zeigt der Wiedereinstieg zunächst eine k
 | Wiedereinstieg nach Unterbrechung | Ziel, letzte Handlung, Belegkarte in Kurzform, neue Abruffrage und nächsten Schritt | Konzept aktiv abrufen, vergleichen und `wieder einsteigen` | verbindet gesicherten Stand mit einer veränderten nächsten Handlung | plant Wiederaufnahme oder gemeinsamen Vergleich ohne Personenhistorie | alter Beleg plus neuer bestätigter Anschluss; keine Zeit-/Streakdaten | Recovery-Hinweis erscheint nur bei tatsächlicher Einschränkung | Q3, Q5, Q6, Q8 |
 
 Der Walkthrough fällt durch, wenn Lernende Leitfrage, Position, nächste Handlung oder Rückweg nicht benennen können; wenn die Lehrkraft andere Phasenbegriffe benötigt; wenn Offline- oder Versionsstatus irreführt; oder wenn ein abweichender lokaler Stand ohne ausdrückliche Entscheidung verändert wird.
+
+## Zustandsmodell des Lernstudios
+
+### Bedeutung und Granularität
+
+Ein Lernstudio-Zustand beschreibt die fachliche Bedeutung der aktuell dominanten Lernhandlung. Er ist weder Seite noch URL, Komponente, Dialog, Fokusposition oder einzelnes Ereignis. Mehrere technische Interaktionen dürfen denselben Lernzustand realisieren; ein Zustandswechsel ist nur gerechtfertigt, wenn sich Ziel, Denkfunktion, zulässige Handlung oder notwendiger Kontext fachlich ändert.
+
+| Zustands-ID | bevorzugtes Zustandslabel | fachliche Bedeutung | notwendiger Eintrittsnachweis | möglicher Abschlussnachweis |
+|---|---|---|---|---|
+| LS-ORIENT | Orientierung | Lernende verstehen Leitfrage, Produkt, Position, Voraussetzung und Rückweg. | gültiger Kosmos-/Direktstart- oder Wiederaufnahmekontext | Ziel, Position und nächster Schritt sind benennbar |
+| LS-READY | Startbereit | Zielinhalt, Startmodus, Material/Sozialform, lokale Konflikte und Offlinebereitschaft sind geklärt. | vollständig entscheidbares Startboard | bestätigter Eintritt in die erste Denkhandlung |
+| LS-DECIDE | Denken und entscheiden | Eine fachliche Erwartung, Vorhersage, Einordnung, Strategie oder Qualitätsentscheidung entsteht vor der Wirkung. | verständlicher Auftrag, relevante Eingabe und bekanntes Kriterium | bestätigte Entscheidung in der für die Lernhandlung nötigen Form |
+| LS-ACT | Fachlich handeln | Die lernende Person verändert, erstellt, prüft oder führt ein fachliches Objekt gezielt aus. | erforderliche Vorhersage/Entscheidung liegt vor; Werkzeug und Wirkung sind zugeordnet | Handlung erzeugt beobachtbaren Zustand oder Beleg |
+| LS-OBSERVE | Wirkung beobachten | Ergebnis, Zustandsänderung oder relevante Abweichung wird wahrgenommen und der auslösenden Handlung zugeordnet. | fachliche Wirkung oder valider Fehlerzustand liegt vor | Beobachtung und betroffene Stelle sind zugänglich |
+| LS-INTERPRET | Rückmeldung deuten | Beobachtung wird mit Erwartung, Modell und Qualitätskriterium verglichen. | Erwartung und beobachtbarer Beleg sind unterscheidbar | nächster Prüfschritt, tragfähiges Ergebnis oder begründeter Revisionsbedarf ist bestimmt |
+| LS-REVISE | Prüfen und revidieren | Eine Hypothese führt zu einer gezielten Änderung; Ausgangs- und Revisionsstand bleiben vergleichbar. | lokalisierte Abweichung oder Qualitätslücke und Reparatur-/Verbesserungshypothese | veränderter prüfbarer Stand und Begründung der Änderung |
+| LS-SECURE | Sichern | Aus Produkt, Beleg, Rückmeldung und Revision entsteht ein anschlussfähiges Sicherungsartefakt. | interpretierter und gegebenenfalls revidierter fachlicher Stand | bestätigte Kernaussage, Beleg, Grenze und Wiedervorlagepunkt |
+| LS-TRANSFER | Übertragen | Ein gesichertes Konzept wird auf einen veränderten Fall oder eine neue Beziehung angewendet. | gesichertes Ergebnis und verständliche Veränderung des Falls | begründete Transferantwort und benannter Anschluss |
+| LS-PAUSE | Pausiert | Der Lernzyklus ist bewusst unterbrochen; letzter bestätigter und offener Stand sind klar. | Speichern/Export oder verständliche flüchtige Fortsetzung ist geklärt | derselbe fachliche Zustand kann wiederaufgenommen oder sicher verlassen werden |
+| LS-RECOVER | Wiederherstellung erforderlich | Eine technische, lokale oder versionsbezogene Störung verlangt vor weiterem Lernen eine Recovery-Entscheidung. | konkrete Störung und erhaltener Stand sind bekannt | validierter Stand ist wiederhergestellt oder eine sichere Alternative ausdrücklich gewählt |
+
+### Übergangstabelle
+
+| Ausgangszustand (from state) | Ereignis oder Lernhandlung | Bedingung (guard) | dominant sichtbarer Bereich | Rückmeldung | lokale Persistenz | Lehrkrafthinweis | Offlineverhalten | Wiederherstellung | Zielzustand (to state) |
+|---|---|---|---|---|---|---|---|---|---|
+| kein aktiver Lernzustand | gültigen Modul-/Abschnittskontext öffnen | Elternkontext und Inhaltsvertrag sind verfügbar | Leitfrage, Position, Startmodus und nächster Orientierungsbedarf | Kontext wurde geöffnet; noch kein Lernfortschritt | kein neuer Stand vor fachlicher Aufnahme | Einstieg, Voraussetzung und erster Haltepunkt | nur lokal belegte Inhalte als startfähig | ungültiger Kontext führt zum Elternobjekt | LS-ORIENT |
+| LS-ORIENT | Startbedingungen klären | Ziel, Position, Voraussetzung, Rückweg, Material/Sozialform, Konflikt- und Offlinezustand sind verständlich | Startentscheidung und notwendige Bedingungen | nennt verbleibende Bedingung oder bestätigt Startbereitschaft | bestätigter Startkontext, keine Kompetenzableitung | gemeinsamen Auftakt und Zielabschnitt bestätigen | fehlender Kerninhalt verhindert Startbereitschaft | offene Störung führt zu LS-RECOVER | LS-READY |
+| LS-READY | erste Denkhandlung aufnehmen | Startmodus ist bestätigt; keine blockierende Recovery-Entscheidung offen | aktueller Auftrag, Eingabe, Kriterium und relevante Repräsentation | benennt Zweck der Denkhandlung, ohne Wirkung vorwegzunehmen | aktueller Abschnitt und Zustand | Impuls oder Rollenauftrag geben | vollständig verfügbarer Zielabschnitt erforderlich | Rückkehr zu LS-ORIENT ohne Verlust | LS-DECIDE |
+| LS-DECIDE | Erwartung, Vorhersage oder Strategie bestätigen | für die Lernhandlung erforderliche Entscheidung ist vollständig, aber nicht auf Richtigkeit bewertet | fachliche Aktion und betroffene Repräsentation | bestätigt Eingabebereitschaft, nicht Leistung | nur fachlich benötigte bestätigte Erwartung | Entscheidung durch Rückfrage aktivieren, nicht vorsagen | Aktion nur bei lokal verfügbarer Kernfunktion | ungesicherte Entscheidung bleibt editierbar oder wird exportierbar | LS-ACT |
+| LS-ACT | Modell/Produkt verändern oder Prüfung ausführen | erforderliche Entscheidung liegt vor; Handlung ist zulässig und reversibel oder folgenklar | Werkzeug, betroffene Darstellung und aktueller Handlungsauftrag | macht Zustandswechsel oder validen Fehler fachlich sichtbar | bestätigte Produktänderung nach erfolgreichem lokalen Schreiben | beobachten, nicht über Gerätedaten überwachen | lokale Kernfunktion führt identisch aus; sonst handlungseinschränkender Zustand | letzter bestätigter Stand bleibt autoritativ | LS-OBSERVE |
+| LS-OBSERVE | Wirkung oder erste Abweichung vollständig erfassen | Ergebnis ist textlich/semantisch zugänglich und der Handlung zugeordnet | beobachtbarer Zustand, relevanter Beleg und Erwartung in unterscheidbarer Form | lokalisiert Ergebnis, verrät aber nicht automatisch die Lösung | ausgewählte/benötigte Belegspur, keine Vollhistorie | Vergleichsfrage oder gemeinsamer Halt möglich | gespeicherter Beleg bleibt verfügbar; externe Ergänzung darf Kernvergleich nicht blockieren | fehlender Beleg führt zu erneutem sicheren Beobachten | LS-INTERPRET |
+| LS-INTERPRET | Abweichung oder Qualitätslücke bestimmen und Hypothese bilden | Erwartung, Beobachtung und Kriterium wurden verglichen; Änderung ist fachlich begründet | Vergleich, betroffene Stelle, Kriterium und strategische Hilfe | bietet nächsten Prüfschritt statt Urteil | Hypothese nur, soweit für Revision/Sicherung erforderlich | Rückfrage zur ersten Abweichung oder anonymisierter Kurzfall | vollständig lokal möglich; Lösung nicht wegen Offlinezustand vorwegnehmen | letzter interpretierbarer Beleg bleibt erhalten | LS-REVISE |
+| LS-REVISE | gezielte Änderung bestätigen | Ausgangsstand, Beleg, Hypothese und Revision bleiben unterscheidbar; neue Wirkung wurde noch nicht vorweggenommen | veränderter Stand, Begründung und neue Erwartungsfrage | bestätigt Prüfbarkeit, nicht Korrektheit | revidierter Entwurf zusätzlich zum freigegebenen Ausgangsstand | erneute Vorhersage oder Qualitätsfrage anstoßen | lokale Revision bleibt möglich; fehlende Ausführung begrenzt nur Prüfung | Rückkehr zum letzten bestätigten Revisionsstand | LS-DECIDE |
+| LS-INTERPRET | Ergebnis als tragfähig für Sicherung auswählen | Kriterium ist erfüllt oder Modellgrenze bewusst benannt; keine notwendige Revision offen | Produkt, Beleg, Interpretation und Sicherungsauftrag | benennt, was gesichert wird und was offen bleibt | ausgewählter Beleg und Sicherungsentwurf | Sicherung vorbereiten oder gemeinsame Konsolidierung setzen | Sicherung lokal möglich; Export ist nicht Voraussetzung | unvollständiger Entwurf bleibt offen, nicht abgeschlossen | LS-SECURE |
+| LS-SECURE | Sicherungsartefakt bestätigen | Kernaussage, Beleg, Revision, Kriterium und Modellgrenze sind fachlich verbunden | Belegkarte und veränderter Transferfall | bestätigt Sicherung als fachlichen Stand, nicht Kompetenzurteil | bestätigtes Sicherungsartefakt und Wiedervorlagepunkt | gemeinsame Sicherung und Transferfrage | vollständig lokal; bewusster Export optional | fehlgeschlagenes Speichern hält LS-SECURE offen | LS-TRANSFER |
+| LS-TRANSFER | Transferfall abschließen und Anschluss bestimmen | gesichertes Konzept wurde auf eine relevante veränderte Beziehung angewendet | Transferbegründung, Grenze und nächster Anschluss | unterscheidet tragfähige Übertragung von bloßer Wiederholung | bestätigte Transferantwort nur bei fachlicher Anschlussfunktion | Konsolidierung, nächstes Modul oder spätere Wiedervorlage | Offlineziel muss lokal verfügbar sein; sonst Anschluss nur vormerken | letzter gesicherter Stand bleibt fortsetzbar | LS-ORIENT des nächsten Abschnitts |
+| LS-TRANSFER | Modul/Abschnitt bewusst verlassen | Sicherungsartefakt, Transferstand und nächster Wiedereinstieg sind geklärt | Rückkehrbedeutung und nächster Anschluss | bestätigt sicheren Ausstieg ohne Badge oder Abschlussrang | Fortsetzungspunkt oder abgeschlossenes Sicherungsartefakt | nächste gemeinsame Wiederaufnahme benennen | Rückkehr zum lokal verfügbaren Kosmos; nicht verfügbare Anschlüsse markiert | bei Speicherrisiko kein Ausstieg ohne Entscheidung | Kosmos/Startboard |
+| jeder Zustand im Lernzyklus | `pausieren` oder sicherer Unterrichtsunterbruch | letzter bestätigter Stand ist bekannt; unbestätigte Arbeit wird gesichert, exportiert oder ausdrücklich flüchtig belassen | letzter Stand, offene Handlung, Speicherstatus und Rückkehrpunkt | erklärt, was erhalten ist und was offen bleibt | minimaler Fortsetzungszustand | Pausen-/Stundenende und nächste Aufnahme ansagen | offline ohne Einschränkung möglich, sofern lokale Speicherung bestätigt ist | Speicherproblem führt zu LS-RECOVER | LS-PAUSE |
+| LS-PAUSE | `fortsetzen` | Inhalt, Version und lokaler Stand sind weiterhin kompatibel; Kontext wurde knapp rekonstruiert | Ziel, letzter Stand und offene Handlung | bestätigt Rückkehr in denselben fachlichen Zustand | keine neue Historie; bestehender Stand bleibt | gemeinsame Phase erneut rahmen, falls nötig | nur lokal verfügbarer Zielzustand | Versions-/Speicherproblem führt zu LS-RECOVER | zuvor bestätigter Lernzustand |
+| jeder Zustand im Lernzyklus | wiederherstellbare technische oder versionsbezogene Störung | direkte Weiterarbeit wäre unehrlich, verlustgefährdend oder fachlich unvollständig | betroffene Arbeit, erhaltener Stand, Schwere und sichere Optionen | erklärt Ursache, Folgen und Recovery statt generischem Fehler | letzter bestätigter Stand bleibt autoritativ | technische Alternative oder späteren Wiedereinstieg koordinieren | alte lokal nutzbare Fassung bleibt, wenn sicher; fehlender Kern blockiert | Fallvertrag der Resilienzmatrix | LS-RECOVER |
+| LS-RECOVER | `wiederherstellen`, sichere Alternative oder `abbrechen und Stand erhalten` | Ergebnis ist vollständig validiert; keine stillschweigende Mutation | wiederhergestellter Zielzustand und verbleibende Einschränkung | bestätigt konkret erhaltene Arbeit | atomar bestätigter Stand; fehlerhafte Quelle bleibt getrennt | Lernphase mit gleichem Label wieder aufnehmen | Offlinealternative muss fachlich und technisch ehrlich sein | bei erneutem Fehler bleibt LS-RECOVER ohne Zustandsverlust | zuvor bestätigter Lernzustand oder LS-PAUSE |
+
+`jeder Zustand im Lernzyklus` umfasst LS-ORIENT bis LS-TRANSFER, nicht LS-PAUSE oder LS-RECOVER. Die Rückkehr aus Pause oder Recovery erfolgt nicht zu einer letzten URL, sondern zum fachlich zuletzt bestätigten Zustand.
+
+### Verbotene Übergänge
+
+| verbotener Übergang | Grund | notwendige Alternative |
+|---|---|---|
+| LS-DECIDE → LS-ACT ohne erforderliche Vorhersage/Entscheidung | Wirkung würde die Denkhandlung vorwegnehmen und Trial-and-error fördern | fehlende Entscheidungsinformation verständlich benennen und in LS-DECIDE bleiben |
+| LS-ACT → LS-REVISE ohne LS-OBSERVE und LS-INTERPRET | Änderung wäre nicht an Beleg, erste Abweichung oder Kriterium gebunden | Wirkung zugänglich machen und Vergleich durchführen |
+| LS-OBSERVE → LS-SECURE ohne Rückmeldung zu deuten | ein Ergebnis würde ohne fachliche Einordnung als tragfähig gelten | Erwartung, Beobachtung und Kriterium vergleichen |
+| LS-INTERPRET → LS-TRANSFER ohne gesichertes Ergebnis | Transfer hätte keinen stabilen Begriffs- oder Beleganker | Sicherungsartefakt erstellen und bestätigen |
+| beliebiger Zustand → nächster Zustand nach Zeitablauf | Zeit ist Unterrichtsplanung, kein Lernnachweis | Zeitüberschreitung anzeigen, pausieren oder Lehrkraftentscheidung ermöglichen |
+| beliebiger Zustand → „abgeschlossen“ nach Klick, Seitenbesuch oder grünem Systemstatus | Aktivität oder Technik wird fälschlich als Lernen bewertet | fachlich bedeutsames Signal oder Sicherungsartefakt verlangen |
+| LS-RECOVER → Lernzyklus mit teilvalidiertem, automatisch zusammengeführtem oder überschriebenem Stand | Datenverlust und fachliche Inkonsistenz wären nicht kontrollierbar | atomar validieren, Original erhalten und Entscheidung erklären |
+| lehrkraftgeleiteter Phasensprung → neuer Lernzustand ohne Kontext- und Sicherungsprüfung | Orchestrierung würde lokale Arbeit und notwendige Voraussetzungen verdecken | Ziel, Grund, Folgen und geparkten Stand am Startboard/Phasenübergang bestätigen |
+
+### Konzeptuelles Zustandsdiagramm
+
+Das Mermaid-Diagramm bildet fachliche Zustände und Übergänge ab. Es legt weder visuelle Anordnung noch eine technische Zustandsbibliothek fest.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Orientierung: gültigen Kontext öffnen
+    state Lernzyklus {
+        Orientierung --> Startbereit: Bedingungen geklärt
+        Startbereit --> Denken_und_entscheiden: Lernhandlung aufnehmen
+        Denken_und_entscheiden --> Fachlich_handeln: Entscheidung bestätigt
+        Fachlich_handeln --> Wirkung_beobachten: Wirkung liegt vor
+        Wirkung_beobachten --> Rückmeldung_deuten: Beleg ist zugänglich
+        Rückmeldung_deuten --> Prüfen_und_revidieren: begründeter Revisionsbedarf
+        Prüfen_und_revidieren --> Denken_und_entscheiden: Änderung erneut vorhersagen
+        Rückmeldung_deuten --> Sichern: Ergebnis ist tragfähig
+        Sichern --> Übertragen: Sicherungsartefakt bestätigt
+        Übertragen --> Orientierung: nächster Abschnitt
+    }
+    Lernzyklus --> Pausiert: pausieren
+    Pausiert --> Lernzyklus: am bestätigten Zustand fortsetzen
+    Lernzyklus --> Wiederherstellung_erforderlich: verlust- oder funktionskritische Störung
+    Wiederherstellung_erforderlich --> Lernzyklus: validiert wiederherstellen
+    Übertragen --> [*]: sicher zum Kosmos zurückkehren
+```
+
+Jede Diagrammkante entspricht einer Zeile der Übergangstabelle. Die Sammelkanten `Lernzyklus → Pausiert/Wiederherstellung erforderlich` und zurück stehen für die dort ausdrücklich geregelten generischen Übergänge.
+
+## Lernphasen- und Unterrichtseinheitsnavigation
+
+### Bedeutungsvertrag der Navigationshandlungen
+
+| Navigationshandlung | fachliche Bedeutung | verfügbar, wenn | sichtbar erhaltener Kontext | Bestätigung erforderlich | Schutz ungesicherter Arbeit |
+|---|---|---|---|---|---|
+| nächste Lernhandlung | führt zur nächsten fachlich begründeten Denk-, Handlungs-, Prüf- oder Sicherungsfunktion | Guard des Zielzustands erfüllt und nächster Schritt eindeutig | Ziel, Phase, relevantes Produkt/Kriterium und Grund des Übergangs | nur bei irreversibler Wirkung, Phasen-/Sozialformwechsel oder offenem Sicherungsbedarf | kein Übergang bei fehlendem Pflichtbeleg; letzter bestätigter Stand bleibt |
+| zurück | führt zum benannten fachlichen Vorgängerkontext, nicht pauschal zur letzten URL | Vorgängerkontext ist rekonstruierbar | aktuelle Position, Rückkehrziel und Auswirkung auf offene Arbeit | wenn die aktuelle unbestätigte Änderung sonst verlassen würde | Änderung sichern, verwerfen oder abbrechen; Standard ist abbrechen/erhalten |
+| Phasenübersicht | erklärt Funktion, Status und Anschluss der Lernphasen der aktuellen Unterrichtseinheit | immer erreichbar, außer eine sicherheits-/datenschutzkritische Entscheidung benötigt zuerst Aufmerksamkeit | aktuelles Ziel, markierte Phase, offener Sicherungsbedarf | Sprung nur nach eigener Sprungprüfung | Öffnen verändert nichts; Sprung parkt oder sichert Stand ausdrücklich |
+| Gesamtkarte | zeigt Modul, Lernpfad, Unterrichtseinheiten, Lernphasen, aktuelle Position, gemeinsame Haltepunkte und Anschlüsse | jederzeit erreichbar; bei blockierendem Recovery-Zustand zunächst nur lesbar | aktuelle Lernhandlung bleibt als Rückkehranker | kein Lesen; jede Zielwahl folgt dem Ziel- und Guardvertrag | rein orientierend; kein Fortschritt und keine Mutation durch Kartenansicht |
+| Unterrichtseinheitsgrenze | beendet einen Zeit-/Handlungsabschnitt und eröffnet den nächsten mit neuer Ziel-, Zeit-, Material- und Sozialformklärung | Sicherungsziel ist erfüllt oder offener Sicherungsbedarf ausdrücklich geparkt | bisheriges Sicherungsartefakt, Anschluss und nächster Abschnitt | immer, wenn Ziel, Material, Sozialform oder lokaler Stand wechselt | offene Arbeit wird gesichert/geparkt; nie automatischer Timerwechsel |
+| pausieren und verlassen | bewahrt fachlichen Stand und macht Rückkehr verständlich | jederzeit, sofern eine Recovery-Entscheidung nicht zuerst geklärt werden muss | letzter bestätigter Stand, offene Handlung, Speicherstatus und Rückkehrpunkt | bei flüchtigem oder ungesichertem Stand | bestätigtes lokales Schreiben, bewusster Export oder verständliche flüchtige Fortsetzung |
+| fortsetzen | kehrt zum fachlich zuletzt bestätigten Zustand zurück | Version, Inhalt und Zustand sind kompatibel | Ziel, letzter Beleg, offene Handlung und aktueller Abschnitt | bei Wiedereinstieg/Versionsänderung, nicht bei unveränderter Kurzpause | kein Überschreiben; fehlerhafte Fortsetzung führt zu Recovery |
+| lehrkraftgeleiteter Phasensprung | setzt einen gemeinsamen Unterrichtskontext innerhalb erlaubter Pfade, ohne individuellen Stand zu bewerten | Zielphase fachlich zulässig, verfügbar und im Unterricht erklärt | Grund, Ziel, Voraussetzungen, Auswirkungen und geparkter eigener Stand | immer durch die lernende Person am Gerät; keine Fernsteuerung | lokaler Stand bleibt separat; Sprung schließt oder bewertet nichts automatisch |
+
+Die Beschriftung der nächsten Lernhandlung nennt ihr Ergebnis, etwa `Vorhersage festhalten`, `Lauf prüfen`, `Revision sichern` oder `Transfer begründen`. Das generische Wort `weiter` darf nur als kurze Ergänzung verwendet werden, wenn die fachliche Wirkung unmittelbar verständlich bleibt.
+
+### Gesamtkarte
+
+Die Gesamtkarte ist die stabile Orientierungsrepräsentation des Moduls. Sie zeigt:
+
+- Modul und aktiven Lernpfad;
+- Unterrichtseinheiten in ihrer fachlichen Funktion;
+- Lernphasen mit aktuellem Zustand, erfüllten fachlichen Signalen und offenem Sicherungsbedarf;
+- gemeinsame Haltepunkte, notwendige Sozialformwechsel und bewusste Wahl-/Vertiefungsstellen;
+- Voraussetzungen, Rücksprünge, spätere Wiedervorlagen und Anschlussmodule;
+- Offline- oder Versionsgrenzen nur dort, wo sie einen Zielabschnitt betreffen.
+
+Sie zeigt nicht alle Aufgaben, Bedienelemente, Hilfen, Eingaben oder technischen Zustände gleichzeitig. Ein Status in der Gesamtkarte bedeutet `noch nicht aufgenommen`, `aktuell`, `fachlich bearbeitet`, `Sicherung offen`, `gesichert`, `für später markiert` oder `nicht verfügbar mit Grund`; er bedeutet keine Kompetenzstufe.
+
+Die Karte ist fehlerhaft, wenn sie zum permanenten zweiten Arbeitsraum wird, einen Prozentfortschritt suggeriert, ein Ziel ohne Elternkontext öffnet oder notwendige Übergangsbedingungen verschweigt.
+
+## Gesamtkarte und progressive Offenlegung
+
+### Informationsvertrag je Lernzustand
+
+| Lernzustand | jetzt dominant | sichtbar gehaltener Kontext | erweiterbare Unterstützung | bis zur fachlichen Relevanz bewusst nicht verfügbar | niemals verborgen |
+|---|---|---|---|---|---|
+| LS-ORIENT | Leitfrage, Lernprodukt, Position und Start-/Wiedereinstiegsentscheidung | Elternkontext, Zeit, Sozialform, Offlinebereitschaft und Rückweg | Gesamtkarte, Voraussetzungen, Lehrkraft- und Dateninformationen | Werkzeuge, Rückmeldung, Lösung und spätere Transferaufgaben | Konflikt mit lokalem Stand, fehlender Kerninhalt, Datenverlust-/Löschfolge |
+| LS-READY | bestätigte Startbedingungen und erste Denkhandlung | Ziel, Abschnitt, Kriterium und Rückkehr | Beispiel der Aufgabenform, Bedienhilfe und Gesamtkarte | Wirkung, Ergebnis, Feedback und spätere Werkzeuge | offene Voraussetzung, Speicher-/Offlineeinschränkung und Folgen des Starts |
+| LS-DECIDE | Auftrag, relevante Eingabe, Modell/Kriterium und Entscheidung | Ziel, Phase und betroffene Repräsentation | Begriffshilfe, strategischer Hinweis und gleichwertiger Bedienpfad | beobachtete Wirkung, Ergebnisrückmeldung und vollständige Lösung | erforderliche Information für die Entscheidung, Speicherstatus bei Risiko |
+| LS-ACT | Werkzeug, fachliches Objekt, auslösende Handlung und betroffene Darstellung | Ziel, bestätigte Entscheidung, Kriterium und Undo-/Abbruchbedeutung | Bedienhilfe und fachlich passende Stütze | Transfer, Sicherung und nicht aktuelle Werkzeuge | Wirkungskanal, Folgen irreversibler Handlung, relevanter Speicherstatus |
+| LS-OBSERVE | Ergebnis/Zustandsänderung, auslösender Schritt und relevanter Beleg | Erwartung, Ziel, Kriterium und aktueller Objektzustand | schrittweise/textliche Darstellung und Vergleichshilfe | Reparaturvorschlag, vollständige Lösung und Transfer | Fehlerbedeutung, betroffene Stelle, gleichwertige Darstellung |
+| LS-INTERPRET | Vergleich von Erwartung, Beobachtung und Kriterium sowie nächster Prüfschritt | Ausgangsstand, Beleg, Ziel und Modellgrenze | strategischer Hinweis, Beispiel erst nach begründeter Eskalation | noch nicht begründete Revision und spätere Transferlösung | Bedeutung des Feedbacks, Recovery und offener Sicherungsbedarf |
+| LS-REVISE | Hypothese, gezielte Änderung, Ausgangs- und Revisionsstand | Beleg, Kriterium, Ziel und nächste Prüfbedingung | Stütze zur ersten Abweichung und editierbarer vorheriger Stand | Transfer, Abschlussurteil und konkurrierende Folgeaufgaben | Undo/Rückkehr, Speicherstatus und Unterschied der Fassungen |
+| LS-SECURE | Kernaussage, ausgewählter Beleg, Revision, Kriterium und Modellgrenze | Lernfrage, Produktentwicklung und Wiedervorlagezweck | Sicherungsraum, Exportinformation und gemeinsame Gesprächsfrage | nächster Transferfall bis zur bestätigten Sicherung | ungesicherte Felder, lokale Datenhoheit, Export-/Löschfolgen |
+| LS-TRANSFER | veränderter Fall, gesichertes Konzept, Begründungsauftrag und Anschluss | Belegkarte, Modellgrenze, aktueller Lernpfad | Vergleichsfälle, Gesamtkarte und spätere Wiedervorlage | unverbundene Module und dekorative Abschlussmechanismen | Unterschied zum Ausgangsfall, Rückkehr und Speicherstatus |
+| LS-PAUSE | erhaltener Stand, offene Handlung und `fortsetzen` | Ziel, Elternkontext und Rückkehrpunkt | Gesamtkarte, Export und Wiedereinstiegshilfe | Werkzeuge der pausierten Handlung bis zur Fortsetzung | flüchtiger/gespeicherter Status, Datenverlustgefahr, Löschfolge |
+| LS-RECOVER | betroffene Arbeit, erhaltener Stand, Ursache und sichere Recovery-Optionen | Ziel, letzter bestätigter Zustand und Elternkontext | technische Details, Export und Lehrkraft-Fallback | Lernaktionen, deren Integrität oder Datenbasis nicht gesichert ist | Schweregrad, Folgen, Fokus, Statusmeldung, Abbruch und Originalerhalt |
+
+### Invarianten progressiver Offenlegung
+
+- Aktuelles Ziel, relevante Eingabe, betroffene Repräsentation, fachliche Bedeutung der Rückmeldung, Fehlerwiederherstellung und handlungsrelevanter Speicherstatus dürfen niemals verborgen werden.
+- Eine Information darf erst später dominant werden, aber ihr späterer Ort und die Bedingung ihrer Verfügbarkeit müssen vorher verständlich sein, wenn dies eine Entscheidung beeinflusst.
+- Verborgene oder eingeklappte Information darf keinen Verlust des Tastatur-, Touch- oder Assistive-Technology-Kontexts verursachen.
+- Gesamtkarte und Phasenübersicht sind jederzeit orientierend erreichbar, werden aber nicht parallel zum primären Arbeitsraum vorgelesen oder fokussiert.
+- Progressive Offenlegung darf keine fachliche Voraussetzung, kein Kriterium und keine irreversible Folge nachträglich offenbaren.
+- Technisch ausgeblendete Inhalte dürfen nicht die einzige Speicherung einer bereits erzeugten Lernendenarbeit darstellen.
+
+### IUM5-Stresstest des Zustandsmodells
+
+IUM-5-CORE-05 ist fachlicher Prüfgegenstand, nicht Experience-Vorlage. Der folgende Durchlauf verändert keine IUM5-Datei.
+
+| IUM5-Lernmoment | LXP02-Zustand/Übergang | Guard und sichtbarer Kern | Persistenz | Ergebnis des Stresstests |
+|---|---|---|---|---|
+| Lieferauftrag, Leitfrage und erster Studioeintritt | LS-ORIENT → LS-READY → LS-DECIDE | Ziel, Produkt, Befehlssprache, Zeit/Sozialform und Offlinekern sind geklärt | Modul-/Pfad-/Phasenbezug | passt; Startboard muss die heutige Unterrichtseinheit statt die vollständige Moduloberfläche priorisieren |
+| ersten Algorithmus entwerfen | LS-DECIDE/LS-ACT innerhalb einer fachlich vollständigen Entwurfshandlung | Kartenfall, Qualitätskriterien und erlaubte Befehle; keine Wirkung vor Ausführung | bestätigte Ausgangsfassung | passt mit Architekturkorrektur: Entwurf ist Produktbildung, die spätere Ausführung bleibt durch neue Vorhersage geschützt |
+| Endposition, Blickrichtung und Auftragserfolg vorhersagen | LS-DECIDE → LS-ACT | strukturierte, unbewertete Vorhersage ist vollständig | fachlich benötigte Vorhersage | passt und versiegelt den verbotenen Übergang `Ausführen ohne Vorhersage` |
+| deterministisch schrittweise ausführen | LS-ACT → LS-OBSERVE | aktueller Befehl, betroffener Zustand und textlich gleichwertige Wirkung | ausgewählte Laufspur, keine Versuchsvollhistorie | passt; automatische Animation darf die schrittweise Beobachtung nicht ersetzen |
+| Laufspur und erste Abweichung beobachten | LS-OBSERVE → LS-INTERPRET | Erwartung, aktueller/erster abweichender Schritt und Kriterium bleiben vergleichbar | bestätigte Belegspur | passt; Fehlerfarbe allein wäre unzulässig |
+| Rückmeldung interpretieren und Reparaturhypothese bilden | LS-INTERPRET → LS-REVISE | Ergebnis, erste Abweichung, strategischer nächster Prüfschritt, keine Sofortlösung | kurze Hypothese nur soweit erforderlich | passt zum IUM5-Rückmeldungsvertrag |
+| gezielt ändern | LS-REVISE → LS-DECIDE | Ausgangsstand, Beleg, Änderung und neue Erwartung bleiben unterscheidbar | revidierte Fassung neben Ausgangsfassung | passt; generisches „noch einmal“ wäre ein Legacy-Verstoß |
+| erneut vorhersagen und ausführen | LS-DECIDE → LS-ACT → LS-OBSERVE → LS-INTERPRET | inhaltliche Revision verlangt neue Vorhersage; Ergebnis wird erneut verglichen | aktualisierte bestätigte Belegspur, keine Vollhistorie | passt; Wiederholung darf den Guard nicht umgehen |
+| Kernaussage, Schleifenentscheidung und Beleg sichern | LS-INTERPRET → LS-SECURE | Ergebnis ist gedeutet; Revision, Kriterium und Modellgrenze sind verbunden | Sicherungsartefakt/Belegkarte | passt; `grüner Lauf` allein ist keine Sicherung |
+| Algorithmus-Lupe auf veränderte Systeme anwenden | LS-SECURE → LS-TRANSFER | gesichertes Konzept wird außerhalb des Roboterkontexts angewendet | begründete Transferantwort | passt; Transfer muss vom Sicherungsakt getrennt bleiben |
+
+#### Festgestellte Legacy-Themen
+
+1. Die IUM5-Spezifikation beschreibt Ausführungsraum, Editor, Vorhersage, Laufspur, Revision, Sicherung und Transfer räumlich in einer zusammenhängenden Oberflächenarchitektur. LXP02 korrigiert dies normativ: Die Elemente werden je Lernzustand priorisiert und nicht allein durch räumliches Darunterstellen offengelegt. Konkrete Realisierung gehört LXP03/LXP04; Neufassung des Moduls LXP05.
+2. Der bestehende lange Modulpfad behandelt Unterrichtseinheiten und Abschnittsnamen stärker als fachliche Lernzustände. LXP02 ersetzt dies für spätere Neufassung durch Zustandslabel, Handlungsziele und Guards; Bestandsdateien bleiben unverändert.
+3. IUM5s Vorhersage-, Laufspur-, Hypothesen-, Revisions- und Transferlogik ist fachlich kompatibel und wird nicht abgeschwächt. Sie ist der positive Belastungstest für die generische Zustandsfolge.
+
+Der Stresstest fällt durch, wenn eine erforderliche Vorhersage umgangen, Rückmeldung als Lösung gezeigt, Revision ohne Beleg durchgeführt, Sicherung aus einem Systemstatus abgeleitet oder Transfer ohne bestätigtes Sicherungsartefakt geöffnet werden kann.
