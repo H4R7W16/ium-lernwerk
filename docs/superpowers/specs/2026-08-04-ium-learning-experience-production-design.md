@@ -1,12 +1,12 @@
 # IuM-Lernwerk – Forschungsbasis und Experience-Strategie
 
-**Task:** LXP01 Learning-UX-Forschungsbasis und Experience-Strategie entwickeln  
-**Status:** zur schriftlichen Nutzerprüfung nach freigegebenem Gesamtdesign  
-**Fassung:** 1.0  
-**Datum:** 4. August 2026  
-**Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E  
-**Ausgangsstand:** main auf Commit 3498838  
-**Arbeitsgrenze:** Strategie und Spezifikation; kein Produktcode, keine reale Pilotierung, kein Preview-Deployment
+- **Task:** LXP01 Learning-UX-Forschungsbasis und Experience-Strategie entwickeln
+- **Status:** zur schriftlichen Nutzerprüfung nach freigegebenem Gesamtdesign
+- **Fassung:** 1.0
+- **Datum:** 4. August 2026
+- **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
+- **Ausgangsstand:** main auf Commit 3498838
+- **Arbeitsgrenze:** Strategie und Spezifikation; kein Produktcode, keine reale Pilotierung, kein Preview-Deployment
 
 ## 1. Entscheidung
 
@@ -157,10 +157,10 @@ Die vorhandene Forschungsbasis beantwortet noch nicht hinreichend:
 
 ### 6.1 LXP-SRC-SDT-2024 – Motivation und psychologische Grundbedürfnisse
 
-**Quelle:** Wang, Y., Wang, H., Wang, S., Wind, S. A. und Gill, C. (2024). A systematic review and meta-analysis of self-determination-theory-based interventions in the education context. Learning and Motivation, 87, 102015.  
-**DOI:** https://doi.org/10.1016/j.lmot.2024.102015  
-**Art:** systematischer Review und Meta-Analyse  
-**Umfang:** 36 Interventionen im Review; 31 Artikel, 137 Effektgrößen und 9.433 Teilnehmende in der Meta-Analyse
+- **Quelle:** Wang, Y., Wang, H., Wang, S., Wind, S. A. und Gill, C. (2024). A systematic review and meta-analysis of self-determination-theory-based interventions in the education context. Learning and Motivation, 87, 102015.
+- **DOI:** https://doi.org/10.1016/j.lmot.2024.102015
+- **Art:** systematischer Review und Meta-Analyse
+- **Umfang:** 36 Interventionen im Review; 31 Artikel, 137 Effektgrößen und 9.433 Teilnehmende in der Meta-Analyse
 
 **Befund für LXP01:**
 
@@ -184,9 +184,9 @@ Motivation wird über relevante Ziele, passende Herausforderung, echte begrenzte
 
 ### 6.2 LXP-SRC-SEGMENT-2019 – Segmentierung
 
-**Quelle:** Rey, G. D., Beege, M., Nebel, S., Wirzberger, M., Schmitt, T. H. und Schneider, S. (2019). A Meta-analysis of the Segmenting Effect. Educational Psychology Review, 31, 389–419.  
-**DOI:** https://doi.org/10.1007/s10648-018-9456-4  
-**Art:** Meta-Analyse
+- **Quelle:** Rey, G. D., Beege, M., Nebel, S., Wirzberger, M., Schmitt, T. H. und Schneider, S. (2019). A Meta-analysis of the Segmenting Effect. Educational Psychology Review, 31, 389–419.
+- **DOI:** https://doi.org/10.1007/s10648-018-9456-4
+- **Art:** Meta-Analyse
 
 **Befund für LXP01:**
 
@@ -208,10 +208,10 @@ Ein Lernstudio zeigt einen fachlich vollständigen Handlungsschritt und hält de
 
 ### 6.3 LXP-SRC-SIGNAL-2016 – Signaling zwischen Repräsentationen
 
-**Quelle:** Richter, J., Scheiter, K. und Eitel, A. (2016). Signaling text-picture relations in multimedia learning: A comprehensive meta-analysis. Educational Research Review, 17, 19–36.  
-**DOI:** https://doi.org/10.1016/j.edurev.2015.12.003  
-**Art:** Meta-Analyse  
-**Umfang:** 27 Studien, 45 Paarvergleiche, 2.464 Teilnehmende
+- **Quelle:** Richter, J., Scheiter, K. und Eitel, A. (2016). Signaling text-picture relations in multimedia learning: A comprehensive meta-analysis. Educational Research Review, 17, 19–36.
+- **DOI:** https://doi.org/10.1016/j.edurev.2015.12.003
+- **Art:** Meta-Analyse
+- **Umfang:** 27 Studien, 45 Paarvergleiche, 2.464 Teilnehmende
 
 **Befund für LXP01:**
 
@@ -231,10 +231,10 @@ Aktueller Befehl, betroffene Darstellung, Zustandsänderung, Rückmeldung und re
 
 ### 6.4 LXP-SRC-W3C-COGA-2021 – kognitive Accessibility
 
-**Quelle:** W3C Web Accessibility Initiative. Supplemental Guidance to WCAG 2: Cognitive Accessibility Guidance.  
-**URL:** https://www.w3.org/WAI/WCAG2/supplemental/  
-**Art:** offizielle ergänzende Accessibility Guidance  
-**Status:** professionelle Guidance, nicht Bestandteil der normativen WCAG-Konformitätsanforderungen
+- **Quelle:** W3C Web Accessibility Initiative. Supplemental Guidance to WCAG 2: Cognitive Accessibility Guidance.
+- **URL:** https://www.w3.org/WAI/WCAG2/supplemental/
+- **Art:** offizielle ergänzende Accessibility Guidance
+- **Status:** professionelle Guidance, nicht Bestandteil der normativen WCAG-Konformitätsanforderungen
 
 **Für LXP01 relevante Muster:**
 
@@ -259,9 +259,9 @@ Kognitive Accessibility wird zu einem eigenen Reviewstrang neben technischer WCA
 
 ### 6.5 LXP-SRC-UDL30-2024 – UDL als professionelles Prüfraster
 
-**Quelle:** CAST (2024). Universal Design for Learning Guidelines 3.0.  
-**URL:** https://udlguidelines.cast.org/  
-**Art:** professionelles Designframework
+- **Quelle:** CAST (2024). Universal Design for Learning Guidelines 3.0.
+- **URL:** https://udlguidelines.cast.org/
+- **Art:** professionelles Designframework
 
 **Für LXP01 relevante Prüffragen:**
 
@@ -282,10 +282,10 @@ Kognitive Accessibility wird zu einem eigenen Reviewstrang neben technischer WCA
 
 ### 6.6 LXP-SRC-COS-2023 – Classroom Orchestration
 
-**Quelle:** Feng, S., Zhang, L., Wang, S. und Cai, Z. (2023). Effectiveness of the functions of classroom orchestration systems: A systematic review and meta-analysis. Computers & Education, 203, 104864.  
-**DOI:** https://doi.org/10.1016/j.compedu.2023.104864  
-**Art:** systematischer Review und Meta-Analyse  
-**Umfang:** 67 Systeme; 22 empirische Publikationen mit 57 Studien und Effektgrößen
+- **Quelle:** Feng, S., Zhang, L., Wang, S. und Cai, Z. (2023). Effectiveness of the functions of classroom orchestration systems: A systematic review and meta-analysis. Computers & Education, 203, 104864.
+- **DOI:** https://doi.org/10.1016/j.compedu.2023.104864
+- **Art:** systematischer Review und Meta-Analyse
+- **Umfang:** 67 Systeme; 22 empirische Publikationen mit 57 Studien und Effektgrößen
 
 **Befund für LXP01:**
 
