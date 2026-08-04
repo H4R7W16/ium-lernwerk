@@ -104,7 +104,7 @@ Während der Ausarbeitung sind die Statuswerte `specified`, `open-decision` und 
 | LXP03-09 | informationshaltige Rückmeldung, Hilfe und Revision | LXP01 § 16; LXP02 Zustands-/Guardvertrag | Feedback- und Hilfevertrag | Situation 2, Übergaben 1/3 | konkrete Copy, Eskalation und Revisionsbeleg | specified |
 | LXP03-10 | WU-Check und fachlich-didaktische Aufgabenprüfung | Fachprofil; IBBW WU 1/3/6/9 | Wirksamkeits- und Fachcheck | Situationen 1–3 | drei WU-Checks und Eigenleistungsbegründungen | specified |
 | LXP03-11 | Q1–Q8-, Anti-Pattern- und LXP02-Risikoprüfung | LXP01 §§ 25–29; LXP02 Qualitätsurteile | Vergleichende Qualitätsprüfung | Situationen 1–3 | 24 Urteile, 7 Risikoantworten und Anti-Pattern-Scan | specified |
-| LXP03-12 | Auswahl und präzise Übergabe an LXP04 | LXP01 § 31; LXP02 Eigentümermatrix | Auswahlentscheidung und LXP04-Übergabe | situationsübergreifend | Musterkandidaten, Nicht-Generalisierungen und Freigabegate | open-decision |
+| LXP03-12 | Auswahl und präzise Übergabe an LXP04 | LXP01 § 31; LXP02 Eigentümermatrix | Auswahlentscheidung und LXP04-Übergabe | situationsübergreifend | Musterkandidaten, Nicht-Generalisierungen und Freigabegate | specified |
 
 ## Entscheidungsledger und kontrollierter Wortschatz
 
@@ -1265,3 +1265,103 @@ Die Prüfung überträgt nur Lernzustandsbeziehungen und Orchestrierungslogik. S
 | IUM5-Konkretion versus Systemportabilität | Zustandsrelation generalisieren, Fachrepräsentation neu entwerfen | Portabilitätsproben tragen Loop, nicht Raster/Blockeditor/Laufspurform | keine vorschnelle Komponentenökonomie | schriftliches LXP03-Gate und LXP04 |
 
 **Konsistenzurteil:** Kein Referenzentwurf widerspricht den LXP02-Zuständen, Guards, Rollen-, Resilienz-, Daten- oder Begriffsverträgen. Die verbliebenen Risiken betreffen konkrete System- und Produktrealisierung; sie rechtfertigen keine stille Architekturänderung und werden als LXP04/LXP05/LXP06-Gates weitergegeben.
+
+## Auswahlentscheidung
+
+### Normalisierte Vergleichsmatrix
+
+Die Matrix bewertet nicht die drei fachlich verschiedenen Situationen gegeneinander, sondern die Tragfähigkeit der gewählten Kompositionslogik in jeder Situation. `hoch` bedeutet: Der Mechanismus ist im Entwurf vollständig und ohne Widerspruch konkretisiert. `mittel` bedeutet: Der Mechanismus trägt, besitzt aber ein explizites Folgephasenrisiko. Ein niedriges oder widersprüchliches Ergebnis würde die Auswahl blockieren.
+
+| Kriterium | Referenzentwurf 1 – Einstieg | Referenzentwurf 2 – Kernhandlung | Referenzentwurf 3 – Sicherung | situationsübergreifendes Urteil |
+|---|---|---|---|---|
+| aktuelle Lernhandlung besitzt klares Primat | hoch: eine unerledigte Sache und konkrete Start-/Fortsetzungsaktion | hoch: Zustand und Denkhandlung wechseln guardbasiert | hoch: Auswahl, Schreiben, Transfer, Export und Abruf getrennt | tragfähig in 3/3 |
+| notwendiger Kontext ohne Vollüberladung | mittel: Textlänge/Typografie offen | mittel: Ursache–Wirkung/Split-Attention offen | mittel: Kartendichte/Reflow offen | tragfähig mit explizitem LXP04-Kompositionsrisiko |
+| fachliche Agency statt offene Wahl/Gamification | hoch: begrenzte Einstiegsauswahl und geparkter Stand | hoch: Vorhersage, Beleg, Hypothese und Revision | hoch: Beleg, Grenze, Transfer, Eigentümerschaft | tragfähig in 3/3 |
+| informationshaltige Rückmeldung/Revision | hoch: Status bestätigt Kontext, Vorhersage bleibt Vergleichsanker | hoch: lokalisierte Spur und echter Revisionsloop | hoch: reale Revision und spätere Abrufantwort bleiben getrennt | tragfähig in 3/3, situationsspezifische Rückmeldungsform |
+| Kontinuität und Wiedereinstieg | hoch: kurzer/längerer Rückkehrpfad | hoch: bestätigter Zustand und sichere Pause | hoch: Karte, aktiver Abruf und Versionserhalt | tragfähig in 3/3 |
+| Lehrkraftorchestrierung ohne Telemetrie | hoch: Eröffnung, Rollen, Haltepunkt, Fallback | hoch: Zwischenhalt, Rollenwechsel, neutraler Fehlerfall | hoch: gemeinsame Sicherung, freiwilliger Beleg, Folgepunkt | tragfähig in 3/3 |
+| Touch/Tastatur/Text-/AT/Reduced Motion/Reflow | mittel: reale Semantik und Zoom offen | mittel: alternative Beleggleichwertigkeit offen | mittel: Quellenrelation und Exportformat offen | normative Gleichwertigkeit trägt, technische Lösung bleibt LXP04/LXP05 |
+| Local First, Offlinewahrheit und Recovery | hoch: Ziel-/Standkonflikt erhält beide Kontexte | mittel: Interpreter-/Assetabhängigkeit offen | mittel: Migration/Export technisch offen | gemeinsame Schwere-/Handlungsgrammatik trägt; Mechanik später beweisen |
+| fachliche Portabilität | hoch für Orientierung und Wiederaufnahme | hoch für Entscheidungs-/Evidenz-/Revisionsloop | hoch für Beleg-/Transfer-/Abrufrelation | drei Domänenproben bestätigen Zustandsrelation, nicht Fachrepräsentation |
+| Scope- und Eigentümerdisziplin | hoch: keine visuelle Marke/Komponente | hoch: kein Interpreter-/Produktcode | hoch: kein Exportformat-/Datenmodellcode | LXP03 bleibt Entscheidungsevidenz, nicht Systemdesign |
+
+### Gewählter Weg
+
+LXP03 wählt **Ansatz C: stabile Fokuskomposition mit sichtbarer Lernzustandsbeziehung** als Richtung für LXP04.
+
+Die Entscheidung bedeutet:
+
+1. Pro Moment besitzt genau eine fachliche Lernhandlung sichtbares Primat.
+2. Ziel, relevantes Denkobjekt, erforderliche Evidenz und nächste bewusste Handlung bleiben in einer prüfbaren Beziehung.
+3. Kontext, Hilfe, Gesamtkarte, Daten- und Recoveryhandlungen bleiben erreichbar, aber werden nur bei aktueller Funktion dominant.
+4. Wide und schmal verändern Anordnung und Offenlegung, nicht Guards, fachliche Information, Beleg oder Ergebnis.
+5. Lehrkraftmomente, Offlinewahrheit, Fokus-Rückkehr und aktive Wiederaufnahme sind Teil der Experience und keine nachträglichen Ergänzungen.
+
+Ansatz A bleibt als Inhaltsstruktur für nichtinteraktive Begleitdokumente denkbar, aber nicht als Grundkomposition der Lernhandlung. Ansatz B bleibt für kurze, sicherheitskritische oder streng guardabhängige Teilabläufe nutzbar, aber nicht als globale Navigation. Die Auswahl generalisiert deshalb eine **Beziehungslogik**, keine feste Seitenform.
+
+### Auswahlbegründung
+
+- Nur Ansatz C trägt alle drei Situationen, ohne Einstieg, Revisionsloop oder Sicherung in dieselbe Bildschirmtaxonomie zu zwingen.
+- Die sieben geerbten Risiken sind als konkrete Folgegates sichtbar; kein Risiko wird durch Stilentscheidungen verdeckt.
+- Die WU-Checks bestätigen eigenständige Denk-, Entscheidungs-, Prüf-, Begründungs- und Revisionshandlungen; digitale Mittel haben jeweils eine fachliche Funktion.
+- Die Portabilitätsproben zeigen dieselbe Zustandsrelation in Quellenanalyse, Systemmodellierung und Medienproduktrevision, während die jeweilige Fachrepräsentation ausdrücklich wechselt.
+- LXP02-Zustände, Guards, Begriffe, Daten- und Rollenverträge bleiben unverändert.
+
+## LXP04-Musterkandidaten
+
+Ein Kandidat darf in LXP04 erst zum wiederverwendbaren Muster werden, wenn sein konkreter Informations-, Interaktions-, Content-, Accessibility- und Recoveryvertrag formuliert und erneut gegen mindestens zwei Situationen geprüft ist. Die folgende Evidenz erlaubt **LXP04-Planung**, noch keine Systemfreigabe.
+
+| Kandidat | Evidenz in Situationen | vorläufig stabiler Vertrag | Grenze / offene LXP04-Entscheidung |
+|---|---|---|---|
+| Fokusbühne | 1, 2, 3 | aktueller Auftrag, Denkobjekt, Kriterium und Ergebnis der nächsten Handlung besitzen Primat | genaue visuelle/semantische Gestalt und Anzahl untergeordneter Bereiche |
+| Kontextband | 1, 2, 3 | Ziel, Herkunft, Position, Modus und Speicher-/Offlinezustand nur soweit aktuell handlungsrelevant | Reflow, lange Labels, Priorisierungsregeln und konkrete Contentbudgets |
+| Aktionskante | 1, 2, 3 | Primärhandlung nennt Ergebnis/Objekt; sichere Geschwisterhandlungen sind unterscheidbar; generisches `weiter` genügt nicht | Platzierung, Gruppierung, Responsivität und Dialogbeziehung |
+| bedarfsgerechte Gesamtkarte mit Rückkehranker | 1, 2, 3 | Überblick ist orientierend erreichbar, verändert keinen Stand und kehrt zum Auslöser zurück | Navigationsdarstellung, semantische Struktur und Browser-History-Vertrag |
+| guardbasierter Zustandsübergang | 1, 2, 3 | fachlich erforderliche Entscheidung/Evidenz liegt vor; Status meldet Folge; Fokus geht in neuen Fachkontext | technische Zustandsrepräsentation, Ereignismodell und Test-API |
+| evidenzgebundene Rückmeldung | 2, 3; in 1 als Kontext-/Bereitschaftsfeedback nicht widerlegt | Rückmeldung verweist auf Ergebnis, Stelle/Quelle, Kriterium und nächsten Prüfschritt; keine Personenwertung | Contentgrammar je Lernhandlungsart und Darstellung langer/mehrdeutiger Evidenz |
+| Ausgang-/Revisionsvergleich | 2, 3 | autoritative Ausgangsfassung, konkrete Änderung und bestätigter Beleg bleiben unterscheidbar | Darstellungsform für nichtlineare, mediale oder mehrdeutige Produkte |
+| bewusste Hilfe mit Fokus-Rückkehr | 1, 2, 3 | Bedien-, Begriffs- und Strategiehilfe sind getrennt; Nutzung wird nicht profiliert; Kernhandlung bleibt bei Lernenden | Oberflächenform, Eskalationscopy und modulbezogene Inhalte |
+| Lehrkraft-Haltepunkt | 1, 2, 3 | Anlass, gewöhnliche Evidenz, Intervention, Fallback, Rückkehrzustand und Ausstiegskriterium sind verbunden | sichtbare Lernendensignale, Handbuch-/Produktgrenze und Zeitvarianten |
+| Rollenwechsel nach fachlichem Teilschritt | 1, 2; in 3 durch freiwillige/individuelle Sicherung bewusst begrenzt | Rollen benennen fachliche Verantwortung und wechseln ohne Datenübertragung | genaue Rollenpattern je Aufgabenart; kein globaler Zwang für Einzelprodukte |
+| RES-INFO/LIMIT/BLOCK-Handlungsmuster | 1, 2, 3 | Dringlichkeit folgt Handlungs-/Datenwirkung; Meldung benennt Erhalt, Primärhandlung und Rückweg | visuelle Sprache, technische Fehlerabbildung, Retry-/Recoverykomponenten |
+| aktive Wiederaufnahme vor Vollanzeige | 1 und 3; Situation 2 wird nach Pause zum bestätigten Fachzustand rekonstruiert | längere Unterbrechung beginnt mit kurzer eigener Antwort; alter Beleg bleibt getrennt und bewusst öffnbar | Zeitgrenze kurz/lang, Aufgabenformate und Persistenz der neuen Antwort |
+| eigentumsbewusste Datenhandlung | 1 und 3; Situation 2 erhält lokalen Stand ohne Exportzwang | Umfang, Sensitivität, lokale Eigentümerschaft und sichere Abbruchfolge vor Export/Löschen | Dateiformat, Lizenz-/Metadaten, OS-Integration, Migrationsformat |
+
+### Nicht-Generalisierungen
+
+Folgende Entscheidungen bleiben ausdrücklich außerhalb eines LXP04-Systemvertrags, solange keine neue situationsübergreifende Evidenz und gegebenenfalls fachliche Prüfung vorliegt:
+
+| nicht generalisieren | Grund | späterer Eigentümer |
+|---|---|---|
+| 5×5-Raster, Roboter, Blickrichtung, Hindernis und konkreter Lieferfall | IUM5-spezifische Fachrepräsentation | LXP05 IUM5-Inhalt/Fachlogik |
+| Blockeditor, erlaubte Befehle und lineare Laufspurtabelle | nur eine mögliche Repräsentation algorithmischer Handlung | LXP05; fachliche Validierung LXP06 |
+| genau vier Kernkompositionen oder sieben Sicherungszustände | Entwurfsansichten dienen der Prüfung, nicht einer globalen Seitenzahl | LXP04 Zustands-/Kompositionsvertrag |
+| genau drei sichtbare Regionen oder feste Spaltenaufteilung | Fokus-, Kontext- und Aktionsfunktion sind stabil, nicht ihre Geometrie | LXP04 visuelles System |
+| Belegkarte als universelles Kartenlayout | stabil ist die Quelle–Beleg–Deutung–Revision–Grenze-Beziehung | LXP04 Content-/Datenpattern je Lernhandlungsart |
+| eindeutige erste Abweichung und deterministischer Lauf | gilt nicht für Quellenurteil, Medienwirkung oder mehrdeutige Modelle | jeweilige Fachkonzeption |
+| grüne Markierung, Farbcodes oder konkrete Statusfarben | Farbe ist nicht entschieden und nie alleiniger Bedeutungsträger | LXP04 visuelle Sprache/Accessibility |
+| Animation, Übergangsdauer oder räumliche Bewegungsmetapher | Bewegung ist optional; Reduced Motion und Textpfad sind normativ | LXP04 Motionvertrag |
+| Typografie, Abstände, Icons, Illustrationen, Marke und visuelle Tonalität | LXP03 trifft keine Branding-/Stilentscheidung | LXP04 visuelles System |
+| konkrete Tokens, Breakpoints und Komponentennamen | Fokusbühne/Kontextband/Aktionskante sind Analysebegriffe | LXP04 Designsystem |
+| Router, URL-Struktur, State-Library, Ereignisnamen oder Speicher-API | LXP03 entscheidet sichtbare Folge, nicht technische Implementierung | LXP05 Produktimplementierung |
+| PDF/JSON/anderes Exportformat oder Lizenzmetadatenstruktur | Eigentums-/Sensitivitätsvertrag ist entschieden, Format nicht | LXP04 Datenpattern; LXP05 Implementierung |
+| ein globaler Rollenwechsel für jede Aufgabe | Sicherung kann bewusst individuell/freiwillig bleiben | LXP04 Orchestrierungspattern; jeweiliges Modulhandbuch |
+| Wirksamkeit, WCAG-Konformität, curriculare Vollständigkeit oder Pilotierbarkeit | Entwurfsevidenz ersetzt keine Produkt-/Unterrichtsvalidierung | LXP06 und spätere gesonderte Gates |
+
+## Schriftliches Freigabegate
+
+Das LXP03-Artefakt ist nach Abschlussprüfung **zur gebündelten schriftlichen Nutzerreview** bestimmt. Eine ausdrückliche schriftliche Freigabe wie `LXP03 freigegeben` bewirkt ausschließlich:
+
+- LXP03 darf als akzeptierte Entscheidungsgrundlage dokumentiert werden;
+- die Planung von LXP04 – wiederverwendbares Learning-Experience-System – darf beginnen;
+- die oben benannten Musterkandidaten dürfen in LXP04 untersucht, präzisiert, verworfen oder nur unter zusätzlichen Bedingungen übernommen werden.
+
+Die Freigabe bewirkt **nicht**:
+
+- Freigabe von LXP04-Ergebnissen oder Systemkomponenten;
+- Änderung oder Implementierung von Produktcode;
+- IUM5-Neufassung, Preview, Deployment, Realgerätetest, Pilotierung, LMS-Anbindung oder Release;
+- Anhebung des Fachprofils, der Forschungsregeln oder der Referenzentwürfe auf empirisch validierte Wirksamkeit;
+- Generalisierung der unter `Nicht-Generalisierungen` aufgeführten Fach-, Stil- oder Technikentscheidungen.
+
+Konkrete Änderungswünsche am gebündelten Review halten LXP03 im Reviewstatus. Ein nachgewiesener Widerspruch zu LXP01/LXP02 wird dort ausdrücklich revidiert; er darf nicht still in LXP04 kompensiert werden.
