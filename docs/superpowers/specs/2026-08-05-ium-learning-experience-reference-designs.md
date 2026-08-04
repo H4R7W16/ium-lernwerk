@@ -102,7 +102,7 @@ Während der Ausarbeitung sind die Statuswerte `specified`, `open-decision` und 
 | LXP03-07 | gleichwertige Bedien- und Darstellungswege | LXP01 § 19; LXP02 A11Y-01 bis A11Y-12 | Accessibility je Referenzentwurf | Situationen 1–3 | Tastatur-, Touch-, Text-/AT-, Reduced-Motion- und Reflowpfad | open-decision |
 | LXP03-08 | konkrete Local-First-, Offline- und Recoveryabläufe | LXP01 § 20; LXP02 RES-INFO/LIMIT/BLOCK | Resilienz je Referenzentwurf | Situationen 1–3 | erhaltener Stand, sichere Primärhandlung und Rückweg | open-decision |
 | LXP03-09 | informationshaltige Rückmeldung, Hilfe und Revision | LXP01 § 16; LXP02 Zustands-/Guardvertrag | Feedback- und Hilfevertrag | Situation 2, Übergaben 1/3 | konkrete Copy, Eskalation und Revisionsbeleg | specified |
-| LXP03-10 | WU-Check und fachlich-didaktische Aufgabenprüfung | Fachprofil; IBBW WU 1/3/6/9 | Wirksamkeits- und Fachcheck | Situationen 1–3 | drei WU-Checks und Eigenleistungsbegründungen | open-decision |
+| LXP03-10 | WU-Check und fachlich-didaktische Aufgabenprüfung | Fachprofil; IBBW WU 1/3/6/9 | Wirksamkeits- und Fachcheck | Situationen 1–3 | drei WU-Checks und Eigenleistungsbegründungen | specified |
 | LXP03-11 | Q1–Q8-, Anti-Pattern- und LXP02-Risikoprüfung | LXP01 §§ 25–29; LXP02 Qualitätsurteile | Vergleichende Qualitätsprüfung | Situationen 1–3 | 24 Urteile, 7 Risikoantworten und Anti-Pattern-Scan | open-decision |
 | LXP03-12 | Auswahl und präzise Übergabe an LXP04 | LXP01 § 31; LXP02 Eigentümermatrix | Auswahlentscheidung und LXP04-Übergabe | situationsübergreifend | Musterkandidaten, Nicht-Generalisierungen und Freigabegate | open-decision |
 
@@ -1104,3 +1104,81 @@ Der Entwurf fällt durch, wenn:
 - die Lehrkraft alle Karten einsammeln, private Gerätestände beobachten oder öffentliche Preisgabe erzwingen muss;
 - Offlinezustand, Speicherfehler oder beschädigter Index den Erhalt des autoritativen Originals nur behauptet;
 - die Belegkarte als generisches Portfolio, Bewertungspunkt oder personenbezogene Langzeitakte verwendet wird.
+
+## Wirksamkeits- und Fachcheck
+
+### Plananker, Quellenstatus und Reife
+
+Dieser Check prüft Entwurfsentscheidungen, nicht Unterrichtswirkung. Die lokalen Exzerpte zu IBBW **WU Band 1 – Grundlagen wirksamen Unterrichts**, **Band 3 – Konstruktive Unterstützung**, **Band 6 – Aufgaben im Fachunterricht** und **Band 9 – Digitale Medien** dienen als orientierende Qualitätsfolie. Aus ihnen wird kein kausaler Wirksamkeitsnachweis für die Referenzentwürfe abgeleitet.
+
+Curricular gilt:
+
+- Basiskurs Medienbildung 2016 und Aufbaukurs Informatik 7 von 2016 sind in Kraft gesetzte Grundlagen;
+- die Lesehilfe Informatik und Medienbildung 5–7 für 2026/27 ist Orientierung und ersetzt die gültigen Pläne nicht;
+- das projektspezifische Fachprofil Informatik und Medienbildung Gymnasium 5–7 hat den Reifegrad `working`;
+- der vorhandene Curriculum-Crosswalk bleibt die Abdeckungsquelle. LXP03 erzeugt weder neue Curriculum-IDs noch eine neue jahrgangsscharfe Zuordnung.
+
+Die drei Referenzentwürfe prüfen exemplarisch den bestehenden IUM5-Pfad. Sie belegen keine vollständige curriculare Abdeckung und heben das Fachprofil nicht auf `reviewed` oder `standard`.
+
+### WU-Check Referenzentwurf 1
+
+| Prüffeld | Urteil | Entwurfsevidenz | verbleibendes Risiko / Konsequenz |
+|---|---|---|---|
+| kognitive Aktivierung | pass-with-explicit-risk | eine unerledigte Sache, Ziel, Auftrag und erster fachlicher Schritt werden priorisiert; längere Rückkehr beginnt mit Abruf statt Zusammenfassung | zu viel Projektkontext kann die fachliche Frage dennoch verdrängen; Kontextbudget in LXP04 messbar halten |
+| konstruktive Unterstützung | pass | sichtbarer Auftrag, Kriterien, Hilfen und sicherer Recoverypfad sind verfügbar, ohne einen Lösungsweg vorzugeben | Hilfecopy muss im konkreten Inhalt erneut fachlich geprüft werden |
+| Klassenführung / Struktur | pass | Vorbereitungsspur, gemeinsame Eröffnung, Rollen, Haltepunkt und Ausstiegskriterium sind verbunden | Gerätebereitstellung und reale Zeitfenster bleiben Pilotgegenstand |
+| Aufgabenqualität | pass | Einstieg verlangt Zielrekonstruktion, eigene Entscheidung und Vorbereitung einer prüfbaren Vorhersage | ein Modulstart darf nicht zur reinen Orientierung ohne Denkhandlung verkürzt werden |
+| Feedback / Diagnose | pass-with-explicit-risk | gewöhnliche Evidenz entsteht in Kurzabruf und Partnererklärung; Diagnose-Fallback nutzt neutralen Fall statt Nutzungsdaten | stille Fehlvorstellungen bleiben ohne Lehrkraftgespräch eventuell unsichtbar |
+| Kooperation / Verantwortlichkeit | pass | beide Rollen erzeugen eine fachliche Teilhandlung; keine Rolle besitzt Gerät oder Lösung dauerhaft | Rollenwechsel muss zeitlich und sprachlich im Modulhandbuch konkretisiert werden |
+| Diagnose-Fallback | pass | Lehrkraft kann Ziel, Vorhersage und nächsten Prüfschritt an einem neutralen Fall erheben | kein automatisches Personenprofil; Diagnose bleibt situativ |
+| sprachliche / kognitive Zugänglichkeit | pass-with-explicit-risk | kontrollierter Wortschatz, kurze sichtbare Handlungen, Reflow und Text-/AT-Pfad | Fachwörter benötigen in LXP04 kontextsensitive, nicht infantilisierende Erklärungen |
+| digitaler Mehrwert | pass | lokaler Stand, echte Fortsetzung, eindeutige Recoveryhandlungen und mehrere gleichwertige Bedienpfade verbinden Orientierung mit dem späteren Arbeitsartefakt | Mehrwert entfällt, wenn Startboard nur Linkliste oder Fortschrittsanzeige wird |
+| wichtigstes Restrisiko | pass-with-explicit-risk | die stabile Fokusbühne reduziert Navigationslast | unvalidierte Informationsdichte könnte bei neuer und zurückkehrender Nutzung unterschiedlich überfordern |
+
+**Eigenleistungsnotwendigkeit:** Lernende müssen ihren vorhandenen Stand deuten, eine offene Sache priorisieren, das Ziel in eigene Worte fassen und den nächsten fachlichen Prüfschritt bestimmen. Eine generative Antwort oder kopierte Modulzusammenfassung kann die lokale Verbindung zwischen eigenem Stand, Ziel und bevorstehender Vorhersage nicht herstellen. Wird diese Verbindung nicht im Gespräch oder in der ersten Vorhersage sichtbar, ist der Einstieg nicht fachlich gelungen.
+
+### WU-Check Referenzentwurf 2
+
+| Prüffeld | Urteil | Entwurfsevidenz | verbleibendes Risiko / Konsequenz |
+|---|---|---|---|
+| kognitive Aktivierung | pass | Vorhersage vor Ausführung, lokalisierte Abweichung, Interpretation und begründete Revision erzwingen Ursache-Wirkungs-Denken | Versuchshäufigkeit darf nicht zur heimlichen Erfolgsmetrik werden |
+| konstruktive Unterstützung | pass-with-explicit-risk | gestufte Hilfe adressiert Bedien-, Begriff- und Strategiehürden getrennt; Lösung bleibt bei Lernenden | schlecht kalibrierte Strategiehilfe kann den entscheidenden Schritt vorwegnehmen |
+| Klassenführung / Struktur | pass | deterministischer Fall, Rollenwechsel, gemeinsamer Zwischenhalt und sichere Pause geben einen beobachtbaren Rhythmus | Wartezeiten bei heterogener Bearbeitung müssen im Pilot geprüft werden |
+| Aufgabenqualität | pass | die Aufgabe verbindet Entscheidung, Ausführung, Beobachtung, Begründung und Revision in einem prüfbaren Produkt | zu enger Robotikfall könnte Begriffsverständnis nur oberflächlich tragen |
+| Feedback / Diagnose | pass | Rückmeldung verweist auf erste Abweichung und ausgewählten Beleg; Lehrkraft kann Hypothese und Spur prüfen | Text-/AT-Rückmeldung muss dieselbe Informationsqualität wie visuelle Spur behalten |
+| Kooperation / Verantwortlichkeit | pass-with-explicit-risk | `steuern` und `vorhersagen/prüfen` wechseln nach fachlichem Teilschritt; beide Rollen bestätigen den Beleg | im realen Unterricht kann Bedienkompetenz die Rollenbalance trotzdem verzerren |
+| Diagnose-Fallback | pass | neutraler Fehlerfall und neue Kurzvorhersage erlauben Prüfung ohne Zugriff auf private Gerätestände | die Lehrkraft braucht konkrete Beobachtungsfragen im Modulhandbuch |
+| sprachliche / kognitive Zugänglichkeit | pass-with-explicit-risk | Zustandsrelation wird visuell, textuell und schrittweise gleichwertig angeboten; Fachbegriffe sind an Belege gebunden | gleichzeitige Darstellung von Algorithmus, Szene und Spur kann weiterhin hohe Split-Attention erzeugen |
+| digitaler Mehrwert | pass | deterministische Ausführung, synchronisierte Laufspur, reversible Revision und lokale Zustandswiederherstellung ermöglichen eine echte Rückkopplungsschleife | Animation allein wäre kein Mehrwert; der Text-/Schrittpfad ist normativ |
+| wichtigstes Restrisiko | pass-with-explicit-risk | Entwurf schützt Vorhersage und Beleg vor Trial-and-error | fachliche Validität hängt von einem fehlerfreien Interpreter- und Szenariovertrag ab |
+
+**Eigenleistungsnotwendigkeit:** Lernende müssen vorhersagen, eine Wirkung beobachten, die erste Abweichung lokalisieren, eine Ursache begründen und die Revision erneut testen. Vorgefertigte oder KI-generierte Befehlsfolgen erfüllen diese Leistung nicht, weil die erforderliche Belegkette auf den eigenen Ausgangsalgorithmus, die konkrete Laufspur und die selbst begründete Änderung verweist. Ein korrekt laufendes Ergebnis ohne diese Relation gilt ausdrücklich nicht als gesicherter Lernerfolg.
+
+### WU-Check Referenzentwurf 3
+
+| Prüffeld | Urteil | Entwurfsevidenz | verbleibendes Risiko / Konsequenz |
+|---|---|---|---|
+| kognitive Aktivierung | pass | Lernende wählen Evidenz, verdichten eine Aussage, begrenzen das Modell, übertragen auf einen Grenzfall und rufen später aktiv ab | Belegkarte darf nicht durch Formularerfüllung mechanisiert werden |
+| konstruktive Unterstützung | pass | Satzstruktur, Quellrücksprung, neutraler Fall und sichere Recovery helfen, ohne Aussage oder Transferentscheidung zu übernehmen | Satzstarter müssen offen genug für begründete Alternativen bleiben |
+| Klassenführung / Struktur | pass | gemeinsame Sicherung kann freiwillige oder neutrale Evidenz nutzen; Export, Pause und Folgeabruf sind getrennt | der spätere Abruf benötigt einen realen, im Modulhandbuch gesetzten Termin |
+| Aufgabenqualität | pass | Auswahl und Deutung einer echten Spur reduzieren Doppelarbeit und prüfen Generalisierung sowie Modellgrenze | ein zu ähnlicher Transferfall würde nur Oberflächenübertragung prüfen |
+| Feedback / Diagnose | pass-with-explicit-risk | Kartenkriterien und Vergleich von Abrufantwort/alter Karte liefern gewöhnliche Evidenz; Diagnose braucht keine Sammlung | Aussagequalität bleibt ohne fachliches Gespräch teilweise interpretationsbedürftig |
+| Kooperation / Verantwortlichkeit | pass | gemeinsame Sicherung nutzt freiwillige/neutralisierte Belege; individuelle Karte, Export und Löschung bleiben bei Lernenden | freiwilliges Zeigen darf in der Praxis nicht zum sozialen Zwang werden |
+| Diagnose-Fallback | pass | neutraler Beleg, vereinfachter Textfall und mündliche Abrufantwort sichern beobachtbare Alternativen | Fallback darf die Modellgrenze nicht weglassen |
+| sprachliche / kognitive Zugänglichkeit | pass-with-explicit-risk | Beleg steht vor Aussage, Satzstruktur ist verfügbar, Text-/AT- und Reflowpfad erhalten Quellenrelation | abstrakte Modellgrenze bleibt für Klasse 5 erklärungsbedürftig und muss konkret gerahmt werden |
+| digitaler Mehrwert | pass | echte Artefaktreferenzen, unveränderter Snapshot, späterer Abruf, Versionsschutz und eigentumsbewusster Export verbinden Lernen über Zeit | ohne zuverlässige lokale Versionierung wäre eine Papierkarte transparenter |
+| wichtigstes Restrisiko | pass-with-explicit-risk | Sicherung vermeidet zweite Vollerzählung und automatische Sammlung | die Belegkarte könnte später dennoch zu einem generischen Portfolio- oder Bewertungscontainer umgedeutet werden |
+
+**Eigenleistungsnotwendigkeit:** Lernende entscheiden, welcher Ausschnitt eine Aussage trägt, formulieren die Deutung, bestimmen die Modellgrenze und urteilen in einem neuen Systemfall. Eine KI kann einen plausiblen Satz erzeugen, aber nicht autoritativ festlegen, welcher lokale Beleg aus dem eigenen Arbeitsweg gewählt wurde oder ob die neue Entscheidung mit diesem Beleg kohärent ist. Genau diese situierte Relation wird im Produkt und im Lehrkraftgespräch geprüft; bloß sprachlich glatte Texte sind kein Ersatz.
+
+## Portabilitätsprüfung
+
+Die Prüfung überträgt nur Lernzustandsbeziehungen und Orchestrierungslogik. Sie entwirft keine zusätzlichen Unterrichtsmodule und beansprucht keine Fachgültigkeit außerhalb eines späteren fachlichen Reviews.
+
+| Probe-ID | Probe | stabile Lernzustandsrelation | fachspezifische Darstellung, die sich ändern muss | gewöhnliche Lehrkraftevidenz | nicht aus IUM5 generalisieren |
+|---|---|---|---|---|---|
+| PORT-01 | Quellen-/Evidenzanalyse und Urteil | Ziel klären → Erwartung festhalten → Quelle untersuchen → Beleg lokalisieren → Deutung prüfen → Urteil revidieren → Aussage mit Grenze sichern | statt Raster, Befehlen und Laufspur: Quelle, Provenienz, Text-/Bildstelle, Perspektive und Gegenbeleg | markierter Beleg, Begründung, revidiertes Urteil und Reichweitenhinweis | Determinismus, eindeutige erste Abweichung und ausführbarer Wahrheitscheck |
+| PORT-02 | Daten-/Systemmodellierung | Modellannahme wählen → Ergebnis vorhersagen → Modell auf Daten/Fall anwenden → Abweichung erklären → Modell revidieren → Grenze sichern | statt Roboterzustand: Datensatz, Variablen, Beziehungen, Diagramm oder Systemgrenze; mehrere plausible Modelle möglich | sichtbare Annahme, Modell-Daten-Vergleich, begründete Revision und Grenzfall | einzelne korrekte Befehlsfolge, lineare Spur und vollständige lokale Ausführbarkeit |
+| PORT-03 | Medienproduktkritik und Revision | Qualitätskriterium klären → Wirkung erwarten → Produkt/Ausschnitt prüfen → Evidenz deuten → Gestaltung revidieren → Wirkung/Grenze sichern | statt Interpreter: Medienprodukt, Zielgruppe, Gestaltungsmittel, Rezeptionsdaten oder begründete Fremdwahrnehmung | ausgewählter Produktausschnitt, Kriterienbezug, Variantenvergleich und Revisionsbegründung | Wirkung als deterministisches Ergebnis, technische Korrektheit als Qualität und private Belegkarte als Bewertungsakte |
+
+**Portabilitätsurteil:** Die stabile Fokuskomposition trägt alle drei Proben, weil sie jeweils Auftrag, aktuelles Denkobjekt, Evidenz und nächste bewusste Handlung verbindet. Nicht portabel sind die konkrete Zahl oder Form der Regionen, Rastermetapher, Blockeditor, Laufspurtabelle, Interpreterzustände und Annahme einer eindeutigen Fehlerursache. Diese Elemente bleiben IUM5-spezifisch und müssen in jeder Domäne fachlich neu entworfen werden.
