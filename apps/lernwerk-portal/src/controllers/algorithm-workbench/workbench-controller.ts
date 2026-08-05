@@ -743,17 +743,21 @@ export async function connectAlgorithmWorkbench(
     };
     const parsed = parseWorkbenchPayload({ ...payload, evidenceCard });
     if (!parsed.ok) {
+      const status = requiredElement<HTMLElement>(root, '[data-evidence-card-status]');
       setText(
         root,
         '[data-evidence-card-status]',
         'Fülle alle sechs Felder mit jeweils höchstens 500 Zeichen aus.',
       );
-      root.querySelector<HTMLElement>(
-        '#evidence-card-source-ref, #evidence-card-evidence-ref, [data-evidence-card-field]',
-      )?.focus();
+      status.setAttribute('role', 'alert');
+      status.tabIndex = -1;
+      status.focus();
       return;
     }
     payload = parsed.value;
+    const status = requiredElement<HTMLElement>(root, '[data-evidence-card-status]');
+    status.setAttribute('role', 'status');
+    status.removeAttribute('tabindex');
     setText(root, '[data-evidence-card-status]', 'Belegkarte lokal vorgemerkt.');
     setText(root, '[data-transfer-card-link]', `Deine Kernaussage für den Transfer: ${evidenceCard.keyStatement}`);
     scheduleSave();

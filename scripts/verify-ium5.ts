@@ -30,6 +30,7 @@ const pythonScript = (
 });
 
 const steps: readonly VerificationStep[] = [
+  npmRun('verify:experience'),
   npmRun('contracts:check'),
   npmRun('boundaries:check'),
   npmRun('typecheck'),

@@ -3,14 +3,16 @@ import type { StartBoardSpec } from '../contracts.js';
 
 interface Props {
   spec: StartBoardSpec;
+  headingLevel?: 'h1' | 'h2';
 }
 
-const { spec } = Astro.props;
+const { spec, headingLevel = 'h1' } = Astro.props;
+const Heading = headingLevel;
 ---
 
 <section class="lx-start-board" data-start-board aria-labelledby="lx-start-board-title">
   <p class="eyebrow">Orientierung</p>
-  <h1 id="lx-start-board-title">{spec.heading}</h1>
+  <Heading id="lx-start-board-title">{spec.heading}</Heading>
   <p class="lx-readable">{spec.guidingQuestion}</p>
   <p class="lx-readable"><strong>Danach kannst du:</strong> {spec.expectedCapability}</p>
   <dl class="lx-start-context">

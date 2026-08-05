@@ -1,14 +1,31 @@
 ---
 import ActionEdge from '@ium/learning-experience/components/ActionEdge';
 import ContextBand from '@ium/learning-experience/components/ContextBand';
+import EvidenceFeedback from '@ium/learning-experience/components/EvidenceFeedback';
 import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
 import FocusStage from '@ium/learning-experience/components/FocusStage';
 import JourneyMap from '@ium/learning-experience/components/JourneyMap';
-import LearningStateHeader from '@ium/learning-experience/components/LearningStateHeader';
+import RecoveryPanel from '@ium/learning-experience/components/RecoveryPanel';
+import StartBoard from '@ium/learning-experience/components/StartBoard';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Lernerfahrung-Prüffassung">
+  <StartBoard
+    spec={{
+      heading: 'Eine historische Entscheidung untersuchen',
+      guidingQuestion: 'Welche Belege tragen eine Vermutung über diese Entscheidung?',
+      expectedCapability: 'Du formulierst eine Vermutung, prüfst Quellen und revidierst dein Urteil.',
+      timeWindowMinutes: [8, 12],
+      socialForm: 'individual',
+      primaryAction: {
+        label: 'Mit der Quellenvermutung beginnen',
+        result: 'Öffnet die erste quellenbezogene Denkhandlung.',
+      },
+      resumeAction: null,
+      resetAction: null,
+    }}
+  />
   <ExperienceShell ariaLabel="Lernweg zur Vermutung">
     <ContextBand
       slot="context"
@@ -26,19 +43,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       ]}
     />
     <div slot="focus">
-      <LearningStateHeader
-        id="learning-state-heading"
-        stateLabel="Orientierung"
-        heading="Den Fall erfassen"
-        guidingQuestion="Welche Entscheidung steht im Zentrum?"
-        action="Formuliere eine erste Vermutung."
-      />
       <FocusStage
         id="active-focus-stage"
         heading="Orientierung"
         purpose="Erfasse zunächst Akteure, Anlass und Entscheidungsspielraum."
       >
         <p>Die Quelle beschreibt eine Entscheidung unter Zeitdruck.</p>
+        <EvidenceFeedback />
       </FocusStage>
     </div>
     <ActionEdge
@@ -50,6 +61,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       }}
     />
   </ExperienceShell>
+  <RecoveryPanel
+    heading="Quellennotiz wiederherstellen"
+    preservedState="Die aktuelle Quellennotiz bleibt in dieser Ansicht erhalten."
+    resetDialogId="history-reset-dialog"
+  />
 
   <script>
     import { focusActivatedStage } from '@ium/learning-experience/controllers/focus-stage';

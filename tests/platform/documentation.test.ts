@@ -125,10 +125,11 @@ describe('Phase 1 verification entry points', () => {
     const verifier = await read('scripts/verify-ium5.ts');
 
     expect(packageJson.scripts).toMatchObject({
-      'test:ium5:browser': 'playwright test tests/browser/ium5-workbench.spec.ts --config playwright.ium5.config.mts',
+      'test:ium5:browser': 'playwright test tests/browser/ium5-workbench.spec.ts tests/browser/ium5-learning-experience-portability.spec.ts --config playwright.ium5.config.mts',
       'test:ium5:state': 'playwright test tests/browser/ium5-state.spec.ts --config playwright.ium5.config.mts --project=chromium',
-      'test:ium5:accessibility': 'playwright test tests/browser/ium5-accessibility.spec.ts --config playwright.ium5.config.mts --project=chromium',
+      'test:ium5:accessibility': 'playwright test tests/browser/ium5-accessibility.spec.ts tests/browser/ium5-learning-experience-accessibility.spec.ts --config playwright.ium5.config.mts --project=chromium',
       'test:ium5:offline': 'playwright test tests/browser/ium5-offline.spec.ts --config playwright.ium5.config.mts --project=chromium',
+      'verify:experience': 'tsx scripts/verify-learning-experience.ts',
       'verify:ium5': 'tsx scripts/verify-ium5.ts',
     });
     expect(verifier).toContain('spawnSync');
@@ -136,6 +137,7 @@ describe('Phase 1 verification entry points', () => {
     expect(verifier).toContain('shell: false');
 
     const orderedCommands = [
+      'verify:experience',
       'contracts:check',
       'boundaries:check',
       'typecheck',

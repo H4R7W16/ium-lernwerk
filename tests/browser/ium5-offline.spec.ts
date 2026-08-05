@@ -93,7 +93,7 @@ test('completes the installed IUM5 core path offline with local state', async ({
 
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Algorithmen untersuchen' }))
+  await expect(page.getByRole('heading', { name: 'Algorithmen untersuchen', level: 1 }))
     .toBeVisible();
   await enterExperience(page);
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
@@ -197,7 +197,7 @@ test('rejects an incomplete candidate and keeps the active IUM5 path offline', a
 
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Algorithmen untersuchen' }))
+  await expect(page.getByRole('heading', { name: 'Algorithmen untersuchen', level: 1 }))
     .toBeVisible();
   await context.setOffline(false);
 });

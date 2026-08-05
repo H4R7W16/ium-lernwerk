@@ -13,6 +13,18 @@ Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Ba
 
 Die vollständige lokale Gate-A-Prüfkette startet mit `npm run verify:ium5`. Ein grüner Lauf schließt Gate B nicht und ersetzt weder Pilotierung noch reale Geräteprüfung.
 
+### Learning-Experience-System im internen Reviewstand
+
+IUM5 ist als konkreter Belastungsfall auf das eigenständige Paket `@ium/learning-experience` neu komponiert. Der geschlossene Inhaltsvertrag `ExperienceContentV1` bleibt auf Version 1; der lokale IUM5-Payload migriert explizit von `stateSchemaVersion 1 → 2` und ergänzt bei älteren validen Ständen `evidenceCard: null`. Der separate Prüfeinstieg `npm run verify:experience` kontrolliert Inhalts- und Komponentenverträge, Kontrastrollen, gerichtete Paketgrenzen, lokale Assets, Datenminimierung, drei Referenzsituationen, Portabilität und Dokumentation.
+
+- [Akzeptanzmatrix](docs/quality/ium5-acceptance-matrix.md)
+- [Systemgrenzen](docs/architecture/systemgrenzen.md)
+- [Lokale Datenhaltung und Resilienz](docs/architecture/lokale-datenhaltung-und-resilienz.md)
+
+#### Nicht-Generalisierungen
+
+IUM5-Raster, Editor, Befehlskatalog, Laufspursemantik, Szenario-IDs, fachliche Sprache und Checkpoint-Platzierung bleiben modulspezifisch. Das generische Paket ist weder Seitenbaukasten noch beliebiger Fachlogik-Renderer. Dieser automatisiert geprüfte Stand ist kein Deployment, keine Previewfreigabe, keine Realgeräteprüfung, kein Pilot, keine LMS-Integration und kein Release.
+
 ### Implementiertes Gate-B-Paket - nicht ausgeführt
 
 Das Repository enthält nun den technischen und fachlich-didaktischen Gate-B-Vertrag, geschlossene Evidenzschemas, sechs synthetische Beispiele, einen manuellen Previewworkflow, Leitfäden und einen begründeten analogen Beobachtungsbogen. Diese Implementierung ist **keine Ausführungsfreigabe**: Der Previewworkflow wurde nicht gestartet, reale technische Evidenz wurde nicht erhoben und keine Pilotierung oder LMS-Nutzung fand statt.

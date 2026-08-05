@@ -49,6 +49,9 @@ const { module } = Astro.props as { module: PageModule };
       <p>{module.centralQuestion}</p>
     </>
   )}
+  {module.renderer === 'algorithm-workbench' && (
+    <h1 class="visually-hidden">{module.experience?.start.heading ?? module.title}</h1>
+  )}
   <div class="status-grid">
     <StorageStatus />
     <ConnectionStatus />

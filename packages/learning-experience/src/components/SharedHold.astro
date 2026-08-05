@@ -1,13 +1,14 @@
 ---
 interface Props {
   checkpointId: string;
+  contextLabel: string;
 }
 
-const { checkpointId } = Astro.props;
+const { checkpointId, contextLabel } = Astro.props;
 const statusId = `shared-hold-${checkpointId}-status`;
 ---
 
-<section class="lx-shared-hold" aria-labelledby={`shared-hold-${checkpointId}-title`} data-shared-hold={checkpointId}>
+<section class="lx-shared-hold" aria-label={`Weiterweg: ${contextLabel}`} data-shared-hold={checkpointId}>
   <h4 id={`shared-hold-${checkpointId}-title`}>Weiterweg wählen</h4>
   <p>Beide Wege erhalten den aktuellen lokalen Arbeitsstand.</p>
   <div class="actions">

@@ -1,0 +1,56 @@
+---
+import ActionEdge from '@ium/learning-experience/components/ActionEdge';
+import ContextBand from '@ium/learning-experience/components/ContextBand';
+import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
+import FocusStage from '@ium/learning-experience/components/FocusStage';
+import JourneyMap from '@ium/learning-experience/components/JourneyMap';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="IUM5 semantischer Adaptertest">
+  <h1>IUM5-Komposition mit synthetischem Adapter</h1>
+  <div data-semantic-adapter="fake">
+    <ExperienceShell ariaLabel="Synthetische Algorithmuskomposition">
+      <ContextBand
+        slot="context"
+        items={[
+          { term: 'Modul', value: 'Synthetischer Adaptertest' },
+          { term: 'Quelle', value: 'Keine Produktionsdaten' },
+        ]}
+      />
+      <JourneyMap
+        slot="journey"
+        items={[
+          { id: 'fake-prediction', label: 'Vorhersage', current: true },
+          { id: 'fake-evidence', label: 'Beleg' },
+        ]}
+      />
+      <FocusStage
+        slot="focus"
+        id="fake-ium5-stage"
+        heading="Vorhersage und Spur vergleichen"
+        purpose="Die generische Komposition erhält bereits berechnete Fakten."
+      >
+        <section aria-labelledby="fake-editor-title" data-fake-ium5-editor>
+          <h3 id="fake-editor-title">Modulspezifischer Editor</h3>
+          <p>Befehl 1: synthetische Bewegung</p>
+        </section>
+        <section aria-labelledby="fake-trace-title" data-fake-ium5-trace>
+          <h3 id="fake-trace-title">Modulspezifische Laufspuransicht</h3>
+          <table>
+            <caption>Synthetische Spur</caption>
+            <thead><tr><th>Vorherzustand</th><th>Nachherzustand</th></tr></thead>
+            <tbody><tr><td>A1</td><td>A2</td></tr></tbody>
+          </table>
+        </section>
+      </FocusStage>
+      <ActionEdge
+        slot="action"
+        primary={{
+          label: 'Synthetische Vorhersage prüfen',
+          result: 'Würde im echten Modul an den IUM5-Controller delegieren.',
+        }}
+      />
+    </ExperienceShell>
+  </div>
+</BaseLayout>

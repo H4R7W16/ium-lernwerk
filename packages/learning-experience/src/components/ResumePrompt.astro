@@ -4,14 +4,16 @@ interface Props {
   stageLabel: string;
   resumePurpose: string;
   resetConsequence: string;
+  headingLevel?: 'h1' | 'h2';
 }
 
-const { heading, stageLabel, resumePurpose, resetConsequence } = Astro.props;
+const { heading, stageLabel, resumePurpose, resetConsequence, headingLevel = 'h1' } = Astro.props;
+const Heading = headingLevel;
 ---
 
 <section class="lx-resume-prompt" data-resume-prompt aria-labelledby="lx-resume-title" hidden>
   <p class="eyebrow">Wiedereinstieg</p>
-  <h1 id="lx-resume-title">{heading}</h1>
+  <Heading id="lx-resume-title">{heading}</Heading>
   <p><strong>Letzter sinnvoller Lernschritt:</strong> <span data-resume-stage>{stageLabel}</span></p>
   <p class="lx-readable">{resumePurpose}</p>
   <div class="lx-action-edge">

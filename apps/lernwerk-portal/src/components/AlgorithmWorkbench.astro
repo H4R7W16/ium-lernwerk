@@ -121,7 +121,7 @@ const transferCheckpoint = experience?.checkpoints.find((entry) => entry.id === 
 
 <section
   class="algorithm-workbench"
-  aria-labelledby="workbench-title-heading"
+  aria-label="Algorithmus-Werkstatt"
   aria-busy="true"
   inert
   data-algorithm-workbench
@@ -132,9 +132,10 @@ const transferCheckpoint = experience?.checkpoints.find((entry) => entry.id === 
 >
   <style is:inline set:html={workbenchStyles}></style>
   <div data-experience-entry>
-    <StartBoard spec={startSpec} />
+    <StartBoard spec={startSpec} headingLevel="h2" />
     <ResumePrompt
       heading={startSpec.heading}
+      headingLevel="h2"
       stageLabel="Vorhersage bilden"
       resumePurpose={startSpec.resumeAction?.purpose ?? 'Setzt am letzten bestätigten Lernschritt fort.'}
       resetConsequence={startSpec.resetAction?.consequence ?? 'Entfernt nach Bestätigung nur diesen Modulstand.'}
@@ -264,8 +265,8 @@ const transferCheckpoint = experience?.checkpoints.find((entry) => entry.id === 
   <EvidenceFeedback />
   {comparisonCheckpoint && (
     <TeacherCheckpoint checkpoint={comparisonCheckpoint}>
-      <RoleExchange checkpointId={comparisonCheckpoint.id} />
-      <SharedHold checkpointId={comparisonCheckpoint.id} />
+      <RoleExchange checkpointId={comparisonCheckpoint.id} contextLabel={comparisonCheckpoint.purpose} />
+      <SharedHold checkpointId={comparisonCheckpoint.id} contextLabel={comparisonCheckpoint.purpose} />
     </TeacherCheckpoint>
   )}
 
@@ -311,8 +312,8 @@ const transferCheckpoint = experience?.checkpoints.find((entry) => entry.id === 
   </div>
   {transferCheckpoint && (
     <TeacherCheckpoint checkpoint={transferCheckpoint}>
-      <RoleExchange checkpointId={transferCheckpoint.id} />
-      <SharedHold checkpointId={transferCheckpoint.id} />
+      <RoleExchange checkpointId={transferCheckpoint.id} contextLabel={transferCheckpoint.purpose} />
+      <SharedHold checkpointId={transferCheckpoint.id} contextLabel={transferCheckpoint.purpose} />
     </TeacherCheckpoint>
   )}
   <ReentryRecall />

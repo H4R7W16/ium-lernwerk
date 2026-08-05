@@ -54,6 +54,16 @@ describe('learning experience primitives', () => {
     expect(action).toContain('secondary.length > 2');
   });
 
+  test('lets page compositions keep start and resume headings below their single page heading', async () => {
+    const start = await readFile(componentPath('StartBoard'), 'utf8');
+    const resume = await readFile(componentPath('ResumePrompt'), 'utf8');
+
+    expect(start).toContain("headingLevel?: 'h1' | 'h2'");
+    expect(resume).toContain("headingLevel?: 'h1' | 'h2'");
+    expect(start).toContain('const Heading = headingLevel');
+    expect(resume).toContain('const Heading = headingLevel');
+  });
+
   test('contains no positive tabindex, inline click handler or generic button role', async () => {
     const sources = await Promise.all(componentNames.map((name) => readFile(componentPath(name), 'utf8')));
     const combined = sources.join('\n');
