@@ -1,0 +1,73 @@
+.lx-experience-shell {
+  display: grid;
+  gap: var(--lx-space-6);
+}
+
+.lx-context-band,
+.lx-learning-state-header,
+.lx-focus-stage,
+.lx-action-edge,
+.lx-journey-map {
+  min-inline-size: 0;
+}
+
+.lx-focus-stage {
+  display: grid;
+  gap: var(--lx-space-4);
+  padding: var(--lx-space-6);
+  border: 2px solid var(--lx-color-line);
+  border-radius: var(--lx-radius-m);
+  background: var(--lx-color-surface);
+}
+
+.lx-action-edge {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--lx-space-3);
+}
+
+.lx-journey-map ol {
+  display: grid;
+  gap: var(--lx-space-2);
+  padding: 0;
+  list-style-position: inside;
+}
+
+@container experience (max-width: 39.999rem) {
+  .lx-focus-stage[data-composition] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container experience (min-width: 40rem) and (max-width: 69.999rem) {
+  .lx-focus-stage[data-composition='compare'],
+  .lx-focus-stage[data-composition='cause-effect'],
+  .lx-focus-stage[data-composition='source-interpretation'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lx-action-edge {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@container experience (min-width: 70rem) {
+  .lx-experience-shell {
+    gap: var(--lx-space-8);
+  }
+
+  .lx-focus-stage[data-composition='compare'],
+  .lx-focus-stage[data-composition='cause-effect'],
+  .lx-focus-stage[data-composition='source-interpretation'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lx-action-edge {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

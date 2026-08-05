@@ -1,0 +1,81 @@
+body {
+  color: var(--lx-color-ink);
+  background: var(--lx-color-canvas);
+  font-family: var(--lx-font-sans);
+  line-height: 1.6;
+}
+
+:where(code, kbd, pre, samp) {
+  font-family: var(--lx-font-code);
+}
+
+:where(.lx-experience) {
+  container-name: experience;
+  container-type: inline-size;
+  inline-size: min(100%, var(--lx-measure-content));
+  margin-inline: auto;
+  color: var(--lx-color-ink);
+}
+
+:where(.lx-readable, .lx-experience p, .lx-experience li) {
+  max-inline-size: var(--lx-measure-reading);
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--lx-color-focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px var(--lx-color-ink);
+}
+
+:where(button, input, select, textarea, summary, .lx-control) {
+  min-block-size: 2.75rem;
+  min-inline-size: 2.75rem;
+  font: inherit;
+}
+
+:where(button, .lx-button) {
+  padding-block: var(--lx-space-2);
+  padding-inline: var(--lx-space-4);
+  border: 2px solid var(--lx-color-action);
+  border-radius: var(--lx-radius-s);
+  color: #ffffff;
+  background: var(--lx-color-action);
+  font-weight: 700;
+}
+
+:where(button, .lx-button):hover {
+  border-color: var(--lx-color-action-strong);
+  background: var(--lx-color-action-strong);
+}
+
+:where(.lx-surface) {
+  padding: var(--lx-space-4);
+  border: 1px solid var(--lx-color-line);
+  border-radius: var(--lx-radius-m);
+  background: var(--lx-color-surface);
+}
+
+:where(.lx-status) {
+  border-inline-start: 0.25rem solid currentcolor;
+  padding: var(--lx-space-3) var(--lx-space-4);
+}
+
+:where(.lx-status[data-severity='info']) {
+  color: var(--lx-color-info-text);
+  background: var(--lx-color-info-surface);
+}
+
+:where(.lx-status[data-severity='confirmed']) {
+  color: var(--lx-color-confirmed-text);
+  background: var(--lx-color-confirmed-surface);
+}
+
+:where(.lx-status[data-severity='warning']) {
+  color: var(--lx-color-warning-text);
+  background: var(--lx-color-warning-surface);
+}
+
+:where(.lx-status[data-severity='danger']) {
+  color: var(--lx-color-danger-text);
+  background: var(--lx-color-danger-surface);
+}

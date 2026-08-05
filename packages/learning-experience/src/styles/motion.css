@@ -1,0 +1,16 @@
+@media (prefers-reduced-motion: no-preference) {
+  :where(.lx-disclosure, .lx-focus-stage, .lx-action-edge) {
+    transition-duration: var(--lx-motion-fast);
+    transition-property: border-color, background-color, color, opacity;
+    transition-timing-function: ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.lx-experience, .lx-experience *, .lx-experience *::before, .lx-experience *::after) {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
