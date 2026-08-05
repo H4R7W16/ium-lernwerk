@@ -1,0 +1,22 @@
+---
+interface Props {
+  checkpointId: string;
+}
+
+const { checkpointId } = Astro.props;
+const statusId = `shared-hold-${checkpointId}-status`;
+---
+
+<section class="lx-shared-hold" aria-labelledby={`shared-hold-${checkpointId}-title`} data-shared-hold={checkpointId}>
+  <h4 id={`shared-hold-${checkpointId}-title`}>Weiterweg wählen</h4>
+  <p>Beide Wege erhalten den aktuellen lokalen Arbeitsstand.</p>
+  <div class="actions">
+    <button type="button" data-shared-hold-choice="shared" aria-describedby={statusId}>
+      Gemeinsam besprechen
+    </button>
+    <button type="button" data-shared-hold-choice="independent" aria-describedby={statusId}>
+      Ohne gemeinsame Besprechung fortfahren
+    </button>
+  </div>
+  <p id={statusId} role="status" data-shared-hold-status>Noch kein Weiterweg gewählt.</p>
+</section>

@@ -1,0 +1,34 @@
+---
+import type { TeacherCheckpointSpec } from '../contracts.js';
+
+interface Props {
+  checkpoint: TeacherCheckpointSpec;
+}
+
+const { checkpoint } = Astro.props;
+const titleId = `teacher-checkpoint-${checkpoint.id}-title`;
+---
+
+<section
+  class="lx-teacher-checkpoint"
+  aria-labelledby={titleId}
+  data-teacher-checkpoint={checkpoint.id}
+>
+  <p class="eyebrow">Lokaler gemeinsamer Haltepunkt · {checkpoint.timeWindowMinutes[0]}–{checkpoint.timeWindowMinutes[1]} Minuten</p>
+  <h3 id={titleId}>{checkpoint.purpose}</h3>
+  <p>
+    Dieser Haltepunkt arbeitet ohne Lernendenkonto, Fernsteuerung oder Datenübertragung.
+  </p>
+  <dl class="lx-checkpoint-facts">
+    <div><dt>Lernendensignal</dt><dd>{checkpoint.learnerSignal}</dd></div>
+    <div><dt>Lehrkraftimpuls</dt><dd>{checkpoint.teacherPrompt}</dd></div>
+    <div><dt>Rückkehr</dt><dd>{checkpoint.returnState}</dd></div>
+    <div><dt>Endekriterium</dt><dd>{checkpoint.exitCriterion}</dd></div>
+  </dl>
+  <h4>Gewöhnliche, freiwillig sichtbare Evidenz</h4>
+  <ul>
+    {checkpoint.ordinaryEvidence.map((evidence) => <li>{evidence}</li>)}
+  </ul>
+  <p><strong>Neutraler Weiterweg:</strong> {checkpoint.neutralFallback}</p>
+  <slot />
+</section>

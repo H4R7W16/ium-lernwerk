@@ -67,6 +67,14 @@ Die Rückfragen beziehen sich auf beobachtbare Zustände und Befehle. Sie schrei
 
 Verbindliche Erklärungspunkte sind der Unterschied zwischen Algorithmus und einzelner Anweisung, die Unveränderlichkeit der Position beim Drehen, die Bedeutung eines Vorher-/Nachherzustands, die erste Abweichung als Reparaturbeleg und die Bedingung einer konstanten Wiederholung. In der Sicherung werden je ein gelungenes Beispiel, ein Nichtbeispiel und ein Grenzfall mit denselben Kriterien besprochen.
 
+## Lokale Checkpoints und gemeinsamer Haltepunkt
+
+Zwei lokale Checkpoints sind vorgesehen: nach der belegten ersten Abweichung vor der Revision und nach einer eigenen Transferentscheidung. Sie dienen einer kurzen, vorgeschlagenen zwei- bis vierminütigen Gegenprüfung. Ein Paar wechselt sichtbar zwischen den Rollen „Erklären“ und „Prüfen“; im Plenum fragt die Lehrkraft nach dem tragenden Beleg, nicht nach einer Person oder einem gespeicherten Verlauf.
+
+Für Screenreader- oder Tastaturnutzung werden Rollen, Impuls, Endekriterium und beide Weiterwege vollständig als Text ausgegeben. Der Rollenwechsel ist ein regulärer beschrifteter Button. Lernende können jederzeit „Ohne gemeinsame Besprechung fortfahren“ wählen; der aktuelle lokale Arbeitsstand bleibt auf beiden Wegen unverändert.
+
+Es gibt kein Lehrkraftkonto, keine Lernendenüberwachung, keine Fernsperre, keinen Countdown und keine automatische Datenübertragung. Falls kein gemeinsamer Halt möglich ist, nutzt die Lehrkraft einen neutralen Laufspur- oder Textfall ohne Einsicht in private Gerätestände. Die Belegkarte kann für ein freiwilliges formatives Gespräch gezeigt werden, wird aber nicht mit Namen gesammelt oder zu einem Diagnoseprofil verdichtet.
+
 ## Hilfen, Beobachtungskriterien und frische Evidenzfälle
 
 Hilfen werden von Lernenden selbst gewählt und nicht adaptiv zugeteilt: Szenenbeschreibung, Drehhilfe, ausgeschriebene Schleife, Laufspurtabelle, Satzstarter und Fragen zur ersten Abweichung. Beobachtet werden Präzision der Vorhersage, Bezug der Hypothese zur Belegspur, Sparsamkeit der Revision und Begründung der Schleifenentscheidung.

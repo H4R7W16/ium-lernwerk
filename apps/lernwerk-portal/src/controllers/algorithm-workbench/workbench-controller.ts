@@ -1121,6 +1121,33 @@ export async function connectAlgorithmWorkbench(
       scheduleSave();
       return;
     }
+    const roleSwap = target.closest<HTMLButtonElement>('[data-role-swap]');
+    if (roleSwap) {
+      const exchange = roleSwap.closest<HTMLElement>('[data-role-exchange]');
+      const primary = exchange?.querySelector<HTMLElement>('[data-role-primary]');
+      const secondary = exchange?.querySelector<HTMLElement>('[data-role-secondary]');
+      const status = exchange?.querySelector<HTMLElement>('[data-role-status]');
+      if (primary && secondary && status) {
+        const previous = primary.textContent ?? '';
+        primary.textContent = secondary.textContent;
+        secondary.textContent = previous;
+        status.textContent = `Person A ${primary.textContent?.toLocaleLowerCase('de-DE')}, Person B ${secondary.textContent?.toLocaleLowerCase('de-DE')}.`;
+      }
+      return;
+    }
+    const holdChoice = target.closest<HTMLButtonElement>('[data-shared-hold-choice]');
+    if (holdChoice) {
+      const hold = holdChoice.closest<HTMLElement>('[data-shared-hold]');
+      const status = hold?.querySelector<HTMLElement>('[data-shared-hold-status]');
+      if (hold && status) {
+        const shared = holdChoice.dataset.sharedHoldChoice === 'shared';
+        hold.dataset.choice = shared ? 'shared' : 'independent';
+        status.textContent = shared
+          ? 'Die gemeinsame Besprechung ist gewählt; der lokale Arbeitsstand bleibt erhalten.'
+          : 'Du fährst selbstständig fort; der lokale Arbeitsstand bleibt erhalten.';
+      }
+      return;
+    }
     const familyButton = target.closest<HTMLButtonElement>('[data-task-family-open]');
     if (familyButton?.dataset.taskFamilyOpen) {
       setHidden(root, `[data-task-family-panel="${familyButton.dataset.taskFamilyOpen}"]`, false);

@@ -1,0 +1,19 @@
+---
+interface Props {
+  checkpointId: string;
+}
+
+const { checkpointId } = Astro.props;
+const statusId = `role-exchange-${checkpointId}-status`;
+---
+
+<section class="lx-role-exchange" aria-labelledby={`role-exchange-${checkpointId}-title`} data-role-exchange={checkpointId}>
+  <h4 id={`role-exchange-${checkpointId}-title`}>Rollenwechsel im Paar</h4>
+  <p>Beide Personen behalten dieselbe fachliche Denkhandlung.</p>
+  <dl>
+    <div><dt>Person A</dt><dd data-role-primary>Erklären</dd></div>
+    <div><dt>Person B</dt><dd data-role-secondary>Prüfen</dd></div>
+  </dl>
+  <button type="button" data-role-swap aria-describedby={statusId}>Rollen tauschen</button>
+  <p id={statusId} role="status" data-role-status>Person A erklärt, Person B prüft.</p>
+</section>

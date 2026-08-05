@@ -16,9 +16,12 @@ import ResumePrompt from '@ium/learning-experience/components/ResumePrompt';
 import RevisionCompare from '@ium/learning-experience/components/RevisionCompare';
 import ReentryRecall from '@ium/learning-experience/components/ReentryRecall';
 import SemanticModelView from '@ium/learning-experience/components/SemanticModelView';
+import SharedHold from '@ium/learning-experience/components/SharedHold';
 import StartBoard from '@ium/learning-experience/components/StartBoard';
 import SupportDisclosure from '@ium/learning-experience/components/SupportDisclosure';
+import TeacherCheckpoint from '@ium/learning-experience/components/TeacherCheckpoint';
 import TransferPrompt from '@ium/learning-experience/components/TransferPrompt';
+import RoleExchange from '@ium/learning-experience/components/RoleExchange';
 import workbenchStyles from '../styles/algorithm-workbench.css?raw';
 
 interface Props {
@@ -112,6 +115,8 @@ const transferCases = resources.content.transferCases.map((transferCase) => ({
   ...transferCase,
   label: transferLabels[transferCase.id],
 }));
+const comparisonCheckpoint = experience?.checkpoints.find((entry) => entry.id === 'checkpoint-comparison');
+const transferCheckpoint = experience?.checkpoints.find((entry) => entry.id === 'checkpoint-transfer');
 ---
 
 <section
@@ -257,6 +262,12 @@ const transferCases = resources.content.transferCases.map((transferCase) => ({
   <PredictionForm positions={positions} />
   <EvidenceView />
   <EvidenceFeedback />
+  {comparisonCheckpoint && (
+    <TeacherCheckpoint checkpoint={comparisonCheckpoint}>
+      <RoleExchange checkpointId={comparisonCheckpoint.id} />
+      <SharedHold checkpointId={comparisonCheckpoint.id} />
+    </TeacherCheckpoint>
+  )}
 
   <section aria-labelledby="revision-title">
     <h3 id="revision-title">Abweichung erklären und reparieren</h3>
@@ -298,6 +309,12 @@ const transferCases = resources.content.transferCases.map((transferCase) => ({
   <div data-task-family-panel="magnifier">
     <TransferPrompt cases={transferCases} />
   </div>
+  {transferCheckpoint && (
+    <TeacherCheckpoint checkpoint={transferCheckpoint}>
+      <RoleExchange checkpointId={transferCheckpoint.id} />
+      <SharedHold checkpointId={transferCheckpoint.id} />
+    </TeacherCheckpoint>
+  )}
   <ReentryRecall />
 
   <section aria-labelledby="self-check-title">
