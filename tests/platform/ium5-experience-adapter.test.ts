@@ -34,6 +34,14 @@ const trace = {
   finalState: { ...worldState, position: { column: 1, row: 2 } },
   missionSucceeded: false,
 } as const;
+const evidenceCard = {
+  sourceRef: 'worked-sequence',
+  evidenceRef: 'trace:first-deviation',
+  interpretation: 'Die erste Abweichung zeigt die Ursache.',
+  revision: 'Der fehlerhafte Schritt wird gezielt geändert.',
+  keyStatement: 'Laufspuren begründen gezielte Revisionen.',
+  modelBoundary: 'Die Aussage gilt für den geprüften deterministischen Ablauf.',
+} as const;
 
 function payload(overrides: Partial<WorkbenchPayload>): WorkbenchPayload {
   return projectPersistentPayload({ ...createInitialPayload(), ...overrides });
@@ -47,7 +55,7 @@ describe('IUM5 experience stage truth table', () => {
     ['evidence', payload({ initialAlgorithm: algorithm, prediction, evidenceTrace: trace })],
     ['revision', payload({ initialAlgorithm: algorithm, prediction, evidenceTrace: trace, repairSource: 'own-draft', repairHypothesis: 'Der erste Schritt weicht ab.' })],
     ['transfer', payload({ initialAlgorithm: algorithm, prediction, evidenceTrace: trace, repairSource: 'own-draft', repairHypothesis: 'Der erste Schritt weicht ab.', revisedAlgorithm: algorithm })],
-    ['reentry', payload({ initialAlgorithm: algorithm, prediction, evidenceTrace: trace, repairSource: 'own-draft', repairHypothesis: 'Der erste Schritt weicht ab.', revisedAlgorithm: algorithm, systemClassifications: [{ caseId: 'navigation', classification: 'algorithmic', rationale: 'Feste Schritte verarbeiten die Eingabe.' }] })],
+    ['reentry', payload({ initialAlgorithm: algorithm, prediction, evidenceTrace: trace, repairSource: 'own-draft', repairHypothesis: 'Der erste Schritt weicht ab.', revisedAlgorithm: algorithm, evidenceCard, systemClassifications: [{ caseId: 'navigation', classification: 'algorithmic', rationale: 'Feste Schritte verarbeiten die Eingabe.' }] })],
   ] as const)('derives %s without a persisted stage field', (expected, value) => {
     expect(deriveIum5ExperienceState(value).stage).toBe(expected);
     expect(value).not.toHaveProperty('stage');

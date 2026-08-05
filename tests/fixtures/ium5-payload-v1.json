@@ -1,0 +1,18 @@
+{
+  "phaseId": "ue1-orientation",
+  "scenarioId": "worked-sequence",
+  "initialAlgorithm": [],
+  "prediction": null,
+  "evidenceTrace": null,
+  "repairSource": null,
+  "repairHypothesis": "",
+  "revisedAlgorithm": null,
+  "loopDecision": "",
+  "systemClassifications": [],
+  "selfCheck": {
+    "unambiguous": "review",
+    "traceMatches": "review",
+    "repairJustified": "review",
+    "loopAppropriate": "review"
+  }
+}

@@ -5,7 +5,9 @@ import {
   insertCommand,
   missionSucceeded,
   moveCommand,
+  migrateWorkbenchPayloadV1,
   nextCommandId,
+  PAYLOAD_SCHEMA_VERSION,
   parseWorkbenchPayload,
   projectPersistentPayload,
   removeCommand,
@@ -15,6 +17,7 @@ import {
   type BasicCommandKind,
   type Command,
   type Direction,
+  type EvidenceCardPayload,
   type EvidenceTrace,
   type ExecutionSession,
   type LearningPhaseId,
@@ -222,9 +225,13 @@ export async function connectAlgorithmWorkbench(
   const runtime = createModuleRuntime({
     moduleId,
     moduleVersion,
-    targetStateSchemaVersion: 1,
+    targetStateSchemaVersion: PAYLOAD_SCHEMA_VERSION,
     repository: selection.repository,
-    migrations: [],
+    migrations: [{
+      from: 1,
+      to: 2,
+      migrate: (value) => ({ ...migrateWorkbenchPayloadV1(value) }),
+    }],
     clock: { now: () => new Date() },
     createWorkspaceId,
     exportPort: createBrowserExportPort(root),
@@ -296,6 +303,7 @@ export async function connectAlgorithmWorkbench(
     const stageChanged = next.stage !== experienceState.stage;
     renderExperienceState(root, next);
     renderExperienceEntry(root, next, experienceEntered);
+    setHidden(root, '[data-reentry-recall]', next.stage !== 'reentry');
     const stage = root.querySelector<HTMLElement>('[data-lx-focus-stage]');
     if (stage) {
       stage.dataset.focusOnActivation = String(userTriggered && stageChanged);
@@ -367,7 +375,7 @@ export async function connectAlgorithmWorkbench(
     algorithm = next;
     const revising = payload.evidenceTrace !== null && payload.repairHypothesis.length > 0;
     payload = revising
-      ? { ...payload, prediction: null }
+      ? { ...payload, prediction: null, evidenceCard: null, systemClassifications: [] }
       : { ...payload, initialAlgorithm: next, prediction: null };
     confirmedAlgorithm = '';
     session = null;
@@ -451,6 +459,8 @@ export async function connectAlgorithmWorkbench(
       repairSource: null,
       repairHypothesis: '',
       revisedAlgorithm: null,
+      evidenceCard: null,
+      systemClassifications: [],
     };
     confirmedAlgorithm = '';
     session = null;
@@ -574,7 +584,13 @@ export async function connectAlgorithmWorkbench(
       root.querySelector<HTMLElement>('[data-evidence-options]')?.focus();
       return;
     }
-    payload = { ...payload, revisedAlgorithm: structuredClone(algorithm), prediction: null };
+    payload = {
+      ...payload,
+      revisedAlgorithm: structuredClone(algorithm),
+      prediction: null,
+      evidenceCard: null,
+      systemClassifications: [],
+    };
     confirmedAlgorithm = '';
     session = null;
     setPredictionStatus(root, 'Revision übernommen – neue Vorhersage erforderlich.');
@@ -674,6 +690,77 @@ export async function connectAlgorithmWorkbench(
     'repeat-is-appropriate': 'loopAppropriate',
   } as const)[id] ?? null;
 
+  const showTransferCase = (caseId: string): void => {
+    for (const transferCase of root.querySelectorAll<HTMLElement>('[data-transfer-case-id]')) {
+      transferCase.hidden = transferCase.dataset.transferCaseId !== caseId;
+    }
+  };
+
+  const renderEvidenceCardState = (next: WorkbenchPayload): void => {
+    const card = next.evidenceCard;
+    requiredElement<HTMLSelectElement>(root, '#evidence-card-source-ref').value = card?.sourceRef ?? '';
+    requiredElement<HTMLSelectElement>(root, '#evidence-card-evidence-ref').value = card?.evidenceRef ?? '';
+    for (const key of ['interpretation', 'revision', 'keyStatement', 'modelBoundary'] as const) {
+      requiredElement<HTMLTextAreaElement>(root, `[data-evidence-card-field="${key}"]`).value = card?.[key] ?? '';
+    }
+    setText(
+      root,
+      '[data-transfer-card-link]',
+      card === null
+        ? 'Bestätige zuerst eine Belegkarte, damit der Transfer an deine Kernaussage anschließt.'
+        : `Deine Kernaussage für den Transfer: ${card.keyStatement}`,
+    );
+    setText(root, '[data-evidence-card-status]', card === null ? '' : 'Belegkarte aus lokalem Arbeitsstand geladen.');
+    requiredElement<HTMLTextAreaElement>(root, '#reentry-free-recall').value = '';
+    setText(root, '[data-reentry-recall-status]', '');
+    setText(root, '[data-reentry-key-statement]', '');
+    setHidden(root, '[data-reentry-compare]', true);
+    setHidden(root, '[data-reentry-card]', true);
+    setHidden(
+      root,
+      '[data-reentry-recall]',
+      card === null || next.systemClassifications.length === 0,
+    );
+  };
+
+  const confirmEvidenceCard = (): void => {
+    const sourceRef = requiredElement<HTMLSelectElement>(root, '#evidence-card-source-ref').value;
+    const evidenceRef = requiredElement<HTMLSelectElement>(root, '#evidence-card-evidence-ref').value;
+    const field = (key: keyof Pick<
+      EvidenceCardPayload,
+      'interpretation' | 'revision' | 'keyStatement' | 'modelBoundary'
+    >): string => requiredElement<HTMLTextAreaElement>(
+      root,
+      `[data-evidence-card-field="${key}"]`,
+    ).value;
+    const evidenceCard: EvidenceCardPayload = {
+      sourceRef,
+      evidenceRef,
+      interpretation: field('interpretation'),
+      revision: field('revision'),
+      keyStatement: field('keyStatement'),
+      modelBoundary: field('modelBoundary'),
+    };
+    const parsed = parseWorkbenchPayload({ ...payload, evidenceCard });
+    if (!parsed.ok) {
+      setText(
+        root,
+        '[data-evidence-card-status]',
+        'Fülle alle sechs Felder mit jeweils höchstens 500 Zeichen aus.',
+      );
+      root.querySelector<HTMLElement>(
+        '#evidence-card-source-ref, #evidence-card-evidence-ref, [data-evidence-card-field]',
+      )?.focus();
+      return;
+    }
+    payload = parsed.value;
+    setText(root, '[data-evidence-card-status]', 'Belegkarte lokal vorgemerkt.');
+    setText(root, '[data-transfer-card-link]', `Deine Kernaussage für den Transfer: ${evidenceCard.keyStatement}`);
+    scheduleSave();
+    dispatch(root, 'ium5:evidence-card-confirm', { evidenceCard });
+    syncExperienceState(true);
+  };
+
   const setDomainInteractionsBlocked = (blocked: boolean): void => {
     for (const control of root.querySelectorAll<
       HTMLButtonElement | HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -726,6 +813,13 @@ export async function connectAlgorithmWorkbench(
         `[data-rationale-case-id="${transferCase.id}"]`,
       ).value = saved?.rationale ?? '';
     }
+    const selectedTransferCase = next.systemClassifications[0]?.caseId
+      ?? resources.content.transferCases[0]?.id;
+    if (selectedTransferCase) {
+      requiredElement<HTMLSelectElement>(root, '[data-transfer-case-picker]').value = selectedTransferCase;
+      showTransferCase(selectedTransferCase);
+    }
+    renderEvidenceCardState(next);
     for (const select of root.querySelectorAll<HTMLSelectElement>('[data-self-check-id]')) {
       const key = selfCheckKey(select.dataset.selfCheckId ?? '');
       if (key) {
@@ -989,6 +1083,10 @@ export async function connectAlgorithmWorkbench(
       updateTransferCase(target.dataset.classificationCaseId as TransferCaseId);
       return;
     }
+    if (target instanceof HTMLSelectElement && target.matches('[data-transfer-case-picker]')) {
+      showTransferCase(target.value);
+      return;
+    }
     if (target instanceof HTMLSelectElement && target.dataset.selfCheckId) {
       const key = selfCheckKey(target.dataset.selfCheckId);
       if (
@@ -1090,6 +1188,28 @@ export async function connectAlgorithmWorkbench(
       scheduleSave();
       dispatch(root, 'ium5:prediction-confirm', { prediction });
       syncExperienceState(true);
+      return;
+    }
+    if (target.closest('[data-evidence-card-confirm]')) {
+      confirmEvidenceCard();
+      return;
+    }
+    if (target.closest('[data-reentry-confirm]')) {
+      const recall = requiredElement<HTMLTextAreaElement>(root, '#reentry-free-recall').value.trim();
+      if (recall.length === 0 || [...recall].length > 500) {
+        setText(root, '[data-reentry-recall-status]', 'Formuliere zuerst deine eigene Erinnerung mit höchstens 500 Zeichen.');
+        root.querySelector<HTMLElement>('#reentry-free-recall')?.focus();
+        return;
+      }
+      setText(root, '[data-reentry-recall-status]', 'Eigene Erinnerung festgehalten. Jetzt kannst du vergleichen.');
+      setHidden(root, '[data-reentry-compare]', false);
+      root.querySelector<HTMLElement>('[data-reentry-compare]')?.focus();
+      return;
+    }
+    if (target.closest('[data-reentry-compare]')) {
+      setText(root, '[data-reentry-key-statement]', payload.evidenceCard?.keyStatement ?? '');
+      setHidden(root, '[data-reentry-card]', false);
+      root.querySelector<HTMLElement>('[data-reentry-card]')?.focus();
       return;
     }
     if (target.closest('[data-run-step]')) {

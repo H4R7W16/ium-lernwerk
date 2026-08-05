@@ -11,7 +11,7 @@ function deriveStage(payload: WorkbenchPayload): ExperienceStage {
   if (payload.evidenceTrace === null) return 'run';
   if (payload.repairHypothesis.trim().length === 0) return 'evidence';
   if (payload.revisedAlgorithm === null) return 'revision';
-  if (payload.systemClassifications.length === 0) return 'transfer';
+  if (payload.evidenceCard === null || payload.systemClassifications.length === 0) return 'transfer';
   return 'reentry';
 }
 

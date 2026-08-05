@@ -26,7 +26,7 @@ test('reload, export, delete and import preserve only the learning product', asy
   expect(path).not.toBeNull();
   const exported = JSON.parse(await readFile(path!, 'utf8'));
   expect(Object.keys(exported.payload).sort()).toEqual([
-    'evidenceTrace', 'initialAlgorithm', 'loopDecision', 'phaseId', 'prediction',
+    'evidenceCard', 'evidenceTrace', 'initialAlgorithm', 'loopDecision', 'phaseId', 'prediction',
     'repairHypothesis', 'repairSource', 'revisedAlgorithm', 'scenarioId',
     'selfCheck', 'systemClassifications',
   ]);
@@ -64,7 +64,7 @@ test('rejects a malformed module payload without changing active work', async ({
     })),
   });
   await expect(page.getByRole('heading', { name: 'Import prüfen' })).toBeHidden();
-  await expect(page.getByRole('alert')).toContainText('nicht übernommen');
+  await expect(page.locator('[data-state-error]')).toContainText('nicht übernommen');
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 });
@@ -80,21 +80,21 @@ test('rejects a future module schema without changing active work', async ({ pag
       formatVersion: 1,
       moduleId: 'IUM-5-CORE-05',
       moduleVersion: '0.1.0',
-      stateSchemaVersion: 2,
+      stateSchemaVersion: 3,
       workspaceId: '11111111-1111-4111-8111-111111111111',
       savedAt: '2026-08-03T00:00:00.000Z',
       payload: {},
     })),
   });
   await expect(page.getByRole('heading', { name: 'Import prüfen' })).toBeHidden();
-  await expect(page.getByRole('alert')).toContainText('nicht übernommen');
+  await expect(page.locator('[data-state-error]')).toContainText('nicht übernommen');
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 });
 
 test('stores classifications and self-check but never support usage', async ({ page }) => {
   await openWorkbench(page);
-  await page.getByRole('button', { name: 'Drehhilfe öffnen' }).click();
+  await page.getByRole('button', { name: 'Bedienung klären öffnen' }).click();
   await page.getByLabel('Navigation einordnen').selectOption('algorithmic');
   await page.getByLabel('Begründung zu Navigation').fill(
     'Die Route wird durch eine präzise Folge algorithmischer Schritte bestimmt.',

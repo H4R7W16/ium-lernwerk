@@ -1,6 +1,6 @@
 export const MODULE_ID = 'IUM-5-CORE-05' as const;
 export const MODULE_VERSION = '0.1.0' as const;
-export const PAYLOAD_SCHEMA_VERSION = 1 as const;
+export const PAYLOAD_SCHEMA_VERSION = 2 as const;
 export const MAX_EXECUTED_STEPS = 100 as const;
 export const MAX_RATIONALE_CODEPOINTS = 500 as const;
 

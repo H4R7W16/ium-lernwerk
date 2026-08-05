@@ -55,7 +55,7 @@ media:
   digitalFunction: Der deterministische Interpreter koppelt Anweisung, Zustand, Wiederholung, Laufspur und reproduzierbare Revision fachlich sichtbar.
   analogMaterials: []
 data:
-  stateSchemaVersion: 1
+  stateSchemaVersion: 2
   fields:
     - phaseId
     - scenarioId
@@ -68,6 +68,7 @@ data:
     - loopDecision
     - systemClassifications
     - selfCheck
+    - evidenceCard
   exportable: true
   deletable: true
 offline:

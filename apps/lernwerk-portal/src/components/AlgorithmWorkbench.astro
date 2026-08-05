@@ -5,6 +5,7 @@ import ActionEdge from '@ium/learning-experience/components/ActionEdge';
 import ContextBand from '@ium/learning-experience/components/ContextBand';
 import DataActionDialog from '@ium/learning-experience/components/DataActionDialog';
 import EvidenceFeedback from '@ium/learning-experience/components/EvidenceFeedback';
+import EvidenceCardComposer from '@ium/learning-experience/components/EvidenceCardComposer';
 import EvidenceView from '@ium/learning-experience/components/EvidenceView';
 import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
 import FocusStage from '@ium/learning-experience/components/FocusStage';
@@ -13,9 +14,11 @@ import PredictionForm from '@ium/learning-experience/components/PredictionForm';
 import RecoveryPanel from '@ium/learning-experience/components/RecoveryPanel';
 import ResumePrompt from '@ium/learning-experience/components/ResumePrompt';
 import RevisionCompare from '@ium/learning-experience/components/RevisionCompare';
+import ReentryRecall from '@ium/learning-experience/components/ReentryRecall';
 import SemanticModelView from '@ium/learning-experience/components/SemanticModelView';
 import StartBoard from '@ium/learning-experience/components/StartBoard';
 import SupportDisclosure from '@ium/learning-experience/components/SupportDisclosure';
+import TransferPrompt from '@ium/learning-experience/components/TransferPrompt';
 import workbenchStyles from '../styles/algorithm-workbench.css?raw';
 
 interface Props {
@@ -97,6 +100,18 @@ const startSpec = experience?.start ?? {
 const initialSceneDescription = firstScenario
   ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}. Hindernisse werden mit Koordinaten genannt.`
   : 'Keine validierte Szene verfügbar.';
+const evidenceSourceOptions = resources.scenarios.map((entry) => ({
+  value: entry.scenario.id,
+  label: entry.scenario.title,
+}));
+const evidenceReferenceOptions = [
+  { value: 'trace:first-deviation', label: 'Erste Abweichung in der Laufspur' },
+  { value: 'trace:complete', label: 'Vollständige Laufspur' },
+] as const;
+const transferCases = resources.content.transferCases.map((transferCase) => ({
+  ...transferCase,
+  label: transferLabels[transferCase.id],
+}));
 ---
 
 <section
@@ -274,49 +289,16 @@ const initialSceneDescription = firstScenario
     </section>
   </section>
   <RevisionCompare />
+  <EvidenceCardComposer
+    sourceOptions={evidenceSourceOptions}
+    evidenceOptions={evidenceReferenceOptions}
+  />
   <SupportDisclosure supports={experience?.supports ?? []} />
 
-  <section aria-labelledby="magnifier-title" data-task-family-panel="magnifier">
-    <h3 id="magnifier-title">Algorithmus-Lupe</h3>
-    <p>Ordne Beispiele, Nichtbeispiele und Grenzfälle anhand deiner Kriterien ein.</p>
-    <div data-transfer-cases>
-      {resources.content.transferCases.map((transferCase) => (
-        <article data-transfer-case-id={transferCase.id}>
-          <h4>{transferCase.title}</h4>
-          <p>{transferCase.description}</p>
-          <div class="field">
-            <label for={`classification-${transferCase.id}`}>
-              {transferLabels[transferCase.id]} einordnen
-            </label>
-            <select
-              id={`classification-${transferCase.id}`}
-              data-classification-case-id={transferCase.id}
-            >
-              <option value="">Bitte wählen</option>
-              <option value="algorithmic">algorithmisch</option>
-              <option value="not-algorithmic">nicht algorithmisch</option>
-              <option value="needs-information">weitere Information nötig</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for={`rationale-${transferCase.id}`}>
-              Begründung zu {transferLabels[transferCase.id]}
-            </label>
-            <textarea
-              id={`rationale-${transferCase.id}`}
-              rows="3"
-              maxlength="1000"
-              data-rationale-case-id={transferCase.id}
-            ></textarea>
-          </div>
-          {transferCase.id === 'controlled-vehicle' && (
-            <p>Fehlende Information: direkt ferngesteuert oder gespeicherter Ablauf?</p>
-          )}
-        </article>
-      ))}
-    </div>
-    <p role="alert" data-transfer-status hidden></p>
-  </section>
+  <div data-task-family-panel="magnifier">
+    <TransferPrompt cases={transferCases} />
+  </div>
+  <ReentryRecall />
 
   <section aria-labelledby="self-check-title">
     <h3 id="self-check-title">Selbstcheck</h3>

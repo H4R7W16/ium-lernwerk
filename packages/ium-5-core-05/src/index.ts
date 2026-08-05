@@ -37,6 +37,7 @@ export {
 } from './interpreter.js';
 export {
   createInitialPayload,
+  migrateWorkbenchPayloadV1,
   parseWorkbenchPayload,
   projectPersistentPayload,
 } from './payload.js';
@@ -49,6 +50,7 @@ export {
 } from './editor.js';
 export type {
   EvidenceTrace,
+  EvidenceCardPayload,
   Prediction,
   SelfCheck,
   SelfCheckValue,

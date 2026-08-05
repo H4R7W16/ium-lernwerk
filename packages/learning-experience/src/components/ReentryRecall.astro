@@ -1,0 +1,17 @@
+<section class="lx-reentry-recall" aria-labelledby="reentry-recall-title" data-reentry-recall hidden>
+  <h3 id="reentry-recall-title">Kernaussage aus dem Gedächtnis</h3>
+  <p id="reentry-recall-guidance">
+    Formuliere zuerst frei, was du noch weißt. Die gespeicherte Kernaussage bleibt bis zum Vergleich verdeckt.
+  </p>
+  <div class="field">
+    <label for="reentry-free-recall">Was weißt du noch?</label>
+    <textarea id="reentry-free-recall" rows="4" maxlength="500" aria-describedby="reentry-recall-guidance reentry-recall-status"></textarea>
+  </div>
+  <button type="button" data-reentry-confirm>Eigene Erinnerung festhalten</button>
+  <p id="reentry-recall-status" role="status" data-reentry-recall-status></p>
+  <button type="button" data-reentry-compare hidden>Mit der gespeicherten Kernaussage vergleichen</button>
+  <section aria-labelledby="reentry-card-title" data-reentry-card hidden>
+    <h4 id="reentry-card-title">Gespeicherte Kernaussage</h4>
+    <p data-reentry-key-statement></p>
+  </section>
+</section>

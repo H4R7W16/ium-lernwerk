@@ -36,6 +36,15 @@ export type SystemClassification = Readonly<{
   rationale: string;
 }>;
 
+export type EvidenceCardPayload = Readonly<{
+  sourceRef: string;
+  evidenceRef: string;
+  interpretation: string;
+  revision: string;
+  keyStatement: string;
+  modelBoundary: string;
+}>;
+
 export type SelfCheckValue = 'yes' | 'review' | 'not-applicable';
 export type SelfCheck = Readonly<{
   unambiguous: SelfCheckValue;
@@ -56,6 +65,7 @@ export type WorkbenchPayload = Readonly<{
   loopDecision: string;
   systemClassifications: readonly SystemClassification[];
   selfCheck: SelfCheck;
+  evidenceCard: EvidenceCardPayload | null;
 }>;
 
 type UnknownRecord = Readonly<Record<string, unknown>>;
@@ -72,6 +82,16 @@ const payloadKeys = [
   'loopDecision',
   'systemClassifications',
   'selfCheck',
+  'evidenceCard',
+] as const;
+const versionOnePayloadKeys = payloadKeys.filter((key) => key !== 'evidenceCard');
+const evidenceCardKeys = [
+  'sourceRef',
+  'evidenceRef',
+  'interpretation',
+  'revision',
+  'keyStatement',
+  'modelBoundary',
 ] as const;
 const learningPhaseIds = new Set<LearningPhaseId>([
   'ue1-orientation',
@@ -440,6 +460,37 @@ function parseSelfCheck(value: unknown): ParseResult<SelfCheck> {
   };
 }
 
+function parseEvidenceCard(value: unknown): ParseResult<EvidenceCardPayload | null> {
+  if (value === null) {
+    return { ok: true, value: null };
+  }
+  if (!isRecord(value) || !hasExactKeys(value, evidenceCardKeys)) {
+    return failure('$.evidenceCard', 'must contain exactly the six approved evidence-card fields or null');
+  }
+  for (const key of evidenceCardKeys) {
+    if (
+      !hasAtMostCodePoints(value[key], MAX_RATIONALE_CODEPOINTS)
+      || value[key].trim().length === 0
+    ) {
+      return failure(
+        `$.evidenceCard.${key}`,
+        'must be non-empty and contain at most 500 Unicode code points',
+      );
+    }
+  }
+  return {
+    ok: true,
+    value: {
+      sourceRef: value.sourceRef as string,
+      evidenceRef: value.evidenceRef as string,
+      interpretation: value.interpretation as string,
+      revision: value.revision as string,
+      keyStatement: value.keyStatement as string,
+      modelBoundary: value.modelBoundary as string,
+    },
+  };
+}
+
 export function createInitialPayload(): WorkbenchPayload {
   return {
     phaseId: 'ue1-orientation',
@@ -458,12 +509,13 @@ export function createInitialPayload(): WorkbenchPayload {
       repairJustified: 'review',
       loopAppropriate: 'review',
     },
+    evidenceCard: null,
   };
 }
 
 export function parseWorkbenchPayload(value: unknown): ParseResult<WorkbenchPayload> {
   if (!isRecord(value) || !hasExactKeys(value, payloadKeys)) {
-    return failure('$', 'must contain exactly the eleven approved product fields');
+    return failure('$', 'must contain exactly the twelve approved product fields');
   }
   if (typeof value.phaseId !== 'string' || !learningPhaseIds.has(value.phaseId as LearningPhaseId)) {
     return failure('$.phaseId', 'must be an approved learning phase');
@@ -516,6 +568,10 @@ export function parseWorkbenchPayload(value: unknown): ParseResult<WorkbenchPayl
   if (!selfCheck.ok) {
     return selfCheck;
   }
+  const evidenceCard = parseEvidenceCard(value.evidenceCard);
+  if (!evidenceCard.ok) {
+    return evidenceCard;
+  }
   return {
     ok: true,
     value: {
@@ -530,8 +586,19 @@ export function parseWorkbenchPayload(value: unknown): ParseResult<WorkbenchPayl
       loopDecision: value.loopDecision,
       systemClassifications: systemClassifications.value,
       selfCheck: selfCheck.value,
+      evidenceCard: evidenceCard.value,
     },
   };
+}
+
+export function migrateWorkbenchPayloadV1(value: unknown): WorkbenchPayload {
+  if (!isRecord(value) || !hasExactKeys(value, versionOnePayloadKeys)) {
+    throw new TypeError('Schema-v1 workbench payload must contain exactly the eleven approved fields');
+  }
+  return projectPersistentPayload({
+    ...value,
+    evidenceCard: null,
+  });
 }
 
 export function projectPersistentPayload(value: unknown): WorkbenchPayload {

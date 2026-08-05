@@ -1,0 +1,54 @@
+---
+interface ReferenceOption {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  sourceOptions: readonly ReferenceOption[];
+  evidenceOptions: readonly ReferenceOption[];
+}
+
+const { sourceOptions, evidenceOptions } = Astro.props;
+---
+
+<section class="lx-evidence-card-composer" aria-labelledby="evidence-card-title" data-evidence-card-composer>
+  <h3 id="evidence-card-title">Belegkarte sichern</h3>
+  <p id="evidence-card-guidance">
+    Verdichte Quelle, Beleg, Deutung und Revision. Gespeichert werden nur diese sechs Produktfelder.
+  </p>
+  <div class="field">
+    <label for="evidence-card-source-ref">Quelle</label>
+    <select id="evidence-card-source-ref" required aria-describedby="evidence-card-guidance evidence-card-status">
+      <option value="">Bitte wählen</option>
+      {sourceOptions.map((option) => <option value={option.value}>{option.label}</option>)}
+    </select>
+  </div>
+  <div class="field">
+    <label for="evidence-card-evidence-ref">Beleg</label>
+    <select id="evidence-card-evidence-ref" required aria-describedby="evidence-card-guidance evidence-card-status">
+      <option value="">Bitte wählen</option>
+      {evidenceOptions.map((option) => <option value={option.value}>{option.label}</option>)}
+    </select>
+  </div>
+  <div class="field">
+    <label for="evidence-card-interpretation">Deutung</label>
+    <textarea id="evidence-card-interpretation" rows="3" maxlength="500" required data-evidence-card-field="interpretation" aria-describedby="evidence-card-status"></textarea>
+  </div>
+  <div class="field">
+    <label for="evidence-card-revision">Überarbeitung</label>
+    <textarea id="evidence-card-revision" rows="3" maxlength="500" required data-evidence-card-field="revision" aria-describedby="evidence-card-status"></textarea>
+  </div>
+  <div class="field">
+    <label for="evidence-card-key-statement">Kernaussage</label>
+    <textarea id="evidence-card-key-statement" rows="3" maxlength="500" required data-evidence-card-field="keyStatement" aria-describedby="evidence-card-status"></textarea>
+  </div>
+  <div class="field">
+    <label for="evidence-card-model-boundary">Modellgrenze</label>
+    <textarea id="evidence-card-model-boundary" rows="3" maxlength="500" required data-evidence-card-field="modelBoundary" aria-describedby="evidence-card-status"></textarea>
+  </div>
+  <button type="button" data-evidence-card-confirm aria-describedby="evidence-card-status">
+    Belegkarte bestätigen
+  </button>
+  <p id="evidence-card-status" role="status" data-evidence-card-status></p>
+</section>

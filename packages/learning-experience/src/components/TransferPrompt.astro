@@ -1,0 +1,53 @@
+---
+interface TransferCase {
+  id: string;
+  title: string;
+  description: string;
+  label: string;
+}
+
+interface Props {
+  cases: readonly TransferCase[];
+}
+
+const { cases } = Astro.props;
+---
+
+<section class="lx-transfer-prompt" aria-labelledby="magnifier-title" data-transfer-prompt>
+  <h3 id="magnifier-title">Algorithmus-Lupe</h3>
+  <p>Übertrage deine Kernaussage auf genau einen neuen Fall und begründe die Einordnung.</p>
+  <p data-transfer-card-link>Bestätige zuerst eine Belegkarte, damit der Transfer an deine Kernaussage anschließt.</p>
+  <div class="field">
+    <label for="transfer-case-picker">Transferfall</label>
+    <select id="transfer-case-picker" data-transfer-case-picker>
+      {cases.map((transferCase) => <option value={transferCase.id}>{transferCase.title}</option>)}
+    </select>
+  </div>
+  <div data-transfer-cases>
+    {cases.map((transferCase, index) => (
+      <article data-transfer-case-id={transferCase.id} hidden={index !== 0}>
+        <h4>{transferCase.title}</h4>
+        <p>{transferCase.description}</p>
+        <div class="field">
+          <label for={`classification-${transferCase.id}`}>
+            {transferCase.label} einordnen
+          </label>
+          <select id={`classification-${transferCase.id}`} data-classification-case-id={transferCase.id}>
+            <option value="">Bitte wählen</option>
+            <option value="algorithmic">algorithmisch</option>
+            <option value="not-algorithmic">nicht algorithmisch</option>
+            <option value="needs-information">weitere Information nötig</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for={`rationale-${transferCase.id}`}>Begründung zu {transferCase.label}</label>
+          <textarea id={`rationale-${transferCase.id}`} rows="3" maxlength="500" data-rationale-case-id={transferCase.id}></textarea>
+        </div>
+        {transferCase.id === 'controlled-vehicle' && (
+          <p>Fehlende Information: direkt ferngesteuert oder gespeicherter Ablauf?</p>
+        )}
+      </article>
+    ))}
+  </div>
+  <p role="alert" data-transfer-status hidden></p>
+</section>
