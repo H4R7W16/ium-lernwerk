@@ -1,9 +1,10 @@
 # IuM-Lernwerk – Vertikale Referenzentwürfe der Learning Experience
 
 - **Task:** LXP03 Vertikale Referenzsituationen entwerfen und vergleichen
-- **Status:** zur schriftlichen Nutzerreview
-- **Fassung:** 0.9
+- **Status:** schriftlich freigegeben
+- **Fassung:** 1.0
 - **Datum:** 5. August 2026
+- **Freigabe:** 5. August 2026 durch ausdrückliche schriftliche Nutzerantwort `LXP03 freigegeben`
 - **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
 - **Ausgangsstand:** lokaler `main` auf `f2a9d3c`; `origin/main` auf `3498838`
 - **Arbeitsgrenze:** konkrete codefreie Referenzentwürfe; kein Produktcode, kein wiederverwendbares Designsystem, keine reale Erprobung
@@ -26,10 +27,11 @@ LXP03 erzeugt konkrete Text-Wireframes, Wide-/Schmal-Kompositionen, Wireflows, B
 
 Der Nutzer hat LXP03 am 5. August 2026 ausdrücklich zur vollständigen Ausführung beauftragt, Codex operative Entscheidungen übertragen und nur dokumentierte Freigabegates als Stopppunkte bestimmt. Damit sind Planung, Entwurf, Vergleich, Auswahlentscheidung, Selbstprüfung und gebündelte Reviewvorbereitung in dieser Session geöffnet.
 
+Die vollständige Spezifikation wurde am 5. August 2026 mit der ausdrücklichen schriftlichen Nutzerantwort `LXP03 freigegeben` angenommen. Sie ist damit die verbindliche Referenz- und Auswahlgrundlage für die separate Planung von LXP04. Die Freigabe öffnet keine LXP04-Ausführung, keinen Produktcode und kein späteres Einsatzgate.
+
 Die folgenden Gates bleiben geschlossen:
 
-- schriftliche Annahme der vollständigen LXP03-Spezifikation;
-- Planung und Ausführung von LXP04;
+- Ausführung und Ergebnisfreigabe von LXP04; ausschließlich die separate Planung darf beginnen;
 - Produktcode, konkrete Komponentenimplementierung und IUM5-Neufassung;
 - Preview, Deployment und reale Geräteprüfung;
 - Pilotierung, LMS, Produktrelease und Statushochsetzung.
@@ -1352,7 +1354,7 @@ Folgende Entscheidungen bleiben ausdrücklich außerhalb eines LXP04-Systemvertr
 
 ## Schriftliches Freigabegate
 
-Das LXP03-Artefakt ist nach Abschlussprüfung **zur gebündelten schriftlichen Nutzerreview** bestimmt. Eine ausdrückliche schriftliche Freigabe wie `LXP03 freigegeben` bewirkt ausschließlich:
+Das LXP03-Artefakt wurde nach Abschlussprüfung am 5. August 2026 mit `LXP03 freigegeben` ausdrücklich schriftlich angenommen. Die Freigabe bewirkt ausschließlich:
 
 - LXP03 darf als akzeptierte Entscheidungsgrundlage dokumentiert werden;
 - die Planung von LXP04 – wiederverwendbares Learning-Experience-System – darf beginnen;
@@ -1366,11 +1368,11 @@ Die Freigabe bewirkt **nicht**:
 - Anhebung des Fachprofils, der Forschungsregeln oder der Referenzentwürfe auf empirisch validierte Wirksamkeit;
 - Generalisierung der unter `Nicht generalisieren` aufgeführten Fach-, Stil- oder Technikentscheidungen.
 
-Konkrete Änderungswünsche am gebündelten Review halten LXP03 im Reviewstatus. Ein nachgewiesener Widerspruch zu LXP01/LXP02 wird dort ausdrücklich revidiert; er darf nicht still in LXP04 kompensiert werden.
+Spätere Änderungswünsche an der freigegebenen Grundlage erfordern eine dokumentierte Revision von LXP03. Ein nachgewiesener Widerspruch zu LXP01/LXP02 wird dort ausdrücklich revidiert; er darf nicht still in LXP04 kompensiert werden.
 
-## Abschlussprüfung und Reviewstatus
+## Abschlussprüfung und Freigabestatus
 
-Das Reviewpaket ist entscheidungsvollständig und bewusst noch nicht freigegeben:
+Das freigegebene Paket ist entscheidungsvollständig:
 
 - 12/12 LXP03-Ergebnisse sind `specified`;
 - drei konkrete Referenzentwürfe enthalten Wide-/Schmal-Komposition, Lernenden- und Lehrkraftspur, Touch, Tastatur, Text-/Assistive-Technology, Reduced Motion, Fokus, Local First, Offline und Recovery;
@@ -1381,4 +1383,4 @@ Das Reviewpaket ist entscheidungsvollständig und bewusst noch nicht freigegeben
 - Ansatz C ist gewählt; die Übergabe an LXP04 unterscheidet Musterkandidaten und ausdrückliche Nicht-Generalisierungen;
 - Repository-Scope bleibt dokumentarisch: Spezifikation und Ausführungsplan, kein Produktcode und keine vorgezogene Folgephase.
 
-Der einzige offene LXP03-Gatepunkt ist die ausdrückliche schriftliche Nutzerentscheidung zum Gesamtartefakt. Bis dahin bleibt die Fassung `0.9`, LXP03 im Reviewstatus und LXP04 geschlossen.
+Die ausdrückliche schriftliche Nutzerfreigabe wurde am 5. August 2026 erteilt. Damit ist Fassung `1.0` verbindlich und LXP03 abgeschlossen. Geöffnet ist ausschließlich die separate Planung von LXP04; LXP04-Ausführung, Produktcode, IUM5-Neufassung und alle Einsatzgates bleiben geschlossen.
