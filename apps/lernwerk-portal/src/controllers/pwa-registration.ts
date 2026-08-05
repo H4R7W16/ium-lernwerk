@@ -1,7 +1,8 @@
 import { registerSW } from 'virtual:pwa-register';
 import { announceError } from '@ium/ui-components/controllers/status-announcer';
+import type { ConnectivityPlatformState } from '@ium/ui-components/controllers/platform-state';
 
-export type PwaState = 'not-ready' | 'ready' | 'offline' | 'degraded';
+export type PwaState = ConnectivityPlatformState;
 
 export type FlushRequestDetail = Readonly<{
   add(task: Promise<boolean>): void;
@@ -80,6 +81,7 @@ export function connectPwaRegistration(
       onNeedRefresh() {
         if (prompt) {
           prompt.hidden = false;
+          prompt.dataset.updateState = 'available';
           prompt.focus();
         }
       },
@@ -105,6 +107,7 @@ export function connectPwaRegistration(
         return false;
       }
       if (!(await flushActiveRuntimes(document))) {
+        if (prompt) prompt.dataset.updateState = 'failed';
         announceError(document, {
           code: 'STORAGE_WRITE_FAILED',
           message: 'Der Arbeitsstand konnte vor der Aktualisierung nicht gespeichert werden.',
@@ -113,9 +116,11 @@ export function connectPwaRegistration(
         return false;
       }
       try {
+        if (prompt) prompt.dataset.updateState = 'activating';
         await updateServiceWorker(true);
         return true;
       } catch (error) {
+        if (prompt) prompt.dataset.updateState = 'failed';
         announceError(document, {
           code: 'UPDATE_INSTALL_FAILED',
           message: 'Die Aktualisierung konnte nicht aktiviert werden.',
@@ -128,6 +133,7 @@ export function connectPwaRegistration(
     dismiss() {
       if (prompt) {
         prompt.hidden = true;
+        prompt.dataset.updateState = 'hidden';
       }
     },
   };

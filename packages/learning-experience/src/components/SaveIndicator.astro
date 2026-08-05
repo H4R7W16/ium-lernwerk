@@ -1,0 +1,24 @@
+---
+import { getSaveMessage, type SaveState } from '../controllers/resilience-adapter.js';
+
+interface Props {
+  state: SaveState;
+  messageId: string;
+}
+
+const { state, messageId } = Astro.props;
+const role = state === 'failed' ? 'alert' : state === 'idle' ? undefined : 'status';
+const live = state === 'failed' ? 'assertive' : state === 'idle' ? undefined : 'polite';
+---
+
+<p
+  class="lx-save-indicator"
+  id={messageId}
+  data-lx-save-indicator
+  data-save-state={state}
+  role={role}
+  aria-live={live}
+>
+  <span aria-hidden="true">●</span>
+  <span data-save-message>{getSaveMessage(state)}</span>
+</p>

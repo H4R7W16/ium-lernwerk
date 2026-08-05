@@ -1,0 +1,31 @@
+---
+interface Props {
+  heading?: string;
+  preservedState: string;
+  retryLabel?: string;
+  exportLabel?: string;
+  resetLabel?: string;
+  resetDialogId: string;
+}
+
+const {
+  heading = 'Arbeitsstand sichern',
+  preservedState,
+  retryLabel = 'Erneut speichern',
+  exportLabel = 'Arbeitsstand lokal exportieren',
+  resetLabel = 'Arbeitsstand zurücksetzen',
+  resetDialogId,
+} = Astro.props;
+---
+
+<section class="lx-recovery-panel lx-surface" aria-labelledby={resetDialogId + '-recovery-title'}>
+  <h2 id={resetDialogId + '-recovery-title'}>{heading}</h2>
+  <p>{preservedState}</p>
+  <div class="lx-action-edge">
+    <button type="button" data-recovery-action="retry">{retryLabel}</button>
+    <button type="button" data-recovery-action="export">{exportLabel}</button>
+    <button type="button" data-recovery-action="reset" data-data-action-open={resetDialogId}>
+      {resetLabel}
+    </button>
+  </div>
+</section>

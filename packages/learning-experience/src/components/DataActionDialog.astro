@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  action: 'reset' | 'import-overwrite';
+  title: string;
+  description: string;
+  confirmLabel: string;
+}
+
+const { id, action, title, description, confirmLabel } = Astro.props;
+---
+
+<dialog
+  id={id}
+  data-data-action-dialog
+  data-data-action={action}
+  aria-labelledby={id + '-title'}
+  aria-describedby={id + '-description'}
+>
+  <h2 id={id + '-title'}>{title}</h2>
+  <p id={id + '-description'}>{description}</p>
+  <div class="lx-action-edge">
+    <button type="button" data-data-action-cancel autofocus>Abbrechen</button>
+    <button type="button" class="danger" data-data-action-confirm>{confirmLabel}</button>
+  </div>
+</dialog>

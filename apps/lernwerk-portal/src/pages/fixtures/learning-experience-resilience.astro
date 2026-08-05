@@ -1,0 +1,78 @@
+---
+import DataActionDialog from '@ium/learning-experience/components/DataActionDialog';
+import RecoveryPanel from '@ium/learning-experience/components/RecoveryPanel';
+import ResilienceNotice from '@ium/learning-experience/components/ResilienceNotice';
+import SaveIndicator from '@ium/learning-experience/components/SaveIndicator';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Resilienz-Prüffassung">
+  <article class="lx-experience">
+    <h1>Technische Resilienz</h1>
+    <label class="field">
+      Arbeitsnotiz
+      <textarea rows="4">Meine Vermutung bleibt lokal sichtbar.</textarea>
+    </label>
+    <SaveIndicator state="idle" messageId="fixture-save-state" />
+    <div class="lx-action-edge">
+      <button type="button" data-simulate-offline>Offline simulieren</button>
+      <button type="button" data-simulate-save-failure>Speicherfehler simulieren</button>
+    </div>
+    <ResilienceNotice
+      kind="offline"
+      heading="Offline"
+      body="Offline – du kannst lokal weiterarbeiten"
+      hidden
+    />
+    <RecoveryPanel
+      preservedState="Deine Arbeitsnotiz bleibt in dieser Ansicht erhalten."
+      resetDialogId="fixture-reset-dialog"
+    />
+    <DataActionDialog
+      id="fixture-reset-dialog"
+      action="reset"
+      title="Arbeitsstand zurücksetzen?"
+      description="Der lokale Arbeitsstand wird erst nach deiner Bestätigung entfernt."
+      confirmLabel="Endgültig zurücksetzen"
+    />
+  </article>
+
+  <script>
+    import { connectDataActionDialogs } from '@ium/learning-experience/controllers/data-action-dialog';
+    import { getSaveMessage } from '@ium/learning-experience/controllers/resilience-adapter';
+
+    connectDataActionDialogs();
+
+    document.querySelector<HTMLButtonElement>('[data-simulate-offline]')
+      ?.addEventListener('click', () => {
+        const notice = document.querySelector<HTMLElement>('[data-lx-resilience-notice]');
+        if (!notice) return;
+        notice.hidden = false;
+        notice.setAttribute('role', 'status');
+        notice.setAttribute('aria-live', 'polite');
+      });
+
+    document.querySelector<HTMLButtonElement>('[data-simulate-save-failure]')
+      ?.addEventListener('click', () => {
+        const indicator = document.querySelector<HTMLElement>('[data-lx-save-indicator]');
+        const message = indicator?.querySelector<HTMLElement>('[data-save-message]');
+        if (!indicator || !message) return;
+        indicator.dataset.saveState = 'failed';
+        indicator.setAttribute('role', 'alert');
+        indicator.setAttribute('aria-live', 'assertive');
+        message.textContent = getSaveMessage('failed');
+      });
+
+    document.querySelector<HTMLButtonElement>('[data-recovery-action="export"]')
+      ?.addEventListener('click', () => {
+        const note = document.querySelector<HTMLTextAreaElement>('textarea')?.value ?? '';
+        const blob = new Blob([JSON.stringify({ note })], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = 'arbeitsstand.json';
+        anchor.click();
+        URL.revokeObjectURL(url);
+      });
+  </script>
+</BaseLayout>

@@ -46,6 +46,7 @@ export function connectStatusAnnouncers(root: ParentNode = document): void {
       return;
     }
     summary.hidden = false;
+    summary.dataset.errorState = 'visible';
     const message = summary.querySelector<HTMLElement>('[data-error-message]');
     const action = summary.querySelector<HTMLElement>('[data-error-action]');
     const details = summary.querySelector<HTMLElement>('[data-error-details]');

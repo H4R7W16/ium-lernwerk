@@ -1,0 +1,24 @@
+---
+interface Props {
+  kind: 'offline' | 'update' | 'storage';
+  heading: string;
+  body: string;
+  announce?: boolean;
+  hidden?: boolean;
+}
+
+const { kind, heading, body, announce = false, hidden = false } = Astro.props;
+---
+
+<section
+  class="lx-resilience-notice lx-status"
+  data-lx-resilience-notice
+  data-resilience-kind={kind}
+  data-severity="info"
+  role={announce ? 'status' : undefined}
+  aria-live={announce ? 'polite' : undefined}
+  hidden={hidden}
+>
+  <h2 data-resilience-heading>{heading}</h2>
+  <p data-resilience-body>{body}</p>
+</section>

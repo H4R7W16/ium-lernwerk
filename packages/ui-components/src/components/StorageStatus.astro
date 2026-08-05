@@ -1,6 +1,8 @@
 ---
+import type { StoragePlatformState } from '../controllers/platform-state.js';
+
 interface Props {
-  mode?: 'persistent' | 'volatile-selected' | 'volatile-fallback';
+  mode?: StoragePlatformState;
 }
 
 const { mode = 'volatile-selected' } = Astro.props;
@@ -11,7 +13,7 @@ const labels = {
 } as const;
 ---
 
-<section class="status-card" aria-labelledby="storage-status-title" data-storage-mode={mode}>
+<section class="status-card" aria-labelledby="storage-status-title" data-platform-fact="storage" data-storage-mode={mode}>
   <h2 id="storage-status-title">Speicherstatus</h2>
   <p aria-live="polite" data-storage-status>{labels[mode]}</p>
 </section>
