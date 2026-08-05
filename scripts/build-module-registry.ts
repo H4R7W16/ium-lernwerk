@@ -10,6 +10,8 @@ import {
   parseWorkbenchResources,
   type WorkbenchResources,
 } from '../packages/ium-5-core-05/src/index.js';
+import type { ExperienceContentV1 } from '../packages/learning-experience/src/index.js';
+import { readExperienceContent } from './validate-experience-content.js';
 
 export type BuildProfile = 'production' | 'fixture';
 
@@ -32,6 +34,7 @@ export type ModuleRegistryEntry = Readonly<{
   countsTowardCoverage: boolean;
   publishedStatus: ModuleManifest['status'] | null;
   renderer: 'fixture-workspace' | 'algorithm-workbench';
+  experience?: ExperienceContentV1;
   workbench?: Readonly<{
     content: WorkbenchResources['content'];
     scenarios: WorkbenchResources['scenarios'];
@@ -269,6 +272,14 @@ export async function buildRegistry(
       }
     }
     const renderer = rendererFor(manifest, options.profile);
+    const experience = manifest.experienceContract === 1
+      ? await readExperienceContent(manifestRoot)
+      : undefined;
+    if (experience && experience.moduleId !== manifest.id) {
+      throw new Error(
+        `Invalid experience contract for ${manifest.id}: $.moduleId must equal ${manifest.id}.`,
+      );
+    }
     const baseEntry = {
       id: manifest.id,
       version: manifest.version,
@@ -297,6 +308,7 @@ export async function buildRegistry(
       }
       entries.push({
         ...baseEntry,
+        ...(experience ? { experience } : {}),
         workbench: {
           content: resources.value.content,
           scenarios: resources.value.scenarios,

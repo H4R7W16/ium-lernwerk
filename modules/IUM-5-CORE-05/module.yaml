@@ -1,4 +1,5 @@
 schemaVersion: 1
+experienceContract: 1
 id: IUM-5-CORE-05
 version: 0.1.0
 title: Präzise Abläufe ausführbar machen

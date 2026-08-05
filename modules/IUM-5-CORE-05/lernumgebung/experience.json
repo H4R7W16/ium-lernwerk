@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "IUM-5-CORE-05",
+  "terminologyVersion": "lxp04-1",
+  "start": {
+    "heading": "Algorithmen untersuchen",
+    "guidingQuestion": "Wie genau muss eine Vorschrift sein, damit Mensch und digitales System denselben Ablauf ausführen?",
+    "expectedCapability": "Du entwirfst einen eindeutigen Ablauf, sagst seine Wirkung voraus, prüfst die Laufspur und begründest eine Revision.",
+    "timeWindowMinutes": [10, 15],
+    "socialForm": "individual",
+    "primaryAction": {
+      "label": "Mit der Vermutung beginnen",
+      "result": "Öffnet die erste Denkhandlung; noch wird keine Lösung bewertet."
+    },
+    "resumeAction": {
+      "label": "Am bestätigten Schritt weiterarbeiten",
+      "purpose": "Stellt den letzten bestätigten Arbeitsstand und die nächste Denkhandlung wieder her."
+    },
+    "resetAction": {
+      "label": "Diesen Modulstand neu beginnen",
+      "consequence": "Löscht nach Bestätigung nur den lokalen Stand dieses Moduls; ein vorheriger Export bleibt erhalten."
+    }
+  },
+  "actions": [
+    {
+      "id": "orientation",
+      "state": "LS-ORIENT",
+      "taskId": "task-orientation",
+      "purpose": "Leitfrage, Lernprodukt und ersten fachlichen Schritt verstehen.",
+      "prompt": "Vergleiche zwei unterschiedliche Ausführungen desselben Auftrags: Welche Information fehlt für eine eindeutige Ausführung?",
+      "product": "Eine knappe Begründung für die erste fehlende Information.",
+      "criteria": ["Die fehlende Information wird konkret benannt.", "Die Begründung bezieht sich auf beide Ausführungen."],
+      "primaryAction": {"label": "Erste Begründung festhalten", "result": "Bestätigt den Startkontext und öffnet die Vermutung."},
+      "secondaryActions": [{"label": "Arbeitsform erklären", "purpose": "Zeigt Rollen und Wechselzeitpunkt ohne die Denkhandlung zu übernehmen."}],
+      "requiredEvidence": ["EVC-PREDICT"],
+      "supportIds": ["SUP-OPERATION"],
+      "checkpointId": null,
+      "persistence": "draft",
+      "next": [{"state": "LS-DECIDE", "guard": "Eine eigene Begründung wurde festgehalten."}]
+    },
+    {
+      "id": "prediction",
+      "state": "LS-DECIDE",
+      "taskId": "task-prediction",
+      "purpose": "Eine prüfbare Erwartung vor der Ausführung bilden.",
+      "prompt": "Sage Zielposition, Blickrichtung und erste mögliche Abweichung voraus, bevor du den Ablauf startest.",
+      "product": "Eine eigene Vorhersage mit Begründung.",
+      "criteria": ["Position und Blickrichtung sind getrennt benannt.", "Die Begründung verweist auf einen konkreten Befehl."],
+      "primaryAction": {"label": "Vorhersage festhalten", "result": "Sichert die Erwartung und gibt die Ausführung frei."},
+      "secondaryActions": [{"label": "Befehlsfolge noch einmal prüfen", "purpose": "Lässt die aktuelle Folge unverändert sichtbar."}],
+      "requiredEvidence": ["EVC-PREDICT"],
+      "supportIds": ["SUP-OPERATION", "SUP-CONCEPT"],
+      "checkpointId": null,
+      "persistence": "confirmed-product",
+      "next": [{"state": "LS-ACT", "guard": "Eine Vorhersage mit Position und Blickrichtung liegt vor."}]
+    },
+    {
+      "id": "run",
+      "state": "LS-ACT",
+      "taskId": "task-run",
+      "purpose": "Den entworfenen Algorithmus deterministisch ausführen.",
+      "prompt": "Führe den bestätigten Ablauf aus und beobachte jeden Zustandswechsel in der Laufspur.",
+      "product": "Eine vollständige Laufspur zum bestätigten Algorithmus.",
+      "criteria": ["Die Ausführung verwendet die bestätigte Fassung.", "Jeder Schritt zeigt Vorzustand, Befehl und Nachzustand."],
+      "primaryAction": {"label": "Bestätigten Ablauf ausführen", "result": "Erzeugt die Laufspur und öffnet den Vergleich mit der Vorhersage."},
+      "secondaryActions": [{"label": "Zur Vorhersage zurückkehren", "purpose": "Zeigt die festgehaltene Erwartung ohne sie zu überschreiben."}],
+      "requiredEvidence": ["EVC-PREDICT"],
+      "supportIds": ["SUP-OPERATION"],
+      "checkpointId": null,
+      "persistence": "confirmed-product",
+      "next": [{"state": "LS-OBSERVE", "guard": "Die Ausführung ist beendet oder hat einen erklärten Fehlerzustand erreicht."}]
+    },
+    {
+      "id": "evidence",
+      "state": "LS-OBSERVE",
+      "taskId": "task-evidence",
+      "purpose": "Vorhersage und beobachtete Wirkung anhand eines Belegs vergleichen.",
+      "prompt": "Markiere die erste Stelle, an der Erwartung und Laufspur auseinandergehen, und beschreibe die Wirkung.",
+      "product": "Ein ausgewählter Laufspurschritt mit begründeter Deutung.",
+      "criteria": ["Die erste Abweichung ist lokalisiert.", "Befehl, Zustand und Wirkung sind verbunden."],
+      "primaryAction": {"label": "Beleg und Deutung festhalten", "result": "Sichert den Vergleich und öffnet die begründete Revision."},
+      "secondaryActions": [{"label": "Gesamte Laufspur ansehen", "purpose": "Öffnet die vollständige Quelle ohne die Auswahl zu verändern."}],
+      "requiredEvidence": ["EVC-ANALYZE"],
+      "supportIds": ["SUP-CONCEPT", "SUP-STRATEGY"],
+      "checkpointId": "checkpoint-comparison",
+      "persistence": "evidence",
+      "next": [{"state": "LS-INTERPRET", "guard": "Ein Schritt und seine Wirkung wurden als Beleg ausgewählt."}, {"state": "LS-REVISE", "guard": "Eine Ursache wurde mit dem Beleg verbunden."}]
+    },
+    {
+      "id": "revision",
+      "state": "LS-REVISE",
+      "taskId": "task-revision",
+      "purpose": "Eine gezielte Änderung aus der belegten Ursache ableiten.",
+      "prompt": "Ändere genau den Teil, der nach deinem Beleg die Abweichung verursacht, und formuliere eine neue Vorhersage.",
+      "product": "Eine revidierte Fassung mit Änderungshypothese und neuer Vorhersage.",
+      "criteria": ["Die Änderung bezieht sich auf den gewählten Beleg.", "Vorher und Nachher sind ausdrücklich benannt."],
+      "primaryAction": {"label": "Revision erneut prüfen", "result": "Führt die revidierte Fassung aus und erhält die alte Fassung zum Vergleich."},
+      "secondaryActions": [{"label": "Belegauswahl überprüfen", "purpose": "Kehrt zum Beleg zurück, ohne die Revision zu löschen."}],
+      "requiredEvidence": ["EVC-REVISE"],
+      "supportIds": ["SUP-STRATEGY", "SUP-EXAMPLE"],
+      "checkpointId": null,
+      "persistence": "confirmed-product",
+      "next": [{"state": "LS-SECURE", "guard": "Revision und neue Vorhersage wurden durch eine neue Laufspur geprüft."}]
+    },
+    {
+      "id": "secure",
+      "state": "LS-SECURE",
+      "taskId": "task-secure",
+      "purpose": "Aussage, Beleg, Revision und Modellgrenze anschlussfähig sichern.",
+      "prompt": "Formuliere, was dein Beleg zeigt, welche Änderung trägt und was das Rastermodell nicht zeigt.",
+      "product": "Eine versionierte Belegkarte mit Quellenbezug und Modellgrenze.",
+      "criteria": ["Aussage und Beleg sind verbunden.", "Revision und Modellgrenze sind ausdrücklich benannt."],
+      "primaryAction": {"label": "Belegkarte lokal sichern", "result": "Speichert eine neue Kartenfassung und lässt die Quelle unverändert erreichbar."},
+      "secondaryActions": [{"label": "Belegkarte vor dem Sichern prüfen", "purpose": "Zeigt Pflichtfelder, Quelle und Kartenfassung."}],
+      "requiredEvidence": ["EVC-SECURE"],
+      "supportIds": ["SUP-STRATEGY"],
+      "checkpointId": null,
+      "persistence": "evidence",
+      "next": [{"state": "LS-TRANSFER", "guard": "Eine vollständige Belegkarte wurde bestätigt gespeichert."}, {"state": "LS-PAUSE", "guard": "Die Kartenfassung ist bestätigt und ein späterer Wiedereinstieg wurde gewählt."}]
+    },
+    {
+      "id": "transfer",
+      "state": "LS-TRANSFER",
+      "taskId": "task-transfer",
+      "purpose": "Die gesicherte Aussage auf einen neuen Systemfall übertragen.",
+      "prompt": "Entscheide zuerst selbst, ob der neue Fall algorithmisch gesteuert ist, und begründe, welcher Teil deiner Aussage trägt.",
+      "product": "Eine getrennte Transferentscheidung mit Begründung und Modellgrenze.",
+      "criteria": ["Die Entscheidung entsteht vor dem Einblenden der alten Karte.", "Tragender Teil und Grenze werden begründet."],
+      "primaryAction": {"label": "Transferentscheidung festhalten", "result": "Sichert die neue Entscheidung getrennt und erlaubt danach den Vergleich."},
+      "secondaryActions": [{"label": "Neuen Fall vollständig lesen", "purpose": "Zeigt alle Fallinformationen ohne die alte Karte einzublenden."}],
+      "requiredEvidence": ["EVC-SECURE"],
+      "supportIds": ["SUP-CONCEPT", "SUP-STRATEGY"],
+      "checkpointId": "checkpoint-transfer",
+      "persistence": "evidence",
+      "next": [{"state": "LS-PAUSE", "guard": "Die Transferentscheidung und ihre Begründung wurden bestätigt."}]
+    },
+    {
+      "id": "reentry",
+      "state": "LS-ORIENT",
+      "taskId": "task-reentry",
+      "purpose": "Nach einer Unterbrechung zuerst eigenes Wissen abrufen und dann vergleichen.",
+      "prompt": "Woran erkennst du in einer Laufspur die erste Ursache einer Abweichung? Antworte, bevor du deine alte Belegkarte öffnest.",
+      "product": "Eine heutige Abrufantwort mit anschließendem Vergleich zur alten Karte.",
+      "criteria": ["Die heutige Antwort bleibt unverändert getrennt.", "Tragfähiges und zu änderndes Wissen wird benannt."],
+      "primaryAction": {"label": "Heutige Antwort festhalten", "result": "Sichert die Abrufantwort getrennt und gibt die alte Belegkarte frei."},
+      "secondaryActions": [{"label": "Wiedereinstieg später fortsetzen", "purpose": "Erhält Karte und heutige Eingabe ohne Vergleich."}],
+      "requiredEvidence": ["EVC-SECURE"],
+      "supportIds": ["SUP-STRATEGY"],
+      "checkpointId": null,
+      "persistence": "evidence",
+      "next": [{"state": "LS-DECIDE", "guard": "Die Abrufantwort wurde vor dem Kartenvergleich festgehalten."}]
+    }
+  ],
+  "tasks": [
+    {"id":"task-orientation","learningGoal":"Eindeutigkeit als fachliches Problem erkennen.","purpose":"Den Lernweg aus einem konkreten Kontrast eröffnen.","thinkingAction":"vergleichen und begründen","product":"Begründung zur fehlenden Information","materialRefs":["phase:ue1-orientation","activity:precision-contrast"],"criteria":["fehlende Information konkret","Bezug auf beide Ausführungen"],"requiredEvidence":["EVC-PREDICT"],"supportIds":["SUP-OPERATION"],"feedbackId":"FB-ORIENTATION","socialForm":"plenary","roleIds":[],"persistence":"draft","offlineRequirement":"core","recoverySpecId":"SAVE_FAILED"},
+    {"id":"task-prediction","learningGoal":"Die Wirkung eines grafischen Algorithmus vorhersagen.","purpose":"Eine eigene Erwartung vor Systemrückmeldung sichern.","thinkingAction":"vorhersagen und begründen","product":"Vorhersage zu Position und Blickrichtung","materialRefs":["phase:ue2-guided","scenario:worked-sequence"],"criteria":["Position und Blickrichtung getrennt","konkreter Befehlsbezug"],"requiredEvidence":["EVC-PREDICT"],"supportIds":["SUP-OPERATION","SUP-CONCEPT"],"feedbackId":"FB-PREDICTION","socialForm":"individual","roleIds":[],"persistence":"confirmed-product","offlineRequirement":"core","recoverySpecId":"SAVE_FAILED"},
+    {"id":"task-run","learningGoal":"Zustandsänderungen schrittweise nachvollziehen.","purpose":"Vorhersage und deterministische Ausführung vergleichbar machen.","thinkingAction":"ausführen und beobachten","product":"vollständige Laufspur","materialRefs":["phase:ue2-guided","scenario:worked-sequence"],"criteria":["bestätigte Fassung verwendet","Vor- und Nachzustand sichtbar"],"requiredEvidence":["EVC-PREDICT"],"supportIds":["SUP-OPERATION"],"feedbackId":"FB-RUN","socialForm":"pair","roleIds":["steuern","vorhersagen-prüfen"],"persistence":"confirmed-product","offlineRequirement":"core","recoverySpecId":"SAVE_FAILED"},
+    {"id":"task-evidence","learningGoal":"Die erste Abweichung mit einer Laufspur belegen.","purpose":"Rückmeldung als Beleg statt als Lösungsurteil deuten.","thinkingAction":"lokalisieren und interpretieren","product":"Belegausschnitt mit Deutung","materialRefs":["phase:ue3-guided","scenario:error-order"],"criteria":["erste Abweichung lokalisiert","Wirkung erklärt"],"requiredEvidence":["EVC-ANALYZE"],"supportIds":["SUP-CONCEPT","SUP-STRATEGY"],"feedbackId":"FB-EVIDENCE","socialForm":"pair","roleIds":["steuern","vorhersagen-prüfen"],"persistence":"evidence","offlineRequirement":"core","recoverySpecId":"SAVE_FAILED"},
+    {"id":"task-revision","learningGoal":"Eine gezielte Reparatur aus einem Beleg ableiten.","purpose":"Revision als begründete neue Hypothese prüfen.","thinkingAction":"revidieren und erneut prüfen","product":"revidierter Algorithmus mit neuer Vorhersage","materialRefs":["phase:ue4-revision","scenario:repair-standard"],"criteria":["Änderung folgt dem Beleg","Vorher und Nachher benannt"],"requiredEvidence":["EVC-REVISE"],"supportIds":["SUP-STRATEGY","SUP-EXAMPLE"],"feedbackId":"FB-REVISION","socialForm":"individual","roleIds":[],"persistence":"confirmed-product","offlineRequirement":"core","recoverySpecId":"SAVE_FAILED"},
+    {"id":"task-secure","learningGoal":"Eine fachliche Aussage mit Beleg und Modellgrenze sichern.","purpose":"Das Lernprodukt später nachvollziehbar und übertragbar machen.","thinkingAction":"auswählen, verbinden und begrenzen","product":"versionierte Belegkarte","materialRefs":["phase:ue5-consolidation","source:confirmed-trace"],"criteria":["Aussage mit Quelle verbunden","Revision und Modellgrenze enthalten"],"requiredEvidence":["EVC-SECURE"],"supportIds":["SUP-STRATEGY"],"feedbackId":"FB-SECURE","socialForm":"individual","roleIds":[],"persistence":"evidence","offlineRequirement":"core","recoverySpecId":"SAVE_FAILED"},
+    {"id":"task-transfer","learningGoal":"Eine gesicherte Aussage auf einen neuen Systemfall übertragen.","purpose":"Tragweite und Grenze algorithmischer Aussagen prüfen.","thinkingAction":"klassifizieren und begründen","product":"getrennte Transferentscheidung","materialRefs":["phase:ue5-transfer","transfer:search-service"],"criteria":["eigene Entscheidung zuerst","Tragweite und Grenze begründet"],"requiredEvidence":["EVC-SECURE"],"supportIds":["SUP-CONCEPT","SUP-STRATEGY"],"feedbackId":"FB-TRANSFER","socialForm":"individual","roleIds":[],"persistence":"evidence","offlineRequirement":"core","recoverySpecId":"OFFLINE_LIMIT"},
+    {"id":"task-reentry","learningGoal":"Gesichertes Wissen aktiv abrufen und weiterentwickeln.","purpose":"Wiedereinstieg ohne bloßes Wiederanzeigen alter Antworten ermöglichen.","thinkingAction":"abrufen, vergleichen und anschließen","product":"heutige Antwort und Kartenvergleich","materialRefs":["phase:ue5-consolidation","source:evidence-card"],"criteria":["Abruf vor Kartenansicht","Antworten getrennt erhalten"],"requiredEvidence":["EVC-SECURE"],"supportIds":["SUP-STRATEGY"],"feedbackId":"FB-REENTRY","socialForm":"individual","roleIds":[],"persistence":"evidence","offlineRequirement":"core","recoverySpecId":"VERSION_BLOCK"}
+  ],
+  "feedback": [
+    {"id":"FB-ORIENTATION","result":"Die beiden Ausführungen unterscheiden sich.","evidenceRef":"EVC-PREDICT","criterion":"Eine fehlende Information ist konkret benannt.","interpretationPrompt":"Welche Formulierung ließ mehrere Handlungen zu?","nextCheck":"Prüfe, ob deine Ergänzung nur noch eine Ausführung erlaubt.","strategySupportId":"SUP-STRATEGY","exampleSupportId":null},
+    {"id":"FB-PREDICTION","result":"Deine Vorhersage ist für den Vergleich gesichert.","evidenceRef":"EVC-PREDICT","criterion":"Position und Blickrichtung sind getrennt.","interpretationPrompt":"Welcher Befehl trägt deine Erwartung?","nextCheck":"Vergleiche nach der Ausführung zuerst diesen Befehl.","strategySupportId":"SUP-STRATEGY","exampleSupportId":"SUP-EXAMPLE"},
+    {"id":"FB-RUN","result":"Die Laufspur zeigt die Zustände jedes ausgeführten Schritts.","evidenceRef":"EVC-PREDICT","criterion":"Die bestätigte Fassung wurde vollständig ausgeführt.","interpretationPrompt":"Ab welchem Schritt verändert sich die Wirkung gegenüber deiner Erwartung?","nextCheck":"Wähle die erste Abweichung, nicht nur den Endzustand.","strategySupportId":"SUP-STRATEGY","exampleSupportId":null},
+    {"id":"FB-EVIDENCE","result":"Der ausgewählte Schritt zeigt eine konkrete Wirkung.","evidenceRef":"EVC-ANALYZE","criterion":"Befehl, Zustand und Wirkung sind verbunden.","interpretationPrompt":"Warum beginnt die Abweichung genau an dieser Stelle?","nextCheck":"Prüfe, ob der vorherige Schritt noch zu deiner Vorhersage passt.","strategySupportId":"SUP-STRATEGY","exampleSupportId":"SUP-EXAMPLE"},
+    {"id":"FB-REVISION","result":"Die neue Laufspur macht die Wirkung deiner Änderung sichtbar.","evidenceRef":"EVC-REVISE","criterion":"Die Änderung folgt dem ausgewählten Beleg.","interpretationPrompt":"Welche Wirkung hat sich durch genau diese Änderung verändert?","nextCheck":"Vergleiche alte und neue Spur am gleichen Schritt.","strategySupportId":"SUP-STRATEGY","exampleSupportId":"SUP-EXAMPLE"},
+    {"id":"FB-SECURE","result":"Die Karte verbindet Aussage, Beleg, Revision und Grenze.","evidenceRef":"EVC-SECURE","criterion":"Die Quelle bleibt vollständig nachvollziehbar.","interpretationPrompt":"Welcher Teil deiner Aussage wird vom Beleg getragen?","nextCheck":"Prüfe, ob die Modellgrenze ausdrücklich sagt, was nicht gezeigt wird.","strategySupportId":"SUP-STRATEGY","exampleSupportId":null},
+    {"id":"FB-TRANSFER","result":"Deine neue Entscheidung ist getrennt festgehalten.","evidenceRef":"EVC-SECURE","criterion":"Tragender Teil und Grenze sind begründet.","interpretationPrompt":"Was lässt sich aus der alten Karte übernehmen, was nicht?","nextCheck":"Öffne die alte Karte erst nach deiner eigenen Entscheidung.","strategySupportId":"SUP-STRATEGY","exampleSupportId":null},
+    {"id":"FB-REENTRY","result":"Deine heutige Antwort bleibt neben der alten Karte erhalten.","evidenceRef":"EVC-SECURE","criterion":"Abruf und frühere Aussage bleiben unterscheidbar.","interpretationPrompt":"Was bleibt tragfähig und was würdest du heute ändern?","nextCheck":"Verbinde eine Änderung wieder mit einem konkreten Laufspurschritt.","strategySupportId":"SUP-STRATEGY","exampleSupportId":null}
+  ],
+  "supports": [
+    {"id":"SUP-OPERATION","kind":"operation","title":"Bedienung klären","trigger":"Wenn die nächste Bedienhandlung unklar ist.","content":"Wähle einen Befehl, füge ihn an der markierten Stelle ein und prüfe seine Beschriftung. Deine fachliche Entscheidung bleibt bei dir.","preservesAction":"Der aktuelle Entwurf und die verlangte Denkhandlung bleiben unverändert.","nextSupportId":"SUP-CONCEPT"},
+    {"id":"SUP-CONCEPT","kind":"concept","title":"Zustand unterscheiden","trigger":"Wenn Position, Blickrichtung oder Wirkung verwechselt werden.","content":"Ein Zustand beschreibt Position und Blickrichtung getrennt. Eine Drehung verändert die Blickrichtung, aber nicht zugleich die Position.","preservesAction":"Du sagst die Wirkung weiterhin selbst voraus.","nextSupportId":"SUP-STRATEGY"},
+    {"id":"SUP-STRATEGY","kind":"strategy","title":"Erste Abweichung finden","trigger":"Wenn die Ursache in der Laufspur nicht lokalisiert werden kann.","content":"Vergleiche Vorhersage und Laufspur Schritt für Schritt. Halte an der ersten Stelle an, an der Vorzustand oder Wirkung nicht mehr zusammenpassen.","preservesAction":"Du wählst den Beleg und formulierst seine Bedeutung selbst.","nextSupportId":"SUP-EXAMPLE"},
+    {"id":"SUP-EXAMPLE","kind":"example","title":"Neutralen Kontrast prüfen","trigger":"Wenn die Strategie noch nicht selbstständig angewendet werden kann.","content":"In einem neutralen Kurzfall stimmen die ersten zwei Schritte überein; beim dritten verändert eine Drehung nur die Blickrichtung. Prüfe danach wieder deinen eigenen Fall.","preservesAction":"Das Beispiel enthält nicht die Lösung des aktuellen Auftrags.","nextSupportId":null}
+  ],
+  "checkpoints": [
+    {"id":"checkpoint-comparison","state":"LS-INTERPRET","purpose":"Vor Revisionen zwei Begründungen oder einen neutralen Kontrast gemeinsam prüfen.","timeWindowMinutes":[5,10],"socialForm":"plenary","learnerSignal":"Lernende können erste Abweichung, Wirkung und vermutete Ursache benennen.","ordinaryEvidence":["freiwillig gezeigter Belegausschnitt","Partnererklärung","Handzeichen zur Vergleichsbereitschaft"],"teacherPrompt":"Welche Stelle zeigt zuerst eine andere Wirkung, und woran seht ihr das?","neutralFallback":"Einen vorbereiteten neutralen Laufspurausschnitt gemeinsam prüfen.","returnState":"LS-REVISE","exitCriterion":"Beleg und Ursache können ohne Musterlösung verbunden werden."},
+    {"id":"checkpoint-transfer","state":"LS-TRANSFER","purpose":"Transferentscheidungen erst nach einer eigenen Position gemeinsam kontrastieren.","timeWindowMinutes":[5,10],"socialForm":"plenary","learnerSignal":"Eine eigene Entscheidung mit tragendem Teil und Modellgrenze liegt vor.","ordinaryEvidence":["freiwillige Begründung","Partnervergleich","bewusst gezeigte Transferansicht"],"teacherPrompt":"Welcher Teil eurer gesicherten Aussage trägt im neuen Fall, und wo endet er?","neutralFallback":"Einen vereinfachten Textfall mit derselben Klassifikationsentscheidung verwenden.","returnState":"LS-SECURE","exitCriterion":"Tragweite und Grenze werden fachlich unterschieden."}
+  ],
+  "evidenceCards": [
+    {"id":"EVC-PREDICT","actionKind":"predict-test","requiredFields":["EVC-CONTEXT","EVC-CLAIM","EVC-ACTION","EVC-EFFECT","EVC-INTERPRET"],"modelBoundaryPrompt":"Was kann die Laufspur über deine Erwartung zeigen, und was nicht?","transferPromptId":null,"reentryPromptId":null},
+    {"id":"EVC-REVISE","actionKind":"create-revise","requiredFields":["EVC-CONTEXT","EVC-CLAIM","EVC-ACTION","EVC-EFFECT","EVC-INTERPRET","EVC-REVISION"],"modelBoundaryPrompt":"Welche Wirkung zeigt das Rastermodell, und welche reale Bedingung bildet es nicht ab?","transferPromptId":null,"reentryPromptId":null},
+    {"id":"EVC-ANALYZE","actionKind":"analyze-judge","requiredFields":["EVC-CONTEXT","EVC-CLAIM","EVC-ACTION","EVC-EFFECT","EVC-INTERPRET","EVC-CONCLUSION"],"modelBoundaryPrompt":"Welche Schlussfolgerung trägt der Beleg, und welche wäre zu weit?","transferPromptId":null,"reentryPromptId":null},
+    {"id":"EVC-SECURE","actionKind":"secure-transfer","requiredFields":["EVC-CONTEXT","EVC-CLAIM","EVC-ACTION","EVC-EFFECT","EVC-INTERPRET","EVC-REVISION","EVC-CONCLUSION","EVC-TRANSFER","EVC-RECOVERY"],"modelBoundaryPrompt":"Was zeigt dein Modell zuverlässig, und welche Grenze muss beim Übertragen sichtbar bleiben?","transferPromptId":"transfer","reentryPromptId":"reentry"}
+  ],
+  "resilience": [
+    {"code":"OFFLINE_READY","severity":"info","affectedWork":"Der aktuelle Lernabschnitt","preservedState":"Vorhandene lokale Arbeit bleibt vollständig erhalten.","consequence":"Der Kerninhalt funktioniert ohne Netzwerk.","primaryAction":"Lokal weiterarbeiten","secondaryAction":null,"returnTarget":"Zum aktuellen Lernschritt"},
+    {"code":"OFFLINE_LIMIT","severity":"limit","affectedWork":"Transfer und externer Export","preservedState":"Belegkarte und lokale Datei bleiben erhalten.","consequence":"Externe Übergabe ist gerade nicht verfügbar; der Textfall bleibt vollständig nutzbar.","primaryAction":"Textfall lokal bearbeiten","secondaryAction":"Lokale Datei erzeugen","returnTarget":"Zur Transferentscheidung"},
+    {"code":"SAVE_FAILED","severity":"block","affectedWork":"Die aktuelle Eingabe oder Belegkarte","preservedState":"Die letzte bestätigte Fassung bleibt autoritativ; die aktuelle Eingabe bleibt editierbar.","consequence":"Die neue Fassung ist noch nicht dauerhaft bestätigt.","primaryAction":"Erneut lokal speichern","secondaryAction":"Vollständigen Export erzeugen","returnTarget":"Zur aktuellen Eingabe"},
+    {"code":"VERSION_BLOCK","severity":"block","affectedWork":"Die gespeicherte Belegkarte","preservedState":"Originalkarte und vollständiger Snapshot bleiben unverändert.","consequence":"Die Karte kann in dieser Fassung nicht sicher bearbeitet werden.","primaryAction":"Original sicher öffnen","secondaryAction":"Original exportieren","returnTarget":"Zum Wiedereinstieg"},
+    {"code":"RESET_CONFIRM","severity":"block","affectedWork":"Der lokale Stand dieses Moduls","preservedState":"Ohne Bestätigung bleibt der gesamte Stand erhalten.","consequence":"Bestätigtes Zurücksetzen entfernt nur diesen Modulstand; externe Exporte bleiben bestehen.","primaryAction":"Zurücksetzen ausdrücklich bestätigen","secondaryAction":"Zur aktuellen Arbeit zurückkehren","returnTarget":"Zum Auslöser des Dialogs"}
+  ]
+}

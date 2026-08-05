@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "TEST-PLATFORM-REFERENCE",
+  "terminologyVersion": "lxp04-1",
+  "start": {
+    "heading": "Technische Referenz öffnen",
+    "guidingQuestion": "Wie bleibt ein synthetischer Zustand lokal erhalten?",
+    "expectedCapability": "Du prüfst einen rein technischen Referenzzustand.",
+    "timeWindowMinutes": [1, 2],
+    "socialForm": "individual",
+    "primaryAction": {"label": "Technische Probe öffnen", "result": "Öffnet die synthetische Eingabe."},
+    "resumeAction": null,
+    "resetAction": null
+  },
+  "actions": [],
+  "tasks": [],
+  "feedback": [],
+  "supports": [],
+  "checkpoints": [],
+  "evidenceCards": [],
+  "resilience": []
+}

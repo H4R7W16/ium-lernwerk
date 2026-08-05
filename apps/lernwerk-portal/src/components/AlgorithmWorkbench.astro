@@ -1,5 +1,6 @@
 ---
 import type { WorkbenchResources } from '@ium/ium-5-core-05';
+import type { ExperienceContentV1 } from '@ium/learning-experience';
 import workbenchStyles from '../styles/algorithm-workbench.css?raw';
 
 interface Props {
@@ -10,9 +11,10 @@ interface Props {
     scenarios: WorkbenchResources['scenarios'];
     robotAssetPath: string;
   }>;
+  experience?: ExperienceContentV1;
 }
 
-const { moduleId, moduleVersion, resources } = Astro.props;
+const { moduleId, moduleVersion, resources, experience } = Astro.props;
 const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
 const robotAssetUrl = `${base}${resources.robotAssetPath}`;
 const firstScenario = resources.scenarios[0]?.scenario;
@@ -64,6 +66,7 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
   data-initialization-state="initializing"
   data-module-id={moduleId}
   data-module-version={moduleVersion}
+  data-experience-contract={experience?.schemaVersion}
 >
   <style is:inline set:html={workbenchStyles}></style>
   <p class="working-banner" role="status">
