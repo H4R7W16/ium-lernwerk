@@ -1,0 +1,13 @@
+{
+  "name": "@ium/learning-experience",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/components/*.astro",
+    "./controllers/*": "./src/controllers/*.ts",
+    "./styles/*": "./src/styles/*"
+  }
+}

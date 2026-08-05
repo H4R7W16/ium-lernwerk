@@ -33,6 +33,13 @@ test('accepts the approved current workspace graph', async () => {
   expect(report.violations).toEqual([]);
 });
 
+test('recognizes learning-experience as a semantic leaf package', async () => {
+  const report = await checkWorkspaceBoundaries({ rootDir: repoRoot });
+
+  expect(report.workspaces).toContain('@ium/learning-experience');
+  expect(report.violations).toEqual([]);
+});
+
 test('rejects idb outside local-state', async () => {
   const root = await createWorkspace(
     'packages/export-import',
@@ -68,4 +75,22 @@ test('recognizes IUM5 as a dependency-closed, framework-free core package', asyn
   expect(codes).toContain('UNAPPROVED_DEPENDENCY');
   expect(codes).toContain('FRAMEWORK_IMPORT_IN_CORE');
   expect(codes).toContain('DOM_USAGE_IN_CORE');
+});
+
+test('rejects learning-experience imports from framework-free core', async () => {
+  const root = await createWorkspace(
+    'packages/ium-5-core-05',
+    {
+      name: '@ium/ium-5-core-05',
+      version: '0.1.0',
+      private: true,
+      dependencies: { '@ium/learning-experience': '0.1.0' },
+    },
+    "import '@ium/learning-experience';\n",
+  );
+  const report = await checkWorkspaceBoundaries({ rootDir: root });
+
+  expect(report.violations.map((entry) => entry.code)).toContain(
+    'UNAPPROVED_DEPENDENCY',
+  );
 });

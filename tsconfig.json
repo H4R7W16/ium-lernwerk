@@ -16,6 +16,9 @@
     },
     {
       "path": "./packages/ium-5-core-05"
+    },
+    {
+      "path": "./packages/learning-experience"
     }
   ]
 }
