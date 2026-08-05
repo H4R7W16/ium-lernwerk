@@ -1,9 +1,10 @@
 # IuM-Lernwerk – Design-, Interaktions- und Produktionssystem
 
 - **Task:** LXP04 Designsystem, Interaktionsmuster und Produktionsverträge ableiten
-- **Status:** reviewbereit; schriftliche Nutzerfreigabe offen
-- **Fassung:** 0.9
+- **Status:** ausdrücklich schriftlich freigegeben; normativ
+- **Fassung:** 1.0
 - **Datum:** 5. August 2026
+- **Freigabe:** 5. August 2026 mit `LXP04 freigegeben`
 - **Geltungsbereich:** IuM-Lernwerk, Gymnasium Baden-Württemberg, Klassen 5–7, Niveau E
 - **Ausgangsstand:** lokaler `main` auf `38c68b6`; `origin/main` auf `3498838`
 - **Arbeitsgrenze:** codefreie Spezifikation und detaillierter Implementierungsplan; kein Produktcode, keine IUM5-Neufassung, kein Preview, keine reale Erprobung
@@ -25,9 +26,9 @@ Das System wird in LXP05 technisch als eigenes Paket `@ium/learning-experience` 
 
 ## 2. Status, Geltungsbereich und Freigabegates
 
-Der Nutzer hat LXP04 am 5. August 2026 ausdrücklich zur vollständigen Ausführung beauftragt, Codex operative Entscheidungen übertragen und nur dokumentierte Freigabegates als Stopppunkte bestimmt. Damit sind Taskanlage, Kontextprüfung, Ansatzvergleich, Designsystem-Spezifikation, Produktionsvertrag, Selbstprüfung, Implementierungsplan, lokale Dokumentationsintegration und gebündelte Reviewvorbereitung geöffnet.
+Der Nutzer hat LXP04 am 5. August 2026 ausdrücklich zur vollständigen Ausführung beauftragt, Codex operative Entscheidungen übertragen und nur dokumentierte Freigabegates als Stopppunkte bestimmt. Am selben Tag hat der Nutzer die vollständige Spezifikation Fassung 0.9 und den detaillierten Implementierungsplan mit `LXP04 freigegeben` ausdrücklich schriftlich angenommen. Damit ist Fassung 1.0 normativ.
 
-LXP04 entscheidet verbindlich nach schriftlicher Freigabe:
+LXP04 entscheidet mit dieser schriftlichen Freigabe verbindlich:
 
 - Systemgrenze und Paketverantwortung;
 - semantische Designrollen und konkrete Grundwerte;
@@ -37,7 +38,6 @@ LXP04 entscheidet verbindlich nach schriftlicher Freigabe:
 
 Geschlossen bleiben:
 
-- schriftliche Annahme dieser Spezifikation und des Implementierungsplans;
 - Ausführung von LXP05 oder des Implementierungsplans;
 - Änderungen an Apps, Paketen, Modulen, Tests, Assets oder Buildkonfiguration;
 - Neufassung von `IUM-5-CORE-05`;
@@ -1075,13 +1075,13 @@ Der Plan ist eine Ausführungsgrundlage, keine Ausführungsfreigabe. LXP05 darf 
 - detaillierter TDD-Implementierungsplan separat erstellt;
 - Repository-Scope bleibt dokumentarisch; kein Produktcode und keine Folgephase begonnen.
 
-Offen bleibt ausschließlich die ausdrücklich dokumentierte schriftliche Nutzerfreigabe.
+Die ausdrücklich dokumentierte schriftliche Nutzerfreigabe ist erfolgt. Offen bleiben ausschließlich die getrennten LXP05- und späteren Produkt-/Einsatzgates.
 
 ## 25. Schriftliches Freigabegate
 
-Die LXP04-Spezifikation und der Implementierungsplan werden als gebündeltes Reviewpaket vorgelegt. Eine Freigabe muss ausdrücklich schriftlich erfolgen, zum Beispiel mit `LXP04 freigegeben`.
+Die LXP04-Spezifikation und der Implementierungsplan wurden als gebündeltes Reviewpaket vorgelegt. Der Nutzer hat dieses Paket am 5. August 2026 mit `LXP04 freigegeben` ausdrücklich schriftlich angenommen.
 
-Die Freigabe würde bewirken:
+Die Freigabe bewirkt:
 
 - Fassung 1.0 wird normativer Design-, Interaktions-, Inhalts-, Accessibility-, Produktions- und Governancevertrag;
 - der detaillierte TDD-Plan wird verbindliche Planungsgrundlage;
@@ -1095,4 +1095,4 @@ Die Freigabe bewirkt nicht:
 - Preview, Deployment, Realgerätegate, Pilotierung, LMS, Release oder Statushochsetzung;
 - Push oder Pull Request des lokalen Dokumentationsstands.
 
-Bis zur schriftlichen Antwort bleibt diese Fassung `0.9`, der Task `review` und LXP05 geschlossen.
+Damit ist diese Spezifikation Fassung `1.0`, der Task `done` und LXP05 fachlich entblockt. LXP05 wird nicht automatisch gestartet; dafür ist ein eigener ausdrücklicher Folgeauftrag erforderlich.
