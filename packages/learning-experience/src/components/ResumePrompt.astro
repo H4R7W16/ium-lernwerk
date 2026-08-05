@@ -1,0 +1,27 @@
+---
+interface Props {
+  heading: string;
+  stageLabel: string;
+  resumePurpose: string;
+  resetConsequence: string;
+}
+
+const { heading, stageLabel, resumePurpose, resetConsequence } = Astro.props;
+---
+
+<section class="lx-resume-prompt" data-resume-prompt aria-labelledby="lx-resume-title" hidden>
+  <p class="eyebrow">Wiedereinstieg</p>
+  <h1 id="lx-resume-title">{heading}</h1>
+  <p><strong>Letzter sinnvoller Lernschritt:</strong> <span data-resume-stage>{stageLabel}</span></p>
+  <p class="lx-readable">{resumePurpose}</p>
+  <div class="lx-action-edge">
+    <div>
+      <button type="button" data-resume-primary>Weiterarbeiten</button>
+      <p>Öffnet den bestätigten Lernschritt, ohne Antworten vorwegzunehmen.</p>
+    </div>
+    <div>
+      <button type="button" data-start-reset>Neu beginnen</button>
+      <p>{resetConsequence}</p>
+    </div>
+  </div>
+</section>

@@ -35,6 +35,7 @@ import { createBrowserExportPort, createWorkspaceId } from './browser-ports.js';
 import { deriveIum5ExperienceState } from './experience-adapter.js';
 import {
   renderAlgorithm,
+  renderExperienceEntry,
   renderExecution,
   renderExperienceState,
   renderScenarioDescription,
@@ -270,6 +271,7 @@ export async function connectAlgorithmWorkbench(
     }
   }
 
+  let experienceEntered = false;
   let experienceState = deriveIum5ExperienceState(payload, {
     hasStoredState,
     saveState,
@@ -289,6 +291,7 @@ export async function connectAlgorithmWorkbench(
     });
     const stageChanged = next.stage !== experienceState.stage;
     renderExperienceState(root, next);
+    renderExperienceEntry(root, next, experienceEntered);
     const stage = root.querySelector<HTMLElement>('[data-lx-focus-stage]');
     if (stage) {
       stage.dataset.focusOnActivation = String(userTriggered && stageChanged);
@@ -702,6 +705,14 @@ export async function connectAlgorithmWorkbench(
     syncExperienceState(activateStage);
   };
 
+  const enterExperience = (): void => {
+    experienceEntered = true;
+    syncExperienceState(false);
+    const stage = root.querySelector<HTMLElement>('[data-lx-focus-stage]');
+    if (stage) stage.dataset.focusOnActivation = 'true';
+    focusActivatedStage(root);
+  };
+
   setText(
     root,
     '[data-path-summary]',
@@ -732,6 +743,66 @@ export async function connectAlgorithmWorkbench(
   const deleteButton = requiredElement<HTMLButtonElement>(root, '[data-workbench-delete]');
   const deleteDialog = requiredElement<HTMLDialogElement>(root, '[data-delete-dialog]');
   let pendingPayload: WorkbenchPayload | null = null;
+
+  const resetActiveModule = async (returnToStart: boolean): Promise<boolean> => {
+    if (saveTimer !== undefined) {
+      clearTimeout(saveTimer);
+      saveTimer = undefined;
+    }
+    const deleted = await runtime.deleteActive();
+    if (!deleted.ok) {
+      showStateError('Der Arbeitsstand konnte nicht gelöscht werden.', deleted.error);
+      return false;
+    }
+    const restarted = await runtime.start();
+    if (!restarted.ok) {
+      showStateError('Nach dem Löschen konnte kein neuer Arbeitsstand angelegt werden.', restarted.error);
+      return false;
+    }
+    const initial = createInitialPayload();
+    runtime.updatePayload({ ...projectPersistentPayload(initial) });
+    const saved = await runtime.flush();
+    if (!saved.ok) {
+      showStateError('Der neue leere Arbeitsstand konnte nicht gespeichert werden.', saved.error);
+      return false;
+    }
+    runtimeReady = true;
+    stateBlocked = false;
+    hasStoredState = false;
+    validationFailed = false;
+    importFailed = false;
+    saveState = 'saved';
+    experienceEntered = !returnToStart;
+    renderPayloadState(initial, !returnToStart);
+    setDomainInteractionsBlocked(false);
+    clearStateError();
+    setSaveStatus('Arbeitsstand gelöscht');
+    return true;
+  };
+
+  const startPrimary = requiredElement<HTMLButtonElement>(root, '[data-start-primary]');
+  const resumePrimary = requiredElement<HTMLButtonElement>(root, '[data-resume-primary]');
+  const startReset = requiredElement<HTMLButtonElement>(root, '[data-start-reset]');
+  const startResetDialog = requiredElement<HTMLDialogElement>(root, '#start-reset-dialog');
+  const startResetCancel = requiredElement<HTMLButtonElement>(startResetDialog, '[data-data-action-cancel]');
+  const startResetConfirm = requiredElement<HTMLButtonElement>(startResetDialog, '[data-data-action-confirm]');
+
+  startPrimary.addEventListener('click', enterExperience);
+  resumePrimary.addEventListener('click', enterExperience);
+  startReset.addEventListener('click', () => {
+    startResetDialog.showModal();
+    startResetCancel.focus();
+  });
+  startResetCancel.addEventListener('click', () => startResetDialog.close('cancel'));
+  startResetDialog.addEventListener('close', () => {
+    if (startResetDialog.returnValue !== 'confirm') startReset.focus();
+  });
+  startResetConfirm.addEventListener('click', async () => {
+    startResetDialog.close('confirm');
+    if (await resetActiveModule(true)) {
+      startPrimary.focus();
+    }
+  });
 
   exportButton.addEventListener('click', async () => {
     if (!(await flush())) {
@@ -820,38 +891,10 @@ export async function connectAlgorithmWorkbench(
     deleteButton.focus();
   });
   requiredElement<HTMLButtonElement>(root, '[data-delete-confirm]').addEventListener('click', async () => {
-    if (saveTimer !== undefined) {
-      clearTimeout(saveTimer);
-      saveTimer = undefined;
+    if (await resetActiveModule(false)) {
+      deleteDialog.close();
+      root.querySelector<HTMLElement>('#workbench-title')?.focus();
     }
-    const deleted = await runtime.deleteActive();
-    if (!deleted.ok) {
-      showStateError('Der Arbeitsstand konnte nicht gelöscht werden.', deleted.error);
-      return;
-    }
-    const restarted = await runtime.start();
-    if (!restarted.ok) {
-      showStateError('Nach dem Löschen konnte kein neuer Arbeitsstand angelegt werden.', restarted.error);
-      return;
-    }
-    const initial = createInitialPayload();
-    runtime.updatePayload({ ...projectPersistentPayload(initial) });
-    const saved = await runtime.flush();
-    if (!saved.ok) {
-      showStateError('Der neue leere Arbeitsstand konnte nicht gespeichert werden.', saved.error);
-      return;
-    }
-    runtimeReady = true;
-    stateBlocked = false;
-    hasStoredState = false;
-    validationFailed = false;
-    importFailed = false;
-    renderPayloadState(initial, true);
-    setDomainInteractionsBlocked(false);
-    deleteDialog.close();
-    clearStateError();
-    setSaveStatus('Arbeitsstand gelöscht');
-    root.querySelector<HTMLElement>('#workbench-title')?.focus();
   });
 
   requiredElement<HTMLButtonElement>(root, '[data-scenario-cancel]').addEventListener('click', () => {

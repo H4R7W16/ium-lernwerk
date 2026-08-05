@@ -1,11 +1,22 @@
 import { readFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 
-test('reload, export, delete and import preserve only the learning product', async ({ page }) => {
+async function enterWorkbench(page: import('@playwright/test').Page): Promise<void> {
+  const entry = page.getByRole('button', { name: /Mit der Vermutung beginnen|Weiterarbeiten/ });
+  await entry.click();
+}
+
+async function openWorkbench(page: import('@playwright/test').Page): Promise<void> {
   await page.goto('/module/ium-5-core-05/');
+  await enterWorkbench(page);
+}
+
+test('reload, export, delete and import preserve only the learning product', async ({ page }) => {
+  await openWorkbench(page);
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
   await page.reload();
+  await enterWorkbench(page);
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 
@@ -36,7 +47,7 @@ test('reload, export, delete and import preserve only the learning product', asy
 });
 
 test('rejects a malformed module payload without changing active work', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openWorkbench(page);
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await page.setInputFiles('input[type=file]', {
     name: 'invalid.json',
@@ -59,7 +70,7 @@ test('rejects a malformed module payload without changing active work', async ({
 });
 
 test('rejects a future module schema without changing active work', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openWorkbench(page);
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await page.setInputFiles('input[type=file]', {
     name: 'future.json',
@@ -82,7 +93,7 @@ test('rejects a future module schema without changing active work', async ({ pag
 });
 
 test('stores classifications and self-check but never support usage', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openWorkbench(page);
   await page.getByRole('button', { name: 'Drehhilfe öffnen' }).click();
   await page.getByLabel('Navigation einordnen').selectOption('algorithmic');
   await page.getByLabel('Begründung zu Navigation').fill(

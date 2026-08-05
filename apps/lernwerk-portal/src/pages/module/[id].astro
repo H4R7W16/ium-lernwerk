@@ -43,8 +43,12 @@ const { module } = Astro.props as { module: PageModule };
   ) : (
     <p class="eyebrow">Synthetische technische Referenz · keine Curriculumwirkung</p>
   )}
-  <h1>{module.title}</h1>
-  <p>{module.centralQuestion}</p>
+  {module.renderer === 'fixture-workspace' && (
+    <>
+      <h1>{module.title}</h1>
+      <p>{module.centralQuestion}</p>
+    </>
+  )}
   <div class="status-grid">
     <StorageStatus />
     <ConnectionStatus />

@@ -1,0 +1,27 @@
+---
+import type { StartBoardSpec } from '../contracts.js';
+
+interface Props {
+  spec: StartBoardSpec;
+}
+
+const { spec } = Astro.props;
+---
+
+<section class="lx-start-board" data-start-board aria-labelledby="lx-start-board-title">
+  <p class="eyebrow">Orientierung</p>
+  <h1 id="lx-start-board-title">{spec.heading}</h1>
+  <p class="lx-readable">{spec.guidingQuestion}</p>
+  <p class="lx-readable"><strong>Danach kannst du:</strong> {spec.expectedCapability}</p>
+  <dl class="lx-start-context">
+    <div><dt>Zeitrahmen</dt><dd>{spec.timeWindowMinutes[0]}–{spec.timeWindowMinutes[1]} Minuten bis zum ersten Vergleich</dd></div>
+    <div><dt>Arbeitsform</dt><dd>{spec.socialForm === 'individual' ? 'zunächst allein, danach gemeinsamer Vergleich' : spec.socialForm}</dd></div>
+    <div><dt>Speicherung</dt><dd>lokal auf diesem Gerät</dd></div>
+  </dl>
+  <div class="lx-action-edge">
+    <button type="button" data-start-primary aria-describedby="lx-start-primary-result">
+      {spec.primaryAction.label}
+    </button>
+    <p id="lx-start-primary-result">{spec.primaryAction.result}</p>
+  </div>
+</section>

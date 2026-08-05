@@ -26,9 +26,10 @@ export function deriveIum5ExperienceState(
   payload: WorkbenchPayload,
   facts: Ium5ExperienceFacts = {},
 ): Ium5ExperienceState {
+  const stage = deriveStage(payload);
   return {
-    stage: deriveStage(payload),
-    canResume: facts.hasStoredState ?? false,
+    stage,
+    canResume: (facts.hasStoredState ?? false) && stage !== 'start',
     saveState: facts.saveState ?? 'idle',
     connectivity: facts.connectivity ?? 'online',
     recovery: deriveRecovery(facts),

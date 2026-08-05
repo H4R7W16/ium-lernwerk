@@ -8,6 +8,37 @@ import type {
 } from '@ium/ium-5-core-05';
 import type { Ium5ExperienceState } from './experience-state.js';
 
+const stageLabels: Readonly<Record<Ium5ExperienceState['stage'], string>> = {
+  start: 'Orientierung',
+  prediction: 'Vorhersage bilden',
+  run: 'Ablauf ausführen',
+  evidence: 'Beleg prüfen',
+  revision: 'Revision begründen',
+  transfer: 'Auf neuen Fall übertragen',
+  reentry: 'Gesichertes Wissen wieder aufnehmen',
+};
+
+export function renderExperienceEntry(
+  root: HTMLElement,
+  state: Ium5ExperienceState,
+  entered: boolean,
+): void {
+  const entry = root.querySelector<HTMLElement>('[data-experience-entry]');
+  const content = root.querySelector<HTMLElement>('[data-experience-content]');
+  const start = root.querySelector<HTMLElement>('[data-start-board]');
+  const resume = root.querySelector<HTMLElement>('[data-resume-prompt]');
+  const resumeStage = root.querySelector<HTMLElement>('[data-resume-stage]');
+  const recovery = root.querySelector<HTMLElement>('[data-start-recovery]');
+  if (!entry || !content || !start || !resume || !recovery) return;
+
+  entry.hidden = entered;
+  content.hidden = !entered;
+  start.hidden = entered || state.canResume;
+  resume.hidden = entered || !state.canResume;
+  recovery.hidden = entered || state.recovery === 'none';
+  if (resumeStage) resumeStage.textContent = stageLabels[state.stage];
+}
+
 export function renderExperienceState(
   root: HTMLElement,
   state: Ium5ExperienceState,

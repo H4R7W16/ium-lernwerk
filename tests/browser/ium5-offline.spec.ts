@@ -20,6 +20,10 @@ async function waitForOfflineReady(page: Page): Promise<void> {
   await expect.poll(() => page.evaluate(() => navigator.serviceWorker.controller !== null)).toBe(true);
 }
 
+async function enterExperience(page: Page): Promise<void> {
+  await page.getByRole('button', { name: /Mit der Vermutung beginnen|Weiterarbeiten/ }).click();
+}
+
 async function publishIum5Candidate(options: {
   buildRevision: string;
   removeBeforeWorker?: readonly string[];
@@ -78,6 +82,7 @@ async function publishIum5Candidate(options: {
 
 test('completes the installed IUM5 core path offline with local state', async ({ context, page }) => {
   await page.goto('/module/ium-5-core-05/');
+  await enterExperience(page);
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await page.getByLabel('Erwartete Endposition').selectOption('E2');
   await page.getByLabel('Erwartete Blickrichtung').selectOption('east');
@@ -88,8 +93,9 @@ test('completes the installed IUM5 core path offline with local state', async ({
 
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Präzise Abläufe ausführbar machen' }))
+  await expect(page.getByRole('heading', { name: 'Algorithmen untersuchen' }))
     .toBeVisible();
+  await enterExperience(page);
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
   await expect(page.getByRole('table', { name: 'Laufspur' })).toBeVisible();
   await page.getByRole('radio', { name: /erster abweichender Schritt/i }).first().check();
@@ -112,6 +118,7 @@ test('completes the installed IUM5 core path offline with local state', async ({
 test('activates a complete update only after flushing the IUM5 runtime', async ({ page }) => {
   await page.goto('/module/ium-5-core-05/');
   await waitForOfflineReady(page);
+  await enterExperience(page);
 
   await publishIum5Candidate({ buildRevision: 'ium5-candidate-2' });
   await page.evaluate(async () => {
@@ -127,6 +134,7 @@ test('activates a complete update only after flushing the IUM5 runtime', async (
     'ium5-candidate-2',
     { timeout: 20_000 },
   );
+  await enterExperience(page);
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 });
@@ -189,7 +197,7 @@ test('rejects an incomplete candidate and keeps the active IUM5 path offline', a
 
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Präzise Abläufe ausführbar machen' }))
+  await expect(page.getByRole('heading', { name: 'Algorithmen untersuchen' }))
     .toBeVisible();
   await context.setOffline(false);
 });

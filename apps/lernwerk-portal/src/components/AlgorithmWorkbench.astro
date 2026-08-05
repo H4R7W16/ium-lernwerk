@@ -3,9 +3,13 @@ import type { WorkbenchResources } from '@ium/ium-5-core-05';
 import type { ExperienceContentV1 } from '@ium/learning-experience';
 import ActionEdge from '@ium/learning-experience/components/ActionEdge';
 import ContextBand from '@ium/learning-experience/components/ContextBand';
+import DataActionDialog from '@ium/learning-experience/components/DataActionDialog';
 import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
 import FocusStage from '@ium/learning-experience/components/FocusStage';
 import JourneyMap from '@ium/learning-experience/components/JourneyMap';
+import RecoveryPanel from '@ium/learning-experience/components/RecoveryPanel';
+import ResumePrompt from '@ium/learning-experience/components/ResumePrompt';
+import StartBoard from '@ium/learning-experience/components/StartBoard';
 import workbenchStyles from '../styles/algorithm-workbench.css?raw';
 
 interface Props {
@@ -71,6 +75,19 @@ const journeyItems = resources.content.segments.map((segment, index) => ({
     description: segment.learningFunction,
   },
 }));
+const startSpec = experience?.start ?? {
+  heading: 'Algorithmen untersuchen',
+  guidingQuestion: resources.content.centralQuestion,
+  expectedCapability: 'Du entwirfst, prüfst und revidierst einen eindeutigen Ablauf.',
+  timeWindowMinutes: [10, 15] as const,
+  socialForm: 'individual' as const,
+  primaryAction: {
+    label: 'Mit der Vermutung beginnen',
+    result: 'Öffnet die erste Denkhandlung.',
+  },
+  resumeAction: null,
+  resetAction: null,
+};
 ---
 
 <section
@@ -85,6 +102,30 @@ const journeyItems = resources.content.segments.map((segment, index) => ({
   data-experience-contract={experience?.schemaVersion}
 >
   <style is:inline set:html={workbenchStyles}></style>
+  <div data-experience-entry>
+    <StartBoard spec={startSpec} />
+    <ResumePrompt
+      heading={startSpec.heading}
+      stageLabel="Vorhersage bilden"
+      resumePurpose={startSpec.resumeAction?.purpose ?? 'Setzt am letzten bestätigten Lernschritt fort.'}
+      resetConsequence={startSpec.resetAction?.consequence ?? 'Entfernt nach Bestätigung nur diesen Modulstand.'}
+    />
+    <div data-start-recovery hidden>
+      <RecoveryPanel
+        heading="Lokalen Arbeitsstand wiederherstellen"
+        preservedState="Die aktuelle Ansicht bleibt verfügbar; ein bestätigter Stand wird nicht still überschrieben."
+        resetDialogId="start-reset-dialog"
+      />
+    </div>
+    <DataActionDialog
+      id="start-reset-dialog"
+      action="reset"
+      title="Diesen Modulstand neu beginnen?"
+      description={startSpec.resetAction?.consequence ?? 'Der lokale Stand dieses Moduls wird entfernt.'}
+      confirmLabel="Modulstand endgültig zurücksetzen"
+    />
+  </div>
+  <div data-experience-content hidden>
   <ExperienceShell ariaLabel="Algorithmus-Lernstudio">
     <ContextBand
       slot="context"
@@ -480,6 +521,7 @@ const journeyItems = resources.content.segments.map((segment, index) => ({
       </button>
     </ActionEdge>
   </ExperienceShell>
+  </div>
 </section>
 
 <script>
