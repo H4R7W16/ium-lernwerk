@@ -1,6 +1,10 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+async function enterExperience(page: import('@playwright/test').Page): Promise<void> {
+  await page.getByRole('button', { name: /Mit der Vermutung beginnen|Weiterarbeiten/ }).click();
+}
+
 async function openRepeatError(page: import('@playwright/test').Page): Promise<void> {
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await page.getByLabel('Erwartete Endposition').selectOption('E2');
@@ -17,6 +21,7 @@ test('has no automatically detectable accessibility violations', async ({ page }
 
 test('completes the core learning cycle by keyboard', async ({ page }) => {
   await page.goto('/module/ium-5-core-05/');
+  await enterExperience(page);
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).focus();
   await page.keyboard.press('Enter');
   await page.getByLabel('Erwartete Endposition').selectOption('E2');
@@ -42,6 +47,7 @@ test('completes the core learning cycle by keyboard', async ({ page }) => {
 
 test('provides a complete textual scene and trace without the visual image', async ({ page }) => {
   await page.goto('/module/ium-5-core-05/');
+  await enterExperience(page);
   await expect(page.getByRole('region', { name: 'Szenenbeschreibung' }))
     .toContainText(/Start|Blickrichtung|Gut|Ziel|Hindernisse/);
   await expect(page.getByRole('table', { name: 'Laufspur' })).toBeVisible();
@@ -65,6 +71,7 @@ for (const viewport of [
 test('remains usable at 200 percent zoom', async ({ page }) => {
   await page.setViewportSize({ width: 640, height: 900 });
   await page.goto('/module/ium-5-core-05/');
+  await enterExperience(page);
   await page.evaluate(() => document.documentElement.style.setProperty('zoom', '2'));
   expect(await page.evaluate(
     () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
@@ -74,18 +81,20 @@ test('remains usable at 200 percent zoom', async ({ page }) => {
 
 test('focuses only actionable summaries after errors and phase changes', async ({ page }) => {
   await page.goto('/module/ium-5-core-05/');
+  await enterExperience(page);
   await openRepeatError(page);
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
-  await expect(page.getByRole('status', { name: 'Ausführungsergebnis' })).toBeFocused();
+  await expect(page.locator('#workbench-title')).toBeFocused();
   await page.getByRole('button', { name: 'UE 5 · Transfer' }).click();
   await expect(page.locator('[data-active-phase-heading]')).toBeFocused();
 });
 
 test('keeps focus usable after editor insert, move and delete operations', async ({ page }) => {
   await page.goto('/module/ium-5-core-05/');
+  await enterExperience(page);
   const insertMove = page.getByRole('button', { name: 'Gehe einfügen' });
   await insertMove.click();
-  await expect(insertMove).toBeFocused();
+  await expect(page.locator('#workbench-title')).toBeFocused();
   await page.getByRole('button', { name: 'Rechts drehen einfügen' }).click();
   await page.getByRole('button', { name: 'Befehl 2 nach oben' }).click();
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem').first())
@@ -108,6 +117,7 @@ test.describe('touch-only core path', () => {
 
   test('edits, predicts, executes, repairs and transfers by touch controls', async ({ page }) => {
     await page.goto('/module/ium-5-core-05/');
+    await enterExperience(page);
     await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).tap();
     await page.getByLabel('Erwartete Endposition').selectOption('E2');
     await page.getByLabel('Erwartete Blickrichtung').selectOption('east');

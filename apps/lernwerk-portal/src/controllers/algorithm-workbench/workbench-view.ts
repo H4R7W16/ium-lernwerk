@@ -50,6 +50,38 @@ export function renderExperienceState(
   root.dataset.canResume = String(state.canResume);
 }
 
+export function renderEvidenceFeedback(
+  root: ParentNode,
+  evidenceLabel: string,
+): void {
+  const feedback = root.querySelector<HTMLElement>('[data-evidence-feedback]');
+  if (!feedback) return;
+  feedback.hidden = false;
+  setText(feedback, '[data-feedback-result]', 'Die Laufspur macht eine beobachtbare Wirkung sichtbar.');
+  setText(feedback, '[data-feedback-evidence]', evidenceLabel);
+  setText(feedback, '[data-feedback-criterion]', 'Die erste Abweichung verbindet Befehl, Vorzustand und Wirkung.');
+  setText(feedback, '[data-feedback-interpretation]', 'Warum beginnt die Abweichung genau an dieser Stelle?');
+  setText(feedback, '[data-feedback-next-check]', 'Prüfe, ob der vorherige Schritt noch zu deiner Vorhersage passt.');
+}
+
+export function renderRevisionComparison(
+  root: ParentNode,
+  original: Algorithm,
+  revision: Algorithm,
+): void {
+  const comparison = root.querySelector<HTMLElement>('[data-revision-compare]');
+  if (!comparison) return;
+  comparison.hidden = false;
+  const changedCommands = Math.max(original.length, revision.length);
+  setText(
+    comparison,
+    '[data-revision-summary]',
+    `${changedCommands} Befehlspositionen werden in derselben Reihenfolge gegenübergestellt.`,
+  );
+  setText(comparison, '[data-revision-before]', JSON.stringify(original, null, 2));
+  setText(comparison, '[data-revision-after]', JSON.stringify(revision, null, 2));
+}
+
 const commandLabels: Readonly<Record<Exclude<Command['kind'], 'repeat'>, string>> = {
   move: 'Gehe',
   'turn-left': 'Links drehen',
@@ -197,6 +229,7 @@ function renderTrace(root: ParentNode, session: ExecutionSession): void {
   }
   for (const entry of session.trace) {
     const row = body.insertRow();
+    row.dataset.traceStep = String(entry.step);
     const values = [
       String(entry.step),
       entry.sourceCommandId,

@@ -116,6 +116,25 @@
   align-items: start;
 }
 
+.lx-revision-regions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.lx-revision-regions > section,
+.lx-support-disclosure li {
+  min-inline-size: 0;
+  padding: 1rem;
+  border: 0.125rem solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.lx-support-disclosure .support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
 .execution-room img {
   max-inline-size: 12rem;
   block-size: auto;
@@ -186,7 +205,8 @@ details,
 }
 
 @media (max-width: 48rem) {
-  .workbench-focus {
+  .workbench-focus,
+  .lx-revision-regions {
     grid-template-columns: minmax(0, 1fr);
   }
 }

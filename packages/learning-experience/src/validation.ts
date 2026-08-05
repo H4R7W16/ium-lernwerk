@@ -362,9 +362,17 @@ function feedback(value: unknown, path: string, collector: Collector): FeedbackS
     'id', 'result', 'evidenceRef', 'criterion', 'interpretationPrompt',
     'nextCheck', 'strategySupportId', 'exampleSupportId',
   ], collector);
+  const result = requiredText(object, 'result', path, collector, 240);
+  if (/^(?:richtig|falsch|\d+(?:[.,]\d+)?\s*(?:%|\/\s*\d+|punkte?)?)$/i.test(result.trim())) {
+    collector.add(
+      `${path}.result`,
+      'invalid_value',
+      'Feedback result must describe observable evidence, not a bare judgment or score.',
+    );
+  }
   return {
     id: requiredText(object, 'id', path, collector, 240),
-    result: requiredText(object, 'result', path, collector, 240),
+    result,
     evidenceRef: requiredText(object, 'evidenceRef', path, collector, 240),
     criterion: requiredText(object, 'criterion', path, collector, 240),
     interpretationPrompt: requiredText(object, 'interpretationPrompt', path, collector, 600),

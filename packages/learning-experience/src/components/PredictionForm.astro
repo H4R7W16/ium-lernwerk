@@ -1,0 +1,45 @@
+---
+interface Props {
+  positions: string[];
+}
+
+const { positions } = Astro.props;
+---
+
+<section class="lx-prediction-form" aria-labelledby="prediction-title">
+  <h3 id="prediction-title">Vorhersage vor der Ausführung</h3>
+  <form data-prediction-form>
+    <fieldset aria-describedby="prediction-guidance prediction-status">
+      <legend>Erwartete Wirkung des bestätigten Algorithmus</legend>
+      <p id="prediction-guidance">Lege deine Erwartung fest, bevor das Modell eine Laufspur zeigt.</p>
+      <div class="field">
+        <label for="prediction-position">Erwartete Endposition</label>
+        <select id="prediction-position" name="position" aria-describedby="prediction-status">
+          <option value="">Bitte wählen</option>
+          {positions.map((position) => <option value={position}>{position}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="prediction-direction">Erwartete Blickrichtung</label>
+        <select id="prediction-direction" name="direction" aria-describedby="prediction-status">
+          <option value="">Bitte wählen</option>
+          <option value="north">Norden</option>
+          <option value="east">Osten</option>
+          <option value="south">Süden</option>
+          <option value="west">Westen</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="prediction-success">Erwarteter Auftragserfolg</label>
+        <select id="prediction-success" name="success" aria-describedby="prediction-status">
+          <option value="">Bitte wählen</option>
+          <option value="yes">Ja</option>
+          <option value="no">Nein</option>
+          <option value="unsure">Unsicher</option>
+        </select>
+      </div>
+      <button type="button" data-prediction-confirm>Vorhersage bestätigen</button>
+      <p id="prediction-status" role="status" data-prediction-status></p>
+    </fieldset>
+  </form>
+</section>

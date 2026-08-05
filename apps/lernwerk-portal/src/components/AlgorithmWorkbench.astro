@@ -4,12 +4,18 @@ import type { ExperienceContentV1 } from '@ium/learning-experience';
 import ActionEdge from '@ium/learning-experience/components/ActionEdge';
 import ContextBand from '@ium/learning-experience/components/ContextBand';
 import DataActionDialog from '@ium/learning-experience/components/DataActionDialog';
+import EvidenceFeedback from '@ium/learning-experience/components/EvidenceFeedback';
+import EvidenceView from '@ium/learning-experience/components/EvidenceView';
 import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
 import FocusStage from '@ium/learning-experience/components/FocusStage';
 import JourneyMap from '@ium/learning-experience/components/JourneyMap';
+import PredictionForm from '@ium/learning-experience/components/PredictionForm';
 import RecoveryPanel from '@ium/learning-experience/components/RecoveryPanel';
 import ResumePrompt from '@ium/learning-experience/components/ResumePrompt';
+import RevisionCompare from '@ium/learning-experience/components/RevisionCompare';
+import SemanticModelView from '@ium/learning-experience/components/SemanticModelView';
 import StartBoard from '@ium/learning-experience/components/StartBoard';
+import SupportDisclosure from '@ium/learning-experience/components/SupportDisclosure';
 import workbenchStyles from '../styles/algorithm-workbench.css?raw';
 
 interface Props {
@@ -88,6 +94,9 @@ const startSpec = experience?.start ?? {
   resumeAction: null,
   resetAction: null,
 };
+const initialSceneDescription = firstScenario
+  ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}. Hindernisse werden mit Koordinaten genannt.`
+  : 'Keine validierte Szene verfügbar.';
 ---
 
 <section
@@ -212,36 +221,7 @@ const startSpec = experience?.start ?? {
   </section>
 
   <div class="workbench-focus">
-    <section class="execution-room" aria-labelledby="execution-room-title">
-      <h3 id="execution-room-title">Ausführungsraum</h3>
-      <img
-        src={robotAssetUrl}
-        alt=""
-        aria-hidden="true"
-        data-robot
-        width="240"
-        height="180"
-      />
-      <section aria-labelledby="scene-description-title">
-        <h4 id="scene-description-title">Szenenbeschreibung</h4>
-        <p data-scene-description>
-          {firstScenario
-            ? `Raster ${firstScenario.width} mal ${firstScenario.height}. Start Spalte ${firstScenario.start.position.column}, Zeile ${firstScenario.start.position.row}, Blickrichtung ${firstScenario.start.direction}. Gut bei Spalte ${firstScenario.itemPosition.column}, Zeile ${firstScenario.itemPosition.row}. Ziel bei Spalte ${firstScenario.targetPosition.column}, Zeile ${firstScenario.targetPosition.row}. Hindernisse werden mit Koordinaten genannt.`
-            : 'Keine validierte Szene verfügbar.'}
-        </p>
-      </section>
-      <dl class="state-description">
-        <div><dt>Aktueller Befehl</dt><dd data-current-command>Noch nicht gestartet</dd></div>
-        <div><dt>Position</dt><dd data-current-position>–</dd></div>
-        <div><dt>Blickrichtung</dt><dd data-current-direction>–</dd></div>
-        <div><dt>Tragezustand</dt><dd data-current-carrying>–</dd></div>
-        <div><dt>Schleifeniteration</dt><dd data-current-loop>–</dd></div>
-      </dl>
-      <p role="status" aria-label="Ausführungsergebnis" tabindex="-1" data-execution-result>
-        Noch keine Ausführung.
-      </p>
-      <p class="visually-hidden" aria-live="polite" data-execution-live></p>
-    </section>
+    <SemanticModelView robotAssetUrl={robotAssetUrl} description={initialSceneDescription} />
 
     <section class="algorithm-editor" aria-labelledby="algorithm-editor-title">
       <h3 id="algorithm-editor-title">Grafischer Algorithmuseditor</h3>
@@ -259,77 +239,18 @@ const startSpec = experience?.start ?? {
     </section>
   </div>
 
-  <section aria-labelledby="prediction-title">
-    <h3 id="prediction-title">Vorhersage vor der Ausführung</h3>
-    <form data-prediction-form>
-      <div class="field">
-        <label for="prediction-position">Erwartete Endposition</label>
-        <select id="prediction-position" name="position">
-          <option value="">Bitte wählen</option>
-          {positions.map((position) => <option value={position}>{position}</option>)}
-        </select>
-      </div>
-      <div class="field">
-        <label for="prediction-direction">Erwartete Blickrichtung</label>
-        <select id="prediction-direction" name="direction">
-          <option value="">Bitte wählen</option>
-          <option value="north">Norden</option>
-          <option value="east">Osten</option>
-          <option value="south">Süden</option>
-          <option value="west">Westen</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="prediction-success">Erwarteter Auftragserfolg</label>
-        <select id="prediction-success" name="success">
-          <option value="">Bitte wählen</option>
-          <option value="yes">Ja</option>
-          <option value="no">Nein</option>
-          <option value="unsure">Unsicher</option>
-        </select>
-      </div>
-      <button type="button" data-prediction-confirm>Vorhersage bestätigen</button>
-      <p role="status" data-prediction-status></p>
-    </form>
-  </section>
-
-  <section aria-labelledby="trace-title">
-    <h3 id="trace-title">Laufspur prüfen</h3>
-    <div
-      class="table-scroll"
-      role="region"
-      aria-label="Laufspur horizontal scrollen"
-      tabindex="0"
-    >
-      <table aria-label="Laufspur" data-trace-table>
-        <caption>Laufspur mit Vorherzustand, Nachherzustand und Ergebnis</caption>
-        <thead>
-          <tr>
-            <th scope="col">Schritt</th>
-            <th scope="col">Befehl</th>
-            <th scope="col">Iteration</th>
-            <th scope="col">Vorherzustand</th>
-            <th scope="col">Nachherzustand</th>
-            <th scope="col">Ergebnis</th>
-          </tr>
-        </thead>
-        <tbody><tr><td colspan="6">Noch keine Spur vorhanden.</td></tr></tbody>
-      </table>
-    </div>
-  </section>
+  <PredictionForm positions={positions} />
+  <EvidenceView />
+  <EvidenceFeedback />
 
   <section aria-labelledby="revision-title">
     <h3 id="revision-title">Abweichung erklären und reparieren</h3>
-    <fieldset>
-      <legend>Erster abweichender Schritt</legend>
-      <p data-evidence-options>Noch keine Spur zur Auswahl.</p>
-    </fieldset>
     <div class="field">
       <label for="repair-hypothesis">Reparaturhypothese</label>
-      <textarea id="repair-hypothesis" rows="4" maxlength="1000"></textarea>
+      <textarea id="repair-hypothesis" rows="4" maxlength="500" aria-describedby="repair-status"></textarea>
     </div>
-    <button type="button" data-repair-confirm>Reparaturhypothese bestätigen</button>
-    <p role="status" data-repair-status></p>
+    <button type="button" data-repair-confirm aria-describedby="repair-status">Reparaturhypothese bestätigen</button>
+    <p id="repair-status" role="alert" data-repair-status></p>
     <button type="button" data-revision-confirm>Revision übernehmen</button>
     <section aria-labelledby="preserved-draft-title" data-preserved-product hidden>
       <h4 id="preserved-draft-title">Unveränderter eigener Entwurf</h4>
@@ -352,28 +273,8 @@ const startSpec = experience?.start ?? {
       <p data-full-example-text></p>
     </section>
   </section>
-
-  <section aria-labelledby="supports-title">
-    <h3 id="supports-title">Hilfen selbst wählen</h3>
-    <div class="support-grid">
-      {resources.content.supports.map((support) => (
-        <div data-support-id={support.id}>
-          <button
-            type="button"
-            aria-expanded="false"
-            aria-controls={`support-${support.id}`}
-            data-support-toggle={support.id}
-          >
-            {support.title} öffnen
-          </button>
-          <section id={`support-${support.id}`} data-support-panel={support.id} hidden>
-            <h4>{support.title}</h4>
-            <p>{support.text}</p>
-          </section>
-        </div>
-      ))}
-    </div>
-  </section>
+  <RevisionCompare />
+  <SupportDisclosure supports={experience?.supports ?? []} />
 
   <section aria-labelledby="magnifier-title" data-task-family-panel="magnifier">
     <h3 id="magnifier-title">Algorithmus-Lupe</h3>

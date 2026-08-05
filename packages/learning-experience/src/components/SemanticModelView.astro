@@ -1,0 +1,28 @@
+---
+interface Props {
+  robotAssetUrl: string;
+  description: string;
+}
+
+const { robotAssetUrl, description } = Astro.props;
+---
+
+<section class="execution-room lx-semantic-model" aria-labelledby="execution-room-title">
+  <h3 id="execution-room-title">Ausführungsraum</h3>
+  <img src={robotAssetUrl} alt="" aria-hidden="true" data-robot width="240" height="180" />
+  <section aria-labelledby="scene-description-title">
+    <h4 id="scene-description-title">Szenenbeschreibung</h4>
+    <p data-scene-description>{description}</p>
+  </section>
+  <dl class="state-description" aria-label="Aktueller Modellzustand">
+    <div><dt>Aktueller Befehl</dt><dd data-current-command>Noch nicht gestartet</dd></div>
+    <div><dt>Position</dt><dd data-current-position>–</dd></div>
+    <div><dt>Blickrichtung</dt><dd data-current-direction>–</dd></div>
+    <div><dt>Tragezustand</dt><dd data-current-carrying>–</dd></div>
+    <div><dt>Schleifeniteration</dt><dd data-current-loop>–</dd></div>
+  </dl>
+  <p role="status" aria-label="Ausführungsergebnis" tabindex="-1" data-execution-result>
+    Noch keine Ausführung.
+  </p>
+  <p class="visually-hidden" data-execution-live></p>
+</section>

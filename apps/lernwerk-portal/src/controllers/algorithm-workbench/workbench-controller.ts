@@ -35,9 +35,11 @@ import { createBrowserExportPort, createWorkspaceId } from './browser-ports.js';
 import { deriveIum5ExperienceState } from './experience-adapter.js';
 import {
   renderAlgorithm,
+  renderEvidenceFeedback,
   renderExperienceEntry,
   renderExecution,
   renderExperienceState,
+  renderRevisionComparison,
   renderScenarioDescription,
   setExecutionEnabled,
   setPredictionStatus,
@@ -160,6 +162,8 @@ function resetExecutionSurface(root: ParentNode): void {
   setHidden(root, '[data-strategy-hint]', true);
   setHidden(root, '[data-strategy-content]', true);
   setHidden(root, '[data-full-example]', true);
+  setHidden(root, '[data-evidence-feedback]', true);
+  setHidden(root, '[data-revision-compare]', true);
 }
 
 export async function connectAlgorithmWorkbench(
@@ -322,7 +326,8 @@ export async function connectAlgorithmWorkbench(
     }
     saveState = 'saving';
     setSaveStatus('Wird lokal gespeichert');
-    syncExperienceState(false);
+    experienceState = { ...experienceState, saveState };
+    renderExperienceState(root, experienceState);
     const result = await runtime.flush();
     if (!result.ok) {
       saveState = 'failed';
@@ -346,7 +351,8 @@ export async function connectAlgorithmWorkbench(
     }
     saveState = 'saving';
     setSaveStatus('Wird lokal gespeichert');
-    syncExperienceState(false);
+    experienceState = { ...experienceState, saveState };
+    renderExperienceState(root, experienceState);
     saveTimer = setTimeout(() => void flush(), SAVE_DELAY_MS);
   };
 
@@ -361,7 +367,7 @@ export async function connectAlgorithmWorkbench(
     algorithm = next;
     const revising = payload.evidenceTrace !== null && payload.repairHypothesis.length > 0;
     payload = revising
-      ? { ...payload, revisedAlgorithm: next, prediction: null }
+      ? { ...payload, prediction: null }
       : { ...payload, initialAlgorithm: next, prediction: null };
     confirmedAlgorithm = '';
     session = null;
@@ -469,13 +475,35 @@ export async function connectAlgorithmWorkbench(
     session = next;
     const succeeded = missionSucceeded(activeResource.scenario, next.state);
     renderExecution(root, next, succeeded, payload.prediction);
-    if (next.status === 'complete' && succeeded && !usingStandardRepairCase) {
+    const terminal = next.status === 'complete' || next.status === 'error';
+    if (terminal && (!succeeded || usingStandardRepairCase)) {
+      payload = {
+        ...payload,
+        evidenceTrace: {
+          scenarioId: payload.scenarioId,
+          entries: next.trace,
+          finalState: next.state,
+          missionSucceeded: succeeded,
+        },
+      };
+      const first = next.trace[0];
+      renderEvidenceFeedback(
+        root,
+        first ? `Schritt ${first.step} · ${first.sourceCommandId}` : 'Ausführung ohne Laufspurschritt',
+      );
+      scheduleSave();
+      syncExperienceState(true);
+    }
+    const ownProductScenario = ['product-a', 'product-b', 'product-c'].includes(payload.scenarioId);
+    if (next.status === 'complete' && succeeded && ownProductScenario && !usingStandardRepairCase) {
       openStandardRepairCase();
     }
   };
 
   const runStep = (): void => {
     if (!editorValid || payload.prediction === null) {
+      setPredictionStatus(root, 'Vorhersage erforderlich: Halte zuerst Position, Blickrichtung und Auftragserfolg fest.');
+      root.querySelector<HTMLElement>('#prediction-position')?.focus();
       return;
     }
     const start = session === null || session.status === 'complete' || session.status === 'error'
@@ -487,6 +515,8 @@ export async function connectAlgorithmWorkbench(
 
   const runAll = (): void => {
     if (!editorValid || payload.prediction === null) {
+      setPredictionStatus(root, 'Vorhersage erforderlich: Halte zuerst Position, Blickrichtung und Auftragserfolg fest.');
+      root.querySelector<HTMLElement>('#prediction-position')?.focus();
       return;
     }
     const result = finishExecution(beginExecution(activeResource.scenario, algorithm));
@@ -496,6 +526,8 @@ export async function connectAlgorithmWorkbench(
 
   const confirmEvidence = (): void => {
     if (!session) {
+      setText(root, '[data-repair-status]', 'Führe zuerst den bestätigten Algorithmus aus und wähle danach einen Beleg.');
+      root.querySelector<HTMLElement>('[data-run-all]')?.focus();
       return;
     }
     const selected = root.querySelector<HTMLInputElement>('input[name="evidence-step"]:checked');
@@ -506,6 +538,9 @@ export async function connectAlgorithmWorkbench(
         '[data-repair-status]',
         'Wähle eine Spurzeile und formuliere eine Hypothese mit höchstens 500 Zeichen.',
       );
+      (selected
+        ? root.querySelector<HTMLElement>('#repair-hypothesis')
+        : root.querySelector<HTMLElement>('[data-evidence-options] input'))?.focus();
       return;
     }
     const entryCount = Number(selected.value);
@@ -523,6 +558,11 @@ export async function connectAlgorithmWorkbench(
       repairSource: usingStandardRepairCase ? 'standard-error-case' : 'own-draft',
       repairHypothesis: hypothesis,
     };
+    for (const row of root.querySelectorAll<HTMLTableRowElement>('[data-trace-step]')) {
+      if (row.dataset.traceStep === selected.value) row.setAttribute('aria-current', 'step');
+      else row.removeAttribute('aria-current');
+    }
+    renderEvidenceFeedback(root, `Schritt ${selected.value} der sichtbaren Laufspur`);
     setText(root, '[data-repair-status]', 'Reparaturhypothese gespeichert.');
     scheduleSave();
     syncExperienceState(true);
@@ -531,6 +571,7 @@ export async function connectAlgorithmWorkbench(
   const confirmRevision = (): void => {
     if (payload.evidenceTrace === null || payload.repairHypothesis.length === 0) {
       setText(root, '[data-repair-status]', 'Bestätige zuerst Belegspur und Reparaturhypothese.');
+      root.querySelector<HTMLElement>('[data-evidence-options]')?.focus();
       return;
     }
     payload = { ...payload, revisedAlgorithm: structuredClone(algorithm), prediction: null };
@@ -538,6 +579,7 @@ export async function connectAlgorithmWorkbench(
     session = null;
     setPredictionStatus(root, 'Revision übernommen – neue Vorhersage erforderlich.');
     resetExecutionSurface(root);
+    renderRevisionComparison(root, payload.initialAlgorithm, algorithm);
     refreshGate();
     scheduleSave();
     dispatch(root, 'ium5:revision-confirm', { algorithm });

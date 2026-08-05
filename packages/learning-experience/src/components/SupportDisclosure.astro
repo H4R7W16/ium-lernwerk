@@ -1,0 +1,39 @@
+---
+import type { SupportSpec } from '../contracts.js';
+
+interface Props {
+  supports: readonly SupportSpec[];
+}
+
+const { supports } = Astro.props;
+const levelLabels = {
+  operation: 'Bedienung',
+  concept: 'Begriff',
+  strategy: 'Strategie',
+  example: 'Beispiel',
+} as const;
+---
+
+<section class="lx-support-disclosure" aria-labelledby="supports-title">
+  <h3 id="supports-title">Hilfen selbst wählen</h3>
+  <ol class="support-grid">
+    {supports.map((support) => (
+      <li data-support-id={support.id}>
+        <p class="eyebrow">{levelLabels[support.kind]}</p>
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls={`support-${support.id}`}
+          data-support-toggle={support.id}
+        >
+          {support.title} öffnen
+        </button>
+        <section id={`support-${support.id}`} data-support-panel={support.id} hidden>
+          <h4>{support.title}</h4>
+          <p>{support.content}</p>
+          <p><strong>Deine Denkhandlung bleibt unverändert:</strong> {support.preservesAction}</p>
+        </section>
+      </li>
+    ))}
+  </ol>
+</section>
