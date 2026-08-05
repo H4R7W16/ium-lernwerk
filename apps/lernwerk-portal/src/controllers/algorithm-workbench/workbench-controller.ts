@@ -29,11 +29,14 @@ import {
 import { createStateRepository } from '@ium/local-state';
 import type { PlatformError, StorageMode } from '@ium/module-contract';
 import { createModuleRuntime } from '@ium/module-runtime';
+import { focusActivatedStage } from '@ium/learning-experience/controllers/focus-stage';
 import type { FlushRequestDetail } from '../pwa-registration.js';
 import { createBrowserExportPort, createWorkspaceId } from './browser-ports.js';
+import { deriveIum5ExperienceState } from './experience-adapter.js';
 import {
   renderAlgorithm,
   renderExecution,
+  renderExperienceState,
   renderScenarioDescription,
   setExecutionEnabled,
   setPredictionStatus,
@@ -223,17 +226,24 @@ export async function connectAlgorithmWorkbench(
   });
   let runtimeReady = false;
   let stateBlocked = false;
+  let hasStoredState = false;
+  let validationFailed = false;
+  let importFailed = false;
+  let persistenceAvailable = selection.mode !== 'volatile-fallback';
+  let saveState: 'idle' | 'saving' | 'saved' | 'failed' = 'idle';
   if (selection.warning) {
     showStateError('', selection.warning);
   }
   const started = await runtime.start();
   if (!started.ok) {
+    persistenceAvailable = false;
     showStateError('Der lokale Arbeitsstand konnte nicht geöffnet werden.', started.error);
     stateBlocked = true;
   } else if (Object.keys(started.state.payload).length === 0) {
     runtime.updatePayload({ ...projectPersistentPayload(payload) });
     const initialSave = await runtime.flush();
     if (!initialSave.ok) {
+      persistenceAvailable = false;
       showStateError('Der initiale Arbeitsstand konnte nicht gespeichert werden.', initialSave.error);
       stateBlocked = true;
     } else {
@@ -242,11 +252,13 @@ export async function connectAlgorithmWorkbench(
   } else {
     const parsed = parseWorkbenchPayload(started.state.payload);
     if (!parsed.ok) {
+      validationFailed = true;
       showStateError(
         'Der gespeicherte Arbeitsstand ist ungültig und wurde nicht überschrieben. Lösche ihn oder importiere eine gültige Datei.',
       );
       stateBlocked = true;
     } else {
+      hasStoredState = true;
       payload = parsed.value;
       activeResource = requireScenario(payload.scenarioId);
       usingStandardRepairCase = payload.scenarioId === 'repair-standard';
@@ -257,6 +269,35 @@ export async function connectAlgorithmWorkbench(
       runtimeReady = true;
     }
   }
+
+  let experienceState = deriveIum5ExperienceState(payload, {
+    hasStoredState,
+    saveState,
+    connectivity: navigator.onLine ? 'online' : 'offline',
+    persistenceAvailable,
+    validationFailed,
+    importFailed,
+  });
+  const syncExperienceState = (userTriggered: boolean): void => {
+    const next = deriveIum5ExperienceState(payload, {
+      hasStoredState,
+      saveState,
+      connectivity: navigator.onLine ? 'online' : 'offline',
+      persistenceAvailable,
+      validationFailed,
+      importFailed,
+    });
+    const stageChanged = next.stage !== experienceState.stage;
+    renderExperienceState(root, next);
+    const stage = root.querySelector<HTMLElement>('[data-lx-focus-stage]');
+    if (stage) {
+      stage.dataset.focusOnActivation = String(userTriggered && stageChanged);
+    }
+    experienceState = next;
+    if (userTriggered && stageChanged) {
+      focusActivatedStage(root);
+    }
+  };
 
   const statusForMode = (mode: StorageMode): string => mode === 'persistent'
     ? 'Lokal gespeichert'
@@ -276,14 +317,21 @@ export async function connectAlgorithmWorkbench(
       showStateError(`Der Arbeitsstand ist ungültig und wurde nicht gespeichert. ${String(error)}`);
       return false;
     }
+    saveState = 'saving';
     setSaveStatus('Wird lokal gespeichert');
+    syncExperienceState(false);
     const result = await runtime.flush();
     if (!result.ok) {
+      saveState = 'failed';
+      persistenceAvailable = false;
       showStateError('Der Arbeitsstand konnte nicht gespeichert werden.', result.error);
+      syncExperienceState(false);
       return false;
     }
     clearStateError();
+    saveState = 'saved';
     setSaveStatus(statusForMode(selection.mode));
+    syncExperienceState(false);
     return true;
   };
   const scheduleSave = (): void => {
@@ -293,7 +341,9 @@ export async function connectAlgorithmWorkbench(
     if (saveTimer !== undefined) {
       clearTimeout(saveTimer);
     }
+    saveState = 'saving';
     setSaveStatus('Wird lokal gespeichert');
+    syncExperienceState(false);
     saveTimer = setTimeout(() => void flush(), SAVE_DELAY_MS);
   };
 
@@ -332,6 +382,7 @@ export async function connectAlgorithmWorkbench(
     refreshGate();
     scheduleSave();
     dispatch(root, 'ium5:algorithm-change', { algorithm });
+    syncExperienceState(true);
   };
 
   const loadScenario = (scenarioId: WorkbenchScenarioId): void => {
@@ -361,6 +412,7 @@ export async function connectAlgorithmWorkbench(
     resetExecutionSurface(root);
     refreshGate();
     scheduleSave();
+    syncExperienceState(true);
   };
 
   const scenarioDialog = requiredElement<HTMLDialogElement>(root, '[data-scenario-dialog]');
@@ -470,6 +522,7 @@ export async function connectAlgorithmWorkbench(
     };
     setText(root, '[data-repair-status]', 'Reparaturhypothese gespeichert.');
     scheduleSave();
+    syncExperienceState(true);
   };
 
   const confirmRevision = (): void => {
@@ -485,6 +538,7 @@ export async function connectAlgorithmWorkbench(
     refreshGate();
     scheduleSave();
     dispatch(root, 'ium5:revision-confirm', { algorithm });
+    syncExperienceState(true);
   };
 
   const confirmLoopDecision = (): void => {
@@ -515,10 +569,11 @@ export async function connectAlgorithmWorkbench(
     setText(root, '[data-active-phase-heading]', segment.title);
     setText(root, '[data-active-phase-function]', segment.learningFunction);
     for (const button of root.querySelectorAll<HTMLButtonElement>('[data-phase-id]')) {
+      const item = button.closest('li');
       if (button.dataset.phaseId === visiblePhaseId) {
-        button.setAttribute('aria-current', 'step');
+        item?.setAttribute('aria-current', 'step');
       } else {
-        button.removeAttribute('aria-current');
+        item?.removeAttribute('aria-current');
       }
     }
     if (focus) {
@@ -538,6 +593,7 @@ export async function connectAlgorithmWorkbench(
       status.hidden = false;
       status.textContent = 'Begründungen dürfen höchstens 500 Zeichen enthalten.';
       scheduleSave();
+      syncExperienceState(true);
       return;
     }
     const classification = select.value;
@@ -547,6 +603,7 @@ export async function connectAlgorithmWorkbench(
     ) {
       payload = { ...payload, systemClassifications: withoutCurrent };
       scheduleSave();
+      syncExperienceState(true);
       return;
     }
     const nextEntry: SystemClassification = {
@@ -562,6 +619,7 @@ export async function connectAlgorithmWorkbench(
     status.hidden = true;
     status.textContent = '';
     scheduleSave();
+    syncExperienceState(true);
   };
 
   const selfCheckKey = (id: string): keyof WorkbenchPayload['selfCheck'] | null => ({
@@ -589,7 +647,7 @@ export async function connectAlgorithmWorkbench(
     }
   };
 
-  const renderPayloadState = (next: WorkbenchPayload): void => {
+  const renderPayloadState = (next: WorkbenchPayload, activateStage = false): void => {
     payload = next;
     activeResource = requireScenario(next.scenarioId);
     usingStandardRepairCase = next.scenarioId === 'repair-standard';
@@ -641,6 +699,7 @@ export async function connectAlgorithmWorkbench(
     );
     renderActivePhase(next.phaseId);
     refreshGate();
+    syncExperienceState(activateStage);
   };
 
   setText(
@@ -664,6 +723,8 @@ export async function connectAlgorithmWorkbench(
       void flush();
     }
   });
+  window.addEventListener('online', () => syncExperienceState(false));
+  window.addEventListener('offline', () => syncExperienceState(false));
 
   const exportButton = requiredElement<HTMLButtonElement>(root, '[data-workbench-export]');
   const importInput = requiredElement<HTMLInputElement>(root, '[data-workbench-import]');
@@ -689,16 +750,20 @@ export async function connectAlgorithmWorkbench(
     }
     const preview = runtime.previewImport(new Uint8Array(await file.arrayBuffer()));
     if (!preview.ok) {
+      importFailed = true;
       showStateError('Import nicht übernommen.', preview.error);
       importInput.value = '';
       pendingPayload = null;
+      syncExperienceState(false);
       return;
     }
     const parsed = parseWorkbenchPayload(preview.state.payload);
     if (!parsed.ok) {
+      importFailed = true;
       showStateError('Import nicht übernommen. Der Modulinhalt ist ungültig.');
       importInput.value = '';
       pendingPayload = null;
+      syncExperienceState(false);
       return;
     }
     pendingPayload = parsed.value;
@@ -723,17 +788,23 @@ export async function connectAlgorithmWorkbench(
     }
     const result = await runtime.confirmImport();
     if (!result.ok) {
+      importFailed = true;
+      syncExperienceState(false);
       showStateError('Import nicht übernommen.', result.error);
       return;
     }
     const parsed = parseWorkbenchPayload(result.state.payload);
     if (!parsed.ok) {
+      importFailed = true;
+      syncExperienceState(false);
       showStateError('Import nicht übernommen. Der bestätigte Modulinhalt ist ungültig.');
       return;
     }
     runtimeReady = true;
     stateBlocked = false;
-    renderPayloadState(parsed.value);
+    importFailed = false;
+    hasStoredState = true;
+    renderPayloadState(parsed.value, true);
     setDomainInteractionsBlocked(false);
     importDialog.close();
     importInput.value = '';
@@ -772,7 +843,10 @@ export async function connectAlgorithmWorkbench(
     }
     runtimeReady = true;
     stateBlocked = false;
-    renderPayloadState(initial);
+    hasStoredState = false;
+    validationFailed = false;
+    importFailed = false;
+    renderPayloadState(initial, true);
     setDomainInteractionsBlocked(false);
     deleteDialog.close();
     clearStateError();
@@ -930,6 +1004,7 @@ export async function connectAlgorithmWorkbench(
       refreshGate();
       scheduleSave();
       dispatch(root, 'ium5:prediction-confirm', { prediction });
+      syncExperienceState(true);
       return;
     }
     if (target.closest('[data-run-step]')) {

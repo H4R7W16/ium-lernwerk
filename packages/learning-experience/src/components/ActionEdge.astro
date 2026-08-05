@@ -19,11 +19,15 @@ if (secondary.length > 2) {
 }
 
 const primaryId = primary.id ?? 'lx-primary-action';
+const hasPrimaryControl = Astro.slots.has('primary-control');
+const hasSecondaryControls = Astro.slots.has('secondary-controls');
 ---
 
 <section class="lx-action-edge" aria-label={ariaLabel}>
   <div>
-    {primary.href ? (
+    {hasPrimaryControl ? (
+      <slot name="primary-control" />
+    ) : primary.href ? (
       <a class="lx-button" id={primaryId} href={primary.href} data-lx-primary-action aria-describedby={primaryId + '-result'}>
         {primary.label}
       </a>
@@ -34,7 +38,7 @@ const primaryId = primary.id ?? 'lx-primary-action';
     )}
     <p id={primaryId + '-result'}>{primary.result}</p>
   </div>
-  {secondary.map((item, index) => {
+  {hasSecondaryControls ? <slot name="secondary-controls" /> : secondary.map((item, index) => {
     const itemId = item.id ?? `lx-secondary-action-${index + 1}`;
     return (
       <div>

@@ -6,6 +6,18 @@ import type {
   Scenario,
   TraceEntry,
 } from '@ium/ium-5-core-05';
+import type { Ium5ExperienceState } from './experience-state.js';
+
+export function renderExperienceState(
+  root: HTMLElement,
+  state: Ium5ExperienceState,
+): void {
+  root.dataset.experienceStage = state.stage;
+  root.dataset.experienceRecovery = state.recovery;
+  root.dataset.saveState = state.saveState;
+  root.dataset.connectivity = state.connectivity;
+  root.dataset.canResume = String(state.canResume);
+}
 
 const commandLabels: Readonly<Record<Exclude<Command['kind'], 'repeat'>, string>> = {
   move: 'Gehe',

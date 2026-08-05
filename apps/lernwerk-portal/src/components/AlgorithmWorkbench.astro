@@ -1,6 +1,11 @@
 ---
 import type { WorkbenchResources } from '@ium/ium-5-core-05';
 import type { ExperienceContentV1 } from '@ium/learning-experience';
+import ActionEdge from '@ium/learning-experience/components/ActionEdge';
+import ContextBand from '@ium/learning-experience/components/ContextBand';
+import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
+import FocusStage from '@ium/learning-experience/components/FocusStage';
+import JourneyMap from '@ium/learning-experience/components/JourneyMap';
 import workbenchStyles from '../styles/algorithm-workbench.css?raw';
 
 interface Props {
@@ -55,11 +60,22 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
   'repair-follows-evidence': 'Ist die Reparatur durch die Belegspur begründet?',
   'repeat-is-appropriate': 'Ist die feste Wiederholung passend?',
 };
+const journeyItems = resources.content.segments.map((segment, index) => ({
+  id: segment.id,
+  label: phaseLabels[segment.id],
+  current: index === 0,
+  hidden: segment.id === 'ue6-extension',
+  action: {
+    value: segment.id,
+    title: segment.title,
+    description: segment.learningFunction,
+  },
+}));
 ---
 
 <section
   class="algorithm-workbench"
-  aria-labelledby="workbench-title"
+  aria-labelledby="workbench-title-heading"
   aria-busy="true"
   inert
   data-algorithm-workbench
@@ -69,36 +85,33 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
   data-experience-contract={experience?.schemaVersion}
 >
   <style is:inline set:html={workbenchStyles}></style>
+  <ExperienceShell ariaLabel="Algorithmus-Lernstudio">
+    <ContextBand
+      slot="context"
+      items={[
+        { term: 'Modul', value: 'Präzise Abläufe ausführbar machen' },
+        { term: 'Arbeitsweise', value: 'Local First · ohne Konto' },
+      ]}
+    />
+    <JourneyMap slot="journey" items={journeyItems} ariaLabel="Lernphasen" />
+    <FocusStage
+      slot="focus"
+      id="workbench-title"
+      heading="Auftrag und Lernziel"
+      purpose={resources.content.centralQuestion}
+      focusOnActivation={false}
+    >
   <p class="working-banner" role="status">
     Arbeitsstand · Status working · nicht für Unterrichtseinsatz
   </p>
   <header class="workbench-intro">
     <p class="eyebrow">Hybride Algorithmus-Werkstatt · Klasse 5</p>
-    <h2 id="workbench-title" tabindex="-1">Auftrag und Lernziel</h2>
-    <p>{resources.content.centralQuestion}</p>
     <p>
       Baue einen eindeutigen Lieferalgorithmus, sage seine Ausführung voraus,
       prüfe die Laufspur und begründe eine gezielte Revision.
     </p>
     <p><strong data-path-summary>225 Minuten · 5 Unterrichtseinheiten</strong></p>
   </header>
-
-  <nav class="phase-navigation" aria-label="Lernphasen">
-    <ol>
-      {resources.content.segments.map((segment) => (
-        <li data-extended-phase={segment.id === 'ue6-extension' ? '' : undefined}>
-          <button
-            type="button"
-            data-phase-id={segment.id}
-            data-phase-title={segment.title}
-            data-phase-function={segment.learningFunction}
-          >
-            {phaseLabels[segment.id]}
-          </button>
-        </li>
-      ))}
-    </ol>
-  </nav>
 
   <section aria-labelledby="active-phase-title" data-active-phase>
     <h3 id="active-phase-title" tabindex="-1" data-active-phase-heading>
@@ -237,14 +250,6 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
       <button type="button" data-prediction-confirm>Vorhersage bestätigen</button>
       <p role="status" data-prediction-status></p>
     </form>
-  </section>
-
-  <section aria-labelledby="execution-controls-title">
-    <h3 id="execution-controls-title">Ausführung steuern</h3>
-    <div class="actions">
-      <button type="button" data-run-step disabled>Schritt ausführen</button>
-      <button type="button" data-run-all disabled>Vollständig ausführen</button>
-    </div>
   </section>
 
   <section aria-labelledby="trace-title">
@@ -451,6 +456,30 @@ const selfCheckLabels: Readonly<Record<string, string>> = {
   </dialog>
 
   <script is:inline type="application/json" data-workbench-resources set:html={resourceJson}></script>
+    </FocusStage>
+    <ActionEdge
+      slot="action"
+      primary={{
+        id: 'workbench-run-all',
+        label: 'Vollständig ausführen',
+        result: 'Führt den bestätigten Algorithmus aus und öffnet die Laufspur.',
+      }}
+      secondary={[]}
+      ariaLabel="Ausführung steuern"
+    >
+      <button
+        slot="primary-control"
+        id="workbench-run-all"
+        type="button"
+        data-run-all
+        aria-describedby="workbench-run-all-result"
+        disabled
+      >Vollständig ausführen</button>
+      <button slot="secondary-controls" type="button" data-run-step disabled>
+        Schritt ausführen
+      </button>
+    </ActionEdge>
+  </ExperienceShell>
 </section>
 
 <script>

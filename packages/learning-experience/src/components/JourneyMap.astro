@@ -5,6 +5,12 @@ interface JourneyItem {
   current?: boolean;
   href?: string;
   blocked?: boolean;
+  hidden?: boolean;
+  action?: Readonly<{
+    value: string;
+    title?: string;
+    description?: string;
+  }>;
 }
 
 interface Props {
@@ -18,8 +24,22 @@ const { items, ariaLabel = 'Lernweg' } = Astro.props;
 <nav class="lx-journey-map" aria-label={ariaLabel}>
   <ol aria-label={ariaLabel}>
     {items.map((item) => (
-      <li data-journey-id={item.id} aria-current={item.current ? 'step' : undefined}>
-        {item.href && !item.blocked ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
+      <li
+        data-journey-id={item.id}
+        data-extended-phase={item.hidden ? '' : undefined}
+        aria-current={item.current ? 'step' : undefined}
+        hidden={item.hidden}
+      >
+        {item.action && !item.blocked ? (
+          <button
+            type="button"
+            data-phase-id={item.action.value}
+            data-phase-title={item.action.title}
+            data-phase-function={item.action.description}
+          >
+            {item.label}
+          </button>
+        ) : item.href && !item.blocked ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
       </li>
     ))}
   </ol>
