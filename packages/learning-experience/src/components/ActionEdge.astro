@@ -1,0 +1,50 @@
+---
+interface ActionItem {
+  label: string;
+  result: string;
+  href?: string;
+  id?: string;
+}
+
+interface Props {
+  primary: ActionItem;
+  secondary?: ActionItem[];
+  ariaLabel?: string;
+}
+
+const { primary, secondary = [], ariaLabel = 'Nächster Schritt' } = Astro.props;
+
+if (secondary.length > 2) {
+  throw new Error('ActionEdge accepts at most two secondary actions.');
+}
+
+const primaryId = primary.id ?? 'lx-primary-action';
+---
+
+<section class="lx-action-edge" aria-label={ariaLabel}>
+  <div>
+    {primary.href ? (
+      <a class="lx-button" id={primaryId} href={primary.href} data-lx-primary-action aria-describedby={primaryId + '-result'}>
+        {primary.label}
+      </a>
+    ) : (
+      <button id={primaryId} type="button" data-lx-primary-action aria-describedby={primaryId + '-result'}>
+        {primary.label}
+      </button>
+    )}
+    <p id={primaryId + '-result'}>{primary.result}</p>
+  </div>
+  {secondary.map((item, index) => {
+    const itemId = item.id ?? `lx-secondary-action-${index + 1}`;
+    return (
+      <div>
+        {item.href ? (
+          <a id={itemId} href={item.href} aria-describedby={itemId + '-result'}>{item.label}</a>
+        ) : (
+          <button id={itemId} type="button" aria-describedby={itemId + '-result'}>{item.label}</button>
+        )}
+        <p id={itemId + '-result'}>{item.result}</p>
+      </div>
+    );
+  })}
+</section>

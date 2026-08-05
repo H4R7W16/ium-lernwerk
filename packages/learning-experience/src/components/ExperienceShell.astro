@@ -1,0 +1,14 @@
+---
+interface Props {
+  ariaLabel?: string;
+}
+
+const { ariaLabel = 'Lernerfahrung' } = Astro.props;
+---
+
+<div class="lx-experience lx-experience-shell" data-lx-experience-shell role="group" aria-label={ariaLabel}>
+  <div data-lx-slot="context"><slot name="context" /></div>
+  <div data-lx-slot="journey"><slot name="journey" /></div>
+  <div data-lx-slot="focus"><slot name="focus" /></div>
+  <div data-lx-slot="action"><slot name="action" /></div>
+</div>

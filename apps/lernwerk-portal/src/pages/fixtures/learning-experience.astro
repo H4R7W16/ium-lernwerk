@@ -1,0 +1,74 @@
+---
+import ActionEdge from '@ium/learning-experience/components/ActionEdge';
+import ContextBand from '@ium/learning-experience/components/ContextBand';
+import ExperienceShell from '@ium/learning-experience/components/ExperienceShell';
+import FocusStage from '@ium/learning-experience/components/FocusStage';
+import JourneyMap from '@ium/learning-experience/components/JourneyMap';
+import LearningStateHeader from '@ium/learning-experience/components/LearningStateHeader';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Lernerfahrung-Prüffassung">
+  <ExperienceShell ariaLabel="Lernweg zur Vermutung">
+    <ContextBand
+      slot="context"
+      items={[
+        { term: 'Fall', value: 'Eine historische Entscheidung prüfen' },
+        { term: 'Arbeitsstand', value: 'Lokal gespeichert' },
+      ]}
+    />
+    <JourneyMap
+      slot="journey"
+      items={[
+        { id: 'orientation', label: 'Orientierung', current: true },
+        { id: 'prediction', label: 'Vermutung' },
+        { id: 'evidence', label: 'Belege' },
+      ]}
+    />
+    <div slot="focus">
+      <LearningStateHeader
+        id="learning-state-heading"
+        stateLabel="Orientierung"
+        heading="Den Fall erfassen"
+        guidingQuestion="Welche Entscheidung steht im Zentrum?"
+        action="Formuliere eine erste Vermutung."
+      />
+      <FocusStage
+        id="active-focus-stage"
+        heading="Orientierung"
+        purpose="Erfasse zunächst Akteure, Anlass und Entscheidungsspielraum."
+      >
+        <p>Die Quelle beschreibt eine Entscheidung unter Zeitdruck.</p>
+      </FocusStage>
+    </div>
+    <ActionEdge
+      slot="action"
+      primary={{
+        id: 'advance-to-prediction',
+        label: 'Weiter zur Vermutung',
+        result: 'Öffnet die nächste Denkhandlung und setzt den Fokus dorthin.',
+      }}
+    />
+  </ExperienceShell>
+
+  <script>
+    import { focusActivatedStage } from '@ium/learning-experience/controllers/focus-stage';
+
+    const advance = document.querySelector<HTMLButtonElement>('#advance-to-prediction');
+    advance?.addEventListener('click', () => {
+      const stage = document.querySelector<HTMLElement>('[data-lx-focus-stage]');
+      const stageHeading = stage?.querySelector<HTMLElement>('h2');
+      const journeyItems = document.querySelectorAll<HTMLElement>('[data-journey-id]');
+
+      if (!stage || !stageHeading || journeyItems.length < 2) {
+        return;
+      }
+
+      stageHeading.textContent = 'Vermutung bilden';
+      stage.dataset.focusOnActivation = 'true';
+      journeyItems[0]?.removeAttribute('aria-current');
+      journeyItems[1]?.setAttribute('aria-current', 'step');
+      focusActivatedStage();
+    });
+  </script>
+</BaseLayout>

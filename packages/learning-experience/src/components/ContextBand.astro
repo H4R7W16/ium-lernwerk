@@ -1,0 +1,24 @@
+---
+interface ContextItem {
+  term: string;
+  value: string;
+}
+
+interface Props {
+  items: ContextItem[];
+  ariaLabel?: string;
+}
+
+const { items, ariaLabel = 'Kontext' } = Astro.props;
+---
+
+<section class="lx-context-band lx-surface" aria-label={ariaLabel}>
+  <dl>
+    {items.map((item) => (
+      <div>
+        <dt>{item.term}</dt>
+        <dd>{item.value}</dd>
+      </div>
+    ))}
+  </dl>
+</section>

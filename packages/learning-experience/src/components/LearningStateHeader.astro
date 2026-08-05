@@ -1,0 +1,24 @@
+---
+interface Props {
+  id: string;
+  stateLabel: string;
+  heading: string;
+  guidingQuestion?: string;
+  action?: string;
+  criteria?: string[];
+}
+
+const { id, stateLabel, heading, guidingQuestion, action, criteria = [] } = Astro.props;
+---
+
+<header class="lx-learning-state-header" data-lx-learning-state-header>
+  <p class="eyebrow">{stateLabel}</p>
+  <h1 id={id}>{heading}</h1>
+  {guidingQuestion && <p class="lx-readable">{guidingQuestion}</p>}
+  {action && <p><strong>Nächster Denkzug:</strong> {action}</p>}
+  {criteria.length > 0 && (
+    <ul aria-label="Erfolgskriterien">
+      {criteria.map((criterion) => <li>{criterion}</li>)}
+    </ul>
+  )}
+</header>

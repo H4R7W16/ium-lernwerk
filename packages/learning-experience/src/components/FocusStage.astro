@@ -1,0 +1,35 @@
+---
+type FocusComposition = 'single' | 'compare' | 'cause-effect' | 'source-interpretation';
+
+interface Props {
+  id: string;
+  heading: string;
+  purpose?: string;
+  composition?: FocusComposition;
+  focusOnActivation?: boolean;
+}
+
+const {
+  id,
+  heading,
+  purpose,
+  composition = 'single',
+  focusOnActivation = false,
+} = Astro.props;
+---
+
+<section
+  class="lx-focus-stage"
+  id={id}
+  data-lx-focus-stage
+  data-composition={composition}
+  data-focus-on-activation={focusOnActivation ? 'true' : undefined}
+  aria-labelledby={id + '-heading'}
+  tabindex="-1"
+>
+  <header>
+    <h2 id={id + '-heading'}>{heading}</h2>
+    {purpose && <p class="lx-readable">{purpose}</p>}
+  </header>
+  <slot />
+</section>

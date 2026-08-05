@@ -1,0 +1,26 @@
+---
+interface JourneyItem {
+  id: string;
+  label: string;
+  current?: boolean;
+  href?: string;
+  blocked?: boolean;
+}
+
+interface Props {
+  items: JourneyItem[];
+  ariaLabel?: string;
+}
+
+const { items, ariaLabel = 'Lernweg' } = Astro.props;
+---
+
+<nav class="lx-journey-map" aria-label={ariaLabel}>
+  <ol aria-label={ariaLabel}>
+    {items.map((item) => (
+      <li data-journey-id={item.id} aria-current={item.current ? 'step' : undefined}>
+        {item.href && !item.blocked ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
