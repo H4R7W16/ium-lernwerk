@@ -54,7 +54,7 @@ modules/IUM-5-CORE-05/lernumgebung/
 - Modify: `scripts/check-workspace-boundaries.ts`
 - Test: `tests/platform/boundaries.test.ts`
 
-- [ ] **Step 1: Add a failing architecture test**
+- [x] **Step 1: Add a failing architecture test**
 
 Append a test that recognizes the new package, permits only its declared leaf dependencies, and rejects reverse imports from core:
 
@@ -83,13 +83,13 @@ test('rejects learning-experience imports from framework-free core', async () =>
 });
 ~~~
 
-- [ ] **Step 2: Verify the test fails for the missing workspace**
+- [x] **Step 2: Verify the test fails for the missing workspace**
 
 Run: `npx vitest run tests/platform/boundaries.test.ts`
 
 Expected: FAIL because `@ium/learning-experience` is not present in the discovered workspaces.
 
-- [ ] **Step 3: Create the package skeleton**
+- [x] **Step 3: Create the package skeleton**
 
 Use this package contract:
 
@@ -111,7 +111,7 @@ Use this package contract:
 
 The package has no runtime dependency on `@ium/ium-5-core-05`, `@ium/local-state` or `@ium/ui-components`. Add it to the root TypeScript references and to portal dependencies. Update the boundary allowlist so the portal may import it while core packages may not.
 
-- [ ] **Step 4: Verify boundary and type wiring**
+- [x] **Step 4: Verify boundary and type wiring**
 
 Run:
 
@@ -123,7 +123,7 @@ npm run typecheck
 
 Expected: all three commands PASS; the lockfile contains `@ium/learning-experience` as a workspace link.
 
-- [ ] **Step 5: Commit the boundary**
+- [x] **Step 5: Commit the boundary**
 
 ~~~powershell
 git add package.json package-lock.json tsconfig.json apps/lernwerk-portal/package.json packages/learning-experience scripts/check-workspace-boundaries.ts tests/platform/boundaries.test.ts
@@ -139,7 +139,7 @@ git commit -m "feat(experience): establish semantic package boundary"
 - Modify: `packages/learning-experience/src/index.ts`
 - Test: `tests/platform/learning-experience-contracts.test.ts`
 
-- [ ] **Step 1: Write the closed-contract tests**
+- [x] **Step 1: Write the closed-contract tests**
 
 Test a smallest valid document, every enum, duplicate IDs, unknown top-level and nested keys, missing German labels, invalid character limits, inaccessible action names and an unsupported `schemaVersion`:
 
@@ -210,13 +210,13 @@ describe('ExperienceContentV1', () => {
 });
 ~~~
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/learning-experience-contracts.test.ts`
 
 Expected: FAIL because the package does not export the contract or parser.
 
-- [ ] **Step 3: Implement exact TypeScript contracts**
+- [x] **Step 3: Implement exact TypeScript contracts**
 
 Define the following closed, readonly contracts exactly from the LXP04 specification:
 
@@ -274,7 +274,7 @@ export interface SupportSpec {
 
 Add `StartBoardSpec`, `LearningTaskSpec`, `FeedbackSpec`, `EvidenceCardSpec`, `TeacherCheckpointSpec` and `ResilienceSpec` exactly as defined in the LXP04 spec. `LearningStateId` is the controlled eleven-state LXP02 vocabulary, not an open string. Validate every action → task, task → feedback/support/recovery, checkpoint, evidence-card and support-escalation reference. Do not expose module-specific command types in this package.
 
-- [ ] **Step 4: Implement a strict parser**
+- [x] **Step 4: Implement a strict parser**
 
 The parser must return a discriminated result and collect path-specific errors:
 
@@ -298,7 +298,7 @@ export type ParseResult<T> =
 
 Enforce the LXP04 content limits by Unicode code points: purpose/prompt 600, action label 72, criterion 240, support title 72, support content 1,200 and resilience message 600. Reject empty-trimmed strings, duplicate IDs in their scope, dangling task/feedback/support/checkpoint/evidence-card/resilience references, forbidden analytics fields and every unknown property. Return a fresh deep structure; never mutate or coerce input.
 
-- [ ] **Step 5: Verify parser behavior**
+- [x] **Step 5: Verify parser behavior**
 
 Run:
 
@@ -309,7 +309,7 @@ npm run typecheck
 
 Expected: both PASS.
 
-- [ ] **Step 6: Commit the contracts**
+- [x] **Step 6: Commit the contracts**
 
 ~~~powershell
 git add packages/learning-experience/src tests/platform/learning-experience-contracts.test.ts
@@ -328,7 +328,7 @@ git commit -m "feat(experience): add versioned content contracts"
 - Modify: `apps/lernwerk-portal/src/styles/global.css`
 - Test: `tests/platform/learning-experience-styles.test.ts`
 
-- [ ] **Step 1: Add static style-contract tests**
+- [x] **Step 1: Add static style-contract tests**
 
 Read the CSS files in the test and assert the exact semantic tokens, system font stack, container breakpoints, focus treatment and reduced-motion override:
 
@@ -350,13 +350,13 @@ test('removes nonessential motion when requested', async () => {
 
 Add a local WCAG relative-luminance helper and assert every pair from the LXP04 table: canvas/ink ≥ 7, surface/ink ≥ 7, action/white ≥ 4.5, info ≥ 4.5, confirmed ≥ 4.5, warning ≥ 4.5, danger ≥ 4.5, focus/white ≥ 3 and focus/ink ≥ 3.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/learning-experience-styles.test.ts`
 
 Expected: FAIL because the style files do not exist.
 
-- [ ] **Step 3: Add the exact semantic token layer**
+- [x] **Step 3: Add the exact semantic token layer**
 
 Implement lowercase token values and aliases:
 
@@ -395,11 +395,11 @@ Implement lowercase token values and aliases:
 
 In `foundation.css` define body, readable measure, visible `:focus-visible` outline using both focus and ink contrast, minimum 44×44 px control targets, logical properties and container setup. In `patterns.css` use `@container experience (max-width: 39.999rem)`, `(min-width: 40rem) and (max-width: 69.999rem)`, and `(min-width: 70rem)`. No external font or image request.
 
-- [ ] **Step 4: Import the package stylesheet once**
+- [x] **Step 4: Import the package stylesheet once**
 
 `apps/lernwerk-portal/src/styles/global.css` must import `@ium/learning-experience/styles/index.css` before portal-specific rules. Do not copy tokens into portal CSS.
 
-- [ ] **Step 5: Verify styles and the existing build**
+- [x] **Step 5: Verify styles and the existing build**
 
 Run:
 
@@ -411,7 +411,7 @@ npm run build
 
 Expected: all PASS; built CSS contains the semantic custom properties exactly once.
 
-- [ ] **Step 6: Commit the foundation**
+- [x] **Step 6: Commit the foundation**
 
 ~~~powershell
 git add packages/learning-experience/src/styles apps/lernwerk-portal/src/styles/global.css tests/platform/learning-experience-styles.test.ts
@@ -432,7 +432,7 @@ git commit -m "feat(experience): implement calm semantic foundation"
 - Test: `tests/platform/learning-experience-components.test.ts`
 - Test: `tests/browser/learning-experience-primitives.spec.ts`
 
-- [ ] **Step 1: Write static component-contract tests**
+- [x] **Step 1: Write static component-contract tests**
 
 Assert that every component exists and that:
 
@@ -446,7 +446,7 @@ Run: `npx vitest run tests/platform/learning-experience-components.test.ts`
 
 Expected: FAIL for missing files.
 
-- [ ] **Step 2: Implement typed Astro props and semantic markup**
+- [x] **Step 2: Implement typed Astro props and semantic markup**
 
 The focus component contract is:
 
@@ -477,7 +477,7 @@ const { id, heading, purpose, focusOnActivation = false } = Astro.props;
 
 `ActionEdge` uses actual `button type="button"` or `a` depending on an explicit `href`, never a generic clickable container. It renders the primary action first in DOM order and distinguishes secondary actions with text, not color alone.
 
-- [ ] **Step 3: Add focus transfer only for user-triggered stage changes**
+- [x] **Step 3: Add focus transfer only for user-triggered stage changes**
 
 Export and test:
 
@@ -494,7 +494,7 @@ export function focusActivatedStage(root: ParentNode = document): void {
 
 The controller must not run on first page load, must tolerate a missing stage, and must honor `prefers-reduced-motion`. The portal controller calls it only after an explicit action changes the active stage.
 
-- [ ] **Step 4: Add browser acceptance tests**
+- [x] **Step 4: Add browser acceptance tests**
 
 Build a fixture page through the existing fixture mode and verify:
 
@@ -511,7 +511,7 @@ test('keeps one learning focus and moves focus after advance', async ({ page }) 
 
 Also test 320 px width, 200% browser zoom, keyboard-only order, no horizontal page scroll and reduced motion.
 
-- [ ] **Step 5: Verify primitives**
+- [x] **Step 5: Verify primitives**
 
 Run:
 
@@ -524,7 +524,7 @@ npm run typecheck
 
 Expected: all PASS.
 
-- [ ] **Step 6: Commit the primitives**
+- [x] **Step 6: Commit the primitives**
 
 ~~~powershell
 git add packages/learning-experience/src/components packages/learning-experience/src/controllers tests/platform/learning-experience-components.test.ts tests/browser/learning-experience-primitives.spec.ts
@@ -548,7 +548,7 @@ git commit -m "feat(experience): add focused journey primitives"
 - Test: `tests/platform/learning-experience-resilience.test.ts`
 - Test: `tests/browser/learning-experience-resilience.spec.ts`
 
-- [ ] **Step 1: Define failing state-mapping tests**
+- [x] **Step 1: Define failing state-mapping tests**
 
 Test only semantic platform state, never module content:
 
@@ -568,13 +568,13 @@ test.each([
 
 Assert that `adaptResilienceState` maps platform facts to exactly `info`, `limit` or `block` plus affected work, preserved state, consequence, safe action and return target. A learning answer must never appear in any live region; `saved` is a polite status while `failed` is an alert only after a user-triggered save.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/learning-experience-resilience.test.ts`
 
 Expected: FAIL because the semantic resilience layer does not exist.
 
-- [ ] **Step 3: Implement the four semantic resilience components**
+- [x] **Step 3: Implement the four semantic resilience components**
 
 - `SaveIndicator` accepts only `state` and `messageId`; it renders durable text and a restrained icon marked `aria-hidden="true"`.
 - `ResilienceNotice` accepts `kind: 'offline' | 'update' | 'storage'`, a heading and body; it uses `role="status"` only when the transition follows a user action.
@@ -585,11 +585,11 @@ Do not put technical connectivity notices inside `EvidenceFeedback` or any fachl
 
 `resilience-adapter.ts` is a pure mapping from technical facts to `ResilienceSpec`. It imports neither DOM APIs nor IUM5 types; the portal supplies the affected-work label from validated content.
 
-- [ ] **Step 4: Adapt existing technical components**
+- [x] **Step 4: Adapt existing technical components**
 
 Keep `@ium/ui-components` as the source of browser/platform facts. Add neutral data attributes and typed state exports so the portal can inject those facts into the semantic components. Do not move IndexedDB access or service-worker control into `@ium/learning-experience`.
 
-- [ ] **Step 5: Add browser behavior tests**
+- [x] **Step 5: Add browser behavior tests**
 
 Cover:
 
@@ -609,7 +609,7 @@ npx playwright test tests/browser/learning-experience-resilience.spec.ts --proje
 
 Expected: all PASS.
 
-- [ ] **Step 6: Commit resilience semantics**
+- [x] **Step 6: Commit resilience semantics**
 
 ~~~powershell
 git add packages/learning-experience packages/ui-components tests/platform/learning-experience-resilience.test.ts tests/browser/learning-experience-resilience.spec.ts
@@ -630,7 +630,7 @@ git commit -m "feat(experience): separate resilience from learning feedback"
 - Test: `tests/platform/ium5-experience-content.test.ts`
 - Test: `tests/fixtures/reference-module/experience.json`
 
-- [ ] **Step 1: Write content-validation tests**
+- [x] **Step 1: Write content-validation tests**
 
 Test that production IUM5 has exactly one `experience.json`, uses `schemaVersion: 1` and `terminologyVersion: 'lxp04-1'`, refers only to existing phase IDs, expresses the three reference situations through start/actions/checkpoints/evidence-card contracts, and has no HTML, scripts, tracking keys or URLs in learner-facing text.
 
@@ -644,13 +644,13 @@ Also create fixture failures for:
 - unknown property;
 - body over the code-point limit.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/ium5-experience-content.test.ts`
 
 Expected: FAIL because `experience.json` and validator are missing.
 
-- [ ] **Step 3: Author the closed IUM5 document**
+- [x] **Step 3: Author the closed IUM5 document**
 
 Encode the LXP03/LXP04 content for:
 
@@ -665,7 +665,7 @@ Encode the LXP03/LXP04 content for:
 
 Every action carries purpose, prompt, product, criteria, primary/secondary actions, evidence, task/support/checkpoint references, persistence and guarded next states. Tasks link to feedback and recovery. Keep commands, traces, scenario facts and algorithm semantics in `@ium/ium-5-core-05`; `experience.json` supplies labels, learning contracts and explanatory copy only.
 
-- [ ] **Step 4: Wire validation into registry construction**
+- [x] **Step 4: Wire validation into registry construction**
 
 Add the optional closed manifest property `"experienceContract": { "const": 1 }`, set `experienceContract: 1` only in `modules/IUM-5-CORE-05/module.yaml` for this slice, and run `npm run contracts:generate` so `module-manifest.d.ts` is regenerated from the schema. Modules without that declaration keep their current build path and do not need an empty experience document.
 
@@ -679,7 +679,7 @@ export async function readExperienceContent(
 
 Call it during registry generation for every production module that declares `experienceContract: 1`. On failure, print every contract error with module-relative file path and JSON path, then exit non-zero. Pass the parsed content as Astro props from `[id].astro`; do not re-read files in client JavaScript.
 
-- [ ] **Step 5: Verify content and builds**
+- [x] **Step 5: Verify content and builds**
 
 Run:
 
@@ -694,7 +694,7 @@ npm run typecheck
 
 Expected: all PASS; invalid fixtures fail only inside their explicit test assertions.
 
-- [ ] **Step 6: Commit the production contract**
+- [x] **Step 6: Commit the production contract**
 
 ~~~powershell
 git add modules/IUM-5-CORE-05/lernumgebung/experience.json modules/IUM-5-CORE-05/module.yaml tests/fixtures/reference-module/experience.json schemas/module-manifest.schema.json packages/module-contract/src/generated/module-manifest.d.ts scripts/validate-experience-content.ts scripts/build-module-registry.ts apps/lernwerk-portal/src/pages/module/[id].astro tests/platform/ium5-experience-content.test.ts
@@ -712,7 +712,7 @@ git commit -m "feat(ium5): add validated experience content"
 - Modify: `apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro`
 - Test: `tests/platform/ium5-experience-adapter.test.ts`
 
-- [ ] **Step 1: Write adapter truth-table tests**
+- [x] **Step 1: Write adapter truth-table tests**
 
 Map existing core payload facts to presentation state:
 
@@ -728,13 +728,13 @@ Map existing core payload facts to presentation state:
 
 Add separate cases for stored resume data, unavailable persistence, validation failure and import recovery. Assert the adapter does not mutate the payload.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/ium5-experience-adapter.test.ts`
 
 Expected: FAIL for missing adapter exports.
 
-- [ ] **Step 3: Implement a closed presentation state**
+- [x] **Step 3: Implement a closed presentation state**
 
 ~~~ts
 export type ExperienceStage =
@@ -757,11 +757,11 @@ export interface Ium5ExperienceState {
 
 `deriveIum5ExperienceState` is pure. Browser facts enter through parameters, not global reads. Persisted fields stay owned by `projectPersistentPayload`. Do not add a duplicated stage field to the payload; derive it from existing work.
 
-- [ ] **Step 4: Reduce the mega-component by composition**
+- [x] **Step 4: Reduce the mega-component by composition**
 
 Keep `AlgorithmWorkbench.astro` as the IUM5 composition root, but replace hand-built shell, state banners and navigation with `ExperienceShell`, `JourneyMap`, `FocusStage` and `ActionEdge`. Move no domain calculation into Astro markup. Retain stable `data-*` hooks required by the controller until the matching browser tests migrate.
 
-- [ ] **Step 5: Connect stage activation**
+- [x] **Step 5: Connect stage activation**
 
 The controller:
 
@@ -772,7 +772,7 @@ The controller:
 5. calls `focusActivatedStage` only if the user action changed `stage`;
 6. announces only save/connectivity/error state, never the learning result.
 
-- [ ] **Step 6: Verify no payload or boundary regression**
+- [x] **Step 6: Verify no payload or boundary regression**
 
 Run:
 
@@ -784,7 +784,7 @@ npm run test:ium5:state
 
 Expected: all PASS; the allowed persistent payload key set is unchanged.
 
-- [ ] **Step 7: Commit the adapter seam**
+- [x] **Step 7: Commit the adapter seam**
 
 ~~~powershell
 git add apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro apps/lernwerk-portal/src/controllers/algorithm-workbench tests/platform/ium5-experience-adapter.test.ts
@@ -803,7 +803,7 @@ git commit -m "refactor(ium5): add semantic experience adapter"
 - Modify: `apps/lernwerk-portal/src/styles/algorithm-workbench.css`
 - Test: `tests/browser/ium5-start-resume.spec.ts`
 
-- [ ] **Step 1: Add failing learner-flow tests**
+- [x] **Step 1: Add failing learner-flow tests**
 
 Cover both clean and stored starts:
 
@@ -830,23 +830,23 @@ test('offers resume before reset without exposing stored answers', async ({ page
 
 Also test that “Neu beginnen” opens the confirmation dialog, cancel preserves data, confirmation clears only the selected module record, and keyboard focus returns predictably.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx playwright test tests/browser/ium5-start-resume.spec.ts --config playwright.ium5.config.mts --project=chromium`
 
 Expected: FAIL because current IUM5 renders the old full workbench immediately.
 
-- [ ] **Step 3: Implement start and resume patterns**
+- [x] **Step 3: Implement start and resume patterns**
 
 `StartBoard` displays context, purpose and exactly one primary action. `ResumePrompt` displays the last meaningful learning stage in words, not a percentage, timestamp, attempt count or score. Its primary action is “Weiterarbeiten”; “Neu beginnen” is secondary and routes through `DataActionDialog`.
 
 At compact width, place actions in one vertical reading order; at wide width, keep content measure ≤ 70ch and do not turn the start into a dashboard.
 
-- [ ] **Step 4: Preserve local-first behavior**
+- [x] **Step 4: Preserve local-first behavior**
 
 Read existing module state only via the current `@ium/local-state` port. A missing database, denied storage or invalid record must lead to start plus `RecoveryPanel`, never a blank page. No network is required for either path.
 
-- [ ] **Step 5: Verify the reference situation**
+- [x] **Step 5: Verify the reference situation**
 
 Run:
 
@@ -858,7 +858,7 @@ npm run test:ium5:offline
 
 Expected: all PASS.
 
-- [ ] **Step 6: Commit start and resume**
+- [x] **Step 6: Commit start and resume**
 
 ~~~powershell
 git add packages/learning-experience/src/components/StartBoard.astro packages/learning-experience/src/components/ResumePrompt.astro apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro apps/lernwerk-portal/src/controllers/algorithm-workbench apps/lernwerk-portal/src/styles/algorithm-workbench.css tests/browser/ium5-start-resume.spec.ts
@@ -882,7 +882,7 @@ git commit -m "feat(ium5): implement focused start and resume"
 - Test: `tests/browser/ium5-evidence-revision.spec.ts`
 - Test: `tests/platform/learning-feedback-contract.test.ts`
 
-- [ ] **Step 1: Add a failing learning-feedback contract test**
+- [x] **Step 1: Add a failing learning-feedback contract test**
 
 Assert that feedback always contains:
 
@@ -901,7 +901,7 @@ export interface FeedbackSpec {
 
 Reject labels such as “Richtig”, “Falsch” or a bare score when the result lacks criterion, evidence reference, interpretation prompt or next check. Enforce unique IDs linking feedback to visible trace evidence and existing support IDs.
 
-- [ ] **Step 2: Add failing browser tests for the complete cycle**
+- [x] **Step 2: Add failing browser tests for the complete cycle**
 
 The tests must show that a keyboard-only learner can:
 
@@ -916,7 +916,7 @@ The tests must show that a keyboard-only learner can:
 
 Verify that execution is blocked until a prediction exists, focus moves once per stage, the current evidence row has text plus `aria-current`, and the revision comparison has explicit “Vorher”/“Nachher” headings rather than relying on columns.
 
-- [ ] **Step 3: Confirm red**
+- [x] **Step 3: Confirm red**
 
 Run:
 
@@ -927,7 +927,7 @@ npx playwright test tests/browser/ium5-evidence-revision.spec.ts --config playwr
 
 Expected: both FAIL on missing semantic components/behavior.
 
-- [ ] **Step 4: Implement the six patterns**
+- [x] **Step 4: Implement the six patterns**
 
 - `PredictionForm` uses a `fieldset` and `legend`, visible labels, inline validation connected by `aria-describedby`, and preserves invalid input.
 - `SemanticModelView` exposes the model state as a structured text summary in addition to the visual grid; decorative direction glyphs are hidden from assistive tech.
@@ -938,11 +938,11 @@ Expected: both FAIL on missing semantic components/behavior.
 
 Keep the existing core interpreter and trace types authoritative. Components receive already-computed domain facts and never recalculate movement, loop behavior or mission success.
 
-- [ ] **Step 5: Make the action graph explicit**
+- [x] **Step 5: Make the action graph explicit**
 
 In the controller, reject impossible action order even if a crafted DOM event tries to skip stages. Use the current core validation result as the authority. Show a durable error summary linked to the invalid field; do not silently coerce.
 
-- [ ] **Step 6: Verify the core learning cycle**
+- [x] **Step 6: Verify the core learning cycle**
 
 Run:
 
@@ -955,7 +955,7 @@ npm run typecheck
 
 Expected: all PASS and no existing interpreter/editor expectation changes.
 
-- [ ] **Step 7: Commit evidence-led feedback**
+- [x] **Step 7: Commit evidence-led feedback**
 
 ~~~powershell
 git add packages/learning-experience/src/components apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro apps/lernwerk-portal/src/controllers/algorithm-workbench apps/lernwerk-portal/src/styles/algorithm-workbench.css tests/platform/learning-feedback-contract.test.ts tests/browser/ium5-evidence-revision.spec.ts
@@ -979,7 +979,7 @@ git commit -m "feat(ium5): implement evidence-led revision cycle"
 - Test: `tests/platform/ium5-payload.test.ts`
 - Test: `tests/browser/ium5-transfer-reentry.spec.ts`
 
-- [ ] **Step 1: Add a failing minimal-evidence-card payload test**
+- [x] **Step 1: Add a failing minimal-evidence-card payload test**
 
 Extend the closed payload with one field only:
 
@@ -1005,17 +1005,17 @@ Test:
 
 Update the exact allowed-key assertion in `ium5-payload.test.ts`. Do not add a separate progress percentage or re-entry score.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/ium5-payload.test.ts`
 
 Expected: FAIL because `evidenceCard` is not part of the current closed contract.
 
-- [ ] **Step 3: Implement the narrow payload migration**
+- [x] **Step 3: Implement the narrow payload migration**
 
 Add `evidenceCard: EvidenceCardPayload | null` to the initial payload, parser and projection. References identify the authoritative source/trace rather than copying it; interpretation, revision, key statement and model boundary retain the learner’s minimal evidence product. The parser accepts the previous stored schema only through an explicit version-aware migration at the local-state adapter boundary; it must still reject arbitrary future fields. Increment the module payload schema version through the existing module contract mechanism and add a fixture for the prior version.
 
-- [ ] **Step 4: Implement the three semantic patterns**
+- [x] **Step 4: Implement the three semantic patterns**
 
 - `EvidenceCardComposer` exposes source and evidence selection first, then four visible labelled textareas: Deutung, Überarbeitung, Kernaussage und Modellgrenze. It displays character limits before overflow and preserves entries after validation.
 - `TransferPrompt` presents the existing closed transfer cases one at a time, requires a classification and rationale, and connects the result to the evidence card.
@@ -1023,7 +1023,7 @@ Add `evidenceCard: EvidenceCardPayload | null` to the initial payload, parser an
 
 No component stores data itself. The controller submits through the IUM5 payload and local-state port.
 
-- [ ] **Step 5: Add the end-to-end browser test**
+- [x] **Step 5: Add the end-to-end browser test**
 
 Test an offline-capable flow from completed revision through card, one transfer classification, simulated reload and re-entry recall. Assert:
 
@@ -1034,7 +1034,7 @@ Test an offline-capable flow from completed revision through card, one transfer 
 - no personal data or interaction metric enters IndexedDB/export;
 - 320 px and 200% zoom remain operable.
 
-- [ ] **Step 6: Verify persistence and transfer**
+- [x] **Step 6: Verify persistence and transfer**
 
 Run:
 
@@ -1047,7 +1047,7 @@ npm run typecheck
 
 Expected: all PASS.
 
-- [ ] **Step 7: Commit minimal evidence persistence**
+- [x] **Step 7: Commit minimal evidence persistence**
 
 ~~~powershell
 git add packages/learning-experience/src packages/ium-5-core-05/src apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro apps/lernwerk-portal/src/controllers/algorithm-workbench tests/platform/ium5-payload.test.ts tests/browser/ium5-transfer-reentry.spec.ts
@@ -1067,7 +1067,7 @@ git commit -m "feat(ium5): persist minimal evidence card and reentry"
 - Test: `tests/platform/ium5-teacher-orchestration.test.ts`
 - Test: `tests/browser/ium5-teacher-orchestration.spec.ts`
 
-- [ ] **Step 1: Write checkpoint contract tests**
+- [x] **Step 1: Write checkpoint contract tests**
 
 For each checkpoint, require:
 
@@ -1089,19 +1089,19 @@ export interface TeacherCheckpointSpec {
 
 Assert that a checkpoint has no remote lock, teacher account, hidden dashboard, countdown or automatic data transmission. `neutralFallback` must explain how instruction proceeds without private device state or a shared stop, and `returnState` must be an allowed LXP02 state.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/ium5-teacher-orchestration.test.ts`
 
 Expected: FAIL because teacher patterns are missing.
 
-- [ ] **Step 3: Implement local orchestration patterns**
+- [x] **Step 3: Implement local orchestration patterns**
 
 `TeacherCheckpoint` is a locally rendered pause card, not an authorization system. `RoleExchange` names two roles (“Erklären” and “Prüfen”), the exchange prompt and a visible swap action. `SharedHold` allows “Gemeinsam besprechen” and “Ohne gemeinsame Besprechung fortfahren”; neither path loses work.
 
 Store no checkpoint telemetry. If a learner continues independently, derive the stage from their learning payload and do not add a persisted “teacher bypass” field.
 
-- [ ] **Step 4: Align the teacher handbook**
+- [x] **Step 4: Align the teacher handbook**
 
 Add a section that names:
 
@@ -1112,7 +1112,7 @@ Add a section that names:
 - the boundary that no learner monitoring or remote control exists;
 - how to use the evidence card for formative dialogue without collecting identities.
 
-- [ ] **Step 5: Add browser tests**
+- [x] **Step 5: Add browser tests**
 
 Verify checkpoint text and choices, role swap keyboard behavior, no request to an analytics/network endpoint, continued offline operation and unchanged persistence after either release path.
 
@@ -1126,7 +1126,7 @@ npm run test:ium5:offline
 
 Expected: all PASS.
 
-- [ ] **Step 6: Commit teacher orchestration**
+- [x] **Step 6: Commit teacher orchestration**
 
 ~~~powershell
 git add packages/learning-experience/src/components modules/IUM-5-CORE-05/lernumgebung/experience.json modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro tests/platform/ium5-teacher-orchestration.test.ts tests/browser/ium5-teacher-orchestration.spec.ts
@@ -1148,7 +1148,7 @@ git commit -m "feat(ium5): add local teacher orchestration"
 - Modify: `docs/architecture/lokale-datenhaltung-und-resilienz.md`
 - Modify: `README.md`
 
-- [ ] **Step 1: Add failing production-gate tests**
+- [x] **Step 1: Add failing production-gate tests**
 
 The production test must fail unless:
 
@@ -1161,13 +1161,13 @@ The production test must fail unless:
 - every reference situation has a Playwright test;
 - the documentation records contract version, migration rule and non-generalizations.
 
-- [ ] **Step 2: Confirm red**
+- [x] **Step 2: Confirm red**
 
 Run: `npx vitest run tests/platform/learning-experience-production.test.ts`
 
 Expected: FAIL because the verifier and documentation entries are missing.
 
-- [ ] **Step 3: Implement the verifier and npm script**
+- [x] **Step 3: Implement the verifier and npm script**
 
 Export a callable function for Vitest and a CLI entry:
 
@@ -1188,7 +1188,7 @@ export async function verifyLearningExperience(
 
 Add `"verify:experience": "tsx scripts/verify-learning-experience.ts"`. Make `verify-ium5.ts` call the verifier and surface its failed check IDs, while keeping the new script independently runnable.
 
-- [ ] **Step 4: Add comprehensive accessibility tests**
+- [x] **Step 4: Add comprehensive accessibility tests**
 
 Use axe plus behavioral assertions across clean start, resume, prediction, evidence, revision, transfer, re-entry, offline, validation error and recovery. Test Chromium keyboard behavior and the existing configured browser matrix where stable. Required assertions:
 
@@ -1205,7 +1205,7 @@ Use axe plus behavioral assertions across clean start, resume, prediction, evide
 - visual model has equivalent structured text;
 - status regions exclude learning answers.
 
-- [ ] **Step 5: Add portability tests**
+- [x] **Step 5: Add portability tests**
 
 Render the package fixture without `@ium/ium-5-core-05` and render an IUM5 page with a fake semantic component adapter. Assert that:
 
@@ -1215,7 +1215,7 @@ Render the package fixture without `@ium/ium-5-core-05` and render an IUM5 page 
 - StartBoard, FocusStage, ActionEdge, EvidenceFeedback and RecoveryPanel render with non-IUM5 fixture content;
 - module-specific trace and editor views remain injected by the portal composition root.
 
-- [ ] **Step 6: Update architectural and acceptance documentation**
+- [x] **Step 6: Update architectural and acceptance documentation**
 
 Record:
 
@@ -1227,7 +1227,7 @@ Record:
 - explicit non-generalizations: IUM5 grid/editor, command catalog, trace semantics, scenario IDs, fachliche language, teacher checkpoint placement;
 - acceptance evidence with exact test/command names.
 
-- [ ] **Step 7: Run the full quality ladder**
+- [x] **Step 7: Run the full quality ladder**
 
 Run in this order and stop on the first failure:
 
@@ -1256,7 +1256,7 @@ Expected:
 - All browser suites report 0 failed.
 - `verify:experience` and `verify:ium5` end with an explicit PASS summary.
 
-- [ ] **Step 8: Inspect generated output without committing it**
+- [x] **Step 8: Inspect generated output without committing it**
 
 Run:
 
@@ -1268,7 +1268,7 @@ rg -n "https?://|analytics|attemptCount|elapsedMs|clicks|hintUsage|playbackSpeed
 
 Expected: no build artifact is tracked; `git diff --check` is silent; the final search finds no external asset/analytics/metric violation. Legitimate prohibition tests may contain the forbidden test strings and must be reviewed rather than deleted.
 
-- [ ] **Step 9: Commit production gates**
+- [x] **Step 9: Commit production gates**
 
 ~~~powershell
 git add package.json package-lock.json scripts/verify-learning-experience.ts scripts/verify-ium5.ts tests/platform/learning-experience-production.test.ts tests/browser/ium5-learning-experience-accessibility.spec.ts tests/browser/ium5-learning-experience-portability.spec.ts docs README.md
@@ -1283,11 +1283,11 @@ git commit -m "test(experience): enforce production quality gates"
 - Modify: `docs/superpowers/plans/2026-08-05-ium-lxp04-design-system-implementation.md`
 - Create: `docs/quality/ium-learning-experience-implementation-report.md`
 
-- [ ] **Step 1: Re-read LXP04 and trace every normative contract**
+- [x] **Step 1: Re-read LXP04 and trace every normative contract**
 
 Create a report table with one row for every LXP04 acceptance area: architecture, visual foundation, responsive behavior, interaction, content, feedback, accessibility, resilience, persistence, teacher orchestration, portability and production. Each row names implementation files, automated evidence, manual observation if any and residual uncertainty.
 
-- [ ] **Step 2: Run focused diff and history review**
+- [x] **Step 2: Run focused diff and history review**
 
 ~~~powershell
 git diff main...HEAD --stat
@@ -1298,18 +1298,18 @@ git status --short --branch
 
 Expected: only LXP05-scoped product, content, tests and documentation changes; clean worktree after the report commit; no merge, generated artifact or unrelated Vault file.
 
-- [ ] **Step 3: Run the full quality ladder once more**
+- [x] **Step 3: Run the full quality ladder once more**
 
 Repeat Task 12 Step 7 from a clean checkout. Record exact counts and command exits in the implementation report. A stale earlier run is not sufficient for completion.
 
-- [ ] **Step 4: Commit the implementation report**
+- [x] **Step 4: Commit the implementation report**
 
 ~~~powershell
 git add docs/quality/ium-learning-experience-implementation-report.md docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md docs/superpowers/plans/2026-08-05-ium-lxp04-design-system-implementation.md
 git commit -m "docs(experience): record implementation evidence"
 ~~~
 
-- [ ] **Step 5: Stop at the LXP05 review gate**
+- [x] **Step 5: Stop at the LXP05 review gate**
 
 Do not merge, push, open a pull request, deploy a preview or begin device/pilot work. Present:
 
