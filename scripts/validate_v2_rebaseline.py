@@ -22,6 +22,12 @@ EXPECTED_LXP05_REF = {
     "role": "historical-unmerged-review-candidate",
 }
 UNVERIFIED_DASHBOARD_COMMIT = "07bc15e1e70d"
+EXPECTED_STATEMENT_BOUNDARIES = (
+    "V1-Artefakte sind Auditbestand und keine automatisch übernommenen V2-Standards.",
+    "Technische Verifikation belegt weder didaktische Qualität noch Lernwirksamkeit.",
+    "LXP05 bleibt ungemergt, eingefroren und außerhalb der wiederverwendbaren V2-Basis.",
+    "Pilotierung, Veröffentlichung und Cutover sind nicht freigegeben.",
+)
 
 
 def load_json(path: Path) -> object:
@@ -105,6 +111,7 @@ def validate_archive(data: object) -> list[str]:
             "candidateRefs",
             "artifactRoots",
             "capturedAt",
+            "statementBoundaries",
             "limitations",
         }
     )
@@ -161,6 +168,10 @@ def validate_archive(data: object) -> list[str]:
     captured_at = data.get("capturedAt")
     if not isinstance(captured_at, str) or not DATE_PATTERN.fullmatch(captured_at):
         errors.append("V1 capturedAt muss YYYY-MM-DD sein")
+
+    statement_boundaries = data.get("statementBoundaries")
+    if statement_boundaries != list(EXPECTED_STATEMENT_BOUNDARIES):
+        errors.append("V1-Archiv muss alle verbindlichen Aussagegrenzen enthalten")
 
     limitations = data.get("limitations")
     dashboard_limited = isinstance(limitations, list) and any(

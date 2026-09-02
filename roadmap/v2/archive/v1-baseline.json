@@ -24,6 +24,12 @@
     "tests"
   ],
   "capturedAt": "2026-09-03",
+  "statementBoundaries": [
+    "V1-Artefakte sind Auditbestand und keine automatisch übernommenen V2-Standards.",
+    "Technische Verifikation belegt weder didaktische Qualität noch Lernwirksamkeit.",
+    "LXP05 bleibt ungemergt, eingefroren und außerhalb der wiederverwendbaren V2-Basis.",
+    "Pilotierung, Veröffentlichung und Cutover sind nicht freigegeben."
+  ],
   "limitations": [
     {
       "id": "dashboard-local-commit",

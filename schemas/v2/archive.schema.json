@@ -12,6 +12,7 @@
     "candidateRefs",
     "artifactRoots",
     "capturedAt",
+    "statementBoundaries",
     "limitations"
   ],
   "properties": {
@@ -57,6 +58,19 @@
     "capturedAt": {
       "type": "string",
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "statementBoundaries": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "prefixItems": [
+        { "const": "V1-Artefakte sind Auditbestand und keine automatisch übernommenen V2-Standards." },
+        { "const": "Technische Verifikation belegt weder didaktische Qualität noch Lernwirksamkeit." },
+        { "const": "LXP05 bleibt ungemergt, eingefroren und außerhalb der wiederverwendbaren V2-Basis." },
+        { "const": "Pilotierung, Veröffentlichung und Cutover sind nicht freigegeben." }
+      ],
+      "items": false
     },
     "limitations": {
       "type": "array",

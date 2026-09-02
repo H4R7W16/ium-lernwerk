@@ -39,6 +39,12 @@ VALID_ARCHIVE = {
         "pilot",
     ],
     "capturedAt": "2026-09-03",
+    "statementBoundaries": [
+        "V1-Artefakte sind Auditbestand und keine automatisch übernommenen V2-Standards.",
+        "Technische Verifikation belegt weder didaktische Qualität noch Lernwirksamkeit.",
+        "LXP05 bleibt ungemergt, eingefroren und außerhalb der wiederverwendbaren V2-Basis.",
+        "Pilotierung, Veröffentlichung und Cutover sind nicht freigegeben.",
+    ],
     "limitations": [
         {
             "id": "dashboard-local-commit",
@@ -244,6 +250,20 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         )
         self.assertIn(
             "V1-Archiv enthält unbekannte Felder: githubDashboardUrl",
+            errors,
+        )
+
+    def test_archive_requires_all_statement_boundaries(self) -> None:
+        """Catches an archive that preserves files but loses their claim limits."""
+        archive = copy.deepcopy(VALID_ARCHIVE)
+        archive["statementBoundaries"].pop()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, archive=archive)
+            errors = validate_repository(root)
+
+        self.assertIn(
+            "V1-Archiv muss alle verbindlichen Aussagegrenzen enthalten",
             errors,
         )
 
