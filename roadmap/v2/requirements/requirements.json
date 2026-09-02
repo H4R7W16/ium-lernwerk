@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "requirements": [
+    {
+      "id": "V2-REQ-SYS-001",
+      "title": "V1 und V2 bis zum Cutover strikt trennen",
+      "statement": "V1 bleibt der aktive Referenzstand, während V2 als kontrollierter Aufbau geführt wird; ein Wechsel erfolgt ausschließlich nach einer ausdrücklichen Cutover-Freigabe.",
+      "domain": "governance",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        },
+        {
+          "kind": "vault",
+          "target": "2026-09-03 - Entscheidung - Kontrollierte Re-Baseline V2 und Lern-Experience-Fundament",
+          "label": "Freigabeentscheidung zur Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "system",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": [],
+      "risks": [
+        "Eine Vermischung historischer V1-Artefakte mit V2 könnte ungeprüfte Annahmen erneut als Standard erscheinen lassen."
+      ],
+      "gate": "IUM-V2-CUT"
+    },
+    {
+      "id": "V2-REQ-SYS-002",
+      "title": "Inhaltsproduktion während der Grundlagenarbeit geschlossen halten",
+      "statement": "Neue Lernmodule und Lernendentexte bleiben bis zum Abschluss der Grundlagen- und Auditgates eingefroren; LXP05 bleibt ein ungemergter historischer Reviewstand.",
+      "domain": "governance",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "system",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": ["V2-REQ-SYS-001"],
+      "risks": [
+        "Vorzeitige Inhaltsproduktion würde Entscheidungen aus noch offenen Fundamenten vorwegnehmen."
+      ],
+      "gate": "IUM-V2-CUT"
+    },
+    {
+      "id": "V2-REQ-CUR-001",
+      "title": "Curriculumquellen nach Bindungsgrad unterscheiden",
+      "statement": "Amtliche Bildungspläne, orientierende Lesehilfen und Projektentscheidungen werden getrennt ausgewiesen und nicht mit derselben normativen Bindung behandelt.",
+      "domain": "curriculum",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "cross-grade",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": ["V2-REQ-SYS-001"],
+      "risks": [
+        "Orientierungsmaterial könnte ohne klare Kennzeichnung fälschlich als amtliche Vorgabe erscheinen."
+      ],
+      "gate": "IUM-V2-CUR"
+    },
+    {
+      "id": "V2-REQ-CUR-002",
+      "title": "Drei Formen der Curriculumabdeckung zulassen",
+      "statement": "Curriculumabdeckung kann direkt in einem Modul, integriert über mehrere Module oder querschnittlich als fortlaufende Lernhandlung nachgewiesen werden, ohne künstliche Zusatzaufgaben oder Zusatzzeit zu erzeugen.",
+      "domain": "curriculum",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "cross-grade",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["direct-module", "integrated", "cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": ["V2-REQ-CUR-001"],
+      "risks": [
+        "Eine ausschließlich modulweise Zählung könnte fortlaufende Kompetenzen übersehen oder unnötige Zusatzstunden erzeugen."
+      ],
+      "gate": "IUM-V2-CUR"
+    },
+    {
+      "id": "V2-REQ-SRC-001",
+      "title": "Quellen, Claims und Gestaltungsentscheidungen rückverfolgbar machen",
+      "statement": "Freigaberelevante Aussagen verweisen auf registrierte Claims; Claims verweisen auf registrierte Quellen, und Projektentscheidungen, Gestaltungsprinzipien, Materialmuster sowie Prüfmethoden bleiben unterscheidbar.",
+      "domain": "sources",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "system",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": ["V2-REQ-SYS-001"],
+      "risks": [
+        "Getrennte oder unvollständige Register können Aussagen ohne prüfbare Fundstelle oder Geltungsgrenze begünstigen."
+      ],
+      "gate": "IUM-V2-SRC"
+    },
+    {
+      "id": "V2-REQ-LXF-001",
+      "title": "Die vollständige Lernarchitektur vor der Inhaltsproduktion fundieren",
+      "statement": "Lernendenmaterial, Lernhandlungen, Erklärungen, Unterstützung, Feedback, Übung, Transfer, digitale Interaktion, Accessibility und Lehrkraftorchestrierung werden durch einen prüfbaren Evidenz-zu-Design-Vertrag gesteuert.",
+      "domain": "experience",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "cross-grade",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["integrated", "cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": ["V2-REQ-CUR-001", "V2-REQ-SRC-001"],
+      "risks": [
+        "Ein reiner Styleguide würde Lernmechanismen, Geltungsbedingungen und die reale Unterrichtsorchestrierung nicht ausreichend absichern."
+      ],
+      "gate": "LXF07"
+    },
+    {
+      "id": "V2-REQ-GOV-001",
+      "title": "Öffentliche Aussagen an Mindestnachweise binden",
+      "statement": "Aussagen zu Curriculum, Evidenzorientierung, Barrierearmut, technischer Verifikation, Nutzungsprüfung, Pilotierung und Lernwirksamkeit werden getrennt und nur mit dem jeweils festgelegten Mindestnachweis verwendet.",
+      "domain": "public-perception",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "system",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": ["V2-REQ-SRC-001"],
+      "risks": [
+        "Formale oder technische Prüfungen könnten ohne Claim-Governance unzulässig als Nachweis von Lernwirksamkeit dargestellt werden."
+      ],
+      "gate": "IUM-V2-GOV"
+    },
+    {
+      "id": "V2-REQ-DASH-001",
+      "title": "Dashboard auf die V1/V2-Steuerung ausrichten",
+      "statement": "Das Dashboard weist V1, den V2-Aufbau, den eingefrorenen LXP05-Kandidaten, geschlossene Inhaltsproduktion, getrennte Gates, Stichtag, Commit und auflösbare Evidenz aus, ohne Gesamtfortschritt oder pauschale Gesamtampel.",
+      "domain": "governance",
+      "origin": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+          "label": "Freigegebene Spezifikation der kontrollierten Re-Baseline",
+          "required": true
+        }
+      ],
+      "binding": "project",
+      "scope": "system",
+      "grades": [5, 6, 7],
+      "fulfillmentModes": ["cross-cutting"],
+      "coverage": "unassessed",
+      "evidence": [],
+      "dependencies": [
+        "V2-REQ-GOV-001",
+        "V2-REQ-SYS-001",
+        "V2-REQ-SYS-002"
+      ],
+      "risks": [
+        "Eine zusammengezogene Fortschrittsanzeige könnte offene Grundlagen- und Evidenzgates verdecken."
+      ],
+      "gate": "IUM-V2-DASH"
+    }
+  ]
+}

@@ -4,7 +4,10 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from scripts.validate_v2_rebaseline import validate_repository
+from scripts.validate_v2_rebaseline import (
+    validate_repository,
+    validate_repository_report,
+)
 
 
 VALID_STATUS = {
@@ -58,6 +61,40 @@ VALID_ARCHIVE = {
     ],
 }
 
+VALID_REQUIREMENT = {
+    "id": "V2-REQ-001",
+    "title": "V1 und V2 trennen",
+    "statement": "V1 bleibt bis zum ausdrücklichen Cutover die aktive Baseline.",
+    "domain": "governance",
+    "origin": [
+        {
+            "kind": "vault",
+            "target": (
+                "2026-09-03 - Entscheidung - Kontrollierte Re-Baseline V2 "
+                "und Lern-Experience-Fundament"
+            ),
+            "label": "Freigegebene Re-Baseline-Entscheidung",
+            "required": True,
+        }
+    ],
+    "binding": "project",
+    "scope": "system",
+    "grades": [5, 6, 7],
+    "fulfillmentModes": ["cross-cutting"],
+    "coverage": "unassessed",
+    "evidence": [],
+    "dependencies": [],
+    "risks": ["Ein vorzeitiger Cutover vermischt V1- und V2-Aussagen."],
+    "gate": "IUM-V2-CUT",
+}
+
+VALID_REQUIREMENTS = {
+    "schemaVersion": 1,
+    "projectId": "ium-lernwerk",
+    "asOf": "2026-09-03",
+    "requirements": [VALID_REQUIREMENT],
+}
+
 
 def write_json(root: Path, relative_path: str, payload: object) -> None:
     target = root / relative_path
@@ -73,12 +110,17 @@ def write_control_files(
     *,
     status: object = VALID_STATUS,
     archive: object = VALID_ARCHIVE,
+    requirements: object | None = None,
     include_requirements: bool = True,
 ) -> None:
     write_json(root, "roadmap/v2/status.json", status)
     write_json(root, "roadmap/v2/archive/v1-baseline.json", archive)
     if include_requirements:
-        write_json(root, "roadmap/v2/requirements/requirements.json", {})
+        write_json(
+            root,
+            "roadmap/v2/requirements/requirements.json",
+            {} if requirements is None else requirements,
+        )
 
 
 class ValidateV2RebaselineTests(unittest.TestCase):
@@ -314,6 +356,222 @@ class ValidateV2RebaselineTests(unittest.TestCase):
 
         self.assertEqual(
             ["roadmap/v2/requirements/requirements.json fehlt"],
+            errors,
+        )
+
+    def test_duplicate_requirement_ids_fail_closed(self) -> None:
+        """Catches ambiguous evidence and dependencies caused by duplicate IDs."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"].append(copy.deepcopy(VALID_REQUIREMENT))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn("doppelte Anforderungs-ID V2-REQ-001", errors)
+
+    def test_unknown_requirement_domain_fails_closed(self) -> None:
+        """Catches an ungoverned domain bypassing the eight-domain contract."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["domain"] = "ui-decoration"
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn("unbekannte Domäne ui-decoration", errors)
+
+    def test_malformed_enum_type_fails_closed_without_crashing(self) -> None:
+        """Catches non-scalar JSON values crashing enum validation."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["domain"] = []
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn("unbekannte Domäne []", errors)
+
+    def test_unknown_requirement_enum_values_fail_closed(self) -> None:
+        """Catches invalid bindings, scopes, modes, coverage, grades, and evidence kinds."""
+        cases = (
+            ("binding", "accidental", "unbekannte Bindung accidental in V2-REQ-001"),
+            ("scope", "page", "unbekannter Scope page in V2-REQ-001"),
+            (
+                "fulfillmentModes",
+                ["decorative"],
+                "unbekannter Erfüllungsmodus decorative in V2-REQ-001",
+            ),
+            (
+                "coverage",
+                "complete",
+                "unbekannter Abdeckungsstatus complete in V2-REQ-001",
+            ),
+            ("grades", [8], "unbekannte Klassenstufe 8 in V2-REQ-001"),
+        )
+        for field, value, expected in cases:
+            with self.subTest(field=field):
+                requirements = copy.deepcopy(VALID_REQUIREMENTS)
+                requirements["requirements"][0][field] = value
+                with tempfile.TemporaryDirectory() as directory:
+                    root = Path(directory)
+                    write_control_files(root, requirements=requirements)
+                    errors = validate_repository(root)
+                self.assertIn(expected, errors)
+
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["origin"][0]["kind"] = "file"
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+        self.assertIn("unbekannter Evidenztyp file in V2-REQ-001", errors)
+
+    def test_required_evidence_pointer_needs_a_target(self) -> None:
+        """Catches a mandatory source that cannot be followed or reviewed."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["origin"][0]["target"] = ""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn("Pflichtreferenz ohne Ziel in V2-REQ-001", errors)
+
+    def test_required_repository_reference_must_resolve(self) -> None:
+        """Catches a required repository source that does not exist."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["origin"][0] = {
+            "kind": "repo",
+            "target": "docs/does-not-exist.md",
+            "label": "Fehlende Pflichtquelle",
+            "required": True,
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn(
+            "Pflichtreferenz im Repository fehlt in V2-REQ-001: "
+            "docs/does-not-exist.md",
+            errors,
+        )
+
+    def test_optional_missing_repository_reference_is_only_a_warning(self) -> None:
+        """Catches historical source gaps incorrectly blocking the V2 gate."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["origin"][0] = {
+            "kind": "repo",
+            "target": "docs/historical-source-not-recovered.md",
+            "label": "Nicht wiedergefundene historische Quelle",
+            "required": False,
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors, warnings = validate_repository_report(root)
+
+        self.assertEqual([], errors)
+        self.assertIn(
+            "optionale Repository-Referenz fehlt in V2-REQ-001: "
+            "docs/historical-source-not-recovered.md",
+            warnings,
+        )
+
+    def test_optional_vault_reference_is_reported_as_unresolved_warning(self) -> None:
+        """Catches an unverifiable historical Vault link being silently accepted."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["origin"][0]["required"] = False
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors, warnings = validate_repository_report(root)
+
+        self.assertEqual([], errors)
+        self.assertIn(
+            "optionale Vault-Referenz lokal nicht auflösbar in V2-REQ-001: "
+            "2026-09-03 - Entscheidung - Kontrollierte Re-Baseline V2 und "
+            "Lern-Experience-Fundament",
+            warnings,
+        )
+
+    def test_git_evidence_requires_a_full_commit_sha(self) -> None:
+        """Catches ambiguous Git proof that is not bound to an immutable commit."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["origin"][0] = {
+            "kind": "git",
+            "target": "dcaff3e",
+            "label": "Zu kurzer Commit",
+            "required": True,
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn(
+            "Git-Referenz muss eine vollständige 40-stellige SHA sein in "
+            "V2-REQ-001: dcaff3e",
+            errors,
+        )
+
+    def test_unknown_requirement_dependency_fails_closed(self) -> None:
+        """Catches a sequencing rule that points to no registered requirement."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["dependencies"] = ["V2-REQ-999"]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn("unbekannte Abhängigkeit V2-REQ-999", errors)
+
+    def test_cyclic_requirement_dependency_fails_closed(self) -> None:
+        """Catches an impossible gate order in the requirements graph."""
+        first = copy.deepcopy(VALID_REQUIREMENT)
+        first["dependencies"] = ["V2-REQ-002"]
+        second = copy.deepcopy(VALID_REQUIREMENT)
+        second["id"] = "V2-REQ-002"
+        second["dependencies"] = ["V2-REQ-001"]
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"] = [first, second]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn(
+            "zyklische Anforderungsabhängigkeit V2-REQ-001 -> V2-REQ-002 -> "
+            "V2-REQ-001",
+            errors,
+        )
+
+    def test_covered_requirement_requires_v2_evidence(self) -> None:
+        """Catches automatic V2 coverage inferred from the existence of V1 work."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        requirements["requirements"][0]["coverage"] = "covered"
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn(
+            "V2-Abdeckung covered benötigt Evidenz in V2-REQ-001",
+            errors,
+        )
+
+    def test_missing_required_requirement_field_fails_closed(self) -> None:
+        """Catches an incomplete requirement entering the control register."""
+        requirements = copy.deepcopy(VALID_REQUIREMENTS)
+        del requirements["requirements"][0]["title"]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_control_files(root, requirements=requirements)
+            errors = validate_repository(root)
+
+        self.assertIn(
+            "Pflichtfeld title fehlt oder ist leer in V2-REQ-001",
             errors,
         )
 

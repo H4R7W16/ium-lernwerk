@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/requirements.schema.json",
+  "title": "IuM-Lernwerk V2-Anforderungsregister",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectId", "asOf", "requirements"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "projectId": {
+      "const": "ium-lernwerk"
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date"
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/requirement"
+      }
+    }
+  },
+  "$defs": {
+    "evidencePointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "target", "label", "required"],
+      "properties": {
+        "kind": {
+          "enum": ["repo", "git", "vault", "url", "doi"]
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "statement",
+        "domain",
+        "origin",
+        "binding",
+        "scope",
+        "grades",
+        "fulfillmentModes",
+        "coverage",
+        "evidence",
+        "dependencies",
+        "risks",
+        "gate"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^V2-REQ-[A-Z0-9-]+$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "enum": [
+            "curriculum",
+            "didactics",
+            "sources",
+            "platform",
+            "privacy",
+            "governance",
+            "public-perception",
+            "experience"
+          ]
+        },
+        "origin": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidencePointer"
+          }
+        },
+        "binding": {
+          "enum": [
+            "official",
+            "project",
+            "orientation",
+            "candidate",
+            "optional"
+          ]
+        },
+        "scope": {
+          "enum": [
+            "module",
+            "cross-cutting",
+            "year",
+            "cross-grade",
+            "system"
+          ]
+        },
+        "grades": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [5, 6, 7]
+          }
+        },
+        "fulfillmentModes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["direct-module", "integrated", "cross-cutting"]
+          }
+        },
+        "coverage": {
+          "enum": [
+            "unassessed",
+            "uncovered",
+            "partial",
+            "covered",
+            "not-applicable"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidencePointer"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^V2-REQ-[A-Z0-9-]+$"
+          }
+        },
+        "risks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "gate": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
