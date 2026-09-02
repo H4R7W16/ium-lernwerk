@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "activeBaseline": "v1",
+  "v2State": "building",
+  "contentProduction": "frozen",
+  "lxp05": {
+    "state": "frozen",
+    "integration": "unmerged"
+  },
+  "cutover": {
+    "state": "not-approved"
+  }
+}

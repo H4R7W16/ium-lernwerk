@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.de/schemas/v2/status.schema.json",
+  "title": "V2StatusV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "activeBaseline",
+    "v2State",
+    "contentProduction",
+    "lxp05",
+    "cutover"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "projectId": { "const": "ium-lernwerk" },
+    "activeBaseline": { "const": "v1" },
+    "v2State": { "const": "building" },
+    "contentProduction": { "const": "frozen" },
+    "lxp05": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "integration"],
+      "properties": {
+        "state": { "const": "frozen" },
+        "integration": { "const": "unmerged" }
+      }
+    },
+    "cutover": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state"],
+      "properties": {
+        "state": { "const": "not-approved" }
+      }
+    }
+  }
+}

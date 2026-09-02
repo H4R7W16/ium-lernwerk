@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "repository": "H4R7W16/ium-lernwerk",
+  "remote": "https://github.com/H4R7W16/ium-lernwerk.git",
+  "mainCommit": "dcaff3e4b6e96d8c1da3dd1d4dd56f6df6b35ef0",
+  "candidateRefs": [
+    {
+      "ref": "origin/feat/lxp05-ium5-experience",
+      "commit": "645a1d4ea3c786b08e1320954b522edf86dc9f83",
+      "role": "historical-unmerged-review-candidate"
+    }
+  ],
+  "artifactRoots": [
+    "docs/research/phase-0",
+    "docs/fachprofil",
+    "curriculum",
+    "roadmap",
+    "schemas",
+    "packages",
+    "apps",
+    "modules",
+    "pilot",
+    "scripts",
+    "tests"
+  ],
+  "capturedAt": "2026-09-03",
+  "limitations": [
+    {
+      "id": "dashboard-local-commit",
+      "status": "unverified-local",
+      "reference": "07bc15e1e70d",
+      "statement": "Der im Vault dokumentierte Dashboard-Commit ist weder als lokales noch als entferntes Git-Objekt reproduzierbar und besitzt deshalb keinen GitHub-Evidenzlink."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.de/schemas/v2/archive.schema.json",
+  "title": "V1ArchiveManifestV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "repository",
+    "remote",
+    "mainCommit",
+    "candidateRefs",
+    "artifactRoots",
+    "capturedAt",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "repository": { "const": "H4R7W16/ium-lernwerk" },
+    "remote": {
+      "const": "https://github.com/H4R7W16/ium-lernwerk.git"
+    },
+    "mainCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "candidateRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "commit", "role"],
+        "properties": {
+          "ref": { "type": "string", "minLength": 1 },
+          "commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "role": {
+            "enum": ["historical-unmerged-review-candidate"]
+          }
+        }
+      }
+    },
+    "artifactRoots": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+      }
+    },
+    "capturedAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "reference", "statement"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "status": { "const": "unverified-local" },
+          "reference": { "type": "string", "minLength": 1 },
+          "statement": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
