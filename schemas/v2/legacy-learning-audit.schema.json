@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/legacy-learning-audit.schema.json",
+  "title": "IuM-Lernwerk V2 legacy learning audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "requirementIds",
+    "records",
+    "knownGaps",
+    "lxp05FailureLayers",
+    "handoff"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "projectId": {
+      "const": "ium-lernwerk"
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date"
+    },
+    "requirementIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "prefixItems": [
+        {
+          "const": "V2-REQ-LXF-001"
+        }
+      ],
+      "items": false
+    },
+    "records": {
+      "type": "array",
+      "minItems": 33,
+      "maxItems": 33,
+      "items": {
+        "$ref": "#/$defs/auditRecord"
+      }
+    },
+    "knownGaps": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "$ref": "#/$defs/knownGap"
+      }
+    },
+    "lxp05FailureLayers": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "$ref": "#/$defs/failureLayer"
+      }
+    },
+    "handoff": {
+      "$ref": "#/$defs/handoff"
+    }
+  },
+  "$defs": {
+    "auditRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactId",
+        "artifactKind",
+        "artifactRef",
+        "decision",
+        "rationale",
+        "requirementIds",
+        "evidence",
+        "successorTaskId"
+      ],
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifactKind": {
+          "enum": [
+            "claim",
+            "principle",
+            "fachprofil",
+            "lxp-spec"
+          ]
+        },
+        "artifactRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "enum": [
+            "retain",
+            "adapt",
+            "replace",
+            "reference-only",
+            "drop"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirementIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^V2-REQ-[A-Z0-9-]+$"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "successorTaskId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^LXF0[2-7]$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "adapt",
+                  "replace"
+                ]
+              }
+            },
+            "required": [
+              "decision"
+            ]
+          },
+          "then": {
+            "properties": {
+              "successorTaskId": {
+                "type": "string",
+                "pattern": "^LXF0[2-7]$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "successorTaskId": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "retain"
+              }
+            },
+            "required": [
+              "decision"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "knownGap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "category",
+        "status",
+        "finding",
+        "consequence",
+        "evidence"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^GAP-LXF01-[A-Z-]+$"
+        },
+        "category": {
+          "enum": [
+            "source-management",
+            "evidence-contract",
+            "quality-boundary",
+            "implementation-specificity",
+            "learner-context"
+          ]
+        },
+        "status": {
+          "enum": [
+            "open",
+            "partially-closed"
+          ]
+        },
+        "finding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consequence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "failureLayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "layer",
+        "finding",
+        "disposition",
+        "evidence"
+      ],
+      "properties": {
+        "layer": {
+          "enum": [
+            "evidence",
+            "translation",
+            "implementation",
+            "pilot"
+          ]
+        },
+        "finding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "disposition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nextTaskId",
+        "contentProduction",
+        "lxp05",
+        "decisionBoundary"
+      ],
+      "properties": {
+        "nextTaskId": {
+          "const": "LXF02"
+        },
+        "contentProduction": {
+          "const": "frozen"
+        },
+        "lxp05": {
+          "const": "historical-unmerged-review-candidate"
+        },
+        "decisionBoundary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

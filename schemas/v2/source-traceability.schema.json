@@ -49,7 +49,7 @@
         "claimsRequireRegisteredSourceIds": {"const": true},
         "claimsRequirePrimaryCheckedSources": {"const": true},
         "lxp01AdditionsCreateClaims": {"const": false},
-        "pendingLxp01ClaimReview": {"const": "IUM-V2-LXF02"}
+        "pendingLxp01ClaimReview": {"const": "LXF02"}
       }
     },
     "requiredGaps": {"type": "array", "maxItems": 0},

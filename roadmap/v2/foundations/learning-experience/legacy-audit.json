@@ -1,0 +1,610 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "requirementIds": [
+    "V2-REQ-LXF-001"
+  ],
+  "records": [
+    {
+      "artifactId": "CLAIM-LP-001",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-001",
+      "decision": "adapt",
+      "rationale": "Der IBBW-Rahmen trägt die Trennung von Tiefenstruktur und Methodenlabel. Für V2 müssen der angenommene Wirkpfad über kognitive Aktivierung, konstruktive Unterstützung und Klassenführung, die IuM-spezifische Übertragung sowie beobachtbare Kriterien ausdrücklich ergänzt werden; ein domänenspezifischer Wirksamkeitsnachweis liegt nicht vor.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-IBBW-WU",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-002",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-002",
+      "decision": "adapt",
+      "rationale": "Die Evidenz zu Vorwissen ist stark und die lokale Aktivierung bleibt tragfähig. V2 muss jedoch Vorwissen, einzelne Fehlantwort und stabiles Fehlkonzept auseinanderhalten, die starke Kontextvariation abbilden und festlegen, welche sichtbare Lernhandlung welche Anschlussentscheidung rechtfertigt.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-PRIOR-2022",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-003",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-003",
+      "decision": "adapt",
+      "rationale": "Cognitive Load Theory begründet die gemeinsame Betrachtung von Aufgabe, Vorwissen und Darstellung. Der V2-Vertrag muss theoretischen Mechanismus, konkrete Designmanipulation, Prozessindikator und Lernoutcome trennen und Expertise, Fachaufgabe sowie Analog-/Digitalwahl als Randbedingungen ausweisen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-CLT-2020",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-004",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-004",
+      "decision": "adapt",
+      "rationale": "Aktiv verarbeitete Worked Examples bleiben ein starker Kandidat. Die vorliegende Mathematikevidenz trägt aber weder passive Betrachtung noch ein universelles Fadingrezept; V2 muss Domäne, Vorwissen, Verarbeitungsauftrag, Rücknahmekriterium und Transferprüfung spezifizieren.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-WORKED-2023",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-005",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-005",
+      "decision": "adapt",
+      "rationale": "Selbsterklärung ist im Mittel lernförderlich, aber nicht als generischer Zusatzprompt. V2 benötigt einen fachlichen Mechanismus je Prompt, eine Begrenzung der Zusatzlast, definierte Antwortnutzung und eine Prüfung, ob Begründung, Vorhersage oder Reparatur tatsächlich verbessert wird.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-SELFEXPLAIN-2018",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-006",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-006",
+      "decision": "adapt",
+      "rationale": "Computerbasiertes Scaffolding ist als Unterstützungsrichtung tragfähig. Die heterogene Evidenz begründet keine bestimmte Adaptions- oder Fadinglogik; V2 muss fachliche Hürde, erhaltene Kernhandlung, sichtbares Bewältigungskriterium und sicheren Rückfall explizit machen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-SCAFFOLD-2017",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-007",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-007",
+      "decision": "adapt",
+      "rationale": "Aktiver Abruf bleibt belastbar, darf aber nicht mit Wiedersehen oder einer Quizoberfläche gleichgesetzt werden. V2 muss Abrufhandlung, Vergleichsbedingung, Wiederholung, Feedback, Testpassung und fachliches Erfolgskriterium je Einsatz benennen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-QUIZZING-2021",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-008",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-008",
+      "decision": "adapt",
+      "rationale": "Verteilte Wiederaufnahme ist für verzögertes Behalten plausibel. Die Evidenz legt weder den Abstand noch die Lernhandlung für komplexe IuM-Inhalte und 10- bis 13-Jährige fest; V2 muss Wiederaufnahmefenster, Variation, Messzeitpunkt und curriculare Anschlussstelle definieren.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-SPACING-2025",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-009",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-009",
+      "decision": "adapt",
+      "rationale": "Retrieval Practice kann Transfer unterstützen, erzeugt ihn aber nicht automatisch. V2 muss Transferdimension, veränderten Kontext, erhaltenes Prinzip, notwendigen initialen Abruf und getrennte Kriterien für unmittelbare Anwendung, Behalten und Transfer festschreiben.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-TRANSFER-2018",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-010",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-010",
+      "decision": "adapt",
+      "rationale": "Feedback ist relevant, die Effekte sind jedoch extrem heterogen und teilweise negativ. V2 muss Informationsgehalt, Bezug auf Produkt oder Strategie, Timing, Sicherheitsgrenze, Anschlussnutzung und beobachtbares Revisionskriterium methodenspezifisch definieren.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-FEEDBACK-2020",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-011",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-011",
+      "decision": "adapt",
+      "rationale": "Die Vereinbarkeit von Autonomieunterstützung und Struktur ist ein wichtiges Korrektiv. Die überwiegend korrelative, hoch heterogene Evidenz trägt keine pauschale Synergie oder Leistungswirkung; V2 muss echte Wahl, notwendige Leitplanke, Alterskontext und getrennte Motivations- und Lernkriterien ausweisen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-AUTONOMY-2025",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-012",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-012",
+      "decision": "adapt",
+      "rationale": "Vorbereitete Problemlösung vor Instruktion bleibt unter Productive-Failure-Bedingungen interessant. Für jüngere Lernende kann die Gegenrichtung gelten; V2 muss Lösungsraum, Kontrastfälle, Vorläuferwissen, anschließende explizite Instruktion und ein eigenes Überforderungsgate für Klasse 5 festlegen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-PF-2021",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "CLAIM-LP-013",
+      "artifactKind": "claim",
+      "artifactRef": "docs/research/phase-0/claim-ledger.json#CLAIM-LP-013",
+      "decision": "adapt",
+      "rationale": "Explizite Selbstregulationshandlungen passen zur Zielgruppe, doch die Evidenz ist älter, nicht randomisiert, nicht digital und überwiegend auf unmittelbare Posttests begrenzt. V2 muss Planen, Überwachen, Prüfen und Revidieren als konkrete Fachhandlungen statt als Personeneigenschaft operationalisieren und gesondert erproben.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/source-register.json#SRC-LP-SRL-2008",
+        "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "PRIN-001",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-001",
+      "decision": "adapt",
+      "rationale": "Das Primat der Lernprozessqualität bleibt zentral. Das bestehende Prinzip zählt jedoch nur Felder auf; V2 muss eine fachlich gehaltvolle Lernhandlung gegen bloße Vertragserfüllung absichern und Mechanismus, Entscheidung, Positiv-/Negativmuster, beobachtbare Kriterien und Prüfverfahren ergänzen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-001",
+        "docs/research/phase-0/design-principles.json#PRIN-001"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-002",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-002",
+      "decision": "adapt",
+      "rationale": "Die lokale, aufgabenbezogene Aktivierung ist tragfähig. Es fehlen ein expliziter Mechanismus, Grenzen für sensible oder überinterpretierte Antworten, Kriterien für eine verwertbare Diagnosegelegenheit und ein festgelegter Anschluss an Unterstützung oder Instruktion.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-002",
+        "docs/research/phase-0/design-principles.json#PRIN-002"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-003",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-003",
+      "decision": "adapt",
+      "rationale": "Begrenzte Exploration mit expliziter Konsolidierung bleibt sinnvoll. V2 muss Productive-Failure-Bedingungen, Alters- und Überforderungsgrenzen, die Qualität der anschließenden Instruktion und methodenspezifische Beobachtungen statt eines allgemeinen Explorationslabels festlegen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-012",
+        "docs/research/phase-0/design-principles.json#PRIN-003"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-004",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-004",
+      "decision": "adapt",
+      "rationale": "Aktive Beispielverarbeitung und fachlich gebundene Hilfe sind tragfähig. Der bestehende Sammelgrundsatz verschränkt mehrere Mechanismen; V2 muss Beispieltyp, Selbsterklärung, externe Repräsentation, Scaffolding und Fading mit je eigenen Grenzen und Prüfkriterien trennen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-004",
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-005",
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-006"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-005",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-005",
+      "decision": "adapt",
+      "rationale": "Abruf, Verteilung, Feedback und Transfer zu unterscheiden ist richtig. Gerade weil vier eigenständige Mechanismen gebündelt sind, benötigt V2 getrennte Entscheidungen, zeitliche Bedingungen, Outcomes, Gegenbeispiele und Verifikationsmethoden für jeden Bestandteil.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-007",
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-008",
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-009",
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-010"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-006",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-006",
+      "decision": "adapt",
+      "rationale": "Strukturierte Autonomie und explizite Selbstregulation bleiben Leitideen. V2 muss die schwachen kausalen Grundlagen offenlegen, echte Wahl von Scheinautonomie unterscheiden und die sichtbaren fachlichen Handlungen sowie getrennte Motivations- und Lernprüfungen definieren.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-011",
+        "docs/research/phase-0/claim-ledger.json#CLAIM-LP-013"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-007",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-007",
+      "decision": "adapt",
+      "rationale": "Die getrennten Programmierpraktiken sind fachlich wertvoll. Die konkrete Progression für 10- bis 13-Jährige ist teilweise heuristisch; V2 muss Auswahlmechanismus, Vorwissensbedingungen, Erfolgskriterien und Erprobung festlegen, ohne Werkzeugwechsel mit fachlicher Progression gleichzusetzen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-007",
+        "docs/fachprofil/ium-gymnasium-5-7.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-008",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-008",
+      "decision": "adapt",
+      "rationale": "Die mehrschrittige Analyse von Medienmechanismen ist ein tragfähiges fachliches Gerüst. Zusammensetzung, Reihenfolge, Altersübertragung und wiederholte Nutzung sind nicht erprobt; V2 benötigt variable Muster, aktuelle Quellenbedingungen und beobachtbare Urteils- und Revisionsqualität.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-008",
+        "docs/fachprofil/ium-gymnasium-5-7.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-009",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-009",
+      "decision": "adapt",
+      "rationale": "Fiktive Fälle, probabilistische Urteile und das Verbot persönlicher Risikoprofile sind tragfähig. V2 muss Themen- und Altersgrenzen, Offenlegungs- und Eskalationswege, geeignete Fallmerkmale sowie beobachtbare Kriterien für mechanismusbezogene statt moralisierende Urteile ergänzen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-009",
+        "docs/fachprofil/ium-gymnasium-5-7.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-010",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-010",
+      "decision": "adapt",
+      "rationale": "Die funktionsbezogene Analog-/Digitalentscheidung schützt vor Doppelbestand und dekorativer Digitalisierung. Als Projektentscheidung braucht sie in V2 positive und negative Auswahlmuster, einen Vergleich der tatsächlich ermöglichten Lernhandlung und eine Prüfung auf kognitive, fachliche und praktische Nebenfolgen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-010",
+        "docs/fachprofil/ium-gymnasium-5-7.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-011",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-011",
+      "decision": "adapt",
+      "rationale": "Datenminimierung, lokaler Modus und sichtbare Recovery bleiben verbindliche Experience-Grenzen. V2 muss technische Funktionsprüfung, rechtliche Prüfung und lernbezogene Wirkung strikt trennen und festlegen, wann ein Daten- oder Speicherzustand die Lernhandlung tatsächlich begrenzt.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-011",
+        "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-012",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-012",
+      "decision": "adapt",
+      "rationale": "WCAG 2.2 AA plus reale Nutzeraufgaben ist eine notwendige Grenze. V2 muss technische Konformität, funktionale Gleichwertigkeit, schulische Usability, kognitive Zugänglichkeit und Lernwirkung als getrennte Nachweise führen; die letzten drei sind bislang nicht real erprobt.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-012",
+        "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "PRIN-013",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-013",
+      "decision": "reference-only",
+      "rationale": "Die getrennte Abnahme von Installation, Offlinebetrieb, Migration und Schulbrowsern bleibt technisch relevant, gehört aber in das Plattform- und Releasefundament. Im Lern-Experience-Fundament dient das Prinzip nur als Randbedingung und darf weder Bedienbarkeit noch Lernqualität belegen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-013",
+        "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md"
+      ],
+      "successorTaskId": null
+    },
+    {
+      "artifactId": "PRIN-014",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-014",
+      "decision": "reference-only",
+      "rationale": "Die bearbeitbare Rechte- und Quellenkette ist verbindlich, wird aber bereits vom V2-Quellen- und späteren Governancevertrag verantwortet. Für LXF bleibt sie Randbedingung; offene Lizenzierung ist kein lernpsychologischer Qualitätsnachweis.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-014",
+        "roadmap/v2/foundations/sources/traceability.json"
+      ],
+      "successorTaskId": null
+    },
+    {
+      "artifactId": "PRIN-015",
+      "artifactKind": "principle",
+      "artifactRef": "docs/research/phase-0/design-principles.json#PRIN-015",
+      "decision": "adapt",
+      "rationale": "Produktbezogene, reduzierbare Lernnachweise schützen vor automatischer Profilbildung. V2 muss Lernprodukt und Evidenzprodukt unterscheiden, notwendige von optionaler Dokumentation trennen und prüfen, ob der Nachweis die Lernhandlung unterstützt oder sie durch Formarbeit verdrängt.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/research/phase-0/design-principles.json#PRIN-015",
+        "docs/fachprofil/ium-gymnasium-5-7.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "FACH-IUM-5-7",
+      "artifactKind": "fachprofil",
+      "artifactRef": "docs/fachprofil/ium-gymnasium-5-7.md",
+      "decision": "adapt",
+      "rationale": "Fachkern, getrennte und integrierte Lernstränge, Aufgaben- und Repräsentationsstandards sowie die Orchestrierungsrolle sind substanziell. Das Profil bleibt jedoch working; die jahrgangsgenaue 5/6-Verteilung und mehrere Annahmen zu Exploration, Dosierung, Wiederholung, Selbstregulation und Materialerfahrung der 10- bis 13-Jährigen sind nur teilweise validiert und benötigen ein eigenes Lernenden- und Stufenprofil.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/fachprofil/ium-gymnasium-5-7.md",
+        "roadmap/v2/foundations/curriculum/gap-assessments.json"
+      ],
+      "successorTaskId": "LXF03"
+    },
+    {
+      "artifactId": "LXP01",
+      "artifactKind": "lxp-spec",
+      "artifactRef": "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+      "decision": "adapt",
+      "rationale": "Experience-Nordstern, fokussierte Lernhandlung, progressive Offenlegung, Feedback-Revision, Lehrkraftorchestrierung und die Trennung von technischer Konformität und Lernwirkung bleiben tragfähig. Die sechs ergänzenden Quellen standen historisch außerhalb des maschinenlesbaren Registers und sind erst jetzt registriert; ihre Claim-Migration, Mechanismen, Geltungsgrenzen und methodenspezifischen Prüfungen gehören in LXF02.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+        "roadmap/v2/foundations/sources/inventory.json"
+      ],
+      "successorTaskId": "LXF02"
+    },
+    {
+      "artifactId": "LXP02",
+      "artifactKind": "lxp-spec",
+      "artifactRef": "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md",
+      "decision": "adapt",
+      "rationale": "Die Trennung von Kosmos und fokussiertem Lernstudio, kontrollierte Begriffe, sichere Übergänge und Recoverygrenzen sind brauchbar. Die elf Lernzustände und vollständigen Objektverträge wurden jedoch vor Lernendenprofil und Methodenvertrag normativ gesetzt; LXF04 muss sie aus der Evidenz neu ableiten, vereinfachen und gegen kognitive sowie unterrichtliche Last prüfen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md",
+        "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md"
+      ],
+      "successorTaskId": "LXF04"
+    },
+    {
+      "artifactId": "LXP03",
+      "artifactKind": "lxp-spec",
+      "artifactRef": "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+      "decision": "reference-only",
+      "rationale": "Die drei textuellen Referenzentwürfe liefern wertvolle Vergleichs-, Accessibility-, Recovery- und Orchestrierungsfragen. Sie konkretisieren jedoch ausschließlich einen IUM5-Lernweg, wurden nicht mit Lernenden oder Lehrkräften erprobt und dürfen deshalb weder als allgemeines Experience-Muster noch als Produktionsvorlage fortgelten.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+        "vault:Vault/40_Projekte/IuM-Lernwerk/2026-08-30 - Analyse - IUM5 Bestandsanalyse Lernenden- und Lehrkraftperspektive.md"
+      ],
+      "successorTaskId": null
+    },
+    {
+      "artifactId": "LXP04",
+      "artifactKind": "lxp-spec",
+      "artifactRef": "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+      "decision": "replace",
+      "rationale": "Semantische Designrollen, Accessibility, Resilienz und die Ablehnung einer IUM5-first Pattern Library bleiben als Befunde nutzbar. Als normativer Produktionsvertrag wird LXP04 ersetzt: Seine hohe Vertrags- und Patterndichte wurde ohne Lernendenprofil und Pilotierung geschlossen und verhinderte im LXP05-Kandidaten weder Mega-Seite, parallele Phasenmodelle, formalistische Sicherung noch beschreibende statt ausführbare Lehrkraftorchestrierung.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+        "git:origin/feat/lxp05-ium5-experience:docs/quality/ium-learning-experience-implementation-report.md",
+        "vault:Vault/40_Projekte/IuM-Lernwerk/2026-08-30 - Analyse - IUM5 Bestandsanalyse Lernenden- und Lehrkraftperspektive.md"
+      ],
+      "successorTaskId": "LXF05"
+    }
+  ],
+  "knownGaps": [
+    {
+      "id": "GAP-LXF01-SOURCE",
+      "category": "source-management",
+      "status": "partially-closed",
+      "finding": "Sechs LXP01-Quellen standen historisch außerhalb des maschinenlesbaren Phase-0-Quellenregisters. IUM-V2-SRC hat sie als getrennte V2-Ergänzungen registriert, aber noch nicht in V2-Claims übersetzt.",
+      "consequence": "LXF02 prüft die sechs Quellen inhaltlich, führt ihre Grenzen mit den vorhandenen Claims zusammen und erzeugt erst dann freigabefähige V2-Claims. Die Registrierung allein ist kein Evidenz- oder Wirkungsnachweis.",
+      "evidence": [
+        "roadmap/v2/foundations/sources/inventory.json",
+        "roadmap/v2/foundations/sources/traceability.json"
+      ]
+    },
+    {
+      "id": "GAP-LXF01-PRINCIPLE-CONTRACT",
+      "category": "evidence-contract",
+      "status": "open",
+      "finding": "Die 15 bestehenden Prinzipien nennen Aussage, Claimbezüge, Anwendungsbereiche, Implikationen und Risiken, aber keinen expliziten Wirkmechanismus, keine systematischen Geltungsbedingungen, keine beobachtbaren Kriterien und keine methodenspezifische Verifikation.",
+      "consequence": "Kein Prinzip wird unverändert zum V2-Standard. LXF04 leitet Entscheidungen aus dem in LXF02/LXF03 geschärften Evidenz- und Lernendenvertrag neu ab.",
+      "evidence": [
+        "docs/research/phase-0/design-principles.json"
+      ]
+    },
+    {
+      "id": "GAP-LXF01-QUALITY-CONFLATION",
+      "category": "quality-boundary",
+      "status": "open",
+      "finding": "Die LXP-Kette spezifiziert zahlreiche vollständige Verträge und technische Gates. Diese Vollständigkeit kann mit fachlicher Aufgabenqualität, kognitiver Zugänglichkeit, schulischer Nutzbarkeit oder Lernwirksamkeit verwechselt werden.",
+      "consequence": "V2 führt technische, fachliche, didaktische, Usability-, Accessibility- und Pilotnachweise getrennt. Ein vollständig validiertes Schema darf keinen Reifegrad außerhalb seiner Prüfart erhöhen.",
+      "evidence": [
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+        "git:origin/feat/lxp05-ium5-experience:docs/quality/ium-learning-experience-implementation-report.md"
+      ]
+    },
+    {
+      "id": "GAP-LXF01-LXP04-SPECIFICITY",
+      "category": "implementation-specificity",
+      "status": "open",
+      "finding": "Trotz ausdrücklicher Portabilitätsregeln bleiben LXP04s elf Lernzustände, zahlreiche Pattern und Evidenzverträge eng mit den drei IUM5-Referenzsituationen verbunden. Der LXP05-Kandidat zeigt, dass diese Systemdichte die konkrete Komposition nicht ausreichend begrenzte.",
+      "consequence": "LXF05 ersetzt LXP04 durch eine schlankere Material- und Experience-Grammatik, die zuerst an unterschiedlichen Lernhandlungen und erst danach an Komponenten geprüft wird.",
+      "evidence": [
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+        "vault:Vault/40_Projekte/IuM-Lernwerk/2026-08-30 - Analyse - IUM5 Bestandsanalyse Lernenden- und Lehrkraftperspektive.md"
+      ]
+    },
+    {
+      "id": "GAP-LXF01-LEARNER-ASSUMPTIONS",
+      "category": "learner-context",
+      "status": "open",
+      "finding": "Das Fachprofil ist fachlich substanziell, markiert jedoch Progression, Exploration, Hilfedosierung, Wiederholung, Selbstregulation und konkrete Materialerfahrung für Klassen 5 bis 7 selbst als working oder pilotierungsbedürftig.",
+      "consequence": "LXF03 erstellt vor Architektur- oder Materialentscheidungen ein explizites Lernenden- und Stufenprofil mit Heterogenität, Vorwissen, Lese- und Bedienanforderungen, Belastungsgrenzen und beobachtbaren Prüfannahmen.",
+      "evidence": [
+        "docs/fachprofil/ium-gymnasium-5-7.md"
+      ]
+    }
+  ],
+  "lxp05FailureLayers": [
+    {
+      "layer": "evidence",
+      "finding": "Die 13 Phase-0-Lernpsychologie-Claims sind quellen- und primärgeprüft, aber ihre Übertragung auf IuM 5 bis 7 bleibt vielfach inferenziell. Die sechs LXP01-Ergänzungen sind registriert, jedoch noch keine geprüften V2-Claims.",
+      "disposition": "LXF02 schärft Quellen, Claims, Mechanismen, Randbedingungen und Outcomes; keine neue Designnorm wird vorher freigegeben.",
+      "evidence": [
+        "docs/research/phase-0/claim-ledger.json",
+        "roadmap/v2/foundations/sources/inventory.json"
+      ]
+    },
+    {
+      "layer": "translation",
+      "finding": "Aus vorsichtigen Claims wurden umfangreiche Prinzipien, Lernzustände und Produktionsverträge abgeleitet, ohne Mechanismus, Randbedingungen, beobachtbare Kriterien und jeweilige Prüfart durchgehend als geschlossenen Vertrag zu führen.",
+      "disposition": "LXF04 darf erst nach LXF02 und LXF03 einen Evidenz-zu-Design-Vertrag ableiten und muss jede Entscheidung samt Gegenbeispiel und Prüfart begrenzen.",
+      "evidence": [
+        "docs/research/phase-0/design-principles.json",
+        "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md"
+      ]
+    },
+    {
+      "layer": "implementation",
+      "finding": "Der ungemergte LXP05-Kandidat materialisierte den vollständigen Vertrag als lange Workshop-Oberfläche: elf Inhaltsphasen und acht Experience-Zustände blieben parallel, Sicherung wurde formularlastig, das Evidenzprodukt dominierte das Lernprodukt und die Lehrkraftspur blieb eher beschreibend als ausführbar.",
+      "disposition": "Der Kandidat bleibt eingefrorene Regressionsevidenz. LXF05/LXF06 müssen Informationsbudget, reale Lehrerhandlungen, Lernprodukt und Experience-Guards vor einer neuen Implementierung prüfen.",
+      "evidence": [
+        "git:origin/feat/lxp05-ium5-experience:docs/quality/ium-learning-experience-implementation-report.md",
+        "vault:Vault/40_Projekte/IuM-Lernwerk/2026-08-30 - Analyse - IUM5 Bestandsanalyse Lernenden- und Lehrkraftperspektive.md"
+      ]
+    },
+    {
+      "layer": "pilot",
+      "finding": "Für LXP01 bis LXP05 liegen keine reale Unterrichtspilotierung und kein belastbarer Nachweis mit Lernenden und Lehrkräften der Zielstufen vor. Technische Tests und Expert:innenplausibilität schließen diese Lücke nicht.",
+      "disposition": "LXF06 definiert getrennte Beobachtungs-, Usability-, Accessibility- und Unterrichtsgates; eine spätere Pilotierung bleibt bis zur ausdrücklichen Freigabe geschlossen.",
+      "evidence": [
+        "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+        "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md"
+      ]
+    }
+  ],
+  "handoff": {
+    "nextTaskId": "LXF02",
+    "contentProduction": "frozen",
+    "lxp05": "historical-unmerged-review-candidate",
+    "decisionBoundary": "Der Audit klassifiziert V1-Bestand. Er genehmigt weder eine V2-Claimübernahme noch LXF02-Ergebnisse, Materialproduktion, LXP05-Integration, Pilotierung, Veröffentlichung oder Cutover."
+  }
+}

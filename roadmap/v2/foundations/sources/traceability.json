@@ -55,7 +55,7 @@
     "claimsRequireRegisteredSourceIds": true,
     "claimsRequirePrimaryCheckedSources": true,
     "lxp01AdditionsCreateClaims": false,
-    "pendingLxp01ClaimReview": "IUM-V2-LXF02"
+    "pendingLxp01ClaimReview": "LXF02"
   },
   "requiredGaps": [],
   "optionalGaps": [
@@ -65,7 +65,7 @@
       "required": false,
       "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt derzeit keinen freigegebenen Claim.",
       "resolutionStatus": "needs-primary-recheck",
-      "ownerGate": "IUM-V2-LXF02",
+      "ownerGate": "LXF02",
       "acceptanceCriterion": "Primärquelle und Nutzungsstatus vor einer Claim-Migration erneut prüfen."
     }
   ]

@@ -26,9 +26,21 @@ MISSING_SOURCE_CONTRACTS = [
     "schemas/v2/source-traceability.schema.json fehlt",
     "schemas/v2/source-link-audit.schema.json fehlt",
 ]
+MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
+    "roadmap/v2/foundations/learning-experience/legacy-audit.json fehlt",
+    "roadmap/v2/foundations/learning-experience/legacy-audit.md fehlt",
+    "schemas/v2/legacy-learning-audit.schema.json fehlt",
+]
 MISSING_FOUNDATION_CONTRACTS = (
-    MISSING_CURRICULUM_CONTRACTS + MISSING_SOURCE_CONTRACTS
+    MISSING_CURRICULUM_CONTRACTS
+    + MISSING_SOURCE_CONTRACTS
+    + MISSING_LEARNING_EXPERIENCE_CONTRACTS
 )
+
+EXPECTED_LP_CLAIMS = {f"CLAIM-LP-{number:03d}" for number in range(1, 14)}
+EXPECTED_PRINCIPLES = {f"PRIN-{number:03d}" for number in range(1, 16)}
+EXPECTED_LXP_SPECS = {"LXP01", "LXP02", "LXP03", "LXP04"}
+LEGACY_DECISIONS = {"retain", "adapt", "replace", "reference-only", "drop"}
 
 
 VALID_STATUS = {
@@ -171,6 +183,208 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         )
         for expected_error in MISSING_SOURCE_CONTRACTS:
             self.assertIn(expected_error, errors)
+        for expected_error in MISSING_LEARNING_EXPERIENCE_CONTRACTS:
+            self.assertIn(expected_error, errors)
+
+    def test_legacy_learning_audit_covers_every_required_input_once(self) -> None:
+        """Catches legacy evidence being silently omitted from the V2 handoff."""
+        audit = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/legacy-audit.json"
+        )
+
+        errors = v2_validator.validate_legacy_learning_audit(audit, PROJECT_ROOT)
+
+        self.assertEqual([], errors)
+        self.assertEqual(
+            [], v2_validator.validate_legacy_learning_audit_schema(PROJECT_ROOT)
+        )
+        records = audit["records"]
+        self.assertEqual(
+            EXPECTED_LP_CLAIMS,
+            {
+                record["artifactId"]
+                for record in records
+                if record["artifactKind"] == "claim"
+            },
+        )
+        self.assertEqual(
+            EXPECTED_PRINCIPLES,
+            {
+                record["artifactId"]
+                for record in records
+                if record["artifactKind"] == "principle"
+            },
+        )
+        self.assertEqual(
+            EXPECTED_LXP_SPECS,
+            {
+                record["artifactId"]
+                for record in records
+                if record["artifactKind"] == "lxp-spec"
+            },
+        )
+        self.assertEqual(
+            {"FACH-IUM-5-7"},
+            {
+                record["artifactId"]
+                for record in records
+                if record["artifactKind"] == "fachprofil"
+            },
+        )
+        self.assertTrue(
+            {record["decision"] for record in records}.issubset(LEGACY_DECISIONS)
+        )
+
+    def test_legacy_learning_audit_rejects_missing_duplicate_and_unknown_ids(
+        self,
+    ) -> None:
+        """Catches incomplete, duplicated, or invented legacy audit inputs."""
+        audit = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/legacy-audit.json"
+        )
+
+        missing = copy.deepcopy(audit)
+        missing["records"] = [
+            record
+            for record in missing["records"]
+            if record["artifactId"] != "CLAIM-LP-013"
+        ]
+        duplicate = copy.deepcopy(audit)
+        duplicate["records"].append(copy.deepcopy(duplicate["records"][0]))
+        unknown = copy.deepcopy(audit)
+        unknown["records"][0]["artifactId"] = "CLAIM-LP-999"
+
+        self.assertIn(
+            "LXF01-Audit fehlt Pflichtartefakt: CLAIM-LP-013",
+            v2_validator.validate_legacy_learning_audit(missing, PROJECT_ROOT),
+        )
+        self.assertIn(
+            f"LXF01-Audit enthält doppelte artifactId: {audit['records'][0]['artifactId']}",
+            v2_validator.validate_legacy_learning_audit(duplicate, PROJECT_ROOT),
+        )
+        self.assertIn(
+            "LXF01-Audit enthält unbekanntes Pflichtartefakt: CLAIM-LP-999",
+            v2_validator.validate_legacy_learning_audit(unknown, PROJECT_ROOT),
+        )
+
+    def test_legacy_learning_audit_enforces_decision_contract(self) -> None:
+        """Catches decisions without rationale, evidence, or a valid successor."""
+        audit = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/legacy-audit.json"
+        )
+        unknown = copy.deepcopy(audit)
+        unknown["records"][0]["decision"] = "keep"
+        no_rationale = copy.deepcopy(audit)
+        no_rationale["records"][0]["rationale"] = ""
+        retained_without_evidence = copy.deepcopy(audit)
+        retained_without_evidence["records"][0]["decision"] = "retain"
+        retained_without_evidence["records"][0]["successorTaskId"] = None
+        retained_without_evidence["records"][0]["evidence"] = []
+        adapt_without_successor = copy.deepcopy(audit)
+        adapt_without_successor["records"][0]["decision"] = "adapt"
+        adapt_without_successor["records"][0]["successorTaskId"] = None
+        terminal_with_successor = copy.deepcopy(audit)
+        terminal_with_successor["records"][0]["decision"] = "reference-only"
+        terminal_with_successor["records"][0]["successorTaskId"] = "LXF02"
+        adapt_without_evidence = copy.deepcopy(audit)
+        adapt_without_evidence["records"][0]["evidence"] = []
+        invalid_external_evidence = copy.deepcopy(audit)
+        invalid_external_evidence["records"][-1]["evidence"] = [
+            "git:does-not-exist"
+        ]
+
+        cases = [
+            (unknown, "hat unbekannte Entscheidung: keep"),
+            (no_rationale, "benötigt eine Begründung"),
+            (retained_without_evidence, "retain benötigt mindestens einen Beleg"),
+            (adapt_without_successor, "adapt benötigt einen successorTaskId"),
+            (
+                terminal_with_successor,
+                "reference-only benötigt successorTaskId null",
+            ),
+            (adapt_without_evidence, "evidence benötigt mindestens einen Beleg"),
+            (invalid_external_evidence, "enthält unzulässigen externen Beleg"),
+        ]
+        for mutated, expected in cases:
+            with self.subTest(expected=expected):
+                errors = v2_validator.validate_legacy_learning_audit(
+                    mutated, PROJECT_ROOT
+                )
+                self.assertTrue(
+                    any(expected in error for error in errors),
+                    msg=errors,
+                )
+
+    def test_legacy_learning_audit_preserves_known_gap_and_failure_layers(
+        self,
+    ) -> None:
+        """Catches the audit hiding known evidence, translation, or pilot gaps."""
+        audit = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/legacy-audit.json"
+        )
+
+        self.assertEqual(
+            {
+                "GAP-LXF01-SOURCE",
+                "GAP-LXF01-PRINCIPLE-CONTRACT",
+                "GAP-LXF01-QUALITY-CONFLATION",
+                "GAP-LXF01-LXP04-SPECIFICITY",
+                "GAP-LXF01-LEARNER-ASSUMPTIONS",
+            },
+            {finding["id"] for finding in audit["knownGaps"]},
+        )
+        self.assertEqual(
+            {"evidence", "translation", "implementation", "pilot"},
+            {layer["layer"] for layer in audit["lxp05FailureLayers"]},
+        )
+
+        missing_gap = copy.deepcopy(audit)
+        missing_gap["knownGaps"] = missing_gap["knownGaps"][1:]
+        errors = v2_validator.validate_legacy_learning_audit(
+            missing_gap, PROJECT_ROOT
+        )
+        self.assertIn(
+            "LXF01-Audit fehlt bekannte Lücke: GAP-LXF01-SOURCE", errors
+        )
+
+        empty_gap_evidence = copy.deepcopy(audit)
+        empty_gap_evidence["knownGaps"][0]["evidence"] = []
+        empty_layer_evidence = copy.deepcopy(audit)
+        empty_layer_evidence["lxp05FailureLayers"][0]["evidence"] = []
+        self.assertTrue(
+            any(
+                "LXF01-Lücke 1 evidence benötigt mindestens einen Beleg" in error
+                for error in v2_validator.validate_legacy_learning_audit(
+                    empty_gap_evidence, PROJECT_ROOT
+                )
+            )
+        )
+        self.assertTrue(
+            any(
+                "LXF01-Fehlerebene 1 evidence benötigt mindestens einen Beleg"
+                in error
+                for error in v2_validator.validate_legacy_learning_audit(
+                    empty_layer_evidence, PROJECT_ROOT
+                )
+            )
+        )
+
+    def test_legacy_learning_audit_schema_is_fail_closed_and_sealed(self) -> None:
+        """Catches a schema edit making contract fields optional or extensible."""
+        schema = load_repo_json("schemas/v2/legacy-learning-audit.schema.json")
+        schema["additionalProperties"] = True
+        schema["required"].remove("knownGaps")
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_json(root, "schemas/v2/legacy-learning-audit.schema.json", schema)
+            errors = v2_validator.validate_legacy_learning_audit_schema(root)
+
+        self.assertIn(
+            "LXF01-Schema weicht von der versiegelten Definition ab", errors
+        )
+        self.assertIn("LXF01-Schema muss top-level fail-closed sein", errors)
+        self.assertIn("LXF01-Schema hat abweichende Pflichtfelder", errors)
 
     def test_source_inventory_requires_an_object(self) -> None:
         """Catches malformed top-level JSON bypassing source-foundation checks."""
@@ -215,7 +429,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             errors,
         )
         self.assertIn(
-            "LXP01-Quelle SRC-LXP-SDT-2024 muss bis IUM-V2-LXF02 ohne V2-Claim bleiben",
+            "LXP01-Quelle SRC-LXP-SDT-2024 muss bis LXF02 ohne V2-Claim bleiben",
             errors,
         )
 
@@ -469,7 +683,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         self.assertEqual([], errors)
         self.assertEqual(
             [
-                "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis IUM-V2-LXF02 offen"
+                "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis LXF02 offen"
             ],
             warnings,
         )
@@ -614,9 +828,15 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             errors,
         )
 
-    def test_source_foundation_stops_at_review_gate(self) -> None:
-        """Catches opening LXF01 before the source foundation is approved."""
-        status = load_repo_json("roadmap/v2/foundations/sources/status.json")
+    def test_source_foundation_accepts_documented_user_approval(self) -> None:
+        """Catches losing the explicit source-to-LXF01 approval transition."""
+        status = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/status.json")
+        )
+        status["workStatus"] = "done"
+        status["maturity"]["foundationConcept"] = "reviewed"
+        status["maturity"]["subjectReview"] = "passed"
+        status["nextGate"] = "LXF01"
 
         errors = v2_validator.validate_foundation_status(
             status,
@@ -634,7 +854,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
 
         self.assertEqual([], errors)
         self.assertIn(
-            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis IUM-V2-LXF02 offen",
+            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis LXF02 offen",
             warnings,
         )
 

@@ -9,7 +9,7 @@
 Das V2-Quellenfundament verbindet den vorhandenen Quellenbestand und die später dokumentierten LXP01-Ergänzungen, ohne V1-Dateien umzuschreiben oder neue Claims vorwegzunehmen:
 
 - 63 Phase-0-Quellen, 51 Claims und 15 Designprinzipien bleiben über Pfad, SHA-256 und Anzahl als unveränderter V1-Auditinput versiegelt.
-- Die sechs LXP01-Quellen besitzen eindeutige V2-IDs und einen Migrationsstatus; eine mögliche Claim-Migration bleibt für jede Quelle bis `IUM-V2-LXF02` offen. V2-Claims wurden noch nicht angelegt.
+- Die sechs LXP01-Quellen besitzen eindeutige V2-IDs und einen Migrationsstatus; eine mögliche Claim-Migration bleibt für jede Quelle bis `LXF02` offen. V2-Claims wurden noch nicht angelegt.
 - Die 51 vorhandenen Claims referenzieren 57 registrierte, primär geprüfte Phase-0-Quellen.
 - Quelle, Claim, Projektentscheidung, Gestaltungsprinzip, Materialmuster und Prüfnachweis sind getrennt definiert und dürfen nur in den festgelegten Richtungen aufeinander verweisen.
 - Der Linkaudit umfasst 69 Fundstellen: 46 liefern nach vollständiger Redirectverfolgung einen terminalen 2xx-Status, 23 antworten terminal kontrolliert mit HTTP 401 oder 403, keine ist fehlend oder ungeklärt.

@@ -40,7 +40,7 @@
 - Consumes: `CLAIM-LP-001` through `CLAIM-LP-013`, `PRIN-001` through `PRIN-015`, the current Fachprofil, and four LXP specifications
 - Produces: one five-state audit decision for every required legacy input
 
-- [ ] **Step 1: Write failing completeness and status tests**
+- [x] **Step 1: Write failing completeness and status tests**
 
 Use these exact expected sets:
 
@@ -53,13 +53,13 @@ LEGACY_DECISIONS = {"retain", "adapt", "replace", "reference-only", "drop"}
 
 Assert that missing IDs, duplicate IDs, unknown decisions, absent rationale, and a `retain` decision without evidence all fail.
 
-- [ ] **Step 2: Run the focused test and verify failure**
+- [x] **Step 2: Run the focused test and verify failure**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failures naming the absent learning-experience audit.
 
-- [ ] **Step 3: Create the audit schema**
+- [x] **Step 3: Create the audit schema**
 
 Each record must contain:
 
@@ -78,7 +78,7 @@ Each record must contain:
 
 Require `successorTaskId` for `adapt` and `replace`; require `null` for `retain`, `reference-only`, and `drop`.
 
-- [ ] **Step 4: Audit all required inputs**
+- [x] **Step 4: Audit all required inputs**
 
 Read the actual records rather than their summaries. Compare claims with source verification status and limitations; compare principles with claims; compare LXP01–LXP04 with the LXP05 failure analysis. Explicitly test these known gaps:
 
@@ -88,7 +88,7 @@ Read the actual records rather than their summaries. Compare claims with source 
 - LXP04 patterns may be too specific to the failed IUM5 composition;
 - the existing Fachprofil combines strong fachliche content with only partially validated age and experience assumptions.
 
-- [ ] **Step 5: Write the human-readable audit synthesis**
+- [x] **Step 5: Write the human-readable audit synthesis**
 
 Use these headings:
 
@@ -105,7 +105,7 @@ Use these headings:
 
 The synthesis must distinguish evidence weakness, translation weakness, implementation weakness, and missing pilot evidence.
 
-- [ ] **Step 6: Validate and commit LXF01**
+- [x] **Step 6: Validate and commit LXF01**
 
 Run: `npm run verify:v2`
 

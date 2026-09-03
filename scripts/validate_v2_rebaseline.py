@@ -22,6 +22,9 @@ CONTROL_FILES = (
     Path("schemas/v2/source-inventory.schema.json"),
     Path("schemas/v2/source-traceability.schema.json"),
     Path("schemas/v2/source-link-audit.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/legacy-audit.json"),
+    Path("roadmap/v2/foundations/learning-experience/legacy-audit.md"),
+    Path("schemas/v2/legacy-learning-audit.schema.json"),
 )
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
@@ -334,7 +337,7 @@ EXPECTED_SOURCE_MIGRATION_RULES = {
     "claimsRequireRegisteredSourceIds": True,
     "claimsRequirePrimaryCheckedSources": True,
     "lxp01AdditionsCreateClaims": False,
-    "pendingLxp01ClaimReview": "IUM-V2-LXF02",
+    "pendingLxp01ClaimReview": "LXF02",
 }
 SOURCE_TRACEABILITY_FIELDS = {
     "schemaVersion",
@@ -365,6 +368,80 @@ SOURCE_LINK_AUDIT_FIELDS = {
     "policy",
     "summary",
     "checks",
+}
+LEGACY_LEARNING_AUDIT_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "requirementIds",
+    "records",
+    "knownGaps",
+    "lxp05FailureLayers",
+    "handoff",
+}
+LEGACY_AUDIT_RECORD_FIELDS = {
+    "artifactId",
+    "artifactKind",
+    "artifactRef",
+    "decision",
+    "rationale",
+    "requirementIds",
+    "evidence",
+    "successorTaskId",
+}
+LEGACY_AUDIT_GAP_FIELDS = {
+    "id",
+    "category",
+    "status",
+    "finding",
+    "consequence",
+    "evidence",
+}
+LEGACY_AUDIT_FAILURE_LAYER_FIELDS = {
+    "layer",
+    "finding",
+    "disposition",
+    "evidence",
+}
+LEGACY_AUDIT_HANDOFF_FIELDS = {
+    "nextTaskId",
+    "contentProduction",
+    "lxp05",
+    "decisionBoundary",
+}
+EXPECTED_LP_CLAIMS = {f"CLAIM-LP-{number:03d}" for number in range(1, 14)}
+EXPECTED_PRINCIPLES = {f"PRIN-{number:03d}" for number in range(1, 16)}
+EXPECTED_LXP_SPECS = {"LXP01", "LXP02", "LXP03", "LXP04"}
+EXPECTED_LEGACY_ARTIFACTS = (
+    EXPECTED_LP_CLAIMS
+    | EXPECTED_PRINCIPLES
+    | EXPECTED_LXP_SPECS
+    | {"FACH-IUM-5-7"}
+)
+LEGACY_DECISIONS = {"retain", "adapt", "replace", "reference-only", "drop"}
+EXPECTED_LEGACY_GAPS = {
+    "GAP-LXF01-SOURCE",
+    "GAP-LXF01-PRINCIPLE-CONTRACT",
+    "GAP-LXF01-QUALITY-CONFLATION",
+    "GAP-LXF01-LXP04-SPECIFICITY",
+    "GAP-LXF01-LEARNER-ASSUMPTIONS",
+}
+EXPECTED_LXP05_FAILURE_LAYERS = {
+    "evidence",
+    "translation",
+    "implementation",
+    "pilot",
+}
+ALLOWED_LEGACY_EXTERNAL_EVIDENCE = {
+    (
+        "git:origin/feat/lxp05-ium5-experience:"
+        "docs/quality/ium-learning-experience-implementation-report.md"
+    ),
+    (
+        "vault:Vault/40_Projekte/IuM-Lernwerk/"
+        "2026-08-30 - Analyse - IUM5 Bestandsanalyse "
+        "Lernenden- und Lehrkraftperspektive.md"
+    ),
 }
 EXPECTED_LINK_AUDIT_POLICY = {
     "requiredFailure": "block-and-preserve-last-snapshot",
@@ -1754,28 +1831,28 @@ def validate_foundation_status(
         if data.get("nextGate") != "IUM-V2-SRC":
             errors.append("Freigegebenes Curriculumfundament muss IUM-V2-SRC als nächstes Gate führen")
     elif expected_id == "sources":
-        if data.get("workStatus") != "review":
-            errors.append("Quellenfundament muss vor Nutzerfreigabe im Status review bleiben")
+        if data.get("workStatus") != "done":
+            errors.append("Freigegebenes Quellenfundament muss im Status done bleiben")
         if set(valid_status_requirement_ids) != {"V2-REQ-SRC-001"}:
             errors.append("Quellenfundament muss V2-REQ-SRC-001 referenzieren")
         if isinstance(maturity, dict):
             expected_maturity = {
                 "curriculumCoverage": "not-applicable",
-                "foundationConcept": "draft",
+                "foundationConcept": "reviewed",
                 "dataVerification": "passed",
                 "contentImplementation": "not-started",
                 "technicalVerification": "passed",
-                "subjectReview": "in-review",
+                "subjectReview": "passed",
                 "usageReview": "not-applicable",
                 "classroomPilot": "not-applicable",
                 "release": "closed",
             }
             if maturity != expected_maturity:
                 errors.append(
-                    "Quellenfundament muss die getrennten Reifeachsen bis zur Nutzerfreigabe konservativ ausweisen"
+                    "Freigegebenes Quellenfundament muss die getrennten Reifeachsen konservativ ausweisen"
                 )
-        if data.get("nextGate") != "IUM-V2-SRC-REVIEW":
-            errors.append("Quellenfundament muss am Gate IUM-V2-SRC-REVIEW stoppen")
+        if data.get("nextGate") != "LXF01":
+            errors.append("Freigegebenes Quellenfundament muss LXF01 als nächstes Gate führen")
     return errors
 
 
@@ -2054,7 +2131,7 @@ def validate_source_inventory(data: object, root: Path) -> list[str]:
             errors.append(f"LXP01-Quelle {label} muss registered-v2 sein")
         if addition.get("claimMigration") != "pending-lxf02-claim-review":
             errors.append(
-                f"LXP01-Quelle {label} muss bis IUM-V2-LXF02 ohne V2-Claim bleiben"
+                f"LXP01-Quelle {label} muss bis LXF02 ohne V2-Claim bleiben"
             )
         if addition.get("recheckTriggers") != [
             "before-claim-review",
@@ -2215,7 +2292,7 @@ def validate_source_traceability(
         "required": False,
         "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt derzeit keinen freigegebenen Claim.",
         "resolutionStatus": "needs-primary-recheck",
-        "ownerGate": "IUM-V2-LXF02",
+        "ownerGate": "LXF02",
         "acceptanceCriterion": "Primärquelle und Nutzungsstatus vor einer Claim-Migration erneut prüfen.",
     }
     if optional_gaps != [expected_optional_gap]:
@@ -2224,7 +2301,7 @@ def validate_source_traceability(
         )
     else:
         report_warnings.append(
-            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis IUM-V2-LXF02 offen"
+            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis LXF02 offen"
         )
 
     source_register_path = root / PHASE0_SOURCE_BASELINE_EXPECTATIONS[
@@ -2584,6 +2661,344 @@ def validate_source_link_audit(
     return errors
 
 
+def _legacy_artifact_kind(artifact_id: str) -> str | None:
+    if artifact_id in EXPECTED_LP_CLAIMS:
+        return "claim"
+    if artifact_id in EXPECTED_PRINCIPLES:
+        return "principle"
+    if artifact_id in EXPECTED_LXP_SPECS:
+        return "lxp-spec"
+    if artifact_id == "FACH-IUM-5-7":
+        return "fachprofil"
+    return None
+
+
+def _legacy_artifact_ref(artifact_id: str) -> str | None:
+    if artifact_id in EXPECTED_LP_CLAIMS:
+        return f"docs/research/phase-0/claim-ledger.json#{artifact_id}"
+    if artifact_id in EXPECTED_PRINCIPLES:
+        return f"docs/research/phase-0/design-principles.json#{artifact_id}"
+    if artifact_id == "FACH-IUM-5-7":
+        return "docs/fachprofil/ium-gymnasium-5-7.md"
+    lxp_paths = {
+        "LXP01": "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+        "LXP02": "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md",
+        "LXP03": "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+        "LXP04": "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+    }
+    return lxp_paths.get(artifact_id)
+
+
+def _validate_legacy_evidence_list(
+    value: object,
+    label: str,
+    root: Path,
+) -> list[str]:
+    errors: list[str] = []
+    if not isinstance(value, list):
+        return [f"{label} evidence muss eine Liste sein"]
+    if not value:
+        errors.append(f"{label} evidence benötigt mindestens einen Beleg")
+    valid_values = [item for item in value if _nonempty_string(item)]
+    if len(valid_values) != len(value):
+        errors.append(f"{label} evidence enthält einen ungültigen Beleg")
+    if len(set(valid_values)) != len(valid_values):
+        errors.append(f"{label} evidence enthält doppelte Belege")
+    for evidence in valid_values:
+        if evidence.startswith(("git:", "vault:")):
+            if evidence not in ALLOWED_LEGACY_EXTERNAL_EVIDENCE:
+                errors.append(
+                    f"{label} enthält unzulässigen externen Beleg: {evidence}"
+                )
+            continue
+        repository_path = evidence.split("#", 1)[0]
+        if not _is_repository_relative(repository_path):
+            errors.append(f"{label} enthält keinen repository-relativen Beleg: {evidence}")
+        elif not (root / repository_path).is_file():
+            errors.append(f"{label} verweist auf fehlenden Beleg: {evidence}")
+    return errors
+
+
+def validate_legacy_learning_audit(data: object, root: Path) -> list[str]:
+    errors: list[str] = []
+    if not isinstance(data, dict):
+        return ["LXF01-Audit muss ein Objekt sein"]
+    errors.extend(
+        _missing_fields(data, LEGACY_LEARNING_AUDIT_FIELDS, "LXF01-Audit")
+    )
+    errors.extend(
+        _unknown_fields(data, LEGACY_LEARNING_AUDIT_FIELDS, "LXF01-Audit")
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("LXF01-Audit benötigt schemaVersion 1")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("LXF01-Audit hat eine unerwartete projectId")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("LXF01-Audit benötigt einen ISO-Stichtag")
+    if data.get("requirementIds") != ["V2-REQ-LXF-001"]:
+        errors.append("LXF01-Audit muss exakt V2-REQ-LXF-001 zugeordnet sein")
+
+    records = data.get("records")
+    if not isinstance(records, list):
+        errors.append("LXF01-Audit records muss eine Liste sein")
+        records = []
+    seen_ids: set[str] = set()
+    for index, record in enumerate(records):
+        label = f"LXF01-Auditdatensatz {index + 1}"
+        if not isinstance(record, dict):
+            errors.append(f"{label} muss ein Objekt sein")
+            continue
+        errors.extend(_missing_fields(record, LEGACY_AUDIT_RECORD_FIELDS, label))
+        errors.extend(_unknown_fields(record, LEGACY_AUDIT_RECORD_FIELDS, label))
+        artifact_id = record.get("artifactId")
+        if not _nonempty_string(artifact_id):
+            errors.append(f"{label} benötigt eine artifactId")
+            continue
+        if artifact_id in seen_ids:
+            errors.append(f"LXF01-Audit enthält doppelte artifactId: {artifact_id}")
+        seen_ids.add(artifact_id)
+        expected_kind = _legacy_artifact_kind(artifact_id)
+        if expected_kind is None:
+            errors.append(f"LXF01-Audit enthält unbekanntes Pflichtartefakt: {artifact_id}")
+        elif record.get("artifactKind") != expected_kind:
+            errors.append(
+                f"LXF01-Audit {artifact_id} hat unerwartete artifactKind"
+            )
+        expected_ref = _legacy_artifact_ref(artifact_id)
+        if expected_ref is not None and record.get("artifactRef") != expected_ref:
+            errors.append(f"LXF01-Audit {artifact_id} hat unerwartete artifactRef")
+        if expected_ref is not None:
+            ref_path = expected_ref.split("#", 1)[0]
+            if not (root / ref_path).is_file():
+                errors.append(f"LXF01-Audit {artifact_id} verweist auf fehlendes Artefakt")
+        decision = record.get("decision")
+        if not isinstance(decision, str) or decision not in LEGACY_DECISIONS:
+            errors.append(
+                f"LXF01-Audit {artifact_id} hat unbekannte Entscheidung: {decision}"
+            )
+        if not _nonempty_string(record.get("rationale")):
+            errors.append(f"LXF01-Audit {artifact_id} benötigt eine Begründung")
+        if record.get("requirementIds") != ["V2-REQ-LXF-001"]:
+            errors.append(
+                f"LXF01-Audit {artifact_id} muss exakt V2-REQ-LXF-001 zugeordnet sein"
+            )
+        evidence = record.get("evidence")
+        errors.extend(
+            _validate_legacy_evidence_list(
+                evidence,
+                f"LXF01-Audit {artifact_id}",
+                root,
+            )
+        )
+        if decision == "retain" and isinstance(evidence, list) and not evidence:
+            errors.append(
+                f"LXF01-Audit {artifact_id} retain benötigt mindestens einen Beleg"
+            )
+        successor = record.get("successorTaskId")
+        if decision in {"adapt", "replace"}:
+            if not isinstance(successor, str) or not re.fullmatch(r"LXF0[2-7]", successor):
+                errors.append(
+                    f"LXF01-Audit {artifact_id} {decision} benötigt einen successorTaskId"
+                )
+        elif isinstance(decision, str) and decision in LEGACY_DECISIONS and successor is not None:
+            errors.append(
+                f"LXF01-Audit {artifact_id} {decision} benötigt successorTaskId null"
+            )
+    for missing_id in sorted(EXPECTED_LEGACY_ARTIFACTS - seen_ids):
+        errors.append(f"LXF01-Audit fehlt Pflichtartefakt: {missing_id}")
+    if len(records) != len(EXPECTED_LEGACY_ARTIFACTS):
+        errors.append("LXF01-Audit muss exakt 33 Pflichtartefakte klassifizieren")
+
+    gaps = data.get("knownGaps")
+    if not isinstance(gaps, list):
+        errors.append("LXF01-Audit knownGaps muss eine Liste sein")
+        gaps = []
+    seen_gaps: set[str] = set()
+    gap_categories = {
+        "source-management",
+        "evidence-contract",
+        "quality-boundary",
+        "implementation-specificity",
+        "learner-context",
+    }
+    for index, gap in enumerate(gaps):
+        label = f"LXF01-Lücke {index + 1}"
+        if not isinstance(gap, dict):
+            errors.append(f"{label} muss ein Objekt sein")
+            continue
+        errors.extend(_missing_fields(gap, LEGACY_AUDIT_GAP_FIELDS, label))
+        errors.extend(_unknown_fields(gap, LEGACY_AUDIT_GAP_FIELDS, label))
+        gap_id = gap.get("id")
+        if not _nonempty_string(gap_id):
+            errors.append(f"{label} benötigt eine id")
+            continue
+        if gap_id in seen_gaps:
+            errors.append(f"LXF01-Audit enthält doppelte bekannte Lücke: {gap_id}")
+        seen_gaps.add(gap_id)
+        if gap_id not in EXPECTED_LEGACY_GAPS:
+            errors.append(f"LXF01-Audit enthält unbekannte Lücke: {gap_id}")
+        if not isinstance(gap.get("category"), str) or gap.get("category") not in gap_categories:
+            errors.append(f"{label} hat eine unbekannte Kategorie")
+        if not isinstance(gap.get("status"), str) or gap.get("status") not in {"open", "partially-closed"}:
+            errors.append(f"{label} hat einen unbekannten Status")
+        for field in ("finding", "consequence"):
+            if not _nonempty_string(gap.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        errors.extend(
+            _validate_legacy_evidence_list(gap.get("evidence"), label, root)
+        )
+    for missing_gap in sorted(EXPECTED_LEGACY_GAPS - seen_gaps):
+        errors.append(f"LXF01-Audit fehlt bekannte Lücke: {missing_gap}")
+    if len(gaps) != len(EXPECTED_LEGACY_GAPS):
+        errors.append("LXF01-Audit muss exakt fünf bekannte Lücken führen")
+
+    layers = data.get("lxp05FailureLayers")
+    if not isinstance(layers, list):
+        errors.append("LXF01-Audit lxp05FailureLayers muss eine Liste sein")
+        layers = []
+    seen_layers: set[str] = set()
+    for index, layer in enumerate(layers):
+        label = f"LXF01-Fehlerebene {index + 1}"
+        if not isinstance(layer, dict):
+            errors.append(f"{label} muss ein Objekt sein")
+            continue
+        errors.extend(
+            _missing_fields(layer, LEGACY_AUDIT_FAILURE_LAYER_FIELDS, label)
+        )
+        errors.extend(
+            _unknown_fields(layer, LEGACY_AUDIT_FAILURE_LAYER_FIELDS, label)
+        )
+        layer_id = layer.get("layer")
+        if not isinstance(layer_id, str) or layer_id not in EXPECTED_LXP05_FAILURE_LAYERS:
+            errors.append(f"{label} hat eine unbekannte Ebene")
+        elif layer_id in seen_layers:
+            errors.append(f"LXF01-Audit enthält doppelte Fehlerebene: {layer_id}")
+        else:
+            seen_layers.add(layer_id)
+        for field in ("finding", "disposition"):
+            if not _nonempty_string(layer.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        errors.extend(
+            _validate_legacy_evidence_list(layer.get("evidence"), label, root)
+        )
+    for missing_layer in sorted(EXPECTED_LXP05_FAILURE_LAYERS - seen_layers):
+        errors.append(f"LXF01-Audit fehlt Fehlerebene: {missing_layer}")
+    if len(layers) != len(EXPECTED_LXP05_FAILURE_LAYERS):
+        errors.append("LXF01-Audit muss exakt vier LXP05-Fehlerebenen führen")
+
+    handoff = data.get("handoff")
+    if not isinstance(handoff, dict):
+        errors.append("LXF01-Audit handoff muss ein Objekt sein")
+    else:
+        errors.extend(
+            _missing_fields(handoff, LEGACY_AUDIT_HANDOFF_FIELDS, "LXF01-Handoff")
+        )
+        errors.extend(
+            _unknown_fields(handoff, LEGACY_AUDIT_HANDOFF_FIELDS, "LXF01-Handoff")
+        )
+        expected_handoff = {
+            "nextTaskId": "LXF02",
+            "contentProduction": "frozen",
+            "lxp05": "historical-unmerged-review-candidate",
+        }
+        for field, expected_value in expected_handoff.items():
+            if handoff.get(field) != expected_value:
+                errors.append(f"LXF01-Handoff hat unerwarteten Wert für {field}")
+        if not _nonempty_string(handoff.get("decisionBoundary")):
+            errors.append("LXF01-Handoff benötigt eine Entscheidungsgrenze")
+    return errors
+
+
+def validate_legacy_learning_audit_schema(root: Path) -> list[str]:
+    relative_path = Path("schemas/v2/legacy-learning-audit.schema.json")
+    path = root / relative_path
+    if not path.is_file():
+        return [f"LXF01-Schema fehlt: {relative_path.as_posix()}"]
+    try:
+        schema = load_json(path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return [f"LXF01-Schema ist kein gültiges JSON: {relative_path.as_posix()}"]
+    if not isinstance(schema, dict):
+        return ["LXF01-Schema muss ein Objekt sein"]
+    errors: list[str] = []
+    canonical_schema = json.dumps(
+        schema,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    if hashlib.sha256(canonical_schema).hexdigest().upper() != (
+        "57D344DE15E1E19E925BDA220D08030DB43099CCCD29A98652D02ACF7704F13F"
+    ):
+        errors.append("LXF01-Schema weicht von der versiegelten Definition ab")
+    if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
+        errors.append("LXF01-Schema benötigt Draft 2020-12")
+    if schema.get("$id") != (
+        "https://github.com/H4R7W16/ium-lernwerk/"
+        "schemas/v2/legacy-learning-audit.schema.json"
+    ):
+        errors.append("LXF01-Schema hat eine unerwartete $id")
+    if schema.get("type") != "object" or schema.get("additionalProperties") is not False:
+        errors.append("LXF01-Schema muss top-level fail-closed sein")
+    if set(schema.get("required", [])) != LEGACY_LEARNING_AUDIT_FIELDS:
+        errors.append("LXF01-Schema hat abweichende Pflichtfelder")
+    properties = schema.get("properties")
+    if not isinstance(properties, dict) or set(properties) != LEGACY_LEARNING_AUDIT_FIELDS:
+        errors.append("LXF01-Schema hat abweichende Properties")
+    definitions = schema.get("$defs")
+    expected_definitions = {
+        "auditRecord": LEGACY_AUDIT_RECORD_FIELDS,
+        "knownGap": LEGACY_AUDIT_GAP_FIELDS,
+        "failureLayer": LEGACY_AUDIT_FAILURE_LAYER_FIELDS,
+        "handoff": LEGACY_AUDIT_HANDOFF_FIELDS,
+    }
+    if not isinstance(definitions, dict):
+        errors.append("LXF01-Schema benötigt $defs")
+        return errors
+    for name, fields in expected_definitions.items():
+        definition = definitions.get(name)
+        if not isinstance(definition, dict):
+            errors.append(f"LXF01-Schema benötigt Definition {name}")
+            continue
+        if definition.get("type") != "object" or definition.get("additionalProperties") is not False:
+            errors.append(f"LXF01-Schema Definition {name} muss fail-closed sein")
+        if set(definition.get("required", [])) != fields:
+            errors.append(f"LXF01-Schema Definition {name} hat abweichende Pflichtfelder")
+        definition_properties = definition.get("properties")
+        if not isinstance(definition_properties, dict) or set(definition_properties) != fields:
+            errors.append(f"LXF01-Schema Definition {name} hat abweichende Properties")
+    return errors
+
+
+def validate_legacy_learning_audit_markdown(root: Path) -> list[str]:
+    path = root / "roadmap/v2/foundations/learning-experience/legacy-audit.md"
+    if not path.is_file():
+        return []
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return ["LXF01-Auditsynthese ist nicht als UTF-8 lesbar"]
+    expected_headings = [
+        "# LXF01 Bestandsaudit",
+        "## Tragfähiger Bestand",
+        "## Anpassungsbedürftiger Bestand",
+        "## Zu ersetzende Annahmen",
+        "## Nur historische Referenz",
+        "## Entfallende Regeln",
+        "## Querschnittliche Ursachen des LXP05-Fehlschlags",
+        "## Übergabe an LXF02",
+    ]
+    positions = [text.find(heading) for heading in expected_headings]
+    errors: list[str] = []
+    for heading, position in zip(expected_headings, positions):
+        if position < 0:
+            errors.append(f"LXF01-Auditsynthese fehlt Überschrift: {heading}")
+    present_positions = [position for position in positions if position >= 0]
+    if present_positions != sorted(present_positions):
+        errors.append("LXF01-Auditsynthese hat eine unerwartete Abschnittsreihenfolge")
+    return errors
+
+
 def validate_source_schemas(root: Path) -> list[str]:
     resolved_semantics = [
         {
@@ -2681,7 +3096,7 @@ def validate_source_schemas(root: Path) -> list[str]:
         },
         "schemas/v2/source-traceability.schema.json": {
             "id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-traceability.schema.json",
-            "digest": "9295548B4B48B4438FE239F3C2A3B94B8DFD1A50EE9F3C9D1F56F27D5E8AB4E4",
+            "digest": "EC889F0C366AF2E626ED4E01F92AB6D5122DB61F53A1E617143256C532B924B7",
             "top": SOURCE_TRACEABILITY_FIELDS,
             "defs": {
                 "entityType": {"id", "definition", "mayReference"},
@@ -2708,7 +3123,7 @@ def validate_source_schemas(root: Path) -> list[str]:
                 ("properties", "migrationRules", "properties", "claimsRequireRegisteredSourceIds", "const"): True,
                 ("properties", "migrationRules", "properties", "claimsRequirePrimaryCheckedSources", "const"): True,
                 ("properties", "migrationRules", "properties", "lxp01AdditionsCreateClaims", "const"): False,
-                ("properties", "migrationRules", "properties", "pendingLxp01ClaimReview", "const"): "IUM-V2-LXF02",
+                ("properties", "migrationRules", "properties", "pendingLxp01ClaimReview", "const"): "LXF02",
                 ("properties", "requiredGaps", "maxItems"): 0,
                 ("properties", "optionalGaps", "minItems"): 1,
                 ("properties", "optionalGaps", "maxItems"): 1,
@@ -2958,6 +3373,24 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         for error in validate_source_schemas(root)
         if not error.startswith("V2-Quellenschema fehlt:")
     )
+
+    legacy_audit_path = Path(
+        "roadmap/v2/foundations/learning-experience/legacy-audit.json"
+    )
+    path = root / legacy_audit_path
+    if path.is_file():
+        try:
+            data = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(f"{legacy_audit_path.as_posix()} ist kein gültiges JSON")
+        else:
+            errors.extend(validate_legacy_learning_audit(data, root))
+    errors.extend(
+        error
+        for error in validate_legacy_learning_audit_schema(root)
+        if not error.startswith("LXF01-Schema fehlt:")
+    )
+    errors.extend(validate_legacy_learning_audit_markdown(root))
     return errors, warnings
 
 
