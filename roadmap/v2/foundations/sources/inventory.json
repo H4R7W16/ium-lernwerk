@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "phase0Baseline": {
+    "role": "v1-audit-input",
+    "sourceRegister": {
+      "path": "docs/research/phase-0/source-register.json",
+      "sha256": "F4B52FB6B8B5C7E31FF3BA73DA63B9D4E46F47B55FC51DFEDAE3F809100D6AB1",
+      "recordCount": 63
+    },
+    "claimLedger": {
+      "path": "docs/research/phase-0/claim-ledger.json",
+      "sha256": "5D6D5518FD9896FF052F51E06C52B0758EC031AF7B27E0919498BA5D9982728C",
+      "recordCount": 51
+    },
+    "principleLedger": {
+      "path": "docs/research/phase-0/design-principles.json",
+      "sha256": "4F577237E1CC9386DB87D37F7291D1E0C08ACF87C7ED5C85A48E2A6162C87B7B",
+      "recordCount": 15
+    }
+  },
+  "locatorOverrides": [
+    {
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "url": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+      "checkedAt": "2026-09-03",
+      "status": "resolved",
+      "reason": "Die V1-Quelle besitzt keinen Locator; V2 übernimmt die im Curriculumfundament hash-geprüfte direkte amtliche Fundstelle, ohne das V1-Register zu verändern.",
+      "evidencePath": "roadmap/v2/foundations/curriculum/source-basis.json"
+    }
+  ],
+  "lxp01Additions": [
+    {
+      "legacyId": "LXP-SRC-SDT-2024",
+      "sourceId": "SRC-LXP-SDT-2024",
+      "title": "A systematic review and meta-analysis of self-determination-theory-based interventions in the education context",
+      "authors": ["Yurou Wang", "Hui Wang", "Shengnan Wang", "Stefanie A. Wind", "Christopher Gill"],
+      "year": 2024,
+      "sourceKind": "meta-analysis",
+      "url": "https://doi.org/10.1016/j.lmot.2024.102015",
+      "doi": "10.1016/j.lmot.2024.102015",
+      "verificationStatus": "metadata-checked",
+      "licenseStatus": "publisher-rights-no-open-license",
+      "usageStatus": "citation-only",
+      "accessed": "2026-09-03",
+      "liveCheck": {
+        "checkedAt": "2026-09-03",
+        "status": "resolved",
+        "httpStatus": 200,
+        "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0023969024000572"
+      },
+      "migrationState": "registered-v2",
+      "claimMigration": "pending-lxf02-claim-review",
+      "recheckTriggers": ["before-claim-review", "before-publication", "locator-or-license-change"]
+    },
+    {
+      "legacyId": "LXP-SRC-SEGMENT-2019",
+      "sourceId": "SRC-LXP-SEGMENT-2019",
+      "title": "A Meta-analysis of the Segmenting Effect",
+      "authors": ["Günter Daniel Rey", "Maik Beege", "Steve Nebel", "Maria Wirzberger", "Tobias H. Schmitt", "Sascha Schneider"],
+      "year": 2019,
+      "sourceKind": "meta-analysis",
+      "url": "https://doi.org/10.1007/s10648-018-9456-4",
+      "doi": "10.1007/s10648-018-9456-4",
+      "verificationStatus": "metadata-checked",
+      "licenseStatus": "publisher-rights-no-open-license",
+      "usageStatus": "citation-only",
+      "accessed": "2026-09-03",
+      "liveCheck": {
+        "checkedAt": "2026-09-03",
+        "status": "resolved",
+        "httpStatus": 200,
+        "finalUrl": "https://link.springer.com/article/10.1007/s10648-018-9456-4"
+      },
+      "migrationState": "registered-v2",
+      "claimMigration": "pending-lxf02-claim-review",
+      "recheckTriggers": ["before-claim-review", "before-publication", "locator-or-license-change"]
+    },
+    {
+      "legacyId": "LXP-SRC-SIGNAL-2016",
+      "sourceId": "SRC-LXP-SIGNAL-2016",
+      "title": "Signaling text-picture relations in multimedia learning: A comprehensive meta-analysis",
+      "authors": ["Juliane Richter", "Katharina Scheiter", "Alexander Eitel"],
+      "year": 2016,
+      "sourceKind": "meta-analysis",
+      "url": "https://doi.org/10.1016/j.edurev.2015.12.003",
+      "doi": "10.1016/j.edurev.2015.12.003",
+      "verificationStatus": "metadata-checked",
+      "licenseStatus": "publisher-rights-no-open-license",
+      "usageStatus": "citation-only",
+      "accessed": "2026-09-03",
+      "liveCheck": {
+        "checkedAt": "2026-09-03",
+        "status": "resolved",
+        "httpStatus": 200,
+        "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1747938X15000664"
+      },
+      "migrationState": "registered-v2",
+      "claimMigration": "pending-lxf02-claim-review",
+      "recheckTriggers": ["before-claim-review", "before-publication", "locator-or-license-change"]
+    },
+    {
+      "legacyId": "LXP-SRC-W3C-COGA-2021",
+      "sourceId": "SRC-LXP-W3C-COGA-2021",
+      "title": "Supplemental Guidance to WCAG 2: Cognitive Accessibility Guidance",
+      "authors": ["W3C Web Accessibility Initiative"],
+      "year": 2021,
+      "sourceKind": "professional-standard",
+      "url": "https://www.w3.org/WAI/WCAG2/supplemental/",
+      "doi": null,
+      "verificationStatus": "primary-checked",
+      "licenseStatus": "permissive-with-notice",
+      "usageStatus": "reuse-with-notice",
+      "accessed": "2026-09-03",
+      "liveCheck": {
+        "checkedAt": "2026-09-03",
+        "status": "resolved",
+        "httpStatus": 200,
+        "finalUrl": "https://www.w3.org/WAI/WCAG2/supplemental/"
+      },
+      "migrationState": "registered-v2",
+      "claimMigration": "pending-lxf02-claim-review",
+      "recheckTriggers": ["before-claim-review", "before-publication", "locator-or-license-change"]
+    },
+    {
+      "legacyId": "LXP-SRC-UDL30-2024",
+      "sourceId": "SRC-LXP-UDL30-2024",
+      "title": "Universal Design for Learning Guidelines 3.0",
+      "authors": ["CAST"],
+      "year": 2024,
+      "sourceKind": "professional-standard",
+      "url": "https://udlguidelines.cast.org/",
+      "doi": null,
+      "verificationStatus": "primary-checked",
+      "licenseStatus": "no-open-license-identified",
+      "usageStatus": "citation-and-link-only",
+      "accessed": "2026-09-03",
+      "liveCheck": {
+        "checkedAt": "2026-09-03",
+        "status": "resolved",
+        "httpStatus": 200,
+        "finalUrl": "https://udlguidelines.cast.org/"
+      },
+      "migrationState": "registered-v2",
+      "claimMigration": "pending-lxf02-claim-review",
+      "recheckTriggers": ["before-claim-review", "before-publication", "locator-or-license-change"]
+    },
+    {
+      "legacyId": "LXP-SRC-COS-2023",
+      "sourceId": "SRC-LXP-COS-2023",
+      "title": "Effectiveness of the functions of classroom orchestration systems: A systematic review and meta-analysis",
+      "authors": ["Shuo Feng", "Lishan Zhang", "Shuwen Wang", "Zhihui Cai"],
+      "year": 2023,
+      "sourceKind": "meta-analysis",
+      "url": "https://doi.org/10.1016/j.compedu.2023.104864",
+      "doi": "10.1016/j.compedu.2023.104864",
+      "verificationStatus": "metadata-checked",
+      "licenseStatus": "publisher-rights-no-open-license",
+      "usageStatus": "citation-only",
+      "accessed": "2026-09-03",
+      "liveCheck": {
+        "checkedAt": "2026-09-03",
+        "status": "resolved",
+        "httpStatus": 200,
+        "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0360131523001410"
+      },
+      "migrationState": "registered-v2",
+      "claimMigration": "pending-lxf02-claim-review",
+      "recheckTriggers": ["before-claim-review", "before-publication", "locator-or-license-change"]
+    }
+  ],
+  "totals": {
+    "phase0": 63,
+    "lxp01Additions": 6,
+    "combined": 69
+  }
+}

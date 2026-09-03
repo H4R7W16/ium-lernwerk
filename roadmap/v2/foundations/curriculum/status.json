@@ -3,14 +3,14 @@
   "projectId": "ium-lernwerk",
   "id": "curriculum",
   "asOf": "2026-09-03",
-  "workStatus": "review",
+  "workStatus": "done",
   "maturity": {
     "curriculumCoverage": "unassessed",
-    "foundationConcept": "draft",
+    "foundationConcept": "reviewed",
     "dataVerification": "passed",
     "contentImplementation": "not-started",
     "technicalVerification": "passed",
-    "subjectReview": "in-review",
+    "subjectReview": "passed",
     "usageReview": "not-applicable",
     "classroomPilot": "not-started",
     "release": "closed"
@@ -67,5 +67,5 @@
       "disposition": "open"
     }
   ],
-  "nextGate": "IUM-V2-CUR-REVIEW"
+  "nextGate": "IUM-V2-SRC"
 }

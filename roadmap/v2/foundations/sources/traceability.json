@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "entityFlow": [
+    "source",
+    "claim",
+    "project-decision",
+    "design-principle",
+    "material-pattern",
+    "verification-evidence"
+  ],
+  "entityTypes": [
+    {
+      "id": "source",
+      "definition": "Externe oder lokale Fundstelle mit Identität, Prüf-, Lizenz- und Aktualitätsstatus.",
+      "mayReference": []
+    },
+    {
+      "id": "claim",
+      "definition": "Prüfbare Aussage mit Geltungsbereich, Grenzen und mindestens einer registrierten Quelle.",
+      "mayReference": ["source"]
+    },
+    {
+      "id": "project-decision",
+      "definition": "Bewusste Projektfestlegung, die Claims bewertet, aber selbst kein Forschungsbefund ist.",
+      "mayReference": ["claim"]
+    },
+    {
+      "id": "design-principle",
+      "definition": "Aus Claims und Projektentscheidungen abgeleitete, überprüfbare Gestaltungsregel.",
+      "mayReference": ["claim", "project-decision"]
+    },
+    {
+      "id": "material-pattern",
+      "definition": "Konkretes wiederverwendbares Material- oder Interaktionsmuster zur Umsetzung eines Prinzips.",
+      "mayReference": ["claim", "design-principle"]
+    },
+    {
+      "id": "verification-evidence",
+      "definition": "Datierter Prüfnachweis für Entscheidung, Prinzip oder Materialmuster ohne eigene Wirksamkeitsbehauptung.",
+      "mayReference": ["project-decision", "design-principle", "material-pattern"]
+    }
+  ],
+  "sourceInventoryPath": "roadmap/v2/foundations/sources/inventory.json",
+  "claimBaseline": {
+    "path": "docs/research/phase-0/claim-ledger.json",
+    "sha256": "5D6D5518FD9896FF052F51E06C52B0758EC031AF7B27E0919498BA5D9982728C",
+    "claimCount": 51,
+    "reviewedClaimCount": 51,
+    "uniqueSourceCount": 57
+  },
+  "migrationRules": {
+    "releaseRelevantStatementsRequireClaimIds": true,
+    "claimsRequireRegisteredSourceIds": true,
+    "claimsRequirePrimaryCheckedSources": true,
+    "lxp01AdditionsCreateClaims": false,
+    "pendingLxp01ClaimReview": "IUM-V2-LXF02"
+  },
+  "requiredGaps": [],
+  "optionalGaps": [
+    {
+      "id": "SRC-GAP-LP-SIGNALING-2018",
+      "sourceId": "SRC-LP-SIGNALING-2018",
+      "required": false,
+      "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt derzeit keinen freigegebenen Claim.",
+      "resolutionStatus": "needs-primary-recheck",
+      "ownerGate": "IUM-V2-LXF02",
+      "acceptanceCriterion": "Primärquelle und Nutzungsstatus vor einer Claim-Migration erneut prüfen."
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "generatedAt": "2026-09-03",
+  "inventoryPath": "roadmap/v2/foundations/sources/inventory.json",
+  "policy": {
+    "requiredFailure": "block-and-preserve-last-snapshot",
+    "optionalFailure": "warn-and-write",
+    "acceptedStatuses": [
+      "resolved",
+      "restricted"
+    ]
+  },
+  "summary": {
+    "total": 69,
+    "required": 68,
+    "optional": 1,
+    "resolved": 46,
+    "restricted": 23,
+    "missing": 0,
+    "unresolved": 0,
+    "warnings": 0
+  },
+  "checks": [
+    {
+      "sourceId": "SRC-CUR-BMB-2016",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/BMB",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/BMB",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-CUR-INF7-2016",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/INF7",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/INF7",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-CUR-KM-FACHSEITE",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-CUR-KM-FAQ-REFORM",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/faq-bildungsreform",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/faq-bildungsreform",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "required": true,
+      "locatorType": "v2-override",
+      "url": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-APP-MANIFEST-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.w3.org/TR/2026/WD-appmanifest-20260723/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.w3.org/TR/2026/WD-appmanifest-20260723/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-APPLE-RESTRICTIONS-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://developer.apple.com/documentation/devicemanagement/restrictions",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://developer.apple.com/documentation/devicemanagement/restrictions",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-APPLE-WEBFILTER-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://developer.apple.com/documentation/devicemanagement/webcontentfilter",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://developer.apple.com/documentation/devicemanagement/webcontentfilter",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-CC-BY-4",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-CC-BY-SA-4",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-CC-COMPAT-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://creativecommons.org/compatible-licenses/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://creativecommons.org/compatible-licenses/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-EDPB-DPBDD-2020",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.edpb.europa.eu/documents/guideline/guidelines-42019-on-article-25-data-protection-by-design-and-by-default_en",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.edpb.europa.eu/documents/guideline/guidelines-42019-on-article-25-data-protection-by-design-and-by-default_en",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-GDPR-2016",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "status": "resolved",
+      "httpStatus": 202,
+      "finalUrl": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-HTTP-CACHE-2022",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc9111.html",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-IPAD-REVIEW-2021",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s13384-020-00400-0",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s13384-020-00400-0",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-SERVICE-WORKERS-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.w3.org/TR/2026/CRD-service-workers-20260723/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.w3.org/TR/2026/CRD-service-workers-20260723/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-TDDDG-25-2024",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.gesetze-im-internet.de/ttdsg/__25.html",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.gesetze-im-internet.de/ttdsg/__25.html",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-UNESCO-OER-2019",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.unesco.org/en/legal-affairs/recommendation-open-educational-resources-oer",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.unesco.org/en/legal-affairs/recommendation-open-educational-resources-oer",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-WAI-USERS-2020",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.w3.org/WAI/planning/involving-users/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.w3.org/WAI/planning/involving-users/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-WCAG22-2024",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.w3.org/TR/WCAG22/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-WHATWG-HTML-STORAGE-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://html.spec.whatwg.org/multipage/webstorage.html",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://html.spec.whatwg.org/multipage/webstorage.html",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-WHATWG-STORAGE-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://storage.spec.whatwg.org/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://storage.spec.whatwg.org/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-DLE-WSG-DRAFT-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.w3.org/TR/2026/DNOTE-web-sustainability-guidelines-20260728/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.w3.org/TR/2026/DNOTE-web-sustainability-guidelines-20260728/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-BLOCK-TEXT-2017",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3089799",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3089799",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-BLOCK-TEXT-TRANSFER-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.compedu.2019.103646",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S036013151930199X",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-CSTA-2026",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3820482",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/book/10.1145/3820482",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-INTERNET-CONCEPTIONS-2023",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s10639-023-11775-9",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s10639-023-11775-9",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-MISCONCEPTIONS-2017",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3077618",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3077618",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-NOTIONAL-MACHINE-2013",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/2483710.2483713",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/2483710.2483713",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-PRIMM-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/08993408.2019.1608781",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/08993408.2019.1608781",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-RICH-DEBUG-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3287324.3287396",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3287324.3287396",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-RICH-LT-2017",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3105726.3106166",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3105726.3106166",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-UNPLUGGED-PRIMARY-2017",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3137065.3137069",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3137065.3137069",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-UNPLUGGED-REVIEW-2021",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/08993408.2020.1789411",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/08993408.2020.1789411",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-WORKED-EXAMPLES-2023",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1145/3560266",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3560266",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-INF-XIE-SKILLS-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/08993408.2019.1565235",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/08993408.2019.1565235",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-AUTONOMY-2025",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s10648-025-09994-2",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s10648-025-09994-2",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-CLT-2020",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1177/0963721420922183",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://journals.sagepub.com/doi/10.1177/0963721420922183",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-FEEDBACK-2020",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.3389/fpsyg.2019.03087",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.03087/full",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-IBBW-WU",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://ibbw-bw.de/%2CLde/Startseite/Bildungsforschung/Publikationsreihe%2B_Wirksamer%2BUnterricht_",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://ibbw-bw.de/%2CLde/Startseite/Bildungsforschung/Publikationsreihe%2B_Wirksamer%2BUnterricht_",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-PF-2021",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.3102/00346543211019105",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://journals.sagepub.com/doi/10.3102/00346543211019105",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-PRIOR-2022",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/00461520.2021.1939700",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/00461520.2021.1939700",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-QUIZZING-2021",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1037/bul0000309",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://psycnet.apa.org:443/doiLanding?doi=10.1037%2Fbul0000309",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-SCAFFOLD-2017",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.3102/0034654316670999",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://journals.sagepub.com/doi/10.3102/0034654316670999",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-SELFEXPLAIN-2018",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s10648-018-9434-x",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s10648-018-9434-x",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-SIGNALING-2018",
+      "required": false,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.edurev.2017.11.001",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1747938X17300581",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-SPACING-2025",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.3390/bs15060771",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.mdpi.com/2076-328X/15/6/771",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-SRL-2008",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.edurev.2008.02.003",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1747938X08000080",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-TRANSFER-2018",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1037/bul0000151",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://psycnet.apa.org:443/doiLanding?doi=10.1037%2Fbul0000151",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LP-WORKED-2023",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s10648-023-09745-1",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s10648-023-09745-1",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LXP-COS-2023",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.compedu.2023.104864",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0360131523001410",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LXP-SDT-2024",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.lmot.2024.102015",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0023969024000572",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LXP-SEGMENT-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s10648-018-9456-4",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s10648-018-9456-4",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LXP-SIGNAL-2016",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.edurev.2015.12.003",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1747938X15000664",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LXP-UDL30-2024",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://udlguidelines.cast.org/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://udlguidelines.cast.org/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-LXP-W3C-COGA-2021",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.w3.org/WAI/WCAG2/supplemental/",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.w3.org/WAI/WCAG2/supplemental/",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-ALGORITHM-LITERACY-2025",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/1369118X.2024.2382224",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/1369118X.2024.2382224",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-BODY-IMAGE-META-2022",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s10935-021-00660-1",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s10935-021-00660-1",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-CC-BY-SA-4",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-CYBERBULLY-META-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1016/j.avb.2018.07.002",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1359178918300697",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-DCE-PLANNER-2026",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://www.coe.int/en/web/education/dce-planner",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.coe.int/en/web/education/dce-planner",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-DIGCOMP-3-2025",
+      "required": true,
+      "locatorType": "url",
+      "url": "https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30-resources_en",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://joint-research-centre.ec.europa.eu/scientific-activities/key-competences-lifelong-learning/digital-competence-framework-digcomp/digcomp-30-resources_en",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-GENAI-MISINFO-2026",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1007/s00146-025-02536-y",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://link.springer.com/article/10.1007/s00146-025-02536-y",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-INFLUENCER-REVIEW-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.3389/fpsyg.2019.02685",
+      "status": "resolved",
+      "httpStatus": 200,
+      "finalUrl": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02685/full",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-INTERVENTIONS-META-2025",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1093/hcr/hqaf004",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://academic.oup.com/hcr/article/51/2/57/8099911",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-LOOTBOX-META-2021",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/14459795.2021.1914705",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/14459795.2021.1914705",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-MENTAL-HEALTH-META-2024",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1001/jamapediatrics.2024.2078",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2819781",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-MISINFO-META-2024",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1177/00936502241288103",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://journals.sagepub.com/doi/10.1177/00936502241288103",
+      "checkedAt": "2026-09-03"
+    },
+    {
+      "sourceId": "SRC-MED-PRIVACY-MAP-2019",
+      "required": true,
+      "locatorType": "doi",
+      "url": "https://doi.org/10.1080/1369118X.2019.1657164",
+      "status": "restricted",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/doi/full/10.1080/1369118X.2019.1657164",
+      "checkedAt": "2026-09-03"
+    }
+  ]
+}

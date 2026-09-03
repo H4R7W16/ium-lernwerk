@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-inventory.schema.json",
+  "title": "IuM-Lernwerk V2 SourceInventoryV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectId", "asOf", "phase0Baseline", "locatorOverrides", "lxp01Additions", "totals"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "projectId": {"const": "ium-lernwerk"},
+    "asOf": {"type": "string", "format": "date"},
+    "phase0Baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "sourceRegister", "claimLedger", "principleLedger"],
+      "properties": {
+        "role": {"const": "v1-audit-input"},
+        "sourceRegister": {"$ref": "#/$defs/sealedLedger"},
+        "claimLedger": {"$ref": "#/$defs/sealedLedger"},
+        "principleLedger": {"$ref": "#/$defs/sealedLedger"}
+      }
+    },
+    "locatorOverrides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {"$ref": "#/$defs/locatorOverride"}
+    },
+    "lxp01Additions": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "totals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phase0", "lxp01Additions", "combined"],
+      "properties": {
+        "phase0": {"const": 63},
+        "lxp01Additions": {"const": 6},
+        "combined": {"const": 69}
+      }
+    }
+  },
+  "$defs": {
+    "sealedLedger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "recordCount"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+        "recordCount": {"type": "integer", "minimum": 0}
+      }
+    },
+    "locatorOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "url", "checkedAt", "status", "reason", "evidencePath"],
+      "properties": {
+        "sourceId": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri"},
+        "checkedAt": {"type": "string", "format": "date"},
+        "status": {"const": "resolved"},
+        "reason": {"type": "string", "minLength": 1},
+        "evidencePath": {"type": "string", "minLength": 1}
+      }
+    },
+    "liveCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkedAt", "status", "httpStatus", "finalUrl"],
+      "properties": {
+        "checkedAt": {"type": "string", "format": "date"},
+        "status": {"enum": ["resolved", "restricted"]},
+        "httpStatus": {"type": "integer", "minimum": 100, "maximum": 599},
+        "finalUrl": {"type": "string", "format": "uri"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "resolved"}}, "required": ["status"]},
+          "then": {"properties": {"httpStatus": {"type": "integer", "minimum": 200, "maximum": 299}, "finalUrl": {"type": "string", "format": "uri"}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "restricted"}}, "required": ["status"]},
+          "then": {"properties": {"httpStatus": {"enum": [401, 403]}, "finalUrl": {"type": "string", "format": "uri"}}}
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["legacyId", "sourceId", "title", "authors", "year", "sourceKind", "url", "doi", "verificationStatus", "licenseStatus", "usageStatus", "accessed", "liveCheck", "migrationState", "claimMigration", "recheckTriggers"],
+      "properties": {
+        "legacyId": {"type": "string", "pattern": "^LXP-SRC-"},
+        "sourceId": {"type": "string", "pattern": "^SRC-LXP-"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "year": {"type": "integer", "minimum": 1900, "maximum": 2026},
+        "sourceKind": {"enum": ["meta-analysis", "professional-standard"]},
+        "url": {"type": "string", "format": "uri"},
+        "doi": {"type": ["string", "null"]},
+        "verificationStatus": {"enum": ["metadata-checked", "primary-checked"]},
+        "licenseStatus": {"enum": ["publisher-rights-no-open-license", "permissive-with-notice", "no-open-license-identified"]},
+        "usageStatus": {"enum": ["citation-only", "reuse-with-notice", "citation-and-link-only"]},
+        "accessed": {"type": "string", "format": "date"},
+        "liveCheck": {"$ref": "#/$defs/liveCheck"},
+        "migrationState": {"const": "registered-v2"},
+        "claimMigration": {"const": "pending-lxf02-claim-review"},
+        "recheckTriggers": {
+          "type": "array",
+          "prefixItems": [
+            {"const": "before-claim-review"},
+            {"const": "before-publication"},
+            {"const": "locator-or-license-change"}
+          ],
+          "items": false
+        }
+      }
+    }
+  }
+}

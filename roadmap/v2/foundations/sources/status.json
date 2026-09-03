@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "id": "sources",
+  "asOf": "2026-09-03",
+  "workStatus": "review",
+  "maturity": {
+    "curriculumCoverage": "not-applicable",
+    "foundationConcept": "draft",
+    "dataVerification": "passed",
+    "contentImplementation": "not-started",
+    "technicalVerification": "passed",
+    "subjectReview": "in-review",
+    "usageReview": "not-applicable",
+    "classroomPilot": "not-applicable",
+    "release": "closed"
+  },
+  "requirementIds": [
+    "V2-REQ-SRC-001"
+  ],
+  "evidence": [
+    {
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/sources/README.md",
+      "label": "Fachlich lesbare Reviewbasis mit Nutzungsgrenzen und offenen Punkten",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/sources/inventory.json",
+      "label": "Versiegelte Phase-0-Baseline und sechs registrierte LXP01-Ergänzungen",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/sources/traceability.json",
+      "label": "Rückverfolgungs- und Entitätengrenzen",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/sources/link-audit.json",
+      "label": "Atomar erzeugter Linkaudit für 69 Quellen",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+      "label": "Freigegebene V2-Re-Baseline-Spezifikation",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "tests/test_validate_v2_rebaseline.py",
+      "label": "Automatisierte Vertrags-, Drift- und Gateprüfungen",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "tests/test_check_v2_source_links.py",
+      "label": "Tests für Linkklassifikation und atomare Aktualisierung",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "scripts/check_v2_source_links.py",
+      "label": "Reproduzierbarer Online-Linkaudit",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "scripts/validate_v2_rebaseline.py",
+      "label": "Fail-closed V2-Validator",
+      "required": true
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "SRC-Q-001",
+      "question": "Welche prüfbaren V2-Claims werden nach erneuter Primärprüfung aus den sechs LXP01-Ergänzungen übernommen?",
+      "owner": "IUM-V2-LXF02",
+      "risk": "Eine direkte Übernahme der früheren Designhypothesen würde Quellenidentität und Claimprüfung vermischen.",
+      "disposition": "open"
+    },
+    {
+      "id": "SRC-Q-002",
+      "question": "Wird SRC-LP-SIGNALING-2018 nach Primärprüfung benötigt oder als nicht claim-tragender Auditbestand belassen?",
+      "owner": "IUM-V2-LXF02",
+      "risk": "Eine metadatengeprüfte Quelle darf nicht unbemerkt zur freigaberelevanten Claimgrundlage werden.",
+      "disposition": "open"
+    }
+  ],
+  "nextGate": "IUM-V2-SRC-REVIEW"
+}

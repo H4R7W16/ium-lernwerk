@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-link-audit.schema.json",
+  "title": "IuM-Lernwerk V2 SourceLinkAuditV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectId", "generatedAt", "inventoryPath", "policy", "summary", "checks"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "projectId": {"const": "ium-lernwerk"},
+    "generatedAt": {"type": "string", "format": "date"},
+    "inventoryPath": {"const": "roadmap/v2/foundations/sources/inventory.json"},
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requiredFailure", "optionalFailure", "acceptedStatuses"],
+      "properties": {
+        "requiredFailure": {"const": "block-and-preserve-last-snapshot"},
+        "optionalFailure": {"const": "warn-and-write"},
+        "acceptedStatuses": {
+          "type": "array",
+          "prefixItems": [{"const": "resolved"}, {"const": "restricted"}],
+          "items": false
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total", "required", "optional", "resolved", "restricted", "missing", "unresolved", "warnings"],
+      "properties": {
+        "total": {"const": 69},
+        "required": {"const": 68},
+        "optional": {"const": 1},
+        "resolved": {"type": "integer", "minimum": 0},
+        "restricted": {"type": "integer", "minimum": 0},
+        "missing": {"type": "integer", "minimum": 0},
+        "unresolved": {"type": "integer", "minimum": 0},
+        "warnings": {"type": "integer", "minimum": 0}
+      }
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 69,
+      "maxItems": 69,
+      "items": {"$ref": "#/$defs/check"}
+    }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "required", "locatorType", "url", "status", "httpStatus", "finalUrl", "checkedAt"],
+      "properties": {
+        "sourceId": {"type": "string", "pattern": "^SRC-"},
+        "required": {"type": "boolean"},
+        "locatorType": {"enum": ["doi", "url", "v2-override"]},
+        "url": {"type": "string", "format": "uri"},
+        "status": {"enum": ["resolved", "restricted", "missing", "unresolved"]},
+        "httpStatus": {"type": ["integer", "null"], "minimum": 100, "maximum": 599},
+        "finalUrl": {"type": ["string", "null"], "format": "uri"},
+        "checkedAt": {"type": "string", "format": "date"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "resolved"}}, "required": ["status"]},
+          "then": {"properties": {"httpStatus": {"type": "integer", "minimum": 200, "maximum": 299}, "finalUrl": {"type": "string", "format": "uri"}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "restricted"}}, "required": ["status"]},
+          "then": {"properties": {"httpStatus": {"enum": [401, 403]}, "finalUrl": {"type": "string", "format": "uri"}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "missing"}}, "required": ["status"]},
+          "then": {"properties": {"httpStatus": {"enum": [404, 410]}, "finalUrl": {"type": "string", "format": "uri"}}}
+        }
+      ]
+    }
+  }
+}

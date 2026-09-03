@@ -17,6 +17,18 @@ MISSING_CURRICULUM_CONTRACTS = [
     "roadmap/v2/foundations/curriculum/source-basis.json fehlt",
     "roadmap/v2/foundations/curriculum/gap-assessments.json fehlt",
 ]
+MISSING_SOURCE_CONTRACTS = [
+    "roadmap/v2/foundations/sources/status.json fehlt",
+    "roadmap/v2/foundations/sources/inventory.json fehlt",
+    "roadmap/v2/foundations/sources/traceability.json fehlt",
+    "roadmap/v2/foundations/sources/link-audit.json fehlt",
+    "schemas/v2/source-inventory.schema.json fehlt",
+    "schemas/v2/source-traceability.schema.json fehlt",
+    "schemas/v2/source-link-audit.schema.json fehlt",
+]
+MISSING_FOUNDATION_CONTRACTS = (
+    MISSING_CURRICULUM_CONTRACTS + MISSING_SOURCE_CONTRACTS
+)
 
 
 VALID_STATUS = {
@@ -132,6 +144,10 @@ def write_control_files(
         )
 
 
+def load_repo_json(relative_path: str) -> object:
+    return json.loads((PROJECT_ROOT / relative_path).read_text(encoding="utf-8"))
+
+
 class ValidateV2RebaselineTests(unittest.TestCase):
     def test_missing_control_files_fail_closed(self) -> None:
         """Catches a validator that silently accepts an absent V2 control plane."""
@@ -152,6 +168,474 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         self.assertIn(
             "roadmap/v2/foundations/curriculum/gap-assessments.json fehlt",
             errors,
+        )
+        for expected_error in MISSING_SOURCE_CONTRACTS:
+            self.assertIn(expected_error, errors)
+
+    def test_source_inventory_requires_an_object(self) -> None:
+        """Catches malformed top-level JSON bypassing source-foundation checks."""
+        errors = v2_validator.validate_source_inventory([], PROJECT_ROOT)
+
+        self.assertEqual(["V2-Quelleninventar muss ein Objekt sein"], errors)
+
+    def test_source_inventory_preserves_phase0_and_registers_exact_lxp01_set(self) -> None:
+        """Catches silent Phase-0 drift or an incomplete LXP01 migration path."""
+        inventory = load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertEqual([], errors)
+
+    def test_source_inventory_rejects_baseline_hash_drift(self) -> None:
+        """Catches an inventory that no longer identifies the audited V1 input."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        inventory["phase0Baseline"]["sourceRegister"]["sha256"] = "0" * 64
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertIn(
+            "V2-Quelleninventar sourceRegister sha256 stimmt nicht mit der Datei überein",
+            errors,
+        )
+
+    def test_source_inventory_rejects_missing_or_promoted_lxp01_source(self) -> None:
+        """Catches losing an addition or treating an unreviewed source as a V2 claim."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        inventory["lxp01Additions"].pop()
+        inventory["lxp01Additions"][0]["claimMigration"] = "approved"
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertIn(
+            "V2-Quelleninventar muss exakt die sechs LXP01-Ergänzungen enthalten",
+            errors,
+        )
+        self.assertIn(
+            "LXP01-Quelle SRC-LXP-SDT-2024 muss bis IUM-V2-LXF02 ohne V2-Claim bleiben",
+            errors,
+        )
+
+    def test_source_inventory_requires_resolved_lesehilfe_locator_override(self) -> None:
+        """Catches carrying the one locator-less V1 source into V2 unresolved."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        inventory["locatorOverrides"] = []
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertIn(
+            "V2-Quelleninventar benötigt den aufgelösten Locator für SRC-CUR-LESEHILFE-2026-27",
+            errors,
+        )
+
+    def test_source_contract_enums_fail_closed_for_non_scalar_json_values(self) -> None:
+        """Catches unhashable JSON arrays or objects crashing new enum checks."""
+        inventory_fields = (
+            ("sourceKind",),
+            ("verificationStatus",),
+            ("licenseStatus",),
+            ("usageStatus",),
+            ("liveCheck", "status"),
+        )
+        for field_path in inventory_fields:
+            for malformed in ([], {}, None, True):
+                with self.subTest(contract="inventory", field=field_path, value=malformed):
+                    inventory = copy.deepcopy(
+                        load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+                    )
+                    target = inventory["lxp01Additions"][0]
+                    if len(field_path) == 1:
+                        target[field_path[0]] = malformed
+                    else:
+                        target[field_path[0]][field_path[1]] = malformed
+                    errors = v2_validator.validate_source_inventory(
+                        inventory,
+                        PROJECT_ROOT,
+                    )
+                    self.assertTrue(errors)
+
+        for malformed in ([], {}, None, True):
+            with self.subTest(contract="link-audit", value=malformed):
+                audit = copy.deepcopy(
+                    load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+                )
+                audit["checks"][0]["status"] = malformed
+                errors = v2_validator.validate_source_link_audit(
+                    audit,
+                    PROJECT_ROOT,
+                    [],
+                )
+                self.assertTrue(errors)
+
+    def test_source_inventory_rejects_incomplete_records_and_invalid_ranges(self) -> None:
+        """Catches divergence between required schema fields and manual validation."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        inventory["locatorOverrides"].append({"sourceId": "SRC-INCOMPLETE"})
+        source = inventory["lxp01Additions"][0]
+        source["year"] = 1899
+        source["liveCheck"]["httpStatus"] = 999
+        source["accessed"] = "2026-02-31"
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertIn("V2-Locator-Override SRC-INCOMPLETE benötigt url", errors)
+        self.assertIn("LXP01-Quelle SRC-LXP-SDT-2024 hat ein ungültiges Jahr", errors)
+        self.assertIn(
+            "LXP01-Quelle SRC-LXP-SDT-2024 liveCheck hat ungültigen httpStatus",
+            errors,
+        )
+        self.assertIn(
+            "LXP01-Quelle SRC-LXP-SDT-2024 accessed muss ein echtes Kalenderdatum sein",
+            errors,
+        )
+
+    def test_source_link_audit_requires_terminal_transport_evidence(self) -> None:
+        """Catches resolved checks without the terminal HTTP evidence required by schema."""
+        audit = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+        )
+        first = audit["checks"][0]
+        first.pop("httpStatus")
+        first.pop("finalUrl")
+
+        errors = v2_validator.validate_source_link_audit(audit, PROJECT_ROOT, [])
+
+        self.assertIn(
+            f"V2-Linkprüfung {first['sourceId']} benötigt Pflichtfeld httpStatus",
+            errors,
+        )
+        self.assertIn(
+            f"V2-Linkprüfung {first['sourceId']} benötigt Pflichtfeld finalUrl",
+            errors,
+        )
+        self.assertIn(
+            f"V2-Linkprüfung {first['sourceId']} benötigt terminale HTTP-Evidenz für resolved",
+            errors,
+        )
+
+    def test_source_schema_files_are_loaded_and_match_manual_contracts(self) -> None:
+        """Catches orphaned JSON Schemas that drift from the enforced data contract."""
+        errors = v2_validator.validate_source_schemas(PROJECT_ROOT)
+
+        self.assertEqual([], errors)
+
+    def test_source_schema_validation_fails_closed_for_missing_and_weakened_schemas(self) -> None:
+        """Catches direct schema validation silently accepting absent or weakened files."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+
+            errors = v2_validator.validate_source_schemas(root)
+
+            self.assertEqual(3, len(errors))
+            self.assertTrue(
+                all("V2-Quellenschema fehlt:" in error for error in errors)
+            )
+
+            schema_paths = (
+                "schemas/v2/source-inventory.schema.json",
+                "schemas/v2/source-traceability.schema.json",
+                "schemas/v2/source-link-audit.schema.json",
+            )
+            for relative_path in schema_paths:
+                write_json(root, relative_path, load_repo_json(relative_path))
+            link_schema = load_repo_json(
+                "schemas/v2/source-link-audit.schema.json"
+            )
+            link_schema["$defs"]["check"]["allOf"] = []
+            write_json(
+                root,
+                "schemas/v2/source-link-audit.schema.json",
+                link_schema,
+            )
+
+            errors = v2_validator.validate_source_schemas(root)
+
+            self.assertIn(
+                "V2-Quellenschema Linkstatus-Semantik ist abgeschwächt: "
+                "schemas/v2/source-link-audit.schema.json",
+                errors,
+            )
+
+            inventory_schema = load_repo_json(
+                "schemas/v2/source-inventory.schema.json"
+            )
+            inventory_schema["$defs"]["source"]["properties"][
+                "claimMigration"
+            ]["const"] = "approved"
+            write_json(
+                root,
+                "schemas/v2/source-inventory.schema.json",
+                inventory_schema,
+            )
+
+            errors = v2_validator.validate_source_schemas(root)
+
+            self.assertIn(
+                "V2-Quellenschema fachliche Semantik ist abgeschwächt: "
+                "schemas/v2/source-inventory.schema.json",
+                errors,
+            )
+
+    def test_repository_gate_reports_missing_source_schemas_via_control_files(self) -> None:
+        """Catches repository validation losing the fail-closed schema file gate."""
+        with tempfile.TemporaryDirectory() as directory:
+            errors, _warnings = validate_repository_report(Path(directory))
+
+        for relative_path in (
+            "schemas/v2/source-inventory.schema.json",
+            "schemas/v2/source-traceability.schema.json",
+            "schemas/v2/source-link-audit.schema.json",
+        ):
+            self.assertIn(f"{relative_path} fehlt", errors)
+
+    def test_source_schema_versions_reject_booleans(self) -> None:
+        """Catches Python treating true as the integer schema version one."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        traceability = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/traceability.json")
+        )
+        audit = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+        )
+        inventory["schemaVersion"] = True
+        traceability["schemaVersion"] = True
+        audit["schemaVersion"] = True
+
+        self.assertIn(
+            "V2-Quelleninventar schemaVersion muss 1 sein",
+            v2_validator.validate_source_inventory(inventory, PROJECT_ROOT),
+        )
+        self.assertIn(
+            "V2-Quellenrückverfolgung schemaVersion muss 1 sein",
+            v2_validator.validate_source_traceability(
+                traceability,
+                PROJECT_ROOT,
+                [],
+            ),
+        )
+        self.assertIn(
+            "V2-Quellenlinkaudit schemaVersion muss 1 sein",
+            v2_validator.validate_source_link_audit(audit, PROJECT_ROOT, []),
+        )
+
+    def test_source_inventory_live_check_binds_status_to_terminal_http(self) -> None:
+        """Catches a live-check status that contradicts its terminal response."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        source = inventory["lxp01Additions"][0]
+        source["liveCheck"]["status"] = "resolved"
+        source["liveCheck"]["httpStatus"] = 404
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertIn(
+            "LXP01-Quelle SRC-LXP-SDT-2024 resolved benötigt terminalen 2xx-Status",
+            errors,
+        )
+
+        source["liveCheck"]["status"] = "restricted"
+        source["liveCheck"]["httpStatus"] = 200
+
+        errors = v2_validator.validate_source_inventory(inventory, PROJECT_ROOT)
+
+        self.assertIn(
+            "LXP01-Quelle SRC-LXP-SDT-2024 restricted benötigt HTTP 401 oder 403",
+            errors,
+        )
+
+    def test_source_traceability_verifies_claims_and_reports_optional_gap(self) -> None:
+        """Catches a source contract that cannot prove the Phase-0 claim chain."""
+        traceability = load_repo_json(
+            "roadmap/v2/foundations/sources/traceability.json"
+        )
+        warnings: list[str] = []
+
+        errors = v2_validator.validate_source_traceability(
+            traceability,
+            PROJECT_ROOT,
+            warnings,
+        )
+
+        self.assertEqual([], errors)
+        self.assertEqual(
+            [
+                "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis IUM-V2-LXF02 offen"
+            ],
+            warnings,
+        )
+        self.assertEqual(6, len(traceability["entityTypes"]))
+
+    def test_source_traceability_rejects_illegal_reference_direction(self) -> None:
+        """Catches a source entity being allowed to masquerade as a claim."""
+        traceability = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/traceability.json")
+        )
+        traceability["entityTypes"][0]["mayReference"] = ["claim"]
+
+        errors = v2_validator.validate_source_traceability(
+            traceability,
+            PROJECT_ROOT,
+            [],
+        )
+
+        self.assertIn(
+            "V2-Quellenrückverfolgung enthält unerlaubte Entitätsreferenzrichtungen",
+            errors,
+        )
+
+    def test_source_traceability_rejects_entity_collapse_and_required_gaps(self) -> None:
+        """Catches merging evidence entities or passing a gate with a required gap."""
+        traceability = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/traceability.json")
+        )
+        traceability["entityFlow"].remove("project-decision")
+        traceability["requiredGaps"] = [
+            {
+                "id": "SRC-GAP-REQUIRED",
+                "sourceId": "SRC-MISSING",
+                "required": True,
+                "issue": "Pflichtquelle fehlt.",
+                "resolutionStatus": "unresolved",
+                "ownerGate": "IUM-V2-SRC",
+                "acceptanceCriterion": "Quelle registrieren und primär prüfen.",
+            }
+        ]
+
+        errors = v2_validator.validate_source_traceability(
+            traceability,
+            PROJECT_ROOT,
+            [],
+        )
+
+        self.assertIn(
+            "V2-Quellenrückverfolgung muss alle sechs Entitätstypen getrennt halten",
+            errors,
+        )
+        self.assertIn(
+            "V2-Quellenrückverfolgung darf keine offene Pflichtquellenlücke enthalten",
+            errors,
+        )
+
+    def test_source_link_audit_accepts_current_complete_snapshot(self) -> None:
+        """Catches an incomplete or internally inconsistent 69-source snapshot."""
+        audit = load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+        warnings: list[str] = []
+
+        errors = v2_validator.validate_source_link_audit(
+            audit,
+            PROJECT_ROOT,
+            warnings,
+        )
+
+        self.assertEqual([], errors)
+        self.assertEqual([], warnings)
+
+    def test_source_link_audit_blocks_required_failure_but_warns_for_optional(self) -> None:
+        """Catches treating required and optional locator failures as equivalent."""
+        audit = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+        )
+        required = next(check for check in audit["checks"] if check["required"])
+        required["status"] = "missing"
+        required["httpStatus"] = 404
+        audit["summary"]["resolved"] -= 1
+        audit["summary"]["missing"] += 1
+        errors = v2_validator.validate_source_link_audit(audit, PROJECT_ROOT, [])
+        self.assertIn(
+            f"V2-Linkaudit enthält nicht auflösbare Pflichtquelle {required['sourceId']}",
+            errors,
+        )
+
+        audit = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+        )
+        optional = next(check for check in audit["checks"] if not check["required"])
+        optional["status"] = "missing"
+        optional["httpStatus"] = 404
+        audit["summary"]["resolved"] -= 1
+        audit["summary"]["missing"] += 1
+        audit["summary"]["warnings"] = 1
+        warnings = []
+        errors = v2_validator.validate_source_link_audit(
+            audit,
+            PROJECT_ROOT,
+            warnings,
+        )
+        self.assertEqual([], errors)
+        self.assertEqual(
+            [
+                f"optionale Quelle {optional['sourceId']} ist im V2-Linkaudit nicht auflösbar"
+            ],
+            warnings,
+        )
+
+    def test_source_link_audit_does_not_crash_on_malformed_nested_inventory(self) -> None:
+        """Catches valid JSON with wrong nested types escaping fail-closed reporting."""
+        inventory = copy.deepcopy(
+            load_repo_json("roadmap/v2/foundations/sources/inventory.json")
+        )
+        inventory["locatorOverrides"] = 0
+        inventory["lxp01Additions"] = 0
+        audit = load_repo_json("roadmap/v2/foundations/sources/link-audit.json")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for relative_path in (
+                "docs/research/phase-0/source-register.json",
+                "docs/research/phase-0/claim-ledger.json",
+                "docs/research/phase-0/design-principles.json",
+            ):
+                target = root / relative_path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((PROJECT_ROOT / relative_path).read_bytes())
+            write_json(
+                root,
+                "roadmap/v2/foundations/sources/inventory.json",
+                inventory,
+            )
+
+            errors = v2_validator.validate_source_link_audit(audit, root, [])
+
+        self.assertIn(
+            "V2-Quelleninventar locatorOverrides muss eine Liste sein",
+            errors,
+        )
+        self.assertIn(
+            "V2-Quelleninventar lxp01Additions muss eine Liste sein",
+            errors,
+        )
+
+    def test_source_foundation_stops_at_review_gate(self) -> None:
+        """Catches opening LXF01 before the source foundation is approved."""
+        status = load_repo_json("roadmap/v2/foundations/sources/status.json")
+
+        errors = v2_validator.validate_foundation_status(
+            status,
+            "sources",
+            {"V2-REQ-SRC-001"},
+            PROJECT_ROOT,
+            [],
+        )
+
+        self.assertEqual([], errors)
+
+    def test_repository_report_integrates_all_source_contracts(self) -> None:
+        """Catches creating source files without wiring them into the release gate."""
+        errors, warnings = validate_repository_report(PROJECT_ROOT)
+
+        self.assertEqual([], errors)
+        self.assertIn(
+            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis IUM-V2-LXF02 offen",
+            warnings,
         )
 
     def test_building_v2_keeps_v1_as_active_baseline(self) -> None:
@@ -377,7 +861,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
 
         self.assertEqual(
             ["roadmap/v2/requirements/requirements.json fehlt"]
-            + MISSING_CURRICULUM_CONTRACTS,
+            + MISSING_FOUNDATION_CONTRACTS,
             errors,
         )
 
@@ -494,7 +978,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             write_control_files(root, requirements=requirements)
             errors, warnings = validate_repository_report(root)
 
-        self.assertEqual(MISSING_CURRICULUM_CONTRACTS, errors)
+        self.assertEqual(MISSING_FOUNDATION_CONTRACTS, errors)
         self.assertIn(
             "optionale Repository-Referenz fehlt in V2-REQ-001: "
             "docs/historical-source-not-recovered.md",
@@ -510,7 +994,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             write_control_files(root, requirements=requirements)
             errors, warnings = validate_repository_report(root)
 
-        self.assertEqual(MISSING_CURRICULUM_CONTRACTS, errors)
+        self.assertEqual(MISSING_FOUNDATION_CONTRACTS, errors)
         self.assertIn(
             "optionale Vault-Referenz lokal nicht auflösbar in V2-REQ-001: "
             "2026-09-03 - Entscheidung - Kontrollierte Re-Baseline V2 und "
@@ -785,6 +1269,27 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             "Curriculumfundament darf bei eingefrorener Inhaltsproduktion keine Implementierung beanspruchen",
             errors,
         )
+
+    def test_curriculum_foundation_accepts_documented_user_approval(self) -> None:
+        """Catches the repository control state lagging behind an approved review gate."""
+        status = json.loads(
+            (
+                PROJECT_ROOT / "roadmap/v2/foundations/curriculum/status.json"
+            ).read_text(encoding="utf-8")
+        )
+        status["workStatus"] = "done"
+        status["maturity"]["foundationConcept"] = "reviewed"
+        status["maturity"]["subjectReview"] = "passed"
+        status["nextGate"] = "IUM-V2-SRC"
+
+        errors = v2_validator.validate_foundation_status(
+            status,
+            "curriculum",
+            {"V2-REQ-CUR-001", "V2-REQ-CUR-002"},
+            PROJECT_ROOT,
+        )
+
+        self.assertEqual([], errors)
 
     def test_curriculum_contracts_fail_closed_on_nested_object_ids(self) -> None:
         """Catches malformed JSON arrays crashing set-based cross-file checks."""

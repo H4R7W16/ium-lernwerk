@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import hashlib
 import re
+from datetime import date as calendar_date
 from pathlib import Path, PurePosixPath
 from urllib.parse import urlparse
 
@@ -14,6 +15,13 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/curriculum/status.json"),
     Path("roadmap/v2/foundations/curriculum/source-basis.json"),
     Path("roadmap/v2/foundations/curriculum/gap-assessments.json"),
+    Path("roadmap/v2/foundations/sources/status.json"),
+    Path("roadmap/v2/foundations/sources/inventory.json"),
+    Path("roadmap/v2/foundations/sources/traceability.json"),
+    Path("roadmap/v2/foundations/sources/link-audit.json"),
+    Path("schemas/v2/source-inventory.schema.json"),
+    Path("schemas/v2/source-traceability.schema.json"),
+    Path("schemas/v2/source-link-audit.schema.json"),
 )
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
@@ -183,6 +191,185 @@ EXPECTED_CURRICULUM_GAPS = {
         "proposedFulfillmentMode": "integrated",
         "decisionState": "open",
     },
+}
+PHASE0_SOURCE_BASELINE_EXPECTATIONS = {
+    "sourceRegister": {
+        "path": "docs/research/phase-0/source-register.json",
+        "sha256": "F4B52FB6B8B5C7E31FF3BA73DA63B9D4E46F47B55FC51DFEDAE3F809100D6AB1",
+        "recordCount": 63,
+        "collection": "sources",
+    },
+    "claimLedger": {
+        "path": "docs/research/phase-0/claim-ledger.json",
+        "sha256": "5D6D5518FD9896FF052F51E06C52B0758EC031AF7B27E0919498BA5D9982728C",
+        "recordCount": 51,
+        "collection": "claims",
+    },
+    "principleLedger": {
+        "path": "docs/research/phase-0/design-principles.json",
+        "sha256": "4F577237E1CC9386DB87D37F7291D1E0C08ACF87C7ED5C85A48E2A6162C87B7B",
+        "recordCount": 15,
+        "collection": "principles",
+    },
+}
+EXPECTED_LXP01_SOURCES = {
+    "SRC-LXP-SDT-2024": {
+        "legacyId": "LXP-SRC-SDT-2024",
+        "doi": "10.1016/j.lmot.2024.102015",
+        "url": "https://doi.org/10.1016/j.lmot.2024.102015",
+        "verificationStatus": "metadata-checked",
+        "licenseStatus": "publisher-rights-no-open-license",
+        "usageStatus": "citation-only",
+    },
+    "SRC-LXP-SEGMENT-2019": {
+        "legacyId": "LXP-SRC-SEGMENT-2019",
+        "doi": "10.1007/s10648-018-9456-4",
+        "url": "https://doi.org/10.1007/s10648-018-9456-4",
+        "verificationStatus": "metadata-checked",
+        "licenseStatus": "publisher-rights-no-open-license",
+        "usageStatus": "citation-only",
+    },
+    "SRC-LXP-SIGNAL-2016": {
+        "legacyId": "LXP-SRC-SIGNAL-2016",
+        "doi": "10.1016/j.edurev.2015.12.003",
+        "url": "https://doi.org/10.1016/j.edurev.2015.12.003",
+        "verificationStatus": "metadata-checked",
+        "licenseStatus": "publisher-rights-no-open-license",
+        "usageStatus": "citation-only",
+    },
+    "SRC-LXP-W3C-COGA-2021": {
+        "legacyId": "LXP-SRC-W3C-COGA-2021",
+        "doi": None,
+        "url": "https://www.w3.org/WAI/WCAG2/supplemental/",
+        "verificationStatus": "primary-checked",
+        "licenseStatus": "permissive-with-notice",
+        "usageStatus": "reuse-with-notice",
+    },
+    "SRC-LXP-UDL30-2024": {
+        "legacyId": "LXP-SRC-UDL30-2024",
+        "doi": None,
+        "url": "https://udlguidelines.cast.org/",
+        "verificationStatus": "primary-checked",
+        "licenseStatus": "no-open-license-identified",
+        "usageStatus": "citation-and-link-only",
+    },
+    "SRC-LXP-COS-2023": {
+        "legacyId": "LXP-SRC-COS-2023",
+        "doi": "10.1016/j.compedu.2023.104864",
+        "url": "https://doi.org/10.1016/j.compedu.2023.104864",
+        "verificationStatus": "metadata-checked",
+        "licenseStatus": "publisher-rights-no-open-license",
+        "usageStatus": "citation-only",
+    },
+}
+SOURCE_INVENTORY_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "phase0Baseline",
+    "locatorOverrides",
+    "lxp01Additions",
+    "totals",
+}
+LXP01_SOURCE_FIELDS = {
+    "legacyId",
+    "sourceId",
+    "title",
+    "authors",
+    "year",
+    "sourceKind",
+    "url",
+    "doi",
+    "verificationStatus",
+    "licenseStatus",
+    "usageStatus",
+    "accessed",
+    "liveCheck",
+    "migrationState",
+    "claimMigration",
+    "recheckTriggers",
+}
+EXPECTED_SOURCE_ENTITY_FLOW = [
+    "source",
+    "claim",
+    "project-decision",
+    "design-principle",
+    "material-pattern",
+    "verification-evidence",
+]
+EXPECTED_SOURCE_ENTITY_TYPES = [
+    {
+        "id": "source",
+        "definition": "Externe oder lokale Fundstelle mit Identität, Prüf-, Lizenz- und Aktualitätsstatus.",
+        "mayReference": [],
+    },
+    {
+        "id": "claim",
+        "definition": "Prüfbare Aussage mit Geltungsbereich, Grenzen und mindestens einer registrierten Quelle.",
+        "mayReference": ["source"],
+    },
+    {
+        "id": "project-decision",
+        "definition": "Bewusste Projektfestlegung, die Claims bewertet, aber selbst kein Forschungsbefund ist.",
+        "mayReference": ["claim"],
+    },
+    {
+        "id": "design-principle",
+        "definition": "Aus Claims und Projektentscheidungen abgeleitete, überprüfbare Gestaltungsregel.",
+        "mayReference": ["claim", "project-decision"],
+    },
+    {
+        "id": "material-pattern",
+        "definition": "Konkretes wiederverwendbares Material- oder Interaktionsmuster zur Umsetzung eines Prinzips.",
+        "mayReference": ["claim", "design-principle"],
+    },
+    {
+        "id": "verification-evidence",
+        "definition": "Datierter Prüfnachweis für Entscheidung, Prinzip oder Materialmuster ohne eigene Wirksamkeitsbehauptung.",
+        "mayReference": ["project-decision", "design-principle", "material-pattern"],
+    },
+]
+EXPECTED_SOURCE_MIGRATION_RULES = {
+    "releaseRelevantStatementsRequireClaimIds": True,
+    "claimsRequireRegisteredSourceIds": True,
+    "claimsRequirePrimaryCheckedSources": True,
+    "lxp01AdditionsCreateClaims": False,
+    "pendingLxp01ClaimReview": "IUM-V2-LXF02",
+}
+SOURCE_TRACEABILITY_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "entityFlow",
+    "entityTypes",
+    "sourceInventoryPath",
+    "claimBaseline",
+    "migrationRules",
+    "requiredGaps",
+    "optionalGaps",
+}
+SOURCE_GAP_FIELDS = {
+    "id",
+    "sourceId",
+    "required",
+    "issue",
+    "resolutionStatus",
+    "ownerGate",
+    "acceptanceCriterion",
+}
+SOURCE_LINK_AUDIT_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "generatedAt",
+    "inventoryPath",
+    "policy",
+    "summary",
+    "checks",
+}
+EXPECTED_LINK_AUDIT_POLICY = {
+    "requiredFailure": "block-and-preserve-last-snapshot",
+    "optionalFailure": "warn-and-write",
+    "acceptedStatuses": ["resolved", "restricted"],
 }
 
 
@@ -634,6 +821,34 @@ def _is_https_url(value: object) -> bool:
         return False
     parsed = urlparse(value)
     return parsed.scheme == "https" and bool(parsed.netloc)
+
+
+def _is_http_url(value: object) -> bool:
+    if not _nonempty_string(value):
+        return False
+    parsed = urlparse(value)
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def _is_iso_date(value: object) -> bool:
+    if not isinstance(value, str) or not DATE_PATTERN.fullmatch(value):
+        return False
+    try:
+        calendar_date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
+def _is_plain_int(value: object) -> bool:
+    return isinstance(value, int) and not isinstance(value, bool)
+
+
+def _missing_fields(data: dict, required: set[str], label: str) -> list[str]:
+    return [
+        f"{label} benötigt Pflichtfeld {field}"
+        for field in sorted(required - set(data))
+    ]
 
 
 def _unknown_fields(
@@ -1517,8 +1732,8 @@ def validate_foundation_status(
         errors.append(f"V2-Fundamentstatus {expected_id} benötigt nextGate")
 
     if expected_id == "curriculum":
-        if data.get("workStatus") != "review":
-            errors.append("Curriculumfundament muss bis zur Nutzerprüfung im Status review bleiben")
+        if data.get("workStatus") != "done":
+            errors.append("Freigegebenes Curriculumfundament muss im Status done bleiben")
         if set(valid_status_requirement_ids) != {"V2-REQ-CUR-001", "V2-REQ-CUR-002"}:
             errors.append("Curriculumfundament muss beide CUR-Anforderungen referenzieren")
         if isinstance(maturity, dict):
@@ -1530,12 +1745,1106 @@ def validate_foundation_status(
                 errors.append(
                     "Curriculumfundament darf bei eingefrorener Inhaltsproduktion keine Implementierung beanspruchen"
                 )
-            if maturity.get("subjectReview") != "in-review":
-                errors.append("Curriculumfundament muss bis zur Nutzerprüfung in-review bleiben")
+            if maturity.get("foundationConcept") != "reviewed":
+                errors.append("Freigegebenes Curriculumfundament muss fachlich reviewed sein")
+            if maturity.get("subjectReview") != "passed":
+                errors.append("Freigegebenes Curriculumfundament muss den Fachreview bestanden haben")
             if maturity.get("release") != "closed":
                 errors.append("Curriculumfundament darf keine Releasefreigabe beanspruchen")
-        if data.get("nextGate") != "IUM-V2-CUR-REVIEW":
-            errors.append("Curriculumfundament muss IUM-V2-CUR-REVIEW als nächstes Gate führen")
+        if data.get("nextGate") != "IUM-V2-SRC":
+            errors.append("Freigegebenes Curriculumfundament muss IUM-V2-SRC als nächstes Gate führen")
+    elif expected_id == "sources":
+        if data.get("workStatus") != "review":
+            errors.append("Quellenfundament muss vor Nutzerfreigabe im Status review bleiben")
+        if set(valid_status_requirement_ids) != {"V2-REQ-SRC-001"}:
+            errors.append("Quellenfundament muss V2-REQ-SRC-001 referenzieren")
+        if isinstance(maturity, dict):
+            expected_maturity = {
+                "curriculumCoverage": "not-applicable",
+                "foundationConcept": "draft",
+                "dataVerification": "passed",
+                "contentImplementation": "not-started",
+                "technicalVerification": "passed",
+                "subjectReview": "in-review",
+                "usageReview": "not-applicable",
+                "classroomPilot": "not-applicable",
+                "release": "closed",
+            }
+            if maturity != expected_maturity:
+                errors.append(
+                    "Quellenfundament muss die getrennten Reifeachsen bis zur Nutzerfreigabe konservativ ausweisen"
+                )
+        if data.get("nextGate") != "IUM-V2-SRC-REVIEW":
+            errors.append("Quellenfundament muss am Gate IUM-V2-SRC-REVIEW stoppen")
+    return errors
+
+
+def validate_source_inventory(data: object, root: Path) -> list[str]:
+    if not isinstance(data, dict):
+        return ["V2-Quelleninventar muss ein Objekt sein"]
+
+    errors: list[str] = []
+    errors.extend(
+        _unknown_fields(data, SOURCE_INVENTORY_FIELDS, "V2-Quelleninventar")
+    )
+    errors.extend(_missing_fields(data, SOURCE_INVENTORY_FIELDS, "V2-Quelleninventar"))
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("V2-Quelleninventar schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("V2-Quelleninventar projectId muss ium-lernwerk sein")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("V2-Quelleninventar asOf muss ein echtes Kalenderdatum sein")
+
+    baseline = data.get("phase0Baseline")
+    if not isinstance(baseline, dict):
+        errors.append("V2-Quelleninventar benötigt eine Phase-0-Baseline")
+    else:
+        errors.extend(
+            _unknown_fields(
+                baseline,
+                {"role", *PHASE0_SOURCE_BASELINE_EXPECTATIONS},
+                "V2 Phase-0-Baseline",
+            )
+        )
+        errors.extend(
+            _missing_fields(
+                baseline,
+                {"role", *PHASE0_SOURCE_BASELINE_EXPECTATIONS},
+                "V2 Phase-0-Baseline",
+            )
+        )
+        if baseline.get("role") != "v1-audit-input":
+            errors.append("V2 Phase-0-Baseline muss v1-audit-input bleiben")
+        for label, expected in PHASE0_SOURCE_BASELINE_EXPECTATIONS.items():
+            record = baseline.get(label)
+            if not isinstance(record, dict):
+                errors.append(f"V2-Quelleninventar benötigt {label}")
+                continue
+            errors.extend(
+                _unknown_fields(
+                    record,
+                    {"path", "sha256", "recordCount"},
+                    f"V2-Quelleninventar {label}",
+                )
+            )
+            errors.extend(
+                _missing_fields(
+                    record,
+                    {"path", "sha256", "recordCount"},
+                    f"V2-Quelleninventar {label}",
+                )
+            )
+            if record.get("path") != expected["path"]:
+                errors.append(
+                    f"V2-Quelleninventar {label} muss den versiegelten Pfad referenzieren"
+                )
+            if record.get("sha256") != expected["sha256"]:
+                errors.append(
+                    f"V2-Quelleninventar {label} muss den versiegelten Hash referenzieren"
+                )
+            if record.get("recordCount") != expected["recordCount"]:
+                errors.append(
+                    f"V2-Quelleninventar {label} muss {expected['recordCount']} Einträge ausweisen"
+                )
+            source_path = root / expected["path"]
+            if not source_path.is_file():
+                errors.append(
+                    f"V2-Quelleninventar {label} Datei fehlt: {expected['path']}"
+                )
+                continue
+            if _sha256(source_path) != record.get("sha256"):
+                errors.append(
+                    f"V2-Quelleninventar {label} sha256 stimmt nicht mit der Datei überein"
+                )
+            try:
+                source_data = load_json(source_path)
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                errors.append(
+                    f"V2-Quelleninventar {label} Datei ist kein gültiges JSON"
+                )
+                continue
+            collection = (
+                source_data.get(expected["collection"])
+                if isinstance(source_data, dict)
+                else None
+            )
+            if not isinstance(collection, list) or len(collection) != record.get(
+                "recordCount"
+            ):
+                errors.append(
+                    f"V2-Quelleninventar {label} recordCount stimmt nicht mit der Datei überein"
+                )
+
+    overrides = data.get("locatorOverrides")
+    lesehilfe_override: dict | None = None
+    if not isinstance(overrides, list):
+        errors.append("V2-Quelleninventar locatorOverrides muss eine Liste sein")
+        overrides = []
+    seen_override_ids: set[str] = set()
+    override_fields = {"sourceId", "url", "checkedAt", "status", "reason", "evidencePath"}
+    for override in overrides:
+        if not isinstance(override, dict):
+            errors.append("V2-Locator-Override muss ein Objekt sein")
+            continue
+        override_id = override.get("sourceId")
+        override_label = (
+            f"V2-Locator-Override {override_id}"
+            if _nonempty_string(override_id)
+            else "V2-Locator-Override"
+        )
+        errors.extend(_unknown_fields(override, override_fields, override_label))
+        errors.extend(_missing_fields(override, override_fields, override_label))
+        if not _nonempty_string(override_id):
+            errors.append("V2-Locator-Override benötigt sourceId")
+        elif override_id in seen_override_ids:
+            errors.append(f"doppelter V2-Locator-Override {override_id}")
+        else:
+            seen_override_ids.add(override_id)
+        if not _is_https_url(override.get("url")):
+            errors.append(f"{override_label} benötigt url")
+        if not _is_iso_date(override.get("checkedAt")):
+            errors.append(f"{override_label} checkedAt muss ein echtes Kalenderdatum sein")
+        if override.get("status") != "resolved":
+            errors.append(f"{override_label} muss als resolved ausgewiesen sein")
+        if not _nonempty_string(override.get("reason")):
+            errors.append(f"{override_label} benötigt reason")
+        evidence_path = override.get("evidencePath")
+        if not _is_repository_relative(evidence_path) or not (
+            root / evidence_path
+        ).is_file():
+            errors.append(f"{override_label} benötigt auflösbare Repository-Evidenz")
+        if override.get("sourceId") == "SRC-CUR-LESEHILFE-2026-27":
+            if lesehilfe_override is not None:
+                errors.append("V2-Quelleninventar enthält den Lesehilfe-Locator doppelt")
+            lesehilfe_override = override
+    if lesehilfe_override is None:
+        errors.append(
+            "V2-Quelleninventar benötigt den aufgelösten Locator für SRC-CUR-LESEHILFE-2026-27"
+        )
+    else:
+        expected_locator = CURRICULUM_SOURCE_EXPECTATIONS[
+            "SRC-CUR-LESEHILFE-2026-27"
+        ]["directUrl"]
+        if lesehilfe_override.get("url") != expected_locator:
+            errors.append("V2-Lesehilfe-Locator muss die geprüfte direkte Fundstelle tragen")
+        if lesehilfe_override.get("status") != "resolved":
+            errors.append("V2-Lesehilfe-Locator muss als resolved ausgewiesen sein")
+    if seen_override_ids != {"SRC-CUR-LESEHILFE-2026-27"}:
+        errors.append("V2-Quelleninventar darf nur den geprüften Lesehilfe-Locator überschreiben")
+
+    additions = data.get("lxp01Additions")
+    if not isinstance(additions, list):
+        errors.append("V2-Quelleninventar lxp01Additions muss eine Liste sein")
+        additions = []
+    additions_by_id: dict[str, dict] = {}
+    for index, addition in enumerate(additions):
+        if not isinstance(addition, dict):
+            errors.append(f"LXP01-Quelle an Position {index} muss ein Objekt sein")
+            continue
+        source_id = addition.get("sourceId")
+        label = source_id if _nonempty_string(source_id) else f"<Position {index}>"
+        errors.extend(
+            _unknown_fields(addition, LXP01_SOURCE_FIELDS, f"LXP01-Quelle {label}")
+        )
+        errors.extend(
+            _missing_fields(addition, LXP01_SOURCE_FIELDS, f"LXP01-Quelle {label}")
+        )
+        if not _nonempty_string(source_id):
+            errors.append(f"LXP01-Quelle {label} benötigt sourceId")
+        elif source_id in additions_by_id:
+            errors.append(f"doppelte LXP01-Quellen-ID {source_id}")
+        else:
+            additions_by_id[source_id] = addition
+        for field in ("legacyId", "title"):
+            if not _nonempty_string(addition.get(field)):
+                errors.append(f"LXP01-Quelle {label} benötigt {field}")
+        authors = addition.get("authors")
+        if not isinstance(authors, list) or not authors or not all(
+            _nonempty_string(author) for author in authors
+        ):
+            errors.append(f"LXP01-Quelle {label} benötigt Autoren")
+        source_year = addition.get("year")
+        if not _is_plain_int(source_year) or not 1900 <= source_year <= 2026:
+            errors.append(f"LXP01-Quelle {label} hat ein ungültiges Jahr")
+        source_kind = addition.get("sourceKind")
+        if not isinstance(source_kind, str) or source_kind not in {
+            "meta-analysis",
+            "professional-standard",
+        }:
+            errors.append(f"LXP01-Quelle {label} hat einen unbekannten Quellentyp")
+        if not _is_https_url(addition.get("url")):
+            errors.append(f"LXP01-Quelle {label} benötigt eine HTTPS-Fundstelle")
+        doi = addition.get("doi")
+        if doi is not None and (
+            not _nonempty_string(doi) or not doi.lower().startswith("10.")
+        ):
+            errors.append(f"LXP01-Quelle {label} hat einen ungültigen DOI")
+        verification_status = addition.get("verificationStatus")
+        if not isinstance(verification_status, str) or verification_status not in {
+            "metadata-checked",
+            "primary-checked",
+        }:
+            errors.append(f"LXP01-Quelle {label} hat einen unbekannten Prüfstatus")
+        license_status = addition.get("licenseStatus")
+        if not isinstance(license_status, str) or license_status not in {
+            "publisher-rights-no-open-license",
+            "permissive-with-notice",
+            "no-open-license-identified",
+        }:
+            errors.append(f"LXP01-Quelle {label} hat einen unbekannten Lizenzstatus")
+        usage_status = addition.get("usageStatus")
+        if not isinstance(usage_status, str) or usage_status not in {
+            "citation-only",
+            "reuse-with-notice",
+            "citation-and-link-only",
+        }:
+            errors.append(f"LXP01-Quelle {label} hat einen unbekannten Nutzungsstatus")
+        if not _is_iso_date(addition.get("accessed")):
+            errors.append(
+                f"LXP01-Quelle {label} accessed muss ein echtes Kalenderdatum sein"
+            )
+        live_check = addition.get("liveCheck")
+        if not isinstance(live_check, dict):
+            errors.append(f"LXP01-Quelle {label} benötigt liveCheck")
+        else:
+            errors.extend(
+                _unknown_fields(
+                    live_check,
+                    {"checkedAt", "status", "httpStatus", "finalUrl"},
+                    f"LXP01-liveCheck {label}",
+                )
+            )
+            errors.extend(
+                _missing_fields(
+                    live_check,
+                    {"checkedAt", "status", "httpStatus", "finalUrl"},
+                    f"LXP01-liveCheck {label}",
+                )
+            )
+            live_status = live_check.get("status")
+            if not isinstance(live_status, str) or live_status not in {
+                "resolved",
+                "restricted",
+            }:
+                errors.append(f"LXP01-Quelle {label} ist nicht live auflösbar")
+            http_status = live_check.get("httpStatus")
+            if not _is_plain_int(http_status) or not 100 <= http_status <= 599:
+                errors.append(
+                    f"LXP01-Quelle {label} liveCheck hat ungültigen httpStatus"
+                )
+            if live_status == "resolved" and (
+                not _is_plain_int(http_status) or not 200 <= http_status <= 299
+            ):
+                errors.append(
+                    f"LXP01-Quelle {label} resolved benötigt terminalen 2xx-Status"
+                )
+            if live_status == "restricted" and (
+                not _is_plain_int(http_status) or http_status not in {401, 403}
+            ):
+                errors.append(
+                    f"LXP01-Quelle {label} restricted benötigt HTTP 401 oder 403"
+                )
+            if not _is_https_url(live_check.get("finalUrl")):
+                errors.append(f"LXP01-Quelle {label} liveCheck benötigt finalUrl")
+            if not _is_iso_date(live_check.get("checkedAt")):
+                errors.append(
+                    f"LXP01-Quelle {label} liveCheck checkedAt muss ein echtes Kalenderdatum sein"
+                )
+        if addition.get("migrationState") != "registered-v2":
+            errors.append(f"LXP01-Quelle {label} muss registered-v2 sein")
+        if addition.get("claimMigration") != "pending-lxf02-claim-review":
+            errors.append(
+                f"LXP01-Quelle {label} muss bis IUM-V2-LXF02 ohne V2-Claim bleiben"
+            )
+        if addition.get("recheckTriggers") != [
+            "before-claim-review",
+            "before-publication",
+            "locator-or-license-change",
+        ]:
+            errors.append(f"LXP01-Quelle {label} benötigt alle Recheck-Trigger")
+
+    if set(additions_by_id) != set(EXPECTED_LXP01_SOURCES):
+        errors.append(
+            "V2-Quelleninventar muss exakt die sechs LXP01-Ergänzungen enthalten"
+        )
+    for source_id, expected in EXPECTED_LXP01_SOURCES.items():
+        addition = additions_by_id.get(source_id)
+        if addition is None:
+            continue
+        for field, expected_value in expected.items():
+            if addition.get(field) != expected_value:
+                errors.append(
+                    f"LXP01-Quelle {source_id} hat einen unerwarteten Wert für {field}"
+                )
+
+    totals = data.get("totals")
+    if totals != {"phase0": 63, "lxp01Additions": 6, "combined": 69}:
+        errors.append("V2-Quelleninventar muss die Summen 63 + 6 = 69 ausweisen")
+    return errors
+
+
+def validate_source_traceability(
+    data: object,
+    root: Path,
+    warnings: list[str] | None = None,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["V2-Quellenrückverfolgung muss ein Objekt sein"]
+
+    report_warnings = warnings if warnings is not None else []
+    errors: list[str] = []
+    errors.extend(
+        _unknown_fields(
+            data,
+            SOURCE_TRACEABILITY_FIELDS,
+            "V2-Quellenrückverfolgung",
+        )
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("V2-Quellenrückverfolgung schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("V2-Quellenrückverfolgung projectId muss ium-lernwerk sein")
+    if not isinstance(data.get("asOf"), str) or not DATE_PATTERN.fullmatch(
+        data["asOf"]
+    ):
+        errors.append("V2-Quellenrückverfolgung asOf muss YYYY-MM-DD sein")
+    if data.get("entityFlow") != EXPECTED_SOURCE_ENTITY_FLOW:
+        errors.append(
+            "V2-Quellenrückverfolgung muss alle sechs Entitätstypen getrennt halten"
+        )
+    if data.get("entityTypes") != EXPECTED_SOURCE_ENTITY_TYPES:
+        errors.append(
+            "V2-Quellenrückverfolgung enthält unerlaubte Entitätsreferenzrichtungen"
+        )
+
+    inventory_path = data.get("sourceInventoryPath")
+    expected_inventory_path = "roadmap/v2/foundations/sources/inventory.json"
+    if inventory_path != expected_inventory_path:
+        errors.append("V2-Quellenrückverfolgung muss das V2-Quelleninventar referenzieren")
+    inventory_data = _load_contract_json(
+        root,
+        expected_inventory_path,
+        "V2-Quelleninventar",
+        errors,
+    )
+    if inventory_data is not None:
+        errors.extend(validate_source_inventory(inventory_data, root))
+
+    claim_baseline = data.get("claimBaseline")
+    expected_claim = PHASE0_SOURCE_BASELINE_EXPECTATIONS["claimLedger"]
+    if not isinstance(claim_baseline, dict):
+        errors.append("V2-Quellenrückverfolgung benötigt eine Claim-Baseline")
+    else:
+        errors.extend(
+            _unknown_fields(
+                claim_baseline,
+                {
+                    "path",
+                    "sha256",
+                    "claimCount",
+                    "reviewedClaimCount",
+                    "uniqueSourceCount",
+                },
+                "V2 Claim-Baseline",
+            )
+        )
+        if claim_baseline.get("path") != expected_claim["path"]:
+            errors.append("V2 Claim-Baseline muss das versiegelte Claim-Ledger referenzieren")
+        if claim_baseline.get("sha256") != expected_claim["sha256"]:
+            errors.append("V2 Claim-Baseline muss den versiegelten Hash referenzieren")
+        expected_counts = {
+            "claimCount": 51,
+            "reviewedClaimCount": 51,
+            "uniqueSourceCount": 57,
+        }
+        for field, expected_value in expected_counts.items():
+            if claim_baseline.get(field) != expected_value:
+                errors.append(
+                    f"V2 Claim-Baseline {field} muss {expected_value} ausweisen"
+                )
+
+    if data.get("migrationRules") != EXPECTED_SOURCE_MIGRATION_RULES:
+        errors.append("V2-Quellenrückverfolgung muss alle Migrationsregeln fail-closed halten")
+
+    required_gaps = data.get("requiredGaps")
+    if not isinstance(required_gaps, list):
+        errors.append("V2-Quellenrückverfolgung requiredGaps muss eine Liste sein")
+        required_gaps = []
+    if required_gaps:
+        errors.append(
+            "V2-Quellenrückverfolgung darf keine offene Pflichtquellenlücke enthalten"
+        )
+
+    optional_gaps = data.get("optionalGaps")
+    if not isinstance(optional_gaps, list):
+        errors.append("V2-Quellenrückverfolgung optionalGaps muss eine Liste sein")
+        optional_gaps = []
+
+    for collection_name, gaps, expected_required in (
+        ("Pflichtquellenlücke", required_gaps, True),
+        ("optionale Quellenlücke", optional_gaps, False),
+    ):
+        seen_gap_ids: set[str] = set()
+        for gap in gaps:
+            if not isinstance(gap, dict):
+                errors.append(f"{collection_name} muss ein Objekt sein")
+                continue
+            errors.extend(_unknown_fields(gap, SOURCE_GAP_FIELDS, collection_name))
+            gap_id = gap.get("id")
+            if not _nonempty_string(gap_id):
+                errors.append(f"{collection_name} benötigt eine ID")
+            elif gap_id in seen_gap_ids:
+                errors.append(f"doppelte Quellenlücken-ID {gap_id}")
+            else:
+                seen_gap_ids.add(gap_id)
+            for field in (
+                "sourceId",
+                "issue",
+                "resolutionStatus",
+                "ownerGate",
+                "acceptanceCriterion",
+            ):
+                if not _nonempty_string(gap.get(field)):
+                    errors.append(f"{collection_name} {gap_id} benötigt {field}")
+            if gap.get("required") is not expected_required:
+                errors.append(f"{collection_name} {gap_id} hat einen falschen required-Wert")
+
+    expected_optional_gap = {
+        "id": "SRC-GAP-LP-SIGNALING-2018",
+        "sourceId": "SRC-LP-SIGNALING-2018",
+        "required": False,
+        "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt derzeit keinen freigegebenen Claim.",
+        "resolutionStatus": "needs-primary-recheck",
+        "ownerGate": "IUM-V2-LXF02",
+        "acceptanceCriterion": "Primärquelle und Nutzungsstatus vor einer Claim-Migration erneut prüfen.",
+    }
+    if optional_gaps != [expected_optional_gap]:
+        errors.append(
+            "V2-Quellenrückverfolgung muss die eine optionale Phase-0-Prüflücke ausweisen"
+        )
+    else:
+        report_warnings.append(
+            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis IUM-V2-LXF02 offen"
+        )
+
+    source_register_path = root / PHASE0_SOURCE_BASELINE_EXPECTATIONS[
+        "sourceRegister"
+    ]["path"]
+    claim_ledger_path = root / expected_claim["path"]
+    if not source_register_path.is_file() or not claim_ledger_path.is_file():
+        return errors
+    try:
+        source_register = load_json(source_register_path)
+        claim_ledger = load_json(claim_ledger_path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        errors.append("V2-Quellenrückverfolgung kann die Phase-0-Ledger nicht lesen")
+        return errors
+
+    phase0_sources = (
+        source_register.get("sources") if isinstance(source_register, dict) else None
+    )
+    claims = claim_ledger.get("claims") if isinstance(claim_ledger, dict) else None
+    if not isinstance(phase0_sources, list) or not isinstance(claims, list):
+        errors.append("V2-Quellenrückverfolgung benötigt lesbare Phase-0-Collections")
+        return errors
+
+    sources_by_id: dict[str, dict] = {}
+    for source in phase0_sources:
+        if not isinstance(source, dict) or not _nonempty_string(source.get("id")):
+            errors.append("Phase-0-Quelle ohne gültige ID")
+            continue
+        source_id = source["id"]
+        if source_id in sources_by_id:
+            errors.append(f"doppelte Phase-0-Quellen-ID {source_id}")
+        sources_by_id[source_id] = source
+    if isinstance(inventory_data, dict):
+        additions = inventory_data.get("lxp01Additions")
+        if isinstance(additions, list):
+            for addition in additions:
+                if isinstance(addition, dict) and _nonempty_string(
+                    addition.get("sourceId")
+                ):
+                    source_id = addition["sourceId"]
+                    if source_id in sources_by_id:
+                        errors.append(f"V2-Quellen-ID kollidiert mit Phase 0: {source_id}")
+                    sources_by_id[source_id] = addition
+
+    reviewed_claim_count = 0
+    referenced_source_ids: set[str] = set()
+    seen_claim_ids: set[str] = set()
+    for claim in claims:
+        if not isinstance(claim, dict):
+            errors.append("Phase-0-Claim muss ein Objekt sein")
+            continue
+        claim_id = claim.get("id")
+        if not _nonempty_string(claim_id):
+            errors.append("Phase-0-Claim benötigt eine ID")
+            continue
+        if claim_id in seen_claim_ids:
+            errors.append(f"doppelte Phase-0-Claim-ID {claim_id}")
+        seen_claim_ids.add(claim_id)
+        if claim.get("status") != "reviewed":
+            errors.append(f"Phase-0-Claim {claim_id} ist nicht reviewed")
+            continue
+        reviewed_claim_count += 1
+        source_ids = claim.get("sourceIds")
+        if not isinstance(source_ids, list) or not source_ids:
+            errors.append(f"Phase-0-Claim {claim_id} benötigt registrierte Quellen")
+            continue
+        for source_id in source_ids:
+            if not _nonempty_string(source_id) or source_id not in sources_by_id:
+                errors.append(f"Phase-0-Claim {claim_id} referenziert unbekannte Quelle {source_id}")
+                continue
+            referenced_source_ids.add(source_id)
+            if sources_by_id[source_id].get("verificationStatus") != "primary-checked":
+                errors.append(
+                    f"Phase-0-Claim {claim_id} referenziert nicht primär geprüfte Quelle {source_id}"
+                )
+    if reviewed_claim_count != 51 or len(referenced_source_ids) != 57:
+        errors.append(
+            "V2-Quellenrückverfolgung muss 51 reviewed Claims über 57 Quellen nachweisen"
+        )
+    if "SRC-LP-SIGNALING-2018" in referenced_source_ids:
+        errors.append(
+            "optionale Prüflücke SRC-LP-SIGNALING-2018 darf keinen reviewed Claim tragen"
+        )
+    return errors
+
+
+def _expected_source_link_targets(
+    root: Path,
+    inventory: dict,
+    errors: list[str],
+) -> dict[str, dict[str, object]]:
+    source_register = _load_contract_json(
+        root,
+        "docs/research/phase-0/source-register.json",
+        "Phase-0-Quellenregister",
+        errors,
+    )
+    claim_ledger = _load_contract_json(
+        root,
+        "docs/research/phase-0/claim-ledger.json",
+        "Phase-0-Claim-Ledger",
+        errors,
+    )
+    if not isinstance(source_register, dict) or not isinstance(claim_ledger, dict):
+        return {}
+    sources = source_register.get("sources")
+    claims = claim_ledger.get("claims")
+    if not isinstance(sources, list) or not isinstance(claims, list):
+        errors.append("V2-Linkaudit benötigt lesbare Phase-0-Collections")
+        return {}
+    reviewed_source_ids = {
+        source_id
+        for claim in claims
+        if isinstance(claim, dict) and claim.get("status") == "reviewed"
+        for source_id in claim.get("sourceIds", [])
+        if _nonempty_string(source_id)
+    }
+    raw_overrides = inventory.get("locatorOverrides")
+    overrides_list = raw_overrides if isinstance(raw_overrides, list) else []
+    overrides = {
+        override.get("sourceId"): override.get("url")
+        for override in overrides_list
+        if isinstance(override, dict)
+        and _nonempty_string(override.get("sourceId"))
+        and _is_https_url(override.get("url"))
+    }
+    expected: dict[str, dict[str, object]] = {}
+    for source in sources:
+        if not isinstance(source, dict) or not _nonempty_string(source.get("id")):
+            continue
+        source_id = source["id"]
+        if source.get("doi"):
+            locator_type = "doi"
+            url = f"https://doi.org/{source['doi']}"
+        elif source.get("url"):
+            locator_type = "url"
+            url = source["url"]
+        elif source_id in overrides:
+            locator_type = "v2-override"
+            url = overrides[source_id]
+        else:
+            locator_type = "missing"
+            url = ""
+        expected[source_id] = {
+            "required": (
+                source_id in reviewed_source_ids or source_id.startswith("SRC-CUR-")
+            ),
+            "locatorType": locator_type,
+            "url": url,
+        }
+    additions = inventory.get("lxp01Additions")
+    if isinstance(additions, list):
+        for addition in additions:
+            if not isinstance(addition, dict) or not _nonempty_string(
+                addition.get("sourceId")
+            ):
+                continue
+            source_id = addition["sourceId"]
+            expected[source_id] = {
+                "required": True,
+                "locatorType": "doi" if addition.get("doi") else "url",
+                "url": addition.get("url"),
+            }
+    return expected
+
+
+def validate_source_link_audit(
+    data: object,
+    root: Path,
+    warnings: list[str] | None = None,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["V2-Quellenlinkaudit muss ein Objekt sein"]
+
+    report_warnings = warnings if warnings is not None else []
+    errors: list[str] = []
+    errors.extend(
+        _unknown_fields(data, SOURCE_LINK_AUDIT_FIELDS, "V2-Quellenlinkaudit")
+    )
+    errors.extend(
+        _missing_fields(data, SOURCE_LINK_AUDIT_FIELDS, "V2-Quellenlinkaudit")
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("V2-Quellenlinkaudit schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("V2-Quellenlinkaudit projectId muss ium-lernwerk sein")
+    generated_at = data.get("generatedAt")
+    if not _is_iso_date(generated_at):
+        errors.append(
+            "V2-Quellenlinkaudit generatedAt muss ein echtes Kalenderdatum sein"
+        )
+    expected_inventory_path = "roadmap/v2/foundations/sources/inventory.json"
+    if data.get("inventoryPath") != expected_inventory_path:
+        errors.append("V2-Quellenlinkaudit muss das V2-Quelleninventar referenzieren")
+    if data.get("policy") != EXPECTED_LINK_AUDIT_POLICY:
+        errors.append("V2-Quellenlinkaudit muss die fail-closed Linkpolicy ausweisen")
+
+    inventory = _load_contract_json(
+        root,
+        expected_inventory_path,
+        "V2-Quelleninventar",
+        errors,
+    )
+    if not isinstance(inventory, dict):
+        return errors
+    errors.extend(validate_source_inventory(inventory, root))
+    expected_targets = _expected_source_link_targets(root, inventory, errors)
+
+    checks = data.get("checks")
+    if not isinstance(checks, list):
+        errors.append("V2-Quellenlinkaudit checks muss eine Liste sein")
+        return errors
+    checks_by_id: dict[str, dict] = {}
+    for index, check in enumerate(checks):
+        if not isinstance(check, dict):
+            errors.append(f"V2-Linkprüfung an Position {index} muss ein Objekt sein")
+            continue
+        source_id = check.get("sourceId")
+        label = source_id if _nonempty_string(source_id) else f"<Position {index}>"
+        errors.extend(
+            _unknown_fields(
+                check,
+                {
+                    "sourceId",
+                    "required",
+                    "locatorType",
+                    "url",
+                    "status",
+                    "httpStatus",
+                    "finalUrl",
+                    "checkedAt",
+                },
+                f"V2-Linkprüfung {label}",
+            )
+        )
+        check_fields = {
+            "sourceId",
+            "required",
+            "locatorType",
+            "url",
+            "status",
+            "httpStatus",
+            "finalUrl",
+            "checkedAt",
+        }
+        errors.extend(
+            _missing_fields(check, check_fields, f"V2-Linkprüfung {label}")
+        )
+        if not _nonempty_string(source_id):
+            errors.append(f"V2-Linkprüfung {label} benötigt sourceId")
+            continue
+        if source_id in checks_by_id:
+            errors.append(f"doppelte V2-Linkprüfung {source_id}")
+        checks_by_id[source_id] = check
+        if not isinstance(check.get("required"), bool):
+            errors.append(f"V2-Linkprüfung {source_id} required muss boolesch sein")
+        expected = expected_targets.get(source_id)
+        if expected is None:
+            errors.append(f"V2-Linkaudit enthält unbekannte Quelle {source_id}")
+        else:
+            for field in ("required", "locatorType", "url"):
+                if check.get(field) != expected[field]:
+                    errors.append(
+                        f"V2-Linkprüfung {source_id} hat einen unerwarteten Wert für {field}"
+                    )
+        status = check.get("status")
+        if not isinstance(status, str) or status not in {
+            "resolved",
+            "restricted",
+            "missing",
+            "unresolved",
+        }:
+            errors.append(f"V2-Linkprüfung {source_id} hat unbekannten Status")
+        if check.get("required") is True and (
+            not isinstance(status, str) or status not in {"resolved", "restricted"}
+        ):
+            errors.append(
+                f"V2-Linkaudit enthält nicht auflösbare Pflichtquelle {source_id}"
+            )
+        if check.get("required") is False and (
+            not isinstance(status, str) or status not in {"resolved", "restricted"}
+        ):
+            report_warnings.append(
+                f"optionale Quelle {source_id} ist im V2-Linkaudit nicht auflösbar"
+            )
+        http_status = check.get("httpStatus")
+        if http_status is not None and (
+            not _is_plain_int(http_status) or not 100 <= http_status <= 599
+        ):
+            errors.append(f"V2-Linkprüfung {source_id} hat ungültigen httpStatus")
+        final_url = check.get("finalUrl")
+        if final_url is not None and not _is_http_url(final_url):
+            errors.append(f"V2-Linkprüfung {source_id} hat keine HTTP(S)-finalUrl")
+        if isinstance(status, str) and status in {"resolved", "restricted"} and (
+            not _is_plain_int(http_status)
+            or not 100 <= http_status <= 599
+            or not _is_http_url(final_url)
+        ):
+            errors.append(
+                f"V2-Linkprüfung {source_id} benötigt terminale HTTP-Evidenz für {status}"
+            )
+        if status == "resolved" and (
+            not _is_plain_int(http_status) or not 200 <= http_status <= 299
+        ):
+            errors.append(
+                f"V2-Linkprüfung {source_id} resolved benötigt einen terminalen 2xx-Status"
+            )
+        if status == "restricted" and (
+            not _is_plain_int(http_status) or http_status not in {401, 403}
+        ):
+            errors.append(
+                f"V2-Linkprüfung {source_id} restricted benötigt HTTP 401 oder 403"
+            )
+        if status == "missing" and (
+            not _is_plain_int(http_status) or http_status not in {404, 410}
+        ):
+            errors.append(
+                f"V2-Linkprüfung {source_id} missing benötigt HTTP 404 oder 410"
+            )
+        if check.get("checkedAt") != generated_at:
+            errors.append(f"V2-Linkprüfung {source_id} hat einen abweichenden Stichtag")
+
+    if set(checks_by_id) != set(expected_targets):
+        errors.append("V2-Quellenlinkaudit muss exakt alle 69 registrierten Quellen prüfen")
+
+    summary = data.get("summary")
+    expected_summary = {
+        "total": len(checks),
+        "required": sum(1 for check in checks if isinstance(check, dict) and check.get("required") is True),
+        "optional": sum(1 for check in checks if isinstance(check, dict) and check.get("required") is False),
+        "resolved": sum(1 for check in checks if isinstance(check, dict) and check.get("status") == "resolved"),
+        "restricted": sum(1 for check in checks if isinstance(check, dict) and check.get("status") == "restricted"),
+        "missing": sum(1 for check in checks if isinstance(check, dict) and check.get("status") == "missing"),
+        "unresolved": sum(1 for check in checks if isinstance(check, dict) and check.get("status") == "unresolved"),
+        "warnings": sum(
+            1
+            for check in checks
+            if isinstance(check, dict)
+            and check.get("required") is False
+            and (
+                not isinstance(check.get("status"), str)
+                or check.get("status") not in {"resolved", "restricted"}
+            )
+        ),
+    }
+    if summary != expected_summary:
+        errors.append("V2-Quellenlinkaudit summary stimmt nicht mit den Einzelprüfungen überein")
+    if isinstance(summary, dict):
+        for field in expected_summary:
+            value = summary.get(field)
+            if not _is_plain_int(value) or value < 0:
+                errors.append(
+                    f"V2-Quellenlinkaudit summary {field} muss eine nichtnegative Ganzzahl sein"
+                )
+    if expected_summary["total"] != 69 or expected_summary["required"] != 68 or expected_summary["optional"] != 1:
+        errors.append("V2-Quellenlinkaudit muss 68 Pflicht- und eine optionale Quelle prüfen")
+    return errors
+
+
+def validate_source_schemas(root: Path) -> list[str]:
+    resolved_semantics = [
+        {
+            "if": {"properties": {"status": {"const": "resolved"}}, "required": ["status"]},
+            "then": {
+                "properties": {
+                    "httpStatus": {"type": "integer", "minimum": 200, "maximum": 299},
+                    "finalUrl": {"type": "string", "format": "uri"},
+                }
+            },
+        },
+        {
+            "if": {"properties": {"status": {"const": "restricted"}}, "required": ["status"]},
+            "then": {
+                "properties": {
+                    "httpStatus": {"enum": [401, 403]},
+                    "finalUrl": {"type": "string", "format": "uri"},
+                }
+            },
+        },
+    ]
+    audit_semantics = resolved_semantics + [
+        {
+            "if": {"properties": {"status": {"const": "missing"}}, "required": ["status"]},
+            "then": {
+                "properties": {
+                    "httpStatus": {"enum": [404, 410]},
+                    "finalUrl": {"type": "string", "format": "uri"},
+                }
+            },
+        }
+    ]
+    expectations = {
+        "schemas/v2/source-inventory.schema.json": {
+            "id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-inventory.schema.json",
+            "digest": "7F7B8685A59ADF0D020FD2A2EE788BC500C3B40D7899D66E13F79945C8E46B25",
+            "top": SOURCE_INVENTORY_FIELDS,
+            "defs": {
+                "sealedLedger": {"path", "sha256", "recordCount"},
+                "locatorOverride": {
+                    "sourceId",
+                    "url",
+                    "checkedAt",
+                    "status",
+                    "reason",
+                    "evidencePath",
+                },
+                "liveCheck": {"checkedAt", "status", "httpStatus", "finalUrl"},
+                "source": LXP01_SOURCE_FIELDS,
+            },
+            "semantics": {
+                ("properties", "schemaVersion", "const"): 1,
+                ("properties", "projectId", "const"): "ium-lernwerk",
+                ("properties", "asOf", "format"): "date",
+                ("properties", "phase0Baseline", "properties", "role", "const"): "v1-audit-input",
+                ("properties", "locatorOverrides", "minItems"): 1,
+                ("properties", "locatorOverrides", "maxItems"): 1,
+                ("properties", "locatorOverrides", "items", "$ref"): "#/$defs/locatorOverride",
+                ("properties", "lxp01Additions", "minItems"): 6,
+                ("properties", "lxp01Additions", "maxItems"): 6,
+                ("properties", "lxp01Additions", "items", "$ref"): "#/$defs/source",
+                ("properties", "totals", "properties", "phase0", "const"): 63,
+                ("properties", "totals", "properties", "lxp01Additions", "const"): 6,
+                ("properties", "totals", "properties", "combined", "const"): 69,
+                ("$defs", "sealedLedger", "properties", "sha256", "pattern"): "^[0-9A-F]{64}$",
+                ("$defs", "sealedLedger", "properties", "recordCount", "type"): "integer",
+                ("$defs", "sealedLedger", "properties", "recordCount", "minimum"): 0,
+                ("$defs", "locatorOverride", "properties", "url", "format"): "uri",
+                ("$defs", "locatorOverride", "properties", "checkedAt", "format"): "date",
+                ("$defs", "locatorOverride", "properties", "status", "const"): "resolved",
+                ("$defs", "liveCheck", "properties", "status", "enum"): ["resolved", "restricted"],
+                ("$defs", "liveCheck", "properties", "httpStatus", "minimum"): 100,
+                ("$defs", "liveCheck", "properties", "httpStatus", "maximum"): 599,
+                ("$defs", "liveCheck", "properties", "checkedAt", "format"): "date",
+                ("$defs", "liveCheck", "properties", "finalUrl", "format"): "uri",
+                ("$defs", "liveCheck", "allOf"): resolved_semantics,
+                ("$defs", "source", "properties", "year", "minimum"): 1900,
+                ("$defs", "source", "properties", "year", "maximum"): 2026,
+                ("$defs", "source", "properties", "sourceKind", "enum"): ["meta-analysis", "professional-standard"],
+                ("$defs", "source", "properties", "url", "format"): "uri",
+                ("$defs", "source", "properties", "verificationStatus", "enum"): ["metadata-checked", "primary-checked"],
+                ("$defs", "source", "properties", "licenseStatus", "enum"): ["publisher-rights-no-open-license", "permissive-with-notice", "no-open-license-identified"],
+                ("$defs", "source", "properties", "usageStatus", "enum"): ["citation-only", "reuse-with-notice", "citation-and-link-only"],
+                ("$defs", "source", "properties", "accessed", "format"): "date",
+                ("$defs", "source", "properties", "liveCheck", "$ref"): "#/$defs/liveCheck",
+                ("$defs", "source", "properties", "migrationState", "const"): "registered-v2",
+                ("$defs", "source", "properties", "claimMigration", "const"): "pending-lxf02-claim-review",
+                ("$defs", "source", "properties", "recheckTriggers", "prefixItems"): [
+                    {"const": "before-claim-review"},
+                    {"const": "before-publication"},
+                    {"const": "locator-or-license-change"},
+                ],
+                ("$defs", "source", "properties", "recheckTriggers", "items"): False,
+            },
+        },
+        "schemas/v2/source-traceability.schema.json": {
+            "id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-traceability.schema.json",
+            "digest": "9295548B4B48B4438FE239F3C2A3B94B8DFD1A50EE9F3C9D1F56F27D5E8AB4E4",
+            "top": SOURCE_TRACEABILITY_FIELDS,
+            "defs": {
+                "entityType": {"id", "definition", "mayReference"},
+                "gap": SOURCE_GAP_FIELDS,
+            },
+            "semantics": {
+                ("properties", "schemaVersion", "const"): 1,
+                ("properties", "projectId", "const"): "ium-lernwerk",
+                ("properties", "asOf", "format"): "date",
+                ("properties", "entityFlow", "prefixItems"): [
+                    {"const": entity_type} for entity_type in EXPECTED_SOURCE_ENTITY_FLOW
+                ],
+                ("properties", "entityFlow", "items"): False,
+                ("properties", "entityTypes", "minItems"): 6,
+                ("properties", "entityTypes", "maxItems"): 6,
+                ("properties", "entityTypes", "items", "$ref"): "#/$defs/entityType",
+                ("properties", "sourceInventoryPath", "const"): "roadmap/v2/foundations/sources/inventory.json",
+                ("properties", "claimBaseline", "properties", "path", "const"): "docs/research/phase-0/claim-ledger.json",
+                ("properties", "claimBaseline", "properties", "sha256", "pattern"): "^[0-9A-F]{64}$",
+                ("properties", "claimBaseline", "properties", "claimCount", "const"): 51,
+                ("properties", "claimBaseline", "properties", "reviewedClaimCount", "const"): 51,
+                ("properties", "claimBaseline", "properties", "uniqueSourceCount", "const"): 57,
+                ("properties", "migrationRules", "properties", "releaseRelevantStatementsRequireClaimIds", "const"): True,
+                ("properties", "migrationRules", "properties", "claimsRequireRegisteredSourceIds", "const"): True,
+                ("properties", "migrationRules", "properties", "claimsRequirePrimaryCheckedSources", "const"): True,
+                ("properties", "migrationRules", "properties", "lxp01AdditionsCreateClaims", "const"): False,
+                ("properties", "migrationRules", "properties", "pendingLxp01ClaimReview", "const"): "IUM-V2-LXF02",
+                ("properties", "requiredGaps", "maxItems"): 0,
+                ("properties", "optionalGaps", "minItems"): 1,
+                ("properties", "optionalGaps", "maxItems"): 1,
+                ("properties", "optionalGaps", "items", "$ref"): "#/$defs/gap",
+                ("$defs", "entityType", "properties", "id", "enum"): list(EXPECTED_SOURCE_ENTITY_FLOW),
+                ("$defs", "entityType", "properties", "mayReference", "items", "enum"): list(EXPECTED_SOURCE_ENTITY_FLOW),
+                ("$defs", "entityType", "properties", "mayReference", "uniqueItems"): True,
+                ("$defs", "gap", "properties", "required", "type"): "boolean",
+            },
+        },
+        "schemas/v2/source-link-audit.schema.json": {
+            "id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-link-audit.schema.json",
+            "digest": "91379A3E2D5675AF0540DE487F1E4BDBF4AC813586CD9EBAE0DB9AD28A7044A4",
+            "top": SOURCE_LINK_AUDIT_FIELDS,
+            "defs": {
+                "check": {
+                    "sourceId",
+                    "required",
+                    "locatorType",
+                    "url",
+                    "status",
+                    "httpStatus",
+                    "finalUrl",
+                    "checkedAt",
+                },
+            },
+            "semantics": {
+                ("properties", "schemaVersion", "const"): 1,
+                ("properties", "projectId", "const"): "ium-lernwerk",
+                ("properties", "generatedAt", "format"): "date",
+                ("properties", "inventoryPath", "const"): "roadmap/v2/foundations/sources/inventory.json",
+                ("properties", "policy", "properties", "requiredFailure", "const"): "block-and-preserve-last-snapshot",
+                ("properties", "policy", "properties", "optionalFailure", "const"): "warn-and-write",
+                ("properties", "policy", "properties", "acceptedStatuses", "prefixItems"): [
+                    {"const": "resolved"},
+                    {"const": "restricted"},
+                ],
+                ("properties", "policy", "properties", "acceptedStatuses", "items"): False,
+                ("properties", "summary", "properties", "total", "const"): 69,
+                ("properties", "summary", "properties", "required", "const"): 68,
+                ("properties", "summary", "properties", "optional", "const"): 1,
+                ("properties", "checks", "minItems"): 69,
+                ("properties", "checks", "maxItems"): 69,
+                ("properties", "checks", "items", "$ref"): "#/$defs/check",
+                ("$defs", "check", "properties", "sourceId", "pattern"): "^SRC-",
+                ("$defs", "check", "properties", "required", "type"): "boolean",
+                ("$defs", "check", "properties", "locatorType", "enum"): ["doi", "url", "v2-override"],
+                ("$defs", "check", "properties", "url", "format"): "uri",
+                ("$defs", "check", "properties", "status", "enum"): ["resolved", "restricted", "missing", "unresolved"],
+                ("$defs", "check", "properties", "httpStatus", "minimum"): 100,
+                ("$defs", "check", "properties", "httpStatus", "maximum"): 599,
+                ("$defs", "check", "properties", "finalUrl", "format"): "uri",
+                ("$defs", "check", "properties", "checkedAt", "format"): "date",
+                ("$defs", "check", "allOf"): audit_semantics,
+            },
+        },
+    }
+    errors: list[str] = []
+    for relative_path, expected in expectations.items():
+        path = root / relative_path
+        if not path.is_file():
+            errors.append(f"V2-Quellenschema fehlt: {relative_path}")
+            continue
+        try:
+            schema = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(f"V2-Quellenschema ist kein gültiges JSON: {relative_path}")
+            continue
+        if not isinstance(schema, dict):
+            errors.append(f"V2-Quellenschema muss ein Objekt sein: {relative_path}")
+            continue
+        canonical_schema = json.dumps(
+            schema,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        if hashlib.sha256(canonical_schema).hexdigest().upper() != expected["digest"]:
+            errors.append(
+                f"V2-Quellenschema weicht von der versiegelten Definition ab: {relative_path}"
+            )
+        if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
+            errors.append(f"V2-Quellenschema benötigt Draft 2020-12: {relative_path}")
+        if schema.get("$id") != expected["id"]:
+            errors.append(f"V2-Quellenschema hat eine unerwartete $id: {relative_path}")
+        if schema.get("type") != "object" or schema.get("additionalProperties") is not False:
+            errors.append(f"V2-Quellenschema muss top-level fail-closed sein: {relative_path}")
+        if set(schema.get("required", [])) != expected["top"]:
+            errors.append(f"V2-Quellenschema hat abweichende Pflichtfelder: {relative_path}")
+        properties = schema.get("properties")
+        if not isinstance(properties, dict) or set(properties) != expected["top"]:
+            errors.append(f"V2-Quellenschema hat abweichende Properties: {relative_path}")
+        definitions = schema.get("$defs")
+        if not isinstance(definitions, dict):
+            errors.append(f"V2-Quellenschema benötigt $defs: {relative_path}")
+            continue
+        for definition_name, required_fields in expected["defs"].items():
+            definition = definitions.get(definition_name)
+            if not isinstance(definition, dict):
+                errors.append(
+                    f"V2-Quellenschema benötigt Definition {definition_name}: {relative_path}"
+                )
+                continue
+            if definition.get("type") != "object" or definition.get(
+                "additionalProperties"
+            ) is not False:
+                errors.append(
+                    f"V2-Quellenschema Definition {definition_name} muss fail-closed sein: {relative_path}"
+                )
+            if set(definition.get("required", [])) != required_fields:
+                errors.append(
+                    f"V2-Quellenschema Definition {definition_name} hat abweichende Pflichtfelder: {relative_path}"
+                )
+            definition_properties = definition.get("properties")
+            if not isinstance(definition_properties, dict) or set(
+                definition_properties
+            ) != required_fields:
+                errors.append(
+                    f"V2-Quellenschema Definition {definition_name} hat abweichende Properties: {relative_path}"
+                )
+        for key_path, expected_value in expected["semantics"].items():
+            actual_value: object = schema
+            for key in key_path:
+                if not isinstance(actual_value, dict) or key not in actual_value:
+                    actual_value = None
+                    break
+                actual_value = actual_value[key]
+            if actual_value != expected_value:
+                label = (
+                    "Linkstatus-Semantik"
+                    if key_path[-1] == "allOf"
+                    else "fachliche Semantik"
+                )
+                errors.append(
+                    f"V2-Quellenschema {label} ist abgeschwächt: {relative_path}"
+                )
     return errors
 
 
@@ -1609,6 +2918,46 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
             errors.append(f"{relative_path.as_posix()} ist kein gültiges JSON")
             continue
         errors.extend(validator(data))
+
+    source_contracts = (
+        (
+            Path("roadmap/v2/foundations/sources/inventory.json"),
+            lambda payload: validate_source_inventory(payload, root),
+        ),
+        (
+            Path("roadmap/v2/foundations/sources/traceability.json"),
+            lambda payload: validate_source_traceability(payload, root, warnings),
+        ),
+        (
+            Path("roadmap/v2/foundations/sources/link-audit.json"),
+            lambda payload: validate_source_link_audit(payload, root, warnings),
+        ),
+        (
+            Path("roadmap/v2/foundations/sources/status.json"),
+            lambda payload: validate_foundation_status(
+                payload,
+                "sources",
+                requirement_ids,
+                root,
+                warnings,
+            ),
+        ),
+    )
+    for relative_path, validator in source_contracts:
+        path = root / relative_path
+        if not path.is_file():
+            continue
+        try:
+            data = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(f"{relative_path.as_posix()} ist kein gültiges JSON")
+            continue
+        errors.extend(validator(data))
+    errors.extend(
+        error
+        for error in validate_source_schemas(root)
+        if not error.startswith("V2-Quellenschema fehlt:")
+    )
     return errors, warnings
 
 

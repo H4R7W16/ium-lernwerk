@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-traceability.schema.json",
+  "title": "IuM-Lernwerk V2 SourceTraceabilityV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectId", "asOf", "entityFlow", "entityTypes", "sourceInventoryPath", "claimBaseline", "migrationRules", "requiredGaps", "optionalGaps"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "projectId": {"const": "ium-lernwerk"},
+    "asOf": {"type": "string", "format": "date"},
+    "entityFlow": {
+      "type": "array",
+      "prefixItems": [
+        {"const": "source"},
+        {"const": "claim"},
+        {"const": "project-decision"},
+        {"const": "design-principle"},
+        {"const": "material-pattern"},
+        {"const": "verification-evidence"}
+      ],
+      "items": false
+    },
+    "entityTypes": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {"$ref": "#/$defs/entityType"}
+    },
+    "sourceInventoryPath": {"const": "roadmap/v2/foundations/sources/inventory.json"},
+    "claimBaseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "claimCount", "reviewedClaimCount", "uniqueSourceCount"],
+      "properties": {
+        "path": {"const": "docs/research/phase-0/claim-ledger.json"},
+        "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+        "claimCount": {"const": 51},
+        "reviewedClaimCount": {"const": 51},
+        "uniqueSourceCount": {"const": 57}
+      }
+    },
+    "migrationRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["releaseRelevantStatementsRequireClaimIds", "claimsRequireRegisteredSourceIds", "claimsRequirePrimaryCheckedSources", "lxp01AdditionsCreateClaims", "pendingLxp01ClaimReview"],
+      "properties": {
+        "releaseRelevantStatementsRequireClaimIds": {"const": true},
+        "claimsRequireRegisteredSourceIds": {"const": true},
+        "claimsRequirePrimaryCheckedSources": {"const": true},
+        "lxp01AdditionsCreateClaims": {"const": false},
+        "pendingLxp01ClaimReview": {"const": "IUM-V2-LXF02"}
+      }
+    },
+    "requiredGaps": {"type": "array", "maxItems": 0},
+    "optionalGaps": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"$ref": "#/$defs/gap"}}
+  },
+  "$defs": {
+    "entityType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "definition", "mayReference"],
+      "properties": {
+        "id": {"enum": ["source", "claim", "project-decision", "design-principle", "material-pattern", "verification-evidence"]},
+        "definition": {"type": "string", "minLength": 1},
+        "mayReference": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": ["source", "claim", "project-decision", "design-principle", "material-pattern", "verification-evidence"]}
+        }
+      }
+    },
+    "gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sourceId", "required", "issue", "resolutionStatus", "ownerGate", "acceptanceCriterion"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "sourceId": {"type": "string", "minLength": 1},
+        "required": {"type": "boolean"},
+        "issue": {"type": "string", "minLength": 1},
+        "resolutionStatus": {"type": "string", "minLength": 1},
+        "ownerGate": {"type": "string", "minLength": 1},
+        "acceptanceCriterion": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
