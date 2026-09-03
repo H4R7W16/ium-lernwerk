@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/foundation-status.schema.json",
+  "title": "IuM-Lernwerk V2 FoundationStatusV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "id",
+    "asOf",
+    "workStatus",
+    "maturity",
+    "requirementIds",
+    "evidence",
+    "openQuestions",
+    "nextGate"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "projectId": {"const": "ium-lernwerk"},
+    "id": {
+      "enum": ["curriculum", "sources", "learning-experience", "governance"]
+    },
+    "asOf": {"type": "string", "format": "date"},
+    "workStatus": {
+      "enum": ["planned", "in_progress", "blocked", "review", "done"]
+    },
+    "maturity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "curriculumCoverage",
+        "foundationConcept",
+        "dataVerification",
+        "contentImplementation",
+        "technicalVerification",
+        "subjectReview",
+        "usageReview",
+        "classroomPilot",
+        "release"
+      ],
+      "properties": {
+        "curriculumCoverage": {
+          "enum": ["unassessed", "uncovered", "partial", "covered", "not-applicable"]
+        },
+        "foundationConcept": {
+          "enum": ["missing", "draft", "reviewed", "standard"]
+        },
+        "dataVerification": {
+          "enum": ["not-run", "passed", "failed", "stale"]
+        },
+        "contentImplementation": {
+          "enum": ["not-started", "working", "implemented"]
+        },
+        "technicalVerification": {
+          "enum": ["not-run", "passed", "failed", "stale"]
+        },
+        "subjectReview": {
+          "enum": ["not-started", "in-review", "passed", "changes-required"]
+        },
+        "usageReview": {
+          "enum": ["not-started", "planned", "running", "passed", "failed", "not-applicable"]
+        },
+        "classroomPilot": {
+          "enum": ["not-started", "planned", "running", "completed", "not-applicable"]
+        },
+        "release": {
+          "enum": ["closed", "conditional", "released", "not-applicable"]
+        }
+      }
+    },
+    "requirementIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^V2-REQ-[A-Z0-9-]+$"}
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidencePointer"}
+    },
+    "openQuestions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "question", "owner", "risk", "disposition"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "question": {"type": "string", "minLength": 1},
+          "owner": {"type": "string", "minLength": 1},
+          "risk": {"type": "string", "minLength": 1},
+          "disposition": {"enum": ["open", "accepted", "resolved"]}
+        }
+      }
+    },
+    "nextGate": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "evidencePointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "target", "label", "required"],
+      "properties": {
+        "kind": {"enum": ["repo", "git", "vault", "url", "doi"]},
+        "target": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "required": {"type": "boolean"}
+      }
+    }
+  }
+}

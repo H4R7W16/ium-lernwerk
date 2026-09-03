@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/curriculum-gap-assessments.schema.json",
+  "title": "IuM-Lernwerk V2 CurriculumGapAssessmentsV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "baselineCoveragePath",
+    "coverageBoundary",
+    "assessments"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "projectId": {"const": "ium-lernwerk"},
+    "asOf": {"type": "string", "format": "date"},
+    "baselineCoveragePath": {"const": "roadmap/coverage-plan.json"},
+    "coverageBoundary": {"type": "string", "minLength": 1},
+    "assessments": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/assessment"}
+    }
+  },
+  "$defs": {
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "competencyId",
+        "sourceId",
+        "sourceBinding",
+        "sourceDatasetPath",
+        "requirementText",
+        "v1Audit",
+        "v2Coverage",
+        "time",
+        "followUp",
+        "risk",
+        "auditEvidence",
+        "v2Evidence"
+      ],
+      "properties": {
+        "competencyId": {"type": "string", "minLength": 1},
+        "sourceId": {"type": "string", "minLength": 1},
+        "sourceBinding": {"enum": ["official", "orientation"]},
+        "sourceDatasetPath": {"type": "string", "minLength": 1},
+        "requirementText": {"type": "string", "minLength": 1},
+        "v1Audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "normativeWeight", "moduleIds", "timeReviewId"],
+          "properties": {
+            "status": {"const": "partial"},
+            "normativeWeight": {"enum": ["enacted", "orientation"]},
+            "moduleIds": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "timeReviewId": {"type": "string", "minLength": 1}
+          }
+        },
+        "v2Coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "proposedFulfillmentMode", "decisionState", "rationale"],
+          "properties": {
+            "status": {
+              "enum": ["unassessed", "uncovered", "partial", "covered", "not-applicable"]
+            },
+            "proposedFulfillmentMode": {
+              "enum": ["direct-module", "integrated", "cross-cutting"]
+            },
+            "decisionState": {"enum": ["approved-direction", "open"]},
+            "rationale": {"type": "string", "minLength": 1}
+          }
+        },
+        "time": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "additionalMinutes", "rationale"],
+          "properties": {
+            "status": {
+              "enum": ["no-additional-time", "unassessed", "not-claimable", "roadmap-dependent"]
+            },
+            "additionalMinutes": {
+              "type": ["integer", "null"],
+              "minimum": 0
+            },
+            "rationale": {"type": "string", "minLength": 1}
+          }
+        },
+        "followUp": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "newLearningTask", "owner", "nextReview", "acceptanceCriterion"],
+          "properties": {
+            "kind": {
+              "enum": ["evidence-matrix", "module-design", "privacy-decision", "year-roadmap"]
+            },
+            "newLearningTask": {"enum": ["not-required", "not-decided", "not-applicable", "required"]},
+            "owner": {"type": "string", "minLength": 1},
+            "nextReview": {"type": "string", "minLength": 1},
+            "acceptanceCriterion": {"type": "string", "minLength": 1}
+          }
+        },
+        "risk": {"type": "string", "minLength": 1},
+        "auditEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/evidencePointer"}
+        },
+        "v2Evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidencePointer"}
+        }
+      }
+    },
+    "evidencePointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "target", "label", "required"],
+      "properties": {
+        "kind": {"enum": ["repo", "git", "vault", "url", "doi"]},
+        "target": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "required": {"type": "boolean"}
+      }
+    }
+  }
+}

@@ -4,10 +4,19 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import scripts.validate_v2_rebaseline as v2_validator
 from scripts.validate_v2_rebaseline import (
     validate_repository,
     validate_repository_report,
 )
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+MISSING_CURRICULUM_CONTRACTS = [
+    "roadmap/v2/foundations/curriculum/status.json fehlt",
+    "roadmap/v2/foundations/curriculum/source-basis.json fehlt",
+    "roadmap/v2/foundations/curriculum/gap-assessments.json fehlt",
+]
 
 
 VALID_STATUS = {
@@ -132,6 +141,18 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         self.assertIn("roadmap/v2/status.json fehlt", errors)
         self.assertIn("roadmap/v2/archive/v1-baseline.json fehlt", errors)
         self.assertIn("roadmap/v2/requirements/requirements.json fehlt", errors)
+        self.assertIn(
+            "roadmap/v2/foundations/curriculum/status.json fehlt",
+            errors,
+        )
+        self.assertIn(
+            "roadmap/v2/foundations/curriculum/source-basis.json fehlt",
+            errors,
+        )
+        self.assertIn(
+            "roadmap/v2/foundations/curriculum/gap-assessments.json fehlt",
+            errors,
+        )
 
     def test_building_v2_keeps_v1_as_active_baseline(self) -> None:
         """Catches activating V2 before the explicit cutover decision."""
@@ -355,7 +376,8 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             errors = validate_repository(root)
 
         self.assertEqual(
-            ["roadmap/v2/requirements/requirements.json fehlt"],
+            ["roadmap/v2/requirements/requirements.json fehlt"]
+            + MISSING_CURRICULUM_CONTRACTS,
             errors,
         )
 
@@ -472,7 +494,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             write_control_files(root, requirements=requirements)
             errors, warnings = validate_repository_report(root)
 
-        self.assertEqual([], errors)
+        self.assertEqual(MISSING_CURRICULUM_CONTRACTS, errors)
         self.assertIn(
             "optionale Repository-Referenz fehlt in V2-REQ-001: "
             "docs/historical-source-not-recovered.md",
@@ -488,7 +510,7 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             write_control_files(root, requirements=requirements)
             errors, warnings = validate_repository_report(root)
 
-        self.assertEqual([], errors)
+        self.assertEqual(MISSING_CURRICULUM_CONTRACTS, errors)
         self.assertIn(
             "optionale Vault-Referenz lokal nicht auflösbar in V2-REQ-001: "
             "2026-09-03 - Entscheidung - Kontrollierte Re-Baseline V2 und "
@@ -573,6 +595,266 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         self.assertIn(
             "Pflichtfeld title fehlt oder ist leer in V2-REQ-001",
             errors,
+        )
+
+    def test_real_curriculum_foundation_contracts_are_consistent(self) -> None:
+        """Catches drift between the V2 curriculum contract and immutable V1 facts."""
+        requirements = json.loads(
+            (PROJECT_ROOT / "roadmap/v2/requirements/requirements.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        source_basis = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/source-basis.json"
+            ).read_text(encoding="utf-8")
+        )
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+        status = json.loads(
+            (
+                PROJECT_ROOT / "roadmap/v2/foundations/curriculum/status.json"
+            ).read_text(encoding="utf-8")
+        )
+        requirement_ids = {
+            requirement["id"] for requirement in requirements["requirements"]
+        }
+
+        errors = []
+        errors.extend(
+            v2_validator.validate_curriculum_source_basis(
+                source_basis,
+                PROJECT_ROOT,
+            )
+        )
+        errors.extend(
+            v2_validator.validate_curriculum_gap_assessments(
+                gaps,
+                PROJECT_ROOT,
+            )
+        )
+        errors.extend(
+            v2_validator.validate_foundation_status(
+                status,
+                "curriculum",
+                requirement_ids,
+                PROJECT_ROOT,
+            )
+        )
+
+        self.assertEqual([], errors)
+
+    def test_lesehilfe_cannot_be_promoted_to_official_binding(self) -> None:
+        """Catches treating the orienting Lesehilfe like an enacted curriculum."""
+        source_basis = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/source-basis.json"
+            ).read_text(encoding="utf-8")
+        )
+        source_basis["sources"][2]["binding"] = "official"
+
+        errors = v2_validator.validate_curriculum_source_basis(
+            source_basis,
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "SRC-CUR-LESEHILFE-2026-27 muss als orientation gebunden bleiben",
+            errors,
+        )
+
+    def test_source_record_count_must_match_the_v1_dataset(self) -> None:
+        """Catches a declared seal that no longer describes the source dataset."""
+        source_basis = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/source-basis.json"
+            ).read_text(encoding="utf-8")
+        )
+        source_basis["sources"][0]["recordCount"] = 58
+
+        errors = v2_validator.validate_curriculum_source_basis(
+            source_basis,
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "Curriculumquelle SRC-CUR-BMB-2016 erwartet 59 Records, deklariert 58",
+            errors,
+        )
+
+    def test_gap_register_must_equal_the_current_five_v1_partial_records(self) -> None:
+        """Catches silently losing or inventing an unresolved curriculum record."""
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+        gaps["assessments"].pop()
+
+        errors = v2_validator.validate_curriculum_gap_assessments(
+            gaps,
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "V2-Curriculumlücken müssen exakt die fünf aktuellen V1-partial-Records enthalten",
+            errors,
+        )
+
+    def test_v1_partial_record_cannot_auto_promote_to_v2_coverage(self) -> None:
+        """Catches V1 module work being reused as unreviewed V2 fulfillment proof."""
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+        gaps["assessments"][0]["v2Coverage"]["status"] = "covered"
+
+        errors = v2_validator.validate_curriculum_gap_assessments(
+            gaps,
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "V2-Curriculumlücke BMB16-GYM-IK-GM-003 darf ohne neue V2-Evidenz nicht covered sein",
+            errors,
+        )
+
+    def test_tool_use_is_cross_cutting_without_extra_time_or_task(self) -> None:
+        """Catches reintroducing a synthetic module or time block for routine tool use."""
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+        tool_use = gaps["assessments"][0]
+        tool_use["v2Coverage"]["proposedFulfillmentMode"] = "direct-module"
+        tool_use["time"]["additionalMinutes"] = 20
+        tool_use["followUp"]["newLearningTask"] = "required"
+
+        errors = v2_validator.validate_curriculum_gap_assessments(
+            gaps,
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "BMB16-GYM-IK-GM-003 muss als cross-cutting geführt werden",
+            errors,
+        )
+        self.assertIn(
+            "BMB16-GYM-IK-GM-003 darf keine zusätzlichen Minuten erzeugen",
+            errors,
+        )
+        self.assertIn(
+            "BMB16-GYM-IK-GM-003 darf keine künstliche Zusatzaufgabe erzeugen",
+            errors,
+        )
+
+    def test_curriculum_foundation_cannot_claim_content_implementation(self) -> None:
+        """Catches confusing a reviewed planning contract with learner content."""
+        requirements = json.loads(
+            (PROJECT_ROOT / "roadmap/v2/requirements/requirements.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        status = json.loads(
+            (
+                PROJECT_ROOT / "roadmap/v2/foundations/curriculum/status.json"
+            ).read_text(encoding="utf-8")
+        )
+        status["maturity"]["contentImplementation"] = "implemented"
+
+        errors = v2_validator.validate_foundation_status(
+            status,
+            "curriculum",
+            {requirement["id"] for requirement in requirements["requirements"]},
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "Curriculumfundament darf bei eingefrorener Inhaltsproduktion keine Implementierung beanspruchen",
+            errors,
+        )
+
+    def test_curriculum_contracts_fail_closed_on_nested_object_ids(self) -> None:
+        """Catches malformed JSON arrays crashing set-based cross-file checks."""
+        source_basis = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/source-basis.json"
+            ).read_text(encoding="utf-8")
+        )
+        source_basis["baseline"]["immutablePaths"][0] = {"path": "curriculum"}
+        status = json.loads(
+            (
+                PROJECT_ROOT / "roadmap/v2/foundations/curriculum/status.json"
+            ).read_text(encoding="utf-8")
+        )
+        status["requirementIds"][0] = {"id": "V2-REQ-CUR-001"}
+
+        source_errors = v2_validator.validate_curriculum_source_basis(
+            source_basis,
+            PROJECT_ROOT,
+        )
+        status_errors = v2_validator.validate_foundation_status(
+            status,
+            "curriculum",
+            {"V2-REQ-CUR-001", "V2-REQ-CUR-002"},
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "V2-Curriculumbaseline enthält einen ungültigen Pfad",
+            source_errors,
+        )
+        self.assertIn(
+            "V2-Fundamentstatus curriculum enthält eine ungültige requirementId",
+            status_errors,
+        )
+
+    def test_curriculum_contracts_reject_unknown_nested_status_fields(self) -> None:
+        """Catches hidden aggregate progress or evidence shortcuts in nested objects."""
+        source_basis = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/source-basis.json"
+            ).read_text(encoding="utf-8")
+        )
+        source_basis["crosswalk"]["progressPercent"] = 80
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+        gaps["assessments"][0]["v2Coverage"]["v1EvidenceAccepted"] = True
+
+        source_errors = v2_validator.validate_curriculum_source_basis(
+            source_basis,
+            PROJECT_ROOT,
+        )
+        gap_errors = v2_validator.validate_curriculum_gap_assessments(
+            gaps,
+            PROJECT_ROOT,
+        )
+
+        self.assertIn(
+            "V2-Crosswalk enthält unbekannte Felder: progressPercent",
+            source_errors,
+        )
+        self.assertIn(
+            "V2-Abdeckung BMB16-GYM-IK-GM-003 enthält unbekannte Felder: v1EvidenceAccepted",
+            gap_errors,
         )
 
 

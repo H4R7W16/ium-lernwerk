@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "baselineCoveragePath": "roadmap/coverage-plan.json",
+  "coverageBoundary": "Die fünf Einträge sind offene V1-Auditbefunde. Ihr V2-Status bleibt unassessed, bis neue V2-Strukturen und überprüfbare Evidenz vorliegen.",
+  "assessments": [
+    {
+      "competencyId": "BMB16-GYM-IK-GM-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourceBinding": "official",
+      "sourceDatasetPath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "requirementText": "elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden: zum Beispiel Grundfunktionen von Text- und Bildbearbeitungsprogrammen, Präsentationsprogrammen, Internetbrowser, gegebenenfalls Audio-, Videosoftware",
+      "v1Audit": {
+        "status": "partial",
+        "normativeWeight": "enacted",
+        "moduleIds": ["IUM-5-CORE-01"],
+        "timeReviewId": "TR-BMB16-GYM-IK-GM-003"
+      },
+      "v2Coverage": {
+        "status": "unassessed",
+        "proposedFulfillmentMode": "cross-cutting",
+        "decisionState": "approved-direction",
+        "rationale": "Die weitgehend selbstständige Werkzeugnutzung wird im regulären Unterricht über mehrere fachlich begründete Lernhandlungen hinweg sichtbar. Sie benötigt keinen künstlichen Einzelauftrag; V2 muss später jedoch eine querschnittliche Evidenzmatrix definieren."
+      },
+      "time": {
+        "status": "no-additional-time",
+        "additionalMinutes": 0,
+        "rationale": "Werkzeugnutzung ist Bestandteil der ohnehin geplanten Lernhandlungen und erzeugt keinen separaten Stundenblock."
+      },
+      "followUp": {
+        "kind": "evidence-matrix",
+        "newLearningTask": "not-required",
+        "owner": "IUM-V2-R5",
+        "nextReview": "Beim Aufbau der V2-Roadmap Klasse 5",
+        "acceptanceCriterion": "Mehrere reguläre Lernhandlungen weisen nachvollziehbar unterschiedliche Standardprogramme und Mediengeräte sowie zunehmende Selbstständigkeit aus."
+      },
+      "risk": "Ohne explizite querschnittliche Evidenzmatrix könnte beiläufige Nutzung fälschlich als vollständiger Kompetenznachweis gelten.",
+      "auditEvidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "V1-Abdeckungsbefund und Zeitreview-ID",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/basiskurs-medienbildung/competencies.json",
+          "label": "Versiegelter amtlicher Recordwortlaut",
+          "required": true
+        }
+      ],
+      "v2Evidence": []
+    },
+    {
+      "competencyId": "BMB16-GYM-PK-RK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourceBinding": "official",
+      "sourceDatasetPath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "requirementText": "Auswirkungen der medialen Selbstdarstellung abschätzen und in Grundzügen bewerten",
+      "v1Audit": {
+        "status": "partial",
+        "normativeWeight": "enacted",
+        "moduleIds": ["IUM-5-CORE-07"],
+        "timeReviewId": "TR-BMB16-GYM-PK-RK-003"
+      },
+      "v2Coverage": {
+        "status": "unassessed",
+        "proposedFulfillmentMode": "direct-module",
+        "decisionState": "open",
+        "rationale": "Der Record enthält keinen privaten Eigenbezug. Ein späterer direkter V2-Nachweis kann mit nicht personenbezogenen Fallbeispielen Folgenabschätzung und kriteriengestützte Bewertung sichtbar machen; die konkrete Lernhandlung ist noch nicht entworfen."
+      },
+      "time": {
+        "status": "unassessed",
+        "additionalMinutes": null,
+        "rationale": "Zeitbedarf darf erst aus der künftigen V2-Lernhandlung und ihrer Einbettung in die Jahrgangsroadmap abgeleitet werden."
+      },
+      "followUp": {
+        "kind": "module-design",
+        "newLearningTask": "not-decided",
+        "owner": "IUM-V2-R5",
+        "nextReview": "Beim Aufbau der V2-Roadmap und des zugehörigen Modulvertrags Klasse 5",
+        "acceptanceCriterion": "Ein nicht personenbezogener Fall fordert sowohl Abschätzen als auch Bewerten und erzeugt einen beobachtbaren, datensparsamen Nachweis."
+      },
+      "risk": "Die frühere Einordnung als private Reflexion könnte einen fachlich notwendigen, aber datenschutzneutral möglichen Fallnachweis verhindern.",
+      "auditEvidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "V1-Abdeckungsbefund und dokumentierte Fehlklassifikation",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/basiskurs-medienbildung/competencies.json",
+          "label": "Versiegelter amtlicher Recordwortlaut",
+          "required": true
+        }
+      ],
+      "v2Evidence": []
+    },
+    {
+      "competencyId": "LH26-E-DP-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourceBinding": "orientation",
+      "sourceDatasetPath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "requirementText": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
+      "v1Audit": {
+        "status": "partial",
+        "normativeWeight": "orientation",
+        "moduleIds": ["IUM-5-CORE-07"],
+        "timeReviewId": "TR-LH26-E-DP-003"
+      },
+      "v2Coverage": {
+        "status": "unassessed",
+        "proposedFulfillmentMode": "direct-module",
+        "decisionState": "open",
+        "rationale": "Der geforderte Eigenbezug darf nicht durch Abgabe, Bewertung oder Lehrkraftbeobachtung privater Mediennutzungsinhalte erzwungen werden. Ein fiktiver Fall allein ersetzt zugleich nicht den Eigenbezug; deshalb ist noch keine tragfähige Erfüllungsentscheidung getroffen."
+      },
+      "time": {
+        "status": "not-claimable",
+        "additionalMinutes": null,
+        "rationale": "Solange keine datenschutzfachlich tragfähige Lernhandlung als curricularer Nachweis feststeht, wäre eine Zeitzuweisung eine Scheingenauigkeit."
+      },
+      "followUp": {
+        "kind": "privacy-decision",
+        "newLearningTask": "not-decided",
+        "owner": "IUM-V2-CUR",
+        "nextReview": "In einem gemeinsamen Curriculum- und Datenschutzreview vor der V2-Roadmap Klasse 5",
+        "acceptanceCriterion": "Die Entscheidung trennt freiwillige persönliche Gesprächsgelegenheiten von bewertungs- und abdeckungsrelevanter Evidenz und begründet, ob der Orientierungsrecord überhaupt als V2-Nachweis operationalisiert wird."
+      },
+      "risk": "Ein verpflichtender beobachtbarer Nachweis könnte sensible Mediennutzungsdaten offenlegen; eine rein fiktive Bearbeitung könnte den Quellwortlaut überdehnen.",
+      "auditEvidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "V1-Abdeckungsbefund und Datenschutzrisiko",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/lesehilfe-2026-27/competencies.json",
+          "label": "Versiegelter orientierender Recordwortlaut",
+          "required": true
+        }
+      ],
+      "v2Evidence": []
+    },
+    {
+      "competencyId": "LH26-E-PROG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourceBinding": "orientation",
+      "sourceDatasetPath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "requirementText": "Für Klasse 7 zeichnet die Lesehilfe den Übergang vom bisherigen „Aufbaukurs Informatik“ zum neuen Fach „Informatik und Medienbildung“ vor. Mit dieser Neuausrichtung werden informatische Inhalte weiterhin aufgegriffen und weitergeführt, jedoch stärker mit Fragestellungen der Medienbildung verbunden.",
+      "v1Audit": {
+        "status": "partial",
+        "normativeWeight": "orientation",
+        "moduleIds": ["IUM-7-CORE-08"],
+        "timeReviewId": "TR-LH26-E-PROG-003"
+      },
+      "v2Coverage": {
+        "status": "unassessed",
+        "proposedFulfillmentMode": "integrated",
+        "decisionState": "open",
+        "rationale": "Die Verbindung informatischer Inhalte mit Medienbildung ist eine jahrgangsweite Progressionsaussage. Sie kann nicht durch ein einzelnes Modul oder Lernprodukt belegt werden."
+      },
+      "time": {
+        "status": "roadmap-dependent",
+        "additionalMinutes": null,
+        "rationale": "Die Zeitwirkung entsteht aus Gewichtung und Sequenz aller betroffenen Klasse-7-Module und wird erst mit der neuen Jahrgangsroadmap bestimmbar."
+      },
+      "followUp": {
+        "kind": "year-roadmap",
+        "newLearningTask": "not-applicable",
+        "owner": "IUM-V2-R7",
+        "nextReview": "Beim Aufbau und Fachaudit der V2-Roadmap Klasse 7",
+        "acceptanceCriterion": "Die Jahrgangssequenz zeigt über mehrere Module hinweg fachliche Tiefe, Anschlussfähigkeit und eine überprüfbare Verbindung informatischer und medienbildnerischer Fragestellungen."
+      },
+      "risk": "Ein Einzelmodulnachweis würde eine jahrgangsweite Progressionsaussage unzulässig verkürzen.",
+      "auditEvidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "V1-Abdeckungsbefund zur jahrgangsweiten Progression",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/lesehilfe-2026-27/competencies.json",
+          "label": "Versiegelter orientierender Progressionswortlaut",
+          "required": true
+        }
+      ],
+      "v2Evidence": []
+    },
+    {
+      "competencyId": "LH26-E-PROG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourceBinding": "orientation",
+      "sourceDatasetPath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "requirementText": "Gegenüber dem bisherigen, auf Informatik ausgerichteten Aufbaukurs umfasst die Zusammenstellung daher weniger Informatikanteile und zugleich einen größeren Anteil an Medienbildung. Damit wird der veränderten Zielsetzung des gemeinsamen Faches Rechnung getragen, indem technische, anwendungsbezogene, gesellschaftliche und medienbezogene Perspektiven systematisch miteinander verknüpft werden.",
+      "v1Audit": {
+        "status": "partial",
+        "normativeWeight": "orientation",
+        "moduleIds": ["IUM-7-CORE-08"],
+        "timeReviewId": "TR-LH26-E-PROG-004"
+      },
+      "v2Coverage": {
+        "status": "unassessed",
+        "proposedFulfillmentMode": "integrated",
+        "decisionState": "open",
+        "rationale": "Die veränderte Gesamtgewichtung technischer, anwendungsbezogener, gesellschaftlicher und medienbezogener Perspektiven ist nur auf Ebene der vollständigen Klasse-7-Roadmap prüfbar."
+      },
+      "time": {
+        "status": "roadmap-dependent",
+        "additionalMinutes": null,
+        "rationale": "Erst die neue Jahrgangsroadmap kann zeigen, ob die Perspektivenbalance innerhalb des verfügbaren Stundenrahmens tragfähig ist."
+      },
+      "followUp": {
+        "kind": "year-roadmap",
+        "newLearningTask": "not-applicable",
+        "owner": "IUM-V2-R7",
+        "nextReview": "Beim Aufbau und Fachaudit der V2-Roadmap Klasse 7",
+        "acceptanceCriterion": "Die Jahrgangsroadmap weist Schwerpunkt, fachliche Tiefe, Perspektivenbalance und Zeitgewichtung nachvollziehbar über die gesamte Sequenz aus."
+      },
+      "risk": "Ohne Roadmapnachweis könnte eine bloße Themenliste als Beleg systematischer Perspektivenverknüpfung missverstanden werden.",
+      "auditEvidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "V1-Abdeckungsbefund zur Perspektivenbalance",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/lesehilfe-2026-27/competencies.json",
+          "label": "Versiegelter orientierender Progressionswortlaut",
+          "required": true
+        }
+      ],
+      "v2Evidence": []
+    }
+  ]
+}

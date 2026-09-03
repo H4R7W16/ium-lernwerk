@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "id": "curriculum",
+  "asOf": "2026-09-03",
+  "workStatus": "review",
+  "maturity": {
+    "curriculumCoverage": "unassessed",
+    "foundationConcept": "draft",
+    "dataVerification": "passed",
+    "contentImplementation": "not-started",
+    "technicalVerification": "passed",
+    "subjectReview": "in-review",
+    "usageReview": "not-applicable",
+    "classroomPilot": "not-started",
+    "release": "closed"
+  },
+  "requirementIds": [
+    "V2-REQ-CUR-001",
+    "V2-REQ-CUR-002"
+  ],
+  "evidence": [
+    {
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/curriculum/source-basis.json",
+      "label": "Versiegelte Quellen- und Datenbasis",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/curriculum/gap-assessments.json",
+      "label": "Einzelbewertung der fünf offenen V1-Records",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+      "label": "Freigegebene V2-Re-Baseline-Spezifikation",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "tests/test_validate_v2_rebaseline.py",
+      "label": "Automatisierte Vertrags- und Driftprüfungen",
+      "required": true
+    },
+    {
+      "kind": "repo",
+      "target": "scripts/validate_v2_rebaseline.py",
+      "label": "Fail-closed V2-Validator",
+      "required": true
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CUR-Q-002",
+      "question": "Wie kann der eigene Mediennutzungsbezug von LH26-E-DP-003 datenschutzfachlich vertretbar bearbeitet werden, ohne private Aussagen als Abdeckungsnachweis zu erheben?",
+      "owner": "IUM-V2-CUR",
+      "risk": "Ein beobachtbarer Pflichtnachweis könnte sensible persönliche Mediennutzung offenlegen; ein rein fiktiver Fall erfüllt den Eigenbezug nicht.",
+      "disposition": "open"
+    },
+    {
+      "id": "CUR-Q-003",
+      "question": "Welche V2-Jahrgangssequenz weist die veränderte Gewichtung und Verbindung von Informatik und Medienbildung in Klasse 7 nach?",
+      "owner": "IUM-V2-R7",
+      "risk": "Ein einzelnes Modul kann die jahrgangsweite Progression und Perspektivenbalance nicht belegen.",
+      "disposition": "open"
+    }
+  ],
+  "nextGate": "IUM-V2-CUR-REVIEW"
+}

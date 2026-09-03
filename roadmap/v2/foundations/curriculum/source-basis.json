@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "baseline": {
+    "status": "v1-audit-input",
+    "commit": "dcaff3e4b6e96d8c1da3dd1d4dd56f6df6b35ef0",
+    "immutablePaths": [
+      "curriculum/basiskurs-medienbildung/competencies.json",
+      "curriculum/aufbaukurs-informatik/competencies.json",
+      "curriculum/lesehilfe-2026-27/competencies.json",
+      "curriculum/crosswalk.json",
+      "roadmap/coverage-plan.json"
+    ]
+  },
+  "sources": [
+    {
+      "sourceId": "SRC-CUR-BMB-2016",
+      "title": "Gymnasium – Basiskurs Medienbildung (Bildungsplan 2016)",
+      "binding": "official",
+      "normativeStatus": "enacted",
+      "repositoryPath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "datasetSha256": "2C39832CD6EE373C643994C69DB6F4411539669923704E6C0F45EF63C2112518",
+      "sourceAssetSha256": "84609F1CAF3BDB5D3CFDD0BD6287C348F773F6BD5A2DD40F95D9711B1F338536",
+      "recordCount": 59,
+      "grades": [5],
+      "checkedAt": "2026-07-28",
+      "currentReview": {
+        "checkedAt": "2026-09-03",
+        "status": "transition-status-rechecked",
+        "landingPageUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+        "directUrl": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/BMB",
+        "contentIdentity": "not-byte-compared",
+        "remoteSha256": null,
+        "remoteByteLength": null,
+        "finding": "Das Kultusministerium führt bis zum Inkrafttreten des neuen Fachplans die bestehenden Bildungspläne als Unterrichtsgrundlage fort. Der versiegelte Datensatz bleibt V1-Auditbasis; die aktuelle Remotefassung wurde nicht erneut byteweise verglichen."
+      }
+    },
+    {
+      "sourceId": "SRC-CUR-INF7-2016",
+      "title": "Gymnasium – Aufbaukurs Informatik (Klasse 7), Bildungsplan 2016",
+      "binding": "official",
+      "normativeStatus": "enacted",
+      "repositoryPath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "datasetSha256": "DDE81984622A275C9FFEEDC8B601468F22021F19028DE6B162134C4050DBF0C5",
+      "sourceAssetSha256": "57A535001B7371D949C761473DA72E05FB99AA01105B7C59AE34BF7DC47F20A9",
+      "recordCount": 94,
+      "grades": [7],
+      "checkedAt": "2026-07-28",
+      "currentReview": {
+        "checkedAt": "2026-09-03",
+        "status": "transition-status-rechecked",
+        "landingPageUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+        "directUrl": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/INF7",
+        "contentIdentity": "not-byte-compared",
+        "remoteSha256": null,
+        "remoteByteLength": null,
+        "finding": "Das Kultusministerium nennt für Klasse 7 im Schuljahr 2026/2027 die Verbindung der Lesehilfe mit dem bestehenden Aufbaukurs Informatik. Der versiegelte Datensatz bleibt V1-Auditbasis; die aktuelle Remotefassung wurde nicht erneut byteweise verglichen."
+      }
+    },
+    {
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "title": "Lesehilfe Informatik und Medienbildung für die Klassen 5 bis 7 im Schuljahr 2026/2027",
+      "binding": "orientation",
+      "normativeStatus": "orientation",
+      "repositoryPath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "datasetSha256": "4EAF2AB20BDD508D18B821B4D953EFDF6A6B7CAEA05EF8D904C101B3C4E342C8",
+      "sourceAssetSha256": "1BC94255AD35D75782B819C1CA425D7C1F21CEDC6B2012378EC828BAC1451008",
+      "recordCount": 125,
+      "grades": [5, 6, 7],
+      "checkedAt": "2026-07-28",
+      "currentReview": {
+        "checkedAt": "2026-09-03",
+        "status": "direct-source-rechecked",
+        "landingPageUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+        "directUrl": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+        "contentIdentity": "sha256-match",
+        "remoteSha256": "1BC94255AD35D75782B819C1CA425D7C1F21CEDC6B2012378EC828BAC1451008",
+        "remoteByteLength": 246597,
+        "finding": "Die Ausgabe 2026/2027 für Klassen 5 bis 7 ist jetzt direkt auf der amtlichen Fachseite verlinkt und umfasst 18 Seiten. Das Ministerium kennzeichnet die Lesehilfe weiterhin als Übergangsorientierung. Der temporäre Abruf am 03.09.2026 ist mit dem lokal am 28.07.2026 geprüften Asset SHA-256-identisch."
+      }
+    }
+  ],
+  "totals": {
+    "recordCount": 278,
+    "uniqueRecordCount": 278
+  },
+  "crosswalk": {
+    "repositoryPath": "curriculum/crosswalk.json",
+    "datasetSha256": "8522C912C7747AF1D39D2822513A3E75EF410CB7BBE9BD98574BF9CF69AC0720",
+    "status": "v1-audit-input",
+    "recordCount": 278,
+    "relationCount": 56,
+    "unmappedRecordCount": 107,
+    "relationshipCounts": {
+      "equivalent": 2,
+      "extends": 15,
+      "new": 3,
+      "not-comparable": 4,
+      "overlaps": 15,
+      "reframes": 17
+    }
+  },
+  "coverageAudit": {
+    "repositoryPath": "roadmap/coverage-plan.json",
+    "datasetSha256": "4553BE524D7DBC0E02EA3362869A71EE2F4B28164A18AEC7557FDC2001990929",
+    "status": "v1-audit-input",
+    "entryCount": 171,
+    "byBinding": {
+      "official": {
+        "covered": 74,
+        "partial": 2,
+        "total": 76
+      },
+      "orientation": {
+        "covered": 92,
+        "partial": 3,
+        "total": 95
+      }
+    }
+  },
+  "decisionBasis": [
+    {
+      "kind": "repo",
+      "target": "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+      "label": "Freigegebene Trennung von amtlichen, orientierenden und projektbezogenen Anforderungen",
+      "required": true
+    },
+    {
+      "kind": "vault",
+      "target": "2026-09-03 - Entscheidung - Kontrollierte Re-Baseline V2 und Lern-Experience-Fundament",
+      "label": "Projektentscheidung zur kontrollierten V2-Re-Baseline",
+      "required": true
+    }
+  ],
+  "statementBoundaries": [
+    "Die Bildungspläne BMB 2016 und INF7 2016 werden als amtliche, in Kraft gesetzte Ausgangsquellen geführt; die Lesehilfe 2026/2027 bleibt Orientierung.",
+    "Projektentscheidungen verändern keinen amtlichen Bindungsgrad.",
+    "V1-Datensätze, Crosswalk und Coverage sind Auditbestand und kein automatischer V2-Abdeckungsnachweis.",
+    "Der Quellenabruf vom 03.09.2026 belegt Fundstelle, Übergangslage und SHA-256-Identität der aktuellen Lesehilfe mit dem lokal am 28.07.2026 geprüften Asset; für BMB und INF7 wurde kein neuer Bytevergleich durchgeführt."
+  ]
+}
