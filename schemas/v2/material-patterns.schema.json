@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/material-patterns.schema.json",
+  "title": "IuM V2 Material and Experience Pattern Contract",
+  "x-iumSemanticValidation": {
+    "structuralValidator": "json-schema",
+    "semanticLint": "scripts/validate_v2_rebaseline.py",
+    "authoritativeGate": "expert-review-or-content-walkthrough",
+    "automatedSemanticProof": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "policies",
+    "patterns",
+    "walkthroughs"
+  ],
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "projectId": {"type": "string", "const": "ium-lernwerk"},
+    "asOf": {"type": "string", "format": "date"},
+    "scope": {"$ref": "#/$defs/scope"},
+    "policies": {"$ref": "#/$defs/policies"},
+    "patterns": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {"$ref": "#/$defs/pattern"}
+    },
+    "walkthroughs": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/walkthrough"}
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {"type": "string", "minLength": 1, "pattern": ".*\\S.*"},
+    "nonEmptyUniqueStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nonEmptyString"}
+    },
+    "grades": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {"type": "integer", "enum": [5, 6, 7]},
+      "allOf": [
+        {"contains": {"const": 5}},
+        {"contains": {"const": 6}},
+        {"contains": {"const": 7}}
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grades",
+        "schoolType",
+        "level",
+        "maturity",
+        "contentProduction",
+        "productBinding"
+      ],
+      "properties": {
+        "grades": {"$ref": "#/$defs/grades"},
+        "schoolType": {"type": "string", "const": "Gymnasium Baden-Württemberg"},
+        "level": {"type": "string", "const": "E"},
+        "maturity": {"type": "string", "const": "working"},
+        "contentProduction": {"type": "string", "const": "frozen"},
+        "productBinding": {"type": "string", "const": "product-neutral"}
+      }
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "universalPageTemplate",
+        "universalElementLimit",
+        "universalMinuteLimit",
+        "decorativeGamificationDefault",
+        "productComponentsAllowed",
+        "learnerFacingContentAllowed"
+      ],
+      "properties": {
+        "universalPageTemplate": {"type": "boolean", "const": false},
+        "universalElementLimit": {"type": "boolean", "const": false},
+        "universalMinuteLimit": {"type": "boolean", "const": false},
+        "decorativeGamificationDefault": {"type": "boolean", "const": false},
+        "productComponentsAllowed": {"type": "boolean", "const": false},
+        "learnerFacingContentAllowed": {"type": "boolean", "const": false}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["useWhen", "doNotUseWhen"],
+      "properties": {
+        "useWhen": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "doNotUseWhen": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    },
+    "quantifiedRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "claimIds", "scope"],
+      "properties": {
+        "statement": {"$ref": "#/$defs/nonEmptyString"},
+        "claimIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^CLAIM-[A-Z0-9-]+$"}
+        },
+        "scope": {"type": "string", "enum": ["conditional", "context-bound", "universal"]}
+      }
+    },
+    "pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "family",
+        "title",
+        "learnerPurpose",
+        "teacherPurpose",
+        "learningFunctionIds",
+        "principleIds",
+        "applicability",
+        "requiredElements",
+        "forbiddenElements",
+        "observableChecks",
+        "verificationMethods",
+        "accessibilityConsiderations",
+        "productDependencies",
+        "quantifiedRules",
+        "status"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^LXF05-PT-[0-9]{3}$"},
+        "family": {
+          "type": "string",
+          "enum": [
+            "entry-and-orientation",
+            "worked-example-with-active-processing",
+            "linked-representations-and-signaling",
+            "prediction-execution-comparison",
+            "guided-practice-and-help",
+            "feedback-and-revision",
+            "retrieval-and-return",
+            "transfer",
+            "progress-and-reentry",
+            "accessible-alternative"
+          ]
+        },
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "learnerPurpose": {"$ref": "#/$defs/nonEmptyString"},
+        "teacherPurpose": {"$ref": "#/$defs/nonEmptyString"},
+        "learningFunctionIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/learningFunctionId"}
+        },
+        "principleIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^LXF04-PR-[0-9]{3}$"}
+        },
+        "applicability": {"$ref": "#/$defs/applicability"},
+        "requiredElements": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "forbiddenElements": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "observableChecks": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "verificationMethods": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "not": {"const": ["automated-check"]},
+          "items": {"$ref": "#/$defs/verificationMethod"}
+        },
+        "accessibilityConsiderations": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "productDependencies": {"type": "array", "maxItems": 0},
+        "quantifiedRules": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/quantifiedRule"}
+        },
+        "status": {"type": "string", "enum": ["draft", "working", "reviewed"]}
+      }
+    },
+    "walkthrough": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "patternIds",
+        "learnerQuestion",
+        "requiredInformation",
+        "action",
+        "feedback",
+        "teacherRole",
+        "barrier",
+        "verificationMethod"
+      ],
+      "properties": {
+        "id": {"type": "string", "enum": ["entry", "central-learning-action", "securing-and-reentry"]},
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "patternIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^LXF05-PT-[0-9]{3}$"}
+        },
+        "learnerQuestion": {"$ref": "#/$defs/nonEmptyString"},
+        "requiredInformation": {"$ref": "#/$defs/nonEmptyString"},
+        "action": {"$ref": "#/$defs/nonEmptyString"},
+        "feedback": {"$ref": "#/$defs/nonEmptyString"},
+        "teacherRole": {"$ref": "#/$defs/nonEmptyString"},
+        "barrier": {"$ref": "#/$defs/nonEmptyString"},
+        "verificationMethod": {
+          "$ref": "#/$defs/verificationMethod",
+          "not": {"const": "automated-check"}
+        }
+      }
+    },
+    "learningFunctionId": {
+      "type": "string",
+      "enum": [
+        "orient",
+        "surface-prior-knowledge",
+        "open-disciplinary-problem",
+        "explain-or-model",
+        "guided-action",
+        "independent-application",
+        "use-feedback",
+        "secure-and-transfer"
+      ]
+    },
+    "verificationMethod": {
+      "type": "string",
+      "enum": [
+        "source-review",
+        "expert-review",
+        "content-walkthrough",
+        "automated-check",
+        "accessibility-audit",
+        "usability-test",
+        "classroom-pilot"
+      ]
+    }
+  }
+}

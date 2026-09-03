@@ -40,6 +40,9 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/learning-architecture.json fehlt",
     "roadmap/v2/foundations/learning-experience/learning-architecture.md fehlt",
     "schemas/v2/learning-design.schema.json fehlt",
+    "roadmap/v2/foundations/learning-experience/material-patterns.json fehlt",
+    "roadmap/v2/foundations/learning-experience/material-experience-guide.md fehlt",
+    "schemas/v2/material-patterns.schema.json fehlt",
 ]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
@@ -272,7 +275,7 @@ def make_valid_lxf04_principle(number: int) -> dict:
             "Ziel, Handlung und Lernprodukt benennen dieselbe fachliche Beziehung."
         ],
         "verificationMethods": ["content-walkthrough"],
-        "status": "working",
+        "status": "reviewed",
     }
 
 
@@ -534,6 +537,137 @@ VALID_LXF04_ARCHITECTURE = {
             "avoidWhen": ["Die Erklärung eigenes fachliches Denken vollständig ersetzt."],
             "requiredBefore": ["Zielwissen und erwartete Lernhürde sind bestimmt."],
             "requiredAfter": ["Aktive Verarbeitung und eigenständige Anwendung folgen."],
+        },
+    ],
+}
+
+
+EXPECTED_LXF05_FAMILIES = {
+    "entry-and-orientation",
+    "worked-example-with-active-processing",
+    "linked-representations-and-signaling",
+    "prediction-execution-comparison",
+    "guided-practice-and-help",
+    "feedback-and-revision",
+    "retrieval-and-return",
+    "transfer",
+    "progress-and-reentry",
+    "accessible-alternative",
+}
+
+
+def make_valid_lxf05_pattern(family: str, number: int) -> dict:
+    return {
+        "id": f"LXF05-PT-{number:03d}",
+        "family": family,
+        "title": f"Testmuster {number}",
+        "learnerPurpose": "Eine fachliche Beziehung sichtbar bearbeiten und prüfen.",
+        "teacherPurpose": "Produkt und Unterstützungsbedarf fachlich interpretieren.",
+        "learningFunctionIds": ["guided-action"],
+        "principleIds": ["LXF04-PR-001"],
+        "applicability": {
+            "useWhen": ["Die fachliche Kernhandlung und ihr Produkt bestimmt sind."],
+            "doNotUseWhen": ["Die Form nur Oberfläche oder Ablage organisieren würde."],
+        },
+        "requiredElements": ["Sichtbare fachliche Kernhandlung"],
+        "forbiddenElements": ["Erledigungsanzeige als alleiniger Lernnachweis"],
+        "observableChecks": ["Das resultierende Produkt ist fachlich interpretierbar."],
+        "verificationMethods": ["content-walkthrough"],
+        "accessibilityConsiderations": [
+            "Die Kernhandlung besitzt einen gleichwertigen Tastatur- und Textpfad."
+        ],
+        "productDependencies": [],
+        "quantifiedRules": [],
+        "status": "working",
+    }
+
+
+VALID_LXF05_MATERIAL_PATTERNS = {
+    "schemaVersion": 1,
+    "projectId": "ium-lernwerk",
+    "asOf": "2026-09-03",
+    "scope": {
+        "grades": [5, 6, 7],
+        "schoolType": "Gymnasium Baden-Württemberg",
+        "level": "E",
+        "maturity": "working",
+        "contentProduction": "frozen",
+        "productBinding": "product-neutral",
+    },
+    "policies": {
+        "universalPageTemplate": False,
+        "universalElementLimit": False,
+        "universalMinuteLimit": False,
+        "decorativeGamificationDefault": False,
+        "productComponentsAllowed": False,
+        "learnerFacingContentAllowed": False,
+    },
+    "patterns": [
+        make_valid_lxf05_pattern(family, number)
+        for number, family in enumerate(
+            (
+                "entry-and-orientation",
+                "worked-example-with-active-processing",
+                "linked-representations-and-signaling",
+                "prediction-execution-comparison",
+                "guided-practice-and-help",
+                "feedback-and-revision",
+                "retrieval-and-return",
+                "transfer",
+                "progress-and-reentry",
+                "accessible-alternative",
+            ),
+            start=1,
+        )
+    ],
+    "walkthroughs": [
+        {
+            "id": "entry",
+            "label": "Einstieg und Orientierung",
+            "patternIds": ["LXF05-PT-001"],
+            "learnerQuestion": "Was ist das Ziel und womit beginne ich?",
+            "requiredInformation": "Ziel, Zweck, Ausgangslage und nächster Schritt.",
+            "action": "Ein aufgabenbezogenes Vorprodukt erzeugen.",
+            "feedback": "Rückmeldung macht die nächste fachliche Handlung sichtbar.",
+            "teacherRole": "Ausgangslagen lesen und den Übergang entscheiden.",
+            "barrier": "Orientierung darf nicht von Navigationserfahrung abhängen.",
+            "verificationMethod": "content-walkthrough",
+        },
+        {
+            "id": "central-learning-action",
+            "label": "Zentrale Lernhandlung",
+            "patternIds": [
+                "LXF05-PT-002",
+                "LXF05-PT-003",
+                "LXF05-PT-004",
+                "LXF05-PT-005",
+                "LXF05-PT-006",
+                "LXF05-PT-010",
+            ],
+            "learnerQuestion": "Welche Beziehung soll ich bearbeiten und prüfen?",
+            "requiredInformation": "Auftrag, Material, Kriterien und verfügbare Hilfe.",
+            "action": "Eine fachliche Beziehung ausführen, erklären oder revidieren.",
+            "feedback": "Kriterium, Produktstelle und nächster Schritt werden verbunden.",
+            "teacherRole": "Beobachten, gezielt stützen und Anspruch erhalten.",
+            "barrier": "Bedienung und Sprache dürfen die Kernhandlung nicht verdecken.",
+            "verificationMethod": "expert-review",
+        },
+        {
+            "id": "securing-and-reentry",
+            "label": "Sicherung und Wiedereinstieg",
+            "patternIds": [
+                "LXF05-PT-007",
+                "LXF05-PT-008",
+                "LXF05-PT-009",
+                "LXF05-PT-010",
+            ],
+            "learnerQuestion": "Was ist gesichert und wie arbeite ich später weiter?",
+            "requiredInformation": "Gesicherte Beziehung, offener Stand und Rückkehrpunkt.",
+            "action": "Abrufen, übertragen oder den nächsten Schritt aufnehmen.",
+            "feedback": "Stand und offene Handlung bleiben ohne Wertung nachvollziehbar.",
+            "teacherRole": "Sicherung prüfen und Rückkehr oder Transfer rahmen.",
+            "barrier": "Fortschritt darf weder Persondiagnose noch Lernnachweis vortäuschen.",
+            "verificationMethod": "usability-test",
         },
     ],
 }
@@ -2243,6 +2377,456 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         assert validator is not None
 
         self.assertEqual([], validator(PROJECT_ROOT))
+
+    def test_material_pattern_contract_is_wired_into_repository_gate(self) -> None:
+        """Catches LXF05 artifacts being optional in the repository gate."""
+        with tempfile.TemporaryDirectory() as directory:
+            errors = validate_repository(Path(directory))
+
+        for expected_error in (
+            "roadmap/v2/foundations/learning-experience/material-patterns.json fehlt",
+            "roadmap/v2/foundations/learning-experience/material-experience-guide.md fehlt",
+            "schemas/v2/material-patterns.schema.json fehlt",
+        ):
+            self.assertIn(expected_error, errors)
+
+    def test_material_pattern_requires_complete_traceable_contract(self) -> None:
+        """Catches a pattern without purpose, use boundary, evidence, or access contract."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        required_fields = (
+            "learnerPurpose",
+            "teacherPurpose",
+            "learningFunctionIds",
+            "principleIds",
+            "applicability",
+            "requiredElements",
+            "forbiddenElements",
+            "observableChecks",
+            "verificationMethods",
+            "accessibilityConsiderations",
+        )
+
+        for field in required_fields:
+            with self.subTest(field=field):
+                contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+                del contract["patterns"][0][field]
+
+                errors = validator(
+                    contract,
+                    VALID_LXF04_ARCHITECTURE,
+                    VALID_LXF02_EVIDENCE_REGISTER,
+                )
+
+                self.assertTrue(
+                    any(f"benötigt {field}" in error for error in errors), errors
+                )
+
+    def test_material_patterns_require_every_family_and_unique_ids(self) -> None:
+        """Catches a partial grammar or duplicate pattern identity."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["patterns"] = contract["patterns"][:-1]
+        contract["patterns"][1]["id"] = contract["patterns"][0]["id"]
+
+        errors = validator(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertIn(
+            "LXF05-Materialgrammatik fehlt Patternfamilie: accessible-alternative",
+            errors,
+        )
+        self.assertTrue(any("doppelte Pattern-ID" in error for error in errors), errors)
+
+    def test_material_patterns_consume_reviewed_principles_and_known_functions(
+        self,
+    ) -> None:
+        """Catches patterns resting on unreviewed design or an unknown learning function."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["principleGroups"][0]["principles"][0]["status"] = "working"
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["patterns"][0]["learningFunctionIds"] = ["app-shell-navigation"]
+
+        errors = validator(
+            contract,
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertTrue(any("ist nicht reviewed" in error for error in errors), errors)
+        self.assertTrue(
+            any("unbekannte Lernfunktion app-shell-navigation" in error for error in errors),
+            errors,
+        )
+
+    def test_material_patterns_reject_product_shell_dependencies(self) -> None:
+        """Catches an app-shell feature being smuggled in as a learning pattern."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["patterns"][0]["productDependencies"] = ["app-shell-navigation"]
+
+        errors = validator(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertTrue(
+            any("darf keine Produktabhängigkeit" in error for error in errors), errors
+        )
+
+    def test_material_patterns_reject_unreferenced_page_or_minute_rules(self) -> None:
+        """Catches invented universal page and time limits without claim support."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["patterns"][0]["quantifiedRules"] = [
+            {
+                "statement": "Jedes Material hat höchstens 3 Seiten.",
+                "claimIds": [],
+                "scope": "universal",
+            }
+        ]
+
+        errors = validator(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertTrue(
+            any("Seiten- oder Minutenregel benötigt claimIds" in error for error in errors),
+            errors,
+        )
+
+    def test_material_patterns_route_all_numeric_layout_time_and_age_rules(
+        self,
+    ) -> None:
+        """Catches invented numeric universals hidden in ordinary pattern prose."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        cases = (
+            "Jedes Material hat höchstens 3 Seiten.",
+            "Eine Phase dauert immer 10 Minuten.",
+            "Jede Ansicht enthält maximal 7 Elemente.",
+            "Das Muster gilt für 12-Jährige.",
+            "Jedes Material hat höchstens drei Seiten.",
+            "Die Abfolge besteht aus 3-seitigen Einheiten.",
+            "Eine Phase dauert immer 10 min.",
+            "Jede Ansicht enthält höchstens drei Elemente.",
+            "Für mindestens zwei unterscheidbare Produktlagen gilt eine Anschlussoption.",
+            "Jedes Material hat höchstens fünfzehn Seiten.",
+            "Eine Aktivierung ist stets 10-minütig.",
+            "Jede Phase ist zehnminütig.",
+            "Jeder Einstieg zeigt mindestens fünfzehn Schritte.",
+        )
+
+        for statement in cases:
+            with self.subTest(statement=statement):
+                contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+                contract["patterns"][0]["requiredElements"] = [statement]
+
+                errors = validator(
+                    contract,
+                    VALID_LXF04_ARCHITECTURE,
+                    VALID_LXF02_EVIDENCE_REGISTER,
+                )
+
+                self.assertTrue(
+                    any("außerhalb quantifiedRules" in error for error in errors),
+                    errors,
+                )
+
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["walkthroughs"][0]["requiredInformation"] = (
+            "Jeder Einstieg zeigt höchstens drei Elemente."
+        )
+
+        errors = validator(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertTrue(
+            any("außerhalb quantifiedRules" in error for error in errors), errors
+        )
+
+        allowed_contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        allowed_contract["patterns"][0]["forbiddenElements"] = [
+            "Keine feste Grenze von drei Seiten."
+        ]
+        allowed_contract["patterns"][0]["applicability"]["doNotUseWhen"] = [
+            "Nicht verwenden, wenn höchstens drei Schritte erzwungen würden."
+        ]
+        allowed_contract["patterns"][0]["requiredElements"] = [
+            "Eine einseitige Perspektive wird durch Kontrast sichtbar."
+        ]
+
+        allowed_errors = validator(
+            allowed_contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertFalse(
+            any("außerhalb quantifiedRules" in error for error in allowed_errors),
+            allowed_errors,
+        )
+
+    def test_material_patterns_reject_shell_features_hidden_as_required_elements(
+        self,
+    ) -> None:
+        """Catches a concrete product shell encoded outside productDependencies."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        cases = (
+            "Eine App-Shell-Navigation mit React Router und Sidebar.",
+            "Eine Dashboard-Karte mit Weiter-Button.",
+            "Eine blaue Karte mit 24px Überschrift.",
+            "Klicke auf Weiter, um fortzufahren.",
+            "Eine Navigationsleiste mit Zurücklink und Registerkarte.",
+            "Ein zweispaltiges Layout mit runden Karten und Schatten.",
+            "Öffne das Menü und beginne mit Aufgabe 1.",
+            "Löse jetzt Aufgabe 1.",
+            "Ein Akkordeon mit Dialogfenster und Dropdown.",
+        )
+        for statement in cases:
+            with self.subTest(statement=statement):
+                contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+                contract["patterns"][0]["requiredElements"] = [statement]
+
+                errors = validator(
+                    contract,
+                    VALID_LXF04_ARCHITECTURE,
+                    VALID_LXF02_EVIDENCE_REGISTER,
+                )
+
+                self.assertTrue(
+                    any(
+                        "konkrete Produkt-, Darstellungs- oder Lernendentextvorgabe"
+                        in error
+                        for error in errors
+                    ),
+                    errors,
+                )
+
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["walkthroughs"][0]["action"] = (
+            "Eine PWA-App-Shell mit Dashboard-Karte öffnen."
+        )
+        errors = validator(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+        self.assertTrue(
+            any(
+                "konkrete Produkt-, Darstellungs- oder Lernendentextvorgabe" in error
+                for error in errors
+            ),
+            errors,
+        )
+
+        allowed_contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        allowed_contract["patterns"][0]["forbiddenElements"] = [
+            "Ein Weiter-Button als verpflichtende Navigation."
+        ]
+        allowed_contract["patterns"][0]["applicability"]["doNotUseWhen"] = [
+            "Nicht verwenden, wenn eine Navigationsleiste fachlich bedeutungslose Wege vorgibt."
+        ]
+        allowed_errors = validator(
+            allowed_contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+        self.assertFalse(
+            any(
+                "konkrete Produkt-, Darstellungs- oder Lernendentextvorgabe" in error
+                for error in allowed_errors
+            ),
+            allowed_errors,
+        )
+
+    def test_material_patterns_require_human_semantic_review(self) -> None:
+        """Makes semantic neutrality a human gate rather than a regex promise."""
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        contract["patterns"][0]["verificationMethods"] = ["usability-test"]
+
+        errors = v2_validator.validate_material_patterns(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertTrue(
+            any("benötigt fachlichen Neutralitätsreview" in error for error in errors),
+            errors,
+        )
+
+    def test_material_walkthroughs_are_neutral_complete_and_traceable(self) -> None:
+        """Catches a polished page shell replacing the three agreed neutral walkthroughs."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        contract = copy.deepcopy(VALID_LXF05_MATERIAL_PATTERNS)
+        del contract["walkthroughs"][0]["barrier"]
+        contract["walkthroughs"] = contract["walkthroughs"][:2]
+
+        errors = validator(
+            contract,
+            VALID_LXF04_ARCHITECTURE,
+            VALID_LXF02_EVIDENCE_REGISTER,
+        )
+
+        self.assertTrue(any("benötigt barrier" in error for error in errors), errors)
+        self.assertIn(
+            "LXF05-Materialgrammatik fehlt Walkthrough: securing-and-reentry",
+            errors,
+        )
+
+    def test_real_material_pattern_contract_is_complete_and_product_neutral(self) -> None:
+        """Catches an incomplete real LXF05 contract behind a permissive fixture."""
+        validator = getattr(v2_validator, "validate_material_patterns", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        contract_path = (
+            PROJECT_ROOT
+            / "roadmap/v2/foundations/learning-experience/material-patterns.json"
+        )
+        self.assertTrue(contract_path.is_file())
+        contract = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/material-patterns.json"
+        )
+        architecture = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json"
+        )
+        evidence = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/evidence-register.json"
+        )
+
+        self.assertEqual([], validator(contract, architecture, evidence))
+        self.assertEqual(
+            EXPECTED_LXF05_FAMILIES,
+            {pattern["family"] for pattern in contract["patterns"]},
+        )
+        self.assertTrue(
+            all(not pattern["productDependencies"] for pattern in contract["patterns"])
+        )
+
+    def test_material_pattern_schema_is_fail_closed_and_sealed(self) -> None:
+        """Catches optional pattern fields or an extensible LXF05 schema."""
+        validator = getattr(v2_validator, "validate_material_patterns_schema", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        schema = load_repo_json("schemas/v2/material-patterns.schema.json")
+        weakened = copy.deepcopy(schema)
+        weakened["$defs"]["pattern"]["required"].remove("principleIds")
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_json(root, "schemas/v2/material-patterns.schema.json", weakened)
+            errors = validator(root)
+
+        self.assertIn(
+            "LXF05-Schema weicht von der versiegelten Definition ab", errors
+        )
+
+    def test_material_pattern_schema_matches_manual_whitespace_and_review_rules(
+        self,
+    ) -> None:
+        """Catches schema acceptance of values rejected by the hand validator."""
+        schema = load_repo_json("schemas/v2/material-patterns.schema.json")
+
+        self.assertEqual(r".*\S.*", schema["$defs"]["nonEmptyString"]["pattern"])
+        self.assertEqual(
+            {"const": "automated-check"},
+            schema["$defs"]["walkthrough"]["properties"]["verificationMethod"][
+                "not"
+            ],
+        )
+
+    def test_material_pattern_schema_declares_semantic_review_boundary(self) -> None:
+        """Prevents the structural schema from claiming to prove prose neutrality."""
+        schema = load_repo_json("schemas/v2/material-patterns.schema.json")
+
+        self.assertEqual(
+            {
+                "structuralValidator": "json-schema",
+                "semanticLint": "scripts/validate_v2_rebaseline.py",
+                "authoritativeGate": "expert-review-or-content-walkthrough",
+                "automatedSemanticProof": False,
+            },
+            schema["x-iumSemanticValidation"],
+        )
+
+    def test_material_experience_guide_covers_patterns_and_walkthroughs(self) -> None:
+        """Catches machine data without the agreed human review guide."""
+        validator = getattr(v2_validator, "validate_material_experience_guide", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+
+        self.assertEqual([], validator(PROJECT_ROOT))
+
+    def test_material_experience_guide_requires_three_complete_review_tables(
+        self,
+    ) -> None:
+        """Catches walkthrough headings surviving after a required table field is lost."""
+        validator = v2_validator.validate_material_experience_guide
+        source = (
+            PROJECT_ROOT
+            / "roadmap/v2/foundations/learning-experience/material-experience-guide.md"
+        ).read_text(encoding="utf-8")
+        mutations = (
+            source.replace("| Lernendenfrage |", "| Entfernt |", 1),
+            source.replace("| Prüffeld | Abstrakte Ausprägung |", "Prüffelder fehlen", 1),
+            source.replace(
+                "| Lernendenfrage | Was ist das fachliche Ziel, wofür wird mein Produkt gebraucht und womit beginne ich? |",
+                "| Lernendenfrage | |",
+                1,
+            ),
+            source.replace(
+                "| Lernendenfrage | Was ist das fachliche Ziel, wofür wird mein Produkt gebraucht und womit beginne ich? |",
+                "| Zusatzfeld | zusätzlicher Inhalt |\n| Lernendenfrage | Was ist das fachliche Ziel, wofür wird mein Produkt gebraucht und womit beginne ich? |",
+                1,
+            ),
+            source.replace(
+                "| Prüffeld | Abstrakte Ausprägung |\n|---|---|",
+                "| Prüffeld | Abstrakte Ausprägung |\nEin Trennsatz.\n|---|---|",
+                1,
+            ),
+        )
+
+        for mutation_index, markdown in enumerate(mutations):
+            with self.subTest(mutation_index=mutation_index), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                target = (
+                    root
+                    / "roadmap/v2/foundations/learning-experience/material-experience-guide.md"
+                )
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(markdown, encoding="utf-8")
+
+                errors = validator(root)
+
+                self.assertTrue(
+                    any("unvollständige Walkthrough-Tabelle" in error for error in errors),
+                    errors,
+                )
 
     def test_source_inventory_requires_an_object(self) -> None:
         """Catches malformed top-level JSON bypassing source-foundation checks."""

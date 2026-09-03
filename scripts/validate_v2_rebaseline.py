@@ -35,6 +35,9 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/learning-experience/learning-architecture.json"),
     Path("roadmap/v2/foundations/learning-experience/learning-architecture.md"),
     Path("schemas/v2/learning-design.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/material-patterns.json"),
+    Path("roadmap/v2/foundations/learning-experience/material-experience-guide.md"),
+    Path("schemas/v2/material-patterns.schema.json"),
 )
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
@@ -799,6 +802,124 @@ LEARNING_DESIGN_SCHEMA_SHA256 = (
 )
 LEARNING_ARCHITECTURE_REFERENCE_PATTERN = re.compile(
     r"\b(?:V2-REQ-[A-Z0-9-]+|LXF03-S-[0-9]{3}|LXF03-E-[0-9]{3})\b"
+)
+MATERIAL_PATTERN_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "policies",
+    "patterns",
+    "walkthroughs",
+}
+MATERIAL_PATTERN_SCOPE_FIELDS = {
+    "grades",
+    "schoolType",
+    "level",
+    "maturity",
+    "contentProduction",
+    "productBinding",
+}
+MATERIAL_PATTERN_POLICY_FIELDS = {
+    "universalPageTemplate",
+    "universalElementLimit",
+    "universalMinuteLimit",
+    "decorativeGamificationDefault",
+    "productComponentsAllowed",
+    "learnerFacingContentAllowed",
+}
+MATERIAL_PATTERN_RECORD_FIELDS = {
+    "id",
+    "family",
+    "title",
+    "learnerPurpose",
+    "teacherPurpose",
+    "learningFunctionIds",
+    "principleIds",
+    "applicability",
+    "requiredElements",
+    "forbiddenElements",
+    "observableChecks",
+    "verificationMethods",
+    "accessibilityConsiderations",
+    "productDependencies",
+    "quantifiedRules",
+    "status",
+}
+MATERIAL_PATTERN_APPLICABILITY_FIELDS = {"useWhen", "doNotUseWhen"}
+MATERIAL_PATTERN_QUANTIFIED_RULE_FIELDS = {"statement", "claimIds", "scope"}
+MATERIAL_PATTERN_WALKTHROUGH_FIELDS = {
+    "id",
+    "label",
+    "patternIds",
+    "learnerQuestion",
+    "requiredInformation",
+    "action",
+    "feedback",
+    "teacherRole",
+    "barrier",
+    "verificationMethod",
+}
+MATERIAL_PATTERN_FAMILY_ORDER = (
+    "entry-and-orientation",
+    "worked-example-with-active-processing",
+    "linked-representations-and-signaling",
+    "prediction-execution-comparison",
+    "guided-practice-and-help",
+    "feedback-and-revision",
+    "retrieval-and-return",
+    "transfer",
+    "progress-and-reentry",
+    "accessible-alternative",
+)
+EXPECTED_MATERIAL_PATTERN_FAMILIES = set(MATERIAL_PATTERN_FAMILY_ORDER)
+EXPECTED_MATERIAL_WALKTHROUGHS = {
+    "entry",
+    "central-learning-action",
+    "securing-and-reentry",
+}
+MATERIAL_PATTERN_STATUSES = {"draft", "working", "reviewed"}
+MATERIAL_PATTERN_QUANTIFIED_SCOPES = {"conditional", "context-bound", "universal"}
+MATERIAL_PATTERN_NUMERIC_LIMIT_PATTERN = re.compile(
+    r"\b(?:\d+|ein(?:e[rmns]?)?|eins|zwei|drei|vier|fünf|sechs|sieben|acht|neun|zehn|elf|zwölf|"
+    r"dreizehn|vierzehn|fünfzehn|sechzehn|siebzehn|achtzehn|neunzehn|zwanzig)"
+    r"(?:\s*[-‑–]\s*(?:seitig\w*|minütig\w*|jährig\w*)|"
+    r"\s+(?:Seite(?:n)?|Min(?:\.|ute(?:n)?)?|Element(?:e|en)?|Jahr(?:e)?))\b|"
+    r"\b(?:zwei|drei|vier|fünf|sechs|sieben|acht|neun|zehn|elf|zwölf|dreizehn|"
+    r"vierzehn|fünfzehn|sechzehn|siebzehn|achtzehn|neunzehn|zwanzig)"
+    r"(?:seitig\w*|minütig\w*|jährig\w*)\b",
+    re.IGNORECASE,
+)
+MATERIAL_PATTERN_BOUNDED_COUNT_PATTERN = re.compile(
+    r"\b(?:mindestens|höchstens|maximal|genau)\s+"
+    r"(?:\d+|ein(?:e[rmns]?)?|eins|zwei|drei|vier|fünf|sechs|sieben|acht|neun|zehn|elf|zwölf|"
+    r"dreizehn|vierzehn|fünfzehn|sechzehn|siebzehn|achtzehn|neunzehn|zwanzig)"
+    r"(?:\s+[\w-]+){0,2}\s+"
+    r"(?:Produktlage(?:n)?|Ansicht(?:en)?|Abschnitt(?:e)?|Schritt(?:e)?|Karte(?:n)?|Kachel(?:n)?|"
+    r"Spalte(?:n)?|Zeile(?:n)?|Bildschirm(?:e)?)\b",
+    re.IGNORECASE,
+)
+MATERIAL_PATTERN_PRODUCT_FEATURE_PATTERN = re.compile(
+    r"\b(?:app[- ]?shell|pwa|react router|sidebar|navbar|routing|astro[- ]?komponente|"
+    r"dashboard[- ]?karte|weiter[- ]?button|button|schaltfläche|navigationsleiste|"
+    r"zurück[- ]?link|registerkarte|menü|akkordeon|dialogfenster|dropdown)\b",
+    re.IGNORECASE,
+)
+MATERIAL_PATTERN_VISUAL_SPEC_PATTERN = re.compile(
+    r"(?:\b\d+(?:[.,]\d+)?\s*(?:px|rem|em)\b|"
+    r"\b(?:ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun|zehn)[- ]?spaltig\w*\b|"
+    r"\brund\w*\s+(?:Karte|Kachel)\w*\b|\bSchatten\w*\b|"
+    r"\b(?:blau|rot|grün|gelb|orange|violett|lila|grau|schwarz|weiß)\w*\s+"
+    r"(?:Karte|Kachel|Überschrift|Button|Schaltfläche|Hintergrund)\b)",
+    re.IGNORECASE,
+)
+MATERIAL_PATTERN_LEARNER_UI_COPY_PATTERN = re.compile(
+    r"\b(?:klicke|tippe|drücke|ziehe|wähle|öffne|beginne|starte|wechsle|navigiere|löse)\b"
+    r"[^.!?]*\b(?:weiter|zurück|button|schaltfläche|karte|kachel|menü|link|registerkarte|aufgabe)\b",
+    re.IGNORECASE,
+)
+MATERIAL_PATTERN_SCHEMA_SHA256 = (
+    "09324B5AE1288DE5AC2204EBB97E012E3D72ACB6328374C47FB59120FA14831E"
 )
 ALLOWED_LEGACY_EXTERNAL_EVIDENCE = {
     (
@@ -5251,6 +5372,539 @@ def validate_learning_architecture_markdown(root: Path) -> list[str]:
     return errors
 
 
+def validate_material_patterns(
+    data: object,
+    learning_architecture: object,
+    evidence_register: object,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["LXF05-Materialgrammatik muss ein Objekt sein"]
+
+    errors: list[str] = []
+
+    def nested_strings(value: object) -> list[str]:
+        if isinstance(value, str):
+            return [value]
+        if isinstance(value, list):
+            return [text for item in value for text in nested_strings(item)]
+        if isinstance(value, dict):
+            return [text for item in value.values() for text in nested_strings(item)]
+        return []
+
+    def has_concrete_product_or_copy(text: str) -> bool:
+        return any(
+            pattern.search(text)
+            for pattern in (
+                MATERIAL_PATTERN_PRODUCT_FEATURE_PATTERN,
+                MATERIAL_PATTERN_VISUAL_SPEC_PATTERN,
+                MATERIAL_PATTERN_LEARNER_UI_COPY_PATTERN,
+            )
+        )
+    errors.extend(
+        _unknown_fields(data, MATERIAL_PATTERN_FIELDS, "LXF05-Materialgrammatik")
+    )
+    errors.extend(
+        _missing_fields(data, MATERIAL_PATTERN_FIELDS, "LXF05-Materialgrammatik")
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("LXF05-Materialgrammatik schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("LXF05-Materialgrammatik projectId muss ium-lernwerk sein")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("LXF05-Materialgrammatik asOf muss ein echtes Kalenderdatum sein")
+
+    scope = data.get("scope")
+    if not isinstance(scope, dict):
+        errors.append("LXF05-Materialgrammatik benötigt scope")
+    else:
+        errors.extend(_unknown_fields(scope, MATERIAL_PATTERN_SCOPE_FIELDS, "LXF05-Scope"))
+        errors.extend(_missing_fields(scope, MATERIAL_PATTERN_SCOPE_FIELDS, "LXF05-Scope"))
+        grade_errors, grades = _validate_lxf03_grades(scope.get("grades"), "LXF05-Scope")
+        errors.extend(grade_errors)
+        if set(grades) != REQUIREMENT_GRADES:
+            errors.append("LXF05-Scope muss genau die Klassen 5, 6 und 7 umfassen")
+        expected_scope = {
+            "schoolType": "Gymnasium Baden-Württemberg",
+            "level": "E",
+            "maturity": "working",
+            "contentProduction": "frozen",
+            "productBinding": "product-neutral",
+        }
+        for field, expected in expected_scope.items():
+            if scope.get(field) != expected:
+                errors.append(f"LXF05-Scope {field} muss {expected} sein")
+
+    policies = data.get("policies")
+    if not isinstance(policies, dict):
+        errors.append("LXF05-Materialgrammatik benötigt policies")
+    else:
+        errors.extend(
+            _unknown_fields(policies, MATERIAL_PATTERN_POLICY_FIELDS, "LXF05-Policies")
+        )
+        errors.extend(
+            _missing_fields(policies, MATERIAL_PATTERN_POLICY_FIELDS, "LXF05-Policies")
+        )
+        for field in sorted(MATERIAL_PATTERN_POLICY_FIELDS):
+            if policies.get(field) is not False:
+                errors.append(f"LXF05-Policy {field} muss false bleiben")
+
+    principles_by_id: dict[str, dict] = {}
+    functions_by_id: dict[str, dict] = {}
+    if isinstance(learning_architecture, dict):
+        groups = learning_architecture.get("principleGroups")
+        if isinstance(groups, list):
+            for group in groups:
+                principles = group.get("principles") if isinstance(group, dict) else None
+                if not isinstance(principles, list):
+                    continue
+                for principle in principles:
+                    if isinstance(principle, dict) and _nonempty_string(principle.get("id")):
+                        principles_by_id[principle["id"]] = principle
+        grammar = learning_architecture.get("learningFunctionGrammar")
+        functions = grammar.get("functions") if isinstance(grammar, dict) else None
+        if isinstance(functions, list):
+            functions_by_id = {
+                function["id"]: function
+                for function in functions
+                if isinstance(function, dict) and _nonempty_string(function.get("id"))
+            }
+    if not principles_by_id or not functions_by_id:
+        errors.append("LXF05-Materialgrammatik benötigt eine lesbare LXF04-Architektur")
+
+    raw_claims = evidence_register.get("claims") if isinstance(evidence_register, dict) else None
+    claims = raw_claims if isinstance(raw_claims, list) else []
+    known_claim_ids = {
+        claim["id"]
+        for claim in claims
+        if isinstance(claim, dict) and _nonempty_string(claim.get("id"))
+    }
+    if not known_claim_ids:
+        errors.append("LXF05-Materialgrammatik benötigt ein lesbares LXF02-Evidenzregister")
+
+    patterns = data.get("patterns")
+    patterns_by_id: dict[str, dict] = {}
+    families: set[str] = set()
+    if not isinstance(patterns, list) or not patterns:
+        errors.append("LXF05-Materialgrammatik benötigt patterns")
+        patterns = []
+    for position, pattern in enumerate(patterns):
+        if not isinstance(pattern, dict):
+            errors.append(f"LXF05-Pattern an Position {position} muss ein Objekt sein")
+            continue
+        pattern_id_value = pattern.get("id")
+        pattern_id = pattern_id_value if _nonempty_string(pattern_id_value) else f"<Position {position}>"
+        label = f"LXF05-Pattern {pattern_id}"
+        errors.extend(_unknown_fields(pattern, MATERIAL_PATTERN_RECORD_FIELDS, label))
+        for field in sorted(MATERIAL_PATTERN_RECORD_FIELDS - set(pattern)):
+            errors.append(f"{label} benötigt {field}")
+        if not _nonempty_string(pattern_id_value):
+            errors.append(f"{label} benötigt id")
+        elif not re.fullmatch(r"LXF05-PT-[0-9]{3}", pattern_id_value):
+            errors.append(f"{label} hat eine ungültige ID")
+        elif pattern_id_value in patterns_by_id:
+            errors.append(f"LXF05-Materialgrammatik enthält doppelte Pattern-ID {pattern_id_value}")
+        else:
+            patterns_by_id[pattern_id_value] = pattern
+
+        family = pattern.get("family")
+        if not isinstance(family, str) or family not in EXPECTED_MATERIAL_PATTERN_FAMILIES:
+            errors.append(f"{label} hat unbekannte Patternfamilie: {family}")
+        elif family in families:
+            errors.append(f"LXF05-Materialgrammatik enthält doppelte Patternfamilie: {family}")
+        else:
+            families.add(family)
+
+        for field in ("title", "learnerPurpose", "teacherPurpose"):
+            if not _nonempty_string(pattern.get(field)):
+                errors.append(f"{label} benötigt {field}")
+
+        function_errors, function_ids = _validate_lxf04_string_list(
+            pattern.get("learningFunctionIds"), label, "learningFunctionIds"
+        )
+        errors.extend(function_errors)
+        for function_id in function_ids:
+            if function_id not in functions_by_id:
+                errors.append(f"{label} referenziert unbekannte Lernfunktion {function_id}")
+
+        principle_errors, principle_ids = _validate_lxf04_string_list(
+            pattern.get("principleIds"), label, "principleIds"
+        )
+        errors.extend(principle_errors)
+        for principle_id in principle_ids:
+            principle = principles_by_id.get(principle_id)
+            if principle is None:
+                errors.append(f"{label} referenziert unbekanntes LXF04-Prinzip {principle_id}")
+            elif principle.get("status") != "reviewed":
+                errors.append(f"{label} referenziert LXF04-Prinzip {principle_id}; es ist nicht reviewed")
+
+        applicability = pattern.get("applicability")
+        if not isinstance(applicability, dict):
+            errors.append(f"{label} benötigt applicability")
+        else:
+            errors.extend(
+                _unknown_fields(
+                    applicability,
+                    MATERIAL_PATTERN_APPLICABILITY_FIELDS,
+                    f"{label} applicability",
+                )
+            )
+            for field in ("useWhen", "doNotUseWhen"):
+                field_errors, _values = _validate_lxf04_string_list(
+                    applicability.get(field), label, f"applicability.{field}"
+                )
+                errors.extend(field_errors)
+
+        for field in (
+            "requiredElements",
+            "forbiddenElements",
+            "observableChecks",
+            "verificationMethods",
+            "accessibilityConsiderations",
+        ):
+            field_errors, values = _validate_lxf04_string_list(
+                pattern.get(field), label, field
+            )
+            errors.extend(field_errors)
+            if field == "verificationMethods":
+                for method in values:
+                    if method not in LEARNING_ARCHITECTURE_VERIFICATION_METHODS:
+                        errors.append(f"{label} hat unbekannte Prüfmethode: {method}")
+                if values == ["automated-check"]:
+                    errors.append(f"{label} darf nicht nur automatisiert geprüft werden")
+                if not {"expert-review", "content-walkthrough"}.intersection(values):
+                    errors.append(
+                        f"{label} benötigt fachlichen Neutralitätsreview durch expert-review oder content-walkthrough"
+                    )
+
+        quantified_rules = pattern.get("quantifiedRules")
+        narrative = [
+            text
+            for field in (
+                "title",
+                "learnerPurpose",
+                "teacherPurpose",
+                "requiredElements",
+                "observableChecks",
+                "accessibilityConsiderations",
+            )
+            for text in nested_strings(pattern.get(field))
+            if _nonempty_string(text)
+        ]
+        if isinstance(applicability, dict):
+            narrative.extend(
+                text
+                for text in nested_strings(applicability.get("useWhen"))
+                if _nonempty_string(text)
+            )
+        if any(
+            MATERIAL_PATTERN_NUMERIC_LIMIT_PATTERN.search(value)
+            or MATERIAL_PATTERN_BOUNDED_COUNT_PATTERN.search(value)
+            for value in narrative
+        ):
+            errors.append(
+                f"{label} enthält eine numerische Seiten-, Element-, Minuten- oder Altersregel außerhalb quantifiedRules"
+            )
+        quantified_narrative = [
+            rule.get("statement")
+            for rule in quantified_rules
+            if isinstance(rule, dict) and _nonempty_string(rule.get("statement"))
+        ] if isinstance(quantified_rules, list) else []
+        if any(has_concrete_product_or_copy(value) for value in narrative + quantified_narrative):
+            errors.append(
+                f"{label} kodiert eine konkrete Produkt-, Darstellungs- oder Lernendentextvorgabe"
+            )
+
+        product_dependencies = pattern.get("productDependencies")
+        if not isinstance(product_dependencies, list):
+            errors.append(f"{label} benötigt productDependencies")
+        elif product_dependencies:
+            errors.append(f"{label} darf keine Produktabhängigkeit enthalten")
+
+        quantified_rules = pattern.get("quantifiedRules")
+        if not isinstance(quantified_rules, list):
+            errors.append(f"{label} benötigt quantifiedRules")
+            quantified_rules = []
+        for rule_position, rule in enumerate(quantified_rules):
+            rule_label = f"{label} Mengenregel {rule_position + 1}"
+            if not isinstance(rule, dict):
+                errors.append(f"{rule_label} muss ein Objekt sein")
+                continue
+            errors.extend(
+                _unknown_fields(rule, MATERIAL_PATTERN_QUANTIFIED_RULE_FIELDS, rule_label)
+            )
+            errors.extend(
+                _missing_fields(rule, MATERIAL_PATTERN_QUANTIFIED_RULE_FIELDS, rule_label)
+            )
+            statement = rule.get("statement")
+            if not _nonempty_string(statement):
+                errors.append(f"{rule_label} benötigt statement")
+            claim_errors, claim_ids = _validate_lxf04_string_list(
+                rule.get("claimIds"), rule_label, "claimIds"
+            )
+            errors.extend(claim_errors)
+            if (
+                _nonempty_string(statement)
+                and MATERIAL_PATTERN_NUMERIC_LIMIT_PATTERN.search(statement)
+                and not claim_ids
+            ):
+                errors.append(f"{rule_label} als Seiten- oder Minutenregel benötigt claimIds")
+            for claim_id in claim_ids:
+                if claim_id not in known_claim_ids:
+                    errors.append(f"{rule_label} referenziert unbekannten Claim {claim_id}")
+            scope_value = rule.get("scope")
+            if (
+                not isinstance(scope_value, str)
+                or scope_value not in MATERIAL_PATTERN_QUANTIFIED_SCOPES
+            ):
+                errors.append(f"{rule_label} hat unbekannten scope: {scope_value}")
+
+        status = pattern.get("status")
+        if not isinstance(status, str) or status not in MATERIAL_PATTERN_STATUSES:
+            errors.append(f"{label} hat unbekannten status: {status}")
+
+    for family in sorted(EXPECTED_MATERIAL_PATTERN_FAMILIES - families):
+        errors.append(f"LXF05-Materialgrammatik fehlt Patternfamilie: {family}")
+    for family in sorted(families - EXPECTED_MATERIAL_PATTERN_FAMILIES):
+        errors.append(f"LXF05-Materialgrammatik enthält unerwartete Patternfamilie: {family}")
+
+    walkthroughs = data.get("walkthroughs")
+    walkthrough_ids: set[str] = set()
+    referenced_pattern_ids: set[str] = set()
+    if not isinstance(walkthroughs, list) or not walkthroughs:
+        errors.append("LXF05-Materialgrammatik benötigt walkthroughs")
+        walkthroughs = []
+    for position, walkthrough in enumerate(walkthroughs):
+        if not isinstance(walkthrough, dict):
+            errors.append(f"LXF05-Walkthrough an Position {position} muss ein Objekt sein")
+            continue
+        walkthrough_id_value = walkthrough.get("id")
+        walkthrough_id = walkthrough_id_value if _nonempty_string(walkthrough_id_value) else f"<Position {position}>"
+        label = f"LXF05-Walkthrough {walkthrough_id}"
+        errors.extend(_unknown_fields(walkthrough, MATERIAL_PATTERN_WALKTHROUGH_FIELDS, label))
+        for field in sorted(MATERIAL_PATTERN_WALKTHROUGH_FIELDS - set(walkthrough)):
+            errors.append(f"{label} benötigt {field}")
+        if (
+            not isinstance(walkthrough_id_value, str)
+            or walkthrough_id_value not in EXPECTED_MATERIAL_WALKTHROUGHS
+        ):
+            errors.append(f"{label} hat eine unbekannte ID")
+        elif walkthrough_id_value in walkthrough_ids:
+            errors.append(f"LXF05-Materialgrammatik enthält doppelten Walkthrough {walkthrough_id_value}")
+        else:
+            walkthrough_ids.add(walkthrough_id_value)
+        for field in (
+            "label",
+            "learnerQuestion",
+            "requiredInformation",
+            "action",
+            "feedback",
+            "teacherRole",
+            "barrier",
+        ):
+            if not _nonempty_string(walkthrough.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        pattern_errors, pattern_ids = _validate_lxf04_string_list(
+            walkthrough.get("patternIds"), label, "patternIds"
+        )
+        errors.extend(pattern_errors)
+        for pattern_id in pattern_ids:
+            referenced_pattern_ids.add(pattern_id)
+            if pattern_id not in patterns_by_id:
+                errors.append(f"{label} referenziert unbekanntes Pattern {pattern_id}")
+        method = walkthrough.get("verificationMethod")
+        if (
+            not isinstance(method, str)
+            or method not in LEARNING_ARCHITECTURE_VERIFICATION_METHODS
+        ):
+            errors.append(f"{label} hat unbekannte verificationMethod: {method}")
+        elif method == "automated-check":
+            errors.append(f"{label} darf nicht nur automatisiert geprüft werden")
+        walkthrough_narrative = [
+            text
+            for field in (
+                "label",
+                "learnerQuestion",
+                "requiredInformation",
+                "action",
+                "feedback",
+                "teacherRole",
+                "barrier",
+            )
+            for text in nested_strings(walkthrough.get(field))
+            if _nonempty_string(text)
+        ]
+        if any(
+            MATERIAL_PATTERN_NUMERIC_LIMIT_PATTERN.search(value)
+            or MATERIAL_PATTERN_BOUNDED_COUNT_PATTERN.search(value)
+            for value in walkthrough_narrative
+        ):
+            errors.append(
+                f"{label} enthält eine numerische Seiten-, Element-, Minuten- oder Altersregel außerhalb quantifiedRules"
+            )
+        if any(has_concrete_product_or_copy(value) for value in walkthrough_narrative):
+            errors.append(
+                f"{label} kodiert eine konkrete Produkt-, Darstellungs- oder Lernendentextvorgabe"
+            )
+    for walkthrough_id in sorted(EXPECTED_MATERIAL_WALKTHROUGHS - walkthrough_ids):
+        errors.append(f"LXF05-Materialgrammatik fehlt Walkthrough: {walkthrough_id}")
+    unreviewed_patterns = sorted(set(patterns_by_id) - referenced_pattern_ids)
+    if unreviewed_patterns:
+        errors.append(
+            "LXF05-Materialgrammatik lässt Pattern ohne neutralen Walkthrough: "
+            + ", ".join(unreviewed_patterns)
+        )
+    return errors
+
+
+def validate_material_patterns_schema(root: Path) -> list[str]:
+    relative_path = Path("schemas/v2/material-patterns.schema.json")
+    path = root / relative_path
+    if not path.is_file():
+        return [f"LXF05-Schema fehlt: {relative_path.as_posix()}"]
+    try:
+        schema = load_json(path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return [f"LXF05-Schema ist kein gültiges JSON: {relative_path.as_posix()}"]
+    if not isinstance(schema, dict):
+        return ["LXF05-Schema muss ein Objekt sein"]
+    canonical_schema = json.dumps(
+        schema,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    if hashlib.sha256(canonical_schema).hexdigest().upper() != MATERIAL_PATTERN_SCHEMA_SHA256:
+        return ["LXF05-Schema weicht von der versiegelten Definition ab"]
+    return []
+
+
+def validate_material_experience_guide(root: Path) -> list[str]:
+    path = root / "roadmap/v2/foundations/learning-experience/material-experience-guide.md"
+    if not path.is_file():
+        return []
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return ["LXF05-Materialleitfaden ist nicht als UTF-8 lesbar"]
+    headings = [
+        "# LXF05 Material- und Experience-Grammatik",
+        "## Vertragsgrenzen",
+        "## Globale Gestaltungsregeln",
+        "## Zehn Patternfamilien",
+        "## Neutrale Walkthroughs",
+        "### Walkthrough 1: Einstieg und Orientierung",
+        "### Walkthrough 2: Zentrale Lernhandlung",
+        "### Walkthrough 3: Sicherung und Wiedereinstieg",
+        "## Lehrkraftvarianten",
+        "## Prüf- und Statuslogik",
+        "## WU-Abgleich",
+        "## Übergabegrenze",
+    ]
+    errors: list[str] = []
+    positions = [text.find(heading) for heading in headings]
+    for heading, position in zip(headings, positions):
+        if position < 0:
+            errors.append(f"LXF05-Materialleitfaden fehlt Überschrift: {heading}")
+    present = [position for position in positions if position >= 0]
+    if present != sorted(present):
+        errors.append("LXF05-Materialleitfaden hat eine unerwartete Abschnittsreihenfolge")
+    for family in MATERIAL_PATTERN_FAMILY_ORDER:
+        if family not in text:
+            errors.append(f"LXF05-Materialleitfaden fehlt Patternfamilie: {family}")
+    for pattern_number in range(1, 11):
+        pattern_id = f"LXF05-PT-{pattern_number:03d}"
+        if pattern_id not in text:
+            errors.append(f"LXF05-Materialleitfaden fehlt Pattern: {pattern_id}")
+    required_terms = (
+        "Kohärenz",
+        "Informationshierarchie",
+        "Signaling",
+        "räumlich",
+        "zeitlich",
+        "Segmentierung",
+        "progressive Offenlegung",
+        "Sprache",
+        "Lesbarkeit",
+        "Hilfe",
+        "Wahl",
+        "Gamification",
+        "Mediensemantik",
+        "Feedbackhierarchie",
+        "Status",
+        "Fehlerbehebung",
+        "Wiedereinstieg",
+        "Print",
+        "Nicht-JavaScript",
+        "schmale",
+        "breite",
+    )
+    for term in required_terms:
+        if term.casefold() not in text.casefold():
+            errors.append(f"LXF05-Materialleitfaden fehlt Gestaltungsbegriff: {term}")
+    walkthrough_headings = (
+        "### Walkthrough 1: Einstieg und Orientierung",
+        "### Walkthrough 2: Zentrale Lernhandlung",
+        "### Walkthrough 3: Sicherung und Wiedereinstieg",
+    )
+    walkthrough_ends = (
+        walkthrough_headings[1],
+        walkthrough_headings[2],
+        "## Lehrkraftvarianten",
+    )
+    required_rows = (
+        "Lernendenfrage",
+        "Erforderliche Information",
+        "Handlung",
+        "Rückmeldung",
+        "Lehrkraftrolle",
+        "Barriere",
+        "Prüfmethode",
+    )
+    for heading, end_heading in zip(walkthrough_headings, walkthrough_ends):
+        start = text.find(heading)
+        end = text.find(end_heading, start + len(heading)) if start >= 0 else -1
+        if start < 0 or end < 0:
+            continue
+        block = text[start:end]
+        lines = block.splitlines()
+        header_indexes = [
+            index
+            for index, line in enumerate(lines)
+            if line.strip() == "| Prüffeld | Abstrakte Ausprägung |"
+        ]
+        table_complete = len(header_indexes) == 1
+        table_rows: list[list[str]] = []
+        if table_complete:
+            header_index = header_indexes[0]
+            separator_index = header_index + 1
+            table_complete = (
+                separator_index < len(lines)
+                and lines[separator_index].strip() == "|---|---|"
+            )
+            row_index = separator_index + 1
+            while table_complete and row_index < len(lines):
+                row = lines[row_index].strip()
+                if not row.startswith("|"):
+                    break
+                cells = [cell.strip() for cell in row.strip("|").split("|")]
+                table_rows.append(cells)
+                row_index += 1
+            table_complete = (
+                len(table_rows) == len(required_rows)
+                and all(
+                    len(cells) == 2
+                    and cells[0] == required_row
+                    and bool(cells[1])
+                    for cells, required_row in zip(table_rows, required_rows)
+                )
+            )
+        if not table_complete:
+            errors.append(
+                f"LXF05-Materialleitfaden hat eine unvollständige Walkthrough-Tabelle: {heading}"
+            )
+    return errors
+
+
 def validate_source_schemas(root: Path) -> list[str]:
     resolved_semantics = [
         {
@@ -5706,6 +6360,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
     learning_architecture_path = Path(
         "roadmap/v2/foundations/learning-experience/learning-architecture.json"
     )
+    learning_architecture: object = {}
     path = root / learning_architecture_path
     if path.is_file():
         try:
@@ -5715,6 +6370,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
                 f"{learning_architecture_path.as_posix()} ist kein gültiges JSON"
             )
         else:
+            learning_architecture = data
             errors.extend(
                 validate_learning_architecture(
                     data,
@@ -5729,6 +6385,30 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         if not error.startswith("LXF04-Schema fehlt:")
     )
     errors.extend(validate_learning_architecture_markdown(root))
+
+    material_patterns_path = Path(
+        "roadmap/v2/foundations/learning-experience/material-patterns.json"
+    )
+    path = root / material_patterns_path
+    if path.is_file():
+        try:
+            data = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(f"{material_patterns_path.as_posix()} ist kein gültiges JSON")
+        else:
+            errors.extend(
+                validate_material_patterns(
+                    data,
+                    learning_architecture,
+                    learning_evidence_register,
+                )
+            )
+    errors.extend(
+        error
+        for error in validate_material_patterns_schema(root)
+        if not error.startswith("LXF05-Schema fehlt:")
+    )
+    errors.extend(validate_material_experience_guide(root))
     return errors, warnings
 
 

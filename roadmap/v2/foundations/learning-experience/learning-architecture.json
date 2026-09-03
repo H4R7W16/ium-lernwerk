@@ -35,7 +35,7 @@
             "Das Produkt zeigt eine Erklärung, Begründung, Anwendung, Analyse oder Revision statt bloßer Aktivität."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-002",
@@ -58,7 +58,7 @@
             "Lernende können Zweck und nächste Verwendung ihres Produkts erklären."
           ],
           "verificationMethods": ["content-walkthrough", "usability-test", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -87,7 +87,7 @@
             "Mindestens eine dokumentierte Anschlussoption reagiert auf unterschiedliche Produktlagen."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-004",
@@ -115,7 +115,7 @@
             "Nach einem Segment ist eine zentrale Beziehung erklärbar oder anwendbar."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "usability-test"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -144,7 +144,7 @@
             "Das resultierende Produkt kann fachlich interpretiert und besprochen werden."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "usability-test"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-006",
@@ -167,7 +167,7 @@
             "Der Qualitätsmaßstab unterscheidet fachliche Genauigkeit von Bediengeschick."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -196,7 +196,7 @@
             "Eine anschließende Aufgabe verlangt mindestens eine eigenständige Anwendung."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-008",
@@ -223,7 +223,7 @@
             "Die Zuordnung bleibt auch ohne Farbe oder Animation verständlich."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "accessibility-audit", "usability-test"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-009",
@@ -246,7 +246,7 @@
             "Die Erklärung nimmt sichtbar auf mindestens ein Produkt, eine Frage oder einen Fehlweg Bezug."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -275,7 +275,7 @@
             "Feedbackzeitpunkt und zulässige Unterstützung passen zum Aufgabentyp."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-011",
@@ -303,7 +303,7 @@
             "Die Lehrkraft kann Hürde, Hilfezweck und Rückgabepunkt benennen."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "usability-test", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -332,7 +332,7 @@
             "Vorheriger und revidierter Stand bleiben für Vergleich oder Gespräch verfügbar."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "usability-test", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-013",
@@ -355,7 +355,7 @@
             "Die Dokumentation nennt den Nachweis ausdrücklich nur als unmittelbare Anwendung."
           ],
           "verificationMethods": ["content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-014",
@@ -378,7 +378,7 @@
             "Zeitpunkt, Hilfen und beobachtbares Produkt sind getrennt dokumentiert."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-015",
@@ -401,7 +401,7 @@
             "Das Produkt enthält eine Begründung der Übertragung oder Anpassung."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -430,7 +430,7 @@
             "Nach Fehler, Unterbrechung oder Ansichtswechsel bleibt der fachliche Zustand rekonstruierbar."
           ],
           "verificationMethods": ["content-walkthrough", "accessibility-audit", "usability-test"],
-          "status": "working"
+          "status": "reviewed"
         },
         {
           "id": "LXF04-PR-017",
@@ -453,7 +453,7 @@
             "Für Alternativen liegt ein fachlicher Äquivalenzvergleich vor."
           ],
           "verificationMethods": ["expert-review", "accessibility-audit", "usability-test", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     },
@@ -486,7 +486,7 @@
             "Die Lehrkraft kann am Produkt statt an personenbezogenen Verlaufsdaten entscheiden."
           ],
           "verificationMethods": ["expert-review", "content-walkthrough", "usability-test", "classroom-pilot"],
-          "status": "working"
+          "status": "reviewed"
         }
       ]
     }

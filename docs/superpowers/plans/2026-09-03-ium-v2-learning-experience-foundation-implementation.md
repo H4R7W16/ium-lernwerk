@@ -348,17 +348,17 @@ git commit -m "docs(lxf04): derive evidence bounded learning architecture"
 - Consumes: reviewed LXF04 principles
 - Produces: reusable patterns and anti-patterns without product components or visual styling
 
-- [ ] **Step 1: Add failing pattern traceability tests**
+- [x] **Step 1: Add failing pattern traceability tests**
 
 Reject a pattern without principle IDs, learner purpose, teacher purpose, applicability, required elements, forbidden elements, observable checks, or accessibility considerations. Reject page-count and minute-count universals that lack a claim reference.
 
-- [ ] **Step 2: Run the tests and confirm the missing-pattern failure**
+- [x] **Step 2: Run the tests and confirm the missing-pattern failure**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failure naming `material-patterns.json`.
 
-- [ ] **Step 3: Define the minimum pattern families**
+- [x] **Step 3: Define the minimum pattern families**
 
 Create bounded patterns for:
 
@@ -377,15 +377,15 @@ accessible-alternative
 
 Each pattern must explain when not to use it.
 
-- [ ] **Step 4: Write the material and experience guide**
+- [x] **Step 4: Write the material and experience guide**
 
 Document coherence, signaling, spatial and temporal correspondence, purposeful segmentation, progressive disclosure, language, help proximity, state visibility, error recovery, meaningful choice, and the prohibition on decorative gamification as universal rules.
 
-- [ ] **Step 5: Review against neutral skeletons only**
+- [x] **Step 5: Review against neutral skeletons only**
 
 Create no learner-facing module. Use three abstract walkthrough tables representing entry, central learning action, and securing/re-entry. Each table records learner question, required information, action, feedback, teacher role, barrier, and verification method.
 
-- [ ] **Step 6: Validate and commit LXF05**
+- [x] **Step 6: Validate and commit LXF05**
 
 Run: `npm run verify:v2`
 

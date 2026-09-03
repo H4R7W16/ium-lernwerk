@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "scope": {
+    "grades": [5, 6, 7],
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "level": "E",
+    "maturity": "working",
+    "contentProduction": "frozen",
+    "productBinding": "product-neutral"
+  },
+  "policies": {
+    "universalPageTemplate": false,
+    "universalElementLimit": false,
+    "universalMinuteLimit": false,
+    "decorativeGamificationDefault": false,
+    "productComponentsAllowed": false,
+    "learnerFacingContentAllowed": false
+  },
+  "patterns": [
+    {
+      "id": "LXF05-PT-001",
+      "family": "entry-and-orientation",
+      "title": "Zielklarer Einstieg mit aufgabenbezogenem Ausgangsprodukt",
+      "learnerPurpose": "Ziel, Zweck, erwartete fachliche Handlung und ersten Schritt erkennen und eine aufgabenbezogene Ausgangsvorstellung sichtbar machen.",
+      "teacherPurpose": "Unterschiedliche Ausgangslagen an einem kleinen fachlichen Produkt erkennen und den nächsten Übergang begründet wählen.",
+      "learningFunctionIds": ["orient", "surface-prior-knowledge"],
+      "principleIds": ["LXF04-PR-001", "LXF04-PR-002", "LXF04-PR-003", "LXF04-PR-016", "LXF04-PR-018"],
+      "applicability": {
+        "useWhen": [
+          "Der Lernbogen neu beginnt oder nach einer Unterbrechung wieder aufgenommen wird.",
+          "Das folgende Lernen an einer begrenzten Ausgangsvorstellung oder einem relevanten Vorwissen anschließt."
+        ],
+        "doNotUseWhen": [
+          "Eine unverbindliche Stimmungsfrage keinen fachlichen Anschluss steuert.",
+          "Die Lehrkraft aus der Einzelantwort eine stabile Personen- oder Defizitdiagnose ableiten müsste."
+        ]
+      },
+      "requiredElements": [
+        "Fachlicher Zielzustand und Zweck des entstehenden Produkts",
+        "Sichtbarer erster Schritt ohne Suche in einer Produktoberfläche",
+        "Kleines Ausgangsprodukt mit dokumentierter Anschlussentscheidung"
+      ],
+      "forbiddenElements": [
+        "Pflicht zur persönlichen oder öffentlichen Selbstauskunft",
+        "Dekorative Begrüßung ohne Lernfunktion",
+        "Vollständiger Lernendenpfad als starre Vorabnavigation"
+      ],
+      "observableChecks": [
+        "Ziel, erste Handlung und erwartetes Produkt benennen dieselbe fachliche Beziehung.",
+        "Für unterscheidbare Produktlagen sind passende Anschlussoptionen beschrieben."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Ziel, Status und erster Schritt sind textlich und nicht nur über Farbe, Position oder Symbolik erkennbar.",
+        "Das Ausgangsprodukt kann ohne persönliche Offenlegung und über mindestens einen gleichwertigen Ausdrucksweg entstehen."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-002",
+      "family": "worked-example-with-active-processing",
+      "title": "Bearbeitetes Beispiel mit Entscheidungs- und Begründungsstopps",
+      "learnerPurpose": "Eine fachliche Vorgehensweise an einem sichtbaren Modell nachvollziehen, vorhersagen, begründen und in einen eigenen nahen Schritt überführen.",
+      "teacherPurpose": "Fehlende Begriffe, Beziehungen oder Verfahrensschritte erkennen, ohne ein beobachtetes Beispiel mit eigenständiger Anwendung zu verwechseln.",
+      "learningFunctionIds": ["explain-or-model", "guided-action", "independent-application"],
+      "principleIds": ["LXF04-PR-004", "LXF04-PR-007", "LXF04-PR-009", "LXF04-PR-011", "LXF04-PR-013"],
+      "applicability": {
+        "useWhen": [
+          "Ein neuer, mehrschrittiger oder fehleranfälliger Zusammenhang explizite Modellierung benötigt.",
+          "Das Beispiel durch Vorhersage, Selbstklärung oder einen unvollständigen Schritt aktiv verarbeitet werden kann."
+        ],
+        "doNotUseWhen": [
+          "Ein vollständiges Muster nur kopiert oder passiv abgespielt werden soll.",
+          "Der fachliche Kern bereits sicher beherrscht wird und das Beispiel eigenständiges Denken unnötig ersetzt."
+        ]
+      },
+      "requiredElements": [
+        "Sichtbarer Bezug zwischen Entscheidung, fachlicher Begründung und Ergebniszustand",
+        "Aktiver Verarbeitungsstopp vor oder innerhalb eines Kernschritts",
+        "Unmittelbare Anwendung ohne vollständige Vorlage"
+      ],
+      "forbiddenElements": [
+        "Automatisches Durchklicken als aktive Verarbeitung",
+        "Gleichzeitige Vollvorlage während der eigenständigen Anwendung",
+        "Erfolgsaussage allein aus dem Nachvollziehen des Beispiels"
+      ],
+      "observableChecks": [
+        "Mindestens ein Kernschritt wird vor dem Anzeigen vorhergesagt, begründet oder ergänzt.",
+        "Die anschließende Anwendung erzeugt einen eigenständigen fachlichen Kernschritt."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Schritt, Zustand und Begründung bleiben auch ohne Animation oder Audio nachvollziehbar.",
+        "Aktive Stopps sind per Tastatur, Touch und Textalternative erreichbar."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-003",
+      "family": "linked-representations-and-signaling",
+      "title": "Fachlich verknüpfte Repräsentationen mit sparsamen Signalen",
+      "learnerPurpose": "Zusammengehörige Elemente in Text, Bild, Code, Modell, Tabelle oder Zustand erkennen und ihre Beziehung erklären.",
+      "teacherPurpose": "Prüfen, ob Darstellungen dieselbe fachliche Beziehung kohärent tragen oder vermeidbare Such- und Übersetzungsarbeit erzeugen.",
+      "learningFunctionIds": ["explain-or-model", "guided-action"],
+      "principleIds": ["LXF04-PR-004", "LXF04-PR-006", "LXF04-PR-008", "LXF04-PR-017"],
+      "applicability": {
+        "useWhen": [
+          "Mehrere Repräsentationen für das Verständnis einer fachlichen Beziehung erforderlich sind.",
+          "Ein Signal eine konkrete Zuordnung, Veränderung oder Abhängigkeit sichtbar machen kann."
+        ],
+        "doNotUseWhen": [
+          "Eine zweite Darstellung nur dekorativ oder redundant hinzukommt.",
+          "Farbe, Bewegung oder räumliche Nähe ohne benennbare fachliche Beziehung eingesetzt werden."
+        ]
+      },
+      "requiredElements": [
+        "Konsistente Begriffe und Zustandsbezeichner über alle Darstellungen",
+        "Räumlich oder textlich auffindbare Verbindung zusammengehöriger Elemente",
+        "Legende oder Beschriftung für jedes fachlich relevante Signal"
+      ],
+      "forbiddenElements": [
+        "Dekorative Hervorhebung ohne fachlichen Referenten",
+        "Widersprüchliche Zustände oder Bezeichnungen zwischen Darstellungen",
+        "Verständnisabhängigkeit von Farbe allein"
+      ],
+      "observableChecks": [
+        "Für jedes Signal lässt sich die markierte fachliche Beziehung benennen.",
+        "Eine fachkundige Person kann zusammengehörige Elemente ohne Wechsel in eine nicht sichtbare Ansicht zuordnen."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "accessibility-audit", "usability-test"],
+      "accessibilityConsiderations": [
+        "Zuordnungen besitzen textliche, strukturelle oder formbezogene Hinweise zusätzlich zu Farbe.",
+        "Zeitabhängige Veränderungen lassen sich anhalten, schrittweise prüfen oder in einer statischen Alternative nachvollziehen."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-004",
+      "family": "prediction-execution-comparison",
+      "title": "Vorhersagen, ausführen, Zustände vergleichen und revidieren",
+      "learnerPurpose": "Eine fachlich begründete Erwartung erzeugen, einen Prozess oder ein Modell ausführen und Abweichungen zur Revision nutzen.",
+      "teacherPurpose": "Vorstellungen und Fehlwege an einem sachbezogenen Vergleich sichtbar machen und gezielt an die nächste Erklärung oder Übung anschließen.",
+      "learningFunctionIds": ["surface-prior-knowledge", "open-disciplinary-problem", "guided-action", "use-feedback"],
+      "principleIds": ["LXF04-PR-003", "LXF04-PR-005", "LXF04-PR-006", "LXF04-PR-009", "LXF04-PR-012"],
+      "applicability": {
+        "useWhen": [
+          "Ein erwarteter und ein beobachtbarer Zustand fachlich sinnvoll verglichen werden können.",
+          "Eine Abweichung eine Erklärung, Modellrevision oder Verfahrenskorrektur auslösen kann."
+        ],
+        "doNotUseWhen": [
+          "Die Ausführung nur Überraschung oder Showeffekt erzeugt.",
+          "Die Vorhersage ohne Begründung abgefragt und anschließend nicht wieder aufgegriffen wird."
+        ]
+      },
+      "requiredElements": [
+        "Gespeicherte oder nebeneinander rekonstruierbare Vorhersage",
+        "Beobachtbarer Ausführungs- oder Ergebniszustand",
+        "Vergleichsfrage mit fachlicher Revisionshandlung"
+      ],
+      "forbiddenElements": [
+        "Richtig-falsch-Rückmeldung ohne Vergleichsbegründung",
+        "Verdeckte Zustandsänderung ohne rekonstruierbare Ursache",
+        "Personenbewertung aus einer einzelnen Fehlvorhersage"
+      ],
+      "observableChecks": [
+        "Vorhersage und Ergebnis können auf dieselben Merkmale bezogen verglichen werden.",
+        "Eine Abweichung führt sichtbar zu Erklärung, Korrektur oder begründeter Beibehaltung."
+      ],
+      "verificationMethods": ["content-walkthrough", "usability-test", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Ausgangs- und Ergebniszustand sind textlich unterscheidbar und nicht nur animiert.",
+        "Die Revision kann ohne zeitkritische Eingabe oder Drag-and-drop erfolgen."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-005",
+      "family": "guided-practice-and-help",
+      "title": "Hürdenbezogene Hilfe mit erhaltener Kernhandlung",
+      "learnerPurpose": "Eine anspruchsvolle fachliche Handlung mit passender, selbst oder durch die Lehrkraft ausgelöster Unterstützung bewältigen und Unterstützung schrittweise reduzieren.",
+      "teacherPurpose": "Hilfe an beobachtbare Hürde und Produktstelle koppeln, statt Anspruch pauschal zu senken oder den Kernschritt vorwegzunehmen.",
+      "learningFunctionIds": ["guided-action", "independent-application"],
+      "principleIds": ["LXF04-PR-005", "LXF04-PR-010", "LXF04-PR-011", "LXF04-PR-013", "LXF04-PR-018"],
+      "applicability": {
+        "useWhen": [
+          "Eine wahrscheinliche fachliche, sprachliche, darstellungsbezogene oder bedienbezogene Hürde beschrieben ist.",
+          "Die Hilfe einen nächsten eigenständigen Schritt ermöglicht und später zurückgenommen werden kann."
+        ],
+        "doNotUseWhen": [
+          "Eine Musterlösung die fachliche Kernhandlung vollständig ersetzt.",
+          "Alle Lernenden dieselbe Hilfe unabhängig von Produkt und Bedarf erhalten."
+        ]
+      },
+      "requiredElements": [
+        "Benannte Hürde und Auslösekriterium der Hilfe",
+        "Begrenzter Hinweis, Teilmodell, Sprachgerüst oder Kontrollfrage",
+        "Rückkehr zur unveränderten fachlichen Kernhandlung"
+      ],
+      "forbiddenElements": [
+        "Automatisches Lösen des Kernschritts",
+        "Defizitlabel oder dauerhafte Personenstufe",
+        "Hilfe ohne Möglichkeit zur selbstständigen Weiterarbeit"
+      ],
+      "observableChecks": [
+        "Für jede Hilfe sind Hürde, unterstützter Schritt und Rücknahmepunkt benennbar.",
+        "Das nach der Hilfe entstehende Produkt enthält weiterhin eine eigenständige fachliche Leistung."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Hilfen sind am Bearbeitungsschritt auffindbar und nicht von Hover, Farbe oder versteckter Navigation abhängig.",
+        "Alternative Ausdrucks- oder Bedienwege verändern Ziel, Kernhandlung und Qualitätskriterium nicht."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-006",
+      "family": "feedback-and-revision",
+      "title": "Kriteriumsbezogene Rückmeldung mit sichtbarer Revision",
+      "learnerPurpose": "Am eigenen Produkt erkennen, wo es im Verhältnis zum Ziel steht, welche fachliche Beziehung zu prüfen ist und welche nächste Handlung möglich ist.",
+      "teacherPurpose": "Rückmeldung auf Aufgabe, Prozess oder Selbstregulation begrenzen und ihre Nutzung an einer konkreten Produktrevision beobachten.",
+      "learningFunctionIds": ["use-feedback", "independent-application"],
+      "principleIds": ["LXF04-PR-010", "LXF04-PR-012", "LXF04-PR-017", "LXF04-PR-018"],
+      "applicability": {
+        "useWhen": [
+          "Ein revidierbares Lernprodukt und verständliche fachliche Kriterien vorliegen.",
+          "Nach der Rückmeldung noch Zeit und Handlungsspielraum für Weiterarbeit bestehen."
+        ],
+        "doNotUseWhen": [
+          "Nur Leistung abschließend bewertet oder sozial verglichen werden soll.",
+          "Punkte, Lob, Ampelfarbe oder richtig-falsch keine nächste fachliche Handlung eröffnen."
+        ]
+      },
+      "requiredElements": [
+        "Verbindung aus Ziel oder Kriterium, konkreter Produktstelle und nächster Handlung",
+        "Revisionsmöglichkeit mit erkennbarem Ausgangs- und Folgestand",
+        "Trennung formativer Rückmeldung von summativer Bewertung"
+      ],
+      "forbiddenElements": [
+        "Personenbezogenes Lob oder Defiziturteil als alleinige Information",
+        "Punktestand, Badge oder Rangfolge als Lernrückmeldung",
+        "Automatische Korrektur ohne Gelegenheit zur eigenen Revision"
+      ],
+      "observableChecks": [
+        "Die Rückmeldung benennt einen fachlich überprüfbaren nächsten Schritt.",
+        "Ausgangs- und Revisionsstand lassen sich am gleichen Kriterium vergleichen."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "usability-test", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Rückmeldestatus und nächste Handlung sind in verständlicher Sprache und nicht nur farblich kodiert.",
+        "Automatisch erzeugte Rückmeldung besitzt einen erreichbaren menschlichen Klärungs- oder Fallbackpfad."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-007",
+      "family": "retrieval-and-return",
+      "title": "Verzögerter Abruf mit rekonstruierbarem Rückkehrkontext",
+      "learnerPurpose": "Eine früher gesicherte fachliche Beziehung nach einer Unterbrechung aktiv rekonstruieren und erneut nutzen.",
+      "teacherPurpose": "Verzögerten Abruf von bloßer Wiederexposition unterscheiden und den beobachteten Stand für Wiederaufnahme oder erneute Unterstützung nutzen.",
+      "learningFunctionIds": ["orient", "independent-application", "secure-and-transfer"],
+      "principleIds": ["LXF04-PR-014", "LXF04-PR-016", "LXF04-PR-018"],
+      "applicability": {
+        "useWhen": [
+          "Eine frühere Sicherung vorliegt und nach einer realen Unterbrechung wieder aufgenommen wird.",
+          "Abruf oder erneute Anwendung ohne vollständige Vorlage möglich ist."
+        ],
+        "doNotUseWhen": [
+          "Der Inhalt unmittelbar zuvor vollständig angezeigt wurde.",
+          "Ein optimaler Abstand oder gleicher Abrufplan für alle Kontexte behauptet werden müsste."
+        ]
+      },
+      "requiredElements": [
+        "Eindeutiger Bezug zur früher gesicherten fachlichen Beziehung",
+        "Aktiver Abruf vor Wiederanzeige oder Hilfe",
+        "Anschlussoption für tragfähigen, lückenhaften oder fehlenden Abruf"
+      ],
+      "forbiddenElements": [
+        "Wiederlesen als alleiniger Abrufnachweis",
+        "Starre Zeitvorgabe ohne fachlichen oder empirischen Kontext",
+        "Dauerhaftes Personenprofil aus einem einzelnen Abrufprodukt"
+      ],
+      "observableChecks": [
+        "Die relevante Beziehung wird vor einer vollständigen Wiederexposition erzeugt oder angewendet.",
+        "Die Folgehandlung reagiert auf das konkrete Abrufprodukt."
+      ],
+      "verificationMethods": ["content-walkthrough", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Rückkehrkontext, Aufgabe und verfügbare Hilfe sind ohne Erinnerung an eine frühere Navigation verständlich.",
+        "Eine technische Unterbrechung löscht weder das fachliche Produkt noch den nachvollziehbaren Arbeitsstand."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-008",
+      "family": "transfer",
+      "title": "Transfer über veränderte fachliche Bedingungen",
+      "learnerPurpose": "Eine gelernte Beziehung auf eine substanziell veränderte Aufgabe, Repräsentation oder Bedingung übertragen und die Anpassung begründen.",
+      "teacherPurpose": "Transfer von bloßer Oberflächenvariation oder identischer Schrittfolge unterscheiden und die übertragene Beziehung fachlich prüfen.",
+      "learningFunctionIds": ["independent-application", "secure-and-transfer"],
+      "principleIds": ["LXF04-PR-006", "LXF04-PR-013", "LXF04-PR-015"],
+      "applicability": {
+        "useWhen": [
+          "Zielwissen zuvor aufgebaut und an einem nahen Fall angewendet wurde.",
+          "Die neue Aufgabe mindestens eine fachlich relevante Bedingung oder Repräsentation verändert."
+        ],
+        "doNotUseWhen": [
+          "Nur Namen, Farben, Zahlenwerte oder Oberflächenmerkmale ausgetauscht werden.",
+          "Die neue Situation zusätzliches, noch nicht aufgebautes Wissen als versteckte Hürde verlangt."
+        ]
+      },
+      "requiredElements": [
+        "Benannte fachlich relevante Veränderung gegenüber der Ausgangsaufgabe",
+        "Eigenständige Auswahl oder Anpassung einer Beziehung oder Vorgehensweise",
+        "Begründung, was übertragen, verändert oder verworfen wurde"
+      ],
+      "forbiddenElements": [
+        "Transferbehauptung allein aufgrund eines neuen Layouts oder Kontextschilds",
+        "Vollständige Wiederholung derselben Schrittfolge mit ausgetauschten Werten",
+        "Bewertung einer nicht vorbereiteten Zusatzanforderung als Transfer"
+      ],
+      "observableChecks": [
+        "Die veränderte Bedingung und ihre Auswirkung auf die Lösung sind fachlich benennbar.",
+        "Das Produkt enthält eine begründete Anpassung statt bloßer Wiederholung."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Die neue Anforderung liegt in der fachlichen Beziehung und nicht in einem unnötig erschwerten Bedien- oder Sprachweg.",
+        "Alternative Darstellungen bewahren die relevante Transferanforderung."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-009",
+      "family": "progress-and-reentry",
+      "title": "Sachlicher Arbeitsstand mit sicherem Wiedereinstieg",
+      "learnerPurpose": "Erkennen, was bearbeitet, fachlich gesichert, offen oder als Nächstes zu tun ist, ohne Status mit Können oder Wertung zu verwechseln.",
+      "teacherPurpose": "Arbeitsfluss und Wiederaufnahme unterstützen, ohne aus Bearbeitungsdaten einen Lern- oder Personenstatus abzuleiten.",
+      "learningFunctionIds": ["orient", "secure-and-transfer"],
+      "principleIds": ["LXF04-PR-002", "LXF04-PR-016", "LXF04-PR-017", "LXF04-PR-018"],
+      "applicability": {
+        "useWhen": [
+          "Ein Lernbogen unterbrochen, über mehrere Termine verteilt oder an einem Haltepunkt gesichert wird.",
+          "Lernende und Lehrkraft zwischen Arbeitsstand, Lernnachweis und Freigabe unterscheiden müssen."
+        ],
+        "doNotUseWhen": [
+          "Fortschritt nur als Prozent, Punktezahl, Rang oder lineare Seitenfolge dargestellt werden kann.",
+          "Klicks, Zeit oder erledigte Elemente als Kompetenzbeleg ausgegeben werden."
+        ]
+      },
+      "requiredElements": [
+        "Textlich benannter letzter fachlicher Stand",
+        "Unterscheidung von bearbeitet, geprüft, offen und nicht anwendbar",
+        "Nächste fachliche Handlung sowie Wiederherstellungs- oder Fallbackpfad"
+      ],
+      "forbiddenElements": [
+        "Pauschaler Prozentfortschritt als Lernstand",
+        "Streak, Badge oder Rangliste als Standardmotivation",
+        "Zwang zur linearen Navigation ohne fachliche Begründung"
+      ],
+      "observableChecks": [
+        "Nach einer Unterbrechung sind Produktstand, offene Entscheidung und nächster Schritt rekonstruierbar.",
+        "Die Statusdarstellung beansprucht weder Kompetenzdiagnose noch Freigabe."
+      ],
+      "verificationMethods": ["content-walkthrough", "accessibility-audit", "usability-test"],
+      "accessibilityConsiderations": [
+        "Statusunterschiede sind textlich und semantisch statt allein über Farbe, Position oder Animation codiert.",
+        "Fokus, Eingaben und gesicherter Stand bleiben nach Rückkehr oder Fehlerbehebung nachvollziehbar."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    },
+    {
+      "id": "LXF05-PT-010",
+      "family": "accessible-alternative",
+      "title": "Gleichwertiger Zugangs-, Ausdrucks- und Fallbackpfad",
+      "learnerPurpose": "Dieselbe fachliche Kernhandlung und dasselbe Qualitätskriterium über einen zugänglichen alternativen Darstellungs-, Bedien- oder Ausdrucksweg bearbeiten.",
+      "teacherPurpose": "Barrieren und Technikfehler auffangen, ohne Lernziel, Denkhandlung oder Anspruch verdeckt zu verändern.",
+      "learningFunctionIds": ["orient", "explain-or-model", "guided-action", "independent-application", "use-feedback", "secure-and-transfer"],
+      "principleIds": ["LXF04-PR-004", "LXF04-PR-006", "LXF04-PR-011", "LXF04-PR-016", "LXF04-PR-017", "LXF04-PR-018"],
+      "applicability": {
+        "useWhen": [
+          "Ein Material visuelle, auditive, motorische, sprachliche, technische oder situationsbezogene Barrieren erzeugen kann.",
+          "Ein digitaler Schritt bei Technik- oder Netzausfall lernfunktional fortsetzbar sein muss."
+        ],
+        "doNotUseWhen": [
+          "Die Alternative die fachliche Kernhandlung entfernt oder nur eine formal vorhandene, ungleichwertige Kurzfassung ist.",
+          "Zugänglichkeit allein als technische Konformität ohne Funktions- und Lernprüfung behandelt wird."
+        ]
+      },
+      "requiredElements": [
+        "Benannte Barriere und betroffene fachliche oder organisatorische Funktion",
+        "Gleichwertiger alternativer Zugangs-, Bedien- oder Ausdrucksweg",
+        "Print- oder Nicht-JavaScript-Fallback, sofern die Lernfunktion ohne Laufzeit fortsetzbar sein muss",
+        "Unverändertes Ziel, Kernhandlung und Qualitätskriterium"
+      ],
+      "forbiddenElements": [
+        "Alternative mit abgesenktem fachlichem Anspruch ohne begründete Anpassung",
+        "Bedeutung, Status oder Bedienung ausschließlich über Farbe, Audio, Bewegung oder Drag-and-drop",
+        "Technische Konformität als alleiniger Nachweis funktionaler Zugänglichkeit"
+      ],
+      "observableChecks": [
+        "Primär- und Alternativpfad erzeugen ein nach denselben fachlichen Kriterien interpretierbares Produkt.",
+        "Der Fallback bewahrt Ziel, Handlung, Materialbezug und Rückmeldung oder markiert transparent eine noch offene Funktion."
+      ],
+      "verificationMethods": ["expert-review", "content-walkthrough", "accessibility-audit", "usability-test", "classroom-pilot"],
+      "accessibilityConsiderations": [
+        "Tastatur-, Touch- und Textpfade werden funktional und nicht nur technisch verglichen.",
+        "Sprache, Fokusreihenfolge, Statusmitteilung und Fehlerbehebung werden mit realen Nutzungsperspektiven geprüft."
+      ],
+      "productDependencies": [],
+      "quantifiedRules": [],
+      "status": "working"
+    }
+  ],
+  "walkthroughs": [
+    {
+      "id": "entry",
+      "label": "Einstieg und Orientierung",
+      "patternIds": ["LXF05-PT-001", "LXF05-PT-009", "LXF05-PT-010"],
+      "learnerQuestion": "Was ist das fachliche Ziel, wofür wird mein Produkt gebraucht und womit beginne ich?",
+      "requiredInformation": "Zielzustand, Zweck, erwartete Kernhandlung, vorhandener oder neuer Arbeitsstand, erster Schritt und erreichbarer Fallback.",
+      "action": "Ein kleines aufgabenbezogenes Ausgangsprodukt erzeugen oder einen gesicherten Stand fachlich wieder aufnehmen.",
+      "feedback": "Die Rückmeldung unterscheidet Produktlagen und macht die nächste fachliche Handlung sichtbar, ohne Personenstatus abzuleiten.",
+      "teacherRole": "Ausgangsprodukte lesen, Verständlichkeit und Barrieren beobachten und den Übergang zu Problemöffnung oder Erklärung entscheiden.",
+      "barrier": "Ziel, Stand und erster Schritt dürfen weder Navigationserfahrung noch persönliche Offenlegung voraussetzen.",
+      "verificationMethod": "content-walkthrough"
+    },
+    {
+      "id": "central-learning-action",
+      "label": "Zentrale Lernhandlung",
+      "patternIds": ["LXF05-PT-002", "LXF05-PT-003", "LXF05-PT-004", "LXF05-PT-005", "LXF05-PT-006", "LXF05-PT-010"],
+      "learnerQuestion": "Welche fachliche Beziehung soll ich erklären, ausführen, vergleichen oder revidieren und woran erkenne ich Qualität?",
+      "requiredInformation": "Auftrag, kohärente Repräsentationen, bearbeitbares Beispiel oder Problemzustand, Qualitätskriterium, verfügbare Hilfe und Revisionsweg.",
+      "action": "Vorhersagen, modellieren, ausführen, vergleichen, begründen und ein eigenes fachliches Produkt nach Rückmeldung revidieren.",
+      "feedback": "Kriterium, konkrete Produktstelle und nächster Schritt sind verbunden; die Revision bleibt als fachliche Eigenleistung erhalten.",
+      "teacherRole": "Kernhandlung und Fehlwege beobachten, Hilfe hürdenbezogen dosieren, Haltepunkte setzen und gemeinsame Klärung rahmen.",
+      "barrier": "Bedienung, Darstellungswechsel, Sprache oder Hilfe dürfen die fachliche Denkhandlung weder verdecken noch ersetzen.",
+      "verificationMethod": "expert-review"
+    },
+    {
+      "id": "securing-and-reentry",
+      "label": "Sicherung und Wiedereinstieg",
+      "patternIds": ["LXF05-PT-007", "LXF05-PT-008", "LXF05-PT-009", "LXF05-PT-010"],
+      "learnerQuestion": "Welche Beziehung ist gesichert, was bleibt offen und wie rufe ich sie später ab oder übertrage sie?",
+      "requiredInformation": "Gesichertes Produkt, fachliche Kernbeziehung, offener Stand, Rückkehrpunkt, Transferveränderung und gleichwertiger Fallback.",
+      "action": "Eine Beziehung sichern, nach Unterbrechung aktiv rekonstruieren oder an veränderte fachliche Bedingungen anpassen.",
+      "feedback": "Der Stand unterscheidet Bearbeitung, Prüfung und offene Handlung; Abruf oder Transfer führt zu begründeter Weiterarbeit.",
+      "teacherRole": "Sicherung prüfen, Abruf vor Wiederexposition ermöglichen, Transferbedingungen klären und Wiederaufnahme oder Unterstützung entscheiden.",
+      "barrier": "Arbeitsstatus darf weder Prozentfortschritt noch Lernstandsdiagnose vortäuschen; technische Unterbrechung darf den fachlichen Kontext nicht löschen.",
+      "verificationMethod": "usability-test"
+    }
+  ]
+}
