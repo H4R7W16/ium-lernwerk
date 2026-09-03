@@ -29,6 +29,9 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/learning-experience/evidence-register.json"),
     Path("roadmap/v2/foundations/learning-experience/evidence-synthesis.md"),
     Path("schemas/v2/learning-evidence.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/learner-profile.json"),
+    Path("roadmap/v2/foundations/learning-experience/learner-profile.md"),
+    Path("schemas/v2/learner-profile.schema.json"),
 )
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
@@ -545,6 +548,98 @@ LEARNING_EVIDENCE_CLAIM_FIELDS = {
 LEARNING_EVIDENCE_LEVELS = {"low", "medium", "high", "normative"}
 LEARNING_EVIDENCE_STATUSES = {"draft", "working", "reviewed", "standard"}
 PROFESSIONAL_SOURCE_KINDS = {"professional-guidance", "professional-standard"}
+LEARNER_PROFILE_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "dimensions",
+}
+LEARNER_PROFILE_SCOPE_FIELDS = {
+    "profileType",
+    "grades",
+    "schoolType",
+    "level",
+    "individualDiagnosis",
+    "maturity",
+    "statementBoundaries",
+}
+LEARNER_PROFILE_DIMENSION_FIELDS = {
+    "id",
+    "label",
+    "evidenceSupportedAssumptions",
+    "curriculumAndProjectExpectations",
+    "openAgeSpecificQuestions",
+    "pilotQuestions",
+}
+LEARNER_PROFILE_STATEMENT_FIELDS = {
+    "id",
+    "statement",
+    "claimIds",
+    "grades",
+    "variability",
+    "designConsequence",
+    "status",
+    "limitations",
+}
+LEARNER_PROFILE_CONSEQUENCE_FIELDS = {
+    "learnerMaterial",
+    "teacherOrchestration",
+}
+LEARNER_PROFILE_EXPECTATION_FIELDS = {
+    "id",
+    "basis",
+    "statement",
+    "grades",
+    "referenceIds",
+    "limitations",
+}
+LEARNER_PROFILE_QUESTION_FIELDS = {
+    "id",
+    "question",
+    "grades",
+    "decisionOwner",
+    "implications",
+}
+LEARNER_PROFILE_PILOT_FIELDS = {
+    "id",
+    "question",
+    "grades",
+    "evidenceNeeded",
+    "privacyBoundary",
+}
+LEARNER_PROFILE_DIMENSION_ORDER = (
+    "prior-knowledge-and-conceptions",
+    "reading-and-disciplinary-language",
+    "attention-and-working-memory-load",
+    "digital-operation-routines",
+    "self-regulation-and-help-use",
+    "motivation-and-perceived-purpose",
+    "access-barriers-and-expression",
+    "classroom-collaboration-and-orchestration",
+)
+EXPECTED_LEARNER_PROFILE_DIMENSIONS = set(LEARNER_PROFILE_DIMENSION_ORDER)
+LEARNER_PROFILE_STATUSES = {"draft", "working", "reviewed", "standard"}
+LEARNER_PROFILE_EXPECTATION_BASES = {
+    "official-curriculum",
+    "orientation",
+    "project-decision",
+}
+LEARNER_PROFILE_DECISION_OWNER_PATTERN = re.compile(
+    r"^(?:LXF0[4-7]|IUM-V2-R[5-7])$"
+)
+LEARNER_PROFILE_REFERENCE_PATTERN = re.compile(
+    r"\b(?:CLAIM-[A-Z0-9-]+|BMB16-[A-Z0-9-]+|LH26-[A-Z0-9-]+|"
+    r"INF7-16-[A-Z0-9-]+|V2-REQ-[A-Z0-9-]+)\b"
+)
+LEARNER_PROFILE_BEHAVIORAL_BOUNDARY = (
+    "Einzelantworten, Klicks, Bearbeitungszeiten und Hilfenutzung werden nicht zu "
+    "stabilen Personenmerkmalen oder Defizitlabels verdichtet."
+)
+LEARNER_PROFILE_HELP_USE_LABEL = "Selbstregulation und Hilfenutzung"
+LEARNER_PROFILE_SCHEMA_SHA256 = (
+    "7482F51AA45E11FC1AC8C487B0C2D15D18C1162EDD1ECA02F04479178FE1264A"
+)
 ALLOWED_LEGACY_EXTERNAL_EVIDENCE = {
     (
         "git:origin/feat/lxp05-ium5-experience:"
@@ -3544,6 +3639,776 @@ def validate_learning_evidence_synthesis(root: Path) -> list[str]:
     return errors
 
 
+def _validate_lxf03_grades(value: object, label: str) -> tuple[list[str], list[int]]:
+    errors: list[str] = []
+    if not isinstance(value, list) or not value:
+        return [f"{label} benötigt grades"], []
+    valid: list[int] = []
+    for grade in value:
+        if not _is_plain_int(grade) or grade not in REQUIREMENT_GRADES:
+            errors.append(f"{label} grades enthält unzulässige Jahrgangsstufe {grade}")
+        else:
+            valid.append(grade)
+    if len(valid) != len(set(valid)):
+        errors.append(f"{label} grades enthält Duplikate")
+    return errors, valid
+
+
+def _validate_lxf03_string_list(
+    value: object,
+    label: str,
+    field: str,
+) -> tuple[list[str], list[str]]:
+    if not isinstance(value, list) or not value:
+        return [f"{label} benötigt {field}"], []
+    valid = [item for item in value if _nonempty_string(item)]
+    errors: list[str] = []
+    if len(valid) != len(value):
+        errors.append(f"{label} {field} enthält einen leeren Eintrag")
+    if len(valid) != len(set(valid)):
+        errors.append(f"{label} {field} enthält Duplikate")
+    return errors, valid
+
+
+def _validate_lxf03_profile_text(
+    value: object,
+    label: str,
+    *,
+    allow_behavioral_boundary: bool = False,
+    allow_help_use_label: bool = False,
+) -> list[str]:
+    if not _nonempty_string(value):
+        return []
+
+    errors: list[str] = []
+    sentences = re.split(r"(?<=[.!?])\s+|[\r\n]+", value.casefold())
+    stable_patterns = (
+        re.compile(
+            r"\b(?:ist|sind|bleibt|bleiben|gelten als)\b[^.!?]{0,80}"
+            r"\b(?:defizitär\w*|unfähig\w*|unmotiviert\w*|lernschwach\w*)\b"
+        ),
+        re.compile(
+            r"\b(?:hat|haben|besitzt|besitzen)\b[^.!?]{0,80}\bdefizit\w*\b"
+        ),
+        re.compile(
+            r"\b(?:defizitär\w*|unfähig\w*|unmotiviert\w*|lernschwach\w*)\b"
+            r"[^.!?]{0,40}\b(?:lernende|schüler\w*)\b"
+        ),
+        re.compile(
+            r"\b(?:durchschnittslern\w*|averagelearner|digital natives?|lernertyp\w*)\b"
+        ),
+    )
+    telemetry_pattern = re.compile(
+        r"\b(?:(?!klickschritt\w*\b)[\w-]*(?:klick|click)[\w-]*|"
+        r"[\w-]*(?:telemetrie|bearbeitungs(?:zeit|dauer)|hilfenutzung|"
+        r"systemdaten|aktivitätsmess|nutzungsdaten|tracking)[\w-]*)\b"
+    )
+    negation_pattern = re.compile(
+        r"\b(?:nicht|nie|niemals|keineswegs|kein|keine|keinen|keinem|keiner)\b"
+    )
+    clause_boundary_pattern = re.compile(
+        r"[,;:]|\b(?:aber|doch|während|hingegen|sondern|und)\b"
+    )
+
+    def clause_bounds(sentence: str, start: int, end: int) -> tuple[int, int]:
+        before = [
+            match
+            for match in clause_boundary_pattern.finditer(sentence)
+            if match.end() <= start
+        ]
+        after = [
+            match
+            for match in clause_boundary_pattern.finditer(sentence)
+            if match.start() >= end
+        ]
+        clause_start = before[-1].end() if before else 0
+        clause_end = after[0].start() if after else len(sentence)
+        return clause_start, clause_end
+
+    def clause_context(sentence: str, start: int, end: int) -> str:
+        clause_start, clause_end = clause_bounds(sentence, start, end)
+        return sentence[clause_start:clause_end]
+
+    def is_locally_negated(context: str) -> bool:
+        without_non_negating_phrases = re.sub(
+            r"\bnicht\s+(?:nur|alle)\b", "", context
+        )
+        return bool(negation_pattern.search(without_non_negating_phrases))
+
+    for sentence in sentences:
+        if not sentence.strip():
+            continue
+        stable_label_found = False
+        for pattern in stable_patterns:
+            for match in pattern.finditer(sentence):
+                local_context = clause_context(sentence, match.start(), match.end())
+                if not is_locally_negated(local_context):
+                    errors.append(
+                        f"{label} enthält unzulässiges stabiles Defizitlabel"
+                    )
+                    stable_label_found = True
+                    break
+            if stable_label_found:
+                break
+
+        if telemetry_pattern.search(sentence):
+            allowed_boundary = (
+                allow_behavioral_boundary
+                and value.strip() == LEARNER_PROFILE_BEHAVIORAL_BOUNDARY
+            )
+            allowed_label = (
+                allow_help_use_label
+                and value.strip() == LEARNER_PROFILE_HELP_USE_LABEL
+            )
+            if not allowed_boundary and not allowed_label:
+                errors.append(
+                    f"{label} enthält unzulässige Klickzeit-Inferenz oder "
+                    "Telemetrieformulierung"
+                )
+                break
+    return errors
+
+
+def _learner_profile_reference_indexes(
+    root: Path,
+    errors: list[str],
+) -> tuple[dict[str, dict], set[str]]:
+    curriculum = _curriculum_record_index(root, errors)
+    requirements_path = root / "roadmap/v2/requirements/requirements.json"
+    requirement_ids: set[str] = set()
+    if not requirements_path.is_file():
+        errors.append("LXF03-Profil kann V2-Anforderungen nicht abgleichen")
+        return curriculum, requirement_ids
+    try:
+        requirements = load_json(requirements_path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        errors.append("LXF03-Profil kann V2-Anforderungen nicht lesen")
+        return curriculum, requirement_ids
+    raw_requirements = (
+        requirements.get("requirements") if isinstance(requirements, dict) else None
+    )
+    if not isinstance(raw_requirements, list):
+        errors.append("LXF03-Profil benötigt ein lesbares V2-Anforderungsregister")
+        return curriculum, requirement_ids
+    requirement_ids = {
+        requirement["id"]
+        for requirement in raw_requirements
+        if isinstance(requirement, dict)
+        and _nonempty_string(requirement.get("id"))
+    }
+    return curriculum, requirement_ids
+
+
+def validate_learner_profile(
+    data: object,
+    evidence_register: object,
+    root: Path,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["LXF03-Profil muss ein Objekt sein"]
+
+    errors: list[str] = []
+    if "averageLearner" in data:
+        errors.append(
+            "LXF03-Profil darf keinen undifferenzierten averageLearner enthalten"
+        )
+    errors.extend(_unknown_fields(data, LEARNER_PROFILE_FIELDS, "LXF03-Profil"))
+    errors.extend(_missing_fields(data, LEARNER_PROFILE_FIELDS, "LXF03-Profil"))
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("LXF03-Profil schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("LXF03-Profil projectId muss ium-lernwerk sein")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("LXF03-Profil asOf muss ein echtes Kalenderdatum sein")
+
+    scope = data.get("scope")
+    if not isinstance(scope, dict):
+        errors.append("LXF03-Profil benötigt scope")
+    else:
+        errors.extend(_unknown_fields(scope, LEARNER_PROFILE_SCOPE_FIELDS, "LXF03-Scope"))
+        errors.extend(_missing_fields(scope, LEARNER_PROFILE_SCOPE_FIELDS, "LXF03-Scope"))
+        scope_errors, scope_grades = _validate_lxf03_grades(
+            scope.get("grades"), "LXF03-Scope"
+        )
+        errors.extend(scope_errors)
+        if set(scope_grades) != REQUIREMENT_GRADES:
+            errors.append("LXF03-Scope muss genau die Klassen 5, 6 und 7 umfassen")
+        fixed_scope = {
+            "profileType": "planning-profile",
+            "schoolType": "Gymnasium Baden-Württemberg",
+            "level": "E",
+            "individualDiagnosis": "prohibited",
+            "maturity": "working",
+        }
+        for field, expected in fixed_scope.items():
+            if scope.get(field) != expected:
+                errors.append(f"LXF03-Scope {field} muss {expected} sein")
+        boundary_errors, boundaries = _validate_lxf03_string_list(
+            scope.get("statementBoundaries"),
+            "LXF03-Scope",
+            "statementBoundaries",
+        )
+        errors.extend(boundary_errors)
+        if boundaries and len(boundaries) < 2:
+            errors.append("LXF03-Scope benötigt mindestens zwei Aussagegrenzen")
+        if LEARNER_PROFILE_BEHAVIORAL_BOUNDARY not in boundaries:
+            errors.append(
+                "LXF03-Scope benötigt die versiegelte Anti-Telemetrie-Grenze"
+            )
+        for index, boundary in enumerate(boundaries):
+            errors.extend(
+                _validate_lxf03_profile_text(
+                    boundary,
+                    f"LXF03-Scope Aussagegrenze {index + 1}",
+                    allow_behavioral_boundary=True,
+                )
+            )
+
+    raw_claims = (
+        evidence_register.get("claims")
+        if isinstance(evidence_register, dict)
+        else None
+    )
+    if not isinstance(raw_claims, list):
+        errors.append("LXF03-Profil benötigt ein lesbares Evidenzregister")
+        raw_claims = []
+    known_claim_ids = {
+        claim["id"]
+        for claim in raw_claims
+        if isinstance(claim, dict) and _nonempty_string(claim.get("id"))
+    }
+    curriculum_records, requirement_ids = _learner_profile_reference_indexes(
+        root, errors
+    )
+
+    dimensions = data.get("dimensions")
+    if not isinstance(dimensions, list) or not dimensions:
+        errors.append("LXF03-Profil dimensions dürfen nicht leer sein")
+        return errors
+
+    dimensions_by_id: dict[str, dict] = {}
+    record_ids: set[str] = set()
+    for position, dimension in enumerate(dimensions):
+        if not isinstance(dimension, dict):
+            errors.append(f"LXF03-Dimension an Position {position} muss ein Objekt sein")
+            continue
+        dimension_id_value = dimension.get("id")
+        dimension_id = (
+            dimension_id_value
+            if _nonempty_string(dimension_id_value)
+            else f"<Position {position}>"
+        )
+        label = f"LXF03-Dimension {dimension_id}"
+        errors.extend(_unknown_fields(dimension, LEARNER_PROFILE_DIMENSION_FIELDS, label))
+        errors.extend(_missing_fields(dimension, LEARNER_PROFILE_DIMENSION_FIELDS, label))
+        if not _nonempty_string(dimension_id_value):
+            errors.append(f"{label} benötigt id")
+        elif dimension_id_value in dimensions_by_id:
+            errors.append(f"LXF03-Profil enthält doppelte Dimension {dimension_id_value}")
+        else:
+            dimensions_by_id[dimension_id_value] = dimension
+        if not _nonempty_string(dimension.get("label")):
+            errors.append(f"{label} benötigt label")
+        else:
+            errors.extend(
+                _validate_lxf03_profile_text(
+                    dimension.get("label"),
+                    f"{label} label",
+                    allow_help_use_label=True,
+                )
+            )
+
+        assumptions = dimension.get("evidenceSupportedAssumptions")
+        if not isinstance(assumptions, list) or not assumptions:
+            errors.append(f"{label} benötigt evidenceSupportedAssumptions")
+            assumptions = []
+        for index, statement in enumerate(assumptions):
+            if not isinstance(statement, dict):
+                errors.append(f"{label} Profilstatement {index} muss ein Objekt sein")
+                continue
+            statement_id_value = statement.get("id")
+            statement_id = (
+                statement_id_value
+                if _nonempty_string(statement_id_value)
+                else f"<Position {index}>"
+            )
+            statement_label = f"LXF03-Profilstatement {statement_id}"
+            errors.extend(
+                _unknown_fields(
+                    statement, LEARNER_PROFILE_STATEMENT_FIELDS, statement_label
+                )
+            )
+            for field in sorted(LEARNER_PROFILE_STATEMENT_FIELDS - set(statement)):
+                errors.append(f"{statement_label} benötigt {field}")
+            if not _nonempty_string(statement_id_value):
+                errors.append(f"{statement_label} benötigt id")
+            elif not re.fullmatch(r"LXF03-S-[0-9]{3}", statement_id_value):
+                errors.append(f"{statement_label} hat eine ungültige ID")
+            elif statement_id_value in record_ids:
+                errors.append(f"LXF03-Profil enthält doppelte ID {statement_id_value}")
+            else:
+                record_ids.add(statement_id_value)
+            statement_text = statement.get("statement")
+            if not _nonempty_string(statement_text):
+                errors.append(f"{statement_label} benötigt statement")
+            else:
+                errors.extend(
+                    _validate_lxf03_profile_text(statement_text, statement_label)
+                )
+            claim_errors, claim_ids = _validate_lxf03_string_list(
+                statement.get("claimIds"), statement_label, "claimIds"
+            )
+            errors.extend(claim_errors)
+            for claim_id in claim_ids:
+                if claim_id not in known_claim_ids:
+                    errors.append(
+                        f"{statement_label} referenziert unbekannten Claim {claim_id}"
+                    )
+            grade_errors, _grades = _validate_lxf03_grades(
+                statement.get("grades"), statement_label
+            )
+            errors.extend(grade_errors)
+            if not _nonempty_string(statement.get("variability")):
+                errors.append(f"{statement_label} benötigt variability")
+            else:
+                errors.extend(
+                    _validate_lxf03_profile_text(
+                        statement.get("variability"),
+                        f"{statement_label} variability",
+                    )
+                )
+            consequence = statement.get("designConsequence")
+            if not isinstance(consequence, dict):
+                errors.append(f"{statement_label} benötigt designConsequence")
+            else:
+                errors.extend(
+                    _unknown_fields(
+                        consequence,
+                        LEARNER_PROFILE_CONSEQUENCE_FIELDS,
+                        f"{statement_label} designConsequence",
+                    )
+                )
+                for field in sorted(
+                    LEARNER_PROFILE_CONSEQUENCE_FIELDS - set(consequence)
+                ):
+                    errors.append(
+                        f"{statement_label} designConsequence benötigt {field}"
+                    )
+                for field in LEARNER_PROFILE_CONSEQUENCE_FIELDS:
+                    if field in consequence and not _nonempty_string(
+                        consequence.get(field)
+                    ):
+                        errors.append(
+                            f"{statement_label} designConsequence {field} darf nicht leer sein"
+                        )
+                    elif field in consequence:
+                        errors.extend(
+                            _validate_lxf03_profile_text(
+                                consequence.get(field),
+                                f"{statement_label} designConsequence {field}",
+                            )
+                        )
+            status = statement.get("status")
+            if not isinstance(status, str) or status not in LEARNER_PROFILE_STATUSES:
+                errors.append(f"{statement_label} hat unbekannten status: {status}")
+            elif status == "standard":
+                errors.append(f"{statement_label} darf vor LXF07 nicht standard sein")
+            limitation_errors, _limitations = _validate_lxf03_string_list(
+                statement.get("limitations"), statement_label, "limitations"
+            )
+            errors.extend(limitation_errors)
+            for limitation in _limitations:
+                errors.extend(
+                    _validate_lxf03_profile_text(
+                        limitation, f"{statement_label} limitation"
+                    )
+                )
+
+        expectations = dimension.get("curriculumAndProjectExpectations")
+        if not isinstance(expectations, list) or not expectations:
+            errors.append(f"{label} benötigt curriculumAndProjectExpectations")
+            expectations = []
+        for index, expectation in enumerate(expectations):
+            if not isinstance(expectation, dict):
+                errors.append(f"{label} Erwartung {index} muss ein Objekt sein")
+                continue
+            expectation_id_value = expectation.get("id")
+            expectation_id = (
+                expectation_id_value
+                if _nonempty_string(expectation_id_value)
+                else f"<Position {index}>"
+            )
+            expectation_label = f"LXF03-Erwartung {expectation_id}"
+            errors.extend(
+                _unknown_fields(
+                    expectation, LEARNER_PROFILE_EXPECTATION_FIELDS, expectation_label
+                )
+            )
+            for field in sorted(LEARNER_PROFILE_EXPECTATION_FIELDS - set(expectation)):
+                errors.append(f"{expectation_label} benötigt {field}")
+            if not _nonempty_string(expectation_id_value):
+                errors.append(f"{expectation_label} benötigt id")
+            elif not re.fullmatch(r"LXF03-E-[0-9]{3}", expectation_id_value):
+                errors.append(f"{expectation_label} hat eine ungültige ID")
+            elif expectation_id_value in record_ids:
+                errors.append(f"LXF03-Profil enthält doppelte ID {expectation_id_value}")
+            else:
+                record_ids.add(expectation_id_value)
+            if not _nonempty_string(expectation.get("statement")):
+                errors.append(f"{expectation_label} benötigt statement")
+            else:
+                errors.extend(
+                    _validate_lxf03_profile_text(
+                        expectation.get("statement"), expectation_label
+                    )
+                )
+            basis = expectation.get("basis")
+            if not isinstance(basis, str) or basis not in LEARNER_PROFILE_EXPECTATION_BASES:
+                errors.append(f"{expectation_label} hat unbekannte basis: {basis}")
+            grade_errors, expectation_grades = _validate_lxf03_grades(
+                expectation.get("grades"), expectation_label
+            )
+            errors.extend(grade_errors)
+            reference_errors, reference_ids = _validate_lxf03_string_list(
+                expectation.get("referenceIds"), expectation_label, "referenceIds"
+            )
+            errors.extend(reference_errors)
+            for reference_id in reference_ids:
+                if basis == "project-decision":
+                    if reference_id not in requirement_ids:
+                        errors.append(
+                            f"{expectation_label} referenziert unbekannte V2-Anforderung {reference_id}"
+                        )
+                    continue
+                record = curriculum_records.get(reference_id)
+                if record is None:
+                    errors.append(
+                        f"{expectation_label} referenziert unbekannten Curriculumrecord {reference_id}"
+                    )
+                    continue
+                source_id = record.get("sourceId")
+                if basis == "official-curriculum" and source_id == "SRC-CUR-LESEHILFE-2026-27":
+                    errors.append(
+                        f"{expectation_label} führt Orientierungsrecord {reference_id} als amtlich bindend"
+                    )
+                if basis == "orientation" and source_id != "SRC-CUR-LESEHILFE-2026-27":
+                    errors.append(
+                        f"{expectation_label} führt amtlichen Record {reference_id} nur als Orientierung"
+                    )
+                record_grades = record.get("grades")
+                if isinstance(record_grades, list) and not set(expectation_grades).issubset(
+                    {grade for grade in record_grades if _is_plain_int(grade)}
+                ):
+                    errors.append(
+                        f"{expectation_label} überschreitet den Jahrgangsscope von {reference_id}"
+                    )
+            limitation_errors, _limitations = _validate_lxf03_string_list(
+                expectation.get("limitations"), expectation_label, "limitations"
+            )
+            errors.extend(limitation_errors)
+            for limitation in _limitations:
+                errors.extend(
+                    _validate_lxf03_profile_text(
+                        limitation, f"{expectation_label} limitation"
+                    )
+                )
+
+        questions = dimension.get("openAgeSpecificQuestions")
+        if not isinstance(questions, list) or not questions:
+            errors.append(f"{label} benötigt openAgeSpecificQuestions")
+            questions = []
+        for index, question in enumerate(questions):
+            if not isinstance(question, dict):
+                errors.append(f"{label} offene Frage {index} muss ein Objekt sein")
+                continue
+            question_id = question.get("id")
+            question_label = f"LXF03-Altersfrage {question_id or index}"
+            errors.extend(
+                _unknown_fields(question, LEARNER_PROFILE_QUESTION_FIELDS, question_label)
+            )
+            for field in sorted(LEARNER_PROFILE_QUESTION_FIELDS - set(question)):
+                errors.append(f"{question_label} benötigt {field}")
+            if not _nonempty_string(question_id):
+                errors.append(f"{question_label} benötigt id")
+            elif not re.fullmatch(r"LXF03-Q-[0-9]{3}", question_id):
+                errors.append(f"{question_label} hat eine ungültige ID")
+            elif question_id in record_ids:
+                errors.append(f"LXF03-Profil enthält doppelte ID {question_id}")
+            else:
+                record_ids.add(question_id)
+            for field in ("question", "decisionOwner", "implications"):
+                if not _nonempty_string(question.get(field)):
+                    errors.append(f"{question_label} benötigt {field}")
+            decision_owner = question.get("decisionOwner")
+            if _nonempty_string(decision_owner) and not (
+                LEARNER_PROFILE_DECISION_OWNER_PATTERN.fullmatch(decision_owner)
+            ):
+                errors.append(
+                    f"{question_label} hat ungültigen decisionOwner: {decision_owner}"
+                )
+            for field in ("question", "implications"):
+                if _nonempty_string(question.get(field)):
+                    errors.extend(
+                        _validate_lxf03_profile_text(
+                            question.get(field), f"{question_label} {field}"
+                        )
+                    )
+            grade_errors, _grades = _validate_lxf03_grades(
+                question.get("grades"), question_label
+            )
+            errors.extend(grade_errors)
+
+        pilot_questions = dimension.get("pilotQuestions")
+        if not isinstance(pilot_questions, list) or not pilot_questions:
+            errors.append(f"{label} benötigt pilotQuestions")
+            pilot_questions = []
+        for index, pilot in enumerate(pilot_questions):
+            if not isinstance(pilot, dict):
+                errors.append(f"{label} Pilotfrage {index} muss ein Objekt sein")
+                continue
+            pilot_id = pilot.get("id")
+            pilot_label = f"LXF03-Pilotfrage {pilot_id or index}"
+            errors.extend(_unknown_fields(pilot, LEARNER_PROFILE_PILOT_FIELDS, pilot_label))
+            for field in sorted(LEARNER_PROFILE_PILOT_FIELDS - set(pilot)):
+                errors.append(f"{pilot_label} benötigt {field}")
+            if not _nonempty_string(pilot_id):
+                errors.append(f"{pilot_label} benötigt id")
+            elif not re.fullmatch(r"LXF03-P-[0-9]{3}", pilot_id):
+                errors.append(f"{pilot_label} hat eine ungültige ID")
+            elif pilot_id in record_ids:
+                errors.append(f"LXF03-Profil enthält doppelte ID {pilot_id}")
+            else:
+                record_ids.add(pilot_id)
+            for field in ("question", "evidenceNeeded"):
+                if not _nonempty_string(pilot.get(field)):
+                    errors.append(f"{pilot_label} benötigt {field}")
+                else:
+                    errors.extend(
+                        _validate_lxf03_profile_text(
+                            pilot.get(field), f"{pilot_label} {field}"
+                        )
+                    )
+            if pilot.get("privacyBoundary") != "non-personal-observation-only":
+                errors.append(
+                    f"{pilot_label} privacyBoundary muss non-personal-observation-only sein"
+                )
+            grade_errors, _grades = _validate_lxf03_grades(
+                pilot.get("grades"), pilot_label
+            )
+            errors.extend(grade_errors)
+
+    actual_dimensions = set(dimensions_by_id)
+    for missing in sorted(EXPECTED_LEARNER_PROFILE_DIMENSIONS - actual_dimensions):
+        errors.append(f"LXF03-Profil fehlt Dimension: {missing}")
+    for unexpected in sorted(actual_dimensions - EXPECTED_LEARNER_PROFILE_DIMENSIONS):
+        errors.append(f"LXF03-Profil enthält unerwartete Dimension: {unexpected}")
+    return errors
+
+
+def validate_learner_profile_schema(root: Path) -> list[str]:
+    relative_path = Path("schemas/v2/learner-profile.schema.json")
+    path = root / relative_path
+    if not path.is_file():
+        return [f"LXF03-Schema fehlt: {relative_path.as_posix()}"]
+    try:
+        schema = load_json(path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return [f"LXF03-Schema ist kein gültiges JSON: {relative_path.as_posix()}"]
+    if not isinstance(schema, dict):
+        return ["LXF03-Schema muss ein Objekt sein"]
+    canonical_schema = json.dumps(
+        schema,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    if hashlib.sha256(canonical_schema).hexdigest().upper() != (
+        LEARNER_PROFILE_SCHEMA_SHA256
+    ):
+        return ["LXF03-Schema weicht von der versiegelten Definition ab"]
+    return []
+
+
+def validate_learner_profile_markdown(root: Path) -> list[str]:
+    path = root / "roadmap/v2/foundations/learning-experience/learner-profile.md"
+    if not path.is_file():
+        return []
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return ["LXF03-Fachprofil ist nicht als UTF-8 lesbar"]
+    profile_path = (
+        root / "roadmap/v2/foundations/learning-experience/learner-profile.json"
+    )
+    try:
+        profile = load_json(profile_path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["LXF03-Fachprofil kann nicht mit dem strukturierten Profil abgeglichen werden"]
+    if not isinstance(profile, dict):
+        return ["LXF03-Fachprofil benötigt ein strukturiertes Profilobjekt"]
+    title = "# LXF03 Fach- und Stufenprofil IuM 5–7"
+    dimension_headings = [
+        "## 1. Vorwissen und Vorstellungen",
+        "## 2. Lesen und Fachsprache",
+        "## 3. Aufmerksamkeit und Arbeitsgedächtnisbelastung",
+        "## 4. Digitale Bedienroutinen",
+        "## 5. Selbstregulation und Hilfenutzung",
+        "## 6. Motivation und wahrgenommener Sinn",
+        "## 7. Zugangsbarrieren und Ausdruckswege",
+        "## 8. Zusammenarbeit und Lehrkraftorchestrierung",
+    ]
+    view_headings = [
+        "### Evidenzgestützte Annahmen",
+        "### Curriculare oder projektdefinierte Erwartungen",
+        "### Offene altersspezifische Fragen",
+        "### Folgen für Lernendenmaterial",
+        "### Folgen für Lehrkraftorchestrierung",
+        "### Pilotfragen",
+    ]
+    errors: list[str] = []
+    if not text.startswith(f"{title}\n"):
+        errors.append(f"LXF03-Fachprofil fehlt Überschrift: {title}")
+    positions = [text.find(heading) for heading in dimension_headings]
+    present = [position for position in positions if position >= 0]
+    preamble = text[: min(present)] if present else text
+    scope = profile.get("scope")
+    if isinstance(scope, dict):
+        status_values = re.findall(
+            r"(?m)^\*\*Status:\*\*\s*`([^`\r\n]+)`\s*$", preamble
+        )
+        if status_values != [scope.get("maturity")]:
+            errors.append("LXF03-Fachprofil Status weicht vom strukturierten Profil ab")
+        grades = scope.get("grades")
+        grade_label = (
+            f"{min(grades)}–{max(grades)}"
+            if isinstance(grades, list)
+            and grades
+            and all(_is_plain_int(grade) for grade in grades)
+            else "<ungültig>"
+        )
+        expected_scope = (
+            f"{scope.get('schoolType')}, Niveau {scope.get('level')}, "
+            f"Klassen {grade_label}"
+        )
+        scope_values = [
+            value.strip()
+            for value in re.findall(
+                r"(?m)^\*\*Geltungsbereich:\*\*\s*(.+?)\s*$", preamble
+            )
+        ]
+        if scope_values != [expected_scope]:
+            errors.append("LXF03-Fachprofil Geltungsbereich weicht vom JSON ab")
+    as_of = profile.get("asOf")
+    if _is_iso_date(as_of):
+        year, month, day = (int(part) for part in as_of.split("-"))
+        month_names = (
+            "",
+            "Januar",
+            "Februar",
+            "März",
+            "April",
+            "Mai",
+            "Juni",
+            "Juli",
+            "August",
+            "September",
+            "Oktober",
+            "November",
+            "Dezember",
+        )
+        expected_date = f"{day}. {month_names[month]} {year}"
+        date_values = [
+            value.strip()
+            for value in re.findall(
+                r"(?m)^\*\*Stichtag:\*\*\s*(.+?)\s*$", preamble
+            )
+        ]
+        if date_values != [expected_date]:
+            errors.append("LXF03-Fachprofil Stichtag weicht vom JSON ab")
+
+    dimensions = profile.get("dimensions")
+    dimensions_by_id: dict[str, dict] = {}
+    if isinstance(dimensions, list):
+        for dimension in dimensions:
+            if isinstance(dimension, dict) and _nonempty_string(dimension.get("id")):
+                dimensions_by_id[dimension["id"]] = dimension
+    for heading, position in zip(dimension_headings, positions):
+        if position < 0:
+            errors.append(f"LXF03-Fachprofil fehlt Überschrift: {heading}")
+    if present != sorted(present):
+        errors.append("LXF03-Fachprofil hat eine unerwartete Abschnittsreihenfolge")
+    for index, (dimension_id, heading, position) in enumerate(
+        zip(LEARNER_PROFILE_DIMENSION_ORDER, dimension_headings, positions)
+    ):
+        if position < 0:
+            continue
+        end = (
+            positions[index + 1]
+            if index + 1 < len(positions) and positions[index + 1] >= 0
+            else len(text)
+        )
+        block = text[position:end]
+        expected_references: set[str] = set()
+        dimension = dimensions_by_id.get(dimension_id, {})
+        assumptions = dimension.get("evidenceSupportedAssumptions")
+        if isinstance(assumptions, list):
+            for statement in assumptions:
+                if isinstance(statement, dict) and isinstance(
+                    statement.get("claimIds"), list
+                ):
+                    expected_references.update(
+                        claim_id
+                        for claim_id in statement["claimIds"]
+                        if _nonempty_string(claim_id)
+                    )
+        expectations = dimension.get("curriculumAndProjectExpectations")
+        if isinstance(expectations, list):
+            for expectation in expectations:
+                if isinstance(expectation, dict) and isinstance(
+                    expectation.get("referenceIds"), list
+                ):
+                    expected_references.update(
+                        reference_id
+                        for reference_id in expectation["referenceIds"]
+                        if _nonempty_string(reference_id)
+                    )
+        cited_references = set(LEARNER_PROFILE_REFERENCE_PATTERN.findall(block))
+        for missing_reference in sorted(expected_references - cited_references):
+            errors.append(
+                f"LXF03-Fachprofil {heading} fehlt Referenz: {missing_reference}"
+            )
+        for unknown_reference in sorted(cited_references - expected_references):
+            errors.append(
+                f"LXF03-Fachprofil {heading} enthält unerwartete Referenz: "
+                f"{unknown_reference}"
+            )
+        subpositions = [block.find(view) for view in view_headings]
+        for view, subposition in zip(view_headings, subpositions):
+            if subposition < 0:
+                errors.append(f"LXF03-Fachprofil {heading} fehlt Ansicht: {view}")
+        present_subpositions = [value for value in subpositions if value >= 0]
+        if present_subpositions != sorted(present_subpositions):
+            errors.append(f"LXF03-Fachprofil {heading} hat falsche Ansichtsreihenfolge")
+        for subindex, (view, subposition) in enumerate(
+            zip(view_headings, subpositions)
+        ):
+            if subposition < 0:
+                continue
+            content_start = subposition + len(view)
+            later = [
+                value
+                for value in subpositions[subindex + 1 :]
+                if value >= 0
+            ]
+            content_end = min(later) if later else len(block)
+            content = block[content_start:content_end]
+            if len(re.findall(r"\b[\wÄÖÜäöüß-]+\b", content)) < 12:
+                errors.append(
+                    f"LXF03-Fachprofil {heading} hat leere oder zu knappe Ansicht: {view}"
+                )
+    return errors
+
+
 def validate_source_schemas(root: Path) -> list[str]:
     resolved_semantics = [
         {
@@ -3950,6 +4815,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         except (OSError, UnicodeError, json.JSONDecodeError):
             v2_source_register = {}
 
+    learning_evidence_register: object = {}
     evidence_register_path = Path(
         "roadmap/v2/foundations/learning-experience/evidence-register.json"
     )
@@ -3960,6 +4826,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         except (OSError, UnicodeError, json.JSONDecodeError):
             errors.append(f"{evidence_register_path.as_posix()} ist kein gültiges JSON")
         else:
+            learning_evidence_register = data
             errors.extend(
                 validate_learning_evidence_register(data, v2_source_register)
             )
@@ -3969,6 +4836,26 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         if not error.startswith("LXF02-Schema fehlt:")
     )
     errors.extend(validate_learning_evidence_synthesis(root))
+
+    learner_profile_path = Path(
+        "roadmap/v2/foundations/learning-experience/learner-profile.json"
+    )
+    path = root / learner_profile_path
+    if path.is_file():
+        try:
+            data = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(f"{learner_profile_path.as_posix()} ist kein gültiges JSON")
+        else:
+            errors.extend(
+                validate_learner_profile(data, learning_evidence_register, root)
+            )
+    errors.extend(
+        error
+        for error in validate_learner_profile_schema(root)
+        if not error.startswith("LXF03-Schema fehlt:")
+    )
+    errors.extend(validate_learner_profile_markdown(root))
     return errors, warnings
 
 

@@ -1,0 +1,686 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-03",
+  "scope": {
+    "profileType": "planning-profile",
+    "grades": [5, 6, 7],
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "level": "E",
+    "individualDiagnosis": "prohibited",
+    "maturity": "working",
+    "statementBoundaries": [
+      "Das Profil beschreibt vorhersehbare Varianz für die Planung und keine durchschnittliche oder typische Person.",
+      "Jahrgangsstufen bestimmen curriculare Erwartungen, sind aber kein Ersatz für aufgabenbezogene Beobachtung von Vorwissen, Sprache, Bedienroutinen oder Unterstützungsbedarf.",
+      "Einzelantworten, Klicks, Bearbeitungszeiten und Hilfenutzung werden nicht zu stabilen Personenmerkmalen oder Defizitlabels verdichtet.",
+      "Der Basiskurs Medienbildung 2016 und der Aufbaukurs Informatik 2016 bleiben amtliche Grundlagen; die Lesehilfe 2026/2027 bleibt Orientierung.",
+      "Das Profil begründet Planungsfolgen, aber weder Lernwirksamkeit des IuM-Lernwerks noch eine universelle Altersregel oder ein fertiges Materialmuster."
+    ]
+  },
+  "dimensions": [
+    {
+      "id": "prior-knowledge-and-conceptions",
+      "label": "Vorwissen und Vorstellungen",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-001",
+          "statement": "Fachliches Vorwissen und aktuelle Vorstellungen müssen an der konkreten Aufgabe sichtbar gemacht werden, bevor Schwierigkeit, Erklärung und Unterstützung festgelegt werden.",
+          "claimIds": ["CLAIM-LP-002"],
+          "grades": [5, 6, 7],
+          "variability": "Lernende desselben Jahrgangs können sehr unterschiedliche schulische Vorerfahrungen, Alltagsmodelle, Fachbegriffe und Strategien mitbringen; eine einzelne Antwort kann zudem situativ oder sprachlich bedingt sein.",
+          "designConsequence": {
+            "learnerMaterial": "Kurze Vorhersagen, Modellskizzen, Sortierungen oder Kontrastfälle öffnen die Aufgabe, ohne Personen einzustufen oder Inhalte vorwegzunehmen.",
+            "teacherOrchestration": "Die Lehrkraft sichtet aktuelle Produkte oder Gesprächsbeiträge, klärt Mehrdeutigkeiten und entscheidet erst danach über Erklärung, Gruppierung und Hilfen."
+          },
+          "status": "working",
+          "limitations": [
+            "Der Claim beschreibt Zusammenhänge mit Wissensständen, aber keine sichere Vorhersage individuellen Lernzuwachses.",
+            "Eine lokale Erhebung ist eine Planungsinformation für die aktuelle Aufgabe und keine Diagnose eines stabilen Fehlkonzepts."
+          ]
+        },
+        {
+          "id": "LXF03-S-002",
+          "statement": "Vorbereitete Problemlösung kann nur als begrenzter, anschlussfähiger Zugang geplant werden und benötigt besonders bei jüngeren Lernenden ein sichtbares Überforderungsgate sowie anschließende Erklärung.",
+          "claimIds": ["CLAIM-LP-012"],
+          "grades": [5, 6, 7],
+          "variability": "Vorläuferwissen, Problemschema, sprachlicher Zugang und Erfahrung mit offenen Aufgaben variieren innerhalb aller drei Jahrgänge stärker, als eine feste Altersregel abbilden könnte.",
+          "designConsequence": {
+            "learnerMaterial": "Explorative Einstiege begrenzen den Lösungsraum, machen das Zielwissen erreichbar und führen erkennbar zu Vergleich, Erklärung und Sicherung.",
+            "teacherOrchestration": "Die Lehrkraft setzt einen frühen Haltepunkt, prüft produktbezogen Überforderung und wechselt bei Bedarf zu Modellierung oder stärker geführter Bearbeitung."
+          },
+          "status": "working",
+          "limitations": [
+            "Die zugrunde liegende Evidenz stammt überwiegend aus Mathematik und deckt Klasse 5 nur teilweise ab.",
+            "Aus dem Claim folgt weder unbegleitetes Entdecken noch eine verbindliche Sequenz für jedes IuM-Thema."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-001",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 5 soll Medienbildung an Erfahrungen anknüpfen und Nutzungsverhalten beschreiben sowie vergleichen lassen.",
+          "grades": [5],
+          "referenceIds": ["BMB16-GYM-PK-RK-001"],
+          "limitations": [
+            "Der amtliche Record erlaubt keine Pflicht zur Offenlegung sensibler persönlicher Angaben."
+          ]
+        },
+        {
+          "id": "LXF03-E-002",
+          "basis": "orientation",
+          "statement": "Für Klassen 5 und 6 beschreibt die Lesehilfe erste algorithmische Denk- und Vorgehensweisen als grundlegend und noch nicht auf dem fachlichen Niveau des Aufbaukurses Klasse 7.",
+          "grades": [5, 6],
+          "referenceIds": ["LH26-E-PROG-002"],
+          "limitations": [
+            "Die Lesehilfe ist ein Orientierungsrahmen und legt weder eine verbindliche Jahrgangsverteilung noch eine universelle Altersmethode fest."
+          ]
+        },
+        {
+          "id": "LXF03-E-003",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 7 gehört es zur fachlichen Problembearbeitung, relevante Informationen herauszuarbeiten und fehlende Informationen gezielt zu beschaffen.",
+          "grades": [7],
+          "referenceIds": ["INF7-16-GYM-PK-MI-001"],
+          "limitations": [
+            "Der Record definiert eine fachliche Handlung und keine homogene Eingangsvoraussetzung aller Lernenden."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-001",
+          "question": "Welche aufgabenbezogenen Vorwissenszugänge zeigen in Klasse 5, 6 und 7 ausreichend früh, ob ein Modell, Begriff oder Verfahren erklärt werden muss?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF04",
+          "implications": "LXF04 darf weder Exploration noch direkte Erklärung universell festlegen, sondern muss beide Wege mit einem beobachtbaren Entscheidungspunkt zulassen."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-001",
+          "question": "Erzeugen die vorgesehenen Vorwissensaufgaben verwertbare fachliche Hinweise, ohne Lernende festzuschreiben oder unnötig persönliche Angaben zu verlangen?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Anonymisierte Aufgabenprodukte, typische Rückfragen, benötigte Hilfen und dokumentierte Lehrkraftentscheidungen je Jahrgang.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "reading-and-disciplinary-language",
+      "label": "Lesen und Fachsprache",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-003",
+          "statement": "Verständliche Zwecke, explizite Schritte und zugängliche Sprache reduzieren vermeidbare Zugangsbarrieren, ohne die fachliche Denkhandlung oder notwendige Fachbegriffe zu ersetzen.",
+          "claimIds": ["CLAIM-V2-LXF-COGA-001", "CLAIM-V2-LXF-UDL-001"],
+          "grades": [5, 6, 7],
+          "variability": "Leseflüssigkeit, Bildungssprache, Mehrsprachigkeit, Kenntnis von Operatoren und Sicherheit beim schriftlichen Erklären variieren in jedem Jahrgang und je Aufgabenformat.",
+          "designConsequence": {
+            "learnerMaterial": "Aufträge nennen Zweck, fachliche Sprachhandlung und Produkt; Begriffe, Beispiele, Darstellungen und optionale Sprachgerüste stehen dort bereit, wo sie benötigt werden.",
+            "teacherOrchestration": "Die Lehrkraft unterscheidet durch Rückfrage oder Zwischenprodukt zwischen fachlicher, sprachlicher und bedienbezogener Hürde und passt Unterstützung entsprechend an."
+          },
+          "status": "working",
+          "limitations": [
+            "COGA und UDL sind professionelle Guidance und keine kausalen Nachweise für eine konkrete sprachliche IuM-Methode.",
+            "Verständliche Sprache darf fachliche Präzision, Operatoren oder die erwartete Begründungsleistung nicht einebnen."
+          ]
+        },
+        {
+          "id": "LXF03-S-004",
+          "statement": "Fachlich zusammengehörige Wörter, Bilder, Zustände und Abläufe benötigen konsistente Bezeichner sowie sichtbare Zuordnungen, damit Lernende Beziehungen auswählen, organisieren und integrieren können.",
+          "claimIds": ["CLAIM-LP-003", "CLAIM-V2-LXF-MAYER-001", "CLAIM-V2-LXF-SIGNAL-001"],
+          "grades": [5, 6, 7],
+          "variability": "Vorwissen über Darstellungsformen, Symbolsysteme und Fachbegriffe verändert, welche Zuordnung selbsterklärend ist und welche modelliert oder sprachlich gestützt werden muss.",
+          "designConsequence": {
+            "learnerMaterial": "Text, Diagramm, Code, Interfacezustand und Ablauf verwenden stabile Begriffe; Signale markieren fachliche Beziehungen statt bloßer optischer Salienz.",
+            "teacherOrchestration": "Die Lehrkraft lässt Beziehungen erklären, übersetzen oder am Beispiel zeigen und klärt nicht verstandene Fachbegriffe vor weiterer Verdichtung."
+          },
+          "status": "working",
+          "limitations": [
+            "Aus Multimedia- und Signaling-Evidenz folgt kein Vorrang visueller Darstellung für jede Aufgabe oder Person.",
+            "Farbe allein darf keine fachlich notwendige Beziehung tragen."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-004",
+          "basis": "official-curriculum",
+          "statement": "Der Basiskurs Medienbildung verlangt bereits in Klasse 5 die richtige Verwendung von Fachbegriffen.",
+          "grades": [5],
+          "referenceIds": ["BMB16-GYM-PK-SK-001"],
+          "limitations": [
+            "Der Record bestimmt keine einzelne Methode des Begriffserwerbs und keine sprachliche Eingangsvoraussetzung."
+          ]
+        },
+        {
+          "id": "LXF03-E-005",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 7 sollen Sachverhalte, Ideen, Lösungswege und Ergebnisse zielgruppenorientiert sowie unter Verwendung informatischer Terminologie erläutert und strukturiert dargestellt werden.",
+          "grades": [7],
+          "referenceIds": ["INF7-16-GYM-PK-KK-002"],
+          "limitations": [
+            "Die fachsprachliche Erwartung begründet Unterstützungsangebote, aber keine Absenkung der fachlichen Erklärungstiefe."
+          ]
+        },
+        {
+          "id": "LXF03-E-006",
+          "basis": "project-decision",
+          "statement": "Alle drei Jahrgänge benötigen im Evidenz-zu-Design-Vertrag eine getrennte Prüfung von Lernhandlung, Erklärung, Unterstützung und Accessibility.",
+          "grades": [5, 6, 7],
+          "referenceIds": ["V2-REQ-LXF-001"],
+          "limitations": [
+            "Die Projektanforderung legt noch keine konkrete Textlänge, Lesestufe oder Pflichtzahl an Sprachhilfen fest."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-002",
+          "question": "Welche Fachbegriffe, Operatoren und Darstellungswechsel benötigen je Jahrgang Modellierung, mündliche Vorformen oder optionale Sprachgerüste?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF04",
+          "implications": "Die Lernarchitektur muss Sprachunterstützung nahe an der fachlichen Handlung vorsehen, ohne eine starre Lesestufe oder ein universelles Satzstarterset festzulegen."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-002",
+          "question": "Verstehen Lernende Auftrag, Operator und Qualitätskriterium und können sie die geforderte fachliche Beziehung in einer geeigneten Ausdrucksform sichtbar machen?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Aufgabenprodukte, paraphrasierte Arbeitsaufträge, fachliche Erklärungen und dokumentierte sprachliche Rückfragen ohne Personenranking.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "attention-and-working-memory-load",
+      "label": "Aufmerksamkeit und Arbeitsgedächtnisbelastung",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-005",
+          "statement": "Aufgabe, Vorwissen, Darstellung und Lernumgebung müssen gemeinsam geplant werden, damit vermeidbare Verarbeitung nicht die fachlich notwendige Denkhandlung verdrängt.",
+          "claimIds": ["CLAIM-LP-003", "CLAIM-V2-LXF-MAYER-001"],
+          "grades": [5, 6, 7],
+          "variability": "Die Belastung verändert sich mit Vorwissen, Sprachzugang, Zahl neuer Beziehungen, Bedienanforderungen, Ablenkungen und Erfahrung mit der jeweiligen Repräsentation.",
+          "designConsequence": {
+            "learnerMaterial": "Eine Ansicht priorisiert Ziel, relevante Information und nächste Handlung; zusätzliche Informationen sind fachlich begründet und Beziehungen zwischen Darstellungen bleiben sichtbar.",
+            "teacherOrchestration": "Die Lehrkraft beobachtet Stockungen an Produkt, Rückfrage oder Übergang und reduziert bei Bedarf Such-, Bedien- oder Darstellungsbelastung statt die Denkhandlung zu lösen."
+          },
+          "status": "working",
+          "limitations": [
+            "Die Claims begründen keine universelle Text-, Seiten-, Element- oder Minutenzahl.",
+            "Anstrengung kann fachlich produktiv sein und darf nicht pauschal mit vermeidbarer Belastung gleichgesetzt werden."
+          ]
+        },
+        {
+          "id": "LXF03-S-006",
+          "statement": "Bedeutungsvolle Segmentierung und fachlich passende Signale können die Verarbeitung informationsdichter Erklärungen unterstützen, sind aber nicht mit mehr Klickschritten oder dekorativer Hervorhebung gleichzusetzen.",
+          "claimIds": ["CLAIM-V2-LXF-SEGMENT-001", "CLAIM-V2-LXF-SIGNAL-001"],
+          "grades": [5, 6, 7],
+          "variability": "Nutzen und notwendige Granularität hängen von Vorwissen, Darbietungsform, Lerntempo, Zahl der Zuordnungen und verfügbarer Unterrichtszeit ab.",
+          "designConsequence": {
+            "learnerMaterial": "Erklärungen werden nach fachlichen Einheiten gegliedert; Steuerelemente erhalten eindeutige Zustände und Signale zeigen nur lernrelevante Beziehungen.",
+            "teacherOrchestration": "Die Lehrkraft kann Segmente gemeinsam takten, überspringen oder vertiefen und prüft nach einem Abschnitt eine fachliche Verarbeitung statt bloßen Abschluss."
+          },
+          "status": "working",
+          "limitations": [
+            "Lernenden- und systemgesteuerte Segmentierung sind nicht austauschbar.",
+            "Segmentierung kann Lernzeit verändern und muss im realen Unterricht auf Verständlichkeit und Fluss geprüft werden."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-007",
+          "basis": "project-decision",
+          "statement": "Der V2-Vertrag muss Erklärungen, digitale Interaktion und Unterstützung so prüfbar machen, dass fachliche und vermeidbare Belastung unterschieden werden können.",
+          "grades": [5, 6, 7],
+          "referenceIds": ["V2-REQ-LXF-001"],
+          "limitations": [
+            "Die Projektentscheidung liefert keine psychometrische Belastungsmessung und erlaubt keine personenbezogene Datenauswertung."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-003",
+          "question": "Welche Informationsdichte, Segmentierungsart und Zahl paralleler Repräsentationen bleiben je Jahrgang bei unterschiedlichen Vorkenntnissen fachlich produktiv?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF05",
+          "implications": "LXF05 darf nur anpassbare Muster mit beobachtbaren Überlastungssignalen definieren und keine universellen Seiten- oder Elementgrenzen festschreiben."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-003",
+          "question": "Können Lernende nach einem Erklärsegment die zentrale Beziehung erklären oder anwenden, ohne durch Navigation oder Darstellungswechsel den Faden zu verlieren?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Fachliche Zwischenprodukte, typische Navigationsabbrüche, Rückfragen und erforderliche Umsteuerungen der Lehrkraft in realen Klassen.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "digital-operation-routines",
+      "label": "Digitale Bedienroutinen",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-007",
+          "statement": "Sicherheit in einer digitalen Oberfläche ist eine veränderliche Nutzungsvoraussetzung und kein Beleg für fachliches Verständnis oder allgemeine digitale Kompetenz.",
+          "claimIds": ["CLAIM-LP-001", "CLAIM-V2-LXF-ICAP-001"],
+          "grades": [5, 6, 7],
+          "variability": "Gerätezugang, schulische Plattformpraxis, Tastatur- und Touchroutine, Dateiverwaltung sowie Erfahrung mit Programmiersystemen unterscheiden sich innerhalb jedes Jahrgangs erheblich.",
+          "designConsequence": {
+            "learnerMaterial": "Bedienhandlungen werden nur dort erklärt oder geübt, wo sie für die fachliche Handlung nötig sind; ein kurzer funktionaler Übungsweg bleibt von der Lernaufgabe unterscheidbar.",
+            "teacherOrchestration": "Die Lehrkraft klärt Geräte- und Routinenstand vor komplexen Phasen, demonstriert kritische Schritte und hält einen technisch einfachen Fallback bereit."
+          },
+          "status": "working",
+          "limitations": [
+            "Aktive Bedienung oder viele Interaktionen belegen keinen konstruktiven Lernprozess.",
+            "Jahrgangsstufe und private Gerätenutzung erlauben keine verlässliche Annahme über schulische Bedienroutinen."
+          ]
+        },
+        {
+          "id": "LXF03-S-008",
+          "statement": "Klare Zwecke, vorhersehbare Schritte, sichtbare Zustände und korrigierbare Eingaben können Bedien- und Verständnisbarrieren reduzieren und müssen zusätzlich technisch zugänglich umgesetzt werden.",
+          "claimIds": ["CLAIM-V2-LXF-COGA-001", "CLAIM-V2-LXF-WCAG-001"],
+          "grades": [5, 6, 7],
+          "variability": "Lernende nutzen unterschiedliche Eingabegeräte, Ansichtsgrößen, Assistive Technology und Strategien zur Orientierung oder Fehlerkorrektur.",
+          "designConsequence": {
+            "learnerMaterial": "Navigation, Fokus, Status, Speichern, Zurückkehren und Fehlerkorrektur sind benannt, tastatur- und touchbedienbar sowie ohne Farbzwang verständlich.",
+            "teacherOrchestration": "Die Lehrkraft prüft vor der Lernphase zentrale Gerätepfade, vereinbart Routinen für Hilfe und Übergänge und trennt Technikproblem von Fachproblem."
+          },
+          "status": "working",
+          "limitations": [
+            "WCAG-Konformität belegt weder schulische Usability noch Lernwirksamkeit.",
+            "COGA-Patterns müssen gegen die konkrete Fachaufgabe und reale Nutzung geprüft werden."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-008",
+          "basis": "official-curriculum",
+          "statement": "Klasse 5 soll elementare Funktionen von Standardprogrammen und Mediengeräten weitgehend selbstständig anwenden.",
+          "grades": [5],
+          "referenceIds": ["BMB16-GYM-IK-GM-003"],
+          "limitations": [
+            "Die V2-Abdeckung ist noch unassessed und soll später querschnittlich in regulären Lernhandlungen nachgewiesen werden."
+          ]
+        },
+        {
+          "id": "LXF03-E-009",
+          "basis": "orientation",
+          "statement": "Für Klassen 5 und 6 nennt die Lesehilfe das Anwenden von Bedienkonzepten bei der Erstellung und Gestaltung von Medienprodukten.",
+          "grades": [5, 6],
+          "referenceIds": ["LH26-E-DA-012"],
+          "limitations": [
+            "Die Orientierung legitimiert keinen isolierten Softwarekurs und keine Gleichsetzung von Bedienung mit Medienbildung."
+          ]
+        },
+        {
+          "id": "LXF03-E-010",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 7 gehört zielorientiertes Arbeiten im Schulnetz zu den prozessbezogenen Kompetenzen.",
+          "grades": [7],
+          "referenceIds": ["INF7-16-GYM-PK-SV-001"],
+          "limitations": [
+            "Konkrete lokale Netz-, Datei- und Plattformroutinen müssen schulbezogen geklärt werden."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-004",
+          "question": "Welche Bedienroutinen können in den Klassen 5, 6 und 7 vorausgesetzt werden und welche müssen aufgabenbezogen vorbereitet oder technisch umgangen werden?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF06",
+          "implications": "Die Orchestrierung braucht einen kurzen Geräte- und Routinencheck sowie Fallbacks, ohne Bedienstand als Personenprofil zu speichern."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-004",
+          "question": "Welche Bedienhandlungen verbrauchen in realen Klassen Lernzeit oder verhindern ein fachliches Produkt, und welche Unterstützung löst die Hürde mit geringem Zusatzaufwand?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Beobachtete technische Haltepunkte, Hilfeanlässe, Fallback-Nutzung und erfolgreiche Wiederaufnahme auf Aufgabenebene.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "self-regulation-and-help-use",
+      "label": "Selbstregulation und Hilfenutzung",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-009",
+          "statement": "Planen, Überwachen, Prüfen und Revidieren müssen an fachlichen Aufgaben explizit modelliert und geübt werden; die Oberfläche erzeugt diese Strategien nicht automatisch.",
+          "claimIds": ["CLAIM-LP-013", "CLAIM-V2-LXF-EEF-META-001"],
+          "grades": [5, 6, 7],
+          "variability": "Strategiekenntnis, Bereitschaft zur Selbstprüfung und Fähigkeit, eine passende Strategie im konkreten Fachproblem einzusetzen, variieren nach Aufgabe, Erfahrung und Unterstützungsangebot.",
+          "designConsequence": {
+            "learnerMaterial": "Material macht wenige fachlich passende Planungs-, Prüf- und Revisionsschritte sichtbar und bietet Beispiele für ihre Nutzung, statt allgemeine Reflexionsfragen anzuhängen.",
+            "teacherOrchestration": "Die Lehrkraft modelliert Strategieeinsatz, prüft ihn an Produkten und Gesprächen und gibt Verantwortung schrittweise zurück, ohne ein Selbstregulationsprofil anzulegen."
+          },
+          "status": "working",
+          "limitations": [
+            "Die ältere Trainingsmeta-Analyse ist nicht randomisiert, nicht digital und nur teilweise altersnah.",
+            "EEF ist professionelle Guidance und ersetzt keine IuM-spezifische Erprobung."
+          ]
+        },
+        {
+          "id": "LXF03-S-010",
+          "statement": "Hilfen müssen an einer aktuellen fachlichen Hürde ansetzen, die zentrale Denkhandlung erhalten und bei sichtbarer Bewältigung zurückgenommen oder verändert werden.",
+          "claimIds": ["CLAIM-LP-006", "CLAIM-LP-010"],
+          "grades": [5, 6, 7],
+          "variability": "Dieselbe Hilfe kann für eine Person zu früh, für eine andere zu spät und für eine dritte unpassend sein; außerdem verändern Fachproblem und Darstellungsform den Hilfebedarf.",
+          "designConsequence": {
+            "learnerMaterial": "Hilfen sind freiwillig oder gestuft erreichbar, benennen ihren Zweck und führen zu einer nächsten eigenen Handlung oder Revision statt zur fertigen Lösung.",
+            "teacherOrchestration": "Die Lehrkraft vereinbart Hilfewege, beobachtet aktuelle Produkte und entscheidet über Mikro-Scaffolding, gemeinsame Modellierung oder erneute selbstständige Bearbeitung."
+          },
+          "status": "working",
+          "limitations": [
+            "Die Scaffolding-Evidenz begründet keine allgemein überlegene automatische Adaptions- oder Fadinglogik.",
+            "Die Wahl oder Nichtwahl einer Hilfe sowie die dafür benötigte Zeit sind keine stabilen Merkmale der lernenden Person."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-011",
+          "basis": "official-curriculum",
+          "statement": "Klasse 5 soll gewonnene Informationen weitgehend selbstständig auswählen und strukturieren.",
+          "grades": [5],
+          "referenceIds": ["BMB16-GYM-IK-IW-003"],
+          "limitations": [
+            "Weitgehende Selbstständigkeit ist eine curriculare Zielerwartung und keine vorausgesetzte stabile Eingangseigenschaft."
+          ]
+        },
+        {
+          "id": "LXF03-E-012",
+          "basis": "orientation",
+          "statement": "Für Klassen 5 und 6 beschreibt die Lesehilfe Strategien zum Verknüpfen von Informationen mit Vorwissen und zum Weiterverarbeiten für eine Fragestellung.",
+          "grades": [5, 6],
+          "referenceIds": ["LH26-E-ID-009"],
+          "limitations": [
+            "Die Quelle legt keine einzelne Strategie, Hilfesequenz oder Messmethode fest."
+          ]
+        },
+        {
+          "id": "LXF03-E-013",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 7 sollen Teillösungen gezielt zur Lösung eines Gesamtproblems genutzt werden.",
+          "grades": [7],
+          "referenceIds": ["INF7-16-GYM-PK-SV-005"],
+          "limitations": [
+            "Der Record begründet eine fachliche Arbeitsweise und keine allgemeine Fähigkeit zur selbstständigen Lernorganisation."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-005",
+          "question": "Welche Strategien und Hilfewege müssen je Jahrgang zunächst modelliert werden, und an welchem fachlichen Produkt kann wachsende Selbstständigkeit verantwortbar erkannt werden?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF04",
+          "implications": "Die Lernarchitektur muss modellierte, angeleitete und selbstständige Bearbeitung als variable Funktionen statt als starre Altersstufen abbilden."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-005",
+          "question": "Nutzen Lernende Hilfen für eine nächste fachliche Handlung und können sie anschließend ohne Aufgabenübernahme weiterarbeiten oder revidieren?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Aufgabenprodukte vor und nach Hilfe, kurze Lehrkraftprotokolle zu Hilfeanlass und Anschlussaktion sowie beobachtbare Revisionsschritte.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "motivation-and-perceived-purpose",
+      "label": "Motivation und wahrgenommener Sinn",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-011",
+          "statement": "Klare Struktur und fachlich bedeutsame Wahlmöglichkeiten können gemeinsam Motivation und Engagement unterstützen, ohne eine allgemeine Leistungswirkung oder individuelle Motivation zu beweisen.",
+          "claimIds": ["CLAIM-LP-011", "CLAIM-V2-LXF-SDT-001"],
+          "grades": [5, 6, 7],
+          "variability": "Interesse, wahrgenommene Relevanz, Kompetenzerleben, Erfahrung mit Wahlformaten und Bereitschaft zur Beteiligung verändern sich mit Thema, Situation, Gruppe und Aufgabe.",
+          "designConsequence": {
+            "learnerMaterial": "Aufgaben machen fachlichen Zweck, erwartetes Produkt und Qualitätsmaßstab verständlich und bieten nur dort Wahl, wo unterschiedliche Wege oder Kontexte dieselbe Kernhandlung tragen.",
+            "teacherOrchestration": "Die Lehrkraft erläutert Sinn und Grenzen, beobachtet Beteiligung ohne Motivationsdiagnose und verändert Aufgabe, Unterstützung oder Sozialform bei erkennbarer Nichtpassung."
+          },
+          "status": "working",
+          "limitations": [
+            "Die Befunde sind heterogen und teilweise korrelativ; Motivation, Engagement und fachliches Lernen bleiben getrennte Prüfdimensionen.",
+            "Dekorative Auswahl, Punkte oder Gamification sind keine fachlich bedeutsame Autonomieunterstützung."
+          ]
+        },
+        {
+          "id": "LXF03-S-012",
+          "statement": "Kompetenzerleben benötigt bewältigbare fachliche Herausforderung und nutzbare Rückmeldung; bloßes Lob, leichte Aufgaben oder sichtbarer Fortschritt in einer Oberfläche reichen dafür nicht aus.",
+          "claimIds": ["CLAIM-LP-010", "CLAIM-V2-LXF-SDT-001"],
+          "grades": [5, 6, 7],
+          "variability": "Was als erreichbar, bedeutsam oder kontrollierbar erlebt wird, hängt von Vorwissen, Unterstützung, früheren Erfahrungen und sozialem Unterrichtskontext ab.",
+          "designConsequence": {
+            "learnerMaterial": "Zwischenprodukte, Kriterien und Feedback zeigen eine konkrete nächste Handlung; Fortschrittsanzeigen ersetzen weder fachliche Rückmeldung noch Überarbeitung.",
+            "teacherOrchestration": "Die Lehrkraft schützt vor öffentlichem Vergleich, eröffnet erneute Bearbeitung und prüft, ob Struktur und Herausforderung tatsächlich ein fachliches Erfolgserlebnis ermöglichen."
+          },
+          "status": "working",
+          "limitations": [
+            "Aus Motivationsbefunden folgt kein universelles Belohnungs-, Wahl- oder Fortschrittssystem.",
+            "Beobachtete Beteiligung erlaubt keine stabile Zuschreibung persönlicher Motivation."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-014",
+          "basis": "official-curriculum",
+          "statement": "Der Basiskurs Medienbildung verlangt in Klasse 5, persönliche Motivation der Mediennutzung zu beschreiben und die eigene Nutzung altersgemäß zu bewerten.",
+          "grades": [5],
+          "referenceIds": ["BMB16-GYM-IK-MG-001"],
+          "limitations": [
+            "Die curriculare Erwartung rechtfertigt keine Speicherung, Bewertung oder erzwungene Veröffentlichung persönlicher Angaben."
+          ]
+        },
+        {
+          "id": "LXF03-E-015",
+          "basis": "orientation",
+          "statement": "Die Lesehilfe nennt für Klassen 5 und 6 das Beschreiben und Diskutieren von Faszination, Konflikten und Problemen der eigenen Mediennutzung.",
+          "grades": [5, 6],
+          "referenceIds": ["LH26-E-DP-003"],
+          "limitations": [
+            "Die datenschutzfachlich tragfähige Operationalisierung ist offen; ein verpflichtender beobachtbarer Eigenbezug ist nicht freigegeben."
+          ]
+        },
+        {
+          "id": "LXF03-E-016",
+          "basis": "project-decision",
+          "statement": "Auch in Klasse 7 werden Motivation und wahrgenommener Sinn als Planungsbedingungen behandelt, nicht als eigener Curriculumclaim oder personenbezogenes Profil.",
+          "grades": [7],
+          "referenceIds": ["V2-REQ-LXF-001"],
+          "limitations": [
+            "Die Projektentscheidung ergänzt keine nicht vorhandene amtliche Kompetenz und bleibt bis zur Pilotierung eine Planungsannahme."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-006",
+          "question": "Welche Formen von Zweckklärung, Wahl und sichtbarer fachlicher Bewältigung tragen in den drei Jahrgängen, ohne private Offenlegung oder dekorative Motivationselemente zu verlangen?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF05",
+          "implications": "Materialmuster müssen Sinn, Wahl und Rückmeldung an die Fachhandlung binden und die persönliche Offenlegung als Standardweg ausschließen."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-006",
+          "question": "Können Lernende Zweck, Qualitätsmaßstab und nächste Handlung erklären, und führt angebotene Wahl zu unterschiedlichen tragfähigen Wegen statt zu bloßer Dekoration?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Kurze anonyme Rückmeldungen zum Aufgabensinn, gewählte Arbeitswege, fachliche Produkte und dokumentierte Revisionsentscheidungen.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "access-barriers-and-expression",
+      "label": "Zugangsbarrieren und Ausdruckswege",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-013",
+          "statement": "Vorhersehbare Wahrnehmungs-, Sprach-, Bedien-, Orientierungs- und Ausdrucksbarrieren sollen bereits in der Planung reduziert werden, während Lernziel und fachliche Kernhandlung erhalten bleiben.",
+          "claimIds": ["CLAIM-V2-LXF-COGA-001", "CLAIM-V2-LXF-UDL-001", "CLAIM-V2-LXF-WCAG-001"],
+          "grades": [5, 6, 7],
+          "variability": "Barrieren können dauerhaft, vorübergehend oder situationsbezogen auftreten und sich mit Gerät, Umgebung, Sprache, Darstellung, motorischem Zugang und Aufgabenformat verändern.",
+          "designConsequence": {
+            "learnerMaterial": "Technisch zugängliche Inhalte bieten klare Struktur, Alternativen für notwendige Wahrnehmung und begründete Ausdruckswege, ohne die fachliche Anforderung zu verändern.",
+            "teacherOrchestration": "Die Lehrkraft prüft vorab Zugänge und Äquivalenz, bietet einen gleichwertigen Fallback und klärt im Prozess Barrieren ohne öffentliche Markierung einzelner Personen."
+          },
+          "status": "working",
+          "limitations": [
+            "UDL und COGA sind Planungsrahmen; nicht jede Option ist in jeder Aufgabe erforderlich oder lernwirksam.",
+            "WCAG deckt nicht alle kognitiven, situativen oder schulischen Nutzungsbarrieren ab."
+          ]
+        },
+        {
+          "id": "LXF03-S-014",
+          "statement": "Mehrere Ausdruckswege sind nur dann gleichwertig, wenn sie dieselbe fachliche Leistung und dieselben Qualitätskriterien sichtbar machen.",
+          "claimIds": ["CLAIM-V2-LXF-UDL-001", "CLAIM-V2-LXF-ICAP-001"],
+          "grades": [5, 6, 7],
+          "variability": "Mündliche, schriftliche, visuelle, modellierende und programmierende Ausdruckswege stellen unterschiedliche Sprach-, Bedien- und Darstellungsanforderungen und sind nicht für jedes Lernziel austauschbar.",
+          "designConsequence": {
+            "learnerMaterial": "Alternative Produkte benennen gemeinsame Kernleistung, Belegpflicht und Kriterien; zusätzliche technische oder gestalterische Anforderungen werden nicht stillschweigend mitbewertet.",
+            "teacherOrchestration": "Die Lehrkraft entscheidet vorab über fachliche Äquivalenz, stellt nötige Ressourcen bereit und vergleicht Produkte an gemeinsamen Kriterien statt am gewählten Medium."
+          },
+          "status": "working",
+          "limitations": [
+            "Wahlfreiheit darf notwendige fachliche Repräsentationen, etwa Code oder ein Modell, nicht umgehen.",
+            "Ein alternatives Format benötigt eigene technische und didaktische Prüfung."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-017",
+          "basis": "project-decision",
+          "statement": "Accessibility, Lernhandlung und Ausdruck werden im V2-Vertrag getrennt geprüft; technische Konformität allein gilt nicht als fachliche oder didaktische Abnahme.",
+          "grades": [5, 6, 7],
+          "referenceIds": ["V2-REQ-LXF-001"],
+          "limitations": [
+            "Die konkrete Rechtsprüfung, technische Zielkonformität und Nutzungsprüfung folgen in eigenen Gates."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-007",
+          "question": "Welche Barrieren und gleichwertigen Ausdruckswege treten in den drei Jahrgängen bei den vorgesehenen Fachhandlungen, Geräten und Unterrichtsroutinen tatsächlich auf?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF06",
+          "implications": "Experience-Gates müssen technische Prüfung, fachliche Äquivalenz und reale Nutzungsbeobachtung verbinden, ohne Lernwirksamkeit daraus abzuleiten."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-007",
+          "question": "Erreichen Lernende Ziel, Information, Handlung, Hilfe und Fehlerkorrektur über Tastatur, Touch und erforderliche Alternativpfade, und bleiben Produkte fachlich vergleichbar?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Aufgabenbasierte Accessibility- und Usability-Beobachtung, Barrierenprotokoll und fachlicher Äquivalenzvergleich ohne personenbezogene Leistungsprofile.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    },
+    {
+      "id": "classroom-collaboration-and-orchestration",
+      "label": "Zusammenarbeit und Lehrkraftorchestrierung",
+      "evidenceSupportedAssumptions": [
+        {
+          "id": "LXF03-S-015",
+          "statement": "Partner- oder Gruppenarbeit wird erst durch eine fachlich aufeinander bezogene Eigenleistung und ein sichtbares gemeinsames Produkt zu einer potenziell interaktiven Lernhandlung.",
+          "claimIds": ["CLAIM-V2-LXF-ICAP-001"],
+          "grades": [5, 6, 7],
+          "variability": "Gesprächsroutine, fachsprachliche Sicherheit, Arbeitsteilung, Konfliktfähigkeit und Bereitschaft, einen Beitrag zu erklären oder zu revidieren, variieren nach Gruppe und Aufgabe.",
+          "designConsequence": {
+            "learnerMaterial": "Kooperative Aufträge benennen individuellen Beitrag, Austauschfunktion, gemeinsames Minimalprodukt, Kriterien und Rückkehr in eine eigenständige fachliche Handlung.",
+            "teacherOrchestration": "Die Lehrkraft bildet Gruppen zweckbezogen, setzt Zwischenhalte, beobachtet Beiträge am Produkt und hält einen individuellen oder plenaren Fallback bereit."
+          },
+          "status": "working",
+          "limitations": [
+            "ICAP ist ein Theorie- und Evidenzrahmen; Gruppenarbeit oder Sprechen allein belegt keinen interaktiven kognitiven Prozess.",
+            "Kooperationsqualität kann nicht aus Anzahl, Dauer oder technischer Sichtbarkeit von Beiträgen abgeleitet werden."
+          ]
+        },
+        {
+          "id": "LXF03-S-016",
+          "statement": "Lehrkraftorchestrierung verbindet Zielklarheit, Klassenführung, kognitive Aktivierung und passende Unterstützung; digitale Übersicht oder Koordinationsfunktion kann dies unterstützen, aber nicht ersetzen.",
+          "claimIds": ["CLAIM-LP-001", "CLAIM-V2-LXF-ORCHESTRATION-001"],
+          "grades": [5, 6, 7],
+          "variability": "Klassengröße, Geräte, Zeit, Gruppendynamik, Unterstützungsbedarf und schulische Infrastruktur verändern, welche Übergänge, Haltepunkte und Übersichten praktikabel sind.",
+          "designConsequence": {
+            "learnerMaterial": "Lernphasen besitzen erkennbare gemeinsame Haltepunkte, wiederaufnehmbare Zustände und klare Übergänge zwischen Einzel-, Partner- und Plenumsarbeit.",
+            "teacherOrchestration": "Die Lehrkraft erhält fachlich relevante Beobachtungsfragen, Zeitvarianten und Fallbacks unter Wahrung der Datensparsamkeit, aber keine automatisierte Lernstandsdiagnose."
+          },
+          "status": "working",
+          "limitations": [
+            "Die Evidenz zu Orchestrierungssystemen ist heterogen und prüft weder das IuM-Lernwerk noch eine konkrete Datenarchitektur.",
+            "Lehrkraftwahrnehmung darf nicht in verdeckte Profilbildung, Ranking oder Überwachung übersetzt werden."
+          ]
+        }
+      ],
+      "curriculumAndProjectExpectations": [
+        {
+          "id": "LXF03-E-018",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 5 sollen Medien für Zusammenarbeit und Kooperation genutzt werden.",
+          "grades": [5],
+          "referenceIds": ["BMB16-GYM-PK-HK-003"],
+          "limitations": [
+            "Der Record definiert weder Gruppenmethode noch technische Plattform oder Nachweisform."
+          ]
+        },
+        {
+          "id": "LXF03-E-019",
+          "basis": "orientation",
+          "statement": "Für Klassen 5 und 6 orientiert die Lesehilfe auf sicheren, verantwortungsvollen und reflektierten Umgang mit Kommunikationsangeboten und digitalen Arbeitsmitteln.",
+          "grades": [5, 6],
+          "referenceIds": ["LH26-E-PROG-001"],
+          "limitations": [
+            "Die Progressionsnotiz ist Orientierung und kein Nachweis einer konkreten Kooperations- oder Orchestrierungsmethode."
+          ]
+        },
+        {
+          "id": "LXF03-E-020",
+          "basis": "official-curriculum",
+          "statement": "In Klasse 7 sollen Lernende arbeitsteilig im Team Aufgaben planen, strukturieren, ausführen, reflektieren und präsentieren.",
+          "grades": [7],
+          "referenceIds": ["INF7-16-GYM-PK-KK-003"],
+          "limitations": [
+            "Die curriculare Teamhandlung legt weder dauerhafte Gruppenrollen noch eine bestimmte Form des individuellen Nachweises fest."
+          ]
+        }
+      ],
+      "openAgeSpecificQuestions": [
+        {
+          "id": "LXF03-Q-008",
+          "question": "Welche Kooperationsrollen, Haltepunkte, Zeitvarianten und Fallbacks ermöglichen je Jahrgang fachlich gehaltvollen Austausch bei vertretbarem Orchestrierungsaufwand?",
+          "grades": [5, 6, 7],
+          "decisionOwner": "LXF06",
+          "implications": "Der Orchestrierungsstandard muss flexible Sozialformen, individuelles Minimalprodukt, gemeinsame Sicherung und einen datensparsamen Ausfallpfad enthalten."
+        }
+      ],
+      "pilotQuestions": [
+        {
+          "id": "LXF03-P-008",
+          "question": "Entstehen in Einzel-, Partner- und Plenumsphasen nachvollziehbare fachliche Beiträge, und kann die Lehrkraft Übergänge sowie Unterstützung unter Wahrung der Datensparsamkeit steuern?",
+          "grades": [5, 6, 7],
+          "evidenceNeeded": "Gemeinsame und individuelle Produkte, Beobachtung der Übergänge, dokumentierte Haltepunkte, benötigte Fallbacks und Lehrkraftrückmeldung zum Aufwand.",
+          "privacyBoundary": "non-personal-observation-only"
+        }
+      ]
+    }
+  ]
+}

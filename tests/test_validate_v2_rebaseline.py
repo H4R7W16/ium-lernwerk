@@ -34,6 +34,9 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/evidence-register.json fehlt",
     "roadmap/v2/foundations/learning-experience/evidence-synthesis.md fehlt",
     "schemas/v2/learning-evidence.schema.json fehlt",
+    "roadmap/v2/foundations/learning-experience/learner-profile.json fehlt",
+    "roadmap/v2/foundations/learning-experience/learner-profile.md fehlt",
+    "schemas/v2/learner-profile.schema.json fehlt",
 ]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
@@ -111,6 +114,117 @@ VALID_LXF02_EVIDENCE_REGISTER = {
             "evidenceLevel": "medium",
             "status": "reviewed",
         }
+    ],
+}
+
+EXPECTED_LXF03_DIMENSIONS = {
+    "prior-knowledge-and-conceptions",
+    "reading-and-disciplinary-language",
+    "attention-and-working-memory-load",
+    "digital-operation-routines",
+    "self-regulation-and-help-use",
+    "motivation-and-perceived-purpose",
+    "access-barriers-and-expression",
+    "classroom-collaboration-and-orchestration",
+}
+
+
+def make_valid_lxf03_dimension(dimension_id: str, number: int) -> dict:
+    return {
+        "id": dimension_id,
+        "label": f"Testdimension {number}",
+        "evidenceSupportedAssumptions": [
+            {
+                "id": f"LXF03-S-{number:03d}",
+                "statement": "Eine aktuelle, aufgabenbezogene Annahme wird geprüft.",
+                "claimIds": ["CLAIM-TEST-001"],
+                "grades": [5, 6, 7],
+                "variability": (
+                    "Vorwissen, Erfahrung und Unterstützungsbedarf können innerhalb "
+                    "jedes Jahrgangs variieren."
+                ),
+                "designConsequence": {
+                    "learnerMaterial": (
+                        "Das Material bietet einen sichtbaren Zugang zur Aufgabe."
+                    ),
+                    "teacherOrchestration": (
+                        "Die Lehrkraft prüft das aktuelle Produkt und passt Hilfen an."
+                    ),
+                },
+                "status": "working",
+                "limitations": [
+                    "Die Aussage beschreibt keine stabile Eigenschaft einer Person."
+                ],
+            }
+        ],
+        "curriculumAndProjectExpectations": [
+            {
+                "id": f"LXF03-E-{number:03d}",
+                "basis": "project-decision",
+                "statement": "Der Lernprozess bleibt fachlich und prüfbar ausgerichtet.",
+                "grades": [5, 6, 7],
+                "referenceIds": ["V2-REQ-LXF-001"],
+                "limitations": [
+                    "Die Projektentscheidung ist kein empirischer Wirkungsnachweis."
+                ],
+            }
+        ],
+        "openAgeSpecificQuestions": [
+            {
+                "id": f"LXF03-Q-{number:03d}",
+                "question": "Welche Unterstützung ist im jeweiligen Jahrgang nötig?",
+                "grades": [5, 6, 7],
+                "decisionOwner": "LXF07",
+                "implications": (
+                    "Die Ausgestaltung bleibt bis zu Review und Pilotierung veränderbar."
+                ),
+            }
+        ],
+        "pilotQuestions": [
+            {
+                "id": f"LXF03-P-{number:03d}",
+                "question": "Ist die Aufgabe ohne vermeidbare Barriere bearbeitbar?",
+                "grades": [5, 6, 7],
+                "evidenceNeeded": (
+                    "Nicht personenbezogene Beobachtung von Produkten, Rückfragen und "
+                    "der Inanspruchnahme von Hilfen."
+                ),
+                "privacyBoundary": "non-personal-observation-only",
+            }
+        ],
+    }
+
+
+VALID_LXF03_PROFILE = {
+    "schemaVersion": 1,
+    "projectId": "ium-lernwerk",
+    "asOf": "2026-09-03",
+    "scope": {
+        "profileType": "planning-profile",
+        "grades": [5, 6, 7],
+        "schoolType": "Gymnasium Baden-Württemberg",
+        "level": "E",
+        "individualDiagnosis": "prohibited",
+        "maturity": "working",
+        "statementBoundaries": [
+            "Das Profil beschreibt planungsrelevante Varianz, keine Durchschnittsperson.",
+            (
+                "Einzelantworten, Klicks, Bearbeitungszeiten und Hilfenutzung werden "
+                "nicht zu stabilen Personenmerkmalen oder Defizitlabels verdichtet."
+            ),
+        ],
+    },
+    "dimensions": [
+        make_valid_lxf03_dimension("prior-knowledge-and-conceptions", 1),
+        make_valid_lxf03_dimension("reading-and-disciplinary-language", 2),
+        make_valid_lxf03_dimension("attention-and-working-memory-load", 3),
+        make_valid_lxf03_dimension("digital-operation-routines", 4),
+        make_valid_lxf03_dimension("self-regulation-and-help-use", 5),
+        make_valid_lxf03_dimension("motivation-and-perceived-purpose", 6),
+        make_valid_lxf03_dimension("access-barriers-and-expression", 7),
+        make_valid_lxf03_dimension(
+            "classroom-collaboration-and-orchestration", 8
+        ),
     ],
 }
 
@@ -753,6 +867,642 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             "LXF02-Evidenzsynthese Abschnitt ohne substantiellen Inhalt: ## Lernarchitektur",
             errors,
         )
+
+    def test_learner_profile_contract_is_wired_into_repository_gate(self) -> None:
+        """Catches LXF03 artifacts being optional in the repository gate."""
+        with tempfile.TemporaryDirectory() as directory:
+            errors = validate_repository(Path(directory))
+
+        for expected_error in (
+            "roadmap/v2/foundations/learning-experience/learner-profile.json fehlt",
+            "roadmap/v2/foundations/learning-experience/learner-profile.md fehlt",
+            "schemas/v2/learner-profile.schema.json fehlt",
+        ):
+            self.assertIn(expected_error, errors)
+
+    def test_learner_profile_requires_traceable_bounded_statements(self) -> None:
+        """Catches profile claims without evidence, grade scope, or safe consequences."""
+        validator = getattr(v2_validator, "validate_learner_profile", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        expected_errors = {
+            "claimIds": "benötigt claimIds",
+            "grades": "benötigt grades",
+            "variability": "benötigt variability",
+            "designConsequence": "benötigt designConsequence",
+            "status": "benötigt status",
+            "limitations": "benötigt limitations",
+        }
+
+        for field, expected_error in expected_errors.items():
+            with self.subTest(field=field):
+                profile = copy.deepcopy(VALID_LXF03_PROFILE)
+                del profile["dimensions"][0]["evidenceSupportedAssumptions"][0][
+                    field
+                ]
+                errors = validator(
+                    profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+                )
+                self.assertTrue(
+                    any(expected_error in error for error in errors), errors
+                )
+
+    def test_learner_profile_rejects_unknown_claims_and_invalid_grades(self) -> None:
+        """Catches dangling evidence and age assertions outside the approved scope."""
+        validator = getattr(v2_validator, "validate_learner_profile", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        profile = copy.deepcopy(VALID_LXF03_PROFILE)
+        statement = profile["dimensions"][0]["evidenceSupportedAssumptions"][0]
+        statement["claimIds"] = ["CLAIM-UNKNOWN"]
+        statement["grades"] = [5, 8]
+
+        errors = validator(profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT)
+
+        self.assertTrue(
+            any("referenziert unbekannten Claim CLAIM-UNKNOWN" in error for error in errors)
+        )
+        self.assertTrue(
+            any("grades enthält unzulässige Jahrgangsstufe 8" in error for error in errors)
+        )
+
+    def test_learner_profile_rejects_average_learner_and_harmful_inferences(
+        self,
+    ) -> None:
+        """Catches stereotyping, click-time diagnosis, and an average-learner shortcut."""
+        validator = getattr(v2_validator, "validate_learner_profile", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        average = copy.deepcopy(VALID_LXF03_PROFILE)
+        average["averageLearner"] = {"grade": 6}
+        stable_label = copy.deepcopy(VALID_LXF03_PROFILE)
+        stable_label["dimensions"][0]["evidenceSupportedAssumptions"][0][
+            "statement"
+        ] = "Lernende in Klasse 5 sind digital unfähig."
+        click_inference = copy.deepcopy(VALID_LXF03_PROFILE)
+        click_inference["dimensions"][0]["evidenceSupportedAssumptions"][0][
+            "statement"
+        ] = "Eine lange Klickzeit beweist geringe Selbstregulation."
+
+        average_errors = validator(
+            average, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+        label_errors = validator(
+            stable_label, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+        click_errors = validator(
+            click_inference, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+
+        self.assertIn(
+            "LXF03-Profil darf keinen undifferenzierten averageLearner enthalten",
+            average_errors,
+        )
+        self.assertTrue(
+            any("enthält unzulässiges stabiles Defizitlabel" in error for error in label_errors)
+        )
+        self.assertTrue(
+            any("enthält unzulässige Klickzeit-Inferenz" in error for error in click_errors)
+        )
+
+    def test_learner_profile_rejects_less_obvious_labels_and_click_inferences(
+        self,
+    ) -> None:
+        """Catches deficit nouns and inferential click-time wording, not just adjectives."""
+        profile_with_deficit = copy.deepcopy(VALID_LXF03_PROFILE)
+        profile_with_deficit["dimensions"][0]["evidenceSupportedAssumptions"][0][
+            "statement"
+        ] = "Lernende der Klasse 5 haben ein digitales Defizit."
+        profile_with_click_inference = copy.deepcopy(VALID_LXF03_PROFILE)
+        profile_with_click_inference["dimensions"][0][
+            "evidenceSupportedAssumptions"
+        ][0][
+            "statement"
+        ] = "Eine lange Klickdauer lässt auf geringe Selbstregulation schließen."
+
+        deficit_errors = v2_validator.validate_learner_profile(
+            profile_with_deficit, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+        click_errors = v2_validator.validate_learner_profile(
+            profile_with_click_inference,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            PROJECT_ROOT,
+        )
+
+        self.assertTrue(
+            any(
+                "enthält unzulässiges stabiles Defizitlabel" in error
+                for error in deficit_errors
+            )
+        )
+        self.assertTrue(
+            any(
+                "enthält unzulässige Klickzeit-Inferenz" in error
+                for error in click_errors
+            )
+        )
+
+    def test_learner_profile_guards_all_profiling_text_and_both_inference_directions(
+        self,
+    ) -> None:
+        """Catches harmful profiling moved out of the primary statement field."""
+        mutations = (
+            (
+                "variability",
+                lambda statement: statement.__setitem__(
+                    "variability", "Lernende der Klasse 5 sind digital unfähig."
+                ),
+                "stabiles Defizitlabel",
+            ),
+            (
+                "teacher consequence",
+                lambda statement: statement["designConsequence"].__setitem__(
+                    "teacherOrchestration",
+                    "Eine lange Klickzeit beweist geringe Selbstregulation.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "inverse click inference",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    "Geringe Selbstregulation lässt sich aus einer langen Klickzeit ableiten.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "expectation limitation",
+                lambda statement: statement.__setitem__(
+                    "_expectation_limitation", "Lernende besitzen ein digitales Defizit."
+                ),
+                "stabiles Defizitlabel",
+            ),
+            (
+                "unrelated negation after stable label",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    (
+                        "Lernende in Klasse 5 sind digital unfähig, aber nicht alle "
+                        "benötigen dieselbe Hilfe."
+                    ),
+                ),
+                "stabiles Defizitlabel",
+            ),
+            (
+                "unrelated negation after click inference",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    (
+                        "Eine lange Klickzeit beweist geringe Selbstregulation, ohne "
+                        "dass die Lehrkraft eingreift."
+                    ),
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "coordinated stable label after unrelated negation",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    (
+                        "Nicht alle benötigen dieselbe Hilfe und Lernende sind digital "
+                        "unfähig."
+                    ),
+                ),
+                "stabiles Defizitlabel",
+            ),
+            (
+                "coordinated click inference after unrelated negation",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    (
+                        "Ohne Unterstützung bleibt die Aufgabe schwierig und eine lange "
+                        "Klickzeit beweist geringe Selbstregulation."
+                    ),
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "unrelated collection boundary before click inference",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    (
+                        "Eine lange Klickzeit wird ohne Personenbezug erfasst und "
+                        "beweist geringe Selbstregulation."
+                    ),
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "plural click times",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    "Aus Klickzeiten lässt sich geringe Selbstregulation ableiten.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "plural click durations",
+                lambda statement: statement.__setitem__(
+                    "statement", "Klickdauern beweisen geringe Selbstregulation."
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "plural click rates",
+                lambda statement: statement.__setitem__(
+                    "statement", "Klickraten zeigen geringe Motivation."
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "without doubt is not negation",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    "Eine lange Klickzeit beweist ohne Zweifel geringe Selbstregulation.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "indicates",
+                lambda statement: statement.__setitem__(
+                    "statement", "Viele Klicks deuten auf geringe Selbstregulation hin."
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "permits conclusions",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    "Klickzeiten erlauben Rückschlüsse auf geringe Selbstregulation.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "speaks for",
+                lambda statement: statement.__setitem__(
+                    "statement", "Klickraten sprechen für geringe Motivation."
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "recognizable",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    "An Klickzahlen ist geringe Selbstregulation erkennbar.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+            (
+                "can be concluded",
+                lambda statement: statement.__setitem__(
+                    "statement",
+                    "Aus Klickdaten kann auf geringe Fähigkeit geschlossen werden.",
+                ),
+                "Klickzeit-Inferenz",
+            ),
+        )
+
+        for label, mutate, expected_error in mutations:
+            with self.subTest(field=label):
+                profile = copy.deepcopy(VALID_LXF03_PROFILE)
+                dimension = profile["dimensions"][0]
+                statement = dimension["evidenceSupportedAssumptions"][0]
+                mutate(statement)
+                if "_expectation_limitation" in statement:
+                    dimension["curriculumAndProjectExpectations"][0]["limitations"] = [
+                        statement.pop("_expectation_limitation")
+                    ]
+
+                errors = v2_validator.validate_learner_profile(
+                    profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+                )
+
+                self.assertTrue(
+                    any(expected_error in error for error in errors), errors
+                )
+
+    def test_learner_profile_allows_explicit_anti_diagnostic_boundaries(self) -> None:
+        """Keeps negated safeguards from becoming false positive gate failures."""
+        safe_statements = (
+            "Lernende haben kein digitales Defizit.",
+        )
+
+        for statement_text in safe_statements:
+            with self.subTest(statement=statement_text):
+                profile = copy.deepcopy(VALID_LXF03_PROFILE)
+                profile["dimensions"][0]["evidenceSupportedAssumptions"][0][
+                    "statement"
+                ] = statement_text
+
+                errors = v2_validator.validate_learner_profile(
+                    profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+                )
+
+                self.assertFalse(
+                    any(
+                        "stabiles Defizitlabel" in error
+                        or "Klickzeit-Inferenz" in error
+                        for error in errors
+                    ),
+                    errors,
+                )
+
+    def test_learner_profile_reserves_click_telemetry_for_the_scope_boundary(
+        self,
+    ) -> None:
+        """Makes arbitrary click-based profile prose fail closed."""
+        valid_profile = copy.deepcopy(VALID_LXF03_PROFILE)
+        allowed_interface_phrase = copy.deepcopy(VALID_LXF03_PROFILE)
+        allowed_interface_phrase["dimensions"][0][
+            "evidenceSupportedAssumptions"
+        ][0]["statement"] = (
+            "Fachliche Segmentierung ist nicht mit mehr Klickschritten gleichzusetzen."
+        )
+
+        valid_errors = v2_validator.validate_learner_profile(
+            valid_profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+        interface_errors = v2_validator.validate_learner_profile(
+            allowed_interface_phrase, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+
+        self.assertFalse(
+            any("Klickzeit-Inferenz" in error for error in valid_errors), valid_errors
+        )
+        self.assertFalse(
+            any("Klickzeit-Inferenz" in error for error in interface_errors),
+            interface_errors,
+        )
+
+        forbidden_texts = (
+            (
+                "Einzelantworten, Klicks, Bearbeitungszeiten und Hilfenutzung werden "
+                "nicht zu stabilen Personenmerkmalen oder Defizitlabels verdichtet."
+            ),
+            "Klickmetriken werden ausgewertet.",
+            "Klickmuster werden ausgewertet.",
+            "Mausklickmuster werden ausgewertet.",
+            "Personenbezogene Telemetrie wird ausgewertet.",
+            "Interaktionstelemetrie wird ausgewertet.",
+            "Bearbeitungszeiten werden ausgewertet.",
+            "Aufgabenbearbeitungszeiten werden ausgewertet.",
+            "Hilfenutzung wird ausgewertet.",
+            "Personenbezogene Systemdaten werden ausgewertet.",
+            "Aktivitätsmessung wird zur Profilbildung verwendet.",
+        )
+        for text in forbidden_texts:
+            with self.subTest(text=text):
+                profile = copy.deepcopy(VALID_LXF03_PROFILE)
+                profile["dimensions"][0]["evidenceSupportedAssumptions"][0][
+                    "statement"
+                ] = text
+                errors = v2_validator.validate_learner_profile(
+                    profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+                )
+                self.assertTrue(
+                    any("Klickzeit-Inferenz" in error for error in errors), errors
+                )
+
+    def test_learner_profile_rejects_unroutable_decision_owner(self) -> None:
+        """Catches a hand validator that is weaker than the sealed schema."""
+        profile = copy.deepcopy(VALID_LXF03_PROFILE)
+        profile["dimensions"][0]["openAgeSpecificQuestions"][0][
+            "decisionOwner"
+        ] = "nobody"
+
+        errors = v2_validator.validate_learner_profile(
+            profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+
+        self.assertTrue(
+            any("hat ungültigen decisionOwner: nobody" in error for error in errors),
+            errors,
+        )
+
+    def test_learner_profile_rejects_invalid_record_ids(self) -> None:
+        """Catches records that cannot be stably referenced by later LXF gates."""
+        profile = copy.deepcopy(VALID_LXF03_PROFILE)
+        dimension = profile["dimensions"][0]
+        dimension["evidenceSupportedAssumptions"][0]["id"] = "statement-one"
+        dimension["curriculumAndProjectExpectations"][0]["id"] = "expectation-one"
+        dimension["openAgeSpecificQuestions"][0]["id"] = "question-one"
+        dimension["pilotQuestions"][0]["id"] = "pilot-one"
+
+        errors = v2_validator.validate_learner_profile(
+            profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT
+        )
+
+        for expected_error in (
+            "LXF03-Profilstatement statement-one hat eine ungültige ID",
+            "LXF03-Erwartung expectation-one hat eine ungültige ID",
+            "LXF03-Altersfrage question-one hat eine ungültige ID",
+            "LXF03-Pilotfrage pilot-one hat eine ungültige ID",
+        ):
+            self.assertIn(expected_error, errors)
+
+    def test_learner_profile_requires_exact_dimensions_and_split_consequences(
+        self,
+    ) -> None:
+        """Catches a missing profile domain or merged learner/teacher consequence."""
+        validator = getattr(v2_validator, "validate_learner_profile", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        profile = copy.deepcopy(VALID_LXF03_PROFILE)
+        profile["dimensions"] = [
+            dimension
+            for dimension in profile["dimensions"]
+            if dimension["id"] != "access-barriers-and-expression"
+        ]
+        del profile["dimensions"][0]["evidenceSupportedAssumptions"][0][
+            "designConsequence"
+        ]["teacherOrchestration"]
+
+        errors = validator(profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT)
+
+        self.assertIn(
+            "LXF03-Profil fehlt Dimension: access-barriers-and-expression", errors
+        )
+        self.assertTrue(
+            any(
+                "designConsequence benötigt teacherOrchestration" in error
+                for error in errors
+            )
+        )
+
+    def test_learner_profile_separates_curriculum_orientation_and_decisions(
+        self,
+    ) -> None:
+        """Catches an orienting record being presented as enacted curriculum."""
+        validator = getattr(v2_validator, "validate_learner_profile", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        profile = copy.deepcopy(VALID_LXF03_PROFILE)
+        expectation = profile["dimensions"][0][
+            "curriculumAndProjectExpectations"
+        ][0]
+        expectation["basis"] = "official-curriculum"
+        expectation["referenceIds"] = ["LH26-E-PROG-001"]
+
+        errors = validator(profile, VALID_LXF02_EVIDENCE_REGISTER, PROJECT_ROOT)
+
+        self.assertTrue(
+            any(
+                "führt Orientierungsrecord LH26-E-PROG-001 als amtlich bindend"
+                in error
+                for error in errors
+            )
+        )
+
+    def test_real_learner_profile_is_complete_and_traceable(self) -> None:
+        """Catches incomplete real data even if a small fixture remains valid."""
+        validator = getattr(v2_validator, "validate_learner_profile", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        profile = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/learner-profile.json"
+        )
+        evidence = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/evidence-register.json"
+        )
+
+        self.assertEqual([], validator(profile, evidence, PROJECT_ROOT))
+        self.assertEqual(
+            EXPECTED_LXF03_DIMENSIONS,
+            {dimension["id"] for dimension in profile["dimensions"]},
+        )
+
+    def test_learner_profile_schema_is_fail_closed_and_sealed(self) -> None:
+        """Catches optional profile fields or weakened anti-diagnostic semantics."""
+        validator = getattr(v2_validator, "validate_learner_profile_schema", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        schema = load_repo_json("schemas/v2/learner-profile.schema.json")
+        weakened = copy.deepcopy(schema)
+        weakened["$defs"]["profileStatement"]["required"].remove("claimIds")
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_json(root, "schemas/v2/learner-profile.schema.json", weakened)
+            errors = validator(root)
+
+        self.assertIn(
+            "LXF03-Schema weicht von der versiegelten Definition ab", errors
+        )
+
+    def test_learner_profile_schema_requires_the_behavioral_boundary(self) -> None:
+        """Keeps the anti-telemetry boundary in schema and hand validation alike."""
+        schema = load_repo_json("schemas/v2/learner-profile.schema.json")
+        boundary_schema = schema["$defs"]["scope"]["properties"][
+            "statementBoundaries"
+        ]
+
+        self.assertEqual(
+            {
+                "const": (
+                    "Einzelantworten, Klicks, Bearbeitungszeiten und Hilfenutzung "
+                    "werden nicht zu stabilen Personenmerkmalen oder Defizitlabels "
+                    "verdichtet."
+                )
+            },
+            boundary_schema.get("contains"),
+        )
+        self.assertEqual(1, boundary_schema.get("minContains"))
+
+    def test_learner_profile_markdown_covers_every_dimension_and_view(self) -> None:
+        """Catches machine data without the agreed human review structure."""
+        validator = getattr(v2_validator, "validate_learner_profile_markdown", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+
+        self.assertEqual([], validator(PROJECT_ROOT))
+
+    def test_learner_profile_markdown_must_match_json_scope_status_and_references(
+        self,
+    ) -> None:
+        """Catches a readable synthesis drifting away from its structured source."""
+        validator = v2_validator.validate_learner_profile_markdown
+        source_markdown = (
+            PROJECT_ROOT
+            / "roadmap/v2/foundations/learning-experience/learner-profile.md"
+        ).read_text(encoding="utf-8")
+        mutations = (
+            ("status", source_markdown.replace("**Status:** `working`", "**Status:** `reviewed`")),
+            (
+                "scope",
+                source_markdown.replace(
+                    "Gymnasium Baden-Württemberg, Niveau E, Klassen 5–7",
+                    "Gymnasium Baden-Württemberg, Niveau E, Klassen 5–6",
+                ),
+            ),
+            ("missing reference", source_markdown.replace("CLAIM-LP-002", "CLAIM-TEST-001")),
+            ("invented reference", source_markdown.replace("CLAIM-LP-002", "CLAIM-INVENTED-999")),
+        )
+
+        for label, markdown in mutations:
+            with self.subTest(mutation=label), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                write_json(
+                    root,
+                    "roadmap/v2/foundations/learning-experience/learner-profile.json",
+                    load_repo_json(
+                        "roadmap/v2/foundations/learning-experience/learner-profile.json"
+                    ),
+                )
+                target = (
+                    root
+                    / "roadmap/v2/foundations/learning-experience/learner-profile.md"
+                )
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(markdown, encoding="utf-8")
+
+                errors = validator(root)
+
+                self.assertTrue(errors, label)
+
+    def test_learner_profile_markdown_rejects_hidden_header_conflicts_and_moved_refs(
+        self,
+    ) -> None:
+        """Catches globally present metadata or references in the wrong context."""
+        validator = v2_validator.validate_learner_profile_markdown
+        source_markdown = (
+            PROJECT_ROOT
+            / "roadmap/v2/foundations/learning-experience/learner-profile.md"
+        ).read_text(encoding="utf-8")
+        hidden_header_conflict = (
+            source_markdown.replace("**Status:** `working`", "**Status:** `reviewed`")
+            + "\n**Status:** `working`\n"
+        )
+        moved_reference = source_markdown.replace(
+            "CLAIM-LP-002; CLAIM-LP-012", "CLAIM-LP-012"
+        ).replace(
+            "CLAIM-V2-LXF-COGA-001; CLAIM-V2-LXF-UDL-001",
+            "CLAIM-LP-002; CLAIM-V2-LXF-COGA-001; CLAIM-V2-LXF-UDL-001",
+            1,
+        )
+
+        for label, markdown in (
+            ("hidden header conflict", hidden_header_conflict),
+            ("moved reference", moved_reference),
+        ):
+            with self.subTest(mutation=label), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                write_json(
+                    root,
+                    "roadmap/v2/foundations/learning-experience/learner-profile.json",
+                    load_repo_json(
+                        "roadmap/v2/foundations/learning-experience/learner-profile.json"
+                    ),
+                )
+                target = (
+                    root
+                    / "roadmap/v2/foundations/learning-experience/learner-profile.md"
+                )
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(markdown, encoding="utf-8")
+
+                errors = validator(root)
+
+                self.assertTrue(errors, label)
 
     def test_source_inventory_requires_an_object(self) -> None:
         """Catches malformed top-level JSON bypassing source-foundation checks."""

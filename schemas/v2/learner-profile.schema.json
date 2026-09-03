@@ -1,0 +1,368 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/learner-profile.schema.json",
+  "title": "IuM V2 Learner and Stage Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "dimensions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "projectId": {
+      "type": "string",
+      "const": "ium-lernwerk"
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date"
+    },
+    "scope": {
+      "$ref": "#/$defs/scope"
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/dimension"
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "grades": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "enum": [5, 6, 7]
+      }
+    },
+    "nonEmptyUniqueStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileType",
+        "grades",
+        "schoolType",
+        "level",
+        "individualDiagnosis",
+        "maturity",
+        "statementBoundaries"
+      ],
+      "properties": {
+        "profileType": {
+          "type": "string",
+          "const": "planning-profile"
+        },
+        "grades": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "enum": [5, 6, 7]
+          },
+          "allOf": [
+            {"contains": {"const": 5}},
+            {"contains": {"const": 6}},
+            {"contains": {"const": 7}}
+          ]
+        },
+        "schoolType": {
+          "type": "string",
+          "const": "Gymnasium Baden-Württemberg"
+        },
+        "level": {
+          "type": "string",
+          "const": "E"
+        },
+        "individualDiagnosis": {
+          "type": "string",
+          "const": "prohibited"
+        },
+        "maturity": {
+          "type": "string",
+          "const": "working"
+        },
+        "statementBoundaries": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "contains": {
+            "const": "Einzelantworten, Klicks, Bearbeitungszeiten und Hilfenutzung werden nicht zu stabilen Personenmerkmalen oder Defizitlabels verdichtet."
+          },
+          "minContains": 1,
+          "maxContains": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    },
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "evidenceSupportedAssumptions",
+        "curriculumAndProjectExpectations",
+        "openAgeSpecificQuestions",
+        "pilotQuestions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "prior-knowledge-and-conceptions",
+            "reading-and-disciplinary-language",
+            "attention-and-working-memory-load",
+            "digital-operation-routines",
+            "self-regulation-and-help-use",
+            "motivation-and-perceived-purpose",
+            "access-barriers-and-expression",
+            "classroom-collaboration-and-orchestration"
+          ]
+        },
+        "label": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "evidenceSupportedAssumptions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/profileStatement"
+          }
+        },
+        "curriculumAndProjectExpectations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/expectation"
+          }
+        },
+        "openAgeSpecificQuestions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/openQuestion"
+          }
+        },
+        "pilotQuestions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/pilotQuestion"
+          }
+        }
+      }
+    },
+    "profileStatement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "statement",
+        "claimIds",
+        "grades",
+        "variability",
+        "designConsequence",
+        "status",
+        "limitations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^LXF03-S-[0-9]{3}$"
+        },
+        "statement": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "claimIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^CLAIM-[A-Z0-9-]+$"
+          }
+        },
+        "grades": {
+          "$ref": "#/$defs/grades"
+        },
+        "variability": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "designConsequence": {
+          "$ref": "#/$defs/designConsequence"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "working", "reviewed", "standard"]
+        },
+        "limitations": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        }
+      }
+    },
+    "designConsequence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["learnerMaterial", "teacherOrchestration"],
+      "properties": {
+        "learnerMaterial": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "teacherOrchestration": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "basis",
+        "statement",
+        "grades",
+        "referenceIds",
+        "limitations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^LXF03-E-[0-9]{3}$"
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "official-curriculum",
+            "orientation",
+            "project-decision"
+          ]
+        },
+        "statement": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "grades": {
+          "$ref": "#/$defs/grades"
+        },
+        "referenceIds": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "limitations": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"basis": {"const": "official-curriculum"}}},
+          "then": {
+            "properties": {
+              "referenceIds": {
+                "items": {"pattern": "^(?:BMB16|INF7-16)-"}
+              }
+            }
+          }
+        },
+        {
+          "if": {"properties": {"basis": {"const": "orientation"}}},
+          "then": {
+            "properties": {
+              "referenceIds": {
+                "items": {"pattern": "^LH26-"}
+              }
+            }
+          }
+        },
+        {
+          "if": {"properties": {"basis": {"const": "project-decision"}}},
+          "then": {
+            "properties": {
+              "referenceIds": {
+                "items": {"pattern": "^V2-REQ-"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "openQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "question", "grades", "decisionOwner", "implications"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^LXF03-Q-[0-9]{3}$"
+        },
+        "question": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "grades": {
+          "$ref": "#/$defs/grades"
+        },
+        "decisionOwner": {
+          "type": "string",
+          "pattern": "^(?:LXF0[4-7]|IUM-V2-R[5-7])$"
+        },
+        "implications": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "pilotQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "question",
+        "grades",
+        "evidenceNeeded",
+        "privacyBoundary"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^LXF03-P-[0-9]{3}$"
+        },
+        "question": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "grades": {
+          "$ref": "#/$defs/grades"
+        },
+        "evidenceNeeded": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "privacyBoundary": {
+          "type": "string",
+          "const": "non-personal-observation-only"
+        }
+      }
+    }
+  }
+}

@@ -214,17 +214,17 @@ git commit -m "docs(lxf02): consolidate bounded learning evidence"
 - Consumes: V2 evidence claims, official curriculum requirements, and the current Fachprofil audit
 - Produces: a non-diagnostic, evidence-bounded profile for grades 5, 6, and 7
 
-- [ ] **Step 1: Add failing anti-stereotype and traceability tests**
+- [x] **Step 1: Add failing anti-stereotype and traceability tests**
 
 Require each profile statement to include `claimIds`, `grades`, `variability`, `designConsequence`, `status`, and `limitations`. Reject statements with no evidence, stable deficit labels, click-time inferences, or a single undifferentiated `averageLearner` object.
 
-- [ ] **Step 2: Run the tests and verify the learner profile is missing**
+- [x] **Step 2: Run the tests and verify the learner profile is missing**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failure naming both profile files.
 
-- [ ] **Step 3: Create the structured profile**
+- [x] **Step 3: Create the structured profile**
 
 Cover these exact dimensions:
 
@@ -241,7 +241,7 @@ classroom-collaboration-and-orchestration
 
 Represent predictable variability and planning consequences; do not diagnose individuals.
 
-- [ ] **Step 4: Write the human-readable profile**
+- [x] **Step 4: Write the human-readable profile**
 
 For each dimension, separate:
 
@@ -252,7 +252,7 @@ For each dimension, separate:
 - consequences for teacher orchestration;
 - pilot questions.
 
-- [ ] **Step 5: Validate and commit LXF03**
+- [x] **Step 5: Validate and commit LXF03**
 
 Run: `npm run verify:v2`
 
