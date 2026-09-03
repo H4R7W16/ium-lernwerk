@@ -32,6 +32,9 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/learning-experience/learner-profile.json"),
     Path("roadmap/v2/foundations/learning-experience/learner-profile.md"),
     Path("schemas/v2/learner-profile.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/learning-architecture.json"),
+    Path("roadmap/v2/foundations/learning-experience/learning-architecture.md"),
+    Path("schemas/v2/learning-design.schema.json"),
 )
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
@@ -639,6 +642,163 @@ LEARNER_PROFILE_BEHAVIORAL_BOUNDARY = (
 LEARNER_PROFILE_HELP_USE_LABEL = "Selbstregulation und Hilfenutzung"
 LEARNER_PROFILE_SCHEMA_SHA256 = (
     "7482F51AA45E11FC1AC8C487B0C2D15D18C1162EDD1ECA02F04479178FE1264A"
+)
+LEARNING_ARCHITECTURE_FIELDS = {
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "principleGroups",
+    "learningFunctionGrammar",
+    "taskTypes",
+    "practiceTransferStages",
+    "instructionModes",
+}
+LEARNING_ARCHITECTURE_SCOPE_FIELDS = {
+    "grades",
+    "schoolType",
+    "level",
+    "maturity",
+    "contentProduction",
+}
+LEARNING_ARCHITECTURE_GROUP_FIELDS = {"id", "label", "principles"}
+LEARNING_ARCHITECTURE_PRINCIPLE_FIELDS = {
+    "id",
+    "title",
+    "decision",
+    "claimIds",
+    "decisionBasis",
+    "obligation",
+    "appliesTo",
+    "positivePatterns",
+    "antiPatterns",
+    "observableCriteria",
+    "verificationMethods",
+    "status",
+}
+LEARNING_ARCHITECTURE_GROUP_ORDER = (
+    "goal-and-purpose",
+    "prior-knowledge-and-cognitive-load",
+    "disciplinary-learning-action",
+    "explanation-and-representation",
+    "task-and-support",
+    "feedback-practice-and-transfer",
+    "orientation-and-access",
+    "teacher-orchestration",
+)
+EXPECTED_LEARNING_ARCHITECTURE_GROUPS = set(LEARNING_ARCHITECTURE_GROUP_ORDER)
+LEARNING_FUNCTION_ORDER = (
+    "orient",
+    "surface-prior-knowledge",
+    "open-disciplinary-problem",
+    "explain-or-model",
+    "guided-action",
+    "independent-application",
+    "use-feedback",
+    "secure-and-transfer",
+)
+EXPECTED_LEARNING_FUNCTIONS = set(LEARNING_FUNCTION_ORDER)
+LEARNING_FUNCTION_GRAMMAR_FIELDS = {
+    "universalOrder",
+    "functions",
+    "transitions",
+    "sequenceVariants",
+    "digitalInteractions",
+}
+LEARNING_FUNCTION_FIELDS = {
+    "id",
+    "label",
+    "purpose",
+    "observableOutput",
+    "teacherRole",
+    "boundaries",
+}
+LEARNING_TRANSITION_FIELDS = {
+    "id",
+    "from",
+    "to",
+    "pedagogicalRationale",
+    "conditions",
+}
+LEARNING_SEQUENCE_VARIANT_FIELDS = {
+    "id",
+    "label",
+    "transitionIds",
+    "rationale",
+    "conditions",
+}
+LEARNING_DIGITAL_INTERACTION_FIELDS = {
+    "id",
+    "label",
+    "learningFunctionId",
+    "purpose",
+    "forbiddenUses",
+    "observableCriteria",
+    "verificationMethods",
+}
+LEARNING_TASK_TYPE_FIELDS = {
+    "id",
+    "purpose",
+    "evidenceUse",
+    "feedbackTiming",
+    "boundaries",
+}
+LEARNING_PRACTICE_STAGE_FIELDS = {
+    "id",
+    "definition",
+    "temporalPosition",
+    "observableEvidence",
+    "boundaries",
+}
+LEARNING_INSTRUCTION_MODE_FIELDS = {
+    "id",
+    "claimIds",
+    "useWhen",
+    "avoidWhen",
+    "requiredBefore",
+    "requiredAfter",
+}
+LEARNING_ARCHITECTURE_OBLIGATIONS = {
+    "required",
+    "conditional",
+    "recommended",
+    "avoid",
+}
+LEARNING_ARCHITECTURE_APPLIES_TO = {
+    "learner-material",
+    "learning-sequence",
+    "task",
+    "explanation",
+    "digital-interaction",
+    "assessment",
+    "accessibility",
+    "teacher-orchestration",
+}
+LEARNING_ARCHITECTURE_VERIFICATION_METHODS = {
+    "source-review",
+    "expert-review",
+    "content-walkthrough",
+    "automated-check",
+    "accessibility-audit",
+    "usability-test",
+    "classroom-pilot",
+}
+LEARNING_ARCHITECTURE_STATUSES = {"draft", "working", "reviewed"}
+EXPECTED_LEARNING_TASK_TYPES = {"learning-task", "performance-task"}
+EXPECTED_LEARNING_PRACTICE_STAGES = {
+    "immediate-application",
+    "delayed-retrieval",
+    "transfer",
+}
+EXPECTED_LEARNING_INSTRUCTION_MODES = {
+    "supported-exploration",
+    "explicit-explanation",
+}
+LEARNING_DESIGN_SCHEMA_SHA256 = (
+    "28A985C02380CE0F4FE0163B5D99EDDEE3874E71ED07A884082BE8B543BA9CF6"
+)
+LEARNING_ARCHITECTURE_REFERENCE_PATTERN = re.compile(
+    r"\b(?:V2-REQ-[A-Z0-9-]+|LXF03-S-[0-9]{3}|LXF03-E-[0-9]{3})\b"
 )
 ALLOWED_LEGACY_EXTERNAL_EVIDENCE = {
     (
@@ -4409,6 +4569,688 @@ def validate_learner_profile_markdown(root: Path) -> list[str]:
     return errors
 
 
+def _validate_lxf04_string_list(
+    value: object,
+    label: str,
+    field: str,
+    *,
+    allow_duplicates: bool = False,
+) -> tuple[list[str], list[str]]:
+    if not isinstance(value, list) or not value:
+        return [f"{label} benötigt {field}"], []
+    valid = [item for item in value if _nonempty_string(item)]
+    errors: list[str] = []
+    if len(valid) != len(value):
+        errors.append(f"{label} {field} enthält einen leeren Eintrag")
+    if not allow_duplicates and len(valid) != len(set(valid)):
+        errors.append(f"{label} {field} enthält Duplikate")
+    return errors, valid
+
+
+def _lxf04_reference_indexes(
+    evidence_register: object,
+    learner_profile: object,
+    requirements: object,
+) -> tuple[set[str], set[str], set[str], set[str]]:
+    raw_claims = (
+        evidence_register.get("claims")
+        if isinstance(evidence_register, dict)
+        else None
+    )
+    if not isinstance(raw_claims, list):
+        raw_claims = []
+    claim_ids = {
+        claim["id"]
+        for claim in raw_claims
+        if isinstance(claim, dict) and _nonempty_string(claim.get("id"))
+    }
+
+    statement_ids: set[str] = set()
+    expectation_ids: set[str] = set()
+    dimensions = (
+        learner_profile.get("dimensions")
+        if isinstance(learner_profile, dict)
+        else None
+    )
+    if not isinstance(dimensions, list):
+        dimensions = []
+    for dimension in dimensions:
+        if not isinstance(dimension, dict):
+            continue
+        assumptions = dimension.get("evidenceSupportedAssumptions")
+        if not isinstance(assumptions, list):
+            assumptions = []
+        for statement in assumptions:
+            if isinstance(statement, dict) and _nonempty_string(statement.get("id")):
+                statement_ids.add(statement["id"])
+        expectations = dimension.get("curriculumAndProjectExpectations")
+        if not isinstance(expectations, list):
+            expectations = []
+        for expectation in expectations:
+            if isinstance(expectation, dict) and _nonempty_string(
+                expectation.get("id")
+            ):
+                expectation_ids.add(expectation["id"])
+
+    raw_requirements = (
+        requirements.get("requirements")
+        if isinstance(requirements, dict)
+        else None
+    )
+    if not isinstance(raw_requirements, list):
+        raw_requirements = []
+    requirement_ids = {
+        requirement["id"]
+        for requirement in raw_requirements
+        if isinstance(requirement, dict)
+        and _nonempty_string(requirement.get("id"))
+    }
+    return claim_ids, statement_ids, expectation_ids, requirement_ids
+
+
+def validate_learning_architecture(
+    data: object,
+    evidence_register: object,
+    learner_profile: object,
+    requirements: object,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["LXF04-Architektur muss ein Objekt sein"]
+
+    errors: list[str] = []
+    errors.extend(
+        _unknown_fields(data, LEARNING_ARCHITECTURE_FIELDS, "LXF04-Architektur")
+    )
+    errors.extend(
+        _missing_fields(data, LEARNING_ARCHITECTURE_FIELDS, "LXF04-Architektur")
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("LXF04-Architektur schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("LXF04-Architektur projectId muss ium-lernwerk sein")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("LXF04-Architektur asOf muss ein echtes Kalenderdatum sein")
+
+    scope = data.get("scope")
+    if not isinstance(scope, dict):
+        errors.append("LXF04-Architektur benötigt scope")
+    else:
+        errors.extend(
+            _unknown_fields(scope, LEARNING_ARCHITECTURE_SCOPE_FIELDS, "LXF04-Scope")
+        )
+        errors.extend(
+            _missing_fields(scope, LEARNING_ARCHITECTURE_SCOPE_FIELDS, "LXF04-Scope")
+        )
+        grade_errors, grades = _validate_lxf03_grades(scope.get("grades"), "LXF04-Scope")
+        errors.extend(grade_errors)
+        if set(grades) != REQUIREMENT_GRADES:
+            errors.append("LXF04-Scope muss genau die Klassen 5, 6 und 7 umfassen")
+        expected_scope = {
+            "schoolType": "Gymnasium Baden-Württemberg",
+            "level": "E",
+            "maturity": "working",
+            "contentProduction": "frozen",
+        }
+        for field, expected in expected_scope.items():
+            if scope.get(field) != expected:
+                errors.append(f"LXF04-Scope {field} muss {expected} sein")
+
+    known_claims, known_statements, known_expectations, known_requirements = (
+        _lxf04_reference_indexes(evidence_register, learner_profile, requirements)
+    )
+    if not known_claims:
+        errors.append("LXF04-Architektur benötigt ein lesbares LXF02-Evidenzregister")
+    if not known_statements or not known_expectations:
+        errors.append("LXF04-Architektur benötigt ein lesbares LXF03-Profil")
+    if not known_requirements:
+        errors.append("LXF04-Architektur benötigt ein lesbares V2-Anforderungsregister")
+
+    groups = data.get("principleGroups")
+    groups_by_id: dict[str, dict] = {}
+    principle_ids: set[str] = set()
+    referenced_claim_ids: set[str] = set()
+    if not isinstance(groups, list) or not groups:
+        errors.append("LXF04-Architektur principleGroups dürfen nicht leer sein")
+        groups = []
+    for position, group in enumerate(groups):
+        if not isinstance(group, dict):
+            errors.append(f"LXF04-Prinzipgruppe an Position {position} muss ein Objekt sein")
+            continue
+        group_id_value = group.get("id")
+        group_id = (
+            group_id_value
+            if _nonempty_string(group_id_value)
+            else f"<Position {position}>"
+        )
+        label = f"LXF04-Prinzipgruppe {group_id}"
+        errors.extend(_unknown_fields(group, LEARNING_ARCHITECTURE_GROUP_FIELDS, label))
+        errors.extend(_missing_fields(group, LEARNING_ARCHITECTURE_GROUP_FIELDS, label))
+        if not _nonempty_string(group_id_value):
+            errors.append(f"{label} benötigt id")
+        elif group_id_value in groups_by_id:
+            errors.append(f"LXF04-Architektur enthält doppelte Prinzipgruppe {group_id_value}")
+        else:
+            groups_by_id[group_id_value] = group
+        if not _nonempty_string(group.get("label")):
+            errors.append(f"{label} benötigt label")
+        principles = group.get("principles")
+        if not isinstance(principles, list) or not principles:
+            errors.append(f"{group_id} benötigt mindestens ein Pflichtprinzip")
+            principles = []
+        has_required = False
+        for principle_position, principle in enumerate(principles):
+            if not isinstance(principle, dict):
+                errors.append(
+                    f"{label} Prinzip an Position {principle_position} muss ein Objekt sein"
+                )
+                continue
+            principle_id_value = principle.get("id")
+            principle_id = (
+                principle_id_value
+                if _nonempty_string(principle_id_value)
+                else f"<Position {principle_position}>"
+            )
+            principle_label = f"LXF04-Prinzip {principle_id}"
+            errors.extend(
+                _unknown_fields(
+                    principle,
+                    LEARNING_ARCHITECTURE_PRINCIPLE_FIELDS,
+                    principle_label,
+                )
+            )
+            for field in sorted(LEARNING_ARCHITECTURE_PRINCIPLE_FIELDS - set(principle)):
+                errors.append(f"{principle_label} benötigt {field}")
+            if not _nonempty_string(principle_id_value):
+                errors.append(f"{principle_label} benötigt id")
+            elif not re.fullmatch(r"LXF04-PR-[0-9]{3}", principle_id_value):
+                errors.append(f"{principle_label} hat eine ungültige ID")
+            elif principle_id_value in principle_ids:
+                errors.append(f"LXF04-Architektur enthält doppelte Prinzip-ID {principle_id_value}")
+            else:
+                principle_ids.add(principle_id_value)
+            for field in ("title", "decision", "decisionBasis"):
+                if not _nonempty_string(principle.get(field)):
+                    errors.append(f"{principle_label} benötigt {field}")
+
+            claim_errors, claim_ids = _validate_lxf04_string_list(
+                principle.get("claimIds"), principle_label, "claimIds"
+            )
+            errors.extend(claim_errors)
+            for claim_id in claim_ids:
+                referenced_claim_ids.add(claim_id)
+                if claim_id not in known_claims:
+                    errors.append(f"{principle_label} referenziert unbekannten Claim {claim_id}")
+
+            decision_basis = principle.get("decisionBasis")
+            basis_refs = (
+                set(LEARNING_ARCHITECTURE_REFERENCE_PATTERN.findall(decision_basis))
+                if _nonempty_string(decision_basis)
+                else set()
+            )
+            basis_requirements = {ref for ref in basis_refs if ref.startswith("V2-REQ-")}
+            basis_statements = {ref for ref in basis_refs if ref.startswith("LXF03-S-")}
+            basis_expectations = {ref for ref in basis_refs if ref.startswith("LXF03-E-")}
+            if not basis_requirements:
+                errors.append(f"{principle_label} decisionBasis benötigt eine V2-Anforderung")
+            if not basis_statements:
+                errors.append(f"{principle_label} decisionBasis benötigt ein LXF03-Statement")
+            if not basis_expectations:
+                errors.append(f"{principle_label} decisionBasis benötigt eine LXF03-Erwartung")
+            for reference in sorted(basis_requirements - known_requirements):
+                errors.append(
+                    f"{principle_label} referenziert unbekannte V2-Anforderung {reference}"
+                )
+            for reference in sorted(basis_statements - known_statements):
+                errors.append(
+                    f"{principle_label} referenziert unbekanntes LXF03-Statement {reference}"
+                )
+            for reference in sorted(basis_expectations - known_expectations):
+                errors.append(
+                    f"{principle_label} referenziert unbekannte LXF03-Erwartung {reference}"
+                )
+
+            obligation = principle.get("obligation")
+            if (
+                not isinstance(obligation, str)
+                or obligation not in LEARNING_ARCHITECTURE_OBLIGATIONS
+            ):
+                errors.append(f"{principle_label} hat unbekannte obligation: {obligation}")
+            if obligation == "required":
+                has_required = True
+            applies_errors, applies_to = _validate_lxf04_string_list(
+                principle.get("appliesTo"), principle_label, "appliesTo"
+            )
+            errors.extend(applies_errors)
+            for target in applies_to:
+                if target not in LEARNING_ARCHITECTURE_APPLIES_TO:
+                    errors.append(f"{principle_label} hat unbekannten Geltungsbereich: {target}")
+            for field in ("positivePatterns", "antiPatterns", "observableCriteria"):
+                field_errors, _values = _validate_lxf04_string_list(
+                    principle.get(field), principle_label, field
+                )
+                errors.extend(field_errors)
+            method_errors, methods = _validate_lxf04_string_list(
+                principle.get("verificationMethods"),
+                principle_label,
+                "verificationMethods",
+            )
+            errors.extend(method_errors)
+            for method in methods:
+                if method not in LEARNING_ARCHITECTURE_VERIFICATION_METHODS:
+                    errors.append(f"{principle_label} hat unbekannte Prüfmethode: {method}")
+            if methods == ["automated-check"]:
+                errors.append(f"{principle_label} darf nicht nur automatisiert geprüft werden")
+            status = principle.get("status")
+            if (
+                not isinstance(status, str)
+                or status not in LEARNING_ARCHITECTURE_STATUSES
+            ):
+                errors.append(f"{principle_label} hat unbekannten status: {status}")
+        if not has_required:
+            errors.append(f"{group_id} benötigt mindestens ein Pflichtprinzip")
+
+    actual_groups = set(groups_by_id)
+    for missing in sorted(EXPECTED_LEARNING_ARCHITECTURE_GROUPS - actual_groups):
+        errors.append(f"LXF04-Architektur fehlt Prinzipgruppe: {missing}")
+    for unexpected in sorted(actual_groups - EXPECTED_LEARNING_ARCHITECTURE_GROUPS):
+        errors.append(f"LXF04-Architektur enthält unerwartete Prinzipgruppe: {unexpected}")
+
+    grammar = data.get("learningFunctionGrammar")
+    if not isinstance(grammar, dict):
+        errors.append("LXF04-Architektur benötigt learningFunctionGrammar")
+        grammar = {}
+    else:
+        errors.extend(
+            _unknown_fields(grammar, LEARNING_FUNCTION_GRAMMAR_FIELDS, "LXF04-Lernfunktionsgrammatik")
+        )
+        errors.extend(
+            _missing_fields(grammar, LEARNING_FUNCTION_GRAMMAR_FIELDS, "LXF04-Lernfunktionsgrammatik")
+        )
+    if grammar.get("universalOrder") is not False:
+        errors.append("LXF04-Lernfunktionsgrammatik darf keine universelle Reihenfolge setzen")
+
+    functions = grammar.get("functions")
+    functions_by_id: dict[str, dict] = {}
+    if not isinstance(functions, list) or not functions:
+        errors.append("LXF04-Lernfunktionsgrammatik benötigt functions")
+        functions = []
+    for position, function in enumerate(functions):
+        if not isinstance(function, dict):
+            errors.append(f"LXF04-Lernfunktion an Position {position} muss ein Objekt sein")
+            continue
+        function_id_value = function.get("id")
+        function_id = (
+            function_id_value
+            if _nonempty_string(function_id_value)
+            else f"<Position {position}>"
+        )
+        label = f"LXF04-Lernfunktion {function_id}"
+        errors.extend(_unknown_fields(function, LEARNING_FUNCTION_FIELDS, label))
+        errors.extend(_missing_fields(function, LEARNING_FUNCTION_FIELDS, label))
+        if not _nonempty_string(function_id_value):
+            errors.append(f"{label} benötigt id")
+        elif function_id_value in functions_by_id:
+            errors.append(f"LXF04-Lernfunktionsgrammatik enthält doppelte Funktion {function_id_value}")
+        else:
+            functions_by_id[function_id_value] = function
+        for field in ("label", "purpose", "observableOutput", "teacherRole"):
+            if not _nonempty_string(function.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        boundary_errors, _boundaries = _validate_lxf04_string_list(
+            function.get("boundaries"), label, "boundaries"
+        )
+        errors.extend(boundary_errors)
+    for missing in sorted(EXPECTED_LEARNING_FUNCTIONS - set(functions_by_id)):
+        errors.append(f"LXF04-Lernfunktionsgrammatik fehlt Funktion: {missing}")
+    for unexpected in sorted(set(functions_by_id) - EXPECTED_LEARNING_FUNCTIONS):
+        errors.append(f"LXF04-Lernfunktionsgrammatik enthält unbekannte Funktion: {unexpected}")
+
+    transitions = grammar.get("transitions")
+    transitions_by_id: dict[str, dict] = {}
+    if not isinstance(transitions, list) or not transitions:
+        errors.append("LXF04-Lernfunktionsgrammatik benötigt transitions")
+        transitions = []
+    for position, transition in enumerate(transitions):
+        if not isinstance(transition, dict):
+            errors.append(f"LXF04-Übergang an Position {position} muss ein Objekt sein")
+            continue
+        transition_id_value = transition.get("id")
+        transition_id = (
+            transition_id_value
+            if _nonempty_string(transition_id_value)
+            else f"<Position {position}>"
+        )
+        label = transition_id if _nonempty_string(transition_id_value) else f"LXF04-Übergang {transition_id}"
+        errors.extend(_unknown_fields(transition, LEARNING_TRANSITION_FIELDS, label))
+        errors.extend(_missing_fields(transition, LEARNING_TRANSITION_FIELDS, label))
+        if not _nonempty_string(transition_id_value):
+            errors.append(f"{label} benötigt id")
+        elif not re.fullmatch(r"LXF04-T-[0-9]{3}", transition_id_value):
+            errors.append(f"{label} hat eine ungültige ID")
+        elif transition_id_value in transitions_by_id:
+            errors.append(f"LXF04-Lernfunktionsgrammatik enthält doppelten Übergang {transition_id_value}")
+        else:
+            transitions_by_id[transition_id_value] = transition
+        if not _nonempty_string(transition.get("pedagogicalRationale")):
+            errors.append(f"{label} benötigt pedagogicalRationale")
+        condition_errors, _conditions = _validate_lxf04_string_list(
+            transition.get("conditions"), label, "conditions"
+        )
+        errors.extend(condition_errors)
+        source = transition.get("from")
+        target = transition.get("to")
+        for endpoint, field in ((source, "from"), (target, "to")):
+            if (
+                not isinstance(endpoint, str)
+                or endpoint not in EXPECTED_LEARNING_FUNCTIONS
+            ):
+                errors.append(f"{label} {field} referenziert unbekannte Lernfunktion {endpoint}")
+        if (
+            isinstance(source, str)
+            and source == target
+            and source in EXPECTED_LEARNING_FUNCTIONS
+        ):
+            errors.append(f"{label} darf keine Selbstschleife bilden")
+
+    variants = grammar.get("sequenceVariants")
+    variant_ids: set[str] = set()
+    if not isinstance(variants, list) or len(variants) < 2:
+        errors.append("LXF04-Lernfunktionsgrammatik benötigt mindestens zwei Reihenfolgevarianten")
+        variants = variants if isinstance(variants, list) else []
+    for position, variant in enumerate(variants):
+        if not isinstance(variant, dict):
+            errors.append(f"LXF04-Variante an Position {position} muss ein Objekt sein")
+            continue
+        variant_id_value = variant.get("id")
+        variant_id = variant_id_value if _nonempty_string(variant_id_value) else f"<Position {position}>"
+        label = f"LXF04-Variante {variant_id}"
+        errors.extend(_unknown_fields(variant, LEARNING_SEQUENCE_VARIANT_FIELDS, label))
+        errors.extend(_missing_fields(variant, LEARNING_SEQUENCE_VARIANT_FIELDS, label))
+        if not _nonempty_string(variant_id_value):
+            errors.append(f"{label} benötigt id")
+        elif not re.fullmatch(r"LXF04-V-[0-9]{3}", variant_id_value):
+            errors.append(f"{label} hat eine ungültige ID")
+        elif variant_id_value in variant_ids:
+            errors.append(f"LXF04-Lernfunktionsgrammatik enthält doppelte Variante {variant_id_value}")
+        else:
+            variant_ids.add(variant_id_value)
+        for field in ("label", "rationale"):
+            if not _nonempty_string(variant.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        condition_errors, _conditions = _validate_lxf04_string_list(
+            variant.get("conditions"), label, "conditions"
+        )
+        errors.extend(condition_errors)
+        transition_errors, transition_ids = _validate_lxf04_string_list(
+            variant.get("transitionIds"),
+            label,
+            "transitionIds",
+            allow_duplicates=True,
+        )
+        errors.extend(transition_errors)
+        path: list[dict] = []
+        for transition_id in transition_ids:
+            transition = transitions_by_id.get(transition_id)
+            if transition is None:
+                errors.append(f"{label} referenziert unbekannten Übergang {transition_id}")
+            else:
+                path.append(transition)
+        if len(path) == len(transition_ids) and any(
+            current.get("to") != following.get("from")
+            for current, following in zip(path, path[1:])
+        ):
+            errors.append(f"{label} bildet keinen zusammenhängenden Übergangspfad")
+
+    interactions = grammar.get("digitalInteractions")
+    interaction_ids: set[str] = set()
+    if not isinstance(interactions, list) or not interactions:
+        errors.append("LXF04-Lernfunktionsgrammatik benötigt digitalInteractions")
+        interactions = []
+    for position, interaction in enumerate(interactions):
+        if not isinstance(interaction, dict):
+            errors.append(f"LXF04-Digitalinteraktion an Position {position} muss ein Objekt sein")
+            continue
+        interaction_id_value = interaction.get("id")
+        interaction_id = interaction_id_value if _nonempty_string(interaction_id_value) else f"<Position {position}>"
+        label = f"LXF04-Digitalinteraktion {interaction_id}"
+        errors.extend(_unknown_fields(interaction, LEARNING_DIGITAL_INTERACTION_FIELDS, label))
+        errors.extend(_missing_fields(interaction, LEARNING_DIGITAL_INTERACTION_FIELDS, label))
+        if not _nonempty_string(interaction_id_value):
+            errors.append(f"{label} benötigt id")
+        elif not re.fullmatch(r"LXF04-DI-[0-9]{3}", interaction_id_value):
+            errors.append(f"{label} hat eine ungültige ID")
+        elif interaction_id_value in interaction_ids:
+            errors.append(f"LXF04-Lernfunktionsgrammatik enthält doppelte Digitalinteraktion {interaction_id_value}")
+        else:
+            interaction_ids.add(interaction_id_value)
+        for field in ("label", "purpose"):
+            if not _nonempty_string(interaction.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        learning_function_id = interaction.get("learningFunctionId")
+        if (
+            not isinstance(learning_function_id, str)
+            or learning_function_id not in EXPECTED_LEARNING_FUNCTIONS
+        ):
+            errors.append(f"{label} referenziert unbekannte Lernfunktion {learning_function_id}")
+        for field in ("forbiddenUses", "observableCriteria"):
+            field_errors, _values = _validate_lxf04_string_list(
+                interaction.get(field), label, field
+            )
+            errors.extend(field_errors)
+        method_errors, methods = _validate_lxf04_string_list(
+            interaction.get("verificationMethods"), label, "verificationMethods"
+        )
+        errors.extend(method_errors)
+        for method in methods:
+            if method not in LEARNING_ARCHITECTURE_VERIFICATION_METHODS:
+                errors.append(f"{label} hat unbekannte Prüfmethode: {method}")
+        if methods == ["automated-check"]:
+            errors.append(f"{label} darf nicht nur automatisiert geprüft werden")
+
+    def validate_named_records(
+        value: object,
+        collection_label: str,
+        expected_ids: set[str],
+        required_fields: set[str],
+        string_fields: tuple[str, ...],
+        list_fields: tuple[str, ...],
+    ) -> dict[str, dict]:
+        records_by_id: dict[str, dict] = {}
+        if not isinstance(value, list) or not value:
+            errors.append(f"LXF04-Architektur benötigt {collection_label}")
+            value = []
+        for position, record in enumerate(value):
+            if not isinstance(record, dict):
+                errors.append(f"LXF04-{collection_label} an Position {position} muss ein Objekt sein")
+                continue
+            record_id_value = record.get("id")
+            record_id = record_id_value if _nonempty_string(record_id_value) else f"<Position {position}>"
+            label = f"LXF04-{collection_label} {record_id}"
+            errors.extend(_unknown_fields(record, required_fields, label))
+            errors.extend(_missing_fields(record, required_fields, label))
+            if not _nonempty_string(record_id_value):
+                errors.append(f"{label} benötigt id")
+            elif record_id_value in records_by_id:
+                errors.append(f"LXF04-{collection_label} enthält doppelte ID {record_id_value}")
+            else:
+                records_by_id[record_id_value] = record
+            for field in string_fields:
+                if not _nonempty_string(record.get(field)):
+                    errors.append(f"{label} benötigt {field}")
+            for field in list_fields:
+                field_errors, _values = _validate_lxf04_string_list(
+                    record.get(field), label, field
+                )
+                errors.extend(field_errors)
+        for missing in sorted(expected_ids - set(records_by_id)):
+            noun = {
+                "Aufgabentyp": "Aufgabentyp",
+                "Übungsstufe": "Übungsstufe",
+                "Instruktionsmodus": "Instruktionsmodus",
+            }[collection_label]
+            errors.append(f"LXF04-Architektur fehlt {noun}: {missing}")
+        for unexpected in sorted(set(records_by_id) - expected_ids):
+            errors.append(f"LXF04-Architektur enthält unerwartete {collection_label}-ID: {unexpected}")
+        return records_by_id
+
+    task_types = validate_named_records(
+        data.get("taskTypes"),
+        "Aufgabentyp",
+        EXPECTED_LEARNING_TASK_TYPES,
+        LEARNING_TASK_TYPE_FIELDS,
+        ("purpose", "evidenceUse", "feedbackTiming"),
+        ("boundaries",),
+    )
+    task_semantics = {
+        "learning-task": ("formative", "during-learning"),
+        "performance-task": ("summative-or-gate", "after-performance"),
+    }
+    for task_id, (evidence_use, feedback_timing) in task_semantics.items():
+        task = task_types.get(task_id)
+        if task is not None and (
+            task.get("evidenceUse") != evidence_use
+            or task.get("feedbackTiming") != feedback_timing
+        ):
+            errors.append(f"LXF04-Aufgabentyp {task_id} hat widersprüchliche Nachweissemantik")
+
+    stages = validate_named_records(
+        data.get("practiceTransferStages"),
+        "Übungsstufe",
+        EXPECTED_LEARNING_PRACTICE_STAGES,
+        LEARNING_PRACTICE_STAGE_FIELDS,
+        ("definition", "temporalPosition", "observableEvidence"),
+        ("boundaries",),
+    )
+    stage_positions = {
+        "immediate-application": "immediate",
+        "delayed-retrieval": "delayed",
+        "transfer": "novel-context",
+    }
+    for stage_id, temporal_position in stage_positions.items():
+        stage = stages.get(stage_id)
+        if stage is not None and stage.get("temporalPosition") != temporal_position:
+            errors.append(f"LXF04-Übungsstufe {stage_id} hat falsche temporalPosition")
+
+    modes = validate_named_records(
+        data.get("instructionModes"),
+        "Instruktionsmodus",
+        EXPECTED_LEARNING_INSTRUCTION_MODES,
+        LEARNING_INSTRUCTION_MODE_FIELDS,
+        (),
+        ("claimIds", "useWhen", "avoidWhen", "requiredBefore", "requiredAfter"),
+    )
+    for mode_id, mode in modes.items():
+        raw_mode_claim_ids = mode.get("claimIds")
+        mode_claim_ids = (
+            raw_mode_claim_ids if isinstance(raw_mode_claim_ids, list) else []
+        )
+        for claim_id in mode_claim_ids:
+            if _nonempty_string(claim_id):
+                referenced_claim_ids.add(claim_id)
+                if claim_id not in known_claims:
+                    errors.append(f"LXF04-Instruktionsmodus {mode_id} referenziert unbekannten Claim {claim_id}")
+    unreferenced_claims = sorted(known_claims - referenced_claim_ids)
+    if unreferenced_claims:
+        errors.append(
+            "LXF04-Architektur lässt LXF02-Claim ohne Designbezug: "
+            + ", ".join(unreferenced_claims)
+        )
+    return errors
+
+
+def validate_learning_design_schema(root: Path) -> list[str]:
+    relative_path = Path("schemas/v2/learning-design.schema.json")
+    path = root / relative_path
+    if not path.is_file():
+        return [f"LXF04-Schema fehlt: {relative_path.as_posix()}"]
+    try:
+        schema = load_json(path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return [f"LXF04-Schema ist kein gültiges JSON: {relative_path.as_posix()}"]
+    if not isinstance(schema, dict):
+        return ["LXF04-Schema muss ein Objekt sein"]
+    canonical_schema = json.dumps(
+        schema,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    if hashlib.sha256(canonical_schema).hexdigest().upper() != (
+        LEARNING_DESIGN_SCHEMA_SHA256
+    ):
+        return ["LXF04-Schema weicht von der versiegelten Definition ab"]
+    return []
+
+
+def validate_learning_architecture_markdown(root: Path) -> list[str]:
+    path = root / "roadmap/v2/foundations/learning-experience/learning-architecture.md"
+    if not path.is_file():
+        return []
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return ["LXF04-Lernarchitektur ist nicht als UTF-8 lesbar"]
+    headings = [
+        "# LXF04 Lernarchitektur-Vertrag",
+        "## Vertragsgrenzen",
+        "## Acht Qualitätsdimensionen",
+        "## Lernfunktionsgrammatik",
+        "## Gültige Reihenfolgevarianten",
+        "## Lern- und Leistungsaufgaben",
+        "## Exploration und explizite Erklärung",
+        "## Anwendung, verzögerter Abruf und Transfer",
+        "## Digitale Interaktion",
+        "## WU-Abgleich",
+        "## Übergabegrenze",
+    ]
+    errors: list[str] = []
+    positions = [text.find(heading) for heading in headings]
+    for heading, position in zip(headings, positions):
+        if position < 0:
+            errors.append(f"LXF04-Lernarchitektur fehlt Überschrift: {heading}")
+    present = [position for position in positions if position >= 0]
+    if present != sorted(present):
+        errors.append("LXF04-Lernarchitektur hat eine unerwartete Abschnittsreihenfolge")
+    required_terms = [
+        *LEARNING_FUNCTION_ORDER,
+        "learning-task",
+        "performance-task",
+        "immediate-application",
+        "delayed-retrieval",
+        "transfer",
+        "supported-exploration",
+        "explicit-explanation",
+    ]
+    for term in required_terms:
+        if term not in text:
+            errors.append(f"LXF04-Lernarchitektur fehlt Vertragsbegriff: {term}")
+    for variant_number in range(1, 6):
+        variant_id = f"LXF04-V-{variant_number:03d}"
+        if variant_id not in text:
+            errors.append(f"LXF04-Lernarchitektur fehlt Reihenfolgevariante: {variant_id}")
+    dimension_headings = [
+        "### 1. Ziel und Sinn",
+        "### 2. Vorwissen und kognitive Belastung",
+        "### 3. Fachliche Lernhandlung",
+        "### 4. Erklärung und Repräsentation",
+        "### 5. Aufgabe und Unterstützung",
+        "### 6. Feedback, Übung und Transfer",
+        "### 7. Orientierung und Zugänglichkeit",
+        "### 8. Lehrkraftorchestrierung",
+    ]
+    dimension_positions = [text.find(heading) for heading in dimension_headings]
+    for heading, position in zip(dimension_headings, dimension_positions):
+        if position < 0:
+            errors.append(f"LXF04-Lernarchitektur fehlt Dimension: {heading}")
+    if [p for p in dimension_positions if p >= 0] != sorted(
+        p for p in dimension_positions if p >= 0
+    ):
+        errors.append("LXF04-Lernarchitektur hat eine unerwartete Dimensionsreihenfolge")
+    if "keine universelle" not in text.casefold() and "keine abschließende" not in text.casefold():
+        errors.append("LXF04-Lernarchitektur muss die nicht-universelle Reihenfolge erklären")
+    return errors
+
+
 def validate_source_schemas(root: Path) -> list[str]:
     resolved_semantics = [
         {
@@ -4698,12 +5540,14 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
     requirements_path = Path("roadmap/v2/requirements/requirements.json")
     path = root / requirements_path
     requirement_ids: set[str] = set()
+    requirements_register: object = {}
     if path.is_file():
         try:
             data = load_json(path)
         except (OSError, UnicodeError, json.JSONDecodeError):
             errors.append(f"{requirements_path.as_posix()} ist kein gültiges JSON")
         else:
+            requirements_register = data
             errors.extend(validate_requirements(data, root, warnings))
             if isinstance(data, dict) and isinstance(data.get("requirements"), list):
                 requirement_ids = {
@@ -4837,6 +5681,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
     )
     errors.extend(validate_learning_evidence_synthesis(root))
 
+    learner_profile: object = {}
     learner_profile_path = Path(
         "roadmap/v2/foundations/learning-experience/learner-profile.json"
     )
@@ -4847,6 +5692,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         except (OSError, UnicodeError, json.JSONDecodeError):
             errors.append(f"{learner_profile_path.as_posix()} ist kein gültiges JSON")
         else:
+            learner_profile = data
             errors.extend(
                 validate_learner_profile(data, learning_evidence_register, root)
             )
@@ -4856,6 +5702,33 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         if not error.startswith("LXF03-Schema fehlt:")
     )
     errors.extend(validate_learner_profile_markdown(root))
+
+    learning_architecture_path = Path(
+        "roadmap/v2/foundations/learning-experience/learning-architecture.json"
+    )
+    path = root / learning_architecture_path
+    if path.is_file():
+        try:
+            data = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(
+                f"{learning_architecture_path.as_posix()} ist kein gültiges JSON"
+            )
+        else:
+            errors.extend(
+                validate_learning_architecture(
+                    data,
+                    learning_evidence_register,
+                    learner_profile,
+                    requirements_register,
+                )
+            )
+    errors.extend(
+        error
+        for error in validate_learning_design_schema(root)
+        if not error.startswith("LXF04-Schema fehlt:")
+    )
+    errors.extend(validate_learning_architecture_markdown(root))
     return errors, warnings
 
 

@@ -1,0 +1,413 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/learning-design.schema.json",
+  "title": "IuM V2 Learning Architecture Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "principleGroups",
+    "learningFunctionGrammar",
+    "taskTypes",
+    "practiceTransferStages",
+    "instructionModes"
+  ],
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "projectId": {"type": "string", "const": "ium-lernwerk"},
+    "asOf": {"type": "string", "format": "date"},
+    "scope": {"$ref": "#/$defs/scope"},
+    "principleGroups": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {"$ref": "#/$defs/principleGroup"}
+    },
+    "learningFunctionGrammar": {"$ref": "#/$defs/learningFunctionGrammar"},
+    "taskTypes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"$ref": "#/$defs/taskType"}
+    },
+    "practiceTransferStages": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/practiceTransferStage"}
+    },
+    "instructionModes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"$ref": "#/$defs/instructionMode"}
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {"type": "string", "minLength": 1},
+    "nonEmptyUniqueStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nonEmptyString"}
+    },
+    "grades": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {"type": "integer", "enum": [5, 6, 7]},
+      "allOf": [
+        {"contains": {"const": 5}},
+        {"contains": {"const": 6}},
+        {"contains": {"const": 7}}
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grades",
+        "schoolType",
+        "level",
+        "maturity",
+        "contentProduction"
+      ],
+      "properties": {
+        "grades": {"$ref": "#/$defs/grades"},
+        "schoolType": {
+          "type": "string",
+          "const": "Gymnasium Baden-Württemberg"
+        },
+        "level": {"type": "string", "const": "E"},
+        "maturity": {"type": "string", "const": "working"},
+        "contentProduction": {"type": "string", "const": "frozen"}
+      }
+    },
+    "principleGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "principles"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "goal-and-purpose",
+            "prior-knowledge-and-cognitive-load",
+            "disciplinary-learning-action",
+            "explanation-and-representation",
+            "task-and-support",
+            "feedback-practice-and-transfer",
+            "orientation-and-access",
+            "teacher-orchestration"
+          ]
+        },
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "principles": {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "type": "object",
+            "required": ["obligation"],
+            "properties": {"obligation": {"const": "required"}}
+          },
+          "minContains": 1,
+          "items": {"$ref": "#/$defs/principle"}
+        }
+      }
+    },
+    "principle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "decision",
+        "claimIds",
+        "decisionBasis",
+        "obligation",
+        "appliesTo",
+        "positivePatterns",
+        "antiPatterns",
+        "observableCriteria",
+        "verificationMethods",
+        "status"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^LXF04-PR-[0-9]{3}$"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "decision": {"$ref": "#/$defs/nonEmptyString"},
+        "claimIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^CLAIM-[A-Z0-9-]+$"}
+        },
+        "decisionBasis": {"$ref": "#/$defs/nonEmptyString"},
+        "obligation": {
+          "type": "string",
+          "enum": ["required", "conditional", "recommended", "avoid"]
+        },
+        "appliesTo": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "learner-material",
+              "learning-sequence",
+              "task",
+              "explanation",
+              "digital-interaction",
+              "assessment",
+              "accessibility",
+              "teacher-orchestration"
+            ]
+          }
+        },
+        "positivePatterns": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "antiPatterns": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "observableCriteria": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "verificationMethods": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "not": {"const": ["automated-check"]},
+          "items": {"$ref": "#/$defs/verificationMethod"}
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "working", "reviewed"]
+        }
+      }
+    },
+    "verificationMethod": {
+      "type": "string",
+      "enum": [
+        "source-review",
+        "expert-review",
+        "content-walkthrough",
+        "automated-check",
+        "accessibility-audit",
+        "usability-test",
+        "classroom-pilot"
+      ]
+    },
+    "learningFunctionGrammar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "universalOrder",
+        "functions",
+        "transitions",
+        "sequenceVariants",
+        "digitalInteractions"
+      ],
+      "properties": {
+        "universalOrder": {"type": "boolean", "const": false},
+        "functions": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {"$ref": "#/$defs/learningFunction"}
+        },
+        "transitions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/transition"}
+        },
+        "sequenceVariants": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/sequenceVariant"}
+        },
+        "digitalInteractions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/digitalInteraction"}
+        }
+      }
+    },
+    "learningFunction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "purpose",
+        "observableOutput",
+        "teacherRole",
+        "boundaries"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "orient",
+            "surface-prior-knowledge",
+            "open-disciplinary-problem",
+            "explain-or-model",
+            "guided-action",
+            "independent-application",
+            "use-feedback",
+            "secure-and-transfer"
+          ]
+        },
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "purpose": {"$ref": "#/$defs/nonEmptyString"},
+        "observableOutput": {"$ref": "#/$defs/nonEmptyString"},
+        "teacherRole": {"$ref": "#/$defs/nonEmptyString"},
+        "boundaries": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "from", "to", "pedagogicalRationale", "conditions"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^LXF04-T-[0-9]{3}$"},
+        "from": {"$ref": "#/$defs/learningFunctionId"},
+        "to": {"$ref": "#/$defs/learningFunctionId"},
+        "pedagogicalRationale": {"$ref": "#/$defs/nonEmptyString"},
+        "conditions": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    },
+    "learningFunctionId": {
+      "type": "string",
+      "enum": [
+        "orient",
+        "surface-prior-knowledge",
+        "open-disciplinary-problem",
+        "explain-or-model",
+        "guided-action",
+        "independent-application",
+        "use-feedback",
+        "secure-and-transfer"
+      ]
+    },
+    "sequenceVariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "transitionIds", "rationale", "conditions"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^LXF04-V-[0-9]{3}$"},
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "transitionIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "pattern": "^LXF04-T-[0-9]{3}$"}
+        },
+        "rationale": {"$ref": "#/$defs/nonEmptyString"},
+        "conditions": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    },
+    "digitalInteraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "learningFunctionId",
+        "purpose",
+        "forbiddenUses",
+        "observableCriteria",
+        "verificationMethods"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^LXF04-DI-[0-9]{3}$"},
+        "label": {"$ref": "#/$defs/nonEmptyString"},
+        "learningFunctionId": {"$ref": "#/$defs/learningFunctionId"},
+        "purpose": {"$ref": "#/$defs/nonEmptyString"},
+        "forbiddenUses": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "observableCriteria": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "verificationMethods": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "not": {"const": ["automated-check"]},
+          "items": {"$ref": "#/$defs/verificationMethod"}
+        }
+      }
+    },
+    "taskType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "purpose",
+        "evidenceUse",
+        "feedbackTiming",
+        "boundaries"
+      ],
+      "properties": {
+        "id": {"type": "string", "enum": ["learning-task", "performance-task"]},
+        "purpose": {"$ref": "#/$defs/nonEmptyString"},
+        "evidenceUse": {
+          "type": "string",
+          "enum": ["formative", "summative-or-gate"]
+        },
+        "feedbackTiming": {
+          "type": "string",
+          "enum": ["during-learning", "after-performance"]
+        },
+        "boundaries": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    },
+    "practiceTransferStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "definition",
+        "temporalPosition",
+        "observableEvidence",
+        "boundaries"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["immediate-application", "delayed-retrieval", "transfer"]
+        },
+        "definition": {"$ref": "#/$defs/nonEmptyString"},
+        "temporalPosition": {
+          "type": "string",
+          "enum": ["immediate", "delayed", "novel-context"]
+        },
+        "observableEvidence": {"$ref": "#/$defs/nonEmptyString"},
+        "boundaries": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    },
+    "instructionMode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "claimIds",
+        "useWhen",
+        "avoidWhen",
+        "requiredBefore",
+        "requiredAfter"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["supported-exploration", "explicit-explanation"]
+        },
+        "claimIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^CLAIM-[A-Z0-9-]+$"}
+        },
+        "useWhen": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "avoidWhen": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "requiredBefore": {"$ref": "#/$defs/nonEmptyUniqueStrings"},
+        "requiredAfter": {"$ref": "#/$defs/nonEmptyUniqueStrings"}
+      }
+    }
+  }
+}

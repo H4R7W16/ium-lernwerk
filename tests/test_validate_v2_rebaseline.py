@@ -37,6 +37,9 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/learner-profile.json fehlt",
     "roadmap/v2/foundations/learning-experience/learner-profile.md fehlt",
     "schemas/v2/learner-profile.schema.json fehlt",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.json fehlt",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.md fehlt",
+    "schemas/v2/learning-design.schema.json fehlt",
 ]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
@@ -225,6 +228,313 @@ VALID_LXF03_PROFILE = {
         make_valid_lxf03_dimension(
             "classroom-collaboration-and-orchestration", 8
         ),
+    ],
+}
+
+EXPECTED_LXF04_GROUPS = {
+    "goal-and-purpose",
+    "prior-knowledge-and-cognitive-load",
+    "disciplinary-learning-action",
+    "explanation-and-representation",
+    "task-and-support",
+    "feedback-practice-and-transfer",
+    "orientation-and-access",
+    "teacher-orchestration",
+}
+EXPECTED_LXF04_FUNCTIONS = {
+    "orient",
+    "surface-prior-knowledge",
+    "open-disciplinary-problem",
+    "explain-or-model",
+    "guided-action",
+    "independent-application",
+    "use-feedback",
+    "secure-and-transfer",
+}
+
+
+def make_valid_lxf04_principle(number: int) -> dict:
+    return {
+        "id": f"LXF04-PR-{number:03d}",
+        "title": f"Testprinzip {number}",
+        "decision": "Die Lernhandlung und ihr Nachweis werden zusammen geplant.",
+        "claimIds": ["CLAIM-TEST-001"],
+        "decisionBasis": "V2-REQ-001; LXF03-S-001; LXF03-E-001",
+        "obligation": "required",
+        "appliesTo": ["learner-material", "teacher-orchestration"],
+        "positivePatterns": [
+            "Eine fachliche Handlung führt zu einem prüfbaren Lernprodukt."
+        ],
+        "antiPatterns": [
+            "Eine sichtbare Aktivität wird ohne fachlichen Nachweis als Lernen gewertet."
+        ],
+        "observableCriteria": [
+            "Ziel, Handlung und Lernprodukt benennen dieselbe fachliche Beziehung."
+        ],
+        "verificationMethods": ["content-walkthrough"],
+        "status": "working",
+    }
+
+
+def make_valid_lxf04_function(function_id: str, number: int) -> dict:
+    return {
+        "id": function_id,
+        "label": f"Testfunktion {number}",
+        "purpose": "Eine klar begrenzte Funktion im Lernprozess erfüllen.",
+        "observableOutput": "Ein aufgabenbezogenes Zwischen- oder Lernprodukt.",
+        "teacherRole": "Die Lehrkraft prüft Produkt und Übergangsbedingung.",
+        "boundaries": [
+            "Die Funktion erzwingt weder eine eigene Seite noch eine feste Dauer."
+        ],
+    }
+
+
+VALID_LXF04_ARCHITECTURE = {
+    "schemaVersion": 1,
+    "projectId": "ium-lernwerk",
+    "asOf": "2026-09-03",
+    "scope": {
+        "grades": [5, 6, 7],
+        "schoolType": "Gymnasium Baden-Württemberg",
+        "level": "E",
+        "maturity": "working",
+        "contentProduction": "frozen",
+    },
+    "principleGroups": [
+        {
+            "id": group_id,
+            "label": f"Testgruppe {number}",
+            "principles": [make_valid_lxf04_principle(number)],
+        }
+        for number, group_id in enumerate(
+            (
+                "goal-and-purpose",
+                "prior-knowledge-and-cognitive-load",
+                "disciplinary-learning-action",
+                "explanation-and-representation",
+                "task-and-support",
+                "feedback-practice-and-transfer",
+                "orientation-and-access",
+                "teacher-orchestration",
+            ),
+            start=1,
+        )
+    ],
+    "learningFunctionGrammar": {
+        "universalOrder": False,
+        "functions": [
+            make_valid_lxf04_function(function_id, number)
+            for number, function_id in enumerate(
+                (
+                    "orient",
+                    "surface-prior-knowledge",
+                    "open-disciplinary-problem",
+                    "explain-or-model",
+                    "guided-action",
+                    "independent-application",
+                    "use-feedback",
+                    "secure-and-transfer",
+                ),
+                start=1,
+            )
+        ],
+        "transitions": [
+            {
+                "id": "LXF04-T-001",
+                "from": "orient",
+                "to": "surface-prior-knowledge",
+                "pedagogicalRationale": (
+                    "Zielklarheit richtet die anschließende Aktivierung aus."
+                ),
+                "conditions": ["Die Aufgabe benötigt anschlussfähiges Vorwissen."],
+            },
+            {
+                "id": "LXF04-T-002",
+                "from": "surface-prior-knowledge",
+                "to": "open-disciplinary-problem",
+                "pedagogicalRationale": (
+                    "Sichtbares Vorwissen begrenzt den sinnvollen Problemraum."
+                ),
+                "conditions": ["Die Exploration kann relevantes Vorläuferwissen erzeugen."],
+            },
+            {
+                "id": "LXF04-T-003",
+                "from": "open-disciplinary-problem",
+                "to": "explain-or-model",
+                "pedagogicalRationale": (
+                    "Die Erklärung greift erzeugte Lösungen, Fragen und Fehlwege auf."
+                ),
+                "conditions": ["Die Problemphase hat ein auswertbares Produkt erzeugt."],
+            },
+            {
+                "id": "LXF04-T-004",
+                "from": "explain-or-model",
+                "to": "guided-action",
+                "pedagogicalRationale": (
+                    "Angeleitetes Handeln verarbeitet die neue Beziehung aktiv."
+                ),
+                "conditions": ["Die Erklärung benennt Zielwissen und Modellierung."],
+            },
+            {
+                "id": "LXF04-T-005",
+                "from": "guided-action",
+                "to": "independent-application",
+                "pedagogicalRationale": (
+                    "Eigenständige Anwendung prüft, ob Unterstützung reduziert werden kann."
+                ),
+                "conditions": ["Mindestens ein angeleiteter Schritt ist nachvollziehbar."],
+            },
+            {
+                "id": "LXF04-T-006",
+                "from": "independent-application",
+                "to": "use-feedback",
+                "pedagogicalRationale": (
+                    "Rückmeldung wird an einem eigenen Produkt handlungswirksam."
+                ),
+                "conditions": ["Ein revidierbares Produkt liegt vor."],
+            },
+            {
+                "id": "LXF04-T-007",
+                "from": "use-feedback",
+                "to": "secure-and-transfer",
+                "pedagogicalRationale": (
+                    "Revision und Sicherung trennen Korrektur von späterer Übertragung."
+                ),
+                "conditions": ["Die Rückmeldung hat eine nächste Handlung ausgelöst."],
+            },
+            {
+                "id": "LXF04-T-008",
+                "from": "surface-prior-knowledge",
+                "to": "explain-or-model",
+                "pedagogicalRationale": (
+                    "Bei fehlendem Vorwissen oder prozeduralem Ziel folgt frühe Erklärung."
+                ),
+                "conditions": ["Offene Exploration wäre nicht tragfähig."],
+            },
+            {
+                "id": "LXF04-T-009",
+                "from": "orient",
+                "to": "independent-application",
+                "pedagogicalRationale": (
+                    "Ein Rückkehrpfad kann mit einem angekündigten Abruf beginnen."
+                ),
+                "conditions": ["Zielwissen wurde zuvor gesichert."],
+            },
+        ],
+        "sequenceVariants": [
+            {
+                "id": "LXF04-V-001",
+                "label": "Unterstützte Problemöffnung",
+                "transitionIds": [
+                    "LXF04-T-001",
+                    "LXF04-T-002",
+                    "LXF04-T-003",
+                    "LXF04-T-004",
+                    "LXF04-T-005",
+                    "LXF04-T-006",
+                    "LXF04-T-007",
+                ],
+                "rationale": "Konzeptuelles Zielwissen wird durch Vorläuferwissen vorbereitet.",
+                "conditions": ["Vorwissen und Problemraum sind hinreichend begrenzt."],
+            },
+            {
+                "id": "LXF04-V-002",
+                "label": "Frühe explizite Erklärung",
+                "transitionIds": [
+                    "LXF04-T-001",
+                    "LXF04-T-008",
+                    "LXF04-T-004",
+                    "LXF04-T-005",
+                    "LXF04-T-006",
+                    "LXF04-T-007",
+                ],
+                "rationale": "Fehlendes Vorwissen oder ein prozedurales Ziel verlangt Führung.",
+                "conditions": ["Exploration würde keine nutzbare Vorstruktur erzeugen."],
+            },
+            {
+                "id": "LXF04-V-003",
+                "label": "Verzögerte Wiederaufnahme",
+                "transitionIds": [
+                    "LXF04-T-009",
+                    "LXF04-T-006",
+                    "LXF04-T-007",
+                ],
+                "rationale": "Ein später Abruf macht Behalten und erneute Anwendung sichtbar.",
+                "conditions": ["Eine frühere Sicherung liegt vor."],
+            },
+        ],
+        "digitalInteractions": [
+            {
+                "id": "LXF04-DI-001",
+                "label": "Bearbeitbare Fachhandlung",
+                "learningFunctionId": "guided-action",
+                "purpose": "Eine fachlich relevante Handlung ausführbar und revidierbar machen.",
+                "forbiddenUses": [
+                    "Interaktivität ohne fachliche Funktion als Lernnachweis behandeln."
+                ],
+                "observableCriteria": [
+                    "Die Eingabe verändert ein fachlich interpretierbares Produkt."
+                ],
+                "verificationMethods": ["content-walkthrough", "usability-test"],
+            }
+        ],
+    },
+    "taskTypes": [
+        {
+            "id": "learning-task",
+            "purpose": "Den Aufbau, die Prüfung oder Revision von Verständnis ermöglichen.",
+            "evidenceUse": "formative",
+            "feedbackTiming": "during-learning",
+            "boundaries": ["Fehler und Hilfen dürfen die Bewertung nicht verdeckt verschärfen."],
+        },
+        {
+            "id": "performance-task",
+            "purpose": "Eine zuvor aufgebaute Kompetenz unter geklärten Bedingungen zeigen.",
+            "evidenceUse": "summative-or-gate",
+            "feedbackTiming": "after-performance",
+            "boundaries": ["Neue Unterstützung darf die geprüfte Leistung nicht verändern."],
+        },
+    ],
+    "practiceTransferStages": [
+        {
+            "id": "immediate-application",
+            "definition": "Zeitnahe Anwendung der gerade erklärten oder modellierten Beziehung.",
+            "temporalPosition": "immediate",
+            "observableEvidence": "Eine eigenständige Anwendung am nahen Fall.",
+            "boundaries": ["Unmittelbarer Erfolg belegt kein verzögertes Behalten."],
+        },
+        {
+            "id": "delayed-retrieval",
+            "definition": "Spätere Wiederaufnahme ohne bloße Wiederexposition.",
+            "temporalPosition": "delayed",
+            "observableEvidence": "Relevante Beziehung wird erneut abgerufen und genutzt.",
+            "boundaries": ["Ein optimaler Abstand ist nicht pauschal festgelegt."],
+        },
+        {
+            "id": "transfer",
+            "definition": "Anwendung relevanter Beziehungen in einer substanziell neuen Aufgabe.",
+            "temporalPosition": "novel-context",
+            "observableEvidence": "Begründete Übertragung auf veränderte Bedingungen.",
+            "boundaries": ["Oberflächenvariation allein gilt nicht als Transfer."],
+        },
+    ],
+    "instructionModes": [
+        {
+            "id": "supported-exploration",
+            "claimIds": ["CLAIM-TEST-001"],
+            "useWhen": ["Konzeptuelles Zielwissen und anschlussfähiges Vorwissen vorliegen."],
+            "avoidWhen": ["Der Problemraum unklar oder überwiegend prozedural ist."],
+            "requiredBefore": ["Zielwissen, Vorwissen und möglicher Lösungsraum sind analysiert."],
+            "requiredAfter": ["Eine Erklärung greift Produkte, Fragen und Fehlwege explizit auf."],
+        },
+        {
+            "id": "explicit-explanation",
+            "claimIds": ["CLAIM-TEST-001"],
+            "useWhen": ["Neues Verfahren oder fehlendes Anschlusswissen Führung verlangt."],
+            "avoidWhen": ["Die Erklärung eigenes fachliches Denken vollständig ersetzt."],
+            "requiredBefore": ["Zielwissen und erwartete Lernhürde sind bestimmt."],
+            "requiredAfter": ["Aktive Verarbeitung und eigenständige Anwendung folgen."],
+        },
     ],
 }
 
@@ -1503,6 +1813,436 @@ class ValidateV2RebaselineTests(unittest.TestCase):
                 errors = validator(root)
 
                 self.assertTrue(errors, label)
+
+    def test_learning_architecture_contract_is_wired_into_repository_gate(self) -> None:
+        """Catches LXF04 artifacts being optional in the repository gate."""
+        with tempfile.TemporaryDirectory() as directory:
+            errors = validate_repository(Path(directory))
+
+        for expected_error in (
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json fehlt",
+            "roadmap/v2/foundations/learning-experience/learning-architecture.md fehlt",
+            "schemas/v2/learning-design.schema.json fehlt",
+        ):
+            self.assertIn(expected_error, errors)
+
+    def test_learning_architecture_principle_requires_the_complete_design_contract(
+        self,
+    ) -> None:
+        """Catches principles that cannot be traced, applied, or reviewed."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        required_fields = (
+            "claimIds",
+            "decisionBasis",
+            "obligation",
+            "positivePatterns",
+            "antiPatterns",
+            "observableCriteria",
+            "verificationMethods",
+        )
+
+        for field in required_fields:
+            with self.subTest(field=field):
+                architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+                del architecture["principleGroups"][0]["principles"][0][field]
+
+                errors = validator(
+                    architecture,
+                    VALID_LXF02_EVIDENCE_REGISTER,
+                    VALID_LXF03_PROFILE,
+                    VALID_REQUIREMENTS,
+                )
+
+                self.assertTrue(
+                    any(f"benötigt {field}" in error for error in errors), errors
+                )
+
+    def test_learning_architecture_rejects_automation_as_the_only_review_method(
+        self,
+    ) -> None:
+        """Catches a didactic principle being approved only by a technical check."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["principleGroups"][0]["principles"][0][
+            "verificationMethods"
+        ] = ["automated-check"]
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertTrue(
+            any("darf nicht nur automatisiert geprüft werden" in error for error in errors),
+            errors,
+        )
+
+    def test_learning_architecture_fails_closed_on_malformed_enum_types(
+        self,
+    ) -> None:
+        """Catches valid JSON containers crashing LXF04 enum membership checks."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        principle = architecture["principleGroups"][0]["principles"][0]
+        principle["obligation"] = []
+        principle["status"] = {}
+        architecture["learningFunctionGrammar"]["transitions"][0]["from"] = []
+        architecture["learningFunctionGrammar"]["digitalInteractions"][0][
+            "learningFunctionId"
+        ] = {}
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertTrue(errors)
+        self.assertTrue(any("unbekannte obligation" in error for error in errors))
+        self.assertTrue(any("unbekannten status" in error for error in errors))
+        self.assertTrue(
+            any("referenziert unbekannte Lernfunktion" in error for error in errors)
+        )
+
+    def test_learning_architecture_dependency_indexes_fail_closed_on_scalars(
+        self,
+    ) -> None:
+        """Catches scalar dependency collections crashing LXF04 reference indexing."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        cases = (
+            ("claims", "evidence", lambda value: value.__setitem__("claims", 7)),
+            (
+                "requirements",
+                "requirements",
+                lambda value: value.__setitem__("requirements", 7),
+            ),
+            (
+                "dimensions",
+                "profile",
+                lambda value: value.__setitem__("dimensions", 7),
+            ),
+            (
+                "assumptions",
+                "profile",
+                lambda value: value["dimensions"][0].__setitem__(
+                    "evidenceSupportedAssumptions", 7
+                ),
+            ),
+            (
+                "expectations",
+                "profile",
+                lambda value: value["dimensions"][0].__setitem__(
+                    "curriculumAndProjectExpectations", 7
+                ),
+            ),
+        )
+        for name, target, mutate in cases:
+            with self.subTest(name=name):
+                evidence = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+                profile = copy.deepcopy(VALID_LXF03_PROFILE)
+                requirements = copy.deepcopy(VALID_REQUIREMENTS)
+                selected = {
+                    "evidence": evidence,
+                    "profile": profile,
+                    "requirements": requirements,
+                }[target]
+                mutate(selected)
+
+                errors = validator(
+                    copy.deepcopy(VALID_LXF04_ARCHITECTURE),
+                    evidence,
+                    profile,
+                    requirements,
+                )
+
+                self.assertTrue(errors)
+
+    def test_learning_architecture_instruction_claims_fail_closed_on_scalar(
+        self,
+    ) -> None:
+        """Catches a scalar instruction-mode claim collection crashing LXF04."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["instructionModes"][0]["claimIds"] = 7
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertTrue(any("benötigt claimIds" in error for error in errors), errors)
+
+    def test_learning_architecture_rejects_invalid_digital_interaction_id(
+        self,
+    ) -> None:
+        """Keeps the hand validator aligned with the sealed interaction ID schema."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["learningFunctionGrammar"]["digitalInteractions"][0][
+            "id"
+        ] = "not-a-contract-id"
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertTrue(any("hat eine ungültige ID" in error for error in errors), errors)
+
+    def test_learning_architecture_requires_all_groups_and_a_required_principle(
+        self,
+    ) -> None:
+        """Catches a missing quality dimension or an entirely optional group."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["principleGroups"] = architecture["principleGroups"][:-1]
+        architecture["principleGroups"][0]["principles"][0][
+            "obligation"
+        ] = "recommended"
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertIn(
+            "LXF04-Architektur fehlt Prinzipgruppe: teacher-orchestration", errors
+        )
+        self.assertTrue(
+            any("goal-and-purpose benötigt mindestens ein Pflichtprinzip" in error for error in errors),
+            errors,
+        )
+
+    def test_learning_architecture_rejects_dangling_claim_and_decision_references(
+        self,
+    ) -> None:
+        """Catches a design decision that no longer consumes LXF02, LXF03, and V2."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        principle = architecture["principleGroups"][0]["principles"][0]
+        principle["claimIds"] = ["CLAIM-MISSING"]
+        principle["decisionBasis"] = "V2-REQ-MISSING; LXF03-S-999; LXF03-E-999"
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        for expected in (
+            "referenziert unbekannten Claim CLAIM-MISSING",
+            "referenziert unbekannte V2-Anforderung V2-REQ-MISSING",
+            "referenziert unbekanntes LXF03-Statement LXF03-S-999",
+            "referenziert unbekannte LXF03-Erwartung LXF03-E-999",
+        ):
+            self.assertTrue(any(expected in error for error in errors), errors)
+
+    def test_learning_architecture_rejects_an_unconsumed_lxf02_claim(self) -> None:
+        """Catches reviewed evidence silently disappearing during design translation."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        evidence = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+        extra_claim = copy.deepcopy(evidence["claims"][0])
+        extra_claim["id"] = "CLAIM-TEST-UNUSED"
+        evidence["claims"].append(extra_claim)
+
+        errors = validator(
+            copy.deepcopy(VALID_LXF04_ARCHITECTURE),
+            evidence,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertIn(
+            "LXF04-Architektur lässt LXF02-Claim ohne Designbezug: CLAIM-TEST-UNUSED",
+            errors,
+        )
+
+    def test_learning_function_grammar_is_flexible_but_fail_closed(self) -> None:
+        """Catches a universal page order, missing function, or unreasoned transition."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        grammar = architecture["learningFunctionGrammar"]
+        grammar["universalOrder"] = True
+        grammar["functions"] = grammar["functions"][:-1]
+        grammar["transitions"][0]["pedagogicalRationale"] = ""
+        grammar["digitalInteractions"][0]["learningFunctionId"] = "click-through"
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertIn(
+            "LXF04-Lernfunktionsgrammatik darf keine universelle Reihenfolge setzen",
+            errors,
+        )
+        self.assertIn(
+            "LXF04-Lernfunktionsgrammatik fehlt Funktion: secure-and-transfer",
+            errors,
+        )
+        self.assertTrue(
+            any("LXF04-T-001 benötigt pedagogicalRationale" in error for error in errors),
+            errors,
+        )
+        self.assertTrue(
+            any("referenziert unbekannte Lernfunktion click-through" in error for error in errors),
+            errors,
+        )
+
+    def test_learning_function_variants_must_form_connected_transition_paths(
+        self,
+    ) -> None:
+        """Catches a named sequence whose transition chain cannot actually be followed."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["learningFunctionGrammar"]["sequenceVariants"][0][
+            "transitionIds"
+        ][1] = "LXF04-T-008"
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertTrue(
+            any("bildet keinen zusammenhängenden Übergangspfad" in error for error in errors),
+            errors,
+        )
+
+    def test_learning_architecture_keeps_task_mode_and_transfer_distinctions(
+        self,
+    ) -> None:
+        """Catches collapsed task types, practice stages, or instruction conditions."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture = copy.deepcopy(VALID_LXF04_ARCHITECTURE)
+        architecture["taskTypes"] = architecture["taskTypes"][:1]
+        architecture["practiceTransferStages"] = architecture[
+            "practiceTransferStages"
+        ][:2]
+        architecture["instructionModes"][0]["requiredAfter"] = []
+
+        errors = validator(
+            architecture,
+            VALID_LXF02_EVIDENCE_REGISTER,
+            VALID_LXF03_PROFILE,
+            VALID_REQUIREMENTS,
+        )
+
+        self.assertIn("LXF04-Architektur fehlt Aufgabentyp: performance-task", errors)
+        self.assertIn("LXF04-Architektur fehlt Übungsstufe: transfer", errors)
+        self.assertTrue(
+            any("supported-exploration benötigt requiredAfter" in error for error in errors),
+            errors,
+        )
+
+    def test_real_learning_architecture_is_complete_and_traceable(self) -> None:
+        """Catches an incomplete real LXF04 contract behind a permissive fixture."""
+        validator = getattr(v2_validator, "validate_learning_architecture", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        architecture_path = (
+            PROJECT_ROOT
+            / "roadmap/v2/foundations/learning-experience/learning-architecture.json"
+        )
+        self.assertTrue(architecture_path.is_file())
+        architecture = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json"
+        )
+        evidence = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/evidence-register.json"
+        )
+        profile = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/learner-profile.json"
+        )
+        requirements = load_repo_json("roadmap/v2/requirements/requirements.json")
+
+        self.assertEqual(
+            [],
+            validator(
+                architecture, evidence, profile, requirements
+            ),
+        )
+        self.assertEqual(
+            EXPECTED_LXF04_GROUPS,
+            {group["id"] for group in architecture["principleGroups"]},
+        )
+        self.assertEqual(
+            EXPECTED_LXF04_FUNCTIONS,
+            {
+                function["id"]
+                for function in architecture["learningFunctionGrammar"]["functions"]
+            },
+        )
+        self.assertEqual(
+            18,
+            sum(len(group["principles"]) for group in architecture["principleGroups"]),
+        )
+
+    def test_learning_design_schema_is_fail_closed_and_sealed(self) -> None:
+        """Catches optional principle fields or an extensible LXF04 schema."""
+        validator = getattr(v2_validator, "validate_learning_design_schema", None)
+        self.assertIsNotNone(validator)
+        assert validator is not None
+        schema = load_repo_json("schemas/v2/learning-design.schema.json")
+        weakened = copy.deepcopy(schema)
+        weakened["$defs"]["principle"]["required"].remove("claimIds")
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_json(root, "schemas/v2/learning-design.schema.json", weakened)
+            errors = validator(root)
+
+        self.assertIn(
+            "LXF04-Schema weicht von der versiegelten Definition ab", errors
+        )
+
+    def test_learning_architecture_markdown_covers_contract_and_variants(self) -> None:
+        """Catches machine data without the agreed human review guide."""
+        validator = getattr(
+            v2_validator, "validate_learning_architecture_markdown", None
+        )
+        self.assertIsNotNone(validator)
+        assert validator is not None
+
+        self.assertEqual([], validator(PROJECT_ROOT))
 
     def test_source_inventory_requires_an_object(self) -> None:
         """Catches malformed top-level JSON bypassing source-foundation checks."""

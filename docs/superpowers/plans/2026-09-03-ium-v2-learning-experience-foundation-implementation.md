@@ -276,17 +276,17 @@ git commit -m "docs(lxf03): define bounded learner profile for grades five to se
 - Consumes: LXF02 claims, LXF03 profile, and V2 curriculum requirements
 - Produces: reviewed design principles and a flexible learning-function grammar
 
-- [ ] **Step 1: Add failing principle-contract tests**
+- [x] **Step 1: Add failing principle-contract tests**
 
 Reject a principle without claim IDs, decision basis, obligation, positive pattern, anti-pattern, observable criterion, or verification method. Reject `automated-check` as the sole verification method for a didactic principle.
 
-- [ ] **Step 2: Run the tests and confirm failure**
+- [x] **Step 2: Run the tests and confirm failure**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failures naming incomplete principles.
 
-- [ ] **Step 3: Encode the eight approved quality dimensions**
+- [x] **Step 3: Encode the eight approved quality dimensions**
 
 Create principles grouped under:
 
@@ -303,7 +303,7 @@ teacher-orchestration
 
 Each group must contain at least one `required` principle and may contain bounded `conditional`, `recommended`, or `avoid` principles.
 
-- [ ] **Step 4: Encode the learning-function grammar**
+- [x] **Step 4: Encode the learning-function grammar**
 
 Represent these functions without forcing one page per function or one universal order:
 
@@ -320,11 +320,11 @@ secure-and-transfer
 
 Require every transition to contain a pedagogical rationale and every digital interaction to name a learning function.
 
-- [ ] **Step 5: Write the architecture guide**
+- [x] **Step 5: Write the architecture guide**
 
 Explain valid order variations, the distinction between learning and performance tasks, the role of explicit instruction, the conditions for exploration, and the separation of immediate application, delayed retrieval, and transfer.
 
-- [ ] **Step 6: Validate and commit LXF04**
+- [x] **Step 6: Validate and commit LXF04**
 
 Run: `npm run verify:v2`
 
