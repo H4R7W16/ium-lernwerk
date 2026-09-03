@@ -65,8 +65,9 @@
 - [x] Diff gegen V1-Pfade prüfen und deren Unverändertheit bestätigen.
 - [x] Python-Gesamttests und proportionale Repositoryregressionen ausführen.
 - [x] Vor einem Commit `git fetch --prune` und `git pull --ff-only` ausführen.
-- [ ] Lokalen Feature-Commit erstellen.
-- [ ] IUM-V2-CUR auf `review` setzen und dem Nutzer die fünf Entscheidungen mit offenen Punkten vorlegen.
+- [x] Lokale Feature-Commits erstellen; Push, Merge und Cutover bleiben ausgesetzt.
+- [x] IUM-V2-CUR auf `review` setzen und das Reviewpaket mit fünf Entscheidungen und offenen Punkten vorbereiten.
+- [x] Unabhängigen Codereview durchführen und die drei wichtigen Validatorbefunde testgetrieben schließen.
 
 ## Abnahmegrenze dieses Schritts
 

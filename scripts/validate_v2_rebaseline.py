@@ -141,6 +141,7 @@ EXPECTED_CURRICULUM_GAPS = {
         "moduleIds": ["IUM-5-CORE-01"],
         "timeReviewId": "TR-BMB16-GYM-IK-GM-003",
         "proposedFulfillmentMode": "cross-cutting",
+        "decisionState": "approved-direction",
     },
     "BMB16-GYM-PK-RK-003": {
         "sourceId": "SRC-CUR-BMB-2016",
@@ -150,6 +151,7 @@ EXPECTED_CURRICULUM_GAPS = {
         "moduleIds": ["IUM-5-CORE-07"],
         "timeReviewId": "TR-BMB16-GYM-PK-RK-003",
         "proposedFulfillmentMode": "direct-module",
+        "decisionState": "open",
     },
     "LH26-E-DP-003": {
         "sourceId": "SRC-CUR-LESEHILFE-2026-27",
@@ -159,6 +161,7 @@ EXPECTED_CURRICULUM_GAPS = {
         "moduleIds": ["IUM-5-CORE-07"],
         "timeReviewId": "TR-LH26-E-DP-003",
         "proposedFulfillmentMode": "direct-module",
+        "decisionState": "open",
     },
     "LH26-E-PROG-003": {
         "sourceId": "SRC-CUR-LESEHILFE-2026-27",
@@ -168,6 +171,7 @@ EXPECTED_CURRICULUM_GAPS = {
         "moduleIds": ["IUM-7-CORE-08"],
         "timeReviewId": "TR-LH26-E-PROG-003",
         "proposedFulfillmentMode": "integrated",
+        "decisionState": "open",
     },
     "LH26-E-PROG-004": {
         "sourceId": "SRC-CUR-LESEHILFE-2026-27",
@@ -177,6 +181,7 @@ EXPECTED_CURRICULUM_GAPS = {
         "moduleIds": ["IUM-7-CORE-08"],
         "timeReviewId": "TR-LH26-E-PROG-004",
         "proposedFulfillmentMode": "integrated",
+        "decisionState": "open",
     },
 }
 
@@ -827,7 +832,8 @@ def validate_curriculum_source_basis(data: object, root: Path) -> list[str]:
             )
             if current_review.get("checkedAt") != "2026-09-03":
                 errors.append(f"currentReview {source_id} muss am 2026-09-03 geprüft sein")
-            if current_review.get("status") not in {
+            current_review_status = current_review.get("status")
+            if not isinstance(current_review_status, str) or current_review_status not in {
                 "transition-status-rechecked",
                 "direct-source-rechecked",
             }:
@@ -1250,8 +1256,17 @@ def validate_curriculum_gap_assessments(data: object, root: Path) -> list[str]:
                     errors.append(
                         f"V2-Curriculumlücke {competency_id} hat einen falschen vorgesehenen Erfüllungsmodus"
                     )
-            if v2_coverage.get("decisionState") not in {"approved-direction", "open"}:
+            decision_state = v2_coverage.get("decisionState")
+            if not isinstance(decision_state, str) or decision_state not in {
+                "approved-direction",
+                "open",
+            }:
                 errors.append(f"V2-Curriculumlücke {competency_id} hat ungültigen decisionState")
+            elif decision_state != expected["decisionState"]:
+                errors.append(
+                    f"V2-Curriculumlücke {competency_id} muss bis zur fachlichen "
+                    f"Entscheidung {expected['decisionState']} bleiben"
+                )
             if not _nonempty_string(v2_coverage.get("rationale")):
                 errors.append(f"V2-Curriculumlücke {competency_id} benötigt eine V2-Begründung")
 
@@ -1266,14 +1281,31 @@ def validate_curriculum_gap_assessments(data: object, root: Path) -> list[str]:
                     f"V2-Zeitstatus {competency_id}",
                 )
             )
+            time_status = time.get("status")
+            if not isinstance(time_status, str) or time_status not in {
+                "no-additional-time",
+                "unassessed",
+                "not-claimable",
+                "roadmap-dependent",
+            }:
+                errors.append(f"V2-Zeitstatus {competency_id} hat unbekannten Status")
+            additional_minutes = time.get("additionalMinutes")
+            if additional_minutes is not None and (
+                not isinstance(additional_minutes, int)
+                or isinstance(additional_minutes, bool)
+                or additional_minutes < 0
+            ):
+                errors.append(
+                    f"V2-Zeitstatus {competency_id} hat ungültige additionalMinutes"
+                )
+            if not _nonempty_string(time.get("rationale")):
+                errors.append(f"V2-Zeitstatus {competency_id} benötigt eine Begründung")
             if competency_id == "BMB16-GYM-IK-GM-003":
-                if time.get("status") != "no-additional-time" or time.get(
-                    "additionalMinutes"
-                ) != 0:
+                if time_status != "no-additional-time" or additional_minutes != 0:
                     errors.append(
                         "BMB16-GYM-IK-GM-003 darf keine zusätzlichen Minuten erzeugen"
                     )
-            elif time.get("additionalMinutes") is not None:
+            elif additional_minutes is not None:
                 errors.append(
                     f"V2-Curriculumlücke {competency_id} darf vor der Roadmap keine Minuten festlegen"
                 )
@@ -1295,6 +1327,24 @@ def validate_curriculum_gap_assessments(data: object, root: Path) -> list[str]:
                     and not _nonempty_string(follow_up.get(field))
                 ):
                     errors.append(f"V2-Curriculumlücke {competency_id} benötigt followUp.{field}")
+            follow_up_kind = follow_up.get("kind")
+            if not isinstance(follow_up_kind, str) or follow_up_kind not in {
+                "evidence-matrix",
+                "module-design",
+                "privacy-decision",
+                "year-roadmap",
+            }:
+                errors.append(f"V2-Folgeprüfung {competency_id} hat unbekannte Art")
+            new_learning_task = follow_up.get("newLearningTask")
+            if not isinstance(new_learning_task, str) or new_learning_task not in {
+                "not-required",
+                "not-decided",
+                "not-applicable",
+                "required",
+            }:
+                errors.append(
+                    f"V2-Folgeprüfung {competency_id} hat ungültigen newLearningTask"
+                )
             if competency_id == "BMB16-GYM-IK-GM-003" and follow_up.get(
                 "newLearningTask"
             ) != "not-required":
@@ -1362,7 +1412,14 @@ def validate_foundation_status(
         data["asOf"]
     ):
         errors.append(f"V2-Fundamentstatus {expected_id} asOf muss YYYY-MM-DD sein")
-    if data.get("workStatus") not in {"planned", "in_progress", "blocked", "review", "done"}:
+    work_status = data.get("workStatus")
+    if not isinstance(work_status, str) or work_status not in {
+        "planned",
+        "in_progress",
+        "blocked",
+        "review",
+        "done",
+    }:
         errors.append(f"V2-Fundamentstatus {expected_id} hat unbekannten workStatus")
 
     maturity = data.get("maturity")
@@ -1384,7 +1441,8 @@ def validate_foundation_status(
             _unknown_fields(maturity, set(maturity_fields), f"Reifeachsen {expected_id}")
         )
         for field, allowed in maturity_fields.items():
-            if maturity.get(field) not in allowed:
+            maturity_value = maturity.get(field)
+            if not isinstance(maturity_value, str) or maturity_value not in allowed:
                 errors.append(f"Reifeachse {field} ist ungültig in {expected_id}")
 
     status_requirement_ids = data.get("requirementIds")
@@ -1448,7 +1506,12 @@ def validate_foundation_status(
             for field in ("question", "owner", "risk"):
                 if not _nonempty_string(question.get(field)):
                     errors.append(f"Offene Frage {question_id} benötigt {field}")
-            if question.get("disposition") not in {"open", "accepted", "resolved"}:
+            disposition = question.get("disposition")
+            if not isinstance(disposition, str) or disposition not in {
+                "open",
+                "accepted",
+                "resolved",
+            }:
                 errors.append(f"Offene Frage {question_id} hat ungültige disposition")
     if not _nonempty_string(data.get("nextGate")):
         errors.append(f"V2-Fundamentstatus {expected_id} benötigt nextGate")

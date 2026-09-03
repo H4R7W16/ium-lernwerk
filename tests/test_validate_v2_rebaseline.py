@@ -857,6 +857,175 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             gap_errors,
         )
 
+    def test_curriculum_contracts_fail_closed_on_malformed_enum_types(self) -> None:
+        """Catches syntactically valid JSON objects crashing enum membership checks."""
+        source_basis = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/source-basis.json"
+            ).read_text(encoding="utf-8")
+        )
+        status = json.loads(
+            (
+                PROJECT_ROOT / "roadmap/v2/foundations/curriculum/status.json"
+            ).read_text(encoding="utf-8")
+        )
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+
+        malformed_cases = [
+            (
+                "source review status",
+                source_basis,
+                lambda contract: contract["sources"][0]["currentReview"].__setitem__(
+                    "status", {}
+                ),
+                lambda contract: v2_validator.validate_curriculum_source_basis(
+                    contract, PROJECT_ROOT
+                ),
+                "currentReview SRC-CUR-BMB-2016 hat unbekannten Prüfstatus",
+            ),
+            (
+                "foundation work status",
+                status,
+                lambda contract: contract.__setitem__("workStatus", {}),
+                lambda contract: v2_validator.validate_foundation_status(
+                    contract,
+                    "curriculum",
+                    {"V2-REQ-CUR-001", "V2-REQ-CUR-002"},
+                    PROJECT_ROOT,
+                ),
+                "V2-Fundamentstatus curriculum hat unbekannten workStatus",
+            ),
+            (
+                "foundation maturity",
+                status,
+                lambda contract: contract["maturity"].__setitem__(
+                    "foundationConcept", {}
+                ),
+                lambda contract: v2_validator.validate_foundation_status(
+                    contract,
+                    "curriculum",
+                    {"V2-REQ-CUR-001", "V2-REQ-CUR-002"},
+                    PROJECT_ROOT,
+                ),
+                "Reifeachse foundationConcept ist ungültig in curriculum",
+            ),
+            (
+                "open question disposition",
+                status,
+                lambda contract: contract["openQuestions"][0].__setitem__(
+                    "disposition", {}
+                ),
+                lambda contract: v2_validator.validate_foundation_status(
+                    contract,
+                    "curriculum",
+                    {"V2-REQ-CUR-001", "V2-REQ-CUR-002"},
+                    PROJECT_ROOT,
+                ),
+                "Offene Frage CUR-Q-002 hat ungültige disposition",
+            ),
+            (
+                "coverage decision state",
+                gaps,
+                lambda contract: contract["assessments"][0]["v2Coverage"].__setitem__(
+                    "decisionState", {}
+                ),
+                lambda contract: v2_validator.validate_curriculum_gap_assessments(
+                    contract, PROJECT_ROOT
+                ),
+                "V2-Curriculumlücke BMB16-GYM-IK-GM-003 hat ungültigen decisionState",
+            ),
+        ]
+
+        for label, original, mutate, validate, expected_error in malformed_cases:
+            with self.subTest(label=label):
+                contract = copy.deepcopy(original)
+                mutate(contract)
+                self.assertIn(expected_error, validate(contract))
+
+    def test_gap_validator_enforces_schema_time_and_follow_up_fields(self) -> None:
+        """Catches the hand-written validator accepting values rejected by the schema."""
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+        assessment = gaps["assessments"][1]
+        assessment["time"]["status"] = "invented"
+        assessment["time"]["additionalMinutes"] = -1
+        del assessment["time"]["rationale"]
+        assessment["followUp"]["kind"] = "invented"
+        assessment["followUp"]["newLearningTask"] = {}
+
+        errors = v2_validator.validate_curriculum_gap_assessments(
+            gaps,
+            PROJECT_ROOT,
+        )
+
+        competency_id = "BMB16-GYM-PK-RK-003"
+        self.assertIn(
+            f"V2-Zeitstatus {competency_id} hat unbekannten Status",
+            errors,
+        )
+        self.assertIn(
+            f"V2-Zeitstatus {competency_id} hat ungültige additionalMinutes",
+            errors,
+        )
+        self.assertIn(
+            f"V2-Zeitstatus {competency_id} benötigt eine Begründung",
+            errors,
+        )
+        self.assertIn(
+            f"V2-Folgeprüfung {competency_id} hat unbekannte Art",
+            errors,
+        )
+        self.assertIn(
+            f"V2-Folgeprüfung {competency_id} hat ungültigen newLearningTask",
+            errors,
+        )
+
+    def test_gap_decision_states_remain_sealed_until_subject_review(self) -> None:
+        """Catches an unresolved gap being silently promoted to an approved direction."""
+        gaps = json.loads(
+            (
+                PROJECT_ROOT
+                / "roadmap/v2/foundations/curriculum/gap-assessments.json"
+            ).read_text(encoding="utf-8")
+        )
+
+        for assessment in gaps["assessments"]:
+            competency_id = assessment["competencyId"]
+            mutated = copy.deepcopy(gaps)
+            candidate = next(
+                item
+                for item in mutated["assessments"]
+                if item["competencyId"] == competency_id
+            )
+            expected_state = (
+                "approved-direction"
+                if competency_id == "BMB16-GYM-IK-GM-003"
+                else "open"
+            )
+            candidate["v2Coverage"]["decisionState"] = (
+                "open" if expected_state == "approved-direction" else "approved-direction"
+            )
+
+            with self.subTest(competency_id=competency_id):
+                errors = v2_validator.validate_curriculum_gap_assessments(
+                    mutated,
+                    PROJECT_ROOT,
+                )
+                self.assertIn(
+                    f"V2-Curriculumlücke {competency_id} muss bis zur fachlichen Entscheidung {expected_state} bleiben",
+                    errors,
+                )
+
 
 if __name__ == "__main__":
     unittest.main()
