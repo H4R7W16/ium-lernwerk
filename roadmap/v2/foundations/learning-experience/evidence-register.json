@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-03",
+  "claims": [
+    {
+      "id": "CLAIM-LP-001",
+      "statement": "Unterrichtsqualität wird im IBBW-Syntheserahmen über kognitive Aktivierung, konstruktive Unterstützung und Klassenführung beschrieben; ein digitales Medium erhält seinen didaktischen Wert erst durch die damit ermöglichten Lernprozesse.",
+      "mechanism": "Aufgaben regen fachliches Denken an, Unterstützung hält Lernhandlungen aufrecht und Klassenführung sichert nutzbare Lernzeit; das Medium wirkt dabei nicht als eigenständiger Wirkfaktor.",
+      "scope": "Professioneller Forschungs- und Syntheserahmen für Unterricht verschiedener Schularten, für V2 als Orientierungsrahmen verwendet.",
+      "learnerContext": "Lehrkraftorchestrierter IuM-Unterricht in den Klassen 5 bis 7 mit heterogenem Vorwissen und unterschiedlichen Zugangsbedingungen.",
+      "boundaryConditions": [
+        "Die Quelle ist keine einheitliche Interventionsmeta-Analyse.",
+        "Für IuM 5 bis 7 liegt kein domänenspezifischer Wirkungsnachweis vor.",
+        "Eine technisch vollständige oder motivierend wirkende Oberfläche belegt keine kognitive Aktivierung."
+      ],
+      "sourceIds": ["SRC-LP-IBBW-WU"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-002",
+      "statement": "Domänenspezifisches Vorwissen hängt stark mit späteren Wissensständen zusammen, sagt den Wissenszuwachs aber nicht einheitlich voraus; Vorwissen muss deshalb erhoben und nicht aus einer einzelnen Antwort diagnostiziert werden.",
+      "mechanism": "Aktiviertes Vorwissen stellt Schemata bereit, an die neue Information angeknüpft wird, und verändert die für Lernende wirksame Aufgabenkomplexität.",
+      "scope": "Meta-analytische Evidenz über verschiedene Altersgruppen, Fächer und Messweisen von Vorwissen und Lernen.",
+      "learnerContext": "Lernende der Klassen 5 bis 7 mit unterschiedlich ausgeprägtem IuM-Vorwissen und fachlichen Vorstellungen.",
+      "boundaryConditions": [
+        "Die Befunde sind überwiegend Zusammenhänge und keine direkte Evaluation einer IuM-Vorwissensphase.",
+        "Eine falsche Antwort belegt weder fehlendes Vorwissen noch ein stabiles Fehlkonzept.",
+        "Anschlussentscheidungen benötigen mehrere beobachtbare fachliche Hinweise."
+      ],
+      "sourceIds": ["SRC-LP-PRIOR-2022"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-003",
+      "statement": "Bei komplexen Lernaufgaben müssen Aufgabe, Vorwissen, Darstellung und Lernumgebung gemeinsam geplant werden; vermeidbare Verarbeitung ist zu reduzieren und Unterstützung an wachsende Expertise anzupassen.",
+      "mechanism": "Begrenzte Arbeitsgedächtniskapazität wird zwischen aufgabenrelevanter und vermeidbarer Verarbeitung geteilt; Vorwissensschemata verändern diese Beanspruchung.",
+      "scope": "Theoretischer Forschungsüberblick zu Cognitive Load Theory und dem Lernen komplexer Aufgaben.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 bei neuen, mehrschrittigen fachlichen Handlungen mit analogen oder digitalen Repräsentationen.",
+      "boundaryConditions": [
+        "Die Quelle liefert keine pauschale Effektzahl für eine bestimmte Oberflächengestaltung.",
+        "Bearbeitungszeit, subjektive Anstrengung oder Bedienleichtigkeit sind keine Lernoutcomes.",
+        "Die Übertragung auf konkrete IuM-Aufgaben bleibt eine zu prüfende Designinferenz."
+      ],
+      "sourceIds": ["SRC-LP-CLT-2020"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-004",
+      "statement": "Worked Examples können den Aufbau tragfähiger Lösungsstrukturen unterstützen, wenn Lernende die Beispiele fachlich verarbeiten; passive Betrachtung und ein universelles Fadingrezept sind daraus nicht ableitbar.",
+      "mechanism": "Ein ausgearbeiteter Lösungsweg reduziert anfängliche Suchanforderungen und macht relevante Schritte und Relationen für den Schemaaufbau verfügbar.",
+      "scope": "Meta-analytische Evidenz zu Worked Examples in Mathematik von der Primarstufe bis zur Hochschule.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 beim Einstieg in noch wenig vertraute mehrschrittige Aufgaben.",
+      "boundaryConditions": [
+        "Die Evidenz stammt aus der Mathematik und ist nicht direkt auf Programmier- oder Medienproduktionsaufgaben übertragbar.",
+        "Beispieltyp, Vorwissen, Verarbeitungsauftrag und Outcome variieren zwischen den Studien.",
+        "Rücknahme von Hilfen benötigt ein sichtbares Bewältigungskriterium."
+      ],
+      "sourceIds": ["SRC-LP-WORKED-2023"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-005",
+      "statement": "Gezielte Selbsterklärung kann Lernen unterstützen, wenn der Prompt eine für die Aufgabe relevante Begründung, Vorhersage oder Verknüpfung auslöst; generische Zusatzfragen sind nicht automatisch lernförderlich.",
+      "mechanism": "Lernende erzeugen eigene Inferenzen, verbinden neue Information mit Vorwissen und entdecken Lücken oder Widersprüche in ihrem Verständnis.",
+      "scope": "Meta-analytische Evidenz zu induzierter Selbsterklärung über heterogene Fächer, Altersgruppen und Promptformen.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7, die ein Beispiel, Modell, Ergebnis oder einen eigenen Lösungsweg fachlich erklären können.",
+      "boundaryConditions": [
+        "Der Nutzen hängt von Prompt, Aufgabe und Qualität der erzeugten Erklärung ab.",
+        "Zusätzliche Prompts können bei hoher Aufgabenlast vermeidbare Belastung erzeugen.",
+        "Eine Texteingabe ohne fachliche Auswertung belegt keine Selbsterklärung."
+      ],
+      "sourceIds": ["SRC-LP-SELFEXPLAIN-2018"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-006",
+      "statement": "Computerbasiertes Scaffolding kann kognitive Outcomes in problemzentrierten STEM-Settings unterstützen, begründet aber keine allgemein überlegene Adaptions- oder Fadinglogik.",
+      "mechanism": "Temporäre Hinweise, Strukturierungen oder Teilrepräsentationen reduzieren spezifische Hürden, ohne die fachliche Kernhandlung vollständig zu übernehmen.",
+      "scope": "Meta-analytische Evidenz zu computerbasiertem Scaffolding in heterogenen STEM-Domänen und Bildungsstufen.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 bei komplexen Problemhandlungen, für die eine klar identifizierte Teilhürde besteht.",
+      "boundaryConditions": [
+        "Für IuM 5 bis 7 liegt keine eigene Wirksamkeitsevidenz vor.",
+        "Die Evidenz zeigt keine robuste Überlegenheit einer einzelnen Fadinglogik.",
+        "Eine Hilfe ist ungeeignet, wenn sie die zu lernende Kernhandlung ersetzt."
+      ],
+      "sourceIds": ["SRC-LP-SCAFFOLD-2017"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-007",
+      "statement": "Aktiver Abruf kann Unterrichtslernen gegenüber bloßer Wiederexposition unterstützen; eine Quizoberfläche oder das Wiedererkennen einer Antwort ist nicht automatisch Retrieval Practice.",
+      "mechanism": "Der Versuch, Wissen aus dem Gedächtnis zu rekonstruieren, reaktiviert und verändert abrufbare Gedächtnisrepräsentationen; Rückmeldung kann anschließende Korrektur ermöglichen.",
+      "scope": "Meta-analytische Evidenz zu Classroom Quizzing über viele Bildungsstufen, Fächer, Formate und Messzeitpunkte.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 beim Abruf von Begriffen, Regeln, Strategien oder Begründungszusammenhängen.",
+      "boundaryConditions": [
+        "Aufgabe, Vergleichsbedingung, Wiederholung, Feedback und Testpassung beeinflussen den Befund.",
+        "Wiederlesen oder Wiederanschauen ist kein aktiver Abruf.",
+        "Der Nutzen einer konkreten IuM-Aufgabe muss über das passende Lernziel geprüft werden."
+      ],
+      "sourceIds": ["SRC-LP-QUIZZING-2021"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-008",
+      "statement": "Verteilte Wiederaufnahme kann verzögertes Behalten besser unterstützen als massierte Bearbeitung; ein optimaler Abstand lässt sich für IuM 5 bis 7 nicht pauschal festlegen.",
+      "mechanism": "Zeitlicher Abstand erzeugt erneute Abruf- und Rekonstruktionsanforderungen und verteilt Begegnungen mit dem Lerngegenstand über mehrere Kontexte.",
+      "scope": "Meta-analytische Evidenz aus curriculumsnahen Klassenzimmerstudien zu verteilter Praxis.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7, die zentrale Konzepte oder Handlungen über mehrere Unterrichtsstunden wieder aufnehmen.",
+      "boundaryConditions": [
+        "Komplexe IuM-Inhalte und die Altersgruppe 10 bis 13 Jahre sind nicht separat abgesichert.",
+        "Abstand, Variation und Messzeitpunkt müssen je Lernziel festgelegt werden.",
+        "Bloße Wiederholung derselben Oberfläche ist keine hinreichende Umsetzung."
+      ],
+      "sourceIds": ["SRC-LP-SPACING-2025"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-009",
+      "statement": "Retrieval Practice kann Transfer unterstützen, wenn die neue Aufgabe relevante Relationen oder Prinzipien erneut abrufen und anwenden lässt; Oberflächenvariation allein erzeugt keinen Transfer.",
+      "mechanism": "Abruf unter veränderten Bedingungen stärkt zugängliche Relationen und kann deren flexible Rekonstruktion in einer neuen Anforderung fördern.",
+      "scope": "Meta-analytische Evidenz zu Transfer nach Test-Enhanced Learning über unterschiedliche Transferarten und Experimente.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 bei einer neuen Aufgabe, in der ein zuvor bearbeitetes Prinzip erkennbar und anwendbar sein soll.",
+      "boundaryConditions": [
+        "Transferart, veränderter Kontext und erhaltenes Prinzip müssen ausdrücklich benannt werden.",
+        "Ein erfolgreicher initialer Abruf ist eine wichtige Voraussetzung.",
+        "Unmittelbare Anwendung, verzögertes Behalten und Transfer sind getrennte Outcomes."
+      ],
+      "sourceIds": ["SRC-LP-TRANSFER-2018"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-010",
+      "statement": "Feedback kann Lernen unterstützen, seine Wirkungen variieren jedoch stark und können negativ sein; Rückmeldung muss deshalb als nutzbare Information für eine nächste fachliche Handlung spezifiziert werden.",
+      "mechanism": "Aufgabenbezogene Information macht eine Differenz zwischen aktuellem Produkt oder Vorgehen und einem Kriterium sichtbar und ermöglicht gezielte Revision.",
+      "scope": "Breite Meta-Analyse zu pädagogischem Feedback mit stark heterogenen Fächern, Altersstufen, Designs und Outcomes.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7, die ein Produkt, eine Strategie oder einen Prüfschritt anhand verständlicher Kriterien überarbeiten können.",
+      "boundaryConditions": [
+        "Ein Gesamtbefund begründet keine universelle Regel zu Timing, Kanal oder Form.",
+        "Rückmeldung ohne Gelegenheit zur Nutzung ist keine vollständige Lernschleife.",
+        "Sicherheitskritische Fehler können eine unmittelbare Korrektur erfordern."
+      ],
+      "sourceIds": ["SRC-LP-FEEDBACK-2020"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-011",
+      "statement": "Autonomieunterstützung und klare Struktur können gemeinsam auftreten; ihre Beziehungen zu Motivation und Engagement begründen weder eine pauschale Synergie noch eine allgemeine Leistungswirkung.",
+      "mechanism": "Bedeutsame Wahlmöglichkeiten können Autonomieerleben unterstützen, während verständliche Ziele, Grenzen und Hilfen Orientierung und Kompetenzerleben ermöglichen.",
+      "scope": "Systematischer Review und Meta-Analyse zur Beziehung zwischen Autonomieunterstützung und Struktur in unterschiedlichen schulischen Kontexten.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 mit begrenzten, fachlich bedeutsamen Wahlmöglichkeiten innerhalb klarer Ziele und Zeitrahmen.",
+      "boundaryConditions": [
+        "Die zugrunde liegenden Daten sind überwiegend korrelativ und stark heterogen.",
+        "Altersstufe, Kultur und Erhebungsmethode beeinflussen die beobachteten Beziehungen.",
+        "Eine Auswahl zwischen dekorativen Varianten ist keine fachlich bedeutsame Autonomie."
+      ],
+      "sourceIds": ["SRC-LP-AUTONOMY-2025"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-012",
+      "statement": "Vorbereitete Problemlösung vor Instruktion kann unter Productive-Failure-Bedingungen Konzeptlernen unterstützen; für jüngere Lernende und domänenübergreifende Fähigkeiten kann frühere Instruktion günstiger sein.",
+      "mechanism": "Ein begrenzter Lösungsversuch aktiviert Vorwissen und erzeugt kontrastierbare Lösungsmerkmale, die in der anschließenden expliziten Instruktion organisiert werden.",
+      "scope": "Meta-analytische Evidenz, überwiegend aus Mathematik in Klassen 6 bis 10 und Hochschule.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 in vorbereiteten Kontrast- oder Simulationssituationen mit anschließender Instruktion.",
+      "boundaryConditions": [
+        "Der Befund gilt nicht für unbegleitetes Entdecken.",
+        "Für Klasse 5 ist wegen gegenläufiger Befunde ein eigenes Überforderungsgate erforderlich.",
+        "Lösungsraum, Vorläuferwissen und anschließende Erklärung müssen geplant sein."
+      ],
+      "sourceIds": ["SRC-LP-PF-2021"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-LP-013",
+      "statement": "Explizit gelehrte Selbstregulationshandlungen können unmittelbare Lernoutcomes unterstützen; sie dürfen nicht als stabile Personeneigenschaft oder als durch eine Oberfläche automatisch erzeugte Fähigkeit behandelt werden.",
+      "mechanism": "Planen, Überwachen, Prüfen und Revidieren machen Strategieeinsatz explizit und geben Lehrkraft und Lernenden Ansatzpunkte für Anpassung.",
+      "scope": "Ältere Meta-Analyse nicht randomisierter, pretest-adjustierter Trainingsvergleiche in Primarschulklassen.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7, die Selbstregulation an konkreten fachlichen Aufgaben mit Modellierung und Unterstützung üben.",
+      "boundaryConditions": [
+        "Die Evidenz ist nicht randomisiert, nicht digital und überwiegend auf unmittelbare Posttests begrenzt.",
+        "Die Altersabdeckung überschneidet sich nur teilweise mit Klasse 5 bis 7.",
+        "Selbstregulation darf weder aus Klickdauer abgeleitet noch als Defizitlabel gespeichert werden."
+      ],
+      "sourceIds": ["SRC-LP-SRL-2008"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-MAYER-001",
+      "statement": "Die Cognitive Theory of Multimedia Learning beschreibt Lernen mit Wörtern und Grafiken als Auswahl, Organisation und Integration relevanter Information unter begrenzter Verarbeitungskapazität.",
+      "mechanism": "Verbale und bildhafte Information wird in teilweise getrennten Kanälen verarbeitet, im Arbeitsgedächtnis organisiert und mit Vorwissen zu einer kohärenten Repräsentation verbunden.",
+      "scope": "Aktueller Theorie- und Forschungsrückblick zur Entwicklung, zum gegenwärtigen Stand und zu offenen Erweiterungen der CTML.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 beim Lernen mit fachlich zusammengehörigen Texten, Bildern, Animationen oder Simulationen.",
+      "boundaryConditions": [
+        "Der Beitrag ist ein Theorie- und Forschungsrückblick, keine einzelne Wirksamkeitsmeta-Analyse.",
+        "Motivationale, affektive, soziale und metakognitive Erweiterungen sind noch nicht gleich stark integriert.",
+        "Aus der Theorie folgt kein pauschaler Vorrang digitaler oder multimedialer Darstellung."
+      ],
+      "sourceIds": ["SRC-V2-LXF-MAYER-2024"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-SEGMENT-001",
+      "statement": "Bedeutungsvolle Segmentierung kann Behalten und Transfer bei multimedialer Instruktion unterstützen, verändert aber auch Lernzeit und wirkt nicht für jede Person oder Darbietungsform gleich.",
+      "mechanism": "Abgegrenzte Einheiten unterstützen zeitliche Verarbeitung, Chunking und Strukturierung; Lernendensteuerung kann zusätzlich Anpassung des Tempos ermöglichen.",
+      "scope": "Meta-Analyse von Segmentierungsvergleichen in multimedialen Lernarrangements mit lernenden- und systemgesteuerten Varianten.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 bei informationsdichten Erklärungen, Videos oder Animationen.",
+      "boundaryConditions": [
+        "Lernenden- und systemgesteuerte Segmentierung sind nicht gleichzusetzen.",
+        "Vorwissen, Darbietungsform und verfügbare Lernzeit können den Nutzen verändern.",
+        "Mehr Klickschritte ohne fachlich kohärente Gliederung sind keine Segmentierung im Sinne des Claims."
+      ],
+      "sourceIds": ["SRC-V2-LXF-SEGMENT-2019"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-SIGNAL-001",
+      "statement": "Signale, die fachlich relevante Beziehungen zwischen Text und Bild hervorheben, können deren Integration unterstützen; dekorative Hervorhebung oder bloße Salienz ist nicht hinreichend.",
+      "mechanism": "Gezielte Signale lenken Aufmerksamkeit auf korrespondierende Elemente und unterstützen Auswahl und Integration zu einer kohärenten mentalen Repräsentation.",
+      "scope": "Meta-Analyse zu Signalen für Text-Bild-Beziehungen in statischen und dynamischen Multimediaformaten.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7, die Beziehungen zwischen Beschriftung, Diagramm, Interfacezustand oder Ablaufdarstellung verstehen sollen.",
+      "boundaryConditions": [
+        "Vorwissen, Selbst- oder Systemsteuerung, Bildformat und Zahl der Zuordnungen können den Effekt moderieren.",
+        "Nicht passende Signale können Aufmerksamkeit fehlleiten.",
+        "Farbe allein darf keine fachlich notwendige Information tragen."
+      ],
+      "sourceIds": ["SRC-V2-LXF-SIGNAL-2016"],
+      "evidenceLevel": "high",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-ICAP-001",
+      "statement": "ICAP ist ein Rahmen zur Unterscheidung beobachtbarer Beteiligungsformen und ihrer angenommenen kognitiven Prozesse; die technische Interaktion mit einem Interface bestimmt den Lernmodus nicht.",
+      "mechanism": "Konstruktive Aktivitäten erzeugen neue, über das Material hinausgehende Lernprodukte; interaktive Aktivitäten bauen inhaltlich auf Beiträgen mehrerer Beteiligter auf.",
+      "scope": "Theorie- und Evidenzrahmen mit Labor- und Klassenraumbeispielen zu passiven, aktiven, konstruktiven und interaktiven Lernhandlungen.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 bei individuellen und kooperativen fachlichen Aufgaben mit sichtbaren Produkten oder Begründungen.",
+      "boundaryConditions": [
+        "Die Kategorien sind keine automatische Rangliste beliebiger Aktivitäten.",
+        "Klicks, Drag-and-drop oder Gruppenarbeit belegen ohne fachlichen Output keinen konstruktiven oder interaktiven Prozess.",
+        "Aufgabe, Vorwissen, Kooperationsqualität und Vergleichsbedingung bleiben relevant."
+      ],
+      "sourceIds": ["SRC-V2-LXF-ICAP-2014"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-SDT-001",
+      "statement": "SDT-basierte Bildungsinterventionen können autonome Motivation sowie Autonomie- und Kompetenzerleben unterstützen; daraus folgt keine pauschale Wirkung beliebiger Wahl- oder Gamificationelemente.",
+      "mechanism": "Lernumgebungen und Lehrhandlungen können die psychologischen Bedürfnisse nach Autonomie, Kompetenz und sozialer Eingebundenheit unterstützen und dadurch Motivationsqualität beeinflussen.",
+      "scope": "Systematischer Review und Meta-Analyse heterogener lehrkraft-, lernenden-, eltern- und mentoringbezogener Bildungsinterventionen.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 in lehrkraftgestützten Aufgaben mit nachvollziehbarem Sinn, bewältigbarer Herausforderung und begrenzter echter Wahl.",
+      "boundaryConditions": [
+        "Interventionsdesigns, Outcomes, Populationen und geografische Kontexte sind heterogen.",
+        "Befunde zu sozialer Eingebundenheit sind weniger eindeutig als zu Autonomie und Kompetenz.",
+        "Motivation, Engagement und fachliches Lernen bleiben getrennte Prüfdimensionen."
+      ],
+      "sourceIds": ["SRC-V2-LXF-SDT-2024"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-EEF-META-001",
+      "statement": "Metakognitive Strategien sollen explizit gelehrt, modelliert und an anspruchsvollen fachlichen Aufgaben eingeübt werden; allgemeine Reflexionsaufforderungen außerhalb des Fachkontexts reichen nicht aus.",
+      "mechanism": "Planen, Überwachen und Evaluieren werden als sichtbare Strategien vermittelt, zunächst gestützt und zunehmend selbstständig auf fachliche Aufgaben angewendet.",
+      "scope": "Professionelle EEF-Guidance der zweiten Auflage für Primar- und Sekundarschule, die eine breitere Evidenzbasis in Handlungsempfehlungen übersetzt.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 bei herausfordernden, curriculumsnahen Aufgaben mit Lehrkraftmodellierung und abgestufter Unterstützung.",
+      "boundaryConditions": [
+        "Die Quelle ist professionelle Evidenzguidance und keine einzelne kausale Studie.",
+        "Die Wirksamkeit hängt von fachlicher Einbettung, Lehrkraftverständnis und Implementationsqualität ab.",
+        "Die Guidance ersetzt keine IuM-spezifische Erprobung oder individuelle Diagnostik."
+      ],
+      "sourceIds": ["SRC-V2-LXF-EEF-META-2025"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-COGA-001",
+      "statement": "Die W3C-COGA-Leitlinien ergänzen WCAG um Gestaltungshinweise für kognitive und lernbezogene Zugänglichkeit, etwa klare Zwecke und Schritte, verständliche Sprache, Fokusunterstützung und Fehlervermeidung.",
+      "mechanism": "Vorhersehbare Struktur, explizite Beziehungen, reduzierte Gedächtnisanforderungen und korrigierbare Handlungen verringern vermeidbare Barrieren bei Verstehen und Bedienung.",
+      "scope": "Informative, ergänzende W3C-Guidance, deren Design Patterns über die für WCAG-Konformität verpflichtenden Kriterien hinausgehen.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 mit variierendem Sprachverständnis, Arbeitsgedächtnis, Aufmerksamkeitssteuerung oder Unterstützungsbedarf.",
+      "boundaryConditions": [
+        "Die Guidance ist nicht erforderlich, um WCAG-Konformität zu beanspruchen, und keine kausale Lernwirksamkeitsstudie.",
+        "Einzelne Patterns müssen gegen Fachaufgabe und reale Nutzung geprüft werden.",
+        "Kognitive Zugänglichkeit wird durch WCAG allein nicht vollständig abgedeckt."
+      ],
+      "sourceIds": ["SRC-V2-LXF-W3C-COGA-2021"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-UDL-001",
+      "statement": "UDL 3.0 ist ein Planungsrahmen für mehrere Zugänge zu Engagement, Repräsentation sowie Handlung und Ausdruck; er begründet keine universelle Methode und keinen Wirksamkeitsnachweis für jede einzelne Option.",
+      "mechanism": "Vorhersehbare Barrieren werden bereits bei der Planung adressiert, indem Lernziele erhalten bleiben und unterschiedliche Wahrnehmungs-, Ausdrucks- und Unterstützungswege ermöglicht werden.",
+      "scope": "Professioneller, fachübergreifender CAST-Rahmen mit konkreten Gestaltungsvorschlägen und dem Ziel von Learner Agency.",
+      "learnerContext": "Heterogene IuM-Lerngruppen der Klassen 5 bis 7 mit unterschiedlichen Zugangs-, Sprach-, Ausdrucks- und Unterstützungsbedürfnissen.",
+      "boundaryConditions": [
+        "UDL 3.0 ist professionelle Guidance und keine einzelne kausale Wirksamkeitsstudie.",
+        "Mehrere Zugänge dürfen das fachliche Lernziel und die notwendige Kernhandlung nicht verändern.",
+        "Nicht jede Option muss in jeder Aufgabe angeboten werden; Auswahl benötigt eine Barrieren- und Aufgabenbegründung."
+      ],
+      "sourceIds": ["SRC-V2-LXF-UDL30-2024"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-WCAG-001",
+      "statement": "WCAG 2.2 ist eine testbare technische Baseline für Web-Accessibility; Konformität deckt nicht alle kognitiven oder lernbezogenen Bedürfnisse ab und belegt weder schulische Usability noch Lernwirksamkeit.",
+      "mechanism": "Normative Erfolgskriterien begrenzen bekannte Barrieren der Wahrnehmbarkeit, Bedienbarkeit, Verständlichkeit und Robustheit und ermöglichen nachvollziehbare Konformitätsprüfungen.",
+      "scope": "W3C Recommendation für Webinhalte auf verschiedenen Geräten mit den Konformitätsstufen A, AA und AAA.",
+      "learnerContext": "IuM-Lernende der Klassen 5 bis 7 auf Desktop-, Tablet- und Assistive-Technology-Pfaden.",
+      "boundaryConditions": [
+        "Auch höchste Konformität adressiert nicht alle Bedürfnisse und Kombinationen von Behinderungen.",
+        "Die rechtliche Verbindlichkeit hängt vom konkreten Betriebskontext und anwendbaren Recht ab.",
+        "Accessibility-Konformität, Usability und fachliches Lernen benötigen getrennte Nachweise."
+      ],
+      "sourceIds": ["SRC-V2-LXF-WCAG22-2024"],
+      "evidenceLevel": "normative",
+      "status": "reviewed"
+    },
+    {
+      "id": "CLAIM-V2-LXF-ORCHESTRATION-001",
+      "statement": "Classroom-Orchestration-Systeme bündeln Funktionen für Lehrkraftwahrnehmung, Klasseninstruktion und Koordination; ihr Nutzen hängt von konkreter Funktion, Messung und Unterrichtskontext ab.",
+      "mechanism": "Zeitnahe, aufgabenbezogene Übersicht und steuerbare Übergänge können Lehrkräften helfen, parallele soziale Ebenen wahrzunehmen und Unterrichtshandlungen zu koordinieren.",
+      "scope": "Systematischer Review und Meta-Analyse heterogener Orchestrierungssysteme und empirischer Studien mit einem Recherchestand bis 2021.",
+      "learnerContext": "Lehrkraftorchestrierter IuM-Unterricht der Klassen 5 bis 7 mit Einzel-, Partner- und Plenumsphasen.",
+      "boundaryConditions": [
+        "Die untersuchten Systeme, Funktionen, Outcomes und Vergleichsbedingungen sind heterogen.",
+        "Lehrkraftwahrnehmung ist kein Auftrag zu personenbezogener Telemetrie oder verdeckter Profilbildung.",
+        "Die Quelle prüft nicht das IuM-Lernwerk und legt keine konkrete Dashboard- oder Datenarchitektur fest."
+      ],
+      "sourceIds": ["SRC-V2-LXF-COS-2023"],
+      "evidenceLevel": "medium",
+      "status": "reviewed"
+    }
+  ]
+}

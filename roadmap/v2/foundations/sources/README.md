@@ -4,6 +4,15 @@
 **Gate:** `IUM-V2-SRC-REVIEW`  
 **Status:** zur fachlichen Nutzerprüfung; keine Inhalts-, Pilot- oder Releasefreigabe
 
+> **LXF02-Folgeentscheidung vom 2026-09-03:** Die unten beschriebene
+> Reviewbasis bleibt als historischer Stand des Quellen-Gates erhalten. LXF02
+> hat die sechs LXP01-Fundstellen inzwischen primär geprüft, unter den
+> verbindlichen `SRC-V2-LXF-*`-IDs normalisiert und in überprüfbare Claims
+> überführt. Maßgeblich sind nun das
+> [`source-register.json`](source-register.json), das
+> [`evidence-register.json`](../learning-experience/evidence-register.json)
+> und die [`evidence-synthesis.md`](../learning-experience/evidence-synthesis.md).
+
 ## Ergebnis
 
 Das V2-Quellenfundament verbindet den vorhandenen Quellenbestand und die später dokumentierten LXP01-Ergänzungen, ohne V1-Dateien umzuschreiben oder neue Claims vorwegzunehmen:
@@ -16,7 +25,7 @@ Das V2-Quellenfundament verbindet den vorhandenen Quellenbestand und die später
 
 Online-Erreichbarkeit belegt weder fachliche Qualität noch Lizenzfreiheit oder Lernwirksamkeit.
 
-## LXP01-Migration und Nutzungsgrenzen
+## LXP01-Migration und Nutzungsgrenzen (Stand vor LXF02)
 
 | V2-ID | Fundstelle | Prüfstatus | Lizenz-/Nutzungsgrenze | Mögliche Claim-Migration |
 |---|---|---|---|---|
@@ -29,9 +38,22 @@ Online-Erreichbarkeit belegt weder fachliche Qualität noch Lizenzfreiheit oder 
 
 Die frühere LXP01-Spezifikation dient hier nur als Herkunftsnachweis der sechs Quellenidentitäten. Ihre Befundtexte und Designhypothesen gelten nicht automatisch als V2-Claims.
 
-## Bewusste Grenzen und offene Punkte
+LXF02 hat diese Herkunftsdatensätze wie folgt normalisiert. Die Umbenennung
+erzeugt keine zusätzliche Quelle, sondern trennt die historische LXP01-Referenz
+vom heute verbindlichen V2-Evidenzvertrag:
 
-1. `SRC-LP-SIGNALING-2018` ist eine metadatengeprüfte Phase-0-Quelle ohne Claimbezug. Sie ist optional, wird im Gate nicht als Fehler behandelt und muss vor einer möglichen Verwendung in LXF02 primär geprüft werden.
+| Historische ID | Verbindliche LXF02-ID |
+|---|---|
+| `SRC-LXP-SDT-2024` | `SRC-V2-LXF-SDT-2024` |
+| `SRC-LXP-SEGMENT-2019` | `SRC-V2-LXF-SEGMENT-2019` |
+| `SRC-LXP-SIGNAL-2016` | `SRC-V2-LXF-SIGNAL-2016` |
+| `SRC-LXP-W3C-COGA-2021` | `SRC-V2-LXF-COGA-2021` |
+| `SRC-LXP-UDL30-2024` | `SRC-V2-LXF-UDL-2024` |
+| `SRC-LXP-COS-2023` | `SRC-V2-LXF-ORCHESTRATION-2023` |
+
+## Bewusste Grenzen und entschiedene Punkte
+
+1. `SRC-LP-SIGNALING-2018` bleibt eine metadatengeprüfte historische Phase-0-Quelle ohne Claimbezug. LXF02 übernimmt sie bewusst nicht: Für den enger gefassten Text-Bild-Signaling-Claim wird die primär geprüfte Metaanalyse `SRC-V2-LXF-SIGNAL-2016` verwendet. Eine spätere Nutzung der breiteren 2018er Quelle würde eine neue Primärprüfung erfordern.
 2. 23 Fundstellen – darunter DOI-Ziele bei Verlagen und `SRC-MED-DCE-PLANNER-2026` – antworten beim automatisierten terminalen Abruf mit HTTP 401 oder 403. Sie sind technisch zugriffsbeschränkt; der Status `restricted` wird deshalb von `missing` getrennt und bleibt im Einzelnachweis sichtbar.
 3. Der Lesehilfe-Locator wird ausschließlich im V2-Inventar ergänzt. Die direkte amtliche PDF-Fundstelle und deren Inhaltsidentität sind im Curriculumfundament dokumentiert; das V1-Register bleibt unverändert.
 4. Lizenzstatus wird bei Claimreview, vor Veröffentlichung sowie bei einer Locator- oder Lizenzänderung erneut geprüft.

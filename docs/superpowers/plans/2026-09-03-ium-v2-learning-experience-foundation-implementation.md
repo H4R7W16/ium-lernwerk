@@ -130,21 +130,21 @@ git commit -m "docs(lxf01): audit legacy learning experience basis"
 - Consumes: LXF01 decisions and the V2 source contract
 - Produces: `LearningEvidenceRegisterV1` and complete source-to-claim traceability
 
-- [ ] **Step 1: Add failing evidence-contract tests**
+- [x] **Step 1: Add failing evidence-contract tests**
 
 Assert failures for a claim without `mechanism`, an empty `boundaryConditions`, an unknown source ID, `reviewed` without a primary-checked source, and a professional standard represented as `evidenceLevel: high` learning-effect evidence.
 
-- [ ] **Step 2: Run the tests and confirm the contract is absent**
+- [x] **Step 2: Run the tests and confirm the contract is absent**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failures naming the missing evidence register and validators.
 
-- [ ] **Step 3: Create the evidence schema**
+- [x] **Step 3: Create the evidence schema**
 
 Implement `LearningEvidenceClaimV2` exactly as specified, plus top-level `schemaVersion`, `asOf`, and `claims`. Restrict statuses to `draft`, `working`, `reviewed`, and `standard`; reject `standard` in this plan.
 
-- [ ] **Step 4: Normalize the six LXP01 sources into the V2 source register**
+- [x] **Step 4: Normalize the six LXP01 sources into the V2 source register**
 
 Create traceable V2 source records for:
 
@@ -159,7 +159,7 @@ SRC-V2-LXF-COS-2023       Feng et al. 2023, DOI 10.1016/j.compedu.2023.104864
 
 Preserve their actual source kinds and do not represent W3C COGA or UDL as causal effectiveness studies.
 
-- [ ] **Step 5: Add the approved gap-check sources**
+- [x] **Step 5: Add the approved gap-check sources**
 
 Verify and register:
 
@@ -173,7 +173,7 @@ SRC-V2-LXF-WCAG22-2024    https://www.w3.org/TR/wcag/
 
 For each source, record access date, direct URL or DOI, verification status, source kind, licensing or use status, relevance, and update risk.
 
-- [ ] **Step 6: Rebuild retained and adapted claims**
+- [x] **Step 6: Rebuild retained and adapted claims**
 
 For every retained or adapted LXF01 claim, create one V2 claim with:
 
@@ -186,11 +186,11 @@ For every retained or adapted LXF01 claim, create one V2 claim with:
 
 Do not import numeric effect sizes unless the original publication, population, comparison, uncertainty, and heterogeneity are recorded together.
 
-- [ ] **Step 7: Write the synthesis across evidence families**
+- [x] **Step 7: Write the synthesis across evidence families**
 
 Use separate sections for learning architecture, cognitive load and multimedia, activation and task quality, support and explanation, practice and transfer, feedback and metacognition, motivation and agency, inclusion and accessibility, digital interaction, orchestration, and subject-specific boundaries.
 
-- [ ] **Step 8: Validate and commit LXF02**
+- [x] **Step 8: Validate and commit LXF02**
 
 Run: `npm run verify:v2`
 

@@ -22,6 +22,7 @@ MISSING_SOURCE_CONTRACTS = [
     "roadmap/v2/foundations/sources/inventory.json fehlt",
     "roadmap/v2/foundations/sources/traceability.json fehlt",
     "roadmap/v2/foundations/sources/link-audit.json fehlt",
+    "roadmap/v2/foundations/sources/source-register.json fehlt",
     "schemas/v2/source-inventory.schema.json fehlt",
     "schemas/v2/source-traceability.schema.json fehlt",
     "schemas/v2/source-link-audit.schema.json fehlt",
@@ -30,6 +31,9 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/legacy-audit.json fehlt",
     "roadmap/v2/foundations/learning-experience/legacy-audit.md fehlt",
     "schemas/v2/legacy-learning-audit.schema.json fehlt",
+    "roadmap/v2/foundations/learning-experience/evidence-register.json fehlt",
+    "roadmap/v2/foundations/learning-experience/evidence-synthesis.md fehlt",
+    "schemas/v2/learning-evidence.schema.json fehlt",
 ]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
@@ -41,6 +45,74 @@ EXPECTED_LP_CLAIMS = {f"CLAIM-LP-{number:03d}" for number in range(1, 14)}
 EXPECTED_PRINCIPLES = {f"PRIN-{number:03d}" for number in range(1, 16)}
 EXPECTED_LXP_SPECS = {"LXP01", "LXP02", "LXP03", "LXP04"}
 LEGACY_DECISIONS = {"retain", "adapt", "replace", "reference-only", "drop"}
+EXPECTED_LXF02_ADDITIONAL_SOURCES = {
+    "SRC-V2-LXF-SDT-2024",
+    "SRC-V2-LXF-SEGMENT-2019",
+    "SRC-V2-LXF-SIGNAL-2016",
+    "SRC-V2-LXF-W3C-COGA-2021",
+    "SRC-V2-LXF-UDL30-2024",
+    "SRC-V2-LXF-COS-2023",
+    "SRC-V2-LXF-MAYER-2024",
+    "SRC-V2-LXF-ICAP-2014",
+    "SRC-V2-LXF-EEF-META-2025",
+    "SRC-V2-LXF-WCAG22-2024",
+}
+
+VALID_LXF02_SOURCE_REGISTER = {
+    "schemaVersion": 1,
+    "projectId": "ium-lernwerk",
+    "asOf": "2026-09-03",
+    "sources": [
+        {
+            "id": "SRC-TEST-META",
+            "title": "Geprüfte Meta-Analyse",
+            "authors": ["Test Author"],
+            "year": 2024,
+            "sourceKind": "meta-analysis",
+            "url": "https://doi.org/10.1000/test",
+            "doi": "10.1000/test",
+            "accessed": "2026-09-03",
+            "verificationStatus": "primary-checked",
+            "licenseStatus": "publisher-rights-no-open-license",
+            "usageStatus": "citation-only",
+            "relevance": ["test"],
+            "updateRisk": "low",
+        },
+        {
+            "id": "SRC-TEST-STANDARD",
+            "title": "Professionelle Leitlinie",
+            "authors": ["Test Organisation"],
+            "year": 2024,
+            "sourceKind": "professional-standard",
+            "url": "https://example.org/standard",
+            "doi": None,
+            "accessed": "2026-09-03",
+            "verificationStatus": "primary-checked",
+            "licenseStatus": "use-status-documented",
+            "usageStatus": "citation-and-link-only",
+            "relevance": ["test"],
+            "updateRisk": "medium",
+        },
+    ],
+}
+
+VALID_LXF02_EVIDENCE_REGISTER = {
+    "schemaVersion": 1,
+    "asOf": "2026-09-03",
+    "claims": [
+        {
+            "id": "CLAIM-TEST-001",
+            "statement": "Ein begrenzter Testclaim wird geprüft.",
+            "mechanism": "Der angenommene Mechanismus ist explizit benannt.",
+            "scope": "Testumfang ohne Verallgemeinerung.",
+            "learnerContext": "Lernende in einem dokumentierten Testkontext.",
+            "boundaryConditions": ["Keine Übertragung außerhalb des Testkontexts."],
+            "sourceIds": ["SRC-TEST-META"],
+            "evidenceLevel": "medium",
+            "status": "reviewed",
+        }
+    ],
+}
 
 
 VALID_STATUS = {
@@ -386,6 +458,197 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         self.assertIn("LXF01-Schema muss top-level fail-closed sein", errors)
         self.assertIn("LXF01-Schema hat abweichende Pflichtfelder", errors)
 
+    def test_learning_evidence_claim_requires_mechanism(self) -> None:
+        """Catches claims that jump from a source straight to a design slogan."""
+        register = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+        del register["claims"][0]["mechanism"]
+
+        errors = v2_validator.validate_learning_evidence_register(
+            register, VALID_LXF02_SOURCE_REGISTER
+        )
+
+        self.assertIn("LXF02-Claim CLAIM-TEST-001 benötigt mechanism", errors)
+
+    def test_learning_evidence_claim_requires_boundary_conditions(self) -> None:
+        """Catches an evidence claim without explicit transfer limits."""
+        register = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+        register["claims"][0]["boundaryConditions"] = []
+
+        errors = v2_validator.validate_learning_evidence_register(
+            register, VALID_LXF02_SOURCE_REGISTER
+        )
+
+        self.assertIn(
+            "LXF02-Claim CLAIM-TEST-001 boundaryConditions benötigt mindestens einen Eintrag",
+            errors,
+        )
+
+    def test_learning_evidence_claim_rejects_unknown_source_id(self) -> None:
+        """Catches a dangling source-to-claim reference."""
+        register = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+        register["claims"][0]["sourceIds"] = ["SRC-UNKNOWN"]
+
+        errors = v2_validator.validate_learning_evidence_register(
+            register, VALID_LXF02_SOURCE_REGISTER
+        )
+
+        self.assertIn(
+            "LXF02-Claim CLAIM-TEST-001 referenziert unbekannte Quelle SRC-UNKNOWN",
+            errors,
+        )
+
+    def test_reviewed_claim_requires_primary_checked_sources(self) -> None:
+        """Catches reviewed claims resting only on metadata inspection."""
+        sources = copy.deepcopy(VALID_LXF02_SOURCE_REGISTER)
+        sources["sources"][0]["verificationStatus"] = "metadata-checked"
+
+        errors = v2_validator.validate_learning_evidence_register(
+            VALID_LXF02_EVIDENCE_REGISTER, sources
+        )
+
+        self.assertIn(
+            "LXF02-Claim CLAIM-TEST-001 darf mit nicht primär geprüfter Quelle SRC-TEST-META nicht reviewed sein",
+            errors,
+        )
+
+    def test_professional_standard_cannot_be_high_causal_learning_evidence(
+        self,
+    ) -> None:
+        """Catches a professional standard being promoted to causal evidence."""
+        register = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+        claim = register["claims"][0]
+        claim["sourceIds"] = ["SRC-TEST-STANDARD"]
+        claim["evidenceLevel"] = "high"
+
+        errors = v2_validator.validate_learning_evidence_register(
+            register, VALID_LXF02_SOURCE_REGISTER
+        )
+
+        self.assertIn(
+            "LXF02-Claim CLAIM-TEST-001 darf professionelle Standards nicht als hohe kausale Lerneffekt-Evidenz führen",
+            errors,
+        )
+
+    def test_learning_evidence_rejects_premature_standard_status(self) -> None:
+        """Catches LXF02 evidence being promoted before the later standards gate."""
+        register = copy.deepcopy(VALID_LXF02_EVIDENCE_REGISTER)
+        register["claims"][0]["status"] = "standard"
+
+        errors = v2_validator.validate_learning_evidence_register(
+            register, VALID_LXF02_SOURCE_REGISTER
+        )
+
+        self.assertIn(
+            "LXF02-Claim CLAIM-TEST-001 darf vor LXF07 nicht standard sein",
+            errors,
+        )
+
+    def test_lxf02_source_register_rejects_invalid_date_and_source_kind(self) -> None:
+        """Catches plausible-looking but invalid source normalization metadata."""
+        sources = copy.deepcopy(VALID_LXF02_SOURCE_REGISTER)
+        sources["sources"][0]["accessed"] = "2026-02-30"
+        sources["sources"][0]["sourceKind"] = "blog-summary"
+
+        errors = v2_validator.validate_v2_source_register(sources)
+
+        self.assertIn(
+            "LXF02-Quelle SRC-TEST-META accessed muss ein echtes Kalenderdatum sein",
+            errors,
+        )
+        self.assertIn(
+            "LXF02-Quelle SRC-TEST-META hat unbekannten sourceKind: blog-summary",
+            errors,
+        )
+
+    def test_learning_evidence_contract_is_wired_into_repository_gate(self) -> None:
+        """Catches LXF02 files being created without fail-closed gate integration."""
+        with tempfile.TemporaryDirectory() as directory:
+            errors = validate_repository(Path(directory))
+
+        for expected_error in (
+            "roadmap/v2/foundations/sources/source-register.json fehlt",
+            "roadmap/v2/foundations/learning-experience/evidence-register.json fehlt",
+            "roadmap/v2/foundations/learning-experience/evidence-synthesis.md fehlt",
+            "schemas/v2/learning-evidence.schema.json fehlt",
+        ):
+            self.assertIn(expected_error, errors)
+
+    def test_real_learning_evidence_contract_is_complete_and_traceable(self) -> None:
+        """Catches missing migrated claims, gap sources, or orphaned source records."""
+        sources = load_repo_json(
+            "roadmap/v2/foundations/sources/source-register.json"
+        )
+        register = load_repo_json(
+            "roadmap/v2/foundations/learning-experience/evidence-register.json"
+        )
+
+        self.assertEqual([], v2_validator.validate_v2_source_register(sources))
+        self.assertEqual(
+            [], v2_validator.validate_learning_evidence_register(register, sources)
+        )
+        source_ids = {source["id"] for source in sources["sources"]}
+        claim_ids = {claim["id"] for claim in register["claims"]}
+        referenced_source_ids = {
+            source_id
+            for claim in register["claims"]
+            for source_id in claim["sourceIds"]
+        }
+        self.assertTrue(EXPECTED_LXF02_ADDITIONAL_SOURCES.issubset(source_ids))
+        self.assertTrue(EXPECTED_LP_CLAIMS.issubset(claim_ids))
+        self.assertEqual(source_ids, referenced_source_ids)
+        self.assertNotIn("standard", {claim["status"] for claim in register["claims"]})
+
+    def test_learning_evidence_schema_seals_the_exact_claim_contract(self) -> None:
+        """Catches optional mechanisms, open-ended claim fields, or premature standards."""
+        schema = load_repo_json("schemas/v2/learning-evidence.schema.json")
+        claim_schema = schema["$defs"]["claim"]
+        expected_fields = {
+            "id",
+            "statement",
+            "mechanism",
+            "scope",
+            "learnerContext",
+            "boundaryConditions",
+            "sourceIds",
+            "evidenceLevel",
+            "status",
+        }
+
+        self.assertFalse(schema["additionalProperties"])
+        self.assertEqual({"schemaVersion", "asOf", "claims"}, set(schema["required"]))
+        self.assertFalse(claim_schema["additionalProperties"])
+        self.assertEqual(expected_fields, set(claim_schema["required"]))
+        self.assertEqual(expected_fields, set(claim_schema["properties"]))
+        self.assertEqual(
+            ["draft", "working", "reviewed", "standard"],
+            claim_schema["properties"]["status"]["enum"],
+        )
+
+    def test_learning_evidence_synthesis_covers_all_required_families(self) -> None:
+        """Catches a machine-valid register without the agreed fachlich readable synthesis."""
+        path = (
+            PROJECT_ROOT
+            / "roadmap/v2/foundations/learning-experience/evidence-synthesis.md"
+        )
+        text = path.read_text(encoding="utf-8")
+        headings = [
+            "# LXF02 Evidenzsynthese",
+            "## Lernarchitektur",
+            "## Kognitive Belastung und Multimedia",
+            "## Aktivierung und Aufgabenqualität",
+            "## Unterstützung und Erklärung",
+            "## Übung und Transfer",
+            "## Feedback und Metakognition",
+            "## Motivation und Agency",
+            "## Inklusion und Accessibility",
+            "## Digitale Interaktion",
+            "## Orchestrierung",
+            "## Fachspezifische Grenzen",
+        ]
+        positions = [text.find(heading) for heading in headings]
+        self.assertTrue(all(position >= 0 for position in positions))
+        self.assertEqual(sorted(positions), positions)
+
     def test_source_inventory_requires_an_object(self) -> None:
         """Catches malformed top-level JSON bypassing source-foundation checks."""
         errors = v2_validator.validate_source_inventory([], PROJECT_ROOT)
@@ -667,8 +930,8 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             errors,
         )
 
-    def test_source_traceability_verifies_claims_and_reports_optional_gap(self) -> None:
-        """Catches a source contract that cannot prove the Phase-0 claim chain."""
+    def test_source_traceability_verifies_claims_and_closes_optional_lxf02_gap(self) -> None:
+        """Catches an obsolete pre-LXF02 warning surviving the documented source decision."""
         traceability = load_repo_json(
             "roadmap/v2/foundations/sources/traceability.json"
         )
@@ -681,11 +944,10 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         )
 
         self.assertEqual([], errors)
+        self.assertEqual([], warnings)
         self.assertEqual(
-            [
-                "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis LXF02 offen"
-            ],
-            warnings,
+            "resolved-not-migrated",
+            traceability["optionalGaps"][0]["resolutionStatus"],
         )
         self.assertEqual(6, len(traceability["entityTypes"]))
 
@@ -849,14 +1111,11 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         self.assertEqual([], errors)
 
     def test_repository_report_integrates_all_source_contracts(self) -> None:
-        """Catches creating source files without wiring them into the release gate."""
+        """Catches source or evidence contracts not being wired into the release gate."""
         errors, warnings = validate_repository_report(PROJECT_ROOT)
 
         self.assertEqual([], errors)
-        self.assertIn(
-            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis LXF02 offen",
-            warnings,
-        )
+        self.assertEqual([], warnings)
 
     def test_building_v2_keeps_v1_as_active_baseline(self) -> None:
         """Catches activating V2 before the explicit cutover decision."""

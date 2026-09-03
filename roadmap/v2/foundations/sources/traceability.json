@@ -63,10 +63,10 @@
       "id": "SRC-GAP-LP-SIGNALING-2018",
       "sourceId": "SRC-LP-SIGNALING-2018",
       "required": false,
-      "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt derzeit keinen freigegebenen Claim.",
-      "resolutionStatus": "needs-primary-recheck",
+      "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt keinen V2-Claim; LXF02 verwendet für den engeren Claim zu Text-Bild-Beziehungen stattdessen SRC-V2-LXF-SIGNAL-2016.",
+      "resolutionStatus": "resolved-not-migrated",
       "ownerGate": "LXF02",
-      "acceptanceCriterion": "Primärquelle und Nutzungsstatus vor einer Claim-Migration erneut prüfen."
+      "acceptanceCriterion": "SRC-LP-SIGNALING-2018 nicht in V2-Claims referenzieren und die primär geprüfte Alternative im LXF02-Quellenregister nachweisen."
     }
   ]
 }

@@ -19,12 +19,16 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/sources/inventory.json"),
     Path("roadmap/v2/foundations/sources/traceability.json"),
     Path("roadmap/v2/foundations/sources/link-audit.json"),
+    Path("roadmap/v2/foundations/sources/source-register.json"),
     Path("schemas/v2/source-inventory.schema.json"),
     Path("schemas/v2/source-traceability.schema.json"),
     Path("schemas/v2/source-link-audit.schema.json"),
     Path("roadmap/v2/foundations/learning-experience/legacy-audit.json"),
     Path("roadmap/v2/foundations/learning-experience/legacy-audit.md"),
     Path("schemas/v2/legacy-learning-audit.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/evidence-register.json"),
+    Path("roadmap/v2/foundations/learning-experience/evidence-synthesis.md"),
+    Path("schemas/v2/learning-evidence.schema.json"),
 )
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
@@ -432,6 +436,115 @@ EXPECTED_LXP05_FAILURE_LAYERS = {
     "implementation",
     "pilot",
 }
+V2_SOURCE_REGISTER_FIELDS = {"schemaVersion", "projectId", "asOf", "sources"}
+V2_SOURCE_FIELDS = {
+    "id",
+    "title",
+    "authors",
+    "year",
+    "sourceKind",
+    "url",
+    "doi",
+    "accessed",
+    "verificationStatus",
+    "licenseStatus",
+    "usageStatus",
+    "relevance",
+    "updateRisk",
+}
+V2_SOURCE_KINDS = {
+    "meta-analysis",
+    "research-synthesis",
+    "theory-review",
+    "theory-framework",
+    "professional-guidance",
+    "professional-standard",
+}
+V2_SOURCE_VERIFICATION_STATUSES = {"metadata-checked", "primary-checked"}
+V2_SOURCE_UPDATE_RISKS = {"low", "medium", "high"}
+EXPECTED_LXF02_ADDITIONAL_SOURCE_METADATA = {
+    "SRC-V2-LXF-SDT-2024": {
+        "doi": "10.1016/j.lmot.2024.102015",
+        "url": "https://doi.org/10.1016/j.lmot.2024.102015",
+        "sourceKind": "meta-analysis",
+    },
+    "SRC-V2-LXF-SEGMENT-2019": {
+        "doi": "10.1007/s10648-018-9456-4",
+        "url": "https://doi.org/10.1007/s10648-018-9456-4",
+        "sourceKind": "meta-analysis",
+    },
+    "SRC-V2-LXF-SIGNAL-2016": {
+        "doi": "10.1016/j.edurev.2015.12.003",
+        "url": "https://doi.org/10.1016/j.edurev.2015.12.003",
+        "sourceKind": "meta-analysis",
+    },
+    "SRC-V2-LXF-W3C-COGA-2021": {
+        "doi": None,
+        "url": "https://www.w3.org/WAI/WCAG2/supplemental/",
+        "sourceKind": "professional-guidance",
+    },
+    "SRC-V2-LXF-UDL30-2024": {
+        "doi": None,
+        "url": "https://udlguidelines.cast.org/",
+        "sourceKind": "professional-guidance",
+    },
+    "SRC-V2-LXF-COS-2023": {
+        "doi": "10.1016/j.compedu.2023.104864",
+        "url": "https://doi.org/10.1016/j.compedu.2023.104864",
+        "sourceKind": "meta-analysis",
+    },
+    "SRC-V2-LXF-MAYER-2024": {
+        "doi": "10.1007/s10648-023-09842-1",
+        "url": "https://doi.org/10.1007/s10648-023-09842-1",
+        "sourceKind": "theory-review",
+    },
+    "SRC-V2-LXF-ICAP-2014": {
+        "doi": "10.1080/00461520.2014.965823",
+        "url": "https://doi.org/10.1080/00461520.2014.965823",
+        "sourceKind": "theory-framework",
+    },
+    "SRC-V2-LXF-EEF-META-2025": {
+        "doi": None,
+        "url": "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "sourceKind": "professional-guidance",
+    },
+    "SRC-V2-LXF-WCAG22-2024": {
+        "doi": None,
+        "url": "https://www.w3.org/TR/wcag/",
+        "sourceKind": "professional-standard",
+    },
+}
+EXPECTED_LXF02_SOURCE_IDS = {
+    "SRC-LP-IBBW-WU",
+    "SRC-LP-PRIOR-2022",
+    "SRC-LP-CLT-2020",
+    "SRC-LP-WORKED-2023",
+    "SRC-LP-SELFEXPLAIN-2018",
+    "SRC-LP-SCAFFOLD-2017",
+    "SRC-LP-QUIZZING-2021",
+    "SRC-LP-SPACING-2025",
+    "SRC-LP-TRANSFER-2018",
+    "SRC-LP-FEEDBACK-2020",
+    "SRC-LP-AUTONOMY-2025",
+    "SRC-LP-PF-2021",
+    "SRC-LP-SRL-2008",
+    *EXPECTED_LXF02_ADDITIONAL_SOURCE_METADATA,
+}
+LEARNING_EVIDENCE_REGISTER_FIELDS = {"schemaVersion", "asOf", "claims"}
+LEARNING_EVIDENCE_CLAIM_FIELDS = {
+    "id",
+    "statement",
+    "mechanism",
+    "scope",
+    "learnerContext",
+    "boundaryConditions",
+    "sourceIds",
+    "evidenceLevel",
+    "status",
+}
+LEARNING_EVIDENCE_LEVELS = {"low", "medium", "high", "normative"}
+LEARNING_EVIDENCE_STATUSES = {"draft", "working", "reviewed", "standard"}
+PROFESSIONAL_SOURCE_KINDS = {"professional-guidance", "professional-standard"}
 ALLOWED_LEGACY_EXTERNAL_EVIDENCE = {
     (
         "git:origin/feat/lxp05-ium5-experience:"
@@ -2290,18 +2403,21 @@ def validate_source_traceability(
         "id": "SRC-GAP-LP-SIGNALING-2018",
         "sourceId": "SRC-LP-SIGNALING-2018",
         "required": False,
-        "issue": "Die Phase-0-Quelle ist nur metadatengeprüft und trägt derzeit keinen freigegebenen Claim.",
-        "resolutionStatus": "needs-primary-recheck",
+        "issue": (
+            "Die Phase-0-Quelle ist nur metadatengeprüft und trägt keinen "
+            "V2-Claim; LXF02 verwendet für den engeren Claim zu Text-Bild-"
+            "Beziehungen stattdessen SRC-V2-LXF-SIGNAL-2016."
+        ),
+        "resolutionStatus": "resolved-not-migrated",
         "ownerGate": "LXF02",
-        "acceptanceCriterion": "Primärquelle und Nutzungsstatus vor einer Claim-Migration erneut prüfen.",
+        "acceptanceCriterion": (
+            "SRC-LP-SIGNALING-2018 nicht in V2-Claims referenzieren und die "
+            "primär geprüfte Alternative im LXF02-Quellenregister nachweisen."
+        ),
     }
     if optional_gaps != [expected_optional_gap]:
         errors.append(
             "V2-Quellenrückverfolgung muss die eine optionale Phase-0-Prüflücke ausweisen"
-        )
-    else:
-        report_warnings.append(
-            "optionale Quellenlücke SRC-LP-SIGNALING-2018 bleibt bis LXF02 offen"
         )
 
     source_register_path = root / PHASE0_SOURCE_BASELINE_EXPECTATIONS[
@@ -2999,6 +3115,406 @@ def validate_legacy_learning_audit_markdown(root: Path) -> list[str]:
     return errors
 
 
+def validate_v2_source_register(
+    data: object,
+    root: Path | None = None,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["LXF02-Quellenregister muss ein Objekt sein"]
+
+    errors: list[str] = []
+    errors.extend(
+        _unknown_fields(data, V2_SOURCE_REGISTER_FIELDS, "LXF02-Quellenregister")
+    )
+    errors.extend(
+        _missing_fields(data, V2_SOURCE_REGISTER_FIELDS, "LXF02-Quellenregister")
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("LXF02-Quellenregister schemaVersion muss 1 sein")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("LXF02-Quellenregister projectId muss ium-lernwerk sein")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("LXF02-Quellenregister asOf muss ein echtes Kalenderdatum sein")
+
+    sources = data.get("sources")
+    if not isinstance(sources, list) or not sources:
+        errors.append("LXF02-Quellenregister sources dürfen nicht leer sein")
+        return errors
+
+    sources_by_id: dict[str, dict] = {}
+    for index, source in enumerate(sources):
+        if not isinstance(source, dict):
+            errors.append(f"LXF02-Quelle an Position {index} muss ein Objekt sein")
+            continue
+        source_id_value = source.get("id")
+        source_id = (
+            source_id_value
+            if _nonempty_string(source_id_value)
+            else f"<Position {index}>"
+        )
+        label = f"LXF02-Quelle {source_id}"
+        errors.extend(_unknown_fields(source, V2_SOURCE_FIELDS, label))
+        errors.extend(_missing_fields(source, V2_SOURCE_FIELDS, label))
+        if not _nonempty_string(source_id_value):
+            errors.append(f"{label} benötigt id")
+        elif not source_id_value.startswith("SRC-"):
+            errors.append(f"{label} hat eine ungültige ID")
+        elif source_id_value in sources_by_id:
+            errors.append(f"LXF02-Quellenregister enthält doppelte ID {source_id_value}")
+        else:
+            sources_by_id[source_id_value] = source
+
+        if not _nonempty_string(source.get("title")):
+            errors.append(f"{label} benötigt title")
+        authors = source.get("authors")
+        if not isinstance(authors, list) or not authors or not all(
+            _nonempty_string(author) for author in authors
+        ):
+            errors.append(f"{label} authors dürfen nicht leer sein")
+        elif len(authors) != len(set(authors)):
+            errors.append(f"{label} authors dürfen keine Duplikate enthalten")
+        year = source.get("year")
+        if not _is_plain_int(year) or not 1900 <= year <= 2026:
+            errors.append(f"{label} year muss zwischen 1900 und 2026 liegen")
+        source_kind = source.get("sourceKind")
+        if not isinstance(source_kind, str) or source_kind not in V2_SOURCE_KINDS:
+            errors.append(f"{label} hat unbekannten sourceKind: {source_kind}")
+        url = source.get("url")
+        if not _is_https_url(url):
+            errors.append(f"{label} benötigt eine HTTPS-url")
+        doi = source.get("doi")
+        if doi is not None and (
+            not _nonempty_string(doi) or not str(doi).startswith("10.")
+        ):
+            errors.append(f"{label} doi muss null oder eine DOI sein")
+        if _nonempty_string(doi) and url != f"https://doi.org/{doi}":
+            errors.append(f"{label} DOI und url stimmen nicht überein")
+        if not _is_iso_date(source.get("accessed")):
+            errors.append(f"{label} accessed muss ein echtes Kalenderdatum sein")
+        verification = source.get("verificationStatus")
+        if (
+            not isinstance(verification, str)
+            or verification not in V2_SOURCE_VERIFICATION_STATUSES
+        ):
+            errors.append(
+                f"{label} hat unbekannten verificationStatus: {verification}"
+            )
+        for field in ("licenseStatus", "usageStatus"):
+            if not _nonempty_string(source.get(field)):
+                errors.append(f"{label} benötigt {field}")
+        relevance = source.get("relevance")
+        if not isinstance(relevance, list) or not relevance or not all(
+            _nonempty_string(item) for item in relevance
+        ):
+            errors.append(f"{label} relevance darf nicht leer sein")
+        elif len(relevance) != len(set(relevance)):
+            errors.append(f"{label} relevance darf keine Duplikate enthalten")
+        update_risk = source.get("updateRisk")
+        if not isinstance(update_risk, str) or update_risk not in V2_SOURCE_UPDATE_RISKS:
+            errors.append(f"{label} hat unbekanntes updateRisk: {update_risk}")
+
+    if set(sources_by_id) != EXPECTED_LXF02_SOURCE_IDS:
+        missing = sorted(EXPECTED_LXF02_SOURCE_IDS - set(sources_by_id))
+        unexpected = sorted(set(sources_by_id) - EXPECTED_LXF02_SOURCE_IDS)
+        if missing:
+            errors.append(
+                "LXF02-Quellenregister fehlt erwartete Quelle: " + ", ".join(missing)
+            )
+        if unexpected:
+            errors.append(
+                "LXF02-Quellenregister enthält unerwartete Quelle: "
+                + ", ".join(unexpected)
+            )
+
+    for source_id, expected in EXPECTED_LXF02_ADDITIONAL_SOURCE_METADATA.items():
+        source = sources_by_id.get(source_id)
+        if source is None:
+            continue
+        for field, expected_value in expected.items():
+            if source.get(field) != expected_value:
+                errors.append(
+                    f"LXF02-Quelle {source_id} hat einen unerwarteten Wert für {field}"
+                )
+
+    if root is not None:
+        phase0_path = root / "docs/research/phase-0/source-register.json"
+        if not phase0_path.is_file():
+            errors.append("LXF02-Quellenregister kann Phase-0-Quellen nicht abgleichen")
+        else:
+            try:
+                phase0 = load_json(phase0_path)
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                errors.append("LXF02-Quellenregister kann Phase-0-Quellen nicht lesen")
+            else:
+                phase0_sources = (
+                    phase0.get("sources") if isinstance(phase0, dict) else None
+                )
+                phase0_by_id = {
+                    item["id"]: item
+                    for item in phase0_sources or []
+                    if isinstance(item, dict) and _nonempty_string(item.get("id"))
+                }
+                legacy_source_ids = EXPECTED_LXF02_SOURCE_IDS - set(
+                    EXPECTED_LXF02_ADDITIONAL_SOURCE_METADATA
+                )
+                for source_id in sorted(legacy_source_ids):
+                    normalized = sources_by_id.get(source_id)
+                    original = phase0_by_id.get(source_id)
+                    if normalized is None or original is None:
+                        errors.append(
+                            f"LXF02-Quellenregister kann {source_id} nicht auf Phase 0 zurückführen"
+                        )
+                        continue
+                    for field in (
+                        "title",
+                        "authors",
+                        "year",
+                        "sourceKind",
+                        "url",
+                        "doi",
+                        "verificationStatus",
+                    ):
+                        if normalized.get(field) != original.get(field):
+                            errors.append(
+                                f"LXF02-Quelle {source_id} weicht in {field} von Phase 0 ab"
+                            )
+    return errors
+
+
+def validate_learning_evidence_register(
+    data: object,
+    source_register: object,
+) -> list[str]:
+    if not isinstance(data, dict):
+        return ["LXF02-Evidenzregister muss ein Objekt sein"]
+
+    errors: list[str] = []
+    errors.extend(
+        _unknown_fields(
+            data, LEARNING_EVIDENCE_REGISTER_FIELDS, "LXF02-Evidenzregister"
+        )
+    )
+    errors.extend(
+        _missing_fields(
+            data, LEARNING_EVIDENCE_REGISTER_FIELDS, "LXF02-Evidenzregister"
+        )
+    )
+    if not _is_plain_int(data.get("schemaVersion")) or data.get("schemaVersion") != 1:
+        errors.append("LXF02-Evidenzregister schemaVersion muss 1 sein")
+    if not _is_iso_date(data.get("asOf")):
+        errors.append("LXF02-Evidenzregister asOf muss ein echtes Kalenderdatum sein")
+
+    raw_sources = (
+        source_register.get("sources")
+        if isinstance(source_register, dict)
+        else None
+    )
+    sources_by_id = {
+        source["id"]: source
+        for source in raw_sources or []
+        if isinstance(source, dict) and _nonempty_string(source.get("id"))
+    }
+    if not sources_by_id:
+        errors.append("LXF02-Evidenzregister benötigt ein lesbares Quellenregister")
+
+    claims = data.get("claims")
+    if not isinstance(claims, list) or not claims:
+        errors.append("LXF02-Evidenzregister claims dürfen nicht leer sein")
+        return errors
+
+    claims_by_id: dict[str, dict] = {}
+    referenced_source_ids: set[str] = set()
+    for index, claim in enumerate(claims):
+        if not isinstance(claim, dict):
+            errors.append(f"LXF02-Claim an Position {index} muss ein Objekt sein")
+            continue
+        claim_id_value = claim.get("id")
+        claim_id = (
+            claim_id_value
+            if _nonempty_string(claim_id_value)
+            else f"<Position {index}>"
+        )
+        label = f"LXF02-Claim {claim_id}"
+        errors.extend(_unknown_fields(claim, LEARNING_EVIDENCE_CLAIM_FIELDS, label))
+        errors.extend(_missing_fields(claim, LEARNING_EVIDENCE_CLAIM_FIELDS, label))
+        if not _nonempty_string(claim_id_value):
+            errors.append(f"{label} benötigt id")
+        elif not re.fullmatch(r"CLAIM-[A-Z0-9-]+", claim_id_value):
+            errors.append(f"{label} hat eine ungültige ID")
+        elif claim_id_value in claims_by_id:
+            errors.append(f"LXF02-Evidenzregister enthält doppelte ID {claim_id_value}")
+        else:
+            claims_by_id[claim_id_value] = claim
+
+        for field in ("statement", "mechanism", "scope", "learnerContext"):
+            if not _nonempty_string(claim.get(field)):
+                errors.append(f"{label} benötigt {field}")
+
+        boundaries = claim.get("boundaryConditions")
+        if not isinstance(boundaries, list) or not boundaries:
+            errors.append(
+                f"{label} boundaryConditions benötigt mindestens einen Eintrag"
+            )
+        elif not all(_nonempty_string(boundary) for boundary in boundaries):
+            errors.append(f"{label} boundaryConditions enthält einen leeren Eintrag")
+        elif len(boundaries) != len(set(boundaries)):
+            errors.append(f"{label} boundaryConditions enthält Duplikate")
+
+        source_ids = claim.get("sourceIds")
+        if not isinstance(source_ids, list) or not source_ids:
+            errors.append(f"{label} sourceIds benötigt mindestens einen Eintrag")
+            source_ids = []
+        elif not all(_nonempty_string(source_id) for source_id in source_ids):
+            errors.append(f"{label} sourceIds enthält eine leere ID")
+        elif len(source_ids) != len(set(source_ids)):
+            errors.append(f"{label} sourceIds enthält Duplikate")
+
+        source_kinds: set[str] = set()
+        for source_id in source_ids:
+            if not _nonempty_string(source_id):
+                continue
+            source = sources_by_id.get(source_id)
+            if source is None:
+                errors.append(f"{label} referenziert unbekannte Quelle {source_id}")
+                continue
+            referenced_source_ids.add(source_id)
+            source_kind = source.get("sourceKind")
+            if isinstance(source_kind, str):
+                source_kinds.add(source_kind)
+            if (
+                claim.get("status") == "reviewed"
+                and source.get("verificationStatus") != "primary-checked"
+            ):
+                errors.append(
+                    f"{label} darf mit nicht primär geprüfter Quelle {source_id} nicht reviewed sein"
+                )
+
+        evidence_level = claim.get("evidenceLevel")
+        if (
+            not isinstance(evidence_level, str)
+            or evidence_level not in LEARNING_EVIDENCE_LEVELS
+        ):
+            errors.append(f"{label} hat unbekanntes evidenceLevel: {evidence_level}")
+        if evidence_level == "high" and source_kinds & PROFESSIONAL_SOURCE_KINDS:
+            errors.append(
+                f"{label} darf professionelle Standards nicht als hohe kausale Lerneffekt-Evidenz führen"
+            )
+        if evidence_level == "normative" and "professional-standard" not in source_kinds:
+            errors.append(
+                f"{label} benötigt für evidenceLevel normative einen professionellen Standard"
+            )
+
+        status = claim.get("status")
+        if not isinstance(status, str) or status not in LEARNING_EVIDENCE_STATUSES:
+            errors.append(f"{label} hat unbekannten status: {status}")
+        elif status == "standard":
+            errors.append(f"{label} darf vor LXF07 nicht standard sein")
+
+    if set(sources_by_id) == EXPECTED_LXF02_SOURCE_IDS:
+        missing_legacy_claims = sorted(EXPECTED_LP_CLAIMS - set(claims_by_id))
+        for claim_id in missing_legacy_claims:
+            errors.append(f"LXF02-Evidenzregister fehlt adaptierter Claim {claim_id}")
+        unreferenced = sorted(set(sources_by_id) - referenced_source_ids)
+        if unreferenced:
+            errors.append(
+                "LXF02-Evidenzregister lässt registrierte Quellen ohne Claim: "
+                + ", ".join(unreferenced)
+            )
+    return errors
+
+
+def validate_learning_evidence_schema(root: Path) -> list[str]:
+    relative_path = Path("schemas/v2/learning-evidence.schema.json")
+    path = root / relative_path
+    if not path.is_file():
+        return [f"LXF02-Schema fehlt: {relative_path.as_posix()}"]
+    try:
+        schema = load_json(path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return [f"LXF02-Schema ist kein gültiges JSON: {relative_path.as_posix()}"]
+    if not isinstance(schema, dict):
+        return ["LXF02-Schema muss ein Objekt sein"]
+
+    errors: list[str] = []
+    if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
+        errors.append("LXF02-Schema benötigt Draft 2020-12")
+    if schema.get("$id") != (
+        "https://github.com/H4R7W16/ium-lernwerk/"
+        "schemas/v2/learning-evidence.schema.json"
+    ):
+        errors.append("LXF02-Schema hat eine unerwartete $id")
+    if schema.get("type") != "object" or schema.get("additionalProperties") is not False:
+        errors.append("LXF02-Schema muss top-level fail-closed sein")
+    if set(schema.get("required", [])) != LEARNING_EVIDENCE_REGISTER_FIELDS:
+        errors.append("LXF02-Schema hat abweichende Pflichtfelder")
+    properties = schema.get("properties")
+    if not isinstance(properties, dict) or set(properties) != LEARNING_EVIDENCE_REGISTER_FIELDS:
+        errors.append("LXF02-Schema hat abweichende Properties")
+    claim = schema.get("$defs", {}).get("claim")
+    if not isinstance(claim, dict):
+        errors.append("LXF02-Schema benötigt Definition claim")
+        return errors
+    if claim.get("type") != "object" or claim.get("additionalProperties") is not False:
+        errors.append("LXF02-Schema Claim muss fail-closed sein")
+    if set(claim.get("required", [])) != LEARNING_EVIDENCE_CLAIM_FIELDS:
+        errors.append("LXF02-Schema Claim hat abweichende Pflichtfelder")
+    claim_properties = claim.get("properties")
+    if not isinstance(claim_properties, dict) or set(claim_properties) != LEARNING_EVIDENCE_CLAIM_FIELDS:
+        errors.append("LXF02-Schema Claim hat abweichende Properties")
+        return errors
+    if claim_properties.get("status", {}).get("enum") != [
+        "draft",
+        "working",
+        "reviewed",
+        "standard",
+    ]:
+        errors.append("LXF02-Schema Claim hat abweichende Statuswerte")
+    if claim_properties.get("evidenceLevel", {}).get("enum") != [
+        "low",
+        "medium",
+        "high",
+        "normative",
+    ]:
+        errors.append("LXF02-Schema Claim hat abweichende Evidenzstufen")
+    for field in ("boundaryConditions", "sourceIds"):
+        if claim_properties.get(field, {}).get("minItems") != 1:
+            errors.append(f"LXF02-Schema Claim {field} muss nicht leer sein")
+    return errors
+
+
+def validate_learning_evidence_synthesis(root: Path) -> list[str]:
+    path = root / "roadmap/v2/foundations/learning-experience/evidence-synthesis.md"
+    if not path.is_file():
+        return []
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return ["LXF02-Evidenzsynthese ist nicht als UTF-8 lesbar"]
+    headings = [
+        "# LXF02 Evidenzsynthese",
+        "## Lernarchitektur",
+        "## Kognitive Belastung und Multimedia",
+        "## Aktivierung und Aufgabenqualität",
+        "## Unterstützung und Erklärung",
+        "## Übung und Transfer",
+        "## Feedback und Metakognition",
+        "## Motivation und Agency",
+        "## Inklusion und Accessibility",
+        "## Digitale Interaktion",
+        "## Orchestrierung",
+        "## Fachspezifische Grenzen",
+    ]
+    positions = [text.find(heading) for heading in headings]
+    errors: list[str] = []
+    for heading, position in zip(headings, positions):
+        if position < 0:
+            errors.append(f"LXF02-Evidenzsynthese fehlt Überschrift: {heading}")
+    present = [position for position in positions if position >= 0]
+    if present != sorted(present):
+        errors.append("LXF02-Evidenzsynthese hat eine unerwartete Abschnittsreihenfolge")
+    return errors
+
+
 def validate_source_schemas(root: Path) -> list[str]:
     resolved_semantics = [
         {
@@ -3348,6 +3864,10 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
             lambda payload: validate_source_link_audit(payload, root, warnings),
         ),
         (
+            Path("roadmap/v2/foundations/sources/source-register.json"),
+            lambda payload: validate_v2_source_register(payload, root),
+        ),
+        (
             Path("roadmap/v2/foundations/sources/status.json"),
             lambda payload: validate_foundation_status(
                 payload,
@@ -3391,6 +3911,35 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         if not error.startswith("LXF01-Schema fehlt:")
     )
     errors.extend(validate_legacy_learning_audit_markdown(root))
+
+    v2_source_register: object = {}
+    v2_source_path = Path("roadmap/v2/foundations/sources/source-register.json")
+    path = root / v2_source_path
+    if path.is_file():
+        try:
+            v2_source_register = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            v2_source_register = {}
+
+    evidence_register_path = Path(
+        "roadmap/v2/foundations/learning-experience/evidence-register.json"
+    )
+    path = root / evidence_register_path
+    if path.is_file():
+        try:
+            data = load_json(path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append(f"{evidence_register_path.as_posix()} ist kein gültiges JSON")
+        else:
+            errors.extend(
+                validate_learning_evidence_register(data, v2_source_register)
+            )
+    errors.extend(
+        error
+        for error in validate_learning_evidence_schema(root)
+        if not error.startswith("LXF02-Schema fehlt:")
+    )
+    errors.extend(validate_learning_evidence_synthesis(root))
     return errors, warnings
 
 

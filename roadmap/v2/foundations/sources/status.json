@@ -80,14 +80,14 @@
       "question": "Welche prüfbaren V2-Claims werden nach erneuter Primärprüfung aus den sechs LXP01-Ergänzungen übernommen?",
       "owner": "LXF02",
       "risk": "Eine direkte Übernahme der früheren Designhypothesen würde Quellenidentität und Claimprüfung vermischen.",
-      "disposition": "open"
+      "disposition": "resolved"
     },
     {
       "id": "SRC-Q-002",
       "question": "Wird SRC-LP-SIGNALING-2018 nach Primärprüfung benötigt oder als nicht claim-tragender Auditbestand belassen?",
       "owner": "LXF02",
       "risk": "Eine metadatengeprüfte Quelle darf nicht unbemerkt zur freigaberelevanten Claimgrundlage werden.",
-      "disposition": "open"
+      "disposition": "resolved"
     }
   ],
   "nextGate": "LXF01"
