@@ -13,6 +13,13 @@
 > [`evidence-register.json`](../learning-experience/evidence-register.json)
 > und die [`evidence-synthesis.md`](../learning-experience/evidence-synthesis.md).
 
+Im maschinenlesbaren Vertrag bleibt `lxp01AdditionsCreateClaims: false` als
+dauerhafte Entitätsgrenze bestehen: Eine registrierte Quelle erzeugt nie
+automatisch einen Claim. `pendingLxp01ClaimReview: null` hält dagegen fest, dass
+die manuelle LXF02-Prüfung abgeschlossen ist. Das `nextGate: LXF01` im Status
+bezeichnet weiterhin den unmittelbaren Nachfolger des abgeschlossenen
+Quellen-Gates und nicht das gegenwärtig aktive Gesamtprojekt-Gate.
+
 ## Ergebnis
 
 Das V2-Quellenfundament verbindet den vorhandenen Quellenbestand und die später dokumentierten LXP01-Ergänzungen, ohne V1-Dateien umzuschreiben oder neue Claims vorwegzunehmen:
@@ -47,9 +54,9 @@ vom heute verbindlichen V2-Evidenzvertrag:
 | `SRC-LXP-SDT-2024` | `SRC-V2-LXF-SDT-2024` |
 | `SRC-LXP-SEGMENT-2019` | `SRC-V2-LXF-SEGMENT-2019` |
 | `SRC-LXP-SIGNAL-2016` | `SRC-V2-LXF-SIGNAL-2016` |
-| `SRC-LXP-W3C-COGA-2021` | `SRC-V2-LXF-COGA-2021` |
-| `SRC-LXP-UDL30-2024` | `SRC-V2-LXF-UDL-2024` |
-| `SRC-LXP-COS-2023` | `SRC-V2-LXF-ORCHESTRATION-2023` |
+| `SRC-LXP-W3C-COGA-2021` | `SRC-V2-LXF-W3C-COGA-2021` |
+| `SRC-LXP-UDL30-2024` | `SRC-V2-LXF-UDL30-2024` |
+| `SRC-LXP-COS-2023` | `SRC-V2-LXF-COS-2023` |
 
 ## Bewusste Grenzen und entschiedene Punkte
 

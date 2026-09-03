@@ -341,7 +341,7 @@ EXPECTED_SOURCE_MIGRATION_RULES = {
     "claimsRequireRegisteredSourceIds": True,
     "claimsRequirePrimaryCheckedSources": True,
     "lxp01AdditionsCreateClaims": False,
-    "pendingLxp01ClaimReview": "LXF02",
+    "pendingLxp01ClaimReview": None,
 }
 SOURCE_TRACEABILITY_FIELDS = {
     "schemaVersion",
@@ -3309,9 +3309,12 @@ def validate_learning_evidence_register(
         if isinstance(source_register, dict)
         else None
     )
+    if not isinstance(raw_sources, list):
+        errors.append("LXF02-Evidenzregister benötigt eine Quellenliste")
+        raw_sources = []
     sources_by_id = {
         source["id"]: source
-        for source in raw_sources or []
+        for source in raw_sources
         if isinstance(source, dict) and _nonempty_string(source.get("id"))
     }
     if not sources_by_id:
@@ -3436,6 +3439,16 @@ def validate_learning_evidence_schema(root: Path) -> list[str]:
         return ["LXF02-Schema muss ein Objekt sein"]
 
     errors: list[str] = []
+    canonical_schema = json.dumps(
+        schema,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    if hashlib.sha256(canonical_schema).hexdigest().upper() != (
+        "86B91090C4598C09C1D51F1D865E37111F0818CCD0A9E42927F673F1DF6F05C3"
+    ):
+        return ["LXF02-Schema weicht von der versiegelten Definition ab"]
     if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
         errors.append("LXF02-Schema benötigt Draft 2020-12")
     if schema.get("$id") != (
@@ -3512,6 +3525,22 @@ def validate_learning_evidence_synthesis(root: Path) -> list[str]:
     present = [position for position in positions if position >= 0]
     if present != sorted(present):
         errors.append("LXF02-Evidenzsynthese hat eine unerwartete Abschnittsreihenfolge")
+    for heading, position in zip(headings[1:], positions[1:]):
+        if position < 0:
+            continue
+        content_start = position + len(heading)
+        next_heading = re.search(r"(?m)^## ", text[content_start:])
+        content_end = (
+            content_start + next_heading.start()
+            if next_heading is not None
+            else len(text)
+        )
+        content = text[content_start:content_end]
+        if len(re.findall(r"\b[\wÄÖÜäöüß-]+\b", content)) < 20:
+            errors.append(
+                "LXF02-Evidenzsynthese Abschnitt ohne substantiellen Inhalt: "
+                f"{heading}"
+            )
     return errors
 
 
@@ -3612,7 +3641,7 @@ def validate_source_schemas(root: Path) -> list[str]:
         },
         "schemas/v2/source-traceability.schema.json": {
             "id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/source-traceability.schema.json",
-            "digest": "EC889F0C366AF2E626ED4E01F92AB6D5122DB61F53A1E617143256C532B924B7",
+            "digest": "D12F0CF9E067DC75ADBC3A074685290D7C90363E2A32226E14DC516C2E4F6296",
             "top": SOURCE_TRACEABILITY_FIELDS,
             "defs": {
                 "entityType": {"id", "definition", "mayReference"},
@@ -3639,7 +3668,7 @@ def validate_source_schemas(root: Path) -> list[str]:
                 ("properties", "migrationRules", "properties", "claimsRequireRegisteredSourceIds", "const"): True,
                 ("properties", "migrationRules", "properties", "claimsRequirePrimaryCheckedSources", "const"): True,
                 ("properties", "migrationRules", "properties", "lxp01AdditionsCreateClaims", "const"): False,
-                ("properties", "migrationRules", "properties", "pendingLxp01ClaimReview", "const"): "LXF02",
+                ("properties", "migrationRules", "properties", "pendingLxp01ClaimReview", "const"): None,
                 ("properties", "requiredGaps", "maxItems"): 0,
                 ("properties", "optionalGaps", "minItems"): 1,
                 ("properties", "optionalGaps", "maxItems"): 1,

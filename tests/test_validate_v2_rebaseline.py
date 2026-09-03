@@ -497,6 +497,20 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             errors,
         )
 
+    def test_learning_evidence_fails_closed_on_malformed_source_collection(
+        self,
+    ) -> None:
+        """Catches valid JSON with a non-list sources value crashing integration."""
+        errors = v2_validator.validate_learning_evidence_register(
+            VALID_LXF02_EVIDENCE_REGISTER,
+            {"sources": 1},
+        )
+
+        self.assertIn(
+            "LXF02-Evidenzregister benötigt eine Quellenliste",
+            errors,
+        )
+
     def test_reviewed_claim_requires_primary_checked_sources(self) -> None:
         """Catches reviewed claims resting only on metadata inspection."""
         sources = copy.deepcopy(VALID_LXF02_SOURCE_REGISTER)
@@ -624,6 +638,65 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             claim_schema["properties"]["status"]["enum"],
         )
 
+    def test_learning_evidence_schema_rejects_weakened_semantics(self) -> None:
+        """Catches semantic schema rules being removed while field names stay intact."""
+        schema = load_repo_json("schemas/v2/learning-evidence.schema.json")
+        mutations = {
+            "as-of-format": lambda candidate: candidate["properties"]["asOf"].pop(
+                "format"
+            ),
+            "claim-items": lambda candidate: candidate["properties"]["claims"].pop(
+                "items"
+            ),
+            "mechanism-min-length": lambda candidate: candidate["$defs"]["claim"][
+                "properties"
+            ]["mechanism"].pop("minLength"),
+            "source-id-uniqueness": lambda candidate: candidate["$defs"]["claim"][
+                "properties"
+            ]["sourceIds"].pop("uniqueItems"),
+        }
+
+        for label, mutate in mutations.items():
+            with self.subTest(mutation=label), tempfile.TemporaryDirectory() as directory:
+                weakened = copy.deepcopy(schema)
+                mutate(weakened)
+                root = Path(directory)
+                write_json(root, "schemas/v2/learning-evidence.schema.json", weakened)
+
+                errors = v2_validator.validate_learning_evidence_schema(root)
+
+                self.assertIn(
+                    "LXF02-Schema weicht von der versiegelten Definition ab",
+                    errors,
+                )
+
+    def test_learning_evidence_schema_type_errors_fail_closed_without_crashing(
+        self,
+    ) -> None:
+        """Catches malformed schema containers crashing the schema self-check."""
+        schema = load_repo_json("schemas/v2/learning-evidence.schema.json")
+        mutations = {
+            "required": lambda candidate: candidate.__setitem__("required", 1),
+            "definitions": lambda candidate: candidate.__setitem__("$defs", 1),
+            "status-schema": lambda candidate: candidate["$defs"]["claim"][
+                "properties"
+            ].__setitem__("status", 1),
+        }
+
+        for label, mutate in mutations.items():
+            with self.subTest(mutation=label), tempfile.TemporaryDirectory() as directory:
+                malformed = copy.deepcopy(schema)
+                mutate(malformed)
+                root = Path(directory)
+                write_json(root, "schemas/v2/learning-evidence.schema.json", malformed)
+
+                errors = v2_validator.validate_learning_evidence_schema(root)
+
+                self.assertIn(
+                    "LXF02-Schema weicht von der versiegelten Definition ab",
+                    errors,
+                )
+
     def test_learning_evidence_synthesis_covers_all_required_families(self) -> None:
         """Catches a machine-valid register without the agreed fachlich readable synthesis."""
         path = (
@@ -648,6 +721,38 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         positions = [text.find(heading) for heading in headings]
         self.assertTrue(all(position >= 0 for position in positions))
         self.assertEqual(sorted(positions), positions)
+
+    def test_learning_evidence_synthesis_rejects_empty_family_sections(self) -> None:
+        """Catches an outline masquerading as a completed evidence synthesis."""
+        headings = [
+            "# LXF02 Evidenzsynthese",
+            "## Lernarchitektur",
+            "## Kognitive Belastung und Multimedia",
+            "## Aktivierung und Aufgabenqualität",
+            "## Unterstützung und Erklärung",
+            "## Übung und Transfer",
+            "## Feedback und Metakognition",
+            "## Motivation und Agency",
+            "## Inklusion und Accessibility",
+            "## Digitale Interaktion",
+            "## Orchestrierung",
+            "## Fachspezifische Grenzen",
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = (
+                root
+                / "roadmap/v2/foundations/learning-experience/evidence-synthesis.md"
+            )
+            path.parent.mkdir(parents=True)
+            path.write_text("\n\n".join(headings) + "\n", encoding="utf-8")
+
+            errors = v2_validator.validate_learning_evidence_synthesis(root)
+
+        self.assertIn(
+            "LXF02-Evidenzsynthese Abschnitt ohne substantiellen Inhalt: ## Lernarchitektur",
+            errors,
+        )
 
     def test_source_inventory_requires_an_object(self) -> None:
         """Catches malformed top-level JSON bypassing source-foundation checks."""
@@ -949,7 +1054,34 @@ class ValidateV2RebaselineTests(unittest.TestCase):
             "resolved-not-migrated",
             traceability["optionalGaps"][0]["resolutionStatus"],
         )
+        self.assertIsNone(
+            traceability["migrationRules"]["pendingLxp01ClaimReview"]
+        )
+        self.assertFalse(
+            traceability["migrationRules"]["lxp01AdditionsCreateClaims"]
+        )
         self.assertEqual(6, len(traceability["entityTypes"]))
+
+    def test_source_readme_maps_all_lxp01_ids_to_registered_lxf02_ids(self) -> None:
+        """Catches documentation links to source IDs that do not exist."""
+        readme = (
+            PROJECT_ROOT / "roadmap/v2/foundations/sources/README.md"
+        ).read_text(encoding="utf-8")
+        expected_mappings = {
+            "SRC-LXP-SDT-2024": "SRC-V2-LXF-SDT-2024",
+            "SRC-LXP-SEGMENT-2019": "SRC-V2-LXF-SEGMENT-2019",
+            "SRC-LXP-SIGNAL-2016": "SRC-V2-LXF-SIGNAL-2016",
+            "SRC-LXP-W3C-COGA-2021": "SRC-V2-LXF-W3C-COGA-2021",
+            "SRC-LXP-UDL30-2024": "SRC-V2-LXF-UDL30-2024",
+            "SRC-LXP-COS-2023": "SRC-V2-LXF-COS-2023",
+        }
+
+        for historical_id, registered_id in expected_mappings.items():
+            with self.subTest(source=historical_id):
+                self.assertIn(
+                    f"| `{historical_id}` | `{registered_id}` |",
+                    readme,
+                )
 
     def test_source_traceability_rejects_illegal_reference_direction(self) -> None:
         """Catches a source entity being allowed to masquerade as a claim."""

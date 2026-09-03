@@ -55,7 +55,7 @@
     "claimsRequireRegisteredSourceIds": true,
     "claimsRequirePrimaryCheckedSources": true,
     "lxp01AdditionsCreateClaims": false,
-    "pendingLxp01ClaimReview": "LXF02"
+    "pendingLxp01ClaimReview": null
   },
   "requiredGaps": [],
   "optionalGaps": [
