@@ -64,6 +64,16 @@ MISSING_FOUNDATION_CONTRACTS = (
     + MISSING_SOURCE_CONTRACTS
     + MISSING_LEARNING_EXPERIENCE_CONTRACTS
     + MISSING_GOVERNANCE_CONTRACTS
+    + [
+        "roadmap/v2/audits/artifact-inventory.json fehlt",
+        "roadmap/v2/audits/follow-up-tasks.json fehlt",
+        "roadmap/v2/audits/lxp05-lessons.json fehlt",
+        "roadmap/v2/audits/status.json fehlt",
+        "roadmap/v2/audits/validation-report.md fehlt",
+        "roadmap/v2/audits/README.md fehlt",
+        "roadmap/v2/foundations/governance/acceptance.json fehlt",
+        "schemas/v2/artifact-reuse.schema.json fehlt",
+    ]
 )
 
 EXPECTED_LP_CLAIMS = {f"CLAIM-LP-{number:03d}" for number in range(1, 14)}

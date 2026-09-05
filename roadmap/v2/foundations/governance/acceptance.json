@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "gate": "IUM-V2-GOV",
+  "state": "approved-by-user",
+  "date": "2026-09-06",
+  "acceptedCommit": "9f52cdc6f5e36b72b7a3fd9e64501ccfc4af2135",
+  "decisionBy": "user",
+  "evidence": {
+    "kind": "vault",
+    "target": "2026-09-03 - IUM-V2-GOV Governance und öffentliche Wahrnehmung konsolidieren",
+    "label": "Explizite Nutzerfreigabe vom 6. September 2026",
+    "required": true
+  },
+  "acceptedOpenQuestionIds": [
+    "GOV-Q-OPERATOR",
+    "GOV-Q-SCHOOL",
+    "GOV-Q-REVIEWERS",
+    "CUR-Q-002",
+    "GOV-Q-RIGHTS"
+  ],
+  "nextTask": "IUM-V2-AUD",
+  "contentProduction": "frozen",
+  "publication": "closed",
+  "pilot": "not-started"
+}

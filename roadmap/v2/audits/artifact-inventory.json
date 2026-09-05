@@ -1,0 +1,1391 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "baselineCommit": "dcaff3e4b6e96d8c1da3dd1d4dd56f6df6b35ef0",
+  "workStatus": "review",
+  "activation": "not-authorized",
+  "records": [
+    {
+      "artifactId": "IUM00",
+      "title": "Forschungsvertrag und Quellenführung",
+      "family": "research",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/research-protocol.md",
+        "label": "Forschungsvertrag und Quellenführung",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/data-contract.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/source-register.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Quellenidentität, Zitatgrenzen und Herkunft von Projektentscheidungen; keine Übernahme der alten Standardisierungskette.",
+      "rationale": "Der Forschungsvertrag trennt Befund, Interpretation und Projektentscheidung bereits ausdrücklich. V2-SRC trennt zusätzlich Quellenregister und Traceability, GOV bindet öffentliche Claims an die jeweilige Nachweisart. Diese Anpassung liegt als Fundament vor; der historische Standardstatus ist keine V2-Freigabe.",
+      "requirementIds": [
+        "V2-REQ-SRC-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/sources/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-SRC",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-GOV"
+      ],
+      "inspection": {
+        "locator": "# Forschungsprotokoll Phase 0",
+        "observation": "Der Forschungsvertrag trennt Befund, Interpretation und Projektentscheidung bereits ausdrücklich. V2-SRC trennt zusätzlich Quellenregister und Traceability, GOV bindet öffentliche Claims an die jeweilige Nachweisart. Diese Anpassung liegt als Fundament vor; der historische Standardstatus ist keine V2-Freigabe.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM01",
+      "title": "Informatikdidaktische Kuration",
+      "family": "research",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/curated/01-informatikdidaktik.md",
+        "label": "Informatikdidaktische Kuration",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/claim-ledger.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Begrenzte fachliche Designhypothesen für Programmieren, Daten und Netze.",
+      "rationale": "PRIMM, Tracing und Repräsentationen sind fachlich begründet, doch mehrere Studien betreffen Hochschulen; das Paket kennzeichnet diese Übertragung selbst als unsicher. R5 wählt passende Claims für konkrete Lernhandlungen, R6/R7 führen die Progression mit eigenen Nachweisen fort; keine universelle Methodenfolge übernehmen.",
+      "requirementIds": [
+        "V2-REQ-SRC-001",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/sources/source-register.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learner-profile.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-R5",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "inspection": {
+        "locator": "# Informatikdidaktik Klassen 5–7",
+        "observation": "PRIMM, Tracing und Repräsentationen sind fachlich begründet, doch mehrere Studien betreffen Hochschulen; das Paket kennzeichnet diese Übertragung selbst als unsicher. R5 wählt passende Claims für konkrete Lernhandlungen, R6/R7 führen die Progression mit eigenen Nachweisen fort; keine universelle Methodenfolge übernehmen.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM02",
+      "title": "Medienbildungsdidaktische Kuration",
+      "family": "research",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/curated/02-medienbildung.md",
+        "label": "Medienbildungsdidaktische Kuration",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/claim-ledger.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Kontextbezogene Analyse-, Entscheidungs- und Produktionshandlungen ohne private Offenlegung.",
+      "rationale": "Das Paket unterscheidet empirische und normative Claims und markiert begrenzte Altersevidenz zu GenAI/Desinformation. Diese Trennung bleibt erhalten; Jahrgangsroadmaps müssen Aufgaben, Schutzwege, Quellenaktualität und beobachtbare Produkte ausweisen. Persönliche Verläufe und Selbstberichte werden nicht als Beleg eingefordert.",
+      "requirementIds": [
+        "V2-REQ-SRC-001",
+        "V2-REQ-LXF-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learner-profile.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-R5",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "inspection": {
+        "locator": "# Didaktik der Medienbildung Klassen 5–7",
+        "observation": "Das Paket unterscheidet empirische und normative Claims und markiert begrenzte Altersevidenz zu GenAI/Desinformation. Diese Trennung bleibt erhalten; Jahrgangsroadmaps müssen Aufgaben, Schutzwege, Quellenaktualität und beobachtbare Produkte ausweisen. Persönliche Verläufe und Selbstberichte werden nicht als Beleg eingefordert.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM03",
+      "title": "Lernpsychologische Kuration",
+      "family": "research",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md",
+        "label": "Lernpsychologische Kuration",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/claim-ledger.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Die 13 historischen Lernpsychologie-Claims innerhalb ihrer Evidenzgrenzen.",
+      "rationale": "Die alte Kuration verbindet Lernen mit Vorwissen, Abruf, Feedback und Unterstützung. LXF02 hat diese Befunde in den V2-Evidenzvertrag mit Mechanismus, Kontext und Einschränkungen überführt; LXF04 ergänzt beobachtbare Designkriterien. Die Anpassung ist bereits fachlich abgenommen, kein Pilot- oder Wirkungsnachweis.",
+      "requirementIds": [
+        "V2-REQ-SRC-001",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "LXF02",
+      "additionalSuccessorTaskIds": [
+        "LXF04"
+      ],
+      "inspection": {
+        "locator": "# Lernpsychologie und Unterrichtswissenschaft für IuM 5–7",
+        "observation": "Die alte Kuration verbindet Lernen mit Vorwissen, Abruf, Feedback und Unterstützung. LXF02 hat diese Befunde in den V2-Evidenzvertrag mit Mechanismus, Kontext und Einschränkungen überführt; LXF04 ergänzt beobachtbare Designkriterien. Die Anpassung ist bereits fachlich abgenommen, kein Pilot- oder Wirkungsnachweis.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM04",
+      "title": "Digitale Lernumgebungen und OER",
+      "family": "research",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md",
+        "label": "Digitale Lernumgebungen und OER",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/claim-ledger.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Datierte technische, rechtliche und didaktische Begründungen getrennt weiterverwenden.",
+      "rationale": "WCAG, Datenschutz, Storage, PWA und OER haben im Paket unterschiedliche Aussagearten. GOV präzisiert Rechte und öffentliche Grenzen; vor tatsächlicher technischer Wiederverwendung müssen aktuelle Plattformbedingungen und konkrete Datenflüsse geprüft werden. Der Rechts-/Technikstand vom Juli ist kein aktueller Betriebsnachweis.",
+      "requirementIds": [
+        "V2-REQ-SRC-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-TECH",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-GOV"
+      ],
+      "inspection": {
+        "locator": "# Digitale Lernumgebungen und OER für IuM 5–7",
+        "observation": "WCAG, Datenschutz, Storage, PWA und OER haben im Paket unterschiedliche Aussagearten. GOV präzisiert Rechte und öffentliche Grenzen; vor tatsächlicher technischer Wiederverwendung müssen aktuelle Plattformbedingungen und konkrete Datenflüsse geprüft werden. Der Rechts-/Technikstand vom Juli ist kein aktueller Betriebsnachweis.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM05",
+      "title": "Quellentreue Curriculumextraktionen",
+      "family": "curriculum-planning",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "curriculum/extraction-protocol.md",
+        "label": "Quellentreue Curriculumextraktionen",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "curriculum/lesehilfe-2026-27/competencies.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/basiskurs-medienbildung/competencies.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/aufbaukurs-informatik/competencies.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/source-status.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "retain",
+      "scope": "Unveränderte historische Extraktionsdaten und ihre Herkunft; keine Modulzuordnung, neue Normgeltung oder V2-Abdeckung.",
+      "rationale": "Die getrennten Extraktionen erhalten amtliche Bildungspläne und orientierende Lesehilfe samt Records. IUM-V2-CUR hat die 278 Records und Dateihashes geprüft und versiegelt. Diese konkrete Datengrundlage bleibt erhalten; R5/R6/R7 müssen ihre eigene Zuordnung und den Quellenstand bei Verwendung prüfen.",
+      "requirementIds": [
+        "V2-REQ-CUR-001",
+        "V2-REQ-CUR-002"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/source-basis.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": null,
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# Extraktionsprotokoll für Curriculumdaten",
+        "observation": "Die getrennten Extraktionen erhalten amtliche Bildungspläne und orientierende Lesehilfe samt Records. IUM-V2-CUR hat die 278 Records und Dateihashes geprüft und versiegelt. Diese konkrete Datengrundlage bleibt erhalten; R5/R6/R7 müssen ihre eigene Zuordnung und den Quellenstand bei Verwendung prüfen.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM06",
+      "title": "Synthese, Fachprofil und Crosswalk",
+      "family": "curriculum-planning",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/synthesis.md",
+        "label": "Synthese, Fachprofil und Crosswalk",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/design-principles.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "docs/fachprofil/ium-gymnasium-5-7.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/crosswalk.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/operators.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "curriculum/progression.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "replace",
+      "scope": "Alte Synthese als normatives Gesamtsteuerungsmodell ersetzen; Quellen-/Operatorenbefunde bleiben nachvollziehbarer Input.",
+      "rationale": "15 alte Prinzipien und das working-Fachprofil bündeln viele Ebenen. V2 trennt Evidenzregister, Lernendenprofil, 18 Lernprinzipien und Curriculumstatus. LXF03/LXF04 ersetzen die Planungssteuerung; R5/R6/R7 bauen neue Mapping- und Progressionsentscheidungen auf, ohne die alte Crosswalk-Abdeckung zu übernehmen.",
+      "requirementIds": [
+        "V2-REQ-LXF-001",
+        "V2-REQ-CUR-001",
+        "V2-REQ-CUR-002"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learner-profile.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "LXF03",
+      "additionalSuccessorTaskIds": [
+        "LXF04",
+        "IUM-V2-R5",
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "inspection": {
+        "locator": "# Forschungssynthese Phase 0",
+        "observation": "15 alte Prinzipien und das working-Fachprofil bündeln viele Ebenen. V2 trennt Evidenzregister, Lernendenprofil, 18 Lernprinzipien und Curriculumstatus. LXF03/LXF04 ersetzen die Planungssteuerung; R5/R6/R7 bauen neue Mapping- und Progressionsentscheidungen auf, ohne die alte Crosswalk-Abdeckung zu übernehmen.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM07",
+      "title": "Modulkandidaten und Abdeckungsroadmap",
+      "family": "curriculum-planning",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "roadmap/module-candidates.json",
+        "label": "Modulkandidaten und Abdeckungsroadmap",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/module-roadmap.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "replace",
+      "scope": "Kandidatenzuschnitt, Jahresbelegung und Abdeckungsurteile neu entscheiden.",
+      "rationale": "31 Kandidaten und ihr Kern-/Ergänzungsgraph dokumentieren einen historischen Zuschnitt. Der gemeinsame 5/6-Band wurde projektseitig verteilt; alte Coverage- und Zeiturteile sind nicht V2-Nachweise. R5, R6 und R7 bauen die Jahresplanung nacheinander aus V2-Anforderungen und Lernarchitektur auf.",
+      "requirementIds": [
+        "V2-REQ-CUR-002",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/gap-assessments.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-R5",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "inspection": {
+        "locator": "\"schemaVersion\"",
+        "observation": "31 Kandidaten und ihr Kern-/Ergänzungsgraph dokumentieren einen historischen Zuschnitt. Der gemeinsame 5/6-Band wurde projektseitig verteilt; alte Coverage- und Zeiturteile sind nicht V2-Nachweise. R5, R6 und R7 bauen die Jahresplanung nacheinander aus V2-Anforderungen und Lernarchitektur auf.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM08",
+      "title": "Phase-0-Abschlussreview",
+      "family": "curriculum-planning",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/research/phase-0/README.md",
+        "label": "Phase-0-Abschlussreview",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/research/phase-0/synthesis.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "reference-only",
+      "scope": "Historisches Review-/Lückenprotokoll; keine aktuelle Freigabe.",
+      "rationale": "Der Bericht unterscheidet vier Nutzerreview-Gates, nennt 60 damalige partielle Records und negative Zeiturteile. Spätere IUM09/10-Arbeit veränderte diese Zahlen. Der Bericht erklärt die Entstehung des Bestands, ist aber keine aktuelle V2-Vollständigkeits- oder Reifeaussage.",
+      "requirementIds": [
+        "V2-REQ-SYS-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": null,
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# Forschungsarchitektur Phase 0",
+        "observation": "Der Bericht unterscheidet vier Nutzerreview-Gates, nennt 60 damalige partielle Records und negative Zeiturteile. Spätere IUM09/10-Arbeit veränderte diese Zahlen. Der Bericht erklärt die Entstehung des Bestands, ist aber keine aktuelle V2-Vollständigkeits- oder Reifeaussage.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM09",
+      "title": "Recordgenaue Coverage-Nacharbeit",
+      "family": "curriculum-planning",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "roadmap/coverage-remediation.json",
+        "label": "Recordgenaue Coverage-Nacharbeit",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "roadmap/coverage-plan.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Ursachen und Evidenzverträge der 60 Ausgangslücken als Prüfinput.",
+      "rationale": "Das Ledger verbindet einzelne Kompetenztexte mit Ursachen, Belegen und Zeitfolgen. V2 kann diese Diagnostik nutzen, muss jede aktuelle Erfüllung neu prüfen. Die fünf verbliebenen V1-Fragen sind bereits in CUR einzeln bewertet; Werkzeugnutzung erzeugt keinen künstlichen Einzelauftrag, Eigenbezug bleibt offen.",
+      "requirementIds": [
+        "V2-REQ-CUR-001",
+        "V2-REQ-CUR-002"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/gap-assessments.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-R5",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "inspection": {
+        "locator": "\"schemaVersion\"",
+        "observation": "Das Ledger verbindet einzelne Kompetenztexte mit Ursachen, Belegen und Zeitfolgen. V2 kann diese Diagnostik nutzen, muss jede aktuelle Erfüllung neu prüfen. Die fünf verbliebenen V1-Fragen sind bereits in CUR einzeln bewertet; Werkzeugnutzung erzeugt keinen künstlichen Einzelauftrag, Eigenbezug bleibt offen.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM10",
+      "title": "Zeitmodell und Jahresvarianten",
+      "family": "curriculum-planning",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "roadmap/time-model.json",
+        "label": "Zeitmodell und Jahresvarianten",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "replace",
+      "scope": "V1-Zeit- und Integrationsbelegungen durch V2-Jahresplanung ersetzen; Prüflogik als Input.",
+      "rationale": "Zeitmodell, Integrationen, Privacy-Dispositionen und Sequenznachweise unterscheiden mehrere Achsen, sind aber an alte Modul-IDs und Working-40 gebunden. R5/R6/R7 müssen Kapazität, Lernhandlung, Übung, Transfer, Puffer und ehrliche Fallbacks neu ausweisen. 30/34/38 oder 40 UE werden nicht automatisch zu V2-Sollwerten.",
+      "requirementIds": [
+        "V2-REQ-CUR-002",
+        "V2-REQ-LXF-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/curriculum/gap-assessments.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-R5",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "inspection": {
+        "locator": "\"schemaVersion\"",
+        "observation": "Zeitmodell, Integrationen, Privacy-Dispositionen und Sequenznachweise unterscheiden mehrere Achsen, sind aber an alte Modul-IDs und Working-40 gebunden. R5/R6/R7 müssen Kapazität, Lernhandlung, Übung, Transfer, Puffer und ehrliche Fallbacks neu ausweisen. 30/34/38 oder 40 UE werden nicht automatisch zu V2-Sollwerten.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM11",
+      "title": "Working-40-Pilotinstrument",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "pilot/pilot-protocol.json",
+        "label": "Working-40-Pilotinstrument",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "pilot/docs/publication-contract.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "scripts/validate_ium11.py",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Prinzip getrennte Evidenz-/Entscheidungs-/Publikationsverträge; konkrete Instrumente später neu binden.",
+      "rationale": "Das Instrument wertet typisierte synthetische bzw. spätere reale Aggregate am alten Working-40-Modell aus. Seine fünf Gates, Gruppenschwellen und Kennzahlen gelten nicht automatisch für V2. Der Nachfolgetask bindet neue Prüfaufträge an ein konkret freigegebenes V2-Modul und seine zuständigen Stellen.",
+      "requirementIds": [
+        "V2-REQ-GOV-001",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-PILOT",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "\"schemaVersion\"",
+        "observation": "Das Instrument wertet typisierte synthetische bzw. spätere reale Aggregate am alten Working-40-Modell aus. Seine fünf Gates, Gruppenschwellen und Kennzahlen gelten nicht automatisch für V2. Der Nachfolgetask bindet neue Prüfaufträge an ein konkret freigegebenes V2-Modul und seine zuständigen Stellen.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM12",
+      "title": "Plattformfundament – Spezifikation",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md",
+        "label": "Plattformfundament – Spezifikation",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Technische Systemgrenzen und Datenverträge; UI-/Modularchitektur später neu abgleichen.",
+      "rationale": "Der Vertrag trennt Modulmanifest, Laufzeit, lokale Daten, Export und Plattform-QA. Diese Grenzen sind brauchbar, dürfen aber Lernfunktionen und Materialkomposition aus LXF04–06 nicht bestimmen. FU-TECH prüft Verträge, Versionen, Migration und Auslieferungswege vor einer konkreten V2-Implementierung.",
+      "requirementIds": [
+        "V2-REQ-SYS-001",
+        "V2-REQ-GOV-001",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-TECH",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IuM-Lernwerk – Phase 1 Plattformfundament",
+        "observation": "Der Vertrag trennt Modulmanifest, Laufzeit, lokale Daten, Export und Plattform-QA. Diese Grenzen sind brauchbar, dürfen aber Lernfunktionen und Materialkomposition aus LXF04–06 nicht bestimmen. FU-TECH prüft Verträge, Versionen, Migration und Auslieferungswege vor einer konkreten V2-Implementierung.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM13",
+      "title": "Implementiertes Plattformfundament",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/platform/implementation-report.md",
+        "label": "Implementiertes Plattformfundament",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/platform/README.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "packages/module-runtime/src/runtime.ts",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "packages/local-state/src/indexeddb-repository.ts",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "packages/export-import/src/import-state.ts",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Technischer Laufzeit-/Speicher-/Importkern als selektiv zu prüfender Codebestand.",
+      "rationale": "Der Bericht und die konkreten Pakete belegen Local-First, fail-closed Import und kontrollierte Updates. Der Bericht beschreibt einen früheren leeren Build; der spätere V1-Build enthält ein working-Modul. FU-TECH muss den tatsächlichen Stand und V2-Verträge prüfen; alte automatische Tests belegen weder V2-Oberflächenqualität noch Schulbetrieb.",
+      "requirementIds": [
+        "V2-REQ-SYS-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-TECH",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# Implementierungsbericht Phase 1 – Plattformfundament",
+        "observation": "Der Bericht und die konkreten Pakete belegen Local-First, fail-closed Import und kontrollierte Updates. Der Bericht beschreibt einen früheren leeren Build; der spätere V1-Build enthält ein working-Modul. FU-TECH muss den tatsächlichen Stand und V2-Verträge prüfen; alte automatische Tests belegen weder V2-Oberflächenqualität noch Schulbetrieb.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM14",
+      "title": "Reale Geräteprüfung – Teilbefunde",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/platform/device-verification.md",
+        "label": "Reale Geräteprüfung – Teilbefunde",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "reference-only",
+      "scope": "Datierte Teilbeobachtungen und offene Prüfschritte; kein geräteübergreifender Pass.",
+      "rationale": "Das Protokoll enthält reale Auftraggeberbestätigungen einzelner iPad-Pfade, lässt aber Modell-, Versions-, Policy-, Desktop- und LMS-Angaben offen. device-verified bleibt not-run. Weder fehlende Metadaten noch ausstehende Umgebungen dürfen aus automatisierter WebKit-Prüfung ergänzt werden.",
+      "requirementIds": [
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": null,
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# Geräte- und Schulnetzprüfung",
+        "observation": "Das Protokoll enthält reale Auftraggeberbestätigungen einzelner iPad-Pfade, lässt aber Modell-, Versions-, Policy-, Desktop- und LMS-Angaben offen. device-verified bleibt not-run. Weder fehlende Metadaten noch ausstehende Umgebungen dürfen aus automatisierter WebKit-Prüfung ergänzt werden.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM15",
+      "title": "Entwicklungs- und Einsatzgates",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md",
+        "label": "Entwicklungs- und Einsatzgates",
+        "required": true
+      },
+      "supplementaryRefs": [],
+      "decision": "adapt",
+      "scope": "Trennung von Entwicklung und realem Einsatz als Governanceprinzip.",
+      "rationale": "Der historische Vertrag erlaubte synthetische Entwicklung trotz offenem Gerätegate und hielt realen Einsatz gesperrt. GOV übernimmt die Trennung mit benannten Entscheidungsrollen; die frühere Phase-2-Erlaubnis öffnet jedoch nicht den neuen V2-Produktionsfreeze.",
+      "requirementIds": [
+        "V2-REQ-SYS-002",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-GOV",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IuM-Lernwerk – Phase 2: Entwicklungs- und Einsatzgate",
+        "observation": "Der historische Vertrag erlaubte synthetische Entwicklung trotz offenem Gerätegate und hielt realen Einsatz gesperrt. GOV übernimmt die Trennung mit benannten Entscheidungsrollen; die frühere Phase-2-Erlaubnis öffnet jedoch nicht den neuen V2-Produktionsfreeze.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM16",
+      "title": "IUM5-Modulspezifikation",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md",
+        "label": "IUM5-Modulspezifikation",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "modules/IUM-5-CORE-05/curriculum-mapping.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "replace",
+      "scope": "Alte Gesamtkomposition und Zeitbindung ersetzen; fachliche Algorithmusarbeit bleibt prüfbarer Input.",
+      "rationale": "Vorhersage, Ausführung, Laufspur und begründete Reparatur tragen fachliche Lernhandlungen. Die Gesamtspezifikation priorisiert jedoch alten Crosswalk, alte Zeitverträge und modulspezifische Phasen. FU-MOD muss nach R5 und Cutover-Auftrag Ziel, Lernprodukt, Hürden, Unterstützung, Sicherung und Zeit neu spezifizieren; kein universeller 225-Minuten-Pfad.",
+      "requirementIds": [
+        "V2-REQ-CUR-002",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-MOD",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IUM-5-CORE-05 – Modulspezifikation „Präzise Abläufe ausführbar machen“",
+        "observation": "Vorhersage, Ausführung, Laufspur und begründete Reparatur tragen fachliche Lernhandlungen. Die Gesamtspezifikation priorisiert jedoch alten Crosswalk, alte Zeitverträge und modulspezifische Phasen. FU-MOD muss nach R5 und Cutover-Auftrag Ziel, Lernprodukt, Hürden, Unterstützung, Sicherung und Zeit neu spezifizieren; kein universeller 225-Minuten-Pfad.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM17",
+      "title": "IUM5-Implementierungsplan",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md",
+        "label": "IUM5-Implementierungsplan",
+        "required": true
+      },
+      "supplementaryRefs": [],
+      "decision": "reference-only",
+      "scope": "Historische TDD-/Schnittstellenhinweise; keine erneut auszuführende Taskfolge.",
+      "rationale": "Der Plan bindet eine abgeschlossene alte Modulspezifikation und konkrete Befehls-, Szenario-, Payload- und Phasenregeln. Seine erledigten Schritte würden die V2-Neuspezifikation umgehen. Ein neuer Plan muss erst aus einem separat abgenommenen V2-Moduldesign entstehen.",
+      "requirementIds": [
+        "V2-REQ-SYS-002",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/status.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": null,
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IUM-5-CORE-05 Implementation Plan",
+        "observation": "Der Plan bindet eine abgeschlossene alte Modulspezifikation und konkrete Befehls-, Szenario-, Payload- und Phasenregeln. Seine erledigten Schritte würden die V2-Neuspezifikation umgehen. Ein neuer Plan muss erst aus einem separat abgenommenen V2-Moduldesign entstehen.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM18",
+      "title": "IUM5-Implementierung",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "packages/ium-5-core-05/src/interpreter.ts",
+        "label": "IUM5-Implementierung",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "modules/IUM-5-CORE-05/module.yaml",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "modules/IUM-5-CORE-05/lernumgebung/content.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "docs/reviews/ium-5-core-05-fach-didaktik.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Deterministische Fachlogik und ausgewählte Szenarien; Oberfläche, Materialfolge und Handbuch neu prüfen.",
+      "rationale": "ExecutionSession, TraceEntry und geschlossene Befehle liefern wiederverwendbare Algorithmussemantik. Inhalt, Elfphasenmodell und Handbuch sind an die alte Werkstatt gebunden. FU-MOD darf passende Semantik selektiv übernehmen, muss aber Lernprodukt, Phasenkomposition und Orchestrierung neu entwerfen und prüfen; Modulstatus bleibt working als V1-Befund.",
+      "requirementIds": [
+        "V2-REQ-LXF-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-MOD",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-FU-TECH"
+      ],
+      "inspection": {
+        "locator": "export type ExecutionSession",
+        "observation": "ExecutionSession, TraceEntry und geschlossene Befehle liefern wiederverwendbare Algorithmussemantik. Inhalt, Elfphasenmodell und Handbuch sind an die alte Werkstatt gebunden. FU-MOD darf passende Semantik selektiv übernehmen, muss aber Lernprodukt, Phasenkomposition und Orchestrierung neu entwerfen und prüfen; Modulstatus bleibt working als V1-Befund.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM19",
+      "title": "Gate-B-Spezifikation und Plan",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md",
+        "label": "Gate-B-Spezifikation und Plan",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Getrennte technische, explorative und bestätigende Prüfungen als Entwurfsinput.",
+      "rationale": "Die Spezifikation trennt Preview, technische Matrix, explorativen Lauf und Bestätigung. Ihre 225/270-Minuten-Bindung und modulbezogenen Kriterien sind V1-spezifisch. FU-PILOT muss Umfang, Instrumente, Datenminimierung und Abnahme an den konkreten V2-Gegenstand anpassen; kein Piloteinsatz wird hier beauftragt.",
+      "requirementIds": [
+        "V2-REQ-GOV-001",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-PILOT",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IUM-5-CORE-05 Gate-B-Prüfung: Spezifikation",
+        "observation": "Die Spezifikation trennt Preview, technische Matrix, explorativen Lauf und Bestätigung. Ihre 225/270-Minuten-Bindung und modulbezogenen Kriterien sind V1-spezifisch. FU-PILOT muss Umfang, Instrumente, Datenminimierung und Abnahme an den konkreten V2-Gegenstand anpassen; kein Piloteinsatz wird hier beauftragt.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "IUM20",
+      "title": "Implementiertes Gate-B-Paket",
+      "family": "platform-module-pilot",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "pilot/ium5-gate-b/protocol.json",
+        "label": "Implementiertes Gate-B-Paket",
+        "required": true
+      },
+      "supplementaryRefs": [
+        {
+          "kind": "repo",
+          "target": "pilot/ium5-gate-b/schemas/technical-evidence.schema.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "scripts/validate_ium5_gate_b.py",
+          "label": "Ergänzender V1-Bestand",
+          "required": true
+        }
+      ],
+      "decision": "adapt",
+      "scope": "Geschlossene Verträge, synthetische Gegenfälle und sichere Auswertungswege.",
+      "rationale": "Das Protokoll verbietet Statusmutation, hält reale Belege außerhalb des Repositories und enthält synthetische Instrumente. Die konkrete Matrix, Mindestanzahl und Aufbewahrungsregel sind keine generischen V2-Rechtsvorgaben. FU-PILOT bindet Instrumente neu und prüft Gegenfälle; ein implementiertes Paket bleibt ohne Durchführung kein Pilotnachweis.",
+      "requirementIds": [
+        "V2-REQ-GOV-001",
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/governance/governance-contract.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "IUM-V2-FU-PILOT",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "\"schemaVersion\"",
+        "observation": "Das Protokoll verbietet Statusmutation, hält reale Belege außerhalb des Repositories und enthält synthetische Instrumente. Die konkrete Matrix, Mindestanzahl und Aufbewahrungsregel sind keine generischen V2-Rechtsvorgaben. FU-PILOT bindet Instrumente neu und prüft Gegenfälle; ein implementiertes Paket bleibt ohne Durchführung kein Pilotnachweis.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "LXP01",
+      "title": "Experience-Strategie",
+      "family": "experience",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+        "label": "Experience-Strategie",
+        "required": true
+      },
+      "supplementaryRefs": [],
+      "decision": "adapt",
+      "scope": "Experience-Ziele und begrenzte Forschungsfolgen.",
+      "rationale": "Fokus, progressive Offenlegung, Feedback/Revision und Lehrkraftorchestrierung bleiben tragfähig. Die vormals unregistrierten Ergänzungsquellen sind durch SRC/LXF02 bearbeitet. Entscheidung und Nachfolger entsprechen LXF01; normative Produktfolgen gelten nur über die neuen LXF-Verträge.",
+      "requirementIds": [
+        "V2-REQ-LXF-001",
+        "V2-REQ-SRC-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/legacy-audit.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "LXF02",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IuM-Lernwerk – Forschungsbasis und Experience-Strategie",
+        "observation": "Fokus, progressive Offenlegung, Feedback/Revision und Lehrkraftorchestrierung bleiben tragfähig. Die vormals unregistrierten Ergänzungsquellen sind durch SRC/LXF02 bearbeitet. Entscheidung und Nachfolger entsprechen LXF01; normative Produktfolgen gelten nur über die neuen LXF-Verträge.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "LXP02",
+      "title": "Produktarchitektur und Lernreise",
+      "family": "experience",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md",
+        "label": "Produktarchitektur und Lernreise",
+        "required": true
+      },
+      "supplementaryRefs": [],
+      "decision": "adapt",
+      "scope": "Orientierung, Fokus, Übergänge und Recovery; keine starre Elfzustandsarchitektur.",
+      "rationale": "Die elf historischen Lernstudio-Zustände und Objektverträge sind vor dem neuen Lernendenprofil entstanden. LXF04 leitet Lernfunktionen und Übergänge neu ab, LXF06 konkretisiert Lehrerhandlungen. FU-MOD prüft ihre sparsame konkrete Komposition. Dies bestätigt LXF01 und behauptet noch keine implementierte V2-Architektur.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/legacy-audit.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "LXF04",
+      "additionalSuccessorTaskIds": [
+        "IUM-V2-FU-MOD"
+      ],
+      "inspection": {
+        "locator": "# IuM-Lernwerk – Produktarchitektur, Navigation und Lernreise",
+        "observation": "Die elf historischen Lernstudio-Zustände und Objektverträge sind vor dem neuen Lernendenprofil entstanden. LXF04 leitet Lernfunktionen und Übergänge neu ab, LXF06 konkretisiert Lehrerhandlungen. FU-MOD prüft ihre sparsame konkrete Komposition. Dies bestätigt LXF01 und behauptet noch keine implementierte V2-Architektur.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "LXP03",
+      "title": "Drei Referenzsituationen",
+      "family": "experience",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+        "label": "Drei Referenzsituationen",
+        "required": true
+      },
+      "supplementaryRefs": [],
+      "decision": "reference-only",
+      "scope": "Vergleichs- und Gegenbeispiele für Einstieg, Kernhandlung und Wiedereinstieg.",
+      "rationale": "Die Entwürfe liefern konkrete IUM5-Kompositionen, Accessibility- und Recoveryfragen, aber keine reale Nutzung und keine allgemeine Materialgrammatik. LXF01 klassifiziert sie bereits als reference-only. Die neuen zehn LXF05-Muster und neutralen Walkthroughs ersetzen ihre normative Vorlagenfunktion.",
+      "requirementIds": [
+        "V2-REQ-LXF-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/legacy-audit.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": null,
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IuM-Lernwerk – Vertikale Referenzentwürfe der Learning Experience",
+        "observation": "Die Entwürfe liefern konkrete IUM5-Kompositionen, Accessibility- und Recoveryfragen, aber keine reale Nutzung und keine allgemeine Materialgrammatik. LXF01 klassifiziert sie bereits als reference-only. Die neuen zehn LXF05-Muster und neutralen Walkthroughs ersetzen ihre normative Vorlagenfunktion.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    },
+    {
+      "artifactId": "LXP04",
+      "title": "Designsystem und Produktionsverträge",
+      "family": "experience",
+      "artifactRef": {
+        "kind": "repo",
+        "target": "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+        "label": "Designsystem und Produktionsverträge",
+        "required": true
+      },
+      "supplementaryRefs": [],
+      "decision": "replace",
+      "scope": "Normativer Produktionsvertrag mit 24 alten Patterns wird ersetzt.",
+      "rationale": "Die hohe Vertragsdichte und früh geschlossenen Systemobjekte verhinderten im LXP05-Kandidaten keine überladene Komposition. LXF05 ersetzt die normative Patternbasis mit zehn produktneutralen Mustern; LXF06 ergänzt ausführbare Orchestrierung. Semantische Rollen und Barrieren bleiben Erkenntnisse, keine automatische Paketübernahme.",
+      "requirementIds": [
+        "V2-REQ-LXF-001",
+        "V2-REQ-GOV-001"
+      ],
+      "evidence": [
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/legacy-audit.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        },
+        {
+          "kind": "repo",
+          "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "label": "Freigegebene V2-Grundlage",
+          "required": true
+        }
+      ],
+      "successorTaskId": "LXF05",
+      "additionalSuccessorTaskIds": [],
+      "inspection": {
+        "locator": "# IuM-Lernwerk – Design-, Interaktions- und Produktionssystem",
+        "observation": "Die hohe Vertragsdichte und früh geschlossenen Systemobjekte verhinderten im LXP05-Kandidaten keine überladene Komposition. LXF05 ersetzt die normative Patternbasis mit zehn produktneutralen Mustern; LXF06 ergänzt ausführbare Orchestrierung. Semantische Rollen und Barrieren bleiben Erkenntnisse, keine automatische Paketübernahme.",
+        "limitation": "Dokumenten-/Artefaktprüfung am versiegelten V1-Stand; keine neue reale Nutzung, Pilotierung oder Lernwirkung belegt."
+      }
+    }
+  ],
+  "legacyDigests": {
+    "curriculum/aufbaukurs-informatik/competencies.json": "dde81984622a275c9ffeedc8b601468f22021f19028de6b162134c4050dbf0c5",
+    "curriculum/basiskurs-medienbildung/competencies.json": "2c39832cd6ee373c643994c69db6f4411539669923704e6c0f45ef63c2112518",
+    "curriculum/crosswalk.json": "8522c912c7747af1d39d2822513a3e75ef410cb7bbe9bd98574bf9cf69ac0720",
+    "curriculum/extraction-protocol.md": "394178093d808b01b079c171387e42eea6f8a2482b13a643c15cd1ab31c744f8",
+    "curriculum/lesehilfe-2026-27/competencies.json": "4eaf2ab20bdd508d18b821b4d953efdf6a6b7caea05ef8d904c101b3c4e342c8",
+    "curriculum/operators.json": "43500782d6d18f6ef276b50575a3db575da2c49c312327545fb72c400a1c674a",
+    "curriculum/progression.md": "384b3070fd804e7dad0251fa28e2868626f54ed786dabcc93707bfc4a038683e",
+    "curriculum/source-status.md": "a77b77a35bb2c21eb49ccbdb34ad5d620e378415b46e12b57392bb302cc14327",
+    "docs/fachprofil/ium-gymnasium-5-7.md": "3e982b247f5944f62bd136752a44633e5024eb2679a311b9ea5824fdbabdb0c8",
+    "docs/platform/README.md": "d3a5b20dde5b892b1df761c161baffe664f3670643ed87ce053c328c625a69f0",
+    "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md": "b4a65b801be8b8336d8d1d4b8f8d8d0cd71e5d5d00ef0dd9948ab86c07e54706",
+    "docs/platform/device-verification.md": "d17bc0bc47925f6364ff6b98f6a1bdf0c144d5b3cf160a7f4d9e532b353b0e0c",
+    "docs/platform/implementation-report.md": "4fb0a119d6d45f875835c2653ed73143751f5586ce031f5c98a3fa6eb3edb83e",
+    "docs/research/phase-0/README.md": "da8b3e9301ab9d8dc20c01eece5ce1a5ea809fbd22705ab05edf44c54f4079f0",
+    "docs/research/phase-0/claim-ledger.json": "5d6d5518fd9896ff052f51e06c52b0758ec031af7b27e0919498ba5d9982728c",
+    "docs/research/phase-0/curated/01-informatikdidaktik.md": "bec1c3662ef99cf565ff2fb98eee7a1935035b477b8f71da3f91d953d2142de6",
+    "docs/research/phase-0/curated/02-medienbildung.md": "6cbb57e1bf4998ae1fc1100d3674526e8f407aeee8817219f35086d6e38116e9",
+    "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md": "bdfbb8723c74b990fe6edf35e3cb6e365f02b41f697b123e79317307c686aa8e",
+    "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md": "ab73faaecb3bb7650e257c7fe37aab2a3ae5df5fc4862e8d4464429ef90ebcd3",
+    "docs/research/phase-0/data-contract.md": "ad7953a014c76b3f5575aa88d9071141069b1b022d9fad49c799a89137e8b327",
+    "docs/research/phase-0/design-principles.json": "4f577237e1cc9386db87d37f7291d1e0c08acf87c7ed5c85a48e2a6162c87b7b",
+    "docs/research/phase-0/research-protocol.md": "c45b8f77dea4ab28e5d98b273f203537fceef7c9d13d3ab0c45d13d25cd30a78",
+    "docs/research/phase-0/source-register.json": "f4b52fb6b8b5c7e31ff3ba73da63b9d4e46f47b55fc51dfedae3f809100d6ab1",
+    "docs/research/phase-0/synthesis.md": "f02b4a9b71d31e00449d5ae1a5c528b277de3ed504ae2a86f05b5b11cf9e4180",
+    "docs/reviews/ium-5-core-05-fach-didaktik.md": "d1a1cad2659e10ff015ddc81737424082898c9b17f50f490ede5f072577cdf58",
+    "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md": "8649777afe55d7f494439be2ad3f47767d2b97ec64111860100e91c372ee16b2",
+    "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md": "ffc7d1e0be09f73628c721b8660f54971d8cfeb1968b9d3afc000c69a6da5cd7",
+    "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md": "edad8579edd62f97294dd0ee2ad112a200a471164380792122eaa2962fbe1035",
+    "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md": "a67bda239a7fcc23c41809f8b32951f838bba903d674cd135e42d8b7e82486dc",
+    "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md": "5125afe742303f43e476f5e8f6841840dba13009301189b8bb976878447cc043",
+    "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md": "af3bd1e7bc6ec12b1f2b326d1a2be27adfa7284958aaf3268fdb9c787d388ea8",
+    "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md": "b30672c73ece9a04706ea37dc4bd7e79322005a78217d73fdfa97ad079549060",
+    "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md": "e6bd335c07161e1483dc63c26d26e3841669c70ec975fb6a3308fd63c49ac2c5",
+    "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md": "6c34e796b7c93d2abcf50bf96be4182726eb8a9509b158b435b34525149d8ed2",
+    "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md": "5a17999ef42c26237e39fce085cb39ca2a85e5fe559818bf612b0eaadb154839",
+    "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md": "2e0918186f54b0faa8dfbe6dd66c3fdfa35c6bbbefc4b3fabb3af16f886f26b8",
+    "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md": "9cf0c01339585bcbf5427ce0ce1ce714cf10179edefa85f5314452432f111999",
+    "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md": "37bcdb95051eef01ff8982f363f6cc55747b5a5adc3ede972bfd1d0a882e0975",
+    "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md": "4bf295c63ac21f93121f166fc889bfb4f5e735708c5331d5229093bbaa08af39",
+    "modules/IUM-5-CORE-05/curriculum-mapping.json": "9518b2a4d1d703e6c4a4d9fd241fb5626f73f9616a888960150b6f7cc3899628",
+    "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md": "b5c352ac1ea336bd973831652de3c12dfb7c810f5084141a1bd2e1787ae1989b",
+    "modules/IUM-5-CORE-05/lernumgebung/content.json": "403b296c3a27ed3e96e3916deab72cf278ed9d891bd855b1161cb8bc3c03522d",
+    "modules/IUM-5-CORE-05/module.yaml": "f55ea042798ee0f2e2bf0268b6981deaca4fa79799c5059b51e262191c63a23a",
+    "packages/export-import/src/import-state.ts": "12de2ee8f86e7f578dae6bf82b3dafea31b20ad3bf48c8b16e55e459e5dec11e",
+    "packages/ium-5-core-05/src/interpreter.ts": "c57b02c6341bb05d17bbe03c7aa6997684d7b7ed74c3c1724297ec06d96efe0f",
+    "packages/local-state/src/indexeddb-repository.ts": "40e4c7c0eeb203379daae0ad7119f9af2331faa8e1cd6aea484c93c629be61de",
+    "packages/module-runtime/src/runtime.ts": "f0d3520356125d85b4a66fbe2b5d7a34ce2d8417bdb499eb8278a720984ae9fc",
+    "pilot/docs/publication-contract.json": "47dd8fd200df1d08b1d85dcb35eb12847fe0fe61140187b832e6f65b71aed0e3",
+    "pilot/ium5-gate-b/protocol.json": "976116c840ddd88474843eaf813c485b954ce6fea513c4dcf3e9ee30c3e4cf21",
+    "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json": "e22ee848df38dd0da2ebe8effad7c9a984f8ba11df51310c3e95adb559fcdbb0",
+    "pilot/ium5-gate-b/schemas/technical-evidence.schema.json": "7decf131007d140bd98c700d65ba1f8307e87283e36553aaa814c22a3c5bd902",
+    "pilot/pilot-protocol.json": "efe2daeb6be00bf72782657053b58360c7bbe105ac614b9bbb955605ea2af8aa",
+    "roadmap/coverage-plan.json": "4553be524d7dbc0e02ea3362869a71ee2f4b28164a18aec7557fdc2001990929",
+    "roadmap/coverage-remediation.json": "e4f31fb046c999fba606578a25909b17c54b5952701d079002f087c20d7e2b33",
+    "roadmap/module-candidates.json": "30c8a85b5a5cbcd5f4983f3415d0b31d711d544b376495b066ebee461d007cec",
+    "roadmap/module-roadmap.md": "81fbb4fd88042a62339d72c329117dcd2f9c7a63a1410ad416d67e7eb1608bc1",
+    "roadmap/time-model.json": "7e4f9db7c7421142bb2f02072fb2063f01db03f2ee284fe08d3104ed040ba2b6",
+    "scripts/validate_ium11.py": "701819fd11a709413d5b775fafd4211be79cbdd5fa9457e3c22d3822d9fa11eb",
+    "scripts/validate_ium5_gate_b.py": "cd04c0a0559e2c2ef408f34b3a21b7c7bac4500755198db02fb6a978152defc4"
+  }
+}

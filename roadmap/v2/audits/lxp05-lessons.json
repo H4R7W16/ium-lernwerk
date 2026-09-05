@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "candidateCommit": "645a1d4ea3c786b08e1320954b522edf86dc9f83",
+  "state": "frozen",
+  "integration": "unmerged",
+  "disposition": "historical-only",
+  "reuseAuthorized": false,
+  "inspectedFiles": [
+    {
+      "path": "docs/quality/ium-learning-experience-implementation-report.md",
+      "sha256": "027cbf2496520ffe665d7f90d84d2229f5c9d24882f5e6ad820887ab673b28ee",
+      "locator": "# IuM Learning Experience – Implementierungsnachweis LXP05",
+      "observation": "Der technische Implementierungsbericht nennt grüne Prüfungen, markiert aber fehlende Nutzungs-, manuelle Accessibility- und reale Pilotnachweise selbst ausdrücklich."
+    },
+    {
+      "path": "modules/IUM-5-CORE-05/lernumgebung/experience.json",
+      "sha256": "934b14bac1e4745c9f7d33b125457f637e0bb9cde187c49ad2bd84731221e93d",
+      "locator": "\"actions\"",
+      "observation": "Die Experience-Datei führt action-/state-Objekte, Produkt- und requiredEvidence-Felder; dies sind Vertragsdaten, noch kein Nachweis einer verständlichen Lernreise."
+    },
+    {
+      "path": "apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro",
+      "sha256": "f7281433fdd1428d1244ac72d320868b496813086b4a22fac96b7b6a09c80900",
+      "locator": "<JourneyMap",
+      "observation": "Die Komposition kombiniert JourneyMap aus Inhaltssegmenten, Experience-Fokus und weitere Lern-/Sicherungsbereiche. Die zusätzliche Systemebene beseitigt die alte Phasenstruktur nicht automatisch."
+    },
+    {
+      "path": "packages/learning-experience/src/components/EvidenceCardComposer.astro",
+      "sha256": "b52d39cd27e723346c5c69cdb95b700af4d05a7d89fa93d7254fe28c1ab79965",
+      "locator": "data-evidence-card-composer",
+      "observation": "Die Belegkarte ist ein eigener Bereich mit sechs Produktfeldern und Bestätigung. Ihr fachlicher Nutzen und die Last zusätzlicher Eingaben müssen gegenüber dem eigentlichen Lernprodukt geprüft werden."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LXP05-EVIDENCE",
+      "finding": "Automatisierte Vertragsvollständigkeit ersetzt weder Nutzung noch Wirkung.",
+      "responsePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json",
+        "roadmap/v2/foundations/learning-experience/experience-gates.json"
+      ],
+      "successorTaskIds": [
+        "IUM-V2-FU-PILOT"
+      ]
+    },
+    {
+      "id": "LXP05-COMPOSITION",
+      "finding": "Parallele Phasen- und Zustandsmodelle erhöhen die Orientierungsanforderung; konkrete Komposition an Lernfunktion und sichtbarer Kernhandlung prüfen.",
+      "responsePaths": [
+        "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+        "roadmap/v2/foundations/learning-experience/material-patterns.json"
+      ],
+      "successorTaskIds": [
+        "IUM-V2-FU-MOD"
+      ]
+    },
+    {
+      "id": "LXP05-PRODUCT",
+      "finding": "Ein zusätzliches Belegformular darf das fachliche Lernprodukt nicht verdrängen.",
+      "responsePaths": [
+        "roadmap/v2/foundations/learning-experience/material-patterns.json",
+        "roadmap/v2/foundations/learning-experience/teacher-orchestration.md"
+      ],
+      "successorTaskIds": [
+        "IUM-V2-FU-MOD"
+      ]
+    },
+    {
+      "id": "LXP05-ORCHESTRATION",
+      "finding": "Rollen und Checkpoints benötigen beobachtbare Lehrkraft-/Lernendenhandlungen und getestete Ausfallwege.",
+      "responsePaths": [
+        "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+        "roadmap/v2/foundations/learning-experience/experience-gates.json"
+      ],
+      "successorTaskIds": [
+        "IUM-V2-FU-MOD",
+        "IUM-V2-FU-PILOT"
+      ]
+    }
+  ]
+}

@@ -9,8 +9,10 @@ from urllib.parse import urlparse
 
 if __package__:
     from .validate_v2_governance import validate_repository as validate_governance_repository
+    from .validate_v2_reuse_audit import validate_repository as validate_reuse_audit_repository
 else:
     from validate_v2_governance import validate_repository as validate_governance_repository
+    from validate_v2_reuse_audit import validate_repository as validate_reuse_audit_repository
 
 
 CONTROL_FILES = (
@@ -6838,6 +6840,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         else:
             errors.extend(validate_learning_experience_release(data, root, tuple(errors)))
     errors.extend(validate_governance_repository(root))
+    errors.extend(validate_reuse_audit_repository(root))
     return errors, warnings
 
 

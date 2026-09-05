@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "workStatus": "review",
+  "reviewType": "ai-assisted-document-self-review",
+  "reviewer": "Codex",
+  "userAcceptance": "pending",
+  "baseCommit": "9f52cdc6f5e36b72b7a3fd9e64501ccfc4af2135",
+  "governanceAcceptance": "roadmap/v2/foundations/governance/acceptance.json",
+  "nextTask": "IUM-V2-R5",
+  "nextTaskCondition": "explicit-aud-user-approval",
+  "contentProduction": "frozen",
+  "curriculumCoverage": "unassessed",
+  "pilot": "not-started",
+  "release": "closed",
+  "lxp05": "frozen-unmerged",
+  "carryForward": [
+    {
+      "id": "CUR-Q-002",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json",
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "CUR-Q-003",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-OPERATOR",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-REVIEWERS",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-RIGHTS",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-SCHOOL",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-001",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-002",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-003",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-004",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-005",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-006",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-007",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-008",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF07-Q-PILOT",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF07-Q-TECH",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    }
+  ],
+  "inputDigests": {
+    "curriculum/aufbaukurs-informatik/competencies.json": "dde81984622a275c9ffeedc8b601468f22021f19028de6b162134c4050dbf0c5",
+    "curriculum/basiskurs-medienbildung/competencies.json": "2c39832cd6ee373c643994c69db6f4411539669923704e6c0f45ef63c2112518",
+    "curriculum/crosswalk.json": "8522c912c7747af1d39d2822513a3e75ef410cb7bbe9bd98574bf9cf69ac0720",
+    "curriculum/extraction-protocol.md": "394178093d808b01b079c171387e42eea6f8a2482b13a643c15cd1ab31c744f8",
+    "curriculum/lesehilfe-2026-27/competencies.json": "4eaf2ab20bdd508d18b821b4d953efdf6a6b7caea05ef8d904c101b3c4e342c8",
+    "curriculum/operators.json": "43500782d6d18f6ef276b50575a3db575da2c49c312327545fb72c400a1c674a",
+    "curriculum/progression.md": "384b3070fd804e7dad0251fa28e2868626f54ed786dabcc93707bfc4a038683e",
+    "curriculum/source-status.md": "a77b77a35bb2c21eb49ccbdb34ad5d620e378415b46e12b57392bb302cc14327",
+    "docs/fachprofil/ium-gymnasium-5-7.md": "3e982b247f5944f62bd136752a44633e5024eb2679a311b9ea5824fdbabdb0c8",
+    "docs/platform/README.md": "d3a5b20dde5b892b1df761c161baffe664f3670643ed87ce053c328c625a69f0",
+    "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md": "b4a65b801be8b8336d8d1d4b8f8d8d0cd71e5d5d00ef0dd9948ab86c07e54706",
+    "docs/platform/device-verification.md": "d17bc0bc47925f6364ff6b98f6a1bdf0c144d5b3cf160a7f4d9e532b353b0e0c",
+    "docs/platform/implementation-report.md": "4fb0a119d6d45f875835c2653ed73143751f5586ce031f5c98a3fa6eb3edb83e",
+    "docs/research/phase-0/README.md": "da8b3e9301ab9d8dc20c01eece5ce1a5ea809fbd22705ab05edf44c54f4079f0",
+    "docs/research/phase-0/claim-ledger.json": "5d6d5518fd9896ff052f51e06c52b0758ec031af7b27e0919498ba5d9982728c",
+    "docs/research/phase-0/curated/01-informatikdidaktik.md": "bec1c3662ef99cf565ff2fb98eee7a1935035b477b8f71da3f91d953d2142de6",
+    "docs/research/phase-0/curated/02-medienbildung.md": "6cbb57e1bf4998ae1fc1100d3674526e8f407aeee8817219f35086d6e38116e9",
+    "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md": "bdfbb8723c74b990fe6edf35e3cb6e365f02b41f697b123e79317307c686aa8e",
+    "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md": "ab73faaecb3bb7650e257c7fe37aab2a3ae5df5fc4862e8d4464429ef90ebcd3",
+    "docs/research/phase-0/data-contract.md": "ad7953a014c76b3f5575aa88d9071141069b1b022d9fad49c799a89137e8b327",
+    "docs/research/phase-0/design-principles.json": "4f577237e1cc9386db87d37f7291d1e0c08acf87c7ed5c85a48e2a6162c87b7b",
+    "docs/research/phase-0/research-protocol.md": "c45b8f77dea4ab28e5d98b273f203537fceef7c9d13d3ab0c45d13d25cd30a78",
+    "docs/research/phase-0/source-register.json": "f4b52fb6b8b5c7e31ff3ba73da63b9d4e46f47b55fc51dfedae3f809100d6ab1",
+    "docs/research/phase-0/synthesis.md": "f02b4a9b71d31e00449d5ae1a5c528b277de3ed504ae2a86f05b5b11cf9e4180",
+    "docs/reviews/ium-5-core-05-fach-didaktik.md": "d1a1cad2659e10ff015ddc81737424082898c9b17f50f490ede5f072577cdf58",
+    "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md": "8649777afe55d7f494439be2ad3f47767d2b97ec64111860100e91c372ee16b2",
+    "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md": "ffc7d1e0be09f73628c721b8660f54971d8cfeb1968b9d3afc000c69a6da5cd7",
+    "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md": "edad8579edd62f97294dd0ee2ad112a200a471164380792122eaa2962fbe1035",
+    "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md": "a67bda239a7fcc23c41809f8b32951f838bba903d674cd135e42d8b7e82486dc",
+    "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md": "5125afe742303f43e476f5e8f6841840dba13009301189b8bb976878447cc043",
+    "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md": "af3bd1e7bc6ec12b1f2b326d1a2be27adfa7284958aaf3268fdb9c787d388ea8",
+    "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md": "b30672c73ece9a04706ea37dc4bd7e79322005a78217d73fdfa97ad079549060",
+    "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md": "e6bd335c07161e1483dc63c26d26e3841669c70ec975fb6a3308fd63c49ac2c5",
+    "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md": "6c34e796b7c93d2abcf50bf96be4182726eb8a9509b158b435b34525149d8ed2",
+    "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md": "5a17999ef42c26237e39fce085cb39ca2a85e5fe559818bf612b0eaadb154839",
+    "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md": "2e0918186f54b0faa8dfbe6dd66c3fdfa35c6bbbefc4b3fabb3af16f886f26b8",
+    "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md": "9cf0c01339585bcbf5427ce0ce1ce714cf10179edefa85f5314452432f111999",
+    "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md": "37bcdb95051eef01ff8982f363f6cc55747b5a5adc3ede972bfd1d0a882e0975",
+    "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md": "4bf295c63ac21f93121f166fc889bfb4f5e735708c5331d5229093bbaa08af39",
+    "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md": "ca5368a1e863472b60da6b8535263f4e977fb36cbaf89093dbdacc2e5d29f9af",
+    "modules/IUM-5-CORE-05/curriculum-mapping.json": "9518b2a4d1d703e6c4a4d9fd241fb5626f73f9616a888960150b6f7cc3899628",
+    "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md": "b5c352ac1ea336bd973831652de3c12dfb7c810f5084141a1bd2e1787ae1989b",
+    "modules/IUM-5-CORE-05/lernumgebung/content.json": "403b296c3a27ed3e96e3916deab72cf278ed9d891bd855b1161cb8bc3c03522d",
+    "modules/IUM-5-CORE-05/module.yaml": "f55ea042798ee0f2e2bf0268b6981deaca4fa79799c5059b51e262191c63a23a",
+    "packages/export-import/src/import-state.ts": "12de2ee8f86e7f578dae6bf82b3dafea31b20ad3bf48c8b16e55e459e5dec11e",
+    "packages/ium-5-core-05/src/interpreter.ts": "c57b02c6341bb05d17bbe03c7aa6997684d7b7ed74c3c1724297ec06d96efe0f",
+    "packages/local-state/src/indexeddb-repository.ts": "40e4c7c0eeb203379daae0ad7119f9af2331faa8e1cd6aea484c93c629be61de",
+    "packages/module-runtime/src/runtime.ts": "f0d3520356125d85b4a66fbe2b5d7a34ce2d8417bdb499eb8278a720984ae9fc",
+    "pilot/docs/publication-contract.json": "47dd8fd200df1d08b1d85dcb35eb12847fe0fe61140187b832e6f65b71aed0e3",
+    "pilot/ium5-gate-b/protocol.json": "976116c840ddd88474843eaf813c485b954ce6fea513c4dcf3e9ee30c3e4cf21",
+    "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json": "e22ee848df38dd0da2ebe8effad7c9a984f8ba11df51310c3e95adb559fcdbb0",
+    "pilot/ium5-gate-b/schemas/technical-evidence.schema.json": "7decf131007d140bd98c700d65ba1f8307e87283e36553aaa814c22a3c5bd902",
+    "pilot/pilot-protocol.json": "efe2daeb6be00bf72782657053b58360c7bbe105ac614b9bbb955605ea2af8aa",
+    "roadmap/coverage-plan.json": "4553be524d7dbc0e02ea3362869a71ee2f4b28164a18aec7557fdc2001990929",
+    "roadmap/coverage-remediation.json": "e4f31fb046c999fba606578a25909b17c54b5952701d079002f087c20d7e2b33",
+    "roadmap/module-candidates.json": "30c8a85b5a5cbcd5f4983f3415d0b31d711d544b376495b066ebee461d007cec",
+    "roadmap/module-roadmap.md": "81fbb4fd88042a62339d72c329117dcd2f9c7a63a1410ad416d67e7eb1608bc1",
+    "roadmap/time-model.json": "7e4f9db7c7421142bb2f02072fb2063f01db03f2ee284fe08d3104ed040ba2b6",
+    "roadmap/v2/archive/v1-baseline.json": "3b74511b2f8b800c251e836f70baed93c8a8802ba8305c958007050cacd500ad",
+    "roadmap/v2/audits/README.md": "2199ffa0cf19adb321f0cc588df0469d779d8a196b6fc5f6c6ef0983e58f31d2",
+    "roadmap/v2/audits/artifact-inventory.json": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4",
+    "roadmap/v2/audits/follow-up-tasks.json": "0b5195e26d6022d8f760e106b61cb19b1ecfd5d68dd6970e8a2cdc9dbe1bfcf0",
+    "roadmap/v2/audits/lxp05-lessons.json": "be07525036f44204fc366ec524fb8c9ad5d871056f82a1e8069ece905c473f75",
+    "roadmap/v2/audits/validation-report.md": "d911e99364b8f6f98879ee384c8b044ff141108404561d77b2680b36b144d971",
+    "roadmap/v2/foundations/curriculum/gap-assessments.json": "7027085b7bf8c23b1214f8e45bd7b7c4381c4f37fc3e9d5ef785261968acba26",
+    "roadmap/v2/foundations/curriculum/source-basis.json": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9",
+    "roadmap/v2/foundations/curriculum/status.json": "cd1d9bb3bd018c160abd4c300a922df9889e76eca78c9c5262adde240fddf8b3",
+    "roadmap/v2/foundations/governance/acceptance.json": "50e213a2f28908ea9ccbc1090bc02a82e461a61bbabfb4e34e4bdbf19306f94b",
+    "roadmap/v2/foundations/governance/governance-contract.json": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc",
+    "roadmap/v2/foundations/governance/status.json": "314bb4d2064452dea338b16787e1df9472bb7ca71d1abcd3a49274e61c03a81f",
+    "roadmap/v2/foundations/learning-experience/evidence-register.json": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89",
+    "roadmap/v2/foundations/learning-experience/experience-gates.json": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+    "roadmap/v2/foundations/learning-experience/learner-profile.json": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.json": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+    "roadmap/v2/foundations/learning-experience/legacy-audit.json": "86345d97b9a5ffbb3790c0353bca02d125144dfad939da8ae350acca39a33841",
+    "roadmap/v2/foundations/learning-experience/material-patterns.json": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54",
+    "roadmap/v2/foundations/learning-experience/status.json": "f1fdfc63318d19c6dd5ce043941515891a0f7353058a555e630667a552473497",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+    "roadmap/v2/foundations/sources/source-register.json": "30fd8a7b2f37bc162653ec29c6904154c8bb577b356067086dedbc4d3e885229",
+    "roadmap/v2/foundations/sources/status.json": "768b7484d17a184a7a72b1bb74648da85589259888e45455bb95f4407a33ed82",
+    "roadmap/v2/requirements/requirements.json": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779",
+    "roadmap/v2/status.json": "51db65ee30b667ce3dcfac47d5868118ea15d0b2b2e67e327bac56768b66919f",
+    "schemas/v2/artifact-reuse.schema.json": "a077b99ab8259c8dea78c15e8439b136def5065b46a2a5fc76049bef68def858",
+    "scripts/validate_ium11.py": "701819fd11a709413d5b775fafd4211be79cbdd5fa9457e3c22d3822d9fa11eb",
+    "scripts/validate_ium5_gate_b.py": "cd04c0a0559e2c2ef408f34b3a21b7c7bac4500755198db02fb6a978152defc4"
+  }
+}

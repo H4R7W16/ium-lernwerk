@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "tasks": [
+    {
+      "id": "IUM-V2-SRC",
+      "title": "Quellenfundament konsolidieren",
+      "state": "completed-foundation",
+      "vaultNote": "2026-09-03 - IUM-V2-SRC Quellenfundament konsolidieren",
+      "objective": "Quellenidentität, Nutzungsstatus und Traceability sind geprüft; konkrete Modulclaims bleiben gesondert zu wählen.",
+      "artifactIds": [
+        "IUM00"
+      ],
+      "dependsOn": [],
+      "acceptanceCriteria": [
+        "Quelle, Claim und Entscheidung bleiben getrennt."
+      ],
+      "execution": "already-completed-foundation"
+    },
+    {
+      "id": "IUM-V2-GOV",
+      "title": "Governancefundament konsolidieren",
+      "state": "completed-foundation",
+      "vaultNote": "2026-09-03 - IUM-V2-GOV Governance und öffentliche Wahrnehmung konsolidieren",
+      "objective": "Mindestnachweise, Rollen, Datenschutz und Rechte sind konsolidiert; institutionelle Einsatzgates bleiben offen.",
+      "artifactIds": [
+        "IUM00",
+        "IUM04",
+        "IUM15"
+      ],
+      "dependsOn": [],
+      "acceptanceCriteria": [
+        "Keine automatische Produkt- oder Einsatzfreigabe."
+      ],
+      "execution": "already-completed-foundation"
+    },
+    {
+      "id": "LXF02",
+      "title": "Evidenzlücken schließen",
+      "state": "completed-foundation",
+      "vaultNote": "2026-09-03 - LXF02 Evidenzlücken schließen",
+      "objective": "Historische Lernpsychologie- und LXP01-Quellen in begrenzte V2-Claims überführen.",
+      "artifactIds": [
+        "IUM03",
+        "LXP01"
+      ],
+      "dependsOn": [],
+      "acceptanceCriteria": [
+        "Mechanismus, Kontext und Grenzen sind dokumentiert."
+      ],
+      "execution": "already-completed-foundation"
+    },
+    {
+      "id": "LXF03",
+      "title": "Fach- und Stufenprofil entwickeln",
+      "state": "completed-foundation",
+      "vaultNote": "2026-09-03 - LXF03 Fach- und Stufenprofil IuM 5-7 entwickeln",
+      "objective": "Historische Profilsteuerung durch Lernenden-/Stufenannahmen mit offenen Pilotfragen ersetzen.",
+      "artifactIds": [
+        "IUM06"
+      ],
+      "dependsOn": [],
+      "acceptanceCriteria": [
+        "Annahmen sind keine individuellen Diagnosen."
+      ],
+      "execution": "already-completed-foundation"
+    },
+    {
+      "id": "LXF04",
+      "title": "Lernarchitektur ableiten",
+      "state": "completed-foundation",
+      "vaultNote": "2026-09-03 - LXF04 Lernarchitektur-Vertrag ableiten",
+      "objective": "Lernfunktionen und Übergänge aus Evidenz und Lernendenprofil ableiten.",
+      "artifactIds": [
+        "IUM03",
+        "IUM06",
+        "LXP02"
+      ],
+      "dependsOn": [],
+      "acceptanceCriteria": [
+        "Beobachtbare Kriterien statt alter universeller Phasenfolge."
+      ],
+      "execution": "already-completed-foundation"
+    },
+    {
+      "id": "LXF05",
+      "title": "Materialgrammatik entwickeln",
+      "state": "completed-foundation",
+      "vaultNote": "2026-09-03 - LXF05 Material- und Experience-Grammatik entwickeln",
+      "objective": "Normative LXP04-Patternbasis durch produktneutrale Muster ersetzen.",
+      "artifactIds": [
+        "LXP04"
+      ],
+      "dependsOn": [],
+      "acceptanceCriteria": [
+        "Lernprodukte, Unterstützungen und Rückfallgrenzen sind geklärt."
+      ],
+      "execution": "already-completed-foundation"
+    },
+    {
+      "id": "IUM-V2-R5",
+      "title": "Roadmap Klasse 5 neu aufbauen",
+      "state": "planned-rebaseline",
+      "vaultNote": "2026-09-03 - IUM-V2-R5 Roadmap Klasse 5 neu aufbauen",
+      "objective": "Neue Modul-/Jahresplanung Klasse 5 einschließlich integrierter Medienbildung, Werkzeugmatrix, Lernhandlung, Produkt und realistischem Zeitbedarf.",
+      "artifactIds": [
+        "IUM01",
+        "IUM02",
+        "IUM06",
+        "IUM07",
+        "IUM09",
+        "IUM10"
+      ],
+      "dependsOn": [
+        "IUM-V2-AUD"
+      ],
+      "acceptanceCriteria": [
+        "Jede Zuordnung auf V2-Anforderung und Erfüllungsform prüfen.",
+        "Keine automatischen V1-Coverage- oder Zeitwerte.",
+        "Werkzeugnutzung integriert belegen; private Eigenbezugsfrage offen halten."
+      ],
+      "execution": "requires-separate-user-order"
+    },
+    {
+      "id": "IUM-V2-R6",
+      "title": "Roadmap Klasse 6 neu aufbauen",
+      "state": "planned-rebaseline",
+      "vaultNote": "2026-09-03 - IUM-V2-R6 Roadmap Klasse 6 neu aufbauen",
+      "objective": "R5-Profil mit wachsender Selbstständigkeit, geeigneten fachlichen Claims und ehrlicher Integration fortführen.",
+      "artifactIds": [
+        "IUM01",
+        "IUM02",
+        "IUM06",
+        "IUM07",
+        "IUM09",
+        "IUM10"
+      ],
+      "dependsOn": [
+        "IUM-V2-R5"
+      ],
+      "acceptanceCriteria": [
+        "Keine amtliche 5/6-Aufteilung erfinden.",
+        "V2-Zeit, Rückgriff und Transfer ausdrücklich belegen."
+      ],
+      "execution": "requires-separate-user-order"
+    },
+    {
+      "id": "IUM-V2-R7",
+      "title": "Roadmap Klasse 7 neu aufbauen",
+      "state": "planned-rebaseline",
+      "vaultNote": "2026-09-03 - IUM-V2-R7 Roadmap Klasse 7 neu aufbauen",
+      "objective": "Fachbalance, Spirale und Kapazität eigenständig klären; Working-40 ist nur V1-Vergleich.",
+      "artifactIds": [
+        "IUM01",
+        "IUM02",
+        "IUM06",
+        "IUM07",
+        "IUM09",
+        "IUM10"
+      ],
+      "dependsOn": [
+        "IUM-V2-R6"
+      ],
+      "acceptanceCriteria": [
+        "CUR-Q-003 und Jahrgangsprogression konkret behandeln.",
+        "Keine fiktive Integration oder automatische Verfügbarkeit."
+      ],
+      "execution": "requires-separate-user-order"
+    },
+    {
+      "id": "IUM-V2-FU-TECH",
+      "title": "Technische V1-Bausteine gegen V2 prüfen",
+      "state": "blocked-follow-up",
+      "vaultNote": "2026-09-06 - IUM-V2-FU-TECH Technische V1-Bausteine gegen V2 prüfen",
+      "objective": "Vor technischer Wiederverwendung Laufzeit, Persistenz, Import/Export, Updates, Schemas, Versionen und Auslieferung gegen V2 prüfen; keine LXP05-Paketübernahme.",
+      "artifactIds": [
+        "IUM04",
+        "IUM12",
+        "IUM13",
+        "IUM18"
+      ],
+      "dependsOn": [
+        "IUM-V2-CUT"
+      ],
+      "acceptanceCriteria": [
+        "Dateigenaue Retain-/Adapt-Entscheidungen und Migrationen dokumentieren.",
+        "Synthetische Vertragstests sowie reale Geräte-/Netzprüfung getrennt ausweisen.",
+        "GOV-Betreiber-, Rechte- und Datenflussfragen vor betroffenem Betrieb klären."
+      ],
+      "execution": "requires-separate-user-order"
+    },
+    {
+      "id": "IUM-V2-FU-MOD",
+      "title": "Erstes V2-Referenzmodul spezifizieren",
+      "state": "blocked-follow-up",
+      "vaultNote": "2026-09-06 - IUM-V2-FU-MOD Erstes V2-Referenzmodul spezifizieren",
+      "objective": "Nach R5/Cutover und gesondertem Auftrag ein Referenzmodul spezifizieren; IUM5-Interpreter/Szenarien nur bei fachlicher Passung übernehmen. Dieser Task startet keine Implementierung.",
+      "artifactIds": [
+        "IUM16",
+        "IUM18",
+        "LXP02"
+      ],
+      "dependsOn": [
+        "IUM-V2-CUT"
+      ],
+      "acceptanceCriteria": [
+        "Lernhandlung, Lernprodukt, Unterstützung, Feedback und Wiedereinstieg aus LXF ableiten.",
+        "Materialumfang und Orchestrierung gegen Alter und Zeit prüfen.",
+        "Neuen Implementierungsplan erst aus freigegebenem V2-Design ableiten."
+      ],
+      "execution": "requires-separate-user-order"
+    },
+    {
+      "id": "IUM-V2-FU-PILOT",
+      "title": "Prüf- und Pilotinstrumente an V2 binden",
+      "state": "blocked-follow-up",
+      "vaultNote": "2026-09-06 - IUM-V2-FU-PILOT Prüf- und Pilotinstrumente an V2 binden",
+      "objective": "Für das konkrete V2-Modul getrennte technische, Nutzungs-, Unterrichts- und Auswertungspfade samt Datenschutz/Rechten spezifizieren; keine reale Durchführung.",
+      "artifactIds": [
+        "IUM11",
+        "IUM19",
+        "IUM20"
+      ],
+      "dependsOn": [
+        "IUM-V2-FU-MOD",
+        "IUM-V2-FU-TECH"
+      ],
+      "acceptanceCriteria": [
+        "Neue Zeit-/Aufgabenbindung statt V1-225/270-Minuten-Vertrag.",
+        "Schwellen, Datenspeicherung und Löschfristen fallbezogen festlegen.",
+        "Synthetische Belege nicht als Pilot und Zufriedenheit nicht als Wirkung ausgeben."
+      ],
+      "execution": "requires-separate-user-order"
+    }
+  ]
+}

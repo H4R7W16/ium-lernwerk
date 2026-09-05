@@ -1,0 +1,1451 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.invalid/schemas/v2/artifact-reuse.schema.json",
+  "title": "IUM-V2-AUD Artefaktentscheidungen, Nachfolge und Prüfbindung",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "baselineCommit",
+        "workStatus",
+        "activation",
+        "records",
+        "legacyDigests"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "projectId": {
+          "const": "ium-lernwerk"
+        },
+        "asOf": {
+          "const": "2026-09-06"
+        },
+        "baselineCommit": {
+          "const": "dcaff3e4b6e96d8c1da3dd1d4dd56f6df6b35ef0"
+        },
+        "workStatus": {
+          "const": "review"
+        },
+        "activation": {
+          "const": "not-authorized"
+        },
+        "records": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "artifactId",
+              "title",
+              "family",
+              "artifactRef",
+              "supplementaryRefs",
+              "decision",
+              "scope",
+              "rationale",
+              "requirementIds",
+              "evidence",
+              "successorTaskId",
+              "additionalSuccessorTaskIds",
+              "inspection"
+            ],
+            "properties": {
+              "artifactId": {
+                "enum": [
+                  "IUM00",
+                  "IUM01",
+                  "IUM02",
+                  "IUM03",
+                  "IUM04",
+                  "IUM05",
+                  "IUM06",
+                  "IUM07",
+                  "IUM08",
+                  "IUM09",
+                  "IUM10",
+                  "IUM11",
+                  "IUM12",
+                  "IUM13",
+                  "IUM14",
+                  "IUM15",
+                  "IUM16",
+                  "IUM17",
+                  "IUM18",
+                  "IUM19",
+                  "IUM20",
+                  "LXP01",
+                  "LXP02",
+                  "LXP03",
+                  "LXP04"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "family": {
+                "enum": [
+                  "research",
+                  "curriculum-planning",
+                  "experience",
+                  "platform-module-pilot"
+                ]
+              },
+              "artifactRef": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "target",
+                  "label",
+                  "required"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "target": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "supplementaryRefs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "target",
+                    "label",
+                    "required"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "target": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "decision": {
+                "enum": [
+                  "adapt",
+                  "drop",
+                  "reference-only",
+                  "replace",
+                  "retain"
+                ]
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "requirementIds": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "evidence": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "target",
+                    "label",
+                    "required"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "target": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "successorTaskId": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              },
+              "additionalSuccessorTaskIds": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "inspection": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "locator",
+                  "observation",
+                  "limitation"
+                ],
+                "properties": {
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "observation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "limitation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 25,
+          "maxItems": 25
+        },
+        "legacyDigests": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "curriculum/aufbaukurs-informatik/competencies.json",
+            "curriculum/basiskurs-medienbildung/competencies.json",
+            "curriculum/crosswalk.json",
+            "curriculum/extraction-protocol.md",
+            "curriculum/lesehilfe-2026-27/competencies.json",
+            "curriculum/operators.json",
+            "curriculum/progression.md",
+            "curriculum/source-status.md",
+            "docs/fachprofil/ium-gymnasium-5-7.md",
+            "docs/platform/README.md",
+            "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md",
+            "docs/platform/device-verification.md",
+            "docs/platform/implementation-report.md",
+            "docs/research/phase-0/README.md",
+            "docs/research/phase-0/claim-ledger.json",
+            "docs/research/phase-0/curated/01-informatikdidaktik.md",
+            "docs/research/phase-0/curated/02-medienbildung.md",
+            "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md",
+            "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md",
+            "docs/research/phase-0/data-contract.md",
+            "docs/research/phase-0/design-principles.json",
+            "docs/research/phase-0/research-protocol.md",
+            "docs/research/phase-0/source-register.json",
+            "docs/research/phase-0/synthesis.md",
+            "docs/reviews/ium-5-core-05-fach-didaktik.md",
+            "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md",
+            "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md",
+            "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md",
+            "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md",
+            "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md",
+            "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md",
+            "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md",
+            "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md",
+            "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md",
+            "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md",
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md",
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+            "modules/IUM-5-CORE-05/curriculum-mapping.json",
+            "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md",
+            "modules/IUM-5-CORE-05/lernumgebung/content.json",
+            "modules/IUM-5-CORE-05/module.yaml",
+            "packages/export-import/src/import-state.ts",
+            "packages/ium-5-core-05/src/interpreter.ts",
+            "packages/local-state/src/indexeddb-repository.ts",
+            "packages/module-runtime/src/runtime.ts",
+            "pilot/docs/publication-contract.json",
+            "pilot/ium5-gate-b/protocol.json",
+            "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json",
+            "pilot/ium5-gate-b/schemas/technical-evidence.schema.json",
+            "pilot/pilot-protocol.json",
+            "roadmap/coverage-plan.json",
+            "roadmap/coverage-remediation.json",
+            "roadmap/module-candidates.json",
+            "roadmap/module-roadmap.md",
+            "roadmap/time-model.json",
+            "scripts/validate_ium11.py",
+            "scripts/validate_ium5_gate_b.py"
+          ],
+          "properties": {
+            "curriculum/aufbaukurs-informatik/competencies.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/basiskurs-medienbildung/competencies.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/crosswalk.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/extraction-protocol.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/lesehilfe-2026-27/competencies.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/operators.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/progression.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/source-status.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/fachprofil/ium-gymnasium-5-7.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/README.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/device-verification.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/implementation-report.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/README.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/claim-ledger.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/01-informatikdidaktik.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/02-medienbildung.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/data-contract.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/design-principles.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/research-protocol.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/source-register.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/synthesis.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/reviews/ium-5-core-05-fach-didaktik.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/curriculum-mapping.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/lernumgebung/content.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/module.yaml": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/export-import/src/import-state.ts": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/ium-5-core-05/src/interpreter.ts": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/local-state/src/indexeddb-repository.ts": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/module-runtime/src/runtime.ts": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/docs/publication-contract.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/protocol.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/schemas/technical-evidence.schema.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/pilot-protocol.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/coverage-plan.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/coverage-remediation.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/module-candidates.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/module-roadmap.md": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/time-model.json": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "scripts/validate_ium11.py": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "scripts/validate_ium5_gate_b.py": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "tasks"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "projectId": {
+          "const": "ium-lernwerk"
+        },
+        "asOf": {
+          "const": "2026-09-06"
+        },
+        "tasks": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "state",
+              "vaultNote",
+              "objective",
+              "artifactIds",
+              "dependsOn",
+              "acceptanceCriteria",
+              "execution"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "IUM-V2-SRC",
+                  "IUM-V2-GOV",
+                  "LXF02",
+                  "LXF03",
+                  "LXF04",
+                  "LXF05",
+                  "IUM-V2-R5",
+                  "IUM-V2-R6",
+                  "IUM-V2-R7",
+                  "IUM-V2-FU-TECH",
+                  "IUM-V2-FU-MOD",
+                  "IUM-V2-FU-PILOT"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "state": {
+                "enum": [
+                  "blocked-follow-up",
+                  "completed-foundation",
+                  "planned-rebaseline"
+                ]
+              },
+              "vaultNote": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "objective": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "artifactIds": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "dependsOn": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "acceptanceCriteria": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "execution": {
+                "enum": [
+                  "already-completed-foundation",
+                  "requires-separate-user-order"
+                ]
+              }
+            }
+          },
+          "minItems": 12,
+          "maxItems": 12
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "candidateCommit",
+        "state",
+        "integration",
+        "disposition",
+        "reuseAuthorized",
+        "inspectedFiles",
+        "lessons"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "projectId": {
+          "const": "ium-lernwerk"
+        },
+        "asOf": {
+          "const": "2026-09-06"
+        },
+        "candidateCommit": {
+          "const": "645a1d4ea3c786b08e1320954b522edf86dc9f83"
+        },
+        "state": {
+          "const": "frozen"
+        },
+        "integration": {
+          "const": "unmerged"
+        },
+        "disposition": {
+          "const": "historical-only"
+        },
+        "reuseAuthorized": {
+          "const": false
+        },
+        "inspectedFiles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256",
+              "locator",
+              "observation"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "sha256": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "observation": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "lessons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "finding",
+              "responsePaths",
+              "successorTaskIds"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "finding": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "responsePaths": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "successorTaskIds": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              }
+            }
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "workStatus",
+        "reviewType",
+        "reviewer",
+        "userAcceptance",
+        "baseCommit",
+        "governanceAcceptance",
+        "nextTask",
+        "nextTaskCondition",
+        "contentProduction",
+        "curriculumCoverage",
+        "pilot",
+        "release",
+        "lxp05",
+        "carryForward",
+        "inputDigests"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "projectId": {
+          "const": "ium-lernwerk"
+        },
+        "asOf": {
+          "const": "2026-09-06"
+        },
+        "workStatus": {
+          "const": "review"
+        },
+        "reviewType": {
+          "const": "ai-assisted-document-self-review"
+        },
+        "reviewer": {
+          "const": "Codex"
+        },
+        "userAcceptance": {
+          "const": "pending"
+        },
+        "baseCommit": {
+          "const": "9f52cdc6f5e36b72b7a3fd9e64501ccfc4af2135"
+        },
+        "governanceAcceptance": {
+          "const": "roadmap/v2/foundations/governance/acceptance.json"
+        },
+        "nextTask": {
+          "const": "IUM-V2-R5"
+        },
+        "nextTaskCondition": {
+          "const": "explicit-aud-user-approval"
+        },
+        "contentProduction": {
+          "const": "frozen"
+        },
+        "curriculumCoverage": {
+          "const": "unassessed"
+        },
+        "pilot": {
+          "const": "not-started"
+        },
+        "release": {
+          "const": "closed"
+        },
+        "lxp05": {
+          "const": "frozen-unmerged"
+        },
+        "carryForward": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "sourcePaths",
+              "disposition"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "sourcePaths": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "disposition": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "minItems": 16,
+          "maxItems": 16
+        },
+        "inputDigests": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "curriculum/aufbaukurs-informatik/competencies.json",
+            "curriculum/basiskurs-medienbildung/competencies.json",
+            "curriculum/crosswalk.json",
+            "curriculum/extraction-protocol.md",
+            "curriculum/lesehilfe-2026-27/competencies.json",
+            "curriculum/operators.json",
+            "curriculum/progression.md",
+            "curriculum/source-status.md",
+            "docs/fachprofil/ium-gymnasium-5-7.md",
+            "docs/platform/README.md",
+            "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md",
+            "docs/platform/device-verification.md",
+            "docs/platform/implementation-report.md",
+            "docs/research/phase-0/README.md",
+            "docs/research/phase-0/claim-ledger.json",
+            "docs/research/phase-0/curated/01-informatikdidaktik.md",
+            "docs/research/phase-0/curated/02-medienbildung.md",
+            "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md",
+            "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md",
+            "docs/research/phase-0/data-contract.md",
+            "docs/research/phase-0/design-principles.json",
+            "docs/research/phase-0/research-protocol.md",
+            "docs/research/phase-0/source-register.json",
+            "docs/research/phase-0/synthesis.md",
+            "docs/reviews/ium-5-core-05-fach-didaktik.md",
+            "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md",
+            "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md",
+            "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md",
+            "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md",
+            "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md",
+            "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md",
+            "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md",
+            "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md",
+            "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md",
+            "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md",
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md",
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md",
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md",
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md",
+            "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+            "modules/IUM-5-CORE-05/curriculum-mapping.json",
+            "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md",
+            "modules/IUM-5-CORE-05/lernumgebung/content.json",
+            "modules/IUM-5-CORE-05/module.yaml",
+            "packages/export-import/src/import-state.ts",
+            "packages/ium-5-core-05/src/interpreter.ts",
+            "packages/local-state/src/indexeddb-repository.ts",
+            "packages/module-runtime/src/runtime.ts",
+            "pilot/docs/publication-contract.json",
+            "pilot/ium5-gate-b/protocol.json",
+            "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json",
+            "pilot/ium5-gate-b/schemas/technical-evidence.schema.json",
+            "pilot/pilot-protocol.json",
+            "roadmap/coverage-plan.json",
+            "roadmap/coverage-remediation.json",
+            "roadmap/module-candidates.json",
+            "roadmap/module-roadmap.md",
+            "roadmap/time-model.json",
+            "roadmap/v2/archive/v1-baseline.json",
+            "roadmap/v2/audits/README.md",
+            "roadmap/v2/audits/artifact-inventory.json",
+            "roadmap/v2/audits/follow-up-tasks.json",
+            "roadmap/v2/audits/lxp05-lessons.json",
+            "roadmap/v2/audits/validation-report.md",
+            "roadmap/v2/foundations/curriculum/gap-assessments.json",
+            "roadmap/v2/foundations/curriculum/source-basis.json",
+            "roadmap/v2/foundations/curriculum/status.json",
+            "roadmap/v2/foundations/governance/acceptance.json",
+            "roadmap/v2/foundations/governance/governance-contract.json",
+            "roadmap/v2/foundations/governance/status.json",
+            "roadmap/v2/foundations/learning-experience/evidence-register.json",
+            "roadmap/v2/foundations/learning-experience/experience-gates.json",
+            "roadmap/v2/foundations/learning-experience/learner-profile.json",
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+            "roadmap/v2/foundations/learning-experience/legacy-audit.json",
+            "roadmap/v2/foundations/learning-experience/material-patterns.json",
+            "roadmap/v2/foundations/learning-experience/status.json",
+            "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "roadmap/v2/foundations/sources/source-register.json",
+            "roadmap/v2/foundations/sources/status.json",
+            "roadmap/v2/requirements/requirements.json",
+            "roadmap/v2/status.json",
+            "schemas/v2/artifact-reuse.schema.json",
+            "scripts/validate_ium11.py",
+            "scripts/validate_ium5_gate_b.py"
+          ],
+          "properties": {
+            "curriculum/aufbaukurs-informatik/competencies.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/basiskurs-medienbildung/competencies.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/crosswalk.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/extraction-protocol.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/lesehilfe-2026-27/competencies.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/operators.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/progression.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/source-status.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/fachprofil/ium-gymnasium-5-7.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/device-verification-runs/2026-08-03-managed-ipad-primary.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/device-verification.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/implementation-report.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/claim-ledger.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/01-informatikdidaktik.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/02-medienbildung.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/03-lernpsychologie-unterricht.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/data-contract.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/design-principles.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/research-protocol.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/source-register.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/research/phase-0/synthesis.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/reviews/ium-5-core-05-fach-didaktik.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/plans/2026-08-03-ium-5-core-05-implementation.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-07-29-ium09-curriculare-partial-nacharbeit-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-07-30-ium10-zeitmodell-modulroadmap-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-07-31-ium10-privacy-vertrag-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium-phase2-entwicklungs-und-einsatzgate-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-04-ium-learning-experience-production-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-design-system.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-08-05-ium-learning-experience-reference-designs.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/curriculum-mapping.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/lernumgebung/content.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/module.yaml": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/export-import/src/import-state.ts": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/ium-5-core-05/src/interpreter.ts": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/local-state/src/indexeddb-repository.ts": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "packages/module-runtime/src/runtime.ts": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/docs/publication-contract.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/protocol.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/schemas/technical-evidence.schema.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/pilot-protocol.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/coverage-plan.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/coverage-remediation.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/module-candidates.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/module-roadmap.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/time-model.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/archive/v1-baseline.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/artifact-inventory.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/follow-up-tasks.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/lxp05-lessons.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/validation-report.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/gap-assessments.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/source-basis.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/acceptance.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/governance-contract.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/evidence-register.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/experience-gates.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/learner-profile.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/legacy-audit.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/material-patterns.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/sources/source-register.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/sources/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/requirements/requirements.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "schemas/v2/artifact-reuse.schema.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "scripts/validate_ium11.py": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "scripts/validate_ium5_gate_b.py": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "const": {
+        "schemaVersion": 1,
+        "projectId": "ium-lernwerk",
+        "gate": "IUM-V2-GOV",
+        "state": "approved-by-user",
+        "date": "2026-09-06",
+        "acceptedCommit": "9f52cdc6f5e36b72b7a3fd9e64501ccfc4af2135",
+        "decisionBy": "user",
+        "evidence": {
+          "kind": "vault",
+          "target": "2026-09-03 - IUM-V2-GOV Governance und öffentliche Wahrnehmung konsolidieren",
+          "label": "Explizite Nutzerfreigabe vom 6. September 2026",
+          "required": true
+        },
+        "acceptedOpenQuestionIds": [
+          "GOV-Q-OPERATOR",
+          "GOV-Q-SCHOOL",
+          "GOV-Q-REVIEWERS",
+          "CUR-Q-002",
+          "GOV-Q-RIGHTS"
+        ],
+        "nextTask": "IUM-V2-AUD",
+        "contentProduction": "frozen",
+        "publication": "closed",
+        "pilot": "not-started"
+      }
+    }
+  ]
+}
