@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "projectId": "ium-lernwerk",
-  "asOf": "2026-09-03",
+  "asOf": "2026-09-05",
   "scope": {
     "grades": [5, 6, 7],
     "schoolType": "Gymnasium Baden-Württemberg",
@@ -58,7 +58,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-002",
@@ -99,7 +99,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-003",
@@ -140,7 +140,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-004",
@@ -181,7 +181,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-005",
@@ -222,7 +222,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-006",
@@ -263,7 +263,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-007",
@@ -304,7 +304,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-008",
@@ -345,7 +345,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-009",
@@ -386,7 +386,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     },
     {
       "id": "LXF05-PT-010",
@@ -428,7 +428,7 @@
       ],
       "productDependencies": [],
       "quantifiedRules": [],
-      "status": "working"
+      "status": "reviewed"
     }
   ],
   "walkthroughs": [

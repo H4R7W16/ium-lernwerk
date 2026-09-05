@@ -410,21 +410,21 @@ git commit -m "docs(lxf05): define material and experience grammar"
 - Consumes: learner profile, learning architecture, and material patterns
 - Produces: method-specific pre-production gates and teacher workflow
 
-- [ ] **Step 1: Add failing gate-method tests**
+- [x] **Step 1: Add failing gate-method tests**
 
 Require each gate to define `question`, `evidenceRequired`, `method`, `passCondition`, `failAction`, `ownerRole`, and `statusEffect`. Reject a didactic gate whose method is only `automated-check`; reject any gate that sets `pilot` or `standard` before real use.
 
-- [ ] **Step 2: Run the tests and verify failure**
+- [x] **Step 2: Run the tests and verify failure**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failures naming the missing orchestration and gate artifacts.
 
-- [ ] **Step 3: Write the orchestration standard**
+- [x] **Step 3: Write the orchestration standard**
 
 Cover preparation, opening, teacher modelling, individual and partner work, hold points, observation without personal telemetry, common securing, time variants, technical fallback, absent-result fallback, and re-entry.
 
-- [ ] **Step 4: Encode the gate set**
+- [x] **Step 4: Encode the gate set**
 
 Create gates for:
 
@@ -445,11 +445,11 @@ pilot-boundary
 
 Map every gate to at least one principle and one non-automated review method.
 
-- [ ] **Step 5: Create the human review form**
+- [x] **Step 5: Create the human review form**
 
 The form must record reviewer role, artifact and commit, learner perspective, teacher perspective, observed evidence, uncertainties, decision, required changes, and explicit statement that no learning-effect claim follows from the review.
 
-- [ ] **Step 6: Validate and commit LXF06**
+- [x] **Step 6: Validate and commit LXF06**
 
 Run: `npm run verify:v2`
 
@@ -459,6 +459,8 @@ Expected: pass with `pilot: not-started` and no `standard` artifact.
 git add schemas/v2/experience-gates.schema.json roadmap/v2/foundations/learning-experience/teacher-orchestration.md roadmap/v2/foundations/learning-experience/experience-gates.json roadmap/v2/foundations/learning-experience/review-form.md scripts/validate_v2_rebaseline.py tests/test_validate_v2_rebaseline.py
 git commit -m "docs(lxf06): define orchestration and experience gates"
 ```
+
+LXF06 implementation note (2026-09-05): Gates remain definitions with `executionStatus: not-run`; the blank review form grants no approval. All twelve gates bind to reviewed LXF04 principles and LXF05 patterns. Task 7 remains closed until explicit LXF06 user approval.
 
 ### Task 7 / LXF07: Review and release the foundation at reviewed status
 

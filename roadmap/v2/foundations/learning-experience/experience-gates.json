@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-05",
+  "scope": {
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "level": "E",
+    "maturity": "working",
+    "contentProduction": "frozen",
+    "productBinding": "product-neutral"
+  },
+  "reviewBoundary": {
+    "definitionStatus": "working",
+    "executionStatus": "not-run",
+    "pilot": "not-started",
+    "standardAllowed": false,
+    "learningEffectClaimAllowed": false,
+    "personalTelemetryAllowed": false
+  },
+  "gates": [
+    {
+      "id": "evidence-integrity",
+      "title": "Evidenz und Geltungsgrenzen",
+      "question": "Welche registrierte Quelle trägt über einen begrenzten Claim und ein freigegebenes Prinzip die jeweilige Gestaltungsentscheidung?",
+      "evidenceRequired": [
+        "Quellen-ID, Claim-ID, Prinzip-ID und konkrete Fundstelle mit überprüftem Geltungsbereich.",
+        "Dokumentierte Trennung von empirischem Claim, professioneller Guidance und Projektentscheidung; offene Übertragungsfragen."
+      ],
+      "method": [
+        "source-review",
+        "expert-review",
+        "automated-check"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-004",
+        "LXF04-PR-009",
+        "LXF04-PR-017"
+      ],
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-002",
+        "LXF05-PT-003"
+      ],
+      "passCondition": "Jede tragende Aussage ist ohne Referenzlücke rückverfolgbar; Geltungsbereich und Randbedingungen passen zur Entscheidung. Guidance und technische Tests werden nicht als kausaler Wirkungsnachweis verwendet.",
+      "failAction": "Pflichtlücke schließen oder Aussage begründet zurücknehmen; bis zum erneuten Quellenreview keine Fundamentfreigabe. Optionale historische Lücken als solche kennzeichnen.",
+      "ownerRole": "source-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "goal-action-evidence-alignment",
+      "title": "Ziel, Handlung und Nachweis",
+      "question": "Erzeugt die zentrale Lernhandlung ein Produkt, an dem genau der fachliche Zielzustand beurteilt werden kann?",
+      "evidenceRequired": [
+        "Gegenüberstellung von Zielzustand, Handlung, Produkt und Kriterien im neutralen Lernbogen.",
+        "Begründete Anschlussoptionen für unterschiedliche Produktlagen."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-003"
+      ],
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-004",
+        "LXF05-PT-006"
+      ],
+      "passCondition": "Ziel, Handlung und Produkt betreffen dieselbe fachliche Beziehung; Kriterien erfassen die Eigenleistung und keine bloße Bedienung. Abweichende Produktlagen führen zu fachlich begründeten Anschlussoptionen.",
+      "failAction": "Ziel-Handlungs-Produkt-Kette vor weiterer Ausgestaltung korrigieren; betreffenden Lernbogen erneut fachlich prüfen.",
+      "ownerRole": "subject-didactics-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "cognitive-economy",
+      "title": "Fachliche Verarbeitung und vermeidbare Nebenlast",
+      "question": "Halten Gliederung und Informationshierarchie die notwendige Denkarbeit erreichbar, ohne Such- und Bedienlast hinzuzufügen?",
+      "evidenceRequired": [
+        "Begründete fachliche Segmente, Informationshierarchie und Zuordnungen im neutralen Walkthrough.",
+        "Beschriebene mögliche Sprach-, Such- und Bedienhürden sowie Bedingungen für stärkere Führung."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-004",
+        "LXF04-PR-008",
+        "LXF04-PR-016"
+      ],
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-003",
+        "LXF05-PT-009"
+      ],
+      "passCondition": "Jede Unterteilung und Hervorhebung dient einer benennbaren fachlichen Beziehung. Nötige Information bleibt zugänglich; es gibt keine unbelegte Alters-, Seiten-, Element- oder Minutenregel.",
+      "failAction": "Nebenlast und versteckte Zuordnungen beseitigen, ohne Ziel oder Kernhandlung zu vereinfachen; offene reale Nutzbarkeit später gesondert prüfen.",
+      "ownerRole": "subject-didactics-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "disciplinary-learning-action",
+      "title": "Fachliche Eigenleistung",
+      "question": "Welche Beziehung wird erklärt, konstruiert, ausgeführt, geprüft oder begründet und wo wird die Eigenleistung sichtbar?",
+      "evidenceRequired": [
+        "Benannte Kernhandlung und interpretierbares Zwischen- oder Lernprodukt.",
+        "Begründete Wahl zwischen Modellierung, unterstützter Exploration und eigenständiger Anwendung; Anschluss an Vorwissen."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-005",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-009",
+        "LXF04-PR-013"
+      ],
+      "patternIds": [
+        "LXF05-PT-002",
+        "LXF05-PT-004",
+        "LXF05-PT-008"
+      ],
+      "passCondition": "Beispiel, Exploration und eigene Anwendung sind funktional unterschieden. Eine selbst erzeugte Erklärung, Ausführung, Begründung oder Revision trägt den Nachweis; bloße Aktivität und Methodenlabels reichen nicht.",
+      "failAction": "Kernhandlung und eigene Anwendung ergänzen oder neu entwerfen; bei fehlendem Anschlusswissen Modellierung vorsehen statt unbegründeter Exploration.",
+      "ownerRole": "subject-didactics-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "representation-coherence",
+      "title": "Kohärente Repräsentationen",
+      "question": "Beziehen sich Material, Begriffe, Signale und Zustände nachvollziehbar auf dieselbe fachliche Beziehung?",
+      "evidenceRequired": [
+        "Zuordnung zusammengehöriger Begriffe, Zustände und Repräsentationen samt nicht ausschließlich farblicher Kennzeichnung.",
+        "Prüfbarer Vergleich von Ausgangs-, Ausführungs- und Ergebniszustand sowie Alternativdarstellung."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-017"
+      ],
+      "patternIds": [
+        "LXF05-PT-003",
+        "LXF05-PT-004",
+        "LXF05-PT-010"
+      ],
+      "passCondition": "Bezeichnungen und Zustände sind konsistent; jede Darstellung und jedes Signal hat eine Lernfunktion. Zeitliche Veränderungen bleiben schrittweise oder statisch nachvollziehbar.",
+      "failAction": "Widersprüchliche Zustände, dekorative Darstellungen und unauflösbare Referenzen korrigieren; anschließend fachlichen Zuordnungsreview wiederholen.",
+      "ownerRole": "subject-didactics-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "support-without-task-removal",
+      "title": "Hilfe mit erhaltener Kernhandlung",
+      "question": "Adressiert die Hilfe eine erkennbare Hürde und führt sie zu einem eigenen fachlichen Schritt zurück?",
+      "evidenceRequired": [
+        "Hürde, Auslöser, Unterstützungsform, Rücknahmepunkt und erwartetes Produkt nach Hilfe.",
+        "Unterscheidung von vollständiger Modellierung und Hilfe innerhalb eigenständiger Anwendung."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-013"
+      ],
+      "patternIds": [
+        "LXF05-PT-002",
+        "LXF05-PT-005",
+        "LXF05-PT-010"
+      ],
+      "passCondition": "Hilfe beseitigt eine Zugangs- oder Bearbeitungshürde, ohne den nachzuweisenden Kernschritt zu lösen. Rücknahme folgt sichtbarer Bewältigung; Lern- und Leistungsaufgabe bleiben getrennt.",
+      "failAction": "Hilfekette auf die Hürde begrenzen und eigene Anschlussleistung wiederherstellen; fehlende Voraussetzung durch ausdrücklichen Wechsel zur Modellierung behandeln.",
+      "ownerRole": "subject-didactics-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "feedback-and-next-action",
+      "title": "Rückmeldung, Abruf und Weiterarbeit",
+      "question": "Eröffnet Rückmeldung einen fachlich überprüfbaren nächsten Schritt, für den tatsächlich Weiterarbeit vorgesehen ist?",
+      "evidenceRequired": [
+        "Kriterium, konkrete Produktstelle, Rückmeldung sowie Ausgangs- und Revisionsstand.",
+        "Gesonderte Nachweisbedingungen für unmittelbare Anwendung, verzögerten Abruf und Transfer; vorgesehene Zeit für Feedbacknutzung."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-010",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-014",
+        "LXF04-PR-015"
+      ],
+      "patternIds": [
+        "LXF05-PT-006",
+        "LXF05-PT-007",
+        "LXF05-PT-008"
+      ],
+      "passCondition": "Feedback kann am selben Kriterium in eine eigene Prüfung oder Revision umgesetzt werden. Anwendung, späterer Abruf und Transfer bleiben getrennt; Erledigung und richtig-falsch allein tragen keinen Lernnachweis.",
+      "failAction": "Nutzbaren Revisionsschritt und Zeit dafür sichern; fehlenden Abruf oder Transfer als offenen Nachweis führen statt aus unmittelbarem Erfolg abzuleiten.",
+      "ownerRole": "subject-didactics-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "orientation-and-recovery",
+      "title": "Orientierung und ehrliche Wiederaufnahme",
+      "question": "Sind Ziel, Arbeitsstand, Hilfeweg und nächste Handlung auch nach Unterbrechung oder Verlust verständlich?",
+      "evidenceRequired": [
+        "Neutraler Wiedereinstiegsfall mit erhaltenem Produkt und ein Fall mit fehlendem oder verlorenem Ergebnis.",
+        "Bezeichneter Stand, rekonstruierbarer Rückkehrpunkt und transparenter Wiederherstellungs- oder Fallbackweg."
+      ],
+      "method": [
+        "content-walkthrough",
+        "expert-review"
+      ],
+      "principleIds": [
+        "LXF04-PR-016",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-007",
+        "LXF05-PT-009",
+        "LXF05-PT-010"
+      ],
+      "passCondition": "Gesicherter, ungesicherter und fehlender Stand werden unterschieden. Verlust wird benannt; ein fachlicher Wiederherstellungsweg ist vorgesehen. Es wird keine verlustfreie Funktion behauptet, die nicht nachgewiesen ist.",
+      "failAction": "Irreführenden Status sperren und Wiederherstellung oder begründete Nachsicherung planen; offene Pflichtfunktion bis zur erneuten Prüfung blockiert lassen.",
+      "ownerRole": "teacher-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "accessibility-and-equivalence",
+      "title": "Zugänglichkeit und fachliche Gleichwertigkeit",
+      "question": "Erhalten alternative Darstellungs-, Bedien- und Ausdruckswege die Kernhandlung und denselben Qualitätsmaßstab?",
+      "evidenceRequired": [
+        "Barriere-Funktions-Matrix für Tastatur, Touch, Text und erforderlichen Print-/Nicht-JavaScript-Fallback.",
+        "Fachlicher Vergleich von Primär- und Alternativpfad sowie explizite Liste technisch noch nicht prüfbarer Funktionen."
+      ],
+      "method": [
+        "accessibility-audit",
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-011",
+        "LXF04-PR-017"
+      ],
+      "patternIds": [
+        "LXF05-PT-003",
+        "LXF05-PT-005",
+        "LXF05-PT-010"
+      ],
+      "passCondition": "Im Vorproduktionsreview sind relevante Barrieren und gleichwertige Funktionsanforderungen beschrieben. Ein fehlender Pflichtpfad gilt nicht als bestanden. Eine technische Konformitäts- oder Nutzungsaussage setzt später eigene reale Nachweise voraus.",
+      "failAction": "Ungleichwertigen Alternativpfad überarbeiten. Fehlende Pflichtfunktion blockiert das betroffene Gate; ohne Produkt nicht ausführbare Technikprüfung als spätere Prüfung mit Zuständigkeit und Auslöser dokumentieren.",
+      "ownerRole": "accessibility-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "teacher-orchestration",
+      "title": "Führbarer Unterricht und Kooperation",
+      "question": "Kann die Lehrkraft den Lernbogen vorbereiten, beobachten, an Haltepunkten steuern und fachlich sichern?",
+      "evidenceRequired": [
+        "Vorbereitung, Auftakt, Modellierung, Sozialformwahl, Haltepunkte, Beobachtungsfragen, Zeitvarianten, Sicherung und Fallbacks.",
+        "Bei Kooperation: individueller Beitrag, Austauschfunktion, Gruppen-Minimalprodukt, Zwischenkontrolle, Zusammenführung und individuelle Anschlussleistung."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-003",
+        "LXF04-PR-009",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-018"
+      ],
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-002",
+        "LXF05-PT-005",
+        "LXF05-PT-006",
+        "LXF05-PT-009",
+        "LXF05-PT-010"
+      ],
+      "passCondition": "Übergänge reagieren auf Produktlagen; Zeitvarianten bewahren Kernhandlung, Feedback und Sicherung. Kooperation ist begründet oder bewusst nicht gewählt. Für Technik-, Ergebnis- und Partnerausfall existiert eine fachlich gleichwertige Reaktion.",
+      "failAction": "Nicht führbare Übergänge und fehlende Haltepunkte nacharbeiten; bei Ausfall eine begründete Alternative festlegen. Keine universelle Sozialform oder pauschale Minutenvorgabe einsetzen.",
+      "ownerRole": "teacher-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "privacy-and-emotional-safety",
+      "title": "Aufgabenbezogene Beobachtung und Schutz",
+      "question": "Bleiben Beobachtung und Rückmeldung fachbezogen, ohne persönliche Offenlegung, Ranking oder dauerhafte Personenprofile?",
+      "evidenceRequired": [
+        "Beobachtungs- und Reviewbogen ohne Lernendenkennungen, Klickverläufe oder individuelle Nutzungsprofile.",
+        "Fiktiver oder sachbezogener Bearbeitungsweg ohne persönliche Offenlegung und Vorgehen bei belastenden oder bloßstellenden Situationen."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-002",
+        "LXF04-PR-010",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-005",
+        "LXF05-PT-006",
+        "LXF05-PT-009"
+      ],
+      "passCondition": "Belege dokumentieren Aufgabenlage, Produktmerkmal und nächste Handlung ohne personenbezogene Telemetrie oder öffentliche Defizitlabels. Ein sachbezogener Ersatzweg erhält das Lernziel; offene Rechts- und Publikationsfragen bleiben IUM-V2-GOV zugeordnet.",
+      "failAction": "Personenbezug oder Bloßstellung aus dem Entwurf entfernen, problematische Situation unterbrechen und geschützten Ersatzweg entwickeln; konkrete Rechtsfragen nicht durch diesen Designreview als geklärt ausgeben.",
+      "ownerRole": "privacy-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    },
+    {
+      "id": "pilot-boundary",
+      "title": "Prüfnachweis und Pilotgrenze",
+      "question": "Welche Aussage ist durch den vorliegenden Nachweis gedeckt und welche reale Prüfung steht ausdrücklich noch aus?",
+      "evidenceRequired": [
+        "Artefaktversion, vollständiger Commit, Prüfmethode, Beobachtung, Unsicherheit, Entscheidung und erforderliche Nacharbeit je Gate.",
+        "Getrennte Aufstellung von Dokumentenprüfung, technischer Verifikation, realer Nutzungsprüfung und Unterrichtspilot."
+      ],
+      "method": [
+        "expert-review",
+        "content-walkthrough"
+      ],
+      "principleIds": [
+        "LXF04-PR-013",
+        "LXF04-PR-014",
+        "LXF04-PR-015",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "patternIds": [
+        "LXF05-PT-002",
+        "LXF05-PT-006",
+        "LXF05-PT-007",
+        "LXF05-PT-008",
+        "LXF05-PT-010"
+      ],
+      "passCondition": "Ein bestandener Dokumentenreview berechtigt höchstens zur Vorlage in LXF07. Pilot bleibt not-started, Standardisierung und Lernwirksamkeitsbehauptung bleiben unzulässig. Offene reale Prüfungen besitzen einen Auslöser und Verantwortliche.",
+      "failAction": "Unbelegte Reife- oder Wirksamkeitsaussage zurücknehmen; fehlenden Nachweis oder offenen Prüfbedarf sichtbar dokumentieren. LXF07, Pilotierung und Veröffentlichung nicht automatisch öffnen.",
+      "ownerRole": "integration-reviewer",
+      "statusEffect": {
+        "onPass": "eligible-for-lxf07-review",
+        "onFail": "block-foundation-review",
+        "pilot": "not-started",
+        "standardAllowed": false
+      }
+    }
+  ],
+  "walkthroughBindings": [
+    {
+      "walkthroughId": "entry",
+      "gateIds": [
+        "evidence-integrity",
+        "goal-action-evidence-alignment",
+        "cognitive-economy",
+        "orientation-and-recovery",
+        "teacher-orchestration",
+        "privacy-and-emotional-safety"
+      ]
+    },
+    {
+      "walkthroughId": "central-learning-action",
+      "gateIds": [
+        "goal-action-evidence-alignment",
+        "disciplinary-learning-action",
+        "representation-coherence",
+        "support-without-task-removal",
+        "feedback-and-next-action",
+        "accessibility-and-equivalence",
+        "teacher-orchestration",
+        "privacy-and-emotional-safety"
+      ]
+    },
+    {
+      "walkthroughId": "securing-and-reentry",
+      "gateIds": [
+        "feedback-and-next-action",
+        "orientation-and-recovery",
+        "accessibility-and-equivalence",
+        "teacher-orchestration",
+        "pilot-boundary"
+      ]
+    }
+  ]
+}

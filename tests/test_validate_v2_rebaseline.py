@@ -43,6 +43,10 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/material-patterns.json fehlt",
     "roadmap/v2/foundations/learning-experience/material-experience-guide.md fehlt",
     "schemas/v2/material-patterns.schema.json fehlt",
+    "roadmap/v2/foundations/learning-experience/experience-gates.json fehlt",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md fehlt",
+    "roadmap/v2/foundations/learning-experience/review-form.md fehlt",
+    "schemas/v2/experience-gates.schema.json fehlt",
 ]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
@@ -4215,6 +4219,180 @@ class ValidateV2RebaselineTests(unittest.TestCase):
                     f"V2-Curriculumlücke {competency_id} muss bis zur fachlichen Entscheidung {expected_state} bleiben",
                     errors,
                 )
+
+
+LXF06_FILES = [
+    "roadmap/v2/foundations/learning-experience/experience-gates.json",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+    "roadmap/v2/foundations/learning-experience/review-form.md",
+    "schemas/v2/experience-gates.schema.json",
+]
+LXF06_GATE_IDS = [
+    "evidence-integrity", "goal-action-evidence-alignment", "cognitive-economy",
+    "disciplinary-learning-action", "representation-coherence",
+    "support-without-task-removal", "feedback-and-next-action",
+    "orientation-and-recovery", "accessibility-and-equivalence",
+    "teacher-orchestration", "privacy-and-emotional-safety", "pilot-boundary",
+]
+
+
+class ExperienceGateTests(unittest.TestCase):
+    """Protect the boundary between a review definition and actual review evidence."""
+
+    def setUp(self):
+        base = PROJECT_ROOT / "roadmap/v2/foundations/learning-experience"
+        self.architecture = json.loads((base / "learning-architecture.json").read_text(encoding="utf-8"))
+        self.patterns = json.loads((base / "material-patterns.json").read_text(encoding="utf-8"))
+        self.contract = {
+            "schemaVersion": 1, "projectId": "ium-lernwerk", "asOf": "2026-09-05",
+            "scope": copy.deepcopy(self.patterns["scope"]),
+            "reviewBoundary": {
+                "definitionStatus": "working", "executionStatus": "not-run",
+                "pilot": "not-started", "standardAllowed": False,
+                "learningEffectClaimAllowed": False, "personalTelemetryAllowed": False,
+            },
+            "gates": [],
+            "walkthroughBindings": [
+                {"walkthroughId": name, "gateIds": list(LXF06_GATE_IDS)}
+                for name in ("entry", "central-learning-action", "securing-and-reentry")
+            ],
+        }
+        for gate_id in LXF06_GATE_IDS:
+            self.contract["gates"].append({
+                "id": gate_id, "title": "Begrenzter Testvertrag",
+                "question": "Ist das fachliche Produkt prüfbar?",
+                "evidenceRequired": ["Ein aufgabenbezogenes Produkt mit Fundstelle."],
+                "method": ["expert-review", "source-review", "accessibility-audit"],
+                "principleIds": ["LXF04-PR-001"], "patternIds": ["LXF05-PT-001"],
+                "passCondition": "Die fachliche Beziehung ist am Produkt erkennbar.",
+                "failAction": "Die Pflichtlücke vor Freigabe schließen und erneut prüfen.",
+                "ownerRole": "subject-didactics-reviewer",
+                "statusEffect": {
+                    "onPass": "eligible-for-lxf07-review", "onFail": "block-foundation-review",
+                    "pilot": "not-started", "standardAllowed": False,
+                },
+            })
+
+    def check(self, data=...):
+        validate = getattr(v2_validator, "validate_experience_gates", None)
+        self.assertTrue(callable(validate), "LXF06 gate validation is not implemented")
+        return validate(self.contract if data is ... else data, self.architecture, self.patterns)
+
+    def test_missing_lxf06_artifacts_block_repository_validation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            errors = validate_repository(Path(directory))
+        for path in LXF06_FILES:
+            self.assertIn(path + " fehlt", errors)
+
+    def test_complete_review_definition_is_accepted_without_claiming_execution(self):
+        self.assertEqual([], self.check())
+
+    def test_each_gate_requires_the_full_method_and_responsibility_contract(self):
+        for field in ("question", "evidenceRequired", "method", "passCondition", "failAction", "ownerRole", "statusEffect", "principleIds", "patternIds"):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.contract)
+                del data["gates"][0][field]
+                self.assertTrue(self.check(data))
+
+    def test_whitespace_is_not_evidence_or_a_pass_condition(self):
+        for field, value in (("question", "  "), ("evidenceRequired", ["\t"]), ("passCondition", "\n"), ("failAction", "")):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.contract)
+                data["gates"][0][field] = value
+                self.assertTrue(self.check(data))
+
+    def test_automated_or_future_usage_methods_cannot_replace_didactic_review(self):
+        for methods in (["automated-check"], ["usability-test"], ["classroom-pilot"], ["source-review"]):
+            with self.subTest(methods=methods):
+                data = copy.deepcopy(self.contract)
+                data["gates"][1]["method"] = methods
+                self.assertTrue(self.check(data))
+
+    def test_source_and_accessibility_gates_require_their_specific_methods(self):
+        for position in (0, 8):
+            with self.subTest(position=position):
+                data = copy.deepcopy(self.contract)
+                data["gates"][position]["method"] = ["expert-review"]
+                self.assertTrue(self.check(data))
+
+    def test_automation_may_supplement_a_suitable_human_review(self):
+        self.contract["gates"][1]["method"] = ["automated-check", "content-walkthrough"]
+        self.assertEqual([], self.check())
+
+    def test_status_effect_cannot_approve_pilot_standard_or_foundation(self):
+        for field, value in (("onPass", "reviewed"), ("onFail", "accept-without-evidence"), ("pilot", "completed"), ("standardAllowed", True), ("standardAllowed", 0)):
+            with self.subTest(field=field, value=value):
+                data = copy.deepcopy(self.contract)
+                data["gates"][0]["statusEffect"][field] = value
+                self.assertTrue(self.check(data))
+
+    def test_definition_cannot_pretend_review_or_real_use_has_occurred(self):
+        for field, value in (("executionStatus", "passed"), ("pilot", "in-progress"), ("standardAllowed", True), ("learningEffectClaimAllowed", True), ("personalTelemetryAllowed", True)):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.contract)
+                data["reviewBoundary"][field] = value
+                self.assertTrue(self.check(data))
+
+    def test_missing_duplicate_and_unknown_gates_are_rejected(self):
+        for mutation in (lambda d: d["gates"].pop(), lambda d: d["gates"].append(copy.deepcopy(d["gates"][0])), lambda d: d["gates"][0].update(id="invented")):
+            data = copy.deepcopy(self.contract)
+            mutation(data)
+            self.assertTrue(self.check(data))
+
+    def test_unknown_or_unreviewed_principles_and_patterns_are_rejected(self):
+        for field in ("principleIds", "patternIds"):
+            data = copy.deepcopy(self.contract)
+            data["gates"][0][field] = ["missing"]
+            self.assertTrue(self.check(data))
+        self.patterns["patterns"][0]["status"] = "working"
+        self.assertTrue(self.check())
+        self.patterns["patterns"][0]["status"] = "reviewed"
+        self.architecture["principleGroups"][0]["principles"][0]["status"] = "draft"
+        self.assertTrue(self.check())
+
+    def test_walkthroughs_require_known_unique_complete_bindings(self):
+        for mutation in (
+            lambda d: d["walkthroughBindings"].pop(),
+            lambda d: d["walkthroughBindings"][0].update(walkthroughId="invented"),
+            lambda d: d["walkthroughBindings"][0].update(gateIds=["missing"]),
+            lambda d: d["walkthroughBindings"][0].update(gateIds=[]),
+            lambda d: d["walkthroughBindings"].append(copy.deepcopy(d["walkthroughBindings"][0])),
+        ):
+            data = copy.deepcopy(self.contract)
+            mutation(data)
+            self.assertTrue(self.check(data))
+
+    def test_malformed_values_fail_closed_instead_of_crashing(self):
+        for value in (None, [], 1, "invalid"):
+            self.assertTrue(self.check(value))
+        for field in ("gates", "scope", "reviewBoundary", "walkthroughBindings"):
+            for value in (None, True, "invalid", [{}]):
+                data = copy.deepcopy(self.contract)
+                data[field] = value
+                self.assertTrue(self.check(data))
+        for field in ("id", "ownerRole", "method", "statusEffect", "principleIds", "patternIds"):
+            for value in ({}, [None], 1, False):
+                data = copy.deepcopy(self.contract)
+                data["gates"][0][field] = value
+                self.assertTrue(self.check(data))
+
+    def test_unknown_fields_and_duplicate_references_are_rejected(self):
+        for mutate in (
+            lambda d: d.update(pilot="completed"),
+            lambda d: d["gates"][0].update(result="passed"),
+            lambda d: d["gates"][0]["statusEffect"].update(release=True),
+            lambda d: d["gates"][0].update(principleIds=["LXF04-PR-001", "LXF04-PR-001"]),
+            lambda d: d["gates"][0].update(method=["expert-review", "expert-review"]),
+        ):
+            data = copy.deepcopy(self.contract)
+            mutate(data)
+            self.assertTrue(self.check(data))
+
+    def test_real_gate_contract_is_consumed_by_repository_validation(self):
+        path = PROJECT_ROOT / LXF06_FILES[0]
+        self.assertTrue(path.is_file(), "LXF06 experience-gates.json is missing")
+        self.assertEqual([], self.check(json.loads(path.read_text(encoding="utf-8"))))
+        self.assertEqual([], validate_repository(PROJECT_ROOT))
 
 
 if __name__ == "__main__":

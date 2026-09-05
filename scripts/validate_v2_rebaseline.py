@@ -38,7 +38,37 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/learning-experience/material-patterns.json"),
     Path("roadmap/v2/foundations/learning-experience/material-experience-guide.md"),
     Path("schemas/v2/material-patterns.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/experience-gates.json"),
+    Path("roadmap/v2/foundations/learning-experience/teacher-orchestration.md"),
+    Path("roadmap/v2/foundations/learning-experience/review-form.md"),
+    Path("schemas/v2/experience-gates.schema.json"),
 )
+
+EXPERIENCE_GATE_IDS = {
+    "evidence-integrity", "goal-action-evidence-alignment", "cognitive-economy",
+    "disciplinary-learning-action", "representation-coherence",
+    "support-without-task-removal", "feedback-and-next-action",
+    "orientation-and-recovery", "accessibility-and-equivalence",
+    "teacher-orchestration", "privacy-and-emotional-safety", "pilot-boundary",
+}
+EXPERIENCE_OWNER_ROLES = {
+    "source-reviewer", "subject-didactics-reviewer", "accessibility-reviewer",
+    "teacher-reviewer", "privacy-reviewer", "integration-reviewer",
+}
+EXPERIENCE_SCOPE = {
+    "grades": [5, 6, 7], "schoolType": "Gymnasium Baden-Württemberg", "level": "E",
+    "maturity": "working", "contentProduction": "frozen", "productBinding": "product-neutral",
+}
+EXPERIENCE_REVIEW_BOUNDARY = {
+    "definitionStatus": "working", "executionStatus": "not-run",
+    "pilot": "not-started", "standardAllowed": False,
+    "learningEffectClaimAllowed": False, "personalTelemetryAllowed": False,
+}
+EXPERIENCE_STATUS_EFFECT = {
+    "onPass": "eligible-for-lxf07-review", "onFail": "block-foundation-review",
+    "pilot": "not-started", "standardAllowed": False,
+}
+EXPERIENCE_GATE_SCHEMA_SHA256 = "579921A48DE0307FF970B5407FAA44B402DEB4D34DF7785195C821CE0DA5C0CE"
 
 FULL_SHA_PATTERN = re.compile(r"^[0-9a-f]{40}$")
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -5756,6 +5786,174 @@ def validate_material_patterns(
     return errors
 
 
+def validate_experience_gates(data: object, architecture: object, patterns: object) -> list[str]:
+    """Validate review definitions only; never award didactic or pilot approval."""
+    errors: list[str] = []
+    label = "LXF06"
+    fields = {"schemaVersion", "projectId", "asOf", "scope", "reviewBoundary", "gates", "walkthroughBindings"}
+    if not isinstance(data, dict):
+        return ["LXF06-Gatevertrag muss ein Objekt sein"]
+    errors.extend(_unknown_fields(data, fields, label))
+    errors.extend(_missing_fields(data, fields, label))
+    if type(data.get("schemaVersion")) is not int or data.get("schemaVersion") != 1:
+        errors.append("LXF06 benötigt schemaVersion 1")
+    if data.get("projectId") != "ium-lernwerk":
+        errors.append("LXF06 hat unbekannte projectId")
+    as_of = data.get("asOf")
+    try:
+        if not isinstance(as_of, str) or not DATE_PATTERN.fullmatch(as_of):
+            raise ValueError
+        calendar_date.fromisoformat(as_of)
+    except ValueError:
+        errors.append("LXF06 benötigt ein gültiges asOf-Datum")
+    # JSON equality distinguishes false from zero, unlike Python dict equality.
+    for field, expected in (("scope", EXPERIENCE_SCOPE), ("reviewBoundary", EXPERIENCE_REVIEW_BOUNDARY)):
+        if json.dumps(data.get(field), sort_keys=True) != json.dumps(expected, sort_keys=True):
+            errors.append(f"LXF06 {field} verletzt die Vorproduktionsgrenze")
+
+    principles_by_id: dict[str, dict] = {}
+    groups = architecture.get("principleGroups") if isinstance(architecture, dict) else None
+    for group in groups if isinstance(groups, list) else []:
+        items = group.get("principles") if isinstance(group, dict) else None
+        for item in items if isinstance(items, list) else []:
+            if isinstance(item, dict) and isinstance(item.get("id"), str):
+                principles_by_id[item["id"]] = item
+    patterns_by_id: dict[str, dict] = {}
+    items = patterns.get("patterns") if isinstance(patterns, dict) else None
+    for item in items if isinstance(items, list) else []:
+        if isinstance(item, dict) and isinstance(item.get("id"), str):
+            patterns_by_id[item["id"]] = item
+            if item.get("status") != "reviewed":
+                errors.append(f"LXF06 benötigt freigegebenes Pattern {item['id']}")
+    if not principles_by_id or not patterns_by_id:
+        errors.append("LXF06 benötigt LXF04- und LXF05-Voraussetzungen")
+
+    gates = data.get("gates")
+    if not isinstance(gates, list):
+        errors.append("LXF06 gates muss eine Liste sein")
+        gates = []
+    if len(gates) != len(EXPERIENCE_GATE_IDS):
+        errors.append("LXF06 benötigt genau zwölf Pflichtgates")
+    seen: set[str] = set()
+    gate_fields = {
+        "id", "title", "question", "evidenceRequired", "method", "principleIds",
+        "patternIds", "passCondition", "failAction", "ownerRole", "statusEffect",
+    }
+    for position, gate in enumerate(gates):
+        if not isinstance(gate, dict):
+            errors.append(f"LXF06 Gate {position} muss ein Objekt sein")
+            continue
+        gate_id = gate.get("id")
+        gate_label = f"LXF06 Gate {gate_id}" if isinstance(gate_id, str) else f"LXF06 Gate {position}"
+        errors.extend(_unknown_fields(gate, gate_fields, gate_label))
+        errors.extend(_missing_fields(gate, gate_fields, gate_label))
+        if not isinstance(gate_id, str) or gate_id not in EXPERIENCE_GATE_IDS:
+            errors.append(f"{gate_label} hat unbekannte id")
+        elif gate_id in seen:
+            errors.append(f"{gate_label} ist doppelt")
+        else:
+            seen.add(gate_id)
+        for field in ("title", "question", "passCondition", "failAction"):
+            if not _nonempty_string(gate.get(field)):
+                errors.append(f"{gate_label} benötigt {field}")
+        lists = {}
+        for field in ("evidenceRequired", "method", "principleIds", "patternIds"):
+            field_errors, values = _validate_lxf04_string_list(gate.get(field), gate_label, field)
+            errors.extend(field_errors)
+            lists[field] = values
+        methods = set(lists["method"])
+        if not methods <= LEARNING_ARCHITECTURE_VERIFICATION_METHODS:
+            errors.append(f"{gate_label} hat unbekannte Prüfmethode")
+        if gate_id == "evidence-integrity":
+            if "source-review" not in methods:
+                errors.append(f"{gate_label} benötigt source-review")
+        elif not methods.intersection({"expert-review", "content-walkthrough"}):
+            errors.append(f"{gate_label} benötigt fachlichen Review; Automation oder spätere Nutzung allein reicht nicht")
+        if gate_id == "accessibility-and-equivalence" and "accessibility-audit" not in methods:
+            errors.append(f"{gate_label} benötigt accessibility-audit und fachlichen Äquivalenzreview")
+        for field, targets in (("principleIds", principles_by_id), ("patternIds", patterns_by_id)):
+            for reference in lists[field]:
+                target = targets.get(reference)
+                if target is None or target.get("status") != "reviewed":
+                    errors.append(f"{gate_label} benötigt bekannte, reviewed {field}: {reference}")
+        role = gate.get("ownerRole")
+        if not isinstance(role, str) or role not in EXPERIENCE_OWNER_ROLES:
+            errors.append(f"{gate_label} benötigt bekannte ownerRole")
+        if json.dumps(gate.get("statusEffect"), sort_keys=True) != json.dumps(EXPERIENCE_STATUS_EFFECT, sort_keys=True):
+            errors.append(f"{gate_label} statusEffect darf weder Pilot, Standard noch Fundament freigeben")
+    if seen != EXPERIENCE_GATE_IDS:
+        errors.append("LXF06 Pflichtgates sind unvollständig")
+
+    expected_walkthroughs = {"entry", "central-learning-action", "securing-and-reentry"}
+    actual_walkthroughs = set()
+    source_walkthroughs = patterns.get("walkthroughs") if isinstance(patterns, dict) else None
+    for item in source_walkthroughs if isinstance(source_walkthroughs, list) else []:
+        if isinstance(item, dict) and isinstance(item.get("id"), str):
+            actual_walkthroughs.add(item["id"])
+    if not expected_walkthroughs <= actual_walkthroughs:
+        errors.append("LXF06 benötigt die drei LXF05-Walkthroughs")
+    bindings = data.get("walkthroughBindings")
+    if not isinstance(bindings, list):
+        errors.append("LXF06 walkthroughBindings muss eine Liste sein")
+        bindings = []
+    if len(bindings) != 3:
+        errors.append("LXF06 benötigt drei Walkthrough-Zuordnungen")
+    bound_walkthroughs: set[str] = set()
+    bound_gates: set[str] = set()
+    for binding in bindings:
+        if not isinstance(binding, dict):
+            errors.append("LXF06 Walkthrough-Zuordnung muss ein Objekt sein")
+            continue
+        fields = {"walkthroughId", "gateIds"}
+        errors.extend(_unknown_fields(binding, fields, "LXF06 Walkthrough"))
+        errors.extend(_missing_fields(binding, fields, "LXF06 Walkthrough"))
+        name = binding.get("walkthroughId")
+        if not isinstance(name, str) or name not in expected_walkthroughs or name in bound_walkthroughs:
+            errors.append("LXF06 Walkthrough-ID ist unbekannt oder doppelt")
+        else:
+            bound_walkthroughs.add(name)
+        list_errors, ids = _validate_lxf04_string_list(binding.get("gateIds"), "LXF06 Walkthrough", "gateIds")
+        errors.extend(list_errors)
+        for gate_id in ids:
+            if gate_id not in seen:
+                errors.append(f"LXF06 Walkthrough referenziert unbekanntes Gate {gate_id}")
+            else:
+                bound_gates.add(gate_id)
+    if bound_walkthroughs != expected_walkthroughs or bound_gates != EXPERIENCE_GATE_IDS:
+        errors.append("LXF06 Walkthrough-Zuordnungen lassen Pflichtgates ungeprüft")
+    return errors
+
+
+def validate_experience_gate_artifacts(root: Path) -> list[str]:
+    """Check readable required artifacts and protect the independent schema contract."""
+    errors = []
+    for relative in (
+        "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+        "roadmap/v2/foundations/learning-experience/review-form.md",
+    ):
+        path = root / relative
+        if not path.is_file():
+            continue  # Missing files are reported once via CONTROL_FILES.
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError):
+            errors.append(f"LXF06 {relative} ist nicht als UTF-8 lesbar")
+        else:
+            if not text.strip():
+                errors.append(f"LXF06 {relative} ist leer")
+    schema_path = root / "schemas/v2/experience-gates.schema.json"
+    if schema_path.is_file():
+        try:
+            schema = load_json(schema_path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append("LXF06-Schema ist kein gültiges JSON")
+        else:
+            canonical = json.dumps(schema, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+            if hashlib.sha256(canonical).hexdigest().upper() != EXPERIENCE_GATE_SCHEMA_SHA256:
+                errors.append("LXF06-Schema weicht von der versiegelten Definition ab")
+    return errors
+
+
 def validate_material_patterns_schema(root: Path) -> list[str]:
     relative_path = Path("schemas/v2/material-patterns.schema.json")
     path = root / relative_path
@@ -6389,6 +6587,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
     material_patterns_path = Path(
         "roadmap/v2/foundations/learning-experience/material-patterns.json"
     )
+    material_patterns: object = {}
     path = root / material_patterns_path
     if path.is_file():
         try:
@@ -6396,6 +6595,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         except (OSError, UnicodeError, json.JSONDecodeError):
             errors.append(f"{material_patterns_path.as_posix()} ist kein gültiges JSON")
         else:
+            material_patterns = data
             errors.extend(
                 validate_material_patterns(
                     data,
@@ -6409,6 +6609,15 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         if not error.startswith("LXF05-Schema fehlt:")
     )
     errors.extend(validate_material_experience_guide(root))
+    experience_gates_path = root / "roadmap/v2/foundations/learning-experience/experience-gates.json"
+    if experience_gates_path.is_file():
+        try:
+            data = load_json(experience_gates_path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append("LXF06 experience-gates.json ist kein gültiges JSON")
+        else:
+            errors.extend(validate_experience_gates(data, learning_architecture, material_patterns))
+    errors.extend(validate_experience_gate_artifacts(root))
     return errors, warnings
 
 

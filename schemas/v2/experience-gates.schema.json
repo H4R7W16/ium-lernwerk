@@ -1,0 +1,482 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/H4R7W16/ium-lernwerk/schemas/v2/experience-gates.schema.json",
+  "title": "IuM V2 Experience Gate Definitions",
+  "x-iumSemanticValidation": {
+    "structuralValidator": "json-schema",
+    "referenceValidator": "scripts/validate_v2_rebaseline.py",
+    "authoritativeGate": "method-specific-human-review",
+    "automatedSemanticProof": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "asOf",
+    "scope",
+    "reviewBoundary",
+    "gates",
+    "walkthroughBindings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "projectId": {
+      "const": "ium-lernwerk"
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "scope": {
+      "const": {
+        "grades": [
+          5,
+          6,
+          7
+        ],
+        "schoolType": "Gymnasium Baden-Württemberg",
+        "level": "E",
+        "maturity": "working",
+        "contentProduction": "frozen",
+        "productBinding": "product-neutral"
+      }
+    },
+    "reviewBoundary": {
+      "const": {
+        "definitionStatus": "working",
+        "executionStatus": "not-run",
+        "pilot": "not-started",
+        "standardAllowed": false,
+        "learningEffectClaimAllowed": false,
+        "personalTelemetryAllowed": false
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "$ref": "#/$defs/gate"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "evidence-integrity"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "goal-action-evidence-alignment"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "cognitive-economy"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "disciplinary-learning-action"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "representation-coherence"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "support-without-task-removal"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "feedback-and-next-action"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "orientation-and-recovery"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "accessibility-and-equivalence"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "teacher-orchestration"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "privacy-and-emotional-safety"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "pilot-boundary"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "walkthroughBindings": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/binding"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "walkthroughId"
+            ],
+            "properties": {
+              "walkthroughId": {
+                "const": "entry"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "walkthroughId"
+            ],
+            "properties": {
+              "walkthroughId": {
+                "const": "central-learning-action"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "walkthroughId"
+            ],
+            "properties": {
+              "walkthroughId": {
+                "const": "securing-and-reentry"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": ".*\\S.*"
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "question",
+        "evidenceRequired",
+        "method",
+        "principleIds",
+        "patternIds",
+        "passCondition",
+        "failAction",
+        "ownerRole",
+        "statusEffect"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "evidence-integrity",
+            "goal-action-evidence-alignment",
+            "cognitive-economy",
+            "disciplinary-learning-action",
+            "representation-coherence",
+            "support-without-task-removal",
+            "feedback-and-next-action",
+            "orientation-and-recovery",
+            "accessibility-and-equivalence",
+            "teacher-orchestration",
+            "privacy-and-emotional-safety",
+            "pilot-boundary"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "question": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "evidenceRequired": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "method": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "source-review",
+              "expert-review",
+              "content-walkthrough",
+              "automated-check",
+              "accessibility-audit",
+              "usability-test",
+              "classroom-pilot"
+            ]
+          }
+        },
+        "principleIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^LXF04-PR-[0-9]{3}$"
+          }
+        },
+        "patternIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^LXF05-PT-[0-9]{3}$"
+          }
+        },
+        "passCondition": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "failAction": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "ownerRole": {
+          "type": "string",
+          "enum": [
+            "source-reviewer",
+            "subject-didactics-reviewer",
+            "accessibility-reviewer",
+            "teacher-reviewer",
+            "privacy-reviewer",
+            "integration-reviewer"
+          ]
+        },
+        "statusEffect": {
+          "const": {
+            "onPass": "eligible-for-lxf07-review",
+            "onFail": "block-foundation-review",
+            "pilot": "not-started",
+            "standardAllowed": false
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "const": "evidence-integrity"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "method": {
+                "contains": {
+                  "const": "source-review"
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "method": {
+                "contains": {
+                  "enum": [
+                    "expert-review",
+                    "content-walkthrough"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "const": "accessibility-and-equivalence"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "method": {
+                "contains": {
+                  "const": "accessibility-audit"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "walkthroughId",
+        "gateIds"
+      ],
+      "properties": {
+        "walkthroughId": {
+          "type": "string",
+          "enum": [
+            "entry",
+            "central-learning-action",
+            "securing-and-reentry"
+          ]
+        },
+        "gateIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "evidence-integrity",
+              "goal-action-evidence-alignment",
+              "cognitive-economy",
+              "disciplinary-learning-action",
+              "representation-coherence",
+              "support-without-task-removal",
+              "feedback-and-next-action",
+              "orientation-and-recovery",
+              "accessibility-and-equivalence",
+              "teacher-orchestration",
+              "privacy-and-emotional-safety",
+              "pilot-boundary"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

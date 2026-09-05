@@ -1,7 +1,11 @@
 # LXF05 Material- und Experience-Grammatik
 
-**Status:** `working`  
-**Stichtag:** 2026-09-03  
+**Status der LXF05-Muster:** `reviewed` (Nutzerfreigabe 2026-09-05)
+
+**Status des Gesamtfundaments:** `working` bis zum gesonderten LXF07-Review
+
+**Stichtag:** 2026-09-05
+
 **Geltung:** Gymnasium Baden-Württemberg, Niveau E, Klassen 5–7  
 **Voraussetzung:** freigegebener LXF04-Lernarchitektur-Vertrag  
 **Produktbindung:** `product-neutral`  
@@ -19,7 +23,7 @@ Es entstehen ausdrücklich:
 - kein Produktentscheid und keine Übernahme von LXP05;
 - kein Pilot-, Wirksamkeits-, Release- oder Cutover-Nachweis.
 
-Die zehn Muster stehen auf `working`. Sie werden erst nach eigenem Review freigegeben. Technische Prüfbarkeit ersetzt weder fachlichen Review noch Nutzungserprobung.
+Die zehn Muster wurden nach ihrem fachlichen Abschlussreview am 5. September 2026 ausdrücklich vom Nutzer freigegeben und stehen auf `reviewed`. Die Freigabe gilt für LXF05 als Grundlage von LXF06. Das Gesamtfundament bleibt bis zum gesonderten LXF07-Review `working`. Technische Prüfbarkeit ersetzt weder fachlichen Review noch Nutzungserprobung.
 
 ## Globale Gestaltungsregeln
 
@@ -196,4 +200,4 @@ WU-Check
 
 ## Übergabegrenze
 
-LXF05 liefert einen Patternvertrag und drei neutrale Walkthroughs. LXF06 darf darauf Orchestrierungsstandard und Experience-Gates aufbauen, aber erst nach ausdrücklicher Nutzerfreigabe von LXF05. Ein neutraler Referenzslice, konkrete Module, visuelles Design, Produktkomponenten, LXP05-Integration, Pilotierung, Veröffentlichung und Cutover bleiben geschlossen.
+LXF05 liefert einen Patternvertrag und drei neutrale Walkthroughs. Die ausdrückliche Nutzerfreigabe vom 5. September 2026 öffnet LXF06 als nächsten einzelnen Umsetzungsschritt für Orchestrierungsstandard und Experience-Gates. Ein neutraler Referenzslice, konkrete Module, visuelles Design, Produktkomponenten, LXP05-Integration, Pilotierung, Veröffentlichung und Cutover bleiben geschlossen.
