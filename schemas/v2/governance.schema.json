@@ -1,0 +1,565 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.invalid/schemas/v2/governance.schema.json",
+  "title": "IUM-V2-GOV Vorproduktionsvertrag und Reviewstatus",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "requirementIds",
+        "boundaries",
+        "forbiddenClaims",
+        "roles",
+        "claims",
+        "openQuestions",
+        "rechecks",
+        "sources"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "projectId": {
+          "const": "ium-lernwerk"
+        },
+        "asOf": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "requirementIds": {
+          "const": [
+            "V2-REQ-GOV-001"
+          ]
+        },
+        "boundaries": {
+          "const": {
+            "contentProduction": "frozen",
+            "publication": "closed",
+            "classroomPilot": "not-started",
+            "cutover": "not-approved",
+            "automaticPromotion": false,
+            "personalTelemetryAllowed": false,
+            "privateReflectionCollectionAllowed": false,
+            "realEvidenceInRepositoryAllowed": false,
+            "thirdPartyRelicensingAllowed": false,
+            "fictionalCaseFulfillsOwnReflection": false
+          }
+        },
+        "forbiddenClaims": {
+          "const": [
+            "wissenschaftlich bewiesen",
+            "für alle geeignet",
+            "vollständig barrierefrei",
+            "garantiert lernwirksam"
+          ]
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 13,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "assignedTo",
+              "authority",
+              "responsibility"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "author",
+                  "project-decision",
+                  "subject-didactics-reviewer",
+                  "source-reviewer",
+                  "accessibility-reviewer",
+                  "technical-reviewer",
+                  "teacher-reviewer",
+                  "effect-reviewer",
+                  "privacy-reviewer",
+                  "rights-reviewer",
+                  "integration-reviewer",
+                  "operator",
+                  "school-controller"
+                ]
+              },
+              "assignedTo": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              },
+              "authority": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "responsibility": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "maxItems": 13
+        },
+        "claims": {
+          "type": "array",
+          "minItems": 7,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "minimumEvidence",
+              "reviewerRole",
+              "assessment",
+              "publicUseAllowed",
+              "limitation",
+              "evidencePaths"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "curriculum",
+                  "evidence",
+                  "accessibility",
+                  "technical",
+                  "usage",
+                  "pilot",
+                  "effect"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "minimumEvidence": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "reviewerRole": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "publicUseAllowed": {
+                "type": "boolean"
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "evidencePaths": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              }
+            }
+          },
+          "maxItems": 7
+        },
+        "openQuestions": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "owner",
+              "trigger",
+              "question",
+              "risk",
+              "blocks",
+              "status"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "GOV-Q-OPERATOR",
+                  "GOV-Q-SCHOOL",
+                  "GOV-Q-REVIEWERS",
+                  "CUR-Q-002",
+                  "GOV-Q-RIGHTS"
+                ]
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "trigger": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "question": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "risk": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "blocks": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "maxItems": 5
+        },
+        "rechecks": {
+          "type": "array",
+          "minItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "ownerRole",
+              "trigger",
+              "action"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "law",
+                  "source",
+                  "product",
+                  "rights",
+                  "claim",
+                  "incident"
+                ]
+              },
+              "ownerRole": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "trigger": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "maxItems": 6
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "url",
+              "locator",
+              "kind",
+              "accessed",
+              "limitation"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "GOV-SRC-GDPR",
+                  "GOV-SRC-BW",
+                  "GOV-SRC-CC",
+                  "GOV-SRC-WCAG"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "accessed": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "maxItems": 4
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "id",
+        "asOf",
+        "workStatus",
+        "concept",
+        "reviewType",
+        "reviewer",
+        "userAcceptance",
+        "baseCommit",
+        "lxf07Acceptance",
+        "contentProduction",
+        "pilot",
+        "release",
+        "nextGate",
+        "nextGateCondition",
+        "inputDigests"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "projectId": {
+          "const": "ium-lernwerk"
+        },
+        "id": {
+          "const": "governance"
+        },
+        "asOf": {
+          "const": "2026-09-05"
+        },
+        "workStatus": {
+          "const": "review"
+        },
+        "concept": {
+          "const": "reviewed"
+        },
+        "reviewType": {
+          "const": "ai-assisted-document-self-review"
+        },
+        "reviewer": {
+          "const": "Codex"
+        },
+        "userAcceptance": {
+          "const": "pending"
+        },
+        "baseCommit": {
+          "const": "d11a8bc69775525ec0162516275bb39f5dc9c441"
+        },
+        "lxf07Acceptance": {
+          "const": {
+            "state": "approved-by-user",
+            "date": "2026-09-05",
+            "commit": "d11a8bc69775525ec0162516275bb39f5dc9c441",
+            "evidence": "2026-09-03 - LXF07 Lern- und Experience-Fundament reviewen"
+          }
+        },
+        "contentProduction": {
+          "const": "frozen"
+        },
+        "pilot": {
+          "const": "not-started"
+        },
+        "release": {
+          "const": "closed"
+        },
+        "nextGate": {
+          "const": "IUM-V2-AUD"
+        },
+        "nextGateCondition": {
+          "const": "explicit-gov-user-approval"
+        },
+        "inputDigests": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "LICENSE",
+            "LICENSE-CONTENT.md",
+            "apps/lernwerk-portal/public/asset-licenses.json",
+            "docs/platform/README.md",
+            "docs/platform/device-verification.md",
+            "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md",
+            "license-policy.json",
+            "modules/IUM-5-CORE-05/assets/licenses.json",
+            "pilot/docs/publication-contract.json",
+            "pilot/ium5-gate-b/protocol.json",
+            "roadmap/v2/foundations/curriculum/gap-assessments.json",
+            "roadmap/v2/foundations/curriculum/status.json",
+            "roadmap/v2/foundations/governance/README.md",
+            "roadmap/v2/foundations/governance/governance-contract.json",
+            "roadmap/v2/foundations/governance/inventory.md",
+            "roadmap/v2/foundations/governance/validation-report.md",
+            "roadmap/v2/foundations/learning-experience/evidence-register.json",
+            "roadmap/v2/foundations/learning-experience/experience-gates.json",
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+            "roadmap/v2/foundations/learning-experience/status.json",
+            "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "roadmap/v2/foundations/sources/source-register.json",
+            "roadmap/v2/requirements/requirements.json",
+            "roadmap/v2/status.json",
+            "schemas/v2/governance.schema.json"
+          ],
+          "properties": {
+            "LICENSE": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "LICENSE-CONTENT.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "apps/lernwerk-portal/public/asset-licenses.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/platform/device-verification.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "license-policy.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "modules/IUM-5-CORE-05/assets/licenses.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/docs/publication-contract.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "pilot/ium5-gate-b/protocol.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/gap-assessments.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/governance-contract.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/inventory.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/validation-report.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/evidence-register.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/experience-gates.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/validation-report.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/sources/source-register.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/requirements/requirements.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "schemas/v2/governance.schema.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

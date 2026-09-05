@@ -7,6 +7,11 @@ from datetime import date as calendar_date
 from pathlib import Path, PurePosixPath
 from urllib.parse import urlparse
 
+if __package__:
+    from .validate_v2_governance import validate_repository as validate_governance_repository
+else:
+    from validate_v2_governance import validate_repository as validate_governance_repository
+
 
 CONTROL_FILES = (
     Path("roadmap/v2/status.json"),
@@ -6832,6 +6837,7 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
             errors.append("LXF07 status.json ist kein gültiges JSON")
         else:
             errors.extend(validate_learning_experience_release(data, root, tuple(errors)))
+    errors.extend(validate_governance_repository(root))
     return errors, warnings
 
 

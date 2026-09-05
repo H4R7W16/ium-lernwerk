@@ -51,10 +51,19 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/status.json fehlt",
     "roadmap/v2/foundations/learning-experience/validation-report.md fehlt",
 ]
+MISSING_GOVERNANCE_CONTRACTS = [
+    "roadmap/v2/foundations/governance/governance-contract.json fehlt",
+    "roadmap/v2/foundations/governance/status.json fehlt",
+    "roadmap/v2/foundations/governance/README.md fehlt",
+    "roadmap/v2/foundations/governance/inventory.md fehlt",
+    "roadmap/v2/foundations/governance/validation-report.md fehlt",
+    "schemas/v2/governance.schema.json fehlt",
+]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
     + MISSING_SOURCE_CONTRACTS
     + MISSING_LEARNING_EXPERIENCE_CONTRACTS
+    + MISSING_GOVERNANCE_CONTRACTS
 )
 
 EXPECTED_LP_CLAIMS = {f"CLAIM-LP-{number:03d}" for number in range(1, 14)}

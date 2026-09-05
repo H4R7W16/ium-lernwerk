@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-05",
+  "requirementIds": [
+    "V2-REQ-GOV-001"
+  ],
+  "boundaries": {
+    "contentProduction": "frozen",
+    "publication": "closed",
+    "classroomPilot": "not-started",
+    "cutover": "not-approved",
+    "automaticPromotion": false,
+    "personalTelemetryAllowed": false,
+    "privateReflectionCollectionAllowed": false,
+    "realEvidenceInRepositoryAllowed": false,
+    "thirdPartyRelicensingAllowed": false,
+    "fictionalCaseFulfillsOwnReflection": false
+  },
+  "forbiddenClaims": [
+    "wissenschaftlich bewiesen",
+    "für alle geeignet",
+    "vollständig barrierefrei",
+    "garantiert lernwirksam"
+  ],
+  "roles": [
+    {
+      "id": "author",
+      "assignedTo": "Codex",
+      "authority": "document-preparation",
+      "responsibility": "Erstellt Artefakte, führt technische Prüfungen und gekennzeichneten KI-Selbstreview aus; keine menschliche oder institutionelle Freigabestelle."
+    },
+    {
+      "id": "project-decision",
+      "assignedTo": "Jan",
+      "authority": "project-acceptance",
+      "responsibility": "Entscheidet über fachliche Projektabnahme und getrennte Arbeitsaufträge. Keine automatische Betreiber- oder Schulverantwortung."
+    },
+    {
+      "id": "subject-didactics-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Curriculum-Mapping, Lernhandlungen und Nachweise vor einer konkreten Materialfreigabe."
+    },
+    {
+      "id": "source-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Originalquelle, Aussagegrenze, Aktualität und zulässige Ableitung."
+    },
+    {
+      "id": "accessibility-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft konkrete Oberflächen, assistive Nutzung, Ersatzwege und dokumentierte Einschränkungen."
+    },
+    {
+      "id": "technical-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft exakte Revision, Testumfang und gesonderte reale Geräte-/Netzbefunde."
+    },
+    {
+      "id": "teacher-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Unterrichtsorchestrierung und reale Nutzungs-/Pilotbefunde im beschriebenen Kontext."
+    },
+    {
+      "id": "effect-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Methode, Vergleich, Lernmaße, Unsicherheit und Übertragbarkeit eines späteren Wirkungsnachweises."
+    },
+    {
+      "id": "privacy-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Datenflüsse und Schutzwege, berät; ersetzt den datenschutzrechtlich Verantwortlichen nicht."
+    },
+    {
+      "id": "rights-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Rechtekette, Lizenzbedingungen, Fremdmaterial, Kennzeichnung und Markenfreigaben."
+    },
+    {
+      "id": "integration-reviewer",
+      "assignedTo": null,
+      "authority": "specialist-review",
+      "responsibility": "Prüft Gesamtpaket, offene Findings und Achsengrenzen; integriert keine Freigabe automatisch."
+    },
+    {
+      "id": "operator",
+      "assignedTo": null,
+      "authority": "institutional-release",
+      "responsibility": "Vor Hosting benannte verantwortliche Betreiberstelle bestätigt Betrieb, Impressum, Datenschutz- und Accessibility-Pflichten."
+    },
+    {
+      "id": "school-controller",
+      "assignedTo": null,
+      "authority": "institutional-release",
+      "responsibility": "Vor Schuleinsatz zuständige schulische Stelle entscheidet den konkreten Einsatz und die Datenverarbeitung nach Beratung."
+    }
+  ],
+  "claims": [
+    {
+      "id": "curriculum",
+      "label": "curricular zugeordnet",
+      "minimumEvidence": "checked-curriculum-mapping",
+      "reviewerRole": "subject-didactics-reviewer",
+      "assessment": "not-established",
+      "publicUseAllowed": false,
+      "limitation": "V2-Coverage ist unassessed. Das geprüfte Quellenfundament ist keine fertige Zuordnung von V2-Modulen.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/curriculum/status.json",
+        "roadmap/v2/requirements/requirements.json"
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "evidenzorientiert gestaltet",
+      "minimumEvidence": "reviewed-evidence-and-design-contract",
+      "reviewerRole": "source-reviewer",
+      "assessment": "foundation-only",
+      "publicUseAllowed": false,
+      "limitation": "LXF07 ist als Dokumentenfundament reviewed und vom Nutzer abgenommen; V2-Materialien sind noch nicht produziert.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json",
+        "roadmap/v2/foundations/learning-experience/evidence-register.json",
+        "roadmap/v2/foundations/learning-experience/learning-architecture.json"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "label": "barrierearm entwickelt",
+      "minimumEvidence": "scoped-accessibility-review-with-limitations",
+      "reviewerRole": "accessibility-reviewer",
+      "assessment": "foundation-only",
+      "publicUseAllowed": false,
+      "limitation": "LXF07 prüft Barrieren auf Dokumentenebene. Das ist kein Accessibility-Audit einer implementierten V2-Oberfläche und keine WCAG-Konformität.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/learning-experience/validation-report.md",
+        "docs/platform/device-verification.md"
+      ]
+    },
+    {
+      "id": "technical",
+      "label": "technisch verifiziert",
+      "minimumEvidence": "tests-at-exact-revision",
+      "reviewerRole": "technical-reviewer",
+      "assessment": "foundation-only",
+      "publicUseAllowed": false,
+      "limitation": "Technische Prüfungen des LXF07-Fundaments sind im Bericht dokumentiert; Aussage nur für diesen Prüfstand und Umfang, keine V2-Produkt- oder Realgerätefreigabe.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json",
+        "roadmap/v2/foundations/learning-experience/validation-report.md"
+      ]
+    },
+    {
+      "id": "usage",
+      "label": "mit Nutzenden geprüft",
+      "minimumEvidence": "documented-participant-walkthrough-or-usability-test",
+      "reviewerRole": "teacher-reviewer",
+      "assessment": "not-established",
+      "publicUseAllowed": false,
+      "limitation": "Drei KI-Dokumentenwalkthroughs aus zwei Perspektiven sind keine Beobachtungen realer Nutzender.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ]
+    },
+    {
+      "id": "pilot",
+      "label": "unterrichtlich pilotiert",
+      "minimumEvidence": "documented-classroom-pilot",
+      "reviewerRole": "teacher-reviewer",
+      "assessment": "not-established",
+      "publicUseAllowed": false,
+      "limitation": "Pilot not-started. Synthetische V1-Gate-B-Beispiele und implementierte Protokolle belegen keine Durchführung.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json",
+        "pilot/ium5-gate-b/protocol.json"
+      ]
+    },
+    {
+      "id": "effect",
+      "label": "lernwirksam",
+      "minimumEvidence": "robust-contextualized-learning-effect-evidence",
+      "reviewerRole": "effect-reviewer",
+      "assessment": "not-established",
+      "publicUseAllowed": false,
+      "limitation": "Kein projektbezogener Wirkungsnachweis. Designreview, Studien zu anderen Interventionen, Zufriedenheit und Testanzahlen reichen dafür nicht.",
+      "evidencePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json",
+        "roadmap/v2/foundations/learning-experience/evidence-register.json"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "GOV-Q-OPERATOR",
+      "owner": "project-decision",
+      "trigger": "Vor Hosting oder öffentlicher V2-Prüffassung",
+      "question": "Betreiber, rechtlich Verantwortliche, Kontakt-/Impressum-/Datenschutzhinweise und anwendbare Accessibility-Regeln konkret bestimmen.",
+      "risk": "Ungeklärte Betriebsverantwortung.",
+      "blocks": [
+        "publication"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "GOV-Q-SCHOOL",
+      "owner": "project-decision",
+      "trigger": "Vor Nutzungsprüfung mit Lernenden oder Pilot",
+      "question": "Schule, zuständige Stelle, Datenschutzberatung, Rechtsgrundlage, Datenfluss, Löschfristen und ggf. Auftragsverarbeitung/DSFA prüfen.",
+      "risk": "Unzulässige Verarbeitung oder vorgezogener Schuleinsatz.",
+      "blocks": [
+        "usage",
+        "pilot"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "GOV-Q-REVIEWERS",
+      "owner": "project-decision",
+      "trigger": "Vor konkreter Material-, Produkt- oder öffentlicher Aussagefreigabe",
+      "question": "Erforderliche menschliche Fachprüfende benennen; Autorenschaft, Selbstreview und externe Prüfung offenlegen.",
+      "risk": "KI-Dokumentenreview wird als unabhängige Prüfung ausgegeben.",
+      "blocks": [
+        "publication",
+        "pilot"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "CUR-Q-002",
+      "owner": "IUM-V2-CUR",
+      "trigger": "Vor Modulen mit Reflexion der eigenen Mediennutzung",
+      "question": "Eigenbezug LH26-E-DP-003 schützen, ohne private Aussagen zu erheben; fiktive Schutzfälle erfüllen den Eigenbezug nicht.",
+      "risk": "Curricularer Eigenbezug würde fälschlich als gedeckt markiert.",
+      "blocks": [
+        "own-reflection-module"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "GOV-Q-RIGHTS",
+      "owner": "project-decision",
+      "trigger": "Vor Einbindung oder Veröffentlichung konkreter Assets, Logos und externer Angebote",
+      "question": "Rechteketten und Materiallizenzen einzeln nachweisen; institutionelle Namens-/Logonutzung benötigt eigene belegte Berechtigung.",
+      "risk": "Drittinhalte oder institutionelle Unterstützung werden unberechtigt behauptet.",
+      "blocks": [
+        "publication"
+      ],
+      "status": "open"
+    }
+  ],
+  "rechecks": [
+    {
+      "id": "law",
+      "ownerRole": "privacy-reviewer",
+      "trigger": "Geänderte Rechtslage, neuer Betreiber/Schule/Host/LMS oder geplanter realer Einsatz",
+      "action": "Datenschutz- und Betriebsprüfung erneut vor Nutzung; betroffene Aussage auf gesperrt setzen."
+    },
+    {
+      "id": "source",
+      "ownerRole": "source-reviewer",
+      "trigger": "Quelle korrigiert, zurückgezogen, nicht mehr prüfbar oder wesentlich neu gefasst",
+      "action": "Betroffene Claims, Prinzipien und Muster rückverfolgen; Nachprüfung vor weiterer Behauptung."
+    },
+    {
+      "id": "product",
+      "ownerRole": "technical-reviewer",
+      "trigger": "Änderung an Code, Inhalt, Abhängigkeiten, Browser, Assistenztechnik oder Netz-/LMS-Policy",
+      "action": "Prüfbelege gegen Revision und Testmatrix abgleichen; betroffene Technik-/Accessibility-Aussage sperren."
+    },
+    {
+      "id": "rights",
+      "ownerRole": "rights-reviewer",
+      "trigger": "Neues Asset, bearbeitetes Drittmaterial, neue Lizenz oder Änderung am Ausspielkanal",
+      "action": "Rechte-/Lizenzprüfung und Kennzeichnung erneut ausführen."
+    },
+    {
+      "id": "claim",
+      "ownerRole": "integration-reviewer",
+      "trigger": "Neue Zielgruppe, anderer Jahrgang, größerer Geltungsbereich, anderer Kanal oder neue öffentliche Formulierung",
+      "action": "Mindestnachweis und genaue Formulierung erneut fachlich prüfen; keine automatische Übertragung."
+    },
+    {
+      "id": "incident",
+      "ownerRole": "project-decision",
+      "trigger": "Datenschutzvorfall, Barriere, widersprechender Nutzungsbefund oder falsche öffentliche Aussage",
+      "action": "Betroffene Nutzung/Aussage stoppen, zuständige Stelle einbeziehen, korrigierte Fassung und Wiederfreigabe dokumentieren."
+    }
+  ],
+  "sources": [
+    {
+      "id": "GOV-SRC-GDPR",
+      "title": "EU – DSGVO",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=de",
+      "locator": "Art. 5, 6, 13, 24, 25, 28, 32, 35",
+      "kind": "legal-primary",
+      "accessed": "2026-09-05",
+      "limitation": "Datenminimierung und Rechenschaft; konkrete Anwendbarkeit ist einsatzbezogen zu prüfen."
+    },
+    {
+      "id": "GOV-SRC-BW",
+      "title": "Kultusverwaltung BW – Datenschutz an Schulen",
+      "url": "https://it.kultus-bw.de/,Lde/Datenschutz%2Ban%2BSchulen",
+      "locator": "Rechtsgrundlagen; Pflichten der verantwortlichen Stelle; Angaben im Internetauftritt",
+      "kind": "official-guidance",
+      "accessed": "2026-09-05",
+      "limitation": "Amtlicher Einstieg mit aktuellen verlinkten Hinweisen; kein projektspezifischer Freigabebescheid."
+    },
+    {
+      "id": "GOV-SRC-CC",
+      "title": "Creative Commons – CC BY-SA 4.0 Lizenzvertrag",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.de",
+      "locator": "Abschnitte 2 und 3",
+      "kind": "license-primary",
+      "accessed": "2026-09-05",
+      "limitation": "Nur vom Lizenzgeber erfasste Rechte; Namensnennung, Änderungsangabe, ShareAlike und andere Rechte beachten."
+    },
+    {
+      "id": "GOV-SRC-WCAG",
+      "title": "W3C – WCAG 2.2",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "locator": "Abschnitt 5.2 und 5.3",
+      "kind": "technical-standard",
+      "accessed": "2026-09-05",
+      "limitation": "Konformitätsaussagen brauchen definierte Seiten, Version, Stufe, Datum und Technologien; keine pauschale Vollständigkeitsgarantie."
+    }
+  ]
+}
