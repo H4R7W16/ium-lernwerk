@@ -1,5 +1,8 @@
 # LXF04 Lernarchitektur-Vertrag
 
+> Gesamtprüfung ab LXF07: [Validierungsbericht](validation-report.md) und [Status](status.json) sind maßgeblich. Nachfolgende Stufenstatus und Übergabeformulierungen dokumentieren den jeweiligen Erstellungsstand; offene Annahmen werden dadurch nicht zu Praxisnachweisen.
+
+
 **Status:** `working`
 
 **Geltungsbereich:** Gymnasium Baden-Württemberg, Niveau E, Klassen 5–7

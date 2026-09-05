@@ -466,7 +466,7 @@ LXF06 implementation note (2026-09-05): Gates remain definitions with `execution
 
 **Files:**
 - Create: `roadmap/v2/foundations/learning-experience/validation-report.md`
-- Modify: `roadmap/v2/foundations/learning-experience/status.json`
+- Create (absent before LXF07): `roadmap/v2/foundations/learning-experience/status.json`
 - Modify: `scripts/validate_v2_rebaseline.py`
 - Modify: `tests/test_validate_v2_rebaseline.py`
 
@@ -474,17 +474,17 @@ LXF06 implementation note (2026-09-05): Gates remain definitions with `execution
 - Consumes: all LXF01–LXF06 artifacts
 - Produces: one explicit `reviewed` foundation decision or a fail-closed lower status
 
-- [ ] **Step 1: Add failing release-gate tests**
+- [x] **Step 1: Add failing release-gate tests**
 
 Reject `workStatus: done` or `concept: reviewed` when any required LXF file is absent, any required reference dangles, any claim or principle is `draft`, any required gate lacks evidence, or any file claims `standard` or completed pilot evidence.
 
-- [ ] **Step 2: Run the tests and verify the current status cannot pass**
+- [x] **Step 2: Run the tests and verify the current status cannot pass**
 
 Run: `python -B -m unittest tests.test_validate_v2_rebaseline -v`
 
 Expected: failure listing incomplete release conditions.
 
-- [ ] **Step 3: Perform the consistency review**
+- [x] **Step 3: Perform the consistency review**
 
 Check:
 
@@ -497,7 +497,7 @@ Check:
 - no numeric or age-specific universal survives without evidence and limitations;
 - neutral walkthroughs expose no unresolved structural contradiction.
 
-- [ ] **Step 4: Write the validation report**
+- [x] **Step 4: Write the validation report**
 
 Use these decision sections:
 
@@ -517,11 +517,11 @@ Use these decision sections:
 
 The decision is `reviewed` only if every pre-production gate passes. Record pilot status as `not-started` and standardization as `not-eligible`.
 
-- [ ] **Step 5: Update the foundation status atomically**
+- [x] **Step 5: Update the foundation status atomically**
 
 Set `concept: reviewed` and `workStatus: done` only in the same commit as the passing report. Keep `pilot: not-started` and `standardization: not-eligible`.
 
-- [ ] **Step 6: Run full verification**
+- [x] **Step 6: Run full verification**
 
 Run: `npm run verify:v2`
 
@@ -547,12 +547,15 @@ Run: `npm run verify:ium5`
 
 Expected: pass; this verifies regression safety, not LXP05 approval.
 
-- [ ] **Step 7: Commit the reviewed foundation handoff**
+- [x] **Step 7: Commit the reviewed foundation handoff**
 
 ```bash
 git add roadmap/v2/foundations/learning-experience/validation-report.md roadmap/v2/foundations/learning-experience/status.json scripts/validate_v2_rebaseline.py tests/test_validate_v2_rebaseline.py
 git commit -m "docs(lxf07): approve reviewed learning experience foundation"
 ```
+
+
+LXF07 execution note (2026-09-05): LXF06 was explicitly approved by the user, who requested LXF07. Inline document self-review is recorded honestly; no independent human review or classroom use is claimed. The central status adds method-specific gate results, learner/teacher walkthrough evidence, open questions and LF-normalized SHA-256 bindings to all 35 required input/report files. Two review findings align privacy and orchestration fallback wording with still-open curricular evidence. Formal reviewed/done denotes the completed document review; the operational Vault task remains in user review and IUM-V2-GOV requires explicit LXF07 user approval.
 
 ## Execution-mode check
 

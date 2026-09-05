@@ -1,10 +1,10 @@
 # LXF06 Lehrkraftorchestrierung und Experience-Gates
 
-**Status:** `working`, zur fachlichen Prüfung von LXF06.
+**Status des Orchestrierungsvertrags:** LXF06 am 5. September 2026 fachlich vom Nutzer freigegeben. Die Gesamtprüfung und deren Aussagegrenzen stehen in [validation-report.md](validation-report.md) und [status.json](status.json).
 
 **Geltung:** Gymnasium Baden-Württemberg, Niveau E, Klassen 5–7. Stand: 5. September 2026.
 
-**Grundlage:** freigegebenes LXF03-Planungsprofil, LXF04-Prinzipien und LXF05-Muster. Das Gesamtfundament bleibt `working`, Inhaltsproduktion `frozen`, Pilot `not-started`.
+**Grundlage:** freigegebenes LXF03-Planungsprofil, LXF04-Prinzipien und LXF05-Muster. Der Gesamtstatus wird ausschließlich in `status.json` geführt; Inhaltsproduktion bleibt `frozen`, Pilot `not-started`.
 
 ## Zweck und Vertragsgrenzen
 
@@ -108,7 +108,7 @@ Passt der unverzichtbare Kern nicht in die verfügbare Zeit, ist das ein Planung
 | Ausgangsdiagnose oder Exitprodukt fehlt | Eine begrenzte Ersatzsichtung oder Wiederaufnahme der Kernbeziehung vor dem abhängigen nächsten Schritt einplanen. | Lernstand und Anschlusswissen nicht aus dem geplanten Verlauf erfinden. |
 | Partner oder notwendiger Beitrag fehlt | Sachbezogenes Vergleichsprodukt oder Lehrkraftprüfung bereitstellen; individuelle Kernhandlung weiterführen. | Tatsächliche Kooperation bleibt gegebenenfalls als eigener Nachweis offen. |
 | Zugangs- oder Ausdrucksweg ist ungleichwertig | Barriere und veränderte fachliche Anforderung benennen, gleichwertige Alternative entwickeln. | Eine offen markierte Pflichtfunktion ist keine bestandene Prüfung. |
-| Situation verlangt private Offenlegung oder wird bloßstellend | Unterbrechen und sachbezogenen oder fiktiven Gegenstand sowie geschützten Klärungsweg anbieten. | Eine ungeklärte Schutzfrage wird nicht mit einem technischen Häkchen freigegeben. |
+| Situation verlangt private Offenlegung oder wird bloßstellend | Unterbrechen und sachbezogenen oder fiktiven Gegenstand sowie geschützten Klärungsweg anbieten. | Ist persönliche Reflexion selbst curricular gefordert, ersetzt ein fiktiver Fall diesen Eigenbezug nicht; Abdeckung bleibt offen (CUR-Q-002). Eine ungeklärte Schutzfrage wird nicht mit einem technischen Häkchen freigegeben. |
 
 Die Fallbacks sind Anforderungen an spätere Umsetzung und Orchestrierung. Sie belegen weder bestehende Gerätefunktion noch Rechtskonformität. Konkrete Governancefragen bleiben IUM-V2-GOV und reale Technik-/Nutzungsprüfungen den dafür vorgesehenen Gates zugeordnet.
 
@@ -161,4 +161,4 @@ WU-Check
 
 ## Übergabe an LXF07
 
-LXF06 liefert Gatedefinitionen, diesen Leitfaden und einen leeren [Reviewbogen](review-form.md). Zunächst erfolgt der fachliche LXF06-Review. Erst nach dessen ausdrücklicher Nutzerfreigabe darf LXF07 das gesamte Fundament querschnittlich prüfen. Ein ausgefüllter Reviewbogen benötigt reale Artefaktbelege und eine eigene Entscheidung; eine leere Vorlage oder ein grüner Validator ist keine Freigabe.
+LXF06 liefert Gatedefinitionen, diesen Leitfaden und einen leeren [Reviewbogen](review-form.md). Die ausdrückliche LXF06-Nutzerfreigabe vom 5. September 2026 liegt vor. LXF07 prüft das gesamte Fundament querschnittlich; dessen Ergebnis und verbleibende Grenzen stehen im zentralen Validierungsbericht. Ein ausgefüllter Reviewbogen benötigt reale Artefaktbelege und eine eigene Entscheidung; eine leere Vorlage oder ein grüner Validator ist keine Freigabe.

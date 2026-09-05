@@ -348,7 +348,7 @@
         "LXF05-PT-009",
         "LXF05-PT-010"
       ],
-      "passCondition": "Übergänge reagieren auf Produktlagen; Zeitvarianten bewahren Kernhandlung, Feedback und Sicherung. Kooperation ist begründet oder bewusst nicht gewählt. Für Technik-, Ergebnis- und Partnerausfall existiert eine fachlich gleichwertige Reaktion.",
+      "passCondition": "Übergänge reagieren auf Produktlagen; Zeitvarianten bewahren Kernhandlung, Feedback und Sicherung. Kooperation ist begründet oder bewusst nicht gewählt. Für Technik-, Ergebnis- und Partnerausfall ist eine fachlich begründete Reaktion vorhanden. Entfällt dabei eine selbst geforderte digitale oder kooperative Handlung, bleibt deren Nachweis offen und wird neu eingeplant; der Fallback wird nicht als gleichwertiger Abschluss gewertet.",
       "failAction": "Nicht führbare Übergänge und fehlende Haltepunkte nacharbeiten; bei Ausfall eine begründete Alternative festlegen. Keine universelle Sozialform oder pauschale Minutenvorgabe einsetzen.",
       "ownerRole": "teacher-reviewer",
       "statusEffect": {
@@ -364,7 +364,7 @@
       "question": "Bleiben Beobachtung und Rückmeldung fachbezogen, ohne persönliche Offenlegung, Ranking oder dauerhafte Personenprofile?",
       "evidenceRequired": [
         "Beobachtungs- und Reviewbogen ohne Lernendenkennungen, Klickverläufe oder individuelle Nutzungsprofile.",
-        "Fiktiver oder sachbezogener Bearbeitungsweg ohne persönliche Offenlegung und Vorgehen bei belastenden oder bloßstellenden Situationen."
+        "Fiktiver oder sachbezogener Schutzweg und Vorgehen bei belastenden Situationen; bei curricular gefordertem Eigenbezug ausdrücklich offener Kompetenznachweis statt fingierter Gleichwertigkeit."
       ],
       "method": [
         "expert-review",
@@ -382,7 +382,7 @@
         "LXF05-PT-006",
         "LXF05-PT-009"
       ],
-      "passCondition": "Belege dokumentieren Aufgabenlage, Produktmerkmal und nächste Handlung ohne personenbezogene Telemetrie oder öffentliche Defizitlabels. Ein sachbezogener Ersatzweg erhält das Lernziel; offene Rechts- und Publikationsfragen bleiben IUM-V2-GOV zugeordnet.",
+      "passCondition": "Belege dokumentieren Aufgabenlage, Produktmerkmal und nächste Handlung ohne personenbezogene Telemetrie oder öffentliche Defizitlabels. Ein sachbezogener Ersatzweg erhält das Lernziel, sofern persönliche Reflexion nicht selbst curricular gefordert ist. Bei erforderlichem Eigenbezug bleibt die Abdeckung offen (CUR-Q-002); Schutzmaßnahmen ersetzen diesen Nachweis nicht. Offene Rechts- und Publikationsfragen bleiben IUM-V2-GOV zugeordnet.",
       "failAction": "Personenbezug oder Bloßstellung aus dem Entwurf entfernen, problematische Situation unterbrechen und geschützten Ersatzweg entwickeln; konkrete Rechtsfragen nicht durch diesen Designreview als geklärt ausgeben.",
       "ownerRole": "privacy-reviewer",
       "statusEffect": {

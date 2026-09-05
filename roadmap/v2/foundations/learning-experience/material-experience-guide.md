@@ -1,5 +1,8 @@
 # LXF05 Material- und Experience-Grammatik
 
+> Gesamtprüfung ab LXF07: [Validierungsbericht](validation-report.md) und [Status](status.json) sind maßgeblich. Nachfolgende Stufenstatus und Übergabeformulierungen dokumentieren den jeweiligen Erstellungsstand; offene Annahmen werden dadurch nicht zu Praxisnachweisen.
+
+
 **Status der LXF05-Muster:** `reviewed` (Nutzerfreigabe 2026-09-05)
 
 **Status des Gesamtfundaments:** `working` bis zum gesonderten LXF07-Review

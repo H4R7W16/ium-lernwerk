@@ -1,5 +1,6 @@
 import copy
 import json
+import hashlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -47,6 +48,8 @@ MISSING_LEARNING_EXPERIENCE_CONTRACTS = [
     "roadmap/v2/foundations/learning-experience/teacher-orchestration.md fehlt",
     "roadmap/v2/foundations/learning-experience/review-form.md fehlt",
     "schemas/v2/experience-gates.schema.json fehlt",
+    "roadmap/v2/foundations/learning-experience/status.json fehlt",
+    "roadmap/v2/foundations/learning-experience/validation-report.md fehlt",
 ]
 MISSING_FOUNDATION_CONTRACTS = (
     MISSING_CURRICULUM_CONTRACTS
@@ -4393,6 +4396,174 @@ class ExperienceGateTests(unittest.TestCase):
         self.assertTrue(path.is_file(), "LXF06 experience-gates.json is missing")
         self.assertEqual([], self.check(json.loads(path.read_text(encoding="utf-8"))))
         self.assertEqual([], validate_repository(PROJECT_ROOT))
+
+
+
+class LearningExperienceReleaseTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.base = "roadmap/v2/foundations/learning-experience/"
+        inputs = [p for p in v2_validator.CONTROL_FILES
+                  if p.name not in {"validation-report.md"} and p.as_posix() != self.base + "status.json"]
+        inputs.append(Path("docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md"))
+        for relative in inputs:
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((PROJECT_ROOT / relative).read_bytes())
+        report = Path(self.base + "validation-report.md")
+        (self.root / report).write_text("# Review\n## Beleg\nKonkreter Testbeleg.\n", encoding="utf-8")
+        inputs.append(report)
+        definitions = json.loads((self.root / (self.base + "experience-gates.json")).read_text(encoding="utf-8"))
+        evidence = [{"path": report.as_posix(), "locator": "## Beleg", "observation": "Der Gegenfall führt zur dokumentierten Umsteuerung."}]
+        self.data = {
+            "schemaVersion": 1, "projectId": "ium-lernwerk", "id": "learning-experience",
+            "asOf": "2026-09-05", "workStatus": "done", "concept": "reviewed",
+            "pilot": "not-started", "standardization": "not-eligible",
+            "contentProduction": "frozen", "release": "closed",
+            "nextGate": "IUM-V2-GOV", "nextGateCondition": "explicit-lxf07-user-approval",
+            "review": {
+                "type": "ai-assisted-document-review", "reviewer": "Codex", "independence": "self-review",
+                "baseCommit": "beaba6d3382d60ef31b1171368e4580b2e1432b3",
+                "inputDigests": {p.as_posix(): self.digest(p) for p in inputs},
+                "gateResults": [{"id": g["id"], "result": "pass", "methods": [m for m in g["method"] if m != "automated-check"],
+                                 "ownerRole": g["ownerRole"], "evidence": copy.deepcopy(evidence),
+                                 "limitation": "Prüfung am Dokument, keine reale Durchführung."} for g in definitions["gates"]],
+                "walkthroughResults": [{"id": n, "result": "pass", "perspectives": ["learner", "teacher"],
+                                        "evidence": copy.deepcopy(evidence)}
+                                       for n in ("entry", "central-learning-action", "securing-and-reentry")],
+                "openQuestions": [{"id": "PILOT-001", "question": "Wie trägt der Entwurf im Unterricht?", "owner": "teacher-reviewer",
+                                   "trigger": "Gesondert freigegebener Unterrichtspilot", "risk": "Reale Nutzung ist noch unbekannt.",
+                                   "disposition": "deferred-to-later-gate"}],
+            },
+        }
+
+    def digest(self, relative):
+        return hashlib.sha256((self.root / relative).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+    def check(self, data=None, prior=()):
+        fn = getattr(v2_validator, "validate_learning_experience_release", None)
+        self.assertTrue(callable(fn), "LXF07 Releasevalidator fehlt")
+        return fn(self.data if data is None else data, self.root, prior)
+
+    def test_complete_document_review_can_reach_reviewed(self):
+        self.assertEqual(self.check(), [])
+
+    def test_automation_alone_cannot_release_any_gate(self):
+        for i in range(12):
+            with self.subTest(gate=i):
+                d=copy.deepcopy(self.data); d["review"]["gateResults"][i]["methods"]=["automated-check"]
+                self.assertTrue(self.check(d))
+
+    def test_missing_failed_duplicate_and_unknown_gate_block_promotion(self):
+        for mode in ("missing", "failed", "not-run", "duplicate", "unknown"):
+            with self.subTest(mode=mode):
+                d=copy.deepcopy(self.data); gates=d["review"]["gateResults"]
+                if mode=="missing": gates.pop()
+                elif mode in {"failed","not-run"}: gates[0]["result"]="fail" if mode=="failed" else mode
+                elif mode=="duplicate": gates[-1]=copy.deepcopy(gates[0])
+                else: gates[0]["id"]="unknown"
+                self.assertTrue(self.check(d))
+
+    def test_evidence_must_exist_match_locator_and_include_observation(self):
+        for field,value in (("path","../outside.md"),("path","absent.md"),("locator","missing heading"),("observation"," ")):
+            with self.subTest(field=field,value=value):
+                d=copy.deepcopy(self.data); d["review"]["gateResults"][0]["evidence"][0][field]=value
+                self.assertTrue(self.check(d))
+        d=copy.deepcopy(self.data); d["review"]["gateResults"][0]["evidence"]=[]
+        self.assertTrue(self.check(d))
+
+    def test_each_required_input_and_report_must_be_present_and_unchanged(self):
+        for relative in self.data["review"]["inputDigests"]:
+            with self.subTest(path=relative):
+                p=self.root/relative; before=p.read_bytes()
+                p.write_bytes(before+b"\nUnreviewed edit\n")
+                self.assertTrue(self.check())
+                p.write_bytes(before)
+        p=self.root/(self.base+"validation-report.md"); p.rename(p.with_suffix(".missing"))
+        self.assertTrue(self.check())
+
+    def test_digest_manifest_cannot_drop_or_add_targets(self):
+        d=copy.deepcopy(self.data); d["review"]["inputDigests"].pop(next(iter(d["review"]["inputDigests"])))
+        self.assertTrue(self.check(d))
+        d=copy.deepcopy(self.data); d["review"]["inputDigests"]["../outside.md"]="0"*64
+        self.assertTrue(self.check(d))
+
+    def test_pending_prerequisite_errors_block_promotion(self):
+        for reason in ("Quelle fehlt", "Claim ist draft", "Prinzipreferenz unbekannt", "Pilotstatus unzulässig"):
+            with self.subTest(reason=reason): self.assertTrue(self.check(prior=[reason]))
+
+    def test_no_standard_pilot_release_or_production_promotion(self):
+        for field,value in (("concept","standard"),("pilot","completed"),("standardization","eligible"),("release","released"),("contentProduction","open"),("nextGateCondition","automatic")):
+            with self.subTest(field=field):
+                d=copy.deepcopy(self.data);d[field]=value;self.assertTrue(self.check(d))
+
+    def test_status_axes_cannot_disagree(self):
+        for work,concept in (("done","working"),("review","reviewed")):
+            d=copy.deepcopy(self.data);d.update(workStatus=work,concept=concept);self.assertTrue(self.check(d))
+
+    def test_explicit_lower_status_can_record_failed_gate(self):
+        d=copy.deepcopy(self.data);d.update(workStatus="blocked",concept="working")
+        d["review"]["gateResults"][0]["result"]="fail"
+        self.assertEqual(self.check(d,prior=["Offener fachlicher Befund"]),[])
+
+    def test_both_perspectives_and_all_three_walkthroughs_required(self):
+        d=copy.deepcopy(self.data);d["review"]["walkthroughResults"].pop();self.assertTrue(self.check(d))
+        d=copy.deepcopy(self.data);d["review"]["walkthroughResults"][0]["perspectives"]=["learner"];self.assertTrue(self.check(d))
+
+    def test_commit_role_and_review_identity_are_explicit(self):
+        for field,value in (("baseCommit","short"),("reviewer"," "),("type","automated-check"),("independence","independent")):
+            d=copy.deepcopy(self.data);d["review"][field]=value;self.assertTrue(self.check(d))
+        d=copy.deepcopy(self.data);d["review"]["gateResults"][0]["ownerRole"]="teacher-reviewer";self.assertTrue(self.check(d))
+
+    def test_open_questions_need_owner_trigger_and_risk(self):
+        for field in ("owner","trigger","risk"):
+            d=copy.deepcopy(self.data);del d["review"]["openQuestions"][0][field];self.assertTrue(self.check(d))
+
+    def test_malformed_and_unknown_fields_fail_closed(self):
+        for key,value in (("review",[]),("schemaVersion",True),("asOf","2026-02-30"),("unexpected",True)):
+            with self.subTest(key=key):
+                d=copy.deepcopy(self.data);d[key]=value;self.assertTrue(self.check(d))
+        for field in ("inputDigests","gateResults","walkthroughResults","openQuestions"):
+            for value in (None,True,42,"wrong",[None]):
+                with self.subTest(field=field,value=value):
+                    d=copy.deepcopy(self.data);d["review"][field]=value;self.assertTrue(self.check(d))
+
+    def test_draft_claim_principle_or_pattern_blocks_even_with_refreshed_digest(self):
+        for filename, chain in (("evidence-register", ["claims", 0]),
+                                ("learning-architecture", ["principleGroups", 0, "principles", 0]),
+                                ("material-patterns", ["patterns", 0])):
+            for status in ("draft", "working", "standard"):
+                with self.subTest(filename=filename,status=status):
+                    relative=Path(self.base+filename+".json")
+                    path=self.root/relative; original=path.read_bytes()
+                    data=json.loads(original); item=data
+                    for part in chain: item=item[part]
+                    item["status"]=status
+                    path.write_text(json.dumps(data),encoding="utf-8")
+                    d=copy.deepcopy(self.data)
+                    d["review"]["inputDigests"][relative.as_posix()]=self.digest(relative)
+                    self.assertTrue(self.check(d))
+                    path.write_bytes(original)
+
+    def test_specific_source_and_accessibility_methods_remain_required(self):
+        for name in ("evidence-integrity", "accessibility-and-equivalence"):
+            d=copy.deepcopy(self.data)
+            next(g for g in d["review"]["gateResults"] if g["id"]==name)["methods"]=["expert-review"]
+            self.assertTrue(self.check(d))
+
+    def test_git_line_ending_conversion_preserves_evidence(self):
+        for relative in self.data["review"]["inputDigests"]:
+            p=self.root/relative
+            p.write_bytes(p.read_bytes().replace(b"\r\n",b"\n").replace(b"\n",b"\r\n"))
+        self.assertEqual(self.check(),[])
+
+    def test_repository_consumes_release_record(self):
+        path=self.root/(self.base+"status.json")
+        d=copy.deepcopy(self.data);d["review"]["gateResults"][0]["evidence"]=[]
+        path.write_text(json.dumps(d),encoding="utf-8")
+        self.assertTrue(any("LXF07" in e for e in validate_repository(self.root)))
 
 
 if __name__ == "__main__":

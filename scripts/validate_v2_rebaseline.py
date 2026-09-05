@@ -42,6 +42,8 @@ CONTROL_FILES = (
     Path("roadmap/v2/foundations/learning-experience/teacher-orchestration.md"),
     Path("roadmap/v2/foundations/learning-experience/review-form.md"),
     Path("schemas/v2/experience-gates.schema.json"),
+    Path("roadmap/v2/foundations/learning-experience/status.json"),
+    Path("roadmap/v2/foundations/learning-experience/validation-report.md"),
 )
 
 EXPERIENCE_GATE_IDS = {
@@ -6367,6 +6369,210 @@ def validate_source_schemas(root: Path) -> list[str]:
     return errors
 
 
+
+LXF_RELEASE_BASE = "roadmap/v2/foundations/learning-experience/"
+LXF_RELEASE_REPORT = LXF_RELEASE_BASE + "validation-report.md"
+LXF_RELEASE_INPUTS = {
+    p.as_posix() for p in CONTROL_FILES
+    if p.as_posix() != LXF_RELEASE_BASE + "status.json"
+} | {"docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md"}
+
+
+def validate_learning_experience_release(
+    data: object, root: Path, prerequisite_errors: object = (),
+) -> list[str]:
+    """Validate a recorded document review and its inputs, never perform that review."""
+    errors: list[str] = []
+
+    def record(value: object, fields: set[str], label: str) -> dict:
+        if not isinstance(value, dict):
+            errors.append(f"LXF07 {label} muss ein Objekt sein")
+            return {}
+        errors.extend(_unknown_fields(value, fields, f"LXF07 {label}"))
+        errors.extend(_missing_fields(value, fields, f"LXF07 {label}"))
+        return value
+
+    def strings(value: object, label: str) -> list[str]:
+        found, values = _validate_lxf04_string_list(value, "LXF07", label)
+        errors.extend(found)
+        return values
+
+    fields = {"schemaVersion", "projectId", "id", "asOf", "workStatus", "concept",
+              "pilot", "standardization", "contentProduction", "release", "nextGate",
+              "nextGateCondition", "review"}
+    data = record(data, fields, "Fundamentstatus")
+    if not data:
+        return errors
+    if type(data.get("schemaVersion")) is not int or data.get("schemaVersion") != 1:
+        errors.append("LXF07 schemaVersion muss 1 sein")
+    for key, expected in {
+        "projectId": "ium-lernwerk", "id": "learning-experience", "pilot": "not-started",
+        "standardization": "not-eligible", "contentProduction": "frozen", "release": "closed",
+        "nextGate": "IUM-V2-GOV", "nextGateCondition": "explicit-lxf07-user-approval",
+    }.items():
+        if data.get(key) != expected:
+            errors.append(f"LXF07 {key} verletzt die Vorproduktions- oder Freigabegrenze")
+    try:
+        date = data.get("asOf")
+        if not isinstance(date, str) or not DATE_PATTERN.fullmatch(date):
+            raise ValueError
+        calendar_date.fromisoformat(date)
+    except ValueError:
+        errors.append("LXF07 benötigt ein gültiges Datum")
+    work, concept = data.get("workStatus"), data.get("concept")
+    promoting = work == "done" or concept == "reviewed"
+    if promoting:
+        if work != "done" or concept != "reviewed":
+            errors.append("LXF07 reviewed und done müssen atomar zusammengehören")
+        if prerequisite_errors:
+            errors.append("LXF07 reviewed ist durch Fehler in den vorausgesetzten Verträgen blockiert")
+    elif not isinstance(work, str) or work not in {"in_progress", "review", "blocked"} or concept not in ("draft", "working"):
+        errors.append("LXF07 benötigt einen konservativen Arbeits- und Konzeptstatus")
+
+    review = record(data.get("review"), {"type", "reviewer", "independence", "baseCommit",
+                    "inputDigests", "gateResults", "walkthroughResults", "openQuestions"}, "Review")
+    if review.get("type") != "ai-assisted-document-review" or review.get("independence") != "self-review":
+        errors.append("LXF07 muss den KI-Dokumentenselbstreview ohne Unabhängigkeitsbehauptung ausweisen")
+    if not _nonempty_string(review.get("reviewer")):
+        errors.append("LXF07 benötigt den tatsächlichen Reviewer")
+    commit = review.get("baseCommit")
+    if not isinstance(commit, str) or not FULL_SHA_PATTERN.fullmatch(commit):
+        errors.append("LXF07 benötigt den vollständigen Basiscommit")
+
+    # LF normalization keeps evidence stable across Git autocrlf checkouts.
+    # A Git commit plus the complete manifest identifies the reviewed delta.
+    contents: dict[str, str] = {}
+    digests = review.get("inputDigests")
+    if not isinstance(digests, dict):
+        errors.append("LXF07 benötigt ein Digestmanifest")
+        digests = {}
+    if set(digests) != LXF_RELEASE_INPUTS:
+        errors.append("LXF07 Digestmanifest muss alle Pflichtartefakte und den Bericht exakt enthalten")
+    for relative in sorted(LXF_RELEASE_INPUTS):
+        path = root / relative
+        try:
+            if not path.resolve().is_relative_to(root.resolve()):
+                raise ValueError("Pfad verlässt Repository")
+            raw = path.read_bytes().replace(b"\r\n", b"\n")
+            text = raw.decode("utf-8")
+        except (OSError, UnicodeError, ValueError):
+            errors.append(f"LXF07 Pflichtartefakt fehlt oder ist unlesbar: {relative}")
+            continue
+        if not text.strip():
+            errors.append(f"LXF07 Pflichtartefakt ist leer: {relative}")
+        contents[relative] = text
+        if digests.get(relative) != hashlib.sha256(raw).hexdigest():
+            errors.append(f"LXF07 Review ist veraltet oder ungebunden: {relative}")
+
+    def payload(name: str) -> dict:
+        try:
+            result = json.loads(contents.get(LXF_RELEASE_BASE + name + ".json", "null"))
+        except json.JSONDecodeError:
+            result = None
+        if not isinstance(result, dict):
+            errors.append(f"LXF07 benötigt gültiges {name}")
+            return {}
+        return result
+
+    if promoting:
+        claims = payload("evidence-register").get("claims", [])
+        architecture = payload("learning-architecture")
+        groups = architecture.get("principleGroups", [])
+        principles = [p for g in groups if isinstance(g, dict)
+                      for p in (g.get("principles") if isinstance(g.get("principles"), list) else [])] if isinstance(groups, list) else []
+        patterns = payload("material-patterns").get("patterns", [])
+        for name, items in (("Claims", claims), ("Prinzipien", principles), ("Muster", patterns)):
+            if not isinstance(items, list) or not items or any(not isinstance(p, dict) or p.get("status") != "reviewed" for p in items):
+                errors.append(f"LXF07 benötigt ausschließlich reviewed {name}")
+
+    definition_data = payload("experience-gates").get("gates", [])
+    definitions = {g["id"]: g for g in definition_data if isinstance(g, dict) and isinstance(g.get("id"), str)} if isinstance(definition_data, list) else {}
+
+    def evidence(value: object, label: str) -> None:
+        if not isinstance(value, list) or not value:
+            errors.append(f"LXF07 {label} benötigt konkrete Evidenz")
+            return
+        for item in value:
+            item = record(item, {"path", "locator", "observation"}, f"{label} Evidenz")
+            target, locator = item.get("path"), item.get("locator")
+            if not isinstance(target, str) or target not in contents:
+                errors.append(f"LXF07 {label} Evidenzziel fehlt oder ist nicht reviewgebunden")
+            elif not _nonempty_string(locator) or locator not in contents[target]:
+                errors.append(f"LXF07 {label} Fundstelle ist nicht auflösbar")
+            if not _nonempty_string(item.get("observation")):
+                errors.append(f"LXF07 {label} benötigt einen dokumentierten Befund")
+
+    def results(value: object, expected: set[str], fields: set[str], kind: str) -> list[dict]:
+        if not isinstance(value, list):
+            errors.append(f"LXF07 {kind} muss eine Liste sein")
+            value = []
+        seen: set[str] = set()
+        parsed = []
+        for item in value:
+            item = record(item, fields, kind)
+            name = item.get("id")
+            if not isinstance(name, str) or name not in expected or name in seen:
+                errors.append(f"LXF07 {kind} hat unbekannte oder doppelte ID")
+            else:
+                seen.add(name)
+            result = item.get("result")
+            if result not in ("pass", "fail", "not-run") or promoting and result != "pass":
+                errors.append(f"LXF07 {kind} benötigt bestandene Pflichtprüfung vor reviewed")
+            evidence(item.get("evidence"), f"{kind} {name}")
+            parsed.append(item)
+        if seen != expected or len(value) != len(expected):
+            errors.append(f"LXF07 {kind} ist unvollständig")
+        return parsed
+
+    gates = results(review.get("gateResults"), EXPERIENCE_GATE_IDS,
+                    {"id", "result", "methods", "ownerRole", "evidence", "limitation"}, "Gate")
+    for gate in gates:
+        name = gate.get("id")
+        definition = definitions.get(name, {}) if isinstance(name, str) else {}
+        methods = set(strings(gate.get("methods"), f"Gate {name} Methoden"))
+        allowed = definition.get("method", [])
+        allowed = {m for m in allowed if isinstance(m, str)} if isinstance(allowed, list) else set()
+        if not methods <= allowed:
+            errors.append(f"LXF07 Gate {name} verwendet keine definierte Methode")
+        if name == "evidence-integrity":
+            adequate = "source-review" in methods
+        else:
+            adequate = bool(methods & {"expert-review", "content-walkthrough"})
+        if name == "accessibility-and-equivalence":
+            adequate = adequate and "accessibility-audit" in methods
+        if not adequate:
+            errors.append(f"LXF07 Gate {name} benötigt methodenspezifischen fachlichen Review")
+        if not isinstance(gate.get("ownerRole"), str) or gate.get("ownerRole") not in EXPERIENCE_OWNER_ROLES:
+            errors.append(f"LXF07 Gate {name} benötigt eine verantwortliche Rolle")
+        elif gate.get("ownerRole") != definition.get("ownerRole"):
+            errors.append(f"LXF07 Gate {name} hat die falsche verantwortliche Rolle")
+        if not _nonempty_string(gate.get("limitation")):
+            errors.append(f"LXF07 Gate {name} benötigt eine Aussagegrenze")
+
+    for item in results(review.get("walkthroughResults"), {"entry", "central-learning-action", "securing-and-reentry"},
+                        {"id", "result", "perspectives", "evidence"}, "Walkthrough"):
+        if set(strings(item.get("perspectives"), "Perspektiven")) != {"learner", "teacher"}:
+            errors.append("LXF07 Walkthrough benötigt Lernenden- und Lehrkraftperspektive")
+
+    questions = review.get("openQuestions")
+    if not isinstance(questions, list) or not questions:
+        errors.append("LXF07 muss offene reale Prüfungen mit Zuständigkeit und Auslöser führen")
+        questions = []
+    seen_questions: set[str] = set()
+    for question in questions:
+        question = record(question, {"id", "question", "owner", "trigger", "risk", "disposition"}, "Offene Frage")
+        for field in ("id", "question", "owner", "trigger", "risk"):
+            if not _nonempty_string(question.get(field)):
+                errors.append(f"LXF07 offene Frage benötigt {field}")
+        name = question.get("id")
+        if isinstance(name, str):
+            if name in seen_questions:
+                errors.append("LXF07 offene Frage hat doppelte ID")
+            seen_questions.add(name)
+        if question.get("disposition") != "deferred-to-later-gate":
+            errors.append("LXF07 reale Nachweise müssen als ausstehend markiert bleiben")
+    return errors
+
 def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
     warnings: list[str] = []
     errors = [
@@ -6618,6 +6824,14 @@ def validate_repository_report(root: Path) -> tuple[list[str], list[str]]:
         else:
             errors.extend(validate_experience_gates(data, learning_architecture, material_patterns))
     errors.extend(validate_experience_gate_artifacts(root))
+    release_path = root / (LXF_RELEASE_BASE + "status.json")
+    if release_path.is_file():
+        try:
+            data = load_json(release_path)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            errors.append("LXF07 status.json ist kein gültiges JSON")
+        else:
+            errors.extend(validate_learning_experience_release(data, root, tuple(errors)))
     return errors, warnings
 
 

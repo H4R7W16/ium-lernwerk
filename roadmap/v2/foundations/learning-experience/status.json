@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "id": "learning-experience",
+  "asOf": "2026-09-05",
+  "workStatus": "done",
+  "concept": "reviewed",
+  "pilot": "not-started",
+  "standardization": "not-eligible",
+  "contentProduction": "frozen",
+  "release": "closed",
+  "nextGate": "IUM-V2-GOV",
+  "nextGateCondition": "explicit-lxf07-user-approval",
+  "review": {
+    "type": "ai-assisted-document-review",
+    "reviewer": "Codex",
+    "independence": "self-review",
+    "baseCommit": "beaba6d3382d60ef31b1171368e4580b2e1432b3",
+    "inputDigests": {
+      "docs/superpowers/specs/2026-09-03-ium-v2-controlled-rebaseline-design.md": "ca5368a1e863472b60da6b8535263f4e977fb36cbaf89093dbdacc2e5d29f9af",
+      "roadmap/v2/archive/v1-baseline.json": "3b74511b2f8b800c251e836f70baed93c8a8802ba8305c958007050cacd500ad",
+      "roadmap/v2/foundations/curriculum/gap-assessments.json": "7027085b7bf8c23b1214f8e45bd7b7c4381c4f37fc3e9d5ef785261968acba26",
+      "roadmap/v2/foundations/curriculum/source-basis.json": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9",
+      "roadmap/v2/foundations/curriculum/status.json": "cd1d9bb3bd018c160abd4c300a922df9889e76eca78c9c5262adde240fddf8b3",
+      "roadmap/v2/foundations/learning-experience/evidence-register.json": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89",
+      "roadmap/v2/foundations/learning-experience/evidence-synthesis.md": "021f26b6c54d1fe4fc30acab8483f9ea22919b94185d738afd71ae4f759f24a4",
+      "roadmap/v2/foundations/learning-experience/experience-gates.json": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+      "roadmap/v2/foundations/learning-experience/learner-profile.json": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+      "roadmap/v2/foundations/learning-experience/learner-profile.md": "5402614962ce776e79782172ff424b2d7d87c8717230e51202c2847828ab695d",
+      "roadmap/v2/foundations/learning-experience/learning-architecture.json": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+      "roadmap/v2/foundations/learning-experience/learning-architecture.md": "2b6d74a3cd994a1e0cb1ec631b27ac07f6cb6f18bd44fb243cc0a4c9b9cc29dd",
+      "roadmap/v2/foundations/learning-experience/legacy-audit.json": "86345d97b9a5ffbb3790c0353bca02d125144dfad939da8ae350acca39a33841",
+      "roadmap/v2/foundations/learning-experience/legacy-audit.md": "239760baed2fbc39305579f653f430e065aea4d9261459c0f19e59d2b530538a",
+      "roadmap/v2/foundations/learning-experience/material-experience-guide.md": "a35f313b8823905526d05f17681ef41bbdfa6be9d6ae338d332d755effc55935",
+      "roadmap/v2/foundations/learning-experience/material-patterns.json": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54",
+      "roadmap/v2/foundations/learning-experience/review-form.md": "f091f03648aa45427384691fd92efc591bcd0d5e8fc51b6e1026ab3e85e7d3e5",
+      "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+      "roadmap/v2/foundations/learning-experience/validation-report.md": "fbaeb6b8b82cdb90d07b4d38aa6556c04fae96cd0cceca7abcd1c3d34079ca03",
+      "roadmap/v2/foundations/sources/inventory.json": "a47f8cd3ace15e0fa90198f955cadf4f1ccf50d2e20694034668a548ffaa4bbf",
+      "roadmap/v2/foundations/sources/link-audit.json": "2846b5be16cc145c6d3f9403fee3284f13cc555dd9713711dfd0c79d38fa474e",
+      "roadmap/v2/foundations/sources/source-register.json": "30fd8a7b2f37bc162653ec29c6904154c8bb577b356067086dedbc4d3e885229",
+      "roadmap/v2/foundations/sources/status.json": "768b7484d17a184a7a72b1bb74648da85589259888e45455bb95f4407a33ed82",
+      "roadmap/v2/foundations/sources/traceability.json": "66ee3ea1a0ebad613428c2e3819750ded3129e311d7c1a96b3e9cf457cb75bfa",
+      "roadmap/v2/requirements/requirements.json": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779",
+      "roadmap/v2/status.json": "51db65ee30b667ce3dcfac47d5868118ea15d0b2b2e67e327bac56768b66919f",
+      "schemas/v2/experience-gates.schema.json": "e0657966c0225605daaf7da48b59fe1bdd8b4aa0f6837376256cea5f0ab5a1e7",
+      "schemas/v2/learner-profile.schema.json": "8a56278653b251b92f0afd74257a13eae5ebf23aa517a17d730b5dfb06be7841",
+      "schemas/v2/learning-design.schema.json": "d212db89052041124d4d03899c415f9aea56822934cc89077648c6de0a24cf46",
+      "schemas/v2/learning-evidence.schema.json": "216a32b69b7a778acd5edfaa6319830018e14fa0551139da5f4579579fd9916f",
+      "schemas/v2/legacy-learning-audit.schema.json": "99b05b1aa30d0211be96c7010b70647bd4c7f4126ee543c8700d56763d610de0",
+      "schemas/v2/material-patterns.schema.json": "9221d633d1457f1e6d3ea20992ea3b3864e75033b5f2316bb0778d4b744a783c",
+      "schemas/v2/source-inventory.schema.json": "3a0fed92517b83f4032439b7429d262395a2744a9b20a213b236472989310ed6",
+      "schemas/v2/source-link-audit.schema.json": "4a92f463181c77e504e996290ca53cb7b6f257486c202793de507fe645025d84",
+      "schemas/v2/source-traceability.schema.json": "ce37f92db628069ba0ca31e768860aca17af6a8bf8a83f8e658453be52e8705e"
+    },
+    "gateResults": [
+      {
+        "id": "evidence-integrity",
+        "result": "pass",
+        "methods": [
+          "source-review"
+        ],
+        "ownerRole": "source-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+            "locator": "CLAIM-LP-004",
+            "observation": "Die Übertragung der Mathematikevidenz bleibt begrenzt; alle Claims sind reviewed und an registrierte Quellen gebunden. Der Bericht dokumentiert außerdem die aktuelle Identitäts- und Versionsprüfung der fünf fortschreibbaren institutionellen Seiten."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "## Quellen- und Claim-Konsistenz",
+            "observation": "Die Übertragung der Mathematikevidenz bleibt begrenzt; alle Claims sind reviewed und an registrierte Quellen gebunden. Der Bericht dokumentiert außerdem die aktuelle Identitäts- und Versionsprüfung der fünf fortschreibbaren institutionellen Seiten."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "goal-action-evidence-alignment",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "subject-didactics-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+            "locator": "LXF05-PT-001",
+            "observation": "Zielbeziehung, Ausgangsprodukt und Kriterium bilden einen Zusammenhang; ein fehlendes Produkt führt zu Klärung oder Modellierung statt einer erfundenen Diagnose."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### entry",
+            "observation": "Zielbeziehung, Ausgangsprodukt und Kriterium bilden einen Zusammenhang; ein fehlendes Produkt führt zu Klärung oder Modellierung statt einer erfundenen Diagnose."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "cognitive-economy",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "subject-didactics-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/learning-architecture.md",
+            "locator": "## Lernfunktionsgrammatik",
+            "observation": "Funktionen dürfen zusammengefasst oder begründet ausgelassen werden. Musterfamilien und Segmente sind keine zwingende Gesamtoberfläche oder universelle Altersmenge."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "## Lernarchitektur",
+            "observation": "Funktionen dürfen zusammengefasst oder begründet ausgelassen werden. Musterfamilien und Segmente sind keine zwingende Gesamtoberfläche oder universelle Altersmenge."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "disciplinary-learning-action",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "subject-didactics-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+            "locator": "LXF05-PT-004",
+            "observation": "Der Kernschritt erzeugt einen begründeten Zustandswechsel oder eine begründete Aussage mit Beleg; bloßes Kopieren oder Auswählen besteht die Gegenprobe nicht."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### central-learning-action",
+            "observation": "Der Kernschritt erzeugt einen begründeten Zustandswechsel oder eine begründete Aussage mit Beleg; bloßes Kopieren oder Auswählen besteht die Gegenprobe nicht."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "representation-coherence",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "subject-didactics-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+            "locator": "LXF04-PR-008",
+            "observation": "Ausgangs- und Folgezustand bleiben vergleichbar; Bezeichner verbinden Repräsentationen. Eine ausschließlich farbliche Änderung fällt im Gegenfall durch."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### central-learning-action",
+            "observation": "Ausgangs- und Folgezustand bleiben vergleichbar; Bezeichner verbinden Repräsentationen. Eine ausschließlich farbliche Änderung fällt im Gegenfall durch."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "support-without-task-removal",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "subject-didactics-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "locator": "## Modellierung, individuelle Arbeit und Hilfe",
+            "observation": "Vollständige Kernlösung durch Hilfe wird als Wechsel zur Modellierung kenntlich; eine neue eigene Anwendung trägt erst den Eigenleistungsnachweis."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### central-learning-action",
+            "observation": "Vollständige Kernlösung durch Hilfe wird als Wechsel zur Modellierung kenntlich; eine neue eigene Anwendung trägt erst den Eigenleistungsnachweis."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "feedback-and-next-action",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "subject-didactics-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "locator": "## Gemeinsame Sicherung und Feedbacknutzung",
+            "observation": "Kriterium, Produktstelle und Revision sind verbunden. Wiederanzeige gilt nicht als Abruf; kosmetische Änderung gilt nicht als Transfer."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### securing-and-reentry",
+            "observation": "Kriterium, Produktstelle und Revision sind verbunden. Wiederanzeige gilt nicht als Abruf; kosmetische Änderung gilt nicht als Transfer."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "orientation-and-recovery",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "teacher-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "locator": "## Fallbacks bei Technik, fehlenden Ergebnissen und Unterbrechung",
+            "observation": "Verlorener Stand führt zu transparenter Rekonstruktion oder Nachsicherung. Erhaltene und fehlende Ergebnisse werden nicht gleich behandelt."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### securing-and-reentry",
+            "observation": "Verlorener Stand führt zu transparenter Rekonstruktion oder Nachsicherung. Erhaltene und fehlende Ergebnisse werden nicht gleich behandelt."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "accessibility-and-equivalence",
+        "result": "pass",
+        "methods": [
+          "accessibility-audit",
+          "content-walkthrough"
+        ],
+        "ownerRole": "accessibility-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+            "locator": "LXF05-PT-010",
+            "observation": "Tastatur, Touch, Text und bedingter Print-/Nicht-JavaScript-Pfad sind funktional verglichen. Eine entfallende digitale Kernhandlung bleibt als Nachweis offen."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### Barriere-Funktions-Matrix",
+            "observation": "Tastatur, Touch, Text und bedingter Print-/Nicht-JavaScript-Pfad sind funktional verglichen. Eine entfallende digitale Kernhandlung bleibt als Nachweis offen."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "teacher-orchestration",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "teacher-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "locator": "## Partnerarbeit und Kooperation",
+            "observation": "Individueller Beitrag, Austausch, Minimalprodukt, Haltepunkt und Anschlussleistung sind benannt. Nach Korrektur F02 wird ein ausgefallener Kooperationsnachweis nicht durch Einzelarbeit fingiert."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "## Lehrkraftorchestrierung",
+            "observation": "Individueller Beitrag, Austausch, Minimalprodukt, Haltepunkt und Anschlussleistung sind benannt. Nach Korrektur F02 wird ein ausgefallener Kooperationsnachweis nicht durch Einzelarbeit fingiert."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "privacy-and-emotional-safety",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "privacy-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "locator": "CUR-Q-002",
+            "observation": "Review und Beobachtung erfordern keine Lernendenkennungen. Korrektur F01 stellt klar: Der Schutzweg mit fiktivem Gegenstand erfüllt keinen curricular geforderten Eigenbezug."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "## Fach- und Stufenpassung",
+            "observation": "Review und Beobachtung erfordern keine Lernendenkennungen. Korrektur F01 stellt klar: Der Schutzweg mit fiktivem Gegenstand erfüllt keinen curricular geforderten Eigenbezug."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      },
+      {
+        "id": "pilot-boundary",
+        "result": "pass",
+        "methods": [
+          "content-walkthrough"
+        ],
+        "ownerRole": "integration-reviewer",
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/review-form.md",
+            "locator": "## 6. Gesamtentscheidung und Freigabegrenze",
+            "observation": "Dokumenten-, Technik-, Nutzungs- und Unterrichtsnachweise bleiben getrennt. Die tatsächliche KI-Selbstprüfung und offene Praxisfragen mit Zuständigkeit sind erkennbar."
+          },
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "## Offene Pilotfragen",
+            "observation": "Dokumenten-, Technik-, Nutzungs- und Unterrichtsnachweise bleiben getrennt. Die tatsächliche KI-Selbstprüfung und offene Praxisfragen mit Zuständigkeit sind erkennbar."
+          }
+        ],
+        "limitation": "KI-gestützter Dokumentenselbstreview am neutralen Fundament. Kein unabhängiger menschlicher Fachreview, keine reale Nutzung, technische V2-Konformität oder Lernwirkung nachgewiesen."
+      }
+    ],
+    "walkthroughResults": [
+      {
+        "id": "entry",
+        "result": "pass",
+        "perspectives": [
+          "learner",
+          "teacher"
+        ],
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### entry",
+            "observation": "Ausgangsprodukt und Gegenfall fehlender Diagnose aus beiden Perspektiven geprüft; Modellierung oder Ersatzsichtung hält den Anschluss erreichbar."
+          }
+        ]
+      },
+      {
+        "id": "central-learning-action",
+        "result": "pass",
+        "perspectives": [
+          "learner",
+          "teacher"
+        ],
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### central-learning-action",
+            "observation": "Eigene Zustandsänderung beziehungsweise begründete Aussage und Gegenfälle Lösungsübernahme, Partnerausfall und Farballeinigkeit geprüft."
+          }
+        ]
+      },
+      {
+        "id": "securing-and-reentry",
+        "result": "pass",
+        "perspectives": [
+          "learner",
+          "teacher"
+        ],
+        "evidence": [
+          {
+            "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+            "locator": "### securing-and-reentry",
+            "observation": "Gesicherter und verlorener Stand, Wiederlesen versus Abruf und kosmetische Variation versus Transfer aus beiden Perspektiven getrennt."
+          }
+        ]
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "LXF03-Q-001",
+        "question": "Welche aufgabenbezogenen Vorwissenszugänge zeigen in Klasse 5, 6 und 7 ausreichend früh, ob ein Modell, Begriff oder Verfahren erklärt werden muss?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "LXF04 darf weder Exploration noch direkte Erklärung universell festlegen, sondern muss beide Wege mit einem beobachtbaren Entscheidungspunkt zulassen.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-002",
+        "question": "Welche Fachbegriffe, Operatoren und Darstellungswechsel benötigen je Jahrgang Modellierung, mündliche Vorformen oder optionale Sprachgerüste?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "Die Lernarchitektur muss Sprachunterstützung nahe an der fachlichen Handlung vorsehen, ohne eine starre Lesestufe oder ein universelles Satzstarterset festzulegen.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-003",
+        "question": "Welche Informationsdichte, Segmentierungsart und Zahl paralleler Repräsentationen bleiben je Jahrgang bei unterschiedlichen Vorkenntnissen fachlich produktiv?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "LXF05 darf nur anpassbare Muster mit beobachtbaren Überlastungssignalen definieren und keine universellen Seiten- oder Elementgrenzen festschreiben.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-004",
+        "question": "Welche Bedienroutinen können in den Klassen 5, 6 und 7 vorausgesetzt werden und welche müssen aufgabenbezogen vorbereitet oder technisch umgangen werden?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "Die Orchestrierung braucht einen kurzen Geräte- und Routinencheck sowie Fallbacks, ohne Bedienstand als Personenprofil zu speichern.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-005",
+        "question": "Welche Strategien und Hilfewege müssen je Jahrgang zunächst modelliert werden, und an welchem fachlichen Produkt kann wachsende Selbstständigkeit verantwortbar erkannt werden?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "Die Lernarchitektur muss modellierte, angeleitete und selbstständige Bearbeitung als variable Funktionen statt als starre Altersstufen abbilden.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-006",
+        "question": "Welche Formen von Zweckklärung, Wahl und sichtbarer fachlicher Bewältigung tragen in den drei Jahrgängen, ohne private Offenlegung oder dekorative Motivationselemente zu verlangen?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "Materialmuster müssen Sinn, Wahl und Rückmeldung an die Fachhandlung binden und die persönliche Offenlegung als Standardweg ausschließen.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-007",
+        "question": "Welche Barrieren und gleichwertigen Ausdruckswege treten in den drei Jahrgängen bei den vorgesehenen Fachhandlungen, Geräten und Unterrichtsroutinen tatsächlich auf?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "Experience-Gates müssen technische Prüfung, fachliche Äquivalenz und reale Nutzungsbeobachtung verbinden, ohne Lernwirksamkeit daraus abzuleiten.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF03-Q-008",
+        "question": "Welche Kooperationsrollen, Haltepunkte, Zeitvarianten und Fallbacks ermöglichen je Jahrgang fachlich gehaltvollen Austausch bei vertretbarem Orchestrierungsaufwand?",
+        "owner": "subject-didactics-reviewer / teacher-reviewer",
+        "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+        "risk": "Der Orchestrierungsstandard muss flexible Sozialformen, individuelles Minimalprodukt, gemeinsame Sicherung und einen datensparsamen Ausfallpfad enthalten.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "CUR-Q-002",
+        "question": "Wie wird curricular geforderter Eigenbezug ohne erzwungene persönliche Offenlegung bearbeitet?",
+        "owner": "IUM-V2-CUR / IUM-V2-GOV",
+        "trigger": "Vor einer Modulspezifikation, die eigene Mediennutzung zum Gegenstand hat.",
+        "risk": "Ein fiktiver Ersatz belegt keinen Eigenbezug; Abdeckung bleibt offen.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "CUR-Q-003",
+        "question": "Wie werden Fachbalance und Progression in Klasse 7 jahrgangsweit nachgewiesen?",
+        "owner": "IUM-V2-R7",
+        "trigger": "Jahrgangsroadmap nach Freigabe der vorgeschalteten Gates.",
+        "risk": "Ein einzelnes Modul belegt keine Jahrgangsprogression.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF07-Q-TECH",
+        "question": "Funktionieren Zugang, Offlineverhalten und Wiederaufnahme am konkreten V2-Produkt?",
+        "owner": "accessibility-reviewer / integration-reviewer",
+        "trigger": "Implementiertes, gesondert zur Technik- und Nutzungsprüfung freigegebenes V2-Referenzmaterial.",
+        "risk": "Dokumentenäquivalenz belegt keine Gerätefunktion.",
+        "disposition": "deferred-to-later-gate"
+      },
+      {
+        "id": "LXF07-Q-PILOT",
+        "question": "Trägt der Lernbogen wiederholt im Unterricht einschließlich verzögertem Abruf und Transfer?",
+        "owner": "teacher-reviewer / subject-didactics-reviewer",
+        "trigger": "Gesondertes Pilotierungsdesign und ausdrückliche Durchführungserlaubnis.",
+        "risk": "Ohne reale Nachweise weder Standardisierung noch Lernwirkung behaupten.",
+        "disposition": "deferred-to-later-gate"
+      }
+    ]
+  }
+}
