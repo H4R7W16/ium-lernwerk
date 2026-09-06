@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "taskId": "IUM-V2-FU-TECH",
+  "evidenceKind": "synthetic-diagnostic",
+  "productApproval": false,
+  "findings": [
+    {
+      "id": "TECH-F01",
+      "case": "local-version-vs-import",
+      "findingObserved": true,
+      "localStartAccepted": true,
+      "importedVersionRejected": true
+    },
+    {
+      "id": "TECH-F01",
+      "case": "invalid-local-envelope",
+      "findingObserved": true,
+      "schemaRejects": true,
+      "localStartAccepted": true
+    },
+    {
+      "id": "TECH-F02",
+      "case": "failed-migration-original-export",
+      "findingObserved": true,
+      "originalPreserved": true,
+      "runtimeExportAvailable": false
+    },
+    {
+      "id": "TECH-F03",
+      "case": "stale-pending-import-runtime-api",
+      "findingObserved": true,
+      "stalePreviewConfirmable": true,
+      "limitation": "Der IUM5-Controller sperrt diesen UI-Pfad mit pendingPayload; generische Runtime-API bleibt offen."
+    },
+    {
+      "id": "TECH-F04",
+      "case": "shared-repository-stale-writer",
+      "findingObserved": true,
+      "limitation": "Zwei Runtime-Instanzen an einem Speicherport; kein realer Mehrtab-/Gerätenachweis."
+    },
+    {
+      "id": "TECH-F06",
+      "case": "volatile-flush-is-not-reload-safe",
+      "findingObserved": true,
+      "flushSuccessful": true,
+      "newSessionLosesState": true,
+      "limitation": "Reload wird durch einen frischen Memory-Adapter modelliert; SW-Kopplung zusätzlich per Code geprüft."
+    }
+  ]
+}

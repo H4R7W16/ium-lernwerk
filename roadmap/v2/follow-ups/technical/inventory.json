@@ -1,0 +1,896 @@
+{
+  "schemaVersion": 1,
+  "taskId": "IUM-V2-FU-TECH",
+  "asOf": "2026-09-06",
+  "workStatus": "review",
+  "reviewedInputCommit": "32b523a657a3e6717a83fd9aaa755c8deed9adbf",
+  "reviewKind": "ai-self-review",
+  "userAcceptance": "pending",
+  "authorization": {
+    "userOrder": "Führe IUM-V2-FU-TECH aus",
+    "dependency": "IUM-V2-CUT",
+    "dependencyState": "done"
+  },
+  "boundaries": {
+    "productBaseline": "v1",
+    "planningBaseline": "v2",
+    "production": "frozen",
+    "lxp05": "not-integrated",
+    "deviceVerification": "not-run",
+    "pilot": "not-started",
+    "publication": "not-authorized",
+    "implementation": "not-performed"
+  },
+  "hashNormalization": "UTF-8 without BOM; CRLF normalized to LF",
+  "requirements": [
+    "V2-REQ-SYS-001",
+    "V2-REQ-SYS-002",
+    "V2-REQ-SRC-001",
+    "V2-REQ-LXF-001",
+    "V2-REQ-GOV-001",
+    "V2-REQ-CUR-002"
+  ],
+  "contracts": [
+    {
+      "path": "roadmap/v2/requirements/requirements.json",
+      "sha256": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779"
+    },
+    {
+      "path": "roadmap/v2/foundations/governance/governance-contract.json",
+      "sha256": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+      "sha256": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+      "sha256": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+      "sha256": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+      "sha256": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823"
+    },
+    {
+      "path": "roadmap/v2/audits/artifact-inventory.json",
+      "sha256": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4"
+    },
+    {
+      "path": "roadmap/v2/audits/follow-up-tasks.json",
+      "sha256": "0b5195e26d6022d8f760e106b61cb19b1ecfd5d68dd6970e8a2cdc9dbe1bfcf0"
+    },
+    {
+      "path": "roadmap/v2/cutover/active-baseline.json",
+      "sha256": "d4effdaa4107c503784b117fe4aedf4e4f22cfd440bb3dfc80c6a60ac92062a9"
+    }
+  ],
+  "migrations": [
+    {
+      "id": "M00",
+      "title": "Begrenzte technische Beibehaltung",
+      "requiredChange": "Keine Migration im Audit. Bei tatsächlicher Einbindung Tests auf den konkreten neuen Stand wiederholen.",
+      "owner": "technical-reviewer",
+      "gate": "before-v2-reuse",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M01",
+      "title": "Quellen, Rechte und Betriebsbeschreibung",
+      "requiredChange": "Aktuelle Quelle/Version, Betreiber, Assetrechte und reale Datenflüsse abgleichen; keine rechtliche Einzelfallentscheidung erfinden.",
+      "owner": "project-decision",
+      "gate": "before-operation",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M02",
+      "title": "Versionen und Recovery",
+      "requiredChange": "Gleiche Validierung für Load und Import; explizite Supportmatrix von Format/Modul/Schema; Original vor Mutation sichern und bei Fehler exportieren; Pending-Import abbrechen/entwerten.",
+      "owner": "technical-reviewer",
+      "gate": "before-v2-reuse",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M03",
+      "title": "Speicherung und Datenflüsse",
+      "requiredChange": "Speicherwahl vor erstem Schreiben, gemeinsame Profile/Namespaces und Konflikte regeln; Downloads, Zwischenablage, Gerätesync und Löschumfang ausweisen.",
+      "owner": "technical-reviewer + privacy-reviewer",
+      "gate": "before-v2-reuse",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M04",
+      "title": "Sichere Aktualisierung",
+      "requiredChange": "Persistenz und flüchtige Modi unterscheiden; bei nicht wiederherstellbarem Stand Export/Abbruch anbieten; mehrere Clients und abgelehnte Flush-Promises prüfen.",
+      "owner": "technical-reviewer",
+      "gate": "before-v2-reuse",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M05",
+      "title": "Auslieferung und Wartung",
+      "requiredChange": "V1/V2-Buildziele separieren, Node/npm-Patchstände und CI-Vertragsgates angleichen; vollständigen Zielbuild mit Lizenz-/Offline-/Netzgates prüfen.",
+      "owner": "technical-reviewer + project-decision",
+      "gate": "before-v2-delivery",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M06",
+      "title": "Reale Zielmatrix",
+      "requiredChange": "Konkretes Gerät, Browser, MDM, Schulnetz, LMS, VoiceOver, Exportablage, Update/Recovery und Löschverhalten prüfen; FU-PILOT spezifiziert das eigene Prüfverfahren.",
+      "owner": "project-decision",
+      "gate": "before-operation",
+      "state": "specified-not-implemented"
+    },
+    {
+      "id": "M07",
+      "title": "Manifest, Registry und Moduladapter",
+      "requiredChange": "Erst FU-MOD-Design an LXF04–06 binden; V2-Manifest/IDs, getrennte Reife-/Coveragebezüge und Payloadsupport spezifizieren. Fachlogik separat einbinden, alte Phasen-/Zeitwerte nicht migrieren.",
+      "owner": "IUM-V2-FU-MOD + technical-reviewer",
+      "gate": "before-v2-implementation",
+      "state": "specified-not-implemented"
+    }
+  ],
+  "records": [
+    {
+      "path": "docs/research/phase-0/curated/04-digitale-lernumgebungen-oer.md",
+      "artifactId": "IUM04",
+      "decision": "adapt",
+      "sha256": "ab73faaecb3bb7650e257c7fe37aab2a3ae5df5fc4862e8d4464429ef90ebcd3",
+      "anchor": "# Digitale Lernumgebungen",
+      "line": 8,
+      "rationale": "Aussagearten und Quellenherkunft tragfähig; Browser-, Rechts- und Betreiberstand vor konkretem Einsatz erneut prüfen.",
+      "migrationId": "M01",
+      "findingIds": [
+        "TECH-F05"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/research/phase-0/claim-ledger.json",
+      "artifactId": "IUM04",
+      "decision": "reference-only",
+      "sha256": "5d6d5518fd9896ff052f51e06c52b0758ec031af7b27e0919498ba5d9982728c",
+      "anchor": "CLAIM-DLE-",
+      "line": 523,
+      "rationale": "Historische Claims bleiben datierte Belege; keine pauschale V2-Claimfreigabe oder aktuelle Betriebszusage.",
+      "migrationId": "M01",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-08-03-ium-phase1-plattformfundament-design.md",
+      "artifactId": "IUM12",
+      "decision": "adapt",
+      "sha256": "e6bd335c07161e1483dc63c26d26e3841669c70ec975fb6a3308fd63c49ac2c5",
+      "anchor": "## 15. Migration",
+      "line": 421,
+      "rationale": "Technische Ports und Grenzen übernehmen; Wiederherstellung, Versionen und Update-Sicherung müssen am tatsächlichen Code erfüllt werden.",
+      "migrationId": "M02",
+      "findingIds": [
+        "TECH-F01",
+        "TECH-F02",
+        "TECH-F06"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-08-03-ium-phase1-plattformfundament-implementation.md",
+      "artifactId": "IUM12",
+      "decision": "reference-only",
+      "sha256": "ffc7d1e0be09f73628c721b8660f54971d8cfeb1968b9d3afc000c69a6da5cd7",
+      "anchor": "Plattformfundament",
+      "line": 1,
+      "rationale": "Historischer Ausführungsplan beschreibt V1; kein ausführbarer V2-Migrationsplan.",
+      "migrationId": "M02",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/platform/implementation-report.md",
+      "artifactId": "IUM13",
+      "decision": "reference-only",
+      "sha256": "4fb0a119d6d45f875835c2653ed73143751f5586ce031f5c98a3fa6eb3edb83e",
+      "anchor": "# Implementierungsbericht",
+      "line": 1,
+      "rationale": "Historischer Bericht zum früheren Plattformstand; heutige Modulbelegung und Tests separat ausweisen.",
+      "migrationId": "M01",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/platform/README.md",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "d3a5b20dde5b892b1df761c161baffe664f3670643ed87ce053c328c625a69f0",
+      "anchor": "erst nach bewusster Zustimmung",
+      "line": 23,
+      "rationale": "Betriebsbeschreibung muss tatsächliche Speicherwahl, Clipboard-/Downloadpfade und Wiederherstellungsgrenzen korrekt wiedergeben.",
+      "migrationId": "M01",
+      "findingIds": [
+        "TECH-F05"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/module-contract/src/ports.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "3f29394788684220cee21bfb17530d0f4fbf70700d8fcedec6648289449cc363",
+      "anchor": "export interface StateRepository",
+      "line": 17,
+      "rationale": "Porttrennung behalten; Konflikt-/Revisionskontrolle und wiederherstellbare Updatebereitschaft fehlen im Vertrag.",
+      "migrationId": "M02",
+      "findingIds": [
+        "TECH-F04",
+        "TECH-F06"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/module-contract/src/validators.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "08ef28760a2c5082f7d60ef63cea3480aa6bd3dd6fa412f56eeb98cd9d6348b8",
+      "anchor": "new Ajv2020",
+      "line": 18,
+      "rationale": "Strikte JSON-Schema-Validierung und Zeitkonsistenz als technische Primitive behalten; neue V2-Schemas separat anschließen.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "schemas/learning-state-envelope.schema.json",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "5e708f9e0e66c1c4668b8f11b67789ce510496c65574b14cc374abb0fc959b00",
+      "anchor": "additionalProperties",
+      "line": 6,
+      "rationale": "Geschlossene Hülle mit bewusst generischem Payload; V2-Modul-, Schemasupport und Payloadprüfung müssen gemeinsam gelten.",
+      "migrationId": "M02",
+      "findingIds": [
+        "TECH-F01"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "schemas/module-manifest.schema.json",
+      "artifactId": "IUM12",
+      "decision": "adapt",
+      "sha256": "82f13ebe08ce0a722cb2a9001bedb5a75ec9c342a9c8ea0d877976d1dbca834e",
+      "anchor": "learningDesign",
+      "line": 19,
+      "rationale": "V1-Manifest bindet weder LXF-Prinzipien/Pattern/Gates noch neue Reifeachsen; V2-Vertrag getrennt versionieren.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/local-state/src/memory-repository.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "405208ef84787d9c780941eb3fa4a6d9461f1223e14feef02e806432dafb1893",
+      "anchor": "structuredClone",
+      "line": 19,
+      "rationale": "Kopierender flüchtiger Speicher als Primitive geeignet; ein erfolgreicher Flush garantiert keine Wiederherstellung nach Reload.",
+      "migrationId": "M00",
+      "findingIds": [
+        "TECH-F06"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/local-state/src/indexeddb-repository.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "40e4c7c0eeb203379daae0ad7119f9af2331faa8e1cd6aea484c93c629be61de",
+      "anchor": "keyPath: 'moduleId'",
+      "line": 57,
+      "rationale": "Transaktionales Schreiben behalten; ein Stand je Modul/Origin kollidiert bei mehreren Instanzen und geteilter Nutzung.",
+      "migrationId": "M03",
+      "findingIds": [
+        "TECH-F04"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/local-state/src/index.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "d663b5c47d38efb87b445a8409da3af377b7a5c7c78d13f4f7668faa35ec6d3a",
+      "anchor": "volatile-fallback",
+      "line": 42,
+      "rationale": "Explizite Modi und sichtbarer Öffnungsfallback bleiben; Zustimmung und Persistenzbegriff an der Oberfläche präzisieren.",
+      "migrationId": "M03",
+      "findingIds": [
+        "TECH-F05"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/module-runtime/src/runtime.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "f0d3520356125d85b4a66fbe2b5d7a34ce2d8417bdb499eb8278a720984ae9fc",
+      "anchor": "async start()",
+      "line": 66,
+      "rationale": "Import und lokaler Start prüfen unterschiedlich; Recovery-Export, Pending-Lebenszyklus und Konflikterkennung vor Wiederverwendung schließen.",
+      "migrationId": "M02",
+      "findingIds": [
+        "TECH-F01",
+        "TECH-F02",
+        "TECH-F03",
+        "TECH-F04"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/module-runtime/src/migrations.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "919c5e28f2c8d72d5dda0ea68c2cd4ca88f623a276699e246645bf24e70118df",
+      "anchor": "migrateStateCopy",
+      "line": 32,
+      "rationale": "Kopie und sequenzielle Schema-Migration behalten; lokale Eingangsvalidierung, Modulversion und exportierbares Original ergänzen.",
+      "migrationId": "M02",
+      "findingIds": [
+        "TECH-F01",
+        "TECH-F02"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/export-import/src/import-state.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "12de2ee8f86e7f578dae6bf82b3dafea31b20ad3bf48c8b16e55e459e5dec11e",
+      "anchor": "MAX_IMPORT_BYTES",
+      "line": 7,
+      "rationale": "5-MiB-Grenze, striktes UTF-8, Format-/Schema-/Modulprüfung behalten; erst Moduladapter und Runtime komplettieren den Importvertrag.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/export-import/src/export-state.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "e5b55d218b0c5b9fcc74ecc04358a067ff7a1cf41043258fd1ce1dea518e7008",
+      "anchor": "serializeState",
+      "line": 6,
+      "rationale": "Validierung und JSON-Serialisierung behalten; syntaktische Hüllengültigkeit ist keine Payload- oder Rechtefreigabe.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ui-components/src/controllers/data-controls.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "5e29fddd67fd856095470f00257ea39bd60505a07786142febd56c92229aecc9",
+      "anchor": "Dauerhafter lokaler Speicher verfügbar",
+      "line": 34,
+      "rationale": "Löschbestätigung und Statuskommunikation behalten; Persistenzzusage und Umfang anderer Tabs/Exporte/Clipboard klarstellen.",
+      "migrationId": "M03",
+      "findingIds": [
+        "TECH-F04",
+        "TECH-F05"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ui-components/src/controllers/status-announcer.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "23c99eb0e6afe5b6967a7a4f80ce77a4f4adbc061b518fd6d645e1e28e3e35f6",
+      "anchor": "announceState",
+      "line": 19,
+      "rationale": "Vorhandene Status-/Fehlerereignisse als Infrastruktur behalten; konkrete V2-Texte und Fokuspfade erneut prüfen.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/pwa-registration.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "0984a6868807d1c880c32e918cb1bdc327fc329d599d275f973d5e69706c2160",
+      "anchor": "flushActiveRuntimes",
+      "line": 23,
+      "rationale": "Bewusstes Update und Flush-Sammlung behalten; flüchtige Daten, mehrere Tabs und abgelehnte Flush-Promises benötigen abgesicherten Recoveryweg.",
+      "migrationId": "M04",
+      "findingIds": [
+        "TECH-F06"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/sw.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "8614f204b27d5e8c938821b6fba4e2a0f0f5567d3936167b7476afdb5245ebe5",
+      "anchor": "SKIP_WAITING",
+      "line": 28,
+      "rationale": "Statischer Precache und bewusst ausgelöstes skipWaiting bleiben Primitive; Updatefreigabe aller Clients ist Aufgabe der Orchestrierung.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/astro.config.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "b64f99136ae13a0c29f39492f01ba7d52e04198ee1992c0f3a2f5446f295f22a",
+      "anchor": "registerType: 'prompt'",
+      "line": 30,
+      "rationale": "Basispfad, Scope, statischer Build und Profilisolierung behalten; V2-Auslieferungsprofil erst nach neuer Manifest-/Modulbindung.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/build-module-registry.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "f74f997959f707525e04154ccf6abf8c88fac1ede0e4c4bc5bff94ffdb1cef4b",
+      "anchor": "countsTowardCoverage: options.profile",
+      "line": 282,
+      "rationale": "V1-Renderer ist hart verdrahtet; production setzt Coverageflag unabhängig von V2-Nachweisen. Registry für V2 explizit trennen.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/build-portal.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "d6ae3fd491457c15496d90410bbf320519ebc47151f8dd465efe0e2dea163d5e",
+      "anchor": "buildPortalToDirectory",
+      "line": 33,
+      "rationale": "Statischen lokalen Build behalten; V2-Ziel muss unabhängig von V1-production mit explizitem Baseline-/Freigabevertrag entstehen.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/publication-mode.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "048ed9cf95ed2ba6e96da3aa97ecdcbfd83bd6363f9489a63d503904ff23fb03",
+      "anchor": "ALLOWED_COMBINATIONS",
+      "line": 21,
+      "rationale": "Geschlossene Profilkombinationen behalten; vorhandene drei Modi enthalten noch keinen V2-Produktmodus.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/finalize-service-worker.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "ea377551ad64e51ff446545c376000ce1883b2ed3d95ac93e82ba1db96b93909",
+      "anchor": "finalizeServiceWorker",
+      "line": 14,
+      "rationale": "Finale Manifestinjektion und Abbruch bei ungültigem Injectionpoint als Baustein behalten; vollständige Offlineprüfung weiter nötig.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/precache-integrity.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "6b2c6fe6ccb62195928b337c2c46d43a77afd6dadeb7acdd9f5af1192236142a",
+      "anchor": "createPrecacheIntegrityTransform",
+      "line": 16,
+      "rationale": "Integritätsbindung statischer Cachedateien behalten; belegt keine Erhaltung flüchtiger Lernstände.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/check-build-output.ts",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "d2f20c6c8f4e65080030158c44bb08d152549ed021eb070a8d39e077276aebca",
+      "anchor": "thirdPartyUrls",
+      "line": 21,
+      "rationale": "Budget-/Netz-/Pfadprüfung übernehmen und später explizit auf V2-Modul- und Auslieferungsumfang erweitern.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "scripts/check-dependency-licenses.ts",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "a80fe8c83827e76f7e9d00bc73c2f8199b7b85fd24c9926817c82744e74f3486",
+      "anchor": "license",
+      "line": 8,
+      "rationale": "Abhängigkeitsprüfung behalten; Asset-, Marken-, Datenschutzrechte separat in GOV entscheiden.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "license-policy.json",
+      "artifactId": "IUM04",
+      "decision": "adapt",
+      "sha256": "7a8ce52263c5fab5b817fac7c76e0a0d6f803986de5fbddf8e10acc8ed93fc18",
+      "anchor": "MIT",
+      "line": 11,
+      "rationale": "Gelistete Lizenzen/Ausnahmen an den konkreten Lockstand binden; kein Ersatz für Inhaltsrechteprüfung.",
+      "migrationId": "M01",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/public/asset-licenses.json",
+      "artifactId": "IUM04",
+      "decision": "adapt",
+      "sha256": "2c7f4f4488fd49771b1218dd4019bd7f9826736b5b49b8eb7531df8716d314c0",
+      "anchor": "license",
+      "line": 8,
+      "rationale": "Dateigenaue Herkunft bleibt Ausgangspunkt; jede neue V2-Einbindung benötigt passenden Auslieferungs- und Bearbeitungsnachweis.",
+      "migrationId": "M01",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "package.json",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "ce586c0b3a6f68e589e6761b2452208d3196d9c9ef695301e4bbd0fca51be2bf",
+      "anchor": ">=22.12.0 <23",
+      "line": 11,
+      "rationale": "Node-22-/npm-10-Vertrag für Reproduktion behalten; CI-/lokale Patchstände angleichen und vor Betrieb neu prüfen.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F08"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "package-lock.json",
+      "artifactId": "IUM13",
+      "decision": "retain",
+      "sha256": "c25953599cf6117082d6b23ec717e0a9d14243ac8a17276bc1cd3ccab8e36c2d",
+      "anchor": "lockfileVersion",
+      "line": 4,
+      "rationale": "Exakte bestehende Abhängigkeiten als reproduzierbare Auditbasis behalten; kein Vulnerability- oder Zukunftssicherheitsattest.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "2f9629df09b79090533be1e574877013c1c8d694daf4dfc37dcca673e2f312f3",
+      "anchor": "22.20.0",
+      "line": 18,
+      "rationale": "CI-Patchstand weicht vom lokal geprüften 22.23.2 ab; V2-, Aktivierungs- und spätere FU-Vertragsgates ausdrücklich integrieren.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F08"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": ".github/workflows/device-fixture-pages.yml",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "4b092976d44d1e13a052a154afb6d2834149b9c3b1043afead1f0922d7a9ef3c",
+      "anchor": "workflow_dispatch",
+      "line": 4,
+      "rationale": "Manueller synthetischer Prüfpfad als Vorlage behalten; neuer Auftrag und tatsächlicher Zielstand vor jedem Betrieb erforderlich.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F08"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": ".github/workflows/ium5-gate-b-preview.yml",
+      "artifactId": "IUM18",
+      "decision": "reference-only",
+      "sha256": "a7c586c7507728ff6dc543ece2a6b65eab59d341fc00638d8614fcc672da6f85",
+      "anchor": "acknowledge_non_release",
+      "line": 6,
+      "rationale": "V1-Gate-B-Workflow enthält alte Modul-/Pilotbindung; keine V2-Auslieferungsroute und kein FU-TECH-Startauftrag.",
+      "migrationId": "M05",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/interpreter.ts",
+      "artifactId": "IUM18",
+      "decision": "retain",
+      "sha256": "c57b02c6341bb05d17bbe03c7aa6997684d7b7ed74c3c1724297ec06d96efe0f",
+      "anchor": "export type ExecutionSession",
+      "line": 22,
+      "rationale": "Deterministische Ausführung, Trace und Schrittgrenze innerhalb der vorhandenen Befehls-/Weltsemantik technisch wiederverwendbar; Fachpassung entscheidet FU-MOD.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/validation.ts",
+      "artifactId": "IUM18",
+      "decision": "retain",
+      "sha256": "c2860d30a3829248cade04eda93fbd37432e04154837686793660b1261e82d9e",
+      "anchor": "parseAlgorithm",
+      "line": 106,
+      "rationale": "Geschlossene Befehle und Szenarioprüfung als Semantikbaustein behalten; keine beliebige neue Szenarioform versprechen.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/model.ts",
+      "artifactId": "IUM18",
+      "decision": "adapt",
+      "sha256": "630a9d7302209c8ce4832eb5075be951bdd95b314a41b6a3cbd3d7221b18e3b9",
+      "anchor": "MODULE_ID",
+      "line": 1,
+      "rationale": "Semantiktypen/Schrittgrenzen vom konkreten MODULE_ID, Version und Payloadschema trennen, sobald ein neues Modul entsteht.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/payload.ts",
+      "artifactId": "IUM18",
+      "decision": "adapt",
+      "sha256": "07363788ddd09fcbfcf709565717bb4dcbf71cfa0e91e311ce9e4acd35c6d6a1",
+      "anchor": "phaseId: LearningPhaseId",
+      "line": 48,
+      "rationale": "Gute geschlossene Fachvalidierung; feste UE-Phasen, Szenario-IDs und Freitextfelder nicht pauschal in V2 übernehmen.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/resources.ts",
+      "artifactId": "IUM18",
+      "decision": "adapt",
+      "sha256": "d776352942a8737fc28c64351925a311944a1721e55e95a7b723544ac42fea55",
+      "anchor": "LearningPhaseId",
+      "line": 8,
+      "rationale": "Ressourcenvertrag an alte Lernreise gebunden; V2-Lernfunktionen, Unterstützungen und Materialzuschnitt kommen aus FU-MOD.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/editor.ts",
+      "artifactId": "IUM18",
+      "decision": "retain",
+      "sha256": "063c71ba35555ce1834fd96547bae345fc8a31595d139fa09afe698bb04b438b",
+      "anchor": "export",
+      "line": 39,
+      "rationale": "Fachliche Befehlsbearbeitung getrennt von Oberfläche wiederverwendbar; Eingabepfade am V2-Produkt neu prüfen.",
+      "migrationId": "M00",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/algorithm-workbench/browser-ports.ts",
+      "artifactId": "IUM18",
+      "decision": "adapt",
+      "sha256": "ddebd40671e2df8eb00f1d523b8534b1caf1a4a95d8d44a2279e73f8507dd8a2",
+      "anchor": "navigator.clipboard.writeText",
+      "line": 36,
+      "rationale": "Download-/Kopierfallback explizit in Datenfluss aufnehmen; ein ausgelöster Download belegt nicht die tatsächliche sichere Ablage.",
+      "migrationId": "M03",
+      "findingIds": [
+        "TECH-F05"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/algorithm-workbench/workbench-controller.ts",
+      "artifactId": "IUM18",
+      "decision": "adapt",
+      "sha256": "3d1be368c049c298d763b2b69ddd6ad8264b1292ba3114afad1dbe17e171feba",
+      "anchor": "migrations: []",
+      "line": 219,
+      "rationale": "Moduladapter validiert Payload, verwendet aber automatische Speicherwahl und keine Migration; Phasen-/UI-Bindung gegen LXF neu entwickeln.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F01",
+        "TECH-F02",
+        "TECH-F05",
+        "TECH-F06",
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/components/AlgorithmWorkbench.astro",
+      "artifactId": "IUM18",
+      "decision": "adapt",
+      "sha256": "ab5f8f891ccd273444261f172a89b21b7cb8d45d07a8e75c3846dd843a15f06b",
+      "anchor": "data-import-confirm",
+      "line": 427,
+      "rationale": "Dialog-/Bedienmuster nur selektiv übernehmen; konkrete Lernreise und Speicherentscheidung benötigen neuen V2-Entwurf.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F05",
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/pages/index.astro",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "467ebea409f05942b01108be527dae621ec2166e7057e9a90406fb7c3111dc02",
+      "anchor": "Arbeitsstand öffnen",
+      "line": 38,
+      "rationale": "V1-Katalog als bestehendes Produkt markieren; Status-/Coverageaussagen und V2-Einstieg explizit voneinander trennen.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/pages/module/[id].astro",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "7ea723c602c3c8ecb188d7e55a457ea8bf55055512e62c56647204520e4992f1",
+      "anchor": "publishedStatus === 'working'",
+      "line": 37,
+      "rationale": "Binäre working/sonst-Fixture-Anzeige bildet V2-Reifeachsen und weitere Manifeststatus nicht korrekt ab.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "modules/IUM-5-CORE-05/module.yaml",
+      "artifactId": "IUM18",
+      "decision": "reference-only",
+      "sha256": "f55ea042798ee0f2e2bf0268b6981deaca4fa79799c5059b51e262191c63a23a",
+      "anchor": "schemaVersion",
+      "line": 1,
+      "rationale": "V1-Modulkennung, Version, Zeit-/Coveragebezüge bleiben historisch; kein Versionsbump als pauschale V2-Migration.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "modules/IUM-5-CORE-05/lernumgebung/content.json",
+      "artifactId": "IUM18",
+      "decision": "reference-only",
+      "sha256": "403b296c3a27ed3e96e3916deab72cf278ed9d891bd855b1161cb8bc3c03522d",
+      "anchor": "learning",
+      "line": 46,
+      "rationale": "Lernreise und Materialtext bleiben V1-Referenz; FU-MOD muss Ziel, Produkt, Unterstützung und Zeit neu bestimmen.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "modules/IUM-5-CORE-05/handbuch/lehrkraeftehandbuch.md",
+      "artifactId": "IUM18",
+      "decision": "reference-only",
+      "sha256": "b5c352ac1ea336bd973831652de3c12dfb7c810f5084141a1bd2e1787ae1989b",
+      "anchor": "IUM",
+      "line": 1,
+      "rationale": "V1-Orchestrierung und UE-Abfolge nicht normativ übernehmen; technisch kein V2-Handbuch erzeugt.",
+      "migrationId": "M07",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/reviews/ium-5-core-05-fach-didaktik.md",
+      "artifactId": "IUM18",
+      "decision": "reference-only",
+      "sha256": "d1a1cad2659e10ff015ddc81737424082898c9b17f50f490ede5f072577cdf58",
+      "anchor": "IUM",
+      "line": 2,
+      "rationale": "Historischer Fachreview wird nicht zu neuem V2-Nutzungs-/Wirksamkeitsbeleg.",
+      "migrationId": "M07",
+      "findingIds": [],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    },
+    {
+      "path": "docs/platform/device-verification.md",
+      "artifactId": "IUM13",
+      "decision": "adapt",
+      "sha256": "d17bc0bc47925f6364ff6b98f6a1bdf0c144d5b3cf160a7f4d9e532b353b0e0c",
+      "anchor": "device-verified: not-run",
+      "line": 3,
+      "rationale": "Vorlage kann weiterentwickelt werden; tatsächlicher V2-Kandidat, Konfiguration, Netz und Zustands-/Recoveryfälle müssen neu gebunden werden.",
+      "migrationId": "M06",
+      "findingIds": [
+        "TECH-F08"
+      ],
+      "implementationState": "unchanged-v1",
+      "v2Use": "conditional-after-review"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "taskId": "IUM-V2-FU-TECH",
+  "asOf": "2026-09-06",
+  "reviewedInputCommit": "32b523a657a3e6717a83fd9aaa755c8deed9adbf",
+  "auditStatus": "review",
+  "technicalReuse": "conditional",
+  "fullIum5Gate": "incomplete-firefox-runner-failure",
+  "platformUnitPassed": 132,
+  "pythonPassed": 1017,
+  "dashboardUnitPassed": 32,
+  "platformChromiumPassed": 23,
+  "ium5ChromiumPassed": 29,
+  "ium5WebkitFirstRun": {
+    "passed": 24,
+    "failed": 5
+  },
+  "webkitTargetedRecheck": {
+    "passed": 4,
+    "failed": 1
+  },
+  "ium5ChromiumOfflinePassed": 3,
+  "syntheticFindingObservations": 6,
+  "inputHashesChecked": 61,
+  "requiredHistoricalArtifactsCovered": 14,
+  "realDeviceVerification": "not-run",
+  "operatorSchoolRightsApproval": "pending",
+  "logs": [
+    {
+      "path": "reports/fu-tech/verify-ium5.log",
+      "sha256": "f02a8386206292db91c110a02288f0ddf415e590188e1dc3e51a0cf7a4ae35e6"
+    },
+    {
+      "path": "reports/fu-tech/platform-remaining.log",
+      "sha256": "dcf1df06e2de88287d1bac78675b882d17ded523391d7d16957e631969837119"
+    },
+    {
+      "path": "reports/fu-tech/platform-final.log",
+      "sha256": "6ab71812390cd776d46160dd2e63427d5155188fcd128efdb6a70211499f8d81"
+    },
+    {
+      "path": "reports/fu-tech/platform-canonical.log",
+      "sha256": "29f2f8fc0fb900d413a1494ff6afdbfdb7d4bfa7a0ff009690a3bf0af9b4860c"
+    },
+    {
+      "path": "reports/fu-tech/ium5-browser.log",
+      "sha256": "9004da9d27b2771ea5e1e074a9331d01c1ac1418c9d35af998b145ae1b6c5e90"
+    },
+    {
+      "path": "reports/fu-tech/webkit-recheck.log",
+      "sha256": "36759cb2b2f56842efe10384d8c1e71968c77861f275f9b74d01e16fb0e88e53"
+    },
+    {
+      "path": "reports/fu-tech/ium5-offline.log",
+      "sha256": "d6453a6194a27f34a78d9c37fb4c20bcaf41cb024323c9ff57de7ab121746cf9"
+    },
+    {
+      "path": "reports/fu-tech/python.log",
+      "sha256": "bd0e914dd37fe94f856b827d0a36d4b101073dc7c3669ad6c02b4072e24506d7"
+    },
+    {
+      "path": "reports/fu-tech/dashboard-tests.log",
+      "sha256": "f426664505ce9ef23211a23f201736350c4c3d5d6b1427e21e73567e5a673c47"
+    }
+  ]
+}
