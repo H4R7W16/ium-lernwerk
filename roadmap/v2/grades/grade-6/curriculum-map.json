@@ -1,0 +1,2183 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 6,
+  "coverageMeaning": "85 einschlägige Orientierungsrecords 5/6; 17 erstmals eingeplante Kompetenzen, 39 explizite Wiederaufnahmen, vier offene Eigenbezüge und 25 nichtzählende Kontexte. Keine amtliche Klasse-6-Norm und keine beobachtete Coverage.",
+  "records": [
+    {
+      "recordId": "LH26-E-PROG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "progression-note",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-PROG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "progression-note",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M01",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Schulische Regeln begründet auf Zugang, Speicher und gemeinsamen Austausch anwenden.",
+      "progression": "R5-Grundregeln in mehreren neuen Kontexten mit weniger Hinweis selbstständig anwenden.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "open-privacy",
+      "r5ModuleIds": [],
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progression": null,
+      "rationale": "Eigener Nutzungs-/Erfahrungsbezug bleibt ohne tragfähige Nachweisentscheidung offen. Fiktive Fälle und private Abgaben schließen ihn nicht.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-DP-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "open-privacy",
+      "r5ModuleIds": [],
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progression": null,
+      "rationale": "Eigener Nutzungs-/Erfahrungsbezug bleibt ohne tragfähige Nachweisentscheidung offen. Fiktive Fälle und private Abgaben schließen ihn nicht.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-DP-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M06"
+      ],
+      "plannedEvidence": "Bereitgestellte Nutzungsbedingungen eines Angebots nach Adressaten, Funktionen und Grenzen erschließen und mit Kommunikationsbedingungen verbinden.",
+      "progression": "Über exemplarisches Lesen in R5 hinaus Bedingungen als Begründung eines Fallurteils verwenden.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M03"
+      ],
+      "plannedEvidence": "Werbung im Sach-/Unterhaltungsbeitrag erkennen und ihre Einbettung beschreiben.",
+      "progression": "R5-Werbeerkennung ohne vollständige Vorlage nutzen und mit Auswahl-/Datenflussanalyse verknüpfen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-006",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M03"
+      ],
+      "plannedEvidence": "Möglichkeiten der Werbeauswahl nennen, alltägliche Daten-/Metadatenerhebung und verwendete Techniken beschreiben sowie Interessen der beteiligten Akteure erklären.",
+      "progression": "Erstzuordnung: von sichtbarer Werbung zu Datenflüssen und begründeten Interessenbeziehungen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M03"
+      ],
+      "plannedEvidence": "Möglichkeiten der Werbeauswahl nennen, alltägliche Daten-/Metadatenerhebung und verwendete Techniken beschreiben sowie Interessen der beteiligten Akteure erklären.",
+      "progression": "Erstzuordnung: von sichtbarer Werbung zu Datenflüssen und begründeten Interessenbeziehungen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-008",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M03"
+      ],
+      "plannedEvidence": "Möglichkeiten der Werbeauswahl nennen, alltägliche Daten-/Metadatenerhebung und verwendete Techniken beschreiben sowie Interessen der beteiligten Akteure erklären.",
+      "progression": "Erstzuordnung: von sichtbarer Werbung zu Datenflüssen und begründeten Interessenbeziehungen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "open-privacy",
+      "r5ModuleIds": [],
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progression": null,
+      "rationale": "Eigener Nutzungs-/Erfahrungsbezug bleibt ohne tragfähige Nachweisentscheidung offen. Fiktive Fälle und private Abgaben schließen ihn nicht.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-ID-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M02"
+      ],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Praktisch recherchieren, Information nach Herkunft und Plausibilität prüfen und geordnet darstellen.",
+      "progression": "R5-Routinen unter widersprüchlicher Quellenlage selbstständiger und begründet einsetzen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-002",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M02"
+      ],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Praktisch recherchieren, Information nach Herkunft und Plausibilität prüfen und geordnet darstellen.",
+      "progression": "R5-Routinen unter widersprüchlicher Quellenlage selbstständiger und begründet einsetzen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-003",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M02"
+      ],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Praktisch recherchieren, Information nach Herkunft und Plausibilität prüfen und geordnet darstellen.",
+      "progression": "R5-Routinen unter widersprüchlicher Quellenlage selbstständiger und begründet einsetzen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "An Index, Suchanfrage und Fundliste die grundlegende indexbasierte Suche erklären.",
+      "progression": "Erstzuordnung: vom praktischen Suchen zum erklärten Systemmodell.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M02"
+      ],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Unterschiedliche Akteure an ausgewählten Internetinhalten benennen.",
+      "progression": "Akteursbenennung dient nun einer Erklärung ihrer Motive und möglichen Konflikte.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-006",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Veröffentlichungsmotive analysieren, einen Interessenkonflikt erklären und an Beispielen automatisierte Erzeugung sowie Veröffentlichung/Verbreitung beschreiben.",
+      "progression": "Erstzuordnung: benannte Akteure aus R5 werden durch Motive, Konflikte und Automatisierung in Beziehung gesetzt.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-007",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Veröffentlichungsmotive analysieren, einen Interessenkonflikt erklären und an Beispielen automatisierte Erzeugung sowie Veröffentlichung/Verbreitung beschreiben.",
+      "progression": "Erstzuordnung: benannte Akteure aus R5 werden durch Motive, Konflikte und Automatisierung in Beziehung gesetzt.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Veröffentlichungsmotive analysieren, einen Interessenkonflikt erklären und an Beispielen automatisierte Erzeugung sowie Veröffentlichung/Verbreitung beschreiben.",
+      "progression": "Erstzuordnung: benannte Akteure aus R5 werden durch Motive, Konflikte und Automatisierung in Beziehung gesetzt.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M02",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Frage mit Vorwissen verbinden, Vertrauenskriterien erläutern und geprüfte Informationen für Produkt und Revision nutzen.",
+      "progression": "Aus R5 bekannte Kriterien eigenständig auf abweichende Informationen und ein begrenztes Sachprodukt übertragen.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M02",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Frage mit Vorwissen verbinden, Vertrauenskriterien erläutern und geprüfte Informationen für Produkt und Revision nutzen.",
+      "progression": "Aus R5 bekannte Kriterien eigenständig auf abweichende Informationen und ein begrenztes Sachprodukt übertragen.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Widerspruch zwischen Quellen herausarbeiten und Vertrauenswürdigkeit begründen; an geprüfter KI-Ausgabe Unterstützung und mögliche Fehleinschätzung erläutern.",
+      "progression": "Erstzuordnung: Kriterien auf Widerspruch und KI-Recherche übertragen; keine private Accountnutzung.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M02"
+      ],
+      "plannedEvidence": "Widerspruch zwischen Quellen herausarbeiten und Vertrauenswürdigkeit begründen; an geprüfter KI-Ausgabe Unterstützung und mögliche Fehleinschätzung erläutern.",
+      "progression": "Erstzuordnung: Kriterien auf Widerspruch und KI-Recherche übertragen; keine private Accountnutzung.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M04"
+      ],
+      "plannedEvidence": "An Alltagsbeispielen verschiedene Codierungszwecke erklären, Vorschriften auf Texte anwenden und Auswahl für eine Übertragung begründen.",
+      "progression": "Erstzuordnung: Darstellung und Übertragung als eigenes begrenztes Konzept aufbauen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-014",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M04"
+      ],
+      "plannedEvidence": "An Alltagsbeispielen verschiedene Codierungszwecke erklären, Vorschriften auf Texte anwenden und Auswahl für eine Übertragung begründen.",
+      "progression": "Erstzuordnung: Darstellung und Übertragung als eigenes begrenztes Konzept aufbauen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-015",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M04"
+      ],
+      "plannedEvidence": "An Alltagsbeispielen verschiedene Codierungszwecke erklären, Vorschriften auf Texte anwenden und Auswahl für eine Übertragung begründen.",
+      "progression": "Erstzuordnung: Darstellung und Übertragung als eigenes begrenztes Konzept aufbauen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-001",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "moduleIds": [
+        "V2-G6-M05"
+      ],
+      "plannedEvidence": "An einem neuen Anwendungsfall begründen, welche Rolle ein algorithmischer Ablauf für das digitale System spielt.",
+      "progression": "R5-Beispiele verlassen und Rolle des Algorithmus am neuen Fall selbstständig erklären.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "moduleIds": [
+        "V2-G6-M05"
+      ],
+      "plannedEvidence": "Präzise Handlungsschritte erklären, grafische Darstellung interpretieren und die Schritte nachvollziehbar ausführen.",
+      "progression": "Grafik, Vorhersage und Ausführung ohne vollständiges Muster aufeinander beziehen und eine Abweichung lokalisieren.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-003",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "moduleIds": [
+        "V2-G6-M05"
+      ],
+      "plannedEvidence": "Präzise Handlungsschritte erklären, grafische Darstellung interpretieren und die Schritte nachvollziehbar ausführen.",
+      "progression": "Grafik, Vorhersage und Ausführung ohne vollständiges Muster aufeinander beziehen und eine Abweichung lokalisieren.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "moduleIds": [
+        "V2-G6-M05"
+      ],
+      "plannedEvidence": "Anweisung und feste Wiederholung erklären, in geeigneter Sprache verwenden und Code schrittweise mit einer Spur analysieren.",
+      "progression": "R5-Grundbegriffe mit begründeter Fehlerhypothese und überprüfter Revision vertiefen; keine Klasse-7-Konstrukte voraussetzen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-005",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "moduleIds": [
+        "V2-G6-M05"
+      ],
+      "plannedEvidence": "Anweisung und feste Wiederholung erklären, in geeigneter Sprache verwenden und Code schrittweise mit einer Spur analysieren.",
+      "progression": "R5-Grundbegriffe mit begründeter Fehlerhypothese und überprüfter Revision vertiefen; keine Klasse-7-Konstrukte voraussetzen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "moduleIds": [
+        "V2-G6-M05"
+      ],
+      "plannedEvidence": "Anweisung und feste Wiederholung erklären, in geeigneter Sprache verwenden und Code schrittweise mit einer Spur analysieren.",
+      "progression": "R5-Grundbegriffe mit begründeter Fehlerhypothese und überprüfter Revision vertiefen; keine Klasse-7-Konstrukte voraussetzen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Geschlossenen schulischen Kanal für gegenseitige Beiträge und fachlich aufgenommene gemeinsame Revision nutzen.",
+      "progression": "Gegenüber R5 selbstständigeren individuellen Beitrag und begründete Aufnahme des Peerfeedbacks sichtbar machen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-002",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M06",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Konsequenzen eines Konflikts diskutieren, analoge/digitale Kommunikationsbedingungen vergleichen und begründete Regeln im realen schulischen Austausch anwenden.",
+      "progression": "R5-Regeln im Vergleich verschiedener Reichweiten/Sichtbarkeiten erklären und an der gemeinsamen Revision erkennbar anwenden.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M06",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Konsequenzen eines Konflikts diskutieren, analoge/digitale Kommunikationsbedingungen vergleichen und begründete Regeln im realen schulischen Austausch anwenden.",
+      "progression": "R5-Regeln im Vergleich verschiedener Reichweiten/Sichtbarkeiten erklären und an der gemeinsamen Revision erkennbar anwenden.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M06",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Konsequenzen eines Konflikts diskutieren, analoge/digitale Kommunikationsbedingungen vergleichen und begründete Regeln im realen schulischen Austausch anwenden.",
+      "progression": "R5-Regeln im Vergleich verschiedener Reichweiten/Sichtbarkeiten erklären und an der gemeinsamen Revision erkennbar anwenden.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M06",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Konsequenzen eines Konflikts diskutieren, analoge/digitale Kommunikationsbedingungen vergleichen und begründete Regeln im realen schulischen Austausch anwenden.",
+      "progression": "R5-Regeln im Vergleich verschiedener Reichweiten/Sichtbarkeiten erklären und an der gemeinsamen Revision erkennbar anwenden.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M01",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Bedeutung des eigenen Zugangsschutzes begründen und Schutzmaßnahmen praktisch anwenden; keine geheimen Daten abgeben.",
+      "progression": "Bekannte Schutzroutinen bei Speicherwechsel und Kooperation selbstständiger nutzen und ihren Zweck erklären.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "moduleIds": [
+        "V2-G6-M01",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Bedeutung des eigenen Zugangsschutzes begründen und Schutzmaßnahmen praktisch anwenden; keine geheimen Daten abgeben.",
+      "progression": "Bekannte Schutzroutinen bei Speicherwechsel und Kooperation selbstständiger nutzen und ihren Zweck erklären.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Vermaschtes Netz mit Nachrichtenweg zeichnen, Client/Server erklären und interne/portable/lokale Server-/Cloudspeicher kriteriengeleitet vergleichen.",
+      "progression": "Erstzuordnung aus R5: praktische Nutzung wird durch ein erklärtes Netz-/Speichermodell erweitert.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Vermaschtes Netz mit Nachrichtenweg zeichnen, Client/Server erklären und interne/portable/lokale Server-/Cloudspeicher kriteriengeleitet vergleichen.",
+      "progression": "Erstzuordnung aus R5: praktische Nutzung wird durch ein erklärtes Netz-/Speichermodell erweitert.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-010",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Vermaschtes Netz mit Nachrichtenweg zeichnen, Client/Server erklären und interne/portable/lokale Server-/Cloudspeicher kriteriengeleitet vergleichen.",
+      "progression": "Erstzuordnung aus R5: praktische Nutzung wird durch ein erklärtes Netz-/Speichermodell erweitert.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-011",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "open-privacy",
+      "r5ModuleIds": [],
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progression": null,
+      "rationale": "Eigener Nutzungs-/Erfahrungsbezug bleibt ohne tragfähige Nachweisentscheidung offen. Fiktive Fälle und private Abgaben schließen ihn nicht.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-KS-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M06"
+      ],
+      "plannedEvidence": "Gründe für und gegen soziale Medien diskutieren und begünstigende Bedingungen verletzenden oder ausgrenzenden Verhaltens digitaler Räume nennen.",
+      "progression": "Erstzuordnung: von Verhalten/Hilfe zu Abwägung und begünstigenden Strukturmerkmalen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-013",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M06"
+      ],
+      "plannedEvidence": "Wirkung fremder Selbstdarstellung einschätzen, Verletzung erkennen und passende Hilfe-/Meldestrategie begründen.",
+      "progression": "Vom R5-Einzelfall zur begründeten Übertragung auf veränderte Kommunikationsbedingungen; eigener privater Bezug wird nicht behauptet.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-014",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M06"
+      ],
+      "plannedEvidence": "Wirkung fremder Selbstdarstellung einschätzen, Verletzung erkennen und passende Hilfe-/Meldestrategie begründen.",
+      "progression": "Vom R5-Einzelfall zur begründeten Übertragung auf veränderte Kommunikationsbedingungen; eigener privater Bezug wird nicht behauptet.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "handoff-grade-6",
+      "r5ModuleIds": [],
+      "moduleIds": [
+        "V2-G6-M06"
+      ],
+      "plannedEvidence": "Gründe für und gegen soziale Medien diskutieren und begünstigende Bedingungen verletzenden oder ausgrenzenden Verhaltens digitaler Räume nennen.",
+      "progression": "Erstzuordnung: von Verhalten/Hilfe zu Abwägung und begünstigenden Strukturmerkmalen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "introduced-in-grade-6",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01"
+      ],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Geeignete Eingabe nutzen, Dateien geordnet ablegen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm unterscheiden.",
+      "progression": "R5-Bedienroutinen mit Kriterienvergleich der Speicherorte verbinden und bei veränderter Ablage weniger Anleitung benötigen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01"
+      ],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Geeignete Eingabe nutzen, Dateien geordnet ablegen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm unterscheiden.",
+      "progression": "R5-Bedienroutinen mit Kriterienvergleich der Speicherorte verbinden und bei veränderter Ablage weniger Anleitung benötigen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-003",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01"
+      ],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Geeignete Eingabe nutzen, Dateien geordnet ablegen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm unterscheiden.",
+      "progression": "R5-Bedienroutinen mit Kriterienvergleich der Speicherorte verbinden und bei veränderter Ablage weniger Anleitung benötigen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M01"
+      ],
+      "moduleIds": [
+        "V2-G6-M01"
+      ],
+      "plannedEvidence": "Geeignete Eingabe nutzen, Dateien geordnet ablegen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm unterscheiden.",
+      "progression": "R5-Bedienroutinen mit Kriterienvergleich der Speicherorte verbinden und bei veränderter Ablage weniger Anleitung benötigen.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-005",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Textbausteine formatieren, visuelles Objekt einsetzen und Informationen sinnvoll strukturieren.",
+      "progression": "Für ein eng begrenztes neues Sachprodukt Gestaltungsentscheidungen selbstständig begründen und nach Feedback verbessern.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-006",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Textbausteine formatieren, visuelles Objekt einsetzen und Informationen sinnvoll strukturieren.",
+      "progression": "Für ein eng begrenztes neues Sachprodukt Gestaltungsentscheidungen selbstständig begründen und nach Feedback verbessern.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-007",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Textbausteine formatieren, visuelles Objekt einsetzen und Informationen sinnvoll strukturieren.",
+      "progression": "Für ein eng begrenztes neues Sachprodukt Gestaltungsentscheidungen selbstständig begründen und nach Feedback verbessern.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M03",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Gestaltung und Absicht eines Medienprodukts analysieren; kreativ mit eigener Absicht produzieren, Wirkung prüfen und passende Bedienkonzepte einsetzen.",
+      "progression": "R5-Gestaltung wird um Analyse von Werbeabsicht und bewusste begründete Revision des eigenen Sachprodukts erweitert.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M03",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Gestaltung und Absicht eines Medienprodukts analysieren; kreativ mit eigener Absicht produzieren, Wirkung prüfen und passende Bedienkonzepte einsetzen.",
+      "progression": "R5-Gestaltung wird um Analyse von Werbeabsicht und bewusste begründete Revision des eigenen Sachprodukts erweitert.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-010",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M03",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Gestaltung und Absicht eines Medienprodukts analysieren; kreativ mit eigener Absicht produzieren, Wirkung prüfen und passende Bedienkonzepte einsetzen.",
+      "progression": "R5-Gestaltung wird um Analyse von Werbeabsicht und bewusste begründete Revision des eigenen Sachprodukts erweitert.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-011",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M03",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Gestaltung und Absicht eines Medienprodukts analysieren; kreativ mit eigener Absicht produzieren, Wirkung prüfen und passende Bedienkonzepte einsetzen.",
+      "progression": "R5-Gestaltung wird um Analyse von Werbeabsicht und bewusste begründete Revision des eigenen Sachprodukts erweitert.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-012",
+      "coverage": "not-applicable",
+      "r5Disposition": "context-only",
+      "r5ModuleIds": [],
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel oder Progressionshinweis als Auslegungskontext; keine eigene zusätzliche Kompetenz und keine Pflichtzeit.",
+      "progression": null,
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Abdeckungszählung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "moduleIds": [
+        "V2-G6-M03",
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Gestaltung und Absicht eines Medienprodukts analysieren; kreativ mit eigener Absicht produzieren, Wirkung prüfen und passende Bedienkonzepte einsetzen.",
+      "progression": "R5-Gestaltung wird um Analyse von Werbeabsicht und bewusste begründete Revision des eigenen Sachprodukts erweitert.",
+      "fulfillmentMode": "integrated",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Quellen und ein geprüftes Lizenzmodell erläutern, eigenes Produkt rechtlich anhand freigegebener Kriterien prüfen/revidieren und im geschlossenen Kanal sowie lokaler Präsentation teilen.",
+      "progression": "Bekannte Regeln aus R5 eigenständiger im Quellen-/Rechteaudit und bei zwei zugelassenen Teilwegen anwenden.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Quellen und ein geprüftes Lizenzmodell erläutern, eigenes Produkt rechtlich anhand freigegebener Kriterien prüfen/revidieren und im geschlossenen Kanal sowie lokaler Präsentation teilen.",
+      "progression": "Bekannte Regeln aus R5 eigenständiger im Quellen-/Rechteaudit und bei zwei zugelassenen Teilwegen anwenden.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "r5Disposition": "planned-in-grade-5",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "moduleIds": [
+        "V2-G6-M07"
+      ],
+      "plannedEvidence": "Quellen und ein geprüftes Lizenzmodell erläutern, eigenes Produkt rechtlich anhand freigegebener Kriterien prüfen/revidieren und im geschlossenen Kanal sowie lokaler Präsentation teilen.",
+      "progression": "Bekannte Regeln aus R5 eigenständiger im Quellen-/Rechteaudit und bei zwei zugelassenen Teilwegen anwenden.",
+      "fulfillmentMode": "direct-module",
+      "disposition": "revisit-and-extend",
+      "rationale": "Eigenständige R6-Planungszuordnung anhand Wortlaut und R5-Anschluss; tatsächliche Vorkenntnisse und Abdeckung unbewiesen.",
+      "successorTaskId": null
+    }
+  ]
+}

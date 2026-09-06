@@ -1,0 +1,653 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 6,
+  "scope": {
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "level": "E",
+    "planningYear": "2026/2027",
+    "contentProduction": "frozen",
+    "activeBaseline": "v1"
+  },
+  "designDecision": "Sieben eigenständige Lernbögen führen von Nutzung zu erklärten Systembeziehungen, belegten Urteilen und zunehmend selbstständiger Revision. 17 vereinbarte Erstzuordnungen und 39 explizite Wiederaufnahmen werden im Kern geplant. R5-Abnahme ist keine Aussage über die Vorkenntnisse der tatsächlichen Klasse 6.",
+  "sourceReview": {
+    "basisPath": "roadmap/v2/grades/grade-5/roadmap.json",
+    "basisCheckedAt": "2026-09-06",
+    "ministryUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+    "lesehilfeUrl": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+    "finding": "Übernahme der gleichentags dokumentierten amtlichen Quellenprüfung aus R5 und der unveränderten Rohrecords. R6 behauptet keine zusätzliche Remote- oder Byteprüfung. Lesehilfe-Records 5/6 sind Orientierung; BMB-Klasse-5-Records werden hier nicht als neuer Klasse-6-Pflichtkatalog ausgegeben."
+  },
+  "entryKnowledge": {
+    "status": "not-observed",
+    "basis": "approved-plan-not-cohort-evidence",
+    "cohortCaveat": "Die aktuelle Klasse 6 kann andere Vorjahresangebote besucht haben; im Planungsjahr 2026/27 ist eine absolvierte V2-R5-Sequenz gerade nicht vorauszusetzen. Aufgabenbezogene Produkte dienen der Unterstützung, nicht einem stabilen Personenprofil.",
+    "checks": [
+      {
+        "id": "R6-ENTRY-01",
+        "r5ModuleId": "V2-G5-M01",
+        "beforeModule": "V2-G6-M01",
+        "minutes": 15,
+        "plannedProduct": "Arbeitsdatei in einem neuen Verzeichnis ablegen und wiederfinden; Gerät/Programm/Speicherort erklären.",
+        "criterion": "Ablageweg ist nachvollziehbar; Bedienhürde wird von Begriffsfehler getrennt.",
+        "gapResponse": "Gezielte Dateiroutine vormachen, an zweiter Datei prüfen; bei Zugangsausfall R6-ACCESS offen halten.",
+        "state": "not-run"
+      },
+      {
+        "id": "R6-ENTRY-02",
+        "r5ModuleId": "V2-G5-M02",
+        "beforeModule": "V2-G6-M02",
+        "minutes": 15,
+        "plannedProduct": "Zu einer kleinen Sachfrage aus zwei Quellen eine Information auswählen und begründen.",
+        "criterion": "Auswahl bezieht sich auf Herkunft und Beleg statt allein auf Rangfolge oder Aussehen.",
+        "gapResponse": "Ein Quellenpaar explizit modellieren, reduzierten neuen Fall prüfen; bei breiten Lücken R6-BUDGET neu planen.",
+        "state": "not-run"
+      },
+      {
+        "id": "R6-ENTRY-03",
+        "r5ModuleId": "V2-G5-M03",
+        "beforeModule": "V2-G6-M06",
+        "minutes": 15,
+        "plannedProduct": "Im freigegebenen Kanal einen sachlichen Beitrag beantworten und einen Konfliktfall begründet lösen.",
+        "criterion": "Adressat und Regel passen; digitale Handlung tatsächlich ausgeführt, Geheimnisse bleiben privat.",
+        "gapResponse": "Kommunikationsweg modellieren und mit sachlichem Testbeitrag üben; technische Hürden an R6-ACCESS geben.",
+        "state": "not-run"
+      },
+      {
+        "id": "R6-ENTRY-04",
+        "r5ModuleId": "V2-G5-M04",
+        "beforeModule": "V2-G6-M07",
+        "minutes": 15,
+        "plannedProduct": "Einen bereitgestellten Text-/Bildausschnitt mit Quellenhinweis an einem Kriterium verbessern.",
+        "criterion": "Änderung verbessert das benannte Kriterium und ist eigenständig erklärbar.",
+        "gapResponse": "Einen Teilschritt modellieren, kleine neue Stelle bearbeiten; Produktumfang prüfen, keine bloße Vorlagenkopie.",
+        "state": "not-run"
+      },
+      {
+        "id": "R6-ENTRY-05",
+        "r5ModuleId": "V2-G5-M05",
+        "beforeModule": "V2-G6-M03",
+        "minutes": 15,
+        "plannedProduct": "Werbung oder fremde Selbstdarstellung an einem neutralen Fall erkennen und mögliche Wirkung begründen.",
+        "criterion": "Beobachtung, Wirkung und Urteil werden getrennt; kein privater Erfahrungsbericht.",
+        "gapResponse": "Kontrastfall gemeinsam auswerten, begründetes Urteil mit Sprachhilfe erneut versuchen.",
+        "state": "not-run"
+      },
+      {
+        "id": "R6-ENTRY-06",
+        "r5ModuleId": "V2-G5-M06",
+        "beforeModule": "V2-G6-M05",
+        "minutes": 15,
+        "plannedProduct": "Anweisung und feste Wiederholung aus einer kurzen grafischen oder Code-Darstellung schrittweise erklären.",
+        "criterion": "Vorhersage und Spur passen zusammen; reine Syntaxhürde von fehlendem Ablaufverständnis trennen.",
+        "gapResponse": "Frühe Erklärung und kurze geführte Spur; bei fehlenden Grundbegriffen eigenständige Neuplanung statt drei Einheiten voraussetzen.",
+        "state": "not-run"
+      }
+    ],
+    "totalMinutes": 90,
+    "budgetLocation": "variants.entryCheckMinutes",
+    "broadGapAction": "replan-before-dependent-module",
+    "decisionRule": "15 Minuten je Bereich umfassen kurze Handlung, Sichtung und Anschlussentscheidung; zunächst Sprache, Darstellung und Bedienzugang klären. Tragfähiger Kern: Hilfe reduzieren. Einzelne Lücke: gezielte Überbrückung mit neuer Kurzprüfung. Breite Lücken oder Bedarf über 45 Minuten: R6-ENTRY/R6-BUDGET neu entscheiden und Modul-/Jahresplan offen anpassen. Keine automatische Einstufung oder private Telemetrie."
+  },
+  "coreOrder": [
+    "V2-G6-M01",
+    "V2-G6-M02",
+    "V2-G6-M03",
+    "V2-G6-M04",
+    "V2-G6-M05",
+    "V2-G6-M06",
+    "V2-G6-M07"
+  ],
+  "modules": [
+    {
+      "id": "V2-G6-M01",
+      "kind": "core",
+      "title": "Vom Gerät zum Netz",
+      "goal": "Nachrichtenwege und Client-Server-Beziehungen modellieren; Speicherorte nach Zugang, Verfügbarkeit und Zuständigkeit vergleichen.",
+      "learningAction": "Ein vermaschtes Netz zeichnen, mögliche Weiterleitung einer Nachricht erklären und Anfrage/Antwort zwischen Client und Server zuordnen; eine begründete Speicherentscheidung im schulischen Arbeitsraum praktisch ausführen.",
+      "plannedProduct": "Beschriftete Netzskizze mit Nachrichtenweg, erklärte Anfrage/Antwort und kriteriengestützter Speichervergleich mit wiedergefundener Arbeitsdatei.",
+      "feedbackAndRevision": "Eine unzutreffende Direktverbindung oder Rollenverwechslung markieren und nach einem gezielten Hinweis im veränderten Netz korrigieren; Speicherentscheidung an einem zweiten Auftrag prüfen.",
+      "support": "Begriffe und ein Teilschritt werden modelliert; reduzierte Knotenzahl und beschriftete Rollen helfen. Die vollständige Lösung ist beim eigenen Modellieren ausgeblendet.",
+      "digitalPurpose": "Reale Dateiablage und schulischer Zugang bleiben Zielhandlungen; eine später geprüfte veränderbare Netzansicht kann alternative Wege sichtbar machen.",
+      "fallback": "Papiermodell erhält Netzverständnis. Fehlender schulischer Zugang und praktische Dateioperationen bleiben ungeprüft; lokale Ablage ersetzt keinen Zugriff auf das Schulnetz.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 30,
+        "guidedPractice": 40,
+        "independentApplication": 50,
+        "feedbackAndRevision": 30,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-014",
+        "LXF04-PR-016",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Reichen vier Einheiten nach Eingangsklärung für Netzmodell und begründeten Speichervergleich? Werden Server mit Internet oder Cloud gleichgesetzt?"
+    },
+    {
+      "id": "V2-G6-M02",
+      "kind": "core",
+      "title": "Suchen und widersprüchliche Quellen prüfen",
+      "goal": "Indexsuche erklären und widersprüchliche Informationen anhand Herkunft, Motiven und überprüfbaren Belegen beurteilen.",
+      "learningAction": "Recherche praktisch durchführen; an einem kleinen Indexmodell Suchanfrage und Fundliste erklären. Zwei widersprüchliche Quellen und eine vorbereitete KI-Ausgabe prüfen; Akteure, Motive, Interessenkonflikt und mögliche automatisierte Verbreitung unterscheiden.",
+      "plannedProduct": "Geordnete Quellenprüfung mit markiertem Widerspruch, begründetem Vertrauensurteil, Erklärung des Indexmodells und nachvollziehbarer Korrektur einer unbelegten KI-Aussage.",
+      "feedbackAndRevision": "Zwischenstopp am Quellenpaar: Lehrkraft prüft, ob ein Beleg die Aussage trägt. Rückmeldung führt zu einer verbesserten Auswahl oder ausdrücklich verbleibender Unsicherheit.",
+      "support": "Eng begrenzte Sachfrage, zwei bis drei zugängliche Quellen, Satzhilfen für Widerspruch und Begründung. Ein Urteil wird modelliert, ein zweites selbstständig erstellt.",
+      "digitalPurpose": "Reale Suche, Navigation und Vergleich sind fachlich notwendig. Vorbereitete, geprüfte KI-Ausgaben erlauben kritische Analyse ohne persönliche Konten oder eigene Prompts.",
+      "fallback": "Lokale Quellenausschnitte erhalten Quellenurteil und KI-Kritik; tatsächliche Suchmaschinennutzung muss bei Zugangsausfall nachgeholt werden.",
+      "minutes": 225,
+      "timeComponents": {
+        "orientationAndExplanation": 35,
+        "guidedPractice": 50,
+        "independentApplication": 65,
+        "feedbackAndRevision": 40,
+        "consolidationAndTransfer": 35
+      },
+      "dependsOn": [
+        "V2-G6-M01"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-007",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-014",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Überfordert die Verbindung von Suchmodell und Quellenurteil? Können Lernende Widerspruch, fehlenden Beleg und Interessen auseinanderhalten?"
+    },
+    {
+      "id": "V2-G6-M03",
+      "kind": "core",
+      "title": "Werbung, Daten und Interessen untersuchen",
+      "goal": "Werbeauswahl mit Datenerhebung, eingesetzten Techniken und Akteursinteressen begründet verknüpfen.",
+      "learningAction": "Vorbereitete neutrale Werbefälle analysieren: Einbettung erkennen, mögliche Auswahlwege erklären, personenbezogene Daten und Metadaten an Beispielen unterscheiden und die Interessen verschiedener Akteure gegenüberstellen.",
+      "plannedProduct": "Erklärtes Datenflussbild mit Erhebungssituation, Technik, möglichem Auswahlweg und Interessenvergleich; ausdrücklich keine Behauptung, einen unbekannten realen Werbealgorithmus rekonstruiert zu haben.",
+      "feedbackAndRevision": "Kausalkette auf unbelegte Sprünge prüfen; nach Hinweis einen plausiblen Weg von einer beobachteten Tatsache trennen und Erklärung überarbeiten.",
+      "support": "Begrenzte Akteurskarten und ein kommentierter Datenfluss; sprachliche Hilfen für Möglichkeit, Ursache und Interesse. Keine private Nutzungserhebung.",
+      "digitalPurpose": "Veränderbare bereitgestellte Fälle zeigen Unterschiede von Werbeinhalten und Datenspuren; reale private Trackingexperimente sind für das Ziel nicht erforderlich.",
+      "fallback": "Zugängliche Fallkarten und Textbeschreibungen ermöglichen dieselbe fachliche Analyse. Sie belegen weiterhin keine Reflexion der eigenen privaten Nutzung.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 30,
+        "guidedPractice": 40,
+        "independentApplication": 50,
+        "feedbackAndRevision": 30,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [
+        "V2-G6-M02"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Erklären Lernende Techniken und Interessen statt nur vor Werbung zu warnen? Bleiben Datenfälle ohne private Offenlegung bearbeitbar?"
+    },
+    {
+      "id": "V2-G6-M04",
+      "kind": "core",
+      "title": "Informationen passend codieren",
+      "goal": "Textcodierungen anwenden und ihre Eignung für verschiedene Übertragungszwecke begründen.",
+      "learningAction": "Mit einer überschaubaren eindeutigen Vorschrift Texte codieren und decodieren; zwei bereitgestellte Codierungen für unterschiedliche Empfänger und Übertragungsbedingungen vergleichen und die Wahl begründen.",
+      "plannedProduct": "Nachvollziehbares Text-Code-Paar, eine korrigierte Übertragungsstelle und begründete Wahl der Codierung unter veränderter Bedingung.",
+      "feedbackAndRevision": "Empfangenen Text mit der Absicht vergleichen; die erste fehlerhafte Zuordnung finden, korrigieren und mit einer neuen Nachricht prüfen.",
+      "support": "Gemeinsam bearbeiteter Teilschritt, dauerhaft verfügbare Codetabelle und kurze Nachrichten. Codieren wird nicht mit Verschlüsseln oder Geheimhaltung gleichgesetzt.",
+      "digitalPurpose": "Digitale Texte lassen sich nachvollziehbar umwandeln und vergleichen; eine spätere Simulation muss die Zuordnung sichtbar halten und darf den entscheidenden Denkweg nicht verbergen.",
+      "fallback": "Codetabelle, händische Zuordnung und zugängliche Textdarstellung erhalten den fachlichen Nachweis. Eine bestimmte Anwendung ist hier kein eigenes Kompetenzziel.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 30,
+        "guidedPractice": 40,
+        "independentApplication": 50,
+        "feedbackAndRevision": 30,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [
+        "V2-G6-M01"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-008",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-014",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Begründen Lernende die Wahl am Einsatzzweck, oder beherrschen sie nur das Nachschlagen? Sind Tabellen und Darstellungen zugänglich?"
+    },
+    {
+      "id": "V2-G6-M05",
+      "kind": "core",
+      "title": "Algorithmen erklären und gezielt verbessern",
+      "goal": "Anweisungen und feste Wiederholungen über Darstellung, Code und Ausführung hinweg erklären und an einer begründeten Fehlerhypothese verbessern.",
+      "learningAction": "Bei einem neuen begrenzten Ablauf die Ausführung vorhersagen, eine grafische Darstellung und Code mit festen Wiederholungen schrittweise verfolgen, eine Abweichung lokalisieren und gezielt korrigieren.",
+      "plannedProduct": "Ausführbarer Ablauf mit erklärter Spur, begründeter Fehlerhypothese und überprüfter Revision; keine bloße Kopie eines Beispiels.",
+      "feedbackAndRevision": "Vorhersage mit Ausführung vergleichen. Nach dem ersten Unterschied gezielt eine Stelle ändern und am zweiten Eingabefall erklären, weshalb die Korrektur trägt.",
+      "support": "Bei fehlendem Anschlusswissen früher modellieren und Übungsbedarf ausweisen. Reduzierter Befehlsumfang; Variable, Verzweigung und unbestimmte Wiederholung werden nicht als bereits bekannt vorausgesetzt.",
+      "digitalPurpose": "Deterministische Ausführung liefert prüfbare Spuren. Ein geeigneter lokaler oder schulischer Interpreter wird erst vor Materialproduktion ausgewählt und geprüft.",
+      "fallback": "Manuelle Spur erhält Ablaufanalyse; praktisches Programmieren in einer Sprache ist damit nicht nachgewiesen und benötigt später einen zugänglichen Ausführungsweg.",
+      "minutes": 135,
+      "timeComponents": {
+        "orientationAndExplanation": 20,
+        "guidedPractice": 30,
+        "independentApplication": 35,
+        "feedbackAndRevision": 25,
+        "consolidationAndTransfer": 25
+      },
+      "dependsOn": [
+        "V2-G6-M04"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-008",
+        "LXF04-PR-009",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Sind drei Einheiten bei tatsächlich vorhandenem Grundverständnis tragfähig? Bei fehlenden Grundbegriffen muss das begrenzte Überbrückungsbudget neu bewertet werden."
+    },
+    {
+      "id": "V2-G6-M06",
+      "kind": "core",
+      "title": "Kommunikationsräume beurteilen",
+      "goal": "Gründe für und gegen soziale Medien abwägen und begünstigende Bedingungen verletzenden Verhaltens mit passenden Handlungsmöglichkeiten verbinden.",
+      "learningAction": "Neutrale Fälle mit unterschiedlichen Reichweiten, Sichtbarkeiten und Rückmeldesituationen vergleichen; Wirkungen fremder Selbstdarstellung einschätzen und Schutz-/Hilfestrategien auf den Fall beziehen.",
+      "plannedProduct": "Abgewogenes Fallurteil mit Pro-/Contra-Gründen, erklärtem Strukturmerkmal und begründeter Hilfe- oder Meldestrategie.",
+      "feedbackAndRevision": "Prüfen, ob Urteil auf Fallmerkmalen beruht und Hilfe zur Situation passt; ein pauschales Argument präzisieren und die Entscheidung nach Rückmeldung überarbeiten.",
+      "support": "Kontrastierende kurze Fälle, begrenzte Kriterien und Begründungshilfen. Keine eigenen Profile, Berichte über Verletzungen oder persönlichen Nutzungsgewohnheiten verlangen.",
+      "digitalPurpose": "Bereitgestellte Ansichten machen Reichweite und Kommunikationsbedingungen vergleichbar. Reale Plattformkonten sind für das Urteil nicht erforderlich.",
+      "fallback": "Ausdrucke oder Textbeschreibungen erhalten Urteil und Fallanalyse. Eigene Mediennutzung bleibt eine gesonderte offene Nachweisfrage.",
+      "minutes": 135,
+      "timeComponents": {
+        "orientationAndExplanation": 20,
+        "guidedPractice": 30,
+        "independentApplication": 35,
+        "feedbackAndRevision": 25,
+        "consolidationAndTransfer": 25
+      },
+      "dependsOn": [
+        "V2-G6-M03"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Werden begünstigende Kommunikationsbedingungen erklärt, ohne Betroffenen Verantwortung zuzuschieben? Sind begründete Abwägungen in drei Einheiten erreichbar?"
+    },
+    {
+      "id": "V2-G6-M07",
+      "kind": "core",
+      "title": "Gemeinsames Informationsprodukt begründet überarbeiten",
+      "goal": "Geprüfte Informationen in einem kleinen digitalen Produkt adressatengerecht darstellen, gemeinsam prüfen und mit nachvollziehbaren Gründen revidieren.",
+      "learningAction": "Eine begrenzte Sachfrage aus M02/M03 aufgreifen, einen kurzen Text-/Bildentwurf mit Präsentationsansicht erzeugen, im geschlossenen schulischen Kanal Beiträge austauschen und an Quellen-, Rechte- und Gestaltungskriterien überarbeiten.",
+      "plannedProduct": "Überschaubares Informationsprodukt mit Quellen-/Rechtehinweisen, erkennbarem individuellem Beitrag, fachlich aufgenommener Partnerrückmeldung und begründeter Revision; Teilen im Schulkanal und lokale Vorstellung.",
+      "feedbackAndRevision": "Nach zehn Arbeitsminuten Minimalentwurf und Beteiligung prüfen. Zwei fokussierte Kriterien steuern Peerfeedback, Lehrkraft klärt Fachfehler; Revision wird am Ausgangsentwurf begründet.",
+      "support": "Bekannte Inhalte und enge Produktgrenze, etwa eine bis zwei Seiten mit einer Präsentationsansicht; kommentiertes Teilbeispiel, Rollenwechsel und bedarfsgerechte Hilfen. Keine offene Langzeitprojektphase.",
+      "digitalPurpose": "Editierbarkeit, nachvollziehbarer Austausch und tatsächliche Überarbeitung dienen der Kompetenz. Eine öffentliche Veröffentlichung ist nicht nötig.",
+      "fallback": "Lokaler Entwurf und mündliches Feedback sichern Inhalte. Fehlender digitaler Austausch bleibt offen; digitale Produktion und geschlossener Kanal müssen zugänglich nachgeholt werden.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 20,
+        "guidedPractice": 30,
+        "independentApplication": 55,
+        "feedbackAndRevision": 45,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [
+        "V2-G6-M02",
+        "V2-G6-M03",
+        "V2-G6-M06"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-004",
+        "LXF04-PR-005",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-016",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Passt das bewusst kleine Produkt einschließlich Austausch, Lizenzprüfung und Revision in vier Einheiten? Trägt jede Person fachlich bei?"
+    }
+  ],
+  "flexModules": [
+    {
+      "id": "V2-G6-F01",
+      "kind": "flex",
+      "title": "Codierungsentscheidungen vertiefen",
+      "minutes": 90,
+      "dependsOn": [
+        "V2-G6-M04"
+      ],
+      "purpose": "Bekannte Codierungen unter einer zusätzlichen Übertragungsbedingung vergleichen; kein exklusiver neuer Pflichtinhalt.",
+      "newRequiredCoverage": false
+    },
+    {
+      "id": "V2-G6-F02",
+      "kind": "flex",
+      "title": "Algorithmische Varianten begründen",
+      "minutes": 90,
+      "dependsOn": [
+        "V2-G6-M05"
+      ],
+      "purpose": "Zwei Lösungen mit Anweisungen und festen Wiederholungen erklären und begründet vergleichen; kein verpflichtender Vorgriff auf Klasse 7.",
+      "newRequiredCoverage": false
+    }
+  ],
+  "timeAssumptions": {
+    "unitMinutes": 45,
+    "status": "project-estimate-not-piloted",
+    "derivation": "independent-grade-6-task-budget",
+    "coreMinutes": 1215,
+    "meaning": "Neu aus sieben begrenzten Lernhandlungen mit Modellierung, Übung, Anwendung, Feedback und Sicherung gerechnet. Kein R5-Skalierungsfaktor. Einstiegsklärung liegt ausschließlich in entryCheckMinutes, zusätzliche Reparatur des Vorwissens in bridgingMinutes; modulinterne Hilfen zum neuen Ziel bleiben in den Modulzeiten.",
+    "belowMinimum": "Unter 32 Nettoeinheiten oder bei breiten Eingangslücken neue Teilplanung mit sichtbaren offenen Anforderungen; keine stille Verlagerung der 17 Erstzuordnungen nach R7.",
+    "bridgingRule": "Die 36/40-Varianten reservieren höchstens 45 Minuten gezielte Überbrückung. Reicht dies nicht, Budget/Folge vor abhängigen Modulen neu entscheiden. Die 32-Variante ist nur nach tragfähigen Einstiegsergebnissen verwendbar."
+  },
+  "variants": [
+    {
+      "id": "V2-G6-T32",
+      "availableUnits": 32,
+      "coreMinutes": 1215,
+      "entryCheckMinutes": 90,
+      "bridgingMinutes": 0,
+      "spacedPracticeMinutes": 45,
+      "orchestrationMinutes": 45,
+      "bufferMinutes": 45,
+      "flexIds": [],
+      "totalMinutes": 1440,
+      "limitation": "Nur bei tragfähigem Einstieg und Zugängen; keine eingeplante zusätzliche Überbrückung. Bei Lücken vor abhängigen Modulen neu planen."
+    },
+    {
+      "id": "V2-G6-T36",
+      "availableUnits": 36,
+      "coreMinutes": 1215,
+      "entryCheckMinutes": 90,
+      "bridgingMinutes": 45,
+      "spacedPracticeMinutes": 90,
+      "orchestrationMinutes": 45,
+      "bufferMinutes": 135,
+      "flexIds": [],
+      "totalMinutes": 1620,
+      "limitation": "Bevorzugte Arbeitsannahme; tatsächliche Nettozeit und Eingangslage noch offen. 45 Minuten Überbrückung genügen nicht für beliebig breite Lücken."
+    },
+    {
+      "id": "V2-G6-T40",
+      "availableUnits": 40,
+      "coreMinutes": 1215,
+      "entryCheckMinutes": 90,
+      "bridgingMinutes": 45,
+      "spacedPracticeMinutes": 90,
+      "orchestrationMinutes": 45,
+      "bufferMinutes": 135,
+      "flexIds": [
+        "V2-G6-F01",
+        "V2-G6-F02"
+      ],
+      "totalMinutes": 1800,
+      "limitation": "Flex nur bei erfüllten Voraussetzungen; bei zusätzlichem Förderbedarf zugunsten Übung neu disponieren. Kein Mehrzeitbeweis für offene Eigenbezüge."
+    }
+  ],
+  "retrievalSchedule": [
+    {
+      "afterModule": "V2-G6-M03",
+      "revisitModule": "V2-G6-M02",
+      "minimumMinutes": 15,
+      "extendedMinutes": 30,
+      "purpose": "Neuen Quellenwiderspruch ohne vollständiges Beispiel prüfen und das Vertrauensurteil nach Feedback präzisieren."
+    },
+    {
+      "afterModule": "V2-G6-M05",
+      "revisitModule": "V2-G6-M04",
+      "minimumMinutes": 15,
+      "extendedMinutes": 30,
+      "purpose": "Eine bekannte Codierungsregel für einen veränderten Übertragungszweck auswählen und begründen."
+    },
+    {
+      "afterModule": "V2-G6-M07",
+      "revisitModule": "V2-G6-M01",
+      "minimumMinutes": 15,
+      "extendedMinutes": 30,
+      "purpose": "Eine veränderte Netz-/Speichersituation erklären und eine begründete Speicherentscheidung rekonstruieren."
+    }
+  ],
+  "projectRequirements": [
+    {
+      "requirementId": "V2-REQ-SYS-001",
+      "disposition": "maintained-boundary",
+      "location": "scope",
+      "rationale": "V1 bleibt aktiv; Jahrgangsplanung autorisiert keinen Cutover.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-SYS-002",
+      "disposition": "maintained-boundary",
+      "location": "scope",
+      "rationale": "Nur Ziel-/Nachweisverträge; keine Lernendentexte und keine Produktion.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-CUR-001",
+      "disposition": "planning-assignment",
+      "location": "curriculum-map.json",
+      "rationale": "Alle 85 einschlägigen 5/6-Orientierungsrecords quellentreu disponieren; BMB bleibt Klasse-5-Quelle. 17 Erstzuordnungen, 39 Wiederaufnahmen, vier offene Eigenbezüge und 25 Kontexte unterscheiden.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-CUR-002",
+      "disposition": "planning-assignment",
+      "location": "curriculum-map.json",
+      "rationale": "Direkte und integrierte Nachweise mit explizitem R5-Anschluss; keine Zusatzzeit durch mehrere Recordzuordnungen.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-SRC-001",
+      "disposition": "planning-assignment",
+      "location": "modules",
+      "rationale": "Prinzipien verweisen auf abgenommene Claims/Quellen; spätere konkrete Materialien brauchen eigenen Rechte-/Quellencheck.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-LXF-001",
+      "disposition": "planning-assignment",
+      "location": "modules",
+      "rationale": "Eingangsprodukte steuern Unterstützung; jeder Lernbogen verbindet Ziel, Handlung, Produkt und Revision. Wiederaufnahme getrennt budgetieren.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-GOV-001",
+      "disposition": "maintained-boundary",
+      "location": "entryGates",
+      "rationale": "Geplante Nachweise nicht mit erfolgter Nutzung, Prüfung, Pilotierung oder Wirksamkeit verwechseln.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-DASH-001",
+      "disposition": "handoff",
+      "location": "IUM-V2-DASH",
+      "rationale": "Dashboardmigration bleibt späterer separater Auftrag; hier nur Statusregister aktualisieren.",
+      "coverage": "unassessed"
+    }
+  ],
+  "entryGates": [
+    {
+      "id": "R6-ENTRY",
+      "owner": "Planende Lehrkraft / Auftraggeber",
+      "risk": "R5-Plan wird fälschlich als Vorwissen der aktuellen Lerngruppe behandelt.",
+      "trigger": "Vor dem jeweiligen abhängigen Lernbogen",
+      "condition": "Sechs aufgabenbezogene Einstiegsprodukte sichten, Hürden unterscheiden und Unterstützung begründen. Bei breiten Lücken erst neu planen; keine private Nutzungserhebung.",
+      "state": "open"
+    },
+    {
+      "id": "R6-ACCESS",
+      "owner": "IUM-V2-FU-TECH / Schule / Betreiber",
+      "risk": "Werkzeuge, Konto oder Kanal fehlen; Papierersatz wird als digitaler Nachweis ausgegeben.",
+      "trigger": "Vor Materialproduktion und schulischer Erprobung",
+      "condition": "Zugängliche Geräte, realer Schulzugang, Suchwerkzeug, geschlossener Kanal und Interpreter samt Datenschutz-/Rechtefragen prüfen. Nicht ausführbare Zielhandlungen bleiben offen.",
+      "state": "open"
+    },
+    {
+      "id": "R6-BUDGET",
+      "owner": "Auftraggeber / planende Lehrkraft",
+      "risk": "Vier oder fünf Einheiten reichen bei tatsächlichen Hürden nicht; 17 Erstzuordnungen werden still verschoben.",
+      "trigger": "Vor Auswahl der Jahresvariante und bei Überbrückungsbedarf über 45 Minuten",
+      "condition": "Nettozeit, Unterrichtstakt und Eingangslage erheben; bei weniger als 32 UE oder breiten Lücken neue transparente Teilplanung. Kern nicht zugunsten Flex kürzen.",
+      "state": "open"
+    },
+    {
+      "id": "R6-PRIVACY",
+      "owner": "IUM-V2-CUR / Governance / zuständige Schule",
+      "risk": "Fiktive Fälle schließen vermeintlich die sechs offenen Eigenbezugsnachweise.",
+      "trigger": "Vor Nachweisbehauptungen mit eigenem Nutzungs-/Erfahrungsbezug",
+      "condition": "Alle sechs aus R5 offenen Records samt CUR-Q-002 erhalten; datenschutzfachlich tragfähige Nachweisentscheidung separat beauftragen. Zwei amtliche BMB-Lücken bleiben Klasse-5-Altlast, kein neuer R6-Pflichtkatalog.",
+      "state": "open"
+    },
+    {
+      "id": "R6-PILOT",
+      "owner": "IUM-V2-FU-PILOT / fachliche Prüfende",
+      "risk": "Vertragstests werden für belegte Nutzbarkeit, Zeitpassung oder Lernwirkung gehalten.",
+      "trigger": "Nach späterer Modulspezifikation und gesonderter Erprobungsfreigabe",
+      "condition": "Zeit, Zugänglichkeit, Nutzung von Hilfen/Feedback und fachliche Produkte im freigegebenen Verfahren untersuchen; Risiken je Modul prüfen.",
+      "state": "open"
+    },
+    {
+      "id": "R6-R7-TRANSITION",
+      "owner": "IUM-V2-R7 / fachliche Prüfende / Auftraggeber",
+      "risk": "Geplante R6-Produkte gelten ohne Prüfung als beherrschte Voraussetzungen für R7.",
+      "trigger": "Nach ausdrücklicher R6-Planungsabnahme, vor Klasse-7-Planung",
+      "condition": "R7-Anschluss aus geplanten Produkten und tatsächlicher späterer Eingangslage unterscheiden; eigenes R7-Review. R6-Abnahme öffnet keinen Pilot, keine Produktion und keinen Cutover.",
+      "state": "open"
+    }
+  ],
+  "auditApplications": [
+    {
+      "artifactId": "IUM01",
+      "decision": "adapt",
+      "application": "Darstellungswechsel und begründete Revision in M01/M04/M05; Altersübertragung bleibt zu prüfen."
+    },
+    {
+      "artifactId": "IUM02",
+      "decision": "adapt",
+      "application": "Quellenurteil, Dateninteressen und Kommunikationsbedingungen in M02/M03/M06; keine rein moralischen Verhaltenslisten."
+    },
+    {
+      "artifactId": "IUM05",
+      "decision": "retain",
+      "application": "Quellentreue Rohrecords übernehmen; neue R6-Dispositionsmatrix ohne V1-Coverage."
+    },
+    {
+      "artifactId": "IUM06",
+      "decision": "replace",
+      "application": "LXF-Prinzipien und Einstiegsklärung steuern die neue Folge; alte Synthese ersetzt keinen R6-Entscheid."
+    },
+    {
+      "artifactId": "IUM07",
+      "decision": "replace",
+      "application": "Sieben R6-Lernbögen neu aus Anschluss und Anforderungen; keine alte Kandidatenfolge fortschreiben."
+    },
+    {
+      "artifactId": "IUM09",
+      "decision": "adapt",
+      "application": "Reguläre Werkzeughandlungen und Selbstdarstellungsurteil integriert; sechs Eigenbezugsnachweise bleiben offen."
+    },
+    {
+      "artifactId": "IUM10",
+      "decision": "replace",
+      "application": "1215 Kernminuten plus separate Einstiegsklärung/Überbrückung und Jahreszeiten neu kalkulieren; keine Working-40- oder R5-Hochrechnung."
+    }
+  ],
+  "grade7Handoff": {
+    "nextTask": "IUM-V2-R7",
+    "state": "planning-only",
+    "activation": "explicit-r6-user-approval",
+    "plannedEntryEvidence": [
+      {
+        "moduleId": "V2-G6-M01",
+        "evidence": "Beschriftete Netzskizze mit Nachrichtenweg, erklärte Anfrage/Antwort und kriteriengestützter Speichervergleich mit wiedergefundener Arbeitsdatei."
+      },
+      {
+        "moduleId": "V2-G6-M02",
+        "evidence": "Geordnete Quellenprüfung mit markiertem Widerspruch, begründetem Vertrauensurteil, Erklärung des Indexmodells und nachvollziehbarer Korrektur einer unbelegten KI-Aussage."
+      },
+      {
+        "moduleId": "V2-G6-M03",
+        "evidence": "Erklärtes Datenflussbild mit Erhebungssituation, Technik, möglichem Auswahlweg und Interessenvergleich; ausdrücklich keine Behauptung, einen unbekannten realen Werbealgorithmus rekonstruiert zu haben."
+      },
+      {
+        "moduleId": "V2-G6-M04",
+        "evidence": "Nachvollziehbares Text-Code-Paar, eine korrigierte Übertragungsstelle und begründete Wahl der Codierung unter veränderter Bedingung."
+      },
+      {
+        "moduleId": "V2-G6-M05",
+        "evidence": "Ausführbarer Ablauf mit erklärter Spur, begründeter Fehlerhypothese und überprüfter Revision; keine bloße Kopie eines Beispiels."
+      },
+      {
+        "moduleId": "V2-G6-M06",
+        "evidence": "Abgewogenes Fallurteil mit Pro-/Contra-Gründen, erklärtem Strukturmerkmal und begründeter Hilfe- oder Meldestrategie."
+      },
+      {
+        "moduleId": "V2-G6-M07",
+        "evidence": "Überschaubares Informationsprodukt mit Quellen-/Rechtehinweisen, erkennbarem individuellem Beitrag, fachlich aufgenommener Partnerrückmeldung und begründeter Revision; Teilen im Schulkanal und lokale Vorstellung."
+      }
+    ],
+    "limitation": "R7 muss tatsächliche Voraussetzungen erneut klären. Keine bloße R6-Planungszuordnung wird als beherrscht übernommen; keine der 17 Erstzuordnungen wird still nach R7 verschoben. Vier offene 5/6-Eigenbezüge und zwei ältere BMB-Nachweisfragen bleiben gesonderte Klärungsaufträge."
+  }
+}

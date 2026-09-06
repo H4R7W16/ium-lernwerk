@@ -1,0 +1,1211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.invalid/schemas/v2/grade-6.schema.json",
+  "title": "IUM-V2-R6 Planungsverträge und Reviewgrenzen",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "grade",
+        "scope",
+        "designDecision",
+        "sourceReview",
+        "entryKnowledge",
+        "coreOrder",
+        "modules",
+        "flexModules",
+        "timeAssumptions",
+        "variants",
+        "retrievalSchedule",
+        "projectRequirements",
+        "entryGates",
+        "auditApplications",
+        "grade7Handoff"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "projectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asOf": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grade": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schoolType",
+            "level",
+            "planningYear",
+            "contentProduction",
+            "activeBaseline"
+          ],
+          "properties": {
+            "schoolType": {
+              "type": "string",
+              "minLength": 1
+            },
+            "level": {
+              "type": "string",
+              "minLength": 1
+            },
+            "planningYear": {
+              "type": "string",
+              "minLength": 1
+            },
+            "contentProduction": {
+              "type": "string",
+              "minLength": 1
+            },
+            "activeBaseline": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "designDecision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceReview": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "basisPath",
+            "basisCheckedAt",
+            "ministryUrl",
+            "lesehilfeUrl",
+            "finding"
+          ],
+          "properties": {
+            "basisPath": {
+              "type": "string",
+              "minLength": 1
+            },
+            "basisCheckedAt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ministryUrl": {
+              "type": "string",
+              "minLength": 1
+            },
+            "lesehilfeUrl": {
+              "type": "string",
+              "minLength": 1
+            },
+            "finding": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "entryKnowledge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "basis",
+            "cohortCaveat",
+            "checks",
+            "totalMinutes",
+            "budgetLocation",
+            "broadGapAction",
+            "decisionRule"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "basis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "cohortCaveat": {
+              "type": "string",
+              "minLength": 1
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "r5ModuleId",
+                  "beforeModule",
+                  "minutes",
+                  "plannedProduct",
+                  "criterion",
+                  "gapResponse",
+                  "state"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "r5ModuleId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "beforeModule": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minutes": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "plannedProduct": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "criterion": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "gapResponse": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "state": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "totalMinutes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "budgetLocation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "broadGapAction": {
+              "type": "string",
+              "minLength": 1
+            },
+            "decisionRule": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "coreOrder": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "kind",
+              "title",
+              "goal",
+              "learningAction",
+              "plannedProduct",
+              "feedbackAndRevision",
+              "support",
+              "digitalPurpose",
+              "fallback",
+              "minutes",
+              "timeComponents",
+              "dependsOn",
+              "principleIds",
+              "implementation",
+              "evidenceStatus",
+              "pilotQuestion"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "goal": {
+                "type": "string",
+                "minLength": 1
+              },
+              "learningAction": {
+                "type": "string",
+                "minLength": 1
+              },
+              "plannedProduct": {
+                "type": "string",
+                "minLength": 1
+              },
+              "feedbackAndRevision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "support": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digitalPurpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "timeComponents": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "orientationAndExplanation",
+                  "guidedPractice",
+                  "independentApplication",
+                  "feedbackAndRevision",
+                  "consolidationAndTransfer"
+                ],
+                "properties": {
+                  "orientationAndExplanation": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "guidedPractice": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "independentApplication": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "feedbackAndRevision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consolidationAndTransfer": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              },
+              "dependsOn": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "principleIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "implementation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidenceStatus": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pilotQuestion": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "flexModules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "kind",
+              "title",
+              "minutes",
+              "dependsOn",
+              "purpose",
+              "newRequiredCoverage"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "dependsOn": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "newRequiredCoverage": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "timeAssumptions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "unitMinutes",
+            "status",
+            "derivation",
+            "coreMinutes",
+            "meaning",
+            "belowMinimum",
+            "bridgingRule"
+          ],
+          "properties": {
+            "unitMinutes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "derivation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "coreMinutes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "meaning": {
+              "type": "string",
+              "minLength": 1
+            },
+            "belowMinimum": {
+              "type": "string",
+              "minLength": 1
+            },
+            "bridgingRule": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "availableUnits",
+              "coreMinutes",
+              "entryCheckMinutes",
+              "bridgingMinutes",
+              "spacedPracticeMinutes",
+              "orchestrationMinutes",
+              "bufferMinutes",
+              "flexIds",
+              "totalMinutes",
+              "limitation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "availableUnits": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "coreMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "entryCheckMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "bridgingMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "spacedPracticeMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "orchestrationMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "bufferMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "flexIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "totalMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "retrievalSchedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "afterModule",
+              "revisitModule",
+              "minimumMinutes",
+              "extendedMinutes",
+              "purpose"
+            ],
+            "properties": {
+              "afterModule": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revisitModule": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minimumMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "extendedMinutes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "projectRequirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "requirementId",
+              "disposition",
+              "location",
+              "rationale",
+              "coverage"
+            ],
+            "properties": {
+              "requirementId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "disposition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "location": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              },
+              "coverage": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "entryGates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "owner",
+              "risk",
+              "trigger",
+              "condition",
+              "state"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "risk": {
+                "type": "string",
+                "minLength": 1
+              },
+              "trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "condition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "state": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "auditApplications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "artifactId",
+              "decision",
+              "application"
+            ],
+            "properties": {
+              "artifactId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "decision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "application": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "grade7Handoff": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "nextTask",
+            "state",
+            "activation",
+            "plannedEntryEvidence",
+            "limitation"
+          ],
+          "properties": {
+            "nextTask": {
+              "type": "string",
+              "minLength": 1
+            },
+            "state": {
+              "type": "string",
+              "minLength": 1
+            },
+            "activation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "plannedEntryEvidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "moduleId",
+                  "evidence"
+                ],
+                "properties": {
+                  "moduleId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "limitation": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "grade",
+        "coverageMeaning",
+        "records"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "projectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asOf": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grade": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coverageMeaning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "recordId",
+              "sourceId",
+              "sourcePath",
+              "sourceBinding",
+              "sourceGrades",
+              "recordType",
+              "isRequirement",
+              "parentRecordId",
+              "coverage",
+              "r5Disposition",
+              "r5ModuleIds",
+              "disposition",
+              "fulfillmentMode",
+              "moduleIds",
+              "plannedEvidence",
+              "progression",
+              "rationale",
+              "successorTaskId"
+            ],
+            "properties": {
+              "recordId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourcePath": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceBinding": {
+                "enum": [
+                  "orientation"
+                ]
+              },
+              "sourceGrades": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "recordType": {
+                "type": "string",
+                "minLength": 1
+              },
+              "isRequirement": {
+                "type": "boolean"
+              },
+              "parentRecordId": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              },
+              "coverage": {
+                "enum": [
+                  "unassessed",
+                  "not-applicable"
+                ]
+              },
+              "r5Disposition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "r5ModuleIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "disposition": {
+                "enum": [
+                  "context-only",
+                  "open-privacy",
+                  "introduced-in-grade-6",
+                  "revisit-and-extend"
+                ]
+              },
+              "fulfillmentMode": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              },
+              "moduleIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "plannedEvidence": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              },
+              "progression": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              },
+              "successorTaskId": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              }
+            }
+          },
+          "minItems": 85,
+          "maxItems": 85
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "asOf",
+        "grade",
+        "workStatus",
+        "reviewType",
+        "reviewer",
+        "userAcceptance",
+        "baseCommit",
+        "r5Acceptance",
+        "nextTask",
+        "nextTaskCondition",
+        "maturity",
+        "verificationScope",
+        "contentProduction",
+        "carryForward",
+        "privateRecordCarry",
+        "openGateIds",
+        "inputDigests"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "projectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asOf": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grade": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "workStatus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "userAcceptance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseCommit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "r5Acceptance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nextTask": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nextTaskCondition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "maturity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "concept",
+            "implementation",
+            "technicalVerification",
+            "curriculumCoverage",
+            "userTesting",
+            "classroomPilot",
+            "release"
+          ],
+          "properties": {
+            "concept": {
+              "type": "string",
+              "minLength": 1
+            },
+            "implementation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "technicalVerification": {
+              "type": "string",
+              "minLength": 1
+            },
+            "curriculumCoverage": {
+              "type": "string",
+              "minLength": 1
+            },
+            "userTesting": {
+              "type": "string",
+              "minLength": 1
+            },
+            "classroomPilot": {
+              "type": "string",
+              "minLength": 1
+            },
+            "release": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "verificationScope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentProduction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "carryForward": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "sourcePaths",
+              "disposition"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourcePaths": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "disposition": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "privateRecordCarry": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "openGateIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "inputDigests": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "curriculum/basiskurs-medienbildung/competencies.json",
+            "curriculum/lesehilfe-2026-27/competencies.json",
+            "roadmap/v2/audits/artifact-inventory.json",
+            "roadmap/v2/audits/follow-up-tasks.json",
+            "roadmap/v2/audits/status.json",
+            "roadmap/v2/foundations/curriculum/gap-assessments.json",
+            "roadmap/v2/foundations/curriculum/source-basis.json",
+            "roadmap/v2/foundations/governance/governance-contract.json",
+            "roadmap/v2/foundations/governance/status.json",
+            "roadmap/v2/foundations/learning-experience/evidence-register.json",
+            "roadmap/v2/foundations/learning-experience/experience-gates.json",
+            "roadmap/v2/foundations/learning-experience/learner-profile.json",
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+            "roadmap/v2/foundations/learning-experience/material-patterns.json",
+            "roadmap/v2/foundations/learning-experience/status.json",
+            "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+            "roadmap/v2/grades/grade-5/README.md",
+            "roadmap/v2/grades/grade-5/acceptance.json",
+            "roadmap/v2/grades/grade-5/curriculum-map.json",
+            "roadmap/v2/grades/grade-5/roadmap.json",
+            "roadmap/v2/grades/grade-5/status.json",
+            "roadmap/v2/grades/grade-5/validation-report.md",
+            "roadmap/v2/grades/grade-6/README.md",
+            "roadmap/v2/grades/grade-6/curriculum-map.json",
+            "roadmap/v2/grades/grade-6/roadmap.json",
+            "roadmap/v2/grades/grade-6/validation-report.md",
+            "roadmap/v2/requirements/requirements.json",
+            "roadmap/v2/status.json",
+            "schemas/v2/grade-6.schema.json"
+          ],
+          "properties": {
+            "curriculum/basiskurs-medienbildung/competencies.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "curriculum/lesehilfe-2026-27/competencies.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/artifact-inventory.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/follow-up-tasks.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/audits/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/gap-assessments.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/curriculum/source-basis.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/governance-contract.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/governance/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/evidence-register.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/experience-gates.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/learner-profile.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/learning-architecture.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/material-patterns.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-5/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-5/acceptance.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-5/curriculum-map.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-5/roadmap.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-5/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-5/validation-report.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-6/README.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-6/curriculum-map.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-6/roadmap.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/grades/grade-6/validation-report.md": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/requirements/requirements.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "roadmap/v2/status.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "schemas/v2/grade-6.schema.json": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "const": {
+        "schemaVersion": 1,
+        "projectId": "ium-lernwerk",
+        "gate": "IUM-V2-R5",
+        "state": "approved-by-user",
+        "date": "2026-09-06",
+        "acceptedCommit": "5146310ae855636d3529e8d31b079b5ca265da6e",
+        "decisionBy": "user",
+        "nextTask": "IUM-V2-R6",
+        "contentProduction": "frozen",
+        "pilot": "not-started",
+        "publication": "closed",
+        "evidence": {
+          "kind": "vault",
+          "target": "2026-09-03 - IUM-V2-R5 Roadmap Klasse 5 neu aufbauen",
+          "label": "R5-Freigabe mit R6-Auftrag; R% als eindeutiger Tippfehler im Anschlusskontext dokumentiert.",
+          "required": true
+        }
+      }
+    }
+  ]
+}
