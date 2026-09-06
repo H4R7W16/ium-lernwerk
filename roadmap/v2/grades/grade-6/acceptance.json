@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "gate": "IUM-V2-R6",
+  "state": "approved-by-user",
+  "date": "2026-09-06",
+  "acceptedCommit": "c38ff9b0b037539b37d6964091c38dc3c323344a",
+  "decisionBy": "user",
+  "nextTask": "IUM-V2-R7",
+  "contentProduction": "frozen",
+  "pilot": "not-started",
+  "publication": "closed",
+  "evidence": {
+    "kind": "vault",
+    "target": "2026-09-03 - IUM-V2-R6 Roadmap Klasse 6 neu aufbauen",
+    "label": "Ausdrückliche R6-Freigabe mit R7-Fortsetzungsauftrag am 6. September 2026.",
+    "required": true
+  }
+}

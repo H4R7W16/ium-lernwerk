@@ -1,0 +1,3127 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 7,
+  "coverageMeaning": "134 einschlägige Rohrecords: 51 amtliche und 31 orientierende Kompetenzen, 52 Kontexte. 79 Kompetenzen besitzen geplante Lerngelegenheiten, drei Reflexionsentscheidungen bleiben offen. Pro Jahrespfad werden zusätzlich ausgelassene orientierende Records offen ausgewiesen; keine tatsächliche Abdeckung.",
+  "records": [
+    {
+      "recordId": "INF7-16-GYM-PK-SV-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M01"
+      ],
+      "plannedEvidence": "Mit Schulnetz zielorientiert arbeiten und begründete Ablage/Wiederfindung tatsächlich ausführen.",
+      "progressionStrandIds": [
+        "R7-PROG-01"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-001-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-PK-SV-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Dateien und Variablen passend benennen und Namensentscheidungen im Auftrag erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-002-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-PK-SV-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Beziehungen in Netzmodell und Codierungsstruktur erkennen und erläutern.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-003-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-PK-SV-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Teilabläufe kausal/chronologisch ordnen und Teillösungen zum funktionsfähigen Gesamtprogramm zusammensetzen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-SV-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Teilabläufe kausal/chronologisch ordnen und Teillösungen zum funktionsfähigen Gesamtprogramm zusammensetzen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M03",
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Für Problem und Fallurteil relevante Informationen herausarbeiten, fehlende Angaben beschaffen und Auswahl begründen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-05",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Eingaben und Ergebnisse beschreiben, verallgemeinerbare Bestandteile abstrahieren und Abläufe/Datenbeziehungen grafisch modellieren.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Eingaben und Ergebnisse beschreiben, verallgemeinerbare Bestandteile abstrahieren und Abläufe/Datenbeziehungen grafisch modellieren.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Eingaben und Ergebnisse beschreiben, verallgemeinerbare Bestandteile abstrahieren und Abläufe/Datenbeziehungen grafisch modellieren.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Geeignete Software zur grafisch gestützten Netz- und Ablaufmodellierung praktisch einsetzen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M03",
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Unterschiedliche Nutzungsperspektiven in Programmentwurf und begründete Datendienstentscheidung einbeziehen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-05",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-007",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Kleines Programm implementieren, Bausteine aus zwei geprüften Quellen angepasst einbauen, Testfälle gezielt ausführen und Angemessenheit/Resultate bewerten.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-007-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-PK-MI-007",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-008",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Kleines Programm implementieren, Bausteine aus zwei geprüften Quellen angepasst einbauen, Testfälle gezielt ausführen und Angemessenheit/Resultate bewerten.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-009",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Kleines Programm implementieren, Bausteine aus zwei geprüften Quellen angepasst einbauen, Testfälle gezielt ausführen und Angemessenheit/Resultate bewerten.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-MI-010",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Kleines Programm implementieren, Bausteine aus zwei geprüften Quellen angepasst einbauen, Testfälle gezielt ausführen und Angemessenheit/Resultate bewerten.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G7-M02",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Fachnotation und Terminologie in Code/Bitfolge/Schlüsselprotokoll verwenden sowie Modelle, Lösungswege und Ergebnisse adressatengerecht strukturiert erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G7-M02",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Fachnotation und Terminologie in Code/Bitfolge/Schlüsselprotokoll verwenden sowie Modelle, Lösungswege und Ergebnisse adressatengerecht strukturiert erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Teamauftrag arbeitsteilig planen, ausführen, reflektieren und präsentieren; realen Schulkanal zum Teilen von Plan, Code, Fragen und Rückmeldungen nutzen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Teamauftrag arbeitsteilig planen, ausführen, reflektieren und präsentieren; realen Schulkanal zum Teilen von Plan, Code, Fragen und Rückmeldungen nutzen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-004-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-PK-KK-004",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03",
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Relevante Rechte im schulischen Speichern, Codeaustausch und Fallurteil beachten; mit eigenen/fremden Daten verantwortlich umgehen, ohne geheime oder private Angaben abzugeben.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-05",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-KK-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Toleranz, Akzeptanz und Vielfalt an Zugangs-/Teilhabeentscheidungen im informatischen Fall diskutieren.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Modell/Code systematisch analysieren, mit Realsituation vergleichen, innere Abläufe für eine neue Alltagssituation nutzen und sachverständige Entscheidung begründen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-001-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-PK-AB-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Modell/Code systematisch analysieren, mit Realsituation vergleichen, innere Abläufe für eine neue Alltagssituation nutzen und sachverständige Entscheidung begründen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Modell/Code systematisch analysieren, mit Realsituation vergleichen, innere Abläufe für eine neue Alltagssituation nutzen und sachverständige Entscheidung begründen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Modell/Code systematisch analysieren, mit Realsituation vergleichen, innere Abläufe für eine neue Alltagssituation nutzen und sachverständige Entscheidung begründen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04",
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Auswirkungen auf Gesellschaft, Beruf und persönliches Lebensumfeld aus mehreren Perspektiven bewerten; eigenen ethischen Standpunkt argumentativ vertreten. Gemeinsamer Schulalltag genügt als Lebensumfeldbezug, private Nutzungsberichte sind nicht erforderlich.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-PK-AB-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Auswirkungen auf Gesellschaft, Beruf und persönliches Lebensumfeld aus mehreren Perspektiven bewerten; eigenen ethischen Standpunkt argumentativ vertreten. Gemeinsamer Schulalltag genügt als Lebensumfeldbezug, private Nutzungsberichte sind nicht erforderlich.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Alltagscodierungen nennen, Prinzip und Vorschrift erklären und verschiedene Codierungen samt Nutzen an Anwendungsfällen vergleichen.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-001-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-DC-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Alltagscodierungen nennen, Prinzip und Vorschrift erklären und verschiedene Codierungen samt Nutzen an Anwendungsfällen vergleichen.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Alltagscodierungen nennen, Prinzip und Vorschrift erklären und verschiedene Codierungen samt Nutzen an Anwendungsfällen vergleichen.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-003-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-DC-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Datenmenge als Bitfolgenlänge mit Bit/Byte und Größenpräfixen beschreiben; Zahlen von 0 bis 255 binär codieren/decodieren und Stellenwertprinzip erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Datenmenge als Bitfolgenlänge mit Bit/Byte und Größenpräfixen beschreiben; Zahlen von 0 bis 255 binär codieren/decodieren und Stellenwertprinzip erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Texte/Bilder nach Vorschrift in Bitfolge und zurück überführen, eigene Vorschrift entwerfen und Zusammenhang von Zeichenvorrat, Länge und Codewortzahl erläutern/berechnen.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-007",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Texte/Bilder nach Vorschrift in Bitfolge und zurück überführen, eigene Vorschrift entwerfen und Zusammenhang von Zeichenvorrat, Länge und Codewortzahl erläutern/berechnen.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-008",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Texte/Bilder nach Vorschrift in Bitfolge und zurück überführen, eigene Vorschrift entwerfen und Zusammenhang von Zeichenvorrat, Länge und Codewortzahl erläutern/berechnen.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-DC-008-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-DC-008",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Anweisung, Sequenz, Wiederholung, Bedingung und Verzweigung erläutern; Algorithmus als Verknüpfung erklären und Variable als änderbaren Wertespeicher beschreiben.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Anweisung, Sequenz, Wiederholung, Bedingung und Verzweigung erläutern; Algorithmus als Verknüpfung erklären und Variable als änderbaren Wertespeicher beschreiben.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Anweisung, Sequenz, Wiederholung, Bedingung und Verzweigung erläutern; Algorithmus als Verknüpfung erklären und Variable als änderbaren Wertespeicher beschreiben.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-003-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-ALG-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Algorithmus entwerfen, grafisch erklären, mit Variablen/Kontrollstrukturen implementieren und Code anhand erklärter Zustandsspur schrittweise untersuchen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Algorithmus entwerfen, grafisch erklären, mit Variablen/Kontrollstrukturen implementieren und Code anhand erklärter Zustandsspur schrittweise untersuchen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-005-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-ALG-005",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Algorithmus entwerfen, grafisch erklären, mit Variablen/Kontrollstrukturen implementieren und Code anhand erklärter Zustandsspur schrittweise untersuchen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-006-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-ALG-006",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-ALG-007",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Algorithmus entwerfen, grafisch erklären, mit Variablen/Kontrollstrukturen implementieren und Code anhand erklärter Zustandsspur schrittweise untersuchen.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M01"
+      ],
+      "plannedEvidence": "Lokales Netz und Internet skizzieren/vergleichen, Clientanfrage/Serverantwort erklären und Speicheroptionen kriteriengeleitet beurteilen.",
+      "progressionStrandIds": [
+        "R7-PROG-01"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M01"
+      ],
+      "plannedEvidence": "Lokales Netz und Internet skizzieren/vergleichen, Clientanfrage/Serverantwort erklären und Speicheroptionen kriteriengeleitet beurteilen.",
+      "progressionStrandIds": [
+        "R7-PROG-01"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-002-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-RN-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M01"
+      ],
+      "plannedEvidence": "Lokales Netz und Internet skizzieren/vergleichen, Clientanfrage/Serverantwort erklären und Speicheroptionen kriteriengeleitet beurteilen.",
+      "progressionStrandIds": [
+        "R7-PROG-01"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-003-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-RN-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-RN-003-EX-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-RN-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Gründe für Verschlüsselung nennen, einfache Verfahren erklären/durchführen/sicherheitsbezogen bewerten und Brute Force sowie Häufigkeitsanalyse an eigenen Übungsgeheimtexten durchführen/vergleichen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-001-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-IGD-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Gründe für Verschlüsselung nennen, einfache Verfahren erklären/durchführen/sicherheitsbezogen bewerten und Brute Force sowie Häufigkeitsanalyse an eigenen Übungsgeheimtexten durchführen/vergleichen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-002-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-IGD-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Gründe für Verschlüsselung nennen, einfache Verfahren erklären/durchführen/sicherheitsbezogen bewerten und Brute Force sowie Häufigkeitsanalyse an eigenen Übungsgeheimtexten durchführen/vergleichen.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-003-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-IGD-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M01"
+      ],
+      "plannedEvidence": "Sicherheitsaspekte mobiler Geräte/Datenträger nennen und passende Schutzmaßnahmen beschreiben.",
+      "progressionStrandIds": [
+        "R7-PROG-01"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-004-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-IGD-004",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Grundzüge aktuell geprüfter Daten-/Bild-/Urheberrechtsregeln erläutern und Fälle bewerten; fortlaufende personenbezogene Datenerhebung/Speicherung mit Nutzen und Risiken erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-005-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-IGD-005",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Grundzüge aktuell geprüfter Daten-/Bild-/Urheberrechtsregeln erläutern und Fälle bewerten; fortlaufende personenbezogene Datenerhebung/Speicherung mit Nutzen und Risiken erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-IK-IGD-006-EX-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "INF7-16-GYM-IK-IGD-006",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-001",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-002",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-003",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-004",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-005",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-006",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-007",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-008",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-009",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-010",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-011",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-012",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-013",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-014",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-015",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-016",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-017",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-018",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-019",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-020",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-021",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "INF7-16-GYM-OP-022",
+      "sourceId": "SRC-CUR-INF7-2016",
+      "sourcePath": "curriculum/aufbaukurs-informatik/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-PROG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "progression-note",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-PROG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "progression-note",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M06"
+      ],
+      "plannedEvidence": "Akteure/Interessen identifizieren, Einflussnahme beschreiben und Vertrauenswürdigkeit mit konkreten Hinweisen auf Desinformation beurteilen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-011",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M06"
+      ],
+      "plannedEvidence": "Akteure/Interessen identifizieren, Einflussnahme beschreiben und Vertrauenswürdigkeit mit konkreten Hinweisen auf Desinformation beurteilen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M06"
+      ],
+      "plannedEvidence": "Akteure/Interessen identifizieren, Einflussnahme beschreiben und Vertrauenswürdigkeit mit konkreten Hinweisen auf Desinformation beurteilen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-013",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-reflection",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progressionStrandIds": [
+        "R7-PROG-06"
+      ],
+      "rationale": "M06 ermöglicht Fall-/Darstellungsanalyse; eigener Umgang bzw. Selbstwahrnehmung ist damit nicht automatisch nachgewiesen. Eine datensparsame Reflexion etwa an der eigenen Unterrichtshandlung könnte möglich sein, ist aber noch nicht mit tragfähiger Nachweis-/Bewertungsregel ausgestaltet. Keine Unmöglichkeit behaupten und keine private Offenlegung verlangen.",
+      "successorGateId": "R7-REFLECTION"
+    },
+    {
+      "recordId": "LH26-E-DP-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-reflection",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progressionStrandIds": [
+        "R7-PROG-06"
+      ],
+      "rationale": "M06 ermöglicht Fall-/Darstellungsanalyse; eigener Umgang bzw. Selbstwahrnehmung ist damit nicht automatisch nachgewiesen. Eine datensparsame Reflexion etwa an der eigenen Unterrichtshandlung könnte möglich sein, ist aber noch nicht mit tragfähiger Nachweis-/Bewertungsregel ausgestaltet. Keine Unmöglichkeit behaupten und keine private Offenlegung verlangen.",
+      "successorGateId": "R7-REFLECTION"
+    },
+    {
+      "recordId": "LH26-E-DP-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-015",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M07"
+      ],
+      "plannedEvidence": "Psychologische und soziale Aspekte digitaler Spiele untersuchen/beschreiben und Monetarisierungsmodelle an vorbereiteten Fällen identifizieren.",
+      "progressionStrandIds": [
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-016",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M07"
+      ],
+      "plannedEvidence": "Psychologische und soziale Aspekte digitaler Spiele untersuchen/beschreiben und Monetarisierungsmodelle an vorbereiteten Fällen identifizieren.",
+      "progressionStrandIds": [
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M07"
+      ],
+      "plannedEvidence": "Psychologische und soziale Aspekte digitaler Spiele untersuchen/beschreiben und Monetarisierungsmodelle an vorbereiteten Fällen identifizieren.",
+      "progressionStrandIds": [
+        "R7-PROG-03",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DP-018",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-reflection",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "progressionStrandIds": [
+        "R7-PROG-06"
+      ],
+      "rationale": "M07 behandelt psychologische, soziale und wirtschaftliche Aspekte; eigene Spielnutzung wird dadurch nicht reflektiert. Eine datensparsame Reflexion etwa an der eigenen Unterrichtshandlung könnte möglich sein, ist aber noch nicht mit tragfähiger Nachweis-/Bewertungsregel ausgestaltet. Keine Unmöglichkeit behaupten und keine private Offenlegung verlangen.",
+      "successorGateId": "R7-REFLECTION"
+    },
+    {
+      "recordId": "LH26-E-ID-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Eigene reversible Text-Bitcodierung begründen, ASCII in beide Richtungen anwenden, Schwarzweißbild in Pixel diskretisieren und Pixelgrafik codieren/decodieren; Bit/Byte sowie dezimale Kilo/Mega/Giga/Tera-Präfixe korrekt verwenden.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ID-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Eigene reversible Text-Bitcodierung begründen, ASCII in beide Richtungen anwenden, Schwarzweißbild in Pixel diskretisieren und Pixelgrafik codieren/decodieren; Bit/Byte sowie dezimale Kilo/Mega/Giga/Tera-Präfixe korrekt verwenden.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ID-018",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Eigene reversible Text-Bitcodierung begründen, ASCII in beide Richtungen anwenden, Schwarzweißbild in Pixel diskretisieren und Pixelgrafik codieren/decodieren; Bit/Byte sowie dezimale Kilo/Mega/Giga/Tera-Präfixe korrekt verwenden.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ID-019",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Eigene reversible Text-Bitcodierung begründen, ASCII in beide Richtungen anwenden, Schwarzweißbild in Pixel diskretisieren und Pixelgrafik codieren/decodieren; Bit/Byte sowie dezimale Kilo/Mega/Giga/Tera-Präfixe korrekt verwenden.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ID-020",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Eigene reversible Text-Bitcodierung begründen, ASCII in beide Richtungen anwenden, Schwarzweißbild in Pixel diskretisieren und Pixelgrafik codieren/decodieren; Bit/Byte sowie dezimale Kilo/Mega/Giga/Tera-Präfixe korrekt verwenden.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ID-021",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M02"
+      ],
+      "plannedEvidence": "Eigene reversible Text-Bitcodierung begründen, ASCII in beide Richtungen anwenden, Schwarzweißbild in Pixel diskretisieren und Pixelgrafik codieren/decodieren; Bit/Byte sowie dezimale Kilo/Mega/Giga/Tera-Präfixe korrekt verwenden.",
+      "progressionStrandIds": [
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ID-022",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G7-M02",
+        "V2-G7-M05"
+      ],
+      "plannedEvidence": "Datenmenge mit Ressourcenverbrauch an einem Alltagsbeispiel verbinden und kritisch reflektieren.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-03",
+        "R7-PROG-04",
+        "R7-PROG-06"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Grundbausteine einschließlich fester/bedingter Schleife, Verzweigung und Ausdrücken mit arithmetischen/Vergleichsoperatoren beschreiben und zielgerichtet programmieren; Werteübergabe/-rückgabe, Typen Zeichenkette/Zahl/Wahrheitswert und Wirkung verschiedener Übergabewerte durch Spur erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Grundbausteine einschließlich fester/bedingter Schleife, Verzweigung und Ausdrücken mit arithmetischen/Vergleichsoperatoren beschreiben und zielgerichtet programmieren; Werteübergabe/-rückgabe, Typen Zeichenkette/Zahl/Wahrheitswert und Wirkung verschiedener Übergabewerte durch Spur erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Grundbausteine einschließlich fester/bedingter Schleife, Verzweigung und Ausdrücken mit arithmetischen/Vergleichsoperatoren beschreiben und zielgerichtet programmieren; Werteübergabe/-rückgabe, Typen Zeichenkette/Zahl/Wahrheitswert und Wirkung verschiedener Übergabewerte durch Spur erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-010",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Grundbausteine einschließlich fester/bedingter Schleife, Verzweigung und Ausdrücken mit arithmetischen/Vergleichsoperatoren beschreiben und zielgerichtet programmieren; Werteübergabe/-rückgabe, Typen Zeichenkette/Zahl/Wahrheitswert und Wirkung verschiedener Übergabewerte durch Spur erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-011",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Grundbausteine einschließlich fester/bedingter Schleife, Verzweigung und Ausdrücken mit arithmetischen/Vergleichsoperatoren beschreiben und zielgerichtet programmieren; Werteübergabe/-rückgabe, Typen Zeichenkette/Zahl/Wahrheitswert und Wirkung verschiedener Übergabewerte durch Spur erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "plannedEvidence": "Grundbausteine einschließlich fester/bedingter Schleife, Verzweigung und Ausdrücken mit arithmetischen/Vergleichsoperatoren beschreiben und zielgerichtet programmieren; Werteübergabe/-rückgabe, Typen Zeichenkette/Zahl/Wahrheitswert und Wirkung verschiedener Übergabewerte durch Spur erklären.",
+      "progressionStrandIds": [
+        "R7-PROG-05",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-018",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-019",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-020",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-021",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-KS-022",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-core",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M04"
+      ],
+      "plannedEvidence": "Verschlüsselungszwecke und -begriffe verwenden, Transport-/Ende-zu-Ende-Konzepte beschreiben, Caesar händisch ausführen und mit Brute Force/Häufigkeitsanalyse prüfen, allgemeine monoalphabetische Substitution beschreiben und Codierung von Verschlüsselung nach Zweck/Schlüssel unterscheiden.",
+      "progressionStrandIds": [
+        "R7-PROG-01",
+        "R7-PROG-04"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-016",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als nichtzählender Auslegungskontext; keine zusätzliche Pflichtzeit.",
+      "progressionStrandIds": [],
+      "rationale": "Quellenrolle erhalten; keine zusätzliche Kompetenz.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DA-016",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M06"
+      ],
+      "plannedEvidence": "Technische Medienveränderungen beschreiben und ein in seiner Wirkung bewusst verändertes Medienprodukt entwerfen sowie digital erstellen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    },
+    {
+      "recordId": "LH26-E-DA-017",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        7
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-extension",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G7-M06"
+      ],
+      "plannedEvidence": "Technische Medienveränderungen beschreiben und ein in seiner Wirkung bewusst verändertes Medienprodukt entwerfen sowie digital erstellen.",
+      "progressionStrandIds": [
+        "R7-PROG-02",
+        "R7-PROG-06",
+        "R7-PROG-07"
+      ],
+      "rationale": "Eigenständige Ziel-/Nachweisplanung; Modulzeiten enthalten Übung und Revision. Pfadzuordnung entscheidet separat, ob diese Lerngelegenheit zeitlich eingeplant ist. Keine tatsächliche Coverage.",
+      "successorGateId": null
+    }
+  ]
+}

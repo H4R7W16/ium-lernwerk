@@ -87,6 +87,14 @@ MISSING_FOUNDATION_CONTRACTS = (
         "schemas/v2/grade-6.schema.json fehlt",
         "roadmap/v2/grades/grade-6/README.md fehlt",
         "roadmap/v2/grades/grade-6/validation-report.md fehlt",
+        "roadmap/v2/grades/grade-7/roadmap.json fehlt",
+        "roadmap/v2/grades/grade-7/curriculum-map.json fehlt",
+        "roadmap/v2/grades/grade-7/progression.json fehlt",
+        "roadmap/v2/grades/grade-7/status.json fehlt",
+        "roadmap/v2/grades/grade-6/acceptance.json fehlt",
+        "schemas/v2/grade-7.schema.json fehlt",
+        "roadmap/v2/grades/grade-7/README.md fehlt",
+        "roadmap/v2/grades/grade-7/validation-report.md fehlt",
     ]
 )
 

@@ -1,0 +1,1042 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 7,
+  "scope": {
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "level": "E",
+    "planningYear": "2026/2027",
+    "contentProduction": "frozen",
+    "activeBaseline": "v1"
+  },
+  "designDecision": "Amtliche Aufbaukursziele in fünf neuen Kernmodulen mit 1260 Minuten planen. Zusätzliche Medienanalyse und Gaming sind curriculare Erweiterungen, keine beliebigen Flexangebote. Neue 36-/40-/43-UE-Bedarfsrechnungen weisen ausgelassene Orientierungsziele sichtbar aus; 43 UE sind kein verfügbares Jahresangebot.",
+  "sourceReview": {
+    "checkedAt": "2026-09-06",
+    "ministryUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+    "lesehilfeUrl": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+    "inf7Url": "https://www.bildungsplaene-bw.de/%2CLde/LS/BP2016BW/ALLG/GYM/INF7",
+    "finding": "Amtliche Fachseite, Aufbaukurs-Portal und aktuelle Lesehilfe über Webzugang gelesen. Lesehilfe ersetzt weiterhin geltende Bildungspläne nicht; Auswahl/Gewichtung ist unter Zeit- und Lernvoraussetzungen möglich. Vollständiger INF7-PDF-Abruf im Webwerkzeug scheiterte; daher keine neue vollständige Remotefassungs-/Byteprüfung behauptet. Vollständiger Recordvergleich gegen unveränderten geprüften Datensatz.",
+    "contentIdentity": "frozen-datasets-not-byte-rechecked"
+  },
+  "moduleOrder": [
+    "V2-G7-M01",
+    "V2-G7-M02",
+    "V2-G7-M03",
+    "V2-G7-M04",
+    "V2-G7-M05",
+    "V2-G7-M06",
+    "V2-G7-M07"
+  ],
+  "modules": [
+    {
+      "id": "V2-G7-M01",
+      "kind": "core",
+      "title": "Netze modellieren und begründet speichern",
+      "goal": "Lokales Netz und Internet vergleichen, Client/Server erklären und einen sicheren schulischen Speicherweg begründet nutzen.",
+      "learningAction": "Ein überschaubares lokales Netz und vermaschtes Internet mit grafischem Werkzeug modellieren, Nachrichtenwege vergleichen und Speicheroptionen nach Zugriff, Sicherung und Verfügbarkeit beurteilen; eine Arbeitsdatei im Schulnetz zielorientiert ablegen und wiederfinden.",
+      "plannedProduct": "Vergleichende Netzskizze mit erklärter Anfrage/Antwort, begründete Speicherentscheidung und praktisch wiedergefundene Schuldatei; Schutzmaßnahmen für mobile Geräte/Datenträger erläutert.",
+      "feedbackAndRevision": "Modell mit einem veränderten Verbindungsausfall vergleichen, begriffliche Fehlzuordnung korrigieren und Speicherentscheidung unter neuer Zugriffsbedingung prüfen.",
+      "support": "Bei unsicherem R6-Anschluss ein Netz mit wenigen beschrifteten Knoten vormachen; Begriffshilfen reduzieren, sobald eine eigene Begründung gelingt.",
+      "digitalPurpose": "Grafisches Modellierungswerkzeug und reale Schulnetzablage sind Zielhandlungen. Werkzeugbedienung braucht funktionalen Zugang, nicht bloß eine richtige Skizze.",
+      "fallback": "Text-/Papiermodell erhält Netzverständnis; reale Schulnetznutzung und grafisch gestützte Softwaremodellierung bleiben bei Ausfall offen und werden nachgeholt.",
+      "minutes": 135,
+      "timeComponents": {
+        "orientationAndExplanation": 20,
+        "guidedPractice": 30,
+        "independentApplication": 35,
+        "feedbackAndRevision": 25,
+        "consolidationAndTransfer": 25
+      },
+      "dependsOn": [],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-014",
+        "LXF04-PR-016",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Tragen drei Einheiten bei tatsächlich vorhandenem Netz-/Ablagewissen? Zugangsausfall oder breite Anschlusslücken erfordern R7-ENTRY/ACCESS/BUDGET."
+    },
+    {
+      "id": "V2-G7-M02",
+      "kind": "core",
+      "title": "Texte, Zahlen und Bilder als Bitfolgen erklären",
+      "goal": "Codierungen entwerfen und prüfen; Zahlen, Texte und Bilder als Bitfolgen darstellen und Datenmengen begründet bestimmen.",
+      "learningAction": "Binärzahlen von 0 bis 255 erklären und umwandeln; ASCII-Texte sowie diskretisierte Schwarzweißbilder codieren/decodieren. Eine eigene reversible Textcodierung entwerfen, Alternativen nach Zweck vergleichen und Zusammenhang von Zeichenvorrat, Codelänge und möglichen Codewörtern erläutern und berechnen.",
+      "plannedProduct": "Kleines kommentiertes Codierportfolio mit Binärzahl, ASCII-Text, Pixelbild und eigener reversibler Codierung; begründete Datenmengen in Bit/Byte mit dezimalen Kilo/Mega/Giga/Tera-Präfixen und Codewortrechnung.",
+      "feedbackAndRevision": "Empfangene Darstellung gegen Original prüfen, erste uneindeutige Stelle lokalisieren, Codierung korrigieren und an neuem Text testen; eine Codewortrechnung erläutern statt Ergebnis allein prüfen.",
+      "support": "Stellenwertmodell und kommentierte Teilbeispiele, kleine Zeichenmenge und kleine Bilder. Codevorschriften bleiben als Hilfsmittel verfügbar; eigene Begründung und Umkehrbarkeit werden nicht vorgegeben.",
+      "digitalPurpose": "Digitale Bit-/Bildansichten können Zuordnungen prüfbar machen. Automatische Umwandlung darf die eigene Begründung und händisch nachvollziehbare Zuordnung nicht ersetzen.",
+      "fallback": "Bitkarten, zugängliche Tabellen und Textbeschreibung ermöglichen denselben Modellnachweis; konkrete Software ist hier nur Hilfsmittel. Darstellung nicht allein über Farbe codieren.",
+      "minutes": 315,
+      "timeComponents": {
+        "orientationAndExplanation": 45,
+        "guidedPractice": 70,
+        "independentApplication": 90,
+        "feedbackAndRevision": 60,
+        "consolidationAndTransfer": 50
+      },
+      "dependsOn": [
+        "V2-G7-M01"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-008",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-014",
+        "LXF04-PR-015",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Reichen sieben Einheiten für Stellenwert, ASCII, Bilddiskretisierung, eigene Vorschrift und Codewortrechnung samt Revision? Größenpräfixe und Binärstellen getrennt verstehen lassen."
+    },
+    {
+      "id": "V2-G7-M03",
+      "kind": "core",
+      "title": "Programme mit Zuständen, Entscheidungen und Tests entwickeln",
+      "goal": "Algorithmen mit Variablen, Bedingungen und Wiederholungen entwerfen, erklären, implementieren und gezielt prüfen.",
+      "learningAction": "Aus einer eng begrenzten Sachaufgabe Eingaben/Ergebnisse und Teilabläufe ableiten. Variablen als veränderbare Speicher, Anweisung/Sequenz, feste und bedingte Schleife sowie Verzweigung auf Grafik und Code beziehen. Werteübergabe/-rückgabe bei gegebenen Anweisungen/Ausdrücken, arithmetische und Vergleichsoperatoren sowie Zeichenkette/Zahl/Wahrheitswert analysieren. Zwei geprüfte fremde Codebausteine angepasst einbauen und systematisch testen.",
+      "plannedProduct": "Kleines ausführbares Teamprogramm mit grafischem Ablauf, erklärter Zustandsspur, individuellen Teilbeiträgen, benannten Codequellen, Testfällen und begründeter Revision; Wirkung verschiedener übergebener Werte nachvollziehbar erklärt.",
+      "feedbackAndRevision": "Nach zehn Arbeitsminuten Teilplan und Verantwortlichkeiten prüfen. Vor Ausführen Ergebnis vorhersagen, erste Abweichung in Spur lokalisieren und gezielt korrigieren. Partnerfeedback muss eine fachliche Änderung auslösen; Abschlussvorstellung enthält individuelle Erklärung.",
+      "support": "Frühe Modellierung neuer Variablen/Bedingungen; kurze reduzierte Codeabschnitte vor dem Teamprogramm. Rollen wechseln, Minimalprodukt aus einem funktionierenden Teilablauf. Bei ausbleibendem Gruppenprodukt gemeinsam an diesem Teil sichern und danach individuelle Erklärung; breiter Mehrbedarf führt zu Neuplanung.",
+      "digitalPurpose": "Reale geeignete Programmierumgebung, grafische Modellierung, Testausführung und Austausch im geschlossenen schulischen Kanal tragen die Zielhandlungen. Gegebene Befehle/Ausdrücke reichen für Parameter/Ergebnisanalyse; kein zusätzlicher Funktionsdefinitionskurs erforderlich.",
+      "fallback": "Manuelle Grafik und Spur erhalten Ablaufverständnis. Implementierung, gezieltes Ausführen und realer digitaler Austausch bleiben ohne Werkzeuge offen; keine LXP05-Oberfläche als Ersatz übernehmen.",
+      "minutes": 405,
+      "timeComponents": {
+        "orientationAndExplanation": 45,
+        "guidedPractice": 100,
+        "independentApplication": 140,
+        "feedbackAndRevision": 70,
+        "consolidationAndTransfer": 50
+      },
+      "dependsOn": [
+        "V2-G7-M02"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-005",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-008",
+        "LXF04-PR-009",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-014",
+        "LXF04-PR-015",
+        "LXF04-PR-016",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Sind neun Einheiten mit tatsächlich gesicherten Anweisungen/festen Schleifen tragfähig? Bleiben neue Kontrollstrukturen, Wertefluss, Tests und individuelle Beiträge im kleinen Programm sichtbar?"
+    },
+    {
+      "id": "V2-G7-M04",
+      "kind": "core",
+      "title": "Verschlüsselung erklären, prüfen und abgrenzen",
+      "goal": "Codierung von Verschlüsselung unterscheiden, einfache Verfahren durchführen und anhand modellierter Angriffe ihre Grenzen erklären.",
+      "learningAction": "Gründe für Verschlüsselung und Transport-/Ende-zu-Ende-Prinzip an Alltagsmodellen erläutern. Klartext, Geheimtext, Schlüssel und Verfahren verwenden; Caesar händisch ausführen und mit allgemeiner monoalphabetischer Substitution vergleichen. An vorbereiteten eigenen Übungsgeheimtexten Brute Force und Häufigkeitsanalyse durchführen und Sicherheit begründet bewerten.",
+      "plannedProduct": "Nachvollziehbares Verschlüsselungs-/Entschlüsselungsprotokoll, zwei verglichene Angriffswege im Modell und begründetes Sicherheitsurteil; Zuordnung, wer in Transport- und Ende-zu-Ende-Modellen Klartext sehen kann.",
+      "feedbackAndRevision": "Eine unzutreffende Sicherheitsbehauptung anhand des Übungsangriffs widerlegen, Schlüssel-/Zweckverwechslung korrigieren und Urteil an neuer Modellbedingung prüfen.",
+      "support": "Kleine Alphabete und ausreichend geeignete vorbereitete Texte, kommentierter Teilschritt, Begriffsübersicht. Einfache historische Verfahren werden nicht als heutige Schutzempfehlung dargestellt.",
+      "digitalPurpose": "Prüfbare lokale Modelle unterstützen den Vergleich, fachliche Caesar-Handlung bleibt händisch nachvollziehbar. Keine fremden Systeme, Konten oder privaten Nachrichten untersuchen.",
+      "fallback": "Tabellen und beschriftete Kommunikationsskizzen tragen denselben fachlichen Nachweis. Aus der Modellprüfung folgt keine Aussage über die Sicherheit eines realen Dienstes.",
+      "minutes": 225,
+      "timeComponents": {
+        "orientationAndExplanation": 35,
+        "guidedPractice": 50,
+        "independentApplication": 60,
+        "feedbackAndRevision": 45,
+        "consolidationAndTransfer": 35
+      },
+      "dependsOn": [
+        "V2-G7-M01",
+        "V2-G7-M02"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-008",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-015",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Können Lernende fünf Einheiten lang Zweck, Verfahren, Schlüssel und Sichtbarkeit auseinanderhalten und beide Angriffsideen tatsächlich vergleichen?"
+    },
+    {
+      "id": "V2-G7-M05",
+      "kind": "core",
+      "title": "Datenfolgen abwägen und Entscheidungen begründen",
+      "goal": "Nutzen und Risiken von Datenerhebung, Ressourcenverbrauch und gesellschaftlichen Folgen aus verschiedenen Perspektiven beurteilen.",
+      "learningAction": "Einen begrenzten Dienst-/Schulalltagsfall mit fortlaufender Datenerhebung analysieren. Grundzüge alltagsrelevanter Daten-/Bild-/Urheberrechtsregeln anhand vorab aktuell geprüfter Kriterien erläutern und anwenden. Folgen für Gesellschaft, Beruf und persönliches Lebensumfeld sowie Teilhabe/Vielfalt abwägen; eigenen begründeten ethischen Standpunkt vertreten. Datenmenge und Ressourcenverbrauch an einem Alltagsbeispiel kritisch verbinden.",
+      "plannedProduct": "Begründetes Fallurteil mit Nutzen/Risiko, Rechteprüfung, Perspektivwechsel, Ressourcenbezug und vertretenem ethischem Standpunkt; keine privaten Nutzungsprotokolle oder personenbezogenen Angaben als Abgabe.",
+      "feedbackAndRevision": "Eine Schlussfolgerung auf fehlenden Beleg oder ausgelassene Perspektive prüfen; nach Rückmeldung präzisieren, Gegenargument aufnehmen und konkrete Entscheidung begründen.",
+      "support": "Kurzer neutraler Fall, begrenzte Regeln und Akteursperspektiven, Satzhilfen für Abwägung. Persönliches Lebensumfeld lässt sich am gemeinsamen Schulalltag diskutieren; keine privaten Nutzungsbiografien voraussetzen.",
+      "digitalPurpose": "Quellenprüfung und nachvollziehbarer digitaler Austausch ermöglichen fachlich begründete Entscheidungen. Öffentliche Posts oder reale personenbezogene Datensammlung sind nicht notwendig.",
+      "fallback": "Lokale Quellen und mündliche Fallabstimmung erhalten Urteilsbildung. Konkrete Rechts-/Toolfreigaben bleiben zuständigen Stellen vorbehalten; geplante Regeln benötigen vor Materialeinsatz Aktualitätsprüfung.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 25,
+        "guidedPractice": 40,
+        "independentApplication": 50,
+        "feedbackAndRevision": 35,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [
+        "V2-G7-M01",
+        "V2-G7-M02",
+        "V2-G7-M03",
+        "V2-G7-M04"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-004",
+        "LXF04-PR-005",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-014",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Reichen vier Einheiten für einen eng begrenzten Fall mit gesellschaftlicher, rechtlicher und ökologischer Abwägung? Bleibt ein eigener Standpunkt von privater Offenlegung getrennt?"
+    },
+    {
+      "id": "V2-G7-M06",
+      "kind": "curriculum-extension",
+      "title": "Manipulierte Medien erkennen und Wirkung verändern",
+      "goal": "Einflussnahme, Desinformation und technische Medienveränderung analysieren und eine bewusst veränderte Darstellung erzeugen.",
+      "learningAction": "Vorbereitete kontrastierende Beiträge nach Akteuren, Interessen, Einflussnahme und Vertrauenswürdigkeit untersuchen. Hinweise auf Desinformation begründen; Ausschnitt/Filter oder andere technische Änderungen beschreiben und einen neutralen eigenen Medienausschnitt in seiner Wirkung verändern. Geschlechterrollen und Schönheitsideale an sorgsam gewählten fremden Darstellungen analysieren; eigene Selbstwahrnehmung und eigener Umgang mit Falschmeldungen bleiben offene Nachweisentscheidungen.",
+      "plannedProduct": "Quellen-/Manipulationsvergleich und editierbares Vorher-/Nachher-Produkt mit begründeter Wirkungsabsicht und kenntlich gemachter Bearbeitung; keine Behauptung einer bereits nachgewiesenen persönlichen Reflexion.",
+      "feedbackAndRevision": "Vorher-/Nachher-Version an konkreten Merkmalen vergleichen. Pauschale Echtheitsurteile durch begründete Indizien und verbleibende Unsicherheit ersetzen; Produkt nach Feedback korrigieren.",
+      "support": "Überschaubare Beispiele, fachlich und sensitivitätsbezogen geprüfte Auswahl, Textalternativen und begrenzte Gestaltungsmittel. Niemand muss über Körperbild, eigene Profile oder belastende Erfahrungen berichten.",
+      "digitalPurpose": "Reale digitale Bearbeitung ist Teil der Zielhandlung. Vorbereitete geprüfte Darstellungen genügen; keine Produktion täuschender öffentlicher Inhalte oder privaten Deepfakes erforderlich.",
+      "fallback": "Ausdrucke und Textvergleiche tragen Analyse; eigenes digitales Wirkungsprodukt bleibt ohne geeigneten Editor offen und muss nachgeholt werden.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 25,
+        "guidedPractice": 40,
+        "independentApplication": 50,
+        "feedbackAndRevision": 35,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [
+        "V2-G7-M05"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-004",
+        "LXF04-PR-005",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-015",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Sind vier zusätzliche Einheiten für Analyse, eigenes Produkt und Revision tragfähig? Bleiben sensible Reflexionsanteile ohne Druck zur Offenlegung?"
+    },
+    {
+      "id": "V2-G7-M07",
+      "kind": "curriculum-extension",
+      "title": "Digitale Spiele als gestaltete Angebote untersuchen",
+      "goal": "Psychologische und soziale Aspekte sowie Monetarisierung digitaler Spiele an vorbereiteten Beispielen begründet untersuchen.",
+      "learningAction": "Zwei begrenzte Spiel-/Angebotsfälle nach Motivation, Immersion oder Storytelling, Teamplay/Zugehörigkeit/Gruppendruck und Monetarisierungsmodell vergleichen; mögliche Wechselwirkungen aus Akteursperspektiven erklären. Eigene Spielnutzung wird nicht erfasst und bleibt gesonderte offene Reflexionsentscheidung.",
+      "plannedProduct": "Kriteriengestützter Spielangebotsvergleich mit psychologischer, sozialer und wirtschaftlicher Perspektive und begründeter Beurteilung; ohne privaten Spielbericht.",
+      "feedbackAndRevision": "Ein Argument auf beobachtbare Gestaltungsmerkmale beziehen, Gegenperspektive ergänzen und Urteil nach Rückmeldung überarbeiten.",
+      "support": "Vorbereitete zugängliche Ansichten und kurze Beschreibungen, keine private Spielerfahrung voraussetzen; begrenzte Vergleichskriterien und Begriffs-/Begründungshilfen.",
+      "digitalPurpose": "Digitale Ansichten helfen bei Angebotsanalyse; Spielen mit eigenem Account oder Käufe sind für den Nachweis nicht erforderlich.",
+      "fallback": "Lokale Fallbeschreibungen erhalten Vergleich und Urteil. Sie ersetzen keine Reflexion eigener Spielnutzung; deren Nachweis bleibt bis zur Entscheidung offen.",
+      "minutes": 135,
+      "timeComponents": {
+        "orientationAndExplanation": 20,
+        "guidedPractice": 30,
+        "independentApplication": 35,
+        "feedbackAndRevision": 25,
+        "consolidationAndTransfer": 25
+      },
+      "dependsOn": [
+        "V2-G7-M05"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-004",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Sind drei zusätzliche Einheiten für begründete psychologische, soziale und wirtschaftliche Analyse ausreichend? Können auch Lernende ohne private Spielerfahrung teilnehmen?"
+    }
+  ],
+  "flexModules": [
+    {
+      "id": "V2-G7-F01",
+      "kind": "flex",
+      "title": "Codierungsvarianten weiter vergleichen",
+      "minutes": 90,
+      "dependsOn": [
+        "V2-G7-M02"
+      ],
+      "purpose": "Weitere reversible Vorschriften im bereits aufgebauten Konzept vergleichen.",
+      "newRequiredCoverage": false
+    },
+    {
+      "id": "V2-G7-F02",
+      "kind": "flex",
+      "title": "Teststrategien vertiefen",
+      "minutes": 90,
+      "dependsOn": [
+        "V2-G7-M03"
+      ],
+      "purpose": "Zusätzliche Grenzfälle und alternative Tests am bekannten kleinen Programm begründen.",
+      "newRequiredCoverage": false
+    }
+  ],
+  "timeAssumptions": {
+    "unitMinutes": 45,
+    "status": "project-estimate-not-piloted",
+    "derivation": "independent-grade-7-task-budget",
+    "coreMinutes": 1260,
+    "extensionMinutes": 315,
+    "meaning": "Fünf Kernmodule plus zwei getrennte curriculare Erweiterungen neu nach fachlichen Handlungen kalkuliert. Integrierte Anforderungen erzeugen weder Zusatzstunden noch pauschalen Zeitrabatt. Jahresposten sind ausschließlich zusätzliche Einstiegsklärung, Überbrückung, verteilte Wiederaufnahme, Organisation und Puffer.",
+    "broadGapRule": "Mehr als 45 Minuten zusätzliche Überbrückung oder breite Lücken erfordern Neuplanung vor abhängigen Modulen; kein Vorjahresplan belegt verfügbares Können.",
+    "capacityRule": "36 UE bezeichnet einen nur rechnerisch passenden Aufbaukurs-Kern mit offenen Orientierungszielen. 40 UE ergänzt Medienanalyse, Gaming bleibt offen. 43 UE ist Bedarf aller geplanten Module, keine bestätigte lokale Verfügbarkeit. Auch 43 UE schließt die drei Reflexionsnachweise nicht. Unter 36 UE neuen Teilplan mit offenen amtlichen Anforderungen entscheiden."
+  },
+  "paths": [
+    {
+      "id": "R7-CORE36",
+      "label": "Aufbaukurs-Kern mit acht offenen orientierenden Zielen",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M02",
+        "V2-G7-M03",
+        "V2-G7-M04",
+        "V2-G7-M05"
+      ],
+      "flexIds": [],
+      "moduleMinutes": 1260,
+      "entryCheckMinutes": 105,
+      "bridgingMinutes": 45,
+      "spacedPracticeMinutes": 90,
+      "orchestrationMinutes": 30,
+      "bufferMinutes": 90,
+      "requiredMinutes": 1620,
+      "requiredUnits": 36,
+      "plannedRecordIds": [
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-002",
+        "INF7-16-GYM-IK-ALG-003",
+        "INF7-16-GYM-IK-ALG-004",
+        "INF7-16-GYM-IK-ALG-005",
+        "INF7-16-GYM-IK-ALG-006",
+        "INF7-16-GYM-IK-ALG-007",
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-006",
+        "INF7-16-GYM-IK-DC-007",
+        "INF7-16-GYM-IK-DC-008",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-IGD-002",
+        "INF7-16-GYM-IK-IGD-003",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-IK-IGD-005",
+        "INF7-16-GYM-IK-IGD-006",
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-RN-002",
+        "INF7-16-GYM-IK-RN-003",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-003",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-003",
+        "INF7-16-GYM-PK-KK-004",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-MI-001",
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-MI-003",
+        "INF7-16-GYM-PK-MI-004",
+        "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-PK-MI-008",
+        "INF7-16-GYM-PK-MI-009",
+        "INF7-16-GYM-PK-MI-010",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-SV-002",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-SV-004",
+        "INF7-16-GYM-PK-SV-005",
+        "LH26-E-ALG-007",
+        "LH26-E-ALG-008",
+        "LH26-E-ALG-009",
+        "LH26-E-ALG-010",
+        "LH26-E-ALG-011",
+        "LH26-E-ALG-012",
+        "LH26-E-ID-016",
+        "LH26-E-ID-017",
+        "LH26-E-ID-018",
+        "LH26-E-ID-019",
+        "LH26-E-ID-020",
+        "LH26-E-ID-021",
+        "LH26-E-ID-022",
+        "LH26-E-KS-016",
+        "LH26-E-KS-017",
+        "LH26-E-KS-018",
+        "LH26-E-KS-019",
+        "LH26-E-KS-020",
+        "LH26-E-KS-021",
+        "LH26-E-KS-022"
+      ],
+      "openCapacityRecordIds": [
+        "LH26-E-DA-016",
+        "LH26-E-DA-017",
+        "LH26-E-DP-010",
+        "LH26-E-DP-011",
+        "LH26-E-DP-012",
+        "LH26-E-DP-015",
+        "LH26-E-DP-016",
+        "LH26-E-DP-017"
+      ],
+      "openReflectionRecordIds": [
+        "LH26-E-DP-013",
+        "LH26-E-DP-014",
+        "LH26-E-DP-018"
+      ],
+      "availability": "not-verified",
+      "decisionGate": "R7-SCOPE"
+    },
+    {
+      "id": "R7-MEDIA40",
+      "label": "Kern und Medienanalyse; drei Gaming-Ziele aus Kapazitätsgründen offen",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M02",
+        "V2-G7-M03",
+        "V2-G7-M04",
+        "V2-G7-M05",
+        "V2-G7-M06"
+      ],
+      "flexIds": [],
+      "moduleMinutes": 1440,
+      "entryCheckMinutes": 105,
+      "bridgingMinutes": 45,
+      "spacedPracticeMinutes": 90,
+      "orchestrationMinutes": 30,
+      "bufferMinutes": 90,
+      "requiredMinutes": 1800,
+      "requiredUnits": 40,
+      "plannedRecordIds": [
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-002",
+        "INF7-16-GYM-IK-ALG-003",
+        "INF7-16-GYM-IK-ALG-004",
+        "INF7-16-GYM-IK-ALG-005",
+        "INF7-16-GYM-IK-ALG-006",
+        "INF7-16-GYM-IK-ALG-007",
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-006",
+        "INF7-16-GYM-IK-DC-007",
+        "INF7-16-GYM-IK-DC-008",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-IGD-002",
+        "INF7-16-GYM-IK-IGD-003",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-IK-IGD-005",
+        "INF7-16-GYM-IK-IGD-006",
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-RN-002",
+        "INF7-16-GYM-IK-RN-003",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-003",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-003",
+        "INF7-16-GYM-PK-KK-004",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-MI-001",
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-MI-003",
+        "INF7-16-GYM-PK-MI-004",
+        "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-PK-MI-008",
+        "INF7-16-GYM-PK-MI-009",
+        "INF7-16-GYM-PK-MI-010",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-SV-002",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-SV-004",
+        "INF7-16-GYM-PK-SV-005",
+        "LH26-E-ALG-007",
+        "LH26-E-ALG-008",
+        "LH26-E-ALG-009",
+        "LH26-E-ALG-010",
+        "LH26-E-ALG-011",
+        "LH26-E-ALG-012",
+        "LH26-E-DA-016",
+        "LH26-E-DA-017",
+        "LH26-E-DP-010",
+        "LH26-E-DP-011",
+        "LH26-E-DP-012",
+        "LH26-E-ID-016",
+        "LH26-E-ID-017",
+        "LH26-E-ID-018",
+        "LH26-E-ID-019",
+        "LH26-E-ID-020",
+        "LH26-E-ID-021",
+        "LH26-E-ID-022",
+        "LH26-E-KS-016",
+        "LH26-E-KS-017",
+        "LH26-E-KS-018",
+        "LH26-E-KS-019",
+        "LH26-E-KS-020",
+        "LH26-E-KS-021",
+        "LH26-E-KS-022"
+      ],
+      "openCapacityRecordIds": [
+        "LH26-E-DP-015",
+        "LH26-E-DP-016",
+        "LH26-E-DP-017"
+      ],
+      "openReflectionRecordIds": [
+        "LH26-E-DP-013",
+        "LH26-E-DP-014",
+        "LH26-E-DP-018"
+      ],
+      "availability": "not-verified",
+      "decisionGate": "R7-SCOPE"
+    },
+    {
+      "id": "R7-DEMAND43",
+      "label": "Bedarf aller geplanten Module; keine lokale Verfügbarkeit bestätigt",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M02",
+        "V2-G7-M03",
+        "V2-G7-M04",
+        "V2-G7-M05",
+        "V2-G7-M06",
+        "V2-G7-M07"
+      ],
+      "flexIds": [],
+      "moduleMinutes": 1575,
+      "entryCheckMinutes": 105,
+      "bridgingMinutes": 45,
+      "spacedPracticeMinutes": 90,
+      "orchestrationMinutes": 30,
+      "bufferMinutes": 90,
+      "requiredMinutes": 1935,
+      "requiredUnits": 43,
+      "plannedRecordIds": [
+        "INF7-16-GYM-IK-ALG-001",
+        "INF7-16-GYM-IK-ALG-002",
+        "INF7-16-GYM-IK-ALG-003",
+        "INF7-16-GYM-IK-ALG-004",
+        "INF7-16-GYM-IK-ALG-005",
+        "INF7-16-GYM-IK-ALG-006",
+        "INF7-16-GYM-IK-ALG-007",
+        "INF7-16-GYM-IK-DC-001",
+        "INF7-16-GYM-IK-DC-002",
+        "INF7-16-GYM-IK-DC-003",
+        "INF7-16-GYM-IK-DC-004",
+        "INF7-16-GYM-IK-DC-005",
+        "INF7-16-GYM-IK-DC-006",
+        "INF7-16-GYM-IK-DC-007",
+        "INF7-16-GYM-IK-DC-008",
+        "INF7-16-GYM-IK-IGD-001",
+        "INF7-16-GYM-IK-IGD-002",
+        "INF7-16-GYM-IK-IGD-003",
+        "INF7-16-GYM-IK-IGD-004",
+        "INF7-16-GYM-IK-IGD-005",
+        "INF7-16-GYM-IK-IGD-006",
+        "INF7-16-GYM-IK-RN-001",
+        "INF7-16-GYM-IK-RN-002",
+        "INF7-16-GYM-IK-RN-003",
+        "INF7-16-GYM-PK-AB-001",
+        "INF7-16-GYM-PK-AB-002",
+        "INF7-16-GYM-PK-AB-003",
+        "INF7-16-GYM-PK-AB-004",
+        "INF7-16-GYM-PK-AB-005",
+        "INF7-16-GYM-PK-AB-006",
+        "INF7-16-GYM-PK-KK-001",
+        "INF7-16-GYM-PK-KK-002",
+        "INF7-16-GYM-PK-KK-003",
+        "INF7-16-GYM-PK-KK-004",
+        "INF7-16-GYM-PK-KK-005",
+        "INF7-16-GYM-PK-KK-006",
+        "INF7-16-GYM-PK-MI-001",
+        "INF7-16-GYM-PK-MI-002",
+        "INF7-16-GYM-PK-MI-003",
+        "INF7-16-GYM-PK-MI-004",
+        "INF7-16-GYM-PK-MI-005",
+        "INF7-16-GYM-PK-MI-006",
+        "INF7-16-GYM-PK-MI-007",
+        "INF7-16-GYM-PK-MI-008",
+        "INF7-16-GYM-PK-MI-009",
+        "INF7-16-GYM-PK-MI-010",
+        "INF7-16-GYM-PK-SV-001",
+        "INF7-16-GYM-PK-SV-002",
+        "INF7-16-GYM-PK-SV-003",
+        "INF7-16-GYM-PK-SV-004",
+        "INF7-16-GYM-PK-SV-005",
+        "LH26-E-ALG-007",
+        "LH26-E-ALG-008",
+        "LH26-E-ALG-009",
+        "LH26-E-ALG-010",
+        "LH26-E-ALG-011",
+        "LH26-E-ALG-012",
+        "LH26-E-DA-016",
+        "LH26-E-DA-017",
+        "LH26-E-DP-010",
+        "LH26-E-DP-011",
+        "LH26-E-DP-012",
+        "LH26-E-DP-015",
+        "LH26-E-DP-016",
+        "LH26-E-DP-017",
+        "LH26-E-ID-016",
+        "LH26-E-ID-017",
+        "LH26-E-ID-018",
+        "LH26-E-ID-019",
+        "LH26-E-ID-020",
+        "LH26-E-ID-021",
+        "LH26-E-ID-022",
+        "LH26-E-KS-016",
+        "LH26-E-KS-017",
+        "LH26-E-KS-018",
+        "LH26-E-KS-019",
+        "LH26-E-KS-020",
+        "LH26-E-KS-021",
+        "LH26-E-KS-022"
+      ],
+      "openCapacityRecordIds": [],
+      "openReflectionRecordIds": [
+        "LH26-E-DP-013",
+        "LH26-E-DP-014",
+        "LH26-E-DP-018"
+      ],
+      "availability": "not-verified",
+      "decisionGate": "R7-SCOPE"
+    }
+  ],
+  "capacityChecks": [
+    {
+      "id": "R7-CORE36-AT32",
+      "pathId": "R7-CORE36",
+      "availableUnits": 32,
+      "requiredMinutes": 1620,
+      "deficitMinutes": 180,
+      "remainingMinutes": 0,
+      "arithmeticFit": false,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-CORE36-AT36",
+      "pathId": "R7-CORE36",
+      "availableUnits": 36,
+      "requiredMinutes": 1620,
+      "deficitMinutes": 0,
+      "remainingMinutes": 0,
+      "arithmeticFit": true,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-CORE36-AT40",
+      "pathId": "R7-CORE36",
+      "availableUnits": 40,
+      "requiredMinutes": 1620,
+      "deficitMinutes": 0,
+      "remainingMinutes": 180,
+      "arithmeticFit": true,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-MEDIA40-AT32",
+      "pathId": "R7-MEDIA40",
+      "availableUnits": 32,
+      "requiredMinutes": 1800,
+      "deficitMinutes": 360,
+      "remainingMinutes": 0,
+      "arithmeticFit": false,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-MEDIA40-AT36",
+      "pathId": "R7-MEDIA40",
+      "availableUnits": 36,
+      "requiredMinutes": 1800,
+      "deficitMinutes": 180,
+      "remainingMinutes": 0,
+      "arithmeticFit": false,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-MEDIA40-AT40",
+      "pathId": "R7-MEDIA40",
+      "availableUnits": 40,
+      "requiredMinutes": 1800,
+      "deficitMinutes": 0,
+      "remainingMinutes": 0,
+      "arithmeticFit": true,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-DEMAND43-AT32",
+      "pathId": "R7-DEMAND43",
+      "availableUnits": 32,
+      "requiredMinutes": 1935,
+      "deficitMinutes": 495,
+      "remainingMinutes": 0,
+      "arithmeticFit": false,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-DEMAND43-AT36",
+      "pathId": "R7-DEMAND43",
+      "availableUnits": 36,
+      "requiredMinutes": 1935,
+      "deficitMinutes": 315,
+      "remainingMinutes": 0,
+      "arithmeticFit": false,
+      "localAvailability": "not-verified"
+    },
+    {
+      "id": "R7-DEMAND43-AT40",
+      "pathId": "R7-DEMAND43",
+      "availableUnits": 40,
+      "requiredMinutes": 1935,
+      "deficitMinutes": 135,
+      "remainingMinutes": 0,
+      "arithmeticFit": false,
+      "localAvailability": "not-verified"
+    }
+  ],
+  "retrievalSchedule": [
+    {
+      "afterModule": "V2-G7-M03",
+      "revisitModule": "V2-G7-M02",
+      "minutes": 30,
+      "purpose": "Binäre Codierung an veränderter Information rekonstruieren und begründen.",
+      "principleIds": [
+        "LXF04-PR-014",
+        "LXF04-PR-015"
+      ]
+    },
+    {
+      "afterModule": "V2-G7-M04",
+      "revisitModule": "V2-G7-M01",
+      "minutes": 30,
+      "purpose": "Netz-/Speicherentscheidung mit veränderter Zugriffsbedingung erklären.",
+      "principleIds": [
+        "LXF04-PR-014",
+        "LXF04-PR-015"
+      ]
+    },
+    {
+      "afterModule": "V2-G7-M05",
+      "revisitModule": "V2-G7-M03",
+      "minutes": 30,
+      "purpose": "Wirkung eines neuen Übergabewerts vorhersagen und eine Testentscheidung erklären.",
+      "principleIds": [
+        "LXF04-PR-014",
+        "LXF04-PR-015"
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "id": "R7-INT-01",
+      "moduleIds": [
+        "V2-G7-M02",
+        "V2-G7-M05"
+      ],
+      "purpose": "Datenmenge im Codierprodukt bestimmen und im Datendienstfall auf Ressourcen beziehen.",
+      "evidence": "Codierportfolio und begründetes Ressourcenurteil erfüllen unterschiedliche Operatoren; keine Kürzung aus bloßer thematischer Nähe.",
+      "timeCreditMinutes": 0,
+      "additionalMinutes": 0
+    },
+    {
+      "id": "R7-INT-02",
+      "moduleIds": [
+        "V2-G7-M03"
+      ],
+      "purpose": "Prozesskompetenzen durch kleines Teamprogramm mit Modellierung, Codeadaption, Test und Vorstellung bearbeiten.",
+      "evidence": "Individueller Code-/Erklärbeitrag, zwei geprüfte Fremdbausteine, reale Tests und aufgenommene Rückmeldung; alle Phasen im M03-Budget.",
+      "timeCreditMinutes": 0,
+      "additionalMinutes": 0
+    },
+    {
+      "id": "R7-INT-03",
+      "moduleIds": [
+        "V2-G7-M01",
+        "V2-G7-M04",
+        "V2-G7-M05"
+      ],
+      "purpose": "Netz-/Speichermodell für Schutzbegründung und Datenurteil nutzen.",
+      "evidence": "Modellvergleich, Verschlüsselungsprotokoll und begründetes Fallurteil bleiben unterscheidbar.",
+      "timeCreditMinutes": 0,
+      "additionalMinutes": 0
+    }
+  ],
+  "historicalTimeAudit": [
+    {
+      "variantId": "GRADE-7-WORKING-40",
+      "sourcePath": "roadmap/time-model.json",
+      "historicalUnits": 40,
+      "historicalAvailability": "conditional",
+      "role": "audit-input-only",
+      "v2Availability": "not-derived",
+      "decision": "Keine V2-Kapazität und keinen neuen Modulpfad daraus ableiten; neue Lernhandlungen und lokale Nettozeit separat prüfen."
+    },
+    {
+      "variantId": "GRADE-7-ROBUST-DEMAND",
+      "sourcePath": "roadmap/time-model.json",
+      "historicalUnits": 46,
+      "historicalAvailability": "unavailable",
+      "role": "audit-input-only",
+      "v2Availability": "not-derived",
+      "decision": "Keine V2-Kapazität und keinen neuen Modulpfad daraus ableiten; neue Lernhandlungen und lokale Nettozeit separat prüfen."
+    },
+    {
+      "variantId": "GRADE-7-HISTORICAL-MINIMUM",
+      "sourcePath": "roadmap/time-model.json",
+      "historicalUnits": 54,
+      "historicalAvailability": "unavailable",
+      "role": "audit-input-only",
+      "v2Availability": "not-derived",
+      "decision": "Keine V2-Kapazität und keinen neuen Modulpfad daraus ableiten; neue Lernhandlungen und lokale Nettozeit separat prüfen."
+    }
+  ],
+  "projectRequirements": [
+    {
+      "requirementId": "V2-REQ-SYS-001",
+      "disposition": "maintained-boundary",
+      "location": "scope",
+      "rationale": "V1 bleibt aktiv; Jahrgangsplanung autorisiert keinen Cutover.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-SYS-002",
+      "disposition": "maintained-boundary",
+      "location": "scope",
+      "rationale": "Nur Ziel-/Nachweisverträge; keine Lernendentexte und keine Produktion.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-CUR-001",
+      "disposition": "planning-assignment",
+      "location": "curriculum-map.json",
+      "rationale": "Alle 134 einschlägigen Records quellentreu führen; amtliche 51 Kompetenzen im Kern, orientierende Erweiterungen und offene Reflexionen separat.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-CUR-002",
+      "disposition": "planning-assignment",
+      "location": "paths",
+      "rationale": "Pfadprojektionen zeigen geplante und aus Kapazitätsgründen offene Records; keine künstliche Abdeckung oder Zeitersparnis aus Integration.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-SRC-001",
+      "disposition": "planning-assignment",
+      "location": "modules",
+      "rationale": "Prinzipien verweisen auf abgenommene Claims/Quellen; spätere konkrete Materialien brauchen eigenen Rechte-/Quellencheck.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-LXF-001",
+      "disposition": "planning-assignment",
+      "location": "progression.json",
+      "rationale": "Anschluss 5–7 und sieben noch nicht durchgeführte Einstiegsklärungen steuern Unterstützung; explizite Revision und verteilte Wiederaufnahme eingeplant.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-GOV-001",
+      "disposition": "maintained-boundary",
+      "location": "entryGates",
+      "rationale": "Geplante Nachweise nicht mit erfolgter Nutzung, Prüfung, Pilotierung oder Wirksamkeit verwechseln.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-DASH-001",
+      "disposition": "handoff",
+      "location": "IUM-V2-DASH",
+      "rationale": "Dashboardmigration bleibt späterer separater Auftrag; hier nur Statusregister aktualisieren.",
+      "coverage": "unassessed"
+    }
+  ],
+  "entryGates": [
+    {
+      "id": "R7-ENTRY",
+      "owner": "Planende Lehrkraft / Auftraggeber",
+      "risk": "R5-/R6-Abnahme wird als tatsächlich vorhandenes Vorwissen behandelt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Sieben aufgabenbezogene Eingangsprodukte sichten; Sprache/Bedienung klären und bei breiten Lücken vor abhängigen Modulen neu planen.",
+      "state": "open"
+    },
+    {
+      "id": "R7-ACCESS",
+      "owner": "IUM-V2-FU-TECH / Schule / Betreiber",
+      "risk": "Schulnetz, grafisches Werkzeug, Programmierumgebung, Editor oder Kanal fehlen.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Reale zugängliche und freigegebene Zielwerkzeuge samt Rechten bereitstellen; fehlende digitale Handlungen bleiben ohne Nachweis.",
+      "state": "open"
+    },
+    {
+      "id": "R7-BUDGET",
+      "owner": "Auftraggeber / planende Lehrkraft",
+      "risk": "Bedarf wird mit verfügbarer Nettozeit verwechselt; Überbrückung oder Übung wird still gekürzt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Lokale Nettozeit und Eingangslage prüfen. Unter 36 UE oder bei Bedarf über 45 Minuten Überbrückung neuer Teilplan mit sichtbaren amtlichen Lücken; 43 UE nicht voraussetzen.",
+      "state": "open"
+    },
+    {
+      "id": "R7-SCOPE",
+      "owner": "Auftraggeber / Curriculumprüfung / Schule",
+      "risk": "36/40-UE-Pfad wird als vollständige Umsetzung aller Orientierungsziele dargestellt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Pfad mit acht/drei offenen Orientierungsrecords ausdrücklich wählen oder zusätzliche reale Kapazität sichern; keine stille Verschiebung nach Klasse 8 oder Flex.",
+      "state": "open"
+    },
+    {
+      "id": "R7-REFLECTION",
+      "owner": "Curriculumprüfung / Governance / Schule",
+      "risk": "Fallanalyse wird mit eigener Reflexion gleichgesetzt oder private Offenlegung wird verlangt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "LH26-E-DP-013/014/018 mit datensparsamer Aufgaben-/Nachweisregel klären. Unterrichtsbezogene eigene Reflexion kann möglich sein; erst konkrete Prüfung, bis dahin offen.",
+      "state": "open"
+    },
+    {
+      "id": "R7-PRIVACY",
+      "owner": "IUM-V2-CUR / Governance / Schule",
+      "risk": "Sechs Vorgänger-Eigenbezugsnachweise verschwinden im neuen Jahrgang.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Alle sechs R5/R6-Fragen samt CUR-Q-002 erhalten; keine private Abgabe, keine künstliche Schließung durch Fremdfälle.",
+      "state": "open"
+    },
+    {
+      "id": "R7-PILOT",
+      "owner": "IUM-V2-FU-PILOT / fachliche Prüfende",
+      "risk": "Planungsreview beweist vermeintlich Zeitpassung, Zugänglichkeit oder Lernwirkung.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Nach späterer Spezifikation und eigener Erprobungsfreigabe Modulzeiten, Integration, Zugänglichkeit sowie Nutzung von Hilfen/Feedback tatsächlich prüfen.",
+      "state": "open"
+    },
+    {
+      "id": "R7-DASH",
+      "owner": "IUM-V2-DASH / Auftraggeber",
+      "risk": "Abnahme wird zu Gesamtampel oder vorgezogener Produktions-/Cutoverfreigabe.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "condition": "Erst nach R7-Nutzerabnahme Dashboardmigration separat ausführen; V1/V2, pfadabhängige Offenheit, Reifeachsen und spätere Gates erhalten.",
+      "state": "open"
+    }
+  ],
+  "auditApplications": [
+    {
+      "artifactId": "IUM01",
+      "decision": "adapt",
+      "application": "Fachliche Modelle, Repräsentationen und begründete Tests in M01–M04; tatsächliche Tragfähigkeit offen."
+    },
+    {
+      "artifactId": "IUM02",
+      "decision": "adapt",
+      "application": "Medien-/Datenurteil im Kern M05; vertiefte Manipulations- und Gaming-Analyse in curricularen Erweiterungen sichtbar budgetiert."
+    },
+    {
+      "artifactId": "IUM05",
+      "decision": "retain",
+      "application": "Rohrecords und Quellenrollen erhalten; vollständige R7-Matrix ohne V1-Coverage."
+    },
+    {
+      "artifactId": "IUM06",
+      "decision": "replace",
+      "application": "LXF-Lernarchitektur und expliziter Anschluss 5–7 steuern die neuen Lernbögen."
+    },
+    {
+      "artifactId": "IUM07",
+      "decision": "replace",
+      "application": "Fünf neue Kernmodule und zwei curriculare Erweiterungen statt Übernahme der alten Zehnerfolge."
+    },
+    {
+      "artifactId": "IUM09",
+      "decision": "adapt",
+      "application": "Prozesskompetenzen in realen regulären Handlungen, keine Zusatzaufgaben nur zur Checkboxfüllung; Reflexionslücken explizit."
+    },
+    {
+      "artifactId": "IUM10",
+      "decision": "replace",
+      "application": "Neue 36-/40-/43-UE-Bedarfe unabhängig von historischen 40-/46-/54-UE-Pfaden kalkuliert; reale Kapazität unbestätigt."
+    }
+  ],
+  "nextHandoff": {
+    "nextTask": "IUM-V2-DASH",
+    "activation": "explicit-r7-user-approval",
+    "state": "planning-only",
+    "condition": "Dashboard muss R5/R6-Abnahmen, R7-Review, Quellenrollen, pfadabhängige offene Ziele, neun Nachweisfragen und unbestätigte Kapazität getrennt zeigen. Keine Produktions- oder Cutoverfreigabe aus R7-Abnahme."
+  }
+}

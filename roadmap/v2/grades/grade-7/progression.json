@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 7,
+  "entryKnowledge": "not-observed",
+  "basis": "approved-plans-not-cohort-evidence",
+  "broadGapAction": "replan-before-dependent-module",
+  "totalEntryMinutes": 105,
+  "strands": [
+    {
+      "id": "R7-PROG-01",
+      "r5ModuleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "r6ModuleId": "V2-G6-M01",
+      "r6PlannedProduct": "Beschriftete Netzskizze mit Nachrichtenweg, erklärte Anfrage/Antwort und kriteriengestützter Speichervergleich mit wiedergefundener Arbeitsdatei.",
+      "r7ModuleIds": [
+        "V2-G7-M01",
+        "V2-G7-M04"
+      ],
+      "progression": "R5 nutzt den Arbeitsraum, R6 modelliert Netz/Speicher; R7 vergleicht lokale und globale Netze und begründet Schutz-/Speicherentscheidungen.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M01",
+        "minutes": 15,
+        "plannedProduct": "Netzskizze erklären und Arbeitsdatei im Schulnetz wiederfinden.",
+        "criterion": "Weiterleitung, Client/Server und Ablageweg werden erklärt; Bedienausfall von fachlicher Lücke unterscheiden.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    },
+    {
+      "id": "R7-PROG-02",
+      "r5ModuleIds": [
+        "V2-G5-M02"
+      ],
+      "r6ModuleId": "V2-G6-M02",
+      "r6PlannedProduct": "Geordnete Quellenprüfung mit markiertem Widerspruch, begründetem Vertrauensurteil, Erklärung des Indexmodells und nachvollziehbarer Korrektur einer unbelegten KI-Aussage.",
+      "r7ModuleIds": [
+        "V2-G7-M05",
+        "V2-G7-M06"
+      ],
+      "progression": "R5 führt Quellenkriterien ein, R6 prüft Widerspruch/KI-Ausgabe; R7 verwendet nachvollziehbare Belege für Datenfolgen und gegebenenfalls Desinformation.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M05",
+        "minutes": 15,
+        "plannedProduct": "Quellenwiderspruch mit zwei Belegen begründet beurteilen.",
+        "criterion": "Herkunft, Beleg und Unsicherheit statt Suchrang verwenden.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    },
+    {
+      "id": "R7-PROG-03",
+      "r5ModuleIds": [
+        "V2-G5-M02",
+        "V2-G5-M05"
+      ],
+      "r6ModuleId": "V2-G6-M03",
+      "r6PlannedProduct": "Erklärtes Datenflussbild mit Erhebungssituation, Technik, möglichem Auswahlweg und Interessenvergleich; ausdrücklich keine Behauptung, einen unbekannten realen Werbealgorithmus rekonstruiert zu haben.",
+      "r7ModuleIds": [
+        "V2-G7-M05",
+        "V2-G7-M07"
+      ],
+      "progression": "R5 erkennt Werbung, R6 erklärt Dateninteressen; R7 wägt Datendienstfolgen und gegebenenfalls wirtschaftliche Spielmodelle ab.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M05",
+        "minutes": 15,
+        "plannedProduct": "Eine Datenerhebungssituation mit Technik und Akteursinteresse erklären.",
+        "criterion": "Beobachtbare Tatsache von möglicher Auswahl-/Interessenannahme trennen.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    },
+    {
+      "id": "R7-PROG-04",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "r6ModuleId": "V2-G6-M04",
+      "r6PlannedProduct": "Nachvollziehbares Text-Code-Paar, eine korrigierte Übertragungsstelle und begründete Wahl der Codierung unter veränderter Bedingung.",
+      "r7ModuleIds": [
+        "V2-G7-M02",
+        "V2-G7-M04"
+      ],
+      "progression": "R5 übt präzise Darstellung/Abläufe, R6 führt zweckbezogene Textcodierung ein; R7 erweitert um Bitfolgen, reversible Codes, ASCII/Bilder und Verschlüsselungsabgrenzung.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M02",
+        "minutes": 15,
+        "plannedProduct": "Kurzen Text mit vorgegebener Codetabelle codieren/decodieren und Wahl begründen.",
+        "criterion": "Zuordnung und Umkehrbarkeit sind erklärbar; binäre Darstellung ist erst neues R7-Ziel.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    },
+    {
+      "id": "R7-PROG-05",
+      "r5ModuleIds": [
+        "V2-G5-M06"
+      ],
+      "r6ModuleId": "V2-G6-M05",
+      "r6PlannedProduct": "Ausführbarer Ablauf mit erklärter Spur, begründeter Fehlerhypothese und überprüfter Revision; keine bloße Kopie eines Beispiels.",
+      "r7ModuleIds": [
+        "V2-G7-M03"
+      ],
+      "progression": "R5 baut Anweisung/feste Wiederholung auf, R6 vertieft Spur und Revision; R7 führt Variablen, Bedingungen, bedingte Wiederholung, Datentypen und Wertefluss neu ein.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M03",
+        "minutes": 15,
+        "plannedProduct": "Grafik und Code mit fester Wiederholung verfolgen und erste Abweichung erklären.",
+        "criterion": "Ablaufverständnis von Syntax-/Toolhürde trennen; neue R7-Konstrukte nicht voraussetzen.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    },
+    {
+      "id": "R7-PROG-06",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M05"
+      ],
+      "r6ModuleId": "V2-G6-M06",
+      "r6PlannedProduct": "Abgewogenes Fallurteil mit Pro-/Contra-Gründen, erklärtem Strukturmerkmal und begründeter Hilfe- oder Meldestrategie.",
+      "r7ModuleIds": [
+        "V2-G7-M05",
+        "V2-G7-M06",
+        "V2-G7-M07"
+      ],
+      "progression": "R5 arbeitet an Kommunikation und Wirkung, R6 an strukturellen Bedingungen; R7 vertritt informierte ethische Urteile und untersucht gegebenenfalls Manipulation/Gaming.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M05",
+        "minutes": 15,
+        "plannedProduct": "Neutralen Kommunikationsfall aus zwei Perspektiven beurteilen.",
+        "criterion": "Begründetes Merkmal und passende Hilfe statt pauschaler Schuldzuschreibung; keine Privatgeschichte.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    },
+    {
+      "id": "R7-PROG-07",
+      "r5ModuleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "r6ModuleId": "V2-G6-M07",
+      "r6PlannedProduct": "Überschaubares Informationsprodukt mit Quellen-/Rechtehinweisen, erkennbarem individuellem Beitrag, fachlich aufgenommener Partnerrückmeldung und begründeter Revision; Teilen im Schulkanal und lokale Vorstellung.",
+      "r7ModuleIds": [
+        "V2-G7-M03",
+        "V2-G7-M06"
+      ],
+      "progression": "R5 erstellt ein gemeinsames Medienprodukt, R6 revidiert begründet; R7 überträgt Kooperation auf ein kleines getestetes Programm und gegebenenfalls ein Wirkungsprodukt.",
+      "entryCheck": {
+        "beforeModule": "V2-G7-M03",
+        "minutes": 15,
+        "plannedProduct": "Im Schulkanal sachlich zu einem Entwurf beitragen und eine begründete Revision erklären.",
+        "criterion": "Individueller Beitrag und aufgenommene Rückmeldung sichtbar; Programmierroutine folgt daraus nicht automatisch.",
+        "gapResponse": "Zuerst Sprache, Darstellung und Bedienzugang klären. Bei einzelner Lücke Teilschritt modellieren und neu prüfen; bei breiten Lücken oder mehr als 45 Minuten zusätzlichem Bedarf vor abhängigen Modulen neu planen.",
+        "state": "not-run"
+      },
+      "boundary": "Planungsanschluss, keine beobachtete Lernleistung. Für die aktuelle Klasse 7 ist die Teilnahme an der neuen R5-/R6-Folge nicht vorausgesetzt."
+    }
+  ],
+  "privacyCarry": [
+    "BMB16-GYM-IK-MG-001",
+    "BMB16-GYM-PK-RK-001",
+    "LH26-E-DP-002",
+    "LH26-E-DP-003",
+    "LH26-E-DP-009",
+    "LH26-E-KS-011"
+  ],
+  "newOpenReflectionIds": [
+    "LH26-E-DP-013",
+    "LH26-E-DP-014",
+    "LH26-E-DP-018"
+  ],
+  "interpretation": "Die neue R7-Aufteilung ersetzt keine amtlichen Vorgaben und bestätigt keine Vorjahresdurchführung. Reflexion des eigenen Umgangs kann eventuell an Unterrichtshandlungen gelingen; eine tragfähige datensparsame Durchführung und Nachweisregel ist hier noch nicht operationalisiert. Keine pauschale Unmöglichkeit behauptet."
+}
