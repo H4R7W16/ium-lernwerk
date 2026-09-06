@@ -74,3 +74,9 @@ test('failed validation preserves the previous atomic snapshot byte for byte', (
   atomicWrite(file, 'next-valid-snapshot');
   assert.equal(readFileSync(file, 'utf8'), 'next-valid-snapshot');
 });
+
+test('approved activation permits CUT done only with the decision-bound current status', () => {
+  validateCutoverStage('done', 'done', acceptance, true);
+  assert.throws(() => validateCutoverStage('done', 'done', acceptance, false));
+  assert.throws(() => validateCutoverStage('done', 'review', acceptance, true));
+});

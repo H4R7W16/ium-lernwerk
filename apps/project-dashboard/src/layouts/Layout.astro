@@ -12,7 +12,7 @@ const { title, page = '' } = Astro.props;
     <a href="/" class="brand"><span class="mark" aria-hidden="true">IuM</span><span>Lernwerk<small>Projektcockpit · V2</small></span></a>
     <p class="nav-caption">ENTWICKLUNG</p>
     <nav aria-label="Bereiche"><ul>{pages.map(([slug,label],i)=><li><a href={`/${slug}${slug?'/':''}`} aria-current={page===slug?'page':undefined}><span class="nav-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>{label}</a></li>)}</ul></nav>
-    <div class="sidebar-note"><span class="dot" aria-hidden="true"></span><strong>V2 im Aufbau</strong><p>Aktive Baseline: V1<br/>Produktion geschlossen</p></div>
+    <div class="sidebar-note"><span class="dot" aria-hidden="true"></span><strong>{s.baseline.activeBaseline==='v2'?'V2 als Planungsbaseline aktiv':'V2 im Aufbau'}</strong><p>{s.baseline.activeBaseline==='v2'?'Produktstand: V1':'Aktive Baseline: V1'}<br/>Produktion geschlossen</p></div>
   </aside>
   <div class="shell">
     <header class="topbar"><span>INFORMATIK & MEDIENBILDUNG <span class="desktop-only">/ GYMNASIUM 5–7</span></span><span class="mode">{s.mode==='presentation'?'Lokale Präsentation':'Interne Arbeitsansicht'}</span></header>

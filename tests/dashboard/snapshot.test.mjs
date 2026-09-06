@@ -14,7 +14,7 @@ function fixture(mutate = () => {}) {
   const vault = mkdtempSync(join(tmpdir(),'ium-dash-vault-')), d = structuredClone(seed);
   for (const [i,g] of manifest.entries()) {
     const file = join(vault,g.path); mkdirSync(dirname(file),{recursive:true});
-    writeFileSync(file,`---\nstatus: ${i<16?'done':i===16?'in_progress':'planned'}\nsequence: ${i+1}\nstrand: ium-v2-rebaseline\nowner_agent: Codex\nupdated: 2026-09-06\n---\n# ${g.id} Synthetischer Test-Gate\n`);
+    writeFileSync(file,`---\nstatus: done\nsequence: ${i+1}\nstrand: ium-v2-rebaseline\nowner_agent: Codex\nupdated: 2026-09-06\n---\n# ${g.id} Synthetischer Test-Gate\n`);
   }
   mutate(d,vault);
   const register = join(vault,'register.md');
@@ -54,15 +54,19 @@ test('URI schemes are not mistaken for absolute drive paths', () => {
   const s = buildSnapshot(fixture());
   assert.match(s.evidence.find(e=>e.id==='archive').content,/https:\/\//);
 });
-test('CUT review is projected only after DASH is done and the CUT packet validates', () => {
-  const s = buildSnapshot(fixture((d,vault)=>{
-    for (const [index,state] of [[16,'done'],[17,'review']]) {
-      const p=join(vault,manifest[index].path);
-      writeFileSync(p,readFileSync(p,'utf8').replace(/^status: .+$/m,`status: ${state}`));
-    }
-  }));
-  assert.equal(s.gates[17].state,'review');
-  assert.equal(s.cutover.decisionState,'awaiting-user-decision');
+test('stale CUT review metadata cannot coexist with the approved active pointer', () => {
+  assert.throws(()=>buildSnapshot(fixture((d,vault)=>{
+    const p=join(vault,manifest[17].path);
+    writeFileSync(p,readFileSync(p,'utf8').replace('status: done','status: review'));
+  })),/CUT-Status/);
+});
+test('active V2 retains product V1, every condition and all separate maturity axes', () => {
+  const s=buildSnapshot(fixture());
+  assert.equal(s.baseline.activeBaseline,'v2');
+  assert.equal(s.baseline.productBaseline,'v1');
+  assert.equal(s.baseline.cutover.state,'approved');
+  assert.equal(s.gates[17].state,'done');
   assert.equal(s.cutover.conditions.length,46);
-  assert.equal(s.baseline.activeBaseline,'v1');
+  assert.deepEqual(s.streams.map(x=>x.maturity),seed.streams.map(x=>x.maturity));
+  assert.match(markdown(s),/V2: aktive Planungs-/);
 });

@@ -3,7 +3,7 @@ export const snapshot = JSON.parse(readFileSync(process.env.IUM_DASHBOARD_INPUT,
 export { axes, labels } from '../../../packages/project-status/index.mjs';
 export const pages = [
   ['','Überblick','Entwicklungsstand auf einen Blick'],
-  ['baselines','Baselines','V1 bleibt aktiv. V2 wächst kontrolliert.'],
+  ['baselines','Baselines',snapshot.baseline.activeBaseline==='v2'?'V2 ist Planungsbaseline. V1 bleibt Produktstand.':'V1 bleibt aktiv. V2 wächst kontrolliert.'],
   ['foundations','Grundlagen','Vier getrennte Fundamente'],
   ['experience','Lern-Experience','Von Evidenz zu tragfähigen Lernwegen'],
   ['audit','Übernahmeaudit','Bestand wird einzeln bewertet'],

@@ -14,8 +14,8 @@ class CutoverContractTests(unittest.TestCase):
     def setUp(self):
         self.packet = json.loads((ROOT / 'roadmap/v2/cutover/review.json').read_text(encoding='utf8'))
 
-    def test_current_packet_and_input_digests(self):
-        validate(ROOT, self.packet)
+    def test_accepted_historical_packet_and_input_digests(self):
+        validate(ROOT, self.packet, historical=True)
 
     def test_checkout_line_endings_do_not_invalidate_same_text(self):
         self.assertEqual(current_digest(b'first\r\nsecond\r\n'), current_digest(b'first\nsecond\n'))
@@ -25,12 +25,12 @@ class CutoverContractTests(unittest.TestCase):
 
     def test_missing_packet_fails(self):
         with self.assertRaises(CutoverError):
-            validate(ROOT, {})
+            validate(ROOT, {}, historical=True)
 
     def test_input_drift_fails(self):
         self.packet['inputDigests']['roadmap/v2/status.json'] = '0' * 64
         with self.assertRaises(CutoverError):
-            validate(ROOT, self.packet)
+            validate(ROOT, self.packet, historical=True)
 
 
 MUTATIONS = {
@@ -66,7 +66,7 @@ def rejection_test(mutate):
     def test(self):
         mutate(self.packet)
         with self.assertRaises(CutoverError):
-            validate(ROOT, self.packet)
+            validate(ROOT, self.packet, historical=True)
     return test
 
 

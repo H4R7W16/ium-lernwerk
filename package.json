@@ -41,6 +41,7 @@
     "verify:phase1": "tsx scripts/verify-phase1.ts",
     "verify:ium5": "tsx scripts/verify-ium5.ts",
     "verify:v2": "python -B scripts/validate_v2_rebaseline.py",
+    "verify:v2:active": "python -B scripts/validate_v2_activation.py",
     "verify:v2:cutover": "npm run verify:v2 && python -B scripts/validate_v2_cutover.py",
     "verify:v2:sources:online": "python -B scripts/check_v2_source_links.py --write",
     "verify:ium5:gate-b": "tsx scripts/verify-ium5-gate-b.ts",

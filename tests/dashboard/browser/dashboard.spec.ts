@@ -19,9 +19,11 @@ test('all eight views and every local link resolve; no background network outsid
   expect(unexpected).toEqual([]);
   expect((await request.get('/evidence/internal-review/')).status()).toBe(404);
   await page.goto('/gates/');
-  await expect(page.getByRole('heading',{name:'V2 als Planungs- und Entwicklungsbaseline annehmen'})).toBeVisible();
-  await expect(page.locator('#cutover-options article')).toHaveCount(3);
-  await expect(page.locator('#cutover-options')).toContainText('Entscheidung ausstehend');
+  await expect(page.getByRole('heading',{name:'V2 als Planungs- und Entwicklungsbaseline aktiviert'})).toBeVisible();
+  await expect(page.locator('#cutover-options')).toHaveCount(0);
+  await expect(page.locator('.gate-list .badge')).toHaveCount(18);
+  await expect(page.locator('.gate-list .badge').last()).toHaveText(/Freigegeben|In Arbeit/);
+  await page.goto('/baselines/');await expect(page.getByRole('heading',{name:'Planungsbaseline · aktiv'})).toBeVisible();
 });
 test('all views meet automated WCAG 2.2 AA checks',async({page})=>{
   for(const route of routes){await page.goto('/'+route);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(result.violations,route).toEqual([]);}
