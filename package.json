@@ -42,7 +42,13 @@
     "verify:ium5": "tsx scripts/verify-ium5.ts",
     "verify:v2": "python -B scripts/validate_v2_rebaseline.py",
     "verify:v2:sources:online": "python -B scripts/check_v2_source_links.py --write",
-    "verify:ium5:gate-b": "tsx scripts/verify-ium5-gate-b.ts"
+    "verify:ium5:gate-b": "tsx scripts/verify-ium5-gate-b.ts",
+    "dashboard:check": "node scripts/project-dashboard.mjs check",
+    "dashboard:update": "node scripts/project-dashboard.mjs update",
+    "dashboard:build": "node scripts/project-dashboard.mjs build",
+    "dashboard:preview": "node scripts/project-dashboard.mjs preview",
+    "test:dashboard": "node --test tests/dashboard/*.test.mjs",
+    "test:dashboard:browser": "node scripts/test-dashboard-browser.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

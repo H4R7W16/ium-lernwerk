@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "gate": "IUM-V2-R7",
+  "state": "approved-by-user",
+  "date": "2026-09-06",
+  "acceptedCommit": "60c7d0a195bc6f3e6803bdc2a97e4a7479e28a24",
+  "decisionBy": "user",
+  "nextTask": "IUM-V2-DASH",
+  "contentProduction": "frozen",
+  "pilot": "not-started",
+  "publication": "closed",
+  "evidence": {
+    "kind": "vault",
+    "target": "2026-09-03 - IUM-V2-R7 Roadmap Klasse 7 neu aufbauen",
+    "label": "Ausdrückliche R7-Freigabe mit DASH-Fortsetzungsauftrag am 6. September 2026.",
+    "required": true
+  }
+}

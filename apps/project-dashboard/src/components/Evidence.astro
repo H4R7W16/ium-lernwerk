@@ -1,0 +1,5 @@
+---
+import { snapshot } from '../data.mjs';
+const { ids } = Astro.props;
+---
+<div class="refs">{ids.map(id=>{const e=snapshot.evidence.find(x=>x.id===id);return <a href={`/evidence/${id}/`}>{e.label}<span aria-hidden="true"> ↗</span></a>})}</div>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "IUM-V2-00",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-00 V1-Baseline archivieren.md"
+  },
+  {
+    "id": "IUM-V2-01",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-01 V2-Anforderungsregister aufbauen.md"
+  },
+  {
+    "id": "IUM-V2-CUR",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-CUR Curriculumfundament konsolidieren.md"
+  },
+  {
+    "id": "IUM-V2-SRC",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-SRC Quellenfundament konsolidieren.md"
+  },
+  {
+    "id": "LXF01",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF01 Lernpsychologie- und Experience-Bestand auditieren.md"
+  },
+  {
+    "id": "LXF02",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF02 Evidenzlücken schließen.md"
+  },
+  {
+    "id": "LXF03",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF03 Fach- und Stufenprofil IuM 5-7 entwickeln.md"
+  },
+  {
+    "id": "LXF04",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF04 Lernarchitektur-Vertrag ableiten.md"
+  },
+  {
+    "id": "LXF05",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF05 Material- und Experience-Grammatik entwickeln.md"
+  },
+  {
+    "id": "LXF06",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF06 Orchestrierung und Experience-Gates entwickeln.md"
+  },
+  {
+    "id": "LXF07",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF07 Lern- und Experience-Fundament reviewen.md"
+  },
+  {
+    "id": "IUM-V2-GOV",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-GOV Governance und öffentliche Wahrnehmung konsolidieren.md"
+  },
+  {
+    "id": "IUM-V2-AUD",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-AUD IUM- und LXP-Übernahmeaudit durchführen.md"
+  },
+  {
+    "id": "IUM-V2-R5",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-R5 Roadmap Klasse 5 neu aufbauen.md"
+  },
+  {
+    "id": "IUM-V2-R6",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-R6 Roadmap Klasse 6 neu aufbauen.md"
+  },
+  {
+    "id": "IUM-V2-R7",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-R7 Roadmap Klasse 7 neu aufbauen.md"
+  },
+  {
+    "id": "IUM-V2-DASH",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-DASH Dashboard auf V2-Steuerung migrieren.md"
+  },
+  {
+    "id": "IUM-V2-CUT",
+    "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-CUT V2-Cutover entscheiden.md"
+  }
+]

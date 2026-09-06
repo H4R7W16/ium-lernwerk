@@ -1,0 +1,7 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { snapshot } from '../../data.mjs';
+export function getStaticPaths() { return snapshot.evidence.map(e=>({params:{id:e.id},props:{e}})); }
+const { e } = Astro.props;
+---
+<Layout title={e.label} page="evidence"><a href="/evidence/">← Alle Belege</a><p class="eyebrow">Lokaler Quellenbeleg</p><h1>{e.label}</h1><p><code>{e.target}</code></p><dl class="provenance"><dt>Quellcommit</dt><dd><code>{e.commit??'Nicht zugeordnet · lokale Arbeitskopie'}</code></dd><dt>Inhaltsdigest (SHA-256)</dt><dd><code>{e.digest}</code></dd><dt>Sichtbarkeit</dt><dd>{e.visibility==='presentation'?'Für Präsentation ausgewählt':'Nur interne Arbeitsansicht'}</dd></dl>{e.githubUrl&&<p><a href={e.githubUrl}>Identischen Beleg auf origin öffnen ↗</a></p>}<p>Der folgende Text ist der unveränderte Quellinhalt am Erzeugungszeitpunkt. Historische Statusangaben gelten für den dort benannten Prüfstand; die aktuelle Gatefolge berücksichtigt spätere Nutzerfreigaben.</p><pre class="source" tabindex="0" aria-label="Unveränderter Quelltext">{e.content}</pre></Layout>

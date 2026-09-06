@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 2,
+  "projectId": "ium-lernwerk",
+  "publicationScope": "local",
+  "asOf": "2026-09-06",
+  "summary": "V1 bleibt aktive Baseline und archivierte Referenz. V2 ist im Aufbau: Die Grundlagen, das Übernahmeaudit und die drei Jahrgangsplanungen sind fachlich freigegeben. Lernmaterialproduktion, LXP05, Pilot und Veröffentlichung bleiben geschlossen.",
+  "currentFocus": {
+    "title": "Dashboard zur V2-Steuerung abnehmen",
+    "summary": "Acht Hauptansichten, 18 Gates und getrennte Reifeachsen sind umgesetzt. 25 Dashboardtests, sechs Browserprüfungen, 966 Python- und 132 Plattformtests bestanden. R7 ist fachlich freigegeben; offene Kapazitäts- und Nachweisfragen bleiben sichtbar.",
+    "workStatus": "review"
+  },
+  "nextDecision": {
+    "title": "DASH prüfen und freigeben",
+    "summary": "Erst nach DASH-Abnahme folgt IUM-V2-CUT als gesonderte Cutover-Entscheidung. Auch ein Cutover erlaubt noch keine Modulproduktion oder Pilotierung.",
+    "workStatus": "review"
+  },
+  "streams": [
+    {
+      "id": "foundation",
+      "title": "Grundlagen",
+      "summary": "Curriculum, Quellen, Experience und Governance sind als Planungsvoraussetzungen freigegeben.",
+      "maturity": {
+        "curriculum": "unassessed",
+        "concept": "reviewed",
+        "implementation": "not-started",
+        "technical": "passed",
+        "didactic": "reviewed",
+        "usage": "not-started",
+        "pilot": "not-started",
+        "release": "closed"
+      },
+      "evidenceIds": [
+        "curriculum",
+        "sources",
+        "experience",
+        "governance"
+      ]
+    },
+    {
+      "id": "roadmap",
+      "title": "Jahrgangsplanung",
+      "summary": "R5, R6 und R7 sind fachlich angenommen; alle Lerngelegenheiten und Zeitbudgets bleiben Planungen.",
+      "maturity": {
+        "curriculum": "unassessed",
+        "concept": "reviewed",
+        "implementation": "not-started",
+        "technical": "passed",
+        "didactic": "reviewed",
+        "usage": "not-started",
+        "pilot": "not-started",
+        "release": "closed"
+      },
+      "evidenceIds": [
+        "grade5",
+        "grade6",
+        "grade7"
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Plattform",
+      "summary": "V1-Technik ist historischer Bestand. Die technische Eignung für V2 muss der gesperrte Folgeauftrag FU-TECH erst nachweisen.",
+      "maturity": {
+        "curriculum": "unassessed",
+        "concept": "draft",
+        "implementation": "not-started",
+        "technical": "not-run",
+        "didactic": "not-started",
+        "usage": "not-started",
+        "pilot": "not-started",
+        "release": "closed"
+      },
+      "evidenceIds": [
+        "archive",
+        "audit"
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "Learning Experience",
+      "summary": "Lernarchitektur, Materialgrammatik und Orchestrierung sind freigegeben. Reale Nutzung, Standardisierung und Unterrichtspilot stehen aus.",
+      "maturity": {
+        "curriculum": "unassessed",
+        "concept": "reviewed",
+        "implementation": "not-started",
+        "technical": "passed",
+        "didactic": "reviewed",
+        "usage": "not-started",
+        "pilot": "not-started",
+        "release": "closed"
+      },
+      "evidenceIds": [
+        "experience",
+        "materials",
+        "orchestration"
+      ]
+    },
+    {
+      "id": "validation-release",
+      "title": "Prüfung und Freigabe",
+      "summary": "KI-Dokumentenreview und Vertragsprüfungen sind erfolgt. Unabhängige Einsatzprüfung, Schulfreigaben und Unterrichtspilot sind offen.",
+      "maturity": {
+        "curriculum": "unassessed",
+        "concept": "reviewed",
+        "implementation": "not-started",
+        "technical": "passed",
+        "didactic": "reviewed",
+        "usage": "not-started",
+        "pilot": "not-started",
+        "release": "closed"
+      },
+      "evidenceIds": [
+        "governance",
+        "audit",
+        "dashboard-review"
+      ]
+    }
+  ],
+  "experienceAxes": [
+    {
+      "id": "evidence",
+      "label": "Evidenzbasis",
+      "state": "reviewed",
+      "evidenceIds": [
+        "sources",
+        "experience"
+      ]
+    },
+    {
+      "id": "learner",
+      "label": "Lernendenprofil",
+      "state": "reviewed",
+      "evidenceIds": [
+        "experience"
+      ]
+    },
+    {
+      "id": "architecture",
+      "label": "Lernarchitektur",
+      "state": "reviewed",
+      "evidenceIds": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "material",
+      "label": "Materialgestaltung",
+      "state": "reviewed",
+      "evidenceIds": [
+        "materials"
+      ]
+    },
+    {
+      "id": "interaction",
+      "label": "Interaktion",
+      "state": "reviewed",
+      "evidenceIds": [
+        "materials"
+      ]
+    },
+    {
+      "id": "orchestration",
+      "label": "Orchestrierung",
+      "state": "reviewed",
+      "evidenceIds": [
+        "orchestration"
+      ]
+    },
+    {
+      "id": "review",
+      "label": "Review",
+      "state": "reviewed",
+      "evidenceIds": [
+        "experience"
+      ]
+    },
+    {
+      "id": "pilot",
+      "label": "Unterrichtspilot",
+      "state": "not-started",
+      "evidenceIds": [
+        "experience"
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "capacity",
+      "title": "Lokale Kapazität ist unbestätigt",
+      "summary": "36/40/43 UE für Klasse 7 sind Bedarfsrechnungen. Der 36-UE-Kern lässt acht, die 40-UE-Erweiterung drei orientierende Ziele offen. 43 UE schließen die drei Reflexionsnachweise ebenfalls nicht.",
+      "evidenceIds": [
+        "data7"
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": "Neun unterschiedliche Nachweisfragen",
+      "summary": "Sechs übernommene Eigenbezugsfragen und drei neue R7-Reflexionsfragen bleiben offen. Sie sind keine neun neuen amtlichen Klasse-7-Anforderungen. Fallanalysen ersetzen keinen eigenen Reflexionsnachweis.",
+      "evidenceIds": [
+        "progression"
+      ]
+    },
+    {
+      "id": "cohort",
+      "title": "Tatsächliches Vorwissen ist unbekannt",
+      "summary": "Freigegebene R5-/R6-Pläne belegen keine Durchführung in der aktuellen Klasse 7. Die sieben Einstiegsklärungen sind noch nicht ausgeführt.",
+      "evidenceIds": [
+        "progression"
+      ]
+    },
+    {
+      "id": "governance",
+      "title": "Einsatzentscheidungen stehen aus",
+      "summary": "Betreiber, unabhängige Reviewer, Rechte, schulische Freigaben und die tatsächliche Zielumgebung benötigen eigene Nachweise. Dokumentenselbstreview ist keine unabhängige Nutzungsprüfung.",
+      "evidenceIds": [
+        "governance"
+      ]
+    }
+  ],
+  "technicalEvidence": {
+    "commit": "60c7d0a195bc6f3e6803bdc2a97e4a7479e28a24",
+    "date": "2026-09-06",
+    "state": "passed",
+    "scope": "R7: 966 Python-Tests und V2-Gate; historischer Vertragsprüfstand, keine Nutzungsprüfung."
+  },
+  "evidence": [
+    {
+      "id": "archive",
+      "kind": "repo",
+      "target": "roadmap/v2/archive/v1-baseline.json",
+      "label": "Versiegeltes V1-Archiv",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "requirements",
+      "kind": "repo",
+      "target": "roadmap/v2/requirements/requirements.json",
+      "label": "V2-Anforderungen",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "curriculum",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/curriculum/source-basis.json",
+      "label": "Curriculumfundament",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "sources",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/sources/README.md",
+      "label": "Quellenfundament",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "experience",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/learning-experience/validation-report.md",
+      "label": "LXF07: Fundamentreview",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "architecture",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/learning-experience/learning-architecture.md",
+      "label": "Lernarchitektur",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "materials",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/learning-experience/material-experience-guide.md",
+      "label": "Materialgestaltung und Interaktion",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "orchestration",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+      "label": "Lehrkraftorchestrierung",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "governance",
+      "kind": "repo",
+      "target": "roadmap/v2/foundations/governance/README.md",
+      "label": "Governancefundament",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "audit",
+      "kind": "repo",
+      "target": "roadmap/v2/audits/README.md",
+      "label": "Übernahmeaudit",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "grade5",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-5/README.md",
+      "label": "Roadmap Klasse 5",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "data5",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-5/roadmap.json",
+      "label": "Klasse 5: Module und Zeitrechnung",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "grade6",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-6/README.md",
+      "label": "Roadmap Klasse 6",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "data6",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-6/roadmap.json",
+      "label": "Klasse 6: Module und Zeitrechnung",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "grade7",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-7/README.md",
+      "label": "Roadmap Klasse 7",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "data7",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-7/roadmap.json",
+      "label": "Klasse 7: Module und Zeitrechnung",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "progression",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-7/progression.json",
+      "label": "Progression und offene Nachweisfragen",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "internal-review",
+      "kind": "repo",
+      "target": "roadmap/v2/grades/grade-7/status.json",
+      "label": "Interner Prüfsnapshot R7",
+      "visibility": "internal",
+      "required": true
+    },
+    {
+      "id": "historical-task",
+      "kind": "vault",
+      "target": "60_Organisation/Workspace-Entwicklung/Tasks/2026-08-03 - IUM14 Phase 1 Realgerätegate durchführen.md",
+      "label": "Historischer IUM14-Task fehlt",
+      "visibility": "internal",
+      "required": false
+    },
+    {
+      "id": "dashboard-review",
+      "kind": "repo",
+      "target": "roadmap/v2/dashboard/validation-report.md",
+      "label": "DASH: Prüfumfang und Grenzen",
+      "visibility": "presentation",
+      "required": true
+    },
+    {
+      "id": "historical-lxp05",
+      "kind": "vault",
+      "target": "60_Organisation/Workspace-Entwicklung/Tasks/2026-08-05 - LXP05 IUM-5-CORE-05 auf Experience-Architektur neu fassen.md",
+      "label": "Historischer LXP05-Task fehlt",
+      "visibility": "internal",
+      "required": false
+    }
+  ]
+}

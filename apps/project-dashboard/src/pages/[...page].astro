@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Evidence from '../components/Evidence.astro';
+import { snapshot as s, pages, axes, labels } from '../data.mjs';
+export function getStaticPaths() { return pages.map(([page,label,title])=>({params:{page:page||undefined},props:{page,label,title}})); }
+const { page, label, title } = Astro.props;
+const r7 = s.grades[2];
+---
+<Layout title={label} page={page}>
+  <div class="eyebrow">{page ? label : 'PROJEKTÜBERBLICK'} <span>Stand {s.asOf}</span></div>
+  <h1>{title}</h1>
+  {page==='' && <>
+    <p class="lead">Ein Lernwerk für Informatik und Medienbildung.<br/>Fachlich begründet, schrittweise entwickelt.</p>
+    <section class="hero-panel" aria-labelledby="focus"><div><span class="tag">AKTUELL · {labels[s.currentFocus.workStatus]}</span><h2 id="focus">{s.currentFocus.title}</h2><p>{s.currentFocus.summary}</p><a class="button" href="/gates/">Gatefolge ansehen <span aria-hidden="true">→</span></a></div><div class="hero-note"><span class="large-type">5–7</span><span>Jahrgangsplanungen freigegeben</span><p>Geplante Lernwege sind noch keine belegten Lernergebnisse.</p></div></section>
+    <div class="section-heading"><h2>Was trägt den nächsten Schritt?</h2><a href="/foundations/">Grundlagen öffnen →</a></div>
+    <div class="cards thirds">{[['Vier Grundlagen','Fachlich freigegeben','Curriculum, Quellen, Lern-Experience und Governance bilden getrennte Voraussetzungen.','foundations'],['Drei Jahrgänge','Planung angenommen','R5, R6 und R7 verbinden Lernwege mit eigener Progressions- und Zeitprüfung.','grades'],['Nächste Entscheidung','DASH vor CUT','Dashboard abnehmen; erst danach über die aktive V2-Baseline entscheiden.','gates']].map(([a,b,c,p])=><article><p class="eyebrow">{a}</p><h3>{b}</h3><p>{c}</p><a href={`/${p}/`}>Details ansehen →</a></article>)}</div>
+    <section class="callout"><h2>Offene Fragen bleiben sichtbar</h2><p>Unbestätigte Zeitkapazität, neun unterschiedliche Nachweisfragen und unbekanntes Vorwissen begrenzen die Planung. Inhaltsproduktion, LXP05, Unterrichtspilot und Veröffentlichung bleiben geschlossen.</p><a href="/grades/#offene-fragen">Kapazität und Nachweise prüfen →</a></section>
+  </>}
+  {page==='baselines' && <>
+    <p class="lead">{s.summary}</p>
+    <div class="cards thirds">{[['V1','Aktiv · archivierte Referenz','Der freigegebene Produktstand bleibt maßgeblich, bis CUT anders entscheidet.'],['V2','Aufbau · building','Fachlich freigegebene Grundlagen und Pläne; keine automatische Übernahme historischer Coverage.'],['LXP05','Eingefroren · ungemergt','Der alte Kandidat bleibt separat. Die Dashboardentwicklung öffnet keine Modulproduktion.']].map(([a,b,c])=><article><span class="large-type">{a}</span><h2>{b}</h2><p>{c}</p></article>)}</div>
+    <Evidence ids={['archive','requirements']}/><section class="callout"><h2>Die Cutover-Grenze</h2><p>DASH liefert eine prüfbare Darstellung. IUM-V2-CUT bleibt geplant und benötigt einen eigenen Auftrag nach der Dashboardabnahme. Produktion, Pilotierung und Veröffentlichung sind zusätzliche Entscheidungen.</p></section>
+  </>}
+  {page==='foundations' && <>
+    <p class="lead">Freigaben beschreiben die Qualität der Planungsgrundlage. Sie ersetzen keine Erprobung mit Lernenden.</p>
+    <div class="cards halves">{[['Curriculum','Amtliche Anforderungen und orientierende Lesehilfe bleiben getrennt. V1-Coverage wird nicht als V2-Erfüllung übernommen.','curriculum'],['Quellen','Quellen- und Claimprüfung liefert begrenzte Aussagen; eine Quelle belegt nicht automatisch die Wirksamkeit des gesamten Lernwerks.','sources'],['Lern-Experience','Lernarchitektur, Materialgestaltung und Orchestrierung liegen als geprüfte Verträge vor.','experience'],['Governance','Aussagearten, Verantwortlichkeiten und Rechecks begrenzen öffentliche und schulische Aussagen.','governance']].map(([a,b,e])=><article><span class="badge">Planungsgrundlage freigegeben</span><h2>{a}</h2><p>{b}</p><Evidence ids={[e]}/></article>)}</div>
+    <h2>Fünf Stränge, acht Reifeachsen</h2><p>„Vertragsprüfung bestanden“ bezeichnet technische Dokumentenprüfungen. Der vollständige Commitbezug steht unter Evidenz; Tests stufen keine andere Achse hoch.</p>
+    <div class="table-wrap screen-only" role="region" aria-label="Getrennte Reifeachsen" tabindex="0"><table><caption>Getrennte Reife je Entwicklungsstrang</caption><thead><tr><th scope="col">Strang</th>{Object.values(axes).map(a=><th scope="col">{a}</th>)}</tr></thead><tbody>{s.streams.map(x=><tr><th scope="row">{x.title}</th>{Object.keys(axes).map(k=><td>{labels[x.maturity[k]]}</td>)}</tr>)}</tbody></table></div>
+    <div class="table-wrap print-only" id="print-maturity"><table><caption>Getrennte Reife je Entwicklungsstrang</caption><thead><tr><th scope="col">Reifeachse</th>{s.streams.map(x=><th scope="col">{x.title}</th>)}</tr></thead><tbody>{Object.entries(axes).map(([k,label])=><tr><th scope="row">{k==='release'?'Publikation / Releasefreigabe':label}</th>{s.streams.map(x=><td>{labels[x.maturity[k]]}</td>)}</tr>)}</tbody></table></div>
+  </>}
+  {page==='experience' && <>
+    <p class="lead">Acht Unterachsen zeigen, was als Konzept geprüft ist und wo tatsächliche Nutzung noch aussteht.</p>
+    <div class="cards halves">{s.experienceAxes.map((a,i)=><article><span class="eyebrow">{String(i+1).padStart(2,'0')} · {labels[a.state]}</span><h2>{a.label}</h2><Evidence ids={a.evidenceIds}/></article>)}</div>
+    <section class="callout"><h2>Review und Pilot bleiben getrennt</h2><p>Der dokumentierte Abschluss enthält einen KI-gestützten Selbstreview. Die fachliche Nutzerfreigabe nimmt das Planungspaket an. Eine unabhängige Nutzungsprüfung, beobachtete Lernwirkung oder Standardisierung wird damit nicht behauptet.</p></section>
+  </>}
+  {page==='audit' && <>
+    <p class="lead">{Object.values(s.auditCounts).reduce((a,b)=>a+b,0)} Artefaktfamilien wurden einzeln bewertet. Der Bestand wird kontrolliert übernommen, angepasst, ersetzt oder als Referenz erhalten.</p>
+    <div class="cards quarters">{[['1','Beibehalten','retain'],['15','Anpassen','adapt'],['5','Ersetzen','replace'],['4','Nur Referenz','reference-only']].map(([n,t,id])=><article><span class="large-type">{s.auditCounts[id]}</span><h2>{t}</h2><p>{id}</p></article>)}</div>
+    <Evidence ids={['audit']}/><h2>Drei nachgelagerte Aufträge</h2><div class="cards thirds">{[['FU-TECH','Technische V1-Bausteine gegen V2 prüfen'],['FU-MOD','Erstes V2-Referenzmodul spezifizieren'],['FU-PILOT','Prüf- und Pilotinstrumente an V2 binden']].map(([id,t])=><article><span class="badge">Gesperrt</span><h3>{id}</h3><p>{t}</p></article>)}</div><p>Alle drei beginnen frühestens nach ihren Abhängigkeiten und mit eigenem Auftrag. Das Audit erhält 16 Grundlagenfragen; die Folgeaufträge erweitern nicht die 18 ursprünglichen Re-Baseline-Gates.</p>
+  </>}
+  {page==='grades' && <>
+    <p class="lead">Drei freigegebene Planungspakete. Tatsächliches Vorwissen, Zeitpassung und Lernergebnisse bleiben zu prüfen.</p>
+    <div class="cards thirds">{s.grades.map(g=><article><p class="eyebrow">Planung angenommen · {g.date}</p><h2>Klasse {g.grade}</h2><span class="large-type">{g.coreMinutes/45} <small>UE Kern</small></span><p>{g.modules.filter(m=>m.kind==='core').length} Kernmodule · zusätzliche Jahresposten separat budgetiert.</p><p>{g.grade===7?'36/40/43 UE Bedarf · lokal unbestätigt':'32/36/40 UE als getrennte Planungsvarianten'}</p><Evidence ids={['grade'+g.grade,g.evidenceId]}/></article>)}</div>
+    <h2>Klasse 7: Bedarf ist keine Verfügbarkeit</h2><p>Alle 51 amtlichen Kompetenzen sind im Kern geplant. Zusätzliche orientierende Ziele sind je Pfad unterschiedlich berücksichtigt. Drei Reflexionsnachweise bleiben in jedem Pfad offen.</p>
+    <div class="table-wrap" role="region" aria-label="R7-Jahrespfade" tabindex="0"><table><caption>Geplante R7-Pfade, ohne bestätigte lokale Kapazität</caption><thead><tr><th scope="col">Pfad</th><th scope="col">Bedarf</th><th scope="col">Offene Orientierung</th><th scope="col">Offene Reflexion</th></tr></thead><tbody>{r7.paths.map((p,i)=><tr><th scope="row">{p.id}</th><td>{p.requiredUnits} UE</td><td>{p.openCapacityRecordIds.length}</td><td>{p.openReflectionRecordIds.length}</td></tr>)}</tbody></table></div>
+    <h3>Kapazitätschecks für hypothetische Nettozeiten</h3><div class="table-wrap" role="region" aria-label="R7-Kapazitätschecks" tabindex="0"><table><caption>Rechnerische Fehlzeit; alle lokalen Verfügbarkeiten ungeprüft</caption><thead><tr><th scope="col">Pfad</th><th scope="col">Bei 32 UE</th><th scope="col">Bei 36 UE</th><th scope="col">Bei 40 UE</th></tr></thead><tbody>{r7.paths.map(p=><tr><th scope="row">{p.id}</th>{[32,36,40].map(n=>{const c=r7.capacityChecks.find(c=>c.pathId===p.id&&c.availableUnits===n);return <td>{c.deficitMinutes?`${c.deficitMinutes/45} UE fehlen`:c.remainingMinutes?`${c.remainingMinutes/45} UE Reserve`:'Rechnerisch passend'}</td>})}</tr>)}</tbody></table></div>
+    <Evidence ids={['data7','progression']}/><h2 id="offene-fragen">Offene Nachweise und Einsatzfragen</h2><div class="cards halves">{s.uncertainties.map(u=><article><h3>{u.title}</h3><p>{u.summary}</p><Evidence ids={u.evidenceIds}/></article>)}</div><h3>Sechs übernommene Eigenbezugsfragen</h3><ul class="record-list">{s.openEvidence.inherited.map(id=><li><code>{id}</code></li>)}</ul><h3>Drei neue Reflexionsfragen in R7</h3><ul class="record-list">{s.openEvidence.new.map(id=><li><code>{id}</code></li>)}</ul>
+  </>}
+  {page==='gates' && <>
+    <p class="lead">Jedes Gate hat einen eigenen Arbeits- und Abnahmestatus. Es gibt keine zusammengefasste Fortschrittszahl.</p>
+    <ol class="gate-list">{s.gates.map(g=><li><span class="gate-number">{String(g.sequence).padStart(2,'0')}</span><div><h2>{g.id}</h2><p>{g.title.replace(g.id+' ','')}</p><small>Aktualisiert {g.date}</small></div><span class:list={['badge',{'current':g.id==='IUM-V2-DASH'}]}>{labels[g.state]}</span></li>)}</ol>
+    <section class="callout"><h2>{s.nextDecision.title}</h2><p>{s.nextDecision.summary}</p></section>
+  </>}
+  {page==='evidence' && <>
+    <p class="lead">Jeder Beleg öffnet lokal. GitHub-Links erscheinen ausschließlich für identische Dateistände, deren Commit über vorhandene origin-Referenzen erreichbar ist.</p>
+    <section class="callout"><h2>Aktualität getrennt von Reife</h2><p>Checkout: <code>{s.git.head}</code> · {s.git.dirty?'verändert':'sauber'}.</p><p>Technischer Nachweis: <strong>{labels[s.technicalFreshness]}</strong>, vom {s.technicalEvidence.date} bei <code>{s.technicalEvidence.commit}</code>.</p><p>{s.technicalEvidence.scope}</p><p>Diese historische Prüfung wird bei einem anderen Checkout als veraltet ausgewiesen. Fachliche Planungsfreigaben bleiben davon unabhängig. Das Dashboard enthält keine automatische Behauptung, am aktuellen Commit geprüft zu sein.</p></section>
+    <p>Erzeugt {s.generatedAt}. Die Ansicht ist ein Snapshot; nach Änderungen muss sie neu aufgebaut werden. Git-Referenzen beschreiben den Stand des letzten Fetch, keine laufende Onlineprüfung.</p>
+    <div class="cards halves">{s.evidence.map(e=><article><span class="eyebrow">{e.visibility==='presentation'?'Präsentationsbeleg':'Interner Beleg'}</span><h2><a href={`/evidence/${e.id}/`}>{e.label}</a></h2><p><code>{e.target}</code></p><p>{e.commit?<>Quellcommit <code>{e.commit}</code></>:'Lokaler Arbeitsstand; kein zugeordneter Commit'}</p>{e.githubUrl&&<a href={e.githubUrl}>Identischer origin-Stand ↗</a>}</article>)}</div>
+    {s.warnings.map(w=><p class="callout">{w.message}</p>)}
+  </>}
+</Layout>
