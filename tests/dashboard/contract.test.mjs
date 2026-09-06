@@ -3,13 +3,31 @@ import assert from 'node:assert/strict';
 import { readFileSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { parseRegister, validateEditorial, project, atomicWrite, githubEvidence, freshness } from '../../packages/project-status/index.mjs';
+import { parseRegister, validateEditorial, project, atomicWrite, githubEvidence, freshness, validateCutoverStage } from '../../packages/project-status/index.mjs';
 
 const seed = JSON.parse(readFileSync(new URL('../../roadmap/v2/dashboard/editorial-seed.json', import.meta.url)));
 const copy = () => structuredClone(seed);
+const acceptance = JSON.parse(readFileSync(new URL('../../roadmap/v2/dashboard/acceptance.json', import.meta.url)));
+test('CUT review requires the explicit DASH approval', () => {
+  validateCutoverStage('done', 'review', acceptance);
+  validateCutoverStage('done', 'in_progress', acceptance);
+  assert.throws(() => validateCutoverStage('review', 'review', acceptance));
+});
+test('CUT cannot become done or active through editorial status', () => {
+  for (const state of ['done', 'active', 'green']) assert.throws(() => validateCutoverStage('done', state, acceptance));
+});
+test('a forged DASH acceptance cannot open CUT', () => {
+  for (const key of ['gate', 'state', 'acceptedCommit', 'decisionBy', 'contentProduction', 'pilot', 'publication']) {
+    assert.throws(() => validateCutoverStage('done', 'review', {...acceptance, [key]:'invalid'}));
+  }
+});
 test('accepts V2 editorial source and rejects duplicate YAML keys', () => {
   validateEditorial(copy());
   assert.throws(() => parseRegister('<!-- IUM-PROJECT-STATUS:START -->\n```yaml\na: 1\na: 2\n```\n<!-- IUM-PROJECT-STATUS:END -->'));
+});
+test('the actual Windows register format with CRLF remains readable', () => {
+  const block='<!-- IUM-PROJECT-STATUS:START -->\r\n```yaml\r\nschemaVersion: 2\r\n```\r\n<!-- IUM-PROJECT-STATUS:END -->';
+  assert.deepEqual(parseRegister(block),{schemaVersion:2});
 });
 for (const [label, mutate] of [
   ['unknown work status', d => d.currentFocus.workStatus = 'green'],

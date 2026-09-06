@@ -19,6 +19,7 @@ function keys(v, expected) { check(object(v) && Object.keys(v).sort().join('|') 
 function list(v) { check(Array.isArray(v) && v.length > 0, 'Liste fehlt'); }
 function exactIds(items, ids) { list(items); check(items.map(x => x.id).sort().join('|') === [...ids].sort().join('|'), 'Pflicht-IDs fehlen oder sind doppelt'); }
 export function parseRegister(markdown) {
+  markdown = markdown.replace(/\r\n/g, '\n');
   const matches = [...markdown.matchAll(/<!-- IUM-PROJECT-STATUS:START -->\s*```yaml\n([\s\S]*?)\n```\s*<!-- IUM-PROJECT-STATUS:END -->/g)];
   check(matches.length === 1, 'Genau ein Statusblock erforderlich');
   const doc = parseDocument(matches[0][1], { uniqueKeys: true });
@@ -63,6 +64,14 @@ export function atomicWrite(file, content, validate = () => {}) {
 export function freshness(evidence, head) { return evidence.commit === head ? evidence.state : 'stale'; }
 export function githubEvidence(commit, path, remoteReachable, identical) {
   return sha(commit) && remoteReachable && identical ? `https://github.com/H4R7W16/ium-lernwerk/blob/${commit}/${path.split('/').map(encodeURIComponent).join('/')}` : null;
+}
+export function validateCutoverStage(dash, cut, acceptance) {
+  check(['planned','in_progress','review'].includes(cut), 'CUT-Status nicht autorisiert');
+  if (cut === 'planned') return;
+  check(dash === 'done' && acceptance?.gate === 'IUM-V2-DASH' && acceptance.state === 'approved-by-user'
+    && acceptance.decisionBy === 'user' && acceptance.acceptedCommit === '85ccc94b1dc9c5cc60fc48470bd6346cac3b3e50'
+    && acceptance.nextTask === 'IUM-V2-CUT' && acceptance.contentProduction === 'frozen'
+    && acceptance.pilot === 'not-started' && acceptance.publication === 'closed', 'CUT benötigt ausdrückliche DASH-Abnahme');
 }
 export function project(snapshot, mode) {
   check(['presentation','internal'].includes(mode), 'Ungültiger Modus');
@@ -121,10 +130,18 @@ export function buildSnapshot({ repo, vault, register }) {
     check(workStates.includes(meta.status) && meta.sequence === i+1 && meta.strand === 'ium-v2-rebaseline' && meta.owner_agent === 'Codex', 'Gate-Status/Sequenz/Verantwortung ungültig');
     if (i < 16) check(meta.status === 'done', 'DASH-Vorgänger nicht freigegeben');
     if (i === 16) check(['in_progress','review','done'].includes(meta.status), 'DASH nicht übernommen');
-    if (i === 17) check(meta.status === 'planned', 'CUT nicht autorisiert');
     const title = content.match(/^# (.+)$/m)?.[1]; safeText(title);
     return { id:g.id, title, state:meta.status, date:meta.updated, sequence:i+1, source:g.path, digest:createHash('sha256').update(content).digest('hex') };
   });
+  let cutover = null;
+  validateCutoverStage(gates[16].state, gates[17].state,
+    gates[17].state === 'planned' ? null : readJSON('roadmap/v2/dashboard/acceptance.json'));
+  if (gates[17].state !== 'planned') {
+    // The current CUT contract is additive. Historical V2 seals remain intact.
+    execFileSync(process.platform === 'win32' ? 'python.exe' : 'python', ['-B','scripts/validate_v2_cutover.py'],
+      {cwd:repo, stdio:['ignore','pipe','pipe']});
+    cutover = readJSON('roadmap/v2/cutover/review.json');
+  }
   const grades = [5,6,7].map(grade => {
     const base = `roadmap/v2/grades/grade-${grade}/`, plan = readJSON(base+'roadmap.json'), status = readJSON(base+'status.json'), acceptance = readJSON(base+'acceptance.json');
     check(acceptance.state === 'approved-by-user' && acceptance.gate === `IUM-V2-R${grade}` && sha(acceptance.acceptedCommit), 'Jahrgangsabnahme fehlt');
@@ -143,7 +160,7 @@ export function buildSnapshot({ repo, vault, register }) {
   for (const record of inventory.records) { check(Object.hasOwn(auditCounts,record.decision),'Unbekannte Auditentscheidung'); auditCounts[record.decision]++; }
   const followUps = readJSON('roadmap/v2/audits/follow-up-tasks.json').tasks.filter(t=>t.id.startsWith('IUM-V2-FU-'));
   check(followUps.length === 3 && followUps.every(t=>t.state==='blocked-follow-up'), 'Audit-Folgeaufträge benötigen neuen Dashboardvertrag');
-  return { ...d, baseline, evidence, gates, grades, openEvidence, auditCounts, followUps:followUps.map(t=>({id:t.id,title:t.title,state:'blocked'})), warnings, git: { head, branch:git('branch','--show-current'), dirty:Boolean(git('status','--porcelain')), main:archive.mainCommit, remote:git('rev-parse','origin/feat/ium-v2-rebaseline') }, technicalFreshness:freshness(d.technicalEvidence,head), generatedAt:new Date().toISOString(), registerDigest:createHash('sha256').update(readFileSync(register)).digest('hex') };
+  return { ...d, baseline, cutover, evidence, gates, grades, openEvidence, auditCounts, followUps:followUps.map(t=>({id:t.id,title:t.title,state:'blocked'})), warnings, git: { head, branch:git('branch','--show-current'), dirty:Boolean(git('status','--porcelain')), main:archive.mainCommit, remote:git('rev-parse','origin/feat/ium-v2-rebaseline') }, technicalFreshness:freshness(d.technicalEvidence,head), generatedAt:new Date().toISOString(), registerDigest:createHash('sha256').update(readFileSync(register)).digest('hex') };
 }
 
 export function markdown(snapshot) {

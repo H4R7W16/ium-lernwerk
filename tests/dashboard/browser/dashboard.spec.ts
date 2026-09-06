@@ -6,7 +6,7 @@ import { resolve, join } from 'node:path';
 const routes = ['','baselines','foundations','experience','audit','grades','gates','evidence'];
 test('all eight views and every local link resolve; no background network outside localhost',async({page,request})=>{
   const unexpected:string[]=[];
-  page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:4324/'))unexpected.push(r.url());});
+  page.on('request',r=>{if(!r.url().startsWith(`http://127.0.0.1:${process.env.IUM_DASHBOARD_TEST_PORT ?? '4324'}/`))unexpected.push(r.url());});
   const links=new Set<string>();
   for(const route of routes){
     await page.goto('/'+route);
@@ -18,6 +18,10 @@ test('all eight views and every local link resolve; no background network outsid
   for(const link of links){expect((await request.get(link)).status(),link).toBe(200);}
   expect(unexpected).toEqual([]);
   expect((await request.get('/evidence/internal-review/')).status()).toBe(404);
+  await page.goto('/gates/');
+  await expect(page.getByRole('heading',{name:'V2 als Planungs- und Entwicklungsbaseline annehmen'})).toBeVisible();
+  await expect(page.locator('#cutover-options article')).toHaveCount(3);
+  await expect(page.locator('#cutover-options')).toContainText('Entscheidung ausstehend');
 });
 test('all views meet automated WCAG 2.2 AA checks',async({page})=>{
   for(const route of routes){await page.goto('/'+route);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(result.violations,route).toEqual([]);}

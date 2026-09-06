@@ -54,3 +54,15 @@ test('URI schemes are not mistaken for absolute drive paths', () => {
   const s = buildSnapshot(fixture());
   assert.match(s.evidence.find(e=>e.id==='archive').content,/https:\/\//);
 });
+test('CUT review is projected only after DASH is done and the CUT packet validates', () => {
+  const s = buildSnapshot(fixture((d,vault)=>{
+    for (const [index,state] of [[16,'done'],[17,'review']]) {
+      const p=join(vault,manifest[index].path);
+      writeFileSync(p,readFileSync(p,'utf8').replace(/^status: .+$/m,`status: ${state}`));
+    }
+  }));
+  assert.equal(s.gates[17].state,'review');
+  assert.equal(s.cutover.decisionState,'awaiting-user-decision');
+  assert.equal(s.cutover.conditions.length,46);
+  assert.equal(s.baseline.activeBaseline,'v1');
+});

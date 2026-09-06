@@ -8,6 +8,6 @@ export default defineConfig({
   workers: 1,
   reporter: 'list',
   timeout: 90_000,
-  use: { baseURL:'http://127.0.0.1:4324', trace:'retain-on-failure' },
+  use: { baseURL:`http://127.0.0.1:${process.env.IUM_DASHBOARD_TEST_PORT ?? '4324'}`, trace:'retain-on-failure' },
   projects: [{ name:'chromium', use:{...devices['Desktop Chrome']} }],
 });

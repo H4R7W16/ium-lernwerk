@@ -13,13 +13,13 @@ const r7 = s.grades[2];
     <p class="lead">Ein Lernwerk für Informatik und Medienbildung.<br/>Fachlich begründet, schrittweise entwickelt.</p>
     <section class="hero-panel" aria-labelledby="focus"><div><span class="tag">AKTUELL · {labels[s.currentFocus.workStatus]}</span><h2 id="focus">{s.currentFocus.title}</h2><p>{s.currentFocus.summary}</p><a class="button" href="/gates/">Gatefolge ansehen <span aria-hidden="true">→</span></a></div><div class="hero-note"><span class="large-type">5–7</span><span>Jahrgangsplanungen freigegeben</span><p>Geplante Lernwege sind noch keine belegten Lernergebnisse.</p></div></section>
     <div class="section-heading"><h2>Was trägt den nächsten Schritt?</h2><a href="/foundations/">Grundlagen öffnen →</a></div>
-    <div class="cards thirds">{[['Vier Grundlagen','Fachlich freigegeben','Curriculum, Quellen, Lern-Experience und Governance bilden getrennte Voraussetzungen.','foundations'],['Drei Jahrgänge','Planung angenommen','R5, R6 und R7 verbinden Lernwege mit eigener Progressions- und Zeitprüfung.','grades'],['Nächste Entscheidung','DASH vor CUT','Dashboard abnehmen; erst danach über die aktive V2-Baseline entscheiden.','gates']].map(([a,b,c,p])=><article><p class="eyebrow">{a}</p><h3>{b}</h3><p>{c}</p><a href={`/${p}/`}>Details ansehen →</a></article>)}</div>
+    <div class="cards thirds">{[['Vier Grundlagen','Fachlich freigegeben','Curriculum, Quellen, Lern-Experience und Governance bilden getrennte Voraussetzungen.','foundations'],['Drei Jahrgänge','Planung angenommen','R5, R6 und R7 verbinden Lernwege mit eigener Progressions- und Zeitprüfung.','grades'],['Nächste Entscheidung',s.nextDecision.title,s.nextDecision.summary,'gates']].map(([a,b,c,p])=><article><p class="eyebrow">{a}</p><h3>{b}</h3><p>{c}</p><a href={`/${p}/`}>Details ansehen →</a></article>)}</div>
     <section class="callout"><h2>Offene Fragen bleiben sichtbar</h2><p>Unbestätigte Zeitkapazität, neun unterschiedliche Nachweisfragen und unbekanntes Vorwissen begrenzen die Planung. Inhaltsproduktion, LXP05, Unterrichtspilot und Veröffentlichung bleiben geschlossen.</p><a href="/grades/#offene-fragen">Kapazität und Nachweise prüfen →</a></section>
   </>}
   {page==='baselines' && <>
     <p class="lead">{s.summary}</p>
     <div class="cards thirds">{[['V1','Aktiv · archivierte Referenz','Der freigegebene Produktstand bleibt maßgeblich, bis CUT anders entscheidet.'],['V2','Aufbau · building','Fachlich freigegebene Grundlagen und Pläne; keine automatische Übernahme historischer Coverage.'],['LXP05','Eingefroren · ungemergt','Der alte Kandidat bleibt separat. Die Dashboardentwicklung öffnet keine Modulproduktion.']].map(([a,b,c])=><article><span class="large-type">{a}</span><h2>{b}</h2><p>{c}</p></article>)}</div>
-    <Evidence ids={['archive','requirements']}/><section class="callout"><h2>Die Cutover-Grenze</h2><p>DASH liefert eine prüfbare Darstellung. IUM-V2-CUT bleibt geplant und benötigt einen eigenen Auftrag nach der Dashboardabnahme. Produktion, Pilotierung und Veröffentlichung sind zusätzliche Entscheidungen.</p></section>
+    <Evidence ids={['archive','requirements']}/><section class="callout"><h2>Die Cutover-Grenze</h2><p>DASH liefert eine prüfbare Darstellung. DASH ist angenommen. Der beauftragte CUT-Bericht liegt zur Entscheidung über V2 als Planungs- und Entwicklungsbaseline vor; V1 bleibt bis zur ausdrücklichen Auswahl aktiv. Produktion, Pilotierung und Veröffentlichung sind zusätzliche Entscheidungen.</p></section>
   </>}
   {page==='foundations' && <>
     <p class="lead">Freigaben beschreiben die Qualität der Planungsgrundlage. Sie ersetzen keine Erprobung mit Lernenden.</p>
@@ -48,8 +48,17 @@ const r7 = s.grades[2];
   </>}
   {page==='gates' && <>
     <p class="lead">Jedes Gate hat einen eigenen Arbeits- und Abnahmestatus. Es gibt keine zusammengefasste Fortschrittszahl.</p>
-    <ol class="gate-list">{s.gates.map(g=><li><span class="gate-number">{String(g.sequence).padStart(2,'0')}</span><div><h2>{g.id}</h2><p>{g.title.replace(g.id+' ','')}</p><small>Aktualisiert {g.date}</small></div><span class:list={['badge',{'current':g.id==='IUM-V2-DASH'}]}>{labels[g.state]}</span></li>)}</ol>
+    <ol class="gate-list">{s.gates.map(g=><li><span class="gate-number">{String(g.sequence).padStart(2,'0')}</span><div><h2>{g.id}</h2><p>{g.title.replace(g.id+' ','')}</p><small>Aktualisiert {g.date}</small></div><span class:list={['badge',{'current':g.id==='IUM-V2-CUT'}]}>{labels[g.state]}</span></li>)}</ol>
     <section class="callout"><h2>{s.nextDecision.title}</h2><p>{s.nextDecision.summary}</p></section>
+    {s.cutover && <section aria-labelledby="cutover-title">
+      <h2 id="cutover-title">Cutover: Entscheidung ausstehend</h2>
+      <p>17 Vorgängergates sind angenommen. Die acht Projektanforderungen sind auf Planungsebene geprüft; tatsächliche Curriculumabdeckung bleibt unbewertet.</p>
+      <div id="cutover-options" class="cards thirds">{s.cutover.options.map((o,i)=><article><span class="badge">{i===0?'Empfohlen · Entscheidung ausstehend':'Entscheidung ausstehend'}</span><h3>{o.label}</h3><p>{o.consequence}</p></article>)}</div>
+      <p>46 nachverfolgte Bedingungseinträge: zwei Planungsbedingungen erfüllt, 44 offen oder gesperrt. Diese Einträge überschneiden sich inhaltlich und sind keine Zahl unabhängiger Risiken.</p>
+      <p>Inhaltsproduktion, Unterrichtspilot und Veröffentlichung bleiben bei jeder Option geschlossen. Die drei Folgeaufträge benötigen weiterhin ihren eigenen Auftrag.</p>
+      <Evidence ids={['cutover-review']}/>
+    </section>}
+
   </>}
   {page==='evidence' && <>
     <p class="lead">Jeder Beleg öffnet lokal. GitHub-Links erscheinen ausschließlich für identische Dateistände, deren Commit über vorhandene origin-Referenzen erreichbar ist.</p>

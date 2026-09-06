@@ -1,0 +1,1408 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "workStatus": "review",
+  "decisionState": "awaiting-user-decision",
+  "candidateCommit": "85ccc94b1dc9c5cc60fc48470bd6346cac3b3e50",
+  "candidateMeaning": "Fachlich angenommener V2-Grundlagen-, Audit-, Jahrgangs- und Dashboardstand vor CUT-Ergänzungen; kein aktiver V2-Produktstand.",
+  "recommendation": "accept-planning-baseline",
+  "activeBaseline": "v1",
+  "v2State": "building",
+  "contentProduction": "frozen",
+  "gates": [
+    {
+      "id": "IUM-V2-00",
+      "sequence": 1,
+      "state": "approved-by-user",
+      "acceptedCommit": "59df1385d69e79ed90616de8d32d790c10b796e9",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-00 V1-Baseline archivieren.md",
+        "excerpt": "- 2026-09-03: Vom Nutzer ausdrücklich freigegeben und auf `done` gesetzt. IUM-V2-01 wurde als nächster, weiterhin isolierter Schritt geöffnet."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/archive/v1-baseline.json",
+          "sha256": "3b74511b2f8b800c251e836f70baed93c8a8802ba8305c958007050cacd500ad"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-01",
+      "sequence": 2,
+      "state": "approved-by-user",
+      "acceptedCommit": "fac45a9cad671ba5194e4ed778580f824ecb3b65",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-01 V2-Anforderungsregister aufbauen.md",
+        "excerpt": "- 2026-09-03: Nutzer hat IUM-V2-01 ausdrücklich freigegeben. Task auf `done` gesetzt; IUM-V2-CUR ist der nächste nicht mehr blockierte, aber noch nicht übernommene Schritt."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/requirements/requirements.json",
+          "sha256": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-CUR",
+      "sequence": 3,
+      "state": "approved-by-user",
+      "acceptedCommit": "e0171a2d0f522b18989b3a6bae3b54caa5e1a827",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-CUR Curriculumfundament konsolidieren.md",
+        "excerpt": "- 2026-09-03: Nutzer hat das Reviewpaket ausdrücklich freigegeben. IUM-V2-CUR auf `done` gesetzt; die vier fachlich offenen Restfälle bleiben als kontrollierte Folgeentscheidungen sichtbar. IUM-V2-SRC ist nun der einzige aktive Folgeschritt."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/curriculum/source-basis.json",
+          "sha256": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9"
+        },
+        {
+          "path": "roadmap/v2/foundations/curriculum/gap-assessments.json",
+          "sha256": "7027085b7bf8c23b1214f8e45bd7b7c4381c4f37fc3e9d5ef785261968acba26"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-SRC",
+      "sequence": 4,
+      "state": "approved-by-user",
+      "acceptedCommit": "1ff08e50197b3cd58ae3654a9bea5e4ea90eea16",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-SRC Quellenfundament konsolidieren.md",
+        "excerpt": "- 2026-09-03: Nutzerfreigabe erhalten; IUM-V2-SRC auf `done` gesetzt und LXF01 als einziges Folgegate geöffnet. Die beiden offenen Quellenfragen bleiben LXF02 zugeordnet."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/sources/inventory.json",
+          "sha256": "a47f8cd3ace15e0fa90198f955cadf4f1ccf50d2e20694034668a548ffaa4bbf"
+        },
+        {
+          "path": "roadmap/v2/foundations/sources/traceability.json",
+          "sha256": "d4dd24b4bd34f62eefb0d7ccf051c9d873290c97c10708bcbff97bc15b4b4edc"
+        }
+      ]
+    },
+    {
+      "id": "LXF01",
+      "sequence": 5,
+      "state": "approved-by-user",
+      "acceptedCommit": "3a3d4c0d3efbaf7cc9db70f9493298636b7345e8",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF01 Lernpsychologie- und Experience-Bestand auditieren.md",
+        "excerpt": "- 2026-09-03: Durch ausdrückliche Nutzerfreigabe abgeschlossen. LXF02 ist als einziges Folgegate geöffnet; Inhaltsproduktion, LXP05-Integration und spätere Gates bleiben geschlossen."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/legacy-audit.json",
+          "sha256": "86345d97b9a5ffbb3790c0353bca02d125144dfad939da8ae350acca39a33841"
+        }
+      ]
+    },
+    {
+      "id": "LXF02",
+      "sequence": 6,
+      "state": "approved-by-user",
+      "acceptedCommit": "be77fe1b1297ec048b3fee3783dc97657568deb7",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF02 Evidenzlücken schließen.md",
+        "excerpt": "- 2026-09-03: Nutzer hat LXF02 ausdrücklich geprüft und freigegeben. Task auf `done`; LXF03 wird als einziges Folgegate geöffnet. Die Freigabe bestätigt das Evidenzgate, nicht bereits ein Gestaltungsstandard oder eine nachgewiesene Lernwirkung des Lernwerks."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+          "sha256": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89"
+        },
+        {
+          "path": "roadmap/v2/foundations/learning-experience/evidence-synthesis.md",
+          "sha256": "021f26b6c54d1fe4fc30acab8483f9ea22919b94185d738afd71ae4f759f24a4"
+        }
+      ]
+    },
+    {
+      "id": "LXF03",
+      "sequence": 7,
+      "state": "approved-by-user",
+      "acceptedCommit": "370193bff9d9e0040478b72a70166cca8b42d435",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF03 Fach- und Stufenprofil IuM 5-7 entwickeln.md",
+        "excerpt": "- 2026-09-03: Nutzer hat LXF03 ausdrücklich freigegeben. Task auf `done`; LXF04 wird als einziges Folgegate geöffnet. Die Freigabe bestätigt das Planungsprofil, nicht bereits Materialproduktion, Pilotbewährung oder einen `standard`-Status."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/learner-profile.json",
+          "sha256": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53"
+        }
+      ]
+    },
+    {
+      "id": "LXF04",
+      "sequence": 8,
+      "state": "approved-by-user",
+      "acceptedCommit": "1b8c0f3d7b99a42cd12b4ae8dcbe5923103e0b74",
+      "acceptedAt": "2026-09-03",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF04 Lernarchitektur-Vertrag ableiten.md",
+        "excerpt": "- 2026-09-03: Nutzerfreigabe ausdrücklich erteilt. LXF04 ist abgeschlossen; die 18 Prinzipien dürfen in LXF05 als `reviewed` konsumiert werden. Ausschließlich LXF05 wurde geöffnet, alle späteren Gates und die Inhaltsproduktion bleiben geschlossen."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+          "sha256": "38a1c05c061e0958b232cc3c5e639e6ab29402fb6f12da80ce9fb66ae6fe37d5"
+        }
+      ]
+    },
+    {
+      "id": "LXF05",
+      "sequence": 9,
+      "state": "approved-by-user",
+      "acceptedCommit": "22e9978e86fe5a0fc61e1d5de8072c7a94e18eeb",
+      "acceptedAt": "2026-09-05",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF05 Material- und Experience-Grammatik entwickeln.md",
+        "excerpt": "- 2026-09-05: Ausdrückliche Nutzerantwort „freigegeben“ auf die LXF05-Entscheidungsvorlage übernommen. Task auf `done` gesetzt; die zehn Muster erhalten den Einzelstatus `reviewed`. Das Gesamtfundament bleibt `working`, V2 `building` und Inhaltsproduktion `frozen`. LXF06 ist ohne Vorgängerblocker geplant und noch nicht begonnen. Die Freigabe gilt für LXF05 als Grundlage von LXF06, nicht für Pilotierung, Veröffentlichung oder Cutover."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+          "sha256": "11367fc384f7ff0d5e9ea7a501dcf65d4588410df497e136dfef3d34b4f7f677"
+        }
+      ]
+    },
+    {
+      "id": "LXF06",
+      "sequence": 10,
+      "state": "approved-by-user",
+      "acceptedCommit": "beaba6d3382d60ef31b1171368e4580b2e1432b3",
+      "acceptedAt": "2026-09-05",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF06 Orchestrierung und Experience-Gates entwickeln.md",
+        "excerpt": "- 2026-09-05: Nutzer bestätigt ausdrücklich: „LXF06 ist fachlich freigegeben.“ Task abgeschlossen; Freigabe bezieht sich auf Commit `beaba6d3382d60ef31b1171368e4580b2e1432b3`. Der Nutzer beauftragt zugleich die Fortsetzung mit LXF07."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+          "sha256": "fddd689ed4746dd4df1ab5de917c134d34272b76b6bd3dcb52b479107d7b5ceb"
+        },
+        {
+          "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+          "sha256": "12226c76df12485c57e4d7a7af009ecfaa4e2acbd5a982a63ec6d0f787075ef0"
+        }
+      ]
+    },
+    {
+      "id": "LXF07",
+      "sequence": 11,
+      "state": "approved-by-user",
+      "acceptedCommit": "d11a8bc69775525ec0162516275bb39f5dc9c441",
+      "acceptedAt": "2026-09-05",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - LXF07 Lern- und Experience-Fundament reviewen.md",
+        "excerpt": "- 2026-09-05: Nutzerfreigabe „LXF07 freigegeben. Fahre fort mit IUM-V2-GOV“ für den Stand `d11a8bc69775525ec0162516275bb39f5dc9c441` übernommen. Fachliche Abnahme abgeschlossen; keine zusätzliche unabhängige Prüfung, Pilotierung oder Produktionsfreigabe behauptet."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/learning-experience/status.json",
+          "sha256": "f1fdfc63318d19c6dd5ce043941515891a0f7353058a555e630667a552473497"
+        },
+        {
+          "path": "roadmap/v2/foundations/learning-experience/validation-report.md",
+          "sha256": "fbaeb6b8b82cdb90d07b4d38aa6556c04fae96cd0cceca7abcd1c3d34079ca03"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-GOV",
+      "sequence": 12,
+      "state": "approved-by-user",
+      "acceptedCommit": "9f52cdc6f5e36b72b7a3fd9e64501ccfc4af2135",
+      "acceptedAt": "2026-09-06",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-GOV Governance und öffentliche Wahrnehmung konsolidieren.md",
+        "excerpt": "- 2026-09-06: Nutzerfreigabe „Freigabe fahre fort mit IUM-V2-AUD“ für Commit `9f52cdc6f5e36b72b7a3fd9e64501ccfc4af2135` dokumentiert. GOV abgeschlossen; Weitergabe der fünf offenen Folgefragen angenommen. Keine Betreiber-, Schul-, Produktions- oder Publikationsfreigabe daraus abgeleitet."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/foundations/governance/governance-contract.json",
+          "sha256": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc"
+        },
+        {
+          "path": "roadmap/v2/foundations/governance/status.json",
+          "sha256": "314bb4d2064452dea338b16787e1df9472bb7ca71d1abcd3a49274e61c03a81f"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-AUD",
+      "sequence": 13,
+      "state": "approved-by-user",
+      "acceptedCommit": "dc059cffcb2866c6e0d7df3c83dbc0410d14d680",
+      "acceptedAt": "2026-09-06",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-AUD IUM- und LXP-Übernahmeaudit durchführen.md",
+        "excerpt": "- 2026-09-06: Nutzerfreigabe ausdrücklich erteilt für Commit dc059cffcb2866c6e0d7df3c83dbc0410d14d680; AUD abgeschlossen. R5 anschließend beauftragt. Offene Fragen und gesperrte Folgeaufträge bleiben erhalten."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/audits/artifact-inventory.json",
+          "sha256": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4"
+        },
+        {
+          "path": "roadmap/v2/audits/lxp05-lessons.json",
+          "sha256": "be07525036f44204fc366ec524fb8c9ad5d871056f82a1e8069ece905c473f75"
+        },
+        {
+          "path": "roadmap/v2/audits/status.json",
+          "sha256": "2bec061126daa5bab876d1e51ef30cedf3b201e13629f871150ae031933c50b2"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-R5",
+      "sequence": 14,
+      "state": "approved-by-user",
+      "acceptedCommit": "5146310ae855636d3529e8d31b079b5ca265da6e",
+      "acceptedAt": "2026-09-06",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-R5 Roadmap Klasse 5 neu aufbauen.md",
+        "excerpt": "- 2026-09-06: Nutzer hat R5 im Zusammenhang mit dem ausdrücklichen R6-Auftrag freigegeben (Tippfehler „R%“ als R5 eindeutig aufgelöst). Abgenommener Commit 5146310ae855636d3529e8d31b079b5ca265da6e. Sechs Eigenbezugsnachweise, Zeit-/Zugangsannahmen und spätere Einsatzgates bleiben offen."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/grades/grade-5/roadmap.json",
+          "sha256": "6cb32a034ebc65a8234f6c3a41b74c58c98b42c7e87c61711131d1eb847405e0"
+        },
+        {
+          "path": "roadmap/v2/grades/grade-5/curriculum-map.json",
+          "sha256": "26e0299b2993003f5538eb23d67484da144490b2ebfc60e1130393ab33d80669"
+        },
+        {
+          "path": "roadmap/v2/grades/grade-5/status.json",
+          "sha256": "9c3083e9e62289eb2f77e543f0eeb30602c411da44743e2fc644e7a95b6cf340"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-R6",
+      "sequence": 15,
+      "state": "approved-by-user",
+      "acceptedCommit": "c38ff9b0b037539b37d6964091c38dc3c323344a",
+      "acceptedAt": "2026-09-06",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-R6 Roadmap Klasse 6 neu aufbauen.md",
+        "excerpt": "- 2026-09-06: Nutzer hat R6 ausdrücklich freigegeben und R7 beauftragt. Abgenommener Commit `c38ff9b0b037539b37d6964091c38dc3c323344a`. Unbekanntes tatsächliches Vorwissen, sechs Eigenbezugsnachweise und spätere Einsatzgates bleiben offen."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/grades/grade-6/roadmap.json",
+          "sha256": "fed1517c9f9233468f34a20cff7a385d502be736b6e412826f077a908ac2ca69"
+        },
+        {
+          "path": "roadmap/v2/grades/grade-6/curriculum-map.json",
+          "sha256": "d33644db6956f1c1c567c05f49c80dafd5641951b973b38d175713bf41383195"
+        },
+        {
+          "path": "roadmap/v2/grades/grade-6/status.json",
+          "sha256": "5be20313a1bef1ec553be4f5422ab9b555ce679117ce265f09256972c69810ac"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-R7",
+      "sequence": 16,
+      "state": "approved-by-user",
+      "acceptedCommit": "60c7d0a195bc6f3e6803bdc2a97e4a7479e28a24",
+      "acceptedAt": "2026-09-06",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-R7 Roadmap Klasse 7 neu aufbauen.md",
+        "excerpt": "- 2026-09-06: Nutzer hat R7 ausdrücklich freigegeben. Abnahme gilt für das Planungspaket bei 60c7d0a195bc6f3e6803bdc2a97e4a7479e28a24; offene Nachweis- und Kapazitätsfragen bleiben erhalten. DASH beauftragt."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/grades/grade-7/roadmap.json",
+          "sha256": "77d29d876240d9a87d648f948fcea9f4c7e3b1e31ad2af0bb76b078ccca6ace2"
+        },
+        {
+          "path": "roadmap/v2/grades/grade-7/progression.json",
+          "sha256": "fdc8ca7e3a08c65ffcf1b5bba66593fa37ea253fc5097bcaec39eb48efd0e9c9"
+        },
+        {
+          "path": "roadmap/v2/grades/grade-7/status.json",
+          "sha256": "edd738214211d38fc320de7a15900f5429c8ca62d607ff5810ec274e21ef26ea"
+        }
+      ]
+    },
+    {
+      "id": "IUM-V2-DASH",
+      "sequence": 17,
+      "state": "approved-by-user",
+      "acceptedCommit": "85ccc94b1dc9c5cc60fc48470bd6346cac3b3e50",
+      "acceptedAt": "2026-09-06",
+      "approvalEvidence": {
+        "path": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-03 - IUM-V2-DASH Dashboard auf V2-Steuerung migrieren.md",
+        "excerpt": "- 2026-09-06: DASH ausdrücklich durch den Nutzer freigegeben, Stand 85ccc94b1dc9c5cc60fc48470bd6346cac3b3e50. IUM-V2-CUT beauftragt; keine vorweggenommene Entscheidung über die aktive Baseline."
+      },
+      "artifacts": [
+        {
+          "path": "roadmap/v2/dashboard/validation-report.md",
+          "sha256": "27f454ed8aded4c75b0dee9cb8f78c9a1d347c0e0aa52a0422c9dc5832a171f1"
+        },
+        {
+          "path": "packages/project-status/index.mjs",
+          "sha256": "16668743720eb3983fb62b4e0112c554ec4635d68090394fc4b7cd0b5a276380"
+        },
+        {
+          "path": "apps/project-dashboard/src/pages/[...page].astro",
+          "sha256": "8d5498e1c995c88641e3de0e837e712b622c42ad03f9e15eddc04236806e3a1f"
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "V2-REQ-SYS-001",
+      "title": "V1 und V2 bis zum Cutover strikt trennen",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-00"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-SYS-002",
+      "title": "Inhaltsproduktion während der Grundlagenarbeit geschlossen halten",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-01",
+        "IUM-V2-AUD"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-CUR-001",
+      "title": "Curriculumquellen nach Bindungsgrad unterscheiden",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-CUR"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-CUR-002",
+      "title": "Drei Formen der Curriculumabdeckung zulassen",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-CUR",
+        "IUM-V2-R5",
+        "IUM-V2-R6",
+        "IUM-V2-R7"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-SRC-001",
+      "title": "Quellen, Claims und Gestaltungsentscheidungen rückverfolgbar machen",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-SRC",
+        "LXF02"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-LXF-001",
+      "title": "Die vollständige Lernarchitektur vor der Inhaltsproduktion fundieren",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "LXF07"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-GOV-001",
+      "title": "Öffentliche Aussagen an Mindestnachweise binden",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-GOV"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    },
+    {
+      "id": "V2-REQ-DASH-001",
+      "title": "Dashboard auf die V1/V2-Steuerung ausrichten",
+      "assessment": "planning-contract-verified",
+      "coverage": "unassessed",
+      "gateIds": [
+        "IUM-V2-DASH"
+      ],
+      "boundary": "Keine tatsächliche Curriculumabdeckung, Produktnutzung oder Lernwirkung aus dieser Vertragsprüfung ableiten."
+    }
+  ],
+  "conditions": [
+    {
+      "id": "CUR-Q-002",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "IUM-V2-CUR / IUM-V2-GOV",
+      "risk": "Ein fiktiver Ersatz belegt keinen Eigenbezug; Abdeckung bleibt offen.",
+      "trigger": "Vor einer Modulspezifikation, die eigene Mediennutzung zum Gegenstand hat.",
+      "question": "Wie wird curricular geforderter Eigenbezug ohne erzwungene persönliche Offenlegung bearbeitet?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json",
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "CUR-Q-003",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "IUM-V2-R7",
+      "risk": "Ein einzelnes Modul belegt keine Jahrgangsprogression.",
+      "trigger": "Jahrgangsroadmap nach Freigabe der vorgeschalteten Gates.",
+      "question": "Wie werden Fachbalance und Progression in Klasse 7 jahrgangsweit nachgewiesen?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "Planerische Fachbalance und Progression in R7 dokumentiert; reale Bewährung weiterhin offen.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "GOV-Q-OPERATOR",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "project-decision",
+      "risk": "Ungeklärte Betriebsverantwortung.",
+      "trigger": "Vor Hosting oder öffentlicher V2-Prüffassung",
+      "question": "Betreiber, rechtlich Verantwortliche, Kontakt-/Impressum-/Datenschutzhinweise und anwendbare Accessibility-Regeln konkret bestimmen.",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "GOV-Q-REVIEWERS",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "project-decision",
+      "risk": "KI-Dokumentenreview wird als unabhängige Prüfung ausgegeben.",
+      "trigger": "Vor konkreter Material-, Produkt- oder öffentlicher Aussagefreigabe",
+      "question": "Erforderliche menschliche Fachprüfende benennen; Autorenschaft, Selbstreview und externe Prüfung offenlegen.",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "GOV-Q-RIGHTS",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "project-decision",
+      "risk": "Drittinhalte oder institutionelle Unterstützung werden unberechtigt behauptet.",
+      "trigger": "Vor Einbindung oder Veröffentlichung konkreter Assets, Logos und externer Angebote",
+      "question": "Rechteketten und Materiallizenzen einzeln nachweisen; institutionelle Namens-/Logonutzung benötigt eigene belegte Berechtigung.",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "GOV-Q-SCHOOL",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "project-decision",
+      "risk": "Unzulässige Verarbeitung oder vorgezogener Schuleinsatz.",
+      "trigger": "Vor Nutzungsprüfung mit Lernenden oder Pilot",
+      "question": "Schule, zuständige Stelle, Datenschutzberatung, Rechtsgrundlage, Datenfluss, Löschfristen und ggf. Auftragsverarbeitung/DSFA prüfen.",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-001",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "LXF04 darf weder Exploration noch direkte Erklärung universell festlegen, sondern muss beide Wege mit einem beobachtbaren Entscheidungspunkt zulassen.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche aufgabenbezogenen Vorwissenszugänge zeigen in Klasse 5, 6 und 7 ausreichend früh, ob ein Modell, Begriff oder Verfahren erklärt werden muss?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-002",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "Die Lernarchitektur muss Sprachunterstützung nahe an der fachlichen Handlung vorsehen, ohne eine starre Lesestufe oder ein universelles Satzstarterset festzulegen.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Fachbegriffe, Operatoren und Darstellungswechsel benötigen je Jahrgang Modellierung, mündliche Vorformen oder optionale Sprachgerüste?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-003",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "LXF05 darf nur anpassbare Muster mit beobachtbaren Überlastungssignalen definieren und keine universellen Seiten- oder Elementgrenzen festschreiben.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Informationsdichte, Segmentierungsart und Zahl paralleler Repräsentationen bleiben je Jahrgang bei unterschiedlichen Vorkenntnissen fachlich produktiv?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-004",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "Die Orchestrierung braucht einen kurzen Geräte- und Routinencheck sowie Fallbacks, ohne Bedienstand als Personenprofil zu speichern.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Bedienroutinen können in den Klassen 5, 6 und 7 vorausgesetzt werden und welche müssen aufgabenbezogen vorbereitet oder technisch umgangen werden?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-005",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "Die Lernarchitektur muss modellierte, angeleitete und selbstständige Bearbeitung als variable Funktionen statt als starre Altersstufen abbilden.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Strategien und Hilfewege müssen je Jahrgang zunächst modelliert werden, und an welchem fachlichen Produkt kann wachsende Selbstständigkeit verantwortbar erkannt werden?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-006",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "Materialmuster müssen Sinn, Wahl und Rückmeldung an die Fachhandlung binden und die persönliche Offenlegung als Standardweg ausschließen.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Formen von Zweckklärung, Wahl und sichtbarer fachlicher Bewältigung tragen in den drei Jahrgängen, ohne private Offenlegung oder dekorative Motivationselemente zu verlangen?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-007",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "Experience-Gates müssen technische Prüfung, fachliche Äquivalenz und reale Nutzungsbeobachtung verbinden, ohne Lernwirksamkeit daraus abzuleiten.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Barrieren und gleichwertigen Ausdruckswege treten in den drei Jahrgängen bei den vorgesehenen Fachhandlungen, Geräten und Unterrichtsroutinen tatsächlich auf?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF03-Q-008",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "subject-didactics-reviewer / teacher-reviewer",
+      "risk": "Der Orchestrierungsstandard muss flexible Sozialformen, individuelles Minimalprodukt, gemeinsame Sicherung und einen datensparsamen Ausfallpfad enthalten.",
+      "trigger": "Konkretisierung in IUM-V2-R5/R6/R7 und reale Prüfung erst nach gesonderter Pilotfreigabe.",
+      "question": "Welche Kooperationsrollen, Haltepunkte, Zeitvarianten und Fallbacks ermöglichen je Jahrgang fachlich gehaltvollen Austausch bei vertretbarem Orchestrierungsaufwand?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF07-Q-PILOT",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "teacher-reviewer / subject-didactics-reviewer",
+      "risk": "Ohne reale Nachweise weder Standardisierung noch Lernwirkung behaupten.",
+      "trigger": "Gesondertes Pilotierungsdesign und ausdrückliche Durchführungserlaubnis.",
+      "question": "Trägt der Lernbogen wiederholt im Unterricht einschließlich verzögertem Abruf und Transfer?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "LXF07-Q-TECH",
+      "kind": "foundation",
+      "state": "open",
+      "owner": "accessibility-reviewer / integration-reviewer",
+      "risk": "Dokumentenäquivalenz belegt keine Gerätefunktion.",
+      "trigger": "Implementiertes, gesondert zur Technik- und Nutzungsprüfung freigegebenes V2-Referenzmaterial.",
+      "question": "Funktionieren Zugang, Offlineverhalten und Wiederaufnahme am konkreten V2-Produkt?",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "currentAssessment": "An früherem Gate als Folgefrage akzeptiert; zugehörige Einsatzentscheidung bleibt gesperrt.",
+      "evidenceGateIds": [
+        "IUM-V2-GOV",
+        "LXF07"
+      ]
+    },
+    {
+      "id": "R5-ACCESS",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-FU-TECH / Schule / Betreiber",
+      "risk": "Ungeprüfte lokale Voraussetzungen werden als erfüllt behandelt; redaktionelle Risikozusammenfassung der Eintrittsbedingung.",
+      "trigger": "Vor konkreter Modulproduktion und schulischer Erprobung",
+      "question": "Freigegebene Geräte, realer schulischer Login, zugängliche Werkzeuge und geschlossener Kommunikationsweg; Datenschutz-/Rechteentscheidung und Barrieren prüfen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-5/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R5"
+      ]
+    },
+    {
+      "id": "R5-BUDGET",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Auftraggeber / planende Lehrkraft",
+      "risk": "Ungeprüfte lokale Voraussetzungen werden als erfüllt behandelt; redaktionelle Risikozusammenfassung der Eintrittsbedingung.",
+      "trigger": "Vor Verwendung einer Jahresvariante",
+      "question": "Tatsächlich verfügbare 45-Minuten-Einheiten, Unterrichtstakt, Lerngruppe und zusätzliche Hilfen bestimmen; bei weniger als 32 Einheiten neue Teilplanung.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-5/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R5"
+      ]
+    },
+    {
+      "id": "R5-PRIVACY",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-CUR / Governance / zuständige Schule",
+      "risk": "Ungeprüfte lokale Voraussetzungen werden als erfüllt behandelt; redaktionelle Risikozusammenfassung der Eintrittsbedingung.",
+      "trigger": "Vor Nachweisbehauptung für sechs Eigenbezugsrecords",
+      "question": "CUR-Q-002 auf alle einschlägigen Records beziehen; weder private Abgabe noch künstliche Erfüllung durch fiktive Fälle. Bis zur tragfähigen Entscheidung bleibt der Nachweis offen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-5/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R5"
+      ]
+    },
+    {
+      "id": "R5-PILOT",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-FU-PILOT / fachliche Prüfende",
+      "risk": "Ungeprüfte lokale Voraussetzungen werden als erfüllt behandelt; redaktionelle Risikozusammenfassung der Eintrittsbedingung.",
+      "trigger": "Nach neuer Modulspezifikation und gesonderter Erprobungsfreigabe",
+      "question": "Zeitannahmen, Zugänglichkeit, Nutzung von Hilfen/Feedback und fachliche Produkte prüfen; keine Wirksamkeitsbehauptung aus Tests.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-5/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R5"
+      ]
+    },
+    {
+      "id": "R6-ENTRY",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Planende Lehrkraft / Auftraggeber",
+      "risk": "R5-Plan wird fälschlich als Vorwissen der aktuellen Lerngruppe behandelt.",
+      "trigger": "Vor dem jeweiligen abhängigen Lernbogen",
+      "question": "Sechs aufgabenbezogene Einstiegsprodukte sichten, Hürden unterscheiden und Unterstützung begründen. Bei breiten Lücken erst neu planen; keine private Nutzungserhebung.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-6/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R6"
+      ]
+    },
+    {
+      "id": "R6-ACCESS",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-FU-TECH / Schule / Betreiber",
+      "risk": "Werkzeuge, Konto oder Kanal fehlen; Papierersatz wird als digitaler Nachweis ausgegeben.",
+      "trigger": "Vor Materialproduktion und schulischer Erprobung",
+      "question": "Zugängliche Geräte, realer Schulzugang, Suchwerkzeug, geschlossener Kanal und Interpreter samt Datenschutz-/Rechtefragen prüfen. Nicht ausführbare Zielhandlungen bleiben offen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-6/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R6"
+      ]
+    },
+    {
+      "id": "R6-BUDGET",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Auftraggeber / planende Lehrkraft",
+      "risk": "Vier oder fünf Einheiten reichen bei tatsächlichen Hürden nicht; 17 Erstzuordnungen werden still verschoben.",
+      "trigger": "Vor Auswahl der Jahresvariante und bei Überbrückungsbedarf über 45 Minuten",
+      "question": "Nettozeit, Unterrichtstakt und Eingangslage erheben; bei weniger als 32 UE oder breiten Lücken neue transparente Teilplanung. Kern nicht zugunsten Flex kürzen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-6/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R6"
+      ]
+    },
+    {
+      "id": "R6-PRIVACY",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-CUR / Governance / zuständige Schule",
+      "risk": "Fiktive Fälle schließen vermeintlich die sechs offenen Eigenbezugsnachweise.",
+      "trigger": "Vor Nachweisbehauptungen mit eigenem Nutzungs-/Erfahrungsbezug",
+      "question": "Alle sechs aus R5 offenen Records samt CUR-Q-002 erhalten; datenschutzfachlich tragfähige Nachweisentscheidung separat beauftragen. Zwei amtliche BMB-Lücken bleiben Klasse-5-Altlast, kein neuer R6-Pflichtkatalog.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-6/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R6"
+      ]
+    },
+    {
+      "id": "R6-PILOT",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-FU-PILOT / fachliche Prüfende",
+      "risk": "Vertragstests werden für belegte Nutzbarkeit, Zeitpassung oder Lernwirkung gehalten.",
+      "trigger": "Nach späterer Modulspezifikation und gesonderter Erprobungsfreigabe",
+      "question": "Zeit, Zugänglichkeit, Nutzung von Hilfen/Feedback und fachliche Produkte im freigegebenen Verfahren untersuchen; Risiken je Modul prüfen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-6/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R6"
+      ]
+    },
+    {
+      "id": "R6-R7-TRANSITION",
+      "kind": "grade-gate",
+      "state": "planning-condition-met",
+      "owner": "IUM-V2-R7 / fachliche Prüfende / Auftraggeber",
+      "risk": "Geplante R6-Produkte gelten ohne Prüfung als beherrschte Voraussetzungen für R7.",
+      "trigger": "Nach ausdrücklicher R6-Planungsabnahme, vor Klasse-7-Planung",
+      "question": "R7-Anschluss aus geplanten Produkten und tatsächlicher späterer Eingangslage unterscheiden; eigenes R7-Review. R6-Abnahme öffnet keinen Pilot, keine Produktion und keinen Cutover.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-6/roadmap.json"
+      ],
+      "currentAssessment": "R7-Anschlussplanung ist fachlich angenommen; keine tatsächliche Eingangslage bestätigt.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-ENTRY",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Planende Lehrkraft / Auftraggeber",
+      "risk": "R5-/R6-Abnahme wird als tatsächlich vorhandenes Vorwissen behandelt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Sieben aufgabenbezogene Eingangsprodukte sichten; Sprache/Bedienung klären und bei breiten Lücken vor abhängigen Modulen neu planen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-ACCESS",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-FU-TECH / Schule / Betreiber",
+      "risk": "Schulnetz, grafisches Werkzeug, Programmierumgebung, Editor oder Kanal fehlen.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Reale zugängliche und freigegebene Zielwerkzeuge samt Rechten bereitstellen; fehlende digitale Handlungen bleiben ohne Nachweis.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-BUDGET",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Auftraggeber / planende Lehrkraft",
+      "risk": "Bedarf wird mit verfügbarer Nettozeit verwechselt; Überbrückung oder Übung wird still gekürzt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Lokale Nettozeit und Eingangslage prüfen. Unter 36 UE oder bei Bedarf über 45 Minuten Überbrückung neuer Teilplan mit sichtbaren amtlichen Lücken; 43 UE nicht voraussetzen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-SCOPE",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Auftraggeber / Curriculumprüfung / Schule",
+      "risk": "36/40-UE-Pfad wird als vollständige Umsetzung aller Orientierungsziele dargestellt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Pfad mit acht/drei offenen Orientierungsrecords ausdrücklich wählen oder zusätzliche reale Kapazität sichern; keine stille Verschiebung nach Klasse 8 oder Flex.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-REFLECTION",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / Schule",
+      "risk": "Fallanalyse wird mit eigener Reflexion gleichgesetzt oder private Offenlegung wird verlangt.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "LH26-E-DP-013/014/018 mit datensparsamer Aufgaben-/Nachweisregel klären. Unterrichtsbezogene eigene Reflexion kann möglich sein; erst konkrete Prüfung, bis dahin offen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-PRIVACY",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-CUR / Governance / Schule",
+      "risk": "Sechs Vorgänger-Eigenbezugsnachweise verschwinden im neuen Jahrgang.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Alle sechs R5/R6-Fragen samt CUR-Q-002 erhalten; keine private Abgabe, keine künstliche Schließung durch Fremdfälle.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-PILOT",
+      "kind": "grade-gate",
+      "state": "open",
+      "owner": "IUM-V2-FU-PILOT / fachliche Prüfende",
+      "risk": "Planungsreview beweist vermeintlich Zeitpassung, Zugänglichkeit oder Lernwirkung.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Nach späterer Spezifikation und eigener Erprobungsfreigabe Modulzeiten, Integration, Zugänglichkeit sowie Nutzung von Hilfen/Feedback tatsächlich prüfen.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "Keine Durchführung oder lokale Einsatzfreigabe behauptet.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "R7-DASH",
+      "kind": "grade-gate",
+      "state": "planning-condition-met",
+      "owner": "IUM-V2-DASH / Auftraggeber",
+      "risk": "Abnahme wird zu Gesamtampel oder vorgezogener Produktions-/Cutoverfreigabe.",
+      "trigger": "Vor jeweiliger Einsatz-, Nachweis- oder Folgeentscheidung",
+      "question": "Erst nach R7-Nutzerabnahme Dashboardmigration separat ausführen; V1/V2, pfadabhängige Offenheit, Reifeachsen und spätere Gates erhalten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/roadmap.json"
+      ],
+      "currentAssessment": "DASH ist umgesetzt, geprüft und ausdrücklich angenommen; historische R7-Datei bleibt unverändert.",
+      "evidenceGateIds": [
+        "IUM-V2-DASH"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-IK-MG-001",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Übernommene Eigenbezugsfrage.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "BMB16-GYM-PK-RK-001",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Übernommene Eigenbezugsfrage.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-002",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Übernommene Eigenbezugsfrage.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-003",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Übernommene Eigenbezugsfrage.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-009",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Übernommene Eigenbezugsfrage.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-KS-011",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Übernommene Eigenbezugsfrage.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-013",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Neue R7-Reflexionsfrage; nicht mit zusätzlichen amtlichen Klasse-7-Anforderungen gleichsetzen.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-014",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Neue R7-Reflexionsfrage; nicht mit zusätzlichen amtlichen Klasse-7-Anforderungen gleichsetzen.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "LH26-E-DP-018",
+      "kind": "curriculum-evidence",
+      "state": "open",
+      "owner": "Curriculumprüfung / Governance / zuständige Schule",
+      "risk": "Eine Fallanalyse oder erzwungene private Offenlegung wird als eigener Nachweis ausgegeben.",
+      "trigger": "Vor Modulen mit betroffenem Eigenbezug oder Reflexionsnachweis",
+      "question": "Datensparsame, fachlich tragfähige Nachweisform operationalisieren; bis dahin keine Erfüllung behaupten.",
+      "sourcePaths": [
+        "roadmap/v2/grades/grade-7/progression.json"
+      ],
+      "currentAssessment": "Neue R7-Reflexionsfrage; nicht mit zusätzlichen amtlichen Klasse-7-Anforderungen gleichsetzen.",
+      "evidenceGateIds": [
+        "IUM-V2-R7"
+      ]
+    },
+    {
+      "id": "IUM-V2-FU-TECH",
+      "kind": "follow-up",
+      "state": "blocked",
+      "owner": "Auftraggeber / Codex nach eigenem Auftrag",
+      "risk": "Cutover wird als Auftrag für Technikumbau, Modulproduktion oder Pilotierung missverstanden.",
+      "trigger": "Nach den dokumentierten Abhängigkeiten und eigenem Nutzerauftrag",
+      "question": "Technische V1-Bausteine gegen V2 prüfen",
+      "sourcePaths": [
+        "roadmap/v2/audits/follow-up-tasks.json"
+      ],
+      "currentAssessment": "Gesperrter Folgeauftrag außerhalb der 18er-Gatefolge.",
+      "evidenceGateIds": [
+        "IUM-V2-AUD"
+      ]
+    },
+    {
+      "id": "IUM-V2-FU-MOD",
+      "kind": "follow-up",
+      "state": "blocked",
+      "owner": "Auftraggeber / Codex nach eigenem Auftrag",
+      "risk": "Cutover wird als Auftrag für Technikumbau, Modulproduktion oder Pilotierung missverstanden.",
+      "trigger": "Nach den dokumentierten Abhängigkeiten und eigenem Nutzerauftrag",
+      "question": "Erstes V2-Referenzmodul spezifizieren",
+      "sourcePaths": [
+        "roadmap/v2/audits/follow-up-tasks.json"
+      ],
+      "currentAssessment": "Gesperrter Folgeauftrag außerhalb der 18er-Gatefolge.",
+      "evidenceGateIds": [
+        "IUM-V2-AUD"
+      ]
+    },
+    {
+      "id": "IUM-V2-FU-PILOT",
+      "kind": "follow-up",
+      "state": "blocked",
+      "owner": "Auftraggeber / Codex nach eigenem Auftrag",
+      "risk": "Cutover wird als Auftrag für Technikumbau, Modulproduktion oder Pilotierung missverstanden.",
+      "trigger": "Nach den dokumentierten Abhängigkeiten und eigenem Nutzerauftrag",
+      "question": "Prüf- und Pilotinstrumente an V2 binden",
+      "sourcePaths": [
+        "roadmap/v2/audits/follow-up-tasks.json"
+      ],
+      "currentAssessment": "Gesperrter Folgeauftrag außerhalb der 18er-Gatefolge.",
+      "evidenceGateIds": [
+        "IUM-V2-AUD"
+      ]
+    }
+  ],
+  "options": [
+    {
+      "id": "accept-planning-baseline",
+      "label": "V2 als Planungs- und Entwicklungsbaseline annehmen",
+      "decision": "not-selected",
+      "activeBaseline": "v2",
+      "v2State": "active",
+      "contentProduction": "frozen",
+      "pilot": "not-started",
+      "publication": "closed",
+      "push": "not-authorized",
+      "merge": "not-authorized",
+      "lxp05": "frozen-unmerged",
+      "consequence": "Nach ausdrücklicher Entscheidung einen additiven Aktivierungsbeleg und aktuellen Baseline-Zeiger erstellen. V1 und alle historischen Prüfsnapshots bleiben erhalten. Keine Produkt-, Nutzungs- oder Veröffentlichungsfreigabe."
+    },
+    {
+      "id": "defer",
+      "label": "Entscheidung vertagen",
+      "decision": "not-selected",
+      "activeBaseline": "v1",
+      "v2State": "building",
+      "contentProduction": "frozen",
+      "pilot": "not-started",
+      "publication": "closed",
+      "push": "not-authorized",
+      "merge": "not-authorized",
+      "lxp05": "frozen-unmerged",
+      "consequence": "V1 bleibt aktiv. Offene Entscheidungsbedarfe konkret benennen; die angenommenen Teilpakete und Gate-Nachweise bleiben erhalten."
+    },
+    {
+      "id": "revise",
+      "label": "Paket zur Nacharbeit zurückgeben",
+      "decision": "not-selected",
+      "activeBaseline": "v1",
+      "v2State": "building",
+      "contentProduction": "frozen",
+      "pilot": "not-started",
+      "publication": "closed",
+      "push": "not-authorized",
+      "merge": "not-authorized",
+      "lxp05": "frozen-unmerged",
+      "consequence": "V1 bleibt aktiv. Betroffene Kriterien und Nacharbeit einzeln festlegen. Bestehende Nutzerabnahmen werden nicht pauschal rückwirkend aufgehoben."
+    }
+  ],
+  "inputDigests": {
+    "apps/project-dashboard/astro.config.mjs": "76c7d1f00a6575f683453923b2fb6a5896e8711c5149f867ed4590280488462e",
+    "apps/project-dashboard/src/components/Evidence.astro": "169579454e9940c246d7f0944c3c725fa181f4827884fa27a861e8334f74f045",
+    "apps/project-dashboard/src/data.mjs": "dd845f83d1e72020776d0b5a25941d25bf34d20ed62c1906437d1fd015bbe19a",
+    "apps/project-dashboard/src/layouts/Layout.astro": "f6914c4ac05e8d30956160028b1152bbe1f84ace54697b2a686020d1370cc044",
+    "apps/project-dashboard/src/pages/[...page].astro": "4ea25cc22ab807a61643d8d260f5efee1b8ac8a012e0b61ec516b3869e05aee9",
+    "apps/project-dashboard/src/pages/evidence/[id].astro": "c4ce3d90d3b3873e6894afef0f46b6fb7f72075de4d6307421e8c3029f9c699c",
+    "apps/project-dashboard/src/styles.css": "1b8c6756d7feeef68688f1885c34b229cbbeaba95274beda5a35a02465707565",
+    "package-lock.json": "c25953599cf6117082d6b23ec717e0a9d14243ac8a17276bc1cd3ccab8e36c2d",
+    "package.json": "6ad1c463bea2dd603542510dffe16309bc336092aa8c53b1311058a852f86da4",
+    "packages/project-status/index.mjs": "dfdcbc2f08b37f32ac74d183ea42a0dcb048a522f91f4fc3cd37af638b0bdd02",
+    "playwright.dashboard.config.mts": "1698a6ca6712dc5d09532e8f7cd4c49fd5c37b3fe356dac8f96b37353b85b4a8",
+    "roadmap/v2/archive/v1-baseline.json": "3b74511b2f8b800c251e836f70baed93c8a8802ba8305c958007050cacd500ad",
+    "roadmap/v2/audits/README.md": "2199ffa0cf19adb321f0cc588df0469d779d8a196b6fc5f6c6ef0983e58f31d2",
+    "roadmap/v2/audits/acceptance.json": "efebba637a43141cd59597d66f9494338bf5eab617e8a7e2ae1aa1eb020fe810",
+    "roadmap/v2/audits/artifact-inventory.json": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4",
+    "roadmap/v2/audits/follow-up-tasks.json": "0b5195e26d6022d8f760e106b61cb19b1ecfd5d68dd6970e8a2cdc9dbe1bfcf0",
+    "roadmap/v2/audits/lxp05-lessons.json": "be07525036f44204fc366ec524fb8c9ad5d871056f82a1e8069ece905c473f75",
+    "roadmap/v2/audits/status.json": "2bec061126daa5bab876d1e51ef30cedf3b201e13629f871150ae031933c50b2",
+    "roadmap/v2/audits/validation-report.md": "d911e99364b8f6f98879ee384c8b044ff141108404561d77b2680b36b144d971",
+    "roadmap/v2/cutover/README.md": "6acf65708099cf78e89a2a00260fbd118dc5d9553bf5f6fb8a3404bd12130825",
+    "roadmap/v2/dashboard/README.md": "f3a74b433ce4054d6a3715646bb8487c07be1bab0101d01c4e84b95b5b3d7f37",
+    "roadmap/v2/dashboard/acceptance.json": "408878b0dc3009e325d8562f3b60a7d20fcb36742d5bf98db05a3ddbdb4a1bb5",
+    "roadmap/v2/dashboard/editorial-seed.json": "c7ba7b5579b4cb195550f36816c7811e54e6bca998c133095b0e8db3fb8fe22f",
+    "roadmap/v2/dashboard/gates.json": "53f31b0ce0b9e2372b25185149534d525b5d6580a39713ed4db42fced2ba8b89",
+    "roadmap/v2/dashboard/validation-report.md": "27f454ed8aded4c75b0dee9cb8f78c9a1d347c0e0aa52a0422c9dc5832a171f1",
+    "roadmap/v2/foundations/curriculum/gap-assessments.json": "7027085b7bf8c23b1214f8e45bd7b7c4381c4f37fc3e9d5ef785261968acba26",
+    "roadmap/v2/foundations/curriculum/source-basis.json": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9",
+    "roadmap/v2/foundations/curriculum/status.json": "cd1d9bb3bd018c160abd4c300a922df9889e76eca78c9c5262adde240fddf8b3",
+    "roadmap/v2/foundations/governance/README.md": "6b109232f2cee2c59ded4173dab81afab6f81fb4015d2469da02e9a18d9f8871",
+    "roadmap/v2/foundations/governance/acceptance.json": "50e213a2f28908ea9ccbc1090bc02a82e461a61bbabfb4e34e4bdbf19306f94b",
+    "roadmap/v2/foundations/governance/governance-contract.json": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc",
+    "roadmap/v2/foundations/governance/inventory.md": "ad63372c8ccc8d6c7178633b214430df461d7ca66e1b418f9df50cead99d9033",
+    "roadmap/v2/foundations/governance/status.json": "314bb4d2064452dea338b16787e1df9472bb7ca71d1abcd3a49274e61c03a81f",
+    "roadmap/v2/foundations/governance/validation-report.md": "b3c49114de88c3b01aecfd9b5e423355a3378f6c03d63621dd03f5fbc11e83ad",
+    "roadmap/v2/foundations/learning-experience/evidence-register.json": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89",
+    "roadmap/v2/foundations/learning-experience/evidence-synthesis.md": "021f26b6c54d1fe4fc30acab8483f9ea22919b94185d738afd71ae4f759f24a4",
+    "roadmap/v2/foundations/learning-experience/experience-gates.json": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+    "roadmap/v2/foundations/learning-experience/learner-profile.json": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+    "roadmap/v2/foundations/learning-experience/learner-profile.md": "5402614962ce776e79782172ff424b2d7d87c8717230e51202c2847828ab695d",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.json": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.md": "2b6d74a3cd994a1e0cb1ec631b27ac07f6cb6f18bd44fb243cc0a4c9b9cc29dd",
+    "roadmap/v2/foundations/learning-experience/legacy-audit.json": "86345d97b9a5ffbb3790c0353bca02d125144dfad939da8ae350acca39a33841",
+    "roadmap/v2/foundations/learning-experience/legacy-audit.md": "239760baed2fbc39305579f653f430e065aea4d9261459c0f19e59d2b530538a",
+    "roadmap/v2/foundations/learning-experience/material-experience-guide.md": "a35f313b8823905526d05f17681ef41bbdfa6be9d6ae338d332d755effc55935",
+    "roadmap/v2/foundations/learning-experience/material-patterns.json": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54",
+    "roadmap/v2/foundations/learning-experience/review-form.md": "f091f03648aa45427384691fd92efc591bcd0d5e8fc51b6e1026ab3e85e7d3e5",
+    "roadmap/v2/foundations/learning-experience/status.json": "f1fdfc63318d19c6dd5ce043941515891a0f7353058a555e630667a552473497",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+    "roadmap/v2/foundations/learning-experience/validation-report.md": "fbaeb6b8b82cdb90d07b4d38aa6556c04fae96cd0cceca7abcd1c3d34079ca03",
+    "roadmap/v2/foundations/sources/README.md": "79283b32a17bec096d5dfb6ac0e81ec24f6011c14bc69bebbb6f6433f9d4e4e6",
+    "roadmap/v2/foundations/sources/inventory.json": "a47f8cd3ace15e0fa90198f955cadf4f1ccf50d2e20694034668a548ffaa4bbf",
+    "roadmap/v2/foundations/sources/link-audit.json": "2846b5be16cc145c6d3f9403fee3284f13cc555dd9713711dfd0c79d38fa474e",
+    "roadmap/v2/foundations/sources/source-register.json": "30fd8a7b2f37bc162653ec29c6904154c8bb577b356067086dedbc4d3e885229",
+    "roadmap/v2/foundations/sources/status.json": "768b7484d17a184a7a72b1bb74648da85589259888e45455bb95f4407a33ed82",
+    "roadmap/v2/foundations/sources/traceability.json": "66ee3ea1a0ebad613428c2e3819750ded3129e311d7c1a96b3e9cf457cb75bfa",
+    "roadmap/v2/grades/grade-5/README.md": "f046f7827155af99dfe6b2c5b0ddcb1c18f1384d7813c7de089ef5f8eebabe83",
+    "roadmap/v2/grades/grade-5/acceptance.json": "87b88201a35f7ed2e11f06ee15e351602bb9df77e9ea3666622afcbb889380f8",
+    "roadmap/v2/grades/grade-5/curriculum-map.json": "26e0299b2993003f5538eb23d67484da144490b2ebfc60e1130393ab33d80669",
+    "roadmap/v2/grades/grade-5/roadmap.json": "6cb32a034ebc65a8234f6c3a41b74c58c98b42c7e87c61711131d1eb847405e0",
+    "roadmap/v2/grades/grade-5/status.json": "9c3083e9e62289eb2f77e543f0eeb30602c411da44743e2fc644e7a95b6cf340",
+    "roadmap/v2/grades/grade-5/validation-report.md": "69ed560bb0e717045c45030c04ddeb82e23885a3753cb47f2d1f492352cdab78",
+    "roadmap/v2/grades/grade-6/README.md": "c60d10425a5d15238d68f85f07ac8bb78d160af2ab1f4f0484b2d5cce704163b",
+    "roadmap/v2/grades/grade-6/acceptance.json": "6f8b3e14d78774f92eb1968fffbae3088e7972461c7c2984945b1b9cc2a871ee",
+    "roadmap/v2/grades/grade-6/curriculum-map.json": "d33644db6956f1c1c567c05f49c80dafd5641951b973b38d175713bf41383195",
+    "roadmap/v2/grades/grade-6/roadmap.json": "fed1517c9f9233468f34a20cff7a385d502be736b6e412826f077a908ac2ca69",
+    "roadmap/v2/grades/grade-6/status.json": "5be20313a1bef1ec553be4f5422ab9b555ce679117ce265f09256972c69810ac",
+    "roadmap/v2/grades/grade-6/validation-report.md": "00f0a1883fd415c7a14bcbaaf0709e7c954df396ed0b0c9c792094d559d81aa7",
+    "roadmap/v2/grades/grade-7/README.md": "41b27ec9da90da5186e7a6bc66c8a1aa0ef9aad3d6196b6a09592d63e280bef6",
+    "roadmap/v2/grades/grade-7/acceptance.json": "c11eefac96468f1fb1db0eaa2d335456a1adbc4228219f954558f98aceda396d",
+    "roadmap/v2/grades/grade-7/curriculum-map.json": "2ed18002013f632e3094d78c29c66fe95173a4fa631c3535fcf7029d5f4ac89d",
+    "roadmap/v2/grades/grade-7/progression.json": "fdc8ca7e3a08c65ffcf1b5bba66593fa37ea253fc5097bcaec39eb48efd0e9c9",
+    "roadmap/v2/grades/grade-7/roadmap.json": "77d29d876240d9a87d648f948fcea9f4c7e3b1e31ad2af0bb76b078ccca6ace2",
+    "roadmap/v2/grades/grade-7/status.json": "edd738214211d38fc320de7a15900f5429c8ca62d607ff5810ec274e21ef26ea",
+    "roadmap/v2/grades/grade-7/validation-report.md": "0bd58dda44e5a41f0b868d2b34203fae3c84107aaa3b7baf7c9c77256c4082d1",
+    "roadmap/v2/requirements/requirements.json": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779",
+    "roadmap/v2/status.json": "51db65ee30b667ce3dcfac47d5868118ea15d0b2b2e67e327bac56768b66919f",
+    "schemas/v2/archive.schema.json": "0b6c62f091cc98021eed859f6f3425efa2fe2ca25cd493489349c66096dff405",
+    "schemas/v2/artifact-reuse.schema.json": "a077b99ab8259c8dea78c15e8439b136def5065b46a2a5fc76049bef68def858",
+    "schemas/v2/curriculum-gap-assessments.schema.json": "d5aa530b4aa803991641ef63fe1018fe3c33d34cb12d6093702eaf28445b2da1",
+    "schemas/v2/curriculum-source-basis.schema.json": "e280647070c2dbe8a053a5d4a856be8c12184dc104580a7f4fc3f83657448430",
+    "schemas/v2/experience-gates.schema.json": "e0657966c0225605daaf7da48b59fe1bdd8b4aa0f6837376256cea5f0ab5a1e7",
+    "schemas/v2/foundation-status.schema.json": "12dfeebb8c724333ec3d7a16c7f0ff605b7806dc57a4c5f46c99b1ba823ec3ad",
+    "schemas/v2/governance.schema.json": "d841aab05e7e00c9915cde51d1ba35e083a6d28fffa546da788b6156360d2c27",
+    "schemas/v2/grade-5.schema.json": "2bf514b979c543a491cfc5834d479b056c5c519471b730dd9615392c184cd1e0",
+    "schemas/v2/grade-6.schema.json": "1a53bc9fc4f34142b3d90eea307bc4bfbde5012e5fb4aa591e556639422e2e9e",
+    "schemas/v2/grade-7.schema.json": "db6960a87f0e04e388de83c561a0416c2d9566de4962db117d20aec235c0b173",
+    "schemas/v2/learner-profile.schema.json": "8a56278653b251b92f0afd74257a13eae5ebf23aa517a17d730b5dfb06be7841",
+    "schemas/v2/learning-design.schema.json": "d212db89052041124d4d03899c415f9aea56822934cc89077648c6de0a24cf46",
+    "schemas/v2/learning-evidence.schema.json": "216a32b69b7a778acd5edfaa6319830018e14fa0551139da5f4579579fd9916f",
+    "schemas/v2/legacy-learning-audit.schema.json": "99b05b1aa30d0211be96c7010b70647bd4c7f4126ee543c8700d56763d610de0",
+    "schemas/v2/material-patterns.schema.json": "9221d633d1457f1e6d3ea20992ea3b3864e75033b5f2316bb0778d4b744a783c",
+    "schemas/v2/requirements.schema.json": "a812bd10355bb8050df7c3c8f6edddc0b74785e014056b038c70f7631a6e87df",
+    "schemas/v2/source-inventory.schema.json": "3a0fed92517b83f4032439b7429d262395a2744a9b20a213b236472989310ed6",
+    "schemas/v2/source-link-audit.schema.json": "4a92f463181c77e504e996290ca53cb7b6f257486c202793de507fe645025d84",
+    "schemas/v2/source-traceability.schema.json": "ce37f92db628069ba0ca31e768860aca17af6a8bf8a83f8e658453be52e8705e",
+    "schemas/v2/status.schema.json": "be115ce8fd6cd9d9e543eb28e4eafe21c1064d559de5d95bd166161daa6ae9e3",
+    "scripts/project-dashboard.mjs": "bf3ef5ca8545f17c95bea1939b517cbaf328f2711da7fa1f385c59b1aa4e6cd7",
+    "scripts/test-dashboard-browser.mjs": "b0b3c42c320d223cd34a655e04ba786435cd221a364954219118e75d09850fe1",
+    "scripts/validate_v2_cutover.py": "4c5faf757f519763f165bf17ac99488030a5a08478a37d852b0368dc84c8d523",
+    "scripts/validate_v2_rebaseline.py": "fa73f44d06b60c49e898e583ff514651012635086fda04b4c5c97d3f47cc5694",
+    "tests/dashboard/browser/dashboard.spec.ts": "90a0ca508c70bc3be9d8aeaf3d32c941e59ae07521e90134da3e12bb9929bd42",
+    "tests/dashboard/contract.test.mjs": "0f5516b9f10c6c61996bcff098f87046962b7f690189e3996d6e9fe4cac6aee1",
+    "tests/dashboard/snapshot.test.mjs": "b6b9799224fd56837f2cf32da8a8ace35e67c7d612d6b65f62a9be6ee3f355da",
+    "tests/test_validate_v2_cutover.py": "3c635e8cdda52af9bc4dc9400f3d4cd69cf331b108301ded6dbe261867a860c0"
+  },
+  "verification": {
+    "state": "passed",
+    "scope": "Aktueller CUT-Arbeitsbaum, geprüft am 6. September 2026 mit Node 22.23.2 / npm 10.9.8; Abschlusscommit wird im Session-Handoff zugeordnet. Keine Nutzer-, Pilot- oder Publikationsfreigabe.",
+    "runs": [
+      {
+        "id": "v2",
+        "command": "npm run verify:v2:cutover",
+        "exitCode": 0,
+        "result": "Bestehendes V2-Gate bestanden; historische Grundlagen und Jahrgangssiegel unverändert."
+      },
+      {
+        "id": "cutover",
+        "command": "python -B scripts/validate_v2_cutover.py --vault ../../Vault; python -B -m unittest discover -s tests -p test_validate_v2_cutover.py",
+        "exitCode": 0,
+        "result": "17 tatsächliche Nutzerfreigaben, 33 historische Artefakte, 104 aktuelle Inputs, acht Anforderungen und 46 Bedingungen gültig; 30 fokussierte Tests bestanden, zuletzt 4,916 Sekunden."
+      },
+      {
+        "id": "dashboard-unit",
+        "command": "npm run test:dashboard",
+        "exitCode": 0,
+        "result": "30 Vertrags-/Projektionstests bestanden, einschließlich CRLF-Register, abgelehnter fehlender DASH-Freigabe, CUT-Review und verfrühter Aktivierung; final 30,970 Sekunden."
+      },
+      {
+        "id": "dashboard-browser",
+        "command": "IUM_DASHBOARD_TEST_PORT=4327 npm run test:dashboard:browser (PowerShell-Umgebungsvariable entsprechend gesetzt)",
+        "exitCode": 0,
+        "result": "Sechs Chromium-Gates bestanden (15,4 Sekunden): acht Ansichten und lokale Links, drei CUT-Optionen, WCAG 2.2 AA, Tastatur, 390/768-Pixel-Reflow, Ressourcenfilter und Druck. Desktop/Tablet sowie drei Gate- und zwei Reife-PDF-Seiten visuell geprüft."
+      },
+      {
+        "id": "ium5",
+        "command": "npm run verify:ium5 (außerhalb der Sandbox nach reproduziertem Firefox-Leerseitenfehler)",
+        "exitCode": 0,
+        "result": "24/24 Schritte bestanden; enthält alle 19 Phase-1-Prüfschritte. 996 Python-Tests (128,333 Sekunden), 132 Plattformtests sowie 18 Plattform-Browser-, 5 Offline-, 12 Accessibility-, 39 IUM5-Browser-, 4 Zustands-, 3 IUM5-Offline- und 12 IUM5-Accessibilityprüfungen bestanden. Nach späterer isolierter CRLF-Parserkorrektur Dashboard-, CUT- und V2-Prüfungen gezielt erneut bestanden; keine Lernplattformänderung."
+      }
+    ]
+  },
+  "activationPlan": {
+    "state": "proposal-only",
+    "historicalStatus": "roadmap/v2/status.json",
+    "proposedCurrentPointer": "roadmap/v2/cutover/active-baseline.json",
+    "approvalRequired": true,
+    "steps": [
+      "Explizite Auswahlentscheidung mit Datum, Nutzerrolle, freigegebenem CUT-Commit und Grenzen separat dokumentieren.",
+      "Angenommenen CUT-Commit und seine Inputdigests erneut prüfen; bei Drift nicht aktivieren.",
+      "Additiven Baseline-Zeiger an freigegebenen Commit und Entscheidung binden; historischen V1/building-Prüfsnapshot nicht ändern.",
+      "Aktuelle Statusleser/Validatoren explizit auf den geprüften Zeiger umstellen; Referenztests akzeptiert/vertagt/zurückgewiesen und Drift-Fälle ausführen.",
+      "Dashboard und Vault synchronisieren; V2 nur als Planungs-/Entwicklungsbaseline aktiv, alle Einsatz- und Veröffentlichungsgrenzen erhalten."
+    ]
+  }
+}
