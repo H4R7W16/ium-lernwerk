@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 5,
+  "workStatus": "review",
+  "reviewType": "ai-assisted-document-self-review",
+  "reviewer": "Codex",
+  "userAcceptance": "pending",
+  "baseCommit": "dc059cffcb2866c6e0d7df3c83dbc0410d14d680",
+  "auditAcceptance": "roadmap/v2/audits/acceptance.json",
+  "nextTask": "IUM-V2-R6",
+  "nextTaskCondition": "explicit-r5-user-approval",
+  "maturity": {
+    "concept": "reviewed",
+    "implementation": "not-started",
+    "technicalVerification": "passed",
+    "curriculumCoverage": "unassessed",
+    "userTesting": "not-started",
+    "classroomPilot": "not-started",
+    "release": "closed"
+  },
+  "verificationScope": "Nur Planungsverträge und Dokumentenprüfung; keine Produkt-, Geräte-, Nutzungs- oder Lernwirkungsprüfung.",
+  "contentProduction": "frozen",
+  "carryForward": [
+    {
+      "id": "CUR-Q-002",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json",
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "CUR-Q-003",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-OPERATOR",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-REVIEWERS",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-RIGHTS",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "GOV-Q-SCHOOL",
+      "sourcePaths": [
+        "roadmap/v2/foundations/governance/governance-contract.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-001",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-002",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-003",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-004",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-005",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-006",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-007",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF03-Q-008",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF07-Q-PILOT",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    },
+    {
+      "id": "LXF07-Q-TECH",
+      "sourcePaths": [
+        "roadmap/v2/foundations/learning-experience/status.json"
+      ],
+      "disposition": "preserved-at-source"
+    }
+  ],
+  "openGateIds": [
+    "R5-ACCESS",
+    "R5-BUDGET",
+    "R5-PRIVACY",
+    "R5-PILOT"
+  ],
+  "inputDigests": {
+    "curriculum/basiskurs-medienbildung/competencies.json": "2c39832cd6ee373c643994c69db6f4411539669923704e6c0f45ef63c2112518",
+    "curriculum/lesehilfe-2026-27/competencies.json": "4eaf2ab20bdd508d18b821b4d953efdf6a6b7caea05ef8d904c101b3c4e342c8",
+    "roadmap/v2/audits/acceptance.json": "efebba637a43141cd59597d66f9494338bf5eab617e8a7e2ae1aa1eb020fe810",
+    "roadmap/v2/audits/artifact-inventory.json": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4",
+    "roadmap/v2/audits/follow-up-tasks.json": "0b5195e26d6022d8f760e106b61cb19b1ecfd5d68dd6970e8a2cdc9dbe1bfcf0",
+    "roadmap/v2/audits/status.json": "2bec061126daa5bab876d1e51ef30cedf3b201e13629f871150ae031933c50b2",
+    "roadmap/v2/foundations/curriculum/gap-assessments.json": "7027085b7bf8c23b1214f8e45bd7b7c4381c4f37fc3e9d5ef785261968acba26",
+    "roadmap/v2/foundations/curriculum/source-basis.json": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9",
+    "roadmap/v2/foundations/governance/governance-contract.json": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc",
+    "roadmap/v2/foundations/governance/status.json": "314bb4d2064452dea338b16787e1df9472bb7ca71d1abcd3a49274e61c03a81f",
+    "roadmap/v2/foundations/learning-experience/evidence-register.json": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89",
+    "roadmap/v2/foundations/learning-experience/experience-gates.json": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+    "roadmap/v2/foundations/learning-experience/learner-profile.json": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.json": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+    "roadmap/v2/foundations/learning-experience/material-patterns.json": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54",
+    "roadmap/v2/foundations/learning-experience/status.json": "f1fdfc63318d19c6dd5ce043941515891a0f7353058a555e630667a552473497",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+    "roadmap/v2/grades/grade-5/README.md": "f046f7827155af99dfe6b2c5b0ddcb1c18f1384d7813c7de089ef5f8eebabe83",
+    "roadmap/v2/grades/grade-5/curriculum-map.json": "26e0299b2993003f5538eb23d67484da144490b2ebfc60e1130393ab33d80669",
+    "roadmap/v2/grades/grade-5/roadmap.json": "6cb32a034ebc65a8234f6c3a41b74c58c98b42c7e87c61711131d1eb847405e0",
+    "roadmap/v2/grades/grade-5/validation-report.md": "69ed560bb0e717045c45030c04ddeb82e23885a3753cb47f2d1f492352cdab78",
+    "roadmap/v2/requirements/requirements.json": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779",
+    "roadmap/v2/status.json": "51db65ee30b667ce3dcfac47d5868118ea15d0b2b2e67e327bac56768b66919f",
+    "schemas/v2/grade-5.schema.json": "2bf514b979c543a491cfc5834d479b056c5c519471b730dd9615392c184cd1e0"
+  }
+}

@@ -1,0 +1,491 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 5,
+  "scope": {
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "level": "E",
+    "planningYear": "2026/2027",
+    "contentProduction": "frozen",
+    "activeBaseline": "v1"
+  },
+  "designDecision": "Sechs neue Lernbögen verbinden Bedienung, Quellenarbeit, Kommunikation, Produktion, Medienurteil und einfache Algorithmen. Medienbildung hat in Klasse 5 den Schwerpunkt; die Lesehilfe 5/6 wird bewusst über zwei Jahrgänge verteilt.",
+  "sourceReview": {
+    "checkedAt": "2026-09-06",
+    "ministryUrl": "https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung",
+    "lesehilfeUrl": "https://km.baden-wuerttemberg.de/fileadmin/redaktion/m-km/intern/PDF/Dateien/Schulart%C3%BCbergreifend/MINT/2026_Lesehilfe_IuM_Gym_und_Sek_I_bf.pdf",
+    "finding": "Amtliche Fachseite und Lesehilfe geprüft: bestehende Bildungspläne bleiben Grundlage, Lesehilfe ist Orientierung mit gemeinsamen Inhalten für 5/6 und Niveau E am Gymnasium. Keine neue Byteidentitätsprüfung der BMB-Quelle oder Lesehilfe behauptet.",
+    "bmbContentCheck": "frozen-dataset-with-2026-09-03-foundation-review"
+  },
+  "coreOrder": [
+    "V2-G5-M01",
+    "V2-G5-M02",
+    "V2-G5-M03",
+    "V2-G5-M04",
+    "V2-G5-M05",
+    "V2-G5-M06"
+  ],
+  "modules": [
+    {
+      "id": "V2-G5-M01",
+      "kind": "core",
+      "title": "Im schulischen Arbeitsraum sicher handeln",
+      "goal": "Gerät, Programm und Speicherort unterscheiden; schulische Zugänge und Dateien selbstständiger nutzen.",
+      "learningAction": "An einem sachlichen Arbeitsauftrag Eingabe, Verarbeitung und Ausgabe erklären, Dateien sinnvoll ablegen und wiederfinden; Zugänge schützen.",
+      "plannedProduct": "Erklärte Zuordnung von Komponenten und erfolgreich wiedergefundene Arbeitsdatei; keine Passwörter oder Bildschirmmitschnitte als Abgabe.",
+      "feedbackAndRevision": "Kurzer Wiederfindeauftrag zeigt den nächsten nötigen Bedienhinweis. Fehler an Verzeichnis oder Dateinamen korrigieren, anschließend an einer neuen Datei prüfen.",
+      "support": "Lehrkraft modelliert den ersten Weg; beschriftete Schrittkarte wird beim zweiten Durchgang reduziert. Sprache und Eingabegerät dürfen variieren.",
+      "digitalPurpose": "Reale Dateiverwaltung und schulische Anmeldung sind selbst die Zielhandlungen; Klickgeschwindigkeit zählt nicht als Verständnis.",
+      "fallback": "Offline können Komponenten und lokale Ablage geübt werden. Ohne schulischen Netzwerkzugang bleibt der Anmeldenachweis offen; eine Skizze ersetzt ihn nicht.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 30,
+        "guidedPractice": 45,
+        "independentApplication": 45,
+        "feedbackAndRevision": 30,
+        "consolidationAndTransfer": 30
+      },
+      "dependsOn": [],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-004",
+        "LXF04-PR-011",
+        "LXF04-PR-016",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Reichen vier Unterrichtseinheiten bei der tatsächlichen Varianz der Bedienroutinen? Welche Hilfe erhält die Selbstständigkeit?"
+    },
+    {
+      "id": "V2-G5-M02",
+      "kind": "core",
+      "title": "Informationen finden, prüfen und ordnen",
+      "goal": "Eine Recherchefrage mit passenden Suchbegriffen bearbeiten und die Auswahl von Informationen begründen.",
+      "learningAction": "Eine eingegrenzte Sachfrage mit Browser und Suchwerkzeug bearbeiten; zwei Quellen anhand Herkunft, Absicht und Plausibilität vergleichen; Ergebnisse strukturiert weiterverarbeiten.",
+      "plannedProduct": "Kleine gegliederte Informationssammlung mit Quellenhinweisen und begründeter Auswahlentscheidung; keine bloße Linkliste.",
+      "feedbackAndRevision": "Lehrkraft prüft eine Auswahlbegründung, benennt eine fehlende Prüfung; Lernende ersetzen oder begründen den strittigen Eintrag.",
+      "support": "Gemeinsam ausgewertetes Quellenpaar, wenige explizite Kriterien und Begriffs-/Satzhilfen; anschließend eigenständige Auswahl zu einer verwandten Frage.",
+      "digitalPurpose": "Suchen, navigieren und Quellen vergleichen sind funktional notwendig. Auswahl und Begründung bleiben menschliche Lernhandlungen.",
+      "fallback": "Vorbereitete lokale Quellen erlauben Auswahl und Strukturierung. Ohne Suchmaschine bleibt deren reale Nutzung ungeprüft und muss später nachgeholt werden.",
+      "minutes": 225,
+      "timeComponents": {
+        "orientationAndExplanation": 35,
+        "guidedPractice": 55,
+        "independentApplication": 65,
+        "feedbackAndRevision": 35,
+        "consolidationAndTransfer": 35
+      },
+      "dependsOn": [
+        "V2-G5-M01"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-007",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Können Lernende Kriterien tatsächlich auf widersprüchliche Fundstellen anwenden, und reicht die Suchzeit unter Schulnetzbedingungen?"
+    },
+    {
+      "id": "V2-G5-M03",
+      "kind": "core",
+      "title": "Digital zusammenarbeiten und verständlich kommunizieren",
+      "goal": "Einen zugelassenen Kommunikationsweg sachgerecht nutzen und an einem gemeinsamen Sachprodukt arbeiten.",
+      "learningAction": "In einem geschlossenen schulischen Kanal einen klaren Beitrag senden, einen Beitrag empfangen und sachlich beantworten; Rollen und Konfliktfälle begründen.",
+      "plannedProduct": "Gemeinsam überarbeitete Gliederung für das spätere Medienprodukt, mit je einem erklärbaren individuellen Beitrag und einer genutzten Rückmeldung.",
+      "feedbackAndRevision": "Nach spätestens zehn Arbeitsminuten Minimalprodukt und Beteiligung prüfen. Rückmeldung führt zu einer sichtbaren Änderung am gemeinsamen Entwurf.",
+      "support": "Senden/Empfangen, Adressaten und Anhänge zunächst modellieren; fachliche Kriterien für hilfreiche Rückmeldungen vormachen. Rollen wechseln.",
+      "digitalPurpose": "Digitaler Austausch ist Teil des Kompetenzziels. Kollaboration benötigt echte Beiträge und deren Aufnahme, nicht nur gemeinsames Sitzen.",
+      "fallback": "Bei Kanalausfall Entwurf lokal sichern und gemeinsam besprechen. Das erhält den Sachauftrag, erfüllt aber keinen digitalen Austausch; Nachholen im freigegebenen Kanal erforderlich.",
+      "minutes": 135,
+      "timeComponents": {
+        "orientationAndExplanation": 20,
+        "guidedPractice": 30,
+        "independentApplication": 35,
+        "feedbackAndRevision": 25,
+        "consolidationAndTransfer": 25
+      },
+      "dependsOn": [
+        "V2-G5-M01",
+        "V2-G5-M02"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-005",
+        "LXF04-PR-010",
+        "LXF04-PR-012",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Tragen beide Lernenden zum Produkt bei und wird Feedback genutzt? Ist der freigegebene Kanal für alle zugänglich?"
+    },
+    {
+      "id": "V2-G5-M04",
+      "kind": "core",
+      "title": "Ein Medienprodukt gestalten, prüfen und vorstellen",
+      "goal": "Informationen adressatengerecht in einem überschaubaren digitalen Produkt gestalten und dessen Qualität begründet verbessern.",
+      "learningAction": "Recherche und gemeinsame Planung in ein Text-/Bildprodukt mit Präsentationsansicht überführen; Gestaltung, Quellen und Nutzungsrechte prüfen; vor der Lerngruppe vorstellen und überarbeiten.",
+      "plannedProduct": "Kleines digitales Sachprodukt einschließlich Quellen-/Rechtehinweisen, Entwurf, Revision und begründeter Qualitätsentscheidung; keine Sammlung beliebiger Artefakte.",
+      "feedbackAndRevision": "Zwei vorgegebene Qualitätskriterien an einem Ausschnitt anwenden; Rückmeldung vor der Endfassung einarbeiten. Nach der Vorstellung eine begründete Verbesserung sichern.",
+      "support": "Ein an Kriterien kommentiertes Teilbeispiel und eine kleine Gestaltungsauswahl; keine fertige Komplettlösung. Text-, Bild- und Präsentationswerkzeuge schrittweise einbetten.",
+      "digitalPurpose": "Editierbarkeit, Zusammenführen von Text/Bild und unmittelbare Überarbeitung unterstützen die Zielhandlung. Öffentliche Publikation ist nicht nötig.",
+      "fallback": "Skizze und mündliche Begründung bewahren die Gestaltungsentscheidung. Digitale Erstellung, Bearbeitung und Präsentation müssen am zugänglichen Gerät nachgeholt werden.",
+      "minutes": 315,
+      "timeComponents": {
+        "orientationAndExplanation": 40,
+        "guidedPractice": 60,
+        "independentApplication": 105,
+        "feedbackAndRevision": 60,
+        "consolidationAndTransfer": 50
+      },
+      "dependsOn": [
+        "V2-G5-M02",
+        "V2-G5-M03"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-004",
+        "LXF04-PR-008",
+        "LXF04-PR-010",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-017",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Ist der Produktumfang in sieben Einheiten erreichbar, einschließlich Rechten, Vorstellung und Revision? Welche Barrieren bleiben bei Text/Bild und Vortrag?"
+    },
+    {
+      "id": "V2-G5-M05",
+      "kind": "core",
+      "title": "Medienwirkungen und Selbstdarstellung beurteilen",
+      "goal": "Gestaltungswirkungen erkennen, Folgen medialer Selbstdarstellung abschätzen und ein begründetes Urteil formulieren.",
+      "learningAction": "Nicht personenbezogene Darstellungen desselben Sachverhalts vergleichen; Werbung und Inszenierung erkennen, mögliche Wirkungen erklären und anhand weniger Kriterien beurteilen.",
+      "plannedProduct": "Begründetes Fallurteil mit erwartbarer Folge, abgewogenem Urteil und Handlungsoption; Bezug zur eigenen privaten Mediennutzung wird nicht verlangt.",
+      "feedbackAndRevision": "Urteil darauf prüfen, ob Folgeabschätzung und Bewertung getrennt enthalten sind; bloße Vorlieben durch Bezug auf Gestaltung und Kriterien ergänzen.",
+      "support": "Ein kontrastierendes Beispielpaar und sprachliche Hilfen für Ursache, Folge und Urteil; vertraute neutrale Kontexte, keine persönlichen Accounts.",
+      "digitalPurpose": "Vergleichbare Ansichten erlauben gezielte Variation von Bild/Text und Wirkung. Keine algorithmische Bewertung von Empfindungen oder Personen.",
+      "fallback": "Ausdrucke oder zugängliche Textbeschreibungen erhalten den Vergleich und das Urteil. Eigene private Nutzung wird durch fiktive Fälle weiterhin nicht nachgewiesen.",
+      "minutes": 180,
+      "timeComponents": {
+        "orientationAndExplanation": 30,
+        "guidedPractice": 40,
+        "independentApplication": 45,
+        "feedbackAndRevision": 30,
+        "consolidationAndTransfer": 35
+      },
+      "dependsOn": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-002",
+        "LXF04-PR-006",
+        "LXF04-PR-008",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Unterscheiden Lernende beobachtbare Gestaltung, vermutete Wirkung und begründetes Urteil? Bleibt der Fall ohne persönliche Offenlegung bearbeitbar?"
+    },
+    {
+      "id": "V2-G5-M06",
+      "kind": "core",
+      "title": "Präzise Abläufe entwickeln und prüfen",
+      "goal": "Anweisungen und feste Wiederholungen darstellen, schrittweise ausführen, programmieren und an Fehlern verbessern.",
+      "learningAction": "Für einen kleinen sachlichen Ablauf eine Vorhersage begründen, grafische Darstellung und Code aufeinander beziehen, konstant wiederholte Schritte ausführen und Unterschiede debuggen.",
+      "plannedProduct": "Kurzer Ablauf mit grafischer Darstellung, ausführbarem Code, erklärter Spur und dokumentierter Korrektur; keine Wiederaufnahme des alten LXP05-Szenarios.",
+      "feedbackAndRevision": "Vorhersage mit tatsächlicher Spur vergleichen. Lehrkraft fragt nach der ersten Abweichung; Lernende verändern gezielt eine Stelle und prüfen erneut.",
+      "support": "Ein kommentierter Teilschritt, reduzierte Befehlssprache und schrittweises Ausführen; keine universelle Abfolge elf alter Phasen.",
+      "digitalPurpose": "Deterministische Ausführung zeigt Folgen einer Anweisung. Ein lokaler oder schulisch freigegebener Interpreter muss erst für das neue Modul ausgewählt und geprüft werden.",
+      "fallback": "Manuelles Ausführen und grafische Spuren erhalten Ablaufverständnis. Programmieren in einer geeigneten Sprache wird damit noch nicht technisch praktisch nachgewiesen.",
+      "minutes": 225,
+      "timeComponents": {
+        "orientationAndExplanation": 35,
+        "guidedPractice": 55,
+        "independentApplication": 60,
+        "feedbackAndRevision": 40,
+        "consolidationAndTransfer": 35
+      },
+      "dependsOn": [
+        "V2-G5-M01"
+      ],
+      "principleIds": [
+        "LXF04-PR-001",
+        "LXF04-PR-003",
+        "LXF04-PR-006",
+        "LXF04-PR-007",
+        "LXF04-PR-008",
+        "LXF04-PR-009",
+        "LXF04-PR-011",
+        "LXF04-PR-012",
+        "LXF04-PR-013",
+        "LXF04-PR-015",
+        "LXF04-PR-018"
+      ],
+      "implementation": "not-started",
+      "evidenceStatus": "planned-only",
+      "pilotQuestion": "Verstehen Lernende feste Wiederholung über Darstellung und Code hinweg, oder imitieren sie nur Muster? Reichen fünf Einheiten ohne Vorkenntnisse?"
+    }
+  ],
+  "flexModules": [
+    {
+      "id": "V2-G5-F01",
+      "kind": "flex",
+      "title": "Gestaltungsvarianten vertiefen",
+      "minutes": 90,
+      "dependsOn": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "purpose": "Zwei Varianten desselben Sachprodukts für unterschiedliche Adressaten vergleichen und gezielt überarbeiten.",
+      "newRequiredCoverage": false
+    },
+    {
+      "id": "V2-G5-F02",
+      "kind": "flex",
+      "title": "Algorithmische Varianten vergleichen",
+      "minutes": 90,
+      "dependsOn": [
+        "V2-G5-M06"
+      ],
+      "purpose": "Zwei Lösungen mit denselben Anweisungen und festen Wiederholungen vergleichen; Transfer im bekannten Begriffsrahmen.",
+      "newRequiredCoverage": false
+    }
+  ],
+  "timeAssumptions": {
+    "unitMinutes": 45,
+    "status": "project-estimate-not-piloted",
+    "coreMinutes": 1260,
+    "meaning": "Netto verfügbare Unterrichtseinheiten als Szenarien, kein amtlich garantiertes Jahreskontingent. Modulzeiten enthalten ihre eigene Übung, Rückmeldung und Sicherung; zusätzliche Jahreszeiten zählen ausschließlich Wiederaufnahme, organisatorische Wechsel und Reserve.",
+    "belowMinimum": "Unter 32 verfügbaren Einheiten kein vollständiger Standardpfad: lokale Neuplanung mit sichtbaren Auslassungen, keine stille Kürzung von Übung oder Nachweisen."
+  },
+  "variants": [
+    {
+      "id": "V2-G5-T32",
+      "availableUnits": 32,
+      "coreMinutes": 1260,
+      "spacedPracticeMinutes": 45,
+      "orchestrationMinutes": 45,
+      "bufferMinutes": 90,
+      "flexIds": [],
+      "totalMinutes": 1440,
+      "limitation": "Sehr knappe Variante: nur bei tragfähigen Zugängen und wenig zusätzlichem Hilfebedarf. Offene Privatheitsnachweise bleiben offen; ungeplante Mehrzeit erfordert Neuplanung."
+    },
+    {
+      "id": "V2-G5-T36",
+      "availableUnits": 36,
+      "coreMinutes": 1260,
+      "spacedPracticeMinutes": 135,
+      "orchestrationMinutes": 45,
+      "bufferMinutes": 180,
+      "flexIds": [],
+      "totalMinutes": 1620,
+      "limitation": "Bevorzugte Arbeitsannahme mit verteilter Wiederaufnahme. Stundenbudget und Hilfebedarf lokal prüfen, keine Pflichtvorgabe."
+    },
+    {
+      "id": "V2-G5-T40",
+      "availableUnits": 40,
+      "coreMinutes": 1260,
+      "spacedPracticeMinutes": 135,
+      "orchestrationMinutes": 45,
+      "bufferMinutes": 180,
+      "flexIds": [
+        "V2-G5-F01",
+        "V2-G5-F02"
+      ],
+      "totalMinutes": 1800,
+      "limitation": "Zusätzliche Zeit dient Vertiefung; Flexmodule tragen keine ausschließlich dort erreichbare Pflichtkompetenz. Bei Förderbedarf zuerst Reserve/Übung erweitern."
+    }
+  ],
+  "retrievalSchedule": [
+    {
+      "afterModule": "V2-G5-M02",
+      "revisitModule": "V2-G5-M01",
+      "minimumMinutes": 15,
+      "extendedMinutes": 45,
+      "purpose": "Datei unter veränderten Namen wiederfinden und Speicherort erklären; nötige Hilfe neu bestimmen."
+    },
+    {
+      "afterModule": "V2-G5-M04",
+      "revisitModule": "V2-G5-M02",
+      "minimumMinutes": 15,
+      "extendedMinutes": 45,
+      "purpose": "Neue Quelle zu einer verwandten Frage beurteilen; vertraute Kriterien ohne vollständige Schrittkarte abrufen."
+    },
+    {
+      "afterModule": "V2-G5-M06",
+      "revisitModule": "V2-G5-M05",
+      "minimumMinutes": 15,
+      "extendedMinutes": 45,
+      "purpose": "Neuen Darstellungsfall begründet beurteilen und eine Qualitätsentscheidung auf das Medienprodukt übertragen."
+    }
+  ],
+  "toolEvidenceMatrix": [
+    {
+      "moduleId": "V2-G5-M01",
+      "toolFamily": "Betriebssystem und Mediengerät",
+      "routine": "Arbeitsdatei benennen, ablegen und wiederfinden; passende Eingabe bedienen.",
+      "independence": "modelled-then-supported",
+      "evidence": "Begründeter Speicherweg und wiedergefundene Datei."
+    },
+    {
+      "moduleId": "V2-G5-M02",
+      "toolFamily": "Browser und Suchwerkzeug",
+      "routine": "Recherche durchführen, Fundstelle auswählen und zur geordneten Sammlung beitragen.",
+      "independence": "criteria-supported",
+      "evidence": "Nachvollziehbarer Suchweg und begründete Quellenauswahl."
+    },
+    {
+      "moduleId": "V2-G5-M04",
+      "toolFamily": "Text-, Bild- und Präsentationswerkzeuge",
+      "routine": "Eigenes Produkt formatieren, Bildobjekt sinnvoll bearbeiten, Präsentationsansicht nutzen und nach Feedback revidieren.",
+      "independence": "increasingly-independent",
+      "evidence": "Eigenständige begründete Bearbeitung an einem neuen Ausschnitt; Hilfe wird bei Bedarf sichtbar gewährt."
+    }
+  ],
+  "toolMatrixAdditionalMinutes": 0,
+  "projectRequirements": [
+    {
+      "requirementId": "V2-REQ-SYS-001",
+      "disposition": "maintained-boundary",
+      "location": "scope",
+      "rationale": "V1 bleibt aktiv; Jahrgangsplanung autorisiert keinen Cutover.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-SYS-002",
+      "disposition": "maintained-boundary",
+      "location": "scope",
+      "rationale": "Nur Ziel-/Nachweisverträge; keine Lernendentexte und keine Produktion.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-CUR-001",
+      "disposition": "planning-assignment",
+      "location": "curriculum-map.json",
+      "rationale": "Amtliche BMB-Records, orientierende 5/6-Records und nichtzählende Kontexte unterscheiden.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-CUR-002",
+      "disposition": "planning-assignment",
+      "location": "toolEvidenceMatrix",
+      "rationale": "Direkte, integrierte und fortlaufende Nachweise; Werkzeugmatrix ohne Zusatzzeit.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-SRC-001",
+      "disposition": "planning-assignment",
+      "location": "modules",
+      "rationale": "Prinzipien verweisen auf abgenommene Claims/Quellen; spätere konkrete Materialien brauchen eigenen Rechte-/Quellencheck.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-LXF-001",
+      "disposition": "planning-assignment",
+      "location": "modules",
+      "rationale": "Ziel, Handlung, Produkt, Unterstützung, Revision und Orchestrierung je Modul geplant.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-GOV-001",
+      "disposition": "maintained-boundary",
+      "location": "entryGates",
+      "rationale": "Geplante Nachweise nicht mit erfolgter Nutzung, Prüfung, Pilotierung oder Wirksamkeit verwechseln.",
+      "coverage": "unassessed"
+    },
+    {
+      "requirementId": "V2-REQ-DASH-001",
+      "disposition": "handoff",
+      "location": "IUM-V2-DASH",
+      "rationale": "Dashboardmigration bleibt späterer separater Auftrag; hier nur Statusregister aktualisieren.",
+      "coverage": "unassessed"
+    }
+  ],
+  "entryGates": [
+    {
+      "id": "R5-ACCESS",
+      "owner": "IUM-V2-FU-TECH / Schule / Betreiber",
+      "trigger": "Vor konkreter Modulproduktion und schulischer Erprobung",
+      "condition": "Freigegebene Geräte, realer schulischer Login, zugängliche Werkzeuge und geschlossener Kommunikationsweg; Datenschutz-/Rechteentscheidung und Barrieren prüfen.",
+      "state": "open"
+    },
+    {
+      "id": "R5-BUDGET",
+      "owner": "Auftraggeber / planende Lehrkraft",
+      "trigger": "Vor Verwendung einer Jahresvariante",
+      "condition": "Tatsächlich verfügbare 45-Minuten-Einheiten, Unterrichtstakt, Lerngruppe und zusätzliche Hilfen bestimmen; bei weniger als 32 Einheiten neue Teilplanung.",
+      "state": "open"
+    },
+    {
+      "id": "R5-PRIVACY",
+      "owner": "IUM-V2-CUR / Governance / zuständige Schule",
+      "trigger": "Vor Nachweisbehauptung für sechs Eigenbezugsrecords",
+      "condition": "CUR-Q-002 auf alle einschlägigen Records beziehen; weder private Abgabe noch künstliche Erfüllung durch fiktive Fälle. Bis zur tragfähigen Entscheidung bleibt der Nachweis offen.",
+      "state": "open"
+    },
+    {
+      "id": "R5-PILOT",
+      "owner": "IUM-V2-FU-PILOT / fachliche Prüfende",
+      "trigger": "Nach neuer Modulspezifikation und gesonderter Erprobungsfreigabe",
+      "condition": "Zeitannahmen, Zugänglichkeit, Nutzung von Hilfen/Feedback und fachliche Produkte prüfen; keine Wirksamkeitsbehauptung aus Tests.",
+      "state": "open"
+    }
+  ],
+  "auditApplications": [
+    {
+      "artifactId": "IUM01",
+      "decision": "adapt",
+      "application": "Fachliche Denkhandlungen und Darstellungswechsel in M06, begrenzte Altersübertragbarkeit."
+    },
+    {
+      "artifactId": "IUM02",
+      "decision": "adapt",
+      "application": "Quellenurteil, Medienwirkung und Kommunikation in M02/M03/M05 statt isolierter Verhaltensregeln."
+    },
+    {
+      "artifactId": "IUM05",
+      "decision": "retain",
+      "application": "Quellentreue Record-IDs und Herkunft als Input; keine Übernahme der V1-Coverage."
+    },
+    {
+      "artifactId": "IUM06",
+      "decision": "replace",
+      "application": "LXF03/LXF04 steuern die neuen Lernbögen; alte Synthese und Crosswalk entscheiden keine Modulfolge."
+    },
+    {
+      "artifactId": "IUM07",
+      "decision": "replace",
+      "application": "Sechs neue Module aus Anforderungen; keine alte Kandidatenreihenfolge als Vorlage."
+    },
+    {
+      "artifactId": "IUM09",
+      "decision": "adapt",
+      "application": "Werkzeugmatrix ohne Zusatzzeit; Selbstdarstellung als Fallurteil; alle privaten Eigenbezüge offen."
+    },
+    {
+      "artifactId": "IUM10",
+      "decision": "replace",
+      "application": "Neu berechnete Budgets 1260 Minuten Kern plus getrennte Jahreszeiten; keine Übernahme alter Working-40-Logik."
+    }
+  ]
+}

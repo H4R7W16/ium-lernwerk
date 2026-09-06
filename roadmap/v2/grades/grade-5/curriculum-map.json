@@ -1,0 +1,2983 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "asOf": "2026-09-06",
+  "grade": 5,
+  "coverageMeaning": "Planungsdisposition aller einschlägigen Rohrecords; geplante Evidenz ist keine durchgeführte Leistung. 5/6-Zuordnung der Orientierung wird im Projekt jahrgangsweise verteilt, nicht als amtliche Jahrgangsgrenze ausgegeben.",
+  "records": [
+    {
+      "recordId": "BMB16-GYM-PK-SK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M02",
+        "V2-G5-M04",
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "Fachbegriffe beim Erklären von Speicherweg, Quelle, Gestaltung und Ablauf sachlich korrekt verwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-SK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Programme in unterschiedlichen Sachaufträgen bedienen und die Auswahl begründen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-SK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Regeln benennen und beim tatsächlichen Umgang mit Gerät und Kanal anwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-HK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Rechercheweg, ausgewählte Quelle und deren geordnete Weiterverarbeitung erklären.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-HK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Plan, digitales Produkt und Vorstellung vor der Lerngruppe zusammenführen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-HK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Einen digitalen Partnerbeitrag fachlich aufnehmen und ein gemeinsames Produkt verändern.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-RK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Der Wortlaut verlangt eigenen Erfahrungs-/Nutzungsbezug. Es fehlt eine datenschutzfachlich tragfähige Nachweisentscheidung; fiktive Fälle sind kein Ersatz, private Abgabe oder Beobachtung wird nicht angeordnet.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "BMB16-GYM-PK-RK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Medial inszenierten Sachverhalt mit einer sachlichen Darstellung vergleichen und Einfluss auf Alltagsvorstellungen darstellen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-RK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Aus einer fremden Selbstdarstellung mögliche Folgen ableiten und in einem kriteriengestützten Fallurteil abwägen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-PK-RK-004",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Grenzverletzung in einem neutralen Fall erkennen und begründete Verhaltensregel für künftiges Handeln ableiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M02"
+      ],
+      "plannedEvidence": "Eine eingegrenzte Recherche praktisch im freigegebenen Browser und Suchwerkzeug durchführen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-IW-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M02"
+      ],
+      "plannedEvidence": "Zwei Quellen mit vorgegebenen Merkmalen beschreiben und ihre Qualität begründet einschätzen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-IW-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Informationen für die Sachfrage eigenständig auswählen und im Produkt sinnvoll gliedern.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-IW-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-IW-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Ein überschaubares Text-/Bildprodukt zunehmend eigenständig digital erstellen und gestalten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-PP-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Herkunft und Nutzungsrechte der gewählten Inhalte prüfen; keine privaten Daten in das Sachprodukt aufnehmen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-PP-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Eigenes Produkt vor der Lerngruppe vorstellen, an vorgegebenen Kriterien prüfen und verbessern.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-PP-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-PP-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Kommunikationsregeln aus Fällen ableiten und in einem geschlossenen Kanal anwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-KK-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Beitrag mit passendem Adressaten und gegebenenfalls Anhang tatsächlich senden und empfangen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-KK-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Einen digitalen Austausch für gemeinsame Planung und Revision nutzen; Offlinegespräch allein reicht nicht.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-KK-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-KK-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Der Wortlaut verlangt eigenen Erfahrungs-/Nutzungsbezug. Es fehlt eine datenschutzfachlich tragfähige Nachweisentscheidung; fiktive Fälle sind kein Ersatz, private Abgabe oder Beobachtung wird nicht angeordnet.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-MG-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Positive Nutzungszwecke und Gefahren in neutralen Fällen erläutern, abwägen und passende Prävention nennen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-MG-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Wirkung kontrastierender Gestaltungen untersuchen, Eindrücke ausdrücken und eine begrenzte Gestaltungsregel ableiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-MG-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-MG-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M01"
+      ],
+      "plannedEvidence": "Eingabe, Verarbeitung und Ausgabe benennen/erklären und Gerät nach Nutzungsregeln einsetzen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-001-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-GM-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M01"
+      ],
+      "plannedEvidence": "Schulische Anmeldung tatsächlich ausführen und Datei im Netzwerk/Betriebssystem wiederfinden; keine Zugangsdaten erfassen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-002-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-GM-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "cross-cutting",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Unterschiedliche Standardwerkzeuge in regulären Aufträgen mit abnehmender Anleitung nutzen; Datei-, Recherche- und Produktnachweis gemeinsam betrachten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-IK-GM-003-EX-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "BMB16-GYM-IK-GM-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-002",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-003",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-004",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-005",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-006",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-007",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-008",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-009",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-010",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-011",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-012",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-013",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-014",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-015",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-016",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-017",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-018",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "BMB16-GYM-OP-019",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "operator",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-PROG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "progression-note",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-PROG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "progression-note",
+      "isRequirement": false,
+      "parentRecordId": null,
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Schulische Regeln anhand ihrer Funktion erklären und beim Arbeiten tatsächlich beachten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Der Wortlaut verlangt eigenen Erfahrungs-/Nutzungsbezug. Es fehlt eine datenschutzfachlich tragfähige Nachweisentscheidung; fiktive Fälle sind kein Ersatz, private Abgabe oder Beobachtung wird nicht angeordnet.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-DP-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Der Wortlaut verlangt eigenen Erfahrungs-/Nutzungsbezug. Es fehlt eine datenschutzfachlich tragfähige Nachweisentscheidung; fiktive Fälle sind kein Ersatz, private Abgabe oder Beobachtung wird nicht angeordnet.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-DP-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Exemplarische bereitgestellte Nutzungsbedingungen eines schulisch freigegebenen Angebots nach Adressaten, Zweck und Grenzen erschließen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Werbung erkennen und beschreiben, wie sie in einen sachlichen oder unterhaltenden Beitrag eingebettet ist.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-006",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Werbeauswahl und Datenverarbeitung vertiefen nach erster Werbeanalyse in M05.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-DP-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Techniken der Erhebung von Daten und Metadaten im folgenden Jahr systematisch untersuchen.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-DP-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DP-008",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DP-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Akteursinteressen an personenbezogenen Daten auf Grundlage von Quellen-/Werbeurteil erklären.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-DP-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Der Wortlaut verlangt eigenen Erfahrungs-/Nutzungsbezug. Es fehlt eine datenschutzfachlich tragfähige Nachweisentscheidung; fiktive Fälle sind kein Ersatz, private Abgabe oder Beobachtung wird nicht angeordnet.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-ID-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M02"
+      ],
+      "plannedEvidence": "Suchwerkzeug einsetzen, Herkunft/Plausibilität prüfen und relevante Informationen geordnet darstellen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M02"
+      ],
+      "plannedEvidence": "Suchwerkzeug einsetzen, Herkunft/Plausibilität prüfen und relevante Informationen geordnet darstellen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M02"
+      ],
+      "plannedEvidence": "Suchwerkzeug einsetzen, Herkunft/Plausibilität prüfen und relevante Informationen geordnet darstellen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Indexbasierte Suche als Systemmodell nach sicherer praktischer Recherche erläutern.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M02"
+      ],
+      "plannedEvidence": "An einer überschaubaren Quellenauswahl unterschiedliche veröffentlichende Akteure benennen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-006",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Motive von Veröffentlichungen systematischer analysieren nach erster Akteursunterscheidung.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-007",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Interessenkonflikte aus Akteursrollen heraus erklären, statt nur Quellenmerkmale nennen.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Automatisiert erzeugten/verbreiteten Content als Aufbau auf Quellen- und Algorithmusgrundlagen untersuchen.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Sachfrage mit Vorwissen verknüpfen, Kriterien der Vertrauenswürdigkeit nennen und für die Verarbeitung nutzen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M02",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Sachfrage mit Vorwissen verknüpfen, Kriterien der Vertrauenswürdigkeit nennen und für die Verarbeitung nutzen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Widersprüchliche Informationen mit höherer Selbstständigkeit und mehreren Quellen prüfen.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Chancen und Fehlurteile KI-generierter Recherche anhand geprüfter Beispiele untersuchen; kein eigener Account erforderlich.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Codierungen verschiedener Zwecke vergleichen; nach Ablauf- und Darstellungsgrundlagen systematisch einführen.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-014",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Einsatzzweck und Wahl der Codierung anhand kontrastierender Übertragungsfälle erklären.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ID-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ID-015",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ID-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Textcodierung in einem eigenen begrenzten Lernbogen anwenden; kein zusätzlicher R5-Pflichtblock.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-001",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "An neutralen Beispielen erkennen und begründen, wo präzise automatisierte Abläufe eine wesentliche Rolle spielen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "Präzise Schrittfolge erklären, ihre grafische Darstellung erläutern und die dargestellten Schritte ausführen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "Präzise Schrittfolge erklären, ihre grafische Darstellung erläutern und die dargestellten Schritte ausführen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "Anweisung und feste Wiederholung erklären, in einer geeigneten Sprache verwenden und einen Codeabschnitt mit Spur schrittweise analysieren.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-ALG-005",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "Anweisung und feste Wiederholung erklären, in einer geeigneten Sprache verwenden und einen Codeabschnitt mit Spur schrittweise analysieren.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-ALG-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M06"
+      ],
+      "plannedEvidence": "Anweisung und feste Wiederholung erklären, in einer geeigneten Sprache verwenden und einen Codeabschnitt mit Spur schrittweise analysieren.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Schulischen Kanal für echte Zusammenarbeit und gemeinsame Revision nutzen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-002",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Neutralen Konfliktfall besprechen, analoge/digitale Kommunikation vergleichen und situationsgerechte Regeln im Austausch anwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Neutralen Konfliktfall besprechen, analoge/digitale Kommunikation vergleichen und situationsgerechte Regeln im Austausch anwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Neutralen Konfliktfall besprechen, analoge/digitale Kommunikation vergleichen und situationsgerechte Regeln im Austausch anwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Neutralen Konfliktfall besprechen, analoge/digitale Kommunikation vergleichen und situationsgerechte Regeln im Austausch anwenden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Bedeutung des eigenen Zugangsschutzes erklären und Schutzmaßnahmen anwenden, ohne geheime Zugangsinhalte offenzulegen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M01",
+        "V2-G5-M03"
+      ],
+      "plannedEvidence": "Bedeutung des eigenen Zugangsschutzes erklären und Schutzmaßnahmen anwenden, ohne geheime Zugangsinhalte offenzulegen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Vermaschtes Netz und Weiterleitung grafisch modellieren, nach praktischer Kommunikation.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-KS-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Client-Server-Prinzip aus praktischer Kommunikations- und Speichererfahrung modellieren.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-KS-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-010",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Speicherorte kriteriengeleitet einschließlich Cloud/Betreiber vergleichen; R5 übt zunächst schulische/lokale Ablage.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-KS-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-011",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "open-privacy",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Der Wortlaut verlangt eigenen Erfahrungs-/Nutzungsbezug. Es fehlt eine datenschutzfachlich tragfähige Nachweisentscheidung; fiktive Fälle sind kein Ersatz, private Abgabe oder Beobachtung wird nicht angeordnet.",
+      "successorTaskId": "IUM-V2-CUR"
+    },
+    {
+      "recordId": "LH26-E-KS-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Gründe für und gegen soziale Medien systematisch diskutieren; neutrale Fälle ohne private Accounts.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-KS-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-013",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Wirkung fremder Selbstdarstellung anhand von Gestaltung und möglichen Empfindungen begründet einschätzen.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-KS-014",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Verletzendes Verhalten in einem Fall erkennen und passende Hilfe-/Meldestrategie erläutern.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-KS-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "handoff-grade-6",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": null,
+      "rationale": "Begünstigende Strukturmerkmale digitaler Räume vertiefen, nachdem R5 Verhalten und Hilfewege eingeführt hat.",
+      "successorTaskId": "IUM-V2-R6"
+    },
+    {
+      "recordId": "LH26-E-DA-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M01"
+      ],
+      "plannedEvidence": "Eingabe passend bedienen, Verzeichnis nutzen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm an einem Sachauftrag unterscheiden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M01"
+      ],
+      "plannedEvidence": "Eingabe passend bedienen, Verzeichnis nutzen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm an einem Sachauftrag unterscheiden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-003",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M01"
+      ],
+      "plannedEvidence": "Eingabe passend bedienen, Verzeichnis nutzen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm an einem Sachauftrag unterscheiden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M01"
+      ],
+      "plannedEvidence": "Eingabe passend bedienen, Verzeichnis nutzen, Bedienkonzepte anwenden und Hardware/Betriebssystem/Programm an einem Sachauftrag unterscheiden.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-005",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Textbausteine formatieren, ein visuelles Objekt verwenden und Informationen mit sinnvoller Gliederung strukturieren.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-006",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Textbausteine formatieren, ein visuelles Objekt verwenden und Informationen mit sinnvoller Gliederung strukturieren.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-007",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "direct-module",
+      "moduleIds": [
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Textbausteine formatieren, ein visuelles Objekt verwenden und Informationen mit sinnvoller Gliederung strukturieren.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-008",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Gestaltungsabsicht und Wirkung analysieren, ein kreatives Sachprodukt mit eigener Absicht erzeugen und nach Prüfung gezielt überarbeiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-009",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Gestaltungsabsicht und Wirkung analysieren, ein kreatives Sachprodukt mit eigener Absicht erzeugen und nach Prüfung gezielt überarbeiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-010",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-010",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Gestaltungsabsicht und Wirkung analysieren, ein kreatives Sachprodukt mit eigener Absicht erzeugen und nach Prüfung gezielt überarbeiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-011",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-011",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Gestaltungsabsicht und Wirkung analysieren, ein kreatives Sachprodukt mit eigener Absicht erzeugen und nach Prüfung gezielt überarbeiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-EX-007",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "example",
+      "isRequirement": false,
+      "parentRecordId": "LH26-E-DA-012",
+      "coverage": "not-applicable",
+      "disposition": "context-only",
+      "fulfillmentMode": null,
+      "moduleIds": [],
+      "plannedEvidence": "Beispiel, Operator oder Progressionshinweis als Auslegungskontext; keine zusätzliche Kompetenz und keine eigene Pflichtzeit.",
+      "rationale": "Beispiele konkretisieren mögliche Wege, Operatoren schärfen die Denkhandlung, Progressionshinweise den Umfang. Keiner dieser Records wird als eigene Abdeckung gezählt.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-012",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M04",
+        "V2-G5-M05"
+      ],
+      "plannedEvidence": "Gestaltungsabsicht und Wirkung analysieren, ein kreatives Sachprodukt mit eigener Absicht erzeugen und nach Prüfung gezielt überarbeiten.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-013",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Quellenangaben und ein geprüftes Lizenzmodell erläutern, eigenes Produkt darauf prüfen/überarbeiten und über zwei zugelassene Wege teilen, etwa schulischer Kanal und lokale Präsentation.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-014",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Quellenangaben und ein geprüftes Lizenzmodell erläutern, eigenes Produkt darauf prüfen/überarbeiten und über zwei zugelassene Wege teilen, etwa schulischer Kanal und lokale Präsentation.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    },
+    {
+      "recordId": "LH26-E-DA-015",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "isRequirement": true,
+      "parentRecordId": null,
+      "coverage": "unassessed",
+      "disposition": "planned-in-grade-5",
+      "fulfillmentMode": "integrated",
+      "moduleIds": [
+        "V2-G5-M03",
+        "V2-G5-M04"
+      ],
+      "plannedEvidence": "Quellenangaben und ein geprüftes Lizenzmodell erläutern, eigenes Produkt darauf prüfen/überarbeiten und über zwei zugelassene Wege teilen, etwa schulischer Kanal und lokale Präsentation.",
+      "rationale": "Projektzuordnung nach Lernhandlung und Nachweisbedarf; noch keine tatsächliche Curriculumabdeckung.",
+      "successorTaskId": null
+    }
+  ]
+}

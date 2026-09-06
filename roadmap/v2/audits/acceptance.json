@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "gate": "IUM-V2-AUD",
+  "state": "approved-by-user",
+  "date": "2026-09-06",
+  "acceptedCommit": "dc059cffcb2866c6e0d7df3c83dbc0410d14d680",
+  "decisionBy": "user",
+  "nextTask": "IUM-V2-R5",
+  "contentProduction": "frozen",
+  "pilot": "not-started",
+  "publication": "closed",
+  "evidence": {
+    "kind": "vault",
+    "target": "2026-09-03 - IUM-V2-AUD IUM- und LXP-Übernahmeaudit durchführen",
+    "label": "Ausdrückliche Auditabnahme und R5-Auftrag am 6. September 2026",
+    "required": true
+  }
+}
