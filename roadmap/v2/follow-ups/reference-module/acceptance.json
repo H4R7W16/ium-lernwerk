@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "taskId": "IUM-V2-FU-MOD",
+  "state": "approved-by-user",
+  "date": "2026-09-07",
+  "acceptedCommit": "9365045a2c2a50d2259d01ef172b7b292cd0ee24",
+  "decisionBy": "user",
+  "statement": "Das sieht gut aus.",
+  "confirmationContext": "Positives Feedback zum FU-MOD-Ergebnis und anschließender ausdrücklicher Auftrag: setze FU-PILOT um.",
+  "scope": "reference-module-design",
+  "moduleId": "V2-G5-M06",
+  "fulfilledCondition": "MOD-DESIGN",
+  "remainingConditions": ["MOD-TECH", "MOD-LANGUAGE", "MOD-CONTEXT", "MOD-GOV", "MOD-PILOT"],
+  "nextTask": "IUM-V2-FU-PILOT",
+  "nextTaskStatement": "setze FU-PILOT um.",
+  "implementationAuthorized": false,
+  "contentProduction": "frozen",
+  "pilot": "not-started",
+  "publication": "closed",
+  "historicalSnapshotPolicy": "The accepted design and specification retain their original review snapshot; this additive record carries the later acceptance."
+}

@@ -1,0 +1,1359 @@
+{
+  "schemaVersion": 1,
+  "protocolId": "V2-G5-M06-PILOT-0.1",
+  "protocolVersion": "0.1",
+  "projectId": "ium-lernwerk",
+  "taskId": "IUM-V2-FU-PILOT",
+  "asOf": "2026-09-07",
+  "state": "review",
+  "scope": "instrument-specification-only",
+  "moduleId": "V2-G5-M06",
+  "acceptedDesignCommit": "9365045a2c2a50d2259d01ef172b7b292cd0ee24",
+  "modAcceptancePath": "roadmap/v2/follow-ups/reference-module/acceptance.json",
+  "technicalAcceptancePath": "roadmap/v2/follow-ups/technical/acceptance.json",
+  "actualState": {
+    "moduleImplementation": "not-started",
+    "technicalTargetChecks": "not-run",
+    "learnerUsage": "not-run",
+    "classroomPilot": "not-started",
+    "effectEvidence": "not-run",
+    "publication": "closed",
+    "contentProduction": "frozen",
+    "curriculumCoverage": "unassessed"
+  },
+  "currentBuild": null,
+  "realEvidence": [],
+  "tracks": [
+    {
+      "id": "TECH",
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run",
+      "boundary": "Technical evidence only; synthetic and real target configurations separate."
+    },
+    {
+      "id": "USE",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run",
+      "boundary": "Task-based usability; adult walkthrough is not learner usage."
+    },
+    {
+      "id": "TEACH",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run",
+      "boundary": "Contextual enactment and process evidence; no class-wide attainment or causal effect."
+    },
+    {
+      "id": "REVIEW",
+      "instrument": "review-guide.md",
+      "actualResult": "not-run",
+      "boundary": "Human review preparation only; no automatic permission or maturity mutation."
+    }
+  ],
+  "time": {
+    "unitMinutes": 45,
+    "totalMinutes": 225,
+    "components": {
+      "orientationAndExplanation": 35,
+      "guidedPractice": 55,
+      "independentApplication": 60,
+      "feedbackAndRevision": 40,
+      "consolidationAndTransfer": 35
+    },
+    "status": "project-estimate-not-piloted",
+    "segments": [
+      {
+        "id": "T1-01",
+        "meeting": 1,
+        "minutes": 10,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "orient",
+          "surface-prior-knowledge"
+        ],
+        "action": "S0/Ziel und Sichtung",
+        "productIds": [
+          "P0"
+        ]
+      },
+      {
+        "id": "T1-02",
+        "meeting": 1,
+        "minutes": 10,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "explain-or-model",
+          "open-disciplinary-problem"
+        ],
+        "action": "Begründete frühe Erklärung oder begrenzte Problemöffnung mit Erkläranschluss",
+        "productIds": [
+          "P0"
+        ]
+      },
+      {
+        "id": "T1-03",
+        "meeting": 1,
+        "minutes": 15,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "explain-or-model"
+        ],
+        "action": "S1/Grafik und Anweisung",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T1-04",
+        "meeting": 1,
+        "minutes": 5,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "Eigener Ergänzungsschritt",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T1-05",
+        "meeting": 1,
+        "minutes": 5,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "secure-and-transfer"
+        ],
+        "action": "Angeleiteter Vergleich und Sicherung",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T2-06",
+        "meeting": 2,
+        "minutes": 5,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "orient"
+        ],
+        "action": "Rückkehrkontext",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T2-07",
+        "meeting": 2,
+        "minutes": 10,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "explain-or-model"
+        ],
+        "action": "S1/Körper und Anzahl mit Verarbeitungsstopp",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T2-08",
+        "meeting": 2,
+        "minutes": 20,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action"
+        ],
+        "action": "S2/Vorhersagen und Prüfen",
+        "productIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "T2-09",
+        "meeting": 2,
+        "minutes": 5,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Gezielte Revision",
+        "productIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "T2-10",
+        "meeting": 2,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer"
+        ],
+        "action": "Körperregel sichern",
+        "productIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "T3-11",
+        "meeting": 3,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "independent-application",
+          "secure-and-transfer"
+        ],
+        "action": "P4 vor Wiederanzeige; tatsächlicher Abstand lokal zu bestimmen",
+        "productIds": [
+          "P4"
+        ]
+      },
+      {
+        "id": "T3-12",
+        "meeting": 3,
+        "minutes": 10,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "explain-or-model"
+        ],
+        "action": "Rückkehrklärung und Auftragsverständnis",
+        "productIds": [
+          "P3",
+          "P4"
+        ]
+      },
+      {
+        "id": "T3-13",
+        "meeting": 3,
+        "minutes": 20,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "S3 individuell entwerfen/programmieren",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T3-14",
+        "meeting": 3,
+        "minutes": 10,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Partnerprüfung und eigene Revision",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-15",
+        "meeting": 4,
+        "minutes": 5,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "explain-or-model"
+        ],
+        "action": "Rückkehr und nötige Modellierung",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-16",
+        "meeting": 4,
+        "minutes": 25,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "S3 mit Spur fertigstellen",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-17",
+        "meeting": 4,
+        "minutes": 10,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Erklärungsbezogene Revision",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-18",
+        "meeting": 4,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer"
+        ],
+        "action": "Körper-/Zustandsbeziehung bündeln",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T5-19",
+        "meeting": 5,
+        "minutes": 10,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "S4 eigenständige Transferentscheidung",
+        "productIds": [
+          "P5"
+        ]
+      },
+      {
+        "id": "T5-20",
+        "meeting": 5,
+        "minutes": 15,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Transferbegründung prüfen und revidieren",
+        "productIds": [
+          "P5"
+        ]
+      },
+      {
+        "id": "T5-21",
+        "meeting": 5,
+        "minutes": 15,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer"
+        ],
+        "action": "S5-Systemzuordnung und Einordnung",
+        "productIds": [
+          "P6"
+        ]
+      },
+      {
+        "id": "T5-22",
+        "meeting": 5,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer",
+          "orient"
+        ],
+        "action": "Dossier und Rückkehrstand",
+        "productIds": [
+          "P3",
+          "P5",
+          "P6"
+        ]
+      }
+    ],
+    "retrieval": {
+      "productId": "P4",
+      "meeting": 3,
+      "beforeFullReexposure": true,
+      "actualInterval": "to-be-set-before-use",
+      "adjacentMeetingsMeaning": "immediate-application-only",
+      "missingPriorProductAction": "replacement-check-and-reteaching"
+    },
+    "overrun": "Secure partial product; mark missing evidence; explicitly replan time/scope. No automatic 270-minute path."
+  },
+  "products": [
+    {
+      "id": "P0",
+      "title": "Ausgangsvorhersage",
+      "retention": "current-diagnosis",
+      "caseId": "S0",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P1",
+      "title": "Erklärte und ergänzte Ablaufgrafik",
+      "retention": "dossier",
+      "caseId": "S1",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P2",
+      "title": "Begründeter Revisionsvergleich",
+      "retention": "dossier",
+      "caseId": "S2",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P3",
+      "title": "Eigene Grafik, ausführbarer Code und geprüfte Spur",
+      "retention": "dossier",
+      "caseId": "S3",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P4",
+      "title": "Abruf vor Wiederanzeige",
+      "retention": "current-diagnosis",
+      "caseId": "retrieval",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P5",
+      "title": "Transfer mit neuer Zustandsbedingung",
+      "retention": "dossier",
+      "caseId": "S4",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P6",
+      "title": "Begründete Systemzuordnung",
+      "retention": "dossier",
+      "caseId": "S5",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    }
+  ],
+  "curriculum": [
+    {
+      "recordId": "BMB16-GYM-PK-SK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "fulfillmentMode": "cross-cutting",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P5"
+      ],
+      "plannedEvidence": "Begriffe am fachlichen Produkt richtig verwenden; querschnittlicher Teilbeitrag."
+    },
+    {
+      "recordId": "LH26-E-ALG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P6"
+      ],
+      "plannedEvidence": "Wesentlichen Verarbeitungsprozess aus Funktionsbeschreibung erkennen und begründen."
+    },
+    {
+      "recordId": "LH26-E-ALG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P1",
+        "P3"
+      ],
+      "plannedEvidence": "Präzise Vorschriften mit Anfangszustand und Reihenfolge erklären."
+    },
+    {
+      "recordId": "LH26-E-ALG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P1",
+        "P3"
+      ],
+      "plannedEvidence": "Grafische Befehlsfolge erläutern und Handlungsschritte ausführen; Ortslinie allein genügt nicht."
+    },
+    {
+      "recordId": "LH26-E-ALG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P2",
+        "P3",
+        "P5"
+      ],
+      "plannedEvidence": "Anweisung, gesamten Schleifenkörper und konstante Anzahl beschreiben."
+    },
+    {
+      "recordId": "LH26-E-ALG-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P3"
+      ],
+      "plannedEvidence": "Eigene Anweisungen und feste Wiederholung tatsächlich in geeigneter Sprache programmieren; Papier reicht nicht."
+    },
+    {
+      "recordId": "LH26-E-ALG-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P2",
+        "P3"
+      ],
+      "plannedEvidence": "Codeabschnitt schrittweise analysieren; Wirkung und erste Abweichung begründen."
+    }
+  ],
+  "usagePlanning": {
+    "participantsRange": [
+      4,
+      6
+    ],
+    "sessionBudgetMinutes": 20,
+    "purpose": "exploratory-problem-finding-not-representative",
+    "allIntendedAccessRoutesRequired": true,
+    "learnerUseAuthorization": "required-before-use",
+    "separateFromUnexposedClassroomParticipants": true
+  },
+  "runs": [
+    {
+      "id": "exploratory",
+      "minutes": 225,
+      "meetings": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "context": "first-class",
+      "actualState": "not-started"
+    },
+    {
+      "id": "confirmation",
+      "minutes": 225,
+      "meetings": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "context": "different-class-after-review",
+      "actualState": "not-started"
+    }
+  ],
+  "buildBinding": {
+    "required": [
+      "moduleVersion",
+      "gitSha",
+      "buildDigest",
+      "protocolVersion",
+      "protocolDigest",
+      "materialRevision"
+    ],
+    "revisionChange": "Impact review plus affected checks repeated; do not combine builds as one run.",
+    "legacy270PathAllowed": false
+  },
+  "technicalChecks": [
+    {
+      "id": "TECH-01",
+      "findingIds": [
+        "TECH-F07",
+        "TECH-F08"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-02",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-03",
+      "findingIds": [
+        "TECH-F07"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-04",
+      "findingIds": [
+        "TECH-F01",
+        "TECH-F02"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-05",
+      "findingIds": [
+        "TECH-F03"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-06",
+      "findingIds": [
+        "TECH-F04"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-07",
+      "findingIds": [
+        "TECH-F05"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-08",
+      "findingIds": [
+        "TECH-F06"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-09",
+      "findingIds": [
+        "TECH-F07",
+        "TECH-F08"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-10",
+      "findingIds": [
+        "TECH-F05",
+        "TECH-F08"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "TECH-11",
+      "findingIds": [
+        "TECH-F02",
+        "TECH-F04",
+        "TECH-F06"
+      ],
+      "instrument": "technical-runbook.md",
+      "actualResult": "not-run"
+    }
+  ],
+  "usageChecks": [
+    {
+      "id": "USE-01",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "USE-02",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "USE-03",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "USE-04",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "USE-05",
+      "instrument": "observation-kit.md",
+      "actualResult": "not-run"
+    }
+  ],
+  "observations": [
+    {
+      "id": "OBS-01",
+      "productIds": [
+        "P1"
+      ],
+      "segmentIds": [
+        "T1-03",
+        "T1-04",
+        "T1-05"
+      ],
+      "anchor": "Grafische Anweisungen, ganzer Körper und eigener Ergänzungsschritt",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-02",
+      "productIds": [
+        "P2"
+      ],
+      "segmentIds": [
+        "T2-08",
+        "T2-09",
+        "T2-10"
+      ],
+      "anchor": "Vorhersage; fachliche Abweichung 2 von Grenzfehler 3 trennen",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-03",
+      "productIds": [
+        "P2"
+      ],
+      "segmentIds": [
+        "T2-09",
+        "T2-10"
+      ],
+      "anchor": "Körper begründet revidieren und vom selben Start erneut prüfen",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-04",
+      "productIds": [
+        "P3"
+      ],
+      "segmentIds": [
+        "T3-13",
+        "T4-16"
+      ],
+      "anchor": "Eigene Grafik und tatsächlicher eigener ausführbarer Schleifencode",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-05",
+      "productIds": [
+        "P3"
+      ],
+      "segmentIds": [
+        "T4-16",
+        "T4-17",
+        "T4-18"
+      ],
+      "anchor": "Vorhersage, geordnete Prüfpunkte und Code-/Spurbeziehung",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-06",
+      "productIds": [
+        "P3"
+      ],
+      "segmentIds": [
+        "T3-14",
+        "T4-17"
+      ],
+      "anchor": "Beide erklären, gemeinsames Kriterium, Rollenwechsel, eigene Revision",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-07",
+      "productIds": [
+        "P3"
+      ],
+      "segmentIds": [
+        "T3-13",
+        "T3-14",
+        "T4-16",
+        "T4-17"
+      ],
+      "anchor": "Nach passender Hilfe eigene nächste Handlung",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-08",
+      "productIds": [
+        "P4"
+      ],
+      "segmentIds": [
+        "T3-11",
+        "T3-12"
+      ],
+      "anchor": "Abruf vor Wiederanzeige; Abstand und Hilfe benennen",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-09",
+      "productIds": [
+        "P5"
+      ],
+      "segmentIds": [
+        "T5-19",
+        "T5-20"
+      ],
+      "anchor": "Neue Zustandsbedingung der Prüfstation begründen",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-10",
+      "productIds": [
+        "P6"
+      ],
+      "segmentIds": [
+        "T5-21"
+      ],
+      "anchor": "Zwei Systemzuordnungen und eine Erkenntnisgrenze",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-11",
+      "productIds": [
+        "P2",
+        "P3",
+        "P6"
+      ],
+      "segmentIds": [
+        "T2-10",
+        "T4-18",
+        "T5-21",
+        "T5-22"
+      ],
+      "anchor": "Gemeinsame Sicherung und nächster fachlicher Schritt",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "consolidation-moment",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    },
+    {
+      "id": "OBS-12",
+      "productIds": [
+        "P1",
+        "P3",
+        "P5",
+        "P6"
+      ],
+      "segmentIds": [
+        "T2-06",
+        "T3-12",
+        "T4-15",
+        "T5-22"
+      ],
+      "anchor": "Stand, offener Punkt, nächste Handlung; Ersatzdiagnose bei fehlendem Stand",
+      "minimumOpportunities": 2,
+      "opportunityUnit": "distinct-own-contribution",
+      "recording": "combined-category-only",
+      "actualResult": "not-run"
+    }
+  ],
+  "otherInstruments": [
+    {
+      "id": "ENTRY-01",
+      "instrument": "observation-kit.md"
+    },
+    {
+      "id": "DATA-01",
+      "instrument": "data-and-rights.md"
+    },
+    {
+      "id": "REVIEW-01",
+      "instrument": "review-guide.md"
+    }
+  ],
+  "experienceGates": [
+    {
+      "gateId": "evidence-integrity",
+      "ownerRole": "source-reviewer",
+      "instrumentIds": [
+        "TECH-01",
+        "REVIEW-01"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "goal-action-evidence-alignment",
+      "ownerRole": "subject-didactics-reviewer",
+      "instrumentIds": [
+        "OBS-01",
+        "OBS-04",
+        "OBS-09",
+        "OBS-10"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "cognitive-economy",
+      "ownerRole": "subject-didactics-reviewer",
+      "instrumentIds": [
+        "USE-01",
+        "USE-02",
+        "OBS-01"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "disciplinary-learning-action",
+      "ownerRole": "subject-didactics-reviewer",
+      "instrumentIds": [
+        "OBS-02",
+        "OBS-03",
+        "OBS-04",
+        "OBS-09"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "representation-coherence",
+      "ownerRole": "subject-didactics-reviewer",
+      "instrumentIds": [
+        "TECH-02",
+        "TECH-03",
+        "OBS-01",
+        "OBS-05"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "support-without-task-removal",
+      "ownerRole": "subject-didactics-reviewer",
+      "instrumentIds": [
+        "USE-04",
+        "OBS-07"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "feedback-and-next-action",
+      "ownerRole": "subject-didactics-reviewer",
+      "instrumentIds": [
+        "OBS-03",
+        "OBS-06",
+        "OBS-07"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "orientation-and-recovery",
+      "ownerRole": "teacher-reviewer",
+      "instrumentIds": [
+        "TECH-11",
+        "USE-05",
+        "OBS-12"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "accessibility-and-equivalence",
+      "ownerRole": "accessibility-reviewer",
+      "instrumentIds": [
+        "TECH-09",
+        "USE-03",
+        "USE-05",
+        "OBS-04"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "teacher-orchestration",
+      "ownerRole": "teacher-reviewer",
+      "instrumentIds": [
+        "OBS-06",
+        "OBS-11",
+        "OBS-12",
+        "REVIEW-01"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "privacy-and-emotional-safety",
+      "ownerRole": "privacy-reviewer",
+      "instrumentIds": [
+        "TECH-07",
+        "TECH-10",
+        "ENTRY-01",
+        "DATA-01"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "pilot-boundary",
+      "ownerRole": "integration-reviewer",
+      "instrumentIds": [
+        "ENTRY-01",
+        "REVIEW-01"
+      ],
+      "state": "specified-for-user-review",
+      "realEvidence": "not-run"
+    }
+  ],
+  "profileQuestions": [
+    {
+      "id": "LXF03-P-001",
+      "question": "Erzeugen die vorgesehenen Vorwissensaufgaben verwertbare fachliche Hinweise, ohne Lernende festzuschreiben oder unnötig persönliche Angaben zu verlangen?",
+      "instrumentIds": [
+        "ENTRY-01",
+        "OBS-01"
+      ],
+      "scope": "P0 nur direkt einsehen; keine Produktkopien. Vorwissenshinweise und nächste Lehrhandlung begrenzt prüfen.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-002",
+      "question": "Verstehen Lernende Auftrag, Operator und Qualitätskriterium und können sie die geforderte fachliche Beziehung in einer geeigneten Ausdrucksform sichtbar machen?",
+      "instrumentIds": [
+        "USE-01",
+        "USE-02",
+        "OBS-01",
+        "OBS-10"
+      ],
+      "scope": "Auftragsverständnis und fachliche Erklärung in zugänglicher Form; keine Sprachprofile.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-003",
+      "question": "Können Lernende nach einem Erklärsegment die zentrale Beziehung erklären oder anwenden, ohne durch Navigation oder Darstellungswechsel den Faden zu verlieren?",
+      "instrumentIds": [
+        "USE-02",
+        "OBS-01",
+        "OBS-12"
+      ],
+      "scope": "Segmentierung und Darstellungswechsel im M06-Kontext; keine universelle Informationsgrenze.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-004",
+      "question": "Welche Bedienhandlungen verbrauchen in realen Klassen Lernzeit oder verhindern ein fachliches Produkt, und welche Unterstützung löst die Hürde mit geringem Zusatzaufwand?",
+      "instrumentIds": [
+        "TECH-09",
+        "USE-03",
+        "USE-05",
+        "OBS-12"
+      ],
+      "scope": "Bedienhindernisse, Hilfe und Wiederaufnahme getrennt von Fachverständnis.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-005",
+      "question": "Nutzen Lernende Hilfen für eine nächste fachliche Handlung und können sie anschließend ohne Aufgabenübernahme weiterarbeiten oder revidieren?",
+      "instrumentIds": [
+        "USE-04",
+        "OBS-07"
+      ],
+      "scope": "Hilfe und anschließende eigene Handlung beobachten, keine Versuchslogs.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-006",
+      "question": "Können Lernende Zweck, Qualitätsmaßstab und nächste Handlung erklären, und führt angebotene Wahl zu unterschiedlichen tragfähigen Wegen statt zu bloßer Dekoration?",
+      "instrumentIds": [
+        "USE-01",
+        "OBS-05"
+      ],
+      "scope": "Zweck und Qualitätsmaßstab im Gespräch; Wahlwirkungen nur bei tatsächlich angebotenen unterschiedlichen Wegen. Keine Motivationsskala.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-007",
+      "question": "Erreichen Lernende Ziel, Information, Handlung, Hilfe und Fehlerkorrektur über Tastatur, Touch und erforderliche Alternativpfade, und bleiben Produkte fachlich vergleichbar?",
+      "instrumentIds": [
+        "TECH-09",
+        "USE-03",
+        "OBS-04"
+      ],
+      "scope": "Konkrete Zugänge und Ausdruckswege prüfen; Papier erfüllt ALG-005 nicht.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    },
+    {
+      "id": "LXF03-P-008",
+      "question": "Entstehen in Einzel-, Partner- und Plenumsphasen nachvollziehbare fachliche Beiträge, und kann die Lehrkraft Übergänge sowie Unterstützung unter Wahrung der Datensparsamkeit steuern?",
+      "instrumentIds": [
+        "OBS-06",
+        "OBS-11",
+        "OBS-12"
+      ],
+      "scope": "Eigene Beiträge, Rollenwechsel, Sicherung, Haltepunkte und tatsächliche Erwachsenenlast.",
+      "status": "operationalized-not-answered",
+      "gradeScope": [
+        5
+      ],
+      "otherGrades": "unassessed"
+    }
+  ],
+  "thresholds": {
+    "status": "project-defined-not-empirically-validated",
+    "criticalEventsToStop": 1,
+    "repeatedUsabilitySituationsToRevise": 2,
+    "observationOpportunities": 2,
+    "observationCategories": [
+      "B",
+      "T",
+      "N",
+      "U"
+    ],
+    "observationMeaning": "B: both show all anchors; T: one or partial; N: neither despite opportunity; U: insufficient or uninterpretable opportunity. No learner scores.",
+    "segmentDeviationMinutesForCauseNote": 5,
+    "meetingMaximumMinutes": 45,
+    "omittedCoreAction": "revise-required",
+    "unknownEvidence": "not-evaluable",
+    "pulseCountsStored": false,
+    "pulseAnswersStored": false,
+    "pulseMinimumResponses": null
+  },
+  "dataClasses": [
+    {
+      "id": "DATA-SYNTH",
+      "realDataAllowed": false,
+      "retention": "versioned-development-artifact"
+    },
+    {
+      "id": "DATA-DOSSIER",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "maximumDaysAfterEnd": 14,
+      "endEvent": "T5-or-abort",
+      "earlierEvent": "last-needed-feedback-and-return"
+    },
+    {
+      "id": "DATA-DIAG",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "retention": "current-meeting-only-no-response-collection"
+    },
+    {
+      "id": "DATA-OBS",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "paperMaximumDays": 7,
+      "decisionPlusDays": 14,
+      "absoluteMaximumDays": 60,
+      "endEvent": "T5-or-abort"
+    },
+    {
+      "id": "DATA-USE",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "rawMaximumDays": 7,
+      "decisionPlusDays": 14,
+      "absoluteMaximumDays": 60,
+      "endEvent": "last-usage-session-or-abort"
+    },
+    {
+      "id": "DATA-TECH",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "decisionPlusDays": 14,
+      "absoluteMaximumDays": 60,
+      "endEvent": "technical-series-end-or-abort",
+      "exception": "Reviewed reproductions with only synthetic data may be versioned."
+    },
+    {
+      "id": "DATA-OPS",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "decisionPlusDays": 30,
+      "absoluteMaximumDays": 90,
+      "endEvent": "last-associated-run-or-abort"
+    },
+    {
+      "id": "DATA-EXTERNAL",
+      "realDataAllowed": true,
+      "workspaceAllowed": false,
+      "retention": "concrete-per-store-contract-before-use; exports with dossier, clipboard after transfer",
+      "unresolved": "affected-operation-closed"
+    }
+  ],
+  "dataDecision": {
+    "state": "proposed-not-institutionally-approved",
+    "actualInstitution": null,
+    "actualStorage": null,
+    "actualDeletionDates": null,
+    "rule": "earliest-applicable-deadline; delayed decision never extends maximum",
+    "personalDataInRepositoryVaultOrWorkspace": false
+  },
+  "entryConditions": [
+    {
+      "id": "ENTRY-BUILD",
+      "status": "open",
+      "ownerRole": "technical-reviewer",
+      "trigger": "Before candidate checks: implemented version and material/build identities"
+    },
+    {
+      "id": "ENTRY-TECH",
+      "status": "open",
+      "ownerRole": "technical-reviewer",
+      "trigger": "Before learner use: intended profiles and affected TECH findings resolved"
+    },
+    {
+      "id": "ENTRY-CONTEXT",
+      "status": "open",
+      "ownerRole": "teacher-reviewer",
+      "trigger": "Before classroom use: actual M01, meetings, access, retrieval interval and safe fallback"
+    },
+    {
+      "id": "GOV-Q-SCHOOL",
+      "status": "open",
+      "ownerRole": "project-decision",
+      "trigger": "Before learner use: institutional decision, actual data flows, information, access and deletion dates"
+    },
+    {
+      "id": "GOV-Q-OPERATOR",
+      "status": "open",
+      "ownerRole": "project-decision",
+      "trigger": "Before hosting: operator and operating conditions"
+    },
+    {
+      "id": "GOV-Q-REVIEWERS",
+      "status": "open",
+      "ownerRole": "project-decision",
+      "trigger": "Before concrete material/pilot/release decisions: human reviewers assigned"
+    },
+    {
+      "id": "GOV-Q-RIGHTS",
+      "status": "open",
+      "ownerRole": "project-decision",
+      "trigger": "Before applicable asset inclusion/publication: concrete rights evidence"
+    },
+    {
+      "id": "ENTRY-RUN",
+      "status": "open",
+      "ownerRole": "project-decision",
+      "trigger": "Separate express authorization of the particular real run"
+    }
+  ],
+  "decisionBoundary": {
+    "allowedWorkResults": [
+      "revise-required",
+      "not-evaluable",
+      "ready-for-human-review"
+    ],
+    "syntheticRealUseResult": "synthetic-only",
+    "authorizesUse": false,
+    "authorizesPublication": false,
+    "effectClaimAllowed": false,
+    "automaticStatusMutation": false
+  }
+}

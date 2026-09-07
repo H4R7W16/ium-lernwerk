@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "inputCommit": "9365045a2c2a50d2259d01ef172b7b292cd0ee24",
+  "comparison": "Raw SHA256 per layer; CRLF/LF normalized only for cross-layer content equality.",
+  "inputs": [
+    {
+      "path": "docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md",
+      "checkoutSha256": "b39a5e8f2e65cfd7be4ef12e79fd81d1599b992efa1c91f82e492afbf59bb774",
+      "gitBlobSha256": "1a735f917e3583df11c8d49e83fdc116506bd0f3c3785584773cb63eb79dbd2c"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/specification.json",
+      "checkoutSha256": "968a92195f7d9c8b4a944d7e89f2e977f9a742c3561cc845d84a23dc9b51bb16",
+      "gitBlobSha256": "276cdd275dd3954985722f52f0a76e2e608a3bb95c9c479068f8228ba58e4d4f"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/semantics-results.json",
+      "checkoutSha256": "95ef91ba87ebb2bc96ab1ae50391ce314d11237e9b8bcc73f096306d564938d4",
+      "gitBlobSha256": "95ef91ba87ebb2bc96ab1ae50391ce314d11237e9b8bcc73f096306d564938d4"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/validation-report.md",
+      "checkoutSha256": "cdf067a28b8eaf6fe34655cc93cafc3b4f4a9c1c64e40f92e55e7850e2ea0e0d",
+      "gitBlobSha256": "beecdc86c8b368b05043554abd36ef3a2b670ed4713745189d03a97494f5f695"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/acceptance.json",
+      "checkoutSha256": "add1210c802f2a07ca906820b64483c2de622eb0308207c21486299163be48de",
+      "gitBlobSha256": "add1210c802f2a07ca906820b64483c2de622eb0308207c21486299163be48de"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/findings.md",
+      "checkoutSha256": "d2a2f06cbdb7813bf96a6724a664b0e1bd4ef326f389c383ca52eb2f08db06b2",
+      "gitBlobSha256": "d2a2f06cbdb7813bf96a6724a664b0e1bd4ef326f389c383ca52eb2f08db06b2"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/validation-report.md",
+      "checkoutSha256": "54e5fd8cd7dc2dd96d16240d9ce8c33557c2583ea4b252c838a15a8faa28d07e",
+      "gitBlobSha256": "54e5fd8cd7dc2dd96d16240d9ce8c33557c2583ea4b252c838a15a8faa28d07e"
+    },
+    {
+      "path": "roadmap/v2/audits/artifact-inventory.json",
+      "checkoutSha256": "12f4f9de8000279b29a28eca880a621c121c23052d455866b4935317549abe65",
+      "gitBlobSha256": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4"
+    },
+    {
+      "path": "roadmap/v2/audits/follow-up-tasks.json",
+      "checkoutSha256": "66a002c445b2e46578862792019f01a8dedc89f73cec4ca68c316b7cb5181162",
+      "gitBlobSha256": "0b5195e26d6022d8f760e106b61cb19b1ecfd5d68dd6970e8a2cdc9dbe1bfcf0"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/learner-profile.json",
+      "checkoutSha256": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+      "gitBlobSha256": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/learning-architecture.json",
+      "checkoutSha256": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+      "gitBlobSha256": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/material-patterns.json",
+      "checkoutSha256": "ca4b005d4bd8b0c990bfae66816327a9caa39b2cfe964a923b24d6711616e07b",
+      "gitBlobSha256": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/teacher-orchestration.md",
+      "checkoutSha256": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+      "gitBlobSha256": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823"
+    },
+    {
+      "path": "roadmap/v2/foundations/learning-experience/experience-gates.json",
+      "checkoutSha256": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+      "gitBlobSha256": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e"
+    },
+    {
+      "path": "roadmap/v2/foundations/governance/governance-contract.json",
+      "checkoutSha256": "2a5e2c77f9bbbe27e6b3b7165a42a41824602a6c0b51ed92cf03977b3904f0ea",
+      "gitBlobSha256": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc"
+    },
+    {
+      "path": "roadmap/v2/cutover/active-baseline.json",
+      "checkoutSha256": "5b66debec3d66c4c84df24e4fe3de6df354009d553dfef9042e81f3f862f3b15",
+      "gitBlobSha256": "d4effdaa4107c503784b117fe4aedf4e4f22cfd440bb3dfc80c6a60ac92062a9"
+    },
+    {
+      "path": "pilot/pilot-protocol.json",
+      "checkoutSha256": "efe2daeb6be00bf72782657053b58360c7bbe105ac614b9bbb955605ea2af8aa",
+      "gitBlobSha256": "efe2daeb6be00bf72782657053b58360c7bbe105ac614b9bbb955605ea2af8aa"
+    },
+    {
+      "path": "pilot/docs/publication-contract.json",
+      "checkoutSha256": "47dd8fd200df1d08b1d85dcb35eb12847fe0fe61140187b832e6f65b71aed0e3",
+      "gitBlobSha256": "47dd8fd200df1d08b1d85dcb35eb12847fe0fe61140187b832e6f65b71aed0e3"
+    },
+    {
+      "path": "scripts/validate_ium11.py",
+      "checkoutSha256": "701819fd11a709413d5b775fafd4211be79cbdd5fa9457e3c22d3822d9fa11eb",
+      "gitBlobSha256": "701819fd11a709413d5b775fafd4211be79cbdd5fa9457e3c22d3822d9fa11eb"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-08-03-ium5-gate-b-pilot-design.md",
+      "checkoutSha256": "5a17999ef42c26237e39fce085cb39ca2a85e5fe559818bf612b0eaadb154839",
+      "gitBlobSha256": "5a17999ef42c26237e39fce085cb39ca2a85e5fe559818bf612b0eaadb154839"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-08-03-ium5-gate-b-pilot-implementation.md",
+      "checkoutSha256": "edad8579edd62f97294dd0ee2ad112a200a471164380792122eaa2962fbe1035",
+      "gitBlobSha256": "edad8579edd62f97294dd0ee2ad112a200a471164380792122eaa2962fbe1035"
+    },
+    {
+      "path": "pilot/ium5-gate-b/protocol.json",
+      "checkoutSha256": "976116c840ddd88474843eaf813c485b954ce6fea513c4dcf3e9ee30c3e4cf21",
+      "gitBlobSha256": "976116c840ddd88474843eaf813c485b954ce6fea513c4dcf3e9ee30c3e4cf21"
+    },
+    {
+      "path": "pilot/ium5-gate-b/schemas/technical-evidence.schema.json",
+      "checkoutSha256": "7decf131007d140bd98c700d65ba1f8307e87283e36553aaa814c22a3c5bd902",
+      "gitBlobSha256": "7decf131007d140bd98c700d65ba1f8307e87283e36553aaa814c22a3c5bd902"
+    },
+    {
+      "path": "pilot/ium5-gate-b/schemas/pilot-evidence.schema.json",
+      "checkoutSha256": "e22ee848df38dd0da2ebe8effad7c9a984f8ba11df51310c3e95adb559fcdbb0",
+      "gitBlobSha256": "e22ee848df38dd0da2ebe8effad7c9a984f8ba11df51310c3e95adb559fcdbb0"
+    },
+    {
+      "path": "scripts/validate_ium5_gate_b.py",
+      "checkoutSha256": "cd04c0a0559e2c2ef408f34b3a21b7c7bac4500755198db02fb6a978152defc4",
+      "gitBlobSha256": "cd04c0a0559e2c2ef408f34b3a21b7c7bac4500755198db02fb6a978152defc4"
+    }
+  ]
+}

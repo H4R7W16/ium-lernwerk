@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T20:06:37.599385+00:00",
+  "inputCommit": "9365045a2c2a50d2259d01ef172b7b292cd0ee24",
+  "result": "passed",
+  "checks": [
+    {
+      "id": "input-integrity",
+      "result": "passed",
+      "count": 25
+    },
+    {
+      "id": "acceptance-boundaries",
+      "result": "passed",
+      "count": 2
+    },
+    {
+      "id": "time-products-instruments-gates-data",
+      "result": "passed",
+      "segments": 22,
+      "observations": 12,
+      "experienceGates": 12,
+      "profileQuestions": 8
+    },
+    {
+      "id": "synthetic-decision-counterexamples",
+      "result": "passed",
+      "count": 12
+    },
+    {
+      "id": "negative-mutations-rejected",
+      "result": "passed",
+      "count": 6
+    },
+    {
+      "id": "local-links",
+      "result": "passed",
+      "count": 22
+    },
+    {
+      "id": "repository-scope",
+      "result": "passed"
+    }
+  ],
+  "syntheticScenarios": [
+    {
+      "id": "SYNTH-01",
+      "simulatedWorkResult": "ready-for-human-review",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-02",
+      "simulatedWorkResult": "revise-required",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-03",
+      "simulatedWorkResult": "not-evaluable",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-04",
+      "simulatedWorkResult": "not-evaluable",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-05",
+      "simulatedWorkResult": "revise-required",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-06",
+      "simulatedWorkResult": "revise-required",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-07",
+      "simulatedWorkResult": "revise-required",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-08",
+      "simulatedWorkResult": "revise-required",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-09",
+      "simulatedWorkResult": "not-evaluable",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-10",
+      "simulatedWorkResult": "not-evaluable",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-11",
+      "simulatedWorkResult": "revise-required",
+      "realEvidenceUsability": "synthetic-only"
+    },
+    {
+      "id": "SYNTH-12",
+      "simulatedWorkResult": "not-evaluable",
+      "realEvidenceUsability": "synthetic-only"
+    }
+  ],
+  "artifactSha256": {
+    "data-and-rights.md": "c2311c75ce5b9a8116e5698903f5bd91bc420da8f7253938519c7d3382aae667",
+    "decision-scenarios.synthetic.json": "e01bdfc4503c65cc75003c41ad76573e7f2b57ee1b2ee5d657df2d7fe501d137",
+    "design.md": "ee17a7f1dacb714d37fb33c64041969822bd95cc0a3b27244c381ffd3b3f8ea2",
+    "input-bindings.json": "ed78dc8e99a5ba9990c41e24aab63b1cff83b816291257e84a9acb0287fe9417",
+    "observation-kit.md": "e804b39824a84dcb3347288763c331f2aa2b636e85b78176a7d2cbb93332d96a",
+    "protocol.json": "690f70d0ff6d95bead0d9867e9b3bf1c3a2d8ab480adcb6d0c25783cd454bbdc",
+    "README.md": "56665a63b42ca1854b1c3b42bd751e1f5d6fb5a6bfbe8c69ccc4b8f198425f30",
+    "review-guide.md": "7ec05057d534b7a03ea4d3ec3202e2380c5ac2fb669a2b7e919846f84820dfa2",
+    "technical-runbook.md": "449db37fe5ef86cccdd4224ac3b48392a8d99ee3d124507be62861b834b62394",
+    "verify-packet.py": "97582878b974ab758479672b2da7e5c95efd984a0c33ad6a6eb46b070cd943ee"
+  },
+  "claimBoundary": "Only this specification packet and synthetic decision examples checked; no V2 runtime, real devices, learner use or pilot verified."
+}

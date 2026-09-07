@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "protocolId": "V2-G5-M06-PILOT-0.1",
+  "evidenceKind": "synthetic",
+  "realParticipants": 0,
+  "cases": [
+    {
+      "id": "SYNTH-01",
+      "title": "Vollständige hypothetische Bestätigung",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "ready-for-human-review",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-02",
+      "title": "Kritischer Datenverlust trotz sonst guter Beobachtung",
+      "facts": {
+        "criticalIncident": true,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "revise-required",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-03",
+      "title": "Fehlende erforderliche Geräteprüfung",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": false,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "not-evaluable",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-04",
+      "title": "Abweichender Build",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": false,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "not-evaluable",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-05",
+      "title": "Wiederholtes ungelöstes Bedienhindernis",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": true,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "revise-required",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-06",
+      "title": "Sicherung gestrichen, Zeit scheinbar passend",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": false,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "revise-required",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-07",
+      "title": "Mehrzeit statt tatsächlicher 45-Minuten-Passung",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": false,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "revise-required",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-08",
+      "title": "Nur Papier trotz positiver Rückmeldung",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": false,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "revise-required",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-09",
+      "title": "Exploration ohne Bestätigung",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": false,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "not-evaluable",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-10",
+      "title": "Fehlende schulische Bedingungen",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": true,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": false
+      },
+      "expectedHypotheticalWorkResult": "not-evaluable",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-11",
+      "title": "Kritischer Vorfall und fehlende Nachweise",
+      "facts": {
+        "criticalIncident": true,
+        "bindingValid": true,
+        "requiredEvidenceComplete": false,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "revise-required",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    },
+    {
+      "id": "SYNTH-12",
+      "title": "Nicht interpretierbare Hilfesituation/Abrufbeobachtung",
+      "facts": {
+        "criticalIncident": false,
+        "bindingValid": true,
+        "requiredEvidenceComplete": false,
+        "materiallyOpenFinding": false,
+        "coreActionsComplete": true,
+        "withinMeetingBudgets": true,
+        "ownExecutableP3": true,
+        "confirmationComplete": true,
+        "institutionalConditionsComplete": true
+      },
+      "expectedHypotheticalWorkResult": "not-evaluable",
+      "actualEvidenceUsability": "synthetic-only",
+      "authorizesUse": false,
+      "authorizesPublication": false,
+      "effectClaimAllowed": false
+    }
+  ]
+}
