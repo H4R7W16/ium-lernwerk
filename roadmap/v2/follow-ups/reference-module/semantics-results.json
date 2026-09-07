@@ -1,0 +1,639 @@
+{
+  "asOf": "2026-09-07",
+  "method": "synthetic-existing-v1-interpreter",
+  "purpose": "Verify internal motion examples only; no V2 adapter/UI or learner evidence.",
+  "result": "passed",
+  "vectors": [
+    {
+      "id": "S0",
+      "actual": {
+        "status": "complete",
+        "error": null,
+        "position": {
+          "column": 2,
+          "row": 2
+        },
+        "direction": "east",
+        "steps": 3
+      },
+      "trace": [
+        {
+          "step": 1,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "north"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "north"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 2,
+          "kind": "turn-right",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "north"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 3,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "actual": {
+        "status": "complete",
+        "error": null,
+        "position": {
+          "column": 2,
+          "row": 3
+        },
+        "direction": "east",
+        "steps": 8
+      },
+      "trace": [
+        {
+          "step": 1,
+          "kind": "move",
+          "loop": {
+            "iteration": 1,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 2,
+          "kind": "turn-left",
+          "loop": {
+            "iteration": 1,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "north"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 3,
+          "kind": "move",
+          "loop": {
+            "iteration": 2,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "north"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "north"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 4,
+          "kind": "turn-left",
+          "loop": {
+            "iteration": 2,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "north"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 5,
+          "kind": "move",
+          "loop": {
+            "iteration": 3,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 6,
+          "kind": "turn-left",
+          "loop": {
+            "iteration": 3,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "south"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 7,
+          "kind": "move",
+          "loop": {
+            "iteration": 4,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "south"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "south"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 8,
+          "kind": "turn-left",
+          "loop": {
+            "iteration": 4,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "south"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "actual": {
+        "status": "error",
+        "error": "OUT_OF_BOUNDS",
+        "position": {
+          "column": 4,
+          "row": 3
+        },
+        "direction": "east",
+        "steps": 3
+      },
+      "trace": [
+        {
+          "step": 1,
+          "kind": "move",
+          "loop": {
+            "iteration": 1,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 2,
+          "kind": "move",
+          "loop": {
+            "iteration": 2,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 3,
+          "kind": "move",
+          "loop": {
+            "iteration": 3,
+            "total": 4
+          },
+          "before": {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 4,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "error"
+        }
+      ]
+    },
+    {
+      "id": "S3-native-rejected",
+      "actual": {
+        "status": "error",
+        "error": "INVALID_REPEAT",
+        "position": {
+          "column": 1,
+          "row": 3
+        },
+        "direction": "east",
+        "steps": 1
+      },
+      "trace": [
+        {
+          "step": 1,
+          "kind": "repeat",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "error"
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "actual": {
+        "status": "complete",
+        "error": null,
+        "position": {
+          "column": 1,
+          "row": 3
+        },
+        "direction": "east",
+        "steps": 10
+      },
+      "trace": [
+        {
+          "step": 1,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 2,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 3,
+          "kind": "turn-left",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "north"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 4,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 3
+            },
+            "direction": "north"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "north"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 5,
+          "kind": "turn-left",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "north"
+          },
+          "after": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 6,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 3,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "after": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 7,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 2,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 8,
+          "kind": "turn-left",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "west"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "south"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 9,
+          "kind": "move",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 2
+            },
+            "direction": "south"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "south"
+          },
+          "outcome": "ok"
+        },
+        {
+          "step": 10,
+          "kind": "turn-left",
+          "loop": null,
+          "before": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "south"
+          },
+          "after": {
+            "position": {
+              "column": 1,
+              "row": 3
+            },
+            "direction": "east"
+          },
+          "outcome": "ok"
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "S2-first-divergence",
+      "step": 2,
+      "technicalErrorStep": 3,
+      "result": "passed"
+    },
+    {
+      "id": "S3-traversal",
+      "result": "passed"
+    },
+    {
+      "id": "S3-empty-counterexample",
+      "result": "passed",
+      "meaning": "Final state alone cannot prove task fulfillment."
+    }
+  ],
+  "manualOnly": [
+    "S4 transfer-state model",
+    "S5 system classification"
+  ],
+  "realDeviceVerification": "not-run",
+  "pilot": "not-started"
+}

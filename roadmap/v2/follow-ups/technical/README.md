@@ -1,5 +1,7 @@
 # IUM-V2-FU-TECH – technische Übernahmeprüfung
 
+**Fortschreibung vom 07.09.2026:** Der Nutzer hat den Audit an Commit `69634c56d3d100d3bf33632f29a4f98eaf579276` angenommen (`done`) und FU-MOD anschließend ausdrücklich beauftragt. [Abnahmebeleg](acceptance.json). Die acht Befunde und Einsatzgrenzen bleiben offen; keine technische Reparatur wurde beauftragt. Die folgenden Abschnitte dokumentieren den historischen Abgabestand vom 06.09.2026.
+
 Stand: 6. September 2026. **Audit zur Nutzerabnahme (`review`); technische Wiederverwendung nur nach den beschriebenen Anpassungen.** Der Auftrag ist ausgeführt, die gefundenen Produktlücken sind nicht behoben. Ein dokumentarischer Abschluss dieses Audits würde keine der offenen technischen oder institutionellen Einsatzbedingungen erfüllen.
 
 Geprüfter Repositoryinput: `32b523a657a3e6717a83fd9aaa755c8deed9adbf`, Branch `feat/ium-v2-rebaseline`. 52 einzeln benannte Dateien aus IUM04, IUM12, IUM13 und IUM18: **13 retain, 31 adapt, 8 reference-only**. `retain` meint ausschließlich die im Inventar beschriebene technische Funktion. Das ist weder die Auswahl eines V2-Moduls noch eine Freigabe zur unveränderten Produktübernahme.

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "taskId": "IUM-V2-FU-MOD",
+  "checkedAt": "2026-09-07T18:11:06.853894+00:00",
+  "command": "python -B roadmap/v2/follow-ups/reference-module/verify-spec.py",
+  "repositoryInput": "69634c56d3d100d3bf33632f29a4f98eaf579276",
+  "result": "passed",
+  "checks": [
+    {
+      "id": "input-integrity",
+      "result": "passed",
+      "count": 32
+    },
+    {
+      "id": "acceptance-and-design-boundaries",
+      "result": "passed"
+    },
+    {
+      "id": "curriculum-product-binding",
+      "result": "passed",
+      "records": 7,
+      "official": 1,
+      "orientation": 6
+    },
+    {
+      "id": "time-and-learning-functions",
+      "result": "passed",
+      "segments": 22,
+      "byMeeting": {
+        "1": 45,
+        "2": 45,
+        "3": 45,
+        "4": 45,
+        "5": 45
+      },
+      "byComponent": {
+        "orientationAndExplanation": 35,
+        "guidedPractice": 55,
+        "independentApplication": 60,
+        "feedbackAndRevision": 40,
+        "consolidationAndTransfer": 35
+      },
+      "minutes": 225
+    },
+    {
+      "id": "lxf-evidence-chain-and-gates",
+      "result": "passed",
+      "principles": 18,
+      "claims": 23,
+      "sources": 23,
+      "gates": 12
+    },
+    {
+      "id": "existing-semantics-probe-record",
+      "result": "passed",
+      "motionVectors": 4,
+      "expectedParserRejection": 1,
+      "comparisons": 3
+    },
+    {
+      "id": "local-markdown-links",
+      "result": "passed",
+      "count": 13
+    },
+    {
+      "id": "production-paths-unchanged",
+      "result": "passed"
+    }
+  ],
+  "artifactDigests": {
+    "docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md": "b39a5e8f2e65cfd7be4ef12e79fd81d1599b992efa1c91f82e492afbf59bb774",
+    "roadmap/v2/follow-ups/reference-module/README.md": "eaf5c9bf8f1c0c13155d1438d883fd66769dc10ade81993a697d07f82b474062",
+    "roadmap/v2/follow-ups/reference-module/specification.json": "968a92195f7d9c8b4a944d7e89f2e977f9a742c3561cc845d84a23dc9b51bb16",
+    "roadmap/v2/follow-ups/reference-module/semantics-probe.mts": "e8b8bc59c2339a16ab038b630b43c477e29e5976e239632ce73441fd5c149d44",
+    "roadmap/v2/follow-ups/reference-module/semantics-results.json": "95ef91ba87ebb2bc96ab1ae50391ce314d11237e9b8bcc73f096306d564938d4",
+    "roadmap/v2/follow-ups/reference-module/verify-spec.py": "d0a9677875428202ceed7ec2b7e499bc87171f9e79d89359eafd6de9b09f8b26",
+    "roadmap/v2/follow-ups/reference-module/validation-report.md": "cdf067a28b8eaf6fe34655cc93cafc3b4f4a9c1c64e40f92e55e7850e2ea0e0d",
+    "roadmap/v2/follow-ups/technical/acceptance.json": "add1210c802f2a07ca906820b64483c2de622eb0308207c21486299163be48de"
+  },
+  "statementBoundary": "Formal design verification only. AI self-review is not user acceptance, product validation, real usage or a pilot."
+}

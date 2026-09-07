@@ -1,0 +1,1420 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "taskId": "IUM-V2-FU-MOD",
+  "asOf": "2026-09-07",
+  "state": "review",
+  "moduleId": "V2-G5-M06",
+  "title": "Präzise Abläufe entwickeln und prüfen",
+  "contextTitle": "Prüffahrt im Raster",
+  "designPath": "docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md",
+  "repositoryInput": "69634c56d3d100d3bf33632f29a4f98eaf579276",
+  "technicalAcceptancePath": "roadmap/v2/follow-ups/technical/acceptance.json",
+  "scope": {
+    "schoolType": "Gymnasium Baden-Württemberg",
+    "grade": 5,
+    "level": "E",
+    "planningYear": "2026/2027",
+    "kind": "design-specification-only",
+    "activeBaseline": "v2",
+    "productBaseline": "v1"
+  },
+  "limits": {
+    "implementation": "not-started",
+    "implementationPlan": "requires-approved-design-and-scoped-order",
+    "contentProduction": "frozen",
+    "curriculum": "unassessed",
+    "realDeviceVerification": "not-run",
+    "usageVerification": "not-run",
+    "pilot": "not-started",
+    "publication": "closed",
+    "lxp05Integration": "not-started",
+    "learningEffectClaim": false
+  },
+  "selection": {
+    "candidates": [
+      "V2-G5-M01",
+      "V2-G5-M04",
+      "V2-G5-M06"
+    ],
+    "selected": "V2-G5-M06",
+    "reason": "Abgegrenzte Eigenleistung mit Grafik, Code, Zustand, Revision und Transfer; bestehende Semantik nur Kandidat.",
+    "coreOrderUnchanged": [
+      "V2-G5-M01",
+      "V2-G5-M02",
+      "V2-G5-M03",
+      "V2-G5-M04",
+      "V2-G5-M05",
+      "V2-G5-M06"
+    ],
+    "prerequisites": [
+      "V2-G5-M01"
+    ],
+    "actualCohortKnown": false,
+    "actualPriorProductsAvailable": false
+  },
+  "products": [
+    {
+      "id": "P0",
+      "title": "Ausgangsvorhersage",
+      "retention": "current-diagnosis",
+      "caseId": "S0",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P1",
+      "title": "Erklärte und ergänzte Ablaufgrafik",
+      "retention": "dossier",
+      "caseId": "S1",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P2",
+      "title": "Begründeter Revisionsvergleich",
+      "retention": "dossier",
+      "caseId": "S2",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P3",
+      "title": "Eigene Grafik, ausführbarer Code und geprüfte Spur",
+      "retention": "dossier",
+      "caseId": "S3",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P4",
+      "title": "Abruf vor Wiederanzeige",
+      "retention": "current-diagnosis",
+      "caseId": "retrieval",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P5",
+      "title": "Transfer mit neuer Zustandsbedingung",
+      "retention": "dossier",
+      "caseId": "S4",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    },
+    {
+      "id": "P6",
+      "title": "Begründete Systemzuordnung",
+      "retention": "dossier",
+      "caseId": "S5",
+      "taskType": "learning-task",
+      "evidenceStatus": "planned-only"
+    }
+  ],
+  "curriculum": [
+    {
+      "recordId": "BMB16-GYM-PK-SK-001",
+      "sourceId": "SRC-CUR-BMB-2016",
+      "sourcePath": "curriculum/basiskurs-medienbildung/competencies.json",
+      "sourceBinding": "official",
+      "sourceGrades": [
+        5
+      ],
+      "recordType": "process-competency",
+      "fulfillmentMode": "cross-cutting",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P5"
+      ],
+      "plannedEvidence": "Begriffe am fachlichen Produkt richtig verwenden; querschnittlicher Teilbeitrag."
+    },
+    {
+      "recordId": "LH26-E-ALG-001",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P6"
+      ],
+      "plannedEvidence": "Wesentlichen Verarbeitungsprozess aus Funktionsbeschreibung erkennen und begründen."
+    },
+    {
+      "recordId": "LH26-E-ALG-002",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P1",
+        "P3"
+      ],
+      "plannedEvidence": "Präzise Vorschriften mit Anfangszustand und Reihenfolge erklären."
+    },
+    {
+      "recordId": "LH26-E-ALG-003",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P1",
+        "P3"
+      ],
+      "plannedEvidence": "Grafische Befehlsfolge erläutern und Handlungsschritte ausführen; Ortslinie allein genügt nicht."
+    },
+    {
+      "recordId": "LH26-E-ALG-004",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P2",
+        "P3",
+        "P5"
+      ],
+      "plannedEvidence": "Anweisung, gesamten Schleifenkörper und konstante Anzahl beschreiben."
+    },
+    {
+      "recordId": "LH26-E-ALG-005",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P3"
+      ],
+      "plannedEvidence": "Eigene Anweisungen und feste Wiederholung tatsächlich in geeigneter Sprache programmieren; Papier reicht nicht."
+    },
+    {
+      "recordId": "LH26-E-ALG-006",
+      "sourceId": "SRC-CUR-LESEHILFE-2026-27",
+      "sourcePath": "curriculum/lesehilfe-2026-27/competencies.json",
+      "sourceBinding": "orientation",
+      "sourceGrades": [
+        5,
+        6
+      ],
+      "recordType": "competency",
+      "fulfillmentMode": "direct-module",
+      "coverage": "unassessed",
+      "evidenceStatus": "planned-only",
+      "productIds": [
+        "P2",
+        "P3"
+      ],
+      "plannedEvidence": "Codeabschnitt schrittweise analysieren; Wirkung und erste Abweichung begründen."
+    }
+  ],
+  "time": {
+    "unitMinutes": 45,
+    "totalMinutes": 225,
+    "components": {
+      "orientationAndExplanation": 35,
+      "guidedPractice": 55,
+      "independentApplication": 60,
+      "feedbackAndRevision": 40,
+      "consolidationAndTransfer": 35
+    },
+    "status": "project-estimate-not-piloted",
+    "segments": [
+      {
+        "id": "T1-01",
+        "meeting": 1,
+        "minutes": 10,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "orient",
+          "surface-prior-knowledge"
+        ],
+        "action": "S0/Ziel und Sichtung",
+        "productIds": [
+          "P0"
+        ]
+      },
+      {
+        "id": "T1-02",
+        "meeting": 1,
+        "minutes": 10,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "explain-or-model",
+          "open-disciplinary-problem"
+        ],
+        "action": "Begründete frühe Erklärung oder begrenzte Problemöffnung mit Erkläranschluss",
+        "productIds": [
+          "P0"
+        ]
+      },
+      {
+        "id": "T1-03",
+        "meeting": 1,
+        "minutes": 15,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "explain-or-model"
+        ],
+        "action": "S1/Grafik und Anweisung",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T1-04",
+        "meeting": 1,
+        "minutes": 5,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "Eigener Ergänzungsschritt",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T1-05",
+        "meeting": 1,
+        "minutes": 5,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "secure-and-transfer"
+        ],
+        "action": "Angeleiteter Vergleich und Sicherung",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T2-06",
+        "meeting": 2,
+        "minutes": 5,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "orient"
+        ],
+        "action": "Rückkehrkontext",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T2-07",
+        "meeting": 2,
+        "minutes": 10,
+        "component": "orientationAndExplanation",
+        "learningFunctionIds": [
+          "explain-or-model"
+        ],
+        "action": "S1/Körper und Anzahl mit Verarbeitungsstopp",
+        "productIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "T2-08",
+        "meeting": 2,
+        "minutes": 20,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action"
+        ],
+        "action": "S2/Vorhersagen und Prüfen",
+        "productIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "T2-09",
+        "meeting": 2,
+        "minutes": 5,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Gezielte Revision",
+        "productIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "T2-10",
+        "meeting": 2,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer"
+        ],
+        "action": "Körperregel sichern",
+        "productIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "T3-11",
+        "meeting": 3,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "independent-application",
+          "secure-and-transfer"
+        ],
+        "action": "P4 vor Wiederanzeige; tatsächlicher Abstand lokal zu bestimmen",
+        "productIds": [
+          "P4"
+        ]
+      },
+      {
+        "id": "T3-12",
+        "meeting": 3,
+        "minutes": 10,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "explain-or-model"
+        ],
+        "action": "Rückkehrklärung und Auftragsverständnis",
+        "productIds": [
+          "P3",
+          "P4"
+        ]
+      },
+      {
+        "id": "T3-13",
+        "meeting": 3,
+        "minutes": 20,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "S3 individuell entwerfen/programmieren",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T3-14",
+        "meeting": 3,
+        "minutes": 10,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Partnerprüfung und eigene Revision",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-15",
+        "meeting": 4,
+        "minutes": 5,
+        "component": "guidedPractice",
+        "learningFunctionIds": [
+          "guided-action",
+          "explain-or-model"
+        ],
+        "action": "Rückkehr und nötige Modellierung",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-16",
+        "meeting": 4,
+        "minutes": 25,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "S3 mit Spur fertigstellen",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-17",
+        "meeting": 4,
+        "minutes": 10,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Erklärungsbezogene Revision",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T4-18",
+        "meeting": 4,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer"
+        ],
+        "action": "Körper-/Zustandsbeziehung bündeln",
+        "productIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "T5-19",
+        "meeting": 5,
+        "minutes": 10,
+        "component": "independentApplication",
+        "learningFunctionIds": [
+          "independent-application"
+        ],
+        "action": "S4 eigenständige Transferentscheidung",
+        "productIds": [
+          "P5"
+        ]
+      },
+      {
+        "id": "T5-20",
+        "meeting": 5,
+        "minutes": 15,
+        "component": "feedbackAndRevision",
+        "learningFunctionIds": [
+          "use-feedback"
+        ],
+        "action": "Transferbegründung prüfen und revidieren",
+        "productIds": [
+          "P5"
+        ]
+      },
+      {
+        "id": "T5-21",
+        "meeting": 5,
+        "minutes": 15,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer"
+        ],
+        "action": "S5-Systemzuordnung und Einordnung",
+        "productIds": [
+          "P6"
+        ]
+      },
+      {
+        "id": "T5-22",
+        "meeting": 5,
+        "minutes": 5,
+        "component": "consolidationAndTransfer",
+        "learningFunctionIds": [
+          "secure-and-transfer",
+          "orient"
+        ],
+        "action": "Dossier und Rückkehrstand",
+        "productIds": [
+          "P3",
+          "P5",
+          "P6"
+        ]
+      }
+    ],
+    "retrieval": {
+      "productId": "P4",
+      "meeting": 3,
+      "beforeFullReexposure": true,
+      "actualInterval": "to-be-set-before-use",
+      "adjacentMeetingsMeaning": "immediate-application-only",
+      "missingPriorProductAction": "replacement-check-and-reteaching"
+    },
+    "overrun": "Secure partial product; mark missing evidence; explicitly replan time/scope. No automatic 270-minute path."
+  },
+  "materials": [
+    {
+      "id": "MAT-01",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-02",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-03",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-04",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-05",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-06",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-07",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-08",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-09",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    },
+    {
+      "id": "MAT-10",
+      "state": "specified-not-produced",
+      "designSection": "6"
+    }
+  ],
+  "designDerivations": [
+    {
+      "id": "MOD-D-01",
+      "principleId": "LXF04-PR-001",
+      "claimIds": [
+        "CLAIM-LP-001",
+        "CLAIM-V2-LXF-ICAP-001"
+      ],
+      "designDecision": "Ziel und Kriterien am Prüfdossier",
+      "designSections": "3–5",
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-004"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-02",
+      "principleId": "LXF04-PR-002",
+      "claimIds": [
+        "CLAIM-LP-011",
+        "CLAIM-V2-LXF-SDT-001"
+      ],
+      "designDecision": "Begrenzte Wahl gleichwertiger Ausdruckswege",
+      "designSections": "3, 6",
+      "patternIds": [
+        "LXF05-PT-010"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-03",
+      "principleId": "LXF04-PR-003",
+      "claimIds": [
+        "CLAIM-LP-002",
+        "CLAIM-LP-012"
+      ],
+      "designDecision": "S0 und Ersatzsichtung statt vorausgesetzter M01-Kompetenz",
+      "designSections": "2, 8–9",
+      "patternIds": [
+        "LXF05-PT-001"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-04",
+      "principleId": "LXF04-PR-004",
+      "claimIds": [
+        "CLAIM-LP-003",
+        "CLAIM-V2-LXF-MAYER-001",
+        "CLAIM-V2-LXF-SEGMENT-001",
+        "CLAIM-V2-LXF-SIGNAL-001"
+      ],
+      "designDecision": "Kleiner Materialvertrag; Hilfen situativ statt Pflichtseiten",
+      "designSections": "6–7",
+      "patternIds": [
+        "LXF05-PT-003",
+        "LXF05-PT-005"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-05",
+      "principleId": "LXF04-PR-005",
+      "claimIds": [
+        "CLAIM-LP-001",
+        "CLAIM-V2-LXF-ICAP-001"
+      ],
+      "designDecision": "Editieren, Vorhersagen und Spurvergleich tragen eigene Handlung",
+      "designSections": "3, 5, 10",
+      "patternIds": [
+        "LXF05-PT-004"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-06",
+      "principleId": "LXF04-PR-006",
+      "claimIds": [
+        "CLAIM-LP-002",
+        "CLAIM-V2-LXF-ICAP-001"
+      ],
+      "designDecision": "Grafik, Code und Zustände aufeinander beziehen",
+      "designSections": "4–6",
+      "patternIds": [
+        "LXF05-PT-003"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-07",
+      "principleId": "LXF04-PR-007",
+      "claimIds": [
+        "CLAIM-LP-004",
+        "CLAIM-LP-005"
+      ],
+      "designDecision": "S1 mit Verarbeitungsstopps und eigener Ergänzung",
+      "designSections": "5–7",
+      "patternIds": [
+        "LXF05-PT-002"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-08",
+      "principleId": "LXF04-PR-008",
+      "claimIds": [
+        "CLAIM-V2-LXF-MAYER-001",
+        "CLAIM-V2-LXF-SEGMENT-001",
+        "CLAIM-V2-LXF-SIGNAL-001"
+      ],
+      "designDecision": "Stabile Bezeichner und Körpergrenzen in Grafik/Code/Spur",
+      "designSections": "5–6",
+      "patternIds": [
+        "LXF05-PT-003"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-09",
+      "principleId": "LXF04-PR-009",
+      "claimIds": [
+        "CLAIM-LP-002",
+        "CLAIM-LP-012"
+      ],
+      "designDecision": "Produktlage entscheidet über frühe Erklärung/Problemöffnung",
+      "designSections": "7–9",
+      "patternIds": [
+        "LXF05-PT-001",
+        "LXF05-PT-002"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-10",
+      "principleId": "LXF04-PR-010",
+      "claimIds": [
+        "CLAIM-LP-006",
+        "CLAIM-LP-010"
+      ],
+      "designDecision": "Alle Aufgaben formativ, Hilfen nicht verdeckt bewerten",
+      "designSections": "3, 8",
+      "patternIds": [
+        "LXF05-PT-006"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-11",
+      "principleId": "LXF04-PR-011",
+      "claimIds": [
+        "CLAIM-LP-006",
+        "CLAIM-LP-010",
+        "CLAIM-LP-013",
+        "CLAIM-V2-LXF-EEF-META-001"
+      ],
+      "designDecision": "H1–H4 mit Auslöser, eigener Folgehandlung und Rücknahme",
+      "designSections": "8",
+      "patternIds": [
+        "LXF05-PT-005"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-12",
+      "principleId": "LXF04-PR-012",
+      "claimIds": [
+        "CLAIM-LP-010"
+      ],
+      "designDecision": "P2 und P3 erlauben kriteriumsbezogene Revision in reservierter Zeit",
+      "designSections": "7–8",
+      "patternIds": [
+        "LXF05-PT-006"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-13",
+      "principleId": "LXF04-PR-013",
+      "claimIds": [
+        "CLAIM-LP-004",
+        "CLAIM-LP-005"
+      ],
+      "designDecision": "Eigener Ergänzungsschritt und S3 nach Modellierung",
+      "designSections": "5, 7",
+      "patternIds": [
+        "LXF05-PT-002"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-14",
+      "principleId": "LXF04-PR-014",
+      "claimIds": [
+        "CLAIM-LP-007",
+        "CLAIM-LP-008"
+      ],
+      "designDecision": "P4 vor alter Lösung; Abstand nicht erfunden",
+      "designSections": "7, 9",
+      "patternIds": [
+        "LXF05-PT-007"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-15",
+      "principleId": "LXF04-PR-015",
+      "claimIds": [
+        "CLAIM-LP-009"
+      ],
+      "designDecision": "S4 verändert Zustand und Ausführungsbedingung",
+      "designSections": "5, 7",
+      "patternIds": [
+        "LXF05-PT-008"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-16",
+      "principleId": "LXF04-PR-016",
+      "claimIds": [
+        "CLAIM-V2-LXF-COGA-001",
+        "CLAIM-V2-LXF-UDL-001"
+      ],
+      "designDecision": "Rückkehrkarte und drei fachliche Informationszugänge",
+      "designSections": "9",
+      "patternIds": [
+        "LXF05-PT-009"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-17",
+      "principleId": "LXF04-PR-017",
+      "claimIds": [
+        "CLAIM-V2-LXF-COGA-001",
+        "CLAIM-V2-LXF-WCAG-001"
+      ],
+      "designDecision": "Alternative Eingaben/Sprachen und ehrliche ALG-005-Fallbackgrenze",
+      "designSections": "6, 9–10",
+      "patternIds": [
+        "LXF05-PT-010"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    },
+    {
+      "id": "MOD-D-18",
+      "principleId": "LXF04-PR-018",
+      "claimIds": [
+        "CLAIM-LP-001",
+        "CLAIM-V2-LXF-ICAP-001",
+        "CLAIM-V2-LXF-ORCHESTRATION-001"
+      ],
+      "designDecision": "Lehrkraftentscheidungen, kooperatives Minimalprodukt und Ersatzsichtung",
+      "designSections": "7–9",
+      "patternIds": [
+        "LXF05-PT-006",
+        "LXF05-PT-009"
+      ],
+      "basis": "derived-design-decision-not-new-empirical-claim"
+    }
+  ],
+  "claimBindings": [
+    {
+      "claimId": "CLAIM-LP-001",
+      "sourceIds": [
+        "SRC-LP-IBBW-WU"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-002",
+      "sourceIds": [
+        "SRC-LP-PRIOR-2022"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-003",
+      "sourceIds": [
+        "SRC-LP-CLT-2020"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-004",
+      "sourceIds": [
+        "SRC-LP-WORKED-2023"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-005",
+      "sourceIds": [
+        "SRC-LP-SELFEXPLAIN-2018"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-006",
+      "sourceIds": [
+        "SRC-LP-SCAFFOLD-2017"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-007",
+      "sourceIds": [
+        "SRC-LP-QUIZZING-2021"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-008",
+      "sourceIds": [
+        "SRC-LP-SPACING-2025"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-009",
+      "sourceIds": [
+        "SRC-LP-TRANSFER-2018"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-010",
+      "sourceIds": [
+        "SRC-LP-FEEDBACK-2020"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-011",
+      "sourceIds": [
+        "SRC-LP-AUTONOMY-2025"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-012",
+      "sourceIds": [
+        "SRC-LP-PF-2021"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-LP-013",
+      "sourceIds": [
+        "SRC-LP-SRL-2008"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-MAYER-001",
+      "sourceIds": [
+        "SRC-V2-LXF-MAYER-2024"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-SEGMENT-001",
+      "sourceIds": [
+        "SRC-V2-LXF-SEGMENT-2019"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-SIGNAL-001",
+      "sourceIds": [
+        "SRC-V2-LXF-SIGNAL-2016"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-ICAP-001",
+      "sourceIds": [
+        "SRC-V2-LXF-ICAP-2014"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-SDT-001",
+      "sourceIds": [
+        "SRC-V2-LXF-SDT-2024"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-EEF-META-001",
+      "sourceIds": [
+        "SRC-V2-LXF-EEF-META-2025"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-COGA-001",
+      "sourceIds": [
+        "SRC-V2-LXF-W3C-COGA-2021"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-UDL-001",
+      "sourceIds": [
+        "SRC-V2-LXF-UDL30-2024"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-WCAG-001",
+      "sourceIds": [
+        "SRC-V2-LXF-WCAG22-2024"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    },
+    {
+      "claimId": "CLAIM-V2-LXF-ORCHESTRATION-001",
+      "sourceIds": [
+        "SRC-V2-LXF-COS-2023"
+      ],
+      "evidencePath": "roadmap/v2/foundations/learning-experience/evidence-register.json",
+      "scopeAndLimitations": "Use the full scope and boundaryConditions of this exact accepted record; no new age/time/effect claim."
+    }
+  ],
+  "sourceBindings": [
+    {
+      "sourceId": "SRC-LP-IBBW-WU",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "research-synthesis"
+    },
+    {
+      "sourceId": "SRC-LP-PRIOR-2022",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-CLT-2020",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "research-synthesis"
+    },
+    {
+      "sourceId": "SRC-LP-WORKED-2023",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-SELFEXPLAIN-2018",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-SCAFFOLD-2017",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-QUIZZING-2021",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-SPACING-2025",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-TRANSFER-2018",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-FEEDBACK-2020",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-AUTONOMY-2025",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-PF-2021",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-LP-SRL-2008",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-SDT-2024",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-SEGMENT-2019",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-SIGNAL-2016",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-W3C-COGA-2021",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "professional-guidance"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-UDL30-2024",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "professional-guidance"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-COS-2023",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "meta-analysis"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-MAYER-2024",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "theory-review"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-ICAP-2014",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "theory-framework"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-EEF-META-2025",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "professional-guidance"
+    },
+    {
+      "sourceId": "SRC-V2-LXF-WCAG22-2024",
+      "registerPath": "roadmap/v2/foundations/sources/source-register.json",
+      "sourceKind": "professional-standard"
+    }
+  ],
+  "gateReview": [
+    {
+      "gateId": "evidence-integrity",
+      "ownerRole": "source-reviewer",
+      "designSections": "1–4, 12",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "goal-action-evidence-alignment",
+      "ownerRole": "subject-didactics-reviewer",
+      "designSections": "3–5",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "cognitive-economy",
+      "ownerRole": "subject-didactics-reviewer",
+      "designSections": "6–8",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "disciplinary-learning-action",
+      "ownerRole": "subject-didactics-reviewer",
+      "designSections": "3, 5, 8",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "representation-coherence",
+      "ownerRole": "subject-didactics-reviewer",
+      "designSections": "5–6",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "support-without-task-removal",
+      "ownerRole": "subject-didactics-reviewer",
+      "designSections": "8",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "feedback-and-next-action",
+      "ownerRole": "subject-didactics-reviewer",
+      "designSections": "7–9",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "orientation-and-recovery",
+      "ownerRole": "teacher-reviewer",
+      "designSections": "9–10",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "accessibility-and-equivalence",
+      "ownerRole": "accessibility-reviewer",
+      "designSections": "6, 9–10",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "teacher-orchestration",
+      "ownerRole": "teacher-reviewer",
+      "designSections": "7–9",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "privacy-and-emotional-safety",
+      "ownerRole": "privacy-reviewer",
+      "designSections": "3, 8, 11",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    },
+    {
+      "gateId": "pilot-boundary",
+      "ownerRole": "integration-reviewer",
+      "designSections": "10–12",
+      "status": "specified-for-user-review",
+      "reviewMethod": "ai-document-self-review",
+      "realEvidence": "not-run"
+    }
+  ],
+  "handoffConditions": [
+    {
+      "id": "MOD-DESIGN",
+      "state": "open",
+      "trigger": "Before implementation plan",
+      "ownerRole": "project-decision",
+      "condition": "User accepts this written design; scope of follow-on work named."
+    },
+    {
+      "id": "MOD-TECH",
+      "state": "open",
+      "trigger": "Before affected technical reuse",
+      "ownerRole": "technical-reviewer",
+      "condition": "TECH-F01–F08 and M02–M07 addressed with candidate-specific verification; no blanket V1 reuse."
+    },
+    {
+      "id": "MOD-LANGUAGE",
+      "state": "open",
+      "trigger": "Before ALG-005 evidence claim",
+      "ownerRole": "subject-didactics-reviewer",
+      "condition": "Editable executable language and actual individual programming demonstrated; paper does not fulfill it."
+    },
+    {
+      "id": "MOD-CONTEXT",
+      "state": "open",
+      "trigger": "Before production/use",
+      "ownerRole": "teacher",
+      "condition": "Actual cohort, prior products, access, meeting budget and retrieval interval confirmed; R5-ACCESS/BUDGET preserved."
+    },
+    {
+      "id": "MOD-GOV",
+      "state": "open",
+      "trigger": "Before affected operation",
+      "ownerRole": "project-decision",
+      "condition": "GOV-Q-OPERATOR/SCHOOL/REVIEWERS/RIGHTS resolved for actual hosting, school, people, dataflow and assets."
+    },
+    {
+      "id": "MOD-PILOT",
+      "state": "open",
+      "trigger": "Before future real pilot",
+      "ownerRole": "pilot-reviewer",
+      "condition": "Separate FU-PILOT specification and separate actual-use authorization; no pilot/effect inference from design checks."
+    }
+  ],
+  "inputDigests": {
+    "roadmap/v2/requirements/requirements.json": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779",
+    "roadmap/v2/cutover/decision.json": "30b89812d6a41c4a2201df62497cfb210078c9e8d5a7a7360d1c6a1d90963c47",
+    "roadmap/v2/cutover/active-baseline.json": "5b66debec3d66c4c84df24e4fe3de6df354009d553dfef9042e81f3f862f3b15",
+    "roadmap/v2/grades/grade-5/roadmap.json": "6cb32a034ebc65a8234f6c3a41b74c58c98b42c7e87c61711131d1eb847405e0",
+    "roadmap/v2/grades/grade-5/curriculum-map.json": "26e0299b2993003f5538eb23d67484da144490b2ebfc60e1130393ab33d80669",
+    "roadmap/v2/grades/grade-5/acceptance.json": "87b88201a35f7ed2e11f06ee15e351602bb9df77e9ea3666622afcbb889380f8",
+    "roadmap/v2/grades/grade-6/roadmap.json": "fed1517c9f9233468f34a20cff7a385d502be736b6e412826f077a908ac2ca69",
+    "roadmap/v2/grades/grade-6/curriculum-map.json": "d33644db6956f1c1c567c05f49c80dafd5641951b973b38d175713bf41383195",
+    "roadmap/v2/foundations/curriculum/source-basis.json": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9",
+    "curriculum/basiskurs-medienbildung/competencies.json": "2c39832cd6ee373c643994c69db6f4411539669923704e6c0f45ef63c2112518",
+    "curriculum/lesehilfe-2026-27/competencies.json": "4eaf2ab20bdd508d18b821b4d953efdf6a6b7caea05ef8d904c101b3c4e342c8",
+    "roadmap/v2/foundations/sources/source-register.json": "30fd8a7b2f37bc162653ec29c6904154c8bb577b356067086dedbc4d3e885229",
+    "roadmap/v2/foundations/learning-experience/learner-profile.json": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.json": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+    "roadmap/v2/foundations/learning-experience/material-patterns.json": "ca4b005d4bd8b0c990bfae66816327a9caa39b2cfe964a923b24d6711616e07b",
+    "roadmap/v2/foundations/learning-experience/experience-gates.json": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+    "roadmap/v2/foundations/learning-experience/evidence-register.json": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89",
+    "roadmap/v2/foundations/learning-experience/status.json": "f1fdfc63318d19c6dd5ce043941515891a0f7353058a555e630667a552473497",
+    "roadmap/v2/foundations/governance/governance-contract.json": "2a5e2c77f9bbbe27e6b3b7165a42a41824602a6c0b51ed92cf03977b3904f0ea",
+    "roadmap/v2/audits/artifact-inventory.json": "12f4f9de8000279b29a28eca880a621c121c23052d455866b4935317549abe65",
+    "roadmap/v2/audits/follow-up-tasks.json": "66a002c445b2e46578862792019f01a8dedc89f73cec4ca68c316b7cb5181162",
+    "roadmap/v2/follow-ups/technical/inventory.json": "d9d401ef26b3314d418f94a14b29d33b83853e5ddcbc7c481f1ebd1f66520bff",
+    "roadmap/v2/follow-ups/technical/findings.md": "d2a2f06cbdb7813bf96a6724a664b0e1bd4ef326f389c383ca52eb2f08db06b2",
+    "roadmap/v2/follow-ups/technical/validation-report.md": "54e5fd8cd7dc2dd96d16240d9ce8c33557c2583ea4b252c838a15a8faa28d07e",
+    "packages/ium-5-core-05/src/interpreter.ts": "c57b02c6341bb05d17bbe03c7aa6997684d7b7ed74c3c1724297ec06d96efe0f",
+    "packages/ium-5-core-05/src/model.ts": "630a9d7302209c8ce4832eb5075be951bdd95b314a41b6a3cbd3d7221b18e3b9",
+    "packages/ium-5-core-05/src/validation.ts": "c2860d30a3829248cade04eda93fbd37432e04154837686793660b1261e82d9e",
+    "packages/ium-5-core-05/src/editor.ts": "063c71ba35555ce1834fd96547bae345fc8a31595d139fa09afe698bb04b438b",
+    "modules/IUM-5-CORE-05/lernumgebung/scenarios.json": "7c44320b655e7ab668f69448ec60259da738fde4080a70bde22dda6811825ae4",
+    "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md": "b30672c73ece9a04706ea37dc4bd7e79322005a78217d73fdfa97ad079549060",
+    "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md": "2e0918186f54b0faa8dfbe6dd66c3fdfa35c6bbbefc4b3fabb3af16f886f26b8"
+  },
+  "gitInputDigests": {
+    "roadmap/v2/requirements/requirements.json": "5b426df61f19516a77116b404f9c4f93dc258f74d5cbadd0f7eefd369f657779",
+    "roadmap/v2/cutover/decision.json": "32c8020a04ac2ab3fd12060ea2057b82c703e5fdfe2e9b50f6090d7f6b720e11",
+    "roadmap/v2/cutover/active-baseline.json": "d4effdaa4107c503784b117fe4aedf4e4f22cfd440bb3dfc80c6a60ac92062a9",
+    "roadmap/v2/grades/grade-5/roadmap.json": "6cb32a034ebc65a8234f6c3a41b74c58c98b42c7e87c61711131d1eb847405e0",
+    "roadmap/v2/grades/grade-5/curriculum-map.json": "26e0299b2993003f5538eb23d67484da144490b2ebfc60e1130393ab33d80669",
+    "roadmap/v2/grades/grade-5/acceptance.json": "87b88201a35f7ed2e11f06ee15e351602bb9df77e9ea3666622afcbb889380f8",
+    "roadmap/v2/grades/grade-6/roadmap.json": "fed1517c9f9233468f34a20cff7a385d502be736b6e412826f077a908ac2ca69",
+    "roadmap/v2/grades/grade-6/curriculum-map.json": "d33644db6956f1c1c567c05f49c80dafd5641951b973b38d175713bf41383195",
+    "roadmap/v2/foundations/curriculum/source-basis.json": "3dd716ebbc5256c50f235f0b4147b1c83c6c59bba83047dcd5dbcb5bbd7c3ef9",
+    "curriculum/basiskurs-medienbildung/competencies.json": "2c39832cd6ee373c643994c69db6f4411539669923704e6c0f45ef63c2112518",
+    "curriculum/lesehilfe-2026-27/competencies.json": "4eaf2ab20bdd508d18b821b4d953efdf6a6b7caea05ef8d904c101b3c4e342c8",
+    "roadmap/v2/foundations/sources/source-register.json": "30fd8a7b2f37bc162653ec29c6904154c8bb577b356067086dedbc4d3e885229",
+    "roadmap/v2/foundations/learning-experience/learner-profile.json": "01b945391e5201b7266897668e978bd80f2bb9ce253d7ee49f1ccf18563d5f53",
+    "roadmap/v2/foundations/learning-experience/learning-architecture.json": "120b0abc7124fae1efe85b760a5f1472d65b7777f865bfbf43929598db2658cd",
+    "roadmap/v2/foundations/learning-experience/material-patterns.json": "47469fdbd91efb65c68559692bc3d6c8238c75610eb061ed393d2955e9fd1c54",
+    "roadmap/v2/foundations/learning-experience/experience-gates.json": "756db98dbcacdb77d5451288f49ca72811079a244c449d691a6ee262ff83703e",
+    "roadmap/v2/foundations/learning-experience/teacher-orchestration.md": "25fddf756f8fd1f13d3d35d7b56a4c7ced86d096b2cd3d8c4141a2d7c38fe823",
+    "roadmap/v2/foundations/learning-experience/evidence-register.json": "8d073b28d9812d1460695ca998de7dd9dbff773bd93b57a13c1e9a39b16f6d89",
+    "roadmap/v2/foundations/learning-experience/status.json": "f1fdfc63318d19c6dd5ce043941515891a0f7353058a555e630667a552473497",
+    "roadmap/v2/foundations/governance/governance-contract.json": "f7410dfc2806adc5a3f79d12124e047bdacda2884573980c90b277ec9a1309dc",
+    "roadmap/v2/audits/artifact-inventory.json": "8bb535bc2006e688bbcea0b63832cfacef27f1aafcd1750572c62b97c0a95ab4",
+    "roadmap/v2/audits/follow-up-tasks.json": "0b5195e26d6022d8f760e106b61cb19b1ecfd5d68dd6970e8a2cdc9dbe1bfcf0",
+    "roadmap/v2/follow-ups/technical/inventory.json": "31f1e0ac93207a7d5a8feed162d17ef1501cedf8765d271f4b4868ed31caddc5",
+    "roadmap/v2/follow-ups/technical/findings.md": "d2a2f06cbdb7813bf96a6724a664b0e1bd4ef326f389c383ca52eb2f08db06b2",
+    "roadmap/v2/follow-ups/technical/validation-report.md": "54e5fd8cd7dc2dd96d16240d9ce8c33557c2583ea4b252c838a15a8faa28d07e",
+    "packages/ium-5-core-05/src/interpreter.ts": "c57b02c6341bb05d17bbe03c7aa6997684d7b7ed74c3c1724297ec06d96efe0f",
+    "packages/ium-5-core-05/src/model.ts": "630a9d7302209c8ce4832eb5075be951bdd95b314a41b6a3cbd3d7221b18e3b9",
+    "packages/ium-5-core-05/src/validation.ts": "c2860d30a3829248cade04eda93fbd37432e04154837686793660b1261e82d9e",
+    "packages/ium-5-core-05/src/editor.ts": "063c71ba35555ce1834fd96547bae345fc8a31595d139fa09afe698bb04b438b",
+    "modules/IUM-5-CORE-05/lernumgebung/scenarios.json": "7c44320b655e7ab668f69448ec60259da738fde4080a70bde22dda6811825ae4",
+    "docs/superpowers/specs/2026-08-03-ium-5-core-05-moduldesign.md": "b30672c73ece9a04706ea37dc4bd7e79322005a78217d73fdfa97ad079549060",
+    "docs/superpowers/specs/2026-08-04-ium-learning-experience-product-architecture.md": "2e0918186f54b0faa8dfbe6dd66c3fdfa35c6bbbefc4b3fabb3af16f886f26b8"
+  },
+  "inputComparison": "Raw checkout and Git blob hashes kept separately; only CRLF/LF is normalized when comparing their content.",
+  "motionLanguage": {
+    "selectedBodyLimit": 5,
+    "existingV1BodyLimit": 4,
+    "adaptationRequired": true,
+    "repeatCountRange": [
+      2,
+      9
+    ],
+    "designCaseCounts": [
+      2,
+      4
+    ],
+    "nestedRepeats": false,
+    "maximumExecutedActions": 100,
+    "boundary": "Five-command S3 loop is rejected by V1; its unfolded motion is checked separately."
+  },
+  "sourceRecheck": {
+    "date": "2026-09-07",
+    "landingPage": "read-current-transition-status",
+    "lesehilfe": "read-pages-2-3-8-9-no-new-byte-identity-check",
+    "bmbDirectPage": "fetch-failed-local-sealed-record-used",
+    "scope": "module-specific-excerpt-not-full-source-audit"
+  }
+}
