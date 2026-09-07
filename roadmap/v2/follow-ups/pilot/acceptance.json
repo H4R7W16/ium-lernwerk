@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "taskId": "IUM-V2-FU-PILOT",
+  "state": "approved-by-user",
+  "date": "2026-09-07",
+  "acceptedCommit": "150deea22ba9bcf3170915bb4b24852d376f6a8b",
+  "decisionBy": "user",
+  "statement": "abgenommen",
+  "scope": "pilot-instrument-specification",
+  "moduleId": "V2-G5-M06",
+  "nextTask": "IUM-V2-PLAN",
+  "nextTaskStatement": "Fahre mit dem Implementierungsplan fort.",
+  "implementationAuthorized": false,
+  "realPilotGate": "open",
+  "contentProduction": "frozen",
+  "pilot": "not-started",
+  "publication": "closed",
+  "historicalSnapshotPolicy": "Instrument packet at acceptedCommit retains its review snapshot; acceptance is additive."
+}

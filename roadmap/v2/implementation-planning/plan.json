@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "taskId": "IUM-V2-PLAN",
+  "state": "review",
+  "baseCommit": "150deea22ba9bcf3170915bb4b24852d376f6a8b",
+  "scope": "implementation-planning-only",
+  "implementationAuthorized": false,
+  "currentPackage": null,
+  "moduleId": "V2-G5-M06",
+  "contentProduction": "frozen",
+  "curriculum": "unassessed",
+  "pilot": "not-started",
+  "publication": "closed",
+  "parallelExecution": false,
+  "packages": [
+    {
+      "id": "IMP01",
+      "title": "Entwicklungsvertrag und Projektsteuerung",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-referenzmodul-implementation.md",
+      "create": [
+        "roadmap/v2/implementation/authorization.json",
+        "roadmap/v2/implementation/progress.json",
+        "roadmap/v2/implementation/change-plan.json",
+        "schemas/v2/implementation.schema.json",
+        "scripts/validate_v2_implementation.py",
+        "tests/test_validate_v2_implementation.py",
+        "tests/dashboard/implementation.test.mjs"
+      ],
+      "modify": [
+        "packages/project-status/index.mjs",
+        "scripts/project-dashboard.mjs",
+        "tests/dashboard/contract.test.mjs",
+        "tests/dashboard/snapshot.test.mjs",
+        "tests/test_validate_v2_activation.py",
+        "package.json"
+      ],
+      "optionalModify": {
+        "apps/project-dashboard/src/pages/[...page].astro": "Nur für die Darstellung neu getrennter, typisierter Felder."
+      },
+      "criteria": [
+        "Historische Aktivierung an unveränderten Git-Inhalten validiert; unerlaubte Foundationänderung scheitert.",
+        "Tatsächlicher Auftrag, genaue Paketdateien und Fortschritt getrennt; keine vorweggenommene Folgefreigabe.",
+        "FU-TECH/MOD/PILOT aktuell aus ihren Annahmen projiziert; synthetische und reale Nachweise getrennt."
+      ],
+      "taskId": "IUM-V2-IMP01",
+      "dependsOn": [
+        "IUM-V2-PLAN"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP01 Entwicklungsvertrag und Projektsteuerung.md",
+      "modelRecommendation": {
+        "model": "gpt-6-astra",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP02",
+      "title": "Runtime Datenannahme und Recovery",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-runtime-implementation.md",
+      "create": [
+        "packages/module-runtime/src/accept-state.ts",
+        "tests/platform/runtime-acceptance.test.ts"
+      ],
+      "modify": [
+        "packages/module-runtime/src/runtime.ts",
+        "packages/module-runtime/src/migrations.ts",
+        "packages/module-runtime/src/index.ts",
+        "tests/platform/runtime.test.ts",
+        "packages/module-contract/src/errors.ts",
+        "schemas/learning-state-envelope.schema.json",
+        "tests/platform/contracts.test.ts"
+      ],
+      "criteria": [
+        "Laden und Import prüfen Hülle, Identität, Modulversion, Migration und Payload gleich.",
+        "Original-Recovery bleibt verfügbar; ungültige Vorschau entwertet alte Kandidaten.",
+        "V2-G5-M06-Zustandsschema akzeptiert, fremde V2-IDs abgewiesen; V1-Verträge erhalten."
+      ],
+      "taskId": "IUM-V2-IMP02",
+      "dependsOn": [
+        "IUM-V2-IMP01"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP02 Runtime Datenannahme und Recovery.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP03",
+      "title": "Speicherwahl Revisionen und Datenverwaltung",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-runtime-implementation.md",
+      "create": [
+        "packages/local-state/src/versioned-indexeddb-repository.ts",
+        "packages/local-state/src/versioned-memory-repository.ts",
+        "packages/local-state/src/version-token.ts",
+        "apps/lernwerk-portal/src/controllers/storage-choice.ts",
+        "apps/lernwerk-portal/src/controllers/local-data-v2.ts",
+        "apps/lernwerk-portal/src/pages/tests/[probe].astro",
+        "apps/lernwerk-portal/src/components/RuntimeProbe.astro",
+        "apps/lernwerk-portal/src/controllers/runtime-probe.ts",
+        "playwright.runtime.config.mts",
+        "tests/platform/versioned-state.test.ts",
+        "tests/browser/v2-storage.spec.ts",
+        "tests/browser/helpers/storage-choice.ts"
+      ],
+      "modify": [
+        "apps/lernwerk-portal/astro.config.ts",
+        "tests/platform/portal-build.test.ts",
+        "packages/local-state/src/index.ts",
+        "packages/module-contract/src/errors.ts",
+        "apps/lernwerk-portal/src/pages/daten.astro",
+        "apps/lernwerk-portal/src/controllers/algorithm-workbench/browser-ports.ts",
+        "apps/lernwerk-portal/src/controllers/algorithm-workbench/workbench-controller.ts",
+        "tests/platform/local-state.test.ts",
+        "tests/platform/export-import.test.ts",
+        "tests/browser/ium5-workbench.spec.ts",
+        "tests/browser/ium5-state.spec.ts",
+        "tests/browser/ium5-accessibility.spec.ts",
+        "tests/browser/ium5-offline.spec.ts"
+      ],
+      "criteria": [
+        "Atomare Revision/Löschgeneration verhindert Überschreiben und Wiederbelebung veralteter Stände.",
+        "Speicherwahl vor erster Speicherung; bewusstes Clipboard; Löschung benennt Profil/Origin und Teilerfolge.",
+        "Synthetische Browserhülle prüft gleiche/getrennte Profile, Fehler und V1-Wahl; im Produktbuild abwesend."
+      ],
+      "taskId": "IUM-V2-IMP03",
+      "dependsOn": [
+        "IUM-V2-IMP02"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP03 Speicherwahl Revisionen und Datenverwaltung.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP04",
+      "title": "Wiederherstellbare Updates koordinieren",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-runtime-implementation.md",
+      "create": [
+        "apps/lernwerk-portal/src/controllers/reload-readiness.ts",
+        "apps/lernwerk-portal/src/controllers/update-coordinator.ts",
+        "tests/platform/reload-readiness.test.ts",
+        "tests/browser/v2-update.spec.ts"
+      ],
+      "modify": [
+        "apps/lernwerk-portal/src/controllers/pwa-registration.ts",
+        "apps/lernwerk-portal/src/sw.ts",
+        "apps/lernwerk-portal/src/controllers/algorithm-workbench/workbench-controller.ts",
+        "apps/lernwerk-portal/src/controllers/fixture-workspace.ts",
+        "apps/lernwerk-portal/src/controllers/runtime-probe.ts",
+        "packages/module-runtime/src/runtime.ts",
+        "packages/module-runtime/src/index.ts",
+        "tests/platform/pwa-contract.test.ts"
+      ],
+      "criteria": [
+        "Persistenter Readback bindet aktuelle Bearbeitungsrevision; Download ist kein Sicherungsnachweis.",
+        "Alle betroffenen kontrollierten Clients geben Bereitschaft; Veto/Timeout/Fehler brechen sichtbar ab.",
+        "Reale Browser-SW-Prüfung an der synthetischen Hülle inklusive zwei Clients und flüchtigem Stand."
+      ],
+      "taskId": "IUM-V2-IMP04",
+      "dependsOn": [
+        "IUM-V2-IMP03"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP04 Wiederherstellbare Updates koordinieren.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP05",
+      "title": "Neutraler M06 Fachkern und Dossier",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-m06-implementation.md",
+      "create": [
+        "packages/v2-g5-m06/package.json",
+        "packages/v2-g5-m06/tsconfig.json",
+        "packages/v2-g5-m06/src/model.ts",
+        "packages/v2-g5-m06/src/validation.ts",
+        "packages/v2-g5-m06/src/interpreter.ts",
+        "packages/v2-g5-m06/src/goals.ts",
+        "packages/v2-g5-m06/src/editor.ts",
+        "packages/v2-g5-m06/src/dossier.ts",
+        "packages/v2-g5-m06/src/index.ts",
+        "tests/platform/v2-m06-model.test.ts",
+        "tests/platform/v2-m06-dossier.test.ts"
+      ],
+      "modify": [
+        "tsconfig.json",
+        "scripts/check-workspace-boundaries.ts",
+        "apps/lernwerk-portal/package.json",
+        "package-lock.json"
+      ],
+      "criteria": [
+        "Reiner Fachkern mit korrekten S0–S3-Zuständen, Körper1–5, Anzahl2–9 und 100-Aktionen-Limit.",
+        "Eigene Grafik und tatsächlicher Code getrennt; ausgewählter Beleg eindeutig an Code gebunden.",
+        "Nur P1/P2/P3/P5/P6 projiziert; P0/P4 und Bearbeitungshistorien fehlen im Dossier; V1 unverändert."
+      ],
+      "taskId": "IUM-V2-IMP05",
+      "dependsOn": [
+        "IUM-V2-IMP04"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP05 Neutraler M06 Fachkern und Dossier.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP06",
+      "title": "M06 Lernmaterialien und Lehrkrafthandbuch",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-m06-implementation.md",
+      "create": [
+        "modules-v2/V2-G5-M06/content.json",
+        "modules-v2/V2-G5-M06/cases.json",
+        "modules-v2/V2-G5-M06/materials/start.md",
+        "modules-v2/V2-G5-M06/materials/legend.md",
+        "modules-v2/V2-G5-M06/materials/worked-example.md",
+        "modules-v2/V2-G5-M06/materials/revision.md",
+        "modules-v2/V2-G5-M06/materials/own-program.md",
+        "modules-v2/V2-G5-M06/materials/helps.md",
+        "modules-v2/V2-G5-M06/materials/return-and-retrieval.md",
+        "modules-v2/V2-G5-M06/materials/transfer-and-systems.md",
+        "modules-v2/V2-G5-M06/teacher/handbook.md",
+        "modules-v2/V2-G5-M06/teacher/briefing.md",
+        "modules-v2/V2-G5-M06/print/learner.html",
+        "modules-v2/V2-G5-M06/rights.json",
+        "scripts/check-v2-m06-materials.ts",
+        "tests/platform/v2-m06-materials.test.ts"
+      ],
+      "modify": [],
+      "criteria": [
+        "MAT-01–10, H1–H4 und alle 22 Segmente mit exakt225 Minuten vollständig ausgearbeitet.",
+        "Eigene Produkte, Abruf vor Lösung, S4/S5 und konkrete Partner-/Lehrkraftorchestrierung gesichert.",
+        "Handbuch, vorlesbares Briefing, eigene Quellen-/Rechtebindung und visuell geprüfte Printfassung vorhanden."
+      ],
+      "taskId": "IUM-V2-IMP06",
+      "dependsOn": [
+        "IUM-V2-IMP05"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP06 M06 Lernmaterialien und Lehrkrafthandbuch.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP07",
+      "title": "M06 Kandidatenbuild und Arbeitsraum",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-m06-implementation.md",
+      "create": [
+        "schemas/v2/module-candidate.schema.json",
+        "scripts/build-v2-module-registry.ts",
+        "modules-v2/V2-G5-M06/module.json",
+        "apps/lernwerk-portal/src/components/M06Workspace.astro",
+        "apps/lernwerk-portal/src/controllers/m06/controller.ts",
+        "apps/lernwerk-portal/src/controllers/m06/view.ts",
+        "apps/lernwerk-portal/src/controllers/m06/diagram-editor.ts",
+        "apps/lernwerk-portal/src/controllers/m06/code-editor.ts",
+        "apps/lernwerk-portal/src/styles/m06.css",
+        "tests/platform/v2-registry.test.ts",
+        "tests/platform/v2-m06-controller.test.ts"
+      ],
+      "modify": [
+        "apps/lernwerk-portal/astro.config.ts",
+        "scripts/build-module-registry.ts",
+        "scripts/build-portal.ts",
+        "scripts/preview-portal.ts",
+        "scripts/publication-mode.ts",
+        "scripts/prepare-module-assets.ts",
+        "scripts/check-build-output.ts",
+        "apps/lernwerk-portal/src/pages/module/[id].astro",
+        "apps/lernwerk-portal/src/pages/index.astro",
+        "apps/lernwerk-portal/src/layouts/BaseLayout.astro",
+        "package.json",
+        "tests/platform/registry.test.ts",
+        "tests/platform/publication-mode.test.ts",
+        "tests/platform/portal-build.test.ts"
+      ],
+      "criteria": [
+        "Eigener V2-Entwicklungsbuild und Renderer, keine falsche V1-/Coverage-/Publikationszuordnung.",
+        "Zwei zugängliche Editoren, Vorhersage/Spur, Revision, Transfer und Rückkehr vollständig verbunden.",
+        "Runtime/Storage/Update korrekt angebunden; Root/Subpath und V1/Fixture-Isolation geprüft."
+      ],
+      "taskId": "IUM-V2-IMP07",
+      "dependsOn": [
+        "IUM-V2-IMP06"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP07 M06 Kandidatenbuild und Arbeitsraum.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "IMP08",
+      "title": "M06 Integration und Pilotübergabe prüfen",
+      "plan": "docs/superpowers/plans/2026-09-07-ium-v2-referenzmodul-implementation.md",
+      "create": [
+        "scripts/verify-v2-m06.ts",
+        "playwright.v2.config.mts",
+        "tests/browser/v2-m06-workbench.spec.ts",
+        "tests/browser/v2-m06-state.spec.ts",
+        "tests/browser/v2-m06-accessibility.spec.ts",
+        "tests/browser/v2-m06-offline.spec.ts",
+        "docs/reviews/v2-m06-technical.md",
+        "docs/reviews/v2-m06-didactic.md",
+        "roadmap/v2/implementation/evidence.json"
+      ],
+      "modify": [
+        "package.json",
+        ".github/workflows/ci.yml",
+        "tests/platform/pages-workflow.test.ts",
+        "tests/platform/pwa-contract.test.ts"
+      ],
+      "optionalModify": {
+        "playwright.config.mts": "Nur bei reproduziertem Runnerproblem.",
+        "playwright.ium5.config.mts": "Nur bei reproduziertem Runnerproblem."
+      },
+      "criteria": [
+        "Vollständige synthetische TECH-/M06-Matrix, V1-Regression und CI-Bindung mit echten Ergebnissen.",
+        "F01–F08, TECH-01–11, sieben Curriculumrecords, P0–P6/MAT/LXF einzeln reviewt.",
+        "Kandidatenrevision und leere Realübergabe dokumentiert; Nutzung, Pilot, Coverage und Veröffentlichung ehrlich offen."
+      ],
+      "taskId": "IUM-V2-IMP08",
+      "dependsOn": [
+        "IUM-V2-IMP07"
+      ],
+      "taskPath": "60_Organisation/Workspace-Entwicklung/Tasks/2026-09-07 - IUM-V2-IMP08 M06 Integration und Pilotübergabe prüfen.md",
+      "modelRecommendation": {
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high"
+      },
+      "finalReviewRecommendation": {
+        "model": "gpt-6-astra",
+        "reasoningEffort": "xhigh"
+      },
+      "status": "blocked"
+    }
+  ],
+  "sharedStatusFiles": [
+    "roadmap/v2/implementation/authorization.json",
+    "roadmap/v2/implementation/progress.json"
+  ],
+  "generatedIgnored": [
+    "packages/module-contract/src/generated/learning-state-envelope.d.ts",
+    "packages/module-contract/src/generated/module-manifest.d.ts"
+  ],
+  "nextAction": "Plan annehmen und IUM-V2-IMP01 konkret beauftragen."
+}

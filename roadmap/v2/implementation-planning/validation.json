@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "taskId": "IUM-V2-PLAN",
+  "date": "2026-09-07",
+  "baseCommit": "150deea22ba9bcf3170915bb4b24852d376f6a8b",
+  "scope": "planning-packet-only",
+  "state": "passed",
+  "checks": [
+    {
+      "command": "python -B roadmap/v2/implementation-planning/verify-plan.py --vault ../../Vault",
+      "exitCode": 0,
+      "groups": 6,
+      "boundInputs": 94,
+      "boundPlans": 3,
+      "sequentialPackages": 8,
+      "plannedUniqueFiles": 121,
+      "plannedNewFiles": 72,
+      "localPlanLinks": 19,
+      "vault": "passed"
+    },
+    {
+      "command": "python -B scripts/validate_v2_rebaseline.py",
+      "exitCode": 0,
+      "result": "V2 re-baseline validation passed"
+    },
+    {
+      "command": "python -B scripts/validate_v2_activation.py --vault ../../Vault",
+      "exitCode": 0,
+      "result": "V2 als Planungs-/Entwicklungsbaseline aktiv; V1-Produktstand und alle Einsatzgrenzen erhalten."
+    },
+    {
+      "command": "npm run dashboard:update",
+      "exitCode": 0,
+      "result": "Snapshot und Obsidian-Cockpit aktualisiert."
+    }
+  ],
+  "review": {
+    "kind": "author-self-review",
+    "reviewer": "Codex",
+    "independent": false,
+    "userPlanAcceptance": "pending"
+  },
+  "implementationTestsRun": false,
+  "implementationAuthorized": false,
+  "realPilotGate": "open",
+  "curriculum": "unassessed",
+  "pilot": "not-started",
+  "publication": "closed"
+}

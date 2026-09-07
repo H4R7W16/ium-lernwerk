@@ -1,0 +1,397 @@
+{
+  "schemaVersion": 1,
+  "acceptedInputCommit": "150deea22ba9bcf3170915bb4b24852d376f6a8b",
+  "normalization": "CRLF to LF only; otherwise bytes preserved",
+  "inputs": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256LfNormalized": "2f9629df09b79090533be1e574877013c1c8d694daf4dfc37dcca673e2f312f3"
+    },
+    {
+      "path": "apps/lernwerk-portal/astro.config.ts",
+      "sha256LfNormalized": "b64f99136ae13a0c29f39492f01ba7d52e04198ee1992c0f3a2f5446f295f22a"
+    },
+    {
+      "path": "apps/lernwerk-portal/package.json",
+      "sha256LfNormalized": "b54f9d85a751664731f7ca5d6f41b850ef498e8d0ac9732645d45bf775623154"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/algorithm-workbench/browser-ports.ts",
+      "sha256LfNormalized": "ddebd40671e2df8eb00f1d523b8534b1caf1a4a95d8d44a2279e73f8507dd8a2"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/algorithm-workbench/workbench-controller.ts",
+      "sha256LfNormalized": "3d1be368c049c298d763b2b69ddd6ad8264b1292ba3114afad1dbe17e171feba"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/fixture-workspace.ts",
+      "sha256LfNormalized": "04595a217eb6800f28a1b6b1567d91bf4a06f56a8ddbf69748e613fc822a0d76"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/controllers/pwa-registration.ts",
+      "sha256LfNormalized": "0984a6868807d1c880c32e918cb1bdc327fc329d599d275f973d5e69706c2160"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/layouts/BaseLayout.astro",
+      "sha256LfNormalized": "b7cc1944276545c151339c7ec1fb150df648f2b3ed90e33ef039e87678818442"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/pages/daten.astro",
+      "sha256LfNormalized": "d65ee5f279e877c34f28728e75f5d46978caba96cee57899b93f88c3abcdc7f2"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/pages/index.astro",
+      "sha256LfNormalized": "467ebea409f05942b01108be527dae621ec2166e7057e9a90406fb7c3111dc02"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/pages/module/[id].astro",
+      "sha256LfNormalized": "7ea723c602c3c8ecb188d7e55a457ea8bf55055512e62c56647204520e4992f1"
+    },
+    {
+      "path": "apps/lernwerk-portal/src/sw.ts",
+      "sha256LfNormalized": "8614f204b27d5e8c938821b6fba4e2a0f0f5567d3936167b7476afdb5245ebe5"
+    },
+    {
+      "path": "apps/project-dashboard/src/pages/[...page].astro",
+      "sha256LfNormalized": "20470cbcbb48a74901e99a67dc5f199c8b59136d8a07b4ba598aaa71a6259793"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md",
+      "sha256LfNormalized": "1a735f917e3583df11c8d49e83fdc116506bd0f3c3785584773cb63eb79dbd2c"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256LfNormalized": "c25953599cf6117082d6b23ec717e0a9d14243ac8a17276bc1cd3ccab8e36c2d"
+    },
+    {
+      "path": "package.json",
+      "sha256LfNormalized": "ce586c0b3a6f68e589e6761b2452208d3196d9c9ef695301e4bbd0fca51be2bf"
+    },
+    {
+      "path": "packages/export-import/src/import-state.ts",
+      "sha256LfNormalized": "12de2ee8f86e7f578dae6bf82b3dafea31b20ad3bf48c8b16e55e459e5dec11e"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/interpreter.ts",
+      "sha256LfNormalized": "c57b02c6341bb05d17bbe03c7aa6997684d7b7ed74c3c1724297ec06d96efe0f"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/model.ts",
+      "sha256LfNormalized": "630a9d7302209c8ce4832eb5075be951bdd95b314a41b6a3cbd3d7221b18e3b9"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/payload.ts",
+      "sha256LfNormalized": "07363788ddd09fcbfcf709565717bb4dcbf71cfa0e91e311ce9e4acd35c6d6a1"
+    },
+    {
+      "path": "packages/ium-5-core-05/src/validation.ts",
+      "sha256LfNormalized": "c2860d30a3829248cade04eda93fbd37432e04154837686793660b1261e82d9e"
+    },
+    {
+      "path": "packages/local-state/src/index.ts",
+      "sha256LfNormalized": "d663b5c47d38efb87b445a8409da3af377b7a5c7c78d13f4f7668faa35ec6d3a"
+    },
+    {
+      "path": "packages/local-state/src/indexeddb-repository.ts",
+      "sha256LfNormalized": "40e4c7c0eeb203379daae0ad7119f9af2331faa8e1cd6aea484c93c629be61de"
+    },
+    {
+      "path": "packages/local-state/src/memory-repository.ts",
+      "sha256LfNormalized": "405208ef84787d9c780941eb3fa4a6d9461f1223e14feef02e806432dafb1893"
+    },
+    {
+      "path": "packages/module-contract/src/errors.ts",
+      "sha256LfNormalized": "40a0c104d1aa2a378989ca45e31c82e42b703473ee2680dad90d769ce23ac5ba"
+    },
+    {
+      "path": "packages/module-contract/src/ports.ts",
+      "sha256LfNormalized": "3f29394788684220cee21bfb17530d0f4fbf70700d8fcedec6648289449cc363"
+    },
+    {
+      "path": "packages/module-contract/src/validators.ts",
+      "sha256LfNormalized": "08ef28760a2c5082f7d60ef63cea3480aa6bd3dd6fa412f56eeb98cd9d6348b8"
+    },
+    {
+      "path": "packages/module-runtime/src/index.ts",
+      "sha256LfNormalized": "816d8fb845eb496f5ce7257aa06e89c0275cd4b2aa83f8c8ff5319430b71c8e2"
+    },
+    {
+      "path": "packages/module-runtime/src/migrations.ts",
+      "sha256LfNormalized": "919c5e28f2c8d72d5dda0ea68c2cd4ca88f623a276699e246645bf24e70118df"
+    },
+    {
+      "path": "packages/module-runtime/src/runtime.ts",
+      "sha256LfNormalized": "f0d3520356125d85b4a66fbe2b5d7a34ce2d8417bdb499eb8278a720984ae9fc"
+    },
+    {
+      "path": "packages/project-status/index.mjs",
+      "sha256LfNormalized": "86ecfe0f6fdb8cf97c47d02020abc360cde18c07ae579e231611ebe281b0e419"
+    },
+    {
+      "path": "playwright.config.mts",
+      "sha256LfNormalized": "af8c8e90f6de335c949754e00e739562d222a0e2e6d36dfea5d9c880f026331a"
+    },
+    {
+      "path": "playwright.ium5.config.mts",
+      "sha256LfNormalized": "315d10b9ddeed83265aeb13b1d39b2803b276ca479d066c92597e0b28e7ba654"
+    },
+    {
+      "path": "roadmap/v2/cutover/active-baseline.json",
+      "sha256LfNormalized": "d4effdaa4107c503784b117fe4aedf4e4f22cfd440bb3dfc80c6a60ac92062a9"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/README.md",
+      "sha256LfNormalized": "56665a63b42ca1854b1c3b42bd751e1f5d6fb5a6bfbe8c69ccc4b8f198425f30"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/data-and-rights.md",
+      "sha256LfNormalized": "c2311c75ce5b9a8116e5698903f5bd91bc420da8f7253938519c7d3382aae667"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/decision-scenarios.synthetic.json",
+      "sha256LfNormalized": "df92870d2680a27498a257fc763b27859b29df17218e81926fd17a70c4d29615"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/design.md",
+      "sha256LfNormalized": "ee17a7f1dacb714d37fb33c64041969822bd95cc0a3b27244c381ffd3b3f8ea2"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/input-bindings.json",
+      "sha256LfNormalized": "1df043c44865b989f3d897129bed29a7704fb0243c68c355ca9c93c6bf57cb9c"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/observation-kit.md",
+      "sha256LfNormalized": "e804b39824a84dcb3347288763c331f2aa2b636e85b78176a7d2cbb93332d96a"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/protocol.json",
+      "sha256LfNormalized": "a4aef06ca598ee9f6789608b0a777ffd04ac74a9cbf6e7ba3ed0614b5c620074"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/review-guide.md",
+      "sha256LfNormalized": "7ec05057d534b7a03ea4d3ec3202e2380c5ac2fb669a2b7e919846f84820dfa2"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/technical-runbook.md",
+      "sha256LfNormalized": "449db37fe5ef86cccdd4224ac3b48392a8d99ee3d124507be62861b834b62394"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/validation-report.md",
+      "sha256LfNormalized": "9febea51cd65aabf5cacca561ecdc379727cfdc3500345154c0bec2e77fec410"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/validation.json",
+      "sha256LfNormalized": "49b19f9fd332a93f76be0bd3ca1f528c9b8d124832684197991b21b0b9f3f128"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/verify-packet.py",
+      "sha256LfNormalized": "97582878b974ab758479672b2da7e5c95efd984a0c33ad6a6eb46b070cd943ee"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/pilot/work-plan.md",
+      "sha256LfNormalized": "a719e3cbf174df8521cd603d80ed97d8afc74c836867f7a42eabf8eba1d2f2b7"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/README.md",
+      "sha256LfNormalized": "eaf5c9bf8f1c0c13155d1438d883fd66769dc10ade81993a697d07f82b474062"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/acceptance.json",
+      "sha256LfNormalized": "b98aac69a4601f4d4d7db7c924cf8dc85cde6ac767c2cc7131de5e0f60272f25"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/semantics-probe.mts",
+      "sha256LfNormalized": "e8b8bc59c2339a16ab038b630b43c477e29e5976e239632ce73441fd5c149d44"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/semantics-results.json",
+      "sha256LfNormalized": "95ef91ba87ebb2bc96ab1ae50391ce314d11237e9b8bcc73f096306d564938d4"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/specification.json",
+      "sha256LfNormalized": "276cdd275dd3954985722f52f0a76e2e608a3bb95c9c479068f8228ba58e4d4f"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/validation-report.md",
+      "sha256LfNormalized": "beecdc86c8b368b05043554abd36ef3a2b670ed4713745189d03a97494f5f695"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/validation.json",
+      "sha256LfNormalized": "4e03c884a2df14fbed9462b9f5839d81c28de9451a46d0a66f5902a2c7bc271a"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/reference-module/verify-spec.py",
+      "sha256LfNormalized": "d0a9677875428202ceed7ec2b7e499bc87171f9e79d89359eafd6de9b09f8b26"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/README.md",
+      "sha256LfNormalized": "d4d4ef6143c29d2e3604a68d64b51e5dbf2b664b65afe2b849cc4045108e6124"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/acceptance.json",
+      "sha256LfNormalized": "add1210c802f2a07ca906820b64483c2de622eb0308207c21486299163be48de"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/findings.md",
+      "sha256LfNormalized": "d2a2f06cbdb7813bf96a6724a664b0e1bd4ef326f389c383ca52eb2f08db06b2"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/inventory.json",
+      "sha256LfNormalized": "31f1e0ac93207a7d5a8feed162d17ef1501cedf8765d271f4b4868ed31caddc5"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/inventory.md",
+      "sha256LfNormalized": "9c63111ea3e043c4495f08332fb4575bd913dd62792a0d328744e7f794226aca"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/probe-results.json",
+      "sha256LfNormalized": "4e98d9a394da197c8c20f3969d1f421a3cd08b3c5dece68ce5d4950ef2aec9ca"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/probe.mts",
+      "sha256LfNormalized": "4065e542e91554ab45f9a9c2db3206884976162a7c6777a7d3fdc4594b2d535d"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/validation-report.md",
+      "sha256LfNormalized": "54e5fd8cd7dc2dd96d16240d9ce8c33557c2583ea4b252c838a15a8faa28d07e"
+    },
+    {
+      "path": "roadmap/v2/follow-ups/technical/validation.json",
+      "sha256LfNormalized": "50e9feec9f1a728e5f967b73fe010090ac64957435c19cbda194e341fb9d3b37"
+    },
+    {
+      "path": "schemas/learning-state-envelope.schema.json",
+      "sha256LfNormalized": "5e708f9e0e66c1c4668b8f11b67789ce510496c65574b14cc374abb0fc959b00"
+    },
+    {
+      "path": "scripts/build-module-registry.ts",
+      "sha256LfNormalized": "f74f997959f707525e04154ccf6abf8c88fac1ede0e4c4bc5bff94ffdb1cef4b"
+    },
+    {
+      "path": "scripts/build-portal.ts",
+      "sha256LfNormalized": "d6ae3fd491457c15496d90410bbf320519ebc47151f8dd465efe0e2dea163d5e"
+    },
+    {
+      "path": "scripts/check-build-output.ts",
+      "sha256LfNormalized": "d2f20c6c8f4e65080030158c44bb08d152549ed021eb070a8d39e077276aebca"
+    },
+    {
+      "path": "scripts/check-workspace-boundaries.ts",
+      "sha256LfNormalized": "a4953e13a2feaf6f9d2720e7cbd1df688d9b15d9fc42d71a7d53d01140afee67"
+    },
+    {
+      "path": "scripts/generate-contract-types.ts",
+      "sha256LfNormalized": "7fb82da6d8a125d0e56a4ad72b6846632eabb69cccb9adb9847d1fb9282317ad"
+    },
+    {
+      "path": "scripts/prepare-module-assets.ts",
+      "sha256LfNormalized": "2848fc19adb8255430163d3cef5deb9ae7bed8f90c7e3ac227a63bc0d47af715"
+    },
+    {
+      "path": "scripts/preview-portal.ts",
+      "sha256LfNormalized": "b4ec0c93010d3be67a69fce872856bf7b26176fc6b59865430ff63a7b8f7f9ce"
+    },
+    {
+      "path": "scripts/project-dashboard.mjs",
+      "sha256LfNormalized": "bf3ef5ca8545f17c95bea1939b517cbaf328f2711da7fa1f385c59b1aa4e6cd7"
+    },
+    {
+      "path": "scripts/publication-mode.ts",
+      "sha256LfNormalized": "048ed9cf95ed2ba6e96da3aa97ecdcbfd83bd6363f9489a63d503904ff23fb03"
+    },
+    {
+      "path": "scripts/validate_v2_activation.py",
+      "sha256LfNormalized": "11c0714375f9403a29e3279d3ebd4cec7ef3b66fc7e328bc8f6c795a9af779e8"
+    },
+    {
+      "path": "scripts/validate_v2_cutover.py",
+      "sha256LfNormalized": "a2bce9e10373f635ae0b7f7ddaeecccc520bc3498e62e3fc91adfc98382bde05"
+    },
+    {
+      "path": "scripts/validate_v2_rebaseline.py",
+      "sha256LfNormalized": "fa73f44d06b60c49e898e583ff514651012635086fda04b4c5c97d3f47cc5694"
+    },
+    {
+      "path": "tests/browser/ium5-accessibility.spec.ts",
+      "sha256LfNormalized": "bafffb51c92e92393c6a1bce4f47f4e7596b9ff0cb009f872cbf41a02bc4dede"
+    },
+    {
+      "path": "tests/browser/ium5-offline.spec.ts",
+      "sha256LfNormalized": "0b8a804d8f64b41843fbd8e10eb005685f17c91eced35ffbeccd854f8cda76c3"
+    },
+    {
+      "path": "tests/browser/ium5-state.spec.ts",
+      "sha256LfNormalized": "fc614accadff5ccf6bcb8029290099e2c315294ef88757cad183e08fd594319a"
+    },
+    {
+      "path": "tests/browser/ium5-workbench.spec.ts",
+      "sha256LfNormalized": "6f03ad93aeffc956148cc8efd68c7c675071dfe678ea54716ed15ff44455fa0c"
+    },
+    {
+      "path": "tests/dashboard/contract.test.mjs",
+      "sha256LfNormalized": "4484ac15a2f93b81e65ccb75d56dca0e41f497de08f0dad158cceaccfcebd34d"
+    },
+    {
+      "path": "tests/dashboard/snapshot.test.mjs",
+      "sha256LfNormalized": "635902ea532e24392e8f05e90a67b5ee445d0cf2c3db843c2e41f325a39933a9"
+    },
+    {
+      "path": "tests/platform/contracts.test.ts",
+      "sha256LfNormalized": "994e4c3e338e41ab9dcf5ff4b32a0f8d9370af136d1bd614958aaa0b476f6533"
+    },
+    {
+      "path": "tests/platform/export-import.test.ts",
+      "sha256LfNormalized": "a6b3c1bd7a83c0d67c4a91a4d2930df4c2ec27741a51499c8fad8d585dbce858"
+    },
+    {
+      "path": "tests/platform/local-state.test.ts",
+      "sha256LfNormalized": "0624cda92f4e3028b486799e2f55814fb87059f6b2c06c22a48a172b94ffb318"
+    },
+    {
+      "path": "tests/platform/pages-workflow.test.ts",
+      "sha256LfNormalized": "5e0a552230a0b884797aab3bd32e224643bc87a9a53cad127a6a6e81fd69084c"
+    },
+    {
+      "path": "tests/platform/portal-build.test.ts",
+      "sha256LfNormalized": "d2543846b89203016819a0e9ca9ca6a0120314c2f7fa9b78e23cd2154e7bdf03"
+    },
+    {
+      "path": "tests/platform/publication-mode.test.ts",
+      "sha256LfNormalized": "63e855877057b816c7dfe7ed6c7f321974a12e2d7c75d54514122e2fff7822a7"
+    },
+    {
+      "path": "tests/platform/pwa-contract.test.ts",
+      "sha256LfNormalized": "964280e79774e4be0eb37e9af4ce38ea0a676eb2cd83bb766f9afcdaa4b82c46"
+    },
+    {
+      "path": "tests/platform/registry.test.ts",
+      "sha256LfNormalized": "ffda3b0f8a8258dc66f0939814d98565544976e9d3c5a48a19a92e352c4c510a"
+    },
+    {
+      "path": "tests/platform/runtime.test.ts",
+      "sha256LfNormalized": "83257d1648ac24964e5fe976b9c9dd8c40feee5aa725c7f9f03335efd1f19446"
+    },
+    {
+      "path": "tests/test_validate_v2_activation.py",
+      "sha256LfNormalized": "f1673074e5e40ccd5205b085bedf6240319afe1e2f71fb304ce1d5e7fdcf5c12"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256LfNormalized": "8b763c6efd6f761f7936ab8f35ef49017bcfcb872b70276e900e6559abcb603b"
+    }
+  ],
+  "planningDocuments": [
+    {
+      "path": "docs/superpowers/plans/2026-09-07-ium-v2-referenzmodul-implementation.md",
+      "sha256LfNormalized": "25c80ec2f5e7e167b4a340dbd41e6dcbeb7defbe70358f0b69f17cb90ad93f66"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-07-ium-v2-runtime-implementation.md",
+      "sha256LfNormalized": "adc0815228f8ad180397f817595ebb81cebe902967a3fb24dfc17345dc1a7d12"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-07-ium-v2-m06-implementation.md",
+      "sha256LfNormalized": "9997175ace69137f488f5d0e45d85bc91f5f7d0a8479f069aee61cadaf12db29"
+    }
+  ]
+}
