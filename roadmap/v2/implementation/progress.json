@@ -369,9 +369,73 @@
     },
     {
       "id": "IMP07",
-      "state": "in_progress",
-      "candidateCommit": null,
-      "checks": [],
+      "state": "review",
+      "candidateCommit": "51da04a49349766d27d431f41024ba6e5f20df56",
+      "checks": [
+        {
+          "id": "v2-registry-controller",
+          "command": "npx vitest run tests/platform/v2-registry.test.ts tests/platform/v2-m06-controller.test.ts tests/platform/publication-mode.test.ts tests/platform/portal-build.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "25 fokussierte Registry-, Controller-, Publikationsmodus- und Portal-Buildtests bestanden."
+        },
+        {
+          "id": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "Vertragstypen generiert und alle TypeScript-Projekte fehlerfrei geprüft."
+        },
+        {
+          "id": "build-profiles",
+          "command": "npm run build:v2; npm run build:v2:subpath; npm run build; npm run build:fixture",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "V2-Entwicklungsbuild für Root und Subpath sowie unveränderte Produktions- und Fixture-Builds bestanden."
+        },
+        {
+          "id": "platform-regression",
+          "command": "npm run test:platform",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "207 Plattformtests in 33 Testdateien bestanden."
+        },
+        {
+          "id": "workspace-boundaries",
+          "command": "npm run boundaries:check",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "Abhängigkeits- und Workspacegrenzen für acht Workspaces bestanden."
+        },
+        {
+          "id": "local-workspace-review",
+          "command": "npm run preview:v2; lokale Browserprüfung des M06-Arbeitsraums",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "Speicherwahl, zugängliche Bedienelemente, Referenzlauf, Zielmeldung sowie zehn Spurzeilen mit Befehls-ID, Durchlauf und Zustandsübergang lokal geprüft."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a3f9de9d8504f5d4fe9998e6b6eb4b8869547cbd",
+          "treeDigest": "65dded24db8d72e3e7c0cb477ea89e42f122b584892d11f6ac27acd2436fc5e7",
+          "summary": "IMP06-Abnahme, IMP07-Auftrag, Dateigrenzen, Paketdigest und tatsächliche Vault-Taskbelege geprüft."
+        }
+      ],
       "acceptance": null
     },
     {
