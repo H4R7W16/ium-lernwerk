@@ -6,7 +6,17 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from validate_v2_activation import validate, resolve_decision, ActivationError
+from validate_v2_activation import resolve_decision, ActivationError
+from validate_v2_implementation import validate_historical_activation, ImplementationError
+
+
+def validate(repo, **options):
+    # Exercise unchanged historical validators against their original file view.
+    # Mutations below are still supplied to the real validator in the child.
+    try:
+        return validate_historical_activation(repo, **options)
+    except ImplementationError as error:
+        raise ActivationError(str(error)) from error
 
 
 class ActivationTests(unittest.TestCase):

@@ -37,7 +37,7 @@ const v2Active = s.baseline.activeBaseline === 'v2';
   {page==='audit' && <>
     <p class="lead">{Object.values(s.auditCounts).reduce((a,b)=>a+b,0)} Artefaktfamilien wurden einzeln bewertet. Der Bestand wird kontrolliert übernommen, angepasst, ersetzt oder als Referenz erhalten.</p>
     <div class="cards quarters">{[['1','Beibehalten','retain'],['15','Anpassen','adapt'],['5','Ersetzen','replace'],['4','Nur Referenz','reference-only']].map(([n,t,id])=><article><span class="large-type">{s.auditCounts[id]}</span><h2>{t}</h2><p>{id}</p></article>)}</div>
-    <Evidence ids={['audit']}/><h2>Drei nachgelagerte Aufträge</h2><div class="cards thirds">{[['FU-TECH','Technische V1-Bausteine gegen V2 prüfen'],['FU-MOD','Erstes V2-Referenzmodul spezifizieren'],['FU-PILOT','Prüf- und Pilotinstrumente an V2 binden']].map(([id,t])=><article><span class="badge">Gesperrt</span><h3>{id}</h3><p>{t}</p></article>)}</div><p>Alle drei beginnen frühestens nach ihren Abhängigkeiten und mit eigenem Auftrag. Das Audit erhält 16 Grundlagenfragen; die Folgeaufträge erweitern nicht die 18 ursprünglichen Re-Baseline-Gates.</p>
+    <Evidence ids={['audit']}/><h2>Drei nachgelagerte Aufträge</h2><div class="cards thirds">{s.followUps.map(task=><article><span class="badge">{task.state==='done'?'Planungsauftrag angenommen':labels[task.state]}</span><h3>{task.id.replace('IUM-V2-','')}</h3><p>{task.title}</p>{task.acceptedCommit&&<p>Angenommen am {task.date}. Die Abnahme gilt für das Audit, Design oder Instrumentenpaket.</p>}</article>)}</div><p>Reale Nutzung und Unterrichtspilot bleiben offen. Das Audit erhält 16 Grundlagenfragen; die Folgeaufträge erweitern nicht die 18 ursprünglichen Re-Baseline-Gates.</p>
   </>}
   {page==='grades' && <>
     <p class="lead">Drei freigegebene Planungspakete. Tatsächliches Vorwissen, Zeitpassung und Lernergebnisse bleiben zu prüfen.</p>
@@ -64,8 +64,18 @@ const v2Active = s.baseline.activeBaseline === 'v2';
   {page==='gates' && v2Active && <section aria-labelledby="activation-title">
     <h2 id="activation-title">V2 als Planungs- und Entwicklungsbaseline aktiviert</h2>
     <p>Die ausdrückliche Nutzerfreigabe vom 6. September 2026 nimmt den geprüften CUT-Stand an. {s.gates.every(g=>g.state==='done')?'Alle 18 Gates der Re-Baseline sind abgeschlossen.':'Die technische Aktivierung durchläuft die abschließende Prüfung.'}</p>
-    <p>V1 bleibt bestehender Produktstand. 46 Bedingungseinträge sind erhalten: zwei planerisch erfüllt, 41 offen und drei Folgeaufträge gesperrt. Produktion, Pilotierung und Veröffentlichung bleiben geschlossen.</p>
+    <p>V1 bleibt bestehender Produktstand. Der historische CUT-Stand enthält 46 Bedingungseinträge: zwei planerisch erfüllt, 41 offen und drei damals gesperrte Folgeaufträge. Deren aktuelle Annahmen stehen im Übernahmeaudit. Produktion, Pilotierung und Veröffentlichung bleiben geschlossen.</p>
     <Evidence ids={['activation']}/>
+  </section>}
+  {page==='gates' && s.development && <section aria-labelledby="development-title">
+    <h2 id="development-title">Kontrollierte Implementierung</h2>
+    <p>Der angenommene Plan enthält acht sequenzielle Pakete. Beauftragt: {s.development.authorizedPackages.join(', ')}. Ein Paketabschluss öffnet keine reale Pilotierung oder Veröffentlichung.</p>
+    <div class="cards halves">{s.development.packages.map(p=><article><p class="eyebrow">{p.id}</p><h3>{labels[p.state]}</h3><p>{p.authorized?'Konkreter Auftrag liegt vor':'Noch nicht beauftragt'} · Technische Paketprüfung: {p.technicalState==='failed'?'Fehlgeschlagen':labels[p.technicalState]}</p></article>)}</div>
+  </section>}
+  {page==='evidence' && s.development && <section aria-labelledby="development-evidence-title">
+    <h2 id="development-evidence-title">Getrennte Entwicklungsnachweise</h2>
+    <p>Historische Aktivierung und aktuelle Paketprüfungen haben eigene Bezüge. Synthetische Vertragsprüfungen bestätigen keine reale Nutzung oder Lernwirkung.</p>
+    {s.development.packages.filter(p=>p.authorized).map(p=><article><h3>{p.id} · {labels[p.state]}</h3>{p.checks.length?<ul>{p.checks.map(c=><li>{c.summary} · Exitcode {c.exitCode}<br/><code>{c.command}</code></li>)}</ul>:<p>Für dieses Paket ist noch kein technischer Prüfnachweis hinterlegt.</p>}{p.candidateCommit&&<p>Kandidat: <code>{p.candidateCommit}</code></p>}</article>)}
   </section>}
   {page==='evidence' && <>
     <p class="lead">Jeder Beleg öffnet lokal. GitHub-Links erscheinen ausschließlich für identische Dateistände, deren Commit über vorhandene origin-Referenzen erreichbar ist.</p>

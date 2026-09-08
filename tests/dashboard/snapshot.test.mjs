@@ -10,12 +10,32 @@ import { buildSnapshot, markdown, project } from '../../packages/project-status/
 const repo = resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const manifest = JSON.parse(readFileSync(join(repo,'roadmap/v2/dashboard/gates.json')));
 const seed = JSON.parse(readFileSync(join(repo,'roadmap/v2/dashboard/editorial-seed.json')));
+const implementationPlan = JSON.parse(readFileSync(join(repo,'roadmap/v2/implementation-planning/plan.json')));
+const authorization = JSON.parse(readFileSync(join(repo,'roadmap/v2/implementation/authorization.json')));
+const progress = JSON.parse(readFileSync(join(repo,'roadmap/v2/implementation/progress.json')));
+const cutoverReview = JSON.parse(readFileSync(join(repo,'roadmap/v2/cutover/review.json')));
 function fixture(mutate = () => {}) {
   const vault = mkdtempSync(join(tmpdir(),'ium-dash-vault-')), d = structuredClone(seed);
   for (const [i,g] of manifest.entries()) {
     const file = join(vault,g.path); mkdirSync(dirname(file),{recursive:true});
-    writeFileSync(file,`---\nstatus: done\nsequence: ${i+1}\nstrand: ium-v2-rebaseline\nowner_agent: Codex\nupdated: 2026-09-06\n---\n# ${g.id} Synthetischer Test-Gate\n`);
+    const approval = cutoverReview.gates[i]?.approvalEvidence.excerpt
+      ?? 'V2-Aktivierung freigegeben. 0032509af1dfe758548f34f37bb633bae403a9fa';
+    writeFileSync(file,`---\nstatus: done\nsequence: ${i+1}\nstrand: ium-v2-rebaseline\nowner_agent: Codex\nupdated: 2026-09-06\n---\n# ${g.id} Synthetischer Test-Gate\n${approval}\n`);
   }
+  const taskRoot='60_Organisation/Workspace-Entwicklung/Tasks/';
+  const task=(path,state,body)=>{
+    const file=join(vault,path);mkdirSync(dirname(file),{recursive:true});
+    writeFileSync(file,`---\nstatus: ${state}\nowner_agent: Codex\n---\n# Synthetischer Taskbeleg\n${body}\n`);
+  };
+  task(taskRoot+'2026-09-07 - IUM-V2-PLAN Referenzmodul-Implementierung planen.md','done',
+    `${authorization.acceptedPlanCommit}\n${authorization.planAcceptance.statement}\n${authorization.requests[0].statement}`);
+  for(const [i,p] of implementationPlan.packages.entries()) task(p.taskPath,
+    progress.packages[i].state==='planned'?'blocked':progress.packages[i].state,'synthetic');
+  for(const [folder,name] of [
+    ['technical','2026-09-06 - IUM-V2-FU-TECH Technische V1-Bausteine gegen V2 prüfen.md'],
+    ['reference-module','2026-09-06 - IUM-V2-FU-MOD Erstes V2-Referenzmodul spezifizieren.md'],
+    ['pilot','2026-09-06 - IUM-V2-FU-PILOT Prüf- und Pilotinstrumente an V2 binden.md'],
+  ]) task(taskRoot+name,'done',JSON.parse(readFileSync(join(repo,`roadmap/v2/follow-ups/${folder}/acceptance.json`))).acceptedCommit);
   mutate(d,vault);
   const register = join(vault,'register.md');
   writeFileSync(register,'<!-- IUM-PROJECT-STATUS:START -->\n```yaml\n'+stringify(d)+'```\n<!-- IUM-PROJECT-STATUS:END -->');
@@ -43,12 +63,12 @@ test('absolute paths in a selected source cannot enter the snapshot', () => {
 test('invalid task states fail closed instead of being silently shown as done', () => {
   assert.throws(()=>buildSnapshot(fixture((d,vault)=>{
     const p=join(vault,manifest[0].path);writeFileSync(p,readFileSync(p,'utf8').replace('status: done','status: green'));
-  })),/Gate-Status/);
+  })),/Gate-Status|Vault-Freigabe nicht nachweisbar: IUM-V2-00/);
 });
 test('closed predecessor blocks DASH snapshot generation', () => {
   assert.throws(()=>buildSnapshot(fixture((d,vault)=>{
     const p=join(vault,manifest[15].path);writeFileSync(p,readFileSync(p,'utf8').replace('status: done','status: review'));
-  })),/Vorgänger/);
+  })),/Vorgänger|Vault-Freigabe nicht nachweisbar: IUM-V2-R7/);
 });
 test('URI schemes are not mistaken for absolute drive paths', () => {
   const s = buildSnapshot(fixture());
@@ -69,4 +89,20 @@ test('active V2 retains product V1, every condition and all separate maturity ax
   assert.equal(s.cutover.conditions.length,46);
   assert.deepEqual(s.streams.map(x=>x.maturity),seed.streams.map(x=>x.maturity));
   assert.match(markdown(s),/V2: aktive Planungs-/);
+});
+
+test('follow-up approvals are current while pilot and future packages remain open',()=>{
+  const s=buildSnapshot(fixture());
+  assert.deepEqual(s.followUps.map(x=>x.state),['done','done','done']);
+  assert.deepEqual(s.development.authorizedPackages,['IMP01']);
+  assert.equal(s.development.packages[1].state,'planned');
+  assert.equal(s.development.limits.pilot,'not-started');
+  assert.match(markdown(s),/FU-PILOT/);
+});
+
+test('a conflicting current follow-up task cannot be rendered as accepted',()=>{
+  assert.throws(()=>buildSnapshot(fixture((_d,vault)=>{
+    const path=join(vault,'60_Organisation/Workspace-Entwicklung/Tasks/2026-09-06 - IUM-V2-FU-PILOT Prüf- und Pilotinstrumente an V2 binden.md');
+    writeFileSync(path,readFileSync(path,'utf8').replace('status: done','status: review'));
+  })),/Vault-Task/);
 });

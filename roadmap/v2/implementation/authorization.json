@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "acceptedPlanCommit": "a702deaaafba464e2035f5be6d919bd30a9f4855",
+  "planAcceptance": {
+    "state": "approved-by-user",
+    "decisionBy": "user",
+    "date": "2026-09-08",
+    "statement": "Der Plan ist angenommen."
+  },
+  "requests": [
+    {
+      "id": "IUM-V2-IMP01-2026-09-08",
+      "date": "2026-09-08",
+      "decisionBy": "user",
+      "statement": "Führe IUM-V2-IMP01 jetzt aus.",
+      "packageIds": [
+        "IMP01"
+      ],
+      "optionalChanges": [
+        {
+          "path": "apps/project-dashboard/src/pages/[...page].astro",
+          "reason": "Aktuelle FU-Annahmen und getrennte Entwicklungsnachweise im bestehenden HTML anzeigen."
+        }
+      ]
+    }
+  ],
+  "limits": {
+    "contentProduction": "frozen",
+    "curriculum": "unassessed",
+    "usage": "not-started",
+    "pilot": "not-started",
+    "publication": "closed",
+    "push": "not-authorized",
+    "merge": "not-authorized",
+    "lxp05": "frozen-unmerged"
+  }
+}

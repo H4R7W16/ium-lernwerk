@@ -20,7 +20,7 @@ if (!['presentation','internal'].includes(mode)) throw new Error('Ungültiger Mo
 const snapshot = buildSnapshot({repo,vault,register});
 const output = resolve(repo,'dist/dashboard');
 if (command === 'check') {
-  console.log(`Dashboardvertrag gültig: ${snapshot.gates.length} Gates, ${snapshot.streams.length} Stränge, ${snapshot.evidence.length} Belege. ${snapshot.warnings.length} optionale Quellenlücke(n).`);
+  console.log(`Dashboardvertrag gültig: ${snapshot.gates.length} Gates, ${snapshot.streams.length} Stränge, ${snapshot.evidence.length} Belege${snapshot.development ? '; kontrollierte Entwicklung: '+snapshot.development.authorizedPackages.join(', ') : ''}. ${snapshot.warnings.length} optionale Quellenlücke(n).`);
 } else {
   const serialized = JSON.stringify(snapshot,null,2)+'\n';
   // Validate and prepare both projections before any replacement.

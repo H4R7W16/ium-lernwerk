@@ -43,6 +43,8 @@ for (const [label, mutate] of [
   ['traversal evidence', d => d.evidence[0].target = '../secret.md'],
   ['invalid visibility', d => d.evidence[0].visibility = 'public'],
   ['abbreviated SHA', d => d.technicalEvidence.commit = '60c7d0a'],
+  ['invented current technical evidence', d => d.technicalEvidence.commit = 'a'.repeat(40)],
+  ['inflated historical technical scope', d => d.technicalEvidence.scope = 'All real pilots passed'],
   ['unknown property', d => d.overallProgress = 100],
 ]) test(`fails closed: ${label}`, () => { const d = copy(); mutate(d); assert.throws(() => validateEditorial(d)); });
 

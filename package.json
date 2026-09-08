@@ -41,8 +41,8 @@
     "verify:phase1": "tsx scripts/verify-phase1.ts",
     "verify:ium5": "tsx scripts/verify-ium5.ts",
     "verify:v2": "python -B scripts/validate_v2_rebaseline.py",
-    "verify:v2:active": "python -B scripts/validate_v2_activation.py",
-    "verify:v2:cutover": "npm run verify:v2 && python -B scripts/validate_v2_cutover.py",
+    "verify:v2:active": "npm run verify:v2:implementation",
+    "verify:v2:cutover": "npm run verify:v2 && npm run verify:v2:implementation",
     "verify:v2:sources:online": "python -B scripts/check_v2_source_links.py --write",
     "verify:ium5:gate-b": "tsx scripts/verify-ium5-gate-b.ts",
     "dashboard:check": "node scripts/project-dashboard.mjs check",
@@ -50,7 +50,9 @@
     "dashboard:build": "node scripts/project-dashboard.mjs build",
     "dashboard:preview": "node scripts/project-dashboard.mjs preview",
     "test:dashboard": "node --test tests/dashboard/*.test.mjs",
-    "test:dashboard:browser": "node scripts/test-dashboard-browser.mjs"
+    "test:dashboard:browser": "node scripts/test-dashboard-browser.mjs",
+    "verify:v2:implementation": "python -B scripts/validate_v2_implementation.py",
+    "verify:v2:activation:historical": "python -B scripts/validate_v2_implementation.py --historical-only"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

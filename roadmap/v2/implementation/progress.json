@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "moduleId": "V2-G5-M06",
+  "updated": "2026-09-08",
+  "packages": [
+    {
+      "id": "IMP01",
+      "state": "review",
+      "candidateCommit": null,
+      "checks": [
+        {
+          "id": "python-v2",
+          "command": "python -B -m unittest discover -s tests -p 'test_validate_v2_*.py'",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a702deaaafba464e2035f5be6d919bd30a9f4855",
+          "treeDigest": "ddaa4d0efcd44ce0b7d8533057546a8b2f18c245015eafc6c96ad5c8213c13c1",
+          "summary": "353 V2-Python-Tests bestanden."
+        },
+        {
+          "id": "dashboard",
+          "command": "npm run test:dashboard",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a702deaaafba464e2035f5be6d919bd30a9f4855",
+          "treeDigest": "ddaa4d0efcd44ce0b7d8533057546a8b2f18c245015eafc6c96ad5c8213c13c1",
+          "summary": "41 Dashboardtests bestanden."
+        },
+        {
+          "id": "browser",
+          "command": "npm run test:dashboard:browser",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a702deaaafba464e2035f5be6d919bd30a9f4855",
+          "treeDigest": "ddaa4d0efcd44ce0b7d8533057546a8b2f18c245015eafc6c96ad5c8213c13c1",
+          "summary": "6 Chromium-Browserprüfungen bestanden."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "a702deaaafba464e2035f5be6d919bd30a9f4855",
+          "treeDigest": "ddaa4d0efcd44ce0b7d8533057546a8b2f18c245015eafc6c96ad5c8213c13c1",
+          "summary": "Entwicklungsvertrag mit tatsächlichen Vault-Taskbelegen geprüft."
+        }
+      ],
+      "acceptance": null
+    },
+    {
+      "id": "IMP02",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    },
+    {
+      "id": "IMP03",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    },
+    {
+      "id": "IMP04",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    },
+    {
+      "id": "IMP05",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    },
+    {
+      "id": "IMP06",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    },
+    {
+      "id": "IMP07",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    },
+    {
+      "id": "IMP08",
+      "state": "planned",
+      "candidateCommit": null,
+      "checks": [],
+      "acceptance": null
+    }
+  ],
+  "limits": {
+    "contentProduction": "frozen",
+    "curriculum": "unassessed",
+    "usage": "not-started",
+    "pilot": "not-started",
+    "publication": "closed",
+    "push": "not-authorized",
+    "merge": "not-authorized",
+    "lxp05": "frozen-unmerged"
+  }
+}

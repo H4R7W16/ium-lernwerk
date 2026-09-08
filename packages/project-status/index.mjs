@@ -8,6 +8,10 @@ export const axes = { curriculum: 'Curriculumabdeckung', concept: 'Konzept', imp
 export const labels = { unassessed: 'Nicht nachgewiesen', reviewed: 'Planung geprüft', draft: 'Entwurf', 'not-started': 'Nicht begonnen', 'not-run': 'Nicht geprüft', passed: 'Vertragsprüfung bestanden', closed: 'Geschlossen', planned: 'Geplant', in_progress: 'In Arbeit', review: 'Zur Abnahme', done: 'Freigegeben', blocked: 'Gesperrt', stale: 'Anderer Commit · veraltet' };
 const workStates = ['planned', 'in_progress', 'review', 'done', 'blocked'];
 const maturityStates = { curriculum: ['unassessed'], concept: ['draft', 'reviewed'], implementation: ['not-started'], technical: ['passed', 'not-run'], didactic: ['reviewed', 'not-started'], usage: ['not-started'], pilot: ['not-started'], release: ['closed'] };
+const historicalTechnicalScopes = {
+  '60c7d0a195bc6f3e6803bdc2a97e4a7479e28a24': 'R7: 966 Python-Tests und V2-Gate; historischer Vertragsprüfstand, keine Nutzungsprüfung.',
+  '32b523a657a3e6717a83fd9aaa755c8deed9adbf': 'Aktivierung: 1.017 Python-, 32 Dashboardtests und sechs Browserprüfungen; V2-/CUT-Aktivierungsprüfung bestanden. IUM5 24/24 und 132 Plattformtests bleiben historische Produktnachweise bei 0032509. Keine Nutzungsprüfung.',
+};
 const fail = message => { throw new Error(message); };
 const check = (condition, message) => { if (!condition) fail(message); };
 const object = v => v && typeof v === 'object' && !Array.isArray(v);
@@ -53,7 +57,18 @@ export function validateEditorial(d) {
   for (const u of d.uncertainties) { keys(u, ['id','title','summary','evidenceIds']); safeText(u.title); safeText(u.summary); refs(u.evidenceIds); }
   keys(d.technicalEvidence, ['commit','date','state','scope']);
   check(sha(d.technicalEvidence.commit) && d.technicalEvidence.state === 'passed' && /^\d{4}-\d{2}-\d{2}$/.test(d.technicalEvidence.date), 'Ungültiger technischer Nachweis'); safeText(d.technicalEvidence.scope);
+  check(d.technicalEvidence.date === '2026-09-06' && historicalTechnicalScopes[d.technicalEvidence.commit] === d.technicalEvidence.scope,
+    'Historischen technischen Nachweis nicht umdeuten; Entwicklungsprüfungen getrennt führen');
   return d;
+}
+export function resolveFollowUpState(acceptance) {
+  const scopes = {'IUM-V2-FU-TECH':'technical-inventory-and-migration-audit',
+    'IUM-V2-FU-MOD':'reference-module-design', 'IUM-V2-FU-PILOT':'pilot-instrument-specification'};
+  check(object(acceptance) && Object.hasOwn(scopes,acceptance.taskId)
+    && scopes[acceptance.taskId] === acceptance.scope && acceptance.state === 'approved-by-user'
+    && sha(acceptance.acceptedCommit) && acceptance.pilot === 'not-started' && acceptance.publication === 'closed'
+    && (acceptance.decisionBy === undefined || acceptance.decisionBy === 'user'), 'Unbekannte oder widersprüchliche FU-Annahme');
+  return {workStatus:'done',pilot:'not-started',publication:'closed'};
 }
 export function atomicWrite(file, content, validate = () => {}) {
   validate(content); mkdirSync(dirname(file), { recursive: true });
@@ -75,6 +90,7 @@ export function validateCutoverStage(dash, cut, acceptance, active = false) {
 }
 export function project(snapshot, mode) {
   check(['presentation','internal'].includes(mode), 'Ungültiger Modus');
+  check(!localPath.test(JSON.stringify(snapshot.development ?? {})), 'Absoluter lokaler Pfad im Entwicklungsnachweis');
   const result = structuredClone(snapshot);
   result.evidence = result.evidence.filter(e => mode === 'internal' || e.visibility === 'presentation');
   // Never serialize private missing-source names in presentation mode.
@@ -97,7 +113,10 @@ export function buildSnapshot({ repo, vault, register }) {
   const readJSON = p => JSON.parse(readFileSync(containedFile(repo,p), 'utf8'));
   const historicalBaseline = readJSON('roadmap/v2/status.json');
   const hasDecision = ['decision.json','active-baseline.json'].some(p=>existsSync(resolve(repo,'roadmap/v2/cutover',p)));
-  const baseline = hasDecision ? JSON.parse(execFileSync(process.platform === 'win32' ? 'python.exe' : 'python', ['-B','scripts/validate_v2_activation.py','--json'], {cwd:repo,encoding:'utf8',stdio:['ignore','pipe','pipe']})) : historicalBaseline;
+  const hasImplementation = existsSync(resolve(repo,'roadmap/v2/implementation/authorization.json'));
+  const implementation = hasImplementation ? JSON.parse(execFileSync(process.platform === 'win32' ? 'python.exe' : 'python',
+    ['-B','scripts/validate_v2_implementation.py','--json','--vault',vault], {cwd:repo,encoding:'utf8',stdio:['ignore','pipe','pipe']})) : null;
+  const baseline = implementation?.historicalActivation ?? (hasDecision ? JSON.parse(execFileSync(process.platform === 'win32' ? 'python.exe' : 'python', ['-B','scripts/validate_v2_activation.py','--json'], {cwd:repo,encoding:'utf8',stdio:['ignore','pipe','pipe']})) : historicalBaseline);
   check(historicalBaseline.activeBaseline === 'v1' && historicalBaseline.v2State === 'building' && historicalBaseline.contentProduction === 'frozen' && historicalBaseline.cutover.state === 'not-approved' && historicalBaseline.lxp05.state === 'frozen' && historicalBaseline.lxp05.integration === 'unmerged', 'DASH-Vertrag vor Cutover verletzt');
   const head = git('rev-parse','HEAD'); check(sha(head), 'HEAD fehlt');
   const warnings = [], evidence = [];
@@ -161,13 +180,21 @@ export function buildSnapshot({ repo, vault, register }) {
   const auditCounts = {'retain':0,'adapt':0,'replace':0,'reference-only':0};
   for (const record of inventory.records) { check(Object.hasOwn(auditCounts,record.decision),'Unbekannte Auditentscheidung'); auditCounts[record.decision]++; }
   const followUps = readJSON('roadmap/v2/audits/follow-up-tasks.json').tasks.filter(t=>t.id.startsWith('IUM-V2-FU-'));
-  check(followUps.length === 3 && followUps.every(t=>t.state==='blocked-follow-up'), 'Audit-Folgeaufträge benötigen neuen Dashboardvertrag');
-  return { ...d, baseline, cutover, evidence, gates, grades, openEvidence, auditCounts, followUps:followUps.map(t=>({id:t.id,title:t.title,state:'blocked'})), warnings, git: { head, branch:git('branch','--show-current'), dirty:Boolean(git('status','--porcelain')), main:archive.mainCommit, remote:git('rev-parse','origin/feat/ium-v2-rebaseline') }, technicalFreshness:freshness(d.technicalEvidence,head), generatedAt:new Date().toISOString(), registerDigest:createHash('sha256').update(readFileSync(register)).digest('hex') };
+  check(followUps.length === 3 && followUps.every(t=>t.state==='blocked-follow-up'), 'Historischer Audit-Folgeauftrag verändert');
+  const currentFollowUps = followUps.map(t=>{
+    if (!implementation) return {id:t.id,title:t.title,state:'blocked'};
+    const acceptance=implementation.followUps.find(a=>a.taskId===t.id);
+    const current=resolveFollowUpState(acceptance);
+    return {id:t.id,title:t.title,state:current.workStatus,pilot:current.pilot,publication:current.publication,
+      acceptedCommit:acceptance.acceptedCommit,date:acceptance.date,scope:acceptance.scope};
+  });
+  return { ...d, baseline, development:implementation?.development ?? null, cutover, evidence, gates, grades, openEvidence, auditCounts, followUps:currentFollowUps, warnings, git: { head, branch:git('branch','--show-current'), dirty:Boolean(git('status','--porcelain')), main:archive.mainCommit, remote:git('rev-parse','origin/feat/ium-v2-rebaseline') }, technicalFreshness:freshness(d.technicalEvidence,head), generatedAt:new Date().toISOString(), registerDigest:createHash('sha256').update(readFileSync(register)).digest('hex') };
 }
 
 export function markdown(snapshot) {
   const s = project(snapshot,'internal');
   const refs = ids => ids.map(id=>{const e=s.evidence.find(e=>e.id===id); return e.kind==='vault' ? `[[${e.target.replace(/^.*\//,'').replace(/\.md$/,'')}|${e.label}]]` : `[${e.label}](../../../Repos/ium-lernwerk/${e.target})`;}).join(' · ');
+  const developmentMarkdown = s.development ? `## Aktuelle Folgeaufträge\n\n${s.followUps.map(t=>`- **${t.id}:** Planungsauftrag angenommen am ${t.date}; \`${t.acceptedCommit}\`. Reales Pilotgate offen.`).join('\n')}\n\n## Kontrollierte Implementierung\n\nBeauftragt: ${s.development.authorizedPackages.join(', ')}.\n\n| Paket | Arbeitsstatus | Auftrag | Technische Paketprüfung |\n|---|---|---|---|\n${s.development.packages.map(p=>`| ${p.id} | ${labels[p.state]} | ${p.authorized?'Beauftragt':'Nicht beauftragt'} | ${p.technicalState==='failed'?'Fehlgeschlagen':labels[p.technicalState]} |`).join('\n')}\n\nPaketnachweise sind synthetisch. Reale Nutzung, Unterrichtspilot und Veröffentlichung bleiben geschlossen.\n\n` : '';
   const rows = s.streams.map(x=>`| ${x.title} | ${Object.keys(axes).map(k=>labels[x.maturity[k]]).join(' | ')} |`).join('\n');
-  return `---\ntype: dashboard\nstatus: active\nproject: IuM-Lernwerk\nupdated: ${s.asOf}\ngenerated: true\nrepo: H4R7W16/ium-lernwerk\n---\n\n# IuM-Lernwerk Dashboard\n\n> Generiert aus [[IuM-Lernwerk Statusregister]]. Keine Gesamtbewertung.\n\n**Stichtag ${s.asOf} · Checkout \`${s.git.head}\` · ${s.git.dirty?'Arbeitskopie verändert':'Arbeitskopie sauber'}**\n\n${s.summary}\n\n## Aktueller Fokus\n\n${s.currentFocus.title} — ${labels[s.currentFocus.workStatus]}. ${s.currentFocus.summary}\n\n## Baselines\n\n- V1: ${s.baseline.activeBaseline==='v2'?'bestehender Produktstand und archivierte Referenz':'aktive Baseline und archivierte Referenz'} bei \`${s.git.main}\`. ${refs(['archive'])}\n- V2: ${s.baseline.activeBaseline==='v2'?'aktive Planungs-/Entwicklungsbaseline; CUT ausdrücklich freigegeben.':'building; CUT nicht freigegeben.'}\n- LXP05: eingefrorener, ungemergter Kandidat. Inhaltsproduktion geschlossen.\n\n## Getrennte Reifeachsen\n\n| Strang | ${Object.values(axes).join(' | ')} |\n| ${Array(9).fill('---').join(' | ')} |\n${rows}\n\nTechnische Prüfung: ${labels[s.technicalFreshness]}, Nachweis bei \`${s.technicalEvidence.commit}\` (${s.technicalEvidence.date}). ${s.technicalEvidence.scope} Kein automatischer Reifewechsel durch Checkout oder Tests.\n\n## Grundlagen und Experience\n\n${s.streams.map(x=>`- **${x.title}:** ${x.summary} ${refs(x.evidenceIds)}`).join('\n')}\n\n${s.experienceAxes.map(x=>`- ${x.label}: ${labels[x.state]}. ${refs(x.evidenceIds)}`).join('\n')}\n\n## Jahrgänge und Kapazität\n\n${s.grades.map(g=>`- **Klasse ${g.grade}:** Planung freigegeben am ${g.date}, \`${g.acceptedCommit}\`; ${g.coreMinutes} Minuten Kernmodule. ${refs([g.evidenceId])}`).join('\n')}\n\n| R7-Pfad | Bedarf | Zeitbedingt offene Orientierung | Offene Reflexion |\n|---|---|---|---|\n${s.grades[2].paths.map(p=>`| ${p.id} | ${p.requiredUnits} UE | ${p.openCapacityRecordIds?.length ?? 'siehe Beleg'} | ${p.openReflectionRecordIds?.length ?? 3} |`).join('\n')}\n\n${s.uncertainties.map(u=>`### ${u.title}\n\n${u.summary} ${refs(u.evidenceIds)}`).join('\n\n')}\n\nSechs übernommene Fragen: ${s.openEvidence.inherited.map(x=>'\`'+x+'\`').join(', ')}.\n\nDrei neue Reflexionsfragen: ${s.openEvidence.new.map(x=>'\`'+x+'\`').join(', ')}.\n\n## Alle 18 V2-Gates\n\n| Nr. | Gate | Status | Stichtag |\n|---|---|---|---|\n${s.gates.map(g=>`| ${g.sequence} | [[${g.source.replace(/^.*\//,'').replace(/\.md$/,'')}|${g.id}]] | ${labels[g.state]} | ${g.date} |`).join('\n')}\n\n## Nächste Entscheidung\n\n**${s.nextDecision.title}.** ${s.nextDecision.summary}\n\n## Evidenz und Aktualität\n\n${s.evidence.map(e=>`- ${refs([e.id])} · ${e.visibility} · ${e.commit ? '\`'+e.commit+'\`' : 'Arbeitskopie / Vault'} · SHA-256 \`${e.digest}\`${e.githubUrl?' · [Verifizierter origin-Stand]('+e.githubUrl+')':''}`).join('\n')}\n\n${s.warnings.map(w=>'> Quellenlücke: '+w.message).join('\n')}\n\nErzeugt: ${s.generatedAt}. Register-Digest: \`${s.registerDigest}\`. Änderungen erfordern \`npm run dashboard:update\`; Vorschau aktualisiert den Snapshot automatisch.\n`;
+  return `---\ntype: dashboard\nstatus: active\nproject: IuM-Lernwerk\nupdated: ${s.asOf}\ngenerated: true\nrepo: H4R7W16/ium-lernwerk\n---\n\n# IuM-Lernwerk Dashboard\n\n> Generiert aus [[IuM-Lernwerk Statusregister]]. Keine Gesamtbewertung.\n\n**Stichtag ${s.asOf} · Checkout \`${s.git.head}\` · ${s.git.dirty?'Arbeitskopie verändert':'Arbeitskopie sauber'}**\n\n${s.summary}\n\n## Aktueller Fokus\n\n${s.currentFocus.title} — ${labels[s.currentFocus.workStatus]}. ${s.currentFocus.summary}\n\n## Baselines\n\n- V1: ${s.baseline.activeBaseline==='v2'?'bestehender Produktstand und archivierte Referenz':'aktive Baseline und archivierte Referenz'} bei \`${s.git.main}\`. ${refs(['archive'])}\n- V2: ${s.baseline.activeBaseline==='v2'?'aktive Planungs-/Entwicklungsbaseline; CUT ausdrücklich freigegeben.':'building; CUT nicht freigegeben.'}\n- LXP05: eingefrorener, ungemergter Kandidat. Inhaltsproduktion geschlossen.\n\n## Getrennte Reifeachsen\n\n| Strang | ${Object.values(axes).join(' | ')} |\n| ${Array(9).fill('---').join(' | ')} |\n${rows}\n\nTechnische Prüfung: ${labels[s.technicalFreshness]}, Nachweis bei \`${s.technicalEvidence.commit}\` (${s.technicalEvidence.date}). ${s.technicalEvidence.scope} Kein automatischer Reifewechsel durch Checkout oder Tests.\n\n## Grundlagen und Experience\n\n${s.streams.map(x=>`- **${x.title}:** ${x.summary} ${refs(x.evidenceIds)}`).join('\n')}\n\n${s.experienceAxes.map(x=>`- ${x.label}: ${labels[x.state]}. ${refs(x.evidenceIds)}`).join('\n')}\n\n## Jahrgänge und Kapazität\n\n${s.grades.map(g=>`- **Klasse ${g.grade}:** Planung freigegeben am ${g.date}, \`${g.acceptedCommit}\`; ${g.coreMinutes} Minuten Kernmodule. ${refs([g.evidenceId])}`).join('\n')}\n\n| R7-Pfad | Bedarf | Zeitbedingt offene Orientierung | Offene Reflexion |\n|---|---|---|---|\n${s.grades[2].paths.map(p=>`| ${p.id} | ${p.requiredUnits} UE | ${p.openCapacityRecordIds?.length ?? 'siehe Beleg'} | ${p.openReflectionRecordIds?.length ?? 3} |`).join('\n')}\n\n${s.uncertainties.map(u=>`### ${u.title}\n\n${u.summary} ${refs(u.evidenceIds)}`).join('\n\n')}\n\nSechs übernommene Fragen: ${s.openEvidence.inherited.map(x=>'\`'+x+'\`').join(', ')}.\n\nDrei neue Reflexionsfragen: ${s.openEvidence.new.map(x=>'\`'+x+'\`').join(', ')}.\n\n## Alle 18 V2-Gates\n\n| Nr. | Gate | Status | Stichtag |\n|---|---|---|---|\n${s.gates.map(g=>`| ${g.sequence} | [[${g.source.replace(/^.*\//,'').replace(/\.md$/,'')}|${g.id}]] | ${labels[g.state]} | ${g.date} |`).join('\n')}\n\n${developmentMarkdown}## Nächste Entscheidung\n\n**${s.nextDecision.title}.** ${s.nextDecision.summary}\n\n## Evidenz und Aktualität\n\n${s.evidence.map(e=>`- ${refs([e.id])} · ${e.visibility} · ${e.commit ? '\`'+e.commit+'\`' : 'Arbeitskopie / Vault'} · SHA-256 \`${e.digest}\`${e.githubUrl?' · [Verifizierter origin-Stand]('+e.githubUrl+')':''}`).join('\n')}\n\n${s.warnings.map(w=>'> Quellenlücke: '+w.message).join('\n')}\n\nErzeugt: ${s.generatedAt}. Register-Digest: \`${s.registerDigest}\`. Änderungen erfordern \`npm run dashboard:update\`; Vorschau aktualisiert den Snapshot automatisch.\n`;
 }

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "acceptedPlanCommit": "a702deaaafba464e2035f5be6d919bd30a9f4855",
+  "sourcePath": "roadmap/v2/implementation-planning/plan.json",
+  "historicalActivationCommit": "150deea22ba9bcf3170915bb4b24852d376f6a8b",
+  "packages": [
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP01",
+      "files": [
+        "roadmap/v2/implementation/authorization.json",
+        "roadmap/v2/implementation/progress.json",
+        "roadmap/v2/implementation/change-plan.json",
+        "schemas/v2/implementation.schema.json",
+        "scripts/validate_v2_implementation.py",
+        "tests/test_validate_v2_implementation.py",
+        "tests/dashboard/implementation.test.mjs",
+        "packages/project-status/index.mjs",
+        "scripts/project-dashboard.mjs",
+        "tests/dashboard/contract.test.mjs",
+        "tests/dashboard/snapshot.test.mjs",
+        "tests/test_validate_v2_activation.py",
+        "package.json",
+        "apps/project-dashboard/src/pages/[...page].astro"
+      ],
+      "dependsOn": [
+        "IUM-V2-PLAN"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP02",
+      "files": [
+        "packages/module-runtime/src/accept-state.ts",
+        "tests/platform/runtime-acceptance.test.ts",
+        "packages/module-runtime/src/runtime.ts",
+        "packages/module-runtime/src/migrations.ts",
+        "packages/module-runtime/src/index.ts",
+        "tests/platform/runtime.test.ts",
+        "packages/module-contract/src/errors.ts",
+        "schemas/learning-state-envelope.schema.json",
+        "tests/platform/contracts.test.ts"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP01"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP03",
+      "files": [
+        "packages/local-state/src/versioned-indexeddb-repository.ts",
+        "packages/local-state/src/versioned-memory-repository.ts",
+        "packages/local-state/src/version-token.ts",
+        "apps/lernwerk-portal/src/controllers/storage-choice.ts",
+        "apps/lernwerk-portal/src/controllers/local-data-v2.ts",
+        "apps/lernwerk-portal/src/pages/tests/[probe].astro",
+        "apps/lernwerk-portal/src/components/RuntimeProbe.astro",
+        "apps/lernwerk-portal/src/controllers/runtime-probe.ts",
+        "playwright.runtime.config.mts",
+        "tests/platform/versioned-state.test.ts",
+        "tests/browser/v2-storage.spec.ts",
+        "tests/browser/helpers/storage-choice.ts",
+        "apps/lernwerk-portal/astro.config.ts",
+        "tests/platform/portal-build.test.ts",
+        "packages/local-state/src/index.ts",
+        "packages/module-contract/src/errors.ts",
+        "apps/lernwerk-portal/src/pages/daten.astro",
+        "apps/lernwerk-portal/src/controllers/algorithm-workbench/browser-ports.ts",
+        "apps/lernwerk-portal/src/controllers/algorithm-workbench/workbench-controller.ts",
+        "tests/platform/local-state.test.ts",
+        "tests/platform/export-import.test.ts",
+        "tests/browser/ium5-workbench.spec.ts",
+        "tests/browser/ium5-state.spec.ts",
+        "tests/browser/ium5-accessibility.spec.ts",
+        "tests/browser/ium5-offline.spec.ts"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP02"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP04",
+      "files": [
+        "apps/lernwerk-portal/src/controllers/reload-readiness.ts",
+        "apps/lernwerk-portal/src/controllers/update-coordinator.ts",
+        "tests/platform/reload-readiness.test.ts",
+        "tests/browser/v2-update.spec.ts",
+        "apps/lernwerk-portal/src/controllers/pwa-registration.ts",
+        "apps/lernwerk-portal/src/sw.ts",
+        "apps/lernwerk-portal/src/controllers/algorithm-workbench/workbench-controller.ts",
+        "apps/lernwerk-portal/src/controllers/fixture-workspace.ts",
+        "apps/lernwerk-portal/src/controllers/runtime-probe.ts",
+        "packages/module-runtime/src/runtime.ts",
+        "packages/module-runtime/src/index.ts",
+        "tests/platform/pwa-contract.test.ts"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP03"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP05",
+      "files": [
+        "packages/v2-g5-m06/package.json",
+        "packages/v2-g5-m06/tsconfig.json",
+        "packages/v2-g5-m06/src/model.ts",
+        "packages/v2-g5-m06/src/validation.ts",
+        "packages/v2-g5-m06/src/interpreter.ts",
+        "packages/v2-g5-m06/src/goals.ts",
+        "packages/v2-g5-m06/src/editor.ts",
+        "packages/v2-g5-m06/src/dossier.ts",
+        "packages/v2-g5-m06/src/index.ts",
+        "tests/platform/v2-m06-model.test.ts",
+        "tests/platform/v2-m06-dossier.test.ts",
+        "tsconfig.json",
+        "scripts/check-workspace-boundaries.ts",
+        "apps/lernwerk-portal/package.json",
+        "package-lock.json"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP04"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP06",
+      "files": [
+        "modules-v2/V2-G5-M06/content.json",
+        "modules-v2/V2-G5-M06/cases.json",
+        "modules-v2/V2-G5-M06/materials/start.md",
+        "modules-v2/V2-G5-M06/materials/legend.md",
+        "modules-v2/V2-G5-M06/materials/worked-example.md",
+        "modules-v2/V2-G5-M06/materials/revision.md",
+        "modules-v2/V2-G5-M06/materials/own-program.md",
+        "modules-v2/V2-G5-M06/materials/helps.md",
+        "modules-v2/V2-G5-M06/materials/return-and-retrieval.md",
+        "modules-v2/V2-G5-M06/materials/transfer-and-systems.md",
+        "modules-v2/V2-G5-M06/teacher/handbook.md",
+        "modules-v2/V2-G5-M06/teacher/briefing.md",
+        "modules-v2/V2-G5-M06/print/learner.html",
+        "modules-v2/V2-G5-M06/rights.json",
+        "scripts/check-v2-m06-materials.ts",
+        "tests/platform/v2-m06-materials.test.ts"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP05"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP07",
+      "files": [
+        "schemas/v2/module-candidate.schema.json",
+        "scripts/build-v2-module-registry.ts",
+        "modules-v2/V2-G5-M06/module.json",
+        "apps/lernwerk-portal/src/components/M06Workspace.astro",
+        "apps/lernwerk-portal/src/controllers/m06/controller.ts",
+        "apps/lernwerk-portal/src/controllers/m06/view.ts",
+        "apps/lernwerk-portal/src/controllers/m06/diagram-editor.ts",
+        "apps/lernwerk-portal/src/controllers/m06/code-editor.ts",
+        "apps/lernwerk-portal/src/styles/m06.css",
+        "tests/platform/v2-registry.test.ts",
+        "tests/platform/v2-m06-controller.test.ts",
+        "apps/lernwerk-portal/astro.config.ts",
+        "scripts/build-module-registry.ts",
+        "scripts/build-portal.ts",
+        "scripts/preview-portal.ts",
+        "scripts/publication-mode.ts",
+        "scripts/prepare-module-assets.ts",
+        "scripts/check-build-output.ts",
+        "apps/lernwerk-portal/src/pages/module/[id].astro",
+        "apps/lernwerk-portal/src/pages/index.astro",
+        "apps/lernwerk-portal/src/layouts/BaseLayout.astro",
+        "package.json",
+        "tests/platform/registry.test.ts",
+        "tests/platform/publication-mode.test.ts",
+        "tests/platform/portal-build.test.ts"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP06"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "packageId": "IMP08",
+      "files": [
+        "scripts/verify-v2-m06.ts",
+        "playwright.v2.config.mts",
+        "tests/browser/v2-m06-workbench.spec.ts",
+        "tests/browser/v2-m06-state.spec.ts",
+        "tests/browser/v2-m06-accessibility.spec.ts",
+        "tests/browser/v2-m06-offline.spec.ts",
+        "docs/reviews/v2-m06-technical.md",
+        "docs/reviews/v2-m06-didactic.md",
+        "roadmap/v2/implementation/evidence.json",
+        "package.json",
+        ".github/workflows/ci.yml",
+        "tests/platform/pages-workflow.test.ts",
+        "tests/platform/pwa-contract.test.ts",
+        "playwright.config.mts",
+        "playwright.ium5.config.mts"
+      ],
+      "dependsOn": [
+        "IUM-V2-IMP07"
+      ]
+    }
+  ],
+  "sharedStatusFiles": [
+    "roadmap/v2/implementation/authorization.json",
+    "roadmap/v2/implementation/progress.json"
+  ]
+}
