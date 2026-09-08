@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V2-G5-M06 - Lernendenfassung</title>
+  <style>
+    @page { size: A4 portrait; margin: 13mm 14mm 14mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #111; background: #eee; font: 11pt/1.38 Arial, Helvetica, sans-serif; }
+    .page { width: 182mm; min-height: 268mm; margin: 8mm auto; padding: 12mm 13mm; background: #fff; page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    .sheet-head { display: flex; justify-content: space-between; gap: 8mm; border-bottom: 1.2pt solid #111; padding-bottom: 2mm; margin-bottom: 5mm; font-size: 9.5pt; }
+    h1 { margin: 0 0 4mm; font-size: 20pt; line-height: 1.12; }
+    h2 { margin: 5mm 0 2mm; font-size: 14pt; }
+    h3 { margin: 4mm 0 1.5mm; font-size: 11.5pt; }
+    p, ul, ol { margin: 0 0 3mm; }
+    li { margin: 0 0 1.3mm; }
+    .candidate { border: 1pt solid #111; padding: 3mm; margin-bottom: 5mm; font-weight: 700; }
+    .task { border: 1.5pt solid #111; padding: 4mm; margin: 3mm 0 5mm; }
+    .body-frame { border: 2pt double #111; padding: 3mm; margin: 2mm 0; }
+    .line { min-height: 9mm; border-bottom: .7pt solid #555; }
+    .lines-2 { min-height: 18mm; border: .7pt solid #777; background: repeating-linear-gradient(to bottom, transparent 0, transparent 8.3mm, #777 8.3mm, #777 8.7mm); }
+    .lines-3 { min-height: 27mm; border: .7pt solid #777; background: repeating-linear-gradient(to bottom, transparent 0, transparent 8.3mm, #777 8.3mm, #777 8.7mm); }
+    table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; break-inside: avoid; }
+    th, td { border: .8pt solid #222; padding: 2mm; text-align: left; vertical-align: top; }
+    th { background: #e8e8e8; }
+    .check { display: inline-block; width: 5mm; height: 5mm; border: 1pt solid #111; vertical-align: -1mm; margin-right: 2mm; }
+    .grid { display: grid; width: 63mm; height: 63mm; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); border: 1.2pt solid #111; margin: 3mm auto; }
+    .grid.four { width: 68mm; height: 68mm; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); }
+    .grid.five-four { width: 75mm; height: 60mm; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(4, 1fr); }
+    .cell { border: .5pt solid #777; min-height: 12mm; padding: 1mm; font-size: 8pt; }
+    .start { outline: 2pt solid #111; outline-offset: -2pt; font-weight: 700; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+    .card { border: 1pt solid #222; padding: 3mm; margin-bottom: 3mm; break-inside: avoid; }
+    .small { font-size: 9.5pt; }
+    @media print {
+      body { background: #fff; }
+      .page { width: auto; min-height: 0; margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <section class="page" data-material-id="MAT-01">
+    <div class="sheet-head"><strong>V2-G5-M06</strong><span>Materialrevision 0.1.0 · Entwicklungskandidat</span></div>
+    <h1>Präzise Abläufe entwickeln und prüfen</h1>
+    <div class="candidate">Geplant für fünf Termine. Eure Lehrkraft passt Zugänge und Zeit an die Lerngruppe an.</div>
+    <h2>Das Ziel</h2>
+    <p>Du verbindest eine eigene Ablaufgrafik mit ausführbarem Code, Zuständen und einer Laufspur. Du sagst voraus, prüfst und verbesserst begründet. Tempo, Punkte und der kürzeste Code sind keine Kriterien.</p>
+    <div class="task">
+      <h2>P0 - Kurze Sichtung</h2>
+      <p>Raster 3 mal 3. Start bei <strong>(1,3)</strong>, Blick nach <strong>oben</strong>. Anweisungen: <strong>vor; rechts; vor</strong>.</p>
+      <div class="grid" aria-label="3 mal 3 Raster, Start unten links mit Blick nach oben">
+        <span class="cell">(1,1)</span><span class="cell">(2,1)</span><span class="cell">(3,1)</span>
+        <span class="cell">(1,2)</span><span class="cell">(2,2)</span><span class="cell">(3,2)</span>
+        <span class="cell start">(1,3) Start ↑</span><span class="cell">(2,3)</span><span class="cell">(3,3)</span>
+      </div>
+      <p>Sage den Endzustand voraus. Trage danach jeden Zustand ein und markiere die erste Unsicherheit.</p>
+      <table><thead><tr><th>Schritt</th><th>Ort</th><th>Blickrichtung</th><th>Begründung</th></tr></thead><tbody>
+        <tr><td>Start</td><td>(1,3)</td><td>oben</td><td>gegeben</td></tr>
+        <tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody></table>
+    </div>
+  </section>
+
+  <section class="page" data-material-id="MAT-02">
+    <div class="sheet-head"><strong>Legende</strong><span>Ort · Richtung · Körper · Spur</span></div>
+    <h1>Befehle und Darstellungen</h1>
+    <div class="two-col">
+      <div>
+        <h2>Zustand</h2>
+        <p>Ein Zustand besteht aus Ort und Blickrichtung. Spalten zählen von links, Zeilen von oben.</p>
+        <h2>Grundbefehle</h2>
+        <ul><li><strong>vor</strong>: ein Feld in Blickrichtung</li><li><strong>links</strong>: am Ort 90 Grad nach links drehen</li><li><strong>rechts</strong>: am Ort 90 Grad nach rechts drehen</li></ul>
+        <p>Eine Bewegung über die Grenze stoppt. Der fehlerhafte Schritt ändert den Zustand nicht.</p>
+      </div>
+      <div>
+        <h2>Feste Wiederholung</h2>
+        <div class="body-frame"><strong>wiederhole Anzahl</strong><br>Körper beginnt<br>1 bis 5 Grundanweisungen<br>Körper endet</div>
+        <p>Der ganze Körper wird wiederholt. Die Klammer ist keine zusätzliche Aktion. Verschachtelte Wiederholungen gehören nicht zu diesem Modul.</p>
+      </div>
+    </div>
+    <h2>Drei getrennte Produkte</h2>
+    <table><thead><tr><th>Ablaufgrafik</th><th>Code</th><th>Spur</th></tr></thead><tbody><tr>
+      <td>dein eigener Entwurf mit Reihenfolge, Körperrahmen und Anzahl</td>
+      <td>die tatsächlich ausführbare Fassung</td>
+      <td>Schritt, Anweisung, Durchlauf, Zustand vorher und nachher</td>
+    </tr></tbody></table>
+    <p>Nach einer Codeänderung bleibt eine alte Spur beim alten Code. Vergleiche die Inhalte bewusst.</p>
+    <h2>Lineare Textalternative</h2>
+    <p>„Wiederhole viermal. Körper beginnt. Vor. Links. Körper endet.“ So bleiben Anzahl, Reihenfolge und Gruppierung ohne Farbe oder Bild erkennbar.</p>
+    <h2>Meine Beispielerklärung</h2><div class="lines-3"></div>
+  </section>
+
+  <section class="page" data-material-id="MAT-03">
+    <div class="sheet-head"><strong>S1 · P1</strong><span>Ganzer Wiederholungskörper</span></div>
+    <h1>Viermal vor und links</h1>
+    <p>Raster 4 mal 4. Start bei <strong>(2,3)</strong>, Blick nach <strong>rechts</strong>.</p>
+    <div class="body-frame"><strong>wiederhole 4</strong><br>Körper: vor; links</div>
+    <h2>Verarbeitungsstopp 1</h2>
+    <ol><li>Sage den Zustand nach <strong>vor</strong> voraus.</li><li>Sage den Zustand nach <strong>links</strong> voraus.</li><li>Erkläre, warum die Drehung den Ort nicht ändert.</li></ol>
+    <div class="lines-2"></div>
+    <h2>Verarbeitungsstopp 2</h2>
+    <p>Halte nach zwei ganzen Durchläufen an. Markiere Ort und Richtung. Erkläre, welche Anweisung als Nächstes folgt.</p>
+    <div class="lines-2"></div>
+    <h2>P1 - Eigener Ergänzungsschritt</h2>
+    <p>Ergänze mindestens einen Zustandsübergang selbst und erkläre, wie Anzahl und Körper zusammenwirken.</p>
+    <table><thead><tr><th>Aktion</th><th>Anweisung</th><th>Durchlauf</th><th>vorher</th><th>nachher</th></tr></thead><tbody>
+      <tr><td>1</td><td>vor</td><td>1</td><td>(2,3), rechts</td><td></td></tr><tr><td>2</td><td>links</td><td>1</td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td>2</td><td></td><td></td></tr><tr><td>4</td><td></td><td>2</td><td></td><td></td></tr>
+      <tr><td>5-8</td><td colspan="4">selbst ergänzen</td></tr>
+    </tbody></table>
+  </section>
+
+  <section class="page" data-material-id="MAT-04">
+    <div class="sheet-head"><strong>S2 · P2</strong><span>Ursache vor Fehlermeldung</span></div>
+    <h1>Wo beginnt die Abweichung?</h1>
+    <p>Raster und Start sind wie bei S1. Untersuche genau eine Fehlfassung:</p>
+    <div class="body-frame"><strong>wiederhole 4</strong><br>Körper: vor</div><p>Danach: <strong>links</strong></p>
+    <h2>Vorhersagen und vergleichen</h2>
+    <ol><li>Entfalte die ersten drei Aktionen.</li><li>Vergleiche Soll und Ist von Aktion 1 an.</li><li>Markiere die erste fachliche Abweichung.</li><li>Markiere getrennt den Grenzfehler.</li></ol>
+    <table><thead><tr><th>Aktion</th><th>Sollzustand</th><th>Istzustand</th><th>Befund</th></tr></thead><tbody>
+      <tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr>
+    </tbody></table>
+    <h2>Begründete Revision</h2>
+    <p>Welche Anweisungen gehören in jedem Durchlauf zusammen?</p><div class="lines-2"></div>
+    <p>Zeichne den geänderten Körperrahmen. Prüfe danach erneut vom gleichen Start.</p><div class="task" style="min-height:42mm"></div>
+    <p><span class="check"></span> Ich habe die Körpergrenze erklärt. <span class="check"></span> Ich habe erneut geprüft.</p>
+  </section>
+
+  <section class="page" data-material-id="MAT-05">
+    <div class="sheet-head"><strong>S3 · P3</strong><span>Eigene rechteckige Prüffahrt</span></div>
+    <h1>Entwirf, programmiere, prüfe</h1>
+    <div class="task"><p>Beginne bei <strong>(1,3)</strong> mit Blick nach rechts. Besuche nacheinander <strong>(3,3)</strong>, <strong>(3,2)</strong>, <strong>(1,2)</strong> und <strong>(1,3)</strong>. Fahre nur am Rand dieses Rechtecks und blicke am Ende wieder nach rechts. Nutze eine feste Wiederholung.</p></div>
+    <div class="grid five-four" aria-label="5 mal 4 Raster mit Prüfrechteck zwischen Spalte 1 bis 3 und Zeile 2 bis 3">
+      <span class="cell">(1,1)</span><span class="cell">(2,1)</span><span class="cell">(3,1)</span><span class="cell">(4,1)</span><span class="cell">(5,1)</span>
+      <span class="cell"><strong>(1,2) · 3</strong></span><span class="cell">(2,2)</span><span class="cell"><strong>(3,2) · 2</strong></span><span class="cell">(4,2)</span><span class="cell">(5,2)</span>
+      <span class="cell start"><strong>(1,3) Start → · 4</strong></span><span class="cell">(2,3)</span><span class="cell"><strong>(3,3) · 1</strong></span><span class="cell">(4,3)</span><span class="cell">(5,3)</span>
+      <span class="cell">(1,4)</span><span class="cell">(2,4)</span><span class="cell">(3,4)</span><span class="cell">(4,4)</span><span class="cell">(5,4)</span>
+      </div>
+      <p class="small">Die Zahlen 1 bis 4 markieren die Prüfpunkte in der geforderten Reihenfolge.</p>
+    <h2>Eigene Ablaufgrafik</h2><div class="task" style="min-height:48mm">Start, Reihenfolge, ganzer Körperrahmen, Anzahl und Ende eintragen.</div>
+    <h2>Tatsächlicher Code</h2><div class="lines-2"></div>
+    <p class="small">Plane hier schriftlich. Für den vollständigen digitalen Nachweis gibst du deinen Code später selbst im freigegebenen Editor ein und führst ihn aus.</p>
+  </section>
+
+  <section class="page" data-material-id="MAT-05-evidence">
+    <div class="sheet-head"><strong>S3 · P3 fortgesetzt</strong><span>Vorhersage, Spur und Begründung</span></div>
+    <h1>Prüfe deinen eigenen Code</h1>
+    <h2>Vorhersage vor dem Lauf</h2>
+    <p>Ausgewählte Aktion: ______ Ort danach: __________ Blickrichtung: __________</p>
+    <p>Meine Begründung:</p><div class="lines-2"></div>
+    <h2>Ausgewählte Spurstellen</h2>
+    <table><thead><tr><th>Schritt</th><th>Anweisung</th><th>Durchlauf</th><th>vorher</th><th>nachher</th></tr></thead><tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody></table>
+    <h2>Kriteriencheck</h2>
+    <p><span class="check"></span> Prüfpunkte in Reihenfolge</p><p><span class="check"></span> nur auf dem Rechteckrand</p><p><span class="check"></span> Endort (1,3), Blick rechts</p><p><span class="check"></span> feste Wiederholung</p><p><span class="check"></span> Grafik, Code und Spur bewusst verglichen</p>
+    <h2>Meine Erklärung und Revision</h2><div class="lines-3"></div>
+    <div class="card small"><strong>Partnervergleich:</strong> Jede Person erklärt ihren eigenen Entwurf. Prüft eine benannte Stelle, haltet eine begründete Übereinstimmung oder Streitstelle fest und überarbeitet danach jeweils den eigenen Code.</div>
+  </section>
+
+  <section class="page" data-material-id="MAT-06-MAT-07">
+    <div class="sheet-head"><strong>H1-H4 · P4</strong><span>Punktuelle Hilfe und Rückkehr</span></div>
+    <h1>Nur die passende Hilfe</h1>
+    <div class="card"><strong>H1 Ort/Richtung:</strong> Feld und beschrifteten Pfeil markieren. Danach selbst einen Zustand vorhersagen.</div>
+    <div class="card"><strong>H2 Körper:</strong> Alle Anweisungen eines Durchlaufs gemeinsam einrahmen. Danach zwei eigene Durchläufe entfalten.</div>
+    <div class="card"><strong>H3 Abweichung:</strong> Soll und Ist von Aktion 1 an vergleichen. Danach eine begründete Stelle ändern.</div>
+    <div class="card"><strong>H4 Eingabe/Sprache:</strong> Lineare Textform oder Tastatur nutzen. Danach selbst einen Befehl eingeben oder umordnen.</div>
+    <h2>Rückkehrkarte</h2>
+    <p>Bereich: <span class="check"></span> Auftrag <span class="check"></span> Dossier <span class="check"></span> Sicherung</p>
+    <p>Mein Stand:</p><div class="line"></div><p>Offener Punkt:</p><div class="line"></div><p>Nächste Handlung:</p><div class="line"></div>
+    <div class="task">
+      <h2>P4 - Vor der alten Lösung</h2>
+      <ol><li>Schreibe aus dem Gedächtnis einen kurzen Körper mit mindestens zwei Grundanweisungen.</li><li>Entfalte zwei vollständige Durchläufe.</li><li>Begründe einen Zustand.</li><li>Markiere eine Unsicherheit.</li></ol>
+      <div class="lines-2"></div>
+    </div>
+    <p class="small">Erst danach folgt Rückmeldung oder die alte Lösung. P4 wird nicht dauerhaft im Dossier gespeichert.</p>
+  </section>
+
+  <section class="page" data-material-id="MAT-08">
+    <div class="sheet-head"><strong>S4 · P5</strong><span>Neue Zustandsbedingung</span></div>
+    <h1>Die vereinfachte Prüfstation</h1>
+    <p>Start: Station frei. <strong>aufnehmen</strong> braucht frei und macht belegt. <strong>prüfen</strong> braucht ein aufgenommenes Werkstück und macht geprüft. <strong>ablegen</strong> braucht geprüft und macht wieder frei.</p>
+    <div class="two-col">
+      <div class="body-frame"><strong>Gruppierung A</strong><br>dreimal ganzer Körper:<br>aufnehmen; prüfen; ablegen</div>
+      <div class="body-frame"><strong>Gruppierung B</strong><br>dreimal aufnehmen;<br>dreimal prüfen;<br>dreimal ablegen</div>
+    </div>
+    <h2>Zustandsvergleich</h2>
+    <table><thead><tr><th>Aktion</th><th>A: Zustand</th><th>B: Zustand</th><th>Bedingung erfüllt?</th></tr></thead><tbody>
+      <tr><td>Start</td><td>frei</td><td>frei</td><td></td></tr><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr><tr><td>weitere</td><td></td><td></td><td></td></tr>
+    </tbody></table>
+    <p>Welche Gruppierung ist ausführbar? Wo scheitert die andere zuerst?</p><div class="lines-3"></div>
+    <p class="small">Dies ist eine manuelle Modellprüfung und kein programmierter realer Prüfautomat.</p>
+  </section>
+
+  <section class="page" data-material-id="MAT-08-systems">
+    <div class="sheet-head"><strong>S5 · P6</strong><span>Systeme begrenzt einordnen</span></div>
+    <h1>Vier Funktionsbriefe</h1>
+    <div class="card"><strong>A Digitale Zeitsteuerung:</strong> erhält eingestellte Zeitpunkte und einen aktuellen Zeitwert, vergleicht sie und löst bei erfüllter Bedingung eine festgelegte Aktion aus.</div>
+    <div class="card"><strong>B Digitale Wegberechnung:</strong> erhält Start, Ziel und eine interne Darstellung möglicher Verbindungen, verarbeitet diese Daten und gibt einen berechneten Weg aus.</div>
+    <div class="card"><strong>C Vorschrift auf Papier:</strong> beschreibt eindeutige Schritte zum Sortieren von Karten. Das Papier führt sie nicht selbst als digitales System aus.</div>
+    <div class="card"><strong>D Isoliertes Standbild:</strong> zeigt Symbole und Zahlen. Eingaben, Zustandsänderungen und Verarbeitungsregeln sind unbekannt.</div>
+    <h2>Meine Zuordnung</h2>
+    <table><thead><tr><th>Brief</th><th>Einordnung</th><th>notwendiger Ablauf oder Erkenntnisgrenze</th></tr></thead><tbody>
+      <tr><td>A</td><td></td><td></td></tr><tr><td>B</td><td></td><td></td></tr><tr><td>C</td><td></td><td></td></tr><tr><td>D</td><td></td><td></td></tr>
+    </tbody></table>
+    <p>Erfinde keine Details realer Apps und nenne keine private Mediennutzung.</p>
+    <h2>Dossier und Rückkehrstand</h2>
+    <p><span class="check"></span> P3 geprüft <span class="check"></span> P5 begründet <span class="check"></span> P6 begrenzt eingeordnet</p>
+    <p>Mein nächster Schritt:</p><div class="lines-2"></div>
+  </section>
+</body>
+</html>

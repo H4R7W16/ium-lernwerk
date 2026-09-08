@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "V2-G5-M06",
+  "materialRevision": "0.1.0",
+  "segments": [
+    {"id":"T1-01","meeting":1,"minutes":10,"component":"orientationAndExplanation","learningFunctionIds":["orient","surface-prior-knowledge"],"action":"S0/Ziel und Sichtung","productIds":["P0"]},
+    {"id":"T1-02","meeting":1,"minutes":10,"component":"orientationAndExplanation","learningFunctionIds":["explain-or-model","open-disciplinary-problem"],"action":"Begründete frühe Erklärung oder begrenzte Problemöffnung mit Erkläranschluss","productIds":["P0"]},
+    {"id":"T1-03","meeting":1,"minutes":15,"component":"guidedPractice","learningFunctionIds":["guided-action","explain-or-model"],"action":"S1/Grafik und Anweisung","productIds":["P1"]},
+    {"id":"T1-04","meeting":1,"minutes":5,"component":"independentApplication","learningFunctionIds":["independent-application"],"action":"Eigener Ergänzungsschritt","productIds":["P1"]},
+    {"id":"T1-05","meeting":1,"minutes":5,"component":"guidedPractice","learningFunctionIds":["guided-action","secure-and-transfer"],"action":"Angeleiteter Vergleich und Sicherung","productIds":["P1"]},
+    {"id":"T2-06","meeting":2,"minutes":5,"component":"orientationAndExplanation","learningFunctionIds":["orient"],"action":"Rückkehrkontext","productIds":["P1"]},
+    {"id":"T2-07","meeting":2,"minutes":10,"component":"orientationAndExplanation","learningFunctionIds":["explain-or-model"],"action":"S1/Körper und Anzahl mit Verarbeitungsstopp","productIds":["P1"]},
+    {"id":"T2-08","meeting":2,"minutes":20,"component":"guidedPractice","learningFunctionIds":["guided-action"],"action":"S2/Vorhersagen und Prüfen","productIds":["P2"]},
+    {"id":"T2-09","meeting":2,"minutes":5,"component":"feedbackAndRevision","learningFunctionIds":["use-feedback"],"action":"Gezielte Revision","productIds":["P2"]},
+    {"id":"T2-10","meeting":2,"minutes":5,"component":"consolidationAndTransfer","learningFunctionIds":["secure-and-transfer"],"action":"Körperregel sichern","productIds":["P2"]},
+    {"id":"T3-11","meeting":3,"minutes":5,"component":"consolidationAndTransfer","learningFunctionIds":["independent-application","secure-and-transfer"],"action":"P4 vor Wiederanzeige; tatsächlicher Abstand lokal zu bestimmen","productIds":["P4"]},
+    {"id":"T3-12","meeting":3,"minutes":10,"component":"guidedPractice","learningFunctionIds":["guided-action","explain-or-model"],"action":"Rückkehrklärung und Auftragsverständnis","productIds":["P3","P4"]},
+    {"id":"T3-13","meeting":3,"minutes":20,"component":"independentApplication","learningFunctionIds":["independent-application"],"action":"S3 individuell entwerfen/programmieren","productIds":["P3"]},
+    {"id":"T3-14","meeting":3,"minutes":10,"component":"feedbackAndRevision","learningFunctionIds":["use-feedback"],"action":"Partnerprüfung und eigene Revision","productIds":["P3"]},
+    {"id":"T4-15","meeting":4,"minutes":5,"component":"guidedPractice","learningFunctionIds":["guided-action","explain-or-model"],"action":"Rückkehr und nötige Modellierung","productIds":["P3"]},
+    {"id":"T4-16","meeting":4,"minutes":25,"component":"independentApplication","learningFunctionIds":["independent-application"],"action":"S3 mit Spur fertigstellen","productIds":["P3"]},
+    {"id":"T4-17","meeting":4,"minutes":10,"component":"feedbackAndRevision","learningFunctionIds":["use-feedback"],"action":"Erklärungsbezogene Revision","productIds":["P3"]},
+    {"id":"T4-18","meeting":4,"minutes":5,"component":"consolidationAndTransfer","learningFunctionIds":["secure-and-transfer"],"action":"Körper-/Zustandsbeziehung bündeln","productIds":["P3"]},
+    {"id":"T5-19","meeting":5,"minutes":10,"component":"independentApplication","learningFunctionIds":["independent-application"],"action":"S4 eigenständige Transferentscheidung","productIds":["P5"]},
+    {"id":"T5-20","meeting":5,"minutes":15,"component":"feedbackAndRevision","learningFunctionIds":["use-feedback"],"action":"Transferbegründung prüfen und revidieren","productIds":["P5"]},
+    {"id":"T5-21","meeting":5,"minutes":15,"component":"consolidationAndTransfer","learningFunctionIds":["secure-and-transfer"],"action":"S5-Systemzuordnung und Einordnung","productIds":["P6"]},
+    {"id":"T5-22","meeting":5,"minutes":5,"component":"consolidationAndTransfer","learningFunctionIds":["secure-and-transfer","orient"],"action":"Dossier und Rückkehrstand","productIds":["P3","P5","P6"]}
+  ],
+  "materials": [
+    {"id":"MAT-01","path":"materials/start.md","productIds":["P0"],"audience":"learner"},
+    {"id":"MAT-02","path":"materials/legend.md","productIds":["P0","P1","P2","P3"],"audience":"learner"},
+    {"id":"MAT-03","path":"materials/worked-example.md","productIds":["P1"],"audience":"learner"},
+    {"id":"MAT-04","path":"materials/revision.md","productIds":["P2"],"audience":"learner"},
+    {"id":"MAT-05","path":"materials/own-program.md","productIds":["P3"],"audience":"learner"},
+    {"id":"MAT-06","path":"materials/helps.md","productIds":["P1","P2","P3"],"audience":"learner"},
+    {"id":"MAT-07","path":"materials/return-and-retrieval.md","productIds":["P4"],"audience":"learner"},
+    {"id":"MAT-08","path":"materials/transfer-and-systems.md","productIds":["P5","P6"],"audience":"learner"},
+    {"id":"MAT-09","path":"teacher/handbook.md","productIds":["P0","P1","P2","P3","P4","P5","P6"],"audience":"teacher"},
+    {"id":"MAT-10","path":"print/learner.html","productIds":["P0","P1","P2","P3","P4","P5","P6"],"audience":"learner"}
+  ],
+  "helps": [
+    {"id":"H1","trigger":"Ort oder Blickrichtung wird verwechselt.","learnerText":"Markiere zuerst das aktuelle Feld und zeichne einen Pfeil für die Blickrichtung. Ändere bei einer Drehung nur den Pfeil.","ownFollowUp":"Sage den nächsten Zustand voraus und prüfe genau einen Schritt.","fade":"Blende die Hilfe nach einem selbst richtig erklärten Zustandswechsel wieder aus."},
+    {"id":"H2","trigger":"Nur ein Teil des Wiederholungskörpers wird wiederholt.","learnerText":"Rahme alle Anweisungen ein, die in jedem Durchlauf zusammengehören. Die Anzahl steht vor diesem ganzen Rahmen.","ownFollowUp":"Entfalte zwei vollständige Durchläufe mit deinen eigenen Anweisungen.","fade":"Entferne die Markierung, sobald du Körper und Anzahl ohne Vorlage erklären kannst."},
+    {"id":"H3","trigger":"Fehlermeldung und erste fachliche Abweichung werden gleichgesetzt.","learnerText":"Vergleiche Soll und Ist ab Schritt 1. Markiere den ersten unterschiedlichen Zustand, auch wenn die Fehlermeldung später erscheint.","ownFollowUp":"Ändere eine begründete Stelle und prüfe erneut vom gleichen Start.","fade":"Schließe die Hilfe nach der eigenen Revisionsbegründung."},
+    {"id":"H4","trigger":"Eingabe, Sprache oder Bedienweg verhindert die fachliche Arbeit.","learnerText":"Nutze die Befehlslegende, Tastaturbedienung oder lineare Textform. Lies Körper und Anzahl in der Reihenfolge vor.","ownFollowUp":"Gib selbst einen Befehl ein oder ordne ihn um und erkläre seine Wirkung.","fade":"Wechsle zurück zur knappen Legende, sobald der eigene Eingabeschritt gelingt."}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "V2-G5-M06",
+  "materialRevision": "0.1.0",
+  "publicationStatus": "closed",
+  "ownWorks": [
+    {"paths":["materials/start.md","materials/legend.md","materials/worked-example.md","materials/revision.md","materials/own-program.md","materials/helps.md","materials/return-and-retrieval.md","materials/transfer-and-systems.md","teacher/handbook.md","teacher/briefing.md","print/learner.html"],"origin":"project-authored text, tables and CSS shapes","rightsStatus":"authorship recorded for development; external publication decision open"}
+  ],
+  "references": [
+    {"path":"docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md","use":"design and wording constraints; no external asset copied"},
+    {"path":"roadmap/v2/follow-ups/reference-module/specification.json","use":"segment, product and gate binding"},
+    {"path":"roadmap/v2/follow-ups/pilot/data-and-rights.md","use":"data, recovery and rights boundaries"}
+  ],
+  "externalAssets": [],
+  "statement":"No logos, stock media, third-party illustrations or verbatim curriculum passages are included."
+}

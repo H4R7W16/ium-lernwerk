@@ -63,6 +63,16 @@
         "IMP05"
       ],
       "optionalChanges": []
+    },
+    {
+      "id": "IUM-V2-IMP06-2026-09-08",
+      "date": "2026-09-08",
+      "decisionBy": "user",
+      "statement": "Abnahme erfolgt. Fahre mit IUM-V2-IMP06 fort.",
+      "packageIds": [
+        "IMP06"
+      ],
+      "optionalChanges": []
     }
   ],
   "limits": {

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "V2-G5-M06",
+  "gridCases": [
+    {"id":"S0","grid":{"width":3,"height":3,"start":{"position":{"column":1,"row":3},"direction":"north"}},"program":[{"id":"cmd-1","kind":"move"},{"id":"cmd-2","kind":"turn-right"},{"id":"cmd-3","kind":"move"}],"expected":{"actions":3,"state":{"position":{"column":2,"row":2},"direction":"east"}}},
+    {"id":"S1","grid":{"width":4,"height":4,"start":{"position":{"column":2,"row":3},"direction":"east"}},"program":[{"id":"cmd-1","kind":"repeat","count":4,"body":[{"id":"cmd-2","kind":"move"},{"id":"cmd-3","kind":"turn-left"}]}],"expected":{"actions":8,"state":{"position":{"column":2,"row":3},"direction":"east"}}},
+    {"id":"S2","grid":{"width":4,"height":4,"start":{"position":{"column":2,"row":3},"direction":"east"}},"program":[{"id":"cmd-1","kind":"repeat","count":4,"body":[{"id":"cmd-2","kind":"move"}]},{"id":"cmd-3","kind":"turn-left"}],"expected":{"firstDeviation":2,"boundaryError":3,"beforeError":{"position":{"column":4,"row":3},"direction":"east"}}},
+    {"id":"S3","grid":{"width":5,"height":4,"start":{"position":{"column":1,"row":3},"direction":"east"}},"goal":{"checkpoints":[{"column":3,"row":3},{"column":3,"row":2},{"column":1,"row":2},{"column":1,"row":3}],"end":{"position":{"column":1,"row":3},"direction":"east"},"boundary":{"left":1,"right":3,"top":2,"bottom":3}},"referenceProgram":[{"id":"cmd-1","kind":"repeat","count":2,"body":[{"id":"cmd-2","kind":"move"},{"id":"cmd-3","kind":"move"},{"id":"cmd-4","kind":"turn-left"},{"id":"cmd-5","kind":"move"},{"id":"cmd-6","kind":"turn-left"}]}],"expected":{"actions":10}}
+  ],
+  "manualCases": [
+    {"id":"S4","model":"station-free-occupied-checked","validSequence":["aufnehmen","prüfen","ablegen"],"repeatCount":3,"contrast":{"sequence":["aufnehmen","aufnehmen","aufnehmen","prüfen","prüfen","prüfen","ablegen","ablegen","ablegen"],"failsAt":2,"reason":"station-occupied"}},
+    {"id":"S5","cards":[{"id":"time-control","kind":"digital-system"},{"id":"route-calculation","kind":"digital-system"},{"id":"paper-procedure","kind":"algorithmic-description-not-digital-system"},{"id":"isolated-screenshot","kind":"insufficient-system-evidence"}],"boundary":"No detailed claim about real application algorithms."}
+  ]
+}
