@@ -310,14 +310,66 @@
     },
     {
       "id": "IMP06",
-      "state": "in_progress",
-      "candidateCommit": null,
-      "checks": [],
-      "acceptance": null
+      "state": "done",
+      "candidateCommit": "e5bacedb4c40ad081047314a04dedf4bbf82b80a",
+      "checks": [
+        {
+          "id": "m06-material-contract",
+          "command": "npx tsx scripts/check-v2-m06-materials.ts && npx vitest run tests/platform/v2-m06-materials.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "8697d75ee1034cafaa3ee81f2fde3689c79057c2",
+          "treeDigest": "1853308dd23df57d384f1af528da0dc93e0a569da411c43d06549a308f05099c",
+          "summary": "Materialvertrag und 3 fokussierte Tests bestätigen 10 Materialien, 4 Hilfen, 22 Segmente und 225 Minuten."
+        },
+        {
+          "id": "print-visual",
+          "command": "npx playwright pdf --paper-format A4 <learner.html> <qa.pdf>; pdfinfo <qa.pdf>; pdftoppm -png <qa.pdf>",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "8697d75ee1034cafaa3ee81f2fde3689c79057c2",
+          "treeDigest": "1853308dd23df57d384f1af528da0dc93e0a569da411c43d06549a308f05099c",
+          "summary": "Neun A4-Seiten gerendert und vollständig visuell geprüft; Raster, Schreibfelder und Schwarzweißdarstellung ohne Beschnitt oder Überlagerung."
+        },
+        {
+          "id": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "8697d75ee1034cafaa3ee81f2fde3689c79057c2",
+          "treeDigest": "1853308dd23df57d384f1af528da0dc93e0a569da411c43d06549a308f05099c",
+          "summary": "Vertragstypen generiert und TypeScript-Projekte fehlerfrei geprüft."
+        },
+        {
+          "id": "platform-regression",
+          "command": "npx vitest run tests/platform --reporter=json",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "8697d75ee1034cafaa3ee81f2fde3689c79057c2",
+          "treeDigest": "1853308dd23df57d384f1af528da0dc93e0a569da411c43d06549a308f05099c",
+          "summary": "196 Plattformtests in 46 Dateien bestanden; keine Fehlschläge oder übersprungenen Tests."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "8697d75ee1034cafaa3ee81f2fde3689c79057c2",
+          "treeDigest": "1853308dd23df57d384f1af528da0dc93e0a569da411c43d06549a308f05099c",
+          "summary": "IMP05-Abnahme, IMP06-Auftrag, Dateigrenzen, Paketdigest und tatsächliche Vault-Taskbelege geprüft."
+        }
+      ],
+      "acceptance": {
+        "state": "approved-by-user",
+        "decisionBy": "user",
+        "date": "2026-09-08",
+        "statement": "Abnahme erfolgt.",
+        "acceptedCommit": "e5bacedb4c40ad081047314a04dedf4bbf82b80a"
+      }
     },
     {
       "id": "IMP07",
-      "state": "planned",
+      "state": "in_progress",
       "candidateCommit": null,
       "checks": [],
       "acceptance": null
