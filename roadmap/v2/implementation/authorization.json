@@ -83,6 +83,16 @@
         "IMP07"
       ],
       "optionalChanges": []
+    },
+    {
+      "id": "IUM-V2-IMP08-2026-09-08",
+      "date": "2026-09-08",
+      "decisionBy": "user",
+      "statement": "angenommen. Fahre mit IUM-V2-IMP08 M06 fort. Das Schlussreview erfolgt dann in einem weiteren Schritt.",
+      "packageIds": [
+        "IMP08"
+      ],
+      "optionalChanges": []
     }
   ],
   "limits": {
