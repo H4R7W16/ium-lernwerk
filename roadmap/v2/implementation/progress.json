@@ -447,8 +447,54 @@
     {
       "id": "IMP08",
       "state": "in_progress",
-      "candidateCommit": null,
-      "checks": [],
+      "candidateCommit": "81dded6ec41fbdfce63af951967b1b531c720022",
+      "checks": [
+        {
+          "id": "m06-orchestrator",
+          "command": "npm run verify:v2:m06",
+          "exitCode": 1,
+          "scope": "synthetic-contract",
+          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
+          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
+          "summary": "18 Schritte auf Kandidat 81dded6 ausgeführt: 8 bestanden, 10 mit konkret dokumentierten offenen Befunden fehlgeschlagen."
+        },
+        {
+          "id": "focused-platform",
+          "command": "npx vitest run tests/platform/pages-workflow.test.ts tests/platform/pwa-contract.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
+          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
+          "summary": "7 fokussierte CI- und PWA-Vertragstests bestanden."
+        },
+        {
+          "id": "browser-workbench-self-contained",
+          "command": "npm run test:v2:m06:workbench",
+          "exitCode": 1,
+          "scope": "synthetic-contract",
+          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
+          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
+          "summary": "Selbstverwalteter Preview beendet sauber; 8 Chromium-/WebKit-Fälle bestanden, 4 Firefox-Runnerfälle fehlgeschlagen."
+        },
+        {
+          "id": "build-profiles",
+          "command": "npm run build:v2:subpath; npm run build:v2",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
+          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
+          "summary": "Root- und Subpath-Build bestanden; Root-Artefakt mit 20 Dateien und Sammeldigest e429cc71c4ac27e51bae55b525f8d6abaf21cd249df1dc2d13b2967aa4b02878."
+        },
+        {
+          "id": "development-contract",
+          "command": "npm run verify:v2:implementation",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
+          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
+          "summary": "IMP01 bis IMP08 autorisiert; Nutzung, Pilot und Veröffentlichung geschlossen."
+        }
+      ],
       "acceptance": null
     }
   ],
@@ -463,3 +509,4 @@
     "lxp05": "frozen-unmerged"
   }
 }
+

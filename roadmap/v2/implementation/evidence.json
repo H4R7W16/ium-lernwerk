@@ -3,12 +3,12 @@
   "projectId": "ium-lernwerk",
   "moduleId": "V2-G5-M06",
   "moduleVersion": "0.1.0",
-  "candidateCommit": null,
+  "candidateCommit": "81dded6ec41fbdfce63af951967b1b531c720022",
   "build": {
     "profile": "v2-development",
     "rootBase": "/",
     "subpathBase": "/ium-lernwerk/",
-    "sha256": null
+    "sha256": "e429cc71c4ac27e51bae55b525f8d6abaf21cd249df1dc2d13b2967aa4b02878"
   },
   "toolchain": {
     "ci": { "node": "22.23.2", "npm": "10.9.8" },
