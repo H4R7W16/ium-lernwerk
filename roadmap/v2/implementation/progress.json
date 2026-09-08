@@ -251,9 +251,55 @@
     },
     {
       "id": "IMP05",
-      "state": "in_progress",
-      "candidateCommit": null,
-      "checks": [],
+      "state": "review",
+      "candidateCommit": "807ff14e1b27cb18a1492fc68dd4762cb8e19ca1",
+      "checks": [
+        {
+          "id": "m06-model-dossier",
+          "command": "npx vitest run tests/platform/v2-m06-model.test.ts tests/platform/v2-m06-dossier.test.ts tests/platform/ium5-interpreter.test.ts tests/platform/ium5-payload.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "ff155506976b2e9d35731ce9e5b5781c8f467d30",
+          "treeDigest": "8c03ca6be0080ef7d1cabdc23aabca09129e9ce01abf65aa554d87798992dde8",
+          "summary": "61 fokussierte V2-Fachkern-, Dossier- und V1-Regressionsfälle bestanden."
+        },
+        {
+          "id": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "ff155506976b2e9d35731ce9e5b5781c8f467d30",
+          "treeDigest": "8c03ca6be0080ef7d1cabdc23aabca09129e9ce01abf65aa554d87798992dde8",
+          "summary": "Vertragstypen generiert und alle TypeScript-Projekte einschließlich des DOM-freien M06-Pakets fehlerfrei geprüft."
+        },
+        {
+          "id": "workspace-boundaries",
+          "command": "npm run boundaries:check",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "ff155506976b2e9d35731ce9e5b5781c8f467d30",
+          "treeDigest": "8c03ca6be0080ef7d1cabdc23aabca09129e9ce01abf65aa554d87798992dde8",
+          "summary": "Abhängigkeits-, Framework-, DOM- und Speichergrenzen für acht Workspaces bestanden."
+        },
+        {
+          "id": "platform-regression",
+          "command": "npx vitest run --reporter=json --outputFile=%TEMP%/ium-imp05-platform.json",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "ff155506976b2e9d35731ce9e5b5781c8f467d30",
+          "treeDigest": "8c03ca6be0080ef7d1cabdc23aabca09129e9ce01abf65aa554d87798992dde8",
+          "summary": "193 Plattformtests in 44 Dateien bestanden; keine Fehlschläge oder übersprungenen Tests."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "ff155506976b2e9d35731ce9e5b5781c8f467d30",
+          "treeDigest": "8c03ca6be0080ef7d1cabdc23aabca09129e9ce01abf65aa554d87798992dde8",
+          "summary": "IMP04-Abnahme, IMP05-Auftrag, Dateigrenzen, Paketdigest und tatsächliche Vault-Taskbelege geprüft."
+        }
+      ],
       "acceptance": null
     },
     {
