@@ -182,3 +182,54 @@ test('IUM5 rejects a future state schema without changing active storage', async
     }),
   });
 });
+
+test('a failed new preview invalidates the preceding valid preview', async () => {
+  const repository = new MemoryStateRepository();
+  const original = state({ payload: { text: 'original' } });
+  await repository.save(original);
+  const runtime = createRuntime(repository);
+  expect((await runtime.start()).ok).toBe(true);
+  expect(runtime.previewImport(serializeState(state({ payload: { text: 'A' } }))).ok).toBe(true);
+  expect(runtime.previewImport(new TextEncoder().encode('{broken')).ok).toBe(false);
+  expect((await runtime.confirmImport()).ok).toBe(false);
+  expect(await repository.load(original.moduleId)).toEqual(original);
+});
+
+test('direct start and import reject an unsupported module version alike', async () => {
+  const unsupported = state({ moduleVersion: '2.0.0' });
+  const repository = new MemoryStateRepository();
+  await repository.save(unsupported);
+  const runtime = createRuntime(repository);
+
+  expect(await runtime.start()).toEqual({
+    ok: false,
+    error: expect.objectContaining({ code: 'IMPORT_UNSUPPORTED_VERSION' }),
+  });
+
+  await repository.save(state());
+  expect((await runtime.start()).ok).toBe(true);
+  expect(runtime.previewImport(serializeState(unsupported))).toEqual({
+    ok: false,
+    error: expect.objectContaining({ code: 'IMPORT_UNSUPPORTED_VERSION' }),
+  });
+});
+
+test('direct start and import reject an invalid savedAt alike', async () => {
+  const invalid = state({ savedAt: 'not-a-date' });
+  const repository = new MemoryStateRepository();
+  await repository.save(invalid);
+  const runtime = createRuntime(repository);
+
+  expect(await runtime.start()).toEqual({
+    ok: false,
+    error: expect.objectContaining({ code: 'IMPORT_INVALID' }),
+  });
+
+  await repository.save(state());
+  expect((await runtime.start()).ok).toBe(true);
+  const bytes = new TextEncoder().encode(`${JSON.stringify(invalid)}\n`);
+  expect(runtime.previewImport(bytes)).toEqual({
+    ok: false,
+    error: expect.objectContaining({ code: 'IMPORT_INVALID' }),
+  });
+});

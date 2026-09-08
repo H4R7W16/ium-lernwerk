@@ -23,6 +23,16 @@
           "reason": "Aktuelle FU-Annahmen und getrennte Entwicklungsnachweise im bestehenden HTML anzeigen."
         }
       ]
+    },
+    {
+      "id": "IUM-V2-IMP02-2026-09-08",
+      "date": "2026-09-08",
+      "decisionBy": "user",
+      "statement": "Abnahme erteilt. fahre fort mit IUM-V2-IMP02",
+      "packageIds": [
+        "IMP02"
+      ],
+      "optionalChanges": []
     }
   ],
   "limits": {

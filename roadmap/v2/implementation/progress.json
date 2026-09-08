@@ -6,7 +6,7 @@
   "packages": [
     {
       "id": "IMP01",
-      "state": "review",
+      "state": "done",
       "candidateCommit": "7a04b33f84ac82b69be48d5c5fd7bac793416f5d",
       "checks": [
         {
@@ -46,13 +46,65 @@
           "summary": "Entwicklungsvertrag mit tatsächlichen Vault-Taskbelegen geprüft."
         }
       ],
-      "acceptance": null
+      "acceptance": {
+        "state": "approved-by-user",
+        "decisionBy": "user",
+        "date": "2026-09-08",
+        "statement": "Abnahme erteilt.",
+        "acceptedCommit": "7a04b33f84ac82b69be48d5c5fd7bac793416f5d"
+      }
     },
     {
       "id": "IMP02",
-      "state": "planned",
+      "state": "review",
       "candidateCommit": null,
-      "checks": [],
+      "checks": [
+        {
+          "id": "runtime-acceptance",
+          "command": "npx vitest run tests/platform/runtime.test.ts tests/platform/runtime-acceptance.test.ts tests/platform/export-import.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "35e25d0d081d9e7c421c29fb91fec5847d166a09",
+          "treeDigest": "b20d1753171d10a95b00bb20f6ea01e6c23d752e30c548152653bdc970496381",
+          "summary": "26 fokussierte Runtime-, Recovery- und Importtests bestanden."
+        },
+        {
+          "id": "platform-regression",
+          "command": "npm run test:platform",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "35e25d0d081d9e7c421c29fb91fec5847d166a09",
+          "treeDigest": "b20d1753171d10a95b00bb20f6ea01e6c23d752e30c548152653bdc970496381",
+          "summary": "149 Plattformtests bestanden."
+        },
+        {
+          "id": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "35e25d0d081d9e7c421c29fb91fec5847d166a09",
+          "treeDigest": "b20d1753171d10a95b00bb20f6ea01e6c23d752e30c548152653bdc970496381",
+          "summary": "Vertragstypen generiert und TypeScript-Projekte fehlerfrei geprüft."
+        },
+        {
+          "id": "contracts",
+          "command": "npm run contracts:check",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "35e25d0d081d9e7c421c29fb91fec5847d166a09",
+          "treeDigest": "b20d1753171d10a95b00bb20f6ea01e6c23d752e30c548152653bdc970496381",
+          "summary": "Generierter Zustandsvertrag stimmt mit dem geschlossenen JSON Schema überein."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "35e25d0d081d9e7c421c29fb91fec5847d166a09",
+          "treeDigest": "b20d1753171d10a95b00bb20f6ea01e6c23d752e30c548152653bdc970496381",
+          "summary": "IMP01-Abnahme, IMP02-Auftrag, Dateigrenzen und tatsächliche Vault-Tasks geprüft."
+        }
+      ],
       "acceptance": null
     },
     {

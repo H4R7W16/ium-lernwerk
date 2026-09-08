@@ -58,6 +58,24 @@ function validManifest() {
 }
 
 describe('closed Phase-1 contracts', () => {
+  test('accepts only the named V2 M06 state identity', () => {
+    const base = {
+      format: 'ium-learning-state',
+      formatVersion: 1,
+      moduleVersion: '0.1.0',
+      stateSchemaVersion: 1,
+      workspaceId: '123e4567-e89b-42d3-a456-426614174000',
+      savedAt: '2026-08-03T12:00:00.000Z',
+      payload: {},
+    };
+
+    expect(validateLearningState({ ...base, moduleId: 'V2-G5-M06' }).ok).toBe(true);
+    expect(validateLearningState({ ...base, moduleId: 'V2-G5-M07' }).ok).toBe(false);
+    expect(validateLearningState({ ...base, moduleId: 'V2-G8-M06' }).ok).toBe(false);
+    expect(validateLearningState({ ...base, moduleId: 'IUM-5-CORE-05' }).ok).toBe(true);
+    expect(validateLearningState({ ...base, moduleId: 'TEST-PLATFORM-REFERENCE' }).ok).toBe(true);
+  });
+
   test('rejects unknown manifest fields', () => {
     const result = validateModuleManifest({
       ...validManifest(),
