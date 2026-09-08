@@ -115,9 +115,73 @@
     },
     {
       "id": "IMP03",
-      "state": "in_progress",
-      "candidateCommit": null,
-      "checks": [],
+      "state": "review",
+      "candidateCommit": "8e7b86a896e2b7191238350aab1fb066e29bc2f7",
+      "checks": [
+        {
+          "id": "versioned-storage",
+          "command": "npx vitest run tests/platform/versioned-state.test.ts tests/platform/local-state.test.ts tests/platform/export-import.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "14 fokussierte Revisions-, Speicher- und Exporttests bestanden."
+        },
+        {
+          "id": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "Vertragstypen generiert und TypeScript-Projekte fehlerfrei geprüft."
+        },
+        {
+          "id": "portal-build-isolation",
+          "command": "npx vitest run tests/platform/portal-build.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "Produkt- und Fixture-Build inklusive Probe-Routen- und JavaScript-Isolation bestanden."
+        },
+        {
+          "id": "browser-v2-storage",
+          "command": "npx playwright test tests/browser/v2-storage.spec.ts --config playwright.runtime.config.mts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "8 Chromium-Szenarien zu Wahl, CAS, Profilen, Löschung, Fallback, Quota, Clipboard und Netzgrenze bestanden."
+        },
+        {
+          "id": "v1-storage-choice",
+          "command": "npx playwright test --config %TEMP%/ium5-imp03.config.mts (testMatch: ium5-state.spec.ts, production preview 4322)",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "5 Chromium-V1-Zustands-, Speicherwahl-, Recovery- und Exportregressionen bestanden."
+        },
+        {
+          "id": "contracts",
+          "command": "npm run contracts:check",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "Generierte Vertragstypen stimmen mit den geschlossenen Schemata überein."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "bf005413ec58a54c3cad7897ae39837ecb61762f",
+          "treeDigest": "71a9e3ce27a7502ba0371fa138b7cd90015f0a65230a2b40472ecc3e691576e1",
+          "summary": "IMP02-Abnahme, IMP03-Auftrag, Dateigrenzen, Paketdigest und tatsächliche Vault-Taskbelege geprüft."
+        }
+      ],
       "acceptance": null
     },
     {
