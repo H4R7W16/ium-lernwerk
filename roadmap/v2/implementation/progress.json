@@ -192,9 +192,55 @@
     },
     {
       "id": "IMP04",
-      "state": "in_progress",
-      "candidateCommit": null,
-      "checks": [],
+      "state": "review",
+      "candidateCommit": "838468812c46528b46303606412c4c7ea2f905f5",
+      "checks": [
+        {
+          "id": "reload-readiness",
+          "command": "npx vitest run tests/platform/reload-readiness.test.ts tests/platform/pwa-contract.test.ts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "4c83a5c9da670bb2d7d818f525c9524bc55ca31a",
+          "treeDigest": "1bb6cd9f25a904b411a5e2a4c64a217b347e685d31e265aad75761e3decb930c",
+          "summary": "14 fokussierte Readiness-, Revisions-, Orchestrierungs- und PWA-Vertragstests bestanden."
+        },
+        {
+          "id": "typecheck",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "4c83a5c9da670bb2d7d818f525c9524bc55ca31a",
+          "treeDigest": "1bb6cd9f25a904b411a5e2a4c64a217b347e685d31e265aad75761e3decb930c",
+          "summary": "Vertragstypen generiert und TypeScript-Projekte fehlerfrei geprüft."
+        },
+        {
+          "id": "browser-v2-update",
+          "command": "npx playwright test tests/browser/v2-update.spec.ts --config playwright.runtime.config.mts",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "4c83a5c9da670bb2d7d818f525c9524bc55ca31a",
+          "treeDigest": "1bb6cd9f25a904b411a5e2a4c64a217b347e685d31e265aad75761e3decb930c",
+          "summary": "2 Chromium-Szenarien mit echtem Service Worker, zwei Clients, flüchtigem Veto, altem Clienttimeout, neuer Inventarliste, erfolgreichem Readback und defektem Kandidaten bestanden."
+        },
+        {
+          "id": "platform-regression",
+          "command": "npm run test:platform",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "4c83a5c9da670bb2d7d818f525c9524bc55ca31a",
+          "treeDigest": "1bb6cd9f25a904b411a5e2a4c64a217b347e685d31e265aad75761e3decb930c",
+          "summary": "167 Plattformtests in 28 Dateien bestanden."
+        },
+        {
+          "id": "development-contract",
+          "command": "python -B scripts/validate_v2_implementation.py --vault ../../Vault",
+          "exitCode": 0,
+          "scope": "synthetic-contract",
+          "baseCommit": "4c83a5c9da670bb2d7d818f525c9524bc55ca31a",
+          "treeDigest": "1bb6cd9f25a904b411a5e2a4c64a217b347e685d31e265aad75761e3decb930c",
+          "summary": "IMP03-Abnahme, IMP04-Auftrag, Dateigrenzen, Paketdigest und tatsächliche Vault-Taskbelege geprüft."
+        }
+      ],
       "acceptance": null
     },
     {
