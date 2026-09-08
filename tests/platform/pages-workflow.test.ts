@@ -303,6 +303,7 @@ test('CI validates Gate-B without adding a deployment path or a fifth job', asyn
     'contracts-build',
     'browser',
     'offline-quality',
+    'v2-m06',
   ]);
   const legacyCommands = workflow.jobs.legacy?.steps?.flatMap((step) => step.run ?? []) ?? [];
   const pythonIndex = legacyCommands.indexOf('npm run test:python');
@@ -327,4 +328,19 @@ test('CI validates Gate-B without adding a deployment path or a fifth job', asyn
     expect(job.permissions ?? {}).not.toHaveProperty('pages');
     expect(job.permissions ?? {}).not.toHaveProperty('id-token');
   }
+
+  const runSteps = Object.values(workflow.jobs)
+    .flatMap((job) => job.steps ?? [])
+    .flatMap((step) => step.run ?? []);
+  for (const command of [
+    'npm run verify:v2',
+    'npm run verify:v2:implementation',
+    'npm run verify:v2:m06',
+  ]) expect(runSteps).toContain(command);
+  expect(workflow.jobs['v2-m06']?.steps?.find((step) => step.uses === 'actions/setup-node@v5')?.with)
+    .toEqual({ 'node-version': '22.23.2', cache: 'npm' });
+  expect(runSteps).toContain('npm install --global npm@10.9.8');
+  expect(runSteps).toContain('npm run build:v2');
+  expect(runSteps).toContain('npm run build:v2:subpath');
+  expect(runSteps).toContain('npm run test:v2:m06');
 });

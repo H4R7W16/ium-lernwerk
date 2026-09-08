@@ -39,6 +39,11 @@
     "test:ium5:state": "playwright test tests/browser/ium5-state.spec.ts --config playwright.ium5.config.mts --project=chromium",
     "test:ium5:accessibility": "playwright test tests/browser/ium5-accessibility.spec.ts --config playwright.ium5.config.mts --project=chromium",
     "test:ium5:offline": "playwright test tests/browser/ium5-offline.spec.ts --config playwright.ium5.config.mts --project=chromium",
+    "test:v2:m06": "tsx scripts/verify-v2-m06.ts --browser all",
+    "test:v2:m06:workbench": "tsx scripts/verify-v2-m06.ts --browser tests/browser/v2-m06-workbench.spec.ts",
+    "test:v2:m06:state": "tsx scripts/verify-v2-m06.ts --browser tests/browser/v2-m06-state.spec.ts",
+    "test:v2:m06:accessibility": "tsx scripts/verify-v2-m06.ts --browser tests/browser/v2-m06-accessibility.spec.ts",
+    "test:v2:m06:offline": "tsx scripts/verify-v2-m06.ts --browser tests/browser/v2-m06-offline.spec.ts",
     "typecheck": "npm run contracts:generate && tsc -b --pretty false",
     "test:platform": "npm run contracts:generate && vitest run",
     "test:python": "python -B -m unittest discover -s tests -p \"test_*.py\"",
@@ -56,7 +61,8 @@
     "test:dashboard": "node --test tests/dashboard/*.test.mjs",
     "test:dashboard:browser": "node scripts/test-dashboard-browser.mjs",
     "verify:v2:implementation": "python -B scripts/validate_v2_implementation.py",
-    "verify:v2:activation:historical": "python -B scripts/validate_v2_implementation.py --historical-only"
+    "verify:v2:activation:historical": "python -B scripts/validate_v2_implementation.py --historical-only",
+    "verify:v2:m06": "tsx scripts/verify-v2-m06.ts"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

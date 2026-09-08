@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "projectId": "ium-lernwerk",
+  "moduleId": "V2-G5-M06",
+  "moduleVersion": "0.1.0",
+  "candidateCommit": null,
+  "build": {
+    "profile": "v2-development",
+    "rootBase": "/",
+    "subpathBase": "/ium-lernwerk/",
+    "sha256": null
+  },
+  "toolchain": {
+    "ci": { "node": "22.23.2", "npm": "10.9.8" },
+    "localObserved": { "node": "24.11.0", "npm": "11.6.1", "matchesCi": false }
+  },
+  "syntheticResults": [
+    { "id": "contracts", "exitCode": 0, "summary": "Vertragstypen erzeugt und bytegleich geprüft." },
+    { "id": "boundaries", "exitCode": 0, "summary": "Grenzen für acht Workspaces bestanden." },
+    { "id": "typecheck", "exitCode": 0, "summary": "TypeScript-Projekte fehlerfrei geprüft." },
+    { "id": "astro", "exitCode": 1, "summary": "Bestehender optionaler message.values-Typfehler in src/sw.ts:94." },
+    { "id": "platform", "exitCode": 1, "summary": "207 von 208 Tests bestanden; Altvertrag erwartet vier statt fünf CI-Jobs." },
+    { "id": "python", "exitCode": 1, "summary": "1021 von 1028 Tests bestanden; vier veraltete IMP01-Fixtures und drei Auditdigest-Fälle." },
+    { "id": "v2-baseline", "exitCode": 1, "summary": "AUD-Review für packages/module-runtime/src/runtime.ts veraltet." },
+    { "id": "v2-development", "exitCode": 0, "summary": "IMP01 bis IMP08 autorisiert; Nutzung, Pilot und Veröffentlichung geschlossen." },
+    { "id": "v2-registry", "exitCode": 0, "summary": "V2-Registry fehlerfrei erzeugt." },
+    { "id": "m06-materials", "exitCode": 0, "summary": "10 Materialien, 4 Hilfen, 22 Segmente und 225 Minuten gültig." },
+    { "id": "build-subpath", "exitCode": 0, "summary": "V2-Entwicklungskandidat unter /ium-lernwerk/ gebaut." },
+    { "id": "build-root", "exitCode": 0, "summary": "V2-Entwicklungskandidat unter / gebaut." },
+    { "id": "browser-workbench", "exitCode": 1, "summary": "8 von 12 Fällen bestanden; vier Firefox-Runnerfehler." },
+    { "id": "browser-state", "exitCode": 1, "summary": "2 von 12 Fällen bestanden; P3-Übernahme und Firefox offen." },
+    { "id": "browser-accessibility", "exitCode": 1, "summary": "12 von 21 Fällen bestanden; 44-px-Ziel und Firefox offen." },
+    { "id": "browser-offline", "exitCode": 1, "summary": "4 von 9 Fällen bestanden; P3, Firefox und WebKit-Reload offen." },
+    { "id": "licenses", "exitCode": 1, "summary": "Lokale npm-11-SBOM meldet fehlende optionale @emnapi-Pakete." },
+    { "id": "v1-integration", "exitCode": 1, "summary": "V1-Orchestrator bricht am bestehenden Astro-Typfehler in Schritt 4 ab." }
+  ],
+  "openFindings": [
+    "IMP08-F01",
+    "IMP08-F02",
+    "IMP08-F03",
+    "IMP08-F04",
+    "IMP08-F05",
+    "IMP08-F06",
+    "IMP08-F07",
+    "IMP08-F08",
+    "IMP08-F09"
+  ],
+  "realVerificationHandoff": {
+    "state": "not-run",
+    "candidateRevision": null,
+    "requiredProfiles": ["Z-DESKTOP", "Z-TABLET", "Z-ASSISTIVE", "Z-NETWORK", "Z-LMS"],
+    "roles": {
+      "operator": null,
+      "schoolApproval": null,
+      "privacyReview": null,
+      "rightsReview": null,
+      "independentReviewers": []
+    },
+    "context": {
+      "school": null,
+      "class": null,
+      "priorM01Status": null,
+      "dates": [],
+      "managedProfiles": [],
+      "networkPath": null,
+      "lmsPath": null
+    },
+    "schedule": [
+      { "session": 1, "minutes": 45 },
+      { "session": 2, "minutes": 45 },
+      { "session": 3, "minutes": 45 },
+      { "session": 4, "minutes": 45 },
+      { "session": 5, "minutes": 45 }
+    ],
+    "materialRights": {
+      "manifest": "modules-v2/V2-G5-M06/rights.json",
+      "verification": "not-run"
+    },
+    "deletionContract": {
+      "source": "roadmap/v2/follow-ups/pilot/data-and-rights.md",
+      "localAppState": "not-run",
+      "exports": "external-copies-require-separate-deletion",
+      "browserCache": "separate-from-learning-state",
+      "institutionalRetention": null
+    },
+    "technicalRows": []
+  },
+  "limits": {
+    "curriculum": "unassessed",
+    "usage": "not-started",
+    "pilot": "not-started",
+    "publication": "closed",
+    "push": "not-authorized",
+    "merge": "not-authorized",
+    "finalReview": "separate-step"
+  }
+}

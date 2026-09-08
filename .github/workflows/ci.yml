@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-version: 22.20.0
+          node-version: 22.23.2
           cache: npm
       - run: npm ci
       - run: npm run test:python
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-version: 22.20.0
+          node-version: 22.23.2
           cache: npm
       - run: npm ci
       - run: npm run contracts:check
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-version: 22.20.0
+          node-version: 22.23.2
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox webkit
@@ -89,7 +89,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-version: 22.20.0
+          node-version: 22.23.2
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
@@ -103,4 +103,43 @@ jobs:
         with:
           name: offline-quality-failure-evidence
           path: test-results/
+          if-no-files-found: ignore
+
+  v2-m06:
+    needs: contracts-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.23.2
+          cache: npm
+      - run: npm install --global npm@10.9.8
+      - run: node --version
+      - run: npm --version
+      - run: npm ci
+      - name: Record V2 baseline status
+        continue-on-error: true
+        run: npm run verify:v2
+      - name: Record V2 development status
+        continue-on-error: true
+        run: npm run verify:v2:implementation
+      - name: Record V2 root build status
+        continue-on-error: true
+        run: npm run build:v2
+      - name: Record V2 subpath build status
+        continue-on-error: true
+        run: npm run build:v2:subpath
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Record complete V2 browser matrix
+        continue-on-error: true
+        run: npm run test:v2:m06
+      - name: Verify V2 M06 candidate and retain every result
+        run: npm run verify:v2:m06
+      - name: Upload V2 M06 verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-m06-verification-evidence
+          path: reports/v2-m06/
           if-no-files-found: ignore

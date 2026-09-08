@@ -1,5 +1,8 @@
-import { readFile } from 'node:fs/promises';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import { afterEach, expect, test } from 'vitest';
+import { buildPortalToDirectory } from '../../scripts/build-portal.js';
 import {
   buildPortal,
   type BuiltPortal,
@@ -39,4 +42,25 @@ test('fixture precache stays inside the configured base and contains offline rou
   expect(build.manifest.scope).toBe('/ium-lernwerk/');
   expect(build.serviceWorkerText).toContain('/ium-lernwerk/offline/');
   expect(build.externalUrls).toEqual([]);
+});
+
+test('V2 M06 subpath precache contains its route and no production module', async () => {
+  const output = await mkdtemp(join(tmpdir(), 'ium-v2-m06-pwa-'));
+  try {
+    await buildPortalToDirectory({
+      profile: 'v2-development',
+      publicationMode: 'development',
+      base: '/ium-lernwerk/',
+      rootDir: process.cwd(),
+      outputDir: output,
+      buildRevision: '2222222222222222222222222222222222222222',
+    });
+    const worker = await readFile(resolve(output, 'sw.js'), 'utf8');
+    expect(worker).toContain('/ium-lernwerk/module/v2-g5-m06/');
+    expect(worker).toContain('/ium-lernwerk/offline/');
+    expect(worker).not.toContain('ium-5-core-05');
+    expect(worker).not.toContain('test-platform-reference');
+  } finally {
+    await rm(output, { recursive: true, force: true });
+  }
 });
