@@ -1,0 +1,15 @@
+---
+import RuntimeProbe from '../../components/RuntimeProbe.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return process.env.IUM_BUILD_PROFILE === 'fixture'
+    ? [{ params: { probe: 'v2-runtime' } }]
+    : [];
+}
+---
+
+<BaseLayout title="V2-Speicherprobe">
+  <h1>V2-Runtime-Prüfhülle</h1>
+  <RuntimeProbe />
+</BaseLayout>

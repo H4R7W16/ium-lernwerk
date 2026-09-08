@@ -103,8 +103,11 @@ const profileIsolationPlugin = {
       );
       const workbenchBundle = fileName.includes('AlgorithmWorkbench')
         || fileName.includes('algorithm-workbench');
+      const runtimeProbeBundle = fileName.includes('RuntimeProbe')
+        || fileName.includes('runtime-probe');
       if (
         (profile === 'production' && fixtureBundle)
+        || (profile === 'production' && runtimeProbeBundle)
         || (profile === 'fixture' && workbenchBundle)
       ) {
         delete bundle[fileName];

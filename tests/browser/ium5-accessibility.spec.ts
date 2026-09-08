@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
+import { openPersistent, reloadPersistent } from './helpers/storage-choice.js';
 
 async function openRepeatError(page: import('@playwright/test').Page): Promise<void> {
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
@@ -10,13 +11,13 @@ async function openRepeatError(page: import('@playwright/test').Page): Promise<v
 }
 
 test('has no automatically detectable accessibility violations', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   const result = await new AxeBuilder({ page }).analyze();
   expect(result.violations, JSON.stringify(result.violations, null, 2)).toEqual([]);
 });
 
 test('completes the core learning cycle by keyboard', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).focus();
   await page.keyboard.press('Enter');
   await page.getByLabel('Erwartete Endposition').selectOption('E2');
@@ -41,7 +42,7 @@ test('completes the core learning cycle by keyboard', async ({ page }) => {
 });
 
 test('provides a complete textual scene and trace without the visual image', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await expect(page.getByRole('region', { name: 'Szenenbeschreibung' }))
     .toContainText(/Start|Blickrichtung|Gut|Ziel|Hindernisse/);
   await expect(page.getByRole('table', { name: 'Laufspur' })).toBeVisible();
@@ -55,7 +56,7 @@ for (const viewport of [
 ]) {
   test(`reflows at ${viewport.width} by ${viewport.height} without horizontal page scroll`, async ({ page }) => {
     await page.setViewportSize(viewport);
-    await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
     expect(await page.evaluate(
       () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
     )).toBe(true);
@@ -64,7 +65,7 @@ for (const viewport of [
 
 test('remains usable at 200 percent zoom', async ({ page }) => {
   await page.setViewportSize({ width: 640, height: 900 });
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.evaluate(() => document.documentElement.style.setProperty('zoom', '2'));
   expect(await page.evaluate(
     () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
@@ -73,7 +74,7 @@ test('remains usable at 200 percent zoom', async ({ page }) => {
 });
 
 test('focuses only actionable summaries after errors and phase changes', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await openRepeatError(page);
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
   await expect(page.getByRole('status', { name: 'Ausführungsergebnis' })).toBeFocused();
@@ -82,7 +83,7 @@ test('focuses only actionable summaries after errors and phase changes', async (
 });
 
 test('keeps focus usable after editor insert, move and delete operations', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   const insertMove = page.getByRole('button', { name: 'Gehe einfügen' });
   await insertMove.click();
   await expect(insertMove).toBeFocused();
@@ -98,7 +99,7 @@ test('keeps focus usable after editor insert, move and delete operations', async
 test.describe('reduced motion', () => {
   test.use({ reducedMotion: 'reduce' });
   test('uses immediate state changes', async ({ page }) => {
-    await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
     await expect(page.locator('[data-robot]')).toHaveCSS('transition-duration', '0s');
   });
 });
@@ -107,7 +108,7 @@ test.describe('touch-only core path', () => {
   test.use({ hasTouch: true, viewport: { width: 390, height: 844 } });
 
   test('edits, predicts, executes, repairs and transfers by touch controls', async ({ page }) => {
-    await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
     await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).tap();
     await page.getByLabel('Erwartete Endposition').selectOption('E2');
     await page.getByLabel('Erwartete Blickrichtung').selectOption('east');
@@ -132,7 +133,7 @@ test.describe('touch-only core path', () => {
 });
 
 test('all visible actions meet the 44 by 44 CSS pixel target', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   const undersized = await page.locator('button:visible, .file-action:visible').evaluateAll(
     (elements) => elements
       .map((element) => {

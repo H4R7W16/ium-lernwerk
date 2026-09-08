@@ -1,0 +1,32 @@
+<section
+  aria-labelledby="runtime-probe-title"
+  data-runtime-probe
+  data-module-id="V2-G5-M06"
+  data-module-version="0.1.0"
+>
+  <p class="working-banner" role="status">Synthetische technische Prüfhülle · keine Lernenden- oder Unterrichtsdaten</p>
+  <h2 id="runtime-probe-title">V2-Speicherprobe</h2>
+  <p>Diese Prüfhülle verwendet die echten V2-Speicher- und Runtimeports mit einer synthetischen Textpayload.</p>
+  <label for="runtime-probe-text">Synthetischer Text</label>
+  <textarea id="runtime-probe-text" rows="5" data-probe-text></textarea>
+  <div class="actions">
+    <button type="button" data-probe-save>Speichern</button>
+    <button type="button" data-probe-reopen>Wiederöffnen</button>
+    <button type="button" data-probe-export>Export anfordern</button>
+    <button type="button" class="danger" data-probe-delete>Modulstand löschen</button>
+  </div>
+  <p role="status" data-probe-status>Speicherwahl ausstehend</p>
+  <p role="alert" data-probe-error hidden></p>
+  <section aria-labelledby="probe-copy-title" data-copy-fallback hidden>
+    <h3 id="probe-copy-title">Exporttext</h3>
+    <p>Der Text bleibt auswählbar. Erst der eigene Kopierknopf schreibt in die Zwischenablage.</p>
+    <label for="probe-copy-text">Export zum Kopieren</label>
+    <textarea id="probe-copy-text" rows="8" readonly data-copy-fallback-text></textarea>
+  </section>
+  <p>Downloads, Zwischenablage, externe Profilsynchronisierung und Serverlogs sind getrennte Ablagen.</p>
+</section>
+
+<script>
+  import { connectRuntimeProbe } from '../controllers/runtime-probe.js';
+  void connectRuntimeProbe();
+</script>

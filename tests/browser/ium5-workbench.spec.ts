@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { openPersistent, reloadPersistent } from './helpers/storage-choice.js';
 
 test('holds an early scenario click until the workbench is ready', async ({ page }) => {
   await page.route('**/_astro/*.js', async (route) => {
@@ -6,7 +7,7 @@ test('holds an early scenario click until the workbench is ready', async ({ page
     await route.continue();
   });
 
-  await page.goto('/module/ium-5-core-05/', { waitUntil: 'commit' });
+  await openPersistent(page, '/module/ium-5-core-05/', { waitUntil: 'commit' });
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
 
   await expect(page.getByLabel('Wiederholungszahl')).toBeVisible();
@@ -26,7 +27,7 @@ async function confirmPrediction(
 }
 
 test('builds an algorithm by buttons and requires a prediction before execution', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Nimm auf einfügen' }).click();
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await expect(
@@ -47,7 +48,7 @@ test('builds an algorithm by buttons and requires a prediction before execution'
 });
 
 test('predicts, traces, hypothesizes and confirms a repaired algorithm', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await confirmPrediction(page, 'E2', 'east', 'no');
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
@@ -76,7 +77,7 @@ test('predicts, traces, hypothesizes and confirms a repaired algorithm', async (
 });
 
 test('stepwise and complete execution render the same final trace', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await confirmPrediction(page, 'E2', 'east', 'no');
   for (let step = 0; step < 6; step += 1) {
@@ -85,7 +86,7 @@ test('stepwise and complete execution render the same final trace', async ({ pag
   const stepwiseTrace = await page.getByRole('table', { name: 'Laufspur' })
     .locator('tbody tr').allTextContents();
 
-  await page.reload();
+  await reloadPersistent(page);
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await confirmPrediction(page, 'E2', 'east', 'no');
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
@@ -95,7 +96,7 @@ test('stepwise and complete execution render the same final trace', async ({ pag
 });
 
 test('moves a correct first draft to the standard repair case without changing it', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Aktives Beispiel öffnen' }).click();
   const correctDraft = await page.getByRole('list', { name: 'Algorithmus' }).innerText();
   await confirmPrediction(page, 'D2', 'east', 'yes');
@@ -109,7 +110,7 @@ test('moves a correct first draft to the standard repair case without changing i
 });
 
 test('shows cause and state before an optional strategy hint', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Fehlerfall Drehung öffnen' }).click();
   await confirmPrediction(page, 'C2', 'east', 'no');
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
@@ -126,7 +127,7 @@ for (const [button, cause] of [
   ['Fehlerfall Fehlender Schritt öffnen', 'Ablage ungültig'],
 ] as const) {
   test(`shows the specific cause for ${button}`, async ({ page }) => {
-    await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
     await page.getByRole('button', { name: button }).click();
     await confirmPrediction(page, 'A1', 'north', 'no');
     await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
@@ -136,7 +137,7 @@ for (const [button, cause] of [
 }
 
 test('reports an obstacle and the hard step limit through button-built algorithms', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Rechts drehen einfügen' }).click();
   for (let index = 0; index < 4; index += 1) {
     await page.getByRole('button', { name: 'Gehe einfügen' }).click();
@@ -146,7 +147,7 @@ test('reports an obstacle and the hard step limit through button-built algorithm
   await expect(page.getByRole('status', { name: 'Ausführungsergebnis' }))
     .toContainText('Hindernis');
 
-  await page.reload();
+  await reloadPersistent(page);
   await page.getByRole('button', { name: 'Arbeitsstand löschen' }).click();
   await page.getByRole('button', { name: 'Löschen bestätigen' }).click();
   await expect(page.locator('[data-save-status]')).toHaveText('Arbeitsstand gelöscht');
@@ -164,7 +165,7 @@ test('reports an obstacle and the hard step limit through button-built algorithm
 });
 
 test('rejects an invalid repeat edit before execution', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await page.getByLabel('Wiederholungszahl').fill('1');
 
@@ -175,7 +176,7 @@ test('rejects an invalid repeat edit before execution', async ({ page }) => {
 });
 
 test('exposes all five task families and the regular five-lesson path', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   for (const [button, heading] of [
     ['Präzisionskontrast öffnen', 'Präzisionskontrast'],
     ['Aktives Beispiel öffnen', 'Aktives Beispiel'],
@@ -192,7 +193,7 @@ test('exposes all five task families and the regular five-lesson path', async ({
 });
 
 test('shows the sixth lesson only through the explicit extended path', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/?path=extended');
+  await openPersistent(page, '/module/ium-5-core-05/?path=extended');
   await expect(page.getByText('270 Minuten · 6 Unterrichtseinheiten')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Zusätzliche Fehlerwerkstatt' }))
     .toBeVisible();
@@ -200,7 +201,7 @@ test('shows the sixth lesson only through the explicit extended path', async ({ 
 });
 
 test('persists the chosen phase and confirms a destructive scenario switch', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'UE 5 · Transfer' }).click();
   await expect(page.locator('[data-active-phase]')).toContainText('Algorithmus-Lupe');
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
@@ -210,7 +211,7 @@ test('persists the chosen phase and confirms a destructive scenario switch', asy
   await page.getByRole('button', { name: 'Wechsel bestätigen' }).click();
   await expect(page.locator('[data-active-scenario]')).toContainText('product-a');
   await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
-  await page.reload();
+  await reloadPersistent(page);
   await expect(page.locator('[data-active-phase]')).toContainText('Algorithmus-Lupe');
   await expect(page.locator('[data-active-scenario]')).toContainText('product-a');
 });

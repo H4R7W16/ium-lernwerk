@@ -27,6 +27,14 @@ test('production build exposes only the working IUM5 module route', async () => 
   expect(moduleHtml).toContain('data-algorithm-workbench');
   expect(moduleHtml).not.toContain('Synthetische technische Referenz');
   expect(await output.glob('_astro/*FixtureWorkspace*')).toEqual([]);
+  expect(await output.glob('tests/**/index.html')).toEqual([]);
+  expect(await output.glob('_astro/*RuntimeProbe*')).toEqual([]);
+  expect(await output.glob('_astro/*runtime-probe*')).toEqual([]);
+  const productionJavaScript = await Promise.all(
+    (await output.glob('_astro/*.js')).map((path) => output.text(path)),
+  );
+  expect(productionJavaScript.join('\n')).not.toContain('data-runtime-probe');
+  expect(productionJavaScript.join('\n')).not.toContain('V2-Runtime-Prüfhülle');
 });
 
 test('fixture build contains no IUM5 renderer or identifier', async () => {
@@ -45,4 +53,8 @@ test('fixture build contains no IUM5 renderer or identifier', async () => {
   expect(combined).not.toContain('algorithm-workbench');
   expect(await output.glob('_astro/*AlgorithmWorkbench*')).toEqual([]);
   expect(await output.glob('_astro/*algorithm-workbench*')).toEqual([]);
+  expect(await output.glob('tests/**/index.html')).toEqual([
+    'tests/v2-runtime/index.html',
+  ]);
+  expect(await output.text('tests/v2-runtime/index.html')).toContain('data-runtime-probe');
 });

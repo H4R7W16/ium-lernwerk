@@ -31,6 +31,7 @@ import type { PlatformError, StorageMode } from '@ium/module-contract';
 import { createModuleRuntime } from '@ium/module-runtime';
 import type { FlushRequestDetail } from '../pwa-registration.js';
 import { createBrowserExportPort, createWorkspaceId } from './browser-ports.js';
+import { chooseStorage } from '../storage-choice.js';
 import {
   renderAlgorithm,
   renderExecution,
@@ -206,11 +207,16 @@ export async function connectAlgorithmWorkbench(
   const setSaveStatus = (message: string): void => {
     setText(root, '[data-save-status]', message);
   };
-  const selection = await createStateRepository({
-    preferredMode: new URLSearchParams(location.search).get('storage') === 'volatile'
-      ? 'volatile-selected'
-      : 'persistent',
-  });
+  const stateSection = stateError.closest('section');
+  if (stateSection && !stateSection.querySelector('[data-storage-boundary]')) {
+    const boundary = document.createElement('p');
+    boundary.dataset.storageBoundary = '';
+    boundary.textContent = 'Lokaler Profilstand, Downloads, Zwischenablage und externe Profilsynchronisierung sind getrennte Ablagen.';
+    stateSection.insertBefore(boundary, stateError);
+  }
+  const explicitVolatile = new URLSearchParams(location.search).get('storage') === 'volatile';
+  const preferredMode = explicitVolatile ? 'volatile-selected' : await chooseStorage(root);
+  const selection = await createStateRepository({ preferredMode });
   const runtime = createModuleRuntime({
     moduleId,
     moduleVersion,
@@ -223,12 +229,42 @@ export async function connectAlgorithmWorkbench(
   });
   let runtimeReady = false;
   let stateBlocked = false;
+  const clientId = createWorkspaceId();
+  const invalidationChannel = typeof BroadcastChannel === 'undefined'
+    ? null
+    : new BroadcastChannel('ium-local-data-v2');
+  let recoveryButton: HTMLButtonElement | null = null;
+  const exposeRecoveryExport = (): void => {
+    if (!runtime.hasRecovery() || recoveryButton) return;
+    const actions = root.querySelector<HTMLElement>('[data-workbench-export]')?.parentElement;
+    if (!actions) return;
+    recoveryButton = document.createElement('button');
+    recoveryButton.type = 'button';
+    recoveryButton.dataset.recoveryExport = '';
+    recoveryButton.textContent = 'Unverändertes Original zur Wiederherstellung exportieren';
+    recoveryButton.addEventListener('click', async () => {
+      const result = await runtime.exportRecovery();
+      if (!result.ok) {
+        showStateError('Das unveränderte Original konnte nicht exportiert werden.', result.error);
+        return;
+      }
+      setSaveStatus(result.method === 'download'
+        ? 'Original-Download angefordert. Prüfe die Datei in deiner Ablage.'
+        : 'Unverändertes Original steht zur bewussten Ausgabe bereit.');
+    });
+    actions.append(recoveryButton);
+  };
+  const clearRecoveryExport = (): void => {
+    recoveryButton?.remove();
+    recoveryButton = null;
+  };
   if (selection.warning) {
     showStateError('', selection.warning);
   }
   const started = await runtime.start();
   if (!started.ok) {
     showStateError('Der lokale Arbeitsstand konnte nicht geöffnet werden.', started.error);
+    exposeRecoveryExport();
     stateBlocked = true;
   } else if (Object.keys(started.state.payload).length === 0) {
     runtime.updatePayload({ ...projectPersistentPayload(payload) });
@@ -582,6 +618,7 @@ export async function connectAlgorithmWorkbench(
         '[data-import-cancel]',
         '[data-delete-confirm]',
         '[data-delete-cancel]',
+        '[data-recovery-export]',
       ].join(', '));
       if (!recoveryControl) {
         control.disabled = blocked;
@@ -672,6 +709,24 @@ export async function connectAlgorithmWorkbench(
   const deleteDialog = requiredElement<HTMLDialogElement>(root, '[data-delete-dialog]');
   let pendingPayload: WorkbenchPayload | null = null;
 
+  invalidationChannel?.addEventListener('message', (event: MessageEvent<unknown>) => {
+    const value = event.data as { type?: string; requestId?: string };
+    if (value.type !== 'invalidate' || typeof value.requestId !== 'string') return;
+    runtime.cancelImport();
+    stateBlocked = true;
+    runtimeReady = false;
+    setDomainInteractionsBlocked(true);
+    showStateError(
+      'Lokale Profildaten wurden gelöscht. Diese offene Sitzung speichert nicht weiter; lade die Seite neu.',
+    );
+    setSaveStatus('Lokale Profildaten gelöscht');
+    invalidationChannel.postMessage({
+      type: 'invalidated',
+      requestId: value.requestId,
+      clientId,
+    });
+  });
+
   exportButton.addEventListener('click', async () => {
     if (!(await flush())) {
       return;
@@ -679,7 +734,11 @@ export async function connectAlgorithmWorkbench(
     const result = await runtime.exportState();
     if (!result.ok) {
       showStateError('Der Arbeitsstand konnte nicht exportiert werden.', result.error);
+      return;
     }
+    setSaveStatus(result.method === 'download'
+      ? 'Download angefordert. Prüfe die Datei in deiner Ablage.'
+      : 'Exporttext steht zur bewussten Ausgabe bereit.');
   });
 
   importInput.addEventListener('change', async () => {
@@ -690,6 +749,7 @@ export async function connectAlgorithmWorkbench(
     const preview = runtime.previewImport(new Uint8Array(await file.arrayBuffer()));
     if (!preview.ok) {
       showStateError('Import nicht übernommen.', preview.error);
+      exposeRecoveryExport();
       importInput.value = '';
       pendingPayload = null;
       return;
@@ -697,6 +757,7 @@ export async function connectAlgorithmWorkbench(
     const parsed = parseWorkbenchPayload(preview.state.payload);
     if (!parsed.ok) {
       showStateError('Import nicht übernommen. Der Modulinhalt ist ungültig.');
+      exposeRecoveryExport();
       importInput.value = '';
       pendingPayload = null;
       return;
@@ -711,6 +772,7 @@ export async function connectAlgorithmWorkbench(
   });
 
   requiredElement<HTMLButtonElement>(root, '[data-import-cancel]').addEventListener('click', () => {
+    runtime.cancelImport();
     importDialog.close();
     importInput.value = '';
     pendingPayload = null;
@@ -733,6 +795,7 @@ export async function connectAlgorithmWorkbench(
     }
     runtimeReady = true;
     stateBlocked = false;
+    clearRecoveryExport();
     renderPayloadState(parsed.value);
     setDomainInteractionsBlocked(false);
     importDialog.close();
@@ -772,6 +835,7 @@ export async function connectAlgorithmWorkbench(
     }
     runtimeReady = true;
     stateBlocked = false;
+    clearRecoveryExport();
     renderPayloadState(initial);
     setDomainInteractionsBlocked(false);
     deleteDialog.close();

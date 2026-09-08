@@ -3,6 +3,7 @@ import { copyFile, cp, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
+import { choosePersistent, openPersistent, reloadPersistent } from './helpers/storage-choice.js';
 import { buildPortalToDirectory } from '../../scripts/build-portal.js';
 
 const repoRoot = process.cwd();
@@ -16,7 +17,7 @@ async function waitForOfflineReady(page: Page): Promise<void> {
     'ready',
     { timeout: 20_000 },
   );
-  await page.reload();
+  await reloadPersistent(page);
   await expect.poll(() => page.evaluate(() => navigator.serviceWorker.controller !== null)).toBe(true);
 }
 
@@ -77,7 +78,7 @@ async function publishIum5Candidate(options: {
 }
 
 test('completes the installed IUM5 core path offline with local state', async ({ context, page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Fehlerfall Wiederholungszahl öffnen' }).click();
   await page.getByLabel('Erwartete Endposition').selectOption('E2');
   await page.getByLabel('Erwartete Blickrichtung').selectOption('east');
@@ -87,7 +88,7 @@ test('completes the installed IUM5 core path offline with local state', async ({
   await waitForOfflineReady(page);
 
   await context.setOffline(true);
-  await page.reload();
+  await reloadPersistent(page);
   await expect(page.getByRole('heading', { name: 'Präzise Abläufe ausführbar machen' }))
     .toBeVisible();
   await page.getByRole('button', { name: 'Vollständig ausführen' }).click();
@@ -110,7 +111,7 @@ test('completes the installed IUM5 core path offline with local state', async ({
 });
 
 test('activates a complete update only after flushing the IUM5 runtime', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await waitForOfflineReady(page);
 
   await publishIum5Candidate({ buildRevision: 'ium5-candidate-2' });
@@ -127,12 +128,13 @@ test('activates a complete update only after flushing the IUM5 runtime', async (
     'ium5-candidate-2',
     { timeout: 20_000 },
   );
+  await choosePersistent(page);
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 });
 
 test('rejects an incomplete candidate and keeps the active IUM5 path offline', async ({ context, page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await waitForOfflineReady(page);
 
   await page.evaluate(async () => {
@@ -188,7 +190,7 @@ test('rejects an incomplete candidate and keeps the active IUM5 path offline', a
   await expect(page.locator('[data-update-prompt]')).toBeHidden();
 
   await context.setOffline(true);
-  await page.reload();
+  await reloadPersistent(page);
   await expect(page.getByRole('heading', { name: 'Präzise Abläufe ausführbar machen' }))
     .toBeVisible();
   await context.setOffline(false);

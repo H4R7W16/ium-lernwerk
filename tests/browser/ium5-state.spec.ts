@@ -1,11 +1,12 @@
 import { readFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
+import { openPersistent, reloadPersistent } from './helpers/storage-choice.js';
 
 test('reload, export, delete and import preserve only the learning product', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await expect(page.locator('[data-save-status]')).toHaveText('Lokal gespeichert');
-  await page.reload();
+  await reloadPersistent(page);
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 
@@ -13,6 +14,9 @@ test('reload, export, delete and import preserve only the learning product', asy
   await page.getByRole('button', { name: 'Arbeitsstand exportieren' }).click();
   const path = await (await download).path();
   expect(path).not.toBeNull();
+  await expect(page.locator('[data-save-status]')).toHaveText(
+    'Download angefordert. Prüfe die Datei in deiner Ablage.',
+  );
   const exported = JSON.parse(await readFile(path!, 'utf8'));
   expect(Object.keys(exported.payload).sort()).toEqual([
     'evidenceTrace', 'initialAlgorithm', 'loopDecision', 'phaseId', 'prediction',
@@ -36,7 +40,7 @@ test('reload, export, delete and import preserve only the learning product', asy
 });
 
 test('rejects a malformed module payload without changing active work', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await page.setInputFiles('input[type=file]', {
     name: 'invalid.json',
@@ -54,12 +58,15 @@ test('rejects a malformed module payload without changing active work', async ({
   });
   await expect(page.getByRole('heading', { name: 'Import prüfen' })).toBeHidden();
   await expect(page.getByRole('alert')).toContainText('nicht übernommen');
+  await expect(page.getByRole('button', {
+    name: 'Unverändertes Original zur Wiederherstellung exportieren',
+  })).toBeVisible();
   await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem'))
     .toHaveCount(1);
 });
 
 test('rejects a future module schema without changing active work', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Gehe einfügen' }).click();
   await page.setInputFiles('input[type=file]', {
     name: 'future.json',
@@ -82,7 +89,7 @@ test('rejects a future module schema without changing active work', async ({ pag
 });
 
 test('stores classifications and self-check but never support usage', async ({ page }) => {
-  await page.goto('/module/ium-5-core-05/');
+  await openPersistent(page, '/module/ium-5-core-05/');
   await page.getByRole('button', { name: 'Drehhilfe öffnen' }).click();
   await page.getByLabel('Navigation einordnen').selectOption('algorithmic');
   await page.getByLabel('Begründung zu Navigation').fill(
@@ -97,4 +104,13 @@ test('stores classifications and self-check but never support usage', async ({ p
   expect(exported.payload.systemClassifications).toHaveLength(1);
   expect(exported.payload.selfCheck.unambiguous).toBe('yes');
   expect(JSON.stringify(exported)).not.toMatch(/Drehhilfe|support|hint/i);
+});
+
+test('uses the explicit volatile query without opening the persistent profile', async ({ page }) => {
+  await page.goto('/module/ium-5-core-05/?storage=volatile');
+  await expect(page.getByRole('button', { name: 'Auf diesem Gerät speichern' })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Gehe einfügen' }).click();
+  await expect(page.locator('[data-save-status]')).toHaveText('Nur für diese Sitzung gespeichert');
+  await page.reload();
+  await expect(page.getByRole('list', { name: 'Algorithmus' }).getByRole('listitem')).toHaveCount(0);
 });

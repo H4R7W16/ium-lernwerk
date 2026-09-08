@@ -3,6 +3,9 @@ import type { ExportPort } from '@ium/module-contract';
 export function createBrowserExportPort(workspace: HTMLElement): ExportPort {
   return {
     async download(filename, bytes, mediaType) {
+      if (workspace.dataset.forceDownloadFallback === 'true') {
+        return false;
+      }
       const frame = window.frameElement;
       const blockedBySandbox = frame instanceof HTMLIFrameElement
         && frame.hasAttribute('sandbox')
@@ -31,11 +34,34 @@ export function createBrowserExportPort(workspace: HTMLElement): ExportPort {
         field.value = value;
         field.focus();
         field.select();
-      }
-      try {
-        await navigator.clipboard.writeText(value);
-      } catch {
-        // The visible read-only field remains available as the manual fallback.
+        let copyButton = fallback.querySelector<HTMLButtonElement>('[data-copy-explicit]');
+        let copyStatus = fallback.querySelector<HTMLElement>('[data-copy-status]');
+        if (!copyButton) {
+          copyButton = document.createElement('button');
+          copyButton.type = 'button';
+          copyButton.dataset.copyExplicit = '';
+          copyButton.textContent = 'In Zwischenablage kopieren';
+          fallback.append(copyButton);
+        }
+        if (!copyStatus) {
+          copyStatus = document.createElement('p');
+          copyStatus.dataset.copyStatus = '';
+          copyStatus.setAttribute('role', 'status');
+          fallback.append(copyStatus);
+        }
+        if (copyButton.dataset.connected !== 'true') {
+          copyButton.dataset.connected = 'true';
+          copyButton.addEventListener('click', async () => {
+            try {
+              await navigator.clipboard.writeText(field.value);
+              copyStatus!.textContent = 'Text in die Zwischenablage kopiert.';
+            } catch {
+              copyStatus!.textContent = 'Kopieren nicht möglich. Der Text bleibt zum manuellen Kopieren ausgewählt.';
+              field.focus();
+              field.select();
+            }
+          });
+        }
       }
       return fallback !== null && field !== null;
     },

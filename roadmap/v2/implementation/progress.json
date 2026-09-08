@@ -56,7 +56,7 @@
     },
     {
       "id": "IMP02",
-      "state": "review",
+      "state": "done",
       "candidateCommit": "6dc1564ab45dcfb92bca36236e0f2caacfea3c19",
       "checks": [
         {
@@ -105,11 +105,17 @@
           "summary": "IMP01-Abnahme, IMP02-Auftrag, Dateigrenzen und tatsächliche Vault-Tasks geprüft."
         }
       ],
-      "acceptance": null
+      "acceptance": {
+        "state": "approved-by-user",
+        "decisionBy": "user",
+        "date": "2026-09-08",
+        "statement": "abnahme.",
+        "acceptedCommit": "6dc1564ab45dcfb92bca36236e0f2caacfea3c19"
+      }
     },
     {
       "id": "IMP03",
-      "state": "planned",
+      "state": "in_progress",
       "candidateCommit": null,
       "checks": [],
       "acceptance": null

@@ -1,38 +1,29 @@
 ---
-import DataControls from '@ium/ui-components/components/DataControls';
-import ErrorSummary from '@ium/ui-components/components/ErrorSummary';
-import StorageStatus from '@ium/ui-components/components/StorageStatus';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Lokale Daten">
   <h1>Lokale Daten verwalten</h1>
-  <p>Arbeitsstände bleiben auf diesem Gerät. Es gibt kein Konto und keine zentrale Übertragung.</p>
-  <ErrorSummary />
-  <StorageStatus />
-  <DataControls />
+  <p>Diese Verwaltung betrifft nur Arbeitsstände in diesem Browserprofil unter dieser Origin.</p>
+  <p>Exportdateien in Downloads, Inhalte in der Zwischenablage, externe Profilsynchronisierung und Serverlogs sind nicht eingeschlossen.</p>
   <section aria-labelledby="delete-all-title">
     <h2 id="delete-all-title">Alle Lernwerkdaten löschen</h2>
-    <p>Diese Aktion entfernt alle lokalen Arbeitsstände erst nach deiner Bestätigung.</p>
+    <p>Diese Aktion entfernt die lokalen V1- und V2-Arbeitsstände erst nach deiner Bestätigung. Teilerfolge werden einzeln angezeigt.</p>
     <button type="button" class="danger" data-delete-all>Alle lokalen Daten löschen</button>
     <dialog aria-labelledby="delete-all-dialog-title" data-delete-all-dialog>
       <h3 id="delete-all-dialog-title">Alle lokalen Daten löschen?</h3>
-      <p>Diese Aktion betrifft alle Arbeitsstände dieses Lernwerks auf diesem Gerät.</p>
+      <p>Diese Aktion betrifft die Arbeitsstände dieses Lernwerks in diesem Browserprofil und unter dieser Origin.</p>
       <div class="actions">
         <button type="button" class="danger" data-delete-all-confirm>Alle Daten löschen</button>
         <button type="button" data-delete-all-cancel>Abbrechen</button>
       </div>
     </dialog>
+    <p role="status" data-delete-all-result></p>
+    <p role="status" data-invalidation-result></p>
   </section>
 </BaseLayout>
 
 <script>
-  import { createStateRepository } from '@ium/local-state';
-  import { connectGlobalDataControls } from '@ium/ui-components/controllers/data-controls';
-  const selection = await createStateRepository({ preferredMode: 'persistent' });
-  void connectGlobalDataControls({
-    mode: selection.mode,
-    ...(selection.warning === undefined ? {} : { warning: selection.warning }),
-    deleteAll: () => selection.repository.deleteAll(),
-  });
+  import { connectLocalDataV2 } from '../controllers/local-data-v2.js';
+  void connectLocalDataV2();
 </script>
