@@ -28,6 +28,7 @@ const approvedDependencies: Readonly<Record<string, ReadonlySet<string>>> = {
   '@ium/export-import': new Set(['@ium/module-contract']),
   '@ium/module-runtime': new Set(['@ium/module-contract', '@ium/export-import']),
   '@ium/ium-5-core-05': new Set([]),
+  '@ium/v2-g5-m06': new Set([]),
   '@ium/ui-components': new Set([
     '@ium/module-contract',
     '@ium/module-runtime',
@@ -38,6 +39,7 @@ const approvedDependencies: Readonly<Record<string, ReadonlySet<string>>> = {
     '@ium/local-state',
     '@ium/export-import',
     '@ium/ium-5-core-05',
+    '@ium/v2-g5-m06',
     '@ium/module-runtime',
     '@ium/ui-components',
     'astro',
@@ -53,6 +55,7 @@ const corePackages = new Set([
   '@ium/local-state',
   '@ium/export-import',
   '@ium/ium-5-core-05',
+  '@ium/v2-g5-m06',
   '@ium/module-runtime',
 ]);
 const ignoredDirectories = new Set(['dist', 'generated', 'node_modules']);
