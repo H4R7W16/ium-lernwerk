@@ -22,6 +22,7 @@ const ALLOWED_COMBINATIONS = new Set([
   'production:development',
   'production:gate-b-preview',
   'fixture:device-fixture',
+  'v2-development:development',
 ]);
 
 export function parsePublicationMode(value: string): PublicationMode {
@@ -74,6 +75,10 @@ export function createPublicationContract(options: {
   previewId?: string;
 }): PublicationContract {
   assertPublicationCombination(options.profile, options.mode);
+  if (options.profile === 'v2-development'
+    && !/^[0-9a-f]{40}$/.test(options.buildRevision ?? '')) {
+    throw new Error('V2 development build revision must be a full lowercase Git SHA');
+  }
   return {
     profile: options.profile,
     mode: options.mode,

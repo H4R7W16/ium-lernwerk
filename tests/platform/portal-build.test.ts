@@ -1,10 +1,60 @@
+import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
+import { join, relative, resolve, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { afterEach, expect, test } from 'vitest';
+import { buildPortalToDirectory } from '../../scripts/build-portal.js';
 import {
   buildPortal,
   type BuiltPortal,
 } from './helpers/build-portal.js';
 
 const builds: BuiltPortal[] = [];
+const repoRoot = fileURLToPath(new URL('../..', import.meta.url));
+
+async function collectFiles(root: string): Promise<string[]> {
+  const entries = await readdir(root, { withFileTypes: true });
+  const result: string[] = [];
+  for (const entry of entries) {
+    const path = resolve(root, entry.name);
+    result.push(...(entry.isDirectory() ? await collectFiles(path) : [path]));
+  }
+  return result;
+}
+
+function globPattern(pattern: string): RegExp {
+  const escaped = pattern.replace(/[.+^${}()|[\]\\]/g, '\\$&');
+  const source = escaped
+    .replaceAll('**', '\u0000')
+    .replaceAll('*', '[^/]*')
+    .replaceAll('\u0000', '.*');
+  return new RegExp(`^${source}$`);
+}
+
+async function buildV2Portal(base: string): Promise<BuiltPortal> {
+  const distDir = await mkdtemp(join(repoRoot, '.ium-v2-portal-test-'));
+  await buildPortalToDirectory({
+    profile: 'v2-development',
+    publicationMode: 'development',
+    base,
+    rootDir: repoRoot,
+    outputDir: distDir,
+  });
+  const relativeFiles = (await collectFiles(distDir))
+    .map((path) => relative(distDir, path).split(sep).join('/'))
+    .sort();
+  return {
+    distDir,
+    manifest: {},
+    serviceWorkerText: '',
+    externalUrls: [],
+    text: (path) => readFile(resolve(distDir, path), 'utf8'),
+    async glob(pattern) {
+      const matcher = globPattern(pattern);
+      return relativeFiles.filter((path) => matcher.test(path));
+    },
+    cleanup: () => rm(distDir, { recursive: true, force: true }),
+  };
+}
 
 afterEach(async () => {
   await Promise.all(builds.splice(0).map((build) => build.cleanup()));
@@ -57,4 +107,34 @@ test('fixture build contains no IUM5 renderer or identifier', async () => {
     'tests/v2-runtime/index.html',
   ]);
   expect(await output.text('tests/v2-runtime/index.html')).toContain('data-runtime-probe');
+});
+
+test('V2 development build exposes only M06 at root and subpath', async () => {
+  for (const base of ['/', '/ium-lernwerk/']) {
+    const output = await buildV2Portal(base);
+    builds.push(output);
+    expect(await output.glob('module/**/index.html')).toEqual([
+      'module/v2-g5-m06/index.html',
+    ]);
+    const indexHtml = await output.text('index.html');
+    const moduleHtml = await output.text('module/v2-g5-m06/index.html');
+    expect(`${indexHtml}\n${moduleHtml}`).toContain(
+      'V2-Entwicklungskandidat – noch nicht für Unterrichtseinsatz freigegeben',
+    );
+    expect(moduleHtml).toContain('data-m06-workspace');
+    expect(moduleHtml).toContain('Curriculum: unassessed');
+    expect(moduleHtml).toContain('Pilot: not-started');
+    expect(moduleHtml).toContain('Veröffentlichung: closed');
+    expect(moduleHtml).toContain('Deine Abrufbegründung');
+    expect(moduleHtml).toContain('Begründung der Prüffahrt');
+    const scripts = await Promise.all(
+      (await output.glob('_astro/*.js')).map((path) => output.text(path)),
+    );
+    expect(scripts.join('\n')).toContain('Auf diesem Gerät speichern');
+    expect(scripts.join('\n')).toContain('Nur in dieser Sitzung arbeiten');
+    expect(await output.glob('_astro/*FixtureWorkspace*')).toEqual([]);
+    expect(await output.glob('_astro/*AlgorithmWorkbench*')).toEqual([]);
+    expect(await output.glob('_astro/*RuntimeProbe*')).toEqual([]);
+    expect(await output.glob('tests/**/index.html')).toEqual([]);
+  }
 });

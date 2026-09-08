@@ -11,7 +11,9 @@ const base = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
 const publicationMode = import.meta.env.PUBLIC_IUM_PUBLICATION_MODE ?? 'development';
 const buildRevision = import.meta.env.PUBLIC_IUM_BUILD_REVISION ?? 'stable';
 const previewId = import.meta.env.PUBLIC_IUM_PREVIEW_ID ?? '';
+const buildProfile = import.meta.env.PUBLIC_IUM_BUILD_PROFILE ?? '';
 const isGateBPreview = publicationMode === 'gate-b-preview';
+const isV2Development = buildProfile === 'v2-development';
 ---
 
 <!doctype html>
@@ -26,6 +28,9 @@ const isGateBPreview = publicationMode === 'gate-b-preview';
     {isGateBPreview && <meta name="ium-preview-id" content={previewId} />}
     {isGateBPreview && <meta name="ium-product-status" content="working" />}
     {isGateBPreview && <meta name="ium-device-verified" content="not-run" />}
+    {isV2Development && <meta name="ium-v2-curriculum-coverage" content="unassessed" />}
+    {isV2Development && <meta name="ium-v2-pilot" content="not-started" />}
+    {isV2Development && <meta name="ium-v2-publication" content="closed" />}
     <title>{title} · IuM-Lernwerk</title>
   </head>
   <body>

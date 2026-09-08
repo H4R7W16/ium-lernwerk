@@ -24,7 +24,7 @@ export async function prepareModuleAssets(
   await rm(generatedRoot, { recursive: true, force: true });
   await mkdir(generatedRoot, { recursive: true });
 
-  if (options.profile === 'fixture') {
+  if (options.profile === 'fixture' || options.profile === 'v2-development') {
     return;
   }
 

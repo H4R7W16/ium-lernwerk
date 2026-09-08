@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 import {
   assertPublicationCombination,
+  createPublicationContract,
   parseBuildRevision,
   parsePreviewId,
   parsePublicationMode,
@@ -38,6 +39,9 @@ describe('publication/profile compatibility', () => {
     ['fixture', 'development', false],
     ['fixture', 'gate-b-preview', false],
     ['fixture', 'device-fixture', true],
+    ['v2-development', 'development', true],
+    ['v2-development', 'gate-b-preview', false],
+    ['v2-development', 'device-fixture', false],
   ];
 
   test.each(cases)('%s with %s has the fixed compatibility result', (profile, mode, allowed) => {
@@ -72,6 +76,22 @@ test('development and device revisions remain optional but path-safe', () => {
   for (const value of ['../secret', 'folder/revision', 'bad\\revision', 'bad\nrevision']) {
     expect(() => parseBuildRevision(value, 'device-fixture')).toThrow(/revision/i);
   }
+});
+
+test('V2 development requires a full Git revision', () => {
+  expect(() => createPublicationContract({
+    profile: 'v2-development',
+    mode: 'development',
+  })).toThrow(/full lowercase Git SHA/i);
+  expect(createPublicationContract({
+    profile: 'v2-development',
+    mode: 'development',
+    buildRevision: 'a'.repeat(40),
+  })).toMatchObject({
+    profile: 'v2-development',
+    mode: 'development',
+    buildRevision: 'a'.repeat(40),
+  });
 });
 
 test('preview ID is mandatory only for Gate B and rejects path or control characters', () => {

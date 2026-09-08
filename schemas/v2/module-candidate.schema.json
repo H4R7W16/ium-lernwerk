@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ium-lernwerk.invalid/schemas/v2/module-candidate.schema.json",
+  "title": "IuM V2 module development candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "baseline", "id", "version", "renderer",
+    "payloadSchemaVersion", "status", "curriculumCoverage", "pilot",
+    "publication", "specPath", "materialRevision", "curriculumRecordIds",
+    "lxfGateIds", "minutes"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "baseline": { "const": "v2" },
+    "id": { "const": "V2-G5-M06" },
+    "version": { "const": "0.1.0" },
+    "renderer": { "const": "v2-m06" },
+    "payloadSchemaVersion": { "const": 1 },
+    "status": { "const": "draft" },
+    "curriculumCoverage": { "const": "unassessed" },
+    "pilot": { "const": "not-started" },
+    "publication": { "const": "closed" },
+    "specPath": { "const": "docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md" },
+    "materialRevision": { "const": "0.1.0" },
+    "curriculumRecordIds": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "lxfGateIds": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "minutes": { "const": 225 }
+  }
+}

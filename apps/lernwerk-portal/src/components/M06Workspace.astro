@@ -1,0 +1,178 @@
+---
+import '../styles/m06.css';
+
+interface Props {
+  resources: Readonly<{ content: unknown; cases: unknown }>;
+}
+
+const { resources } = Astro.props;
+---
+
+<section class="m06-workspace" data-m06-workspace aria-labelledby="m06-workspace-title">
+  <h2 id="m06-workspace-title" tabindex="-1">Prüffahrt im Raster</h2>
+  <nav class="m06-area-nav" aria-label="Arbeitsbereiche">
+    <a href="#auftrag-und-beispiel">Auftrag und Beispiel</a>
+    <a href="#mein-pruefdossier">Mein Prüfdossier</a>
+    <a href="#sicherung-und-rueckkehr">Sicherung und Rückkehr</a>
+  </nav>
+
+  <section id="auftrag-und-beispiel" aria-labelledby="auftrag-title">
+    <h3 id="auftrag-title">Auftrag und Beispiel</h3>
+    <p>Beginne bei (1,3) mit Blick nach rechts. Besuche (3,3), (3,2), (1,2) und (1,3) in dieser Reihenfolge. Fahre nur am Rand des Rechtecks und ende wieder mit Blick nach rechts.</p>
+    <details>
+      <summary>Beispiel mit Verarbeitungsstopps</summary>
+      <p>Bei <strong>wiederhole 4</strong> gehören <strong>vor</strong> und <strong>links</strong> gemeinsam in den Körper. Sage nach jedem Durchlauf Ort und Blickrichtung voraus.</p>
+    </details>
+    <div class="m06-help-row" aria-label="Situative Hilfen">
+      <details><summary>H1 · Ort und Blick</summary><p>Markiere das Feld und zeichne einen Blickpfeil. Prüfe danach selbst einen Schritt.</p></details>
+      <details><summary>H2 · Ganzer Körper</summary><p>Rahme alle Anweisungen ein, die in jedem Durchlauf zusammengehören.</p></details>
+      <details><summary>H3 · Erste Abweichung</summary><p>Vergleiche ab Schritt 1. Die erste Abweichung kann vor der Fehlermeldung liegen.</p></details>
+      <details><summary>H4 · Anderer Zugang</summary><p>Nutze Tastatur, lineare Textform oder Befehlslegende und gib selbst den nächsten Schritt ein.</p></details>
+    </div>
+    <button type="button" data-m06-open-retrieval>Abruf öffnen</button>
+    <div data-m06-retrieval-panel hidden>
+      <label for="m06-retrieval">Deine Abrufbegründung</label>
+      <textarea id="m06-retrieval" data-m06-retrieval rows="4"></textarea>
+      <button type="button" data-m06-own-draft>Zum eigenen Entwurf</button>
+      <details><summary>Alte Lösung erst nach deiner Antwort anzeigen</summary><p>Vergleiche Körper, Anzahl und Zustandsänderungen jetzt mit deinem eigenen Abruf.</p></details>
+    </div>
+  </section>
+
+  <section id="mein-pruefdossier" tabindex="-1" aria-labelledby="dossier-title">
+    <h3 id="dossier-title">Mein Prüfdossier</h3>
+    <div class="m06-editor-grid">
+      <article aria-labelledby="diagram-title">
+        <h4 id="diagram-title">Eigene Ablaufgrafik</h4>
+        <p>Baue deine beschriftete Folge unabhängig vom Code auf.</p>
+        <div class="m06-command-row" data-editor="diagram">
+          <button type="button" data-add="move">Pfeil vor</button>
+          <button type="button" data-add="turn-left">Pfeil links</button>
+          <button type="button" data-add="turn-right">Pfeil rechts</button>
+          <button type="button" data-clear>Grafik leeren</button>
+        </div>
+        <label for="m06-diagram-explanation">Erklärung meiner Grafik</label>
+        <textarea id="m06-diagram-explanation" rows="4" data-diagram-explanation></textarea>
+        <fieldset>
+          <legend>Körperrahmen und Anzahl der Grafik</legend>
+          <label for="m06-diagram-count">Anzahl 2 bis 9</label>
+          <input id="m06-diagram-count" type="number" min="2" max="9" value="2" />
+          <div class="m06-body-fields">
+            {[1, 2, 3, 4, 5].map((number) => (
+              <label>Anweisung {number}
+                <select data-diagram-repeat-body>
+                  <option value="">leer</option>
+                  <option value="move">vor</option>
+                  <option value="turn-left">links</option>
+                  <option value="turn-right">rechts</option>
+                </select>
+              </label>
+            ))}
+          </div>
+          <button type="button" data-add-diagram-repeat>Körperrahmen einsetzen</button>
+        </fieldset>
+        <pre class="m06-program" data-diagram-output aria-live="polite">Noch keine Grafik angelegt.</pre>
+      </article>
+
+      <article aria-labelledby="code-title">
+        <h4 id="code-title">Eigener ausführbarer Code</h4>
+        <div class="m06-command-row" data-editor="code">
+          <button type="button" data-add="move">vor</button>
+          <button type="button" data-add="turn-left">links</button>
+          <button type="button" data-add="turn-right">rechts</button>
+          <button type="button" data-clear>Code leeren</button>
+        </div>
+        <fieldset data-repeat-editor>
+          <legend>Ganze Wiederholung einsetzen</legend>
+          <label for="m06-repeat-count">Anzahl 2 bis 9</label>
+          <input id="m06-repeat-count" type="number" min="2" max="9" value="2" />
+          <div class="m06-body-fields">
+            {[1, 2, 3, 4, 5].map((number) => (
+              <label>Anweisung {number}
+                <select data-repeat-body>
+                  <option value="">leer</option>
+                  <option value="move">vor</option>
+                  <option value="turn-left">links</option>
+                  <option value="turn-right">rechts</option>
+                </select>
+              </label>
+            ))}
+          </div>
+          <button type="button" data-add-repeat>Wiederholung einsetzen</button>
+        </fieldset>
+        <pre class="m06-program" data-code-output aria-live="polite">Noch kein Code eingegeben.</pre>
+      </article>
+    </div>
+
+    <section aria-labelledby="prediction-title">
+      <h4 id="prediction-title">Vorhersage, Ausführung und Spur</h4>
+      <label for="m06-prediction">Meine Vorhersage vor dem Ausführen</label>
+      <input id="m06-prediction" data-prediction autocomplete="off" />
+      <button type="button" data-run-code>Code ausführen und Spur anzeigen</button>
+      <p data-goal-feedback role="status">Noch nicht ausgeführt.</p>
+      <div data-trace-output></div>
+      <label for="m06-rationale">Begründung der Prüffahrt</label>
+      <textarea id="m06-rationale" rows="4" data-rationale></textarea>
+      <button type="button" data-save-evidence>Ausgewählte Spur zum Entwurf sichern</button>
+    </section>
+
+    <section aria-labelledby="revision-title">
+      <h4 id="revision-title">Revision</h4>
+      <label for="m06-first-deviation">Erste fachliche Abweichung</label>
+      <input id="m06-first-deviation" type="number" min="1" max="100" data-first-deviation />
+      <div class="m06-command-row">
+        <button type="button" data-revision="before">Aktuelle Spur als Vorher sichern</button>
+        <button type="button" data-revision="after">Aktuelle Spur als Nachher sichern</button>
+      </div>
+      <p>Eine spätere Grenzmeldung ersetzt nicht die Benennung der ersten fachlichen Abweichung.</p>
+    </section>
+
+    <section aria-labelledby="transfer-title">
+      <h4 id="transfer-title">Transfer und Systeme</h4>
+      <label for="m06-transfer-sequence">S4-Aktionsfolge</label>
+      <input id="m06-transfer-sequence" value="aufnehmen, prüfen, ablegen" data-transfer-sequence />
+      <label for="m06-transfer-rationale">Begründung der Zustandsbedingungen</label>
+      <textarea id="m06-transfer-rationale" rows="3" data-transfer-rationale></textarea>
+      <label for="m06-time-control">Digitale Zeitsteuerung</label>
+      <textarea id="m06-time-control" rows="2" data-system="timeControl"></textarea>
+      <label for="m06-route">Digitale Wegberechnung</label>
+      <textarea id="m06-route" rows="2" data-system="routeCalculation"></textarea>
+      <label for="m06-boundary">Aussagegrenze für Papier und Standbild</label>
+      <textarea id="m06-boundary" rows="2" data-system="boundary"></textarea>
+    </section>
+  </section>
+
+  <section id="sicherung-und-rueckkehr" aria-labelledby="return-title">
+    <h3 id="return-title">Sicherung und Rückkehr</h3>
+    <label for="m06-return-area">Arbeitsbereich für die Rückkehr</label>
+    <select id="m06-return-area" data-return-area>
+      <option value="auftrag">Auftrag und Beispiel</option>
+      <option value="dossier">Mein Prüfdossier</option>
+      <option value="sicherung">Sicherung und Rückkehr</option>
+    </select>
+    <label for="m06-open-point">Offener Punkt</label>
+    <input id="m06-open-point" data-return-open />
+    <label for="m06-next-action">Nächste eigene Handlung</label>
+    <input id="m06-next-action" data-return-next />
+    <button type="button" data-m06-save>Arbeitsstand speichern</button>
+    <p data-m06-save-status role="status">Speicherwahl steht aus.</p>
+    <details class="m06-danger">
+      <summary>Daten verwalten</summary>
+      <button type="button" data-delete-work>Arbeitsstand dieses Moduls löschen</button>
+      <button type="button" data-export-work>Arbeitsstand exportieren</button>
+      <button type="button" data-export-recovery>Gesichertes Original exportieren</button>
+      <label for="m06-import">Arbeitsstand importieren</label>
+      <input id="m06-import" type="file" accept="application/json,.json" data-import-work />
+      <div data-copy-fallback hidden>
+        <label for="m06-copy">Exporttext zum bewussten Kopieren</label>
+        <textarea id="m06-copy" data-copy-fallback-text rows="5" readonly></textarea>
+      </div>
+    </details>
+  </section>
+</section>
+
+<script is:inline type="application/json" data-m06-resources set:html={JSON.stringify(resources).replaceAll('<', '\\u003c')}></script>
+
+<script>
+  import { connectM06BrowserWorkspace } from '../controllers/m06/view.js';
+  void connectM06BrowserWorkspace();
+</script>

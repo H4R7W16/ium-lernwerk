@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { buildRegistry, type BuildProfile } from './build-module-registry.js';
+import { buildV2Registry } from './build-v2-module-registry.js';
 import { finalizeServiceWorker } from './finalize-service-worker.js';
 import { prepareModuleAssets } from './prepare-module-assets.js';
 import {
@@ -25,7 +26,7 @@ function normalizeBase(value: string): string {
 }
 
 function assertProfile(value: string): asserts value is BuildProfile {
-  if (value !== 'production' && value !== 'fixture') {
+  if (value !== 'production' && value !== 'fixture' && value !== 'v2-development') {
     throw new Error(`Unknown portal build profile: ${value}`);
   }
 }
@@ -39,19 +40,30 @@ export async function buildPortalToDirectory(options: {
   buildRevision?: string;
   previewId?: string;
 }): Promise<void> {
+  const buildRevision = options.profile === 'v2-development' && options.buildRevision === undefined
+    ? spawnSync('git', ['rev-parse', 'HEAD'], { cwd: options.rootDir, encoding: 'utf8' }).stdout.trim()
+    : options.buildRevision;
   const publication = createPublicationContract({
     profile: options.profile,
     mode: options.publicationMode,
-    buildRevision: options.buildRevision,
+    buildRevision,
     previewId: options.previewId,
   });
   const base = normalizeBase(options.base);
   const appRoot = resolve(options.rootDir, 'apps/lernwerk-portal');
-  await buildRegistry({
-    profile: options.profile,
-    rootDir: options.rootDir,
-    outputDir: resolve(appRoot, 'src/generated'),
-  });
+  if (options.profile === 'v2-development') {
+    await buildV2Registry({
+      rootDir: options.rootDir,
+      outputDir: resolve(appRoot, 'src/generated'),
+      buildRevision: publication.buildRevision,
+    });
+  } else {
+    await buildRegistry({
+      profile: options.profile,
+      rootDir: options.rootDir,
+      outputDir: resolve(appRoot, 'src/generated'),
+    });
+  }
   await prepareModuleAssets({
     profile: options.profile,
     rootDir: options.rootDir,
@@ -75,6 +87,7 @@ export async function buildPortalToDirectory(options: {
         IUM_BASE_PATH: base,
         IUM_OUTPUT_DIR: resolve(options.outputDir),
         PUBLIC_IUM_BASE_PATH: base,
+        PUBLIC_IUM_BUILD_PROFILE: publication.profile,
         PUBLIC_IUM_PUBLICATION_MODE: publication.mode,
         PUBLIC_IUM_BUILD_REVISION: publication.buildRevision,
         PUBLIC_IUM_PREVIEW_ID: publication.previewId,

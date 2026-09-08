@@ -5,7 +5,7 @@ import type { BuildProfile } from './build-module-registry.js';
 import { parsePublicationMode } from './publication-mode.js';
 
 function assertProfile(value: string): asserts value is BuildProfile {
-  if (value !== 'production' && value !== 'fixture') {
+  if (value !== 'production' && value !== 'fixture' && value !== 'v2-development') {
     throw new Error(`Unknown portal preview profile: ${value}`);
   }
 }

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "baseline": "v2",
+  "id": "V2-G5-M06",
+  "version": "0.1.0",
+  "renderer": "v2-m06",
+  "payloadSchemaVersion": 1,
+  "status": "draft",
+  "curriculumCoverage": "unassessed",
+  "pilot": "not-started",
+  "publication": "closed",
+  "specPath": "docs/superpowers/specs/2026-09-07-ium-v2-g5-m06-referenzmodul-design.md",
+  "materialRevision": "0.1.0",
+  "curriculumRecordIds": [
+    "BMB16-GYM-PK-SK-001",
+    "LH26-E-ALG-001",
+    "LH26-E-ALG-002",
+    "LH26-E-ALG-003",
+    "LH26-E-ALG-004",
+    "LH26-E-ALG-005",
+    "LH26-E-ALG-006"
+  ],
+  "lxfGateIds": [
+    "evidence-integrity",
+    "goal-action-evidence-alignment",
+    "cognitive-economy",
+    "disciplinary-learning-action",
+    "representation-coherence",
+    "support-without-task-removal",
+    "feedback-and-next-action",
+    "orientation-and-recovery",
+    "accessibility-and-equivalence",
+    "teacher-orchestration",
+    "privacy-and-emotional-safety",
+    "pilot-boundary"
+  ],
+  "minutes": 225
+}

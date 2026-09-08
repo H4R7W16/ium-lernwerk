@@ -6,7 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { createPrecacheIntegrityTransform } from '../../scripts/precache-integrity.js';
 
 const profile = process.env.IUM_BUILD_PROFILE ?? '';
-if (profile !== 'production' && profile !== 'fixture') {
+if (profile !== 'production' && profile !== 'fixture' && profile !== 'v2-development') {
   throw new Error(`Invalid IUM_BUILD_PROFILE: ${profile}`);
 }
 const base = process.env.IUM_BASE_PATH ?? '';
@@ -105,10 +105,14 @@ const profileIsolationPlugin = {
         || fileName.includes('algorithm-workbench');
       const runtimeProbeBundle = fileName.includes('RuntimeProbe')
         || fileName.includes('runtime-probe');
+      const m06Bundle = fileName.includes('M06Workspace')
+        || fileName.includes('/m06/') || fileName.includes('controllers\\m06');
       if (
         (profile === 'production' && fixtureBundle)
         || (profile === 'production' && runtimeProbeBundle)
         || (profile === 'fixture' && workbenchBundle)
+        || (profile !== 'v2-development' && m06Bundle)
+        || (profile === 'v2-development' && (fixtureBundle || runtimeProbeBundle || workbenchBundle))
       ) {
         delete bundle[fileName];
       }

@@ -5,6 +5,7 @@ import StorageStatus from '@ium/ui-components/components/StorageStatus';
 import UpdatePrompt from '@ium/ui-components/components/UpdatePrompt';
 import AlgorithmWorkbench from '../../components/AlgorithmWorkbench.astro';
 import FixtureWorkspace from '../../components/FixtureWorkspace.astro';
+import M06Workspace from '../../components/M06Workspace.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import registry from '../../generated/module-registry.json';
 import type { WorkbenchResources } from '@ium/ium-5-core-05';
@@ -15,12 +16,16 @@ type PageModule = Readonly<{
   title: string;
   centralQuestion: string;
   publishedStatus: 'draft' | 'working' | 'reviewed' | 'standard' | null;
-  renderer: 'fixture-workspace' | 'algorithm-workbench';
+  renderer: 'fixture-workspace' | 'algorithm-workbench' | 'v2-m06';
   workbench?: Readonly<{
     content: WorkbenchResources['content'];
     scenarios: WorkbenchResources['scenarios'];
     robotAssetPath: string;
   }>;
+  resources?: Readonly<{ content: unknown; cases: unknown }>;
+  curriculumCoverage?: 'unassessed';
+  pilot?: 'not-started';
+  publication?: 'closed';
 }>;
 
 export function getStaticPaths() {
@@ -38,11 +43,20 @@ const { module } = Astro.props as { module: PageModule };
     <p class="working-banner" role="status">
       Arbeitsstand · Status working · nicht für Unterrichtseinsatz
     </p>
+  ) : module.renderer === 'v2-m06' ? (
+    <p class="working-banner" role="status">
+      V2-Entwicklungskandidat – noch nicht für Unterrichtseinsatz freigegeben
+    </p>
   ) : (
     <p class="eyebrow">Synthetische technische Referenz · keine Curriculumwirkung</p>
   )}
   <h1>{module.title}</h1>
   <p>{module.centralQuestion}</p>
+  {module.renderer === 'v2-m06' && (
+    <p class="candidate-boundary">
+      Curriculum: {module.curriculumCoverage} · Pilot: {module.pilot} · Veröffentlichung: {module.publication}
+    </p>
+  )}
   <div class="status-grid">
     <StorageStatus />
     <ConnectionStatus />
@@ -57,6 +71,8 @@ const { module } = Astro.props as { module: PageModule };
       moduleVersion={module.version}
       resources={module.workbench}
     />
+  ) : module.renderer === 'v2-m06' && module.resources ? (
+    <M06Workspace resources={module.resources} />
   ) : (
     <p role="alert">Für dieses Modul fehlt ein freigegebener Renderer.</p>
   )}
@@ -70,5 +86,8 @@ const { module } = Astro.props as { module: PageModule };
     background: #fff4ce;
     color: #5c3b00;
     font-weight: 800;
+  }
+  .candidate-boundary {
+    font-weight: 700;
   }
 </style>

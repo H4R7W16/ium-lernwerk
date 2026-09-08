@@ -11,10 +11,11 @@ import {
   type WorkbenchResources,
 } from '../packages/ium-5-core-05/src/index.js';
 
-export type BuildProfile = 'production' | 'fixture';
+export type BuildProfile = 'production' | 'fixture' | 'v2-development';
+export type LegacyBuildProfile = Exclude<BuildProfile, 'v2-development'>;
 
 export type BuildRegistryOptions = Readonly<{
-  profile: BuildProfile;
+  profile: LegacyBuildProfile;
   rootDir: string;
   outputDir: string;
 }>;
@@ -41,7 +42,7 @@ export type ModuleRegistryEntry = Readonly<{
 
 export type ModuleRegistry = Readonly<{
   schemaVersion: 1;
-  profile: BuildProfile;
+  profile: LegacyBuildProfile;
   releaseId: string;
   modules: readonly ModuleRegistryEntry[];
 }>;
@@ -61,7 +62,7 @@ const profileRoots = {
   },
 } as const;
 
-function assertProfile(value: string): asserts value is BuildProfile {
+function assertProfile(value: string): asserts value is LegacyBuildProfile {
   if (value !== 'production' && value !== 'fixture') {
     throw new Error(`Unknown registry profile: ${value}`);
   }

@@ -1,0 +1,100 @@
+.m06-workspace {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.m06-workspace > section,
+.m06-editor-grid > article {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 0.125rem solid #315b69;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.m06-area-nav,
+.m06-command-row,
+.m06-help-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.m06-area-nav a {
+  padding: 0.65rem 0.9rem;
+  border: 0.125rem solid currentColor;
+  border-radius: 0.4rem;
+  font-weight: 700;
+}
+
+.m06-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1rem;
+}
+
+.m06-workspace label,
+.m06-workspace textarea,
+.m06-workspace input,
+.m06-workspace select {
+  display: block;
+  width: 100%;
+}
+
+.m06-workspace label {
+  margin-top: 0.75rem;
+  font-weight: 700;
+}
+
+.m06-workspace input,
+.m06-workspace textarea,
+.m06-workspace select {
+  margin-top: 0.25rem;
+  padding: 0.65rem;
+  border: 0.125rem solid #53636a;
+  border-radius: 0.35rem;
+  font: inherit;
+}
+
+.m06-program {
+  min-height: 7rem;
+  padding: 0.8rem;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  background: #eef5f7;
+}
+
+.m06-body-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.5rem;
+}
+
+.m06-trace-step {
+  padding: 0.5rem;
+  border-bottom: 0.0625rem solid #a8b4b9;
+  font-weight: 400 !important;
+}
+
+.m06-trace-step input {
+  display: inline-block;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+[data-save-state="unsaved"] {
+  color: #8b1e13;
+  font-weight: 800;
+}
+
+.m06-danger {
+  margin-top: 1rem;
+  border-left: 0.3rem solid #8b1e13;
+  padding-left: 1rem;
+}
+
+@media (max-width: 32rem) {
+  .m06-command-row > button,
+  .m06-area-nav > a {
+    width: 100%;
+  }
+}
