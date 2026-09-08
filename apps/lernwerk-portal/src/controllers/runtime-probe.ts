@@ -3,11 +3,46 @@ import type { StateRepository } from '@ium/module-contract';
 import { createModuleRuntime } from '@ium/module-runtime';
 import { createBrowserExportPort, createWorkspaceId } from './algorithm-workbench/browser-ports.js';
 import { chooseStorage } from './storage-choice.js';
+import type { ReloadRequestDetail } from './pwa-registration.js';
 
 function requiredElement<T extends Element>(root: ParentNode, selector: string): T {
   const element = root.querySelector<T>(selector);
   if (!element) throw new Error(`Missing runtime probe element: ${selector}`);
   return element;
+}
+
+function ensureUpdateProbeUi(root: HTMLElement): void {
+  if (document.querySelector('[data-update-prompt]')) return;
+  const connection = document.createElement('p');
+  connection.dataset.connectionStatus = '';
+  connection.dataset.pwaState = 'not-ready';
+  connection.setAttribute('aria-live', 'polite');
+  connection.textContent = 'Online – Offlinebereitschaft wird geprüft';
+  const prompt = document.createElement('section');
+  prompt.className = 'update-prompt';
+  prompt.dataset.updatePrompt = '';
+  prompt.hidden = true;
+  prompt.tabIndex = -1;
+  prompt.setAttribute('aria-labelledby', 'probe-update-title');
+  const heading = document.createElement('h2');
+  heading.id = 'probe-update-title';
+  heading.textContent = 'Aktualisierung verfügbar';
+  const explanation = document.createElement('p');
+  explanation.textContent = 'Alle offenen Seiten müssen ihren aktuellen Arbeitsstand zuerst als wiederherstellbar bestätigen.';
+  const actions = document.createElement('div');
+  actions.className = 'actions';
+  const confirm = document.createElement('button');
+  confirm.type = 'button';
+  confirm.dataset.updateConfirm = '';
+  confirm.textContent = 'Speichern und aktualisieren';
+  const dismiss = document.createElement('button');
+  dismiss.type = 'button';
+  dismiss.dataset.updateDismiss = '';
+  dismiss.textContent = 'Später aktualisieren';
+  actions.append(confirm, dismiss);
+  prompt.append(heading, explanation, actions);
+  root.before(connection, prompt);
+  document.dispatchEvent(new CustomEvent('ium:update-ui-ready'));
 }
 
 function quotaRepository(repository: StateRepository): StateRepository {
@@ -31,6 +66,8 @@ export async function connectRuntimeProbe(parent: ParentNode = document): Promis
   const root = parent.querySelector<HTMLElement>('[data-runtime-probe]');
   if (!root || root.dataset.connected === 'true') return;
   root.dataset.connected = 'true';
+  root.dataset.reloadClient = 'true';
+  ensureUpdateProbeUi(root);
   const params = new URLSearchParams(location.search);
   root.dataset.forceDownloadFallback = String(params.get('download') === 'blocked');
   const text = requiredElement<HTMLTextAreaElement>(root, '[data-probe-text]');
@@ -117,6 +154,36 @@ export async function connectRuntimeProbe(parent: ParentNode = document): Promis
     }
     text.value = '';
     status.textContent = 'Synthetischer Modulstand gelöscht';
+  });
+
+  const setReloadPreparing = (blocked: boolean) => {
+    for (const control of root.querySelectorAll<HTMLButtonElement | HTMLTextAreaElement>('button, textarea')) {
+      if (!control.matches('[data-probe-export], [data-copy-fallback-text]')) control.disabled = blocked;
+    }
+    root.dataset.reloadPreparing = String(blocked);
+  };
+  let discardForReload = false;
+  document.addEventListener('ium:reload-request', ((event: CustomEvent<ReloadRequestDetail>) => {
+    setReloadPreparing(true);
+    event.detail.add((async () => {
+      if (!discardForReload) {
+        const updated = runtime.updatePayload({ text: text.value });
+        if ('ok' in updated && !updated.ok) return { safe: false, reason: 'write-failed' } as const;
+      }
+      return runtime.prepareForReload();
+    })());
+  }) as EventListener);
+  document.addEventListener('ium:reload-release', () => {
+    discardForReload = false;
+    runtime.releaseReloadPreparation();
+    setReloadPreparing(false);
+  });
+  document.addEventListener('ium:reload-discard', () => {
+    if (selection.mode === 'persistent') return;
+    discardForReload = true;
+    setReloadPreparing(true);
+    runtime.releaseReloadPreparation();
+    runtime.approveDiscardForReload();
   });
 
   const clientId = createWorkspaceId();

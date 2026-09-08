@@ -29,7 +29,7 @@ import {
 import { createStateRepository } from '@ium/local-state';
 import type { PlatformError, StorageMode } from '@ium/module-contract';
 import { createModuleRuntime } from '@ium/module-runtime';
-import type { FlushRequestDetail } from '../pwa-registration.js';
+import type { ReloadRequestDetail } from '../pwa-registration.js';
 import { createBrowserExportPort, createWorkspaceId } from './browser-ports.js';
 import { chooseStorage } from '../storage-choice.js';
 import {
@@ -167,6 +167,7 @@ export async function connectAlgorithmWorkbench(
     return;
   }
   root.dataset.connected = 'true';
+  root.dataset.reloadClient = 'true';
   const resources = readResources(root);
   const byScenarioId = new Map(
     resources.scenarios.map((entry) => [entry.scenario.id, entry]),
@@ -693,9 +694,45 @@ export async function connectAlgorithmWorkbench(
   setDomainInteractionsBlocked(stateBlocked);
   setSaveStatus(stateBlocked ? 'Lokales Speichern gesperrt' : statusForMode(selection.mode));
 
-  document.addEventListener('ium:flush-request', ((event: CustomEvent<FlushRequestDetail>) => {
-    event.detail.add(flush());
+  const setReloadPreparing = (blocked: boolean): void => {
+    for (const control of root.querySelectorAll<
+      HTMLButtonElement | HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >('button, input, select, textarea')) {
+      if (!control.matches('[data-workbench-export], [data-recovery-export]')) {
+        control.disabled = blocked;
+      }
+    }
+    root.dataset.reloadPreparing = String(blocked);
+  };
+  let discardForReload = false;
+  document.addEventListener('ium:reload-request', ((event: CustomEvent<ReloadRequestDetail>) => {
+    setReloadPreparing(true);
+    event.detail.add((async () => {
+      if (!runtimeReady || stateBlocked) return { safe: false, reason: 'unknown-client' } as const;
+      if (saveTimer !== undefined) {
+        clearTimeout(saveTimer);
+        saveTimer = undefined;
+      }
+      if (!discardForReload) {
+        const updated = runtime.updatePayload({ ...projectPersistentPayload(payload) });
+        if ('ok' in updated && !updated.ok) return { safe: false, reason: 'write-failed' } as const;
+      }
+      return runtime.prepareForReload();
+    })());
   }) as EventListener);
+  document.addEventListener('ium:reload-release', () => {
+    discardForReload = false;
+    runtime.releaseReloadPreparation();
+    setReloadPreparing(false);
+    setDomainInteractionsBlocked(stateBlocked);
+  });
+  document.addEventListener('ium:reload-discard', () => {
+    if (selection.mode === 'persistent') return;
+    discardForReload = true;
+    setReloadPreparing(true);
+    runtime.releaseReloadPreparation();
+    runtime.approveDiscardForReload();
+  });
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       void flush();

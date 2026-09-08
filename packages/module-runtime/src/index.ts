@@ -16,4 +16,5 @@ export {
   ModuleRuntime,
   type ExportResult,
   type ModuleRuntimeDependencies,
+  type ReloadReadiness,
 } from './runtime.js';

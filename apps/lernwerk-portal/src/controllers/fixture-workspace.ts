@@ -1,7 +1,7 @@
 import { createStateRepository } from '@ium/local-state';
 import type { ExportPort, PlatformError } from '@ium/module-contract';
 import { createModuleRuntime } from '@ium/module-runtime';
-import type { FlushRequestDetail } from './pwa-registration.js';
+import type { ReloadRequestDetail } from './pwa-registration.js';
 import {
   announceDataChanged,
   announceError,
@@ -77,6 +77,7 @@ export async function connectFixtureWorkspace(
     return;
   }
   workspace.dataset.connected = 'true';
+  workspace.dataset.reloadClient = 'true';
   const moduleId = workspace.dataset.moduleId;
   const moduleVersion = workspace.dataset.moduleVersion;
   const textInput = workspace.querySelector<HTMLInputElement>('#fixture-text');
@@ -168,9 +169,41 @@ export async function connectFixtureWorkspace(
     }
     saveTimer = setTimeout(() => void flush(), SAVE_DELAY_MS);
   };
-  document.addEventListener('ium:flush-request', ((event: CustomEvent<FlushRequestDetail>) => {
-    event.detail.add(flush());
+  const setReloadPreparing = (blocked: boolean) => {
+    for (const control of workspace.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLButtonElement>(
+      'input, select, button',
+    )) {
+      if (!control.matches('[data-fixture-export]')) control.disabled = blocked;
+    }
+    workspace.dataset.reloadPreparing = String(blocked);
+  };
+  let discardForReload = false;
+  document.addEventListener('ium:reload-request', ((event: CustomEvent<ReloadRequestDetail>) => {
+    setReloadPreparing(true);
+    event.detail.add((async () => {
+      if (saveTimer !== undefined) {
+        clearTimeout(saveTimer);
+        saveTimer = undefined;
+      }
+      if (!discardForReload) {
+        const updated = updateRuntimePayload();
+        if ('ok' in updated && !updated.ok) return { safe: false, reason: 'write-failed' } as const;
+      }
+      return runtime.prepareForReload();
+    })());
   }) as EventListener);
+  document.addEventListener('ium:reload-release', () => {
+    discardForReload = false;
+    runtime.releaseReloadPreparation();
+    setReloadPreparing(false);
+  });
+  document.addEventListener('ium:reload-discard', () => {
+    if (selection.mode === 'persistent') return;
+    discardForReload = true;
+    setReloadPreparing(true);
+    runtime.releaseReloadPreparation();
+    runtime.approveDiscardForReload();
+  });
   textInput.addEventListener('input', scheduleSave);
   choiceInput.addEventListener('input', scheduleSave);
   textInput.addEventListener('change', () => void flush());

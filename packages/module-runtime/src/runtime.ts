@@ -43,6 +43,17 @@ export type ExportResult =
   | Readonly<{ ok: true; method: 'download' | 'copy'; filename: string }>
   | RuntimeFailure;
 
+export type ReloadReadiness =
+  | Readonly<{
+    safe: true;
+    reason: 'persisted-readback' | 'no-work' | 'explicit-discard';
+    revision: number;
+  }>
+  | Readonly<{
+    safe: false;
+    reason: 'volatile' | 'write-failed' | 'conflict' | 'readback-failed' | 'unknown-client';
+  }>;
+
 type RecoverySnapshot =
   | Readonly<{ source: 'local'; value: unknown }>
   | Readonly<{ source: 'import'; bytes: Uint8Array }>;
@@ -97,12 +108,18 @@ export class ModuleRuntime {
   #active: LearningStateEnvelope | null = null;
   #pendingImport: LearningStateEnvelope | null = null;
   #recovery: RecoverySnapshot | null = null;
+  #revision = 0;
+  #reloadFrozen = false;
+  #discardRevision: number | null = null;
 
   constructor(dependencies: ModuleRuntimeDependencies) {
     this.#dependencies = dependencies;
   }
 
   async start(): Promise<RuntimeStateSuccess | RuntimeFailure> {
+    this.#reloadFrozen = false;
+    this.#discardRevision = null;
+    this.#revision = 0;
     this.#pendingImport = null;
     this.#recovery = null;
     this.#active = null;
@@ -178,6 +195,9 @@ export class ModuleRuntime {
     if (!this.#active) {
       throw new Error('Module runtime has not started');
     }
+    if (this.#reloadFrozen) {
+      return writeFailure('Reload preparation has frozen this runtime');
+    }
     const candidate = {
       ...structuredClone(this.#active),
       savedAt: this.#dependencies.clock.now().toISOString(),
@@ -186,6 +206,8 @@ export class ModuleRuntime {
     const accepted = acceptState(candidate, this.#dependencies);
     if (!accepted.ok) return accepted;
     this.#active = structuredClone(accepted.state);
+    this.#revision += 1;
+    this.#discardRevision = null;
     return structuredClone(this.#active);
   }
 
@@ -226,6 +248,9 @@ export class ModuleRuntime {
   }
 
   previewImport(bytes: Uint8Array): ImportParseResult | RuntimeFailure {
+    if (this.#reloadFrozen) {
+      return writeFailure('Reload preparation has frozen this runtime');
+    }
     this.#pendingImport = null;
     if (!this.#recovery) {
       this.#recovery = { source: 'import', bytes: new Uint8Array(bytes) };
@@ -237,6 +262,8 @@ export class ModuleRuntime {
     const accepted = acceptState(parsed.state, this.#dependencies);
     if (!accepted.ok) return accepted;
     this.#pendingImport = structuredClone(accepted.state);
+    this.#revision += 1;
+    this.#discardRevision = null;
     return {
       ok: true,
       state: structuredClone(accepted.state),
@@ -292,6 +319,9 @@ export class ModuleRuntime {
   }
 
   async confirmImport(): Promise<RuntimeStateSuccess | RuntimeFailure> {
+    if (this.#reloadFrozen) {
+      return writeFailure('Reload preparation has frozen this runtime');
+    }
     if (!this.#pendingImport) {
       return {
         ok: false,
@@ -311,10 +341,15 @@ export class ModuleRuntime {
     }
     this.#active = next;
     this.#recovery = null;
+    this.#revision += 1;
+    this.#discardRevision = null;
     return { ok: true, state: structuredClone(next), mode: saved.mode };
   }
 
   async deleteActive(): Promise<Readonly<{ ok: true }> | RuntimeFailure> {
+    if (this.#reloadFrozen) {
+      return writeFailure('Reload preparation has frozen this runtime');
+    }
     this.#pendingImport = null;
     const result = await this.#dependencies.repository.deleteModule(
       this.#dependencies.moduleId,
@@ -330,10 +365,15 @@ export class ModuleRuntime {
     }
     this.#active = null;
     this.#recovery = null;
+    this.#revision += 1;
+    this.#discardRevision = null;
     return { ok: true };
   }
 
   async deleteAll(): Promise<Readonly<{ ok: true }> | RuntimeFailure> {
+    if (this.#reloadFrozen) {
+      return writeFailure('Reload preparation has frozen this runtime');
+    }
     this.#pendingImport = null;
     const result = await this.#dependencies.repository.deleteAll();
     if (!result.ok) {
@@ -347,7 +387,69 @@ export class ModuleRuntime {
     }
     this.#active = null;
     this.#recovery = null;
+    this.#revision += 1;
+    this.#discardRevision = null;
     return { ok: true };
+  }
+
+  currentRevision(): number {
+    return this.#revision;
+  }
+
+  approveDiscardForReload(): ReloadReadiness {
+    this.#reloadFrozen = true;
+    this.#discardRevision = this.#revision;
+    return { safe: true, reason: 'explicit-discard', revision: this.#revision };
+  }
+
+  releaseReloadPreparation(): void {
+    this.#reloadFrozen = false;
+    this.#discardRevision = null;
+  }
+
+  async prepareForReload(): Promise<ReloadReadiness> {
+    const revision = this.#revision;
+    this.#reloadFrozen = true;
+    if (this.#discardRevision === revision) {
+      return { safe: true, reason: 'explicit-discard', revision };
+    }
+    if (this.#active === null) {
+      return { safe: true, reason: 'no-work', revision };
+    }
+    if (this.#pendingImport !== null || this.#dependencies.repository.mode !== 'persistent') {
+      return { safe: false, reason: 'volatile' };
+    }
+
+    let saved: SaveResult;
+    try {
+      saved = await this.#dependencies.repository.save(this.#active);
+    } catch {
+      return { safe: false, reason: 'write-failed' };
+    }
+    if (!saved.ok) {
+      return {
+        safe: false,
+        reason: saved.error.code === 'STORAGE_CONFLICT' ? 'conflict' : 'write-failed',
+      };
+    }
+    if (revision !== this.#revision) {
+      return { safe: false, reason: 'readback-failed' };
+    }
+
+    let stored: LearningStateEnvelope | null;
+    try {
+      stored = await this.#dependencies.repository.load(this.#dependencies.moduleId);
+    } catch {
+      return { safe: false, reason: 'readback-failed' };
+    }
+    if (
+      revision !== this.#revision
+      || stored === null
+      || JSON.stringify(stored) !== JSON.stringify(this.#active)
+    ) {
+      return { safe: false, reason: 'readback-failed' };
+    }
+    return { safe: true, reason: 'persisted-readback', revision };
   }
 }
 
