@@ -57,7 +57,7 @@
     {
       "id": "IMP02",
       "state": "review",
-      "candidateCommit": null,
+      "candidateCommit": "6dc1564ab45dcfb92bca36236e0f2caacfea3c19",
       "checks": [
         {
           "id": "runtime-acceptance",
