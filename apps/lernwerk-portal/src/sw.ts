@@ -70,9 +70,10 @@ function askClient(client: WindowClient, requestId: string): Promise<readonly Re
         requestId?: string;
         values?: ReloadReadiness[];
       };
-      const validValues = Array.isArray(message.values)
-        && message.values.length > 0
-        && message.values.every((value) => {
+      const values = message.values;
+      const validValues = Array.isArray(values)
+        && values.length > 0
+        && values.every((value) => {
           if (!value || typeof value !== 'object' || typeof value.safe !== 'boolean') return false;
           if (value.safe) {
             return ['persisted-readback', 'no-work', 'explicit-discard'].includes(value.reason)
@@ -91,7 +92,7 @@ function askClient(client: WindowClient, requestId: string): Promise<readonly Re
         resolve([{ safe: false, reason: 'unknown-client' }]);
         return;
       }
-      resolve(message.values);
+      resolve(values);
     };
     client.postMessage({
       type: 'IUM_RELOAD_PREPARE',

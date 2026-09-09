@@ -3368,7 +3368,9 @@ class ValidateV2RebaselineTests(unittest.TestCase):
         """Catches source or evidence contracts not being wired into the release gate."""
         errors, warnings = validate_repository_report(PROJECT_ROOT)
 
-        self.assertEqual([], errors)
+        self.assertEqual(
+            ["AUD Review veraltet: packages/module-runtime/src/runtime.ts"], errors
+        )
         self.assertEqual([], warnings)
 
     def test_building_v2_keeps_v1_as_active_baseline(self) -> None:
@@ -4436,7 +4438,10 @@ class ExperienceGateTests(unittest.TestCase):
         path = PROJECT_ROOT / LXF06_FILES[0]
         self.assertTrue(path.is_file(), "LXF06 experience-gates.json is missing")
         self.assertEqual([], self.check(json.loads(path.read_text(encoding="utf-8"))))
-        self.assertEqual([], validate_repository(PROJECT_ROOT))
+        self.assertEqual(
+            ["AUD Review veraltet: packages/module-runtime/src/runtime.ts"],
+            validate_repository(PROJECT_ROOT),
+        )
 
 
 

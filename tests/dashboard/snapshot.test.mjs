@@ -91,11 +91,12 @@ test('active V2 retains product V1, every condition and all separate maturity ax
   assert.match(markdown(s),/V2: aktive Planungs-/);
 });
 
-test('follow-up approvals are current while pilot and future packages remain open',()=>{
+test('follow-up approvals and all implementation authorizations are current while pilot remains open',()=>{
   const s=buildSnapshot(fixture());
   assert.deepEqual(s.followUps.map(x=>x.state),['done','done','done']);
-  assert.deepEqual(s.development.authorizedPackages,['IMP01']);
-  assert.equal(s.development.packages[1].state,'planned');
+  assert.deepEqual(s.development.authorizedPackages,
+    ['IMP01','IMP02','IMP03','IMP04','IMP05','IMP06','IMP07','IMP08']);
+  assert.equal(s.development.packages[7].state,'in_progress');
   assert.equal(s.development.limits.pilot,'not-started');
   assert.match(markdown(s),/FU-PILOT/);
 });

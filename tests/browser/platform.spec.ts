@@ -69,8 +69,8 @@ test('global delete is confirmed and reread on the module route', async ({ page 
   await page.goto('/daten/');
   await page.getByRole('button', { name: 'Alle lokalen Daten löschen' }).click();
   await page.getByRole('button', { name: 'Alle Daten löschen' }).click();
-  await expect(page.locator('[data-storage-status]')).toContainText(
-    'Alle lokalen Lernwerkdaten wurden gelöscht',
+  await expect(page.locator('[data-delete-all-result]')).toContainText(
+    'V1- und V2-Arbeitsstände dieses Browserprofils und dieser Origin wurden gelöscht',
   );
   await page.goto('/module/test-platform-reference/');
   await expect(page.getByLabel('Synthetischer Text')).toHaveValue('');

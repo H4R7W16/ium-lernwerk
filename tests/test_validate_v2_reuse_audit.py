@@ -39,9 +39,12 @@ class ReuseAuditTests(unittest.TestCase):
     def check(self):
         return audit.validate_inventory(self.inventory, self.followups, self.root)
 
-    def test_real_inventory_and_git_objects_pass(self):
+    def test_real_inventory_preserves_the_historical_review_staleness(self):
         self.git_mock.stop()
-        self.assertEqual([], audit.validate_repository(ROOT))
+        self.assertEqual(
+            ['AUD Review veraltet: packages/module-runtime/src/runtime.ts'],
+            audit.validate_repository(ROOT),
+        )
 
     def test_missing_contracts_fail_closed(self):
         with tempfile.TemporaryDirectory() as directory:

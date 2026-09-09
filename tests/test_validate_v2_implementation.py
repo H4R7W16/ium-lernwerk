@@ -45,12 +45,12 @@ class ImplementationTests(unittest.TestCase):
         cls.temp=tempfile.TemporaryDirectory(prefix='ium-implementation-tests-')
         cls.repo=Path(cls.temp.name)/'repo'
         subprocess.run(['git','clone','--quiet','--shared',str(ROOT),str(cls.repo)],check=True,capture_output=True)
-        plan=json.loads((ROOT/'roadmap/v2/implementation-planning/plan.json').read_text(encoding='utf-8'))
-        package=plan['packages'][0]
-        for name in package['create']+package['modify']+list(package['optionalModify']):
-            source=ROOT/name
-            if source.is_file():
-                target=cls.repo/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
+        plan=json.loads((ROOT/'roadmap/v2/implementation/change-plan.json').read_text(encoding='utf-8'))
+        for package in plan['packages']:
+            for name in package['files']:
+                source=ROOT/name
+                if source.is_file():
+                    target=cls.repo/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
 
     @classmethod
     def tearDownClass(cls):
@@ -71,7 +71,8 @@ class ImplementationTests(unittest.TestCase):
     def test_actual_historical_activation_and_current_scope_are_separate(self):
         result=impl.validate(self.repo)
         self.assertEqual(result['historicalActivation']['productBaseline'],'v1')
-        self.assertEqual(result['development']['authorizedPackages'],['IMP01'])
+        self.assertEqual(result['development']['authorizedPackages'],
+                         ['IMP%02d'%number for number in range(1,9)])
         self.assertEqual(result['development']['limits']['pilot'],'not-started')
         self.assertEqual([x['taskId'] for x in result['followUps']],
                          ['IUM-V2-FU-TECH','IUM-V2-FU-MOD','IUM-V2-FU-PILOT'])
@@ -100,7 +101,7 @@ class ImplementationTests(unittest.TestCase):
                 impl.validate(self.repo,authorization=changed)
 
     def test_unrequested_package_and_removed_foundation_fail(self):
-        file=self.repo/'packages/module-runtime/src/runtime.ts';original=file.read_bytes()
+        file=self.repo/'README.md';original=file.read_bytes()
         try:
             file.write_bytes(original+b'\n// unauthorized runtime repair\n')
             with self.assertRaisesRegex(impl.ImplementationError,'[Uu]nautorisiert|[Nn]icht autorisiert'):
@@ -132,25 +133,25 @@ class ImplementationTests(unittest.TestCase):
             with self.assertRaises(impl.ImplementationError):impl.validate(self.repo)
 
     def test_progress_cannot_claim_done_pilot_or_unrequested_work(self):
-        mutations=[lambda d:d['packages'][0].__setitem__('state','done'),
-                   lambda d:d['packages'][1].__setitem__('state','in_progress'),
+        mutations=[lambda d:d['packages'][7].__setitem__('state','done'),
+                   lambda d:d['packages'][7].__setitem__('acceptance',dict(state='approved-by-user')),
                    lambda d:d['limits'].__setitem__('curriculum','passed'),
                    lambda d:d['packages'][0].__setitem__('checks',[{'exitCode':0}]),
-                   lambda d:d['packages'][0].__setitem__('candidateCommit','f'*40)]
+                   lambda d:d['packages'][7].__setitem__('candidateCommit','f'*40)]
         for mutate in mutations:
             with self.subTest(mutation=mutate),self.changed(impl.PROGRESS,mutate):
                 with self.assertRaises(impl.ImplementationError):impl.validate(self.repo)
 
     def test_review_evidence_becomes_invalid_when_authorized_code_changes(self):
-        package=json.loads((self.repo/impl.CHANGE_PLAN).read_text(encoding='utf-8'))['packages'][0]
+        package=json.loads((self.repo/impl.CHANGE_PLAN).read_text(encoding='utf-8'))['packages'][7]
         measured=impl.package_digest(self.repo,package)
         def record_review(data):
-            data['packages'][0].update(state='review',candidateCommit=None,checks=[dict(
+            data['packages'][7].update(state='review',candidateCommit=None,checks=[dict(
                 id='synthetic-check',command='synthetic-test-only',exitCode=0,scope='synthetic-contract',
                 baseCommit='a702deaaafba464e2035f5be6d919bd30a9f4855',treeDigest=measured,summary='Synthetic fixture, not real execution evidence')])
         with self.changed(impl.PROGRESS,record_review):
-            self.assertEqual(impl.validate(self.repo)['development']['packages'][0]['technicalState'],'passed')
-            file=self.repo/'packages/project-status/index.mjs';original=file.read_bytes()
+            self.assertEqual(impl.validate(self.repo)['development']['packages'][7]['technicalState'],'passed')
+            file=self.repo/'scripts/verify-v2-m06.ts';original=file.read_bytes()
             try:
                 file.write_bytes(original+b'\n// synthetic change after recorded review\n')
                 with self.assertRaisesRegex(impl.ImplementationError,'Prüfungen|verändert'):

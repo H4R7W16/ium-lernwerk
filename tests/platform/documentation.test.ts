@@ -125,10 +125,10 @@ describe('Phase 1 verification entry points', () => {
     const verifier = await read('scripts/verify-ium5.ts');
 
     expect(packageJson.scripts).toMatchObject({
-      'test:ium5:browser': 'playwright test tests/browser/ium5-workbench.spec.ts --config playwright.ium5.config.mts',
-      'test:ium5:state': 'playwright test tests/browser/ium5-state.spec.ts --config playwright.ium5.config.mts --project=chromium',
-      'test:ium5:accessibility': 'playwright test tests/browser/ium5-accessibility.spec.ts --config playwright.ium5.config.mts --project=chromium',
-      'test:ium5:offline': 'playwright test tests/browser/ium5-offline.spec.ts --config playwright.ium5.config.mts --project=chromium',
+      'test:ium5:browser': 'tsx scripts/verify-v2-m06.ts --portal-browser production development 4322 playwright.ium5.config.mts tests/browser/ium5-workbench.spec.ts',
+      'test:ium5:state': 'tsx scripts/verify-v2-m06.ts --portal-browser production development 4322 playwright.ium5.config.mts tests/browser/ium5-state.spec.ts chromium',
+      'test:ium5:accessibility': 'tsx scripts/verify-v2-m06.ts --portal-browser production development 4322 playwright.ium5.config.mts tests/browser/ium5-accessibility.spec.ts chromium',
+      'test:ium5:offline': 'tsx scripts/verify-v2-m06.ts --portal-browser production development 4322 playwright.ium5.config.mts tests/browser/ium5-offline.spec.ts chromium',
       'verify:ium5': 'tsx scripts/verify-ium5.ts',
     });
     expect(verifier).toContain('spawnSync');
@@ -180,7 +180,14 @@ describe('Phase 1 verification entry points', () => {
     );
   });
 
-  test('defines the four bounded CI jobs with pinned runtime and approved actions', async () => {
+  test('builds the SBOM from the complete lockfile graph', async () => {
+    const verifier = await read('scripts/check-dependency-licenses.ts');
+    expect(verifier).toContain("'--package-lock-only'");
+    expect(verifier).toContain("npmJson(['query', ':root, :root *', '--json'])");
+    expect(verifier).toContain("!item.location.startsWith('../')");
+  });
+
+  test('defines the five bounded CI jobs with pinned runtime and approved actions', async () => {
     const source = await read('.github/workflows/ci.yml');
     const document = parseDocument(source);
     expect(document.errors).toEqual([]);
@@ -193,11 +200,12 @@ describe('Phase 1 verification entry points', () => {
       'contracts-build',
       'browser',
       'offline-quality',
+      'v2-m06',
     ]);
     expect(source).toContain('actions/checkout@v5');
     expect(source).toContain('actions/setup-node@v5');
     expect(source).toContain('actions/upload-artifact@v4');
-    expect(source).toContain('node-version: 22.20.0');
+    expect(source).toContain('node-version: 22.23.2');
     expect(source).toContain('cache: npm');
     expect(source).toContain('npm ci');
     expect(source).toContain('playwright install --with-deps');

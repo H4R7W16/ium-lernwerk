@@ -11,7 +11,7 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:4321',
     trace: 'retain-on-failure',
   },
-  webServer: {
+  webServer: process.env.IUM_MANAGED_PREVIEW === '1' ? undefined : {
     command: 'npm run preview:fixture',
     url: 'http://127.0.0.1:4321/tests/v2-runtime/',
     reuseExistingServer: true,

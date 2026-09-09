@@ -118,28 +118,22 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: npm ci
-      - name: Record V2 baseline status
+      - name: Install V2 browser matrix
         continue-on-error: true
-        run: npm run verify:v2
-      - name: Record V2 development status
-        continue-on-error: true
-        run: npm run verify:v2:implementation
-      - name: Record V2 root build status
-        continue-on-error: true
-        run: npm run build:v2
-      - name: Record V2 subpath build status
-        continue-on-error: true
-        run: npm run build:v2:subpath
-      - run: npx playwright install --with-deps chromium firefox webkit
-      - name: Record complete V2 browser matrix
-        continue-on-error: true
-        run: npm run test:v2:m06
+        run: npx playwright install --with-deps chromium firefox webkit
       - name: Verify V2 M06 candidate and retain every result
+        if: always()
+        env:
+          IUM_BUILD_REVISION: ${{ github.sha }}
+          IUM_VERIFICATION_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}
         run: npm run verify:v2:m06
       - name: Upload V2 M06 verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: v2-m06-verification-evidence
-          path: reports/v2-m06/
+          name: v2-m06-verification-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
+          path: |
+            reports/v2-m06/
+            reports/phase1/
+            test-results/
           if-no-files-found: ignore

@@ -32,6 +32,7 @@ test('active worker inventories controlled windows twice and releases prepared c
   expect(source).toContain("type: 'IUM_RELOAD_RELEASE'");
   expect(source.match(/clients\.matchAll\(/g)?.length ?? 0).toBeGreaterThanOrEqual(2);
   expect(source).toContain('5_000');
+  expect(source).toMatch(/const values = message\.values;[\s\S]*Array\.isArray\(values\)[\s\S]*resolve\(values\)/);
 });
 
 test('fixture precache stays inside the configured base and contains offline route', async () => {

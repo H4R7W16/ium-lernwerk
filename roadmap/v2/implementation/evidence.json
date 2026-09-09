@@ -3,7 +3,14 @@
   "projectId": "ium-lernwerk",
   "moduleId": "V2-G5-M06",
   "moduleVersion": "0.1.0",
-  "candidateCommit": "81dded6ec41fbdfce63af951967b1b531c720022",
+  "candidateCommit": null,
+  "verification": {
+    "runId": "na06-local-final",
+    "baseRevision": "a935a6710e22d57e0775ca3100bd13f46f6c69b4",
+    "summary": "reports/v2-m06/summary.json",
+    "status": "passed",
+    "steps": { "total": 20, "passed": 20, "failed": 0 }
+  },
   "build": {
     "profile": "v2-development",
     "rootBase": "/",
@@ -12,39 +19,47 @@
   },
   "toolchain": {
     "ci": { "node": "22.23.2", "npm": "10.9.8" },
-    "localObserved": { "node": "24.11.0", "npm": "11.6.1", "matchesCi": false }
+    "localObserved": { "node": "22.23.2", "npm": "10.9.8", "matchesCi": true }
   },
   "syntheticResults": [
     { "id": "contracts", "exitCode": 0, "summary": "Vertragstypen erzeugt und bytegleich geprüft." },
     { "id": "boundaries", "exitCode": 0, "summary": "Grenzen für acht Workspaces bestanden." },
     { "id": "typecheck", "exitCode": 0, "summary": "TypeScript-Projekte fehlerfrei geprüft." },
-    { "id": "astro", "exitCode": 1, "summary": "Bestehender optionaler message.values-Typfehler in src/sw.ts:94." },
-    { "id": "platform", "exitCode": 1, "summary": "207 von 208 Tests bestanden; Altvertrag erwartet vier statt fünf CI-Jobs." },
-    { "id": "python", "exitCode": 1, "summary": "1021 von 1028 Tests bestanden; vier veraltete IMP01-Fixtures und drei Auditdigest-Fälle." },
-    { "id": "v2-baseline", "exitCode": 1, "summary": "AUD-Review für packages/module-runtime/src/runtime.ts veraltet." },
+    { "id": "astro", "exitCode": 0, "summary": "27 Astro-Dateien ohne Fehler, Warnungen oder Hinweise geprüft." },
+    { "id": "platform", "exitCode": 0, "summary": "229 Plattformtests in 33 Dateien bestanden." },
+    { "id": "python", "exitCode": 0, "summary": "1028 Python-Tests bestanden." },
+    { "id": "v2-historical-activation", "exitCode": 0, "summary": "Historische Aktivierung an 150deea22ba9bcf3170915bb4b24852d376f6a8b unverändert gültig." },
     { "id": "v2-development", "exitCode": 0, "summary": "IMP01 bis IMP08 autorisiert; Nutzung, Pilot und Veröffentlichung geschlossen." },
     { "id": "v2-registry", "exitCode": 0, "summary": "V2-Registry fehlerfrei erzeugt." },
     { "id": "m06-materials", "exitCode": 0, "summary": "10 Materialien, 4 Hilfen, 22 Segmente und 225 Minuten gültig." },
     { "id": "build-subpath", "exitCode": 0, "summary": "V2-Entwicklungskandidat unter /ium-lernwerk/ gebaut." },
     { "id": "build-root", "exitCode": 0, "summary": "V2-Entwicklungskandidat unter / gebaut." },
-    { "id": "browser-workbench", "exitCode": 1, "summary": "8 von 12 Fällen bestanden; vier Firefox-Runnerfehler." },
-    { "id": "browser-state", "exitCode": 1, "summary": "2 von 12 Fällen bestanden; P3-Übernahme und Firefox offen." },
-    { "id": "browser-accessibility", "exitCode": 1, "summary": "12 von 21 Fällen bestanden; 44-px-Ziel und Firefox offen." },
-    { "id": "browser-offline", "exitCode": 1, "summary": "4 von 9 Fällen bestanden; P3, Firefox und WebKit-Reload offen." },
-    { "id": "licenses", "exitCode": 1, "summary": "Lokale npm-11-SBOM meldet fehlende optionale @emnapi-Pakete." },
-    { "id": "v1-integration", "exitCode": 1, "summary": "V1-Orchestrator bricht am bestehenden Astro-Typfehler in Schritt 4 ab." }
+    { "id": "browser-workbench", "exitCode": 0, "summary": "33 M06-Workbenchfälle in Chromium, Firefox und WebKit bestanden." },
+    { "id": "browser-state", "exitCode": 0, "summary": "45 Zustands-, Import-, Recovery- und Konfliktfälle in drei Browsern bestanden." },
+    { "id": "browser-accessibility", "exitCode": 0, "summary": "24 Axe-, Tastatur-, Touch-, Reflow- und 44-px-Fälle in drei Browsern bestanden." },
+    { "id": "browser-offline", "exitCode": 0, "summary": "9 Offlinefälle bestanden; WebKit unter Windows mit echtem Serverausfall und allen elf Materialrouten." },
+    { "id": "browser-runtime", "exitCode": 0, "summary": "8 Profil-, Quota-, CAS-, Lösch- und Recoveryfälle bestanden." },
+    { "id": "browser-update", "exitCode": 0, "summary": "2 Mehrclient- und defekte-Kandidat-Updatefälle bestanden." },
+    { "id": "licenses", "exitCode": 0, "summary": "645 installierte Projektpakete gegen 766 Lockfile-SBOM-Komponenten geprüft; keine ungültigen Lizenzen." },
+    { "id": "v1-integration", "exitCode": 0, "summary": "Vollständige V1-Verifikation mit 24 von 24 Schritten bestanden." }
   ],
-  "openFindings": [
-    "IMP08-F01",
-    "IMP08-F02",
-    "IMP08-F03",
-    "IMP08-F04",
-    "IMP08-F05",
-    "IMP08-F06",
-    "IMP08-F07",
-    "IMP08-F08",
-    "IMP08-F09"
+  "resolvedFindings": [
+    { "id": "IMP08-F01", "resolution": "NA01–NA03 binden P3, Import und Wiederaufnahme an geprüfte Läufe und sichere Zustandsübergänge." },
+    { "id": "IMP08-F02", "resolution": "NA05 erfüllt das 44-px-Ziel im vollständigen Zustandsinventar." },
+    { "id": "IMP08-F03", "resolution": "Windows-Firefox startet mit MOZ_DISABLE_CONTENT_SANDBOX; alle vorgesehenen Firefoxfälle bestehen." },
+    { "id": "IMP08-F04", "resolution": "Service-Worker-Antwortwerte werden vor resolve direkt typgeprüft; Astro ist fehlerfrei." },
+    { "id": "IMP08-F05", "resolution": "WebKit-Windows wird durch echten Serverstopp statt defektem Playwright-Offlinetoggle geprüft." },
+    { "id": "IMP08-F06", "resolution": "CI- und Plattformvertrag stimmen auf fünf Jobs und Node 22.23.2 überein." },
+    { "id": "IMP08-F07", "resolution": "Historische Aktivierung und aktueller Entwicklungsstand werden getrennt geprüft; der alte AUD-Digest bleibt unverändert und als historisch veraltet sichtbar." },
+    { "id": "IMP08-F08", "resolution": "Lockfile-SBOM läuft unter der Zieltoolchain und grenzt fremde Laufzeitpakete außerhalb des Repositorys aus." },
+    { "id": "IMP08-F09", "resolution": "Validator- und Dashboardfixtures bilden die autorisierte Paketfolge IMP01–IMP08 ab." }
   ],
+  "openFindings": [],
+  "historicalAudit": {
+    "status": "stale-preserved",
+    "finding": "AUD Review veraltet: packages/module-runtime/src/runtime.ts",
+    "activationValidation": "passed"
+  },
   "realVerificationHandoff": {
     "state": "not-run",
     "candidateRevision": null,

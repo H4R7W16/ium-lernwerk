@@ -35,6 +35,21 @@ FU_TASKS={
  'IUM-V2-FU-TECH':'2026-09-06 - IUM-V2-FU-TECH Technische V1-Bausteine gegen V2 prüfen.md',
  'IUM-V2-FU-MOD':'2026-09-06 - IUM-V2-FU-MOD Erstes V2-Referenzmodul spezifizieren.md',
  'IUM-V2-FU-PILOT':'2026-09-06 - IUM-V2-FU-PILOT Prüf- und Pilotinstrumente an V2 binden.md'}
+NA06_SUPPLEMENTAL_FILES=[
+ 'apps/lernwerk-portal/src/sw.ts',
+ 'scripts/validate_v2_rebaseline.py',
+ 'scripts/validate_v2_implementation.py',
+ 'tests/test_validate_v2_implementation.py',
+ 'tests/test_validate_v2_rebaseline.py',
+ 'tests/test_validate_v2_reuse_audit.py',
+ 'tests/dashboard/implementation.test.mjs',
+ 'scripts/check-dependency-licenses.ts',
+ 'tests/platform/documentation.test.ts',
+ 'playwright.config.mts',
+ 'playwright.ium5.config.mts',
+ 'tests/browser/platform.spec.ts',
+ 'scripts/preview-portal.ts',
+]
 
 
 class ImplementationError(ValueError):
@@ -274,12 +289,19 @@ def _validate(repo,authorization,vault):
     require(authorization is None or auth==read(repo,AUTHORIZATION),'Autorisierung weicht vom aufgezeichneten Auftrag ab')
     authorized,optional=_authorization(repo,auth,spec)
     require(change['acceptedPlanCommit']==PLAN_COMMIT and change['historicalActivationCommit']==HISTORICAL_COMMIT,'Changeplan nicht an Eingänge gebunden')
-    expected=[dict(schemaVersion=1,packageId=p['id'],files=p['create']+p['modify']+list(p.get('optionalModify',{})),dependsOn=p['dependsOn']) for p in spec['packages']]
+    expected=[]
+    for p in spec['packages']:
+        files=p['create']+p['modify']+list(p.get('optionalModify',{}))
+        if p['id']=='IMP08':files=list(dict.fromkeys(files+NA06_SUPPLEMENTAL_FILES))
+        expected.append(dict(schemaVersion=1,packageId=p['id'],files=files,dependsOn=p['dependsOn']))
     require(change['packages']==expected and change['sharedStatusFiles']==spec['sharedStatusFiles'],'Dateiliste/Abhängigkeiten weichen vom angenommenen Plan ab')
     allowed=set(spec['sharedStatusFiles'])
     for p,package in zip(spec['packages'],change['packages']):
         validate_change_plan(package,allowed_files=set(package['files']))
-        if p['id'] in authorized:allowed.update(p['create']+p['modify']);allowed.update(set(p.get('optionalModify',{}))&optional)
+        if p['id'] in authorized:
+            allowed.update(p['create']+p['modify'])
+            if p['id']=='IMP08':allowed.update(NA06_SUPPLEMENTAL_FILES)
+            allowed.update(set(p.get('optionalModify',{}))&optional)
     diff=git(repo,'diff','--name-status','--no-renames','-z',PLAN_COMMIT,'--').decode().split('\0')
     changes=[]
     for index in range(0,len(diff)-1,2):

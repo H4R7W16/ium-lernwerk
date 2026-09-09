@@ -3,6 +3,7 @@ import { parseDocument } from 'yaml';
 import { expect, test } from 'vitest';
 
 type WorkflowStep = {
+  'continue-on-error'?: boolean;
   env?: Record<string, string>;
   id?: string;
   name?: string;
@@ -290,8 +291,9 @@ test('publishes the IUM5 Gate-B non-release preview only through its manual cont
   expect(source).not.toContain('pilot/ium5-gate-b');
 });
 
-test('CI validates Gate-B without adding a deployment path or a fifth job', async () => {
+test('CI validates Gate-B and V2 without adding a deployment path or a sixth job', async () => {
   const source = await readFile('.github/workflows/ci.yml', 'utf8');
+  const v2Verifier = await readFile('scripts/verify-v2-m06.ts', 'utf8');
   const document = parseDocument(source);
   expect(document.errors).toEqual([]);
   const workflow = document.toJS() as {
@@ -332,15 +334,34 @@ test('CI validates Gate-B without adding a deployment path or a fifth job', asyn
   const runSteps = Object.values(workflow.jobs)
     .flatMap((job) => job.steps ?? [])
     .flatMap((step) => step.run ?? []);
-  for (const command of [
-    'npm run verify:v2',
-    'npm run verify:v2:implementation',
-    'npm run verify:v2:m06',
-  ]) expect(runSteps).toContain(command);
+  expect(runSteps).toContain('npm run verify:v2:m06');
   expect(workflow.jobs['v2-m06']?.steps?.find((step) => step.uses === 'actions/setup-node@v5')?.with)
     .toEqual({ 'node-version': '22.23.2', cache: 'npm' });
   expect(runSteps).toContain('npm install --global npm@10.9.8');
-  expect(runSteps).toContain('npm run build:v2');
-  expect(runSteps).toContain('npm run build:v2:subpath');
-  expect(runSteps).toContain('npm run test:v2:m06');
+  const v2Steps = workflow.jobs['v2-m06']?.steps ?? [];
+  const verify = v2Steps.find((step) => step.run === 'npm run verify:v2:m06');
+  expect(verify).toMatchObject({
+    if: 'always()',
+    env: {
+      IUM_BUILD_REVISION: '${{ github.sha }}',
+      IUM_VERIFICATION_RUN_ID: '${{ github.run_id }}-${{ github.run_attempt }}',
+    },
+  });
+  const upload = v2Steps.find((step) => step.uses === 'actions/upload-artifact@v4');
+  expect(upload?.with).toMatchObject({
+    name: 'v2-m06-verification-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}',
+  });
+  expect(String(upload?.with?.path)).toContain('reports/v2-m06/');
+  expect(String(upload?.with?.path)).toContain('reports/phase1/');
+  expect(v2Steps.find((step) => step.name === 'Install V2 browser matrix')?.['continue-on-error']).toBe(true);
+  for (const requiredPath of [
+    'tests/browser/v2-storage.spec.ts',
+    'tests/browser/v2-update.spec.ts',
+    'verify:v2:activation:historical',
+    'test:v2:m06:workbench',
+    'test:v2:m06:state',
+    'test:v2:m06:accessibility',
+    'test:v2:m06:offline',
+    'refused fallback port',
+  ]) expect(v2Verifier).toContain(requiredPath);
 });

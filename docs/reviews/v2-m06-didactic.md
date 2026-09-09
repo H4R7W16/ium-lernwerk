@@ -21,7 +21,7 @@ Stand: 9. September 2026. Dies ist ein strukturierter Autorenreview des Entwickl
 | P0 frühe Vorhersage | Feld vor Ausführung; flüchtig und nicht exportiert | synthetisch geprüft |
 | P1 eigene Grafik | unabhängiger Grafikeditor mit Erklärung | synthetisch geprüft |
 | P2 Revision | Vorher/Nachher, Spurstellen und erste Abweichung | synthetisch geprüft |
-| P3 eigener Code und Beleg | fünfteiliger Körper, zehnteilige Spur und Begründung | Kernpfad geprüft; Übernahme der Begründung beim globalen Speichern und sichtbarer Wiedereinstieg offen |
+| P3 eigener Code und Beleg | fünfteiliger Körper, zehnteilige Spur und laufgebundene Begründung | Ausführung, Übernahme, Export, Import, Reload und Offlinewiedereinstieg synthetisch geprüft |
 | P4 Abruf | eigener Abruf vor alter Lösung; flüchtig | synthetisch geprüft |
 | P5 Transfer | aufnehmen–prüfen–ablegen plus Zustandsbegründung | Material-/UI-Anker geprüft |
 | P6 Systeme | Zeit, Route und Grenze von Papier/Standbild getrennt | Material-/UI-Anker geprüft |
@@ -41,8 +41,8 @@ MAT-01 bis MAT-10 sind im geschlossenen Materialmanifest vorhanden, dem 225-Minu
 | representation-coherence | Grafik und Code teilen Semantik, bleiben als Produkte getrennt | Missverständnisse offen |
 | support-without-task-removal | H1–H4 geben Hinweise ohne Lösungsvorgabe | Hilfenutzung offen |
 | feedback-and-next-action | Zielmeldung, erste Abweichung und Rückkehrnotiz | Qualität der Anschlussaktion offen |
-| orientation-and-recovery | Navigation, Speicherstatus, offener Punkt und nächste Handlung | P3-Übernahme beim globalen Speichern und UI-Hydration offen |
-| accessibility-and-equivalence | Tastatur, Touch, Text, Reflow und Axe synthetisch geprüft | 44-px-Befund und assistive Realprüfung offen |
+| orientation-and-recovery | Navigation, Speicherstatus, offener Punkt, nächste Handlung, Importvorschau und beschädigte lokale Stände | reale Recoveryablage offen |
+| accessibility-and-equivalence | Tastatur, Touch, Text, Reflow, Axe und 44-px-Inventar in drei Browsern synthetisch geprüft | assistive Realprüfung offen |
 | teacher-orchestration | Handbuch und Briefing binden fünf Termine und Entscheidungspunkte | Lehrkraftnutzung offen |
 | privacy-and-emotional-safety | P0/P4 flüchtig, keine Telemetrie, bewusster Export | schulischer Datenbetrieb offen |
 | pilot-boundary | Kandidatenhinweis und geschlossene Reifeachsen sichtbar | Pilot nicht begonnen |
@@ -55,4 +55,4 @@ MAT-01 bis MAT-10 sind im geschlossenen Materialmanifest vorhanden, dem 225-Minu
 
 ## Reviewurteil
 
-Die geplante didaktische Struktur ist im Kandidaten vollständig auffindbar und synthetisch bedienbar. Ein Schlussreview, reale Nutzungsbeobachtung und Curriculumfreigabe sind nicht Teil von IMP08. Vor dem Schlussreview müssen mindestens der sichtbare P3-Wiedereinstieg und das 44-px-Ziel entschieden werden; Firefox sowie reale Zielprofile bleiben getrennte technische Nachweise.
+Die geplante didaktische Struktur ist im Kandidaten vollständig auffindbar und synthetisch bedienbar. P0–P6, S0–S5, MAT-01–10 plus Briefing, Import/Recovery, Offlinewiedereinstieg und die zugänglichen Bedienpfade sind technisch belegt. Das Schlussreview bleibt NA07; reale Nutzungsbeobachtung, Curriculumfreigabe, assistive Zielgeräte, Schulnetz/LMS und Pilotierung wurden nicht durchgeführt.

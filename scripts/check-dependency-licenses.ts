@@ -84,7 +84,9 @@ async function main(): Promise<void> {
   const queried = npmJson(['query', ':root, :root *', '--json']) as QueryPackage[];
   const installed = queried.filter(
     (item): item is QueryPackage & { name: string; version: string } =>
-      typeof item.name === 'string' && typeof item.version === 'string',
+      typeof item.name === 'string'
+      && typeof item.version === 'string'
+      && (typeof item.location !== 'string' || !item.location.startsWith('../')),
   );
   const invalid: string[] = [];
   const reviewed: Array<Record<string, string>> = [];
@@ -113,7 +115,9 @@ async function main(): Promise<void> {
     `${left.name}@${left.version}`.localeCompare(`${right.name}@${right.version}`)
   ));
 
-  const sbom = npmJson(['sbom', '--sbom-format', 'cyclonedx']) as CycloneDx;
+  // Bind the SBOM to the committed resolution. Platform-specific optional
+  // packages can be absent from node_modules while still belonging to the graph.
+  const sbom = npmJson(['sbom', '--sbom-format', 'cyclonedx', '--package-lock-only']) as CycloneDx;
   const rootPurl = `pkg:npm/${encodeURIComponent(rootPackage.name)}@${rootPackage.version}`;
   sbom.metadata ??= {};
   sbom.metadata.component ??= {};
