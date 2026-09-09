@@ -1,5 +1,6 @@
 import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
+import { archiveBuild } from './verification-evidence.js';
 import { buildRegistry, type BuildProfile } from './build-module-registry.js';
 import { buildV2Registry } from './build-v2-module-registry.js';
 import { finalizeServiceWorker } from './finalize-service-worker.js';
@@ -100,6 +101,13 @@ export async function buildPortalToDirectory(options: {
     );
   }
   await finalizeServiceWorker(resolve(options.outputDir), base);
+  if (process.env.IUM_VERIFICATION_DIR) {
+    const archive = archiveBuild(process.env.IUM_VERIFICATION_DIR, resolve(options.outputDir), {
+      revision: process.env.IUM_BUILD_REVISION ?? publication.buildRevision,
+      profile: options.profile, base,
+    });
+    process.env.IUM_LAST_BUILD_MANIFEST = archive.manifest;
+  }
 }
 
 async function main(): Promise<void> {

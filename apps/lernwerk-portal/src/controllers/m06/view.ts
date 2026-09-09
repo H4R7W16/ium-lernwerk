@@ -14,7 +14,7 @@ import {
   type M06Run,
   type M06Resources,
 } from './controller.js';
-import { diagramText, renderEditableProgram } from './diagram-editor.js';
+import { diagramText, renderEditableProgram, validateRepeatCount } from './diagram-editor.js';
 import { nextCommandId } from './code-editor.js';
 
 type S3Case = Readonly<{ id: 'S0' | 'S1' | 'S2' | 'S3'; grid: Grid; goal?: Goal; program: Program }>;
@@ -156,7 +156,9 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   }
 
   required<HTMLButtonElement>(root, '[data-add-repeat]').addEventListener('click', () => {
-    const count = Number(required<HTMLInputElement>(root, '#m06-repeat-count').value);
+    const count = validateRepeatCount(required<HTMLInputElement>(root, '#m06-repeat-count'),
+      required<HTMLElement>(root, '#m06-repeat-count-error'));
+    if (count === null) { required<HTMLInputElement>(root, '#m06-repeat-count').focus(); return; }
     const repeatId = nextCommandId(code());
     let nextNumber = Number(repeatId.slice(4)) + 1;
     const body = [...root.querySelectorAll<HTMLSelectElement>('[data-repeat-body]')]
@@ -167,7 +169,9 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     render();
   });
   required<HTMLButtonElement>(root, '[data-add-diagram-repeat]').addEventListener('click', () => {
-    const count = Number(required<HTMLInputElement>(root, '#m06-diagram-count').value);
+    const count = validateRepeatCount(required<HTMLInputElement>(root, '#m06-diagram-count'),
+      required<HTMLElement>(root, '#m06-diagram-count-error'));
+    if (count === null) { required<HTMLInputElement>(root, '#m06-diagram-count').focus(); return; }
     const repeatId = nextCommandId(diagram());
     let nextNumber = Number(repeatId.slice(4)) + 1;
     const body = [...root.querySelectorAll<HTMLSelectElement>('[data-diagram-repeat-body]')]

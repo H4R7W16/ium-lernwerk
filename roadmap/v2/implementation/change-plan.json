@@ -213,7 +213,9 @@
         "scripts/check-dependency-licenses.ts",
         "tests/platform/documentation.test.ts",
         "tests/browser/platform.spec.ts",
-        "scripts/preview-portal.ts"
+        "scripts/preview-portal.ts",
+        "scripts/verification-evidence.ts",
+        "tests/platform/verification-evidence.test.ts"
       ],
       "dependsOn": [
         "IUM-V2-IMP07"

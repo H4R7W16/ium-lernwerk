@@ -2,6 +2,7 @@ import {
   createInitialDossier,
   evidenceBelongsToProgram,
   parseDossier,
+  parseProgram,
   parseState,
   run,
   type Grid,
@@ -240,7 +241,7 @@ export class M06Controller {
   }
 
   updateDiagram(program: Program, explanation: string): void {
-    if (!this.#editable()) return;
+    if (!this.#editable() || !parseProgram(program).ok) return;
     this.#dossier = {
       ...this.#dossier,
       p3: { ...this.#dossier.p3, diagram: { program: structuredClone(program), explanation } },
@@ -249,7 +250,7 @@ export class M06Controller {
   }
 
   updateDraftProgram(program: Program): void {
-    if (!this.#editable()) return;
+    if (!this.#editable() || !parseProgram(program).ok) return;
     this.#invalidateRun();
     const evidence = evidenceBelongsToProgram(this.#dossier.p3.evidence, program)
       ? this.#dossier.p3.evidence

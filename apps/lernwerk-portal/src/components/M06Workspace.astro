@@ -120,7 +120,8 @@ const materialUrl = (path: string) => `${materialBase.replace(/\/?$/, '/')}gener
         <fieldset>
           <legend>Körperrahmen und Anzahl der Grafik</legend>
           <label for="m06-diagram-count">Anzahl 2 bis 9</label>
-          <input id="m06-diagram-count" type="number" min="2" max="9" value="2" />
+          <input id="m06-diagram-count" type="number" min="2" max="9" value="2" aria-describedby="m06-diagram-count-error" />
+          <p id="m06-diagram-count-error" role="status"></p>
           <div class="m06-body-fields">
             {[1, 2, 3, 4, 5].map((number) => (
               <label>Anweisung {number}
@@ -150,7 +151,8 @@ const materialUrl = (path: string) => `${materialBase.replace(/\/?$/, '/')}gener
         <fieldset data-repeat-editor>
           <legend>Ganze Wiederholung einsetzen</legend>
           <label for="m06-repeat-count">Anzahl 2 bis 9</label>
-          <input id="m06-repeat-count" type="number" min="2" max="9" value="2" />
+          <input id="m06-repeat-count" type="number" min="2" max="9" value="2" aria-describedby="m06-repeat-count-error" />
+          <p id="m06-repeat-count-error" role="status"></p>
           <div class="m06-body-fields">
             {[1, 2, 3, 4, 5].map((number) => (
               <label>Anweisung {number}

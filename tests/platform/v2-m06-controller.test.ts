@@ -75,6 +75,21 @@ async function realController(mode: 'persistent' | 'volatile-selected' = 'persis
 }
 
 describe('M06 current work with the real runtime', () => {
+  test.each([0, 1, 10, 2.5, NaN])('F05 rejects invalid repeat count %s before touching a valid dossier', async (count) => {
+    const { controller, stored, exported } = await realController();
+    controller.updateDraftProgram([{ id: 'cmd-1', kind: 'move' }]);
+    const before = controller.dossier();
+    const invalid: Program = [{ id: 'cmd-2', kind: 'repeat', count, body: [{ id: 'cmd-3', kind: 'move' }] }];
+    controller.updateDraftProgram(invalid);
+    controller.updateDiagram(invalid, 'INVALID');
+    expect(controller.dossier()).toEqual(before);
+    await controller.flush();
+    expect(controller.saveState().state).toBe('saved');
+    expect((await stored())?.payload).toEqual(before);
+    expect(await controller.exportWork(false)).toBe(true);
+    expect(exported().payload).toEqual(before);
+  });
+
   test('NA03 rejects an old run after code, prediction or scenario changes', async () => {
     const { controller } = await realController();
     const grid = { width: 5, height: 4, start: { position: { column: 1, row: 3 }, direction: 'east' as const } };

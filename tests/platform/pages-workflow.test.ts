@@ -339,6 +339,9 @@ test('CI validates Gate-B and V2 without adding a deployment path or a sixth job
     .toEqual({ 'node-version': '22.23.2', cache: 'npm' });
   expect(runSteps).toContain('npm install --global npm@10.9.8');
   const v2Steps = workflow.jobs['v2-m06']?.steps ?? [];
+  // needs failure normally skips the entire job before any step-level if can run.
+  expect(workflow.jobs['v2-m06']?.needs).toBe('contracts-build');
+  expect(workflow.jobs['v2-m06']?.if).toBe('always()');
   const verify = v2Steps.find((step) => step.run === 'npm run verify:v2:m06');
   expect(verify).toMatchObject({
     if: 'always()',

@@ -69,10 +69,22 @@ Unter Node 22.23.2/npm 10.9.8 werden 645 im Repository installierte Pakete gegen
 
 Validator- und Dashboardfixtures bilden IMP01–IMP08 ab und behalten ihre Manipulationsprüfungen. 1.028 Python-Tests und 41 Dashboardtests bestehen.
 
-## Gesamtergebnis des Orchestrators
+## Historisches NA06-Ergebnis des Orchestrators
 
 `npm run verify:v2:m06` hat alle 20 Schritte ausgeführt und bestanden. Enthalten sind 229 Plattformtests, zweimal der vollständige Pythonbestand mit je 1.028 Tests, 111 M06-Browserfälle in Chromium/Firefox/WebKit, acht Runtime- und zwei Updatefälle, beide V2-Buildprofile, SBOM/Lizenzen und die vollständige V1-Verifikation mit 24/24 Schritten. Die Laufgrenzen bleiben synthetischer Entwicklungskandidat, reale Geräte `not-run`, Nutzung und Pilot `not-started`, Curriculum `unassessed`, Veröffentlichung `closed`.
 
 ## Toolchain und CI
 
 CI und lokaler Abschlusslauf pinnen Node 22.23.2/npm 10.9.8. Der additive V2-M06-Job führt den gesamten Orchestrator aus, auch wenn die Browserinstallation zuvor fehlschlägt, und lädt V2-, Phase-1- und Fehlerartefakte immer unter einem Namen aus Run-ID, Run-Attempt und Commit-SHA hoch. Der lokale Lauf `na06-local-final` ist in `reports/v2-m06/summary.json` protokolliert; ein externer CI-Lauf ist nicht behauptet.
+
+## NA08 – Korrektur der NA07-Befunde F01–F05
+
+Die folgenden Änderungen sind durch den Nutzerauftrag vom 09.09.2026 autorisiert. Die F-Nummern dieses Abschnitts gehören zum NA07-Schlussreview, nicht zum älteren FU-TECH-Audit oben.
+
+- F01: `v2-m06` trägt `if: always()` auf Jobebene bei weiterhin vorhandenem `needs: contracts-build`. Damit kann auch ein fehlgeschlagener Vorgänger den Prüflauf nicht implizit überspringen. Der lokale Workflowvertrag prüft genau diese Voraussetzung; ein ausgeführter GitHub-CI-Lauf bleibt ein gesonderter Nachweis.
+- F02: Jeder Orchestratorlauf besitzt ein neues Verzeichnis unter `reports/v2-m06/runs/`. Browsergruppen erhalten getrennte JSON-Einzelergebnisse und Artefakte. Kurze eindeutige Arbeitsverzeichnisse unter `reports/pw/` verhindern den reproduzierten Windows-Downloadabbruch bei zu langen Pfaden; nach Ende des Browserprozesses werden die Artefakte zusätzlich in der Gruppe archiviert. CI lädt beide Bereiche hoch. Die Integration prüft absichtlichen frühen Browserfehler, anschließenden Erfolg und bytegleichen Erhalt des früheren Traces.
+- F03: Jeder erzeugte Build wird unmittelbar nach Service-Worker-Finalisierung als Dateibaum und SHA-256-Manifest archiviert. Manifest und Browsergruppe nennen Revision, Profil, Basispfad, Prüfschritt und konkreten Build. Die Digests entstehen aus lexikalisch sortierten relativen Pfaden und Dateihashes (UTF-8, LF, kein Schluss-LF; `.vite-cache` ausgeschlossen). `latest.json` ist nur ein Zeiger; frühere Läufe bleiben erhalten. Der zusätzliche Artefakttest erweitert den Orchestrator auf 21 Schritte. Aktuelle Zahlen und Buildhashes stehen nach abgeschlossenem Lauf in `roadmap/v2/implementation/evidence.json`.
+- F04: Der Autorenreview ist anhand des angenommenen M06-Designs recordgenau und anhand des Materialmanifests materialgenau berichtigt. Alle Curriculumrecords bleiben `unassessed`.
+- F05: Einfügen und Ändern einer Wiederholung prüfen eine ganze Anzahl 2–9 vor der Dossiermutation und melden ungültige Werte am Feld. Der Controller weist zusätzlich strukturell ungültige Programme zurück. Regressionen prüfen leere Eingabe, 1, 10 und Dezimalzahl, Speicherung/Export gültiger Nachbararbeit sowie Grenzen 2/9 und Korrektur mit Reload.
+
+Der NA07-Gesamtlauf bleibt historisch 19/20 mit separat bestandenem Root-Build-Retry. Keine nachträgliche Umdeutung dieses Ergebnisses und keine Wiederverwendung des dort beanstandeten alten Hashs als neuer Buildnachweis.

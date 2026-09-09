@@ -50,6 +50,8 @@ NA06_SUPPLEMENTAL_FILES=[
  'tests/browser/platform.spec.ts',
  'scripts/preview-portal.ts',
 ]
+# Explicit user repair order F01–F05, 2026-09-09; historical plan stays sealed.
+NA08_SUPPLEMENTAL_FILES=['scripts/verification-evidence.ts','tests/platform/verification-evidence.test.ts']
 
 
 class ImplementationError(ValueError):
@@ -292,7 +294,7 @@ def _validate(repo,authorization,vault):
     expected=[]
     for p in spec['packages']:
         files=p['create']+p['modify']+list(p.get('optionalModify',{}))
-        if p['id']=='IMP08':files=list(dict.fromkeys(files+NA06_SUPPLEMENTAL_FILES))
+        if p['id']=='IMP08':files=list(dict.fromkeys(files+NA06_SUPPLEMENTAL_FILES+NA08_SUPPLEMENTAL_FILES))
         expected.append(dict(schemaVersion=1,packageId=p['id'],files=files,dependsOn=p['dependsOn']))
     require(change['packages']==expected and change['sharedStatusFiles']==spec['sharedStatusFiles'],'Dateiliste/Abhängigkeiten weichen vom angenommenen Plan ab')
     allowed=set(spec['sharedStatusFiles'])
@@ -300,7 +302,7 @@ def _validate(repo,authorization,vault):
         validate_change_plan(package,allowed_files=set(package['files']))
         if p['id'] in authorized:
             allowed.update(p['create']+p['modify'])
-            if p['id']=='IMP08':allowed.update(NA06_SUPPLEMENTAL_FILES)
+            if p['id']=='IMP08':allowed.update(NA06_SUPPLEMENTAL_FILES+NA08_SUPPLEMENTAL_FILES)
             allowed.update(set(p.get('optionalModify',{}))&optional)
     diff=git(repo,'diff','--name-status','--no-renames','-z',PLAN_COMMIT,'--').decode().split('\0')
     changes=[]

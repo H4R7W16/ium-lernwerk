@@ -5,6 +5,46 @@ import { resolve } from 'node:path';
 
 const moduleUrl = '/module/v2-g5-m06/';
 
+for (const editor of ['code', 'diagram'] as const) {
+  test(`F05 ${editor} rejects invalid counts while preserving save and export`, async ({ page }) => {
+    await openPersistent(page, moduleUrl);
+    await page.locator('[data-system="boundary"]').fill('F05-GÜLTIGE-NACHBARARBEIT');
+    const count = page.locator(editor === 'code' ? '#m06-repeat-count' : '#m06-diagram-count');
+    const body = page.locator(editor === 'code' ? '[data-repeat-body]' : '[data-diagram-repeat-body]');
+    const add = page.locator(editor === 'code' ? '[data-add-repeat]' : '[data-add-diagram-repeat]');
+    await body.first().selectOption('move');
+    for (const value of ['', '1', '10', '2.5']) {
+      await count.fill(value);
+      await add.click();
+      await expect(count).toHaveAttribute('aria-invalid', 'true');
+      await expect(page.locator(`#${await count.getAttribute('id')}-error`)).toHaveText('Gib eine ganze Anzahl von 2 bis 9 ein.');
+      await page.locator('[data-m06-save]').click();
+      await expect(page.locator('[data-m06-save-status]')).toHaveText('Arbeitsstand gespeichert.');
+      const dossier = await exportDossier(page);
+      expect(dossier.p6.boundary).toBe('F05-GÜLTIGE-NACHBARARBEIT');
+      expect(editor === 'code' ? dossier.p3.draftProgram : dossier.p3.diagram.program).toEqual([]);
+    }
+    for (const value of ['2', '9']) {
+      await count.fill(value);
+      await add.click();
+      await expect(count).not.toHaveAttribute('aria-invalid', 'true');
+    }
+    const edit = page.locator(`[data-graphic="${editor}"] input[type="number"]`).first();
+    await edit.fill('10');
+    await edit.press('Tab');
+    await expect(edit).toHaveAttribute('aria-invalid', 'true');
+    const dossier = await exportDossier(page);
+    expect((editor === 'code' ? dossier.p3.draftProgram : dossier.p3.diagram.program).map((entry: { count: number }) => entry.count)).toEqual([2, 9]);
+    await edit.fill('4');
+    await edit.press('Tab');
+    await page.locator('[data-m06-save]').click();
+    await expect(page.locator('[data-m06-save-status]')).toHaveText('Arbeitsstand gespeichert.');
+    await reloadPersistent(page);
+    await expect(page.locator(`[data-graphic="${editor}"] input[type="number"]`).first()).toHaveValue('4');
+    await expect(page.locator('[data-system="boundary"]')).toHaveValue('F05-GÜLTIGE-NACHBARARBEIT');
+  });
+}
+
 test('NA01 prevents typing into an editor before its stored dossier is ready', async ({ page }) => {
   await page.goto(moduleUrl);
   await page.locator('[data-rationale]').focus();

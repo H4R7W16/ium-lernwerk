@@ -1,7 +1,9 @@
 import { spawn, spawnSync } from 'node:child_process';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { closeSync, cpSync, existsSync, mkdirSync, openSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildPortalToDirectory } from './build-portal.js';
+import { browserEvidence, createRunDirectory } from './verification-evidence.js';
 
 export type VerificationStep = Readonly<{
   id: string;
@@ -17,6 +19,7 @@ export type VerificationResult = Readonly<{
   exitCode: number;
   startedAt: string;
   finishedAt: string;
+  log: string;
 }>;
 
 type RunIdentity = Readonly<{
@@ -26,7 +29,21 @@ type RunIdentity = Readonly<{
   node: string;
   npm: string;
   startedAt: string;
+  directory: string;
+  sourceRevision: string;
+  sourceTree: string;
+  worktreeStatus: string;
+  lockfileSha256: string;
 }>;
+
+let finishBrowserEvidence: (() => void) | undefined;
+function retainBrowser(label: string) {
+  if (!process.env.IUM_VERIFICATION_DIR || !process.env.IUM_LAST_BUILD_MANIFEST) throw new Error('Missing browser build evidence');
+  const evidence = browserEvidence(process.env.IUM_VERIFICATION_DIR, label, process.env.IUM_LAST_BUILD_MANIFEST);
+  Object.assign(process.env, evidence.env);
+  finishBrowserEvidence = evidence.finish;
+  return evidence.args;
+}
 
 async function runBrowser(spec?: string): Promise<number> {
   const rootDir = process.cwd();
@@ -57,6 +74,7 @@ async function runBrowser(spec?: string): Promise<number> {
   const args = ['exec', '--', 'playwright', 'test'];
   if (spec) args.push(spec);
   args.push('--config', 'playwright.v2.config.mts');
+  args.push(...retainBrowser(spec ?? 'm06-all'));
   try {
     return await new Promise<number>((accept, reject) => {
       const child = spawn(process.execPath, [npmCli!, ...args], {
@@ -70,6 +88,7 @@ async function runBrowser(spec?: string): Promise<number> {
     });
   } finally {
     await server.stop();
+    finishBrowserEvidence?.();
   }
 }
 
@@ -103,7 +122,7 @@ async function runRuntimeBrowser(spec: string): Promise<number> {
   try {
     return await new Promise<number>((accept, reject) => {
       const child = spawn(process.execPath, [npmCli!, 'exec', '--', 'playwright', 'test', spec,
-        '--config', 'playwright.runtime.config.mts'], {
+        '--config', 'playwright.runtime.config.mts', ...retainBrowser(spec)], {
         cwd: rootDir,
         env: process.env,
         stdio: 'inherit',
@@ -114,6 +133,7 @@ async function runRuntimeBrowser(spec: string): Promise<number> {
     });
   } finally {
     await server.stop();
+    finishBrowserEvidence?.();
   }
 }
 
@@ -146,6 +166,7 @@ async function runPortalBrowser(values: readonly string[]): Promise<number> {
   }
   const args = [npmCli!, 'exec', '--', 'playwright', 'test', spec, '--config', config];
   if (project) args.push(`--project=${project}`);
+  args.push(...retainBrowser(spec));
   try {
     return await new Promise<number>((accept, reject) => {
       const child = spawn(process.execPath, args, {
@@ -156,6 +177,7 @@ async function runPortalBrowser(values: readonly string[]): Promise<number> {
     });
   } finally {
     await server.stop();
+    finishBrowserEvidence?.();
   }
 }
 
@@ -175,6 +197,14 @@ if (!npmCli) {
   console.error('Verifikation abgebrochen: npm_execpath fehlt. Bitte über ein npm-Skript starten.');
   process.exit(1);
 }
+
+// Initialize once before any managed build; child runners inherit the same run root.
+const reportsBase = resolve(process.cwd(), 'reports/v2-m06');
+const runId = process.env.IUM_VERIFICATION_RUN_ID ?? `local-${process.pid}`;
+const reports = process.env.IUM_VERIFICATION_DIR ?? createRunDirectory(resolve(reportsBase, 'runs'), runId);
+mkdirSync(reports, { recursive: true });
+process.env.IUM_VERIFICATION_DIR = reports;
+process.env.IUM_BUILD_REVISION ??= readCommand('git', ['rev-parse', 'HEAD']);
 
 if (browserMode) {
   void runBrowser(browserSpec).then((exitCode) => {
@@ -200,8 +230,6 @@ if (browserMode) {
 }
 
 const python = process.platform === 'win32' ? 'python.exe' : 'python';
-const reports = resolve(process.cwd(), 'reports/v2-m06');
-mkdirSync(reports, { recursive: true });
 
 function readCommand(command: string, args: readonly string[]): string {
   const result = spawnSync(command, [...args], {
@@ -212,11 +240,16 @@ function readCommand(command: string, args: readonly string[]): string {
 
 const runIdentity: RunIdentity = {
   schemaVersion: 1,
-  runId: process.env.IUM_VERIFICATION_RUN_ID ?? `local-${process.pid}`,
+  runId,
   revision: process.env.IUM_BUILD_REVISION ?? readCommand('git', ['rev-parse', 'HEAD']),
   node: process.version,
   npm: readCommand(process.execPath, [npmCli, '--version']),
   startedAt: new Date().toISOString(),
+  directory: reports,
+  sourceRevision: readCommand('git', ['rev-parse', 'HEAD']),
+  sourceTree: readCommand('git', ['rev-parse', 'HEAD^{tree}']),
+  worktreeStatus: readCommand('git', ['status', '--porcelain']),
+  lockfileSha256: createHash('sha256').update(readFileSync('package-lock.json')).digest('hex'),
 };
 
 const npmRun = (id: string, script: string): VerificationStep => ({
@@ -235,11 +268,16 @@ const direct = (
 
 export function runCheck(step: VerificationStep): VerificationResult {
   const startedAt = new Date().toISOString();
+  const log = resolve(reports, `${step.id}.log`);
+  const fd = openSync(log, 'w');
   const result = spawnSync(step.command, [...step.args], {
     cwd: process.cwd(),
-    stdio: 'inherit',
+    stdio: ['ignore', fd, fd],
+    env: { ...process.env, IUM_VERIFICATION_STEP_ID: step.id,
+      IUM_TEST_EVIDENCE_BROWSER: step.id === 'evidence-retention' ? '1' : '0' },
     shell: false,
   });
+  closeSync(fd);
   const exitCode = result.status ?? 1;
   const record: VerificationResult = {
     id: step.id,
@@ -248,6 +286,7 @@ export function runCheck(step: VerificationStep): VerificationResult {
     exitCode,
     startedAt,
     finishedAt: new Date().toISOString(),
+    log,
   };
   writeFileSync(resolve(reports, `${step.id}.json`), `${JSON.stringify(record, null, 2)}\n`);
   if (result.error) console.error(result.error.message);
@@ -267,6 +306,8 @@ const steps: readonly VerificationStep[] = [
   direct('m06-materials', 'M06 material contract', process.execPath, npmCli!, 'exec', '--', 'tsx', 'scripts/check-v2-m06-materials.ts'),
   npmRun('build-subpath', 'build:v2:subpath'),
   npmRun('build-root', 'build:v2'),
+  direct('evidence-retention', 'Early browser failure survives subsequent successful group', process.execPath, npmCli!,
+    'exec', '--', 'vitest', 'run', 'tests/platform/verification-evidence.test.ts'),
   npmRun('browser-workbench', 'test:v2:m06:workbench'),
   npmRun('browser-state', 'test:v2:m06:state'),
   npmRun('browser-accessibility', 'test:v2:m06:accessibility'),
@@ -280,10 +321,12 @@ const steps: readonly VerificationStep[] = [
 ];
 
 if (!browserMode && !runtimeBrowserMode && !portalBrowserMode) {
+  writeFileSync(resolve(reports, 'run-identity.json'), `${JSON.stringify(runIdentity, null, 2)}\n`);
   const results: VerificationResult[] = [];
   for (const [index, step] of steps.entries()) {
     console.log(`\n[V2 M06 ${index + 1}/${steps.length}] ${step.label}`);
     results.push(runCheck(step));
+    console.log(`Result: ${results.at(-1)!.exitCode}; log: ${results.at(-1)!.log}`);
   }
 
   const failed = results.filter((result) => result.exitCode !== 0);
@@ -295,6 +338,8 @@ if (!browserMode && !runtimeBrowserMode && !portalBrowserMode) {
     failedStepIds: failed.map((result) => result.id),
     run: runIdentity,
     results,
+    builds: existsSync(resolve(reports, 'builds')) ? readdirSync(resolve(reports, 'builds')).map((name) => `builds/${name}/manifest.json`) : [],
+    browserGroups: existsSync(resolve(reports, 'browser')) ? readdirSync(resolve(reports, 'browser')).map((name) => `browser/${name}/group.json`) : [],
     limits: {
       scope: 'synthetic-development-candidate',
       realDevices: 'not-run',
@@ -306,6 +351,9 @@ if (!browserMode && !runtimeBrowserMode && !portalBrowserMode) {
   };
   writeFileSync(resolve(reports, 'run-identity.json'), `${JSON.stringify(runIdentity, null, 2)}\n`);
   writeFileSync(resolve(reports, 'summary.json'), `${JSON.stringify(summary, null, 2)}\n`);
+  if (existsSync(resolve('reports/phase1'))) cpSync(resolve('reports/phase1'), resolve(reports, 'phase1'), { recursive: true });
+  // Convenience pointer only; complete runs above are never overwritten.
+  writeFileSync(resolve(reportsBase, 'latest.json'), `${JSON.stringify({ runId, directory: reports }, null, 2)}\n`);
 
   if (failed.length > 0) {
     console.error(`\nV2-M06-Verifikation nicht vollständig grün: ${failed.map((result) => result.id).join(', ')}`);

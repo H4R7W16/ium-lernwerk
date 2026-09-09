@@ -107,6 +107,7 @@ jobs:
 
   v2-m06:
     needs: contracts-build
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -134,6 +135,7 @@ jobs:
           name: v2-m06-verification-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
           path: |
             reports/v2-m06/
+            reports/pw/
             reports/phase1/
             test-results/
           if-no-files-found: ignore

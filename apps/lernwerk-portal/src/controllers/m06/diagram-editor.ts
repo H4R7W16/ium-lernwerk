@@ -3,6 +3,15 @@ import { parseProgram } from '@ium/v2-g5-m06';
 
 export type DiagramCommandKind = Basic['kind'];
 
+/** Reject form drafts before they can replace a valid dossier program. */
+export function validateRepeatCount(field: HTMLInputElement, feedback: HTMLElement): number | null {
+  const value = field.valueAsNumber;
+  const valid = field.value !== '' && Number.isInteger(value) && value >= 2 && value <= 9;
+  field.setAttribute('aria-invalid', String(!valid));
+  feedback.textContent = valid ? '' : 'Gib eine ganze Anzahl von 2 bis 9 ein.';
+  return valid ? value : null;
+}
+
 export function appendDiagramCommand(
   program: Program,
   command: Basic,
@@ -64,11 +73,16 @@ export function renderEditableProgram(root: HTMLElement, program: Program, chang
         const legend = document.createElement('legend'); legend.textContent = 'Ganzer Wiederholungskörper';
         const countLabel = document.createElement('label'); countLabel.textContent = 'Anzahl 2 bis 9';
         const count = document.createElement('input'); count.type = 'number'; count.min = '2'; count.max = '9'; count.value = String(command.count);
+        const feedback = document.createElement('p');
+        feedback.id = `m06-${root.dataset.graphic}-${command.id}-count-error`;
+        feedback.setAttribute('role', 'status');
+        count.setAttribute('aria-describedby', feedback.id);
         count.addEventListener('change', () => {
-          if (!count.validity.valid || !count.value) return;
-          change(program.map((entry, position) => position === index ? { ...command, count: Number(count.value) } : entry));
+          const value = validateRepeatCount(count, feedback);
+          if (value === null) return;
+          change(program.map((entry, position) => position === index ? { ...command, count: value } : entry));
         });
-        countLabel.append(count); frame.append(legend, countLabel, list(command.body, index), marker('Körperende · zurück zum Körperanfang, bis die Anzahl erreicht ist'));
+        countLabel.append(count); frame.append(legend, countLabel, feedback, list(command.body, index), marker('Körperende · zurück zum Körperanfang, bis die Anzahl erreicht ist'));
         item.append(frame);
       }
       ordered.append(item);
