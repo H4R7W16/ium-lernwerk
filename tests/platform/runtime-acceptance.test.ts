@@ -365,3 +365,60 @@ test('invalid first import remains available as its exact original bytes', async
   expect((await instance.exportRecovery()).ok).toBe(true);
   expect(port.bytes).toEqual(invalid);
 });
+
+test('explicit new start preserves the damaged original until a validated write succeeds', async () => {
+  const original = state({ payload: { broken: 'LOCAL-ORIGINAL' } });
+  const repository = new ControlledRepository(original);
+  const port = new CaptureExportPort();
+  const instance = runtime(repository, { exportPort: port });
+  expect((await instance.start()).ok).toBe(false);
+  repository.failSave = true;
+  expect((await instance.startNew()).ok).toBe(false);
+  expect(repository.value).toEqual(original);
+  expect((await instance.exportRecovery()).ok).toBe(true);
+  expect(JSON.parse(new TextDecoder().decode(port.bytes!))).toEqual(original);
+  repository.failSave = false;
+  expect(await instance.startNew()).toMatchObject({ ok: true, state: { payload: { text: 'initial' } } });
+  expect(instance.hasRecovery()).toBe(false);
+  instance.updatePayload({ text: 'NEW-WORK' });
+  expect((await instance.flush()).ok).toBe(true);
+  expect(await runtime(repository).start()).toMatchObject({ ok: true, state: { payload: { text: 'NEW-WORK' } } });
+});
+
+test('new start validates the initial payload and never overwrites an original with invalid defaults', async () => {
+  const original = state({ payload: { damaged: true } });
+  const repository = new ControlledRepository(original);
+  const instance = runtime(repository, { policy: { ...textPolicy, createInitialPayload: () => ({ invalid: true }) } });
+  await instance.start();
+  expect((await instance.startNew()).ok).toBe(false);
+  expect(repository.saves).toBe(0);
+  expect(repository.value).toEqual(original);
+});
+
+test('new start after deletion consumes previews and obeys the reload freeze', async () => {
+  const repository = new ControlledRepository(state());
+  const instance = runtime(repository);
+  await instance.start();
+  instance.previewImport(serializeState(state({ payload: { text: 'OLD-PREVIEW' } })));
+  expect((await instance.deleteActive()).ok).toBe(true);
+  await instance.prepareForReload();
+  expect((await instance.startNew()).ok).toBe(false);
+  expect(repository.value).toBeNull();
+  instance.releaseReloadPreparation();
+  expect((await instance.startNew()).ok).toBe(true);
+  expect((await instance.confirmImport()).ok).toBe(false);
+  instance.updatePayload({ text: 'AFTER-DELETE' });
+  expect((await instance.flush()).ok).toBe(true);
+  expect(repository.value).toMatchObject({ payload: { text: 'AFTER-DELETE' } });
+});
+
+test('a failed readback after committed deletion cannot revive the old runtime state', async () => {
+  const repository = new ControlledRepository(state());
+  const instance = runtime(repository);
+  await instance.start();
+  repository.throwOnLoad = true;
+  await expect(instance.deleteActive()).resolves.toMatchObject({ ok: false, cleared: true });
+  expect(repository.value).toBeNull();
+  expect((await instance.flush()).ok).toBe(false);
+  expect(repository.value).toBeNull();
+});

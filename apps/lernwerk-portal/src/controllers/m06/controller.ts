@@ -17,10 +17,12 @@ type Failure = Readonly<{ ok: false; error: Readonly<{ message: string }> }>;
 export type M06RuntimePort = Readonly<{
   replacePayload(payload: Dossier): unknown | Failure;
   flush(): Promise<Readonly<{ ok: true; mode?: string }> | Failure>;
-  previewImport(bytes: Uint8Array): Readonly<{ ok: true }> | Failure;
-  confirmImport(): Promise<Readonly<{ ok: true; payload?: unknown }> | Failure>;
+  previewImport(bytes: Uint8Array): Readonly<{ ok: true; payload: unknown }> | Failure;
+  confirmImport(): Promise<Readonly<{ ok: true; payload: unknown }> | Failure>;
+  startNew(): Promise<Readonly<{ ok: true; payload: unknown }> | Failure>;
+  hasRecovery?(): boolean;
   cancelImport(): void;
-  deleteActive(): Promise<Readonly<{ ok: true }> | Failure>;
+  deleteActive(): Promise<Readonly<{ ok: true }> | (Failure & Readonly<{ cleared?: true }>)>;
   exportState?(): Promise<Readonly<{ ok: true }> | Failure>;
   exportRecovery?(): Promise<Readonly<{ ok: true }> | Failure>;
   prepareForReload(): Promise<ReloadReadiness>;
@@ -40,6 +42,7 @@ export type M06Dependencies = Readonly<{
     dossier: Dossier;
     mode: 'persistent' | 'volatile-selected' | 'volatile-fallback';
     warning?: string;
+    startupError?: string;
   }>>;
   registerReload?(controller: M06Controller): () => void;
 }>;
@@ -59,6 +62,9 @@ export class M06Controller {
   #transient = { prediction: '', retrievalReason: '' };
   #save: M06SaveState = { state: 'saved', message: 'Arbeitsstand geladen.' };
   #pendingImport = false;
+  #preview: Dossier | null = null;
+  #ready = true;
+  #replacing = false;
   #disposed = false;
   #revision = 0;
   #syncedRevision = -1;
@@ -67,11 +73,15 @@ export class M06Controller {
   #operations = 0;
   #listeners = new Set<(replacement: boolean) => void>();
 
-  constructor(dossier: Dossier, runtime: M06RuntimePort) {
+  constructor(dossier: Dossier, runtime: M06RuntimePort, startupError?: string) {
     const parsed = parseDossier(dossier);
     if (!parsed.ok) throw new TypeError(parsed.issues.join('; '));
     this.#dossier = cloneDossier(parsed.value);
     this.#runtime = runtime;
+    if (startupError !== undefined) {
+      this.#ready = false;
+      this.#save = { state: 'unsaved', message: startupError };
+    }
   }
 
   dossier(): Dossier {
@@ -105,7 +115,31 @@ export class M06Controller {
     return this.#reloadPreparing;
   }
 
+  workspaceReady(): boolean { return this.#ready; }
+  replacingWork(): boolean { return this.#replacing; }
+  importPreview(): Dossier | null { return this.#preview === null ? null : cloneDossier(this.#preview); }
+  hasRecovery(): boolean { return this.#runtime.hasRecovery?.() ?? false; }
+
+  #editable(): boolean { return this.#ready && !this.#reloadPreparing && !this.#replacing; }
+
+  #acceptReplacement(payload: unknown, message: string): boolean {
+    const parsed = parseDossier(payload);
+    if (!parsed.ok) {
+      this.#ready = false;
+      this.#save = { state: 'unsaved', message: 'Der neue Stand enthält kein gültiges Prüfdossier.' };
+      return false;
+    }
+    this.#dossier = cloneDossier(parsed.value);
+    this.#revision += 1;
+    this.#syncedRevision = this.#revision;
+    this.#transient = { prediction: '', retrievalReason: '' };
+    this.#ready = true;
+    this.#save = { state: 'saved', message };
+    return true;
+  }
+
   #syncCurrent(): boolean {
+    if (!this.#ready) return false;
     if (this.#syncedRevision === this.#revision) return true;
     try {
       const result = this.#runtime.replacePayload(cloneDossier(this.#dossier));
@@ -124,19 +158,19 @@ export class M06Controller {
   }
 
   setTransient(next: Partial<{ prediction: string; retrievalReason: string }>): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#transient = { ...this.#transient, ...next };
     this.#notify();
   }
 
   updateReturnNote(value: Dossier['returnNote']): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier, returnNote: structuredClone(value) };
     this.#changed();
   }
 
   updateDiagram(program: Program, explanation: string): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = {
       ...this.#dossier,
       p3: { ...this.#dossier.p3, diagram: { program: structuredClone(program), explanation } },
@@ -145,7 +179,7 @@ export class M06Controller {
   }
 
   updateDraftProgram(program: Program): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     const evidence = evidenceBelongsToProgram(this.#dossier.p3.evidence, program)
       ? this.#dossier.p3.evidence
       : { program: [], predicted: null, steps: [], rationale: '' } as const;
@@ -163,7 +197,7 @@ export class M06Controller {
     steps: readonly number[],
     rationale: string,
   ): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = {
       ...this.#dossier,
       p3: {
@@ -185,7 +219,7 @@ export class M06Controller {
     steps: readonly number[],
     rationale: string,
   ): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = {
       ...this.#dossier,
       p2: {
@@ -197,85 +231,101 @@ export class M06Controller {
   }
 
   setFirstDeviation(step: number | null): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier, p2: { ...this.#dossier.p2, firstDeviation: step } };
     this.#changed();
   }
 
   updateTransfer(sequence: Dossier['p5']['sequence'], rationale: string): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier, p5: { sequence: [...sequence], rationale } };
     this.#changed();
   }
 
   updateSystems(value: Dossier['p6']): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier, p6: structuredClone(value) };
     this.#changed();
   }
 
   updateP1Diagram(program: Program, explanation: string): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier, p1: { diagram: { program: structuredClone(program), explanation } } };
     this.#changed();
   }
 
   updateP3Rationale(rationale: string): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier,
       p3: { ...this.#dossier.p3, evidence: { ...this.#dossier.p3.evidence, rationale } } };
     this.#changed();
   }
 
   updateRevisionRationale(phase: 'before' | 'after', rationale: string): void {
-    if (this.#reloadPreparing) return;
+    if (!this.#editable()) return;
     this.#dossier = { ...this.#dossier, p2: { ...this.#dossier.p2,
       [phase]: { ...this.#dossier.p2[phase], rationale } } };
     this.#changed();
   }
 
-  async previewImport(bytes: Uint8Array): Promise<boolean> {
-    if (this.#reloadPreparing || this.#operations > 0) return false;
-    const result = this.#runtime.previewImport(bytes);
-    this.#pendingImport = result.ok;
-    if (!result.ok) {
-      this.#runtime.cancelImport();
-      this.#save = { state: 'unsaved', message: result.error.message };
-      this.#notify();
-    }
-    return result.ok;
+  cancelImport(message?: string): void {
+    if (this.#replacing) return;
+    this.#runtime.cancelImport();
+    this.#pendingImport = false;
+    this.#preview = null;
+    if (message) this.#save = { state: 'unsaved', message };
+    this.#notify();
   }
 
-  async importBytes(bytes: Uint8Array): Promise<boolean> {
-    if (!(await this.previewImport(bytes))) return false;
-    if (this.#reloadPreparing) return false;
-    this.#operations += 1;
+  async previewImport(bytes: Uint8Array): Promise<boolean> {
+    if (this.#reloadPreparing || this.#operations > 0) return false;
+    this.cancelImport();
     try {
-      const result = await this.#runtime.confirmImport();
-      this.#pendingImport = false;
-      if (!result.ok) {
+      const result = this.#runtime.previewImport(bytes);
+      const parsed = result.ok ? parseDossier(result.payload) : null;
+      if (!result.ok || !parsed?.ok) {
         this.#runtime.cancelImport();
-        this.#save = { state: 'unsaved', message: result.error.message };
+        this.#save = { state: 'unsaved', message: result.ok
+          ? 'Import enthält kein gültiges Prüfdossier.' : result.error.message };
         this.#notify();
         return false;
       }
-      if (result.payload !== undefined) {
-        const parsed = parseDossier(result.payload);
-        if (!parsed.ok) {
-          this.#runtime.cancelImport();
-          this.#save = { state: 'unsaved', message: 'Import enthält kein gültiges Prüfdossier.' };
-          return false;
-        }
-        this.#dossier = parsed.value;
-      }
-      this.#revision += 1;
-      this.#syncedRevision = this.#revision;
-      this.#transient = { prediction: '', retrievalReason: '' };
-      this.#save = { state: 'saved', message: 'Importierter Arbeitsstand gespeichert.' };
-      this.#notify(true);
+      this.#pendingImport = true;
+      this.#preview = cloneDossier(parsed.value);
+      this.#notify();
       return true;
+    } catch {
+      this.cancelImport();
+      this.#save = { state: 'unsaved', message: 'Die Datei konnte nicht geprüft werden.' };
+      this.#notify();
+      return false;
+    }
+  }
+
+  async confirmImport(): Promise<boolean> {
+    if (this.#reloadPreparing || this.#operations > 0 || !this.#pendingImport) return false;
+    this.#operations += 1;
+    this.#replacing = true;
+    this.#pendingImport = false;
+    this.#preview = null;
+    this.#notify();
+    let replacement = false;
+    try {
+      const result = await this.#runtime.confirmImport();
+      if (!result.ok) {
+        this.#save = { state: 'unsaved', message: result.error.message };
+        return false;
+      }
+      replacement = this.#acceptReplacement(result.payload, 'Importierter Arbeitsstand gespeichert.');
+      return replacement;
+    } catch {
+      this.#save = { state: 'unsaved', message: 'Import fehlgeschlagen. Dein bisheriger Stand bleibt erhalten.' };
+      return false;
     } finally {
+      this.#runtime.cancelImport();
       this.#operations -= 1;
+      this.#replacing = false;
+      this.#notify(replacement);
     }
   }
 
@@ -303,29 +353,72 @@ export class M06Controller {
 
   async deleteAllWork(): Promise<boolean> {
     if (this.#reloadPreparing || this.#operations > 0) return false;
+    this.cancelImport();
     this.#operations += 1;
+    this.#replacing = true;
+    this.#notify();
+    let deleted = false;
     try {
-      this.#runtime.cancelImport();
-      this.#pendingImport = false;
       const result = await this.#runtime.deleteActive();
+      if (result.ok || result.cleared) {
+        deleted = true;
+        this.#dossier = createInitialDossier();
+        this.#revision += 1;
+        this.#syncedRevision = -1;
+        this.#ready = false;
+        this.#transient = { prediction: '', retrievalReason: '' };
+      }
+      if (!result.ok) {
+        this.#save = { state: 'unsaved', message: deleted
+          ? `Die Löschung wurde ausgeführt, konnte aber nicht nachgeprüft werden. ${result.error.message}`
+          : result.error.message };
+        return false;
+      }
+      const next = await this.#runtime.startNew();
+      if (!next.ok) {
+        this.#save = { state: 'unsaved', message: `Arbeitsstand gelöscht. Neuer Anfang noch nicht gespeichert: ${next.error.message}` };
+        return false;
+      }
+      return this.#acceptReplacement(next.payload, 'Arbeitsstand gelöscht.');
+    } catch {
+      this.#save = { state: 'unsaved', message: deleted
+        ? 'Arbeitsstand gelöscht. Der neue Anfang konnte noch nicht gespeichert werden.'
+        : 'Löschen fehlgeschlagen. Prüfe den lokalen Stand erneut.' };
+      return false;
+    } finally {
+      this.#operations -= 1;
+      this.#replacing = false;
+      this.#notify(deleted);
+    }
+  }
+
+  async startNew(): Promise<boolean> {
+    if (this.#ready || this.#reloadPreparing || this.#operations > 0) return false;
+    this.cancelImport();
+    this.#operations += 1;
+    this.#replacing = true;
+    this.#notify();
+    let replacement = false;
+    try {
+      const result = await this.#runtime.startNew();
       if (!result.ok) {
         this.#save = { state: 'unsaved', message: result.error.message };
         return false;
       }
-      this.#dossier = createInitialDossier();
-      this.#revision += 1;
-      this.#syncedRevision = -1;
-      this.#transient = { prediction: '', retrievalReason: '' };
-      this.#save = { state: 'saved', message: 'Arbeitsstand gelöscht.' };
-      this.#notify(true);
-      return true;
+      replacement = this.#acceptReplacement(result.payload, 'Neuer Arbeitsstand gespeichert.');
+      return replacement;
+    } catch {
+      this.#save = { state: 'unsaved', message: 'Ein neuer Anfang konnte nicht gespeichert werden. Das gesicherte Original bleibt erhalten.' };
+      return false;
     } finally {
       this.#operations -= 1;
+      this.#replacing = false;
+      this.#notify(replacement);
     }
   }
 
   async exportWork(recovery = false): Promise<boolean> {
-    if (!recovery && !this.#syncCurrent()) return false;
+    if (!recovery && (this.#replacing || !this.#syncCurrent())) return false;
     const action = recovery ? this.#runtime.exportRecovery : this.#runtime.exportState;
     if (!action) return false;
     const result = await action();
@@ -337,7 +430,7 @@ export class M06Controller {
   }
 
   async prepareForReload(): Promise<ReloadReadiness> {
-    if (this.#operations > 0) return { safe: false, reason: 'write-failed' };
+    if (this.#operations > 0 || (!this.#ready && !this.#reloadPreparing)) return { safe: false, reason: 'write-failed' };
     if (!this.#reloadPreparing && !this.#syncCurrent()) return { safe: false, reason: 'write-failed' };
     this.#reloadPreparing = true;
     const preparation = this.#preparation;
@@ -369,8 +462,8 @@ export class M06Controller {
   }
 }
 
-export function createM06Controller(dossier: Dossier, runtime: M06RuntimePort): M06Controller {
-  return new M06Controller(dossier, runtime);
+export function createM06Controller(dossier: Dossier, runtime: M06RuntimePort, startupError?: string): M06Controller {
+  return new M06Controller(dossier, runtime, startupError);
 }
 
 export async function connectM06(
@@ -390,7 +483,7 @@ export async function connectM06(
         ? 'Nur für diese Sitzung'
         : 'Dauerhaftes Speichern nicht verfügbar; nur diese Sitzung');
   }
-  const controller = createM06Controller(session.dossier, session.runtime);
+  const controller = createM06Controller(session.dossier, session.runtime, session.startupError);
   const unregister = dependencies.registerReload?.(controller);
   const status = root.querySelector<HTMLElement>('[data-m06-save-status]');
   const save = root.querySelector<HTMLButtonElement>('[data-m06-save]');
@@ -403,7 +496,7 @@ export async function connectM06(
     if (status) {
       status.textContent = controller.reloadPreparing()
         ? 'Arbeitsstand wird für die Aktualisierung gesichert. Die Bearbeitung ist kurz gesperrt.'
-        : controller.saveState().message;
+        : controller.replacingWork() ? 'Der Arbeitsstand wird ersetzt. Bitte warte kurz.' : controller.saveState().message;
       status.dataset.saveState = controller.saveState().state;
     }
   };
@@ -449,13 +542,20 @@ export function createBrowserM06Dependencies(root: HTMLElement): M06Dependencies
         },
       });
       const started = await runtime.start();
-      if (!started.ok) throw new Error(started.error.message);
-      const parsed = parseDossier(started.state.payload);
+      const parsed = parseDossier(started.ok ? started.state.payload : createInitialDossier());
       if (!parsed.ok) throw new Error(parsed.issues.join('; '));
       const port: M06RuntimePort = {
         replacePayload: (payload) => runtime.updatePayload(payload),
         flush: () => runtime.flush(),
-        previewImport: (bytes) => runtime.previewImport(bytes),
+        previewImport(bytes) {
+          const result = runtime.previewImport(bytes);
+          return result.ok ? { ok: true, payload: result.state.payload } : result;
+        },
+        async startNew() {
+          const result = await runtime.startNew();
+          return result.ok ? { ok: true, payload: result.state.payload } : result;
+        },
+        hasRecovery: () => runtime.hasRecovery(),
         async confirmImport() {
           const result = await runtime.confirmImport();
           return result.ok
@@ -473,6 +573,7 @@ export function createBrowserM06Dependencies(root: HTMLElement): M06Dependencies
       return {
         runtime: port,
         dossier: parsed.value,
+        ...(!started.ok ? { startupError: started.error.message } : {}),
         mode: selection.mode,
         ...(selection.warning === undefined ? {} : { warning: selection.warning.message }),
       };

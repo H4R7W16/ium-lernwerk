@@ -68,6 +68,211 @@ function fullDossier() {
   };
 }
 
+function importFile() {
+  return { name: 'complete.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({
+    format: 'ium-learning-state', formatVersion: 1, moduleId: 'V2-G5-M06', moduleVersion: '0.1.0',
+    stateSchemaVersion: 1, workspaceId: '123e4567-e89b-42d3-a456-426614174000',
+    savedAt: '2026-09-09T08:00:00.000Z', payload: fullDossier(),
+  })) };
+}
+
+test('NA02 retries a genuine local read failure without inventing an empty recovery', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await saveP3(page, 'PRESERVED-AFTER-READ-ERROR');
+  await page.evaluate(() => sessionStorage.setItem('na02-read-error', 'pending'));
+  await page.addInitScript(() => {
+    const original = IDBDatabase.prototype.transaction;
+    IDBDatabase.prototype.transaction = function (names, mode, options) {
+      if (this.name === 'ium-lernwerk-v2' && mode === 'readonly'
+        && sessionStorage.getItem('na02-read-error') === 'pending') {
+        sessionStorage.setItem('na02-read-error', 'done');
+        throw new DOMException('SYNTHETIC-READ-ERROR', 'UnknownError');
+      }
+      return original.call(this, names, mode, options);
+    };
+  });
+  await reloadPersistent(page);
+  await expect(page.locator('[data-m06-start-error]')).toBeVisible();
+  await expect(page.locator('[data-rationale]')).toBeDisabled();
+  await expect(page.locator('[data-export-recovery]')).toBeDisabled();
+  await expect(page.locator('[data-retry-start]')).toBeVisible();
+  await page.locator('[data-retry-start]').click();
+  await choosePersistent(page);
+  await expect(page.locator('[data-rationale]')).toHaveValue('PRESERVED-AFTER-READ-ERROR');
+  expect((await exportDossier(page)).p3.evidence.rationale).toBe('PRESERVED-AFTER-READ-ERROR');
+});
+
+test('NA02 discards late file reads after a newer selection or deletion', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await saveP3(page, 'CURRENT-WITH-SLOW-FILE');
+  await page.evaluate(() => {
+    const original = File.prototype.arrayBuffer;
+    File.prototype.arrayBuffer = async function () {
+      if (this.name !== 'slow.json') return original.call(this);
+      document.documentElement.dataset.slowFile = 'waiting';
+      await new Promise<void>((accept) => window.addEventListener('na02:release-file', () => accept(), { once: true }));
+      const bytes = await original.call(this);
+      document.documentElement.dataset.slowFile = 'finished';
+      return bytes;
+    };
+  });
+  await page.getByText('Daten verwalten').click();
+  for (const action of ['invalid-selection', 'delete']) {
+    await page.locator('[data-import-work]').setInputFiles({ ...importFile(), name: 'slow.json' });
+    await expect(page.locator('html')).toHaveAttribute('data-slow-file', 'waiting');
+    if (action === 'invalid-selection') {
+      await page.locator('[data-import-work]').setInputFiles({ name: 'bad.json', mimeType: 'application/json', buffer: Buffer.from('{bad') });
+      await expect(page.locator('[data-m06-save-status]')).toHaveAttribute('data-save-state', 'unsaved');
+    } else {
+      page.once('dialog', (dialog) => dialog.accept());
+      await page.locator('[data-delete-work]').click();
+      await expect(page.locator('[data-m06-save-status]')).toHaveText('Arbeitsstand gelöscht.');
+    }
+    await page.evaluate(() => window.dispatchEvent(new Event('na02:release-file')));
+    await expect(page.locator('html')).toHaveAttribute('data-slow-file', 'finished');
+    await expect(page.locator('[data-import-preview]')).toBeHidden();
+    expect((await exportDossier(page)).p3.evidence.rationale).toBe(action === 'delete' ? '' : 'CURRENT-WITH-SLOW-FILE');
+  }
+});
+
+test('NA02 previews without replacing work and consumes canceled or invalidated selections', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await saveP3(page, 'CURRENT-BEFORE-IMPORT');
+  await page.getByText('Daten verwalten').click();
+  await page.locator('[data-import-work]').setInputFiles(importFile());
+  await expect(page.locator('[data-import-preview]')).toBeVisible();
+  await expect(page.locator('[data-import-preview]')).toContainText('P3 Begründung');
+  await expect(page.locator('[data-rationale]')).toHaveValue('CURRENT-BEFORE-IMPORT');
+  expect((await exportDossier(page)).p3.evidence.rationale).toBe('CURRENT-BEFORE-IMPORT');
+  await page.locator('[data-cancel-import]').click();
+  await expect(page.locator('[data-import-preview]')).toBeHidden();
+  await page.locator('[data-import-work]').setInputFiles(importFile());
+  await expect(page.locator('[data-import-preview]')).toBeVisible();
+  await page.locator('[data-import-work]').setInputFiles({ name: 'invalid.json', mimeType: 'application/json', buffer: Buffer.from('{broken') });
+  await expect(page.locator('[data-import-preview]')).toBeHidden();
+  await expect(page.locator('[data-m06-save-status]')).toHaveAttribute('data-save-state', 'unsaved');
+  await reloadPersistent(page);
+  await expect(page.locator('[data-rationale]')).toHaveValue('CURRENT-BEFORE-IMPORT');
+  await page.getByText('Daten verwalten').click();
+  await page.locator('[data-import-work]').setInputFiles(importFile());
+  await page.locator('[data-confirm-import]').click();
+  await expect(page.locator('[data-rationale]')).toHaveValue('P3 Begründung');
+  await reloadPersistent(page);
+  expect(await exportDossier(page)).toEqual(fullDossier());
+});
+
+for (const damage of ['payload', 'version'] as const) {
+test(`NA02 exports a damaged local ${damage} before a deliberate replacement`, async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await saveP3(page, 'ORIGINAL-BEFORE-DAMAGE');
+  const damaged = await page.evaluate(async (damage) => {
+    const database = await new Promise<IDBDatabase>((accept, reject) => {
+      const request = indexedDB.open('ium-lernwerk-v2');
+      request.onsuccess = () => accept(request.result); request.onerror = () => reject(request.error);
+    });
+    const transaction = database.transaction('states', 'readwrite');
+    let original: unknown;
+    const request = transaction.objectStore('states').get('V2-G5-M06');
+    request.onsuccess = () => {
+      const row = request.result;
+      if (damage === 'payload') row.state.payload = { damaged: 'LOCAL-ORIGINAL-SENTINEL' };
+      else row.state.moduleVersion = '99.0.0';
+      original = row.state;
+      transaction.objectStore('states').put(row);
+    };
+    await new Promise<void>((accept, reject) => {
+      transaction.oncomplete = () => accept(); transaction.onerror = () => reject(transaction.error);
+    });
+    database.close(); return original;
+  }, damage);
+  await reloadPersistent(page);
+  await expect(page.locator('[data-m06-start-error]')).toBeVisible();
+  await expect(page.locator('[data-rationale]')).toBeDisabled();
+  await expect(page.locator('[data-export-recovery]')).toBeEnabled();
+  const download = page.waitForEvent('download');
+  await page.locator('[data-export-recovery]').click();
+  const exported = await download;
+  expect(exported.suggestedFilename()).toContain('recovery-original');
+  expect(JSON.parse(await readFile((await exported.path())!, 'utf8'))).toEqual(damaged);
+  if (damage === 'version') {
+    await page.locator('[data-import-work]').setInputFiles(importFile());
+    await expect(page.locator('[data-import-preview]')).toBeVisible();
+    await expect(page.locator('[data-rationale]')).toBeDisabled();
+    await page.locator('[data-confirm-import]').click();
+    await expect(page.locator('[data-rationale]')).toHaveValue('P3 Begründung');
+    await reloadPersistent(page);
+    expect(await exportDossier(page)).toEqual(fullDossier());
+    return;
+  }
+  page.once('dialog', (dialog) => dialog.dismiss());
+  await page.locator('[data-start-new]').click();
+  await expect(page.locator('[data-rationale]')).toBeDisabled();
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.locator('[data-start-new]').click();
+  await expect(page.locator('[data-m06-start-error]')).toBeHidden();
+  await expect(page.locator('[data-rationale]')).toBeEnabled();
+  await saveP3(page, 'RECOVERED-NEW-WORK');
+  await reloadPersistent(page);
+  await expect(page.locator('[data-rationale]')).toHaveValue('RECOVERED-NEW-WORK');
+  expect(JSON.stringify(await exportDossier(page))).not.toContain('LOCAL-ORIGINAL-SENTINEL');
+});
+}
+
+test('NA02 deletion clears all products and pending preview then permits a durable new draft', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await page.getByText('Daten verwalten').click();
+  await page.locator('[data-import-work]').setInputFiles(importFile());
+  await page.locator('[data-confirm-import]').click();
+  await expect(page.locator('[data-rationale]')).toHaveValue('P3 Begründung');
+  await page.locator('[data-import-work]').setInputFiles(importFile());
+  await expect(page.locator('[data-import-preview]')).toBeVisible();
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.locator('[data-delete-work]').click();
+  await expect(page.locator('[data-m06-save-status]')).toContainText('gelöscht');
+  await expect(page.locator('[data-import-preview]')).toBeHidden();
+  for (const selector of ['[data-rationale]', '[data-diagram-explanation]', '[data-p1-explanation]',
+    '[data-revision-rationale="before"]', '[data-revision-rationale="after"]', '[data-transfer-rationale]',
+    '[data-system="timeControl"]', '[data-system="routeCalculation"]', '[data-system="boundary"]',
+    '[data-return-open]', '[data-return-next]']) {
+    await expect(page.locator(selector)).toHaveValue('');
+  }
+  await page.locator('[data-editor="code"] [data-add="turn-left"]').click();
+  await saveP3(page, 'NEW-AFTER-DELETE');
+  await reloadPersistent(page);
+  const dossier = await exportDossier(page);
+  expect(dossier.p3.draftProgram).toEqual([{ id: 'cmd-1', kind: 'turn-left' }]);
+  expect(dossier.p3.evidence.rationale).toBe('NEW-AFTER-DELETE');
+  expect(dossier.p1.diagram.program).toEqual([]);
+  expect(dossier.p6).toEqual({ timeControl: '', routeCalculation: '', boundary: '' });
+});
+
+test('NA02 delete readback failure clears old fields and allows a safe reload', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await saveP3(page, 'MUST-NOT-REVIVE-AFTER-DELETE');
+  await page.evaluate(() => {
+    const original = IDBDatabase.prototype.transaction;
+    IDBDatabase.prototype.transaction = function (names, mode, options) {
+      if (this.name === 'ium-lernwerk-v2' && mode === 'readonly') {
+        IDBDatabase.prototype.transaction = original;
+        throw new DOMException('SYNTHETIC-DELETE-READBACK', 'UnknownError');
+      }
+      return original.call(this, names, mode, options);
+    };
+  });
+  await page.getByText('Daten verwalten').click();
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.locator('[data-delete-work]').click();
+  await expect(page.locator('[data-m06-start-error]')).toBeVisible();
+  await expect(page.locator('[data-rationale]')).toHaveValue('');
+  await expect(page.locator('[data-rationale]')).toBeDisabled();
+  await expect(page.locator('[data-export-work]')).toBeDisabled();
+  await page.locator('[data-retry-start]').click();
+  await choosePersistent(page);
+  await saveP3(page, 'NEW-AFTER-READBACK-ERROR');
+  await reloadPersistent(page);
+  expect((await exportDossier(page)).p3.evidence.rationale).toBe('NEW-AFTER-READBACK-ERROR');
+});
+
 test('NA01 hydrates every durable product after import and reload and preserves its neighbours', async ({ page }) => {
   await openPersistent(page, moduleUrl);
   await page.locator('[data-editor="code"] [data-add="move"]').click();
@@ -77,6 +282,7 @@ test('NA01 hydrates every durable product after import and reload and preserves 
     buffer: Buffer.from(JSON.stringify({ format: 'ium-learning-state', formatVersion: 1,
       moduleId: 'V2-G5-M06', moduleVersion: '0.1.0', stateSchemaVersion: 1,
       workspaceId: '123e4567-e89b-42d3-a456-426614174000', savedAt: '2026-09-09T08:00:00.000Z', payload: dossier })) });
+  await page.locator('[data-confirm-import]').click();
   await expect(page.locator('[data-m06-save-status]')).toHaveText('Importierter Arbeitsstand gespeichert.');
   for (const reload of [false, true]) {
     if (reload) await reloadPersistent(page);

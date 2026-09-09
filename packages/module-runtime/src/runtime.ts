@@ -189,6 +189,39 @@ export class ModuleRuntime {
     };
   }
 
+  /** Explicitly replace the current/recovery state only after validating and saving a new dossier. */
+  async startNew(): Promise<RuntimeStateSuccess | RuntimeFailure> {
+    if (this.#reloadFrozen) return writeFailure('Reload preparation has frozen this runtime');
+    this.#pendingImport = null;
+    const policy = resolveStatePolicy(this.#dependencies);
+    let payload: Record<string, unknown>;
+    try {
+      payload = policy.createInitialPayload();
+    } catch (error) {
+      return invalidPayloadError(`Initial payload creation failed: ${String(error)}`);
+    }
+    const accepted = acceptState({
+      format: 'ium-learning-state', formatVersion: 1,
+      moduleId: this.#dependencies.moduleId, moduleVersion: this.#dependencies.moduleVersion,
+      stateSchemaVersion: this.#dependencies.targetStateSchemaVersion,
+      workspaceId: this.#dependencies.createWorkspaceId(),
+      savedAt: this.#dependencies.clock.now().toISOString(), payload,
+    }, this.#dependencies);
+    if (!accepted.ok) return accepted;
+    let saved: SaveResult;
+    try {
+      saved = await this.#dependencies.repository.save(accepted.state);
+    } catch (error) {
+      return writeFailure(error);
+    }
+    if (!saved.ok) return saved;
+    this.#active = structuredClone(accepted.state);
+    this.#recovery = null;
+    this.#revision += 1;
+    this.#discardRevision = null;
+    return { ok: true, state: structuredClone(accepted.state), mode: saved.mode };
+  }
+
   updatePayload(
     payload: Readonly<Record<string, unknown>>,
   ): LearningStateEnvelope | RuntimeFailure {
@@ -346,7 +379,7 @@ export class ModuleRuntime {
     return { ok: true, state: structuredClone(next), mode: saved.mode };
   }
 
-  async deleteActive(): Promise<Readonly<{ ok: true }> | RuntimeFailure> {
+  async deleteActive(): Promise<Readonly<{ ok: true }> | (RuntimeFailure & Readonly<{ cleared?: true }>)> {
     if (this.#reloadFrozen) {
       return writeFailure('Reload preparation has frozen this runtime');
     }
@@ -357,16 +390,18 @@ export class ModuleRuntime {
     if (!result.ok) {
       return result;
     }
-    if (await this.#dependencies.repository.load(this.#dependencies.moduleId)) {
-      return {
-        ok: false,
-        error: unavailableExportError('Deleted module state is still present'),
-      };
-    }
+    // The delete has committed. Never retain a writable copy while checking its result.
     this.#active = null;
     this.#recovery = null;
     this.#revision += 1;
     this.#discardRevision = null;
+    try {
+      if (await this.#dependencies.repository.load(this.#dependencies.moduleId) !== null) {
+        return { ok: false, cleared: true, error: unavailableExportError('Deleted module state is still present') };
+      }
+    } catch (error) {
+      return { ...storageFailure(error), cleared: true };
+    }
     return { ok: true };
   }
 

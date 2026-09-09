@@ -17,10 +17,15 @@ async function realController(mode: 'persistent' | 'volatile-selected' = 'persis
   const backing = new MemoryStateRepository();
   let failWrites = false;
   let pauseWrite: Promise<void> | undefined;
+  let failDeleteReadback = false;
   let exported = '';
   const repository: StateRepository = {
     mode,
-    load: (id) => backing.load(id),
+    load: async (id) => {
+      const value = await backing.load(id);
+      if (failDeleteReadback && value === null) throw new Error('SYNTHETIC-DELETE-READBACK');
+      return value;
+    },
     async save(state) {
       if (pauseWrite) await pauseWrite;
       if (failWrites) return { ok: false, error: {
@@ -46,22 +51,139 @@ async function realController(mode: 'persistent' | 'volatile-selected' = 'persis
   if (!started.ok) throw new Error(started.error.message);
   const port: M06RuntimePort = {
     replacePayload: (dossier) => active.updatePayload(dossier),
-    flush: () => active.flush(), previewImport: (bytes) => active.previewImport(bytes),
+    flush: () => active.flush(), previewImport: (bytes) => {
+      const result = active.previewImport(bytes);
+      return result.ok ? { ok: true, payload: result.state.payload } : result;
+    },
     confirmImport: async () => {
       const result = await active.confirmImport();
       return result.ok ? { ok: true, payload: result.state.payload } : result;
     },
     cancelImport: () => active.cancelImport(), deleteActive: () => active.deleteActive(),
+    startNew: async () => {
+      const result = await active.startNew();
+      return result.ok ? { ok: true, payload: result.state.payload } : result;
+    },
     exportState: () => active.exportState(), prepareForReload: () => active.prepareForReload(),
     releaseReloadPreparation: () => active.releaseReloadPreparation(),
     approveDiscardForReload: () => active.approveDiscardForReload(),
   };
   return { controller: createM06Controller(createInitialDossier(), port),
     stored: () => backing.load('V2-G5-M06'), exported: () => JSON.parse(exported),
-    failWrites: () => { failWrites = true; }, pauseWrites: (pending: Promise<void>) => { pauseWrite = pending; } };
+    failDeleteReadback: () => { failDeleteReadback = true; },
+    failWrites: (value = true) => { failWrites = value; }, pauseWrites: (pending: Promise<void>) => { pauseWrite = pending; } };
 }
 
 describe('M06 current work with the real runtime', () => {
+  test('a committed delete with failed readback clears the view and blocks stale writes', async () => {
+    const session = await realController();
+    session.controller.updateSystems({ timeControl: 'OLD', routeCalculation: '', boundary: '' });
+    await session.controller.flush();
+    session.failDeleteReadback();
+    expect(await session.controller.deleteAllWork()).toBe(false);
+    expect(session.controller.workspaceReady()).toBe(false);
+    expect(session.controller.dossier().p6.timeControl).toBe('');
+    expect(await session.controller.flush()).toBe(false);
+    expect(await session.stored()).toBeNull();
+  });
+
+  test('failed new start after deletion blocks editing until a deliberate retry succeeds', async () => {
+    const session = await realController();
+    session.controller.updateSystems({ timeControl: 'OLD', routeCalculation: '', boundary: '' });
+    await session.controller.flush();
+    session.failWrites();
+    expect(await session.controller.deleteAllWork()).toBe(false);
+    expect(session.controller.workspaceReady()).toBe(false);
+    expect(await session.stored()).toBeNull();
+    session.controller.updateSystems({ timeControl: 'MUST-NOT-ACCEPT', routeCalculation: '', boundary: '' });
+    expect(session.controller.dossier().p6.timeControl).toBe('');
+    expect(await session.controller.exportWork()).toBe(false);
+    expect(await session.controller.prepareForReload()).toMatchObject({ safe: false });
+    session.failWrites(false);
+    expect(await session.controller.startNew()).toBe(true);
+    session.controller.updateSystems({ timeControl: 'NEW', routeCalculation: '', boundary: '' });
+    expect(await session.controller.flush()).toBe(true);
+    expect((await session.stored())?.payload.p6).toMatchObject({ timeControl: 'NEW' });
+  });
+
+  test('import confirmation freezes edits and competing state transitions until the write finishes', async () => {
+    const session = await realController();
+    await session.controller.exportWork();
+    const candidate = session.exported();
+    candidate.payload.p6.timeControl = 'IMPORTED';
+    const bytes = new TextEncoder().encode(JSON.stringify(candidate));
+    await session.controller.previewImport(bytes);
+    let resume!: () => void;
+    session.pauseWrites(new Promise<void>((accept) => { resume = accept; }));
+    const pending = session.controller.confirmImport();
+    session.controller.updateSystems({ timeControl: 'LATE-EDIT', routeCalculation: '', boundary: '' });
+    expect(session.controller.dossier().p6.timeControl).toBe('');
+    expect(await session.controller.deleteAllWork()).toBe(false);
+    expect(await session.controller.previewImport(bytes)).toBe(false);
+    expect(await session.controller.flush()).toBe(false);
+    expect(await session.controller.prepareForReload()).toMatchObject({ safe: false });
+    resume();
+    expect(await pending).toBe(true);
+    session.controller.updateSystems({ timeControl: 'AFTER-IMPORT', routeCalculation: '', boundary: '' });
+    expect(await session.controller.flush()).toBe(true);
+    expect((await session.stored())?.payload.p6).toMatchObject({ timeControl: 'AFTER-IMPORT' });
+  });
+
+  test('deletion starts an empty runtime that can save and export new work', async () => {
+    const session = await realController();
+    session.controller.updateSystems({ timeControl: 'OLD', routeCalculation: '', boundary: '' });
+    await session.controller.flush();
+    expect(await session.controller.deleteAllWork()).toBe(true);
+    expect(session.controller.dossier().p6.timeControl).toBe('');
+    session.controller.updateSystems({ timeControl: 'NEW', routeCalculation: '', boundary: '' });
+    expect(await session.controller.flush()).toBe(true);
+    expect((await session.stored())?.payload.p6).toMatchObject({ timeControl: 'NEW' });
+    expect(await session.controller.exportWork()).toBe(true);
+    expect(session.exported().payload.p6.timeControl).toBe('NEW');
+  });
+
+  test('preview does not replace current work and invalid selection, cancel and deletion consume it', async () => {
+    const session = await realController();
+    await session.controller.exportWork();
+    const candidate = session.exported();
+    candidate.payload.p6.timeControl = 'IMPORTED';
+    const bytes = new TextEncoder().encode(JSON.stringify(candidate));
+    session.controller.updateSystems({ timeControl: 'CURRENT', routeCalculation: '', boundary: '' });
+    await session.controller.flush();
+    expect(await session.controller.previewImport(bytes)).toBe(true);
+    expect(session.controller.dossier().p6.timeControl).toBe('CURRENT');
+    expect((await session.stored())?.payload.p6).toMatchObject({ timeControl: 'CURRENT' });
+    expect(await session.controller.previewImport(new TextEncoder().encode('{broken'))).toBe(false);
+    expect(await session.controller.confirmImport()).toBe(false);
+    await session.controller.previewImport(bytes);
+    session.controller.cancelImport();
+    expect(await session.controller.confirmImport()).toBe(false);
+    await session.controller.previewImport(bytes);
+    await session.controller.deleteAllWork();
+    expect(await session.controller.confirmImport()).toBe(false);
+    expect(session.controller.dossier().p6.timeControl).toBe('');
+    await session.controller.previewImport(bytes);
+    expect(await session.controller.confirmImport()).toBe(true);
+    expect(session.controller.dossier().p6.timeControl).toBe('IMPORTED');
+    expect(await session.controller.confirmImport()).toBe(false);
+  });
+
+  test('failed import confirmation preserves the active draft and requires a new preview', async () => {
+    const session = await realController();
+    await session.controller.exportWork();
+    const candidate = session.exported();
+    candidate.payload.p6.timeControl = 'IMPORTED';
+    session.controller.updateSystems({ timeControl: 'CURRENT', routeCalculation: '', boundary: '' });
+    await session.controller.flush();
+    await session.controller.previewImport(new TextEncoder().encode(JSON.stringify(candidate)));
+    session.failWrites();
+    expect(await session.controller.confirmImport()).toBe(false);
+    expect(await session.controller.confirmImport()).toBe(false);
+    expect(session.controller.dossier().p6.timeControl).toBe('CURRENT');
+    expect((await session.stored())?.payload.p6).toMatchObject({ timeControl: 'CURRENT' });
+    expect(session.controller.saveState().state).toBe('unsaved');
+  });
+
   test('exports the current unsaved code even when local saving fails', async () => {
     const session = await realController();
     session.controller.updateDraftProgram([{ id: 'cmd-1', kind: 'move' }]);
@@ -167,7 +289,8 @@ function runtime(overrides: Partial<M06RuntimePort> = {}): M06RuntimePort {
     replacePayload: vi.fn((payload: Dossier) => ({ ok: true as const, payload })),
     flush: vi.fn(async () => ({ ok: true as const, mode: 'persistent' as const })),
     previewImport: vi.fn(() => ({ ok: false as const, error: { message: 'ungültig' } })),
-    confirmImport: vi.fn(async () => ({ ok: true as const })),
+    confirmImport: vi.fn(async () => ({ ok: true as const, payload: createInitialDossier() })),
+    startNew: vi.fn(async () => ({ ok: true as const, payload: createInitialDossier() })),
     cancelImport: vi.fn(),
     deleteActive: vi.fn(async () => ({ ok: true as const })),
     prepareForReload: vi.fn(async () => ({ safe: true as const, reason: 'persisted-readback' as const, revision: 1 })),
@@ -191,7 +314,8 @@ describe('M06 controller state machine', () => {
       flush: vi.fn(async () => ({ ok: false as const, error: { message: 'Speichern fehlgeschlagen' } })),
     });
     const controller = createM06Controller(createInitialDossier(), port);
-    expect(await controller.importBytes(new Uint8Array([1, 2, 3]))).toBe(false);
+    expect(await controller.previewImport(new Uint8Array([1, 2, 3]))).toBe(false);
+    expect(await controller.confirmImport()).toBe(false);
     expect(port.confirmImport).not.toHaveBeenCalled();
     await expect(controller.flush()).resolves.toBe(false);
     expect(controller.saveState()).toEqual({ state: 'unsaved', message: 'Speichern fehlgeschlagen' });
@@ -216,7 +340,7 @@ describe('M06 controller state machine', () => {
   });
 
   test('deleting clears dossier, transient answers and a pending import', async () => {
-    const port = runtime({ previewImport: vi.fn(() => ({ ok: true as const })) });
+    const port = runtime({ previewImport: vi.fn(() => ({ ok: true as const, payload: createInitialDossier() })) });
     const controller = createM06Controller(createInitialDossier(), port);
     controller.setTransient({ prediction: 'Nord', retrievalReason: 'Abruf' });
     await controller.previewImport(new Uint8Array([1]));

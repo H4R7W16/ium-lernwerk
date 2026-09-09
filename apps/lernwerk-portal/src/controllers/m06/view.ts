@@ -237,8 +237,29 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   });
   [returnArea, returnOpen, returnNext].forEach((field) => field.addEventListener('input', saveReturn));
 
+  let importSelection = 0;
+  const cancelSelection = () => { importSelection += 1; controller.cancelImport(); };
+  required<HTMLButtonElement>(root, '[data-retry-start]').addEventListener('click', () => {
+    if (!controller.workspaceReady() && !controller.replacingWork() && !controller.reloadPreparing()) window.location.reload();
+  });
+  required<HTMLButtonElement>(root, '[data-cancel-import]').addEventListener('click', () => {
+    cancelSelection();
+    required<HTMLInputElement>(root, '[data-import-work]').focus();
+  });
+  required<HTMLButtonElement>(root, '[data-confirm-import]').addEventListener('click', async () => {
+    importSelection += 1;
+    const imported = await controller.confirmImport();
+    if (imported) required<HTMLElement>(root, '#mein-pruefdossier').focus();
+  });
+  required<HTMLButtonElement>(root, '[data-start-new]').addEventListener('click', async () => {
+    if (window.confirm('Den bisherigen lokalen Stand und das gesicherte Original durch einen leeren Arbeitsstand ersetzen? Exportiere das Original vorher, wenn du es behalten möchtest.')) {
+      cancelSelection();
+      if (await controller.startNew()) required<HTMLElement>(root, '#mein-pruefdossier').focus();
+    }
+  });
   required<HTMLButtonElement>(root, '[data-delete-work]').addEventListener('click', () => {
     if (window.confirm('Diesen lokalen M06-Arbeitsstand wirklich löschen?')) {
+      cancelSelection();
       void controller.deleteAllWork();
     }
   });
@@ -251,8 +272,17 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   required<HTMLInputElement>(root, '[data-import-work]').addEventListener('change', async (event) => {
     const input = event.currentTarget as HTMLInputElement;
     const file = input.files?.[0];
-    if (file) await controller.importBytes(new Uint8Array(await file.arrayBuffer()));
+    cancelSelection();
+    const selection = importSelection;
     input.value = '';
+    if (!file) return;
+    try {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      if (selection !== importSelection) return;
+      if (await controller.previewImport(bytes)) required<HTMLElement>(root, '[data-import-preview]').focus();
+    } catch {
+      if (selection === importSelection) controller.cancelImport('Die ausgewählte Datei konnte nicht gelesen werden. Wähle sie erneut aus.');
+    }
   });
   const hydrate = () => {
     const dossier = controller.dossier();
@@ -282,27 +312,41 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
       : 'Noch keine Vorhersage im Beleg gesichert.';
     render();
   };
-  const disabledBeforePreparation = new Map<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement, boolean>();
+  const originalDisabled = new Map(startupControls.map(({ control, disabled }) => [control, disabled]));
   const project = (replacement: boolean) => {
+    if (replacement) importSelection += 1;
     if (replacement) hydrate();
     else render();
     root.dataset.reloadPreparing = String(controller.reloadPreparing());
-    if (controller.reloadPreparing()) {
-      for (const control of root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input, textarea, select, button')) {
-        if (control.matches('[data-export-work], [data-export-recovery], [data-copy-fallback-text]')) continue;
-        if (!disabledBeforePreparation.has(control)) disabledBeforePreparation.set(control, control.disabled);
-        control.disabled = true;
-      }
-    } else {
-      for (const [control, disabled] of disabledBeforePreparation) control.disabled = disabled;
-      disabledBeforePreparation.clear();
+    const ready = controller.workspaceReady();
+    const preview = controller.importPreview();
+    required<HTMLElement>(root, '[data-import-preview]').hidden = preview === null;
+    required<HTMLElement>(root, '[data-import-summary]').textContent = preview ? [
+      `P1 · Grafik: ${preview.p1.diagram.explanation || 'keine Erklärung'}\n${diagramText(preview.p1.diagram.program)}`,
+      `P2 · Vorher: ${preview.p2.before.rationale || 'keine Begründung'}\nNachher: ${preview.p2.after.rationale || 'keine Begründung'}`,
+      `P3 · Eigener Code: ${diagramText(preview.p3.draftProgram)}\nBegründung: ${preview.p3.evidence.rationale || 'keine'}`,
+      `P5 · Transfer: ${preview.p5.sequence.join(', ')}\n${preview.p5.rationale}`,
+      `P6 · Systeme: ${preview.p6.timeControl}\n${preview.p6.routeCalculation}\n${preview.p6.boundary}`,
+      `Rückkehr: ${preview.returnNote.openPoint}\nNächste Handlung: ${preview.returnNote.nextAction}`,
+    ].join('\n\n') : '';
+    required<HTMLElement>(root, '[data-m06-start-error]').hidden = ready;
+    required<HTMLElement>(root, '[data-m06-start-message]').textContent = ready ? '' : controller.saveState().message;
+    if (!ready) required<HTMLDetailsElement>(root, '[data-m06-management]').open = true;
+    for (const control of root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input, textarea, select, button')) {
+      const management = control.closest('[data-m06-management]') !== null;
+      const exportControl = control.matches('[data-export-work], [data-export-recovery], [data-copy-fallback-text]');
+      control.disabled = (originalDisabled.get(control) ?? false)
+        || (controller.reloadPreparing() && !exportControl)
+        || (controller.replacingWork() && !control.matches('[data-export-recovery], [data-copy-fallback-text]'))
+        || (!ready && (!management || control.matches('[data-export-work], [data-delete-work]')))
+        || (control.matches('[data-confirm-import], [data-cancel-import]') && preview === null)
+        || (control.matches('[data-export-recovery]') && !controller.hasRecovery());
     }
   };
   const unsubscribe = controller.subscribe(project);
   const dispose = controller.dispose.bind(controller);
   controller.dispose = () => { unsubscribe(); dispose(); };
   project(true);
-  for (const { control, disabled } of startupControls) control.disabled = disabled;
   root.inert = false;
   root.setAttribute('aria-busy', 'false');
   return controller;

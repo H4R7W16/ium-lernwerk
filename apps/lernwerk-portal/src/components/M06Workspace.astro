@@ -176,13 +176,26 @@ const { resources } = Astro.props;
     <input id="m06-next-action" data-return-next />
     <button type="button" data-m06-save>Arbeitsstand speichern</button>
     <p data-m06-save-status role="status">Speicherwahl steht aus.</p>
-    <details class="m06-danger">
+    <details class="m06-danger" data-m06-management>
       <summary>Daten verwalten</summary>
+      <div data-m06-start-error hidden>
+        <p role="alert" data-m06-start-message></p>
+        <p>Der Editor bleibt gesperrt. Du kannst das gesicherte Original exportieren, eine andere Datei prüfen oder ausdrücklich leer neu beginnen.</p>
+        <button type="button" data-retry-start>Gespeicherten Stand erneut laden</button>
+        <button type="button" data-start-new>Mit leerem Arbeitsstand neu beginnen</button>
+      </div>
       <button type="button" data-delete-work>Arbeitsstand dieses Moduls löschen</button>
       <button type="button" data-export-work>Arbeitsstand exportieren</button>
       <button type="button" data-export-recovery>Gesichertes Original exportieren</button>
       <label for="m06-import">Arbeitsstand importieren</label>
       <input id="m06-import" type="file" accept="application/json,.json" data-import-work />
+      <section data-import-preview hidden aria-labelledby="m06-import-title" tabindex="-1">
+        <h4 id="m06-import-title">Importvorschau</h4>
+        <p>Die geprüfte Datei ist noch nicht übernommen. Mit „Import bestätigen“ ersetzt du deinen aktuellen Arbeitsstand einschließlich noch ungespeicherter Änderungen. Exportiere ihn vorher, wenn du ihn behalten möchtest.</p>
+        <pre class="m06-program" data-import-summary></pre>
+        <button type="button" data-confirm-import>Import bestätigen</button>
+        <button type="button" data-cancel-import>Import abbrechen</button>
+      </section>
       <div data-copy-fallback hidden>
         <label for="m06-copy">Exporttext zum bewussten Kopieren</label>
         <textarea id="m06-copy" data-copy-fallback-text rows="5" readonly></textarea>
