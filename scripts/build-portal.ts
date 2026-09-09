@@ -103,7 +103,8 @@ export async function buildPortalToDirectory(options: {
   await finalizeServiceWorker(resolve(options.outputDir), base);
   if (process.env.IUM_VERIFICATION_DIR) {
     const archive = archiveBuild(process.env.IUM_VERIFICATION_DIR, resolve(options.outputDir), {
-      revision: process.env.IUM_BUILD_REVISION ?? publication.buildRevision,
+      revision: publication.buildRevision,
+      sourceRevision: process.env.IUM_BUILD_REVISION,
       profile: options.profile, base,
     });
     process.env.IUM_LAST_BUILD_MANIFEST = archive.manifest;

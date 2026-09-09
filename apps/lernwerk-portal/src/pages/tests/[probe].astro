@@ -3,7 +3,7 @@ import RuntimeProbe from '../../components/RuntimeProbe.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
-  return process.env.IUM_BUILD_PROFILE === 'fixture'
+  return import.meta.env.PUBLIC_IUM_BUILD_PROFILE === 'fixture'
     ? [{ params: { probe: 'v2-runtime' } }]
     : [];
 }

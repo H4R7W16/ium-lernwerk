@@ -26,6 +26,11 @@ vi.mock('../../scripts/finalize-service-worker.js', () => ({
 vi.mock('../../scripts/prepare-module-assets.js', () => ({
   prepareModuleAssets: boundaries.prepareModuleAssets,
 }));
+// This test stubs Astro and produces no files. Real archival is covered by
+// verification-evidence.test.ts; do not attempt to read its synthetic /output.
+vi.mock('../../scripts/verification-evidence.js', () => ({
+  archiveBuild: vi.fn(() => ({ manifest: '/synthetic-build-manifest.json' })),
+}));
 
 beforeEach(() => {
   vi.clearAllMocks();

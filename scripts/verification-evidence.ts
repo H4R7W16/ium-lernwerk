@@ -12,7 +12,7 @@ export function createRunDirectory(parent: string, label: string): string {
 }
 
 export function archiveBuild(runDirectory: string, outputDir: string,
-  identity: { revision: string; profile: string; base: string }) {
+  identity: { revision: string; sourceRevision?: string; profile: string; base: string }) {
   const directory = createRunDirectory(resolve(runDirectory, 'builds'), identity.profile);
   const files: { path: string; sha256: string; bytes: number }[] = [];
   const walk = (relative = '') => {
