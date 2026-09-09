@@ -65,9 +65,9 @@ Der vollständige Plattformlauf zählt 207 bestandene und einen fehlgeschlagenen
 
 `npm run quality:licenses` scheitert lokal unter Node 24.11.0/npm 11.6.1 mit `ESBOMPROBLEMS`, weil optionale `@emnapi`-Pakete im installierten Baum fehlen. Der neue CI-Job pinnt Node 22.23.2/npm 10.9.8; ein erfolgreicher Lauf dieser Zieltoolchain liegt lokal nicht vor und darf erst durch CI belegt werden.
 
-### IMP08-F09 – Implementierungsvalidatortests erwarten weiterhin nur IMP01
+### IMP08-F09 – ältere Implementierungsfixtures erwarten weiterhin nur IMP01
 
-Der vollständige Pythonlauf besteht 1021 von 1028 Tests. Vier der sieben roten Fälle liegen in `tests/test_validate_v2_implementation.py`: Die Test-Fixtures erwarten nur IMP01 als autorisiertes Paket beziehungsweise verändern den inzwischen abgenommenen Kandidaten ohne passende Abnahme. Drei weitere Fälle sind dieselbe Ursache wie `IMP08-F07`. Die IMP01-Testdatei gehört nicht zum autorisierten IMP08-Dateisatz.
+Der vollständige Pythonlauf besteht 1021 von 1028 Tests. Vier der sieben roten Fälle liegen in `tests/test_validate_v2_implementation.py`: Die Test-Fixtures erwarten nur IMP01 als autorisiertes Paket beziehungsweise verändern den inzwischen abgenommenen Kandidaten ohne passende Abnahme. Drei weitere Fälle sind dieselbe Ursache wie `IMP08-F07`. Der nachgelagerte Dashboardlauf besteht 40 von 41 Tests; auch dort erwartet eine Snapshot-Fixture nur IMP01. Beide Alt-Testdateien gehören nicht zum autorisierten IMP08-Dateisatz.
 
 ## Gesamtergebnis des Orchestrators
 
