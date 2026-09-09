@@ -77,8 +77,13 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     if (rationale.value !== dossier.p3.evidence.rationale) rationale.value = dossier.p3.evidence.rationale;
     for (const phase of ['before', 'after'] as const) {
       const evidence = dossier.p2[phase];
+      const predicted = evidence.predicted;
+      const prediction = predicted
+        ? `Vorhersage: (${predicted.position.column},${predicted.position.row}), Blick ${
+          { north: 'oben', east: 'rechts', south: 'unten', west: 'links' }[predicted.direction]}`
+        : 'Keine Vorhersage gesichert.';
       required<HTMLElement>(root, `[data-revision-output="${phase}"]`).textContent = evidence.program.length
-        ? `${diagramText(evidence.program)}\nAusgewählte Schritte: ${evidence.steps.join(', ') || 'keine'}`
+        ? `${diagramText(evidence.program)}\n${prediction}\nAusgewählte Schritte: ${evidence.steps.join(', ') || 'keine'}`
         : 'Noch kein Vergleichsbeleg gesichert.';
       const field = required<HTMLTextAreaElement>(root, `[data-revision-rationale="${phase}"]`);
       if (field.value !== evidence.rationale) field.value = evidence.rationale;

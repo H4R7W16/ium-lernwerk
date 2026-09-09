@@ -57,8 +57,8 @@ function fullDossier() {
     schemaVersion: 1,
     p1: { diagram: { program, explanation: 'P1 Grafik' } },
     p2: {
-      before: { program, predicted: null, steps: [1], rationale: 'P2 vorher' },
-      after: { program, predicted: null, steps: [1], rationale: 'P2 nachher' }, firstDeviation: 1,
+      before: { program, predicted: { position: { column: 2, row: 3 }, direction: 'north' }, steps: [1], rationale: 'P2 vorher' },
+      after: { program, predicted: { position: { column: 4, row: 1 }, direction: 'east' }, steps: [1], rationale: 'P2 nachher' }, firstDeviation: 1,
     },
     p3: { diagram: { program, explanation: 'P3 Grafik' }, draftProgram: program,
       evidence: { program, predicted: { position: { column: 1, row: 3 }, direction: 'south' }, steps: [1], rationale: 'P3 Begründung' } },
@@ -86,6 +86,10 @@ test('NA01 hydrates every durable product after import and reload and preserves 
     await expect(page.locator('[data-p1-explanation]')).toHaveValue('P1 Grafik');
     await expect(page.locator('[data-revision-rationale="before"]')).toHaveValue('P2 vorher');
     await expect(page.locator('[data-revision-rationale="after"]')).toHaveValue('P2 nachher');
+    await expect(page.locator('[data-revision-output="before"]')).toContainText('Vorhersage: (2,3), Blick oben');
+    await expect(page.locator('[data-revision-output="after"]')).toContainText('Vorhersage: (4,1), Blick rechts');
+    await expect(page.locator('[data-saved-prediction]')).toContainText('(1,3), Blick unten');
+    await expect(page.locator('[data-trace-output] input[value="1"]')).toBeChecked();
     await expect(page.locator('[data-first-deviation]')).toHaveValue('1');
     await expect(page.locator('[data-transfer-sequence]')).toHaveValue('prüfen, aufnehmen, ablegen');
     await expect(page.locator('[data-transfer-rationale]')).toHaveValue('P5 Transfer');
