@@ -57,16 +57,32 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   const resources = JSON.parse(resourceNode.textContent ?? '{}') as BrowserResources;
   const s3 = resources.cases.gridCases.find((entry) => entry.id === 'S3');
   if (!s3) throw new Error('S3 resource missing');
+  const startupControls = [...root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input, textarea, select, button')]
+    .map((control) => ({ control, disabled: control.disabled }));
+  for (const { control } of startupControls) control.disabled = true;
   const controller = await connectM06(root, resources, createBrowserM06Dependencies(root));
-  let diagram: Program = controller.dossier().p3.diagram.program;
-  let code: Program = controller.dossier().p3.draftProgram;
+  const diagram = () => controller.dossier().p3.diagram.program;
+  const code = () => controller.dossier().p3.draftProgram;
   const diagramExplanation = required<HTMLTextAreaElement>(root, '[data-diagram-explanation]');
   const diagramOutput = required<HTMLElement>(root, '[data-diagram-output]');
   const codeOutput = required<HTMLElement>(root, '[data-code-output]');
   const rationale = required<HTMLTextAreaElement>(root, '[data-rationale]');
+  const p1Explanation = required<HTMLTextAreaElement>(root, '[data-p1-explanation]');
   const render = () => {
-    diagramOutput.textContent = diagram.length ? diagramText(diagram) : 'Noch keine Grafik angelegt.';
-    codeOutput.textContent = code.length ? diagramText(code) : 'Noch kein Code eingegeben.';
+    const dossier = controller.dossier();
+    diagramOutput.textContent = diagram().length ? diagramText(diagram()) : 'Noch keine Grafik angelegt.';
+    codeOutput.textContent = code().length ? diagramText(code()) : 'Noch kein Code eingegeben.';
+    required<HTMLElement>(root, '[data-p1-output]').textContent = dossier.p1.diagram.program.length
+      ? diagramText(dossier.p1.diagram.program) : 'Noch keine P1-Grafik angelegt.';
+    if (rationale.value !== dossier.p3.evidence.rationale) rationale.value = dossier.p3.evidence.rationale;
+    for (const phase of ['before', 'after'] as const) {
+      const evidence = dossier.p2[phase];
+      required<HTMLElement>(root, `[data-revision-output="${phase}"]`).textContent = evidence.program.length
+        ? `${diagramText(evidence.program)}\nAusgewählte Schritte: ${evidence.steps.join(', ') || 'keine'}`
+        : 'Noch kein Vergleichsbeleg gesichert.';
+      const field = required<HTMLTextAreaElement>(root, `[data-revision-rationale="${phase}"]`);
+      if (field.value !== evidence.rationale) field.value = evidence.rationale;
+    }
   };
   const basic = (program: Program, kind: Basic['kind']): Basic => ({
     id: nextCommandId(program),
@@ -77,58 +93,66 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     const editorKind = editor.dataset.editor;
     for (const button of editor.querySelectorAll<HTMLButtonElement>('[data-add]')) {
       button.addEventListener('click', () => {
+        if (controller.reloadPreparing()) return;
         if (editorKind === 'diagram') {
-          diagram = [...diagram, basic(diagram, commandKind(button.dataset.add ?? null))];
-          controller.updateDiagram(diagram, diagramExplanation.value);
+          controller.updateDiagram([...diagram(), basic(diagram(), commandKind(button.dataset.add ?? null))], diagramExplanation.value);
+        } else if (editorKind === 'p1') {
+          const program = controller.dossier().p1.diagram.program;
+          controller.updateP1Diagram([...program, basic(program, commandKind(button.dataset.add ?? null))], p1Explanation.value);
         } else {
-          code = [...code, basic(code, commandKind(button.dataset.add ?? null))];
-          controller.updateDraftProgram(code);
+          controller.updateDraftProgram([...code(), basic(code(), commandKind(button.dataset.add ?? null))]);
         }
         render();
       });
     }
     required<HTMLButtonElement>(editor, '[data-clear]').addEventListener('click', () => {
       if (editorKind === 'diagram') {
-        diagram = [];
         controller.updateDiagram([], diagramExplanation.value);
+      } else if (editorKind === 'p1') {
+        controller.updateP1Diagram([], p1Explanation.value);
       } else {
-        code = [];
         controller.updateDraftProgram([]);
       }
       render();
     });
   }
   diagramExplanation.addEventListener('input', () => {
-    controller.updateDiagram(diagram, diagramExplanation.value);
+    controller.updateDiagram(diagram(), diagramExplanation.value);
   });
+  p1Explanation.addEventListener('input', () => controller.updateP1Diagram(
+    controller.dossier().p1.diagram.program, p1Explanation.value,
+  ));
+  rationale.addEventListener('input', () => controller.updateP3Rationale(rationale.value));
+  for (const phase of ['before', 'after'] as const) {
+    const field = required<HTMLTextAreaElement>(root, `[data-revision-rationale="${phase}"]`);
+    field.addEventListener('input', () => controller.updateRevisionRationale(phase, field.value));
+  }
 
   required<HTMLButtonElement>(root, '[data-add-repeat]').addEventListener('click', () => {
     const count = Number(required<HTMLInputElement>(root, '#m06-repeat-count').value);
-    const repeatId = nextCommandId(code);
+    const repeatId = nextCommandId(code());
     let nextNumber = Number(repeatId.slice(4)) + 1;
     const body = [...root.querySelectorAll<HTMLSelectElement>('[data-repeat-body]')]
       .filter((field) => field.value !== '')
       .map((field): Basic => ({ id: `cmd-${nextNumber++}`, kind: commandKind(field.value) }));
     if (body.length === 0) return;
-    code = [...code, { id: repeatId, kind: 'repeat', count, body }];
-    controller.updateDraftProgram(code);
+    controller.updateDraftProgram([...code(), { id: repeatId, kind: 'repeat', count, body }]);
     render();
   });
   required<HTMLButtonElement>(root, '[data-add-diagram-repeat]').addEventListener('click', () => {
     const count = Number(required<HTMLInputElement>(root, '#m06-diagram-count').value);
-    const repeatId = nextCommandId(diagram);
+    const repeatId = nextCommandId(diagram());
     let nextNumber = Number(repeatId.slice(4)) + 1;
     const body = [...root.querySelectorAll<HTMLSelectElement>('[data-diagram-repeat-body]')]
       .filter((field) => field.value !== '')
       .map((field): Basic => ({ id: `cmd-${nextNumber++}`, kind: commandKind(field.value) }));
     if (body.length === 0) return;
-    diagram = [...diagram, { id: repeatId, kind: 'repeat', count, body }];
-    controller.updateDiagram(diagram, diagramExplanation.value);
+    controller.updateDiagram([...diagram(), { id: repeatId, kind: 'repeat', count, body }], diagramExplanation.value);
     render();
   });
 
-  required<HTMLButtonElement>(root, '[data-run-code]').addEventListener('click', () => {
-    const result = run(s3.grid, code);
+  const showTrace = (program: Program, selected: readonly number[] = []) => {
+    const result = run(s3.grid, program);
     const goal = checkGoal(result, s3.goal);
     required<HTMLElement>(root, '[data-goal-feedback]').textContent = goal.ok
       ? 'Ziel, Prüfpunkte und Randfahrt sind erfüllt. Begründe jetzt eine relevante Spurstelle.'
@@ -145,16 +169,20 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
       const check = document.createElement('input');
       check.type = 'checkbox';
       check.value = String(step.step);
+      check.checked = selected.includes(step.step);
       const directions = { north: 'oben', east: 'rechts', south: 'unten', west: 'links' } as const;
       const iteration = step.iteration === null ? 'ohne Wiederholung' : `Durchlauf ${step.iteration}`;
       row.append(check, ` Schritt ${step.step}, Befehl ${step.commandId}, ${iteration}: (${step.before.position.column},${step.before.position.row}) → (${step.after.position.column},${step.after.position.row}), Blick ${directions[step.after.direction]}${step.error ? `, Fehler ${step.error}` : ''}`);
       fieldset.append(row);
     }
     trace.append(fieldset);
+  };
+  required<HTMLButtonElement>(root, '[data-run-code]').addEventListener('click', () => {
+    showTrace(code());
   });
 
   required<HTMLButtonElement>(root, '[data-save-evidence]').addEventListener('click', () => {
-    controller.recordP3Evidence(null, selectedTraceSteps(root), rationale.value);
+    controller.recordP3Evidence(controller.dossier().p3.evidence.predicted, selectedTraceSteps(root), rationale.value);
   });
   required<HTMLInputElement>(root, '[data-prediction]').addEventListener('input', (event) => {
     controller.setTransient({ prediction: (event.currentTarget as HTMLInputElement).value });
@@ -163,11 +191,16 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     button.addEventListener('click', () => {
       const phase = button.dataset.revision;
       if (phase !== 'before' && phase !== 'after') return;
-      controller.recordRevisionEvidence(phase, code, selectedTraceSteps(root), rationale.value);
+      controller.recordRevisionEvidence(phase, code(), selectedTraceSteps(root), rationale.value);
       const value = Number(required<HTMLInputElement>(root, '[data-first-deviation]').value);
       controller.setFirstDeviation(Number.isInteger(value) && value > 0 ? value : null);
     });
   }
+  const deviation = required<HTMLInputElement>(root, '[data-first-deviation]');
+  deviation.addEventListener('input', () => {
+    const value = Number(deviation.value);
+    controller.setFirstDeviation(Number.isInteger(value) && value > 0 ? value : null);
+  });
 
   const transferSequence = required<HTMLInputElement>(root, '[data-transfer-sequence]');
   const transferRationale = required<HTMLTextAreaElement>(root, '[data-transfer-rationale]');
@@ -178,7 +211,7 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
       .filter((value): value is 'aufnehmen' | 'prüfen' | 'ablegen' => allowed.has(value));
     controller.updateTransfer(sequence, transferRationale.value);
   };
-  transferSequence.addEventListener('change', saveTransfer);
+  transferSequence.addEventListener('input', saveTransfer);
   transferRationale.addEventListener('input', saveTransfer);
 
   const systemFields = [...root.querySelectorAll<HTMLTextAreaElement>('[data-system]')];
@@ -197,7 +230,7 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     openPoint: returnOpen.value,
     nextAction: returnNext.value,
   });
-  [returnArea, returnOpen, returnNext].forEach((field) => field.addEventListener('change', saveReturn));
+  [returnArea, returnOpen, returnNext].forEach((field) => field.addEventListener('input', saveReturn));
 
   required<HTMLButtonElement>(root, '[data-delete-work]').addEventListener('click', () => {
     if (window.confirm('Diesen lokalen M06-Arbeitsstand wirklich löschen?')) {
@@ -216,6 +249,56 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     if (file) await controller.importBytes(new Uint8Array(await file.arrayBuffer()));
     input.value = '';
   });
-  render();
+  const hydrate = () => {
+    const dossier = controller.dossier();
+    diagramExplanation.value = dossier.p3.diagram.explanation;
+    p1Explanation.value = dossier.p1.diagram.explanation;
+    deviation.value = dossier.p2.firstDeviation === null ? '' : String(dossier.p2.firstDeviation);
+    transferSequence.value = dossier.p5.sequence.join(', ');
+    transferRationale.value = dossier.p5.rationale;
+    for (const key of ['timeControl', 'routeCalculation', 'boundary'] as const) {
+      required<HTMLTextAreaElement>(root, `[data-system="${key}"]`).value = dossier.p6[key];
+    }
+    returnArea.value = dossier.returnNote.area;
+    returnOpen.value = dossier.returnNote.openPoint;
+    returnNext.value = dossier.returnNote.nextAction;
+    required<HTMLInputElement>(root, '[data-prediction]').value = controller.transient().prediction;
+    required<HTMLTextAreaElement>(root, '[data-m06-retrieval]').value = controller.transient().retrievalReason;
+    const evidence = dossier.p3.evidence;
+    if (evidence.program.length) showTrace(evidence.program, evidence.steps);
+    else {
+      required<HTMLElement>(root, '[data-trace-output]').replaceChildren();
+      required<HTMLElement>(root, '[data-goal-feedback]').textContent = 'Noch nicht ausgeführt.';
+    }
+    const predicted = evidence.predicted;
+    required<HTMLElement>(root, '[data-saved-prediction]').textContent = predicted
+      ? `Gesicherte Vorhersage: (${predicted.position.column},${predicted.position.row}), Blick ${
+        { north: 'oben', east: 'rechts', south: 'unten', west: 'links' }[predicted.direction]}.`
+      : 'Noch keine Vorhersage im Beleg gesichert.';
+    render();
+  };
+  const disabledBeforePreparation = new Map<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement, boolean>();
+  const project = (replacement: boolean) => {
+    if (replacement) hydrate();
+    else render();
+    root.dataset.reloadPreparing = String(controller.reloadPreparing());
+    if (controller.reloadPreparing()) {
+      for (const control of root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input, textarea, select, button')) {
+        if (control.matches('[data-export-work], [data-export-recovery], [data-copy-fallback-text]')) continue;
+        if (!disabledBeforePreparation.has(control)) disabledBeforePreparation.set(control, control.disabled);
+        control.disabled = true;
+      }
+    } else {
+      for (const [control, disabled] of disabledBeforePreparation) control.disabled = disabled;
+      disabledBeforePreparation.clear();
+    }
+  };
+  const unsubscribe = controller.subscribe(project);
+  const dispose = controller.dispose.bind(controller);
+  controller.dispose = () => { unsubscribe(); dispose(); };
+  project(true);
+  for (const { control, disabled } of startupControls) control.disabled = disabled;
+  root.inert = false;
+  root.setAttribute('aria-busy', 'false');
   return controller;
 }

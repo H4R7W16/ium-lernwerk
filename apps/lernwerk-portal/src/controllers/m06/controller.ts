@@ -60,7 +60,12 @@ export class M06Controller {
   #save: M06SaveState = { state: 'saved', message: 'Arbeitsstand geladen.' };
   #pendingImport = false;
   #disposed = false;
-  #listeners = new Set<() => void>();
+  #revision = 0;
+  #syncedRevision = -1;
+  #reloadPreparing = false;
+  #preparation = 0;
+  #operations = 0;
+  #listeners = new Set<(replacement: boolean) => void>();
 
   constructor(dossier: Dossier, runtime: M06RuntimePort) {
     const parsed = parseDossier(dossier);
@@ -81,27 +86,57 @@ export class M06Controller {
     return this.#save;
   }
 
-  subscribe(listener: () => void): () => void {
+  subscribe(listener: (replacement: boolean) => void): () => void {
     this.#listeners.add(listener);
     return () => this.#listeners.delete(listener);
   }
 
   #changed(message = 'Änderungen sind noch nicht gespeichert.'): void {
+    this.#revision += 1;
     this.#save = { state: 'changed', message };
-    this.#listeners.forEach((listener) => listener());
+    this.#notify();
+  }
+
+  #notify(replacement = false): void {
+    this.#listeners.forEach((listener) => listener(replacement));
+  }
+
+  reloadPreparing(): boolean {
+    return this.#reloadPreparing;
+  }
+
+  #syncCurrent(): boolean {
+    if (this.#syncedRevision === this.#revision) return true;
+    try {
+      const result = this.#runtime.replacePayload(cloneDossier(this.#dossier));
+      if (result && typeof result === 'object' && 'ok' in result && result.ok === false) {
+        this.#save = { state: 'unsaved', message: (result as Failure).error.message };
+        this.#notify();
+        return false;
+      }
+      this.#syncedRevision = this.#revision;
+      return true;
+    } catch {
+      this.#save = { state: 'unsaved', message: 'Der aktuelle Entwurf konnte nicht übernommen werden.' };
+      this.#notify();
+      return false;
+    }
   }
 
   setTransient(next: Partial<{ prediction: string; retrievalReason: string }>): void {
+    if (this.#reloadPreparing) return;
     this.#transient = { ...this.#transient, ...next };
-    this.#listeners.forEach((listener) => listener());
+    this.#notify();
   }
 
   updateReturnNote(value: Dossier['returnNote']): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = { ...this.#dossier, returnNote: structuredClone(value) };
     this.#changed();
   }
 
   updateDiagram(program: Program, explanation: string): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = {
       ...this.#dossier,
       p3: { ...this.#dossier.p3, diagram: { program: structuredClone(program), explanation } },
@@ -110,6 +145,7 @@ export class M06Controller {
   }
 
   updateDraftProgram(program: Program): void {
+    if (this.#reloadPreparing) return;
     const evidence = evidenceBelongsToProgram(this.#dossier.p3.evidence, program)
       ? this.#dossier.p3.evidence
       : { program: [], predicted: null, steps: [], rationale: '' } as const;
@@ -127,6 +163,7 @@ export class M06Controller {
     steps: readonly number[],
     rationale: string,
   ): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = {
       ...this.#dossier,
       p3: {
@@ -148,6 +185,7 @@ export class M06Controller {
     steps: readonly number[],
     rationale: string,
   ): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = {
       ...this.#dossier,
       p2: {
@@ -159,106 +197,168 @@ export class M06Controller {
   }
 
   setFirstDeviation(step: number | null): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = { ...this.#dossier, p2: { ...this.#dossier.p2, firstDeviation: step } };
     this.#changed();
   }
 
   updateTransfer(sequence: Dossier['p5']['sequence'], rationale: string): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = { ...this.#dossier, p5: { sequence: [...sequence], rationale } };
     this.#changed();
   }
 
   updateSystems(value: Dossier['p6']): void {
+    if (this.#reloadPreparing) return;
     this.#dossier = { ...this.#dossier, p6: structuredClone(value) };
     this.#changed();
   }
 
+  updateP1Diagram(program: Program, explanation: string): void {
+    if (this.#reloadPreparing) return;
+    this.#dossier = { ...this.#dossier, p1: { diagram: { program: structuredClone(program), explanation } } };
+    this.#changed();
+  }
+
+  updateP3Rationale(rationale: string): void {
+    if (this.#reloadPreparing) return;
+    this.#dossier = { ...this.#dossier,
+      p3: { ...this.#dossier.p3, evidence: { ...this.#dossier.p3.evidence, rationale } } };
+    this.#changed();
+  }
+
+  updateRevisionRationale(phase: 'before' | 'after', rationale: string): void {
+    if (this.#reloadPreparing) return;
+    this.#dossier = { ...this.#dossier, p2: { ...this.#dossier.p2,
+      [phase]: { ...this.#dossier.p2[phase], rationale } } };
+    this.#changed();
+  }
+
   async previewImport(bytes: Uint8Array): Promise<boolean> {
+    if (this.#reloadPreparing || this.#operations > 0) return false;
     const result = this.#runtime.previewImport(bytes);
     this.#pendingImport = result.ok;
     if (!result.ok) {
       this.#runtime.cancelImport();
       this.#save = { state: 'unsaved', message: result.error.message };
-      this.#listeners.forEach((listener) => listener());
+      this.#notify();
     }
     return result.ok;
   }
 
   async importBytes(bytes: Uint8Array): Promise<boolean> {
     if (!(await this.previewImport(bytes))) return false;
-    const result = await this.#runtime.confirmImport();
-    this.#pendingImport = false;
-    if (!result.ok) {
-      this.#runtime.cancelImport();
-      this.#save = { state: 'unsaved', message: result.error.message };
-      return false;
-    }
-    if (result.payload !== undefined) {
-      const parsed = parseDossier(result.payload);
-      if (!parsed.ok) {
+    if (this.#reloadPreparing) return false;
+    this.#operations += 1;
+    try {
+      const result = await this.#runtime.confirmImport();
+      this.#pendingImport = false;
+      if (!result.ok) {
         this.#runtime.cancelImport();
-        this.#save = { state: 'unsaved', message: 'Import enthält kein gültiges Prüfdossier.' };
+        this.#save = { state: 'unsaved', message: result.error.message };
+        this.#notify();
         return false;
       }
-      this.#dossier = parsed.value;
+      if (result.payload !== undefined) {
+        const parsed = parseDossier(result.payload);
+        if (!parsed.ok) {
+          this.#runtime.cancelImport();
+          this.#save = { state: 'unsaved', message: 'Import enthält kein gültiges Prüfdossier.' };
+          return false;
+        }
+        this.#dossier = parsed.value;
+      }
+      this.#revision += 1;
+      this.#syncedRevision = this.#revision;
+      this.#transient = { prediction: '', retrievalReason: '' };
+      this.#save = { state: 'saved', message: 'Importierter Arbeitsstand gespeichert.' };
+      this.#notify(true);
+      return true;
+    } finally {
+      this.#operations -= 1;
     }
-    this.#save = { state: 'saved', message: 'Importierter Arbeitsstand gespeichert.' };
-    this.#listeners.forEach((listener) => listener());
-    return true;
   }
 
   async flush(): Promise<boolean> {
-    const replaced = this.#runtime.replacePayload(cloneDossier(this.#dossier));
-    if (replaced && typeof replaced === 'object' && 'ok' in replaced && replaced.ok === false) {
-      const failure = replaced as Failure;
-      this.#save = { state: 'unsaved', message: failure.error.message };
-      this.#listeners.forEach((listener) => listener());
+    if (this.#reloadPreparing || this.#operations > 0 || !this.#syncCurrent()) return false;
+    const revision = this.#revision;
+    this.#operations += 1;
+    try {
+      const result = await this.#runtime.flush();
+      this.#save = !result.ok
+        ? { state: 'unsaved', message: result.error.message }
+        : revision === this.#revision
+          ? { state: 'saved', message: 'Arbeitsstand gespeichert.' }
+          : { state: 'changed', message: 'Weitere Änderungen sind noch nicht gespeichert.' };
+      this.#notify();
+      return result.ok;
+    } catch {
+      this.#save = { state: 'unsaved', message: 'Speichern fehlgeschlagen. Exportiere deinen aktuellen Entwurf.' };
+      this.#notify();
       return false;
+    } finally {
+      this.#operations -= 1;
     }
-    const result = await this.#runtime.flush();
-    this.#save = result.ok
-      ? { state: 'saved', message: 'Arbeitsstand gespeichert.' }
-      : { state: 'unsaved', message: result.error.message };
-    this.#listeners.forEach((listener) => listener());
-    return result.ok;
   }
 
   async deleteAllWork(): Promise<boolean> {
-    this.#runtime.cancelImport();
-    this.#pendingImport = false;
-    const result = await this.#runtime.deleteActive();
-    if (!result.ok) {
-      this.#save = { state: 'unsaved', message: result.error.message };
-      return false;
+    if (this.#reloadPreparing || this.#operations > 0) return false;
+    this.#operations += 1;
+    try {
+      this.#runtime.cancelImport();
+      this.#pendingImport = false;
+      const result = await this.#runtime.deleteActive();
+      if (!result.ok) {
+        this.#save = { state: 'unsaved', message: result.error.message };
+        return false;
+      }
+      this.#dossier = createInitialDossier();
+      this.#revision += 1;
+      this.#syncedRevision = -1;
+      this.#transient = { prediction: '', retrievalReason: '' };
+      this.#save = { state: 'saved', message: 'Arbeitsstand gelöscht.' };
+      this.#notify(true);
+      return true;
+    } finally {
+      this.#operations -= 1;
     }
-    this.#dossier = createInitialDossier();
-    this.#transient = { prediction: '', retrievalReason: '' };
-    this.#save = { state: 'saved', message: 'Arbeitsstand gelöscht.' };
-    this.#listeners.forEach((listener) => listener());
-    return true;
   }
 
   async exportWork(recovery = false): Promise<boolean> {
+    if (!recovery && !this.#syncCurrent()) return false;
     const action = recovery ? this.#runtime.exportRecovery : this.#runtime.exportState;
     if (!action) return false;
     const result = await action();
     if (!result.ok) {
       this.#save = { state: 'unsaved', message: result.error.message };
-      this.#listeners.forEach((listener) => listener());
+      this.#notify();
     }
     return result.ok;
   }
 
-  prepareForReload(): Promise<ReloadReadiness> {
-    return this.#runtime.prepareForReload();
+  async prepareForReload(): Promise<ReloadReadiness> {
+    if (this.#operations > 0) return { safe: false, reason: 'write-failed' };
+    if (!this.#reloadPreparing && !this.#syncCurrent()) return { safe: false, reason: 'write-failed' };
+    this.#reloadPreparing = true;
+    const preparation = this.#preparation;
+    this.#notify();
+    const result = await this.#runtime.prepareForReload();
+    return preparation === this.#preparation ? result : { safe: false, reason: 'readback-failed' };
   }
 
   releaseReloadPreparation(): void {
+    this.#preparation += 1;
     this.#runtime.releaseReloadPreparation?.();
+    this.#reloadPreparing = false;
+    this.#notify();
   }
 
   approveDiscardForReload(): void {
+    if (this.#operations > 0) return;
+    if (!this.#reloadPreparing) this.#syncCurrent();
     this.#runtime.approveDiscardForReload?.();
+    this.#reloadPreparing = true;
+    this.#notify();
   }
 
   dispose(): void {
@@ -301,7 +401,9 @@ export async function connectM06(
   const dossierPanel = root.querySelector<HTMLElement>('#mein-pruefdossier');
   const render = () => {
     if (status) {
-      status.textContent = controller.saveState().message;
+      status.textContent = controller.reloadPreparing()
+        ? 'Arbeitsstand wird für die Aktualisierung gesichert. Die Bearbeitung ist kurz gesperrt.'
+        : controller.saveState().message;
       status.dataset.saveState = controller.saveState().state;
     }
   };

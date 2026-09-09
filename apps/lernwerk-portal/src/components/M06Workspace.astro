@@ -8,7 +8,7 @@ interface Props {
 const { resources } = Astro.props;
 ---
 
-<section class="m06-workspace" data-m06-workspace aria-labelledby="m06-workspace-title">
+<section class="m06-workspace" data-m06-workspace data-reload-client="true" aria-labelledby="m06-workspace-title" inert aria-busy="true">
   <h2 id="m06-workspace-title" tabindex="-1">Prüffahrt im Raster</h2>
   <nav class="m06-area-nav" aria-label="Arbeitsbereiche">
     <a href="#auftrag-und-beispiel">Auftrag und Beispiel</a>
@@ -40,6 +40,18 @@ const { resources } = Astro.props;
 
   <section id="mein-pruefdossier" tabindex="-1" aria-labelledby="dossier-title">
     <h3 id="dossier-title">Mein Prüfdossier</h3>
+    <section aria-labelledby="p1-title">
+      <h4 id="p1-title">P1 · Meine ergänzte Ablaufgrafik</h4>
+      <pre class="m06-program" data-p1-output>Noch keine P1-Grafik angelegt.</pre>
+      <div class="m06-command-row" data-editor="p1">
+        <button type="button" data-add="move">P1: Vorwärts ergänzen</button>
+        <button type="button" data-add="turn-left">P1: Linksdrehung ergänzen</button>
+        <button type="button" data-add="turn-right">P1: Rechtsdrehung ergänzen</button>
+        <button type="button" data-clear>P1-Grafik leeren</button>
+      </div>
+      <label for="m06-p1-explanation">Erklärung meiner P1-Grafik</label>
+      <textarea id="m06-p1-explanation" rows="3" data-p1-explanation></textarea>
+    </section>
     <div class="m06-editor-grid">
       <article aria-labelledby="diagram-title">
         <h4 id="diagram-title">Eigene Ablaufgrafik</h4>
@@ -110,6 +122,7 @@ const { resources } = Astro.props;
       <button type="button" data-run-code>Code ausführen und Spur anzeigen</button>
       <p data-goal-feedback role="status">Noch nicht ausgeführt.</p>
       <div data-trace-output></div>
+      <p data-saved-prediction></p>
       <label for="m06-rationale">Begründung der Prüffahrt</label>
       <textarea id="m06-rationale" rows="4" data-rationale></textarea>
       <button type="button" data-save-evidence>Ausgewählte Spur zum Entwurf sichern</button>
@@ -117,6 +130,14 @@ const { resources } = Astro.props;
 
     <section aria-labelledby="revision-title">
       <h4 id="revision-title">Revision</h4>
+      {(['before', 'after'] as const).map((phase) => (
+        <section aria-label={phase === 'before' ? 'Gesicherter Vorherbeleg' : 'Gesicherter Nachherbeleg'}>
+          <h5>{phase === 'before' ? 'Vorher' : 'Nachher'}</h5>
+          <pre class="m06-program" data-revision-output={phase}>Noch kein Vergleichsbeleg gesichert.</pre>
+          <label for={`m06-revision-${phase}`}>{phase === 'before' ? 'Begründung des Vorherbelegs' : 'Begründung des Nachherbelegs'}</label>
+          <textarea id={`m06-revision-${phase}`} data-revision-rationale={phase} rows="3"></textarea>
+        </section>
+      ))}
       <label for="m06-first-deviation">Erste fachliche Abweichung</label>
       <input id="m06-first-deviation" type="number" min="1" max="100" data-first-deviation />
       <div class="m06-command-row">
