@@ -3,10 +3,10 @@
   "projectId": "ium-lernwerk",
   "moduleId": "V2-G5-M06",
   "moduleVersion": "0.1.0",
-  "candidateCommit": null,
+  "candidateCommit": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
   "verification": {
-    "runId": "na06-local-final",
-    "baseRevision": "a935a6710e22d57e0775ca3100bd13f46f6c69b4",
+    "runId": "na06-candidate-6e0a8ac",
+    "baseRevision": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
     "summary": "reports/v2-m06/summary.json",
     "status": "passed",
     "steps": { "total": 20, "passed": 20, "failed": 0 }

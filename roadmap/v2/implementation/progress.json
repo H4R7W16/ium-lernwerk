@@ -447,51 +447,33 @@
     {
       "id": "IMP08",
       "state": "in_progress",
-      "candidateCommit": "81dded6ec41fbdfce63af951967b1b531c720022",
+      "candidateCommit": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
       "checks": [
         {
           "id": "m06-orchestrator",
           "command": "npm run verify:v2:m06",
-          "exitCode": 1,
-          "scope": "synthetic-contract",
-          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
-          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
-          "summary": "18 Schritte auf Kandidat 81dded6 ausgeführt: 8 bestanden, 10 mit konkret dokumentierten offenen Befunden fehlgeschlagen."
-        },
-        {
-          "id": "focused-platform",
-          "command": "npx vitest run tests/platform/pages-workflow.test.ts tests/platform/pwa-contract.test.ts",
           "exitCode": 0,
           "scope": "synthetic-contract",
-          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
-          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
-          "summary": "7 fokussierte CI- und PWA-Vertragstests bestanden."
+          "baseCommit": "a935a6710e22d57e0775ca3100bd13f46f6c69b4",
+          "treeDigest": "14170125b0ae737cb464bffdaef808a7e279a41f547603e34803887d91d5103a",
+          "summary": "Commitgebundener NA06-Lauf na06-candidate-6e0a8ac: 20 von 20 M06-Schritten bestanden, darin die vollständige V1-Verifikation mit 24 von 24 Schritten."
         },
         {
-          "id": "browser-workbench-self-contained",
-          "command": "npm run test:v2:m06:workbench",
-          "exitCode": 1,
-          "scope": "synthetic-contract",
-          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
-          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
-          "summary": "Selbstverwalteter Preview beendet sauber; 8 Chromium-/WebKit-Fälle bestanden, 4 Firefox-Runnerfälle fehlgeschlagen."
-        },
-        {
-          "id": "build-profiles",
-          "command": "npm run build:v2:subpath; npm run build:v2",
+          "id": "dashboard-contract",
+          "command": "npm run test:dashboard",
           "exitCode": 0,
           "scope": "synthetic-contract",
-          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
-          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
-          "summary": "Root- und Subpath-Build bestanden; Root-Artefakt mit 20 Dateien und Sammeldigest e429cc71c4ac27e51bae55b525f8d6abaf21cd249df1dc2d13b2967aa4b02878."
+          "baseCommit": "a935a6710e22d57e0775ca3100bd13f46f6c69b4",
+          "treeDigest": "14170125b0ae737cb464bffdaef808a7e279a41f547603e34803887d91d5103a",
+          "summary": "41 von 41 Dashboardtests bestanden; Autorisierung IMP01 bis IMP08 und offene Pilotgrenzen werden fail-closed projiziert."
         },
         {
           "id": "development-contract",
           "command": "npm run verify:v2:implementation",
           "exitCode": 0,
           "scope": "synthetic-contract",
-          "baseCommit": "1224f0a430c329b3377f49e1ad797d1d78327670",
-          "treeDigest": "6c698a11b0ac28e78fca326d237fde750f9a98f88994a5adc42b28cbb51ed31c",
+          "baseCommit": "a935a6710e22d57e0775ca3100bd13f46f6c69b4",
+          "treeDigest": "14170125b0ae737cb464bffdaef808a7e279a41f547603e34803887d91d5103a",
           "summary": "IMP01 bis IMP08 autorisiert; Nutzung, Pilot und Veröffentlichung geschlossen."
         }
       ],
