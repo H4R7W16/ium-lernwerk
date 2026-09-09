@@ -3,56 +3,491 @@
   "projectId": "ium-lernwerk",
   "moduleId": "V2-G5-M06",
   "moduleVersion": "0.1.0",
-  "candidateCommit": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
+  "candidateCommit": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
   "verification": {
-    "runId": "na06-candidate-6e0a8ac",
-    "baseRevision": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
-    "summary": "reports/v2-m06/summary.json",
+    "runId": "na08-final-b6b1089",
+    "baseRevision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+    "summary": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/summary.json",
+    "identity": {
+      "schemaVersion": 1,
+      "runId": "na08-final-b6b1089",
+      "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+      "node": "v22.23.2",
+      "npm": "10.9.8",
+      "startedAt": "2026-09-09T17:16:22.280Z",
+      "directory": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484",
+      "sourceRevision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+      "sourceTree": "f0a3137aa23c6271930c5cc699537e93de30ee89",
+      "worktreeStatus": "",
+      "lockfileSha256": "a0f367db264a38e38d600e7fee1c65f620c2a49882fc79aa2693bff8f8ae340d"
+    },
     "status": "passed",
-    "steps": { "total": 20, "passed": 20, "failed": 0 }
+    "steps": {
+      "total": 21,
+      "passed": 21,
+      "failed": 0
+    },
+    "browserGroups": [
+      {
+        "label": "tests/browser/accessibility.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "2453b8f2c807295a93282881d26cc986e7249c6eb9eefb748d0c0eebabfc6bb5",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/fixture-b98b851c-ca49-4a53-927f-f8e86058a0c8/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-accessibility-spec-ts-17afbd34-15d1-445d-8444-a06b160a8d86/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-accessibility-spec-ts-17afbd34-15d1-445d-8444-a06b160a8d86/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-accessibility-spec-ts-17afbd34-15d1-445d-8444-a06b160a8d86/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:36:25.872Z",
+          "duration": 10332.905999999999,
+          "expected": 12,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/ium5-accessibility.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "ca77e68133f2ae63e301d2daaa2b671e1d524d4123f812d4b1325d3ba5d9a1b2",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/production-73b89ec6-d017-4d5e-8be2-83be8cb4ae91/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-accessibility-spec-ts-e10af4e4-5fc9-4cfe-82da-5bb89589bbf0/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-accessibility-spec-ts-e10af4e4-5fc9-4cfe-82da-5bb89589bbf0/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-accessibility-spec-ts-e10af4e4-5fc9-4cfe-82da-5bb89589bbf0/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:39:13.502Z",
+          "duration": 12350.706999999999,
+          "expected": 12,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/ium5-offline.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "ca77e68133f2ae63e301d2daaa2b671e1d524d4123f812d4b1325d3ba5d9a1b2",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/production-1ff2a3a7-021c-46aa-bba8-5b119723d047/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-offline-spec-ts-532d6fbf-feb9-41f5-8278-6a90994ef981/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-offline-spec-ts-532d6fbf-feb9-41f5-8278-6a90994ef981/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-offline-spec-ts-532d6fbf-feb9-41f5-8278-6a90994ef981/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:38:34.479Z",
+          "duration": 24053.549,
+          "expected": 3,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/ium5-state.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "ca77e68133f2ae63e301d2daaa2b671e1d524d4123f812d4b1325d3ba5d9a1b2",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/production-e4b8cacb-90f3-4dda-b612-c59685a35d43/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-state-spec-ts-e36c137f-c200-43bf-8c81-4d5386814d39/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-state-spec-ts-e36c137f-c200-43bf-8c81-4d5386814d39/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-state-spec-ts-e36c137f-c200-43bf-8c81-4d5386814d39/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:38:13.039Z",
+          "duration": 6983.82,
+          "expected": 5,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/ium5-workbench.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "ca77e68133f2ae63e301d2daaa2b671e1d524d4123f812d4b1325d3ba5d9a1b2",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/production-32fe2133-aea8-42ef-9cf8-29131062814f/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-workbench-spec-ts-45575dd2-6c7f-45bb-b6d3-2291ae994aff/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-workbench-spec-ts-45575dd2-6c7f-45bb-b6d3-2291ae994aff/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-ium5-workbench-spec-ts-45575dd2-6c7f-45bb-b6d3-2291ae994aff/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:36:50.905Z",
+          "duration": 67416.113,
+          "expected": 39,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/offline.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "2453b8f2c807295a93282881d26cc986e7249c6eb9eefb748d0c0eebabfc6bb5",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/fixture-32b172dc-8566-4ff7-bf23-80e72905c885/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-offline-spec-ts-ac316fd9-6baf-42b0-ac51-7c0d24477656/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-offline-spec-ts-ac316fd9-6baf-42b0-ac51-7c0d24477656/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-offline-spec-ts-ac316fd9-6baf-42b0-ac51-7c0d24477656/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:35:40.476Z",
+          "duration": 30774.44,
+          "expected": 5,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/platform.spec.ts",
+        "stepId": "v1-integration",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "2453b8f2c807295a93282881d26cc986e7249c6eb9eefb748d0c0eebabfc6bb5",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/fixture-0ed067a8-0b0c-467a-b033-1b360d54ce74/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-platform-spec-ts-1eb9a27a-f46a-4f7b-a155-3978b8c3de23/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-platform-spec-ts-1eb9a27a-f46a-4f7b-a155-3978b8c3de23/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-platform-spec-ts-1eb9a27a-f46a-4f7b-a155-3978b8c3de23/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:34:57.493Z",
+          "duration": 25578.125,
+          "expected": 18,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/v2-m06-accessibility.spec.ts",
+        "stepId": "browser-accessibility",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "845392cfa689df0e57e6094d34294a515d4c0cce29c424341db147c9493be4a0",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/v2-development-2214b4b3-00dd-4efe-9786-7026fbe35632/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-accessibility-spec-ts-ca3c8ece-a756-418e-ac8b-b27261e80c6a/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-accessibility-spec-ts-ca3c8ece-a756-418e-ac8b-b27261e80c6a/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-accessibility-spec-ts-ca3c8ece-a756-418e-ac8b-b27261e80c6a/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:28:36.393Z",
+          "duration": 40832.85,
+          "expected": 24,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/v2-m06-offline.spec.ts",
+        "stepId": "browser-offline",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "845392cfa689df0e57e6094d34294a515d4c0cce29c424341db147c9493be4a0",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/v2-development-e9e00806-3ed5-4344-a84f-1a1ed98e36e7/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-offline-spec-ts-697d8e19-89fc-4236-a024-01655ad3e20f/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-offline-spec-ts-697d8e19-89fc-4236-a024-01655ad3e20f/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-offline-spec-ts-697d8e19-89fc-4236-a024-01655ad3e20f/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:29:31.846Z",
+          "duration": 19564.64,
+          "expected": 9,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/v2-m06-state.spec.ts",
+        "stepId": "browser-state",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "845392cfa689df0e57e6094d34294a515d4c0cce29c424341db147c9493be4a0",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/v2-development-14f83d49-2fb2-42cd-8e1e-b0e3a865530a/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-state-spec-ts-0e441023-2f74-40f8-981a-eaa1acfc79f1/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-state-spec-ts-0e441023-2f74-40f8-981a-eaa1acfc79f1/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-state-spec-ts-0e441023-2f74-40f8-981a-eaa1acfc79f1/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:26:02.523Z",
+          "duration": 138669.96,
+          "expected": 51,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/v2-m06-workbench.spec.ts",
+        "stepId": "browser-workbench",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "845392cfa689df0e57e6094d34294a515d4c0cce29c424341db147c9493be4a0",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/v2-development-05715ecc-eb72-4ea9-9cc0-15e3446ec290/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-workbench-spec-ts-2f0068b8-ebf6-48ce-929c-8ec28f7a64cb/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-workbench-spec-ts-2f0068b8-ebf6-48ce-929c-8ec28f7a64cb/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-m06-workbench-spec-ts-2f0068b8-ebf6-48ce-929c-8ec28f7a64cb/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:24:32.441Z",
+          "duration": 74056.469,
+          "expected": 33,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/v2-storage.spec.ts",
+        "stepId": "browser-runtime",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "2453b8f2c807295a93282881d26cc986e7249c6eb9eefb748d0c0eebabfc6bb5",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/fixture-007d3f90-fe98-4869-b9b9-0352c8ddb85d/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-storage-spec-ts-5a75ef5e-ea77-418f-b71c-85132d796d05/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-storage-spec-ts-5a75ef5e-ea77-418f-b71c-85132d796d05/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-storage-spec-ts-5a75ef5e-ea77-418f-b71c-85132d796d05/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:30:06.793Z",
+          "duration": 9950.449,
+          "expected": 8,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "label": "tests/browser/v2-update.spec.ts",
+        "stepId": "browser-update",
+        "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+        "buildSha256": "2453b8f2c807295a93282881d26cc986e7249c6eb9eefb748d0c0eebabfc6bb5",
+        "buildManifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/fixture-6cc0804c-e903-43ed-a5e5-63ec60d7c5d8/manifest.json",
+        "group": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-update-spec-ts-68868244-012d-4f83-9df7-7403986e978b/group.json",
+        "results": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-update-spec-ts-68868244-012d-4f83-9df7-7403986e978b/results.json",
+        "artifacts": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser/tests-browser-v2-update-spec-ts-68868244-012d-4f83-9df7-7403986e978b/test-results",
+        "stats": {
+          "startTime": "2026-09-09T17:30:31.538Z",
+          "duration": 35257.003000000004,
+          "expected": 2,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      }
+    ]
   },
   "build": {
     "profile": "v2-development",
+    "root": {
+      "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+      "sourceRevision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+      "profile": "v2-development",
+      "base": "/",
+      "stepId": "build-root",
+      "sha256": "845392cfa689df0e57e6094d34294a515d4c0cce29c424341db147c9493be4a0",
+      "manifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/v2-development-c7f3bf23-6e16-4ead-a964-431a2ec20a6d/manifest.json",
+      "fileCount": 31
+    },
+    "subpath": {
+      "revision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+      "sourceRevision": "b6b1089c9d900f1a3ba48d8df4b17fa5688c9f85",
+      "profile": "v2-development",
+      "base": "/ium-lernwerk/",
+      "stepId": "build-subpath",
+      "sha256": "a0457a105b438537bd8a331101f584ca4f5239beb47aa4aedd618a2c2312c676",
+      "manifest": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/builds/v2-development-244ee910-bcd9-4f20-9ddd-71ac5b7d15ce/manifest.json",
+      "fileCount": 31
+    },
+    "sha256": "845392cfa689df0e57e6094d34294a515d4c0cce29c424341db147c9493be4a0",
     "rootBase": "/",
     "subpathBase": "/ium-lernwerk/",
-    "sha256": "e429cc71c4ac27e51bae55b525f8d6abaf21cd249df1dc2d13b2967aa4b02878"
+    "allManifestsVerified": 56,
+    "archiveValidation": "all file bytes and canonical digests independently recomputed"
   },
   "toolchain": {
-    "ci": { "node": "22.23.2", "npm": "10.9.8" },
-    "localObserved": { "node": "22.23.2", "npm": "10.9.8", "matchesCi": true }
+    "ci": {
+      "node": "22.23.2",
+      "npm": "10.9.8"
+    },
+    "localObserved": {
+      "node": "22.23.2",
+      "npm": "10.9.8",
+      "matchesCi": true
+    }
   },
   "syntheticResults": [
-    { "id": "contracts", "exitCode": 0, "summary": "Vertragstypen erzeugt und bytegleich geprüft." },
-    { "id": "boundaries", "exitCode": 0, "summary": "Grenzen für acht Workspaces bestanden." },
-    { "id": "typecheck", "exitCode": 0, "summary": "TypeScript-Projekte fehlerfrei geprüft." },
-    { "id": "astro", "exitCode": 0, "summary": "27 Astro-Dateien ohne Fehler, Warnungen oder Hinweise geprüft." },
-    { "id": "platform", "exitCode": 0, "summary": "229 Plattformtests in 33 Dateien bestanden." },
-    { "id": "python", "exitCode": 0, "summary": "1028 Python-Tests bestanden." },
-    { "id": "v2-historical-activation", "exitCode": 0, "summary": "Historische Aktivierung an 150deea22ba9bcf3170915bb4b24852d376f6a8b unverändert gültig." },
-    { "id": "v2-development", "exitCode": 0, "summary": "IMP01 bis IMP08 autorisiert; Nutzung, Pilot und Veröffentlichung geschlossen." },
-    { "id": "v2-registry", "exitCode": 0, "summary": "V2-Registry fehlerfrei erzeugt." },
-    { "id": "m06-materials", "exitCode": 0, "summary": "10 Materialien, 4 Hilfen, 22 Segmente und 225 Minuten gültig." },
-    { "id": "build-subpath", "exitCode": 0, "summary": "V2-Entwicklungskandidat unter /ium-lernwerk/ gebaut." },
-    { "id": "build-root", "exitCode": 0, "summary": "V2-Entwicklungskandidat unter / gebaut." },
-    { "id": "browser-workbench", "exitCode": 0, "summary": "33 M06-Workbenchfälle in Chromium, Firefox und WebKit bestanden." },
-    { "id": "browser-state", "exitCode": 0, "summary": "45 Zustands-, Import-, Recovery- und Konfliktfälle in drei Browsern bestanden." },
-    { "id": "browser-accessibility", "exitCode": 0, "summary": "24 Axe-, Tastatur-, Touch-, Reflow- und 44-px-Fälle in drei Browsern bestanden." },
-    { "id": "browser-offline", "exitCode": 0, "summary": "9 Offlinefälle bestanden; WebKit unter Windows mit echtem Serverausfall und allen elf Materialrouten." },
-    { "id": "browser-runtime", "exitCode": 0, "summary": "8 Profil-, Quota-, CAS-, Lösch- und Recoveryfälle bestanden." },
-    { "id": "browser-update", "exitCode": 0, "summary": "2 Mehrclient- und defekte-Kandidat-Updatefälle bestanden." },
-    { "id": "licenses", "exitCode": 0, "summary": "645 installierte Projektpakete gegen 766 Lockfile-SBOM-Komponenten geprüft; keine ungültigen Lizenzen." },
-    { "id": "v1-integration", "exitCode": 0, "summary": "Vollständige V1-Verifikation mit 24 von 24 Schritten bestanden." }
+    {
+      "id": "contracts",
+      "exitCode": 0,
+      "summary": "contracts:check",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/contracts.log"
+    },
+    {
+      "id": "boundaries",
+      "exitCode": 0,
+      "summary": "boundaries:check",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/boundaries.log"
+    },
+    {
+      "id": "typecheck",
+      "exitCode": 0,
+      "summary": "typecheck",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/typecheck.log"
+    },
+    {
+      "id": "astro",
+      "exitCode": 0,
+      "summary": "check:astro",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/astro.log"
+    },
+    {
+      "id": "platform",
+      "exitCode": 0,
+      "summary": "test:platform",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/platform.log"
+    },
+    {
+      "id": "python",
+      "exitCode": 0,
+      "summary": "test:python",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/python.log"
+    },
+    {
+      "id": "v2-historical-activation",
+      "exitCode": 0,
+      "summary": "verify:v2:activation:historical",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/v2-historical-activation.log"
+    },
+    {
+      "id": "v2-development",
+      "exitCode": 0,
+      "summary": "verify:v2:implementation",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/v2-development.log"
+    },
+    {
+      "id": "v2-registry",
+      "exitCode": 0,
+      "summary": "registry:v2",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/v2-registry.log"
+    },
+    {
+      "id": "m06-materials",
+      "exitCode": 0,
+      "summary": "M06 material contract",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/m06-materials.log"
+    },
+    {
+      "id": "build-subpath",
+      "exitCode": 0,
+      "summary": "build:v2:subpath",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/build-subpath.log"
+    },
+    {
+      "id": "build-root",
+      "exitCode": 0,
+      "summary": "build:v2",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/build-root.log"
+    },
+    {
+      "id": "evidence-retention",
+      "exitCode": 0,
+      "summary": "Early browser failure survives subsequent successful group",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/evidence-retention.log"
+    },
+    {
+      "id": "browser-workbench",
+      "exitCode": 0,
+      "summary": "test:v2:m06:workbench",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser-workbench.log"
+    },
+    {
+      "id": "browser-state",
+      "exitCode": 0,
+      "summary": "test:v2:m06:state",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser-state.log"
+    },
+    {
+      "id": "browser-accessibility",
+      "exitCode": 0,
+      "summary": "test:v2:m06:accessibility",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser-accessibility.log"
+    },
+    {
+      "id": "browser-offline",
+      "exitCode": 0,
+      "summary": "test:v2:m06:offline",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser-offline.log"
+    },
+    {
+      "id": "browser-runtime",
+      "exitCode": 0,
+      "summary": "V2 profile, quota, CAS and recovery paths",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser-runtime.log"
+    },
+    {
+      "id": "browser-update",
+      "exitCode": 0,
+      "summary": "V2 multi-client update paths",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/browser-update.log"
+    },
+    {
+      "id": "licenses",
+      "exitCode": 0,
+      "summary": "quality:licenses",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/licenses.log"
+    },
+    {
+      "id": "v1-integration",
+      "exitCode": 0,
+      "summary": "verify:ium5",
+      "log": "reports/v2-m06/runs/na08-final-b6b1089-1a6f1e4b-aa15-41b8-a0f0-e52898f13484/v1-integration.log"
+    }
   ],
   "resolvedFindings": [
-    { "id": "IMP08-F01", "resolution": "NA01–NA03 binden P3, Import und Wiederaufnahme an geprüfte Läufe und sichere Zustandsübergänge." },
-    { "id": "IMP08-F02", "resolution": "NA05 erfüllt das 44-px-Ziel im vollständigen Zustandsinventar." },
-    { "id": "IMP08-F03", "resolution": "Windows-Firefox startet mit MOZ_DISABLE_CONTENT_SANDBOX; alle vorgesehenen Firefoxfälle bestehen." },
-    { "id": "IMP08-F04", "resolution": "Service-Worker-Antwortwerte werden vor resolve direkt typgeprüft; Astro ist fehlerfrei." },
-    { "id": "IMP08-F05", "resolution": "WebKit-Windows wird durch echten Serverstopp statt defektem Playwright-Offlinetoggle geprüft." },
-    { "id": "IMP08-F06", "resolution": "CI- und Plattformvertrag stimmen auf fünf Jobs und Node 22.23.2 überein." },
-    { "id": "IMP08-F07", "resolution": "Historische Aktivierung und aktueller Entwicklungsstand werden getrennt geprüft; der alte AUD-Digest bleibt unverändert und als historisch veraltet sichtbar." },
-    { "id": "IMP08-F08", "resolution": "Lockfile-SBOM läuft unter der Zieltoolchain und grenzt fremde Laufzeitpakete außerhalb des Repositorys aus." },
-    { "id": "IMP08-F09", "resolution": "Validator- und Dashboardfixtures bilden die autorisierte Paketfolge IMP01–IMP08 ab." }
+    {
+      "id": "IMP08-F01",
+      "resolution": "NA01â€“NA03 binden P3, Import und Wiederaufnahme an geprÃ¼fte LÃ¤ufe und sichere ZustandsÃ¼bergÃ¤nge."
+    },
+    {
+      "id": "IMP08-F02",
+      "resolution": "NA05 erfÃ¼llt das 44-px-Ziel im vollstÃ¤ndigen Zustandsinventar."
+    },
+    {
+      "id": "IMP08-F03",
+      "resolution": "Windows-Firefox startet mit MOZ_DISABLE_CONTENT_SANDBOX; alle vorgesehenen FirefoxfÃ¤lle bestehen."
+    },
+    {
+      "id": "IMP08-F04",
+      "resolution": "Service-Worker-Antwortwerte werden vor resolve direkt typgeprÃ¼ft; Astro ist fehlerfrei."
+    },
+    {
+      "id": "IMP08-F05",
+      "resolution": "WebKit-Windows wird durch echten Serverstopp statt defektem Playwright-Offlinetoggle geprÃ¼ft."
+    },
+    {
+      "id": "IMP08-F06",
+      "resolution": "CI- und Plattformvertrag stimmen auf fÃ¼nf Jobs und Node 22.23.2 Ã¼berein."
+    },
+    {
+      "id": "IMP08-F07",
+      "resolution": "Historische Aktivierung und aktueller Entwicklungsstand werden getrennt geprÃ¼ft; der alte AUD-Digest bleibt unverÃ¤ndert und als historisch veraltet sichtbar."
+    },
+    {
+      "id": "IMP08-F08",
+      "resolution": "Lockfile-SBOM lÃ¤uft unter der Zieltoolchain und grenzt fremde Laufzeitpakete auÃŸerhalb des Repositorys aus."
+    },
+    {
+      "id": "IMP08-F09",
+      "resolution": "Validator- und Dashboardfixtures bilden die autorisierte Paketfolge IMP01â€“IMP08 ab."
+    },
+    {
+      "id": "NA07-F01",
+      "resolution": "always() auf Jobebene verhindert das Ãœberspringen nach VorgÃ¤ngerfehler; lokaler Workflowvertrag geprÃ¼ft, externer CI-Lauf nicht ausgefÃ¼hrt."
+    },
+    {
+      "id": "NA07-F02",
+      "resolution": "Eigene Lauf-/Browserverzeichnisse und JSON-Einzelergebnisse; frÃ¼her Fehlertrace nach spÃ¤terem Erfolg erhalten. Kurze Windows-Pfade zusÃ¤tzlich je Gruppe archiviert."
+    },
+    {
+      "id": "NA07-F03",
+      "resolution": "Sauberes npm ci; Root, Unterpfad und tatsÃ¤chliche Browserbuilds archiviert und nachgehasht. Alter kopierter Hash ausschlieÃŸlich historisch erhalten."
+    },
+    {
+      "id": "NA07-F04",
+      "resolution": "Curriculumrecords nach angenommenem Design Abschnitt 4, MAT-01â€“10 nach content.json berichtigt; Coverage bleibt unassessed."
+    },
+    {
+      "id": "NA07-F05",
+      "resolution": "UngÃ¼ltige Anzahlen vor Dossiermutation mit FeldrÃ¼ckmeldung abgewiesen; gÃ¼ltige Nachbararbeit speicher-/exportierbar, Korrektur und Reload in drei Browsern bestanden."
+    }
   ],
   "openFindings": [],
   "historicalAudit": {
@@ -63,7 +498,13 @@
   "realVerificationHandoff": {
     "state": "not-run",
     "candidateRevision": null,
-    "requiredProfiles": ["Z-DESKTOP", "Z-TABLET", "Z-ASSISTIVE", "Z-NETWORK", "Z-LMS"],
+    "requiredProfiles": [
+      "Z-DESKTOP",
+      "Z-TABLET",
+      "Z-ASSISTIVE",
+      "Z-NETWORK",
+      "Z-LMS"
+    ],
     "roles": {
       "operator": null,
       "schoolApproval": null,
@@ -81,11 +522,26 @@
       "lmsPath": null
     },
     "schedule": [
-      { "session": 1, "minutes": 45 },
-      { "session": 2, "minutes": 45 },
-      { "session": 3, "minutes": 45 },
-      { "session": 4, "minutes": 45 },
-      { "session": 5, "minutes": 45 }
+      {
+        "session": 1,
+        "minutes": 45
+      },
+      {
+        "session": 2,
+        "minutes": 45
+      },
+      {
+        "session": 3,
+        "minutes": 45
+      },
+      {
+        "session": 4,
+        "minutes": 45
+      },
+      {
+        "session": 5,
+        "minutes": 45
+      }
     ],
     "materialRights": {
       "manifest": "modules-v2/V2-G5-M06/rights.json",
@@ -108,5 +564,66 @@
     "push": "not-authorized",
     "merge": "not-authorized",
     "finalReview": "separate-step"
+  },
+  "historicalVerification": [
+    {
+      "evidenceCommit": "420650af5e653f7fd60c28caac1a31d167aa65a7",
+      "candidateCommit": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
+      "verification": {
+        "runId": "na06-candidate-6e0a8ac",
+        "baseRevision": "6e0a8aca815632b3a165beabfdc1e1c156dbf77f",
+        "summary": "reports/v2-m06/summary.json",
+        "status": "passed",
+        "steps": {
+          "total": 20,
+          "passed": 20,
+          "failed": 0
+        }
+      },
+      "build": {
+        "profile": "v2-development",
+        "rootBase": "/",
+        "subpathBase": "/ium-lernwerk/",
+        "sha256": "e429cc71c4ac27e51bae55b525f8d6abaf21cd249df1dc2d13b2967aa4b02878"
+      },
+      "buildBinding": "rejected-by-NA07-F03; old hash preserved as historical only"
+    },
+    {
+      "runId": "na07-review-420650a",
+      "revision": "420650af5e653f7fd60c28caac1a31d167aa65a7",
+      "steps": {
+        "total": 20,
+        "passed": 19,
+        "failed": 1
+      },
+      "status": "failed",
+      "failedStep": "build-root",
+      "separateUnchangedRootRetry": "passed"
+    }
+  ],
+  "cleanInstallation": {
+    "schemaVersion": 1,
+    "node": "22.23.2",
+    "npm": "10.9.8",
+    "lockfileSha256": "a0f367db264a38e38d600e7fee1c65f620c2a49882fc79aa2693bff8f8ae340d",
+    "isolated": {
+      "directory": "../../_Transfer/ium-na08-clean",
+      "nodeModulesInitiallyAbsent": true,
+      "command": "npm ci --cache ../ium-na08-npm-cache --no-audit --no-fund",
+      "exitCode": 0,
+      "packagesAdded": 658,
+      "log": "../../_Transfer/ium-na08-clean-install-retry.log"
+    },
+    "candidateRepository": {
+      "command": "npm ci --offline --cache ../../_Transfer/ium-na08-npm-cache --no-audit --no-fund",
+      "exitCode": 0,
+      "packagesAdded": 658,
+      "log": "reports/na08-repo-clean-install.log"
+    },
+    "initialSandboxAttempt": {
+      "exitCode": 1,
+      "cause": "Registry EACCES; successful authorized retry follows",
+      "log": "../../_Transfer/ium-na08-clean-install.log"
+    }
   }
 }
