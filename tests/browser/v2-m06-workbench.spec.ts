@@ -5,6 +5,111 @@ import { readFile } from 'node:fs/promises';
 
 const moduleUrl = '/module/v2-g5-m06/';
 
+test('NA04 opens S0 and S1 from their own starts and exposes S2 cause separately from boundary', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await expect(page.locator('[data-case="S0"]')).toContainText('3 × 3');
+  await expect(page.locator('[data-case="S0"]')).toContainText('Blick oben');
+  await page.locator('[data-example-next="S0"]').click();
+  await expect(page.locator('[data-example-trace="S0"]')).toContainText('(1,3) → (1,2)');
+  await expect(page.locator('[data-case="S1"]')).toContainText('(2,3)');
+  await page.locator('[data-example-next="S1"]').click();
+  await expect(page.locator('[data-example-trace="S1"]')).toContainText('(2,3) → (3,3)');
+  await page.locator('[data-load-s2]').click();
+  await predict(page, '4', '3', 'east');
+  await page.locator('[data-run-code]').click();
+  await expect(page.locator('[data-trace-output]')).toContainText('Schritt 3');
+  await page.locator('[data-compare-s2]').click();
+  await expect(page.locator('[data-s2-comparison]')).toContainText('Erste fachliche Abweichung: Aktion 2');
+  await expect(page.locator('[data-s2-comparison]')).toContainText('Rastergrenze: Aktion 3');
+  await page.locator('[data-trace-output] input[value="2"]').check();
+  await page.locator('[data-rationale]').fill('Drehung steht außerhalb des Körpers.');
+  await page.locator('[data-first-deviation]').fill('2');
+  await page.locator('[data-revision="before"]').click();
+  await page.locator('[data-editor="code"] [data-clear]').click();
+  await page.locator('#m06-repeat-count').fill('4');
+  await page.locator('[data-repeat-body]').nth(0).selectOption('move');
+  await page.locator('[data-repeat-body]').nth(1).selectOption('turn-left');
+  await page.locator('[data-add-repeat]').click();
+  await predict(page, '2', '3', 'east');
+  await page.locator('[data-run-code]').click();
+  await page.locator('[data-trace-output] input[value="2"]').check();
+  await page.locator('[data-rationale]').fill('vor und links stehen nun im selben Körper.');
+  await page.locator('[data-revision="after"]').click();
+  const dossier = await exportedDossier(page);
+  expect(dossier.p2.before.program).toHaveLength(2);
+  expect(dossier.p2.after.program[0].body).toHaveLength(2);
+  expect(dossier.p2.firstDeviation).toBe(2);
+  await page.locator('[data-m06-save]').click();
+  await expect(page.locator('[data-m06-save-status]')).toHaveText('Arbeitsstand gespeichert.');
+  await reloadPersistent(page);
+  expect(await exportedDossier(page)).toEqual(dossier);
+});
+
+test('NA04 edits framed P1 and P3 diagrams independently and restores all product paths', async ({ page }) => {
+  await openPersistent(page, moduleUrl);
+  await page.locator('[data-p1-starter]').click();
+  await page.locator('[data-p1-body-kind]').selectOption('turn-left');
+  await page.locator('[data-p1-body-add]').click();
+  await page.locator('[data-p1-explanation]').fill('Der ganze Körper wird viermal wiederholt.');
+  await expect(page.locator('[data-graphic="p1"]')).toContainText('Start');
+  await expect(page.locator('[data-graphic="p1"]')).toContainText('Ende');
+  await expect(page.locator('[data-graphic="p1"] .m06-body-frame')).toContainText('links');
+  await page.locator('[data-editor="diagram"] [data-add="move"]').click();
+  await page.locator('[data-editor="diagram"] [data-add="turn-left"]').click();
+  await page.locator('[data-graphic="diagram"] [data-move-up]').nth(1).click();
+  await expect(page.locator('[data-diagram-output]')).toHaveText('links\nvor');
+  await expect(page.locator('[data-code-output]')).toHaveText('Noch kein Code eingegeben.');
+  await enterReferenceProgram(page);
+  await predict(page, '1', '3', 'east');
+  await page.locator('[data-run-code]').click();
+  await page.locator('[data-trace-output] input[value="10"]').check();
+  await page.locator('[data-save-evidence]').click();
+  await page.locator('[data-transfer-rationale]').fill('A beginnt jeden Durchlauf frei; B scheitert beim zweiten Aufnehmen.');
+  await page.locator('[data-system="timeControl"]').fill('Zeitwert vergleichen und Aktion auslösen.');
+  await page.locator('[data-system="routeCalculation"]').fill('Verbindungen verarbeiten.');
+  await page.locator('[data-system="boundary"]').fill('Papier verarbeitet nichts; Standbild belegt keinen Ablauf.');
+  await page.locator('[data-return-next]').fill('P2 noch prüfen.');
+  const before = await exportedDossier(page);
+  await page.locator('[data-m06-save]').click();
+  await expect(page.locator('[data-m06-save-status]')).toHaveText('Arbeitsstand gespeichert.');
+  await reloadPersistent(page);
+  expect(await exportedDossier(page)).toEqual(before);
+  await expect(page.locator('[data-graphic="p1"] .m06-body-frame')).toContainText('links');
+  await expect(page.locator('[data-transfer-rationale]')).toHaveValue(before.p5.rationale);
+});
+
+test('NA04 retrieval hides old work and materials until a deliberate comparison', async ({ page }) => {
+  await openM06(page);
+  await page.locator('[data-editor="diagram"] [data-add="move"]').click();
+  await page.locator('[data-m06-open-retrieval]').click();
+  await expect(page.locator('#mein-pruefdossier')).toBeHidden();
+  await expect(page.locator('[data-materials]')).toBeHidden();
+  await expect(page.locator('[data-case="S1"]')).toBeHidden();
+  await expect(page.locator('[data-m06-retrieval-panel]')).toContainText('zwei vollständige Durchläufe');
+  await expect(page.locator('[data-retrieval-compare]')).toBeDisabled();
+  await page.locator('[data-m06-retrieval]').fill('vor; links / vor; links; vor; links / Blick oben / Unsicher beim Ort.');
+  await page.locator('[data-retrieval-compare]').click();
+  await expect(page.locator('[data-retrieval-solution]')).toContainText('vor');
+  await page.locator('[data-m06-own-draft]').click();
+  await expect(page.locator('#mein-pruefdossier')).toBeVisible();
+  expect(JSON.stringify(await exportedDossier(page))).not.toContain('Unsicher beim Ort');
+});
+
+test('NA04 all ten materials and briefing remain readable offline', async ({ page, context }) => {
+  await openM06(page);
+  await page.evaluate(async () => { await navigator.serviceWorker.ready; });
+  await page.reload();
+  await chooseVolatile(page);
+  const links = await page.locator('[data-materials] a').evaluateAll((nodes) => nodes.map((node) => (node as HTMLAnchorElement).href));
+  expect(links).toHaveLength(11);
+  await context.setOffline(true);
+  for (const href of links) {
+    await page.goto(href);
+    await expect(page.locator('body')).not.toBeEmpty();
+    await expect(page.locator('body')).toContainText(/MAT-|M06|Prüf|Briefing/);
+  }
+});
+
 async function predict(page: Page, column: string, row: string, direction: string) {
   await page.locator('[data-run-prediction-column]').fill(column);
   await page.locator('[data-run-prediction-row]').fill(row);

@@ -63,6 +63,15 @@
   background: #eef5f7;
 }
 
+.m06-workspace [hidden] { display: none !important; }
+.m06-flow-marker { border: 2px solid #315b69; border-radius: 2rem; padding: .5rem 1rem; width: fit-content; }
+[data-graphic] ol { list-style: none; padding-left: 1rem; border-left: 2px solid #315b69; }
+[data-graphic] li { margin-block: .75rem; }
+[data-graphic] li > span { display: block; font-weight: 700; }
+[data-graphic] button { margin: .25rem; }
+.m06-body-frame { border: 3px solid #315b69; margin-block: .75rem; min-width: 0; }
+[data-case] { scroll-margin-top: 1rem; margin-block: 1.5rem; }
+
 .m06-body-fields {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));

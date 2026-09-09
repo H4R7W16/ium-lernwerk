@@ -14,10 +14,10 @@ import {
   type M06Run,
   type M06Resources,
 } from './controller.js';
-import { diagramText } from './diagram-editor.js';
+import { diagramText, renderEditableProgram } from './diagram-editor.js';
 import { nextCommandId } from './code-editor.js';
 
-type S3Case = Readonly<{ id: 'S2' | 'S3'; grid: Grid; goal?: Goal }>;
+type S3Case = Readonly<{ id: 'S0' | 'S1' | 'S2' | 'S3'; grid: Grid; goal?: Goal; program: Program }>;
 type BrowserResources = M06Resources & Readonly<{
   cases: Readonly<{ gridCases: readonly S3Case[] }>;
 }>;
@@ -62,6 +62,9 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   const s3Goal = s3.goal;
   const s2 = resources.cases.gridCases.find((entry) => entry.id === 'S2');
   if (!s2) throw new Error('S2 resource missing');
+  const s0 = resources.cases.gridCases.find((entry) => entry.id === 'S0');
+  const s1 = resources.cases.gridCases.find((entry) => entry.id === 'S1');
+  if (!s0 || !s1) throw new Error('S0/S1 resource missing');
   const startupControls = [...root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input, textarea, select, button')]
     .map((control) => ({ control, disabled: control.disabled }));
   for (const { control } of startupControls) control.disabled = true;
@@ -75,6 +78,14 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   const p1Explanation = required<HTMLTextAreaElement>(root, '[data-p1-explanation]');
   const render = () => {
     const dossier = controller.dossier();
+    renderEditableProgram(required<HTMLElement>(root, '[data-graphic="p1"]'), dossier.p1.diagram.program,
+      (next) => controller.updateP1Diagram(next, p1Explanation.value));
+    renderEditableProgram(required<HTMLElement>(root, '[data-graphic="diagram"]'), diagram(),
+      (next) => controller.updateDiagram(next, diagramExplanation.value));
+    renderEditableProgram(required<HTMLElement>(root, '[data-graphic="code"]'), code(),
+      (next) => controller.updateDraftProgram(next));
+    const grid = controller.scenario() === 'S2' ? s2.grid : s3.grid;
+    required<HTMLElement>(root, '[data-grid-context]').textContent = `${controller.scenario()} · Raster ${grid.width} × ${grid.height}, Start (${grid.start.position.column},${grid.start.position.row}), Blick rechts.`;
     diagramOutput.textContent = diagram().length ? diagramText(diagram()) : 'Noch keine Grafik angelegt.';
     codeOutput.textContent = code().length ? diagramText(code()) : 'Noch kein Code eingegeben.';
     required<HTMLElement>(root, '[data-p1-output]').textContent = dossier.p1.diagram.program.length
@@ -165,6 +176,73 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     if (body.length === 0) return;
     controller.updateDiagram([...diagram(), { id: repeatId, kind: 'repeat', count, body }], diagramExplanation.value);
     render();
+  });
+
+  const directions = { north: 'oben', east: 'rechts', south: 'unten', west: 'links' } as const;
+  const describeTrace = (result: ReturnType<typeof run>, limit = result.trace.length) => result.trace.slice(0, limit).map((step) =>
+    `Aktion ${step.step}: (${step.before.position.column},${step.before.position.row}) → (${step.after.position.column},${step.after.position.row}), Blick ${directions[step.after.direction]}${step.error ? `, Rastergrenze: ${step.error}` : ''}`).join('\n');
+  const exampleSteps = new Map<string, number>();
+  for (const example of [s0, s1]) {
+    const output = required<HTMLElement>(root, `[data-example-trace="${example.id}"]`);
+    required<HTMLButtonElement>(root, `[data-example-next="${example.id}"]`).addEventListener('click', () => {
+      const result = run(example.grid, example.program);
+      const count = Math.min((exampleSteps.get(example.id) ?? 0) + 1, result.trace.length);
+      exampleSteps.set(example.id, count);
+      output.textContent = describeTrace(result, count) + (example.id === 'S1' && (count === 2 || count === 4)
+        ? '\nVerarbeitungsstopp: Erkläre Ort und Blick; sage die nächste Anweisung voraus.' : '');
+    });
+    required<HTMLButtonElement>(root, `[data-example-reset="${example.id}"]`).addEventListener('click', () => {
+      exampleSteps.delete(example.id); output.textContent = 'Noch nicht ausgeführt.';
+    });
+  }
+  required<HTMLButtonElement>(root, '[data-p1-starter]').addEventListener('click', () => {
+    if (controller.dossier().p1.diagram.program.length && !window.confirm('Die vorhandene P1-Grafik durch die unvollständige S1-Grafik ersetzen?')) return;
+    controller.updateP1Diagram([{ id: 'cmd-1', kind: 'repeat', count: 4, body: [{ id: 'cmd-2', kind: 'move' }] }], p1Explanation.value);
+  });
+  required<HTMLButtonElement>(root, '[data-p1-body-add]').addEventListener('click', () => {
+    const program = controller.dossier().p1.diagram.program;
+    const repeatIndex = program.findIndex((entry) => entry.kind === 'repeat');
+    if (repeatIndex < 0) return;
+    const kind = commandKind(required<HTMLSelectElement>(root, '[data-p1-body-kind]').value);
+    controller.updateP1Diagram(program.map((entry, index) => index === repeatIndex && entry.kind === 'repeat' && entry.body.length < 5
+      ? { ...entry, body: [...entry.body, basic(program, kind)] } : entry), p1Explanation.value);
+  });
+  required<HTMLButtonElement>(root, '[data-load-s2]').addEventListener('click', () => {
+    if (code().length && !window.confirm('Den aktuellen Code und seinen P3-Spurbeleg durch die S2-Fehlfassung ersetzen? Exportiere deinen Entwurf vorher, wenn du ihn behalten möchtest.')) return;
+    controller.selectScenario('S2');
+    scenario.value = 'S2';
+    controller.updateDraftProgram(s2.program);
+    required<HTMLElement>(root, '#code-title').scrollIntoView();
+  });
+  required<HTMLButtonElement>(root, '[data-compare-s2]').addEventListener('click', () => {
+    const intended = run(s1.grid, s1.program), faulty = run(s2.grid, s2.program);
+    const first = faulty.trace.find((step, index) => JSON.stringify(step.after) !== JSON.stringify(intended.trace[index]?.after));
+    const boundary = faulty.trace.find((step) => step.error);
+    const output = required<HTMLElement>(root, '[data-s2-comparison]');
+    output.hidden = false;
+    output.textContent = `Erste fachliche Abweichung: Aktion ${first?.step}. Wieder vor statt links: Die Drehung steht außerhalb des Körpers.\nRastergrenze: Aktion ${boundary?.step}. Vergleiche danach deine eigene Revision.\nSoll S1:\n${describeTrace(intended, 3)}\nIst S2:\n${describeTrace(faulty)}`;
+  });
+  const retrievalPanel = required<HTMLElement>(root, '[data-m06-retrieval-panel]');
+  const comparison = required<HTMLElement>(root, '[data-retrieval-comparison]');
+  const conceal = (hidden: boolean) => {
+    for (const panel of root.querySelectorAll<HTMLElement>('[data-learning-examples], [data-learning-helps], #mein-pruefdossier, [data-materials]')) panel.hidden = hidden;
+  };
+  required<HTMLButtonElement>(root, '[data-m06-open-retrieval]').addEventListener('click', () => {
+    comparison.hidden = true;
+    required<HTMLElement>(root, '[data-retrieval-solution]').textContent = '';
+    conceal(true); project(false);
+    required<HTMLTextAreaElement>(root, '[data-m06-retrieval]').focus();
+  });
+  required<HTMLButtonElement>(root, '[data-retrieval-compare]').addEventListener('click', () => {
+    if (!controller.transient().retrievalReason.trim()) return;
+    const dossier = controller.dossier();
+    required<HTMLElement>(root, '[data-retrieval-solution]').textContent =
+      `S1-Beispiel:\n${diagramText(s1.program)}\n${describeTrace(run(s1.grid, s1.program), 4)}\nDeine gesicherte/aktuelle P1-Grafik:\n${diagramText(dossier.p1.diagram.program) || 'Noch keine'}\nDeine P3-Grafik:\n${diagramText(diagram()) || 'Noch keine'}\nDein P3-Code:\n${diagramText(code()) || 'Noch keiner'}`;
+    comparison.hidden = false;
+  });
+  required<HTMLButtonElement>(root, '[data-m06-own-draft]').addEventListener('click', () => {
+    retrievalPanel.hidden = true; conceal(false);
+    required<HTMLElement>(root, '#mein-pruefdossier').focus();
   });
 
   let displayedRun: number | null = null;
@@ -351,6 +429,11 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
       resetPrediction();
       scenario.value = controller.scenario();
       hydrate();
+      retrievalPanel.hidden = true; comparison.hidden = true; conceal(false);
+      required<HTMLTextAreaElement>(root, '[data-s1-prediction]').value = '';
+      exampleSteps.clear();
+      for (const node of root.querySelectorAll<HTMLElement>('[data-example-trace]')) node.textContent = 'Noch nicht ausgeführt.';
+      required<HTMLElement>(root, '[data-s2-comparison]').hidden = true;
     } else render();
     const contextChanged = predictionProgram !== JSON.stringify(code()) || predictionScenario !== controller.scenario();
     if (contextChanged) {
@@ -392,6 +475,8 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
         || (!ready && (!management || control.matches('[data-export-work], [data-delete-work]')))
         || (control.matches('[data-confirm-import], [data-cancel-import]') && preview === null)
         || (control.matches('[data-export-recovery]') && !controller.hasRecovery())
+        || control.dataset.fixedDisabled === 'true'
+        || (control.matches('[data-retrieval-compare]') && !controller.transient().retrievalReason.trim())
         || control.matches('[data-saved-trace]')
         || (control.matches('[data-save-evidence]') && (!controller.canRecordEvidence('S3') || selectedTraceSteps(root).length === 0))
         || (control.matches('[data-revision]') && (!controller.canRecordEvidence('S2') || selectedTraceSteps(root).length === 0));

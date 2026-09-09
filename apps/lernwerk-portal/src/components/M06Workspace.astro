@@ -6,6 +6,10 @@ interface Props {
 }
 
 const { resources } = Astro.props;
+const packet = resources.content as { materials: { id: string; path: string; audience: string }[] };
+const materialNames = ['Start und P0', 'Befehlslegende', 'S1 und P1', 'S2 und P2', 'S3 und P3', 'Hilfen', 'Rückkehr und P4', 'S4/S5 und P5/P6', 'Lehrkrafthandbuch mit Lösungen', 'Druckfassung'];
+const materialBase = import.meta.env.PUBLIC_IUM_BASE_PATH ?? import.meta.env.BASE_URL;
+const materialUrl = (path: string) => `${materialBase.replace(/\/?$/, '/')}generated-modules/v2-g5-m06/${path.replace(/\.md$/, '.html')}`;
 ---
 
 <section class="m06-workspace" data-m06-workspace data-reload-client="true" aria-labelledby="m06-workspace-title" inert aria-busy="true">
@@ -18,15 +22,38 @@ const { resources } = Astro.props;
 
   <section id="auftrag-und-beispiel" aria-labelledby="auftrag-title">
     <h3 id="auftrag-title">Auftrag und Beispiel</h3>
-    <p>P0 · Flüchtige Einstiegsnotiz, nur für diese Sitzung:</p>
-    <label for="m06-prediction">Meine Vorhersage vor dem Ausführen</label>
-    <input id="m06-prediction" data-prediction autocomplete="off" />
-    <p>Beginne bei (1,3) mit Blick nach rechts. Besuche (3,3), (3,2), (1,2) und (1,3) in dieser Reihenfolge. Fahre nur am Rand des Rechtecks und ende wieder mit Blick nach rechts.</p>
-    <details>
-      <summary>Beispiel mit Verarbeitungsstopps</summary>
-      <p>Bei <strong>wiederhole 4</strong> gehören <strong>vor</strong> und <strong>links</strong> gemeinsam in den Körper. Sage nach jedem Durchlauf Ort und Blickrichtung voraus.</p>
-    </details>
-    <div class="m06-help-row" aria-label="Situative Hilfen">
+    <div data-learning-examples>
+      <p>Fünf geplante Termine: S0 Einstieg → S1 ergänzen → S2 prüfen und revidieren → P4 abrufen → S3 selbst entwerfen → S4 übertragen → S5 Systeme einordnen. Die Lehrkraft passt Reihenfolge und Zeit an.</p>
+      <nav class="m06-area-nav" aria-label="Lernweg">
+        <a href="#m06-s0">S0 · Einstieg</a><a href="#m06-s1">S1 · Beispiel</a><a href="#m06-s2">S2 · Revision</a><a href="#m06-s3">S3 · Eigener Entwurf</a><a href="#m06-s4">S4 · Transfer</a><a href="#m06-s5">S5 · Systeme</a>
+      </nav>
+      <section id="m06-s0" data-case="S0">
+        <h4>S0 · Ort und Blick unterscheiden</h4>
+        <p>Raster 3 × 3. Start (1,3), Blick oben. Spalten zählen von links, Zeilen von oben. Auftrag: vor; rechts; vor.</p>
+        <p>P0 · Sage den Endzustand voraus. Notiere nach jedem Befehl Ort und Blick; markiere deine erste Unsicherheit. Diese Einstiegsnotiz bleibt nur in dieser Sitzung.</p>
+        <label for="m06-prediction">Meine Vorhersage vor dem Ausführen</label>
+        <input id="m06-prediction" data-prediction autocomplete="off" />
+        <button type="button" data-example-next="S0">S0: nächsten Schritt prüfen</button>
+        <button type="button" data-example-reset="S0">S0: Spur verdecken</button>
+        <pre class="m06-program" data-example-trace="S0" aria-live="polite">Noch nicht ausgeführt.</pre>
+      </section>
+      <section id="m06-s1" data-case="S1">
+        <h4>S1 · Der ganze Körper wird wiederholt</h4>
+        <p>Raster 4 × 4. Start (2,3), Blick rechts. Auftrag: wiederhole 4 [vor; links].</p>
+        <details><summary>Beispiel mit Verarbeitungsstopps</summary>
+          <p>Stopp 1: Sage Ort und Blick nach vor und nach links voraus. Warum verändert die Drehung den Ort nicht?</p>
+          <p>Stopp 2: Nach zwei vollständigen Durchläufen markierst du Ort und Blick und zeigst den ganzen Körperrahmen. Welcher Befehl kommt als Nächstes?</p>
+        </details>
+        <label for="m06-s1-prediction">Meine S1-Zustände und nächste Anweisung (flüchtig)</label>
+        <textarea id="m06-s1-prediction" rows="3" data-s1-prediction></textarea>
+        <button type="button" data-example-next="S1">S1: nächsten Schritt prüfen</button>
+        <button type="button" data-example-reset="S1">S1: Spur verdecken</button>
+        <pre class="m06-program" data-example-trace="S1" aria-live="polite">Noch nicht ausgeführt.</pre>
+        <p>Ergänze anschließend P1 selbst: vervollständige den Körper und erkläre den nächsten Zustandsübergang sowie Körper und Anzahl.</p>
+        <a href="#p1-title">Zu meiner P1-Grafik</a>
+      </section>
+    </div>
+    <div data-learning-helps class="m06-help-row" aria-label="Situative Hilfen">
       <details><summary>H1 · Ort und Blick</summary><p>Markiere das Feld und zeichne einen Blickpfeil. Prüfe danach selbst einen Schritt.</p></details>
       <details><summary>H2 · Ganzer Körper</summary><p>Rahme alle Anweisungen ein, die in jedem Durchlauf zusammengehören.</p></details>
       <details><summary>H3 · Erste Abweichung</summary><p>Vergleiche ab Schritt 1. Die erste Abweichung kann vor der Fehlermeldung liegen.</p></details>
@@ -34,10 +61,14 @@ const { resources } = Astro.props;
     </div>
     <button type="button" data-m06-open-retrieval>Abruf öffnen</button>
     <div data-m06-retrieval-panel hidden>
+      <h4>P4 · Erst erinnern, dann vergleichen</h4>
+      <ol><li>Schreibe einen Wiederholungskörper mit mindestens zwei Grundanweisungen aus dem Gedächtnis.</li><li>Entfalte zwei vollständige Durchläufe.</li><li>Begründe einen Zustand nach einer ausgewählten Aktion.</li><li>Markiere eine Unsicherheit.</li></ol>
+      <p>Deine Antwort bleibt flüchtig. Eine wiederhergestellte Datei ist kein Abrufnachweis. Bei direkt aufeinanderfolgenden Terminen zeigt dies nur unmittelbare Anwendung.</p>
       <label for="m06-retrieval">Deine Abrufbegründung</label>
       <textarea id="m06-retrieval" data-m06-retrieval rows="4"></textarea>
       <button type="button" data-m06-own-draft>Zum eigenen Entwurf</button>
-      <details><summary>Alte Lösung erst nach deiner Antwort anzeigen</summary><p>Vergleiche Körper, Anzahl und Zustandsänderungen jetzt mit deinem eigenen Abruf.</p></details>
+      <button type="button" data-retrieval-compare>Nach meiner Antwort bewusst vergleichen</button>
+      <div data-retrieval-comparison hidden><p>Vergleiche Körper, Anzahl und Zustandsänderungen jetzt mit deinem eigenen Abruf.</p><pre class="m06-program" data-retrieval-solution></pre></div>
     </div>
   </section>
 
@@ -45,6 +76,11 @@ const { resources } = Astro.props;
     <h3 id="dossier-title">Mein Prüfdossier</h3>
     <section aria-labelledby="p1-title">
       <h4 id="p1-title">P1 · Meine ergänzte Ablaufgrafik</h4>
+      <p>Beginne mit der unvollständigen S1-Grafik oder bearbeite deine vorhandene Ergänzung. Die Erklärung enthält auch deine Zustände und den nächsten Übergang.</p>
+      <button type="button" data-p1-starter>Unvollständige S1-Grafik übernehmen</button>
+      <label>Grundbefehl für den P1-Körper<select data-p1-body-kind><option value="move">vor</option><option value="turn-left">links</option><option value="turn-right">rechts</option></select></label>
+      <button type="button" data-p1-body-add>In den P1-Körper ergänzen</button>
+      <div data-graphic="p1" aria-label="Bearbeitbare P1-Ablaufgrafik"></div>
       <pre class="m06-program" data-p1-output>Noch keine P1-Grafik angelegt.</pre>
       <div class="m06-command-row" data-editor="p1">
         <button type="button" data-add="move">P1: Vorwärts ergänzen</button>
@@ -54,6 +90,20 @@ const { resources } = Astro.props;
       </div>
       <label for="m06-p1-explanation">Erklärung meiner P1-Grafik</label>
       <textarea id="m06-p1-explanation" rows="3" data-p1-explanation></textarea>
+    </section>
+    <section id="m06-s2" data-case="S2">
+      <h4>S2 · Körperfehler prüfen</h4>
+      <p>Raster 4 × 4. Start (2,3), Blick rechts. Beabsichtigt ist S1. Untersuche die Fehlfassung: wiederhole 4 [vor]; links.</p>
+      <p>Entfalte zunächst drei Aktionen und vergleiche Soll/Ist. Benenne die erste fachliche Abweichung getrennt von der späteren Rastergrenze. Sichere den Vorherbeleg in P2. Ändere dann die Körpergrenze begründet und prüfe vom gleichen Start erneut für den Nachherbeleg.</p>
+      <button type="button" data-load-s2>S2-Fehlfassung in den Code-Editor übernehmen</button>
+      <button type="button" data-compare-s2>S2 nach meiner Vorhersage mit S1 vergleichen</button>
+      <pre class="m06-program" data-s2-comparison hidden></pre>
+      <p>Eine kleinere Anzahl ersetzt keine Erklärung des Körperfehlers. Die Code-Übernahme ersetzt den aktuellen Code erst nach deiner Bestätigung, falls schon ein Entwurf vorhanden ist.</p>
+    </section>
+    <section id="m06-s3" data-case="S3">
+      <h4>S3 · Eigene Prüffahrt</h4>
+      <p>Raster 5 × 4. Beginne bei (1,3) mit Blick nach rechts. Besuche (3,3), (3,2), (1,2) und (1,3) in dieser Reihenfolge. Fahre nur am Rand des Rechtecks und ende wieder mit Blick nach rechts.</p>
+      <p>Entwirf eine eigene Ablaufgrafik und eigenen Code mit fester Wiederholung. Sage den Endzustand voraus, prüfe und sichere ausgewählte Spurstellen mit Begründung als P3. Tauscht für die Partnerprüfung Erklären und Prüfen; anschließend überarbeitet jede Person ihren eigenen Entwurf.</p>
     </section>
     <div class="m06-editor-grid">
       <article aria-labelledby="diagram-title">
@@ -85,6 +135,7 @@ const { resources } = Astro.props;
           </div>
           <button type="button" data-add-diagram-repeat>Körperrahmen einsetzen</button>
         </fieldset>
+        <div data-graphic="diagram" aria-label="Bearbeitbare eigene Ablaufgrafik"></div>
         <pre class="m06-program" data-diagram-output aria-live="polite">Noch keine Grafik angelegt.</pre>
       </article>
 
@@ -114,6 +165,7 @@ const { resources } = Astro.props;
           </div>
           <button type="button" data-add-repeat>Wiederholung einsetzen</button>
         </fieldset>
+        <div data-graphic="code" aria-label="Bearbeitbare Codefolge"></div>
         <pre class="m06-program" data-code-output aria-live="polite">Noch kein Code eingegeben.</pre>
       </article>
     </div>
@@ -125,6 +177,7 @@ const { resources } = Astro.props;
         <option value="S3">S3 · Eigene Prüffahrt / P3-Beleg</option>
         <option value="S2">S2 · Revisionsvergleich / P2-Beleg</option>
       </select>
+      <p data-grid-context></p>
       <p>Der Code bleibt beim Rasterwechsel erhalten. Die Spurauswahl und die noch nicht gesicherte Laufvorhersage werden verworfen.</p>
       <fieldset>
         <legend>Eigene Vorhersage für den nächsten Prüflauf</legend>
@@ -171,10 +224,24 @@ const { resources } = Astro.props;
 
     <section aria-labelledby="transfer-title">
       <h4 id="transfer-title">Transfer und Systeme</h4>
+      <div id="m06-s4" data-case="S4">
+        <h5>S4 · Drei Werkstücke an einer Prüfstation</h5>
+        <p>Die Station beginnt frei. aufnehmen braucht frei und macht belegt; prüfen braucht belegt und macht geprüft; ablegen braucht geprüft und macht frei.</p>
+        <p>Vergleiche A: dreimal [aufnehmen; prüfen; ablegen] mit B: dreimal [aufnehmen], dann dreimal [prüfen], dann dreimal [ablegen]. Erstelle beide Zustandsfolgen, entscheide, welche ausführbar ist, und benenne die erste unmögliche Aktion der anderen. Begründe die Körpergrenze in P5.</p>
+        <p>Dies ist eine manuelle Modellprüfung, kein realer Prüfautomat.</p>
+      </div>
       <label for="m06-transfer-sequence">S4-Aktionsfolge</label>
       <input id="m06-transfer-sequence" value="aufnehmen, prüfen, ablegen" data-transfer-sequence />
       <label for="m06-transfer-rationale">Begründung der Zustandsbedingungen</label>
       <textarea id="m06-transfer-rationale" rows="3" data-transfer-rationale></textarea>
+      <div id="m06-s5" data-case="S5">
+        <h5>S5 · Vier Funktionsbriefe einordnen</h5>
+        <p>A · Digitale Zeitsteuerung erhält eingestellte Zeitpunkte und den aktuellen Zeitwert. Sie vergleicht die Eingaben und löst bei erfüllter Bedingung eine festgelegte Aktion aus.</p>
+        <p>B · Digitale Wegberechnung erhält Start, Ziel und eine Darstellung möglicher Verbindungen. Sie verarbeitet diese Daten und gibt einen berechneten Weg aus.</p>
+        <p>C · Auf Papier steht eine eindeutige Schrittfolge zum Sortieren von Karten. Das Papier führt sie nicht selbst aus.</p>
+        <p>D · Ein isoliertes Standbild zeigt Symbole und Zahlen, aber keine Eingaben, Zustandsänderungen oder Verarbeitungsregeln.</p>
+        <p>Ordne A–D begründet ein. Nenne für A/B je einen notwendigen Ablauf, für C/D die Aussagegrenze. Erfinde keine Details realer Apps.</p>
+      </div>
       <label for="m06-time-control">Digitale Zeitsteuerung</label>
       <textarea id="m06-time-control" rows="2" data-system="timeControl"></textarea>
       <label for="m06-route">Digitale Wegberechnung</label>
@@ -184,6 +251,15 @@ const { resources } = Astro.props;
     </section>
   </section>
 
+  <section data-materials aria-labelledby="m06-materials-title">
+    <h3 id="m06-materials-title">Materialien zum Lernweg</h3>
+    <p>Die Materialien sind nach dem vollständigen Laden auch offline verfügbar. Die Druckfassung ist ein ergänzender Arbeitsweg.</p>
+    <ul>{packet.materials.filter((entry) => entry.audience !== 'teacher').map((entry) => <li><a href={materialUrl(entry.path)}>{entry.id} · {materialNames[Number(entry.id.slice(4)) - 1]}</a></li>)}</ul>
+    <details><summary>Lehrkraftzugang · enthält Lösungen</summary>
+      <a href={materialUrl('teacher/handbook.md')}>MAT-09 · Lehrkrafthandbuch mit Lösungen</a>
+      <a href={materialUrl('teacher/briefing.md')}>M06 · Kurzbriefing für die Lehrkraft</a>
+    </details>
+  </section>
   <section id="sicherung-und-rueckkehr" aria-labelledby="return-title">
     <h3 id="return-title">Sicherung und Rückkehr</h3>
     <label for="m06-return-area">Arbeitsbereich für die Rückkehr</label>

@@ -406,6 +406,7 @@ test('keeps P0 and P4 sentinels out of the stored envelope and conscious export'
   await page.getByLabel('Meine Vorhersage vor dem Ausführen').fill('SYNTHETIC-P0-SENTINEL');
   await page.getByRole('button', { name: 'Abruf öffnen' }).click();
   await page.getByLabel('Deine Abrufbegründung').fill('SYNTHETIC-P4-SENTINEL');
+  await page.getByRole('button', { name: 'Zum eigenen Entwurf' }).click();
   await saveP3(page, 'SYNTHETIC-P3-SENTINEL');
   const stored = await page.evaluate(async () => {
     const request = indexedDB.open('ium-lernwerk-v2');

@@ -127,6 +127,13 @@ test('V2 development build exposes only M06 at root and subpath', async () => {
     expect(moduleHtml).toContain('Veröffentlichung: closed');
     expect(moduleHtml).toContain('Deine Abrufbegründung');
     expect(moduleHtml).toContain('Begründung der Prüffahrt');
+    const packet = JSON.parse(await readFile(join(repoRoot, 'modules-v2/V2-G5-M06/content.json'), 'utf8'));
+    for (const material of [...packet.materials, { path: 'teacher/briefing.md' }]) {
+      const path = `generated-modules/v2-g5-m06/${material.path.replace(/\.md$/, '.html')}`;
+      expect(moduleHtml).toContain(`${base}${path}`);
+      expect(await output.text(path)).toContain('<html');
+      expect(await output.text('sw.js')).toContain(path);
+    }
     const scripts = await Promise.all(
       (await output.glob('_astro/*.js')).map((path) => output.text(path)),
     );
