@@ -5,17 +5,19 @@ import {
   type Goal,
   type Grid,
   type Program,
+  type Direction,
 } from '@ium/v2-g5-m06';
 import {
   connectM06,
   createBrowserM06Dependencies,
   type M06Controller,
+  type M06Run,
   type M06Resources,
 } from './controller.js';
 import { diagramText } from './diagram-editor.js';
 import { nextCommandId } from './code-editor.js';
 
-type S3Case = Readonly<{ id: 'S3'; grid: Grid; goal: Goal }>;
+type S3Case = Readonly<{ id: 'S2' | 'S3'; grid: Grid; goal?: Goal }>;
 type BrowserResources = M06Resources & Readonly<{
   cases: Readonly<{ gridCases: readonly S3Case[] }>;
 }>;
@@ -56,7 +58,10 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
   const resourceNode = required<HTMLScriptElement>(document, '[data-m06-resources]');
   const resources = JSON.parse(resourceNode.textContent ?? '{}') as BrowserResources;
   const s3 = resources.cases.gridCases.find((entry) => entry.id === 'S3');
-  if (!s3) throw new Error('S3 resource missing');
+  if (!s3?.goal) throw new Error('S3 resource missing');
+  const s3Goal = s3.goal;
+  const s2 = resources.cases.gridCases.find((entry) => entry.id === 'S2');
+  if (!s2) throw new Error('S2 resource missing');
   const startupControls = [...root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input, textarea, select, button')]
     .map((control) => ({ control, disabled: control.disabled }));
   for (const { control } of startupControls) control.disabled = true;
@@ -75,6 +80,12 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     required<HTMLElement>(root, '[data-p1-output]').textContent = dossier.p1.diagram.program.length
       ? diagramText(dossier.p1.diagram.program) : 'Noch keine P1-Grafik angelegt.';
     if (rationale.value !== dossier.p3.evidence.rationale) rationale.value = dossier.p3.evidence.rationale;
+    const predicted = dossier.p3.evidence.predicted;
+    required<HTMLElement>(root, '[data-saved-prediction]').textContent = predicted
+      ? `Gesicherte Vorhersage: (${predicted.position.column},${predicted.position.row}), Blick ${
+        { north: 'oben', east: 'rechts', south: 'unten', west: 'links' }[predicted.direction]}.`
+      : 'Noch keine Vorhersage im Beleg gesichert.';
+
     for (const phase of ['before', 'after'] as const) {
       const evidence = dossier.p2[phase];
       const predicted = evidence.predicted;
@@ -156,10 +167,13 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     render();
   });
 
-  const showTrace = (program: Program, selected: readonly number[] = []) => {
-    const result = run(s3.grid, program);
-    const goal = checkGoal(result, s3.goal);
-    required<HTMLElement>(root, '[data-goal-feedback]').textContent = goal.ok
+  let displayedRun: number | null = null;
+  const showTrace = (program: Program, selected: readonly number[] = [], snapshot?: M06Run) => {
+    const result = snapshot?.result ?? run(s3.grid, program);
+    const goal = checkGoal(result, s3Goal);
+    required<HTMLElement>(root, '[data-goal-feedback]').textContent = snapshot?.scenario === 'S2'
+      ? `S2: ${result.trace.length} Schritte ausgeführt; ${result.status === 'complete' ? 'Ausführung beendet' : 'Rastergrenze oder Schrittgrenze erreicht'}. Vergleiche Ursache und erste Abweichung.`
+      : goal.ok
       ? 'Ziel, Prüfpunkte und Randfahrt sind erfüllt. Begründe jetzt eine relevante Spurstelle.'
       : `Prüfung noch offen: ${goal.reason}. Ändere eine begründete Stelle.`;
     const trace = required<HTMLElement>(root, '[data-trace-output]');
@@ -175,19 +189,25 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
       check.type = 'checkbox';
       check.value = String(step.step);
       check.checked = selected.includes(step.step);
+      if (!snapshot) check.dataset.savedTrace = 'true';
       const directions = { north: 'oben', east: 'rechts', south: 'unten', west: 'links' } as const;
       const iteration = step.iteration === null ? 'ohne Wiederholung' : `Durchlauf ${step.iteration}`;
       row.append(check, ` Schritt ${step.step}, Befehl ${step.commandId}, ${iteration}: (${step.before.position.column},${step.before.position.row}) → (${step.after.position.column},${step.after.position.row}), Blick ${directions[step.after.direction]}${step.error ? `, Fehler ${step.error}` : ''}`);
       fieldset.append(row);
     }
     trace.append(fieldset);
+    required<HTMLElement>(root, '[data-run-context]').textContent = snapshot
+      ? `${snapshot.scenario} · Aktuelle Ausführung ab (${snapshot.grid.start.position.column},${snapshot.grid.start.position.row}). ${snapshot.predicted
+        ? 'Mit eigener Vorhersage vor diesem Lauf. Wähle passende Spurstellen aus.'
+        : 'Freie Ausführung ohne Vorhersage; keine Übernahme als vorhersagegebundener Beleg.'}`
+      : 'Gespeicherter P3-Beleg zu S3. Für einen neuen Beleg eine eigene Vorhersage abgeben und erneut ausführen.';
   };
   required<HTMLButtonElement>(root, '[data-run-code]').addEventListener('click', () => {
-    showTrace(code());
+    controller.runProgram(controller.scenario() === 'S2' ? s2.grid : s3.grid);
   });
 
   required<HTMLButtonElement>(root, '[data-save-evidence]').addEventListener('click', () => {
-    controller.recordP3Evidence(controller.dossier().p3.evidence.predicted, selectedTraceSteps(root), rationale.value);
+    controller.recordP3Evidence(controller.currentRun()?.id ?? -1, selectedTraceSteps(root), rationale.value);
   });
   required<HTMLInputElement>(root, '[data-prediction]').addEventListener('input', (event) => {
     controller.setTransient({ prediction: (event.currentTarget as HTMLInputElement).value });
@@ -196,11 +216,26 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     button.addEventListener('click', () => {
       const phase = button.dataset.revision;
       if (phase !== 'before' && phase !== 'after') return;
-      controller.recordRevisionEvidence(phase, code(), selectedTraceSteps(root), rationale.value);
+      if (!controller.recordRevisionEvidence(phase, controller.currentRun()?.id ?? -1, selectedTraceSteps(root), rationale.value)) return;
       const value = Number(required<HTMLInputElement>(root, '[data-first-deviation]').value);
       controller.setFirstDeviation(Number.isInteger(value) && value > 0 ? value : null);
     });
   }
+  const scenario = required<HTMLSelectElement>(root, '[data-run-scenario]');
+  scenario.addEventListener('change', () => controller.selectScenario(scenario.value === 'S2' ? 'S2' : 'S3'));
+  const predictedColumn = required<HTMLInputElement>(root, '[data-run-prediction-column]');
+  const predictedRow = required<HTMLInputElement>(root, '[data-run-prediction-row]');
+  const predictedDirection = required<HTMLSelectElement>(root, '[data-run-prediction-direction]');
+  const updatePrediction = () => controller.setRunPrediction(
+    predictedColumn.value && predictedRow.value && predictedDirection.value
+      ? { position: { column: Number(predictedColumn.value), row: Number(predictedRow.value) }, direction: predictedDirection.value as Direction }
+      : null,
+  );
+  [predictedColumn, predictedRow, predictedDirection].forEach((field) => field.addEventListener('input', updatePrediction));
+  const resetPrediction = () => { predictedColumn.value = ''; predictedRow.value = ''; predictedDirection.value = ''; };
+  let predictionProgram = JSON.stringify(code());
+  let predictionScenario = controller.scenario();
+
   const deviation = required<HTMLInputElement>(root, '[data-first-deviation]');
   deviation.addEventListener('input', () => {
     const value = Number(deviation.value);
@@ -304,19 +339,35 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
     else {
       required<HTMLElement>(root, '[data-trace-output]').replaceChildren();
       required<HTMLElement>(root, '[data-goal-feedback]').textContent = 'Noch nicht ausgeführt.';
+      required<HTMLElement>(root, '[data-run-context]').textContent = 'Noch kein aktueller Prüflauf.';
     }
-    const predicted = evidence.predicted;
-    required<HTMLElement>(root, '[data-saved-prediction]').textContent = predicted
-      ? `Gesicherte Vorhersage: (${predicted.position.column},${predicted.position.row}), Blick ${
-        { north: 'oben', east: 'rechts', south: 'unten', west: 'links' }[predicted.direction]}.`
-      : 'Noch keine Vorhersage im Beleg gesichert.';
     render();
   };
   const originalDisabled = new Map(startupControls.map(({ control, disabled }) => [control, disabled]));
   const project = (replacement: boolean) => {
     if (replacement) importSelection += 1;
-    if (replacement) hydrate();
-    else render();
+    if (replacement) {
+      displayedRun = null;
+      resetPrediction();
+      scenario.value = controller.scenario();
+      hydrate();
+    } else render();
+    const contextChanged = predictionProgram !== JSON.stringify(code()) || predictionScenario !== controller.scenario();
+    if (contextChanged) {
+      resetPrediction();
+      predictionProgram = JSON.stringify(code());
+      predictionScenario = controller.scenario();
+    }
+    const snapshot = controller.currentRun();
+    if (snapshot && displayedRun !== snapshot.id) {
+      showTrace(snapshot.program, [], snapshot);
+      displayedRun = snapshot.id;
+    } else if (!snapshot && (displayedRun !== null || (contextChanged && !replacement))) {
+      required<HTMLElement>(root, '[data-trace-output]').replaceChildren();
+      required<HTMLElement>(root, '[data-goal-feedback]').textContent = 'Die vorige Ausführung ist nicht mehr aktuell.';
+      required<HTMLElement>(root, '[data-run-context]').textContent = 'Auswahl verworfen. Vorhersage prüfen und den aktuellen Code erneut ausführen.';
+      displayedRun = null;
+    }
     root.dataset.reloadPreparing = String(controller.reloadPreparing());
     const ready = controller.workspaceReady();
     const preview = controller.importPreview();
@@ -340,9 +391,13 @@ export async function connectM06BrowserWorkspace(): Promise<M06Controller> {
         || (controller.replacingWork() && !control.matches('[data-export-recovery], [data-copy-fallback-text]'))
         || (!ready && (!management || control.matches('[data-export-work], [data-delete-work]')))
         || (control.matches('[data-confirm-import], [data-cancel-import]') && preview === null)
-        || (control.matches('[data-export-recovery]') && !controller.hasRecovery());
+        || (control.matches('[data-export-recovery]') && !controller.hasRecovery())
+        || control.matches('[data-saved-trace]')
+        || (control.matches('[data-save-evidence]') && (!controller.canRecordEvidence('S3') || selectedTraceSteps(root).length === 0))
+        || (control.matches('[data-revision]') && (!controller.canRecordEvidence('S2') || selectedTraceSteps(root).length === 0));
     }
   };
+  required<HTMLElement>(root, '[data-trace-output]').addEventListener('change', () => project(false));
   const unsubscribe = controller.subscribe(project);
   const dispose = controller.dispose.bind(controller);
   controller.dispose = () => { unsubscribe(); dispose(); };

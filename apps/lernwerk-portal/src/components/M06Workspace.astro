@@ -18,6 +18,9 @@ const { resources } = Astro.props;
 
   <section id="auftrag-und-beispiel" aria-labelledby="auftrag-title">
     <h3 id="auftrag-title">Auftrag und Beispiel</h3>
+    <p>P0 · Flüchtige Einstiegsnotiz, nur für diese Sitzung:</p>
+    <label for="m06-prediction">Meine Vorhersage vor dem Ausführen</label>
+    <input id="m06-prediction" data-prediction autocomplete="off" />
     <p>Beginne bei (1,3) mit Blick nach rechts. Besuche (3,3), (3,2), (1,2) und (1,3) in dieser Reihenfolge. Fahre nur am Rand des Rechtecks und ende wieder mit Blick nach rechts.</p>
     <details>
       <summary>Beispiel mit Verarbeitungsstopps</summary>
@@ -117,9 +120,28 @@ const { resources } = Astro.props;
 
     <section aria-labelledby="prediction-title">
       <h4 id="prediction-title">Vorhersage, Ausführung und Spur</h4>
-      <label for="m06-prediction">Meine Vorhersage vor dem Ausführen</label>
-      <input id="m06-prediction" data-prediction autocomplete="off" />
+      <label for="m06-run-scenario">Prüfraster für den aktuellen Code</label>
+      <select id="m06-run-scenario" data-run-scenario>
+        <option value="S3">S3 · Eigene Prüffahrt / P3-Beleg</option>
+        <option value="S2">S2 · Revisionsvergleich / P2-Beleg</option>
+      </select>
+      <p>Der Code bleibt beim Rasterwechsel erhalten. Die Spurauswahl und die noch nicht gesicherte Laufvorhersage werden verworfen.</p>
+      <fieldset>
+        <legend>Eigene Vorhersage für den nächsten Prüflauf</legend>
+        <label for="m06-predicted-column">Erwartete Spalte</label>
+        <input id="m06-predicted-column" type="number" min="1" data-run-prediction-column />
+        <label for="m06-predicted-row">Erwartete Zeile</label>
+        <input id="m06-predicted-row" type="number" min="1" data-run-prediction-row />
+        <label for="m06-predicted-direction">Erwartete Blickrichtung</label>
+        <select id="m06-predicted-direction" data-run-prediction-direction>
+          <option value="">Noch keine Vorhersage</option>
+          <option value="north">oben</option><option value="east">rechts</option>
+          <option value="south">unten</option><option value="west">links</option>
+        </select>
+        <p>Freies Ausführen ist ohne Vorhersage möglich. Für einen Beleg gib sie vorher ein und sichere anschließend ausgewählte Spurstellen. Die Vorhersage wird mit diesem Beleg gespeichert.</p>
+      </fieldset>
       <button type="button" data-run-code>Code ausführen und Spur anzeigen</button>
+      <p data-run-context role="status">Noch kein aktueller Prüflauf.</p>
       <p data-goal-feedback role="status">Noch nicht ausgeführt.</p>
       <div data-trace-output></div>
       <p data-saved-prediction></p>

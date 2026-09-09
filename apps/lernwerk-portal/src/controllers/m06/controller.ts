@@ -2,6 +2,11 @@ import {
   createInitialDossier,
   evidenceBelongsToProgram,
   parseDossier,
+  parseState,
+  run,
+  type Grid,
+  type State,
+  type Run,
   type Dossier,
   type Program,
 } from '@ium/v2-g5-m06';
@@ -28,6 +33,12 @@ export type M06RuntimePort = Readonly<{
   prepareForReload(): Promise<ReloadReadiness>;
   releaseReloadPreparation?(): void;
   approveDiscardForReload?(): unknown;
+}>;
+
+export type EvidenceScenario = 'S2' | 'S3';
+export type M06Run = Readonly<{
+  id: number; scenario: EvidenceScenario; grid: Grid; program: Program;
+  predicted: State | null; result: Run;
 }>;
 
 export type M06Resources = Readonly<{ content: unknown; cases: unknown }>;
@@ -66,6 +77,10 @@ export class M06Controller {
   #ready = true;
   #replacing = false;
   #disposed = false;
+  #scenario: EvidenceScenario = 'S3';
+  #run: M06Run | null = null;
+  #nextRun = 0;
+  #prediction: State | null = null;
   #revision = 0;
   #syncedRevision = -1;
   #reloadPreparing = false;
@@ -122,6 +137,59 @@ export class M06Controller {
 
   #editable(): boolean { return this.#ready && !this.#reloadPreparing && !this.#replacing; }
 
+  scenario(): EvidenceScenario { return this.#scenario; }
+  currentRun(): M06Run | null { return this.#run === null ? null : structuredClone(this.#run); }
+  runPrediction(): State | null { return this.#prediction === null ? null : structuredClone(this.#prediction); }
+
+  #invalidateRun(): void { this.#run = null; this.#prediction = null; }
+
+  selectScenario(scenario: EvidenceScenario): void {
+    if (!this.#editable() || scenario === this.#scenario) return;
+    this.#scenario = scenario;
+    this.#invalidateRun();
+    this.#notify();
+  }
+
+  setRunPrediction(predicted: State | null): void {
+    if (!this.#editable()) return;
+    const parsed = predicted === null ? null : parseState(predicted, '$prediction');
+    this.#prediction = parsed?.ok ? structuredClone(parsed.value) : null;
+    this.#run = null;
+    this.#notify();
+  }
+
+  runProgram(grid: Grid): M06Run | null {
+    if (!this.#editable()) return null;
+    this.#run = null;
+    try {
+      const program = structuredClone(this.#dossier.p3.draftProgram);
+      const result = run(grid, program);
+      this.#run = { id: ++this.#nextRun, scenario: this.#scenario, grid: structuredClone(grid),
+        program, predicted: this.runPrediction(), result };
+      this.#notify();
+      return this.currentRun();
+    } catch {
+      this.#save = { state: 'unsaved', message: 'Dieser Entwurf kann noch nicht ausgeführt werden. Prüfe Code und Wiederholung.' };
+      this.#notify();
+      return null;
+    }
+  }
+
+  canRecordEvidence(scenario: EvidenceScenario): boolean {
+    return this.#editable() && this.#run !== null && this.#run.scenario === scenario
+      && this.#run.predicted !== null;
+  }
+
+  #evidenceFromRun(scenario: EvidenceScenario, id: number, steps: readonly number[], rationale: string): Dossier['p3']['evidence'] | null {
+    const snapshot = this.#run;
+    if (!this.canRecordEvidence(scenario) || !snapshot || snapshot.id !== id
+      || !evidenceBelongsToProgram({ program: snapshot.program, predicted: null, steps: [], rationale: '' }, this.#dossier.p3.draftProgram)
+      || steps.length === 0 || new Set(steps).size !== steps.length
+      || steps.some((step) => !snapshot.result.trace.some((entry) => entry.step === step))
+      || [...rationale].length > 500) return null;
+    return { program: structuredClone(snapshot.program), predicted: structuredClone(snapshot.predicted), steps: [...steps], rationale };
+  }
+
   #acceptReplacement(payload: unknown, message: string): boolean {
     const parsed = parseDossier(payload);
     if (!parsed.ok) {
@@ -130,6 +198,8 @@ export class M06Controller {
       return false;
     }
     this.#dossier = cloneDossier(parsed.value);
+    this.#invalidateRun();
+    this.#scenario = 'S3';
     this.#revision += 1;
     this.#syncedRevision = this.#revision;
     this.#transient = { prediction: '', retrievalReason: '' };
@@ -180,6 +250,7 @@ export class M06Controller {
 
   updateDraftProgram(program: Program): void {
     if (!this.#editable()) return;
+    this.#invalidateRun();
     const evidence = evidenceBelongsToProgram(this.#dossier.p3.evidence, program)
       ? this.#dossier.p3.evidence
       : { program: [], predicted: null, steps: [], rationale: '' } as const;
@@ -192,42 +263,20 @@ export class M06Controller {
       : undefined);
   }
 
-  recordP3Evidence(
-    predicted: Dossier['p3']['evidence']['predicted'],
-    steps: readonly number[],
-    rationale: string,
-  ): void {
-    if (!this.#editable()) return;
-    this.#dossier = {
-      ...this.#dossier,
-      p3: {
-        ...this.#dossier.p3,
-        evidence: {
-          program: structuredClone(this.#dossier.p3.draftProgram),
-          predicted: predicted === null ? null : structuredClone(predicted),
-          steps: [...steps],
-          rationale,
-        },
-      },
-    };
-    this.#changed('Der ausgewählte Spurbeleg wurde geändert.');
+  recordP3Evidence(runId: number, steps: readonly number[], rationale: string): boolean {
+    const evidence = this.#evidenceFromRun('S3', runId, steps, rationale);
+    if (!evidence) return false;
+    this.#dossier = { ...this.#dossier, p3: { ...this.#dossier.p3, evidence } };
+    this.#changed('Der ausgewählte Spurbeleg mit seiner vorherigen Vorhersage wurde geändert.');
+    return true;
   }
 
-  recordRevisionEvidence(
-    phase: 'before' | 'after',
-    program: Program,
-    steps: readonly number[],
-    rationale: string,
-  ): void {
-    if (!this.#editable()) return;
-    this.#dossier = {
-      ...this.#dossier,
-      p2: {
-        ...this.#dossier.p2,
-        [phase]: { program: structuredClone(program), predicted: null, steps: [...steps], rationale },
-      },
-    };
-    this.#changed('Der Revisionsvergleich wurde geändert.');
+  recordRevisionEvidence(phase: 'before' | 'after', runId: number, steps: readonly number[], rationale: string): boolean {
+    const evidence = this.#evidenceFromRun('S2', runId, steps, rationale);
+    if (!evidence) return false;
+    this.#dossier = { ...this.#dossier, p2: { ...this.#dossier.p2, [phase]: evidence } };
+    this.#changed('Der Revisionsbeleg gehört zur ausgewählten S2-Ausführung.');
+    return true;
   }
 
   setFirstDeviation(step: number | null): void {
@@ -363,6 +412,8 @@ export class M06Controller {
       if (result.ok || result.cleared) {
         deleted = true;
         this.#dossier = createInitialDossier();
+        this.#invalidateRun();
+        this.#scenario = 'S3';
         this.#revision += 1;
         this.#syncedRevision = -1;
         this.#ready = false;

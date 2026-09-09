@@ -75,6 +75,64 @@ async function realController(mode: 'persistent' | 'volatile-selected' = 'persis
 }
 
 describe('M06 current work with the real runtime', () => {
+  test('NA03 rejects an old run after code, prediction or scenario changes', async () => {
+    const { controller } = await realController();
+    const grid = { width: 5, height: 4, start: { position: { column: 1, row: 3 }, direction: 'east' as const } };
+    controller.updateDraftProgram([{ id: 'cmd-1', kind: 'move' }]);
+    controller.setRunPrediction({ position: { column: 2, row: 3 }, direction: 'east' });
+    const first = controller.runProgram(grid)!;
+    controller.updateDraftProgram([{ id: 'cmd-2', kind: 'turn-right' }]);
+    expect(controller.recordP3Evidence(first.id, [1], 'OLD')).toBe(false);
+    expect(controller.dossier().p3.evidence.steps).toEqual([]);
+    controller.setRunPrediction({ position: { column: 1, row: 3 }, direction: 'south' });
+    const second = controller.runProgram(grid)!;
+    controller.setRunPrediction({ position: { column: 2, row: 3 }, direction: 'south' });
+    expect(controller.recordP3Evidence(second.id, [1], 'LATE-PREDICTION')).toBe(false);
+    const third = controller.runProgram(grid)!;
+    controller.selectScenario('S2');
+    expect(controller.recordP3Evidence(third.id, [1], 'WRONG-SCENARIO')).toBe(false);
+  });
+
+  test('NA03 only records actual steps of the latest predicted run', async () => {
+    const { controller } = await realController();
+    const grid = { width: 5, height: 4, start: { position: { column: 1, row: 3 }, direction: 'east' as const } };
+    controller.updateDraftProgram([{ id: 'cmd-1', kind: 'repeat', count: 9, body: [{ id: 'cmd-2', kind: 'move' }] }]);
+    const free = controller.runProgram(grid)!;
+    expect(free.result.status).toBe('OUT_OF_BOUNDS');
+    expect(controller.recordP3Evidence(free.id, [1], '')).toBe(false);
+    controller.setRunPrediction({ position: { column: 4, row: 3 }, direction: 'east' });
+    const predicted = controller.runProgram(grid)!;
+    expect(controller.recordP3Evidence(predicted.id, [8], '')).toBe(false);
+    expect(controller.recordP3Evidence(predicted.id, [1, 1], '')).toBe(false);
+    const latest = controller.runProgram(grid)!;
+    expect(controller.recordP3Evidence(predicted.id, [1], '')).toBe(false);
+    expect(controller.recordP3Evidence(latest.id, [1, 5], '')).toBe(true);
+    expect(controller.dossier().p3.evidence.predicted).toEqual({ position: { column: 4, row: 3 }, direction: 'east' });
+  });
+
+  test('NA03 preserves independent S2 before/after programs and excludes session runs from export', async () => {
+    const session = await realController();
+    const { controller } = session;
+    const grid = { width: 4, height: 4, start: { position: { column: 2, row: 3 }, direction: 'east' as const } };
+    controller.selectScenario('S2');
+    controller.updateDraftProgram([{ id: 'cmd-1', kind: 'move' }]);
+    controller.setRunPrediction({ position: { column: 3, row: 3 }, direction: 'east' });
+    const before = controller.runProgram(grid)!;
+    expect(controller.recordP3Evidence(before.id, [1], 'wrong target')).toBe(false);
+    expect(controller.recordRevisionEvidence('before', before.id, [1], 'BEFORE')).toBe(true);
+    controller.updateDraftProgram([{ id: 'cmd-2', kind: 'turn-left' }]);
+    controller.setRunPrediction({ position: { column: 2, row: 3 }, direction: 'north' });
+    const after = controller.runProgram(grid)!;
+    expect(controller.recordRevisionEvidence('after', after.id, [1], 'AFTER')).toBe(true);
+    expect(controller.dossier().p2.before.program).toEqual([{ id: 'cmd-1', kind: 'move' }]);
+    expect(controller.dossier().p2.after.program).toEqual([{ id: 'cmd-2', kind: 'turn-left' }]);
+    controller.setTransient({ prediction: 'PRIVATE-P0', retrievalReason: 'PRIVATE-P4' });
+    expect(await controller.flush()).toBe(true);
+    expect(await controller.exportWork()).toBe(true);
+    expect(session.exported().payload.p2.before.predicted).toEqual({ position: { column: 3, row: 3 }, direction: 'east' });
+    expect(JSON.stringify(session.exported())).not.toMatch(/PRIVATE-P0|PRIVATE-P4|currentRun|scenario|runId/);
+  });
+
   test('a committed delete with failed readback clears the view and blocks stale writes', async () => {
     const session = await realController();
     session.controller.updateSystems({ timeControl: 'OLD', routeCalculation: '', boundary: '' });
