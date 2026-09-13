@@ -52,6 +52,15 @@ NA06_SUPPLEMENTAL_FILES=[
 ]
 # Explicit user repair order F01–F05, 2026-09-09; historical plan stays sealed.
 NA08_SUPPLEMENTAL_FILES=['scripts/verification-evidence.ts','tests/platform/verification-evidence.test.ts']
+# Explicit user documentation/GitHub order, 2026-09-13 (IUM-V2-UX01).
+# Separate from IMP packages and their historical acceptance/evidence/limits.
+UX01_DOCUMENTATION_FILES={
+ 'docs/planning/ium-5-7/README.md',
+ 'docs/planning/ium-5-7/lebenswelt-und-progression.md',
+ 'docs/planning/ium-5-7/externe-angebote-und-comthink.md',
+}
+# Only the reviewed planning-entry insertion is authorized in the root README.
+UX01_README_DIGEST='19f8944e8164b272c5b09527321d3a3f3d56e10637a0c7a23f29b4ddacc68b56'
 
 
 class ImplementationError(ValueError):
@@ -304,6 +313,9 @@ def _validate(repo,authorization,vault):
             allowed.update(p['create']+p['modify'])
             if p['id']=='IMP08':allowed.update(NA06_SUPPLEMENTAL_FILES+NA08_SUPPLEMENTAL_FILES)
             allowed.update(set(p.get('optionalModify',{}))&optional)
+    allowed.update(UX01_DOCUMENTATION_FILES)
+    if digest(file_at(repo,'README.md').read_bytes())==UX01_README_DIGEST:
+        allowed.add('README.md')
     diff=git(repo,'diff','--name-status','--no-renames','-z',PLAN_COMMIT,'--').decode().split('\0')
     changes=[]
     for index in range(0,len(diff)-1,2):

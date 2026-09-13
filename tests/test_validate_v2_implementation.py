@@ -51,6 +51,13 @@ class ImplementationTests(unittest.TestCase):
                 source=ROOT/name
                 if source.is_file():
                     target=cls.repo/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
+        # Exercise the current user-requested documentation alongside package scope.
+        for name in ['README.md',
+                     'docs/planning/ium-5-7/README.md',
+                     'docs/planning/ium-5-7/lebenswelt-und-progression.md',
+                     'docs/planning/ium-5-7/externe-angebote-und-comthink.md']:
+            target=cls.repo/name;target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copyfile(ROOT/name,target)
 
     @classmethod
     def tearDownClass(cls):
@@ -118,6 +125,14 @@ class ImplementationTests(unittest.TestCase):
         try:
             file.write_text('synthetic',encoding='utf-8')
             with self.assertRaisesRegex(impl.ImplementationError,'[Uu]nautorisiert|[Nn]icht autorisiert'):
+                impl.validate(self.repo)
+        finally:file.unlink(missing_ok=True)
+
+    def test_planning_supplement_does_not_allow_other_documents(self):
+        file=self.repo/'docs/planning/ium-5-7/unrequested.md'
+        try:
+            file.write_text('synthetic out-of-scope document',encoding='utf-8')
+            with self.assertRaisesRegex(impl.ImplementationError,'Nicht autorisierte neue Datei: docs/planning/ium-5-7/unrequested.md'):
                 impl.validate(self.repo)
         finally:file.unlink(missing_ok=True)
 

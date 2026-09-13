@@ -2,6 +2,10 @@
 
 Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Der Lernwerk-Kosmos verbindet verbindliche Kernpfade mit ausdrücklich erhaltenen Vertiefungs-, Transfer- und Projektmodulen.
 
+## Aktuelle V2-Konzeptplanung: Lebensweltbezug und Anwendungen 5–7
+
+Der [Planungseinstieg vom 13.09.2026](docs/planning/ium-5-7/README.md) bündelt den roten Faden, Anwendungen für alle Jahrgänge, externe Angebote und optionale LMZ-ComThink-Vertiefungen. Festgelegt sind der Reinigungsroboter für M06 und ausschließlich die normale individuelle SWR-Fakefinder-Version; Kids ist ausgeschlossen. Die Dokumente unterscheiden Nutzerentscheidungen, Vorschläge und offene Einsatzprüfungen. Sie ergänzen die V2-Planung und sind keine Produkt- oder Unterrichtsfreigabe.
+
 ## Phase 2: erstes Lernmodul im Arbeitsstand
 
 `IUM-5-CORE-05 – Präzise Abläufe ausführbar machen` ist als erstes vollständiges digitales Lernmodul lokal implementiert und bleibt ein **interner Arbeitsstand**. Es verbindet einen geschlossenen grafischen Algorithmuseditor mit Vorhersage, deterministischer Ausführung, Laufspur, begründeter Reparatur, fester Wiederholung, Transfer und Selbstcheck. Sein Status ist ausdrücklich `working`: Es ist **nicht für Unterrichtseinsatz** freigegeben, nicht im derzeitigen öffentlichen Pages-Fixture enthalten und noch nicht durch die reale Gate-B-Prüfung pilotiert. Reale Geräte- und Schulnetzprüfung bleibt `device-verified: not-run`.
