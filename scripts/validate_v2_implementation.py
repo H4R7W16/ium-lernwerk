@@ -58,6 +58,8 @@ UX01_DOCUMENTATION_FILES={
  'docs/planning/ium-5-7/README.md',
  'docs/planning/ium-5-7/lebenswelt-und-progression.md',
  'docs/planning/ium-5-7/externe-angebote-und-comthink.md',
+ # Explicit continuation of the cleaning-case concept, 2026-09-13.
+ 'docs/planning/ium-5-7/m06-reinigungsfall.md',
 }
 # Only the reviewed planning-entry insertion is authorized in the root README.
 UX01_README_DIGEST='19f8944e8164b272c5b09527321d3a3f3d56e10637a0c7a23f29b4ddacc68b56'

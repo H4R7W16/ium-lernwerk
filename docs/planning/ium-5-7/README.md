@@ -7,16 +7,17 @@ Stand: 13.09.2026. Dieser Einstieg dokumentiert die jüngsten Nutzerentscheidung
 | Gegenstand | Stand |
 | --- | --- |
 | Ziel | Sehr gutes und wirksames Lernmaterial für Informatik und Medienbildung, mit verständlichen Anwendungen und fachlicher Eigenleistung. |
-| V2-G5-M06 | **Reinigungsroboter** als Anwendung festgelegt. Konkrete Reinigungsfälle und ihre Prüfkriterien sind noch auszuarbeiten. |
+| V2-G5-M06 | **Reinigungsroboter** als Anwendung festgelegt. Drei Grundrisse, Aufgaben und geprüfte Lösungen sind als [Reinigungsfall](m06-reinigungsfall.md) ausgearbeitet; fachliches Review und Produktintegration offen. |
 | SWR Fakefinder | Ausschließlich **normale individuelle Standardversion**. **Fakefinder Kids ist ausgeschlossen; School ist nicht ausgewählt.** Versionswahl entschieden, konkrete Fälle und Einsatzprüfung offen. |
 | Externe Lernangebote | Weiterhin gewollt, mit eigenem Lernauftrag, Auswertung und Transfer. Sie dürfen einen fachlich passenden Teil eines Moduls tragen. |
 | LMZ-ComThink-Sets | Als **optionale Vertiefung** geprüft und mit konkreten Kandidaten eingeplant. Keine Hardwarepflicht für den Kernweg. |
 | Roter Faden und übrige Anwendungen | Begründeter Vorschlag: „Digitale Welt verstehen und mitgestalten“. Keine pauschale Annahme aller Materialspezifikationen. |
 
-## Die beiden Planungsdokumente
+## Die Planungsdokumente
 
 1. [Lebensweltbezug und Progression](lebenswelt-und-progression.md): Leitfragen, Vergleich der Rahmungen, 20 Modulanschlüsse, Lernprodukte, M06-Modellgrenzen und Qualitätskriterien.
 2. [Externe Angebote und ComThink](externe-angebote-und-comthink.md): normale Fakefinder-Version, THE FEED und Internet-ABC; sechs optionale Hardwareanschlüsse; Quellenprüfung, Zeitgrenzen und nächste Schritte.
+3. [Reinigungsfall „Sauber geplant“](m06-reinigungsfall.md): Modellregeln, drei Grundrisse, S0–S5/P0–P6, Musterlösungen, Diagnose und 225-Minuten-Plan. Eine lokale interaktive Vorschau ergänzt die Ausarbeitung.
 
 Die frühere Öffnung für externe Lernspiele bleibt fachlich erhalten: Das Lernwerk stellt Sinn, Auftrag, Zugang und anschließende Sicherung her. Fremde Angebote werden zunächst verlinkt; konkrete Rechte und Einsatzbedingungen werden geprüft. Für verpflichtende Pfade ist ein geeigneter alternativer Zugang vorzusehen. Ein Kandidat ist noch keine geprüfte Integration. Der historische Bestand ist im [V2-Governance-Inventar](../../../roadmap/v2/foundations/governance/inventory.md) verzeichnet.
 
@@ -35,7 +36,7 @@ Die Zuordnung verschiebt keine Kompetenzanforderungen oder Zeitbudgets. G7-M06 u
 
 | Priorität | Arbeit | Erwartetes prüfbares Ergebnis |
 | --- | --- | --- |
-| 1 | M06-Reinigungsfall ausarbeiten | Grundriss, klare Modellregeln, Lösbarkeit im vorhandenen Befehlsumfang, Vorhersage, Fehlerfall, eigener Entwurf und Transfer. Danach den UX-Konzeptprototyp anpassen. |
+| 1 | M06-Reinigungsfall fachlich sichten | Ausgearbeitete Aufgaben und interaktive Vorschau prüfen. Danach Flächen-/Belegvertrag und Produktintegration mit den offenen UX-Korrekturen konkretisieren. |
 | 2 | Normale Fakefinder-Version und THE FEED konkret einordnen | Ausgewählte Fälle beziehungsweise Kapitel mit Lernauftrag, Unterstützung, Nachbereitung und Ersatzweg; tatsächlicher Angebots-/Gerätecheck. |
 | 3 | Kleine ComThink-Vertiefung für G6 | Endliches LED-Signal mit fester Wiederholung, eigener Vorhersage und begründeter Revision. |
 | 4 | Größere ComThink-Vertiefung für G7 | Sensorbasierter Putzroboter mit eigenen Tests. Vollmodell laut Material zwei Doppelstunden; kein ungeprüftes 90-Minuten-Flexpaket. |
@@ -56,9 +57,10 @@ Die fachlichen Originalnotizen heißen:
 
 - `2026-09-13 - Lebensweltbezug und roter Faden IuM 5-7`
 - `2026-09-13 - Externe Lernangebote und ComThink im IuM-Lernwerk`
+- `2026-09-13 - M06 Reinigungsfall Sauber geplant`
 
-Sie werden im Projekt-Vault gepflegt. Diese Repo-Fassungen bilden den gleichen fachlichen Stand ab; interne Wikilinks sind als interne Referenzen gekennzeichnet, Repo-Quellen relativ verlinkt und lokale Sichtungspfade entfernt. Bei fachlichen Änderungen müssen beide Lesefassungen und dieser Entscheidungsstand gemeinsam aktualisiert werden. Frühere Analysen und Sessions bleiben historische Nachweise; die oben dokumentierte Fakefinder-Präzisierung hat Vorrang für die aktuelle Auswahl.
+Sie werden im Projekt-Vault gepflegt. Diese Repo-Fassungen bilden den gleichen fachlichen Stand ab; interne Wikilinks sind als interne Referenzen gekennzeichnet, Repo-Quellen relativ verlinkt und lokale Sichtungspfade entfernt. Bei fachlichen Änderungen müssen alle fachlichen Lesefassungen und dieser Entscheidungsstand gemeinsam aktualisiert werden. Frühere Analysen und Sessions bleiben historische Nachweise; die oben dokumentierte Fakefinder-Präzisierung hat Vorrang für die aktuelle Auswahl.
 
 Die Synchronisierung erfolgt auf `feat/ium-v2-rebaseline`. Der Nutzer hat die Aktualisierung von GitHub beauftragt. Der Push umfasst den bisherigen lokalen Entwicklungsstand und die neue Planungsdokumentation; er ist kein Merge nach `main` und keine Bereitstellung für den Unterricht.
 
-Der bestehende V2-Implementierungsvalidator berücksichtigt diesen Dokumentationsauftrag separat: genau die drei Markdown-Dateien dieses Verzeichnisses und die geprüfte Ergänzung der Haupt-README. Die historischen Paketlisten, Annahmen und Prüfnachweise bleiben erhalten. Deren damaliger Wert `push: not-authorized` beschreibt den früheren Auftrag; die GitHub-Synchronisierung ist durch den Nutzerauftrag vom 13.09.2026 zusätzlich autorisiert.
+Der bestehende V2-Implementierungsvalidator berücksichtigt diesen Dokumentationsauftrag separat: genau die vier Markdown-Dateien dieses Verzeichnisses und die geprüfte Ergänzung der Haupt-README. Die historischen Paketlisten, Annahmen und Prüfnachweise bleiben erhalten. Deren damaliger Wert `push: not-authorized` beschreibt den früheren Auftrag; die GitHub-Synchronisierung ist durch den Nutzerauftrag vom 13.09.2026 zusätzlich autorisiert. Der anschließende Fortsetzungsauftrag ergänzt die konkrete Reinigungsfall-Notiz in diesem Verzeichnis.

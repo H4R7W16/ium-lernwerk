@@ -55,6 +55,7 @@ class ImplementationTests(unittest.TestCase):
         for name in ['README.md',
                      'docs/planning/ium-5-7/README.md',
                      'docs/planning/ium-5-7/lebenswelt-und-progression.md',
+                     'docs/planning/ium-5-7/m06-reinigungsfall.md',
                      'docs/planning/ium-5-7/externe-angebote-und-comthink.md']:
             target=cls.repo/name;target.parent.mkdir(parents=True,exist_ok=True)
             shutil.copyfile(ROOT/name,target)
