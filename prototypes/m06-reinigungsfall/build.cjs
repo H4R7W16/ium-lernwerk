@@ -2,23 +2,48 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 
-// Explicit public files: no workspace notes, test evidence or build dependencies.
-const files = ['index.html', 'reinigungsfall.html', 'prueffahrt.html', 'style.css',
+// Only these files are published. Tests, notes and learner data stay out of Pages.
+const legacy = ['reinigungsfall.html', 'prueffahrt.html', 'style.css',
   'reinigungsfall.css', 'reinigungsfall-core.js', 'reinigungsfall.js', 'prototype.js',
   'README.md', 'sw.js'];
-const output = path.resolve(__dirname, '../../dist/reinigungsfall-pages');
-if (fs.existsSync(output)) throw new Error('Build output exists; use a fresh checkout for publishing.');
-for (const name of files) {
-  const source = fs.readFileSync(path.join(__dirname, name), 'utf8');
-  if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
-  if (name.endsWith('.js')) execFileSync(process.execPath, ['--check', path.join(__dirname, name)]);
-  if (name.endsWith('.html')) {
-    for (const [, url] of source.matchAll(/(?:href|src)="([^"]+)"/g)) {
-      if (url.startsWith('#') || /^https?:/.test(url)) continue;
-      if (!files.includes(url.split('#')[0])) throw new Error(`Unpublished link ${name}: ${url}`);
+const current = ['index.html', 'app.css', 'app.js', 'cleaning-core.js', 'lesson-model.js', 'README.md'];
+const currentDir = path.resolve(__dirname, '../m06-reinigungsfall-v2');
+
+function prepare() {
+  const assets = new Map();
+  assets.set('index.html', fs.readFileSync(path.join(currentDir, 'pages-entry.html'), 'utf8'));
+  for (const name of legacy) assets.set(name, fs.readFileSync(path.join(__dirname, name), 'utf8'));
+  for (const name of current) {
+    const source = fs.readFileSync(path.join(currentDir, name), 'utf8')
+      .replaceAll('../m06-reinigungsfall/reinigungsfall.html', '../reinigungsfall.html');
+    assets.set(`reinigungsfall-v2/${name}`, source);
+  }
+  for (const [name, source] of assets) {
+    if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
+    if (name.endsWith('.html')) {
+      for (const [, url] of source.matchAll(/(?:href|src)="([^"]+)"/g)) {
+        if (url.startsWith('#') || /^https?:/.test(url)) continue;
+        const relative = url.split('#')[0];
+        const target = path.posix.normalize(path.posix.join(path.posix.dirname(name), relative.endsWith('/') ? `${relative}index.html` : relative));
+        if (!assets.has(target)) throw new Error(`Unpublished link ${name}: ${url}`);
+      }
     }
   }
+  return assets;
 }
-fs.mkdirSync(output, { recursive: true });
-for (const name of files) fs.copyFileSync(path.join(__dirname, name), path.join(output, name));
-console.log(`Validated and staged ${files.length} public files in ${output}`);
+function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages')) {
+  if (fs.existsSync(output)) throw new Error('Build output exists; use a fresh output directory for publishing.');
+  const assets = prepare();
+  for (const dir of [__dirname, currentDir]) {
+    const names = dir === __dirname ? legacy : current;
+    for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
+  }
+  for (const [name, source] of assets) {
+    const destination = path.join(output, name);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, source);
+  }
+  console.log(`Validated and staged ${assets.size} public files in ${output}`);
+}
+if (require.main === module) build(process.argv[2] ? path.resolve(process.argv[2]) : undefined);
+module.exports = { prepare, build };
