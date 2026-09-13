@@ -1,6 +1,40 @@
 # IuM-Lernwerk
 
-Offenes, digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Der Lernwerk-Kosmos verbindet verbindliche Kernpfade mit ausdrücklich erhaltenen Vertiefungs-, Transfer- und Projektmodulen.
+Ein digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Ziel sind verständliche, relevante Aufgaben, an denen Lernende informatische Zusammenhänge selbst untersuchen und erklären können. Das Lehrwerk befindet sich in Entwicklung.
+
+## Aktuell ausprobieren: Sauber geplant
+
+**[Reinigungsroboter im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall.html#einstieg)** – ohne Installation oder Anmeldung.
+
+Stand: 13. September 2026. Die aktuelle Vorschau zeigt den Lernfall **M06 für Klasse 5**: Nach einer Bastelaktion soll ein Modellroboter die Bodenfläche reinigen. An drei Grundrissen werden einzelne Befehle, Wiederholungen und Fehler untersucht. Anschließend entsteht ein eigener Reinigungsplan. Die zentrale Frage lautet: Ist wirklich die ganze Fläche gereinigt, auch wenn der Roboter wieder am Start steht?
+
+Der Stand ist für den informellen Austausch in einem kleinen Kreis gedacht. Einfach ausprobieren und Eindrücke oder Probleme **direkt an Jan** zurückmelden; ein Formular, GitHub-Konto oder festes Prüfprogramm ist dafür nicht nötig.
+
+### Was funktioniert, was ist noch offen?
+
+- Befehle und eigene Programme ausführen, Bewegungen schrittweise verfolgen, Flächendeckung prüfen und Programme verbessern.
+- Vorhersagen und Erklärungen notieren sowie ausgewählte Codefassungen und Ergebnisse miteinander vergleichen.
+- Zwischen den Aufgaben wechseln und innerhalb der geöffneten Sitzung zur eigenen Arbeit zurückkehren.
+- **Eingaben gehen beim Neuladen oder Schließen verloren.** Dauerhaftes Speichern und verlässlicher Offlinebetrieb sind in dieser Vorschau noch nicht umgesetzt. Ablaufgrafiken werden auf Papier erstellt.
+
+Die Vorschau bildet einen konkreten Lernfall ab, noch nicht das gesamte Lehrwerk 5–7. Sie ist ein erprobbarer Konzeptstand; ein gelungener Programmlauf bewertet keine Erklärung und belegt noch keine Lernwirkung. Der Modellroboter folgt festen Befehlen und besitzt keine Sensorsteuerung.
+
+### Zum Nachvollziehen
+
+| Gesucht | Einstieg |
+| --- | --- |
+| Vorschau und einfache lokale Nutzung | [Beschreibung des Reinigungsfalls](prototypes/m06-reinigungsfall/README.md) |
+| Quellcode der veröffentlichten Vorschau | [prototypes/m06-reinigungsfall](prototypes/m06-reinigungsfall/) |
+| Aufgaben, Musterlösungen und fünf Unterrichtseinheiten | [Ausarbeitung M06](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/m06-reinigungsfall.md) |
+| Roter Faden 5–7 und externe Lernangebote | [Planungsübersicht](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/README.md) |
+
+Die verlinkte Planung liegt auf einem festgehaltenen Stand des Entwicklungsbranches `feat/ium-v2-rebaseline`. Auf dem Standardbranch `main` ist die separat veröffentlichte Vorschau enthalten. Die Planung beschreibt teilweise weitergehende Vorhaben; sie sind nicht automatisch Funktionen der Vorschau.
+
+Die acht Modelltests und der Veröffentlichungsbuild wurden erfolgreich ausgeführt. Der veröffentlichte Stand wurde im Browser geöffnet und mit den geprüften Quelldateien verglichen. [Veröffentlichungsnachweis vom 13.09.2026](https://github.com/H4R7W16/ium-lernwerk/actions/runs/34765236442). Hinweise zur Wiederholung der Tests stehen in der Beschreibung des Reinigungsfalls.
+
+## Hintergrund: bisherige Entwicklungsstände
+
+Die folgenden Abschnitte dokumentieren frühere Module und technische Grundlagen. Bezeichnungen wie `IUM-5-CORE-05`, „Gate B“ und „Pages-Fixture“ gehören zu diesen Entwicklungsständen. Für die aktuelle Reinigungsroboter-Vorschau gelten die Beschreibung und Links oben.
 
 ## Phase 2: erstes Lernmodul im Arbeitsstand
 
