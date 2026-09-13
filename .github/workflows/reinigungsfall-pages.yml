@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - prototypes/m06-reinigungsfall/**
+      - prototypes/m06-reinigungsfall-v2/**
       - .github/workflows/reinigungsfall-pages.yml
 
 concurrency:
@@ -22,7 +23,7 @@ jobs:
         with:
           node-version: 22.20.0
       - name: Check the cleaning model
-        run: node --test prototypes/m06-reinigungsfall/reinigungsfall.test.cjs
+        run: node --test prototypes/m06-reinigungsfall/reinigungsfall.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-reinigungsfall-v2/lesson-model.test.cjs
       - name: Prepare the reviewed static preview
         run: node prototypes/m06-reinigungsfall/build.cjs
       - name: Configure GitHub Pages

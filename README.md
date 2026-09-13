@@ -2,35 +2,41 @@
 
 Ein digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Ziel sind verständliche, relevante Aufgaben, an denen Lernende informatische Zusammenhänge selbst untersuchen und erklären können. Das Lehrwerk befindet sich in Entwicklung.
 
-## Aktuell ausprobieren: Sauber geplant
+## Beispielinhalt ausprobieren: Sauber geplant
 
-**[Reinigungsroboter im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall.html#einstieg)** – ohne Installation oder Anmeldung.
+**[Aktuelle Lernfassung 2 im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall-v2/)** – ohne Installation oder Anmeldung.
 
-Stand: 13. September 2026. Die aktuelle Vorschau zeigt den Lernfall **M06 für Klasse 5**: Nach einer Bastelaktion soll ein Modellroboter die Bodenfläche reinigen. An drei Grundrissen werden einzelne Befehle, Wiederholungen und Fehler untersucht. Anschließend entsteht ein eigener Reinigungsplan. Die zentrale Frage lautet: Ist wirklich die ganze Fläche gereinigt, auch wenn der Roboter wieder am Start steht?
+Der Beispielinhalt zeigt M06 für Klasse 5: Nach dem Basteln soll ein Modellroboter die Bodenfläche reinigen. Neun frei anwählbare Lernschritte führen von Bewegung und Drehung über Vorhersagen, Wiederholungen und Fehlerkorrektur zum eigenen Plan. Transfer und eine selbst aufgebaute Abschlussfolge sichern die fachlichen Zusammenhänge. Die Schritte sind keine neun Unterrichtsstunden.
 
-Der Stand ist für den informellen Austausch in einem kleinen Kreis gedacht. Einfach ausprobieren und Eindrücke oder Probleme **direkt an Jan** zurückmelden; ein Formular, GitHub-Konto oder festes Prüfprogramm ist dafür nicht nötig.
+Der Stand ist für den informellen Austausch in einem kleinen Kreis gedacht. Eindrücke und Probleme **direkt an Jan** zurückmelden; ein Formular, GitHub-Konto oder festes Prüfprogramm ist nicht nötig.
 
-### Was funktioniert, was ist noch offen?
+### Was lässt sich ausprobieren?
 
-- Befehle und eigene Programme ausführen, Bewegungen schrittweise verfolgen, Flächendeckung prüfen und Programme verbessern.
-- Vorhersagen und Erklärungen notieren sowie ausgewählte Codefassungen und Ergebnisse miteinander vergleichen.
-- Zwischen den Aufgaben wechseln und innerhalb der geöffneten Sitzung zur eigenen Arbeit zurückkehren.
-- **Eingaben gehen beim Neuladen oder Schließen verloren.** Dauerhaftes Speichern und verlässlicher Offlinebetrieb sind in dieser Vorschau noch nicht umgesetzt. Ablaufgrafiken werden auf Papier erstellt.
+- Einzelne Aktionen oder ganze Wiederholungskörper verfolgen; aktueller Körperbefehl, Durchlauf, Ort und Blickrichtung sind sichtbar.
+- Eine Endkachel und Blickrichtung vorhersagen, neue Aufgaben ergänzen und eigene Programme ausführen.
+- Randrunde und vollständige Reinigung unterscheiden; beim Überarbeiten bleibt der Grundriss sichtbar.
+- Eigene Erklärungen mit konkreten Beispielen vergleichen und ausgewählte Läufe festhalten.
+- Eine neue Befehlsfolge selbst aufbauen und korrigieren.
+- Den Arbeitsstand als Datei sichern und öffnen oder freiwillig im Browser behalten.
 
-Die Vorschau bildet einen konkreten Lernfall ab, noch nicht das gesamte Lehrwerk 5–7. Sie ist ein erprobbarer Konzeptstand; ein gelungener Programmlauf bewertet keine Erklärung und belegt noch keine Lernwirkung. Der Modellroboter folgt festen Befehlen und besitzt keine Sensorsteuerung.
+**Ohne gewählte Sicherung bleiben Eingaben nur im geöffneten Tab.** Browserspeicherung ist an das Gerät, den Browser und die Adresse gebunden; für einen Wechsel eine Datei mitnehmen. Ablaufgrafiken entstehen weiterhin auf Papier.
 
-### Zum Nachvollziehen
+Dies ist ein ausführbarer Beispielinhalt, noch nicht das gesamte Lehrwerk 5–7. Die Vorschau besitzt feste Bewegungsbefehle, keine Sensorsteuerung. Automatisierte Prüfungen bewerten weder freie Erklärungen noch tatsächliche Lernwirksamkeit. Reale Unterrichtserprobung und umfassende Zugänglichkeitsprüfung bleiben offen.
+
+### Quellcode, Anleitung und Vergleich
 
 | Gesucht | Einstieg |
 | --- | --- |
-| Vorschau und einfache lokale Nutzung | [Beschreibung des Reinigungsfalls](prototypes/m06-reinigungsfall/README.md) |
-| Quellcode der veröffentlichten Vorschau | [prototypes/m06-reinigungsfall](prototypes/m06-reinigungsfall/) |
-| Aufgaben, Musterlösungen und fünf Unterrichtseinheiten | [Ausarbeitung M06](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/m06-reinigungsfall.md) |
+| Aktueller Beispielinhalt und Quellcode | [prototypes/m06-reinigungsfall-v2](prototypes/m06-reinigungsfall-v2/) |
+| Lernweg, Speicherung und lokale Nutzung | [Anleitung zur Lernfassung 2](prototypes/m06-reinigungsfall-v2/README.md) |
+| Dokumentierte lokale Vorprüfung | [QA der Lernfassung 2](prototypes/m06-reinigungsfall-v2/QA.md) |
+| Erste Reinigungsfassung zum Vergleich | [Im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall.html) · [Quellcode](prototypes/m06-reinigungsfall/) |
+| Fachliche Ausgangsplanung und Musterlösungen | [Ausarbeitung M06](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/m06-reinigungsfall.md) |
 | Roter Faden 5–7 und externe Lernangebote | [Planungsübersicht](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/README.md) |
 
-Die verlinkte Planung liegt auf einem festgehaltenen Stand des Entwicklungsbranches `feat/ium-v2-rebaseline`. Auf dem Standardbranch `main` ist die separat veröffentlichte Vorschau enthalten. Die Planung beschreibt teilweise weitergehende Vorhaben; sie sind nicht automatisch Funktionen der Vorschau.
+Die verlinkte Ausgangsplanung liegt auf einem festgehaltenen Entwicklungsstand. Die zusätzliche Fassung setzt die nachfolgende Lernendenanalyse um; ihre aktuelle Lernfolge ist in der Anleitung dokumentiert. Weitergehende Planungen sind nicht automatisch Funktionen der Vorschau.
 
-Die acht Modelltests und der Veröffentlichungsbuild wurden erfolgreich ausgeführt. Der veröffentlichte Stand wurde im Browser geöffnet und mit den geprüften Quelldateien verglichen. [Veröffentlichungsnachweis vom 13.09.2026](https://github.com/H4R7W16/ium-lernwerk/actions/runs/34765236442). Hinweise zur Wiederholung der Tests stehen in der Beschreibung des Reinigungsfalls.
+Der [Workflow „Reinigungsfall Pages“](https://github.com/H4R7W16/ium-lernwerk/actions/workflows/reinigungsfall-pages.yml) prüft beide Modelle und den Veröffentlichungsbuild. Die [Projektstartseite](https://h4r7w16.github.io/ium-lernwerk/) führt zur aktuellen Lernfassung; die ältere direkte Adresse bleibt erhalten.
 
 ## Hintergrund: bisherige Entwicklungsstände
 

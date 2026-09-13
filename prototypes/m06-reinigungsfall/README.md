@@ -1,4 +1,6 @@
-# Sauber geplant · Reinigungsroboter
+# Sauber geplant · erste Reinigungsfassung
+
+Aktueller Beispielinhalt: [Lernfassung 2](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall-v2/). Diese erste Fassung bleibt zum Vergleich erhalten.
 
 [Vorschau im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall.html#einstieg) – ohne Installation oder Anmeldung.
 
@@ -42,7 +44,7 @@ Die zugehörigen Dateien lassen sich auch [direkt auf GitHub lesen](https://gith
 
 ## Veröffentlichung und Prüfung
 
-Die statischen Quelldateien stammen aus dem geprüften Workspace-Prototyp `Shared/Prototypes/ium-v2-ux01`. Die Reinigungsansicht ist zusätzlich der Start unter `index.html`. Ihr Rückverweis führt zum erhaltenen Prüffahrt-Entwurf. Ein `noindex`-Hinweis ist keine Zugriffskontrolle; GitHub Pages ist öffentlich.
+Die statischen Quelldateien stammen aus dem geprüften Workspace-Prototyp `Shared/Prototypes/ium-v2-ux01`. Die frühere Startkopie bleibt im Quellordner erhalten. Die öffentliche Startadresse führt inzwischen zur Lernfassung 2. Ihr Rückverweis führt zum erhaltenen Prüffahrt-Entwurf. Ein `noindex`-Hinweis ist keine Zugriffskontrolle; GitHub Pages ist öffentlich.
 
 Veröffentlichungsbuild vom Repo-Stamm:
 
@@ -50,7 +52,7 @@ Veröffentlichungsbuild vom Repo-Stamm:
 node prototypes/m06-reinigungsfall/build.cjs
 ```
 
-Der Build benötigt einen frischen Ausgabeordner und prüft Syntax, lokale HTML-Verweise sowie die explizite Liste öffentlicher Dateien. Er kopiert zehn Dateien in `dist/reinigungsfall-pages`; dieser erzeugte Ordner wird nicht versioniert.
+Der Build benötigt einen frischen Ausgabeordner und prüft Syntax, lokale HTML-Verweise sowie die explizite Liste öffentlicher Dateien. Er stellt beide Lernfassungen und den aktuellen Einstieg in `dist/reinigungsfall-pages` bereit; dieser erzeugte Ordner wird nicht versioniert.
 
 Der Workflow `Reinigungsfall Pages` prüft Pull Requests. Ausschließlich ein manueller Start auf `main` veröffentlicht unter der bestehenden Pages-Adresse. Die beiden historischen Veröffentlichungsworkflows bleiben unverändert. Der gesamte V2-Entwicklungsbranch wird für diese Vorschau nicht integriert.
 
