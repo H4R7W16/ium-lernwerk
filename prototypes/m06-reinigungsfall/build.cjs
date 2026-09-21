@@ -7,6 +7,8 @@ const legacy = ['reinigungsfall.html', 'prueffahrt.html', 'style.css',
   'reinigungsfall.css', 'reinigungsfall-core.js', 'reinigungsfall.js', 'prototype.js',
   'README.md', 'sw.js'];
 const current = ['index.html', 'app.css', 'app.js', 'cleaning-core.js', 'lesson-model.js', 'README.md'];
+const selfDir = path.resolve(__dirname, '../m06-selbstlernen');
+const selfFiles = ['app.css', 'app.js', 'model.js', 'cleaning-core.js'];
 const currentDir = path.resolve(__dirname, '../m06-reinigungsfall-v2');
 
 function prepare() {
@@ -18,6 +20,9 @@ function prepare() {
       .replaceAll('../m06-reinigungsfall/reinigungsfall.html', '../reinigungsfall.html');
     assets.set(`reinigungsfall-v2/${name}`, source);
   }
+  assets.set('selbstlernen/index.html', require('../m06-selbstlernen/render.cjs').render());
+  assets.set('selbstlernen/read.html', require('../m06-selbstlernen/render.cjs').renderReading());
+  for (const name of selfFiles) assets.set('selbstlernen/' + name, fs.readFileSync(path.join(selfDir, name), 'utf8'));
   for (const [name, source] of assets) {
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
     if (name.endsWith('.html')) {
@@ -34,8 +39,8 @@ function prepare() {
 function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages')) {
   if (fs.existsSync(output)) throw new Error('Build output exists; use a fresh output directory for publishing.');
   const assets = prepare();
-  for (const dir of [__dirname, currentDir]) {
-    const names = dir === __dirname ? legacy : current;
+  for (const dir of [__dirname, currentDir, selfDir]) {
+    const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : current;
     for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
   }
   for (const [name, source] of assets) {

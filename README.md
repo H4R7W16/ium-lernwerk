@@ -1,5 +1,7 @@
 # IuM-Lernwerk
 
+Neue zusätzliche Referenzstrecke: **[Mit Schleifen planen – eigenständig lernen](https://h4r7w16.github.io/ium-lernwerk/selbstlernen/)** · **[Lesefassung](https://h4r7w16.github.io/ium-lernwerk/selbstlernen/read.html)** · [Quellcode und Anleitung](prototypes/m06-selbstlernen/README.md). Stand 21.09.2026 nach UX11-Nacharbeit, als Prüffassung zugänglich; keine Schülererprobung oder Unterrichtsfreigabe. Die bisherige Startadresse und die folgenden älteren Fassungen bleiben erhalten.
+
 Ein digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Ziel sind verständliche, relevante Aufgaben, an denen Lernende informatische Zusammenhänge selbst untersuchen und erklären können. Das Lehrwerk befindet sich in Entwicklung.
 
 ## Beispielinhalt ausprobieren: Sauber geplant
@@ -36,7 +38,7 @@ Dies ist ein ausführbarer Beispielinhalt, noch nicht das gesamte Lehrwerk 5–7
 
 Die verlinkte Ausgangsplanung liegt auf einem festgehaltenen Entwicklungsstand. Die zusätzliche Fassung setzt die nachfolgende Lernendenanalyse um; ihre aktuelle Lernfolge ist in der Anleitung dokumentiert. Weitergehende Planungen sind nicht automatisch Funktionen der Vorschau.
 
-Der [Workflow „Reinigungsfall Pages“](https://github.com/H4R7W16/ium-lernwerk/actions/workflows/reinigungsfall-pages.yml) prüft beide Modelle und den Veröffentlichungsbuild. Die [Projektstartseite](https://h4r7w16.github.io/ium-lernwerk/) führt zur aktuellen Lernfassung; die ältere direkte Adresse bleibt erhalten.
+Der manuelle [Workflow „Selbstlernstrecke Pages“](https://github.com/H4R7W16/ium-lernwerk/actions/workflows/selbstlernen-pages.yml) prüft ausschließlich Material und Veröffentlichungsdateien und veröffentlicht alle drei Fassungen gemeinsam. Import-/Exporttests und Gesamtsuiten gehören nicht zu diesem Workflow. Der bestehende Workflow „Reinigungsfall Pages“ bleibt für seinen bisherigen Prüfumfang erhalten. Die [Projektstartseite](https://h4r7w16.github.io/ium-lernwerk/) führt zur aktuellen Lernfassung; die ältere direkte Adresse bleibt erhalten.
 
 ## Hintergrund: bisherige Entwicklungsstände
 
