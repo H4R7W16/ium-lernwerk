@@ -1,0 +1,47 @@
+name: Selbstlernstrecke Pages
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+      # Deliberately scoped: no import/export tests or aggregate suites.
+      - name: Check material and published file map
+        run: node --test prototypes/m06-selbstlernen/material.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs
+      - name: Prepare all three static learning versions
+        run: node prototypes/m06-reinigungsfall/build.cjs
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/reinigungsfall-pages
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
