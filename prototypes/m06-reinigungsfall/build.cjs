@@ -17,11 +17,12 @@ function prepare() {
   for (const name of legacy) assets.set(name, fs.readFileSync(path.join(__dirname, name), 'utf8'));
   for (const name of current) {
     const source = fs.readFileSync(path.join(currentDir, name), 'utf8')
-      .replaceAll('../m06-reinigungsfall/reinigungsfall.html', '../reinigungsfall.html');
+      .replaceAll('../m06-reinigungsfall/reinigungsfall.html', '../reinigungsfall.html')
+      .replaceAll('../m06-selbstlernen/index.html', '../selbstlernen/index.html');
     assets.set(`reinigungsfall-v2/${name}`, source);
   }
-  assets.set('selbstlernen/index.html', require('../m06-selbstlernen/render.cjs').render());
-  assets.set('selbstlernen/read.html', require('../m06-selbstlernen/render.cjs').renderReading());
+  assets.set('selbstlernen/index.html', require('../m06-selbstlernen/render.cjs').render().replaceAll('../m06-reinigungsfall-v2/index.html', '../reinigungsfall-v2/index.html'));
+  assets.set('selbstlernen/read.html', require('../m06-selbstlernen/render.cjs').renderReading().replaceAll('../m06-reinigungsfall-v2/index.html', '../reinigungsfall-v2/index.html'));
   for (const name of selfFiles) assets.set('selbstlernen/' + name, fs.readFileSync(path.join(selfDir, name), 'utf8'));
   for (const [name, source] of assets) {
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);

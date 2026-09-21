@@ -21,6 +21,6 @@ test('Veröffentlichung enthält keine Tests, lokalen Nachweise oder Lernstände
 
 test('Selbstlernstrecke wird aus einer Quelle gebaut und hat alle Laufzeitdateien',()=>{
  const assets=prepare();
- assert.equal(assets.get('selbstlernen/index.html'),require('../m06-selbstlernen/render.cjs').render());
+ assert.equal(assets.get('selbstlernen/index.html'),require('../m06-selbstlernen/render.cjs').render().replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html'));
  for(const name of ['app.css','app.js','model.js','cleaning-core.js'])assert.ok(assets.has('selbstlernen/'+name));
 });
