@@ -2,7 +2,7 @@
 (()=>{
  const M=window.Lesson,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
  const escape=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-  const key='ium-schleifen-selbstlernen-v1';let state=M.freshState(),remember=false,dirty=false,previousPage='start',pending=null,lastExecution=null,knowledgeReturn=null;
+  const key=document.body.dataset.storageKey||'ium-schleifen-selbstlernen-v1';let state=M.freshState(),remember=false,dirty=false,previousPage='start',pending=null,lastExecution=null,knowledgeReturn=null;
  const saveStatus=$('#save-status');
  try{const raw=localStorage.getItem(key);if(raw){state=M.decode(raw);remember=true;$('#restore-notice').textContent='Dein gesicherter Stand ist wieder da. Deine Antworten und dein Programm kannst du weiterbearbeiten.';}}
  catch{ $('#restore-notice').textContent='Eine gespeicherte Sicherung konnte nicht geladen werden. Du kannst weiterarbeiten oder eine Sicherungsdatei öffnen.';}
@@ -138,4 +138,5 @@
  $('#cancel-import').addEventListener('click',()=>{pending=null;$('#import-preview').hidden=true;saveStatus.textContent='Import abgebrochen. Dein Stand bleibt erhalten.';});
  let printDetails=[];window.addEventListener('beforeprint',()=>{printDetails=$$('details').filter(d=>!d.open);printDetails.forEach(d=>d.open=true);});window.addEventListener('afterprint',()=>printDetails.forEach(d=>d.open=false));$('#print').addEventListener('click',()=>window.print());
  window.addEventListener('beforeunload',e=>{if(dirty||materialDirty){e.preventDefault();e.returnValue='';}});
+window.PlanningJourneyUI?.mount({renderSim});
 })();

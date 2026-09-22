@@ -21,6 +21,22 @@ test('Veröffentlichung enthält keine Tests, lokalen Nachweise oder Lernstände
 
 test('Selbstlernstrecke wird aus einer Quelle gebaut und hat alle Laufzeitdateien',()=>{
  const assets=prepare();
- assert.equal(assets.get('selbstlernen/index.html'),require('../m06-selbstlernen/render.cjs').render().replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html'));
+ assert.equal(assets.get('selbstlernen/index.html'),require('../m06-selbstlernen/render.cjs').render().replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html').replaceAll('../m06-lernfassung3/index.html','../lernfassung-3/index.html'));
  for(const name of ['app.css','app.js','model.js','cleaning-core.js'])assert.ok(assets.has('selbstlernen/'+name));
+});
+
+test('Pages stellt die dritte Fassung mit erreichbaren Varianten und Lesefassung bereit',()=>{
+ const assets=prepare();
+ assert.ok(assets.has('lernfassung-3/index.html'));
+ assert.ok(assets.has('lernfassung-3/read.html'));
+ for(const file of ['reinigungsfall-v2/index.html','selbstlernen/index.html','selbstlernen/read.html'])
+  assert.match(assets.get(file),/href="\.\.\/lernfassung-3\/index.html"/);
+ const third=assets.get('lernfassung-3/index.html'),reading=assets.get('lernfassung-3/read.html');
+ for(const id of ['a6-first','a7-first','a7-last','plan-code'])assert.match(third,new RegExp('id="'+id+'"'));
+ assert.equal((third.match(/data-stage-panel=/g)||[]).length,4);
+ assert.match(third,/data-storage-key="ium-schleifen-planung-v3"/);
+ assert.doesNotMatch(reading,/<script|<select|<input[^>]*type="number"/);
+ assert.equal((reading.match(/data-stage-panel=/g)||[]).length,4);
+ assert.match(reading,/Eine andere gültige Lösung: spaltenweise/);
+ for(const f of ['journey.js','journey-model.js','journey.css'])assert.ok(assets.has('lernfassung-3/'+f));
 });
