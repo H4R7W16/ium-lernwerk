@@ -11,7 +11,9 @@ const selfDir = path.resolve(__dirname, '../m06-selbstlernen');
 const selfFiles = ['app.css', 'app.js', 'model.js', 'cleaning-core.js'];
 const thirdDir = path.resolve(__dirname, '../m06-lernfassung3');
 const thirdFiles = ['journey.css','journey.js','journey-model.js'];
-const publicLinks = source => source.replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html').replaceAll('../m06-selbstlernen/', '../selbstlernen/').replaceAll('../m06-lernfassung3/index.html','../lernfassung-3/index.html');
+const publicLinks = source => source.replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html').replaceAll('../m06-selbstlernen/', '../selbstlernen/').replaceAll('../m06-lernfassung3/index.html','../lernfassung-3/index.html').replaceAll('../m06-lernwerkstatt/index.html','../lernwerkstatt/index.html');
+const workshopDir = path.resolve(__dirname, '../m06-lernwerkstatt');
+const workshopFiles = ['index.html','workshop.css','workshop.js','workshop-model.js'];
 const currentDir = path.resolve(__dirname, '../m06-reinigungsfall-v2');
 
 function prepare() {
@@ -22,7 +24,7 @@ function prepare() {
     const source = fs.readFileSync(path.join(currentDir, name), 'utf8')
       .replaceAll('../m06-reinigungsfall/reinigungsfall.html', '../reinigungsfall.html')
       .replaceAll('../m06-selbstlernen/index.html', '../selbstlernen/index.html')
-      .replaceAll('../m06-lernfassung3/index.html', '../lernfassung-3/index.html');
+      .replaceAll('../m06-lernfassung3/index.html', '../lernfassung-3/index.html').replaceAll('../m06-lernwerkstatt/index.html','../lernwerkstatt/index.html');
     assets.set(`reinigungsfall-v2/${name}`, source);
   }
   assets.set('selbstlernen/index.html', publicLinks(require('../m06-selbstlernen/render.cjs').render()));
@@ -31,6 +33,7 @@ function prepare() {
   assets.set('lernfassung-3/index.html', publicLinks(require('../m06-lernfassung3/render.cjs').render()));
   assets.set('lernfassung-3/read.html', publicLinks(require('../m06-lernfassung3/render.cjs').renderReading()));
   for (const name of thirdFiles) assets.set('lernfassung-3/' + name, fs.readFileSync(path.join(thirdDir,name),'utf8'));
+  for (const name of workshopFiles) assets.set('lernwerkstatt/' + name, publicLinks(fs.readFileSync(path.join(workshopDir,name),'utf8')));
   for (const [name, source] of assets) {
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
     if (name.endsWith('.html')) {
@@ -47,8 +50,8 @@ function prepare() {
 function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages')) {
   if (fs.existsSync(output)) throw new Error('Build output exists; use a fresh output directory for publishing.');
   const assets = prepare();
-  for (const dir of [__dirname, currentDir, selfDir, thirdDir]) {
-    const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : current;
+  for (const dir of [__dirname, currentDir, selfDir, thirdDir, workshopDir]) {
+    const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : dir === workshopDir ? workshopFiles : current;
     for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
   }
   for (const [name, source] of assets) {
