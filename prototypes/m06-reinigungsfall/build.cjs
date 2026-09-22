@@ -54,7 +54,6 @@ function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages
     const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : dir === workshopDir ? workshopFiles : current;
     for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
   }
-  for (const name of workshopFiles) assets.set('lernwerkstatt/' + name, publicLinks(fs.readFileSync(path.join(workshopDir,name),'utf8')));
   for (const [name, source] of assets) {
     const destination = path.join(output, name);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
