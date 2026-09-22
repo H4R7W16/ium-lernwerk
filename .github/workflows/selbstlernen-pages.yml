@@ -20,7 +20,7 @@ jobs:
           node-version: 22.20.0
       # Deliberately scoped: no import/export tests or aggregate suites.
       - name: Check material and published file map
-        run: node --test prototypes/m06-selbstlernen/material.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs
+        run: node --test prototypes/m06-selbstlernen/material.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-lernfassung3/journey.test.cjs
       - name: Prepare all three static learning versions
         run: node prototypes/m06-reinigungsfall/build.cjs
       - name: Configure GitHub Pages
