@@ -50,3 +50,12 @@ test('Lernwerkstatt ist unabhängig erreichbar und hat alle Simulationsdateien',
  assert.match(page,/src="\.\.\/selbstlernen\/model.js"/);
  assert.match(page,/src="\.\.\/selbstlernen\/cleaning-core.js"/);
 });
+test('Lernstudio veröffentlicht nur die zusätzlichen Laufzeitdateien und löst alle Modellverweise auf',()=>{
+ const assets=prepare();
+ for(const f of ['index.html','studio.css','studio.js','studio-model.js'])assert.ok(assets.has('lernstudio/'+f));
+ const html=assets.get('lernstudio/index.html'),js=assets.get('lernstudio/studio.js');
+ assert.match(html,/src="\.\.\/lernwerkstatt\/workshop-model.js"/);
+ assert.match(html,/src="\.\.\/selbstlernen\/model.js"/);
+ assert.doesNotMatch(js,/\.\.\/m06-/);
+ assert.match(assets.get('lernwerkstatt/workshop.js'),/href="\.\.\/lernstudio\/index.html"/);
+});
