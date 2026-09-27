@@ -15,7 +15,7 @@ const publicLinks = source => source.replaceAll('../m06-reinigungsfall-v2/index.
 const workshopDir = path.resolve(__dirname, '../m06-lernwerkstatt');
 const workshopFiles = ['index.html','workshop.css','workshop.js','workshop-model.js'];
 const studioDir = path.resolve(__dirname, '../m06-lernstudio');
-const studioFiles = ['index.html','studio.css','studio.js','studio-model.js'];
+const studioFiles = ['index.html','studio.css','prototype.css','studio.js','studio-model.js','studio-learning.js'];
 const currentDir = path.resolve(__dirname, '../m06-reinigungsfall-v2');
 
 function prepare() {
@@ -37,6 +37,8 @@ function prepare() {
   for (const name of thirdFiles) assets.set('lernfassung-3/' + name, fs.readFileSync(path.join(thirdDir,name),'utf8'));
   for (const name of workshopFiles) assets.set('lernwerkstatt/' + name, publicLinks(fs.readFileSync(path.join(workshopDir,name),'utf8')));
   for (const name of studioFiles) assets.set('lernstudio/' + name, publicLinks(fs.readFileSync(path.join(studioDir,name),'utf8')));
+  assets.set('lernstudio/wissen.html', require('../m06-lernstudio/studio-guides.cjs').render());
+  assets.set('lernstudio/lehrkraft.html', require('../m06-lernstudio/studio-guides.cjs').render(true));
   for (const [name, source] of assets) {
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
     if (name.endsWith('.html')) {
@@ -57,6 +59,8 @@ function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages
     const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : dir === workshopDir ? workshopFiles : dir === studioDir ? studioFiles : current;
     for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
   }
+  assets.set('lernstudio/wissen.html', require('../m06-lernstudio/studio-guides.cjs').render());
+  assets.set('lernstudio/lehrkraft.html', require('../m06-lernstudio/studio-guides.cjs').render(true));
   for (const [name, source] of assets) {
     const destination = path.join(output, name);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
