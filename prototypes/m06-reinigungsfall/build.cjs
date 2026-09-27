@@ -11,11 +11,13 @@ const selfDir = path.resolve(__dirname, '../m06-selbstlernen');
 const selfFiles = ['app.css', 'app.js', 'model.js', 'cleaning-core.js'];
 const thirdDir = path.resolve(__dirname, '../m06-lernfassung3');
 const thirdFiles = ['journey.css','journey.js','journey-model.js'];
-const publicLinks = source => source.replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html').replaceAll('../m06-selbstlernen/', '../selbstlernen/').replaceAll('../m06-lernfassung3/index.html','../lernfassung-3/index.html').replaceAll('../m06-lernwerkstatt/', '../lernwerkstatt/').replaceAll('../m06-lernstudio/', '../lernstudio/');
+const publicLinks = source => source.replaceAll('../m06-reinigungsfall-v2/index.html','../reinigungsfall-v2/index.html').replaceAll('../m06-selbstlernen/', '../selbstlernen/').replaceAll('../m06-lernfassung3/index.html','../lernfassung-3/index.html').replaceAll('../m06-lernwerkstatt/', '../lernwerkstatt/').replaceAll('../m06-lernstudio/', '../lernstudio/').replaceAll('../m05-medienanalyse/', '../medienanalyse/');
 const workshopDir = path.resolve(__dirname, '../m06-lernwerkstatt');
 const workshopFiles = ['index.html','workshop.css','workshop.js','workshop-model.js'];
 const studioDir = path.resolve(__dirname, '../m06-lernstudio');
 const studioFiles = ['index.html','studio.css','prototype.css','studio.js','studio-model.js','studio-learning.js'];
+const mediaDir = path.resolve(__dirname, '../m05-medienanalyse');
+const mediaFiles = ['index.html','app.js','content.js','model.js','style.css'];
 const currentDir = path.resolve(__dirname, '../m06-reinigungsfall-v2');
 
 function prepare() {
@@ -39,7 +41,14 @@ function prepare() {
   for (const name of studioFiles) assets.set('lernstudio/' + name, publicLinks(fs.readFileSync(path.join(studioDir,name),'utf8')));
   assets.set('lernstudio/wissen.html', require('../m06-lernstudio/studio-guides.cjs').render());
   assets.set('lernstudio/lehrkraft.html', require('../m06-lernstudio/studio-guides.cjs').render(true));
+  for (const name of mediaFiles) assets.set('medienanalyse/' + name, publicLinks(fs.readFileSync(path.join(mediaDir,name),'utf8')));
+  for (const name of ['schulfest.png','bibliothek.png']) assets.set('medienanalyse/assets/' + name, fs.readFileSync(path.join(mediaDir,'assets',name)));
+  const mediaGuides = require('../m05-medienanalyse/guides.cjs');
+  assets.set('medienanalyse/wissen.html', mediaGuides.renderKnowledge());
+  assets.set('medienanalyse/lehrkraft.html', mediaGuides.renderTeacher());
+  assets.set('medienanalyse/material.html', mediaGuides.renderMaterials());
   for (const [name, source] of assets) {
+    if (Buffer.isBuffer(source)) continue;
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
     if (name.endsWith('.html')) {
       for (const [, url] of source.matchAll(/(?:href|src)="([^"]+)"/g)) {
@@ -55,8 +64,8 @@ function prepare() {
 function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages')) {
   if (fs.existsSync(output)) throw new Error('Build output exists; use a fresh output directory for publishing.');
   const assets = prepare();
-  for (const dir of [__dirname, currentDir, selfDir, thirdDir, workshopDir, studioDir]) {
-    const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : dir === workshopDir ? workshopFiles : dir === studioDir ? studioFiles : current;
+  for (const dir of [__dirname, currentDir, selfDir, thirdDir, workshopDir, studioDir, mediaDir]) {
+    const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : dir === workshopDir ? workshopFiles : dir === studioDir ? studioFiles : dir === mediaDir ? mediaFiles : current;
     for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
   }
   assets.set('lernstudio/wissen.html', require('../m06-lernstudio/studio-guides.cjs').render());

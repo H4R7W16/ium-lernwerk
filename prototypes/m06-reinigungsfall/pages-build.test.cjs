@@ -15,7 +15,7 @@ test('Pages bietet aktuellen Einstieg und erhält beide unabhängigen Fassungen'
 test('Veröffentlichung enthält keine Tests, lokalen Nachweise oder Lernstände', () => {
   const assets = prepare();
   assert.ok(![...assets.keys()].some(name=> /test|QA|IMPLEMENTATION|\.json$/i.test(name)));
-  for (const source of assets.values()) assert.doesNotMatch(source,/C:[\\/]Users[\\/]/i);
+  for (const source of assets.values()) if (typeof source === 'string') assert.doesNotMatch(source,/C:[\\/]Users[\\/]/i);
   assert.match(assets.get('reinigungsfall-v2/index.html'), /name="robots" content="noindex"/);
 });
 
@@ -58,4 +58,21 @@ test('Lernstudio veröffentlicht nur die zusätzlichen Laufzeitdateien und löst
  assert.match(html,/src="\.\.\/selbstlernen\/model.js"/);
  assert.doesNotMatch(js,/\.\.\/m06-/);
  assert.match(assets.get('lernwerkstatt/workshop.js'),/href="\.\.\/lernstudio\/index.html"/);
+});
+
+test('Medienanalyse liefert beide unveränderten Bilddateien und alle Unterrichtsseiten',()=>{
+ const assets=prepare();
+ for(const f of ['index.html','app.js','content.js','model.js','style.css','wissen.html','lehrkraft.html','material.html','assets/schulfest.png','assets/bibliothek.png'])assert.ok(assets.has('medienanalyse/'+f),f);
+ for(const name of ['schulfest.png','bibliothek.png'])assert.deepEqual(assets.get('medienanalyse/assets/'+name),fs.readFileSync(path.join(__dirname,'../m05-medienanalyse/assets',name)));
+ assert.match(assets.get('lernstudio/index.html'),/href="..\/medienanalyse\/index.html"/);
+});
+test('Medienanalyse-Material funktioniert ohne JavaScript und trennt Aufgaben von Lösungen',()=>{
+ const assets=prepare(),material=assets.get('medienanalyse/material.html');
+ assert.equal(typeof material,'string');
+ assert.doesNotMatch(material,/<script/);
+ assert.match(material,/KI-Illustration/);
+ assert.match(material,/Hier liest doch niemand/);
+ assert.doesNotMatch(material,/Fachliche Orientierung \/ mögliche Antwort/);
+ for(const id of ['eindruck','wirkung','belege','gestalten','transfer'])assert.match(material,new RegExp('id="'+id+'"'));
+ assert.match(assets.get('medienanalyse/lehrkraft.html'),/Fachliche Orientierung \/ mögliche Antwort/);
 });
