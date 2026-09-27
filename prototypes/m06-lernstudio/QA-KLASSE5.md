@@ -38,3 +38,7 @@ Tatsächlicher In-App-Browser, hauptsächlich 1024 × 768. Zusätzlich 768 × 10
 Die sprachliche und didaktische Passung ist redaktionell umgesetzt; ihre Wirkung ist noch nicht mit Fünftklässlern geprüft. Als nächster Schritt reicht eine kleine Unterrichtserprobung: Einstieg ohne Hilfe, eine Schleife erklären, eigenen Plan entwickeln; zusätzlich eine Station durch die Lehrperson erklären und direkt in die Anschlussübung wechseln. Reale Schul-iPads und vollständige Barrierefreiheit sind weiterhin offen.
 
 Nur lokale Umsetzung und Vorschau; keine neue öffentliche Veröffentlichung in diesem Auftrag.
+
+## Freigabe zur Veröffentlichung · 27.09.2026
+
+Nach dem lokalen Abschluss beauftragt Jan ausdrücklich die Veröffentlichung auf GitHub und GitHub Pages. Der vorhandene manuelle Pages-Workflow erhält dafür den wählbaren Prüfbereich `lernstudio`: sechs Prototyp-Verhaltenstests plus statische Dateizuordnung und Build. Der bisherige breitere Materialpfad bleibt als Standard erhalten. Die automatischen Gesamtsuiten werden bei dieser Integration mit `[skip ci]` ausgelassen; der manuell ausgelöste Pages-Run prüft und veröffentlicht den gewählten Stand.
