@@ -28,3 +28,24 @@ Node 22:
 Keine Import-/Exporttests oder Gesamtsuite erforderlich. Die Veröffentlichung übernimmt ausschließlich die vier Laufzeitdateien dieses Ordners. Tests und dieser interne Hinweis werden nicht ausgeliefert.
 
 Reale Schul-iPads, assistive Technik, Zoom und die Lernwirkung müssen im Unterricht separat erprobt werden. Browser-Viewports ersetzen diesen Nachweis nicht.
+
+## Konsolidierter Klasse-5-Prototyp · 27.09.2026
+
+Das bestehende Lernstudio ist die ausgewählte Ausbau-Basis. Alle elf Stationen bleiben frei anwählbar und als Hash-Links erreichbar. Die Klasse-5-Inhalte in `studio-learning.js` ergänzen die gemeinsame fachliche Simulation, ohne andere Fassungen umzuschreiben.
+
+- Kurze Voraussetzungen, sichtbare Merksätze, freiwilliger Befehlsversuch, Satzanfänge und Erklärungskriterien.
+- Direkte Tasten für vor/links/rechts; Bausteine und Schleifen werden neben dem Modell bearbeitet. Vor dem Ausführen Änderungen übernehmen oder abbrechen.
+- Optionale Spur, schrittweise Zeitleiste und Vergleich zweier Versuche am gleichen Schritt.
+- Aufgabenrückmeldung folgt dem tatsächlichen Plan bzw. der Vorhersage. Eine Zusatzfrage bestätigt keinen ungeprüften eigenen Plan; freie Erklärungen werden nicht automatisch bewertet.
+- `wissen.html`: alle Erklärungen, Startbilder, Lösungen und ein ausgearbeiteter Spaltenweg als Alternative zum Reihenweg.
+- `lehrkraft.html`: selbstständig lesbare Lehrübersicht mit Startbildern, Programmen, Erklärideen, Gesprächsimpulsen, Antworten und direkten Übungslinks. Unterrichtsgespräch und Vortrag können einzelne Inhalte übernehmen, ohne digitalen Pflichtdurchlauf.
+
+Beide Leseseiten werden aus `studio-guides.cjs` und derselben Inhaltsschicht beim vorhandenen Pages-Build erzeugt. Sie benötigen kein JavaScript. Für die vollständige Vorschau den Build nutzen, nicht nur die Quell-index.html öffnen:
+
+```text
+node prototypes/m06-reinigungsfall/build.cjs <frisches-lokales-Ausgabeverzeichnis>
+```
+
+Danach das Ausgabeverzeichnis mit einem lokalen statischen Server bereitstellen und `/lernstudio/` öffnen. Die Ausgabe enthält 39 Dateien. Der öffentliche Einstieg wird erst bei einer gesonderten Veröffentlichung aktualisiert.
+
+Gezielte neue Verhaltenstests: `node --test prototypes/m06-lernstudio/studio-learning.test.cjs`. Prüfumfang und Grenzen: `QA-KLASSE5.md`.
