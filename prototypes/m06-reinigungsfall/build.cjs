@@ -61,7 +61,7 @@ function prepare() {
   const navigation = require('../shared/prototype-navigation.cjs');
   for (const [name, source] of assets) {
     const area = name.split('/')[0];
-    if (name.endsWith('.html') && ['lernstudio','medienanalyse','quellenquest'].includes(area)) assets.set(name, navigation.inject(source,area));
+    if (name.endsWith('.html') && ['lernstudio','medienanalyse','quellenquest'].includes(area)) assets.set(name, navigation.inject(source,area,name));
   }
   for (const [name, source] of assets) {
     if (Buffer.isBuffer(source)) continue;
