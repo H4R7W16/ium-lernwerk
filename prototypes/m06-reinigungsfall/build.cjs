@@ -57,6 +57,12 @@ function prepare() {
   assets.set('quellenquest/material.html', quest.material());
   for (const step of require('../m02-quellenquest/content.js').steps) assets.set('quellenquest/baustein-' + step.id + '.html', quest.material(step.id));
   for (const name of questFiles) assets.set('quellenquest/' + name, fs.readFileSync(path.join(questDir,name),'utf8'));
+  assets.set('prototype-navigation.css', fs.readFileSync(path.resolve(__dirname, '../shared/prototype-navigation.css'),'utf8'));
+  const navigation = require('../shared/prototype-navigation.cjs');
+  for (const [name, source] of assets) {
+    const area = name.split('/')[0];
+    if (name.endsWith('.html') && ['lernstudio','medienanalyse','quellenquest'].includes(area)) assets.set(name, navigation.inject(source,area));
+  }
   for (const [name, source] of assets) {
     if (Buffer.isBuffer(source)) continue;
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
@@ -78,8 +84,6 @@ function build(output = path.resolve(__dirname, '../../dist/reinigungsfall-pages
     const names = dir === __dirname ? legacy : dir === selfDir ? selfFiles : dir === thirdDir ? thirdFiles : dir === workshopDir ? workshopFiles : dir === studioDir ? studioFiles : dir === mediaDir ? mediaFiles : dir === questDir ? questFiles : current;
     for (const name of names.filter(n => n.endsWith('.js'))) execFileSync(process.execPath, ['--check', path.join(dir, name)]);
   }
-  assets.set('lernstudio/wissen.html', require('../m06-lernstudio/studio-guides.cjs').render());
-  assets.set('lernstudio/lehrkraft.html', require('../m06-lernstudio/studio-guides.cjs').render(true));
   for (const [name, source] of assets) {
     const destination = path.join(output, name);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
