@@ -13,6 +13,7 @@ on:
           - lernstudio
           - medienanalyse
           - quellenquest
+          - navigation
 
 concurrency:
   group: pages
@@ -39,8 +40,11 @@ jobs:
       - name: Check sources quest and published file map
         if: inputs.check_scope == 'quellenquest'
         run: node --test prototypes/m02-quellenquest/model.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs
+      - name: Check navigation publication
+        if: inputs.check_scope == 'navigation'
+        run: node --test prototypes/m06-reinigungsfall/pages-build.test.cjs
       - name: Check material and published file map
-        if: inputs.check_scope != 'lernstudio' && inputs.check_scope != 'medienanalyse' && inputs.check_scope != 'quellenquest'
+        if: inputs.check_scope != 'lernstudio' && inputs.check_scope != 'medienanalyse' && inputs.check_scope != 'quellenquest' && inputs.check_scope != 'navigation'
         run: node --test prototypes/m06-selbstlernen/material.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-lernfassung3/journey.test.cjs prototypes/m06-lernwerkstatt/workshop.test.cjs prototypes/m06-lernstudio/studio.test.cjs
       - name: Prepare selectable static learning versions
         run: node prototypes/m06-reinigungsfall/build.cjs

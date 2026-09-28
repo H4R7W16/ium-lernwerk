@@ -1,0 +1,12 @@
+/* Common learning-area navigation; independent of each prototype's local steps. */
+.lw-switcher{background:#e8ebe5;border-bottom:1px solid #cdd5ca;color:#243b32}
+.lw-switcher__inner{max-width:1200px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.lw-switcher__label{font:650 .75rem/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.04em;white-space:nowrap;color:#526256}
+.lw-switcher__links{display:flex;gap:6px}
+.lw-switcher .lw-switcher__links a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;border:1px solid transparent;border-radius:9px;color:#344b3e;text-decoration:none;font:600 .87rem/1.35 "Segoe UI",Arial,sans-serif;white-space:nowrap}
+.lw-switcher .lw-switcher__links a:hover{background:#f5f7f1;border-color:#b9c8b5}
+.lw-switcher .lw-switcher__links a[aria-current]{color:#fff;background:#28533f;border-color:#28533f;box-shadow:inset 0 -3px 0 #b6d2a5}
+.lw-switcher .lw-switcher__links a:focus-visible{outline:3px solid #a34e16;outline-offset:3px}
+@media(max-width:600px){.lw-switcher__inner{padding:9px 16px;display:block}.lw-switcher__label{display:block;font-size:.67rem;margin:0 0 7px}.lw-switcher__links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.lw-switcher .lw-switcher__links a{padding:8px 5px;font-size:.77rem;min-width:0;white-space:normal;text-align:center;overflow-wrap:anywhere}}
+@media print{.lw-switcher{display:none!important}}
+
