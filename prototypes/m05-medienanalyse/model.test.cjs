@@ -37,3 +37,21 @@ test('Eigene Überschriften werden auch mit HTML-Zeichen als Text ausgegeben', (
  assert.equal(typeof model.escapeHtml, 'function');
  assert.equal(model.escapeHtml('<img src=x onerror="alert(1)"> &'), '&lt;img src=x onerror=&quot;alert(1)&quot;&gt; &amp;');
 });
+
+test('Widerlegte Aussagen und offene Informationen verlangen verschiedene Urteile', () => {
+ const correct=model.assess({all:'contradicted',feeling:'unknown'});
+ assert.equal(correct.find(r=>r.id==='all').status,'match');
+ assert.equal(correct.find(r=>r.id==='feeling').status,'match');
+ const swapped=model.assess({all:'unknown',feeling:'contradicted'});
+ assert.equal(swapped.find(r=>r.id==='all').status,'revise');
+ assert.equal(swapped.find(r=>r.id==='feeling').status,'revise');
+});
+test('Transfer akzeptiert einen sinnvollen Ausschnitt und trennt fehlendes Wissen', () => {
+ const C=require('./content.js');
+ assert.ok(Array.isArray(C.transferClaims));
+ const rows=model.assess({library:'contradicted',seats:'fits',habit:'unknown'},C.transferClaims,C.judgements);
+ assert.equal(rows.length,3);
+ assert.ok(rows.every(r=>r.status==='match'));
+ assert.ok(model.assess({},C.transferClaims,C.judgements).every(r=>r.status==='open'));
+ assert.equal(model.assess({seats:'contradicted'},C.transferClaims,C.judgements).find(r=>r.id==='seats').status,'revise');
+});

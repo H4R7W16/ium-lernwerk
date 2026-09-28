@@ -7,11 +7,17 @@ function experiment(mode,selection,headline){
  const neutral=content.headlines[0],full=crop();
  return mode==='headline'?{before:{crop:full,headline:neutral},after:{crop:full,headline:String(headline)}}:{before:{crop:full,headline:neutral},after:{crop:crop(selection),headline:neutral}};
 }
-function assess(answers={}){
- return content.claims.map(claim=>{const answer=answers[claim.id],valid=content.choices.some(c=>c.id===answer);return {id:claim.id,status:!valid?'open':answer===claim.answer?'match':'revise',feedback:!valid?'Noch offen. Wähle einen Beleg und prüfe dann erneut.':claim.feedback};});
+function assess(answers={},claims=content.claims,choices=content.choices){
+ return claims.map(claim=>{const answer=answers[claim.id],valid=choices.some(c=>c.id===answer);return {id:claim.id,status:!valid?'open':answer===claim.answer?'match':'revise',feedback:!valid?'Noch offen. Wähle eine Antwort und prüfe dann erneut.':claim.feedback};});
 }
 function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function viewBox(selection){const c=crop(selection);return [c.x,c.y,c.width,c.height].join(' ');}
-function cropDescription(scene,selection){const c=crop(selection);if(c.width===1536)return scene.alt;if(c.x+c.width<800)return scene.name==='Schulfest'?'Ausschnitt links: leere Bänke vor der Bühne. Die Mitmachstände rechts fehlen.':'Ausschnitt links: leere Sessel in der Leseecke. Der Lesetisch rechts fehlt.';if(c.x>=800)return scene.name==='Schulfest'?'Ausschnitt rechts: Kinder und Erwachsene an Basteltischen. Die Bänke vor der Bühne fehlen.':'Ausschnitt rechts: Kinder mit offenen Büchern am Tisch. Die leere Leseecke fehlt.';return 'Mittlerer Ausschnitt aus dieser Szene: '+scene.alt+' Je nach Ausschnitt fehlen Teile der Ränder.';}
+function cropDescription(scene,selection){
+ const c=crop(selection),festival=scene.name==='Schulfest';
+ if(c.width===1536)return scene.alt;
+ if(c.x+c.width<800)return festival?'Ausschnitt: leere Bänke vor einer Bühne.':'Ausschnitt: leere Sessel in einer Leseecke mit Bücherregalen.';
+ if(c.x>=800)return festival?'Ausschnitt: Kinder und Erwachsene an Basteltischen.':'Ausschnitt: Kinder mit offenen Büchern an einem Tisch.';
+ return festival?'Ausschnitt aus dem mittleren Bereich des Schulhofs mit Teilen der Bänke und des Bereichs bei den Basteltischen.':'Ausschnitt aus dem mittleren Bereich der Bibliothek zwischen Leseecke und Büchertisch.';
+}
 return {crop,presets,experiment,assess,escapeHtml,viewBox,cropDescription};
 });
