@@ -71,8 +71,22 @@ test('Medienanalyse-Material funktioniert ohne JavaScript und trennt Aufgaben vo
  assert.equal(typeof material,'string');
  assert.doesNotMatch(material,/<script/);
  assert.match(material,/KI-Illustration/);
- assert.match(material,/Hier liest doch niemand/);
+ assert.match(material,/In unserer Bibliothek liest niemand/);
  assert.doesNotMatch(material,/Fachliche Orientierung \/ mögliche Antwort/);
  for(const id of ['eindruck','wirkung','belege','gestalten','transfer'])assert.match(material,new RegExp('id="'+id+'"'));
  assert.match(assets.get('medienanalyse/lehrkraft.html'),/Fachliche Orientierung \/ mögliche Antwort/);
+});
+
+test('Jeder einzelne Medienbaustein enthält eigenes Bild, Kontext und Auftrag ohne Anwendung',()=>{
+ const assets=prepare();
+ for(const id of ['eindruck','wirkung','belege','gestalten','transfer']){
+  const html=assets.get('medienanalyse/baustein-'+id+'.html');
+  assert.equal(typeof html,'string',id);
+  assert.ok(html.includes('id="'+id+'"'),id);
+  assert.ok(html.includes('<image href="assets/'),id);
+  assert.match(html,/Situationskarte/);
+  assert.match(html,/Dein Ergebnis/);
+  assert.doesNotMatch(html,/<script|vorherigen Seite|nächsten Seite/);
+  assert.equal((html.match(/<section id=/g)||[]).length,1);
+ }
 });

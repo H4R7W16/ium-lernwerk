@@ -47,6 +47,7 @@ function prepare() {
   assets.set('medienanalyse/wissen.html', mediaGuides.renderKnowledge());
   assets.set('medienanalyse/lehrkraft.html', mediaGuides.renderTeacher());
   assets.set('medienanalyse/material.html', mediaGuides.renderMaterials());
+  for (const step of require('../m05-medienanalyse/content.js').steps) assets.set('medienanalyse/baustein-' + step.id + '.html', mediaGuides.renderMaterials(step.id));
   for (const [name, source] of assets) {
     if (Buffer.isBuffer(source)) continue;
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);

@@ -27,3 +27,17 @@ Das Ausgabeverzeichnis mit einem statischen Server bereitstellen und `/medienana
 
 ## Umfang und Grenzen
 Ausschnitt aus der Projektplanung G5-M04/G5-M05. Keine vollständige Abdeckung dieser Module oder umfassende Quellenkritik. Rund 90 Minuten sind eine unpilotierte Zeitannahme. Reale Erprobung mit Klasse 5, Schul-iPads und assistiven Technologien steht aus. Gezielte Nachweise: [QA.md](QA.md).
+
+## Überarbeitung nach dem Lernwerkreview
+Die fünf Schritte besitzen jetzt einen sichtbaren Arbeitsweg und ein konkretes Ergebnis. Der Einstieg führt von der ersten Vermutung zur genaueren Aussage; der Vergleich verlangt je einen kurzen Bild- und Textvergleich. Die Belegprüfung unterscheidet Bild, Karte, Widerspruch und fehlende Information.
+
+Vor dem eigenen Beitrag lernen Kinder an zwei Begründungen die Folge Beleg–Wissensgrenze–Verbesserung kennen. Die Selbstprüfung endet mit einer begründeten Änderung oder Beibehaltung. Im Bibliotheksfall werden ein irreführender und ein passender Beitrag zum selben Ausschnitt sowie eine mit dem Material unentscheidbare Behauptung verglichen.
+
+Jeder Lehrbaustein ist ohne vorausgehenden digitalen Lernweg separat nutzbar:
+- `baustein-eindruck.html`
+- `baustein-wirkung.html`
+- `baustein-belege.html`
+- `baustein-gestalten.html`
+- `baustein-transfer.html`
+
+Die Einzelmaterialien enthalten jeweils Bilder, Zusatzangaben und Arbeitsauftrag. Lehrhinweise und Lösungen stehen getrennt bereit. Alle Wissensabschnitte bringen ihre eigenen Bildbeispiele mit. Die neuen Seiten werden durch den vorhandenen Pages-Build erzeugt.
