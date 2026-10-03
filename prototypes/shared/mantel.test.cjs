@@ -115,3 +115,12 @@ test('Navigation schützt RAM-Arbeit auch auf der Arbeitsübersicht bei Speicher
 test('Navigation schützt den aktuellen Stand nach abgewiesener Autosicherung',()=>{
  const result=runtimeHarness({badTool:true});assert.equal(result.prevented,true);assert.match(result.message,/nicht sicher mitnehmbar/);
 });
+
+test('Bewusstes Löschen aller Lernwerkdaten entfernt auch die Quarantäne aus der laufenden Ansicht',()=>{
+ const vm=require('node:vm'),fs=require('node:fs'),session=new Map([['ium-klasse5-mantel-v1','{"version":0,"records":[]}']]),all={},status={textContent:'',after(node){attached=node;}};
+ let attached=null;
+ const storage={getItem:k=>session.get(k)||null,setItem:(k,v)=>session.set(k,v),removeItem:k=>session.delete(k)};
+ const document={currentScript:{src:'https://lernwerk.test/klasse5/mantel-runtime.js'},body:{dataset:{}},readyState:'complete',getElementById:id=>id==='lw-catalog'?{textContent:'[]'}:id==='lw-delete-all'?all:id==='lw-recovery-export'?attached: id==='lw-storage-status'||id==='lw-storage-warning'?status:null,querySelectorAll:()=>[],addEventListener(){},createElement:()=>({remove(){attached=null;}})};
+ vm.runInNewContext(fs.readFileSync(require.resolve('./mantel-runtime.js'),'utf8'),{document,window:{LernwerkMantelModel:M,addEventListener(){}},location:{hash:'',href:'https://lernwerk.test/klasse5/arbeit.html'},URL,TextEncoder,crypto:require('node:crypto').webcrypto,sessionStorage:storage,localStorage:storage,navigator:{},queueMicrotask,setTimeout,confirm:()=>true,console});
+ assert.ok(attached);all.onclick();assert.equal(session.get('ium-klasse5-mantel-v1-recovery'),undefined);assert.equal(attached,null);
+});

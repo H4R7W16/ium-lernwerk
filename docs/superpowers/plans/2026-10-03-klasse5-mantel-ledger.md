@@ -20,3 +20,5 @@ Finaler unabhängiger Review: 0 Critical, 5 Important. Ein Fixdurchgang: Transfe
 Task 1/2 complete: Inhalts-/Seitenvertrag, drei Adapter, Arbeit/Dateien/Offline umgesetzt. Task 3: final 72/72, Build 136 Dateien, Cache 67/67, echte Offlineöffnung bei abgeschaltetem lokalem Server, Importvorschau/Abbruch/separater Import und sehr schmaler Reflow geprüft.
 Ruling: Kein Export-Downloadabschluss behauptet — Prüfoberfläche liefert Dateiangebot, Download-Ereignis bleibt ohne Abschluss; echter zweiter Gerätewechsel und Schulgeräteabnahme bleiben im Prüfstand offen. Quelle und Grenze explizit dokumentiert.
 Review-Abgrenzungen bestätigt: Reale Schulgeräte/AA/Lernwirksamkeit und neue fachliche Spezialwerkzeuge sind eigene Nachweise. Der allgemeine Autorenrenderer und die drei bekannten Familien sind verwendbar; kein pauschaler 16/16-Abnahmebescheid.
+
+Abschließender eigener Befund: Quarantäne war nach bestätigtem Gesamtlöschen aus Speicher, aber noch in der UI-RAM-Kopie erreichbar. Gezielter Controller-Test RED→GREEN, Zugang und RAM-Referenz entfernt; finale Suite 73/73. Letzte Sichtungsfassung preview-20261003-06.
