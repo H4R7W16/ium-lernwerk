@@ -105,6 +105,21 @@ document.addEventListener('change',event=>{
  if(input.name==='review')clearFeedback('answer-feedback');
 });
 document.addEventListener('input',event=>{if(['answer','revision'].includes(event.target.id))clearFeedback('answer-feedback');});
+if(window.LernwerkMantel)window.LernwerkMantel.register({
+ capture:()=>({family:'source',answers:JSON.parse(JSON.stringify(answers)),active:{...active},documents:Object.fromEntries(['explore','claims','transfer'].map(bank=>[bank,document.querySelector('[data-reader="'+bank+'"] [data-document-panel]:not([hidden])')?.dataset.documentPanel||null]))}),
+ validate:tool=>tool?.family==='source'&&tool.answers&&tool.active,
+ restore:(tool,options={})=>{
+  for(const bank of ['claims','transfer']){
+   answers[bank]=JSON.parse(JSON.stringify(tool.answers[bank]));active[bank]=tool.active[bank];
+   for(const c of list(bank)){const a=answers[bank][c.id];for(const radio of document.querySelectorAll('input[name="'+bank+'-'+c.id+'"]'))radio.checked=radio.value===a?.verdict;}
+   activateClaim(bank,active[bank]);renderMarkers(bank);
+  }
+  for(const bank of ['explore','claims','transfer'])if(tool.documents?.[bank])showDocument(bank,tool.documents[bank]);
+  if(C.steps.some(s=>s.id===options.step))history.replaceState(null,'','#'+options.step);
+  route(false);updateBoard();
+ }
+});
+
 for(const bank of ['claims','transfer'])activateClaim(bank,active[bank]);
 showDocument('explore','A');showDocument('claims','B');showDocument('transfer','E');
 window.addEventListener('hashchange',()=>route(true));route(false);

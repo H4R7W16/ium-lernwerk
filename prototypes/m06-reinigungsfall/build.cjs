@@ -63,6 +63,7 @@ function prepare() {
     const area = name.split('/')[0];
     if (name.endsWith('.html') && ['lernstudio','medienanalyse','quellenquest'].includes(area)) assets.set(name, navigation.inject(source,area,name));
   }
+  require('../shared/mantel-render.cjs').augment(assets);
   for (const [name, source] of assets) {
     if (Buffer.isBuffer(source)) continue;
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);

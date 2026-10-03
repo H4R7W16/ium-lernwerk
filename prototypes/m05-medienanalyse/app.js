@@ -14,12 +14,12 @@ function story(label,scene,selection,headline,id,caption){
 }
 function fullFigure(scene){return '<figure class="full-figure">'+svg(scene,M.presets.full)+'<figcaption>Ganzes Bild · KI-Illustration einer erfundenen Situation</figcaption></figure>';}
 function context(scene){return '<aside class="context-card"><h3>Situationskarte</h3><p>Zusätzliche Angaben zur erfundenen Geschichte:</p><ul>'+scene.context.map(t=>'<li>'+e(t)+'</li>').join('')+'</ul></aside>';}
-function note(key,label,placeholder,rows=3){return '<label class="field"><span>'+e(label)+'</span><textarea rows="'+rows+'" data-note="'+key+'" placeholder="'+e(placeholder)+'">'+e(state.notes[key]||'')+'</textarea></label>';}
+function note(key,label,placeholder,rows=3){return '<label class="field"><span>'+e(label)+'</span><textarea maxlength="10000" rows="'+rows+'" data-note="'+key+'" placeholder="'+e(placeholder)+'">'+e(state.notes[key]||'')+'</textarea></label>';}
 function teaching(step,example=false){
  return '<div class="teaching"><h2>So kannst du es erklären</h2><p class="core"><b>Merke</b>'+e(step.core)+'</p><p>'+e(step.explanation)+'</p>'+(example?'<div class="worked"><h3>Am Beispiel</h3><p>'+e(step.example)+'</p></div>':'')+'</div>';
 }
 function support(step){
- return '<aside class="support"><div><h2>Hilfe nach Bedarf</h2>'+step.hints.map((t,i)=>'<details><summary>Tipp '+(i+1)+'</summary><p>'+e(t)+'</p></details>').join('')+'<details><summary>Begriffe nachlesen</summary><dl><dt>Beobachtung</dt><dd>Was du sehen kannst.</dd><dt>Deutung</dt><dd>Was du daraus vermutest oder wie es auf dich wirkt.</dd><dt>Beleg</dt><dd>Eine konkrete Stelle, die deine Aussage stützt.</dd><dt>Widerspruch</dt><dd>Das Material spricht gegen die Aussage.</dd></dl></details></div><div class="tips"><h3>Dein Bearbeitungsweg</h3><p>Du kannst die kurzen Ergebnisse hier, im Heft oder mündlich festhalten. Du brauchst sie nur einmal zu formulieren.</p><details><summary>Weitere mögliche Antwort</summary><p>'+e(step.example)+'</p><p>Vergleiche erst nach deinem eigenen Versuch. Andere begründete Antworten können auch passen.</p></details><a href="wissen.html#'+step.id+'" target="_blank" rel="noopener">Wissen und Bilder dazu ↗</a></div></aside>';
+ return '<aside class="support"><div><h2>Hilfe nach Bedarf</h2>'+step.hints.map((t,i)=>'<details><summary>'+(window.LernwerkMantel?(i===0?'Ein Hinweis':'Eine genauere Hilfe'):'Tipp '+(i+1))+'</summary><p>'+e(t)+'</p></details>').join('')+'<details><summary>Begriffe nachlesen</summary><dl><dt>Beobachtung</dt><dd>Was du sehen kannst.</dd><dt>Deutung</dt><dd>Was du daraus vermutest oder wie es auf dich wirkt.</dd><dt>Beleg</dt><dd>Eine konkrete Stelle, die deine Aussage stützt.</dd><dt>Widerspruch</dt><dd>Das Material spricht gegen die Aussage.</dd></dl></details></div><div class="tips"><h3>Dein Bearbeitungsweg</h3><p>Du kannst die kurzen Ergebnisse hier, im Heft oder mündlich festhalten. Du brauchst sie nur einmal zu formulieren.</p><details><summary>Weitere mögliche Antwort</summary><p>'+e(step.example)+'</p><p>Vergleiche erst nach deinem eigenen Versuch. Andere begründete Antworten können auch passen.</p></details><a href="wissen.html#'+step.id+'" target="_blank" rel="noopener">Wissen und Bilder dazu ↗</a></div></aside>';
 }
 function cropControls(scope,selection){
  const c=M.crop(selection);
@@ -138,5 +138,15 @@ main.addEventListener('click',event=>{
  if(button.dataset.action==='review-draft'){state.review=true;document.getElementById('draft-review').hidden=false;updateReview();document.getElementById('draft-review').scrollIntoView({block:'nearest',behavior:'instant'});announce('Prüfe deinen Beitrag und begründe deine Entscheidung.');}
 });
 window.addEventListener('hashchange',()=>{if(location.hash==='#main'){main.focus({preventScroll:true});return;}announce('');render(true);});
+if(window.LernwerkMantel)window.LernwerkMantel.register({
+ capture:()=>({family:'media',state:JSON.parse(JSON.stringify(state)),current}),
+ validate:tool=>tool?.family==='media'&&tool.state&&Number.isInteger(tool.current),
+ restore:(tool,options={})=>{
+  Object.assign(state,JSON.parse(JSON.stringify(tool.state)));
+  const target=C.steps.some(s=>s.id===options.step)?options.step:C.steps[tool.current].id;
+  history.replaceState(null,'','#'+target);render();
+ }
+});
+
 render();
 })();

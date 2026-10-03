@@ -7,12 +7,12 @@
  let showTrail=false,comparisonStep=0,probeCommands=[];
  const key='ium-lernstudio-v1';
  let data={version:1,current:'start',works:{}},persist=false,timer=null,speed=850,insight=false,editor=null,sequenceFeedback='',angle=0,lastDirection=0;
- try{const saved=S.restore(localStorage.getItem(key));if(saved){data=saved;persist=true;}}catch{}
+ if(!window.LernwerkMantel)try{const saved=S.restore(localStorage.getItem(key));if(saved){data=saved;persist=true;}}catch{}
  const hash=location.hash.slice(1);if(S.order.includes(hash))data.current=hash;
  const lesson=()=>P.lesson(data.current),state=()=>data.works[data.current]||(data.works[data.current]=S.fresh(data.current));
  const run=()=>lesson().station?W.station(state().plan):S.run(data.current,state().code);
  function announce(text){$('#announce').textContent=text;}
- function save(){if(!persist)return;try{localStorage.setItem(key,JSON.stringify(data));}catch{persist=false;announce('Speichern ist auf diesem Gerät nicht verfügbar. Deine Arbeit bleibt in diesem geöffneten Fenster erhalten.');}}
+ function save(){if(window.LernwerkMantel){window.LernwerkMantel.changed();return;}if(!persist)return;try{localStorage.setItem(key,JSON.stringify(data));}catch{persist=false;announce('Speichern ist auf diesem Gerät nicht verfügbar. Deine Arbeit bleibt in diesem geöffneten Fenster erhalten.');}}
  function stop(){clearTimeout(timer);timer=null;const b=$('[data-action="play"]');if(b)b.innerHTML='▶ <span>Starten</span>';}
  function dialog(title,html){
   stop();const overlay=$('#overlay'),active=overlay.open?document.activeElement:null;
@@ -25,7 +25,7 @@
  function renderNav(){
   $('#chapters').innerHTML=S.chapters.map((c,i)=>'<button class="chapter" data-go="'+c.ids[0]+'" '+(c===chapter()?'aria-current="step"':'')+'><span class="chapter-number">'+(i+1)+'</span><span>'+c.title+'<small>'+c.caption+'</small></span></button>').join('');
  }
- function navigate(id){stop();if(!S.order.includes(id))return;data.current=id;insight=false;comparisonStep=0;sequenceFeedback='';close();history.replaceState(null,'','#'+id);save();render();$('#main').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
+ function navigate(id){stop();if(!S.order.includes(id))return;data.current=id;insight=false;comparisonStep=0;sequenceFeedback='';close();if(window.LernwerkMantel&&location.hash!=='#'+id)history.pushState(null,'','#'+id);else history.replaceState(null,'','#'+id);save();render();$('#main').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
  function codeHTML(){
   const l=lesson(),s=state();
   if(l.station)return s.plan==='A'?'<div class="block loop"><div class="loop-head">wiederhole <span class="loop-count">3</span> mal</div><div class="body-commands"><span class="command" data-station-action="aufnehmen">aufnehmen</span><span class="command" data-station-action="prüfen">prüfen</span><span class="command" data-station-action="ablegen">ablegen</span></div></div>':['aufnehmen','prüfen','ablegen'].map(a=>'<div class="block loop"><div class="loop-head">wiederhole <span class="loop-count">3</span> mal</div><span class="command" data-station-action="'+a+'">'+a+'</span></div>').join('');
@@ -67,7 +67,7 @@
    <div class="below-workspace"><section class="think-card" aria-labelledby="think-title"><p class="eyebrow">Jetzt erklärst du</p><h2 id="think-title">${l.id==='own'?'Begründe deinen Weg.':'Was steckt dahinter?'}</h2><p>${l.question}</p>
    ${l.sequence?`<div class="sequence-editor"><b>${l.id==='loop'?'Zwei Durchläufe ausschreiben':'Die ganze Folge ausschreiben'}</b><div class="sequence-output" id="sequence-output"></div><div class="button-row">${['vor','links','rechts'].map(a=>`<button class="small" data-sequence="${a}">${glyph[a]} ${a}</button>`).join('')}<button class="small" data-action="sequence-check">Folge prüfen</button></div><p id="sequence-feedback" role="status"></p></div>`:''}
    <p class="sentence-starter"><b>So kannst du anfangen:</b> ${l.prompt}</p><details class="explain-criteria"><summary>Prüfe deine Erklärung</summary><ul>${l.criteria.map(x=>`<li>${x}</li>`).join('')}</ul><p>Erkläre mündlich, im Heft oder hier. Vergleiche mit den Kriterien. Das Lernstudio bewertet deine Erklärung nicht automatisch.</p></details>
-   <details class="note-details"><summary>Meine Erklärung aufschreiben</summary><label class="sr-only" for="note">Meine Erklärung zu dieser Station</label><textarea id="note" maxlength="2000" placeholder="${esc(l.prompt)}">${esc(s.note)}</textarea><small>${persist?'Wird auf diesem Gerät gespeichert.':'Bleibt in diesem geöffneten Fenster. Speichern ist unter Optionen möglich.'}</small></details>
+   <details class="note-details"><summary>Meine Erklärung aufschreiben</summary><label class="sr-only" for="note">Meine Erklärung zu dieser Station</label><textarea id="note" maxlength="2000" placeholder="${esc(l.prompt)}">${esc(s.note)}</textarea><small>${window.LernwerkMantel?'Du findest deine Erklärung und die Sicherung unter „Deine Arbeit“.':persist?'Wird auf diesem Gerät gespeichert.':'Bleibt in diesem geöffneten Fenster. Speichern ist unter Optionen möglich.'}</small></details>
    <p class="evidence-status" id="task-status"></p><div class="button-row optional-check"><button data-action="check">Zusatzfrage zum Ankreuzen</button><span id="check-status" class="muted"></span></div>
    ${l.id==='own'?'<details class="challenge"><summary>Noch eine Herausforderung: Zwei gültige Wege vergleichen</summary><p>Ein Reihenweg und ein Spaltenweg lösen denselben Auftrag. Vergleiche ihre Teilpläne, Fahrten und Drehungen. Ist weniger Code immer ein kürzerer Weg?</p><a href="wissen.html#wege" target="_blank" rel="noopener">Beide Beispielwege mit Erklärung öffnen ↗</a></details>':''}</section>
    <aside class="continue-card"><p class="eyebrow">${i<10?'Dein nächster Schritt':'Dein Lernprodukt'}</p><h3>${i<10?P.lesson(S.order[i+1]).short:'Ein Plan, den du erklären kannst.'}</h3><p>${i<10?(i===9?'Diese Aufgabe ist für später. Versuche sie nach einer Pause zunächst aus dem Kopf.':'Prüfe deine Erklärung. Gehe danach weiter oder wähle mit deiner Lehrperson eine andere Station.'):'Zeige deinen geprüften Flächenplan und erkläre seine Teilpläne.'}</p><button class="primary" data-go="${i<10?S.order[i+1]:'own'}">${i<10?'Zur nächsten Station →':'Meinen Flächenplan öffnen →'}</button><button class="quiet back-link" data-action="map">Alle Stationen frei wählen</button>${i>0?`<button class="quiet back-link" data-go="${S.order[i-1]}">← Vorige Station</button>`:''}</aside></div>`;
@@ -266,5 +266,25 @@
  window.addEventListener('pagehide',()=>{stop();save();});
  window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(S.order.includes(id))navigate(id);});
  $('#overlay').addEventListener('click',event=>{if(event.target===$('#overlay')){const b=$('#overlay').getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)close();}});
+ function validateMantel(tool){
+  try{if(!tool||tool.family!=='algorithm'||!tool.data||tool.data.version!==1)return false;
+   for(const [id,s]of Object.entries(tool.data.works)){if(!S.order.includes(id))return false;const trace=P.lesson(id).station?W.station(s.plan):S.run(id,s.code);if(s.step>=trace.trace.length)return false;}
+   return true;
+  }catch{return false;}
+ }
+ if(window.LernwerkMantel)window.LernwerkMantel.register({
+  capture:()=>({family:'algorithm',data:JSON.parse(JSON.stringify(data)),display:{showTrail,speed,comparisonStep,rawDraft:$('#raw-code')?.value??null,editor:editor?JSON.parse(JSON.stringify(editor)):null}}),
+  validate:validateMantel,flush:stop,
+  restore:(tool,options={})=>{
+   if(!validateMantel(tool))throw new Error('Unvereinbarer Programmstand');
+   data=JSON.parse(JSON.stringify(tool.data));persist=false;
+   if(S.order.includes(options.step))data.current=options.step;
+   showTrail=tool.display?.showTrail===true;speed=Number.isFinite(tool.display?.speed)?tool.display.speed:850;comparisonStep=Number.isInteger(tool.display?.comparisonStep)?tool.display.comparisonStep:0;
+   history.replaceState(null,'','#'+data.current);render();
+   if(tool.display?.editor){const x=tool.display.editor;showEditor(x.index,x.block.repeat?'loop':'single');editor=JSON.parse(JSON.stringify(x));editorHTML();}
+   if(typeof tool.display?.rawDraft==='string'){dialog('Deinen Plan als Code weiterschreiben','<label for="raw-code">Programmcode</label><textarea id="raw-code" maxlength="2500" spellcheck="false">'+esc(tool.display.rawDraft)+'</textarea><p id="raw-error" role="status"></p><button class="primary" data-action="save-raw">Programm übernehmen</button>');}
+  }
+ });
+
  render();
 })();
