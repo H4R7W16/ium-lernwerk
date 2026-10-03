@@ -68,6 +68,7 @@ function updateBoard(){
 function route(focus){
  const candidate=location.hash.slice(1),step=C.steps.find(s=>s.id===candidate)||C.steps[0];
  if(candidate!==step.id)history.replaceState(null,'','#'+step.id);
+ if(window.LernwerkUI)document.querySelector('nav.steps').innerHTML=window.LernwerkUI.navigation('Die Pausenwiese',C.steps,step.id);
  for(const section of document.querySelectorAll('.step'))section.hidden=section.id!==step.id;
  for(const a of document.querySelectorAll('[data-step]')){if(a.dataset.step===step.id)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');}
  if(step.id==='antwort')updateBoard();

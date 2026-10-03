@@ -61,4 +61,4 @@ function renderMaterials(onlyId){
  const printHint=(!onlyId||onlyId==='eindruck'||onlyId==='transfer')?'<p class="print-note">Beim Ausdruck das Gesamtbild zunächst abdecken und erst nach dem ersten Urteil ansehen.</p>':'';
  return shell(onlyId?chosen[0].title:'Materialbausteine',intro+printHint+chosen.map(s=>materialSection(s.id,Boolean(onlyId))).join(''),'materials'+(onlyId?' single-material':''));
 }
-module.exports={renderKnowledge,renderTeacher,renderMaterials};
+module.exports={renderKnowledge,renderTeacher,renderMaterials,knowledgeMaterial,materialSection,calibration,credits};
