@@ -13,7 +13,7 @@
       title: 'Fahren oder drehen?',
       core: 'vor fährt eine Kachel. links und rechts drehen den Roboter auf derselben Kachel um eine Vierteldrehung.',
       entry: 'Du brauchst noch kein Vorwissen. Der kleine Pfeil am Roboter zeigt, wohin er blickt. Seine Startkachel ist schon sauber.',
-      task: 'Lies die drei Befehle von oben nach unten. Wo endet der Roboter? Tippe auf die Endkachel und wähle seinen Blick. Prüfe dann mit „Schritt“.',
+      task: 'Lies die drei Befehle von oben nach unten. Wo endet der Roboter? Tippe auf die Endkachel und wähle seinen Blick. Prüfe dann mit „Ein Befehl“.',
       explain: '<h3>Denke aus der Sicht des Roboters</h3><p><b>vor</b> bedeutet: Fahre eine Kachel in deine Blickrichtung. Das ist nicht immer nach oben auf dem Bildschirm.</p><p><b>links</b> und <b>rechts</b> bedeuten: Drehe dich auf der Stelle um eine Vierteldrehung. Dabei bleibt deine Kachel gleich. Erst das nächste <b>vor</b> fährt in die neue Richtung.</p><p>Lies das Programm von oben nach unten. Zeige nach jedem Befehl auf seine Kachel und in seine Blickrichtung. Am Rand stoppt unser Roboter. Er sucht sich keinen anderen Weg.</p>',
       criteria: ['Ich sage nach jedem Befehl, wo der Roboter steht.', 'Ich zeige, wohin er blickt, auch wenn er sich nur dreht.'],
       prompt: 'Nach vor steht er … und blickt … Nach links …',
@@ -24,7 +24,7 @@
       title: 'Vier Durchläufe – immer die ganze Gruppe',
       core: 'Eine Schleife wiederholt alle Befehle in der Klammer. Ein Durchlauf ist die ganze Gruppe, hier vor und links.',
       entry: 'Du brauchst die drei Grundbefehle. Die Zahl 4 sagt, wie oft die ganze Gruppe ausgeführt wird.',
-      task: 'Schreibe unten zuerst die Befehle für zwei Durchläufe aus. Starte dann das Programm. Beobachte, wie sich die ganze Gruppe viermal wiederholt.',
+      task: 'Schreibe zuerst die Befehle für zwei Durchläufe aus. Starte dann das Programm. Beobachte, wie sich die ganze Gruppe viermal wiederholt.',
       explain: '<h3>Eine Klammer hält die Gruppe zusammen</h3><p><b>wiederhole 4 [vor; links]</b> heißt: erst vor, dann links. Danach beginnt dasselbe Paar von vorn. Insgesamt wird es viermal ausgeführt.</p><p>Die Gruppe in der Klammer heißt <b>Schleifenkörper</b>. Einmal die ganze Gruppe ausführen heißt <b>ein Durchlauf</b>. Der Roboter macht hier zwei Aktionen pro Durchlauf.</p><p>Vier Durchläufe sind also acht Aktionen: vor – links | vor – links | vor – links | vor – links. Erst alle vier Durchläufe zusammen führen einmal um den kleinen Boden.</p>',
       criteria: ['Ich nenne beide Befehle des Schleifenkörpers.', 'Ich erkläre: 4 Durchläufe mit je 2 Aktionen ergeben 8 Aktionen.'],
       prompt: 'Ein Durchlauf besteht aus … Die Zahl 4 bedeutet …',
@@ -35,7 +35,7 @@
       title: 'Was kommt nach der Schleife?',
       core: 'Erst laufen alle Wiederholungen in der Klammer. Danach geht es einmal mit dem nächsten Befehl weiter.',
       entry: 'Ein Durchlauf führt die ganze Gruppe in der Klammer aus. Der zusätzliche Befehl vor steht hier außerhalb der Klammer.',
-      task: 'Sage Endkachel und Blick voraus. Prüfe mit „Ein Durchlauf“ die vier Wiederholungen. Untersuche dann den letzten Befehl mit „Schritt“.',
+      task: 'Sage Endkachel und Blick voraus. Prüfe mit „Ein Durchlauf“ die vier Wiederholungen. Untersuche dann den letzten Befehl mit „Ein Befehl“.',
       criteria: ['Ich unterscheide die Befehle in der Klammer vom Befehl danach.', 'Ich erkläre, warum dieses Programm 9 Aktionen hat.'],
       prompt: 'In der Klammer … Nach der vierten Wiederholung …',
       teach: 'Den Plan wiederhole 4 [vor; links] und darunter ein einzelnes vor an die Tafel schreiben. Die Klammer farbig markieren. Kinder zuerst das Ende nach der Schleife, dann nach dem ganzen Programm zeigen lassen.',
@@ -140,6 +140,10 @@
     const at = r => ({step: Math.min(step, r.trace.length - 1), trace: r.trace[Math.min(step, r.trace.length - 1)], ended: step >= r.trace.length - 1});
     return {step, max, before:at(a), after:at(b)};
   }
-  const api = {lesson, examples, evidence, compare};
+  function primaryAction(id) {
+    if (['start','repair','return'].includes(id)) return 'step';
+    return id === 'after' ? 'cycle' : 'play';
+  }
+  const api = {lesson, examples, evidence, compare, primaryAction};
   if (node) module.exports = api; else root.StudioLearning = api;
 })(globalThis);
