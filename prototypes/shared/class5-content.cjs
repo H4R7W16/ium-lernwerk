@@ -9,6 +9,8 @@ function records(values,name){if(!Array.isArray(values))throw new Error('Liste f
 function refs(values,ids,name){if(values===undefined)return;if(!Array.isArray(values)||values.some(v=>!ids.has(v)))throw new Error('Ungültiger Verweis: '+name);}
 function validateEditorial(pack,steps){
  const sources=records(pack.sources,'Quellen'),media=records(pack.media,'Medien'),knowledge=records(pack.knowledge,'Wissen');
+ const aid=a=>{text(a.title,'Hilfetitel');text(a.text,'Hilfe');if(a.step)refs([a.step],steps,'Hilfeschritt');if(a.knowledge)refs([a.knowledge],knowledge,'Hilfewissen');if(a.step||a.knowledge)text(a.label,'Hilfelink');};
+ if(pack.experiencedEntry){aid(pack.experiencedEntry);if(!pack.experiencedEntry.step)throw new Error('Einstiegsschritt fehlt');}
  if(!sources.size||!knowledge.size)throw new Error('Quellen/Wissen fehlen');
  text(pack.duration,'Zeitannahme');text(pack.curriculum?.moduleId,'Planungsmodul');texts(pack.curriculum?.goalIds,'Lernziele');text(pack.curriculum.scope,'Abdeckungsgrenze');refs([pack.curriculum.source],sources,'Curriculum');
  for(const s of pack.sources){for(const k of ['title','author','license','checked'])text(s[k],'Quelle '+k);https(s.url);}
@@ -21,14 +23,18 @@ function validateEditorial(pack,steps){
  }
  for(const k of pack.knowledge){text(k.title,'Wissensfrage');texts(k.paragraphs,'Wissen');text(k.example,'Beispiel');text(k.boundary,'Aussagegrenze');if(!k.steps?.length)throw new Error('Wissensbezug fehlt');refs(k.steps,steps,'Wissensschritt');refs(k.media,media,'Wissensmedium');refs(k.sources,sources,'Wissensquelle');}
  for(const s of pack.steps){
+  if(s.layout!==undefined&&(s.layout!=='model-task'||s.blocks.length!==2||s.blocks[0].type!=='example'||s.blocks[1].type!=='task'))throw new Error('Modell-Aufgaben-Paar ungültig');
+  if(s.materialNeeds)texts(s.materialNeeds,'Materialbedarf');
+  if(s.deviceNeeds)for(const [device,needs]of Object.entries(s.deviceNeeds)){if(!['ipad','windows'].includes(device))throw new Error('Gerät ungültig');texts(needs,'Gerätebedarf');}
+  if(s.checkHelp){if(!Array.isArray(s.checkHelp)||!s.checkHelp.length)throw new Error('Prüfhilfe fehlt');s.checkHelp.forEach(aid);}
   if(s.prerequisites)texts(s.prerequisites,'Schrittvoraussetzungen');if(s.timing!==undefined&&!['now','later'].includes(s.timing))throw new Error('Ungültiger Zeitpunkt');if(s.completion){text(s.completion.title,'Abschlusstitel');text(s.completion.text,'Abschluss');}text(s.task,'Auftrag');text(s.outcome,'Ergebnis');if(!s.knowledge?.length)throw new Error('Wissensbezug fehlt');refs(s.knowledge,knowledge,'Schrittwissen');texts(s.criteria,'Kriterien');
   for(const b of s.blocks){
    refs(b.media,media,'Material');refs(b.sources,sources,'Blockquelle');
    if(b.responseHint)text(b.responseHint,'Antwortumfang');if(b.responseMode!==undefined&&!['written','oral'].includes(b.responseMode))throw new Error('Ungültige Antwortform');if(b.storageNotice)text(b.storageNotice,'Speicherhinweis');
    if(b.paragraphs)texts(b.paragraphs,'Absätze');if(b.items)texts(b.items,'Liste');
    if(b.table){texts(b.table.headers,'Tabellenkopf');if(!Array.isArray(b.table.rows)||!b.table.rows.length)throw new Error('Tabelle fehlt');for(const row of b.table.rows){texts(row,'Tabellenzeile');if(row.length!==b.table.headers.length)throw new Error('Tabellenspalten passen nicht');}}
-   if(b.help)for(const h of b.help){text(h.title,'Hilfetitel');text(h.text,'Hilfe');}
-   if(b.routes)for(const r of b.routes){text(r.title,'Geräteweg');if(!Array.isArray(r.items)||!r.items.length)throw new Error('Bedienung fehlt');for(const item of r.items){if(typeof item==='string')text(item,'Bedienung');else{if(!item||typeof item!=='object')throw new Error('Bedienung ungültig');text(item.title,'Bedienschritt');text(item.text,'Bedienung');refs(item.media,media,'Gerätemedium');}}refs(r.sources,sources,'Gerätequelle');}
+   if(b.help)b.help.forEach(aid);
+   if(b.routes)for(const r of b.routes){text(r.title,'Geräteweg');if(r.device!==undefined&&!['ipad','windows'].includes(r.device))throw new Error('Gerät ungültig');if(!Array.isArray(r.items)||!r.items.length)throw new Error('Bedienung fehlt');for(const item of r.items){if(typeof item==='string')text(item,'Bedienung');else{if(!item||typeof item!=='object')throw new Error('Bedienung ungültig');text(item.title,'Bedienschritt');text(item.text,'Bedienung');refs(item.media,media,'Gerätemedium');}}refs(r.sources,sources,'Gerätequelle');}
   }
  }
  if(pack.teacherSections)for(const section of pack.teacherSections){text(section.title,'Lehrhinweis');texts(section.paragraphs,'Lehrhinweis');}
@@ -64,6 +70,7 @@ function mediaHTML(ids,pack){
   return m.kind==='image'?'<figure class="lw-content-figure"><img src="'+esc(m.file)+'" alt="'+esc(m.alt)+'"><figcaption>'+esc(m.caption)+' '+credit+'</figcaption></figure>':'<div class="lw-download"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a><p class="lw-small">Textdatei · '+credit+'</p><div class="lw-print-file"><h3>'+esc(m.title)+' · Dateiinhalt</h3><pre>'+esc(m.printText)+'</pre></div></div>';
  }).join('');
 }
+function actionLink(h){return h.step?'<a href="schritt-'+esc(h.step)+'.html">'+esc(h.label)+' →</a>':h.knowledge?'<a href="wissen.html#'+esc(h.knowledge)+'">'+esc(h.label)+' →</a>':'';}
 function renderBlocks(step,pack={},options={}){
  let privateUsed=false;
  const html=step.blocks.filter(b=>!options.paper||b.type!=='private').map(b=>{
@@ -73,12 +80,12 @@ function renderBlocks(step,pack={},options={}){
   if(b.type==='retrieval')extra='<p><b>Später wieder aufgreifen:</b> '+esc(b.when)+'</p>';
   const field=['task','external','cooperative','private','retrieval'].includes(b.type),fieldId=(b.type==='private'?'private-':'answer-')+step.id+'-'+b.id;
   if(b.type==='private')privateUsed=true;
-  const routes=(b.routes||[]).map(r=>'<details class="lw-device-route"'+(options.paper?' open':'')+'><summary>'+esc(r.title)+'</summary><ol class="lw-device-steps">'+r.items.map(t=>typeof t==='string'?'<li>'+esc(t)+'</li>':'<li><h4>'+esc(t.title)+'</h4><p>'+esc(t.text)+'</p>'+mediaHTML(t.media,pack)+'</li>').join('')+'</ol>'+citations(r.sources,pack)+'</details>').join('');
+  const routes=(b.routes||[]).filter(r=>!options.device||!r.device||r.device===options.device).map(r=>'<details class="lw-device-route"'+(options.paper?' open':'')+'><summary>'+esc(r.title)+'</summary><ol class="lw-device-steps">'+r.items.map(t=>typeof t==='string'?'<li>'+esc(t)+'</li>':'<li><h4>'+esc(t.title)+'</h4><p>'+esc(t.text)+'</p>'+mediaHTML(t.media,pack)+'</li>').join('')+'</ol>'+citations(r.sources,pack)+'</details>').join('');
   if(b.type==='external'&&b.context==='device')extra='<div class="lw-start-place"><h3>Dein Startort</h3><p>'+esc(b.preparation)+'</p></div><p>'+esc(b.action)+'</p><div class="lw-device-routes">'+routes+'</div><p><b>Zurück im Lernwerk:</b> '+esc(b.return)+'</p>';
   const hint=b.responseHint?'<p class="lw-response-hint" id="'+fieldId+'-hint">'+esc(b.responseHint)+'</p>':'';
   const input='<label for="'+fieldId+'">'+esc(b.prompt)+'</label><textarea id="'+fieldId+'" aria-label="'+esc(b.prompt)+'"'+(b.responseHint?' aria-describedby="'+fieldId+'-hint"':'')+' rows="2" maxlength="10000"></textarea>';
   const answer=!field?'':options.paper?hint+'<p><b>'+esc(b.prompt)+'</b></p>'+(b.responseMode==='oral'?'':'<div class="lw-answer-space" aria-label="Platz für deine Antwort"></div>'):hint+(b.responseMode==='oral'?'<p><b>'+esc(b.prompt)+'</b></p><details class="lw-optional-answer"><summary>Wenn du möchtest: hier notieren</summary>'+input+'</details>':input);
-  const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p></details>').join('');
+  const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p>'+actionLink(h)+'</details>').join('');
   const table=b.table?'<div class="lw-table-wrap"><table><thead><tr>'+b.table.headers.map(v=>'<th scope="col">'+esc(v)+'</th>').join('')+'</tr></thead><tbody>'+b.table.rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'';
   return '<section class="lw-content-block lw-block-'+b.type+'"'+(b.type==='private'?' data-private':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+paragraphs(b.paragraphs)+(b.items?'<ol>'+b.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>':'')+table+mediaHTML(b.media,pack)+extra+(b.context==='device'?'':routes)+(b.storageNotice?'<aside class="lw-work-notice"><b>Antworten und Dateien</b><p>'+esc(b.storageNotice)+'</p></aside>':'')+answer+help+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="'+fieldId+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details class="lw-solution"><summary>'+(b.type==='retrieval'?'Nach deinem Versuch vergleichen':'Mögliche Lösung vergleichen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+citations(b.sources,pack)+'</section>';
  }).join('');
@@ -99,4 +106,4 @@ function assets(pack){
  }return out;
 }
 function unit(pack){return {...pack,kind:pack.kind||'core',status:'working',schemaVersion:1,learningDesign:{goal:pack.product,coverage:Object.fromEntries(Object.entries(pack.coverage).map(([k,v])=>[k,v.join('/')]))},fields:pack.steps.flatMap(s=>s.blocks.filter(b=>['task','external','cooperative','retrieval'].includes(b.type)).map(b=>'i:answer-'+s.id+'-'+b.id))};}
-module.exports={validate,renderBlocks,load,unit,assets,esc,paragraphs,mediaHTML,citations};
+module.exports={actionLink,validate,renderBlocks,load,unit,assets,esc,paragraphs,mediaHTML,citations};

@@ -50,3 +50,13 @@ Die vom Nutzer beauftragten fünf Hauptpunkte wurden in Lernseiten, Wissen, Mate
 Version 1.1.0 verhindert, dass Arbeitsdateien der alten Transferfassung stillschweigend als Antworten zum neuen Fall erscheinen. Die vorhandene Sicherung inkompatibler Altstände bleibt erhalten; keine Datenmigration oder Löschung. Die Feld-IDs bleiben stabil.
 
 Gerätewege sind Kernmaterial und auch im Lernendenblatt enthalten, ergänzende Hilfen/Lösungen bleiben zuschaltbar. Für tatsächliche Schulprofile sind die Herstellerwege weiterhin vorab zu prüfen. Der schulische Startort wird bewusst nicht erfunden.
+
+
+## Ergänzung R06–R09 · 04.10.2026
+Modell und zugehörige Denkfrage bilden ein räumliches Paar. Jede Selbstprüfung bietet zwei typische Hürden mit konkreter nächster Handlung; passende Schritt-/Wissenslinks sind geprüft. Beim Wiederfinden führt die Hilfe tatsächlich zur Geräteanleitung. Nach der Hilfe wird erneut selbst erklärt/geprüft.
+
+Geübte starten bei der eigenen Planung und erbringen anschließend dieselben Geräte-/Transfernachweise. Der eigene Anspruch bleibt erhalten; keine automatische Selbsteinstufung oder Bewertung.
+
+Das Material nennt nur den Bedarf des jeweiligen Schritts. Schritt 4 besitzt zusätzlich eigenständige, ohne JavaScript lesbare iPad- und Windows-Blätter. Jede Variante enthält ihren vollständigen Geräteweg, Fundnotiz-Inhalt, Kriterien und zuschaltbare Hilfen/Lösungen. Die Auswahl steht oben auf dem Blatt und in der Übersicht.
+
+Paketversion 1.1.0 bleibt kompatibel: Aufgabenidentität, Antwortfelder und erwartete Leistungen bleiben gleich. Keine neue Quarantäne vorhandener Antworten wegen bloßer Layout-/Hilfenverbesserung. Physischer Druck und reale Lernendenerprobung bleiben offen.

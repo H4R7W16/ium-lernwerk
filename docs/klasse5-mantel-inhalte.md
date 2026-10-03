@@ -64,3 +64,11 @@ Produktionsfolge, Versionsbindung und kopierbarer Folgeauftrag: [Klasse 5](produ
 - routes.items akzeptiert weiter Strings oder strukturierte Schritte mit title, text und optionalen validierten media-Referenzen. Downloads stehen dadurch am Handlungspunkt.
 - Gerätewege sind Kernmaterial: auf Einzelblättern geöffnet, bei allen Druckmodi enthalten; nach dem Druck kehrt der vorherige Klappzustand zurück. Zusätzliche Hilfen und Lösungen bleiben getrennt.
 - workNotice / storageNotice erläutern die Grenze zwischen Lernwerk-Antworten und externen Dateien. Kein Zugriff auf tatsächliche Geräteordner.
+
+
+## Modellnähe, Prüfhilfen und Materialvarianten · 04.10.2026
+- layout:model-task gruppiert genau ein Beispiel und eine anschließende Aufgabe, responsiv und auf dem Blatt.
+- checkHelp nennt je Schritt title/text und optional step oder knowledge mit label für geprüfte Direktlinks. Dieselben Linkfelder sind in help möglich; Kriterien bleiben unverändert.
+- experiencedEntry (title/text/step/label) empfiehlt einen geprüften Einstieg, ohne andere Schritte zu sperren.
+- materialNeeds ersetzt auf dem Einzelblatt die pauschalen Paketvoraussetzungen. deviceNeeds kann abweichenden Bedarf für ipad/windows enthalten.
+- routes.device ordnet einen vollständigen Geräteweg zu. Für vorhandene Geräte erzeugt der Renderer baustein-SCHRITT-ipad.html bzw. -windows.html zusätzlich zum kombinierten Blatt. Medien, Aufgaben und Kriterien bleiben vollständig enthalten; die Auswahl benötigt kein JavaScript.

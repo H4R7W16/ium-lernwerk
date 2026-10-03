@@ -68,3 +68,40 @@ test('Gerätewege bleiben in allen Druckmodi vollständig, danach kehrt der Klap
   page.events.beforeprint();assert.equal(route.open,true,mode);page.events.afterprint();assert.equal(route.open,false);
  }
 });
+
+test('Modell und Denkfrage bilden auf Lernseite und Material eine gemeinsame Gruppe',()=>{
+ const p=clone(A.load().find(p=>p.area==='dateien')),s=p.steps.find(s=>s.id==='verstehen');
+ s.layout='model-task';
+ const pages=require('./class5-author-render.cjs').render(p);
+ for(const name of ['schritt-verstehen.html','baustein-verstehen.html']){
+  assert.match(pages.get(name),/<div class="lw-model-task">[\s\S]*?lw-block-example[\s\S]*?lw-block-task/);
+ }
+});
+test('Selbstprüfung und Geübteneinstieg verwenden geprüfte Ziele und vollständige Hilfe',()=>{
+ const p=fixture(),s=p.steps[0];
+ p.experiencedEntry={title:'Schon geübt?',text:'Beginne mit deiner Planung.',step:'einstieg',label:'Planung öffnen'};
+ s.checkHelp=[{title:'Datei nicht gefunden?',text:'Beginne wieder am Startort. Prüfe den Weg erneut.',step:'einstieg',label:'Geräteweg öffnen'}];
+ s.materialNeeds=['Dieses Blatt und einen Stift'];
+ const pages=require('./class5-author-render.cjs').render(p);
+ assert.match(pages.get('index.html'),/Schon geübt\?[\s\S]*?href="schritt-einstieg.html"/);
+ for(const name of ['schritt-einstieg.html','baustein-einstieg.html'])assert.match(pages.get(name),/lw-check-help[\s\S]*?Beginne wieder am Startort[\s\S]*?href="schritt-einstieg.html"/);
+ assert.match(pages.get('baustein-einstieg.html'),/Benötigt:<\/b> Dieses Blatt und einen Stift/);
+ assert.doesNotMatch(pages.get('baustein-einstieg.html'),/Benötigt:<\/b> Ein vereinbarter Speicherort/);
+ s.checkHelp[0].step='fehlt';assert.throws(()=>A.validate(p),/Verweis/);
+ s.checkHelp[0].step='einstieg';p.experiencedEntry.step='fehlt';assert.throws(()=>A.validate(p),/Verweis/);
+});
+test('Eigenständige Geräteblätter enthalten nur ihren vollständigen Geräteweg',()=>{
+ const p=fixture(),s=p.steps[0],b=s.blocks[0];
+ b.routes[0].device='ipad';b.routes[1].device='windows';
+ const pages=require('./class5-author-render.cjs').render(p);
+ for(const [device,other,title]of [['ipad','Windows','iPad'],['windows','iPad','Windows']]){
+  const sheet=pages.get('baustein-einstieg-'+device+'.html');
+  assert.ok(sheet,device);assert.match(sheet,/FUNDNOTIZ/);assert.match(sheet,/Ich finde meine Datei wieder/);
+  assert.ok(sheet.includes('Geräteweg: '+title));
+  const routes=[...sheet.matchAll(/<details class="lw-device-route"[^>]*>[\s\S]*?<\/details>/g)];
+  assert.equal(routes.length,1);assert.ok(!routes[0][0].includes(other));
+ }
+ assert.match(pages.get('material.html'),/baustein-einstieg-ipad.html/);
+ assert.match(pages.get('baustein-einstieg.html'),/baustein-einstieg-windows.html/);
+ b.routes[1].device='invalid';assert.throws(()=>A.validate(p),/Gerät/);
+});

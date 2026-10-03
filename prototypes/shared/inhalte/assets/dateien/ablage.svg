@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="540" height="390" viewBox="0 0 540 390" role="img" aria-labelledby="title desc">
-<title id="title">Ein Ordnerweg zur Fundnotiz</title><desc id="desc">Vom vereinbarten Speicherort über Lernwerk und Fundbüro zur Datei fundnotiz.txt. In der Datei steht der Text.</desc>
+<title id="title">Ein Ordnerweg zur Fundnotiz</title><desc id="desc">Vom vereinbarten Startort über Lernwerk und Fundbüro zur Datei fundnotiz.txt. In der Datei steht der Text.</desc>
 <rect width="540" height="390" rx="16" fill="#f0f3eb"/>
 <g fill="none" stroke="#6c8167" stroke-width="3"><path d="M270 79v26m-7-8 7 8 7-8M270 165v26m-7-8 7 8 7-8M270 251v26m-7-8 7 8 7-8"/></g>
 <g stroke="#8d9e87" fill="#fffdf5"><rect x="35" y="20" width="470" height="59" rx="9"/><rect x="75" y="105" width="390" height="60" rx="9"/><rect x="100" y="191" width="340" height="60" rx="9"/></g>
 <rect x="100" y="277" width="340" height="70" rx="9" fill="#24543e"/>
-<g font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#27382e"><text x="270" y="58">Vereinbarter Speicherort</text><text x="270" y="144">Ordner: Lernwerk</text><text x="270" y="230">Ordner: Fundbüro</text><text x="270" y="307" fill="white" font-size="22">Datei: fundnotiz.txt</text><text x="270" y="331" fill="white" font-size="17">Hier steht der Text.</text><text x="270" y="377" font-size="14">Ein Ordnungsmodell – kein Bildschirmfoto</text></g></svg>
+<g font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#27382e"><text x="270" y="58">Vereinbarter Startort</text><text x="270" y="144">Ordner: Lernwerk</text><text x="270" y="230">Ordner: Fundbüro</text><text x="270" y="307" fill="white" font-size="28">Datei: fundnotiz.txt</text><text x="270" y="331" fill="white" font-size="20">Hier steht der Text.</text><text x="270" y="377" font-size="14">Ein Ordnungsmodell – kein Bildschirmfoto</text></g></svg>

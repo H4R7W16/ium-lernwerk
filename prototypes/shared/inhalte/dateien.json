@@ -96,7 +96,7 @@
       "kind": "image",
       "file": "assets/dateien/ablage.svg",
       "title": "Ein nachvollziehbarer Ordnerweg",
-      "alt": "Vom vereinbarten Speicherort geht der Weg über Lernwerk und Fundbüro zur Datei fundnotiz.txt. Die Ordner bilden den Weg; die Textdatei enthält die Fundnotiz.",
+      "alt": "Vom vereinbarten Startort geht der Weg über Lernwerk und Fundbüro zur Datei fundnotiz.txt. Die Ordner bilden den Weg; die Textdatei enthält die Fundnotiz.",
       "caption": "Ein möglicher Ablageweg. Schematisches Modell, kein Bildschirmfoto.",
       "creator": "IuM-Lernwerk",
       "license": "CC BY-SA 4.0",
@@ -313,6 +313,22 @@
           "responseMode": "oral",
           "responseHint": "Erkläre deine Wahl in einem Satz. Du kannst sie mündlich sagen oder im Heft notieren."
         }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich habe nur den Dateinamen genannt.",
+          "text": "Vergleiche die Inhalte der beiden Zeilen. Nenne dann den Ordner mit der blauen Trinkflasche und begründe deine Wahl erneut."
+        },
+        {
+          "title": "Ich verwechsle Datei und Ordner.",
+          "text": "Im nächsten Beispiel siehst du, welche Ordner zur Datei führen. Erkläre danach noch einmal, wo der Text steht.",
+          "step": "verstehen",
+          "label": "Das Beispiel ansehen"
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt mit den beiden Fundnotizen",
+        "bei schriftlicher Antwort: Stift oder Heft"
       ]
     },
     {
@@ -320,7 +336,7 @@
       "short": "Ein Weg zur Datei",
       "title": "Datei, Ordner und Speicherort",
       "goal": "Du liest einen Ordnerweg und erklärst die drei Begriffe an einem Beispiel.",
-      "task": "Verfolge Miras Ablageweg. Sage vor dem Vergleich, was sie zuerst öffnen muss und wo der Text steckt.",
+      "task": "Sieh dir Miras Weg an. Erkläre am Bild, wie du die Datei öffnest.",
       "outcome": "Deine Erklärung des Wegs vom Speicherort bis zur Datei.",
       "criteria": [
         "Ich unterscheide Datei und Ordner.",
@@ -334,26 +350,39 @@
       "blocks": [
         {
           "type": "example",
-          "title": "Mira macht ihren Weg nachvollziehbar",
-          "text": "Mira beginnt beim Speicherort, den ihre Lehrperson genannt hat. Darin legt sie einen Ordner „Lernwerk“ an. Im Unterordner „Fundbüro“ speichert sie die neue Fundnotiz. Sie öffnet die Textdatei und prüft, ob die blaue Trinkflasche darin vorkommt.",
+          "title": "Miras Ordnerweg",
+          "text": "Mira beginnt am vereinbarten Startort. Die Ordner führen sie zur Fundnotiz. Erst die Datei enthält den Text über die blaue Trinkflasche.",
           "media": [
             "ablage"
-          ],
-          "paragraphs": [
-            "Ein Speicherort sagt, wo etwas gespeichert ist. Für unseren Weg vereinbaren wir einen Startort. Die Ordner führen zur Datei; in der Datei steht der Text.",
-            "Mira verlässt die Datei und beginnt nochmals beim Speicherort. Erst als sie die Fundnotiz auf diesem Weg wieder öffnet, weiß sie, dass ihre Ablage funktioniert."
           ]
         },
         {
           "type": "task",
           "id": "weg",
-          "title": "Erkläre den Weg selbst",
-          "text": "Stelle dir vor, der Ordner „Lernwerk“ ist noch geschlossen.",
+          "title": "Jetzt erklärst du den Weg",
+          "text": "Der Ordner „Lernwerk“ ist noch geschlossen. Beginne oben im Bild.",
           "prompt": "Was öffnest du der Reihe nach? Woran erkennst du am Ende die richtige Datei?",
           "solution": "Vom vereinbarten Speicherort öffne ich Lernwerk, darin Fundbüro und darin fundnotiz.txt. Der Text nennt die blaue Trinkflasche. Die Ordner führen mich zur Datei; sie enthalten nicht selbst die Fundnotiz als Text.",
           "responseMode": "oral",
-          "responseHint": "Zeige auf den Weg im Bild und erkläre ihn mündlich. Eine kurze Notiz ist freiwillig."
+          "responseHint": "Zeige auf die Stationen im Bild und erkläre mündlich. Eine Notiz ist freiwillig."
         }
+      ],
+      "layout": "model-task",
+      "checkHelp": [
+        {
+          "title": "In meiner Erklärung fehlt ein Stück des Wegs.",
+          "text": "Zeige nacheinander auf alle vier Kästen. Beginne am Startort und erkläre den Weg noch einmal ohne Hilfe."
+        },
+        {
+          "title": "Ich sage: Der Text steht im Ordner.",
+          "text": "Ein Ordner ordnet Dateien. Öffne im Modell am Ende die Datei: Sie enthält den Text. Vergleiche die Begriffe und verbessere deinen Satz.",
+          "knowledge": "datei-ordner",
+          "label": "Datei und Ordner unterscheiden"
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt mit Miras Ordnerweg",
+        "bei schriftlicher Antwort: Stift oder Heft"
       ]
     },
     {
@@ -412,6 +441,22 @@
           "solution": "Eine mögliche Lösung: Lernwerk → Fundbüro → fundnotiz.txt und Lernwerk → Schulgarten → beetplan.txt sowie giessplan-kresse.txt. Die gemeinsame Regel ist das Vorhaben. Andere klare Namen und Strukturen können passen, wenn die Zuordnung begründet ist.",
           "responseHint": "Eine kleine Skizze im Heft genügt. Oder notiere hier die Ordnerwege und einen Satz zu deinem neuen Dateinamen."
         }
+      ],
+      "checkHelp": [
+        {
+          "title": "Meine Ordner haben noch keine gemeinsame Regel.",
+          "text": "Frage dich: Ordne ich nach Vorhaben oder nach etwas anderem? Prüfe alle drei Dateien mit derselben Regel und überarbeite deinen Plan."
+        },
+        {
+          "title": "Mein Dateiname sagt noch wenig über den Inhalt.",
+          "text": "Nenne Thema und Zweck der Notiz. Behalte .txt bei und prüfe, ob du den Inhalt am neuen Namen erkennen kannst.",
+          "knowledge": "benennen",
+          "label": "Beispiel für hilfreiche Namen"
+        }
+      ],
+      "materialNeeds": [
+        "Die drei Dateibeschreibungen auf diesem Blatt",
+        "Stift und Platz für eine Ordnerskizze"
       ]
     },
     {
@@ -478,7 +523,8 @@
                   "title": "Öffnen und zurückkehren",
                   "text": "Tippe in deinem Themenordner auf die Datei. Steht BLAU-17 darin? Dann wechsle zurück zu dieser Seite im Browser."
                 }
-              ]
+              ],
+              "device": "ipad"
             },
             {
               "title": "Ich arbeite unter Windows",
@@ -515,7 +561,8 @@
                   "title": "Öffnen und zurückkehren",
                   "text": "Öffne die Datei in deinem Themenordner mit einem Doppelklick. Steht BLAU-17 darin? Dann wechsle zurück zu dieser Seite im Browser."
                 }
-              ]
+              ],
+              "device": "windows"
             }
           ],
           "prompt": "Mein Ordnerweg zur Fundnotiz:",
@@ -536,7 +583,36 @@
       ],
       "prerequisites": [
         "Dein Ablageplan. Du startest hier? Wähle zuerst einen Themenordner für die Fundnotiz."
-      ]
+      ],
+      "checkHelp": [
+        {
+          "title": "Die Datei ist nur im Browser geöffnet.",
+          "text": "Öffne oben deinen Geräteweg und gehe zu „Fundnotiz holen“. Sichere sie im Übungsordner. Öffne sie danach aus diesem Ordner und prüfe BLAU-17."
+        },
+        {
+          "title": "Die Datei liegt noch am falschen Ort.",
+          "text": "Vergleiche den sichtbaren Ort mit deinem Ablageplan. Nutze „Ablageort prüfen“ in deiner Geräteanleitung. Öffne die Datei nach dem Verschieben erneut.",
+          "knowledge": "bewegen",
+          "label": "Verschieben und Kopieren unterscheiden"
+        }
+      ],
+      "materialNeeds": [
+        "iPad mit „Dateien“ oder Windows-PC mit Datei-Explorer",
+        "dein Ablageplan und ein erlaubter Startort für eigene Ordner",
+        "die Übungsdatei fundnotiz.txt aus dem Lernwerk oder Schulraum"
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "iPad mit der App „Dateien“",
+          "dein Ablageplan und ein erlaubter Startort für eigene Ordner",
+          "die Übungsdatei fundnotiz.txt aus dem Lernwerk oder Schulraum"
+        ],
+        "windows": [
+          "Windows-PC mit Datei-Explorer",
+          "dein Ablageplan und ein erlaubter Startort für eigene Ordner",
+          "die Übungsdatei fundnotiz.txt aus dem Lernwerk oder Schulraum"
+        ]
+      }
     },
     {
       "id": "wiederfinden",
@@ -570,7 +646,9 @@
           "help": [
             {
               "title": "Ich finde sie nicht mehr",
-              "text": "Gehe zurück zum Startort. Prüfe zuerst, ob du wirklich deinen Übungsordner geöffnet hast. Vergleiche dann deinen Plan mit den sichtbaren Ordnern. Nutze bei Bedarf die Gerätehilfe aus „Am Gerät ablegen“."
+              "text": "Gehe zurück zum Startort. Prüfe zuerst, ob du wirklich deinen Übungsordner geöffnet hast. Vergleiche dann deinen Plan mit den sichtbaren Ordnern. Nutze bei Bedarf die Gerätehilfe aus „Am Gerät ablegen“.",
+              "step": "ablegen",
+              "label": "Zur Geräteanleitung"
             }
           ],
           "solution": "Zum Beispiel: „Ich finde die Fundnotiz über meinen Themenordner und erkenne BLAU-17. Ich habe den Namen genauer gemacht, damit ich den Inhalt erkenne.“ Du kannst auch erklären, warum dein bisheriger Name und Ort schon passen.",
@@ -579,6 +657,22 @@
       ],
       "prerequisites": [
         "Deine früher selbst abgelegte Fundnotiz zur blauen Trinkflasche. Falls sie noch fehlt, bearbeite zuerst „Setze deinen Ablageplan um“; der Wiederfindetest beginnt danach."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich finde die Fundnotiz nicht mehr.",
+          "text": "Beginne am vereinbarten Startort und öffne deinen Übungsordner. Vergleiche mit deinem notierten Weg. Nutze bei Bedarf die Geräteanleitung, verbessere die Ablage und versuche es danach erneut ohne Suchfeld.",
+          "step": "ablegen",
+          "label": "Zur Geräteanleitung"
+        },
+        {
+          "title": "Ich finde sie, kann meine Entscheidung aber noch nicht erklären.",
+          "text": "Vervollständige: „Mein Name und Ordner passen, weil …“. Nenne einen Vorteil beim Wiederfinden. Ändere nur etwas, wenn es dir dabei hilft."
+        }
+      ],
+      "materialNeeds": [
+        "das Gerät mit deiner zuvor selbst abgelegten Fundnotiz",
+        "Zugang zu deinem eigenen Übungsordner; falls die Datei noch fehlt, zuerst das Material „Setze deinen Ablageplan um“ bearbeiten"
       ]
     },
     {
@@ -636,7 +730,23 @@
       "completion": {
         "title": "Für heute fertig",
         "text": "Öffne deine Fundnotiz und die neue Materialliste noch einmal aus deinen Ordnern. Zeige oder erkläre kurz, warum du sie dort ablegst. Deine Antworten kannst du bei Bedarf unter „Deine Arbeit“ sichern."
-      }
+      },
+      "checkHelp": [
+        {
+          "title": "Ich habe nur an eines der beiden Vorhaben gedacht.",
+          "text": "Lies die Materialliste nochmals. Erkläre, wo du sie für das andere Vorhaben suchen würdest. Verbessere Ort oder Namen, wenn nötig, und öffne sie dort erneut."
+        },
+        {
+          "title": "Ich denke: Gleicher Name bedeutet gleiche Datei auf beiden Geräten.",
+          "text": "Ein Dateiname überträgt nichts. Benenne einen erlaubten Weg, über den die Datei auf das zweite Gerät gelangt, und erkläre den Fall noch einmal.",
+          "knowledge": "speicherort",
+          "label": "Speicherort und Gerätewechsel nachlesen"
+        }
+      ],
+      "materialNeeds": [
+        "das Gerät mit deinem Übungsordner und deiner Ordnungsregel",
+        "die neue Datei info.txt aus dem Lernwerk oder Schulraum; bei Direkteinstieg zuerst Ordner für Fundbüro und Schulgarten anlegen"
+      ]
     },
     {
       "id": "abrufen",
@@ -675,7 +785,23 @@
       "prerequisites": [
         "Du hast deine Fundnotiz in einer früheren Stunde selbst abgelegt. Noch nicht gemacht? Beginne mit „Am Gerät ablegen“."
       ],
-      "timing": "later"
+      "timing": "later",
+      "checkHelp": [
+        {
+          "title": "Mein gemerkter Weg stimmt noch nicht.",
+          "text": "Prüfe deinen notierten Weg am Gerät. Ergänze die fehlende Stelle. Schließe die Vorschau und versuche den Weg noch einmal ohne Nachlesen."
+        },
+        {
+          "title": "Mein Schulordner ist heute nicht erreichbar.",
+          "text": "Lass den Zugang mit deiner Lehrperson klären. Erkläre deinen Weg bis dahin am Modell. Hole das Wiederfinden am passenden Gerät nach.",
+          "step": "verstehen",
+          "label": "Zum Modell des Ordnerwegs"
+        }
+      ],
+      "materialNeeds": [
+        "das Gerät und der Zugang zu deiner in einer früheren Stunde abgelegten Fundnotiz",
+        "Stift oder Heft für deinen Weg aus dem Gedächtnis; erst danach die Datei öffnen"
+      ]
     }
   ],
   "teacherSections": [
@@ -686,7 +812,8 @@
         "Schreiben Sie sichtbar „Heute starten wir hier: …“ mit dem konkreten schulischen Pfad an die Tafel bzw. auf das Blatt. Zeigen Sie auf jedem eingesetzten Profil auch den Downloadordner oder den direkten Speicherweg. Erproben Sie die Fundnotiz und info.txt; der Beetplan bleibt Zusatzübung.",
         "Auf Schul-iPads können Speicherorte und Menüs durch Verwaltung eingeschränkt sein. Unter Windows kann „Dokumente“ mit einem Schul-Cloudkonto verbunden sein. Stellen Sie den tatsächlich erlaubten Weg bereit. Keine privaten Konten einrichten lassen.",
         "Die Übungsdateien stehen im Materialbereich. Bei blockierten Downloads stellen Sie genau diese Dateien im geschlossenen Schulraum bereit. Der Papierausdruck zeigt deren vollständigen Text, ersetzt aber keinen Dateivorgang.",
-        "Lassen Sie nur einen eigenen Übungsbereich verwenden. Vorhandene Dateien nicht ersetzen oder löschen. Bei einer Namenskollision einen neuen eindeutig erkennbaren Übungsnamen wählen."
+        "Lassen Sie nur einen eigenen Übungsbereich verwenden. Vorhandene Dateien nicht ersetzen oder löschen. Bei einer Namenskollision einen neuen eindeutig erkennbaren Übungsnamen wählen.",
+        "Für Schritt 4 wählen Sie in der Materialübersicht oder oben auf dem Blatt „iPad“, „Windows“ oder „Beide Gerätewege“. Die einzelnen Varianten enthalten nur ihren Geräteweg einschließlich Dateiinhalt und Kriterien. Ergänzende Prüfhilfen und Lösungen sind wie bisher zuschaltbar. Reine Begriffs- und Planungsblätter verlangen kein Gerät."
       ]
     },
     {
@@ -715,7 +842,8 @@
         "Hilfen stützen konkrete Hürden. Zuerst einen Hinweis zum Startort geben, bei Bedarf den Geräteweg öffnen. Geübte Lernende arbeiten ohne Schrittkarte; die Ordnungsbegründung bleibt für alle gleich anspruchsvoll.",
         "Die sieben Schritte sind frei erreichbar. Beim direkten Einstieg in die Gerätearbeit müssen Startort, eigener Plan und Übungsdatei geklärt sein. Es ist kein selbstbewertendes Quiz und keine benotete Diagnose.",
         "Drei Denkfragen beginnen mündlich mit freiwilliger Notiz. Die übrigen Felder nennen einen knappen Umfang und erlauben Heft oder mündliche Erklärung. Beurteilen Sie die Begründung und echte Gerätehandlung, nicht die Textmenge oder eine gefüllte Lernwerkübersicht.",
-        "Die Lernwerk-Arbeitsdatei enthält Antworten und Werkzeugstände, keine extern gespeicherte Fundnotiz oder Materialliste. Diese Unterscheidung wird im Wissen, im Geräteauftrag, am Abschluss und unter „Deine Arbeit“ erklärt."
+        "Die Lernwerk-Arbeitsdatei enthält Antworten und Werkzeugstände, keine extern gespeicherte Fundnotiz oder Materialliste. Diese Unterscheidung wird im Wissen, im Geräteauftrag, am Abschluss und unter „Deine Arbeit“ erklärt.",
+        "Geübte Lernende starten bei der eigenen Planung und bearbeiten anschließend Geräteauftrag, Wiederfindetest und Transfer. Die Empfehlung erspart Wiederholung, ersetzt aber keine Lernnachweise. Bei unsicheren Begriffen führt der Weg zurück zum Modell."
       ]
     },
     {
@@ -724,7 +852,8 @@
         "Der kurze Vergleich zweier gleich benannter Dateien eröffnet die fachliche Frage. Eine einfache, beschriftete Weggrafik erklärt die Hierarchie; ein Video würde hier zusätzlichen Ablauf ohne notwendigen eigenen Beitrag erzeugen.",
         "Tabellen halten die Zuordnung beim Planen sichtbar. Die reale App ist für Ordneranlage und Wiederfinden notwendig; eine Simulation könnte die Bedienhandlung nur vorbereiten. Die zwei aufklappbaren Gerätewege entlasten, ohne zwei konkurrierende Lernbögen zu erzeugen.",
         "Erklärung und vollständiges Beispiel stehen im zweiten Schritt, gestufte Übung im dritten, eigene Anwendung im vierten, Kriterien/Revision im fünften, veränderter Transfer im sechsten und zeitlich versetzter Abruf im siebten. Das Wissen bleibt unabhängig nachlesbar.",
-        "Noch nicht abgedeckt: vollständiges Schichtenmodell, alle Ein-/Ausgabegeräte, vollständiger Speicherort-/Zugriffsvergleich und sichere Anmeldung. Daraus folgt keine vollständige Freigabe des Moduls G5-M01."
+        "Noch nicht abgedeckt: vollständiges Schichtenmodell, alle Ein-/Ausgabegeräte, vollständiger Speicherort-/Zugriffsvergleich und sichere Anmeldung. Daraus folgt keine vollständige Freigabe des Moduls G5-M01.",
+        "Modell und Denkfrage sind als zusammengehöriges Paar angeordnet. Jede Selbstprüfung bietet konkrete nächste Handlungen zu typischen Hürden. Die Hilfelinks führen zum passenden Wissen oder Geräteauftrag; nach der Hilfe folgt ein eigener neuer Versuch."
       ]
     },
     {
@@ -743,8 +872,15 @@
     "Die Kinder öffnen die Schrittkarte für ihr Gerät direkt am Auftrag. Wer direkt im Themenordner sichert, muss nicht zusätzlich verschieben. Drei Denkfragen werden zuerst mündlich beantwortet; kurze Notizen sind freiwillig. Bei der Kontrolle lassen die Kinder die Datei aus dem eigenen Ordner öffnen und erklären ihre Entscheidung.",
     "Wenn eine Datei schon existiert, lass sie nicht ersetzen. Ein eigener, eindeutiger Übungsname erhält die vorherige Arbeit. Bei fehlendem Zugang kann am Modell weitergearbeitet werden. Die echte Gerätehandlung bleibt dann offen und wird später nachgeholt.",
     "Der Transfer nutzt die bislang unbekannte Datei info.txt mit einer gemeinsamen Materialliste für zwei Vorhaben. Die Kinder wählen einen sprechenden Namen und begründen einen Ablageort. Verschiedene klare Lösungen sind möglich. Danach heißt es: Für heute fertig. Antworten können gesichert werden; die echten Übungsdateien bleiben gesondert in Dateien oder im Explorer.",
-    "Plane in einer späteren Stunde zehn Minuten für das Wiederfinden ohne Vorlage. Beginne mit einer Erklärung aus dem Gedächtnis und prüfe den Weg anschließend am Gerät. Notiere danach knapp, welche Hürden tatsächlich beobachtet wurden und was bei der nächsten Verwendung angepasst werden muss."
+    "Plane in einer späteren Stunde zehn Minuten für das Wiederfinden ohne Vorlage. Beginne mit einer Erklärung aus dem Gedächtnis und prüfe den Weg anschließend am Gerät. Notiere danach knapp, welche Hürden tatsächlich beobachtet wurden und was bei der nächsten Verwendung angepasst werden muss.",
+    "Geübte können bei der eigenen Planung einsteigen und zeigen anschließend dieselben Geräte- und Transferleistungen. Im Modellschritt liegen Bild und Denkfrage beieinander. Nach jeder Selbstprüfung wählen die Kinder bei Bedarf eine passende Hilfe und versuchen es erneut. Für den Druck gibt es vollständige iPad- und Windows-Blätter mit jeweils passendem Bedarf."
   ],
   "learnerDuration": "Für diesen Lernbogen sind zwei Unterrichtsstunden vorgesehen. In einer späteren Stunde findest du deine Datei noch einmal wieder.",
-  "workNotice": "Im Lernwerk sicherst du Antworten. Deine Übungsdateien liegen in „Dateien“ oder im Datei-Explorer. Eine Lernwerk-Arbeitsdatei nimmt diese Übungsdateien nicht mit."
+  "workNotice": "Im Lernwerk sicherst du Antworten. Deine Übungsdateien liegen in „Dateien“ oder im Datei-Explorer. Eine Lernwerk-Arbeitsdatei nimmt diese Übungsdateien nicht mit.",
+  "experiencedEntry": {
+    "title": "Du kannst schon Ordner anlegen und Dateien wiederfinden?",
+    "text": "Starte mit deinem eigenen Ablageplan. Setze ihn anschließend am Gerät um und prüfe, ob du die Datei wiederfindest. Bearbeite auch den neuen Fall. Wenn du Datei und Ordner noch verwechselst, hilft dir zuerst das Beispiel.",
+    "step": "planen",
+    "label": "Mit der eigenen Planung starten"
+  }
 }

@@ -19,3 +19,11 @@ Gezielte Regressionen zuerst: Medien innerhalb von Gerätewegen, Druckbarkeit un
 - Vorschau: http://127.0.0.1:8776/klasse5/dateien/ ; Build: C:/Users/Jan/AI-Workspace-Local/Work/ium-klasse5-dateien-20261004-03.
 - Version 1.1.0. Altstände werden über den bestehenden inkompatiblen Sicherungsweg erhalten, nicht automatisch in den geänderten Transfer übernommen.
 - Schulischer Startort, verwaltete Geräte, Lernendenverständnis und tatsächliche Zeit noch praktisch erproben.
+
+
+## Beauftragter Folgeplan R06–R09
+Vier ausgewählte Detailpunkte nach Nutzerfreigabe: Modell und Aufgabe zusammenbringen; Selbstprüfung mit konkreter Weiterhilfe; Einstieg in Planung für Geübte; vollständige Geräteblätter und passender Materialbedarf. Drei gezielte Regressionen zunächst rot, danach grün; finale Prüfung und Handoff siehe Session zum Vier-Punkte-Feinschliff.
+
+### Folgeauftrag: geprüfter Stand
+Alle vier Detailpunkte umgesetzt. Drei neue Regressionen rot/grün; 55/55 gezielte Tests, Build 164 Dateien und Link-/Medienvalidierung erfolgreich. Browser 1024/390 px: Modell/Frage, Hilfelink, Geübteneinstieg, Materialauswahl und beide vollständigen Gerätevarianten geprüft; kein horizontaler Überlauf in den gesichteten Ansichten. Keine Konsolenwarnungen/-fehler im Testtab. Bildbeschriftung für schmale Ansichten vergrößert, Startort konsistent benannt.
+Vorschau bleibt Port 8776; finaler Build unter C:/Users/Jan/AI-Workspace-Local/Work/ium-dateien-feinschliff-20261004-03. Druckvarianten sind statische eigenständige Seiten; reale Papierpaginierung und schulische Lernendenerprobung bleiben offen.

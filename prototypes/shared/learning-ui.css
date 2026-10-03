@@ -85,3 +85,30 @@
 }
 
 @media print{body.lw-mantel[data-lw-print="learner"] .lw-author details.lw-device-route{display:block!important}}
+
+/* Modell und Anwendung bleiben räumlich zusammen; Hilfen schließen an Kriterien an. */
+.lw-author .lw-model-task{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;align-items:start;margin:24px 0}
+.lw-author .lw-model-task>.lw-content-block{margin:0;padding:20px;min-width:0}
+.lw-author .lw-model-task .lw-content-figure{margin:16px 0 0}
+.lw-author .lw-model-task .lw-content-figure img{width:100%}
+.lw-author .lw-model-task .lw-content-block>h2{font-size:21px}
+.lw-author .lw-check-help{grid-column:1/-1;border-top:1px solid #d4dccf;padding-top:14px}
+.lw-author .lw-check-help h3{font-size:18px;margin:0 0 10px}
+.lw-author .lw-check-help .lw-help{margin:10px 0;padding:10px 14px}
+.lw-author .lw-check-help .lw-help>summary{font-weight:500}
+.lw-author .lw-experienced-entry{margin:22px 0;padding:18px 22px;border:1px solid #cbd5c8;border-radius:10px;background:#fff}
+.lw-author .lw-experienced-entry h2{font-size:19px;margin:0 0 10px}
+.lw-author .lw-experienced-entry p{font-size:16px;max-width:75ch;margin:8px 0 12px}
+.lw-author .lw-device-editions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0}
+.lw-author .lw-device-editions a{display:inline-flex;align-items:center;min-height:44px;padding:8px 13px;border:1px solid #a4b899;border-radius:7px;background:#fff;text-decoration:none}
+.lw-author .lw-device-editions a[aria-current]{background:#eaf1e4;font-weight:650}
+.lw-author .lw-paper-device{padding:10px 14px;background:#eaf1e4;border-left:4px solid #517148}
+@media(max-width:760px){.lw-author .lw-model-task{grid-template-columns:1fr;gap:12px}.lw-author .lw-model-task>.lw-content-block{padding:18px}}
+@media print{
+ .lw-author .lw-model-task{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin:5mm 0}
+ .lw-author .lw-model-task>.lw-content-block{padding:0;border:0}
+ .lw-author .lw-model-task .lw-content-figure{max-width:100%;margin:3mm 0}
+ .lw-author .lw-check-help{break-inside:auto}
+ body.lw-mantel[data-lw-print="learner"] .lw-check-help{display:none}
+ .lw-author .lw-paper-device{padding:2mm;background:white;border:1px solid #999}
+}
