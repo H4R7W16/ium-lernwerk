@@ -1,8 +1,8 @@
 # G5-M01 · Eine Datei sinnvoll ablegen und später wiederfinden
-Stand: 03.10.2026 · lokale Redaktionsfassung / review
+Stand: 04.10.2026 · lokale Redaktionsfassung / review
 
 ## Bindung und Umfang
-Angebot `IUM-5-M01-DATEIEN`, Version 1.0.0, Autorenversion 2, Route `klasse5/dateien/`. Quelle: `prototypes/shared/inhalte/dateien.json`; UI: `class5-author-render.cjs`; kleine Assets in `inhalte/assets/dateien/`.
+Angebot `IUM-5-M01-DATEIEN`, Version 1.1.0, Autorenversion 2, Route `klasse5/dateien/`. Quelle: `prototypes/shared/inhalte/dateien.json`; UI: `class5-author-render.cjs`; kleine Assets in `inhalte/assets/dateien/`.
 
 Planungsbindung wie [Produktionsübersicht](klasse5.md). Fokus: 3.1.5.1(2),(3), eigene Verzeichnisstruktur und gezieltes Ablegen/Wiederfinden; Teilbeitrag im Band 5/6. Neue Übungsdatei wird bereitgestellt, kein umfassender Nachweis selbst verfasster Dokumente. Kein Abschlussnachweis für Hardware, Schichtenmodell, Anmeldung oder alle Speicher-/Zugriffsfragen.
 
@@ -21,20 +21,20 @@ Jede Person begründet eine einfache Ablagestruktur, legt zwei unpersönliche Ü
 | 3 Planen · angeleitete Übung | Drei Dateien nach gemeinsamer Regel ordnen und Namen verbessern | Kleine Datentabelle, eigener Plan im Heft/Text; freie Hinweise statt Vorgabe einer einzigen Ordnung | Vollständige Falldaten; nachvollziehbare Regel |
 | 4 Ablegen · reale Anwendung | Eigene Ordner anlegen, Datei benennen und bewegen | Reale Dateien-App/Explorer; optionale Schritttexte jeweils iPad/Windows. Simulation würde Zielhandlung nicht nachweisen | Beschreibbarer Schulbereich, .txt-Zugang; Datei tatsächlich öffnen |
 | 5 Wiederfinden · Prüfung/Revision | Weg selbst ausführen, Verbesserung oder Beibehaltung begründen | Direkter Gerätetest ohne Suche/Zuletzt; kein Quiz über Menünamen | Vorbereitete eigene Fundnotiz; tatsächlicher Fund und Erklärung |
-| 6 Transfer | Beetplan zuordnen und Gerätewechsel erklären | Zweite echte Datei plus kurzer Fall ohne gemeinsamen Speicher; variiert Inhalt und Randbedingung | Neuer Dateifund; begründete Grenze der lokalen Ablage |
+| 6 Transfer | Unbekannte Materialliste zuordnen und Gerätewechsel erklären | Zweite echte Datei plus kurzer Fall ohne gemeinsamen Speicher; variiert Inhalt und Randbedingung | Neuer Dateifund; begründete Grenze der lokalen Ablage |
 | 7 Abruf | Mit Abstand aus dem Gedächtnis rekonstruieren, dann prüfen | Erst eigene Erinnerung, danach echte Prüfung und Vergleich | Frühere eigene Ablage; bei fehlendem Zugriff bleibt Gerätetest offen |
 
 Alternativen wurden funktional verglichen: Screenshots veralten und unterscheiden sich in Schulprofilen; kurze Textwege mit Herstellergrundlagen sind anpassbar. Eine eigene Hierarchiegrafik macht das Fachmodell sichtbar. Ein zusätzliches Erklärvideo oder eine Dateiverwaltungssimulation würde hier keinen notwendigen Beitrag leisten. Das ist eine Entscheidung für diesen Bogen, keine allgemeine Medienrangfolge.
 
 ## Wissen, Material und Rechte
-Vier eigenständige Wissensartikel: Datei/Ordner, Speicherort, Dateinamen/Endung, Umbenennen/Verschieben/Kopieren. Sieben Einzelmaterialien mit Aufgaben, Falldaten und Kriterien. Geräteaufträge nennen ihre realen Voraussetzungen. Spätere Abrufmaterialien brauchen eine vorherige Ablage; einzeln verwendbar heißt nicht voraussetzungslos.
+Fünf eigenständige Wissensartikel: Datei/Ordner, Speicherort, Dateinamen/Endung, Umbenennen/Verschieben/Kopieren sowie Lernwerk-Antworten versus echte Dateien. Sieben Einzelmaterialien mit Aufgaben, Falldaten und Kriterien. Geräteaufträge nennen ihre realen Voraussetzungen. Spätere Abrufmaterialien brauchen eine vorherige Ablage; einzeln verwendbar heißt nicht voraussetzungslos.
 
-Fundnotiz und Beetplan sind eigene fiktive Textdateien, die im Materialdruck vollständig erscheinen. Modellgrafik und Lerntexte sind eigene Redaktion, CC BY-SA 4.0; verlinkte Apple-/Microsoft-Dokumentation bleibt unter deren Rechten. Quellenliste und Prüfdatum sind im Paket. Herstelleranleitungen wurden gelesen; schulische Einstellungen können abweichen.
+Fundnotiz, neue Materialliste info.txt und zusätzlicher Beetplan sind eigene fiktive Textdateien, die im Materialdruck vollständig erscheinen. Modellgrafik und Lerntexte sind eigene Redaktion, CC BY-SA 4.0; verlinkte Apple-/Microsoft-Dokumentation bleibt unter deren Rechten. Quellenliste und Prüfdatum sind im Paket. Herstelleranleitungen wurden gelesen; schulische Einstellungen können abweichen.
 
 Lernendenblatt, Blatt mit Hilfen, Blatt mit Hilfen und Lösungen sind getrennt auswählbar. Normale Antworten und private Notizen werden nicht gedruckt. Das Lehrpersonenbriefing ist ein Vorlesetext, keine produzierte Audiodatei.
 
 ## Selbstreview und Abnahmegrenzen
-Aufgaben selbst gelöst: gleiche Namen sind nicht eindeutig; Ordnerfolge stimmt; Themenregel trägt auch den Beetplan; Endungswechsel konvertiert keine Daten; lokale Datei benötigt Übertragungsweg für anderes Gerät. Lösungen lassen passende Alternativen zu. Revision ist als eigene Entscheidung gefordert. Hilfen reagieren auf Begriffs-, Startort- und Bedienhürden. Abruf liegt zeitlich getrennt.
+Aufgaben selbst gelöst: gleiche Namen sind nicht eindeutig; Ordnerfolge stimmt; Materialliste für zwei Vorhaben verlangt eine neue begründete Zuordnung; Endungswechsel konvertiert keine Daten; lokale Datei benötigt Übertragungsweg für anderes Gerät. Lösungen lassen passende Alternativen zu. Revision ist als eigene Entscheidung gefordert. Hilfen reagieren auf Begriffs-, Startort- und Bedienhürden. Abruf liegt zeitlich getrennt.
 
 WU-Bezug der redaktionellen Prüfung: Band 1 (Lernprozess statt bloßer Medienoberfläche), Band 3 (gezielte Unterstützung/Rückmeldung), Band 6 (nachvollziehbare Aufgaben und Anforderungen). Dies ist kein unabhängiges Gutachten und kein Wirksamkeitsnachweis.
 
@@ -42,3 +42,11 @@ Technische und visuelle Nachweise stehen im Implementierungsplan. Vor dem Unterr
 
 ## Nächster kleiner Produktionsschritt
 Die restlichen Ziele von M01 fachlich ausarbeiten; danach M02-Recherche als zweiten andersartigen Bogen aufnehmen. Aus zwei bis drei Beispielen den wiederholbaren Produktionsskill gewinnen.
+
+
+## Nacharbeit R01–R05 · 04.10.2026
+Die vom Nutzer beauftragten fünf Hauptpunkte wurden in Lernseiten, Wissen, Material und Lehrbrief umgesetzt. Zwei primäre Gerätekarten führen vom schulisch sichtbaren Startort bis zum Öffnen; Download und direkter Speicherweg werden unterschieden. Drei Denkfragen bieten zuerst eine mündliche Antwort, alle Felder eine kurze Umfangsangabe. Die Materialliste info.txt betrifft zwei Vorhaben und wurde vorher nicht zugeordnet. Nach Schritt 6 folgt „Für heute fertig“, Schritt 7 bleibt getrennt später erreichbar. Antworten/Werkzeugstände sind klar von echten Übungsdateien getrennt.
+
+Version 1.1.0 verhindert, dass Arbeitsdateien der alten Transferfassung stillschweigend als Antworten zum neuen Fall erscheinen. Die vorhandene Sicherung inkompatibler Altstände bleibt erhalten; keine Datenmigration oder Löschung. Die Feld-IDs bleiben stabil.
+
+Gerätewege sind Kernmaterial und auch im Lernendenblatt enthalten, ergänzende Hilfen/Lösungen bleiben zuschaltbar. Für tatsächliche Schulprofile sind die Herstellerwege weiterhin vorab zu prüfen. Der schulische Startort wird bewusst nicht erfunden.

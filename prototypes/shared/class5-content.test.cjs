@@ -9,7 +9,7 @@ test('Erstes echtes Paket wird mit Dateien, Wissen, Lehrbrief und vollständigen
 function runtimePage(page,session,{printMode='learner',details=[]}={}){
  const vm=require('node:vm'),fs=require('node:fs'),M=require('./mantel-model.js'),p=A.load().find(p=>p.area==='dateien'),u=A.unit(p),events={},select={value:printMode,addEventListener(){}},back={href:'index.html'};
  const document={currentScript:{src:'https://lernwerk.test/klasse5/mantel-runtime.js'},body:{dataset:{lwArea:'dateien',lwPage:page}},readyState:'complete',getElementById:id=>id==='lw-catalog'?{textContent:JSON.stringify([u])}:id==='lw-print-mode'?select:null,
- querySelectorAll:s=>s==='[data-lw-return]'?[back]:s==='.lw-author .lw-help,.lw-author .lw-solution'?details:[],addEventListener(){}};
+ querySelectorAll:s=>s==='[data-lw-return]'?[back]:s==='.lw-author .lw-help,.lw-author .lw-solution,.lw-author .lw-device-route'?details:[],addEventListener(){}};
  const storage={getItem:k=>session.get(k)||null,setItem:(k,v)=>session.set(k,v)};
  const window={LernwerkMantelModel:M,addEventListener:(e,fn)=>{events[e]=fn;}};
  vm.runInNewContext(fs.readFileSync(require.resolve('./mantel-runtime.js'),'utf8'),{document,window,location:{hash:'',href:'https://lernwerk.test/klasse5/dateien/'+page},URL,TextEncoder,crypto:require('node:crypto').webcrypto,sessionStorage:storage,localStorage:{getItem:()=>null},navigator:{},queueMicrotask,console});
@@ -23,7 +23,7 @@ test('Wissen kehrt auch ohne erste Antwort zum zuletzt geöffneten Inhaltsschrit
 });
 test('Drucken trennt Hilfen und Lösungen und stellt danach den Lesestand wieder her',()=>{
  for(const mode of ['learner','helpers','solutions']){
-  const help={open:false,classList:{contains:()=>false}},solution={open:true,classList:{contains:()=>true}},page=runtimePage('baustein-ablegen.html',new Map(),{printMode:mode,details:[help,solution]});
+  const help={open:false,classList:{contains:()=>false}},solution={open:true,classList:{contains:c=>c==='lw-solution'}},page=runtimePage('baustein-ablegen.html',new Map(),{printMode:mode,details:[help,solution]});
   page.events.beforeprint();assert.equal(help.open,mode!=='learner');assert.equal(solution.open,mode==='solutions');assert.equal(page.body.dataset.lwPrint,mode);
   page.events.afterprint();assert.equal(help.open,false);assert.equal(solution.open,true);
  }
@@ -33,4 +33,38 @@ test('Fehlende Medien und abweichende Drucktexte werden vor der Ausgabe abgewies
  const p=clone(A.load().find(p=>p.area==='dateien'));p.media.find(m=>m.kind==='download').printText+=' Fremder Text';
  assert.throws(()=>A.assets(p),/Druckinhalt weichen ab/);
  const missing=clone(p);missing.media[0].file='assets/dateien/fehlt.svg';assert.throws(()=>A.assets(missing),/ENOENT/);
+});
+
+test('Gerätekarten erlauben Medien am Handlungspunkt und prüfen deren Verweise',()=>{
+ const p=fixture(),b=p.steps[0].blocks.find(b=>b.routes);
+ b.routes[0].items=[{title:'Datei holen',text:'Jetzt herunterladen.',media:['probe']}];
+ assert.doesNotThrow(()=>A.validate(p));
+ const html=A.renderBlocks(p.steps[0],p);
+ assert.match(html,/<details class="lw-device-route"[^>]*>[\s\S]*?<li><h4>Datei holen<\/h4>[\s\S]*?download/);
+ assert.match(A.renderBlocks(p.steps[0],p,{paper:true}),/<details class="lw-device-route" open>/);
+ b.routes[0].items[0].media=['fehlt'];assert.throws(()=>A.validate(p),/Verweis/);
+});
+test('Kurze Antworterwartung steht vor dem Feld; mündliche Aufgaben behalten optionale Notizen',()=>{
+ const p=fixture(),s=p.steps[0],b=s.blocks.find(b=>b.id);
+ b.responseHint='Ein Satz genügt. Auch mündlich möglich.';b.responseMode='oral';
+ const html=A.renderBlocks(s,p),id='answer-'+s.id+'-'+b.id;
+ assert.ok(html.indexOf(b.responseHint)<html.indexOf('<textarea'));
+ assert.match(html,/<details class="lw-optional-answer"><summary>Wenn du möchtest: hier notieren<\/summary>/);
+ assert.ok(html.includes('id="'+id+'"'));assert.ok(html.includes('aria-describedby="'+id+'-hint"'));
+ assert.doesNotMatch(A.renderBlocks(s,p,{paper:true}),/textarea/);
+});
+test('Späterer Abruf folgt auf einen sichtbaren Abschluss statt auf einen normalen Weiter-Link',()=>{
+ const p=clone(A.load().find(p=>p.area==='dateien'));
+ p.steps.at(-1).timing='later';p.steps.at(-2).completion={title:'Für heute fertig',text:'Prüfe die Dateien.'};
+ const pages=require('./class5-author-render.cjs').render(p),html=pages.get('schritt-transfer.html');
+ assert.match(html,/Für heute fertig/);assert.doesNotMatch(html,/Weiter: Später/);
+ assert.match(html,/In einer späteren Stunde/);assert.match(pages.get('baustein-transfer.html'),/Für heute fertig/);
+ assert.match(pages.get('index.html'),/In einer späteren Stunde/);
+});
+test('Gerätewege bleiben in allen Druckmodi vollständig, danach kehrt der Klappzustand zurück',()=>{
+ for(const mode of ['learner','helpers','solutions']){
+  const route={open:false,classList:{contains:c=>c==='lw-device-route'}};
+  const page=runtimePage('baustein-ablegen.html',new Map(),{printMode:mode,details:[route]});
+  page.events.beforeprint();assert.equal(route.open,true,mode);page.events.afterprint();assert.equal(route.open,false);
+ }
 });

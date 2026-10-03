@@ -55,3 +55,12 @@ Druckauswahl: Lernendenblatt, mit Hilfen, mit Hilfen und Lösungen. Die Druckvor
 Die Rückkehr aus Wissen/Material merkt sich im Tab den zuletzt geöffneten Autoren-Schritt auch vor einer Antwort. Diese Navigation wird nicht als Lernnachweis/Arbeitsprodukt angelegt. Das Arbeitsdateiformat bleibt unverändert.
 
 Produktionsfolge, Versionsbindung und kopierbarer Folgeauftrag: [Klasse 5](produktion/klasse5.md). Fachbrief und Selbstreview des ersten Pakets: [Dateien](produktion/g5-m01-dateien.md).
+
+
+## Redaktionelle Ergänzungen aus dem Dateien-Review · 04.10.2026
+- learnerDuration trennt den kurzen Lernendenhinweis von der Lehrpersonen-Zeitannahme.
+- Schritt timing:later trennt den späteren Abruf in Einstieg und Vorwärtsnavigation. completion mit title/text erzeugt den aktuellen Abschluss auch auf dem Einzelblatt.
+- responseHint steht vor dem Antwortfeld; responseMode:oral bietet eine freiwillige digitale Notiz. Auch im Papiermaterial ist mündliches Antworten möglich.
+- routes.items akzeptiert weiter Strings oder strukturierte Schritte mit title, text und optionalen validierten media-Referenzen. Downloads stehen dadurch am Handlungspunkt.
+- Gerätewege sind Kernmaterial: auf Einzelblättern geöffnet, bei allen Druckmodi enthalten; nach dem Druck kehrt der vorherige Klappzustand zurück. Zusätzliche Hilfen und Lösungen bleiben getrennt.
+- workNotice / storageNotice erläutern die Grenze zwischen Lernwerk-Antworten und externen Dateien. Kein Zugriff auf tatsächliche Geräteordner.

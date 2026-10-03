@@ -6,7 +6,7 @@ let pendingAdapter=null,booted=false,restoring=false,dirty=false,store={version:
 const $=id=>document.getElementById(id),copy=M.clone,e=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function uuid(){return crypto.randomUUID();}
 function announce(message){const node=$('lw-work-message')||$('lw-storage-warning')||$('lw-storage-status');if(node)node.textContent=message;}
-function status(){const backup=$('lw-emergency-export');if(backup)backup.hidden=tabOk&&captureOk;const n=$('lw-storage-status');if(n)n.textContent=device?'Arbeitsstand: auf diesem Gerät gespeichert.':'Arbeitsstand: in diesem Browsertab'+(tabOk?'.':' – Speicher eingeschränkt; sichere eine Arbeitsdatei.');}
+function status(){const backup=$('lw-emergency-export');if(backup)backup.hidden=tabOk&&captureOk;const n=$('lw-storage-status');if(n)n.textContent=device?'Lernwerk-Antworten und Werkzeugstände: auf diesem Gerät gespeichert.':'Lernwerk-Antworten und Werkzeugstände: in diesem Browsertab'+(tabOk?'.':' – Speicher eingeschränkt; sichere eine Arbeitsdatei.');}
 function save(){
  if(!quarantineOk){tabOk=false;status();return false;}
  try{sessionStorage.setItem(KEY,JSON.stringify(store));tabOk=true;}catch{tabOk=false;announce('Tabsicherung ist eingeschränkt. Deine aktuelle Arbeit bleibt hier; sichere sie vor einem Seitenwechsel als Datei.');}
@@ -87,7 +87,7 @@ function renderWork(){
  root.innerHTML=store.records.length?store.records.map(r=>{
  const u=units.find(x=>x.id===r.moduleId),p=products(r);
  return '<article class="lw-card" style="margin:20px 0"><p class="lw-eyebrow">'+e(u.topic)+' · Begonnen</p><h2>'+e(u.title)+'</h2><p>Stand vom '+e(date(r))+' · '+e(u.steps.find(s=>s.id===r.payload.step)?.title)+'</p><details><summary>Eigenes Produkt ansehen</summary>'+(p.length?p.map(x=>'<h3>'+e(x.title)+'</h3><p class="lw-product">'+e(x.text)+'</p>').join(''):'<p>Ein Werkzeugstand ist vorhanden. Öffne die Aufgabe, um ihn zu untersuchen.</p>')+'</details><div class="lw-actions"><a class="lw-button" data-lw-open="'+e(r.workspaceId)+'" href="'+destination(r)+'">Weiterarbeiten</a><button class="lw-button secondary" data-lw-export="'+e(r.workspaceId)+'">Arbeitsdatei sichern</button><button class="lw-button secondary" data-lw-product="'+e(r.workspaceId)+'">Lesbares Ergebnis sichern</button><button class="lw-button secondary" data-lw-delete="'+e(r.workspaceId)+'">Diesen Stand löschen</button></div><a href="'+u.area+'/index.html?neu=1">Neu beginnen – bisherigen Stand behalten</a></article>';
- }).join(''):'<div class="lw-notice"><p>Hier liegt noch keine eigene Arbeit. Öffne eine Lerneinheit und beginne eine Aufgabe.</p><a href="index.html">Lerneinheit wählen</a></div>';
+ }).join(''):'<div class="lw-notice"><p>Hier sind noch keine Antworten oder Werkzeugstände im Lernwerk gespeichert. Wenn du mündlich, im Heft oder in „Dateien“ bzw. im Datei-Explorer gearbeitet hast, erscheint das hier nicht. Deine Gerätearbeit kann trotzdem gelungen sein.</p><a href="index.html">Lerneinheit wählen</a></div>';
  if($('lw-persist'))$('lw-persist').checked=device;
 }
 async function openFile(file){
@@ -173,9 +173,9 @@ function boot(){
  window.addEventListener('beforeprint',()=>{
   const mode=printMode?.value||'learner';
   document.body.dataset.lwPrint=mode;
-  for(const detail of document.querySelectorAll('.lw-author .lw-help,.lw-author .lw-solution')){
+  for(const detail of document.querySelectorAll('.lw-author .lw-help,.lw-author .lw-solution,.lw-author .lw-device-route')){
    if(!printDetails.has(detail))printDetails.set(detail,detail.open);
-   detail.open=detail.classList.contains('lw-solution')?mode==='solutions':mode!=='learner';
+   detail.open=detail.classList.contains('lw-device-route')||(detail.classList.contains('lw-solution')?mode==='solutions':mode!=='learner');
   }
  });
  window.addEventListener('afterprint',()=>{for(const [detail,open] of printDetails)detail.open=open;printDetails.clear();});
