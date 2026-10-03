@@ -3,7 +3,39 @@ const fs=require('node:fs'),path=require('node:path'),{functions}=require('./cla
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text=(v,name)=>{if(typeof v!=='string'||!v.trim())throw new Error('Inhalt fehlt: '+name);return v;};
 const id=v=>typeof v==='string'&&/^[a-z][a-z0-9-]{1,60}$/.test(v);
+const texts=(v,name)=>{if(!Array.isArray(v)||!v.length)throw new Error('Liste fehlt: '+name);v.forEach(x=>text(x,name));};
+const https=v=>{if(new URL(v).protocol!=='https:')throw new Error('Quelle/Zugang muss HTTPS verwenden');};
+function records(values,name){if(!Array.isArray(values))throw new Error('Liste fehlt: '+name);const ids=new Set();for(const v of values){if(!id(v.id)||ids.has(v.id))throw new Error('Ungültige/doppelte ID: '+name);ids.add(v.id);}return ids;}
+function refs(values,ids,name){if(values===undefined)return;if(!Array.isArray(values)||values.some(v=>!ids.has(v)))throw new Error('Ungültiger Verweis: '+name);}
+function validateEditorial(pack,steps){
+ const sources=records(pack.sources,'Quellen'),media=records(pack.media,'Medien'),knowledge=records(pack.knowledge,'Wissen');
+ if(!sources.size||!knowledge.size)throw new Error('Quellen/Wissen fehlen');
+ text(pack.duration,'Zeitannahme');text(pack.curriculum?.moduleId,'Planungsmodul');texts(pack.curriculum?.goalIds,'Lernziele');text(pack.curriculum.scope,'Abdeckungsgrenze');refs([pack.curriculum.source],sources,'Curriculum');
+ for(const s of pack.sources){for(const k of ['title','author','license','checked'])text(s[k],'Quelle '+k);https(s.url);}
+ for(const m of pack.media){
+  for(const k of ['title','creator','license'])text(m[k],'Medium '+k);
+  if(!['image','download'].includes(m.kind)||typeof m.file!=='string'||!/^assets\/[a-z0-9/-]+\.(svg|png|jpg|jpeg|webp|txt)$/.test(m.file)||m.file.includes('..')||m.file.includes('//'))throw new Error('Unzulässiger Medienpfad/Typ');
+  if(m.kind==='image'){if(!/\.(svg|png|jpg|jpeg|webp)$/.test(m.file))throw new Error('Bildformat ungültig');text(m.alt,'Alternativtext');text(m.caption,'Bildunterschrift');}
+  else{if(!m.file.endsWith('.txt'))throw new Error('Unbekanntes Downloadformat');text(m.printText,'Druckinhalt der Datei');}
+  refs([m.sourceId],sources,'Medienquelle');
+ }
+ for(const k of pack.knowledge){text(k.title,'Wissensfrage');texts(k.paragraphs,'Wissen');text(k.example,'Beispiel');text(k.boundary,'Aussagegrenze');if(!k.steps?.length)throw new Error('Wissensbezug fehlt');refs(k.steps,steps,'Wissensschritt');refs(k.media,media,'Wissensmedium');refs(k.sources,sources,'Wissensquelle');}
+ for(const s of pack.steps){
+  if(s.prerequisites)texts(s.prerequisites,'Schrittvoraussetzungen');text(s.task,'Auftrag');text(s.outcome,'Ergebnis');if(!s.knowledge?.length)throw new Error('Wissensbezug fehlt');refs(s.knowledge,knowledge,'Schrittwissen');texts(s.criteria,'Kriterien');
+  for(const b of s.blocks){
+   refs(b.media,media,'Material');refs(b.sources,sources,'Blockquelle');
+   if(b.paragraphs)texts(b.paragraphs,'Absätze');if(b.items)texts(b.items,'Liste');
+   if(b.table){texts(b.table.headers,'Tabellenkopf');if(!Array.isArray(b.table.rows)||!b.table.rows.length)throw new Error('Tabelle fehlt');for(const row of b.table.rows){texts(row,'Tabellenzeile');if(row.length!==b.table.headers.length)throw new Error('Tabellenspalten passen nicht');}}
+   if(b.help)for(const h of b.help){text(h.title,'Hilfetitel');text(h.text,'Hilfe');}
+   if(b.routes)for(const r of b.routes){text(r.title,'Geräteweg');texts(r.items,'Bedienung');refs(r.sources,sources,'Gerätequelle');}
+  }
+ }
+ if(pack.teacherSections)for(const section of pack.teacherSections){text(section.title,'Lehrhinweis');texts(section.paragraphs,'Lehrhinweis');}
+ if(pack.briefing)texts(pack.briefing,'Lehrpersonenbriefing');
+ refs(pack.preview?[pack.preview]:[],media,'Themenvorschau');
+}
 function validate(pack){
+ if(pack.authorVersion!==undefined&&pack.authorVersion!==2)throw new Error('Unbekannte Autorenversion');
  if(!id(pack.area)||!/^IUM-5-[A-Z0-9-]+$/.test(pack.id)||!/^\d+\.\d+\.\d+$/.test(pack.version)||pack.grade!==5||pack.family!=='content'||!Array.isArray(pack.steps)||!pack.steps.length)throw new Error('Ungültiger Klasse-5-Inhalt');
  for(const key of ['title','topic','description','product'])text(pack[key],key);
  if(!Array.isArray(pack.prerequisites)||!Array.isArray(pack.teacher)||!pack.teacher.length)throw new Error('Voraussetzungen/Lehrpersonenhinweise fehlen');
@@ -14,24 +46,36 @@ function validate(pack){
    if(!['explanation','example','task','external','cooperative','private','retrieval'].includes(b.type))throw new Error('Unbekannter Inhaltsbaustein: '+b.type);
    text(b.title,'Bausteintitel');text(b.text,'Bausteintext');
    if(['task','external','cooperative','private','retrieval'].includes(b.type)){if(!id(b.id)||fields.has(b.id))throw new Error('Antwort-ID ungültig/doppelt');fields.add(b.id);text(b.prompt,'Eigenes Produkt');}
-   if(b.type==='external'){for(const k of ['preparation','action','return'])text(b[k],k);const u=new URL(b.url);if(u.protocol!=='https:')throw new Error('Externer Zugang muss HTTPS verwenden');}
+   if(b.type==='external'){for(const k of ['preparation','action','return'])text(b[k],k);if(b.context==='device'){if(pack.authorVersion!==2||!b.routes?.length)throw new Error('Geräteweg fehlt');}else https(b.url);}
    if(b.type==='cooperative')for(const k of ['contribution','exchange','return'])text(b[k],k);
    if(b.type==='retrieval'){text(b.when,'Zeitpunkt');text(b.solution,'Vergleich nach Abruf');}
   }
  }
  for(const f of functions)if(!Array.isArray(pack.coverage?.[f])||!pack.coverage[f].length||pack.coverage[f].some(s=>!names.has(s)))throw new Error('Lernbogenfunktion fehlt: '+f);
+ if(pack.authorVersion===2)validateEditorial(pack,names);
  return pack;
 }
-function renderBlocks(step){
+const paragraphs=values=>(values||[]).map(v=>'<p>'+esc(v)+'</p>').join('');
+function citations(ids,pack){return (ids||[]).length?'<p class="lw-citation">Grundlage: '+ids.map(id=>{const s=pack.sources.find(s=>s.id===id);return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+'</a>';}).join(' · ')+'</p>':'';}
+function mediaHTML(ids,pack){
+ return (ids||[]).map(id=>{const m=pack.media.find(m=>m.id===id);
+  const credit='<small>'+esc(m.creator)+' · '+esc(m.license)+'</small>';
+  return m.kind==='image'?'<figure class="lw-content-figure"><img src="'+esc(m.file)+'" alt="'+esc(m.alt)+'"><figcaption>'+esc(m.caption)+' '+credit+'</figcaption></figure>':'<div class="lw-download"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a><p class="lw-small">Textdatei · '+credit+'</p><div class="lw-print-file"><h3>'+esc(m.title)+' · Dateiinhalt</h3><pre>'+esc(m.printText)+'</pre></div></div>';
+ }).join('');
+}
+function renderBlocks(step,pack={},options={}){
  let privateUsed=false;
- const html=step.blocks.map(b=>{
+ const html=step.blocks.filter(b=>!options.paper||b.type!=='private').map(b=>{
   let extra='';
-  if(b.type==='external')extra='<h3>Vorbereiten</h3><p>'+esc(b.preparation)+'</p><h3>Im anderen Werkzeug arbeiten</h3><p>'+esc(b.action)+'</p><p><a href="'+esc(b.url)+'" target="_blank" rel="noopener noreferrer">Werkzeug öffnen · neuer Tab, Internet nötig</a></p><h3>Zurück im Lernwerk</h3><p>'+esc(b.return)+'</p>';
+  if(b.type==='external')extra='<div class="lw-device-task"><h3>Vorbereiten</h3><p>'+esc(b.preparation)+'</p><h3>'+(b.context==='device'?'Jetzt am Gerät':'Im anderen Werkzeug arbeiten')+'</h3><p>'+esc(b.action)+'</p>'+(b.context==='device'?'':'<p><a href="'+esc(b.url)+'" target="_blank" rel="noopener noreferrer">Werkzeug öffnen · neuer Tab, Internet nötig</a></p>')+'<h3>Zurück im Lernwerk</h3><p>'+esc(b.return)+'</p></div>';
   if(b.type==='cooperative')extra='<h3>Dein Beitrag</h3><p>'+esc(b.contribution)+'</p><h3>Gemeinsam austauschen</h3><p>'+esc(b.exchange)+'</p><h3>Danach wieder selbst</h3><p>'+esc(b.return)+'</p>';
   if(b.type==='retrieval')extra='<p><b>Später wieder aufgreifen:</b> '+esc(b.when)+'</p>';
-  const field=['task','external','cooperative','private','retrieval'].includes(b.type);
+  const field=['task','external','cooperative','private','retrieval'].includes(b.type),fieldId=(b.type==='private'?'private-':'answer-')+step.id+'-'+b.id;
   if(b.type==='private')privateUsed=true;
-  return '<section class="lw-notice"'+(b.type==='private'?' data-private':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+extra+(field?'<label for="'+(b.type==='private'?'private-':'answer-')+step.id+'-'+b.id+'">'+esc(b.prompt)+'</label><textarea id="'+(b.type==='private'?'private-':'answer-')+step.id+'-'+b.id+'" maxlength="10000"></textarea>':'')+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="private-'+step.id+'-'+b.id+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details><summary>'+(b.type==='retrieval'?'Jetzt vergleichen':'Mögliche Lösung nachvollziehen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+'</section>';
+  const routes=(b.routes||[]).map(r=>'<details class="lw-help lw-device-route"><summary>'+esc(r.title)+' · Bedienhilfe</summary><ol>'+r.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>'+citations(r.sources,pack)+'</details>').join('');
+  const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p></details>').join('');
+  const table=b.table?'<div class="lw-table-wrap"><table><thead><tr>'+b.table.headers.map(v=>'<th scope="col">'+esc(v)+'</th>').join('')+'</tr></thead><tbody>'+b.table.rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'';
+  return '<section class="lw-content-block lw-block-'+b.type+'"'+(b.type==='private'?' data-private':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+paragraphs(b.paragraphs)+(b.items?'<ol>'+b.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>':'')+table+mediaHTML(b.media,pack)+extra+routes+(field?(options.paper?'<p><b>'+esc(b.prompt)+'</b></p><div class="lw-answer-space" aria-label="Platz für deine Antwort"></div>':'<label for="'+fieldId+'">'+esc(b.prompt)+'</label><textarea id="'+fieldId+'" aria-label="'+esc(b.prompt)+'" maxlength="10000"></textarea>'):'')+help+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="'+fieldId+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details class="lw-solution"><summary>'+(b.type==='retrieval'?'Nach deinem Versuch vergleichen':'Mögliche Lösung vergleichen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+citations(b.sources,pack)+'</section>';
  }).join('');
  return html+(privateUsed?'<dialog id="lw-private-dialog" aria-labelledby="lw-private-title"><h2 id="lw-private-title">Nur deine private Notiz</h2><p>Diese Datei enthält die folgende persönliche Notiz. Andere Personen mit Zugriff auf die Datei können sie lesen.</p><pre id="lw-private-preview" class="lw-product"></pre><button id="lw-private-confirm" class="lw-button">Diese Notiz als eigene Textdatei anbieten</button><button id="lw-private-cancel" class="lw-button secondary">Abbrechen</button></dialog>':'');
 }
@@ -39,5 +83,15 @@ function load(){
  const dir=path.join(__dirname,'inhalte');if(!fs.existsSync(dir))return [];
  return fs.readdirSync(dir).filter(n=>n.endsWith('.json')).sort().map(n=>validate(JSON.parse(fs.readFileSync(path.join(dir,n),'utf8'))));
 }
+function assets(pack){
+ const root=fs.realpathSync(path.join(__dirname,'inhalte')),out=new Map();
+ for(const m of pack.media||[]){
+  const file=fs.realpathSync(path.join(root,m.file));if(!file.startsWith(root+path.sep))throw new Error('Medium außerhalb des Inhaltsordners');
+  const data=fs.readFileSync(file);if(data.length>2*1024*1024)throw new Error('Medium überschreitet 2 MB: '+m.file);
+  if(m.file.endsWith('.svg')&&/<script|<foreignObject|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|data:|javascript:)/i.test(data.toString()))throw new Error('Aktiver SVG-Inhalt unzulässig');
+  if(m.kind==='download'&&data.toString('utf8').trim()!==m.printText.trim())throw new Error('Datei und Druckinhalt weichen ab: '+m.file);
+  out.set(m.file,data);
+ }return out;
+}
 function unit(pack){return {...pack,kind:pack.kind||'core',status:'working',schemaVersion:1,learningDesign:{goal:pack.product,coverage:Object.fromEntries(Object.entries(pack.coverage).map(([k,v])=>[k,v.join('/')]))},fields:pack.steps.flatMap(s=>s.blocks.filter(b=>['task','external','cooperative','retrieval'].includes(b.type)).map(b=>'i:answer-'+s.id+'-'+b.id))};}
-module.exports={validate,renderBlocks,load,unit,esc};
+module.exports={validate,renderBlocks,load,unit,assets,esc,paragraphs,mediaHTML,citations};

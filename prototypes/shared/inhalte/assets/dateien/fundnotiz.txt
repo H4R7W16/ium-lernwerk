@@ -1,0 +1,5 @@
+FUNDNOTIZ
+Im Fundbüro liegt eine blaue Trinkflasche.
+Fundort: Schulhof, neben der Bank.
+Kennzeichen der Übungsdatei: BLAU-17.
+Dies ist ein erfundener Übungsfall. Keine echten Personendaten eintragen.

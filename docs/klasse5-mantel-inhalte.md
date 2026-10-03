@@ -4,13 +4,13 @@ Der gemeinsame Einstieg liegt unter `klasse5/`. Die drei vorhandenen Werkzeuge b
 
 ## Inhalt ohne neue UI-Programmierung
 
-Weitere Lerneinheiten aus den allgemeinen Inhaltstypen werden als UTF-8-JSON unter `prototypes/shared/inhalte/` aufgenommen. Der Ordner muss erst mit dem ersten echten Inhalt entstehen. `class5-content.cjs` validiert jede Datei und erzeugt daraus Einstieg, Schritte, vollständige Einzelmaterialien, Wissen/Materialübersicht und Lehrpersonenhinweise. Ein fehlerhafter Lernbogen stoppt den Build.
+Weitere Lerneinheiten aus den allgemeinen Inhaltstypen werden als UTF-8-JSON unter `prototypes/shared/inhalte/` aufgenommen. Das erste vollständige Autorenpaket ist dateien.json; dessen Ordner und Assets sind die praktische Referenz. `class5-content.cjs` validiert jede Datei und erzeugt daraus Einstieg, Schritte, vollständige Einzelmaterialien, Wissen/Materialübersicht und Lehrpersonenhinweise. Ein fehlerhafter Lernbogen stoppt den Build.
 
 Pflichtfelder: `area` (stabile URL-ID), `id` (IUM-5-…), `version` (SemVer), `grade:5`, `family:"content"`, `title`, `topic`, `description`, `product`, `prerequisites`, `teacher`, `steps`, `coverage`. Jeder Schritt hat `id,title,goal,criteria,blocks`. `coverage` verweist für entry/explanation/example/practice/application/revision/securing/transfer/retrieval auf vorhandene Schritt-IDs. Die Redaktion prüft zusätzlich die fachliche Qualität; vorhandene Felder beweisen keine Lernwirksamkeit.
 
 Bekannte Blöcke: explanation, example, task, external, cooperative, private, retrieval. Alle tragen title/text, antwortende Blöcke zusätzlich id/prompt. Aufgaben können solution für einen bewusst geöffneten Vergleich enthalten.
 
-- external: preparation, action, HTTPS-url, return. Der Link öffnet einen neuen Tab und kennzeichnet den Internetbedarf. Die Rückkehr verlangt ein eigenes Ergebnis. Eine Simulation wird nicht als erledigte Recherche ausgegeben.
+- external: preparation, action, HTTPS-url, return. Für eine lokale Gerätehandlung in Autorenversion 2 stattdessen context:"device" und konkrete routes; dafür wird kein Internetzugang behauptet. Der Link öffnet einen neuen Tab und kennzeichnet den Internetbedarf. Die Rückkehr verlangt ein eigenes Ergebnis. Eine Simulation wird nicht als erledigte Recherche ausgegeben.
 - cooperative: contribution, exchange, return. Reale Beiträge und Austausch sowie die anschließende eigene Erklärung sind beschrieben. Der Mantel bestätigt keine stattgefundene Kooperation.
 - private: harmlose eigene Erfahrung/Nichtnutzung redaktionell ermöglichen; keine Pflichtoffenlegung. Persönliche Texte bleiben außerhalb normaler Speicher-/Export-/Druckdaten. Eine gesonderte Textdatei braucht eine eigene Vorschau und Bestätigung.
 - retrieval: when und solution. Zuerst selbst rekonstruieren, danach vergleichen; der Mantel schickt keine Erinnerungen.
@@ -34,3 +34,24 @@ Prüfen Sie vollständige Lernbögen, gültige Direktlinks, Materialherkunft, fr
 Technischer Schnelltest: Node 22, `node --test prototypes/shared/mantel.test.cjs`, danach der bestehende Pages-Build in ein frisches lokales Work-Verzeichnis. Keine technischen Arbeitsbäume oder Buildausgaben in OneDrive.
 
 Vor dem Unterricht bleiben Tests auf den tatsächlich vorgesehenen Schulgeräten und eine Unterrichtserprobung erforderlich. Die bisherige Prüfung ist keine vollständige AA-Konformitäts- oder Lernwirksamkeitsbescheinigung.
+
+
+## Autorenversion 2: vollständiges redaktionelles Paket
+Neue Serieninhalte verwenden authorVersion:2. Zusätzlich erforderlich:
+- duration als ausgewiesene Zeitannahme; curriculum mit moduleId, goalIds, source und ehrlicher scope-Grenze.
+- sources: stabile id, title, author, HTTPS-url, license und checked. Das Prüfdatum ist redaktionell, keine technische Bestätigung der Richtigkeit.
+- knowledge: id, Fragestellung/title, paragraphs, example, boundary, Schritte und Quellen-/Medienreferenzen.
+- media: lokale Datei unter assets/, id, kind:image oder download, title, creator, license, sourceId. Bilder brauchen alt und caption. Textdownloads tragen printText, der mit der tatsächlichen Datei übereinstimmen muss.
+- steps ergänzen task, outcome, knowledge. Optionale prerequisites nennen die Besonderheiten eines direkt geöffneten Schritts; sie ergänzen die allgemeinen Voraussetzungen.
+- Blöcke können paragraphs, items, table, media, sources, help und routes tragen. Listen und Tabellen bleiben strukturierte Daten, kein HTML.
+- teacherSections und briefing ermöglichen gegliederte Lehrpersonenhinweise und einen eigenständigen Vorlesetext. preview verweist auf eine eigene Bild-ID.
+
+Wissen und Material haben verschiedene Ausgaben: Wissensartikel mit Beispielen/Aussagegrenzen einerseits, vollständige Einzelblätter und echte Übungsdateien andererseits. Das Paket erzeugt Einstieg, Schrittseiten, Wissen, Materialübersicht, sieben beziehungsweise entsprechend viele Einzelblätter, Lehrpersonenhinweise und Briefing. Kleine lokale Assets werden auch ins Offlinepaket aufgenommen; verlinkte Herstellerseiten werden nicht kopiert.
+
+Die Validierung stoppt ungültige Referenzen, doppelte IDs, unzulässige Pfade, fehlende Pflichtangaben und abweichende Druck-/Downloadtexte. Medien dürfen maximal 2 MiB groß sein. Erlaubt sind SVG/PNG/JPEG/WebP und TXT; SVGs dürfen keine erkannten aktiven Inhalte oder externen Ressourcen einbetten. Andere Medien brauchen einen eigenen geprüften Anschluss. Rechteangaben werden auf Vorhandensein geprüft; ihre Rechtmäßigkeit muss die Redaktion klären.
+
+Druckauswahl: Lernendenblatt, mit Hilfen, mit Hilfen und Lösungen. Die Druckvorbereitung öffnet nur die passende Gruppe und stellt danach den Lesestand wieder her. Kontrollierte Felder bleiben außerhalb des Drucks. Ohne JavaScript ist nur die Grundfassung gewährleistet; reale Geräteaufträge bleiben als Voraussetzung erkennbar.
+
+Die Rückkehr aus Wissen/Material merkt sich im Tab den zuletzt geöffneten Autoren-Schritt auch vor einer Antwort. Diese Navigation wird nicht als Lernnachweis/Arbeitsprodukt angelegt. Das Arbeitsdateiformat bleibt unverändert.
+
+Produktionsfolge, Versionsbindung und kopierbarer Folgeauftrag: [Klasse 5](produktion/klasse5.md). Fachbrief und Selbstreview des ersten Pakets: [Dateien](produktion/g5-m01-dateien.md).

@@ -1,0 +1,44 @@
+# G5-M01 · Eine Datei sinnvoll ablegen und später wiederfinden
+Stand: 03.10.2026 · lokale Redaktionsfassung / review
+
+## Bindung und Umfang
+Angebot `IUM-5-M01-DATEIEN`, Version 1.0.0, Autorenversion 2, Route `klasse5/dateien/`. Quelle: `prototypes/shared/inhalte/dateien.json`; UI: `class5-author-render.cjs`; kleine Assets in `inhalte/assets/dateien/`.
+
+Planungsbindung wie [Produktionsübersicht](klasse5.md). Fokus: 3.1.5.1(2),(3), eigene Verzeichnisstruktur und gezieltes Ablegen/Wiederfinden; Teilbeitrag im Band 5/6. Neue Übungsdatei wird bereitgestellt, kein umfassender Nachweis selbst verfasster Dokumente. Kein Abschlussnachweis für Hardware, Schichtenmodell, Anmeldung oder alle Speicher-/Zugriffsfragen.
+
+Nutzerentscheidung: iPad und Windows gleichwertig. Gemeinsame Begriffe, Aufträge und Kriterien; zwei gleichwertige optionale Bedienhilfen. Reale verwaltete Geräte sind noch nicht erprobt.
+
+## Ergebnis und Zeit
+Jede Person begründet eine einfache Ablagestruktur, legt zwei unpersönliche Übungsdateien gezielt ab und öffnet die Fundnotiz später vom vereinbarten Speicherort aus. Prüfen: Name, Ordnerweg und Inhalt. Ein Satz im Lernwerk bestätigt keine ausgeführte Dateihandlung.
+
+90 Minuten innerhalb der geplanten 180 Minuten von M01; darin 10 Minuten Reserve. Weitere 10 Minuten zeitversetzter Abruf aus dem Jahreskonto für verteilte Übung. Konkreter Ablauf und Entscheidungsstellen stehen im Lehrpersonenbereich. Zeitansatz noch nicht erprobt.
+
+## Lernbogen und Darstellungsplan
+| Schritt / Funktion | Eigenleistung | Darstellung und begründete Wahl | Zugang / Nachweis |
+|---|---|---|---|
+| 1 Finden · Problem erkennen | Gleichen Namen anhand Ort und Inhalt unterscheiden | Zwei kurze vollständige Fundnotizen; Gegenüberstellung bleibt sichtbar, kein Video nötig | Offline lesbar; begründete Auswahl |
+| 2 Verstehen · Modell und Beispiel | Öffnungsfolge erklären; Datei/Ordner unterscheiden | Beschrifteter Ordnerweg plus ausgearbeitetes Beispiel; Grafik zeigt Hierarchie, Text benennt Modellgrenze | Alttext und lesbarer Text; eigene Erklärung |
+| 3 Planen · angeleitete Übung | Drei Dateien nach gemeinsamer Regel ordnen und Namen verbessern | Kleine Datentabelle, eigener Plan im Heft/Text; freie Hinweise statt Vorgabe einer einzigen Ordnung | Vollständige Falldaten; nachvollziehbare Regel |
+| 4 Ablegen · reale Anwendung | Eigene Ordner anlegen, Datei benennen und bewegen | Reale Dateien-App/Explorer; optionale Schritttexte jeweils iPad/Windows. Simulation würde Zielhandlung nicht nachweisen | Beschreibbarer Schulbereich, .txt-Zugang; Datei tatsächlich öffnen |
+| 5 Wiederfinden · Prüfung/Revision | Weg selbst ausführen, Verbesserung oder Beibehaltung begründen | Direkter Gerätetest ohne Suche/Zuletzt; kein Quiz über Menünamen | Vorbereitete eigene Fundnotiz; tatsächlicher Fund und Erklärung |
+| 6 Transfer | Beetplan zuordnen und Gerätewechsel erklären | Zweite echte Datei plus kurzer Fall ohne gemeinsamen Speicher; variiert Inhalt und Randbedingung | Neuer Dateifund; begründete Grenze der lokalen Ablage |
+| 7 Abruf | Mit Abstand aus dem Gedächtnis rekonstruieren, dann prüfen | Erst eigene Erinnerung, danach echte Prüfung und Vergleich | Frühere eigene Ablage; bei fehlendem Zugriff bleibt Gerätetest offen |
+
+Alternativen wurden funktional verglichen: Screenshots veralten und unterscheiden sich in Schulprofilen; kurze Textwege mit Herstellergrundlagen sind anpassbar. Eine eigene Hierarchiegrafik macht das Fachmodell sichtbar. Ein zusätzliches Erklärvideo oder eine Dateiverwaltungssimulation würde hier keinen notwendigen Beitrag leisten. Das ist eine Entscheidung für diesen Bogen, keine allgemeine Medienrangfolge.
+
+## Wissen, Material und Rechte
+Vier eigenständige Wissensartikel: Datei/Ordner, Speicherort, Dateinamen/Endung, Umbenennen/Verschieben/Kopieren. Sieben Einzelmaterialien mit Aufgaben, Falldaten und Kriterien. Geräteaufträge nennen ihre realen Voraussetzungen. Spätere Abrufmaterialien brauchen eine vorherige Ablage; einzeln verwendbar heißt nicht voraussetzungslos.
+
+Fundnotiz und Beetplan sind eigene fiktive Textdateien, die im Materialdruck vollständig erscheinen. Modellgrafik und Lerntexte sind eigene Redaktion, CC BY-SA 4.0; verlinkte Apple-/Microsoft-Dokumentation bleibt unter deren Rechten. Quellenliste und Prüfdatum sind im Paket. Herstelleranleitungen wurden gelesen; schulische Einstellungen können abweichen.
+
+Lernendenblatt, Blatt mit Hilfen, Blatt mit Hilfen und Lösungen sind getrennt auswählbar. Normale Antworten und private Notizen werden nicht gedruckt. Das Lehrpersonenbriefing ist ein Vorlesetext, keine produzierte Audiodatei.
+
+## Selbstreview und Abnahmegrenzen
+Aufgaben selbst gelöst: gleiche Namen sind nicht eindeutig; Ordnerfolge stimmt; Themenregel trägt auch den Beetplan; Endungswechsel konvertiert keine Daten; lokale Datei benötigt Übertragungsweg für anderes Gerät. Lösungen lassen passende Alternativen zu. Revision ist als eigene Entscheidung gefordert. Hilfen reagieren auf Begriffs-, Startort- und Bedienhürden. Abruf liegt zeitlich getrennt.
+
+WU-Bezug der redaktionellen Prüfung: Band 1 (Lernprozess statt bloßer Medienoberfläche), Band 3 (gezielte Unterstützung/Rückmeldung), Band 6 (nachvollziehbare Aufgaben und Anforderungen). Dies ist kein unabhängiges Gutachten und kein Wirksamkeitsnachweis.
+
+Technische und visuelle Nachweise stehen im Implementierungsplan. Vor dem Unterricht: je ein verwaltetes iPad-/Windows-Profil, Download und .txt-Öffnung, konkreter Speicherort, tatsächlicher Papierdruck sowie Zeit/Verständlichkeit mit Lernenden erproben. Anschließend kurze Rückschau: tatsächliche Handlungen, geprüfte Produkte, Fehlideen, Hilfenutzung und nötige Anpassungen.
+
+## Nächster kleiner Produktionsschritt
+Die restlichen Ziele von M01 fachlich ausarbeiten; danach M02-Recherche als zweiten andersartigen Bogen aufnehmen. Aus zwei bis drei Beispielen den wiederholbaren Produktionsskill gewinnen.

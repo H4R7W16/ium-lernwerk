@@ -124,11 +124,21 @@ function boot(){
  const url=new URL(location.href),fresh=url.searchParams.get('neu')==='1';
  currentId=fresh?uuid():store.active[unit.id]||uuid();
  if(fresh){url.searchParams.delete('neu');history.replaceState(null,'',url);}
+ if(unit.family==='content'){
+  if(!store.reading||typeof store.reading!=='object'||Array.isArray(store.reading))store.reading={};
+  if(fresh)delete store.reading[unit.id];
+  const pageStep=document.body.dataset.lwPage.match(/^schritt-(.+)\.html$/)?.[1];
+  if(unit.steps.some(s=>s.id===pageStep)){store.reading[unit.id]=pageStep;save();}
+ }
  booted=true;restore();
  const view=store.views?.[unit.id+':'+currentId];if(document.body.dataset.lwPage==='index.html'&&view&&(!initialHash||initialHash===view.step))setTimeout(()=>window.scrollTo(0,view.scrollY),100);
  }else booted=true;
  status();renderWork();
- for(const link of document.querySelectorAll('[data-lw-return]')){const r=selected();if(r)link.href=destination(r).replace(unit.area+'/','');}
+ for(const link of document.querySelectorAll('[data-lw-return]')){
+ const reading=store.reading?.[unit?.id],r=selected();
+ if(unit?.family==='content'&&unit.steps.some(s=>s.id===reading))link.href='schritt-'+reading+'.html';
+ else if(r)link.href=destination(r).replace(unit.area+'/','');
+ }
  if(recoveryRaw){const button=document.createElement('button');button.id='lw-recovery-export';button.className='lw-button secondary';button.textContent='Ältere Arbeitsdaten unverändert als Datei sichern';button.onclick=()=>download(recoveryRaw,'lernwerk-aeltere-arbeitsdaten.json','application/json');($('lw-work-message')||$('lw-storage-warning')).after(button);}
  if($('lw-emergency-export'))$('lw-emergency-export').onclick=()=>{capture(true);const record=selected();if(!captureOk){const current={fields:fields(),tool:adapter?.capture()||null};download('Lesbare Rettung der aktuellen Eingaben. Keine wiederimportierbare Arbeitsdatei.\n\n'+JSON.stringify(current,null,2),'lernwerk-aktuelle-eingaben.txt','text/plain;charset=utf-8');}else if(record)download(JSON.stringify(record,null,2),'lernwerk-'+record.moduleId+'-'+record.workspaceId+'.json','application/json');else announce('Es liegt noch kein sicherbarer Stand vor.');};
  document.addEventListener('keydown',event=>{if(event.key==='Escape')for(const menu of document.querySelectorAll('[data-lw-menu][open]')){menu.open=false;menu.querySelector('summary').focus();}});
@@ -154,7 +164,22 @@ function boot(){
  window.addEventListener('beforeunload',event=>{capture();if((!tabOk&&store.records.length)||!captureOk||!quarantineOk){event.preventDefault();event.returnValue='';}});
  if($('lw-private-confirm'))$('lw-private-confirm').onclick=()=>{download(privateNote,'lernwerk-private-notiz.txt','text/plain;charset=utf-8');$('lw-private-dialog').close();privateNote='';};
  if($('lw-private-cancel'))$('lw-private-cancel').onclick=()=>{$('lw-private-dialog').close();privateNote='';};
- if($('lw-print'))$('lw-print').onclick=()=>{document.body.dataset.lwPrint=$('lw-print-mode').value;window.print();};
+ // Open only the selected editorial helpers for printing, then restore the reading state.
+ const printMode=$('lw-print-mode'), printDetails=new Map();
+ if(printMode){
+  document.body.dataset.lwPrint=printMode.value;
+  printMode.addEventListener('change',()=>{document.body.dataset.lwPrint=printMode.value;});
+ }
+ window.addEventListener('beforeprint',()=>{
+  const mode=printMode?.value||'learner';
+  document.body.dataset.lwPrint=mode;
+  for(const detail of document.querySelectorAll('.lw-author .lw-help,.lw-author .lw-solution')){
+   if(!printDetails.has(detail))printDetails.set(detail,detail.open);
+   detail.open=detail.classList.contains('lw-solution')?mode==='solutions':mode!=='learner';
+  }
+ });
+ window.addEventListener('afterprint',()=>{for(const [detail,open] of printDetails)detail.open=open;printDetails.clear();});
+ if($('lw-print'))$('lw-print').onclick=()=>window.print();
  if($('lw-persist'))$('lw-persist').addEventListener('change',event=>{
  device=event.target.checked;
  if(device)save();else{try{localStorage.setItem(PERSIST,'0');}catch{}status();announce('Neue Gerätesicherung ausgeschaltet. Eine ältere Gerätekopie bleibt bis zum ausdrücklichen Löschen.');}

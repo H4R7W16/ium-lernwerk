@@ -1,0 +1,632 @@
+{
+  "authorVersion": 2,
+  "area": "dateien",
+  "id": "IUM-5-M01-DATEIEN",
+  "version": "1.0.0",
+  "grade": 5,
+  "family": "content",
+  "title": "Gut abgelegt. Wiedergefunden.",
+  "topic": "Dateien und Ordner",
+  "description": "Eine Datei ist erst gut abgelegt, wenn du sie später wiederfindest. Plane deine Ordnung und erprobe sie auf dem iPad oder am Windows-PC.",
+  "product": "Ein eigener übersichtlicher Übungsordner mit passenden Dateinamen – und ein Weg, den du erklären und später wieder benutzen kannst.",
+  "prerequisites": [
+    "iPad mit „Dateien“ oder Windows-PC mit Datei-Explorer",
+    "ein beschreibbarer, von der Lehrperson vereinbarter Übungsbereich",
+    "Zugang zu den beiden Übungsdateien"
+  ],
+  "teacher": [
+    "Dieser erste Teilbogen von G5-M01 behandelt Verzeichnisstruktur, Dateinamen und Wiederfinden. Er ersetzt nicht das gesamte Arbeitsraum-Modul.",
+    "iPad und Windows sind gleichwertige Wege. Das Lernwerk kann die Dateiablage außerhalb des Browsers nicht sehen oder automatisch bestätigen."
+  ],
+  "duration": "Zwei Unterrichtsstunden à 45 Minuten als Planungsannahme, einschließlich 10 Minuten Reserve. Weitere 10 Minuten Wiederaufnahme in einer späteren Stunde.",
+  "curriculum": {
+    "moduleId": "G5-M01",
+    "goalIds": [
+      "3.1.5.1(2)",
+      "3.1.5.1(3)"
+    ],
+    "source": "curriculum",
+    "scope": "Teilbeitrag zum Band 5/6: eigene Verzeichnisstruktur und ausgewählte Bedienkonzepte. Vollständiger Speicherortvergleich und Schichtenmodell folgen in weiteren Bögen. Anhörungsfassung vom 21.09.2026; Klasse-5-Zuordnung ist Projektplanung."
+  },
+  "preview": "ablage",
+  "sources": [
+    {
+      "id": "curriculum",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026, S. 44",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-03",
+      "note": "Zielzuordnung aus der geprüften Projektplanung; Entwurf nicht als geltende Norm ausgegeben."
+    },
+    {
+      "id": "apple",
+      "title": "Dateien und Ordner auf dem iPad verwalten",
+      "author": "Apple Support",
+      "url": "https://support.apple.com/de-de/guide/ipad/ipadeb120505/ipados",
+      "license": "Herstellerdokumentation verlinkt; keine Screenshots übernommen",
+      "checked": "2026-10-03",
+      "note": "Bedienbegriffe geprüft. Darstellung kann mit Version und Schulverwaltung abweichen."
+    },
+    {
+      "id": "windows",
+      "title": "Datei-Explorer verwenden",
+      "author": "Microsoft",
+      "url": "https://www.microsoft.com/de-de/windows/tips/file-explorer",
+      "license": "Herstellerdokumentation verlinkt; keine Screenshots übernommen",
+      "checked": "2026-10-03"
+    },
+    {
+      "id": "endung",
+      "title": "Dateinamenerweiterungen in Windows",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/windows/experience/storage-filemanagement/common-file-name-extensions-in-windows",
+      "license": "Herstellerdokumentation verlinkt",
+      "checked": "2026-10-03"
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Unterrichtsmaterialien",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte, Grafik und Übungsdateien: CC BY-SA 4.0",
+      "checked": "2026-10-03",
+      "note": "Erfundene Unterrichtsfälle. Der Repositorylink ist der Projektbezug; diese Fassung ist zunächst lokal."
+    }
+  ],
+  "media": [
+    {
+      "id": "ablage",
+      "kind": "image",
+      "file": "assets/dateien/ablage.svg",
+      "title": "Ein nachvollziehbarer Ordnerweg",
+      "alt": "Vom vereinbarten Speicherort geht der Weg über Lernwerk und Fundbüro zur Datei fundnotiz.txt. Die Ordner bilden den Weg; die Textdatei enthält die Fundnotiz.",
+      "caption": "Ein möglicher Ablageweg. Schematisches Modell, kein Bildschirmfoto.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "fund",
+      "kind": "download",
+      "file": "assets/dateien/fundnotiz.txt",
+      "title": "Fundnotiz",
+      "printText": "FUNDNOTIZ\nIm Fundbüro liegt eine blaue Trinkflasche.\nFundort: Schulhof, neben der Bank.\nKennzeichen der Übungsdatei: BLAU-17.\nDies ist ein erfundener Übungsfall. Keine echten Personendaten eintragen.\n",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "beet",
+      "kind": "download",
+      "file": "assets/dateien/beetplan.txt",
+      "title": "Beetplan",
+      "printText": "BEETPLAN\nIm Klassenbeet soll Kresse wachsen.\nDafür werden Erde, Saatgut und Wasser gebraucht.\nKennzeichen der Übungsdatei: KRESSE-24.\nDies ist ein erfundener Übungsfall.\n",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "datei-ordner",
+      "title": "Was unterscheidet eine Datei von einem Ordner?",
+      "paragraphs": [
+        "Eine Datei enthält gespeicherte Daten, zum Beispiel einen Text oder ein Bild. Ein Ordner ordnet Dateien und kann weitere Ordner enthalten. Einen Ordner nennt man auch Verzeichnis.",
+        "Der Dateiname hilft dir zu erkennen, welche Datei du suchst. Der Ordnerweg sagt dir, wo du sie abgelegt hast. Der Inhalt zeigt dir beim Öffnen, ob du die richtige Datei gefunden hast."
+      ],
+      "example": "Im Ordner „Fundbüro“ liegt fundnotiz.txt. „Fundbüro“ ist der Behälter in unserem Ordnungsmodell; der Text über die Trinkflasche steht in der Datei.",
+      "boundary": "Der Vergleich mit einem Behälter erklärt die Ordnung. Digitale Dateien sind keine Papierblätter; Ordnersymbole und Bedienung hängen vom Gerät ab.",
+      "steps": [
+        "verstehen",
+        "planen"
+      ],
+      "media": [
+        "ablage"
+      ],
+      "sources": [
+        "eigen"
+      ]
+    },
+    {
+      "id": "speicherort",
+      "title": "Wo liegt meine Datei wirklich?",
+      "paragraphs": [
+        "Beginne beim vereinbarten Speicherort. Das kann ein Bereich auf dem Gerät oder ein von der Schule bereitgestellter Speicher sein. Danach folgen die Ordner und zuletzt die Datei.",
+        "„Zuletzt verwendet“ und Suchergebnisse helfen beim schnellen Öffnen. Sie sind kein eigener Ablageort. Für einen zuverlässigen Weg prüfst du den tatsächlichen Ordner.",
+        "Eine Datei auf einem Gerät erscheint nicht allein wegen ihres Namens auf einem anderen Gerät. Dafür ist ein vereinbarter Übertragungs- oder Speicherweg nötig. Schulzugang und Verbindung können eine Rolle spielen."
+      ],
+      "example": "„Vereinbarter Speicherort → Lernwerk → Fundbüro → fundnotiz.txt“ beschreibt einen Weg. Auf deinem Gerät kann der erste Bereich anders heißen.",
+      "boundary": "Wir vergleichen hier nur die Grundidee. Wer auf welchen Schulspeicher zugreifen kann, klärt die Schule. Keine Zugangsdaten in eine Lernantwort schreiben.",
+      "steps": [
+        "finden",
+        "ablegen",
+        "wiederfinden",
+        "abrufen"
+      ],
+      "sources": [
+        "eigen",
+        "apple",
+        "windows"
+      ]
+    },
+    {
+      "id": "benennen",
+      "title": "Wie hilft mir ein guter Dateiname?",
+      "paragraphs": [
+        "Ein Name sollte Thema und Inhalt erkennen lassen. „notiz.txt“ sagt wenig; „fundnotiz-trinkflasche.txt“ ist genauer. Verwende eine einfache, im Unterricht vereinbarte Schreibweise.",
+        "Die Endung steht hinter dem letzten Punkt. Bei unseren Übungsdateien ist das .txt für eine Textdatei. Manche Geräte blenden sie aus. Beim Umbenennen ändern wir nur den beschreibenden Teil.",
+        "Eine andere Endung wandelt den Dateiinhalt nicht um. Aus einem Text wird kein Bild, wenn du .txt durch .jpg ersetzt."
+      ],
+      "example": "„fundnotiz-trinkflasche.txt“ ist für diesen Fall nützlicher als „neu-neu2.txt“. Wenn du zwei Fassungen behalten willst, kennzeichne sie nachvollziehbar, zum Beispiel mit einem Datum oder „entwurf“.",
+      "boundary": "Ein passender Name allein garantiert nicht den richtigen Inhalt. Öffne die Datei und prüfe sie; persönliche Daten gehören nicht in diese Übung.",
+      "steps": [
+        "planen",
+        "wiederfinden",
+        "transfer"
+      ],
+      "sources": [
+        "endung",
+        "eigen"
+      ]
+    },
+    {
+      "id": "bewegen",
+      "title": "Was ändert sich beim Umbenennen, Verschieben oder Kopieren?",
+      "paragraphs": [
+        "Umbenennen ändert den Namen. Verschieben ändert den Ablageort. Kopieren erzeugt eine zusätzliche Datei am Ziel; die ursprüngliche Datei bleibt bestehen.",
+        "Beim Kopieren können später zwei unterschiedliche Bearbeitungsstände entstehen. Prüfe deshalb, welche Fassung du weiterverwendest. Beim Verschieben prüfst du den neuen Ort.",
+        "Du kannst dieselbe fachliche Handlung auf verschiedenen Geräten ausführen. Auf dem iPad heißt Verschieben häufig „Bewegen“. Unter Windows nutzt du dafür zum Beispiel Ausschneiden und Einfügen."
+      ],
+      "example": "Du verschiebst fundnotiz.txt aus dem Downloadbereich in „Fundbüro“. Der Text über die Trinkflasche bleibt erhalten. Benennst du sie danach sinnvoll um, ändern sich Name und Ort, nicht automatisch der Text.",
+      "boundary": "Verfügbare Aktionen hängen von Berechtigungen und Speicherort ab. Arbeite nur im eigenen Übungsbereich; bei einer Ersetzen-Meldung zuerst abbrechen und die Dateien vergleichen.",
+      "steps": [
+        "ablegen",
+        "wiederfinden",
+        "transfer"
+      ],
+      "sources": [
+        "apple",
+        "windows",
+        "eigen"
+      ]
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "finden"
+    ],
+    "explanation": [
+      "verstehen"
+    ],
+    "example": [
+      "verstehen"
+    ],
+    "practice": [
+      "planen"
+    ],
+    "application": [
+      "ablegen"
+    ],
+    "revision": [
+      "wiederfinden"
+    ],
+    "securing": [
+      "wiederfinden"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abrufen"
+    ]
+  },
+  "steps": [
+    {
+      "id": "finden",
+      "short": "Das Problem",
+      "title": "Wie findest du die richtige Datei?",
+      "goal": "Du erkennst, warum Name, Ort und Inhalt zusammengehören.",
+      "task": "Vergleiche die beiden Fundnotizen. Erkläre, welche du brauchst und was dir beim Wiederfinden hilft.",
+      "outcome": "Deine begründete Wahl und eine Information, die du zum Wiederfinden brauchst.",
+      "criteria": [
+        "Ich unterscheide die Dateien anhand ihres Inhalts.",
+        "Ich nenne einen nachvollziehbaren Ort oder Weg statt nur „Da war sie eben“."
+      ],
+      "knowledge": [
+        "speicherort"
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "wahl",
+          "title": "Zwei Dateien heißen gleich",
+          "text": "Mira soll die aktuelle Notiz zur blauen Trinkflasche öffnen. Sie findet zwei Dateien mit dem Namen fundnotiz.txt. Dies ist ein erfundener Fall.",
+          "table": {
+            "headers": [
+              "Wo liegt sie?",
+              "Was steht darin?"
+            ],
+            "rows": [
+              [
+                "Lernwerk → Alte Notizen → fundnotiz.txt",
+                "Ein roter Schal wurde abgegeben."
+              ],
+              [
+                "Lernwerk → Fundbüro → fundnotiz.txt",
+                "Eine blaue Trinkflasche liegt im Fundbüro."
+              ]
+            ]
+          },
+          "prompt": "Welche Datei passt? Begründe mit Inhalt und Ordnerweg.",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Der Name ist gleich. Welche Information unterscheidet die beiden Dateien?"
+            }
+          ],
+          "solution": "Die Datei unter Lernwerk → Fundbüro passt, weil ihr Inhalt die blaue Trinkflasche nennt. Der Name allein reicht hier nicht. Zum Wiederfinden brauche ich auch den Ordnerweg."
+        }
+      ]
+    },
+    {
+      "id": "verstehen",
+      "short": "Ein Weg zur Datei",
+      "title": "Datei, Ordner und Speicherort",
+      "goal": "Du liest einen Ordnerweg und erklärst die drei Begriffe an einem Beispiel.",
+      "task": "Verfolge Miras Ablageweg. Sage vor dem Vergleich, was sie zuerst öffnen muss und wo der Text steckt.",
+      "outcome": "Deine Erklärung des Wegs vom Speicherort bis zur Datei.",
+      "criteria": [
+        "Ich unterscheide Datei und Ordner.",
+        "Ich beschreibe die Reihenfolge des Wegs.",
+        "Ich prüfe die gefundene Datei am Inhalt."
+      ],
+      "knowledge": [
+        "datei-ordner",
+        "speicherort"
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Mira macht ihren Weg nachvollziehbar",
+          "text": "Mira beginnt beim Speicherort, den ihre Lehrperson genannt hat. Darin legt sie einen Ordner „Lernwerk“ an. Im Unterordner „Fundbüro“ speichert sie die neue Fundnotiz. Sie öffnet die Textdatei und prüft, ob die blaue Trinkflasche darin vorkommt.",
+          "media": [
+            "ablage"
+          ],
+          "paragraphs": [
+            "Der Speicherort ist der Anfang des Wegs. Ordner gruppieren Dateien. Die Datei enthält den eigentlichen Text. Der Dateiname ist ein Hinweis auf diesen Inhalt.",
+            "Mira verlässt die Datei und beginnt nochmals beim Speicherort. Erst als sie die Fundnotiz auf diesem Weg wieder öffnet, weiß sie, dass ihre Ablage funktioniert."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "weg",
+          "title": "Erkläre den Weg selbst",
+          "text": "Stelle dir vor, der Ordner „Lernwerk“ ist noch geschlossen.",
+          "prompt": "Was öffnest du der Reihe nach? Woran erkennst du am Ende die richtige Datei?",
+          "solution": "Vom vereinbarten Speicherort öffne ich Lernwerk, darin Fundbüro und darin fundnotiz.txt. Der Text nennt die blaue Trinkflasche. Die Ordner führen mich zur Datei; sie enthalten nicht selbst die Fundnotiz als Text."
+        }
+      ]
+    },
+    {
+      "id": "planen",
+      "short": "Ordnung planen",
+      "title": "Welche Ordnung hilft dir später?",
+      "goal": "Du begründest eine einfache Verzeichnisstruktur und verständliche Namen.",
+      "task": "Plane die Ablage der drei Dateien. Wähle eine gemeinsame Ordnungsregel und verbessere einen unklaren Namen.",
+      "outcome": "Ein kleiner Ablageplan mit mindestens zwei Themenordnern und einer begründeten Namensänderung.",
+      "criteria": [
+        "Meine Ordner haben eine erkennbare gemeinsame Regel.",
+        "Ich kann jede Datei sinnvoll zuordnen.",
+        "Mein neuer Name passt zum Inhalt; die Endung bleibt erhalten."
+      ],
+      "knowledge": [
+        "datei-ordner",
+        "benennen"
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "plan",
+          "title": "Drei Dateien für zwei Vorhaben",
+          "text": "Du arbeitest am Fundbüro und am Schulgarten. Alle Dateien liegen noch gemeinsam im Downloadbereich.",
+          "table": {
+            "headers": [
+              "Dateiname",
+              "Inhalt"
+            ],
+            "rows": [
+              [
+                "fundnotiz.txt",
+                "Fund einer blauen Trinkflasche"
+              ],
+              [
+                "beetplan.txt",
+                "Plan für ein Kressebeet"
+              ],
+              [
+                "notiz.txt",
+                "Gießtermine für das Kressebeet"
+              ]
+            ]
+          },
+          "prompt": "Zeichne oder beschreibe deine Ordner. Ordne die Dateien zu und begründe einen besseren Namen für notiz.txt.",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Beginne mit einem eigenen Übungsordner. Welche zwei Themen unterscheiden die Dateien?"
+            },
+            {
+              "title": "Eine genauere Hilfe",
+              "text": "Ein Themenordner darf mehrere Dateien aufnehmen. Für diese kleine Sammlung brauchst du keine lange Kette fast leerer Unterordner."
+            }
+          ],
+          "solution": "Eine mögliche Lösung: Lernwerk → Fundbüro → fundnotiz.txt und Lernwerk → Schulgarten → beetplan.txt sowie giessplan-kresse.txt. Die gemeinsame Regel ist das Vorhaben. Andere klare Namen und Strukturen können passen, wenn die Zuordnung begründet ist."
+        }
+      ]
+    },
+    {
+      "id": "ablegen",
+      "short": "Am Gerät ablegen",
+      "title": "Setze deinen Ablageplan um",
+      "goal": "Du legst eine eigene Verzeichnisstruktur an und ordnest eine neue Übungsdatei gezielt ein.",
+      "task": "Lege im vereinbarten Übungsbereich deine Ordner an. Lade die Fundnotiz herunter, gib ihr einen passenden Namen und lege sie am geplanten Ort ab.",
+      "outcome": "Deine tatsächlich abgelegte und geöffnete Fundnotiz – plus ein kurzer begründeter Weg.",
+      "criteria": [
+        "Ich habe selbst einen Übungsordner und einen passenden Themenordner angelegt.",
+        "Die Übungsdatei liegt an meinem geplanten Ort.",
+        "Ich öffne sie dort und finde das Kennzeichen BLAU-17.",
+        "Ich beschreibe meinen Weg ohne Zugangsdaten."
+      ],
+      "knowledge": [
+        "speicherort",
+        "bewegen"
+      ],
+      "blocks": [
+        {
+          "type": "external",
+          "context": "device",
+          "id": "ablage",
+          "title": "Jetzt wird aus dem Plan eine echte Ablage",
+          "text": "Die Datei gehört zu einem erfundenen Übungsfall. Arbeite nur im eigenen vereinbarten Übungsbereich. Verwende einen freien Ordnernamen, etwa „Lernwerk-Uebung“. Bestehende Dateien werden nicht ersetzt.",
+          "media": [
+            "fund"
+          ],
+          "preparation": "Kläre den Startort mit der Lehrperson. Prüfe, ob du dort einen Ordner anlegen darfst. Wenn nicht, bitte um einen passenden Übungsbereich.",
+          "action": "Lege deinen Übungsordner und darin einen Themenordner an. Speichere die Fundnotiz mit dem Downloadlink. Falls der Browser sie zunächst nur zeigt, nutze die Download- bzw. Teilen-Funktion zum Sichern. Suche die gespeicherte Datei und verschiebe sie in deinen Themenordner. Vergib einen passenden Namen. Zeigt das Gerät eine Endung, behalte .txt bei.",
+          "return": "Öffne die Datei aus deinem Zielordner. Prüfe BLAU-17 im Inhalt. Kehre dann zu dieser Lernwerkseite zurück. Ein Klick auf den Downloadlink allein beweist noch keine gelungene Ablage.",
+          "routes": [
+            {
+              "title": "iPad",
+              "sources": [
+                "apple"
+              ],
+              "items": [
+                "Öffne „Dateien“ und den mit der Lehrperson vereinbarten Speicherort. Wähle nicht einfach irgendeinen persönlichen Cloudspeicher.",
+                "Erstelle mit „Neuer Ordner“ einen eigenen Übungsordner und darin deinen Themenordner. Je nach iPadOS liegt die Aktion im Mehr-Menü. Fehlt sie, kläre die Schreibberechtigung mit der Lehrperson.",
+                "Suche die heruntergeladene Übungsdatei. Halte sie gedrückt: Mit „Umbenennen“ änderst du den Namen, mit „Bewegen“ wählst du den Zielordner. Bestätige dort. Lass eine angezeigte Dateiendung unverändert.",
+                "Öffne die Datei aus dem Zielordner. Prüfe ihren Inhalt. Gehe anschließend zum Speicherort zurück und finde sie über deine Ordner erneut."
+              ]
+            },
+            {
+              "title": "Windows",
+              "sources": [
+                "windows",
+                "endung"
+              ],
+              "items": [
+                "Öffne den Datei-Explorer, zum Beispiel mit Windows-Taste + E. Gehe zum mit der Lehrperson vereinbarten Speicherort.",
+                "Wähle „Neu“ → „Ordner“. Erstelle einen eigenen Übungsordner und darin deinen Themenordner.",
+                "Suche die heruntergeladene Übungsdatei. Wähle „Umbenennen“ für ihren Namen. Zum Verschieben: Datei auswählen, „Ausschneiden“, Zielordner öffnen, „Einfügen“. Lass eine angezeigte Dateiendung unverändert.",
+                "Öffne die Datei aus dem Zielordner und prüfe den Inhalt. Gehe zum Speicherort zurück und finde die Datei erneut über deine Ordner."
+              ]
+            }
+          ],
+          "prompt": "Wie lautet dein Weg innerhalb des Übungsordners? Warum passt der Dateiname? Was hast du beim Öffnen geprüft?",
+          "help": [
+            {
+              "title": "Die Datei öffnet sich nur im Browser",
+              "text": "Nutze die angebotene Download- oder Teilen-Funktion zum Sichern. Deine Lehrperson kann die gleiche Übungsdatei auch im Schulraum bereitstellen. Ohne tatsächliche gespeicherte Datei bleibt dieser Arbeitsschritt offen."
+            },
+            {
+              "title": "Der Zielname ist schon vorhanden",
+              "text": "Wähle nicht „Ersetzen“. Brich den Vorgang ab, vergleiche die Dateien und benutze einen eindeutigen neuen Übungsnamen."
+            }
+          ],
+          "solution": "Eine mögliche Ablage ist Lernwerk-Uebung → Fundbüro → fundnotiz-trinkflasche.txt. Die Datei lässt sich dort öffnen und enthält BLAU-17. Das Lernwerk kann den Ordner auf deinem Gerät nicht prüfen. Zeige den unpersönlichen Übungsbereich bei der Kontrolle."
+        }
+      ],
+      "prerequisites": [
+        "Ein eigener Ablageplan; beim Direkteinstieg entscheidest du zuerst einen Themenordner für die Fundnotiz."
+      ]
+    },
+    {
+      "id": "wiederfinden",
+      "short": "Prüfen und verbessern",
+      "title": "Funktioniert deine Ordnung?",
+      "goal": "Du findest die Datei über den Ordnerweg und verbesserst deine Ablage begründet.",
+      "task": "Schließe die Dateivorschau. Beginne wieder beim vereinbarten Speicherort und finde die Fundnotiz ohne „Zuletzt verwendet“ oder Suchfeld. Verbessere deinen Weg, falls nötig.",
+      "outcome": "Ein tatsächlich erprobter Wiederfindeweg und eine begründete Verbesserung oder Beibehaltung.",
+      "criteria": [
+        "Ich beginne am vereinbarten Speicherort und folge meinen Ordnern.",
+        "Ich öffne die Fundnotiz und prüfe den Inhalt.",
+        "Ich benenne eine sinnvolle Verbesserung oder begründe, warum meine Ablage schon passt."
+      ],
+      "knowledge": [
+        "speicherort",
+        "benennen",
+        "bewegen"
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "pruefung",
+          "title": "Der Wiederfindetest",
+          "text": "Navigiere selbst in „Dateien“ oder im Datei-Explorer. Die Suche ist im Alltag nützlich. In diesem Test lässt du sie weg, damit du deine Ordnerstruktur überprüfen kannst.",
+          "items": [
+            "Verlasse die Dateivorschau und gehe zum vereinbarten Startort.",
+            "Öffne die Datei über deine Ordner und prüfe BLAU-17.",
+            "Wenn du stockst: Finde die Ursache, ändere einen unklaren Namen oder Ablageort und wiederhole den Test."
+          ],
+          "prompt": "Wo hast du gesucht? Was hast du verbessert – oder warum passt dein bisheriger Weg?",
+          "help": [
+            {
+              "title": "Ich finde sie nicht mehr",
+              "text": "Gehe zurück zum Startort. Prüfe zuerst, ob du wirklich deinen Übungsordner geöffnet hast. Vergleiche dann deinen Plan mit den sichtbaren Ordnern. Nutze bei Bedarf die Gerätehilfe aus „Am Gerät ablegen“."
+            }
+          ],
+          "solution": "Ein gelungenes Ergebnis nennt einen funktionierenden Ordnerweg, bestätigt den Inhalt und erklärt eine Entscheidung: etwa „Ich habe notiz.txt genauer benannt, damit ich den Inhalt erkenne“. Eine Begründung für das Beibehalten ist ebenso möglich. Ein geschriebener Weg allein ersetzt das Wiederöffnen nicht."
+        }
+      ],
+      "prerequisites": [
+        "Deine früher selbst abgelegte Fundnotiz zur blauen Trinkflasche. Falls sie noch fehlt, bearbeite zuerst „Setze deinen Ablageplan um“; der Wiederfindetest beginnt danach."
+      ]
+    },
+    {
+      "id": "transfer",
+      "short": "Ein neuer Fall",
+      "title": "Die nächste Datei kommt dazu",
+      "goal": "Du überträgst deine Ordnungsregel auf einen neuen Inhalt und erklärst die Grenze des Speicherorts.",
+      "task": "Lege den Beetplan passend ab. Erkläre anschließend, warum eine gleich benannte Datei nicht automatisch auf einem zweiten Gerät vorhanden ist.",
+      "outcome": "Der abgelegte Beetplan und deine Erklärung zum Gerätewechsel.",
+      "criteria": [
+        "Ich ordne den neuen Inhalt anhand meiner Regel zu.",
+        "Ich öffne am neuen Ort die Datei mit KRESSE-24.",
+        "Ich unterscheide einen Namen von einem Übertragungsweg."
+      ],
+      "knowledge": [
+        "benennen",
+        "bewegen",
+        "speicherort"
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "beet",
+          "title": "Passt deine Ordnung auch für den Schulgarten?",
+          "text": "Lade den Beetplan herunter. Entscheide vor dem Ablegen, welcher Themenordner passt. Nutze deinen vorhandenen Plan und arbeite möglichst ohne die Bedienhilfe.",
+          "media": [
+            "beet"
+          ],
+          "prompt": "Wo liegt der Beetplan jetzt? Begründe die Zuordnung. Woran hast du den Inhalt erkannt?",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Welches Vorhaben beschreibt der Text? Wende dieselbe Regel wie bei der Fundnotiz an."
+            }
+          ],
+          "solution": "Zum Beispiel: Lernwerk-Uebung → Schulgarten → beetplan-kresse.txt. Der Inhalt gehört zum Schulgarten und enthält KRESSE-24. Ein anderer klar begründeter Ablageweg ist möglich."
+        },
+        {
+          "type": "task",
+          "id": "wechsel",
+          "title": "Gleicher Name – anderes Gerät",
+          "text": "Noa speichert eine Datei nur im lokalen Übungsbereich auf Gerät A. Auf Gerät B tippt Noa denselben Dateinamen in die Suche. Beide Geräte haben keinen gemeinsamen eingerichteten Speicher für diese Datei.",
+          "prompt": "Ist die Datei allein durch den gleichen Namen auch auf Gerät B? Erkläre und nenne einen nötigen nächsten Schritt.",
+          "solution": "Nein. Ein Name überträgt keine Datei. Noa muss einen von der Schule vereinbarten Übertragungsweg oder gemeinsamen Speicher nutzen. Ob dieser eingerichtet und zugänglich ist, muss geprüft werden. Für diese Aufgabe brauchst du nichts öffentlich zu teilen."
+        }
+      ],
+      "prerequisites": [
+        "Ein eigener Übungsordner und eine Ordnungsregel. Beim Direkteinstieg plane darin zwei Themenordner: Fundbüro und Schulgarten. Erkläre dann, wo der Beetplan passt."
+      ]
+    },
+    {
+      "id": "abrufen",
+      "short": "Später wiederfinden",
+      "title": "Findest du deine Datei noch?",
+      "goal": "Du nutzt deinen Ablageweg mit zeitlichem Abstand und erklärst ihn ohne Vorlage.",
+      "task": "Öffne diesen Schritt erst in einer späteren Stunde. Erkläre zunächst ohne Nachlesen, wie du deine Fundnotiz findest. Prüfe deinen Weg dann am Gerät.",
+      "outcome": "Deine erneut gefundene Datei und eine Erklärung aus dem Gedächtnis.",
+      "criteria": [
+        "Ich rekonstruiere meinen Weg vor dem Nachlesen.",
+        "Ich finde die Datei im tatsächlichen Übungsbereich wieder oder benenne die konkrete Hürde.",
+        "Ich verbessere meine Erklärung nach dem Vergleich."
+      ],
+      "knowledge": [
+        "speicherort",
+        "datei-ordner"
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "erinnerung",
+          "title": "Erst erinnern, dann prüfen",
+          "text": "Notiere oder erkläre zuerst: Was ist eine Datei, was ein Ordner und wo beginnt dein Weg? Öffne dann die App „Dateien“ oder den Datei-Explorer und suche über deine Ordner.",
+          "when": "In einer späteren Unterrichtsstunde, möglichst nach einigen Tagen; diese Seite erinnert dich nicht automatisch.",
+          "prompt": "Mein Weg aus dem Gedächtnis – mein tatsächlicher Fund – meine Verbesserung:",
+          "help": [
+            {
+              "title": "Mein Übungsbereich ist nicht verfügbar",
+              "text": "Schulgeräte können zurückgesetzt werden oder einen anderen Zugang zeigen. Kläre das mit der Lehrperson. Erkläre deinen geplanten Weg am Modell; die reale Wiederfindeleistung bleibt bis zum passenden Zugang offen."
+            }
+          ],
+          "solution": "Ein vollständiger Weg beginnt beim vereinbarten Speicherort, führt durch den eigenen Übungs- und Themenordner und endet bei der Datei. Der Inhalt bestätigt die Auswahl. Vergleiche mit deiner tatsächlichen Ablage. Wenn sie nicht mehr verfügbar ist, behaupte keinen gelungenen Gerätetest."
+        }
+      ],
+      "prerequisites": [
+        "Deine in einer früheren Stunde selbst abgelegte Fundnotiz. Ohne diesen vorherigen Lernschritt ist dies kein zeitversetzter Abruf. Bei fehlendem Zugriff bleibt der Gerätetest offen."
+      ]
+    }
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten: zwei gleichwertige Gerätewege",
+      "paragraphs": [
+        "Prüfen Sie auf den tatsächlich eingesetzten Geräten vorab den Zugriff auf einen beschreibbaren Übungsbereich, Ordneranlage, Umbenennen, Verschieben und Öffnen von .txt-Dateien. Benennen Sie den Startort konkret; „lokal“ oder „Cloud“ allein ist keine ausreichende Anleitung.",
+        "Auf Schul-iPads können Speicherorte und Menüs durch Verwaltung eingeschränkt sein. Unter Windows kann „Dokumente“ mit einem Schul-Cloudkonto verbunden sein. Stellen Sie den tatsächlich erlaubten Weg bereit. Keine privaten Konten einrichten lassen.",
+        "Die Übungsdateien stehen im Materialbereich. Bei blockierten Downloads stellen Sie genau diese Dateien im geschlossenen Schulraum bereit. Der Papierausdruck zeigt deren vollständigen Text, ersetzt aber keinen Dateivorgang.",
+        "Lassen Sie nur einen eigenen Übungsbereich verwenden. Vorhandene Dateien nicht ersetzen oder löschen. Bei einer Namenskollision einen neuen eindeutig erkennbaren Übungsnamen wählen."
+      ]
+    },
+    {
+      "title": "Verlauf und Zeitannahme",
+      "paragraphs": [
+        "Erste Stunde: Problemfall 8 Minuten, Erklärung und Modell 12 Minuten, eigener Ablageplan 10 Minuten, Beginn der Gerätearbeit 15 Minuten. Zweite Stunde: weitere Gerätearbeit 10 Minuten, Wiederfindetest und Revision 15 Minuten, Transfer 10 Minuten, Reserve und Sicherung 10 Minuten.",
+        "In einer späteren Stunde 10 Minuten für den Abruf einplanen. Diese Wiederaufnahme wird aus dem vorhandenen Jahreskonto für verteilte Übung gebucht, nicht zusätzlich als neue Modulzeit verschleiert. Die 90 Minuten dieses Teilbogens liegen innerhalb der 180 Minuten für G5-M01; weitere 90 Minuten sind noch für übrige Modulziele auszuarbeiten.",
+        "Zeitwerte sind ungeprüfte Planungsannahmen. Erfassen Sie bei der ersten Durchführung besonders Download-/Speicherhürden und die Zeit für das Wiederfinden. Das Gesamtbudget von 38 UE für Klasse 5 ist noch nicht als schulisch verfügbar bestätigt."
+      ]
+    },
+    {
+      "title": "Haltepunkte, Nachweise und nächste Entscheidung",
+      "paragraphs": [
+        "Nach dem Planen: Können Lernende Datei und Ordner unterscheiden und eine gemeinsame Ordnungsregel erklären? Bei Verwechslung die zwei Ebenen des Modells nochmals an einer neuen Datei zeigen lassen.",
+        "Nach der Gerätearbeit: Jede Person öffnet ihre unpersönliche Fundnotiz aus dem eigenen Themenordner. Prüfen Sie Name, Ort und Inhalt kurz am Gerät. Erklärungen im Lernwerk sind Belege für die Begründung, keine automatische Bestätigung der Gerätehandlung.",
+        "Beim Wiederfindetest: Beobachten Sie wenige Wege direkt und lassen Sie jede Person den Weg erklären. Wer nur „Zuletzt verwendet“ nutzt, übt den Ordnerweg nochmals. Wer ihn sicher nutzt, begründet eine alternative Ordnung oder das Problem zweier Kopien.",
+        "Wenn Zeit oder Technik ausfallen, lassen Sie den Weg an den vollständigen Beispieldaten erklären. Halten Sie die reale Handlung als offen fest und setzen Sie sie später fort. Der nächste Gerätebogen startet bei Bedarf mit Nachsicherung."
+      ]
+    },
+    {
+      "title": "Hilfen und typische Fehlideen",
+      "paragraphs": [
+        "„Der Name ist der Ort“: Zwei gleich benannte Dateien im Einstieg widersprechen dieser Vorstellung. „Im Ordner steht der Text“: Die Datei öffnen und den Unterschied benennen lassen. „Auf dem anderen Gerät reicht derselbe Name“: Den lokalen Transferfall mit fehlendem Übertragungsweg erklären lassen.",
+        "Hilfen stützen konkrete Hürden. Zuerst einen Hinweis zum Startort geben, bei Bedarf den Geräteweg öffnen. Geübte Lernende arbeiten ohne Schrittkarte; die Ordnungsbegründung bleibt für alle gleich anspruchsvoll.",
+        "Die sieben Schritte sind frei erreichbar. Beim direkten Einstieg in die Gerätearbeit müssen Startort, eigener Plan und Übungsdatei geklärt sein. Es ist kein selbstbewertendes Quiz und keine benotete Diagnose."
+      ]
+    },
+    {
+      "title": "Darstellungswahl und Abdeckung",
+      "paragraphs": [
+        "Der kurze Vergleich zweier gleich benannter Dateien eröffnet die fachliche Frage. Eine einfache, beschriftete Weggrafik erklärt die Hierarchie; ein Video würde hier zusätzlichen Ablauf ohne notwendigen eigenen Beitrag erzeugen.",
+        "Tabellen halten die Zuordnung beim Planen sichtbar. Die reale App ist für Ordneranlage und Wiederfinden notwendig; eine Simulation könnte die Bedienhandlung nur vorbereiten. Die zwei aufklappbaren Gerätewege entlasten, ohne zwei konkurrierende Lernbögen zu erzeugen.",
+        "Erklärung und vollständiges Beispiel stehen im zweiten Schritt, gestufte Übung im dritten, eigene Anwendung im vierten, Kriterien/Revision im fünften, veränderter Transfer im sechsten und zeitlich versetzter Abruf im siebten. Das Wissen bleibt unabhängig nachlesbar.",
+        "Noch nicht abgedeckt: vollständiges Schichtenmodell, alle Ein-/Ausgabegeräte, vollständiger Speicherort-/Zugriffsvergleich und sichere Anmeldung. Daraus folgt keine vollständige Freigabe des Moduls G5-M01."
+      ]
+    },
+    {
+      "title": "Stand und Rückfluss",
+      "paragraphs": [
+        "Erstellt für die lokale Sichtung. Herstellerhilfen wurden als Bediengrundlage gelesen; reale verwaltete iPads und Windows-Schulprofile sowie Lernendenzeiten wurden noch nicht erprobt.",
+        "Nach der Durchführung kurz notieren: Was wurde tatsächlich ausgeführt? Welche Produkte/Wege wurden geprüft? Welche Begriffs- oder Zugangshürde trat auf? Welche Hilfe oder Zeit muss angepasst werden? Vorbereitete Aufgaben sind keine durchgeführte Diagnose."
+      ]
+    }
+  ],
+  "briefing": [
+    "Dieser Lernbogen eröffnet einen Teil des Arbeitsraum-Moduls in Klasse fünf. Die Kinder sollen Dateien nicht nur irgendwo speichern. Sie planen eine nachvollziehbare Ordnung, erproben diese am Gerät und finden ihre Datei später wieder. Datei, Ordner, Name und Speicherort werden dabei auseinandergehalten.",
+    "iPad und Windows sind gleichwertige Wege. Prüfe vor dem Unterricht auf beiden eingesetzten Gerätearten, welchen Übungsbereich die Kinder wirklich beschreiben dürfen. Teste die beiden Textdateien. Sind Downloads gesperrt, stelle dieselben Dateien im geschlossenen Schulraum bereit. Private Konten oder persönliche Daten sind nicht nötig.",
+    "Beginne mit den beiden gleich benannten Fundnotizen. Die richtige Datei lässt sich erst am Ordnerweg und Inhalt erkennen. Erkläre anschließend am Modell den Weg vom Speicherort über die Ordner zur Datei. Danach planen die Kinder selbst eine kleine Struktur für Fundbüro und Schulgarten.",
+    "Für die erste Stunde sind ungefähr acht Minuten Einstieg, zwölf Minuten Erklärung, zehn Minuten Planung und fünfzehn Minuten beginnende Gerätearbeit vorgesehen. In der zweiten Stunde folgen zehn Minuten weitere Gerätearbeit, fünfzehn Minuten Wiederfinden und Verbessern sowie zehn Minuten Transfer. Zehn Minuten bleiben als Reserve und zur Sicherung. Diese Zeitannahmen sind noch nicht erprobt.",
+    "Öffne die Bedienhilfe nur bei Bedarf. Die zentrale Denkleistung bleibt die Wahl und Erklärung einer Ordnung. Bei der Kontrolle muss die Datei tatsächlich aus dem Themenordner geöffnet werden. Ein Klick auf Herunterladen oder eine geschriebene Erklärung beweist noch keine gelungene Ablage.",
+    "Wenn eine Datei schon existiert, lass sie nicht ersetzen. Ein eigener, eindeutiger Übungsname erhält die vorherige Arbeit. Bei fehlendem Zugang kann am Modell weitergearbeitet werden. Die echte Gerätehandlung bleibt dann offen und wird später nachgeholt.",
+    "Plane in einer späteren Stunde zehn Minuten für das Wiederfinden ohne Vorlage. Beginne mit einer Erklärung aus dem Gedächtnis und prüfe den Weg anschließend am Gerät. Notiere danach knapp, welche Hürden tatsächlich beobachtet wurden und was bei der nächsten Verwendung angepasst werden muss."
+  ]
+}
