@@ -40,7 +40,7 @@ function decorate(html,units,unit,file){
  html=html.replace('</head>','<link rel="stylesheet" href="../mantel.css"><link rel="stylesheet" href="../learning-ui.css"><link rel="manifest" href="../manifest.webmanifest"><meta name="theme-color" content="#24543e">'+sharedScripts('../')+'<script type="application/json" id="lw-catalog">'+JSON.stringify(units).replaceAll('<','\\u003c')+'</script></head>');
  html=html.replace(/Wissen nachlesen ↗/g,'Wissen nachlesen').replace(/\bStationen\b/g,'Schritte');
  html=html.replace(/target="_blank"\s*rel="noopener"/g,'');
- const seriesLink=unit.area==='medienanalyse'?'<p class="lw-unit-support"><a href="../medienwirkung/index.html">Diese Bildwerkstatt gehört zur Reihe Medienwirkungen →</a></p>':'';
+ const seriesLink=unit.area==='lernstudio'?'<p class="lw-unit-support"><a href="../ablaeufe/index.html">Zur vollständigen Reihe: Präzise Abläufe entwickeln und prüfen →</a> · Roboterstudio als zusätzliche Übung</p>':unit.area==='medienanalyse'?'<p class="lw-unit-support"><a href="../medienwirkung/index.html">Diese Bildwerkstatt gehört zur Reihe Medienwirkungen →</a></p>':'';
  const extra=seriesLink+(file!=='index.html'?'<p class="lw-unit-support"><a href="index.html" data-lw-return>Zurück zu deiner Aufgabe</a></p>':'')+printControls(file)+'<aside class="lw-unit-support"><a href="'+(unit.area==='medienanalyse'?'../medienwirkung/schritt-erinnern.html':'wiederaufnahme.html')+'">Später wieder aufgreifen</a> · <a href="../arbeit.html">Deine Arbeit sichern oder weiterführen</a>'+ (file==='lehrkraft.html'?teacherPreparation():'')+'</aside>';
  return html.replace('</body>',extra+foot('../')+'</body>');
 }
@@ -69,7 +69,8 @@ function augment(assets){
  for(const pack of packs){
   if(pack.authorVersion===2){
    const u=units.find(x=>x.id===pack.id);
-   for(const [file,body] of require('./class5-author-render.cjs').render(pack))created.set(u.area+'/'+file,page(pack.title,body,units,u,file));
+   for(const [file,body] of require('./class5-author-render.cjs').render(pack)){let html=page(pack.title,body,units,u,file);if(pack.area==='ablaeufe'&&body.includes('data-card-tool'))html=html.replace('</head>','<link rel="stylesheet" href="karten.css"><script src="karten-model.js" defer></script><script src="karten-app.js" defer></script></head>');created.set(u.area+'/'+file,html);}
+   if(pack.area==='ablaeufe')for(const [dest,source]of [['karten.css','style.css'],['karten-model.js','model.js'],['karten-app.js','app.js']])created.set(u.area+'/'+dest,fs.readFileSync(path.join(__dirname,'../m06-kartenstation',source),'utf8'));
    for(const [file,data] of A.assets(pack))created.set(u.area+'/'+file,data);
    continue;
   }
@@ -86,7 +87,7 @@ function augment(assets){
   created.set(u.area+'/lehrkraft.html',page('Hinweise für Lehrpersonen',welcome+pack.teacher.map(p=>'<p>'+e(p)+'</p>').join('')+teacherPreparation()+steps,units,u,'lehrkraft.html'));
  }
  const intro='<section class="lw-hero"><p class="lw-eyebrow">Informatik und Medienbildung · Klasse 5</p><h1>Entdecken, prüfen,<br>selbst gestalten.</h1><p class="lw-lead">Lerne dein Gerät kennen, ordne Dateien und finde gute Informationen. Danach untersuchst du Bilder und entwickelst eigene Abläufe. Wähle dein Thema.</p></section>';
- created.set('index.html',page('Klasse 5',intro+cards(units,'index.html')+'<section class="lw-notice"><h2>Dein Weg durch das Lernwerk</h2><p>Die Themen sind in einer empfohlenen Lernfolge angeordnet. Du kannst jedes Angebot auch direkt öffnen. „Quellen prüfen“ gehört zur Recherche; die Bildwerkstatt gehört zu Medienwirkungen. Beide Werkstätten sind zusätzlich einzeln erreichbar. Erklärungen und Beispiele findest du bei deiner Aufgabe und im Wissen. Hilfen kannst du jederzeit nutzen. Deine eigenen Ergebnisse kannst du unter „Deine Arbeit“ weiterführen und sichern.</p><a href="lehrkraft.html">Mit dem Lernwerk unterrichten</a></section>',units));
+ created.set('index.html',page('Klasse 5',intro+cards(units,'index.html')+'<section class="lw-notice"><h2>Dein Weg durch das Lernwerk</h2><p>Die Themen sind in einer empfohlenen Lernfolge angeordnet. Du kannst jedes Angebot auch direkt öffnen. „Quellen prüfen“ gehört zur Recherche; die Bildwerkstatt gehört zu Medienwirkungen. Beide Werkstätten sind zusätzlich einzeln erreichbar. Das Roboterstudio ergänzt die Reihe „Abläufe entwickeln und prüfen“. Erklärungen und Beispiele findest du bei deiner Aufgabe und im Wissen. Hilfen kannst du jederzeit nutzen. Deine eigenen Ergebnisse kannst du unter „Deine Arbeit“ weiterführen und sichern.</p><a href="lehrkraft.html">Mit dem Lernwerk unterrichten</a></section>',units));
  for(const [file,title,target]of [['wissen.html','Wissen und Beispiele','wissen.html'],['material.html','Unterrichtsmaterial','material.html']]){
  const text='<p class="lw-lead">Wähle einen Bereich. Die Bausteine sind auch ohne einen vorherigen Arbeitsstand nutzbar.</p>';
  created.set(file,page(title,'<p class="lw-eyebrow">Klasse 5</p><h1>'+title+'</h1>'+text+cards(units,target),units,null,file));

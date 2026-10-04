@@ -58,3 +58,8 @@ Vollständiger Produktionsumfang 225 Minuten mit eigener Frage, realen Suchversu
 
 ## M05 Medienwirkungen · 04.10.2026
 „Mehr als ein erster Eindruck.“: 225 Minuten einschließlich 90 Minuten vorhandener Bildwerkstatt. Werbung in zwei Formaten, kontextbezogenes Fallurteil, eigene Gestaltung, echte Rückmeldung und Revision, Hilfe bei Ausgrenzung. 45 Minuten für Modell, geschützte eigene Reflexion und neutralen Optionenvergleich; fünf spätere Minuten ergeben mit M01–M04 32 von 135. Private Eingaben gehören weder in allgemeine Arbeitsdateien noch in Druckausgaben. Details: g5-m05-medienwirkung.md. Nächste Produktion: M06. Reale Erprobung und umfassender Zielabgleich bleiben offen.
+
+
+## Produktionsstand M06 · 04.10.2026
+
+G5-M06 vollständig als ablaeufe-Lernbogen ausgearbeitet: 225 Minuten, sechs Inhaltsziele S.38, eigener lokaler Interpreter und grafischer Algorithmus, Papiermaterial, knappe Lehrhinweise. Roboterstudio zusätzliche Übung. Später5, insgesamt37/135. Nächster Produktionsschritt: modulübergreifender Abdeckungs-/Übergangscheck und Vorbereitung der realen Erprobung. Ältere „M06 als Nächstes“-Einträge beschreiben frühere Produktionsstände.

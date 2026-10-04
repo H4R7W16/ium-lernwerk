@@ -65,10 +65,10 @@
       "title": "Präzise Abläufe entwickeln und prüfen",
       "minutes": 225,
       "focus": "Abläufe darstellen, ausführen, verbessern und auf neue Fälle übertragen.",
-      "evidence": "Eigener Ablauf mit Erklärung und Prüfung.",
-      "status": "Algorithmus-Lernstudio vorhanden; Modulabdeckung ergänzen.",
-      "href": "lernstudio/lehrkraft.html",
-      "label": "Zum Teilangebot"
+      "evidence": "Eigene Ablaufgrafik, ausführbarer Code, erklärte Laufspur und dokumentierte Korrektur.",
+      "status": "Vollständiger Lernbogen mit Karten-Interpreter ausgearbeitet; Schulgeräte- und Unterrichtserprobung offen.",
+      "href": "reihe-ablaeufe.html",
+      "label": "Reihenkommentar"
     }
   ],
   "reserves": {
@@ -387,6 +387,69 @@
         "Keine Rückmeldung erhalten? Echten Lesetest nachholen; nicht durch Musterlösung ersetzen."
       ],
       "next": "Fallurteil und Bildbeitrag samt Änderungsspur sichern. Fünf spätere Minuten: drei neutraler Abruf, zwei private Wiederaufnahme. Damit M01–M05: 32 von 135 Jahresminuten; keine Doppelzählung des sofortigen Bibliothekstransfers. Für M06 bleiben präzise Beschreibung, Belegprüfung und Revision anschlussfähig. Nach Erprobung Zeitabweichung, eine häufige Hürde und Anpassung festhalten."
+    },
+    {
+      "moduleId": "G5-M06",
+      "file": "reihe-ablaeufe.html",
+      "label": "Präzise Abläufe",
+      "title": "Präzise Abläufe entwickeln und prüfen",
+      "goal": "Präzise Anweisungen und feste Wiederholungen grafisch darstellen, programmieren und anhand einer Laufspur begründet verbessern.",
+      "rationale": "Ein einziger Arbeitsplatz macht Zustand und Reihenfolge sichtbar. Die Gruppe wird zuerst ausgeführt und grafisch erklärt, dann in einer begrenzten lokalen Programmiersprache codiert. Der eigene Auftrag erfordert einen einmaligen Teil vor der Schleife. Die Signalfolge prüft, ob das Prinzip auf neue Befehle übertragen wird.",
+      "phases": [
+        {
+          "title": "Alltag, Modell und erste Grafik",
+          "minutes": 45,
+          "action": "Auftakt20, Modell15, Grafik10: digitale Systeme vergleichen und präzise Befehle ausführen.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-auftakt.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Grafik und ausführbarer Code",
+          "minutes": 45,
+          "action": "Grafik15, Programm30: feste Wiederholung vorhersagen, eingeben und schrittweise analysieren.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-grafik.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Eigener Ablauf",
+          "minutes": 45,
+          "action": "Entwurf45: vier Karten, zuerst eine unmarkiert, danach drei markiert. Eigene Grafik und Code entwickeln.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-entwurf.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Prüfen und überarbeiten",
+          "minutes": 45,
+          "action": "Entwurf15, Prüfen30: ersten abweichenden Schritt erklären; Gegenbeispiel, echte Rückmeldung und gezielte Revision.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-pruefen.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Neuer Fall und Sicherung",
+          "minutes": 45,
+          "action": "Prüfen10, Transfer25, Sichern10: erneut testen, Lampenablauf übertragen, Code/Spuren sichern.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-transfer.html",
+          "label": "Lernschritt und Material"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Nach5 Tagen bis2 Wochen: neue Lampenfolge ohne Notizen erklären, danach vergleichen und verbessern. M01–M06 belegen37/135 Jahresminuten. Die früheren Roboter-Abrufe sind zusätzliche Optionen, keine weitere Pflichtzeit."
+      },
+      "preparation": "Vier Papierkarten und Arbeitsplatz pro Person. Auf den eingesetzten Schulprofilen Codeeingabe, Einzelschritt, Spurenübernahme, Sicherung und Wiederöffnung prüfen. iPad und Windows gleichwertig. Bei reinem Papierweg bleibt praktische Programmierung offen; nachholen.",
+      "decisions": [
+        "Nur Endergebnis richtig? Einen neuen Zwischenzustand vorhersagen und Grafik zum Code zuordnen lassen.",
+        "Falsche Gruppierung? Ersten Stopp mit Karten nachstellen, Körper statt nur Zahl prüfen.",
+        "Plan schon richtig? Gegenbeispiel untersuchen, Erklärung oder Grafik anhand realer Rückmeldung schärfen.",
+        "Beobachtete Programmierung und fachliche Erklärung von Häkchen, kopiertem Code und bereitgestelltem Material unterscheiden."
+      ],
+      "next": "An M01-Dateisicherung und M04-Revision anschließen. Das Roboterstudio bleibt freiwillige Zusatzübung. Anschließend Klasse5 über alle Module auf Übergänge, Abdeckung und realen Zeitbedarf prüfen."
     }
   ]
 }

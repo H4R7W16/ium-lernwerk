@@ -1,0 +1,899 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-5-M06-ABLAEUFE",
+  "version": "1.0.0",
+  "grade": 5,
+  "area": "ablaeufe",
+  "family": "content",
+  "title": "Präzise geplant. Schritt für Schritt.",
+  "topic": "Abläufe entwickeln und prüfen",
+  "description": "Entwickle einen genauen Ablauf für eine Kartenstation. Sage voraus, was passiert, führe dein Programm aus und verbessere es mit einer begründeten Prüfung.",
+  "product": "Deine Ablaufgrafik, dein ausführbares Programm und eine erklärte Spur – mit einem geprüften Fehler und einer begründeten Korrektur.",
+  "prerequisites": [
+    "Browser auf iPad oder Windows; für die Kartenstation muss JavaScript erlaubt sein",
+    "Vier kleine Papierkarten, Stift und ein Blatt als Arbeitsplatz",
+    "Kein Programmierwissen nötig; Vorlesen und mündliche Erklärungen sind möglich"
+  ],
+  "duration": "225 Minuten / 5 Unterrichtsstunden. Später 5 Minuten aus dem Jahreskonto.",
+  "learnerDuration": "Fünf Unterrichtsstunden. Eine kurze Erinnerung folgt in einer späteren Stunde.",
+  "workNotice": "Code und übernommene Laufspur stehen in deinen Lernwerk-Antworten. Deine Zeichnung liegt auf deinem Blatt und wird gesondert aufbewahrt. Sichere am Schluss deine Arbeitsdatei und öffne sie zur Kontrolle.",
+  "curriculum": {
+    "moduleId": "G5-M06",
+    "goalIds": [
+      "3.1.3.1(1)",
+      "3.1.3.1(2)",
+      "3.1.3.1(3)",
+      "3.1.3.1(4)",
+      "3.1.3.1(5)",
+      "3.1.3.1(6)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Anhörungsfassung 21.09.2026, Band 5/6, S.38; Planung dee82ec. Lerngelegenheiten und beobachtbare Produkte, keine behauptete Beherrschung. Papierausführung ersetzt den praktischen Programmiernachweis nicht."
+  },
+  "experiencedEntry": {
+    "title": "Du kennst Schleifen schon?",
+    "text": "Erkläre die Ablaufgrafik und sage den Zustand nach Schritt 4 voraus, ohne den Code auszuführen. Gelingt das mit Begründung, bearbeite das Beispiel kurz und gehe zum eigenen Auftrag. Eigene Grafik, Code, Fehlerprüfung und Transfer bleiben nötig.",
+    "step": "grafik",
+    "label": "Am Beispiel prüfen"
+  },
+  "preview": "ablauf",
+  "teacher": [
+    "Die Reihe führt vom präzisen Handeln über eine grafische Darstellung zum ausführbaren Code. Ein kleiner Zustandsraum macht Ursachen sichtbar. Das eigene Problem verändert zusätzlich die Reihenfolge der Ausgabekarten; bloßes Erhöhen der Schleifenzahl genügt nicht."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Kartenstation auf einem Schul-iPad bzw. Windows-Profil prüfen: drei Befehle eingeben, Einzelschritt ausführen, Spur übernehmen, Arbeitsdatei sichern und wieder öffnen. Kein Konto und keine zusätzliche Programminstallation nötig. Unterrichtssprache und Interpreter sind lokal im Lernwerk enthalten. Nach Offlinevorbereitung darf Internet fehlen; die erste Bereitstellung braucht einen erreichbaren Server.",
+        "Pro Person vier Karten und ein Blatt mit Vorrat, einem Platz und Ausgabe bereitstellen. Alle Einzelblätter enthalten benötigte Ausgangsdaten. Papier trägt Darstellen und Analysieren; digitale Programmierung bleibt bei reinem Papierweg offen und wird nachgeholt. Bei geteiltem Gerät eigener Tab und eigene benannte Arbeitsdatei je Person; jede Person programmiert und erklärt selbst."
+      ]
+    },
+    {
+      "title": "Fünf Stunden führen",
+      "paragraphs": [
+        "1: Auftakt20, Modell 15, Grafik10. 2: Grafik15, Programm30. 3: Entwurf 45. 4: Entwurf 15, Prüfen30. 5: Prüfen10, Transfer25, Sichern10 Minuten. Enthalten sind Orientierung35, angeleitete Übung55, eigener Entwurf 60, Rückmeldung/Revision 40 und Konsolidierung35. Wechsel- und Sicherungszeit innerhalb dieser Phasen einplanen.",
+        "Das bisherige Roboterstudio ist eine zusätzliche Übung für andere Befehle. Es gehört nicht als zweiter Pflichtdurchlauf zu den 225 Minuten. Der spätere Abruf dauert5 Minuten; M01–M06 belegen damit37 der135 Jahresminuten. Schulisches Jahresbudget und reale Bearbeitungszeiten bleiben zu bestätigen."
+      ]
+    },
+    {
+      "title": "Beobachten → unterstützen",
+      "paragraphs": [
+        "Kind zählt nur drei Aktionen? Den Körper nimm–markiere–lege dreimal mit Karten auslegen. Kind verschiebt nur die Zahl? Ersten abweichenden Zustand markieren lassen: Ort des Fehlers, Ursache, Änderung, erneuter Lauf. Kind zeigt nur Raumplan? Pfeile, Reihenfolge und Wiederholungsrahmen ergänzen; eine Anordnung allein ist kein grafischer Algorithmus.",
+        "Für eine Lernbeobachtung einen noch nicht ausgeführten Schritt erläutern lassen und Grafik zum Code zuordnen. Kopierte Spur und passender Endzustand allein genügen nicht. Programmieren tatsächlich beobachten; offene Freitexte werden nicht automatisch bewertet. Schwerpunktprozesse: Modell 2.2(7), Grafik/Spur 2.5(4)/(6), Entwurf 2.1(1)/(4)/(7), Revision 2.1(8), Rückblick 2.6(1). Pro Auftrag nur passende Prozesse beobachten."
+      ]
+    },
+    {
+      "title": "Abschluss und Anschluss",
+      "paragraphs": [
+        "Sammeln Sie das neutrale Arbeitsergebnis: eigene Grafik, Code, erklärte Spur und Fehlerprotokoll. Die Kriterienlösung ist eine Vergleichsmöglichkeit, keine einzig erlaubte Grafik. Bei Austausch muss die Rückmeldung tatsächlich von einer anderen Person kommen. Ohne Austausch die Kriterienprüfung bearbeiten und den Partnercheck offenlassen.",
+        "Fünf Tage bis zwei Wochen später den Lampenfall zuerst ohne Unterlagen abrufen. Häufige Fehlvorstellung, Zeitabweichung und nächste Anpassung knapp festhalten. M06 schließt die ausgearbeiteten Klasse-5-Reihen ab; als nächster Produktionsschritt folgt der gemeinsame Abdeckungs- und Übergangscheck."
+      ]
+    }
+  ],
+  "briefing": [
+    "M06 umfasst fünf Stunden. Lernende erklären präzise Anweisungen, lesen eine Ablaufgrafik und programmieren eine kleine Kartenstation. Die Sprache hat drei Befehle und feste Wiederholungen. In jedem Schritt sollen Vorhersage, tatsächliche Ausführung und eigene Erklärung zusammenkommen.",
+    "Bereiten Sie pro Person vier Papierkarten und einen markierten Arbeitsplatz vor. Prüfen Sie den lokalen Interpreter sowie das Sichern und Öffnen einer Arbeitsdatei am Schulgerät. Papier ist ein sinnvoller Ersatz für das Ausführen von Abläufen, aber kein praktischer Nachweis des Programmierens.",
+    "Stunde eins eröffnet Alltagssysteme und Modell. Stunde zwei verbindet Grafik und Code. Stunde drei führt zum eigenen Entwurf: zuerst eine unmarkierte, dann drei markierte Karten. Stunde vier und der Beginn der fünften dienen der Fehlerprüfung und begründeten Revision. Transfer und Sicherung schließen ab.",
+    "Beobachten Sie den ersten abweichenden Schritt und seine Erklärung. Ein fertiger Lauf oder eine kopierte Spur genügt nicht. Das Roboterstudio bleibt zusätzliche Übung. Später folgen fünf Minuten Abruf aus dem vorhandenen Jahreskonto."
+  ],
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung · 21.09.2026, S.38",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Wortlaut und Zuordnung anhand der lokal geprüften Planungsquelle dee82ec. Webabruf des PDFs in diesem Produktionslauf technisch nicht verfügbar."
+    },
+    {
+      "id": "cc",
+      "title": "CC BY-SA 4.0 · Lizenzinformation",
+      "author": "Creative Commons",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "license": "Lizenzhinweis; eigene Texte und Diagramme separat ausgewiesen",
+      "checked": "2026-10-04"
+    }
+  ],
+  "media": [
+    {
+      "id": "station",
+      "title": "Die Kartenstation",
+      "kind": "image",
+      "file": "assets/ablaeufe/station.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Unterrichtsgrafik",
+      "sourceId": "cc",
+      "alt": "Drei Ablageorte: Vorrat mit drei unmarkierten Karten; genau ein leerer Arbeitsplatz; zunächst leere Ausgabe. nimm bewegt eine Karte vom Vorrat auf den Platz, markiere setzt dort einen Punkt, lege bewegt sie zur Ausgabe.",
+      "caption": "Modell der Kartenstation. Die Ablageflächen zeigen Orte; die Reihenfolge erklären die Befehle."
+    },
+    {
+      "id": "ablauf",
+      "title": "Ablaufgrafik für zwei Karten",
+      "kind": "image",
+      "file": "assets/ablaeufe/ablauf.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Unterrichtsgrafik",
+      "sourceId": "cc",
+      "alt": "Start: Vorrat 2, Platz leer, Ausgabe leer. Pfeil zum Wiederholungsrahmen mit fester Anzahl 2. Im Rahmen folgen nimm, markiere, lege jeweils mit Pfeilen. Nach dem ganzen Körper beginnt der nächste Durchlauf; nach 2 Durchläufen zum Ende. Ende: Ausgabe zwei markierte Karten, Platz leer.",
+      "caption": "Grafischer Algorithmus: Pfeile geben die Reihenfolge an, der Rahmen umfasst die gesamte wiederholte Gruppe."
+    },
+    {
+      "id": "auftrag",
+      "title": "Dein Ziel in richtiger Reihenfolge",
+      "kind": "image",
+      "file": "assets/ablaeufe/auftrag.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Unterrichtsgrafik",
+      "sourceId": "cc",
+      "alt": "Am Anfang vier unmarkierte Karten, leerer Platz, leere Ausgabe. Am Ende Ausgabe von links nach rechts: eine unmarkierte Karte, dann drei markierte. Vorrat und Platz sind leer.",
+      "caption": "Auftragsbild: Die Reihenfolge der Ausgabe gehört zum Ziel. Zeichne dazu selbst einen Algorithmus."
+    },
+    {
+      "id": "protokoll",
+      "title": "Fehlerprotokoll als Textvorlage",
+      "kind": "download",
+      "file": "assets/ablaeufe/protokoll.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "cc",
+      "printText": "M06 · Fehlerprotokoll\nMein Auftrag:\nStartzustand:\nMeine Vorhersage:\nErster Code / Grafik:\nErste Abweichung und Zustand davor:\nUrsache:\nRückmeldung einer Person (falls vorhanden):\nGezielte Änderung:\nNeuer Lauf ab gleichem Start:\nErgebnis und eigene Erklärung:\nNoch offen:\n\nIuM-Lernwerk · CC BY-SA 4.0"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "algorithmus",
+      "title": "Was macht einen Ablauf präzise?",
+      "paragraphs": [
+        "Ein Algorithmus beschreibt geordnete, präzise Handlungsschritte zur Lösung einer Aufgabe. Die ausführende Person oder Maschine muss wissen, was jeder Schritt bedeutet und wann sie anfangen darf.",
+        "Ein Programm ist ein Algorithmus, der in einer Programmiersprache aufgeschrieben wurde. Unser Interpreter liest diese Sprache und führt ihre Befehle aus. Digitale Systeme wie Suchmaschinen oder Navigationsdienste nutzen viele solche Abläufe."
+      ],
+      "example": "„nimm“ heißt hier: Nimm genau eine Karte aus dem Vorrat auf den freien Platz. „Mach die Karten schön“ legt keine eindeutige Handlung fest.",
+      "boundary": "Eine Maschine errät keine Absicht. Unser einfaches Modell erklärt keine vollständige Suchmaschine und ihre Auswahlregeln.",
+      "steps": [
+        "auftakt",
+        "modell",
+        "sichern"
+      ],
+      "media": [],
+      "sources": []
+    },
+    {
+      "id": "zustand",
+      "title": "Was verändert ein Befehl?",
+      "paragraphs": [
+        "Der Zustand beschreibt, was gerade da ist: Wie viele Karten sind im Vorrat, was liegt auf dem Platz, was liegt in der Ausgabe? Eine Anweisung verändert diesen Zustand nach einer festen Regel.",
+        "nimm braucht einen freien Platz und einen nicht leeren Vorrat. markiere braucht eine unmarkierte Karte auf dem Platz. lege legt die Karte hinten an die Ausgabe; auch eine unmarkierte Karte darf abgelegt werden."
+      ],
+      "example": "Vor nimm: Vorrat 3, Platz leer, Ausgabe leer. Danach: Vorrat 2, eine unmarkierte Karte auf dem Platz, Ausgabe leer.",
+      "boundary": "Ein Stopp ist keine erfolgreiche Ausführung. Bei einem unerlaubten Befehl bleibt der vorherige Zustand stehen.",
+      "steps": [
+        "modell",
+        "programm",
+        "pruefen"
+      ],
+      "media": [],
+      "sources": []
+    },
+    {
+      "id": "grafisch",
+      "title": "Wie lese ich eine Ablaufgrafik?",
+      "paragraphs": [
+        "Folge den Pfeilen vom Start zum Ende. Die Rechtecke nennen Handlungen. Der Wiederholungsrahmen sagt hier: Führe die ganze Gruppe genau so oft aus wie angegeben.",
+        "Unsere Darstellung nutzt einen beschrifteten Rahmen für die feste Wiederholung. Andere Flussdiagramme zeichnen dafür einen Zähler und eine Rückführung. In beiden Fällen müssen Anzahl, Reihenfolge und Ende eindeutig sein."
+      ],
+      "example": "Im Beispiel liegen nimm, markiere und lege im Rahmen „2 Durchläufe“. Erst nach allen sechs Aktionen geht es zum Ende.",
+      "boundary": "Drei gezeichnete Ablageflächen sind ein Modell des Arbeitsplatzes, noch keine Darstellung der zeitlichen Abfolge.",
+      "steps": [
+        "grafik",
+        "entwurf"
+      ],
+      "media": [
+        "ablauf"
+      ],
+      "sources": []
+    },
+    {
+      "id": "schleife",
+      "title": "Was wird bei einer Schleife wiederholt?",
+      "paragraphs": [
+        "Eine Schleife mit fester Anzahl wiederholt ihren Körper genau so oft wie angegeben. Der Körper enthält hier alle Befehle zwischen [ und ]. Ein Durchlauf führt den ganzen Körper aus.",
+        "wiederhole 3 [ nimm markiere lege ] führt neun Aktionen aus. Die Zahl3 zählt Durchläufe, nicht einzelne Aktionen. Ein Befehl nach ] läuft erst nach allen Durchläufen."
+      ],
+      "example": "nimm lege wiederhole 2 [ nimm markiere lege ] legt zuerst eine unmarkierte Karte ab und dann zwei markierte. Das sind2 + 2×3 =8 Aktionen.",
+      "boundary": "Unsere Sprache erlaubt eine feste Zahl1–9 und keine verschachtelten Schleifen. Reale Sprachen können deutlich mehr.",
+      "steps": [
+        "grafik",
+        "programm",
+        "entwurf",
+        "transfer",
+        "erinnern"
+      ],
+      "media": [],
+      "sources": []
+    },
+    {
+      "id": "fehler",
+      "title": "Wie prüfe und verbessere ich meinen Ablauf?",
+      "paragraphs": [
+        "Notiere zuerst die erwartete Wirkung. Führe den Plan schrittweise aus und vergleiche. Die Laufspur hält nach jedem Befehl den Zustand fest.",
+        "Suche die erste Abweichung oder den ersten unerlaubten Befehl. Erkläre die Ursache. Ändere gezielt und beginne den Test wieder am gleichen Start. Vergleiche zusätzlich den ganzen Auftrag."
+      ],
+      "example": "wiederhole 3 [nimm] stoppt beim zweiten nimm: Der einzige Platz ist noch belegt. Eine kleinere Zahl verarbeitet nicht alle drei Karten; nimm, markiere und lege müssen hier zusammen in den Körper.",
+      "boundary": "Ein Programm kann ohne Stopp enden und trotzdem den falschen Auftrag lösen. Reihenfolge und Markierungen der Ausgabe zählen mit.",
+      "steps": [
+        "programm",
+        "entwurf",
+        "pruefen",
+        "sichern"
+      ],
+      "media": [],
+      "sources": []
+    }
+  ],
+  "steps": [
+    {
+      "id": "auftakt",
+      "title": "Wo stecken genaue Abläufe?",
+      "goal": "Algorithmische Prozesse an verschiedenen digitalen Systemen erkennen.",
+      "task": "Vergleiche die drei digitalen Beispiele und das Schild. Begründe, wo genaue Abläufe nötig sind.",
+      "outcome": "Algorithmische Prozesse an verschiedenen digitalen Systemen erkennen.",
+      "knowledge": [
+        "algorithmus"
+      ],
+      "criteria": [
+        "Ich nenne Eingabe, Verarbeitung und Ausgabe an zwei Beispielen.",
+        "Ich unterscheide ein statisches Zeichen von einem System, das Anweisungen ausführt."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Vier Fälle",
+          "text": "Ein genauer Ablauf kann sehr unterschiedlich aussehen.",
+          "table": {
+            "headers": [
+              "Fall",
+              "Was geschieht?"
+            ],
+            "rows": [
+              [
+                "Navigation",
+                "Du gibst ein Ziel ein; der Dienst berechnet einen Weg und zeigt Hinweise."
+              ],
+              [
+                "Suchsystem",
+                "Du gibst Wörter ein; das System sucht und ordnet passende Treffer."
+              ],
+              [
+                "Wecker-App",
+                "Du stellst7:00 ein; die App vergleicht die Zeit und löst das Signal aus."
+              ],
+              [
+                "Papierschild „Bibliothek →“",
+                "Das gedruckte Schild zeigt immer denselben Pfeil. Es berechnet keinen Weg."
+              ]
+            ]
+          }
+        },
+        {
+          "type": "task",
+          "id": "systeme",
+          "title": "Erkläre an zwei Fällen",
+          "text": "Wähle zwei digitale Beispiele. Ergänze jeweils: Das System bekommt …, verarbeitet … und gibt … aus. Was unterscheidet das Papierschild?",
+          "prompt": "Deine beiden Beispiele und der Unterschied",
+          "responseMode": "oral",
+          "solution": "Navigation verarbeitet Start und Ziel zu einem Weg; Suchsystem verarbeitet Wörter zu ausgewählten und geordneten Treffern. Die Abläufe sind regelgeleitet, aber hier nicht vollständig beschrieben. Das Schild selbst führt keinen digitalen Berechnungsablauf aus. Auch seine Herstellung kann digitale Abläufe verwendet haben."
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "algorithmus",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "modell",
+      "title": "Drei Befehle. Ein freier Platz.",
+      "goal": "Präzise Anweisungen an einem kleinen Zustandsmodell ausführen.",
+      "task": "Lege drei Karten in den Vorrat. Markiere auf Papier einen einzigen Arbeitsplatz und eine Ausgabe. Führe nimm, markiere, lege aus.",
+      "outcome": "Präzise Anweisungen an einem kleinen Zustandsmodell ausführen.",
+      "knowledge": [
+        "algorithmus",
+        "zustand"
+      ],
+      "criteria": [
+        "Ich erkläre, was jeder Befehl genau verändert.",
+        "Ich nenne eine Voraussetzung und erkenne einen unerlaubten Schritt."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Die Regeln unserer Kartenstation",
+          "text": "Alle Karten beginnen unmarkiert. In der Ausgabe bedeutet links: zuerst abgelegt. Es gibt genau einen Platz.",
+          "table": {
+            "headers": [
+              "Befehl",
+              "Genaue Wirkung",
+              "Voraussetzung"
+            ],
+            "rows": [
+              [
+                "nimm",
+                "Eine Karte aus dem Vorrat auf den Platz nehmen.",
+                "Platz frei; Vorrat nicht leer."
+              ],
+              [
+                "markiere",
+                "Einen Punkt auf die Karte am Platz setzen.",
+                "Dort liegt eine unmarkierte Karte."
+              ],
+              [
+                "lege",
+                "Karte vom Platz hinten an die Ausgabe legen.",
+                "Auf dem Platz liegt eine Karte; markiert oder unmarkiert."
+              ]
+            ]
+          },
+          "media": [
+            "station"
+          ],
+          "help": [
+            {
+              "title": "Grafik als Text lesen",
+              "text": "Drei Ablageorte: Vorrat mit drei unmarkierten Karten; genau ein leerer Arbeitsplatz; zunächst leere Ausgabe. nimm bewegt eine Karte vom Vorrat auf den Platz, markiere setzt dort einen Punkt, lege bewegt sie zur Ausgabe."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "handeln",
+          "title": "Führe aus und erkläre",
+          "text": "Nach jedem Befehl: Vorrat zählen, Platz und Ausgabe beschreiben. Versuche anschließend nimm, nimm ab einem neuen Start. Wo stoppt der Ablauf?",
+          "prompt": "Dein Zustand nach jedem Befehl und der erste Stopp",
+          "responseMode": "oral",
+          "solution": "Nach nimm: Vorrat 2, Platz unmarkiert, Ausgabe0. Nach markiere: Vorrat 2, Platz markiert, Ausgabe0. Nach lege: Vorrat 2, Platz leer, Ausgabe eine markierte Karte. nimm, nimm stoppt beim zweiten Befehl; die erste Karte liegt noch auf dem Platz."
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "algorithmus",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "grafik",
+      "title": "Vom Pfeil zum Programm",
+      "goal": "Ablaufgrafik erklären, ausführen und dem Code zuordnen.",
+      "task": "Folge der Grafik zuerst mit Karten. Lies dann den Code und zeige, wo du gerade bist.",
+      "outcome": "Ablaufgrafik erklären, ausführen und dem Code zuordnen.",
+      "knowledge": [
+        "grafisch",
+        "schleife",
+        "zustand"
+      ],
+      "criteria": [
+        "Ich führe den ganzen Rahmen zweimal aus.",
+        "Ich ordne einen grafischen Schritt der Codezeile zu.",
+        "Ich erkläre den Zustand nach Aktion 4."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Ein vollständig gelöstes Beispiel",
+          "text": "Start: zwei unmarkierte Karten, Platz und Ausgabe leer. Ziel: beide Karten markiert in der Ausgabe.",
+          "media": [
+            "ablauf"
+          ],
+          "paragraphs": [
+            "Code: wiederhole 2 [ nimm markiere lege ]. Die Klammer und der Rahmen umfassen dieselbe ganze Gruppe."
+          ],
+          "help": [
+            {
+              "title": "Grafik als Text lesen",
+              "text": "Start mit zwei Karten. Führe nimm, markiere, lege einmal vollständig aus. Beginne die gleiche Gruppe ein zweites Mal. Erst danach folgt das Ende. Der Rückpfeil gilt nur zwischen den beiden Durchläufen."
+            },
+            {
+              "title": "Durchgearbeitetes Beispiel mit allen Zuständen",
+              "text": "Start: Vorrat 2, Platz leer, Ausgabe leer. 1 nimm: Vorrat 1, Platz unmarkiert, Ausgabe leer. 2 markiere: Vorrat 1, Platz markiert, Ausgabe leer. 3 lege: Vorrat 1, Platz leer, Ausgabe●. 4 nimm: Vorrat 0, Platz unmarkiert, Ausgabe●. 5 markiere: Vorrat 0, Platz markiert, Ausgabe●. 6 lege: Vorrat 0, Platz leer, Ausgabe●●. Der Platz wird nach jedem lege wieder frei. Deshalb kann jeder neue Durchlauf mit nimm beginnen. Insgesamt 2×3 =6 Aktionen."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "zuordnen",
+          "title": "Mit einer anderen Zahl weiterdenken",
+          "text": "Der Vorrat enthält jetzt drei Karten und die Zahl im Rahmen ist 3. Zeige den Zustand nach Aktion 4 und nach Aktion 6, ohne sofort auszuführen. Erkläre, welcher Schritt danach folgt.",
+          "prompt": "Deine Vorhersage und die Stelle in Grafik und Code",
+          "responseHint": "Zwei kurze Zustandsbeschreibungen und eine Erklärung reichen.",
+          "solution": "Nach Aktion 4: Vorrat 1, unmarkierte Karte auf dem Platz, eine markierte Karte ausgegeben. Nach 6: Vorrat 1, Platz leer, zwei markierte Karten ausgegeben. Danach folgt nimm aus dem dritten Durchlauf. Sechs Aktionen bedeuten hier erst zwei Durchläufe."
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "grafisch",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "layout": "model-task"
+    },
+    {
+      "id": "programm",
+      "title": "Vorhersagen. Ausführen. Erklären.",
+      "goal": "Einen Code mit fester Wiederholung im lokalen Interpreter ausführen und analysieren.",
+      "task": "Verarbeite drei Karten. Lies zuerst den Code, dann sage einen Zwischenzustand voraus. Erst danach führst du ihn aus.",
+      "outcome": "Einen Code mit fester Wiederholung im lokalen Interpreter ausführen und analysieren.",
+      "knowledge": [
+        "schleife",
+        "zustand",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich sage den Zustand nach Aktion 4 vor dem Ausführen voraus.",
+        "Ich gebe Code ein und prüfe mindestens einen Einzelschritt am Gerät.",
+        "Ich erkläre zwei Zustandsänderungen aus der Spur."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "vorhersage",
+          "title": "Erst im Kopf",
+          "text": "Start: Vorrat 3, Platz und Ausgabe leer. Code: wiederhole 3 [ nimm markiere lege ]. Wie sieht der Zustand nach Aktion 4 aus? Wie viele Aktionen hat das ganze Programm?",
+          "prompt": "Deine Vorhersage vor dem Ausführen",
+          "responseHint": "Vorrat …, Platz …, Ausgabe …; insgesamt … Aktionen.",
+          "help": [
+            {
+              "title": "Erster Hinweis",
+              "text": "Schritt 3 beendet den ersten Durchlauf. Schritt 4 beginnt den zweiten.",
+              "knowledge": "schleife",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "external",
+          "id": "bedienung",
+          "title": "Dein Werkzeug im Lernwerk",
+          "text": "Die Kartenstation führt die kleine Karten-Sprache aus. Sie ist direkt unter dem Codefeld eingebaut. Du brauchst kein eigenes Konto.",
+          "prompt": "Notiere nur eine Bedienhürde, falls du Hilfe brauchst.",
+          "context": "device",
+          "preparation": "Öffne diesen Schritt im Browser; JavaScript muss erlaubt sein. Der digitale Vorrat enthält 3 Karten.",
+          "action": "Lies den passenden Geräteweg. Führe den Code einzeln und danach vollständig aus.",
+          "return": "Übernimm die Spur und ergänze deine eigene Erklärung. Ohne Gerät: auf Papier ausführen und die Programmierung später nachholen.",
+          "routes": [
+            {
+              "device": "ipad",
+              "title": "Auf dem iPad",
+              "items": [
+                "Tippe in das Codefeld. Schreibe Befehle klein. Die Klammern [ und ] findest du in der Symbolansicht der Bildschirmtastatur. Neue Zeilen oder Leerzeichen trennen Befehle.",
+                "Tippe Ein Befehl. Vergleiche den sichtbaren Zustand. Mit Bis zum Ende führst du den restlichen Plan aus. Öffne Ausgeführte Spur ansehen.",
+                "Tippe Spur ins Protokoll übernehmen. Ergänze deine Erklärung selbst. Sichere später über Deine Arbeit eine Arbeitsdatei; prüfe den gespeicherten Stand durch Wiederöffnen."
+              ]
+            },
+            {
+              "device": "windows",
+              "title": "Unter Windows",
+              "items": [
+                "Klicke in das Codefeld. Schreibe Befehle klein. Auf deutscher Tastatur: AltGr+8 für [ und AltGr+9 für ]. Neue Zeilen oder Leerzeichen trennen Befehle.",
+                "Wähle Ein Befehl. Vergleiche den sichtbaren Zustand. Mit Bis zum Ende führst du den restlichen Plan aus. Öffne Ausgeführte Spur ansehen.",
+                "Wähle Spur ins Protokoll übernehmen. Ergänze deine Erklärung selbst. Sichere später über Deine Arbeit eine Arbeitsdatei; prüfe den gespeicherten Stand durch Wiederöffnen."
+              ]
+            }
+          ],
+          "responseMode": "oral"
+        },
+        {
+          "type": "task",
+          "id": "code",
+          "title": "Dein ausführbarer Code",
+          "text": "Schreibe hier: wiederhole 3 [ nimm markiere lege ]. Du darfst nach jedem Befehl eine neue Zeile beginnen. Starte erst nach deiner Vorhersage.",
+          "prompt": "Code für drei markierte Karten",
+          "responseHint": "Nur Code eingeben. Das Werkzeug darunter liest genau dieses Feld."
+        },
+        {
+          "type": "task",
+          "id": "spur",
+          "title": "Was zeigt die Ausführung?",
+          "text": "Übernimm die Spur mit dem Knopf am Werkzeug. Ergänze: Warum wird nach dem dritten Schritt der Platz wieder frei? Warum ist Schritt 4 wieder nimm?",
+          "prompt": "Laufspur und deine Erklärung",
+          "solution": "3 Durchläufe mit je3 Aktionen ergeben9 Aktionen. Nach 4: Vorrat 1, Platz unmarkiert, Ausgabe eine markierte Karte. lege verändert Platz und Ausgabe; danach kann der nächste Durchlauf eine Karte aufnehmen."
+        }
+      ],
+      "materialNeeds": [
+        "Drei unmarkierte Papierkarten, Stift und Arbeitsblatt; später Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "schleife",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "entwurf",
+      "title": "Dein eigener Kartenauftrag",
+      "goal": "Eigene Ablaufgrafik und Code mit fester Wiederholung entwickeln und begründet testen.",
+      "task": "Vier Karten liegen bereit. Die Ausgabe soll von links nach rechts so aussehen: zuerst eine unmarkierte, danach drei markierte Karten. Am Ende sind Vorrat und Platz leer.",
+      "outcome": "Eigene Ablaufgrafik und Code mit fester Wiederholung entwickeln und begründet testen.",
+      "knowledge": [
+        "grafisch",
+        "schleife",
+        "fehler"
+      ],
+      "criteria": [
+        "Meine Grafik zeigt Start, Reihenfolge, Schleifenkörper, feste Anzahl und Ende.",
+        "Mein eigener Code erfüllt auch die Reihenfolge der Ausgabe.",
+        "Ich erkläre einen Zwischenzustand und ordne ihn meiner Grafik zu."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Dein Zielbild",
+          "text": "○ bedeutet unmarkiert, ● bedeutet markiert. Die Ausgabereihenfolge zählt mit.",
+          "media": [
+            "auftrag"
+          ],
+          "paragraphs": [
+            "Teile das Problem auf: Was geschieht nur einmal? Welche Gruppe lässt sich wiederholen? Du musst keine möglichst kurze Lösung finden, aber mindestens eine Schleife mit mehreren Durchläufen verwenden."
+          ],
+          "help": [
+            {
+              "title": "Grafik als Text lesen",
+              "text": "Am Anfang vier unmarkierte Karten, leerer Platz, leere Ausgabe. Am Ende Ausgabe von links nach rechts: eine unmarkierte Karte, dann drei markierte. Vorrat und Platz sind leer."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "plan",
+          "title": "Plane zuerst auf Papier",
+          "text": "Zeichne Kästen und Pfeile für deinen Ablauf. Markiere den Wiederholungsrahmen und seine Anzahl. Führe die Grafik mit vier Papierkarten aus. Notiere, welcher Zustand nach den ersten beiden Aktionen und nach Aktion 5 erreicht sein soll.",
+          "prompt": "Deine Vorhersage und kurze Erklärung zur Zeichnung",
+          "responseHint": "Zeichnung auf dem eigenen Blatt behalten. Hier zwei Zustände und die wiederholte Gruppe erklären.",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Die erste Karte braucht keine Markierung. Trenne diesen einmaligen Teil von den drei gleichen weiteren Karten.",
+              "knowledge": "grafisch",
+              "label": "Passendes Wissen öffnen"
+            },
+            {
+              "title": "Genauere Hilfe",
+              "text": "Beginne mit nimm, lege. Welche drei Befehle gehören für jede weitere Karte gemeinsam in eine Schleife?",
+              "knowledge": "schleife",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "paragraphs": [
+            "Kurzregeln: nimm braucht einen freien Platz und eine Karte im Vorrat. markiere setzt einen Punkt auf eine unmarkierte Karte am Platz. lege legt diese Karte hinten an die Ausgabe und macht den Platz frei. Eine unmarkierte Karte darf abgelegt werden."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "code",
+          "title": "Setze deine Grafik in Code um",
+          "text": "Hier startet der Interpreter mit 4 Karten. Gib deinen eigenen Plan ein. Prüfe schrittweise und vergleiche die Ausgabe mit dem Zielbild. Jede Person bedient selbst.",
+          "prompt": "Dein Code für den eigenen Auftrag",
+          "responseHint": "Bedienung wie im vorigen Schritt. Änderungen am Code setzen den Simulationslauf zurück."
+        },
+        {
+          "type": "task",
+          "id": "spur",
+          "title": "Behalte deinen ersten Versuch",
+          "text": "Übernimm die Spur. Ergänze, wo der Lauf deine Vorhersage bestätigt oder davon abweicht. Bewahre auch einen fehlerhaften ersten Versuch im Protokoll auf.",
+          "prompt": "Erste Spur und eigene Erklärung",
+          "responseHint": "Nach 2 …, nach 5 …; diese Stelle meiner Grafik passt dazu …",
+          "help": [
+            {
+              "title": "Ergebnis passt noch nicht?",
+              "text": "Vergleiche zuerst: Ist die allererste Ausgabekarte unmarkiert? Suche den ersten Schritt, der eine andere Reihenfolge festlegt.",
+              "knowledge": "fehler",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Eine mögliche Lösung: nimm lege wiederhole 3 [nimm markiere lege]. Nach 2: Vorrat 3, Platz leer, Ausgabe○. Nach 5: Vorrat 2, Platz leer, Ausgabe○●. Insgesamt 11 Aktionen. Andere Darstellungen sind zulässig, wenn Reihenfolge, Zahl und Wirkung gleich eindeutig sind."
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "grafisch",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "pruefen",
+      "title": "Einen Fehler wirklich verbessern",
+      "goal": "Abweichung lokalisieren, Ursache erklären und eine Korrektur erneut prüfen.",
+      "task": "Prüfe einen eigenen Fehler. Wenn dein Plan bereits stimmt, untersuche zuerst das Gegenbeispiel. Überarbeite dann Code oder Erklärung und prüfe erneut.",
+      "outcome": "Abweichung lokalisieren, Ursache erklären und eine Korrektur erneut prüfen.",
+      "knowledge": [
+        "fehler",
+        "schleife"
+      ],
+      "criteria": [
+        "Ich zeige den ersten unerlaubten oder vom Auftrag abweichenden Schritt.",
+        "Meine Korrektur behebt die Ursache, nicht nur ein sichtbares Symptom.",
+        "Ich habe vom gleichen Start erneut ausgeführt und begründet verglichen."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Gleiche Befehlszahlen – andere Wirkung",
+          "text": "Auftrag: drei markierte Karten. Plan A: wiederhole 3 [nimm markiere lege]. Plan B: wiederhole 3 [nimm] wiederhole 3 [markiere] wiederhole 3 [lege]. Beide enthalten aufgeschrieben nach dem Auflösen drei nimm, drei markiere und drei lege.",
+          "paragraphs": [
+            "Behauptung: „Beide Pläne müssen gleich wirken, weil die Befehle gleich oft vorkommen.“ Prüfe diese Behauptung zuerst ohne Lösung."
+          ],
+          "media": [
+            "protokoll"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "fehler",
+          "title": "Prüfe Schritt für Schritt",
+          "text": "Führe Plan B mit drei Papierkarten aus. Nenne den ersten Stopp und den Zustand direkt davor. Erkläre, warum „wiederhole1“ als einzige Änderung den ganzen Auftrag nicht löst. Repariere die Gruppe und führe neu aus.",
+          "prompt": "Erste Abweichung → Ursache → Änderung → neuer Lauf",
+          "solution": "Plan B stoppt beim zweiten nimm. Vorher: Vorrat 2, unmarkierte Karte auf dem Platz, Ausgabe leer. Der Platz ist belegt. Eine Änderung der Zahl allein verarbeitet nicht drei Karten. In jeden Durchlauf gehören nimm, markiere und lege; dann wird der Platz rechtzeitig frei. Plan A schafft9 Aktionen und drei markierte Ausgabekarten."
+        },
+        {
+          "type": "cooperative",
+          "id": "rueckmeldung",
+          "title": "Lass deinen eigenen Entwurf prüfen",
+          "text": "Zeige Grafik, Code und Spur aus dem eigenen Kartenauftrag. Die andere Person soll einen noch nicht erklärten Zwischenzustand vorhersagen. Tauscht danach die Rollen.",
+          "prompt": "Welche konkrete Rückmeldung hast du erhalten und wie prüfst du sie?",
+          "contribution": "Zeige deine eigene Grafik und deinen Code. Verrate den ausgewählten Zwischenzustand zunächst nicht.",
+          "exchange": "Die andere Person führt den ausgewählten Abschnitt mit Karten aus und nennt eine konkrete Unklarheit oder Abweichung. Beide übernehmen einmal die prüfende Rolle.",
+          "return": "Prüfe den Hinweis am Code. Verbessere eine unklare Grafikstelle, deine Erklärung oder einen fehlerhaften Befehl. Ein unpassender Hinweis darf mit Begründung abgelehnt werden. Ohne Partnerperson: eigene Kriterienprüfung; echte Rückmeldung bleibt offen.",
+          "help": [
+            {
+              "title": "Alles war richtig?",
+              "text": "Behalte den richtigen Code. Ergänze eine genauere Erklärung für eine Stelle, die deine Partnerperson missverstanden hat. Den Fehlernachweis lieferst du am Gegenbeispiel.",
+              "knowledge": "fehler",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "revision",
+          "title": "Überarbeite und teste erneut",
+          "text": "Gehe zu deinem Entwurf zurück. Bewahre die erste Spur, ändere gezielt und übernimm einen neuen Lauf ins Protokoll. Zeichne die Änderung auf deinem Blatt nach.",
+          "prompt": "Deine geprüfte Änderung und ihr Ergebnis",
+          "links": [
+            {
+              "href": "schritt-entwurf.html",
+              "label": "Zum eigenen Code zurück"
+            }
+          ],
+          "responseHint": "Vorher …; Hinweis oder Fehler …; geändert …; neuer Lauf …; deshalb …"
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "fehler",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Neue Maschine, gleicher Gedanke?",
+      "goal": "Feste Wiederholung auf einen anderen Zustand und neue Befehle übertragen.",
+      "task": "Eine Signallampe ist am Anfang aus. Sie soll dreimal blinken und danach aus bleiben. Nutze an, warte, aus, warte. Eine Pause ist ein sichtbarer Schritt.",
+      "outcome": "Feste Wiederholung auf einen anderen Zustand und neue Befehle übertragen.",
+      "knowledge": [
+        "schleife",
+        "grafisch",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich übertrage die ganze Blinkgruppe und nenne ihre feste Anzahl.",
+        "Ich erkläre die Wirkung eines Befehls hinter der Schleife.",
+        "Ich benenne eine Grenze des Lampenmodells."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Die Regeln der Lampe",
+          "text": "an schaltet die Lampe ein. aus schaltet sie aus. warte hält den aktuellen Zustand eine gedachte Sekunde. Zeige an/aus mit einer Papierkarte statt mit einer echten blinkenden Lampe.",
+          "paragraphs": [
+            "Eine Aktion wird gezählt, auch wenn warte den Zustand nicht ändert. Hier gibt es keine Karten und keinen belegten Arbeitsplatz."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "lampe",
+          "title": "Entwickle und prüfe den Lampenplan",
+          "text": "Zeichne einen Ablauf mit drei sichtbaren Blinkphasen. Schreibe Code in der gedachten Lampensprache. Zeige die ersten fünf Aktionen mit einer Karte „an“/„aus“. Was würde ein zusätzliches an nach der Schleife verändern?",
+          "prompt": "Lampenablauf, erste fünf Zustände und Wirkung des Zusatzbefehls",
+          "responseHint": "Dieser Transfer läuft auf Papier. Die Kartenstation versteht die Lampenbefehle nicht.",
+          "help": [
+            {
+              "title": "Was muss in die Gruppe?",
+              "text": "Eine vollständige Blinkphase braucht Einschalten, Warten, Ausschalten und Warten.",
+              "knowledge": "schleife",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "wiederhole 3 [an warte aus warte] ergibt12 Aktionen. Nach 1 an, nach 2 an, nach 3 aus, nach 4 aus, nach 5 an. Ein an hinter der Klammer läuft nur einmal: Aktion 13 lässt die Lampe am Ende an. Das verletzt das Ziel „danach aus“. Das Kartenmodell simuliert keine echten Sekunden, Helligkeit oder Stromversorgung."
+        },
+        {
+          "type": "task",
+          "id": "vergleich",
+          "title": "Prüfe eine falsche Übertragung",
+          "text": "Jemand überträgt den Kartenfehler und behauptet: „Zweimal an stoppt, weil die Lampe schon belegt ist.“ Stimmt das nach unseren Lampenregeln? Begründe.",
+          "prompt": "Was bleibt beim Übertragen gleich – was ändert sich?",
+          "responseMode": "oral",
+          "solution": "Nein. an bei bereits eingeschalteter Lampe lässt sie an; die Regeln nennen keinen Stopp. Gleich bleiben geordnete Schritte und feste Wiederholung. Die Voraussetzungen einzelner Befehle gehören zum jeweiligen Modell und dürfen nicht blind übertragen werden."
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "schleife",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "sichern",
+      "title": "Zeige, was dein Ablauf erklärt",
+      "goal": "Eigenes Produkt sichern und den Nutzen von Grafik, Code und Spur begründen.",
+      "task": "Lege Zeichnung, Programm und Fehlerprotokoll zusammen. Erkläre an einer Stelle, wie die drei Darstellungen zusammenpassen.",
+      "outcome": "Eigenes Produkt sichern und den Nutzen von Grafik, Code und Spur begründen.",
+      "knowledge": [
+        "algorithmus",
+        "grafisch",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich kann einen Schritt meiner Grafik im Code und in der Spur wiederfinden.",
+        "Ich erkläre eine Korrektur und den erneuten Test.",
+        "Ich habe Code und Antworten gesichert und die Zeichnung gesondert behalten."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "rueckblick",
+          "title": "Deine kurze Erklärung",
+          "text": "Wähle einen Durchlauf aus deinem eigenen Auftrag: Was zeigt deine Grafik, welcher Code gehört dazu und was ändert sich im Zustand? Was hat dir beim Finden eines Fehlers geholfen?",
+          "prompt": "Deine Erklärung und dein nächster Prüfschritt",
+          "responseHint": "Vier bis sechs Sätze oder eine kurze mündliche Erklärung mit gezeigtem Produkt."
+        },
+        {
+          "type": "task",
+          "id": "sicherung",
+          "title": "Sichern und wieder öffnen",
+          "text": "Öffne Deine Arbeit. Sichere deinen M06-Stand als Arbeitsdatei. Öffne sie als eigenen neuen Stand und prüfe, ob dein Code und beide erklärten Spuren enthalten sind. Bewahre dein gezeichnetes Blatt mit dem vereinbarten Namen auf; es steckt nicht automatisch in der Arbeitsdatei.",
+          "prompt": "Welche Bestandteile sind gesichert, was ist noch offen?",
+          "links": [
+            {
+              "href": "../arbeit.html",
+              "label": "Deine Arbeit sichern"
+            },
+            {
+              "href": "../lernstudio/index.html#start",
+              "label": "Zusätzliche Übung mit Roboterbefehlen"
+            }
+          ],
+          "responseMode": "oral"
+        }
+      ],
+      "materialNeeds": [
+        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "algorithmus",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "completion": {
+        "title": "Dein geprüfter Ablauf",
+        "text": "Prüfe die Kriterien mit deiner Lehrperson oder Partnerperson. Ein fertiger Stand zeigt deine Arbeit, aber noch keine automatisch bestätigte Kompetenz. Die nächste kurze Aufgabe folgt erst mit Abstand."
+      }
+    },
+    {
+      "id": "erinnern",
+      "title": "Mit Abstand: die Signalfolge",
+      "goal": "Eine feste Wiederholung ohne Vorlage rekonstruieren und verbessern.",
+      "task": "Bearbeite den neuen Fall zuerst ohne alte Notizen. Vergleiche erst danach.",
+      "outcome": "Eine feste Wiederholung ohne Vorlage rekonstruieren und verbessern.",
+      "knowledge": [
+        "schleife",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich löse die Klammer in richtiger Reihenfolge auf.",
+        "Ich erkläre den Endzustand und verbessere meine Begründung bei Bedarf."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "abruf",
+          "title": "Erst erinnern, dann nachsehen",
+          "text": "Eine Lampe beginnt aus. Code: wiederhole 2 [ an warte aus ] an. Schreibe die ganze Folge auf. Wie viele Aktionen sind es? Wie endet die Lampe? Ändere genau eine Stelle, damit sie am Ende aus ist.",
+          "prompt": "Deine Folge, Erklärung und gezielte Änderung",
+          "when": "Nach 5 Tagen bis2 Wochen ·5 Minuten aus dem Jahreskonto.",
+          "solution": "an–warte–aus | an–warte–aus | an:7 Aktionen; am Ende an. Das letzte an steht außerhalb der Schleife. Du kannst es entfernen (6 Aktionen) oder durch aus ersetzen (7 Aktionen). Beides endet aus. Erkläre, was du geändert hast; die erste Lösung auswendig zu kennen genügt nicht."
+        }
+      ],
+      "materialNeeds": [
+        "Papier oder Antwortfeld; keine echte Lampe nötig"
+      ],
+      "checkHelp": [
+        {
+          "title": "Du findest keinen Anfang?",
+          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "knowledge": "schleife",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "auftakt"
+    ],
+    "explanation": [
+      "modell"
+    ],
+    "example": [
+      "grafik"
+    ],
+    "practice": [
+      "programm"
+    ],
+    "application": [
+      "entwurf"
+    ],
+    "revision": [
+      "pruefen"
+    ],
+    "securing": [
+      "sichern"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "erinnern"
+    ]
+  }
+}

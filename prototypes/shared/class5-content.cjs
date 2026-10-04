@@ -75,7 +75,11 @@ function mediaHTML(ids,pack){
 function actionLink(h){return h.step?'<a href="schritt-'+esc(h.step)+'.html">'+esc(h.label)+' →</a>':h.knowledge?'<a href="wissen.html#'+esc(h.knowledge)+'">'+esc(h.label)+' →</a>':'';}
 function renderBlocks(step,pack={},options={}){
  let privateUsed=false;
- const html=step.blocks.filter(b=>!options.paper||b.type!=='private').map(b=>{
+ const html=step.blocks.filter(b=>!options.paper||b.type!=='private').map(original=>{
+  let b=original;
+  if(options.paper&&pack.area==='ablaeufe'&&b.id==='code')b={...b,text:(step.id==='entwurf'?'Schreibe deinen eigenen Code für vier Karten auf.':'Schreibe wiederhole 3 [nimm markiere lege] auf.')+' Verfolge jeden Befehl mit Papierkarten. Halte nach jedem Schritt Vorrat, Platz und Ausgabe im Protokoll fest. Die digitale Eingabe und Ausführung im Interpreter holst du später im Lernwerk nach.',responseHint:'Papierweg: Code aufschreiben und mit Karten ausführen. Die praktische Programmierung bleibt noch offen.'};
+  if(options.paper&&pack.area==='ablaeufe'&&b.id==='bedienung')b={...b,text:'Für die spätere Arbeit am Gerät: Öffne den Lernschritt Vorhersagen. Ausführen. Erklären. über den Link unten. Dort steht die Kartenstation direkt beim Codefeld. Die folgenden Gerätewege erklären diese Bildschirmfassung.'};
+  if(options.paper&&pack.area==='ablaeufe'&&b.id==='spur')b={...b,text:'Schreibe die ausgeführte Folge und nach jedem Befehl Vorrat, Platz und Ausgabe auf. Bewahre den ersten Versuch auf. Ergänze in eigenen Worten, warum die Zustandsänderungen zu deinem Code passen und wo sie von der Vorhersage abweichen.'};
   let extra='';
   if(b.type==='external')extra='<div class="lw-device-task"><h3>Vorbereiten</h3><p>'+esc(b.preparation)+'</p><h3>'+(b.context==='device'?'Jetzt am Gerät':'Im anderen Werkzeug arbeiten')+'</h3><p>'+esc(b.action)+'</p>'+(b.context==='device'?'':'<p><a href="'+esc(b.url)+'" target="_blank" rel="noopener noreferrer">Werkzeug öffnen · neuer Tab, Internet nötig</a><span class="lw-print-url">'+esc(b.url)+'</span></p>')+'<h3>Zurück im Lernwerk</h3><p>'+esc(b.return)+'</p></div>';
   if(b.type==='cooperative')extra='<h3>Dein Beitrag</h3><p>'+esc(b.contribution)+'</p><h3>Gemeinsam austauschen</h3><p>'+esc(b.exchange)+'</p><h3>Danach wieder selbst</h3><p>'+esc(b.return)+'</p>';
@@ -85,7 +89,8 @@ function renderBlocks(step,pack={},options={}){
   const routes=(b.routes||[]).filter(r=>!options.device||!r.device||r.device===options.device).map(r=>'<details class="lw-device-route"'+(options.paper?' open':'')+'><summary>'+esc(r.title)+'</summary><ol class="lw-device-steps">'+r.items.map(t=>typeof t==='string'?'<li>'+esc(t)+'</li>':'<li><h4>'+esc(t.title)+'</h4><p>'+esc(t.text)+'</p>'+mediaHTML(t.media,pack)+'</li>').join('')+'</ol>'+citations(r.sources,pack)+'</details>').join('');
   if(b.type==='external'&&b.context==='device')extra='<div class="lw-start-place"><h3>Dein Startort</h3><p>'+esc(b.preparation)+'</p></div><p>'+esc(b.action)+'</p><div class="lw-device-routes">'+routes+'</div><p><b>Zurück im Lernwerk:</b> '+esc(b.return)+'</p>';
   const hint=b.responseHint?'<p class="lw-response-hint" id="'+fieldId+'-hint">'+esc(b.responseHint)+'</p>':'';
-  const input='<label for="'+fieldId+'">'+esc(b.prompt)+'</label><textarea id="'+fieldId+'" aria-label="'+esc(b.prompt)+'"'+(b.responseHint?' aria-describedby="'+fieldId+'-hint"':'')+' rows="2" maxlength="10000"></textarea>';
+  let input='<label for="'+fieldId+'">'+esc(b.prompt)+'</label><textarea id="'+fieldId+'" aria-label="'+esc(b.prompt)+'"'+(b.responseHint?' aria-describedby="'+fieldId+'-hint"':'')+' rows="2" maxlength="10000"></textarea>';
+  if(!options.paper&&pack.area==='ablaeufe'&&b.id==='code')input=require('../m06-kartenstation/render.cjs').enhance(input,step.id);
   const answer=!field?'':options.paper?hint+'<p><b>'+esc(b.prompt)+'</b></p>'+(b.responseMode==='oral'?'':'<div class="lw-answer-space" aria-label="Platz für deine Antwort"></div>'):hint+(b.responseMode==='oral'?'<p><b>'+esc(b.prompt)+'</b></p><details class="lw-optional-answer"><summary>Wenn du möchtest: hier notieren</summary>'+input+'</details>':input);
   const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p>'+actionLink(h)+'</details>').join('');
   const links=b.links?'<nav class="lw-reading-links" aria-label="Material und Arbeitsweg">'+b.links.map(l=>'<a href="'+esc(l.href)+'">'+esc(l.label)+' →</a>').join('')+'</nav>':'';
