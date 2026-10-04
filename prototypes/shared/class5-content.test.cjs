@@ -105,3 +105,13 @@ test('Eigenständige Geräteblätter enthalten nur ihren vollständigen Gerätew
  assert.match(pages.get('baustein-einstieg.html'),/baustein-einstieg-windows.html/);
  b.routes[1].device='invalid';assert.throws(()=>A.validate(p),/Gerät/);
 });
+
+test('Ein verwendbares Bild bekommt nur auf ausdrückliche Kennzeichnung einen sicheren Download',()=>{
+ const p=fixture(); assert.doesNotMatch(A.mediaHTML(['bild'],p),/ download/); p.media[0].downloadable=true;
+ A.validate(p); const html=A.mediaHTML(['bild'],p); assert.match(html,/href="assets\/dateien\/ablage\.svg" download/); assert.match(html,/Ordnerbaum herunterladen/); assert.match(html,/alt="Speicherort mit Ordner und Datei"/);
+ p.media[0].downloadable=false; assert.doesNotMatch(A.mediaHTML(['bild'],p),/ download/);
+});
+test('Bilddownload-Kennzeichnung akzeptiert nur einen booleschen Wert an Bildern',()=>{
+ const p=fixture(); p.media[0].downloadable='yes'; assert.throws(()=>A.validate(p),/Bilddownload/);
+ p.media[0].downloadable=true; p.media[1].downloadable=true; assert.throws(()=>A.validate(p),/Bilddownload/);
+});

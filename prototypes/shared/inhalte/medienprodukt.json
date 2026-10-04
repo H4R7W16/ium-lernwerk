@@ -1,0 +1,1538 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-5-M04-MEDIENPRODUKT",
+  "version": "1.0.0",
+  "grade": 5,
+  "area": "medienprodukt",
+  "family": "content",
+  "title": "Dein Wissen wird sichtbar.",
+  "topic": "Ein Medienprodukt gestalten",
+  "description": "Gestaltet eine digitale Infokarte für eine andere fünfte Klasse. Prüft, wie sie wirkt, verbessert sie mit Rückmeldung und gebt sie auf zwei Wegen weiter.",
+  "product": "Eine digitale Infokarte: eine Seite mit eigenen Texten, einem hilfreichen Bildelement und Quellen. Entwurf und bessere Fassung zeigen eure Entscheidungen.",
+  "prerequisites": [
+    "iPad oder Windows-Schulgerät; freigegebenes Schreibwerkzeug und beschreibbarer Arbeitsort",
+    "Partnerperson, ein anderes Paar für den Lesetest und ausgefüllte Werkzeugkarte der Lehrperson",
+    "Gliederung aus M03 und Recherche-Notizen aus M02; ersatzweise die Startbasis"
+  ],
+  "learnerDuration": "Acht Unterrichtsstunden. Ihr arbeitet Schritt für Schritt an einer Seite. Sichert am Stundenende eure Datei; beim nächsten Mal öffnet ihr genau diese Fassung. Fünf Minuten Erinnerung folgen später.",
+  "duration": "360 Minuten / 8 Unterrichtsstunden. Zusätzlich später 5 Minuten aus dem vorhandenen Jahreskonto.",
+  "workNotice": "Eure Infokarte entsteht im freigegebenen Schreibwerkzeug. Das Lernwerk bearbeitet oder versendet sie nicht. Sichert die Produktdatei dort und mögliche Lernwerk-Notizen gesondert über „Deine Arbeit“.",
+  "curriculum": {
+    "moduleId": "G5-M04",
+    "goalIds": [
+      "3.1.2.2(5)",
+      "3.1.2.2(6)",
+      "3.1.4.1(1)",
+      "3.1.5.1(5)",
+      "3.1.5.1(6)",
+      "3.1.5.1(7)",
+      "3.1.5.1(8)",
+      "3.1.5.1(9)",
+      "3.1.5.2(1)",
+      "3.1.5.2(2)",
+      "3.1.5.2(3)",
+      "3.1.5.2(4)",
+      "3.1.5.2(5)",
+      "3.1.5.2(6)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Anhörungsfassung 21.09.2026, Band 5/6, S. 36, 40, 44–46; Jahrgangsplanung dee82ec. Entwicklung und Übung an einem kleinen Produkt. Keine Behauptung vollständiger Beherrschung, realer Durchführung oder schulischer Freigabe."
+  },
+  "experiencedEntry": {
+    "title": "Du gestaltest schon sicher?",
+    "text": "Erkläre zuerst am Vergleichsbeispiel, wie eine Änderung das Lesen unterstützt. Zeige danach am Gerät eine Zeichenänderung, eine Absatzänderung und ein eingefügtes Objekt. Gelingt alles, starte beim Plan. Nutze übrige Übungszeit für eine alternative Gestaltung mit begründeter Wirkung; Lesetest, Revision und beide Weitergabewege bleiben nötig.",
+    "step": "planen",
+    "label": "Zum eigenen Plan"
+  },
+  "preview": "beispiel-b",
+  "teacher": [
+    "M04 macht aus der Gliederung aus M03 ein überschaubares Text-/Bildprodukt. Eine Seite hält Zeit für bewusstes Gestalten, echte Rückmeldung und Revision frei. Vorhandene Bögen belegen keine tatsächliche Durchführung."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Werkzeugkarte ausfüllen und am Schulprofil prüfen: Schreibwerkzeug mit Text-, Absatz- und Objektfunktionen, Arbeitsort, Export, kompatibler lokaler Dateiweg sowie begrenzter Link im Schulraum. Jeweils mit einem zweiten Gerät öffnen. Auf gemischten iPad-/Windows-Paaren keinen gerätespezifischen Übertragungsweg voraussetzen. Erlaubte Konten, Hilfeweg und Schutzroutine festlegen; keine privaten Dienste.",
+        "M02-Notizen und M03-Gliederung bereitstellen, sonst lokale Startbasis. Paare und ein zweites Paar für den Lesetest bilden; bei einem Gerät Bedienrolle regelmäßig wechseln. Jede Person muss Text und Objekt selbst bearbeiten und ihre Entscheidung erklären. Vorbereitungen auf Papier sind möglich; digitale Herstellung, Austausch, Präsentation und beide Weitergaben bleiben dann offen."
+      ]
+    },
+    {
+      "title": "Acht Stunden führen",
+      "paragraphs": [
+        "1: Wirkung 40, Text 5. 2: Text 30, Objekt 15. 3: Objekt 10, Plan 25, Gestaltung 10. 4: Gestaltung 45. 5: Gestaltung 5, Austausch 20, Lesetest 20. 6: Lesetest 5, Überarbeitung 35, Rechte 5. 7: Rechte 25, Dateikopie 15, Vorstellung 5. 8: Vorstellung 20, Schulraum 15, Sicherung 10 Minuten. Speichern und Wiederöffnen gehören in die laufenden Phasen. Acht Stunden sind eine zu erprobende Annahme.",
+        "Nach zehn Minuten eigener Gestaltung jede Person eine Text- und Objektentscheidung zeigen lassen. Bei Bedienhürden nur den nächsten Schritt vormachen. Vorlesen, Satzanfänge und erlaubte Eingabehilfen unterstützen; Inhalt und Entscheidung bleiben beim Kind. Die Seite braucht keine dekorativen Zusatzmedien. Lizenz vor der Nutzung lesen; spätere Rechteprüfung ist eine zusätzliche Kontrolle."
+      ]
+    },
+    {
+      "title": "Beobachten → helfen",
+      "paragraphs": [
+        "„Schöner“ ohne Grund? Leserauftrag und konkrete Fundstelle nennen lassen. Nur eine Person gestaltet? Bedienrolle wechseln, beide einen eigenen Beitrag zeigen lassen. Lesetest gelingt nur mit Erklärung? Erst still lesen lassen und an der missverstandenen Stelle revidieren. Quelle heißt nur „Internet“? Fundstelle und Bildlizenz getrennt klären. Unklarer Bildstatus? Eigenes Objekt oder bereitgestellte Grafik verwenden.",
+        "Entwurf, erhaltene Rückmeldung, Revision und individuelle Erklärung bilden den Nachweis. Häkchen allein genügen nicht. Rechtekorrektur am vorbereiteten Gegenbeispiel ist Pflicht; am eigenen Produkt nur notwendige Änderungen vornehmen und nachvollziehbar prüfen. Ein korrektes Produkt braucht keinen erfundenen Fehler. Fehlende reale Handlungen gesondert nachholen."
+      ]
+    },
+    {
+      "title": "Abschluss und Anschluss",
+      "paragraphs": [
+        "Kurzvorstellungen in Gruppen aus drei Paaren organisieren; jede Person spricht. Empfänger öffnen sowohl eine lokale Kopie als auch den geschützten Link. Umfang der Freigabe kontrollieren, bei Fehlern keine öffentliche Freigabe wählen. Bearbeitbare Datei, Endfassung und Änderungsnachweis bewahren; Zugang nach Schulregel schützen. Fünf spätere Abrufminuten ergeben zusammen mit M01–M03 27 von 135 Jahresminuten. Für M05 Wirkung und Gestaltungsentscheidung aufbewahren. Nach Erprobung genügen Zeitabweichung, häufigste Hürde und nächste Anpassung."
+      ]
+    }
+  ],
+  "briefing": [
+    "In acht Stunden gestalten die Paare eine Infokarte für eine andere fünfte Klasse. Eine Seite mit eigenen Texten, einem hilfreichen Bildelement und Quellen genügt. Die gemeinsame Gliederung aus M drei und Recherche aus M zwei bilden den Ausgangspunkt; eine gekennzeichnete Startbasis steht bereit. Jede Person bedient selbst und erklärt eine eigene Entscheidung.",
+    "Prüfen Sie vorher das erlaubte Schreibwerkzeug, den Speicherort und zwei echte Weitergabewege. Ein kompatibler lokaler Dateitransfer führt zu einer Kopie auf einem zweiten Gerät. Ein begrenzter Link führt in den geschlossenen Schulraum. Tragen Sie die schulischen Schritte in die Werkzeugkarte ein. iPad und Windows sind gleichwertig; private Dienste sind kein Ersatz.",
+    "Der Verlauf: vierzig Minuten Wirkung, sechzig Minuten angeleitete Text- und Objektübung, fünfundzwanzig Minuten Plan, sechzig Minuten Gestaltung, zwanzig Minuten Austausch, fünfundzwanzig Minuten Lesetest und fünfunddreißig Minuten Überarbeitung. Hinzu kommen dreißig Minuten Rechteprüfung mit Korrektur, fünfzehn Minuten Dateikopie, fünfundzwanzig Minuten Vorstellung, fünfzehn Minuten Linkfreigabe und zehn Minuten Sicherung. Arbeitsstände werden innerhalb dieser Phasen gespeichert.",
+    "Beobachten Sie den tatsächlichen Umgang mit Zeichen, Absätzen und Objekten sowie den Zusammenhang zwischen Rückmeldung und Änderung. Beim Lesetest erklären die Gestaltenden zunächst nichts. Unklare Bildrechte führen zu einem geklärten Ersatz. Am Gegenbeispiel korrigieren alle; am eigenen Produkt werden notwendige Änderungen begründet. Bewahren Sie die bearbeitbare Datei, eine lesbare Endfassung und die Änderungsspur. Papierarbeit ersetzt keine digitale Handlung. Fünf Minuten Abruf folgen später aus dem bestehenden Jahreskonto."
+  ],
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026, S. 36, 40, 44–46",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Zuordnung mit der aktuellen Kompetenzplanung abgeglichen; Klasse 5 ist unsere Jahresplanung."
+    },
+    {
+      "id": "cc",
+      "title": "Namensnennung – Weitergabe unter gleichen Bedingungen 4.0",
+      "author": "Creative Commons",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "license": "Lizenzinformation verlinkt; eigene Prüfkarte separat lizenziert",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "dlr",
+      "title": "Erde, Sonne und Mond – Wie der Mond die Erde umkreist",
+      "author": "Deutsches Zentrum für Luft- und Raumfahrt (DLR_next)",
+      "url": "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "04.10.2026",
+      "note": "Relevanter Textabschnitt im Browser gelesen; kein Video erforderlich."
+    },
+    {
+      "id": "timeanddate",
+      "title": "Wie entstehen die Mondphasen?",
+      "author": "Konstantin Bikos und Vigdis Hocken · timeanddate",
+      "url": "https://www.timeanddate.de/astronomie/mond/mondphasen",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "04.10.2026",
+      "note": "Abschnitt „Eine Frage der Perspektive“; Seite enthält zusätzliche Angebote."
+    },
+    {
+      "id": "pages",
+      "title": "Erste Schritte mit Pages auf dem iPad",
+      "author": "Apple",
+      "url": "https://support.apple.com/de-de/guide/pages-ipad/tan239d80198/ipados",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Bedienhinweise",
+      "checked": "2026-10-04",
+      "note": "Beispiel für ein mögliches Schulwerkzeug; installierte Version und Freigaben vor Ort prüfen."
+    },
+    {
+      "id": "word",
+      "title": "Hinzufügen und Formatieren in Word für Windows",
+      "author": "Microsoft",
+      "url": "https://support.microsoft.com/de-de/office/schnelltipps-hinzuf%C3%BCgen-und-formatieren-in-word-f%C3%BCr-windows-975ce736-8947-4f7d-a71b-9508339d480d",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Bedienhinweise",
+      "checked": "2026-10-04",
+      "note": "Beispiel für ein mögliches Schulwerkzeug; installierte Version und Freigaben vor Ort prüfen."
+    },
+    {
+      "id": "bilder",
+      "title": "Bilder in Word einfügen",
+      "author": "Microsoft",
+      "url": "https://support.microsoft.com/de-de/word/training/insert-pictures",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Bedienhinweise",
+      "checked": "2026-10-04",
+      "note": "Beispiel für ein mögliches Schulwerkzeug; installierte Version und Freigaben vor Ort prüfen."
+    },
+    {
+      "id": "pdf",
+      "title": "Als PDF speichern oder konvertieren",
+      "author": "Microsoft",
+      "url": "https://support.microsoft.com/de-de/office/speichern-oder-konvertieren-in-pdf-oder-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Bedienhinweise",
+      "checked": "2026-10-04",
+      "note": "Beispiel für ein mögliches Schulwerkzeug; installierte Version und Freigaben vor Ort prüfen."
+    },
+    {
+      "id": "pages-umbruch",
+      "title": "Zeilen- und Seitenumbrüche in Pages auf dem iPad",
+      "author": "Apple",
+      "url": "https://support.apple.com/de-de/guide/pages-ipad/tand23f7b5d7/ipados",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Anleitung",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "word-tasten",
+      "title": "Tastenkombinationen in Word",
+      "author": "Microsoft",
+      "url": "https://support.microsoft.com/de-de/accessibility/word/keyboard-shortcuts-in-word",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Anleitung",
+      "checked": "2026-10-04"
+    }
+  ],
+  "media": [
+    {
+      "id": "werkzeugkarte",
+      "title": "Werkzeugkarte · von der Lehrperson ausfüllen",
+      "kind": "download",
+      "file": "assets/medienprodukt/werkzeugkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "bildungsplan",
+      "printText": "WERKZEUGKARTE M04\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nErlaubtes Schreibwerkzeug / Startort:\nSpeicherort für bearbeitbare Datei und PDF:\nText markieren / Zeichenformat / Absatzformat / Objekt einfügen:\nRückgängig / Kopieren / Einfügen / PDF-Ausgabe:\n\nLokaler Dateiweg auf ZWEITES Gerät (z.B. geprüfter USB-Weg oder erlaubte lokale Nahübertragung):\nKonkrete Schritte für iPad:\nKonkrete Schritte für Windows:\nBenötigte Adapter / kompatible Empfängergeräte:\n\nGeschlossener Schulraum / Einstieg mit eigenem Schulkonto:\nDatei hochladen oder dort speichern:\nBegrenzten Link erzeugen / Leserkreis und Bearbeitungsrecht prüfen:\nErlaubte Nachricht/Antwort und realer Regelhinweis:\nHilfeweg / Schutzhandlung / sicherer Rückweg:\n\nVor Beginn geprüft: zweite Person öffnet die Dateikopie und den begrenzten Link auf dem tatsächlichen Schulprofil. Beide Wege sind verschieden. Bildschirmzeigen genügt nicht als Dateitransfer.\nFehlt ein Weg? Vorbereitung ermöglichen, tatsächliche Weitergabe als offen führen und nachholen.\n"
+    },
+    {
+      "id": "werkstattspur",
+      "title": "Werkstattspur · ein Blatt für eure Entscheidungen",
+      "kind": "download",
+      "file": "assets/medienprodukt/werkstattspur.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "bildungsplan",
+      "printText": "WERKSTATTSPUR M04\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nLeitfrage / Zielgruppe:\nWas soll die Zielgruppe danach verstehen?\nZwei Abschnitte / geplanter Zweck des Bildelements:\nVorwissen, das wir bestätigen oder verbessern:\nSachquellen / genaue Fundstellen / warum hier vertrauenswürdig:\nMedien: selbst erstellt oder Urheberschaft, Fundort, Lizenz, Änderung:\nGemeinsamer Arbeitsort / Dateinamen v1 und v2:\n\nJEDE PERSON FÜHRT EINE KURZE EIGENE SPUR\nMein Textbeitrag und meine Objektentscheidung:\nGesendete Rückfrage / erhaltene Antwort, sinngemäß:\nLesetest: Was hat die andere Person verstanden? Welche Stelle war unklar?\nRevision: vorher -> nachher / Grund aus der Rückmeldung:\nRechteprüfung: geprüfter Bestandteil / nötige Änderung oder begründet unverändert:\n\nGEMEINSAMER ABSCHLUSS\nLokale Dateikopie: von Empfängerperson auf zweitem Gerät geöffnet / noch offen:\nBegrenzter Link: Empfängerperson und Leserecht geprüft / noch offen:\nVorstellung: eigene Erklärung jeder Person / offene Frage:\nKleine Ansicht: eine geprüfte Anpassung und Wirkung:\nBearbeitbare Datei / Endfassung / Entwurf wiedergefunden:\n"
+    },
+    {
+      "id": "startbasis",
+      "title": "Startbasis ohne frühere Gliederung",
+      "kind": "download",
+      "file": "assets/medienprodukt/startbasis.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "dlr",
+      "printText": "ERSATZTEXTE – KEINE ORIGINALQUELLEN\nEigene Zusammenfassungen des IuM-Lernwerks · CC BY-SA 4.0 · Stand 04.10.2026\n\nDiese kurzen Ersatztexte sind eigene Zusammenfassungen des Lernwerks nach den unten verlinkten Seiten, geprüft am 04.10.2026. Sie sind keine Originalzitate und keine zwei unabhängigen Veröffentlichungen. Du kannst mit ihnen Aussagen ordnen und Quellenhinweise üben; die Originalprüfung und echte Suche bleiben offen.\n\nE1 · Nach DLR_next, „Erde, Sonne und Mond“, Abschnitt „Wie der Mond die Erde umkreist“: Der Mond wird von der Sonne beleuchtet. Auf seinem Weg um die Erde sehen wir unterschiedlich große Teile seiner beleuchteten Seite. So verändert sich sein Aussehen.\n\nE2 · Nach timeanddate, Bikos/Hocken, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten ist ein anderer Fall: Er spielt bei einer Mondfinsternis eine Rolle.\n\nOriginal zu E1:\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\nOriginal zu E2:\nhttps://www.timeanddate.de/astronomie/mond/mondphasen\n\nAuftrag in M04: Nutzt diese Ersatztexte für eine Leitfrage zum wechselnden Aussehen des Mondes. Plant zwei Abschnitte: Was sehen wir? Warum ist das keine gewöhnliche Mondfinsternis? Formuliert eigene Sätze und nennt E1/E2 samt Originaladressen. Sagt ausdrücklich, dass ihr mit Ersatztexten arbeitet. Echte Suche und Originalprüfung aus M02 bleiben offen.\n"
+    },
+    {
+      "id": "lizenzkarte",
+      "title": "Lizenzkarte zur eigenen Mondgrafik",
+      "kind": "download",
+      "file": "assets/medienprodukt/lizenzkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "cc",
+      "printText": "LIZENZKARTE\nGrafik: Mondphase oder Mondfinsternis?\nUrheberschaft: IuM-Lernwerk\nFundort: Lernwerk / Klasse 5 / Medienprodukt / Material / Mondvergleich\nLizenz: CC BY-SA 4.0\nhttps://creativecommons.org/licenses/by-sa/4.0/\nÄnderungen am bereitgestellten Original: keine\n\nDu darfst diese eigene Grafik verwenden und bearbeiten. Beim Weitergeben nenne Titel, Urheberschaft, Fundort und Lizenzlink. Beschreibe eine inhaltliche Bearbeitung; gib die bearbeitete Grafik unter derselben Lizenz weiter. Die Lizenz gilt für die Grafik, nicht automatisch für deine ganze Infokarte oder fremde Sachquellen. Bei unverändertem Einfügen schreibe z.B. „unverändert eingefügt“. Eine reine Größenanpassung kannst du als solche nennen.\n\nInhaltliche Grundlage: eigene Zusammenfassung nach DLR_next, „Erde, Sonne und Mond“, und timeanddate, „Wie entstehen die Mondphasen?“. Originaladressen stehen in der Startbasis. Die Grafik ist ein Vergleich von Begriffen, kein räumliches Modell. Sie erklärt nicht die gesamte Entstehung von Mondphasen.\n"
+    },
+    {
+      "id": "beispiel-a",
+      "title": "Beispiel A · erfundene Bücherei",
+      "kind": "image",
+      "file": "assets/medienprodukt/beispiel-a.png",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "cc",
+      "alt": "Bücherei mit großer Überschrift, Werbesatz zweimal und drei Schritten als Fließtext: Buch wählen, bei der Ausleihe zeigen, Rückgabedatum merken.",
+      "caption": "A · Eigenes, erfundenes Beispiel. Untersuche, wie schnell du die drei Schritte findest.",
+      "downloadable": false
+    },
+    {
+      "id": "beispiel-b",
+      "title": "Beispiel B · erfundene Bücherei",
+      "kind": "image",
+      "file": "assets/medienprodukt/beispiel-b.png",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "cc",
+      "alt": "Drei Schritte zum Buch: 1 Buch wählen. 2 Bei der Ausleihe zeigen. 3 Rückgabedatum merken. Eine klare Überschrift und nummerierte Zeilen ordnen den gleichen Kerninhalt.",
+      "caption": "B · Eigenes, erfundenes Beispiel. Gleicher Kerninhalt, andere Gewichtung.",
+      "downloadable": false
+    },
+    {
+      "id": "mond-vergleich",
+      "title": "Mondvergleich",
+      "kind": "image",
+      "file": "assets/medienprodukt/mond-vergleich.png",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "cc",
+      "alt": "Mondphase: Wir sehen unterschiedlich viel von der beleuchteten Mondhälfte. Mondfinsternis: Der Mond gerät in den Schatten der Erde.",
+      "caption": "Eigene Vergleichsgrafik, kein räumliches Modell. Vor dem Einfügen die Lizenzkarte lesen.",
+      "downloadable": true
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "wirkung",
+      "title": "Woran erkennst du eine passende Gestaltung?",
+      "paragraphs": [
+        "Gestaltung lenkt Aufmerksamkeit. Größe, Abstand, Farbe und Anordnung können zeigen, was zusammengehört und was zuerst gelesen werden soll. Wähle sie passend zu den Menschen und ihrer Aufgabe.",
+        "Die beabsichtigte Wirkung ist euer Ziel. Ob sie eintritt, prüft ihr mit Lesenden: Was finden und verstehen sie tatsächlich? „Gefällt mir“ beantwortet eine andere Frage."
+      ],
+      "example": "Eine Anleitung nummeriert Schritte. Eine Einladung könnte einen Termin hervorheben. Beides kann passen, wenn es die jeweilige Aufgabe unterstützt.",
+      "boundary": "Eine Gestaltung ist nicht für alle Zwecke am besten. Einzelne Rückmeldungen sind Hinweise, kein Beweis für die Wirkung bei allen.",
+      "steps": [
+        "wirkung",
+        "planen",
+        "lesetest",
+        "vorstellen"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "text",
+      "title": "Zeichen, Absatz oder neue Zeile?",
+      "paragraphs": [
+        "Zeichen sind zum Beispiel Buchstaben und Satzzeichen. Du kannst ein Wort markieren und seine Schrift ändern. Ein Absatz ist ein zusammengehöriger Textteil bis zur nächsten Absatzmarke. Ausrichtung oder Abstand betreffen meist den ganzen Absatz.",
+        "Der automatische Zeilenumbruch hängt von der verfügbaren Breite ab. Mit der Eingabetaste beginnst du in einem Textdokument normalerweise einen neuen Absatz. Eine gezielte Zeilenschaltung bleibt im selben Absatz; der passende Befehl hängt vom Werkzeug ab.",
+        "Nutze echte Überschriften und Listenfunktionen, wenn dein Werkzeug sie anbietet. Viele Leerzeichen oder leere Absätze sind keine verlässliche Methode zum Anordnen."
+      ],
+      "example": "Markiere nur „Mondphase“ und mache das Wort fett. Ändere dann den Abstand seines Absatzes. Beobachte, welche Teile jeweils betroffen sind.",
+      "boundary": "Menüs unterscheiden sich. Die Werkzeugkarte nennt euren Weg. Eine manuelle Zeilenschaltung ist nur sinnvoll, wenn die Zeile bewusst an dieser Stelle enden soll.",
+      "steps": [
+        "text",
+        "gestalten",
+        "ueberarbeiten"
+      ],
+      "sources": [
+        "pages",
+        "word",
+        "pages-umbruch",
+        "word-tasten"
+      ]
+    },
+    {
+      "id": "werkzeug",
+      "title": "Wie arbeitest du sicher im Schreibwerkzeug?",
+      "paragraphs": [
+        "Markieren bestimmt, worauf ein Befehl wirkt. Ein Kontextmenü bietet Befehle passend zur ausgewählten Stelle; auf dem iPad oft nach Antippen/Markieren, unter Windows häufig nach Rechtsklick.",
+        "Beim Kopieren gelangt die Auswahl in die Zwischenablage. Einfügen setzt sie am neuen Ort ein. Rückgängig nimmt eine letzte Änderung zurück. Prüfe danach, was tatsächlich im Dokument steht."
+      ],
+      "example": "Kopiere eine eigene Überschrift an eine zweite Stelle, füge sie ein und nimm die Einfügung wieder zurück. Die ursprüngliche Überschrift bleibt stehen.",
+      "boundary": "Gespeicherte Datei, Zwischenablage und Lernwerk-Notizen sind verschiedene Dinge. Sichere die Produktdatei an eurem vereinbarten Ort.",
+      "steps": [
+        "text",
+        "objekt",
+        "gestalten"
+      ],
+      "sources": [
+        "pages",
+        "word"
+      ]
+    },
+    {
+      "id": "objekte",
+      "title": "Wann hilft ein Bildelement?",
+      "paragraphs": [
+        "Ein Bild, eine Tabelle oder passende Formen sollen etwas erklären, ordnen oder vergleichbar machen. Frage zuerst: Was versteht die Zielgruppe damit besser?",
+        "Verändere bei Bildern möglichst die Größe an einer Ecke, damit die Proportionen erhalten bleiben. Prüfe auf der ganzen Seite, ob Schrift im Bild lesbar bleibt. Bei Tabellen helfen klare Spaltenüberschriften."
+      ],
+      "example": "Zwei Zeilen mit „Mondphase“ und „Mondfinsternis“ machen einen Unterschied sichtbar. Ein beliebiges Mondfoto erklärt diesen Unterschied noch nicht.",
+      "boundary": "Ein vereinfachter Vergleich ist kein vollständiges Modell. Füge fremde Bilder nur mit geklärter Erlaubnis ein; eine Suchmaschine gibt keine Bildrechte.",
+      "steps": [
+        "objekt",
+        "planen",
+        "gestalten",
+        "sichern"
+      ],
+      "sources": [
+        "pages",
+        "bilder",
+        "cc"
+      ]
+    },
+    {
+      "id": "quellen",
+      "title": "Was braucht eine überprüfbare Aussage?",
+      "paragraphs": [
+        "Eine Sachquelle beantwortet: Woher stammt diese Information? Notiere Urheberschaft oder Anbieter, Titel, genaue Fundstelle und Adresse. Ordne die Quelle der betreffenden Aussage zu.",
+        "Prüfe, ob die Quelle für diese Frage fachkundig ist, die Aussage begründet und zum benötigten Stand passt. Vergleiche eine wichtige Aussage mit einer weiteren geeigneten Fundstelle. Ein bekannter Name allein genügt nicht.",
+        "Formuliere selbst und verbinde die neue Information mit dem, was du schon wusstest. Wird eine frühere Vermutung korrigiert, erkläre den Unterschied."
+      ],
+      "example": "„Ich dachte: Die Erde verdeckt den Mond jede Woche. Unsere Quellen unterscheiden Mondphase und Mondfinsternis. Deshalb ändere ich meine Erklärung.“",
+      "boundary": "Die bereitgestellten E1/E2 sind eigene Ersatztexte des Lernwerks. Sie sind keine zwei unabhängig gelesenen Originalquellen.",
+      "steps": [
+        "planen",
+        "gestalten",
+        "rechte"
+      ],
+      "sources": [
+        "dlr",
+        "timeanddate"
+      ]
+    },
+    {
+      "id": "rechte",
+      "title": "Quelle und Bildlizenz: Was ist der Unterschied?",
+      "paragraphs": [
+        "Eine Quellenangabe zeigt die Herkunft. Sie ist nicht automatisch die Erlaubnis, einen fremden Text oder ein Bild weiterzugeben. Eigene Formulierungen und eigene Zeichnungen erleichtern die Arbeit; auch dabei fremde Bestandteile beachten.",
+        "Unsere Mondgrafik ist ausdrücklich CC BY-SA 4.0. Beim Weitergeben gehören Urheberschaft, Fundort und Lizenzlink dazu. Beschreibe Änderungen; eine bearbeitete Fassung der Grafik bleibt unter derselben Lizenz. Das macht nicht automatisch die ganze Infokarte zu CC BY-SA.",
+        "Prüfe jedes übernommene Medium. Ist seine Erlaubnis unklar, kläre sie mit der Lehrperson oder ersetze es durch ein eigenes Objekt bzw. das bereitgestellte Material. Keine Fotos von Mitschülerinnen und Mitschülern nötig."
+      ],
+      "example": "„Mondphase oder Mondfinsternis?, IuM-Lernwerk, Lernwerk / Klasse 5 / Medienprodukt / Material, CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/, unverändert eingefügt.“",
+      "boundary": "CC BY-SA ist ein konkretes Lizenzmodell, keine Erlaubnis für beliebige Suchtreffer. Andere Rechte können zusätzlich gelten; schulische Sonderfälle klärt die Lehrperson.",
+      "steps": [
+        "objekt",
+        "gestalten",
+        "rechte",
+        "schulraum"
+      ],
+      "sources": [
+        "cc"
+      ]
+    },
+    {
+      "id": "feedback",
+      "title": "Wie wird aus Rückmeldung eine Verbesserung?",
+      "paragraphs": [
+        "Lass eine Person zuerst ohne deine Erklärung lesen. Bitte sie um die Hauptaussage und eine unklare Stelle. So prüfst du die Wirkung eurer Seite.",
+        "Vergleiche ihre Antwort mit eurem Ziel. Ändere eine konkrete Stelle und lass sie noch einmal prüfen. Bewahre den Entwurf, damit du die Verbesserung zeigen kannst."
+      ],
+      "example": "„Unser Leser deutete den Vergleich als Ablauf. Wir setzen zwei getrennte Überschriften statt eines Pfeils. Jetzt beschreibt er den Unterschied.“",
+      "boundary": "Du musst nicht jedem Wunsch folgen. Begründe, welche Änderung dem Lernziel hilft. Ein neues Datum oder eine andere Lieblingsfarbe allein zeigt das nicht.",
+      "steps": [
+        "austauschen",
+        "lesetest",
+        "ueberarbeiten",
+        "vorstellen"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "weitergabe",
+      "title": "Dateikopie oder begrenzter Link?",
+      "paragraphs": [
+        "Eine lokale Dateikopie liegt anschließend auf dem Empfängergerät. Spätere Änderungen an eurer Arbeitsdatei erscheinen darin nicht automatisch. Ein sinnvoller Dateiname zeigt die Fassung.",
+        "Ein Link verweist auf einen Ort im Schulraum. Zugriff hängt von dessen Berechtigungen ab. Prüfe den vorgesehenen Leserkreis und ob Bearbeiten erlaubt sein soll. „Jeder mit dem Link“ kann zu weit reichen.",
+        "Eine PDF-Fassung eignet sich zum Lesen und Vorstellen. Bewahre daneben die bearbeitbare Originaldatei. Prüfe den Export: Ist alles lesbar und vollständig?"
+      ],
+      "example": "Ein anderes Paar öffnet „Infokarte-Mond-v2.pdf“ als erhaltene lokale Kopie. Später öffnet es den begrenzten Link im Schulraum mit seinem eigenen erlaubten Konto.",
+      "boundary": "Bildschirmzeigen ist eine Vorführung, keine Dateikopie. Das Lernwerk kann Übertragung und Berechtigungen eures Schulraums nicht ausführen oder bestätigen.",
+      "steps": [
+        "dateiweg",
+        "schulraum",
+        "sichern",
+        "erinnern"
+      ],
+      "sources": [
+        "pages",
+        "pdf"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "wirkung",
+      "title": "Was sollen andere verstehen?",
+      "goal": "Du begründest, wie Gestaltung eine Leseaufgabe unterstützt.",
+      "task": "Vergleiche zwei Infokarten. Erkläre die Wirkung an einer konkreten Stelle; plant dann euren Arbeitsweg.",
+      "outcome": "Eine begründete Gestaltungsentscheidung und ein geklärter Arbeitsort.",
+      "knowledge": [
+        "wirkung"
+      ],
+      "criteria": [
+        "Ich nenne die Zielgruppe und ihre Leseaufgabe.",
+        "Ich zeige, welche Gestaltung das Finden einer Information erleichtert.",
+        "Ich kenne Werkzeug, Speicherort und Hilfeweg."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "A: Finde den zweiten Schritt",
+          "text": "Du bist neu in dieser erfundenen Bücherei. Was tust du nach „Buch wählen“? Suche die Stelle im Bild. Danach siehst du, wie dieselbe Kerninformation anders gestaltet wird.",
+          "media": [
+            "beispiel-a"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "B: Eine Entscheidung vormachen",
+          "text": "Meine Absicht: Neue Kinder sollen den Ablauf schnell finden. Deshalb nennt der Titel jetzt den Zweck und jeder Schritt bekommt eine eigene nummerierte Zeile. Den doppelten Werbesatz streiche ich. Ich vermute, dass man den zweiten Schritt so schneller findet; das müssen echte Lesende noch zeigen.",
+          "media": [
+            "beispiel-b"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "vergleichen",
+          "title": "Deine eigene Entscheidung",
+          "text": "Ein Kind schlägt zu B vor: „Machen wir alle Wörter gleich groß und fett, dann ist alles wichtig.“ Entscheide anhand der Leseaufgabe. Andere begründete Varianten sind möglich.",
+          "prompt": "Würdest du diesen Vorschlag übernehmen? Zeige eine Stelle im Bild und begründe. Welche gezielte Änderung könnte stattdessen helfen?",
+          "responseMode": "oral",
+          "responseHint": "Zwei Sätze und eine gezeigte Stelle reichen.",
+          "solution": "Zum Beispiel: Wenn alles gleich groß und fett wird, fällt die Überschrift weniger auf. Ich würde die unterschiedlichen Gewichtungen behalten und höchstens eine schwer lesbare Stelle vergrößern. Eine andere Änderung ist sinnvoll, wenn sie beim Finden der Schritte hilft. Prüfen lässt sich das, indem eine neue Person den zweiten Schritt ohne Erklärung findet.",
+          "help": [
+            {
+              "title": "Ich weiß nur, was mir gefällt",
+              "text": "Beginne mit „Ein neues Kind sucht …“. Zeige dann genau die Stelle, die dabei hilft.",
+              "knowledge": "wirkung",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "arbeitsort",
+          "title": "Eure Werkstatt vorbereiten",
+          "text": "Ihr erstellt später eine eigene Infokarte für eine andere fünfte Klasse: eine Seite, zwei kurze Abschnitte, ein hilfreiches Bildelement und Quellen. Arbeitet zu zweit. Die Lehrperson hat die Werkzeugkarte ausgefüllt.",
+          "media": [
+            "werkzeugkarte",
+            "werkstattspur"
+          ],
+          "prompt": "Öffnet das vereinbarte Schreibwerkzeug und den Speicherort. Zeigt den Hilfeweg auf der Karte. Klärt, wer zuerst bedient und wann ihr wechselt.",
+          "responseMode": "oral",
+          "responseHint": "Die Werkzeugkarte und eine Werkstattspur pro Paar genügen; jede Person führt darin ihre eigene kurze Spur.",
+          "help": [
+            {
+              "title": "Ein Eintrag fehlt",
+              "text": "Fragt die Lehrperson nach dem konkreten Weg. Skizzen sind möglich; echte Gerätehandlungen bleiben bis zur Klärung offen.",
+              "knowledge": "werkzeug",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Vergleichsbilder auf dieser Seite; ausgefüllte Werkzeugkarte",
+        "Partnerperson, Schulgerät, erlaubtes Schreibwerkzeug; Werkstattspur"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur Geschmack genannt?",
+          "text": "Nenne zuerst die Leseaufgabe. Zeige dann in A oder B die passende Stelle.",
+          "knowledge": "wirkung",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "text",
+      "title": "Du bestimmst, was wichtig wird",
+      "goal": "Du formatierst Zeichen und Absätze und nutzt die Zwischenablage bewusst.",
+      "task": "Erstelle ein kurzes Übungsdokument. Jede Person führt die Änderungen selbst aus.",
+      "outcome": "Ein gespeicherter Übungstext mit erklärbaren Zeichen- und Absatzänderungen.",
+      "knowledge": [
+        "text",
+        "werkzeug"
+      ],
+      "criteria": [
+        "Ich ändere ein Wort und einen ganzen Absatz gezielt.",
+        "Ich nutze eine Überschrift und unterscheide Absatz, manuellen und automatischen Zeilenumbruch.",
+        "Ich kopiere, füge ein, mache rückgängig und finde meine Datei wieder."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Mit wenig Text üben",
+          "text": "Tippe diese drei Teile jeweils als eigenen Absatz: „Unsere Bücherei“ / „Buch wählen.“ / „Bei der Ausleihe zeigen. Rückgabedatum merken.“ Das ist nur ein erfundenes Übungsbeispiel, noch nicht eure Infokarte.",
+          "paragraphs": [
+            "Ein Wort fett zu machen verändert ausgewählte Zeichen. Den Abstand nach „Buch wählen.“ zu vergrößern verändert den Absatz. Wenn die lange Zeile am rechten Rand automatisch umbricht, entsteht dadurch kein neuer Absatz."
+          ]
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "formatieren",
+          "title": "Selbst ausprobieren und erklären",
+          "text": "Arbeitet erst einzeln nacheinander. Die andere Person beobachtet, erklärt aber nicht jeden Klick vorweg.",
+          "preparation": "Öffne das erlaubte Schreibwerkzeug aus der Werkzeugkarte. Beginne mit einem leeren Textdokument und dem kurzen Beispieltext oben.",
+          "action": "Markiere nur „Buch“ und hebe es fett hervor. Formatiere „Unsere Bücherei“ als Überschrift. Ändere den Abstand nach dem Absatz „Buch wählen.“. Kopiere eine eigene Zeile, füge sie am Ende ein und mache diese Einfügung rückgängig. Vergleiche einen Absatzwechsel mit einem automatischen Zeilenumbruch. Setze vor „Rückgabedatum“ einen manuellen Zeilenumbruch: Die neue Zeile soll zum selben Absatz gehören. Vergleiche mit einem neuen Absatz und nimm die Probe danach zurück.",
+          "routes": [
+            {
+              "title": "iPad · im freigegebenen Schreibwerkzeug",
+              "device": "ipad",
+              "items": [
+                "Tippe in den Text und markiere das gewünschte Wort. Nutze die angebotene Textauswahl; prüfe die markierte Stelle vor dem Befehl.",
+                "Beispiel Pages: Über Format lassen sich Schrift und Absatzdarstellung ändern. Setze für die Absatzänderung den Cursor in den betreffenden Absatz; nutze für den Titel einen passenden Absatzstil.",
+                "Nutze Kopieren und Einfügen im Auswahlmenü. Tippe an die neue Einfügestelle. Nimm anschließend genau diese Einfügung über Rückgängig zurück.",
+                "Beispiel Pages: Setze die Einfügestelle vor „Rückgabedatum“. Über der Bildschirmtastatur findest du in der Kurzbefehlleiste Einfügen → Zeilenumbruch. Ein normaler Absatzwechsel entsteht dagegen mit der Eingabetaste. Prüfe den Unterschied, etwa mit eingeblendeten Formatierungszeichen oder dem Absatzabstand.",
+                "Sichere die Übungsdatei am vereinbarten Ort als „Formatprobe“. Schließe sie und öffne sie dort erneut. Bei einem Gerät: Rolle wechseln, zweite Person führt dieselben Handlungen aus."
+              ],
+              "sources": [
+                "pages",
+                "pages-umbruch"
+              ]
+            },
+            {
+              "title": "Windows · im freigegebenen Schreibwerkzeug",
+              "device": "windows",
+              "items": [
+                "Markiere das Wort mit Maus oder Tastatur; ein Doppelklick wählt in Word ein Wort. Prüfe die Auswahl.",
+                "Beispiel Word: Unter Start liegen Schrift, Absatz und Formatvorlagen. Wähle für den Titel eine Überschrift; ändere am zweiten Absatz den Abstand.",
+                "Kopieren und Einfügen findest du im Kontextmenü oder über Strg+C und Strg+V. Strg+Z nimmt die letzte Änderung zurück. Beobachte, was erhalten bleibt.",
+                "Beispiel Word: Setze den Cursor vor „Rückgabedatum“. Umschalt+Eingabetaste beginnt eine neue Zeile im selben Absatz; die Eingabetaste allein einen neuen Absatz. Mit den Formatierungszeichen (¶ unter Start) kannst du den Unterschied sehen.",
+                "Speichere als „Formatprobe“ am vereinbarten Ort. Schließe und öffne die Datei dort erneut. Bei einem Gerät: Rolle wechseln und alle Handlungen selbst durchführen."
+              ],
+              "sources": [
+                "word",
+                "word-tasten"
+              ]
+            }
+          ],
+          "return": "Zeige eine Zeichenänderung und eine Absatzänderung. Erkläre, warum viele Leerzeichen keine gute Ausrichtung ergeben.",
+          "prompt": "Zeige Wort- und Absatzänderung sowie den manuellen Umbruch. Was blieb nach Rückgängig erhalten?",
+          "responseMode": "oral",
+          "responseHint": "Am Gerät erklären; kein zusätzlicher Fließtext nötig.",
+          "help": [
+            {
+              "title": "Es ändert sich zu viel",
+              "text": "Nimm die Änderung zurück. Prüfe erst die Auswahl und ändere dann nur ein Merkmal.",
+              "knowledge": "text",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-wirkung.html",
+              "label": "Werkzeugkarte und Arbeitsort fehlen? Hier beginnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Ausgefüllte Werkzeugkarte; Schulgerät und erlaubtes Schreibwerkzeug",
+        "Übungstext auf diesem Blatt; Partnerperson"
+      ],
+      "prerequisites": [
+        "Werkzeug und beschreibbarer Speicherort sind geklärt."
+      ],
+      "checkHelp": [
+        {
+          "title": "Wort und Absatz verwechselt?",
+          "text": "Nimm eine Änderung zurück, markiere nur ein Wort und vergleiche danach eine Absatzänderung.",
+          "knowledge": "text",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "objekt",
+      "title": "Ein Bildelement mit Aufgabe",
+      "goal": "Du fügst ein visuelles Objekt ein und erklärst seinen Nutzen.",
+      "task": "Erprobe die Mondgrafik oder eine eigene kleine Vergleichstabelle. Prüfe Lesbarkeit, Größe und Herkunft.",
+      "outcome": "Jede Person hat selbst ein sinnvolles Objekt eingefügt und angepasst.",
+      "knowledge": [
+        "objekte",
+        "rechte",
+        "werkzeug"
+      ],
+      "criteria": [
+        "Mein Objekt erklärt oder ordnet etwas.",
+        "Größe und Platzierung lassen Text und Objekt lesbar.",
+        "Ich kenne die Herkunft und Erlaubnis, bevor ich fremdes Material nutze."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zwei Vorgänge unterscheiden",
+          "text": "Diese eigene Grafik stellt zwei Begriffe gegenüber. Sie zeigt keine räumliche Anordnung und erklärt nicht allein, wie Mondphasen entstehen. Lies vor der Nutzung die Lizenzkarte. Du kannst stattdessen eine eigene Tabelle mit denselben beiden Begriffen und eigenen kurzen Erklärungen erstellen.",
+          "media": [
+            "mond-vergleich"
+          ],
+          "sources": [
+            "dlr",
+            "timeanddate",
+            "cc"
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Vor dem Einfügen: die Erlaubnis",
+          "text": "Für unsere Grafik gilt CC BY-SA 4.0: Du darfst sie mit Urheberschaft, Fundort und Lizenzlink verwenden. Nenne inhaltliche Änderungen; eine bearbeitete Grafik bleibt unter derselben Lizenz. Der Hinweis gilt für diese Grafik, nicht automatisch für die ganze Karte.",
+          "paragraphs": [
+            "Hinweis zum unveränderten Einfügen: „Mondphase oder Mondfinsternis?, IuM-Lernwerk, Lernwerk / Klasse 5 / Medienprodukt / Material / Mondvergleich; CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; unverändert eingefügt.“ Die Lizenzkarte enthält diesen Zusammenhang auch als Datei."
+          ],
+          "media": [
+            "lizenzkarte"
+          ],
+          "sources": [
+            "cc"
+          ]
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "einfuegen",
+          "title": "Einfügen, anpassen, prüfen",
+          "text": "Jede Person führt die Handlung selbst aus. In der späteren Infokarte muss das Objekt zu eurer eigenen Frage passen.",
+          "preparation": "Öffne deine Formatprobe aus dem vorigen Schritt. Lade bei Bildnutzung die Grafik über den Downloadknopf herunter; bei gesperrtem Download stellt die Lehrperson genau diese Datei bereit.",
+          "action": "Füge das Bild aus dem Speicher oder eine eigene Tabelle mit zwei Zeilen und klaren Überschriften ein. Passe seine Größe und Lage an. Lies den Text in normaler Ansicht. Ergänze bei der Grafik sofort den Hinweis aus der Lizenzkarte; bei eigenem Objekt kennzeichne „eigene Darstellung“ und die Sachquellen.",
+          "routes": [
+            {
+              "title": "iPad · Objekt einfügen",
+              "device": "ipad",
+              "items": [
+                "Speichere den Bilddownload am Ort aus der Werkzeugkarte. Nutze im Schreibwerkzeug die Funktion zum Einfügen eines Bildes aus einer Datei. Falls das Werkzeug nur andere Bildwege anbietet, zeigt die Lehrperson den geprüften Importweg.",
+                "Alternativ füge eine kleine Tabelle ein. Trage „Mondphase“ und „Mondfinsternis“ als Zeilenüberschriften ein und ergänze je eine eigene Erklärung.",
+                "Wähle das Objekt. Verkleinere ein Bild an einer Ecke; prüfe, ob es verzerrt oder zu klein geworden ist. Halte Beschriftung und Objekt beisammen.",
+                "Speichere, wechsle die Bedienrolle und lasse die andere Person ihre Variante erstellen."
+              ],
+              "sources": [
+                "pages"
+              ]
+            },
+            {
+              "title": "Windows · Objekt einfügen",
+              "device": "windows",
+              "items": [
+                "Beispiel Word: Einfügen → Bilder → Dieses Gerät; gespeicherte Grafik auswählen. Eine eigene Tabelle kannst du unter Einfügen → Tabelle anlegen.",
+                "Wähle das Bild und passe es an einer Ecke an. Eine Platzierung in der Textzeile erleichtert am Anfang das Anordnen.",
+                "Schreibe den Hinweis aus der Lizenzkarte direkt unter das Bild. Bei der Tabelle: Überschriften und eigene Erklärungen eingeben, „eigene Darstellung“ und Sachquellen nennen.",
+                "Speichere, wechsle die Bedienrolle und lasse die andere Person ihre Variante erstellen."
+              ],
+              "sources": [
+                "bilder",
+                "word"
+              ]
+            }
+          ],
+          "return": "Erkläre, welche Information das Objekt sichtbar macht und welche Erklärung noch als Text fehlt.",
+          "prompt": "Zeige deine Objektänderung, den Nutzen und den passenden Herkunftshinweis.",
+          "responseMode": "oral",
+          "responseHint": "Am Objekt zeigen; die Quelle steht im Dokument.",
+          "help": [
+            {
+              "title": "Das Bild ist nur Dekoration",
+              "text": "Benenne genau die Frage, die es beantwortet. Hilft es dabei nicht, nutze eine passende Tabelle oder eigene Formen.",
+              "knowledge": "objekte",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-text.html",
+              "label": "Übungsdokument fehlt? Textprobe anlegen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Formatprobe oder leeres Textdokument; ausgefüllte Werkzeugkarte",
+        "Grafik und Lizenzkarte auf diesem Blatt oder eigene Vergleichstabelle",
+        "Partnerperson und Schulgerät"
+      ],
+      "prerequisites": [
+        "Zeichen und Absätze wurden bereits selbst bearbeitet."
+      ],
+      "checkHelp": [
+        {
+          "title": "Schrift im Bild zu klein?",
+          "text": "Prüfe in normaler Ansicht. Vergrößere das Objekt oder nutze eine übersichtlichere eigene Tabelle.",
+          "knowledge": "objekte",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "planen",
+      "title": "Ein Plan für eure Leser",
+      "goal": "Du verbindest eure Recherche mit einer klaren Absicht für die Infokarte.",
+      "task": "Nehmt eure Gliederung aus M03. Plant eine Seite mit zwei Abschnitten und einem erklärenden Objekt.",
+      "outcome": "Ein kurzer Seitenplan mit Leserziel, Quellen und Beiträgen beider Personen.",
+      "knowledge": [
+        "wirkung",
+        "quellen",
+        "objekte"
+      ],
+      "criteria": [
+        "Unsere Leitfrage ist mit einer Seite beantwortbar.",
+        "Ich verbinde eine Information mit meinem bisherigen Wissen.",
+        "Unsere Aussagen haben passende, prüfbare Fundstellen."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Euer Ausgangspunkt",
+          "text": "Nutzt eure eigene Frage, Recherche und Gliederung. Ohne Vorprodukte hilft die gekennzeichnete Startbasis: „Warum sieht der Mond nicht immer gleich aus?“ Zwei mögliche Abschnitte sind „Was sehen wir?“ und „Warum ist das keine gewöhnliche Mondfinsternis?“. Ihr formuliert die Erklärungen selbst.",
+          "media": [
+            "startbasis",
+            "werkstattspur"
+          ],
+          "links": [
+            {
+              "href": "../zusammenarbeit/material.html",
+              "label": "Frühere Gliederung und Teamplan"
+            },
+            {
+              "href": "../recherche/wissen.html",
+              "label": "Recherche und Quellenprüfung nachschlagen"
+            }
+          ]
+        },
+        {
+          "type": "cooperative",
+          "id": "seitenplan",
+          "title": "Vom Wissen zum Seitenplan",
+          "text": "Eine grobe Skizze und Stichwörter genügen. Plant keine ganze Präsentation und keine Sammlung vieler Bilder.",
+          "prompt": "Zeige deinen geplanten Beitrag, seine Fundstelle und die beabsichtigte Wirkung.",
+          "contribution": "Formuliere zu eurer Frage einen kurzen eigenen Satz. Erkläre: Was wusste oder vermutete ich schon? Was ergänzt oder korrigiert die Quelle? Nenne ein begründetes Merkmal ihrer Vertrauenswürdigkeit, etwa fachkundige Erklärung mit nachvollziehbarer Fundstelle.",
+          "exchange": "Vergleicht die beiden Aussagen mit euren Quellen. Plant Titel, zwei kurze Abschnitte und ein Objekt, das etwas erklärt. Legt fest, was die andere fünfte Klasse danach verstehen soll. Verteilt Textbeiträge und Bedienzeit; beide verändern später Text und Objekt. Notiert nur Stichwörter in der Werkstattspur.",
+          "return": "Erkläre den Zusammenhang zwischen deinem Satz, der Leitfrage und dem gewählten Objekt. Bei E1/E2 benennt ihr die Ersatztexte ausdrücklich; ungeprüfte Originale gelten nicht als geprüft.",
+          "responseMode": "oral",
+          "responseHint": "Skizze und gemeinsame Werkstattspur reichen.",
+          "help": [
+            {
+              "title": "Unser Thema ist zu groß",
+              "text": "Wählt eine Frage, die ihr mit zwei Abschnitten beantworten könnt. Streicht interessante Nebenfragen für heute.",
+              "knowledge": "wirkung",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "M03-Gliederung und M02-Quellenkarten oder Startbasis auf diesem Blatt",
+        "Werkstattspur, Partnerperson und Papier oder erlaubtes Schreibwerkzeug"
+      ],
+      "checkHelp": [
+        {
+          "title": "Aussage ohne Fundstelle?",
+          "text": "Nimm eure Quellenkarte hinzu. Bei Ersatztexten nenne E1/E2 ausdrücklich und markiere die Originalprüfung als offen.",
+          "knowledge": "quellen",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "gestalten",
+      "title": "Eure erste digitale Infokarte",
+      "goal": "Du gestaltest einen eigenen Beitrag passend zum Leserziel.",
+      "task": "Setzt euren Seitenplan im freigegebenen Schreibwerkzeug um. Jede Person bedient selbst.",
+      "outcome": "Eine editierbare erste Fassung mit Text, visuellem Objekt und Quellen.",
+      "knowledge": [
+        "text",
+        "objekte",
+        "rechte",
+        "quellen"
+      ],
+      "criteria": [
+        "Meine Überschrift und Absätze unterstützen das Verstehen.",
+        "Ich habe Text und Objekt selbst bearbeitet.",
+        "Übernommene Medien haben schon jetzt geklärte Rechte."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "entwurf",
+          "title": "Eine Seite, klare Entscheidungen",
+          "text": "Plant etwa zwei kurze Abschnitte mit je zwei bis vier eigenen Sätzen. Das ist eine Orientierung, kein Wortzählauftrag. Eine kurze Liste darf einen Abschnitt ersetzen, wenn sie besser passt.",
+          "contribution": "Schreibe deinen Teil in eigenen Worten und füge ihn am vereinbarten Arbeitsort ein. Verwende Überschrift und Absätze gezielt. Füge das geplante Objekt ein oder verbessere es selbst. Nenne die zugehörigen Sachquellen; ergänze bei übernommener Grafik Urheberschaft, Fundort, Lizenzlink und Änderungsstatus.",
+          "exchange": "Lest beide Teile zusammen. Prüft den roten Faden zur Leitfrage, einen erklärten schwierigen Begriff und die Lesbarkeit des Objekts. Wechselt die Bedienrolle. Nach zehn Minuten zeigt jede Person eine eigene Text- und Objektentscheidung. Sichert eure erste vollständige Fassung als v1, bevor ihr später revidiert.",
+          "return": "Zeige deinen Anteil und begründe eine Gestaltungsentscheidung mit der Zielgruppe. Halte nur Stelle und Grund in deiner eigenen Spur fest.",
+          "prompt": "Was hast du selbst gestaltet? Was soll diese Entscheidung beim Lesen bewirken?",
+          "responseMode": "oral",
+          "responseHint": "Datei plus kurze Werkstattspur; keine zweite Abschrift im Lernwerk.",
+          "help": [
+            {
+              "title": "Wir verlieren uns in Farben",
+              "text": "Prüft zuerst Hauptaussage, Abschnitte und Lesbarkeit. Nutzt wenige Farben mit gut unterscheidbarer Schrift.",
+              "knowledge": "wirkung",
+              "label": "Passendes Wissen öffnen"
+            },
+            {
+              "title": "Das Werkzeug blockiert mich",
+              "text": "Nutze die Werkzeugkarte oder die Text-/Objektprobe. Bitte bei einer gesperrten Funktion die Lehrperson um einen erlaubten Weg.",
+              "knowledge": "werkzeug",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-planen.html",
+              "label": "Seitenplan und Startbasis"
+            },
+            {
+              "href": "baustein-text.html",
+              "label": "Zeichen und Absätze üben"
+            },
+            {
+              "href": "baustein-objekt.html",
+              "label": "Objekt und Lizenzkarte"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Seitenplan, Quellen, Werkstattspur und ggf. freigegebene Grafik",
+        "Partnerperson; Schulgerät, Schreibwerkzeug und Arbeitsort laut Werkzeugkarte"
+      ],
+      "prerequisites": [
+        "Leitfrage, Leserziel, zwei Beiträge und passende Quellen sind geplant."
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur eine Person hat bedient?",
+          "text": "Wechselt die Rolle. Zeige anschließend selbst eine Text- und eine Objektänderung.",
+          "knowledge": "werkzeug",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "austauschen",
+      "title": "Zwei Beiträge werden eine Seite",
+      "goal": "Du nutzt einen echten digitalen Austausch, um eine konkrete Stelle zu klären.",
+      "task": "Sendet einander eine Rückfrage zu euren Beiträgen im vereinbarten Schulraum. Nutzt die Antwort in eurer gemeinsamen Fassung.",
+      "outcome": "Gesendete Rückfrage, empfangene Antwort und geklärte gemeinsame Entscheidung.",
+      "knowledge": [
+        "feedback",
+        "weitergabe"
+      ],
+      "criteria": [
+        "Ich habe selbst eine konkrete Rückfrage gesendet.",
+        "Ich gebe die echte Antwort richtig wieder.",
+        "Unsere Fassung nutzt die gemeinsam geklärte Entscheidung."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "abstimmen",
+          "title": "Eine genaue Frage hilft weiter",
+          "text": "Zum Beispiel: „Bei deinem zweiten Absatz: Bedeutet ‚Schatten‘ hier Erdschatten? Unser erster Absatz sagt etwas anderes. Welche Formulierung passt zu unseren Quellen?“ Nutzt eure tatsächliche Seite; erfindet keinen Streit.",
+          "contribution": "Öffne den freigegebenen Schulraum mit deinem eigenen Zugang. Sende eine Rückfrage zu einer konkreten Stelle der Partnerperson. Nutze den auf der Werkzeugkarte erlaubten Kanal und die schulischen Regeln.",
+          "exchange": "Lest die echte Frage, antwortet mit Begründung und klärt bei Bedarf mündlich nach. Formuliert die gemeinsame Entscheidung und setzt sie in der Datei um. Eine Antwort für die andere Person tippen gilt nicht als deren Beitrag.",
+          "return": "Gib die empfangene Antwort mit eigenen Worten wieder und zeige ihre Folge in der Infokarte. Notiere Stelle und Antwort knapp in deiner Spur.",
+          "prompt": "Welche Frage hast du gesendet und was habt ihr mit der Antwort geklärt?",
+          "responseMode": "oral",
+          "responseHint": "Der tatsächliche Austausch ist der Beleg. Zugangsdaten werden nicht notiert.",
+          "help": [
+            {
+              "title": "Austausch geht technisch nicht",
+              "text": "Nutze den Hilfeweg aus der Werkzeugkarte. Du kannst die Frage vorbereiten; echtes Senden und Empfangen bleiben offen.",
+              "knowledge": "weitergabe",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-wirkung.html",
+              "label": "Werkzeugkarte und erlaubter Kanal"
+            },
+            {
+              "href": "baustein-gestalten.html",
+              "label": "Erste Infokarte erstellen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Gemeinsame erste Infokarte mit Quellen und Werkstattspur",
+        "Partnerperson, eigene erlaubte Schulzugänge und ausgefüllte Werkzeugkarte"
+      ],
+      "prerequisites": [
+        "Beide Personen haben einen eigenen Beitrag in der Infokarte."
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur eine vorbereitete Nachricht?",
+          "text": "Prüfe, ob wirklich gesendet und geantwortet wurde. Nutze sonst den Hilfeweg und führe den Austausch als offen.",
+          "knowledge": "weitergabe",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "lesetest",
+      "title": "Andere lesen zuerst",
+      "goal": "Du vergleichst eure Absicht mit dem tatsächlichen Verstehen anderer.",
+      "task": "Tauscht die erste Infokarte mit einem anderen Paar. Lasst zuerst still lesen, ohne zu erklären.",
+      "outcome": "Konkrete Rückmeldung zur Hauptaussage und zu einer unklaren Stelle.",
+      "knowledge": [
+        "wirkung",
+        "feedback"
+      ],
+      "criteria": [
+        "Die anderen lesen zunächst ohne unsere Erklärung.",
+        "Ich unterscheide unsere Absicht von der tatsächlichen Antwort.",
+        "Ich kann eine hilfreiche Rückmeldung genau wiedergeben."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "testen",
+          "title": "Finden, verstehen, zurückmelden",
+          "text": "Jedes Paar prüft die Karte des anderen. Zeigt nur die Arbeitsdatei, keine privaten Ansichten. „Alles gut“ reicht als Rückmeldung nicht.",
+          "contribution": "Lies die andere Karte zunächst selbst. Nenne ihre Leitfrage und erkläre ihre Hauptaussage mit eigenen Worten. Zeige eine Stelle, die dir hilft, und eine Stelle, an der eine Frage offenbleibt.",
+          "exchange": "Die Gestaltenden hören zunächst zu und notieren die Antwort. Vergleicht dann mit dem geplanten Leserziel. Fragt gezielt: Was bedeutet das Bildelement für dich? Welchen Begriff müssen wir erklären? Nennt mindestens einen begründeten Vorschlag. Bei einer schon verständlichen Seite prüft genauer, ob Quelle und Grafik auch in normaler Ansicht lesbar sind.",
+          "return": "Wähle für deinen Anteil eine hilfreiche Rückmeldung. Erkläre, welche konkrete Änderung du daraus ableitest. Wenn ein Vorschlag nicht passt, begründe das und sucht eine andere hilfreiche Verbesserung.",
+          "prompt": "Was wurde tatsächlich verstanden? Welche Stelle wirst du deshalb verändern?",
+          "responseMode": "oral",
+          "responseHint": "Erhaltene Antwort und geplante Änderung kurz in der Werkstattspur festhalten.",
+          "help": [
+            {
+              "title": "Ich bekomme nur Lob",
+              "text": "Bitte die Person, eure Erklärung in eigenen Worten wiederzugeben. Frage nach einem noch unklaren Begriff oder einer schwer lesbaren Stelle.",
+              "knowledge": "feedback",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-planen.html",
+              "label": "Leserziel und Werkstattspur"
+            },
+            {
+              "href": "baustein-austauschen.html",
+              "label": "Gemeinsame Fassung vorbereiten"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Erste Infokarte, Leserziel, Quellen und Werkstattspur",
+        "Ein anderes Paar; Gerät zum Zeigen der Arbeitsdatei"
+      ],
+      "prerequisites": [
+        "Eine lesbare erste Fassung und beide eigenen Beiträge liegen vor."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ihr habt beim Lesen alles erklärt?",
+          "text": "Lass die andere Person einen Abschnitt ohne eure Hilfe lesen und in eigenen Worten erklären.",
+          "knowledge": "feedback",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "ueberarbeiten",
+      "title": "Eine begründet bessere Fassung",
+      "goal": "Du setzt Rückmeldung in eine erkennbare Verbesserung um.",
+      "task": "Bewahrt v1. Überarbeitet eine passende Stelle je Person und prüft die Wirkung erneut.",
+      "outcome": "Fassung v2 mit einer erklärbaren Änderung von jeder Person.",
+      "knowledge": [
+        "feedback",
+        "text",
+        "objekte"
+      ],
+      "criteria": [
+        "Ich zeige die betroffene Stelle vorher und nachher.",
+        "Meine Änderung beantwortet eine tatsächliche Rückmeldung.",
+        "Die erneut lesende Person kann die Änderung prüfen."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Vom Hinweis zur Änderung",
+          "text": "Erfundener Lesetest: „Ich lese den Vergleich als Ablauf: Erst Mondphase, dann Mondfinsternis.“ Die Seite hatte einen Pfeil zwischen beiden Begriffen. Revision: Pfeil entfernen, zwei getrennte Überschriften setzen und den Unterschied in einem Satz erklären. Danach liest die Person erneut.",
+          "paragraphs": [
+            "Die Begründung lautet nicht „Pfeile sind schlecht“, sondern: Dieser Pfeil legte hier eine falsche Reihenfolge nahe. Prüft eure eigene Seite auf ihre konkrete Wirkung."
+          ]
+        },
+        {
+          "type": "cooperative",
+          "id": "revision",
+          "title": "Ändern und nachprüfen",
+          "text": "Ein neues Datum oder eine andere Lieblingsfarbe allein ist keine inhaltlich begründete Verbesserung.",
+          "contribution": "Sichere mit der Partnerperson die bisherige Fassung als v1. Überarbeite deinen Teil anhand einer erhaltenen Rückmeldung. Ändere Inhalt, Gliederung, Form oder Objekt dort, wo es dem Leserziel hilft.",
+          "exchange": "Speichert v2 zusätzlich zur ersten Fassung. Lasst das andere Paar die veränderte Stelle nochmals lesen oder erklären. Prüft, ob das ursprüngliche Problem kleiner geworden ist. Bessert bei Bedarf eine Stelle nach.",
+          "return": "Zeige deine Änderung und erkläre Rückmeldung → Entscheidung → beobachtete Wirkung. Halte vorher/nachher und Grund kurz in deiner eigenen Spur fest.",
+          "prompt": "Was ist jetzt verständlicher und woran erkennst du das?",
+          "responseMode": "oral",
+          "responseHint": "Alte und neue Datei sowie kurze Änderungsspur reichen.",
+          "help": [
+            {
+              "title": "Wir haben jeden Vorschlag übernommen",
+              "text": "Prüft den Bezug zum Leserziel. Nehmt Änderungen zurück, die Informationen verfälschen oder die Seite unnötig füllen.",
+              "knowledge": "feedback",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-lesetest.html",
+              "label": "Eine echte Rückmeldung einholen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "v1 und tatsächlich erhaltene Rückmeldung; Werkstattspur",
+        "Partnerperson und erneut lesendes Paar; erlaubtes Schreibwerkzeug"
+      ],
+      "prerequisites": [
+        "Der Lesetest hat stattgefunden."
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur eine neue Farbe?",
+          "text": "Beziehe deine Änderung auf die erhaltene Rückmeldung. Lass die betroffene Stelle nochmals prüfen.",
+          "knowledge": "feedback",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "rechte",
+      "title": "Darf unsere Karte so weitergehen?",
+      "goal": "Du prüfst eine konkrete Lizenz und korrigierst einen unzureichenden Hinweis.",
+      "task": "Korrigiert zuerst das Gegenbeispiel. Prüft danach eure tatsächliche Infokarte Bestandteil für Bestandteil.",
+      "outcome": "Ein verbesserter Beispielhinweis und eine nachvollziehbar geprüfte eigene Fassung.",
+      "knowledge": [
+        "rechte",
+        "quellen"
+      ],
+      "criteria": [
+        "Ich unterscheide Sachquelle und Erlaubnis zur Mediennutzung.",
+        "Ich kann CC BY-SA 4.0 an der bereitgestellten Grafik anwenden.",
+        "Ich korrigiere unklare Hinweise oder kennzeichne begründet, was schon korrekt ist."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Dieser Hinweis reicht nicht",
+          "text": "Ein erfundenes Paar hat unsere Mondgrafik übernommen, die beiden Überschriften umformuliert und darunter geschrieben: „Bild: Internet. Frei für alle.“ Prüft das anhand der tatsächlichen Lizenzkarte. Die Grafik wurde inhaltlich bearbeitet.",
+          "media": [
+            "lizenzkarte"
+          ],
+          "sources": [
+            "cc"
+          ],
+          "paragraphs": [
+            "Die eigene Grafik trägt CC BY-SA 4.0. Urheberschaft: IuM-Lernwerk. Fundort: Lernwerk / Klasse 5 / Medienprodukt / Material / Mondvergleich. Lizenzlink: https://creativecommons.org/licenses/by-sa/4.0/. Eine bearbeitete Grafik wird unter derselben Lizenz weitergegeben; Änderungen werden genannt."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "lizenzprobe",
+          "title": "Den Hinweis wirklich überarbeiten",
+          "text": "Erst selbst schreiben oder diktieren, danach die mögliche Lösung öffnen. Es geht um diese Grafik, nicht um eine pauschale Lizenz für fremde Quellen.",
+          "prompt": "Ersetze „Bild: Internet. Frei für alle.“ durch einen passenden Hinweis zur bearbeiteten Grafik. Welche Bedingung gilt beim Weitergeben?",
+          "responseHint": "Ein kurzer Hinweis genügt. Nutze den Fundort und Lizenzlink oben.",
+          "solution": "Zum Beispiel: Nach „Mondphase oder Mondfinsternis?“, IuM-Lernwerk, Lernwerk / Klasse 5 / Medienprodukt / Material / Mondvergleich; CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; Überschriften umformuliert. Die bearbeitete Grafik wird ebenfalls unter CC BY-SA 4.0 weitergegeben. Die Aussage „frei für alle“ verschweigt Bedingungen; daraus folgt keine Lizenzierung aller übrigen Inhalte.",
+          "help": [
+            {
+              "title": "Was muss ich unterscheiden?",
+              "text": "Die Sachquelle belegt eine Aussage. Die Lizenz erlaubt bestimmte Nutzungen und stellt Bedingungen. Ergänze Urheberschaft, Ort, Lizenzlink und Änderung.",
+              "knowledge": "rechte",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "cooperative",
+          "id": "eigenepruefung",
+          "title": "Euer Produkt prüfen und nötigenfalls ändern",
+          "text": "Nehmt eure reale Fassung v2. Prüft Quellenhinweise und Medien vor der Weitergabe; erfindet keinen Fehler in einer schon korrekten Karte.",
+          "contribution": "Zeige deine Sachquelle mit genauer Fundstelle. Prüfe jedes Bild, jede übernommene Tabelle und fremde Formulierung: selbst erstellt oder mit geklärter Erlaubnis? Passt der vorhandene Hinweis zu unveränderter Nutzung oder eurer tatsächlichen Bearbeitung?",
+          "exchange": "Korrigiert unvollständige Hinweise direkt in der Datei. Entfernt oder ersetzt ungeklärte Medien. Bei der eigenen Grafik ergänzt ihr den zutreffenden Änderungsstatus und den Lizenzlink. Wenn schon alles stimmt, haltet für einen konkreten Bestandteil fest, woran ihr das geprüft habt. Bewahrt die korrigierte Fassung und eure kurze Prüfspur.",
+          "return": "Erkläre eine tatsächliche Korrektur am Beispiel und das Ergebnis eurer eigenen Prüfung. Zeige genau den geprüften Bestandteil.",
+          "prompt": "Was wurde geändert? Was durfte begründet unverändert bleiben?",
+          "responseMode": "oral",
+          "responseHint": "In der Werkstattspur genügen Bestandteil, Prüfung und Ergebnis.",
+          "help": [
+            {
+              "title": "Wir finden keine Lizenz",
+              "text": "Übernimm das Medium nicht weiter. Nutze ein eigenes Objekt oder die bereitgestellte Grafik samt Hinweis.",
+              "knowledge": "rechte",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-objekt.html",
+              "label": "Grafik und erlaubte Alternative"
+            },
+            {
+              "href": "baustein-ueberarbeiten.html",
+              "label": "Fassung v2 fertigstellen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Eigene Fassung v2, Quellen, Lizenzkarte auf diesem Blatt und Werkstattspur",
+        "Partnerperson; Schreibwerkzeug"
+      ],
+      "prerequisites": [
+        "Gestaltung und Inhalt sind bereits nach Rückmeldung überarbeitet."
+      ],
+      "checkHelp": [
+        {
+          "title": "Es steht nur „Internet“ da?",
+          "text": "Ergänze konkrete Herkunft und prüfe die tatsächliche Lizenz. Korrigiere zuerst das Gegenbeispiel.",
+          "knowledge": "rechte",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "dateiweg",
+      "title": "Eine echte Dateikopie weitergeben",
+      "goal": "Du exportierst eine lesbare Fassung und überträgst sie auf ein zweites Gerät.",
+      "task": "Prüft euren Export. Nutzt den lokalen Dateiweg von der Werkzeugkarte; die empfangende Person öffnet die Kopie selbst.",
+      "outcome": "Eine geprüfte PDF-Datei wurde lokal auf ein anderes Gerät kopiert und dort geöffnet.",
+      "knowledge": [
+        "weitergabe"
+      ],
+      "criteria": [
+        "Die exportierte Seite ist vollständig und lesbar.",
+        "Die Kopie liegt auf dem zweiten Gerät und wird dort geöffnet.",
+        "Ich erkläre, was bei späteren Änderungen mit dieser Kopie passiert."
+      ],
+      "blocks": [
+        {
+          "type": "external",
+          "context": "device",
+          "id": "dateikopie",
+          "title": "Exportieren und lokal übertragen",
+          "text": "Die Lehrperson hat einen kompatiblen Weg vorbereitet, etwa einen geeigneten USB-Datenträger oder eine erlaubte lokale Nahübertragung. Der gleiche Weg funktioniert nicht automatisch zwischen allen Geräten. Ein Bild auf eurem Bildschirm zu zeigen genügt hier nicht.",
+          "preparation": "Öffnet die nach Inhalt, Gestaltung und Rechten geprüfte Infokarte. Nehmt die ausgefüllte Werkzeugkarte und ein zweites, kompatibles Schulgerät.",
+          "action": "Bewahrt die bearbeitbare Datei. Erstellt zusätzlich „Infokarte-Thema-v2.pdf“. Öffnet die PDF und prüft Seitenzahl, abgeschnittenen Text, lesbare Grafik und Quellen. Korrigiert nötigenfalls im Original und exportiert neu. Übertragt genau diese PDF auf dem vorbereiteten lokalen Weg.",
+          "routes": [
+            {
+              "title": "iPad · PDF und lokale Kopie",
+              "device": "ipad",
+              "items": [
+                "Beispiel Pages: Über Teilen → Exportieren und senden lässt sich PDF auswählen. Speichere die Datei am vereinbarten Ort. Das Original bleibt für Änderungen erhalten.",
+                "Öffne die PDF und lies auch Quellen und Bildschrift. Nutze dann ausschließlich die ausgefüllten Übertragungsschritte der Werkzeugkarte.",
+                "Die empfangende Person öffnet die erhaltene lokale Datei auf ihrem Gerät selbst. Vergleicht Dateinamen und Fassung; notiert den gelungenen oder noch offenen Weg."
+              ],
+              "sources": [
+                "pages"
+              ]
+            },
+            {
+              "title": "Windows · PDF und lokale Kopie",
+              "device": "windows",
+              "items": [
+                "Beispiel Word am Desktop: Speichern unter oder Exportieren bietet PDF an. Nutze den auf der Werkzeugkarte geprüften Weg und bewahre die bearbeitbare Originaldatei.",
+                "Öffne die PDF und prüfe die ganze Seite. Kopiere sie über den von der Lehrperson vorbereiteten lokalen Weg auf das zweite Gerät.",
+                "Die empfangende Person öffnet dort die erhaltene Datei selbst. Vergleicht Dateinamen und Fassung; notiert den gelungenen oder noch offenen Weg."
+              ],
+              "sources": [
+                "pdf"
+              ]
+            }
+          ],
+          "return": "Erkläre, warum eine spätere Änderung an eurer Originaldatei nicht automatisch in dieser Kopie erscheint.",
+          "prompt": "Wo wurde die Kopie geöffnet? Was müsste bei einer neuen Fassung geschehen?",
+          "responseMode": "oral",
+          "responseHint": "Ein kurzer Eintrag in der Werkstattspur reicht. Keine privaten Geräte als Ausweichweg.",
+          "help": [
+            {
+              "title": "Die Übertragung scheitert",
+              "text": "Bitte die Lehrperson um den vorbereiteten kompatiblen Weg. Führe Dateikopie als offen, bis die andere Person sie wirklich öffnen kann.",
+              "knowledge": "weitergabe",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-wirkung.html",
+              "label": "Werkzeugkarte mit lokalem Dateiweg"
+            },
+            {
+              "href": "baustein-rechte.html",
+              "label": "Vor der Weitergabe Rechte prüfen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Geprüfte Infokarte, bearbeitbare Datei und Werkzeugkarte",
+        "Zweites kompatibles Schulgerät und vorbereiteter lokaler Übertragungsweg",
+        "Empfängerperson und Werkstattspur"
+      ],
+      "prerequisites": [
+        "Inhalt, Gestaltung und Rechte wurden geprüft; der lokale Weg ist vorbereitet."
+      ],
+      "checkHelp": [
+        {
+          "title": "Die Datei wurde nur gezeigt?",
+          "text": "Übertrage eine echte Kopie auf ein zweites Gerät. Erst wenn die Empfängerperson sie dort öffnet, ist dieser Weg erfolgt.",
+          "knowledge": "weitergabe",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "vorstellen",
+      "title": "Zeigen, erklären, zuhören",
+      "goal": "Du stellst euer Produkt vor und begründest eine eigene Gestaltung.",
+      "task": "Trefft euch in Gruppen aus drei Paaren. Jedes Paar hat fünf Minuten: drei zum Vorstellen, zwei für Rückfragen.",
+      "outcome": "Eine tatsächliche Vorstellung mit einem eigenen Beitrag jeder Person.",
+      "knowledge": [
+        "wirkung",
+        "feedback"
+      ],
+      "criteria": [
+        "Ich erkläre einen Teil des Inhalts in eigenen Worten.",
+        "Ich begründe meine eigene Gestaltungsänderung.",
+        "Ich gehe auf eine Rückfrage ein."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "praesentation",
+          "title": "Eure Karte vor einer kleinen Lerngruppe",
+          "text": "Nutzt etwa fünf Minuten zum Vorbereiten, fünfzehn für die drei Vorstellungen und fünf zum Auswerten. Die fertige Infokarte ist eure Präsentationsansicht; ihr braucht keine zusätzlichen Folien.",
+          "contribution": "Bereite eine kurze Erklärung vor: unsere Leitfrage, meine inhaltliche Aussage und meine Gestaltung vorher → nachher. Sprich frei mit Blick auf die Karte; lies nicht jeden Satz vor.",
+          "exchange": "Zeigt die lesbare Endfassung auf dem vorgesehenen Bildschirm. Jede Person übernimmt einen Teil. Die anderen stellen eine Verständnisfrage und nennen eine passende Gestaltungsentscheidung mit Grund. Hört zu, klärt oder haltet eine noch offene Sachfrage fest.",
+          "return": "Erkläre, welche Rückfrage ihr beantworten konntet und welche Information gegebenenfalls noch geprüft werden muss. Erfinde keine sichere Antwort.",
+          "prompt": "Was hast du selbst erklärt und welche Rückfrage habt ihr aufgenommen?",
+          "responseMode": "oral",
+          "responseHint": "Am Produkt erklären; bei offener Sachfrage ein Stichwort in der Werkstattspur.",
+          "help": [
+            {
+              "title": "Ich bin beim Sprechen unsicher",
+              "text": "Nutze drei Stichwörter: Frage – Aussage – Änderung. Beginne mit deinem eigenen Abschnitt.",
+              "knowledge": "wirkung",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-ueberarbeiten.html",
+              "label": "Vorher und nachher sichern"
+            },
+            {
+              "href": "baustein-dateiweg.html",
+              "label": "Lesbare Endfassung prüfen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Geprüfte Infokarte und Änderungsspur; Ansicht für die kleine Lerngruppe",
+        "Drei Paare oder entsprechend organisierte Kleingruppe"
+      ],
+      "prerequisites": [
+        "Beide Personen haben Inhalt und Gestaltung selbst bearbeitet."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich habe nur vorgelesen?",
+          "text": "Erkläre eine Aussage mit eigenen Worten und zeige, warum du eine Gestaltung verändert hast.",
+          "knowledge": "wirkung",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "schulraum",
+      "title": "Ein Link für den richtigen Kreis",
+      "goal": "Du gibst die Endfassung begrenzt frei und prüfst den Zugriff.",
+      "task": "Teilt die Endfassung über einen Link im geschlossenen Schulraum. Eine erlaubte Empfängerperson öffnet ihn mit ihrem eigenen Konto.",
+      "outcome": "Ein tatsächlich geprüfter Link und eine begründete Unterscheidung zur Dateikopie.",
+      "knowledge": [
+        "weitergabe",
+        "rechte"
+      ],
+      "criteria": [
+        "Ich kontrolliere Leserkreis und Bearbeitungsrecht.",
+        "Die vorgesehene Person öffnet die richtige Fassung.",
+        "Ich wähle für einen neuen Fall einen passenden Weitergabeweg."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "freigabe",
+          "title": "Zugriff prüfen statt vermuten",
+          "text": "Folgt dem ausgefüllten Schulraumweg der Werkzeugkarte. Ein öffentlicher Link ist hier keine Lösung. Der zweite Weg unterscheidet sich von der lokalen Kopie: Er verweist auf die Datei am freigegebenen Ort.",
+          "contribution": "Speichert oder ladet die geprüfte Endfassung am vereinbarten Schulort hoch. Prüft beim Erstellen des Links, wer lesen und wer bearbeiten darf. Für eine fertige Karte genügt für das lesende Paar normalerweise Leserecht; maßgeblich ist die Schulregel.",
+          "exchange": "Übergebt den begrenzten Link auf dem erlaubten Kanal an das vorgesehene Paar. Eine Person öffnet ihn mit ihrem eigenen erlaubten Konto. Prüft Dateinamen und Inhalt. Bei Zugriffsproblemen Hilfe holen und Berechtigung gezielt klären; niemals aus Bequemlichkeit auf öffentlich umstellen.",
+          "return": "Neuer Fall: Eine erlaubte Empfängerperson ist heute abwesend und soll morgen die letzte Fassung lesen. Begründe, welcher Weg passt und was du vor einer späteren Änderung prüfen musst.",
+          "prompt": "Woran erkennt ihr, dass der Link richtig funktioniert? Wie hilft er im neuen Fall?",
+          "responseMode": "oral",
+          "responseHint": "Werkstattspur: empfangendes Paar, geprüfte Fassung und noch offene Schritte.",
+          "solution": "Die vorgesehene Person öffnet mit eigenem Zugang die richtige Datei und hat das vereinbarte Recht. Für späteres Lesen kann der begrenzte Link passen. Er bleibt nur hilfreich, wenn Dateiort und Berechtigungen stimmen. Ob Ersetzen einer Datei denselben Link behält, hängt vom Schulraum ab und muss geprüft werden. Eine lokale Kopie müsste erneut verteilt werden.",
+          "help": [
+            {
+              "title": "Ich sehe nur „Zugriff anfordern“",
+              "text": "Vergleicht Konto, Zielort und vorgesehenen Leserkreis mit der Werkzeugkarte. Holt Hilfe; behauptet noch keinen gelungenen Austausch.",
+              "knowledge": "weitergabe",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-wirkung.html",
+              "label": "Werkzeugkarte für beide Wege"
+            },
+            {
+              "href": "baustein-dateiweg.html",
+              "label": "Ersten Weitergabeweg nachholen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Geprüfte Endfassung, Werkzeugkarte und Werkstattspur",
+        "Schulgerät, eigene Schulkonten, geschlossener Schulraum und Empfängerperson"
+      ],
+      "prerequisites": [
+        "Die Endfassung ist auf Inhalt, Gestaltung und Rechte geprüft. Der Schulraumweg ist freigegeben."
+      ],
+      "checkHelp": [
+        {
+          "title": "Link versendet, Öffnen ungeprüft?",
+          "text": "Bitte die erlaubte Empfängerperson, ihn mit eigenem Zugang zu öffnen. Kontrolliert die Fassung und das Recht.",
+          "knowledge": "weitergabe",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "sichern",
+      "title": "Passt die Karte auch in klein?",
+      "goal": "Du überträgst eine Gestaltungsentscheidung auf eine veränderte Ansicht und sicherst eure Arbeit.",
+      "task": "Prüft eine schmale Bildschirmansicht. Verändert eine passende Stelle in einer gesonderten Kopie und vergleicht.",
+      "outcome": "Ein begründeter kleiner Transfer und auffindbare Arbeitsstände.",
+      "knowledge": [
+        "objekte",
+        "weitergabe"
+      ],
+      "criteria": [
+        "Ich erkenne, welche Information in kleiner Ansicht schwer lesbar wird.",
+        "Ich zeige eine passende Änderung und prüfe sie.",
+        "Ich finde Original, Entwurf und Endfassung wieder."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "kleineansicht",
+          "title": "Eine veränderte Bedingung",
+          "text": "Stellt euch vor, die Karte wird auf einem schmalen Bildschirm gelesen. Verkleinert die Seitenansicht. Wählt eine Stelle: etwa Bildschrift, zu breiter Vergleich oder lange Überschrift. Erstellt für diese Probe eine gesonderte bearbeitbare Kopie, damit eure geteilte Endfassung erhalten bleibt.",
+          "prompt": "Ändere eine Stelle für die kleine Ansicht, zum Beispiel zwei Spalten untereinander oder eine kürzere Überschrift. Vergleiche vorher/nachher: Was wurde lesbarer, was kostet mehr Platz?",
+          "responseMode": "oral",
+          "responseHint": "Etwa fünf Minuten. Eine kleine Änderung mit Erklärung reicht; keine zweite fertige Infokarte nötig.",
+          "help": [
+            {
+              "title": "Unsere Karte ist schon gut lesbar",
+              "text": "Erprobe eine alternative Anordnung an einer Stelle. Begründe anschließend, ob du sie für die schmale Ansicht übernehmen würdest.",
+              "knowledge": "objekte",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Eine mögliche Anpassung: Zwei Vergleichsspalten untereinander anordnen, damit Text weniger verkleinert werden muss. Die Karte wird länger. Das ist ein begründeter Tausch; bloßes Hineinzoomen ändert das Produkt selbst noch nicht."
+        },
+        {
+          "type": "cooperative",
+          "id": "abschluss",
+          "title": "Arbeit wiederfinden und erklären",
+          "text": "Nutzt die übrigen fünf Minuten zum Abschluss. Eine Datei im Downloadordner allein ist noch keine dauerhaft gesicherte Werkstatt.",
+          "contribution": "Öffne am vereinbarten Arbeitsort die bearbeitbare Datei und die Endfassung. Zeige deine Änderungsspur. Benenne einen tatsächlichen Schritt, der gegebenenfalls noch offen ist.",
+          "exchange": "Prüft gemeinsam: v1, v2, Quellen-/Rechtehinweise, lokale Kopie und begrenzter Link. Sichert die kleine Transferprobe gesondert. Notiert fehlende Handlungen statt sie abzuhaken. Sichert mögliche Lernwerk-Notizen über „Deine Arbeit“.",
+          "return": "Erkläre eine Gestaltungsentscheidung und den Unterschied der beiden Weitergabewege. Führt danach die erlaubte Schutzhandlung aus der Werkzeugkarte aus.",
+          "prompt": "Was kannst du jetzt am echten Produkt zeigen? Was bleibt gegebenenfalls nachzuholen?",
+          "responseMode": "oral",
+          "responseHint": "Produktdateien und Werkstattspur bewahren; keine weitere Zusammenfassung nötig.",
+          "links": [
+            {
+              "href": "baustein-dateiweg.html",
+              "label": "Lokale Kopie fehlt?"
+            },
+            {
+              "href": "baustein-schulraum.html",
+              "label": "Begrenzter Link fehlt?"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Endfassung, bearbeitbare Datei, v1 und Werkstattspur",
+        "Partnerperson, Schreibwerkzeug, Speicher- und Schutzweg laut Werkzeugkarte"
+      ],
+      "prerequisites": [
+        "Gestaltung, Vorstellung und Weitergaben wurden durchgeführt oder ehrlich als offen markiert."
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur hineingezoomt?",
+          "text": "Ändere in einer gesonderten Kopie eine Anordnung oder Formulierung und prüfe die kleinere Ansicht erneut.",
+          "knowledge": "objekte",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "completion": {
+        "title": "Für heute fertig – mit sichtbarer Entwicklung",
+        "text": "Bewahrt Entwurf, Endfassung und Änderungsspur. Das zeigt mehr als ein fertiges Bild. Fehlende echte Handlungen bleiben offen. Der folgende kurze Abruf gehört in eine spätere Stunde."
+      }
+    },
+    {
+      "id": "erinnern",
+      "title": "Was bleibt von einer guten Infokarte?",
+      "goal": "Du rufst Gestaltungs- und Weitergabeentscheidungen mit Abstand ab.",
+      "task": "Nimm dir in einer späteren Stunde fünf Minuten. Alte Notizen bleiben zunächst geschlossen.",
+      "outcome": "Eine begründete Entscheidung zu einem veränderten Produkt.",
+      "knowledge": [
+        "wirkung",
+        "rechte",
+        "weitergabe"
+      ],
+      "criteria": [
+        "Ich nenne eine Änderung mit Bezug zur Zielgruppe.",
+        "Ich kläre Herkunft und Erlaubnis vor der Bildnutzung.",
+        "Ich wähle und begründe einen geeigneten Weitergabeweg."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "abruf",
+          "title": "Eine Karte für neue Kinder",
+          "text": "Ein neues Paar plant eine Begrüßungskarte: winzige Schrift, ein unbekanntes Bild aus einer Bildersuche und ein öffentlicher Link. Nur die neue fünfte Klasse soll sie später lesen.",
+          "when": "In einer späteren Stunde, zum Beispiel zu Beginn von M05; fünf Minuten aus dem bestehenden Jahreskonto.",
+          "prompt": "Erkläre ohne alte Notizen: Was würdest du an Gestaltung, Bildnutzung und Weitergabe ändern – und warum? Vergleiche erst danach mit Wissen und Lösung.",
+          "responseMode": "oral",
+          "responseHint": "Drei begründete Entscheidungen genügen.",
+          "solution": "Schrift und Anordnung so ändern, dass neue Kinder die wichtige Information in normaler Ansicht finden und lesen; anschließend mit einer lesenden Person prüfen. Herkunft und Erlaubnis des Bildes klären, bei Unklarheit ein eigenes oder ausdrücklich freigegebenes Objekt wählen. Für diesen begrenzten späteren Lesekreis einen passenden Schulraum mit Leserecht nutzen und den Zugriff durch eine berechtigte Person prüfen. Ein öffentlicher Link reicht zu weit; eine lokale Kopie bleibt eine andere, nicht automatisch aktualisierte Fassung.",
+          "help": [
+            {
+              "title": "Ich erinnere mich kaum",
+              "text": "Versuche zuerst je ein Stichwort: Lesen – Erlaubnis – Empfänger. Öffne danach das Wissen und ergänze gezielt.",
+              "knowledge": "wirkung",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Fünf Minuten mit Abstand; dieser erfundene Fall",
+        "Erst ohne Notizen, danach Wissen zum Vergleichen"
+      ],
+      "prerequisites": [
+        "Die tatsächlichen Produktionsschritte wurden zuvor durchgeführt; fehlende Praxis bleibt nachzuholen."
+      ],
+      "checkHelp": [
+        {
+          "title": "Begründung vergessen?",
+          "text": "Verbinde jede Entscheidung mit dem Problem des neuen Falls. Vergleiche erst danach mit der Lösung.",
+          "knowledge": "wirkung",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "wirkung"
+    ],
+    "explanation": [
+      "wirkung",
+      "text"
+    ],
+    "example": [
+      "wirkung"
+    ],
+    "practice": [
+      "text",
+      "objekt",
+      "rechte"
+    ],
+    "application": [
+      "planen",
+      "gestalten",
+      "austauschen"
+    ],
+    "revision": [
+      "lesetest",
+      "ueberarbeiten",
+      "rechte"
+    ],
+    "securing": [
+      "sichern"
+    ],
+    "transfer": [
+      "sichern",
+      "schulraum"
+    ],
+    "retrieval": [
+      "erinnern"
+    ]
+  }
+}

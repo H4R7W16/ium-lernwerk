@@ -19,6 +19,7 @@ function validateEditorial(pack,steps){
   if(!['image','download'].includes(m.kind)||typeof m.file!=='string'||!/^assets\/[a-z0-9/-]+\.(svg|png|jpg|jpeg|webp|txt)$/.test(m.file)||m.file.includes('..')||m.file.includes('//'))throw new Error('Unzulässiger Medienpfad/Typ');
   if(m.kind==='image'){if(!/\.(svg|png|jpg|jpeg|webp)$/.test(m.file))throw new Error('Bildformat ungültig');text(m.alt,'Alternativtext');text(m.caption,'Bildunterschrift');}
   else{if(!m.file.endsWith('.txt'))throw new Error('Unbekanntes Downloadformat');text(m.printText,'Druckinhalt der Datei');}
+  if(m.downloadable!==undefined&&(m.kind!=='image'||typeof m.downloadable!=='boolean'))throw new Error('Bilddownload ungültig');
   refs([m.sourceId],sources,'Medienquelle');
  }
  for(const k of pack.knowledge){text(k.title,'Wissensfrage');texts(k.paragraphs,'Wissen');text(k.example,'Beispiel');text(k.boundary,'Aussagegrenze');if(!k.steps?.length)throw new Error('Wissensbezug fehlt');refs(k.steps,steps,'Wissensschritt');refs(k.media,media,'Wissensmedium');refs(k.sources,sources,'Wissensquelle');}
@@ -68,7 +69,7 @@ function citations(ids,pack){return (ids||[]).length?'<p class="lw-citation">Gru
 function mediaHTML(ids,pack){
  return (ids||[]).map(id=>{const m=pack.media.find(m=>m.id===id);
   const credit='<small>'+esc(m.creator)+' · '+esc(m.license)+'</small>';
-  return m.kind==='image'?'<figure class="lw-content-figure"><img src="'+esc(m.file)+'" alt="'+esc(m.alt)+'"><figcaption>'+esc(m.caption)+' '+credit+'</figcaption></figure>':'<div class="lw-download"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a><p class="lw-small">Textdatei · '+credit+'</p><div class="lw-print-file"><h3>'+esc(m.title)+' · Dateiinhalt</h3><pre>'+esc(m.printText)+'</pre></div></div>';
+  return m.kind==='image'?'<figure class="lw-content-figure"><img src="'+esc(m.file)+'" alt="'+esc(m.alt)+'"><figcaption>'+esc(m.caption)+' '+credit+'</figcaption>'+(m.downloadable?'<p class="no-print"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a></p>':'')+'</figure>':'<div class="lw-download"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a><p class="lw-small">Textdatei · '+credit+'</p><div class="lw-print-file"><h3>'+esc(m.title)+' · Dateiinhalt</h3><pre>'+esc(m.printText)+'</pre></div></div>';
  }).join('');
 }
 function actionLink(h){return h.step?'<a href="schritt-'+esc(h.step)+'.html">'+esc(h.label)+' →</a>':h.knowledge?'<a href="wissen.html#'+esc(h.knowledge)+'">'+esc(h.label)+' →</a>':'';}

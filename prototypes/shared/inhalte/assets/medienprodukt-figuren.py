@@ -1,0 +1,40 @@
+from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
+root=Path(__file__).resolve().parent / 'medienprodukt'
+root.mkdir(parents=True,exist_ok=True)
+font=r'C:/Windows/Fonts/segoeui.ttf'
+bold=r'C:/Windows/Fonts/segoeuib.ttf'
+def f(n,b=False): return ImageFont.truetype(bold if b else font,n)
+def make(name,bg):
+ im=Image.new('RGB',(960,640),bg); return im,ImageDraw.Draw(im)
+im,d=make('a','#fff7df')
+d.rectangle((22,22,938,618),outline='#713d95',width=8)
+d.text((46,40),'BÜCHEREI!!!',font=f(76,True),fill='#713d95')
+d.text((46,143),'Bücher auswählen macht Spaß!',font=f(41),fill='#315077')
+d.text((46,226),'Buch wählen. Bei der Ausleihe',font=f(48),fill='#582c68')
+d.text((46,290),'zeigen. Rückgabedatum merken.',font=f(48),fill='#582c68')
+d.text((46,399),'DREI SCHRITTE ZUM BUCH',font=f(51,True),fill='#426347')
+d.text((46,500),'Bücher auswählen macht Spaß!',font=f(41),fill='#713d95')
+im.save(root/'beispiel-a.png')
+im,d=make('b','#f2f7f6')
+d.rounded_rectangle((24,24,936,616),radius=24,fill='white')
+d.text((55,52),'Drei Schritte zum Buch',font=f(61,True),fill='#173b46')
+d.text((55,151),'Bücher auswählen macht Spaß!',font=f(42),fill='#45616a')
+for y,n,txt in [(258,'1','Buch wählen'),(365,'2','Bei der Ausleihe zeigen'),(472,'3','Rückgabedatum merken')]:
+ d.rounded_rectangle((55,y,124,y+73),radius=16,fill='#17665d')
+ d.text((76,y+4),n,font=f(47,True),fill='white')
+ d.text((153,y+8),txt,font=f(45),fill='#173b46')
+im.save(root/'beispiel-b.png')
+im,d=make('mond','#f2f7f6')
+d.text((38,30),'Mondphase oder Mondfinsternis?',font=f(49,True),fill='#173b46')
+d.rounded_rectangle((30,119,930,344),radius=18,fill='white')
+d.text((58,139),'MONDPHASE',font=f(40,True),fill='#17665d')
+d.text((58,202),'Wir sehen unterschiedlich viel',font=f(44),fill='#173b46')
+d.text((58,262),'von der beleuchteten Mondhälfte.',font=f(44),fill='#173b46')
+d.rounded_rectangle((30,370,930,583),radius=18,fill='#173b46')
+d.text((58,390),'MONDFINSTERNIS',font=f(40,True),fill='#d6eee7')
+d.text((58,453),'Der Mond gerät in den',font=f(44),fill='white')
+d.text((58,513),'Schatten der Erde.',font=f(44),fill='white')
+d.text((38,603),'Vergleich zweier Vorgänge · kein räumliches Modell',font=f(25),fill='#45616a')
+im.save(root/'mond-vergleich.png')
+print('3 eigene Lehrgrafiken erstellt')

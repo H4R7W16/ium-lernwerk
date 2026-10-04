@@ -46,7 +46,9 @@
       "minutes": 360,
       "focus": "Informationen adressatengerecht gestalten, Quellen nennen und Rückmeldung einarbeiten.",
       "evidence": "Überarbeitetes Produkt mit begründeten Entscheidungen.",
-      "status": "Noch auszuarbeiten; Medienanalyse kann vorbereiten."
+      "status": "Vollständiger Produktbogen ausgearbeitet; Geräte-, Schulraum- und Unterrichtserprobung offen.",
+      "href": "reihe-medienprodukt.html",
+      "label": "Reihenkommentar"
     },
     {
       "id": "G5-M05",
@@ -233,6 +235,94 @@
         "Wiederholte Ausgrenzung? Nicht als bloßes Missverständnis behandeln; schulischen Hilfeweg einsetzen."
       ],
       "next": "Gemeinsame Gliederung und Quellen für M04 sichern. Vor Medienproduktion fehlende digitale Handlungen nachholen. Kurzer individueller Nachweis: Beitrag, empfangene Rückmeldung, begründete Änderung, angewandte Regel. Schulzugang, drei Stunden und Lernwirkung sind noch zu erproben."
+    },
+    {
+      "moduleId": "G5-M04",
+      "file": "reihe-medienprodukt.html",
+      "label": "Medienprodukt",
+      "title": "Ein Medienprodukt gestalten, prüfen und vorstellen",
+      "goal": "Eine digitale Infokarte für andere Lernende gestalten, ihre Wirkung prüfen und eine Verbesserung sowie zwei reale Weitergabewege erklären.",
+      "rationale": "Eine Seite verbindet die Recherche und Gliederung aus M02/M03 mit bewusstem Gestalten. Der Vergleich zweier eigener Beispiele modelliert eine begründete Entscheidung. Zeichen, Absatz und Objekt werden erst gezielt erprobt, dann am eigenen Produkt verwendet. Lesetest ohne Vorab-Erklärung und ein erhaltener Entwurf machen die Revision nachvollziehbar.",
+      "phases": [
+        {
+          "title": "Wirkung erkennen",
+          "minutes": 45,
+          "action": "Wirkung 40, Textprobe beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-wirkung.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Text und Objekt erproben",
+          "minutes": 45,
+          "action": "Textprobe abschließen 30, Objektprobe beginnen 15 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-text.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Vom Plan zum Entwurf",
+          "minutes": 45,
+          "action": "Objektprobe abschließen 10, Seitenplan 25, Gestaltung beginnen 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-objekt.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Selbst gestalten",
+          "minutes": 45,
+          "action": "Eigene digitale Gestaltung 45 Minuten; beide bedienen und erklären.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-gestalten.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Abstimmen und lesen lassen",
+          "minutes": 45,
+          "action": "Gestaltung abschließen 5, realer Austausch 20, Lesetest beginnen 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-austauschen.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Rückmeldung wird Revision",
+          "minutes": 45,
+          "action": "Lesetest abschließen 5, Überarbeitung 35, Rechteprüfung beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-lesetest.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Rechte prüfen und Kopie weitergeben",
+          "minutes": 45,
+          "action": "Rechteprüfung/Korrektur abschließen 25, lokale Dateikopie 15, Vorstellung vorbereiten 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-rechte.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Vorstellen, freigeben und sichern",
+          "minutes": 45,
+          "action": "Vorstellung abschließen 20, begrenzter Link 15, kleine Ansicht und Sicherung 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-vorstellen.html",
+          "label": "Zum Lernbogen"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Fünf Minuten mit Abstand, zum Beispiel zu Beginn von M05: einen veränderten Fall ohne alte Notizen beurteilen. Aus dem vorhandenen 135-Minuten-Konto; M01–M04 belegen zusammen 27 Minuten. Nicht in die acht Kernstunden doppelt zählen."
+      },
+      "preparation": "Werkzeugkarte mit Schreibwerkzeug, Speicher-/Exportweg, lokalem Transfer auf ein zweites kompatibles Gerät, begrenztem Link im Schulraum und Schutzroutine ausfüllen. Beide Wege auf den tatsächlichen Schulprofilen prüfen. M02/M03-Vorprodukte oder gekennzeichnete Startbasis bereitstellen; Paare, Lesepaar und Kleingruppe für Vorstellungen planen. iPad und Windows gleichwertig. Arbeitsstände innerhalb jeder Phase sichern und wieder öffnen.",
+      "decisions": [
+        "Begründung nur „schöner“? Leserziel und konkrete Fundstelle nennen lassen.",
+        "Bedienung nur durch eine Person? Rolle wechseln, individuelle Text- und Objektänderung zeigen lassen.",
+        "Lesetest wird von Erklärungen überlagert? Einen Abschnitt zuerst still lesen lassen.",
+        "Bildrechte unklar? Klären oder durch eigenes/freigegebenes Objekt ersetzen.",
+        "Transfer technisch nicht möglich? Vorbereitung fortsetzen, reale Handlung als offen führen und nachholen."
+      ],
+      "next": "Bearbeitbare Datei, Entwurf, Endfassung und eigene Änderungsspur sichern. Kopie und Link durch Empfänger öffnen lassen. Für M05 Wirkung und Gestaltungsentscheidung bereithalten. Nach Erprobung Zeitabweichung, häufigste Hürde und Anpassung notieren; kein vollständiger Kompetenznachweis allein aus dem Produkt."
     }
   ]
 }

@@ -14,7 +14,10 @@ test('Pages bietet aktuellen Einstieg und erhält beide unabhängigen Fassungen'
 });
 test('Veröffentlichung enthält keine Tests, lokalen Nachweise oder Lernstände', () => {
   const assets = prepare();
-  assert.ok(![...assets.keys()].some(name=> /test|QA|IMPLEMENTATION|\.json$/i.test(name)));
+  for (const name of assets.keys()) {
+    assert.doesNotMatch(name, /(?:^|\/)(?:tests?|qa|implementation)(?:[.\/-]|$)|(?:[.-](?:test|spec)\.[cm]?js$)|\.json$/i);
+    assert.doesNotMatch(name, /\.(?:cjs|py|log)$/i);
+  }
   for (const source of assets.values()) if (typeof source === 'string') assert.doesNotMatch(source,/C:[\\/]Users[\\/]/i);
   assert.match(assets.get('reinigungsfall-v2/index.html'), /name="robots" content="noindex"/);
 });

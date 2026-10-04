@@ -1,0 +1,22 @@
+# M04 Medienprodukt · Produktionsbrief
+
+Stand 04.10.2026. Planungsanker dee82ec, G5-M04, Anhörungsfassung 21.09.2026. Autorendatei: prototypes/shared/inhalte/medienprodukt.json. Schulunabhängiger Lernweg; einseitige digitale Infokarte mit individuellen Beiträgen im Paar.
+
+## Ziel, Lernhandlung und Material
+Aus Recherche und gemeinsamer Gliederung wird eine verständliche Infokarte für Klasse 5. Eigene sichtbare A/B-Beispiele zeigen den Zusammenhang von Form und Wirkung. Zeichen, Absatz, Zwischenablage und visuelles Objekt werden tatsächlich bedient. Ein offenes eigenes Produkt, Lesetest ohne Erklärung, v1/v2 und begründete Revision machen die Lernhandlung sichtbar. Rechtekorrektur an einem konkreten CC-BY-SA-Gegenbeispiel; eigenes Produkt gesondert prüfen. Zwei echte Wege: lokale Dateikopie auf zweitem Gerät und begrenzter Link im Schulraum.
+
+14 Schritte einschließlich späterem Abruf; acht Wissensstücke, drei eigene PNG-Grafiken mit Alternativtext und vier Textmaterialien. Die Mondgrafik ist ein Vergleich, kein räumliches Modell; Bilddownload ausdrücklich pro Medium aktiviert. iPad/Windows gleichwertig, Pages/Word nur freigegebene Werkzeugbeispiele. Keine privaten Dienste.
+
+## Zeit und Lehrpersonenunterstützung
+360 = 40 Orientierung + 60 angeleitete Übung + 105 Anwendung + 60 Feedback/Revision + 45 explizite Zusatzübung + 50 Sicherung/Transfer. Rechteprüfung 15 und Rechtekorrektur 15 sowie zweiter tatsächlicher Teilweg 15 erfüllen die zusätzliche Übung; hier lokal als eigenes Kopieren. Acht Reihenstunden à 45, fünf spätere Abrufminuten aus dem vorhandenen Konto. Zusammen M01–M04 27/135; Jahresgesamt 1710/38 UE weiterhin unbestätigt. Die alte Pilotfrage mit sieben Einheiten wird nicht als Zeitgrundlage übernommen. Kurzer Reihenkommentar, Stoffverteilung, Durchführung und Briefing entstehen parallel.
+
+## Zielbindung
+3.1.2.2(5)/(6): Vorwissen verbinden, konkrete Quelle begründet prüfen (Plan). 3.1.4.1(1): wirklicher digitaler Austausch (Abstimmen). 3.1.5.1(5–7): Zeichen/Absatz, Objekt, Gliederung (Übung und Produktion). (8)/(9): Form/Wirkung begründen und eigenes Textprodukt reflektiert gestalten (Vergleich, Entwurf, Revision). 3.1.5.2(1)/(2): beabsichtigte und beobachtete Wirkung (Vergleich/Lesetest). (3): Werkzeugkonzepte (Text/Objekt). (4)/(5): Quellen, Lizenzmodell, Analyse und tatsächliche Korrektur (Objekt/Rechte). (6): zwei ausgeführte Weitergabewege. Entwicklung/Übung, keine pauschale Beherrschung. Prozesse punktuell an Auswahl, Gestaltung, Austausch, Prüfung und Reflexion.
+
+## Quellen, Grenzen und Qualität
+Offizielle Apple-/Microsoft-Hilfen und CC-Lizenzinformation am 04.10.2026 geprüft; kurze eigene Bedienhinweise. Schulversionen bleiben vor Ort zu prüfen. Mondinhalt nach DLR_next und timeanddate; Ersatztexte ausdrücklich als redaktionell gekennzeichnet. Keine fremden Bilder übernommen. Kritischer Selbstreview mit Praxis, Quellen, Urteilen, Kooperation, Gestaltung, Medien, Transfer und Abruf; Eigenkriterien echte Herstellung und zwei tatsächlich verschiedene Weitergabewege. Modell, private Reflexion und Leistungsprüfung hier nicht aktiviert. Technische und visuelle Prüfung im lokalen Arbeitsordner ium-medienprodukt-20261004; Unterricht, reale Schulkonten und physischer Druck bleiben gesonderte Erprobung.
+
+## Kritischer Selbstreview und Nacharbeit
+Vier Befunde an Quelle und tatsächlicher Ausgabe: Modelltext stand vor den Bildern und eigener Auftrag wiederholte die Lösung; manueller Zeilenumbruch blieb Theorie; Lizenzbedingungen lagen vor erster Verwendung nur als Download vor; eine alte Buildprüfung deutete Lesetest als technische Testdatei. Nacharbeit: zwei kurze Bildblöcke mit nachfolgender eigener Entscheidung, echte Umbruchübung in beiden Gerätewegen mit offiziellen Belegen, direkte knappe Lizenzhilfe vor dem Einfügen sowie präzise Artefaktprüfung. Abschließende technische/visuelle Nachprüfung und fassungsgebundener Bericht im lokalen Prüfbereich. Keine unabhängige oder empirische Prüfung.
+
+Nachprüfung: 40/40 betroffene Tests bestanden; Gesamtbuild 316 Dateien mit Linkvalidierung. 20 Materialblätter, sieben Medien, bytegleiche Download-/Drucktexte, sechs getrennte Gerätefassungen, 360 Kernminuten und 27/135 Abrufminuten geprüft. Browser: Einstieg, Objekt mit direkter Lizenzhilfe, Wissen, beide Textblätter, Material, Reihenplanung und Themenreihenfolge; breite/schmale Ausgabe ohne festgestellten horizontalen Überlauf. Physische Druckpaginierung und echte Schulgeräte bleiben offen.
