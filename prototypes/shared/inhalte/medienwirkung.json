@@ -1,0 +1,979 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-5-M05-MEDIENWIRKUNG",
+  "version": "1.0.0",
+  "grade": 5,
+  "area": "medienwirkung",
+  "family": "content",
+  "title": "Mehr als ein erster Eindruck.",
+  "topic": "Medienwirkungen und Selbstdarstellung",
+  "description": "Entdecke Werbung, prüfe inszenierte Beiträge und gestalte selbst. Finde heraus, was Bilder auslösen können und welche Handlung hilft.",
+  "product": "Ein begründetes Fallurteil und ein verbesserter Bildbeitrag. Über eine eigene Medienerfahrung denkst du getrennt und geschützt nach.",
+  "prerequisites": [
+    "Schulgerät mit Browser oder ausgedruckte Fallkarten; Partnerperson für echte Rückmeldung",
+    "Ein eigener Arbeitsort für den Bildbeitrag; Papier für persönliche Gedanken",
+    "Die Lehrperson nennt eine erreichbare Vertrauensperson und den schulischen Hilfeweg."
+  ],
+  "duration": "225 Minuten / 5 Unterrichtsstunden; später 5 Minuten aus dem bestehenden Jahreskonto.",
+  "learnerDuration": "Fünf Unterrichtsstunden. Der Bildversuch ist Teil dieser Reihe. Eine kurze Erinnerung folgt später.",
+  "workNotice": "Fallurteil und Bildbeitrag darfst du zeigen. Eigene Erfahrungen bleiben getrennt: auf deinem Papier, im Kopf oder freiwillig in der privaten Notiz. Schreibe sie nicht in normale Antwortfelder.",
+  "curriculum": {
+    "moduleId": "G5-M05",
+    "goalIds": [
+      "3.1.1.1(2)",
+      "3.1.1.1(3)",
+      "3.1.1.1(5)",
+      "3.1.4.2(6)",
+      "3.1.4.2(7)",
+      "3.1.5.1(8)",
+      "3.1.5.1(9)",
+      "3.1.5.2(1)",
+      "3.1.5.2(2)",
+      "3.1.5.2(3)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Anhörungsfassung 21.09.2026, Band 5/6, S. 32, 42, 44–46; Planung dee82ec. P56-01/02 als geschützte eigene Reflexion, Prozesse 2.6(8)/(11). Lerngelegenheiten und beobachtbare Fallarbeit; keine Beherrschung oder durch Selbstauskunft bestätigte Reflexionsqualität."
+  },
+  "experiencedEntry": {
+    "title": "Du erkennst Wirkungen schon sicher?",
+    "text": "Zeige an beiden Werbefällen, woran du Werbung erkennst. Erkläre an einem Bild zwei mögliche Wirkungen und ihre Grenze. Gelingt das, bearbeite den Bildversuch zügig und prüfe eine zusätzliche Deutung. Eigene Gestaltung, echte Rückmeldung und geschützte Reflexion bleiben Teil deines Wegs.",
+    "step": "werbung",
+    "label": "Mit den zwei Fällen prüfen"
+  },
+  "preview": "selbstbild",
+  "teacher": [
+    "Die Reihe verbindet einen überprüfbaren Vergleich mit offenem Urteil. Sichtbar beurteilt werden nur erfundene Fälle. Die eigene Reflexion bleibt bei den Lernenden."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen.",
+        "Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe.",
+        "Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen."
+      ]
+    },
+    {
+      "title": "Fünf Stunden führen",
+      "paragraphs": [
+        "1: Werbung 25, Bildlabor 20. 2: Bildlabor 25, Fallurteil 20. 3: Gestalten 25, Rückmeldung 20. 4: Rückmeldung 10, Nachdenken 30, Optionen 5. 5: Optionen 10, Transfer 20, Handeln 15 Minuten. Die fünf Bildwerkstatt-Stationen sind mit 90 Minuten enthalten, kein zusätzlicher Durchlauf. Navigations- und Sicherungszeit innerhalb der Phasen vorsehen.",
+        "Die zusätzlichen 45 Reflexionsminuten gliedern sich in Modell 10, eigene geschützte Reflexion 20 und neutralen Optionenvergleich 15. Private Nutzungszahlen, Konten oder Probleme werden nicht verlangt. Eine eigene harmlose Erfahrung aus dieser Reihe genügt. Wer zunächst nur fiktiv arbeitet, hat eine Vorbereitung bearbeitet; persönliche Reflexion später erneut geschützt ermöglichen."
+      ]
+    },
+    {
+      "title": "Beobachten → unterstützen",
+      "paragraphs": [
+        "Nur „gefällt mir“? Konkrete Stelle und mögliche Wirkung ergänzen. „Alle fühlen …“? Eine zweite mögliche Reaktion und die Unsicherheit benennen lassen. „Jules ist unehrlich“? Aussage am Kontext prüfen, nicht Charakter bewerten. „Talent braucht keine Übung“? Vier Versuche und Hilfe gegen dieses Ideal abwägen.",
+        "Echte Rückmeldung, Werkstatthandlung und begründete Revision beobachten. Ein bereitgestellter Bogen oder Selbsthäkchen ist kein Nachweis. P56-01/02: Lerngelegenheit, freiwillige Fertigmeldung und beobachtbare Kompetenz strikt unterscheiden. Qualität persönlicher Reflexion nicht aus Fertigmeldungen ableiten und nicht durch Offenlegung prüfen. Eigene Gründe bleiben privat; gemeinsam diskutiert werden neutrale Fälle."
+      ]
+    },
+    {
+      "title": "Abschluss und Anschluss",
+      "paragraphs": [
+        "Fallurteil und Bildbeitrag samt Änderungsspur sichern. Fünf spätere Minuten: drei neutraler Abruf, zwei private Wiederaufnahme. Damit M01–M05: 32 von 135 Jahresminuten; keine Doppelzählung des sofortigen Bibliothekstransfers. Für M06 bleiben präzise Beschreibung, Belegprüfung und Revision anschlussfähig. Nach Erprobung Zeitabweichung, eine häufige Hürde und Anpassung festhalten."
+      ]
+    }
+  ],
+  "briefing": [
+    "Diese fünfstündige Reihe verbindet Werbung, Bildwirkung und Selbstdarstellung mit einer geschützten eigenen Reflexion. Die bestehende Bildwerkstatt ist mit neunzig Minuten integriert. Beurteilt werden nur erfundene Fälle und ein eigener neutraler Bildbeitrag.",
+    "Bereiten Sie die Hilfekarte und einen geschützten Reflexionsweg vor. Persönliche Gedanken werden nicht eingesammelt, vorgezeigt oder in normale Antwortfelder übertragen. Papier oder Denken ist gleichwertig zur freiwilligen privaten Notiz. Eine harmlose eigene Erfahrung aus dem Unterricht genügt. Ein fiktiver Fall bleibt Vorbereitung. Auf einem geteilten Gerät erhält jede Person einen eigenen Browsertab und eine unterscheidbare Arbeitsdatei. Wegblätter für das Bildlabor zusammen mit den drei verlinkten Bildblättern austeilen.",
+    "Die ersten beiden Stunden führen vom Werbevergleich über den Bildversuch zum Fallurteil. Stunde drei beginnt mit eigener Gestaltung und echtem Lesetest. Stunde vier enthält dessen Abschluss, das neutrale Reflexionsmodell und persönliche Denkzeit. Stunde fünf schließt den Optionenvergleich ab und führt über den Bibliotheksfall zu Hilfe bei Ausgrenzung.",
+    "Beobachten Sie konkrete Begründungen, tatsächliche Bedienung, echte Rückmeldung und begründete Änderungen. Weder Häkchen noch freiwillige Fertigmeldungen beweisen die Qualität persönlicher Reflexion. Fünf Minuten Wiederaufnahme folgen später: drei öffentlich am neutralen Fall, zwei privat am eigenen Vorhaben."
+  ],
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung · 21.09.2026, S. 32, 42, 44–46",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Zuordnung mit der aktuellen Kompetenzplanung abgeglichen; Klasse 5 ist unsere Jahresplanung."
+    },
+    {
+      "id": "cc",
+      "title": "Namensnennung – Weitergabe unter gleichen Bedingungen 4.0",
+      "author": "Creative Commons",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "license": "Lizenzinformation verlinkt; eigene Prüfkarte separat lizenziert",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "internet-abc",
+      "title": "Werbung und Gewinnspiele · Lernmodul",
+      "author": "Internet-ABC",
+      "url": "https://www.internet-abc.de/lehrkraefte/unterrichtsmaterialien-lernmodul-werbung-gewinnspiele/",
+      "license": "Nur verlinkt; eigene Aufgaben und Grafiken",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "klicksafe",
+      "title": "Cybermobbing · Erkennen und Hilfe",
+      "author": "klicksafe",
+      "url": "https://www.klicksafe.de/cybermobbing",
+      "license": "Nur verlinkt; keine fremden Abbildungen übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "bpb",
+      "title": "Das Web als Spiegel und Bühne",
+      "author": "Sarah Mönkeberg / bpb",
+      "url": "https://www.bpb.de/shop/zeitschriften/apuz/157546/das-web-als-spiegel-und-buehne-selbstdarstellung-im-internet/",
+      "license": "Verlinkter Hintergrund für Lehrpersonen; eigene Falltexte",
+      "checked": "2026-10-04"
+    }
+  ],
+  "media": [
+    {
+      "id": "magazin",
+      "title": "Fall A · Artikel mit Werbefläche",
+      "kind": "image",
+      "file": "assets/medienwirkung/magazin.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Grafik und erfundener Fall",
+      "sourceId": "cc",
+      "alt": "Digitales Werkstatt-Magazin. Titel: So faltest du eine Papierbrücke. Redaktion erklärt Ziehharmonikafalten. Zwischen zwei Absätzen steht ein gelber Kasten: ANZEIGE. Faltfix-Papier macht dich zum Profi! Jetzt Bastelpaket kaufen. Danach erklärt die Redaktion Auflagen und den Münztest.",
+      "caption": "Fall A · Artikel mit Werbefläche · Alle Personen, Marken und Beiträge sind erfunden."
+    },
+    {
+      "id": "video",
+      "title": "Fall B · Werbung im Erklärclip",
+      "kind": "image",
+      "file": "assets/medienwirkung/video.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Grafik und erfundener Fall",
+      "sourceId": "cc",
+      "alt": "Erfundener Erklärclip als Standbild. Im Bild: Werbung · Faltfix; eine Papierbrücke und das Papierpaket. Sprechtext: Faltfix bezahlt diesen Clip. Nur mit diesem Papier klappt es! Mit meinem Code JULE10 sparst du. Unter dem Clip steht ein Kauflink.",
+      "caption": "Fall B · Werbung im Erklärclip · Alle Personen, Marken und Beiträge sind erfunden."
+    },
+    {
+      "id": "selbstbild",
+      "title": "Fall C · Ein ausgewählter Erfolg",
+      "kind": "image",
+      "file": "assets/medienwirkung/selbstbild.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Grafik und erfundener Fall",
+      "sourceId": "cc",
+      "alt": "Erfundener Beitrag: Eine Papierbrücke trägt drei Münzen. Titel: Bei mir klappt alles sofort! Bildtext: Talent braucht keine Übung. Eine getrennte Zusatzkarte erklärt, was im Beitrag fehlt: vier Versuche und Hilfe beim Falten.",
+      "caption": "Fall C · Ein ausgewählter Erfolg · Alle Personen, Marken und Beiträge sind erfunden."
+    },
+    {
+      "id": "fallspur",
+      "title": "Fallspur · zeigen und verbessern",
+      "kind": "download",
+      "file": "assets/medienwirkung/fallspur.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "cc",
+      "printText": "FALLSPUR · ZEIGEN UND VERBESSERN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nNUR ERFUNDENE FÄLLE, keine eigenen privaten Erfahrungen.\nFall C: Welche Aussage und welche Stelle untersuche ich?\nMögliche Wirkung auf zwei verschiedene Betrachtende:\nWas ist belegt, was bleibt offen?\nMein Urteil / sinnvolle Änderung:\n\nMein Bildbeitrag: Absicht / gewählter Ausschnitt / Überschrift / Bildtext:\nRückmeldung einer anderen Person, sinngemäß:\nVorher -> nachher / Grund oder begründetes Beibehalten:\nNeue Prüfung: Was wurde jetzt verstanden?\n\nHilfe im erfundenen Ausgrenzungsfall: erster Schritt / warum / Hilfeweg:\n"
+    },
+    {
+      "id": "privatblatt",
+      "title": "Nur für mich · private Denkstütze",
+      "kind": "download",
+      "file": "assets/medienwirkung/privatblatt.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "cc",
+      "printText": "NUR FÜR MICH · PRIVATE DENKSTÜTZE\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nNicht abgeben, vorlesen oder in die Fallspur übertragen. Auch Denken ohne Schreiben ist möglich. Wähle eine harmlose eigene Erfahrung, z.B. den heutigen Bildversuch. Keine privaten Chats, Profile, Nutzungszahlen oder belastenden Erlebnisse nötig.\n\n1. Beschreiben: Was habe ich dabei selbst gesehen/getan?\n2. Abwägen: Was war anziehend oder hilfreich? Was hat mich verwirrt, abgelenkt oder könnte schwierig werden? Wenn nichts schwierig war: Welche mögliche Schwierigkeit sehe ich?\n3. Entscheiden: Was möchte ich beim nächsten ähnlichen Mal beibehalten oder ändern? Warum?\n4. Später nur für mich: Habe ich meine Idee ausprobiert? Was passte, was möchte ich anpassen? Noch keine Gelegenheit ist eine mögliche Antwort.\n\nMein Blatt bleibt bei mir. Ich darf eine Frage auslassen oder zuerst am erfundenen Fall üben. Dieser Übungsfall ist noch keine Reflexion einer eigenen Erfahrung. Über eine harmlose eigene Unterrichtserfahrung kann ich später nachdenken. Bei Hilfebedarf wende ich mich gesondert an eine Vertrauensperson.\n"
+    },
+    {
+      "id": "hilfekarte",
+      "title": "Hilfewege · von der Lehrperson ergänzen",
+      "kind": "download",
+      "file": "assets/medienwirkung/hilfekarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "cc",
+      "printText": "HILFEWEGE · VON DER LEHRPERSON ERGÄNZEN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nVor der Reihe ausfüllen und sichtbar bereitlegen.\nVertrauensperson in der Schule / wo und wann erreichbar:\nAlternative, wenn diese Person nicht erreichbar ist:\nSchulischer Meldeweg für beleidigende oder ausgrenzende Inhalte:\nGemeinsam mit erwachsener Hilfe Belege sichern, ohne sie weiterzuverbreiten:\nErlaubter Arbeits-/Speicherort für den neutralen Bildbeitrag:\nTermin für fünf Minuten Wiederaufnahme:\n\nNicht nach privaten Profilen oder belastenden Erlebnissen fragen. Hilfe ist jederzeit möglich und unabhängig von der Bewertung. Persönliche Reflexion wird nicht eingesammelt. Eine freiwillige Fertigmeldung ist keine Auskunft über deren Qualität.\n"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "werbung",
+      "title": "Woran erkenne ich Werbung?",
+      "paragraphs": [
+        "Werbung möchte Aufmerksamkeit und Interesse für ein Angebot wecken. Hinweise sind etwa „Anzeige“, ein Kaufaufruf, ein Rabattcode oder eine bezahlte Zusammenarbeit. Ein einzelnes Lob beweist noch keine Werbung.",
+        "Im Magazin kann eine Werbefläche zwischen redaktionellen Absätzen stehen. In einem Erklärclip kann das beworbene Produkt Teil der Vorführung sein. Dann sind Unterhaltung, Erklärung und Kaufanreiz eng verbunden."
+      ],
+      "example": "Bei Jules gehören Bezahlung, Papierempfehlung und Code zum selben Clip. Prüfe die Behauptung „nur damit“ getrennt vom freundlichen Auftreten.",
+      "boundary": "Werbung kann Informationen enthalten. Ein Werbehinweis beweist weder, dass jede Aussage falsch ist, noch, dass ein Produkt gut ist.",
+      "steps": [
+        "werbung",
+        "erinnern"
+      ],
+      "sources": [
+        "internet-abc"
+      ]
+    },
+    {
+      "id": "belege",
+      "title": "Wie trenne ich Beobachtung und Wirkung?",
+      "paragraphs": [
+        "Eine Beobachtung nennt Sichtbares: „Die Bänke im Ausschnitt sind leer.“ Eine Deutung geht darüber hinaus: „Das Fest ist unbeliebt.“ Dafür reicht der Ausschnitt nicht.",
+        "Vergleiche zuerst bei gleichem Text zwei Ausschnitte, dann bei gleichem Ausschnitt zwei Überschriften. So kannst du begründen, welche Änderung zu einer anderen Wirkung beitragen könnte."
+      ],
+      "example": "Eine leere Bank kann Ruhe vermitteln oder einsam wirken. Unterschiedliche Betrachtende können dasselbe Bild anders verstehen.",
+      "boundary": "Eine vermutete Wirkung ist kein gemessenes Gefühl und keine Aussage über alle Betrachtenden.",
+      "steps": [
+        "bildlabor",
+        "gestalten",
+        "transfer"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "selbstbild",
+      "title": "Zeigt ein Beitrag die ganze Person?",
+      "paragraphs": [
+        "Ein Beitrag zeigt eine Auswahl. Mit Bild, Text und Weglassen lässt sich ein bestimmter Eindruck erzeugen. Das kann Freude und Ideen teilen; es kann auch einen falschen Eindruck von mühelosem Erfolg nahelegen.",
+        "Frage: Was wird gezeigt, was fehlt laut Kontext und welche Vorstellung von Erfolg steckt dahinter? Beurteile die Darstellung, ohne der Person einen Charakter oder eine geheime Absicht zuzuschreiben."
+      ],
+      "example": "Jules fertige Brücke kann zum Basteln ermutigen. „Talent braucht keine Übung“ kann zugleich entmutigen, wenn die eigenen Versuche misslingen.",
+      "boundary": "Auch mit Kontext wissen wir nicht, wie jeder Mensch empfindet. Ein einzelner Beitrag beschreibt niemals die ganze Person.",
+      "steps": [
+        "selbstbild",
+        "rueckmeldung"
+      ],
+      "sources": [
+        "bildungsplan",
+        "bpb"
+      ]
+    },
+    {
+      "id": "gestalten",
+      "title": "Wie prüfe ich meine beabsichtigte Wirkung?",
+      "paragraphs": [
+        "Lege zuerst fest, was Betrachtende verstehen sollen. Wähle dazu Ausschnitt, Überschrift und Bildtext. Prüfe jede Aussage am Bild und an der Situationskarte.",
+        "Lass eine andere Person ohne Voraberklärung lesen. Vergleiche ihre tatsächliche Rückmeldung mit deiner Absicht. Ändere eine unklare Stelle und lass sie erneut ansehen."
+      ],
+      "example": "„Vor der Vorführung sind noch Plätze frei“ passt zum linken Schulfest-Ausschnitt und zur Zeitangabe. „Niemand interessiert sich“ ist dadurch nicht belegt.",
+      "boundary": "Rückmeldung einer Person ist ein Hinweis. Eine technisch gespeicherte Fassung beweist noch keine passende Wirkung.",
+      "steps": [
+        "gestalten",
+        "rueckmeldung"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "nachdenken",
+      "title": "Wie denke ich über meine Medienerfahrung nach?",
+      "paragraphs": [
+        "Beschreiben: Was habe ich selbst getan oder wahrgenommen? Abwägen: Was hat mich angezogen oder unterstützt, was könnte schwierig sein? Entscheiden: Was behalte ich bei oder ändere ich beim nächsten Mal?",
+        "Eine eigene Erfahrung aus dem Unterricht genügt. Niemand muss private Konten, Zeiten oder Probleme offenlegen. Du darfst zuerst an einer erfundenen Erfahrung üben und später eine harmlose eigene wählen."
+      ],
+      "example": "Nach dem Bildversuch könnte jemand künftig zuerst das Gesamtbild ansehen. Das ist ein mögliches Vorhaben; dein Vorhaben darf anders sein.",
+      "boundary": "Eine erfundene Antwort ersetzt deine eigene Reflexion nicht. Du musst deine eigenen Gedanken trotzdem nicht vorzeigen.",
+      "steps": [
+        "nachdenken",
+        "optionen",
+        "erinnern"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "hilfe",
+      "title": "Was hilft bei Ausgrenzung?",
+      "paragraphs": [
+        "Eine sachliche Kritik an einem Beitrag ist etwas anderes als wiederholte Beleidigung und gezieltes Ausschließen. Auch ein einzelner verletzender Vorfall verdient Hilfe.",
+        "Mache nicht mit und verbreite verletzende Beiträge nicht weiter. Unterstütze die betroffene Person und hole eine erreichbare erwachsene Vertrauensperson dazu. Gemeinsam könnt ihr Belege sichern und den schulischen Meldeweg nutzen."
+      ],
+      "example": "„Die Überschrift passt nicht zum Bild“ spricht über das Produkt. Wiederholt „Du kannst nichts“ zu schreiben und jemanden aus allen Gruppen zu drängen greift die Person an.",
+      "boundary": "Eine ungeschickte Selbstdarstellung rechtfertigt keine Ausgrenzung. Lernende sollen belastende Fälle nicht allein untersuchen oder lösen.",
+      "steps": [
+        "handeln",
+        "optionen"
+      ],
+      "sources": [
+        "klicksafe"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "werbung",
+      "title": "Wer erklärt hier – und wer wirbt?",
+      "goal": "Du erkennst Werbung in zwei digitalen Formaten und erklärst ihre Einbettung.",
+      "task": "Untersuche die beiden erfundenen Beiträge. Beginne mit dem sichtbaren Werbehinweis.",
+      "outcome": "Zwei begründete Werbefundstellen und ein Unterschied zwischen den Formaten.",
+      "knowledge": [
+        "werbung"
+      ],
+      "criteria": [
+        "Ich zeige in beiden Fällen einen konkreten Werbehinweis.",
+        "Ich beschreibe, wie Werbung und anderer Inhalt verbunden sind.",
+        "Ich unterscheide Werbeziel, Behauptung und Beleg."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "A · Werbung zwischen Absätzen",
+          "text": "Lies das digitale Magazin. Die Redaktion erklärt das Falten; dazwischen steht eine gekennzeichnete Werbefläche.",
+          "media": [
+            "magazin"
+          ],
+          "help": [
+            {
+              "title": "Bildinhalt als Text lesen",
+              "text": "Digitales Werkstatt-Magazin. Titel: So faltest du eine Papierbrücke. Redaktion erklärt Ziehharmonikafalten. Zwischen zwei Absätzen steht ein gelber Kasten: ANZEIGE. Faltfix-Papier macht dich zum Profi! Jetzt Bastelpaket kaufen. Danach erklärt die Redaktion Auflagen und den Münztest."
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "B · Werbung mitten in der Vorführung",
+          "text": "Dies ist ein Standbild mit Sprechtext, kein abspielbares Video. Jules zeigt eine Brücke und empfiehlt dabei bezahltes Bastelpapier.",
+          "media": [
+            "video"
+          ],
+          "help": [
+            {
+              "title": "Bildinhalt als Text lesen",
+              "text": "Erfundener Erklärclip als Standbild. Im Bild: Werbung · Faltfix; eine Papierbrücke und das Papierpaket. Sprechtext: Faltfix bezahlt diesen Clip. Nur mit diesem Papier klappt es! Mit meinem Code JULE10 sparst du. Unter dem Clip steht ein Kauflink."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Vergleiche die beiden Formate",
+          "text": "Arbeite erst selbst, dann vergleicht zu zweit. Das Papier und die Marke sind erfunden.",
+          "id": "vergleich",
+          "prompt": "Zeige je einen sicheren Werbehinweis. Wo steckt die Werbung: zwischen Absätzen oder im gezeigten Tun? Welche Handlung soll sie anregen? Belegt Jules Satz, dass anderes Papier nicht funktioniert?",
+          "responseMode": "oral",
+          "responseHint": "Vier kurze Aussagen mit Fundstellen genügen.",
+          "solution": "A: „ANZEIGE“ und „kaufen“ kennzeichnen den Kasten zwischen redaktionellen Absätzen. B: Bezahlung, Werbehinweis, Code und Kauflink verbinden Werbung mit dem Falten im Clip. Beide wollen zum Kauf anregen. „Nur mit diesem Papier“ wird nicht durch einen Vergleich mit anderem Papier belegt. Nicht jede beliebige Produkterwähnung wäre deshalb Werbung.",
+          "help": [
+            {
+              "title": "Ich finde nur freundliche Wörter",
+              "text": "Suche zuerst nach Bezahlung, Kennzeichnung und Kaufaufforderung. Vergleiche dann ihren Platz im Inhalt.",
+              "knowledge": "werbung",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Werbung nur geraten?",
+          "text": "Zeige ein konkretes Kennzeichen; ein positives Wort allein genügt nicht.",
+          "knowledge": "werbung",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "bildlabor",
+      "title": "Ein Bild, mehrere Eindrücke",
+      "goal": "Du prüfst Deutungen durch gezielte Änderungen und Belege.",
+      "task": "Bearbeite die ersten drei Stationen der Bildwerkstatt: Eindruck, Wirkung, Belege.",
+      "outcome": "Zwei Vergleiche und eine am Bild begründete Einordnung.",
+      "knowledge": [
+        "belege"
+      ],
+      "criteria": [
+        "Ich trenne Sichtbares von Vermutungen.",
+        "Ich ändere jeweils nur Ausschnitt oder Überschrift.",
+        "Ich begründe eine Einordnung mit Bild oder Situationskarte."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Dein Weg durch die Bildwerkstatt",
+          "text": "Die 45 Minuten gehören zu dieser Reihe. Bearbeite Eindruck (10), Wirkung (20), Belege (15 Minuten). Danach kehrst du hierher zurück und gehst zu „Ein Erfolg – die ganze Geschichte?“. Ergebnisse nur einmal festhalten.",
+          "links": [
+            {
+              "href": "../medienanalyse/index.html#eindruck",
+              "label": "Bildwerkstatt beginnen"
+            },
+            {
+              "href": "../medienanalyse/index.html#wirkung",
+              "label": "Wirkung gezielt verändern"
+            },
+            {
+              "href": "../medienanalyse/index.html#belege",
+              "label": "Belege prüfen"
+            },
+            {
+              "href": "../medienanalyse/baustein-eindruck.html",
+              "label": "Bildblatt 1: Eindruck"
+            },
+            {
+              "href": "../medienanalyse/baustein-wirkung.html",
+              "label": "Bildblatt 2: Wirkung"
+            },
+            {
+              "href": "../medienanalyse/baustein-belege.html",
+              "label": "Bildblatt 3: Belege"
+            }
+          ],
+          "paragraphs": [
+            "Auf Papier: Dieses Wegblatt allein enthält die Bildfälle nicht. Lege die drei verlinkten Bildblätter dazu. Halte Ergebnisse direkt dort fest; nichts doppelt abschreiben."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Deine stärkste Begründung",
+          "text": "Nutze eine Entscheidung aus der Werkstatt; du musst keine zweite Antwort abschreiben.",
+          "id": "beleg",
+          "prompt": "Zeige eine Bildstelle und erkläre: Was trägt sie, was bleibt offen?",
+          "responseMode": "oral",
+          "help": [
+            {
+              "title": "Alles wirkt irgendwie möglich",
+              "text": "Trenne vier Fälle: Bildbeleg, Kontextbeleg, Widerspruch und noch offen.",
+              "knowledge": "belege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Wegblatt PLUS die drei verlinkten Bildblätter Eindruck, Wirkung, Belege aus der Bildwerkstatt; vorab gemeinsam ausdrucken",
+        "Papier und Stift oder Schulgerät; mündliche Begründung möglich"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur alle Häkchen gesetzt?",
+          "text": "Erkläre eine Einordnung am Bild. Ohne Begründung ist die Prüfung noch offen.",
+          "knowledge": "belege",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "selbstbild",
+      "title": "Ein Erfolg – die ganze Geschichte?",
+      "goal": "Du beurteilst eine Selbstdarstellung mit Belegen und unterschiedlichen möglichen Wirkungen.",
+      "task": "Prüfe Jules Beitrag und schreibe ein kurzes Fallurteil.",
+      "outcome": "Vier Sätze: Beleg, mögliche Folgen, abgewogenes Urteil und Handlung.",
+      "knowledge": [
+        "selbstbild",
+        "belege"
+      ],
+      "criteria": [
+        "Ich beziehe mich auf Beitrag und Kontext.",
+        "Ich erkläre zwei mögliche Wirkungen und ihre Grenzen.",
+        "Ich prüfe die Vorstellung von mühelosem Talent und schlage eine passende Änderung vor."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Fall C · Was der Beitrag zeigt",
+          "text": "Jules freut sich über die gelungene Papierbrücke. Zum erfundenen Fall gehört: Vorher gab es vier Versuche und Hilfe beim Falten. Dieser Kontext steht nicht im Beitrag.",
+          "media": [
+            "selbstbild"
+          ],
+          "help": [
+            {
+              "title": "Bildinhalt als Text lesen",
+              "text": "Erfundener Beitrag: Eine Papierbrücke trägt drei Münzen. Titel: Bei mir klappt alles sofort! Bildtext: Talent braucht keine Übung. Eine getrennte Zusatzkarte erklärt, was im Beitrag fehlt: vier Versuche und Hilfe beim Falten."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Dein Fallurteil",
+          "text": "Bewerte die Darstellung, nicht Jules als Person. Ein Erfolg darf stolz machen. Die Frage ist, welches Bild von Erfolg der Text vermittelt.",
+          "id": "urteil",
+          "prompt": "Nenne eine konkrete Stelle und den fehlenden Kontext. Was könnten ein neugieriges Kind und ein Kind mit misslungenem Versuch daraus mitnehmen? Wäge ab: Was ist hilfreich, was irreführend? Schlage eine passende Textänderung vor.",
+          "responseHint": "Vier Sätze oder vier Stichpunkte. Keine eigenen privaten Erfahrungen eintragen.",
+          "media": [
+            "fallspur"
+          ],
+          "help": [
+            {
+              "title": "Ich weiß nicht, wie andere sich fühlen",
+              "text": "Schreibe „könnte …“, keine Behauptung über alle. Prüfe „Talent braucht keine Übung“ am Kontext.",
+              "knowledge": "selbstbild",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Möglich: Die gelungene Brücke kann zum Ausprobieren anregen. „Talent braucht keine Übung“ lässt jedoch vier Versuche und Hilfe weg; ein anderes Kind könnte sich deshalb unnötig für unbegabt halten. Stolz ist verständlich, aber der Eindruck mühelosen Könnens passt nicht zum Kontext. „Nach vier Versuchen und einem Falttipp hält meine Brücke drei Münzen“ wäre genauer. Andere begründete Wirkungen und Vorschläge sind möglich."
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur „Jules lügt“ geschrieben?",
+          "text": "Urteile über die nachweisbare Aussage. Eine Absicht oder den ganzen Charakter kannst du daraus nicht ablesen.",
+          "knowledge": "selbstbild",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "gestalten",
+      "title": "Du steuerst den Eindruck",
+      "goal": "Du gestaltest selbst einen überprüfbaren Bild-Text-Beitrag.",
+      "task": "Gestalte in der Bildwerkstatt einen Beitrag für eine andere fünfte Klasse.",
+      "outcome": "Eine digitale erste Fassung mit Absicht, Ausschnitt, Überschrift und Bildtext.",
+      "knowledge": [
+        "gestalten",
+        "belege"
+      ],
+      "criteria": [
+        "Ich bediene Ausschnitt und Text selbst.",
+        "Ich erkläre, was mein Beitrag vermitteln soll.",
+        "Meine Aussagen passen zu Bild und Kontext; meine erste Fassung bleibt nachvollziehbar."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Die Werkstatt öffnen",
+          "text": "Plane: Soll dein Beitrag etwa auf freie Plätze vor der Vorführung aufmerksam machen oder die Basteltische zeigen? Nutze das Schulfestbild und die Situationskarte. Die KI-Illustration zeigt keine echte Schule.",
+          "links": [
+            {
+              "href": "../medienanalyse/index.html#gestalten",
+              "label": "Eigenen Beitrag gestalten"
+            },
+            {
+              "href": "../medienanalyse/baustein-gestalten.html",
+              "label": "Arbeitsblatt mit Bild und Kontext"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Deine erste Fassung sichern",
+          "text": "Arbeite 25 Minuten. Stelle einen Ausschnitt ein, schreibe Überschrift, Bildtext und Begründung. Probiere eine andere Überschrift und nimm sie zurück, wenn sie nicht passt. Jede Person bedient selbst; bei einem Gerät nacheinander.",
+          "id": "entwurf",
+          "prompt": "Zeige deine echte Änderung am Werkzeug: Was hast du am Ausschnitt oder an einem Textfeld verändert, und warum? Halte Absicht und erste Fassung kurz in der Fallspur fest. Sichere den Werkstattstand über „Deine Arbeit“.",
+          "responseMode": "oral",
+          "responseHint": "Eigene Fallspur und eigene Arbeitsdatei pro Person. Beim zweiten Lesen öffnest du deinen Stand; überschreibe nicht den Entwurf der anderen Person.",
+          "media": [
+            "fallspur"
+          ],
+          "help": [
+            {
+              "title": "Der Beitrag klingt spannend, aber zu sicher",
+              "text": "Prüfe jedes „alle“, „niemand“ und „immer“. Was zeigen Bild und Situationskarte tatsächlich?",
+              "knowledge": "belege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "paragraphs": [
+            "Ein Gerät zu zweit? Verwendet für jede Person einen eigenen Browsertab und bleibt beim Weiterarbeiten im jeweiligen Tab. Schreibt eure erste Überschrift, den Ausschnitt und die Absicht zusätzlich in eure eigene Fallspur. Vor dem Rollenwechsel sichert jede Person ihre Arbeitsdatei unter einem unterscheidbaren Namen am vereinbarten Ort. Öffnet beim nächsten Mal den passenden eigenen Stand."
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Wegblatt PLUS das verlinkte Bildblatt Gestalten aus der Bildwerkstatt; vorab beilegen",
+        "Schulgerät für die tatsächliche digitale Bearbeitung; Papier ist nur ein Entwurf"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur zugesehen?",
+          "text": "Führe selbst eine Ausschnitt- und Textänderung aus. Papierentwurf ist Vorbereitung; digitale Bedienung bleibt gegebenenfalls nachzuholen.",
+          "knowledge": "gestalten",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "rueckmeldung",
+      "title": "Kommt dein Beitrag so an?",
+      "goal": "Du nutzt reale Rückmeldung für eine begründete Überarbeitung.",
+      "task": "Lass Beitrag und Fallurteil lesen. Prüfe einen Unterschied zwischen Absicht und verstandenem Eindruck.",
+      "outcome": "Eine bessere Fassung oder begründetes Beibehalten, mit tatsächlicher Rückmeldung.",
+      "knowledge": [
+        "gestalten",
+        "selbstbild"
+      ],
+      "criteria": [
+        "Die andere Person nennt eine konkrete Stelle und ihren Eindruck.",
+        "Ich gleiche Rückmeldung und Belege ab.",
+        "Ich zeige vorher/nachher oder begründe ein Beibehalten; danach wird erneut gelesen."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "title": "Erst lesen, dann erklären",
+          "text": "Arbeitet 30 Minuten. Tauscht die Rollen. Nur erfundene Fälle und den Bildbeitrag zeigen, keine private Notiz.",
+          "id": "lesetest",
+          "contribution": "Zeige deinen Bildbeitrag ohne Voraberklärung. Die lesende Person sagt: „Ich verstehe …, weil hier … steht/zu sehen ist.“",
+          "exchange": "Vergleicht den Eindruck mit deiner Absicht. Prüft danach am vierteiligen Fallurteil: Beleg, mögliche Folgen, Abwägung, Handlung. Jede Person erhält mindestens einen konkreten Hinweis.",
+          "return": "Entscheide, welchen Hinweis du umsetzt. Ändere die tatsächliche Werkstattfassung und gegebenenfalls dein Fallurteil. Wenn beides trägt, begründe das Beibehalten. Lass die betroffene Stelle erneut lesen und sichere den Werkstattstand.",
+          "prompt": "Notiere in der Fallspur sinngemäß den erhaltenen Hinweis, vorher → nachher und den Grund. Was wurde beim zweiten Lesen verstanden?",
+          "responseMode": "oral",
+          "media": [
+            "fallspur"
+          ],
+          "links": [
+            {
+              "href": "../medienanalyse/index.html#gestalten",
+              "label": "Zur eigenen Werkstattfassung"
+            },
+            {
+              "href": "schritt-selbstbild.html",
+              "label": "Fallurteil wieder öffnen"
+            }
+          ],
+          "help": [
+            {
+              "title": "Wir sagen nur „gut“",
+              "text": "Nennt zuerst das Verstandene und die Stelle, die dazu führt. Prüft dann eine zu weit gehende Aussage.",
+              "knowledge": "gestalten",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Ein Hinweis ist noch kein Befehl",
+          "text": "„Schreib doch: Alle sind begeistert!“ macht den Beitrag vielleicht lauter, aber diese Aussage ist nicht belegt. Du darfst einen Hinweis mit Grund ablehnen. Wenn noch keine Partnerperson gelesen hat, bleibt der echte Lesetest offen."
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Änderung ohne Grund?",
+          "text": "Vergleiche die konkrete Rückmeldung mit Bild und Kontext. Zeige die geänderte Stelle erneut.",
+          "knowledge": "gestalten",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "nachdenken",
+      "title": "Was wirkt auf mich?",
+      "goal": "Du beschreibst und reflektierst eine eigene harmlose Medienerfahrung, ohne sie offenlegen zu müssen.",
+      "task": "Übe am Modell. Denke danach für dich über eine eigene Erfahrung nach.",
+      "outcome": "Ein persönliches Vorhaben, das bei dir bleibt.",
+      "knowledge": [
+        "nachdenken"
+      ],
+      "criteria": [
+        "Ich kenne Beschreiben, Abwägen und Entscheiden.",
+        "Ich kann eine harmlose eigene Unterrichtserfahrung wählen.",
+        "Ich weiß, wie ich meine Gedanken bei mir behalte und bei Bedarf Hilfe hole."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zuerst gemeinsam am erfundenen Modell · 10 Minuten",
+          "text": "Sam sieht im Unterricht nur die leeren Bänke und findet das Bild langweilig. Das Gesamtbild mit Basteltischen macht Sam neugierig. Sam merkt: „Der Ausschnitt hat meinen ersten Eindruck stark gelenkt.“ Sam möchte beim nächsten Bild zuerst nach dem Gesamtbild fragen.",
+          "paragraphs": [
+            "Beschreiben: Sam sah zunächst nur einen Ausschnitt. Abwägen: Der schnelle Eindruck war einfach, aber wichtige Teile fehlten. Entscheiden: Nächstes Mal zuerst das Ganze prüfen. Besprecht nur diesen erfundenen Fall. Was wäre, wenn das Gesamtbild nicht verfügbar ist? Eine Möglichkeit: das Urteil ausdrücklich offenlassen."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Jetzt nur für dich · 20 Minuten",
+          "text": "Wähle eine harmlose eigene Erfahrung: zum Beispiel deinen heutigen Bildversuch oder das Gestalten in M04. Du brauchst weder ein eigenes Konto noch private Mediengeschichten. Niemand sammelt deine Antwort ein.",
+          "items": [
+            "Beschreiben: Was habe ich dabei selbst gesehen oder getan?",
+            "Abwägen: Was fand ich anziehend oder hilfreich? Was hat mich verwirrt/abgelenkt oder könnte schwierig werden? Es ist in Ordnung, wenn nichts schwierig war.",
+            "Entscheiden: Was möchte ich nächstes Mal beibehalten oder ändern? Warum?",
+            "Bewahre dein Vorhaben nur für dich, etwa auf Papier. Später schaust du selbst noch einmal darauf."
+          ],
+          "paragraphs": [
+            "Du darfst denken, auf eigenem Papier schreiben oder die freiwillige private Notiz nutzen. Bei geteiltem Bildschirm ist Papier oder Denken geeigneter. Private Notizen werden nicht in die allgemeine Arbeitsdatei übernommen; sie können beim Seitenwechsel verloren gehen. Eine gesondert gesicherte Datei können Menschen mit Dateizugriff lesen.",
+            "Du darfst auslassen oder zuerst Sam wählen. Der erfundene Fall ist eine Vorbereitung, noch keine Reflexion deiner eigenen Erfahrung. Du kannst später eine harmlose eigene Unterrichtserfahrung wählen. Hilfebedarf besprichst du gesondert mit einer Vertrauensperson."
+          ],
+          "media": [
+            "privatblatt"
+          ]
+        },
+        {
+          "type": "private",
+          "title": "Freiwillige private Denknotiz",
+          "text": "Nur wenn du hier schreiben möchtest. Die Fragen oben kannst du ebenso ohne Eingabe bearbeiten.",
+          "id": "eigen",
+          "prompt": "Meine eigene harmlose Erfahrung / was anziehend oder schwierig war / mein nächster Schritt mit Grund.",
+          "responseMode": "oral",
+          "responseHint": "Nicht vorzeigen oder in die Fallspur kopieren. Du bestimmst den Umfang."
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Mir fällt kein privates Beispiel ein",
+          "text": "Du brauchst keines: Wähle deinen heutigen Bildversuch. Oder übe zunächst mit Sam und kehre später zu einer eigenen Erfahrung zurück.",
+          "knowledge": "nachdenken",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "optionen",
+      "title": "Welche Handlung passt zum Fall?",
+      "goal": "Du wägest Handlungsoptionen ab und vergleichst ihre Folgen.",
+      "task": "Diskutiert ausschließlich den erfundenen Fall – ohne von euch selbst zu erzählen.",
+      "outcome": "Eine begründete Wahl zwischen mehreren möglichen Handlungen.",
+      "knowledge": [
+        "nachdenken",
+        "hilfe"
+      ],
+      "criteria": [
+        "Ich begründe eine Wahl mit dem konkreten Problem.",
+        "Ich prüfe Vorteil und Grenze mindestens einer anderen Möglichkeit.",
+        "Ich fordere keine privaten Erfahrungen von anderen."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Sam will noch einen Clip sehen",
+          "text": "Sam soll im Unterricht eine Papierbrücke planen. Der Clip hilft beim Falten. Danach werden ständig weitere schöne Brücken angezeigt. Sam schaut weiter und hat noch keinen eigenen Plan. Das ist ein neuer erfundener Fall, keine Beschreibung eines Kindes in eurer Klasse."
+        },
+        {
+          "type": "task",
+          "title": "Vergleicht drei Möglichkeiten · 15 Minuten",
+          "text": "A: Nach einem hilfreichen Clip schließen und selbst probieren. B: Einen weiteren Clip gezielt zu einer offenen Faltfrage wählen. C: Alle vorgeschlagenen Clips ansehen, bis keine mehr kommen.",
+          "id": "abwaegen",
+          "prompt": "Welche Handlung passt zu Sams Ziel? Begründet eure Wahl, nennt einen Vorteil und eine Grenze der anderen sinnvollen Möglichkeit. Formuliert einen konkreten nächsten Schritt. Persönliche Pläne bleiben privat.",
+          "responseMode": "oral",
+          "solution": "A hilft, endlich selbst zu beginnen, wenn die Faltfrage geklärt ist. B kann bei einer konkreten offenen Frage helfen; danach braucht Sam eine klare Stoppentscheidung. C lässt das Ende fremden Vorschlägen und bietet keinen verlässlichen Abschluss. Möglich: Sam notiert die offene Frage, sucht gezielt eine Erklärung und beginnt dann den eigenen Versuch. Es gibt mehr als eine begründete Lösung.",
+          "help": [
+            {
+              "title": "Wir wählen nur unseren Lieblingsweg",
+              "text": "Beginnt mit Sams Lernziel. Welche Information fehlt noch wirklich?",
+              "knowledge": "nachdenken",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur „weniger Medien“ als Antwort?",
+          "text": "Nenne Sams konkrete nächste Handlung. Ein hilfreicher Clip kann Teil der Lösung sein.",
+          "knowledge": "nachdenken",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Trägt dein Urteil auch beim neuen Bild?",
+      "goal": "Du überträgst die Belegprüfung auf einen anderen Fall.",
+      "task": "Bearbeite den Bibliotheksfall der Bildwerkstatt ohne deine alten Antworten.",
+      "outcome": "Ein neues Urteil, das Ausschnitt und Gesamtbild unterscheidet.",
+      "knowledge": [
+        "belege"
+      ],
+      "criteria": [
+        "Ich beginne mit einem eigenen Urteil.",
+        "Ich prüfe nach dem Aufdecken, was belegt, widerlegt oder offen ist.",
+        "Ich korrigiere nötigenfalls meinen Satz mit einer konkreten Stelle."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Ein anderes Bild · 20 Minuten",
+          "text": "In der Bildwerkstatt wechselst du zu „Transfer“. Zunächst siehst du einen Ausschnitt einer erfundenen Bibliothek. Beurteile ihn zuerst selbst; decke erst dann Gesamtbild und Kontext auf.",
+          "links": [
+            {
+              "href": "../medienanalyse/index.html#transfer",
+              "label": "Bibliotheksfall bearbeiten"
+            },
+            {
+              "href": "../medienanalyse/baustein-transfer.html",
+              "label": "Einzelblatt mit Bibliotheksfall"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Was bleibt ungeklärt?",
+          "text": "Ergebnisse in der Werkstatt genügen. Kein zweites Abschreiben.",
+          "id": "grenze",
+          "prompt": "Zeige, welche Aussage du prüfen konntest. Was kannst du auch aus dem Gesamtbild nicht wissen?",
+          "responseMode": "oral",
+          "help": [
+            {
+              "title": "Ich denke schon an das Schulfest",
+              "text": "Untersuche genau das neue Bild. Die Nutzung an anderen Tagen bleibt auch hier offen.",
+              "knowledge": "belege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Wegblatt PLUS das verlinkte Bildblatt Transfer aus der Bildwerkstatt; vorab beilegen",
+        "Papier oder Schulgerät; Gesamtbild zunächst abdecken"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nur die Lösung übernommen?",
+          "text": "Decke die Erklärung ab und begründe selbst eine noch offene Aussage.",
+          "knowledge": "belege",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "handeln",
+      "title": "Wenn Kommentare verletzen",
+      "goal": "Du erkennst Ausgrenzung und begründest einen erreichbaren Hilfeweg.",
+      "task": "Beurteile den erfundenen Anschlussfall. Sichere danach nur deine neutralen Ergebnisse.",
+      "outcome": "Eine begründete Hilfeentscheidung und gesicherte Fallarbeit.",
+      "knowledge": [
+        "hilfe"
+      ],
+      "criteria": [
+        "Ich unterscheide sachliche Kritik und Angriff auf eine Person.",
+        "Ich unterstütze, verbreite Angriffe nicht und hole Hilfe.",
+        "Ich kenne eine erreichbare Vertrauensperson; private Gedanken bleiben getrennt."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Fall D · Nach dem Beitrag",
+          "text": "Zu Jules Brücke schreibt jemand: „Der Text passt nicht zu deinen vier Versuchen.“ Andere schreiben dagegen an mehreren Tagen „Du kannst gar nichts“, machen sich gemeinsam lustig und drängen Jules aus Arbeitsgruppen. Jules möchte, dass es aufhört. Die irreführende Überschrift rechtfertigt diese Angriffe nicht."
+        },
+        {
+          "type": "task",
+          "title": "Entscheide den ersten Schritt · 15 Minuten",
+          "text": "Die Lehrperson hat den örtlichen Hilfeweg ergänzt. Untersucht keine echten Chats. Ihr müsst diesen Fall nicht selbst nachspielen.",
+          "id": "hilfeweg",
+          "prompt": "Welche Äußerung kritisiert das Produkt, welche Vorgänge greifen die Person an? Was würdest du als beobachtende Person zuerst tun, warum? Zeige auf der Hilfekarte eine erreichbare Vertrauensperson und einen Ersatzweg. Wie verhindert ihr weiteres Verbreiten?",
+          "responseMode": "oral",
+          "media": [
+            "hilfekarte"
+          ],
+          "solution": "Die Kritik am Text lässt sich am Beitrag prüfen. Wiederholte Abwertung und Ausschluss greifen Jules an. Nicht mitmachen oder weiterleiten, Jules Unterstützung anbieten und eine erreichbare erwachsene Person hinzuholen. Belege und Meldeweg gemeinsam klären. Bei nicht erreichbarer erster Person den Ersatzweg nutzen. Auch ein einzelner verletzender Vorfall darf gemeldet werden.",
+          "help": [
+            {
+              "title": "Soll Jules einfach nichts mehr zeigen?",
+              "text": "Verantwortlich für Angriffe sind die Angreifenden. Unterstützung und Schutz dürfen nicht davon abhängen, dass Jules perfekte Beiträge schreibt.",
+              "knowledge": "hilfe",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Deine Reihe abschließen",
+          "text": "Sichere Fallurteil, Rückmeldung und überarbeiteten Bildbeitrag. Eine erklärbare Begründung zählt mehr als Häkchen. Deine eigenen Gedanken bleiben bei dir. Die Lehrperson kündigt die kurze spätere Wiederaufnahme an."
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Hilfeweg noch leer?",
+          "text": "Lass die Lehrperson jetzt eine erreichbare Person und Alternative eintragen. Bis dahin ist der konkrete Hilfeweg noch offen.",
+          "knowledge": "hilfe",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "completion": {
+        "title": "Für heute abgeschlossen",
+        "text": "Bewahre die neutrale Fallspur und deinen Werkstattstand. Die Erinnerung folgt an einem späteren Tag; persönliche Notizen bleiben getrennt."
+      }
+    },
+    {
+      "id": "erinnern",
+      "title": "Was bleibt – und was probierst du weiter?",
+      "goal": "Du rufst eine Belegprüfung ab und prüfst dein privates Vorhaben erneut.",
+      "task": "Arbeite an einem späteren Tag zuerst drei Minuten am neuen Fall, danach zwei Minuten nur für dich.",
+      "outcome": "Ein begründeter Abruf und eine private Wiederaufnahme.",
+      "knowledge": [
+        "werbung",
+        "nachdenken"
+      ],
+      "criteria": [
+        "Ich begründe meinen Werbeverdacht und benenne einen fehlenden Beleg.",
+        "Ich vergleiche erst nach meinem eigenen Versuch.",
+        "Ich prüfe mein persönliches Vorhaben ohne es zeigen zu müssen."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "title": "Neuer Fall · erst ohne Wissen",
+          "text": "In einem erfundenen digitalen Spiel erklärt eine Figur einen Bautrick. Dabei sagt sie: „Dieses bezahlte Extra macht jeden Bau perfekt – jetzt kaufen!“ Die Vorführung zeigt nur einen gelungenen Bau.",
+          "id": "spiel",
+          "when": "Mit einigen Tagen Abstand, z.B. zu Beginn von M06; 3 Minuten.",
+          "prompt": "Welche Stelle zeigt Werbung? Wie wird sie eingebaut? Belegt der gezeigte Bau „jeden Bau perfekt“? Begründe kurz.",
+          "responseMode": "oral",
+          "solution": "„Bezahltes Extra“ und „jetzt kaufen“ sind klare Kaufhinweise. Die Werbung ist in die Erklärung einer Spielfigur eingebaut. Ein gelungenes Beispiel beweist nicht, dass jeder Bau perfekt gelingt."
+        },
+        {
+          "type": "explanation",
+          "title": "Zwei Minuten nur für dich",
+          "text": "Erinnere dich an dein persönliches Vorhaben oder sieh auf dein eigenes Papier: Gab es seitdem eine passende Gelegenheit? Was hast du beibehalten oder ausprobiert? Was passte, was würdest du anpassen? Wenn es keine Gelegenheit gab, plane eine harmlose nächste Gelegenheit. Keine Antwort vorzeigen oder abgeben."
+        },
+        {
+          "type": "private",
+          "title": "Freiwillige private Wiederaufnahme",
+          "text": "Du kannst auch still nachdenken. Ein Häkchen sagt nichts darüber aus, was du persönlich gelernt hast.",
+          "id": "rueckblick",
+          "prompt": "Nur für mich: Gelegenheit / Erfahrung / beibehalten oder anpassen.",
+          "responseMode": "oral"
+        }
+      ],
+      "materialNeeds": [
+        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
+        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+      ],
+      "checkHelp": [
+        {
+          "title": "Der Abruf war unsicher?",
+          "text": "Öffne das Wissen zu Werbung, begründe die Stelle und probiere später nochmals einen neuen Fall.",
+          "knowledge": "werbung",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "werbung"
+    ],
+    "explanation": [
+      "werbung",
+      "bildlabor"
+    ],
+    "example": [
+      "werbung",
+      "nachdenken"
+    ],
+    "practice": [
+      "bildlabor"
+    ],
+    "application": [
+      "selbstbild",
+      "gestalten"
+    ],
+    "revision": [
+      "rueckmeldung"
+    ],
+    "securing": [
+      "handeln"
+    ],
+    "transfer": [
+      "transfer",
+      "optionen"
+    ],
+    "retrieval": [
+      "erinnern"
+    ]
+  }
+}

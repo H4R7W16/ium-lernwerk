@@ -56,9 +56,9 @@
       "minutes": 225,
       "focus": "Wirkungen am Material begründen; eigenes Medienhandeln geschützt reflektieren.",
       "evidence": "Belegtes Urteil und begründete Handlungsentscheidung.",
-      "status": "Medienanalyse als Teilangebot; Reflexion ergänzen.",
-      "href": "medienanalyse/lehrkraft.html",
-      "label": "Zum Teilangebot"
+      "status": "Vollständige Reihe mit Bildwerkstatt und geschützter Reflexion ausgearbeitet; reale Erprobung und Zielabgleich offen.",
+      "href": "reihe-medienwirkung.html",
+      "label": "Reihenkommentar"
     },
     {
       "id": "G5-M06",
@@ -323,6 +323,70 @@
         "Transfer technisch nicht möglich? Vorbereitung fortsetzen, reale Handlung als offen führen und nachholen."
       ],
       "next": "Bearbeitbare Datei, Entwurf, Endfassung und eigene Änderungsspur sichern. Kopie und Link durch Empfänger öffnen lassen. Für M05 Wirkung und Gestaltungsentscheidung bereithalten. Nach Erprobung Zeitabweichung, häufigste Hürde und Anpassung notieren; kein vollständiger Kompetenznachweis allein aus dem Produkt."
+    },
+    {
+      "moduleId": "G5-M05",
+      "file": "reihe-medienwirkung.html",
+      "label": "Medienwirkungen",
+      "title": "Medienwirkungen und Selbstdarstellung beurteilen",
+      "goal": "Ein begründetes Fallurteil und ein verbesserter Bildbeitrag. Über eine eigene Medienerfahrung denkst du getrennt und geschützt nach.",
+      "rationale": "Ein kontrollierter Bildvergleich macht Wirkung untersuchbar. Werbung und eine inszenierte Erfolgsmeldung führen zu begründeten, offenen Urteilen. Eigene Gestaltung mit echter Rückmeldung verbindet Analyse und Revision. Persönliche Reflexion bleibt getrennt; neutrale Fälle erlauben gemeinsame Diskussion ohne Offenlegung.",
+      "phases": [
+        {
+          "title": "Werbung und Bildausschnitt",
+          "minutes": 45,
+          "action": "Werbung 25, Bildlabor beginnen 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-werbung.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Belege und Selbstdarstellung",
+          "minutes": 45,
+          "action": "Bildlabor abschließen 25, Fallurteil 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-bildlabor.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Gestalten und lesen lassen",
+          "minutes": 45,
+          "action": "Eigene Gestaltung 25, Rückmeldung beginnen 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-gestalten.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Überarbeiten und privat nachdenken",
+          "minutes": 45,
+          "action": "Rückmeldung abschließen 10, Modell und private Reflexion 30, Optionen beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-rueckmeldung.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Optionen, Transfer und Hilfe",
+          "minutes": 45,
+          "action": "Optionen abschließen 10, Bibliothekstransfer 20, Handeln und Sicherung 15 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-optionen.html",
+          "label": "Zum Lernbogen"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Drei Minuten neutraler Abruf und zwei Minuten private Wiederaufnahme mit Abstand. M01–M05: 32 von 135 vorhandenen Jahresminuten. Sofortiger Transfer gehört bereits zu den 225 Kernminuten."
+      },
+      "preparation": "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen. Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe. Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen.",
+      "decisions": [
+        "Wirkung als Gewissheit formuliert? Zweite mögliche Reaktion ergänzen.",
+        "Person statt Darstellung bewertet? Konkrete Aussage und Kontext prüfen.",
+        "Private Angaben angeboten? Nicht im Plenum vertiefen; bei Hilfebedarf gesondertes Gespräch anbieten.",
+        "Nur fiktiv reflektiert? Später eine harmlose eigene Unterrichtserfahrung geschützt ermöglichen.",
+        "Keine Rückmeldung erhalten? Echten Lesetest nachholen; nicht durch Musterlösung ersetzen."
+      ],
+      "next": "Fallurteil und Bildbeitrag samt Änderungsspur sichern. Fünf spätere Minuten: drei neutraler Abruf, zwei private Wiederaufnahme. Damit M01–M05: 32 von 135 Jahresminuten; keine Doppelzählung des sofortigen Bibliothekstransfers. Für M06 bleiben präzise Beschreibung, Belegprüfung und Revision anschlussfähig. Nach Erprobung Zeitabweichung, eine häufige Hürde und Anpassung festhalten."
     }
   ]
 }

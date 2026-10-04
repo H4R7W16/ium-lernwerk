@@ -115,3 +115,17 @@ test('Bilddownload-Kennzeichnung akzeptiert nur einen booleschen Wert an Bildern
  const p=fixture(); p.media[0].downloadable='yes'; assert.throws(()=>A.validate(p),/Bilddownload/);
  p.media[0].downloadable=true; p.media[1].downloadable=true; assert.throws(()=>A.validate(p),/Bilddownload/);
 });
+
+test('Persönliche M05-Reflexion bleibt aus Arbeitsfeldern und Papier; Selbstprüfung verlangt keine Offenlegung',()=>{
+ const p=A.load().find(p=>p.area==='medienwirkung'),pages=require('./class5-author-render.cjs').render(p),u=A.unit(p);
+ for(const id of ['nachdenken','erinnern']){
+  const html=pages.get('schritt-'+id+'.html'),paper=pages.get('baustein-'+id+'.html');
+  assert.match(html,/Prüfe deine persönlichen Gedanken nur für dich/);
+  assert.doesNotMatch(html,/Du kannst hier, mündlich oder im Heft arbeiten/);
+  assert.match(paper,/Persönliche Gedanken bleiben bei dir/);
+  assert.doesNotMatch(paper,/Du kannst mündlich, im Heft oder auf diesem Blatt antworten/);
+  assert.doesNotMatch(paper,/data-private|private-(?:nachdenken|erinnern)-|<textarea/);
+ }
+ assert.ok(u.fields.includes('i:answer-selbstbild-urteil'));
+ assert.ok(u.fields.every(f=>!f.includes('private-')));
+});
