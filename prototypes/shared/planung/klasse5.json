@@ -1,7 +1,7 @@
 {
   "grade": 5,
   "unitMinutes": 45,
-  "availability": "unconfirmed",
+  "availability": "confirmed",
   "source": {
     "date": "21.09.2026",
     "commit": "dee82ecd7b62007e1387ed61fb190f1cd8fede28",
@@ -505,5 +505,12 @@
         "outgoing": "Code und Spuren als Lernwerk-Arbeitsdatei sichern, Zeichnung gesondert bewahren. Lampenabruf mit Abstand einplanen. Roboterstudio ist zusätzliche Übung."
       }
     ]
+  },
+  "budgetConfirmation": {
+    "units": 38,
+    "unitMinutes": 45,
+    "confirmedAt": "2026-10-04",
+    "source": "Direkte Bestätigung des Auftraggebers im Lernwerk-Chat",
+    "scope": "Jahresplanung Klasse 5 für den vorgesehenen schulischen Einsatz; keine amtliche Stundentafel"
   }
 }
