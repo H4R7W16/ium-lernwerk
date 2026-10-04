@@ -5,13 +5,18 @@ test('Jahreskonten und Reihenzeit passen ohne doppelten Abrufposten',()=>{
  assert.equal(p.modules.reduce((n,m)=>n+m.minutes,0)+Object.values(p.reserves).reduce((a,b)=>a+b,0),1710);
  assert.equal(p.series.phases.reduce((n,x)=>n+x.minutes,0),p.modules[0].minutes);
  assert.equal(p.series.later.minutes,12);assert.equal(p.series.later.account,'spacedPracticeMinutes');
- assert.equal(p.availability,'unconfirmed');assert.equal(p.modules.length,6);
- assert.throws(()=>P.validate({...p,availability:'confirmed'}),/Budget/);
+ assert.equal(p.availability,'confirmed');assert.equal(p.budgetConfirmation.units,38);assert.equal(p.modules.length,6);
+ assert.throws(()=>P.validate({...p,budgetConfirmation:null}),/Budget/);
+ assert.throws(()=>P.validate({...p,budgetConfirmation:{...p.budgetConfirmation,units:37}}),/Budget/);
+ assert.throws(()=>P.validate({...p,availability:'unknown'}),/Budget/);
+ assert.throws(()=>P.validate({...p,budgetConfirmation:{...p.budgetConfirmation,source:''}}),/Budget/);
+ assert.match(P.distribution(),/38 UE zu 45 Minuten.*bestätigt/);
+ assert.doesNotMatch(P.connections(),/unbestätigt/);
  const invalid=structuredClone(p);invalid.series.phases[0].minutes+=45;assert.throws(()=>P.validate(invalid),/Reihenzeit/);
 });
 test('Planung ist vollständig im Build und aus Übersicht und Einheit erreichbar',()=>{
  const a=require('../m06-reinigungsfall/build.cjs').prepare();
- for(const file of ['stoffverteilung.html','reihe-arbeitsraum.html']){assert.ok(a.has('klasse5/'+file));assert.match(a.get('klasse5/mantel-sw.js'),new RegExp(file.replace('.','\\.')));}
+ for(const file of ['stoffverteilung.html','reihe-arbeitsraum.html','review.html']){assert.ok(a.has('klasse5/'+file));assert.match(a.get('klasse5/mantel-sw.js'),new RegExp(file.replace('.','\\.')));}
  assert.match(a.get('klasse5/lehrkraft.html'),/href="stoffverteilung.html"/);
  assert.match(a.get('klasse5/lehrkraft.html'),/href="reihe-arbeitsraum.html"/);
  assert.match(a.get('klasse5/dateien/lehrkraft.html'),/href="..\/reihe-arbeitsraum.html"/);

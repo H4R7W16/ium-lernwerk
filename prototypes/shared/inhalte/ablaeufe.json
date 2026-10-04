@@ -52,7 +52,7 @@
       "title": "Fünf Stunden führen",
       "paragraphs": [
         "1: Auftakt20, Modell 15, Grafik10. 2: Grafik15, Programm30. 3: Entwurf 45. 4: Entwurf 15, Prüfen30. 5: Prüfen10, Transfer25, Sichern10 Minuten. Enthalten sind Orientierung35, angeleitete Übung55, eigener Entwurf 60, Rückmeldung/Revision 40 und Konsolidierung35. Wechsel- und Sicherungszeit innerhalb dieser Phasen einplanen.",
-        "Das bisherige Roboterstudio ist eine zusätzliche Übung für andere Befehle. Es gehört nicht als zweiter Pflichtdurchlauf zu den 225 Minuten. Der spätere Abruf dauert5 Minuten; M01–M06 belegen damit37 der135 Jahresminuten. Schulisches Jahresbudget und reale Bearbeitungszeiten bleiben zu bestätigen."
+        "Das bisherige Roboterstudio ist eine zusätzliche Übung für andere Befehle. Es gehört nicht als zweiter Pflichtdurchlauf zu den 225 Minuten. Der spätere Abruf dauert 5 Minuten; M01–M06 belegen damit 37 der 135 Jahresminuten. Das Jahresbudget von 38 UE ist bestätigt; reale Bearbeitungszeiten bleiben zu erproben."
       ]
     },
     {
@@ -202,8 +202,8 @@
         "Eine Schleife mit fester Anzahl wiederholt ihren Körper genau so oft wie angegeben. Der Körper enthält hier alle Befehle zwischen [ und ]. Ein Durchlauf führt den ganzen Körper aus.",
         "wiederhole 3 [ nimm markiere lege ] führt neun Aktionen aus. Die Zahl3 zählt Durchläufe, nicht einzelne Aktionen. Ein Befehl nach ] läuft erst nach allen Durchläufen."
       ],
-      "example": "nimm lege wiederhole 2 [ nimm markiere lege ] legt zuerst eine unmarkierte Karte ab und dann zwei markierte. Das sind2 + 2×3 =8 Aktionen.",
-      "boundary": "Unsere Sprache erlaubt eine feste Zahl1–9 und keine verschachtelten Schleifen. Reale Sprachen können deutlich mehr.",
+      "example": "nimm lege wiederhole 2 [ nimm markiere lege ] legt zuerst eine unmarkierte Karte ab und dann zwei markierte. Das sind 2 + 2 × 3 = 8 Aktionen.",
+      "boundary": "Unsere Sprache erlaubt eine feste Zahl 1–9 und keine verschachtelten Schleifen. Reale Sprachen können deutlich mehr.",
       "steps": [
         "grafik",
         "programm",
@@ -408,7 +408,7 @@
             },
             {
               "title": "Durchgearbeitetes Beispiel mit allen Zuständen",
-              "text": "Start: Vorrat 2, Platz leer, Ausgabe leer. 1 nimm: Vorrat 1, Platz unmarkiert, Ausgabe leer. 2 markiere: Vorrat 1, Platz markiert, Ausgabe leer. 3 lege: Vorrat 1, Platz leer, Ausgabe●. 4 nimm: Vorrat 0, Platz unmarkiert, Ausgabe●. 5 markiere: Vorrat 0, Platz markiert, Ausgabe●. 6 lege: Vorrat 0, Platz leer, Ausgabe●●. Der Platz wird nach jedem lege wieder frei. Deshalb kann jeder neue Durchlauf mit nimm beginnen. Insgesamt 2×3 =6 Aktionen."
+              "text": "Start: Vorrat 2, Platz leer, Ausgabe leer. 1 nimm: Vorrat 1, Platz unmarkiert, Ausgabe leer. 2 markiere: Vorrat 1, Platz markiert, Ausgabe leer. 3 lege: Vorrat 1, Platz leer, Ausgabe ●. 4 nimm: Vorrat 0, Platz unmarkiert, Ausgabe ●. 5 markiere: Vorrat 0, Platz markiert, Ausgabe ●. 6 lege: Vorrat 0, Platz leer, Ausgabe ●●. Der Platz wird nach jedem lege wieder frei. Deshalb kann jeder neue Durchlauf mit nimm beginnen. Insgesamt 2 × 3 = 6 Aktionen."
             }
           ]
         },
@@ -852,7 +852,7 @@
           "text": "Eine Lampe beginnt aus. Code: wiederhole 2 [ an warte aus ] an. Schreibe die ganze Folge auf. Wie viele Aktionen sind es? Wie endet die Lampe? Ändere genau eine Stelle, damit sie am Ende aus ist.",
           "prompt": "Deine Folge, Erklärung und gezielte Änderung",
           "when": "Nach 5 Tagen bis2 Wochen ·5 Minuten aus dem Jahreskonto.",
-          "solution": "an–warte–aus | an–warte–aus | an:7 Aktionen; am Ende an. Das letzte an steht außerhalb der Schleife. Du kannst es entfernen (6 Aktionen) oder durch aus ersetzen (7 Aktionen). Beides endet aus. Erkläre, was du geändert hast; die erste Lösung auswendig zu kennen genügt nicht."
+          "solution": "an–warte–aus | an–warte–aus | an: 7 Aktionen; am Ende an. Das letzte an steht außerhalb der Schleife. Du kannst es entfernen (6 Aktionen) oder durch aus ersetzen (7 Aktionen). Beides endet aus. Erkläre, was du geändert hast; die erste Lösung auswendig zu kennen genügt nicht."
         }
       ],
       "materialNeeds": [

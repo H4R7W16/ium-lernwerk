@@ -4,7 +4,7 @@ Stand: 04.10.2026 · redaktionell zur Sichtung
 ## Verbindliche Fassungen
 Planung: Anhörungsfassung 21.09.2026, Commit dee82ecd7b62007e1387ed61fb190f1cd8fede28 im separaten Planungs-Worktree ium-bildungsplan-ahf-20260922, roadmap/ahf-2026-09-21. modules.json, year-plans.json, curriculum-map.json, process-map.json, private-reflection.json und production-contract.md sind maßgeblich. Ältere Planungsdateien dieses Produktbranches sind kein Ersatz. Die Anhörungsfassung ist kein endgültig in Kraft gesetzter Bildungsplan; unsere Zuordnung auf Klasse 5 liegt innerhalb des Bands 5/6.
 
-Produktbasis des gemeinsamen Reviews: 77d3f48. Weitergeführt auf review/klasse5-abdeckung; finaler Commit und versionsgebundene Prüfnachweise stehen im Vault-Handoff. Stabile Angebots-IDs bleiben von Planungsmodulen unterscheidbar.
+Produktbasis des gemeinsamen Reviews: 77d3f48. Abschlusscheck weitergeführt auf review/klasse5-abschluss; finaler Commit und versionsgebundene Prüfnachweise stehen im Vault-Handoff. Stabile Angebots-IDs bleiben von Planungsmodulen unterscheidbar.
 
 ## Alle sechs Reihen sind ausgearbeitet
 | Reihe | Kernzeit | Inhalt und Nachweis | Anschluss |
@@ -19,14 +19,14 @@ Produktbasis des gemeinsamen Reviews: 77d3f48. Weitergeführt auf review/klasse5
 Alle Reihen wurden gemeinsam redaktionell gegen die aktive Planung abgeglichen: [Bericht](klasse5-gesamtcheck.md), [Einzelbelege](klasse5-abdeckungsmatrix.md). Das Aufgabenangebot trägt die geplanten Ziele; reale Geräte-, Schulraum- und Unterrichtserprobung bleiben offen. Keine automatische Kompetenzfreigabe.
 
 ## Zeit einmal buchen
-1350 Kernminuten = 30 UE. Zusätzlich 135 Minuten verteilte Übung, 45 Organisation, 180 Puffer: insgesamt 1710 Minuten = 38 UE Planungsbedarf, **noch kein bestätigtes Jahresbudget**. M04 umfasst acht UE, nicht die sieben UE einer älteren Pilotfrage.
+1350 Kernminuten = 30 UE. Zusätzlich 135 Minuten verteilte Übung, 45 Organisation, 180 Puffer: insgesamt 1710 Minuten = 38 UE Planungsbedarf, **durch den Auftraggeber am 04.10.2026 bestätigtes Jahresbudget für den vorgesehenen Einsatz**. M04 umfasst acht UE, nicht die sieben UE einer älteren Pilotfrage.
 
 Spätere Abrufe: M01 zwölf Minuten, M02–M06 je fünf = 37 von 135 Minuten. Weitere 98 Minuten bleiben für geplante Wiederaufnahme und beobachtete Lücken. Der dreiminütige Schichtenabruf liegt bereits im Dateien-Einstieg. Quellenquest und Bildwerkstatt nicht zusätzlich zählen. Die 45 Minuten für M05-Modell, eigene Reflexion und Optionen sind Teil der fünf UE. Zusätzliche Roboterübungen brauchen eigene verfügbare Zeit.
 
 ## Unterstützung für Lehrpersonen
-Einstieg: klasse5/lehrkraft.html. zusammenhaenge.html bündelt kurze Anschlussprüfungen, Vorprodukte, Quereinstieg und Grenzen; stoffverteilung.html zeigt das Jahreskonto. Die sechs Reihenkommentare verlinken Durchführung und Material. Redaktionelle Daten liegen in prototypes/shared/planung/klasse5.json.
+Einstieg: klasse5/lehrkraft.html. zusammenhaenge.html bündelt kurze Anschlussprüfungen, Vorprodukte, Quereinstieg und Grenzen; stoffverteilung.html zeigt das Jahreskonto. Die sechs Reihenkommentare verlinken Durchführung und Material. Die Prüffassung K5-R1 vom 04.10.2026 enthält unter review.html einen knappen Auftrag und ein Rückmelderaster. Redaktionelle Daten liegen in prototypes/shared/planung/klasse5.json.
 
-Nächster Schritt: verfügbare Jahreszeit bestätigen und an den tatsächlich eingesetzten Schulprofilen Speicher-, Such-, Kommunikations- und beide Weitergabewege erproben. Danach eine Lerngruppe mit kurzen Beobachtungen begleiten: tatsächlich ausgeführte Handlung, Zeitabweichung, häufigste Hürde, nächste Anpassung. Fehlende Praxis nachholen, keine Häkchen als Ersatz. Private Reflexion nicht einsammeln.
+Nächster Schritt: fachliche Fremdsichtung mit klasse5/review.html; an den tatsächlich eingesetzten Schulprofilen Speicher-, Such-, Kommunikations- und beide Weitergabewege erproben. Danach eine Lerngruppe mit kurzen Beobachtungen begleiten: tatsächlich ausgeführte Handlung, Zeitabweichung, häufigste Hürde, nächste Anpassung. Fehlende Praxis nachholen, keine Häkchen als Ersatz. Private Reflexion nicht einsammeln.
 
 ## Wiederholbarer Produktionsablauf
 Es gilt der [adaptive Qualitätszyklus](qualitaetszyklus.md): Inhaltsbrief → passende Kriterien → vollständiges Material mit Lehrhinweisen → kritischer Selbstreview → gezielte Nacharbeit → versionsgebundene Nachprüfung. Standard inline, keine automatische Veröffentlichung. Unterschiedliche Lernhandlungen bestimmen die Form; die Dateien-Referenz ist keine universelle Schablone.
