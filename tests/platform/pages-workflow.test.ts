@@ -20,7 +20,7 @@ type WorkflowJob = {
   'runs-on'?: string;
 };
 
-test('publishes the synthetic device fixture manually with least privilege', async () => {
+test('preserves the retired synthetic device fixture build contract', async () => {
   const source = await readFile('.github/workflows/device-fixture-pages.yml', 'utf8')
     .catch(() => '');
   expect(source, 'device fixture Pages workflow is missing').not.toBe('');
@@ -91,7 +91,7 @@ test('publishes the synthetic device fixture manually with least privilege', asy
 
   const deploy = workflow.jobs.deploy!;
   expect(deploy.needs).toBe('build');
-  expect(deploy.if).toBe("github.ref == 'refs/heads/main'");
+  expect(deploy.if).toBe('${{ false }}');
   expect(deploy.permissions).toEqual({
     contents: 'read',
     pages: 'write',
@@ -167,7 +167,7 @@ test('publishes the synthetic device fixture manually with least privilege', asy
         ],
       },
       deploy: {
-        if: "github.ref == 'refs/heads/main'",
+        if: '${{ false }}',
         needs: 'build',
         permissions: { contents: 'read', pages: 'write', 'id-token': 'write' },
         environment: {
@@ -187,7 +187,7 @@ test('publishes the synthetic device fixture manually with least privilege', asy
   });
 });
 
-test('publishes the IUM5 Gate-B non-release preview only through its manual contract', async () => {
+test('preserves the retired IUM5 Gate-B preview build contract', async () => {
   const source = await readFile('.github/workflows/ium5-gate-b-preview.yml', 'utf8')
     .catch(() => '');
   expect(source, 'IUM5 Gate-B Pages workflow is missing').not.toBe('');
@@ -265,7 +265,7 @@ test('publishes the IUM5 Gate-B non-release preview only through its manual cont
 
   const deploy = workflow.jobs.deploy!;
   expect(deploy.needs).toBe('build');
-  expect(deploy.if).toBe("github.ref == 'refs/heads/main'");
+  expect(deploy.if).toBe('${{ false }}');
   expect(deploy.permissions).toEqual({
     contents: 'read',
     pages: 'write',
@@ -326,5 +326,36 @@ test('CI validates Gate-B without adding a deployment path or a fifth job', asyn
   for (const job of Object.values(workflow.jobs)) {
     expect(job.permissions ?? {}).not.toHaveProperty('pages');
     expect(job.permissions ?? {}).not.toHaveProperty('id-token');
+  }
+});
+
+
+test('publishes only the current Klasse 5 export and retires older Pages deployments', async () => {
+  const source = await readFile('.github/workflows/klasse5-pages.yml', 'utf8').catch(() => '');
+  expect(source, 'Klasse-5-Pages-Workflow fehlt').not.toBe('');
+  if (!source) return;
+  const document = parseDocument(source);
+  expect(document.errors).toEqual([]);
+  const workflow = document.toJS() as {
+    on: { push: { branches: string[] }; workflow_dispatch: unknown };
+    jobs: Record<string, WorkflowJob>;
+  };
+  expect(Object.keys(workflow.on).sort()).toEqual(['push', 'workflow_dispatch']);
+  expect(workflow.on.push.branches).toEqual(['main']);
+  expect(Object.keys(workflow.jobs)).toEqual(['build', 'deploy']);
+  const build = workflow.jobs.build!;
+  expect(build.permissions).toEqual({ contents: 'read' });
+  expect(build.steps?.find(step => step.run?.includes('build-class5-pages.cjs'))?.run)
+    .toBe('node prototypes/m06-reinigungsfall/build-class5-pages.cjs');
+  expect(build.steps?.find(step => step.uses === 'actions/upload-pages-artifact@v4')?.with)
+    .toEqual({ path: 'dist/klasse5-pages' });
+  const deploy = workflow.jobs.deploy!;
+  expect(deploy.needs).toBe('build');
+  expect(deploy.permissions).toEqual({ contents: 'read', pages: 'write', 'id-token': 'write' });
+  expect(deploy.steps?.at(-1)?.uses).toBe('actions/deploy-pages@v4');
+  for (const filename of ['reinigungsfall-pages.yml','selbstlernen-pages.yml','ium5-gate-b-preview.yml','device-fixture-pages.yml']) {
+    const old = parseDocument(await readFile('.github/workflows/' + filename, 'utf8'));
+    expect(old.errors).toEqual([]);
+    expect((old.toJS() as {jobs: Record<string, WorkflowJob>}).jobs.deploy?.if, filename).toBe('${{ false }}');
   }
 });

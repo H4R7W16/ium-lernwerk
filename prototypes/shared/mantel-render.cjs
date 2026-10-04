@@ -31,6 +31,7 @@ function retrieval(unit,units){
 }
 function decorate(html,units,unit,file){
  html=terminology(html).replace(/href="\.\.\/(selbstlernen|lernwerkstatt|lernfassung-3|reinigungsfall-v2|reinigungsfall\.html)/g,'href="../../$1');
+ html=html.replace('href="../../selbstlernen/read.html">Lesefassung','href="material.html">Materialseite');
  const old=html.match(/<header class="lw-header">[\s\S]*?<\/header>/)||html.match(/<header class="topbar">[\s\S]*?<\/header>/);
  if(!old)throw new Error('Fehlender gemeinsamer Kopf: '+unit.area+'/'+file);
  const tools=unit.area==='lernstudio'?'':(old[0].match(/<button\b[\s\S]*?<\/button>/g)||[]).filter(x=>!x.includes('data-action="settings"')).join('');

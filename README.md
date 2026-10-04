@@ -1,12 +1,18 @@
 # IuM-Lernwerk
 
-Neue zusätzliche Referenzstrecke: **[Mit Schleifen planen – eigenständig lernen](https://h4r7w16.github.io/ium-lernwerk/selbstlernen/)** · **[Lesefassung](https://h4r7w16.github.io/ium-lernwerk/selbstlernen/read.html)** · [Quellcode und Anleitung](prototypes/m06-selbstlernen/README.md). Stand 21.09.2026 nach UX11-Nacharbeit, als Prüffassung zugänglich; keine Schülererprobung oder Unterrichtsfreigabe. Die bisherige Startadresse und die folgenden älteren Fassungen bleiben erhalten.
+**[Lernwerk Klasse 5 öffnen](https://h4r7w16.github.io/ium-lernwerk/klasse5/)** · [Hinweise für Lehrpersonen](https://h4r7w16.github.io/ium-lernwerk/klasse5/lehrkraft.html) · [Prüffassung und Rückmeldung](https://h4r7w16.github.io/ium-lernwerk/klasse5/review.html)
 
-Ein digitales Lernwerk für Informatik und Medienbildung am Gymnasium in Baden-Württemberg, Klassen 5 bis 7. Ziel sind verständliche, relevante Aufgaben, an denen Lernende informatische Zusammenhänge selbst untersuchen und erklären können. Das Lehrwerk befindet sich in Entwicklung.
+Das aktuelle Lernwerk für Informatik und Medienbildung in Klasse 5 bündelt sechs Reihen und ergänzende Werkstätten unter einer gemeinsamen Oberfläche. Die neue Gestaltung verwendet die IuM-Wortmarke und Blau als Akzentfarbe für Klasse 5. Der Stand ist zur Sichtung und Erprobung bestimmt; eine gemessene Lernwirkung oder vollständige Prüfung auf Schulgeräten ist damit nicht behauptet.
+
+GitHub Pages veröffentlicht ausschließlich `klasse5/` sowie einen Wurzeleinstieg dorthin. Frühere Fassungen bleiben im Quellcode erhalten, sind aber auf GitHub Pages nicht mehr als eigene Lernseiten verfügbar. Der [Klasse-5-Pages-Workflow](.github/workflows/klasse5-pages.yml) baut die statische Ausgabe aus den Quellen; ältere Pages-Deployjobs sind stillgelegt.
+
+## Früheres Beispiel: Sauber geplant (Quellcode)
+
+Die folgende Beschreibung dokumentiert die frühere Reinigungsroboter-Fassung für den Entwicklungsvergleich. Sie wird nicht mehr separat auf GitHub Pages ausgeliefert.
 
 ## Beispielinhalt ausprobieren: Sauber geplant
 
-**[Aktuelle Lernfassung 2 im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall-v2/)** – ohne Installation oder Anmeldung.
+[Quellcode der damaligen Lernfassung 2](prototypes/m06-reinigungsfall-v2/).
 
 Der Beispielinhalt zeigt M06 für Klasse 5: Nach dem Basteln soll ein Modellroboter die Bodenfläche reinigen. Neun frei anwählbare Lernschritte führen von Bewegung und Drehung über Vorhersagen, Wiederholungen und Fehlerkorrektur zum eigenen Plan. Transfer und eine selbst aufgebaute Abschlussfolge sichern die fachlichen Zusammenhänge. Die Schritte sind keine neun Unterrichtsstunden.
 
@@ -32,13 +38,13 @@ Dies ist ein ausführbarer Beispielinhalt, noch nicht das gesamte Lehrwerk 5–7
 | Aktueller Beispielinhalt und Quellcode | [prototypes/m06-reinigungsfall-v2](prototypes/m06-reinigungsfall-v2/) |
 | Lernweg, Speicherung und lokale Nutzung | [Anleitung zur Lernfassung 2](prototypes/m06-reinigungsfall-v2/README.md) |
 | Dokumentierte lokale Vorprüfung | [QA der Lernfassung 2](prototypes/m06-reinigungsfall-v2/QA.md) |
-| Erste Reinigungsfassung zum Vergleich | [Im Browser öffnen](https://h4r7w16.github.io/ium-lernwerk/reinigungsfall.html) · [Quellcode](prototypes/m06-reinigungsfall/) |
+| Erste Reinigungsfassung zum Vergleich | [Quellcode](prototypes/m06-reinigungsfall/) |
 | Fachliche Ausgangsplanung und Musterlösungen | [Ausarbeitung M06](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/m06-reinigungsfall.md) |
 | Roter Faden 5–7 und externe Lernangebote | [Planungsübersicht](https://github.com/H4R7W16/ium-lernwerk/blob/4abbe6c2225e608f9bc10c9ae9a4028477235864/docs/planning/ium-5-7/README.md) |
 
 Die verlinkte Ausgangsplanung liegt auf einem festgehaltenen Entwicklungsstand. Die zusätzliche Fassung setzt die nachfolgende Lernendenanalyse um; ihre aktuelle Lernfolge ist in der Anleitung dokumentiert. Weitergehende Planungen sind nicht automatisch Funktionen der Vorschau.
 
-Der manuelle [Workflow „Selbstlernstrecke Pages“](https://github.com/H4R7W16/ium-lernwerk/actions/workflows/selbstlernen-pages.yml) prüft ausschließlich Material und Veröffentlichungsdateien und veröffentlicht alle drei Fassungen gemeinsam. Import-/Exporttests und Gesamtsuiten gehören nicht zu diesem Workflow. Der bestehende Workflow „Reinigungsfall Pages“ bleibt für seinen bisherigen Prüfumfang erhalten. Die [Projektstartseite](https://h4r7w16.github.io/ium-lernwerk/) führt zur aktuellen Lernfassung; die ältere direkte Adresse bleibt erhalten.
+Die früheren Workflows bleiben als historische Prüfpfade im Repository, können aber keine alte Fassung mehr auf GitHub Pages veröffentlichen. Die [Projektstartseite](https://h4r7w16.github.io/ium-lernwerk/) führt jetzt zu Klasse 5.
 
 ## Hintergrund: bisherige Entwicklungsstände
 

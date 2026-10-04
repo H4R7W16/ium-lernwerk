@@ -1,0 +1,48 @@
+name: IuM Lernwerk Klasse 5 Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+      - name: Check current Klasse 5 and published file map
+        run: node --test prototypes/shared/*.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-reinigungsfall/class5-pages.test.cjs
+      - name: Build current Klasse 5 only
+        run: node prototypes/m06-reinigungsfall/build-class5-pages.cjs
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/klasse5-pages
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

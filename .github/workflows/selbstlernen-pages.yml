@@ -56,7 +56,8 @@ jobs:
           path: dist/reinigungsfall-pages
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    # Retired: only klasse5-pages.yml may publish the current site.
+    if: ${{ false }}
     needs: build
     permissions:
       contents: read
