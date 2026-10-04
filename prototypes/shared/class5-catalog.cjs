@@ -24,4 +24,16 @@ function catalog(assets){
  ];
  return records.map(r=>validate({...r,schemaVersion:1,version:'1.0.0',grade:5,kind:'core',status:'working',prerequisites:['Kurze Aufträge lesen; mündliche und schriftliche Erklärung sind möglich.'],learningDesign:{goal:r.product,coverage:r.coverage},fields:fields(r.area,assets.get(r.area+'/index.html')),steps:[...r.steps,{id:'wiederaufnahme',title:'Später wieder aufgreifen',goal:'Erkläre die Beziehung erneut, bevor du nachliest.',criteria:['Ich rekonstruiere zuerst selbst.','Ich vergleiche und verbessere meine Erklärung.']}]}));
 }
-module.exports={catalog,validate,functions};
+// Die Modulfolge kommt aus der Jahresplanung, Teilangebote aus dem Reihenverlauf.
+function orderUnits(units){
+ const plan=require('./planung/klasse5.json'),series=[plan.series,...(plan.additionalSeries||[])];
+ const prototypeModules={quellenquest:'G5-M02',medienanalyse:'G5-M05',lernstudio:'G5-M06'};
+ const rank=u=>{
+  const moduleId=u.curriculum?.moduleId||prototypeModules[u.area];
+  const moduleIndex=plan.modules.findIndex(m=>m.id===moduleId);
+  const phaseIndex=series.find(s=>s.moduleId===moduleId)?.phases.findIndex(p=>p.href?.startsWith(u.area+'/'))??-1;
+  return [moduleIndex<0?Number.MAX_SAFE_INTEGER:moduleIndex,phaseIndex<0?Number.MAX_SAFE_INTEGER:phaseIndex];
+ };
+ return [...units].sort((a,b)=>{const x=rank(a),y=rank(b);return x[0]-y[0]||x[1]-y[1];});
+}
+module.exports={catalog,validate,functions,orderUnits};

@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const {catalog}=require('./class5-catalog.cjs');
+const {catalog,orderUnits}=require('./class5-catalog.cjs');
 const learningPages=require('./learning-pages.cjs'),teacherPages=require('./class5-teacher-pages.cjs');
 const e=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function terminology(html){return html.replace(/eine einzelne Station/g,'einen einzelnen Schritt').replace(/Vorige Station/g,'Voriger Schritt').replace(/Station (?=\d)/g,'Schritt ').replace(/target="_blank"\s*rel="noopener"/g,'').replace(/\bStationen\b/g,'Schritte').replace(/\bEtappen\b/g,'Lernweg').replace(/\bEtappe\b/g,'Schritt').replace(/\bETAPPE\b/g,'SCHRITT').replace(/Tipp 1/g,'Ein Hinweis').replace(/Tipp 2/g,'Eine genauere Hilfe').replace(/Einen Hinweis/g,'Ein Hinweis').replace(/öffnen ↗/g,'öffnen').replace(/dazu ↗/g,'dazu');}
@@ -44,7 +44,7 @@ function decorate(html,units,unit,file){
  return html.replace('</body>',extra+foot('../')+'</body>');
 }
 function augment(assets){
- const A=require('./class5-content.cjs'),packs=A.load(),units=[...catalog(assets),...packs.map(A.unit)],created=new Map();
+ const A=require('./class5-content.cjs'),packs=A.load(),units=orderUnits([...catalog(assets),...packs.map(A.unit)]),created=new Map();
  if(new Set(units.map(u=>u.area)).size!==units.length||new Set(units.map(u=>u.id)).size!==units.length)throw new Error('Doppelter Inhalt im Klasse-5-Katalog');
  const keep=new Set(units.map(u=>u.area));
  for(const [name,value]of assets){const area=name.split('/')[0];if(keep.has(area))created.set(name,typeof value==='string'&&name.endsWith('.js')?terminology(value).replace(/\bStationen\b/g,'Schritte').replace(/href="\.\.\/(selbstlernen|lernwerkstatt|lernfassung-3|reinigungsfall-v2)/g,'href="../../$1'):value);}
@@ -84,8 +84,8 @@ function augment(assets){
   for(const file of ['wissen.html','material.html'])created.set(u.area+'/'+file,page(file==='wissen.html'?'Wissen':'Unterrichtsmaterial',welcome+'<ul>'+materialLinks+'</ul>',units,u,file));
   created.set(u.area+'/lehrkraft.html',page('Hinweise für Lehrpersonen',welcome+pack.teacher.map(p=>'<p>'+e(p)+'</p>').join('')+teacherPreparation()+steps,units,u,'lehrkraft.html'));
  }
- const intro='<section class="lw-hero"><p class="lw-eyebrow">Informatik und Medienbildung · Klasse 5</p><h1>Entdecken, prüfen,<br>selbst gestalten.</h1><p class="lw-lead">Ordne Dateien, erprobe Programme, untersuche Bilder und prüfe Nachrichten. Wähle einen Bereich und halte fest, was du herausfindest.</p></section>';
- created.set('index.html',page('Klasse 5',intro+cards(units,'index.html')+'<section class="lw-notice"><h2>Dein Weg durch das Lernwerk</h2><p>Jeder Schritt ist direkt erreichbar. Erklärungen und Beispiele findest du bei deiner Aufgabe und im Wissen. Hilfen kannst du jederzeit nutzen. Deine eigenen Ergebnisse kannst du unter „Deine Arbeit“ weiterführen und sichern.</p><a href="lehrkraft.html">Mit dem Lernwerk unterrichten</a></section>',units));
+ const intro='<section class="lw-hero"><p class="lw-eyebrow">Informatik und Medienbildung · Klasse 5</p><h1>Entdecken, prüfen,<br>selbst gestalten.</h1><p class="lw-lead">Lerne dein Gerät kennen, ordne Dateien und finde gute Informationen. Danach untersuchst du Bilder und entwickelst eigene Abläufe. Wähle dein Thema.</p></section>';
+ created.set('index.html',page('Klasse 5',intro+cards(units,'index.html')+'<section class="lw-notice"><h2>Dein Weg durch das Lernwerk</h2><p>Die Themen sind in einer empfohlenen Lernfolge angeordnet. Du kannst jedes Angebot auch direkt öffnen. „Quellen prüfen“ gehört zur Recherche und ist zusätzlich einzeln erreichbar. Erklärungen und Beispiele findest du bei deiner Aufgabe und im Wissen. Hilfen kannst du jederzeit nutzen. Deine eigenen Ergebnisse kannst du unter „Deine Arbeit“ weiterführen und sichern.</p><a href="lehrkraft.html">Mit dem Lernwerk unterrichten</a></section>',units));
  for(const [file,title,target]of [['wissen.html','Wissen und Beispiele','wissen.html'],['material.html','Unterrichtsmaterial','material.html']]){
  const text='<p class="lw-lead">Wähle einen Bereich. Die Bausteine sind auch ohne einen vorherigen Arbeitsstand nutzbar.</p>';
  created.set(file,page(title,'<p class="lw-eyebrow">Klasse 5</p><h1>'+title+'</h1>'+text+cards(units,target),units,null,file));
