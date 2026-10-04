@@ -1,4 +1,4 @@
-(function(root,factory){const api=factory(root,typeof module==='object'&&module.exports?{W:require('../m06-lernwerkstatt/workshop-model.js'),S:require('../m06-lernstudio/studio-model.js')}:null);if(typeof module==='object'&&module.exports)module.exports=api;else root.LernwerkMantelModel=api;})(globalThis,function(root,models){
+(function(root,factory){const api=factory(root,typeof module==='object'&&module.exports?{W:require('../m06-lernwerkstatt/workshop-model.js'),S:require('../m06-lernstudio/studio-model.js'),N:require('../m01-netze/model.js')}:null);if(typeof module==='object'&&module.exports)module.exports=api;else root.LernwerkMantelModel=api;})(globalThis,function(root,models){
 'use strict';
 const MAX_BYTES=2*1024*1024,uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
 const clone=value=>JSON.parse(JSON.stringify(value));
@@ -10,6 +10,7 @@ function safe(o,depth=0){if(depth>16)return false;if(typeof o==='string')return 
 function toolValid(tool,unit){
  if(tool===null||tool===undefined)return true;
  if(!plain(tool)||tool.family!==unit.family||!safe(tool))return false;
+ if(unit.family==='content')return unit.toolKind==='network'&&keys(tool,['family','kind','state'])&&tool.kind==='network'&&!!(models?.N||root.NetModel)?.valid(tool.state);
  if(unit.family==='algorithm'){
   const W=models?.W||root.Workshop,S=models?.S||root.Studio,d=tool.data;
   if(!W||!S||!keys(tool,['family','data','display'])||!keys(d,['version','current','works'])||d.version!==1||!S.order.includes(d.current)||!plain(d.works))return false;
@@ -50,13 +51,13 @@ function toolValid(tool,unit){
  return false;
 }
 function genericFieldAllowed(unit,key){return unit.family!=='algorithm'&&unit.family!=='media'||key==='i:lw-retrieval';}
-function envelope(unit,payload,id,date){return {format:'ium-learning-state',formatVersion:1,moduleId:unit.id,moduleVersion:unit.version,stateSchemaVersion:1,workspaceId:id,savedAt:date,payload:{schema:'klasse5-mantel-1',family:unit.family,...clone(payload)}};}
+function envelope(unit,payload,id,date){return {format:'ium-learning-state',formatVersion:1,moduleId:unit.id,moduleVersion:unit.version,stateSchemaVersion:1,workspaceId:id,savedAt:date,payload:{schema:unit.grade===6?'klasse6-mantel-1':'klasse5-mantel-1',family:unit.family,...clone(payload)}};}
 function parse(text,units){
  const bad=message=>({ok:false,message});if(typeof text!=='string'||new TextEncoder().encode(text).length>MAX_BYTES)return bad('Die Arbeitsdatei ist zu groß (höchstens 2 MB).');
  try{
  const r=JSON.parse(text);if(!safe(r)||!keys(r,['format','formatVersion','moduleId','moduleVersion','stateSchemaVersion','workspaceId','savedAt','payload'])||r.format!=='ium-learning-state'||r.formatVersion!==1||r.stateSchemaVersion!==1||!uuid.test(r.workspaceId)||typeof r.savedAt!=='string'||!Number.isFinite(Date.parse(r.savedAt)))return bad('Die Datei ist keine unterstützte Lernwerk-Arbeitsdatei.');
  const unit=units.find(u=>u.id===r.moduleId);if(!unit||r.moduleVersion!==unit.version)return bad('Diese Arbeitsdatei passt nicht zu einer verfügbaren Lerneinheit/Fassung.');
- const p=r.payload;if(!keys(p,['schema','family','step','fields','tool'])||p.schema!=='klasse5-mantel-1'||p.family!==unit.family||!unit.steps.some(s=>s.id===p.step)||!Array.isArray(p.fields)||p.fields.length>300||!toolValid(p.tool,unit))return bad('Aufgabe oder Werkzeugdaten sind nicht kompatibel.');
+ const p=r.payload;if(!keys(p,['schema','family','step','fields','tool'])||p.schema!==(unit.grade===6?'klasse6-mantel-1':'klasse5-mantel-1')||p.family!==unit.family||!unit.steps.some(s=>s.id===p.step)||!Array.isArray(p.fields)||p.fields.length>300||!toolValid(p.tool,unit))return bad('Aufgabe oder Werkzeugdaten sind nicht kompatibel.');
  if(p.fields.some(f=>!keys(f,['key','value','type','label','category'])||!unit.fields.includes(f.key)||!['text','radio','checkbox','select','range'].includes(f.type)||!(f.type==='checkbox'?typeof f.value==='boolean':str(f.value))||('category' in f&&f.category!=='work')||('label' in f&&!str(f.label,120))))return bad('Die Datei enthält unbekannte oder private Datenfelder.');
  return {ok:true,record:clone(r),unit};
  }catch{return bad('Diese Datei konnte nicht gelesen werden. Deine bisherige Arbeit bleibt erhalten.');}

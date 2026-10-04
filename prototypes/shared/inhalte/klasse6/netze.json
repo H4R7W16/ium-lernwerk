@@ -1,0 +1,929 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M01-NETZE",
+  "area": "netze",
+  "grade": 6,
+  "version": "1.0.1",
+  "family": "content",
+  "toolKind": "network",
+  "topic": "Netze und Speicher",
+  "title": "Welche Verbindung zählt?",
+  "description": "Eine Datei lässt sich nicht öffnen. Liegt es am Weg, am Dienst oder am Speicherort? Du veränderst ein Netz, prüfst eigene Vermutungen und untersuchst zwei echte Speicherwege.",
+  "product": "Ein Versuchsprotokoll mit Vorhersage, Beobachtung und Erklärung; eine eigene Lösung für ein neues Netz; ein Vergleich tatsächlich geprüfter Speicherwege und eine begründete Speicherentscheidung.",
+  "prerequisites": [
+    "Du kannst eine Datei in einem Ordner wiederfinden; wenn nötig, zeigt dir deine Lehrperson den Weg.",
+    "Für das Modell: Browser oder Papier und Marker. Für die Speicherprobe: Schulgerät, harmlose Übungsdatei und zwei von der Schule erlaubte Speicherwege."
+  ],
+  "teacher": [
+    "M01 baut auf der Geräte- und Dateiarbeit aus Klasse 5 auf. Vorwissen kurz sichtbar machen, nicht als gesichert voraussetzen. Erst Wege und Rollen im Modell untersuchen, anschließend Speicherorte am echten Gerät prüfen.",
+    "Das Werkzeug protokolliert Modellereignisse. Es bewertet keine Erklärungen und belegt keine ausgeführte Gerätehandlung. Eine Antwort kann ein Kind auch mündlich oder im Heft geben."
+  ],
+  "duration": "180 Minuten in vier Stunden zu je 45 Minuten. Zusätzlich zweimal 6 Minuten Wiederaufnahme aus dem getrennten Jahreskonto. Keine bestätigte Jahreszeit für Klasse 6.",
+  "learnerDuration": "Vier Unterrichtsstunden. Zwei kurze Wiederaufnahmen folgen mit Abstand.",
+  "curriculum": {
+    "moduleId": "G6-M01",
+    "goalIds": [
+      "3.1.1.1(1)",
+      "3.1.4.1(6)",
+      "3.1.4.1(7)",
+      "3.1.4.2(1)",
+      "3.1.4.2(2)",
+      "3.1.4.2(3)",
+      "3.1.5.1(1)",
+      "3.1.5.1(2)",
+      "3.1.5.1(3)",
+      "3.1.5.1(4)"
+    ],
+    "source": "curriculum",
+    "scope": "Projektplanung nach der Anhörungsfassung vom 21.09.2026, kein behaupteter Beschluss. Vernetzung und Client/Server, Speicherorte und sicherer Zugriff. Prozessbezug: 2.2(7), 2.2(9), 2.3(1). Modellgrenzen werden ausdrücklich erklärt; IP-Adressen und DNS sind kein Pflichtstoff dieses Bogens."
+  },
+  "sources": [
+    {
+      "id": "curriculum",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Grundlage der aktiven Projektplanung 5/6; Jahrgangszuordnung und Zeitrahmen sind Projektentscheidungen."
+    },
+    {
+      "id": "apple-dateien",
+      "title": "Dateien, Speichergeräte und Cloud auf dem iPad",
+      "author": "Apple Support",
+      "url": "https://support.apple.com/de-de/guide/ipad/ipad8139864c/ipados",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "apple-sperren",
+      "title": "iPad entsperren und sperren",
+      "author": "Apple Support",
+      "url": "https://support.apple.com/de-de/guide/ipad/ipad9940ee8d/ipados",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "windows-dateien",
+      "title": "Explorer unter Windows",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/windows/experience/fileexplorer/file-explorer-in-windows",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "windows-zugang",
+      "title": "Anmelden, sperren und abmelden in Windows",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/accounts-billing/security/user-account-access-in-windows",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "cloud-offline",
+      "title": "OneDrive-Dateien: online oder offline verfügbar",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Beispiel für unterschiedliche Verfügbarkeit; kein bestimmter Cloudanbieter vorausgesetzt."
+    },
+    {
+      "id": "bsi",
+      "title": "Basistipps zur IT-Sicherheit",
+      "author": "Bundesamt für Sicherheit in der Informationstechnik",
+      "url": "https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/cyber-sicherheitsempfehlungen.html",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Passwort-Hinweise anhand des verfügbaren Quellenabschnitts geprüft."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Unterrichtsmaterialien",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und erfundene Fälle: CC BY-SA 4.0",
+      "checked": "2026-10-04",
+      "note": "Erfundene Fälle mit ausdrücklich festgelegten Bedingungen; diese Fassung zunächst lokal."
+    },
+    {
+      "id": "mdn-netz",
+      "title": "Wie funktioniert das Internet?",
+      "author": "MDN Web Docs",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work",
+      "license": "Dokumentation verlinkt; eigenes didaktisches Netz",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "mdn-web",
+      "title": "Wie funktioniert das Web?",
+      "author": "MDN Web Docs",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works",
+      "license": "Dokumentation verlinkt; eigene Beispiele",
+      "checked": "2026-10-04"
+    }
+  ],
+  "media": [],
+  "knowledge": [
+    {
+      "id": "wege",
+      "title": "Wann ist ein Ziel erreichbar?",
+      "paragraphs": [
+        "Ein Netz besteht hier aus Knoten und Verbindungen. Ein Weg ist eine Folge benachbarter Knoten. Im Modell muss jede verwendete Verbindung aktiv sein. Eine unterbrochene Verbindung kann einen Weg stoppen, während ein anderer Weg noch offen bleibt.",
+        "Unerreichbarkeit begründest du umfassender: Sammle alle von K aus über aktive Verbindungen erreichbaren Knoten. Gibt es von dieser Gruppe keinen aktiven Übergang zum Ziel, ist es im Modell unerreichbar."
+      ],
+      "example": "Im Netz K–A, A–B, A–C, C–B bleibt B erreichbar, wenn A–B ausfällt: K–A–C–B.",
+      "boundary": "Eine kürzere Zeichnungslinie bedeutet keine schnellere Verbindung. Unsere Versuche bestimmen keine echten Netzrouten.",
+      "steps": [
+        "grundnetz",
+        "umweg",
+        "trennen",
+        "transfer"
+      ],
+      "sources": [
+        "mdn-netz"
+      ]
+    },
+    {
+      "id": "rollen",
+      "title": "Wer fragt an, wer liefert?",
+      "paragraphs": [
+        "Client und Server bezeichnen Rollen. Der Client fordert einen Dienst an; der Server stellt ihn bereit. In unserem Fall fragt der Client nach einer Datei. Weiterleitende Knoten befördern die Anfrage und die Antwort.",
+        "Ein möglicher Verbindungsweg reicht für eine nutzbare Antwort nicht aus. Der Dienst muss verfügbar und der Zugriff erlaubt sein. Unser Schalter bildet nur „bereit / nicht bereit“ ab."
+      ],
+      "example": "P fragt über R die Datei bei S an. S ist für diese Anfrage Dateiserver; R leitet weiter.",
+      "boundary": "Ein echtes Gerät kann mehrere Rollen haben. Wenn eine Datei nicht öffnet, ist die Ursache damit noch nicht festgestellt.",
+      "steps": [
+        "einstieg",
+        "grundnetz",
+        "dienst",
+        "transfer"
+      ],
+      "sources": [
+        "mdn-web"
+      ]
+    },
+    {
+      "id": "modell",
+      "title": "Was zeigt unser Netz – und was nicht?",
+      "paragraphs": [
+        "Wir verändern ein überschaubares Netz, damit wir Vorhersagen gezielt prüfen können. Knoten und Linien sind Stellvertreter. L steht für einen lokalen Dateidienst auf einem anderen Gerät, W für einen entfernten Dienst.",
+        "Du wählst hier jeden Schritt. In echten Netzen treffen Geräte Entscheidungen anhand technischer Regeln. Ganze Dateien erscheinen hier als eine Antwort; Aufteilung in Datenpakete, Laufzeiten und weitere Fehler fehlen. Der Rückweg ist absichtlich gleich dem Hinweg."
+      ],
+      "example": "Ein erfolgreicher Umweg widerlegt „jede einzelne Unterbrechung stoppt alles“. Er beweist nicht, dass jedes echte Netz jeden Ausfall ausgleichen kann.",
+      "boundary": "Das Modell zeigt mögliche Verbindungen und Rollen. Es prüft weder ein echtes Schulnetz noch Konten, Rechte oder die Aktualität einer Offlinekopie.",
+      "steps": [
+        "eigener",
+        "dienst",
+        "ueberarbeiten"
+      ],
+      "sources": [
+        "mdn-netz",
+        "mdn-web"
+      ]
+    },
+    {
+      "id": "speicher",
+      "title": "Wo liegt die Datei wirklich?",
+      "paragraphs": [
+        "Intern, tragbar, lokaler Server und Cloud beschreiben unterschiedliche Speicherwege. Intern liegt die Datei auf deinem Gerät; ein tragbares Medium muss angeschlossen und erlaubt sein. Ein Server bietet Dateien über ein Netz an. Cloudspeicher nutzt entfernte Server eines Dienstes.",
+        "Prüfe bei deiner Wahl: Wer darf zugreifen? Wann ist die Datei verfügbar? Wer sorgt für Betrieb und Schutz? Ist dies die aktuelle gemeinsame Fassung oder eine Kopie? Ein Server in der Schule kann bei unterbrochenem Netzweg trotzdem unerreichbar sein."
+      ],
+      "example": "Ein lokaler Entwurf lässt sich unterwegs ohne Netz bearbeiten. Die Gruppe braucht später einen vereinbarten gemeinsamen Ort und eine klare aktuelle Fassung.",
+      "boundary": "Ein Symbol, ein Ordnername oder „Zuletzt verwendet“ reicht als Ortsnachweis nicht. Eine Offlinekopie beweist nicht, dass die aktuelle Datei vom Server geholt wurde.",
+      "steps": [
+        "trennen",
+        "speichern",
+        "entscheiden",
+        "erinnern"
+      ],
+      "sources": [
+        "curriculum",
+        "apple-dateien",
+        "windows-dateien"
+      ]
+    },
+    {
+      "id": "zugang",
+      "title": "Wie schützt du Arbeit und Zugang?",
+      "paragraphs": [
+        "Sichere vor einem Gerätewechsel die erlaubten Dateien und deine Lernwerk-Arbeitsdatei getrennt. Prüfe die gesicherten Orte. Teile keine Passwörter. Nutze Freigaben nur für die vereinbarten Personen und Zwecke.",
+        "Bildschirm sperren schützt eine laufende Sitzung vor unmittelbarer Benutzung. Aus einem Dienst abmelden beendet den dortigen Zugang nach dessen Regeln. Halte dich an den schulischen Ablauf und kläre, wie du wieder hineinkommst."
+      ],
+      "example": "An einem gemeinsam benutzten Gerät meldest du dich nach dem vereinbarten Ablauf ab und behandelst gespeicherte Lernwerkstände nach der Schulregel.",
+      "boundary": "Ein geschlossenes Fenster belegt keine Abmeldung. Hier werden keine privaten Konten angelegt, Zugangsdaten abgefragt oder fremden Geräte getestet.",
+      "steps": [
+        "speichern",
+        "entscheiden",
+        "ueberarbeiten"
+      ],
+      "sources": [
+        "apple-sperren",
+        "windows-zugang"
+      ]
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "einstieg"
+    ],
+    "explanation": [
+      "einstieg",
+      "speichern"
+    ],
+    "example": [
+      "einstieg"
+    ],
+    "practice": [
+      "grundnetz",
+      "umweg"
+    ],
+    "application": [
+      "eigener",
+      "speichern"
+    ],
+    "revision": [
+      "dienst",
+      "ueberarbeiten"
+    ],
+    "securing": [
+      "umweg",
+      "entscheiden"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "erinnern"
+    ]
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Öffnen Sie das Modell auf einem vorgesehenen Schulgerät; prüfen Sie Bedienelemente, Navigation, Arbeitsdatei-Download und Import. Benennen Sie zwei tatsächlich verfügbare Speicherorte, möglichst lokal und Schulnetz/Schulcloud, eine erlaubte Schreib-App und einen bekannten Schutz-/Entsperrweg. Prüfen Sie den Netzort selbst mit einem schulischen Testzugang; verlangen Sie keinen privaten Account.",
+        "Eine Offline-/Synchronisationskopie darf nicht als aktueller Netzabruf gelten. Ist dieser Unterschied am Schulgerät nicht feststellbar, bleibt der Nachweis offen. Bei fehlendem Netz kann der Modellteil mit Papier vollständig bearbeitet werden; eine echte Netzprobe wird nachgeholt. Die vier Speicherarten werden trotzdem verglichen."
+      ]
+    },
+    {
+      "title": "Vier Stunden – ein roter Faden",
+      "paragraphs": [
+        "Stunde 1: Anlass 5 und Beispiel 10 (Eine Datei, mehrere Fragen), V0 10 (Dein erster Netzversuch), V1 15 und Sicherung 5 (Eine Verbindung fällt aus).",
+        "Stunde 2: Abruf 5 und eigener V2 15, V3 10, Dienst/Rollen 10 und Revision/Modellgrenze 5. Halten Sie beim eigenen Versuch die selbst gewählte Änderung fest.",
+        "Stunde 3: Zwei Speicherwege wirklich prüfen – Kriterienvergleich 10, Geräteprobe 25, direkte Rückmeldung 10. Technische Wartezeit ist kein Lernnachweis; bei Problemen die offene Handlung konkret terminieren.",
+        "Stunde 4: Neues Netz 20, Speicherentscheidung/Schutzhandlung 10, gezielte Nachprüfung 10 und Sicherung 5. Zwei spätere Abrufe von jeweils 6 Minuten liegen im getrennten Jahreskonto vor M02 bzw. M07."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste Hilfe",
+      "paragraphs": [
+        "Kind nennt nach einem Stopp sofort „unerreichbar“: nur die Nachbarn des letzten erreichbaren Knotens markieren lassen; danach alle von K aus erreichbaren Knoten sammeln. Nicht sofort den Umweg vorsagen.",
+        "Kind nennt alle Knoten Server: am vorgemachten Beispiel fragen, welcher Knoten die angefragte Datei bereitstellt. Kind erwartet trotz nicht bereitem Dienst eine Antwort: Anfrageweg und Bereitstellung getrennt erklären lassen.",
+        "Kind öffnet nur „Zuletzt verwendet“: den Zielordner zeigen lassen und daraus erneut öffnen. Bei unklarer Server-/Offlinekopie den schulischen Zugang gemeinsam prüfen; keine Konfiguration am Gerät durch Kinder ändern lassen.",
+        "Hohe Routine: eine einzelne Unterbrechung wählen, die das eigene Ziel wirklich abtrennt, und das mit allen verbleibenden Verbindungen begründen. Keine zusätzlichen IP-/DNS-Pflichten einführen."
+      ]
+    },
+    {
+      "title": "Was als Nachweis zählt",
+      "paragraphs": [
+        "Netz: Vorhersage mit Grund, nachvollziehbarer Eingriff, tatsächliche Spur, eigene Erklärung und gegebenenfalls Revision. Ein automatisches Protokoll allein genügt nicht. Neues Transfernetz zunächst ohne Lösung bearbeiten lassen; bei Hilfen anschließend eine Begründung selbst rekonstruieren lassen.",
+        "Speicher: zwei tatsächlich ausgeführte Ablage-/Wiederöffnungswege mit Ort und beobachtetem Inhalt; direkte Sichtung durch Lehrperson oder vereinbarte Partnerperson ergänzt das Protokoll. Die konkrete Netzprobe darf offen bleiben, wird dann aber nicht als erfüllt gewertet. Keine Namen/Passwörter/Screenshots sammeln.",
+        "Kriterienrückmeldung statt Punktemaschine: tragfähige Verbindungsaussage, passende Rollen, konkrete Modellgrenze, begründete Speicherwahl und ausgeführte Schutzhandlung. „Begonnen“ in der Arbeitsübersicht ist kein Kompetenzurteil. Eigene mündliche oder Papierergebnisse zählen gleichwertig."
+      ]
+    },
+    {
+      "title": "Darstellung und Grenzen",
+      "paragraphs": [
+        "Das veränderbare Diagramm macht Folgen eigener Eingriffe prüfbar. Textliste und native Schaltflächen ergänzen Farbe und räumliche Darstellung. Die Papierfassung nutzt denselben Graphen mit Marker; sie bleibt eigenständig verwendbar. Ein Video würde den eigenen Eingriff hier nicht ersetzen und ist deshalb nicht vorgesehen.",
+        "Wissen, Lernauftrag, Hilfe und Vergleichslösung sind getrennt erreichbar. Druck: Lernendenblatt, mit Hilfen oder mit Hilfen/Lösungen. Tatsächliche Unterrichtszeit, Bildschirmleser und verwaltete iPad-/Windows-Profile sind in der Schule zu erproben."
+      ]
+    }
+  ],
+  "briefing": [
+    "In M01 prüfen die Lernenden, was einen Dateizugriff ermöglicht. Starten Sie mit Miras vorschneller Erklärung und dem kleinen Beispiel P–R–S. Lassen Sie die Rollen durch Tätigkeiten erklären.",
+    "Im Netzversuch sagen die Kinder das Ergebnis vor dem Start voraus. Eine Spur bleibt als Beobachtung erhalten; die Erklärung müssen sie selbst leisten. Achten Sie besonders auf den Sprung von „mein Weg scheitert“ zu „kein Weg existiert“.",
+    "Der eigene Eingriff in V2 und das veränderte Transfernetz sind die zentralen Denkaufgaben. In V3 bleibt der lokale Server erreichbar, im Transfer kann auch er abgetrennt sein. „Lokal auf dem Server“ ist nicht „auf meinem Gerät“.",
+    "In Stunde drei folgt der echte Speichervergleich. Bereiten Sie zwei erlaubte Orte und eine Schreib-App vor. Lassen Sie die Datei schließen und aus dem Zielordner wieder öffnen. Ist nur eine Offlinekopie sichtbar, bleibt der aktuelle Netzabruf offen. Ein Modellversuch ersetzt diese Handlung nicht.",
+    "Planen Sie vier Stunden und später zweimal sechs Minuten Abruf. Prüfen Sie Erklärungen, Gerätehandlungen und begründete Entscheidungen getrennt. Arbeitsdateien enthalten die Lernwerkantworten und Modellprotokolle; die echte Übungsdatei braucht einen eigenen Sicherungsweg."
+  ],
+  "steps": [
+    {
+      "id": "einstieg",
+      "title": "Eine Datei, mehrere Fragen",
+      "goal": "Du unterscheidest Datei, Speicherort, Verbindungsweg und Dateidienst.",
+      "task": "Erkläre zuerst deine Vermutung. Untersuche dann eine vollständig vorgemachte Anfrage.",
+      "outcome": "Du unterscheidest Datei, Speicherort, Verbindungsweg und Dateidienst.",
+      "knowledge": [
+        "rollen",
+        "wege"
+      ],
+      "criteria": [
+        "Ich nenne mindestens zwei mögliche Gründe für die nicht geöffnete Datei.",
+        "Ich erkläre am Beispiel, wer anfragt, wer weiterleitet und wer die Datei bereitstellt."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "vermutung",
+          "title": "Was könnte los sein?",
+          "text": "Mira kann ihren lokal gespeicherten Entwurf öffnen. Die Datei im freigegebenen Schulordner öffnet sich gerade nicht. „Dann ist wohl das ganze Internet kaputt“, sagt sie.",
+          "prompt": "Welche zwei anderen Erklärungen sind möglich? Was würdest du als Nächstes prüfen?",
+          "responseHint": "Zwei Vermutungen reichen. Noch ist keine davon durch den Fall bewiesen.",
+          "help": [
+            {
+              "title": "Wenn dir ein Anfang fehlt",
+              "text": "Denke an einen Weg zum Schulordner und daran, ob der Dienst am Ziel arbeitet. Auch die Berechtigung könnte fehlen.",
+              "knowledge": "rollen",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Ein kleiner Versuch ist vorgemacht",
+          "text": "P — R — S: P ist der Client, R leitet weiter, S bietet die Datei plan.txt an. Beide Verbindungen sind aktiv; der Dienst ist bereit.",
+          "items": [
+            "P schickt die Anfrage „Bitte plan.txt“ an S. Der erste Schritt führt von P nach R.",
+            "R leitet die Anfrage von R nach S weiter. R stellt die Datei nicht selbst bereit.",
+            "S stellt die Datei bereit und schickt eine Antwort über R zu P. Im Modell nehmen wir denselben Rückweg."
+          ],
+          "paragraphs": [
+            "Client und Server beschreiben hier Rollen: Der Client fragt an, der Server bietet einen Dienst an. Ein Gerät kann in unterschiedlichen Situationen verschiedene Rollen haben."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "rollen",
+          "title": "Halte kurz an",
+          "text": "Im Beispiel liegt die Datei bei S. R ist an beiden Wegen beteiligt.",
+          "prompt": "Warum ist R trotzdem nicht der Dateiserver? Erkläre ohne die Wörter nur zu wiederholen.",
+          "solution": "R leitet Anfrage und Antwort weiter. S stellt die angefragte Datei bereit. Beteiligung am Weg allein macht R nicht zum Dateiserver."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "grundnetz",
+      "title": "Dein erster Netzversuch",
+      "goal": "Du führst eine Anfrage und ihre Antwort Schritt für Schritt aus.",
+      "task": "V0: Wähle selbst L oder W als Ziel. Lass alle Verbindungen aktiv und den Dienst bereit. Sage zuerst einen Weg voraus.",
+      "outcome": "Du führst eine Anfrage und ihre Antwort Schritt für Schritt aus.",
+      "knowledge": [
+        "wege",
+        "rollen",
+        "modell"
+      ],
+      "criteria": [
+        "Mein Protokoll enthält Ziel, unveränderte Vorhersage und tatsächlich gegangenen Weg.",
+        "Ich unterscheide Anfrage und Dateiantwort."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "V0 · Vorhersagen, ausführen, erklären",
+          "text": "Stelle das Grundnetz ein. Wähle L oder W. Notiere deine Vermutung mit einem Weg, zum Beispiel als Knotenfolge. Starte erst danach. Bewege die Anfrage jeweils genau einen Schritt. Gehe am Ziel auch die Antwort zurück.",
+          "prompt": "Welcher Versuch gehört zu V0? Vergleiche Vorhersage und Spur. Wer hat die Datei geliefert?",
+          "network": true,
+          "responseHint": "Nenne die Versuchsnummer und einen Satz zu Anfrage und Antwort. Auf Papier notierst du die Spur selbst.",
+          "help": [
+            {
+              "title": "Wie fange ich an?",
+              "text": "Beginne bei K. Suche eine Linie zu einem Nachbarn. Du darfst nur aktive Verbindungen nutzen. Endpunkte leiten nicht weiter.",
+              "knowledge": "wege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Zu L führt K–A–L. Zu W ist beispielsweise K–A–C–D–W möglich. Die Antwort folgt im Modell dem gewählten Weg rückwärts. Andere aktive Wege zu W sind ebenfalls möglich."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "umweg",
+      "title": "Eine Verbindung fällt aus",
+      "goal": "Du widerlegst eine Vermutung mit einem passenden Gegenbeispiel.",
+      "task": "V1: Stelle das Grundnetz wieder her. Wähle W und unterbrich nur B–D. Untersuche, was diese Änderung bewirkt.",
+      "outcome": "Du widerlegst eine Vermutung mit einem passenden Gegenbeispiel.",
+      "knowledge": [
+        "wege",
+        "modell"
+      ],
+      "criteria": [
+        "Ich unterscheide „mein Weg scheitert“ von „kein Weg ist möglich“.",
+        "Ich belege meine Aussage mit einer konkreten Knotenfolge."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "V1 · Was ändert B–D?",
+          "text": "Sage vor dem Start voraus, ob K eine Dateiantwort von W erhalten kann. Prüfe einen Weg. Falls er stoppt, untersuche mit denselben Verbindungen einen weiteren Weg. Die Vorhersage gehört jeweils zum Versuch und bleibt im Protokoll.",
+          "prompt": "Was zeigt dein Versuch – und was zeigt ein einzelner gescheiterter Weg noch nicht?",
+          "network": true,
+          "help": [
+            {
+              "title": "Ein anderer Weg?",
+              "text": "Betrachte bei A und bei B auch die jeweils anderen Verbindungen. Ein gescheiterter Versuch sagt zunächst nur etwas über diesen gewählten Weg.",
+              "knowledge": "wege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "K–A–B–D stoppt vor B–D. K–A–C–D–W funktioniert; auch K–A–B–C–D–W ist möglich. W ist also trotz dieser einen Unterbrechung erreichbar."
+        },
+        {
+          "type": "task",
+          "id": "sichern",
+          "title": "In fünf Minuten sichern",
+          "text": "Erkläre einem Partner oder dir selbst anhand deiner Spur: „Eine Verbindung fällt aus. Deshalb …“",
+          "prompt": "Vervollständige den Satz so, dass er für diesen Versuch stimmt. Nenne einen Beleg.",
+          "responseMode": "oral",
+          "responseHint": "Prüfe anschließend, ob du unbemerkt „immer“ oder „nie“ behauptet hast."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "eigener",
+      "title": "Du wählst den Eingriff",
+      "goal": "Du planst eine eigene Prüfung und beurteilst eine allgemeine Behauptung.",
+      "task": "Erinnere dich zunächst ohne Nachsehen an den Unterschied zwischen Weg und Ziel. Plane dann V2.",
+      "outcome": "Du planst eine eigene Prüfung und beurteilst eine allgemeine Behauptung.",
+      "knowledge": [
+        "wege",
+        "modell"
+      ],
+      "criteria": [
+        "Ich habe Ziel und eine unterbrochene Verbindung selbst gewählt.",
+        "Ich begründe, was mein Ergebnis zur Behauptung beiträgt."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "abruf",
+          "title": "Zuerst erinnern · 5 Minuten",
+          "text": "Ein gewählter Weg stoppt. Das Ziel könnte trotzdem erreichbar sein.",
+          "prompt": "Erkläre warum, bevor du ein altes Protokoll öffnest.",
+          "responseMode": "oral"
+        },
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "V2 · Eine Behauptung prüfen",
+          "text": "Behauptung: „Sobald eine Verbindung unterbrochen ist, kommt keine Nachricht mehr an.“ Stelle das Grundnetz ein. Wähle L oder W und genau eine Verbindung, die du unterbrichst. Begründe deine Wahl und sage das Ergebnis voraus. Teste dann.",
+          "prompt": "Notiere Versuchsnummer, deine Auswahl und dein Urteil über die Behauptung. Was kannst du belegen, was bleibt offen?",
+          "network": true,
+          "help": [
+            {
+              "title": "Welches Ergebnis wäre besonders aussagekräftig?",
+              "text": "Ein einziges Beispiel mit unterbrochener Verbindung und trotzdem angekommener Antwort genügt gegen „keine Nachricht mehr“. Ein gescheiterter Weg beweist die Behauptung nicht für alle Netze.",
+              "knowledge": "modell",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Beispiel für ein Gegenbeispiel: Ziel L, B–C unterbrochen, Anfrage K–A–L und Antwort zurück. Eine Antwort kommt an. Die allgemeine Behauptung ist damit widerlegt. Deine andere Auswahl kann genauso tragfähig sein."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "trennen",
+      "title": "Was bleibt erreichbar?",
+      "goal": "Du begründest eine Grenze der Erreichbarkeit mit allen Verbindungen einer Teilmenge.",
+      "task": "V3: Stelle das Grundnetz ein. Unterbrich A–B und A–C. Vergleiche die Ziele L und W.",
+      "outcome": "Du begründest eine Grenze der Erreichbarkeit mit allen Verbindungen einer Teilmenge.",
+      "knowledge": [
+        "wege",
+        "speicher",
+        "modell"
+      ],
+      "criteria": [
+        "Ich zeige einen Weg zu L.",
+        "Ich erkläre anhand der abgetrennten Knoten, weshalb W unerreichbar ist.",
+        "Ich unterscheide L von einer Datei direkt auf K."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "V3 · Zwei Ziele, dieselbe Änderung",
+          "text": "Notiere erst deine Vorhersage für L und W. Teste beide Ziele nacheinander; ändere zwischen den Versuchen nur das Ziel. Betrachte anschließend alle aktiven Verbindungen, die von K aus erreichbar sind.",
+          "prompt": "Welche Knoten kann K noch erreichen? Begründe, weshalb es von dort keinen aktiven Übergang zu W gibt. Was ist mit einer Datei direkt auf K?",
+          "network": true,
+          "help": [
+            {
+              "title": "Mehr als einen Weg betrachten",
+              "text": "Beginne bei K. Markiere alle Knoten, die du über aktive Linien erreichen kannst. Prüfe jede Linie, die diese Gruppe verlässt.",
+              "knowledge": "wege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "K, A und L bilden den von K erreichbaren Teil. Die einzigen Übergänge von dort zum übrigen Netz sind A–B und A–C; beide fehlen. W ist unerreichbar, L über K–A–L erreichbar. Eine tatsächlich auf K vorhandene Datei braucht keinen Weg zu L. L ist ein anderes Gerät, nicht „auf K“."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "dienst",
+      "title": "Der Weg allein reicht nicht",
+      "goal": "Du unterscheidest Erreichbarkeit und bereitgestellten Dienst und verbesserst eine Erklärung.",
+      "task": "Lass alle Verbindungen aktiv. Wähle W, aber schalte „Dateidienst bereit“ aus.",
+      "outcome": "Du unterscheidest Erreichbarkeit und bereitgestellten Dienst und verbesserst eine Erklärung.",
+      "knowledge": [
+        "rollen",
+        "modell"
+      ],
+      "criteria": [
+        "Ich belege, dass die Anfrage W erreicht hat.",
+        "Ich erkläre die fehlende Dateiantwort ohne einen Leitungsbruch zu erfinden.",
+        "Ich benenne eine konkrete Grenze des Modells."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "Ankommen ist noch keine Dateiantwort",
+          "text": "Sage voraus, was geschieht. Führe die Anfrage zu W. Vergleiche anschließend mit einem Grundnetzversuch bei bereitem Dienst. Zur Erinnerung: Mira konnte einen lokalen Entwurf öffnen, die Schulordnerdatei aber nicht. Sie sagte: „Dann ist wohl das ganze Internet kaputt.“",
+          "prompt": "Wie unterscheiden sich die beiden Beobachtungen? Verbessere Miras Erklärung vom Einstieg.",
+          "network": true,
+          "solution": "Die Anfrage erreicht W über aktive Verbindungen. Bei ausgeschaltetem Dateidienst entsteht hier keine Dateiantwort. Der Weg allein garantiert die Datei nicht. In einem echten System könnte die Ursache auch eine fehlende Berechtigung oder ein anderer Fehler sein; das Modell diagnostiziert ihn nicht."
+        },
+        {
+          "type": "task",
+          "id": "grenze",
+          "title": "Fünf Minuten für die Modellgrenze",
+          "text": "Im Werkzeug entscheidest du über jeden nächsten Knoten. In echten Netzen erledigen das Geräte nach technischen Regeln.",
+          "prompt": "Wähle eine Grenze: Was vereinfacht unser Modell, und welche Aussage darfst du deshalb nicht über das echte Internet machen?",
+          "help": [
+            {
+              "title": "Eine konkrete Grenze finden",
+              "text": "Denke an deine Wegwahl, den Rückweg, ganze Dateien statt vieler Datenpakete oder an die wenigen sichtbaren Knoten.",
+              "knowledge": "modell",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Zum Beispiel: Ich wähle den Weg selbst. Daher zeigt mein Versuch nicht, welchen Weg ein echtes Netz automatisch wählt. Oder: Die Antwort kehrt hier auf demselben Weg zurück; daraus folgt nicht, dass das immer so ist."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "speichern",
+      "title": "Zwei Speicherwege wirklich prüfen",
+      "goal": "Du vergleichst Speicherorte und belegst zwei erlaubte Ablagewege am Gerät.",
+      "task": "Plane den Vergleich, speichere eine harmlose Datei tatsächlich an zwei Orten und öffne beide Kopien aus ihren Ordnern.",
+      "outcome": "Du vergleichst Speicherorte und belegst zwei erlaubte Ablagewege am Gerät.",
+      "knowledge": [
+        "speicher",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich trenne tatsächliche Beobachtungen von Annahmen.",
+        "Ich habe die Datei nach dem Schließen aus jedem geprüften Zielordner geöffnet.",
+        "Ich benenne Zugriff, Verfügbarkeit und Verantwortung für die geprüften Wege."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Zuerst vergleichen · 10 Minuten",
+          "text": "Ein Ordnername allein verrät nicht, wo eine Datei liegt. „Zuletzt verwendet“ zeigt einen Zugang zur Datei, aber nicht zuverlässig ihren Speicherort. Kläre den tatsächlichen Zielort.",
+          "table": {
+            "headers": [
+              "Speicherort",
+              "Zugriff und Verfügbarkeit",
+              "Verantwortung und Grenze"
+            ],
+            "rows": [
+              [
+                "Intern auf dem Gerät",
+                "Die Datei liegt tatsächlich auf diesem Gerät. Eine vollständige lokale Datei lässt sich meist ohne Netz öffnen.",
+                "Gerätezugriff schützen; Defekt oder Verlust kann diese Kopie betreffen. Ein lokaler Ordner kann zusätzlich synchronisiert werden."
+              ],
+              [
+                "Tragbares Speichermedium",
+                "Zum Beispiel ein erlaubter USB-Speicher: angeschlossen und vom Gerät unterstützt.",
+                "Verlust, Anschluss und erlaubte Nutzung bedenken. Nicht einfach fremde Datenträger anschließen."
+              ],
+              [
+                "Lokaler Dateiserver",
+                "Ein anderes Gerät bietet Dateien im Schulnetz an. Zugang, Berechtigung, Netzweg und Dienst werden benötigt.",
+                "Die Schule regelt Betrieb und Rechte. Ohne Weg zum Server ist die aktuelle Serverdatei nicht zugänglich."
+              ],
+              [
+                "Cloudspeicher",
+                "Ein Dienst speichert Dateien auf entfernten Servern. Aktuelle Daten brauchen einen erreichbaren, erlaubten Dienst und Zugriff.",
+                "Betreiber und Schule haben Aufgaben; du beachtest Freigaben. Eine vorhandene Offlinekopie kann veraltet sein. Cloud bedeutet nicht „ohne echte Geräte“."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Für die Aufgabe sind alle vier Speicherarten im Vergleich wichtig. Tatsächlich erprobst du nur die zwei erlaubten und verfügbaren Wege. Eine vorhandene Offlinekopie belegt keinen aktuellen Netzabruf."
+          ]
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "probe",
+          "title": "Jetzt am Gerät · 25 Minuten",
+          "text": "Die Lehrperson benennt einen erlaubten lokalen Ort und möglichst einen Schulnetz- oder Schulcloudort. Nutze zwei andere erlaubte Orte nur, wenn der Netzweg fehlt; kennzeichne den Netzbeleg dann als offen.",
+          "preparation": "Öffne die von der Schule erlaubte Schreib-App und erstelle eine harmlose Datei mit dem Inhalt „Unser Test: Plan A“. Name: netzprobe. Verwende keine Namen, Kontaktdaten, Passwörter oder persönlichen Bilder.",
+          "action": "Speichere je eine Kopie an beiden vereinbarten Orten. Schließe die Datei. Öffne den jeweiligen Zielordner und dort die Datei erneut. Prüfe den Inhalt. Lass dir bei einem Netzort den verwendeten Ort und die tatsächliche Verbindung bestätigen; ein Cache-/Offline-Symbol kann nur eine lokale Kopie bedeuten. Ändere keine Netz- oder Geräteverwaltungseinstellungen.",
+          "return": "Halte die zwei Beobachtungen fest. Zeige deiner Lehrperson oder der vereinbarten Partnerperson direkt am Gerät das Wiederöffnen und den Ort. Keine Zugangsdaten oder Screenshots abgeben. Unverfügbare Wege bleiben ausdrücklich ungeprüft.",
+          "prompt": "Ort A / Ort B: Speicherart, ausgeführter Weg, Wiederöffnen und beobachteter Inhalt, nötiger Zugriff, aktuell am Netz oder nur Kopie/offen? Was wurde direkt gezeigt? Was bleibt ungeprüft?",
+          "storageNotice": "Deine Lernwerk-Arbeitsdatei enthält dieses Protokoll und die Modellversuche. Sie nimmt deine echte Datei netzprobe nicht mit. Sichere die Übungsdatei gesondert auf dem schulisch vereinbarten Weg.",
+          "routes": [
+            {
+              "title": "Auf dem iPad",
+              "device": "ipad",
+              "sources": [
+                "apple-dateien"
+              ],
+              "items": [
+                "Nutze in deiner freigegebenen App „Teilen“ bzw. „Exportieren“ und „In Dateien sichern“, falls angeboten. Die genaue Schaltfläche hängt von der App ab.",
+                "Wähle „Durchsuchen“ und den von der Lehrperson genannten Ort. „Auf meinem iPad“ ist ein lokaler Ort, sofern verfügbar. Einen bereitgestellten Server oder Schuldienst findest du nur, wenn er eingerichtet ist. Lege keinen privaten Cloudzugang an.",
+                "Sichere die Datei in dem vereinbarten Ordner. Schließe die Vorschau bzw. App-Datei. Öffne Dateien → Durchsuchen → genau diesen Ort und Ordner; öffne die Datei dort. Wiederhole dies für Ort B.",
+                "Fehlt ein Ort oder eine Speicherfunktion, halte an und lass den erlaubten Weg zeigen. Der tatsächliche Geräteweg zählt, nicht ein erwarteter Menüname."
+              ]
+            },
+            {
+              "title": "Unter Windows",
+              "device": "windows",
+              "sources": [
+                "windows-dateien"
+              ],
+              "items": [
+                "Wähle in der freigegebenen App „Speichern unter“ bzw. „Kopie speichern“. Lass dir von der Lehrperson zeigen, welcher Ordner tatsächlich lokal liegt und welcher zum Schulnetz oder Schuldienst gehört.",
+                "Speichere zuerst in Ort A. Schließe die Datei. Öffne den Datei-Explorer und darin den vereinbarten Ort und Ordner; öffne die Datei dort. „Schnellzugriff“ oder „Zuletzt verwendet“ genügt als Ortsbeleg nicht.",
+                "Wiederhole die Probe mit Ort B. Ein Netzlaufwerk, ein synchronisierter Ordner und eine lokale Kopie können ähnlich aussehen. Prüfe den bereitgestellten Ort mit der Lehrperson; ändere keine Konten oder Freigaben.",
+                "Fehlen Zugang, App oder Ort, dokumentiere „nicht geprüft“ und nutze nur die vereinbarte Alternative."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "feedback",
+          "title": "Beobachtung prüfen · 10 Minuten",
+          "text": "Vergleiche dein Protokoll mit einer Partnerperson oder der Lehrperson. Die Person darf fragen: „Zeig mir, aus welchem Ordner du die Datei erneut geöffnet hast.“ Sie braucht keinen fremden Zugang.",
+          "prompt": "Welcher Beleg war überzeugend? Ergänze eine fehlende Beobachtung oder markiere eine Annahme als ungeprüft.",
+          "help": [
+            {
+              "title": "Noch keine zwei nutzbaren Orte?",
+              "text": "Führe den erlaubten Teil aus. Vergleiche die anderen Speicherarten anhand des Wissens. Schreibe ausdrücklich, welche reale Probe noch fehlt. Das Netzmodell ersetzt sie nicht.",
+              "knowledge": "speicher",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Schulgerät und erlaubte Schreib-App",
+        "zwei freigegebene Speicherorte; davon möglichst ein Schulnetzort",
+        "harmlose selbst erstellte Übungsdatei"
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "Schul-iPad mit Dateien-App und freigegebener Schreib-App",
+          "zwei von der Schule benannte Speicherorte; kein privates Konto"
+        ],
+        "windows": [
+          "Windows-Schulgerät mit Datei-Explorer und freigegebener Schreib-App",
+          "zwei von der Schule benannte Speicherorte; kein privates Konto"
+        ]
+      }
+    },
+    {
+      "id": "transfer",
+      "title": "Ein anderes Netz",
+      "goal": "Du überträgst deine Erklärung auf ein Netz mit veränderter Lage des lokalen Dienstes.",
+      "task": "Löse den neuen Fall zuerst selbst, ohne das Netzwerkzeug oder eine frühere Lösung zu öffnen.",
+      "outcome": "Du überträgst deine Erklärung auf ein Netz mit veränderter Lage des lokalen Dienstes.",
+      "knowledge": [
+        "wege",
+        "rollen",
+        "modell"
+      ],
+      "criteria": [
+        "Meine Skizze enthält genau die vorgegebenen Verbindungen.",
+        "Ich erkläre beide Ausfälle mit Wegen oder abgetrennten Knoten.",
+        "Ich ordne Rollen zu und nenne eine konkrete Modellgrenze."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "neues-netz",
+          "title": "Zeichnen und prüfen · 20 Minuten",
+          "text": "Neues Netz: K–X, X–Y, X–Z, Y–Z, Y–L, Z–W. K ist der Client, L ein lokaler und W ein ferner Dateidienst; X, Y und Z leiten weiter. Alle Dienste sind bereit. Die Verbindungen funktionieren in beide Richtungen. K, L und W leiten nicht weiter.",
+          "prompt": "Halte deine Skizze, die Wege und deine Begründungen fest.",
+          "responseHint": "Deine Skizze kann im Heft bleiben. Notiere hier bei Bedarf die Wege und Begründungen. Nutze die Vergleichslösung erst nach deinem eigenen Versuch.",
+          "help": [
+            {
+              "title": "Ich komme nicht weiter",
+              "text": "Zeichne zuerst für jeden Buchstaben einen Punkt und dann genau die sechs Linien. Starte jede Suche bei K. Markiere die beiden Ausfälle in Fall 2 gleichzeitig.",
+              "knowledge": "wege",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Fall 1: K–X–Z–Y–L; Antwort L–Y–Z–X–K. K fragt an, X/Z/Y leiten weiter, L liefert. Fall 2: K und X sind von allen anderen Knoten getrennt, weil X–Y und X–Z fehlen. W und nun auch L sind unerreichbar. Eine tatsächlich lokale Datei auf K bleibt vom Netzweg unabhängig. Modellgrenze zum Beispiel: eigene Wegwahl, vereinfachter Rückweg oder ausgelassene Berechtigungsprüfung. Lokal auf einem Server bedeutet nicht lokal auf K.",
+          "items": [
+            "Zeichne das Netz mit genau diesen sechs Verbindungen.",
+            "Fall 1: Nur X–Y fällt aus. Finde einen Weg zur Datei bei L und den Antwortweg.",
+            "Fall 2: X–Y bleibt unterbrochen. Zusätzlich fällt X–Z aus. Vergleiche die Erreichbarkeit von L und W mit einer Datei direkt auf K. Begründe anhand der noch verbundenen Knoten.",
+            "Erkläre für Fall 1: Wer fragt an, wer liefert, wer leitet weiter? Nenne eine konkrete Grenze des Modells."
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ]
+    },
+    {
+      "id": "entscheiden",
+      "title": "Einen Speicherort begründet wählen",
+      "goal": "Du wählst einen Speicherort anhand zweier Kriterien und schützt deinen Zugang.",
+      "task": "Wende deinen Vergleich auf eine konkrete Nutzung an. Führe danach eine erlaubte Schutzhandlung aus.",
+      "outcome": "Du wählst einen Speicherort anhand zweier Kriterien und schützt deinen Zugang.",
+      "knowledge": [
+        "speicher",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich begründe mit mindestens zwei passenden Kriterien.",
+        "Ich unterscheide aktuelle gemeinsame Datei und lokale Kopie.",
+        "Ich führe eine erlaubte Schutzhandlung aus und erkläre ihren Zweck."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "wahl",
+          "title": "Zwei Situationen · 6 Minuten",
+          "text": "1: Du möchtest einen Entwurf auf demselben Gerät ohne Netz weiterbearbeiten. 2: Eine Gruppe braucht morgen die aktuelle gemeinsame Fassung an den erlaubten Schulgeräten.",
+          "prompt": "Wähle für jede Situation einen Speicherweg. Begründe mit zwei Kriterien aus Zugriff, Verfügbarkeit, Aktualität und Verantwortung. Welche Grenze oder offene Voraussetzung bleibt?",
+          "solution": "Beispielsweise: Für 1 eine vollständige lokale Kopie, weil sie ohne Netz am selben Gerät verfügbar ist; Geräteverlust und Aktualität bedenken. Für 2 der freigegebene gemeinsame Schulort mit geregeltem Zugriff, weil die Gruppe dort die vereinbarte aktuelle Fassung findet. Netz/Dienst und Berechtigungen müssen funktionieren. Eine Offlinekopie allein garantiert keine gemeinsame Aktualität."
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "schutz",
+          "title": "Zugang schützen · 4 Minuten",
+          "text": "Nutze nur den bekannten schulischen Weg. Verrate oder ändere keine Zugangsdaten.",
+          "preparation": "Kläre vorab, wie du nach einer Sperre oder Abmeldung wieder in deinen freigegebenen Arbeitsbereich kommst. Sichere deine echte Datei und deine Lernwerk-Antworten vorher.",
+          "action": "Führe die von der Schule erlaubte Schutzhandlung aus: zum Beispiel Bildschirm sperren oder aus dem gemeinsamen Dienst abmelden. Zeige die Handlung direkt. Bei gemeinsam genutzten Geräten ist auch der vereinbarte Umgang mit gespeicherten Lernwerkständen zu beachten.",
+          "return": "Halte die Handlung und ihren Zweck ohne Zugangsdaten fest. Wenn sie nicht ausgeführt werden konnte, schreibe „noch offen“ und den Grund.",
+          "prompt": "Welche Schutzhandlung hast du ausgeführt? Welchen Zugriff erschwert sie? Was wäre nach dem bloßen Schließen eines Fensters noch unklar?",
+          "routes": [
+            {
+              "title": "iPad: vereinbarten Zugang schützen",
+              "device": "ipad",
+              "sources": [
+                "apple-sperren"
+              ],
+              "items": [
+                "Wenn die Schule das Sperren erlaubt und das erneute Entsperren geklärt ist: kurz die obere Taste drücken. Das ist kein Abmelden aus einem Cloudkonto. Für einen Schuldienst den dort vereinbarten Abmeldeweg nutzen."
+              ]
+            },
+            {
+              "title": "Windows: vereinbarten Zugang schützen",
+              "device": "windows",
+              "sources": [
+                "windows-zugang"
+              ],
+              "items": [
+                "Wenn das erneute Entsperren geklärt ist: Windows-Taste + L sperrt die Sitzung. Bei einem Schuldienst gegebenenfalls zusätzlich den vereinbarten Abmeldeweg verwenden. Ein geschlossenes Browserfenster beweist keine Abmeldung."
+              ]
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "eigenes Vergleichsprotokoll",
+        "Schulgerät und bekannter erlaubter Schutz-/Entsperrweg"
+      ]
+    },
+    {
+      "id": "ueberarbeiten",
+      "title": "Was belegt dein Ergebnis?",
+      "goal": "Du verbesserst einen gezielt ausgewählten Beleg und sicherst deine Arbeit.",
+      "task": "Prüfe dein Ergebnis anhand der Kriterien. Wiederhole nur den Teil, der deine offene Frage klärt.",
+      "outcome": "Du verbesserst einen gezielt ausgewählten Beleg und sicherst deine Arbeit.",
+      "knowledge": [
+        "modell",
+        "speicher",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich zeige eine konkrete Verbesserung mit einem Beleg.",
+        "Ich benenne fehlende reale Nachweise ehrlich.",
+        "Ich sichere Lernwerkstand und echte Übungsdatei als verschiedene Dinge."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "revision",
+          "title": "Gezielt nachprüfen · 10 Minuten",
+          "text": "Lege Versuchsprotokoll, Transferlösung und Speichervergleich nebeneinander. Wähle eine unsichere Stelle: Weg, Rollen, Modellgrenze oder reale Ablage. Vergleiche erst jetzt mit dem passenden Wissen bzw. der Lösung.",
+          "prompt": "Was hast du zuerst erklärt? Was änderst oder bestätigst du? Nenne den neuen Beleg. Welche Geräteprobe ist gegebenenfalls noch offen?",
+          "links": [
+            {
+              "href": "schritt-grundnetz.html",
+              "label": "Modell erneut prüfen"
+            },
+            {
+              "href": "schritt-speichern.html",
+              "label": "Echten Speicherweg nachprüfen"
+            }
+          ],
+          "help": [
+            {
+              "title": "Alles nur mit der Lösung verglichen?",
+              "text": "Zeige an einer eigenen Knotenfolge oder an einer tatsächlich erneut geöffneten Datei, weshalb deine Aussage stimmt. Abschreiben allein ist kein Beleg für eigenes Verstehen.",
+              "knowledge": "modell",
+              "label": "Passendes Wissen öffnen"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Arbeit sichern · 5 Minuten",
+          "text": "Unter „Deine Arbeit“ kannst du eine Lernwerk-Arbeitsdatei anbieten lassen. Prüfe, ob sie am vereinbarten Ort tatsächlich angekommen ist. Sie enthält Antworten und Werkzeugstände, aber nicht deine echte Datei netzprobe.",
+          "paragraphs": [
+            "Bei mündlicher oder Papierarbeit zeigst du dein Ergebnis auf diesem Weg; es muss nicht zusätzlich digital erscheinen. Eine vollständige Browser-Spur ist keine automatische Note. Kläre den nächsten Abruftermin mit deiner Lehrperson."
+          ],
+          "links": [
+            {
+              "href": "../arbeit.html",
+              "label": "Deine Arbeit sichern"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ],
+      "completion": {
+        "title": "Dein belegtes Ergebnis",
+        "text": "Du kannst jetzt einen Netzfall erklären und einen Speicherweg begründen. Lass dir zu deiner Erklärung und der echten Handlung Rückmeldung geben. Noch offene Nachweise bleiben sichtbar."
+      }
+    },
+    {
+      "id": "erinnern",
+      "title": "Mit Abstand wieder erklären",
+      "goal": "Du rekonstruierst Wege und Speicherentscheidungen ohne Vorlage.",
+      "task": "Bearbeite diese beiden Abrufe erst an den vereinbarten späteren Terminen.",
+      "outcome": "Du rekonstruierst Wege und Speicherentscheidungen ohne Vorlage.",
+      "knowledge": [
+        "wege",
+        "speicher"
+      ],
+      "criteria": [
+        "Ich erkläre zuerst ohne frühere Lösung.",
+        "Ich vergleiche anschließend und verbessere eine fehlende Begründung."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "netz",
+          "title": "Vor M02 · 6 Minuten",
+          "text": "Denke dir das kleine Netz K–R, R–L, R–S, S–W. K fragt an, L/W bieten Dateien an, R/S leiten weiter. R–S ist unterbrochen.",
+          "when": "Zu Beginn der späteren Reihe zur Suche: zuerst 4 Minuten erinnern, dann 2 Minuten vergleichen.",
+          "prompt": "Was kann K von L und W erhalten, wenn beide Dienste bereit sind? Wie wäre es bei L mit einem nicht bereiten Dienst? Begründe.",
+          "solution": "L ist über K–R–L erreichbar und kann bei bereitem Dienst antworten. W ist abgetrennt. Ist L nicht bereit, garantiert der vorhandene Weg keine Dateiantwort. Ein Netzausfall und ein Dienstausfall sind verschiedene Erklärungen."
+        },
+        {
+          "type": "retrieval",
+          "id": "speicher",
+          "title": "Vor M07 · 6 Minuten",
+          "text": "Du hast eine Offlinekopie eines Gruppenprodukts bearbeitet. Eine andere Person hat inzwischen die gemeinsame Fassung verändert.",
+          "when": "Vor dem späteren Medienprodukt: zuerst 4 Minuten erklären, dann 2 Minuten vergleichen.",
+          "prompt": "Warum ist deine Kopie nicht automatisch die aktuelle gemeinsame Fassung? Was prüfst du vor dem Weiterarbeiten oder Freigeben? Nenne zwei Kriterien.",
+          "solution": "Die lokale Kopie und der gemeinsame Stand können auseinanderlaufen. Am erlaubten Ort den aktuellen Stand und die vereinbarten Bearbeitungsrechte prüfen, Unterschiede vergleichen und mit der Gruppe klären, welche Änderungen übernommen werden. Nicht ungeprüft überschreiben. Kriterien sind zum Beispiel Aktualität und berechtigter gemeinsamer Zugriff."
+        }
+      ],
+      "materialNeeds": [
+        "Blatt oder Lernwerk",
+        "Stift; für Netzversuche ein Papiermarker"
+      ],
+      "timing": "later"
+    }
+  ]
+}

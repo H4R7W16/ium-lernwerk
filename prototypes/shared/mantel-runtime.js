@@ -1,7 +1,7 @@
 /* Shared browser controller; no network transmission of learner work. */
 (function(){
 'use strict';
-const initialHash=location.hash.slice(1),scriptUrl=document.currentScript.src,base=new URL('./',scriptUrl),M=window.LernwerkMantelModel,KEY='ium-klasse5-mantel-v1',PERSIST=KEY+'-persistent',RECOVERY=KEY+'-recovery';
+const initialHash=location.hash.slice(1),scriptUrl=document.currentScript.src,base=new URL('./',scriptUrl),M=window.LernwerkMantelModel,KEY='ium-klasse'+(/\/klasse6\/$/.test(base.pathname)?6:5)+'-mantel-v1',PERSIST=KEY+'-persistent',RECOVERY=KEY+'-recovery';
 let pendingAdapter=null,booted=false,restoring=false,dirty=false,store={version:1,records:[],active:{}},units=[],unit=null,currentId=null,device=false,tabOk=true,captureOk=true,quarantineOk=true,adapter=null,preview=null,fileGeneration=0,installEvent=null,recoveryRaw=null,privateNote='';
 const $=id=>document.getElementById(id),copy=M.clone,e=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function uuid(){return crypto.randomUUID();}
@@ -72,6 +72,7 @@ function restore(){
 window.LernwerkMantel={register(value){pendingAdapter=value;if(booted)restore();},changed(){if(restoring)return;dirty=true;queueMicrotask(capture);},capture};
 function products(record){
  const u=units.find(x=>x.id===record.moduleId),items=record.payload.fields.filter(f=>M.genericFieldAllowed(u,f.key)&&f.type==='text'&&String(f.value).trim()).map(f=>({title:f.label||'Deine Erklärung',text:String(f.value)})),tool=record.payload.tool;
+ if(tool?.kind==='network')for(const [i,h]of tool.state.history.entries())items.push({title:'Netzversuch '+(i+1),text:'Ziel '+h.config.target+' · Unterbrochen: '+(h.config.disabled.join(', ')||'keine')+' · Dienst bereit: '+(h.config.service?'ja':'nein')+'\nVorhersage: '+h.prediction+'\n'+window.NetModel.observe(h).trace.join('\n')});
  if(tool?.family==='algorithm')for(const [id,w]of Object.entries(tool.data.works)){if(w.note&&!items.some(x=>x.text===w.note))items.push({title:u.steps.find(s=>s.id===id)?.title||id,text:w.note});if(w.code)items.push({title:'Programm · '+(u.steps.find(s=>s.id===id)?.title||id),text:w.code});}
  if(tool?.family==='media'&&tool.state.draft.headline)items.push({title:'Dein Bildbeitrag',text:tool.state.draft.headline+'\n'+tool.state.draft.caption+'\nBegründung: '+tool.state.draft.reason+'\nAusschnitt: '+JSON.stringify(tool.state.draft.crop)});
  if(tool?.family==='source')for(const bank of ['claims','transfer'])for(const [id,a]of Object.entries(tool.answers[bank]))if(a.verdict||a.evidence)items.push({title:'Deine Quellenzuordnung · '+id,text:'Urteil: '+(a.verdict||'offen')+'\nTextstelle: '+(a.evidence||'noch nicht gewählt')+(Object.entries(u.evidence).flatMap(([doc,lines])=>lines.map(line=>({...line,doc}))).find(line=>line.id===a.evidence)?'\nQuelle '+a.evidence[0]+': '+Object.values(u.evidence).flat().find(line=>line.id===a.evidence).text:'')});
