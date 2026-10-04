@@ -3,7 +3,7 @@
   "id": "IUM-6-M01-NETZE",
   "area": "netze",
   "grade": 6,
-  "version": "1.0.1",
+  "version": "1.1.0",
   "family": "content",
   "toolKind": "network",
   "topic": "Netze und Speicher",
@@ -168,7 +168,8 @@
       "title": "Was zeigt unser Netz – und was nicht?",
       "paragraphs": [
         "Wir verändern ein überschaubares Netz, damit wir Vorhersagen gezielt prüfen können. Knoten und Linien sind Stellvertreter. L steht für einen lokalen Dateidienst auf einem anderen Gerät, W für einen entfernten Dienst.",
-        "Du wählst hier jeden Schritt. In echten Netzen treffen Geräte Entscheidungen anhand technischer Regeln. Ganze Dateien erscheinen hier als eine Antwort; Aufteilung in Datenpakete, Laufzeiten und weitere Fehler fehlen. Der Rückweg ist absichtlich gleich dem Hinweg."
+        "Du wählst hier jeden Schritt. In echten Netzen treffen Geräte Entscheidungen anhand technischer Regeln. Ganze Dateien erscheinen hier als eine Antwort; Aufteilung in Datenpakete, Laufzeiten und weitere Fehler fehlen. Der Rückweg ist absichtlich gleich dem Hinweg.",
+        "„Lokal“ bei L heißt: ein Dateidienst im betrachteten örtlichen Netz, zum Beispiel in der Schule. L ist trotzdem ein anderes Gerät als K. Die Anordnung und die Länge der Linien zeigen keine echten Entfernungen. Die Grafik bildet keine vollständige Schulnetzarchitektur ab."
       ],
       "example": "Ein erfolgreicher Umweg widerlegt „jede einzelne Unterbrechung stoppt alles“. Er beweist nicht, dass jedes echte Netz jeden Ausfall ausgleichen kann.",
       "boundary": "Das Modell zeigt mögliche Verbindungen und Rollen. Es prüft weder ein echtes Schulnetz noch Konten, Rechte oder die Aktualität einer Offlinekopie.",
@@ -262,16 +263,17 @@
       "title": "Vorbereiten",
       "paragraphs": [
         "Öffnen Sie das Modell auf einem vorgesehenen Schulgerät; prüfen Sie Bedienelemente, Navigation, Arbeitsdatei-Download und Import. Benennen Sie zwei tatsächlich verfügbare Speicherorte, möglichst lokal und Schulnetz/Schulcloud, eine erlaubte Schreib-App und einen bekannten Schutz-/Entsperrweg. Prüfen Sie den Netzort selbst mit einem schulischen Testzugang; verlangen Sie keinen privaten Account.",
-        "Eine Offline-/Synchronisationskopie darf nicht als aktueller Netzabruf gelten. Ist dieser Unterschied am Schulgerät nicht feststellbar, bleibt der Nachweis offen. Bei fehlendem Netz kann der Modellteil mit Papier vollständig bearbeitet werden; eine echte Netzprobe wird nachgeholt. Die vier Speicherarten werden trotzdem verglichen."
+        "Eine Offline-/Synchronisationskopie darf nicht als aktueller Netzabruf gelten. Ist dieser Unterschied am Schulgerät nicht feststellbar, bleibt der Nachweis offen. Bei fehlendem Netz kann der Modellteil mit Papier vollständig bearbeitet werden; eine echte Netzprobe wird nachgeholt. Die vier Speicherarten werden trotzdem verglichen.",
+        "Falls die Schule einen aktuellen Netzübertragungsbeleg ermöglichen kann: Eine harmlose Testdatei am vereinbarten gemeinsamen Ort erst nach dem ersten Öffnen mit einer neuen Kennung ändern, dann den geänderten Inhalt am Schülergerät erneut abrufen lassen. Die neue Kennung belegt eine Übertragung seit der Änderung, aber keinen ausschließlich direkten Zugriff ohne Zwischenspeicher. Keine echten Gruppendateien überschreiben. Fehlt diese oder eine vergleichbar beobachtbare Probe, bleibt „aktueller Netzabruf“ offen; bloße Verbindungssymbole reichen nicht."
       ]
     },
     {
       "title": "Vier Stunden – ein roter Faden",
       "paragraphs": [
-        "Stunde 1: Anlass 5 und Beispiel 10 (Eine Datei, mehrere Fragen), V0 10 (Dein erster Netzversuch), V1 15 und Sicherung 5 (Eine Verbindung fällt aus).",
-        "Stunde 2: Abruf 5 und eigener V2 15, V3 10, Dienst/Rollen 10 und Revision/Modellgrenze 5. Halten Sie beim eigenen Versuch die selbst gewählte Änderung fest.",
+        "Stunde 1: Anlass 5 und vollständiges Beispiel aus Vorhersage, Beobachtung, Erklärung und Grenze 10 (Eine Datei, mehrere Fragen), V0 10 (Dein erster Netzversuch), V1 15 und Sicherung 5 (Eine Verbindung fällt aus).",
+        "Stunde 2: Abruf 5 und eigener V2 15, V3 10, Dienst/Rollen 10 und Revision/Modellgrenze 5. V2 verlangt einen ursprünglich möglichen Weg und eine begründete Unterbrechung darauf. Ein unbeteiligter Nebenast reicht nicht. Der eigene Test darf einen erfolgreichen Umweg oder eine begründete Abtrennung ergeben.",
         "Stunde 3: Zwei Speicherwege wirklich prüfen – Kriterienvergleich 10, Geräteprobe 25, direkte Rückmeldung 10. Technische Wartezeit ist kein Lernnachweis; bei Problemen die offene Handlung konkret terminieren.",
-        "Stunde 4: Neues Netz 20, Speicherentscheidung/Schutzhandlung 10, gezielte Nachprüfung 10 und Sicherung 5. Zwei spätere Abrufe von jeweils 6 Minuten liegen im getrennten Jahreskonto vor M02 bzw. M07."
+        "Stunde 4: Neues Netz 20, Speicherentscheidung/Schutzhandlung 10, gezielte Nachprüfung 10 (davon 2 Minuten neue Rückfrage am Transfernetz und 8 Minuten gezielte Revision) sowie Sicherung 5. Zwei spätere Abrufe von jeweils 6 Minuten liegen im getrennten Jahreskonto vor M02 bzw. M07. Die neuen Hilfen ersetzen bisher allgemeine Aufträge und erhöhen das Zeitkonto nicht."
       ]
     },
     {
@@ -280,13 +282,14 @@
         "Kind nennt nach einem Stopp sofort „unerreichbar“: nur die Nachbarn des letzten erreichbaren Knotens markieren lassen; danach alle von K aus erreichbaren Knoten sammeln. Nicht sofort den Umweg vorsagen.",
         "Kind nennt alle Knoten Server: am vorgemachten Beispiel fragen, welcher Knoten die angefragte Datei bereitstellt. Kind erwartet trotz nicht bereitem Dienst eine Antwort: Anfrageweg und Bereitstellung getrennt erklären lassen.",
         "Kind öffnet nur „Zuletzt verwendet“: den Zielordner zeigen lassen und daraus erneut öffnen. Bei unklarer Server-/Offlinekopie den schulischen Zugang gemeinsam prüfen; keine Konfiguration am Gerät durch Kinder ändern lassen.",
-        "Hohe Routine: eine einzelne Unterbrechung wählen, die das eigene Ziel wirklich abtrennt, und das mit allen verbleibenden Verbindungen begründen. Keine zusätzlichen IP-/DNS-Pflichten einführen."
+        "Hohe Routine: eine einzelne Unterbrechung wählen, die das eigene Ziel wirklich abtrennt, und das mit allen verbleibenden Verbindungen begründen. Keine zusätzlichen IP-/DNS-Pflichten einführen.",
+        "Kind kopiert eine Vergleichslösung: Lösung schließen und eine andere einzelne Verbindung im Transfernetz wählen lassen. Wege bzw. abgetrennte Knoten erklären lassen; bei Bedarf erneut helfen und eine andere kleine Änderung prüfen. Kein Verbot von Hilfen, sondern ein anschließender eigener Erklärversuch. Beim Solo-Fall Y–L bleibt W über K–X–Z–W erreichbar; L ist wegen seiner einzigen fehlenden Verbindung abgetrennt."
       ]
     },
     {
       "title": "Was als Nachweis zählt",
       "paragraphs": [
-        "Netz: Vorhersage mit Grund, nachvollziehbarer Eingriff, tatsächliche Spur, eigene Erklärung und gegebenenfalls Revision. Ein automatisches Protokoll allein genügt nicht. Neues Transfernetz zunächst ohne Lösung bearbeiten lassen; bei Hilfen anschließend eine Begründung selbst rekonstruieren lassen.",
+        "Netz: Vorhersage mit Grund, eigener ursprünglich möglicher Weg und Unterbrechung darauf, tatsächliche Spur, eigene Erklärung und gegebenenfalls Revision. V2 und der veränderte Transfer sind zentral. Eine geschriebene Musterlösung oder eine automatische Spur genügt nicht: Bei der abschließenden Rückfrage wird eine andere Verbindung verändert und die Begründung mit geschlossener Lösung rekonstruiert.",
         "Speicher: zwei tatsächlich ausgeführte Ablage-/Wiederöffnungswege mit Ort und beobachtetem Inhalt; direkte Sichtung durch Lehrperson oder vereinbarte Partnerperson ergänzt das Protokoll. Die konkrete Netzprobe darf offen bleiben, wird dann aber nicht als erfüllt gewertet. Keine Namen/Passwörter/Screenshots sammeln.",
         "Kriterienrückmeldung statt Punktemaschine: tragfähige Verbindungsaussage, passende Rollen, konkrete Modellgrenze, begründete Speicherwahl und ausgeführte Schutzhandlung. „Begonnen“ in der Arbeitsübersicht ist kein Kompetenzurteil. Eigene mündliche oder Papierergebnisse zählen gleichwertig."
       ]
@@ -300,9 +303,9 @@
     }
   ],
   "briefing": [
-    "In M01 prüfen die Lernenden, was einen Dateizugriff ermöglicht. Starten Sie mit Miras vorschneller Erklärung und dem kleinen Beispiel P–R–S. Lassen Sie die Rollen durch Tätigkeiten erklären.",
+    "In M01 prüfen die Lernenden, was einen Dateizugriff ermöglicht. Starten Sie mit Miras vorschneller Erklärung und dem kleinen Beispiel P–R–S. Es zeigt vollständig, wie Vorhersage, Beobachtung, Erklärung und Grenze zusammenhängen.",
     "Im Netzversuch sagen die Kinder das Ergebnis vor dem Start voraus. Eine Spur bleibt als Beobachtung erhalten; die Erklärung müssen sie selbst leisten. Achten Sie besonders auf den Sprung von „mein Weg scheitert“ zu „kein Weg existiert“.",
-    "Der eigene Eingriff in V2 und das veränderte Transfernetz sind die zentralen Denkaufgaben. In V3 bleibt der lokale Server erreichbar, im Transfer kann auch er abgetrennt sein. „Lokal auf dem Server“ ist nicht „auf meinem Gerät“.",
+    "Im eigenen V2 wählen die Lernenden einen möglichen Weg und unterbrechen begründet eine Verbindung darauf. Sie belegen einen Umweg oder eine Abtrennung. Das Transfernetz verändert die Lage des lokalen Servers. Eine abschließende kleine Änderung mit geschlossener Lösung hilft, selbstständiges Erklären von Übernehmen zu unterscheiden.",
     "In Stunde drei folgt der echte Speichervergleich. Bereiten Sie zwei erlaubte Orte und eine Schreib-App vor. Lassen Sie die Datei schließen und aus dem Zielordner wieder öffnen. Ist nur eine Offlinekopie sichtbar, bleibt der aktuelle Netzabruf offen. Ein Modellversuch ersetzt diese Handlung nicht.",
     "Planen Sie vier Stunden und später zweimal sechs Minuten Abruf. Prüfen Sie Erklärungen, Gerätehandlungen und begründete Entscheidungen getrennt. Arbeitsdateien enthalten die Lernwerkantworten und Modellprotokolle; die echte Übungsdatei braucht einen eigenen Sicherungsweg."
   ],
@@ -340,16 +343,35 @@
         },
         {
           "type": "example",
-          "title": "Ein kleiner Versuch ist vorgemacht",
-          "text": "P — R — S: P ist der Client, R leitet weiter, S bietet die Datei plan.txt an. Beide Verbindungen sind aktiv; der Dienst ist bereit.",
-          "items": [
-            "P schickt die Anfrage „Bitte plan.txt“ an S. Der erste Schritt führt von P nach R.",
-            "R leitet die Anfrage von R nach S weiter. R stellt die Datei nicht selbst bereit.",
-            "S stellt die Datei bereit und schickt eine Antwort über R zu P. Im Modell nehmen wir denselben Rückweg."
-          ],
+          "title": "Ein Versuch – vollständig vorgemacht",
+          "text": "P — R — S: P fragt als Client nach plan.txt. R leitet weiter. S ist der Server und bietet die Datei an. Beide Verbindungen sind aktiv; der Dateidienst ist bereit.",
           "paragraphs": [
-            "Client und Server beschreiben hier Rollen: Der Client fragt an, der Server bietet einen Dienst an. Ein Gerät kann in unterschiedlichen Situationen verschiedene Rollen haben."
-          ]
+            "Client und Server bezeichnen Aufgaben im Netz. Ein Gerät kann in anderen Situationen eine andere Rolle übernehmen. Im Modell läuft die Antwort auf demselben Weg zurück. Das ist eine Vereinfachung."
+          ],
+          "table": {
+            "headers": [
+              "Teil des Versuchs",
+              "So könnte mein Protokoll aussehen"
+            ],
+            "rows": [
+              [
+                "Vorhersage · vor dem Start",
+                "„Ich erwarte eine Dateiantwort: P–R–S ist ein aktiver Weg, und S ist bereit.“"
+              ],
+              [
+                "Beobachtung · beim Ausführen",
+                "Ich bewege die Anfrage von P zu R zu S. Die Dateiantwort kommt von S über R zu P zurück."
+              ],
+              [
+                "Erklärung · nach dem Versuch",
+                "Meine Vorhersage passt. R leitet nur weiter; S stellt die Datei bereit. Der aktive Weg und der bereite Dienst ermöglichen hier die Antwort."
+              ],
+              [
+                "Grenze meines Ergebnisses",
+                "Ich habe nur diesen Fall geprüft. Ob S auch ohne Verbindung R–S erreichbar wäre, zeigt dieser Versuch noch nicht."
+              ]
+            ]
+          }
         },
         {
           "type": "task",
@@ -388,7 +410,7 @@
           "text": "Stelle das Grundnetz ein. Wähle L oder W. Notiere deine Vermutung mit einem Weg, zum Beispiel als Knotenfolge. Starte erst danach. Bewege die Anfrage jeweils genau einen Schritt. Gehe am Ziel auch die Antwort zurück.",
           "prompt": "Welcher Versuch gehört zu V0? Vergleiche Vorhersage und Spur. Wer hat die Datei geliefert?",
           "network": true,
-          "responseHint": "Nenne die Versuchsnummer und einen Satz zu Anfrage und Antwort. Auf Papier notierst du die Spur selbst.",
+          "responseHint": "Drei kurze Sätze oder eine mündliche Erklärung reichen: „Vorher erwartete ich …“ – „In Versuch … beobachtete ich …“ – „Das erkläre ich so: …“. Der Dateidienst und der Weg gehören beide zur Erklärung.",
           "help": [
             {
               "title": "Wie fange ich an?",
@@ -463,8 +485,9 @@
         "modell"
       ],
       "criteria": [
-        "Ich habe Ziel und eine unterbrochene Verbindung selbst gewählt.",
-        "Ich begründe, was mein Ergebnis zur Behauptung beiträgt."
+        "Ich nenne meinen ursprünglich möglichen Weg und begründe die selbst gewählte Unterbrechung darauf.",
+        "Ich belege einen verbleibenden Weg oder erkläre mit allen noch erreichbaren Knoten, warum keiner möglich ist.",
+        "Ich erkläre, was mein Ergebnis für die allgemeine Behauptung bedeutet."
       ],
       "blocks": [
         {
@@ -479,18 +502,25 @@
           "type": "task",
           "id": "versuch",
           "title": "V2 · Eine Behauptung prüfen",
-          "text": "Behauptung: „Sobald eine Verbindung unterbrochen ist, kommt keine Nachricht mehr an.“ Stelle das Grundnetz ein. Wähle L oder W und genau eine Verbindung, die du unterbrichst. Begründe deine Wahl und sage das Ergebnis voraus. Teste dann.",
-          "prompt": "Notiere Versuchsnummer, deine Auswahl und dein Urteil über die Behauptung. Was kannst du belegen, was bleibt offen?",
+          "text": "Behauptung: „Sobald eine Verbindung unterbrochen ist, kommt keine Nachricht mehr an.“ Wähle L oder W als dein Ziel. Untersuche selbst, was eine gezielte Unterbrechung verändert.",
+          "prompt": "Welcher Eingriff gehört zu deinem V2? Begründe deine Auswahl und dein Urteil mit der Versuchsnummer, einer Wegfolge oder den abgetrennten Knoten.",
           "network": true,
           "help": [
             {
               "title": "Welches Ergebnis wäre besonders aussagekräftig?",
-              "text": "Ein einziges Beispiel mit unterbrochener Verbindung und trotzdem angekommener Antwort genügt gegen „keine Nachricht mehr“. Ein gescheiterter Weg beweist die Behauptung nicht für alle Netze.",
+              "text": "Vergleiche die Verbindungen an deinem Weg: Wo könnte es nach der Unterbrechung noch einen Abzweig geben? Wo hängt dein Ziel nur an einer einzigen Verbindung? Wähle selbst, welche dieser Ideen du untersuchst.",
               "knowledge": "modell",
               "label": "Passendes Wissen öffnen"
             }
           ],
-          "solution": "Beispiel für ein Gegenbeispiel: Ziel L, B–C unterbrochen, Anfrage K–A–L und Antwort zurück. Eine Antwort kommt an. Die allgemeine Behauptung ist damit widerlegt. Deine andere Auswahl kann genauso tragfähig sein."
+          "solution": "Ein mögliches eigenes Ergebnis: Ziel W, zunächst K–A–C–D–W. Ich unterbreche A–C, weil ich einen Umweg bei A prüfen will. K–A–B–D–W und die Antwort zurück funktionieren; die Behauptung ist widerlegt. Eine andere sinnvolle Wahl ist Ziel L mit Ausfall A–L: L ist dann abgetrennt, weil es keine weitere Verbindung zu L gibt. Dieser Fall allein bestätigt keine allgemeine Ausfallregel.",
+          "items": [
+            "Stelle das Grundnetz mit bereitem Dateidienst ein. Notiere einen möglichen Weg von K zu deinem Ziel. Du darfst eine passende frühere Spur verwenden.",
+            "Wähle genau eine Verbindung auf diesem Weg und unterbrich sie. Begründe deine Wahl: Erwartest du einen Umweg oder ist das Ziel dann abgetrennt? Notiere Weg, Änderung und Vermutung vor dem Start im Werkzeug oder auf Papier.",
+            "Teste. Falls ein gewählter Weg stoppt, suche einen anderen aktiven Weg oder begründe anhand aller noch erreichbaren Knoten, weshalb keiner möglich ist. Ein einzelner Stopp genügt dafür nicht.",
+            "Beurteile die Behauptung mit deinem Ergebnis. Ein erfolgreicher Umweg widerlegt sie. Ein abgetrenntes Ziel zeigt einen möglichen Ausfall, beweist aber keine Regel für jede Unterbrechung."
+          ],
+          "responseHint": "Kurzprotokoll: ursprünglicher Weg → meine Änderung und ihr Zweck → Beobachtung → was das für die Behauptung bedeutet. Stichwörter, Skizze oder mündliche Erklärung sind möglich."
         }
       ],
       "materialNeeds": [
@@ -501,9 +531,9 @@
     {
       "id": "trennen",
       "title": "Was bleibt erreichbar?",
-      "goal": "Du begründest eine Grenze der Erreichbarkeit mit allen Verbindungen einer Teilmenge.",
+      "goal": "Du zeigst, welche Knoten noch verbunden sind und warum ein Ziel nicht mehr erreichbar ist.",
       "task": "V3: Stelle das Grundnetz ein. Unterbrich A–B und A–C. Vergleiche die Ziele L und W.",
-      "outcome": "Du begründest eine Grenze der Erreichbarkeit mit allen Verbindungen einer Teilmenge.",
+      "outcome": "Du zeigst, welche Knoten noch verbunden sind und warum ein Ziel nicht mehr erreichbar ist.",
       "knowledge": [
         "wege",
         "speicher",
@@ -645,9 +675,9 @@
           "title": "Jetzt am Gerät · 25 Minuten",
           "text": "Die Lehrperson benennt einen erlaubten lokalen Ort und möglichst einen Schulnetz- oder Schulcloudort. Nutze zwei andere erlaubte Orte nur, wenn der Netzweg fehlt; kennzeichne den Netzbeleg dann als offen.",
           "preparation": "Öffne die von der Schule erlaubte Schreib-App und erstelle eine harmlose Datei mit dem Inhalt „Unser Test: Plan A“. Name: netzprobe. Verwende keine Namen, Kontaktdaten, Passwörter oder persönlichen Bilder.",
-          "action": "Speichere je eine Kopie an beiden vereinbarten Orten. Schließe die Datei. Öffne den jeweiligen Zielordner und dort die Datei erneut. Prüfe den Inhalt. Lass dir bei einem Netzort den verwendeten Ort und die tatsächliche Verbindung bestätigen; ein Cache-/Offline-Symbol kann nur eine lokale Kopie bedeuten. Ändere keine Netz- oder Geräteverwaltungseinstellungen.",
+          "action": "Speichere je eine Kopie an beiden vereinbarten Orten. Schließe die Datei. Öffne den jeweiligen Zielordner und dort die Datei erneut. Prüfe den Inhalt. Bei einem Netzort prüft ihr zusätzlich den tatsächlichen Zugang; ein Offline-Symbol oder bloßes Wiederöffnen beweist keinen neuen Abruf. Ändere keine Netz- oder Geräteverwaltungseinstellungen.",
           "return": "Halte die zwei Beobachtungen fest. Zeige deiner Lehrperson oder der vereinbarten Partnerperson direkt am Gerät das Wiederöffnen und den Ort. Keine Zugangsdaten oder Screenshots abgeben. Unverfügbare Wege bleiben ausdrücklich ungeprüft.",
-          "prompt": "Ort A / Ort B: Speicherart, ausgeführter Weg, Wiederöffnen und beobachteter Inhalt, nötiger Zugriff, aktuell am Netz oder nur Kopie/offen? Was wurde direkt gezeigt? Was bleibt ungeprüft?",
+          "prompt": "Berichte getrennt über Ort A und Ort B. Verwende die vier Punkte als Gerüst.",
           "storageNotice": "Deine Lernwerk-Arbeitsdatei enthält dieses Protokoll und die Modellversuche. Sie nimmt deine echte Datei netzprobe nicht mit. Sichere die Übungsdatei gesondert auf dem schulisch vereinbarten Weg.",
           "routes": [
             {
@@ -676,14 +706,21 @@
                 "Fehlen Zugang, App oder Ort, dokumentiere „nicht geprüft“ und nutze nur die vereinbarte Alternative."
               ]
             }
+          ],
+          "responseHint": "Stichwörter reichen. Du kannst die vier Punkte auch am Gerät erklären und direkt zeigen.",
+          "items": [
+            "Ort: Wie heißt der vereinbarte Ordner, und zu welcher Speicherart gehört er?",
+            "Probe: Über welchen Ordner habe ich die geschlossene Datei wieder geöffnet? Welchen Inhalt habe ich gesehen?",
+            "Zugriff: Was brauchte ich dafür? War ein aktueller Netzabruf nachgewiesen, nur eine lokale Kopie sichtbar oder blieb das unklar?",
+            "Beleg und Grenze: Was habe ich direkt gezeigt? Was konnte ich noch nicht prüfen?"
           ]
         },
         {
           "type": "task",
           "id": "feedback",
           "title": "Beobachtung prüfen · 10 Minuten",
-          "text": "Vergleiche dein Protokoll mit einer Partnerperson oder der Lehrperson. Die Person darf fragen: „Zeig mir, aus welchem Ordner du die Datei erneut geöffnet hast.“ Sie braucht keinen fremden Zugang.",
-          "prompt": "Welcher Beleg war überzeugend? Ergänze eine fehlende Beobachtung oder markiere eine Annahme als ungeprüft.",
+          "text": "Zeige einer Partnerperson oder der Lehrperson dein Wiederöffnen aus dem Zielordner. Die Person fragt: „Woran erkennst du den Ort?“ und „Welche Beobachtung zeigt einen Netzabruf – oder wissen wir das noch nicht?“ Sie braucht keinen fremden Zugang.",
+          "prompt": "Überarbeite genau eine unklare Stelle: Ergänze eine beobachtete Handlung oder ersetze eine unbewiesene Aussage durch „noch nicht geprüft“. Begründe die Änderung.",
           "help": [
             {
               "title": "Noch keine zwei nutzbaren Orte?",
@@ -840,8 +877,8 @@
           "type": "task",
           "id": "revision",
           "title": "Gezielt nachprüfen · 10 Minuten",
-          "text": "Lege Versuchsprotokoll, Transferlösung und Speichervergleich nebeneinander. Wähle eine unsichere Stelle: Weg, Rollen, Modellgrenze oder reale Ablage. Vergleiche erst jetzt mit dem passenden Wissen bzw. der Lösung.",
-          "prompt": "Was hast du zuerst erklärt? Was änderst oder bestätigst du? Nenne den neuen Beleg. Welche Geräteprobe ist gegebenenfalls noch offen?",
+          "text": "Nutze die ersten zwei Minuten für eine Erklärung ohne geöffnete Lösung. Bearbeite anschließend acht Minuten lang genau die Stelle, die noch nicht trägt.",
+          "prompt": "Welche Aussage hast du bestätigt oder verbessert? Nenne deinen Beleg und gegebenenfalls die noch fehlende Geräteprobe.",
           "links": [
             {
               "href": "schritt-grundnetz.html",
@@ -859,6 +896,11 @@
               "knowledge": "modell",
               "label": "Passendes Wissen öffnen"
             }
+          ],
+          "items": [
+            "Zeige dein Transfernetz. Eine Partnerperson oder die Lehrperson wählt darin eine andere einzelne Verbindung zum Unterbrechen. Ohne Partner: Stelle alle sechs Verbindungen wieder her und unterbrich nur Y–L. Erkläre nun die Erreichbarkeit von L und W. Belege deine Aussage an der Zeichnung.",
+            "Die Rückfrage lautet: „Welcher Weg oder welche abgetrennten Knoten belegen das?“ Prüfe danach an den Linien. Kannst du es noch nicht begründen, nutze die passende Hilfe und erkläre anschließend nochmals mit geschlossener Hilfe.",
+            "Wähle danach deine offene Stelle: Weg, Rollen, Modellgrenze oder reale Ablage. Prüfe sie gezielt nach. Halte einen Beleg fest; eine übernommene Lösung oder ein Häkchen allein reicht nicht."
           ]
         },
         {
@@ -882,7 +924,7 @@
       ],
       "completion": {
         "title": "Dein belegtes Ergebnis",
-        "text": "Du kannst jetzt einen Netzfall erklären und einen Speicherweg begründen. Lass dir zu deiner Erklärung und der echten Handlung Rückmeldung geben. Noch offene Nachweise bleiben sichtbar."
+        "text": "Zeige eine eigene Netzerklärung und die tatsächlich geprüften Speicherwege. Die Rückmeldung klärt, was schon trägt und was du noch prüfen musst. Eine ausgefüllte Seite bestätigt noch kein Können."
       }
     },
     {

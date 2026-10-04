@@ -1,4 +1,8 @@
-/* Jahrgangsspezifische Textkennung; Klasse-5-Wortmarke bleibt ihrem Jahrgang zugeordnet. */
-.lw-mantel .lw-shell-brand.lw-grade-brand{width:auto;max-width:100%;line-height:1.2;margin:0;color:var(--lw-blue)!important;font-size:28px;letter-spacing:-.04em}.lw-mantel .lw-shell-identity:has(.lw-grade-brand){gap:8px}.lw-mantel .lw-shell-identity:has(.lw-grade-brand) .lw-shell-location{padding-left:0}
-@media(max-width:760px){.lw-mantel .lw-shell-brand.lw-grade-brand{font-size:24px}.lw-mantel .lw-shell-identity:has(.lw-grade-brand){max-width:100%}}
+/* Gleicher Mantel wie Klasse 5; ausschließlich der Jahrgangsakzent wechselt. */
+body.lw-mantel{
+  --lw-accent:#0A7A70;
+  --lw-accent-dark:#086258;
+  --lw-accent-soft:#E8F4F2;
+}
 @media print{.lw-mantel[data-lw-area="netze"] .lw-sheet .lw-content-block>p:has(>b){break-inside:avoid}}
+@media print{.lw-mantel[data-lw-page="baustein-transfer.html"] .lw-sheet .lw-self-check>div>p{display:none}}
