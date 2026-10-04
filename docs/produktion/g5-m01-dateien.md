@@ -60,3 +60,7 @@ Geübte starten bei der eigenen Planung und erbringen anschließend dieselben Ge
 Das Material nennt nur den Bedarf des jeweiligen Schritts. Schritt 4 besitzt zusätzlich eigenständige, ohne JavaScript lesbare iPad- und Windows-Blätter. Jede Variante enthält ihren vollständigen Geräteweg, Fundnotiz-Inhalt, Kriterien und zuschaltbare Hilfen/Lösungen. Die Auswahl steht oben auf dem Blatt und in der Übersicht.
 
 Paketversion 1.1.0 bleibt kompatibel: Aufgabenidentität, Antwortfelder und erwartete Leistungen bleiben gleich. Keine neue Quarantäne vorhandener Antworten wegen bloßer Layout-/Hilfenverbesserung. Physischer Druck und reale Lernendenerprobung bleiben offen.
+
+
+## Kompakte Unterstützung für Lehrpersonen · 04.10.2026
+403 Wörter Einheitshinweise statt zuvor 945, mit Vorbereitung, 2 × 45 Minuten, Beobachtung und nächster Hilfe. Einzelmaterialliste und Planungsdetails sind aufklappbar; Briefing synchron angepasst. Neue Jahrgangs- und Reihenseiten ordnen den 90-Minuten-Bogen in M01 (180 Minuten) ein; übrige Materialien fehlen noch. Die späteren 10 Minuten werden aus der Jahresreserve für verteilte Übung gezählt. Keine Änderung an Aufgaben, Feldern oder erwartetem Produkt; Paketversion 1.1.0 bleibt kompatibel.

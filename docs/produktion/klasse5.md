@@ -42,3 +42,7 @@ Für Klasse 5: aktive Planungsfassung und Autorenvertrag beachten, reale Handlun
 
 ## Status
 Der erste Dateien-Bogen ist Produktionsprobe und Material zur Sichtung. Keine pauschale Freigabe von M01, der anderen fünf Module oder der gesamten Jahresproduktion.
+
+
+## Planung für Lehrpersonen · 04.10.2026
+Die Vorschau bündelt /klasse5/lehrkraft.html → stoffverteilung.html → reihe-arbeitsraum.html → dateien/lehrkraft.html. Redaktionelle Daten: prototypes/shared/planung/klasse5.json. Dieser Snapshot verweist auf dee82ec und roadmap/ahf-2026-09-21; bei Änderung der aktiven Jahresplanung vor weiterer Produktion abgleichen. Eigener Vorschlag für M01: 45 + 90 + 45 Minuten, außerhalb des Dateien-Bogens noch kein fertiges Material. Späterer Abruf aus dem Jahreskonto, keine Doppelzählung. Hinweise bei der Inhaltserstellung parallel pflegen; knappe Vorbereitung und Anschlussentscheidungen, keine Wiederholung des Lernbogens.

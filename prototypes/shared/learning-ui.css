@@ -112,3 +112,48 @@
  body.lw-mantel[data-lw-print="learner"] .lw-check-help{display:none}
  .lw-author .lw-paper-device{padding:2mm;background:white;border:1px solid #999}
 }
+
+/* Lehrpersonen: kurze Orientierung und lesbare Planung statt großer Themenkarten. */
+.lw-teacher{max-width:1040px;margin:auto}
+.lw-teacher>p,.lw-teacher section>p{max-width:80ch}
+.lw-teacher h2{font-size:22px;margin-top:30px}
+.lw-teacher-start{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.lw-teacher-start>a{display:flex;flex-direction:column;gap:7px;padding:20px;border:1px solid #cbd5c8;border-radius:12px;background:white;text-decoration:none}
+.lw-teacher-start span,.lw-teacher-units span{font-size:15px;color:#596b5b}
+.lw-teacher-units{list-style:none;padding:0}
+.lw-teacher-units li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid #d4dccf}
+.lw-teacher-units a{font-weight:600}
+.lw-teacher-label{display:none}
+.lw-teacher-table table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.5}
+.lw-teacher-table caption{text-align:left;font-weight:600;margin:16px 0}
+.lw-teacher-table th,.lw-teacher-table td{text-align:left;vertical-align:top;padding:16px;border-bottom:1px solid #cbd5c8;overflow-wrap:anywhere}
+.lw-teacher-table th[scope="row"]{width:29%;font-weight:600}
+.lw-teacher-table thead{background:#eaf1e4}
+.lw-teacher-table small{display:block;margin-top:9px;color:#596b5b;font-weight:400;font-size:14px}
+.lw-teacher-table small a{display:block;margin-top:5px}
+.lw-teacher-phases{padding-left:24px}
+.lw-teacher-phases li{padding:4px 0 12px}
+.lw-teacher-phases h3{font-size:18px;margin-bottom:8px}
+.lw-teacher-phases h3 span{font-weight:400;color:#596b5b;white-space:nowrap}
+.lw-teacher li{margin-bottom:8px}
+.lw-teacher-extra{margin:22px 0;border-top:1px solid #cbd5c8;padding-top:14px}
+.lw-teacher-extra>summary{font-size:17px;font-weight:600;cursor:pointer;min-height:44px}
+@media screen and (max-width:650px){
+ .lw-teacher-start{grid-template-columns:1fr}
+ .lw-teacher-units li{flex-direction:column;gap:4px}
+ .lw-teacher-table table,.lw-teacher-table tbody{display:block;width:100%;font-size:16px}
+ .lw-teacher-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .lw-teacher-table caption{display:block;width:100%}
+ .lw-teacher-table tr{display:block;padding:18px 0;border-bottom:1px solid #cbd5c8}
+ .lw-teacher-table th[scope="row"],.lw-teacher-table td{display:block;box-sizing:border-box;width:100%;padding:8px 0;border:0}
+ .lw-teacher-table th[scope="row"]{font-size:18px}
+ .lw-teacher-table .lw-teacher-label{display:block;font-size:14px;font-weight:600;color:#596b5b;margin-bottom:4px}
+ .lw-teacher-table small{font-size:14px}
+}
+@media print{
+ .lw-teacher{max-width:none;font-size:11pt}
+ .lw-teacher-table table{font-size:10pt}
+ .lw-teacher-table th,.lw-teacher-table td{padding:2mm}
+ .lw-teacher-table tr,.lw-teacher-phases li{break-inside:avoid}
+ .lw-teacher-table thead{display:table-header-group}
+}

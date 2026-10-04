@@ -15,8 +15,8 @@
     "die Übungsdateien aus diesem Lernbogen"
   ],
   "teacher": [
-    "Dieser erste Teilbogen von G5-M01 behandelt Verzeichnisstruktur, Dateinamen und Wiederfinden. Er ersetzt nicht das gesamte Arbeitsraum-Modul.",
-    "iPad und Windows sind gleichwertige Wege. Das Lernwerk kann die Dateiablage außerhalb des Browsers nicht sehen oder automatisch bestätigen."
+    "Ziel: eine nachvollziehbare Ordnung wählen und eine echte Datei darin wiederfinden. Dieser Bogen deckt den Dateien-Teil der ersten Reihe ab.",
+    "iPad und Windows sind gleichwertige Wege. Die Gerätehandlung prüfen Sie am Gerät; das Lernwerk kann sie nicht automatisch bestätigen."
   ],
   "duration": "Zwei Unterrichtsstunden à 45 Minuten als Planungsannahme, einschließlich 10 Minuten Reserve. Weitere 10 Minuten Wiederaufnahme in einer späteren Stunde.",
   "curriculum": {
@@ -806,74 +806,52 @@
   ],
   "teacherSections": [
     {
-      "title": "Vorbereiten: zwei gleichwertige Gerätewege",
+      "title": "Vorbereiten",
       "paragraphs": [
-        "Prüfen Sie auf den tatsächlich eingesetzten Geräten vorab den Zugriff auf einen beschreibbaren Übungsbereich, Ordneranlage, Umbenennen, Verschieben und Öffnen von .txt-Dateien. Benennen Sie den Startort konkret; „lokal“ oder „Cloud“ allein ist keine ausreichende Anleitung.",
-        "Schreiben Sie sichtbar „Heute starten wir hier: …“ mit dem konkreten schulischen Pfad an die Tafel bzw. auf das Blatt. Zeigen Sie auf jedem eingesetzten Profil auch den Downloadordner oder den direkten Speicherweg. Erproben Sie die Fundnotiz und info.txt; der Beetplan bleibt Zusatzübung.",
-        "Auf Schul-iPads können Speicherorte und Menüs durch Verwaltung eingeschränkt sein. Unter Windows kann „Dokumente“ mit einem Schul-Cloudkonto verbunden sein. Stellen Sie den tatsächlich erlaubten Weg bereit. Keine privaten Konten einrichten lassen.",
-        "Die Übungsdateien stehen im Materialbereich. Bei blockierten Downloads stellen Sie genau diese Dateien im geschlossenen Schulraum bereit. Der Papierausdruck zeigt deren vollständigen Text, ersetzt aber keinen Dateivorgang.",
-        "Lassen Sie nur einen eigenen Übungsbereich verwenden. Vorhandene Dateien nicht ersetzen oder löschen. Bei einer Namenskollision einen neuen eindeutig erkennbaren Übungsnamen wählen.",
-        "Für Schritt 4 wählen Sie in der Materialübersicht oder oben auf dem Blatt „iPad“, „Windows“ oder „Beide Gerätewege“. Die einzelnen Varianten enthalten nur ihren Geräteweg einschließlich Dateiinhalt und Kriterien. Ergänzende Prüfhilfen und Lösungen sind wie bisher zuschaltbar. Reine Begriffs- und Planungsblätter verlangen kein Gerät."
+        "Am eingesetzten Schulprofil Ordneranlage, Umbenennen, Verschieben und Öffnen von Textdateien erproben. Den erlaubten Startort zeigen und sichtbar notieren: „Heute starten wir hier: …“. Auch Downloadordner oder direkten Speicherweg zeigen; „lokal“ oder „Cloud“ allein genügt nicht.",
+        "Fundnotiz und info.txt im Materialbereich prüfen; der Beetplan ist Zusatzübung. Bei Download-Sperre dieselben Dateien im Schulraum bereitstellen. Keine privaten Konten nutzen und vorhandene Dateien nicht ersetzen. Bei gleichem Namen einen neuen Übungsnamen wählen.",
+        "Für Schritt 4 das passende iPad- oder Windows-Blatt wählen; Hilfen und Lösungen sind zuschaltbar. Begriffs- und Planungsblätter funktionieren ohne Gerät."
       ]
     },
     {
-      "title": "Verlauf und Zeitannahme",
+      "title": "Durchführen · 2 × 45 Minuten",
       "paragraphs": [
-        "Erste Stunde: Problemfall 8 Minuten, Erklärung und Modell 12 Minuten, eigener Ablageplan 10 Minuten, Beginn der Gerätearbeit 15 Minuten. Zweite Stunde: weitere Gerätearbeit 10 Minuten, Wiederfindetest und Revision 15 Minuten, Transfer 10 Minuten, Reserve und Sicherung 10 Minuten.",
-        "In einer späteren Stunde 10 Minuten für den Abruf einplanen. Diese Wiederaufnahme wird aus dem vorhandenen Jahreskonto für verteilte Übung gebucht, nicht zusätzlich als neue Modulzeit verschleiert. Die 90 Minuten dieses Teilbogens liegen innerhalb der 180 Minuten für G5-M01; weitere 90 Minuten sind noch für übrige Modulziele auszuarbeiten.",
-        "Zeitwerte sind ungeprüfte Planungsannahmen. Erfassen Sie bei der ersten Durchführung besonders Download-/Speicherhürden und die Zeit für das Wiederfinden. Das Gesamtbudget von 38 UE für Klasse 5 ist noch nicht als schulisch verfügbar bestätigt.",
-        "Nach Schritt 6 endet die aktuelle Arbeitsphase mit „Für heute fertig“. Schritt 7 wird bewusst in einer späteren Stunde geöffnet. Legen Sie den Termin fest; es gibt keine automatische Erinnerung oder zeitliche Sperre."
+        "Stunde 1: Einstieg 8 Min. → Modell 12 Min. → eigener Ablageplan 10 Min. → Gerätearbeit 15 Min.",
+        "Stunde 2: Gerätearbeit 10 Min. → Wiederfinden und Verbessern 15 Min. → neuer Fall 10 Min. → Reserve und Sicherung 10 Min.",
+        "Nach Schritt 6 ist die heutige Arbeit beendet. Schritt 7 erst später öffnen: 10 Minuten Abruf aus dem Jahreskonto für verteilte Übung. Den Termin legen Sie fest; das Lernwerk erinnert nicht automatisch."
       ]
     },
     {
-      "title": "Haltepunkte, Nachweise und nächste Entscheidung",
+      "title": "Beobachten → nächsten Schritt wählen",
       "paragraphs": [
-        "Nach dem Planen: Können Lernende Datei und Ordner unterscheiden und eine gemeinsame Ordnungsregel erklären? Bei Verwechslung die zwei Ebenen des Modells nochmals an einer neuen Datei zeigen lassen.",
-        "Nach der Gerätearbeit: Jede Person öffnet ihre unpersönliche Fundnotiz aus dem eigenen Themenordner. Prüfen Sie Name, Ort und Inhalt kurz am Gerät. Erklärungen im Lernwerk sind Belege für die Begründung, keine automatische Bestätigung der Gerätehandlung.",
-        "Beim Wiederfindetest: Beobachten Sie wenige Wege direkt und lassen Sie jede Person den Weg erklären. Wer nur „Zuletzt verwendet“ nutzt, übt den Ordnerweg nochmals. Wer ihn sicher nutzt, begründet eine alternative Ordnung oder das Problem zweier Kopien.",
-        "Wenn Zeit oder Technik ausfallen, lassen Sie den Weg an den vollständigen Beispieldaten erklären. Halten Sie die reale Handlung als offen fest und setzen Sie sie später fort. Der nächste Gerätebogen startet bei Bedarf mit Nachsicherung.",
-        "Transfer: info.txt enthält erstmals eine gemeinsame Materialliste für Fundbüro und Schulgarten. Name und Zuordnung müssen neu entschieden werden. Mehrere begründete Lösungen sind zulässig; bloßes Nachbauen eines Musterordners genügt nicht."
+        "Nach dem Planen: Datei und Ordner unterscheiden und die Ordnungsregel erklären lassen. Bei Verwechslung am Modell eine weitere Datei zuordnen lassen.",
+        "Beim Wiederfinden: Jede Person öffnet ihre Fundnotiz aus dem eigenen Themenordner. Name, Ort und Inhalt prüfen, einige Wege direkt beobachten. Wer nur „Zuletzt verwendet“ nutzt, versucht es erneut vom Startort aus.",
+        "Im neuen Fall: info.txt gehört zu zwei Vorhaben. Sprechenden Namen und Ablageort begründen lassen; mehrere klare Lösungen sind möglich. Das bloße Nachbauen eines Musterordners genügt nicht."
       ]
     },
     {
-      "title": "Hilfen und typische Fehlideen",
+      "title": "Passend unterstützen",
       "paragraphs": [
-        "„Der Name ist der Ort“: Zwei gleich benannte Dateien im Einstieg widersprechen dieser Vorstellung. „Im Ordner steht der Text“: Die Datei öffnen und den Unterschied benennen lassen. „Auf dem anderen Gerät reicht derselbe Name“: Den lokalen Transferfall mit fehlendem Übertragungsweg erklären lassen.",
-        "Hilfen stützen konkrete Hürden. Zuerst einen Hinweis zum Startort geben, bei Bedarf den Geräteweg öffnen. Geübte Lernende arbeiten ohne Schrittkarte; die Ordnungsbegründung bleibt für alle gleich anspruchsvoll.",
-        "Die sieben Schritte sind frei erreichbar. Beim direkten Einstieg in die Gerätearbeit müssen Startort, eigener Plan und Übungsdatei geklärt sein. Es ist kein selbstbewertendes Quiz und keine benotete Diagnose.",
-        "Drei Denkfragen beginnen mündlich mit freiwilliger Notiz. Die übrigen Felder nennen einen knappen Umfang und erlauben Heft oder mündliche Erklärung. Beurteilen Sie die Begründung und echte Gerätehandlung, nicht die Textmenge oder eine gefüllte Lernwerkübersicht.",
-        "Die Lernwerk-Arbeitsdatei enthält Antworten und Werkzeugstände, keine extern gespeicherte Fundnotiz oder Materialliste. Diese Unterscheidung wird im Wissen, im Geräteauftrag, am Abschluss und unter „Deine Arbeit“ erklärt.",
-        "Geübte Lernende starten bei der eigenen Planung und bearbeiten anschließend Geräteauftrag, Wiederfindetest und Transfer. Die Empfehlung erspart Wiederholung, ersetzt aber keine Lernnachweise. Bei unsicheren Begriffen führt der Weg zurück zum Modell."
+        "Zuerst einen Hinweis zum Startort, dann bei Bedarf die Gerätekarte geben. Geübte beginnen mit der eigenen Planung und zeigen anschließend dieselben Geräte- und Transferleistungen. Mündliche Erklärungen oder kurze Notizen genügen; Textmenge ist kein Qualitätskriterium.",
+        "Fehlt der Zugang, am Modell weiterarbeiten und den Gerätetest später nachholen. Bei einer Namenskollision nichts überschreiben. Wer direkt im Zielordner speichert, muss nicht zusätzlich verschieben.",
+        "Die Lernwerk-Arbeitsdatei sichert Antworten und Werkzeugstände. Fundnotiz und Materialliste bleiben gesondert in „Dateien“ oder im Datei-Explorer; deren Mitnahme muss separat geklärt werden."
       ]
     },
     {
-      "title": "Darstellungswahl und Abdeckung",
+      "title": "Anschluss und kurze Nachbereitung",
       "paragraphs": [
-        "Der kurze Vergleich zweier gleich benannter Dateien eröffnet die fachliche Frage. Eine einfache, beschriftete Weggrafik erklärt die Hierarchie; ein Video würde hier zusätzlichen Ablauf ohne notwendigen eigenen Beitrag erzeugen.",
-        "Tabellen halten die Zuordnung beim Planen sichtbar. Die reale App ist für Ordneranlage und Wiederfinden notwendig; eine Simulation könnte die Bedienhandlung nur vorbereiten. Die zwei aufklappbaren Gerätewege entlasten, ohne zwei konkurrierende Lernbögen zu erzeugen.",
-        "Erklärung und vollständiges Beispiel stehen im zweiten Schritt, gestufte Übung im dritten, eigene Anwendung im vierten, Kriterien/Revision im fünften, veränderter Transfer im sechsten und zeitlich versetzter Abruf im siebten. Das Wissen bleibt unabhängig nachlesbar.",
-        "Noch nicht abgedeckt: vollständiges Schichtenmodell, alle Ein-/Ausgabegeräte, vollständiger Speicherort-/Zugriffsvergleich und sichere Anmeldung. Daraus folgt keine vollständige Freigabe des Moduls G5-M01.",
-        "Modell und Denkfrage sind als zusammengehöriges Paar angeordnet. Jede Selbstprüfung bietet konkrete nächste Handlungen zu typischen Hürden. Die Hilfelinks führen zum passenden Wissen oder Geräteauftrag; nach der Hilfe folgt ein eigener neuer Versuch."
-      ]
-    },
-    {
-      "title": "Stand und Rückfluss",
-      "paragraphs": [
-        "Erstellt für die lokale Sichtung. Herstellerhilfen wurden als Bediengrundlage gelesen; reale verwaltete iPads und Windows-Schulprofile sowie Lernendenzeiten wurden noch nicht erprobt.",
-        "Nach der Durchführung kurz notieren: Was wurde tatsächlich ausgeführt? Welche Produkte/Wege wurden geprüft? Welche Begriffs- oder Zugangshürde trat auf? Welche Hilfe oder Zeit muss angepasst werden? Vorbereitete Aufgaben sind keine durchgeführte Diagnose."
+        "Vor der nächsten Recherche die Datei ohne Schrittkarte wiederfinden lassen. Wenn das nicht gelingt, den Ordnerweg kurz nachsichern.",
+        "Zeit und Schulgeräte sind noch nicht erprobt. Nach der Durchführung genügen drei Stichpunkte: benötigte Zeit, häufigste Hürde, nächste Anpassung. Der Reihenkommentar zeigt, welche weiteren Ziele noch fehlen."
       ]
     }
   ],
   "briefing": [
-    "Dieser Lernbogen eröffnet einen Teil des Arbeitsraum-Moduls in Klasse fünf. Die Kinder sollen Dateien nicht nur irgendwo speichern. Sie planen eine nachvollziehbare Ordnung, erproben diese am Gerät und finden ihre Datei später wieder. Datei, Ordner, Name und Speicherort werden dabei auseinandergehalten.",
-    "iPad und Windows sind gleichwertige Wege. Prüfe vorab den tatsächlichen Schulzugang, Ordneranlage und Textdateiöffnung. Zeige den konkreten Startort und schreibe ihn sichtbar auf. Erprobe die Fundnotiz und info.txt einschließlich Download oder direktem Speichern. Bei gesperrten Downloads stelle dieselben Dateien im Schulraum bereit.",
-    "Beginne mit den beiden gleich benannten Fundnotizen. Die richtige Datei lässt sich erst am Ordnerweg und Inhalt erkennen. Erkläre anschließend am Modell den Weg vom Speicherort über die Ordner zur Datei. Danach planen die Kinder selbst eine kleine Struktur für Fundbüro und Schulgarten.",
-    "Für die erste Stunde sind ungefähr acht Minuten Einstieg, zwölf Minuten Erklärung, zehn Minuten Planung und fünfzehn Minuten beginnende Gerätearbeit vorgesehen. In der zweiten Stunde folgen zehn Minuten weitere Gerätearbeit, fünfzehn Minuten Wiederfinden und Verbessern sowie zehn Minuten Transfer. Zehn Minuten bleiben als Reserve und zur Sicherung. Diese Zeitannahmen sind noch nicht erprobt.",
-    "Die Kinder öffnen die Schrittkarte für ihr Gerät direkt am Auftrag. Wer direkt im Themenordner sichert, muss nicht zusätzlich verschieben. Drei Denkfragen werden zuerst mündlich beantwortet; kurze Notizen sind freiwillig. Bei der Kontrolle lassen die Kinder die Datei aus dem eigenen Ordner öffnen und erklären ihre Entscheidung.",
-    "Wenn eine Datei schon existiert, lass sie nicht ersetzen. Ein eigener, eindeutiger Übungsname erhält die vorherige Arbeit. Bei fehlendem Zugang kann am Modell weitergearbeitet werden. Die echte Gerätehandlung bleibt dann offen und wird später nachgeholt.",
-    "Der Transfer nutzt die bislang unbekannte Datei info.txt mit einer gemeinsamen Materialliste für zwei Vorhaben. Die Kinder wählen einen sprechenden Namen und begründen einen Ablageort. Verschiedene klare Lösungen sind möglich. Danach heißt es: Für heute fertig. Antworten können gesichert werden; die echten Übungsdateien bleiben gesondert in Dateien oder im Explorer.",
-    "Plane in einer späteren Stunde zehn Minuten für das Wiederfinden ohne Vorlage. Beginne mit einer Erklärung aus dem Gedächtnis und prüfe den Weg anschließend am Gerät. Notiere danach knapp, welche Hürden tatsächlich beobachtet wurden und was bei der nächsten Verwendung angepasst werden muss.",
-    "Geübte können bei der eigenen Planung einsteigen und zeigen anschließend dieselben Geräte- und Transferleistungen. Im Modellschritt liegen Bild und Denkfrage beieinander. Nach jeder Selbstprüfung wählen die Kinder bei Bedarf eine passende Hilfe und versuchen es erneut. Für den Druck gibt es vollständige iPad- und Windows-Blätter mit jeweils passendem Bedarf."
+    "Die Kinder planen eine verständliche Ordnung und prüfen sie durch echtes Wiederfinden. Der Bogen umfasst zwei Unterrichtsstunden und gehört zum Dateien-Teil der ersten Reihe.",
+    "Prüfe vorab den tatsächlich erlaubten Startort, Ordneranlage und Öffnen der Übungsdateien. Zeige den Startort und den Downloadweg sichtbar. iPad und Windows sind gleichwertig. Bei gesperrtem Download stelle Fundnotiz und Materialliste im Schulraum bereit. Vorhandene Dateien bleiben erhalten.",
+    "In der ersten Stunde folgen auf acht Minuten Einstieg zwölf Minuten Modell, zehn Minuten Planung und fünfzehn Minuten Gerätearbeit. In der zweiten Stunde bleiben zehn Minuten Gerätearbeit, fünfzehn Minuten Wiederfinden und Verbessern, zehn Minuten neuer Fall und zehn Minuten Reserve und Sicherung.",
+    "Achte auf die eigene Ordnungsbegründung und das Öffnen der richtigen Datei vom Startort aus. Bei Schwierigkeiten zuerst auf den Startort hinweisen, dann die Gerätekarte nutzen. Geübte beginnen bei der Planung. Kurze mündliche Erklärungen genügen.",
+    "Die neue Materialliste gehört zu zwei Vorhaben. Unterschiedliche begründete Ablageorte sind möglich. Danach ist die heutige Arbeit beendet. Lernwerk-Antworten und echte Übungsdateien werden getrennt gesichert.",
+    "Plane später zehn Minuten Wiederfinden ohne Vorlage aus dem Jahreskonto für verteilte Übung ein. Fehlt der Zugang, bleibt der Gerätetest offen. Notiere nach dem Unterricht nur Zeitabweichung, häufigste Hürde und eine Anpassung."
   ],
   "learnerDuration": "Für diesen Lernbogen sind zwei Unterrichtsstunden vorgesehen. In einer späteren Stunde findest du deine Datei noch einmal wieder.",
   "workNotice": "Im Lernwerk sicherst du Antworten. Deine Übungsdateien liegen in „Dateien“ oder im Datei-Explorer. Eine Lernwerk-Arbeitsdatei nimmt diese Übungsdateien nicht mit.",

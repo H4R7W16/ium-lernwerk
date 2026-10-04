@@ -1,0 +1,117 @@
+{
+  "grade": 5,
+  "unitMinutes": 45,
+  "availability": "unconfirmed",
+  "source": {
+    "date": "21.09.2026",
+    "commit": "dee82ecd7b62007e1387ed61fb190f1cd8fede28",
+    "path": "roadmap/ahf-2026-09-21",
+    "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf"
+  },
+  "lead": "Vom sicheren Arbeiten über Recherche und Zusammenarbeit zum eigenen Medienprodukt. Medienwirkungen beurteilen und präzise Abläufe entwickeln ergänzen diese Lernwege.",
+  "modules": [
+    {
+      "id": "G5-M01",
+      "title": "Im schulischen Arbeitsraum sicher handeln",
+      "minutes": 180,
+      "focus": "Gerät, Programm und Speicherort unterscheiden; Dateien ordnen und wiederfinden; Zugänge schützen.",
+      "evidence": "Eigenen Ordnerweg zeigen und erklären.",
+      "status": "Dateien-Bogen vorhanden; übrige Teile auszuarbeiten.",
+      "href": "reihe-arbeitsraum.html",
+      "label": "Reihenkommentar"
+    },
+    {
+      "id": "G5-M02",
+      "title": "Informationen finden, prüfen und ordnen",
+      "minutes": 225,
+      "focus": "Suchfragen und Suchbegriffe bilden; Fundstellen prüfen und Informationen ordnen.",
+      "evidence": "Informationssammlung mit Quellen und begründeter Auswahl.",
+      "status": "Quellenquest als Teilangebot; reale Suche ergänzen.",
+      "href": "quellenquest/lehrkraft.html",
+      "label": "Zum Teilangebot"
+    },
+    {
+      "id": "G5-M03",
+      "title": "Digital zusammenarbeiten und verständlich kommunizieren",
+      "minutes": 135,
+      "focus": "Im schulischen Kanal Beiträge austauschen und ein gemeinsames Ergebnis verbessern.",
+      "evidence": "Eigener Beitrag und genutzte Rückmeldung sind erklärbar.",
+      "status": "Noch auszuarbeiten."
+    },
+    {
+      "id": "G5-M04",
+      "title": "Ein Medienprodukt gestalten, prüfen und vorstellen",
+      "minutes": 360,
+      "focus": "Informationen adressatengerecht gestalten, Quellen nennen und Rückmeldung einarbeiten.",
+      "evidence": "Überarbeitetes Produkt mit begründeten Entscheidungen.",
+      "status": "Noch auszuarbeiten; Medienanalyse kann vorbereiten."
+    },
+    {
+      "id": "G5-M05",
+      "title": "Medienwirkungen und Selbstdarstellung beurteilen",
+      "minutes": 225,
+      "focus": "Wirkungen am Material begründen; eigenes Medienhandeln geschützt reflektieren.",
+      "evidence": "Belegtes Urteil und begründete Handlungsentscheidung.",
+      "status": "Medienanalyse als Teilangebot; Reflexion ergänzen.",
+      "href": "medienanalyse/lehrkraft.html",
+      "label": "Zum Teilangebot"
+    },
+    {
+      "id": "G5-M06",
+      "title": "Präzise Abläufe entwickeln und prüfen",
+      "minutes": 225,
+      "focus": "Abläufe darstellen, ausführen, verbessern und auf neue Fälle übertragen.",
+      "evidence": "Eigener Ablauf mit Erklärung und Prüfung.",
+      "status": "Algorithmus-Lernstudio vorhanden; Modulabdeckung ergänzen.",
+      "href": "lernstudio/lehrkraft.html",
+      "label": "Zum Teilangebot"
+    }
+  ],
+  "reserves": {
+    "spacedPracticeMinutes": 135,
+    "orchestrationMinutes": 45,
+    "bufferMinutes": 180
+  },
+  "connections": "M01 bereitet die Dateiablage für Recherche und Produkte vor. M02 → M03 → M04 können eine gemeinsame Sachfrage weiterführen. M05 lässt sich vor der Produktüberarbeitung einschieben; M06 kann als eigener Lernweg liegen. Die Reihenfolge ist ein Vorschlag, kein Wochenkalender.",
+  "series": {
+    "moduleId": "G5-M01",
+    "title": "Im schulischen Arbeitsraum sicher handeln",
+    "goal": "Lernende unterscheiden Gerät, Programm und Speicherort, organisieren eigene Dateien und nutzen schulische Zugänge verantwortungsvoll.",
+    "rationale": "Bedienroutinen unterscheiden sich stark. Beginnen Sie deshalb mit kurzen Erklärungen am Schulgerät. Beim Dateien-Bogen folgt auf eine eigene Ordnungsregel die echte Ablage: Erst Wiederfinden und Begründen zeigen, ob die Ordnung trägt. Das Modell unterstützt die Handlung; es ersetzt sie nicht.",
+    "phases": [
+      {
+        "title": "Gerät, Programm und Zugang",
+        "minutes": 45,
+        "action": "Am Schulgerät Eingabe, Verarbeitung und Ausgabe erklären; Gerät, Betriebssystem und Programm unterscheiden. Schulischen Zugang klären.",
+        "status": "Planung · Material noch auszuarbeiten"
+      },
+      {
+        "title": "Gut abgelegt. Wiedergefunden.",
+        "minutes": 90,
+        "action": "Ordnung planen, eine Datei ablegen, ohne „Zuletzt verwendet“ wiederfinden und einen neuen Fall begründet zuordnen. 10 Minuten Reserve enthalten.",
+        "status": "Lernbogen vorhanden · zur Erprobung",
+        "href": "dateien/lehrkraft.html",
+        "label": "Durchführung und Material"
+      },
+      {
+        "title": "Speicherwege und sichere Zugänge",
+        "minutes": 45,
+        "action": "Tatsächliche schulische Speicherorte und Zugriff vergleichen; angemessen anmelden, abmelden und Hilfe holen. Keine Zugangsdaten abgeben lassen.",
+        "status": "Planung · Material noch auszuarbeiten"
+      }
+    ],
+    "later": {
+      "minutes": 10,
+      "account": "spacedPracticeMinutes",
+      "text": "In einer späteren Stunde: Ordnerweg zunächst aus dem Gedächtnis erklären, dann am Gerät wiederfinden. Aus den 3 Jahres-UE für verteilte Übung, nicht nochmals in die 4 Reihen-UE einrechnen."
+    },
+    "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen.",
+    "decisions": [
+      "Begriffe verwechselt? Datei und Ordner am Modell unterscheiden lassen, anschließend erneut selbst zuordnen.",
+      "Ordnung erklärt, Datei aber nicht gefunden? Beim Startort ansetzen und den Weg am Gerät wiederholen.",
+      "Weg sicher? Alternative Ordnung begründen lassen; unnötige Wiederholung auslassen.",
+      "Zugang fehlt? Am Modell weiterarbeiten und die reale Gerätehandlung später nachholen."
+    ],
+    "next": "Für M02 genügt keine ausgefüllte Lernwerkseite: Prüfen Sie, ob Lernende eine Datei tatsächlich wiederfinden. Beginnen Sie andernfalls mit einer kurzen Nachsicherung. Notieren Sie nach der Reihe nur Zeitabweichung, häufigste Hürde und eine Anpassung."
+  }
+}
