@@ -15,8 +15,8 @@
       "title": "Im schulischen Arbeitsraum sicher handeln",
       "minutes": 180,
       "focus": "Gerät, Programm und Speicherort unterscheiden; Dateien ordnen und wiederfinden; Zugänge schützen.",
-      "evidence": "Eigenen Ordnerweg zeigen und erklären.",
-      "status": "Dateien-Bogen vorhanden; übrige Teile auszuarbeiten.",
+      "evidence": "Drei Schichten am Gerät erklären; eigenen Ordnerweg zeigen.",
+      "status": "Geräte- und Dateien-Bogen vorhanden; Speicherwege/Zugang vertiefen.",
       "href": "reihe-arbeitsraum.html",
       "label": "Reihenkommentar"
     },
@@ -80,10 +80,12 @@
     "rationale": "Bedienroutinen unterscheiden sich stark. Beginnen Sie deshalb mit kurzen Erklärungen am Schulgerät. Beim Dateien-Bogen folgt auf eine eigene Ordnungsregel die echte Ablage: Erst Wiederfinden und Begründen zeigen, ob die Ordnung trägt. Das Modell unterstützt die Handlung; es ersetzt sie nicht.",
     "phases": [
       {
-        "title": "Gerät, Programm und Zugang",
+        "title": "Gerät und Programme",
         "minutes": 45,
-        "action": "Am Schulgerät Eingabe, Verarbeitung und Ausgabe erklären; Gerät, Betriebssystem und Programm unterscheiden. Schulischen Zugang klären.",
-        "status": "Planung · Material noch auszuarbeiten"
+        "action": "Hardware, Betriebssystem und Anwendungen unterscheiden; Eingabe, Verarbeitung und Ausgabe am Schulgerät erklären. Zugang nach schulischer Regel vorbereiten.",
+        "status": "Lernbogen vorhanden · zur Erprobung",
+        "href": "geraete/lehrkraft.html",
+        "label": "Durchführung und Material"
       },
       {
         "title": "Gut abgelegt. Wiedergefunden.",
@@ -103,9 +105,9 @@
     "later": {
       "minutes": 10,
       "account": "spacedPracticeMinutes",
-      "text": "In einer späteren Stunde: Ordnerweg zunächst aus dem Gedächtnis erklären, dann am Gerät wiederfinden. Aus den 3 Jahres-UE für verteilte Übung, nicht nochmals in die 4 Reihen-UE einrechnen."
+      "text": "In einer späteren Stunde: Ordnerweg zunächst aus dem Gedächtnis erklären, dann am Gerät wiederfinden. Aus den 3 Jahres-UE für verteilte Übung, nicht nochmals in die 4 Reihen-UE einrechnen. Der dreiminütige Schichtenabruf erfolgt bereits im Einstieg des Dateien-Bogens und wird dort mitgezählt."
     },
-    "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen.",
+    "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen. Ein freigegebenes Rechenprogramm und seinen Namen für den ersten Bogen bereitstellen.",
     "decisions": [
       "Begriffe verwechselt? Datei und Ordner am Modell unterscheiden lassen, anschließend erneut selbst zuordnen.",
       "Ordnung erklärt, Datei aber nicht gefunden? Beim Startort ansetzen und den Weg am Gerät wiederholen.",
