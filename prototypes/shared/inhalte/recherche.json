@@ -1,0 +1,943 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-5-M02-RECHERCHE",
+  "version": "1.0.0",
+  "grade": 5,
+  "area": "recherche",
+  "family": "content",
+  "title": "Eine Frage. Gute Fundstellen.",
+  "topic": "Recherchieren",
+  "description": "Warum sieht der Mond nicht jeden Abend gleich aus? Suche selbst, prüfe die Fundstellen und stelle eine Antwort zusammen, deren Belege andere wiederfinden können.",
+  "product": "Eine kurze, gegliederte Informationssammlung: eigene Erklärung, zwei geprüfte Fundstellen, begründete Auswahl und eine offene Frage.",
+  "prerequisites": [
+    "Schul-iPad oder Windows-Schulgerät mit erlaubtem Browser und Internet",
+    "freigegebene Suchmaschine; fragFINN ist der angebotene Einstieg",
+    "Heft oder erlaubte Notiz-App; keine Anmeldung bei fremden Diensten nötig"
+  ],
+  "learnerDuration": "Fünf Unterrichtsstunden. In einer späteren Stunde erinnerst du dich fünf Minuten lang an dein Vorgehen. Sichere deinen Arbeitsstand am Ende jeder Stunde über „Deine Arbeit“ oder an deinem gewählten Notizort.",
+  "duration": "225 Minuten in fünf Unterrichtsstunden; später 5 Minuten aus dem bestehenden Jahreskonto für verteilte Übung. Der Quellenquest-Ausschnitt ist in den 225 Minuten enthalten.",
+  "workNotice": "Lernwerk-Antworten bleiben zunächst in diesem Browsertab. Sichere sie über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App oder im Heft gehören nicht automatisch dazu.",
+  "curriculum": {
+    "moduleId": "G5-M02",
+    "goalIds": [
+      "3.1.2.1(1)",
+      "3.1.2.1(2)",
+      "3.1.2.1(3)",
+      "3.1.2.2(1)",
+      "3.1.2.2(5)",
+      "3.1.2.2(6)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Anhörungsfassung 21.09.2026, Band 5/6; eigene Jahrgangsverteilung nach dee82ec. Recherche, Akteure und Informationsbewertung werden an einer Sachfrage bearbeitet. Produktion ist kein Nachweis vollständiger Kompetenzabdeckung oder tatsächlicher Durchführung."
+  },
+  "experiencedEntry": {
+    "title": "Du recherchierst schon sicher?",
+    "text": "Formuliere zuerst deine eigene Mondfrage und passende Suchbegriffe. Kannst du Quelle und Beleg schon unterscheiden, beginne bei der echten Suche. Auswahl, Überarbeitung und neuer Fall bleiben Teil deines Auftrags.",
+    "step": "suchen",
+    "label": "Zur echten Suche"
+  },
+  "teacher": [
+    "M02 folgt auf den schulischen Arbeitsraum. Dessen Durchführung ist noch nicht belegt: Zu Beginn Browserzugang und Wiederfinden des Arbeitsstands kurz prüfen. Die Astronomiefrage begrenzt das Suchfeld; bewertet wird das nachvollziehbare Rechercheverfahren, kein astronomisches Vorwissen."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Suchdienst und beide Startquellen am Schulprofil öffnen; DLR-Abschnitt muss nachladen können. Bei timeanddate nur den genannten Textabschnitt nutzen. Keine Konten, Zahlungen oder Videos nötig. Netz-/Lesefallback: lokale Ersatztexte vorher bereitstellen; dabei echte Suche und Originalprüfung als offen führen. Heft oder eine erlaubte Notiz-App genügen. Bei Papierarbeit beide Quellenquest-Blätter bereitstellen. Das ausgefüllte Beispiel K0 zeigt das Format einer Quellenkarte."
+      ]
+    },
+    {
+      "title": "Durchführen",
+      "paragraphs": [
+        "Fünfmal 45 Minuten: 1. Frage 10, Suchplan 25, Quellenquest-Einstieg 10. 2. Quellenquest 25, Suchbegriffe gemeinsam erproben 20. 3. Selbstständige Suche 25, Quellenlesen 20. 4. Quellenlesen 5, Ordnen 15, Überarbeiten 25. 5. Überarbeiten 10, neuer Fall 25, Sichern 10. Quellenquest nur „Quellen“ und die zwei Kernfragen unter „Belege“; kein zusätzlicher kompletter Bogen.",
+        "Nach fünf Suchminuten auf Frage und Trefferpassung schauen. Nach zwei erfolglosen Suchversuchen Startquellen anbieten, Suchspur erhalten. Geübte können nach eigener Frage direkt suchen; frei werdende Übungszeit für genauere Belege und Textüberarbeitung nutzen. Keine Pflicht zu einer bestimmten Antwortlänge.",
+        "Am Ende jeder Stunde Arbeitsstand sichern lassen, zu Beginn wieder öffnen. Bei Lernwerk-Notizen geschieht das über „Deine Arbeit“, bei externer App oder Heft am eigenen Arbeitsort. Diese Routine gehört in die jeweilige Arbeitsphase; kein zusätzlich gebuchter Zeitblock."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste Hilfe",
+      "paragraphs": [
+        "Nur Treffertext abgeschrieben? Original öffnen und Abschnitt zeigen lassen. Nur „seriös“ als Grund? Herkunft, Absicht und konkrete Aussage auseinanderhalten. Drei Links statt Sammlung? Eine Aussage in eigenen Worten mit Fundstelle vormachen. Unklarer Widerspruch? Aussage genau eingrenzen und gezielt nachprüfen.",
+        "Individueller Nachweis: eine eigene Suchänderung, eine belegte Aussage und eine begründete Revision erklären lassen. Bei schriftlicher Hürde mündlich prüfen; Quellenangaben gemeinsam festhalten. Richtige Auswahl oder fertige Textfelder allein gelten nicht als Kompetenznachweis."
+      ]
+    },
+    {
+      "title": "Sichern und weiterführen",
+      "paragraphs": [
+        "Informationssammlung samt Quellenkarten für M03 aufbewahren. Fünf spätere Abrufminuten aus dem 135-Minuten-Jahreskonto einplanen; mit M01 sind 17 Minuten konkret reserviert. Nach Erprobung nur Zeitabweichung, häufigste Hürde und nächste Anpassung notieren. Jahresbudget, Netzzugang und reale Lernwirkung bleiben zu bestätigen."
+      ]
+    }
+  ],
+  "briefing": [
+    "Diese Reihe umfasst fünf Unterrichtsstunden. Das Ziel ist eine nachvollziehbare Recherche, nicht ein fertiger Astronomievortrag. Die Lernenden grenzen eine Frage ein, erproben Suchwörter und stellen eine kleine Sammlung mit zwei Fundstellen zusammen. Bisherige Geräte- und Dateienbögen sind produziert, ihre tatsächliche Durchführung ist noch nicht belegt.",
+    "In der ersten Stunde entstehen Frage und Suchplan. Danach beginnt die kurze Quellenquest zur Pausenwiese. In Stunde zwei werden dort die zwei Kernfragen mit Belegen bearbeitet; anschließend erproben Sie Suchbegriffe. Die dritte Stunde gehört der eigenen Suche und dem Lesen. In der vierten werden die Informationen geordnet und überarbeitet. Die fünfte führt die Revision zu Ende, erprobt das Vorgehen an einer zeitabhängigen Frage und sichert die Sammlung.",
+    "Prüfen Sie vorher die Schulzugänge und die verlinkten Textabschnitte. Lassen Sie nach zwei erfolglosen Versuchen die angebotenen Startquellen zu. Bei Netzausfall helfen die lokalen Zusammenfassungen. Diese ersetzen weder die echte Suche noch die Originalprüfung; beides bleibt sichtbar nachzuholen. Ein eigener Suchweg muss nicht dieselben Treffer ergeben wie bei Ihrer Vorbereitung. Für Papierarbeit brauchen Sie beide Quellenquest-Blätter. Die Beispielkarte K null zeigt, wie eine Fundstelle nachvollziehbar notiert wird. Planen Sie in den Arbeitsphasen jeder Stunde das Sichern und Wiederöffnen ein; warten Sie damit nicht bis zum Reihenende.",
+    "Beobachten Sie, ob ein Kind eine Suchänderung begründen, eine genaue Fundstelle zeigen und einen eigenen Schluss erklären kann. Bei schwachem Textverständnis zunächst einen Absatz mündlich erschließen. Bei fehlendem Beleg den Schluss eingrenzen. Die Sammlung wird in der nächsten Reihe weiterverwendet. Fünf Minuten späteren Abruf buchen Sie aus dem vorhandenen Jahreskonto. Notieren Sie nach der Erprobung eine Zeithürde, eine Verständnisfrage und eine Anpassung."
+  ],
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026, S. 35–36",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Zuordnung mit der aktuellen Kompetenzplanung abgeglichen; Klasse 5 ist unsere Jahresplanung."
+    },
+    {
+      "id": "internet-abc",
+      "title": "Suchen und Finden im Internet",
+      "author": "Internet-ABC e. V.",
+      "url": "https://www.internet-abc.de/lm/suchen-und-finden",
+      "license": "Nur verlinkt; keine Übernahme von Texten oder Bildern",
+      "checked": "04.10.2026"
+    },
+    {
+      "id": "fragfinn",
+      "title": "fragFINN – Suchmaschine für Kinder",
+      "author": "fragFINN e. V.",
+      "url": "https://www.fragfinn.de/",
+      "license": "Nur verlinkt; Suchergebnisse verändern sich",
+      "checked": "04.10.2026"
+    },
+    {
+      "id": "dlr",
+      "title": "Erde, Sonne und Mond – Wie der Mond die Erde umkreist",
+      "author": "Deutsches Zentrum für Luft- und Raumfahrt (DLR_next)",
+      "url": "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "04.10.2026",
+      "note": "Relevanter Textabschnitt im Browser gelesen; kein Video erforderlich."
+    },
+    {
+      "id": "timeanddate",
+      "title": "Wie entstehen die Mondphasen?",
+      "author": "Konstantin Bikos und Vigdis Hocken · timeanddate",
+      "url": "https://www.timeanddate.de/astronomie/mond/mondphasen",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "04.10.2026",
+      "note": "Abschnitt „Eine Frage der Perspektive“; Seite enthält zusätzliche Angebote."
+    }
+  ],
+  "media": [
+    {
+      "id": "notiz",
+      "kind": "download",
+      "file": "assets/recherche/recherche-notiz.txt",
+      "title": "Leere Recherche-Notiz",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "internet-abc",
+      "printText": "RECHERCHE-NOTIZ\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nMeine Frage:\nMeine erste Vermutung:\n\nSuchspur: Suchwörter 1 / Beobachtung / veränderte Suchwörter 2 / Grund\nEinen Treffer verworfen, weil:\n\nQ1: Titel / Anbieter / direkte URL / Datum oder nicht angegeben / abgerufen am / Abschnitt\nQ1: eigene Aussage / Absicht / warum passend / Grenze\nQ2: Titel / Anbieter / direkte URL / Datum oder nicht angegeben / abgerufen am / Abschnitt\nQ2: eigene Aussage / Absicht / warum passend / Grenze\nVergleich: Übereinstimmung / Unterschied / noch prüfen\n\nSAMMLUNG\nÜberschrift 1:\n- Information [Q..., Abschnitt ...]\n- Information [Q..., Abschnitt ...]\nÜberschrift 2:\n- Information [Q..., Abschnitt ...]\nOffene Frage:\n\nÜberarbeitung: vorher -> nachher / Grund\nGespeichert an:\nArbeitsweise: selbst gesucht / bereitgestellte Originalseiten / Ersatztexte\nNoch nachholen:\n"
+    },
+    {
+      "id": "ersatz",
+      "kind": "download",
+      "file": "assets/recherche/ersatztexte.txt",
+      "title": "Lokale Ersatztexte mit Originaladressen",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 für die eigenen Zusammenfassungen, nicht für Originalseiten",
+      "sourceId": "dlr",
+      "printText": "ERSATZTEXTE – KEINE ORIGINALQUELLEN\nEigene Zusammenfassungen des IuM-Lernwerks · CC BY-SA 4.0 · Stand 04.10.2026\n\nDiese kurzen Ersatztexte sind eigene Zusammenfassungen des Lernwerks nach den unten verlinkten Seiten, geprüft am 04.10.2026. Sie sind keine Originalzitate und keine zwei unabhängigen Veröffentlichungen. Du kannst mit ihnen Aussagen ordnen und Quellenhinweise üben; die Originalprüfung und echte Suche bleiben offen.\n\nE1 · Nach DLR_next, „Erde, Sonne und Mond“, Abschnitt „Wie der Mond die Erde umkreist“: Der Mond wird von der Sonne beleuchtet. Auf seinem Weg um die Erde sehen wir unterschiedlich große Teile seiner beleuchteten Seite. So verändert sich sein Aussehen.\n\nE2 · Nach timeanddate, Bikos/Hocken, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten ist ein anderer Fall: Er spielt bei einer Mondfinsternis eine Rolle.\n\nOriginal zu E1:\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\nOriginal zu E2:\nhttps://www.timeanddate.de/astronomie/mond/mondphasen\n\nAuftrag bei Netzausfall: Formuliere eine Frage, ordne drei kurze Informationen unter zwei Überschriften und verweise auf E1/E2. Nenne eine Grenze dieser Materialbasis. Notiere: Suche und Originalprüfung noch nachholen.\n"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "frage",
+      "title": "Wie wird aus einem Thema eine Suchfrage?",
+      "paragraphs": [
+        "Ein Thema benennt einen Bereich, etwa „Mond“. Eine Suchfrage sagt genauer, welche Information du brauchst. „Warum sieht der Mond unterschiedlich aus?“ verlangt eine Erklärung; „Wann ist die nächste Führung?“ braucht eine aktuelle Zeitangabe.",
+        "Sammle zuerst deine Vermutung, dann zwei bis vier wichtige Wörter. Probiere sie aus. Mehr Wörter helfen nur, wenn sie die Frage sinnvoll eingrenzen. Auch eine ganze Frage kann Treffer liefern; du vergleichst, was für deinen Zweck funktioniert."
+      ],
+      "example": "Für „Bücherei“ fehlen Ort und Ziel. „Lindenort Bücherei Samstag Öffnungszeiten“ wäre im erfundenen Beispiel genauer.",
+      "boundary": "Die Wortzahl ist keine Erfolgsregel. Entscheidend ist, ob die gefundenen Inhalte deine Frage beantworten.",
+      "steps": [
+        "frage",
+        "suchplan"
+      ],
+      "sources": [
+        "internet-abc"
+      ]
+    },
+    {
+      "id": "suche",
+      "title": "Was unterscheidet Browser, Suchmaschine und Fundseite?",
+      "paragraphs": [
+        "Der Browser ist das Programm, in dem du Webseiten ansiehst. Mit einer URL öffnest du eine bestimmte Adresse. Eine Suchmaschine liefert Hinweise auf Seiten aus ihrem erfassten Angebot. Der kurze Treffertext kann gekürzt, alt oder missverständlich sein. Öffne daher die Fundseite.",
+        "Prüfe Titel, Adresse und Inhalt. Eine hohe Position ist kein Wahrheitsbeweis. Werbung oder eine automatisch erzeugte Antwort kann zusätzlich erscheinen; daraus wird noch kein geprüfter Beleg. Bei ungeeigneten Treffern verändere ein Wort, prüfe die Schreibweise oder nutze nach zwei Versuchen die angebotenen Startquellen.",
+        "Im Schulbrowser verwendest du die erlaubten Dienste. Wenn eine Seite Anmeldung, Zahlung oder eine Freigabe verlangt, die du nicht brauchst, gehe zurück und nutze eine andere Fundstelle oder die Hilfe deiner Lehrperson."
+      ],
+      "example": "Ein Treffer mit „Mondphasen“ kann ein Bastelangebot statt einer Erklärung sein. Das ist nicht automatisch falsch, passt aber möglicherweise nicht zu deiner Frage.",
+      "boundary": "Eine Kindersuchmaschine begrenzt das Angebot. Fehlende Treffer beweisen nicht, dass es zu deiner Frage keine Information gibt.",
+      "steps": [
+        "suchplan",
+        "suchen",
+        "sichern",
+        "wiederaufnahme"
+      ],
+      "sources": [
+        "internet-abc",
+        "fragfinn"
+      ]
+    },
+    {
+      "id": "pruefen",
+      "title": "Woran erkenne ich eine brauchbare Fundstelle?",
+      "paragraphs": [
+        "Prüfe: Wer veröffentlicht? Wozu? Woher kann die Stelle das wissen? Welche konkrete Aussage beantwortet meine Frage? Titel, Impressum oder „Über uns“ helfen bei der Herkunft. Eine Forschungseinrichtung, ein Unternehmen, eine Redaktion und eine Privatperson haben unterschiedliche Aufgaben. Keines dieser Etiketten ersetzt das Lesen.",
+        "Vergleiche Aussagen und Belege. Stimmen zwei Texte überein, prüfe, ob sie denselben Ursprung haben. Wiederholungen sind keine unabhängigen Bestätigungen. „Plausibel“ heißt nachvollziehbar – nicht bereits bewiesen. Unklare oder widersprüchliche Angaben markierst du und prüfst gezielt weiter.",
+        "Bei Terminen ist die Aktualität entscheidend. Eine ältere grundlegende Erklärung kann dagegen weiter nützlich sein. Notiere ein sichtbares Datum; fehlt es, schreibe „nicht angegeben“. Dein Abrufdatum ist der Tag, an dem du selbst nachgesehen hast."
+      ],
+      "example": "Im Sternwartenfall trägt eine Mitteilung zur konkreten ausgefallenen Führung mehr als eine neuere Chatnachricht ohne Gegenbeleg.",
+      "boundary": "„Offen“ bedeutet fehlende Entscheidung auf Grundlage der vorhandenen Belege. „Widerlegt“ braucht einen passenden Gegenbeleg.",
+      "steps": [
+        "pruefen",
+        "suchen",
+        "lesen",
+        "ueberarbeiten",
+        "transfer",
+        "wiederaufnahme"
+      ],
+      "sources": [
+        "internet-abc"
+      ]
+    },
+    {
+      "id": "notieren",
+      "title": "Wie notiere ich Informationen mit Belegen?",
+      "paragraphs": [
+        "Lies einen kurzen Abschnitt, formuliere den Inhalt in eigenen Worten und prüfe dann am Original, ob du ihn richtig verstanden hast. Eine Quellenkarte enthält Titel, veröffentlichende Stelle, direkte Adresse, Datum falls vorhanden, Abrufdatum und genaue Fundstelle.",
+        "Ordne jede eigene Information ihrer Quellenkarte und einem Abschnitt zu. Drei gute Informationen sind hilfreicher als viele lose Links. Markiere eine offene Frage. Wörtlich Übernommenes müsste als Zitat erkennbar sein; für diesen Auftrag genügen eigene kurze Formulierungen.",
+        "Für die Sammlung brauchst du keine fremden Bilder. Ein Quellenhinweis allein erlaubt nicht jede Weiterverwendung. Bevor du später Bilder oder längere Texte in ein Medienprodukt übernimmst, klärst du die Nutzungsrechte mit der Lehrperson."
+      ],
+      "example": "Aussage in eigenen Worten [Q1, Abschnitt „Öffnungszeiten“]. Unter Q1 stehen die Angaben, mit denen andere die Originalseite öffnen und den Abschnitt finden.",
+      "boundary": "Eine Zusammenfassung kann den Sinn verändern. Deshalb gehört der Vergleich mit der Originalstelle zur Arbeit.",
+      "steps": [
+        "lesen",
+        "ordnen",
+        "ueberarbeiten",
+        "sichern"
+      ],
+      "sources": [
+        "internet-abc"
+      ]
+    },
+    {
+      "id": "ersatz",
+      "title": "Was mache ich ohne Netz oder bei schwierigen Texten?",
+      "paragraphs": [
+        "Diese kurzen Ersatztexte sind eigene Zusammenfassungen des Lernwerks nach den unten verlinkten Seiten, geprüft am 04.10.2026. Sie sind keine Originalzitate und keine zwei unabhängigen Veröffentlichungen. Du kannst mit ihnen Aussagen ordnen und Quellenhinweise üben; die Originalprüfung und echte Suche bleiben offen.",
+        "E1 · Nach DLR_next, „Erde, Sonne und Mond“, Abschnitt „Wie der Mond die Erde umkreist“: Der Mond wird von der Sonne beleuchtet. Auf seinem Weg um die Erde sehen wir unterschiedlich große Teile seiner beleuchteten Seite. So verändert sich sein Aussehen.",
+        "E2 · Nach timeanddate, Bikos/Hocken, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten ist ein anderer Fall: Er spielt bei einer Mondfinsternis eine Rolle.",
+        "Notiere E1 und E2 als Lernwerk-Zusammenfassungen mit den genannten Originalquellen, nicht als selbst besuchte Webseiten. Formuliere Suchwörter und eine Frage, die du später am Original prüfen wirst. Die Textdatei im Material enthält diese Ersatztexte mit ausgeschriebenen Adressen."
+      ],
+      "example": "„Ich habe mit E1/E2 gearbeitet. Noch nachholen: selbst suchen und zwei Originalstellen öffnen.“ Das ist eine ehrliche Beschreibung des Arbeitsstands.",
+      "boundary": "Eine bereitgestellte Quelle darf deine eigene Suche unterstützen. Sie ersetzt nicht den Nachweis, dass du selbst gesucht und die Quelle tatsächlich geprüft hast.",
+      "steps": [
+        "suchen",
+        "lesen",
+        "sichern"
+      ],
+      "sources": [
+        "dlr",
+        "timeanddate"
+      ],
+      "media": [
+        "ersatz"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "frage",
+      "title": "Was willst du herausfinden?",
+      "goal": "Eine bearbeitbare Frage und eine erste Vermutung formulieren.",
+      "task": "Stelle eine Frage zum wechselnden Aussehen des Mondes. Halte fest, was du vermutest und was du erst herausfinden musst.",
+      "outcome": "Eine Frage mit klarer Richtung.",
+      "knowledge": [
+        "frage"
+      ],
+      "criteria": [
+        "Meine Frage ist mit Informationen beantwortbar.",
+        "Ich unterscheide Vermutung und geprüftes Wissen."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "frage",
+          "title": "Für eine andere fünfte Klasse",
+          "text": "Deine Sammlung soll später Kindern helfen, die den Mond schon gesehen haben, aber sein wechselndes Aussehen noch nicht erklären können. Du brauchst dafür weder einen fertigen Vortrag noch Bilder.",
+          "prompt": "Was möchtest du zum Mondlicht oder zum wechselnden Aussehen wissen? Was vermutest du bisher?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre zuerst mündlich. Notiere nur, was du für deine Sammlung wieder brauchst.",
+          "help": [
+            {
+              "title": "Mir fehlt eine Frage.",
+              "text": "Nimm: „Warum sieht der Mond nicht jeden Abend gleich aus?“ Oder: „Woher kommt sein Licht, und warum sehen wir verschieden viel davon?“",
+              "knowledge": "frage",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "„Alles über den Mond“ ist zu breit. Eine Frage nach seinem wechselnden Aussehen lässt sich mit zwei kurzen Fundstellen bearbeiten. Eine Vermutung darf sich später als falsch erweisen."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Meine Frage ist noch zu breit.",
+          "text": "Ersetze „Alles über den Mond“ durch eine Frage nach Licht oder wechselndem Aussehen. Sprich aus, welche Art von Antwort du suchst.",
+          "knowledge": "frage",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "Heft oder Notizfeld"
+      ]
+    },
+    {
+      "id": "suchplan",
+      "title": "Aus einer Frage wird ein Suchplan",
+      "goal": "Suchbegriffe wählen und Treffer als Hinweise statt fertige Belege verstehen.",
+      "task": "Lies den vorgemachten Weg. Übertrage das Vorgehen auf deine Mondfrage.",
+      "outcome": "Ein Suchplan, den du ausprobieren kannst.",
+      "knowledge": [
+        "frage",
+        "suche"
+      ],
+      "criteria": [
+        "Ich wähle Wörter, die meine Frage eingrenzen.",
+        "Ich öffne die Fundseite und verlasse mich nicht nur auf den Treffertext."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Vorgemacht: Wann öffnet die Bücherei?",
+          "text": "Dieses Beispiel ist erfunden. Lea will wissen, wann die Stadtbücherei Lindenort am Samstag öffnet.",
+          "items": [
+            "Lea sucht zunächst „Bücherei“. Das ist zu allgemein: Sie findet auch andere Orte.",
+            "Sie ergänzt „Lindenort Samstag Öffnungszeiten“. Ein Treffer führt zur Seite der zuständigen Stadtbücherei.",
+            "Sie öffnet die Seite. Unter „Öffnungszeiten“ steht: Samstag 10–13 Uhr. Eine Extra-Mitteilung warnt vor einer Schließung an einem bestimmten Datum.",
+            "Lea prüft, ob dieser Ausnahmetag ihr Samstag ist. Erst dann formuliert sie eine Antwort mit Titel, Adresse und Fundstelle."
+          ],
+          "paragraphs": [
+            "Warum nicht einfach den obersten Treffer nehmen? Ein alter Reiseblog könnte eine frühere Öffnungszeit nennen. Rang, Gestaltung oder ein kurzer Treffertext entscheiden die Frage nicht."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "plan",
+          "title": "Jetzt deine Frage",
+          "text": "Ein Browser zeigt Webseiten. Eine Suchmaschine sucht in ihrem erfassten Angebot nach passenden Seiten; sie kennt nicht das gesamte Internet. Mit einer bekannten Webadresse kannst du auch direkt eine Seite öffnen. „URL“ ist die Fachbezeichnung für diese Adresse.",
+          "prompt": "Welche zwei bis vier Suchwörter probierst du zuerst? Welche Änderung könntest du vornehmen, wenn die Treffer nicht passen?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre zuerst mündlich. Notiere nur, was du für deine Sammlung wieder brauchst.",
+          "solution": "Möglich sind „Mond Aussehen Erklärung“ und anschließend „Mondphasen Erklärung“. Es gibt keine einzig richtige Wortkombination. Entscheidend ist, dass du die Änderung an den tatsächlich gefundenen Treffern begründest.",
+          "sources": [
+            "internet-abc",
+            "fragfinn"
+          ],
+          "storageNotice": "Stundenpause: Sichere hier geschriebene Notizen über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App speicherst du dort gesondert. Nächste Stunde öffnest du die Arbeitsdatei wieder unter „Deine Arbeit“; im Heft markierst du die Seite."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Meine Wörter grenzen die Frage nicht ein.",
+          "text": "Prüfe jedes Wort: Benennt es das Thema oder das gesuchte Merkmal? Ersetze zunächst nur ein zu allgemeines Wort und sage voraus, was sich ändern könnte.",
+          "knowledge": "suche",
+          "label": "Passendes Wissen öffnen"
+        }
+      ]
+    },
+    {
+      "id": "pruefen",
+      "title": "Was trägt einen Beleg?",
+      "goal": "Herkunft, Aussage und Beleg an überschaubaren Quellen unterscheiden.",
+      "task": "Nutze einen kurzen Ausschnitt der Quellenquest. Kehre danach mit einer Prüfregel zu deiner Recherche zurück.",
+      "outcome": "Eine eigene Erklärung, weshalb eine Textstelle eine Aussage trägt.",
+      "knowledge": [
+        "pruefen"
+      ],
+      "criteria": [
+        "Ich kann die veröffentlichende Stelle nennen.",
+        "Ich zeige eine konkrete Textstelle und erkläre ihren Bezug zur Aussage.",
+        "„Offen“ und „widerlegt“ sind für mich verschieden."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Kurzer Trainingsfall: die Pausenwiese",
+          "text": "Die Quellenquest verwendet erfundene Dokumente einer Schule. Hier kannst du das Prüfen üben, bevor du fremde Webseiten auswählst.",
+          "items": [
+            "Öffne zuerst „Quellen“. Lies das vorgemachte Fundbüro-Beispiel und die Quellen A, B und C.",
+            "Wechsle dort zu „Belege“. Bearbeite die beiden Kernfragen zur ganzen Wiese und zum größeren Garten im nächsten Jahr. Zusatzfragen und weitere Schritte sind hier freiwillig.",
+            "Zeige eine tragende Textstelle. Erkläre: Wieso passt sie genau? Nutze danach die Rückmeldung und versuche eine unsichere Stelle erneut.",
+            "Kehre über „Themen → Recherchieren“ zur Übersicht zurück und wähle dort Schritt 3 „Was trägt einen Beleg?“. Für Papierarbeit brauchst du beide unten verlinkten Blätter: „Quellen und Beispiel“ sowie „Belege“."
+          ],
+          "links": [
+            {
+              "href": "../quellenquest/index.html#quellen",
+              "label": "Quellenquest: Quellen und Beispiel"
+            },
+            {
+              "href": "../quellenquest/baustein-quellen.html",
+              "label": "Einzelmaterial: Quellen und Beispiel"
+            },
+            {
+              "href": "../quellenquest/baustein-belege.html",
+              "label": "Einzelmaterial: Belege"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "regel",
+          "title": "Zurück bei deiner Recherche",
+          "text": "Wer etwas veröffentlicht, kann informieren, überzeugen oder verkaufen wollen. Diese Absicht hilft beim Einordnen, entscheidet aber noch nicht, ob eine einzelne Aussage stimmt.",
+          "prompt": "Welche Prüfregel nimmst du mit? Erkläre sie an einer Textstelle aus der Quellenquest.",
+          "responseMode": "oral",
+          "responseHint": "Erkläre zuerst mündlich. Notiere nur, was du für deine Sammlung wieder brauchst.",
+          "solution": "Zum Beispiel: Ein Datum ist nur zusammen mit Frage und Inhalt hilfreich. Der frühere AG-Wunsch zeigt nicht, was später beschlossen wurde. C2 widerspricht der Behauptung zur ganzen Wiese; C3 lässt die spätere Vergrößerung offen.",
+          "help": [
+            {
+              "title": "Ich kann nur „glaubwürdig“ sagen.",
+              "text": "Ergänze: Wer kann das hier wissen? Welche genaue Stelle sagt es? Was folgt daraus – und was nicht?",
+              "knowledge": "pruefen",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "storageNotice": "Stundenpause: Sichere hier geschriebene Notizen über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App speicherst du dort gesondert. Nächste Stunde öffnest du die Arbeitsdatei wieder unter „Deine Arbeit“; im Heft markierst du die Seite."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich habe ein Urteil, aber keinen Beleg.",
+          "text": "Öffne Quelle C der Quellenquest. Zeige die genaue Stelle zur Fläche oder zum nächsten Jahr und erkläre, was sie entscheidet und was sie offenlässt.",
+          "knowledge": "pruefen",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "Quellenquest im Lernwerk oder beide verlinkten Blätter „Quellen und Beispiel“ und „Belege“ mit Quellen A–C",
+        "Heft oder Notizfeld"
+      ]
+    },
+    {
+      "id": "suchen",
+      "title": "Suche selbst – und ändere deinen Weg",
+      "goal": "Eine reale Suche durchführen und die eigene Auswahl begründen.",
+      "task": "Erprobe deine Suchwörter. Verändere sie nach den Treffern und öffne zwei passende Fundseiten.",
+      "outcome": "Zwei Suchläufe und eine begründete Vorauswahl.",
+      "knowledge": [
+        "suche",
+        "pruefen",
+        "ersatz"
+      ],
+      "criteria": [
+        "Ich habe selbst gesucht und eine Änderung begründet.",
+        "Ich unterscheide Suchergebnis und geöffnete Fundseite.",
+        "Ich halte zwei verwendbare Adressen und eine begründete Ablehnung fest."
+      ],
+      "blocks": [
+        {
+          "type": "external",
+          "id": "suchspur",
+          "title": "Deine Suchspur",
+          "text": "Arbeite zuerst mit deiner Frage und eigenen Suchwörtern. Falls du hier einsteigst: Formuliere eine Frage zum Mondlicht oder zum wechselnden Aussehen und zwei passende Suchbegriffe.",
+          "url": "https://www.fragfinn.de/",
+          "preparation": "Nutze nur den von der Schule erlaubten Browser und Suchdienst. fragFINN ist der verlinkte Einstieg; wenn eure Schule einen anderen Dienst vorgibt, nutze diesen. Halte Lernwerk und Heft oder Notiz-App bereit. Keine privaten Konten oder Angaben nötig.",
+          "action": "Suche einmal, lies Titel, Adresse und kurzen Treffertext. Ändere mindestens ein Suchwort wegen deiner Beobachtung und suche erneut. Öffne geeignete Treffer und prüfe, ob dort tatsächlich eine Erklärung steht. Wähle zwei Seiten verschiedener veröffentlichender Stellen; ein Video oder eine KI-Kurzantwort allein reicht für diesen Textauftrag nicht.",
+          "return": "Wechsle in den Lernwerk-Tab zurück. Halte Suchwörter vorher/nachher samt Grund, zwei Adressen und einen verworfenen Treffer mit Grund fest. Die Rangfolge kann morgen anders sein.",
+          "prompt": "Welche Änderung half dir – oder half nicht? Welche zwei Fundseiten willst du lesen, und welchen Treffer hast du warum weggelassen?",
+          "responseHint": "Stichwörter genügen. Kopiere die Webadresse der geöffneten Seite, nicht die Adresse der Suchergebnisliste.",
+          "routes": [
+            {
+              "device": "ipad",
+              "title": "iPad · Browser und Rückweg",
+              "items": [
+                "Öffne den Suchdienst im erlaubten Browser. Tippe in das Suchfeld und starte mit der Bildschirmtastatur oder der Suchschaltfläche.",
+                "Öffne den passenden Treffer. Nutze das Tab-Symbol für den Wechsel zum Lernwerk; falls alles im selben Tab liegt, nutze den Zurück-Pfeil.",
+                "Die vollständige Adresse findest du im Adressfeld. Markiere/kopiere sie in deine Notiz, falls das Schulprofil dies erlaubt. Sonst notiere Titel und Anbieter und zeige der Lehrperson die geöffnete Seite."
+              ]
+            },
+            {
+              "device": "windows",
+              "title": "Windows · Browser und Rückweg",
+              "items": [
+                "Öffne den Suchdienst im erlaubten Browser, gib Wörter ins Suchfeld ein und starte mit Eingabe oder Suchschaltfläche.",
+                "Öffne einen passenden Treffer. Wechsle über die Tab-Leiste zurück zum Lernwerk; im selben Tab hilft der Zurück-Pfeil.",
+                "Klicke ins Adressfeld und kopiere die vollständige Webadresse in deine Notiz. Wenn Kopieren gesperrt ist, notiere Titel und Anbieter und zeige der Lehrperson die geöffnete Seite."
+              ]
+            }
+          ],
+          "help": [
+            {
+              "title": "Nach zwei Versuchen finde ich nichts Passendes.",
+              "text": "Verwende als Hilfe „Mondphasen Erklärung“. Danach kannst du im nächsten Schritt die zwei verlinkten Fundseiten nutzen. Kennzeichne sie als bereitgestellt. Die eigenen Suchversuche bleiben dein Nachweis.",
+              "knowledge": "suche",
+              "label": "Passendes Wissen öffnen"
+            },
+            {
+              "title": "Internet oder Suchdienst funktioniert nicht.",
+              "text": "Arbeite mit den lokalen Ersatztexten. Notiere „Suche noch nachholen“. Eine Arbeit an Ersatztexten zeigt keine echte Suchhandlung.",
+              "knowledge": "ersatz",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "wissen.html#ersatz",
+              "label": "Lokale Ersatztexte bei Ausfall"
+            }
+          ],
+          "sources": [
+            "fragfinn"
+          ],
+          "responseMode": "oral",
+          "storageNotice": "Stundenpause: Sichere hier geschriebene Notizen über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App speicherst du dort gesondert. Nächste Stunde öffnest du die Arbeitsdatei wieder unter „Deine Arbeit“; im Heft markierst du die Seite."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich habe nur unpassende Treffer.",
+          "text": "Vergleiche zwei Treffertitel mit deiner Frage. Benenne, was fehlt, und ändere danach ein Suchwort. Nach zwei erfolglosen Versuchen nutze die Startquellen im nächsten Schritt und behalte deine Suchspur.",
+          "knowledge": "suche",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "Schul-iPad, erlaubter Browser und Internet",
+          "eigene Frage oder die Mondfrage in diesem Auftrag",
+          "Heft oder erlaubte Notiz-App"
+        ],
+        "windows": [
+          "Windows-Schulgerät, erlaubter Browser und Internet",
+          "eigene Frage oder die Mondfrage in diesem Auftrag",
+          "Heft oder erlaubte Notiz-App"
+        ]
+      }
+    },
+    {
+      "id": "lesen",
+      "title": "Zwei Fundstellen genau lesen",
+      "goal": "Informationen zweier Fundstellen vergleichen und eine Auswahl begründen.",
+      "task": "Lies zu deiner Frage jeweils einen passenden Abschnitt. Halte Herkunft, Absicht, Fundstelle und Aussage zusammen.",
+      "outcome": "Zwei geprüfte Quellenkarten.",
+      "knowledge": [
+        "pruefen",
+        "notieren",
+        "ersatz"
+      ],
+      "criteria": [
+        "Ich nenne bei beiden Fundstellen die veröffentlichende Stelle und ihre erkennbare Absicht.",
+        "Eine genaue Textstelle trägt jeweils meine Notiz.",
+        "Ich nenne eine Übereinstimmung oder einen Unterschied und einen begründeten nächsten Prüfschritt."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Falls du Hilfe bei der Auswahl brauchst",
+          "text": "Diese beiden überprüften Startpunkte darfst du nutzen. Kennzeichne sie dann als bereitgestellt, nicht als selbst gefunden.",
+          "items": [
+            "DLR_next: „Erde, Sonne und Mond“. Öffne in der Abschnittsliste „Wie der Mond die Erde umkreist“. Lies dort den ersten längeren Absatz; du brauchst kein Video und keine weiteren Kapitel.",
+            "timeanddate: „Wie entstehen die Mondphasen?“. Lies nur „Eine Frage der Perspektive“ einschließlich des kurzen Hinweises zur Mondfinsternis. Du brauchst weder Standortfreigabe noch Anmeldung oder ein kostenpflichtiges Angebot."
+          ],
+          "paragraphs": [
+            "DLR ist eine Forschungseinrichtung; das Lernangebot erklärt jungen Menschen Forschung. timeanddate veröffentlicht als Unternehmen Informationen und Werkzeuge zu Zeit und Astronomie. Prüfe trotzdem die konkrete Aussage. Ein Angebot kann informieren und zugleich weitere Dienste anbieten.",
+            "Ohne Vorarbeit: Nimm die Frage „Warum sieht der Mond nicht jeden Abend gleich aus?“ und diese beiden Startquellen. Bei Netzausfall nutze E1/E2 im Wissen. Kennzeichne dann die Suche beziehungsweise Originalprüfung als noch offen."
+          ],
+          "sources": [
+            "dlr",
+            "timeanddate"
+          ],
+          "links": [
+            {
+              "href": "wissen.html#ersatz",
+              "label": "Ersatztexte ohne Netz"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Eine vollständige Quellenkarte – vorgemacht",
+          "text": "K0 · Beispiel aus der erfundenen Bücherei. Auch die Adresse und das Abrufdatum sind nur Übungsangaben; diese Website ist nicht zu besuchen.",
+          "items": [
+            "Titel: Öffnungszeiten · Anbieter: Stadtbücherei Lindenort · Absicht: über Besuchszeiten informieren.",
+            "Adresse: https://buecherei.example/oeffnungszeiten · Datum: nicht angegeben · abgerufen am: 04.10.2026 (Übungsdatum).",
+            "Fundstelle: Abschnitt „Öffnungszeiten“, Satz zu Samstag. Eigene Notiz: Gewöhnlich öffnet die Bücherei samstags von 10 bis 13 Uhr.",
+            "Auswahl: Die zuständige Einrichtung nennt die passende Zeit. Grenze: Eine Ausnahmemeldung könnte für meinen Besuchstag gelten; die muss ich noch prüfen."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "karten",
+          "title": "Deine Quellenkarten",
+          "text": "Für jede Seite: Titel und veröffentlichende Stelle · erkennbare Absicht · Webadresse · sichtbares Datum oder „nicht angegeben“ · dein Abrufdatum · Abschnitt oder genauer Satzanfang · wichtige Aussage in eigenen Worten. Kennzeichne: selbst gefunden / bereitgestellte Originalseite / Ersatztext.",
+          "prompt": "Fülle zwei kurze Quellenkarten. Was stimmt überein? Was ist verschieden oder noch unklar? Welche Seite passt besser zu deiner Frage – und warum?",
+          "responseMode": "written",
+          "responseHint": "Nutze dieses Feld, deine Notiz-App oder das Heft. Pro Quelle reichen knappe Angaben und ein eigener Satz. Adressen dürfen lang sein.",
+          "media": [
+            "notiz"
+          ],
+          "help": [
+            {
+              "title": "Der Text ist zu lang.",
+              "text": "Suche die genannte Überschrift. Lies zuerst nur einen Absatz. Erkläre einen Satz mündlich; bitte bei einem unbekannten Wort um Hilfe.",
+              "knowledge": "notieren",
+              "label": "Passendes Wissen öffnen"
+            },
+            {
+              "title": "Beide Seiten sagen Ähnliches.",
+              "text": "Vergleiche eine konkrete Aussage, nicht nur das Thema. Prüfe, ob die Seiten voneinander abschreiben oder eigenständig erklären. Zwei Treffer auf derselben Website sind nicht zwei verschiedene veröffentlichende Stellen.",
+              "knowledge": "pruefen",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Bei den bereitgestellten Seiten ergänzen sich eine Erklärung für junge Menschen und ein genauerer Blick auf die Perspektive. Für die Auswahl zählt, welche Passage deine Frage beantwortet und verständlich belegt. Wenn du kein Veröffentlichungsdatum findest, schreibe „nicht angegeben“; erfinde keines. Auch „für diesen Unterschied noch keine Erklärung gefunden“ ist ein ehrliches Ergebnis.",
+          "storageNotice": "Stundenpause: Sichere hier geschriebene Notizen über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App speicherst du dort gesondert. Nächste Stunde öffnest du die Arbeitsdatei wieder unter „Deine Arbeit“; im Heft markierst du die Seite."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Meine Quellenkarte enthält noch keinen prüfbaren Beleg.",
+          "text": "Nimm nur einen Absatz. Schreibe einen eigenen Satz dazu und ergänze die genaue Fundstelle. Vergleiche den Aufbau mit K0; prüfe dann die zweite Karte.",
+          "knowledge": "notieren",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "zwei geöffnete Fundseiten oder lokale Ersatztexte aus dem Wissen",
+        "eigene Suchfrage",
+        "Notizvorlage, Heft oder erlaubte Notiz-App"
+      ]
+    },
+    {
+      "id": "ordnen",
+      "title": "Aus Notizen wird eine kleine Sammlung",
+      "goal": "Relevante Informationen mit Quellen geordnet weiterverarbeiten.",
+      "task": "Ordne drei wichtige Informationen unter zwei passenden Überschriften. Jede Information braucht eine auffindbare Fundstelle.",
+      "outcome": "Eine erste Fassung für andere Kinder.",
+      "knowledge": [
+        "notieren",
+        "pruefen"
+      ],
+      "criteria": [
+        "Meine Gliederung passt zur Frage.",
+        "Drei Informationen stehen in eigenen Worten.",
+        "Bei jeder Information kann ich zeigen, woher sie stammt."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "So bleibt der Beleg verbunden",
+          "text": "Im erfundenen Büchereifall könnte eine Notiz lauten: „Samstagszeit: gewöhnlich 10–13 Uhr [Q1, Öffnungszeiten]. Ausnahmen: Datum des Besuchs mit der Sondermeldung abgleichen [Q1, Aktuelle Hinweise].“",
+          "paragraphs": [
+            "Q1 ist eine kurze Kennung für die vollständige Quellenkarte. Eine Adresse nur am Ende ohne Verbindung zu den Aussagen genügt nicht. Für die Mondfrage wählst du selbst passende Überschriften."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "sammlung",
+          "title": "Deine erste Fassung",
+          "text": "Stelle drei hilfreiche Informationen unter zwei Überschriften zusammen. Nutze beide Quellenkarten. Füge einen Satz hinzu: „Noch klären möchte ich …“ Keine Pflicht zu Bildern, Folien oder langen Texten. Wenn du dieses Blatt einzeln nutzt und noch keine Quellenkarten hast, erstelle sie zuerst im verlinkten Schritt. Dort stehen eine Frage, zwei Startquellen und ein vollständiges Kartenbeispiel bereit.",
+          "prompt": "Wie ordnest du deine Informationen? Notiere bei jeder Aussage Q1 oder Q2 und den Abschnitt; die vollständigen Quellenkarten gehören dazu.",
+          "responseMode": "written",
+          "responseHint": "Du kannst deine Sammlung hier, im Heft oder in einer erlaubten App führen. Ein mündlicher Entwurf vor dem Notieren hilft.",
+          "help": [
+            {
+              "title": "Ich weiß nicht, wie ich ordnen soll.",
+              "text": "Nutze zum Beispiel „Das Licht“ und „Das wechselnde Aussehen“. Ordne zuerst nur deine drei vorhandenen Notizen zu.",
+              "knowledge": "notieren",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Eine brauchbare Sammlung beantwortet die eigene Frage, verbindet jede Aussage mit einer Fundstelle und lässt eine echte Unklarheit offen. Die Überschriften und Formulierungen dürfen sich unterscheiden. Eine bloße Liste von Links beantwortet die Frage noch nicht.",
+          "links": [
+            {
+              "href": "schritt-lesen.html",
+              "label": "Quellenkarten mit Beispiel und Material erstellen"
+            }
+          ],
+          "storageNotice": "Stundenpause: Sichere hier geschriebene Notizen über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App speicherst du dort gesondert. Nächste Stunde öffnest du die Arbeitsdatei wieder unter „Deine Arbeit“; im Heft markierst du die Seite."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich habe nur Links gesammelt.",
+          "text": "Wähle eine Quelle und formuliere daraus einen eigenen Antwortsatz. Ergänze Q1 oder Q2 mit dem Abschnitt; ordne ihn unter eine passende Überschrift.",
+          "knowledge": "notieren",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "zwei ausgefüllte Quellenkarten oder bereitgestellte Ersatztexte",
+        "Heft, Notizfeld oder erlaubte Notiz-App"
+      ]
+    },
+    {
+      "id": "ueberarbeiten",
+      "title": "Kann jemand deine Antwort nachprüfen?",
+      "goal": "Beleg und Schluss prüfen und die Sammlung begründet verbessern.",
+      "task": "Prüfe erst das Gegenbeispiel. Vergleiche danach deine Sammlung mit den Kriterien und überarbeite eine begründete Stelle.",
+      "outcome": "Eine überarbeitete, nachvollziehbare Sammlung.",
+      "knowledge": [
+        "pruefen",
+        "notieren"
+      ],
+      "criteria": [
+        "Mein Beleg trägt genau die Aussage.",
+        "Meine Quellenangaben führen zur passenden Fundstelle.",
+        "Ich erkläre eine Verbesserung oder begründe, warum ich eine Stelle beibehalte."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "gegenbeispiel",
+          "title": "Klingt sicher – ist aber nicht belegt",
+          "text": "Erfundenes Gegenbeispiel: „Der Mond verändert seine Form. Das stimmt, weil meine Suche viele Treffer zeigte. Quelle: Internet.“",
+          "prompt": "Welche zwei Probleme erkennst du? Was müsste die Person stattdessen nachweisen?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre zuerst mündlich. Notiere nur, was du für deine Sammlung wieder brauchst.",
+          "solution": "Viele Treffer sind kein Beleg für die Behauptung. „Internet“ benennt keine auffindbare Fundstelle. Die Person muss das sichtbare Aussehen von der tatsächlichen Form unterscheiden und eine passende Aussage im geöffneten Original erklären.",
+          "storageNotice": "Stundenpause: Sichere hier geschriebene Notizen über „Deine Arbeit“ als Arbeitsdatei. Notizen in einer anderen App speicherst du dort gesondert. Nächste Stunde öffnest du die Arbeitsdatei wieder unter „Deine Arbeit“; im Heft markierst du die Seite."
+        },
+        {
+          "type": "task",
+          "id": "revision",
+          "title": "Nun deine Sammlung prüfen",
+          "text": "Öffne eine deiner Quellen erneut. Kannst du dort die Stelle zeigen, die deinen eigenen Satz trägt? Prüfe auch, ob du etwas dazugedacht hast. Wenn du allein arbeitest, lies als jemand, der deine Suchschritte nicht kennt. Ohne eigene Sammlung: Erstelle zuerst eine kurze Fassung mit dem verlinkten Material; danach kehrst du zu diesem Prüfschritt zurück.",
+          "prompt": "Welche Stelle änderst du und warum? Notiere vorher → nachher oder begründe eine Beibehaltung. Prüfe danach die zweite Quellenangabe.",
+          "responseMode": "written",
+          "responseHint": "Eine gezielte Verbesserung mit kurzem Grund genügt. Die fertige Fassung kannst du in deinem gewählten Arbeitsort führen.",
+          "help": [
+            {
+              "title": "Meine Aussage geht weiter als die Quelle.",
+              "text": "Schränke sie auf das Belegte ein oder suche gezielt nach dem fehlenden Beleg. Schreibe eine Vermutung nicht als Tatsache.",
+              "knowledge": "pruefen",
+              "label": "Passendes Wissen öffnen"
+            },
+            {
+              "title": "Meine Quelle ist nicht auffindbar.",
+              "text": "Ergänze Titel, Anbieter, direkte Adresse und Abschnitt. Prüfe die Adresse durch erneutes Öffnen.",
+              "knowledge": "notieren",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Eine begründete Überarbeitung kann einen zu weiten Schluss eingrenzen, eine fehlende Fundstelle ergänzen oder einen Satz verständlicher ordnen. Nur Wörter auszutauschen, ohne den Grund zu nennen, zeigt die Prüfung noch nicht.",
+          "links": [
+            {
+              "href": "schritt-ordnen.html",
+              "label": "Eine Sammlung erstellen"
+            }
+          ]
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich weiß nicht, was ich ändern soll.",
+          "text": "Schließe eine Originalseite. Kannst du sie allein mit den Angaben deiner Quellenkarte öffnen und die passende Stelle wiederfinden? Falls nicht, ergänze die Karte. Prüfe danach, ob dein Satz mehr behauptet als die Stelle.",
+          "knowledge": "pruefen",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "erste Fassung und Quellenkarten",
+        "Zugang zu den Fundstellen oder den Ersatztexten"
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Jetzt zählt das Datum",
+      "goal": "Das Vorgehen auf eine zeitabhängige Frage übertragen.",
+      "task": "Bearbeite den neuen Fall zuerst selbst. Hier genügt eine allgemeine Erklärung nicht: Es geht um eine konkrete Veranstaltung.",
+      "outcome": "Eine begründete Antwort mit Grenze.",
+      "knowledge": [
+        "pruefen"
+      ],
+      "criteria": [
+        "Ich wähle die Quelle passend zu Veranstaltung, Zeitpunkt und Frage.",
+        "Ich begründe mit dem Inhalt, nicht allein mit Alter oder Anbieter.",
+        "Ich benenne eine fehlende Information und einen passenden nächsten Schritt."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Erfundener Fall: Sternwarte am Freitag",
+          "text": "Eine Klasse plant einen Besuch. Diese drei Übungskarten sind vollständig erfunden und keine echten Veranstaltungshinweise.",
+          "items": [
+            "A · Astroblog, 2024: „Die Sternwarte Lindenort bietet jeden Freitag um 20 Uhr Führungen an.“",
+            "B · Sternwarte Lindenort, Mitteilung 6. Oktober 2026: „Die Führung am Freitag, 9. Oktober 2026, fällt wegen Reparaturen aus. Die nächste Führung kündigen wir auf dieser Seite an.“",
+            "C · Chat, 7. Oktober 2026: „Freitag ist doch immer offen. Gehen wir einfach hin!“"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "entscheidung",
+          "title": "Was antwortest du?",
+          "text": "Jemand schlägt vor, trotzdem am 9. Oktober um 20 Uhr hinzugehen.",
+          "prompt": "Was ist belegt, was bleibt offen? Antworte mit einer konkreten Karte als Beleg. Welche neue Suche oder Nachfrage wäre sinnvoll? Erkläre auch, warum eine ältere Seite für die Erklärung der Mondphasen trotzdem nützlich sein kann.",
+          "responseMode": "oral",
+          "responseHint": "Erkläre zuerst mündlich. Notiere nur, was du für deine Sammlung wieder brauchst.",
+          "help": [
+            {
+              "title": "Ich nehme einfach die neueste Karte.",
+              "text": "C ist neuer als B. Prüfe, ob C die konkrete Ausfallmitteilung überhaupt berücksichtigt. Aktualität allein entscheidet nicht.",
+              "knowledge": "pruefen",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Die konkret benannte Führung fällt laut B aus. A beschreibt eine ältere allgemeine Regel, C berücksichtigt die Änderung nicht. Wann die nächste Führung stattfindet, bleibt offen; auf der offiziellen Ankündigungsseite nachsehen oder bei der Sternwarte nachfragen. Eine ältere fachliche Erklärung kann weiterhin passen, sofern ihre Aussagen überprüfbar und sachlich richtig sind. Ein Datum hat je nach Frage anderes Gewicht."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich wähle nur nach dem neuesten Datum.",
+          "text": "Vergleiche B und C: Welche Karte geht auf genau diese Führung und die Reparaturen ein? Erkläre erst diesen Unterschied und entscheide dann.",
+          "knowledge": "pruefen",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "die drei Fallkarten auf dieser Seite",
+        "Heft oder Notizfeld"
+      ]
+    },
+    {
+      "id": "sichern",
+      "title": "Deine Sammlung ist nachvollziehbar",
+      "goal": "Ergebnis erklären, Arbeitsstand sichern und offenen Bedarf benennen.",
+      "task": "Zeige deine Frage, einen Beleg und eine begründete Verbesserung. Sichere die Sammlung für die nächste Reihe.",
+      "outcome": "Eine weiterverwendbare Sammlung mit ehrlich benanntem Stand.",
+      "knowledge": [
+        "notieren",
+        "suche"
+      ],
+      "criteria": [
+        "Ich kann eine Aussage und ihren Beleg erklären.",
+        "Meine Sammlung und Quellenkarten sind wieder auffindbar.",
+        "Eine ausgefallene Suchhandlung ist als offen markiert."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "abschluss",
+          "title": "Kurz zeigen statt alles vorlesen",
+          "text": "Erkläre der Lehrperson eine Aussage mit ihrer Fundstelle und eine Auswahl- oder Überarbeitungsentscheidung. Wenn du noch nicht selbst gesucht hast, sag das dazu.",
+          "prompt": "Was kannst du jetzt besser? Welche Frage ist offen? Wo findest du deine Sammlung beim nächsten Mal wieder?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre zuerst mündlich. Notiere nur, was du für deine Sammlung wieder brauchst.",
+          "help": [
+            {
+              "title": "Ich habe nur mit Ersatztexten gearbeitet.",
+              "text": "Du hast Lesen und Ordnen geübt. Vereinbare mit der Lehrperson, wann du Suchwörter selbst erprobst und Originalseiten öffnest.",
+              "knowledge": "ersatz",
+              "label": "Passendes Wissen öffnen"
+            }
+          ],
+          "solution": "Ein möglicher Nachweis: eine konkrete Fundstelle zeigen, den eigenen Schluss erklären und eine begründete Änderung beschreiben. Ein fertiges Textfeld oder ein geöffneter Link allein belegt diese Handlungen nicht."
+        },
+        {
+          "type": "explanation",
+          "title": "Für die nächste Stunde aufbewahren",
+          "text": "Führst du Notizen im Lernwerk, sichere sie unter „Deine Arbeit“ als Arbeitsdatei. Eine Notiz in einer anderen App speicherst du dort gesondert am erlaubten Schulort. Im Heft markierst du die Seite. Öffne deine gesicherte Sammlung einmal erneut; beide Quellenkarten müssen dabei sein.",
+          "links": [
+            {
+              "href": "../arbeit.html",
+              "label": "Deine Arbeit sichern"
+            }
+          ]
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Meine Sammlung ist beim Wiederöffnen unvollständig.",
+          "text": "Prüfe, ob Quellenkarten und Sammlung an verschiedenen Orten liegen. Sichere beide; öffne sie erneut und zeige eine Aussage samt zugehöriger Fundstelle.",
+          "knowledge": "notieren",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "fertige Sammlung und Quellenkarten",
+        "erlaubter Speicherweg oder Heft"
+      ],
+      "completion": {
+        "title": "Für heute abgeschlossen",
+        "text": "Die Sammlung kann in der nächsten Reihe beim Zusammenarbeiten weiterverwendet werden. Die folgende Wiederaufnahme gehört in eine spätere Stunde."
+      }
+    },
+    {
+      "id": "wiederaufnahme",
+      "title": "Später: deinen Suchweg erklären",
+      "goal": "Das Rechercheverfahren mit Abstand aus dem Gedächtnis rekonstruieren.",
+      "task": "Erinnere dich zuerst ohne alte Notizen. Vergleiche erst danach.",
+      "outcome": "Ein erinnerter Such- und Prüfweg mit einer Korrektur.",
+      "knowledge": [
+        "suche",
+        "pruefen"
+      ],
+      "criteria": [
+        "Ich beginne ohne alte Lösung.",
+        "Ich nenne einen Suchschritt und eine konkrete Belegprüfung.",
+        "Ich ergänze nach dem Vergleich einen fehlenden Schritt."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "abruf",
+          "title": "Fünf Minuten mit Abstand",
+          "text": "Schließe deine alten Notizen. Stell dir vor: Für ein Klassenprojekt sollst du klären, wann ein Museum am geplanten Ausflugstag öffnet.",
+          "when": "In einer späteren Stunde nach M02, etwa beim Einstieg in M03: 5 Minuten aus dem Jahreskonto für verteilte Übung.",
+          "prompt": "Welche Suchwörter und welche Art von Fundstelle helfen? Wie prüfst du eine mögliche Ausnahme? Was notierst du, damit jemand deine Antwort nachprüfen kann?",
+          "responseMode": "oral",
+          "responseHint": "Erst mündlich oder in wenigen Stichwörtern erinnern, dann mit dem Vergleich ergänzen.",
+          "solution": "Ort, Museumsname, Datum und Öffnungszeiten helfen beim Eingrenzen. Die aktuelle Mitteilung des Museums auf den konkreten Tag prüfen, auch Sonderregelungen. Ergebnis, Titel, direkte Adresse, Abrufdatum und passenden Abschnitt festhalten. Nicht nur den Treffertext oder eine alte allgemeine Zeit übernehmen."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Mir fällt nur ein Suchwort ein.",
+          "text": "Erinnere dich zusätzlich an die Frage nach dem konkreten Datum. Erkläre mündlich einen nächsten Prüfschritt; öffne erst danach den Vergleich und ergänze.",
+          "knowledge": "pruefen",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "timing": "later",
+      "materialNeeds": [
+        "diese Aufgabe",
+        "alte Notizen zunächst geschlossen"
+      ]
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "frage"
+    ],
+    "explanation": [
+      "suchplan",
+      "pruefen"
+    ],
+    "example": [
+      "suchplan"
+    ],
+    "practice": [
+      "pruefen",
+      "suchen"
+    ],
+    "application": [
+      "suchen",
+      "lesen",
+      "ordnen"
+    ],
+    "revision": [
+      "ueberarbeiten"
+    ],
+    "securing": [
+      "sichern"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "wiederaufnahme"
+    ]
+  }
+}

@@ -157,3 +157,7 @@
  .lw-teacher-table tr,.lw-teacher-phases li{break-inside:avoid}
  .lw-teacher-table thead{display:table-header-group}
 }
+
+/* Originaladressen auch ohne anklickbaren Papierlink erhalten. */
+.lw-print-url{display:none}
+@media print{.lw-print-url{display:block;overflow-wrap:anywhere;font-size:9pt;line-height:1.35}}

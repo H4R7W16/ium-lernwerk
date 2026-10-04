@@ -26,9 +26,9 @@
       "minutes": 225,
       "focus": "Suchfragen und Suchbegriffe bilden; Fundstellen prüfen und Informationen ordnen.",
       "evidence": "Informationssammlung mit Quellen und begründeter Auswahl.",
-      "status": "Quellenquest als Teilangebot; reale Suche ergänzen.",
-      "href": "quellenquest/lehrkraft.html",
-      "label": "Zum Teilangebot"
+      "status": "Recherchebogen mit eingebundenem Quellenquest-Ausschnitt ausgearbeitet; reale Erprobung und Zielabgleich offen.",
+      "href": "reihe-recherche.html",
+      "label": "Reihenkommentar"
     },
     {
       "id": "G5-M03",
@@ -118,5 +118,71 @@
       "Speicherort mit Leserkreis verwechselt? Eigenen und gemeinsamen Bereich vergleichen. Schutz nur beschrieben? Erlaubte Handlung am Schulprofil nachholen."
     ],
     "next": "Vor M02 prüfen: eigene Datei wiederfinden, Speicherzugriff begründen und eine Schutzhandlung ausführen. Nicht beobachtete oder ausgefallene Handlungen vor Recherche nachholen. Notieren Sie nach der Reihe nur Zeitabweichung, häufigste Hürde und eine Anpassung."
-  }
+  },
+  "additionalSeries": [
+    {
+      "moduleId": "G5-M02",
+      "file": "reihe-recherche.html",
+      "label": "Recherche",
+      "title": "Informationen finden, prüfen und ordnen",
+      "goal": "Lernende recherchieren zu einer begrenzten Sachfrage und erstellen eine gegliederte Informationssammlung mit auffindbaren Quellen und begründeter Auswahl.",
+      "rationale": "Ein gemeinsames Sachfeld begrenzt die Suchlast, lässt aber eigene Fragen, Suchwörter und Auswahlentscheidungen zu. Die kurze Quellenquest trennt Aussage und Beleg, bevor Lernende echte Webseiten prüfen. Das spätere Ordnen und Überarbeiten macht sichtbar, ob aus Fundstellen verstandene Information geworden ist.",
+      "phases": [
+        {
+          "title": "Frage und Suchplan",
+          "minutes": 45,
+          "action": "Eigene Frage 10, vorgemachter Suchweg und Planung 25, Quellenquest-Einstieg 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "recherche/schritt-frage.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Quellen prüfen und Suche erproben",
+          "minutes": 45,
+          "action": "Quellenquest 25 Minuten abschließen: Quellen und zwei Kernfragen mit Belegen. Danach 20 Minuten Suchbegriffe angeleitet erproben.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "recherche/schritt-pruefen.html",
+          "label": "Zum Übergang"
+        },
+        {
+          "title": "Selbst suchen und lesen",
+          "minutes": 45,
+          "action": "25 Minuten selbstständige Suche mit begründeter Änderung, 20 Minuten zwei Quellenkarten beginnen. Nach zwei Fehlversuchen Startquellen nutzen.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "recherche/schritt-suchen.html",
+          "label": "Zur Suchhandlung"
+        },
+        {
+          "title": "Ordnen und überarbeiten",
+          "minutes": 45,
+          "action": "5 Minuten Quellenlesen abschließen, 15 Minuten Sammlung ordnen, 25 Minuten Belege und eigene Aussagen prüfen.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "recherche/schritt-ordnen.html",
+          "label": "Zur Sammlung"
+        },
+        {
+          "title": "Revision, neuer Fall und Sicherung",
+          "minutes": 45,
+          "action": "10 Minuten Überarbeitung abschließen, 25 Minuten zeitabhängigen Sternwartenfall bearbeiten, 10 Minuten Ergebnis erklären und sichern.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "recherche/schritt-ueberarbeiten.html",
+          "label": "Zur Überarbeitung"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Mit Abstand, beispielsweise zu Beginn von M03: Such- und Prüfweg zunächst ohne alte Notizen rekonstruieren. Fünf Minuten aus dem bestehenden Jahreskonto von 135 Minuten; zusammen mit M01 sind 17 Minuten zugeordnet. Nicht zusätzlich in die fünf Reihenstunden zählen."
+      },
+      "preparation": "Erlaubten Browser, Suchdienst und Startquellen am Schulprofil prüfen. Die beiden genannten Textabschnitte genügen. Quellenquest ist bereits enthalten; lokale Ersatztexte und Notizvorlage vorher bereitstellen. Keine fremden Konten, Medienproduktion oder Internetveröffentlichung nötig. M01-Handlungen sind noch nicht empirisch nachgewiesen; bei fehlendem Speicher-/Rückweg zuerst nachsichern. Für Papierarbeit beide Quellenquest-Blätter bereitstellen. Arbeitsstand am Ende jeder Stunde innerhalb der Arbeitsphase sichern und zu Beginn wieder öffnen.",
+      "decisions": [
+        "Zu breite Frage? Einen erklärbaren Teilaspekt wählen.",
+        "Unpassende Treffer? Suchwortänderung begründen; nach zwei Versuchen Startquellen nutzen.",
+        "Nur Anbietername als Beleg? Konkrete Stelle zeigen und ihren Bezug zur Aussage erklären lassen.",
+        "Netz fehlt? Ersatztexte lesen/ordnen; tatsächliche Suche und Originalprüfung bleiben offen.",
+        "Sammlung fertig, Herkunft fehlt? Eine Quellenkarte vervollständigen und Aussage erneut prüfen."
+      ],
+      "next": "Sammlung mit Quellenkarten für M03 aufbewahren. Vor digitalem Austausch fehlende Such- und Originalprüfschritte nachholen. Durchführung, Verständnis und nötige Anpassung getrennt notieren; fünf Stunden sind eine noch zu erprobende Annahme."
+    }
+  ]
 }
