@@ -36,7 +36,9 @@
       "minutes": 135,
       "focus": "Im schulischen Kanal Beiträge austauschen und ein gemeinsames Ergebnis verbessern.",
       "evidence": "Eigener Beitrag und genutzte Rückmeldung sind erklärbar.",
-      "status": "Noch auszuarbeiten."
+      "status": "Kooperativer Lernbogen ausgearbeitet; Schulraum-, Geräte- und Unterrichtserprobung offen.",
+      "href": "reihe-zusammenarbeit.html",
+      "label": "Reihenkommentar"
     },
     {
       "id": "G5-M04",
@@ -183,6 +185,54 @@
         "Sammlung fertig, Herkunft fehlt? Eine Quellenkarte vervollständigen und Aussage erneut prüfen."
       ],
       "next": "Sammlung mit Quellenkarten für M03 aufbewahren. Vor digitalem Austausch fehlende Such- und Originalprüfschritte nachholen. Durchführung, Verständnis und nötige Anpassung getrennt notieren; fünf Stunden sind eine noch zu erprobende Annahme."
+    },
+    {
+      "moduleId": "G5-M03",
+      "file": "reihe-zusammenarbeit.html",
+      "label": "Zusammenarbeit",
+      "title": "Digital zusammenarbeiten und verständlich kommunizieren",
+      "goal": "Jede Person nutzt den geschlossenen Schulraum für einen eigenen Beitrag, eine passende Antwort und eine begründete gemeinsame Überarbeitung.",
+      "rationale": "Eine kleine Gliederung für eine spätere Infokarte begrenzt die Produktlast. Das vorgemachte Nachrichtenbeispiel zeigt den Zusammenhang zwischen Rückfrage und Änderung. Echte Beiträge, gegenseitiges Verstehen und die individuelle Erklärung machen die Kooperation prüfbar. Ein Konfliktfall verändert die Bedingung: Freundliches Nachfragen allein reicht bei wiederholter Ausgrenzung nicht.",
+      "phases": [
+        {
+          "title": "Arbeitsraum und Verständigung",
+          "minutes": 45,
+          "action": "Kursraum 10, Nachrichtenbeispiel 10, Rückfragen erproben 15, Teamvereinbarung beginnen 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "zusammenarbeit/schritt-arbeitsraum.html",
+          "label": "Zum Einstieg"
+        },
+        {
+          "title": "Eigene Beiträge zusammenführen",
+          "minutes": 45,
+          "action": "Vereinbarung abschließen 5, reale Beiträge senden/empfangen und erste Gliederung 35, Rückmeldung beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "zusammenarbeit/schritt-beitragen.html",
+          "label": "Zum echten Austausch"
+        },
+        {
+          "title": "Überarbeiten und weitergeben",
+          "minutes": 45,
+          "action": "Rückmeldung abschließen 10, Inhalt/Rechtehinweis überarbeiten 10, Konfliktfall 15, zwei Weitergabewege und Zugangsschutz 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "zusammenarbeit/schritt-rueckmelden.html",
+          "label": "Zur Rückmeldung"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Mit Abstand, zum Beispiel zu Beginn von M04: fünf Minuten ohne alte Notizen erinnern und zeitversetzte Zusammenarbeit begründen. Aus dem bestehenden 135-Minuten-Jahreskonto; M01–M03 belegen zusammen 22 Minuten. Nicht in die drei Kernstunden doppelt zählen."
+      },
+      "preparation": "Kursraumkarte ausfüllen und mit zwei eigenen Schulkonten prüfen: Einstieg, Leserkreis, Bearbeitungsrecht, erlaubte Funktionen, tatsächlicher Regel-/Nutzungsauszug, Hilfeweg und Schutzroutine. Paare, gemeinsamer Arbeitsort und digitale Vorführung vor einem anderen Paar klären. M02-Notizen oder lokale Startbasis bereitstellen. Am Stundenende Arbeitsstände innerhalb der laufenden Phase sichern. Geräteseitige Varianten gleichwertig, konkrete Menüs schulabhängig.",
+      "decisions": [
+        "Kein Zugang oder keine Partnerperson? Entwurf vorbereiten, tatsächlichen Austausch als offen führen und nachholen.",
+        "Nur eine Person trägt bei? Individuelle Aussage vorzeigen lassen, Bedienrolle wechseln.",
+        "Vage Rückmeldung? Eine konkrete Stelle und eine begründete Rückfrage verlangen.",
+        "Gemeinsamer Plan ohne Veränderung? Vorher/nachher am eigenen Abschnitt erklären lassen.",
+        "Wiederholte Ausgrenzung? Nicht als bloßes Missverständnis behandeln; schulischen Hilfeweg einsetzen."
+      ],
+      "next": "Gemeinsame Gliederung und Quellen für M04 sichern. Vor Medienproduktion fehlende digitale Handlungen nachholen. Kurzer individueller Nachweis: Beitrag, empfangene Rückmeldung, begründete Änderung, angewandte Regel. Schulzugang, drei Stunden und Lernwirkung sind noch zu erproben."
     }
   ]
 }

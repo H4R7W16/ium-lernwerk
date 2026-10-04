@@ -1,0 +1,1031 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-5-M03-ZUSAMMENARBEIT",
+  "version": "1.0.0",
+  "grade": 5,
+  "area": "zusammenarbeit",
+  "family": "content",
+  "title": "Deine Idee. Unser Plan.",
+  "topic": "Zusammenarbeiten",
+  "description": "Aus zwei Beiträgen wird ein gemeinsamer Plan. Tauscht euch im Schulraum aus, klärt Rückfragen und verbessert eure Gliederung mit echter Rückmeldung.",
+  "product": "Eine gemeinsame Gliederung für eine Infokarte: mit Quellen, einem eigenen Beitrag von jeder Person und einer begründeten Überarbeitung.",
+  "prerequisites": [
+    "Partnerperson, eigene Schulzugänge und ein freigegebener geschlossener Kursraum",
+    "iPad oder Windows-Schulgerät; eine erlaubte Schreib- und Austauschmöglichkeit",
+    "ausgefüllte Kursraumkarte der Lehrperson; Recherche-Notizen aus M02 oder die lokale Startbasis"
+  ],
+  "learnerDuration": "Drei Unterrichtsstunden. Später folgen fünf Minuten Erinnerung. Sichert am Ende jeder Stunde euren gemeinsamen Plan im Schulraum und eigene Lernwerk-Notizen über „Deine Arbeit“.",
+  "duration": "135 Minuten / 3 Unterrichtsstunden. Später 5 Minuten aus dem bestehenden Jahreskonto für verteilte Übung.",
+  "workNotice": "Das Lernwerk sendet keine Nachrichten und teilt eure Texte nicht. Euer gemeinsamer Plan und der Austausch entstehen im freigegebenen Schulraum. Lernwerk-Notizen sicherst du gesondert über „Deine Arbeit“.",
+  "curriculum": {
+    "moduleId": "G5-M03",
+    "goalIds": [
+      "3.1.1.1(1)",
+      "3.1.1.1(4)",
+      "3.1.4.1(1)",
+      "3.1.4.1(2)",
+      "3.1.4.1(3)",
+      "3.1.4.1(4)",
+      "3.1.4.1(5)",
+      "3.1.4.1(6)",
+      "3.1.4.1(7)",
+      "3.1.4.2(7)",
+      "3.1.5.2(4)",
+      "3.1.5.2(5)",
+      "3.1.5.2(6)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Anhörungsfassung 21.09.2026, Band 5/6; eigene Jahrgangsverteilung nach dee82ec. Die Ziele werden an einer begrenzten Kooperation entwickelt und geübt, in M04/M05 vertieft. Kein Nachweis vollständiger Beherrschung, realer Durchführung oder schulischer Freigabe."
+  },
+  "experiencedEntry": {
+    "title": "Ihr arbeitet schon sicher zusammen?",
+    "text": "Prüft beide zuerst euren Kursraum und seine Regeln. Erklärt dann am Beispiel, welche Antwort zu welcher Änderung führt. Gelingt das, startet bei der Teamvereinbarung. Nutzt freie Übungszeit für genauere Begründungen; der echte Austausch und die Revision bleiben nötig.",
+    "step": "vereinbaren",
+    "label": "Zur Teamvereinbarung"
+  },
+  "teacher": [
+    "M03 verbindet die Informationssammlung aus M02 mit einem späteren Medienprodukt in M04. Hier entsteht nur eine kleine Gliederung. Die geringe Produktgröße hält Zeit für echte Kooperation frei. Produktion früherer Bögen belegt deren Durchführung nicht."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Kursraumkarte aus dem Material ausfüllen: konkreter Einstieg, Leser-/Bearbeitungskreis, erlaubte Funktionen, kurze tatsächlich geltende Regel-/Nutzungsstelle mit Quelle, Hilfeweg und Sperr-/Abmelderoutine. Zwei Testkonten müssen sich erreichen und denselben Plan öffnen können. Keine öffentlichen Räume oder privaten Konten. Für den zweiten Weitergabeweg eine digitale Vorführung am Gerät zulassen.",
+        "Paare und einen beschreibbaren gemeinsamen Arbeitsort vorsehen. Bei einem Gerät nacheinander mit eigenen erlaubten Zugängen arbeiten; nie für die andere Person senden. Fehlende Partnerperson neu zuordnen. Vorbereitungen allein oder auf Papier sind möglich, tatsächlicher digitaler Austausch bleibt offen. Ohne geprüfte Recherche-Notizen die eigene lokale Startbasis anbieten; M02-Suche nicht als nachgeholt zählen. Bei Einzelmaterialeinsatz die dort genannten Vorprodukte bereitstellen; Verweise führen zu fehlenden Vorbereitungen."
+      ]
+    },
+    {
+      "title": "Drei Stunden führen",
+      "paragraphs": [
+        "1. Stunde: Kursraum 10, Beispiel 10, Klärung 15, Teamvereinbarung 10 Minuten. 2. Stunde: Vereinbarung 5, Beitragen 35, Rückmeldung 5. 3. Stunde: Rückmeldung 10, Überarbeitung 10, Konfliktfall 15, Sichern 10. Das ergibt Orientierung 20, angeleitete Übung 30, Anwendung 35, Rückmeldung/Revision 25 und Sicherung/Transfer 25 Minuten.",
+        "Nach zehn Minuten Anwendung prüfen: Hat jede Person einen eigenen Beitrag gesendet und kann die andere darauf antworten? Bei einer Bedienhürde nur den nächsten nötigen Schritt vormachen. Lese-/Schreibhilfe oder eine zugelassene Eingabehilfe unterstützen; Idee und Antwort bleiben beim Kind. Die Gliederung umfasst höchstens zwei Abschnitte, kein fertiges Plakat. Arbeitsstände innerhalb der jeweiligen Phase sichern. Die Nachrichtenregel wird schon bei der Vereinbarung angepasst und beim Austausch genutzt; in der Revision wird ihr Rechtehinweis geprüft."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste Hilfe",
+      "paragraphs": [
+        "Nur „passt“ als Rückmeldung? Eine konkrete Überschrift und eine noch offene Frage nennen lassen. Eine Person erledigt alles? Jede erklärt ihren Beitrag vor dem Zusammenführen; Bedienrolle wechseln. Zwei Einzelteile ohne Zusammenhang? Gemeinsam eine Leitfrage wählen und eine Dopplung streichen. Regel nur wiederholt? An der tatsächlichen Nachricht zeigen lassen, wie sie angewandt wurde.",
+        "Der eigene Beitrag, die empfangene Antwort und eine daraus entstandene Änderung bilden den Nachweis; ausgefüllte Felder oder Selbsthäkchen allein reichen nicht. Bei fehlendem Kanal/Partner fehlt dieser Teil. Im Konfliktfall keine privaten Chats zeigen lassen. Fiktiven Fall besprechen; reale Hilfeanliegen vertraulich nach schulischem Verfahren aufnehmen."
+      ]
+    },
+    {
+      "title": "Anschluss sichern",
+      "paragraphs": [
+        "Gemeinsame Gliederung und Quellen für M04 bewahren. Zwei Wege tatsächlich nutzen: geschlossener Kursraum und digitale Vorführung vor einem anderen Paar. Empfängerkreis und passende Funktion begründen lassen. Fünf spätere Abrufminuten reservieren; M01–M03 belegen zusammen 22 von 135 Jahresminuten. Nach Erprobung knapp notieren: Zeitbedarf, fehlender Handlungsteil, nächste Anpassung."
+      ]
+    }
+  ],
+  "briefing": [
+    "Drei Stunden, ein kleines gemeinsames Ergebnis: Die Paare planen eine Infokarte für eine andere fünfte Klasse. Jede Person sendet einen eigenen Beitrag, erhält eine Antwort und nutzt eine Rückmeldung zur Überarbeitung. Ein fertiger Plan allein zeigt noch nicht, dass beide beteiligt waren.",
+    "Füllen Sie vorher die Kursraumkarte aus und prüfen Sie den Austausch mit zwei schulischen Konten. Der Bogen ist schulunabhängig. Er erfindet weder Menübezeichnungen noch lokale Regeln. Auch eine kurze tatsächliche Nutzungs- oder Regelstelle gehört auf die Karte. iPad und Windows sind gleichwertig. Wer keinen Zugang oder keine Partnerperson hat, kann vorbereiten; der echte Austausch bleibt nachzuholen.",
+    "In Stunde eins liegen zehn Minuten Kursraum, zehn Minuten Beispiel, fünfzehn Minuten Klärung und zehn Minuten Vereinbarung. Stunde zwei beendet die Vereinbarung in fünf Minuten, gibt fünfunddreißig Minuten für eigene Beiträge und beginnt fünf Minuten Rückmeldung. Stunde drei führt diese in zehn Minuten zu Ende, überarbeitet zehn Minuten, bearbeitet fünfzehn Minuten einen fiktiven Konflikt und sichert zehn Minuten. Sichern Sie Arbeitsstände innerhalb dieser Phasen. Die gemeinsame Nachrichtenregel wird schon vor dem Austausch angepasst; später wird der Quellen- und Lizenzhinweis vervollständigt.",
+    "Beobachten Sie individuelle Beiträge, genaue Rückfragen und eine begründete Änderung. Unterstützen Sie gezielt, wenn nur eine Person schreibt oder Rückmeldung vage bleibt. Die lokale Startbasis hilft ohne alte Recherche-Notizen. Echte Recherche wird dadurch nicht nachgewiesen. Kein Kind muss private Konflikte offenlegen. Zum Schluss wird die Gliederung im Kursraum und als digitale Vorführung geteilt und für M vier gesichert. Fünf spätere Abrufminuten kommen aus dem vorhandenen Jahreskonto; die reale Erprobung bleibt offen."
+  ],
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026, S. 32, 40, 42, 46",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Zuordnung mit der aktuellen Kompetenzplanung abgeglichen; Klasse 5 ist unsere Jahresplanung."
+    },
+    {
+      "id": "netiquette",
+      "title": "Netiquette – nett sein im Internet",
+      "author": "Internet-ABC e. V.",
+      "url": "https://www.internet-abc.de/kinder/mitreden-mitmachen/themenmonate/netiquette/netiquette-nett-sein-im-internet/",
+      "license": "Nur verlinkt; Fälle und Formulierungen im Lernwerk sind eigene",
+      "checked": "2026-10-04",
+      "note": "Allgemeine Orientierung; schulische Namen-/Kanalregeln werden vor Ort festgelegt."
+    },
+    {
+      "id": "hilfe",
+      "title": "Cybermobbing",
+      "author": "klicksafe",
+      "url": "https://www.klicksafe.de/cybermobbing",
+      "license": "Nur verlinkt; keine Fälle, Bilder oder Texte übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "cc",
+      "title": "Namensnennung – Weitergabe unter gleichen Bedingungen 4.0",
+      "author": "Creative Commons",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "license": "Lizenzinformation verlinkt; eigene Prüfkarte separat lizenziert",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "dlr",
+      "title": "Erde, Sonne und Mond – Wie der Mond die Erde umkreist",
+      "author": "Deutsches Zentrum für Luft- und Raumfahrt (DLR_next)",
+      "url": "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "04.10.2026",
+      "note": "Relevanter Textabschnitt im Browser gelesen; kein Video erforderlich."
+    },
+    {
+      "id": "timeanddate",
+      "title": "Wie entstehen die Mondphasen?",
+      "author": "Konstantin Bikos und Vigdis Hocken · timeanddate",
+      "url": "https://www.timeanddate.de/astronomie/mond/mondphasen",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "04.10.2026",
+      "note": "Abschnitt „Eine Frage der Perspektive“; Seite enthält zusätzliche Angebote."
+    }
+  ],
+  "media": [
+    {
+      "id": "kursraumkarte",
+      "title": "Kursraumkarte · von der Lehrperson ausfüllen",
+      "kind": "download",
+      "file": "assets/zusammenarbeit/kursraumkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "bildungsplan",
+      "printText": "KURSRAUMKARTE – VOR BEGINN DURCH DIE LEHRPERSON AUSFÜLLEN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nFreigegebenes Werkzeug / Einstieg im Schulgerät:\nKurs / Gruppe / gemeinsamer Arbeitsort:\nWer darf lesen? Wer darf bearbeiten?\nErlaubte Funktionen für Nachricht / Antwort / Dokument:\nVereinbarte Arbeitszeit und Antwortzeit:\n\nKurzer tatsächlich geltender Regel- oder Nutzungsabschnitt:\nQuelle / Stand / wo vollständig zu lesen:\nWas dürfen wir hier tun? Welche Grenze gilt?\n\nHilfe: konkrete Person / erreichbarer schulischer Weg:\nSperr- oder Abmeldeschritte und sicherer Rückweg:\nZweiter Weitergabeweg: digitale Vorführung am Gerät vor einem anderen Paar. Erlaubt / Ort:\n\nVorab geprüft: Zwei eigene Schulkonten können einander erreichen und denselben Plan öffnen.\nNicht ausgefüllt oder Zugang fehlt? Nur vorbereiten; tatsächlichen Austausch als offen führen.\n"
+    },
+    {
+      "id": "teamplan",
+      "title": "Teamplan · gemeinsame Gliederung und Beitragsnachweis",
+      "kind": "download",
+      "file": "assets/zusammenarbeit/teamplan.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "bildungsplan",
+      "printText": "TEAMPLAN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nLeitfrage:\nZielgruppe: andere Klasse 5. Geplantes Produkt: eine kleine Infokarte.\nGemeinsamer Speicherort / Dateiname:\n\nAbschnitt 1 – Überschrift:\nEigene Aussage / Fundstelle:\nBeitrag von:\nAbschnitt 2 – Überschrift:\nEigene Aussage / Fundstelle:\nBeitrag von:\nOffene Frage:\n\nUNSERE VEREINBARUNG\nWer liefert welchen Beitrag?\nWer bedient zuerst, wann wechseln wir?\nWann antworten wir im freigegebenen Kursraum?\n\nJEDE PERSON FÜLLT IHRE EIGENE SPUR AUS\nMein gesendeter Beitrag: Datum / Stelle im Schulraum (keine Zugangsdaten)\nEmpfangene Rückmeldung, sinngemäß:\nMeine Antwort:\nMeine Überarbeitung: vorher -> nachher / Grund\nEine gemeinsame Entscheidung / Begründung:\n\nUNSERE NACHRICHTENREGEL AUS DER PRÜFKARTE\nAusgewählter Satz, sinnvoll angepasst:\nUrheberschaft / Materialort / Lizenzlink / Änderung:\n\nABSCHLUSS\nQuellenangaben geprüft? Fremde Medien mit unklaren Rechten entfernt oder geklärt?\nEndfassung im Schulraum geteilt / von Partnerperson geöffnet:\nDieselbe Endfassung digital vor einem anderen Paar gezeigt:\nNoch offen, z.B. realer Austausch:\nFür M04 gespeichert an:\n"
+    },
+    {
+      "id": "pruefkarte",
+      "title": "Prüfkarte für Nachrichten · zum Anpassen",
+      "kind": "download",
+      "file": "assets/zusammenarbeit/pruefkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "cc",
+      "printText": "PRÜFKARTE FÜR NACHRICHTEN\nIuM-Lernwerk · CC BY-SA 4.0\nLizenz: https://creativecommons.org/licenses/by-sa/4.0/\nMaterialort: Lernwerk / Klasse 5 / Zusammenarbeit / Material / Prüfkarte für Nachrichten\n\n1. Ich nenne die konkrete Stelle, um die es geht.\n2. Ich begründe meinen Vorschlag.\n3. Ich stelle eine Frage, auf die die andere Person antworten kann.\n4. Ich achte auf unseren vereinbarten Antwortzeitraum.\n\nAuftrag: Wählt einen Satz und passt ihn an euren Arbeitsplan an.\nBeim Weitergeben der bearbeiteten Karte: Urheberschaft und Materialort nennen, Lizenz verlinken, Änderung angeben, bearbeitete Karte unter derselben Lizenz weitergeben.\nBeispiel: Nach „Prüfkarte für Nachrichten“, IuM-Lernwerk, Material dieser Einheit; CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; gekürzt und um unsere Arbeitszeit ergänzt.\nDie Lizenz gilt für diese eigene Karte, nicht automatisch für andere Quellen.\n"
+    },
+    {
+      "id": "startbasis",
+      "kind": "download",
+      "file": "assets/zusammenarbeit/startbasis.txt",
+      "title": "Startbasis ohne eigene Recherche-Notizen",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 für die eigenen Zusammenfassungen, nicht für Originalseiten",
+      "sourceId": "dlr",
+      "printText": "ERSATZTEXTE – KEINE ORIGINALQUELLEN\nEigene Zusammenfassungen des IuM-Lernwerks · CC BY-SA 4.0 · Stand 04.10.2026\n\nDiese kurzen Ersatztexte sind eigene Zusammenfassungen des Lernwerks nach den unten verlinkten Seiten, geprüft am 04.10.2026. Sie sind keine Originalzitate und keine zwei unabhängigen Veröffentlichungen. Du kannst mit ihnen Aussagen ordnen und Quellenhinweise üben; die Originalprüfung und echte Suche bleiben offen.\n\nE1 · Nach DLR_next, „Erde, Sonne und Mond“, Abschnitt „Wie der Mond die Erde umkreist“: Der Mond wird von der Sonne beleuchtet. Auf seinem Weg um die Erde sehen wir unterschiedlich große Teile seiner beleuchteten Seite. So verändert sich sein Aussehen.\n\nE2 · Nach timeanddate, Bikos/Hocken, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten ist ein anderer Fall: Er spielt bei einer Mondfinsternis eine Rolle.\n\nOriginal zu E1:\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\nOriginal zu E2:\nhttps://www.timeanddate.de/astronomie/mond/mondphasen\n\nAuftrag in M03: Wählt eine Leitfrage zum unterschiedlichen Aussehen des Mondes. Jede Person formuliert eine Aussage aus E1/E2 in eigenen Worten. Ordnet beide Aussagen unter zwei passende Überschriften. Verweist auf E1/E2 und bewahrt die Originaladressen. Echte Suche und Originalprüfung aus M02 bleiben nachzuholen; der digitale Austausch erfolgt im freigegebenen Schulraum.\n"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "kursraum",
+      "title": "Wer kann unsere Arbeit sehen?",
+      "paragraphs": [
+        "Ein geschlossener Kursraum ist ein digitaler Bereich mit begrenztem Zugang. Dort können je nach Freigabe Nachrichten und Dateien ausgetauscht oder gemeinsam bearbeitet werden. Die Lehrperson legt fest, welchen Raum und welche Funktionen ihr nutzt.",
+        "Zugang allein bedeutet nicht: Alles ist erlaubt. Lies den bereitgestellten Ausschnitt der echten Regeln. Kläre Zweck, Leserkreis und eine Grenze. Prüfe den Empfängerkreis vor dem Senden."
+      ],
+      "example": "Ein Paar darf seine Gliederung im eigenen Arbeitsbereich bearbeiten; ein anderes Paar darf sie für Rückmeldung lesen. Ein Link außerhalb des Kurses könnte zu weit reichen oder gar nicht funktionieren.",
+      "boundary": "Welche Personen tatsächlich lesen oder bearbeiten dürfen, bestimmt die Schulkonfiguration. Das Lernwerk kann diese Berechtigung nicht prüfen.",
+      "steps": [
+        "arbeitsraum",
+        "vereinbaren",
+        "sichern"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "nachricht",
+      "title": "Was macht eine Nachricht verständlich?",
+      "paragraphs": [
+        "Eine hilfreiche Arbeitsnachricht sagt, worum es geht, was du vorschlägst und was die andere Person tun soll. Wenn nötig nennt sie einen vereinbarten Zeitpunkt. Begründe Kritik an der Sache.",
+        "Im Gespräch kannst du Tonfall und Gesichtsausdruck mitbekommen; bei einer Textnachricht fehlen diese Hinweise. Dafür kann man den Text später noch einmal lesen. Eine Videokonferenz hat andere Möglichkeiten als Text. In allen Fällen helfen Nachfragen und Zuhören."
+      ],
+      "example": "„Zur Überschrift 2: Ich schlage ‚Was sehen wir?‘ vor, weil wir dort unseren Blick erklären. Passt das zu deinem Absatz? Antworte bitte in unserer Arbeitsphase.“",
+      "boundary": "Ein freundlicher Ton löst nicht jedes Problem. Bei wiederholter Ausgrenzung oder Verletzung brauchst du Unterstützung, nicht die perfekte Formulierung.",
+      "steps": [
+        "nachricht",
+        "klaeren",
+        "beitragen",
+        "konflikt",
+        "erinnern"
+      ],
+      "sources": [
+        "netiquette"
+      ]
+    },
+    {
+      "id": "team",
+      "title": "Wann ist ein Plan wirklich gemeinsam?",
+      "paragraphs": [
+        "Ein gemeinsamer Plan beantwortet eine gemeinsame Frage. Teilt zuerst die Beiträge auf. Dann lest ihr den anderen Beitrag, klärt Unterschiede und ordnet beides zusammen.",
+        "Rollen helfen beim Ablauf: Eine Person bedient gerade das Dokument, die andere prüft die Verständlichkeit. Wechselt. Beide liefern eine eigene Idee und können erklären, wie sie in den Plan kam."
+      ],
+      "example": "Eine Person ordnet die Beleuchtung, die andere unseren Blick. Beide bemerken eine doppelte Aussage und einigen sich, sie nur im ersten Abschnitt zu erklären.",
+      "boundary": "Zwei Namen unter einem Text beweisen keine Zusammenarbeit. Jede Person muss ihren eigenen Beitrag und eine gemeinsame Entscheidung erklären können.",
+      "steps": [
+        "vereinbaren",
+        "beitragen",
+        "rueckmelden",
+        "sichern"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "feedback",
+      "title": "Wie wird aus Rückmeldung eine Verbesserung?",
+      "paragraphs": [
+        "Nenne zuerst eine konkrete Stelle. Beschreibe, was du dort verstehst oder noch nicht verstehst. Mache einen begründeten Vorschlag. Die andere Person gibt mit eigenen Worten wieder, wie sie deinen Hinweis verstanden hat.",
+        "Prüft den Vorschlag an eurer Leitfrage. Ihr könnt ihn übernehmen, verändern oder begründet ablehnen. Jede Person arbeitet mindestens eine hilfreiche Rückmeldung ein und erklärt vorher → nachher."
+      ],
+      "example": "„Bei ‚Der Schatten‘ weiß ich nicht, wessen Schatten gemeint ist. Nenne bitte genau den Fall.“ Antwort: „Du findest die Überschrift ungenau. Ich ändere sie zu ‚Mondphase oder Mondfinsternis?‘, damit beides unterscheidbar wird.“",
+      "boundary": "Ein Lob ohne Stelle hilft wenig beim Überarbeiten. Eine bloße Änderung ohne Grund zeigt noch nicht, ob der Hinweis verstanden wurde.",
+      "steps": [
+        "rueckmelden",
+        "ueberarbeiten"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "rechte",
+      "title": "Dürfen wir etwas übernehmen und verändern?",
+      "paragraphs": [
+        "Notiert zu verwendeten Sachinformationen die Fundstelle. Ein Quellenhinweis allein erlaubt noch nicht, fremde Bilder oder Texte zu kopieren. Für diesen Plan genügen eigene kurze Formulierungen und die bereitgestellte Prüfkarte.",
+        "Unsere „Prüfkarte für Nachrichten“ steht unter CC BY-SA 4.0. Beim Weitergeben einer veränderten Fassung nennt ihr die Urheberschaft, verlinkt die Lizenz und kennzeichnet eure Änderung. Die bearbeitete Karte gebt ihr unter derselben Lizenz weiter."
+      ],
+      "example": "„Nach ‚Prüfkarte für Nachrichten‘, IuM-Lernwerk, Material dieser Einheit; CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; gekürzt und um unsere Arbeitszeit ergänzt.“ Der genaue Materialort kommt dazu.",
+      "boundary": "Diese Lizenz der Prüfkarte gilt nicht automatisch für verlinkte Webseiten oder eure ganze Sammlung. Bei anderen Materialien muss die jeweilige Erlaubnis geprüft werden; Persönlichkeitsrechte bleiben zu beachten.",
+      "steps": [
+        "vereinbaren",
+        "ueberarbeiten",
+        "sichern"
+      ],
+      "sources": [
+        "cc"
+      ],
+      "media": [
+        "pruefkarte"
+      ]
+    },
+    {
+      "id": "konflikte",
+      "title": "Was hilft bei Missverständnissen und Ausgrenzung?",
+      "paragraphs": [
+        "Eine unklare Nachricht kann ein Missverständnis sein. Frage konkret nach, ohne die Person abzuwerten. Wiederholtes Ausschließen, Bloßstellen oder Beleidigen ist etwas anderes: Es kann verletzen und die Mitarbeit verhindern.",
+        "Mach bei verletzenden Beiträgen nicht mit und verbreite sie nicht weiter. Unterstütze die betroffene Person und hole Hilfe bei einer vertrauenswürdigen erwachsenen Person. Nutzt den schulischen Hilfeweg; Melden oder Blockieren kann zusätzlich helfen, wenn das Werkzeug es erlaubt. Besprecht das Sichern nötiger Belege mit der helfenden Person."
+      ],
+      "example": "Eine Person wird wiederholt aus der Arbeitsgruppe entfernt. Als Beobachterperson kannst du ihr Unterstützung anbieten und gemeinsam die Lehrperson ansprechen. Sie muss das Problem nicht allein lösen.",
+      "boundary": "Nicht jeder Streit ist Cybermobbing. Wiederholung und ein Machtungleichgewicht sind wichtige Merkmale. Auch ein einzelner verletzender Beitrag ist ein Grund, Hilfe zu holen.",
+      "steps": [
+        "konflikt"
+      ],
+      "sources": [
+        "hilfe"
+      ]
+    },
+    {
+      "id": "zugang",
+      "title": "Warum schütze ich meinen Zugang?",
+      "paragraphs": [
+        "Wer deinen Zugang benutzt, könnte unter deinem Namen schreiben oder deine Arbeit verändern. Ein eigener Grund für den Schutz kann sein: Meine Beiträge sollen mir zuverlässig zugeordnet werden.",
+        "Gib Zugangsdaten nicht weiter. Speichere eure Arbeit und führe die vereinbarte Sperr- oder Abmelderoutine aus, wenn du das Gerät verlässt. Bei Problemen hilft die auf der Kursraumkarte genannte Person."
+      ],
+      "example": "„Ich sperre das Gerät in der Pause, damit niemand unter meinem Namen Nachrichten sendet.“ Die konkrete Handlung wird am Schulgerät nach der dortigen Regel ausgeführt.",
+      "boundary": "Nenne hier keine Passwörter, Kontodaten oder privaten Erlebnisse. Menüs und sichere Rückkehr unterscheiden sich nach Schulgerät.",
+      "steps": [
+        "arbeitsraum",
+        "sichern"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "arbeitsraum",
+      "title": "Unser Arbeitsraum",
+      "goal": "Du klärst, wo und mit wem ihr arbeiten dürft.",
+      "task": "Lies die Kursraumkarte der Lehrperson. Prüfe den vereinbarten Einstieg und den Leserkreis.",
+      "outcome": "Ein geklärter Arbeitsort – oder ein benanntes Hindernis vor dem Senden.",
+      "knowledge": [
+        "kursraum",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich kenne den erlaubten Arbeitsort und seinen Leserkreis.",
+        "Ich erkläre eine dort geltende Regel und ihren Zweck.",
+        "Bei fehlendem Zugang weiß ich, wen ich frage."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Euer Auftrag in drei Stunden",
+          "text": "Ihr plant zu zweit eine Infokarte für eine andere fünfte Klasse. Dafür nutzt ihr eure Recherche-Notizen. Jede Person steuert eine Aussage mit Fundstelle bei. Am Ende habt ihr zwei passende Überschriften, Quellen und eine Verbesserung durch Rückmeldung.",
+          "paragraphs": [
+            "Fehlen die Notizen, nehmt die lokale Startbasis im Material. Das ersetzt die Recherche aus M02 nicht. Für eure Gliederung dürft ihr zunächst die gekennzeichneten Ersatztexte verwenden.",
+            "Ohne freigegebenen Raum oder Partnerperson könnt ihr Entwürfe vorbereiten. Nachrichten senden, empfangen und gemeinsam überarbeiten müsst ihr später wirklich durchführen. Das Lernwerk ist kein Chat."
+          ],
+          "media": [
+            "kursraumkarte"
+          ]
+        },
+        {
+          "type": "external",
+          "id": "raumcheck",
+          "title": "Prüfe deinen echten Kursraum",
+          "text": "Nimm nur den Einstieg, den deine Lehrperson freigegeben hat. Sende noch nichts.",
+          "prompt": "Erkläre kurz: Zweck des Raums / wer lesen darf / eine Regel aus der Karte und ihr Grund. Oder notiere, was noch fehlt.",
+          "context": "device",
+          "preparation": "Ausgefüllte Kursraumkarte, eigenes Schulprofil und erreichbare Lehrperson. Keine Zugangsdaten hier eintragen.",
+          "action": "Öffne den Kursraum. Vergleiche Kurs- und Gruppenname mit der Karte. Lies den dort bereitgestellten echten Regelabschnitt; zeige, welche Funktion du nutzen darfst und wo eine Grenze liegt.",
+          "return": "Merke dir den Rückweg zu diesem Schritt. Die nächste Aufgabe verwendet ein erfundenes Nachrichtenbeispiel.",
+          "routes": [
+            {
+              "title": "Am iPad",
+              "device": "ipad",
+              "items": [
+                "Öffne die freigegebene App oder den erlaubten Browser über den schulischen Einstieg.",
+                "Melde dich bei Bedarf nach der Kursraumkarte mit deinem eigenen Zugang an. Öffne den genannten Kurs und Arbeitsbereich.",
+                "Prüfe die sichtbare Gruppenbezeichnung. Sind Leserkreis oder Arbeitsort unklar, frage die Lehrperson. Kehre über den App- oder Tabwechsel zum Lernwerk zurück."
+              ]
+            },
+            {
+              "title": "Am Windows-Gerät",
+              "device": "windows",
+              "items": [
+                "Öffne das freigegebene Programm oder den erlaubten Browser über den schulischen Einstieg.",
+                "Melde dich bei Bedarf nach der Kursraumkarte mit deinem eigenen Zugang an. Öffne den genannten Kurs und Arbeitsbereich.",
+                "Prüfe die sichtbare Gruppenbezeichnung. Sind Leserkreis oder Arbeitsort unklar, frage die Lehrperson. Kehre über Fenster- oder Tabwechsel zum Lernwerk zurück."
+              ]
+            }
+          ],
+          "responseMode": "oral",
+          "responseHint": "Drei kurze Angaben reichen.",
+          "help": [
+            {
+              "title": "Der Raum fehlt",
+              "text": "Bitte die Lehrperson um den richtigen Einstieg oder Hilfe. Öffne keinen Ersatzdienst auf eigene Faust. Entwürfe sind möglich; digitaler Austausch bleibt offen.",
+              "knowledge": "kursraum",
+              "label": "Wissen dazu öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Ausgefüllte Kursraumkarte",
+        "Schulgerät mit eigenem erlaubtem Zugang"
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich kenne den Leserkreis nicht",
+          "text": "Lass dir die erlaubte Gruppe zeigen. Ein vorhandener Link allein beantwortet nicht, wer lesen darf.",
+          "knowledge": "kursraum",
+          "label": "Wissen dazu öffnen"
+        }
+      ]
+    },
+    {
+      "id": "nachricht",
+      "title": "Eine Nachricht, eine Antwort, eine Änderung",
+      "goal": "Du erkennst, wie ein Austausch ein Ergebnis verändert.",
+      "task": "Lies das kurze Beispiel. Erkläre, was durch die Rückfrage genauer wird.",
+      "outcome": "Du kannst den Weg vom Beitrag zur Verbesserung erklären.",
+      "knowledge": [
+        "nachricht",
+        "feedback"
+      ],
+      "criteria": [
+        "Ich unterscheide Beitrag, Rückfrage und Änderung.",
+        "Ich nenne einen Unterschied zwischen Gespräch und Textnachricht."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "So könnte ein Austausch laufen",
+          "text": "Die folgende Szene ist erfunden. Jona und Mika planen ihre Mond-Infokarte.",
+          "table": {
+            "headers": [
+              "Im freigegebenen Kursraum",
+              "Was dadurch möglich wird"
+            ],
+            "rows": [
+              [
+                "Jona: „Für Abschnitt 2 schlage ich ‚Der Schatten‘ vor. Ich will erklären, warum der Mond anders aussieht. Passt das zu deiner Quelle?“",
+                "Ein Vorschlag, auf den Mika reagieren kann."
+              ],
+              [
+                "Mika: „Meinst du eine Mondphase oder eine Mondfinsternis? In E2 werden die beiden unterschieden.“",
+                "Die Rückfrage nennt die unklare Stelle und einen Beleg."
+              ],
+              [
+                "Jona: „Du meinst, meine Überschrift vermischt zwei Fälle. Ich ändere sie zu ‚Mondphase oder Mondfinsternis?‘. Wir erklären den Unterschied kurz.“",
+                "Jona zeigt sein Verständnis und nennt eine begründete Änderung."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "E2 ist ein kurzer Ersatztext aus unserer Startbasis: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten gehört zum anderen Fall, der Mondfinsternis. Du brauchst hier kein weiteres Vorwissen über den Mond.",
+            "Im Gespräch könnte Mika sofort nachfragen und Jonas Tonfall hören. Eine Textantwort kommt vielleicht erst in der vereinbarten Arbeitsphase. Dafür bleibt die genaue Formulierung nachlesbar. In beiden Formen braucht es eine Antwort, die zum Beitrag passt."
+          ],
+          "sources": [
+            "timeanddate"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "beispiel",
+          "title": "Was hat die Rückfrage verändert?",
+          "text": "Zeige zuerst die Stelle, an der Mika nicht einfach zustimmt.",
+          "prompt": "Erkläre: Was war vorher unklar? Was ist danach genauer? Was wäre beim mündlichen Gespräch anders?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre es deiner Partnerperson; Stichwörter genügen.",
+          "solution": "„Der Schatten“ lässt offen, welcher Fall gemeint ist. Mika nennt die Verwechslung und E2. Die neue Überschrift unterscheidet zwei Fälle. Im Gespräch wären direktes Nachfragen und Tonfall möglich; beim Text bleibt die Nachricht nachlesbar. Nur „gut“ hätte diese Klärung nicht ausgelöst."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich sehe nur drei Nachrichten",
+          "text": "Suche nach der ungenauen Überschrift. Vergleiche sie mit Jonas neuer Überschrift.",
+          "knowledge": "feedback",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Nachrichtenbeispiel; Partnerperson zum Erklären oder eigene kurze Notiz"
+      ]
+    },
+    {
+      "id": "klaeren",
+      "title": "Nachfragen statt hineinlesen",
+      "goal": "Du klärst eine mehrdeutige Nachricht und begründest eine passende Antwort.",
+      "task": "Bearbeitet die kurze Szene zuerst einzeln, dann im Gespräch.",
+      "outcome": "Eine sachliche Rückfrage mit einer begründeten Verbesserung.",
+      "knowledge": [
+        "nachricht"
+      ],
+      "criteria": [
+        "Ich trenne eine mögliche Deutung von dem, was wirklich dasteht.",
+        "Meine Rückfrage nennt eine konkrete Stelle."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "rueckfrage",
+          "title": "„Mach du das.“",
+          "text": "Im Arbeitschat steht nur: „Mach du das. Ich bin fertig.“ Du weißt nicht, was mit „das“ gemeint ist. Die Szene ist erfunden.",
+          "prompt": "Notiere deine Rückfrage und einen Grund, warum sie zur Szene passt.",
+          "contribution": "Überlege selbst zwei mögliche Bedeutungen: zum Beispiel eine Bitte um den nächsten Arbeitsschritt oder ein Rückzug aus der Aufgabe. Schreibe eine Rückfrage, ohne eine Absicht zu unterstellen.",
+          "exchange": "Lest euch die Rückfragen vor. Die Partnerperson erklärt mit eigenen Worten, was du wissen möchtest. Besprecht: Was klärt ein direktes Gespräch leichter? Was ist beim Text nachlesbar? Ändert eine Formulierung, falls sie vorwurfsvoll oder unklar klingt.",
+          "return": "Formuliere deine eigene verbesserte Rückfrage und begründe sie.",
+          "responseHint": "Ein bis zwei Sätze; mündlich erproben, kurze Notiz sichern.",
+          "help": [
+            {
+              "title": "Mir fehlt ein Anfang",
+              "text": "„Meinst du mit … den Teil …? Ich brauche noch …“ Benenne die Arbeit, nicht den Charakter der Person.",
+              "knowledge": "nachricht",
+              "label": "Wissen dazu öffnen"
+            }
+          ],
+          "solution": "Möglich: „Meinst du, ich soll die Überschrift einsetzen? Bei den Quellen fehlt noch eine Angabe. Kannst du sie bitte in unserer Arbeitsphase ergänzen?“ Die Antwort klärt Bezug und nächsten Beitrag. Aus dem ersten Satz allein lässt sich die Absicht nicht sicher erkennen."
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Meine Antwort klingt ärgerlich",
+          "text": "Streiche die Vermutung über die Person. Frage nach dem fehlenden Arbeitsschritt.",
+          "knowledge": "nachricht",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "Diese erfundene Nachricht; Partnerperson zum Besprechen"
+      ]
+    },
+    {
+      "id": "vereinbaren",
+      "title": "Zwei Beiträge, eine Frage",
+      "goal": "Ihr vereinbart einen kleinen gemeinsamen Arbeitsplan.",
+      "task": "Wählt eine Leitfrage aus euren Notizen. Verteilt zwei Beiträge und vereinbart den Austausch.",
+      "outcome": "Ein Teamplan mit Frage, Beiträgen, Rollenwechsel und gemeinsamem Speicherort.",
+      "knowledge": [
+        "team",
+        "kursraum",
+        "rechte"
+      ],
+      "criteria": [
+        "Unsere Frage ist für eine kleine Infokarte geeignet.",
+        "Jede Person hat einen eigenen Beitrag und eine Fundstelle.",
+        "Wir kennen Arbeitsort, Antwortzeit und Rollenwechsel.",
+        "Unsere eigene Nachrichtenregel ist vor dem Austausch festgehalten."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Klein anfangen",
+          "text": "Nutzt eure M02-Sammlung oder die Startbasis. Ihr braucht höchstens zwei Abschnitte: je eine passende Überschrift und eine eigene kurze Aussage mit Fundstelle. Ein fertiges Plakat kommt später.",
+          "media": [
+            "teamplan",
+            "startbasis",
+            "pruefkarte"
+          ],
+          "paragraphs": [
+            "Beispiel zur Startbasis: Leitfrage „Warum sieht der Mond verschieden aus?“ Beitrag A erklärt die Beleuchtung, Beitrag B unseren Blick. Die beiden gehören zusammen. Eine andere passende Gliederung ist ebenso möglich.",
+            "Wählt jetzt einen Satz aus der Prüfkarte. Passt ihn an eure Vereinbarung an, zum Beispiel an eure Antwortzeit. Nutzt diese Regel beim folgenden Austausch. Den Quellen- und Lizenzhinweis kontrolliert ihr beim Überarbeiten. Kopiert für diesen Plan keine fremden Bilder oder Artikel."
+          ],
+          "links": [
+            {
+              "href": "baustein-arbeitsraum.html",
+              "label": "Kursraum noch nicht geklärt? Hier vorbereiten"
+            }
+          ]
+        },
+        {
+          "type": "cooperative",
+          "id": "absprachen",
+          "title": "Vereinbart eure Zusammenarbeit",
+          "text": "Füllt den Anfang des Teamplans gemeinsam aus. Ihr könnt die Vorlage in euer erlaubtes Schreibwerkzeug übernehmen.",
+          "prompt": "Welche Aufgabe übernimmst du? Welche die Partnerperson? Wie passen die Beiträge zusammen?",
+          "contribution": "Schlage eine Leitfrage und deinen Beitrag vor. Zeige die passende Fundstelle. Entscheide selbst, welche Information du erklären kannst.",
+          "exchange": "Einigt euch auf eine Leitfrage, zwei Beiträge und einen Dateinamen, zum Beispiel „Mond-Teamplan“. Legt den gemeinsamen erlaubten Speicherort fest. Vereinbart, wer zuerst bedient, wann ihr wechselt und wann ihr antwortet. Jede Person bestätigt die Vereinbarung im Gespräch. Wählt und notiert eure angepasste Nachrichtenregel aus der Prüfkarte.",
+          "return": "Erkläre deinen Beitrag und den Beitrag der Partnerperson mit eigenen Worten.",
+          "responseMode": "oral",
+          "responseHint": "Zeige die Vereinbarung im Teamplan; kein zweiter vollständiger Text nötig.",
+          "help": [
+            {
+              "title": "Unsere Ideen passen nicht zusammen",
+              "text": "Formuliert zuerst eine einzige Frage. Ordnet ihr beide Beiträge unter. Was nicht hilft, kommt in „offene Frage“.",
+              "knowledge": "team",
+              "label": "Wissen dazu öffnen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Teamplan oder eigenes Dokument mit denselben Feldern",
+        "M02-Sammlung oder lokale Startbasis"
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Person macht fast alles",
+          "text": "Trennt Bedienen und Denken: Jede liefert eine eigene Aussage. Wechselt die Bedienrolle nach dem ersten Beitrag.",
+          "knowledge": "team",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "prerequisites": [
+        "Der Kursraum und seine Regeln sind geklärt. Fehlt das, zuerst „Unser Arbeitsraum“ bearbeiten."
+      ]
+    },
+    {
+      "id": "beitragen",
+      "title": "Jetzt wirklich austauschen",
+      "goal": "Du sendest deinen eigenen Beitrag und antwortest auf den Beitrag deiner Partnerperson.",
+      "task": "Arbeitet jetzt im freigegebenen Kursraum. Fügt die Beiträge zu einer gemeinsamen Gliederung zusammen.",
+      "outcome": "Zwei eigene Beiträge, zwei passende Antworten und eine gemeinsame erste Fassung.",
+      "knowledge": [
+        "nachricht",
+        "team",
+        "kursraum"
+      ],
+      "criteria": [
+        "Ich habe selbst einen Beitrag an die richtige Partnerperson gesendet.",
+        "Ich habe ihren Beitrag gelesen und sachlich beantwortet.",
+        "Wir haben beide Beiträge zu einer Gliederung verbunden."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "austausch",
+          "title": "Von deinem Vorschlag zum gemeinsamen Plan",
+          "text": "Nutzt eure Vereinbarung und eure eigenen Schulzugänge. Diese Aufgabe braucht die tatsächliche Partnerperson; das Antwortfeld unten versendet nichts.",
+          "prompt": "Zeige deinen gesendeten Beitrag und deine passende Antwort im Schulraum. Notiere hier höchstens den Arbeitsort und einen offenen Punkt.",
+          "contribution": "Formuliere deine eigene kurze Aussage mit Fundstelle. Sende sie als Beitrag im erlaubten Kursraum: Nenne den Abschnitt, deinen Vorschlag, einen Grund und eine konkrete Frage. Prüfe vor dem Senden den Empfängerkreis. Nutze dabei eure vereinbarte Nachrichtenregel.",
+          "exchange": "Öffne den Beitrag deiner Partnerperson. Antworte sachlich auf ihre Frage; frage bei Unklarheit nach. Beide senden und empfangen. Übertragt anschließend eure abgestimmten Aussagen und Quellen in denselben Teamplan. Wechselt die Bedienrolle. Prüft eine Dopplung oder Lücke gemeinsam.",
+          "return": "Zeige ohne Hilfe, welche Idee von dir stammt und wie sie zum anderen Abschnitt passt. Sichere deinen Arbeitsstand; bewahre den tatsächlichen Austausch im erlaubten Schulraum auf.",
+          "storageNotice": "Der Teamplan liegt in eurem Schulwerkzeug. Ein Lernwerk-Export enthält ihn nicht automatisch. Hier keine privaten Nachrichten oder Kontodaten kopieren.",
+          "responseMode": "oral",
+          "responseHint": "Die Arbeit geschieht im Schulraum. Ein Häkchen oder ein gefülltes Lernwerk-Feld beweist sie nicht.",
+          "routes": [
+            {
+              "title": "Am iPad",
+              "device": "ipad",
+              "items": [
+                "Wechsle zur freigegebenen App oder zum Kursraum im Browser. Öffne den vereinbarten Bereich.",
+                "Nutze die von der Lehrperson gezeigte Beitragsfunktion. Lies vor dem Senden Empfängerkreis und Text. Öffne die Antwort im selben erlaubten Raum.",
+                "Öffne euren gemeinsamen Plan über den vereinbarten Ort; wechsle bei Bedarf zwischen Plan und Nachricht. Stelle sicher, dass dein Beitrag gespeichert ist. Kehre danach zum Lernwerk zurück."
+              ]
+            },
+            {
+              "title": "Am Windows-Gerät",
+              "device": "windows",
+              "items": [
+                "Wechsle zum freigegebenen Programm oder zum Kursraum im Browser. Öffne den vereinbarten Bereich.",
+                "Nutze die von der Lehrperson gezeigte Beitragsfunktion. Lies vor dem Senden Empfängerkreis und Text. Öffne die Antwort im selben erlaubten Raum.",
+                "Öffne euren gemeinsamen Plan über den vereinbarten Ort; wechsle bei Bedarf zwischen Plan und Nachricht. Stelle sicher, dass dein Beitrag gespeichert ist. Kehre danach zum Lernwerk zurück."
+              ]
+            }
+          ],
+          "help": [
+            {
+              "title": "Keine Antwort angekommen",
+              "text": "Prüfe die vereinbarte Arbeitszeit und frage deine Partnerperson direkt, ob der Beitrag im richtigen Bereich angekommen ist. Bei Technikproblemen hilft die Lehrperson. Erfinde keine Antwort.",
+              "knowledge": "kursraum",
+              "label": "Wissen dazu öffnen"
+            },
+            {
+              "title": "Es geht nur auf Papier",
+              "text": "Schreibe einen Entwurf. Markiere im Teamplan: Senden, Empfangen und digitale Antwort noch offen. Die Lehrperson legt fest, wann ihr das nachholt."
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-vereinbaren.html",
+              "label": "Teamplan und Startbasis vorbereiten"
+            },
+            {
+              "href": "baustein-arbeitsraum.html",
+              "label": "Kursraum und Regeln klären"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Ausgefüllte Kursraumkarte und vorbereiteter Teamplan aus „Zwei Beiträge, eine Frage“",
+        "Partnerperson, eigene erlaubte Schulzugänge und Schreibwerkzeug"
+      ],
+      "checkHelp": [
+        {
+          "title": "Ein Beitrag fehlt",
+          "text": "Zeigt einander die tatsächlich gesendeten Beiträge. Holt den fehlenden Beitrag oder die passende Antwort im Kursraum nach.",
+          "knowledge": "team",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "prerequisites": [
+        "Ihr habt bereits eine Leitfrage, zwei Beiträge mit Fundstellen und einen vereinbarten gemeinsamen Arbeitsort. Fehlt etwas, zuerst die Teamvereinbarung ergänzen."
+      ]
+    },
+    {
+      "id": "rueckmelden",
+      "title": "Ein Hinweis, der weiterhilft",
+      "goal": "Du gibst eine genaue Rückmeldung und prüfst, ob du die erhaltene verstanden hast.",
+      "task": "Lest den Beitrag der anderen Person aus Sicht einer fünften Klasse. Tauscht je einen konkreten Hinweis im Kursraum aus.",
+      "outcome": "Jede Person hat eine begründete Rückmeldung gegeben und erhalten.",
+      "knowledge": [
+        "feedback",
+        "team"
+      ],
+      "criteria": [
+        "Mein Hinweis nennt eine konkrete Stelle und einen Grund.",
+        "Ich gebe die erhaltene Rückmeldung mit eigenen Worten wieder.",
+        "Wir entscheiden begründet, was wir ändern."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "feedbackspur",
+          "title": "Prüft euren Plan für seine Leserinnen und Leser",
+          "text": "Passt die Aussage zur Überschrift? Ist ein schwieriger Begriff erklärt? Lässt sich die Fundstelle wiederfinden? Wähle einen dieser Punkte für deinen Hinweis.",
+          "prompt": "Halte die erhaltene Rückmeldung sinngemäß und eure Änderungsentscheidung in deiner eigenen Spur im Teamplan fest.",
+          "contribution": "Lies den Abschnitt der Partnerperson. Nenne eine konkrete Stelle, eine offene Frage und einen begründeten Änderungsvorschlag. Sende den Hinweis im freigegebenen Kursraum.",
+          "exchange": "Lest die erhaltenen Hinweise. Jede Person antwortet mit eigenen Worten: „Du meinst, dass …“. Klärt, ob das stimmt. Einigt euch, welche Änderung zur Leitfrage passt. Einen unpassenden Vorschlag dürft ihr begründet ablehnen; sucht dann gemeinsam eine hilfreiche Verbesserung.",
+          "return": "Erkläre, welcher Hinweis dir hilft und was du damit verbessern willst.",
+          "responseMode": "oral",
+          "responseHint": "Die eigene Spur im Teamplan genügt.",
+          "help": [
+            {
+              "title": "Ich finde keinen Fehler",
+              "text": "Rückmeldung muss keinen Fehler erfinden. Frage, welcher Begriff für die Zielgruppe noch erklärt werden könnte oder welche Fundstelle leichter auffindbar wäre.",
+              "knowledge": "feedback",
+              "label": "Wissen dazu öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-beitragen.html",
+              "label": "Erste Gliederung oder Austausch fehlen? Hier beginnen"
+            }
+          ]
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Es steht nur „gut“ da",
+          "text": "Bitte um eine konkrete Stelle und eine Frage dazu. Erkläre dann selbst, was du verändern möchtest.",
+          "knowledge": "feedback",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "prerequisites": [
+        "Eine gemeinsame erste Gliederung und je ein tatsächlich gesendeter Beitrag liegen vor."
+      ],
+      "materialNeeds": [
+        "Gemeinsame erste Gliederung mit Quellen; eigene Spur im Teamplan",
+        "Partnerperson und freigegebener Kursraum; eigene Schulzugänge"
+      ]
+    },
+    {
+      "id": "ueberarbeiten",
+      "title": "Unsere bessere Fassung",
+      "goal": "Du setzt eine hilfreiche Rückmeldung um und prüfst die Rechtehinweise.",
+      "task": "Überarbeitet eure zwei Abschnitte. Ergänzt eure angepasste Nachrichtenregel und ihren Lizenzhinweis.",
+      "outcome": "Eine gemeinsame Endfassung mit nachvollziehbarer Änderung und geprüften Quellenhinweisen.",
+      "knowledge": [
+        "feedback",
+        "rechte"
+      ],
+      "criteria": [
+        "Ich zeige eine Änderung und begründe sie mit der erhaltenen Rückmeldung.",
+        "Sachinformationen haben auffindbare Fundstellen.",
+        "Unsere angepasste Prüfkarte hat Urheberschaft, Materialort, Lizenzlink und Änderungshinweis."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Ein Rechtehinweis wird erst durch Prüfen richtig",
+          "text": "Diese Entwurfszeile ist unvollständig: „Unsere Regel: Wir fragen genau. Quelle: Internet.“ Sie nennt weder die konkrete Karte noch die Urheberschaft oder Lizenz.",
+          "paragraphs": [
+            "Vergleicht eure schon angepasste Nachrichtenregel mit der bereitgestellten Prüfkarte. Nennt IuM-Lernwerk, den Kartentitel und den Materialort; ergänzt den Link zur Lizenz CC BY-SA 4.0 und beschreibt eure Änderung. Die bearbeitete Karte bleibt unter dieser Lizenz."
+          ],
+          "media": [
+            "pruefkarte"
+          ],
+          "sources": [
+            "cc"
+          ],
+          "links": [
+            {
+              "href": "baustein-rueckmelden.html",
+              "label": "Rückmeldung fehlt? Zuerst austauschen"
+            },
+            {
+              "href": "baustein-vereinbaren.html",
+              "label": "Teamplan und Nachrichtenregel vorbereiten"
+            }
+          ]
+        },
+        {
+          "type": "cooperative",
+          "id": "revision",
+          "title": "Ändern und noch einmal prüfen",
+          "text": "Arbeitet direkt in eurem gemeinsamen Teamplan. Jede Person setzt mindestens eine hilfreiche Rückmeldung an ihrem Teil um.",
+          "prompt": "Zeige deine Stelle vorher → nachher und den Grund. Prüfe mit der Partnerperson außerdem den ergänzten Rechtehinweis.",
+          "contribution": "Überarbeite deinen Abschnitt. Halte die alte und die neue Formulierung kurz in deiner eigenen Spur fest. Kontrolliere deine Sachquelle; ersetze „Internet“ durch die konkrete Fundstelle, falls sie noch fehlt.",
+          "exchange": "Lest beide Abschnitte zusammen. Prüft eure bereits angepasste Nachrichtenregel an der Prüfkarte und ergänzt den vollständigen Hinweis. Falls euer Entwurf sonstige fremde Bilder oder kopierte Texte enthält: Erlaubnis klären oder diese Teile entfernen und eigene Formulierungen nutzen. Speichert eine gemeinsame Endfassung.",
+          "return": "Erkläre deine inhaltliche Änderung und eine Verbesserung am Quellen- oder Rechtehinweis. Ein neues Datum allein ist keine Überarbeitung.",
+          "responseMode": "oral",
+          "responseHint": "Nutze eure tatsächliche Endfassung als Beleg.",
+          "help": [
+            {
+              "title": "Was muss zur Karte dazu?",
+              "text": "Vergleiche den Beispielhinweis unter „Wissen“. Ergänze eure konkrete Änderung und den Materialort. Die Lizenz der Karte gilt nicht automatisch für andere Texte.",
+              "knowledge": "rechte",
+              "label": "Wissen dazu öffnen"
+            }
+          ]
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Wir haben nur umformatiert",
+          "text": "Suche die erhaltene Rückfrage. Welche Aussage oder Überschrift wird durch deine Änderung verständlicher?",
+          "knowledge": "feedback",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "prerequisites": [
+        "Jede Person hat eine echte Rückmeldung erhalten und eine hilfreiche Änderung vereinbart. Eure Nachrichtenregel steht bereits im Teamplan."
+      ],
+      "materialNeeds": [
+        "Gemeinsame erste Fassung und tatsächlich erhaltene Rückmeldung",
+        "Partnerperson; freigegebener Arbeitsort; Prüfkarte auf diesem Blatt"
+      ]
+    },
+    {
+      "id": "konflikt",
+      "title": "Wenn Zusammenarbeit unfair wird",
+      "goal": "Du unterscheidest ein Missverständnis von wiederholter Ausgrenzung und begründest einen Hilfeweg.",
+      "task": "Bearbeitet nur den erfundenen Fall. Niemand muss eigene Erlebnisse oder private Chats zeigen.",
+      "outcome": "Eine begründete Entscheidung aus Sicht der betroffenen und einer beobachtenden Person.",
+      "knowledge": [
+        "konflikte",
+        "nachricht"
+      ],
+      "criteria": [
+        "Ich erkläre die Folgen für Beteiligung und Wohlbefinden.",
+        "Ich nenne einen passenden Hilfeweg aus unserer Kursraumkarte.",
+        "Meine Lösung verlangt nicht, dass die betroffene Person alles allein klärt."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "fall",
+          "title": "Sam darf nicht mitarbeiten",
+          "text": "In einer Arbeitsgruppe wird Sam an mehreren Tagen aus dem gemeinsamen Dokument entfernt. Zwei Gruppenmitglieder schicken abwertende Kommentare über Sam. Als Sam nachfragt, schreiben sie: „War doch Spaß.“ Du kannst die Gruppe sehen. Zum Vergleich: In einer anderen Szene stand einmal „Mach du das. Ich bin fertig.“ Dort war nur unklar, welcher nächste Arbeitsschritt gemeint war; eine wiederholte Ausgrenzung war nicht beschrieben.",
+          "prompt": "Erkläre: Was ist anders als bei „Mach du das“? Was bewirkt es für Sam und das gemeinsame Ergebnis? Was könntest du als beobachtende Person jetzt tun? Nenne auch die konkrete Hilfeperson oder den Hilfeweg aus eurer Kursraumkarte.",
+          "responseHint": "Erst selbst überlegen, dann mit der Partnerperson begründet besprechen. Drei Stichpunkte reichen.",
+          "help": [
+            {
+              "title": "Ich weiß nicht, wie ich helfen kann",
+              "text": "Denke an Nicht-Mitmachen, Unterstützung und eine erreichbare erwachsene Person. Lies nach deinem ersten Versuch die Hilfe im Wissen.",
+              "knowledge": "konflikte",
+              "label": "Wissen dazu öffnen"
+            }
+          ],
+          "solution": "Hier wiederholen sich Ausgrenzung und Abwertung. Sam kann nicht gleichberechtigt mitarbeiten; die Kommentare können verletzen. „War Spaß“ macht die Folgen nicht ungeschehen. Als Beobachterperson nicht mitmachen oder weiterverbreiten, Sam Unterstützung anbieten und die benannte schulische Hilfeperson einbeziehen. Nötige Belege mit dieser Person sichern; Melde-/Blockierfunktionen können ergänzen. Sam muss weder zurückbeleidigen noch die Gruppe allein überzeugen. Es genügt nicht, Sam zu freundlicheren Nachrichten aufzufordern.",
+          "sources": [
+            "hilfe"
+          ],
+          "responseMode": "oral"
+        }
+      ],
+      "checkHelp": [
+        {
+          "title": "Mein Vorschlag lautet nur „ignorieren“",
+          "text": "Prüfe, ob Sam dadurch wieder mitarbeiten kann. Ergänze Unterstützung und einen konkreten schulischen Hilfeweg.",
+          "knowledge": "konflikte",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "Dieser erfundene Fall; Kursraumkarte mit schulischem Hilfeweg",
+        "Partnerperson oder gemeinsame Besprechung mit der Lehrperson"
+      ]
+    },
+    {
+      "id": "sichern",
+      "title": "Unser Plan kann weitergehen",
+      "goal": "Du gibst die Endfassung auf zwei erlaubten digitalen Wegen weiter und erklärst deinen Beitrag.",
+      "task": "Teilt eure Gliederung im Kursraum und zeigt dieselbe Fassung am Gerät einem anderen Paar. Sichert sie für M04.",
+      "outcome": "Ein auffindbarer Teamplan und ein eigener erklärbarer Lernnachweis.",
+      "knowledge": [
+        "team",
+        "kursraum",
+        "rechte",
+        "zugang"
+      ],
+      "criteria": [
+        "Die Partnerperson kann die Endfassung im Kursraum öffnen.",
+        "Ein anderes Paar hat dieselbe Fassung als digitale Vorführung gesehen.",
+        "Ich erkläre meinen Beitrag, eine genutzte Rückmeldung und eine Kommunikationsregel.",
+        "Ich begründe Zugangsschutz und führe die vereinbarte Handlung aus."
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "weitergeben",
+          "title": "Zwei Wege, derselbe Plan",
+          "text": "Weg 1 ist eure Endfassung im geschlossenen Kursraum. Weg 2 ist die digitale Vorführung am Gerät vor einem anderen Paar. Nutzt nur den erlaubten Leserkreis.",
+          "prompt": "Zeige deinen Beitrag und die dazugehörige Rückmeldung. Erkläre, wozu die beiden Weitergabewege passen und was gegebenenfalls noch fehlt.",
+          "contribution": "Zeige im Teamplan deinen eigenen Abschnitt und deine Änderung. Begründe, wie ihr bei eurem Austausch eine konkrete Kommunikationsregel angewandt habt.",
+          "exchange": "Speichert die Endfassung am vereinbarten Ort im Kursraum; die Partnerperson öffnet sie selbst. Zeigt anschließend dieselbe Fassung auf dem Bildschirm einem anderen Paar. Verwendet nur euer Arbeitsdokument, keine private Ansicht. Das Paar nennt eure Leitfrage; ihr prüft so, ob die Vorführung verständlich war.",
+          "return": "Erkläre: Im Kursraum können Berechtigte später weiterarbeiten; bei der Vorführung könnt ihr direkt erläutern und Rückfragen beantworten. Welcher Weg passt zu einer abwesenden Partnerperson? Was muss dafür vorher geklärt sein?",
+          "responseMode": "oral",
+          "responseHint": "Die tatsächlichen Handlungen und deine Erklärung zählen. Hier genügt „Arbeitsort / noch offen“.",
+          "help": [
+            {
+              "title": "Die Partnerperson kann nicht öffnen",
+              "text": "Vergleicht Speicherort und Berechtigung mit der Kursraumkarte. Holt Hilfe, statt den Link öffentlich freizugeben. Markiert den Weitergabeweg als offen, bis er funktioniert.",
+              "knowledge": "kursraum",
+              "label": "Wissen dazu öffnen"
+            }
+          ],
+          "links": [
+            {
+              "href": "baustein-ueberarbeiten.html",
+              "label": "Überarbeitung noch offen? Hier abschließen"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "abschluss",
+          "title": "Deinen Zugang schützen",
+          "text": "Sichert zuerst den Teamplan im Schulraum und eigene Lernwerk-Notizen über „Deine Arbeit“.",
+          "prompt": "Erkläre einen für dich passenden Grund für Zugangsschutz. Führe danach die vereinbarte Sperr- oder Abmeldehandlung am Schulgerät aus.",
+          "responseMode": "oral",
+          "responseHint": "Mündlich erklären. Keine Passwörter oder privaten Erfahrungen eintragen.",
+          "solution": "Ein möglicher Grund: „Niemand soll unter meinem Namen Nachrichten senden oder meinen Beitrag verändern.“ Welche Sperr-/Abmeldehandlung passt, steht auf eurer Kursraumkarte. Sie muss tatsächlich am Gerät ausgeführt werden.",
+          "help": [
+            {
+              "title": "Ich kenne die Handlung nicht",
+              "text": "Bitte die Lehrperson um die vereinbarte Routine samt sicherem Rückweg. Nicht wahllos Konten oder Dateien entfernen.",
+              "knowledge": "zugang",
+              "label": "Wissen dazu öffnen"
+            }
+          ]
+        }
+      ],
+      "completion": {
+        "title": "Für heute fertig – wenn die echten Schritte erfolgt sind",
+        "text": "Gemeinsamer Plan, tatsächlicher Austausch und genutzte Rückmeldung gehören zusammen. Fehlende Handlungen bleiben im Teamplan offen. Bewahrt die Endfassung für M04 auf. Der folgende kurze Abruf ist für eine spätere Stunde."
+      },
+      "checkHelp": [
+        {
+          "title": "Wir haben nur einen fertigen Text",
+          "text": "Zeige deinen gesendeten Beitrag, die empfangene Rückmeldung und die daraus entstandene Änderung. Fehlt etwas, holt genau diesen Teil nach.",
+          "knowledge": "team",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "prerequisites": [
+        "Eure Gliederung ist nach echter Rückmeldung überarbeitet; Quellen und Rechtehinweis sind geprüft."
+      ],
+      "materialNeeds": [
+        "Überarbeiteter Teamplan und beide eigenen Beitragsspuren",
+        "Partnerperson und ein weiteres Paar; Schulgerät und freigegebener Kursraum",
+        "Kursraumkarte mit Sperr-/Abmelderoutine"
+      ]
+    },
+    {
+      "id": "erinnern",
+      "title": "Ohne direkte Antwort weiterarbeiten",
+      "goal": "Du erinnerst dich mit Abstand und passt euren Arbeitsweg an einen veränderten Fall an.",
+      "task": "Bearbeite diese fünf Minuten erst in einer späteren Stunde. Lass alte Notizen zunächst geschlossen.",
+      "outcome": "Ein begründeter Arbeitsweg für zeitversetzte Zusammenarbeit.",
+      "knowledge": [
+        "team",
+        "nachricht"
+      ],
+      "criteria": [
+        "Ich rekonstruiere den Weg vom eigenen Beitrag zur gemeinsamen Änderung.",
+        "Ich passe die Absprache an eine später antwortende Person an."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "abruf",
+          "title": "Die Partnerperson ist heute nicht da",
+          "text": "Eure Infokarte braucht noch eine Verbesserung. Die Partnerperson kann erst in der nächsten Unterrichtsstunde im Kursraum antworten.",
+          "prompt": "Erkläre zunächst ohne Notizen: Was kannst du selbst vorbereiten? Welche Nachricht hilft? Was darfst du noch nicht als gemeinsam entschieden ausgeben?",
+          "when": "In einer späteren Stunde, zum Beispiel beim Beginn von M04; fünf Minuten aus dem Jahreskonto.",
+          "responseMode": "oral",
+          "responseHint": "Erst erinnern und begründen; dann Teamplan und Lösung öffnen.",
+          "solution": "Du kannst eine konkrete Stelle prüfen und einen begründeten Vorschlag als Entwurf sichern. Sende ihn im erlaubten Raum mit einer klaren Frage und realistischer Antwortzeit. Eine ausgebliebene Antwort ist keine Zustimmung. Kennzeichne die Entscheidung als offen, lies später die Antwort, kläre Unterschiede und überarbeitet erst dann gemeinsam. Wenn der Zugang fehlt, die Lehrperson einbeziehen.",
+          "help": [
+            {
+              "title": "Der frühere Austausch fehlt noch",
+              "text": "Dann holt zuerst den tatsächlichen Austausch nach. Ein Erinnerungsversuch ersetzt ihn nicht.",
+              "step": "beitragen",
+              "label": "Zum Austausch"
+            }
+          ]
+        }
+      ],
+      "timing": "later",
+      "checkHelp": [
+        {
+          "title": "Ich wollte schon „gemeinsam beschlossen“ schreiben",
+          "text": "Unterscheide deinen Vorschlag von einer tatsächlich erhaltenen Zustimmung. Lese euren alten Austausch erst nach deinem Erinnerungsversuch.",
+          "knowledge": "team",
+          "label": "Wissen dazu öffnen"
+        }
+      ],
+      "materialNeeds": [
+        "Fünf Minuten in einer späteren Stunde; zunächst keine alten Notizen",
+        "Danach euren früheren Teamplan zum Vergleichen; mündliche Antwort genügt"
+      ],
+      "prerequisites": [
+        "Der frühere Austausch wurde tatsächlich durchgeführt. Falls er noch offen ist, zunächst nachholen."
+      ]
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "arbeitsraum"
+    ],
+    "explanation": [
+      "nachricht"
+    ],
+    "example": [
+      "nachricht"
+    ],
+    "practice": [
+      "klaeren",
+      "vereinbaren"
+    ],
+    "application": [
+      "beitragen"
+    ],
+    "revision": [
+      "rueckmelden",
+      "ueberarbeiten"
+    ],
+    "securing": [
+      "sichern"
+    ],
+    "transfer": [
+      "konflikt"
+    ],
+    "retrieval": [
+      "erinnern"
+    ]
+  }
+}
