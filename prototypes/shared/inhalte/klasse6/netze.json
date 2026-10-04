@@ -3,7 +3,7 @@
   "id": "IUM-6-M01-NETZE",
   "area": "netze",
   "grade": 6,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "family": "content",
   "toolKind": "network",
   "topic": "Netze und Speicher",
@@ -123,7 +123,41 @@
       "checked": "2026-10-04"
     }
   ],
-  "media": [],
+  "media": [
+    {
+      "id": "rollen",
+      "title": "Anfrage und Antwort",
+      "kind": "image",
+      "file": "assets/netze/rollen.svg",
+      "alt": "P fragt nach plan.txt. R leitet die Anfrage weiter zu S. S stellt die Datei bereit. Die Antwort geht über R zurück zu P.",
+      "caption": "P ist der Client, R leitet weiter, S ist der Dateiserver. Die Pfeile zeigen Anfrage und Antwort; der gleiche Rückweg ist eine Modellvereinfachung.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "umweg",
+      "title": "Eine unterbrochene Verbindung – ein anderer Weg",
+      "kind": "image",
+      "file": "assets/netze/umweg.svg",
+      "alt": "K ist mit A verbunden. A–B ist unterbrochen. Über A–C und C–B bleibt B erreichbar: K–A–C–B.",
+      "caption": "Das Kreuz sperrt A–B. Die Pfeile zeigen den verbleibenden Weg K–A–C–B.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "speicherorte",
+      "title": "Auf meinem Gerät oder auf einem anderen?",
+      "kind": "image",
+      "file": "assets/netze/speicherorte.svg",
+      "alt": "Eine lokale Datei liegt auf Gerät K und braucht keinen Netzweg. Die Datei auf Dateiserver L liegt auf einem anderen Gerät; K benötigt einen aktiven Weg und einen bereiten Dienst.",
+      "caption": "„Lokal auf meinem Gerät“ und „lokaler Server in der Schule“ sind verschiedene Orte. Auch Clouddateien liegen auf echten Geräten; Offlinekopien sind gesonderte Kopien.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    }
+  ],
   "knowledge": [
     {
       "id": "wege",
@@ -142,6 +176,9 @@
       ],
       "sources": [
         "mdn-netz"
+      ],
+      "media": [
+        "umweg"
       ]
     },
     {
@@ -161,6 +198,9 @@
       ],
       "sources": [
         "mdn-web"
+      ],
+      "media": [
+        "rollen"
       ]
     },
     {
@@ -202,6 +242,9 @@
         "curriculum",
         "apple-dateien",
         "windows-dateien"
+      ],
+      "media": [
+        "speicherorte"
       ]
     },
     {
@@ -264,7 +307,7 @@
       "paragraphs": [
         "Öffnen Sie das Modell auf einem vorgesehenen Schulgerät; prüfen Sie Bedienelemente, Navigation, Arbeitsdatei-Download und Import. Benennen Sie zwei tatsächlich verfügbare Speicherorte, möglichst lokal und Schulnetz/Schulcloud, eine erlaubte Schreib-App und einen bekannten Schutz-/Entsperrweg. Prüfen Sie den Netzort selbst mit einem schulischen Testzugang; verlangen Sie keinen privaten Account.",
         "Eine Offline-/Synchronisationskopie darf nicht als aktueller Netzabruf gelten. Ist dieser Unterschied am Schulgerät nicht feststellbar, bleibt der Nachweis offen. Bei fehlendem Netz kann der Modellteil mit Papier vollständig bearbeitet werden; eine echte Netzprobe wird nachgeholt. Die vier Speicherarten werden trotzdem verglichen.",
-        "Falls die Schule einen aktuellen Netzübertragungsbeleg ermöglichen kann: Eine harmlose Testdatei am vereinbarten gemeinsamen Ort erst nach dem ersten Öffnen mit einer neuen Kennung ändern, dann den geänderten Inhalt am Schülergerät erneut abrufen lassen. Die neue Kennung belegt eine Übertragung seit der Änderung, aber keinen ausschließlich direkten Zugriff ohne Zwischenspeicher. Keine echten Gruppendateien überschreiben. Fehlt diese oder eine vergleichbar beobachtbare Probe, bleibt „aktueller Netzabruf“ offen; bloße Verbindungssymbole reichen nicht."
+        "Bereiten Sie die Kennungsprobe aus Schritt 7 vor: harmlose Datei „Unser Test: Plan A“ am gemeinsamen Testort, zweiter erlaubter Zugang durch Lehrperson oder Partnerperson. Nach dem ersten Öffnen dort auf „Unser Test: Plan B“ ändern und speichern; Lernende öffnen erneut aus dem Netzordner. Die Kopie an Ort A bleibt unverändert. Neue Kennung belegt eine Übertragung seit der Änderung, auch durch Synchronisation; keinen Abruf ohne Zwischenspeicher. Ohne vorbereitete Probe bleibt der Netzbeleg offen. Keine echten Gruppendateien überschreiben."
       ]
     },
     {
@@ -297,7 +340,7 @@
     {
       "title": "Darstellung und Grenzen",
       "paragraphs": [
-        "Das veränderbare Diagramm macht Folgen eigener Eingriffe prüfbar. Textliste und native Schaltflächen ergänzen Farbe und räumliche Darstellung. Die Papierfassung nutzt denselben Graphen mit Marker; sie bleibt eigenständig verwendbar. Ein Video würde den eigenen Eingriff hier nicht ersetzen und ist deshalb nicht vorgesehen.",
+        "Während der Ausführung stehen Netz und Wegwahl in einem gemeinsamen Arbeitsbereich; die Einstellungen klappen zu. Buchstabenlegende, Textliste und native Tasten ergänzen die Grafik. Die kleinen Erklärbilder verbinden Anfrage/Antwort, Umweg und Speicherort. Die Papierfassung nutzt weiterhin den vollständigen Graphen mit Marker. Ein Video ist für den eigenen Eingriff nicht erforderlich.",
         "Wissen, Lernauftrag, Hilfe und Vergleichslösung sind getrennt erreichbar. Druck: Lernendenblatt, mit Hilfen oder mit Hilfen/Lösungen. Tatsächliche Unterrichtszeit, Bildschirmleser und verwaltete iPad-/Windows-Profile sind in der Schule zu erproben."
       ]
     }
@@ -307,7 +350,8 @@
     "Im Netzversuch sagen die Kinder das Ergebnis vor dem Start voraus. Eine Spur bleibt als Beobachtung erhalten; die Erklärung müssen sie selbst leisten. Achten Sie besonders auf den Sprung von „mein Weg scheitert“ zu „kein Weg existiert“.",
     "Im eigenen V2 wählen die Lernenden einen möglichen Weg und unterbrechen begründet eine Verbindung darauf. Sie belegen einen Umweg oder eine Abtrennung. Das Transfernetz verändert die Lage des lokalen Servers. Eine abschließende kleine Änderung mit geschlossener Lösung hilft, selbstständiges Erklären von Übernehmen zu unterscheiden.",
     "In Stunde drei folgt der echte Speichervergleich. Bereiten Sie zwei erlaubte Orte und eine Schreib-App vor. Lassen Sie die Datei schließen und aus dem Zielordner wieder öffnen. Ist nur eine Offlinekopie sichtbar, bleibt der aktuelle Netzabruf offen. Ein Modellversuch ersetzt diese Handlung nicht.",
-    "Planen Sie vier Stunden und später zweimal sechs Minuten Abruf. Prüfen Sie Erklärungen, Gerätehandlungen und begründete Entscheidungen getrennt. Arbeitsdateien enthalten die Lernwerkantworten und Modellprotokolle; die echte Übungsdatei braucht einen eigenen Sicherungsweg."
+    "Planen Sie vier Stunden und später zweimal sechs Minuten Abruf. Prüfen Sie Erklärungen, Gerätehandlungen und begründete Entscheidungen getrennt. Arbeitsdateien enthalten die Lernwerkantworten und Modellprotokolle; die echte Übungsdatei braucht einen eigenen Sicherungsweg.",
+    "In Schritt 7 die Kennungsprobe vorbereiten: gemeinsame Testdatei von Plan A auf Plan B ändern, nachdem die erste Fassung gelesen wurde; die lokale Kopie bleibt unverändert. Lernende öffnen erneut aus dem Netzordner. Ein neuer Inhalt belegt eine Übertragung seit der Änderung, auch durch Synchronisation. Dies konkretisiert den vorhandenen Vergleich innerhalb seiner 25 Minuten."
   ],
   "steps": [
     {
@@ -371,7 +415,10 @@
                 "Ich habe nur diesen Fall geprüft. Ob S auch ohne Verbindung R–S erreichbar wäre, zeigt dieser Versuch noch nicht."
               ]
             ]
-          }
+          },
+          "media": [
+            "rollen"
+          ]
         },
         {
           "type": "task",
@@ -531,18 +578,18 @@
     {
       "id": "trennen",
       "title": "Was bleibt erreichbar?",
-      "goal": "Du zeigst, welche Knoten noch verbunden sind und warum ein Ziel nicht mehr erreichbar ist.",
+      "goal": "Du begründest für beide Ziele, ob sie über aktive Verbindungen erreichbar sind.",
       "task": "V3: Stelle das Grundnetz ein. Unterbrich A–B und A–C. Vergleiche die Ziele L und W.",
-      "outcome": "Du zeigst, welche Knoten noch verbunden sind und warum ein Ziel nicht mehr erreichbar ist.",
+      "outcome": "Du begründest für beide Ziele, ob sie über aktive Verbindungen erreichbar sind.",
       "knowledge": [
         "wege",
         "speicher",
         "modell"
       ],
       "criteria": [
-        "Ich zeige einen Weg zu L.",
-        "Ich erkläre anhand der abgetrennten Knoten, weshalb W unerreichbar ist.",
-        "Ich unterscheide L von einer Datei direkt auf K."
+        "Ich belege für L und W jeweils einen aktiven Weg oder eine vollständige Abtrennung.",
+        "Ich berücksichtige alle von K aus erreichbaren Knoten.",
+        "Ich unterscheide eine Datei auf L von einer Datei direkt auf K."
       ],
       "blocks": [
         {
@@ -550,7 +597,7 @@
           "id": "versuch",
           "title": "V3 · Zwei Ziele, dieselbe Änderung",
           "text": "Notiere erst deine Vorhersage für L und W. Teste beide Ziele nacheinander; ändere zwischen den Versuchen nur das Ziel. Betrachte anschließend alle aktiven Verbindungen, die von K aus erreichbar sind.",
-          "prompt": "Welche Knoten kann K noch erreichen? Begründe, weshalb es von dort keinen aktiven Übergang zu W gibt. Was ist mit einer Datei direkt auf K?",
+          "prompt": "Welche Knoten kann K noch erreichen? Entscheide für L und W: Gibt es einen aktiven Weg oder ist das Ziel abgetrennt? Belege beide Entscheidungen. Was ist mit einer Datei direkt auf K?",
           "network": true,
           "help": [
             {
@@ -673,12 +720,12 @@
           "context": "device",
           "id": "probe",
           "title": "Jetzt am Gerät · 25 Minuten",
-          "text": "Die Lehrperson benennt einen erlaubten lokalen Ort und möglichst einen Schulnetz- oder Schulcloudort. Nutze zwei andere erlaubte Orte nur, wenn der Netzweg fehlt; kennzeichne den Netzbeleg dann als offen.",
-          "preparation": "Öffne die von der Schule erlaubte Schreib-App und erstelle eine harmlose Datei mit dem Inhalt „Unser Test: Plan A“. Name: netzprobe. Verwende keine Namen, Kontaktdaten, Passwörter oder persönlichen Bilder.",
-          "action": "Speichere je eine Kopie an beiden vereinbarten Orten. Schließe die Datei. Öffne den jeweiligen Zielordner und dort die Datei erneut. Prüfe den Inhalt. Bei einem Netzort prüft ihr zusätzlich den tatsächlichen Zugang; ein Offline-Symbol oder bloßes Wiederöffnen beweist keinen neuen Abruf. Ändere keine Netz- oder Geräteverwaltungseinstellungen.",
-          "return": "Halte die zwei Beobachtungen fest. Zeige deiner Lehrperson oder der vereinbarten Partnerperson direkt am Gerät das Wiederöffnen und den Ort. Keine Zugangsdaten oder Screenshots abgeben. Unverfügbare Wege bleiben ausdrücklich ungeprüft.",
-          "prompt": "Berichte getrennt über Ort A und Ort B. Verwende die vier Punkte als Gerüst.",
-          "storageNotice": "Deine Lernwerk-Arbeitsdatei enthält dieses Protokoll und die Modellversuche. Sie nimmt deine echte Datei netzprobe nicht mit. Sichere die Übungsdatei gesondert auf dem schulisch vereinbarten Weg.",
+          "text": "Die Lehrperson nennt Ort A (lokal) und Ort B (möglichst Schulnetz oder Schulcloud). Sie bereitet mit euch die Kennungsprobe vor. Fehlt ein Weg, prüfe nur den erlaubten Teil und notiere, was offen bleibt.",
+          "preparation": "Erstelle in der erlaubten Schreib-App die Datei netzprobe mit dem Inhalt „Unser Test: Plan A“. Nutze nur diese harmlose Übungsdatei. Kläre die beiden Ordner und wer für die Kennungsprobe den gemeinsamen Teststand ändern darf.",
+          "action": "Speichere je eine Kopie an Ort A und Ort B. Schließe die Datei. Öffne beide Kopien erneut aus ihrem jeweiligen Zielordner und vergleiche den Inhalt. Prüfe danach den Netzort mit der Kennungsprobe unten. Bleibe in den erlaubten Ordnern; ändere keine Konten oder Geräteeinstellungen.",
+          "return": "Zeige beide Orte und das Wiederöffnen. Halte deine Beobachtungen im Vergleich fest. Ungeprüfte Wege bleiben offen; keine Zugangsdaten oder Bildschirmfotos abgeben.",
+          "prompt": "Vergleiche Ort A und Ort B mit dem Gerüst. Notiere oder zeige, welche Beobachtung deinen Netzbeleg trägt und was offen bleibt.",
+          "storageNotice": "Die Lernwerk-Arbeitsdatei enthält dein Protokoll, aber nicht netzprobe. Sichere die echte Übungsdatei gesondert am vereinbarten Ort.",
           "routes": [
             {
               "title": "Auf dem iPad",
@@ -707,20 +754,55 @@
               ]
             }
           ],
-          "responseHint": "Stichwörter reichen. Du kannst die vier Punkte auch am Gerät erklären und direkt zeigen.",
-          "items": [
-            "Ort: Wie heißt der vereinbarte Ordner, und zu welcher Speicherart gehört er?",
-            "Probe: Über welchen Ordner habe ich die geschlossene Datei wieder geöffnet? Welchen Inhalt habe ich gesehen?",
-            "Zugriff: Was brauchte ich dafür? War ein aktueller Netzabruf nachgewiesen, nur eine lokale Kopie sichtbar oder blieb das unklar?",
-            "Beleg und Grenze: Was habe ich direkt gezeigt? Was konnte ich noch nicht prüfen?"
-          ]
+          "responseHint": "Stichwörter im Vergleich oder eine mündliche Erklärung direkt am Gerät reichen.",
+          "responseTable": {
+            "headers": [
+              "Dein Vergleich",
+              "Ort A · lokal",
+              "Ort B · zweiter Ort"
+            ],
+            "rows": [
+              [
+                "Ort und Speicherart",
+                "Ordner + auf diesem Gerät",
+                "Ordner + tatsächliche Speicherart"
+              ],
+              [
+                "Wieder geöffnet",
+                "Inhalt meiner lokalen Kopie",
+                "Inhalt der zweiten Kopie"
+              ],
+              [
+                "Zugang",
+                "Was brauchte ich?",
+                "Was brauchte ich?"
+              ],
+              [
+                "Beleg und Grenze",
+                "Direkt gezeigt / noch offen",
+                "Neue Kennung angekommen / unklar / nicht geprüft"
+              ]
+            ]
+          },
+          "deviceFollowup": {
+            "title": "Kennungsprobe am Netzort",
+            "text": "Die Lehrperson oder eine Partnerperson nutzt ihren eigenen erlaubten Zugang. Verändert nur die vorbereitete harmlose Testdatei.",
+            "items": [
+              "Lies am vereinbarten Netzort „Unser Test: Plan A“. Schließe die Datei.",
+              "Die andere Person ändert dort auf „Unser Test: Plan B“, speichert und sagt dir Bescheid. Deine lokale Kopie an Ort A bleibt unverändert.",
+              "Öffne erneut aus dem Netzordner. Siehst du Plan B? Vergleiche mit Ort A. Bei Plan A oder einem Fehler bitte die Lehrperson um Hilfe."
+            ],
+            "paragraphs": [
+              "Plan B belegt: Seit der Änderung wurde neuer Inhalt zu deinem Gerät übertragen, möglicherweise durch Synchronisation. Die Probe beweist keinen Zugriff ohne Zwischenspeicher. Ist sie nicht vorbereitet oder nicht möglich, frage nach dem erlaubten Weg und notiere „Netzprobe nicht geprüft“."
+            ]
+          }
         },
         {
           "type": "task",
           "id": "feedback",
           "title": "Beobachtung prüfen · 10 Minuten",
-          "text": "Zeige einer Partnerperson oder der Lehrperson dein Wiederöffnen aus dem Zielordner. Die Person fragt: „Woran erkennst du den Ort?“ und „Welche Beobachtung zeigt einen Netzabruf – oder wissen wir das noch nicht?“ Sie braucht keinen fremden Zugang.",
-          "prompt": "Überarbeite genau eine unklare Stelle: Ergänze eine beobachtete Handlung oder ersetze eine unbewiesene Aussage durch „noch nicht geprüft“. Begründe die Änderung.",
+          "text": "Zeige deinen Vergleich am Gerät. Die andere Person fragt: „Woran erkennst du den Ort?“ und „Was belegt die neue Kennung – oder was bleibt offen?“ Sie braucht keinen fremden Zugang.",
+          "prompt": "Verbessere eine unklare Stelle direkt in deinem Vergleich. Ergänze eine Beobachtung oder kennzeichne „noch nicht geprüft“. Erkläre kurz deine Änderung.",
           "help": [
             {
               "title": "Noch keine zwei nutzbaren Orte?",
@@ -728,7 +810,8 @@
               "knowledge": "speicher",
               "label": "Passendes Wissen öffnen"
             }
-          ]
+          ],
+          "responseMode": "oral"
         }
       ],
       "materialNeeds": [

@@ -6,3 +6,29 @@ body.lw-mantel{
 }
 @media print{.lw-mantel[data-lw-area="netze"] .lw-sheet .lw-content-block>p:has(>b){break-inside:avoid}}
 @media print{.lw-mantel[data-lw-page="baustein-transfer.html"] .lw-sheet .lw-self-check>div>p{display:none}}
+
+/* M02: Schreibraum nach Aufgabe und zusammenhängende Papierabschnitte. */
+@media print{
+ .lw-mantel[data-lw-area="suche"] .lw-sheet .lw-self-check>div>p{display:none}
+ .lw-mantel[data-lw-area="suche"] .lw-sheet .lw-self-check{margin:3mm 0;padding:2mm}
+ .lw-mantel[data-lw-area="suche"] .lw-sheet .lw-block-task,.lw-mantel[data-lw-area="suche"] .lw-sheet .lw-block-example{break-inside:avoid}
+ .lw-mantel[data-lw-area="suche"] .lw-sheet .lw-content-block>p:has(>b){break-inside:avoid;break-after:avoid}
+ .lw-mantel[data-lw-area="suche"] .lw-sheet .lw-answer-space{min-height:45mm}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-block-task{break-before:page}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-answer-space{min-height:80mm}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-revision.html"] .lw-sheet .lw-answer-space{min-height:60mm}
+ .lw-mantel[data-lw-area="suche"] .lw-sheet .lw-device-followup{break-before:page}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-transfer.html"] .lw-sheet .lw-block-task:first-of-type .lw-answer-space{min-height:40mm}
+}
+
+@media print{
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-block-task:nth-of-type(4){break-before:page}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-block-task:nth-of-type(3) .lw-answer-space{display:none}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-block-task:nth-of-type(3) td{height:14mm}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-block-task:nth-of-type(4) .lw-answer-space{min-height:60mm}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-interessen.html"] .lw-sheet .lw-block-task{break-before:page}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-interessen.html"] .lw-sheet .lw-answer-space{min-height:85mm}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-revision.html"] .lw-sheet .lw-completion{display:none}
+ .lw-mantel[data-lw-area="suche"][data-lw-print="solutions"] .lw-sheet .lw-answer-space{min-height:0;height:0;border:0;margin:0}
+}
+

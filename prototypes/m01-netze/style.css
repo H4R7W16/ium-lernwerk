@@ -1,5 +1,45 @@
 .net-tool,.net-paper{border:1px solid var(--lw-line);border-radius:16px;padding:clamp(12px,3vw,28px);margin:20px 0;background:var(--lw-soft)}.net-graph{display:block;width:100%;height:auto;max-width:780px;margin:auto;font-family:inherit}.net-cut{font-weight:800;fill:#92351d;font-size:24px;paint-order:stroke;stroke:#fff;stroke-width:3px}.net-edges{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.net-tool label{display:block;margin:12px 0}.net-tool input[type=checkbox]{width:22px;height:22px;vertical-align:middle;margin-right:10px}.net-tool button{margin:8px 8px 8px 0;min-height:44px}.net-tool fieldset{border:0;padding:0}.net-tool legend{font-weight:700}.net-tool textarea{width:100%;box-sizing:border-box}.net-tool select{min-height:44px;max-width:100%}.net-tool :focus-visible{outline:3px solid var(--lw-blue);outline-offset:4px}.net-state{font-size:.88rem}#net-records article{border-top:1px solid var(--lw-line);padding:16px 0}#net-message{padding:12px;background:#fff;border-left:4px solid var(--lw-blue)}.net-paper{break-inside:auto}.net-paper .net-graph{max-height:230px}@media print{.net-paper{background:white;border-color:#777;padding:8px}.net-paper .net-graph{max-height:180px}.net-graph{break-inside:avoid}}
 
-/* Lesbares Netz auf schmalen Geräten, ohne die Seite zu verbreitern. */
-#net-diagram{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}.net-tool .net-graph{min-width:640px}.net-scroll-hint{font-size:.9rem}
 @media print{@page{size:A4;margin:12mm}.lw-mantel[data-lw-area="netze"] .lw-answer-space{height:32mm;min-height:32mm;break-inside:avoid;border:1px solid #999;margin:4mm 0}.lw-mantel[data-lw-page="baustein-transfer.html"] .lw-answer-space{height:65mm;min-height:65mm}.lw-mantel[data-lw-area="netze"] .lw-answer-space::before{content:"Platz für deine Skizze / Erklärung";display:block;font-size:9pt;color:#555;padding:2mm}.net-paper .net-graph{max-height:65mm}.net-scroll-hint{display:none}}
+
+/* Einstellungen und Ausführung: Netz und Wegwahl bleiben zusammen. */
+#net-settings{margin:12px 0 20px;background:#fff;border:1px solid var(--lw-line);border-radius:12px;padding:12px}
+#net-settings>summary{font-weight:700;cursor:pointer;min-height:32px}
+#net-settings[open]>summary{margin-bottom:16px}
+.net-workbench{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(235px,1fr);gap:20px;align-items:start;scroll-margin-top:12px}
+.net-map,.net-play{min-width:0}
+.net-tool .net-graph{width:100%;min-width:0;max-width:500px}
+.net-legend{font-size:.88rem;line-height:1.45;margin:6px 0}
+.net-connections{font-size:.88rem;margin:8px 0}
+#net-trial{font-size:.86rem;line-height:1.4;margin:0 0 10px}
+#net-message{margin:0 0 10px;line-height:1.4}
+.net-actions{display:grid;grid-template-columns:1fr;gap:8px}
+.net-tool .net-actions button{margin:0;padding:10px 12px;width:100%;line-height:1.25;text-align:left}
+#net-path{font-size:.88rem;line-height:1.4;margin:10px 0}
+#net-current-trace,#net-history{margin-top:18px}
+#net-records article>ol{font-size:.9rem}
+.lw-device-followup{border-left:4px solid var(--lw-blue);padding:8px 16px;margin:20px 0;background:var(--lw-soft)}
+@media(max-width:850px){
+ .net-workbench{grid-template-columns:1fr;gap:10px}
+ .net-map{max-width:440px;width:100%;margin:auto}
+ .net-tool .net-graph{max-height:220px}
+ .net-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .net-actions button:last-child:nth-child(odd){grid-column:1/-1}
+ .net-legend{font-size:.8rem}
+ .net-connections{margin:4px 0}
+ #net-message{font-size:.95rem}
+}
+@media(max-width:420px){
+ .net-tool{padding:10px}
+ .net-workbench{gap:8px;scroll-margin-top:6px}
+ .net-tool .net-graph{max-height:180px}
+ .net-tool .net-actions button{font-size:.88rem;padding:9px 8px;min-height:44px}
+}
+@media print{.net-workbench{display:none}}
+
+@media print{.lw-device-followup{break-inside:avoid;padding:2mm 3mm;margin:3mm 0}.lw-mantel[data-lw-area="netze"] .lw-content-figure{max-width:105mm}.lw-mantel[data-lw-area="netze"] .lw-content-figure img{max-height:70mm}}
+/* Das Speicherblatt nennt Ziel und Antwortwege bereits am Anfang. */
+@media print{
+ .lw-mantel[data-lw-area="netze"][data-lw-page^="baustein-speichern"] .lw-self-check>div>p{display:none}
+ .lw-mantel[data-lw-area="netze"][data-lw-page^="baustein-speichern"] .lw-self-check{padding:2mm 3mm;margin:3mm 0}
+}

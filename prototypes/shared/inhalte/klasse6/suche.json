@@ -1,0 +1,1172 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M02-SUCHE",
+  "area": "suche",
+  "grade": 6,
+  "version": "1.0.2",
+  "family": "content",
+  "topic": "Suchen und Quellen prüfen",
+  "title": "Acht oder neun – was ist belegt?",
+  "description": "Zwei seriöse Seiten scheinen sich zu widersprechen. Du baust ein Suchregister, recherchierst selbst und prüfst, welche Aussage zu deiner Frage passt. Auch eine KI-Antwort kommt auf den Prüfstand.",
+  "product": "Deine Quellenakte: ein eigener Indexversuch, ein echter Suchweg, ein begründetes Quellenurteil und eine belegte Korrektur. Am Ende löst du einen neuen Fall.",
+  "prerequisites": [
+    "Browser am Schulgerät oder Papier und Stift. Für die echte Recherche brauchst du Internet und einen von der Schule erlaubten Suchdienst.",
+    "Du musst nichts über Planeten wissen. Kurze Übersetzungen und Hilfen sind dabei. Private Konten sind nicht nötig."
+  ],
+  "teacher": [
+    "M02 verbindet Suchmodell und Quellenurteil. Ein Ergebnis in einer Fundliste belegt noch keine Wahrheit. Quellen werden für eine bestimmte Frage beurteilt; ein alter Bericht ist nicht schon eine Falschmeldung.",
+    "Lassen Sie erst selbst vermuten und begründen. Offene Vergleichslösungen dienen der Überarbeitung; abgeschriebene Lösungen belegen kein eigenständiges Können. Echte Recherche und schriftliche Quellenprüfung getrennt dokumentieren."
+  ],
+  "duration": "225 Kernminuten = fünf UE. Vorher 6 Minuten M01-Abruf aus dem Jahreskonto. M02 später 8 Minuten vor M03 und 8 Minuten vor M07 aus seinem 16-Minuten-Anteil. Jahreszeit Klasse 6 unbestätigt.",
+  "learnerDuration": "Fünf Unterrichtsstunden. Zu Beginn erinnerst du dich kurz an M01; zwei kurze Wiederaufnahmen folgen später.",
+  "curriculum": {
+    "moduleId": "G6-M02",
+    "goalIds": [
+      "3.1.2.1(1)",
+      "3.1.2.1(2)",
+      "3.1.2.1(3)",
+      "3.1.2.1(4)",
+      "3.1.2.2(1)",
+      "3.1.2.2(2)",
+      "3.1.2.2(3)",
+      "3.1.2.2(4)",
+      "3.1.2.2(5)",
+      "3.1.2.2(6)",
+      "3.1.2.2(7)",
+      "3.1.2.2(8)"
+    ],
+    "source": "curriculum",
+    "scope": "Projektplanung nach Anhörungsfassung 21.09.2026. Informationsgewinnung, Indexsuche, Quellenkriterien, Akteure, Motive, Interessenkonflikte, Automatisierung und Nutzen/Grenzen KI-generierter Recherche. Prozessbezug: 2.2(1), 2.2(5), 2.6(5). Kein Nachweis bereits erworbener Kompetenz."
+  },
+  "sources": [
+    {
+      "id": "curriculum",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Grundlage der aktiven Projektplanung 5/6; Jahrgangszuordnung und Zeitrahmen sind Projektentscheidungen."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Unterrichtsmaterialien",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und erfundene Fälle: CC BY-SA 4.0",
+      "checked": "2026-10-04",
+      "note": "Erfundene Fälle mit ausdrücklich festgelegten Bedingungen; diese Fassung zunächst lokal."
+    },
+    {
+      "id": "nasa-alt",
+      "title": "NASA: New Horizons startet · 19.01.2006",
+      "author": "NASA",
+      "url": "https://www.nasa.gov/news-release/nasas-pluto-mission-launched-toward-new-horizons/",
+      "checked": "2026-10-04",
+      "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
+      "note": "Quelle A; Fundstelle: Zitat von Colleen Hartman. Eigene Übersetzung des kurzen englischen Auszugs."
+    },
+    {
+      "id": "iau",
+      "title": "IAU: Pluto und die Einteilung des Sonnensystems",
+      "author": "International Astronomical Union; Archiv bei ESO",
+      "url": "https://iauarchive.eso.org/public/themes/pluto/",
+      "checked": "2026-10-04",
+      "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
+      "note": "Quelle B; FAQ und Abschnitt The definition of a dwarf planet. Kein eindeutiger Veröffentlichungstag ausgewiesen; Abrufdatum ist kein Veröffentlichungsdatum."
+    },
+    {
+      "id": "nasa-heute",
+      "title": "NASA: Pluto Facts",
+      "author": "NASA Science",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "checked": "2026-10-04",
+      "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
+      "note": "Quelle C zur zusätzlichen Gegenprüfung; Abschnitt Introduction. Die zwei NASA-Seiten sind keine zwei unabhängigen Institutionen."
+    },
+    {
+      "id": "suchtechnik",
+      "title": "Wie die Google-Suche funktioniert",
+      "author": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+      "checked": "2026-10-04",
+      "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
+      "note": "Technische Grundlage. Das eigene Kartenmodell vereinfacht radikal und bildet keine Google-Rangfolge ab."
+    }
+  ],
+  "media": [
+    {
+      "id": "indexbild",
+      "kind": "image",
+      "title": "Dokument, Register und Fundliste",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "file": "assets/suche/indexweg.svg",
+      "sourceId": "eigen",
+      "alt": "Drei Stationen: Dokumentkarten werden erfasst und ergeben das Wortregister. Eine Suchanfrage prüft das Register und ergibt die Fundliste. Eine geänderte Karte muss erst neu erfasst werden; sie ändert das alte Register nicht sofort.",
+      "caption": "Das Register liegt zwischen den Texten und der Fundliste. Eine Änderung muss erst dort ankommen."
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "index",
+      "title": "Wie sucht ein Index?",
+      "paragraphs": [
+        "Ein Index ist ein vorbereitetes Register. Er verbindet Suchwörter mit Dokumenten, in denen sie vorkommen. Bei einer Anfrage muss die Suche dadurch nicht jedes Dokument neu vollständig lesen.",
+        "Im Kartenmodell erstellst du das Register selbst. Du liest jede Karte, notierst ihre Wörter und ordnest die Dokumentnummern zu. Bei einer UND-Anfrage vergleichst du die Wortlisten: Ein Treffer muss in allen gefragten Listen vorkommen.",
+        "Wird ein Text geändert, ist das alte Register zunächst unverändert. Erst beim erneuten Erfassen und Aktualisieren gelangen die Änderungen in den Index."
+      ],
+      "example": "Im unveränderten Kartenmodell steht Raumsonde bei D1 und D3. Für Pluto UND Raumsonde bleibt nur D1 in beiden Wortlisten.",
+      "boundary": "Echte Suchmaschinen erfassen viel mehr als vier Karten und nutzen viele Merkmale für ihre Rangfolge. Unser Modell kennt weder Synonyme noch eine Rangfolge. Seine UND-Regel ist keine vollständige Beschreibung jeder echten Suchanfrage.",
+      "steps": [
+        "index",
+        "abruf-index"
+      ],
+      "sources": [
+        "suchtechnik",
+        "eigen"
+      ],
+      "media": [
+        "indexbild"
+      ]
+    },
+    {
+      "id": "suchgrenze",
+      "title": "Was beweist ein Treffer – und was nicht?",
+      "paragraphs": [
+        "Ein Treffer zeigt zunächst, dass ein Dokument nach den Regeln der Suche zur Anfrage passt. Er ist keine Bescheinigung, dass alle Aussagen im Dokument stimmen.",
+        "Kein Treffer heißt nicht, dass es den gesuchten Gegenstand nicht gibt. Vielleicht fehlen Seiten im Register, der Index ist veraltet oder deine Wörter passen nicht.",
+        "Auch ein funktionierender Weg im Netz belegt noch keine zugängliche Datei. In beiden Fällen muss man unterscheiden, was das Modell zeigt und was man zusätzlich wirklich prüfen muss."
+      ],
+      "example": "Das Modellregister enthält das Wort Stern nicht. Eine Suche danach liefert nichts, obwohl Sterne existieren.",
+      "boundary": "Unser kleines Modell beweist keine Häufigkeiten oder Geschwindigkeiten im Internet. Eine beobachtete Fundliste ist außerdem kein vollständiger Überblick über alles Wissen.",
+      "steps": [
+        "index",
+        "bruecke"
+      ],
+      "sources": [
+        "suchtechnik",
+        "eigen"
+      ]
+    },
+    {
+      "id": "quellenurteil",
+      "title": "Wie begründe ich Vertrauen?",
+      "paragraphs": [
+        "Beginne mit deiner Frage: Was genau möchtest du wissen? Prüfe dann Herkunft, Zuständigkeit, zeitlichen Bezug und eine passende Belegstelle. Ist die Aussage nachvollziehbar und passt sie zu überprüftem Vorwissen? Ein unerwartetes Ergebnis ist Anlass zum Prüfen, nicht automatisch falsch.",
+        "Eine Quelle kann für eine Frage gut und für eine andere ungeeignet sein. Eine historische Nachricht zeigt, was damals berichtet wurde. Eine Aussage über heute braucht eine passende zeitliche Grundlage.",
+        "Unterscheide: Ein Text behauptet etwas; eine bestimmte Fundstelle stützt eine Aussage; du begründest daraus ein Urteil. Sage, wenn etwas offenbleibt. Zähle Kopien nicht als unabhängige Belege."
+      ],
+      "example": "Ein Schulplan vom letzten Jahr kann belegen, wann die Schule damals begann. Für den morgigen Unterricht brauche ich den jetzt geltenden Plan dieser Schule.",
+      "boundary": "Weder ein berühmter Name noch ein neues Datum, viele Treffer oder eine sichere Formulierung garantieren allein eine richtige Antwort. Auch eine offizielle Seite muss zur konkreten Frage passen.",
+      "steps": [
+        "einstieg",
+        "quellen",
+        "revision",
+        "transfer"
+      ],
+      "sources": [
+        "eigen"
+      ]
+    },
+    {
+      "id": "belege",
+      "title": "Wie wird eine Aussage nachprüfbar?",
+      "paragraphs": [
+        "Notiere Seitentitel, verantwortliche Person oder Organisation, vollständige URL, erkennbares Textdatum und dein Abrufdatum getrennt. Fehlt eine Angabe, kennzeichne das.",
+        "Eine Fundstelle führt zur konkreten Aussage: etwa Überschrift und Absatzanfang. Halte die Aussage knapp in eigenen Worten fest. Ein kurzer wörtlicher Auszug steht in Anführungszeichen; eine Übersetzung wird als solche bezeichnet.",
+        "Prüfe, ob die Quelle genau deinen Schluss trägt. Eine Seite über eine andere Einrichtung oder einen anderen Zeitraum beantwortet deine Frage möglicherweise nicht."
+      ],
+      "example": "„Die Bibliotheksleitung am Park, Regeln 2026/27, Abschnitt Leihfrist: 14 Tage“ lässt sich im bereitgestellten Fall prüfen. „Steht im Internet“ lässt die Belegstelle offen.",
+      "boundary": "Mehrere Seiten können von derselben Ausgangsquelle abhängen. Gleiche Aussagen sind erst dann unabhängige Belege, wenn ihre Grundlage entsprechend geprüft ist.",
+      "steps": [
+        "quellen",
+        "recherche",
+        "ki",
+        "revision",
+        "transfer",
+        "abruf-quellen"
+      ],
+      "sources": [
+        "eigen"
+      ]
+    },
+    {
+      "id": "recherchieren",
+      "title": "Wie verbessere ich meine Suchanfrage?",
+      "paragraphs": [
+        "Formuliere zuerst die Frage. Wähle wenige Begriffe, die ihren Gegenstand und den entscheidenden Zusammenhang nennen. Lies die Fundliste: Beantworten die Titel und Kurztexte wirklich diese Frage?",
+        "Öffne geeignete Originalseiten. Reichen die Ergebnisse nicht, präzisiere ein Wort oder ergänze etwa eine zuständige Einrichtung, einen Zeitraum oder den gesuchten Zusammenhang. Halte den Grund der Änderung fest.",
+        "Ein Suchdienst kann Werbung oder automatisch erzeugte Kurzantworten zeigen. Für deine Belege brauchst du die passende Stelle der Originalseite. Wenn du nicht weiterkommst, nutze die Hilfslinks und kennzeichne die Hilfe."
+      ],
+      "example": "Für Öffnungszeiten einer Bibliothek helfen ihr genauer Name und die Frage nach dem passenden Tag mehr als nur „Bücher“.",
+      "boundary": "Die Ergebnisse können sich je nach Suchdienst, Sprache, Gerät oder Zeitpunkt unterscheiden. Es gibt deshalb keine vorgeschriebene Trefferposition. Ohne echte Suche bleibt der Praxisnachweis offen.",
+      "steps": [
+        "recherche"
+      ],
+      "sources": [
+        "suchtechnik",
+        "eigen"
+      ]
+    },
+    {
+      "id": "interessen",
+      "title": "Warum werden Inhalte veröffentlicht?",
+      "paragraphs": [
+        "Informationen veröffentlichen oder verbreiten zum Beispiel Fachorganisationen, Unternehmen, Medienredaktionen, Vereine und einzelne Menschen. Programme können Handlungen in ihrem Auftrag ausführen.",
+        "Mögliche Motive sind anderen helfen, informieren, Aufmerksamkeit gewinnen, Geld verdienen oder Meinungen beeinflussen. Begründe eine Vermutung mit erkennbaren Hinweisen. Mehrere Motive können gleichzeitig wirken.",
+        "Ein Interessenkonflikt liegt vor, wenn Ziele einander behindern können: Eine genaue Prüfung könnte einen Verkauf erschweren. Das Motiv ist ein Anlass zur sorgfältigen Prüfung, kein Beweis für eine Lüge."
+      ],
+      "example": "Ein Shop verkauft ein Poster und möchte gleichzeitig fachlich richtig informieren. Wenn das Poster eine überholte Einteilung zeigt, können diese Ziele kollidieren.",
+      "boundary": "Eine Werbung kann eine richtige Angabe enthalten. Ein Beitrag mit Hilfsabsicht kann sich irren. Prüfe deshalb Aussage und Beleg zusätzlich zum Motiv.",
+      "steps": [
+        "interessen",
+        "abruf-quellen"
+      ],
+      "sources": [
+        "eigen"
+      ]
+    },
+    {
+      "id": "automatisch",
+      "title": "Was kann automatisch geschehen?",
+      "paragraphs": [
+        "Erzeugen: Ein Programm stellt einen Text oder ein Bild her. Veröffentlichen: Ein vorbereiteter Beitrag erscheint etwa durch einen Zeitplan. Weiterverbreiten: Ein Programm teilt einen vorhandenen Beitrag auf weiteren Kanälen.",
+        "Diese Vorgänge sind verschieden. Ein von Menschen geschriebener richtiger Text kann automatisch veröffentlicht werden. Ein erzeugter Text kann von Menschen geprüft und erst danach veröffentlicht werden."
+      ],
+      "example": "Im erfundenen Sternblick-Fall sind Textgenerator, Zeitplan und automatisches Teilen ausdrücklich beschrieben. Nur deshalb kannst du die Vorgänge sicher zuordnen.",
+      "boundary": "Gleiche Texte und gleiche Zeitpunkte allein beweisen nicht, wie sie entstanden sind. Automatisierung ist kein Wahrheitskriterium.",
+      "steps": [
+        "interessen"
+      ],
+      "sources": [
+        "eigen"
+      ]
+    },
+    {
+      "id": "ki",
+      "title": "Wobei hilft KI – und wo muss ich prüfen?",
+      "paragraphs": [
+        "KI kann bei einer Recherche zum Beispiel Suchwörter vorschlagen, Fragen ordnen oder eine Übersicht entwerfen. Das kann einen Einstieg erleichtern.",
+        "Eine flüssige Antwort kann trotzdem falsche Schlüsse, unbelegte Angaben oder unpassende Quellen enthalten. Prüfe wichtige Aussagen einzeln. Öffne die angeführte Quelle und kontrolliere, ob sie gerade diese Aussage stützt.",
+        "Der vorbereitete Übungstext enthält absichtlich Fehler. Daraus lässt sich keine allgemeine Fehlerquote ableiten. Du musst für diese Aufgabe kein KI-Konto anlegen oder eigene Prompts absenden."
+      ],
+      "example": "Eine KI schlägt den Namen einer zuständigen Einrichtung als Suchwort vor: Das kann nützlich sein. Wenn sie daraus bereits eine Sachantwort macht, fehlt noch der geprüfte Beleg.",
+      "boundary": "Ein plausibel aussehender Link beweist die Aussage nicht. Ein heute geöffneter alter Text wird durch den Abruf nicht aktuell.",
+      "steps": [
+        "ki",
+        "abruf-index"
+      ],
+      "sources": [
+        "eigen"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "bruecke",
+      "title": "Kurz zurück zu M01",
+      "goal": "Erinnere dich ohne Nachlesen: Was beweist ein möglicher Weg im Netz?",
+      "task": "Erinnere dich ohne Nachlesen: Was beweist ein möglicher Weg im Netz?",
+      "outcome": "Ich trenne erreichbaren Weg und tatsächliche Antwort.",
+      "knowledge": [
+        "suchgrenze"
+      ],
+      "criteria": [
+        "Ich trenne erreichbaren Weg und tatsächliche Antwort."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "title": "6 Minuten vor M02",
+          "text": "Ein Gerät hat im Modell einen Weg zum Schulserver. Trotzdem lässt sich eine Datei nicht öffnen.",
+          "id": "m01",
+          "when": "Zu Beginn von M02; 6 Minuten aus M01s Jahresabrufkonto, außerhalb der 225 Minuten.",
+          "prompt": "Nenne zwei mögliche Gründe. Welche reale Prüfung hilft dir, einen davon zu klären?",
+          "solution": "Ein erreichbarer Weg genügt nicht: Dienst, Datei, Berechtigung oder Anmeldung können fehlen. Zum Beispiel die erlaubte Datei aus dem angegebenen Schulordner tatsächlich öffnen und die angezeigte Meldung festhalten. Ein Modell bestätigt keinen echten Zugriff.",
+          "links": [
+            {
+              "href": "../netze/wissen.html",
+              "label": "Nach dem Erinnern: M01-Wissen"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft; Lösungen zunächst geschlossen lassen."
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du noch nicht sicher bist",
+          "text": "Zeige eine konkrete Stelle in deiner Antwort. Was ist beobachtet oder belegt, was nur vermutet? Nutze das passende Wissen und verbessere diese Stelle."
+        }
+      ]
+    },
+    {
+      "id": "einstieg",
+      "title": "Ein Treffer, zwei Möglichkeiten",
+      "goal": "Halte eine erste Vermutung fest und mache daraus eine prüfbare Frage.",
+      "task": "Halte eine erste Vermutung fest und mache daraus eine prüfbare Frage.",
+      "outcome": "Ich notiere Vorwissen als Vermutung. Ich formuliere, was ich prüfen will.",
+      "knowledge": [
+        "quellenurteil"
+      ],
+      "criteria": [
+        "Ich notiere Vorwissen als Vermutung.",
+        "Ich formuliere, was ich prüfen will."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Ein Plakat für die Klasse",
+          "text": "Auf dem Plakat soll stehen, wie viele Planeten nach der Einteilung der IAU zu unserem Sonnensystem gehören. Die IAU ist eine internationale Vereinigung von Fachleuten für Astronomie. Sam findet einen NASA-Bericht von 2006: Darin wird Pluto als neunter Planet bezeichnet. Alex hat von acht Planeten gehört. Beide wollen ihre Antwort belegen.",
+          "paragraphs": [
+            "NASA ist die US-Raumfahrtbehörde. Für dieses Thema brauchst du keine Planetenliste auswendig zu kennen. Du untersuchst, welche Aussage für die Frage brauchbar ist."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Deine erste Spur",
+          "text": "Sam sagt: „NASA ist bekannt, also schreibe ich neun.“ Alex sagt: „Acht steht viel häufiger im Internet.“",
+          "id": "vermutung",
+          "prompt": "Welche Antwort vermutest du? Was müsste eine Quelle zeigen, damit du ihr für das Plakat vertraust? Formuliere eine Prüffrage.",
+          "responseHint": "Drei kurze Sätze genügen. Deine Vermutung darf sich später ändern.",
+          "help": [
+            {
+              "title": "Ein Anfang",
+              "text": "Ich vermute …, weil … . Prüfen möchte ich, ob … ."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "So entsteht deine Quellenakte",
+          "text": "Zuerst findest du heraus, wie ein Suchregister arbeitet. Danach prüfst du kurze echte Quellen und recherchierst selbst. Du untersuchst Interessen, korrigierst eine vorbereitete KI-Antwort und überarbeitest dein Urteil. Das Ziel ist eine nachvollziehbare Begründung."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft; Lösungen zunächst geschlossen lassen."
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du noch nicht sicher bist",
+          "text": "Zeige eine konkrete Stelle in deiner Antwort. Was ist beobachtet oder belegt, was nur vermutet? Nutze das passende Wissen und verbessere diese Stelle."
+        }
+      ]
+    },
+    {
+      "id": "index",
+      "title": "Baue ein Suchregister",
+      "goal": "Erkläre mit einem eigenen Versuch, warum eine Suche diese Treffer liefert.",
+      "task": "Erkläre mit einem eigenen Versuch, warum eine Suche diese Treffer liefert.",
+      "outcome": "Mein Register ordnet Wörter den richtigen Dokumenten zu. Ich sage die Folgen meiner eigenen Änderung vor der Prüfung voraus. Ich unterscheide Dokumentänderung und Indexaktualisierung. Ich erkläre eine Grenze mit einem Beispiel.",
+      "knowledge": [
+        "index",
+        "suchgrenze"
+      ],
+      "criteria": [
+        "Mein Register ordnet Wörter den richtigen Dokumenten zu.",
+        "Ich sage die Folgen meiner eigenen Änderung vor der Prüfung voraus.",
+        "Ich unterscheide Dokumentänderung und Indexaktualisierung.",
+        "Ich erkläre eine Grenze mit einem Beispiel."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Vier Dokumentkarten für ein Modell",
+          "text": "Die Karten sind erfundene kurze Texte. Sie sind keine Quellen über Astronomie. Ein Index ist ein Register: Zu jedem Wort steht, in welchen Dokumenten es vorkommt.",
+          "table": {
+            "headers": [
+              "Dokument",
+              "Vollständiger Kartentext"
+            ],
+            "rows": [
+              [
+                "D1",
+                "Pluto Raumsonde Forschung"
+              ],
+              [
+                "D2",
+                "Pluto Zwergplanet Sonne"
+              ],
+              [
+                "D3",
+                "Mars Planet Raumsonde"
+              ],
+              [
+                "D4",
+                "Pluto Zeichnung Ausstellung"
+              ]
+            ]
+          },
+          "items": [
+            "Übernimm jedes vollständige Wort. Groß- und Kleinschreibung spielen keine Rolle. „Planet“ und „Zwergplanet“ sind verschiedene Wörter.",
+            "Bei zwei Suchwörtern gilt in diesem Modell UND: Nur Dokumente, die bei beiden Wörtern stehen, werden gefunden.",
+            "Gesucht wird im zuletzt erstellten Register. Eine Änderung am Dokument steht erst nach einer Aktualisierung im Register. Es gibt keine Rangfolge."
+          ],
+          "media": [
+            "indexbild"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Ein vollständig vorgemachter Suchlauf",
+          "text": "Die Frage lautet: Welche Karten nennen Pluto UND Raumsonde?",
+          "paragraphs": [
+            "1. Register lesen: Pluto → D1, D2, D4; Raumsonde → D1, D3.",
+            "2. Vorhersage: Nur D1 steht in beiden Listen.",
+            "3. Prüfung: Die Listen überschneiden sich bei D1. Auf Karte D1 stehen beide Wörter. D3 fehlt Pluto.",
+            "4. Erklärung: D1 erfüllt die Suchregel. Das ist noch keine Wahrheitsprüfung."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "register",
+          "title": "Dein Wortregister",
+          "text": "Erstelle nun selbst das vollständige Register für die vier unveränderten Karten. Notiere zu jedem Wort alle passenden Dokumentnummern.",
+          "prompt": "Mein vollständiges Register: Wort → Dokumentnummern",
+          "responseHint": "Ordne jedem Wort alle Dokumentnummern zu. Auf Papier kannst du direkt in die neun Felder schreiben; digital nutzt du das Antwortfeld.",
+          "help": [
+            {
+              "title": "Ein Startpunkt",
+              "text": "Beginne mit einer Karte. Jedes Wort erhält eine Zeile. Taucht es auf der nächsten Karte wieder auf, ergänzt du deren Nummer in derselben Zeile."
+            }
+          ],
+          "responseTable": {
+            "headers": [
+              "Wort → Dokumente",
+              "Wort → Dokumente",
+              "Wort → Dokumente"
+            ],
+            "rows": [
+              [
+                "Pluto → …",
+                "Raumsonde → …",
+                "Forschung → …"
+              ],
+              [
+                "Zwergplanet → …",
+                "Sonne → …",
+                "Mars → …"
+              ],
+              [
+                "Planet → …",
+                "Zeichnung → …",
+                "Ausstellung → …"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "task",
+          "title": "Dein Eingriff",
+          "text": "Wähle D2 oder D4. Ersetze dort selbst ein Wort durch „Raumsonde“. Lass dein altes Register zunächst stehen.",
+          "id": "versuch",
+          "items": [
+            "Schreibe die geänderte Karte auf. Notiere VOR dem Nachschlagen zwei Vorhersagen zur Anfrage „Pluto Raumsonde“: Was findet das alte Register? Was erwartest du nach seiner Aktualisierung?",
+            "Prüfe beide Vorhersagen anhand deiner Wortlisten. Aktualisiere die betroffenen Registereinträge. Halte beide Fundlisten und eine Erklärung fest.",
+            "Stelle eine andere Anfrage mit zwei Wörtern an dein geändertes Register. Schreibe auf, welche Karten gefunden werden und warum.",
+            "Suche im Register nach „Stern“. Was darfst du aus keinem Treffer schließen – und was nicht?"
+          ],
+          "prompt": "Geänderte Karte · zwei Vorhersagen · zwei geprüfte Fundlisten · aktualisierte Einträge · Erklärung · eigene Anfrage · Grenze",
+          "responseHint": "Halte hier deinen Versuch fest. Das Ausgangsregister bleibt bei der vorigen Aufgabe erhalten. Schreibe die Vorhersagen vor den Ergebnissen auf.",
+          "help": [
+            {
+              "title": "Der nächste kleine Schritt",
+              "text": "Für „Mars“ gibt es nur D3. Suche dann in jeder Karte nach dem nächsten Wort. Streiche bei deiner Änderung die alte Zuordnung erst im aktualisierten Register."
+            },
+            {
+              "title": "Wenn der Versuch schon leicht ist",
+              "text": "Wähle eine Änderung, bei der die Anfrage trotz des neuen Wortes keinen zusätzlichen Treffer liefert. Erkläre, warum beide Bedingungen nötig sind."
+            }
+          ],
+          "solution": "Beispielvariante: D4 wird zu „Pluto Raumsonde Ausstellung“. Das alte Register liefert weiterhin D1. Im aktualisierten Register steht Raumsonde bei D1, D3 und D4; Pluto bei D1, D2 und D4. Die gemeinsame Liste ist D1, D4. Andere zulässige Änderungen können andere Treffer ergeben. „Stern“ fehlt im kleinen Register; das beweist nicht, dass es keine Sterne gibt. Eine eigene Anfrage muss am tatsächlich geänderten Register geprüft werden."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft; Lösungen zunächst geschlossen lassen."
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du noch nicht sicher bist",
+          "text": "Zeige eine konkrete Stelle in deiner Antwort. Was ist beobachtet oder belegt, was nur vermutet? Nutze das passende Wissen und verbessere diese Stelle."
+        }
+      ]
+    },
+    {
+      "id": "quellen",
+      "title": "Lies den Widerspruch genau",
+      "goal": "Vergleiche zwei echte Quellen für die Plakatfrage und formuliere ein vorläufiges Urteil.",
+      "task": "Vergleiche zwei echte Quellen für die Plakatfrage und formuliere ein vorläufiges Urteil.",
+      "outcome": "Ich benenne den konkreten Widerspruch. Ich prüfe Herkunft, Zeitbezug und passende Belegstelle. Ich erkläre, wofür die ältere Quelle weiterhin brauchbar ist.",
+      "knowledge": [
+        "quellenurteil",
+        "belege"
+      ],
+      "criteria": [
+        "Ich benenne den konkreten Widerspruch.",
+        "Ich prüfe Herkunft, Zeitbezug und passende Belegstelle.",
+        "Ich erkläre, wofür die ältere Quelle weiterhin brauchbar ist."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "So prüfst du eine Angabe",
+          "text": "Vorgemachtes Beispiel mit erfundenen Schulmitteilungen: Eine alte Nachricht meldet „Bücherei heute geschlossen“. Die aktuelle Mitteilung nennt Öffnungszeiten für diese Woche.",
+          "paragraphs": [
+            "Frage: Ist die Bücherei am kommenden Dienstag offen? Ich lese bei beiden Nachrichten Datum und Zeitraum. Die alte Nachricht belegt nur die damalige Schließung. Ich prüfe in der aktuellen Mitteilung den Dienstag und wer die Zeiten veröffentlicht hat.",
+            "Mein Urteil: Für Dienstag nutze ich die zuständige aktuelle Mitteilung, sofern sie genau diese Woche meint. „Alt ist falsch“ wäre keine gute Regel. Auch eine neue Nachricht kann einen alten Text kopieren."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Quelle A · Ein Missionsstart",
+          "text": "NASA, „NASA’s Pluto Mission Launched Toward New Horizons“, 19.01.2006. Kurzer Auszug aus dem Zitat von Colleen Hartman: „the ninth planet in the solar system“. Eigene Übersetzung: „der neunte Planet im Sonnensystem“. Gemeint ist Pluto.",
+          "paragraphs": [
+            "Kontext: Die Pressemitteilung berichtet vom Start der Raumsonde New Horizons. Sie dokumentiert, wie die Mission und ihr Ziel damals beschrieben wurden."
+          ],
+          "sources": [
+            "nasa-alt"
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Quelle B · Eine fachliche Einteilung",
+          "text": "IAU, „Pluto and the Developing Landscape of Our Solar System“, archivierte IAU-Seite bei ESO. Kurzauszug aus der FAQ: „There are eight planets in our Solar System“. Eigene Übersetzung: „Es gibt acht Planeten in unserem Sonnensystem“.",
+          "paragraphs": [
+            "Sinngemäß aus dem Abschnitt zur Definition eines Zwergplaneten: Nach der Einteilung von 2006 zählt Pluto zu einer gesonderten Kategorie, den Zwergplaneten. Die IAU erläutert hier ihre eigene Einteilung.",
+            "Ein eindeutiger Veröffentlichungstag dieser Erläuterungsseite ist nicht ausgewiesen. Die beschriebene Entscheidung stammt aus 2006; die Seite wurde für das Material am 04.10.2026 geprüft."
+          ],
+          "sources": [
+            "iau"
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Dein erstes Quellenurteil",
+          "text": "Vergleiche A und B. Es geht um die Einteilung nach der IAU. Es geht nicht darum, welcher Himmelskörper dir besser gefällt.",
+          "id": "urteil",
+          "prompt": "Widerspruch · Herkunft und Zeitbezug A/B · passende Belegstelle · vorläufiges Urteil · verbleibende Frage",
+          "responseTable": {
+            "headers": [
+              "Prüfpunkt",
+              "Quelle A",
+              "Quelle B"
+            ],
+            "rows": [
+              [
+                "Wer spricht und wofür?",
+                "…",
+                "…"
+              ],
+              [
+                "Welche Zeit / Einteilung?",
+                "…",
+                "…"
+              ],
+              [
+                "Welche Aussage belegt die Stelle?",
+                "…",
+                "…"
+              ]
+            ]
+          },
+          "help": [
+            {
+              "title": "Datum und Inhalt auseinanderhalten",
+              "text": "Der Tag, an dem du eine Seite öffnest, ist ihr Abrufdatum. Suche außerdem nach dem Datum des Textes und dem Zeitpunkt des beschriebenen Ereignisses."
+            },
+            {
+              "title": "Ein Satzgerüst",
+              "text": "Für die Frage … ist … besser geeignet, weil die Stelle … zeigt. Quelle … bleibt brauchbar, wenn ich wissen möchte … ."
+            }
+          ],
+          "solution": "A nennt Pluto im Januar 2006 einen neunten Planeten. B erklärt die Einteilung von 2006 mit acht Planeten und Pluto als Zwergplanet. Das ist für die IAU-Plakatfrage passend. A ist ein brauchbarer historischer Bericht, aber kein ausreichender Beleg für die heutige Einteilung. Eine aktuelle Gegenprüfung bleibt sinnvoll; „IAU sagt es“ soll mit der konkreten Fundstelle verbunden werden."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft; Lösungen zunächst geschlossen lassen."
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du noch nicht sicher bist",
+          "text": "Zeige eine konkrete Stelle in deiner Antwort. Was ist beobachtet oder belegt, was nur vermutet? Nutze das passende Wissen und verbessere diese Stelle."
+        }
+      ]
+    },
+    {
+      "id": "recherche",
+      "title": "Suche selbst und halte den Weg fest",
+      "goal": "Führe eine echte Suche durch und prüfe die Originalseiten für die Plakatfrage.",
+      "task": "Führe eine echte Suche durch und prüfe die Originalseiten für die Plakatfrage.",
+      "outcome": "Ich habe zwei eigene Suchanfragen tatsächlich ausgeführt und die Änderung begründet. Ich habe zwei Originalseiten geöffnet und jeweils URL, Herkunft und passende Fundstelle notiert. Ich trenne Suchtreffer, Originaltext und mein Urteil.",
+      "knowledge": [
+        "recherchieren",
+        "belege"
+      ],
+      "criteria": [
+        "Ich habe zwei eigene Suchanfragen tatsächlich ausgeführt und die Änderung begründet.",
+        "Ich habe zwei Originalseiten geöffnet und jeweils URL, Herkunft und passende Fundstelle notiert.",
+        "Ich trenne Suchtreffer, Originaltext und mein Urteil."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Vom Modell zum Internet",
+          "text": "Echte Suchdienste erfassen Seiten im Voraus und suchen in ihren Registern. Sie ordnen Treffer nach vielen Merkmalen. Unsere Wortkarten erklären das Registerprinzip; echte Dienste erkennen zusätzlich Zusammenhänge und Wortvarianten. Die oberste Position und viele ähnliche Treffer beweisen keine Wahrheit.",
+          "sources": [
+            "suchtechnik"
+          ]
+        },
+        {
+          "type": "external",
+          "title": "Dein Suchweg am Schulgerät",
+          "text": "Prüfe: Welche Einordnung von Pluto begründet die IAU? Suche selbst, bevor du die Hilfslinks benutzt.",
+          "id": "suchweg",
+          "context": "device",
+          "preparation": "Lass dir den erlaubten Browser und Suchdienst nennen. Du brauchst Internet. Lass das Lernwerk in seinem Tab geöffnet. Arbeite ohne privates Konto.",
+          "action": "Formuliere eine eigene Suchanfrage. Führe sie aus und sichte die Fundliste. Verändere mindestens ein Suchwort begründet und führe auch diese Anfrage aus. Öffne zwei passende Originalseiten. Mindestens eine soll erklären, wer die Einteilung festgelegt hat und wann. Prüfe, ob beide voneinander unabhängig sind.",
+          "return": "Kehre zum Lernwerk-Tab zurück. Halte deine tatsächlichen Suchschritte und Belege fest. Fehlt Internet oder ist die Suche gesperrt, schreibe „Reale Suche noch offen“; nutze vorerst die lokalen Auszüge aus dem vorigen Schritt.",
+          "routes": [
+            {
+              "device": "ipad",
+              "title": "Am iPad",
+              "items": [
+                "Öffne im erlaubten Browser einen neuen Tab. Tippe in das Adress-/Suchfeld und gib deine erste Anfrage ein. Starte die Suche.",
+                "Lies Titel, Anbieter und Kurztexte. Öffne einen geeigneten Treffer. Prüfe jetzt die Seite selbst, nicht nur den Kurztext der Fundliste.",
+                "Tippe in die Adresszeile. Markiere die vollständige Adresse und kopiere sie mit dem Textmenü. Wechsle zum Lernwerk-Tab, berühre das Antwortfeld länger und wähle „Einsetzen“. Alternativ schreibe die Adresse ins Heft.",
+                "Wechsle zum Such-Tab zurück, ändere deine Anfrage und öffne einen zweiten passenden Treffer. Notiere den Grund für die Änderung."
+              ]
+            },
+            {
+              "device": "windows",
+              "title": "Unter Windows",
+              "items": [
+                "Öffne im erlaubten Browser einen neuen Tab. Klicke in das Adress-/Suchfeld, gib deine erste Anfrage ein und drücke Enter.",
+                "Lies Titel, Anbieter und Kurztexte. Öffne einen geeigneten Treffer und suche die passende Aussage auf der Originalseite.",
+                "Klicke in die Adresszeile, markiere die vollständige Adresse mit Strg+A und kopiere sie mit Strg+C. Wechsle zum Lernwerk-Tab und füge sie im Antwortfeld mit Strg+V ein. Alternativ schreibe die Adresse ins Heft.",
+                "Wechsle zur Fundliste zurück, ändere deine Anfrage und öffne einen zweiten passenden Treffer. Notiere den Grund für die Änderung."
+              ]
+            }
+          ],
+          "deviceFollowup": {
+            "title": "Was du wirklich prüfen musst",
+            "text": "Ein Link allein ist noch kein Beleg. Suche die Stelle, die deine Frage beantwortet.",
+            "items": [
+              "Notiere den Seitentitel und wer den Inhalt verantwortet. Eine Domain kann ein Hinweis sein; prüfe auch die Herkunftsangabe auf der Seite.",
+              "Halte das Datum des Textes fest, soweit erkennbar, und getrennt davon dein Suchdatum. Kein Datum auffindbar? Schreibe genau das.",
+              "Notiere eine kurze Aussage in eigenen Worten und die Fundstelle, etwa Überschrift plus Absatzanfang. Passt sie zur IAU-Frage?",
+              "Stammt die zweite Aussage aus einer eigenen Untersuchung oder übernimmt sie nur dieselbe Einteilung? Zwei Seiten derselben Institution sind keine zwei unabhängigen Bestätigungen."
+            ],
+            "paragraphs": [
+              "Keine Werbung anklicken, nichts kaufen oder installieren. Falls eine Seite Anmeldung verlangt oder unpassend wird, kehre zur Fundliste zurück und frage deine Lehrperson. Eine automatisch erzeugte Kurzantwort ersetzt nicht die Originalseite."
+            ]
+          },
+          "prompt": "Suchdatum und Suchdienst · Anfrage 1 → Anfrage 2 mit Grund · Quelle 1 und 2 mit URL, Herkunft, Datum, Fundstelle, Aussage · Bedeutung für mein Urteil",
+          "responseHint": "Stichwörter genügen. Behalte beide Suchanfragen, damit deine Änderung sichtbar bleibt.",
+          "help": [
+            {
+              "title": "Wenn kein brauchbarer Treffer kommt",
+              "text": "Ergänze ein Wort für die zuständige Fachorganisation oder für die Einteilung. Erkläre, warum dieses Wort deine Frage genauer macht."
+            },
+            {
+              "title": "Englische Seite lesen",
+              "text": "planet = Planet; dwarf planet = Zwergplanet; classification = Einteilung; resolution = Beschluss. Suche zunächst die passende Überschrift oder die Jahreszahl 2006. Du musst nicht die ganze Seite übersetzen."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Hilfsquelle C für die Gegenprüfung",
+          "text": "NASA Science, „Pluto Facts“, Abschnitt „Introduction“: Sinngemäß beschreibt die Seite, dass Pluto früher als neunter Planet galt und 2006 von der IAU als Zwergplanet eingeordnet wurde. Diese eigene Zusammenfassung wurde am 04.10.2026 mit dem Original verglichen.",
+          "paragraphs": [
+            "Nutze C, wenn du nicht weiterkommst oder nach deiner Suche vergleichen möchtest. Notiere dann, dass du einen Hilfslink verwendet hast. A und C kommen beide von NASA. Eine vorbereitete Quelle darf deine Sachprüfung unterstützen; sie ersetzt deine Suchhandlung nicht."
+          ],
+          "sources": [
+            "nasa-heute"
+          ],
+          "links": [
+            {
+              "href": "schritt-quellen.html",
+              "label": "Lokale Auszüge A und B"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt und Heft; Schulgerät mit Internet und freigegebenem Browser/Suchdienst."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "iPad mit freigegebenem Browser/Suchdienst und Internet; Lernwerk in einem eigenen Tab; kein privates Konto."
+        ],
+        "windows": [
+          "Windows-Schulgerät mit freigegebenem Browser/Suchdienst und Internet; Lernwerk in einem eigenen Tab; kein privates Konto."
+        ]
+      }
+    },
+    {
+      "id": "interessen",
+      "title": "Wer veröffentlicht – und wozu?",
+      "goal": "Unterscheide Motiv, Interessenkonflikt und Art der Verbreitung.",
+      "task": "Unterscheide Motiv, Interessenkonflikt und Art der Verbreitung.",
+      "outcome": "Ich nenne Akteure und begründe mögliche Motive an einem Hinweis. Ich erkläre einen Interessenkonflikt, ohne ihn als Beweis einer Lüge zu behandeln. Ich unterscheide Erzeugen, Veröffentlichen und Weiterverbreiten.",
+      "knowledge": [
+        "interessen",
+        "automatisch"
+      ],
+      "criteria": [
+        "Ich nenne Akteure und begründe mögliche Motive an einem Hinweis.",
+        "Ich erkläre einen Interessenkonflikt, ohne ihn als Beweis einer Lüge zu behandeln.",
+        "Ich unterscheide Erzeugen, Veröffentlichen und Weiterverbreiten."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Ein erfundener Veröffentlichungsfall",
+          "text": "Die folgenden Angaben sind für die Übung erfunden. Sie behaupten nichts über echte Personen oder Firmen.",
+          "table": {
+            "headers": [
+              "Akteur / Material",
+              "Beobachtbare Angaben im Fall"
+            ],
+            "rows": [
+              [
+                "Sternenshop · Anzeige",
+                "„Neun Planeten – das vollständige Poster!“ Daneben steht „Jetzt bestellen, 12 Euro“. Eine fachliche Quelle fehlt."
+              ],
+              [
+                "Wissens-AG · Schulbeitrag",
+                "Die AG verlinkt die IAU-Erläuterung und nennt die Einteilung. Sie schreibt: „Wir wollen anderen beim Lernen helfen.“"
+              ],
+              [
+                "Kanal Sternblick · drei Posts",
+                "Ein Textgenerator hat auf Auftrag des Shops drei Werbetexte erzeugt. Ein Zeitplan veröffentlicht sie um 10, 12 und 14 Uhr. Zwei weitere Kanäle teilen denselben Link automatisch."
+              ]
+            ]
+          }
+        },
+        {
+          "type": "task",
+          "title": "Prüfe die Interessen",
+          "text": "Vergleiche die drei Akteure. Du darfst ein Motiv vermuten, musst aber den Hinweis nennen.",
+          "id": "akteure",
+          "prompt": "Akteur → Motiv und Hinweis · Interessenkonflikt des Shops · Erzeugen, Veröffentlichen, Weiterverbreiten · offene Frage",
+          "items": [
+            "Erkläre am Shop, wie Verkaufsinteresse und genaue fachliche Information in Konflikt geraten können. Beweist der Preis, dass die Aussage falsch ist?",
+            "Ordne den drei Vorgängen bei Sternblick jeweils ein Verb zu: erzeugen, veröffentlichen, weiterverbreiten. Was geschieht hier automatisch?",
+            "Jemand zählt fünf Posts als fünf unabhängige Belege. Begründe deinen Einwand. Würden gleiche Texte allein beweisen, dass ein Bot beteiligt war?",
+            "Eine Sternwarte versendet automatisch eine richtige Terminankündigung. Was zeigt das über „automatisch = falsch“?"
+          ],
+          "help": [
+            {
+              "title": "Begriffe",
+              "text": "Ein Motiv ist ein möglicher Beweggrund. Ein Interessenkonflikt entsteht, wenn zwei Ziele einander behindern können. Ein Bot ist ein Programm, das Handlungen automatisch ausführt."
+            }
+          ],
+          "solution": "Shop: möglicher Profit, erkennbar an Preis und Kaufaufforderung. Die passende Einteilung könnte dem Verkauf eines alten Posters widersprechen. Das ist ein Prüfgrund, kein Lügenbeweis. Wissens-AG: genannter Hilfszweck; trotzdem Beleg prüfen. Sternblick: Inhalte per Generator erzeugt, per Zeitplan veröffentlicht, per Programm weitergeteilt. Fünf Kopien sind keine fünf unabhängigen Untersuchungen. Automatisierung ist hier durch die Fallangaben bekannt; gleiche Texte allein könnten auch von Menschen kopiert sein. Automatische Verbreitung kann richtige oder falsche Inhalte betreffen."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ]
+    },
+    {
+      "id": "ki",
+      "title": "Eine KI-Antwort unter der Lupe",
+      "goal": "Nutze brauchbare Anregungen und korrigiere unbelegte Schlussfolgerungen.",
+      "task": "Nutze brauchbare Anregungen und korrigiere unbelegte Schlussfolgerungen.",
+      "outcome": "Ich prüfe jede Aussage einzeln an einer passenden Quelle oder Regel. Ich korrigiere mindestens zwei problematische Aussagen nachvollziehbar. Ich nenne einen sinnvollen Nutzen und eine Grenze.",
+      "knowledge": [
+        "ki",
+        "belege"
+      ],
+      "criteria": [
+        "Ich prüfe jede Aussage einzeln an einer passenden Quelle oder Regel.",
+        "Ich korrigiere mindestens zwei problematische Aussagen nachvollziehbar.",
+        "Ich nenne einen sinnvollen Nutzen und eine Grenze."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Vorbereitete KI-Ausgabe · Übungstext",
+          "text": "KI-generierter Übungstext, vorbereitet am 04.10.2026: Die Ausgabe enthält eine nützliche Anregung und absichtlich eingebaute Fehler. Prüfe die Sätze einzeln. Du brauchst kein KI-Konto.",
+          "paragraphs": [
+            "1. Suche nach „Pluto IAU Einteilung 2006“ und öffne die Originalseite der zuständigen Fachorganisation.",
+            "2. Der NASA-Bericht vom 19.01.2006 belegt, dass Pluto auch heute nach der IAU-Einteilung der neunte Planet ist.",
+            "3. Wenn fünf Kanäle dieselbe Aussage kopieren, hast du fünf unabhängige Belege.",
+            "4. Öffnest du den alten Bericht heute, wird sein Inhalt dadurch aktuell."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Prüfen und verbessern",
+          "text": "Markiere jeden Satz als „brauchbare Anregung“, „belegt“, „widerlegt“ oder „noch offen“. Begründe kurz. Öffne bei Satz 2 die angeführte Quelle oder lies den Auszug A erneut.",
+          "id": "korrektur",
+          "prompt": "Satz 1–4 mit Urteil und Grund · zwei verbesserte Sätze mit Beleg/Fundstelle · Nutzen und Grenze einer KI-Antwort",
+          "responseHint": "Verweise bei der Korrektur auf Quelle A/B/C oder auf die konkreten Angaben des Verbreitungsfalls. „KI lügt“ ist keine Begründung.",
+          "help": [
+            {
+              "title": "Prüfen statt pauschal ablehnen",
+              "text": "Eine Suchanregung kann nützlich sein, ohne selbst eine Antwort zu beweisen. Bei einer Sachbehauptung fragst du: Trägt die genannte Fundstelle genau diese Aussage?"
+            }
+          ],
+          "solution": "1 ist eine brauchbare Suchanregung, noch kein Sachbeleg. 2 überträgt den historischen NASA-Bericht unzulässig auf heute; A dokumentiert die damalige Bezeichnung, B und C erklären die spätere Einteilung. 3 verwechselt Kopien mit unabhängigen Belegen. 4 verwechselt Abrufdatum mit dem Alter des Inhalts. KI kann Suchwörter und eine Ordnung vorschlagen; selbst sichere Formulierungen und passende Links garantieren keine richtige Antwort. Jede wichtige Aussage muss an der Fundstelle geprüft werden.",
+          "links": [
+            {
+              "href": "schritt-quellen.html",
+              "label": "Quellen A und B prüfen"
+            },
+            {
+              "href": "schritt-recherche.html",
+              "label": "Quelle C und dein Suchprotokoll"
+            },
+            {
+              "href": "schritt-interessen.html",
+              "label": "Veröffentlichungsfall"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Mach dein Urteil belastbar",
+      "goal": "Überarbeite deine Quellenakte nach einer konkreten Rückmeldung.",
+      "task": "Überarbeite deine Quellenakte nach einer konkreten Rückmeldung.",
+      "outcome": "Ich verbinde Urteil, Belege und die genaue Frage. Ich dokumentiere eine Rückmeldung und eine begründete Änderung. Ich kennzeichne verwendete Hilfe und einen noch offenen Nachweis.",
+      "knowledge": [
+        "quellenurteil",
+        "belege"
+      ],
+      "criteria": [
+        "Ich verbinde Urteil, Belege und die genaue Frage.",
+        "Ich dokumentiere eine Rückmeldung und eine begründete Änderung.",
+        "Ich kennzeichne verwendete Hilfe und einen noch offenen Nachweis."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zu knapp – und deshalb nicht prüfbar",
+          "text": "Beispiel für eine schwache Antwort: „Acht. Die zweite Quelle ist besser. Die KI hat Unrecht.“",
+          "paragraphs": [
+            "Es fehlen der genaue Widerspruch, die Fundstelle und der Grund. Eine hilfreiche Rückmeldung lautet: „Zeige an beiden Quellen, warum ihre Aussagen zu verschiedenen Zeitpunkten passen. Korrigiere einen bestimmten KI-Satz mit Beleg.“"
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Rückmeldung einarbeiten",
+          "text": "Lege dein erstes Quellenurteil, dein Suchprotokoll und die KI-Korrektur nebeneinander. Prüfe sie mit den vier Fragen. Eine andere Person oder deine Lehrperson kann dir zusätzlich eine konkrete Rückmeldung geben.",
+          "id": "fassung",
+          "items": [
+            "Ist klar, welche Frage ich beantworte und worin sich A/B unterscheiden?",
+            "Kann jemand meine Belege anhand von URL und Fundstelle wiederfinden? Erkläre ich, warum sie meine Aussage tragen?",
+            "Zeige ich am selbst gebauten Register, warum ein Treffer noch kein Wahrheitsbeweis ist?",
+            "Sind tatsächlich ausgeführte Recherche, Hilfe und offene Schritte ehrlich gekennzeichnet?"
+          ],
+          "prompt": "Rückmeldung (von mir / von … ohne Namen) · alte Stelle → neue Fassung · Begründung der Änderung · Hilfen und offener nächster Schritt",
+          "responseHint": "Vier bis sechs Sätze für dein überarbeitetes Urteil genügen. Ergänze die Quellenangaben. Bewahre die erste Fassung auf, damit die Änderung erkennbar bleibt. Falls die reale Suche noch offen ist, vereinbare einen Nachholtermin.",
+          "help": [
+            {
+              "title": "Schon alles passend?",
+              "text": "Lass deine Erklärung an „Die neueste Seite gewinnt immer“ prüfen. Ergänze ein eigenes Gegenbeispiel. Eine begründet bestätigte Stelle darf bleiben."
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ],
+      "completion": {
+        "title": "Deine Quellenakte ist nachvollziehbar",
+        "text": "Prüfe: Indexversuch, Suchprotokoll, Quellenurteil, Akteursprüfung und KI-Korrektur sind auffindbar. Bleibt die reale Suche offen, notiere einen Nachholtermin mit der Lehrperson."
+      }
+    },
+    {
+      "id": "transfer",
+      "title": "Neuer Fall: Welche Leihfrist gilt?",
+      "goal": "Beurteile neue Quellen, ohne dich auf Trefferzahl oder das neueste Datum zu verlassen.",
+      "task": "Beurteile neue Quellen, ohne dich auf Trefferzahl oder das neueste Datum zu verlassen.",
+      "outcome": "Ich prüfe, ob die Quelle für genau diese Einrichtung und Zeit gilt. Ich begründe mein Urteil und benenne die Grenze der Belege.",
+      "knowledge": [
+        "quellenurteil",
+        "belege"
+      ],
+      "criteria": [
+        "Ich prüfe, ob die Quelle für genau diese Einrichtung und Zeit gilt.",
+        "Ich begründe mein Urteil und benenne die Grenze der Belege."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Drei erfundene Fundstücke",
+          "text": "Frage: Wie lange darfst du am 06.10.2026 ein Buch aus der Schulbibliothek am Park ausleihen? Für diesen Fall gelten nur die folgenden Angaben.",
+          "table": {
+            "headers": [
+              "Fundstück",
+              "Angaben"
+            ],
+            "rows": [
+              [
+                "A · Bibliotheksleitung am Park, 01.09.2026",
+                "„Unsere Leihfrist beträgt 14 Tage. Diese Regel gilt im gesamten Schuljahr 2026/27.“"
+              ],
+              [
+                "B · Freizeitblog, 05.10.2026",
+                "„Bücher vier Wochen behalten! Die Stadtbibliothek am Markt hat ihre Leihfrist verlängert.“ Link zur Stadtbibliothek."
+              ],
+              [
+                "C · Klassenkanal, 06.10.2026",
+                "Kopiert Überschrift und Link aus B. Keine weitere Quelle."
+              ]
+            ]
+          }
+        },
+        {
+          "type": "task",
+          "title": "Dein begründetes Urteil",
+          "text": "Bearbeite den Fall zuerst ohne Wissen und Vergleichslösung. Antworte danach mündlich oder schriftlich auf eine Rückfrage der Lehrperson.",
+          "id": "neuer-fall",
+          "prompt": "Meine Antwort · zwei genaue Belege aus den Fundstücken · warum ein anderes Fundstück nicht ausreicht · was ich bei verbleibendem Zweifel prüfe",
+          "help": [
+            {
+              "title": "Wenn du festhängst",
+              "text": "Vergleiche nicht nur die Zahlen. Prüfe, für welchen Ort und welchen Zeitraum die einzelnen Aussagen gelten."
+            }
+          ],
+          "solution": "Für die Schulbibliothek am Park spricht A mit 14 Tagen, weil die zuständige Leitung genau diese Einrichtung und das ganze Schuljahr nennt. B betrifft eine andere Bibliothek. C kopiert B und ist keine zusätzliche unabhängige Auskunft. Bei realem Zweifel würde ich eine aktuelle Mitteilung dieser Schulbibliothek prüfen oder dort nachfragen. Aus den drei Angaben folgt nicht, dass die Stadtbibliothek ebenfalls 14 Tage hat."
+        },
+        {
+          "type": "task",
+          "title": "Sichere deine Regeln",
+          "text": "Blicke auf deine erste Vermutung zurück. Eine gute Regel hilft auch bei der nächsten Recherche.",
+          "id": "regeln",
+          "prompt": "Ich habe geändert oder genauer verstanden: … . Vor einer Übernahme prüfe ich: … . Ein Suchtreffer / eine KI-Antwort beweist noch nicht: … .",
+          "responseHint": "Drei kurze Merksätze in deinen eigenen Worten."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ]
+    },
+    {
+      "id": "abruf-quellen",
+      "title": "Später: Quelle oder Kopie?",
+      "goal": "Erinnere dich erst ohne Unterlagen und prüfe danach deine Erklärung.",
+      "task": "Erinnere dich erst ohne Unterlagen und prüfe danach deine Erklärung.",
+      "outcome": "Ich unterscheide Beleg, Kopie und Verkaufsinteresse.",
+      "knowledge": [
+        "belege",
+        "interessen"
+      ],
+      "criteria": [
+        "Ich unterscheide Beleg, Kopie und Verkaufsinteresse."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "title": "8 Minuten vor M03",
+          "text": "Erfundener Fall: Ein Sportshop verspricht „Mit diesem Ball triffst du immer!“. Drei Kanäle teilen den Werbetext. Keiner nennt einen Test.",
+          "id": "abruf",
+          "when": "Vor M03: 8 Minuten aus M02s Anteil am Jahresabrufkonto.",
+          "prompt": "Welches Motiv ist naheliegend? Erkläre einen möglichen Interessenkonflikt. Was beweisen die drei Kopien? Welche konkrete Information fehlt für die Behauptung?",
+          "solution": "Der Verkauf legt Profit als Motiv nahe. Eine ehrliche Prüfung könnte dem Verkaufsversprechen widersprechen. Das Interesse allein beweist keine Falschheit. Die drei Kopien liefern keinen unabhängigen Test. Es fehlen nachvollziehbare Tests/Bedingungen und Ergebnisse, die gerade das unbegrenzte „immer“ tragen. Rückmeldung: Fehlt die Belegidee, ein einzelnes konkretes Versprechen gemeinsam prüfen."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ],
+      "timing": "later"
+    },
+    {
+      "id": "abruf-index",
+      "title": "Später: Ein veraltetes Register",
+      "goal": "Übertrage das Registerprinzip auf neue Karten und erkläre eine Prüfregel.",
+      "task": "Übertrage das Registerprinzip auf neue Karten und erkläre eine Prüfregel.",
+      "outcome": "Ich trenne alten Registerstand und geänderten Text. Ich benenne eine Prüfung einer KI-Aussage.",
+      "knowledge": [
+        "index",
+        "ki"
+      ],
+      "criteria": [
+        "Ich trenne alten Registerstand und geänderten Text.",
+        "Ich benenne eine Prüfung einer KI-Aussage."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "title": "8 Minuten vor M07",
+          "text": "Neues Modell: E1 = „Museum Eintritt frei“, E2 = „Museum Eintritt fünf“. Das gespeicherte Register enthält „frei → E1“. Nun wird E1 zu „Museum Eintritt drei“ geändert. Das Register wird noch nicht aktualisiert.",
+          "id": "abruf",
+          "when": "Vor M07: 8 Minuten aus M02s Anteil am Jahresabrufkonto; zusätzlich zu den getrennten 6 Minuten M01-Abruf.",
+          "prompt": "Was liefert eine Suche nach „frei“ im alten Register? Was nach der Aktualisierung? Eine KI schreibt „Der Eintritt ist frei“ und verlinkt E1: Wie prüfst du das? Nenne außerdem etwas, wobei KI bei der Recherche helfen kann.",
+          "solution": "Altes Register: E1. Nach Aktualisierung: kein Treffer für frei. Die geöffnete geänderte Karte nennt drei; Link und sichere Formulierung reichen als Beleg nicht. Prüfen muss man den tatsächlichen Inhalt, dessen Zeitpunkt und Geltungsbereich. KI kann zum Beispiel Suchwörter oder eine Gliederung vorschlagen. Bei Verwechslung von Karte/Register die Änderung mit zwei Papierständen nachstellen."
+        }
+      ],
+      "materialNeeds": [
+        "Dieses Blatt, Stift und Heft."
+      ],
+      "checkHelp": [
+        {
+          "title": "Eine Stelle verbessern",
+          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "einstieg"
+    ],
+    "explanation": [
+      "index",
+      "quellen"
+    ],
+    "example": [
+      "index",
+      "quellen"
+    ],
+    "practice": [
+      "index",
+      "quellen"
+    ],
+    "application": [
+      "recherche",
+      "interessen",
+      "ki"
+    ],
+    "revision": [
+      "revision"
+    ],
+    "securing": [
+      "ki",
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abruf-quellen",
+      "abruf-index"
+    ]
+  },
+  "workNotice": "Sichere deine Antworten unter „Deine Arbeit“. Bei Papierarbeit bleibt die Quellenakte im Heft. Ein Häkchen ist keine Bewertung.",
+  "preview": "indexbild",
+  "teacherSections": [
+    {
+      "title": "Vorbereiten und starten",
+      "paragraphs": [
+        "Prüfen Sie auf den tatsächlich eingesetzten Schulgeräten den erlaubten Browser/Suchdienst und den Zugriff auf die verlinkten NASA-/IAU-Seiten. Die Texte sind kurz übersetzt; englische Originale dienen der Fundstellenprüfung, nicht einem Englischtest. Erklären Sie die Wörter planet, dwarf planet und resolution bei Bedarf. Kein privates Konto, keine Installation.",
+        "Einzelmaterialien können digital oder auf Papier bearbeitet werden. Für das Indexmodell genügen die vier gedruckten Kartentexte und ein selbst geführtes Register. Bei Netzausfall mit den lokalen Quellenauszügen weiterarbeiten, die echte Suchprobe aber als offen festhalten und einen Geräteblock nachholen.",
+        "Beginnen Sie mit 6 Minuten M01-Abruf. Dieser stammt aus dem Jahresabrufkonto, nicht aus M02s Kernzeit. Vorwissen zu Planeten nur als Vermutung sammeln; niemand muss die Planetenliste kennen."
+      ]
+    },
+    {
+      "title": "Verlauf: fünf Kernstunden",
+      "paragraphs": [
+        "1. Stunde: Einstieg 20 Minuten; Indexerklärung und erster Registeraufbau 25. 2. Stunde: eigener Indexversuch 15; Quellenvergleich 30. 3. Stunde: Quellenurteil abschließen 10; echte Recherche 35. 4. Stunde: Recherche abschließen 5; Akteure/Interessen/Automatisierung 20; KI-Ausgabe prüfen 20. 5. Stunde: Rückmeldung und Revision 20; neuer Bibliotheksfall und Merksätze 25.",
+        "Funktionale Zeitbilanz: Orientierung/Erklärung 35 (Einstieg 20, Index 15); angeleitete Übung 50 (Index 25, Quellen 25); eigenständige Anwendung 65 (Quellen 15, Recherche 40, Interessen 10); Feedback/Revision 40 (Interessen 10, KI 10, Revision 20); Sicherung/Transfer 35 (KI 10, Transfer 25). Zusammen 225 Minuten.",
+        "Geplante Zeiten sind zu erproben. Bei langsamer Recherche die zusätzliche Interessen-Diskussion knapp halten, aber keinen Kernnachweis streichen. Benötigt die reale Recherche zusätzliche Zeit, den Mehrbedarf dokumentieren; nicht stillschweigend aus Abrufzeiten decken."
+      ]
+    },
+    {
+      "title": "Beobachtung → nächste Hilfe",
+      "paragraphs": [
+        "Register enthält nur die Suchwörter: eine einzige Karte gemeinsam lesen und alle Wörter zuordnen; dann eine weitere Karte selbst bearbeiten lassen. Dokumentänderung wird sofort als Indexänderung behandelt: altes Register sichtbar liegen lassen und erst danach einen zweiten Stand erstellen.",
+        "Kind schreibt nur „acht“: auf die beiden unterschiedlichen Aussagen zeigen lassen und einen weil-Satz mit Fundstelle verlangen. „Neu gewinnt“: fragen, ob die neue Mitteilung für dieselbe Einrichtung und Zeit gilt. Vertrauen nicht als Eigenschaft einer ganzen Domain abhaken.",
+        "Suchprotokoll zeigt nur einen fertigen Link: eine eigene Anfrage am Gerät wiederholen lassen, Änderung begründen und Originalseite öffnen. Hilfslink oder lokale Auszüge sind Sachhilfen, kein Ersatz für die Suchhandlung.",
+        "Preis oder Automatisierung wird als Beweis für Falschheit behandelt: eine richtige automatisch versandte Terminankündigung als Gegenbeispiel nutzen. Gleichlautende Posts sind ohne weitere Angaben kein Bot-Nachweis.",
+        "KI-Antwort wird vollständig abgelehnt: nützlichen Suchvorschlag von Sachbehauptung unterscheiden lassen. Bei Quellenlinks zur genauen Fundstelle zurückführen. Für sprachliche Hürden Satzgerüste oder mündliche Erklärung mit Ihrer kurzen Nachweisnotiz zulassen."
+      ]
+    },
+    {
+      "title": "Nachweise und Rückmeldung",
+      "paragraphs": [
+        "Index: vollständige Wortzuordnung, eigener Eingriff, vorher notierte Vorhersagen, geprüfte Fundlisten und eine Grenze. Das Muster ist nur eine Variante. Prüfen Sie eine zusätzliche eigene Anfrage am tatsächlich veränderten Register.",
+        "Recherche: zwei tatsächlich ausgeführte Suchanfragen mit Änderungsgrund und zwei geöffnete Originalseiten samt Fundstellen. Prüfen Sie stichprobenartig die Handlung am Gerät. Schriftliche Behauptung allein ist kein sicherer Praxisbeleg. Quellenurteil: konkreter Widerspruch, Kontext und nachvollziehbare Auswahl.",
+        "Interessen: Motiv am Hinweis, möglicher Zielkonflikt und getrennte Automatisierungsschritte. KI: Einzelurteile, mindestens zwei begründete Korrekturen sowie Nutzen und Grenze. Die Sammlung unterstützt die Diagnose; keine automatische Note und kein Kompetenzpass durch Klicks.",
+        "Revision: erste und neue Fassung sowie Änderungsgrund. Rückmeldung kann aus Selbstprüfung, Lehrperson oder freiwilligem Austausch stammen; individuelle Leistung bleibt sichtbar. Bei unveränderter guter Fassung ein neues Gegenbeispiel verlangen.",
+        "Transfer zunächst ohne Hilfe bearbeiten lassen; Hilfen und Vergleichslösung dürfen danach für die Revision geöffnet werden. Eine passende Begründung zählt, nicht ein bestimmter Wortlaut. Bei nur übernommener Lösung eine neue Rückfrage stellen: Welche Angabe müsste sich ändern, damit ein anderes Fundstück brauchbar wird?"
+      ]
+    },
+    {
+      "title": "Lösungshinweise und fachliche Grenzen",
+      "paragraphs": [
+        "Register zu den Ausgangskarten: Pluto D1/D2/D4; Raumsonde D1/D3; Forschung D1; Zwergplanet D2; Sonne D2; Mars D3; Planet D3; Zeichnung D4; Ausstellung D4. Bei einer Änderung muss die alte Zuordnung entfernt und die neue ergänzt werden. Wenn Pluto ersetzt wurde, entsteht nicht automatisch ein zusätzlicher UND-Treffer.",
+        "NASA A stammt vom Januar 2006; die IAU-Einteilung aus 2006 wird in B erläutert und in NASA C bestätigt. A ist historisch brauchbar. B beschreibt die eigene fachliche Einteilung, kein unabhängig gemessenes Naturgesetz. Andere Definitionen können in der Fachwelt diskutiert werden; die Aufgabenfrage grenzt bewusst auf die IAU ein.",
+        "B liegt im IAU-Archiv bei ESO; kein eindeutiger Veröffentlichungstag. Alte IAU-PDF-Adressen waren bei der Produktion nicht erreichbar. Prüfen Sie Links vor Einsatz. Die lokalen kurzen Auszüge ermöglichen Quellenanalyse, aber keine Behauptung einer live ausgeführten Recherche.",
+        "Kartenmodell: vorbereiteter Index und seine Aktualisierung. Keine vollständige Internetabdeckung, Synonyme oder Rangfolge; keine Wahrheitserkennung. Die durch Codex absichtlich fehlerhaft erzeugte KI-Übung ist keine Stichprobe zur Zuverlässigkeit eines Modells."
+      ]
+    },
+    {
+      "title": "Medienentscheidung und Anschluss",
+      "paragraphs": [
+        "Karten, Wortregister und Prozessbild machen den Indexaufbau sichtbar und selbst veränderbar. Ein Suchknopf mit verborgener Verarbeitung würde den Nachweis schwächen. Ein Video ist hier nicht erforderlich, weil das ruhende Bild und die eigenen Registerstände gezielt verglichen werden können. Der gleiche Versuch funktioniert auf Papier.",
+        "Echte Suche erfordert den Browser. Kurze Quellenauszüge und das Beleggerüst begrenzen Leselast; Originalseiten bleiben zur Kontrolle erreichbar. Die stabile vorbereitete KI-Ausgabe ist markierbar und ohne Konten nutzbar. Die Medienwahl folgt diesen Funktionen, keiner Quote.",
+        "Vor M03 acht Minuten Quellen-/Interessenabruf; vor M07 acht Minuten Index-/KI-Abruf. Zusammen 16 Minuten aus M02s Anteil am 90-Minuten-Jahreskonto. Der separate M01-Abruf vor M07 bleibt erhalten. M03 vertieft Werbung und Daten; M07 nutzt Recherche und Quellenkennzeichnung im eigenen Produkt. Die Jahresannahme 38 UE für Klasse 6 bleibt unbestätigt."
+      ]
+    },
+    {
+      "title": "Erprobung und Planungsbezug",
+      "paragraphs": [
+        "Beobachten Sie besonders, ob Lernende Widerspruch, fehlenden Beleg und Interesse unterscheiden und beide Modellstände erklären können. Notieren Sie ohne Namen Aufgabe/Fassung, benötigte Zeit, Hilfe und beobachtete Hürde. Schulgeräte und assistive Nutzung sind gesondert zu erproben.",
+        "3.1.2.1(1): Recherche; (2): Quellenprüfung; (3): strukturierte Quellenakte; (4): eigenes Indexmodell. 3.1.2.2(1–4): Akteure, Motive, Interessenkonflikt und Automatisierung; (5–7): Vorwissen, Kriterien und Widerspruch mit Revision; (8): Nutzen und belegte Kritik der KI-Ausgabe. Prozessbezug gemäß G6-M02. Diese Lerngelegenheiten belegen noch keinen Erwerb bei einzelnen Lernenden."
+      ]
+    },
+    {
+      "title": "Herkunft der vorbereiteten KI-Ausgabe",
+      "paragraphs": [
+        "Der Übungstext wurde am 04.10.2026 durch Codex gezielt für diese Aufgabe erzeugt. Er ist keine echte Live-Recherche und keine Stichprobe zur Fehlerquote eines Modells. Die unveränderten vier Ausgabesätze stehen im Lernschritt KI.",
+        "Produktionsauftrag: „Schreibe vier kurze nummerierte Sätze für eine Quellenprüfübung zu Pluto. Gib einen nützlichen Suchvorschlag. Baue absichtlich die Fehlschlüsse ein, ein alter NASA-Bericht gelte unverändert heute, viele Kopien seien unabhängige Belege und ein später Abruf mache einen Text aktuell. Behaupte keine tatsächlich ausgeführte Websuche.“",
+        "Der genaue Produktionsauftrag steht nur hier, weil seine Aufzählung der Fehler sonst die Belegprüfung der Lernenden vorwegnehmen würde. Die Lernendenseite kennzeichnet die absichtlichen Fehler und die Herkunftsart weiterhin transparent."
+      ]
+    }
+  ],
+  "briefing": [
+    "M02 beginnt mit einer Frage, die nicht durch Trefferzählen gelöst werden kann: Acht oder neun Planeten nach der IAU? Sammeln Sie zuerst Vermutungen. Der alte NASA-Bericht ist keine plumpe Fälschung. Sein zeitlicher Kontext ist die entscheidende Lerngelegenheit.",
+    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister und prüfen die Folgen einer Dokumentänderung vor und nach dessen Aktualisierung. Es folgen echte Quellen und eine echte Browserrecherche. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
+    "Die Stunde zu Interessen unterscheidet Verkaufsziel und Wahrheitsgehalt sowie Erzeugen, Veröffentlichen und Weiterverbreiten. Der vorbereitete KI-Text enthält absichtlich Fehler. Lassen Sie einzelne Aussagen an Belegen korrigieren und zugleich die brauchbare Suchanregung erkennen.",
+    "Zum Schluss werden Rückmeldung und Revision sichtbar. Im neuen Bibliotheksfall zählt die passende Einrichtung und Geltungszeit; das neueste Datum genügt nicht. Verlangen Sie Begründungen, keine abgeschriebenen Muster. Lassen Sie eine mündliche Erklärung zu, wenn die Schreiblast den fachlichen Nachweis verdeckt.",
+    "Die Wiederaufnahmen liegen vor M03 und M07, jeweils acht Minuten aus M02s Jahresanteil. Halten Sie Hilfen und offene Praxisnachweise fest. Die geplanten 38 Jahresstunden sind für Klasse 6 weiterhin unbestätigt."
+  ]
+}
