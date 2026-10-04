@@ -1,0 +1,664 @@
+{
+  "authorVersion": 2,
+  "area": "speicher-zugang",
+  "id": "IUM-5-M01-SPEICHER-ZUGANG",
+  "version": "1.0.0",
+  "grade": 5,
+  "family": "content",
+  "title": "Deine Datei. Dein Zugang.",
+  "topic": "Speicherorte und Zugang",
+  "description": "Du wechselst den Computer. Ist deine Datei noch erreichbar? Und wer kann sie öffnen? Prüfe deinen Speicherweg und schütze deinen Zugang.",
+  "product": "Du begründest einen passenden Speicherort, prüfst den erlaubten Speicherweg am Schulgerät und führst eine Schutzhandlung aus.",
+  "prerequisites": [
+    "Schul-iPad oder Windows-Schulgerät mit freigegebenem Zugang",
+    "zwei von der Lehrperson benannte Speicherwege und eine harmlose Übungsdatei",
+    "bekannter Weg zum Entsperren oder zur erneuten Anmeldung; keine Zugangsdaten im Lernwerk"
+  ],
+  "teacher": [
+    "Abschluss der vierstündigen Reihe Arbeitsraum: Speicherort, Erreichbarkeit und Berechtigung auseinanderhalten; eigenen Zugang begründet schützen. Vorbögen sind erstellt, eine tatsächliche Durchführung ist noch nicht belegt."
+  ],
+  "duration": "45 Minuten: 5 Einstieg, 10 Vergleich, 10 Speicherprobe, 10 Schutzhandlung, 7 Übertragung, 3 Reserve. Später 2 Minuten Abruf aus dem Jahreskonto; gemeinsam mit 10 Minuten Dateien-Abruf sind 12 Minuten für M01 reserviert.",
+  "learnerDuration": "Eine Unterrichtsstunde. Mit etwas Abstand erinnerst du dich zwei Minuten lang an die wichtigsten Entscheidungen.",
+  "curriculum": {
+    "moduleId": "G5-M01",
+    "goalIds": [
+      "3.1.5.1(2)",
+      "3.1.4.1(6)",
+      "3.1.4.1(7)",
+      "3.1.1.1(1)"
+    ],
+    "source": "curriculum",
+    "scope": "AHF 21.09.2026, S. 32, 40 und 44: Zugriffsmöglichkeiten von Speicherorten beschreiben; Gründe und Maßnahmen zum Zugangsschutz erläutern und anwenden; schulische Regeln beachten. Eigene Verzeichnisstruktur im Dateien-Bogen. Keine vollständige Betriebssystem- oder Band-5/6-Abdeckung; der systematische Speichermedienvergleich gehört in der Projektplanung zu Klasse 6."
+  },
+  "sources": [
+    {
+      "id": "curriculum",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026, S. 32, 40, 44",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Zuordnung mit der aktuellen Kompetenzplanung abgeglichen; Klasse 5 ist unsere Jahresplanung."
+    },
+    {
+      "id": "apple-dateien",
+      "title": "Dateien, Speichergeräte und Cloud auf dem iPad",
+      "author": "Apple Support",
+      "url": "https://support.apple.com/de-de/guide/ipad/ipad8139864c/ipados",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "apple-sperren",
+      "title": "iPad entsperren und sperren",
+      "author": "Apple Support",
+      "url": "https://support.apple.com/de-de/guide/ipad/ipad9940ee8d/ipados",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "windows-dateien",
+      "title": "Explorer unter Windows",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/windows/experience/fileexplorer/file-explorer-in-windows",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "windows-zugang",
+      "title": "Anmelden, sperren und abmelden in Windows",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/accounts-billing/security/user-account-access-in-windows",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04"
+    },
+    {
+      "id": "cloud-offline",
+      "title": "OneDrive-Dateien: online oder offline verfügbar",
+      "author": "Microsoft Support",
+      "url": "https://support.microsoft.com/de-de/onedrive/save-disk-space-with-onedrive-files-on-demand-for-windows",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Beispiel für unterschiedliche Verfügbarkeit; kein bestimmter Cloudanbieter vorausgesetzt."
+    },
+    {
+      "id": "bsi",
+      "title": "Basistipps zur IT-Sicherheit",
+      "author": "Bundesamt für Sicherheit in der Informationstechnik",
+      "url": "https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/cyber-sicherheitsempfehlungen.html",
+      "license": "Verlinkte Dokumentation; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Passwort-Hinweise anhand des verfügbaren Quellenabschnitts geprüft."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Unterrichtsmaterialien",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und erfundene Fälle: CC BY-SA 4.0",
+      "checked": "2026-10-04",
+      "note": "Erfundene Fälle mit ausdrücklich festgelegten Bedingungen; diese Fassung zunächst lokal."
+    }
+  ],
+  "media": [],
+  "knowledge": [
+    {
+      "id": "speicherort",
+      "title": "Wo liegt die Datei – und wann erreiche ich sie?",
+      "paragraphs": [
+        "Ein Ordner ist Teil eines Speicherwegs. „Projekt“ allein sagt noch nicht, ob die Datei auf diesem Gerät oder in einem Schul-Speicherdienst liegt. Lies auch den Startort.",
+        "Lokal bedeutet: Die Datei liegt im Speicher dieses Geräts. Eine nur dort gespeicherte Datei erscheint nicht automatisch auf einem anderen Gerät.",
+        "Eine Schulcloud speichert Dateien auf Servern, also anderen Computern eines Dienstes. Mit dem passenden Schulzugang können sie von mehreren Geräten erreichbar sein. Für eine nur online verfügbare Datei brauchst du eine Verbindung zum Dienst.",
+        "Manche Cloud-Dateien sind zusätzlich auf das Gerät geladen und lassen sich offline öffnen. Aus einem sichtbaren Dateinamen allein folgt das nicht. Die Schule kann auch einen eigenen Netzspeicher einsetzen."
+      ],
+      "example": "Mias Entwurf liegt nur auf ihrem ersten Schulgerät. Der Ordnername „Projekt“ auf einem zweiten Gerät ist keine Verbindung zu dieser Datei. Für den Gerätewechsel muss sie den freigegebenen gemeinsamen Speicherweg nutzen oder die Datei nach Schulregel übertragen.",
+      "boundary": "„Cloud“ bedeutet weder „für alle sichtbar“ noch „immer offline verfügbar“. Die konkrete Freigabe und den Dateistatus getrennt prüfen; WLAN nicht zum Test ausschalten.",
+      "sources": [
+        "apple-dateien",
+        "cloud-offline",
+        "eigen"
+      ],
+      "steps": [
+        "auftakt",
+        "vergleichen",
+        "pruefen",
+        "entscheiden",
+        "wiederaufnahme"
+      ]
+    },
+    {
+      "id": "zugriff",
+      "title": "Wer darf eine Datei öffnen?",
+      "paragraphs": [
+        "Eine Berechtigung legt fest, wer eine Datei lesen oder verändern darf. Ein eigener Bereich und ein Klassenordner können im selben Speicherdienst liegen und trotzdem andere Berechtigungen haben.",
+        "Auch lokal gespeicherte Dateien sind nicht automatisch nur für dich sichtbar: An einem gemeinsam genutzten, offenen Geräteprofil können andere dieselben Ordner erreichen.",
+        "Prüfe den vorgesehenen Bereich und die Freigabe. Wenn die Anzeige nichts darüber sagt, frage deine Lehrperson. Ordnername, Farbe oder eigenes Öffnen beweisen nicht, wer sonst Zugriff hat."
+      ],
+      "example": "Mias Datei im eigenen Schulcloud-Bereich ist in unserem Fall nicht für die Klasse freigegeben. Im Kursbereich darf die Klasse lesen. Der Speicheranbieter ist derselbe, der Leserkreis unterscheidet sich.",
+      "boundary": "Unsere Fälle beschreiben Rechte von Lernenden. Verwaltung und weitere Zugriffsrechte regelt die Schule. Du sollst keine fremden Konten öffnen und keine Freigabe verändern.",
+      "sources": [
+        "eigen"
+      ],
+      "steps": [
+        "vergleichen",
+        "pruefen",
+        "entscheiden",
+        "wiederaufnahme"
+      ]
+    },
+    {
+      "id": "schutz",
+      "title": "Was unterscheidet Sperren und Abmelden?",
+      "paragraphs": [
+        "Sperren schützt eine kurze Pause am Gerät, wenn für die Rückkehr eine Anmeldung oder Entsperrung nötig ist. Programme können geöffnet bleiben. Ein dunkler Bildschirm allein beweist noch keinen geschützten Zugang.",
+        "Abmelden beendet deine Sitzung im jeweiligen Dienst oder Geräteprofil. Speichere zuerst deine Arbeit. Eine Abmeldung aus einem Dienst meldet dich nicht automatisch überall ab.",
+        "Für eine kurze Pause kann Sperren passen. Vor der Übergabe an eine andere Person gilt der schulische Abmelde- und Übergabeweg. Nur einen Tab zu schließen ist kein verlässlicher Ersatz für das Abmelden.",
+        "An einem verwalteten iPad kann ein persönliches Geräteprofil fehlen. Ändere keinen Sperrcode und melde keine Apple-ID ab. Nutze dann mit deiner Lehrperson den vorgesehenen Abmeldeweg des Schuldienstes."
+      ],
+      "example": "Nuri geht kurz zu seiner Lehrperson und kommt an denselben Windows-Platz zurück: Er sperrt mit Windows-Taste + L. Am Stundenende speichert er und beendet seine Sitzung nach der Schulregel, bevor die nächste Person übernimmt.",
+      "boundary": "Die Lehrperson prüft Schutzwirkung und Rückweg. Bei automatischer Wiederanmeldung oder unklarem Schutz nachfragen. Ist die Rückkehr unbekannt, vor dem Sperren/Abmelden stoppen. Eine Erklärung ersetzt die fehlende Gerätehandlung nicht.",
+      "sources": [
+        "windows-zugang",
+        "apple-sperren",
+        "eigen"
+      ],
+      "steps": [
+        "schuetzen",
+        "entscheiden",
+        "wiederaufnahme"
+      ]
+    },
+    {
+      "id": "geheim",
+      "title": "Warum bleibt mein Zugang bei mir?",
+      "paragraphs": [
+        "Wer deinen Zugang benutzen kann, kann je nach Berechtigung Dateien lesen, verändern oder in deinem Namen handeln. Du schützt damit deine Arbeit und andere Personen.",
+        "Passwörter und Codes bleiben geheim. Gib sie nur selbst am vorgesehenen Schulzugang ein. Sie gehören weder in eine Lernwerkantwort noch in ein Foto, ein Arbeitsblatt oder eine Nachricht.",
+        "Wenn du ein Passwort selbst festlegen darfst, soll es lang, schwer zu erraten und nur für diesen Zugang verwendet sein. Namen und einfache Zahlenfolgen sind leicht zu erraten. In dieser Aufgabe erstellst und teilst du kein echtes Passwort.",
+        "Ist ein Zugang vergessen oder möglicherweise bekannt geworden, wende dich an die Lehrperson bzw. die benannte schulische Hilfe. Sie kann den vorgesehenen Wiederherstellungsweg begleiten, ohne dass du dein Geheimnis im Unterricht offenlegst."
+      ],
+      "example": "Eine Person bietet an, Mias Datei schnell unter ihrem Zugang abzugeben. Mia gibt das Passwort nicht weiter. Sie bittet stattdessen um eine Erklärung der Schritte oder um Hilfe durch die Lehrperson.",
+      "boundary": "Kein Passworttest mit echten Zugangsdaten. Auch ein starkes Passwort schützt keine offen gelassene Sitzung; dazu kommt die passende Sperr- oder Abmeldehandlung.",
+      "sources": [
+        "bsi",
+        "eigen"
+      ],
+      "steps": [
+        "schuetzen",
+        "entscheiden",
+        "wiederaufnahme"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "auftakt",
+      "title": "Gleicher Ordnername – gleiche Datei?",
+      "goal": "Eine Vermutung zu Gerätewechsel und Speicherort formulieren.",
+      "task": "Mia wechselt das Schulgerät. Erkläre zunächst deine Vermutung, ohne nachzuschlagen.",
+      "outcome": "Eine Vermutung, die du später überprüfst.",
+      "knowledge": [
+        "speicherort"
+      ],
+      "materialNeeds": [
+        "der vollständig beschriebene Fall"
+      ],
+      "criteria": [
+        "Ich unterscheide den Ordnernamen vom tatsächlichen Speicherweg.",
+        "Ich benenne eine noch offene Frage."
+      ],
+      "checkHelp": [
+        {
+          "title": "Mir fehlt ein Startpunkt.",
+          "text": "Frage zuerst: Wurde die Datei nur auf dem ersten Gerät gespeichert oder in einem auch anderswo erreichbaren Dienst?",
+          "knowledge": "speicherort",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "vermutung",
+          "title": "Mias nächster Arbeitsplatz",
+          "text": "Mia hat eine Datei im Ordner „Projekt“ gespeichert. Morgen nutzt sie ein anderes Schulgerät. Dort gibt es ebenfalls einen Ordner „Projekt“.",
+          "prompt": "Reicht derselbe Ordnername zum Wiederfinden? Welche Information brauchst du zusätzlich?",
+          "solution": "Nein. Entscheidend ist, auf welchem Gerät oder in welchem Dienst die Datei tatsächlich gespeichert wurde und ob der Zugang dort möglich ist. Der gleiche Name reicht nicht.",
+          "help": [],
+          "responseMode": "oral",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse."
+        }
+      ]
+    },
+    {
+      "id": "vergleichen",
+      "title": "Speicherort und Zugriff vergleichen",
+      "goal": "Einen Speicherort nach Erreichbarkeit und Leserkreis begründet wählen.",
+      "task": "Nutze die drei Orte im Beispiel. Entscheide, wo Mias Entwurf für den Gerätewechsel passt.",
+      "outcome": "Eine Entscheidung mit zwei Gründen.",
+      "knowledge": [
+        "speicherort",
+        "zugriff"
+      ],
+      "materialNeeds": [
+        "die drei Speicherorte dieses Falls"
+      ],
+      "criteria": [
+        "Ich berücksichtige den Wechsel auf ein anderes Gerät.",
+        "Ich prüfe getrennt, wer lesen darf.",
+        "Ich nenne eine Grenze meiner Wahl."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich denke: Cloud heißt öffentlich.",
+          "text": "Vergleiche B und C. Beide liegen in der Schulcloud; welche Personen dürfen jeweils lesen?",
+          "knowledge": "zugriff",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Drei Orte an Mias erfundener Schule",
+          "text": "Lokal heißt: auf diesem Gerät gespeichert. Eine Schulcloud speichert auf Computern eines Dienstes. Offline heißt: ohne Verbindung dorthin. Die Berechtigung regelt, wer lesen darf. Für Mias erfundene Schule gelten die Bedingungen in der Tabelle; die Cloud-Dateien sind hier nicht zusätzlich offline gespeichert.",
+          "table": {
+            "headers": [
+              "Speicherort",
+              "Wo erreichbar?",
+              "Wer darf lesen?"
+            ],
+            "rows": [
+              [
+                "A · Gerät, eigener Bereich",
+                "Nur auf Mias erstem Gerät, auch ohne Internet",
+                "Mia; nicht die Klasse"
+              ],
+              [
+                "B · Schulcloud, eigener Bereich",
+                "Auf freigegebenen Geräten mit Verbindung und Mias Zugang",
+                "Mia; nicht die Klasse"
+              ],
+              [
+                "C · Schulcloud, Kursbereich",
+                "Auf freigegebenen Geräten mit Verbindung und Schulzugang",
+                "Mia und ihre Klasse"
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Beispiel: Eine fertige Gruppeninfo soll die Klasse morgen lesen. Ich wähle C: Der Kursbereich ist auf den Schulgeräten erreichbar und für die Klasse freigegeben. A wäre nur am ersten Gerät vorhanden, B wäre nicht für die Klasse lesbar."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "wahl",
+          "title": "Jetzt entscheidest du",
+          "text": "Mias Entwurf ist noch nicht für die Klasse bestimmt. Morgen arbeitet sie an einem anderen freigegebenen Schulgerät mit Internet.",
+          "prompt": "Welchen Ort wählst du? Begründe mit Erreichbarkeit und Leserkreis. Was wäre bei fehlender Internetverbindung noch zu klären?",
+          "solution": "B passt: Die Datei ist mit Mias Zugang auf dem anderen Gerät erreichbar, aber nicht für die Klasse freigegeben. Ohne Verbindung ist sie laut Fall nicht verfügbar. Vorher müsste ein von der Schule erlaubter Offline- oder Übertragungsweg geklärt werden; der Ordnername allein hilft nicht.",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Prüfe zwei Fragen getrennt: Wo muss Mia morgen arbeiten? Wer soll die Datei bereits lesen können?"
+            },
+            {
+              "title": "Eine genauere Hilfe",
+              "text": "A scheitert am Gerätewechsel. Vergleiche nun die Leserkreise von B und C."
+            }
+          ],
+          "responseMode": "oral",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse."
+        }
+      ]
+    },
+    {
+      "id": "pruefen",
+      "title": "Speicherwege am Schulgerät prüfen",
+      "goal": "Zwei erlaubte Speicherwege am Schulgerät ansehen und begründet unterscheiden.",
+      "task": "Öffne die bereitgestellte Übungsdatei über die benannten Speicherwege. Trenne Beobachtung und offene Frage.",
+      "outcome": "Ein tatsächlich geprüfter Speicherweg und ein begründeter Vergleich.",
+      "knowledge": [
+        "speicherort",
+        "zugriff"
+      ],
+      "materialNeeds": [
+        "Schulgerät; harmlose Übungsdatei; zwei benannte Speicherwege"
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "Schul-iPad, freigegebene App „Dateien“ oder Schul-Speicherapp, Übungsdatei"
+        ],
+        "windows": [
+          "Windows-Schulgerät, Datei-Explorer oder Schul-Speicherdienst, Übungsdatei"
+        ]
+      },
+      "criteria": [
+        "Ich zeige den Startort und öffne die richtige Übungsdatei.",
+        "Ich unterscheide Erreichbarkeit und Berechtigung.",
+        "Ich sage, was ich gesehen habe und was noch bestätigt werden muss."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich sehe nur „Zuletzt verwendet“.",
+          "text": "Gehe zum benannten Startort. Zuletzt verwendete Dateien sind eine Übersicht, kein Beleg für ihren Speicherort.",
+          "knowledge": "speicherort",
+          "label": "Passendes Wissen öffnen"
+        },
+        {
+          "title": "Ich kann nicht erkennen, wer lesen darf.",
+          "text": "Das eigene Öffnen beweist nur deinen Zugriff. Lass die zuständige Lehrperson die Freigabe erläutern.",
+          "knowledge": "zugriff",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "external",
+          "context": "device",
+          "id": "vergleich",
+          "title": "Zwei Wege, drei Fragen",
+          "text": "Notiere höchstens: Ort A/B, erreichbar wo, lesbar für wen. Keine Kontonamen, persönlichen Dateinamen oder Bildschirmfotos.",
+          "preparation": "Die Lehrperson zeigt zwei erlaubte Wege und stellt eine harmlose Übungsdatei bereit, etwa die Fundnotiz aus dem Dateien-Bogen. Fehlt der zweite Weg, nutze diesen Ersatzfall B: eigener Schulcloud-Bereich, mit deinem Zugang und Internet auf freigegebenen Schulgeräten erreichbar, nicht für die Klasse freigegeben, keine Offlinekopie. Kennzeichne B dann als Fall, nicht als Geräteprobe.",
+          "action": "Öffne die Übungsdatei vom benannten Startort aus. Prüfe Ort und mögliche Erreichbarkeit auf einem anderen Schulgerät. Erfrage die Berechtigungen, wenn sie nicht sichtbar sind. Verändere weder Freigaben noch Dateien.",
+          "return": "Erkläre, welcher Weg für einen noch nicht geteilten Entwurf beim Gerätewechsel geeignet wäre. Trenne Beobachtung, Auskunft der Lehrperson und offene Frage.",
+          "prompt": "Was hast du tatsächlich geöffnet? Was weißt du über anderen Gerätezugriff und Leserkreis – und woran erkennst du das?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse.",
+          "routes": [
+            {
+              "device": "ipad",
+              "title": "iPad: Speicherweg ansehen",
+              "sources": [
+                "apple-dateien"
+              ],
+              "items": [
+                "Öffne die von der Lehrperson gezeigte App. In „Dateien“ öffnest du die Seitenleiste und suchst unter „Speicherorte“ den benannten Ort. Eine Schulcloud kann stattdessen in einer eigenen App oder im Browser liegen.",
+                "Öffne den gezeigten Ordnerweg und die Übungsdatei. Vergleiche danach den zweiten erlaubten Weg. Nur vorhandene Schulzugänge verwenden; nichts verbinden oder neu einrichten.",
+                "Kehre über den App-Umschalter zum Browser und zum Lernwerktab zurück. Vom unteren Rand zur Mitte streichen und kurz halten; bei Home-Taste zweimal drücken."
+              ]
+            },
+            {
+              "device": "windows",
+              "title": "Windows: Speicherweg ansehen",
+              "sources": [
+                "windows-dateien"
+              ],
+              "items": [
+                "Öffne mit Windows-Taste + E den Datei-Explorer. Wähle den benannten Startort und folge dem Ordnerweg. Liegt der Schuldienst im Browser, öffne den von der Lehrperson gezeigten Schulzugang.",
+                "Öffne die Übungsdatei und vergleiche den zweiten erlaubten Weg. Lies den Startort mit; „Dokumente“ allein beweist nicht, ob ein Ordner lokal oder mit einer Cloud verbunden ist.",
+                "Kehre mit Alt + Tab oder über die Taskleiste zum Browser und zum Lernwerktab zurück."
+              ]
+            }
+          ],
+          "solution": "Ein möglicher Vergleich: A ist nur auf diesem Gerät erreichbar, B über den freigegebenen Schuldienst auch auf einem anderen Gerät. Ob Mitschüler lesen dürfen, muss für beide Orte aus der Freigabe oder durch die Lehrperson geklärt sein. Abweichende Schulwege sind möglich; unbelegte Vermutungen bleiben offen."
+        }
+      ]
+    },
+    {
+      "id": "schuetzen",
+      "title": "Pause oder Übergabe?",
+      "goal": "Sperren und Abmelden unterscheiden und eine passende Schutzhandlung ausführen.",
+      "task": "Erkläre den Unterschied. Führe dann die mit deiner Lehrperson vereinbarte Schutzhandlung selbst aus.",
+      "outcome": "Eine ausgeführte Schutzhandlung und ihre Begründung – ohne geheime Angaben.",
+      "knowledge": [
+        "schutz",
+        "geheim"
+      ],
+      "materialNeeds": [
+        "Schulgerät, bekannter Rückweg und von der Lehrperson geprüfte Schutzhandlung"
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "Schul-iPad mit geprüftem Entsperrweg oder freigegebenem Schuldienst zur Abmeldung"
+        ],
+        "windows": [
+          "Windows-Schulgerät mit geprüftem Entsperrweg oder freigegebenem Schuldienst zur Abmeldung"
+        ]
+      },
+      "criteria": [
+        "Ich begründe, warum ich meinen Zugang schütze.",
+        "Ich unterscheide kurze Pause von Übergabe an andere.",
+        "Ich führe genau die vereinbarte Handlung aus und prüfe, ob der Zugang wie vorgesehen geschützt ist."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ein dunkler Bildschirm wirkt sicher.",
+          "text": "Prüfe, ob für die Rückkehr tatsächlich eine Entsperrung oder Anmeldung nötig ist. Eine ausgeschaltete Anzeige allein genügt nicht.",
+          "knowledge": "schutz",
+          "label": "Passendes Wissen öffnen"
+        },
+        {
+          "title": "Ich kenne den Rückweg nicht.",
+          "text": "Stoppe vor der Handlung und lass ihn von deiner Lehrperson klären. Keine Codes raten oder verändern.",
+          "knowledge": "schutz",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zwei unterschiedliche Situationen",
+          "text": "Kurze Pause am eigenen Platz: Gerät nach Schulregel sperren. Übergabe an eine andere Person: Arbeit sichern und die Sitzung nach Schulregel beenden.",
+          "paragraphs": [
+            "Sperren kann Programme offen lassen. Abmelden beendet die betreffende Sitzung. Einen Browser-Tab zu schließen ist nicht dasselbe. Dein Zugang bleibt geheim, auch wenn jemand Hilfe anbietet."
+          ],
+          "sources": [
+            "windows-zugang",
+            "apple-sperren",
+            "bsi"
+          ]
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "schutzhandlung",
+          "title": "Deine sichere Unterbrechung",
+          "text": "Nur die Handlung und ihre Wirkung erklären. Kein Passwort, kein Code und kein Anmeldename gehört in eine Antwort.",
+          "preparation": "Wähle mit deiner Lehrperson genau eine Variante: Pause oder Sitzung beenden. Sie prüft vorher Schutzwirkung und Rückweg. Speichere offene Arbeiten. Freiwillige Lernwerkantworten vor einer Abmeldung über „Deine Arbeit“ als Arbeitsdatei am erlaubten Ort sichern. Ohne sicheren Rückweg zunächst nur den Fall erklären.",
+          "action": "Führe nur die vereinbarte Variante aus. Prüfe mit der Lehrperson: Ist für die Rückkehr die vorgesehene Entsperrung nötig bzw. ist die Sitzung tatsächlich abgemeldet? Ein dunkles Display oder eine Anmeldeseite allein genügt nicht als Nachweis.",
+          "return": "Entsperre bzw. melde dich selbst nach Schulregel wieder an, ohne dass andere deine Eingabe sehen. Öffne den Lernwerktab und erkläre deine Beobachtung. Bei Abbruch bleibt die praktische Handlung offen.",
+          "prompt": "Welche Handlung hast du ausgeführt? Woran erkennst du ihre Wirkung? Warum schützt das deine Arbeit?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse.",
+          "routes": [
+            {
+              "device": "ipad",
+              "title": "iPad: passenden Schutz ausführen",
+              "sources": [
+                "apple-sperren"
+              ],
+              "items": [
+                "Variante Pause – nur bei geprüftem persönlichem Sperrschutz: Drücke die obere Taste einmal. Beende danach den Ruhezustand. Prüfe die vereinbarte Entsperrung und entsperre selbst nach Schulregel.",
+                "Alternative Sitzung beenden: Benutze nur den vereinbarten Abmeldeknopf des Schuldienstes. Lass den Abmeldestatus bei Unklarheit bestätigen. Melde weder die Apple-ID ab noch richte einen eigenen Code ein.",
+                "Nach deiner gewählten Variante: Kehre nach Schulregel selbst zurück und öffne den Lernwerktab. Bei automatischer Wiederanmeldung oder unklarer Wirkung frage die Lehrperson. Die ungeklärte Schutzhandlung bleibt offen."
+              ]
+            },
+            {
+              "device": "windows",
+              "title": "Windows: passenden Schutz ausführen",
+              "sources": [
+                "windows-zugang"
+              ],
+              "items": [
+                "Variante Pause: Drücke Windows-Taste + L. Prüfe die vereinbarte Entsperrung und entsperre selbst nach Schulregel.",
+                "Alternative Sitzung beenden – nur wenn vereinbart und alles gesichert ist: Nutze den Abmeldeknopf des Schuldienstes. Betrifft die Schulregel dein Windows-Profil, nutze Start → Kontobild/Konto → Abmelden. Das kann Programme und Browsertabs schließen.",
+                "Nach deiner gewählten Variante: Kehre nach Schulregel selbst zurück und öffne den Lernwerktab. Bei automatischer Wiederanmeldung oder unklarer Wirkung frage die Lehrperson. Nicht zusätzlich die andere Variante ausführen."
+              ]
+            }
+          ],
+          "solution": "Beispiel: Ich habe für eine kurze Pause gesperrt. Zur Rückkehr war die vorgesehene Entsperrung nötig. Andere sollen keine Dateien unter meinem Zugang verändern oder in meinem Namen handeln. Bei Übergabe muss ich zusätzlich den schulischen Abmeldeweg beachten. Nur selbst ausgeführte Handlungen zählen als Praxisnachweis."
+        }
+      ]
+    },
+    {
+      "id": "entscheiden",
+      "title": "Ein anderer Computer, eine neue Entscheidung",
+      "goal": "Speicher- und Zugangsentscheidung unter veränderten Bedingungen begründen und verbessern.",
+      "task": "Löse den neuen Fall. Verbessere dann deine Anfangsvermutung oder formuliere deine eigene Regel.",
+      "outcome": "Eine begründete Entscheidung zu Datei und Zugang.",
+      "knowledge": [
+        "speicherort",
+        "zugriff",
+        "schutz",
+        "geheim"
+      ],
+      "materialNeeds": [
+        "der vollständig beschriebene Fall"
+      ],
+      "criteria": [
+        "Ich trenne Speicherort und Zugriffsrechte.",
+        "Ich nenne eine passende Handlung vor der Geräteübergabe.",
+        "Ich begründe, warum ein Passwort nicht weitergegeben wird."
+      ],
+      "checkHelp": [
+        {
+          "title": "Lokal heißt für mich nur für mich.",
+          "text": "Wer nutzt in diesem Fall dasselbe offene Profil? Prüfe die Bedingungen des Falls statt eine allgemeine Regel zu raten.",
+          "knowledge": "zugriff",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "completion": {
+        "title": "Für heute abgeschlossen",
+        "text": "Prüfe deine Erklärung an den Kriterien. Was am echten Gerät noch nicht möglich war, holst du mit deiner Lehrperson nach. Als Nächstes nutzt du deinen Speicherweg für recherchierte Informationen."
+      },
+      "blocks": [
+        {
+          "type": "task",
+          "id": "entscheidung",
+          "title": "Die Datei am gemeinsamen Schul-PC",
+          "text": "In diesem erfundenen Fall nutzen mehrere Kinder dasselbe offene PC-Profil. Alle können dessen lokalen Ordner „Projekt“ lesen. Eine persönliche Datei liegt bereits in Mias eigenem Schulcloud-Bereich; für die Klasse ist sie nicht freigegeben. Mia ist im Cloud-Dienst noch angemeldet. Jemand sagt: „Lokal ist immer privat. Mach einfach den Tab zu und gib mir zur Sicherheit dein Passwort.“",
+          "prompt": "Korrigiere zwei falsche Aussagen und begründe deinen sicheren Abschluss vor der Geräteübergabe. Verbessere deine Anfangsvermutung. Ohne den Einstieg: Formuliere eine eigene Regel zu Speicherort und Zugriff.",
+          "solution": "Der lokale Ordner ist hier gerade nicht privat, weil alle dasselbe offene Profil nutzen. Tab schließen ist keine verlässliche Abmeldung. Passwort nicht weitergeben. Mia sichert ihre Arbeit, meldet sich nach dem vorgesehenen Weg aus ihrem Schuldienst ab und prüft den Abmeldestatus; bei Unsicherheit fragt sie die Lehrperson vor der Übergabe. Der passende Speicherweg und die Zugriffsrechte zählen, nicht allein der Ordnername.",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Prüfe nacheinander: Wer kann den lokalen Ordner lesen? Was passiert mit Mias noch offener Anmeldung?"
+            },
+            {
+              "title": "Eine genauere Hilfe",
+              "text": "Behalte Mias Passwort bei ihr. Formuliere stattdessen, wie jemand helfen kann, ohne ihren Zugang zu übernehmen."
+            }
+          ],
+          "responseMode": "oral",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse."
+        }
+      ]
+    },
+    {
+      "id": "wiederaufnahme",
+      "title": "Später kurz erinnern",
+      "timing": "later",
+      "goal": "Speicherort und Zugangsschutz mit Abstand erklären.",
+      "task": "In einer späteren Stunde: Antworte zuerst ohne die alten Lösungen.",
+      "outcome": "Zwei kurze Erklärungen aus dem Gedächtnis, bei Bedarf verbessert.",
+      "knowledge": [
+        "speicherort",
+        "zugriff",
+        "schutz"
+      ],
+      "materialNeeds": [
+        "die beiden Fragen; kein Gerät nötig"
+      ],
+      "criteria": [
+        "Ich nenne eine fehlende Information beim Gerätewechsel.",
+        "Ich unterscheide Pause und Geräteübergabe."
+      ],
+      "checkHelp": [
+        {
+          "title": "Ich komme nicht weiter.",
+          "text": "Versuche zuerst selbst zu erklären. Vergleiche danach und sage die verbesserte Erklärung noch einmal ohne Vorlage.",
+          "knowledge": "schutz",
+          "label": "Passendes Wissen öffnen"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "abruf",
+          "title": "Zwei Fragen genügen",
+          "text": "Schließe alte Antworten. Beantworte die Fragen, bevor du den Vergleich öffnest.",
+          "when": "Mit etwas Abstand, zum Beispiel beim nächsten Rechercheeinstieg; zwei Minuten zusätzlich zum getrennten zehnminütigen Dateien-Abruf.",
+          "prompt": "Ein Ordner heißt auf zwei Geräten gleich: Was musst du noch wissen? Was unterscheidet eine kurze Pause von der Übergabe an eine andere Person?",
+          "responseMode": "oral",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse.",
+          "solution": "Ich muss den tatsächlichen Speicherweg, seine Erreichbarkeit und die Berechtigung kennen; der Name genügt nicht. Bei einer kurzen Pause kann geprüfter Sperrschutz passen. Vor Übergabe sichere ich meine Arbeit und beende die betreffende Sitzung nach Schulregel. Unklare Stellen nachschlagen und erneut erklären."
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "auftakt"
+    ],
+    "explanation": [
+      "vergleichen",
+      "schuetzen"
+    ],
+    "example": [
+      "vergleichen",
+      "schuetzen"
+    ],
+    "practice": [
+      "vergleichen"
+    ],
+    "application": [
+      "pruefen",
+      "schuetzen"
+    ],
+    "revision": [
+      "entscheiden"
+    ],
+    "securing": [
+      "entscheiden"
+    ],
+    "transfer": [
+      "entscheiden"
+    ],
+    "retrieval": [
+      "wiederaufnahme"
+    ]
+  },
+  "experiencedEntry": {
+    "title": "Du kennst eure Speicherwege schon?",
+    "text": "Beginne mit der Prüfung am Schulgerät. Begründe trotzdem Erreichbarkeit und Leserkreis. Schutzhandlung und neuer Fall gehören dazu.",
+    "step": "pruefen",
+    "label": "Zu den Speicherwegen"
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereiten",
+      "paragraphs": [
+        "Zwei tatsächlich erlaubte Speicherwege und eine harmlose Datei bereitstellen, etwa die vorhandene Fundnotiz. Erreichbarkeit und Berechtigung am Schulprofil klären. Eine Schulcloud ist keine Pflichtplattform. Bei nur einem Weg den zweiten ausdrücklich als Fallvergleich bearbeiten.",
+        "Genau eine geeignete Schutzhandlung pro Person wählen. Schutzwirkung und Rückkehr am Schulprofil vorab prüfen, auch automatische Wiederanmeldung. Bei fehlendem persönlichem Sperrschutz eine passende Dienstabmeldung vorsehen. Offene Arbeit und Lernwerk-Arbeitsdatei vor Abmeldung sichern. Keine Zugangsdaten oder Screenshots sammeln, keine Apple-ID abmelden oder Gerätesicherheit ändern."
+      ]
+    },
+    {
+      "title": "Durchführen · 45 Minuten",
+      "paragraphs": [
+        "5 Minuten Vermutung → 10 Vergleich → 10 Speicherprobe → 10 Schutzhandlung → 7 neuer Fall und Sicherung → 3 Reserve. Jede Person zeigt oder erklärt selbst; Stichwörter sind freiwillig. Geübte können direkt prüfen.",
+        "Später zwei Minuten Abruf. Zusammen mit zehn Minuten Dateien-Abruf beansprucht M01 zwölf der 135 Jahresminuten für verteilte Übung. Die vier Kern-UE bleiben unverändert."
+      ]
+    },
+    {
+      "title": "Beobachten → helfen",
+      "paragraphs": [
+        "„Cloud heißt öffentlich“? Eigenen Bereich und Kursbereich desselben Falls vergleichen lassen. „Lokal heißt privat“? Auf den gemeinsamen PC im neuen Fall zurückgreifen. Nur Ordnername genannt? Startort mitzeigen lassen.",
+        "Bildschirm dunkel = Zugang sicher? Erneuten Zugang nach Schulregel beobachten. Sperren und Abmelden verwechselt? Pause und Übergabe getrennt erklären lassen. Unklarer Rückweg: Handlung stoppen und sicher klären, keinen Versuch mit fremden Konten zulassen."
+      ]
+    },
+    {
+      "title": "Grenzen und Anschluss",
+      "paragraphs": [
+        "Bei nur einem Speicherweg steht ein vollständiger Ersatzfall direkt im Geräteblatt. Fehlt jeder Zugang, sichern Fallvergleich und mündliche Begründung das Verständnis; Speicherprobe/Schutzhandlung werden nachgeholt. Eine ausgefüllte Antwort ersetzt keine beobachtete Handlung.",
+        "Für M02 müssen Lernende den erlaubten Speicherweg wiederfinden und den Zugang schützen können. Sonst vor Recherche kurz nachsichern. Nach Erprobung genügen Dauer, häufigste Verwechslung und nächste Anpassung; bisher kein realer Unterrichtsversuch."
+      ]
+    }
+  ],
+  "briefing": [
+    "Diese Stunde schließt die erste Reihe ab. Die Lernenden trennen den Speicherort einer Datei von der Frage, wer sie öffnen darf. Sie prüfen einen Schulweg und führen eine passende Schutzhandlung aus.",
+    "Bereiten Sie zwei erlaubte Speicherwege und eine harmlose Übungsdatei vor. Klären Sie Berechtigungen, Schutzwirkung und Rückkehr am Schulprofil. Wählen Sie genau eine passende Sperr- oder Abmeldehandlung. Offene Arbeit und Lernwerkantworten vorher sichern. Zugangsdaten werden nicht gesammelt.",
+    "Planen Sie fünf Minuten für die Vermutung, zehn für den Vergleich, zehn für die Speicherprobe und zehn für die Schutzhandlung. Sieben Minuten dienen dem neuen Fall und der Sicherung. Drei Minuten bleiben als Reserve.",
+    "Achten Sie auf die Begründung: Ein eigener Bereich kann in der Cloud liegen; ein lokaler Ordner kann mehreren Personen zugänglich sein. Ein dunkler Bildschirm oder ein geschlossener Tab ist noch kein Nachweis eines geschützten Zugangs.",
+    "Fehlt die sichere Gerätehandlung, bleibt sie offen. Der Fallvergleich ist dann möglich. Reservieren Sie später zwei Minuten zum Erinnern aus dem Jahreskonto. Halten Sie nach dem Einsatz nur Zeitabweichung, häufigste Hürde und nächste Anpassung fest."
+  ]
+}

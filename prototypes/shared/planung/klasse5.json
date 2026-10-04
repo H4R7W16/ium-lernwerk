@@ -15,8 +15,8 @@
       "title": "Im schulischen Arbeitsraum sicher handeln",
       "minutes": 180,
       "focus": "Gerät, Programm und Speicherort unterscheiden; Dateien ordnen und wiederfinden; Zugänge schützen.",
-      "evidence": "Drei Schichten am Gerät erklären; eigenen Ordnerweg zeigen.",
-      "status": "Geräte- und Dateien-Bogen vorhanden; Speicherwege/Zugang vertiefen.",
+      "evidence": "Drei Schichten erklären; eigenen Ordnerweg zeigen; Speicherzugriff begründen und Zugangsschutz ausführen.",
+      "status": "Drei Teilbögen ausgearbeitet; reale Erprobung und Zielabgleich offen.",
       "href": "reihe-arbeitsraum.html",
       "label": "Reihenkommentar"
     },
@@ -99,21 +99,24 @@
         "title": "Speicherwege und sichere Zugänge",
         "minutes": 45,
         "action": "Tatsächliche schulische Speicherorte und Zugriff vergleichen; angemessen anmelden, abmelden und Hilfe holen. Keine Zugangsdaten abgeben lassen.",
-        "status": "Planung · Material noch auszuarbeiten"
+        "status": "Lernbogen vorhanden · zur Erprobung",
+        "href": "speicher-zugang/lehrkraft.html",
+        "label": "Durchführung und Material"
       }
     ],
     "later": {
-      "minutes": 10,
+      "minutes": 12,
       "account": "spacedPracticeMinutes",
-      "text": "In einer späteren Stunde: Ordnerweg zunächst aus dem Gedächtnis erklären, dann am Gerät wiederfinden. Aus den 3 Jahres-UE für verteilte Übung, nicht nochmals in die 4 Reihen-UE einrechnen. Der dreiminütige Schichtenabruf erfolgt bereits im Einstieg des Dateien-Bogens und wird dort mitgezählt."
+      "text": "Mit Abstand: zehn Minuten Ordnerweg erklären und am Gerät wiederfinden, dazu zwei Minuten Speicherzugriff und Zugangsschutz erklären. Zusammen zwölf Minuten aus den 135 Jahresminuten für verteilte Übung, nicht nochmals in die vier Reihen-UE einrechnen. Der dreiminütige Schichtenabruf liegt bereits im Dateien-Einstieg."
     },
-    "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen. Ein freigegebenes Rechenprogramm und seinen Namen für den ersten Bogen bereitstellen.",
+    "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen. Ein freigegebenes Rechenprogramm und seinen Namen für den ersten Bogen bereitstellen. Für den Abschluss zwei erlaubte Speicherwege, deren Berechtigungen und einen sicheren Sperr-/Abmeldeweg samt Rückkehr klären.",
     "decisions": [
       "Begriffe verwechselt? Datei und Ordner am Modell unterscheiden lassen, anschließend erneut selbst zuordnen.",
       "Ordnung erklärt, Datei aber nicht gefunden? Beim Startort ansetzen und den Weg am Gerät wiederholen.",
       "Weg sicher? Alternative Ordnung begründen lassen; unnötige Wiederholung auslassen.",
-      "Zugang fehlt? Am Modell weiterarbeiten und die reale Gerätehandlung später nachholen."
+      "Zugang fehlt? Am Modell weiterarbeiten und die reale Gerätehandlung später nachholen.",
+      "Speicherort mit Leserkreis verwechselt? Eigenen und gemeinsamen Bereich vergleichen. Schutz nur beschrieben? Erlaubte Handlung am Schulprofil nachholen."
     ],
-    "next": "Für M02 genügt keine ausgefüllte Lernwerkseite: Prüfen Sie, ob Lernende eine Datei tatsächlich wiederfinden. Beginnen Sie andernfalls mit einer kurzen Nachsicherung. Notieren Sie nach der Reihe nur Zeitabweichung, häufigste Hürde und eine Anpassung."
+    "next": "Vor M02 prüfen: eigene Datei wiederfinden, Speicherzugriff begründen und eine Schutzhandlung ausführen. Nicht beobachtete oder ausgefallene Handlungen vor Recherche nachholen. Notieren Sie nach der Reihe nur Zeitabweichung, häufigste Hürde und eine Anpassung."
   }
 }

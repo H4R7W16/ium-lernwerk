@@ -4,7 +4,7 @@ test('Jahreskonten und Reihenzeit passen ohne doppelten Abrufposten',()=>{
  const p=P.plan;assert.equal(p.modules.reduce((n,m)=>n+m.minutes,0),1350);
  assert.equal(p.modules.reduce((n,m)=>n+m.minutes,0)+Object.values(p.reserves).reduce((a,b)=>a+b,0),1710);
  assert.equal(p.series.phases.reduce((n,x)=>n+x.minutes,0),p.modules[0].minutes);
- assert.equal(p.series.later.minutes,10);assert.equal(p.series.later.account,'spacedPracticeMinutes');
+ assert.equal(p.series.later.minutes,12);assert.equal(p.series.later.account,'spacedPracticeMinutes');
  assert.equal(p.availability,'unconfirmed');assert.equal(p.modules.length,6);
  assert.throws(()=>P.validate({...p,availability:'confirmed'}),/Budget/);
  const invalid=structuredClone(p);invalid.series.phases[0].minutes+=45;assert.throws(()=>P.validate(invalid),/Reihenzeit/);
