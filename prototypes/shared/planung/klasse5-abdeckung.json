@@ -1,0 +1,2330 @@
+{
+  "planningCommit": "dee82ecd7b62007e1387ed61fb190f1cd8fede28",
+  "asOf": "2026-10-04",
+  "reviewMode": "self_review",
+  "scope": "Geplante Klasse-5-Platzierungen innerhalb des Bands 5/6, keine Abschlussfreigabe.",
+  "expectedContent": [
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.1.1(1)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.1.1(1)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.1.1(2)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.1.1(3)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.1.1(4)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.1.1(5)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "3.1.2.1(1)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "3.1.2.1(2)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "3.1.2.1(3)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "3.1.2.2(1)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "3.1.2.2(5)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.2.2(5)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "3.1.2.2(6)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.2.2(6)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "3.1.3.1(1)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "3.1.3.1(2)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "3.1.3.1(3)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "3.1.3.1(4)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "3.1.3.1(5)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "3.1.3.1(6)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(1)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.4.1(1)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(2)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(3)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(4)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(5)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.4.1(6)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(6)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.4.1(7)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.1(7)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.4.2(6)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.4.2(7)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.4.2(7)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.5.1(1)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.5.1(2)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.5.1(3)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "3.1.5.1(4)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.1(5)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.1(6)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.1(7)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.1(8)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.5.1(8)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.1(9)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.5.1(9)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.2(1)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.5.2(1)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.2(2)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.5.2(2)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.2(3)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "3.1.5.2(3)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.5.2(4)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.2(4)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.5.2(5)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.2(5)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "3.1.5.2(6)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "3.1.5.2(6)"
+    }
+  ],
+  "expectedProcess": [
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.1(1)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "2.1(2)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.1(3)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.1(4)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "2.1(5)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.1(7)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.1(8)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "2.2(1)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "2.2(2)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "2.2(5)"
+    },
+    {
+      "moduleId": "G5-M02",
+      "competencyId": "2.2(6)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.2(7)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "2.2(8)"
+    },
+    {
+      "moduleId": "G5-M01",
+      "competencyId": "2.3(1)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.3(2)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "2.4(1)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "2.4(2)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "2.4(3)"
+    },
+    {
+      "moduleId": "G5-M03",
+      "competencyId": "2.4(6)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.4(8)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.5(1)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.5(2)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.5(3)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.5(4)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.5(6)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.5(7)"
+    },
+    {
+      "moduleId": "G5-M04",
+      "competencyId": "2.5(9)"
+    },
+    {
+      "moduleId": "G5-M06",
+      "competencyId": "2.6(1)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "2.6(8)"
+    },
+    {
+      "moduleId": "G5-M05",
+      "competencyId": "2.6(11)"
+    }
+  ],
+  "privateContracts": [
+    {
+      "id": "P56-01",
+      "competencyId": "3.1.1.1(2)",
+      "moduleId": "G5-M05",
+      "learningTask": "Eigene schulische oder freiwillig gewählte Mediennutzung beschreiben; Zweck, Wirkung und nächste bewusste Entscheidung festhalten.",
+      "publicEvidence": "Fachliches Urteil am neutralen Fall mit Kriterienbegründung.",
+      "privateEvidence": "Persönliche Reflexion bleibt bei Lernenden; optional nur Durchführung rückmelden, keine Qualitätsprüfung durch Selbsthaken.",
+      "assessmentLimit": "Eigene Reflexion ist eingeplant, ihr fachlicher Erfolg von außen nicht ohne Weiteres belegt. Keine automatische Kompetenzfreigabe.",
+      "dataRule": "Keine verpflichtenden privaten Chatverläufe, Konten, Nutzungsstatistiken oder belastenden Erfahrungen. Eigener schulischer Kontext möglich; Hilfegesuch getrennt vom Leistungsnachweis.",
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "nachdenken"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "erinnern"
+        }
+      ],
+      "status": "offered-private-not-assessed"
+    },
+    {
+      "id": "P56-02",
+      "competencyId": "3.1.1.1(3)",
+      "moduleId": "G5-M05",
+      "learningTask": "An eigener harmloser schulischer Medienerfahrung Faszination und mögliche Konflikte beschreiben; in einem neutralen Fall Handlungsoptionen diskutieren.",
+      "publicEvidence": "Fachliches Urteil am neutralen Fall mit Kriterienbegründung.",
+      "privateEvidence": "Persönliche Reflexion bleibt bei Lernenden; optional nur Durchführung rückmelden, keine Qualitätsprüfung durch Selbsthaken.",
+      "assessmentLimit": "Eigene Reflexion ist eingeplant, ihr fachlicher Erfolg von außen nicht ohne Weiteres belegt. Keine automatische Kompetenzfreigabe.",
+      "dataRule": "Keine verpflichtenden privaten Chatverläufe, Konten, Nutzungsstatistiken oder belastenden Erfahrungen. Eigener schulischer Kontext möglich; Hilfegesuch getrennt vom Leistungsnachweis.",
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "nachdenken"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "optionen"
+        }
+      ],
+      "status": "offered-private-not-assessed"
+    }
+  ],
+  "band56NotInGrade5": [
+    {
+      "competencyId": "3.1.1.1(6)",
+      "target": "Möglichkeiten nennen, wie die spezifische Auswahl der Werbebotschaft zustande kommt (unter anderem durch Erfassung von Nutzerverhalten)",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M03",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Möglichkeiten der Werbeauswahl nennen, alltägliche Daten-/Metadatenerhebung und verwendete Techniken beschreiben sowie Interessen der beteiligten Akteure erklären."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.1.2(1)",
+      "target": "alltägliche Situationen nennen, in denen personenbezogene Daten oder Metadaten erhoben werden und dafür genutzte Techniken beschreiben",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M03",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Möglichkeiten der Werbeauswahl nennen, alltägliche Daten-/Metadatenerhebung und verwendete Techniken beschreiben sowie Interessen der beteiligten Akteure erklären."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.1.2(2)",
+      "target": "Interessen von Akteuren erklären, die mit personenbezogenen Daten arbeiten (zum Beispiel wirtschaftliche Verwertung, zielgerichtete Beeinflussung, Kontrolle, Nutzerfreundlichkeit)",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M03",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Möglichkeiten der Werbeauswahl nennen, alltägliche Daten-/Metadatenerhebung und verwendete Techniken beschreiben sowie Interessen der beteiligten Akteure erklären."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.1.2(3)",
+      "target": "die eigene Mediennutzung vor dem Hintergrund der informationellen Selbstbestimmung reflektieren",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M03",
+          "role": "private-reflection",
+          "plannedEvidence": "Eigene Entscheidung über Datenfreigabe im schulischen Kontext mit informationeller Selbstbestimmung begründen und prüfen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.1(4)",
+      "target": "die grundlegende Funktionsweise einer indexbasierten Suche erläutern",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M02",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "An Index, Suchanfrage und Fundliste die grundlegende indexbasierte Suche erklären."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(2)",
+      "target": "analysieren, aus welchen Motiven Inhalte im Internet veröffentlicht oder verbreitet werden (zum Beispiel Aufmerksamkeit, Profit, Einflussnahme auf Meinungen, Altruismus)",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M02",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Veröffentlichungsmotive analysieren, einen Interessenkonflikt erklären und an Beispielen automatisierte Erzeugung sowie Veröffentlichung/Verbreitung beschreiben."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(3)",
+      "target": "Interessenkonflikte von Akteuren bei der Erstellung von Content erklären (zum Beispiel Authentizität, Unabhängigkeit, Profit)",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M02",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Veröffentlichungsmotive analysieren, einen Interessenkonflikt erklären und an Beispielen automatisierte Erzeugung sowie Veröffentlichung/Verbreitung beschreiben."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(4)",
+      "target": "anhand von Beispielen beschreiben, dass Content automatisiert generiert, veröffentlicht und verbreitet werden kann",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M02",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Veröffentlichungsmotive analysieren, einen Interessenkonflikt erklären und an Beispielen automatisierte Erzeugung sowie Veröffentlichung/Verbreitung beschreiben."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(7)",
+      "target": "widersprüchliche Informationen aus unterschiedlichen Quellen herausarbeiten und ihre Vertrauenswürdigkeit einschätzen",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M02",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Widerspruch zwischen Quellen herausarbeiten und Vertrauenswürdigkeit begründen; an geprüfter KI-Ausgabe Unterstützung und mögliche Fehleinschätzung erläutern."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(8)",
+      "target": "beschreiben, inwiefern KI-generierte Rechercheergebnisse die Informationsgewinnung unterstützen, aber auch zu Fehleinschätzungen führen können",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M02",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Widerspruch zwischen Quellen herausarbeiten und Vertrauenswürdigkeit begründen; an geprüfter KI-Ausgabe Unterstützung und mögliche Fehleinschätzung erläutern."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(9)",
+      "target": "an alltäglichen Beispielen erklären, weshalb Informationen für verschiedene Zwecke auf unterschiedliche Art und Weise codiert werden",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M04",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "An Alltagsbeispielen verschiedene Codierungszwecke erklären, Vorschriften auf Texte anwenden und Auswahl für eine Übertragung begründen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(10)",
+      "target": "anhand von Beispielen erläutern, wie unterschiedliche Einsatzzwecke die Wahl der Codierung zur Informationsübertragung bestimmen (zum Beispiel für Menschen mit Einschränkungen, für Computersysteme, zur Übermittlung über weite Distanzen)",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M04",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "An Alltagsbeispielen verschiedene Codierungszwecke erklären, Vorschriften auf Texte anwenden und Auswahl für eine Übertragung begründen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.2.2(11)",
+      "target": "Codierungsvorschriften für Texte anwenden (zum Beispiel Code 39, Morsecode, Brailleschrift)",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M04",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "An Alltagsbeispielen verschiedene Codierungszwecke erklären, Vorschriften auf Texte anwenden und Auswahl für eine Übertragung begründen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.4.2(1)",
+      "target": "das Internet als vermaschtes Netz aus Knoten und Leitungen grafisch darstellen und den Weg einer Nachricht durch Weiterleitungen über Zwischenschritte beschreiben",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M01",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Vermaschtes Netz mit Nachrichtenweg zeichnen, Client/Server erklären und interne/portable/lokale Server-/Cloudspeicher kriteriengeleitet vergleichen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.4.2(2)",
+      "target": "das Prinzip der Client-Server-Kommunikation anhand von Alltagsbeispielen erläutern",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M01",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Vermaschtes Netz mit Nachrichtenweg zeichnen, Client/Server erklären und interne/portable/lokale Server-/Cloudspeicher kriteriengeleitet vergleichen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.4.2(3)",
+      "target": "Speicherorte wie interne oder portable Speichermedien, Server im lokalen Netz oder die Cloud nennen und kriteriengeleitet (zum Beispiel Verfügbarkeit, Kollaboration, Teilen, Sicherheit, Betreiber) vergleichen",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M01",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Vermaschtes Netz mit Nachrichtenweg zeichnen, Client/Server erklären und interne/portable/lokale Server-/Cloudspeicher kriteriengeleitet vergleichen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.4.2(4)",
+      "target": "die eigene Mediennutzung vor dem Hintergrund des rechtlichen Rahmens (zum Beispiel Recht am eigenen Bild) reflektieren",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M06",
+          "role": "private-reflection",
+          "plannedEvidence": "Eigene schulische Medienhandlung auf Rechte und Regeln prüfen; erforderliche Korrektur privat planen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.4.2(5)",
+      "target": "Gründe für und gegen die Nutzung von Sozialen Medien nennen und diskutieren",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M06",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Gründe für und gegen soziale Medien diskutieren und begünstigende Bedingungen verletzenden oder ausgrenzenden Verhaltens digitaler Räume nennen."
+        }
+      ]
+    },
+    {
+      "competencyId": "3.1.4.2(8)",
+      "target": "Ursachen oder begünstigende Faktoren in digitalen Räumen für ausgrenzendes oder verletzendes Verhalten nennen",
+      "placements": [
+        {
+          "grade": 6,
+          "moduleId": "G6-M06",
+          "role": "revisit-or-develop",
+          "plannedEvidence": "Gründe für und gegen soziale Medien diskutieren und begünstigende Bedingungen verletzenden oder ausgrenzenden Verhaltens digitaler Räume nennen."
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.1.1(1)",
+      "target": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
+      "sourcePage": 32,
+      "refs": [
+        {
+          "unit": "speicher-zugang",
+          "step": "schuetzen"
+        },
+        {
+          "unit": "speicher-zugang",
+          "step": "entscheiden"
+        }
+      ],
+      "action": "Schulregel im tatsächlichen Schutzweg anwenden und Entscheidung am neuen Fall begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.4.1(6)",
+      "target": "persönliche Gründe für den Schutz des eigenen Zugangs auf digitalen Geräten und zu Diensten erläutern",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "speicher-zugang",
+          "step": "schuetzen"
+        },
+        {
+          "unit": "speicher-zugang",
+          "step": "entscheiden"
+        }
+      ],
+      "action": "Eigenen Zugang vor fremder Nutzung schützen; Passwortweitergabe und offenes Profil begründet ablehnen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.4.1(7)",
+      "target": "Maßnahmen zum Schutz des eigenen Zugangs beschreiben und anwenden",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "speicher-zugang",
+          "step": "schuetzen"
+        }
+      ],
+      "action": "Erlaubte Schutzhandlung am Schulprofil selbst ausführen und sicheren Rückweg prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.5.1(1)",
+      "target": "Komponenten der Hardware für die Eingabe zielorientiert und funktionsgerecht nutzen",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "geraete",
+          "step": "geraet"
+        },
+        {
+          "unit": "dateien",
+          "step": "ablegen"
+        }
+      ],
+      "action": "Rechner mit Eingabe bedienen; Datei tatsächlich auswählen, umbenennen und öffnen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.5.1(2)",
+      "target": "Speicherorte hinsichtlich ihrer Zugriffsmöglichkeiten beschreiben sowie eine eigene Verzeichnisstruktur erstellen und nutzen",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "dateien",
+          "step": "planen"
+        },
+        {
+          "unit": "dateien",
+          "step": "ablegen"
+        },
+        {
+          "unit": "dateien",
+          "step": "wiederfinden"
+        },
+        {
+          "unit": "speicher-zugang",
+          "step": "vergleichen"
+        },
+        {
+          "unit": "speicher-zugang",
+          "step": "pruefen"
+        }
+      ],
+      "action": "Eigene Ordnerstruktur anlegen/nutzen und zwei Speicherwege samt Zugriff unterscheiden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.5.1(3)",
+      "target": "ein Betriebssystem funktionsgerecht nutzen und dabei Bedienkonzepte (zum Beispiel Kontextmenü, Auswählen und Verändern, Zwischenablage, rückgängig machen, Teilen von Daten) anwenden",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "dateien",
+          "step": "ablegen"
+        },
+        {
+          "unit": "dateien",
+          "step": "wiederfinden"
+        },
+        {
+          "unit": "dateien",
+          "step": "transfer"
+        }
+      ],
+      "action": "Auswahl, Umbenennen, Verschieben und Öffnen im Betriebssystem selbst ausführen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "content",
+      "competencyId": "3.1.5.1(4)",
+      "target": "den grundlegenden Aufbau digitaler Systeme in den Schichten Hardware, Betriebssystem und Programmen erklären",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "geraete",
+          "step": "modell"
+        },
+        {
+          "unit": "geraete",
+          "step": "geraet"
+        },
+        {
+          "unit": "geraete",
+          "step": "neuer-fall"
+        }
+      ],
+      "action": "Hardware, Betriebssystem und Anwendung am eigenen Gerät und Ticketautomaten erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "process",
+      "competencyId": "2.2(8)",
+      "target": "Aussagekräftige Namen/Ordner tatsächlich nutzen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "dateien",
+          "step": "planen"
+        },
+        {
+          "unit": "dateien",
+          "step": "ablegen"
+        },
+        {
+          "unit": "dateien",
+          "step": "wiederfinden"
+        },
+        {
+          "unit": "dateien",
+          "step": "transfer"
+        }
+      ],
+      "action": "Eigene Namen/Ordner tatsächlich nutzen; neue Datei ohne Schrittkarte erneut finden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M01",
+      "kind": "process",
+      "competencyId": "2.3(1)",
+      "target": "Schutzmaßnahme anwenden, ohne Zugangsdaten offenzulegen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "speicher-zugang",
+          "step": "schuetzen"
+        }
+      ],
+      "action": "Schutzhandlung anwenden; keine Zugangsdaten oder persönlichen Ansichten abgeben.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "content",
+      "competencyId": "3.1.2.1(1)",
+      "target": "digitale Werkzeuge und Angebote zur Informationsgewinnung nutzen",
+      "sourcePage": 35,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "suchplan"
+        },
+        {
+          "unit": "recherche",
+          "step": "suchen"
+        }
+      ],
+      "action": "Erlaubten Informationsweg begründen und selbst mit veränderten Suchbegriffen suchen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "content",
+      "competencyId": "3.1.2.1(2)",
+      "target": "Informationen kriterienbasiert (unter anderem auf Herkunft und Plausibilität) überprüfen",
+      "sourcePage": 35,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "lesen"
+        },
+        {
+          "unit": "recherche",
+          "step": "ueberarbeiten"
+        },
+        {
+          "unit": "recherche",
+          "step": "transfer"
+        }
+      ],
+      "action": "Herkunft, Absicht und genaue Aussage zweier Anbieter vergleichen; zeitabhängigen neuen Fall prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "content",
+      "competencyId": "3.1.2.1(3)",
+      "target": "Informationen auswählen und strukturiert darstellen (zum Beispiel in Form einer Aufzählung oder Tabelle)",
+      "sourcePage": 35,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "ordnen"
+        }
+      ],
+      "action": "Drei relevante Aussagen unter zwei Überschriften mit Fundstellen ordnen, Auslassung begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "content",
+      "competencyId": "3.1.2.2(1)",
+      "target": "verschiedene Arten von Akteuren nennen, die Informationen im Internet veröffentlichen oder verbreiten",
+      "sourcePage": 36,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "lesen"
+        }
+      ],
+      "action": "Forschungsorganisation und kommerziellen Anbieter an den Quellen unterscheiden und Absichten benennen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "content",
+      "competencyId": "3.1.2.2(5)",
+      "target": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
+      "sourcePage": 36,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "frage"
+        },
+        {
+          "unit": "recherche",
+          "step": "ordnen"
+        }
+      ],
+      "action": "Eigene Anfangsvermutung mit einer Quelle vergleichen und für die Leitfrage verarbeiten.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "content",
+      "competencyId": "3.1.2.2(6)",
+      "target": "Kriterien für Vertrauenswürdigkeit von Informationen nennen",
+      "sourcePage": 36,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "lesen"
+        },
+        {
+          "unit": "recherche",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Vertrauenswürdigkeitskriterium an einer konkreten Fundstelle erklären, nicht nur Anbietername nennen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "process",
+      "competencyId": "2.1(2)",
+      "target": "Werkzeugwahl für eine Aufgabe begründen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "suchplan"
+        }
+      ],
+      "action": "Wahl zwischen Suchdienst und bekannter Adresse anhand der Aufgabe begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "process",
+      "competencyId": "2.2(1)",
+      "target": "Suchstrategie erläutern und verändern.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "suchen"
+        }
+      ],
+      "action": "Eigene Suchwortänderung mit tatsächlichen Treffern begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "process",
+      "competencyId": "2.2(2)",
+      "target": "Quelle mit Kriterien bewerten.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "lesen"
+        },
+        {
+          "unit": "recherche",
+          "step": "transfer"
+        }
+      ],
+      "action": "Quelle an Herkunft, Zweck, Plausibilität und erforderlicher Aktualität prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "process",
+      "competencyId": "2.2(5)",
+      "target": "Relevante Information auswählen und Auslassung begründen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "ordnen"
+        }
+      ],
+      "action": "Gelesene Information auswählen und eine Auslassung mit der eigenen Frage begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M02",
+      "kind": "process",
+      "competencyId": "2.2(6)",
+      "target": "Information gegliedert darstellen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "recherche",
+          "step": "ordnen"
+        },
+        {
+          "unit": "recherche",
+          "step": "sichern"
+        }
+      ],
+      "action": "Gegliederte Sammlung mit zugeordneten Quellenkarten erstellen und wieder öffnen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.1.1(1)",
+      "target": "die Regeln für die schulische Mediennutzung beachten und sich mit diesen auseinandersetzen",
+      "sourcePage": 32,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "arbeitsraum"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        }
+      ],
+      "action": "Reale Schulregel erklären und im eigenen Austausch beachten.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.1.1(4)",
+      "target": "Nutzungs- und Rahmenbedingungen von Apps, Programmen und Onlinediensten exemplarisch herausarbeiten",
+      "sourcePage": 32,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "arbeitsraum"
+        }
+      ],
+      "action": "Tatsächliche Kursraumbedingung am ausgefüllten Regelhinweis herausarbeiten.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(1)",
+      "target": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "rueckmelden"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Eigene Nachricht senden, andere lesen/beantworten und gemeinsame Gliederung ändern.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(2)",
+      "target": "Auswirkungen von Konflikten und Problemen bei der digitalen Kommunikation, beispielsweise in einem Klassenchat, reflektieren und diskutieren",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "klaeren"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "konflikt"
+        }
+      ],
+      "action": "Missverständnis von wiederholter Ausgrenzung unterscheiden; Folgen und Hilfe diskutieren.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(3)",
+      "target": "Gemeinsamkeiten und Unterschiede analoger und digitaler Kommunikation herausarbeiten",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "nachricht"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "klaeren"
+        }
+      ],
+      "action": "Mündliche und digitale Verständigung mit Tonfall, Rückfrage und bleibendem Text vergleichen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(4)",
+      "target": "Bedingungen für gelingende und situationsgerechte Kommunikation im digitalen Raum nennen",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "nachricht"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "vereinbaren"
+        }
+      ],
+      "action": "Anlass, klare Frage, Ton und Antwortbedarf für gelingende Kommunikation benennen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(5)",
+      "target": "Kommunikationsregeln im Umgang mit digitalen Medien beachten und mögliche Folgen missbräuchlicher digitaler Kommunikation reflektieren",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "konflikt"
+        }
+      ],
+      "action": "Regeln in eigener Nachricht anwenden und Folgen ausgrenzender Kommunikation beurteilen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(6)",
+      "target": "persönliche Gründe für den Schutz des eigenen Zugangs auf digitalen Geräten und zu Diensten erläutern",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "arbeitsraum"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "sichern"
+        }
+      ],
+      "action": "Eigene Zugänge nutzen und Schutzgrund beim Abschluss erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.1(7)",
+      "target": "Maßnahmen zum Schutz des eigenen Zugangs beschreiben und anwenden",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "arbeitsraum"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "sichern"
+        }
+      ],
+      "action": "Vorgesehene Schutzroutine tatsächlich ausführen, keine gemeinsamen Zugangsdaten verwenden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.4.2(7)",
+      "target": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen (zum Beispiel Cybermobbing, Hassrede) beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
+      "sourcePage": 42,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "konflikt"
+        }
+      ],
+      "action": "Fiktive wiederholte Ausgrenzung erkennen; konkrete Vertrauensperson und Ersatzweg nutzen können.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.5.2(4)",
+      "target": "die Bedeutung von Quellenangaben beschreiben und sich mit Regeln des Urheberrechts am Beispiel eines Lizenzmodells auseinandersetzen",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "vereinbaren"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Bedeutung der Sachquelle und Bedingungen der bearbeiteten CC-BY-SA-Regel unterscheiden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.5.2(5)",
+      "target": "ein Medienprodukt im Hinblick auf die Einhaltung der Regeln des Urheberrechts analysieren und die Regeln bei der Überarbeitung des Produkts anwenden",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Quellen-/Lizenzhinweis im eigenen gemeinsamen Plan tatsächlich prüfen und korrigieren.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "content",
+      "competencyId": "3.1.5.2(6)",
+      "target": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "sichern"
+        }
+      ],
+      "action": "Ergebnis im geschlossenen Schulraum öffnen lassen und digital live einem anderen Paar zeigen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "process",
+      "competencyId": "2.1(5)",
+      "target": "Eigene Sicht begründen und eine andere Sicht korrekt wiedergeben.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "klaeren"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "rueckmelden"
+        }
+      ],
+      "action": "Eigene Sicht begründen, empfangene Antwort in eigenen Worten wiedergeben.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "process",
+      "competencyId": "2.4(1)",
+      "target": "Reale gemeinsame digitale Arbeit organisieren.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "vereinbaren"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        }
+      ],
+      "action": "Rollen, Beiträge, Zeit und gemeinsames Ergebnis im tatsächlichen Schulraum organisieren.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "process",
+      "competencyId": "2.4(2)",
+      "target": "Kommunikationsweg sachgerecht auswählen und nutzen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "sichern"
+        }
+      ],
+      "action": "Erlaubten digitalen Kanal nutzen; für abwesende Person Schulraum statt bloßer Livevorstellung begründet wählen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "process",
+      "competencyId": "2.4(3)",
+      "target": "Regeln in realer Kommunikation anwenden.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "rueckmelden"
+        }
+      ],
+      "action": "Konkrete Frage und respektvolle begründete Antwort tatsächlich austauschen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "kind": "process",
+      "competencyId": "2.4(6)",
+      "target": "Benennungs-/Arbeitskonventionen tatsächlich einhalten.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "zusammenarbeit",
+          "step": "vereinbaren"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "beitragen"
+        },
+        {
+          "unit": "zusammenarbeit",
+          "step": "sichern"
+        }
+      ],
+      "action": "Vereinbarten Dateinamen, Ort, Zuständigkeit und Rückmeldung am gemeinsamen Plan einhalten.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.2.2(5)",
+      "target": "Strategien anwenden, um Informationen mit Vorwissen zu verknüpfen und für eine gegebene Fragestellung weiterzuverarbeiten",
+      "sourcePage": 36,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "planen"
+        }
+      ],
+      "action": "Eigene Sachinformation mit Vorwissen verbinden und für Seitenplan/Leserziel verwenden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.2.2(6)",
+      "target": "Kriterien für Vertrauenswürdigkeit von Informationen nennen",
+      "sourcePage": 36,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "planen"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "rechte"
+        }
+      ],
+      "action": "Vertrauenswürdigkeit der verwendeten Aussage konkret begründen; Fundstelle zeigen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.4.1(1)",
+      "target": "schulische Kommunikationskanäle und Möglichkeiten zur Kollaboration nutzen",
+      "sourcePage": 40,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "austauschen"
+        }
+      ],
+      "action": "Reale Rückfrage im Schulraum senden/beantworten und Folge in der Datei umsetzen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.1(5)",
+      "target": "Bausteine eines Textes (zum Beispiel Zeichen, Absatz) identifizieren und Möglichkeiten zu ihrer Formatierung nutzen",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "text"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Zeichen- und Absatzformat selbst anwenden und an eigener Karte unterscheiden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.1(6)",
+      "target": "eine Objektart zur visuellen Gestaltung (zum Beispiel Bilder, Tabelle, Formen) nutzen",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "objekt"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Eigenes Bild oder Tabelle einfügen, Größe/Lage anpassen und Nutzen erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.1(7)",
+      "target": "Möglichkeiten zur Strukturierung (zum Beispiel Überschriften, Zeilenumbruch, Absatzumbruch, Aufzählung) nutzen",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "text"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Überschrift, Absatz und manuellen/automatischen Umbruch unterscheiden und gezielt anwenden.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.1(8)",
+      "target": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "wirkung"
+        }
+      ],
+      "action": "Zwei vorgegebene Layouts an derselben Leseaufgabe vergleichen und Änderung begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.1(9)",
+      "target": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
+      "sourcePage": 45,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "planen"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "lesetest"
+        }
+      ],
+      "action": "Eigene kurze Texte mit Leserabsicht erstellen und tatsächliches Verstehen prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.2(1)",
+      "target": "die Wirkungsabsicht von Medienprodukten (zum Beispiel Animation, Audioprodukt, E-Book) herausarbeiten",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "wirkung"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "lesetest"
+        }
+      ],
+      "action": "Beabsichtigte Wirkung am Beispiel herausarbeiten und an fremder Karte nachvollziehen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.2(2)",
+      "target": "ein Medienprodukt mit einer intendierten Wirkung (zum Beispiel Selbstdarstellung, Werbung) erstellen",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Eigene Infokarte für andere fünfte Klasse herstellen und passend zum Leserziel revidieren.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.2(3)",
+      "target": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte (zum Beispiel Kontextmenü zur Änderung der Formatierung, Zwischenablage für Elemente, softwarespezifische Funktionen) anwenden",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "text"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "objekt"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Auswahl, Zwischenablage, Rückgängig und Objekteinfügung selbst ausführen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.2(4)",
+      "target": "die Bedeutung von Quellenangaben beschreiben und sich mit Regeln des Urheberrechts am Beispiel eines Lizenzmodells auseinandersetzen",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "objekt"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "rechte"
+        }
+      ],
+      "action": "Sachquelle von Nutzungserlaubnis unterscheiden und Bedingungen der CC-BY-SA-Grafik erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.2(5)",
+      "target": "ein Medienprodukt im Hinblick auf die Einhaltung der Regeln des Urheberrechts analysieren und die Regeln bei der Überarbeitung des Produkts anwenden",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "rechte"
+        }
+      ],
+      "action": "Fehlerhaften Lizenzhinweis überarbeiten und tatsächliches Produkt auf Herkunft/Rechte prüfen, nötigenfalls ändern.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "content",
+      "competencyId": "3.1.5.2(6)",
+      "target": "verschiedene Wege nutzen, um ein Medienprodukt mit anderen zu teilen",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "dateiweg"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "schulraum"
+        }
+      ],
+      "action": "Lokale Kopie auf zweitem Gerät und begrenzten Link durch erlaubte Empfängerperson öffnen lassen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.1(3)",
+      "target": "Arbeitsschritte planen und Abweichung dokumentieren.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "planen"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Drei Arbeitsschritte planen, später Abweichung begründen oder Einhaltung an einem Schritt belegen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.3(2)",
+      "target": "Rechte an einem eigenen schulischen Produkt/Handlung wahrnehmen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "schulraum"
+        }
+      ],
+      "action": "Beide Gestaltenden entscheiden über erlaubten Leserkreis und Bearbeitung ihres eigenen Produkts.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.4(8)",
+      "target": "Feedback geben, begründet aufnehmen und Produkt ändern.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "lesetest"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Konkrete Rückmeldung geben/aufnehmen, eigene Datei ändern und erneut lesen lassen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.5(1)",
+      "target": "Werkzeug funktional für eigenes Produkt einsetzen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Jede Person verändert Text und Objekt im erlaubten Werkzeug für die eigene Infokarte.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.5(2)",
+      "target": "Verständlichkeit/Zugänglichkeit an Kriterien prüfen und verbessern.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "lesetest"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "ueberarbeiten"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "sichern"
+        }
+      ],
+      "action": "Lesbarkeit/Verständlichkeit prüfen und an Rückmeldung oder schmaler Ansicht begründet verbessern.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.5(3)",
+      "target": "Beabsichtigte und wahrgenommene Wirkung vergleichen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "planen"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "lesetest"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "ueberarbeiten"
+        }
+      ],
+      "action": "Leserabsicht mit tatsächlich wiedergegebener Aussage vergleichen und Revision erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.5(7)",
+      "target": "Eigene Produktidee umsetzen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "planen"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Eigene Leitfrage und Produktidee in einer Seite umsetzen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M04",
+      "kind": "process",
+      "competencyId": "2.5(9)",
+      "target": "Rechte/Lizenz prüfen und Produkt angemessen teilen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienprodukt",
+          "step": "rechte"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "dateiweg"
+        },
+        {
+          "unit": "medienprodukt",
+          "step": "schulraum"
+        }
+      ],
+      "action": "Rechte/Lizenzen prüfen, korrigieren und geprüfte Endfassung über zwei erlaubte Wege teilen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.1.1(2)",
+      "target": "die eigene Mediennutzung beschreiben und reflektieren",
+      "sourcePage": 32,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "nachdenken"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "erinnern"
+        }
+      ],
+      "action": "Eigene harmlose schulische Erfahrung, Zweck/Wirkung und nächste Entscheidung geschützt reflektieren.",
+      "status": "offered-not-observed",
+      "limit": "Privater Erfolg nicht von außen bewertet; neutrale Diskussion ersetzt eigene Reflexion nicht."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.1.1(3)",
+      "target": "Faszination, Konflikte und Probleme in Verbindung mit der eigenen Mediennutzung beschreiben und diskutieren",
+      "sourcePage": 32,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "nachdenken"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "optionen"
+        }
+      ],
+      "action": "Anziehung und Schwierigkeit an eigener Erfahrung privat beschreiben; Optionen am neutralen Fall diskutieren.",
+      "status": "offered-not-observed",
+      "limit": "Privater Erfolg nicht von außen bewertet; neutrale Diskussion ersetzt eigene Reflexion nicht."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.1.1(5)",
+      "target": "Werbung in verschiedenen digitalen Medien identifizieren und ihre Einbettung in die dargestellten Inhalte beschreiben",
+      "sourcePage": 32,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "werbung"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "erinnern"
+        }
+      ],
+      "action": "Werbung im Magazin, Clipstandbild und neuen Spielbeispiel erkennen und Einbettung erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.4.2(6)",
+      "target": "die Wirkung (zum Beispiel Emotionen oder Überzeugungen) von Selbstdarstellung einschätzen",
+      "sourcePage": 42,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "selbstbild"
+        }
+      ],
+      "action": "Wirkung von Jules Erfolgsmeldung für verschiedene Betrachtende mit Beleg und fehlendem Kontext abwägen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.4.2(7)",
+      "target": "Merkmale verletzenden oder ausgrenzenden Verhaltens in digitalen Kommunikationsräumen (zum Beispiel Cybermobbing, Hassrede) beschreiben und exemplarisch Handlungsstrategien im Hinblick auf Präventionsmaßnahmen, Hilfsangebote oder Meldemöglichkeiten nennen",
+      "sourcePage": 42,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "handeln"
+        }
+      ],
+      "action": "Produktkritik und wiederholte Ausgrenzung unterscheiden; örtlichen Hilfeweg und Ersatzweg zeigen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.5.1(8)",
+      "target": "die Wirkung einer vorgegebenen Gestaltung beurteilen und den Zusammenhang von Inhalt und Form analysieren",
+      "sourcePage": 44,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "bildlabor"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "selbstbild"
+        }
+      ],
+      "action": "Ausschnitt und Text auf Inhalt/Wirkung untersuchen, Darstellungsgrenze benennen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.5.1(9)",
+      "target": "kreative Textprodukte unter Berücksichtigung eigener Gestaltungsziele erstellen und sich mit der Wirkung auseinandersetzen",
+      "sourcePage": 45,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "gestalten"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "rueckmeldung"
+        }
+      ],
+      "action": "Eigenen Bildtext mit Gestaltungsabsicht formulieren und echte Leserwirkung prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.5.2(1)",
+      "target": "die Wirkungsabsicht von Medienprodukten (zum Beispiel Animation, Audioprodukt, E-Book) herausarbeiten",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "werbung"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "selbstbild"
+        }
+      ],
+      "action": "Verkaufsabsicht und inszenierte Erfolgsdarstellung am Material begründen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.5.2(2)",
+      "target": "ein Medienprodukt mit einer intendierten Wirkung (zum Beispiel Selbstdarstellung, Werbung) erstellen",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "gestalten"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "rueckmeldung"
+        }
+      ],
+      "action": "Eigenen Bild-Text-Beitrag mit bestimmter Absicht erstellen und prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "content",
+      "competencyId": "3.1.5.2(3)",
+      "target": "bei der Erstellung und Gestaltung von Medienprodukten Bedienkonzepte (zum Beispiel Kontextmenü zur Änderung der Formatierung, Zwischenablage für Elemente, softwarespezifische Funktionen) anwenden",
+      "sourcePage": 46,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "gestalten"
+        }
+      ],
+      "action": "Ausschnitt und Textfelder im Werkzeug tatsächlich verändern und alternative Überschrift zurücknehmen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "process",
+      "competencyId": "2.6(8)",
+      "target": "Werte-/Rollenbild in einem Medienfall hinterfragen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "selbstbild"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "handeln"
+        }
+      ],
+      "action": "Wertbild mühelosen Erfolgs und ausgrenzende Reaktion hinterfragen, Darstellung statt Person beurteilen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M05",
+      "kind": "process",
+      "competencyId": "2.6(11)",
+      "target": "Wirkung/Echtheit und Darstellungsgrenze reflektieren.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "medienwirkung",
+          "step": "bildlabor"
+        },
+        {
+          "unit": "medienwirkung",
+          "step": "transfer"
+        }
+      ],
+      "action": "Bildwirkung am Beleg prüfen; aus Gesamtbild nicht ableitbare Aussagen offenlassen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "content",
+      "competencyId": "3.1.3.1(1)",
+      "target": "digitale Systeme identifizieren, deren Funktionsweise wesentlich durch algorithmische Prozesse bestimmt ist (zum Beispiel Apps, Navigationsdienste oder Suchmaschinen)",
+      "sourcePage": 38,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "auftakt"
+        }
+      ],
+      "action": "Zwei digitale Systeme mit Eingabe/Verarbeitung/Ausgabe erklären und Papierschild abgrenzen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "content",
+      "competencyId": "3.1.3.1(2)",
+      "target": "Algorithmen als Abfolge von präzisen Handlungsvorschriften beschreiben",
+      "sourcePage": 38,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "modell"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        }
+      ],
+      "action": "Präzise Befehle nach Modellregeln ausführen und eigenen Ablauf formulieren.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "content",
+      "competencyId": "3.1.3.1(3)",
+      "target": "einfache grafische Darstellungen von Algorithmen (zum Beispiel Programmablaufpläne oder Flussdiagramme) erläutern und die dargestellten Handlungsschritte durchführen",
+      "sourcePage": 38,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "grafik"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        }
+      ],
+      "action": "Echte Ablaufgrafik erläutern und ausführen; eigene Grafik samt Wiederholungsrahmen zeichnen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "content",
+      "competencyId": "3.1.3.1(4)",
+      "target": "algorithmische Grundbausteine beschreiben: – Anweisung – Schleife mit konstanter Anzahl von Durchläufen",
+      "sourcePage": 38,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "grafik"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "programm"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "pruefen"
+        }
+      ],
+      "action": "Anweisung und konstante Wiederholung an Körper, Zahl und falscher Gruppierung erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "content",
+      "competencyId": "3.1.3.1(5)",
+      "target": "die algorithmischen Grundbausteine in einer geeigneten (zum Beispiel blockbasierten) Programmiersprache verwenden",
+      "sourcePage": 38,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "programm"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        }
+      ],
+      "action": "Eigenen Code in ausführbarer Kartensprache eingeben, schrittweise und vollständig ausführen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "content",
+      "competencyId": "3.1.3.1(6)",
+      "target": "Codeabschnitte schrittweise analysieren und deren Wirkung beschreiben",
+      "sourcePage": 38,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "programm"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "pruefen"
+        }
+      ],
+      "action": "Zwischenzustände vorhersagen und jede Zustandsänderung an der Spur erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.1(1)",
+      "target": "Problem und Abhängigkeiten in einer Planskizze benennen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "modell"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        }
+      ],
+      "action": "Voraussetzungen der Befehle berücksichtigen; Teilziele in eigener Planskizze ordnen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.1(4)",
+      "target": "Problem zerlegen und Modell an einem Gegenfall testen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "pruefen"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "transfer"
+        }
+      ],
+      "action": "Einzelkarte und Dreiergruppe zerlegen, Gegenfall ausführen und Lampenregeln abgrenzen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.1(7)",
+      "target": "Eigenen Algorithmus entwickeln und überarbeiten.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "pruefen"
+        }
+      ],
+      "action": "Eigenen Ablauf entwickeln und begründet überarbeiten; erneuten Lauf bewahren.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.1(8)",
+      "target": "Fehler eingrenzen, Korrektur begründen und erneut prüfen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "pruefen"
+        }
+      ],
+      "action": "Ersten Stopp lokalisieren, Ursache nennen, Gruppierung korrigieren und erneut prüfen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.2(7)",
+      "target": "Darstellung/Modell anwenden und seine Grenze benennen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "modell"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "transfer"
+        }
+      ],
+      "action": "Kartenmodell anwenden; Regelgrenze am anderen Lampenmodell benennen.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.5(4)",
+      "target": "Ablauf modellieren und ausführbar programmieren.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        }
+      ],
+      "action": "Eigene Ablaufgrafik und ausführbaren Code zum neuen Kartenauftrag entwickeln.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.5(6)",
+      "target": "Zustandswechsel schrittweise darstellen.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "programm"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "entwurf"
+        },
+        {
+          "unit": "ablaeufe",
+          "step": "pruefen"
+        }
+      ],
+      "action": "Vorrat, Platz und Ausgabe nach einzelnen Aktionen erklären.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    },
+    {
+      "moduleId": "G5-M06",
+      "kind": "process",
+      "competencyId": "2.6(1)",
+      "target": "Eigene Lernerfahrung mit Werkzeug vergleichen und Vorgehen ändern.",
+      "sourcePage": null,
+      "refs": [
+        {
+          "unit": "ablaeufe",
+          "step": "sichern"
+        }
+      ],
+      "action": "Papiermodell und digitale Spur vergleichen; daraus gewählte Prüfweise an eigener Codestelle erproben.",
+      "status": "offered-not-observed",
+      "limit": "Aufgabe vorhanden; tatsächliche eigene Handlung und Erklärung im Unterricht prüfen."
+    }
+  ]
+}

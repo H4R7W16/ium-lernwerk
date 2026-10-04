@@ -4,6 +4,8 @@ IuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0
 Meine Frage:
 Meine erste Vermutung:
 
+Mein Informationsweg und Grund (Suchdienst / bekannte Adresse):
+
 Suchspur: Suchwörter 1 / Beobachtung / veränderte Suchwörter 2 / Grund
 Einen Treffer verworfen, weil:
 
@@ -19,6 +21,8 @@ SAMMLUNG
 - Information [Q..., Abschnitt ...]
 Überschrift 2:
 - Information [Q..., Abschnitt ...]
+Meine Anfangsvermutung -> bestätigt, ergänzt oder korrigiert durch [Q..., Abschnitt ...]:
+Eine Information weggelassen und warum:
 Offene Frage:
 
 Überarbeitung: vorher -> nachher / Grund

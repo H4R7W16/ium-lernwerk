@@ -59,7 +59,8 @@
       "title": "Beobachten → unterstützen",
       "paragraphs": [
         "Kind zählt nur drei Aktionen? Den Körper nimm–markiere–lege dreimal mit Karten auslegen. Kind verschiebt nur die Zahl? Ersten abweichenden Zustand markieren lassen: Ort des Fehlers, Ursache, Änderung, erneuter Lauf. Kind zeigt nur Raumplan? Pfeile, Reihenfolge und Wiederholungsrahmen ergänzen; eine Anordnung allein ist kein grafischer Algorithmus.",
-        "Für eine Lernbeobachtung einen noch nicht ausgeführten Schritt erläutern lassen und Grafik zum Code zuordnen. Kopierte Spur und passender Endzustand allein genügen nicht. Programmieren tatsächlich beobachten; offene Freitexte werden nicht automatisch bewertet. Schwerpunktprozesse: Modell 2.2(7), Grafik/Spur 2.5(4)/(6), Entwurf 2.1(1)/(4)/(7), Revision 2.1(8), Rückblick 2.6(1). Pro Auftrag nur passende Prozesse beobachten."
+        "Für eine Lernbeobachtung einen noch nicht ausgeführten Schritt erläutern lassen und Grafik zum Code zuordnen. Kopierte Spur und passender Endzustand allein genügen nicht. Programmieren tatsächlich beobachten; offene Freitexte werden nicht automatisch bewertet. Schwerpunktprozesse: Modell 2.2(7), Grafik/Spur 2.5(4)/(6), Entwurf 2.1(1)/(4)/(7), Revision 2.1(8), Rückblick 2.6(1). Pro Auftrag nur passende Prozesse beobachten.",
+        "Im Abschluss Papiermodell und digitale Spur vergleichen lassen. Die gewählte nächste Prüfweise wird an einer eigenen Codestelle tatsächlich erprobt; ein allgemeines „Das Werkzeug half“ genügt nicht. Fünf Minuten innerhalb der zehn Abschlussminuten."
       ]
     },
     {
@@ -74,7 +75,8 @@
     "M06 umfasst fünf Stunden. Lernende erklären präzise Anweisungen, lesen eine Ablaufgrafik und programmieren eine kleine Kartenstation. Die Sprache hat drei Befehle und feste Wiederholungen. In jedem Schritt sollen Vorhersage, tatsächliche Ausführung und eigene Erklärung zusammenkommen.",
     "Bereiten Sie pro Person vier Papierkarten und einen markierten Arbeitsplatz vor. Prüfen Sie den lokalen Interpreter sowie das Sichern und Öffnen einer Arbeitsdatei am Schulgerät. Papier ist ein sinnvoller Ersatz für das Ausführen von Abläufen, aber kein praktischer Nachweis des Programmierens.",
     "Stunde eins eröffnet Alltagssysteme und Modell. Stunde zwei verbindet Grafik und Code. Stunde drei führt zum eigenen Entwurf: zuerst eine unmarkierte, dann drei markierte Karten. Stunde vier und der Beginn der fünften dienen der Fehlerprüfung und begründeten Revision. Transfer und Sicherung schließen ab.",
-    "Beobachten Sie den ersten abweichenden Schritt und seine Erklärung. Ein fertiger Lauf oder eine kopierte Spur genügt nicht. Das Roboterstudio bleibt zusätzliche Übung. Später folgen fünf Minuten Abruf aus dem vorhandenen Jahreskonto."
+    "Beobachten Sie den ersten abweichenden Schritt und seine Erklärung. Ein fertiger Lauf oder eine kopierte Spur genügt nicht. Das Roboterstudio bleibt zusätzliche Übung. Später folgen fünf Minuten Abruf aus dem vorhandenen Jahreskonto.",
+    "Im Abschluss vergleichen die Lernenden Papiermodell und digitale Spur und erproben eine daraus gewählte Prüfweise am eigenen Code. Das geschieht innerhalb der vorhandenen Abschlusszeit."
   ],
   "sources": [
     {
@@ -789,9 +791,9 @@
           "type": "task",
           "id": "rueckblick",
           "title": "Deine kurze Erklärung",
-          "text": "Wähle einen Durchlauf aus deinem eigenen Auftrag: Was zeigt deine Grafik, welcher Code gehört dazu und was ändert sich im Zustand? Was hat dir beim Finden eines Fehlers geholfen?",
-          "prompt": "Deine Erklärung und dein nächster Prüfschritt",
-          "responseHint": "Vier bis sechs Sätze oder eine kurze mündliche Erklärung mit gezeigtem Produkt."
+          "text": "Wähle einen Durchlauf aus deinem eigenen Auftrag. Vergleiche: Was konntest du mit Papierkarten und Grafik gut erkennen, was mit der digitalen Laufspur? Wähle daraus einen nächsten Prüfschritt, zum Beispiel erst einen Zwischenzustand mit Karten vorhersagen und dann im Werkzeug kontrollieren. Probiere ihn an einer noch nicht erklärten Stelle deines Codes aus.",
+          "prompt": "Was half dir jeweils? Welche Änderung deiner Arbeitsweise hast du ausprobiert, und was zeigte die Probe?",
+          "responseHint": "Zeige Grafik, Code und die geprüfte Stelle. Zwei begründete Sätze reichen; etwa fünf Minuten innerhalb des Abschlusses."
         },
         {
           "type": "task",

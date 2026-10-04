@@ -1,65 +1,36 @@
 # Produktionsübersicht Klasse 5
-Stand: 04.10.2026 · redaktioneller Arbeitsstand
+Stand: 04.10.2026 · redaktionell zur Sichtung
 
 ## Verbindliche Fassungen
-Planung: Anhörungsfassung vom 21.09.2026, aktive Planungsdateien aus `feat/ium-bildungsplan-ahf-20260922`, Commit `dee82ecd7b62007e1387ed61fb190f1cd8fede28`. Referenzen: `roadmap/active-planning.json` sowie `roadmap/ahf-2026-09-21/{modules,year-plans,curriculum-map}.json` und `production-contract.md`. Diese Dateien liegen im separaten Planungs-Worktree `ium-bildungsplan-ahf-20260922`; ältere Dateien dieses Produktbranches sind kein Ersatz.
+Planung: Anhörungsfassung 21.09.2026, Commit dee82ecd7b62007e1387ed61fb190f1cd8fede28 im separaten Planungs-Worktree ium-bildungsplan-ahf-20260922, roadmap/ahf-2026-09-21. modules.json, year-plans.json, curriculum-map.json, process-map.json, private-reflection.json und production-contract.md sind maßgeblich. Ältere Planungsdateien dieses Produktbranches sind kein Ersatz. Die Anhörungsfassung ist kein endgültig in Kraft gesetzter Bildungsplan; unsere Zuordnung auf Klasse 5 liegt innerhalb des Bands 5/6.
 
-Produkt: gemeinsame Lernwerkvorlage aus `b2f1614cd8812561763b03e546d412a2e82a3f1f`, weitergeführt auf `feat/klasse5-dateien-lernbogen`. Dieser Branch enthält den ersten neuen Autorenbogen. Der jeweilige Auslieferungscommit steht im Vault-Handoff. Stabile Angebots-IDs bleiben von G5-Planungsmodulen unterscheidbar.
+Produktbasis des gemeinsamen Reviews: 77d3f48. Weitergeführt auf review/klasse5-abdeckung; finaler Commit und versionsgebundene Prüfnachweise stehen im Vault-Handoff. Stabile Angebots-IDs bleiben von Planungsmodulen unterscheidbar.
 
-Die Anhörungsfassung ist Planungsgrundlage, kein endgültig in Kraft gesetzter Bildungsplan. Kompetenzangaben gelten für das Band 5/6; die Verteilung auf Klasse 5 ist unsere Planung.
+## Alle sechs Reihen sind ausgearbeitet
+| Reihe | Kernzeit | Inhalt und Nachweis | Anschluss |
+|---|---:|---|---|
+| M01 Arbeitsraum | 180 min / 4 UE | Geräte 45, Dateien 90, Speicher/Zugang 45; eigene Ablage, Wiederfinden und Schutzhandlung | Speicher- und Schutzroutine für M02 |
+| M02 Recherche | 225 min / 5 UE | Reale Suche, zwei Quellenkarten, begründete Sammlung; Quellenquest 35 min enthalten | Sammlung und Quellen für M03 |
+| M03 Zusammenarbeit | 135 min / 3 UE | Tatsächliche Beiträge/Antworten, gemeinsame Gliederung und individuelle Änderung; Schulraum und Livevorstellung | Plan und Quellen für M04 |
+| M04 Medienprodukt | 360 min / 8 UE | Eigene Infokarte, Lesetest, Revision, Rechte, Vorstellung, lokale Kopie und begrenzter Link | M05 vor Revision möglich |
+| M05 Medienwirkung | 225 min / 5 UE | Belegtes Fallurteil, eigener Bildbeitrag und echte Rückmeldung; geschützte Reflexion; Bildwerkstatt 90 min enthalten | Eigenständig; kein Pflichtprodukt für M06 |
+| M06 Abläufe | 225 min / 5 UE | Eigene Ablaufgrafik, ausführbare Kartensprache, erklärte Spur, Korrektur und Lampentransfer | Späterer Abruf; Roboterstudio zusätzlich |
 
-## Sechs Module und nächste Produktionspakete
-Zeitangaben sind vorhandene Planungsansätze. Die folgenden Teilbögen sind redaktionelle Vorschläge, keine zusätzlich gebuchten Unterrichtsstunden.
+Alle Reihen wurden gemeinsam redaktionell gegen die aktive Planung abgeglichen: [Bericht](klasse5-gesamtcheck.md), [Einzelbelege](klasse5-abdeckungsmatrix.md). Das Aufgabenangebot trägt die geplanten Ziele; reale Geräte-, Schulraum- und Unterrichtserprobung bleiben offen. Keine automatische Kompetenzfreigabe.
 
-| Modul | Kernzeit | Nachweis am Ende | Vorhanden und wiederverwendbar | Noch zu produzieren |
-|---|---:|---|---|---|
-| G5-M01 · Im schulischen Arbeitsraum sicher handeln | 180 min / 4 UE | Komponenten erklären; neue Datei in eigener Struktur ablegen und ohne Schrittkarte wiederfinden; schulischen Zugang schützen | Drei Teilbögen: Geräte 45 min, Dateien 90 min, Speicher/Zugang 45 min; iPad/Windows gleichwertig | Reale Erprobung und Abdeckungsprüfung; fehlende schulische Bedienkonzepte bei Bedarf ergänzen |
-| G5-M02 · Informationen finden, prüfen und ordnen | 225 min / 5 UE | Gegliederte Informationssammlung mit Quellen und begründeter Auswahl | Recherchebogen 225 min mit realer Suche, Sammlung und Quellenquest-Ausschnitt; fünf Minuten späterer Abruf | Reale Schulnetz-/Lernendenerprobung und aktueller Zielabgleich |
-| G5-M03 · Digital zusammenarbeiten und verständlich kommunizieren | 135 min / 3 UE | Verständliche Nachricht und gemeinsames Ergebnis; anschließend eigene Erklärung | Kooperativer Bogen mit 135 Minuten, gemeinsamer Gliederung, tatsächlichem Austausch, individueller Spur und zwei digitalen Weitergabewegen | Schulraum-/Geräte-/Unterrichtserprobung; spätere Vertiefung in M04/M05 |
-| G5-M04 · Ein Medienprodukt gestalten, prüfen und vorstellen | 360 min / 8 UE | Eigenes überarbeitetes Produkt mit Quellen, Gestaltung und begründeter Präsentation | Vollständiger 360-Minuten-Bogen mit Text-/Objektübung, eigener Infokarte, echtem Lesetest, Revision, Rechteprüfung und Dateikopie/Schulraumlink | Reale Geräte-, Schulraum- und Unterrichtserprobung; aktueller Zielabgleich |
-| G5-M05 · Medienwirkungen und Selbstdarstellung beurteilen | 225 min / 5 UE | Wirkung am Material begründen; geschützte persönliche Reflexion und passende Handlungsentscheidung | Vollständige Reihe 225 Minuten mit Werbung, Selbstdarstellung, Bildwerkstatt, realer Rückmeldung, Hilfe und geschützter Eigenreflexion P56-01/02 | Geräte-/Unterrichtserprobung, lokale Hilfewege und aktueller Zielabgleich |
-| G5-M06 · Präzise Abläufe entwickeln und prüfen | 225 min / 5 UE | Ablauf darstellen, ausführbar formulieren, verfolgen, verbessern und übertragen | Algorithmus-Lernstudio / IUM-5-CORE-06: tragfähige Vorlage und umfangreicher Lernbogen; noch kein Nachweis aller aktuellen Modulziele | Weitere Alltagskontexte und echte grafische Ablaufdarstellung prüfen/ergänzen; Aufgaben gezielt gegen aktuelle 3.1.3.1(1–6) mappen |
+## Zeit einmal buchen
+1350 Kernminuten = 30 UE. Zusätzlich 135 Minuten verteilte Übung, 45 Organisation, 180 Puffer: insgesamt 1710 Minuten = 38 UE Planungsbedarf, **noch kein bestätigtes Jahresbudget**. M04 umfasst acht UE, nicht die sieben UE einer älteren Pilotfrage.
 
-Kernzeit: 1350 Minuten = 30 UE. Hinzu kommen gemäß Jahresplan 135 Minuten verteilte Übung, 45 Minuten Orchestrierung und 180 Minuten Puffer: 1710 Minuten = 38 UE. **38 UE sind noch kein bestätigtes verfügbares Jahresbudget.** Die bestätigten 36 UE der Planung 7/8 dürfen nicht auf Klasse 5 übertragen werden. Bei geringerem Angebot wird die Jahresplanung angepasst; nicht still die Erklärung, Revision oder Wiederaufnahme streichen.
+Spätere Abrufe: M01 zwölf Minuten, M02–M06 je fünf = 37 von 135 Minuten. Weitere 98 Minuten bleiben für geplante Wiederaufnahme und beobachtete Lücken. Der dreiminütige Schichtenabruf liegt bereits im Dateien-Einstieg. Quellenquest und Bildwerkstatt nicht zusätzlich zählen. Die 45 Minuten für M05-Modell, eigene Reflexion und Optionen sind Teil der fünf UE. Zusätzliche Roboterübungen brauchen eigene verfügbare Zeit.
 
-## Sinnvolle Reihenfolge
-1. Alle drei M01-Teilbögen an verwaltetem iPad und Windows-Schulprofil sichten und erproben; konkrete Zielnachweise gegen M01 abgleichen. Die Produktion der drei Teilbögen ist abgeschlossen, eine vollständige Kompetenzfreigabe folgt daraus nicht.
-2. M02-Recherchebogen am Schulnetz und mit Lernenden erproben: Suchänderung, Quellenprüfung, eigene Sammlung und Rückkehrnachweis beobachten. Produktionspaket vorhanden; Ausfallpfad ersetzt keine Suchhandlung.
-3. M03 ist produziert: tatsächliche Nachrichten, gegenseitige Rückmeldung, gemeinsamer Plan und individuelle Erklärung im Schulraum erproben. Konkrete Regeln und Hilfewege auf der Kursraumkarte ergänzen.
-4. M04 ist produziert: Werkzeugkarte und beide Weitergaben am Schulprofil prüfen, acht Stunden und Lernwirkung erproben. M05 ist ebenfalls produziert. Nächste Produktion: M06 am aktuellen Curriculum ergänzen. Bestehende Prototypen bleiben einzelne wiederverwendbare Angebote.
+## Unterstützung für Lehrpersonen
+Einstieg: klasse5/lehrkraft.html. zusammenhaenge.html bündelt kurze Anschlussprüfungen, Vorprodukte, Quereinstieg und Grenzen; stoffverteilung.html zeigt das Jahreskonto. Die sechs Reihenkommentare verlinken Durchführung und Material. Redaktionelle Daten liegen in prototypes/shared/planung/klasse5.json.
 
-Die Reihenfolge der Produktion ist keine starre Reihenfolge jeder Unterrichtsstunde. Spätere Abrufe gehören in den Unterrichtskalender und erhalten einen Zeitposten.
+Nächster Schritt: verfügbare Jahreszeit bestätigen und an den tatsächlich eingesetzten Schulprofilen Speicher-, Such-, Kommunikations- und beide Weitergabewege erproben. Danach eine Lerngruppe mit kurzen Beobachtungen begleiten: tatsächlich ausgeführte Handlung, Zeitabweichung, häufigste Hürde, nächste Anpassung. Fehlende Praxis nachholen, keine Häkchen als Ersatz. Private Reflexion nicht einsammeln.
 
-## Wiederholbarer Codex-Ablauf
-Seit 04.10.2026 gilt der [adaptive Qualitätszyklus für alle Lernwerk-Inhalte](qualitaetszyklus.md). Der Skill lernwerk-qualitaetszyklus führt Inhaltsbrief, passende Profilwahl, Produktion, kritischen Selbstreview, Nacharbeit und versionsgebundene Nachprüfung zusammen. Jede inhaltliche Produktion enthält einen kurzen Qualitätsbericht und die ausführbare Abschlussprüfung. Keine Zeitsteuerung oder automatische Veröffentlichung.
+## Wiederholbarer Produktionsablauf
+Es gilt der [adaptive Qualitätszyklus](qualitaetszyklus.md): Inhaltsbrief → passende Kriterien → vollständiges Material mit Lehrhinweisen → kritischer Selbstreview → gezielte Nacharbeit → versionsgebundene Nachprüfung. Standard inline, keine automatische Veröffentlichung. Unterschiedliche Lernhandlungen bestimmen die Form; die Dateien-Referenz ist keine universelle Schablone.
 
-Pro Auftrag ein vollständiger, überschaubarer beauftragter Umfang. Ein Wissensartikel oder Einzelmaterial wird im Kontext beurteilt; er muss keinen eigenen vollständigen Lernbogen mitbringen. Unterschiedliche Lernhandlungen bestimmen unterschiedliche Formen. Das gemeinsame UI und authorVersion:2 bleiben technische Ausgangspunkte, keine allgemeine Didaktikschablone.
+Bei künftigen Änderungen betroffene Matrixeinträge, Übergänge, Zeit und Druckmaterial mitführen. Strukturtests kontrollieren Mengen und Verweise, nicht die fachliche Qualität einer Aufgabe. Ein bestehender Prüfpass darf nach Inhaltsänderung nicht pauschal übernommen werden.
 
-Für Klasse 5: aktive Planungsfassung und Autorenvertrag beachten, reale Handlungen ehrlich nachweisen, Ausgabe breit/schmal und benötigte Materialien prüfen. Die Dateien-Referenz ist ein bekannter Fall. Neue Themen erhalten eigene fachliche und gegebenenfalls zusätzliche Prüfkriterien. Reale Geräte- und Unterrichtserprobung getrennt dokumentieren.
-
-## Kopierbarer Folgeauftrag
-> Erstelle genau einen vollständigen Klasse-5-Lernbogen für [Modul / Teilziel]. Nutze die Fassungsbindung in docs/produktion/klasse5.md, den Autorenvertrag und den Skill lernwerk-qualitaetszyklus. Beginne mit einem kurzen Inhaltsbrief und Darstellungsplan. Leite benötigte Lernfunktionen und Prüfkriterien aus dem Ziel ab; übernimm keine feste Schrittfolge aus der Dateien-Referenz. Liefere die passenden Aufgaben, Wissen, Hilfen, Rückmeldung und Materialien samt Quellen und Lehrhinweisen. Führe kritischen Selbstreview, gezielte Nacharbeit und Nachprüfung der aktuellen Fassung durch. Liefere Vorschau, Prüfprotokoll und Qualitätsbericht. Arbeite inline und veröffentliche nicht automatisch.
-
-## Status
-Die drei M01-Teilbögen sind lokal redaktionell bearbeitetes Material zur Sichtung. Keine pauschale Freigabe von M01, der anderen fünf Module oder der gesamten Jahresproduktion.
-
-
-## Planung für Lehrpersonen · 04.10.2026
-Die Vorschau bündelt /klasse5/lehrkraft.html → stoffverteilung.html → reihe-arbeitsraum.html → dateien/lehrkraft.html. Redaktionelle Daten: prototypes/shared/planung/klasse5.json. Dieser Snapshot verweist auf dee82ec und roadmap/ahf-2026-09-21; bei Änderung der aktiven Jahresplanung vor weiterer Produktion abgleichen. Eigener Vorschlag für M01: 45 + 90 + 45 Minuten. Alle drei Teile sind ausgearbeitet; Schulgeräte- und Unterrichtserprobung sowie gesamter Zielabgleich bleiben offen. Drei Minuten Schichtenabruf liegen innerhalb des achtminütigen Dateien-Einstiegs. Der spätere Dateien-Abruf nutzt zehn Minuten, Speicher/Zugang zusätzlich zwei Minuten desselben Jahreskontos (M01: 12 von 135 Minuten); keine Doppelzählung. Hinweise bei der Inhaltserstellung parallel pflegen; knappe Vorbereitung und Anschlussentscheidungen, keine Wiederholung des Lernbogens.
-
-## M02 Recherche · 04.10.2026
-Vollständiger Produktionsumfang 225 Minuten mit eigener Frage, realen Suchversuchen, Quellenkarten, gegliederter Sammlung, Revision und verändertem Fall. Quellenquest-Ausschnitt ist mit 35 Minuten enthalten. Neue zweite Reihenseite reihe-recherche.html, kompakte Durchführungshinweise und Vorlesetext parallel. Fünf spätere Abrufminuten aus bestehendem Jahreskonto; mit M01 17 von 135 Minuten zugeordnet. Eigene Ersatztexte erlauben lokale Arbeit, markieren Suche/Originalprüfung als offen. Details: g5-m02-recherche.md; keine empirische oder vollständige Kompetenzfreigabe.
-
-## M03 Zusammenarbeit · 04.10.2026
-„Deine Idee. Unser Plan.“ verbindet die M02-Sammlung mit M04. Schulunabhängiger Lernweg auf ausdrücklichen Nutzerwunsch. 135 Kernminuten; fünf spätere Abrufminuten, M01–M03 zusammen 22 von 135. Wissen, vier Textmaterialien, Gerätefassungen, Lehrpersonenhinweise und reihe-zusammenarbeit.html parallel. Echte Beiträge beider Partnerpersonen, empfangene Rückmeldung und begründete Änderung sind der Nachweis. Offline-Vorbereitung bleibt vom echten Austausch getrennt. Anschluss: M04. Details: g5-m03-zusammenarbeit.md.
-
-## M04 Medienprodukt · 04.10.2026
-„Dein Wissen wird sichtbar.“: eine digitale Infokarte in 360 Minuten, ergänzt um fünf spätere Abrufminuten. M01–M04 belegen damit 27 von 135 Jahresminuten. Acht Wissensstücke, eigene Vergleichsgrafiken, vier Textmaterialien, gleichwertige Gerätewege und reihe-medienprodukt.html. Nachweise sind eigene Bedienung und Erklärung, echte Rückmeldung/Revision, Vorstellung, lokal geöffnete Kopie und begrenzter Schulraumlink. Details: g5-m04-medienprodukt.md. Anschluss M05 produziert; keine reale Erprobung oder vollständige Kompetenzfreigabe behauptet.
-
-## M05 Medienwirkungen · 04.10.2026
-„Mehr als ein erster Eindruck.“: 225 Minuten einschließlich 90 Minuten vorhandener Bildwerkstatt. Werbung in zwei Formaten, kontextbezogenes Fallurteil, eigene Gestaltung, echte Rückmeldung und Revision, Hilfe bei Ausgrenzung. 45 Minuten für Modell, geschützte eigene Reflexion und neutralen Optionenvergleich; fünf spätere Minuten ergeben mit M01–M04 32 von 135. Private Eingaben gehören weder in allgemeine Arbeitsdateien noch in Druckausgaben. Details: g5-m05-medienwirkung.md. Nächste Produktion: M06. Reale Erprobung und umfassender Zielabgleich bleiben offen.
-
-
-## Produktionsstand M06 · 04.10.2026
-
-G5-M06 vollständig als ablaeufe-Lernbogen ausgearbeitet: 225 Minuten, sechs Inhaltsziele S.38, eigener lokaler Interpreter und grafischer Algorithmus, Papiermaterial, knappe Lehrhinweise. Roboterstudio zusätzliche Übung. Später5, insgesamt37/135. Nächster Produktionsschritt: modulübergreifender Abdeckungs-/Übergangscheck und Vorbereitung der realen Erprobung. Ältere „M06 als Nächstes“-Einträge beschreiben frühere Produktionsstände.
+> Folgeauftrag: Überarbeite den beauftragten Umfang anhand der aktiven Planung und des Skills lernwerk-qualitaetszyklus. Prüfe konkrete Lernhandlungen, Wissen, Material und knappe Lehrhinweise. Führe kritischen Selbstreview und Nachprüfung der tatsächlichen Endfassung durch. Aktualisiere betroffene Abdeckungsbelege und Übergänge. Liefere Vorschau und Prüfbericht, arbeite inline und veröffentliche nicht automatisch.

@@ -16,7 +16,7 @@
       "minutes": 180,
       "focus": "Gerät, Programm und Speicherort unterscheiden; Dateien ordnen und wiederfinden; Zugänge schützen.",
       "evidence": "Drei Schichten erklären; eigenen Ordnerweg zeigen; Speicherzugriff begründen und Zugangsschutz ausführen.",
-      "status": "Drei Teilbögen ausgearbeitet; reale Erprobung und Zielabgleich offen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
       "href": "reihe-arbeitsraum.html",
       "label": "Reihenkommentar"
     },
@@ -26,7 +26,7 @@
       "minutes": 225,
       "focus": "Suchfragen und Suchbegriffe bilden; Fundstellen prüfen und Informationen ordnen.",
       "evidence": "Informationssammlung mit Quellen und begründeter Auswahl.",
-      "status": "Recherchebogen mit eingebundenem Quellenquest-Ausschnitt ausgearbeitet; reale Erprobung und Zielabgleich offen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
       "href": "reihe-recherche.html",
       "label": "Reihenkommentar"
     },
@@ -36,7 +36,7 @@
       "minutes": 135,
       "focus": "Im schulischen Kanal Beiträge austauschen und ein gemeinsames Ergebnis verbessern.",
       "evidence": "Eigener Beitrag und genutzte Rückmeldung sind erklärbar.",
-      "status": "Kooperativer Lernbogen ausgearbeitet; Schulraum-, Geräte- und Unterrichtserprobung offen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
       "href": "reihe-zusammenarbeit.html",
       "label": "Reihenkommentar"
     },
@@ -46,7 +46,7 @@
       "minutes": 360,
       "focus": "Informationen adressatengerecht gestalten, Quellen nennen und Rückmeldung einarbeiten.",
       "evidence": "Überarbeitetes Produkt mit begründeten Entscheidungen.",
-      "status": "Vollständiger Produktbogen ausgearbeitet; Geräte-, Schulraum- und Unterrichtserprobung offen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
       "href": "reihe-medienprodukt.html",
       "label": "Reihenkommentar"
     },
@@ -56,7 +56,7 @@
       "minutes": 225,
       "focus": "Wirkungen am Material begründen; eigenes Medienhandeln geschützt reflektieren.",
       "evidence": "Belegtes Urteil und begründete Handlungsentscheidung.",
-      "status": "Vollständige Reihe mit Bildwerkstatt und geschützter Reflexion ausgearbeitet; reale Erprobung und Zielabgleich offen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
       "href": "reihe-medienwirkung.html",
       "label": "Reihenkommentar"
     },
@@ -66,7 +66,7 @@
       "minutes": 225,
       "focus": "Abläufe darstellen, ausführen, verbessern und auf neue Fälle übertragen.",
       "evidence": "Eigene Ablaufgrafik, ausführbarer Code, erklärte Laufspur und dokumentierte Korrektur.",
-      "status": "Vollständiger Lernbogen mit Karten-Interpreter ausgearbeitet; Schulgeräte- und Unterrichtserprobung offen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
       "href": "reihe-ablaeufe.html",
       "label": "Reihenkommentar"
     }
@@ -449,7 +449,61 @@
         "Plan schon richtig? Gegenbeispiel untersuchen, Erklärung oder Grafik anhand realer Rückmeldung schärfen.",
         "Beobachtete Programmierung und fachliche Erklärung von Häkchen, kopiertem Code und bereitgestelltem Material unterscheiden."
       ],
-      "next": "An M01-Dateisicherung und M04-Revision anschließen. Das Roboterstudio bleibt freiwillige Zusatzübung. Anschließend Klasse5 über alle Module auf Übergänge, Abdeckung und realen Zeitbedarf prüfen."
+      "next": "Grafik, eigenen Code und erklärte Spuren getrennt sichern. Das Roboterstudio bleibt zusätzliche Übung. Fehlende Gerätehandlungen nachholen; die spätere Wiederaufnahme im Kalender einplanen. Gemeinsame Übergänge und offene Erprobungspunkte stehen in der Übersicht für Lehrpersonen."
     }
-  ]
+  ],
+  "review": {
+    "date": "04.10.2026",
+    "mode": "Redaktioneller Selbstreview",
+    "transitions": [
+      {
+        "moduleId": "G5-M01",
+        "title": "Arbeitsraum → Recherche",
+        "href": "reihe-arbeitsraum.html",
+        "incoming": "Kein Vorprodukt nötig. Lehrperson klärt Startort, Zugänge und erlaubte Schutzhandlung.",
+        "check": "Jede Person findet eine eigene Datei ohne Schrittkarte wieder und führt den Zugangsschutz aus. Bei einer Hürde gezielt diesen Teil nachholen.",
+        "outgoing": "Ordnerweg und Schutzroutine weiterverwenden. Geräte, Dateien und Speicher/Zugang sind drei Teile derselben Reihe."
+      },
+      {
+        "moduleId": "G5-M02",
+        "title": "Recherche → gemeinsame Gliederung",
+        "href": "reihe-recherche.html",
+        "incoming": "M01-Routinen nutzen. Mit eigener Frage, Suchweg und zwei Quellen verschiedener Anbieter arbeiten.",
+        "check": "Eine Suchänderung, eine belegte Aussage und deren Verhältnis zur Anfangsvermutung erklären lassen.",
+        "outgoing": "Sammlung und beide Quellenkarten für M03 bewahren. Ersatztexte erlauben Weiterarbeit; echte Suche und Originalprüfung bleiben nachzuholen."
+      },
+      {
+        "moduleId": "G5-M03",
+        "title": "Zusammenarbeit → Infokarte",
+        "href": "reihe-zusammenarbeit.html",
+        "incoming": "M02-Sammlung mitbringen. Ohne Vorprodukt die gekennzeichnete Startbasis nutzen. Kursraumkarte mit realen Regeln und Hilfeweg ausfüllen.",
+        "check": "Jede Person sendet und beantwortet einen Beitrag; eine Änderung am gemeinsamen Plan ist erklärbar. Fehlende digitale Handlung gezielt nachholen.",
+        "outgoing": "Gemeinsame Gliederung, Quellen und eigene Rückmeldungsspur für M04 sichern. Schon verwendete Materialien nicht erneut abschreiben."
+      },
+      {
+        "moduleId": "G5-M04",
+        "title": "Infokarte → Wirkung prüfen",
+        "href": "reihe-medienprodukt.html",
+        "incoming": "M03-Plan und M02-Quellen nutzen; alternativ Startbasis im Schritt „Planen“. Beide Weitergabewege vorher an Schulgeräten prüfen.",
+        "check": "Eigene Text-/Objektänderung, echter Lesetest und Revision; Empfängerperson öffnet Dateikopie und begrenzten Link.",
+        "outgoing": "Bearbeitbare Datei, v1/v2 und Werkstattspur aufbewahren. Sie liegen außerhalb der Lernwerk-Arbeitsdatei. M05 kann vor der Revision eingeschoben werden; danach bei M04 „Lesetest“ weiterarbeiten."
+      },
+      {
+        "moduleId": "G5-M05",
+        "title": "Wirkung und eigenes Handeln",
+        "href": "reihe-medienwirkung.html",
+        "incoming": "Kein fertiges M04-Produkt nötig: eigene Fallmaterialien und Bildwerkstatt. Örtliche Hilfekarte ausfüllen.",
+        "check": "Belegtes Fallurteil und eigenen Bildbeitrag zeigen lassen. Die persönliche Reflexion bleibt privat und wird nicht als Qualitätsnachweis eingesammelt.",
+        "outgoing": "Fallurteil und Bildbeitrag sichern. Für den Eigenbezug genügt die heutige harmlose Unterrichtserfahrung. M06 braucht diese Produkte nicht als Voraussetzung."
+      },
+      {
+        "moduleId": "G5-M06",
+        "title": "Abläufe → spätere Wiederaufnahme",
+        "href": "reihe-ablaeufe.html",
+        "incoming": "Eigenständiger Einstieg mit neuem Kartenmodell; nur grundlegende Bedienung und M01-Sicherung voraussetzen.",
+        "check": "Eigene Grafik, Code und erklärte Zwischenzustände verlangen; Korrektur erneut ausführen. Papierweg ersetzt die digitale Programmierung nicht.",
+        "outgoing": "Code und Spuren als Lernwerk-Arbeitsdatei sichern, Zeichnung gesondert bewahren. Lampenabruf mit Abstand einplanen. Roboterstudio ist zusätzliche Übung."
+      }
+    ]
+  }
 }
