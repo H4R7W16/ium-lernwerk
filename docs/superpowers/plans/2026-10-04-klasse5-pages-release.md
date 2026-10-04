@@ -53,5 +53,13 @@
 - [x] Workflowtests für Klasse-5-Export und deaktivierte Alt-Deployjobs formulieren; Negativlauf prüfen.
 - [x] Klasse-5-Workflow für `main`-Push/manuellen Lauf einrichten; die alten Deployjobs deaktivieren.
 - [x] Relevante Node-/Workflowtests, `git diff --check` und Build lokal prüfen.
-- [ ] Branch nach erneutem Fetch/Fast-Forward-Abgleich pushen; PR nach `main` integrieren; Pages-Lauf abwarten.
-- [ ] Öffentliche Klasse-5-URL und mindestens zwei frühere Versionspfade über HTTP prüfen; Commit/Run/Status dokumentieren.
+- [x] Branch nach erneutem Fetch/Fast-Forward-Abgleich pushen; mangels PR-Recht der GitHub-App per Fast-Forward nach `main` integrieren; Pages-Lauf abwarten.
+- [x] Öffentliche Klasse-5-URL und mindestens zwei frühere Versionspfade über HTTP prüfen; Commit/Run/Status dokumentieren.
+
+## Ausführung am 04.10.2026
+
+- Release-Commit `3e5bd15de90b9b37d8db4fc0999828f3ba768856` wurde nach `origin/main` fast-forward gepusht. GitHub-App verweigerte PR-Erstellung mit 403; der normale Git-Push war autorisiert und erfolgreich.
+- GitHub-Pages-Lauf [37211818129](https://github.com/H4R7W16/ium-lernwerk/actions/runs/37211818129) erfolgreich. Root und `klasse5/` sowie `klasse5/review.html` antworten HTTP 200; `selbstlernen/`, `reinigungsfall-v2/`, `reinigungsfall.html` und `medienanalyse/` antworten HTTP 404.
+- Die geprüften öffentlichen HTML-Dateien sind bytegleich mit dem lokalen Build. CSS stimmt nach Normalisierung der Windows-Zeilenenden überein; die beiden Logo-PNGs sind binär identisch. Der Offline-Worker unterscheidet sich nur durch seinen daraus abgeleiteten Versionshash.
+- Lokal: 59/59 Klasse-5-Tests, 133/133 Plattformtests, 323 Dateien im begrenzten Pages-Artefakt.
+- Allgemeine CI des ersten Release-Commits: drei Jobs erfolgreich; ein Firefox-Test des unveränderten Altmoduls `IUM-5-CORE-05` scheiterte nach Reload. Dieser Befund betrifft nicht den erfolgreichen Klasse-5-Pages-Workflow und wird separat beim CI-Nachlauf beobachtet.
