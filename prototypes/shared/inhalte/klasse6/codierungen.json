@@ -1,0 +1,994 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M04-CODIERUNGEN",
+  "area": "codierungen",
+  "grade": 6,
+  "version": "1.0.2",
+  "family": "content",
+  "topic": "Codierungen",
+  "title": "Welcher Code bringt die Nachricht ans Ziel?",
+  "description": "Codiere eine eigene Nachricht mit zwei Regeln. Prüfe den Rückweg, untersuche einen Fehler und wähle den passenden Code für eine neue Bedingung.",
+  "product": "Deine Nachrichtenakte: Original, zwei Codes, Rückübersetzung, eigener Fehlerversuch und begründete Codewahl.",
+  "prerequisites": [
+    "Papier und Stift oder Textfelder im Lernwerk; keine Konten oder besondere Software nötig",
+    "Zeichen sorgfältig nachschlagen; Binärzahlen musst du nicht berechnen können"
+  ],
+  "teacher": [
+    "Zwei vollständige Übungsvorschriften dienen dem Anwenden und begründeten Vergleichen. Eigene Modelle, keine ASCII-, Unicode- oder Braille-Tabelle."
+  ],
+  "duration": "180 Kernminuten. Später 7 Minuten vor M05 und 7 vor M07 aus dem Jahresabrufkonto.",
+  "learnerDuration": "Vier Unterrichtsstunden. Die Tabelle bleibt dein Arbeitsmittel; zwei kurze Erinnerungsaufgaben folgen später.",
+  "workNotice": "Arbeite auf Papier oder in den Textfeldern. Bewahre Original und Revision auf. Die Lernwerk-Arbeitsdatei sichert Textantworten; Papierblätter bewahrst du selbst auf.",
+  "curriculum": {
+    "moduleId": "G6-M04",
+    "goalIds": [
+      "3.1.2.2(9)",
+      "3.1.2.2(10)",
+      "3.1.2.2(11)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Aktives Mapping zur Anhörungsfassung 21.09.2026, Planung dee82ec. Zwecke erklären, zwei Vorschriften anwenden und passend wählen. Beispielverfahren sind keine vollständige Pflichtliste. Kein Braillekurs oder Nachweis realer Fernübertragung."
+  },
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Aktives Mapping G6-M04 auf dee82ec, S. 37: 3.1.2.2(9–11). Keine Behauptung aktueller Inkraftsetzung."
+    },
+    {
+      "id": "braille",
+      "title": "Wie die Brailleschrift funktioniert",
+      "author": "Deutscher Blinden- und Sehbehindertenverband",
+      "url": "https://www.dbsv.org/wie-die-brailleschrift-funktioniert.html",
+      "note": "Sechs tastbare Punkte und Empfängerkenntnis; nur Zweckbeispiel, kein Braillekurs.",
+      "license": "Verlinkte Primärquelle; keine fremden Abbildungen oder Tabellen übernommen",
+      "checked": "2026-10-05"
+    },
+    {
+      "id": "unicode",
+      "title": "Unicode: Grundfragen zur Zeichencodierung",
+      "author": "Unicode Consortium",
+      "url": "https://www.unicode.org/faq/basic_q.html",
+      "note": "Standardisierte Zuordnung; Z und B sind ausdrücklich eigene Übungscodes.",
+      "license": "Verlinkte Primärquelle; keine fremden Abbildungen oder Tabellen übernommen",
+      "checked": "2026-10-05"
+    },
+    {
+      "id": "utf",
+      "title": "Unicode: UTF-8, UTF-16 und UTF-32",
+      "author": "Unicode Consortium",
+      "url": "https://www.unicode.org/faq/utf_bom.html",
+      "note": "Keine Gleichsetzung mit unserem Fünf-Bit-Modell.",
+      "license": "Verlinkte Primärquelle; keine fremden Abbildungen oder Tabellen übernommen",
+      "checked": "2026-10-05"
+    }
+  ],
+  "media": [
+    {
+      "id": "rueckweg",
+      "kind": "image",
+      "title": "Eine Nachricht, zwei Vorschriften",
+      "creator": "IuM-Lernwerk · eigene Darstellung",
+      "license": "CC BY-SA 4.0",
+      "file": "assets/codierungen/rueckweg.svg",
+      "sourceId": "bildungsplan",
+      "alt": "D wird mit Z zu 04 und mit B zu 00100. Mit derselben Tabelle führt der Rückweg jeweils zu D. Führende Nullen gehören zum Code.",
+      "caption": "Gleicher Buchstabe, verschiedene Darstellung. Die vereinbarte Vorschrift entscheidet über den Rückweg."
+    },
+    {
+      "id": "codetabelle",
+      "kind": "download",
+      "title": "Codetabelle als Textdatei",
+      "creator": "IuM-Lernwerk · eigene Vorschriften",
+      "license": "CC BY-SA 4.0",
+      "file": "assets/codierungen/codetabelle.txt",
+      "sourceId": "bildungsplan",
+      "printText": "M04 · Zwei eigene Übungscodes · IuM-Lernwerk · CC BY-SA 4.0\n\nNur A bis Z und Leerzeichen. Z: feste Zweiergruppen, B: feste Fünfergruppen. Führende Nullen erhalten. Abstände zwischen Gruppen sind Lesehilfen; das Leerzeichen im Original hat eine eigene Gruppe. Nachrichtenbeginn und Gruppenlänge müssen vereinbart sein. Keine Umlaute, Kleinbuchstaben oder Satzzeichen. Eigene Unterrichtsmodelle, keine Standardcodierung und keine Geheimhaltung.\n\nOriginal | Z | B\nLeerzeichen | 00 | 00000\nA | 01 | 00001\nB | 02 | 00010\nC | 03 | 00011\nD | 04 | 00100\nE | 05 | 00101\nF | 06 | 00110\nG | 07 | 00111\nH | 08 | 01000\nI | 09 | 01001\nJ | 10 | 01010\nK | 11 | 01011\nL | 12 | 01100\nM | 13 | 01101\nN | 14 | 01110\nO | 15 | 01111\nP | 16 | 10000\nQ | 17 | 10001\nR | 18 | 10010\nS | 19 | 10011\nT | 20 | 10100\nU | 21 | 10101\nV | 22 | 10110\nW | 23 | 10111\nX | 24 | 11000\nY | 25 | 11001\nZ | 26 | 11010\n\nCodieren: Original von links nach rechts Zeichen für Zeichen zuordnen. Decodieren: ab bekanntem Anfang in feste Gruppen teilen, jede Gruppe zurück nachschlagen. Ungültige Gruppe markieren, nicht raten. Ein anderes gültiges Zeichen kann trotzdem durch einen Fehler entstanden sein. Zum sicheren Korrigieren braucht man zusätzliche Information, etwa das Original oder eine Rückfrage.\n"
+    }
+  ],
+  "preview": "rueckweg",
+  "knowledge": [
+    {
+      "id": "zweck",
+      "title": "Warum gibt es verschiedene Codes?",
+      "paragraphs": [
+        "Codieren bedeutet hier: Zeichen nach einer vereinbarten Vorschrift in andere Zeichenfolgen umwandeln. Decodieren ist der Rückweg. Der Inhalt soll erhalten bleiben; seine Darstellung ändert sich.",
+        "Ein Code muss zum Weg und zu den Empfängern passen. Welche Zeichen kann der Weg unterscheiden? Wie viel Platz gibt es? Kennt die empfangende Person oder Maschine die Regel?"
+      ],
+      "example": "D wird als 04 oder als 00100 dargestellt. Beide Folgen können denselben Buchstaben bedeuten.",
+      "boundary": "Ein Code ist nicht automatisch geheim. Wer unsere öffentliche Tabelle kennt, kann beide Folgen lesen.",
+      "steps": [
+        "zweck",
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "regel",
+      "title": "Wie bleiben die Gruppen eindeutig?",
+      "paragraphs": [
+        "Z ordnet jedem erlaubten Originalzeichen genau zwei Ziffern zu. B nutzt immer fünf Zeichen aus 0 und 1. Lies ab dem vereinbarten Nachrichtenbeginn. Führende Nullen sind wichtig.",
+        "Zwischenräume zwischen Codegruppen sind nur Lesehilfen. Das Leerzeichen im Original wird bei Z zu 00, bei B zu 00000. Ohne Leseabstände bleibt die Rückübersetzung möglich, solange Anfang und feste Gruppenlänge bekannt sind."
+      ],
+      "example": "020104 wird in 02 | 01 | 04 geteilt und bedeutet BAD. B: 00010 | 00001 | 00100 bedeutet ebenfalls BAD.",
+      "boundary": "Ohne festgelegten Anfang oder bei verlorenen Zeichen kann die Einteilung verrutschen. Unser Modell legt den Beginn fest; es löst keine echte Synchronisation.",
+      "steps": [
+        "regeln",
+        "ueben",
+        "grenzen",
+        "nachricht",
+        "stoerung",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "umfang",
+      "title": "Welche Originale sind darstellbar?",
+      "paragraphs": [
+        "Beide Tabellen enthalten nur A bis Z und ein Leerzeichen. Die Gruppen 27–99 bei Z und 11011–11111 bei B sind nicht vergeben.",
+        "Kleinbuchstaben, Umlaute, Ziffern im Original und Satzzeichen fehlen. Nichts stillschweigend weglassen. FÜR in FUER umzuschreiben verändert das Original nach einer zusätzlichen Vereinbarung."
+      ],
+      "example": "TOR A hat fünf Originalzeichen: T, O, R, Leerzeichen, A. Z benötigt zehn, B fünfundzwanzig Codestellen.",
+      "boundary": "B ist ein kleiner Code aus zwei Zeichen, keine allgemein gültige Computertabelle. Unicode und UTF decken viel mehr Zeichen und andere Regeln ab.",
+      "steps": [
+        "regeln",
+        "grenzen",
+        "nachricht",
+        "transfer"
+      ],
+      "sources": [
+        "unicode",
+        "utf",
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "fehler",
+      "title": "Kann ein gültiger Code trotzdem falsch sein?",
+      "paragraphs": [
+        "Prüfe Gruppenlänge und Tabellenwert. Eine ungültige Gruppe passt nicht zur Regel. Sie verrät noch nicht automatisch das beabsichtigte Original.",
+        "Eine gültige Gruppe kann durch einen Fehler entstehen. Die Tabelle allein erkennt dann die Änderung nicht. Zum verlässlichen Korrigieren brauchst du zusätzliche Information, etwa Original oder Rückfrage."
+      ],
+      "example": "Z: Aus 18 | 01 | 04 (RAD) wird durch Ersetzen der 8 eine 19 | 01 | 04 (SAD). Jede Gruppe ist gültig.",
+      "boundary": "Auch ein sinnvoll klingendes Wort beweist keine fehlerfreie Übertragung. Unsere Codes erkennen oder korrigieren nicht alle Fehler und verschlüsseln die Nachricht nicht.",
+      "steps": [
+        "grenzen",
+        "stoerung",
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "wahl",
+      "title": "Wie begründe ich eine Codewahl?",
+      "paragraphs": [
+        "Prüfe: Ist jedes Originalzeichen darstellbar? Kann der Weg alle benötigten Codezeichen übertragen und reicht sein Stellenbudget? Versteht der Empfänger die Regel?",
+        "Ein Kanal ist hier der Übertragungsweg. Ein Weg nur für 0 und 1 hat zwei mögliche Zeichen. Eine Stelle trägt genau eines davon. Vergleiche nie nur die Stellenzahl ohne die verfügbaren Zeichen."
+      ],
+      "example": "TOR A braucht Z: 10 Ziffernstellen; B: 25 Stellen nur mit 0 oder 1. Welche Variante passt, hängt vom Weg ab.",
+      "boundary": "Kürzer bedeutet nicht automatisch schneller oder zuverlässiger. Wir messen keine echte Übertragungsdauer oder Störungen eines realen Netzes.",
+      "steps": [
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "zugang",
+      "title": "Warum ist ein Punktbild noch keine tastbare Schrift?",
+      "paragraphs": [
+        "Brailleschrift ermöglicht Lesen durch Tasten. In der Grundform bilden Kombinationen aus sechs möglichen erhöhten Punkten Zeichen. Die lesende Person muss Zuordnung und weitere Schriftregeln kennen.",
+        "Ein flach gedrucktes oder angezeigtes Punktmuster hat keine tastbaren Erhebungen. Große bunte Zeichen allein lösen diese Anforderung nicht."
+      ],
+      "example": "Eine Person mit Braillekenntnissen kann eine tatsächlich tastbare Beschriftung mit den Fingern lesen. Ein Foto bietet diese Möglichkeit nicht.",
+      "boundary": "Nicht jede blinde Person liest Braille. Den geeigneten Zugang mit der Person klären; unsere Übungscodes ersetzen keine zugängliche Alltagsschrift.",
+      "steps": [
+        "zweck",
+        "transfer"
+      ],
+      "sources": [
+        "braille"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "zweck",
+      "title": "Gleiche Nachricht, anderer Zweck",
+      "goal": "Du erklärst, warum eine Darstellung zum Weg und zum Empfänger passen muss.",
+      "task": "Lies die Alltagsfälle und erkläre den Unterschied.",
+      "outcome": "Zwei kurze Erklärungen zu Zweck und Empfänger.",
+      "knowledge": [
+        "zweck",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich verbinde die Darstellung mit einer Anforderung.",
+        "Ich unterscheide Codierung und Geheimhaltung."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Etwas mitteilen – aber wie?",
+          "text": "Am Eingang steht eine tastbare Beschriftung für Personen mit Braillekenntnissen. Eine Nachrichtendatei wird dagegen vom Computer verarbeitet. Beide sollen Text zugänglich machen, benötigen aber unterschiedliche Darstellungen.",
+          "paragraphs": [
+            "Bei Braille sind erhöhte Punkte entscheidend. In Computern werden Zeichen durch vereinbarte Werte dargestellt. Unicode ermöglicht gemeinsame Zuordnungen; Codierungsformen wie UTF-8 legen fest, wie diese Werte gespeichert oder übertragen werden.",
+            "Wir untersuchen zwei eigene kleine Tabellen. Sie bilden keine vollständige Computercodierung nach."
+          ],
+          "sources": [
+            "braille",
+            "unicode",
+            "utf"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "begruendung",
+          "title": "Was fehlt jeweils?",
+          "text": "Eine Person sagt: „Wir drucken ein Foto der Braillepunkte. Dann kann man es ertasten.“ Eine andere sagt: „Eine unbekannte Ziffernfolge ist automatisch geheim.“ Erkläre, was an beiden Aussagen nicht stimmt.",
+          "prompt": "Welche Voraussetzung fehlt?",
+          "responseMode": "oral",
+          "solution": "Beim Foto fehlen tastbare Erhebungen; außerdem braucht die Person Braillekenntnisse. Eine ungewohnte Darstellung ist nicht automatisch geschützt: Mit der öffentlichen Zuordnung lässt sich der Text decodieren. Codierung allein garantiert keine Geheimhaltung."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "zweck",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "regeln",
+      "title": "Regeln und Tabelle",
+      "goal": "Du benutzt die Vorschrift in beide Richtungen.",
+      "task": "Halte diese Tabelle bereit. Gehe das Beispiel BAD Zeichen für Zeichen mit.",
+      "outcome": "Eine verfügbare Tabelle und ein verstandener Rückweg.",
+      "knowledge": [
+        "regel",
+        "umfang"
+      ],
+      "criteria": [
+        "Ich erhalte führende Nullen und feste Gruppen.",
+        "Ich unterscheide Leseabstand und codiertes Leerzeichen."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Unsere zwei Übungscodes",
+          "text": "Erlaubtes Original: A–Z und Leerzeichen. Z nutzt zwei Ziffern pro Originalzeichen; B fünf Zeichen aus 0 und 1. Keine andere Gruppe ist vergeben. Sender und Empfänger vereinbaren Code und Anfang.",
+          "paragraphs": [
+            "Gruppenabstände sind Lesehilfen und zählen nicht als Codestellen. Das Leerzeichen im Original hat eine eigene Gruppe. Keine Kleinbuchstaben, Umlaute oder Satzzeichen stillschweigend ersetzen."
+          ],
+          "table": {
+            "headers": [
+              "Original",
+              "Code Z",
+              "Code B"
+            ],
+            "rows": [
+              [
+                "Leerzeichen",
+                "00",
+                "00000"
+              ],
+              [
+                "A",
+                "01",
+                "00001"
+              ],
+              [
+                "B",
+                "02",
+                "00010"
+              ],
+              [
+                "C",
+                "03",
+                "00011"
+              ],
+              [
+                "D",
+                "04",
+                "00100"
+              ],
+              [
+                "E",
+                "05",
+                "00101"
+              ],
+              [
+                "F",
+                "06",
+                "00110"
+              ],
+              [
+                "G",
+                "07",
+                "00111"
+              ],
+              [
+                "H",
+                "08",
+                "01000"
+              ],
+              [
+                "I",
+                "09",
+                "01001"
+              ],
+              [
+                "J",
+                "10",
+                "01010"
+              ],
+              [
+                "K",
+                "11",
+                "01011"
+              ],
+              [
+                "L",
+                "12",
+                "01100"
+              ],
+              [
+                "M",
+                "13",
+                "01101"
+              ],
+              [
+                "N",
+                "14",
+                "01110"
+              ],
+              [
+                "O",
+                "15",
+                "01111"
+              ],
+              [
+                "P",
+                "16",
+                "10000"
+              ],
+              [
+                "Q",
+                "17",
+                "10001"
+              ],
+              [
+                "R",
+                "18",
+                "10010"
+              ],
+              [
+                "S",
+                "19",
+                "10011"
+              ],
+              [
+                "T",
+                "20",
+                "10100"
+              ],
+              [
+                "U",
+                "21",
+                "10101"
+              ],
+              [
+                "V",
+                "22",
+                "10110"
+              ],
+              [
+                "W",
+                "23",
+                "10111"
+              ],
+              [
+                "X",
+                "24",
+                "11000"
+              ],
+              [
+                "Y",
+                "25",
+                "11001"
+              ],
+              [
+                "Z",
+                "26",
+                "11010"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "example",
+          "title": "Vollständiges Beispiel: BAD hin und zurück",
+          "text": "1. Original zerlegen: B, A, D. 2. Tabellenzeilen suchen: B → 02 bzw. 00010; A → 01 bzw. 00001; D → 04 bzw. 00100.",
+          "paragraphs": [
+            "3. Zusammenfügen: Z = 02 01 04; B = 00010 00001 00100. Ohne Leseabstände lautet Z 020104.",
+            "4. Rückweg: 020104 ab Anfang in Zweiergruppen teilen: 02 | 01 | 04. Zurück nachschlagen: B | A | D. Bei B Fünfergruppen verwenden.",
+            "5. Mit Original vergleichen: wieder BAD. Drei Originalzeichen brauchen sechs Z- bzw. fünfzehn B-Stellen. Ob ein Übertragungsweg sie tragen kann, ist damit noch nicht geklärt."
+          ],
+          "media": [
+            "rueckweg"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "zeigen",
+          "title": "Eine Stelle selbst erklären",
+          "text": "Decke im Beispiel die Zuordnung für D ab. Zeige D in der Tabelle und erkläre, warum 04 nicht zu 4 verkürzt werden darf.",
+          "prompt": "Zeige Zuordnung und Gruppenlänge.",
+          "responseMode": "oral",
+          "solution": "Z verwendet genau zwei Ziffern je Originalzeichen. D wird 04. Ohne Null stimmt die feste Gruppenlänge im zusammengesetzten Code nicht mehr. Bei B gehören alle fünf Stellen zu 00100."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "regel",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "ueben",
+      "title": "In beide Richtungen üben",
+      "goal": "Du codierst und decodierst mit beiden Vorschriften.",
+      "task": "Bearbeite erst selbst, dann vergleiche. Halte einen Fehler und seine Ursache fest.",
+      "outcome": "Vier Umwandlungen und eine Erklärung.",
+      "knowledge": [
+        "regel",
+        "umfang"
+      ],
+      "criteria": [
+        "Ich ordne Zeichen einzeln zu.",
+        "Ich decodiere ab dem Anfang in der richtigen Gruppenlänge."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "wege",
+          "title": "Tabelle benutzen, nicht raten",
+          "text": "Codiere TOR mit Z und B. Decodiere danach Z: 08012119 und B: 00010 10101 10011. Erkläre zuletzt, wie A B mit beiden Codes aussieht. Das Leerzeichen zwischen A und B gehört zum Original.",
+          "prompt": "Meine Codes, Rückübersetzungen und Leerzeichenregel.",
+          "links": [
+            {
+              "href": "baustein-regeln.html",
+              "label": "Codetabelle und Beispiel als Einzelmaterial"
+            }
+          ],
+          "responseHint": "Zwei Codes, zwei Wörter, ein Vergleich. Gruppen zur besseren Lesbarkeit trennen.",
+          "help": [
+            {
+              "title": "Wie beginne ich?",
+              "text": "Suche erst T. Schreibe seinen Z-Wert und B-Wert auf. Danach folgen O und R. Beim Rückweg Z in zwei, B in fünf Stellen teilen.",
+              "knowledge": "regel",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "TOR: Z 20 15 18; B 10100 01111 10010. 08 | 01 | 21 | 19 wird HAUS. 00010 | 10101 | 10011 wird BUS. A B: Z 01 00 02; B 00001 00000 00010. Die mittlere Gruppe steht für das Original-Leerzeichen; Leseabstände sind keine weiteren Originalzeichen."
+        },
+        {
+          "type": "task",
+          "id": "nachbessern",
+          "title": "Gezielt noch einmal",
+          "text": "Vergleiche nach deinem Versuch. Markiere eine Abweichung und erkläre ihre Ursache. Wenn alles stimmt, codiere das neue Wort WEG mit beiden Regeln.",
+          "prompt": "Meine Korrektur mit Grund oder mein neuer Versuch.",
+          "responseHint": "Ein Korrektursatz oder zwei Codefolgen.",
+          "solution": "WEG: Z 23 05 07; B 10111 00101 00111. Beispielkorrektur: „Ich hatte den Abstand für das Original-Leerzeichen gehalten. Dafür brauche ich die Gruppe 00 bzw. 00000.“"
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "regel",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "grenzen",
+      "title": "Wo scheitert die Rückübersetzung?",
+      "goal": "Du unterscheidest uneindeutige Regeln, ungültige Gruppen und unbemerkte Fehler.",
+      "task": "Untersuche die Fälle mit einer konkreten Stelle als Beleg.",
+      "outcome": "Drei begründete Fehlerdiagnosen.",
+      "knowledge": [
+        "regel",
+        "umfang",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich erkenne fehlende Informationen.",
+        "Ich gebe eine Vermutung nicht als sichere Reparatur aus."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Gültig heißt nicht fehlerfrei",
+          "text": "RAD wird mit Z zu 18 01 04. Die 8 wird durch 9 ersetzt: 19 01 04. Rückübersetzung: SAD. Alle Gruppen stehen in der Tabelle.",
+          "paragraphs": [
+            "Mit bekanntem Original lässt sich die erste Gruppe zu 18 korrigieren. Wer nur 19 01 04 empfängt, kann den Fehler aus der Tabelle allein nicht beweisen. Ein komisch klingendes Wort ist kein sicherer Test."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "diagnose",
+          "title": "Drei Grenzen prüfen",
+          "text": "A: Eine andere Regel lautet A=1, K=11, ohne feste Gruppenlänge oder Trennzeichen. Was könnte 111 bedeuten? Nenne zwei Möglichkeiten. B: Z liefert 20 27 18. Welche Stelle ist ungültig, und weißt du den beabsichtigten Buchstaben? C: Du sollst „Tür!“ genau so codieren. Geht das mit unserer Tabelle?",
+          "prompt": "A: Möglichkeiten. B: Befund und nächste Handlung. C: Grenze.",
+          "links": [
+            {
+              "href": "baustein-regeln.html",
+              "label": "Codetabelle und Beispiel als Einzelmaterial"
+            }
+          ],
+          "responseHint": "Je Fall ein bis zwei Sätze. Keine Zusatzregel erfinden.",
+          "help": [
+            {
+              "title": "Ich kann nicht reparieren",
+              "text": "Das kann die richtige Diagnose sein. Was zeigt die Tabelle sicher? Was müsste der Sender zusätzlich mitteilen?",
+              "knowledge": "fehler",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "A: AAA (1|1|1), AK (1|11) und KA (11|1) sind möglich. Zwei genügen als Gegenbeispiel. B: 27 ist nicht vergeben. Ob O oder ein anderer Buchstabe gemeint war, bleibt offen; Original erfragen oder neu senden lassen. C: Nein, ü, r und ! fehlen. TUER wäre eine veränderte Schreibweise nach zusätzlicher Vereinbarung, nicht die genaue Rückgabe von „Tür!“. Auch ein verlorenes vollständiges Zeichen kann trotz korrekter Gruppenlänge unbemerkt bleiben."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "regel",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "nachricht",
+      "title": "Deine eigene Nachricht",
+      "goal": "Du erzeugst mit beiden Verfahren ein überprüfbares Text-Code-Paar.",
+      "task": "Wähle eine neue Nachricht und prüfe ihren Rückweg ohne sichtbares Original.",
+      "outcome": "Original, zwei Codes und tatsächlich ausgeführte Rückübersetzungen.",
+      "knowledge": [
+        "regel",
+        "umfang"
+      ],
+      "criteria": [
+        "Meine neue Nachricht enthält ein Leerzeichen.",
+        "Ich zeige beide Rückübersetzungen.",
+        "Ich benenne eine Prüfgrenze."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "akte",
+          "title": "Eine Nachrichtenakte anlegen",
+          "text": "Wähle zwei kurze Wörter mit insgesamt fünf bis acht Zeichen einschließlich genau eines Leerzeichens. Verwende nur A–Z, etwa eine eigene Orts- oder Spielanweisung. Nutze keine vollständige vorgemachte Nachricht. Codiere sie selbst mit Z und B.",
+          "prompt": "Original und beide selbst erstellten Codes.",
+          "links": [
+            {
+              "href": "baustein-regeln.html",
+              "label": "Codetabelle und Beispiel als Einzelmaterial"
+            }
+          ],
+          "responseHint": "Leerzeichen mitzählen. Original und Codes jeweils in eine eigene Zeile.",
+          "help": [
+            {
+              "title": "Meine Nachricht passt nicht",
+              "text": "Zähle zuerst die Originalzeichen. Wähle bewusst eine erlaubte neue Nachricht, statt Zeichen stillschweigend wegzulassen.",
+              "knowledge": "umfang",
+              "label": "Erklärung nachschlagen"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "rueckweg",
+          "title": "Den Rückweg wirklich ausführen",
+          "text": "Schreibe nur deine Codefolgen auf einen neuen Zettel oder in eine getrennte Ansicht. Decke das Original ab. Decodiere beide Folgen. Öffne erst dann das Original und vergleiche Zeichen für Zeichen. Eine andere Person darf den Rückweg übernehmen; nenne dies als Fremdprüfung. Bei Selbstprüfung kann Erinnerung helfen – das bleibt eine Grenze.",
+          "prompt": "Rückübersetzung Z / B, Vergleich und Prüfgrenze.",
+          "responseHint": "Die tatsächlich gelesenen Texte notieren, auch wenn sie nicht passen. Noch nichts überschreiben.",
+          "solution": "Keine einzige Muster-Nachricht: fünf bis acht erlaubte Originalzeichen, genau ein Leerzeichen, pro Zeichen zwei Z- bzw. fünf B-Stellen. Beide Rückübersetzungen sollen einschließlich Leerzeichen stimmen. Abweichende Gruppen markieren und prüfen. Selbstprüfung ist keine unabhängige Empfangsprobe und kein Nachweis einer Fernübertragung."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "regel",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "stoerung",
+      "title": "Eine Stelle verändern und prüfen",
+      "goal": "Du untersuchst selbst die Wirkung eines einzelnen Zeichenwechsels.",
+      "task": "Verändere in deiner B-Nachricht genau eine 0 zu 1 oder eine 1 zu 0. Bewahre die erste Fassung.",
+      "outcome": "Vorhersage, Eingriff, Rückübersetzung und Grenze.",
+      "knowledge": [
+        "fehler",
+        "regel"
+      ],
+      "criteria": [
+        "Ich sage vor dem Prüfen eine Folge voraus.",
+        "Ich ersetze genau eine Stelle, ohne etwas zu löschen oder hinzuzufügen.",
+        "Ich unterscheide Erkennen und Korrigieren."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "Dein kontrollierter Fehler",
+          "text": "Wähle eine Gruppe deiner B-Nachricht und eine Stelle darin. Notiere zuerst, ob die veränderte Gruppe wohl ein anderes gültiges Zeichen oder keine gültige Gruppe ergibt. Tausche dann diese 0/1 aus und schlage das Ergebnis nach. Decodiere die veränderte Nachricht. Nutze erst anschließend das bekannte Original zur Korrektur.",
+          "prompt": "Vorhersage → Eingriff → Ergebnis → Erklärung und Korrektur.",
+          "links": [
+            {
+              "href": "baustein-regeln.html",
+              "label": "Codetabelle und Beispiel als Einzelmaterial"
+            }
+          ],
+          "responseTable": {
+            "headers": [
+              "Prüfschritt",
+              "Meine Spur"
+            ],
+            "rows": [
+              [
+                "Vorhersage",
+                "…"
+              ],
+              [
+                "Gruppe vorher / nachher, Stelle",
+                "…"
+              ],
+              [
+                "Rückübersetzung / Tabellenbefund",
+                "…"
+              ],
+              [
+                "Korrektur und Grenze ohne Original",
+                "…"
+              ]
+            ]
+          },
+          "responseHint": "Vier kurze Einträge. „Gültig, aber anders“ ist ein wichtiges mögliches Ergebnis.",
+          "help": [
+            {
+              "title": "Genau eine Stelle ändern",
+              "text": "Schreibe eine Fünfergruppe ab, kreise eine Position ein und ersetze nur dort 0 durch 1 oder 1 durch 0. Fünf Stellen müssen erhalten bleiben.",
+              "knowledge": "regel",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "Deine Stelle entscheidet. Ein anderer Versuch: B = 00010, letzte Stelle ändern → 00011 = C. Gültig, aber verändert. Eine Veränderung kann auch eine der nicht vergebenen Gruppen 11011 bis 11111 ergeben. Mit bekanntem Original lässt sich sicher zurückkorrigieren. Ohne Original oder weitere Information musst du nachfragen. Aus diesem Versuch keine allgemeine Fehlererkennung oder Fehlerkorrektur ableiten."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "fehler",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Prüfen, auswählen, überarbeiten",
+      "goal": "Du begründest die Codewahl und verbesserst deine Akte anhand von Kriterien.",
+      "task": "Prüfe zwei Wege. Überarbeite anschließend deine eigene Akte nachvollziehbar.",
+      "outcome": "Codewahl und Vorher-Nachher-Vergleich.",
+      "knowledge": [
+        "wahl",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich prüfe erlaubte Zeichen, Länge und Empfängerwissen.",
+        "Ich erkläre eine Änderung oder begründetes Beibehalten."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Ein Vergleich mit sichtbarem Denkweg",
+          "text": "TOR A braucht Z: zehn, B: fünfundzwanzig Stellen. Weg 1 erlaubt 0–9 auf höchstens zwölf Stellen. Weg 2 erlaubt nur 0/1 auf höchstens dreißig Stellen. Anfang und Code sind vereinbart.",
+          "paragraphs": [
+            "Weg 1: Z passt, weil alle benötigten Ziffern erlaubt sind und 10 ≤ 12. B wäre zu lang. Weg 2: B passt mit 25 ≤ 30; die konkrete Z-Folge enthält unzulässige Ziffern. Beide Empfänger kennen die Tabelle. Das zeigt Eignung unter diesen Bedingungen, keine allgemeine Überlegenheit."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "wahl",
+          "title": "Deine Nachricht, zwei Wege",
+          "text": "Prüfe deine Nachricht: Weg A überträgt 0–9 auf höchstens 16 Stellen. Weg B überträgt nur 0/1 auf höchstens 40 Stellen. Empfänger kennen beide Tabellen und den Beginn. Begründe je Weg eine passende Wahl mit der benötigten Stellenzahl.",
+          "prompt": "Wahl für A und B mit Zeichenvorrat und Stellenzahl.",
+          "responseHint": "Zwei kurze Begründungen. Nur Codestellen zählen, keine Leseabstände.",
+          "solution": "Bei fünf bis acht Originalzeichen braucht Z 10–16 und B 25–40 Stellen. Für A passt Z; B ist zu lang. Für B passt B sicher. Falls deine konkrete Z-Folge ausschließlich 0/1 enthält, passt dort auch Z und ist kürzer. Beispiel JA JA: 10 01 00 10 01. Beurteile die tatsächlichen Zeichen, nicht nur den Namen des Codes."
+        },
+        {
+          "type": "task",
+          "id": "ueberarbeiten",
+          "title": "Eine begründete zweite Fassung",
+          "text": "Prüfe: vollständige Zuordnung, ausgeführter Rückweg, nachvollziehbarer Eingriff, begründete Wahl. Frage möglichst eine Person nach einer konkreten Stelle. Sonst kennzeichne die Rückmeldung als Selbstprüfung. Verbessere eine Stelle oder belege, warum sie schon passt.",
+          "prompt": "Rückmeldungsart, Stelle vorher, Fassung danach und Grund.",
+          "responseHint": "Ein Vorher-Nachher-Paar genügt. Erste Fassung bewahren.",
+          "help": [
+            {
+              "title": "Alles scheint richtig",
+              "text": "Lass eine einzelne Zuordnung prüfen oder wähle eine neue Gruppe. Begründe anhand der Regel, warum du deine Fassung beibehältst.",
+              "knowledge": "regel",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "Beispiel: „Selbstprüfung: Ich hatte das Original-Leerzeichen nicht codiert. In Fassung 2 steht 00 bzw. 00000. Der Rückweg liefert nun das Leerzeichen.“ Nur Schriftfarbe zu ändern wäre keine fachliche Revision."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "wahl",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Passt einer der Codes wirklich?",
+      "goal": "Du erkennst unter neuen Bedingungen auch, wenn keiner der Codes genügt.",
+      "task": "Bearbeite den neuen Fall zuerst selbst. Zeige danach deine Akte und erkläre eine neue Stelle.",
+      "outcome": "Ein begründetes Urteil und gesicherte eigene Arbeit.",
+      "knowledge": [
+        "wahl",
+        "umfang",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich prüfe alle Bedingungen zusammen.",
+        "Ich benenne eine Änderung, die das Problem löst.",
+        "Ich erkläre Zugänglichkeit am Empfänger."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "entscheidung",
+          "title": "Neuer Auftrag: NEIN übertragen",
+          "text": "Der Weg unterscheidet nur 0 und 1. Pro Nachricht sind höchstens 16 Stellen erlaubt. Genau NEIN soll ankommen. Empfänger kennen Z, B und den Beginn. Prüfe beide Codes, entscheide und schlage die kleinste Erhöhung des Stellenbudgets vor, mit der einer unserer Codes passt.",
+          "prompt": "Prüfung, Entscheidung und notwendiges Budget.",
+          "links": [
+            {
+              "href": "baustein-regeln.html",
+              "label": "Codetabelle und Beispiel als Einzelmaterial"
+            }
+          ],
+          "responseHint": "Zeichenvorrat und Länge einbeziehen. Keinen dritten Code erfinden.",
+          "help": [
+            {
+              "title": "Der kürzere Code scheint zu passen",
+              "text": "Schreibe seine Ziffern auf. Sind sie alle erlaubt? Prüfe dann die Länge des anderen Codes.",
+              "knowledge": "wahl",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "Z: 14 05 09 14, acht Stellen, aber 4, 5 und 9 sind nicht übertragbar. B: 01110 00101 01001 01110, zwanzig Stellen, zu lang. Keiner passt. Mit mindestens 20 Stellen passt B bei unverändertem Zeichenvorrat. Mehr Platz allein macht Z nicht möglich."
+        },
+        {
+          "type": "task",
+          "id": "zugang",
+          "title": "Neue Empfängerbedingung",
+          "text": "Die Beschriftung soll ertastet werden. Eine Person mit Braillekenntnissen erhält nur einen flachen Ausdruck deines B-Codes. Erkläre zwei Gründe, warum das nicht genügt, und einen nächsten Schritt.",
+          "prompt": "Ausgabeweg, Kenntnis und passende Änderung.",
+          "responseMode": "oral",
+          "solution": "Der Ausdruck ist nicht tastbar; zudem ist B keine Brailleschrift. Eine korrekt in Braille übertragene, tatsächlich tastbare Ausgabe mit der Person prüfen. Braillekenntnis bedeutet nicht, dass sie unsere Fünfergruppentabelle kennt."
+        },
+        {
+          "type": "task",
+          "id": "sichern",
+          "title": "Eigenes Können zeigen",
+          "text": "Zeige erste und überarbeitete Fassung. Erkläre der Lehrperson eine neue, von ihr ausgewählte Zuordnung und was ohne Original an deinem Fehlerversuch offenbliebe. Sichere Papierblätter oder Textantworten unter „Deine Arbeit“.",
+          "prompt": "Was erkläre ich selbst, wobei brauche ich Hilfe?",
+          "responseMode": "oral",
+          "paragraphs": [
+            "Hilfen und Lösungen sind Lernmittel. Die Lehrperson unterscheidet eigenen Versuch und unterstützte Erklärung. Ein Häkchen bewertet kein Können."
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "wahl",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "abruf",
+      "title": "Mit Abstand wieder erklären",
+      "goal": "Du erinnerst dich später an Regeln und passende Codewahl.",
+      "task": "Bearbeite nur den aufgerufenen Teil. Erkläre erst aus dem Gedächtnis; nutze für Zuordnungen anschließend die Tabelle.",
+      "outcome": "Zwei zeitlich getrennte Erklärungen mit Korrektur.",
+      "knowledge": [
+        "regel",
+        "fehler",
+        "wahl"
+      ],
+      "criteria": [
+        "Ich erinnere erst selbst und vergleiche danach.",
+        "Ich korrigiere eine unklare Regel gezielt."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "regeln",
+          "title": "Vor M05: Eindeutig und trotzdem falsch?",
+          "text": "Erkläre ohne Tabelle: Warum brauchen unsere Codes feste Gruppen und einen bekannten Anfang? Kann ein gültiger Code trotzdem eine falsche Nachricht liefern? Nenne ein Beispiel. Nutze danach die Tabelle, um JA mit Z und B zu codieren.",
+          "when": "Sieben Minuten vor M05: fünf selbst, zwei vergleichen und korrigieren. Jahresabrufkonto.",
+          "prompt": "Meine Erklärung und neuer Code für JA.",
+          "solution": "Feste Gruppen und bekannter Anfang ermöglichen eindeutige Aufteilung. Eine gültige Gruppe kann durch Fehler zu einer anderen gültigen Gruppe werden, etwa RAD → SAD. JA: Z 10 01; B 01010 00001. Bei fehlender Null eine Gruppe neu vollständig abschreiben und erklären."
+        },
+        {
+          "type": "retrieval",
+          "id": "wahl",
+          "title": "Vor M07: Andere Grenze, andere Wahl?",
+          "text": "Eine Nachricht hat sechs erlaubte Originalzeichen, darunter ein Leerzeichen. Der Weg erlaubt nur 0/1 und höchstens 30 Stellen; Empfänger kennen Regeln und Beginn. Erkläre erst aus dem Gedächtnis, was zu prüfen ist. Entscheide mit den Gruppenlängen. Was ändert sich bei 29 Stellen? Welche Angabe fehlt für eine sichere Aussage zu Z?",
+          "when": "Sieben Minuten vor M07: fünf selbst, zwei vergleichen und korrigieren. Andere Abrufe bleiben getrennt.",
+          "prompt": "Bedingungen, Wahl und fehlende Angabe.",
+          "solution": "Originalzeichen, Zeichenvorrat, Länge, Empfängerkenntnis und Anfang prüfen. B braucht 6×5=30 Stellen und passt genau. Mit 29 passt B nicht mehr. Z braucht zwölf Stellen, passt aber nur, wenn die konkrete Folge ausschließlich 0/1 enthält. A, J und Leerzeichen werden zu 01, 10 und 00. Deshalb muss man die konkreten Originalzeichen erfragen. Bei Unsicherheit das JA-Beispiel erneut nachschlagen."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“, Papier und Stift oder Lernwerk-Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "regel",
+          "label": "Erklärung nachschlagen"
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "zweck"
+    ],
+    "explanation": [
+      "regeln",
+      "grenzen"
+    ],
+    "example": [
+      "regeln",
+      "revision"
+    ],
+    "practice": [
+      "ueben",
+      "grenzen"
+    ],
+    "application": [
+      "nachricht",
+      "stoerung"
+    ],
+    "revision": [
+      "revision"
+    ],
+    "securing": [
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abruf"
+    ]
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereiten und anschließen",
+      "paragraphs": [
+        "Pro Person Tabelle, Papier und Stift oder Textfelder. „Regeln und Tabelle“ als eigenes Blatt zuerst ausgeben und bei allen Umwandlungen verfügbar halten. Original und Codes auf getrennten Zetteln erlauben Rückübersetzung mit abgedecktem Original. Keine App, Konten, Binärarithmetik oder Braillekenntnisse voraussetzen.",
+        "M01s Modellgrenze und M02/M03s Trennung von Befund und Vermutung aufgreifen. Kann die Person eine Zeile nachschlagen und Stellen zählen? Sonst eine Zuordnung vormachen, danach eine andere selbst ausführen lassen. Papier erfüllt hier denselben Nachweis wie digitale Textfelder. Keine reale Fernübertragung behaupten."
+      ]
+    },
+    {
+      "title": "180 Minuten führen",
+      "paragraphs": [
+        "Orientierung 30: Zweck 10, Regeln/Beispiel 20. Übung 40: Umwandlungen 20, Grenzen 20. Anwendung 50: Nachricht 30, eigener Fehlerversuch 20. Codewahl und Revision 30. Transfer/Sicherung 30: neuer Fall 15, Zugang 5, Erklärung/Sichern 10. Summe 180.",
+        "Möglicher Stundenrhythmus: 1 Zweck/Regeln/Übung 10/20/15; 2 Übung/Grenzen/Nachricht 5/20/20; 3 Nachricht/Störung/Revision 10/20/15; 4 Revision/Transfer 15/30. Ungeprüfte Zeitannahme. Bei Bedarf Nachricht auf fünf Zeichen verkürzen; beide Verfahren und Begründungen bleiben."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste Hilfe",
+      "paragraphs": [
+        "Nullen fehlen? Feste Zweier- bzw. Fünferfelder zeichnen und jede Stelle besetzen. Leerzeichen fehlt? Im Original ein Kästchen für die Lücke markieren und 00/00000 zuordnen. Binärrechnung blockiert? Direkte Tabellenzuordnung genügt.",
+        "„Jede gültige Gruppe ist richtig“? RAD/SAD mit Original vergleichen. „27 heißt bestimmt O“? Beleg für die Absicht erfragen; neu senden lassen. Nicht unterstellen, dass jeder Fehler ungültige Gruppen erzeugt.",
+        "„Kürzer gewinnt“? Vorrat und Stellenbudget getrennt notieren. Beim reinen 0/1-Weg die tatsächliche Z-Folge prüfen: JA JA passt als Ausnahme auch mit Z. Flacher Braille-Ausdruck? Erhebung und tatsächlichen Ausgabeweg klären, keine Blindheitssimulation. Mündliche Erklärung und Fingerführung sind möglich."
+      ]
+    },
+    {
+      "title": "Nachweise und Grenzen",
+      "paragraphs": [
+        "Individuell prüfen: neue Nachricht mit einem Leerzeichen; Z/B; ausgeführte Rückübersetzungen; Vorhersage, eigener Eingriff, Ergebnis und Grenze; Revision; Entscheidung am NEIN-Fall. Rückmeldung nennt Stelle, Regel und nächste Handlung. Kriterien: vollständige Zuordnung, nachvollziehbare Prüfung, Wahl unter allen Bedingungen.",
+        "Formative Nachweise, keine abgesicherte Testsituation. Hilfenutzung und Selbst-/Fremdprüfung kenntlich machen. Gegen Abschreiben eine neue erlaubte Stelle codieren und rückübersetzen lassen, dann eine Bedingung ändern. Geöffnete Lösung und Häkchen sind keine Kompetenzbewertung.",
+        "Der kontrollierte Zeichenwechsel misst keine reale Fehlerhäufigkeit. Erinnerung kann Selbstprüfung erleichtern. Ein fremder Rückweg ist tatsächlicher Austausch, aber keine Pflichtkooperation. Keine privaten Inhalte nötig."
+      ]
+    },
+    {
+      "title": "Begründete Medienwahl",
+      "paragraphs": [
+        "Vollständige HTML-Tabelle, Papierbogen und identische Textdatei erhalten Zuordnungen auch ohne Netz. Das ruhende Schema zeigt beide Wege; Text beschreibt dieselbe Information. Kein Konverter: Selbst nachschlagen und gruppieren ist die Zielhandlung.",
+        "Kein zeitlicher oder akustischer Code wird untersucht. Film/Ton liefert dafür keinen nötigen Zusatznachweis. Bei Morse mit Dauer/Pausen neu entscheiden. Flacher Druck erklärt die Braille-Voraussetzung, ersetzt aber keine tastbare Ausgabe.",
+        "Vorschriften und Schema sind selbst erstellt. Primärquellen ordnen Braille/Unicode ein; keine fremde Tabelle übernommen. Lernziele folgen dem aktiven Mapping S. 37. Vor Einsatz externe Quellen prüfen; notwendige Aufgabeninformationen sind lokal vorhanden."
+      ]
+    },
+    {
+      "title": "Späterer Abruf und Erprobung",
+      "paragraphs": [
+        "Je sieben Minuten vor M05 und M07: 14 aus dem bestehenden 90-Minuten-Jahreskonto, außerhalb der 180 Kernminuten. Erst Regel/Zweck erinnern, dann Tabelle für Zuordnungen benutzen. Kein Auswendiglernen des Alphabets. 38 Jahres-UE sind unbestätigt.",
+        "Zweiter Abruf: konkreter Originaltext fehlt bewusst. A, J und Leerzeichen ergeben nur 0/1 auch im Z-Code; die tatsächliche Folge entscheidet. Nachfragen ist hier eine fachliche Leistung.",
+        "Nach Erprobung ohne Namen notieren: Zeit, Gruppen-/Leerzeichenfehler, eigene Rückübersetzung, Codewahl und Hilfebedarf. Reale Schulgeräte, Bildschirmleser und physischer Druck sind gesondert zu prüfen."
+      ]
+    }
+  ],
+  "briefing": [
+    "M vier fragt: Welcher Code bringt unsere Nachricht ans Ziel? Zwei eigene Tabellen nutzen feste Zweiergruppen aus Ziffern oder Fünfergruppen aus Null und Eins. Sie sind Unterrichtsmodelle, keine Computernorm und keine Brailleschrift.",
+    "Bereiten Sie Tabelle und getrennte Zettel für Original und Code vor. Papier und Textfelder tragen denselben Nachweis. Die Tabelle bleibt verfügbar; Binärrechnen und Auswendiglernen sind keine Ziele.",
+    "Vier Stunden enthalten dreißig Minuten Orientierung, vierzig Übung, fünfzig eigene Nachricht und Fehler, dreißig Codewahl und Revision sowie dreißig Transfer und Sicherung. Beobachten Sie tatsächliche Rückübersetzung und lassen Sie eine neue Stelle erklären.",
+    "Achten Sie auf Nullen, das codierte Leerzeichen und Grenzen der Fehlererkennung. Gültige Gruppen können durch Fehler entstehen. Ohne Original ist Korrigieren nicht immer möglich. Eine kurze Folge passt nur, wenn auch ihre Zeichen zulässig sind.",
+    "Sieben Abrufminuten vor M fünf und sieben vor M sieben stammen aus dem Jahreskonto. Im zweiten Abruf fehlen absichtlich die Originalzeichen; Nachfragen zulassen. Beim Braillefall entscheiden echte Ausgabe und Empfängerkenntnis. Produktionsprüfung belegt keine Unterrichtswirkung."
+  ]
+}

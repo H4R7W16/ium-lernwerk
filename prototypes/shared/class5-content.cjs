@@ -106,7 +106,8 @@ function renderBlocks(step,pack={},options={}){
 }
 function load(grade=5){
  const dir=path.join(__dirname,'inhalte',grade===5?'':'klasse'+grade);if(![5,6].includes(grade))throw new Error('Unbekannter Jahrgang');if(!fs.existsSync(dir))return [];
- return fs.readdirSync(dir).filter(n=>n.endsWith('.json')).sort().map(n=>validate(JSON.parse(fs.readFileSync(path.join(dir,n),'utf8'))));
+ const packs=fs.readdirSync(dir).filter(n=>n.endsWith('.json')).sort().map(n=>validate(JSON.parse(fs.readFileSync(path.join(dir,n),'utf8'))));
+ return grade===6?packs.sort((a,b)=>a.curriculum.moduleId.localeCompare(b.curriculum.moduleId,'de',{numeric:true})):packs;
 }
 function assets(pack){
  const root=fs.realpathSync(path.join(__dirname,'inhalte')),out=new Map();

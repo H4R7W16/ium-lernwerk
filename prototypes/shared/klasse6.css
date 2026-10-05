@@ -72,3 +72,40 @@ body.lw-mantel{
 @media print{
  .lw-mantel[data-lw-area="werbung"][data-lw-page^="baustein-gestalten"] .lw-device-routes{break-before:page}
 }
+
+/* M04: Codetabelle und eigene Prüfspuren auf Papier. */
+@media print{
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-self-check>div>p{display:none}
+ .lw-mantel[data-lw-area="codierungen"] .lw-self-check{margin:3mm 0;padding:2mm;break-inside:avoid}
+ .lw-mantel[data-lw-area="codierungen"] .lw-check-help{display:none}
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-block-task{break-inside:avoid}
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-answer-space{min-height:36mm}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-regeln.html"] .lw-block-example{break-before:page}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-regeln.html"] .lw-sheet td,
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-regeln.html"] .lw-sheet th{padding:0.8mm 3mm;font-size:10pt;line-height:1.15}
+ .lw-mantel[data-lw-area="codierungen"] .lw-content-figure{max-width:125mm;margin:3mm auto}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-stoerung.html"] .lw-block-task td{height:23mm;vertical-align:top}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-stoerung.html"] .lw-answer-space{display:none}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-abruf.html"] .lw-answer-space{min-height:24mm}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-answer-space{min-height:0;height:0;border:0;margin:0}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-block-task td{height:auto}
+}
+
+@media print{
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-revision.html"] .lw-sheet .lw-answer-space{min-height:25mm}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-sheet .lw-content-block{margin:3mm 0;padding:0}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-sheet p{margin:1.5mm 0}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-sheet h2{margin:3mm 0 1.5mm}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-sheet .lw-help,
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-sheet .lw-solution{margin:2mm 0;padding:1.5mm}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-print="solutions"] .lw-sheet .lw-answer-space{min-height:0}
+}
+
+@media print{
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-help>summary,
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-solution>summary{min-height:0;margin:0 0 1mm;padding:0}
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-self-check{margin:2mm 0;padding:2mm}
+ .lw-mantel[data-lw-area="codierungen"] .lw-sheet .lw-self-check>ul{margin-top:1mm;padding:1mm 1mm 1mm 5mm}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-stoerung.html"] .lw-block-task table{table-layout:fixed;width:100%}
+ .lw-mantel[data-lw-area="codierungen"][data-lw-page="baustein-stoerung.html"] .lw-block-task th:first-child{width:37%}
+}
