@@ -95,6 +95,9 @@ function augment(assets){
  created.set(file,page(title,'<p class="lw-eyebrow">Klasse 5</p><h1>'+title+'</h1>'+text+cards(units,target),units,null,file));
  }
  created.set('lehrkraft.html',page('Für Lehrpersonen',teacherPages.overview(units),units,null,'lehrkraft.html'));
+ const introBody=require('./class5-teacher-intro.cjs').render(packs.find(p=>p.area==='dateien'));
+ created.set('einfuehrung.html',page('Einführung für Lehrende',introBody,units,null,'einfuehrung.html').replace('</head>','<link rel="stylesheet" href="einfuehrung.css"></head>'));
+ created.set('einfuehrung.css',fs.readFileSync(path.join(__dirname,'einfuehrung.css'),'utf8'));
  created.set('stoffverteilung.html',page('Stoffverteilung Klasse 5',teacherPages.distribution(),units,null,'stoffverteilung.html'));
  created.set('review.html',page('Prüffassung Klasse 5',teacherPages.reviewHandoff(),units,null,'review.html'));
  created.set('zusammenhaenge.html',page('Die sechs Reihen verbinden',teacherPages.connections(),units,null,'zusammenhaenge.html'));
