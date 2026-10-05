@@ -11,3 +11,7 @@ reports/
 apps/lernwerk-portal/src/generated/
 apps/lernwerk-portal/public/generated-modules/
 packages/module-contract/src/generated/
+
+# Lokaler Geräte-Entwurf: technische Vorschau und Prüfläufe
+/preview-r1/
+/qa/geraete-entwurf/
