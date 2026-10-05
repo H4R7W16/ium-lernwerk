@@ -1,0 +1,34 @@
+M04 · Zwei eigene Übungscodes · IuM-Lernwerk · CC BY-SA 4.0
+
+Nur A bis Z und Leerzeichen. Z: feste Zweiergruppen, B: feste Fünfergruppen. Führende Nullen erhalten. Abstände zwischen Gruppen sind Lesehilfen; das Leerzeichen im Original hat eine eigene Gruppe. Nachrichtenbeginn und Gruppenlänge müssen vereinbart sein. Keine Umlaute, Kleinbuchstaben oder Satzzeichen. Eigene Unterrichtsmodelle, keine Standardcodierung und keine Geheimhaltung.
+
+Original | Z | B
+Leerzeichen | 00 | 00000
+A | 01 | 00001
+B | 02 | 00010
+C | 03 | 00011
+D | 04 | 00100
+E | 05 | 00101
+F | 06 | 00110
+G | 07 | 00111
+H | 08 | 01000
+I | 09 | 01001
+J | 10 | 01010
+K | 11 | 01011
+L | 12 | 01100
+M | 13 | 01101
+N | 14 | 01110
+O | 15 | 01111
+P | 16 | 10000
+Q | 17 | 10001
+R | 18 | 10010
+S | 19 | 10011
+T | 20 | 10100
+U | 21 | 10101
+V | 22 | 10110
+W | 23 | 10111
+X | 24 | 11000
+Y | 25 | 11001
+Z | 26 | 11010
+
+Codieren: Original von links nach rechts Zeichen für Zeichen zuordnen. Decodieren: ab bekanntem Anfang in feste Gruppen teilen, jede Gruppe zurück nachschlagen. Ungültige Gruppe markieren, nicht raten. Ein anderes gültiges Zeichen kann trotzdem durch einen Fehler entstanden sein. Zum sicheren Korrigieren braucht man zusätzliche Information, etwa das Original oder eine Rückfrage.

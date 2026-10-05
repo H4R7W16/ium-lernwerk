@@ -6,7 +6,7 @@ return {
     "festival": {
       "file": "schulfest.png",
       "name": "Schulfest",
-      "alt": "Links stehen leere Bänke vor einer leeren Bühne. Rechts arbeiten mehrere Kinder und Erwachsene an zwei Basteltischen im selben Schulhof.",
+      "alt": "Links stehen leere Bänke vor einer leeren Bühne. Rechts arbeiten mehrere Lernende und Erwachsene an zwei Basteltischen im selben Schulhof.",
       "context": [
         "Ort: Schulhof der erfundenen Lindenwegschule.",
         "Zeitpunkt der dargestellten Situation: 15:10 Uhr.",
@@ -17,11 +17,11 @@ return {
     "library": {
       "file": "bibliothek.png",
       "name": "Schulbibliothek",
-      "alt": "Links stehen drei leere Sessel in einer Leseecke. Rechts sitzen mehrere Kinder mit offenen Büchern an einem Tisch. Eine Erwachsene steht dabei.",
+      "alt": "Links stehen drei leere Sessel in einer Leseecke. Rechts sitzen mehrere Lernende mit offenen Büchern an einem Tisch. Eine Erwachsene steht dabei.",
       "context": [
         "Ort: Bibliothek der erfundenen Lindenwegschule.",
         "Dargestellt ist ein einzelner Moment während einer Lesegruppe.",
-        "Über andere Tageszeiten und die Lesegewohnheiten aller Kinder liegen keine Angaben vor."
+        "Über andere Tageszeiten und die Lesegewohnheiten aller Lernenden liegen keine Angaben vor."
       ]
     }
   },
@@ -41,12 +41,12 @@ return {
         "Formuliere einen Satz genauer – im Feld, im Heft oder mündlich."
       ],
       "core": "Beschreibe erst, was du siehst. Sage dann, was du daraus vermutest.",
-      "explanation": "„Die Bänke sind leer“ beschreibt etwas Sichtbares. „Das Fest ist langweilig“ ist eine Deutung: Jemand vermutet oder bewertet etwas. Eine Deutung braucht eine Begründung. Das ganze Bild zeigt Kinder an den Mitmachständen. Leere Bänke allein sagen deshalb wenig über das gesamte Fest.",
+      "explanation": "„Die Bänke sind leer“ beschreibt etwas Sichtbares. „Das Fest ist langweilig“ ist eine Deutung: Jemand vermutet oder bewertet etwas. Eine Deutung braucht eine Begründung. Das ganze Bild zeigt Lernende an den Mitmachständen. Leere Bänke allein sagen deshalb wenig über das gesamte Fest.",
       "hints": [
         "Nenne zunächst Gegenstände oder Personen, die du im jeweiligen Ausschnitt sehen kannst.",
         "Beginne mit „Auf den Bänken …“. Sage erst danach „Auf mich wirkt …, weil …“."
       ],
-      "example": "Zuerst wirkte das Fest auf mich leer. Genauer ist: Auf den Bänken sitzt in diesem Moment niemand. Im ganzen Bild sehe ich rechts Kinder an Tischen. Ob ihnen das Fest gefällt, weiß ich dadurch noch nicht.",
+      "example": "Zuerst wirkte das Fest auf mich leer. Genauer ist: Auf den Bänken sitzt in diesem Moment niemand. Im ganzen Bild sehe ich rechts Lernende an Tischen. Ob ihnen das Fest gefällt, weiß ich dadurch noch nicht.",
       "prompt": "Welche Stelle im ganzen Bild hat deine erste Vermutung verändert oder genauer gemacht?",
       "criteria": [
         "Ich unterscheide Sichtbares und Vermutetes.",
@@ -74,7 +74,7 @@ return {
         "Vergleiche „Bänke“ und „Mitmachstände“ bei derselben Überschrift. Was fällt jeweils auf?",
         "Beim Überschriftenversuch bleibt das ganze Bild gleich. Vergleiche „Ein Nachmittag“ und „Alle lieben“: Welches Wort behauptet etwas über alle?"
       ],
-      "example": "Bildversuch: Bei gleicher Überschrift zeigt der Ausschnitt nur leere Bänke. Dadurch wirkt dieser Bereich auf mich ruhig; die Basteltische sehe ich dort nicht. Textversuch: Bei gleichem Bild klingt „Alle lieben dieses Schulfest!“ begeistert. Das Wort „alle“ schreibt aber jedem Kind ein Gefühl zu, das ich im Bild nicht überprüfen kann.",
+      "example": "Bildversuch: Bei gleicher Überschrift zeigt der Ausschnitt nur leere Bänke. Dadurch wirkt dieser Bereich auf mich ruhig; die Basteltische sehe ich dort nicht. Textversuch: Bei gleichem Bild klingt „Alle lieben dieses Schulfest!“ begeistert. Das Wort „alle“ schreibt aber jeder lernenden Person ein Gefühl zu, das ich im Bild nicht überprüfen kann.",
       "prompt": "Nenne für jeden Versuch: Was verändert sich, was bleibt gleich, und woran erkennst du die Wirkung?",
       "criteria": [
         "Ich erkläre einen Bildvergleich und einen Textvergleich getrennt.",
@@ -102,7 +102,7 @@ return {
         "Suche die behauptete Information im Bild oder in der Karte. Welche Stelle wäre ein Beleg?",
         "Prüfe bei den übrigen Aussagen: Sehe ich das Gegenteil – oder kann ich mit dem Material noch nicht entscheiden?"
       ],
-      "example": "„Die Aufführung beginnt laut Festprogramm um 15:30 Uhr“ belege ich mit der Situationskarte. Die leere Bühne allein verrät keine Anfangszeit. Ein fröhlicher Gesichtsausdruck belegt dagegen nicht, dass alle Kinder das ganze Fest toll finden.",
+      "example": "„Die Aufführung beginnt laut Festprogramm um 15:30 Uhr“ belege ich mit der Situationskarte. Die leere Bühne allein verrät keine Anfangszeit. Ein fröhlicher Gesichtsausdruck belegt dagegen nicht, dass alle Lernenden das ganze Fest toll finden.",
       "prompt": "Welche Information fehlt dir auch nach dem ganzen Bild und der Karte?",
       "criteria": [
         "Ich nenne eine konkrete Bildstelle oder Kartenangabe.",
@@ -115,7 +115,7 @@ return {
       "short": "Gestalten",
       "title": "Dein Beitrag zum Schulfest",
       "eyebrow": "04 · Gestalten und verbessern",
-      "task": "Informiere andere Kinder mit Bild und Text über einen Teil des Festes. Prüfe jede Aussage am Bild oder an der Karte.",
+      "task": "Informiere andere Lernende mit Bild und Text über einen Teil des Festes. Prüfe jede Aussage am Bild oder an der Karte.",
       "goal": "Du gestaltest einen Beitrag und begründest deine Auswahl.",
       "start": "Du darfst einen Schwerpunkt wählen: Basteln, Bühne oder beide Bereiche. Deine Bildunterschrift erklärt, was zum Verständnis fehlt.",
       "outcome": "Dein Beitrag hat einen passenden Ausschnitt, Überschrift und Bildunterschrift. Du begründest eine Verbesserung oder das Beibehalten.",
@@ -130,8 +130,8 @@ return {
         "Nutze „An den …“, „In diesem Moment …“ oder „Laut Festprogramm …“, wenn dein Satz sonst zu viel behauptet.",
         "Zeige zu einem Satz eine Bildstelle oder eine Angabe der Karte. Fehlt sie, formuliere genauer oder benenne das als offene Frage."
       ],
-      "example": "Mitmachstand: „Gemeinsam basteln am Mitmachstand“. Bildunterschrift: „Kinder und Erwachsene arbeiten an den Tischen. Die Bänke vor der Bühne sind in diesem Moment leer.“ Bühnenausschnitt: „Vor der Aufführung ist noch Platz“. Bildunterschrift: „Um 15:10 Uhr sind die Bänke leer. Laut Festprogramm beginnt die Aufführung um 15:30 Uhr.“ Beide Schwerpunkte sind möglich.",
-      "prompt": "Welche konkrete Entscheidung hilft anderen Kindern, deinen Beitrag richtig zu verstehen?",
+      "example": "Mitmachstand: „Gemeinsam basteln am Mitmachstand“. Bildunterschrift: „Lernende und Erwachsene arbeiten an den Tischen. Die Bänke vor der Bühne sind in diesem Moment leer.“ Bühnenausschnitt: „Vor der Aufführung ist noch Platz“. Bildunterschrift: „Um 15:10 Uhr sind die Bänke leer. Laut Festprogramm beginnt die Aufführung um 15:30 Uhr.“ Beide Schwerpunkte sind möglich.",
+      "prompt": "Welche konkrete Entscheidung hilft anderen Lernenden, deinen Beitrag richtig zu verstehen?",
       "criteria": [
         "Meine Überschrift sagt genau, welchen Teil oder Moment ich zeige.",
         "Meine Bildunterschrift ergänzt etwas Wichtiges zum Verständnis.",
@@ -159,7 +159,7 @@ return {
         "Achte auf den Unterschied zwischen „in unserer Bibliothek“ und „in der Leseecke“. Welche Bereiche meint der Text?",
         "Suche für jede Entscheidung eine Bildstelle. Wenn eine Aussage über andere Tage geht: Haben Bild oder Karte darüber eine Information?"
       ],
-      "example": "Beitrag B passt: In der Leseecke sind leere Sessel zu sehen. Beitrag A wird durch die Kinder mit offenen Büchern im ganzen Bild widerlegt. Wie viele Kinder die Bibliothek an anderen Tagen besuchen, bleibt offen. Der enge Ausschnitt allein ist also nicht das Problem – entscheidend ist die Aussage dazu.",
+      "example": "Beitrag B passt: In der Leseecke sind leere Sessel zu sehen. Beitrag A wird durch die Lernenden mit offenen Büchern im ganzen Bild widerlegt. Wie viele Lernende die Bibliothek an anderen Tagen besuchen, bleibt offen. Der enge Ausschnitt allein ist also nicht das Problem – entscheidend ist die Aussage dazu.",
       "prompt": "Wann ist ein kleiner Ausschnitt sinnvoll, und wann führt die Überschrift über das Gezeigte hinaus?",
       "criteria": [
         "Ich begründe, warum ein enger Ausschnitt zu einer genauen Aussage passen kann.",
@@ -185,13 +185,13 @@ return {
       "id": "all",
       "text": "Auf dem ganzen Schulfest ist niemand.",
       "answer": "contradicted",
-      "feedback": "Das Bild zeigt das Gegenteil: An den Tischen sind Kinder und Erwachsene. Die Aussage über das ganze Fest ist damit widerlegt."
+      "feedback": "Das Bild zeigt das Gegenteil: An den Tischen sind Lernende und Erwachsene. Die Aussage über das ganze Fest ist damit widerlegt."
     },
     {
       "id": "feeling",
-      "text": "Alle Kinder finden das Fest toll.",
+      "text": "Alle Lernenden finden das Fest toll.",
       "answer": "unknown",
-      "feedback": "Dazu fehlen Informationen. Ein Bild zeigt nicht sicher, wie alle Kinder das Fest finden. Ihre eigenen Aussagen könnten weiterhelfen."
+      "feedback": "Dazu fehlen Informationen. Ein Bild zeigt nicht sicher, wie alle Lernenden das Fest finden. Ihre eigenen Aussagen könnten weiterhelfen."
     }
   ],
   "choices": [
@@ -231,7 +231,7 @@ return {
       "id": "library",
       "text": "Beitrag A: In unserer Bibliothek liest niemand.",
       "answer": "contradicted",
-      "feedback": "Im ganzen Bild sitzen Kinder mit offenen Büchern am Tisch. Die Aussage über die ganze Bibliothek wird widerlegt."
+      "feedback": "Im ganzen Bild sitzen Lernende mit offenen Büchern am Tisch. Die Aussage über die ganze Bibliothek wird widerlegt."
     },
     {
       "id": "seats",
@@ -241,7 +241,7 @@ return {
     },
     {
       "id": "habit",
-      "text": "An jedem Schultag besuchen 50 Kinder die Bibliothek.",
+      "text": "An jedem Schultag besuchen 50 Lernende die Bibliothek.",
       "answer": "unknown",
       "feedback": "Bild und Karte zeigen nur einen einzelnen Moment. Über andere Tage gibt es keine Angaben. Die Behauptung ist damit weder belegt noch widerlegt."
     }
@@ -249,12 +249,12 @@ return {
   "calibration": {
     "headline": "Alle lieben unser Schulfest!",
     "weak": "Meine Überschrift passt, weil es schön aussieht.",
-    "strong": "Im Bild sehe ich Kinder an Basteltischen. Ob alle das Fest lieben, weiß ich nicht. Ich ändere die Überschrift zu „Basteln am Mitmachstand“.",
-    "feedback": "B nennt zuerst einen Bildbeleg, dann eine Grenze des Wissens und schließlich eine Verbesserung. A nennt nur einen Eindruck. „Schön“ zeigt noch nicht, wie alle Kinder das Fest finden.",
+    "strong": "Im Bild sehe ich Lernende an Basteltischen. Ob alle das Fest lieben, weiß ich nicht. Ich ändere die Überschrift zu „Basteln am Mitmachstand“.",
+    "feedback": "B nennt zuerst einen Bildbeleg, dann eine Grenze des Wissens und schließlich eine Verbesserung. A nennt nur einen Eindruck. „Schön“ zeigt noch nicht, wie alle Lernenden das Fest finden.",
     "moves": [
       [
         "Beleg",
-        "Ich sehe Kinder an Basteltischen."
+        "Ich sehe Lernende an Basteltischen."
       ],
       [
         "Grenze",

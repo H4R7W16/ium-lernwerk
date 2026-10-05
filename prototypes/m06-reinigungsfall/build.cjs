@@ -64,12 +64,13 @@ function prepare() {
     if (name.endsWith('.html') && ['lernstudio','medienanalyse','quellenquest'].includes(area)) assets.set(name, navigation.inject(source,area,name));
   }
   require('../shared/mantel-render.cjs').augment(assets);
+  require('../shared/class6-render.cjs').augment(assets);
   for (const [name, source] of assets) {
     if (Buffer.isBuffer(source)) continue;
     if (/C:[\\/]Users[\\/]|\.\.\/.*Vault\//i.test(source)) throw new Error(`Private path in ${name}`);
     if (name.endsWith('.html')) {
       for (const [, url] of source.matchAll(/(?:href|src)="([^"]+)"/g)) {
-        if (url.startsWith('#') || /^https?:/.test(url)) continue;
+        if (url.startsWith('#') || /^(?:https?:|mailto:)/i.test(url)) continue;
         const relative = url.split('#')[0];
         const target = path.posix.normalize(path.posix.join(path.posix.dirname(name), relative.endsWith('/') ? `${relative}index.html` : relative));
         if (!assets.has(target)) throw new Error(`Unpublished link ${name}: ${url}`);
