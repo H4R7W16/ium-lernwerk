@@ -2,7 +2,7 @@
   "authorVersion": 2,
   "area": "speicher-zugang",
   "id": "IUM-5-M01-SPEICHER-ZUGANG",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "family": "content",
   "title": "Deine Datei. Dein Zugang.",
@@ -100,7 +100,52 @@
       "note": "Erfundene Fälle mit ausdrücklich festgelegten Bedingungen; diese Fassung zunächst lokal."
     }
   ],
-  "media": [],
+  "media": [
+    {
+      "id": "ordnerfrage",
+      "kind": "image",
+      "file": "assets/speicher-zugang/ordnerfrage.svg",
+      "title": "Zwei Geräte, derselbe Ordnername",
+      "alt": "Heute liegt entwurf.txt im Ordner Projekt auf Gerät 1. Auf Gerät 2 heißt ein Ordner ebenfalls Projekt. Ob dort die Datei vorhanden ist, ist noch unbekannt.",
+      "caption": "Übungsdarstellung. Gleiche Namen verraten noch nicht, wo die Datei gespeichert wurde.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "lokal",
+      "kind": "image",
+      "file": "assets/speicher-zugang/lokal.svg",
+      "title": "A · auf einem Gerät gespeichert",
+      "alt": "Die Datei liegt nur im eigenen Bereich auf Schulgerät 1; auf Gerät 2 ist sie nicht vorhanden.",
+      "caption": "A funktioniert auf dem ersten Gerät auch ohne Internet. Der eigene Bereich ist hier nicht für die Klasse freigegeben.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "schulcloud",
+      "kind": "image",
+      "file": "assets/speicher-zugang/schulcloud.svg",
+      "title": "B und C · Datei beim Schuldienst",
+      "alt": "B und C speichern beim Schuldienst. Beide Schulgeräte können mit Verbindung und erlaubtem Zugang darauf zugreifen. B ist nur für Mia, C für Mia und die Klasse lesbar. Ohne Verbindung sind diese Dateien im Fall nicht verfügbar.",
+      "caption": "Schulcloud = Speicher auf Computern eines Dienstes. Speicherort und Leserkreis sind zwei verschiedene Fragen.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "schutz-zustaende",
+      "kind": "image",
+      "file": "assets/speicher-zugang/schutz-zustaende.svg",
+      "title": "Pause und Übergabe prüfen",
+      "alt": "Bei kurzer Pause wird nach geprüfter Schulregel gesperrt und die Entsperrung geprüft. Bei Übergabe wird vorher gesichert und die betreffende Sitzung beendet. Ein dunkler Bildschirm oder geschlossener Tab beweist das nicht.",
+      "caption": "Die Abbildung zeigt Zustände. Den passenden Knopf und den sicheren Rückweg klärt ihr am Schulgerät.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    }
+  ],
   "knowledge": [
     {
       "id": "speicherort",
@@ -124,6 +169,10 @@
         "pruefen",
         "entscheiden",
         "wiederaufnahme"
+      ],
+      "media": [
+        "lokal",
+        "schulcloud"
       ]
     },
     {
@@ -144,6 +193,9 @@
         "pruefen",
         "entscheiden",
         "wiederaufnahme"
+      ],
+      "media": [
+        "schulcloud"
       ]
     },
     {
@@ -166,6 +218,9 @@
         "schuetzen",
         "entscheiden",
         "wiederaufnahme"
+      ],
+      "media": [
+        "schutz-zustaende"
       ]
     },
     {
@@ -225,7 +280,10 @@
           "solution": "Nein. Entscheidend ist, auf welchem Gerät oder in welchem Dienst die Datei tatsächlich gespeichert wurde und ob der Zugang dort möglich ist. Der gleiche Name reicht nicht.",
           "help": [],
           "responseMode": "oral",
-          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse."
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse.",
+          "media": [
+            "ordnerfrage"
+          ]
         }
       ]
     },
@@ -258,8 +316,24 @@
       "blocks": [
         {
           "type": "example",
-          "title": "Drei Orte an Mias erfundener Schule",
-          "text": "Lokal heißt: auf diesem Gerät gespeichert. Eine Schulcloud speichert auf Computern eines Dienstes. Offline heißt: ohne Verbindung dorthin. Die Berechtigung regelt, wer lesen darf. Für Mias erfundene Schule gelten die Bedingungen in der Tabelle; die Cloud-Dateien sind hier nicht zusätzlich offline gespeichert.",
+          "title": "A · Auf dem ersten Gerät",
+          "text": "Zeige im Bild die Datei. Auf welchem Gerät liegt sie? Kommt Mia am zweiten Gerät allein durch den Ordnernamen an die Datei?",
+          "media": [
+            "lokal"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "B und C · Beim Schuldienst",
+          "text": "Zeige, wie beide Geräte an die Datei kommen. Prüfe danach: Darf nur Mia lesen oder auch ihre Klasse?",
+          "media": [
+            "schulcloud"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Die drei Wege auf einen Blick",
+          "text": "Jetzt kannst du die Wörter zuordnen: lokal = auf diesem Gerät; Schulcloud = bei einem Schuldienst; offline = ohne Verbindung. Wer lesen darf, ist die Berechtigung.",
           "table": {
             "headers": [
               "Speicherort",
@@ -286,7 +360,8 @@
           },
           "paragraphs": [
             "Beispiel: Eine fertige Gruppeninfo soll die Klasse morgen lesen. Ich wähle C: Der Kursbereich ist auf den Schulgeräten erreichbar und für die Klasse freigegeben. A wäre nur am ersten Gerät vorhanden, B wäre nicht für die Klasse lesbar."
-          ]
+          ],
+          "media": []
         },
         {
           "type": "task",
@@ -445,6 +520,9 @@
             "windows-zugang",
             "apple-sperren",
             "bsi"
+          ],
+          "media": [
+            "schutz-zustaende"
           ]
         },
         {
@@ -629,7 +707,8 @@
       "title": "Vorbereiten",
       "paragraphs": [
         "Zwei tatsächlich erlaubte Speicherwege und eine harmlose Datei bereitstellen, etwa die vorhandene Fundnotiz. Erreichbarkeit und Berechtigung am Schulprofil klären. Eine Schulcloud ist keine Pflichtplattform. Bei nur einem Weg den zweiten ausdrücklich als Fallvergleich bearbeiten.",
-        "Genau eine geeignete Schutzhandlung pro Person wählen. Schutzwirkung und Rückkehr am Schulprofil vorab prüfen, auch automatische Wiederanmeldung. Bei fehlendem persönlichem Sperrschutz eine passende Dienstabmeldung vorsehen. Offene Arbeit und Lernwerk-Arbeitsdatei vor Abmeldung sichern. Keine Zugangsdaten oder Screenshots sammeln, keine Apple-ID abmelden oder Gerätesicherheit ändern."
+        "Genau eine geeignete Schutzhandlung pro Person wählen. Schutzwirkung und Rückkehr am Schulprofil vorab prüfen, auch automatische Wiederanmeldung. Bei fehlendem persönlichem Sperrschutz eine passende Dienstabmeldung vorsehen. Offene Arbeit und Lernwerk-Arbeitsdatei vor Abmeldung sichern. Keine Zugangsdaten oder Screenshots sammeln, keine Apple-ID abmelden oder Gerätesicherheit ändern.",
+        "Anschaulicher Einstieg innerhalb der vorhandenen 45 Minuten: erst Geräte und Datei im Bild zeigen lassen, dann Speicherort, Verbindung und Leserkreis getrennt benennen. Bei Pause/Übergabe die Wirkung prüfen, nicht nur einen dunklen Bildschirm. Die Schulkarten müssen den tatsächlichen Startort und Schutzweg enthalten."
       ]
     },
     {
@@ -659,6 +738,7 @@
     "Bereiten Sie zwei erlaubte Speicherwege und eine harmlose Übungsdatei vor. Klären Sie Berechtigungen, Schutzwirkung und Rückkehr am Schulprofil. Wählen Sie genau eine passende Sperr- oder Abmeldehandlung. Offene Arbeit und Lernwerkantworten vorher sichern. Zugangsdaten werden nicht gesammelt.",
     "Planen Sie fünf Minuten für die Vermutung, zehn für den Vergleich, zehn für die Speicherprobe und zehn für die Schutzhandlung. Sieben Minuten dienen dem neuen Fall und der Sicherung. Drei Minuten bleiben als Reserve.",
     "Achten Sie auf die Begründung: Ein eigener Bereich kann in der Cloud liegen; ein lokaler Ordner kann mehreren Personen zugänglich sein. Ein dunkler Bildschirm oder ein geschlossener Tab ist noch kein Nachweis eines geschützten Zugangs.",
-    "Fehlt die sichere Gerätehandlung, bleibt sie offen. Der Fallvergleich ist dann möglich. Reservieren Sie später zwei Minuten zum Erinnern aus dem Jahreskonto. Halten Sie nach dem Einsatz nur Zeitabweichung, häufigste Hürde und nächste Anpassung fest."
+    "Fehlt die sichere Gerätehandlung, bleibt sie offen. Der Fallvergleich ist dann möglich. Reservieren Sie später zwei Minuten zum Erinnern aus dem Jahreskonto. Halten Sie nach dem Einsatz nur Zeitabweichung, häufigste Hürde und nächste Anpassung fest.",
+    "Anschaulicher Einstieg innerhalb der vorhandenen 45 Minuten: erst Geräte und Datei im Bild zeigen lassen, dann Speicherort, Verbindung und Leserkreis getrennt benennen. Bei Pause/Übergabe die Wirkung prüfen, nicht nur einen dunklen Bildschirm. Die Schulkarten müssen den tatsächlichen Startort und Schutzweg enthalten."
   ]
 }

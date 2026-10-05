@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M04-MEDIENPRODUKT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "area": "medienprodukt",
   "family": "content",
@@ -53,7 +53,8 @@
       "title": "Vorbereiten",
       "paragraphs": [
         "Werkzeugkarte ausfüllen und am Schulprofil prüfen: Schreibwerkzeug mit Text-, Absatz- und Objektfunktionen, Arbeitsort, Export, kompatibler lokaler Dateiweg sowie begrenzter Link im Schulraum. Jeweils mit einem zweiten Gerät öffnen. Auf gemischten iPad-/Windows-Paaren keinen gerätespezifischen Übertragungsweg voraussetzen. Erlaubte Konten, Hilfeweg und Schutzroutine festlegen; keine privaten Dienste.",
-        "M02-Notizen und M03-Gliederung bereitstellen, sonst lokale Startbasis. Paare und ein zweites Paar für den Lesetest bilden; bei einem Gerät Bedienrolle regelmäßig wechseln. Jede Person muss Text und Objekt selbst bearbeiten und ihre Entscheidung erklären. Vorbereitungen auf Papier sind möglich; digitale Herstellung, Austausch, Präsentation und beide Weitergaben bleiben dann offen."
+        "M02-Notizen und M03-Gliederung bereitstellen, sonst lokale Startbasis. Paare und ein zweites Paar für den Lesetest bilden; bei einem Gerät Bedienrolle regelmäßig wechseln. Jede Person muss Text und Objekt selbst bearbeiten und ihre Entscheidung erklären. Vorbereitungen auf Papier sind möglich; digitale Herstellung, Austausch, Präsentation und beide Weitergaben bleiben dann offen.",
+        "Formatphase innerhalb ihrer vorhandenen 35 Minuten in drei kurze Beobachtungsversuche gliedern: ausgewähltes Wort, ganzer Absatz, Zeilenwechsel. Erst danach Überschrift sowie Kopieren/Rückgängig verbinden. Die Bilder erklären die Wirkung, Ihre Werkzeugkarte zeigt die tatsächlich vorhandenen Knöpfe. PDF/Lesekopie und bearbeitbares Original getrennt wiederöffnen lassen."
       ]
     },
     {
@@ -83,7 +84,8 @@
     "Prüfen Sie vorher das erlaubte Schreibwerkzeug, den Speicherort und zwei echte Weitergabewege. Ein kompatibler lokaler Dateitransfer führt zu einer Kopie auf einem zweiten Gerät. Ein begrenzter Link führt in den geschlossenen Schulraum. Tragen Sie die schulischen Schritte in die Werkzeugkarte ein. iPad und Windows sind gleichwertig; private Dienste sind kein Ersatz.",
     "Der Verlauf: vierzig Minuten Wirkung, sechzig Minuten angeleitete Text- und Objektübung, fünfundzwanzig Minuten Plan, sechzig Minuten Gestaltung, zwanzig Minuten Austausch, fünfundzwanzig Minuten Lesetest und fünfunddreißig Minuten Überarbeitung. Hinzu kommen dreißig Minuten Rechteprüfung mit Korrektur, fünfzehn Minuten Dateikopie, fünfundzwanzig Minuten Vorstellung, fünfzehn Minuten Linkfreigabe und zehn Minuten Sicherung. Arbeitsstände werden innerhalb dieser Phasen gespeichert.",
     "Beobachten Sie den tatsächlichen Umgang mit Zeichen, Absätzen und Objekten sowie den Zusammenhang zwischen Rückmeldung und Änderung. Beim Lesetest erklären die Gestaltenden zunächst nichts. Unklare Bildrechte führen zu einem geklärten Ersatz. Am Gegenbeispiel korrigieren alle; am eigenen Produkt werden notwendige Änderungen begründet. Bewahren Sie die bearbeitbare Datei, eine lesbare Endfassung und die Änderungsspur. Papierarbeit ersetzt keine digitale Handlung. Fünf Minuten Abruf folgen später aus dem bestehenden Jahreskonto.",
-    "Drei geplante Arbeitsschritte werden bei der Revision mit dem tatsächlichen Weg verglichen. Vor dem Link entscheiden beide Gestaltenden über den erlaubten Leserkreis und die Bearbeitung. Das bleibt Teil der vorhandenen Planungs-, Revisions- und Freigabezeit."
+    "Drei geplante Arbeitsschritte werden bei der Revision mit dem tatsächlichen Weg verglichen. Vor dem Link entscheiden beide Gestaltenden über den erlaubten Leserkreis und die Bearbeitung. Das bleibt Teil der vorhandenen Planungs-, Revisions- und Freigabezeit.",
+    "Formatphase innerhalb ihrer vorhandenen 35 Minuten in drei kurze Beobachtungsversuche gliedern: ausgewähltes Wort, ganzer Absatz, Zeilenwechsel. Erst danach Überschrift sowie Kopieren/Rückgängig verbinden. Die Bilder erklären die Wirkung, Ihre Werkzeugkarte zeigt die tatsächlich vorhandenen Knöpfe. PDF/Lesekopie und bearbeitbares Original getrennt wiederöffnen lassen."
   ],
   "sources": [
     {
@@ -172,6 +174,15 @@
       "url": "https://support.microsoft.com/de-de/accessibility/word/keyboard-shortcuts-in-word",
       "license": "Offizielle Hilfe verlinkt; eigene kurze Anleitung",
       "checked": "2026-10-04"
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Übungsdarstellungen",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und SVG: CC BY-SA 4.0",
+      "checked": "2026-10-06",
+      "note": "Schematische Modelle; keine Screenshots einer bestimmten Schule."
     }
   ],
   "media": [
@@ -250,6 +261,50 @@
       "alt": "Mondphase: Wir sehen unterschiedlich viel von der beleuchteten Mondhälfte. Mondfinsternis: Der Mond gerät in den Schatten der Erde.",
       "caption": "Eigene Vergleichsgrafik, kein räumliches Modell. Vor dem Einfügen die Lizenzkarte lesen.",
       "downloadable": true
+    },
+    {
+      "id": "wortprobe",
+      "kind": "image",
+      "file": "assets/medienprodukt/wortprobe.svg",
+      "title": "Versuch 1 · nur ein Wort ändern",
+      "alt": "Vorher ist nur das Wort Buch ausgewählt. Nach dem Befehl Fett ist Buch fett und wählen. bleibt unverändert.",
+      "caption": "Bedienmodell. Markiere nur „Buch“, ändere es und zeige, was unverändert blieb. Die Form der Auswahl hängt vom Schreibwerkzeug ab.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "absatzprobe",
+      "kind": "image",
+      "file": "assets/medienprodukt/absatzprobe.svg",
+      "title": "Versuch 2 · einen Absatz ändern",
+      "alt": "Vorher liegen die Absätze Buch wählen und Bei der Ausleihe zeigen dicht zusammen. Nach einer Änderung des Absatzabstands steht der nächste Absatz weiter unten. Das Zeichen ¶ zeigt jeweils das Absatzende.",
+      "caption": "Bedienmodell mit sichtbaren Formatierungszeichen. Setze die Einfügestelle in „Buch wählen.“ und ändere den Abstand danach. Der Abstand gehört zum ganzen Absatz.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "umbruchprobe",
+      "kind": "image",
+      "file": "assets/medienprodukt/umbruchprobe.svg",
+      "title": "Versuch 3 · Zeile oder Absatz?",
+      "alt": "A bricht ohne Tasteneingabe am Rand um und hat ein Absatzende. B setzt einen manuellen Zeilenumbruch, Zeichen ↵, im selben Absatz. C hat zwei Absatzenden, Zeichen ¶, und kann einen eigenen Absatzabstand erhalten.",
+      "caption": "Bedienmodell. Vergleiche A, B und C mit Formatierungszeichen: Eine sichtbare neue Zeile allein verrät noch nicht, ob ein neuer Absatz entstanden ist.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "weitergabe",
+      "kind": "image",
+      "file": "assets/medienprodukt/weitergabe.svg",
+      "title": "Original, Lesekopie und Link",
+      "alt": "Das bearbeitbare Original bleibt für Änderungen. Eine abgegebene PDF-Lesekopie wird durch spätere Änderungen am Original nicht automatisch aktualisiert. Ein Link verweist auf den freigegebenen Stand; Leserechte hängen von der Freigabe ab.",
+      "caption": "Zum Überarbeiten brauchst du dein Original. Vor der Weitergabe prüfst du Lesbarkeit, Empfängerkreis und die tatsächlich erlaubte Freigabe.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
     }
   ],
   "knowledge": [
@@ -292,6 +347,11 @@
         "word",
         "pages-umbruch",
         "word-tasten"
+      ],
+      "media": [
+        "wortprobe",
+        "absatzprobe",
+        "umbruchprobe"
       ]
     },
     {
@@ -412,6 +472,9 @@
       "sources": [
         "pages",
         "pdf"
+      ],
+      "media": [
+        "weitergabe"
       ]
     }
   ],
@@ -519,9 +582,30 @@
         {
           "type": "example",
           "title": "Mit wenig Text üben",
-          "text": "Tippe diese drei Teile jeweils als eigenen Absatz: „Unsere Bücherei“ / „Buch wählen.“ / „Bei der Ausleihe zeigen. Rückgabedatum merken.“ Das ist nur ein erfundenes Übungsbeispiel, noch nicht eure Infokarte.",
-          "paragraphs": [
-            "Ein Wort fett zu machen verändert ausgewählte Zeichen. Den Abstand nach „Buch wählen.“ zu vergrößern verändert den Absatz. Wenn die lange Zeile am rechten Rand automatisch umbricht, entsteht dadurch kein neuer Absatz."
+          "text": "Im erlaubten Schreibwerkzeug probierst du drei kleine Änderungen. Beginne mit „Buch wählen.“. Die drei Bilder sind Bedienmodelle; deine Knöpfe können anders aussehen."
+        },
+        {
+          "type": "example",
+          "title": "1 · Ein Wort auswählen und ändern",
+          "text": "Sage zuerst, welcher Teil fett werden soll. Markiere „Buch“, prüfe die Auswahl und ändere dann nur dieses Wort.",
+          "media": [
+            "wortprobe"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "2 · Einen Absatz verändern",
+          "text": "Ergänze darunter „Bei der Ausleihe zeigen.“ als eigenen Absatz: einmal Eingabetaste. Setze den Cursor in „Buch wählen.“ und vergrößere den Abstand danach. Zeige, welche Zeile sich verschoben hat.",
+          "media": [
+            "absatzprobe"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "3 · Eine Zeile ist noch kein Absatz",
+          "text": "Ergänze „Rückgabedatum merken.“. Vergleiche die drei Möglichkeiten im Bild. Probiere den manuellen Umbruch und einen neuen Absatz vor „Rückgabedatum“. Nimm die Probe danach zurück.",
+          "media": [
+            "umbruchprobe"
           ]
         },
         {
@@ -530,8 +614,8 @@
           "id": "formatieren",
           "title": "Selbst ausprobieren und erklären",
           "text": "Arbeitet erst einzeln nacheinander. Die andere Person beobachtet, erklärt aber nicht jeden Klick vorweg.",
-          "preparation": "Öffne das erlaubte Schreibwerkzeug aus der Werkzeugkarte. Beginne mit einem leeren Textdokument und dem kurzen Beispieltext oben.",
-          "action": "Markiere nur „Buch“ und hebe es fett hervor. Formatiere „Unsere Bücherei“ als Überschrift. Ändere den Abstand nach dem Absatz „Buch wählen.“. Kopiere eine eigene Zeile, füge sie am Ende ein und mache diese Einfügung rückgängig. Vergleiche einen Absatzwechsel mit einem automatischen Zeilenumbruch. Setze vor „Rückgabedatum“ einen manuellen Zeilenumbruch: Die neue Zeile soll zum selben Absatz gehören. Vergleiche mit einem neuen Absatz und nimm die Probe danach zurück.",
+          "preparation": "Nutze das erlaubte Werkzeug aus der Werkzeugkarte. Probiere die drei Versuche oben nacheinander im selben Dokument. Die Gerätehilfe unten nennt mögliche Bedienwege.",
+          "action": "Führe die drei Versuche selbst aus und erkläre jeweils die sichtbare Änderung. Ergänze am Anfang „Unsere Bücherei“ als Überschrift. Zum Schluss: Kopiere eine eigene Zeile, füge sie am Ende ein und nimm genau diese Einfügung mit Rückgängig zurück. Sichere die Datei als „Formatprobe“ am vereinbarten Ort und öffne sie dort erneut.",
           "routes": [
             {
               "title": "iPad · im freigegebenen Schreibwerkzeug",
@@ -1221,6 +1305,9 @@
               "href": "baustein-rechte.html",
               "label": "Vor der Weitergabe Rechte prüfen"
             }
+          ],
+          "media": [
+            "weitergabe"
           ]
         }
       ],

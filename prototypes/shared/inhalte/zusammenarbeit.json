@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M03-ZUSAMMENARBEIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "area": "zusammenarbeit",
   "family": "content",
@@ -51,7 +51,8 @@
       "title": "Vorbereiten",
       "paragraphs": [
         "Kursraumkarte aus dem Material ausfüllen: konkreter Einstieg, Leser-/Bearbeitungskreis, erlaubte Funktionen, kurze tatsächlich geltende Regel-/Nutzungsstelle mit Quelle, Hilfeweg und Sperr-/Abmelderoutine. Zwei Testkonten müssen sich erreichen und denselben Plan öffnen können. Keine öffentlichen Räume oder privaten Konten. Für den zweiten Weitergabeweg eine digitale Vorführung am Gerät zulassen.",
-        "Paare und einen beschreibbaren gemeinsamen Arbeitsort vorsehen. Bei einem Gerät nacheinander mit eigenen erlaubten Zugängen arbeiten; nie für die andere Person senden. Fehlende Partnerperson neu zuordnen. Vorbereitungen allein oder auf Papier sind möglich, tatsächlicher digitaler Austausch bleibt offen. Ohne geprüfte Recherche-Notizen die eigene lokale Startbasis anbieten; M02-Suche nicht als nachgeholt zählen. Bei Einzelmaterialeinsatz die dort genannten Vorprodukte bereitstellen; Verweise führen zu fehlenden Vorbereitungen."
+        "Paare und einen beschreibbaren gemeinsamen Arbeitsort vorsehen. Bei einem Gerät nacheinander mit eigenen erlaubten Zugängen arbeiten; nie für die andere Person senden. Fehlende Partnerperson neu zuordnen. Vorbereitungen allein oder auf Papier sind möglich, tatsächlicher digitaler Austausch bleibt offen. Ohne geprüfte Recherche-Notizen die eigene lokale Startbasis anbieten; M02-Suche nicht als nachgeholt zählen. Bei Einzelmaterialeinsatz die dort genannten Vorprodukte bereitstellen; Verweise führen zu fehlenden Vorbereitungen.",
+        "Zum Einstieg die vier Angaben am tatsächlichen Schulraum sichtbar ergänzen. Am Nachrichtenmodell nicht nur Rollen nennen lassen: Welche Überschrift änderte sich und welcher Beleg löste das aus? Der spätere eigene Austausch bleibt Pflicht; das Modell und ein ausgefülltes Protokoll ersetzen ihn nicht."
       ]
     },
     {
@@ -79,7 +80,8 @@
     "Drei Stunden, ein kleines gemeinsames Ergebnis: Die Paare planen eine Infokarte für eine andere fünfte Klasse. Jede Person sendet einen eigenen Beitrag, erhält eine Antwort und nutzt eine Rückmeldung zur Überarbeitung. Ein fertiger Plan allein zeigt noch nicht, dass beide beteiligt waren.",
     "Füllen Sie vorher die Kursraumkarte aus und prüfen Sie den Austausch mit zwei schulischen Konten. Der Bogen ist schulunabhängig. Er erfindet weder Menübezeichnungen noch lokale Regeln. Auch eine kurze tatsächliche Nutzungs- oder Regelstelle gehört auf die Karte. iPad und Windows sind gleichwertig. Wer keinen Zugang oder keine Partnerperson hat, kann vorbereiten; der echte Austausch bleibt nachzuholen.",
     "In Stunde eins liegen zehn Minuten Kursraum, zehn Minuten Beispiel, fünfzehn Minuten Klärung und zehn Minuten Vereinbarung. Stunde zwei beendet die Vereinbarung in fünf Minuten, gibt fünfunddreißig Minuten für eigene Beiträge und beginnt fünf Minuten Rückmeldung. Stunde drei führt diese in zehn Minuten zu Ende, überarbeitet zehn Minuten, bearbeitet fünfzehn Minuten einen fiktiven Konflikt und sichert zehn Minuten. Sichern Sie Arbeitsstände innerhalb dieser Phasen. Die gemeinsame Nachrichtenregel wird schon vor dem Austausch angepasst; später wird der Quellen- und Lizenzhinweis vervollständigt.",
-    "Beobachten Sie individuelle Beiträge, genaue Rückfragen und eine begründete Änderung. Unterstützen Sie gezielt, wenn nur eine Person schreibt oder Rückmeldung vage bleibt. Die lokale Startbasis hilft ohne alte Recherche-Notizen. Echte Recherche wird dadurch nicht nachgewiesen. Niemand muss private Konflikte offenlegen. Zum Schluss wird die Gliederung im Kursraum und als digitale Vorführung geteilt und für M vier gesichert. Fünf spätere Abrufminuten kommen aus dem vorhandenen Jahreskonto; die reale Erprobung bleibt offen."
+    "Beobachten Sie individuelle Beiträge, genaue Rückfragen und eine begründete Änderung. Unterstützen Sie gezielt, wenn nur eine Person schreibt oder Rückmeldung vage bleibt. Die lokale Startbasis hilft ohne alte Recherche-Notizen. Echte Recherche wird dadurch nicht nachgewiesen. Niemand muss private Konflikte offenlegen. Zum Schluss wird die Gliederung im Kursraum und als digitale Vorführung geteilt und für M vier gesichert. Fünf spätere Abrufminuten kommen aus dem vorhandenen Jahreskonto; die reale Erprobung bleibt offen.",
+    "Zum Einstieg die vier Angaben am tatsächlichen Schulraum sichtbar ergänzen. Am Nachrichtenmodell nicht nur Rollen nennen lassen: Welche Überschrift änderte sich und welcher Beleg löste das aus? Der spätere eigene Austausch bleibt Pflicht; das Modell und ein ausgefülltes Protokoll ersetzen ihn nicht."
   ],
   "sources": [
     {
@@ -133,6 +135,15 @@
       "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
       "checked": "04.10.2026",
       "note": "Abschnitt „Eine Frage der Perspektive“; Seite enthält zusätzliche Angebote."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Übungsdarstellungen",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und SVG: CC BY-SA 4.0",
+      "checked": "2026-10-06",
+      "note": "Schematische Modelle; keine Screenshots einer bestimmten Schule."
     }
   ],
   "media": [
@@ -175,6 +186,28 @@
       "license": "CC BY-SA 4.0 für die eigenen Zusammenfassungen, nicht für Originalseiten",
       "sourceId": "dlr",
       "printText": "ERSATZTEXTE – KEINE ORIGINALQUELLEN\nEigene Zusammenfassungen des IuM-Lernwerks · CC BY-SA 4.0 · Stand 04.10.2026\n\nDiese kurzen Ersatztexte sind eigene Zusammenfassungen des Lernwerks nach den unten verlinkten Seiten, geprüft am 04.10.2026. Sie sind keine Originalzitate und keine zwei unabhängigen Veröffentlichungen. Du kannst mit ihnen Aussagen ordnen und Quellenhinweise üben; die Originalprüfung und echte Suche bleiben offen.\n\nE1 · Nach DLR_next, „Erde, Sonne und Mond“, Abschnitt „Wie der Mond die Erde umkreist“: Der Mond wird von der Sonne beleuchtet. Auf seinem Weg um die Erde sehen wir unterschiedlich große Teile seiner beleuchteten Seite. So verändert sich sein Aussehen.\n\nE2 · Nach timeanddate, Bikos/Hocken, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten ist ein anderer Fall: Er spielt bei einer Mondfinsternis eine Rolle.\n\nOriginal zu E1:\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\nOriginal zu E2:\nhttps://www.timeanddate.de/astronomie/mond/mondphasen\n\nAuftrag in M03: Wählt eine Leitfrage zum unterschiedlichen Aussehen des Mondes. Jede Person formuliert eine Aussage aus E1/E2 in eigenen Worten. Ordnet beide Aussagen unter zwei passende Überschriften. Verweist auf E1/E2 und bewahrt die Originaladressen. Echte Suche und Originalprüfung aus M02 bleiben nachzuholen; der digitale Austausch erfolgt im freigegebenen Schulraum.\n"
+    },
+    {
+      "id": "kursraum-einstieg",
+      "kind": "image",
+      "file": "assets/zusammenarbeit/kursraum-einstieg.svg",
+      "title": "Eure Kursraumkarte · vor dem Senden",
+      "alt": "Vor dem Senden ergänzt die Lehrperson App oder Webadresse, Kurs und Arbeitsgruppe, Leser- und Bearbeitungskreis sowie den Ort für den gemeinsamen Plan.",
+      "caption": "Übertrage die vier Angaben aus eurer ausgefüllten Kursraumkarte oder lass dir den Einstieg zeigen. Trage keine Passwörter ein.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "nachricht-aenderung",
+      "kind": "image",
+      "file": "assets/zusammenarbeit/nachricht-aenderung.svg",
+      "title": "Vom Vorschlag zur besseren Überschrift",
+      "alt": "Vorher lautet die Überschrift Der Schatten. Jona fragt nach. Mika unterscheidet mit E2 Mondphase und Mondfinsternis. Jona ändert die Überschrift zu Mondphase oder Mondfinsternis.",
+      "caption": "Erfundener Austausch, gekürzt aus der Textfassung. Die Rückfrage nennt eine konkrete Unklarheit und führt zu einer sichtbaren Änderung im gemeinsamen Plan.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
     }
   ],
   "knowledge": [
@@ -194,6 +227,9 @@
       ],
       "sources": [
         "bildungsplan"
+      ],
+      "media": [
+        "kursraum-einstieg"
       ]
     },
     {
@@ -214,6 +250,9 @@
       ],
       "sources": [
         "netiquette"
+      ],
+      "media": [
+        "nachricht-aenderung"
       ]
     },
     {
@@ -375,6 +414,9 @@
               "knowledge": "kursraum",
               "label": "Wissen dazu öffnen"
             }
+          ],
+          "media": [
+            "kursraum-einstieg"
           ]
         }
       ],
@@ -408,7 +450,15 @@
       "blocks": [
         {
           "type": "example",
-          "title": "So könnte ein Austausch laufen",
+          "title": "Vorschlag → Rückfrage → Änderung",
+          "text": "Jona und Mika planen ihre Mond-Infokarte. Zeige die Überschrift vorher und nachher. Welche Nachricht hat die Änderung ausgelöst? Die Szene ist erfunden.",
+          "media": [
+            "nachricht-aenderung"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Die Textfassung und ihr Beleg",
           "text": "Die folgende Szene ist erfunden. Jona und Mika planen ihre Mond-Infokarte.",
           "table": {
             "headers": [
@@ -436,7 +486,8 @@
           ],
           "sources": [
             "timeanddate"
-          ]
+          ],
+          "media": []
         },
         {
           "type": "task",
