@@ -1,0 +1,1128 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M03-WERBUNG",
+  "area": "werbung",
+  "grade": 6,
+  "version": "1.0.2",
+  "family": "content",
+  "topic": "Werbung und Daten",
+  "title": "Warum sehe ich diese Werbung?",
+  "description": "Untersuche Werbung und mögliche Datenwege. Erkläre eine Auswahl und gestalte selbst eine Werbekarte, deren Wirkung du begründen kannst.",
+  "product": "Dein erklärtes Datenflussbild und deine digitale Werbekarte: mit Entwurf, Prüfung und begründeter Überarbeitung.",
+  "prerequisites": [
+    "Freigegebenes Schreibwerkzeug auf einem Schulgerät und vereinbarter Speicherort",
+    "Papier und Stift für ein eigenes Datenflussbild; keine privaten Konten oder Feeds",
+    "Grundlagen aus Klasse 5 zu Dateien und Textgestaltung; bei Bedarf die kurze Gerätehilfe nutzen"
+  ],
+  "teacher": [
+    "M03 verbindet Werbeerkennung, Datenwege und Interessen mit eigener Gestaltung. Öffentlich beurteilt wird der neutrale Fall. Der eigene schulische Bezug bleibt privat; seine Durchführung ist keine von außen belegte Kompetenz."
+  ],
+  "duration": "210 Kernminuten. Vorab 8 Minuten M02-Abruf; später zweimal 6 Minuten M03-Abruf aus dem Jahreskonto.",
+  "learnerDuration": "Vier Unterrichtsstunden und weitere 30 Minuten. Arbeite an kleinen Produkten; sichere Entwurf und Überarbeitung. Zwei kurze Erinnerungsaufgaben folgen erst später.",
+  "workNotice": "Die Werbekarte entsteht im freigegebenen Schreibwerkzeug, das Datenbild auf Papier oder dort. Sichere diese Produkte selbst. Die Lernwerk-Arbeitsdatei enthält nur deine öffentlichen Antworten; persönliche Reflexion bleibt getrennt.",
+  "curriculum": {
+    "moduleId": "G6-M03",
+    "goalIds": [
+      "3.1.1.1(5)",
+      "3.1.1.1(6)",
+      "3.1.1.2(1)",
+      "3.1.1.2(2)",
+      "3.1.1.2(3)",
+      "3.1.5.1(8)",
+      "3.1.5.1(9)",
+      "3.1.5.2(1)",
+      "3.1.5.2(2)",
+      "3.1.5.2(3)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Aktives Mapping zur IuM-Anhörungsfassung vom 21.09.2026, Planung dee82ec. Lerngelegenheiten und begrenzte Nachweise, keine vollständige Kompetenzfreigabe. Private Reflexion P56-03 bleibt nicht öffentlich überprüfbar."
+  },
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Abdeckung gemäß aktivem Mapping G6-M03, Planungscommit dee82ec; Klasse 6 ist die Projektverteilung."
+    },
+    {
+      "id": "daten",
+      "title": "Datenschutzgrundlagen: Personenbezug und Zweck",
+      "author": "Europäischer Datenschutzausschuss",
+      "url": "https://www.edpb.europa.eu/sme/learn-the-basics/data-protection-basics_de",
+      "license": "Verlinkte Originalquelle; keine fremden Medien übernommen",
+      "checked": "2026-10-05",
+      "note": "Definition und direkte/indirekte Identifizierung; keine individuelle Rechtsberatung."
+    },
+    {
+      "id": "cookies",
+      "title": "Using HTTP cookies",
+      "author": "MDN Web Docs",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies",
+      "license": "Verlinkte Originalquelle; keine fremden Medien übernommen",
+      "checked": "2026-10-05",
+      "note": "Abschnitte What cookies are used for und Privacy and tracking; eigene vereinfachte Darstellung."
+    },
+    {
+      "id": "werbung",
+      "title": "Influencer: Werbung und Kennzeichnung",
+      "author": "klicksafe",
+      "url": "https://www.klicksafe.de/influencer",
+      "license": "Verlinkte Originalquelle; keine fremden Medien übernommen",
+      "checked": "2026-10-05",
+      "note": "Abschnitte Manipulation durch versteckte Werbung und Kennzeichnung; keine Abbildung übernommen."
+    },
+    {
+      "id": "dsa",
+      "title": "Digital Services Act, Artikel 28 Absatz 2",
+      "author": "Europäische Union",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2065",
+      "license": "Verlinkte Originalquelle; keine fremden Medien übernommen",
+      "checked": "2026-10-05",
+      "note": "Verbot von Profiling-Werbung für hinreichend sicher erkannte Minderjährige auf Online-Plattformen; rechtliche Grenzen nicht aus einem Modell ableiten."
+    },
+    {
+      "id": "pages",
+      "title": "Erste Schritte mit Pages auf dem iPad",
+      "author": "Apple",
+      "url": "https://support.apple.com/de-de/guide/pages-ipad/tan239d80198/ipados",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Bedienhinweise",
+      "checked": "2026-10-05",
+      "note": "Beispiel für ein mögliches Schulwerkzeug; installierte Version und Freigaben vor Ort prüfen."
+    },
+    {
+      "id": "word",
+      "title": "Word für Windows: Text hinzufügen und bearbeiten",
+      "author": "Microsoft",
+      "url": "https://support.microsoft.com/de-de/word/training/add-and-edit-text",
+      "license": "Offizielle Hilfe verlinkt; eigene kurze Bedienhinweise",
+      "checked": "2026-10-05",
+      "note": "Beispiel für ein mögliches Schulwerkzeug; installierte Version und Freigaben vor Ort prüfen."
+    }
+  ],
+  "media": [
+    {
+      "id": "suche",
+      "title": "A · Werbung in einer Suchliste",
+      "kind": "image",
+      "file": "assets/werbung/suche.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene erfundene Darstellung",
+      "sourceId": "bildungsplan",
+      "alt": "A: Suchliste zur Anfrage Stifte. Oberster Kasten: Anzeige, Farbladen, Stifte für deine Ideen, Angebot ansehen. Darunter gewöhnlicher Suchtreffer So entsteht Bleistift.",
+      "caption": "A · Das bezahlte Angebot steht vor den anderen Suchtreffern. Alle Namen und Inhalte sind erfunden."
+    },
+    {
+      "id": "artikel",
+      "title": "B · Werbung in einem Artikel",
+      "kind": "image",
+      "file": "assets/werbung/artikel.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene erfundene Darstellung",
+      "sourceId": "bildungsplan",
+      "alt": "B: Artikel Lesen macht Spaß im erfundenen Lesejournal. Zwischen Überschrift und Artikeltext steht Werbung: Buchinsel, Dein nächstes Abenteuer, Zum Buchshop.",
+      "caption": "B · Der bezahlte Werbekasten unterbricht den Artikel. Die Darstellung ist ein eigenes Übungsbeispiel."
+    },
+    {
+      "id": "spiel",
+      "title": "C · Werbung zwischen Spielrunden",
+      "kind": "image",
+      "file": "assets/werbung/spiel.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene erfundene Darstellung",
+      "sourceId": "bildungsplan",
+      "alt": "C: Bildschirm nach einer Spielrunde mit Ergebnis 80. Vor Nächste Runde steht Anzeige: Spielkiste, Ideen fürs nächste Spiel, Angebot ansehen.",
+      "caption": "C · Der Laden bezahlt für den Werbeplatz zwischen zwei Spielrunden. Kein echtes Spiel, keine anklickbare Anzeige."
+    },
+    {
+      "id": "tausch-a",
+      "title": "Werbekarte A · gleichmäßiger Text",
+      "kind": "image",
+      "file": "assets/werbung/tausch-a.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene erfundene Darstellung",
+      "sourceId": "bildungsplan",
+      "alt": "Werbekarte A: Alle Angaben stehen linksbündig untereinander in annähernd gleicher Größe: Büchertausch, Freitag 13 Uhr, Bücherei, gut erhaltenes Buch mitbringen, Teilnahme kostenlos.",
+      "caption": "Karte A · Gleiche Sachinformationen wie B; die Form gewichtet sie kaum. Eigenes erfundenes Schulangebot."
+    },
+    {
+      "id": "tausch-b",
+      "title": "Werbekarte B · sichtbare Reihenfolge",
+      "kind": "image",
+      "file": "assets/werbung/tausch-b.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene erfundene Darstellung",
+      "sourceId": "bildungsplan",
+      "alt": "Werbekarte B: Büchertausch steht groß in Petrol. Freitag 13 Uhr und Bücherei stehen gemeinsam in einem farbigen Feld. Darunter gut erhaltenes Buch mitbringen und Teilnahme kostenlos.",
+      "caption": "Karte B · Titel, Termin und Ort werden unterschiedlich hervorgehoben. Die beabsichtigte Wirkung sollst du selbst erklären."
+    },
+    {
+      "id": "werkzeugkarte",
+      "kind": "download",
+      "title": "Werkzeugkarte für die Lehrperson",
+      "file": "assets/werbung/werkzeugkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0 · eigene Vorlage",
+      "sourceId": "bildungsplan",
+      "printText": "WERKZEUGKARTE M03 · Lehrperson füllt aus\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nErlaubtes Schreibwerkzeug / Start:\nArbeitsort und Dateinamen v1 / v2:\nText auswählen / kopieren / einfügen:\nSchriftgröße / Hervorhebung / eigene Form:\nSpeichern / schließen / wieder öffnen:\nHilfeweg bei gesperrter Funktion:\nBei gemeinsamem Gerät: Bedienwechsel für jede Person.\nOhne Werkzeug: Papierplan; digitale Handlung offen lassen und nachholen.\nKeine privaten Konten oder fremden Fotos nötig.\n"
+    }
+  ],
+  "preview": "tausch-b",
+  "knowledge": [
+    {
+      "id": "erkennen",
+      "title": "Woran erkenne ich Werbung?",
+      "paragraphs": [
+        "Werbung will Aufmerksamkeit und eine bestimmte Handlung auslösen, etwa einen Kauf oder eine Anmeldung. Suche nach Absender, Angebot, Handlungsaufforderung und Kennzeichnung. „Anzeige“ oder „Werbung“ hilft bei der Einordnung.",
+        "Werbung kann neben einem Suchtreffer, im Artikel oder zwischen Spielrunden stehen. Sie kann auch wie ein gewöhnlicher Beitrag aussehen. Die Einbettung beschreibt, wo und wie sie zwischen anderen Inhalten erscheint."
+      ],
+      "example": "Ein Buchtipp ist nicht schon wegen eines Buchtitels Werbung. Bezahlt ein Verlag für die Platzierung, ist das ein wichtiger Hinweis.",
+      "boundary": "Ein schöner Stil beweist keine Bezahlung; ein fehlendes Label beweist keine Werbefreiheit. Im Lernwerk sind die Fallbedingungen ausdrücklich erfunden und angegeben.",
+      "steps": [
+        "erkennen",
+        "transfer"
+      ],
+      "sources": [
+        "werbung"
+      ]
+    },
+    {
+      "id": "wirkung",
+      "title": "Wie arbeiten Inhalt und Form zusammen?",
+      "paragraphs": [
+        "Der Inhalt sagt, was angeboten wird. Die Form lenkt, was zuerst auffällt: große Schrift, Abstand, Bild, Farbe oder eine auffällige Schaltfläche. Benenne eine konkrete Stelle und die beabsichtigte Wirkung.",
+        "Eine Einladung kann sachlich korrekt und trotzdem werbend sein. Eine begründete Erwartung lautet: „Der große Titel soll zuerst auffallen.“ Ob jemand tatsächlich kommt, weißt du dadurch noch nicht."
+      ],
+      "example": "Ein großer Termin hilft bei der Orientierung; eine große Überschrift ohne lesbaren Ort kann die Entscheidung erschweren.",
+      "boundary": "Nicht jede Person reagiert gleich. Ein kurzer Lesetest belegt, was diese Person verstanden hat, keine allgemeine Werbewirkung.",
+      "steps": [
+        "wirkung",
+        "gestalten",
+        "revision"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "daten",
+      "title": "Sind Metadaten auch personenbezogen?",
+      "paragraphs": [
+        "Personenbezogen sind Angaben, die sich auf eine erkennbare oder mit weiteren Angaben bestimmbare Person beziehen. Dazu kann auch eine Kennnummer gehören; ein ausgeschriebener Name ist nicht nötig.",
+        "Metadaten beschreiben andere Daten oder Vorgänge, etwa Zeitpunkt und Absender einer Nachricht. Das ist eine andere Frage als der Personenbezug. Prüfe deshalb beides getrennt: Was wird beschrieben? Kann jemand einer Person zugeordnet werden?"
+      ],
+      "example": "„Konto K7 sendet um 10:04“ beschreibt den Sendevorgang. Wenn die Schule K7 einer Person zuordnen kann, sind diese Metadaten personenbezogen.",
+      "boundary": "Nicht jede Uhrzeit allein identifiziert jemanden. Der Zusammenhang und mögliche Zusatzinformationen entscheiden mit.",
+      "steps": [
+        "daten",
+        "fluss"
+      ],
+      "sources": [
+        "daten"
+      ]
+    },
+    {
+      "id": "technik",
+      "title": "Wie kann eine Datenspur entstehen?",
+      "paragraphs": [
+        "Ein Formular übermittelt eingegebene Angaben. Ein Server kann Anfragen in einem Protokoll festhalten, etwa welche Seite wann angefragt wurde. Ein Cookie ist eine kleine im Browser gespeicherte Angabe, die bei passenden späteren Anfragen mitgesendet werden kann. Eine Kennung kann helfen, Besuche zusammenzuführen.",
+        "Cookies können auch einen Warenkorb oder eine Spracheinstellung erhalten. Sie sind nicht automatisch Werbung. Eine App-Berechtigung erlaubt beispielsweise Standortzugriff; sie beweist allein noch nicht, wann die App einen Ort tatsächlich erfasst hat."
+      ],
+      "example": "Im erfundenen Modell steht im Cookie nur B17. Die Besuchsliste liegt beim Anbieter und wird über B17 zugeordnet.",
+      "boundary": "Nicht jeder Dienst nutzt diese Technik, nicht jeder Cookie ist eine Kennung. Unser Modell erfasst keine echten Besuche.",
+      "steps": [
+        "daten",
+        "modell",
+        "fluss"
+      ],
+      "sources": [
+        "cookies"
+      ]
+    },
+    {
+      "id": "auswahl",
+      "title": "Was unterscheidet Kontext und Verlauf?",
+      "paragraphs": [
+        "Kontextauswahl passt Werbung zum gegenwärtigen Inhalt: Neben einem Zeichenartikel könnte eine Stifteanzeige stehen. Dafür muss kein Verlauf früherer Besuche ausgewertet werden.",
+        "Verlaufsbezogene Auswahl nutzt gespeicherte frühere Vorgänge, um Interessen zu vermuten. Im Kartenmodell entscheidet eine offen gelegte Zählregel. In einem echten Dienst kennen wir diese Regel häufig nicht."
+      ],
+      "example": "Eine Buchanzeige kann zur aktuellen Buchseite passen oder wegen früherer Besuche gewählt sein. Das Motiv allein unterscheidet beide Erklärungen nicht.",
+      "boundary": "Nur zwei Themen und eine Regel: keine Auktion, keine konkurrierenden Anbieter, keine vollständigen Interessen. Ein Technikmodell sagt nicht, was rechtlich erlaubt ist.",
+      "steps": [
+        "modell",
+        "fluss",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "cookies",
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "interessen",
+      "title": "Wer möchte mit den Daten was erreichen?",
+      "paragraphs": [
+        "Akteure sind beteiligte Personen oder Organisationen. Vergleiche ihr Ziel, die dafür nützlichen Daten und einen möglichen Konflikt. Im Werbefall kann ein Geschäft mehr verkaufen wollen, ein Seitenanbieter Werbeplätze finanzieren und die lesende Person passende Informationen ohne unnötige Beobachtung wünschen.",
+        "Auch Organisation und Kontrolle sind Zwecke: Eine Bibliothek verwaltet Rückgaben; eine Schule kann berechtigte Zugriffe prüfen. Zweck und Datenbedarf müssen zusammenpassen. Nutzerfreundlichkeit und Datensparsamkeit können gemeinsam gelingen, etwa durch eine lokal gemerkte Sprache."
+      ],
+      "example": "Eine Veranstaltungsleitung braucht vielleicht die Zahl der Teilnehmenden; ein privates Foto ist dafür nicht automatisch nötig.",
+      "boundary": "Ein Interesse beweist keine Täuschung und rechtfertigt nicht jede Erhebung. Prüfe die konkrete Situation statt alle Beteiligten pauschal gut oder schlecht zu nennen.",
+      "steps": [
+        "fluss",
+        "entscheiden",
+        "transfer"
+      ],
+      "sources": [
+        "bildungsplan",
+        "daten"
+      ]
+    },
+    {
+      "id": "gestalten",
+      "title": "Wie wird aus Text eine Werbekarte?",
+      "paragraphs": [
+        "Lege zuerst Zielgruppe und gewünschte Handlung fest. Formuliere wahrheitsgemäß. Ordne Titel, Angebot und praktische Angaben so, dass sie gut zu finden sind. Wähle eine eigene einfache Form oder Zeichnung, die zum Inhalt passt.",
+        "Markiere den Text, bevor du Schriftgröße oder Hervorhebung änderst. Kopieren legt die Auswahl in die Zwischenablage; Einfügen setzt sie an den gewählten Ort. Sichere eine erste Fassung, bevor du sie gezielt verbesserst."
+      ],
+      "example": "Die Karte wirbt für einen erfundenen Büchertausch. Eine gezeichnete Buchform unterstützt den Inhalt; Ort und Termin müssen auch klein lesbar bleiben.",
+      "boundary": "Bedienwege hängen vom Schulwerkzeug ab. Eine Beschreibung des Klicks oder ein Papierplan ersetzt die tatsächliche Gerätehandlung nicht.",
+      "steps": [
+        "gestalten",
+        "revision"
+      ],
+      "sources": [
+        "pages",
+        "word"
+      ]
+    },
+    {
+      "id": "selbstbestimmung",
+      "title": "Welche Datenentscheidung kann ich begründen?",
+      "paragraphs": [
+        "Informationelle Selbstbestimmung betrifft den Umgang mit Angaben über die eigene Person. Frage: Wozu werden welche Daten benötigt, wer erhält sie, was ist freiwillig und welche Alternative gibt es? Nicht jede schulische Verarbeitung ist eine frei wählbare Einwilligung. Bei Unklarheit fragst du die Lehrperson.",
+        "Für Kinder und Jugendliche gelten besondere Schutzregeln: Online-Plattformen dürfen keine Werbung anhand eines Profils aus personenbezogenen Daten zeigen, wenn sie hinreichend sicher wissen, dass die betreffende Person minderjährig ist. Unser Verlaufsmodell verwendet deshalb einen erfundenen Erwachsenen und ist keine Erlaubnis für Tracking."
+      ],
+      "example": "Du kannst vor einer freiwilligen Fotoabgabe fragen, wer das Bild sehen kann und ob ein Text ohne Foto genügt.",
+      "boundary": "Keine privaten Einstellungen vorzeigen oder eigenmächtig Schulregeln ändern. Das Fachurteil am neutralen Fall ist überprüfbar; deine persönliche Reflexion bleibt bei dir.",
+      "steps": [
+        "entscheiden",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "daten",
+        "dsa"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "erkennen",
+      "title": "Wer spricht hier zu dir?",
+      "goal": "Du erkennst Werbung und beschreibst ihre Einbettung.",
+      "task": "Untersuche die drei erfundenen Ansichten. Begründe deine Einordnung an sichtbaren Stellen.",
+      "outcome": "Drei knappe Erklärungen: Werbung, Umgebung, Absicht.",
+      "knowledge": [
+        "erkennen"
+      ],
+      "criteria": [
+        "Ich zeige den Werbehinweis und beschreibe die Umgebung.",
+        "Ich unterscheide Beobachtung und vermutete Wirkung.",
+        "Ich unterscheide einen unbezahlten Tipp von einer bezahlten Empfehlung ohne Label."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Vor dem Start",
+          "text": "Die Lehrperson ruft zuerst acht Minuten aus M02 ab. Erst danach beginnen die 210 Minuten dieser Reihe.",
+          "links": [
+            {
+              "href": "../suche/schritt-abruf-quellen.html",
+              "label": "M02-Erinnerung vor M03"
+            }
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Drei Ansichten, vollständig erfunden",
+          "text": "Die Namen, Angebote und Oberflächen sind eigene Unterrichtsbeispiele. Du öffnest keine echten Shops oder Spiele. Bei A und B bezahlt das werbende Geschäft für den Platz. Bei C bezahlt der Spieleladen.",
+          "media": [
+            "suche",
+            "artikel",
+            "spiel"
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Finde die Hinweise",
+          "text": "Prüfe A, B und C. Beschreibe jeweils: Wo ist Werbung eingebettet? Woran erkennst du sie? Welche Handlung soll sie auslösen? Nenne bei einer Ansicht, was du über ihre tatsächliche Auswahl noch nicht weißt.",
+          "id": "spuren",
+          "prompt": "A, B, C: Stelle, Umgebung, Absicht. D und E: Einordnung mit Grund. Welche Auswahlfrage bleibt offen?",
+          "responseHint": "Zu A–C je ein Satz; zu D/E ein begründeter Vergleich. Dazu eine offene Auswahlfrage.",
+          "help": [
+            {
+              "title": "Ich finde nur das Produkt",
+              "text": "Suche zusätzlich das Werbelabel und die Aufforderung. Beschreibe, welcher andere Inhalt daneben oder davor steht.",
+              "knowledge": "erkennen",
+              "label": "Werbung erkennen"
+            }
+          ],
+          "solution": "A: „Anzeige“ über dem Stifteangebot in einer Suchliste; der Laden möchte einen Klick auf sein Angebot. B: „Werbung“ zwischen Überschrift und Artikelabsatz; die Buchhandlung wirbt für den Shop. C: „Anzeige“ nach einer Spielrunde; der Laden will einen Besuch seines Angebots. Alle drei sind in diesem erfundenen Fall bezahlt. Die Bilder allein verraten nicht, ob Kontext oder frühere Besuche die Auswahl bestimmen. D ist unter den gegebenen Bedingungen ein selbst gewählter, unbezahlter Tipp. E ist die bezahlte Werbung, auch ohne sichtbares Label. Der identische Satz allein reicht für diese Unterscheidung nicht; der Entstehungszusammenhang ist entscheidend.",
+          "paragraphs": [
+            "Zwei weitere erfundene Beiträge enthalten denselben Satz: „Dieses Buch hat mich begeistert. Schau es dir an!“ Beitrag D: Eine Person hat den Tipp selbst gewählt und erhält dafür weder Geld noch Geschenke. Beitrag E: Ein Verlag bezahlt die Person für genau diesen Beitrag; ein Werbelabel fehlt. Welcher Beitrag ist Werbung? Welche zusätzliche Information hilft dir bei der Entscheidung?"
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Papier oder Lernwerk-Notizen; keine privaten Daten"
+      ],
+      "checkHelp": [
+        {
+          "title": "Noch unsicher?",
+          "text": "Nutze zuerst das passende Wissen. Erkläre danach eine konkrete Stelle am Fall mit eigenen Worten.",
+          "knowledge": "erkennen",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "wirkung",
+      "title": "Gleiche Fakten, andere Wirkung",
+      "goal": "Du erklärst den Zusammenhang von Gestaltung und beabsichtigter Wirkung.",
+      "task": "Vergleiche die zwei Werbekarten für denselben erfundenen Büchertausch.",
+      "outcome": "Zwei belegte Gestaltungsurteile und ein eigener Änderungsvorschlag.",
+      "knowledge": [
+        "wirkung"
+      ],
+      "criteria": [
+        "Ich benenne ein konkretes Mittel und seinen Zweck.",
+        "Ich prüfe, ob wichtige Angaben lesbar bleiben."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Was fällt dir zuerst auf?",
+          "text": "Beide Karten nennen dieselben Sachinformationen. Die Form unterscheidet sich. Lies zuerst ohne Erklärung und merke dir, was du zuerst wahrnimmst.",
+          "media": [
+            "tausch-a",
+            "tausch-b"
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Begründe statt nur zu bewerten",
+          "text": "Nenne an jeder Karte eine genaue Stelle: Was soll sie bewirken, wodurch und für wen? Entscheide, welche Fassung der nächsten sechsten Klasse schneller beim Planen hilft. Schlage eine andere sinnvolle Gestaltung vor. Mehrere Urteile sind möglich, wenn die Belege passen.",
+          "id": "vergleich",
+          "prompt": "Zwei Stellen mit Wirkung und Grund; mein Verbesserungsvorschlag.",
+          "responseHint": "Drei kurze Sätze oder eine mündliche Erklärung mit Zeigen.",
+          "solution": "B hebt „Büchertausch“ deutlich hervor und trennt Termin und Ort. Das kann die schnelle Orientierung unterstützen. A zeigt alle Angaben gleich groß; das ist ruhig, gewichtet das Angebot aber kaum. A kann trotzdem gut lesbar sein. Eine andere Reihenfolge oder eine größere Ortsangabe lässt sich begründen. „B wirkt bei allen besser“ wäre ohne Untersuchung zu weitgehend."
+        }
+      ],
+      "materialNeeds": [
+        "Papier oder Lernwerk-Notizen; keine privaten Daten"
+      ],
+      "checkHelp": [
+        {
+          "title": "Noch unsicher?",
+          "text": "Nutze zuerst das passende Wissen. Erkläre danach eine konkrete Stelle am Fall mit eigenen Worten.",
+          "knowledge": "wirkung",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "daten",
+      "title": "Welche Spur entsteht?",
+      "goal": "Du unterscheidest Datenarten und erklärst eine Erhebungstechnik.",
+      "task": "Ordne die Beispieldaten mit zwei getrennten Fragen ein.",
+      "outcome": "Eine erklärte Einordnung und eine Technik-Situation.",
+      "knowledge": [
+        "daten",
+        "technik"
+      ],
+      "criteria": [
+        "Ich verwechsle Metadaten nicht mit anonymen Daten.",
+        "Ich erkläre, wie eine Angabe erfasst oder zugeordnet wird."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zwei Fragen an dieselbe Angabe",
+          "text": "Eine Schulnachricht enthält den Text „Die Bücherei öffnet um zwölf.“ Daneben stehen Absenderkonto K7 und Sendezeit 10:04. Die Schule kann K7 einem Kind zuordnen.",
+          "paragraphs": [
+            "Der Nachrichtentext ist der Inhalt. Konto und Sendezeit beschreiben den Sendevorgang: Metadaten. In diesem Zusammenhang besteht Personenbezug. „Metadaten“ und „personenbezogen“ sind also keine Gegensätze."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Ordne ein und erkläre",
+          "text": "Prüfe die drei neuen Angaben. Entscheide jeweils: Inhalt oder beschreibende Metadaten? Personenbezug im genannten Zusammenhang? Begründe. Ordne danach jeder Erhebung unten die Technik zu: Formular, Serverprotokoll oder Cookie-Kennung.",
+          "id": "zuordnung",
+          "table": {
+            "headers": [
+              "Angabe",
+              "Bekannter Zusammenhang"
+            ],
+            "rows": [
+              [
+                "„Ich komme zur Zeichen-AG.“",
+                "Nachricht von zuordenbarem Schulkonto K9."
+              ],
+              [
+                "K9, Dienstag 12:03",
+                "Absender und Zeitpunkt genau dieser Nachricht."
+              ],
+              [
+                "30 Nachrichten heute",
+                "Nur Gesamtzahl für die ganze große Schule, keine weiteren Zuordnungen verfügbar."
+              ]
+            ]
+          },
+          "items": [
+            "Anmeldung: Eine Person tippt ihren Namen und sendet ihn ab.",
+            "Beim Abruf hält ein Dienst angefragte Seite und Uhrzeit fest.",
+            "Ein Browser sendet B17 erneut mit; der Anbieter ordnet den Besuch derselben Liste zu."
+          ],
+          "prompt": "Drei Einordnungen mit Grund; danach die drei Techniken in Reihenfolge.",
+          "responseHint": "Stichwörter mit „weil“ genügen.",
+          "help": [
+            {
+              "title": "Die Zahl wirkt harmlos",
+              "text": "Frage, wer welche zusätzlichen Angaben hat. Eine Kennung kann eine Zuordnung erlauben, auch wenn kein Name dasteht.",
+              "knowledge": "daten",
+              "label": "Die zwei Fragen trennen"
+            }
+          ],
+          "solution": "Nachricht: Inhalt; durch K9 einer Person zuordenbar. K9/Zeit: Metadaten und hier ebenfalls personenbezogen. Gesamtzahl: beschreibende Statistik; unter der ausdrücklich begrenzten Annahme kein Personenbezug erkennbar. Techniken: Formular, Serverprotokoll, Cookie-Kennung. Das Urteil über eine Gesamtzahl kann sich ändern, wenn kleine Gruppen oder Zusatzdaten eine Zuordnung erlauben."
+        }
+      ],
+      "materialNeeds": [
+        "Papier oder Lernwerk-Notizen; keine privaten Daten"
+      ],
+      "checkHelp": [
+        {
+          "title": "Noch unsicher?",
+          "text": "Nutze zuerst das passende Wissen. Erkläre danach eine konkrete Stelle am Fall mit eigenen Worten.",
+          "knowledge": "daten",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "modell",
+      "title": "Verändere die Auswahl selbst",
+      "goal": "Du führst eine offene Auswahlregel aus und prüfst einen eigenen Eingriff.",
+      "task": "Vergleiche Kontext und Verlauf. Ändere anschließend genau einen früheren Besuch.",
+      "outcome": "Vorhersage, selbst gewählte Änderung, Ergebnisse und Modellgrenze.",
+      "knowledge": [
+        "auswahl",
+        "technik"
+      ],
+      "criteria": [
+        "Ich trenne aktuelle Seite und frühere Besuche.",
+        "Ich sage das Ergebnis vor der Ausführung voraus.",
+        "Ich erkläre eine Änderung oder ein gleichbleibendes Ergebnis."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Unser Modell kennt nur zwei Themen",
+          "text": "Ein erfundener erwachsener Mensch nutzt Browser B17. Es gibt nur Lesen und Zeichnen sowie eine Buch- und eine Stifteanzeige. B17 ist eine zuordenbare Cookie-Kennung. Wir sammeln keine echten Daten.",
+          "table": {
+            "headers": [
+              "Regel",
+              "So führst du sie aus"
+            ],
+            "rows": [
+              [
+                "K – Kontext",
+                "Aktuelle Seite Lesen → Buchanzeige. Aktuelle Seite Zeichnen → Stifteanzeige. Frühere Besuche ignorieren."
+              ],
+              [
+                "V – Verlauf",
+                "Zähle nur die früheren Besuche je Thema. Das häufigere Thema entscheidet. Bei Gleichstand entscheidet die aktuelle Seite nach Regel K."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Die aktuelle Seite wird in dieser Runde nicht zur Besuchsliste gezählt. Echte Dienste können anders arbeiten. Dieses Modell beweist weder eine echte Auswahlregel noch eine rechtliche Erlaubnis."
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Ein Versuch ist vorgemacht",
+          "text": "Vorher: frühere Besuche Lesen, Lesen; aktuelle Seite Zeichnen. Vermutung: K zeigt Stifte, V zeigt ein Buch. Prüfung: K betrachtet Zeichnen; V zählt zwei Lesen und null Zeichnen. Die Vermutung passt.",
+          "paragraphs": [
+            "Änderung: Nur den ersten früheren Besuch durch Zeichnen ersetzen. Vorhersage: V wird nun Stifte wählen. Prüfung: eins zu eins, deshalb entscheidet die aktuelle Seite Zeichnen. Erklärung: Die Gleichstandsregel hat die Auswahl geändert. Grenze: Aus zwei Besuchen weiß das Modell nicht sicher, was die Person interessiert."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Dein Eingriff",
+          "text": "Start: frühere Besuche Lesen, Zeichnen, Zeichnen; aktuelle Seite Lesen. Lege drei beschriftete Zettel aus oder schreibe die Liste auf. Notiere erst deine Vorhersagen für K und V, dann zähle nach. Wähle selbst genau einen früheren Besuch und ersetze sein Thema durch das andere. Die aktuelle Seite bleibt Lesen. Sage beide Ergebnisse erneut voraus, führe aus und erkläre den Vergleich.",
+          "id": "versuch",
+          "responseTable": {
+            "headers": [
+              "Phase",
+              "Deine kurze Spur"
+            ],
+            "rows": [
+              [
+                "Start",
+                "Vorhersage K / V; danach Ergebnis und Zählung"
+              ],
+              [
+                "Mein Eingriff",
+                "Welchen Besuch ersetze ich wodurch?"
+              ],
+              [
+                "Danach",
+                "Vorhersage K / V; Ergebnis und Zählung"
+              ],
+              [
+                "Erklärung / Grenze",
+                "Warum verändert oder erhält mein Eingriff die Auswahl? Was weiß das Modell nicht?"
+              ]
+            ]
+          },
+          "prompt": "Halte deine Versuchsspur fest. Erkläre auch ein unverändertes Ergebnis.",
+          "help": [
+            {
+              "title": "Keine Änderung sichtbar?",
+              "text": "Auch das ist ein Ergebnis. Prüfe die Mehrheiten und welche Daten K überhaupt benutzt. Ändere nicht heimlich mehrere Bedingungen.",
+              "knowledge": "auswahl",
+              "label": "Auswahlwege unterscheiden"
+            }
+          ],
+          "solution": "Start: K Buch (aktuelle Seite Lesen); V Stifte (einmal Lesen, zweimal Zeichnen). Ersetzt du einen Zeichnen-Besuch durch Lesen, zeigt V danach Buch (2:1). Ersetzt du Lesen durch Zeichnen, bleibt V bei Stiften (0:3). K bleibt in beiden Fällen Buch. Der selbst gewählte Eingriff und die eigene Erklärung gehören zum Nachweis; eine abgeschriebene Ergebnistabelle genügt nicht."
+        }
+      ],
+      "materialNeeds": [
+        "Papier oder Lernwerk-Notizen; keine privaten Daten"
+      ],
+      "checkHelp": [
+        {
+          "title": "Noch unsicher?",
+          "text": "Nutze zuerst das passende Wissen. Erkläre danach eine konkrete Stelle am Fall mit eigenen Worten.",
+          "knowledge": "auswahl",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "fluss",
+      "title": "Zeichne den Weg der Daten",
+      "goal": "Du verbindest Erhebung, Technik, Auswahl und Interessen.",
+      "task": "Erstelle für den neuen Fall ein beschriftetes Datenflussbild.",
+      "outcome": "Ein eigenes Bild mit erklärten Pfeilen, Datenarten und Interessenvergleich.",
+      "knowledge": [
+        "technik",
+        "daten",
+        "auswahl",
+        "interessen"
+      ],
+      "criteria": [
+        "Ich zeige, wo Daten entstehen und wie Besuche verbunden werden.",
+        "Ich erkläre einen möglichen Auswahlweg statt ihn aus dem Anzeigenmotiv zu erraten.",
+        "Ich vergleiche Interessen mit Nutzen und Konflikt."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Fall B42: Warum erscheint ein Buch?",
+          "text": "Ein erfundener erwachsener Nutzer liest beim Anbieter zuerst zwei Buchartikel und einen Zeichenartikel. Der Browser sendet jeweils die Kennung B42. Der Anbieter protokolliert Kennung, Thema und Zeitpunkt. Jetzt öffnet der Nutzer eine Zeichenseite; dort erscheint eine Buchanzeige.",
+          "paragraphs": [
+            "Für diesen Übungsfall verrät der Anbieter: Er benutzt Regel V aus dem Modell und ordnet Buch- bzw. Stifteanzeigen passend zum ausgewählten Thema zu. Die aktuelle Seite zählt nicht zum bisherigen Verlauf. Die Buchhandlung bezahlt den Werbeplatz. Der Seitenanbieter möchte Einnahmen. Der Nutzer möchte lesen und möglichst wenig beobachtet werden."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Baue und erkläre dein Bild",
+          "text": "Zeichne selbst Kästen und Pfeile: Besuche → Erfassung und Zuordnung → Auswertung → Anzeige. Beschrifte jeden Pfeil mit der Information, die weitergegeben oder verarbeitet wird. Trenne Browser und Anbieter. Markiere eine Metadatenangabe und erkläre ihren möglichen Personenbezug. Ergänze die Interessen der drei Beteiligten und einen konkreten Konflikt.",
+          "id": "datenbild",
+          "prompt": "Zeige dein Bild und erkläre einen Pfeil, die Auswahl und einen Interessenkonflikt.",
+          "responseMode": "oral",
+          "responseHint": "Das eigene Bild ist dein Produkt. Eine zweite Abschrift ist nicht nötig; eine kurze Notiz ist freiwillig.",
+          "items": [
+            "Prüfe zusätzlich: Welche Anzeige würde Regel K hier wählen?",
+            "Schreibe unter das Bild: Was wäre ohne die mitgeteilte Regel nur eine Vermutung?"
+          ],
+          "help": [
+            {
+              "title": "Wo liegt die Liste?",
+              "text": "Im Fall liegt die Besuchsliste beim Anbieter. Der Browser sendet seine Kennung. „Cookie speichert alles“ passt hier nicht.",
+              "knowledge": "technik",
+              "label": "Erfassung und Zuordnung"
+            },
+            {
+              "title": "Ich habe nur Pfeile",
+              "text": "Lies einen Pfeil als Satz: Wer sendet welche Angabe wohin? Ergänze genau diese Wörter."
+            }
+          ],
+          "solution": "Im Browser liegt B42. Passende Anfragen senden diese Kennung; der Anbieter verbindet Thema und Zeitpunkt mit seiner Liste zu B42. Zwei Lesen-Besuche überwiegen einen Zeichnen-Besuch: V wählt Buch, K würde zur aktuellen Zeichenseite Stifte wählen. Kennung und Zeitpunkt beschreiben den Besuch; bei möglicher Zuordnung können sie personenbezogen sein. Buchhandlung: Absatz; Anbieter: Einnahmen; Nutzer: Information und begrenzte Beobachtung. Passendere Angebote können nützen, gespeicherte Spuren aber seinem Wunsch widersprechen. Ohne offengelegte Regel beweist die Anzeige keine Verlaufsanalyse."
+        }
+      ],
+      "materialNeeds": [
+        "Papier oder Lernwerk-Notizen; keine privaten Daten"
+      ],
+      "checkHelp": [
+        {
+          "title": "Noch unsicher?",
+          "text": "Nutze zuerst das passende Wissen. Erkläre danach eine konkrete Stelle am Fall mit eigenen Worten.",
+          "knowledge": "technik",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "gestalten",
+      "title": "Wirb mit einer eigenen Karte",
+      "goal": "Du gestaltest ein kleines digitales Medienprodukt mit beabsichtigter Wirkung.",
+      "task": "Gestalte allein eine neue Werbekarte für den erfundenen Büchertausch.",
+      "outcome": "Eine wieder geöffnete digitale erste Fassung mit eigener Formulierung und Gestaltung.",
+      "knowledge": [
+        "gestalten",
+        "wirkung"
+      ],
+      "criteria": [
+        "Ich nenne Zielgruppe und beabsichtigte Handlung.",
+        "Meine Karte enthält wahre Fallangaben und ein eigenes Bildelement.",
+        "Ich habe selbst markiert, kopiert, eingefügt, formatiert und wieder geöffnet."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Dein Auftrag: eine kleine Karte",
+          "text": "Zielgruppe: eine andere sechste Klasse. Sie soll Lust auf den erfundenen Büchertausch bekommen und wissen, wann und wo er stattfindet. Feststehende Angaben: Freitag, 13 Uhr, Bücherei; ein gut erhaltenes Buch mitbringen; Teilnahme kostenlos. Erfinde keinen Rabatt oder Wettbewerb. Schreibe „Werbung · Übungsbeispiel“ dazu.",
+          "paragraphs": [
+            "Entwirf eine eigene kurze Überschrift und einen einladenden Satz. Wähle selbst Reihenfolge, zwei Schriftgrößen und eine einfache eigene Form oder Zeichnung, etwa ein Buchsymbol. Du musst die Beispielkarten nicht nachbauen. Plane erst drei Minuten auf Papier."
+          ]
+        },
+        {
+          "type": "external",
+          "title": "Jetzt selbst am Gerät",
+          "text": "Ein kleines Textdokument mit wenigen Zeilen genügt. Bei einem geteilten Gerät bedient jede Person für die eigene Karte; haltet den Umfang klein.",
+          "id": "karte",
+          "context": "device",
+          "preparation": "Öffne das von der Lehrperson freigegebene Schreibwerkzeug und den vereinbarten Speicherort. Die Lehrperson nennt dir die Wege aus der ausgefüllten Werkzeugkarte. Keine neuen privaten Konten anlegen.",
+          "action": "Erstelle deine Karte mit eigenem Text und einer einfachen eigenen Form. Markiere den Titel und ändere seine Größe. Kopiere den Termin über die Zwischenablage, füge ihn an der gewählten Stelle ein und entferne die doppelte alte Stelle. Hebe eine wichtige Angabe gezielt hervor. Sichere „Werbekarte-v1“, schließe und öffne sie aus dem Zielordner erneut.",
+          "routes": [
+            {
+              "device": "ipad",
+              "title": "iPad · Beispiel Pages",
+              "items": [
+                "Beginne ein leeres Dokument. Tippe den eigenen Text ein; halte die Stelle für die Auswahl gedrückt und passe die Auswahl an.",
+                "Nutze Kopieren und Einfügen im Auswahlmenü. Über Format änderst du die ausgewählte Schrift und Größe.",
+                "Füge über die angebotenen Formen eine einfache Buchform aus Rechtecken ein; alternativ nutze eine eigene Zeichnung. Wähle eine gut lesbare Anordnung.",
+                "Benenne die Datei und sichere sie am vereinbarten Ort. Kehre zur Dokumentübersicht zurück und öffne genau diese Datei. Zeige selbst eine Formatänderung."
+              ],
+              "sources": [
+                "pages"
+              ]
+            },
+            {
+              "device": "windows",
+              "title": "Windows · Beispiel Word",
+              "items": [
+                "Beginne ein leeres Dokument und schreibe deinen eigenen Text. Markiere nur die Stelle, die du ändern willst.",
+                "Kopieren und Einfügen liegen im Kontextmenü; Strg+C und Strg+V sind die Tastaturwege. Unter Start änderst du Schriftgröße und Hervorhebung.",
+                "Nutze Einfügen → Formen für ein einfaches eigenes Bildelement. Halte Text und Form übersichtlich.",
+                "Speichere als „Werbekarte-v1“ am vereinbarten Ort, schließe und öffne sie von dort erneut. Zeige selbst eine Formatänderung."
+              ],
+              "sources": [
+                "word"
+              ]
+            }
+          ],
+          "return": "Zeige deine Karte am Gerät. Erkläre, welche zwei Entscheidungen die beabsichtigte Wirkung unterstützen. Bewahre die erste Fassung für die Überarbeitung.",
+          "prompt": "Zeige Text, Bildelement und eigene Bedienhandlung. Warum hast du zwei Stellen so gestaltet?",
+          "responseMode": "oral",
+          "responseHint": "Produkt und mündliche Erklärung genügen. Keine zusätzliche Abschrift der Karte.",
+          "help": [
+            {
+              "title": "Das Werkzeug fehlt oder ist gesperrt",
+              "text": "Plane und zeichne auf Papier. Markiere die digitale Umsetzung als offen und vereinbare mit der Lehrperson einen echten Gerätezeitpunkt. Ein Papierprodukt beweist keine Softwarebedienung.",
+              "knowledge": "gestalten",
+              "label": "Gestalten und sichern"
+            }
+          ],
+          "links": [
+            {
+              "href": "material.html",
+              "label": "Werkzeugkarte im Materialbereich"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Eigene Produkte und freigegebenes Schulgerät oder Papier"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nächster kleiner Schritt",
+          "text": "Prüfe eine konkrete Stelle an deinem Produkt. Nutze bei Bedarf das passende Wissen.",
+          "knowledge": "gestalten",
+          "label": "Passendes Wissen"
+        }
+      ],
+      "deviceNeeds": {
+        "ipad": [
+          "Freigegebenes Schreibwerkzeug, z. B. Pages, mit Formen oder Zeichenfunktion; Speicherort"
+        ],
+        "windows": [
+          "Freigegebenes Schreibwerkzeug, z. B. Word, mit Formen; Speicherort"
+        ]
+      }
+    },
+    {
+      "id": "revision",
+      "title": "Prüfen heißt genauer werden",
+      "goal": "Du nutzt Kriterien, um dein Bild und deine Karte zu verbessern.",
+      "task": "Prüfe beide Entwürfe. Verbessere nötige Stellen und erkläre die Änderung.",
+      "outcome": "Erste und zweite Fassung mit knapper nachvollziehbarer Revisionsspur.",
+      "knowledge": [
+        "wirkung",
+        "technik",
+        "interessen",
+        "gestalten"
+      ],
+      "criteria": [
+        "Meine Rückmeldung nennt Stelle, Kriterium und nächste Handlung.",
+        "Meine Änderung löst das benannte Problem; richtiges darf begründet bleiben."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Eine Rückmeldung, mit der man arbeiten kann",
+          "text": "Fehlertext zu B42: „Die Buchanzeige beweist: Der Cookie kennt die Lieblingsbücher. Alle wollen nur Geld.“",
+          "paragraphs": [
+            "Kritische Rückmeldung: Der Fall nennt eine Kennung im Browser, keine Lieblingsbücher. Zeichne die Liste beim Anbieter ein. Erkläre die Auswahl mit der mitgeteilten Regel. Unterscheide die drei Interessen. Aus dem Motiv allein folgt kein sicherer Datenweg.",
+            "Zu einer Karte: „Schön!“ hilft wenig. „Der Ort fehlt; ergänze ihn, damit ich teilnehmen könnte“ verbindet eine Stelle mit dem Leserziel."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Deine zwei Entwürfe auf dem Prüfstand",
+          "text": "Prüfe erst das Datenbild, dann die Karte. Lass, wenn möglich, eine andere Person zuerst still schauen. Frage: „Welcher Datenweg wird behauptet?“ und „Wann, wo und wozu würdest du kommen?“ Notiere deren tatsächliche Antwort. Ohne andere Person prüfst du selbst anhand der Kriterien und schreibst ausdrücklich „Selbstprüfung“.",
+          "id": "revision",
+          "items": [
+            "Datenbild: Kennung und Liste am richtigen Ort? Pfeile beschriftet? Regel und Zahlen passend? Drei Interessen und eine Grenze erklärt? Vergleiche erst jetzt mit der Lösung im vorherigen Schritt.",
+            "Werbekarte: eigene Aussage, richtige Angaben, beabsichtigte Wirkung, lesbare Reihenfolge und eigenes Bildelement? Funktioniert sie auch bei kleiner Ansicht?",
+            "Verbessere die nötige Stelle im Datenbild und in „Werbekarte-v2“. Sichere v2 gesondert und öffne sie erneut. Wenn keine Änderung nötig ist, begründe das an einer überprüften Stelle."
+          ],
+          "prompt": "Je Produkt: Prüfart, konkrete Stelle, Rückmeldung, Änderung und Grund. Was ist jetzt besser belegt oder verständlich?",
+          "responseTable": {
+            "headers": [
+              "Produkt",
+              "Kurze Revisionsspur"
+            ],
+            "rows": [
+              [
+                "Datenbild",
+                "Vorher → Rückmeldung/Kriterium → nachher → Grund"
+              ],
+              [
+                "Werbekarte",
+                "Vorher → Rückmeldung/Kriterium → nachher → Grund"
+              ]
+            ]
+          },
+          "responseHint": "Je ein kurzer Eintrag. Die Fassungen selbst bleiben der wichtigste Nachweis.",
+          "help": [
+            {
+              "title": "Ich habe die Lösung abgeschrieben",
+              "text": "Schließe die Lösung. Erkläre an deinem Bild: Was änderte sich, wenn B42 zwei Zeichenartikel und einen Buchartikel besucht hätte, die aktuelle Zeichenseite aber gleich bliebe? Prüfe deine eigene Erklärung mit der Lehrperson.",
+              "knowledge": "auswahl",
+              "label": "Regel erneut anwenden"
+            }
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Eigene Produkte und freigegebenes Schulgerät oder Papier"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nächster kleiner Schritt",
+          "text": "Prüfe eine konkrete Stelle an deinem Produkt. Nutze bei Bedarf das passende Wissen.",
+          "knowledge": "wirkung",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "entscheiden",
+      "title": "Welche Daten brauche ich wofür?",
+      "goal": "Du begründest ein fachliches Datenurteil und reflektierst eine eigene schulische Entscheidung privat.",
+      "task": "Bearbeite zuerst den neutralen Fall. Nimm dir danach Zeit für deinen eigenen geschützten Bezug.",
+      "outcome": "Ein öffentliches Fachurteil zum Fall; private Reflexion ohne Abgabepflicht.",
+      "knowledge": [
+        "selbstbestimmung",
+        "interessen"
+      ],
+      "criteria": [
+        "Ich verknüpfe benötigte Daten und Zweck im neutralen Fall.",
+        "Ich kann eine begründete Rückfrage oder Alternative nennen.",
+        "Meinen persönlichen Bezug muss ich nicht offenlegen."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zehn Minuten: gemeinsam am neutralen Fall",
+          "text": "Ein erfundenes Schulformular plant die Bücher-AG. Die Leitung erklärt: Ein Name dient der Teilnehmerliste; die Klasse hilft bei Rückfragen. Zusätzlich fragt es nach einem privaten Porträtfoto und Lieblingsgeschäften, ohne einen Zweck zu nennen. Die zusätzlichen Felder sind freiwillig.",
+          "paragraphs": [
+            "Vorgemachte Überlegung: Die Teilnehmerliste erklärt einen Zweck für den Namen. Für die Planung ist ein privates Porträt nicht offensichtlich erforderlich. Ich frage nach Empfängerkreis und Zweck und nutze zunächst die Anmeldung ohne Foto. Das ist ein begründeter nächster Schritt, keine pauschale Rechtsprüfung des Formulars."
+          ]
+        },
+        {
+          "type": "task",
+          "title": "Dein Fachurteil bleibt beim Fall",
+          "text": "Erkläre den Unterschied zwischen Klasse und Lieblingsgeschäften in diesem Fall. Nenne das Interesse der Leitung und das der teilnehmenden Person. Formuliere eine Rückfrage, die eine informierte Entscheidung ermöglicht.",
+          "id": "fallurteil",
+          "prompt": "Zweck, Interessen und meine genaue Rückfrage zum erfundenen Formular.",
+          "responseHint": "Drei kurze Sätze. Schreibe hier keine Angaben zu dir oder deinem echten Konto.",
+          "solution": "Die Klasse ist im Fall für Rückfragen begründet; für Lieblingsgeschäfte fehlt ein Zweck. Die Leitung möchte organisieren, Teilnehmende möchten mitmachen und über unnötige Angaben mitentscheiden. Mögliche Rückfrage: „Wofür braucht ihr Lieblingsgeschäfte, wer sieht diese Angaben, und kann ich ohne sie teilnehmen?“ Begründete andere Fragen sind möglich."
+        },
+        {
+          "type": "explanation",
+          "title": "15 Minuten eigener Bezug, 5 Minuten private Sicherung",
+          "text": "Denke an eine tatsächliche, harmlose Nutzung eines Schulgeräts oder Schulwerkzeugs. Wähle nur für dich eine Datenentscheidung: zum Beispiel ein eigenes Foto oder nur Text im erlaubten Lernprodukt, ein öffentlicher Name oder ein vereinbartes Kürzel im Schulraum, oder vorerst keine freiwillige Angabe.",
+          "items": [
+            "Wozu dient die Angabe? Wer könnte sie sehen? Was weiß ich, was ist unklar?",
+            "Welche erlaubte Möglichkeit wähle ich und warum? Auch Nichtnutzung oder eine Rückfrage an die Lehrperson kann begründet sein. Ändere keine echten Einstellungen ohne Erlaubnis.",
+            "Falls dir keine Situation einfällt: Betrachte dein eigenes Lernprodukt aus dieser Stunde. Entscheide für dich, ob du ein persönliches Foto hinzufügen würdest oder bei der eigenen Buchzeichnung bleibst, und begründe.",
+            "Sichere deinen Gedanken nur für dich: still, auf eigenem Papier oder in der optionalen privaten Notiz. Keine Abgabe und kein Vorzeigen. Du darfst nur melden, dass du nachgedacht hast; das beweist nicht die Qualität der Reflexion."
+          ],
+          "paragraphs": [
+            "Der neutrale Fall ersetzt deinen eigenen Bezug nicht. Du musst ihn trotzdem niemandem schildern. Bei einem persönlichen Anliegen kannst du getrennt von der Aufgabe vertraulich mit einer Lehrperson sprechen."
+          ]
+        },
+        {
+          "type": "private",
+          "title": "Wenn du möchtest: nur für dich notieren",
+          "text": "Diese Notiz ist optional. Lasse sie leer, wenn du im Kopf oder auf eigenem Papier arbeitest. Trage keine Passwörter oder Angaben über andere Personen ein.",
+          "id": "persoenlich",
+          "prompt": "Meine private Überlegung: Zweck, mögliche Empfänger, Wahl und Grund.",
+          "responseHint": "Wird nicht mit den öffentlichen Antworten gespeichert, exportiert oder gedruckt. Ein Seitenwechsel kann sie verwerfen."
+        }
+      ],
+      "materialNeeds": [
+        "Eigene Produkte und freigegebenes Schulgerät oder Papier"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nächster kleiner Schritt",
+          "text": "Prüfe eine konkrete Stelle an deinem Produkt. Nutze bei Bedarf das passende Wissen.",
+          "knowledge": "selbstbestimmung",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Reicht die Anzeige als Beweis?",
+      "goal": "Du überträgst das Wissen auf einen veränderten Fall und sicherst deinen Nachweis.",
+      "task": "Löse zuerst ohne Vergleichslösung. Prüfe anschließend und erkläre nötige Korrekturen.",
+      "outcome": "Eine begründete Erklärung mit Alternativen; gesicherte Produkte.",
+      "knowledge": [
+        "auswahl",
+        "interessen",
+        "selbstbestimmung"
+      ],
+      "criteria": [
+        "Ich berücksichtige den gemeinsam genutzten Browser.",
+        "Ich unterscheide mögliche Erklärung, Fallbeleg und unbekannte Regel.",
+        "Ich sichere Produkt und Überarbeitung statt nur einen Haken."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "title": "Neuer Fall: geteilter Browser",
+          "text": "Zwei erfundene Erwachsene benutzen denselben Browser. Eine Person liest drei Artikel über Bücher. Danach öffnet die andere Person einen Zeichenartikel und sieht eine Buchanzeige. Anders als bei B42 nennt der Anbieter keine Auswahlregel. Es ist nur bekannt, dass die frühere Liste über dieselbe Kennung verbunden werden könnte.",
+          "id": "neuer-fall",
+          "prompt": "Erkläre eine mögliche Verlaufswahl, die Kontextwahl und die Aussagegrenze. Welche Interessen stehen sich gegenüber?",
+          "items": [
+            "Was würde unser Modell V wählen, was K? Warum beweist die Buchanzeige nicht, dass die zweite Person Bücher mag?",
+            "Nenne eine andere mögliche Erklärung für die Anzeige, bei der frühere Besuche keine Rolle spielen.",
+            "Ein Mitschüler schlägt vor: „Für passendere Werbung sollen alle Kinder möglichst viele Daten angeben.“ Beurteile den Vorschlag mit Nutzen, Datensparsamkeit und der Schutzregel aus dem Wissen."
+          ],
+          "responseHint": "Etwa vier bis sechs Sätze oder eine begründete mündliche Erklärung. Hilfenutzung ist erlaubt; die Lehrperson unterscheidet selbstständig und unterstützt.",
+          "help": [
+            {
+              "title": "Ich kenne den wirklichen Algorithmus nicht",
+              "text": "Genau das gehört zur Aufgabe. Formuliere „Unter Regel V wäre …“, danach „Daraus folgt nicht …“.",
+              "knowledge": "auswahl",
+              "label": "Modell und echte Auswahl"
+            }
+          ],
+          "solution": "V würde Buch wählen, weil die gespeicherte Liste drei Buchbesuche enthält; K würde zum aktuellen Zeichenartikel Stifte wählen. Der gemeinsame Browser trennt die Interessen der Personen nicht. Es könnte auch eine feste, allen gezeigte Buchanzeige sein. Ohne Auswahlregel ist der tatsächliche Weg offen. Werbende wünschen passende Ansprache, der Anbieter Einnahmen, Nutzende hilfreiche Inhalte mit wenig Beobachtung. Mehr Daten können eine Auswahl verändern, sind aber nicht automatisch nötig oder zulässig. Für hinreichend sicher erkannte Minderjährige ist Profiling-Werbung auf Online-Plattformen verboten; „alle Kinder sollen mehr Daten liefern“ ist deshalb kein tragfähiger Vorschlag."
+        },
+        {
+          "type": "task",
+          "title": "Sichern und erklären",
+          "text": "Vergleiche erst nach deinem Versuch. Verbessere eine ungenaue Stelle oder begründe, warum deine Antwort passt. Zeige der Lehrperson anschließend dein Datenbild und deine beiden Kartenfassungen. Sichere sie am vereinbarten Ort; Lernwerk-Antworten kannst du zusätzlich unter „Deine Arbeit“ sichern.",
+          "id": "sicherung",
+          "prompt": "Was habe ich begründet verbessert? Was kann ich an meinem Produkt selbst zeigen, was ist noch offen?",
+          "responseHint": "Ein bis zwei Sätze; keine persönliche Reflexion übertragen.",
+          "items": [
+            "Eigene Regelausführung mit Eingriff und Grenze.",
+            "Datenbild mit Technik, Auswahl und Interessen.",
+            "Digitale Werbekarte: eigene Bedienung, erklärte Wirkung, Prüfung und Revision."
+          ],
+          "paragraphs": [
+            "Die Lehrperson prüft eine konkrete Erklärung und lässt dich eine Formatänderung zeigen. Ein Häkchen allein bewertet keine Kompetenz. Papierarbeit oder fehlende Gerätehandlung bleibt als solche sichtbar."
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Eigene Produkte und freigegebenes Schulgerät oder Papier"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nächster kleiner Schritt",
+          "text": "Prüfe eine konkrete Stelle an deinem Produkt. Nutze bei Bedarf das passende Wissen.",
+          "knowledge": "auswahl",
+          "label": "Passendes Wissen"
+        }
+      ]
+    },
+    {
+      "id": "abruf",
+      "title": "Später noch einmal erklären",
+      "goal": "Du erinnerst dich nach Abstand an Auswahlwege und Datenentscheidungen.",
+      "task": "Bearbeite nur den von der Lehrperson aufgerufenen Teil, zuerst ohne Wissen und Lösung.",
+      "outcome": "Zwei zeitlich getrennte kurze Begründungen.",
+      "knowledge": [
+        "auswahl",
+        "selbstbestimmung"
+      ],
+      "criteria": [
+        "Ich rufe eine Erklärung aus dem Gedächtnis ab.",
+        "Nach dem Vergleich korrigiere ich gezielt."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "title": "Vor M06: Wer entscheidet über die Daten?",
+          "text": "Eine erfundene Schulgruppe will Treffpunkte organisieren. Uhrzeit und Ort reichen dafür. Zusätzlich verlangt jemand private Profilbilder aller Mitglieder. Begründe eine datensparsame Alternative und eine passende Rückfrage. Erkläre außerdem, warum die Uhrzeit einer Nachricht mit bekanntem Absender personenbezogene Metadaten sein kann.",
+          "id": "daten",
+          "when": "Sechs Minuten vor M06: vier Minuten selbst, zwei Minuten vergleichen und klären. Aus dem Jahresabrufkonto.",
+          "prompt": "Alternative, Rückfrage und Metadatenerklärung aus dem Gedächtnis.",
+          "solution": "Eine Textliste mit Termin und Ort erfüllt den genannten Zweck ohne private Profilbilder. Rückfrage etwa: „Wofür braucht ihr die Bilder, wer sieht sie?“ Die Sendezeit beschreibt einen Vorgang; verbunden mit einem zuordenbaren Absender hat sie Personenbezug. Bei Unsicherheit Daten und Metadaten noch einmal getrennt prüfen."
+        },
+        {
+          "type": "retrieval",
+          "title": "Vor M07: Warum diese Anzeige?",
+          "text": "Erfundener erwachsener Nutzer: zwei Zeichenbesuche und ein Lesebesuch; aktuelle Seite Lesen. Nenne K und V aus dem Gedächtnis. Ändere genau einen früheren Besuch so, dass V anders wählt. Erkläre außerdem eine Gestaltungsentscheidung, mit der ein Termin auf einer Werbekarte leichter gefunden werden kann.",
+          "id": "auswahl",
+          "when": "Sechs Minuten vor M07: vier Minuten selbst, zwei Minuten vergleichen und klären. Andere Abrufe der Jahresplanung bleiben separat.",
+          "prompt": "K, V, mein Eingriff und eine begründete Gestaltungsidee.",
+          "solution": "K: Buch wegen der aktuellen Seite. V: Stifte wegen 2:1 Zeichnen. Einen Zeichenbesuch durch Lesen ersetzen: V wählt jetzt Buch bei 1:2. Zum Termin können Größe, Abstand oder eine eigene Zeile helfen; die Entscheidung muss lesbar bleiben und begründet sein. Bei falscher Zählung Regel V an drei eigenen Zetteln erneut ausführen."
+        }
+      ],
+      "materialNeeds": [
+        "Eigene Produkte und freigegebenes Schulgerät oder Papier"
+      ],
+      "checkHelp": [
+        {
+          "title": "Nächster kleiner Schritt",
+          "text": "Prüfe eine konkrete Stelle an deinem Produkt. Nutze bei Bedarf das passende Wissen.",
+          "knowledge": "auswahl",
+          "label": "Passendes Wissen"
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "erkennen"
+    ],
+    "explanation": [
+      "daten",
+      "modell"
+    ],
+    "example": [
+      "wirkung",
+      "modell"
+    ],
+    "practice": [
+      "daten",
+      "modell"
+    ],
+    "application": [
+      "fluss",
+      "gestalten",
+      "entscheiden"
+    ],
+    "revision": [
+      "revision"
+    ],
+    "securing": [
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abruf"
+    ]
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereiten und anschließen",
+      "paragraphs": [
+        "Vor M03 acht Minuten M02-Abruf „Quellen“ durchführen; diese liegen außerhalb der 210 Kernminuten. Schulwerkzeug, Speicherort, Formfunktion und Wiederöffnen auf dem tatsächlichen Schulprofil prüfen; Werkzeugkarte ausfüllen. Die neutralen Fälle sind vollständig lokal vorhanden, externe Quellen dienen der Vertiefung. Keine privaten Feeds, Konten oder Trackingversuche verlangen.",
+        "Papier, drei Zettel pro Person und Platz für ein eigenes Datenbild bereitstellen. Ein Gerät pro Person ist günstig; bei geteilten Geräten muss jede Person selbst gestalten. Umfang auf wenige Zeilen und eine einfache Form begrenzen. Fehlt der digitale Weg, Plan und fachliche Arbeit fortsetzen, Softwarehandlung ausdrücklich offen führen und nachholen."
+      ]
+    },
+    {
+      "title": "210 Minuten führen",
+      "paragraphs": [
+        "Erkennen 15 + Wirkung 15 = Orientierung 30. Daten 20 + Modell 20 = angeleitete Übung 40. Datenfluss 25 + Gestaltung 25 = eigene Anwendung 50. Revision 30. Eigener Bezug 30: neutraler Fall 10, private Überlegung 15, private Sicherung 5. Transfer und Sicherung 30: eigener Versuch 15, Vergleich und Erklärung 5, Produkte zeigen/sichern 10. Summe 210; die 30 Minuten Eigenbezug sind bereits enthalten.",
+        "Ein möglicher Stundenrhythmus: 1 Erkennen/Wirkung/Daten 15/15/15; 2 Daten/Modell/Fluss 5/20/20; 3 Fluss/Gestaltung/Revision 5/25/15; 4 Revision/Eigenbezug 15/30; anschließend Transfer/Sicherung 30 Minuten. Der vorgeschaltete M02-Abruf benötigt zusätzlich acht Minuten aus dem Jahreskonto. Das ist eine zu erprobende Zeitannahme, keine gemessene Durchführung."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste Hilfe",
+      "paragraphs": [
+        "Werbung nur nach bunter Farbe erkannt? Label, Absender und Aufforderung konkret zeigen lassen; fehlendes Label ist kein Gegenbeweis. „Metadaten sind anonym“? Dieselbe K9-Sendezeit einmal mit und einmal ohne Zuordnung betrachten. „Cookie weiß alles“? Kennung im Browser und Liste beim Anbieter getrennt zeichnen lassen. Bei D/E denselben Wortlaut und unterschiedlichen Entstehungszusammenhang vergleichen lassen. Die Einordnung beruht auf den angegebenen Fallinformationen; unbekannte Absichten nicht erfinden.",
+        "Regel K und V verwechselt? Aktuelle Seite seitlich neben drei Besuchszettel legen und nur die jeweilige Regel lesen. Anzeige bleibt gleich? Zählung erklären lassen, keinen künstlichen Fehler verlangen. Datenbild ist nur eine Kette von Begriffen? Einen Pfeil als vollständigen Satz erklären lassen. Alle Akteure gelten als schlecht? Zweck, Nutzen und Konflikt am Fall getrennt fragen.",
+        "Gestaltungsurteil heißt nur „schön“? Stelle zeigen und beabsichtigte Handlung benennen lassen. Formathilfe: nur eine Auswahl und eine Größenänderung vormachen, dann führt das Kind selbst eine andere Änderung aus. Große Bedienhürden führen zu einer schmaleren Karte, nicht zum Verzicht auf die eigene Handlung. Vorlesen, kurze Sätze und mündliche Erklärung sind möglich; Inhalt und Entscheidung bleiben bei der lernenden Person."
+      ]
+    },
+    {
+      "title": "Nachweise, Rückmeldung und Grenzen",
+      "paragraphs": [
+        "Öffentlich prüfen: eigene Versuchsspur mit Eingriff; Datenbild mit beschrifteten Wegen, Technik, Auswahl und drei Interessen; digitale Werbekarte v1/v2 mit eigener Formulierung, eigener Form und erklärter Wirkung; Revision und Transferbegründung. An zwei Kriterien ansetzen, nicht jedes Textfeld benoten. Produkt zeigen lassen und eine gezielte Formatänderung beobachten. Geschlossene Lösungen sind Lernhilfen, keine abgesicherten Tests.",
+        "Abkürzung prüfen: Wenn das Datenbild der Lösung folgt, die Besuchsliste mündlich verändern lassen. Im Transfer zählen Modellvorhersage UND Grenze: Gemeinsamer Browser trennt die Personen nicht; unbekannte Regel erlaubt mehrere Erklärungen. Hilfenutzung unterscheiden von selbstständiger Erklärung. Häkchen und vorhandene Dateien sind keine automatische Kompetenzbewertung.",
+        "Die persönliche Reflexion P56-03 bleibt privat. Ein neutrales Urteil ist ein fachlicher Nachweis, kein Beweis des eigenen Bezugs. Keine private Notiz einsammeln; eine bloße Durchführungsmeldung belegt keine Qualität. Allgemeine Schritte stehen auch auf dem Papierblatt. Persönliche Anliegen außerhalb der Nachweisroutine vertraulich aufnehmen."
+      ]
+    },
+    {
+      "title": "Medienentscheidung und Quellenstatus",
+      "paragraphs": [
+        "Eigene statische Werbeansichten machen Einbettung und Gestaltung sichtbar. Ihre Sachinformationen stehen im Textzugang; keine echten Marken oder Screenshots übernommen. Die kleine offene Zählregel wird mit eigenen Zetteln oder Listen ausgeführt, weil gerade die Auswahlhandlung erklärt werden soll. Ein automatischer Knopf würde diese Arbeit nicht belegen.",
+        "Das eigene digitale Text-Bild-Produkt ist nötig für die Gestaltungs- und Bedienziele. Video und Ton sind hier nicht Gegenstand der Wirkungsanalyse und liefern keinen zusätzlichen benötigten Nachweis. Bei einer späteren Untersuchung von Schnitt oder Klang wäre diese Medienentscheidung neu zu treffen. Quellen sind im Materialregister verlinkt; eigene Fälle sind ausdrücklich erfunden.",
+        "Rechtliche Präzision: Art. 28 Abs. 2 DSA betrifft Profiling-Werbung unter Verwendung personenbezogener Daten auf Online-Plattformen bei hinreichender Gewissheit der Minderjährigkeit. Nicht zu einem Verbot sämtlicher Werbung oder einer Erlaubnis jeder Erwachsenenwerbung verallgemeinern. Das Modell ist keine juristische Fallprüfung."
+      ]
+    },
+    {
+      "title": "Anschluss und spätere Wiederaufnahme",
+      "paragraphs": [
+        "M03 vor M06 sechs Minuten zu Datenentscheidung und Metadaten, vor M07 sechs Minuten zu Auswahl und Gestaltung wieder aufgreifen. Zusammen zwölf aus M03s Anteil am 90-Minuten-Jahreskonto; M01- und M02-Abrufe vor M07 bleiben getrennt. 38 UE für Klasse 6 sind unbestätigt.",
+        "Nach Erprobung ohne Namen notieren: Zeitbedarf, häufigste Begriffsverwechslung, tatsächliche Softwarehandlung, Qualität eines veränderten Transferfalls und nötige nächste Unterstützung. Keine Unterrichtserprobung oder sichere Lernwirkung aus dieser Produktionsprüfung ableiten."
+      ]
+    }
+  ],
+  "briefing": [
+    "M drei fragt: Warum sehe ich diese Werbung und was soll sie bewirken? Acht Minuten Quellenabruf aus M zwei stehen vor den zweihundertzehn Kernminuten. Danach verbinden eigene Werbeansichten, ein selbst ausgeführtes Kartenmodell, ein Datenflussbild und eine kleine digitale Werbekarte Analyse mit Gestaltung. Ein unbezahlter Buchtipp und eine bezahlte Empfehlung ohne Label verhindern, dass bloße Etikettensuche als Werbeerkennung genügt.",
+    "Prüfen Sie vorher das erlaubte Schreibwerkzeug, eine einfache Formfunktion und das Wiederöffnen am Schulgerät. Tragen Sie die Wege in die Werkzeugkarte ein. Es werden keine privaten Konten, echten Feeds oder persönlichen Trackingversuche gebraucht. Papier ermöglicht Analyse und Planung; fehlende digitale Bedienhandlungen werden gesondert nachgeholt.",
+    "Der Verlauf umfasst dreißig Minuten Orientierung, vierzig Minuten Daten und Modell, fünfzig Minuten Datenbild und eigene Gestaltung, dreißig Minuten Revision, dreißig Minuten geschützten Eigenbezug und dreißig Minuten Transfer mit Sicherung. Halten Sie das Gestaltungsprodukt klein und beobachten Sie bei jeder Person eine echte Änderung.",
+    "Achten Sie auf drei Verwechslungen: Metadaten können personenbezogen sein. Die Kennung im Browser ist nicht die Besuchsliste beim Anbieter. Die sichtbare Anzeige beweist keine unbekannte Auswahlregel. Bei abgeschriebener Lösung verändern Sie eine Bedingung und lassen die Erklärung erneut geben. Rückmeldung nennt Stelle, Kriterium und nächste Handlung.",
+    "Öffentlich bleiben der neutrale Datenfall, die Produkte und ihre Überarbeitung. Die eigene schulische Datenentscheidung wird privat reflektiert, ohne Abgabe und ohne Kompetenzfreigabe durch Selbsthaken. Eine harmlose Entscheidung zum eigenen Lernprodukt ist ein möglicher eigener Bezug. Zwölf spätere Abrufminuten sind auf M sechs und M sieben verteilt; das Jahresbudget ist noch nicht bestätigt."
+  ]
+}

@@ -32,3 +32,43 @@ body.lw-mantel{
  .lw-mantel[data-lw-area="suche"][data-lw-print="solutions"] .lw-sheet .lw-answer-space{min-height:0;height:0;border:0;margin:0}
 }
 
+
+/* M03: vergleichbare Werbeansichten und vollständige Arbeitsabschnitte auf Papier. */
+@media print{
+ .lw-mantel[data-lw-area="werbung"] .lw-self-check>div>p{display:none}
+ .lw-mantel[data-lw-area="werbung"] .lw-self-check{margin:3mm 0;padding:2mm;break-inside:avoid}
+ .lw-mantel[data-lw-area="werbung"] .lw-sheet .lw-block-task{break-inside:avoid}
+ .lw-mantel[data-lw-area="werbung"] .lw-content-block>p:has(>b){break-inside:avoid;break-after:avoid}
+ .lw-mantel[data-lw-area="werbung"] .lw-sheet .lw-answer-space{min-height:35mm}
+ .lw-mantel[data-lw-area="werbung"] .lw-device-task{break-inside:avoid}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-modell.html"] .lw-sheet .lw-block-task{break-before:page}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-erkennen.html"] .lw-sheet .lw-block-task{break-before:page}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-erkennen.html"] .lw-sheet .lw-answer-space{min-height:70mm}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-entscheiden.html"] .lw-sheet .lw-block-explanation{break-before:page}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-erkennen.html"] .lw-block-example:has(figure),
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-wirkung.html"] .lw-block-example:has(figure){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3mm;break-inside:avoid}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-erkennen.html"] .lw-block-example:has(figure){grid-template-columns:repeat(3,minmax(0,1fr))}
+ .lw-mantel[data-lw-area="werbung"] .lw-block-example:has(figure)>h2,
+ .lw-mantel[data-lw-area="werbung"] .lw-block-example:has(figure)>p{grid-column:1/-1}
+ .lw-mantel[data-lw-area="werbung"] .lw-sheet .lw-content-figure{margin:2mm 0;max-width:100%}
+ .lw-mantel[data-lw-area="werbung"] .lw-sheet .lw-content-figure img{width:100%}
+ .lw-mantel[data-lw-area="werbung"] .lw-sheet .lw-content-figure figcaption{font-size:9pt;line-height:1.3}
+ .lw-mantel[data-lw-area="werbung"][data-lw-print="solutions"] .lw-sheet .lw-answer-space{min-height:0;height:0;margin:0;border:0}
+}
+
+@media print{
+ .lw-mantel[data-lw-area="werbung"] .lw-check-help{display:none}
+ .lw-mantel[data-lw-area="werbung"] .lw-block-external .lw-start-place+p{break-inside:avoid}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-modell.html"] .lw-block-task .lw-answer-space,
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-revision.html"] .lw-block-task .lw-answer-space{display:none}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-modell.html"] .lw-block-task td,
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-revision.html"] .lw-block-task td{height:28mm;vertical-align:top}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-revision.html"] .lw-block-task{break-before:page}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-abruf.html"] .lw-answer-space{min-height:24mm}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="baustein-wirkung.html"] .lw-sheet .lw-content-figure img{max-height:60mm;width:auto;max-width:100%}
+ .lw-mantel[data-lw-area="werbung"][data-lw-page="schritt-entscheiden.html"] .lw-block-explanation{break-before:page}
+ .lw-mantel[data-lw-area="werbung"][data-lw-print="solutions"] .lw-block-task td{height:auto}
+}
+@media print{
+ .lw-mantel[data-lw-area="werbung"][data-lw-page^="baustein-gestalten"] .lw-device-routes{break-before:page}
+}
