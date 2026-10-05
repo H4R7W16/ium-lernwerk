@@ -86,7 +86,7 @@
       {
         "title": "Gerät und Programme",
         "minutes": 45,
-        "action": "Hardware, Betriebssystem und Anwendungen unterscheiden; Eingabe, Verarbeitung und Ausgabe am Schulgerät erklären. Zugang nach schulischer Regel vorbereiten.",
+        "action": "Am Bildvergleich zuerst Anzeige und körperliche Geräteteile unterscheiden; daraus Hardware, Betriebssystem und Programme erklären. Eingabe, Verarbeitung und Ausgabe danach am Schulgerät untersuchen.",
         "status": "Lernbogen vorhanden · zur Erprobung",
         "href": "geraete/lehrkraft.html",
         "label": "Durchführung und Material"
@@ -115,6 +115,7 @@
     },
     "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen. Ein freigegebenes Rechenprogramm und seinen Namen für den ersten Bogen bereitstellen. Für den Abschluss zwei erlaubte Speicherwege, deren Berechtigungen und einen sicheren Sperr-/Abmeldeweg samt Rückkehr klären.",
     "decisions": [
+      "Einstieg unklar? Die zwei Zustände desselben Notebooks vergleichen lassen. Für die erste Antwort keine Betriebssystemkenntnis erwarten; Browsername und Adresszeile bei Bedarf zeigen.",
       "Begriffe verwechselt? Datei und Ordner am Modell unterscheiden lassen, anschließend erneut selbst zuordnen.",
       "Ordnung erklärt, Datei aber nicht gefunden? Beim Startort ansetzen und den Weg am Gerät wiederholen.",
       "Weg sicher? Alternative Ordnung begründen lassen; unnötige Wiederholung auslassen.",

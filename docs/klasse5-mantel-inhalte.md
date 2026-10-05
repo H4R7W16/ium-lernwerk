@@ -72,3 +72,7 @@ Produktionsfolge, Versionsbindung und kopierbarer Folgeauftrag: [Klasse 5](produ
 - experiencedEntry (title/text/step/label) empfiehlt einen geprüften Einstieg, ohne andere Schritte zu sperren.
 - materialNeeds ersetzt auf dem Einzelblatt die pauschalen Paketvoraussetzungen. deviceNeeds kann abweichenden Bedarf für ipad/windows enthalten.
 - routes.device ordnet einen vollständigen Geräteweg zu. Für vorhandene Geräte erzeugt der Renderer baustein-SCHRITT-ipad.html bzw. -windows.html zusätzlich zum kombinierten Blatt. Medien, Aufgaben und Kriterien bleiben vollständig enthalten; die Auswahl benötigt kein JavaScript.
+
+
+## Beschrifteter Bildvergleich
+Ein Block oder Wissensartikel kann mediaLayout:"comparison" mit genau zwei verschiedenen Bildreferenzen verwenden. Beide Bilder erscheinen mit ihrem Medientitel als zusammengehöriger Vergleich: nebeneinander bei ausreichender Breite, untereinander auf schmalen Geräten und gemeinsam im Einzelmaterial. Ein einzelnes Bild, doppelte Referenzen, Downloads oder unbekannte Layoutwerte werden vor dem Build abgewiesen. Normale Medienlisten bleiben unverändert. Alternativtexte und Beschriftungen müssen den Vergleich auch sprachlich erschließen.

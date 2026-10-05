@@ -9,6 +9,7 @@ function records(values,name){if(!Array.isArray(values))throw new Error('Liste f
 function refs(values,ids,name){if(values===undefined)return;if(!Array.isArray(values)||values.some(v=>!ids.has(v)))throw new Error('Ungültiger Verweis: '+name);}
 function validateEditorial(pack,steps){
  const sources=records(pack.sources,'Quellen'),media=records(pack.media,'Medien'),knowledge=records(pack.knowledge,'Wissen');
+ const layout=m=>{if(m.mediaLayout===undefined)return;if(m.mediaLayout!=='comparison')throw new Error('Unbekannte Mediendarstellung');if(m.media?.length!==2||new Set(m.media).size!==2||m.media.some(id=>pack.media.find(x=>x.id===id)?.kind!=='image'))throw new Error('Bildvergleich braucht zwei verschiedene Bilder');};
  const aid=a=>{text(a.title,'Hilfetitel');text(a.text,'Hilfe');if(a.step)refs([a.step],steps,'Hilfeschritt');if(a.knowledge)refs([a.knowledge],knowledge,'Hilfewissen');if(a.step||a.knowledge)text(a.label,'Hilfelink');};
  if(pack.experiencedEntry){aid(pack.experiencedEntry);if(!pack.experiencedEntry.step)throw new Error('Einstiegsschritt fehlt');}
  if(!sources.size||!knowledge.size)throw new Error('Quellen/Wissen fehlen');
@@ -22,7 +23,7 @@ function validateEditorial(pack,steps){
   if(m.downloadable!==undefined&&(m.kind!=='image'||typeof m.downloadable!=='boolean'))throw new Error('Bilddownload ungültig');
   refs([m.sourceId],sources,'Medienquelle');
  }
- for(const k of pack.knowledge){text(k.title,'Wissensfrage');texts(k.paragraphs,'Wissen');text(k.example,'Beispiel');text(k.boundary,'Aussagegrenze');if(!k.steps?.length)throw new Error('Wissensbezug fehlt');refs(k.steps,steps,'Wissensschritt');refs(k.media,media,'Wissensmedium');refs(k.sources,sources,'Wissensquelle');}
+ for(const k of pack.knowledge){layout(k);text(k.title,'Wissensfrage');texts(k.paragraphs,'Wissen');text(k.example,'Beispiel');text(k.boundary,'Aussagegrenze');if(!k.steps?.length)throw new Error('Wissensbezug fehlt');refs(k.steps,steps,'Wissensschritt');refs(k.media,media,'Wissensmedium');refs(k.sources,sources,'Wissensquelle');}
  for(const s of pack.steps){
   if(s.layout!==undefined&&(s.layout!=='model-task'||s.blocks.length!==2||s.blocks[0].type!=='example'||s.blocks[1].type!=='task'))throw new Error('Modell-Aufgaben-Paar ungültig');
   if(s.materialNeeds)texts(s.materialNeeds,'Materialbedarf');
@@ -31,7 +32,7 @@ function validateEditorial(pack,steps){
   if(s.prerequisites)texts(s.prerequisites,'Schrittvoraussetzungen');if(s.timing!==undefined&&!['now','later'].includes(s.timing))throw new Error('Ungültiger Zeitpunkt');if(s.completion){text(s.completion.title,'Abschlusstitel');text(s.completion.text,'Abschluss');}text(s.task,'Auftrag');text(s.outcome,'Ergebnis');if(!s.knowledge?.length)throw new Error('Wissensbezug fehlt');refs(s.knowledge,knowledge,'Schrittwissen');texts(s.criteria,'Kriterien');
   for(const b of s.blocks){
    if(b.network!==undefined&&(b.network!==true||pack.toolKind!=='network'||pack.grade!==6))throw new Error('Netzmodell ungültig');
-   refs(b.media,media,'Material');refs(b.sources,sources,'Blockquelle');
+   layout(b);refs(b.media,media,'Material');refs(b.sources,sources,'Blockquelle');
    if(b.links){if(!Array.isArray(b.links)||!b.links.length)throw new Error('Verweise fehlen');for(const l of b.links){text(l.label,'Verweistext');if(typeof l.href!=='string'||! /^(?:\.\.\/[a-z0-9-]+\/|\.\.\/)?[a-z0-9-]+\.html(?:#[a-z0-9-]+)?$/.test(l.href))throw new Error('Verweis ungültig');}}
    if(b.deviceFollowup){if(b.type!=='external'||b.context!=='device')throw new Error('Geräteprobe nur am Geräteauftrag');text(b.deviceFollowup.title,'Prüfanleitung');text(b.deviceFollowup.text,'Prüfanleitung');texts(b.deviceFollowup.items,'Prüfschritte');texts(b.deviceFollowup.paragraphs,'Prüfgrenze');}
    if(b.responseTable){texts(b.responseTable.headers,'Antworttabelle');if(!Array.isArray(b.responseTable.rows)||!b.responseTable.rows.length)throw new Error('Antworttabelle fehlt');for(const row of b.responseTable.rows){texts(row,'Antwortzeile');if(row.length!==b.responseTable.headers.length)throw new Error('Antwortspalten passen nicht');}}
@@ -69,11 +70,13 @@ function validate(pack){
 }
 const paragraphs=values=>(values||[]).map(v=>'<p>'+esc(v)+'</p>').join('');
 function citations(ids,pack){return (ids||[]).length?'<p class="lw-citation">Grundlage: '+ids.map(id=>{const s=pack.sources.find(s=>s.id===id);return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+'</a><span class="lw-print-url">'+esc(s.url)+'</span>';}).join(' · ')+'</p>':'';}
-function mediaHTML(ids,pack){
- return (ids||[]).map(id=>{const m=pack.media.find(m=>m.id===id);
+function mediaHTML(ids,pack,layout){
+ const comparison=layout==='comparison';
+ const html= (ids||[]).map(id=>{const m=pack.media.find(m=>m.id===id);
   const credit='<small>'+esc(m.creator)+' · '+esc(m.license)+'</small>';
-  return m.kind==='image'?'<figure class="lw-content-figure"><img src="'+esc(m.file)+'" alt="'+esc(m.alt)+'"><figcaption>'+esc(m.caption)+' '+credit+'</figcaption>'+(m.downloadable?'<p class="no-print"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a></p>':'')+'</figure>':'<div class="lw-download"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a><p class="lw-small">Textdatei · '+credit+'</p><div class="lw-print-file"><h3>'+esc(m.title)+' · Dateiinhalt</h3><pre>'+esc(m.printText)+'</pre></div></div>';
+  return m.kind==='image'?'<figure class="lw-content-figure">'+(comparison?'<h3 class="lw-media-title">'+esc(m.title)+'</h3>':'')+'<img src="'+esc(m.file)+'" alt="'+esc(m.alt)+'"><figcaption>'+esc(m.caption)+' '+credit+'</figcaption>'+(m.downloadable?'<p class="no-print"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a></p>':'')+'</figure>':'<div class="lw-download"><a class="lw-button secondary" href="'+esc(m.file)+'" download>'+esc(m.title)+' herunterladen</a><p class="lw-small">Textdatei · '+credit+'</p><div class="lw-print-file"><h3>'+esc(m.title)+' · Dateiinhalt</h3><pre>'+esc(m.printText)+'</pre></div></div>';
  }).join('');
+ return comparison?'<div class="lw-media-comparison" role="group" aria-label="Bildvergleich">'+html+'</div>':html;
 }
 function actionLink(h){return h.step?'<a href="schritt-'+esc(h.step)+'.html">'+esc(h.label)+' →</a>':h.knowledge?'<a href="wissen.html#'+esc(h.knowledge)+'">'+esc(h.label)+' →</a>':'';}
 function renderBlocks(step,pack={},options={}){
@@ -100,7 +103,7 @@ function renderBlocks(step,pack={},options={}){
   const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p>'+actionLink(h)+'</details>').join('');
   const links=b.links?'<nav class="lw-reading-links" aria-label="Material und Arbeitsweg">'+b.links.map(l=>'<a href="'+esc(l.href)+'">'+esc(l.label)+' →</a>').join('')+'</nav>':'';
   const table=b.table?'<div class="lw-table-wrap"><table><thead><tr>'+b.table.headers.map(v=>'<th scope="col">'+esc(v)+'</th>').join('')+'</tr></thead><tbody>'+b.table.rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'';
-  return '<section class="lw-content-block lw-block-'+b.type+'"'+(b.type==='private'?' data-private':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+paragraphs(b.paragraphs)+(b.items?'<ol>'+b.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>':'')+table+links+mediaHTML(b.media,pack)+extra+(b.context==='device'?'':routes)+(b.storageNotice?'<aside class="lw-work-notice"><b>Antworten und Dateien</b><p>'+esc(b.storageNotice)+'</p></aside>':'')+(b.network?require('../m01-netze/render.cjs').render(!!options.paper):'')+answer+help+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="'+fieldId+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details class="lw-solution"><summary>'+(b.type==='retrieval'?'Nach deinem Versuch vergleichen':'Mögliche Lösung vergleichen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+citations(b.sources,pack)+'</section>';
+  return '<section class="lw-content-block lw-block-'+b.type+'"'+(b.type==='private'?' data-private':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+paragraphs(b.paragraphs)+(b.items?'<ol>'+b.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>':'')+table+links+mediaHTML(b.media,pack,b.mediaLayout)+extra+(b.context==='device'?'':routes)+(b.storageNotice?'<aside class="lw-work-notice"><b>Antworten und Dateien</b><p>'+esc(b.storageNotice)+'</p></aside>':'')+(b.network?require('../m01-netze/render.cjs').render(!!options.paper):'')+answer+help+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="'+fieldId+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details class="lw-solution"><summary>'+(b.type==='retrieval'?'Nach deinem Versuch vergleichen':'Mögliche Lösung vergleichen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+citations(b.sources,pack)+'</section>';
  }).join('');
  return html+(privateUsed?'<dialog id="lw-private-dialog" aria-labelledby="lw-private-title"><h2 id="lw-private-title">Nur deine private Notiz</h2><p>Diese Datei enthält die folgende persönliche Notiz. Andere Personen mit Zugriff auf die Datei können sie lesen.</p><pre id="lw-private-preview" class="lw-product"></pre><button id="lw-private-confirm" class="lw-button">Diese Notiz als eigene Textdatei anbieten</button><button id="lw-private-cancel" class="lw-button secondary">Abbrechen</button></dialog>':'');
 }

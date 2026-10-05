@@ -2,19 +2,20 @@
   "authorVersion": 2,
   "area": "geraete",
   "id": "IUM-5-M01-GERAETE",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "family": "content",
   "title": "Ein Gerät. Viele Möglichkeiten.",
   "topic": "Gerät und Programme",
-  "description": "Auf demselben Gerät kannst du rechnen, schreiben und Bilder ansehen. Finde heraus, was dabei zusammenarbeitet.",
+  "description": "Vergleiche zwei Bilder desselben Geräts. Finde heraus, wie Gerät und Programme zusammenarbeiten.",
   "product": "Du erklärst an deinem Schulgerät, was Hardware, Betriebssystem und Programme beitragen – und zeigst Eingabe und Ausgabe.",
   "prerequisites": [
     "ein Schul-iPad oder ein Windows-Schulgerät",
     "ein von deiner Lehrperson geöffnetes oder benanntes Rechenprogramm; keine Installation nötig"
   ],
   "teacher": [
-    "Schwerpunkt: drei Schichten am realen Schulgerät unterscheiden und ihr Zusammenwirken erklären. Eine richtige Rechnung allein zeigt dieses Verständnis noch nicht."
+    "Schwerpunkt: drei Schichten am realen Schulgerät unterscheiden und ihr Zusammenwirken erklären. Eine richtige Rechnung allein zeigt dieses Verständnis noch nicht.",
+    "Im Einstieg nur sichtbare Veränderungen erwarten, noch keine Erklärung des Betriebssystems. Die Begriffe anschließend am Bildvergleich und am Schulgerät aufbauen."
   ],
   "duration": "45 Minuten als Planungsannahme: 5 Einstieg, 10 Modell und Zuordnung, 15 Gerätehandlung, 10 Übertragung/Sicherung, 5 Reserve. Später 3 Minuten Abruf im bereits geplanten Einstieg des Dateien-Bogens.",
   "learnerDuration": "Eine Unterrichtsstunde. Beim nächsten Einstieg greifst du deine Erklärung kurz wieder auf.",
@@ -69,7 +70,7 @@
       "url": "https://github.com/H4R7W16/ium-lernwerk",
       "license": "Eigene Texte und Grafik: CC BY-SA 4.0",
       "checked": "2026-10-04",
-      "note": "Eigene vereinfachte Erklärmodelle und erfundene Fälle; diese Fassung zunächst lokal."
+      "note": "Eigene Texte, erfundene Fälle und vereinfachte Notebook-/Programmzeichnungen. Keine Hersteller-Screenshots; schule.example ist eine erfundene Beispieladresse."
     }
   ],
   "media": [
@@ -78,24 +79,69 @@
       "kind": "image",
       "file": "assets/geraete/schichten.svg",
       "title": "Drei Schichten arbeiten zusammen",
-      "alt": "Oben: Anwendungsprogramme für bestimmte Aufgaben. Darunter: Betriebssystem, das die Nutzung des Geräts organisiert. Darunter: Hardware, die körperlichen Teile. Verbindungen zeigen Zusammenarbeit, keine räumliche Lage im Gerät.",
-      "caption": "Ein Erklärmodell: Die Kästen zeigen Aufgabenbereiche, keine Stockwerke im Gerät. Betriebssystem und Anwendungsprogramme sind Software.",
+      "alt": "Taschenrechner und Browser erfüllen unterschiedliche Aufgaben. Das Betriebssystem organisiert den Start von Programmen und ihre Nutzung der Hardware. Hardware umfasst Bildschirm, Tastatur, Prozessor und Speicherbausteine. Die Kästen zeigen Aufgabenbereiche, keine räumliche Lage im Gerät.",
+      "caption": "Das Modell zeigt Aufgabenbereiche, keine Stockwerke. Betriebssystem und Apps sind Software: gespeicherte Programme, die von Hardware ausgeführt werden.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "rechnen",
+      "kind": "image",
+      "file": "assets/geraete/rechnen.svg",
+      "title": "A · Mia rechnet",
+      "alt": "Ein Notebook mit Bildschirmrahmen, Tastatur und Touchpad. Das geöffnete Programm heißt Taschenrechner. Es zeigt 6 + 4 = 10 und Rechentasten.",
+      "caption": "Taschenrechner: ein Programm zum Rechnen. Eigene vereinfachte Darstellung.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "browser",
+      "kind": "image",
+      "file": "assets/geraete/browser.svg",
+      "title": "B · Mia liest",
+      "alt": "Dasselbe Notebook mit derselben Tastatur und demselben Bildschirmrahmen. Das geöffnete Programm heißt Browser. Es zeigt die Adresse schule.example/tiere und eine erfundene Webseite über Igel.",
+      "caption": "Browser: ein Programm, mit dem du Webseiten ansehen kannst. Eigene vereinfachte Darstellung.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "browser-adresse",
+      "kind": "image",
+      "file": "assets/geraete/browser-adresse.svg",
+      "title": "Woran erkenne ich einen Browser?",
+      "alt": "Das Notebook zeigt das Programm Browser mit einer Webseite über Igel. Eine Markierung zeigt auf die Adresszeile oben im Browser: schule.example/tiere.",
+      "caption": "Die Adresse steht oben im Browser. Der Text über den Igel gehört zur angezeigten Webseite. schule.example ist eine erfundene Adresse.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "schreiben",
+      "kind": "image",
+      "file": "assets/geraete/schreiben.svg",
+      "title": "C · Mia schreibt",
+      "alt": "Dasselbe Notebook zeigt nun ein Schreibprogramm. Auf einem weißen Blatt steht Meine Tiernotiz: Der Igel hat Stacheln. Bildschirmrahmen, Tastatur und Touchpad sind dieselben.",
+      "caption": "Mia öffnet auf demselben Gerät ein Schreibprogramm. Es verwendet weiterhin dasselbe Betriebssystem.",
       "creator": "IuM-Lernwerk",
       "license": "CC BY-SA 4.0",
       "sourceId": "eigen"
     }
   ],
-  "preview": "schichten",
+  "preview": "rechnen",
   "knowledge": [
     {
       "id": "schichten",
-      "title": "Wie arbeiten die drei Schichten zusammen?",
+      "title": "Wie können Programme dasselbe Gerät benutzen?",
       "paragraphs": [
-        "Hardware sind die körperlichen Teile: zum Beispiel Bildschirm, Tastatur, Touchsensor, Prozessor und Speicherbausteine. Auch Teile im Inneren gehören dazu.",
-        "Software sind Programme. Das Betriebssystem ist eine besondere Art von Software: Es organisiert zum Beispiel das Starten von Anwendungen und deren Nutzung von Bildschirm, Eingabegeräten und Speicher. Windows und iPadOS sind Betriebssysteme.",
-        "Anwendungsprogramme, kurz Anwendungen oder Apps, erfüllen bestimmte Aufgaben: etwa rechnen, Texte bearbeiten oder Webseiten anzeigen. Safari und Edge sind Browserprogramme. Sie sind weder das ganze Gerät noch das Betriebssystem."
+        "Mit einem Taschenrechner bearbeitest du Rechnungen. Mit einem Browser kannst du Webseiten ansehen. Beide sind Programme, auch Apps genannt. Sie erfüllen unterschiedliche Aufgaben.",
+        "Bildschirm und Tastatur sind körperliche Teile des Geräts. Solche Teile heißen Hardware. Auch Bauteile im Inneren gehören dazu, zum Beispiel der Prozessor, der Programmanweisungen ausführt.",
+        "Das Betriebssystem ist ebenfalls ein Programm. Es organisiert unter anderem, dass Apps starten und Bildschirm, Eingabegeräte und Speicher nutzen können. Windows und iPadOS sind Beispiele für Betriebssysteme.",
+        "Programme und Betriebssystem gehören zur Software. Software ist gespeichert und wird von der Hardware ausgeführt."
       ],
-      "example": "Du öffnest ein Rechenprogramm. Das Betriebssystem ermöglicht seinen Start und die Nutzung der Hardware. Der Prozessor führt Programmanweisungen aus; der Bildschirm zeigt das Ergebnis. Hardware allein erklärt nicht, welche Aufgabe gerade bearbeitet wird.",
+      "example": "Mia öffnet auf demselben Notebook zuerst den Taschenrechner und dann den Browser. Die Programme haben verschiedene Aufgaben. Sie nutzen dieselbe Hardware und dasselbe Betriebssystem.",
       "boundary": "Die drei Schichten sind ein vereinfachtes Modell der Zusammenarbeit. Software ist kein zusätzliches körperliches Bauteil; sie ist gespeichert und wird von Hardware ausgeführt.",
       "steps": [
         "auftakt",
@@ -109,6 +155,29 @@
       ],
       "media": [
         "schichten"
+      ]
+    },
+    {
+      "id": "browser",
+      "title": "Was ist ein Browser?",
+      "paragraphs": [
+        "Ein Browser ist ein Programm, mit dem du Webseiten ansehen kannst. Safari und Edge sind Beispiele für Browser. Auf Schulgeräten können auch andere Browser verwendet werden.",
+        "In unserem Bild steht oben die Adresse schule.example/tiere. Darunter zeigt der Browser eine Webseite über Igel. Die Webseite ist der Inhalt, den das Programm anzeigt.",
+        "Du musst den Browser nicht an seinem Symbol erraten. Seine Bezeichnung und die Adresszeile helfen dir beim Erkennen. Deine Lehrperson zeigt dir den Browser, den ihr an der Schule benutzt."
+      ],
+      "example": "Du öffnest das Lernwerk im Browser. Danach kannst du in demselben Browser eine andere Webseite ansehen. Dabei bleibt das Browserprogramm dasselbe.",
+      "boundary": "Ein Browser ist weder das ganze Gerät noch das Internet. Nicht jedes bunte Symbol steht für einen Browser. Das Bild ist eine vereinfachte Darstellung; dein Schulbrowser kann anders aussehen.",
+      "steps": [
+        "auftakt",
+        "modell",
+        "geraet",
+        "neuer-fall"
+      ],
+      "sources": [
+        "eigen"
+      ],
+      "media": [
+        "browser-adresse"
       ]
     },
     {
@@ -132,14 +201,14 @@
     },
     {
       "id": "wechsel",
-      "title": "Was ändert sich beim Wechsel zu einer anderen App?",
+      "title": "Was bleibt beim Programmwechsel gleich?",
       "paragraphs": [
-        "Wenn du von einem Rechenprogramm zum Browser wechselst, ändert sich die Anwendung im Vordergrund. Hardware und Betriebssystem bleiben dieselben.",
-        "Das Bild auf dem Bildschirm ist die sichtbare Oberfläche. Es kann sich ändern, obwohl der körperliche Bildschirm derselbe bleibt.",
-        "Benutze nur die von deiner Lehrperson freigegebenen Anwendungen. Fehlt eine App oder ein Zugang, hole Hilfe. Du musst für diese Aufgabe nichts installieren oder ein privates Konto anlegen."
+        "Beim Taschenrechner siehst du Zahlen und Rechentasten. Im Browser siehst du eine Webseite. Auf dem Bildschirm erscheint etwas anderes, weil ein anderes Programm geöffnet ist.",
+        "Der Bildschirm als Bauteil bleibt derselbe. Auch die Tastatur und die anderen körperlichen Teile des Geräts bleiben erhalten.",
+        "Bei diesem Programmwechsel bleibt auch das Betriebssystem dasselbe. Es organisiert weiterhin die Nutzung des Geräts. Wie das funktioniert, erklärt das Modell der Zusammenarbeit."
       ],
-      "example": "Auf einem Windows-Gerät rechnest du zuerst im Rechner und wechselst dann zu Edge. Rechner und Edge sind Anwendungen; Windows ist weiterhin das Betriebssystem.",
-      "boundary": "Eine andere sichtbare Oberfläche bedeutet keinen Austausch der Hardware. Aus einem Bildschirmbild allein lässt sich das Betriebssystem nicht immer sicher erkennen; frage im Zweifel nach.",
+      "example": "Mia wechselt vom Taschenrechner zu einem Schreibprogramm. Die Aufgabe und der angezeigte Inhalt verändern sich. Hardware und Betriebssystem bleiben gleich.",
+      "boundary": "Du kannst am Bild erkennen, dass sich die Anzeige verändert. Welches Betriebssystem ein Gerät verwendet, lässt sich aus einem Bildschirmbild allein nicht immer sicher erkennen. Frage deine Lehrperson nach dem Namen.",
       "steps": [
         "auftakt",
         "geraet",
@@ -149,7 +218,12 @@
       "sources": [
         "apple-wechsel",
         "windows"
-      ]
+      ],
+      "media": [
+        "rechnen",
+        "browser"
+      ],
+      "mediaLayout": "comparison"
     }
   ],
   "coverage": {
@@ -186,53 +260,62 @@
   "steps": [
     {
       "id": "auftakt",
-      "title": "Was bleibt gleich?",
-      "goal": "Eine eigene Vermutung zum Wechsel von Aufgaben formulieren.",
-      "task": "Dasselbe Gerät zeigt erst ein Rechenprogramm und dann einen Browser. Vermute: Was verändert sich – und was bleibt?",
-      "outcome": "Eine Vermutung, die du später überprüfen kannst.",
+      "title": "Ein Gerät – zwei Aufgaben",
+      "goal": "Sichtbare Veränderungen von gleichbleibenden Geräteteilen unterscheiden.",
+      "task": "Schau dir die beiden Bilder an. Vergleiche, was auf dem Bildschirm anders aussieht und welche Teile des Geräts gleich bleiben.",
+      "outcome": "Eine Beobachtung zur Anzeige und ein Beispiel für ein gleichbleibendes Geräteteil.",
       "knowledge": [
-        "wechsel",
-        "schichten"
+        "browser",
+        "wechsel"
       ],
       "materialNeeds": [
-        "die beschriebene Situation; noch kein geöffnetes Rechenprogramm nötig"
+        "die beiden Bilder auf dieser Seite; du musst noch kein Programm öffnen"
       ],
       "criteria": [
-        "Ich unterscheide das körperliche Gerät von dem, was auf dem Bildschirm zu sehen ist.",
-        "Ich habe eine eigene Vermutung genannt; noch müssen nicht alle Fachwörter stimmen."
+        "Ich beschreibe ein Beispiel dafür, was auf dem Bildschirm anders aussieht.",
+        "Ich nenne ein Geräteteil, das in beiden Bildern gleich ist. Fachwörter brauche ich dafür noch nicht."
       ],
       "checkHelp": [
         {
           "title": "Ich weiß nicht, wo ich anfangen soll.",
-          "text": "Stelle dir vor, du wechselst auf demselben Bildschirm zwischen Rechnen und Lesen. Ist dafür ein anderer Bildschirm nötig?",
-          "knowledge": "wechsel",
-          "label": "Passendes Wissen öffnen"
+          "text": "Vergleiche zuerst das Bild innerhalb des Bildschirmrahmens. Schau danach auf den Rahmen und auf die Tastatur."
         }
       ],
       "blocks": [
         {
           "type": "task",
           "id": "vermutung",
-          "title": "Ein Wechsel, kein anderes Gerät",
-          "text": "Mia rechnet am Schulgerät. Danach öffnet sie eine Lernseite im Browser, einem Programm für Webseiten. Der Bildschirm sieht anders aus.",
-          "prompt": "Was hat sich verändert? Was ist gleich geblieben?",
+          "title": "Mias Schulgerät",
+          "text": "Mia benutzt dasselbe Schulgerät. Zuerst rechnet sie damit. Danach liest sie eine Webseite. Die Bilder zeigen ihr Gerät vor und nach dem Wechsel.",
+          "prompt": "Was sieht auf dem Bildschirm anders aus? Welches Teil des Geräts ist gleich geblieben? Beschreibe jeweils ein Beispiel.",
           "responseMode": "oral",
-          "responseHint": "Erkläre kurz mündlich. Wenn du möchtest, notiere Stichwörter.",
-          "solution": "Verändert hat sich das sichtbare Programm beziehungsweise seine Oberfläche. Gerät und Betriebssystem sind beim Wechsel gleich geblieben. Am Ende kannst du diese Vermutung genauer erklären.",
-          "help": []
+          "responseHint": "Erkläre kurz mündlich. Du brauchst noch keine Fachwörter. Wenn du möchtest, notiere zwei Stichwörter.",
+          "solution": "Im ersten Bild sehe ich eine Rechnung und Rechentasten. Im zweiten sehe ich eine Webseite über Igel. Der Bildschirmrahmen und die Tastatur sind gleich. Das Bild auf dem Bildschirm hat sich verändert; der Bildschirm als Bauteil bleibt derselbe.",
+          "help": [
+            {
+              "title": "Ein Hinweis",
+              "text": "Beginne mit: „Auf dem Bildschirm sehe ich zuerst … Danach … Gleich geblieben ist …“"
+            }
+          ],
+          "media": [
+            "rechnen",
+            "browser"
+          ],
+          "mediaLayout": "comparison"
         }
       ]
     },
     {
       "id": "modell",
-      "title": "Drei Schichten, ein Team",
-      "goal": "Hardware, Betriebssystem und Anwendungsprogramm mit ihrer Aufgabe unterscheiden.",
-      "task": "Lies das Beispiel. Ordne anschließend sechs Begriffe zu und erkläre eine deiner Zuordnungen.",
-      "outcome": "Drei Gruppen mit einer fachlichen Begründung.",
+      "title": "Das Gerät bleibt. Das Programm wechselt.",
+      "goal": "Hardware, Programme und Betriebssystem an ihren Aufgaben unterscheiden.",
+      "task": "Erfahre, wie die Beobachtungen aus dem Bildvergleich heißen. Erkläre dann einen neuen Programmwechsel und ordne die Beispiele zu.",
+      "outcome": "Eine Erklärung zu Mias neuem Programm und drei begründete Gruppen.",
       "knowledge": [
+        "browser",
+        "wechsel",
         "schichten"
       ],
-      "layout": "model-task",
       "materialNeeds": [
         "dieses Schichtenmodell und die sechs Begriffe"
       ],
@@ -251,27 +334,50 @@
       ],
       "blocks": [
         {
+          "type": "explanation",
+          "title": "Deine Beobachtung bekommt Namen",
+          "text": "Der Bildschirmrahmen und die Tastatur sind Teile, die du anfassen kannst. Solche körperlichen Teile heißen Hardware. Auch Bauteile im Inneren gehören dazu.",
+          "paragraphs": [
+            "Mia benutzt zuerst das Programm Taschenrechner, danach das Programm Browser. Programme werden auch Apps genannt.",
+            "Der Taschenrechner bearbeitet Rechnungen. Der Browser zeigt Webseiten an. Das Bild auf dem Bildschirm gehört zur Anzeige des geöffneten Programms."
+          ]
+        },
+        {
           "type": "example",
-          "title": "So kannst du unterscheiden",
-          "text": "Noah öffnet auf einem Windows-Gerät ein Rechenprogramm. Drei Aufgabenbereiche arbeiten zusammen.",
+          "title": "Wie können Programme dasselbe Gerät nutzen?",
+          "text": "Der Taschenrechner und der Browser nutzen denselben Bildschirm. Das Betriebssystem organisiert unter anderem, dass die Programme starten und die Hardware nutzen können.",
           "media": [
             "schichten"
-          ],
-          "paragraphs": [
-            "1. Hardware: Noah bedient die Tastatur; der Prozessor führt die Anweisungen aus; der Bildschirm zeigt das Ergebnis. Das sind körperliche Teile.",
-            "2. Betriebssystem: Windows ermöglicht unter anderem den Start des Rechenprogramms und organisiert dessen Nutzung der Hardware. Es ist selbst Software.",
-            "3. Anwendungsprogramm: Das Rechenprogramm legt fest, wie die Rechnung bearbeitet wird. Noah kann später einen Browser benutzen, während Gerät und Betriebssystem dieselben bleiben."
           ]
+        },
+        {
+          "type": "task",
+          "id": "programmwechsel",
+          "title": "Mia schreibt jetzt",
+          "text": "Mia öffnet auf demselben Notebook ein Schreibprogramm. Es verwendet weiterhin dasselbe Betriebssystem. Nun schreibt sie eine Notiz über den Igel.",
+          "media": [
+            "schreiben"
+          ],
+          "prompt": "Was hat sich gegenüber dem Taschenrechner verändert? Was ist gleich geblieben? Erkläre mit den Wörtern Programm und Hardware. Was gilt für das Betriebssystem?",
+          "responseMode": "oral",
+          "responseHint": "Zwei bis drei Sätze genügen. Schau bei Bedarf noch einmal auf die beiden Anfangsbilder.",
+          "help": [
+            {
+              "title": "Ich verwechsle Bildschirm und Bild.",
+              "text": "Der Bildschirm ist ein körperliches Teil. Beschreibe anschließend, welcher Inhalt auf diesem Bildschirm erscheint."
+            }
+          ],
+          "solution": "Mia benutzt jetzt ein Schreibprogramm statt des Taschenrechners. Auf dem Bildschirm steht ihre Notiz statt einer Rechnung. Die Hardware bleibt gleich, zum Beispiel Bildschirm und Tastatur. Auch das Betriebssystem bleibt bei diesem Programmwechsel dasselbe."
         },
         {
           "type": "task",
           "id": "zuordnung",
           "title": "Jetzt ordnest du zu",
-          "text": "Begriffe: Bildschirm · iPadOS · Browser · Prozessor · Windows · Rechenprogramm. Nutze die Gruppen Hardware, Betriebssystem und Anwendungsprogramm.",
-          "prompt": "Ordne die sechs Begriffe zu. Warum gehören Windows und ein Browser nicht in dieselbe Gruppe?",
+          "text": "Ordne die Beispiele in drei Gruppen: körperliche Teile (Hardware), Betriebssysteme und Programme für eine bestimmte Aufgabe.",
+          "prompt": "Welche Beispiele gehören zusammen? Erkläre außerdem: Warum sind Windows und ein Browser unterschiedliche Arten von Software?",
           "responseMode": "oral",
           "responseHint": "Erkläre kurz mündlich. Wenn du möchtest, notiere Stichwörter.",
-          "solution": "Hardware: Bildschirm, Prozessor. Betriebssystem: iPadOS, Windows. Anwendungsprogramm: Browser, Rechenprogramm. Windows organisiert die Nutzung des Geräts; der Browser dient dem Anzeigen und Nutzen von Webseiten. Beide sind Software.",
+          "solution": "Hardware: Bildschirm und Prozessor. Betriebssysteme: iPadOS und Windows. Programme für bestimmte Aufgaben: Browser und Taschenrechner. Windows organisiert die Nutzung des Geräts. Ein Browser zeigt Webseiten an. Beide gehören zur Software.",
           "help": [
             {
               "title": "Ein Hinweis",
@@ -281,6 +387,14 @@
               "title": "Eine genauere Hilfe",
               "text": "Der Prozessor gehört zur Hardware. Ein Browser ist ein Anwendungsprogramm. Finde für jede Gruppe die übrigen Beispiele."
             }
+          ],
+          "items": [
+            "Bildschirm",
+            "iPadOS",
+            "Browser",
+            "Prozessor",
+            "Windows",
+            "Taschenrechner"
           ]
         }
       ]
@@ -495,6 +609,7 @@
     {
       "title": "Vorbereiten",
       "paragraphs": [
+        "Der Einstieg benötigt nur den lokalen Bildvergleich, keine geöffnete App. Die Zeichnungen zeigen bewusst dasselbe Notebook; iPad und Windows bleiben beim späteren Geräteversuch gleichwertig. Erläutern Sie bei Bedarf, dass die Bilder vereinfacht sind.",
         "Am tatsächlich verwendeten Schulprofil ein Rechenprogramm ohne zusätzliche Anmeldung bereitstellen und seinen Namen zeigen. iPad und Windows sind gleichwertig; keine bestimmte App oder Version voraussetzen. Betriebssystem benennen; Start einer neuen Rechnung und Rückkehr zum Browser kurz prüfen.",
         "Schulzugänge nur nach örtlicher Regel nutzen; keine Zugangsdaten sammeln. Bei fehlendem Zugang funktionieren Modell und Automatenfall auf Papier. Die Gerätehandlung bleibt offen und wird nachgeholt."
       ]
@@ -502,13 +617,14 @@
     {
       "title": "Durchführen · 45 Minuten",
       "paragraphs": [
-        "5 Minuten Vermutung → 10 Minuten Schichtenmodell und Zuordnung → 15 Minuten Geräteversuch → 10 Minuten Automatenfall und verbesserte Erklärung → 5 Minuten Reserve. Partnergespräch ist möglich; jede Person führt selbst aus und erklärt.",
+        "5 Minuten Bildvergleich: erst Anzeige und Geräteteile beobachten, noch kein Betriebssystem erwarten. 10 Minuten Begriffe und Modell: Beobachtung benennen, Programmwechsel zum Schreiben erklären, Beispiele zuordnen. 15 Minuten Geräteversuch, 10 Minuten Automatenfall und verbesserte Erklärung, 5 Minuten Reserve. Die 45 Minuten bleiben eine Planungsannahme. Jede Person führt den Geräteversuch selbst aus und erklärt.",
         "Die nächste Wiederaufnahme dauert drei Minuten und passt in den bereits vorgesehenen achtminütigen Einstieg des Dateien-Bogens. Sie wird nicht zusätzlich auf die 4 UE der Reihe aufgeschlagen."
       ]
     },
     {
       "title": "Beobachten → helfen",
       "paragraphs": [
+        "Im Bildvergleich „alles anders“ genannt? Auf denselben Rahmen und dieselbe Tastatur zeigen lassen. Browser unbekannt? Namen und Adresszeile im Browserbild gemeinsam finden. „Bildschirm neu“ gesagt? Bildschirminhalt und körperliches Bauteil mit zwei Beispielen unterscheiden. Erst danach Fachwörter sichern.",
         "Nur „12“ genannt? Eingabeteil zeigen, Rechenvorgang beschreiben und Ausgabeteil zeigen lassen. App und Betriebssystem verwechselt? Eine andere Anwendung öffnen und fragen, was gleich bleibt.",
         "Touchscreen nur als Ausgabe erkannt? Eine Auswahl antippen und ihre Wirkung beschreiben lassen. Gute Zuordnung ohne Zusammenhang? Nachfragen, wie das Rechenprogramm Bildschirm und Eingabe nutzen kann.",
         "Geübte können direkt mit dem Geräteversuch beginnen. Der eigene Geräte- und Übertragungsnachweis bleibt derselbe. Ohne Anfangsvermutung erklären sie abschließend den App-Wechsel. Kurze mündliche Erklärungen reichen."
@@ -524,7 +640,7 @@
   ],
   "briefing": [
     "Die Lernenden erklären, wie Hardware, Betriebssystem und Anwendungsprogramme zusammenarbeiten. Nutzen Sie ein freigegebenes Rechenprogramm auf dem Schul-iPad oder Windows-Gerät. Zeigen Sie vorab den Programmnamen und nennen Sie das Betriebssystem. Prüfen Sie den Start einer neuen Rechnung und die Rückkehr zum Browser. Es braucht keine Installation oder privaten Konten.",
-    "Planen Sie fünf Minuten für eine eigene Vermutung, zehn für Modell und Zuordnung, fünfzehn für den Geräteversuch und zehn für Übertragung und Sicherung. Fünf Minuten bleiben als Reserve. Jede Person soll selbst eingeben und erklären.",
+    "Beginnen Sie fünf Minuten mit den zwei Bildern desselben Notebooks. Erwarten Sie zunächst eine Beobachtung zur Anzeige und ein gleichbleibendes Geräteteil. Die Lernenden brauchen dafür noch keine Fachwörter. In den nächsten zehn Minuten werden Hardware, Programme und Betriebssystem erklärt. Der Wechsel zu einem Schreibprogramm bietet einen neuen Fall, bevor die Beispiele zugeordnet werden. Danach bleiben fünfzehn Minuten für den Geräteversuch, zehn für Übertragung und Sicherung sowie fünf Minuten Reserve. Diese Zeitannahmen sind noch nicht mit Lernenden erprobt.",
     "Prüfen Sie mehr als das Rechenergebnis: Was war Eingabe, was wurde verarbeitet, was ist Ausgabe? Fragen Sie beim App-Wechsel, welche Schichten gleich bleiben. Am Touchscreen gehören Berührung und Anzeige zu unterschiedlichen Funktionen derselben Hardware.",
     "Der Automatenfall verlangt eine neue Erklärung, ohne ein unbekanntes Betriebssystem zu erraten. Lassen Sie danach die erste Vermutung verbessern; bei Direkteinstieg genügt die eigene Erklärung zum App-Wechsel. Fehlt der Gerätezugang, bleibt der praktische Nachweis offen.",
     "Nutzen Sie beim nächsten Einstieg drei Minuten für die Erklärung ohne Vorlage. Im Dateien-Bogen sind diese drei Minuten Teil der bereits geplanten acht Minuten Einstieg. Notieren Sie nach der Erprobung nur Zeitabweichung, häufigste Hürde und nächste Anpassung."

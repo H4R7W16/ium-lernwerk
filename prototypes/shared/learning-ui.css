@@ -240,3 +240,11 @@
  .lw-mantel .lw-sheet .lw-device-route>summary{padding:2mm 4mm}
  .lw-mantel .lw-sheet>p:first-of-type{display:none}
 }
+
+/* Zwei Zustände bleiben gemeinsam sichtbar; schmale Geräte zeigen sie untereinander. */
+.lw-author .lw-media-comparison{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin:22px 0}
+.lw-author .lw-media-comparison .lw-content-figure{margin:0;max-width:none;min-width:0}
+.lw-author .lw-media-comparison .lw-content-figure img{width:100%}
+.lw-author .lw-media-title{font-size:20px;margin:0 0 12px;line-height:1.35}
+@media(max-width:760px){.lw-author .lw-media-comparison{grid-template-columns:1fr;gap:24px}}
+@media print{.lw-author .lw-media-comparison{grid-template-columns:1fr 1fr;gap:5mm;break-inside:avoid}.lw-author .lw-media-title{font-size:12pt;margin:0 0 2mm}.lw-author .lw-media-comparison .lw-content-figure{max-width:none}.lw-author .lw-media-comparison figcaption{font-size:9pt}}
