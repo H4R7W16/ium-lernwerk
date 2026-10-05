@@ -9,7 +9,7 @@ test('Einführung ist aus Lehrpersonenübersicht erreichbar und alle Direktwege 
  assert.equal(new Set(ids).size,ids.length,'Doppelte IDs');
  for(const [,url] of html.matchAll(/href="([^"]+)"/g)){
   if(url.startsWith('#'))assert.ok(ids.includes(url.slice(1)),url);
-  else if(!/^https?:/.test(url))assert.ok(assets.has(path.posix.normalize(path.posix.join('klasse5',url.split('#')[0]))),url);
+  else if(!/^(?:https?:|mailto:)/i.test(url))assert.ok(assets.has(path.posix.normalize(path.posix.join('klasse5',url.split('#')[0]))),url);
  }
  for(const id of ['merkmale','konzeption','beispiel','begleiten','vorbereiten'])assert.ok(ids.includes(id),id);
  assert.match(assets.get('klasse5/mantel-sw.js'),/einfuehrung\.html/);

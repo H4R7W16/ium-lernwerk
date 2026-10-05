@@ -72,7 +72,7 @@
     "Diese Reihe umfasst fünf Unterrichtsstunden. Das Ziel ist eine nachvollziehbare Recherche, nicht ein fertiger Astronomievortrag. Die Lernenden grenzen eine Frage ein, erproben Suchwörter und stellen eine kleine Sammlung mit zwei Fundstellen zusammen. Bisherige Geräte- und Dateienbögen sind produziert, ihre tatsächliche Durchführung ist noch nicht belegt.",
     "In der ersten Stunde entstehen Frage und Suchplan. Danach beginnt die kurze Quellenquest zur Pausenwiese. In Stunde zwei werden dort die zwei Kernfragen mit Belegen bearbeitet; anschließend erproben Sie Suchbegriffe. Die dritte Stunde gehört der eigenen Suche und dem Lesen. In der vierten werden die Informationen geordnet und überarbeitet. Die fünfte führt die Revision zu Ende, erprobt das Vorgehen an einer zeitabhängigen Frage und sichert die Sammlung.",
     "Prüfen Sie vorher die Schulzugänge und die verlinkten Textabschnitte. Lassen Sie nach zwei erfolglosen Versuchen die angebotenen Startquellen zu. Bei Netzausfall helfen die lokalen Zusammenfassungen. Diese ersetzen weder die echte Suche noch die Originalprüfung; beides bleibt sichtbar nachzuholen. Ein eigener Suchweg muss nicht dieselben Treffer ergeben wie bei Ihrer Vorbereitung. Für Papierarbeit brauchen Sie beide Quellenquest-Blätter. Die Beispielkarte K null zeigt, wie eine Fundstelle nachvollziehbar notiert wird. Planen Sie in den Arbeitsphasen jeder Stunde das Sichern und Wiederöffnen ein; warten Sie damit nicht bis zum Reihenende.",
-    "Beobachten Sie, ob ein Kind eine Suchänderung begründen, eine genaue Fundstelle zeigen und einen eigenen Schluss erklären kann. Bei schwachem Textverständnis zunächst einen Absatz mündlich erschließen. Bei fehlendem Beleg den Schluss eingrenzen. Die Sammlung wird in der nächsten Reihe weiterverwendet. Fünf Minuten späteren Abruf buchen Sie aus dem vorhandenen Jahreskonto. Notieren Sie nach der Erprobung eine Zeithürde, eine Verständnisfrage und eine Anpassung.",
+    "Beobachten Sie, ob Lernende eine Suchänderung begründen, eine genaue Fundstelle zeigen und einen eigenen Schluss erklären kann. Bei schwachem Textverständnis zunächst einen Absatz mündlich erschließen. Bei fehlendem Beleg den Schluss eingrenzen. Die Sammlung wird in der nächsten Reihe weiterverwendet. Fünf Minuten späteren Abruf buchen Sie aus dem vorhandenen Jahreskonto. Notieren Sie nach der Erprobung eine Zeithürde, eine Verständnisfrage und eine Anpassung.",
     "Beim Suchplan begründen die Lernenden die Wahl des Informationswegs. Beim Ordnen vergleichen sie eine Aussage mit ihrer Anfangsvermutung und begründen eine Auslassung. Kurze mündliche Antworten oder Stichwörter genügen innerhalb der vorhandenen Arbeitszeit."
   ],
   "sources": [
@@ -95,7 +95,7 @@
     },
     {
       "id": "fragfinn",
-      "title": "fragFINN – Suchmaschine für Kinder",
+      "title": "fragFINN – Suchmaschine",
       "author": "fragFINN e. V.",
       "url": "https://www.fragfinn.de/",
       "license": "Nur verlinkt; Suchergebnisse verändern sich",
@@ -617,7 +617,7 @@
       "title": "Aus Notizen wird eine kleine Sammlung",
       "goal": "Relevante Informationen mit Quellen geordnet weiterverarbeiten.",
       "task": "Ordne drei wichtige Informationen unter zwei passenden Überschriften. Jede Information braucht eine auffindbare Fundstelle.",
-      "outcome": "Eine erste Fassung für andere Kinder.",
+      "outcome": "Eine erste Fassung für andere Lernende.",
       "knowledge": [
         "notieren",
         "pruefen"

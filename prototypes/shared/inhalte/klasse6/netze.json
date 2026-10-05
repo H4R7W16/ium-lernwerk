@@ -16,7 +16,7 @@
   ],
   "teacher": [
     "M01 baut auf der Geräte- und Dateiarbeit aus Klasse 5 auf. Vorwissen kurz sichtbar machen, nicht als gesichert voraussetzen. Erst Wege und Rollen im Modell untersuchen, anschließend Speicherorte am echten Gerät prüfen.",
-    "Das Werkzeug protokolliert Modellereignisse. Es bewertet keine Erklärungen und belegt keine ausgeführte Gerätehandlung. Eine Antwort kann ein Kind auch mündlich oder im Heft geben."
+    "Das Werkzeug protokolliert Modellereignisse. Es bewertet keine Erklärungen und belegt keine ausgeführte Gerätehandlung. Lernende können eine Antwort auch mündlich oder im Heft geben."
   ],
   "duration": "180 Minuten in vier Stunden zu je 45 Minuten. Zusätzlich zweimal 6 Minuten Wiederaufnahme aus dem getrennten Jahreskonto. Keine bestätigte Jahreszeit für Klasse 6.",
   "learnerDuration": "Vier Unterrichtsstunden. Zwei kurze Wiederaufnahmen folgen mit Abstand.",
@@ -322,11 +322,11 @@
     {
       "title": "Beobachten → nächste Hilfe",
       "paragraphs": [
-        "Kind nennt nach einem Stopp sofort „unerreichbar“: nur die Nachbarn des letzten erreichbaren Knotens markieren lassen; danach alle von K aus erreichbaren Knoten sammeln. Nicht sofort den Umweg vorsagen.",
-        "Kind nennt alle Knoten Server: am vorgemachten Beispiel fragen, welcher Knoten die angefragte Datei bereitstellt. Kind erwartet trotz nicht bereitem Dienst eine Antwort: Anfrageweg und Bereitstellung getrennt erklären lassen.",
-        "Kind öffnet nur „Zuletzt verwendet“: den Zielordner zeigen lassen und daraus erneut öffnen. Bei unklarer Server-/Offlinekopie den schulischen Zugang gemeinsam prüfen; keine Konfiguration am Gerät durch Kinder ändern lassen.",
+        "Eine lernende Person nennt nach einem Stopp sofort „unerreichbar“: nur die Nachbarn des letzten erreichbaren Knotens markieren lassen; danach alle von K aus erreichbaren Knoten sammeln. Nicht sofort den Umweg vorsagen.",
+        "Eine lernende Person nennt alle Knoten Server: am vorgemachten Beispiel fragen, welcher Knoten die angefragte Datei bereitstellt. Eine lernende Person erwartet trotz nicht bereitem Dienst eine Antwort: Anfrageweg und Bereitstellung getrennt erklären lassen.",
+        "Eine lernende Person öffnet nur „Zuletzt verwendet“: den Zielordner zeigen lassen und daraus erneut öffnen. Bei unklarer Server-/Offlinekopie den schulischen Zugang gemeinsam prüfen; keine Konfiguration am Gerät durch Lernende ändern lassen.",
         "Hohe Routine: eine einzelne Unterbrechung wählen, die das eigene Ziel wirklich abtrennt, und das mit allen verbleibenden Verbindungen begründen. Keine zusätzlichen IP-/DNS-Pflichten einführen.",
-        "Kind kopiert eine Vergleichslösung: Lösung schließen und eine andere einzelne Verbindung im Transfernetz wählen lassen. Wege bzw. abgetrennte Knoten erklären lassen; bei Bedarf erneut helfen und eine andere kleine Änderung prüfen. Kein Verbot von Hilfen, sondern ein anschließender eigener Erklärversuch. Beim Solo-Fall Y–L bleibt W über K–X–Z–W erreichbar; L ist wegen seiner einzigen fehlenden Verbindung abgetrennt."
+        "Eine lernende Person kopiert eine Vergleichslösung: Lösung schließen und eine andere einzelne Verbindung im Transfernetz wählen lassen. Wege bzw. abgetrennte Knoten erklären lassen; bei Bedarf erneut helfen und eine andere kleine Änderung prüfen. Kein Verbot von Hilfen, sondern ein anschließender eigener Erklärversuch. Beim Solo-Fall Y–L bleibt W über K–X–Z–W erreichbar; L ist wegen seiner einzigen fehlenden Verbindung abgetrennt."
       ]
     },
     {
@@ -347,7 +347,7 @@
   ],
   "briefing": [
     "In M01 prüfen die Lernenden, was einen Dateizugriff ermöglicht. Starten Sie mit Miras vorschneller Erklärung und dem kleinen Beispiel P–R–S. Es zeigt vollständig, wie Vorhersage, Beobachtung, Erklärung und Grenze zusammenhängen.",
-    "Im Netzversuch sagen die Kinder das Ergebnis vor dem Start voraus. Eine Spur bleibt als Beobachtung erhalten; die Erklärung müssen sie selbst leisten. Achten Sie besonders auf den Sprung von „mein Weg scheitert“ zu „kein Weg existiert“.",
+    "Im Netzversuch sagen die Lernenden das Ergebnis vor dem Start voraus. Eine Spur bleibt als Beobachtung erhalten; die Erklärung müssen sie selbst leisten. Achten Sie besonders auf den Sprung von „mein Weg scheitert“ zu „kein Weg existiert“.",
     "Im eigenen V2 wählen die Lernenden einen möglichen Weg und unterbrechen begründet eine Verbindung darauf. Sie belegen einen Umweg oder eine Abtrennung. Das Transfernetz verändert die Lage des lokalen Servers. Eine abschließende kleine Änderung mit geschlossener Lösung hilft, selbstständiges Erklären von Übernehmen zu unterscheiden.",
     "In Stunde drei folgt der echte Speichervergleich. Bereiten Sie zwei erlaubte Orte und eine Schreib-App vor. Lassen Sie die Datei schließen und aus dem Zielordner wieder öffnen. Ist nur eine Offlinekopie sichtbar, bleibt der aktuelle Netzabruf offen. Ein Modellversuch ersetzt diese Handlung nicht.",
     "Planen Sie vier Stunden und später zweimal sechs Minuten Abruf. Prüfen Sie Erklärungen, Gerätehandlungen und begründete Entscheidungen getrennt. Arbeitsdateien enthalten die Lernwerkantworten und Modellprotokolle; die echte Übungsdatei braucht einen eigenen Sicherungsweg.",

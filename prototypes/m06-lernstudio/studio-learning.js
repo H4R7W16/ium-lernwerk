@@ -17,7 +17,7 @@
       explain: '<h3>Denke aus der Sicht des Roboters</h3><p><b>vor</b> bedeutet: Fahre eine Kachel in deine Blickrichtung. Das ist nicht immer nach oben auf dem Bildschirm.</p><p><b>links</b> und <b>rechts</b> bedeuten: Drehe dich auf der Stelle um eine Vierteldrehung. Dabei bleibt deine Kachel gleich. Erst das nächste <b>vor</b> fährt in die neue Richtung.</p><p>Lies das Programm von oben nach unten. Zeige nach jedem Befehl auf seine Kachel und in seine Blickrichtung. Am Rand stoppt unser Roboter. Er sucht sich keinen anderen Weg.</p>',
       criteria: ['Ich sage nach jedem Befehl, wo der Roboter steht.', 'Ich zeige, wohin er blickt, auch wenn er sich nur dreht.'],
       prompt: 'Nach vor steht er … und blickt … Nach links …',
-      teach: 'Mit einem Pfeil auf einem 3 × 2-Raster beginnen: links unten, Blick rechts. Die drei Befehle vor – links – vor einzeln ansagen. Kinder zeigen jeweils Kachel und Blick. Alternativ eine Person auf der Stelle drehen lassen.',
+      teach: 'Mit einem Pfeil auf einem 3 × 2-Raster beginnen: links unten, Blick rechts. Die drei Befehle vor – links – vor einzeln ansagen. Lernende zeigen jeweils Kachel und Blick. Alternativ eine Person auf der Stelle drehen lassen.',
       discuss: 'Muss sich bei „links“ auch die Kachel ändern? Was bedeutet „vor“, wenn der Pfeil nach links zeigt?'
     },
     loop: {
@@ -38,7 +38,7 @@
       task: 'Sage Endkachel und Blick voraus. Prüfe mit „Ein Durchlauf“ die vier Wiederholungen. Untersuche dann den letzten Befehl mit „Ein Befehl“.',
       criteria: ['Ich unterscheide die Befehle in der Klammer vom Befehl danach.', 'Ich erkläre, warum dieses Programm 9 Aktionen hat.'],
       prompt: 'In der Klammer … Nach der vierten Wiederholung …',
-      teach: 'Den Plan wiederhole 4 [vor; links] und darunter ein einzelnes vor an die Tafel schreiben. Die Klammer farbig markieren. Kinder zuerst das Ende nach der Schleife, dann nach dem ganzen Programm zeigen lassen.',
+      teach: 'Den Plan wiederhole 4 [vor; links] und darunter ein einzelnes vor an die Tafel schreiben. Die Klammer farbig markieren. Lernende zuerst das Ende nach der Schleife, dann nach dem ganzen Programm zeigen lassen.',
       discuss: 'Warum wird das letzte vor nur einmal ausgeführt? Was wäre anders, wenn es in der Klammer stünde?'
     },
     repair: {
@@ -68,7 +68,7 @@
       task: 'Passe beide Schleifenzahlen an. Dein Plan soll alle acht Kacheln ohne Wandstopp erreichen. Tippe auf einen Baustein, um ihn zu ändern.',
       criteria: ['Ich begründe beide Schleifenzahlen mit den Abständen zwischen den Kacheln.', 'Ich erkläre, warum der Übergang gleich bleiben kann.'],
       prompt: 'Vier Kacheln haben … Wege dazwischen. Ich ändere …',
-      teach: 'Vier Felder und die drei Verbindungen dazwischen zeichnen. Kinder das bekannte Gerüst für zwei Reihen anpassen lassen, ohne den Übergang zu verändern.',
+      teach: 'Vier Felder und die drei Verbindungen dazwischen zeichnen. Lernende das bekannte Gerüst für zwei Reihen anpassen lassen, ohne den Übergang zu verändern.',
       discuss: 'Was bleibt beim breiteren Boden gleich, was muss sich an beiden geraden Fahrten ändern?'
     },
     switch: {
@@ -78,7 +78,7 @@
       task: 'Ändere die drei Befehle. Der Roboter soll links oben ankommen und dort nach rechts blicken. Die übrigen oberen Kacheln sind erst später dran.',
       criteria: ['Ich leite die erste Drehung aus dem Blick nach links ab.', 'Ich zeige Endkachel und Endrichtung meines Übergangs.'],
       prompt: 'Er blickt nach links. Deshalb drehe ich zuerst … Nach vor …',
-      teach: 'Auf einem 4 × 3-Raster einen Pfeil links in die Mitte setzen, Blick links. Zielpfeil links oben, Blick rechts. Die Kinder drei Befehlskarten legen und jede Drehung begründen lassen.',
+      teach: 'Auf einem 4 × 3-Raster einen Pfeil links in die Mitte setzen, Blick links. Zielpfeil links oben, Blick rechts. Die Lernenden drei Befehlskarten legen und jede Drehung begründen lassen.',
       discuss: 'Warum führt derselbe Übergang links – vor – links hier in die falsche Reihe?'
     },
     own: {
