@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M06-ABLAEUFE",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "area": "ablaeufe",
   "family": "content",
@@ -45,7 +45,8 @@
       "title": "Vorbereiten",
       "paragraphs": [
         "Kartenstation auf einem Schul-iPad bzw. Windows-Profil prüfen: drei Befehle eingeben, Einzelschritt ausführen, Spur übernehmen, Arbeitsdatei sichern und wieder öffnen. Kein Konto und keine zusätzliche Programminstallation nötig. Unterrichtssprache und Interpreter sind lokal im Lernwerk enthalten. Nach Offlinevorbereitung darf Internet fehlen; die erste Bereitstellung braucht einen erreichbaren Server.",
-        "Pro Person vier Karten und ein Blatt mit Vorrat, einem Platz und Ausgabe bereitstellen. Alle Einzelblätter enthalten benötigte Ausgangsdaten. Papier trägt Darstellen und Analysieren; digitale Programmierung bleibt bei reinem Papierweg offen und wird nachgeholt. Bei geteiltem Gerät eigener Tab und eigene benannte Arbeitsdatei je Person; jede Person programmiert und erklärt selbst."
+        "Pro Person vier Karten und ein Blatt mit Vorrat, einem Platz und Ausgabe bereitstellen. Alle Einzelblätter enthalten benötigte Ausgangsdaten. Papier trägt Darstellen und Analysieren; digitale Programmierung bleibt bei reinem Papierweg offen und wird nachgeholt. Bei geteiltem Gerät eigener Tab und eigene benannte Arbeitsdatei je Person; jede Person programmiert und erklärt selbst.",
+        "Die digitale Kartenstation zeigt dieselben Kartenorte wie das Papiermodell. Vor jedem Befehl den nächsten Zustand voraussagen, danach Karten, aktuellen Befehl und Durchlauf erklären lassen."
       ]
     },
     {
@@ -76,7 +77,8 @@
     "Bereiten Sie pro Person vier Papierkarten und einen markierten Arbeitsplatz vor. Prüfen Sie den lokalen Interpreter sowie das Sichern und Öffnen einer Arbeitsdatei am Schulgerät. Papier ist ein sinnvoller Ersatz für das Ausführen von Abläufen, aber kein praktischer Nachweis des Programmierens.",
     "Stunde eins eröffnet Alltagssysteme und Modell. Stunde zwei verbindet Grafik und Code. Stunde drei führt zum eigenen Entwurf: zuerst eine unmarkierte, dann drei markierte Karten. Stunde vier und der Beginn der fünften dienen der Fehlerprüfung und begründeten Revision. Transfer und Sicherung schließen ab.",
     "Beobachten Sie den ersten abweichenden Schritt und seine Erklärung. Ein fertiger Lauf oder eine kopierte Spur genügt nicht. Das Roboterstudio bleibt zusätzliche Übung. Später folgen fünf Minuten Abruf aus dem vorhandenen Jahreskonto.",
-    "Im Abschluss vergleichen die Lernenden Papiermodell und digitale Spur und erproben eine daraus gewählte Prüfweise am eigenen Code. Das geschieht innerhalb der vorhandenen Abschlusszeit."
+    "Im Abschluss vergleichen die Lernenden Papiermodell und digitale Spur und erproben eine daraus gewählte Prüfweise am eigenen Code. Das geschieht innerhalb der vorhandenen Abschlusszeit.",
+    "Die digitale Kartenstation zeigt dieselben Kartenorte wie das Papiermodell. Vor jedem Befehl den nächsten Zustand voraussagen, danach Karten, aktuellen Befehl und Durchlauf erklären lassen."
   ],
   "sources": [
     {

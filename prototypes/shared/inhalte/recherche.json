@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M02-RECHERCHE",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "area": "recherche",
   "family": "content",
@@ -43,7 +43,8 @@
     {
       "title": "Vorbereiten",
       "paragraphs": [
-        "Suchdienst und beide Startquellen am Schulprofil öffnen; DLR-Abschnitt muss nachladen können. Bei timeanddate nur den genannten Textabschnitt nutzen. Keine Konten, Zahlungen oder Videos nötig. Netz-/Lesefallback: lokale Ersatztexte vorher bereitstellen; dabei echte Suche und Originalprüfung als offen führen. Heft oder eine erlaubte Notiz-App genügen. Bei Papierarbeit beide Quellenquest-Blätter bereitstellen. Das ausgefüllte Beispiel K0 zeigt das Format einer Quellenkarte."
+        "Suchdienst und beide Startquellen am Schulprofil öffnen; DLR-Abschnitt muss nachladen können. Bei timeanddate nur den genannten Textabschnitt nutzen. Keine Konten, Zahlungen oder Videos nötig. Netz-/Lesefallback: lokale Ersatztexte vorher bereitstellen; dabei echte Suche und Originalprüfung als offen führen. Heft oder eine erlaubte Notiz-App genügen. Bei Papierarbeit beide Quellenquest-Blätter bereitstellen. Das ausgefüllte Beispiel K0 zeigt das Format einer Quellenkarte.",
+        "Innerhalb des Suchplans am Bedienmodell zuerst Browserrahmen, Suchfeld, Treffertitel und Fundseite zeigen lassen. Beim Quellenlesen K0 vom markierten Satz rückwärts zur eigenen Notiz erklären lassen. Die Zeichnungen sind erfundene Übungsseiten; anschließend erfolgt die echte Suche am freigegebenen Suchdienst."
       ]
     },
     {
@@ -73,7 +74,8 @@
     "In der ersten Stunde entstehen Frage und Suchplan. Danach beginnt die kurze Quellenquest zur Pausenwiese. In Stunde zwei werden dort die zwei Kernfragen mit Belegen bearbeitet; anschließend erproben Sie Suchbegriffe. Die dritte Stunde gehört der eigenen Suche und dem Lesen. In der vierten werden die Informationen geordnet und überarbeitet. Die fünfte führt die Revision zu Ende, erprobt das Vorgehen an einer zeitabhängigen Frage und sichert die Sammlung.",
     "Prüfen Sie vorher die Schulzugänge und die verlinkten Textabschnitte. Lassen Sie nach zwei erfolglosen Versuchen die angebotenen Startquellen zu. Bei Netzausfall helfen die lokalen Zusammenfassungen. Diese ersetzen weder die echte Suche noch die Originalprüfung; beides bleibt sichtbar nachzuholen. Ein eigener Suchweg muss nicht dieselben Treffer ergeben wie bei Ihrer Vorbereitung. Für Papierarbeit brauchen Sie beide Quellenquest-Blätter. Die Beispielkarte K null zeigt, wie eine Fundstelle nachvollziehbar notiert wird. Planen Sie in den Arbeitsphasen jeder Stunde das Sichern und Wiederöffnen ein; warten Sie damit nicht bis zum Reihenende.",
     "Beobachten Sie, ob Lernende eine Suchänderung begründen, eine genaue Fundstelle zeigen und einen eigenen Schluss erklären kann. Bei schwachem Textverständnis zunächst einen Absatz mündlich erschließen. Bei fehlendem Beleg den Schluss eingrenzen. Die Sammlung wird in der nächsten Reihe weiterverwendet. Fünf Minuten späteren Abruf buchen Sie aus dem vorhandenen Jahreskonto. Notieren Sie nach der Erprobung eine Zeithürde, eine Verständnisfrage und eine Anpassung.",
-    "Beim Suchplan begründen die Lernenden die Wahl des Informationswegs. Beim Ordnen vergleichen sie eine Aussage mit ihrer Anfangsvermutung und begründen eine Auslassung. Kurze mündliche Antworten oder Stichwörter genügen innerhalb der vorhandenen Arbeitszeit."
+    "Beim Suchplan begründen die Lernenden die Wahl des Informationswegs. Beim Ordnen vergleichen sie eine Aussage mit ihrer Anfangsvermutung und begründen eine Auslassung. Kurze mündliche Antworten oder Stichwörter genügen innerhalb der vorhandenen Arbeitszeit.",
+    "Innerhalb des Suchplans am Bedienmodell zuerst Browserrahmen, Suchfeld, Treffertitel und Fundseite zeigen lassen. Beim Quellenlesen K0 vom markierten Satz rückwärts zur eigenen Notiz erklären lassen. Die Zeichnungen sind erfundene Übungsseiten; anschließend erfolgt die echte Suche am freigegebenen Suchdienst."
   ],
   "sources": [
     {
@@ -118,6 +120,15 @@
       "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
       "checked": "04.10.2026",
       "note": "Abschnitt „Eine Frage der Perspektive“; Seite enthält zusätzliche Angebote."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Übungsdarstellungen",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und SVG: CC BY-SA 4.0",
+      "checked": "2026-10-06",
+      "note": "Schematische Modelle; keine Screenshots einer bestimmten Schule."
     }
   ],
   "media": [
@@ -140,6 +151,28 @@
       "license": "CC BY-SA 4.0 für die eigenen Zusammenfassungen, nicht für Originalseiten",
       "sourceId": "dlr",
       "printText": "ERSATZTEXTE – KEINE ORIGINALQUELLEN\nEigene Zusammenfassungen des IuM-Lernwerks · CC BY-SA 4.0 · Stand 04.10.2026\n\nDiese kurzen Ersatztexte sind eigene Zusammenfassungen des Lernwerks nach den unten verlinkten Seiten, geprüft am 04.10.2026. Sie sind keine Originalzitate und keine zwei unabhängigen Veröffentlichungen. Du kannst mit ihnen Aussagen ordnen und Quellenhinweise üben; die Originalprüfung und echte Suche bleiben offen.\n\nE1 · Nach DLR_next, „Erde, Sonne und Mond“, Abschnitt „Wie der Mond die Erde umkreist“: Der Mond wird von der Sonne beleuchtet. Auf seinem Weg um die Erde sehen wir unterschiedlich große Teile seiner beleuchteten Seite. So verändert sich sein Aussehen.\n\nE2 · Nach timeanddate, Bikos/Hocken, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“: Mondphasen hängen vom Blick auf die beleuchtete Mondhälfte ab. Der Erdschatten ist ein anderer Fall: Er spielt bei einer Mondfinsternis eine Rolle.\n\nOriginal zu E1:\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\nOriginal zu E2:\nhttps://www.timeanddate.de/astronomie/mond/mondphasen\n\nAuftrag bei Netzausfall: Formuliere eine Frage, ordne drei kurze Informationen unter zwei Überschriften und verweise auf E1/E2. Nenne eine Grenze dieser Materialbasis. Notiere: Suche und Originalprüfung noch nachholen.\n"
+    },
+    {
+      "id": "suchweg",
+      "kind": "image",
+      "file": "assets/recherche/suchweg.svg",
+      "title": "Vom Suchfeld zur Fundseite",
+      "alt": "Oben liegt die Adresszeile des Browsers. Auf der Suchdienst-Seite wird Lindenort Samstag Öffnungszeiten eingegeben. Ein Ergebnis hat Titel, Adresse und kurzen Treffertext. Über den Titel wird erst die Fundseite geöffnet.",
+      "caption": "Das Suchfeld gehört zur Suchdienst-Seite. Titel, Adresse und Treffertext helfen bei der Auswahl; der Treffertext ist noch kein Beleg. Die .example-Adresse ist erfunden.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "fundseite",
+      "kind": "image",
+      "file": "assets/recherche/fundseite.svg",
+      "title": "Auf der Fundseite den Beleg finden",
+      "alt": "Die erfundene Originalseite nennt den Titel Öffnungszeiten, den Anbieter Stadtbücherei Lindenort und den Satz Samstag 10 bis 13 Uhr. Ein Veröffentlichungsdatum ist nicht angegeben. Hinweise auf Ausnahmen bleiben zu prüfen.",
+      "caption": "Markierter Beleg für K0: Abschnitt „Öffnungszeiten“, Satz zu Samstag. Eigene Notiz: Gewöhnlich öffnet die Bücherei samstags von 10 bis 13 Uhr. Ein Datum wird nicht erfunden.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
     }
   ],
   "knowledge": [
@@ -179,6 +212,10 @@
       "sources": [
         "internet-abc",
         "fragfinn"
+      ],
+      "media": [
+        "suchweg",
+        "fundseite"
       ]
     },
     {
@@ -221,6 +258,9 @@
       ],
       "sources": [
         "internet-abc"
+      ],
+      "media": [
+        "fundseite"
       ]
     },
     {
@@ -312,17 +352,27 @@
       "blocks": [
         {
           "type": "example",
-          "title": "Vorgemacht: Wann öffnet die Bücherei?",
+          "title": "Zuerst sehen: Wo klickt Lea?",
+          "text": "Lea sucht die Öffnungszeiten der Stadtbücherei Lindenort am Samstag. Zeige Suchfeld, Treffertitel und den Beleg auf der Fundseite. Die Seiten sind erfunden.",
+          "media": [
+            "suchweg",
+            "fundseite"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Leas Suchweg erklären",
           "text": "Dieses Beispiel ist erfunden. Lea will wissen, wann die Stadtbücherei Lindenort am Samstag öffnet.",
           "items": [
             "Lea sucht zunächst „Bücherei“. Das ist zu allgemein: Sie findet auch andere Orte.",
-            "Sie ergänzt „Lindenort Samstag Öffnungszeiten“. Ein Treffer führt zur Seite der zuständigen Stadtbücherei.",
+            "Sie ergänzt „Lindenort Samstag Öffnungszeiten“. Ein Treffer führt zur Seite der zuständigen Stadtbücherei. Der Titel ist der Link zur Fundseite.",
             "Sie öffnet die Seite. Unter „Öffnungszeiten“ steht: Samstag 10–13 Uhr. Eine Extra-Mitteilung warnt vor einer Schließung an einem bestimmten Datum.",
             "Lea prüft, ob dieser Ausnahmetag ihr Samstag ist. Erst dann formuliert sie eine Antwort mit Titel, Adresse und Fundstelle."
           ],
           "paragraphs": [
-            "Warum nicht einfach den obersten Treffer nehmen? Ein alter Reiseblog könnte eine frühere Öffnungszeit nennen. Rang, Gestaltung oder ein kurzer Treffertext entscheiden die Frage nicht."
-          ]
+            "Zeige vor deinem eigenen Suchplan: Wo tippst du die Suchwörter ein? Wo steht die Adresse? An welcher Stelle öffnest du den eigentlichen Beleg?"
+          ],
+          "media": []
         },
         {
           "type": "task",
@@ -563,10 +613,14 @@
           "title": "Eine vollständige Quellenkarte – vorgemacht",
           "text": "K0 · Beispiel aus der erfundenen Bücherei. Auch die Adresse und das Abrufdatum sind nur Übungsangaben; diese Website ist nicht zu besuchen.",
           "items": [
+            "Beginne beim markierten Satz im Bild: Welche Aussage beantwortet Leas Frage? Erst danach ergänzt du die Angaben, mit denen andere die Quelle wiederfinden.",
             "Titel: Öffnungszeiten · Anbieter: Stadtbücherei Lindenort · Absicht: über Besuchszeiten informieren.",
             "Adresse: https://buecherei.example/oeffnungszeiten · Datum: nicht angegeben · abgerufen am: 04.10.2026 (Übungsdatum).",
             "Fundstelle: Abschnitt „Öffnungszeiten“, Satz zu Samstag. Eigene Notiz: Gewöhnlich öffnet die Bücherei samstags von 10 bis 13 Uhr.",
             "Auswahl: Die zuständige Einrichtung nennt die passende Zeit. Grenze: Eine Ausnahmemeldung könnte für meinen Besuchstag gelten; die muss ich noch prüfen."
+          ],
+          "media": [
+            "fundseite"
           ]
         },
         {

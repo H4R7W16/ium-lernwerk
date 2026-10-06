@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M05-MEDIENWIRKUNG",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "grade": 5,
   "area": "medienwirkung",
   "family": "content",
@@ -50,7 +50,8 @@
       "paragraphs": [
         "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen.",
         "Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe.",
-        "Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen."
+        "Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen.",
+        "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen."
       ]
     },
     {
@@ -78,7 +79,8 @@
     "Diese fünfstündige Reihe verbindet Werbung, Bildwirkung und Selbstdarstellung mit einer geschützten eigenen Reflexion. Die bestehende Bildwerkstatt ist mit neunzig Minuten integriert. Beurteilt werden nur erfundene Fälle und ein eigener neutraler Bildbeitrag.",
     "Bereiten Sie die Hilfekarte und einen geschützten Reflexionsweg vor. Persönliche Gedanken werden nicht eingesammelt, vorgezeigt oder in normale Antwortfelder übertragen. Papier oder Denken ist gleichwertig zur freiwilligen privaten Notiz. Eine harmlose eigene Erfahrung aus dem Unterricht genügt. Ein fiktiver Fall bleibt Vorbereitung. Auf einem geteilten Gerät erhält jede Person einen eigenen Browsertab und eine unterscheidbare Arbeitsdatei. Wegblätter für das Bildlabor zusammen mit den drei verlinkten Bildblättern austeilen.",
     "Die ersten beiden Stunden führen vom Werbevergleich über den Bildversuch zum Fallurteil. Stunde drei beginnt mit eigener Gestaltung und echtem Lesetest. Stunde vier enthält dessen Abschluss, das neutrale Reflexionsmodell und persönliche Denkzeit. Stunde fünf schließt den Optionenvergleich ab und führt über den Bibliotheksfall zu Hilfe bei Ausgrenzung.",
-    "Beobachten Sie konkrete Begründungen, tatsächliche Bedienung, echte Rückmeldung und begründete Änderungen. Weder Häkchen noch freiwillige Fertigmeldungen beweisen die Qualität persönlicher Reflexion. Fünf Minuten Wiederaufnahme folgen später: drei öffentlich am neutralen Fall, zwei privat am eigenen Vorhaben."
+    "Beobachten Sie konkrete Begründungen, tatsächliche Bedienung, echte Rückmeldung und begründete Änderungen. Weder Häkchen noch freiwillige Fertigmeldungen beweisen die Qualität persönlicher Reflexion. Fünf Minuten Wiederaufnahme folgen später: drei öffentlich am neutralen Fall, zwei privat am eigenen Vorhaben.",
+    "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen."
   ],
   "sources": [
     {
@@ -121,6 +123,15 @@
       "url": "https://www.bpb.de/shop/zeitschriften/apuz/157546/das-web-als-spiegel-und-buehne-selbstdarstellung-im-internet/",
       "license": "Verlinkter Hintergrund für Lehrpersonen; eigene Falltexte",
       "checked": "2026-10-04"
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Übungsdarstellungen",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und SVG: CC BY-SA 4.0",
+      "checked": "2026-10-06",
+      "note": "Schematische Modelle; keine Screenshots einer bestimmten Schule."
     }
   ],
   "media": [
@@ -186,6 +197,17 @@
       "license": "CC BY-SA 4.0 · eigene Vorlage",
       "sourceId": "cc",
       "printText": "HILFEWEGE · VON DER LEHRPERSON ERGÄNZEN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nVor der Reihe ausfüllen und sichtbar bereitlegen.\nVertrauensperson in der Schule / wo und wann erreichbar:\nAlternative, wenn diese Person nicht erreichbar ist:\nSchulischer Meldeweg für beleidigende oder ausgrenzende Inhalte:\nGemeinsam mit erwachsener Hilfe Belege sichern, ohne sie weiterzuverbreiten:\nErlaubter Arbeits-/Speicherort für den neutralen Bildbeitrag:\nTermin für fünf Minuten Wiederaufnahme:\n\nNicht nach privaten Profilen oder belastenden Erlebnissen fragen. Hilfe ist jederzeit möglich und unabhängig von der Bewertung. Persönliche Reflexion wird nicht eingesammelt. Eine freiwillige Fertigmeldung ist keine Auskunft über deren Qualität.\n"
+    },
+    {
+      "id": "versuche-kontext",
+      "kind": "image",
+      "file": "assets/medienwirkung/versuche-kontext.svg",
+      "title": "Was vor dem Erfolgsbeitrag geschah",
+      "alt": "Vor dem ausgewählten Erfolgsbeitrag gab es vier Versuche und Hilfe mit einem Falttipp. Der Beitrag zeigt die gelungene Brücke; über den genauen Verlauf jedes einzelnen Versuchs wird nichts behauptet.",
+      "caption": "Der Beitrag zeigt den Erfolg. Der zusätzliche Kontext nennt vier Versuche und Hilfe. Prüfe damit die Aussage „Talent braucht keine Übung“.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
     }
   ],
   "knowledge": [
@@ -240,6 +262,9 @@
       "sources": [
         "bildungsplan",
         "bpb"
+      ],
+      "media": [
+        "versuche-kontext"
       ]
     },
     {
@@ -471,7 +496,8 @@
           "title": "Fall C · Was der Beitrag zeigt",
           "text": "Jules freut sich über die gelungene Papierbrücke. Zum erfundenen Fall gehört: Vorher gab es vier Versuche und Hilfe beim Falten. Dieser Kontext steht nicht im Beitrag.",
           "media": [
-            "selbstbild"
+            "selbstbild",
+            "versuche-kontext"
           ],
           "help": [
             {

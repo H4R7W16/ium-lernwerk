@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded',()=>{
  const input=tool.querySelector('textarea'),stock=Number(tool.dataset.stock),step=tool.dataset.step,status=tool.querySelector('[data-card-status]');let result=null,cursor=0,stopped=false;
  const desc=s=>s?(s.marked?'markierte Karte':'unmarkierte Karte'):'leer';
  const el=(tag,text)=>{const x=document.createElement(tag);x.textContent=text;return x;};
- function draw(){const s=result?.trace[cursor]||{remaining:stock,slot:null,output:[]};const host=tool.querySelector('[data-card-state]');host.replaceChildren();for(const [name,text]of [['Vorrat',s.remaining+' Karten'],['Ein Platz',desc(s.slot)],['Ausgabe · zuerst → zuletzt',s.output.map((m,i)=>(i+1)+': '+(m?'markiert':'unmarkiert')).join(' · ')||'leer']]){const box=el('div','');box.append(el('b',name),el('p',text));host.append(box);}
+ function draw(){const s=result?.trace[cursor]||{remaining:stock,slot:null,output:[]};const view=CardView.describe(s),host=tool.querySelector('[data-card-state]');host.replaceChildren();tool.querySelector('[data-card-current]').textContent=view.command;
+ for(const group of view.groups){const box=el('div',''),cards=el('div','');cards.className='card-pictures';cards.setAttribute('aria-hidden','true');
+  group.cards.forEach((marked,i)=>{const card=el('span',marked?'●':'○');card.className='card-picture'+(marked?' marked':'');if(group.name.startsWith('Ausgabe'))card.append(el('small',String(i+1)));cards.append(card);});
+  if(!group.cards.length)cards.append(el('span','—'));box.append(el('b',group.name),cards,el('p',group.text));host.append(box);
+ }
  const table=el('table',''),head=el('tr','');for(const t of ['Schritt / Code','Vorrat','Platz','Ausgabe'])head.append(el('th',t));table.append(head);
  for(const row of result?result.trace.slice(0,cursor+1):[]){const tr=el('tr','');for(const text of [row.step+' · '+row.command+(row.line?' (Zeile '+row.line+(row.iteration?', Durchlauf '+row.iteration:'')+')':''),String(row.remaining),desc(row.slot),row.output.map(m=>m?'●':'○').join(' ')||'leer'])tr.append(el('td',text));table.append(tr);}
  tool.querySelector('[data-card-trace]').replaceChildren(table);

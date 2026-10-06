@@ -15,3 +15,6 @@ packages/module-contract/src/generated/
 # Lokaler Geräte-Entwurf: technische Vorschau und Prüfläufe
 /preview-r1/
 /qa/geraete-entwurf/
+
+/qa/anschaulichkeit/
+/preview-anschaulichkeit/

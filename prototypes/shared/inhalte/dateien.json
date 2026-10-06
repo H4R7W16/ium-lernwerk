@@ -2,7 +2,7 @@
   "authorVersion": 2,
   "area": "dateien",
   "id": "IUM-5-M01-DATEIEN",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "grade": 5,
   "family": "content",
   "title": "Gut abgelegt. Wiedergefunden.",
@@ -131,6 +131,50 @@
       "creator": "IuM-Lernwerk",
       "license": "CC BY-SA 4.0",
       "sourceId": "eigen"
+    },
+    {
+      "id": "ipad-weg",
+      "kind": "image",
+      "file": "assets/dateien/ipad-weg.svg",
+      "title": "iPad · Dateien wiedererkennen",
+      "alt": "Schematisches iPad · Dateien wiedererkennen: Zuerst den erlaubten Startort der Schule öffnen. Danach einen eigenen Ordner anlegen. Die gespeicherte Fundnotiz wird aus dem Themenordner geöffnet.",
+      "caption": "Zeige zuerst den Startort an deinem Gerät. Ein Ordner in diesem Modell ist kein vorgegebener Schulordner. Die genaue Geräteanleitung steht bei den nächsten Schritten.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "windows-weg",
+      "kind": "image",
+      "file": "assets/dateien/windows-weg.svg",
+      "title": "Windows · Explorer wiedererkennen",
+      "alt": "Schematisches Windows · Explorer wiedererkennen: Zuerst den erlaubten Startort der Schule öffnen. Danach einen eigenen Ordner anlegen. Die gespeicherte Fundnotiz wird aus dem Themenordner geöffnet.",
+      "caption": "Zeige zuerst den Startort an deinem Gerät. Ein Ordner in diesem Modell ist kein vorgegebener Schulordner. Die genaue Geräteanleitung steht bei den nächsten Schritten.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "vorschau-datei",
+      "kind": "image",
+      "file": "assets/dateien/vorschau-datei.svg",
+      "title": "Vorschau und gespeicherte Datei",
+      "alt": "Die Anzeige im Browser zeigt zunächst eine Vorschau. Der Ablagenachweis ist das Öffnen von fundnotiz.txt aus dem eigenen Ordner und das Finden von BLAU-17.",
+      "caption": "Zum Nachweis reicht das Downloadangebot nicht. Öffne die Datei aus deinem eigenen Themenordner.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
+    },
+    {
+      "id": "datei-aenderungen",
+      "kind": "image",
+      "file": "assets/dateien/datei-aenderungen.svg",
+      "title": "Name, Ort oder zusätzliche Kopie?",
+      "alt": "Umbenennen ändert fundnotiz.txt zu flasche.txt im selben Ordner. Verschieben verlegt fundnotiz.txt von Downloads nach Fundbüro. Kopieren lässt die Datei in Downloads und erstellt eine weitere in Fundbüro.",
+      "caption": "Im Beispiel bleibt der Inhalt gleich. Spätere Änderungen an einer Kopie ändern die andere Datei nicht automatisch.",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen"
     }
   ],
   "knowledge": [
@@ -174,6 +218,10 @@
         "eigen",
         "apple",
         "windows"
+      ],
+      "media": [
+        "ipad-weg",
+        "windows-weg"
       ]
     },
     {
@@ -216,6 +264,9 @@
         "apple",
         "windows",
         "eigen"
+      ],
+      "media": [
+        "datei-aenderungen"
       ]
     },
     {
@@ -233,6 +284,9 @@
       ],
       "sources": [
         "eigen"
+      ],
+      "media": [
+        "vorschau-datei"
       ]
     }
   ],
@@ -498,7 +552,10 @@
               "items": [
                 {
                   "title": "Startort öffnen",
-                  "text": "Öffne die App „Dateien“. Tippe auf „Durchsuchen“ oder öffne die Seitenleiste. Öffne den Ort, den deine Lehrperson gezeigt hat."
+                  "text": "Öffne die App „Dateien“. Tippe auf „Durchsuchen“ oder öffne die Seitenleiste. Öffne den Ort, den deine Lehrperson gezeigt hat.",
+                  "media": [
+                    "ipad-weg"
+                  ]
                 },
                 {
                   "title": "Eigene Ordner anlegen",
@@ -521,7 +578,10 @@
                 },
                 {
                   "title": "Öffnen und zurückkehren",
-                  "text": "Tippe in deinem Themenordner auf die Datei. Steht BLAU-17 darin? Dann wechsle zurück zu dieser Seite im Browser."
+                  "text": "Tippe in deinem Themenordner auf die Datei. Steht BLAU-17 darin? Dann wechsle zurück zu dieser Seite im Browser.",
+                  "media": [
+                    "vorschau-datei"
+                  ]
                 }
               ],
               "device": "ipad"
@@ -536,7 +596,10 @@
               "items": [
                 {
                   "title": "Startort öffnen",
-                  "text": "Öffne den Datei-Explorer mit Windows-Taste + E. Öffne den Ort, den deine Lehrperson gezeigt hat."
+                  "text": "Öffne den Datei-Explorer mit Windows-Taste + E. Öffne den Ort, den deine Lehrperson gezeigt hat.",
+                  "media": [
+                    "windows-weg"
+                  ]
                 },
                 {
                   "title": "Eigene Ordner anlegen",
@@ -559,7 +622,10 @@
                 },
                 {
                   "title": "Öffnen und zurückkehren",
-                  "text": "Öffne die Datei in deinem Themenordner mit einem Doppelklick. Steht BLAU-17 darin? Dann wechsle zurück zu dieser Seite im Browser."
+                  "text": "Öffne die Datei in deinem Themenordner mit einem Doppelklick. Steht BLAU-17 darin? Dann wechsle zurück zu dieser Seite im Browser.",
+                  "media": [
+                    "vorschau-datei"
+                  ]
                 }
               ],
               "device": "windows"
@@ -810,7 +876,8 @@
       "paragraphs": [
         "Am eingesetzten Schulprofil Ordneranlage, Umbenennen, Verschieben und Öffnen von Textdateien erproben. Den erlaubten Startort zeigen und sichtbar notieren: „Heute starten wir hier: …“. Auch Downloadordner oder direkten Speicherweg zeigen; „lokal“ oder „Cloud“ allein genügt nicht.",
         "Fundnotiz und info.txt im Materialbereich prüfen; der Beetplan ist Zusatzübung. Bei Download-Sperre dieselben Dateien im Schulraum bereitstellen. Keine privaten Konten nutzen und vorhandene Dateien nicht ersetzen. Bei gleichem Namen einen neuen Übungsnamen wählen.",
-        "Für Schritt 4 das passende iPad- oder Windows-Blatt wählen; Hilfen und Lösungen sind zuschaltbar. Begriffs- und Planungsblätter funktionieren ohne Gerät."
+        "Für Schritt 4 das passende iPad- oder Windows-Blatt wählen; Hilfen und Lösungen sind zuschaltbar. Begriffs- und Planungsblätter funktionieren ohne Gerät.",
+        "Die neuen Gerätebilder sind ausdrücklich Modelle. Tragen Sie den konkreten Schulstartort vor dem Arbeiten ein und zeigen Sie dort Dateien-App beziehungsweise Explorer. Beim Nachweis aus dem Themenordner öffnen lassen; die Browser-Vorschau genügt nicht. Umbenennen, Verschieben und Kopieren innerhalb der Gerätephase am gleichen Übungsinhalt unterscheiden."
       ]
     },
     {
@@ -850,7 +917,8 @@
     "Prüfen Sie vorab den erlaubten Startort, die Ordneranlage und das Öffnen der Übungsdateien am Schulgerät. Zeigen Sie Startort und Downloadweg. iPad und Windows sind gleichwertig. Bei gesperrtem Download stellen Sie Fundnotiz und Materialliste im Schulraum bereit.",
     "Die erste Stunde verbindet Einstieg (8 Minuten), Beispiel und Begriffe (12), eigene Planung (10) und Gerätearbeit (15). In der zweiten folgen weitere Gerätearbeit (10), Wiederfinden und Verbessern (15), ein neuer Fall (10) sowie Reserve und Sicherung (10). Wurde zuvor der Geräte-Bogen bearbeitet, ist der dreiminütige Schichtenabruf bereits im Einstieg enthalten.",
     "Lassen Sie die eigene Ordnungsbegründung erklären und die richtige Datei vom Startort aus öffnen. Bei Schwierigkeiten helfen zunächst der Startort, dann die Gerätekarte. Geübte können bei der Planung beginnen. Kurze mündliche Erklärungen genügen.",
-    "Im neuen Fall gehört eine Materialliste zu zwei Vorhaben; unterschiedliche begründete Ablageorte sind möglich. Lernwerk-Antworten und echte Übungsdateien werden getrennt gesichert. Planen Sie später zehn Minuten Wiederfinden ohne Vorlage aus dem Jahreskonto ein. Fehlt der Gerätezugang, bleibt die praktische Handlung nachzuholen."
+    "Im neuen Fall gehört eine Materialliste zu zwei Vorhaben; unterschiedliche begründete Ablageorte sind möglich. Lernwerk-Antworten und echte Übungsdateien werden getrennt gesichert. Planen Sie später zehn Minuten Wiederfinden ohne Vorlage aus dem Jahreskonto ein. Fehlt der Gerätezugang, bleibt die praktische Handlung nachzuholen.",
+    "Die neuen Gerätebilder sind ausdrücklich Modelle. Tragen Sie den konkreten Schulstartort vor dem Arbeiten ein und zeigen Sie dort Dateien-App beziehungsweise Explorer. Beim Nachweis aus dem Themenordner öffnen lassen; die Browser-Vorschau genügt nicht. Umbenennen, Verschieben und Kopieren innerhalb der Gerätephase am gleichen Übungsinhalt unterscheiden."
   ],
   "learnerDuration": "Für diesen Lernbogen sind zwei Unterrichtsstunden vorgesehen. In einer späteren Stunde findest du deine Datei noch einmal wieder.",
   "workNotice": "Im Lernwerk sicherst du Antworten. Deine Übungsdateien liegen in „Dateien“ oder im Datei-Explorer. Eine Lernwerk-Arbeitsdatei nimmt diese Übungsdateien nicht mit.",
