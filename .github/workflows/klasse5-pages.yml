@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: 22.20.0
       - name: Check current Klasse 5 and published file map
-        run: node --test prototypes/shared/*.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-reinigungsfall/class5-pages.test.cjs
-      - name: Build current Klasse 5 only
-        run: node prototypes/m06-reinigungsfall/build-class5-pages.cjs
+        run: node --test prototypes/shared/*.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-reinigungsfall/class5-pages.test.cjs prototypes/recherche-beispiel/pages.test.cjs
+      - name: Build Klasse 5 and additional research example
+        run: node prototypes/recherche-beispiel/build.cjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload GitHub Pages artifact

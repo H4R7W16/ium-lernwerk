@@ -1,0 +1,5 @@
+BEETPLAN
+Im Klassenbeet soll Kresse wachsen.
+Dafür werden Erde, Saatgut und Wasser gebraucht.
+Kennzeichen der Übungsdatei: KRESSE-24.
+Dies ist ein erfundener Übungsfall.

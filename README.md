@@ -4,7 +4,7 @@
 
 Das aktuelle Lernwerk für Informatik und Medienbildung in Klasse 5 bündelt sechs Reihen und ergänzende Werkstätten unter einer gemeinsamen Oberfläche. Die neue Gestaltung verwendet die IuM-Wortmarke und Blau als Akzentfarbe für Klasse 5. Der Stand ist zur Sichtung und Erprobung bestimmt; eine gemessene Lernwirkung oder vollständige Prüfung auf Schulgeräten ist damit nicht behauptet.
 
-GitHub Pages veröffentlicht ausschließlich `klasse5/` sowie einen Wurzeleinstieg dorthin. Frühere Fassungen bleiben im Quellcode erhalten, sind aber auf GitHub Pages nicht mehr als eigene Lernseiten verfügbar. Der [Klasse-5-Pages-Workflow](.github/workflows/klasse5-pages.yml) baut die statische Ausgabe aus den Quellen; ältere Pages-Deployjobs sind stillgelegt.
+GitHub Pages veröffentlicht die bisherige Fassung unter `klasse5/` mit unverändertem Wurzeleinstieg sowie ein zusätzliches Recherche-Beispiel unter `beispiele/recherche/`. Frühere Fassungen bleiben im Quellcode erhalten, sind aber auf GitHub Pages nicht mehr als eigene Lernseiten verfügbar. Der [Klasse-5-Pages-Workflow](.github/workflows/klasse5-pages.yml) baut die statische Ausgabe aus den Quellen; ältere Pages-Deployjobs sind stillgelegt.
 
 ## Früheres Beispiel: Sauber geplant (Quellcode)
 
@@ -198,3 +198,7 @@ python -B scripts/validate_phase0.py
 ## Lizenzen
 
 Eigener Validierungscode steht unter der [MIT-Lizenz](LICENSE). Eigene inhaltliche Repository-Beiträge stehen unter [CC BY-SA 4.0](LICENSE-CONTENT.md), sofern eine Datei nicht ausdrücklich etwas anderes festlegt. Material Dritter behält seine jeweils ausgewiesene Lizenz.
+
+## Zusätzliches Recherche-Beispiel · 13.10.2026
+
+Der [neue Recherche-Lernweg mit Leas Film](https://h4r7w16.github.io/ium-lernwerk/beispiele/recherche/) ist ein zusätzliches Angebot. Die bisherigen Klasse-5-Seiten und der Wurzeleinstieg bleiben unverändert. [Übersicht der zusätzlichen Beispiele](https://h4r7w16.github.io/ium-lernwerk/beispiele/) · [Quelle und Sichtungsstand](prototypes/recherche-beispiel/README.md).
