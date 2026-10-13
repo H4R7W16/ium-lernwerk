@@ -330,7 +330,7 @@ test('CI validates Gate-B without adding a deployment path or a fifth job', asyn
 });
 
 
-test('publishes only the current Klasse 5 export and retires older Pages deployments', async () => {
+test('publishes unchanged Klasse 5 plus the additional research example and retires older deployments', async () => {
   const source = await readFile('.github/workflows/klasse5-pages.yml', 'utf8').catch(() => '');
   expect(source, 'Klasse-5-Pages-Workflow fehlt').not.toBe('');
   if (!source) return;
@@ -345,8 +345,11 @@ test('publishes only the current Klasse 5 export and retires older Pages deploym
   expect(Object.keys(workflow.jobs)).toEqual(['build', 'deploy']);
   const build = workflow.jobs.build!;
   expect(build.permissions).toEqual({ contents: 'read' });
-  expect(build.steps?.find(step => step.run?.includes('build-class5-pages.cjs'))?.run)
-    .toBe('node prototypes/m06-reinigungsfall/build-class5-pages.cjs');
+  expect(build.steps?.find(step => step.run?.includes('prototypes/recherche-beispiel/build.cjs'))?.run)
+    .toBe('node prototypes/recherche-beispiel/build.cjs');
+  const checks = build.steps?.find(step => step.run?.startsWith('node --test '))?.run ?? '';
+  expect(checks).toContain('prototypes/m06-reinigungsfall/class5-pages.test.cjs');
+  expect(checks).toContain('prototypes/recherche-beispiel/pages.test.cjs');
   expect(build.steps?.find(step => step.uses === 'actions/upload-pages-artifact@v4')?.with)
     .toEqual({ path: 'dist/klasse5-pages' });
   const deploy = workflow.jobs.deploy!;
