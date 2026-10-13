@@ -1,0 +1,1173 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M04-CODIERUNGEN",
+  "area": "codierungen",
+  "grade": 6,
+  "version": "1.1.0",
+  "family": "content",
+  "topic": "Codierungen",
+  "title": "Welcher Code bringt die Nachricht ans Ziel?",
+  "description": "Wie kann eine Anzeige ohne Buchstaben eine Nachricht zeigen? Probiere es aus. Codiere danach deine eigene Nachricht, prüfe einen Fehler und wähle einen passenden Code.",
+  "product": "Deine eigene Nachricht: zwei Codes, zurückgelesene Texte, ein untersuchter Fehler und deine begründete Codewahl.",
+  "prerequisites": [
+    "Papier und Stift oder die Textfelder im Lernwerk",
+    "Zeichen in einer Tabelle nachschlagen; Binärzahlen musst du nicht berechnen können"
+  ],
+  "teacher": [
+    "Zwei vollständige Übungsvorschriften dienen dem Anwenden und begründeten Vergleichen. Eigene Modelle, keine ASCII-, Unicode- oder Braille-Tabelle."
+  ],
+  "duration": "180 Kernminuten. Später 7 Minuten vor M05 und 7 vor M07 aus dem Jahresabrufkonto.",
+  "learnerDuration": "Vier Unterrichtsstunden. Die Tabelle bleibt dein Werkzeug. Zwei kurze Wiederholungen folgen in späteren Stunden.",
+  "workNotice": "Arbeite auf Papier oder in den Textfeldern. Bewahre Original und Revision auf. Die Lernwerk-Arbeitsdatei sichert Textantworten; Papierblätter bewahrst du selbst auf.",
+  "curriculum": {
+    "moduleId": "G6-M04",
+    "goalIds": [
+      "3.1.2.2(9)",
+      "3.1.2.2(10)",
+      "3.1.2.2(11)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Aktives Mapping zur Anhörungsfassung 21.09.2026, Planung dee82ec. Zwecke erklären, zwei Vorschriften anwenden und passend wählen. Beispielverfahren sind keine vollständige Pflichtliste. Kein Braillekurs oder Nachweis realer Fernübertragung."
+  },
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Aktives Mapping G6-M04 auf dee82ec, S. 37: 3.1.2.2(9–11). Keine Behauptung aktueller Inkraftsetzung."
+    },
+    {
+      "id": "braille",
+      "title": "Wie die Brailleschrift funktioniert",
+      "author": "Deutscher Blinden- und Sehbehindertenverband",
+      "url": "https://www.dbsv.org/wie-die-brailleschrift-funktioniert.html",
+      "note": "Sechs tastbare Punkte und Empfängerkenntnis; nur Zweckbeispiel, kein Braillekurs.",
+      "license": "Verlinkte Primärquelle; keine fremden Abbildungen oder Tabellen übernommen",
+      "checked": "2026-10-05"
+    },
+    {
+      "id": "unicode",
+      "title": "Unicode: Grundfragen zur Zeichencodierung",
+      "author": "Unicode Consortium",
+      "url": "https://www.unicode.org/faq/basic_q.html",
+      "note": "Standardisierte Zuordnung; Z und B sind ausdrücklich eigene Übungscodes.",
+      "license": "Verlinkte Primärquelle; keine fremden Abbildungen oder Tabellen übernommen",
+      "checked": "2026-10-05"
+    },
+    {
+      "id": "utf",
+      "title": "Unicode: UTF-8, UTF-16 und UTF-32",
+      "author": "Unicode Consortium",
+      "url": "https://www.unicode.org/faq/utf_bom.html",
+      "note": "Keine Gleichsetzung mit unserem Fünf-Bit-Modell.",
+      "license": "Verlinkte Primärquelle; keine fremden Abbildungen oder Tabellen übernommen",
+      "checked": "2026-10-05"
+    }
+  ],
+  "media": [
+    {
+      "id": "rueckweg",
+      "kind": "image",
+      "title": "Eine Nachricht, zwei Vorschriften",
+      "creator": "IuM-Lernwerk · eigene Darstellung",
+      "license": "CC BY-SA 4.0",
+      "file": "assets/codierungen/rueckweg.svg",
+      "sourceId": "bildungsplan",
+      "alt": "D wird mit Z zu 04 und mit B zu 00100. Mit derselben Tabelle führt der Rückweg jeweils zu D. Führende Nullen gehören zum Code.",
+      "caption": "Gleicher Buchstabe, verschiedene Darstellung. Die vereinbarte Vorschrift entscheidet über den Rückweg."
+    },
+    {
+      "id": "codetabelle",
+      "kind": "download",
+      "title": "Codetabelle als Textdatei",
+      "creator": "IuM-Lernwerk · eigene Vorschriften",
+      "license": "CC BY-SA 4.0",
+      "file": "assets/codierungen/codetabelle.txt",
+      "sourceId": "bildungsplan",
+      "printText": "M04 · Zwei eigene Übungscodes · IuM-Lernwerk · CC BY-SA 4.0\n\nNur A bis Z und Leerzeichen. Z: feste Zweiergruppen, B: feste Fünfergruppen. Führende Nullen erhalten. Abstände zwischen Gruppen sind Lesehilfen; das Leerzeichen im Original hat eine eigene Gruppe. Nachrichtenbeginn und Gruppenlänge müssen vereinbart sein. Keine Umlaute, Kleinbuchstaben oder Satzzeichen. Eigene Unterrichtsmodelle, keine Standardcodierung und keine Geheimhaltung.\n\nOriginal | Z | B\nLeerzeichen | 00 | 00000\nA | 01 | 00001\nB | 02 | 00010\nC | 03 | 00011\nD | 04 | 00100\nE | 05 | 00101\nF | 06 | 00110\nG | 07 | 00111\nH | 08 | 01000\nI | 09 | 01001\nJ | 10 | 01010\nK | 11 | 01011\nL | 12 | 01100\nM | 13 | 01101\nN | 14 | 01110\nO | 15 | 01111\nP | 16 | 10000\nQ | 17 | 10001\nR | 18 | 10010\nS | 19 | 10011\nT | 20 | 10100\nU | 21 | 10101\nV | 22 | 10110\nW | 23 | 10111\nX | 24 | 11000\nY | 25 | 11001\nZ | 26 | 11010\n\nCodieren: Original von links nach rechts Zeichen für Zeichen zuordnen. Decodieren: ab bekanntem Anfang in feste Gruppen teilen, jede Gruppe zurück nachschlagen. Ungültige Gruppe markieren, nicht raten. Ein anderes gültiges Zeichen kann trotzdem durch einen Fehler entstanden sein. Zum sicheren Korrigieren braucht man zusätzliche Information, etwa das Original oder eine Rückfrage.\n"
+    },
+    {
+      "id": "lampen",
+      "kind": "image",
+      "file": "assets/codierungen/lampen.svg",
+      "title": "Fünf feste Lampenplätze",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "bildungsplan",
+      "alt": "A wird als 00001 gezeigt: Die Plätze 1 bis 4 sind aus, Platz 5 ist an. Von links nach rechts lesen.",
+      "caption": "Unser Anzeigemodell: fünf Plätze gleichzeitig. 0 heißt aus, 1 heißt an."
+    },
+    {
+      "id": "tasten",
+      "kind": "image",
+      "file": "assets/codierungen/tasten.svg",
+      "title": "Gedruckte und erhöhte Punkte",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "bildungsplan",
+      "alt": "Seitenansicht: Gedruckte Punkte liegen flach auf der Oberfläche. Erhöhte Punkte ragen darüber und lassen sich ertasten. Das Schema zeigt keine Braillezeichen.",
+      "caption": "Seitenansicht als Erklärung: Nur erhöhte Punkte sind tastbar. Dies ist keine Brailletabelle."
+    }
+  ],
+  "preview": "rueckweg",
+  "knowledge": [
+    {
+      "id": "zweck",
+      "title": "Warum gibt es verschiedene Codes?",
+      "paragraphs": [
+        "Codieren bedeutet hier: Zeichen nach einer vereinbarten Vorschrift in andere Zeichenfolgen umwandeln. Decodieren ist der Rückweg. Der Inhalt soll erhalten bleiben; seine Darstellung ändert sich.",
+        "Ein Code muss zum Weg und zu den Empfängern passen. Welche Zeichen kann der Weg unterscheiden? Wie viel Platz gibt es? Kennt die empfangende Person oder Maschine die Regel?"
+      ],
+      "example": "Die Lampenanzeige kann kein D zeigen. Mit der vereinbarten Folge 00100 zeigt sie aus – aus – an – aus – aus. Das Team liest mit derselben Tabelle wieder D.",
+      "boundary": "Ein Code ist nicht automatisch geheim. Wer unsere öffentliche Tabelle kennt, kann beide Folgen lesen.",
+      "steps": [
+        "zweck",
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "regel",
+      "title": "Wie bleiben die Gruppen eindeutig?",
+      "paragraphs": [
+        "Z ordnet jedem erlaubten Originalzeichen genau zwei Ziffern zu. B nutzt immer fünf Zeichen aus 0 und 1. Lies ab dem vereinbarten Nachrichtenbeginn. Führende Nullen sind wichtig.",
+        "Zwischenräume zwischen Codegruppen sind nur Lesehilfen. Das Leerzeichen im Original wird bei Z zu 00, bei B zu 00000. Ohne Leseabstände bleibt die Rückübersetzung möglich, solange Anfang und feste Gruppenlänge bekannt sind."
+      ],
+      "example": "020104 wird in 02 | 01 | 04 geteilt und bedeutet BAD. B: 00010 | 00001 | 00100 bedeutet ebenfalls BAD.",
+      "boundary": "Ohne festgelegten Anfang oder bei verlorenen Zeichen kann die Einteilung verrutschen. Unser Modell legt den Beginn fest; es löst keine echte Synchronisation.",
+      "steps": [
+        "regeln",
+        "ueben",
+        "grenzen",
+        "nachricht",
+        "stoerung",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "umfang",
+      "title": "Welche Originale sind darstellbar?",
+      "paragraphs": [
+        "Beide Tabellen enthalten nur A bis Z und ein Leerzeichen. Die Gruppen 27–99 bei Z und 11011–11111 bei B sind nicht vergeben.",
+        "Kleinbuchstaben, Umlaute, Ziffern im Original und Satzzeichen fehlen. Nichts stillschweigend weglassen. FÜR in FUER umzuschreiben verändert das Original nach einer zusätzlichen Vereinbarung."
+      ],
+      "example": "TOR A hat fünf Originalzeichen: T, O, R, Leerzeichen, A. Z benötigt zehn, B fünfundzwanzig Codestellen.",
+      "boundary": "B ist ein kleiner Code aus zwei Zeichen, keine allgemein gültige Computertabelle. Unicode und UTF decken viel mehr Zeichen und andere Regeln ab.",
+      "steps": [
+        "regeln",
+        "grenzen",
+        "nachricht",
+        "transfer"
+      ],
+      "sources": [
+        "unicode",
+        "utf",
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "fehler",
+      "title": "Kann ein gültiger Code trotzdem falsch sein?",
+      "paragraphs": [
+        "Prüfe Gruppenlänge und Tabellenwert. Eine ungültige Gruppe passt nicht zur Regel. Sie verrät noch nicht automatisch das beabsichtigte Original.",
+        "Eine gültige Gruppe kann durch einen Fehler entstehen. Die Tabelle allein erkennt dann die Änderung nicht. Zum verlässlichen Korrigieren brauchst du zusätzliche Information, etwa Original oder Rückfrage."
+      ],
+      "example": "Z: Aus 18 | 01 | 04 (RAD) wird durch Ersetzen der 8 eine 19 | 01 | 04 (SAD). Jede Gruppe ist gültig.",
+      "boundary": "Auch ein sinnvoll klingendes Wort beweist keine fehlerfreie Übertragung. Unsere Codes erkennen oder korrigieren nicht alle Fehler und verschlüsseln die Nachricht nicht.",
+      "steps": [
+        "grenzen",
+        "stoerung",
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "wahl",
+      "title": "Wie begründe ich eine Codewahl?",
+      "paragraphs": [
+        "Prüfe: Ist jedes Originalzeichen darstellbar? Kann der Weg alle benötigten Codezeichen übertragen und reicht sein Platz? Versteht der Empfänger die Regel?",
+        "In unserem Modell zeigt die Lampenanzeige nur aus/an, also 0/1. Die Ziffernanzeige zeigt 0–9. Jeder Platz zeigt genau eines dieser Zeichen. Vergleiche nie nur die Stellenzahl ohne die verfügbaren Zeichen."
+      ],
+      "example": "TOR A braucht Z: 10 Ziffernstellen; B: 25 Stellen nur mit 0 oder 1. Welche Variante passt, hängt vom Weg ab.",
+      "boundary": "Kürzer bedeutet nicht automatisch schneller oder zuverlässiger. Wir messen keine echte Übertragungsdauer oder Störungen eines realen Netzes.",
+      "steps": [
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "bildungsplan"
+      ]
+    },
+    {
+      "id": "zugang",
+      "title": "Warum ist ein Punktbild noch keine tastbare Schrift?",
+      "paragraphs": [
+        "Brailleschrift ermöglicht Lesen durch Tasten. In der Grundform bilden Kombinationen aus sechs möglichen erhöhten Punkten Zeichen. Die lesende Person muss Zuordnung und weitere Schriftregeln kennen.",
+        "Ein flach gedrucktes oder angezeigtes Punktmuster hat keine tastbaren Erhebungen. Große bunte Zeichen allein lösen diese Anforderung nicht."
+      ],
+      "example": "Eine Person mit Braillekenntnissen kann eine tatsächlich tastbare Beschriftung mit den Fingern lesen. Ein Foto bietet diese Möglichkeit nicht.",
+      "boundary": "Nicht jede blinde Person liest Braille. Den geeigneten Zugang mit der Person klären; unsere Übungscodes ersetzen keine zugängliche Alltagsschrift.",
+      "steps": [
+        "zweck",
+        "transfer"
+      ],
+      "sources": [
+        "braille"
+      ],
+      "media": [
+        "tasten"
+      ]
+    },
+    {
+      "id": "computer",
+      "title": "Zusatzwissen: Wie machen Computer das?",
+      "paragraphs": [
+        "Computer müssen sich ebenfalls auf die Darstellung von Zeichen einigen. Unicode ordnet Zeichen gemeinsame Werte zu. UTF-8 legt fest, wie diese Werte in Bytes gespeichert oder übertragen werden.",
+        "Unsere kleine Tabelle B zeigt nur das Grundprinzip einer vereinbarten Zuordnung. Sie ist weder Unicode noch UTF-8. Du brauchst diese Standards für unsere Aufgaben nicht anzuwenden."
+      ],
+      "example": "Unser D wird zu 00100. Daraus darfst du nicht schließen, dass eine Textdatei D genauso speichert.",
+      "boundary": "Unsere zwei Übungscodes sind keine vollständigen Computercodierungen.",
+      "steps": [
+        "regeln"
+      ],
+      "sources": [
+        "unicode",
+        "utf"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "zweck",
+      "title": "Eine Nachricht ohne Buchstaben",
+      "goal": "Einen Buchstaben mit zwei Zuständen darstellen und zurücklesen.",
+      "task": "Hilf dem Team am Spielfeldrand: Stelle einen Buchstaben mit aus und an dar.",
+      "outcome": "Eine eigene Lampenfolge, ein zurückgelesener Buchstabe und eine Erklärung.",
+      "knowledge": [
+        "zweck",
+        "regel"
+      ],
+      "criteria": [
+        "Ich ordne jedem der fünf Plätze aus oder an zu.",
+        "Ich erkläre, warum das Team dieselbe Tabelle braucht."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Treffpunkt am Spielfeld",
+          "text": "Beim Sportfest soll das Team erfahren, an welchem Treffpunkt es sich sammelt. Die Anzeige am Rand zeigt keine Buchstaben. Sie hat fünf Lampenplätze: Jeder ist entweder aus oder an. Alle fünf werden gleichzeitig gezeigt; die linke Seite ist markiert.",
+          "paragraphs": [
+            "Wir vereinbaren: 0 bedeutet aus, 1 bedeutet an. Team und sendende Person haben dieselbe Tabelle. Das ist unser Unterrichtsmodell, keine Anleitung für eine echte Anzeigetafel."
+          ],
+          "table": {
+            "headers": [
+              "Treffpunkt",
+              "Fünf Plätze im Code B"
+            ],
+            "rows": [
+              [
+                "A",
+                "00001"
+              ],
+              [
+                "B",
+                "00010"
+              ],
+              [
+                "C",
+                "00011"
+              ],
+              [
+                "D",
+                "00100"
+              ],
+              [
+                "E",
+                "00101"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "example",
+          "title": "So sieht A aus",
+          "text": "A wird zu 00001: aus – aus – aus – aus – an. Der letzte Platz leuchtet. Beim Rückweg liest das Team 00001 und findet in der Tabelle A.",
+          "media": [
+            "lampen"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "begruendung",
+          "title": "Jetzt du: Treffpunkt D",
+          "text": "Suche D. Schreibe für alle fünf Plätze aus oder an. Lies danach die empfangene Folge 00101 zurück: An welchem Treffpunkt soll sich das Team sammeln?",
+          "prompt": "D als aus/an-Folge; Treffpunkt zu 00101.",
+          "responseHint": "D: ___ – ___ – ___ – ___ – ___. Empfangene Folge: ___.",
+          "help": [
+            {
+              "title": "Ein Platz nach dem anderen",
+              "text": "Die erste 0 bedeutet aus. Bearbeite jede weitere Stelle genauso; keine Stelle auslassen."
+            }
+          ],
+          "solution": "D: 00100, also aus – aus – an – aus – aus. 00101 bedeutet E."
+        },
+        {
+          "type": "task",
+          "id": "zweck",
+          "title": "Warum brauchen wir einen Code?",
+          "text": "Erkläre: Warum schreiben wir D nicht einfach auf die Anzeige? Was muss das Team wissen, damit die fünf Lampen einen Treffpunkt bedeuten?",
+          "prompt": "Die Anzeige kann … Deshalb … Das Team braucht …",
+          "responseMode": "oral",
+          "solution": "Die Anzeige kann nur aus oder an zeigen, keine Buchstaben. Die vereinbarte Zuordnung stellt D trotzdem dar. Das Team braucht die passende Tabelle und muss wissen, wo links begonnen wird. Ein unbekanntes Muster ist nicht automatisch geheim."
+        }
+      ],
+      "materialNeeds": [
+        "Die kleine A–E-Tabelle ist im Auftrag enthalten",
+        "Papier mit fünf Kästchen und Stift oder Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Womit fange ich an?",
+          "text": "Suche D in der kleinen Tabelle. Lies seine fünf Stellen von links nach rechts. Für jede 0 schreibst du aus, für jede 1 an."
+        }
+      ]
+    },
+    {
+      "id": "regeln",
+      "title": "Regeln und Tabelle",
+      "goal": "Du benutzt die Vorschrift in beide Richtungen.",
+      "task": "Lies das kurze Beispiel. Probiere dann selbst eine Zuordnung aus. Die vollständige Tabelle steht weiter unten.",
+      "outcome": "Du kannst ein Zeichen in beide Richtungen zuordnen und die Nullen erklären.",
+      "knowledge": [
+        "regel",
+        "umfang",
+        "computer"
+      ],
+      "criteria": [
+        "Ich erhalte führende Nullen und feste Gruppen.",
+        "Ich unterscheide Leseabstand und codiertes Leerzeichen."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "D hin und zurück",
+          "text": "D → 04 → D: Code Z nutzt zwei Ziffern für einen Buchstaben. D → 00100 → D: Code B nutzt fünf Stellen, jeweils 0 oder 1. Codieren heißt: nach einer Regel umwandeln. Decodieren heißt: nach derselben Regel zurücklesen.",
+          "media": [
+            "rueckweg"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "Aus Zeichen wird eine Nachricht",
+          "text": "Für BAD suchen wir drei Tabellenzeilen.",
+          "table": {
+            "headers": [
+              "Buchstabe",
+              "B",
+              "A",
+              "D"
+            ],
+            "rows": [
+              [
+                "Code Z",
+                "02",
+                "01",
+                "04"
+              ],
+              [
+                "Code B",
+                "00010",
+                "00001",
+                "00100"
+              ]
+            ]
+          },
+          "items": [
+            "Zusammensetzen: Z = 02 01 04; B = 00010 00001 00100.",
+            "Zurücklesen: 020104 ab links in Zweiergruppen teilen: 02 | 01 | 04. Jede Gruppe nachschlagen → B | A | D.",
+            "Bei B immer fünf Stellen zusammen lesen. Der Anfang muss vereinbart sein."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "zeigen",
+          "title": "Warum bleibt die Null?",
+          "text": "Im Code Z steht D für 04. Eine Person schreibt nur 4. Erkläre mit den Zweiergruppen, warum das beim Zusammenfügen der Nachricht Probleme macht.",
+          "prompt": "Warum gehören beide Stellen zu D?",
+          "responseMode": "oral",
+          "solution": "Jedes Zeichen braucht genau zwei Stellen. Fehlt eine Null, können beim Zusammenfügen die Grenzen der folgenden Gruppen verrutschen. Auch bei B müssen alle fünf Stellen stehen bleiben."
+        },
+        {
+          "type": "explanation",
+          "title": "Die vollständige Codetabelle",
+          "text": "Erlaubt sind A–Z und das Leerzeichen. Die Tabelle musst du nicht auswendig lernen.",
+          "paragraphs": [
+            "Das Leerzeichen gehört zur Nachricht: Es wird zu 00 oder 00000. Kleine Abstände zwischen Codegruppen helfen nur beim Lesen. Sie sind keine weiteren Zeichen der Nachricht.",
+            "Kleinbuchstaben, Umlaute und Satzzeichen fehlen in unserer Tabelle. Ändere eine Nachricht nicht heimlich. Die Gruppen 27–99 in Z und 11011–11111 in B sind nicht vergeben."
+          ],
+          "table": {
+            "headers": [
+              "Original",
+              "Code Z",
+              "Code B"
+            ],
+            "rows": [
+              [
+                "Leerzeichen",
+                "00",
+                "00000"
+              ],
+              [
+                "A",
+                "01",
+                "00001"
+              ],
+              [
+                "B",
+                "02",
+                "00010"
+              ],
+              [
+                "C",
+                "03",
+                "00011"
+              ],
+              [
+                "D",
+                "04",
+                "00100"
+              ],
+              [
+                "E",
+                "05",
+                "00101"
+              ],
+              [
+                "F",
+                "06",
+                "00110"
+              ],
+              [
+                "G",
+                "07",
+                "00111"
+              ],
+              [
+                "H",
+                "08",
+                "01000"
+              ],
+              [
+                "I",
+                "09",
+                "01001"
+              ],
+              [
+                "J",
+                "10",
+                "01010"
+              ],
+              [
+                "K",
+                "11",
+                "01011"
+              ],
+              [
+                "L",
+                "12",
+                "01100"
+              ],
+              [
+                "M",
+                "13",
+                "01101"
+              ],
+              [
+                "N",
+                "14",
+                "01110"
+              ],
+              [
+                "O",
+                "15",
+                "01111"
+              ],
+              [
+                "P",
+                "16",
+                "10000"
+              ],
+              [
+                "Q",
+                "17",
+                "10001"
+              ],
+              [
+                "R",
+                "18",
+                "10010"
+              ],
+              [
+                "S",
+                "19",
+                "10011"
+              ],
+              [
+                "T",
+                "20",
+                "10100"
+              ],
+              [
+                "U",
+                "21",
+                "10101"
+              ],
+              [
+                "V",
+                "22",
+                "10110"
+              ],
+              [
+                "W",
+                "23",
+                "10111"
+              ],
+              [
+                "X",
+                "24",
+                "11000"
+              ],
+              [
+                "Y",
+                "25",
+                "11001"
+              ],
+              [
+                "Z",
+                "26",
+                "11010"
+              ]
+            ]
+          }
+        }
+      ],
+      "materialNeeds": [
+        "Die Tabelle ist auf diesem Blatt enthalten",
+        "Papier und Stift oder Textfelder"
+      ],
+      "checkHelp": [
+        {
+          "title": "Wenn du festhängst",
+          "text": "Zeige eine einzelne Stelle und erkläre deinen nächsten Schritt. Vergleiche danach mit der passenden Regel.",
+          "knowledge": "regel",
+          "label": "Erklärung nachschlagen"
+        }
+      ]
+    },
+    {
+      "id": "ueben",
+      "title": "In beide Richtungen üben",
+      "goal": "Du codierst und decodierst mit beiden Vorschriften.",
+      "task": "Bearbeite die kurzen Teilaufträge nacheinander. Vergleiche jeweils erst nach deinem Versuch.",
+      "outcome": "Zwei eigene Codes, zwei gelesene Wörter und ein codiertes Leerzeichen.",
+      "knowledge": [
+        "regel",
+        "umfang"
+      ],
+      "criteria": [
+        "Ich ordne Zeichen einzeln zu.",
+        "Ich decodiere ab dem Anfang in der richtigen Gruppenlänge."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "wege",
+          "title": "1. TOR mit Code Z",
+          "text": "Suche T, O und R in der Tabelle. Schreibe für jeden Buchstaben seine zwei Ziffern auf.",
+          "prompt": "T → … | O → … | R → …",
+          "responseHint": "Lass zwischen den Zweiergruppen einen Leseabstand: zwei Ziffern je Buchstabe.",
+          "help": [
+            {
+              "title": "Die erste Zuordnung",
+              "text": "Suche die Zeile T und gehe zur Spalte Code Z. Die beiden Ziffern gehören zusammen. Fahre mit O fort."
+            }
+          ],
+          "solution": "T → 20 | O → 15 | R → 18. Zusammen: 20 15 18."
+        },
+        {
+          "type": "task",
+          "id": "tor-b",
+          "title": "2. TOR mit Code B",
+          "text": "Nutze dieselben Zeilen, diesmal die Spalte Code B.",
+          "prompt": "T → … | O → … | R → …",
+          "responseHint": "Prüfe nach jeder Gruppe: Sind es genau fünf Stellen?",
+          "solution": "T → 10100 | O → 01111 | R → 10010."
+        },
+        {
+          "type": "task",
+          "id": "lesen-z",
+          "title": "3. Z zurücklesen",
+          "text": "Teile 08012119 von links in Zweiergruppen. Suche jede Gruppe in der Spalte Z.",
+          "prompt": "Meine Gruppen → mein Wort",
+          "help": [
+            {
+              "title": "Der Anfang",
+              "text": "Die ersten zwei Stellen sind 08. In der Tabelle steht bei 08 der Buchstabe H. Lies ab der dritten Stelle weiter."
+            }
+          ],
+          "solution": "08 | 01 | 21 | 19 → H | A | U | S → HAUS."
+        },
+        {
+          "type": "task",
+          "id": "lesen-b",
+          "title": "4. B zurücklesen",
+          "text": "Lies 00010 10101 10011. Die Fünfergruppen sind schon getrennt.",
+          "prompt": "Mein Wort",
+          "solution": "00010 | 10101 | 10011 → B | U | S → BUS."
+        },
+        {
+          "type": "task",
+          "id": "leerzeichen",
+          "title": "5. Die Lücke gehört dazu",
+          "text": "Codiere A B mit beiden Codes. Zwischen A und B steht ein Leerzeichen.",
+          "prompt": "Z: … | … | … ; B: … | … | …",
+          "responseHint": "Die mittlere Gruppe muss die Lücke darstellen.",
+          "solution": "Z: 01 | 00 | 02. B: 00001 | 00000 | 00010. Die mittlere Gruppe steht für das Leerzeichen der Nachricht."
+        },
+        {
+          "type": "task",
+          "id": "nachbessern",
+          "title": "Prüfen und weiterdenken",
+          "text": "Vergleiche deine Ergebnisse. Verbessere eine falsche Stelle und erkläre den Grund. Wenn alles stimmt: Entferne nur die Leseabstände aus einem Code. Erkläre, wie man ihn trotzdem lesen kann.",
+          "prompt": "Meine Korrektur oder meine Erklärung zum Lesen ohne Abstände.",
+          "solution": "Beispiel: 201518 lässt sich ab dem bekannten Anfang in 20 | 15 | 18 teilen. Das funktioniert wegen der festen Zweiergruppen. Eine fehlende Null wäre dagegen kein bloßer Leseabstand."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Markiere genau die Stelle, an der du unsicher bist. Suche ihre Tabellenzeile und lies die passende Spalte. Vergleiche erst danach mit der Lösung."
+        }
+      ]
+    },
+    {
+      "id": "grenzen",
+      "title": "Wo scheitert die Rückübersetzung?",
+      "goal": "Du unterscheidest uneindeutige Regeln, ungültige Gruppen und unbemerkte Fehler.",
+      "task": "Untersuche die Fälle mit einer konkreten Stelle als Beleg.",
+      "outcome": "Drei begründete Fehlerdiagnosen.",
+      "knowledge": [
+        "regel",
+        "umfang",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich erkenne fehlende Informationen.",
+        "Ich gebe eine Vermutung nicht als sichere Reparatur aus."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Gültig heißt nicht fehlerfrei",
+          "text": "RAD wird mit Z zu 18 01 04. Die 8 wird durch 9 ersetzt: 19 01 04. Rückübersetzung: SAD. Alle Gruppen stehen in der Tabelle.",
+          "paragraphs": [
+            "Mit bekanntem Original lässt sich die erste Gruppe zu 18 korrigieren. Wer nur 19 01 04 empfängt, kann den Fehler aus der Tabelle allein nicht beweisen. Ein komisch klingendes Wort ist kein sicherer Test."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "diagnose",
+          "title": "1. Wo endet ein Zeichen?",
+          "text": "Eine andere Regel lautet A=1 und K=11. Es gibt keine festen Gruppen und keine Trennzeichen. Nenne zwei mögliche Nachrichten zu 111.",
+          "prompt": "111 könnte … oder … bedeuten.",
+          "solution": "AAA (1|1|1), AK (1|11) oder KA (11|1). Ohne weitere Regel ist die Nachricht nicht eindeutig."
+        },
+        {
+          "type": "task",
+          "id": "ungueltig",
+          "title": "2. Eine Gruppe fehlt in der Tabelle",
+          "text": "In Code Z kommt 20 27 18 an. Welche Gruppe ist nicht vergeben? Weißt du deshalb schon, welcher Buchstabe gemeint war?",
+          "prompt": "Ungültige Gruppe; was ich weiß; was ich nachfragen muss.",
+          "help": [
+            {
+              "title": "Nicht raten",
+              "text": "Suche 27 in der Tabelle. Du weißt, dass diese Gruppe nicht passt. Die Absicht der sendenden Person steht dort aber nicht."
+            }
+          ],
+          "solution": "27 ist nicht vergeben. Welcher Buchstabe gemeint war, lässt sich daraus nicht sicher bestimmen. Original erfragen oder neu senden lassen."
+        },
+        {
+          "type": "task",
+          "id": "zeichen",
+          "title": "3. Passt jede Nachricht?",
+          "text": "Du sollst Tür! genau so codieren. Prüfe alle vier Zeichen in unserer Tabelle.",
+          "prompt": "Was fehlt? Darf ich einfach TUER schreiben?",
+          "solution": "ü, r und ! fehlen. TUER wäre eine veränderte Schreibweise, die man erst vereinbaren müsste. Sie gibt Tür! nicht genau wieder."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Markiere genau die Stelle, an der du unsicher bist. Suche ihre Tabellenzeile und lies die passende Spalte. Vergleiche erst danach mit der Lösung."
+        }
+      ]
+    },
+    {
+      "id": "nachricht",
+      "title": "Deine eigene Nachricht",
+      "goal": "Du schreibst deine eigene Nachricht in beiden Codes und liest sie zurück.",
+      "task": "Schreibe eine eigene kurze Nachricht. Codiere sie und lies beide Codes mit verdecktem Original zurück.",
+      "outcome": "Deine Nachricht, zwei selbst geschriebene Codes und beide zurückgelesenen Texte.",
+      "knowledge": [
+        "regel",
+        "umfang"
+      ],
+      "criteria": [
+        "Meine Nachricht enthält ein Leerzeichen.",
+        "Ich habe beide Codes mit verdecktem Original zurückgelesen.",
+        "Ich sage, ob ich selbst oder eine andere Person gelesen habe."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "akte",
+          "title": "1. Deine Nachricht wählen",
+          "text": "Schreibe zwei kurze Wörter für dein Team: zum Beispiel einen Treffpunkt oder eine Spielanweisung. Verwende A–Z und genau ein Leerzeichen. Zusammen sollen es fünf bis acht Zeichen sein. Wähle eine neue Nachricht.",
+          "prompt": "Meine ursprüngliche Nachricht",
+          "responseHint": "Zähle auch die Lücke mit. Beispiel nur für die Länge: drei Buchstaben + Lücke + zwei Buchstaben = sechs Zeichen.",
+          "help": [
+            {
+              "title": "Meine Nachricht passt nicht",
+              "text": "Formuliere bewusst eine kürzere Nachricht mit erlaubten Zeichen. Lass nicht heimlich einen Buchstaben weg."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "code-z",
+          "title": "2. Mit Z codieren",
+          "text": "Schlage jedes Zeichen deiner Nachricht nach und schreibe die Zweiergruppen in derselben Reihenfolge.",
+          "prompt": "Mein Z-Code",
+          "responseHint": "Für das Leerzeichen brauchst du ebenfalls eine Gruppe."
+        },
+        {
+          "type": "task",
+          "id": "code-b",
+          "title": "3. Mit B codieren",
+          "text": "Schlage jedes Zeichen noch einmal nach, jetzt in Code B.",
+          "prompt": "Mein B-Code",
+          "responseHint": "Fünf Stellen je Zeichen; Nullen vollständig schreiben."
+        },
+        {
+          "type": "task",
+          "id": "rueckweg",
+          "title": "4. Z zurücklesen",
+          "text": "Klappe oben „Original ein-/ausblenden“ zu. Auf Papier deckst du nur die ursprüngliche Nachricht ab. Lass die Codes sichtbar. Lies deinen Z-Code mithilfe der Tabelle zurück. Notiere, was du tatsächlich liest.",
+          "prompt": "Mein aus Z gelesener Text",
+          "responseHint": "Noch nicht mit dem Original vergleichen. Eine andere Person darf lesen; sage später dazu, wer gelesen hat."
+        },
+        {
+          "type": "task",
+          "id": "rueckweg-b",
+          "title": "5. B zurücklesen",
+          "text": "Lass das Original verdeckt. Lies nun deinen B-Code zurück. Ändere die erste Fassung noch nicht.",
+          "prompt": "Mein aus B gelesener Text"
+        },
+        {
+          "type": "task",
+          "id": "vergleich",
+          "title": "6. Mit dem Original vergleichen",
+          "text": "Öffne erst jetzt das Original. Vergleiche beide gelesenen Texte Zeichen für Zeichen. Markiere Abweichungen. Hast du selbst gelesen oder eine andere Person? Wie könnte deine Erinnerung geholfen haben?",
+          "prompt": "Vergleich; wer gelesen hat; mögliche Hilfe durch Erinnerung.",
+          "solution": "Beide gelesenen Texte sollten einschließlich Leerzeichen zum Original passen. Bei Abweichungen die jeweilige Gruppe prüfen. Wenn du das Original schon kennst, kann deine Erinnerung beim Lesen helfen. Das ist keine unabhängige Probe mit einer unbekannten Nachricht."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Gehe deine Nachricht von links nach rechts durch. Suche jeweils genau ein Zeichen in der Tabelle und schreibe seine vollständige Gruppe auf."
+        }
+      ]
+    },
+    {
+      "id": "stoerung",
+      "title": "Eine Stelle verändern und prüfen",
+      "goal": "Du untersuchst selbst die Wirkung eines einzelnen Zeichenwechsels.",
+      "task": "Untersuche eine eigene Änderung: Fällt der Fehler in der Tabelle auf oder wird daraus ein anderes erlaubtes Zeichen?",
+      "outcome": "Eine selbst veränderte Gruppe, der zurückgelesene Text und eine Erklärung, was ohne Original offenbleibt.",
+      "knowledge": [
+        "fehler",
+        "regel"
+      ],
+      "criteria": [
+        "Ich ändere genau eine Stelle, ohne etwas einzufügen oder zu löschen.",
+        "Ich belege mein Ergebnis mit der Tabelle.",
+        "Ich erkläre, wozu ich das Original beim Korrigieren brauche."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zwei mögliche Ergebnisse",
+          "text": "Vergleiche diese Eingriffe. In beiden Fällen wird genau eine Stelle geändert.",
+          "table": {
+            "headers": [
+              "Vorher",
+              "Nachher",
+              "Was zeigt die Tabelle?"
+            ],
+            "rows": [
+              [
+                "00010 = B",
+                "00011 = C",
+                "Gültig, aber ein anderer Buchstabe"
+              ],
+              [
+                "11010 = Z",
+                "11011",
+                "Nicht vergeben"
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Eine gültige Gruppe kann also trotzdem falsch angekommen sein. Wir untersuchen gleich deine eigene Stelle. Du musst das Ergebnis vorher nicht erraten."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "eingriff",
+          "title": "1. Eine Stelle selbst ändern",
+          "text": "Nutze deinen B-Code. Wähle eine Fünfergruppe. Schreibe die Gruppe zuerst unverändert ab. Tausche genau eine 0 gegen 1 oder eine 1 gegen 0. Nummeriere die Plätze 1 bis 5 und nenne den geänderten Platz.",
+          "prompt": "Gruppe vorher; Gruppe nachher; geänderter Platz.",
+          "responseHint": "Die erste Codefassung bleibt erhalten.",
+          "help": [
+            {
+              "title": "Nur eine Stelle",
+              "text": "Vergleiche vorher und nachher von links nach rechts. Genau an einem Platz müssen unterschiedliche Zeichen stehen. Beide Gruppen bleiben fünfstellig."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "befund",
+          "title": "2. Das Ergebnis nachschlagen",
+          "text": "Suche die neue Gruppe in der Tabelle. Welcher Buchstabe gehört dazu – oder ist sie nicht vergeben? Lies deine Nachricht mit der veränderten Gruppe zurück.",
+          "prompt": "Tabellenbefund und veränderter Text.",
+          "responseHint": "Bei einer nicht vergebenen Gruppe schreibe dort [?]. Erfinde keinen Buchstaben."
+        },
+        {
+          "type": "task",
+          "id": "versuch",
+          "title": "3. Was kannst du korrigieren?",
+          "text": "Vergleiche erst jetzt mit deiner ursprünglichen Nachricht. Korrigiere die geänderte Gruppe und begründe die Korrektur. Was könnte eine empfangende Person ohne Original aus der Tabelle erkennen – und was nicht?",
+          "prompt": "Korrektur mit Grund; was ohne ursprüngliche Nachricht offenbleibt.",
+          "solution": "Das Ergebnis hängt von deiner Stelle ab. Bei einer nicht vergebenen Gruppe merkt man: Hier stimmt etwas nicht. Bei einer anderen gültigen Gruppe kann die Änderung unbemerkt bleiben. Die beabsichtigte Gruppe kennst du sicher aus deinem Original. Ohne diese Information ist oft eine Rückfrage nötig. Ein einzelner Versuch zeigt nicht, wie häufig echte Übertragungsfehler auftreten."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Zeige die Gruppe vorher und nachher. Prüfe zuerst, ob beide fünf Stellen haben. Suche dann nur die veränderte Gruppe in der Tabelle."
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Prüfen, auswählen, überarbeiten",
+      "goal": "Du begründest die Codewahl und verbesserst deine Nachricht anhand der Kriterien.",
+      "task": "Wähle für zwei Anzeigen einen passenden Code. Prüfe danach eine Stelle deiner bisherigen Arbeit.",
+      "outcome": "Codewahl und Vorher-Nachher-Vergleich.",
+      "knowledge": [
+        "wahl",
+        "fehler"
+      ],
+      "criteria": [
+        "Ich prüfe erlaubte Zeichen, Länge und Empfängerwissen.",
+        "Ich erkläre eine Änderung oder begründetes Beibehalten."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Zwei Anzeigen für dieselbe Nachricht",
+          "text": "Unser Sportfest-Modell hat jetzt zwei Arten von Anzeigen. Eine Ziffernanzeige kann an jedem Platz 0–9 zeigen. Eine Lampenanzeige kann an jedem Platz nur aus/an zeigen, also 0/1. Links ist markiert; das Team kennt beide Tabellen.",
+          "paragraphs": [
+            "Beispiel TOR A: fünf Zeichen einschließlich Leerzeichen. Z braucht 5 × 2 = 10 Plätze. B braucht 5 × 5 = 25 Plätze.",
+            "Hat die Ziffernanzeige zwölf Plätze, passt Z. B wäre zu lang. Hat die Lampenanzeige dreißig Plätze, passt B. Die Z-Folge 20 15 18 00 01 enthält dagegen Ziffern, die eine Lampe nicht darstellen kann."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "wahl",
+          "title": "Deine Nachricht, zwei Wege",
+          "text": "Prüfe deine eigene Nachricht für Anzeige A: Ziffern 0–9, höchstens 16 Plätze. Prüfe danach Anzeige B: nur 0/1, höchstens 40 Plätze. Das Team kennt beide Tabellen und den Anfang. Begründe für jede Anzeige deine Wahl.",
+          "prompt": "Anzeige A: Code, benötigte Plätze, Grund. Anzeige B: Code, benötigte Plätze, Grund.",
+          "responseHint": "Zwei kurze Begründungen. Nur Codestellen zählen, keine Leseabstände.",
+          "solution": "Bei fünf bis acht Zeichen der ursprünglichen Nachricht braucht Z 10–16 und B 25–40 Stellen. Für A passt Z; B ist zu lang. Für B passt B sicher. Falls deine konkrete Z-Folge ausschließlich 0/1 enthält, passt dort auch Z und ist kürzer. Beispiel JA JA: 10 01 00 10 01. Beurteile die tatsächlichen Zeichen, nicht nur den Namen des Codes."
+        },
+        {
+          "type": "task",
+          "id": "ueberarbeiten",
+          "title": "Eine begründete zweite Fassung",
+          "text": "Prüfe eine konkrete Stelle: Stimmt die Zuordnung? Hast du den Code wirklich zurückgelesen? Passt deine Codewahl zu allen Bedingungen? Bitte möglichst eine Person um Rückmeldung. Sonst prüfst du selbst. Verbessere die Stelle oder erkläre anhand der Regel, warum sie schon stimmt.",
+          "prompt": "Wer hat geprüft? Meine Stelle vorher; danach; Grund.",
+          "responseHint": "Ein Vorher-Nachher-Paar genügt. Erste Fassung bewahren.",
+          "help": [
+            {
+              "title": "Alles scheint richtig",
+              "text": "Lass eine einzelne Zuordnung prüfen oder wähle eine neue Gruppe. Begründe anhand der Regel, warum du deine Fassung beibehältst.",
+              "knowledge": "regel",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "Beispiel: „Selbstprüfung: Ich hatte das Original-Leerzeichen nicht codiert. In Fassung 2 steht 00 bzw. 00000. Der Rückweg liefert nun das Leerzeichen.“ Nur Schriftfarbe zu ändern wäre keine fachliche Revision."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Prüfe zuerst die einzelnen Ziffern: Kann die Anzeige jede davon darstellen? Zähle erst danach die benötigten Plätze."
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Passt einer der Codes wirklich?",
+      "goal": "Du erkennst unter neuen Bedingungen auch, wenn keiner der Codes genügt.",
+      "task": "Prüfe den neuen Auftrag. Zeige danach dein eigenes Können an einer neuen Stelle.",
+      "outcome": "Ein begründetes Urteil und gesicherte eigene Arbeit.",
+      "knowledge": [
+        "wahl",
+        "umfang",
+        "zugang"
+      ],
+      "criteria": [
+        "Ich prüfe alle Bedingungen zusammen.",
+        "Ich benenne eine Änderung, die das Problem löst.",
+        "Ich erkläre Zugänglichkeit am Empfänger."
+      ],
+      "blocks": [
+        {
+          "type": "task",
+          "id": "entscheidung",
+          "title": "Neuer Auftrag: NEIN übertragen",
+          "text": "Die Lampenanzeige hat diesmal höchstens 16 Plätze. Jeder zeigt aus oder an, also 0 oder 1. Genau NEIN soll ankommen. Das Team kennt Z, B und den Anfang. Prüfe beide Codes. Entscheide: Welcher passt? Wie viele Plätze müsste die Anzeige mindestens haben, damit einer unserer Codes passt?",
+          "prompt": "Beide Codes mit Länge; meine Entscheidung; mindestens benötigte Plätze.",
+          "responseHint": "Prüfe erlaubte Ziffern und Länge. Erfinde keinen dritten Code.",
+          "help": [
+            {
+              "title": "Der kürzere Code scheint zu passen",
+              "text": "Schreibe seine Ziffern auf. Sind sie alle erlaubt? Prüfe dann die Länge des anderen Codes.",
+              "knowledge": "wahl",
+              "label": "Erklärung nachschlagen"
+            }
+          ],
+          "solution": "Z: 14 05 09 14, acht Stellen, aber 4, 5 und 9 sind nicht übertragbar. B: 01110 00101 01001 01110, zwanzig Stellen, zu lang. Keiner passt. Mit mindestens 20 Stellen passt B bei denselben erlaubten Zeichen. Mehr Platz allein macht Z nicht möglich."
+        },
+        {
+          "type": "task",
+          "id": "zugang",
+          "title": "Am Eingang der Sporthalle",
+          "text": "Eine Person mit Braillekenntnissen möchte die Raumbeschriftung ertasten. Das Team bietet einen flachen Ausdruck des B-Codes an. Vergleiche im Bild: gedruckte Punkte und erhöhte Punkte. Warum genügt der Ausdruck nicht? Was sollte das Team mit der Person klären?",
+          "prompt": "Was muss die Person ertasten können, und welche Schrift muss sie kennen?",
+          "responseMode": "oral",
+          "solution": "Der Ausdruck ist nicht tastbar; zudem ist B keine Brailleschrift. Eine korrekt in Braille übertragene, tatsächlich tastbare Ausgabe mit der Person prüfen. Braillekenntnis bedeutet nicht, dass sie unsere Fünfergruppentabelle kennt.",
+          "media": [
+            "tasten"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "sichern",
+          "title": "Eigenes Können zeigen",
+          "text": "Zeige deine erste und deine verbesserte Fassung. Deine Lehrperson wählt eine neue Zuordnung aus. Führe sie aus und erkläre deinen Weg. Erkläre außerdem an deinem Fehlerversuch, was du ohne ursprüngliche Nachricht nicht sicher wissen könntest. Hebe Papierblätter auf; sichere Textantworten unter „Deine Arbeit“.",
+          "prompt": "Was erkläre ich selbst, wobei brauche ich Hilfe?",
+          "responseMode": "oral",
+          "paragraphs": [
+            "Hilfen und Lösungen sind Lernmittel. Die Lehrperson unterscheidet eigenen Versuch und unterstützte Erklärung. Ein Häkchen bewertet kein Können."
+          ]
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Prüfe zuerst die einzelnen Ziffern: Kann die Anzeige jede davon darstellen? Zähle erst danach die benötigten Plätze."
+        }
+      ]
+    },
+    {
+      "id": "abruf",
+      "title": "Mit Abstand wieder erklären",
+      "goal": "Du erinnerst dich später an Regeln und passende Codewahl.",
+      "task": "Bearbeite nur den aufgerufenen Teil. Erkläre erst aus dem Gedächtnis; nutze für Zuordnungen anschließend die Tabelle.",
+      "outcome": "Zwei zeitlich getrennte Erklärungen mit Korrektur.",
+      "knowledge": [
+        "regel",
+        "fehler",
+        "wahl"
+      ],
+      "criteria": [
+        "Ich erinnere erst selbst und vergleiche danach.",
+        "Ich korrigiere eine unklare Regel gezielt."
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "regeln",
+          "title": "Eindeutig und trotzdem falsch?",
+          "text": "Erkläre ohne Tabelle: Warum brauchen unsere Codes feste Gruppen und einen bekannten Anfang? Kann ein gültiger Code trotzdem eine falsche Nachricht liefern? Nenne ein Beispiel. Nutze danach die Tabelle, um JA mit Z und B zu codieren.",
+          "when": "Wenn deine Lehrperson diesen Teil aufruft: fünf Minuten selbst bearbeiten, dann zwei Minuten vergleichen und korrigieren.",
+          "prompt": "Meine Erklärung und neuer Code für JA.",
+          "solution": "Feste Gruppen und bekannter Anfang ermöglichen eindeutige Aufteilung. Eine gültige Gruppe kann durch Fehler zu einer anderen gültigen Gruppe werden, etwa RAD → SAD. JA: Z 10 01; B 01010 00001. Bei fehlender Null eine Gruppe neu vollständig abschreiben und erklären."
+        },
+        {
+          "type": "retrieval",
+          "id": "wahl",
+          "title": "Andere Grenze, andere Wahl?",
+          "text": "Eine Nachricht hat sechs Zeichen aus unserer Tabelle, darunter ein Leerzeichen. Der Weg erlaubt nur 0/1 und höchstens 30 Stellen; Empfänger kennen Regeln und Beginn. Erkläre erst aus dem Gedächtnis, was zu prüfen ist. Entscheide mit den Gruppenlängen. Was ändert sich bei 29 Stellen? Welche Angabe fehlt für eine sichere Aussage zu Z?",
+          "when": "Wenn deine Lehrperson diesen Teil aufruft: fünf Minuten selbst bearbeiten, dann zwei Minuten vergleichen und korrigieren.",
+          "prompt": "Bedingungen, Wahl und fehlende Angabe.",
+          "solution": "Zeichen der ursprünglichen Nachricht, erlaubte Zeichen, Länge, Empfängerkenntnis und Anfang prüfen. B braucht 6×5=30 Stellen und passt genau. Mit 29 passt B nicht mehr. Z braucht zwölf Stellen, passt aber nur, wenn die konkrete Folge ausschließlich 0/1 enthält. A, J und Leerzeichen werden zu 01, 10 und 00. Deshalb muss man die konkreten Zeichen der ursprünglichen Nachricht erfragen. Bei Unsicherheit das JA-Beispiel erneut nachschlagen."
+        }
+      ],
+      "materialNeeds": [
+        "Codetabelle aus „Regeln und Tabelle“ als Nachschlageblatt",
+        "Papier und Stift oder die Textfelder im Lernwerk"
+      ],
+      "checkHelp": [
+        {
+          "title": "An einer Stelle weiterarbeiten",
+          "text": "Markiere genau die Stelle, an der du unsicher bist. Suche ihre Tabellenzeile und lies die passende Spalte. Vergleiche erst danach mit der Lösung."
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "zweck"
+    ],
+    "explanation": [
+      "regeln",
+      "grenzen"
+    ],
+    "example": [
+      "regeln",
+      "revision"
+    ],
+    "practice": [
+      "ueben",
+      "grenzen"
+    ],
+    "application": [
+      "nachricht",
+      "stoerung"
+    ],
+    "revision": [
+      "revision"
+    ],
+    "securing": [
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abruf"
+    ]
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereiten und anschließen",
+      "paragraphs": [
+        "Digital bleibt die Tabelle auf den Arbeitsseiten neben den Aufgaben bzw. auf schmalen Displays kompakt aufklappbar. Papier: die vollständige Tabelle aus „Regeln und Tabelle“ zusätzlich bereitstellen; dort steht das Beispiel vor der Tabelle. Das Original digital zuklappen oder auf Papier abdecken. Keine Konten, Binärarithmetik oder Braillekenntnisse voraussetzen.",
+        "Der Einstieg nutzt fünf gleichzeitige aus/an-Plätze mit markierter linker Seite. Die Lernenden bilden D selbst ab und lesen E zurück. Papier mit fünf Kästchen genügt. Es wird keine reale Fernübertragung oder zeitliche Signalfolge nachgestellt. M01s Modellgrenze und M02/M03s Trennung von Befund und Vermutung wieder aufnehmen."
+      ]
+    },
+    {
+      "title": "180 Minuten führen",
+      "paragraphs": [
+        "Orientierung 30: Zweck 10, Regeln/Beispiel 20. Übung 40: Umwandlungen 20, Grenzen 20. Anwendung 50: Nachricht 30, eigener Fehlerversuch 20. Codewahl und Revision 30. Transfer/Sicherung 30: neuer Fall 15, Zugang 5, Erklärung/Sichern 10. Summe 180.",
+        "Möglicher Stundenrhythmus: 1 Zweck/Regeln/Übung 10/20/15; 2 Übung/Grenzen/Nachricht 5/20/20; 3 Nachricht/Störung/Revision 10/20/15; 4 Revision/Transfer 15/30. Ungeprüfte Zeitannahme. Bei Bedarf Nachricht auf fünf Zeichen verkürzen; beide Verfahren und Begründungen bleiben."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste Hilfe",
+      "paragraphs": [
+        "Nullen fehlen? Feste Zweier- bzw. Fünferfelder zeichnen und jede Stelle besetzen. Leerzeichen fehlt? Im Original ein Kästchen für die Lücke markieren und 00/00000 zuordnen. Binärrechnung blockiert? Direkte Tabellenzuordnung genügt.",
+        "„Jede gültige Gruppe ist richtig“? RAD/SAD mit Original vergleichen. „27 heißt bestimmt O“? Beleg für die Absicht erfragen; neu senden lassen. Nicht unterstellen, dass jeder Fehler ungültige Gruppen erzeugt.",
+        "„Kürzer gewinnt“? Vorrat und Stellenbudget getrennt notieren. Beim reinen 0/1-Weg die tatsächliche Z-Folge prüfen: JA JA passt als Ausnahme auch mit Z. Flacher Braille-Ausdruck? Erhebung und tatsächlichen Ausgabeweg klären, keine Blindheitssimulation. Mündliche Erklärung und Fingerführung sind möglich.",
+        "Wer die Zuordnung beherrscht, erklärt nach Entfernen nur der Leseabstände die eindeutige Gruppierung. Bei unsicherer Tabellenarbeit einen Buchstaben vormachen, den nächsten selbst ausführen lassen. Keine starre Zusatzmenge als Belohnung für schnelles Fertigwerden."
+      ]
+    },
+    {
+      "title": "Nachweise und Grenzen",
+      "paragraphs": [
+        "Individuell prüfen: eigene neue Nachricht mit einem Leerzeichen; beide Codes und tatsächlich gelesene Texte; gewählter Eingriff, Tabellenbefund und begründete Korrektur; Revision; Entscheidung am NEIN-Fall. Der Fehlerversuch ist ergebnisoffen: keine unbegründete Vorhersage verlangen. Die kontrastierenden Beispiele zeigen mögliche Ergebnisse, liefern aber nicht den Befund zum eigenen Eingriff.",
+        "Formative Nachweise, keine abgesicherte Testsituation. Hilfenutzung und Selbst-/Fremdprüfung kenntlich machen. Gegen Abschreiben eine neue erlaubte Stelle codieren und rückübersetzen lassen, dann eine Bedingung ändern. Geöffnete Lösung und Häkchen sind keine Kompetenzbewertung.",
+        "Der kontrollierte Zeichenwechsel misst keine reale Fehlerhäufigkeit. Erinnerung kann Selbstprüfung erleichtern. Ein fremder Rückweg ist tatsächlicher Austausch, aber keine Pflichtkooperation. Keine privaten Inhalte nötig."
+      ]
+    },
+    {
+      "title": "Begründete Medienwahl",
+      "paragraphs": [
+        "Die eigene Lampengrafik zeigt feste Plätze und Zustände; kein zeitliches Blinken, daher kein Video nötig. Die Codetabelle steht bei der Arbeit. Teilaufträge gliedern die ersten Umwandlungen; beim eigenen Produkt nehmen Hilfen ab. Native aufklappbare Bereiche verdecken das Original, während beide Codes zugänglich bleiben. Kein automatischer Konverter: Zuordnen und Gruppieren bleiben Eigenleistung.",
+        "Der ruhende Rückweg und das Schema zu gedruckten/erhöhten Punkten machen Beziehungen sichtbar. Der zweite Vergleich ist keine Brailletabelle und kein tastbares Material. Einen tatsächlichen taktilen Zugang müsste man mit der Person prüfen; keine Blindheitssimulation. Papier hat beim Abdecken bzw. beim Tausch mit einer anderen Person dieselbe fachliche Funktion.",
+        "Eigene Texte und Schemata. Vorhandene Primärquellen ordnen Braille/Unicode ein; keine fremde Tabelle übernommen. Aktives Mapping S. 37. Externe Quellen sind nicht zur Lösung nötig. Die Modelle treffen keine Aussage über reale Geschwindigkeit oder Fehlerraten."
+      ]
+    },
+    {
+      "title": "Späterer Abruf und Erprobung",
+      "paragraphs": [
+        "Je sieben Minuten vor M05 und M07: 14 aus dem bestehenden 90-Minuten-Jahreskonto, außerhalb der 180 Kernminuten. Erst Regel/Zweck erinnern, dann Tabelle für Zuordnungen benutzen. Kein Auswendiglernen des Alphabets. 38 Jahres-UE sind unbestätigt.",
+        "Zweiter Abruf: konkreter Originaltext fehlt bewusst. A, J und Leerzeichen ergeben nur 0/1 auch im Z-Code; die tatsächliche Folge entscheidet. Nachfragen ist hier eine fachliche Leistung.",
+        "Nach Erprobung ohne Namen notieren: Zeit, Gruppen-/Leerzeichenfehler, eigene Rückübersetzung, Codewahl und Hilfebedarf. Reale Schulgeräte, Bildschirmleser und physischer Druck sind gesondert zu prüfen."
+      ]
+    }
+  ],
+  "briefing": [
+    "M vier beginnt am Spielfeld: Eine Anzeige hat fünf feste aus/an-Plätze. Die Lernenden stellen zuerst selbst D dar und lesen eine neue Folge zurück. Danach werden zwei kleine eigene Codes eingeführt. Es sind Unterrichtsmodelle, keine Computernorm und keine Brailleschrift.",
+    "Die Tabelle bleibt beim digitalen Arbeiten sichtbar oder aufklappbar. Für Papier zusätzlich das Nachschlageblatt bereitlegen. Die ersten Umwandlungen sind in einzelne Aufträge aufgeteilt. Bei der eigenen Nachricht wird das Original zugeklappt oder abgedeckt. Beide Rückübersetzungen werden vor dem Vergleich notiert.",
+    "Vier Stunden: dreißig Minuten Einstieg und Regeln, vierzig Üben und Grenzen, fünfzig eigene Nachricht und Fehleruntersuchung, dreißig Codewahl und Revision, dreißig Transfer und Sicherung. Dies ist weiterhin eine ungeprüfte Zeitannahme. Beobachten Sie die tatsächliche Arbeit und prüfen Sie eine neue Zuordnung mündlich.",
+    "Beim Fehler wird eine selbst gewählte Stelle geändert und untersucht. Keine Vorhersage ohne Grundlage verlangen. Kontrastfälle zeigen gültig, aber verändert und nicht vergeben. Ohne Original bleibt eine sichere Korrektur oft offen. Bei der Codewahl zählen erlaubte Zeichen und verfügbare Plätze gemeinsam.",
+    "Je sieben Minuten Abruf vor M fünf und M sieben aus dem Jahreskonto. Der zweite Abruf enthält bewusst eine fehlende Angabe. Den Zugang am Sporthallenschild anhand tatsächlich erhöhter Punkte und bekannter Schrift erklären; das Bildschirmbild ist kein taktiler Nachweis."
+  ],
+  "toolKind": "coding"
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="654" height="160" viewBox="0 0 654 160" role="img" aria-labelledby="title" font-family="Segoe UI"><title id="title">IuM Lernwerk 5 – Informatik und Medienbildung</title>
+<g transform="translate(18 27) scale(0.55)"><path d="M0 0H72V28H52V172H72V200H0V172H20V28H0Z" fill="#222A2F" transform="translate(0 0) scale(1)"/>
+<path d="M90 58H122V140C122 162 133 173 153 173C173 173 186 157 186 135V58H218V200H187V178C177 194 162 203 144 203C110 203 90 182 90 146Z" fill="#2D52EE" transform="translate(0 0) scale(1)"/>
+<path d="M237 0H271L335 112L399 0H433V200H399V68L335 170L271 68V200H237Z" fill="#222A2F" transform="translate(0 0) scale(1)"/></g>
+<text x="288.000" y="67.333" font-size="52" font-weight="700" fill="#222A2F">Lernwerk</text>
+<text x="547.661" y="135.000" font-size="154.20560747663552" font-weight="700" fill="#2D52EE">5</text>
+<text x="302.906" y="102.667" font-size="30.45977011494253" font-weight="400" fill="#5B656D">Informatik und</text>
+<text x="299.239" y="129.667" font-size="30.45977011494253" font-weight="400" fill="#5B656D">Medienbildung</text>
+</svg>

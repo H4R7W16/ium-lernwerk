@@ -1,0 +1,1690 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-5-M02-RECHERCHE",
+  "version": "1.7.0",
+  "grade": 5,
+  "area": "recherche",
+  "family": "content",
+  "title": "Eine Frage. Eine geprüfte Antwort.",
+  "topic": "Recherchieren",
+  "description": "Wir verfolgen Leas Suche, untersuchen unsere eigene Mondfrage und entwickeln daraus eine verständliche Infokarte. Danach entscheiden wir in einem neuen Fall, welcher Suchweg und welcher Beleg passen.",
+  "product": "Eine Infokarte für unsere Klasse mit eigener Erklärung und zwei wiederauffindbaren Quellen. Frage, erste Notiz, Prüfung und Verbesserung bleiben im selben Arbeitsbogen oder in eurer vereinbarten digitalen Notiz.",
+  "prerequisites": [
+    "Schulgerät mit erlaubtem Browser, Suchmaschine und Internet",
+    "Ein Arbeitsbogen oder eine vereinbarte digitale Notiz; M01-Handgriffe bei Bedarf zeigen"
+  ],
+  "learnerDuration": "Fünf Unterrichtsstunden mit deiner Lehrperson. Der spätere Abruf gehört zu einer anderen Stunde.",
+  "duration": "225 Minuten in fünf Unterrichtsstunden: 15 + 30 + 45 + 70 + 40 + 25. Später 5 Minuten aus dem bestehenden Jahreskonto für verteilte Übung.",
+  "workNotice": "Führe deinen Arbeitsbogen oder deine vereinbarte digitale Notiz weiter. Bewahre sie am vereinbarten Ort auf. Eine Notiz in einer anderen App gehört nicht automatisch zur Lernwerk-Arbeitsdatei.",
+  "curriculum": {
+    "moduleId": "G5-M02",
+    "goalIds": [
+      "3.1.2.1(1)",
+      "3.1.2.1(2)",
+      "3.1.2.1(3)",
+      "3.1.2.2(1)",
+      "3.1.2.2(5)",
+      "3.1.2.2(6)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Anhörungsfassung 21.09.2026, Band 5/6; eigene Jahrgangsverteilung nach dee82ec. Recherche, Akteure und Informationsbewertung werden an einer Sachfrage bearbeitet. Produktion ist kein Nachweis vollständiger Kompetenzabdeckung oder tatsächlicher Durchführung."
+  },
+  "experiencedEntry": {
+    "title": "Du kennst den Suchweg schon?",
+    "text": "Zeige an Leas Beispiel Suchfeld, geöffnete Quelle und passende Textstelle. Danach arbeitest du an unserer eigenen Mondfrage.",
+    "step": "suchen",
+    "label": "Zur ersten eigenen Notiz"
+  },
+  "teacher": [
+    "Klasse 5 · Lernbogen 1.0 · RQ05-F1 · 1.7.0. Sechs Abschnitte: 225 Minuten und später 5 aus dem vorhandenen Jahreskonto. Ein Arbeitsbogen wächst zur Infokarte; individuelle Erläuterungen zeigen den Weg, ausgefüllte Felder allein nicht."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereiten und Zusammenhang zeigen",
+      "paragraphs": [
+        "Schulbrowser, erlaubte Suchmaschine, Originalseiten und einen Notizort bereitstellen. M01-Handgriffe bei Bedarf zeigen; astronomisches Vorwissen nicht voraussetzen. Einen Zugang wählen: Film (3:07), Bildfolge oder Lesetext. Film enthält je sieben Sekunden stille Denkzeit ab 0:37 und 1:47 sowie Lesezeit bei den zwei Auszügen. Für Antworten/Zeigen bei Bedarf länger anhalten. Markieren, Kopieren und Wiederöffnen an der echten Adresszeile vorführen: der Film ist eine animierte Erklärung. Alles innerhalb der bestehenden 30 Modellminuten. Abschließende Hörsichtung der neuen Vollfassung vor Unterrichtseinsatz steht noch aus.",
+        "Helle Formen beschreiben lassen, dann Frage/Vermutung. Lea bleibt bei „Leuchtet der Mond selbst?“; die Kinder untersuchen die Formenfrage. Lea zuerst nur bis zur Dreifachnotiz zeigen, Quellenvergleich erst in 4, fertige Karte erst in 5.",
+        "Bibliotheksdatum und Originalseiten vor Einsatz neu lesen. Stand 12.10.2026: saisonale Pfleghof-Zeile und pauschale Startseitenangabe widersprechen sich. Keine Öffnungsgarantie. Bei späterem Einsatz ein passendes künftiges Besuchsdatum am selben Fall aktualisieren.",
+        "Papierbogen: Vor Beginn eine vorhandene digitale Notiz als Linkort zuordnen und am Bogen benennen lassen. Kind kopiert dort die direkten Links mit Seitennamen, öffnet sie wieder und zeigt die zugehörige Passage. Keine langen URLs abschreiben lassen und kein zusätzliches Quellenportfolio verlangen. Bei gemeinsamer Gerätenutzung muss jedes Kind die Zuordnung zu seinem Bogen erklären können."
+      ]
+    },
+    {
+      "title": "Erwartbarer fachlicher Kern und Grenzen",
+      "paragraphs": [
+        "Eigene Formenkarte, mögliche tragfähige Erklärung: Die Sonne beleuchtet eine Hälfte des Mondes. Während der Mond um die Erde läuft, sehen wir unterschiedlich viel von dieser beleuchteten Hälfte. Ganz sichtbar erscheint sie rund, ein schmaler sichtbarer Teil wirkt wie eine Sichel. DLR-Mondabschnitt und die ersten zwei timeanddate-Absätze tragen diesen Zusammenhang. Unterschiedliche eigene Formulierungen sind möglich.",
+        "„Der Mond bekommt Sonnenlicht“ allein bleibt unvollständig. „Die Form entsteht durch den Erdschatten“ erklärt gewöhnliche Mondphasen falsch; gezielt an den beleuchteten/sichtbaren Flächen klären, keine neue Finsternis-Lerneinheit. Die ursprüngliche Vermutung wird begründet bestätigt/verändert oder die vorherige Wissenslücke benannt.",
+        "Bibliotheksfall: saisonale Regel würde 16 Uhr ermöglichen; pauschale Gegenangabe und Tagesausnahmen bleiben zu klären. Ein begründet offener Stand kann tragfähig sein. Späterer Museumsabruf: konkrete Donnerstagsregel statt Vorschau, Gültigkeit/Ausnahmen prüfen. Herkunft am tatsächlichen Anbieterort zeigen lassen."
+      ]
+    },
+    {
+      "title": "Beobachten → nächste konkrete Hilfe",
+      "paragraphs": [
+        "Vor der eigenen Notiz beide kurzen Originalauszüge von Frag Sophie! zeigen. Kind begründet A mit der Lichtfrage; B behandelt das Beobachten von Schatten mit einem Teleskop. Bei bloßem „A“ passende Wörter zeigen lassen und nach dem fehlenden Antwortbezug von B fragen. „Angestrahlt“/„Teleskop“ stehen direkt an den Auszügen. Vergleich erst nach eigener Wahl öffnen; die anderen Mondphasenabsätze werden nicht vorgezeigt.",
+        "Beide tatsächlichen Suchformulierungen und einen konkreten Treffertitel zeigen lassen. Eine Änderung kann besser, gleich oder schlechter passen; die begründete Beobachtung zählt. Erst Suchhinweis, dann Startlink; bereitgestellten Weg kennzeichnen.",
+        "Leas Lichtantwort abgeschrieben oder nur „Sonnenlicht“? Frageunterschied zeigen. DLR-Beleuchtungssätze bis Voll-/Halbmond oder erste zwei timeanddate-Absätze unter „Eine Frage der Perspektive“ eingrenzen. Wort am Satz erklären, zunächst mündlich formulieren. Gerüst erst nach Versuch; Antwort und Stelle ergänzt das Kind. Eine noch unvollständige erste Antwort ist ausdrücklich ein Arbeitsstand für Abschnitt 4. Fehlt der Bezug zur Textstelle ganz, zuerst mit dem Kind am vorhandenen Text zuordnen; danach die zweite Quelle bereitstellen.",
+        "„Zwei Seiten = wahr“ oder Anbietername als Gütesiegel? Genau denselben Satz und beide Passagen zuordnen lassen. Herkunft DLR/timeanddate zeigen: Forschungseinrichtung/Unternehmen; konkrete Begründung verlangen. Widerspruch als offen stehen lassen.",
+        "Karte reiht Nebendaten auf? Wirklich gelesene Information als entbehrlich begründen, etwa DLR-Mondlandungen. Nur „alles gut“ als Rückmeldung? Andere Person/Lehrperson nennt genaue Stelle anhand der drei Kriterien; Kind zeigt Änderung mit Grund oder begründetes Beibehalten.",
+        "Transfer aus Vorschau entschieden? Offizielle Stelle für Pfleghof, Saison, Tag/Ausnahmen zeigen lassen. Unterschiedliche Angaben als echten offenen Prüfbedarf anerkennen. Wochenregel ist keine Tagesgarantie."
+      ]
+    },
+    {
+      "title": "Individuelle Nachweise und Austausch",
+      "paragraphs": [
+        "Jedes Kind erklärt eigene Suchänderung/Trefferbeobachtung, zeigt passende Stellen zu derselben Aussage und begründet den Prüfstand. Anbieterarten an den Herkunftsangaben benennen; Vermutung bestätigen/ändern oder vorherige Wissenslücke angeben.",
+        "Karte: geordnete eigene Erklärung, Links, echte Auslassung und gezielte Verbesserung. Kurze Rückmeldung zwischen zwei Personen oder mit Lehrperson. Kein zusätzlicher Peerbogen oder Pflichtvortrag aller Kinder.",
+        "Neuer Fall: Zugang wählen/begründen, Saison/Datum/Unsicherheit am Original zeigen. Wissenskern an eigenen Beispielen klären und individuellen Stand kurz zeigen lassen. Angebotene Lerngelegenheiten sind keine beobachtete Kompetenzabnahme."
+      ]
+    },
+    {
+      "title": "Pausen und Anschluss",
+      "paragraphs": [
+        "Derselbe Bogen bleibt nach jeder Stunde erhalten; nächste Handlung als kurze Markierung bei Bedarf. Lese-/Austauschzeiten und Stundenstände siehe Verlauf unten. Unfertige Stellen dürfen erster Stand bleiben.",
+        "Infokarte/Arbeitsbelege gehen in M03 „Zusammenarbeiten“ ein; das vorhandene Ergebnis nutzen, kein weiteres Pflichtprodukt. Späterer Abruf zum Beispiel zu Beginn M03: 2 Minuten erinnern, 2 begrenzte neue Quellenentscheidung, 1 vergleichen. Notizen/Wissen zunächst geschlossen; keine neue Bibliotheksrecherche."
+      ]
+    },
+    {
+      "title": "Ausfall, schmale Ansicht und Rechte",
+      "paragraphs": [
+        "Ohne Netz: Ersatztext A nur für Lea, B für die Formenfrage. Lesen/Formulieren/Ordnen weiterführen; Suche/Originalvergleich im selben Bogen nachholen. A/B sind keine unabhängigen Quellen. Transfer am datierten Ausschnitt ist eine begrenzte Quellenübung; eigene Live-Wahl/Aktualitätsprüfung bleiben offen.",
+        "Schmal: Die entscheidenden Auszüge sind als umbrechender Text lesbar. Originalkontext/Nutzungsangaben lassen sich aufklappen; unveränderte Screenshotpixel können dort weiterhin seitliches Verschieben verlangen. „Wissen hier nachschlagen“ bleibt auf der Arbeitsseite; der Rücksprung führt zum benannten Auftrag. Separate Wissensseiten haben ebenfalls Arbeitsanker. Redaktionelle Sichtprüfung ist keine echte Schulgeräte-/Kindertestung.",
+        "Fotos/Ausschnitte, Herkunftslinks, Erläuterungen und Nutzungsgrenzen zusammen übernehmen. Screenshotrechte sind keine freien Bildrechte. RQ02 ist datierter Eingang; aktuelles Kapitel und vollständiger Arbeitsbogen sind für die Durchführung maßgeblich.",
+        "Einzelmaterial: „Mit Hilfen“ für Such-/Lesehilfen wählen. Der Transfervergleich und der Vergleich beim späteren Abruf gehören zu „Mit Hilfen und Lösungen“ und werden erst nach dem eigenen Versuch ausgegeben. Druckumbruch und Schriftgröße vor dem Klasseneinsatz am tatsächlichen Gerät sichten."
+      ]
+    }
+  ],
+  "briefing": [
+    "Vorbereiten: Originalseiten/Schulbrowser und einen Notizort; Fotos/Bildfolge am Auftrag. Bibliotheksdatum/Original vor Einsatz prüfen. Bei Papierbogen den vorhandenen digitalen Linkort zuordnen; Links kopieren und wiederöffnen lassen, statt lange Adressen abzuschreiben.",
+    "Stunden 1/2: Frage → Lea bis erste Notiz. Vorher passende/unpassende Originaltextstelle zur Lichtfrage auswählen und begründen lassen. Dann zwei eigene Suchen und erste Notiz; Startlink erst nach Versuch.",
+    "Stunden 3/4: dieselbe eigene Aussage an einer zweiten Seite prüfen. Kurze Prüffragen am Text bearbeiten; DLR_next/timeanddate als Forschungseinrichtung/Unternehmen zeigen. Eigene andere Anbieterarten bleiben zulässig. Danach die Karte beginnen.",
+    "Stunde 5: genaue Rückmeldung → Änderung mit Grund; dann Bibliotheksfall. Zugang/Datum selbst prüfen, anschließend Wissenskern am eigenen Ergebnis sichern.",
+    "Pausen: derselbe Bogen mit nächster Handlung. Ausfallhandlungen nachholen. M03 erhält Infokarte/Belege; später 5 Minuten Abruf aus bestehendem Konto.",
+    "Sechs Inhaltsziele/fünf Prozessbezüge, 225+5 Minuten unverändert. Film (3:07), Bildfolge oder Lesetext mit zwei Mitdenkstellen als ein Zugang; bei Bedarf länger anhalten. Hörsichtung der Vollfassung vor Einsatz noch offen. Wissen bleibt auf der Arbeitsseite. Keine beobachtete Kompetenzabnahme.",
+    "Fachlicher Kern und erwartbare Grenzen: siehe vollständige Lehrhinweise. Herkunftshilfe nennt konkrete Original-Orte; die alte Quellenquest ist nur eine optionale Lehrpersonenressource außerhalb der 225 Minuten."
+  ],
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026, S. 35–36",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-04",
+      "note": "Zuordnung mit der aktuellen Kompetenzplanung abgeglichen; Klasse 5 ist unsere Jahresplanung."
+    },
+    {
+      "id": "internet-abc",
+      "title": "Suchen und Finden im Internet",
+      "author": "Internet-ABC e. V.",
+      "url": "https://www.internet-abc.de/lm/suchen-und-finden",
+      "license": "Nur verlinkt; keine Übernahme von Texten oder Bildern",
+      "checked": "04.10.2026"
+    },
+    {
+      "id": "fragfinn",
+      "title": "fragFINN – Suchmaschine",
+      "author": "fragFINN e. V.",
+      "url": "https://www.fragfinn.de/",
+      "license": "Echte, begrenzte Ausschnitte mit unmittelbarer Erläuterung; keine offene Bildlizenz",
+      "checked": "2026-10-12"
+    },
+    {
+      "id": "dlr",
+      "title": "Erde, Sonne und Mond – Wie der Mond die Erde umkreist",
+      "author": "Deutsches Zentrum für Luft- und Raumfahrt (DLR_next)",
+      "url": "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist",
+      "license": "Nur verlinkt; kurzer zweckgebundener Textvergleich mit Herkunft; eigene Zusammenfassungen getrennt",
+      "checked": "2026-10-12",
+      "note": "Relevanter Textabschnitt im Browser gelesen; kein Video erforderlich."
+    },
+    {
+      "id": "timeanddate",
+      "title": "Wie entstehen die Mondphasen?",
+      "author": "Konstantin Bikos und Vigdis Hocken · timeanddate",
+      "url": "https://www.timeanddate.de/astronomie/mond/mondphasen",
+      "license": "Original nur verlinkt; kurze eigene Zusammenfassung gesondert gekennzeichnet",
+      "checked": "2026-10-12",
+      "note": "Abschnitt „Eine Frage der Perspektive“; Seite enthält zusätzliche Angebote."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk · eigene Übungsdarstellungen",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und SVG: CC BY-SA 4.0",
+      "checked": "2026-10-11",
+      "note": "Schematische Modelle; keine Screenshots einer bestimmten Schule."
+    },
+    {
+      "id": "sophie",
+      "title": "Frag Sophie! – Warum leuchtet der Mond?",
+      "author": "Universität Münster · Dr. Nico Schmedemann",
+      "url": "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+      "license": "Begrenzter, unmittelbar erläuterter Browserausschnitt; keine offene Lizenz",
+      "checked": "2026-10-12",
+      "note": "Erster Satz unter dem Comic; danach erst spätere Quellenprüfung."
+    },
+    {
+      "id": "rq02-fotos",
+      "title": "Wikimedia Commons · Mondfotos",
+      "author": "Luc Viatour / Ilmari Karonen",
+      "url": "https://commons.wikimedia.org/wiki/File:Full_Moon_Luc_Viatour.jpg",
+      "license": "CC BY-SA 3.0 bzw. 4.0; konkrete Links unmittelbar am Bild",
+      "checked": "2026-10-12"
+    },
+    {
+      "id": "buecherei",
+      "title": "Stadtbücherei Esslingen · Bücherei im Pfleghof",
+      "author": "Stadt Esslingen am Neckar / Stadtbücherei",
+      "url": "https://stadtbuecherei.esslingen.de/25291496",
+      "license": "Begrenzter erläuterter Browserausschnitt; keine offene Lizenz",
+      "checked": "2026-10-12",
+      "note": "Saisonregel, Startseiten-Widerspruch und Ausnahmen am konkreten Besuchstag prüfen."
+    }
+  ],
+  "media": [
+    {
+      "id": "notiz",
+      "kind": "download",
+      "file": "assets/recherche/recherche-notiz.txt",
+      "title": "Mein vollständiger mitwachsender Arbeitsbogen",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen",
+      "printText": "MEINE RECHERCHE – ein Arbeitsbogen wächst zur Infokarte\nIuM-Lernwerk · CC BY-SA 4.0 · Fassung 1.6.1 / RQ06-K1 / Lernbogen 1.0\nNutze deinen Arbeitsbogen oder eure vereinbarte digitale Notiz.\nAuf Papier: Schreibe Seitennamen und Textstelle hier auf. Kopiere den Link\nin die vorhandene digitale Notiz zu diesem Bogen. Die Lehrperson zeigt dir den Ort.\nMeine Links stehen in: ____________________________________\nÖffne jeden gespeicherten Link noch einmal und zeige die passende Stelle.\n\n1 · UNSERE FRAGE\nWarum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?\nMeine Vermutung (oder: Das weiß ich noch nicht):\n________________________________________________________\n\n2 · LEAS BEISPIEL\nLeas Lichtfrage ist eine andere. Wähle die passende Textstelle und begründe deine Wahl.\nKeine zweite Modellkarte abschreiben.\n\n3 · MEINE ERSTE EIGENE NOTIZ\nErste tatsächliche Suche: ________________________________\nVeränderte Suche: _______________________________________\nVergleiche einen Titel: passt er besser, gleich gut oder weniger gut?\nMeine erste Antwort darf noch unsicher oder unvollständig sein.\nMeine Antwort in eigenen Worten:\n________________________________________________________\nDiese Stelle hilft mir (markieren oder Überschrift + kurzer Satzanfang):\n________________________________________________________\nHier steht es (Seitenname + Link; auf Papier: Linkort siehe oben):\n________________________________________________________\nMein Weg: selbst gefunden / Startlink bekommen / Ersatztext\n\n4 · DIESELBE ANTWORT PRÜFEN\nZweite Seite (Name + Link; auf Papier: am selben Linkort speichern):\n________________________________________________________\nVergleichbare Textstelle:\n________________________________________________________\nMein Stand: bestätigt / genauer / noch offen, weil …\nZeige dazu die passende Stelle.\n________________________________________________________\nZeige die Anbieterangaben der zwei Beispiele:\nDLR_next = Forschungseinrichtung; timeanddate = Unternehmen.\nDeine selbst gefundene erste Quelle darf zu einer anderen Anbieterart gehören.\nErkläre an einer gelesenen Stelle, was deine Antwort stützt oder noch unklar bleibt.\nAuch zwei Seiten können denselben Fehler übernehmen.\nVergleiche mit deiner Vermutung oder vorherigen Wissenslücke.\n\n5 · MEINE INFOKARTE (denselben Bogen weiterführen)\nÜberschrift: unsere Frage. Darunter kurze geordnete eigene Erklärung.\nBeide Seitennamen/Links bleiben dabei; Textstellen oben sind Arbeitsbelege.\n________________________________________________________\n________________________________________________________\n________________________________________________________\n________________________________________________________\nEine wirklich gelesene Information lasse ich weg, weil …\n________________________________________________________\nKonkrete Rückmeldung an dieser Stelle:\n________________________________________________________\nMeine Verbesserung: vorher → nachher, weil … (oder ich behalte die Stelle bei und erkläre warum)\n________________________________________________________\n\n6 · NEUER FALL – wenige Stichwörter genügen\nPfleghof, Samstag 24. Oktober 2026, 16 Uhr.\nBekannte offizielle Startadresse: https://stadtbuecherei.esslingen.de/start\nMeine Wahl (bekannte Adresse / Suchmaschine) und Grund:\n________________________________________________________\nAntwort für den Besuchstag; passende Stelle, Seitenname/Link:\n________________________________________________________\nWelche Unsicherheit oder Ausnahme bleibt zu prüfen?\n________________________________________________________\n\nAUFBEWAHREN: Infokarte und Arbeitsbelege für „Zusammenarbeiten“.\nPausenstand nur bei Bedarf: Als Nächstes mache ich …\n________________________________________________________\nOhne Internet habe ich Ersatztexte / den gespeicherten Bildausschnitt genutzt.\nDas hole ich nach: selbst suchen / Originalseiten vergleichen / Öffnungszeit prüfen\n________________________________________________________\n\nSPÄTERER ABRUF: andere Stunde, ohne alte Notizen beginnen.\nKeine neue Karte und keine zusätzliche Live-Recherche.\n\nHILFE NACH VERSUCH: erst Suchhinweis, dann Startlink im Suchabschnitt,\nbei Bedarf Lesestelle/Notizgerüst. Antwort und Stelle ergänzt du selbst.\nBereitgestellte Quellen kennzeichnen.\n"
+    },
+    {
+      "id": "mond-rund",
+      "kind": "image",
+      "file": "assets/recherche/rq02/mond-rund.jpg",
+      "title": "Fast runder Mond",
+      "alt": "Echtes Foto: fast die ganze Mondscheibe ist hell.",
+      "caption": "Aufnahme vom 7.10.2006 in Hamois, Belgien.",
+      "creator": "Luc Viatour / Lucnix.be",
+      "sourceId": "rq02-fotos",
+      "license": "CC BY-SA 3.0",
+      "creditLinks": [
+        [
+          "Original",
+          "https://commons.wikimedia.org/wiki/File:Full_Moon_Luc_Viatour.jpg"
+        ],
+        [
+          "Lucnix.be",
+          "https://Lucnix.be"
+        ],
+        [
+          "CC BY-SA 3.0",
+          "https://creativecommons.org/licenses/by-sa/3.0/"
+        ]
+      ],
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Full_Moon_Luc_Viatour.jpg"
+    },
+    {
+      "id": "mond-sichel",
+      "kind": "image",
+      "file": "assets/recherche/rq02/mond-sichel.jpg",
+      "title": "Schmale helle Sichel",
+      "alt": "Echtes Foto einer hellen Mondsichel; der übrige Teil ist schwach sichtbar.",
+      "caption": "Aufnahme vom 21.7.2006 (UTC) in Helsinki.",
+      "creator": "Ilmari Karonen",
+      "sourceId": "rq02-fotos",
+      "license": "CC BY-SA 4.0",
+      "creditLinks": [
+        [
+          "Original",
+          "https://commons.wikimedia.org/wiki/File:Earthshine_Karonen.jpg"
+        ],
+        [
+          "CC BY-SA 4.0",
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      ],
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Earthshine_Karonen.jpg"
+    },
+    {
+      "id": "lea-suche1",
+      "kind": "image",
+      "file": "assets/recherche/rq02/01-suche-mond.jpg",
+      "title": "Leas erste Suche",
+      "alt": "fragFINN-Suchfeld mit Mond; daneben FINN fragen.",
+      "caption": "Suchfeld: „Mond“.",
+      "creator": "fragFINN e. V.",
+      "sourceId": "fragfinn",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.fragfinn.de/?stype=&s=Mond"
+    },
+    {
+      "id": "lea-treffer1",
+      "kind": "image",
+      "file": "assets/recherche/rq02/01a-erster-treffer.jpg",
+      "title": "Ein unpassender erster Titel",
+      "alt": "Erster Treffer: Blue Moon – Was ist Der blaue Mond? – Der-Mond.de.",
+      "caption": "Der Titel zum blauen Mond beantwortet Leas Lichtfrage noch nicht.",
+      "creator": "fragFINN e. V.",
+      "sourceId": "fragfinn",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.fragfinn.de/?stype=&s=Mond"
+    },
+    {
+      "id": "lea-suche2",
+      "kind": "image",
+      "file": "assets/recherche/rq02/02-suche-mond-leuchtet.jpg",
+      "title": "Lea ergänzt ein Suchwort",
+      "alt": "fragFINN-Suchfeld mit Mond leuchtet.",
+      "caption": "Suchfeld: „Mond leuchtet“.",
+      "creator": "fragFINN e. V.",
+      "sourceId": "fragfinn",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.fragfinn.de/?stype=&s=Mond+leuchtet"
+    },
+    {
+      "id": "lea-treffer2",
+      "kind": "image",
+      "file": "assets/recherche/rq02/02a-erster-treffer.jpg",
+      "title": "Auch dieser Titel passt noch nicht",
+      "alt": "Erster Titel zur Vorbereitung und Beobachtung einer Mondfinsternis.",
+      "caption": "Auch der Titel zur Mondfinsternis passt noch nicht.",
+      "creator": "fragFINN e. V.",
+      "sourceId": "fragfinn",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.fragfinn.de/?stype=&s=Mond+leuchtet"
+    },
+    {
+      "id": "lea-sophie",
+      "kind": "image",
+      "file": "assets/recherche/rq02/03-treffer-sophie.jpg",
+      "title": "Ein passender Treffer weiter unten",
+      "alt": "Treffer Warum leuchtet der Mond? – Frag Sophie!, mit direkter Seitenadresse.",
+      "caption": "„Warum leuchtet der Mond?“ passt zur Lichtfrage. Lea öffnet den Treffer.",
+      "creator": "fragFINN e. V.",
+      "sourceId": "fragfinn",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.fragfinn.de/?stype=&s=Mond+leuchtet"
+    },
+    {
+      "id": "lea-titel",
+      "kind": "image",
+      "file": "assets/recherche/rq02/04a-quellenseite-titel.jpg",
+      "title": "Die geöffnete Quelle",
+      "alt": "Originalüberschrift Warum leuchtet der Mond? auf Frag Sophie!.",
+      "caption": "Originalüberschrift auf der geöffneten Seite: „Warum leuchtet der Mond?“.",
+      "creator": "Universität Münster / Frag Sophie!",
+      "sourceId": "sophie",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+      "contextOnly": true
+    },
+    {
+      "id": "lea-text",
+      "kind": "image",
+      "file": "assets/recherche/rq02/04-original-textanfang.jpg",
+      "title": "Originaltext unter dem Comic",
+      "alt": "Anfang des ersten Textsatzes auf Frag Sophie!, im Bild nur teilweise gezeigt.",
+      "caption": "Originalsatzanfang unter dem Comic. Der Bildausschnitt endet nach „Sonne,“; der ganze Satz steht auf der Originalseite.",
+      "creator": "Universität Münster / Frag Sophie! · Dr. Nico Schmedemann",
+      "sourceId": "sophie",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": [],
+      "sourceUrl": "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+      "contextOnly": true
+    },
+    {
+      "id": "rq03-ersatz",
+      "kind": "download",
+      "file": "assets/recherche/rq02/ersatztexte.txt",
+      "title": "Ersatztexte bei Netzausfall",
+      "creator": "IuM-Lernwerk",
+      "license": "Eigene redaktionelle Texte; keine Originalquellen",
+      "sourceId": "eigen",
+      "printText": "ERSATZTEXTE BEI FEHLENDEM NETZ\nEigene redaktionelle Kurztexte des Lernwerks, 12.10.2026.\nKeine Originalzitate. Keine zwei unabhängigen Quellen.\n\nA – NUR FÜR LEAS LICHTFRAGE IN ABSCHNITT 2\nDer Mond stellt kein eigenes Licht her. Sonnenlicht fällt auf ihn. Deshalb sehen wir ihn hell.\nGrundlage: Frag Sophie! (Universität Münster), „Warum leuchtet der Mond?“ und DLR_next, „Erde, Sonne und Mond“.\nhttps://www.frag-sophie.de/warum-leuchtet-der-mond/\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond\nAuftrag: Erkläre Leas Antwort in eigenen Worten und zeige die passende Stelle in diesem Ersatztext.\n\nB – ERST FÜR DIE EIGENE MONDFRAGE AB ABSCHNITT 3\nDie Sonne beleuchtet eine Hälfte des Mondes. Der Mond bewegt sich um die Erde. Dabei sehen wir unterschiedlich viel von der beleuchteten Hälfte. Manchmal sehen wir sie vollständig: Der Mond erscheint rund. Manchmal sehen wir nur einen schmalen Teil: eine helle Sichel.\nAuf dem Mond sind insgesamt zwölf Menschen gelandet.\nGrundlage: DLR_next, „Erde, Sonne und Mond“, Mondabschnitt; timeanddate, „Wie entstehen die Mondphasen?“, Abschnitt „Eine Frage der Perspektive“.\nhttps://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\nhttps://www.timeanddate.de/astronomie/mond/mondphasen\nAuftrag: Formuliere deine Antwort. Zeige die Sätze, die sie stützen. Welcher Satz ist für unsere Frage entbehrlich?\n\nDie Texte A und B beantworten verschiedene Fragen. Sie dürfen NICHT als Quellenvergleich gegeneinander eingesetzt werden. Bei Rückkehr des Netzes müssen die eigene Suche und der Vergleich der Originaldarstellungen nachgeholt werden. Der Arbeitsbogen bleibt derselbe.\n"
+    },
+    {
+      "id": "buecherei-zeiten",
+      "kind": "image",
+      "file": "assets/recherche/rq02/05-buecherei-pfleghof.jpg",
+      "title": "Pfleghof: saisonale Öffnungszeiten",
+      "alt": "Originalausschnitt: Pfleghof, Adresse und Öffnungszeiten. Samstags Mitte April bis Mitte Oktober 10 bis 14 Uhr, Mitte Oktober bis Mitte April 10 bis 18 Uhr.",
+      "caption": "Stand vom 12.10.2026. Vergleiche die beiden Samstagszeilen mit dem Besuchstag. Der Ausschnitt zeigt keine besonderen Schließhinweise und garantiert keine künftige Öffnung.",
+      "creator": "Stadtbücherei Esslingen",
+      "sourceId": "buecherei",
+      "sourceUrl": "https://stadtbuecherei.esslingen.de/25291496",
+      "license": "Zweckgebundener Browserausschnitt · keine freie Bildlizenz",
+      "creditLinks": []
+    },
+    {
+      "id": "rq05-lesetext",
+      "kind": "download",
+      "file": "assets/recherche/rq05/leas-weg-lesetext.txt",
+      "title": "Leas Weg als Lesetext",
+      "creator": "IuM-Lernwerk",
+      "license": "Eigene redaktionelle Textalternative; Originalausschnitte separat zweckgebunden",
+      "sourceId": "eigen",
+      "printText": "LEAS RECHERCHEWEG – LESETEXT\nIuM-Lernwerk · Film 1.0 / Kapitel 1.7.0 / RQ05-F1 · Lernbogen 1.0\nLeas Frage: Leuchtet der Mond selbst?\nLies bis zu den Denkfragen. Sage zuerst deine Idee, bevor du Leas Fortsetzung liest.\n\nA01 · LEA HAT EINE FRAGE\nLea fragt: Leuchtet der Mond selbst? Sie möchte herausfinden, woher das Licht kommt.\n\nA02 · BROWSER UND SUCHFELD FINDEN\nDer Browser ist ein Programm für Webseiten. Die Suchmaschine fragFINN hilft beim Finden von Webseiten. Hier ist das Suchfeld.\nLea öffnet die Suchmaschine fragFINN im Browser. Sie sucht zuerst nach „Mond“.\n\nA03 · EINE BREITE SUCHE REICHT NOCH NICHT\nLea sucht nach Mond. Ihre eingegebenen Wörter heißen Suchwörter. Ein Treffer ist ein Suchergebnis. Der erste Titel handelt vom blauen Mond.\nDer erste sichtbare Titel „Blue Moon“ beantwortet die Frage nach dem Licht noch nicht.\n\nA04 · MITDENKSTELLE 1: SUCHWORT ERGÄNZEN\nWelches Wort würdest du ergänzen?\nMond + ?\nDenk kurz mit: Welches Wort würdest du ergänzen? Sage deine Idee, bevor du weiterliest.\n\nA05 · SUCHE ÄNDERN, WEITERHIN AUSWÄHLEN\nLea ergänzt leuchtet. Auch jetzt passt der erste Titel noch nicht: Er handelt von einer Mondfinsternis. Lea liest weitere Treffer.\nNeue Suche: „Mond leuchtet“. Der erste Titel zur Mondfinsternis passt noch nicht.\n\nA06 · EINEN PASSENDEN TITEL AUSWÄHLEN\nWeiter unten findet Lea einen passenden Titel: Warum leuchtet der Mond? Sie klickt ihn an. Bei deiner Suche können andere Treffer erscheinen.\nDer Treffer „Warum leuchtet der Mond?“ passt zur Lichtfrage. Lea öffnet ihn.\n\nA07 · JETZT IST DIE QUELLE GEÖFFNET\nJetzt ist Frag Sophie geöffnet. Diese Seite ist Leas Quelle. Lea liest im Text unter dem Comic nach.\nDie geöffnete Quelle: Universität Münster / Frag Sophie!, Dr. Nico Schmedemann. Der erste Textabsatz steht unter dem Comic.\n\nA08 · ZWEI STELLEN DERSELBEN SEITE LESEN\nEine Textstelle ist ein Teil des Textes. Hier stehen zwei kurze Auszüge. Angestrahlt heißt: Licht fällt darauf. Ein Teleskop ist ein Fernrohr.\nA · Am Anfang des Textes: „Der Mond leuchtet nicht selbst, […] weil er von der Sonne, […] angestrahlt wird.“\nB · Am Ende des Textes: Dort geht es um kleine Hügel auf dem Mond. Ihre Schatten kann man „in einem Teleskop beobachten lassen.“\n[…] zeigt ausgelassene Wörter. Die beiden Originalauszüge stammen von Frag Sophie!, erster und letzter Textsatz.\n\nA09 · MITDENKSTELLE 2: PASSENDE TEXTSTELLE WÄHLEN\nWelche Stelle hilft Lea? Zeige die Wörter. Warum hilft die andere nicht?\nDenk kurz mit: Welche Stelle hilft Lea? Zeige die Wörter. Warum hilft die andere nicht? Wähle zuerst selbst.\n\nA10 · AUSWAHL AM TEXT ERKLÄREN\nLea wählt A. Dort steht, dass der Mond nicht selbst leuchtet und Licht von der Sonne bekommt. B erklärt, was man mit einem Fernrohr beobachten kann.\nA beantwortet die Lichtfrage: nicht selbst – Licht von der Sonne. B behandelt das Beobachten mit einem Fernrohr; es erklärt die Herkunft des Lichts nicht.\n\nA11 · IN EIGENEN WORTEN ANTWORTEN\nLea sagt es mit eigenen Worten. Der Mond wirft Sonnenlicht zurück. Dieses Zurückwerfen nennt man Reflexion. Dann schreibt sie ihre Antwort auf.\nDer Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.\nLeas Notiz:\nMeine Antwort: Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.\nDiese Stelle hilft mir: Noch leer\nHier steht es: Noch leer\n\nA12 · DIE GENAUE STELLE FESTHALTEN\nLea notiert auch die passende Stelle: erster Textabsatz unter dem Comic, erster Satz. So weiß sie später, wo ihre Antwort herkommt.\nFrag Sophie!: erster Textabsatz unter dem Comic, erster Satz.\nLeas Notiz:\nMeine Antwort: Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.\nDiese Stelle hilft mir: Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.\nHier steht es: Noch leer\n\nA13 · SEITENNAME UND ADRESSE ÜBERNEHMEN\nOben steht die Webadresse. Lea kopiert sie in ihre Notiz. Ein anklickbarer Verweis heißt Link. Der Seitenname kommt dazu.\nFrag Sophie! · Warum leuchtet der Mond?\nhttps://www.frag-sophie.de/warum-leuchtet-der-mond/\nAnimierte Erklärdarstellung: vollständige Adresse auswählen, kopieren und bei „Hier steht es“ einfügen. Deine Lehrperson zeigt die Adresszeile am echten Schulbrowser.\nLeas Notiz:\nMeine Antwort: Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.\nDiese Stelle hilft mir: Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.\nHier steht es: Frag Sophie! · Warum leuchtet der Mond? · https://www.frag-sophie.de/warum-leuchtet-der-mond/\n\nA14 · GESPEICHERTEN LINK NUTZEN\nLea öffnet ihren gespeicherten Link. Sie findet die Seite und den ersten Satz wieder. Ihre Notiz hilft ihr beim Nachlesen.\nLea öffnet den gespeicherten Link. Auf derselben Seite findet sie unter dem Comic den ersten Satz wieder.\nLeas Notiz:\nMeine Antwort: Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.\nDiese Stelle hilft mir: Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.\nHier steht es: Frag Sophie! · Warum leuchtet der Mond? · https://www.frag-sophie.de/warum-leuchtet-der-mond/\n\nA15 · VON LEAS BEISPIEL ZUR EIGENEN SUCHE\nJetzt suchst du zu rund und Sichel. Leas Lichtantwort genügt dafür noch nicht.\nUnsere Frage: Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?\nFühre deinen eigenen Arbeitsbogen weiter. Leas Lichtantwort beantwortet diese Frage noch nicht.\n\nDEIN ANSCHLUSS: Zeige das Suchfeld und erkläre, welche Textstelle Leas Lichtfrage beantwortet. Danach suchst du zu unserer Frage nach rund und Sichel.\n\nHERKUNFT UND NUTZUNG\nAnimierte Erklärdarstellung; Originalausschnitte vom 13.10.2026. Keine frei lizenzierten Screenshotbilder. Begrenzte Auszüge werden unmittelbar erläutert.\nfragFINN e. V. · https://www.fragfinn.de/?stype=&s=Mond · https://www.fragfinn.de/?stype=&s=Mond+leuchtet\nUniversität Münster / Frag Sophie! · Dr. Nico Schmedemann · https://www.frag-sophie.de/warum-leuchtet-der-mond/\nQuellen und Nutzungsnachweis: quellen.html und quellen-rq05.html.\nBei Papier: Seitennamen/Textstelle notieren; den kopierten Link in der vereinbarten digitalen Notiz zum Bogen speichern. Ort am Bogen benennen, Link öffnen und Stelle zeigen.\n"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "frage",
+      "title": "Frage und Vermutung",
+      "paragraphs": [
+        "Eine Frage sagt, was du herausfinden möchtest. Eine Vermutung ist eine mögliche Erklärung, die du noch prüfen musst. „Das weiß ich noch nicht“ ist erlaubt."
+      ],
+      "example": "Unsere Frage betrifft helle Formen, Leas Frage das Licht.",
+      "boundary": "Beobachtung ist noch keine Erklärung.",
+      "steps": [
+        "frage"
+      ],
+      "sources": []
+    },
+    {
+      "id": "suche",
+      "title": "Browser, Suchmaschine und Link",
+      "paragraphs": [
+        "Der Browser zeigt Webseiten. Eine Suchmaschine hilft beim Finden. Suchwörter gibst du dort ein. Ein Treffer ist ein angezeigtes Suchergebnis.",
+        "Die Webadresse gehört zur geöffneten Seite. Ein Link führt zu einer Seite; bewahre den direkten Seitenlink zum Wiederöffnen auf."
+      ],
+      "example": "Lea ergänzt „Mond“ zu „Mond leuchtet“. Sie prüft die Treffertitel und öffnet die passende Seite.",
+      "boundary": "Treffertitel oder Vorschau ersetzen das Lesen der Originalseite nicht.",
+      "steps": [
+        "suchplan",
+        "suchen",
+        "transfer"
+      ],
+      "sources": [
+        "fragfinn"
+      ],
+      "byStep": {
+        "transfer": {
+          "example": "Die bekannte offizielle Büchereiadresse kann direkt zur benötigten Information führen; eine Suchmaschine muss zur passenden Originalseite führen."
+        }
+      }
+    },
+    {
+      "id": "beleg",
+      "title": "Quelle, Textstelle und Beleg",
+      "paragraphs": [
+        "Eine Quelle liefert dir Informationen, zum Beispiel eine geöffnete Webseite. Eine Textstelle ist ein Teil davon. Beantwortet sie deine Frage und stützt deine Aussage? Dann ist sie ein Beleg. Ein Text über dasselbe Thema genügt noch nicht."
+      ],
+      "example": "Lea wählt die Stelle zum Sonnenlicht. Die Stelle über Beobachtungen mit einem Fernrohr erklärt die Herkunft des Lichts nicht.",
+      "boundary": "Eine Stelle über das Licht des Mondes erklärt noch nicht, warum wir verschiedene helle Formen sehen.",
+      "steps": [
+        "suchplan",
+        "suchen",
+        "pruefen",
+        "ordnen"
+      ],
+      "sources": []
+    },
+    {
+      "id": "pruefen",
+      "title": "Wer hat die Seite gemacht? Was stützt meine Antwort?",
+      "paragraphs": [
+        "Wer hat die Seite gemacht? Der Anbieter ist die Person oder Einrichtung, die sie veröffentlicht. Ihre Namen zeigen dir die Herkunft. DLR ist eine Forschungseinrichtung; Time and Date AS ist ein Unternehmen, also eine Firma.",
+        "Passt die Textstelle zu deiner Antwort? Zeige die Wörter, die deine Aussage stützen. Auf einer zweiten Seite prüfst du dieselbe Aussage. Sage, was du beibehältst, genauer machst oder noch nicht klären kannst.",
+        "Eine Prüffrage ist ein Kriterium: Du achtest damit auf etwas Bestimmtes, etwa den passenden Satz oder den Anbieter. Plausibel heißt: Eine Erklärung leuchtet ein. Prüfe trotzdem am Text, worauf sie beruht.",
+        "Die ausgewählten Texte wollen etwas erklären. Weitere Angebote oder Werbung auf einer Seite kannst du zeigen; daraus allein kennst du die Absicht der Menschen dahinter noch nicht."
+      ],
+      "example": "Lea zeigt auf beiden Seiten, dass die Sonne den Mond beleuchtet. Deshalb behält sie ihre Lichtantwort bei.",
+      "boundary": "Ein bekannter Anbieter kann sich irren. Auch zwei Seiten können denselben Fehler übernehmen.",
+      "steps": [
+        "pruefen",
+        "transfer"
+      ],
+      "sources": []
+    },
+    {
+      "id": "datum",
+      "title": "Wann muss eine Angabe aktuell sein?",
+      "paragraphs": [
+        "Aktuell heißt hier: Die Information gilt für deinen Besuchstag. Schau auf den Ort, den Wochentag und die Jahreszeit. Suche außerdem nach Hinweisen auf eine Ausnahme, zum Beispiel eine Schließung."
+      ],
+      "example": "Du möchtest an einem Samstag im Oktober um 16 Uhr in die Bücherei. Prüfe, welche Samstagszeiten für diesen Monat gelten.",
+      "boundary": "Passen zwei Angaben nicht zusammen, bleibt deine Antwort unsicher. Kläre den Unterschied vor dem Besuch.",
+      "steps": [
+        "transfer",
+        "wiederaufnahme"
+      ],
+      "sources": [
+        "buecherei"
+      ]
+    },
+    {
+      "id": "notieren",
+      "title": "Ein Arbeitsbogen wächst zur Infokarte",
+      "paragraphs": [
+        "Halte zuerst drei Angaben fest: deine Antwort in eigenen Worten, die passende Textstelle und den Seitennamen mit Link. Öffne den gespeicherten Link noch einmal, damit du die Seite wiederfindest.",
+        "Später ergänzt du eine zweite Seite und die passende Stelle. Schreibe dazu, ob du deine Antwort beibehältst, genauer machst oder noch unsicher bist.",
+        "Aus deiner geprüften Antwort wird die Infokarte: die Frage als Überschrift und darunter deine verständliche Erklärung. Die beiden Quellen bleiben dabei. Bewahre die genauen Textstellen in deinem Arbeitsbogen auf."
+      ],
+      "example": "Eine andere Person liest deine Karte. Lass dir einen unklaren Satz zeigen und verbessere ihn mit Hilfe deiner Textstelle.",
+      "boundary": "Ist deine Erklärung schon richtig, verständlich und belegt, erkläre an einer konkreten Stelle, warum du sie beibehältst.",
+      "steps": [
+        "suchen",
+        "pruefen",
+        "ordnen"
+      ],
+      "sources": [],
+      "byStep": {
+        "suchen": {
+          "title": "Deine erste Notiz",
+          "paragraphs": [
+            "Meine Antwort: Schreibe einen eigenen Satz. Er darf noch unvollständig sein. Benenne, was du noch nicht verstehst.",
+            "Diese Stelle hilft mir: Zeige die passenden Sätze auf der Seite. Zum Wiederfinden kannst du die Überschrift und den Anfang eines Satzes notieren.",
+            "Hier steht es: Notiere den Seitennamen und kopiere den Link zur geöffneten Seite. Öffne ihn danach wieder.",
+            "Schreibst du auf Papier? Notiere Seitennamen und Textstelle auf deinem Bogen. Kopiere den Link in die vorhandene digitale Notiz zu deinem Bogen; deine Lehrperson zeigt dir den Ort. Schreibe auf den Bogen: „Mein Link steht in …“. So gehören Bogen und gespeicherter Link zusammen."
+          ],
+          "example": "Leas Notiz hilft dir beim Aufbau. Du schreibst deine Antwort zur Frage nach rund und Sichel.",
+          "boundary": "Ob du deine erste Antwort beibehalten oder verbessern musst, prüfst du im nächsten Abschnitt mit einer zweiten Seite."
+        },
+        "pruefen": {
+          "title": "Deine erste Notiz ergänzen",
+          "paragraphs": [
+            "Öffne deine erste Quelle wieder. Lies auf der zweiten Seite eine Stelle zu derselben Frage. Halte den zweiten Seitennamen, den Link und die Textstelle fest.",
+            "Erkläre deinen Stand: „Ich behalte meine Antwort bei, weil …“, „Ich mache meine Antwort genauer, weil …“ oder „Ich bin noch unsicher, weil …“."
+          ],
+          "example": "Zeige beide passenden Textstellen und erkläre, was sie über dieselbe Aussage sagen.",
+          "boundary": "Zwei Links aufzuschreiben reicht nicht. Entscheidend ist, was du beim Lesen verglichen hast."
+        }
+      }
+    },
+    {
+      "id": "ersatz",
+      "title": "Wenn das Internet ausfällt",
+      "paragraphs": [
+        "Deine Lehrperson gibt dir kurze Ersatztexte des Lernwerks. Mit ihnen kannst du lesen und eine eigene Antwort schreiben. Sie ersetzen deine Suche im Internet noch nicht.",
+        "Schreibe im Arbeitsbogen auf, was du nachholen musst: selbst suchen, die Originalseiten vergleichen oder die Öffnungszeit für den Besuchstag prüfen."
+      ],
+      "example": "Text A gehört zu Leas Lichtfrage, Text B zu unserer Frage nach rund und Sichel.",
+      "boundary": "Beide Texte stammen vom Lernwerk. Sie beantworten verschiedene Fragen und gelten nicht als zwei unabhängige Quellen.",
+      "steps": [
+        "suchen",
+        "pruefen",
+        "transfer"
+      ],
+      "sources": []
+    },
+    {
+      "id": "startquellen",
+      "title": "Wenn du bei der Suche nicht weiterkommst",
+      "paragraphs": [
+        "Probiere zuerst zwei eigene Suchformulierungen aus. Öffne danach bei Bedarf die Hilfe „Ich finde keinen passenden Treffer“ im Suchabschnitt.",
+        "Versuche die Suche mit dem Hinweis noch einmal. Klappt es nicht, öffne dort die nächste Hilfe. Sie führt dich zu einer passenden Seite."
+      ],
+      "example": "Ein angebotener Startlink hilft dir beim Lesen. Notiere dann „Startlink bekommen“.",
+      "boundary": "Deine Antwort schreibst du trotzdem selbst. Zeige die gelesene Stelle, die dir dabei geholfen hat.",
+      "steps": [
+        "suchen"
+      ],
+      "sources": [
+        "dlr"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "frage",
+      "title": "Unsere Mondfrage",
+      "goal": "Vergleiche die hellen Flächen auf den Fotos. Halte unsere Frage und deine erste Vermutung im Arbeitsbogen fest.",
+      "task": "Vergleiche die hellen Flächen auf den Fotos. Halte unsere Frage und deine erste Vermutung im Arbeitsbogen fest.",
+      "outcome": "Unsere Frage und eine Vermutung – oder „Das weiß ich noch nicht“.",
+      "criteria": [
+        "Ich beschreibe die helle Form, die ich auf den Fotos sehe.",
+        "Meine Frage und mein erster Gedanke stehen im selben Arbeitsbogen."
+      ],
+      "knowledge": [
+        "frage"
+      ],
+      "materialNeeds": [
+        "die zwei Fotos unten",
+        "Arbeitsbogen oder vereinbarte digitale Notiz"
+      ],
+      "blocks": [
+        {
+          "id": "beobachten",
+          "type": "explanation",
+          "title": "Schau auf die helle Form",
+          "text": "Eine Sichel ist eine schmale, gebogene Form. Die Fotos zeigen denselben Mond an unterschiedlichen Tagen und Orten.",
+          "media": [
+            "mond-rund",
+            "mond-sichel"
+          ],
+          "mediaLayout": "comparison",
+          "paragraphs": [
+            "Vergleiche die helle Form, nicht die Größe auf dem Bildschirm. Beschreibe zuerst nur, was du siehst. Warum es so aussieht, klären wir erst mit unserer Suche."
+          ]
+        },
+        {
+          "id": "frage-notieren",
+          "type": "explanation",
+          "title": "Das wollen wir herausfinden",
+          "text": "Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?",
+          "paragraphs": [
+            "Eine Vermutung ist eine mögliche Erklärung, die du noch prüfen musst. Schreibe unsere Frage und deinen ersten Gedanken auf. Du darfst auch „Das weiß ich noch nicht“ notieren.",
+            "Am Ende wächst aus deiner Notiz eine Infokarte: ein kurzer Text, der unserer Klasse die Antwort verständlich erklärt. Dafür sammeln wir jetzt eine erste Antwort und später passende Quellenhinweise."
+          ],
+          "note": [
+            [
+              "Unsere Frage",
+              "Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?"
+            ],
+            [
+              "Meine Vermutung",
+              "Das weiß ich noch nicht."
+            ]
+          ],
+          "noteTitle": "So kann dein Anfang aussehen",
+          "transition": "Bevor du selbst suchst, zeigt Lea ihren Weg. Sie untersucht eine einfachere Frage zum Licht des Mondes."
+        }
+      ]
+    },
+    {
+      "id": "suchplan",
+      "title": "So findet Lea eine Antwort",
+      "goal": "Schau Lea beim Suchen zu. Sage an den zwei Mitdenkstellen deine Idee. Wähle die Textstelle, die ihre Lichtfrage beantwortet.",
+      "task": "Schau Lea beim Suchen zu. Sage an den zwei Mitdenkstellen deine Idee. Wähle die Textstelle, die ihre Lichtfrage beantwortet.",
+      "outcome": "Du erklärst Leas Suchweg und zeigst den passenden Text. Danach kennst du die drei Angaben für deine eigene Notiz.",
+      "criteria": [
+        "Ich unterscheide Suchtreffer und geöffnete Quelle.",
+        "Ich erkläre, welche Textstelle Leas Frage beantwortet und welche nicht.",
+        "Ich nenne die drei Angaben für meine Notiz."
+      ],
+      "knowledge": [
+        "suche",
+        "beleg"
+      ],
+      "materialNeeds": [
+        "Leas Film, Bildfolge oder Lesetext",
+        "echte Adresszeile am verwendeten Schulbrowser"
+      ],
+      "blocks": [
+        {
+          "id": "lea-start",
+          "type": "explanation",
+          "title": "Lea sucht nach dem Mondlicht",
+          "text": "Lea fragt: „Leuchtet der Mond selbst?“ Unsere Frage nach rund und Sichel kommt danach.",
+          "paragraphs": [
+            "Ein Browser ist ein Programm zum Öffnen von Webseiten. Lea öffnet darin fragFINN: Diese Suchmaschine findet Webseiten. Lea tippt „Mond“ ins Suchfeld. Die Wörter darin heißen Suchwörter."
+          ],
+          "media": [
+            "lea-suche1"
+          ]
+        },
+        {
+          "id": "lea-breit",
+          "type": "explanation",
+          "title": "Passt der erste Treffer?",
+          "text": "Ein Treffer ist ein Suchergebnis. Sein Titel führt zu einer Webseite. „Blue Moon“ passt noch nicht: Lea sucht nach dem Licht.",
+          "media": [
+            "lea-treffer1"
+          ],
+          "pause": "Welches Wort würdest du zu „Mond“ ergänzen? Sage deine Idee, bevor du weiterliest."
+        },
+        {
+          "id": "lea-genauer",
+          "type": "explanation",
+          "title": "Lea liest weitere Treffer",
+          "text": "Lea sucht jetzt „Mond leuchtet“. Der erste Titel handelt von einer Mondfinsternis. Lea liest weiter.",
+          "paragraphs": [
+            "Dann findet sie „Warum leuchtet der Mond?“. Diesen Titel klickt sie an. Bei dir können andere Treffer erscheinen."
+          ],
+          "media": [
+            "lea-suche2",
+            "lea-treffer2",
+            "lea-sophie"
+          ]
+        },
+        {
+          "id": "lea-liest",
+          "type": "explanation",
+          "title": "Welche Stelle beantwortet Leas Frage?",
+          "text": "Die geöffnete Seite ist Leas Quelle. Auf Frag Sophie! liest sie unter dem Comic. Ein Absatz ist eine Gruppe von Sätzen. Eine Textstelle ist ein Teil davon.",
+          "media": [
+            "lea-titel"
+          ],
+          "afterMedia": [
+            "lea-text"
+          ],
+          "passages": {
+            "intro": "Lies die zwei kurzen Auszüge von derselben Seite.",
+            "options": [
+              {
+                "label": "A · Am Anfang des Textes",
+                "context": "Hier liest Lea:",
+                "text": "Der Mond leuchtet nicht selbst, […] weil er von der Sonne, […] angestrahlt wird."
+              },
+              {
+                "label": "B · Am Ende des Textes",
+                "context": "Dort geht es um kleine Hügel auf dem Mond. Ihre Schatten kann man",
+                "text": "in einem Teleskop beobachten lassen."
+              }
+            ],
+            "note": "[…] zeigt ausgelassene Wörter. Angestrahlt heißt: Licht fällt darauf. Ein Teleskop ist ein Fernrohr.",
+            "source": "Frag Sophie! · erster und letzter Satz des Textes",
+            "url": "https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+          },
+          "pause": "Welche Stelle beantwortet „Leuchtet der Mond selbst?“ Zeige die passenden Wörter. Erkläre: Warum hilft die andere Stelle hier nicht?",
+          "helps": [
+            {
+              "title": "Leas Wahl · erst nach deinem Versuch",
+              "printRole": "solution",
+              "text": "Lea wählt A: Dort steht, dass der Mond nicht selbst leuchtet und Licht von der Sonne bekommt. B beschreibt, was man mit einem Fernrohr sehen kann. Das erklärt die Herkunft des Lichts nicht.",
+              "paragraphs": [
+                "Lea sagt es so: Der Mond macht sein Licht nicht selbst. Er wirft Sonnenlicht zurück. Dieses Zurückwerfen nennt man Reflexion."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lea-notiert",
+          "type": "explanation",
+          "title": "Lea notiert drei Angaben",
+          "text": "Ein Link ist ein anklickbarer Verweis. Lea hält ihre Antwort, die passende Stelle und den Seitenlink fest.",
+          "noteTitle": "Leas erste Notiz",
+          "note": [
+            [
+              "Meine Antwort",
+              "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne."
+            ],
+            [
+              "Diese Stelle hilft mir",
+              "Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz."
+            ],
+            [
+              "Hier steht es",
+              "Frag Sophie! · Warum leuchtet der Mond?",
+              "https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+            ]
+          ]
+        },
+        {
+          "id": "lea-adresse",
+          "type": "explanation",
+          "title": "So findet Lea die Seite wieder",
+          "text": "Die Webadresse steht oben im Browser in der Adresszeile. Die Lehrperson zeigt sie am echten Browser.",
+          "items": [
+            "Die ganze Adresse markieren und kopieren.",
+            "Bei „Hier steht es“ in die Notiz einfügen.",
+            "Den gespeicherten Link öffnen und die Textstelle wiederfinden."
+          ],
+          "helps": [
+            {
+              "title": "Ich schreibe auf Papier.",
+              "text": "Schreibe Seitennamen und Textstelle auf deinen Bogen. Kopiere den Link in die vorhandene digitale Notiz zu diesem Bogen. Deine Lehrperson zeigt den Ort.",
+              "paragraphs": [
+                "Trage auf dem Bogen ein: „Meine Links stehen in …“. Öffne den Link und zeige die Stelle."
+              ]
+            }
+          ],
+          "transition": "Jetzt nutzt du diesen Weg für unsere Frage nach rund und Sichel. Leas Lichtantwort genügt dafür noch nicht."
+        }
+      ],
+      "contextQuestion": "Leuchtet der Mond selbst?"
+    },
+    {
+      "id": "suchen",
+      "title": "Unsere erste eigene Notiz",
+      "goal": "Probiere zwei eigene Suchformulierungen aus. Lies auf einer geöffneten Seite eine passende Stelle und halte deine erste Antwort mit Textstelle und Seitenlink fest.",
+      "task": "Suche zweimal mit unterschiedlichen Suchwörtern. Lies auf einer geöffneten Seite eine passende Stelle und halte deine erste Antwort mit Textstelle und Seitenlink fest.",
+      "outcome": "Deine erste Notiz mit drei Angaben zur Mondformenfrage. Dazu erklärst du deine Suchänderung an einem konkreten Treffertitel.",
+      "criteria": [
+        "Ich habe zwei eigene Suchformulierungen tatsächlich ausprobiert und kann ihre Wirkung an einem Titel erklären.",
+        "Ich erkläre, was meine erste Antwort schon sagt und wo ich noch unsicher bin.",
+        "Ich zeige eine passende Textstelle und kann die Quelle mit meinem Link wiederfinden.",
+        "Ich benenne, ob ich die Seite selbst gefunden oder einen Startlink genutzt habe."
+      ],
+      "knowledge": [
+        "suche",
+        "beleg",
+        "notieren",
+        "startquellen"
+      ],
+      "materialNeeds": [
+        "Browser, erlaubte Suchmaschine und Internet",
+        "Frage/Vermutung und derselbe Arbeitsbogen"
+      ],
+      "blocks": [
+        {
+          "id": "eigene-suche",
+          "type": "explanation",
+          "title": "Jetzt suchst du zu unserer Frage",
+          "text": "Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?",
+          "paragraphs": [
+            "Öffne fragFINN im Browser. Ein Link zu einem anderen Angebot öffnet einen neuen Tab; ein Tab ist eine eigene geöffnete Browserseite. Kehre danach zu diesem Lernwerk-Tab zurück."
+          ],
+          "externalLinks": [
+            [
+              "fragFINN zum Suchen öffnen",
+              "https://www.fragfinn.de/"
+            ]
+          ],
+          "items": [
+            "Überlege eigene Suchwörter und starte die Suche. Lies einige Treffertitel.",
+            "Ändere deine Suchwörter einmal und starte erneut. Vergleiche an einem Treffertitel: Passt er besser, gleich gut oder weniger gut zu unserer Frage? Auch eine Suche ohne Verbesserung hilft dir beim Entscheiden.",
+            "Öffne einen passenden Treffer. Lies auf der geöffneten Seite eine Stelle, die unsere Frage beantwortet."
+          ],
+          "helps": [
+            {
+              "title": "Ich finde keinen passenden Treffer.",
+              "text": "Enthalten deine Suchwörter nur „Mond“? Ergänze, was dich interessiert: seine unterschiedliche Form. Probiere zunächst selbst eine neue Formulierung.",
+              "helps": [
+                {
+                  "title": "Auch danach brauche ich eine Startseite.",
+                  "text": "Dieser Link ist bereitgestellt. Er zählt nicht als selbst gefundener Treffer. Halte deine vorherigen Suchwörter im selben Arbeitsbogen fest.",
+                  "externalLinks": [
+                    [
+                      "DLR_next – Erde, Sonne und Mond öffnen",
+                      "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist"
+                    ]
+                  ],
+                  "paragraphs": [
+                    "Öffne dort im Inhaltsverzeichnis „Wie der Mond die Erde umkreist“, falls der Abschnitt noch nicht angezeigt wird."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "eigene-notiz",
+          "type": "explanation",
+          "title": "Schreibe im selben Arbeitsbogen weiter",
+          "text": "Beantworte die drei Notizfragen mit den Angaben deiner eigenen geöffneten Seite.",
+          "noteTitle": "Das kommt in deine erste Notiz",
+          "note": [
+            [
+              "Meine Antwort",
+              "Schreibe deine Erklärung in eigenen Worten."
+            ],
+            [
+              "Diese Stelle hilft mir",
+              "Zeige die passende Stelle oder notiere Überschrift und kurzen Satzanfang."
+            ],
+            [
+              "Hier steht es",
+              "Notiere den Seitennamen und kopiere den direkten Link. Öffne ihn noch einmal, um die Seite wiederzufinden."
+            ]
+          ],
+          "paragraphs": [
+            "Halte auch beide Suchformulierungen fest. Erkläre den Unterschied kurz mündlich an einem Titel. Kennzeichne „selbst gefunden“ oder „Startlink bekommen“. Das gehört in deinen vorhandenen Arbeitsbogen, nicht in eine neue Abgabe.",
+            "Eine passende Textstelle, die deine Aussage stützt, nennt man einen Beleg. Zeige, wie dein Satz und die gelesene Stelle zusammenpassen."
+          ],
+          "helps": [
+            {
+              "title": "Ich schreibe auf Papier. Wohin mit dem Link?",
+              "text": "Schreibst du auf Papier? Notiere Seitennamen und Textstelle auf deinem Bogen. Kopiere den Link in die vorhandene digitale Notiz zu deinem Bogen; deine Lehrperson zeigt dir den Ort. Schreibe auf den Bogen: „Mein Link steht in …“. So gehören Bogen und gespeicherter Link zusammen.",
+              "paragraphs": [
+                "Öffne den gespeicherten Link noch einmal. Zeige auf der Seite die Textstelle zu deiner Antwort. Auch bei der zweiten Quelle gehst du so vor."
+              ]
+            },
+            {
+              "title": "Leas Notiz als Formhilfe ansehen.",
+              "text": "Lea hat eine andere Frage beantwortet. Übernimm den Aufbau, nicht ihre Lichtantwort.",
+              "note": [
+                [
+                  "Meine Antwort",
+                  "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne."
+                ],
+                [
+                  "Diese Stelle hilft mir",
+                  "Frag Sophie!: erster Textabsatz direkt unter dem Comic, erster Satz."
+                ],
+                [
+                  "Hier steht es",
+                  "Frag Sophie! · Warum leuchtet der Mond?",
+                  "https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+                ]
+              ],
+              "noteTitle": "Leas Beispiel zur Lichtfrage"
+            },
+            {
+              "title": "Nach meinem Versuch brauche ich ein Gerüst zur DLR-Seite.",
+              "text": "Nutze es nach deinen eigenen Suchversuchen und bei Bedarf nach der Suchhilfe oben. Bei einer anderen Quelle trägst du deren Angaben ein.",
+              "noteTitle": "Ein Teil ist vorbereitet – du ergänzt Antwort und Stelle",
+              "note": [
+                [
+                  "Meine Antwort",
+                  "Ich sehe manchmal eine runde helle Fläche und manchmal eine Sichel, weil …"
+                ],
+                [
+                  "Diese Stelle hilft mir",
+                  "DLR_next, Abschnitt „Wie der Mond die Erde umkreist“. Ergänze den passenden Satzanfang oder zeige die markierte Stelle."
+                ],
+                [
+                  "Hier steht es",
+                  "DLR_next · Erde, Sonne und Mond",
+                  "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist"
+                ]
+              ],
+              "paragraphs": [
+                "Welche gelesene Stelle hilft dir beim „weil“? Sonnenbeleuchtung allein erklärt die unterschiedlichen Formen noch nicht."
+              ],
+              "helps": [
+                {
+                  "title": "Die DLR-Seite ist lang. Wo lese ich genauer?",
+                  "text": "Im Mondabschnitt geht es zuerst um die verschiedenen Formen. Lies danach die Sätze zur Beleuchtung bis zur Erklärung von Vollmond und Halbmond. Die späteren Absätze zur Mondlandung brauchst du zunächst nicht.",
+                  "paragraphs": [
+                    "„Angestrahlt“ heißt: Licht fällt auf den Mond. „Vorderseite“ meint hier die Seite, die wir von der Erde aus sehen.",
+                    "Erkläre zunächst mündlich, was der Text über die sichtbare helle Fläche sagt. Dann schreibe deinen eigenen Satz. Bleibt ein Wort unklar, zeige genau diesen Satz der Lehrperson."
+                  ]
+                }
+              ]
+            }
+          ],
+          "transition": "Deine erste Antwort darf noch unsicher oder unvollständig sein. Zeige, was du schon belegen kannst, und benenne, was noch unklar ist. Im nächsten Abschnitt prüfen und verbessern wir genau diese Antwort."
+        },
+        {
+          "id": "ohne-netz",
+          "type": "explanation",
+          "title": "Falls das Internet fehlt",
+          "text": "Nutze mit der Lehrperson die gekennzeichneten Ersatztexte. Sie sind eigene Zusammenfassungen des Lernwerks, keine zwei unabhängigen Quellen.",
+          "fold": "Nur bei Netzausfall: so arbeitest du weiter",
+          "externalLinks": [
+            [
+              "Ersatztexte als Textdatei öffnen",
+              "assets/recherche/rq02/ersatztexte.txt"
+            ]
+          ],
+          "paragraphs": [
+            "Übe damit Lesen und Notieren. Schreibe im selben Arbeitsbogen: „Suche und Originalprüfung noch nachholen“. Die Live-Suche bleibt offen."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pruefen",
+      "title": "Können wir dieser Antwort vertrauen?",
+      "goal": "Dieselbe eigene Aussage an einer zweiten veröffentlichten Seite prüfen und die Herkunft zeigen.",
+      "task": "Öffne deine erste Notiz und eine zweite Seite. Prüfe: Was sagt die zweite Seite über deine Antwort? Ergänze denselben Bogen.",
+      "outcome": "Du zeigst zwei passende Textstellen und sagst, was du beibehältst, genauer machst oder noch nicht weißt.",
+      "materialNeeds": [
+        "erste Notiz und Arbeitsbogen",
+        "erste und zweite Originalseite; Links unten",
+        "Browser und Internet"
+      ],
+      "knowledge": [
+        "pruefen",
+        "beleg",
+        "notieren"
+      ],
+      "criteria": [
+        "Ich zeige passende Stellen zu derselben Aussage auf beiden Seiten.",
+        "Ich zeige bei DLR_next und timeanddate, wer die Seite veröffentlicht.",
+        "Ich begründe meinen Stand am Text und vergleiche ihn mit meiner ersten Vermutung."
+      ],
+      "blocks": [
+        {
+          "id": "lea-prueft",
+          "type": "explanation",
+          "title": "Lea öffnet ihre erste Notiz",
+          "text": "Leas Antwort: Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.",
+          "paragraphs": [
+            "Ihr Beleg steht im ersten Satz auf Frag Sophie!. Beim Text stehen die Universität Münster und Dr. Nico Schmedemann. Der Anbieter ist die Person oder Einrichtung, die eine Seite veröffentlicht."
+          ],
+          "externalLinks": [
+            [
+              "Frag Sophie! · Leas erste Quelle",
+              "https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+            ]
+          ]
+        },
+        {
+          "id": "lea-vergleich",
+          "type": "explanation",
+          "title": "Sagt eine zweite Seite dasselbe?",
+          "text": "Lea liest beim DLR_next unter „Wie der Mond die Erde umkreist“.",
+          "quote": {
+            "text": "Denn er leuchtet ja nicht selbst, sondern erscheint nur so hell, weil die Sonne ihn beleuchtet.",
+            "source": "DLR_next · Erde, Sonne und Mond, Abschnitt „Wie der Mond die Erde umkreist“",
+            "url": "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist"
+          },
+          "afterParagraphs": [
+            "Zeige die Wörter für die Lichtquelle. Sie passen zu Leas erster Antwort. Lea ergänzt ihren Bogen:"
+          ],
+          "noteTitle": "Leas Prüfnotiz",
+          "note": [
+            [
+              "Zweite Seite",
+              "DLR_next · Erde, Sonne und Mond",
+              "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist"
+            ],
+            [
+              "Vergleichbare Stelle",
+              "Mondabschnitt, Satzanfang „Denn er leuchtet ja nicht selbst …“"
+            ],
+            [
+              "Mein Stand",
+              "Bestätigt, weil beide Stellen Sonnenlicht als Grund nennen."
+            ]
+          ],
+          "pause": "Welche Aussage hat Lea geprüft? Ist damit schon erklärt, warum der Mond rund oder wie eine Sichel aussieht?"
+        },
+        {
+          "id": "eigene-zweite-seite",
+          "type": "explanation",
+          "title": "Öffne jetzt deine zweite Quelle",
+          "text": "Zeige zuerst die Stelle zu deiner eigenen Antwort. Lies dieselbe Erklärung bei einem anderen Anbieter nach.",
+          "items": [
+            "Erste Quelle DLR_next? Nimm jetzt timeanddate. Erste Quelle timeanddate? Nimm jetzt DLR_next.",
+            "Bei einer anderen ersten Quelle: Wähle eine passende der beiden Seiten. Frag bei unklarem Anbieter deine Lehrperson."
+          ],
+          "externalLinks": [
+            [
+              "timeanddate: Wie entstehen die Mondphasen?",
+              "https://www.timeanddate.de/astronomie/mond/mondphasen"
+            ],
+            [
+              "DLR_next: Wie der Mond die Erde umkreist",
+              "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist"
+            ]
+          ],
+          "helps": [
+            {
+              "title": "Ich verstehe Wörter auf timeanddate nicht.",
+              "text": "Perspektive bedeutet Blickwinkel: Von wo sehen wir etwas? Ein Beobachter ist hier ein Mensch, der von der Erde aus auf den Mond schaut. „Zugewandt“ heißt: zu uns hin gerichtet. „Beleuchtet“ heißt: Licht fällt darauf.",
+              "paragraphs": [
+                "Lies den ersten Absatz: Wann ist die beleuchtete Seite vollständig oder teilweise zu sehen? Lies dann den zweiten Absatz: Was verändert sich durch die Bewegung? Erkläre erst mündlich und formuliere danach selbst."
+              ]
+            },
+            {
+              "title": "Bei DLR_next finde ich den Text nicht.",
+              "text": "Öffne im Inhaltsverzeichnis „Wie der Mond die Erde umkreist“. Lies die Beleuchtungssätze im Mondabschnitt bis zu Vollmond und Halbmond. Die späteren Mondlandungen brauchst du noch nicht.",
+              "paragraphs": [
+                "„Angestrahlt“ heißt: Licht fällt auf den Mond. „Vorderseite“ meint hier die von der Erde sichtbare Seite. Zeige genau den Satz, an dem du hängenbleibst."
+              ]
+            }
+          ],
+          "afterItems": [
+            "Auf timeanddate lies unter „Eine Frage der Perspektive“ die ersten zwei Absätze. Mondphasen heißen die verschiedenen hellen Formen des Mondes."
+          ]
+        },
+        {
+          "id": "herkunft",
+          "type": "explanation",
+          "title": "Wer hat die Seiten gemacht?",
+          "text": "Zeige die Namen auf den Originalseiten. So erkennst du die Herkunft deiner Information.",
+          "items": [
+            "DLR_next: eine Forschungseinrichtung. Dort arbeiten Menschen daran, neues Wissen zu gewinnen.",
+            "timeanddate: das Unternehmen Time and Date AS. Ein Unternehmen ist eine Firma."
+          ],
+          "helps": [
+            {
+              "title": "Wo finde ich die Herkunft auf diesen Seiten?",
+              "text": "Bei timeanddate stehen die Autorennamen direkt unter der Artikelüberschrift; ganz unten findest du „© Time and Date AS“ im Bereich „Unternehmen“. Beim DLR führt am Seitenende „Imprint & terms of use“ zum Impressum. Ein Impressum ist eine Seite mit Angaben zum Anbieter.",
+              "paragraphs": [
+                "Zeige dort den vollständigen Namen Deutsches Zentrum für Luft- und Raumfahrt. Wir ordnen DLR hier als Forschungseinrichtung ein; Time and Date AS ist ein Unternehmen. Das ersetzt nicht den Vergleich der konkreten Textstellen."
+              ],
+              "externalLinks": [
+                [
+                  "DLR_next: sichtbare Anbieterangaben im Impressum",
+                  "https://www.dlr.de/de/next/impressum"
+                ]
+              ]
+            }
+          ],
+          "afterItems": [
+            "Beide Texte erklären etwas. Zeige am Text, was deine Antwort stützt: Ein bekannter Name allein macht sie nicht richtig."
+          ]
+        },
+        {
+          "id": "pruefstand",
+          "type": "explanation",
+          "title": "Was bleibt? Was wird genauer?",
+          "text": "Lege deine Antwort neben die beiden Textstellen. Arbeite diese drei Prüffragen durch:",
+          "items": [
+            "Sagen die Stellen dasselbe über deine Antwort? Zeige die passenden Wörter.",
+            "Was musst du ergänzen oder ändern? Wenn etwas unklar bleibt, benenne es.",
+            "Welche Stelle hilft dir bei dieser Entscheidung? Erkläre es."
+          ],
+          "noteTitle": "Deine Prüfnotiz",
+          "note": [
+            [
+              "Zweite Seite",
+              "Seitenname und Link bei deiner ersten Quelle"
+            ],
+            [
+              "Vergleichbare Stelle",
+              "Überschrift und kurzer Satzanfang; zeige die Stelle"
+            ],
+            [
+              "Mein Stand",
+              "Bestätigt / genauer / noch offen, weil …"
+            ]
+          ],
+          "helps": [
+            {
+              "title": "Meine Antwort sagt nur: Der Mond bekommt Sonnenlicht.",
+              "text": "Prüfe die Stellen zur sichtbaren beleuchteten Fläche. Was verändert sich, während der Mond um die Erde läuft? Sonnenlicht allein erklärt die verschiedenen Formen noch nicht.",
+              "paragraphs": [
+                "Satzanfang bei Bedarf: „Meine erste Antwort wird genauer: Von der Erde aus sehen wir …“. Ergänze selbst und zeige die Stelle."
+              ]
+            },
+            {
+              "title": "Die Stellen scheinen sich zu widersprechen.",
+              "text": "Prüfst du dieselbe Frage? Geht es um den ganzen Mond oder die sichtbare helle Fläche? Lies die Sätze davor und danach. Bleibt ein Unterschied, notiere ihn als offene Frage und besprecht genau diese Stellen."
+            },
+            {
+              "title": "Ich kann den Vergleich schon begründen.",
+              "text": "Prüfe eine noch unklare Aussage aus deiner vorhandenen Notiz: Behauptet sie mehr als beide Stellen zeigen? Grenze sie begründet ein oder halte fest, was fehlt. Du bleibst bei derselben Infokarte."
+            }
+          ],
+          "transition": "Aus deiner geprüften Antwort machst du als Nächstes eine verständliche Infokarte.",
+          "afterItems": [
+            "Solche Prüffragen heißen Kriterien: Sie sagen dir, worauf du achtest. Zwei Seiten können auch denselben Fehler übernehmen.",
+            "Ergänze denselben Bogen. Vergleiche danach mit deiner ersten Vermutung: Was weißt du jetzt genauer?"
+          ]
+        },
+        {
+          "id": "vergleich-ohne-netz",
+          "type": "explanation",
+          "title": "Wenn eine Originalseite nicht erreichbar ist",
+          "text": "Nutze mit der Lehrperson den gekennzeichneten Ersatztext B zum Lesen und Formulieren. Er ist keine zweite unabhängige Quelle.",
+          "fold": "Nur bei Ausfall: begrenzt weiterarbeiten",
+          "externalLinks": [
+            [
+              "Gekennzeichnete Ersatztexte",
+              "assets/recherche/rq02/ersatztexte.txt"
+            ]
+          ],
+          "paragraphs": [
+            "Halte fest: „Vergleich der Originaldarstellungen noch nachholen“. Die Anbieterarten kannst du an den Herkunftsangaben besprechen; die echte Textprüfung bleibt offen. A und B beantworten unterschiedliche Fragen und dürfen nicht als Quellenvergleich gegeneinander gelten."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ordnen",
+      "title": "Unsere verständliche Infokarte",
+      "goal": "Die geprüfte Antwort auswählen, verständlich ordnen und nach konkreter Rückmeldung verbessern.",
+      "task": "Nutze deine Prüfnotiz für eine kurze Infokarte. Lass dir eine konkrete Unklarheit nennen, verbessere genau diese Stelle und erkläre den Grund. Alles bleibt im selben Arbeitsbogen.",
+      "outcome": "Deine Infokarte mit eigener Erklärung und zwei Quellen. Du sagst, was du weggelassen und verbessert hast und warum.",
+      "materialNeeds": [
+        "Frage, Vermutung und Prüfnotiz mit beiden Textstellen",
+        "derselbe Arbeitsbogen oder digitale Notiz",
+        "andere Person oder Lehrperson für kurze Rückmeldung"
+      ],
+      "knowledge": [
+        "notieren",
+        "beleg",
+        "pruefen"
+      ],
+      "criteria": [
+        "Meine Erklärung verbindet Sonnenbeleuchtung und den veränderten Blick auf die helle Fläche.",
+        "Ich lasse eine tatsächlich gelesene, hier unnötige Information mit Grund weg.",
+        "Eine andere Person versteht die Erklärung und findet die Quellen wieder.",
+        "Ich zeige Rückmeldung und Änderung mit Grund; eine schon tragfähige Stelle darf begründet bleiben."
+      ],
+      "blocks": [
+        {
+          "id": "lea-karte",
+          "type": "explanation",
+          "title": "Erst jetzt: Leas fertige Infokarte",
+          "text": "Lea nimmt ihre bestätigte Lichtantwort und ordnet sie für andere. Ihre Frage bleibt eine andere als unsere Formenfrage.",
+          "noteTitle": "Leuchtet der Mond selbst?",
+          "note": [
+            [
+              "Leas Erklärung",
+              "Der Mond leuchtet nicht von selbst. Er erscheint hell, weil Sonnenlicht auf ihn fällt."
+            ],
+            [
+              "Quelle 1",
+              "Frag Sophie! · Warum leuchtet der Mond?",
+              "https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+            ],
+            [
+              "Quelle 2",
+              "DLR_next · Erde, Sonne und Mond",
+              "https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist"
+            ]
+          ],
+          "paragraphs": [
+            "Die genauen Textstellen stehen weiter in Leas Arbeitsnotiz. Eine Infokarte ist hier eine kurze, verständliche Erklärung für andere. Sie braucht keine zusätzlichen Pflichtüberschriften oder eine bestimmte Faktenzahl."
+          ]
+        },
+        {
+          "id": "auswaehlen",
+          "type": "explanation",
+          "title": "Was hilft bei unserer Frage?",
+          "text": "Nimm nur Informationen aus deinen gelesenen Stellen, die unsere Formenfrage erklären. Halte Beleuchtung, Bewegung und die sichtbare helle Fläche zusammen.",
+          "paragraphs": [
+            "Später im DLR-Mondabschnitt steht auch, dass zwölf Menschen auf dem Mond gelandet sind. Lies diese Stelle kurz, wenn sie zu deinem Material gehört. Sie erklärt die hellen Formen nicht. Lea lässt sie auch bei ihrer Lichtfrage weg.",
+            "Zeige eine wirklich gelesene Information, die du weglässt, und begründe dies kurz. Die Mondlandungen sind ein mögliches Beispiel, keine neue Zahl zum Lernen."
+          ],
+          "helps": [
+            {
+              "title": "Ich weiß noch nicht, was entbehrlich ist.",
+              "text": "Zeige einen gelesenen Satz, der etwas anderes als Beleuchtung oder sichtbare Formen erklärt. Würde deine Erklärung ohne ihn vollständig bleiben? Begründe mündlich."
+            }
+          ]
+        },
+        {
+          "id": "karte-schreiben",
+          "type": "explanation",
+          "title": "Aus deiner Prüfnotiz wird deine Karte",
+          "text": "Nutze unsere Frage als Überschrift. Erkläre darunter in eigenen Worten, wie die verschiedenen hellen Formen entstehen. Meist reichen zwei bis drei geordnete Sätze oder eine kleine Aufzählung; die tragfähige Erklärung entscheidet.",
+          "items": [
+            "Ordne die Erklärung für andere: Was beleuchtet den Mond? Was sehen wir während seiner Bewegung unterschiedlich?",
+            "Beide Seitennamen und direkten Links bleiben dabei. Die genauen Textstellen bewahrst du im selben Arbeitsbogen auf.",
+            "Vergleiche mit deiner ersten Vermutung: Was ist bestätigt, verändert oder war vorher unbekannt?"
+          ],
+          "helps": [
+            {
+              "title": "Meine Sätze hängen noch nicht zusammen.",
+              "text": "Erkläre zuerst mündlich. Nutze bei Bedarf: „Die Sonne … / Während der Mond … / Deshalb sehen wir …“. Fülle diese Anfänge selbst und vergleiche mit den Belegen."
+            }
+          ]
+        },
+        {
+          "id": "rueckmeldung",
+          "type": "explanation",
+          "title": "Eine konkrete Stelle wird besser",
+          "text": "Zeige deine Karte einer anderen Person oder der Lehrperson. Prüft die drei Kriterien unten. Lass dir eine genaue Unklarheit nennen: Welcher Satz ist unklar oder geht über den Beleg hinaus?",
+          "items": [
+            "Beantwortet die Karte unsere Frage fachlich richtig?",
+            "Versteht eine andere Person deine eigene Erklärung?",
+            "Tragen die Textstellen die Antwort, und lassen sich die Seiten wiederfinden?"
+          ],
+          "paragraphs": [
+            "Verbessere genau die besprochene Stelle und zeige den Unterschied mit Grund. Beispiel: Auf „Was sehen wir unterschiedlich?“ hilft „unterschiedlich viel von der beleuchteten Hälfte“ mehr als nur „Der Mond verändert sich“.",
+            "Ist die Stelle schon richtig, verständlich und belegt, begründe das Beibehalten am Kriterium. „Alles gut“ ersetzt die konkrete Besprechung nicht. Wenn keine andere Person verfügbar ist, übernimmt die Lehrperson die Rückmeldung."
+          ],
+          "noteTitle": "Kurze Änderungsspur im selben Bogen",
+          "note": [
+            [
+              "Konkrete Rückmeldung",
+              "Diese Stelle ist noch unklar: …"
+            ],
+            [
+              "Meine Verbesserung mit Grund",
+              "Vorher → nachher, weil …; oder begründetes Beibehalten"
+            ]
+          ],
+          "transition": "Bewahre Karte und Arbeitsbelege für „Zusammenarbeiten“ auf. Als Nächstes nutzt du dein Vorgehen bei einer Frage, für die das Datum wichtig ist."
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Jetzt ein anderer Fall",
+      "contextQuestion": "Ist die Bücherei im Pfleghof am Samstag, 24. Oktober 2026, um 16 Uhr geöffnet?",
+      "goal": "Einen bekannten offiziellen Zugang oder eine Suche begründet wählen und die Aktualität am Besuchstag prüfen.",
+      "task": "Du möchtest am Samstag, 24. Oktober 2026, um 16 Uhr ein Buch in der Bücherei im Pfleghof ausleihen. Entscheide selbst, wie du zur passenden Information kommst, und begründe deine Antwort am Original.",
+      "outcome": "Eigene Wahl des Zugangs und belegte Antwort für den Besuchstag – mit benannter Unsicherheit, falls Angaben nicht zusammenpassen.",
+      "materialNeeds": [
+        "Browser und Internet",
+        "bekannte offizielle Startadresse unten",
+        "derselbe Arbeitsbogen für wenige Stichwörter"
+      ],
+      "knowledge": [
+        "datum",
+        "suche",
+        "pruefen"
+      ],
+      "criteria": [
+        "Ich begründe meine Wahl zwischen bekannter Adresse und Suchmaschine.",
+        "Ich prüfe Ort, Besuchstag, passende Saisonregel und besondere Hinweise.",
+        "Ich zeige die tatsächliche Stelle und benenne Unsicherheit, statt aus einer Wochenregel eine Garantie zu machen."
+      ],
+      "blocks": [
+        {
+          "id": "neuer-bedarf",
+          "type": "explanation",
+          "title": "Hier entscheidet auch der Besuchstag",
+          "text": "Bei den Mondformen ging es um eine Erklärung. Jetzt können Öffnungszeiten und Ausnahmen den konkreten Besuch verändern. „Aktuell“ heißt hier: Die Information gilt für den genannten Tag.",
+          "paragraphs": [
+            "Die offizielle Startadresse ist dir bekannt. Du kannst sie direkt im Browser öffnen oder eine Suchmaschine nutzen. Entscheide zuerst selbst und erkläre deinen Grund; beides muss zur offiziellen Information für den Pfleghof führen."
+          ],
+          "externalLinks": [
+            [
+              "Bekannte offizielle Startadresse der Stadtbücherei",
+              "https://stadtbuecherei.esslingen.de/start"
+            ]
+          ]
+        },
+        {
+          "id": "eigene-entscheidung",
+          "type": "explanation",
+          "title": "Zuerst selbst nachsehen",
+          "text": "Prüfe auf der geöffneten offiziellen Seite die Öffnungszeiten für diesen Ort und den 24. Oktober. Suche auch nach besonderen Hinweisen für den Tag. Eine Wochenübersicht berücksichtigt nicht automatisch jede Ausnahme.",
+          "items": [
+            "Erkläre kurz deine Wahl des Zugangs.",
+            "Zeige die genaue Stelle und prüfe, ob Saison und Uhrzeit passen.",
+            "Formuliere die Antwort mit Seitenname/Link und einer Grenze: Was bleibt noch zu klären?"
+          ],
+          "helps": [
+            {
+              "title": "Ich finde die Pfleghof-Zeiten nicht.",
+              "text": "Öffne „Wir vor Ort“ und dann „Bücherei im Pfleghof“. Die Zeiten stehen weiter unten. Im Bereich „Über uns“ findest du „Aktuelles“ für besondere Hinweise. Verwechsle den Bücherkatalog nicht mit der Suche nach Öffnungszeiten."
+            },
+            {
+              "title": "Ich habe verschiedene Samstagszeiten gefunden.",
+              "text": "Prüfe bei jeder Angabe Ort und Saison. Zeige beide Stellen. Bleibt der Widerspruch, benenne ihn und einen nächsten Schritt: mit der Lehrperson eine Nachfrage planen. Du sollst keine Nachricht selbst abschicken."
+            }
+          ]
+        },
+        {
+          "id": "datierter-vergleich",
+          "type": "explanation",
+          "title": "Nach deinem Versuch: den gesicherten Stand vergleichen",
+          "text": "Dieser echte Ausschnitt wurde am 12.10.2026 aufgenommen. Welche Samstagszeile passt zum 24. Oktober?",
+          "fold": "Erst nach deiner eigenen Entscheidung: Ausschnitt und Vergleich öffnen",
+          "media": [
+            "buecherei-zeiten"
+          ],
+          "externalLinks": [
+            [
+              "Gesicherte Quelle: Bücherei im Pfleghof",
+              "https://stadtbuecherei.esslingen.de/25291496"
+            ],
+            [
+              "Startseite zum Gegenvergleich",
+              "https://stadtbuecherei.esslingen.de/start"
+            ]
+          ],
+          "afterParagraphs": [
+            "Die saisonale Regel im Ausschnitt nennt ab Mitte Oktober samstags 10–18 Uhr. Danach läge 16 Uhr innerhalb der Öffnungszeit. Auf der Startseite steht weiter oben auch pauschal Samstag 10–14 Uhr. Das passt nicht zusammen.",
+            "Eine begründete Antwort darf lauten: „Nach der saisonalen Pfleghof-Regel wäre um 16 Uhr geöffnet. Die andere Startseitenangabe und mögliche besondere Schließhinweise muss ich noch klären.“ Zeige beide Stellen, wenn du diesen Unterschied gefunden hast. Eine begründete Unsicherheit ist besser als eine unbelegte Garantie.",
+            "Kein gefundener Ausnahmehinweis bedeutet nicht sicher „keine Ausnahme“. Bei späterer Verwendung muss die Lehrperson Datum und Originalseiten neu prüfen."
+          ],
+          "printRole": "solution"
+        },
+        {
+          "id": "gemeinsam-sichern",
+          "type": "explanation",
+          "title": "Was bleibt von einer guten Recherche?",
+          "text": "Vergleicht eure Belege im Unterricht. Zeige danach an deiner eigenen Mondkarte eine Suchentscheidung, eine passende Textstelle oder deine begründete Verbesserung.",
+          "table": {
+            "headers": [
+              "Das halten wir fest",
+              "Am eigenen Weg zeigen"
+            ],
+            "rows": [
+              [
+                "Die Frage gibt die Richtung vor.",
+                "Suchwörter passend zur Frage wählen; an einem Treffertitel die Änderung erklären."
+              ],
+              [
+                "Ein Treffer ist noch kein geprüfter Beleg.",
+                "Die Originalseite öffnen und die passende Stelle lesen."
+              ],
+              [
+                "Meine Aussage braucht einen passenden Beleg.",
+                "Zeigen, was die Stelle trägt; einen zu weiten Schluss eingrenzen."
+              ],
+              [
+                "Herkunft und Vergleich helfen beim Prüfen.",
+                "Anbieter zeigen und dieselbe Aussage an einer zweiten Darstellung vergleichen; Übereinstimmung ist keine Garantie."
+              ],
+              [
+                "Aktualität hängt von der Frage ab.",
+                "Beim Besuch Saison, Datum und Ausnahmen prüfen."
+              ],
+              [
+                "Andere sollen verstehen und wiederfinden.",
+                "Eigene Worte, zugeordnete Textstellen, direkte Links; konkrete Rückmeldung begründet aufnehmen."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Bewahre deine Infokarte und die gelesenen Textstellen für „Zusammenarbeiten“ am vereinbarten Ort auf. Falls das Internet ausgefallen war, notiere, was du später noch suchen oder auf den Originalseiten prüfen musst.",
+            "Für heute endet der Lernweg hier. Den späteren Abruf öffnet ihr in einer anderen Stunde, wenn die Lehrperson ihn aufruft."
+          ],
+          "transition": "In „Zusammenarbeiten“ nutzt du deine Infokarte weiter."
+        }
+      ]
+    },
+    {
+      "id": "wiederaufnahme",
+      "title": "Später: deinen Such- und Prüfweg erinnern",
+      "timing": "later",
+      "contextQuestion": "Wie komme ich zu einer belegten Antwort?",
+      "goal": "Mit Abstand zunächst ohne Wissen/alte Notizen erinnern und eine begrenzte neue Quellenentscheidung begründen.",
+      "task": "Lass Wissen und alte Notizen zunächst geschlossen. Erinnere deinen Weg und begründe am kurzen Vergleich, was du öffnen und prüfen würdest.",
+      "outcome": "Du erklärst deinen Suchweg aus der Erinnerung. Danach ergänzt du, was gefehlt hat.",
+      "materialNeeds": [
+        "diese Seite; alte Notizen und Wissen zuerst geschlossen",
+        "fünf Minuten in einer späteren Stunde"
+      ],
+      "knowledge": [
+        "suche",
+        "pruefen",
+        "datum"
+      ],
+      "criteria": [
+        "Ich erinnere zuerst ohne alte Notiz oder Lösung.",
+        "Ich begründe, welche Originalinformation ich prüfen würde.",
+        "Nach dem Vergleich ergänze ich gezielt, was gefehlt hat."
+      ],
+      "blocks": [
+        {
+          "id": "zeitabstand",
+          "type": "explanation",
+          "title": "Fünf Minuten in einer späteren Stunde",
+          "text": "Öffnet diese Seite in einer späteren Stunde, wenn die Lehrperson euch dazu auffordert, zum Beispiel zu Beginn von „Zusammenarbeiten“. Ihr braucht dafür fünf Minuten.",
+          "items": [
+            "2 Minuten: Erinnere ohne alte Notizen deinen Such- und Prüfweg. Erkläre mündlich oder mit wenigen Stichwörtern.",
+            "2 Minuten: Entscheide am kurzen Vergleich unten, was du öffnen und prüfen würdest.",
+            "1 Minute: Öffne den Vergleich danach und ergänze einen fehlenden Gedanken oder begründe deinen Stand."
+          ]
+        },
+        {
+          "id": "kurzer-neuer-vergleich",
+          "type": "explanation",
+          "title": "Welche Angabe würdest du prüfen?",
+          "text": "Erfundener kurzer Fall: Du brauchst die Museums-Öffnungszeiten für Donnerstag um 10 Uhr. Eine Suchvorschau sagt „täglich geöffnet“. Die offizielle Museumsseite nennt „donnerstags ab 12 Uhr“. Das ist keine echte Museumsinformation.",
+          "paragraphs": [
+            "Welche Seite würdest du öffnen? Welche Angaben musst du für den Besuchstag prüfen? Begründe zuerst selbst. Keine neue Live-Recherche und kein zusätzlicher Arbeitsbogen."
+          ],
+          "helps": [
+            {
+              "title": "Erst nach dem Erinnern: Vergleich öffnen",
+              "text": "Die offizielle Originalseite öffnen und die konkrete Donnerstagsregel mit dem Besuchstag vergleichen. 10 Uhr liegt vor 12 Uhr. Prüfen, ob die Regel gilt und besondere Hinweise genannt sind. Die Vorschau allein trägt keine Antwort. Zum Wiederfinden Seitenname, direkten Link und passende Stelle bewahren.",
+              "paragraphs": [
+                "Ergänze danach den fehlenden Prüfschritt. Ist die Antwort schon tragfähig, erkläre warum. Die Hilfe zählt nicht als vorheriges Erinnern."
+              ],
+              "printRole": "solution"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "frage"
+    ],
+    "explanation": [
+      "suchplan",
+      "pruefen"
+    ],
+    "example": [
+      "suchplan",
+      "pruefen",
+      "ordnen"
+    ],
+    "practice": [
+      "suchen",
+      "pruefen"
+    ],
+    "application": [
+      "suchen",
+      "pruefen",
+      "ordnen"
+    ],
+    "revision": [
+      "ordnen"
+    ],
+    "securing": [
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "wiederaufnahme"
+    ]
+  },
+  "chapter": {
+    "phases": [
+      {
+        "title": "Unsere Mondfrage",
+        "description": "Unsere Frage und eine Vermutung – oder „Das weiß ich noch nicht“.",
+        "step": "frage",
+        "range": "Abschnitt 1"
+      },
+      {
+        "title": "So findet Lea eine Antwort",
+        "description": "Suchfeld, geöffneten Quellentext und passenden Satz. Leas Notiz mit drei Angaben hilft dir später beim eigenen Notieren.",
+        "step": "suchplan",
+        "range": "Abschnitt 2"
+      },
+      {
+        "title": "Unsere erste eigene Notiz",
+        "description": "Deine erste Notiz mit drei Angaben zur Mondformenfrage. Dazu erklärst du deine Suchänderung an einem konkreten Treffertitel.",
+        "step": "suchen",
+        "range": "Abschnitt 3"
+      },
+      {
+        "title": "Können wir dieser Antwort vertrauen?",
+        "description": "Zweite Seite und passende Stelle; begründet bestätigt, genauer oder noch offen. Deine ursprüngliche Vermutung bleibt sichtbar.",
+        "step": "pruefen",
+        "range": "Abschnitt 4"
+      },
+      {
+        "title": "Unsere verständliche Infokarte",
+        "description": "Eigene Infokarte mit zwei Quellenhinweisen, begründeter Auslassung und nachvollziehbarer Verbesserung.",
+        "step": "ordnen",
+        "range": "Abschnitt 5"
+      },
+      {
+        "title": "Jetzt ein anderer Fall",
+        "description": "Eigene Wahl des Zugangs und belegte Antwort für den Besuchstag – mit benannter Unsicherheit, falls Angaben nicht zusammenpassen.",
+        "step": "transfer",
+        "range": "Abschnitt 6"
+      }
+    ],
+    "core": [
+      [
+        "Die Frage gibt die Richtung vor.",
+        "Suchwörter passend zur Frage wählen; an einem Treffertitel die Änderung erklären."
+      ],
+      [
+        "Ein Treffer ist noch kein geprüfter Beleg.",
+        "Die Originalseite öffnen und die passende Stelle lesen."
+      ],
+      [
+        "Meine Aussage braucht einen passenden Beleg.",
+        "Zeigen, was die Stelle trägt; einen zu weiten Schluss eingrenzen."
+      ],
+      [
+        "Herkunft und Vergleich helfen beim Prüfen.",
+        "Anbieter zeigen und dieselbe Aussage an einer zweiten Darstellung vergleichen; Übereinstimmung ist keine Garantie."
+      ],
+      [
+        "Aktualität hängt von der Frage ab.",
+        "Beim Besuch Saison, Datum und Ausnahmen prüfen."
+      ],
+      [
+        "Andere sollen verstehen und wiederfinden.",
+        "Eigene Worte, zugeordnete Textstellen, direkte Links; konkrete Rückmeldung begründet aufnehmen."
+      ]
+    ],
+    "terms": [
+      [
+        "Vermutung",
+        "frage"
+      ],
+      [
+        "Browser",
+        "suche"
+      ],
+      [
+        "Suchmaschine",
+        "suche"
+      ],
+      [
+        "Suchwörter",
+        "suche"
+      ],
+      [
+        "Treffer",
+        "suche"
+      ],
+      [
+        "Quelle",
+        "beleg"
+      ],
+      [
+        "Textstelle",
+        "beleg"
+      ],
+      [
+        "Webadresse / Link",
+        "suche"
+      ],
+      [
+        "Beleg",
+        "beleg"
+      ],
+      [
+        "Anbieter / Herkunft",
+        "pruefen"
+      ],
+      [
+        "plausibel",
+        "pruefen"
+      ],
+      [
+        "vertrauenswürdig",
+        "pruefen"
+      ],
+      [
+        "Infokarte",
+        "notieren"
+      ],
+      [
+        "aktuell",
+        "datum"
+      ]
+    ]
+  },
+  "reference": {
+    "version": "RQ05-F1",
+    "planVersion": "1.0",
+    "stepIds": [
+      "frage",
+      "suchplan",
+      "suchen",
+      "pruefen",
+      "ordnen",
+      "transfer"
+    ],
+    "question": "Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?",
+    "scope": "Vollständiger Lernbogen: sechs Abschnitte und getrennt späterer Abruf",
+    "rights": [
+      "Die Fotos sind unverändert übernommen und proportional verkleinert. Sie zeigen unterschiedliche Tage und Orte, keine Folge derselben Nacht. Vergleiche die helle Form, nicht die Größe auf dem Bildschirm.",
+      "Die Browserausschnitte sind echte Aufnahmen vom 12.10.2026. Reine rechteckige Ausschnitte; keine nachgebauten oder retuschierten Pixel. Farbige Rahmen sind redaktionelle HTML-Markierungen. Die Adresszeile wurde nicht nachgebaut.",
+      "Webseitenausschnitte sind keine frei lizenzierten Bilder. Ihre begrenzte Verwendung ist in RQ02 als zweckgebundenes Bild-/Textzitat angelegt: Jeder Ausschnitt wird unmittelbar besprochen, damit genau dieses Suchfeld, dieser Treffer oder diese Textstelle erkennbar wird. Bei Übernahme müssen Erläuterung, Ausschnittgrenze und Herkunft zusammenbleiben. Keine dekorative Weiterverwendung oder pauschale Wiederverwendungsfreigabe. Rechtsgrundlagen: § 51 und § 63 UrhG; keine rechtliche Einzelfallgarantie.",
+      "Leas Quelle: Universität Münster / Frag Sophie!, Dr. Nico Schmedemann, Institut für Planetologie. Kein sichtbares Artikeldatum übernommen. Der Textausschnitt endet nach „Sonne,“; der Originalsatz geht weiter. Die weiteren Absätze zur Mondformenfrage werden hier bewusst nicht vorgezeigt.",
+      "DLR_next: Forschungseinrichtung Deutsches Zentrum für Luft- und Raumfahrt. In Abschnitt 4 wird ein kurzer Originalsatz zur fehlenden Eigenbeleuchtung unmittelbar mit Leas Aussage verglichen; keine Fotos oder Diagramme übernommen. Originalabschnitt im Inhaltsverzeichnis öffnen. Materialauswahl und Prüfung: 12.10.2026.",
+      "Der Arbeitsbogen und die Erklärungen sind eigene redaktionelle Texte. Ersatztexte stammen vom Lernwerk, sind keine unabhängigen Quellen und ersetzen die eigene Live-Suche nicht.",
+      "timeanddate: Originaldarstellung von Time and Date AS; Autorinnen-/Autorenangabe Konstantin Bikos und Vigdis Hocken. Nur verlinkt und in eigenen Worten besprochen. Ausgewählt: erste zwei Absätze unter „Eine Frage der Perspektive“; spätere Beobachtungstipps sind keine Unterrichtsgrundlage.",
+      "Stadtbücherei Esslingen: echter begrenzter Ausschnitt vom 12.10.2026, erst nach dem eigenen Transfer-Versuch. Anbieter, Datum und Nutzungsgrenze stehen am Ausschnitt. Widersprüchliche Angaben und mögliche Ausnahmen bleiben sichtbar; keine Öffnungsgarantie.",
+      "RQ05-F1: Der Vollfilm nutzt unveränderte Originalausschnitte vom 13.10.2026 mit unmittelbar zugehörigen Erklärungen. Bewegungen, Notiz und Adressübernahme sind als animierte Erklärdarstellung gekennzeichnet. Kurze Textzitate mit Auslassungen, Herkunft und Begrenzung bleiben zusammen. Bildfolge und Lesetext zeigen denselben Ablauf. Keine freie Screenshotlizenz und kein Nachweis tatsächlicher Browserhandgriffe.",
+      "RQ06-K1: Zwei kurze Textauszüge von Frag Sophie! (erster und letzter Textsatz) dienen dem gemeinsamen Vergleich des Fragebezugs. […] kennzeichnet ausgelassene Wörter; keine veränderten Screenshotpixel und keine Mondformenlösung. Originalkontext und Nutzungsangaben bleiben am Arbeitsort erreichbar."
+    ],
+    "rightsLinks": [
+      [
+        "RQ02: vollständiger Quellen- und Nutzungsnachweis",
+        "quellen-rq02.html"
+      ],
+      [
+        "Bildzitate: § 51 UrhG",
+        "https://www.gesetze-im-internet.de/urhg/__51.html"
+      ],
+      [
+        "Quellenangaben: § 63 UrhG",
+        "https://www.gesetze-im-internet.de/urhg/__63.html"
+      ],
+      [
+        "Medienstand und Nutzungsnachweis RQ05",
+        "quellen-rq05.html"
+      ]
+    ],
+    "laterId": "wiederaufnahme",
+    "optionalSupplement": "quellenquest",
+    "optionalResource": {
+      "title": "Optionale Quellenquest für Lehrpersonen",
+      "text": "Außerhalb dieses Lernbogens. Kein Pflichtschritt und keine zusätzlichen 35 Minuten. Nur bei gesondertem Unterrichtsbedarf auswählen.",
+      "href": "../quellenquest/lehrkraft.html"
+    },
+    "reviewNote": "RQ05-F1: Vollfilm A01–A15 im freigegebenen Stil, Katja, zwei stille Denkpausen; Player sowie Bild-/Textalternative am Modellort. RQ06-K1-Inhalte und Lernbogen 1.0 bleiben Grundlage. Ziele und 225+5 Minuten unverändert. Redaktionelle Sichtung und technische Audioverifikation; abschließende Hörsichtung der neuen Vollfassung offen, keine Unterrichtserprobung.",
+    "modelMedia": {
+      "status": "Vollfilm 1.0 eingebettet; abschließende Hörsichtung der Vollfassung offen",
+      "title": "Leas Rechercheweg",
+      "description": "Sieh dir Leas Weg an (3 Minuten 7 Sekunden). Sage an den zwei Denkstellen deine Idee. Du kannst den Film anhalten. Ohne Film kannst du denselben Weg als Bildfolge oder Lesetext nutzen.",
+      "href": "leas-weg-lesetext.html",
+      "download": "assets/recherche/rq05/leas-weg-lesetext.txt",
+      "followup": "Zeige das Suchfeld und erkläre, welche Textstelle Leas Lichtfrage beantwortet. Danach suchst du zu unserer Frage nach rund und Sichel.",
+      "video": "assets/recherche/rq05-film/leas-rechercheweg-1.0.mp4",
+      "poster": "assets/recherche/rq05-film/poster.jpg",
+      "captions": "assets/recherche/rq05-film/leas-rechercheweg.vtt",
+      "storyboard": "assets/recherche/rq05-film/film-ablauf.json",
+      "pictureHref": "leas-weg-bildfolge.html",
+      "duration": 186.867,
+      "files": [
+        "assets/recherche/rq05-film/leas-rechercheweg-1.0.mp4",
+        "assets/recherche/rq05-film/poster.jpg",
+        "assets/recherche/rq05-film/leas-rechercheweg.vtt",
+        "assets/recherche/rq05-film/leas-rechercheweg.srt",
+        "assets/recherche/rq05-film/film-ablauf.json",
+        "assets/recherche/rq05-film/a01.jpg",
+        "assets/recherche/rq05-film/a02.jpg",
+        "assets/recherche/rq05-film/a03.jpg",
+        "assets/recherche/rq05-film/a04.jpg",
+        "assets/recherche/rq05-film/a05.jpg",
+        "assets/recherche/rq05-film/a06.jpg",
+        "assets/recherche/rq05-film/a07.jpg",
+        "assets/recherche/rq05-film/a08.jpg",
+        "assets/recherche/rq05-film/a09.jpg",
+        "assets/recherche/rq05-film/a10.jpg",
+        "assets/recherche/rq05-film/a11.jpg",
+        "assets/recherche/rq05-film/a12.jpg",
+        "assets/recherche/rq05-film/a13.jpg",
+        "assets/recherche/rq05-film/a14.jpg",
+        "assets/recherche/rq05-film/a15.jpg"
+      ]
+    },
+    "workAnchors": {
+      "frage": "frage-notieren",
+      "suchplan": "lea-liest",
+      "suchen": "eigene-notiz",
+      "pruefen": "pruefstand",
+      "ordnen": "karte-schreiben",
+      "transfer": "eigene-entscheidung",
+      "wiederaufnahme": "kurzer-neuer-vergleich"
+    }
+  },
+  "teachingPlan": [
+    {
+      "title": "Stunde 1 · Frage und Leas erste Recherche",
+      "minutes": 45,
+      "action": "15 Minuten Frage: 5 beobachten, 5 Frage klären, 5 Vermutung/Arbeitsort. 30 Minuten Lea: 5 Browser zeigen, 10 Suchweg mit Suchwort-Pause, 7 Textstellenwahl/Notiz, 5 rekonstruieren und Link zeigen, 3 individuellen Stand sichern.",
+      "pause": "Frage/Vermutung und Leas Methode sichern; nächstes Mal eigene Suche.",
+      "step": "frage"
+    },
+    {
+      "title": "Stunde 2 · Erste eigene Notiz",
+      "minutes": 45,
+      "action": "5 Frage/Suchauftrag, 15 zwei eigene Suchformulierungen, 10 lesen/selbst formulieren, 8 Textstelle/Link, 7 Austausch und Pause.",
+      "pause": "Erste Antwort, Stelle, Link und Suchänderung sichern; danach zweite Darstellung.",
+      "step": "suchen"
+    },
+    {
+      "title": "Stunde 3 · Quellenvergleich beginnen",
+      "minutes": 45,
+      "action": "Erste 45 der 70 Prüfminuten: 5 erste Notiz öffnen, 10 Leas Herkunft/Vergleich, 15 zweite Seite lesen, 10 Aussage vergleichen, 5 Prüfstand/offene Frage sichern.",
+      "pause": "Vergleich/offene Frage markieren; danach Herkunft/Präzisierung abschließen.",
+      "step": "pruefen"
+    },
+    {
+      "title": "Stunde 4 · Prüfung abschließen, Karte beginnen",
+      "minutes": 45,
+      "action": "Restliche 25 Prüfminuten: 10 Anbieter/Textbegründung, 8 Präzisierung/offene Frage, 7 Vermutungsvergleich. Erste 20 Kartenminuten: 5 Auswahl/Auslassung, 15 Karte schreiben.",
+      "pause": "Kartenentwurf und Arbeitsbelege sichern; nächstes Mal konkrete Rückmeldung.",
+      "step": "pruefen"
+    },
+    {
+      "title": "Stunde 5 · Verbesserung und neuer Fall",
+      "minutes": 45,
+      "action": "Restliche 20 Kartenminuten: 5 konkrete Rückmeldung, 10 verbessern, 5 Grund/Stand sichern. 25 Transferminuten: 4 Fall klären, 8 eigener Zugang/Datum, 5 Belegaustausch, 5 Wissenskern, 3 individueller Abschluss.",
+      "pause": "Infokarte und Arbeitsbelege für M03; Abruf heute nicht anhängen.",
+      "step": "ordnen"
+    }
+  ],
+  "workbook": "MEINE RECHERCHE – ein Arbeitsbogen wächst zur Infokarte\nIuM-Lernwerk · CC BY-SA 4.0 · Fassung 1.6.1 / RQ06-K1 / Lernbogen 1.0\nNutze deinen Arbeitsbogen oder eure vereinbarte digitale Notiz.\nAuf Papier: Schreibe Seitennamen und Textstelle hier auf. Kopiere den Link\nin die vorhandene digitale Notiz zu diesem Bogen. Die Lehrperson zeigt dir den Ort.\nMeine Links stehen in: ____________________________________\nÖffne jeden gespeicherten Link noch einmal und zeige die passende Stelle.\n\n1 · UNSERE FRAGE\nWarum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?\nMeine Vermutung (oder: Das weiß ich noch nicht):\n________________________________________________________\n\n2 · LEAS BEISPIEL\nLeas Lichtfrage ist eine andere. Wähle die passende Textstelle und begründe deine Wahl.\nKeine zweite Modellkarte abschreiben.\n\n3 · MEINE ERSTE EIGENE NOTIZ\nErste tatsächliche Suche: ________________________________\nVeränderte Suche: _______________________________________\nVergleiche einen Titel: passt er besser, gleich gut oder weniger gut?\nMeine erste Antwort darf noch unsicher oder unvollständig sein.\nMeine Antwort in eigenen Worten:\n________________________________________________________\nDiese Stelle hilft mir (markieren oder Überschrift + kurzer Satzanfang):\n________________________________________________________\nHier steht es (Seitenname + Link; auf Papier: Linkort siehe oben):\n________________________________________________________\nMein Weg: selbst gefunden / Startlink bekommen / Ersatztext\n\n4 · DIESELBE ANTWORT PRÜFEN\nZweite Seite (Name + Link; auf Papier: am selben Linkort speichern):\n________________________________________________________\nVergleichbare Textstelle:\n________________________________________________________\nMein Stand: bestätigt / genauer / noch offen, weil …\nZeige dazu die passende Stelle.\n________________________________________________________\nZeige die Anbieterangaben der zwei Beispiele:\nDLR_next = Forschungseinrichtung; timeanddate = Unternehmen.\nDeine selbst gefundene erste Quelle darf zu einer anderen Anbieterart gehören.\nErkläre an einer gelesenen Stelle, was deine Antwort stützt oder noch unklar bleibt.\nAuch zwei Seiten können denselben Fehler übernehmen.\nVergleiche mit deiner Vermutung oder vorherigen Wissenslücke.\n\n5 · MEINE INFOKARTE (denselben Bogen weiterführen)\nÜberschrift: unsere Frage. Darunter kurze geordnete eigene Erklärung.\nBeide Seitennamen/Links bleiben dabei; Textstellen oben sind Arbeitsbelege.\n________________________________________________________\n________________________________________________________\n________________________________________________________\n________________________________________________________\nEine wirklich gelesene Information lasse ich weg, weil …\n________________________________________________________\nKonkrete Rückmeldung an dieser Stelle:\n________________________________________________________\nMeine Verbesserung: vorher → nachher, weil … (oder ich behalte die Stelle bei und erkläre warum)\n________________________________________________________\n\n6 · NEUER FALL – wenige Stichwörter genügen\nPfleghof, Samstag 24. Oktober 2026, 16 Uhr.\nBekannte offizielle Startadresse: https://stadtbuecherei.esslingen.de/start\nMeine Wahl (bekannte Adresse / Suchmaschine) und Grund:\n________________________________________________________\nAntwort für den Besuchstag; passende Stelle, Seitenname/Link:\n________________________________________________________\nWelche Unsicherheit oder Ausnahme bleibt zu prüfen?\n________________________________________________________\n\nAUFBEWAHREN: Infokarte und Arbeitsbelege für „Zusammenarbeiten“.\nPausenstand nur bei Bedarf: Als Nächstes mache ich …\n________________________________________________________\nOhne Internet habe ich Ersatztexte / den gespeicherten Bildausschnitt genutzt.\nDas hole ich nach: selbst suchen / Originalseiten vergleichen / Öffnungszeit prüfen\n________________________________________________________\n\nSPÄTERER ABRUF: andere Stunde, ohne alte Notizen beginnen.\nKeine neue Karte und keine zusätzliche Live-Recherche.\n\nHILFE NACH VERSUCH: erst Suchhinweis, dann Startlink im Suchabschnitt,\nbei Bedarf Lesestelle/Notizgerüst. Antwort und Stelle ergänzt du selbst.\nBereitgestellte Quellen kennzeichnen.\n"
+}

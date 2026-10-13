@@ -1,0 +1,13 @@
+.journey-intro{padding:1.2rem 1.4rem;border:1px solid #aac6b9;border-left:5px solid var(--teal);border-radius:10px;background:#eef5ef;margin:0 0 1.5rem}
+.journey-intro p:last-child{margin-bottom:0}
+.js .journey-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin:1rem 0}
+.journey-nav button{display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;text-align:left;font-size:.88rem;min-width:0}
+.stage-number{display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:#e7f1ec;color:#134e4a}
+.journey-nav [aria-current=step]{background:var(--deep);color:white;border-color:var(--deep)}
+.stage-title{padding-top:.8rem;border-top:2px solid var(--teal);scroll-margin-top:1rem}
+.stage-bridge{border-top:1px solid var(--line);padding:1.3rem 0;margin-top:2rem}
+.js .stage-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.journey-stage select{font:inherit;display:block;width:100%;min-height:48px;padding:.7rem;border:1px solid #819a93;border-radius:7px;background:white;color:var(--ink);margin:.5rem 0 1rem}
+.js #plan[data-last-stage=false]>.page-nav .next-link{display:none}
+@media(max-width:760px){.js .journey-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.journey-nav button{font-size:.85rem}.journey-intro{padding:1rem}.stage-actions button{width:100%}}
+@media print{.journey-stage[hidden]{display:block!important}.journey-nav,.stage-actions,#journey-position{display:none!important}.journey-stage{break-before:page}}

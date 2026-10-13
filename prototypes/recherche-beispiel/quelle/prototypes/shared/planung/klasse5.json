@@ -1,0 +1,518 @@
+{
+  "grade": 5,
+  "unitMinutes": 45,
+  "availability": "confirmed",
+  "source": {
+    "date": "21.09.2026",
+    "commit": "dee82ecd7b62007e1387ed61fb190f1cd8fede28",
+    "path": "roadmap/ahf-2026-09-21",
+    "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf"
+  },
+  "lead": "Vom sicheren Arbeiten über Recherche und Zusammenarbeit zum eigenen Medienprodukt. Medienwirkungen beurteilen und präzise Abläufe entwickeln ergänzen diese Lernwege.",
+  "modules": [
+    {
+      "id": "G5-M01",
+      "title": "Im schulischen Arbeitsraum sicher handeln",
+      "minutes": 180,
+      "focus": "Gerät, Programm und Speicherort unterscheiden; Dateien ordnen und wiederfinden; Zugänge schützen.",
+      "evidence": "Drei Schichten erklären; eigenen Ordnerweg zeigen; Speicherzugriff begründen und Zugangsschutz ausführen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
+      "href": "reihe-arbeitsraum.html",
+      "label": "Reihenkommentar"
+    },
+    {
+      "id": "G5-M02",
+      "title": "Informationen finden, prüfen und ordnen",
+      "minutes": 225,
+      "focus": "Eigene Suche und Aussage; passenden Textbeleg auswählen, gestufter Quellenvergleich, verständliche Infokarte und datierter Transfer.",
+      "evidence": "Infokarte und Arbeitsbelege mit Suchänderung, Prüfstand, Auslassung und begründeter Verbesserung.",
+      "status": "RQ06-K1 / 1.6.1 / Lernbogen 1.0; gezielte Inhalts-/UX-Korrekturen, Film und reale Erprobung offen.",
+      "href": "reihe-recherche.html",
+      "label": "Reihenkommentar"
+    },
+    {
+      "id": "G5-M03",
+      "title": "Digital zusammenarbeiten und verständlich kommunizieren",
+      "minutes": 135,
+      "focus": "Im schulischen Kanal Beiträge austauschen und ein gemeinsames Ergebnis verbessern.",
+      "evidence": "Eigener Beitrag und genutzte Rückmeldung sind erklärbar.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
+      "href": "reihe-zusammenarbeit.html",
+      "label": "Reihenkommentar"
+    },
+    {
+      "id": "G5-M04",
+      "title": "Ein Medienprodukt gestalten, prüfen und vorstellen",
+      "minutes": 360,
+      "focus": "Informationen adressatengerecht gestalten, Quellen nennen und Rückmeldung einarbeiten.",
+      "evidence": "Überarbeitetes Produkt mit begründeten Entscheidungen.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
+      "href": "reihe-medienprodukt.html",
+      "label": "Reihenkommentar"
+    },
+    {
+      "id": "G5-M05",
+      "title": "Medienwirkungen und Selbstdarstellung beurteilen",
+      "minutes": 225,
+      "focus": "Wirkungen am Material begründen; eigenes Medienhandeln geschützt reflektieren.",
+      "evidence": "Belegtes Urteil und begründete Handlungsentscheidung.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
+      "href": "reihe-medienwirkung.html",
+      "label": "Reihenkommentar"
+    },
+    {
+      "id": "G5-M06",
+      "title": "Präzise Abläufe entwickeln und prüfen",
+      "minutes": 225,
+      "focus": "Abläufe darstellen, ausführen, verbessern und auf neue Fälle übertragen.",
+      "evidence": "Eigene Ablaufgrafik, ausführbarer Code, erklärte Laufspur und dokumentierte Korrektur.",
+      "status": "Ausgearbeitet und gemeinsam redaktionell abgeglichen; reale Erprobung offen.",
+      "href": "reihe-ablaeufe.html",
+      "label": "Reihenkommentar"
+    }
+  ],
+  "reserves": {
+    "spacedPracticeMinutes": 135,
+    "orchestrationMinutes": 45,
+    "bufferMinutes": 180
+  },
+  "connections": "M01 bereitet die Dateiablage für Recherche und Produkte vor. M02 → M03 → M04 können eine gemeinsame Sachfrage weiterführen. M05 lässt sich vor der Produktüberarbeitung einschieben; M06 kann als eigener Lernweg liegen. Die Reihenfolge ist ein Vorschlag, kein Wochenkalender.",
+  "series": {
+    "moduleId": "G5-M01",
+    "title": "Im schulischen Arbeitsraum sicher handeln",
+    "goal": "Lernende unterscheiden Gerät, Programm und Speicherort, organisieren eigene Dateien und nutzen schulische Zugänge verantwortungsvoll.",
+    "rationale": "Bedienroutinen unterscheiden sich stark. Beginnen Sie deshalb mit kurzen Erklärungen am Schulgerät. Beim Dateien-Bogen folgt auf eine eigene Ordnungsregel die echte Ablage: Erst Wiederfinden und Begründen zeigen, ob die Ordnung trägt. Das Modell unterstützt die Handlung; es ersetzt sie nicht.",
+    "phases": [
+      {
+        "title": "Gerät und Programme",
+        "minutes": 45,
+        "action": "Am Bildvergleich zuerst Anzeige und körperliche Geräteteile unterscheiden; daraus Hardware, Betriebssystem und Programme erklären. Eingabe, Verarbeitung und Ausgabe danach am Schulgerät untersuchen.",
+        "status": "Lernbogen vorhanden · zur Erprobung",
+        "href": "geraete/lehrkraft.html",
+        "label": "Durchführung und Material"
+      },
+      {
+        "title": "Gut abgelegt. Wiedergefunden.",
+        "minutes": 90,
+        "action": "Ordnung planen, eine Datei ablegen, ohne „Zuletzt verwendet“ wiederfinden und einen neuen Fall begründet zuordnen. 10 Minuten Reserve enthalten.",
+        "status": "Lernbogen vorhanden · zur Erprobung",
+        "href": "dateien/lehrkraft.html",
+        "label": "Durchführung und Material"
+      },
+      {
+        "title": "Speicherwege und sichere Zugänge",
+        "minutes": 45,
+        "action": "Tatsächliche schulische Speicherorte und Zugriff vergleichen; angemessen anmelden, abmelden und Hilfe holen. Keine Zugangsdaten abgeben lassen.",
+        "status": "Lernbogen vorhanden · zur Erprobung",
+        "href": "speicher-zugang/lehrkraft.html",
+        "label": "Durchführung und Material"
+      }
+    ],
+    "later": {
+      "minutes": 12,
+      "account": "spacedPracticeMinutes",
+      "text": "Mit Abstand: zehn Minuten Ordnerweg erklären und am Gerät wiederfinden, dazu zwei Minuten Speicherzugriff und Zugangsschutz erklären. Zusammen zwölf Minuten aus den 135 Jahresminuten für verteilte Übung, nicht nochmals in die vier Reihen-UE einrechnen. Der dreiminütige Schichtenabruf liegt bereits im Dateien-Einstieg."
+    },
+    "preparation": "Vor Reihenbeginn einen erlaubten, beschreibbaren Startort und den schulischen Anmeldeweg festlegen. Nur tatsächlich eingesetzte Gerätewege prüfen; iPad und Windows bleiben gleichwertig. Bei gesperrtem Download die Übungsdateien im Schulraum bereitstellen. Ein freigegebenes Rechenprogramm und seinen Namen für den ersten Bogen bereitstellen. Für den Abschluss zwei erlaubte Speicherwege, deren Berechtigungen und einen sicheren Sperr-/Abmeldeweg samt Rückkehr klären. Anschaulich innerhalb der Gerätearbeit: Datei und Ordner zeigen, lokalen Speicher von Schuldienst unterscheiden; Verbindung und Leserkreis getrennt prüfen. Gerätebilder sind Modelle, der Schulstartort wird konkret ergänzt.",
+    "decisions": [
+      "Einstieg unklar? Die zwei Zustände desselben Notebooks vergleichen lassen. Für die erste Antwort keine Betriebssystemkenntnis erwarten; Browsername und Adresszeile bei Bedarf zeigen.",
+      "Begriffe verwechselt? Datei und Ordner am Modell unterscheiden lassen, anschließend erneut selbst zuordnen.",
+      "Ordnung erklärt, Datei aber nicht gefunden? Beim Startort ansetzen und den Weg am Gerät wiederholen.",
+      "Weg sicher? Alternative Ordnung begründen lassen; unnötige Wiederholung auslassen.",
+      "Zugang fehlt? Am Modell weiterarbeiten und die reale Gerätehandlung später nachholen.",
+      "Speicherort mit Leserkreis verwechselt? Eigenen und gemeinsamen Bereich vergleichen. Schutz nur beschrieben? Erlaubte Handlung am Schulprofil nachholen."
+    ],
+    "next": "Vor M02 prüfen: eigene Datei wiederfinden, Speicherzugriff begründen und eine Schutzhandlung ausführen. Nicht beobachtete oder ausgefallene Handlungen vor Recherche nachholen. Notieren Sie nach der Reihe nur Zeitabweichung, häufigste Hürde und eine Anpassung."
+  },
+  "additionalSeries": [
+    {
+      "moduleId": "G5-M02",
+      "file": "reihe-recherche.html",
+      "label": "Recherche",
+      "title": "Informationen finden, prüfen und ordnen",
+      "goal": "Eine eigene Antwort aus tatsächlicher Suche prüfen und zur verständlichen Infokarte mit wiederauffindbaren Quellen entwickeln.",
+      "rationale": "Lernbogen 1.0: dieselbe Frage, erste Notiz, Quellenvergleich und Verbesserung in einem Arbeitsbogen. Lea modelliert getrennt die Lichtfrage; Kinder untersuchen die Formenfrage. Die zweite Quelle kommt erst nach der ersten Notiz. Der neue Bibliotheksfall verändert den Informationsbedarf durch das Datum. Keine frühe Quellenquest, Vollkarten oder feste Faktenzahl. Vor der ersten eigenen Notiz unterscheiden die Kinder passende und unpassende Originaltextstellen im Lea-Modell. Kurze Prüffragen und aufklappbares Wissen führen am Arbeitsort weiter.",
+      "phases": [
+        {
+          "title": "Stunde 1 · Frage und Leas erste Recherche",
+          "minutes": 45,
+          "action": "15 Minuten Frage: 5 beobachten, 5 Frage klären, 5 Vermutung/Arbeitsort. 30 Minuten Lea: 5 Browser zeigen, 10 Suchweg mit Suchwort-Pause, 7 Textstellenwahl/Notiz, 5 rekonstruieren und Link zeigen, 3 individuellen Stand sichern. Pausenstand: Frage/Vermutung und Leas Methode sichern; nächstes Mal eigene Suche.",
+          "status": "RQ06-K1 / 1.6.1 · reale Erprobung offen",
+          "href": "recherche/schritt-frage.html",
+          "label": "Zum Arbeitsort"
+        },
+        {
+          "title": "Stunde 2 · Erste eigene Notiz",
+          "minutes": 45,
+          "action": "5 Frage/Suchauftrag, 15 zwei eigene Suchformulierungen, 10 lesen/selbst formulieren, 8 Textstelle/Link, 7 Austausch und Pause. Pausenstand: Erste Antwort, Stelle, Link und Suchänderung sichern; danach zweite Darstellung.",
+          "status": "RQ06-K1 / 1.6.1 · reale Erprobung offen",
+          "href": "recherche/schritt-suchen.html",
+          "label": "Zum Arbeitsort"
+        },
+        {
+          "title": "Stunde 3 · Quellenvergleich beginnen",
+          "minutes": 45,
+          "action": "Erste 45 der 70 Prüfminuten: 5 erste Notiz öffnen, 10 Leas Herkunft/Vergleich, 15 zweite Seite lesen, 10 Aussage vergleichen, 5 Prüfstand/offene Frage sichern. Pausenstand: Vergleich/offene Frage markieren; danach Herkunft/Präzisierung abschließen.",
+          "status": "RQ06-K1 / 1.6.1 · reale Erprobung offen",
+          "href": "recherche/schritt-pruefen.html",
+          "label": "Zum Arbeitsort"
+        },
+        {
+          "title": "Stunde 4 · Prüfung abschließen, Karte beginnen",
+          "minutes": 45,
+          "action": "Restliche 25 Prüfminuten: 10 Anbieter/Textbegründung, 8 Präzisierung/offene Frage, 7 Vermutungsvergleich. Erste 20 Kartenminuten: 5 Auswahl/Auslassung, 15 Karte schreiben. Pausenstand: Kartenentwurf und Arbeitsbelege sichern; nächstes Mal konkrete Rückmeldung.",
+          "status": "RQ06-K1 / 1.6.1 · reale Erprobung offen",
+          "href": "recherche/schritt-pruefen.html",
+          "label": "Zum Arbeitsort"
+        },
+        {
+          "title": "Stunde 5 · Verbesserung und neuer Fall",
+          "minutes": 45,
+          "action": "Restliche 20 Kartenminuten: 5 konkrete Rückmeldung, 10 verbessern, 5 Grund/Stand sichern. 25 Transferminuten: 4 Fall klären, 8 eigener Zugang/Datum, 5 Belegaustausch, 5 Wissenskern, 3 individueller Abschluss. Pausenstand: Infokarte und Arbeitsbelege für M03; Abruf heute nicht anhängen.",
+          "status": "RQ06-K1 / 1.6.1 · reale Erprobung offen",
+          "href": "recherche/schritt-ordnen.html",
+          "label": "Zum Arbeitsort"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "In einer späteren Stunde, etwa Beginn M03: 2 Minuten Such-/Prüfweg ohne Notizen/Wissen erinnern, 2 Minuten begrenzte neue Quellenentscheidung, 1 Minute vergleichen/ergänzen. Keine neue Live-Recherche. Bestehendes 135-Minuten-Jahreskonto; M01+M02 bleiben 17 Minuten. Nicht an die fünf Stunden anhängen."
+      },
+      "preparation": "Schulbrowser, erlaubte Suchmaschine, Originalseiten und einen Notizort bereitstellen. M01-Handgriffe bei Bedarf zeigen; astronomisches Vorwissen nicht voraussetzen. Bildfolge oder Lesetext wählen, nicht beide nacheinander. Zwei Mitdenkstellen: Suchwortänderung und passende/unpassende Textstelle. Markieren, Kopieren und Wiederöffnen an der echten Adresszeile vorführen. Alles innerhalb der bestehenden 30 Modellminuten. Helle Formen beschreiben lassen, dann Frage/Vermutung. Lea bleibt bei „Leuchtet der Mond selbst?“; die Kinder untersuchen die Formenfrage. Lea zuerst nur bis zur Dreifachnotiz zeigen, Quellenvergleich erst in 4, fertige Karte erst in 5. Bibliotheksdatum und Originalseiten vor Einsatz neu lesen. Stand 12.10.2026: saisonale Pfleghof-Zeile und pauschale Startseitenangabe widersprechen sich. Keine Öffnungsgarantie. Bei späterem Einsatz ein passendes künftiges Besuchsdatum am selben Fall aktualisieren. Papierbogen: Vor Beginn eine vorhandene digitale Notiz als Linkort zuordnen und am Bogen benennen lassen. Kind kopiert dort die direkten Links mit Seitennamen, öffnet sie wieder und zeigt die zugehörige Passage. Keine langen URLs abschreiben lassen und kein zusätzliches Quellenportfolio verlangen. Bei gemeinsamer Gerätenutzung muss jedes Kind die Zuordnung zu seinem Bogen erklären können.",
+      "decisions": [
+        "Vor der eigenen Notiz beide kurzen Originalauszüge von Frag Sophie! zeigen. Kind begründet A mit der Lichtfrage; B behandelt das Beobachten von Schatten mit einem Teleskop. Bei bloßem „A“ passende Wörter zeigen lassen und nach dem fehlenden Antwortbezug von B fragen. „Angestrahlt“/„Teleskop“ stehen direkt an den Auszügen. Vergleich erst nach eigener Wahl öffnen; die anderen Mondphasenabsätze werden nicht vorgezeigt.",
+        "Beide tatsächlichen Suchformulierungen und einen konkreten Treffertitel zeigen lassen. Eine Änderung kann besser, gleich oder schlechter passen; die begründete Beobachtung zählt. Erst Suchhinweis, dann Startlink; bereitgestellten Weg kennzeichnen.",
+        "Leas Lichtantwort abgeschrieben oder nur „Sonnenlicht“? Frageunterschied zeigen. DLR-Beleuchtungssätze bis Voll-/Halbmond oder erste zwei timeanddate-Absätze unter „Eine Frage der Perspektive“ eingrenzen. Wort am Satz erklären, zunächst mündlich formulieren. Gerüst erst nach Versuch; Antwort und Stelle ergänzt das Kind. Eine noch unvollständige erste Antwort ist ausdrücklich ein Arbeitsstand für Abschnitt 4. Fehlt der Bezug zur Textstelle ganz, zuerst mit dem Kind am vorhandenen Text zuordnen; danach die zweite Quelle bereitstellen.",
+        "„Zwei Seiten = wahr“ oder Anbietername als Gütesiegel? Genau denselben Satz und beide Passagen zuordnen lassen. Herkunft DLR/timeanddate zeigen: Forschungseinrichtung/Unternehmen; konkrete Begründung verlangen. Widerspruch als offen stehen lassen.",
+        "Karte reiht Nebendaten auf? Wirklich gelesene Information als entbehrlich begründen, etwa DLR-Mondlandungen. Nur „alles gut“ als Rückmeldung? Andere Person/Lehrperson nennt genaue Stelle anhand der drei Kriterien; Kind zeigt Änderung mit Grund oder begründetes Beibehalten.",
+        "Transfer aus Vorschau entschieden? Offizielle Stelle für Pfleghof, Saison, Tag/Ausnahmen zeigen lassen. Unterschiedliche Angaben als echten offenen Prüfbedarf anerkennen. Wochenregel ist keine Tagesgarantie."
+      ],
+      "next": "Infokarte und Arbeitsbelege für M03 „Zusammenarbeiten“ bewahren; vorhandenes Ergebnis nutzen. Offene Live-Handlungen gezielt nachholen."
+    },
+    {
+      "moduleId": "G5-M03",
+      "file": "reihe-zusammenarbeit.html",
+      "label": "Zusammenarbeit",
+      "title": "Digital zusammenarbeiten und verständlich kommunizieren",
+      "goal": "Jede Person nutzt den geschlossenen Schulraum für einen eigenen Beitrag, eine passende Antwort und eine begründete gemeinsame Überarbeitung.",
+      "rationale": "Eine kleine Gliederung für eine spätere Infokarte begrenzt die Produktlast. Das vorgemachte Nachrichtenbeispiel zeigt den Zusammenhang zwischen Rückfrage und Änderung. Echte Beiträge, gegenseitiges Verstehen und die individuelle Erklärung machen die Kooperation prüfbar. Ein Konfliktfall verändert die Bedingung: Freundliches Nachfragen allein reicht bei wiederholter Ausgrenzung nicht.",
+      "phases": [
+        {
+          "title": "Arbeitsraum und Verständigung",
+          "minutes": 45,
+          "action": "Kursraum 10, Nachrichtenbeispiel 10, Rückfragen erproben 15, Teamvereinbarung beginnen 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "zusammenarbeit/schritt-arbeitsraum.html",
+          "label": "Zum Einstieg"
+        },
+        {
+          "title": "Eigene Beiträge zusammenführen",
+          "minutes": 45,
+          "action": "Vereinbarung abschließen 5, reale Beiträge senden/empfangen und erste Gliederung 35, Rückmeldung beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "zusammenarbeit/schritt-beitragen.html",
+          "label": "Zum echten Austausch"
+        },
+        {
+          "title": "Überarbeiten und weitergeben",
+          "minutes": 45,
+          "action": "Rückmeldung abschließen 10, Inhalt/Rechtehinweis überarbeiten 10, Konfliktfall 15, zwei Weitergabewege und Zugangsschutz 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "zusammenarbeit/schritt-rueckmelden.html",
+          "label": "Zur Rückmeldung"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Mit Abstand, zum Beispiel zu Beginn von M04: fünf Minuten ohne alte Notizen erinnern und zeitversetzte Zusammenarbeit begründen. Aus dem bestehenden 135-Minuten-Jahreskonto; M01–M03 belegen zusammen 22 Minuten. Nicht in die drei Kernstunden doppelt zählen."
+      },
+      "preparation": "Kursraumkarte ausfüllen und mit zwei eigenen Schulkonten prüfen: Einstieg, Leserkreis, Bearbeitungsrecht, erlaubte Funktionen, tatsächlicher Regel-/Nutzungsauszug, Hilfeweg und Schutzroutine. Paare, gemeinsamer Arbeitsort und digitale Vorführung vor einem anderen Paar klären. M02-Notizen oder lokale Startbasis bereitstellen. Am Stundenende Arbeitsstände innerhalb der laufenden Phase sichern. Geräteseitige Varianten gleichwertig, konkrete Menüs schulabhängig. Ausgefüllte Kursraumkarte mit vier sichtbaren Einstiegsangaben bereitstellen. Am Modell Beitrag, Rückfrage und geänderte Überschrift zeigen lassen; danach wirklicher Austausch.",
+      "decisions": [
+        "Kein Zugang oder keine Partnerperson? Entwurf vorbereiten, tatsächlichen Austausch als offen führen und nachholen.",
+        "Nur eine Person trägt bei? Individuelle Aussage vorzeigen lassen, Bedienrolle wechseln.",
+        "Vage Rückmeldung? Eine konkrete Stelle und eine begründete Rückfrage verlangen.",
+        "Gemeinsamer Plan ohne Veränderung? Vorher/nachher am eigenen Abschnitt erklären lassen.",
+        "Wiederholte Ausgrenzung? Nicht als bloßes Missverständnis behandeln; schulischen Hilfeweg einsetzen."
+      ],
+      "next": "Gemeinsame Gliederung und Quellen für M04 sichern. Vor Medienproduktion fehlende digitale Handlungen nachholen. Kurzer individueller Nachweis: Beitrag, empfangene Rückmeldung, begründete Änderung, angewandte Regel. Schulzugang, drei Stunden und Lernwirkung sind noch zu erproben."
+    },
+    {
+      "moduleId": "G5-M04",
+      "file": "reihe-medienprodukt.html",
+      "label": "Medienprodukt",
+      "title": "Ein Medienprodukt gestalten, prüfen und vorstellen",
+      "goal": "Eine digitale Infokarte für andere Lernende gestalten, ihre Wirkung prüfen und eine Verbesserung sowie zwei reale Weitergabewege erklären.",
+      "rationale": "Eine Seite verbindet die Recherche und Gliederung aus M02/M03 mit bewusstem Gestalten. Der Vergleich zweier eigener Beispiele modelliert eine begründete Entscheidung. Zeichen, Absatz und Objekt werden erst gezielt erprobt, dann am eigenen Produkt verwendet. Lesetest ohne Vorab-Erklärung und ein erhaltener Entwurf machen die Revision nachvollziehbar.",
+      "phases": [
+        {
+          "title": "Wirkung erkennen",
+          "minutes": 45,
+          "action": "Wirkung 40, Textprobe beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-wirkung.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Text und Objekt erproben",
+          "minutes": 45,
+          "action": "Textprobe abschließen 30, Objektprobe beginnen 15 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-text.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Vom Plan zum Entwurf",
+          "minutes": 45,
+          "action": "Objektprobe abschließen 10, Seitenplan 25, Gestaltung beginnen 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-objekt.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Selbst gestalten",
+          "minutes": 45,
+          "action": "Eigene digitale Gestaltung 45 Minuten; beide bedienen und erklären.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-gestalten.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Abstimmen und lesen lassen",
+          "minutes": 45,
+          "action": "Gestaltung abschließen 5, realer Austausch 20, Lesetest beginnen 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-austauschen.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Rückmeldung wird Revision",
+          "minutes": 45,
+          "action": "Lesetest abschließen 5, Überarbeitung 35, Rechteprüfung beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-lesetest.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Rechte prüfen und Kopie weitergeben",
+          "minutes": 45,
+          "action": "Rechteprüfung/Korrektur abschließen 25, lokale Dateikopie 15, Vorstellung vorbereiten 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-rechte.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Vorstellen, freigeben und sichern",
+          "minutes": 45,
+          "action": "Vorstellung abschließen 20, begrenzter Link 15, kleine Ansicht und Sicherung 10 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienprodukt/schritt-vorstellen.html",
+          "label": "Zum Lernbogen"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Fünf Minuten mit Abstand, zum Beispiel zu Beginn von M05: einen veränderten Fall ohne alte Notizen beurteilen. Aus dem vorhandenen 135-Minuten-Konto; M01–M04 belegen zusammen 27 Minuten. Nicht in die acht Kernstunden doppelt zählen."
+      },
+      "preparation": "Werkzeugkarte mit Schreibwerkzeug, Speicher-/Exportweg, lokalem Transfer auf ein zweites kompatibles Gerät, begrenztem Link im Schulraum und Schutzroutine ausfüllen. Beide Wege auf den tatsächlichen Schulprofilen prüfen. M02/M03-Vorprodukte oder gekennzeichnete Startbasis bereitstellen; Paare, Lesepaar und Kleingruppe für Vorstellungen planen. iPad und Windows gleichwertig. Arbeitsstände innerhalb jeder Phase sichern und wieder öffnen. Die 35 Minuten Textprobe in Wort-, Absatz- und Umbruchversuch gliedern; danach Kopieren/Rückgängig. Original, PDF-Lesekopie und begrenzt freigegebenen Link beim Weitergeben unterscheiden.",
+      "decisions": [
+        "Begründung nur „schöner“? Leserziel und konkrete Fundstelle nennen lassen.",
+        "Bedienung nur durch eine Person? Rolle wechseln, individuelle Text- und Objektänderung zeigen lassen.",
+        "Lesetest wird von Erklärungen überlagert? Einen Abschnitt zuerst still lesen lassen.",
+        "Bildrechte unklar? Klären oder durch eigenes/freigegebenes Objekt ersetzen.",
+        "Transfer technisch nicht möglich? Vorbereitung fortsetzen, reale Handlung als offen führen und nachholen."
+      ],
+      "next": "Bearbeitbare Datei, Entwurf, Endfassung und eigene Änderungsspur sichern. Kopie und Link durch Empfänger öffnen lassen. Für M05 Wirkung und Gestaltungsentscheidung bereithalten. Nach Erprobung Zeitabweichung, häufigste Hürde und Anpassung notieren; kein vollständiger Kompetenznachweis allein aus dem Produkt."
+    },
+    {
+      "moduleId": "G5-M05",
+      "file": "reihe-medienwirkung.html",
+      "label": "Medienwirkungen",
+      "title": "Medienwirkungen und Selbstdarstellung beurteilen",
+      "goal": "Ein begründetes Fallurteil und ein verbesserter Bildbeitrag. Über eine eigene Medienerfahrung denkst du getrennt und geschützt nach.",
+      "rationale": "Ein kontrollierter Bildvergleich macht Wirkung untersuchbar. Werbung und eine inszenierte Erfolgsmeldung führen zu begründeten, offenen Urteilen. Eigene Gestaltung mit echter Rückmeldung verbindet Analyse und Revision. Persönliche Reflexion bleibt getrennt; neutrale Fälle erlauben gemeinsame Diskussion ohne Offenlegung.",
+      "phases": [
+        {
+          "title": "Werbung und Bildausschnitt",
+          "minutes": 45,
+          "action": "Werbung 25, Bildlabor beginnen 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-werbung.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Belege und Selbstdarstellung",
+          "minutes": 45,
+          "action": "Bildlabor abschließen 25, Fallurteil 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-bildlabor.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Gestalten und lesen lassen",
+          "minutes": 45,
+          "action": "Eigene Gestaltung 25, Rückmeldung beginnen 20 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-gestalten.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Überarbeiten und privat nachdenken",
+          "minutes": 45,
+          "action": "Rückmeldung abschließen 10, Modell und private Reflexion 30, Optionen beginnen 5 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-rueckmeldung.html",
+          "label": "Zum Lernbogen"
+        },
+        {
+          "title": "Optionen, Transfer und Hilfe",
+          "minutes": 45,
+          "action": "Optionen abschließen 10, Bibliothekstransfer 20, Handeln und Sicherung 15 Minuten.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "medienwirkung/schritt-optionen.html",
+          "label": "Zum Lernbogen"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Drei Minuten neutraler Abruf und zwei Minuten private Wiederaufnahme mit Abstand. M01–M05: 32 von 135 vorhandenen Jahresminuten. Sofortiger Transfer gehört bereits zu den 225 Kernminuten."
+      },
+      "preparation": "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen. Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe. Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen. Am Brückenfall den ausgewählten Beitrag mit vier Versuchen und Hilfe abgleichen; in der Bildwerkstatt erst Ausschnittknöpfe, danach freie Regler nutzen.",
+      "decisions": [
+        "Wirkung als Gewissheit formuliert? Zweite mögliche Reaktion ergänzen.",
+        "Person statt Darstellung bewertet? Konkrete Aussage und Kontext prüfen.",
+        "Private Angaben angeboten? Nicht im Plenum vertiefen; bei Hilfebedarf gesondertes Gespräch anbieten.",
+        "Nur fiktiv reflektiert? Später eine harmlose eigene Unterrichtserfahrung geschützt ermöglichen.",
+        "Keine Rückmeldung erhalten? Echten Lesetest nachholen; nicht durch Musterlösung ersetzen."
+      ],
+      "next": "Fallurteil und Bildbeitrag samt Änderungsspur sichern. Fünf spätere Minuten: drei neutraler Abruf, zwei private Wiederaufnahme. Damit M01–M05: 32 von 135 Jahresminuten; keine Doppelzählung des sofortigen Bibliothekstransfers. Für M06 bleiben präzise Beschreibung, Belegprüfung und Revision anschlussfähig. Nach Erprobung Zeitabweichung, eine häufige Hürde und Anpassung festhalten."
+    },
+    {
+      "moduleId": "G5-M06",
+      "file": "reihe-ablaeufe.html",
+      "label": "Präzise Abläufe",
+      "title": "Präzise Abläufe entwickeln und prüfen",
+      "goal": "Präzise Anweisungen und feste Wiederholungen grafisch darstellen, programmieren und anhand einer Laufspur begründet verbessern.",
+      "rationale": "Ein einziger Arbeitsplatz macht Zustand und Reihenfolge sichtbar. Die Gruppe wird zuerst ausgeführt und grafisch erklärt, dann in einer begrenzten lokalen Programmiersprache codiert. Der eigene Auftrag erfordert einen einmaligen Teil vor der Schleife. Die Signalfolge prüft, ob das Prinzip auf neue Befehle übertragen wird.",
+      "phases": [
+        {
+          "title": "Alltag, Modell und erste Grafik",
+          "minutes": 45,
+          "action": "Auftakt20, Modell15, Grafik10: digitale Systeme vergleichen und präzise Befehle ausführen.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-auftakt.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Grafik und ausführbarer Code",
+          "minutes": 45,
+          "action": "Grafik15, Programm30: feste Wiederholung vorhersagen, eingeben und schrittweise analysieren.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-grafik.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Eigener Ablauf",
+          "minutes": 45,
+          "action": "Entwurf45: vier Karten, zuerst eine unmarkiert, danach drei markiert. Eigene Grafik und Code entwickeln.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-entwurf.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Prüfen und überarbeiten",
+          "minutes": 45,
+          "action": "Entwurf15, Prüfen30: ersten abweichenden Schritt erklären; Gegenbeispiel, echte Rückmeldung und gezielte Revision.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-pruefen.html",
+          "label": "Lernschritt und Material"
+        },
+        {
+          "title": "Neuer Fall und Sicherung",
+          "minutes": 45,
+          "action": "Prüfen10, Transfer25, Sichern10: erneut testen, Lampenablauf übertragen, Code/Spuren sichern.",
+          "status": "Ausgearbeitet · zur Erprobung",
+          "href": "ablaeufe/schritt-transfer.html",
+          "label": "Lernschritt und Material"
+        }
+      ],
+      "later": {
+        "minutes": 5,
+        "account": "spacedPracticeMinutes",
+        "text": "Nach5 Tagen bis2 Wochen: neue Lampenfolge ohne Notizen erklären, danach vergleichen und verbessern. M01–M06 belegen37/135 Jahresminuten. Die früheren Roboter-Abrufe sind zusätzliche Optionen, keine weitere Pflichtzeit."
+      },
+      "preparation": "Vier Papierkarten und Arbeitsplatz pro Person. Auf den eingesetzten Schulprofilen Codeeingabe, Einzelschritt, Spurenübernahme, Sicherung und Wiederöffnung prüfen. iPad und Windows gleichwertig. Bei reinem Papierweg bleibt praktische Programmierung offen; nachholen. Die digitale Kartenstation zeigt dieselben Kartenorte wie das Papiermodell. Vor jedem Befehl den nächsten Zustand voraussagen, danach Karten, aktuellen Befehl und Durchlauf erklären lassen.",
+      "decisions": [
+        "Nur Endergebnis richtig? Einen neuen Zwischenzustand vorhersagen und Grafik zum Code zuordnen lassen.",
+        "Falsche Gruppierung? Ersten Stopp mit Karten nachstellen, Körper statt nur Zahl prüfen.",
+        "Plan schon richtig? Gegenbeispiel untersuchen, Erklärung oder Grafik anhand realer Rückmeldung schärfen.",
+        "Beobachtete Programmierung und fachliche Erklärung von Häkchen, kopiertem Code und bereitgestelltem Material unterscheiden."
+      ],
+      "next": "Grafik, eigenen Code und erklärte Spuren getrennt sichern. Das Roboterstudio bleibt zusätzliche Übung. Fehlende Gerätehandlungen nachholen; die spätere Wiederaufnahme im Kalender einplanen. Gemeinsame Übergänge und offene Erprobungspunkte stehen in der Übersicht für Lehrpersonen."
+    }
+  ],
+  "review": {
+    "date": "04.10.2026",
+    "mode": "Redaktioneller Selbstreview",
+    "transitions": [
+      {
+        "moduleId": "G5-M01",
+        "title": "Arbeitsraum → Recherche",
+        "href": "reihe-arbeitsraum.html",
+        "incoming": "Kein Vorprodukt nötig. Lehrperson klärt Startort, Zugänge und erlaubte Schutzhandlung.",
+        "check": "Jede Person findet eine eigene Datei ohne Schrittkarte wieder und führt den Zugangsschutz aus. Bei einer Hürde gezielt diesen Teil nachholen.",
+        "outgoing": "Ordnerweg und Schutzroutine weiterverwenden. Geräte, Dateien und Speicher/Zugang sind drei Teile derselben Reihe."
+      },
+      {
+        "moduleId": "G5-M02",
+        "title": "Recherche → gemeinsame Gliederung",
+        "href": "reihe-recherche.html",
+        "incoming": "M01-Handgriffe nutzen; Frage/Vermutung → Leas Lichtmodell mit Textstellenwahl → eigene Suche/erste Notiz.",
+        "check": "Jedes Kind zeigt Suchänderung, passende Stellen, Herkunft und Prüfstand; Karte mit Auslassung/konkreter Änderung, Werkzeugwahl am neuen datierten Fall.",
+        "outgoing": "Infokarte und beide Arbeitsbelege in M03 nutzen; ausgefallene Suche/Originalprüfung nachholen."
+      },
+      {
+        "moduleId": "G5-M03",
+        "title": "Zusammenarbeit → Infokarte",
+        "href": "reihe-zusammenarbeit.html",
+        "incoming": "M02-Infokarte und Arbeitsbelege mitbringen. Ohne Vorprodukt die gekennzeichnete Startbasis nutzen. Kursraumkarte mit realen Regeln und Hilfeweg ausfüllen.",
+        "check": "Jede Person sendet und beantwortet einen Beitrag; eine Änderung am gemeinsamen Plan ist erklärbar. Fehlende digitale Handlung gezielt nachholen.",
+        "outgoing": "Gemeinsame Gliederung, Quellen und eigene Rückmeldungsspur für M04 sichern. Schon verwendete Materialien nicht erneut abschreiben."
+      },
+      {
+        "moduleId": "G5-M04",
+        "title": "Infokarte → Wirkung prüfen",
+        "href": "reihe-medienprodukt.html",
+        "incoming": "M03-Plan und M02-Quellen nutzen; alternativ Startbasis im Schritt „Planen“. Beide Weitergabewege vorher an Schulgeräten prüfen.",
+        "check": "Eigene Text-/Objektänderung, echter Lesetest und Revision; Empfängerperson öffnet Dateikopie und begrenzten Link.",
+        "outgoing": "Bearbeitbare Datei, v1/v2 und Werkstattspur aufbewahren. Sie liegen außerhalb der Lernwerk-Arbeitsdatei. M05 kann vor der Revision eingeschoben werden; danach bei M04 „Lesetest“ weiterarbeiten."
+      },
+      {
+        "moduleId": "G5-M05",
+        "title": "Wirkung und eigenes Handeln",
+        "href": "reihe-medienwirkung.html",
+        "incoming": "Kein fertiges M04-Produkt nötig: eigene Fallmaterialien und Bildwerkstatt. Örtliche Hilfekarte ausfüllen.",
+        "check": "Belegtes Fallurteil und eigenen Bildbeitrag zeigen lassen. Die persönliche Reflexion bleibt privat und wird nicht als Qualitätsnachweis eingesammelt.",
+        "outgoing": "Fallurteil und Bildbeitrag sichern. Für den Eigenbezug genügt die heutige harmlose Unterrichtserfahrung. M06 braucht diese Produkte nicht als Voraussetzung."
+      },
+      {
+        "moduleId": "G5-M06",
+        "title": "Abläufe → spätere Wiederaufnahme",
+        "href": "reihe-ablaeufe.html",
+        "incoming": "Eigenständiger Einstieg mit neuem Kartenmodell; nur grundlegende Bedienung und M01-Sicherung voraussetzen.",
+        "check": "Eigene Grafik, Code und erklärte Zwischenzustände verlangen; Korrektur erneut ausführen. Papierweg ersetzt die digitale Programmierung nicht.",
+        "outgoing": "Code und Spuren als Lernwerk-Arbeitsdatei sichern, Zeichnung gesondert bewahren. Lampenabruf mit Abstand einplanen. Roboterstudio ist zusätzliche Übung."
+      }
+    ]
+  },
+  "budgetConfirmation": {
+    "units": 38,
+    "unitMinutes": 45,
+    "confirmedAt": "2026-10-04",
+    "source": "Direkte Bestätigung des Auftraggebers im Lernwerk-Chat",
+    "scope": "Jahresplanung Klasse 5 für den vorgesehenen schulischen Einsatz; keine amtliche Stundentafel"
+  }
+}
