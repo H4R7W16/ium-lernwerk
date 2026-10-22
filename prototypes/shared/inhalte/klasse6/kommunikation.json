@@ -1,0 +1,856 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M06-KOMMUNIKATION",
+  "area": "kommunikation",
+  "grade": 6,
+  "version": "1.0.0",
+  "family": "content",
+  "topic": "Kommunikationsräume",
+  "title": "Wer liest mit? Was folgt daraus?",
+  "description": "Ein Beitrag kann helfen, verbinden oder verletzen. Vergleiche Räume, begründe deine Entscheidung und prüfe sie mit einer echten Rückmeldung.",
+  "product": "Eine wachsende Entscheidungskarte zum erfundenen Schulfest: erster Entwurf, eigene Nachricht, sachlich zusammengefasste Rückmeldung und begründete Revision.",
+  "prerequisites": [
+    "Papier und Stift oder Lernwerk-Notizen",
+    "Freigegebener schulischer Kommunikationsweg und eine reale Übungspartnerin oder ein realer Übungspartner; alternativ die Lehrperson",
+    "Ausgefüllte Schulwegkarte mit aktuellen Bedingungen und örtlichen Hilfewegen; keine privaten Konten"
+  ],
+  "teacher": [
+    "M06 verbindet eine abgewogene Entscheidung mit tatsächlich ausgeführter Kommunikation. Das neutrale Fallurteil, der reale Austausch und die geschützte eigene Rechteprüfung werden getrennt betrachtet. Keine persönlichen Konflikte nachspielen lassen."
+  ],
+  "duration": "165 Kernminuten: 20 Orientierung, 30 Anleitung, 35 Anwendung, 25 Rückmeldung/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor 6 Minuten M03 und 7 Minuten M05; später zweimal 5 Minuten M06 aus den vorhandenen Abrufkonten.",
+  "learnerDuration": "Drei Unterrichtsstunden und weitere 30 Minuten. Die Lehrperson plant kurze Erinnerungsaufgaben davor und in späteren Stunden ein.",
+  "workNotice": "Die Lernwerk-Arbeitsdatei sichert öffentliche Antworten. Nachrichten im Schulwerkzeug sicherst du nach der Schulregel getrennt. Persönliche Gedanken gehören nicht in die Arbeitsdatei.",
+  "curriculum": {
+    "moduleId": "G6-M06",
+    "goalIds": [
+      "3.1.1.1(4)",
+      "3.1.4.1(2)",
+      "3.1.4.1(3)",
+      "3.1.4.1(4)",
+      "3.1.4.1(5)",
+      "3.1.4.2(4)",
+      "3.1.4.2(5)",
+      "3.1.4.2(6)",
+      "3.1.4.2(7)",
+      "3.1.4.2(8)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Aktive Projektverteilung zur IuM-Anhörungsfassung vom 21.09.2026, Planungscommit dee82ec. Lerngelegenheiten und begrenzte Nachweise, keine pauschale Kompetenzfreigabe. Eigene Reflexion P56-04 bleibt privat; reale Kommunikation muss tatsächlich stattfinden."
+  },
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "note": "Zieltexte aus lokalem Quellenbestand dee82ec, S. 32, 40, 42; Klasse 6 ist Projektverteilung.",
+      "license": "Originalquelle verlinkt; keine fremden Texte oder Medien übernommen",
+      "checked": "2026-10-22"
+    },
+    {
+      "id": "hilfe",
+      "title": "Cybermobbing: Warnsignale erkennen und richtig reagieren",
+      "author": "klicksafe",
+      "url": "https://www.klicksafe.de/cybermobbing",
+      "note": "Abschnitte Merkmale und Handlungsstrategien, aktualisiert 16.02.2026. Pädagogische Hintergrundquelle; örtliche Hilfe separat prüfen.",
+      "license": "Originalquelle verlinkt; keine fremden Texte oder Medien übernommen",
+      "checked": "2026-10-22"
+    },
+    {
+      "id": "bildrecht",
+      "title": "Recht am eigenen Bild · § 22 KunstUrhG",
+      "author": "Bundesministerium der Justiz / Bundesamt für Justiz",
+      "url": "https://www.gesetze-im-internet.de/kunsturhg/__22.html",
+      "note": "Grundsatz der Einwilligung bei Verbreitung und öffentlicher Zurschaustellung. Ausnahmen und Datenschutzrecht erfordern Einzelfallprüfung; Unterricht enthält keine vollständige Rechtsberatung.",
+      "license": "Originalquelle verlinkt; keine fremden Texte oder Medien übernommen",
+      "checked": "2026-10-22"
+    },
+    {
+      "id": "nutzungsrecht",
+      "title": "Nutzungsrechte · § 31 UrhG",
+      "author": "Bundesministerium der Justiz / Bundesamt für Justiz",
+      "url": "https://www.gesetze-im-internet.de/urhg/__31.html",
+      "note": "Nutzungsrechte können auf bestimmte Nutzungsarten und Zwecke beschränkt sein. Eigene vereinfachte Prüffragen, keine Übernahme des Gesetzestextes.",
+      "license": "Originalquelle verlinkt; keine fremden Texte oder Medien übernommen",
+      "checked": "2026-10-22"
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk: eigene Unterrichtsfälle",
+      "author": "IuM-Lernwerk",
+      "url": "https://h4r7w16.github.io/ium-lernwerk/",
+      "note": "Alle Personen, Beiträge, Regeln und Zahlen der Fälle sind erfunden. Keine Abbildungen echter Konten. Eigene Materialien CC BY-SA 4.0.",
+      "license": "Originalquelle verlinkt; keine fremden Texte oder Medien übernommen",
+      "checked": "2026-10-22"
+    }
+  ],
+  "media": [
+    {
+      "id": "schulweg",
+      "kind": "download",
+      "title": "Schulwegkarte für Lehrpersonen",
+      "file": "assets/kommunikation/schulwegkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen",
+      "printText": "SCHULWEGKARTE M06 · Lehrperson füllt vor dem Unterricht aus\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nFreigegebenes Schulwerkzeug und Startweg:\nQuelle der aktuellen Bedingungen / geprüft am:\nWer darf es unter welchen Bedingungen nutzen (z. B. Schulzugang, Alter)?\nWer kann unseren Übungsaustausch lesen? Welche Daten sind erforderlich?\nWelche Regeln gelten für Weitergabe, Aufbewahrung und Löschung?\nVereinbarte Übungspartner / Ersatzperson:\nNachricht erstellen / Empfänger prüfen / senden:\nAntwort finden / Rückmeldung geben:\nSichere Ablage nur eigener sachlicher Arbeitsnotizen:\nBei Ausfall: Papier austauschen; digitale Handlung nachholen am:\n\nHILFEWEG · für persönliche Anliegen getrennt von Aufgaben nutzen\nErste Ansprechperson / wie und wann vertraulich erreichbar:\nWeitere Ansprechperson, falls die erste nicht hilft oder nicht da ist:\nMeldeweg im Schulwerkzeug / zuständige Stelle:\nZuständige erwachsene Person für Dokumentation belastender Inhalte:\nKeine realen Konfliktverläufe einsammeln oder vor der Klasse zeigen.\nEin Hilfeanliegen ist keine bewertete Abgabe.\n"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "raeume",
+      "title": "Was verändert ein Kommunikationsraum?",
+      "paragraphs": [
+        "Reichweite meint, wie viele Menschen ein Beitrag erreichen kann. Sichtbarkeit meint, wer Zugang hat. Ein geschlossener Raum begrenzt den direkten Zugang; eine Person kann trotzdem eine Kopie weitergeben.",
+        "Im Gespräch vor Ort siehst oder hörst du oft sofort eine Reaktion. Eine Textnachricht lässt sich später lesen und beantworten, aber Tonfall und Gesichtsausdruck fehlen. Auch im Gespräch können viele Menschen zuhören; auch online ist ein vertrauliches Gespräch möglich.",
+        "Soziale Medien ermöglichen eigene Beiträge und Austausch mit anderen. Das kann Gemeinschaft, Hilfe und Zugang zu Ideen fördern. Je nach Dienst können Vergleichsdruck, Datenverarbeitung, Ablenkung oder Ausgrenzung entstehen. Entscheidend sind Zweck, Regeln, Menschen und Funktionen."
+      ],
+      "example": "Eine schulische Pinnwand hält Absprachen auffindbar. Für eine empfindliche Rückfrage ist ein vereinbartes Gespräch oft passender.",
+      "boundary": "Digital bedeutet nicht automatisch öffentlich; analog bedeutet nicht automatisch vertraulich.",
+      "steps": [
+        "modell",
+        "vergleichen",
+        "entscheidung",
+        "transfer"
+      ],
+      "sources": []
+    },
+    {
+      "id": "bedingungen",
+      "title": "Welche Bedingungen muss ich prüfen?",
+      "paragraphs": [
+        "Prüfe vor Nutzung: Wer darf den Dienst nutzen? Welche Anmeldung oder schulische Freigabe ist nötig? Welche Angaben sind erforderlich? Wer kann Inhalte sehen oder weitergeben? Was geschieht mit gespeicherten Beiträgen?",
+        "Anbieterbedingungen, schulische Regeln und gesetzliche Rechte sind verschiedene Ebenen. Eine technische Schaltfläche allein erlaubt eine Handlung noch nicht. Die Lehrperson trägt die für eure Übung geltenden Bedingungen in die Schulwegkarte ein."
+      ],
+      "example": "Wenn ein Schulraum nur für Projektgruppen freigegeben ist, darf ich den Einladungslink nicht als öffentliche Werbung verwenden.",
+      "boundary": "Erfundene Regeln einer Übung sagen nichts über die aktuellen Bedingungen eines echten Dienstes aus. Keine privaten Konten für diese Aufgabe anlegen.",
+      "steps": [
+        "vergleichen",
+        "entscheidung"
+      ],
+      "sources": []
+    },
+    {
+      "id": "wirkung",
+      "title": "Was zeigt eine Selbstdarstellung – und was nicht?",
+      "paragraphs": [
+        "Selbstdarstellung ist die Auswahl, mit der jemand sich anderen zeigt: etwa ein gelungenes Werk, ein Text oder ein Profil. Sie kann stolz machen, Ideen liefern und Gemeinschaft schaffen.",
+        "Ein einzelner Erfolgspost zeigt meist nicht alle Versuche. Andere könnten sich motiviert fühlen oder sich unter Druck setzen. Diese Wirkungen sind möglich; aus dem Beitrag kannst du keine sicheren Gefühle einer Person ablesen."
+      ],
+      "example": "Ein Foto eines fertigen Turms zeigt nicht die drei eingestürzten Versuche davor. „Alle können das sofort“ wäre eine unbelegte Schlussfolgerung.",
+      "boundary": "Auswahl ist nicht automatisch Täuschung. Die Anzahl der Reaktionen beweist weder Wahrheit noch den Wert eines Menschen.",
+      "steps": [
+        "vergleichen",
+        "entscheidung",
+        "transfer"
+      ],
+      "sources": []
+    },
+    {
+      "id": "verletzung",
+      "title": "Wann wird Kommunikation verletzend?",
+      "paragraphs": [
+        "Abwertung, Drohung oder gezieltes Ausschließen kann Menschen verletzen. Nicht jeder Streit ist Cybermobbing. Bei Cybermobbing wird eine Person wiederholt über längere Zeit angegriffen oder ausgegrenzt und kann sich gegen das entstandene Ungleichgewicht kaum wehren. Schon ein einzelner verletzender Beitrag verdient Unterstützung.",
+        "Viele Mitlesende, kopierbare Beiträge, scheinbar unbekannte Absender oder fehlende sichtbare Reaktionen können Angriffe verstärken. Diese Bedingungen erklären mögliche Verstärkung; sie entschuldigen das Verhalten nicht. Verantwortlich sind die Personen, die verletzen oder Angriffe verbreiten.",
+        "Ein Profilname oder Bild beweist keine Identität. Bei ungewöhnlichen Bitten oder unbekannten Konten nicht auf Verdacht Daten senden; den Absender über einen bereits bekannten Weg prüfen."
+      ],
+      "example": "Ein wiederholt weitergereichter Spottbeitrag kann auch ohne immer neue Formulierungen weiterwirken.",
+      "boundary": "Die betroffene Person trägt keine Schuld am Angriff. Ihr Rückzug oder eine andere Selbstdarstellung ist keine Voraussetzung für Hilfe.",
+      "steps": [
+        "vergleichen",
+        "entscheidung",
+        "transfer"
+      ],
+      "sources": [
+        "hilfe"
+      ]
+    },
+    {
+      "id": "handeln",
+      "title": "Wie helfe ich, ohne den Angriff zu vergrößern?",
+      "paragraphs": [
+        "Unterstütze Betroffene und verbreite Angriffe nicht weiter. Hole eine erwachsene Vertrauensperson hinzu. Sage etwa: „Das war nicht in Ordnung. Ich gehe mit dir zur Lehrperson.“ Niemand muss eine angreifende Gruppe allein überzeugen.",
+        "Besprich mit der zuständigen erwachsenen Person, wie ein Vorfall geschützt dokumentiert und gemeldet wird. Keine belastenden Inhalte für eine Klassenaufgabe sammeln. Eine Meldung richtet sich an den zuständigen Dienst oder schulischen Hilfeweg; eine öffentliche Weiterleitung vergrößert die Reichweite.",
+        "Blockieren kann weiteren direkten Kontakt begrenzen. Es entfernt nicht sicher bereits verteilte Kopien. Bleibt Hilfe aus, nutze die zweite Ansprechperson auf der Schulwegkarte. Persönliche Anliegen werden vertraulich außerhalb der Leistungsaufgabe bearbeitet."
+      ],
+      "example": "Im Fall wird ein Ausgrenzungsbeitrag weitergereicht. Ich teile ihn nicht, unterstütze die betroffene Person und bitte die Lehrperson um gemeinsame Dokumentation und Meldung.",
+      "boundary": "Du musst keine rechtliche Diagnose stellen, um Hilfe zu holen. Die Unterrichtsaufgabe löst keinen echten Konflikt.",
+      "steps": [
+        "vergleichen",
+        "entscheidung",
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "hilfe"
+      ]
+    },
+    {
+      "id": "rechte",
+      "title": "Was prüfe ich vor dem Teilen?",
+      "paragraphs": [
+        "Prüfe verschiedene Rechte getrennt: Wer hat den Text oder das Bild geschaffen und welche Nutzung ist erlaubt? Ist eine Person erkennbar und darf ihr Bild für diesen Zweck und Empfängerkreis weitergegeben werden? Welche schulische Regel gilt?",
+        "Beim Verbreiten von Personenbildern ist die Einwilligung ein wichtiger gesetzlicher Grundsatz. Eine Zustimmung für einen Klassenraum ist nicht automatisch eine Zustimmung für eine öffentliche Seite. Es gibt rechtliche Ausnahmen und weitere Datenschutzregeln; bei Unklarheit fragst du die zuständige Lehrperson, bevor du teilst.",
+        "Ein Fund im Internet oder eine Quellenangabe allein ist keine Nutzungserlaubnis. Eine eigene reine Textnachricht ohne fremde Inhalte und ohne Angaben über andere vermeidet viele Rechtefragen; Absenderdaten und Empfängerkreis bleiben zu prüfen."
+      ],
+      "example": "Für ein fremdes Gruppenfoto fehlt die Klärung. Ich lasse es vorerst weg und beschreibe die Sache mit eigenen Worten.",
+      "boundary": "Die Prüffragen ersetzen keine vollständige Rechtsprüfung. Private Gedanken und Hilfeanliegen gehören nicht in öffentliche Antworten.",
+      "steps": [
+        "entscheidung",
+        "rechte",
+        "abruf"
+      ],
+      "sources": [
+        "bildrecht",
+        "nutzungsrecht"
+      ]
+    },
+    {
+      "id": "urteil",
+      "title": "Wie wird aus einer Meinung ein begründetes Urteil?",
+      "paragraphs": [
+        "Nenne zuerst den Zweck. Suche dann passende Belege im Fall. Wäge einen Nutzen und einen relevanten Einwand gegeneinander ab. Entscheide, welches Kriterium hier mehr zählt, und nenne eine Bedingung oder Grenze.",
+        "Bei Rückmeldung prüfst du eine konkrete Stelle: Was versteht die andere Person anders? Welche Information fehlt? Du darfst eine Empfehlung beibehalten, wenn du den Einwand begründet beantwortest. Bewahre den ersten Entwurf auf."
+      ],
+      "example": "„Für die Terminabsprache wähle ich den geschlossenen Schulraum, weil nur die Gruppe die Zeit braucht. Kopieren bleibt möglich; darum teile ich keine Personenbilder.“",
+      "boundary": "Es gibt mehrere begründbare Entscheidungen. „Weil sicher“ ohne Fallbeleg erklärt noch nichts.",
+      "steps": [
+        "modell",
+        "entscheidung",
+        "revision",
+        "transfer",
+        "abruf"
+      ],
+      "sources": []
+    }
+  ],
+  "steps": [
+    {
+      "id": "modell",
+      "title": "Ein Beitrag, zwei Wege",
+      "short": "Ein Beitrag, zwei Wege",
+      "goal": "Du erkennst, wie Zweck und Empfängerkreis eine Entscheidung verändern.",
+      "task": "Du erkennst, wie Zweck und Empfängerkreis eine Entscheidung verändern. · 20 Minuten",
+      "outcome": "Du erkennst, wie Zweck und Empfängerkreis eine Entscheidung verändern.",
+      "knowledge": [
+        "raeume",
+        "urteil"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Einladung oder Gruppenabsprache?",
+          "text": "Die erfundene Garten-AG möchte wissen, wer am Freitag gießen kann. Dafür braucht sie Antworten aus der AG. Eine öffentliche Einladung für neue Mitglieder hätte einen anderen Zweck."
+        },
+        {
+          "type": "example",
+          "title": "So entsteht ein begründetes Urteil",
+          "text": "Botschaft der Garten-AG: „Wer übernimmt Freitag das Gießen? Bitte bis Donnerstag antworten.“",
+          "table": {
+            "headers": [
+              "Weg",
+              "Wer liest mit?",
+              "Rückmeldung"
+            ],
+            "rows": [
+              [
+                "Schulraum der AG",
+                "Die zwölf AG-Mitglieder und die betreuende Lehrperson. Kopien wären trotzdem möglich.",
+                "Antwort bleibt auffindbar; nicht alle lesen sofort."
+              ],
+              [
+                "Öffentlicher Beitrag",
+                "Auch Unbekannte; die Zahl späterer Kopien ist unklar.",
+                "Viele könnten antworten, obwohl sie gar nicht mitgießen."
+              ]
+            ]
+          },
+          "items": [
+            "Zweck: Wir verteilen eine Aufgabe innerhalb der AG.",
+            "Nutzen: Im Schulraum können auch heute Abwesende später antworten.",
+            "Einwand: Die Antwort kommt möglicherweise nicht rechtzeitig.",
+            "Gewichtung: Die zuständige Gruppe zu erreichen ist hier wichtiger als eine möglichst große Reichweite.",
+            "Entscheidung: Schulraum plus klare Antwortfrist; ohne Antwort fragt die AG am Donnerstag im Gespräch nach. Keine privaten Telefonnummern veröffentlichen."
+          ],
+          "paragraphs": [
+            "Das ist ein vollständiges Beispiel. Deine spätere Entscheidung betrifft das Schulfest und muss dessen Bedingungen prüfen."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "denken",
+          "title": "Eine Bedingung ändert sich",
+          "text": "Jetzt will die Garten-AG neue Mitglieder gewinnen. Warum könnte der öffentliche Weg nützlicher werden? Nenne trotzdem eine Grenze. Antworte kurz mündlich; noch keine Entscheidungskarte abgeben.",
+          "prompt": "Zweckwechsel und verbleibende Grenze.",
+          "responseMode": "oral",
+          "solution": "Eine öffentliche Einladung erreicht Menschen außerhalb der AG. Die Terminverteilung bleibt intern; persönliche Kontaktdaten gehören nicht automatisch in den Aufruf. Beide Wege können verschiedene Teilzwecke erfüllen."
+        }
+      ],
+      "criteria": [
+        "Ich verbinde eine Entscheidung mit ihrem Zweck.",
+        "Ich nenne einen Nutzen und eine Grenze statt „digital ist immer öffentlich“."
+      ],
+      "materialNeeds": [
+        "Diese Fallkarten und Stift oder Lernwerk-Notizen"
+      ]
+    },
+    {
+      "id": "vergleichen",
+      "title": "Gleiche Botschaft, andere Wirkung",
+      "short": "Gleiche Botschaft, andere Wirkung",
+      "goal": "Du belegst Unterschiede zwischen Räumen und erklärst, wie sie eine Wirkung verstärken können.",
+      "task": "Du belegst Unterschiede zwischen Räumen und erklärst, wie sie eine Wirkung verstärken können. · 30 Minuten",
+      "outcome": "Du belegst Unterschiede zwischen Räumen und erklärst, wie sie eine Wirkung verstärken können.",
+      "knowledge": [
+        "raeume",
+        "bedingungen",
+        "wirkung",
+        "verletzung",
+        "handeln"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Drei Ansichten – ein erfundener Beitrag",
+          "text": "Beitrag von Nuri: „Unser Papierturm steht! Das ging bei uns sofort.“ Die Darstellung zeigt nur den fertigen Turm. Tatsächlich brauchte die Gruppe vier Versuche. Nuri darf sich über den Erfolg freuen; die Behauptung „sofort“ passt hier nicht zum Ablauf.",
+          "table": {
+            "headers": [
+              "Ansicht",
+              "Sichtbarkeit und Weitergabe",
+              "Reaktion"
+            ],
+            "rows": [
+              [
+                "A · Gespräch am Gruppentisch",
+                "Vier Personen hören zu. Andere könnten davon erzählen.",
+                "Gesichter und Nachfragen sind sofort wahrnehmbar."
+              ],
+              [
+                "B · Geschlossener Schulraum",
+                "24 Klassenmitglieder und die Lehrperson haben Zugang. Ein Bildschirmfoto könnte den Raum verlassen.",
+                "Textantworten kommen später. Zwei Reaktionen: „Stark!“ und „Wie habt ihr das gemacht?“"
+              ],
+              [
+                "C · Öffentlicher Übungsfeed",
+                "Für alle erreichbar. Die Anzeige meldet 180 Aufrufe; Kopien außerhalb des Feeds zählt sie nicht.",
+                "Viele sehen nur den Erfolg. Eine unbekannte Person behauptet, die neue AG-Leitung zu sein, und fordert die Teilnehmerliste."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Alle Ansichten sind erfundene Textdarstellungen, keine echten Plattformkonten. Für B gilt in dieser Übung: Zugang nur mit freigegebenem Schulkonto; kein öffentlicher Einladungslink; Weitergabe personenbezogener Inhalte nur nach geklärter Erlaubnis. C verlangt im erfundenen Regeltext ein Mindestalter von 16 Jahren und macht Beiträge öffentlich. Diese Regeln gelten nur für diesen Fall."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "vergleich",
+          "title": "Lies die Ansichten gegeneinander",
+          "text": "Vergleiche zuerst A und B: eine Gemeinsamkeit, ein Unterschied und seine Folge. Vergleiche dann B und C: Welche Angabe begrenzt den Zugang? Warum beweisen 180 Aufrufe nicht die gesamte Reichweite? Wähle eine Regel aus dem Übungstext und erkläre ihre Folge für eine zwölfjährige Person.",
+          "prompt": "Kurze Gegenüberstellung mit Belegen.",
+          "responseMode": "oral",
+          "help": [
+            {
+              "title": "Wo beginnen?",
+              "text": "Lies in A und B zuerst „Reaktion“. Bei C suche die Sätze über Kopien und Mindestalter.",
+              "knowledge": "raeume",
+              "label": "Hier nachlesen"
+            }
+          ],
+          "solution": "A und B richten sich an bekannte Personen, aber beim Gespräch sind Reaktionen sofort sichtbar; in B kann die Antwort zeitversetzt eintreffen. B begrenzt den direkten Zugang, nicht jede Weitergabe. 180 zählt keine externen Kopien. Nach den erfundenen C-Regeln darf eine zwölfjährige Person C nicht selbst nutzen. Das sagt nichts über die Altersregeln eines echten Dienstes aus."
+        },
+        {
+          "type": "task",
+          "id": "wirkung",
+          "title": "Wirkung ist eine begründete Vermutung",
+          "text": "Wie könnte der Turmbeitrag motivieren, wie Druck auslösen? Belege deine Vermutung. Prüfe außerdem: Würdest du der angeblichen AG-Leitung in C die Liste schicken? Begründe den nächsten Schritt.",
+          "prompt": "Mögliche Wirkung, Fallbeleg und Umgang mit ungeklärter Identität.",
+          "responseMode": "oral",
+          "solution": "Der fertige Turm kann Ideen geben. „Sofort“ könnte den Eindruck erzeugen, eigene Fehlversuche seien ungewöhnlich; der echte Ablauf widerspricht dem. Gefühle sind nicht sicher ablesbar. Die behauptete Rolle ist ungeprüft. Keine Liste senden; bei der bekannten AG-Leitung über den bestehenden Schulweg nachfragen."
+        },
+        {
+          "type": "explanation",
+          "title": "Wenn aus Rückmeldungen Ausgrenzung wird",
+          "text": "Zusatz zum erfundenen Fall: Mehrere Personen schreiben über Tage, Nuri solle bei der nächsten Aktion nicht mitmachen. Andere verbreiten die Beiträge weiter. Nuri steht einer Gruppe allein gegenüber.",
+          "paragraphs": [
+            "Das wiederholte Ausschließen und das Ungleichgewicht sind Merkmale von Cybermobbing. Kopien und viele Mitlesende können die Belastung verstärken. Ein ungenauer Erfolgspost rechtfertigt keine Angriffe. Verantwortlich sind die Angreifenden und die Weiterverbreitenden."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "hilfe",
+          "title": "Zwei Behauptungen prüfen",
+          "text": "„Nuri muss sich nur anders darstellen, dann ist alles gelöst.“ – „Ich leite die Angriffe an alle weiter, damit jeder Bescheid weiß.“ Erkläre, was an beiden Vorschlägen problematisch ist. Nenne eine konkrete Unterstützung und einen Hilfeweg.",
+          "prompt": "Verstärkende Bedingung, Verantwortung und hilfreicher nächster Schritt.",
+          "responseMode": "oral",
+          "help": [
+            {
+              "title": "Unterstützen ohne Weiterverbreiten",
+              "text": "Trenne die Frage, wer schuld ist, von der Frage, welche Funktion einen Angriff verstärken kann.",
+              "knowledge": "handeln",
+              "label": "Hier nachlesen"
+            }
+          ],
+          "solution": "Die erste Behauptung schiebt Nuri Verantwortung zu. Die zweite vergrößert die Reichweite der Angriffe. Nicht weiterverbreiten; Nuri Unterstützung anbieten und eine erwachsene Vertrauensperson hinzuholen. Mit ihr Dokumentation und Meldung am zuständigen Ort klären. Die örtlichen Wege stehen auf der Schulwegkarte."
+        }
+      ],
+      "criteria": [
+        "Ich nenne Fallbelege zu Zugang, Reaktion und Kopien.",
+        "Ich kennzeichne vermutete Wirkungen als möglich.",
+        "Ich erkläre Verstärkung, ohne Betroffenen Schuld zu geben."
+      ],
+      "materialNeeds": [
+        "Diese Fallkarten und Stift oder Lernwerk-Notizen"
+      ]
+    },
+    {
+      "id": "entscheidung",
+      "title": "Deine Entscheidungskarte",
+      "short": "Deine Entscheidungskarte",
+      "goal": "Du entwickelst eine eigene Empfehlung und sendest eine sachliche Rückfrage an eine reale Person.",
+      "task": "Du entwickelst eine eigene Empfehlung und sendest eine sachliche Rückfrage an eine reale Person. · 35 Minuten",
+      "outcome": "Du entwickelst eine eigene Empfehlung und sendest eine sachliche Rückfrage an eine reale Person.",
+      "knowledge": [
+        "urteil",
+        "raeume",
+        "rechte",
+        "bedingungen",
+        "handeln"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Dein Fall: die Einladung zum Schulfest",
+          "text": "Die erfundene Klasse 6b organisiert einen Bastelstand. Sie möchte Familien einladen und die Helferschichten innerhalb der Klasse verteilen. Zur Wahl stehen ein geschlossener Klassenraum und eine öffentliche Schulnachricht, die die zuständige Lehrperson freigeben müsste.",
+          "table": {
+            "headers": [
+              "Beleg",
+              "Was im Fall feststeht"
+            ],
+            "rows": [
+              [
+                "Zugang",
+                "Den Klassenraum können alle 26 Kinder der Klasse und die Lehrperson lesen, Familien jedoch nicht. Die öffentliche Schulnachricht ist ohne Konto lesbar."
+              ],
+              [
+                "Inhalt",
+                "Ein eigener Einladungstext mit Zeit und Ort liegt vor. Ein Foto zeigt erkennbar drei Kinder. Für eine öffentliche Bildnutzung ist keine Erlaubnis geklärt."
+              ],
+              [
+                "Selbstdarstellung",
+                "Eine Bildunterschrift behauptet: „Bei uns klappt alles beim ersten Versuch.“ Es gab mehrere Fehlversuche."
+              ],
+              [
+                "Konflikt",
+                "Unter dem Entwurf im Klassenraum schließt eine kleine Gruppe die fiktive Person Toni über mehrere Tage gezielt von der Standplanung aus. Beiträge werden kopiert. Toni findet allein kaum Gehör."
+              ],
+              [
+                "Regel",
+                "Im erfundenen Klassenraum dürfen nur Klassenmitglieder und Lehrperson schreiben. Öffentliche Schulnachrichten gibt die zuständige Lehrperson frei. Kein Kind muss ein privates Konto anlegen."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "Du beurteilst diesen erfundenen Fall. Veröffentliche keine Einladung und spiele die Ausgrenzung nicht nach. Die echte Nachricht unten dient nur der sachlichen Rückmeldung zu deiner Empfehlung."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "karte",
+          "title": "Entwurf behalten",
+          "text": "Erstelle deine Entscheidungskarte in fünf kurzen Punkten. Wähle passende Wege für Einladung und Schichtplanung; du darfst die Zwecke trennen. Begründe deine Gewichtung, statt nur Vor- und Nachteile aufzulisten.",
+          "prompt": "1. Zweck und gewählter Weg.\n2. Nutzen, Einwand und Gewichtung mit Fallbeleg.\n3. Bild/Text: mögliche Wirkung und nötige Änderung.\n4. Ausgrenzung: verstärkende Bedingung, Verantwortung, Unterstützung und zuständiger Hilfeweg.\n5. Eine noch offene Frage.",
+          "responseHint": "Etwa fünf bis acht kurze Sätze oder eine übersichtliche Stichpunktkarte. Bewahre diesen ersten Entwurf auf.",
+          "help": [
+            {
+              "title": "Zwei Zwecke erkennen",
+              "text": "Markiere „Familien einladen“ und „Helferschichten innerhalb der Klasse“. Müssen beide dieselben Informationen sehen?",
+              "knowledge": "urteil",
+              "label": "Hier nachlesen"
+            },
+            {
+              "title": "Vom Beleg zum Grund",
+              "text": "Formuliere: Weil im Fall …, entscheide ich … . Dagegen spricht …, wichtiger ist hier … .",
+              "knowledge": "urteil",
+              "label": "Hier nachlesen"
+            }
+          ],
+          "solution": "Eine mögliche Empfehlung: Einladung als eigener Text ohne ungeklärtes Foto über die freigegebene Schulnachricht; interne Schichtplanung im Klassenraum. So werden Familien erreicht, ohne Schichtdaten öffentlich zu machen. Die größere Reichweite hilft der Einladung, erhöht aber die mögliche Weitergabe. Das „beim ersten Versuch“ wird sachlich korrigiert; ein Erfolg darf trotzdem gezeigt werden. Kopien verstärken die Ausgrenzung. Verantwortung liegt bei Angreifenden/Verbreitenden. Toni unterstützen und mit der Lehrperson den schulischen Hilfe- und Meldeweg nutzen. Andere begründete Lösungen sind möglich, etwa eine von der Schule verteilte Papiereinladung. Die gesamte Einladung nur im Klassenraum zu belassen erreicht die Familien im Fall nicht."
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "nachricht",
+          "title": "Jetzt wirklich austauschen",
+          "text": "Nimm deine Entscheidungskarte als Grundlage. Sende einer vereinbarten realen Person eine selbst formulierte kurze Nachricht: Empfehlung, ein Grund und eine konkrete Frage dazu. Nur sachliche Übungsinhalte; keine echten Konfliktdetails oder Angaben über Dritte.",
+          "prompt": "Nur meine eigene sachliche Nachricht und zwei geltende Bedingungen mit ihrer Folge. Falls kein Zugang vorhanden: „digital noch offen“.",
+          "preparation": "Die Lehrperson stellt den freigegebenen Schulweg und eine reale Partnerperson bereit. Lies die ausgefüllte Schulwegkarte. Prüfe zwei tatsächliche Bedingungen (z. B. zugelassene Nutzer und Empfängerkreis) und sage, was daraus für deine Nachricht folgt. Unklare Freigabe zuerst klären.",
+          "action": "Öffne den freigegebenen Weg. Erstelle deine Nachricht; prüfe den vereinbarten Empfänger vor dem Senden. Bitte um eine sachliche Rückmeldung zu einer bestimmten Stelle deiner Karte. Nenne keine Namen realer Personen in der Lernwerk-Notiz.",
+          "return": "Kehre danach zu dieser Seite zurück und notiere deine eigene Formulierung sowie die zwei Bedingungen. Die echte Antwort bearbeitest du im nächsten Schritt. Eine Notiz im Lernwerk sendet keine Nachricht.",
+          "routes": [
+            {
+              "title": "Mein Schulweg oder Papier bei Ausfall",
+              "items": [
+                "Benutze die Start-, Sende- und Antwortwege auf der ausgefüllten Schulwegkarte. Bei gemeinsamem Gerät sendet und beantwortet jede Person selbst.",
+                "Wenn die Partnerperson fehlt, übernimmt eine erreichbare Lehrperson die Rückmeldung. Vereinbart die Antwort noch in dieser Unterrichtsphase.",
+                "Ohne Schulzugang: Schreibe die Nachricht auf Papier, gib sie der realen Partnerperson und erhalte eine Antwort. Markiere den digitalen Austausch als offen; hole ihn zum vereinbarten Termin nach."
+              ]
+            }
+          ],
+          "help": [
+            {
+              "title": "Eine konkrete Frage stellen",
+              "text": "Frage zu einer Stelle, etwa: „Welcher Einwand gegen meinen Weg fehlt noch?“ Vermeide nur „Ist alles gut?“.",
+              "knowledge": "urteil",
+              "label": "Hier nachlesen"
+            }
+          ],
+          "responseHint": "Die Partnerantwort nicht kopieren. Im nächsten Schritt fasst du den sachlichen Hinweis ohne Personendaten zusammen."
+        }
+      ],
+      "criteria": [
+        "Meine Empfehlung berücksichtigt beide Zwecke und wiegt Gründe ab.",
+        "Ich nenne eine mögliche Wirkung sowie einen begründeten Hilfeweg.",
+        "Ich habe selbst eine Nachricht gesendet und zwei aktuelle Bedingungen angewandt – oder die fehlende digitale Handlung ausdrücklich offen gelassen."
+      ],
+      "materialNeeds": [
+        "Fallkarte und eigener Entwurf",
+        "Ausgefüllte Schulwegkarte",
+        "Freigegebenes Schulwerkzeug und reale Partnerperson; bei Ausfall Papier und Nachholtermin"
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Rückmeldung macht einen Unterschied",
+      "short": "Rückmeldung macht einen Unterschied",
+      "goal": "Du prüfst eine echte Rückmeldung und überarbeitest dieselbe Entscheidungskarte.",
+      "task": "Du prüfst eine echte Rückmeldung und überarbeitest dieselbe Entscheidungskarte. · 25 Minuten",
+      "outcome": "Du prüfst eine echte Rückmeldung und überarbeitest dieselbe Entscheidungskarte.",
+      "knowledge": [
+        "urteil",
+        "handeln"
+      ],
+      "blocks": [
+        {
+          "type": "cooperative",
+          "id": "rueckmeldung",
+          "title": "Antworten und nachfragen",
+          "text": "Ihr helft euch bei euren Entscheidungskarten. Die Rückmeldung bezieht sich auf die erfundene Situation, nicht auf die Person.",
+          "prompt": "Der sachliche Hinweis zu meiner Karte in eigenen Worten; ohne Namen oder kopierte Nachricht.",
+          "contribution": "Lies die Empfehlung deiner Partnerperson. Nenne eine tragfähige Stelle und einen konkreten Einwand mit Beleg aus dem Fall. Antworte über den vereinbarten Schulweg, zum Beispiel: „Dein Grund … passt zu … . Bei … fehlt mir noch …, weil im Fall … .“",
+          "exchange": "Öffne die echte Antwort auf deine Nachricht. Falls sie unklar ist, frage kurz nach. Einigt euch darauf, welcher Punkt geklärt werden muss; ihr müsst nicht dieselbe Empfehlung wählen. Bei ausbleibender Antwort bitte die vereinbarte Ersatzperson um Rückmeldung.",
+          "return": "Fasse den sachlichen Hinweis selbst zusammen. Ergänze unten deine Revision. Eine erfundene Musterantwort oder „Feedback erhalten“ ersetzt den Austausch nicht. Bei Papierantwort bleibt digitale Kommunikation offen."
+        },
+        {
+          "type": "explanation",
+          "title": "Ein Gegenbeispiel prüfen",
+          "text": "Schwache Empfehlung: „Ich wähle den Klassenraum, weil er sicher ist. Toni soll den Raum verlassen. Dann ist das Problem gelöst.“",
+          "paragraphs": [
+            "„Sicher“ bleibt ohne Beleg; Kopien sind weiterhin möglich und die Familien erhalten keine Einladung. Der Vorschlag zu Toni verlagert die Last auf die betroffene Person und stoppt die Angriffe nicht. Eine tragfähige Überarbeitung berücksichtigt beide Zwecke und einen erwachsenen Hilfeweg."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "revision",
+          "title": "Deine Karte, zweite Fassung",
+          "text": "Öffne deinen Entwurf aus dem vorigen Schritt. Schreibe hier deine überarbeitete Empfehlung. Markiere eine konkrete Änderung und begründe sie mit Rückmeldung oder Fallbeleg. Bleibt deine Wegwahl bestehen, präzisiere mindestens eine Begründung oder Bedingung.",
+          "prompt": "Überarbeitete Karte.\nGeändert habe ich …, weil … .\nDen Einwand … berücksichtige ich durch … .",
+          "links": [
+            {
+              "href": "schritt-entscheidung.html",
+              "label": "Zu meinem ersten Entwurf und meiner Nachricht"
+            }
+          ],
+          "help": [
+            {
+              "title": "Der Hinweis lautet nur „gut“",
+              "text": "Bitte um einen Beleg: „Welche Stelle begründet meine Entscheidung? Wo fehlt noch eine Information?“",
+              "knowledge": "urteil",
+              "label": "Hier nachlesen"
+            }
+          ],
+          "solution": "Vergleiche erste und zweite Fassung: Sind Familien tatsächlich erreichbar? Bleiben Schichtinformationen im passenden Raum? Sind Bildrechte und die unzutreffende Erfolgsaussage geklärt? Wird Toni unterstützt, ohne Angriffe weiterzuverbreiten? Eine Änderung etwa: „Statt alles im Klassenraum zu lassen trenne ich öffentliche Einladung und interne Schichtplanung, weil der Einwand auf die fehlenden Familien hinweist.“ Bewertet wird die begründete Revision, nicht die Übernahme einer vorgegebenen Meinung."
+        }
+      ],
+      "criteria": [
+        "Ich habe selbst einer realen Person einen begründeten Hinweis gegeben.",
+        "Ich fasse eine tatsächlich erhaltene sachliche Rückmeldung zusammen.",
+        "Entwurf und Revision zeigen eine fachlich begründete Änderung oder Präzisierung."
+      ],
+      "materialNeeds": [
+        "Erster Entwurf",
+        "Reale Partner- oder Ersatzperson",
+        "Vereinbarter Schulweg, bei Ausfall Papier"
+      ]
+    },
+    {
+      "id": "rechte",
+      "title": "Meine eigene Medienhandlung prüfen",
+      "short": "Meine eigene Medienhandlung prüfen",
+      "goal": "Du prüfst Rechte am neutralen Beispiel und denkst danach geschützt über eine eigene schulische Handlung nach.",
+      "task": "Du prüfst Rechte am neutralen Beispiel und denkst danach geschützt über eine eigene schulische Handlung nach. · 30 Minuten",
+      "outcome": "Du prüfst Rechte am neutralen Beispiel und denkst danach geschützt über eine eigene schulische Handlung nach.",
+      "knowledge": [
+        "rechte"
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "10 Minuten: vorgemachte Rechteprüfung",
+          "text": "Fiktiver Fall: Alex möchte ein Foto aus einer AG in einen öffentlichen Schulbericht einfügen. Die Fotografin hat die Verwendung im geschlossenen AG-Raum erlaubt. Die erkennbaren Kinder haben nur diesem Empfängerkreis zugestimmt.",
+          "items": [
+            "Ich trenne zwei Fragen: Welche Nutzung erlaubt die Fotografin? Für welchen Zweck und Kreis ist die Abbildung der Kinder geklärt?",
+            "Die vorhandenen Erlaubnisse betreffen den AG-Raum. Eine öffentliche Verwendung folgt daraus nicht automatisch.",
+            "Ich veröffentliche das Foto jetzt nicht, frage die zuständige Lehrperson nach der Klärung und verwende vorerst eigenen Text ohne Personenbild."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "fall",
+          "title": "Eine Veränderung prüfen",
+          "text": "Die Fotografin erlaubt nun die öffentliche Verwendung. Die Zustimmung zur Abbildung der Kinder bleibt auf den AG-Raum begrenzt. Ist damit alles geklärt? Begründe kurz mündlich.",
+          "prompt": "Welche Rechtefrage bleibt offen?",
+          "responseMode": "oral",
+          "solution": "Nein. Die Erlaubnis der Fotografin ersetzt nicht die getrennte Prüfung der Rechte der abgebildeten Personen. Die zuständige Lehrperson muss die weitere Verwendung klären; vorerst kein öffentliches Teilen des Fotos."
+        },
+        {
+          "type": "explanation",
+          "title": "15 Minuten: dein eigener schulischer Bezug",
+          "text": "Betrachte eine tatsächliche harmlose Medienhandlung von dir: deine heutige Schulnachricht, eine eigene Schuldatei oder ein selbst erstelltes Lernprodukt. Du musst keine private Nutzung nennen. Nutze im Zweifel deine heutige eigene Lernwerk-Notiz und ihre geplante Weitergabe.",
+          "items": [
+            "Was habe ich selbst geschrieben oder verwendet? Sind fremde Texte, Bilder oder Angaben über andere enthalten?",
+            "Wer kann das Ergebnis bisher sehen? Würde ich es an eine andere Gruppe weitergeben, und wäre das für diesen Inhalt geklärt?",
+            "Welche Rechte oder Schulregeln sind betroffen? Was weiß ich, was muss ich vor einer weiteren Nutzung bei der Lehrperson klären?"
+          ],
+          "paragraphs": [
+            "Denke still oder schreibe nur für dich. Ein ausgedachter Fall kann die Prüffragen erklären, ersetzt aber diese Betrachtung deiner eigenen Handlung nicht. Du musst deine Gedanken weder abgeben noch vorzeigen."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "5 Minuten: deine nächste Entscheidung",
+          "text": "Entscheide nur für dich: Was behalte ich bei, was korrigiere ich, was frage ich vor weiterem Teilen nach? Wenn du etwas ändern musst, plane den erlaubten Schritt. Keine Einstellungen oder fremden Beiträge eigenmächtig verändern.",
+          "paragraphs": [
+            "Prüfe deine Entscheidung beim späteren Abruf nochmals privat. Eine freiwillige Meldung „bearbeitet“ beweist nicht die Qualität deiner Reflexion. Ein persönliches Hilfeanliegen kannst du getrennt von dieser Aufgabe vertraulich an die Person auf der Schulwegkarte richten."
+          ]
+        },
+        {
+          "type": "private",
+          "id": "persoenlich",
+          "title": "Optional: eine private Denknotiz",
+          "text": "Du kannst dieses Feld leer lassen. Keine Passwörter, echten Konfliktverläufe oder Angaben über andere eintragen.",
+          "prompt": "Nur für mich: eigene Handlung, betroffene Regel/Rechtefrage, nächster Schritt.",
+          "responseHint": "Wird nicht automatisch gespeichert und nicht in die normale Arbeitsdatei oder Druckausgabe übernommen. Du kannst die Notiz ausdrücklich als getrennte private Datei sichern; andere Personen mit Zugriff auf diese Datei könnten sie lesen. Beim Seitenwechsel kann die Notiz verloren gehen. Eigenes Papier oder stilles Denken sind gleichwertig."
+        }
+      ],
+      "criteria": [
+        "Am neutralen Fall trenne ich die Erlaubnis zur Werknutzung von den Rechten abgebildeter Personen.",
+        "Meinen eigenen Bezug und die nächste Entscheidung prüfe ich nur für mich."
+      ],
+      "materialNeeds": [
+        "Eigenes harmloses Schulprodukt oder heutige eigene Notiz",
+        "Stift/Papier nach Wunsch; keine private Offenlegung"
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Andere Bedingungen, neues Urteil",
+      "short": "Andere Bedingungen, neues Urteil",
+      "goal": "Du überträgst deine Kriterien auf einen veränderten Fall und sicherst deine Entscheidungskarte.",
+      "task": "Du überträgst deine Kriterien auf einen veränderten Fall und sicherst deine Entscheidungskarte. · 25 Minuten",
+      "outcome": "Du überträgst deine Kriterien auf einen veränderten Fall und sicherst deine Entscheidungskarte.",
+      "knowledge": [
+        "raeume",
+        "wirkung",
+        "handeln",
+        "urteil"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Neuer Fall: Hilfe für einen Modellbau",
+          "text": "Eine erfundene schulische AG sucht einen technischen Tipp. Außerhalb der AG gibt es erfahrene Menschen, die helfen könnten. Ein öffentlicher Beitrag mit einer eigenen Zeichnung ohne Personenbezug wäre nach schulischer Prüfung möglich. Im geschlossenen AG-Raum gibt es dazu bisher keine Antwort.",
+          "paragraphs": [
+            "Ein Erfolgsbeitrag einer anderen Gruppe zeigt ein fertiges Modell ohne Bauversuche. Ein neues Konto behauptet, von der bekannten Partner-AG zu sein, und verlangt für den Tipp die private Telefonnummer eines Kindes."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "transfer",
+          "title": "Erst selbst entscheiden",
+          "text": "Empfiehl einen Kommunikationsweg für die technische Frage. Nenne einen Nutzen, einen Einwand und deine Gewichtung. Erkläre, warum deine Schulfest-Regel nicht einfach unverändert gelten muss. Reagiere auf die Telefonforderung und ordne den Erfolgsbeitrag ein. Erst danach die Vergleichslösung öffnen.",
+          "prompt": "Mein neues Urteil mit Belegen und Grenzen.",
+          "responseHint": "Fünf kurze Sätze genügen. Nutze auf Papier die leere Fläche oder dein Heft.",
+          "help": [
+            {
+              "title": "Welche Bedingung ist wirklich neu?",
+              "text": "Hier wird Wissen außerhalb der Gruppe gesucht. Prüfe, welche Daten dafür nötig sind und welche nicht.",
+              "knowledge": "raeume",
+              "label": "Hier nachlesen"
+            }
+          ],
+          "solution": "Ein fachlicher öffentlicher Aufruf über den geprüften Schulweg kann sinnvoll sein, weil er Wissen außerhalb der AG erreicht. Dafür nur eigene sachliche Zeichnung und Frage, keine privaten Kontaktdaten. Nachteil: unbekannte Antworten und Weitergabe; die Lehrperson begleitet und prüft Rückmeldungen. Der Zweck unterscheidet sich von interner Schichtplanung. Die Identität des neuen Kontos über den bekannten Weg prüfen und keine private Nummer senden. Der fertige Modellbeitrag kann inspirieren, beweist aber keinen mühelosen Bau. Auch ein gezielter Kontakt zur bekannten Partner-AG ist mit Zweck und Bedingungen begründbar."
+        },
+        {
+          "type": "explanation",
+          "title": "Deine Arbeit zusammenhalten",
+          "text": "Nimm die letzten zehn Minuten zum Vergleichen und Sichern: 15 Minuten eigener Transfer, dann 5 Minuten Kriterienvergleich und 5 Minuten Sicherung.",
+          "items": [
+            "Vergleiche erst jetzt mit der Lösung. Ergänze eine fehlende Bedingung mit Begründung.",
+            "Halte Entwurf, eigene Nachricht, sachliche Rückmeldung und Revision zusammen. Zeige auf Wunsch am neutralen Fall, welcher Grund sich verändert hat.",
+            "Sichere öffentliche Lernwerk-Antworten über „Deine Arbeit“ als Arbeitsdatei oder bewahre deine Papierblätter auf. Schulnachrichten bleiben getrennt; beachte eure Ablageregel. Persönliche Gedanken nicht abgeben."
+          ],
+          "links": [
+            {
+              "href": "../arbeit.html",
+              "label": "Öffentliche Antworten sichern"
+            }
+          ]
+        }
+      ],
+      "criteria": [
+        "Ich begründe eine Entscheidung unter veränderten Bedingungen.",
+        "Ich prüfe eine unbekannte Identität über einen bekannten Weg.",
+        "Ich kann anhand meiner zwei Fassungen eine begründete Veränderung erklären."
+      ],
+      "materialNeeds": [
+        "Diese Fallkarten und Stift oder Lernwerk-Notizen"
+      ],
+      "completion": {
+        "title": "Deine Empfehlung ist begründet",
+        "text": "Dein Fallurteil und die Revision zeigen deine Überlegungen. Die tatsächliche Kommunikation wird gesondert betrachtet; fehlende digitale Schritte bleiben offen. Bewahre die öffentliche Arbeit auf. Deine persönliche Reflexion bleibt bei dir."
+      }
+    },
+    {
+      "id": "abruf",
+      "title": "Mit Abstand wieder prüfen",
+      "short": "Mit Abstand wieder prüfen",
+      "goal": "Du erinnerst dich ohne Vorlage und prüfst danach gezielt nach.",
+      "task": "Du erinnerst dich ohne Vorlage und prüfst danach gezielt nach. · zweimal 5 Minuten in späteren Stunden",
+      "outcome": "Du erinnerst dich ohne Vorlage und prüfst danach gezielt nach.",
+      "knowledge": [
+        "urteil",
+        "rechte",
+        "handeln"
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "weg",
+          "title": "Erster Abruf: Zweck vor Reichweite",
+          "text": "Ohne deine alte Karte: Eine Schulgruppe will intern einen Termin ändern und neue Mitglieder einladen. Begründe zwei passende Wege. Erkläre, warum „geschlossener Raum“ nicht „keine Kopie“ bedeutet. Erst danach vergleichen.",
+          "prompt": "Meine Erinnerung mit einem begründeten Unterschied.",
+          "when": "5 Minuten vor M07, mit mehreren Tagen Abstand zu M06. 3 Minuten erinnern, 2 Minuten prüfen.",
+          "solution": "Interne Terminänderung im vereinbarten Gruppenweg; Einladung kann eine schulisch freigegebene größere Reichweite benötigen. Direkter Zugang und spätere Kopie sind verschieden. Eigene Begründung zählt, nicht die genaue Formulierung."
+        },
+        {
+          "type": "retrieval",
+          "id": "hilfe",
+          "title": "Zweiter Abruf: Rechte und Unterstützung",
+          "text": "Ohne Wissen zu öffnen: Ein Foto darf im geschlossenen Raum verwendet werden. Darf es deshalb öffentlich geteilt werden? Eine Person wird wiederholt ausgeschlossen. Nenne eine Unterstützung und eine Grenze von Blockieren. Prüfe zuletzt eine Minute still, ob du deinen eigenen nächsten Schritt aus der Rechteprüfung umgesetzt hast oder neue Klärung brauchst.",
+          "prompt": "Nur die Antworten zu den erfundenen Fällen. Die eigene Überprüfung bleibt privat.",
+          "when": "Weitere 5 Minuten später im Verlauf von M07, an einem anderen Unterrichtstag. 2 Minuten Fallabruf, 2 Minuten vergleichen, 1 Minute private Wiederaufnahme.",
+          "solution": "Die Freigabe für einen geschlossenen Raum gilt nicht automatisch öffentlich; Rechte und Zuständigkeit klären. Unterstützung und erwachsenen Hilfeweg nutzen, Angriffe nicht weiterverbreiten. Blockieren begrenzt direkten Kontakt, entfernt aber keine fremden Kopien. Keine persönliche Reflexion einsammeln."
+        }
+      ],
+      "criteria": [
+        "Ich erinnere zuerst ohne Vorlage und prüfe dann.",
+        "Bei einer Lücke kann ich die passende Erklärung gezielt nachlesen."
+      ],
+      "materialNeeds": [
+        "Diese Fallkarten und Stift oder Lernwerk-Notizen"
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "modell"
+    ],
+    "explanation": [
+      "modell",
+      "vergleichen"
+    ],
+    "example": [
+      "modell"
+    ],
+    "practice": [
+      "vergleichen"
+    ],
+    "application": [
+      "entscheidung"
+    ],
+    "revision": [
+      "revision"
+    ],
+    "securing": [
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abruf"
+    ]
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereitung, die vor Ort entschieden werden muss",
+      "paragraphs": [
+        "Füllen Sie die Schulwegkarte aus und stellen Sie sie sichtbar bereit: freigegebenes Werkzeug, Start/Senden/Antworten, aktuelle Nutzungsbedingungen mit Quelle/Datum, zulässiger Empfängerkreis, benötigte Daten, Ablage-/Löschregeln. Prüfen Sie den tatsächlichen Schulzugang. Vereinbaren Sie reale Partner und eine erreichbare Ersatzperson; jedes Kind sendet und beantwortet selbst. Öffentliche Veröffentlichung ist nicht Teil der Übung.",
+        "Prüfen Sie aktuelle erste und zweite Ansprechperson, vertrauliche Erreichbarkeit und Meldeweg. Beginnen Sie erst mit benanntem Hilfeweg. Keine echten Konflikte zur Unterrichtsdemonstration anfordern. Bei Belastung sachliche Fallarbeit unterbrechen, vertraulichen Kontakt ermöglichen und das schulische Hilfesystem nutzen. Ein Hilfeanliegen ist keine bewertete Aufgabe.",
+        "Vorab M03-Abruf sechs Minuten und M05-Abruf sieben Minuten in den dortigen Abrufschritten durchführen. Das sind 13 Minuten aus deren bestehenden Anteilen am 90-Minuten-Jahreskonto, keine zusätzliche M06-Kernzeit."
+      ]
+    },
+    {
+      "title": "Verlauf und Zeitentscheidungen",
+      "paragraphs": [
+        "165 Kernminuten: Modell 20 (Anlass 5, vorgemachte Abwägung 10, Zweckwechsel 5); Vergleichen 30 (Räume/Regeln 12, Wirkung/Identität 8, Ausgrenzung/Hilfe 10); Entscheidung 35 (Fall lesen und Entwurf 20, Schulbedingungen prüfen 5, Nachricht senden 10); Revision 25 (gegenseitige Antwort/Nachfrage 10, Überarbeitung 15); Rechte 30 (neutrales Modell samt Veränderung 10, eigener Bezug 15, Korrekturentscheidung 5); Transfer 25 (eigene Bearbeitung 15, Vergleich 5, Sicherung 5).",
+        "Das entspricht drei vollen 45-Minuten-Einheiten plus 30 Minuten. Bei 45-Minuten-Takt beispielsweise 20 Modell +25 Vergleich; dann 5 Vergleich +35 Entscheidung +5 Antwort; dann 20 Revision +25 Rechte; zuletzt 5 private Entscheidung +25 Transfer. Die Phase für Antworten innerhalb derselben Stunde oder mit vorbereitetem Antwortfenster sichern. Der vorgeschaltete Abruf benötigt zusätzlich 13 bereits budgetierte Minuten. Zeitannahmen sind noch nicht an einer Klasse erprobt.",
+        "M06s zehn spätere Abrufminuten: fünf vor M07, weitere fünf an einem anderen Tag in M07. Dabei eigene Rechteentscheidung eine Minute privat wieder aufgreifen. M07 muss diese Termine übernehmen; Jahresbudget 38 UE bleibt unbestätigt."
+      ]
+    },
+    {
+      "title": "Woran Sie Lernen sehen – und wo die Grenze bleibt",
+      "paragraphs": [
+        "Modell/Verhältnis analog–digital: Zweckwechsel und Fallbelege, keine pauschalen Sicherheitsurteile. Vergleich: Regel aus dem fiktiven Fall herausarbeiten, eine aktuelle Schulbedingung anschließend praktisch anwenden. Selbstdarstellung: mögliche Emotion/Überzeugung mit Beleg, ohne sichere Gefühlsdiagnose.",
+        "Öffentliche Entscheidungskarte: Nutzen und Gegenargument gewichtet; Zielgruppen erreicht; Rechtefragen getrennt; Ursache der Verstärkung von Verantwortung getrennt; begründete Unterstützungs-/Meldestrategie. Mehrere Wege sind zulässig, wenn sie die Fallbedingungen einhalten. Das kommentierte Gegenbeispiel ist kein auszufüllendes Lösungsmuster.",
+        "Reale Kommunikation: eigene sachliche Nachricht, tatsächliche Antwort und eigener Beitrag zur Rückmeldung; bei Bedarf am erlaubten Schulweg beobachten, ohne private Verläufe einzusammeln. Lernwerk-Notizen sind Selbstdokumentation und beweisen allein keinen Versand. Papier unterstützt echten Austausch; digitale Nutzung bleibt ohne Zugang offen.",
+        "Private Eigenprüfung P56-04: eigene schulische Medienhandlung, Rechte/Regeln und Korrekturentscheidung. Neutrales Rechtsurteil ist öffentlich prüfbar, eigener Bezug bleibt privat. Freiwillige Durchführungsmeldung ist kein Qualitätsnachweis. Keine private Notiz, Namen von Hilfeempfängern oder persönliche Erfahrung benoten."
+      ]
+    },
+    {
+      "title": "Beobachtung → nächste Hilfe",
+      "paragraphs": [
+        "„Öffentlich ist immer schlecht“ → Zweck im Modell ändern lassen: Wer muss erreicht werden? „Geschlossen ist sicher“ → Kopien-Spalte B und C lesen, direkte Sichtbarkeit von Weitergabe trennen.",
+        "Nur „fühlt sich schlecht“ → auf ein konkretes Wort im Erfolgspost zeigen und zwei mögliche Wirkungen formulieren lassen. „Nuri/Toni selbst schuld“ → Funktion/Kopie und Verantwortung der Handelnden ausdrücklich trennen; nicht im Rollenspiel angreifen lassen.",
+        "„Alles melden“ → Empfänger und Zweck der Meldung nennen lassen: Wer kann helfen, ohne den Angriff öffentlich weiterzuverbreiten? „Foto erlaubt“ → Rechte der Fotografin und der erkennbaren Personen getrennt markieren.",
+        "Rückmeldung nur „gut“ → einen Fallbeleg und eine offene Frage anfordern. Lösung abgeschrieben → Wegwahl bei einer veränderten Bedingung mündlich begründen lassen. Keine abweichende Meinung bestrafen, wenn Kriterien und Belege tragen. Bei Leseschwierigkeit Ansichten abschnittweise vorlesen; Fachurteil mündlich möglich. Reale Nachricht darf mit Eingabehilfe entstehen, muss inhaltlich die eigene sein."
+      ]
+    },
+    {
+      "title": "Zielzuordnung pro Lernhandlung",
+      "paragraphs": [
+        "3.1.1.1(4): Vergleich der fiktiven Dienstbedingungen, dann zwei tatsächliche Bedingungen des Schulwegs mit Handlungsfolge. 3.1.4.1(2)/(3): Auswirkungen der Konfliktsituation sowie A/B-Vergleich. 3.1.4.1(4)/(5): situationsgerechte eigene Nachricht und Rückmeldung, Reflexion der Ausgrenzungsfolgen.",
+        "3.1.4.2(5)/(6): Abwägung sozialer Medien und begründete Wirkungsvermutung; (7)/(8): Merkmale der Ausgrenzung, Hilfe-/Meldeweg und begünstigende Kommunikationsbedingungen. (4): geschützte Reflexion der eigenen schulischen Medienhandlung, ohne öffentliche Freigabebehauptung.",
+        "Prozessbezüge aufteilen: 2.3(4)/(6) beim Hilfeweg und seiner Zuständigkeitsgrenze; 2.4(2)/(3) beim tatsächlichen Auswählen/Nutzen des Schulwegs und Anwenden der Regeln; 2.4(5) beim ungeprüften Konto und bekannten Prüfweg; 2.6(9) bei abgewogener Entscheidung und Gegenperspektive. Die Modulliste ist keine Gesamtbewertung jedes Kindes."
+      ]
+    },
+    {
+      "title": "Material, Medien und Ausfall",
+      "paragraphs": [
+        "Alle sieben Einzelmaterialien enthalten die Fälle, Aufträge, Hilfen und zuschaltbaren Lösungen. Die Vergleichsansichten sind semantische Texttabellen; gleiche Botschaft und veränderte Bedingungen bleiben nebeneinander prüfbar. Es werden weder echtes Konto noch Plattformbild benötigt. Film oder Ton würde für diesen ruhenden Vergleich keine zusätzliche Lernhandlung erschließen.",
+        "Schulwegkarte herunterladen oder ihren Druckinhalt ausgeben. Ohne Netz sind alle Fall- und Wissensinformationen lokal vorhanden; die Originalquellen dienen der Nachprüfung durch Lehrpersonen. Ohne digitalen Schulzugang Nachricht mit realer Person auf Papier austauschen und digitalen Schritt terminieren. Private Anweisungen stehen auf Papier, das private Bildschirmfeld wird nicht gedruckt.",
+        "M05-Anschluss: Wirkung nicht allein am Ergebnis beurteilen; eigene Erklärung und Revision sichtbar halten. Recherche-Anschluss: Behauptung, Beleg und Grenze unterscheiden, direkte Hilfe an der Hürde. M07 übernimmt begründete Auswahl von Zielgruppe/Teilweg, Rechteprüfung und tatsächliche Rückmeldung. Redaktionelle Sichtung ersetzt keine Unterrichtserprobung."
+      ]
+    }
+  ],
+  "briefing": [
+    "M06 führt zu einer wachsenden Entscheidungskarte für ein erfundenes Schulfest. Die Lernenden vergleichen Räume, begründen Nutzen und Risiken, senden eine sachliche Übungsnachricht, erhalten echte Rückmeldung und überarbeiten ihr Urteil. Die eigene Rechteprüfung bleibt geschützt.",
+    "Bereiten Sie Schulzugang, aktuelle Bedingungen und echte Partner vor. Füllen Sie Schulwegkarte und zwei erreichbare Hilfewege aus. Keine privaten Konten, Veröffentlichung oder echten Konfliktverläufe. Alle Fallinformationen stehen lokal im Lernwerk.",
+    "Planen Sie 165 Kernminuten: 20 Modell, 30 Vergleich, 35 Entscheidung/Nachricht, 25 Austausch/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor sechs Minuten M03 und sieben M05 aus bestehenden Konten. Später zweimal fünf M06-Minuten an getrennten Terminen vor/in M07.",
+    "Achten Sie auf fallbezogene Gewichtung, mögliche statt unterstellte Gefühle, Identitätsprüfung und Unterstützung ohne Schuldzuweisung. „Geschlossen“ verhindert nicht jede Kopie. Ein öffentlicher Aufruf kann je nach Zweck begründet sein.",
+    "Prüfen Sie Urteil, tatsächlichen Austausch und privaten Eigenbezug getrennt. Eine Notiz beweist keinen Versand; ein Haken beweist keine Reflexionsqualität. Ohne Schulzugang Papierdialog durchführen, digitale Handlung offen lassen und nachholen. Die vollständige Kommunikation braucht reale Personen.",
+    "Sichern Sie erste und zweite Fassung sowie die sachliche Rückmeldung. Persönliche Gedanken oder Hilfeanliegen nicht einsammeln. Beobachtete Hürden mit Fassung/Schritt und ohne Namen für die Erprobung festhalten."
+  ]
+}
