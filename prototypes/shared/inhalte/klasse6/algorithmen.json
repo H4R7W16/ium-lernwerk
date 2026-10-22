@@ -1,0 +1,662 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M05-ALGORITHMEN",
+  "grade": 6,
+  "version": "1.0.0",
+  "family": "content",
+  "toolKind": "drawing",
+  "area": "algorithmen",
+  "title": "Dein Muster. Dein Programm.",
+  "topic": "Algorithmen",
+  "description": "Für das Klassenfest soll ein Musterband entstehen. Du entwirfst eine wiederholte Form, lässt sie zeichnen und findest heraus, wie du deinen Code gezielt verbessern kannst.",
+  "product": "Ein eigenes Musterband mit Ablaufgrafik, ausführbarem Code, erklärter Versuchsspur und begründeter Verbesserung. Dein Entwurf wächst weiter; du beginnst nicht nach jedem Schritt ein neues Produkt.",
+  "prerequisites": [
+    "Browser am Computer oder Tablet",
+    "Heft oder Papier für deine Ablaufgrafik",
+    "Grundidee einer Anweisung und einer festen Wiederholung"
+  ],
+  "learnerDuration": "Ihr arbeitet in drei Unterrichtsstunden daran. Deine Lehrperson vereinbart die Etappen.",
+  "duration": "135 Kernminuten: 20 Orientierung/Erklärung, 30 angeleitete Übung, 35 eigenes Programm, 25 Rückmeldung/Revision, 25 Sicherung/Transfer. Davor 7 Minuten M04-Abruf; später je 7 M05-Minuten vor M06 und M07 aus dem Jahreskonto. 38 Jahres-UE K6 bleiben unbestätigt.",
+  "workNotice": "Code, Vorhersagen und aufgenommene Spuren gehören zu deiner Arbeit. Sichere vor dem Schließen eine Arbeitsdatei unter „Deine Arbeit“. Deine Heftgrafik bleibt gesondert bei dir.",
+  "preview": "band",
+  "curriculum": {
+    "moduleId": "G6-M05",
+    "goalIds": [
+      "3.1.3.1(1)",
+      "3.1.3.1(2)",
+      "3.1.3.1(3)",
+      "3.1.3.1(4)",
+      "3.1.3.1(5)",
+      "3.1.3.1(6)"
+    ],
+    "source": "bildungsplan",
+    "scope": "Aktive Projektplanung zur Anhörungsfassung 21.09.2026, G6-M05 aus dee82ec. Neue grafische Darstellung, feste Wiederholung, eigener Code, Ausführung und begründete Revision. Keine Behauptung aktueller Inkraftsetzung; keine allgemeine Programmiersprache."
+  },
+  "sources": [
+    {
+      "id": "bildungsplan",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-22",
+      "note": "Lokales Mapping und Module auf dee82ec gelesen; Originalprüfung der Projektgrundlage vom September übernommen. Kein neuer Nachweis der amtlichen Inkraftsetzung."
+    },
+    {
+      "id": "turtle",
+      "title": "Turtle graphics: Bewegung, Drehung und Stift",
+      "author": "Python Software Foundation",
+      "url": "https://docs.python.org/3/library/turtle.html",
+      "license": "Dokumentation verlinkt; keine Abbildungen oder Programmtexte übernommen",
+      "checked": "2026-10-22",
+      "note": "Fachlicher Hintergrund. Unsere eigene Sprache verwendet andere Befehle und ein nach unten wachsendes Raster."
+    },
+    {
+      "id": "ncce",
+      "title": "Computing pedagogy",
+      "author": "National Centre for Computing Education / Raspberry Pi Foundation",
+      "url": "https://teachcomputing.org/pedagogy",
+      "license": "OGL v3.0 laut Anbieter; hier nur verlinkt",
+      "checked": "2026-10-22",
+      "note": "Modellieren, Programmverständnis, eigene Projekte und gestufte Unterstützung als Planungsorientierung; kein Wirksamkeitsnachweis dieses Moduls."
+    },
+    {
+      "id": "eigene",
+      "title": "IuM-Lernwerk: eigene Unterrichtsmaterialien",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte und SVGs CC BY-SA 4.0; Code MIT",
+      "checked": "2026-10-22",
+      "note": "M05 lokal produziert; der Repository-Link behauptet keine Veröffentlichung des neuen Moduls."
+    }
+  ],
+  "media": [
+    {
+      "id": "band",
+      "title": "Ein Musterband fürs Klassenfest",
+      "alt": "Drei gleiche Stufen bilden ein Band. Daneben eine einzelne L-Form als anderes Beispiel.",
+      "caption": "Eine Form wiederholt sich. Du entscheidest später über dein eigenes Motiv.",
+      "kind": "image",
+      "file": "assets/algorithmen/band.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigene"
+    },
+    {
+      "id": "fluss",
+      "title": "Ein Ablauf wird sichtbar",
+      "alt": "Start mit Blick rechts, Stift unten. Ein Rahmen Wiederhole zweimal enthält Vor. Danach Rechts, Vor, Ende.",
+      "caption": "Das Modell zeichnet eine L-Form. Nur die Anweisung im Rahmen wird zweimal ausgeführt.",
+      "kind": "image",
+      "file": "assets/algorithmen/fluss.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigene"
+    },
+    {
+      "id": "quadrate",
+      "title": "Gewollt und tatsächlich gezeichnet",
+      "alt": "Links das gewünschte Quadrat mit zwei Rasterstücken pro Seite; rechts eines mit einem Rasterstück pro Seite.",
+      "caption": "Ein Code kann ohne Fehlermeldung enden und trotzdem nicht zur Aufgabe passen.",
+      "kind": "image",
+      "file": "assets/algorithmen/quadrate.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigene"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "auftakt"
+    ],
+    "explanation": [
+      "modell"
+    ],
+    "example": [
+      "modell"
+    ],
+    "practice": [
+      "untersuchen"
+    ],
+    "application": [
+      "werkstatt"
+    ],
+    "revision": [
+      "werkstatt"
+    ],
+    "securing": [
+      "transfer"
+    ],
+    "transfer": [
+      "transfer"
+    ],
+    "retrieval": [
+      "abruf"
+    ]
+  },
+  "steps": [
+    {
+      "id": "auftakt",
+      "title": "Ein Band aus einer Idee",
+      "goal": "Wiederkehrende Teile erkennen und eine genaue Zeichenanweisung erklären.",
+      "task": "Sieh dir das Band an. Welche kleine Form kehrt wieder?",
+      "outcome": "Du zeigst ein Motiv und erklärst, warum ein Computer genaue Befehle braucht.",
+      "knowledge": [
+        "algorithmus",
+        "zustand"
+      ],
+      "criteria": [
+        "Ich zeige einen wiederkehrenden Teil.",
+        "Ich unterscheide Drehen am Ort von Bewegen.",
+        "Ich nenne ein digitales System und eine algorithmische Aufgabe darin."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Unser Klassenfest bekommt ein Musterband",
+          "text": "Ein langes Band muss nicht Strich für Strich neu beschrieben werden. Eine kleine Form kann mehrfach gezeichnet werden. Dein eigenes Band soll später drei gleiche Motive enthalten.",
+          "media": [
+            "band"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "idee",
+          "title": "Was muss der Stift wissen?",
+          "text": "„Mach ein schönes Band“ lässt vieles offen. Wo beginnt der Stift, wohin schaut er und wann zeichnet er? Erkläre an einem Rasterstück, was vor und rechts jeweils verändern. Nenne außerdem ein digitales System und beschreibe eine algorithmische Aufgabe darin.",
+          "prompt": "Deine Erklärung oder Stichwörter",
+          "responseMode": "oral",
+          "help": [
+            {
+              "title": "Eine Drehung ausprobieren",
+              "text": "Lege einen Stift als Pfeil nach rechts. Drehe ihn eine Vierteldrehung nach rechts, ohne ihn zu verschieben. Wohin zeigt er nun?"
+            }
+          ],
+          "solution": "vor bewegt ein Rasterstück in Blickrichtung. rechts dreht den Pfeil am selben Punkt eine Vierteldrehung im Uhrzeigersinn. Am Start mit Blick nach rechts zeigt er danach nach unten. Ziel, Start und erlaubte Befehle müssen klar sein.",
+          "paragraphs": [
+            "Unser Zeichenwerkzeug führt Code aus. Auch eine Navigations-App berechnet Wege nach Regeln, eine Suchmaschine verarbeitet Anfragen und einen Suchindex. Diese Aufgaben sind verschieden; sie benutzen nicht unsere kleine Zeichensprache."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modell",
+      "title": "So wird aus einem Plan ein Bild",
+      "goal": "Darstellung, Code und Zustand an einem vollständigen Beispiel verbinden.",
+      "task": "Verfolge die L-Form erst im Plan und dann im Code.",
+      "outcome": "Du erklärst die Klammergruppe und sagst einen nächsten Zustand voraus.",
+      "knowledge": [
+        "schleife",
+        "zustand"
+      ],
+      "criteria": [
+        "Ich zeige, was wiederholt wird.",
+        "Ich erkläre den Zustand vor und nach einer Drehung."
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "title": "Leas L-Form",
+          "text": "Lea möchte zwei Rasterstücke nach rechts und eines nach unten zeichnen. Sie beginnt bei (1|1), schaut nach rechts und setzt den Stift auf.",
+          "media": [
+            "fluss"
+          ],
+          "paragraphs": [
+            "Ihr Code lautet: wiederhole 2 [vor] rechts vor. Nur vor steht in der Klammer. Es wird zweimal ausgeführt; rechts und das letzte vor folgen danach.",
+            "So liest Lea die Spur: Start (1|1), rechts. Erstes vor: (2|1), rechts. Zweites vor: (3|1), rechts. rechts: weiterhin (3|1), jetzt Blick nach unten. Letztes vor: (3|2), unten. Beim Drehen entsteht keine neue Linie."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "vorhersage",
+          "title": "Vor dem letzten Befehl anhalten",
+          "text": "Decke Leas letzten Zustand kurz ab. Nach der Drehung steht der Stift bei (3|1) und schaut nach unten. Wo steht er nach vor? Was wäre anders, wenn statt rechts der Befehl links stünde?",
+          "prompt": "Deine Vorhersage mit Grund",
+          "responseMode": "oral",
+          "solution": "Nach vor steht er bei (3|2). Mit links würde er bei (3|1) nach oben schauen und danach zu (3|0) gehen. Die Drehung verändert die Blickrichtung, nicht die Position."
+        },
+        {
+          "type": "explanation",
+          "title": "Jetzt selbst untersuchen",
+          "text": "Im nächsten Schritt passt ein fertiger Code nicht zum gewünschten Bild. Du prüfst ihn im Werkzeug. Für dein eigenes Band entwickelst du später eine andere Form."
+        }
+      ]
+    },
+    {
+      "id": "untersuchen",
+      "title": "Es läuft. Aber stimmt es?",
+      "goal": "Eine Abweichung lokalisieren und gezielt korrigieren.",
+      "task": "Das Quadrat soll zwei Rasterstücke pro Seite haben. Finde heraus, warum der Code ein anderes Quadrat zeichnet.",
+      "outcome": "Du bewahrst einen ersten Versuch und prüfst eine begründete Änderung.",
+      "knowledge": [
+        "schleife",
+        "fehler",
+        "werkzeug"
+      ],
+      "criteria": [
+        "Ich unterscheide einen Syntaxfehler von einem falschen Ergebnis.",
+        "Meine Änderung passt zur beobachteten Abweichung.",
+        "Ich erkläre, warum mehr Wiederholungen nicht automatisch längere Seiten erzeugen."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Gewünscht: das größere Quadrat",
+          "text": "Start: (1|1), Blick rechts, Stift unten. Prüfe den Code wiederhole 4 [vor rechts]. Trage zuerst eine Vorhersage ein, ohne ihn auszuführen.",
+          "media": [
+            "quadrate"
+          ]
+        },
+        {
+          "type": "task",
+          "id": "vorhersage",
+          "title": "Deine Vermutung",
+          "text": "Welche Seitenlänge erwartest du? Nach welchem Befehl kannst du erstmals erkennen, ob der Auftrag erfüllt wird?",
+          "prompt": "Vorhersage und erste Prüfstelle",
+          "help": [
+            {
+              "title": "Zwei Befehle vergleichen",
+              "text": "Verfolge vor und danach rechts. Hat der Stift vor der Drehung bereits zwei Rasterstücke zurückgelegt?"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "code",
+          "title": "Prüfe den Code",
+          "text": "Setze wiederhole 4 [vor rechts] ein. Nutze Ein Schritt und vergleiche mit deiner Vorhersage. Nimm den Versuch ins Protokoll auf, bevor du etwas änderst.",
+          "prompt": "Dein Code",
+          "help": [
+            {
+              "title": "Befehle ohne Abtippen",
+              "text": "Tippe die Wiederholungstaste an, ändere 3 zu 4 und setze in die Klammer vor und rechts. Du kannst den Code auch selbst schreiben."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "spur",
+          "title": "Beobachtung und Verbesserung",
+          "text": "Ergänze unter der aufgenommenen Spur: erste Abweichung, vermutete Ursache und genau eine Änderung. Sage deren Wirkung voraus. Ändere den Code, starte neu und nimm auch diesen Versuch auf. Erkläre den Unterschied.",
+          "prompt": "Dein Versuchsprotokoll",
+          "help": [
+            {
+              "title": "Hinweis zur Ursache",
+              "text": "Die vor-Befehle im Schleifenkörper bestimmen den Weg bis zur nächsten Drehung. Die Wiederholungszahl bestimmt, wie oft die ganze Klammergruppe ausgeführt wird."
+            },
+            {
+              "title": "Konkretere Hilfe",
+              "text": "Vor der Vierteldrehung fehlt noch eine Vorwärtsbewegung. Überlege, wo sie in der Klammer stehen muss."
+            }
+          ],
+          "solution": "wiederhole 4 [vor vor rechts] zeichnet ein Quadrat mit Seitenlänge 2. Ein zusätzliches vor im Körper verlängert jede Seite. wiederhole 8 [vor rechts] zeichnet das kleine Quadrat zweimal nach; es macht die Seiten nicht länger."
+        }
+      ]
+    },
+    {
+      "id": "werkstatt",
+      "title": "Dein eigenes Musterband",
+      "goal": "Grafischen Algorithmus und Code entwickeln, prüfen und revidieren.",
+      "task": "Entwirf ein Band aus drei gleichen Motiven. Dein Motiv enthält mindestens eine Bewegung und zwei Drehungen und endet mit derselben Blickrichtung, mit der es begonnen hat.",
+      "outcome": "Deine Programmarbeit enthält Entwurf, eigenen Code, zwei Versuchsspuren und eine begründete Verbesserung.",
+      "knowledge": [
+        "entwurf",
+        "schleife",
+        "fehler",
+        "werkzeug"
+      ],
+      "criteria": [
+        "Drei gleiche Motive entstehen mit einer festen Wiederholung.",
+        "Meine Ablaufgrafik zeigt Reihenfolge und wiederholte Gruppe.",
+        "Ich erkläre einen Zustand aus meinem eigenen Lauf.",
+        "Erster Versuch, Änderung, Vorhersage und erneute Prüfung bleiben nachvollziehbar."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Plane eine wiederholbare Form",
+          "text": "Beginne bei (1|1), Blick rechts und Stift unten. Dein Band soll nach drei Motiven im Raster bleiben. Wähle selbst Länge und Form; Leas einzelnes L und das Quadrat erfüllen diesen Auftrag nicht. Ein Motiv muss den Stift weiterführen, damit die drei Motive nicht vollständig übereinanderliegen."
+        },
+        {
+          "type": "task",
+          "id": "plan",
+          "title": "Von der Skizze zur Ablaufgrafik",
+          "text": "Skizziere im Heft dein Motiv und das ganze Band. Zeichne daneben Kästchen für die Befehle, Pfeile für die Reihenfolge und einen Rahmen „3-mal“ um dein Motiv. Zeige bei einem Durchlauf Anfangs- und Schlussrichtung. Notiere hier deine Motiventscheidung und erwartete Endposition.",
+          "prompt": "Motiventscheidung und erwartete Endposition",
+          "help": [
+            {
+              "title": "Ein kleines Motiv wählen",
+              "text": "Du kannst eine Stufe nach rechts und unten oder eine Zackenform aus kurzen Wegen wählen. Wie kommst du am Ende wieder zur Blickrichtung rechts?"
+            },
+            {
+              "title": "Wenn die Form noch nicht trägt",
+              "text": "Zeichne zunächst eine Stufe: eine oder zwei Einheiten nach rechts, dann eine Einheit nach unten. Markiere die nötigen Drehungen und die Schlussrichtung selbst. Erst danach überträgst du sie in Befehle."
+            }
+          ],
+          "responseHint": "Grafik im Heft aufbewahren. Hier genügen Form, Längen und deine Vorhersage."
+        },
+        {
+          "type": "task",
+          "id": "code",
+          "title": "Lass deine Idee zeichnen",
+          "text": "Setze deinen eigenen Code zusammen. Prüfe erst einen Durchlauf mit Ein Schritt, dann das ganze Band. Vergleiche Zeichnung und Schlussrichtung mit deiner Ablaufgrafik. Nimm deinen ersten Lauf ins Protokoll auf.",
+          "prompt": "Dein eigener Code",
+          "help": [
+            {
+              "title": "Die Gruppe finden",
+              "text": "Welche Anweisungen gehören zu genau einem Motiv? Schreibe sie in die Klammer. Die 3 davor zählt die Motive."
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "spur",
+          "title": "Deine Versuche bleiben sichtbar",
+          "text": "Nimm den ersten Lauf auf. Ergänze: Was stimmt mit deiner Grafik überein? Wo liegt die erste Abweichung? Zeige einer anderen Person eine konkrete Stelle und lass sie einen nächsten Zustand vorhersagen. Ohne Partner nutzt du die Kriterien selbst oder fragst die Lehrperson.",
+          "prompt": "Versuche, Rückmeldung und eigene Erklärung",
+          "responseHint": "Die Schaltfläche ergänzt genaue Spuren. Schreibe darunter selbst deine Begründung; die Spur allein erklärt noch nichts."
+        },
+        {
+          "type": "task",
+          "id": "revision",
+          "title": "Eine Änderung mit Grund",
+          "text": "Notiere die Rückmeldung oder deinen Selbstvergleich. Wähle eine gezielte Änderung und sage ihre Wirkung voraus. Ist dein Band bereits richtig, verändere bewusst eine Motivlänge. Ändere Grafik und Code passend, teste und nimm den zweiten Lauf auf. Erkläre den Unterschied an einem Befehl.",
+          "prompt": "Rückmeldung → Änderung → Erwartung → Beobachtung",
+          "solution": "Verschiedene Motive sind möglich. Beispiel: wiederhole 3 [vor vor rechts vor links] ergibt drei Stufen mit Breite 2 und Höhe 1; Ende (7|4), Blick rechts. Wird vor vor zu vor, liegt das Ende bei (4|4). Dies ist ein Vergleich nach eigener Arbeit, keine vorgeschriebene Gestaltung."
+        }
+      ],
+      "completion": {
+        "title": "Dein Band und seine Erklärung",
+        "text": "Zeige Grafik, Code und den Unterschied zwischen zwei Versuchen. Erkläre einen Befehl vor der Ausführung. Sichere deine Arbeitsdatei."
+      }
+    },
+    {
+      "id": "transfer",
+      "title": "Eine Lücke gehört zum Plan",
+      "goal": "Stiftzustand als neue Bedingung in einen eigenen Ablauf integrieren.",
+      "task": "Zeichne für einen Wegweiser zwei waagerechte Linien mit je zwei Rasterstücken. Dazwischen liegt genau ein leeres Rasterstück.",
+      "outcome": "Du erklärst Bewegung mit und ohne Zeichnen und prüfst deinen neuen Code.",
+      "knowledge": [
+        "zustand",
+        "stift",
+        "fehler"
+      ],
+      "criteria": [
+        "Die Lücke ist eine Bewegung ohne Linie.",
+        "Ich sage Position und Stiftzustand vor der Prüfung voraus.",
+        "Ich begründe, warum ein fertiger Lauf noch keine richtige Lösung beweist."
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Ein neuer Auftrag",
+          "text": "Beginne bei (1|1), Blick rechts, Stift unten. Die erste Linie endet bei (3|1), die zweite beginnt bei (4|1) und endet bei (6|1). Am Ende bleibt der Stift unten. hoch hebt den Stift, runter setzt ihn auf. Beide verändern den Ort nicht."
+        },
+        {
+          "type": "task",
+          "id": "plan",
+          "title": "Erst planen",
+          "text": "Skizziere die Linien und die Lücke. Ergänze deine Ablaufgrafik um den Stiftzustand. Sage voraus, wo der Stift direkt nach der Lücke steht und ob er dann zeichnet.",
+          "prompt": "Vorhersage mit Stiftzustand",
+          "help": [
+            {
+              "title": "Die Lücke verstehen",
+              "text": "Auch durch die Lücke muss sich der Stift bewegen. Bei welcher Bewegung darf er den Untergrund nicht berühren?"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "code",
+          "title": "Jetzt ausführen",
+          "text": "Entwickle deinen Code. Nutze mindestens eine feste Wiederholung für gleichartige Bewegungen. Prüfe schrittweise besonders die Lücke und nimm deinen Lauf auf.",
+          "prompt": "Dein Transfer-Code"
+        },
+        {
+          "type": "task",
+          "id": "spur",
+          "title": "Erklären statt nur ansehen",
+          "text": "Ergänze die Spur: Was verändert hoch, was verändert vor? Welcher Befehl muss vor der zweiten Linie stehen? Zeige an deinem Code, wo eine andere Reihenfolge ein falsches Bild erzeugt.",
+          "prompt": "Deine Spur und Erklärung",
+          "solution": "Eine Möglichkeit: wiederhole 2 [vor] hoch vor runter wiederhole 2 [vor]. Nach der Lückenbewegung steht der Stift bei (4|1) und ist noch oben. Vor der zweiten Linie muss er gesenkt werden. hoch und runter ändern nur den Stiftzustand; vor verändert den Ort. Fehlt runter, bleibt die zweite Linie aus. Andere gleichwirkende Codes sind zulässig."
+        },
+        {
+          "type": "task",
+          "id": "sicherung",
+          "title": "Das kannst du jetzt erklären",
+          "text": "Erkläre am eigenen Beispiel: Was ist eine Anweisung? Was wiederholt die Schleife? Woran erkennst du eine sinnvolle Verbesserung? Nenne eine Grenze unseres Werkzeugs.",
+          "prompt": "Deine kurze Erklärung",
+          "responseMode": "oral",
+          "solution": "Eine Anweisung hat eine festgelegte Wirkung. Die Schleife führt alle Befehle ihrer Klammergruppe in derselben Reihenfolge mehrfach aus. Eine Verbesserung behebt eine benannte Abweichung oder erfüllt ein neues Ziel und wird überprüft. Das Werkzeug kennt nur rechte Winkel und feste Wiederholungen."
+        }
+      ],
+      "completion": {
+        "title": "Gemeinsam sichern",
+        "text": "Vergleicht eure Erklärungen in der Klasse. Ein gefülltes Protokoll genügt nicht: Sage einen neuen nächsten Zustand selbst voraus und begründe ihn."
+      }
+    },
+    {
+      "id": "abruf",
+      "title": "Mit Abstand wieder aufnehmen",
+      "goal": "Feste Wiederholung und Zustand später ohne alte Lösung erklären.",
+      "task": "Bearbeite den Auftrag, den deine Lehrperson heute nennt. Halte deine alten Lösungen zunächst geschlossen.",
+      "outcome": "Du zeigst, was du noch selbst erklären kannst und wo du erneut Hilfe brauchst.",
+      "knowledge": [
+        "schleife",
+        "stift"
+      ],
+      "criteria": [
+        "Ich beginne ohne alte Lösungen.",
+        "Ich erkläre meine Vorhersage an Befehlen.",
+        "Nach dem Vergleich verbessere ich eine konkrete Stelle."
+      ],
+      "blocks": [
+        {
+          "id": "vor-m06",
+          "type": "retrieval",
+          "title": "Vor M06: ein neuer Schluss",
+          "text": "Start (1|1), Blick rechts, Stift unten. Code: wiederhole 2 [vor rechts vor links] vor. Skizziere die Ausgabe. Sage Schlussposition und Blickrichtung voraus. Was ändert sich, wenn das letzte vor entfällt?",
+          "prompt": "Deine Erinnerung, danach Vergleich und Korrektur",
+          "when": "Sieben Minuten vor M06 mit Abstand; Befehlskarte erlaubt, alte Lösungen zunächst geschlossen.",
+          "solution": "Nach zwei Stufen steht der Stift bei (3|3), Blick rechts. Das letzte vor führt zu (4|3). Ohne dieses vor endet er bei (3|3); die Schlussrichtung bleibt rechts."
+        },
+        {
+          "id": "vor-m07",
+          "type": "retrieval",
+          "title": "Vor M07: die fehlende Linie",
+          "text": "Start wie bisher. Code: vor hoch vor vor runter. Gewollt sind zwei einzelne Linien mit einer Lücke. Erkläre vor dem Prüfen, welche Linie fehlt, und verändere genau eine Stelle.",
+          "prompt": "Deine Fehlerhypothese und begründete Verbesserung",
+          "when": "Sieben Minuten vor M07, getrennt vom ersten Abruf; erst erinnern, dann vergleichen.",
+          "solution": "Nur das erste vor zeichnet von (1|1) nach (2|1). Die weiteren vor bewegen mit angehobenem Stift bis (4|1). Verschiebe runter vor das letzte vor: vor hoch vor runter vor. Dann entsteht die zweite Linie von (3|1) nach (4|1), mit einer Lücke dazwischen."
+        }
+      ],
+      "timing": "later"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "algorithmus",
+      "title": "Was macht eine Anweisung genau?",
+      "paragraphs": [
+        "Ein Algorithmus beschreibt einen Ablauf mit eindeutig festgelegten Schritten. In unserem Werkzeug verändert jeder Befehl einen bestimmten Teil des Zustands: Ort, Blickrichtung oder Stift.",
+        "Ein Programm formuliert den Ablauf in einer Sprache, die das Werkzeug ausführen kann. Befehlstasten und Codefeld erzeugen denselben Code."
+      ],
+      "example": "vor bewegt ein Rasterstück in Blickrichtung. rechts dreht am Ort.",
+      "boundary": "„Mach es schön“ ist noch kein ausführbarer Zeichenbefehl.",
+      "steps": [
+        "auftakt",
+        "modell"
+      ],
+      "sources": [
+        "turtle"
+      ]
+    },
+    {
+      "id": "zustand",
+      "title": "Warum gehören Ort und Blickrichtung zusammen?",
+      "paragraphs": [
+        "Der Zustand sagt, wo der Stift ist, wohin er schaut und ob er zeichnet. Derselbe Befehl vor führt je nach Blickrichtung zu einem anderen Punkt.",
+        "x zählt nach rechts, y nach unten. Start: (1|1), Blick rechts, Stift unten. Rechtsdrehung bedeutet aus Sicht des Pfeils eine Vierteldrehung im Uhrzeigersinn."
+      ],
+      "example": "Bei (3|1) mit Blick unten führt vor zu (3|2). rechts verändert nur die Richtung.",
+      "boundary": "Andere Zeichenprogramme können Koordinaten anders zählen.",
+      "steps": [
+        "auftakt",
+        "modell",
+        "transfer"
+      ],
+      "sources": [
+        "turtle"
+      ]
+    },
+    {
+      "id": "schleife",
+      "title": "Was wird wie oft wiederholt?",
+      "paragraphs": [
+        "Die feste Zahl hinter wiederhole zählt die Durchläufe der ganzen Klammergruppe. In jedem Durchlauf bleibt die Reihenfolge gleich.",
+        "Zwischen den Durchläufen wird nichts zurückgesetzt. Der nächste Durchlauf beginnt am erreichten Ort und mit der erreichten Blickrichtung."
+      ],
+      "example": "wiederhole 2 [vor rechts] führt vor, rechts, vor, rechts aus: vier Befehle, zwei Durchläufe.",
+      "boundary": "Mehr Durchläufe verlängern nicht automatisch eine Strecke. Die Befehle im Körper müssen zum Ziel passen.",
+      "steps": [
+        "modell",
+        "untersuchen",
+        "werkstatt",
+        "abruf"
+      ],
+      "sources": [
+        "turtle"
+      ]
+    },
+    {
+      "id": "fehler",
+      "title": "Wie prüfe ich eine Fehleridee?",
+      "paragraphs": [
+        "Vergleiche Auftrag und Ausgabe. Suche die erste Stelle, an der ein Zustand nicht zum gewünschten Ablauf passt. Nenne einen möglichen Grund.",
+        "Ändere gezielt eine Stelle, sage die Wirkung voraus und führe erneut aus. Bewahre den ersten Lauf für den Vergleich."
+      ],
+      "example": "Bei einem kleinen Quadrat ist die Seitenlänge eine andere Frage als die Anzahl der Seiten.",
+      "boundary": "Syntaxfehler verhindern das Lesen des Codes. Ein lesbarer, beendeter Code kann dennoch das falsche Ergebnis liefern.",
+      "steps": [
+        "untersuchen",
+        "werkstatt",
+        "transfer"
+      ],
+      "sources": [
+        "turtle"
+      ]
+    },
+    {
+      "id": "entwurf",
+      "title": "Wie zeigt eine Ablaufgrafik meinen Plan?",
+      "paragraphs": [
+        "Kästchen stehen für Anweisungen, Pfeile für die Reihenfolge. Ein beschrifteter Rahmen zeigt eine wiederholte Gruppe. Markiere Start und Ende.",
+        "Zeige an einem Motiv Anfangs- und Schlussrichtung. Prüfe, wo das nächste Motiv beginnt."
+      ],
+      "example": "Leas Grafik rahmt vor mit „2-mal“ ein; rechts und das letzte vor liegen außerhalb.",
+      "boundary": "Eigene vereinfachte Darstellung, kein normiertes Ablaufdiagramm. Ein schönes Bild allein erklärt keine Befehlsfolge.",
+      "steps": [
+        "werkstatt"
+      ],
+      "sources": [
+        "ncce"
+      ]
+    },
+    {
+      "id": "werkzeug",
+      "title": "Wie sichere ich einen überprüfbaren Versuch?",
+      "paragraphs": [
+        "Ein Schritt führt einen Befehl aus. Bis zum Ende führt den übrigen gültigen Ablauf aus. Ausführung neu starten setzt die Zeichnung zurück und behält Code und Protokoll.",
+        "Versuch ins Protokoll ergänzt Code und bisher ausgeführte Zustände. Ergänze deine eigene Erklärung. Codeänderungen setzen die Ausführung zurück."
+      ],
+      "example": "Nimm den ersten Lauf auf, ändere den Code, nimm den zweiten Lauf auf und sichere eine Arbeitsdatei unter Deine Arbeit.",
+      "boundary": "Nicht aufgenommene Bildschirmspuren werden nicht als Versuch gesichert. Heftbilder sind kein Teil der Arbeitsdatei.",
+      "steps": [
+        "untersuchen",
+        "werkstatt"
+      ],
+      "sources": [
+        "eigene"
+      ]
+    },
+    {
+      "id": "stift",
+      "title": "Wie entsteht eine Lücke?",
+      "paragraphs": [
+        "hoch hebt den Stift, runter senkt ihn. Beide lassen Ort und Blickrichtung unverändert.",
+        "Mit angehobenem Stift bewegt vor weiter, zeichnet aber nicht. Vor der nächsten Linie muss der Stift wieder unten sein."
+      ],
+      "example": "hoch vor runter überspringt ein Rasterstück ohne Linie.",
+      "boundary": "Eine Lücke ist ein Weg ohne Zeichenlinie, kein Sprung ohne Bewegung.",
+      "steps": [
+        "transfer",
+        "abruf"
+      ],
+      "sources": [
+        "turtle"
+      ]
+    }
+  ],
+  "teacher": [
+    "Grundvorstellungen zu Anweisung, Reihenfolge und Wiederholung am Einstieg prüfen; tatsächliche Nutzung früherer Lernwerk-Reihen wird nicht vorausgesetzt.",
+    "Der fachliche Kern ist die Verbindung von Darstellung, Programm und Ausführung. Das Klassenfest gibt der Gestaltung einen Zweck; dekorative Schönheit ist kein Bewertungskriterium.",
+    "Die eigene kleine Sprache wird tatsächlich ausgeführt. Befehlstasten verringern die Tippbelastung. Papier erlaubt Entwurf und Analyse, ersetzt aber nicht eigene Eingabe, Ausführung und Erklärung am Gerät."
+  ],
+  "teacherSections": [
+    {
+      "title": "Vorbereitung und Diagnose",
+      "paragraphs": [
+        "Zeichenwerkstatt auf den tatsächlichen Schulgeräten öffnen. Tastatur/Touch und Sichern/Wiederöffnen einer Arbeitsdatei prüfen. Kein Konto oder zusätzliches Programm nötig. Beim Offlineeinsatz Seiten vorher vollständig bereitstellen.",
+        "Vorab sieben Minuten M04-Abruf mit vorhandener Codetabelle: neue kurze Nachricht codieren und einen Zeichenwechsel erklären. Im Auftakt prüfen: Dreht rechts am Ort? Was steht innerhalb der Wiederholung? Bei fehlender Grundlage zwei Befehle mit einem Pfeil vormachen; den nächsten Zustand selbst erklären lassen. Mehrbedarf aus dem begrenzten Brückenkonto transparent verbuchen."
+      ]
+    },
+    {
+      "title": "Drei Stunden und ihre Zwischenstände",
+      "paragraphs": [
+        "Stunde 1: 10 Minuten Anlass/Diagnose, 10 Minuten L-Modell, 25 Minuten Quadrat-Fehlersuche. Zwischenstand: Vorhersage, erste Spur und begründete Fehlerhypothese.",
+        "Stunde 2: 5 Minuten Quadrat-Revision/Sicherung, 35 Minuten eigenes Band mit Grafik, Code und erstem Versuch, 5 Minuten Beginn der Rückmeldung.",
+        "Stunde 3: 20 Minuten weitere Rückmeldung/Revision, 25 Minuten Transfer und gemeinsame fachliche Sicherung. Summe 20+30+35+25+25=135 Kernminuten. Sieben M04-Minuten und spätere M05-Minuten stammen aus gesonderten Jahreskonten. Zeiten sind ungeprüfte Planwerte."
+      ]
+    },
+    {
+      "title": "Beobachtung → nächste Hilfe",
+      "paragraphs": [
+        "Rechts wird als Bewegung gelesen → Pfeil am Ort drehen, Position vergleichen, dann vor ausführen. Wiederholung wird nur auf die nächste Zeile bezogen → Klammergruppe umranden und einen ganzen Durchlauf verfolgen. Mehr Durchläufe sollen Seiten verlängern → dieselbe Ecke in erster und zweiter Runde vergleichen.",
+        "Code läuft ohne Erklärung → nächsten Zustand vor dem Klicken begründen lassen. Kopiertes Beispiel → eigene Motiventscheidung und geänderte Wiederholungszahl erklären lassen. Entwurf stockt → Formhilfe öffnen; eigene Grafik und Code bleiben erforderlich. Hohe Routine → Stiftunterbrechung oder zweite Motivvariante ohne zusätzlichen Pflichtumfang.",
+        "Nach 8–10 Minuten Eigenarbeit muss eine Motivgrafik oder ein erster Lauf vorliegen. Sonst mit der kleinsten Form beginnen. Bei gemeinsamem Gerät wechselt die Bedienung; jedes Kind führt einen eigenen veränderten Test aus."
+      ]
+    },
+    {
+      "title": "Rückmeldung und Sicherung",
+      "paragraphs": [
+        "A zeigt Auftrag, Grafik und ersten Lauf. B nennt eine konkrete Übereinstimmung oder Abweichung an einem Befehl; A begründet und prüft die Änderung selbst. Ohne Partner übernehmen Lehrperson oder Selbstvergleich diese Funktion. Keine zusätzliche Gruppenabgabe.",
+        "Sichern Sie Anweisung, Reihenfolge, Schleifenkörper, Wiederholungszahl, Zustand und Prüfung am eigenen Programm. Jede Person erklärt einen Befehl vorher/nachher und den Unterschied zweier Versuche. Schon richtige Programme erhalten eine begründete Variation. Ein beendeter Lauf ist kein Nachweis eines passenden Ergebnisses."
+      ]
+    },
+    {
+      "title": "Papier, Modellgrenzen und Erprobung",
+      "paragraphs": [
+        "Auf Papier Raster und Pfeilmarker verwenden; Ort, Blick und Stift notieren. Die praktische Programmierung bleibt bis zum eigenen Lauf am Gerät offen. Arbeitsdateien enthalten Code und aufgenommene Textspuren, keine Heftbilder oder noch nicht aufgenommene Ausführung.",
+        "Nur rechte Winkel, ganzzahlige Rasterbewegung, feste Wiederholungen 1–9 und höchstens 200 Befehle; keine Variablen oder verschachtelten Schleifen. Keine allgemeine Python-/Scratchkompetenz behaupten. Hilfe und Lösungen sind erreichbar; Selbstständigkeit am neuen Fall und eigener Erklärung prüfen.",
+        "Reale Zeit, Leselast, Schulgeräte, Bildschirmleser und physischer Druck bleiben zu erproben. Anonymisiert Schritt/Fassung, versuchte Handlung, Hürde, benötigte Hilfe und Zeit festhalten."
+      ]
+    },
+    {
+      "title": "Wiederaufnahme und Anschluss",
+      "paragraphs": [
+        "Die 14 M05-Abrufminuten liegen als je sieben Minuten vor M06 und M07 mit zeitlichem Abstand. Die Aufträge stehen im letzten Lernschritt; Befehlskarte erlaubt, alte Lösungen zuerst geschlossen. Vollständig aus dem bestehenden 90-Minuten-Jahreskonto.",
+        "M06 greift das Trennen von Beobachtung und Schlussfolgerung auf; M07 die nachvollziehbare Verbesserung eines Produkts. Bei fehlendem Abruf einen kurzen fremden Code schrittweise erklären lassen und den beobachteten Hilfebedarf nachsichern. 38 Jahres-UE für Klasse 6 bleiben unbestätigt."
+      ]
+    }
+  ],
+  "briefing": [
+    "Diese Reihe für Klasse sechs heißt Dein Muster. Dein Programm. Die Lernenden gestalten ein Musterband für ein Klassenfest. Im Mittelpunkt stehen Anweisungen, feste Wiederholungen und begründete Verbesserungen. Dekorative Schönheit wird nicht bewertet.",
+    "Planen Sie drei Unterrichtsstunden. Sieben Minuten Wiederaufnahme der Codierungen liegen davor und stammen aus dem Jahreskonto. Die Einstiegsfrage zeigt, ob Anweisung, Drehung und Wiederholung verstanden sind. Lassen Sie bei Bedarf eine Drehung mit einem Pfeil nachstellen.",
+    "Die erste Stunde führt vom Anlass zu einer vollständig erklärten L-Form. Danach prüfen die Lernenden ein Quadrat, dessen Code läuft, aber die falsche Seitenlänge erzeugt. Die Fehlerhypothese muss an einer konkreten Anweisung hängen.",
+    "In der zweiten Stunde wird die Quadratprüfung abgeschlossen. Danach entstehen eigene Motivgrafik, Code und Versuchsspur für drei gleiche Motive. Befehle lassen sich über Schaltflächen einsetzen. Achten Sie nach spätestens zehn Minuten auf einen ersten Entwurf oder Lauf.",
+    "Die dritte Stunde nutzt Rückmeldung und eine gezielte Änderung. Der erste Versuch bleibt erhalten. Die erwartete Wirkung wird vor dem neuen Lauf festgehalten und danach verglichen. Bereits richtige Programme erhalten eine begründete Variation. Ein neuer Fall mit einer Lücke und die gemeinsame fachliche Sicherung schließen die Reihe ab.",
+    "Beobachten Sie die Verwechslung von Drehen und Bewegen, den Umfang der Klammergruppe und die Annahme, beendet bedeute richtig. Machen Sie bei Bedarf einen Schritt vor und lassen Sie den nächsten selbst erklären.",
+    "Code und aufgenommene Spuren werden in einer Arbeitsdatei gesichert. Heftgrafiken bleiben getrennt. Papier ermöglicht Ablaufanalyse; eigene praktische Programmierung muss am Gerät stattfinden. Zeit und Schulgeräte sind noch nicht erprobt.",
+    "Vor den Reihen sechs und sieben folgen jeweils sieben Minuten Wiederaufnahme. Alte Lösungen bleiben zuerst geschlossen. Prüfen Sie an einem kleinen neuen Fall, was noch selbst erklärt werden kann, und unterstützen Sie gezielt."
+  ]
+}
