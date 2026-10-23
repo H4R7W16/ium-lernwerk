@@ -1,0 +1,973 @@
+{
+  "authorVersion": 2,
+  "id": "IUM-6-M07-MEDIENPRODUKT",
+  "area": "medienprodukt",
+  "grade": 6,
+  "version": "1.0.1",
+  "family": "content",
+  "topic": "Ein gemeinsames Medienprodukt",
+  "title": "Aus Wissen wird eine verständliche Karte.",
+  "description": "Ihr gestaltet zu zweit eine Informationskarte für Klasse 5. Ihr prüft Aussagen, macht Zusammenhänge sichtbar und verbessert euren Entwurf nach echter Rückmeldung.",
+  "product": "Eine selbst gestaltete Informationskarte mit Quellen und Rechtehinweisen, erster und überarbeiteter Fassung sowie zwei tatsächlich erprobten digitalen Teilwegen. Dein eigener Beitrag und deine begründete Überarbeitung bleiben erkennbar.",
+  "prerequisites": [
+    "Ergebnisse aus M02; die nötigen Sachinformationen stehen auch hier",
+    "Eine reale Partnerperson und ein von der Lehrperson freigegebenes Text-/Bildwerkzeug",
+    "Ausgefüllte Werkzeugkarte: Schulkanal, zweiter digitaler Teilweg, Ablage und erreichbare Hilfe"
+  ],
+  "teacher": [
+    "M07 verbindet belegte Information, eigene digitale Gestaltung und tatsächliche Kooperation. Gruppenergebnis, individueller Beitrag und ausgeführte Teilwege getrennt prüfen. Die Lernwerk-Arbeitsdatei enthält keine extern erstellte Produktdatei."
+  ],
+  "duration": "210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen, 30 Transfer/Sicherung. 39 Abrufminuten vorher, 5 M06-Minuten währenddessen und 12 M07-Minuten später aus dem vorhandenen Jahreskonto.",
+  "learnerDuration": "210 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
+  "workNotice": "Sichere deine Produktdateien und die Lernwerk-Notizen getrennt. Ein ausgefülltes Feld oder Haken beweist weder Herstellung noch Austausch. Auf Papier bleiben deine Notizen bei dir; digitale Handlungen werden gesondert ausgeführt.",
+  "curriculum": {
+    "moduleId": "G6-M07",
+    "goalIds": [
+      "3.1.1.1(1)",
+      "3.1.2.2(5)",
+      "3.1.2.2(6)",
+      "3.1.4.1(1)",
+      "3.1.4.1(2)",
+      "3.1.4.1(3)",
+      "3.1.4.1(4)",
+      "3.1.4.1(5)",
+      "3.1.4.1(6)",
+      "3.1.4.1(7)",
+      "3.1.5.1(5)",
+      "3.1.5.1(6)",
+      "3.1.5.1(7)",
+      "3.1.5.1(8)",
+      "3.1.5.1(9)",
+      "3.1.5.2(1)",
+      "3.1.5.2(2)",
+      "3.1.5.2(3)",
+      "3.1.5.2(4)",
+      "3.1.5.2(5)",
+      "3.1.5.2(6)"
+    ],
+    "source": "curriculum",
+    "scope": "Aktive AHF-Projektverteilung 5/6, Planungscommit dee82ec. Ziele werden an konkreten Teilhandlungen betrachtet, nicht pauschal als erreicht markiert. Zwei reale digitale Teilwege und jede einzelne Lernleistung gesondert prüfen."
+  },
+  "sources": [
+    {
+      "id": "curriculum",
+      "title": "IuM-Anhörungsfassung Gymnasium · 21.09.2026",
+      "author": "Baden-Württemberg",
+      "url": "https://bildungsplaene-bw.de/site/bildungsplan-rebrush2024/get/documents_E-199802826/lsbw/Bildungsplaene/Anh%C3%B6rungsfassungen/Anh%C3%B6rungsfassung%20IUM%202026/BPBW-ALLG-GYM-IUM-AHF__Anh%C3%B6rungsfassung-2026-09-21.pdf",
+      "license": "Amtliche Quelle verlinkt; keine offene Lizenz übernommen",
+      "checked": "2026-10-22",
+      "note": "Mit lokaler aktiver Planung dee82ec abgeglichen; keine Behauptung einer geltenden Neufassung."
+    },
+    {
+      "id": "eigen",
+      "title": "IuM-Lernwerk: eigene Beispiele und Materialien",
+      "author": "IuM-Lernwerk",
+      "url": "https://github.com/H4R7W16/ium-lernwerk",
+      "license": "Eigene Texte/Grafiken: CC BY-SA 4.0",
+      "checked": "2026-10-22",
+      "note": "Bibliotheksbeispiel vollständig erfunden. Produktfassung zunächst lokal."
+    },
+    {
+      "id": "iau",
+      "title": "IAU: Ergebnis der Abstimmung am 24.08.2006",
+      "author": "International Astronomical Union",
+      "url": "https://www.iau.org/IAU/Iau/News/PR2006/iau-2006-general-assembly-resolution-votes.aspx",
+      "license": "Original verlinkt; eigene Rechte. Keine Bilder oder Volltexte übernommen.",
+      "checked": "2026-10-22",
+      "note": "Lesefenster: Absätze zur Definition und Resolutionen 5A/6A. Eigene kurze Zusammenfassung; das Datum des Berichts ist nicht das heutige Abrufdatum."
+    },
+    {
+      "id": "nasa",
+      "title": "NASA Science: Pluto Facts",
+      "author": "NASA Science",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "license": "Original verlinkt; eigene Rechte. Keine fremden Fotos übernommen.",
+      "checked": "2026-10-22",
+      "note": "Lesefenster Introduction; eigene kurze Zusammenfassung, Sachstand am Abrufdatum geprüft."
+    },
+    {
+      "id": "lizenz",
+      "title": "Creative Commons: CC BY-SA 4.0",
+      "author": "Creative Commons",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "license": "Original verlinkt; Bedingungen des Lizenzmodells in eigenen Worten erklärt.",
+      "checked": "2026-10-22",
+      "note": "Deed ist die allgemeinverständliche Zusammenfassung, nicht der vollständige Lizenzvertrag."
+    }
+  ],
+  "media": [
+    {
+      "id": "werkzeugkarte",
+      "kind": "download",
+      "title": "Werkzeugkarte",
+      "file": "assets/medienprodukt6/werkzeugkarte.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen",
+      "printText": "M07 · Werkzeugkarte — vor dem Projekt von der Lehrperson ausfüllen und mit einem Empfängergerät prüfen.\nDatum / zuständige Lehrperson:\nAnwendung und Startort / erlaubtes Konto:\nNeue Datei; Speicherort; Speichern unter / Kopie:\nZeichenformat; Absatzformat; Kontextmenü; Kopieren / Einfügen:\nObjekt einfügen / beschriften; Bild einfügen; PDF exportieren; Präsentationsansicht:\nWeg 1: geschlossener Schulkanal; Start / Hochladen oder Freigeben / Kommentieren:\nErlaubte Empfänger und Rechte (Lesen / Kommentieren / Bearbeiten):\nWeg 2: anderer zugelassener digitaler Übertragungsweg (z. B. direkte Dateiübertragung oder schulischer Datenträger):\nSenden / Empfangen / Datei öffnen auf dem zweiten Gerät:\nSpeicher-, Aufbewahrungs- und Löschregeln / aktueller Regelbeleg mit Datum:\nGerät sperren / am Ende abmelden:\nErste erreichbare Hilfe / Ersatzperson:\nGetestet mit schulischem Testzugang: Datei in beiden Wegen beim Empfänger geöffnet? Welche offenen Hürden?\nKeine privaten Konten und keine Passwörter eintragen. Fehlt ein Weg, vor Projektstart Nachholtermin/zugängliche Ersatzstation festlegen.\n"
+    },
+    {
+      "id": "projektspur",
+      "kind": "download",
+      "title": "Projektspur",
+      "file": "assets/medienprodukt6/projektspur.txt",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen",
+      "printText": "M07 · Projektspur — kurze Stichwörter, keine zweite Ausarbeitung.\nTeamkennung / Sachfrage / Zielgruppe / gewünschte Wirkung:\nPerson A: eigener Satz + Beleg / eigene Gestaltungsoperation:\nPerson B: eigener Satz + Beleg / eigene Gestaltungsoperation:\nErstfassung v1: Dateiname und Speicherort:\nRückmeldung: konkrete Stelle / Wirkung / Vorschlag (sachlich zusammenfassen):\nAushandlung: Rückfrage und gemeinsame Entscheidung / Grund:\nRevision v2: vorher → nachher / sachlicher oder gestalterischer Grund:\nRechteprüfung: Element / Urheber / Fundstelle / Lizenzlink / Änderung / Entscheidung:\nWeg 1: Datei/Fassung / Empfängerkreis / Rechte / tatsächlich geöffnet oder noch offen:\nWeg 2: andere Übertragungsart / Datei/Fassung / auf Empfängergerät geöffnet oder noch offen:\nMein kurzer eigener Beitrag zur Auswertung:\nDie Produktdateien gesondert aufbewahren. Lernwerk-Arbeitsdatei enthält nur die dort notierten Antworten.\n"
+    },
+    {
+      "id": "vergleich",
+      "kind": "image",
+      "title": "Bibliothekskarte: erster und verbesserter Entwurf",
+      "file": "assets/medienprodukt6/vergleich.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen",
+      "alt": "Erster Entwurf: ALLE BÜCHER 14 TAGE mit großem Stern. Überarbeitung: Romane 14 Tage, Sachbücher 7 Tage, mit zwei beschrifteten Buchgruppen und Hinweis auf die erfundene Ordnung ab Juni.",
+      "caption": "Erfundene Bibliothek · eigener Gestaltungsvergleich, keine echte Bibliotheksordnung."
+    },
+    {
+      "id": "baustein",
+      "kind": "image",
+      "title": "Vorher–Nachher: beschriftbarer Bildbaustein",
+      "file": "assets/medienprodukt6/baustein.svg",
+      "creator": "IuM-Lernwerk",
+      "license": "CC BY-SA 4.0",
+      "sourceId": "eigen",
+      "downloadable": true,
+      "alt": "Zwei gleich große Felder mit den Überschriften Früher und Heute, verbunden durch einen Pfeil. Die Felder enthalten noch keine Sachbehauptung.",
+      "caption": "Eigener optionaler Bildbaustein. Eigene Formen sind ebenso möglich. Bei Veränderung Bearbeitung und Lizenz kenntlich machen."
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "belegen",
+      "title": "Wie wird aus einem Rechercheergebnis ein eigener Text?",
+      "paragraphs": [
+        "Beginne mit einer kleinen Frage. Wähle nur Aussagen aus, die zur Antwort beitragen. Ordne jeder Aussage eine genaue Fundstelle zu. Erkläre dann mit eigenen Worten; eine Umformulierung muss denselben Sinn behalten.",
+        "Eine Quelle hilft beim Nachprüfen. Nenne Institution, Titel, Datum oder Abrufdatum, Link und die verwendete Stelle. Fachliche Zuständigkeit, Zeitpunkt und Übereinstimmung mit anderen Belegen sind Kriterien; ein schöner Seitenaufbau ist kein Wahrheitsbeweis."
+      ],
+      "example": "Für eine neue Leihregel ist die aktuelle Bibliotheksordnung zuständig. Ein alter Aushang kann einen früheren Stand erklären.",
+      "boundary": "Zwei Seiten derselben Organisation sind nicht zwei unabhängige Institutionen. Quellenangabe ist keine Erlaubnis, Bilder oder lange Texte zu übernehmen.",
+      "steps": [
+        "auftrag",
+        "entwurf",
+        "revision",
+        "sichern",
+        "abruf"
+      ],
+      "sources": []
+    },
+    {
+      "id": "gestalten",
+      "title": "Was können Schrift, Absatz und Bild erklären?",
+      "paragraphs": [
+        "Ein Zeichen ist etwa ein Buchstabe oder Satzzeichen. Zeichenformatierung ändert zum Beispiel Fettung oder Größe ausgewählter Zeichen. Ein Absatz bündelt zusammengehörige Gedanken; Absatzformatierung betrifft etwa Ausrichtung oder Abstände. Ein Zeilenumbruch beginnt eine neue Zeile im selben Absatz.",
+        "Eine Überschrift nennt die Frage. Kurze Absätze ordnen Antwort und Begründung. Nutze Ausrichtung und Abstände statt langer Reihen von Leerzeichen. Eine Aufzählung ist sinnvoll für gleichrangige Punkte.",
+        "Ein Bild, eine Formengruppe oder eine Tabelle ist ein Objekt. Es soll etwas erklären: zeitliche Änderung, Vergleich oder Zusammenhang. Beschrifte es. Farbe allein trägt keine wichtige Unterscheidung. Prüfe Lesbarkeit in der tatsächlichen Ansicht."
+      ],
+      "example": "Zwei nebeneinander beschriftete Felder „bis Mai“ und „ab Juni“ machen eine Regeländerung sichtbar. Ein Stern als Schmuck erklärt die Änderung nicht.",
+      "boundary": "Mehr Farben oder größere Schrift machen einen Inhalt nicht automatisch richtig oder verständlich.",
+      "steps": [
+        "auftrag",
+        "werkstatt",
+        "entwurf",
+        "revision",
+        "sichern"
+      ],
+      "sources": []
+    },
+    {
+      "id": "bedienen",
+      "title": "Wie bearbeite und sichere ich ein Produkt?",
+      "paragraphs": [
+        "Markiere erst das Element, das sich ändern soll. Eine Formatleiste oder ein Kontextmenü bietet passende Befehle. Kopieren legt eine Kopie in die Zwischenablage; Einfügen setzt sie an der gewählten Stelle ein. Prüfe danach Schrift und Anordnung.",
+        "Speichere eine editierbare Erstfassung. Überarbeite eine Kopie als zweite Fassung. Eine PDF dient dem Lesen und der Weitergabe; sie ersetzt nicht die editierbare Datei. Öffne den Export neu, um Layout und Vollständigkeit zu prüfen."
+      ],
+      "example": "M07-Team-A-v1 und M07-Team-A-v2 unterscheiden Entwurf und Revision. Das Lernwerk speichert nur eure Notizen zu diesen Dateien.",
+      "boundary": "Menünamen unterscheiden sich nach Anwendung und Schulgerät. Die ausgefüllte Werkzeugkarte nennt euren geprüften Weg.",
+      "steps": [
+        "werkstatt",
+        "entwurf",
+        "revision",
+        "teilen"
+      ],
+      "sources": []
+    },
+    {
+      "id": "rechte",
+      "title": "Warum reicht „Quelle: Internet“ nicht?",
+      "paragraphs": [
+        "Die Herkunft macht einen Fund prüfbar; eine Lizenz legt erlaubte Nutzungen fest. Bei CC BY-SA 4.0 darfst du das Material unter Bedingungen teilen und bearbeiten: angegebene Urheber-/Rechtehinweise erhalten, Material und Lizenz verlinken sowie Änderungen kenntlich machen. Eine geteilte Bearbeitung steht wieder unter dieser Lizenz.",
+        "Kennzeichne, auf welches Element sich der Hinweis bezieht. Eine Lizenz für ein eingebautes Bild ist nicht automatisch die Lizenz aller übrigen Produktteile. Eigene neue Beiträge oder das gesamte Werk nicht ohne Klärung der Rechte aller Beteiligten freigeben.",
+        "Die Lizenz klärt nicht alle Rechte, etwa an erkennbaren Personen. Für unser Produkt genügen eigene Texte und Formen oder die ausdrücklich angebotenen Lernwerk-Grafiken. Unklaren Fund vorerst weglassen und die Lehrperson fragen. Gesetzliche Ausnahmen sind hier nicht vollständig behandelt."
+      ],
+      "example": "„Grafik Vorher–Nachher: IuM-Lernwerk, Quelle: Lernwerk M07, CC BY-SA 4.0 [Lizenzlink]; verändert: eigene Beschriftung. Bearbeitete Grafik ebenfalls CC BY-SA 4.0.“ Die konkrete Materialadresse gehört dazu.",
+      "boundary": "Geschlossener Schulraum, Quellenangabe oder der Zusatz „für die Schule“ bedeuten nicht pauschal, dass jede Nutzung erlaubt ist.",
+      "steps": [
+        "werkstatt",
+        "entwurf",
+        "revision",
+        "teilen",
+        "abruf"
+      ],
+      "sources": [
+        "lizenz"
+      ]
+    },
+    {
+      "id": "zusammen",
+      "title": "Wie wird aus zwei Beiträgen ein gemeinsames Ergebnis?",
+      "paragraphs": [
+        "Vereinbart zuerst Frage, Umfang und Verantwortlichkeiten. Jede Person formuliert und prüft mindestens einen eigenen Sachbeitrag und führt selbst eine Gestaltungsoperation aus. Nach der Hälfte wechselt ihr die Bedienrolle.",
+        "Eine hilfreiche Rückmeldung nennt eine Stelle, deren Wirkung und einen konkreten Vorschlag. Fragt nach, wenn ihr Verschiedenes meint. Entscheidet gemeinsam, welchen Vorschlag ihr übernimmt oder begründet verwirft. Erhaltet die erste Fassung."
+      ],
+      "example": "„Bei ‚alle Bücher‘ verstehe ich die Regel als ausnahmslos. Die Ordnung unterscheidet Sachbücher. Nenne beide Gruppen.“",
+      "boundary": "„Sieht gut aus“ oder zwei Namen auf einem Produkt zeigen noch keine fachliche Zusammenarbeit.",
+      "steps": [
+        "entwurf",
+        "austausch",
+        "revision",
+        "abruf"
+      ],
+      "sources": []
+    },
+    {
+      "id": "teilen",
+      "title": "Was unterscheidet zwei passende Teilwege?",
+      "paragraphs": [
+        "Ein geschlossener Schulkanal unterstützt zeitversetzte Kommentare und gemeinsame Überarbeitung. Prüfe Empfängerkreis und Berechtigung: Lesen, Kommentieren oder Bearbeiten sind verschieden. Ein Link allein beweist keinen Zugriff.",
+        "Eine direkte Dateiübergabe liefert der anderen Person eine konkrete Fassung, etwa als PDF über den erlaubten Nahbereichsweg oder einen zugelassenen Datenträger. Sie muss auf dem Empfängergerät geöffnet werden. Eine Kopie aktualisiert sich nicht automatisch.",
+        "Schütze Zugangsdaten, nutze nur dein zugewiesenes Konto und sperre das Gerät bei einer Pause. Melde dich am Ende nach Schulregel ab. Das schützt auch eure Arbeit vor fremden Änderungen. Passwörter werden nie als Aufgabenbeleg gesammelt."
+      ],
+      "example": "Weg 1: Teamraum zum Kommentieren. Weg 2: finale PDF direkt an das Vorführgerät übergeben und dort öffnen. Danach lokal vorstellen.",
+      "boundary": "Zweimal derselbe Upload oder allein eine Bildschirmvorführung sind hier nicht die zwei verlangten digitalen Teilwege.",
+      "steps": [
+        "austausch",
+        "teilen",
+        "sichern",
+        "abruf"
+      ],
+      "sources": []
+    }
+  ],
+  "steps": [
+    {
+      "id": "bruecke",
+      "title": "Vor dem Projekt: Wissen wieder aufnehmen",
+      "short": "Vor dem Projekt: Wissen wieder aufnehmen",
+      "goal": "Du rufst passende frühere Kenntnisse ab und klärst offene Grundlagen.",
+      "task": "Du rufst passende frühere Kenntnisse ab und klärst offene Grundlagen. · 39 Minuten auf zwei vorangehende Termine verteilt",
+      "outcome": "Du rufst passende frühere Kenntnisse ab und klärst offene Grundlagen.",
+      "knowledge": [
+        "belegen",
+        "teilen"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Zwei kurze Termine vor dem Projekt",
+          "text": "Beginne jeweils ohne Altlösung. Erst nach deinem Versuch öffnest du die dortige Vergleichshilfe. Im Jahresplan UE 30: R06 M01 „Vor M07“ 6 Minuten, R07 M04 „Andere Grenze“ 7, R08 M05 „fehlende Linie“ 7. In UE 31: R09 M02 „veraltetes Register“ 8, R10 M03 „Warum diese Anzeige?“ 6, R11 M06 „Zweck vor Reichweite“ 5. Nur diese Teile bearbeiten; sie ergeben 20+19=39 Minuten aus dem Jahresabrufkonto, keine Projektkernzeit.",
+          "links": [
+            {
+              "label": "M01 · sechs Minuten",
+              "href": "../netze/schritt-erinnern.html#recall-erinnern-speicher"
+            },
+            {
+              "label": "M04 · sieben Minuten",
+              "href": "../codierungen/schritt-abruf.html#recall-abruf-wahl"
+            },
+            {
+              "label": "M05 · sieben Minuten",
+              "href": "../algorithmen/schritt-abruf.html#recall-abruf-vor-m07"
+            },
+            {
+              "label": "M02 · acht Minuten Index-/KI-Abruf",
+              "href": "../suche/schritt-abruf-index.html#recall-abruf-index-abruf"
+            },
+            {
+              "label": "M03 · sechs Minuten",
+              "href": "../werbung/schritt-abruf.html#recall-abruf-auswahl"
+            },
+            {
+              "label": "M06 · fünf Minuten, erste Wiederaufnahme",
+              "href": "../kommunikation/schritt-abruf.html#recall-abruf-weg"
+            },
+            {
+              "href": "../wiederholen.html",
+              "label": "Genaue Teilaufträge und Rückwege im Abrufregister"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "offen",
+          "title": "Was brauchst du nochmals?",
+          "text": "Nenne nach den Rückblicken eine noch offene Frage oder eine Regel, die du im Projekt nutzen wirst. Kurze mündliche Antwort genügt. Bei einer Lücke nutzt ihr vor dem Projekt die passende Hilfe.",
+          "prompt": "Meine offene Frage oder nutzbare Regel.",
+          "responseMode": "oral"
+        },
+        {
+          "type": "explanation",
+          "title": "Wenn ihr mit Papier arbeitet",
+          "text": "Dieses Blatt ordnet die Zeit. Die eigentlichen Aufgaben stehen auf den sechs Originalblättern. Die Lehrperson legt sie vor Beginn aus; erst bearbeiten, dann dort vergleichen. Ein Link oder das Lesen dieses Plans ist noch kein Abruf.",
+          "links": [
+            {
+              "label": "M01: Erinnern · vollständiges Einzelmaterial",
+              "href": "../netze/baustein-erinnern.html"
+            },
+            {
+              "label": "M02: Ein veraltetes Register · vollständiges Einzelmaterial",
+              "href": "../suche/baustein-abruf-index.html"
+            },
+            {
+              "label": "M03: Abruf · vollständiges Einzelmaterial",
+              "href": "../werbung/baustein-abruf.html"
+            },
+            {
+              "label": "M04: Abruf · vollständiges Einzelmaterial",
+              "href": "../codierungen/baustein-abruf.html"
+            },
+            {
+              "label": "M05: Abruf · vollständiges Einzelmaterial",
+              "href": "../algorithmen/baustein-abruf.html"
+            },
+            {
+              "label": "M06: Abruf · vollständiges Einzelmaterial",
+              "href": "../kommunikation/baustein-abruf.html"
+            }
+          ]
+        }
+      ],
+      "criteria": [
+        "Ich beginne mit meinem eigenen Abruf und prüfe erst danach.",
+        "Offene Grundlagen sind vor dem Projekt geklärt oder als Hilfeauftrag benannt."
+      ],
+      "materialNeeds": [
+        "Zusätzlich zu diesem Organisationsblatt: die sechs vollständigen Original-Abrufblätter M01 erinnern, M02 abruf-index, M03 abruf, M04 abruf, M05 abruf, M06 abruf; digital über die Links oder vorher von der Lehrperson ausgedruckt",
+        "Stift, frühere Ergebnisse zunächst verdeckt; vorhandene Hilfen erst nach eigenem Abruf"
+      ]
+    },
+    {
+      "id": "auftrag",
+      "title": "Eine Karte soll etwas erklären",
+      "short": "Eine Karte soll etwas erklären",
+      "goal": "Du erklärst, wie Inhalt und Gestaltung zusammenwirken.",
+      "task": "Du erklärst, wie Inhalt und Gestaltung zusammenwirken. · 20 Minuten",
+      "outcome": "Du erklärst, wie Inhalt und Gestaltung zusammenwirken.",
+      "knowledge": [
+        "belegen",
+        "gestalten"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Euer Auftrag",
+          "text": "Eine fünfte Klasse fragt: „Warum sprechen ältere Bücher von neun Planeten, aktuelle Darstellungen aber von acht?“ Ihr erstellt zu zweit eine einseitige Informationskarte: ungefähr 60–90 Wörter Haupttext, zwei belegte Kernaussagen, ein erklärendes Bild oder Objekt und eine lesbare Quellen-/Rechteleiste. Ziel ist Verständnis, nicht Werbung. Die Karte wird später auf einem anderen Gerät vorgestellt."
+        },
+        {
+          "type": "example",
+          "title": "Anderes Thema: eine Bibliothekskarte wird besser",
+          "text": "Die folgende Bibliothek ist erfunden. Ihre Ordnung ab Juni sagt: Romane dürfen 14 Tage, Sachbücher 7 Tage ausgeliehen werden. Ein alter Aushang vom Mai nannte für alle Bücher 14 Tage.",
+          "media": [
+            "vergleich"
+          ],
+          "paragraphs": [
+            "Erster Entwurf: „ALLE BÜCHER 14 TAGE!“ Dazu ein großer Stern ohne Erklärung. Der Text ist auffällig, aber für die neue Ordnung falsch.",
+            "Vollständiger verbesserter Text: „Wie lange darf ich Bücher ausleihen? Ab Juni: Romane 14 Tage, Sachbücher 7 Tage. Prüfe zuerst die Buchgruppe. Der alte Mai-Aushang gilt nicht mehr. Quelle: erfundene Bibliotheksordnung, Abschnitt Leihfristen, gültig ab Juni. Text und Buchformen selbst gestaltet.“",
+            "Der Denkweg: Frage eingrenzen → aktuelle zuständige Regel lesen → falsche Verallgemeinerung streichen → zwei Buchgruppen als beschriftete Formen zeigen → Quelle ergänzen → zweite Person beide Fristen erklären lassen. Der Stern wird durch eine erklärende Darstellung ersetzt."
+          ]
+        },
+        {
+          "type": "task",
+          "id": "wirkung",
+          "title": "Was bewirkt die Änderung?",
+          "text": "Erkläre an einer Stelle, was die zweite Karte verständlicher macht. Nenne außerdem etwas, das schönes Aussehen allein nicht beweisen kann.",
+          "prompt": "Eine Änderung, ihre Wirkung und eine Grenze.",
+          "responseMode": "oral",
+          "solution": "Die zwei benannten Buchgruppen zeigen, für wen welche Frist gilt; der Gültigkeitsbeginn erklärt den Widerspruch. Die Gestaltung allein beweist nicht, dass die Regel wirklich gilt. Dafür braucht es einen passenden Beleg."
+        }
+      ],
+      "criteria": [
+        "Ich verbinde ein Gestaltungsmittel mit einer beabsichtigten Wirkung.",
+        "Ich unterscheide Verständlichkeit und belegte Richtigkeit."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "werkstatt",
+      "title": "Erst am kleinen Beispiel üben",
+      "short": "Erst am kleinen Beispiel üben",
+      "goal": "Du bearbeitest Zeichen, Absätze und ein Objekt und prüfst eine Lizenzangabe.",
+      "task": "Du bearbeitest Zeichen, Absätze und ein Objekt und prüfst eine Lizenzangabe. · 30 Minuten",
+      "outcome": "Du bearbeitest Zeichen, Absätze und ein Objekt und prüfst eine Lizenzangabe.",
+      "knowledge": [
+        "gestalten",
+        "bedienen",
+        "rechte"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Drei Arten von Änderungen",
+          "text": "Zeichen: markiere nur „7 Tage“ und hebe diese Wörter hervor. Absatz: richte den ganzen Absatz linksbündig aus und setze Abstand zur Überschrift. Objekt: füge zwei beschriftete Formen für Romane und Sachbücher ein. Der Unterschied hilft dir später, gezielt statt zufällig zu gestalten."
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "probe",
+          "title": "Deine eigene Bedienprobe",
+          "text": "Arbeite selbst am Gerät; beim gemeinsamen Gerät wechselt ihr nach spätestens fünf Minuten.",
+          "preparation": "Öffne das freigegebene Werkzeug aus der ausgefüllten Werkzeugkarte. Lege eine Übungsdatei an.",
+          "action": "Schreibe drei kurze Zeilen zur erfundenen Bibliothek. Übe daran die folgenden Operationen.",
+          "routes": [
+            {
+              "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
+              "items": [
+                "Markiere ein Wort, ändere mit Formatleiste oder Kontextmenü dessen Darstellung. Sage, welches Zeichenformat sich geändert hat.",
+                "Erzeuge Überschrift und zwei Absätze. Ändere die Ausrichtung eines Absatzes. Vergleiche einen Zeilenumbruch mit einem neuen Absatz anhand der Absatzformatierung; bei Bedarf Absatzmarken einblenden.",
+                "Kopiere einen selbst geschriebenen Satz über die Zwischenablage, füge ihn ein und passe ihn an. Füge zwei Formen oder eine kleine Tabelle ein und beschrifte die Buchgruppen.",
+                "Speichere die editierbare Übung, öffne sie erneut und prüfe deine Änderungen. Lass dir bei unbekannten Menünamen den Eintrag auf der Werkzeugkarte zeigen."
+              ]
+            }
+          ],
+          "return": "Notiere nur Dateiname und je ein Beispiel für Zeichen-, Absatz- und Objektänderung. Zeige der Partnerperson die tatsächliche Bedienung.",
+          "prompt": "Datei und drei unterschiedliche Änderungen."
+        },
+        {
+          "type": "task",
+          "id": "lizenz",
+          "title": "Der Hinweis ist noch unvollständig",
+          "text": "Eine Person nutzt den angebotenen Bildbaustein, ändert die Beschriftung und schreibt darunter nur „Quelle: Internet“. Verbessere den Hinweis für die bearbeitete Grafik. Du kannst alternativ eine eigene Grafik wählen, musst aber die Lizenzkorrektur am Beispiel erklären.",
+          "prompt": "Ein passender Rechtehinweis für die bearbeitete Grafik.",
+          "media": [
+            "baustein"
+          ],
+          "help": [
+            {
+              "title": "Welche Teile fehlen?",
+              "text": "Suche Urheber, konkrete Herkunft, Lizenz samt Link und Kennzeichnung der Bearbeitung. Was gilt für die geteilte Bearbeitung?",
+              "knowledge": "rechte",
+              "label": "Lizenzmodell nachlesen"
+            }
+          ],
+          "solution": "Grafik „Vorher–Nachher“: IuM-Lernwerk, Quelle: konkrete Adresse des M07-Bildbausteins; CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; verändert: Beschriftung ergänzt. Bearbeitete Grafik ebenfalls CC BY-SA 4.0. Die Rechteangabe bezieht sich auf diese Grafik."
+        }
+      ],
+      "criteria": [
+        "Ich habe selbst eine Zeichen-, Absatz- und Objektänderung sowie Kopieren/Einfügen ausgeführt.",
+        "Ich unterscheide Quellenangabe und Nutzungserlaubnis.",
+        "Mein Lizenzhinweis benennt Herkunft, Urheber, Lizenz und Änderung."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "entwurf",
+      "title": "Eure erste Informationskarte",
+      "short": "Eure erste Informationskarte",
+      "goal": "Du verarbeitest geprüfte Aussagen zu einem eigenen gemeinsamen Produkt.",
+      "task": "Du verarbeitest geprüfte Aussagen zu einem eigenen gemeinsamen Produkt. · 55 Minuten",
+      "outcome": "Du verarbeitest geprüfte Aussagen zu einem eigenen gemeinsamen Produkt.",
+      "knowledge": [
+        "belegen",
+        "gestalten",
+        "bedienen",
+        "zusammen",
+        "rechte"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Sachmaterial aus M02: genau lesen",
+          "text": "Eigene kurze Zusammenfassungen, keine Originalzitate. Ihr dürft sie als Arbeitsgrundlage nutzen; formuliert eure Karte selbst.",
+          "paragraphs": [
+            "IAU, Bericht vom 24.08.2006, Absätze zur Definition und Resolutionen 5A/6A: Für Planeten des Sonnensystems gelten drei Kriterien: Umlauf um die Sonne, durch eigene Schwerkraft annähernd rund und die Umgebung der Umlaufbahn bereinigt. Die IAU unterscheidet acht Planeten von Zwergplaneten und ordnet Pluto den Zwergplaneten zu.",
+            "NASA Science, Pluto Facts, Introduction, geprüft am 22.10.2026: Pluto wurde 1930 entdeckt und lange als neunter Planet eingeordnet. Im Jahr 2006 änderte sich seine Einordnung zum Zwergplaneten.",
+            "Beide Belege passen zusammen. Die Änderung betrifft die Einteilung, nicht ein Verschwinden Plutos. „Bereinigt“ ist kein buchstäblicher Staubsauger: Hier reicht die Aussage, dass Pluto das dritte IAU-Kriterium nicht erfüllt. Eure Karte muss kein Modell aller Umlaufbahnen erklären."
+          ],
+          "sources": [
+            "iau",
+            "nasa"
+          ],
+          "links": [
+            {
+              "label": "M02 · ursprünglicher Quellenvergleich",
+              "href": "../suche/schritt-quellen.html"
+            }
+          ]
+        },
+        {
+          "type": "cooperative",
+          "id": "plan",
+          "title": "Zwei Personen, ein Plan",
+          "text": "Legt Frage, Zielgruppe und zwei Kernaussagen fest. Plant ein Objekt, das die Änderung erklärt. Ein dekorativer Planet allein reicht dafür nicht.",
+          "contribution": "Jede Person formuliert einen eigenen belegten Satz und übernimmt eine konkrete Gestaltungsoperation. Verwendet Teamkennung und A/B; keine privaten Angaben.",
+          "exchange": "Vergleicht die beiden Sätze auf Widerspruch. Entscheidet, was das Objekt erklären soll. Nach zehn Produktionsminuten zeigt ihr euch Satz, Beleg und Skizze; bei Lücken erst klären, dann weiterbauen. Wechselt die Bedienrolle.",
+          "return": "Halte deinen Satz, Beleg und deine geplante Operation in der Projektspur fest. Die gemeinsame Karte ersetzt diesen individuellen Beitrag nicht.",
+          "prompt": "Mein Sachbeitrag mit Fundstelle und meine Gestaltungsaufgabe.",
+          "help": [
+            {
+              "title": "Der Anfang fällt schwer?",
+              "text": "Beantworte zuerst nur: Was änderte sich wann? Welche Quelle belegt das? Zeichne zwei beschriftete Kästen, bevor du das Werkzeug nutzt."
+            },
+            {
+              "title": "Schon sicher?",
+              "text": "Prüft zusätzlich, ob eure Wortwahl eine falsche Vorstellung auslösen könnte. Erklärt mindestens eine bewusste Weglassung; erweitert nicht den Umfang."
+            }
+          ]
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "datei",
+          "title": "Baut eure Erstfassung",
+          "text": "Arbeitszeit: Plan und Belege 15 Minuten, digitale Produktion mit Rollenwechsel 30, gemeinsame Lese-/Rechtekontrolle und Sichern 10.",
+          "preparation": "Lege im Schulwerkzeug eine leere einseitige Karte an; benutze eure bereits geübten Befehle.",
+          "action": "Gestaltet selbst. Die Bibliothekskarte ist ein anderes Beispiel und wird nicht als eure Lösung übernommen.",
+          "routes": [
+            {
+              "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
+              "items": [
+                "Schreibt etwa 60–90 Wörter Haupttext in eigenen Worten, mit aussagekräftiger Überschrift und kurzen Absätzen. Verknüpft zwei Kernaussagen mit den Quellen; Quellenleiste zählt nicht zum Wortziel.",
+                "Erstellt ein erklärendes Objekt: zum Beispiel einen beschrifteten Zeitvergleich, eine kleine Tabelle oder eine Formengruppe. Nutzt eigene Formen oder den Bildbaustein mit korrektem elementbezogenem Rechtehinweis. Keine fremden Fotos aus der Bildsuche übernehmen.",
+                "Prüft Lesbarkeit auf dem tatsächlichen Bildschirm und in der Vorschau. Überschrift, Antwort, Begründung und Quellen müssen auffindbar sein. Sichert die editierbare Erstfassung als M07-Teamkennung-v1.",
+                "Vor dem ersten Teilen Quellen und Rechte prüfen: eigener Text, Herkunft aller fremden Elemente, Lizenz und gegebenenfalls Bearbeitung. Unklares Element durch eigene Formen ersetzen; keine ungeklärte Fassung versenden."
+              ]
+            }
+          ],
+          "return": "Halte Dateiname/Ort, deinen tatsächlich ausgeführten Beitrag und eine Gestaltungsentscheidung mit Grund fest. Die Produktdatei bleibt gesondert.",
+          "prompt": "Erstfassung, mein Beitrag und eine begründete Entscheidung."
+        }
+      ],
+      "criteria": [
+        "Zwei Aussagen sind nachvollziehbar belegt und selbst formuliert.",
+        "Das Objekt erklärt einen Zusammenhang und ist beschriftet.",
+        "Beide Personen haben selbst formuliert und gestaltet.",
+        "Erstfassung und Quellen-/Rechtehinweise sind vorhanden."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "austausch",
+      "title": "Rückmeldung, die weiterhilft",
+      "short": "Rückmeldung, die weiterhilft",
+      "goal": "Du nutzt den Schulkanal und handelst eine sachliche Verbesserung mit einer realen Person aus.",
+      "task": "Du nutzt den Schulkanal und handelst eine sachliche Verbesserung mit einer realen Person aus. · 25 Minuten",
+      "outcome": "Du nutzt den Schulkanal und handelst eine sachliche Verbesserung mit einer realen Person aus.",
+      "knowledge": [
+        "zusammen",
+        "teilen"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Vor dem Senden",
+          "text": "Prüft auf der Werkzeugkarte Kanal, Empfänger und Rechte. Arbeitet mit dem eigenen zugewiesenen Zugang; teilt kein Passwort. Sperrt das Gerät bei einer Pause. Jede Person soll selbst etwas einstellen oder kommentieren. Ein Textfeld im Lernwerk versendet nichts."
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "kanal",
+          "title": "Teilweg 1: im geschlossenen Schulraum",
+          "text": "15 Minuten für Einstellen, Lesen und eine konkrete Rückmeldung; danach zehn Minuten zum Nachfragen und Aushandeln.",
+          "preparation": "Die Lehrperson teilt euch eine andere reale Zweiergruppe oder eine Ersatzperson zu und öffnet das Antwortfenster.",
+          "action": "Stellt die geprüfte Erstfassung über den vorbereiteten Schulweg bereit.",
+          "routes": [
+            {
+              "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
+              "items": [
+                "Wähle den erlaubten Empfängerkreis und passende Lese-/Kommentierrechte. Bitte die Partnergruppe, genau diese Fassung tatsächlich zu öffnen. Ist das nicht möglich, Zugang klären; nicht öffentlich freigeben.",
+                "Lies das andere Produkt. Gib selbst im Schulkanal eine Rückmeldung mit Stelle → Wirkung → Vorschlag. Prüfe eine Sachbehauptung am Beleg oder einen Gestaltungseffekt. Allgemeines Lob allein reicht nicht.",
+                "Lies die erhaltene Antwort. Frage bei Unklarheit nach. Einigt euch in zehn Minuten auf eine überprüfbare Verbesserung und eine begründete beibehaltene Stelle. Konflikt: am Kriterium und Beleg prüfen, sachlich nachfragen; bei Abwertung Lehrperson hinzuziehen statt weiterleiten."
+              ]
+            }
+          ],
+          "return": "Notiere Kanal, tatsächlich geöffnete Fassung, eine erhaltene sachliche Rückmeldung und eure Entscheidung. Keine Chatverläufe oder Zugangsdaten kopieren.",
+          "prompt": "Teilweg 1, Rückmeldung, Rückfrage und gemeinsame Entscheidung."
+        },
+        {
+          "type": "task",
+          "id": "vergleich",
+          "title": "Was unterscheidet diesen Austausch vom Gespräch?",
+          "text": "Erklärt kurz einen Vorteil des auffindbaren schriftlichen Kommentars und eine Hürde ohne Tonfall. Nennt, wie ihr die Hürde bearbeitet habt oder bearbeiten würdet.",
+          "prompt": "Vorteil, Hürde und passende Reaktion.",
+          "responseMode": "oral",
+          "solution": "Ein schriftlicher Kommentar kann später erneut an der Stelle geprüft werden. Eine knappe Formulierung kann schärfer wirken als gemeint. Eine sachliche Rückfrage oder ein vereinbartes Gespräch klärt die Bedeutung; Abwertung ist trotzdem nicht hinzunehmen."
+        }
+      ],
+      "criteria": [
+        "Eine reale Person hat die Erstfassung tatsächlich geöffnet.",
+        "Ich habe selbst sachlich rückgemeldet und eine erhaltene Rückmeldung verstanden.",
+        "Unsere Entscheidung nennt Stelle, Kriterium und Grund."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Überarbeiten mit einem Grund",
+      "short": "Überarbeiten mit einem Grund",
+      "goal": "Du verbesserst das Produkt fachlich oder gestalterisch und prüfst die Rechte erneut.",
+      "task": "Du verbesserst das Produkt fachlich oder gestalterisch und prüfst die Rechte erneut. · 30 Minuten",
+      "outcome": "Du verbesserst das Produkt fachlich oder gestalterisch und prüfst die Rechte erneut.",
+      "knowledge": [
+        "belegen",
+        "gestalten",
+        "bedienen",
+        "rechte",
+        "zusammen"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Zwei Prüfaufträge",
+          "text": "20 Minuten für Rückmeldung und begründete Überarbeitung, weitere zehn für Rechteprüfung und die endgültige Korrektur. Arbeitet an einer Kopie v2; v1 bleibt erhalten. Ein neuer Dateiname allein ist keine Revision."
+        },
+        {
+          "type": "task",
+          "id": "konflikt",
+          "title": "Ein schöner Vorschlag mit ungeklärten Rechten",
+          "text": "Eine fiktive Rückmeldung empfiehlt: „Nehmt ein Foto aus der Bildsuche. Der Link genügt; es bleibt ja in der Klasse.“ Beurteilt den Vorschlag. Wendet eure Entscheidung anschließend auf das tatsächliche eigene Produkt an: unklaren Fund ersetzen oder die vorhandene Rechteleiste konkret ergänzen.",
+          "prompt": "Was ist ungeklärt, und was ändern wir im Produkt?",
+          "help": [
+            {
+              "title": "Welche Fragen sind verschieden?",
+              "text": "Prüft Aussagebeleg, Urheber/Nutzungserlaubnis, Bearbeitung und mögliche Personenrechte getrennt."
+            }
+          ],
+          "solution": "Eine Fundadresse beweist keine Nutzungserlaubnis. Die geschlossene Klasse erlaubt nicht pauschal jede Übernahme. Bei unklarer Erlaubnis Foto weglassen und eigene beschriftete Formen nutzen; für einen lizenzierten Baustein die konkreten Angaben prüfen."
+        },
+        {
+          "type": "external",
+          "context": "device",
+          "id": "ueberarbeiten",
+          "title": "Von v1 zu v2",
+          "text": "Jede Person führt eine Änderung selbst aus und erläutert ihren Grund.",
+          "preparation": "Öffnet eine Kopie der Erstfassung im Schulwerkzeug. Haltet die erhaltene Rückmeldung bereit.",
+          "action": "Setzt eine fachliche oder gestalterische Verbesserung um; prüft anschließend Quellen und Rechte.",
+          "routes": [
+            {
+              "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
+              "items": [
+                "Wählt eine konkrete Stelle aus der echten Rückmeldung. Ändert Text, Anordnung oder Objekt so, dass eine benannte Hürde kleiner wird. Wenn der Vorschlag fachlich nicht trägt, begründet die Ablehnung und findet selbst eine sinnvolle Verbesserung.",
+                "Überarbeitet die Quellen-/Rechteleiste sichtbar: ergänzt genaue Fundstelle, Urheberschaft, Lizenz oder Bearbeitung, soweit nötig. War alles schon korrekt, ergänzt eine knappe klare Zuordnung „Text/Formen: selbst erstellt“ oder ordnet den vorhandenen Hinweis eindeutiger dem Element zu. Erfindet keine Lizenz für fremde Elemente.",
+                "Prüft gemeinsam: Ist die Kernaussage noch richtig? Sind Text und Bild lesbar? Hat die Änderung die Wirkung erreicht? Speichert v2 editierbar und exportiert eine PDF. Öffnet die PDF neu und kontrolliert Text, Objekt und Quellen."
+              ]
+            }
+          ],
+          "return": "Halte ein Vorher–Nachher-Paar mit Grund und die tatsächliche Rechtekorrektur fest. Verweise auf v1/v2; lange Texte nicht erneut abschreiben.",
+          "prompt": "Vorher → nachher, Grund und Rechtekorrektur."
+        }
+      ],
+      "criteria": [
+        "Die Revision verändert tatsächlich Inhalt oder Gestaltung.",
+        "Ich erkläre ihren Bezug zur realen Rückmeldung.",
+        "Die Rechteprüfung hat eine nachvollziehbare Korrektur oder Präzisierung im Produkt bewirkt.",
+        "v1, v2 und die geprüfte PDF sind gesichert."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "teilen",
+      "title": "Zwei Wege, geprüfter Zugriff",
+      "short": "Zwei Wege, geprüfter Zugriff",
+      "goal": "Du teilst die finale Fassung auf zwei passenden digitalen Wegen und prüfst den Empfang.",
+      "task": "Du teilst die finale Fassung auf zwei passenden digitalen Wegen und prüfst den Empfang. · 20 Minuten",
+      "outcome": "Du teilst die finale Fassung auf zwei passenden digitalen Wegen und prüfst den Empfang.",
+      "knowledge": [
+        "teilen",
+        "bedienen",
+        "rechte"
+      ],
+      "blocks": [
+        {
+          "type": "external",
+          "context": "device",
+          "id": "empfang",
+          "title": "Die finale Fassung kommt an",
+          "text": "Zehn Minuten für finale Fassung im Schulkanal und zehn für den zweiten Teilweg.",
+          "preparation": "Nutzt die ausgefüllte Werkzeugkarte. Empfängergerät und reale Empfangsperson müssen bereitstehen.",
+          "action": "Erprobt beide Wege. Eine nur vorgestellte Übertragung zählt noch nicht.",
+          "routes": [
+            {
+              "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
+              "items": [
+                "Weg 1: Stellt v2 im geschlossenen Schulkanal bereit, kennzeichnet die aktuelle Fassung und prüft den tatsächlichen Empfängerzugriff. Bleibt v1 sichtbar, markiert sie klar als Entwurf nach Schulregel.",
+                "Weg 2: Übertragt die finale PDF als Datei auf das andere erlaubte Gerät, etwa über den vorbereiteten direkten Übertragungsweg oder schulischen Datenträger. Die Empfangsperson öffnet genau diese Datei. Ein zweiter Upload im gleichen Kanal oder bloßes Zeigen auf eurem Bildschirm genügt hier nicht.",
+                "Prüft dort Seite, Objekt und Quellen. Begründet den Nutzen der beiden Wege: Kommentare/gemeinsame Arbeit gegenüber einer feststehenden, auch lokal lesbaren Fassung. Notiert bei Ausfall ehrlich „offen“ und vereinbart mit der Lehrperson einen Nachholweg.",
+                "Sperrt oder meldet euch nach der vereinbarten Schulregel ab. Begründet, welche unerwünschte Handlung ein ungeschützter Zugang ermöglichen könnte. Keine Passwortangaben im Protokoll."
+              ]
+            }
+          ],
+          "return": "Notiert für jeden Weg Übertragungsart, Fassung, Empfängerkreis und tatsächliches Öffnungsergebnis; eine Begründung genügt in Stichwörtern. Produktdatei und Lernwerk-Notizen getrennt sichern.",
+          "prompt": "Teilweg 1 und 2: Fassung, Zugriff, Zweck und gegebenenfalls offene Handlung."
+        }
+      ],
+      "criteria": [
+        "Zwei unterschiedliche digitale Übertragungswege sind tatsächlich genutzt oder offen benannt.",
+        "Die Empfangsperson hat die finale Datei jeweils geöffnet.",
+        "Ich kann Zweck, Grenze und Zugangsschutz beider Wege erklären."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "sichern",
+      "title": "Vorstellen, prüfen, übertragen",
+      "short": "Vorstellen, prüfen, übertragen",
+      "goal": "Du erklärst eure Entscheidungen und passt das Produkt an veränderte Bedingungen an.",
+      "task": "Du erklärst eure Entscheidungen und passt das Produkt an veränderte Bedingungen an. · 30 Minuten",
+      "outcome": "Du erklärst eure Entscheidungen und passt das Produkt an veränderte Bedingungen an.",
+      "knowledge": [
+        "belegen",
+        "gestalten",
+        "teilen"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Vorstellung und individuelle Auswertung · 15 Minuten",
+          "text": "Zeigt die finale PDF in der Präsentationsansicht des Empfängergeräts. Jede Person erklärt in etwa einer Minute ihren belegten Satz und ihre tatsächliche Änderung. Die andere Gruppe nennt danach die Kernaussage in eigenen Worten. Wenn sie etwas anderes versteht, notiert die Stelle als nächsten Korrekturbedarf."
+        },
+        {
+          "type": "task",
+          "id": "transfer",
+          "title": "Neue Bedingungen · zehn Minuten",
+          "text": "Jetzt soll eine dritte Klasse die Karte ohne mündliche Erklärung und ohne Internet lesen. Ihr habt nur Platz für drei kurze Hauptsätze plus Objekt und Quellenleiste. Erst selbst entscheiden: Was muss sich ändern, was darf fachlich nicht verloren gehen? Erstellt eine kleine Kopie oder Skizze der neuen Ansicht, keine zweite ganze Projektarbeit.",
+          "prompt": "Meine drei Sätze oder Skizze mit zwei begründeten Anpassungen.",
+          "help": [
+            {
+              "title": "Worauf kommt es jetzt an?",
+              "text": "Jüngere Lesende, fehlende mündliche Erklärung und kein Anklicken der Quellen sind echte neue Bedingungen. Prüfe Fachwörter, Bildbeschriftung und sichtbare Quelleninformationen."
+            }
+          ],
+          "solution": "Mehrere Lösungen sind möglich: Fachwörter kurz erklären oder vermeiden, zentrale Änderung im beschrifteten Objekt sichtbar halten, wichtigste Quelleninformationen lesbar auf der Seite statt nur hinter einem Link. Die Einteilungsänderung darf nicht als Verschwinden Plutos oder als bloße Größenfrage dargestellt werden. Kürzung allein genügt nicht; zwei Anpassungen müssen zu den neuen Bedingungen passen."
+        },
+        {
+          "type": "explanation",
+          "title": "Gemeinsame Sicherung · fünf Minuten",
+          "text": "Haltet die gemeinsam geprüfte Regel fest: Eine verständliche Informationskarte beantwortet eine Frage, stützt ihre Aussagen, erklärt mit Text und Objekt und weist Rechte aus. Rückmeldung wird an einer Stelle geprüft und begründet eingearbeitet. Beim Teilen zählt der tatsächliche Zugriff. Diese Sicherung steht hier und im Wissen; eure Produktfassungen liegen am vereinbarten Schulort. Die Lehrperson klärt fachliche Streitpunkte im gemeinsamen Gespräch."
+        },
+        {
+          "type": "task",
+          "id": "mein-beitrag",
+          "title": "Dein eigener Nachweis",
+          "text": "Erkläre ohne die Partnerperson: Welche Aussage hast du belegt, welche Operation selbst ausgeführt und warum eine Stelle geändert? Zeige die entsprechenden Stellen in den Dateien.",
+          "prompt": "Mein belegter Satz, meine Operation, meine Revision.",
+          "responseMode": "oral"
+        }
+      ],
+      "criteria": [
+        "Ich erkläre meinen eigenen Beitrag an einer konkreten Produktstelle.",
+        "Ich verbinde die Revision mit Beleg oder Rückmeldung.",
+        "Mein Transfer reagiert auf jüngere Lesende und fehlendes Internet.",
+        "Offene Handlungen werden nicht als erledigt ausgegeben."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ]
+    },
+    {
+      "id": "zwischen",
+      "title": "An einem weiteren Tag: M06 wieder aufnehmen",
+      "short": "An einem weiteren Tag: M06 wieder aufnehmen",
+      "goal": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan.",
+      "task": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan. · 5 Minuten aus dem M06-Abrufkonto",
+      "outcome": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan.",
+      "knowledge": [
+        "teilen",
+        "rechte"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Erst erinnern, dann prüfen",
+          "text": "Die Lehrperson legt einen anderen Unterrichtstag innerhalb des Projekts fest. Nutze M06s zweite Wiederaufnahme: vier Minuten zum neutralen Fall, eine Minute für deinen eigenen harmlosen schulischen Rechteplan. Persönliches bleibt bei dir; keine Qualität durch einen Haken behaupten.",
+          "links": [
+            {
+              "label": "M06 · zweite Wiederaufnahme",
+              "href": "../kommunikation/schritt-abruf.html#recall-abruf-hilfe"
+            },
+            {
+              "label": "M06 · vollständiges Abrufblatt für Papier",
+              "href": "../kommunikation/baustein-abruf.html"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "regel",
+          "title": "Was hilft beim Projekt?",
+          "text": "Nenne nur eine allgemeine Regel für eure jetzigen Teilwege. Persönliche Gedanken aus M06 werden hier nicht eingetragen.",
+          "prompt": "Eine allgemeine Regel, ohne persönliche Angaben.",
+          "responseMode": "oral"
+        }
+      ],
+      "criteria": [
+        "Ich prüfe eine allgemeine Regel am aktuellen Projekt.",
+        "Meine eigene M06-Reflexion bleibt geschützt."
+      ],
+      "materialNeeds": [
+        "M06, Einzelmaterial „Mit Abstand wieder prüfen“, Kennung kommunikation/baustein-abruf.html, digital oder zuvor ausgedruckt",
+        "Eigene M06-Rechteentscheidung nur privat; sie wird nicht eingesammelt"
+      ],
+      "timing": "later"
+    },
+    {
+      "id": "abruf",
+      "title": "Später: Können wir es noch begründen?",
+      "short": "Später: Können wir es noch begründen?",
+      "goal": "Du rufst Gestaltungs-, Rechte- und Teilentscheidungen mit Abstand ab.",
+      "task": "Du rufst Gestaltungs-, Rechte- und Teilentscheidungen mit Abstand ab. · zweimal 6 Minuten an getrennten Terminen",
+      "outcome": "Du rufst Gestaltungs-, Rechte- und Teilentscheidungen mit Abstand ab.",
+      "knowledge": [
+        "belegen",
+        "rechte",
+        "zusammen",
+        "teilen"
+      ],
+      "blocks": [
+        {
+          "type": "retrieval",
+          "id": "karte",
+          "title": "Termin 1: Eine fremde Karte beurteilen",
+          "when": "Frühestens in einer späteren Unterrichtsstunde nach Projektabschluss, sechs Minuten.",
+          "text": "Ohne eure alte Karte und ohne offene Lösung: Eine Informationskarte nennt eine aktuelle Regel, zeigt eine unbeschriftete Grafik und verweist nur auf „Internet“. Nenne zwei konkrete Verbesserungen und erkläre, welche Prüfung für die Richtigkeit noch fehlt.",
+          "prompt": "Zwei Verbesserungen und die fehlende Prüfung.",
+          "solution": "Die Grafik beschriften und eine konkrete Quelle mit zuständiger Institution, Fundstelle und Datum nennen. Für fremde Elemente Nutzungserlaubnis/Lizenz getrennt prüfen. Die Behauptung muss an einem passenden aktuellen Beleg geprüft werden; verständliche Gestaltung allein reicht nicht."
+        },
+        {
+          "type": "retrieval",
+          "id": "weg",
+          "title": "Termin 2: Ein Link ist noch kein Empfang",
+          "when": "An einem anderen Tag vor Jahresende, sechs Minuten.",
+          "text": "Du sendest einen Link, aber die Empfangsperson hat keine Berechtigung. Eure Gruppe will schnell ein öffentliches Passwort im Chat teilen. Erkläre eine sichere passende Korrektur, einen zweiten digitalen Weg und einen Nachweis für tatsächliche Überarbeitung. Beginne ohne alte Notizen.",
+          "prompt": "Zugangskorrektur, anderer Teilweg und Revisionsnachweis.",
+          "solution": "Berechtigung über den erlaubten Schulweg gezielt korrigieren und beim Empfänger prüfen, kein Passwort veröffentlichen. Eine zugelassene direkte Dateiübergabe mit anschließendem Öffnen ist ein anderer Weg. v1/v2, konkrete Rückmeldung und begründete Änderung zeigen Revision; zwei Dateinamen allein reichen nicht."
+        },
+        {
+          "type": "explanation",
+          "title": "Nach jedem Versuch",
+          "text": "Vergleiche erst nach deinem eigenen Abruf. Verbessere eine unsichere Stelle und erkläre sie erneut. Die Lehrperson nutzt fehlende Begründungen für gezielte Hilfe, nicht zum automatischen Freischalten einer Kompetenz."
+        }
+      ],
+      "criteria": [
+        "Ich beginne ohne Altlösung und verbessere meinen eigenen Versuch.",
+        "Ich trenne Richtigkeit, Rechte, Verständlichkeit und tatsächlichen Zugriff."
+      ],
+      "materialNeeds": [
+        "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
+      ],
+      "timing": "later"
+    }
+  ],
+  "coverage": {
+    "entry": [
+      "auftrag"
+    ],
+    "explanation": [
+      "auftrag",
+      "werkstatt"
+    ],
+    "example": [
+      "auftrag"
+    ],
+    "practice": [
+      "werkstatt"
+    ],
+    "application": [
+      "entwurf",
+      "austausch"
+    ],
+    "revision": [
+      "revision"
+    ],
+    "securing": [
+      "sichern"
+    ],
+    "transfer": [
+      "sichern"
+    ],
+    "retrieval": [
+      "bruecke",
+      "zwischen",
+      "abruf"
+    ]
+  },
+  "teacherSections": [
+    {
+      "title": "Vorbereitung: erst Werkzeug und Empfänger prüfen",
+      "paragraphs": [
+        "Füllen Sie die Werkzeugkarte aus und testen Sie die komplette Datei-/Empfängerfolge mit schulischem Testzugang: neue Datei, Zeichen/Absatz/Objekt, Zwischenablage, Speicherort, PDF, Präsentationsansicht, Schulkanal und ein anderer zugelassener digitaler Übertragungsweg. Menünamen sind absichtlich nicht für unbekannte Schulkonfigurationen erfunden. Karte sichtbar oder ausgedruckt bereitstellen; digitale Phasen erst beginnen, wenn Zugang und Hilfe geklärt sind.",
+        "Zweierteams, Rollenwechsel, reale Rückmeldegruppe und erreichbare Ersatzperson festlegen. Nur zugewiesene Schulzugänge, keine privaten Konten, Passwörter oder echten Konfliktverläufe anfordern. Aktuelle Schulregeln, Rechte und Aufbewahrung prüfen. Quellen-/Rechteleiste vor erstem Teilen kontrollieren. Bei zu kleinem Geräteangebot Stationen und Nachholzeit festlegen; digitale Handlung nicht durch Papier als bewiesen erklären."
+      ]
+    },
+    {
+      "title": "Verlauf: 210 Kernminuten, kein Vierstundenversprechen",
+      "paragraphs": [
+        "Auftrag/Modell 20 Minuten (5 Anlass, 10 vollständiges anderes Beispiel, 5 Wirkung); Werkstatt 30 (5 Begriffe, 15 eigene Bedienprobe, 10 Lizenzkorrektur); Entwurf 55 (15 Plan/Beleg, 30 Herstellung mit Kontrolle nach zehn Produktionsminuten und Rollenwechsel, 10 Lese-/Rechtekontrolle/Sicherung); Austausch 25 (15 echter Schulkanal und Rückmeldung, 10 Aushandlung); Revision 30 (20 Produktänderung, 10 Rechtekorrektur/Export); Teilen 20 (10 finale Fassung im Schulkanal, 10 anderer Teilweg); Sichern 30 (15 lokale Vorstellung/individueller Nachweis, 10 veränderter Transfer, 5 gemeinsame Sicherung). Die 30 zusätzlichen Übungsminuten sind enthalten.",
+        "Im gemeinsamen Jahresplan liegen die 210 Kernminuten in UE 32–36:45+45+40+45+35. Vor den 40 Kernminuten in UE 34 stehen die fünf M06-Abrufminuten; dadurch bleibt dieser Termin bei 45 Minuten. In UE 36 kommen 10 Organisationsminuten hinzu. R13/R14 folgen in UE 37/38 an späteren, verschiedenen Unterrichtstagen. Die frühere isolierte Vierstundenfolge wird nicht zusätzlich gezählt."
+      ]
+    },
+    {
+      "title": "Jahresabruf: vereinbarte Minuten wirklich übernehmen",
+      "paragraphs": [
+        "Vor dem Projekt 39 Minuten aus dem vorhandenen 90-Minuten-Jahreskonto: Termin A M01 sechs, M04 sieben, M05 sieben; Termin B M02 acht, M03 sechs, M06 fünf. Die verlinkten Originalaufgaben zuerst ohne Lösung bearbeiten, danach vergleichen. Bei nicht durchgeführten Vorreihen Diagnose mit kurzer eigener Erklärung und gezielter Hilfe; geplanter Abruf ist noch keine Beobachtung.",
+        "Weitere fünf M06-Minuten an einem anderen Tag in M07: vier neutraler Fall, eine eigene Rechteprüfung privat. Die eigenen zwölf M07-Minuten als zweimal sechs an zwei späteren Tagen vor Jahresende reservieren. Alle 56 Minuten außerhalb des M07-Kerns und aus schon verteilten Konten; nicht zusätzlich auf die 90 Minuten schlagen. Jahresbedarf 1710 Minuten/38 UE bleibt unbestätigt."
+      ]
+    },
+    {
+      "title": "Beobachtung → nächste Hilfe",
+      "paragraphs": [
+        "Satz ohne Beleg: zur konkreten Fundstelle zurück, Aussage gemeinsam auf deren Reichweite begrenzen. Nur Dekoration: fragen „Was kann die fünfte Klasse nach dem Objekt besser erklären?“ und erst eine beschriftete Skizze verlangen. Layoutprobleme: Auswahl des Elements zeigen lassen, Zeichen/Absatz/Objekt unterscheiden und genau eine Operation üben.",
+        "Eine Person bedient alles: Rollen sofort wechseln; jede Person einen Satz und eine Operation selbst zeigen lassen. Rückmeldung bleibt „schön“: eine konkrete Stelle vorgeben und Wirkung/Vorschlag erfragen. Streit über Änderungen: Beleg oder Zielgruppe als Kriterium nutzen, nicht nach Lautstärke entscheiden. Fehlender Kommentar: reale Ersatzperson einbeziehen, keine erfundene Rückmeldung eintragen.",
+        "Rechtehinweis fehlt: Element auswählen, Herkunft/Lizenz trennen, unklaren Fund ersetzen. Link scheitert: Empfänger und Berechtigung prüfen; zweiter Upload ist kein zweiter Weg. Bei Schwierigkeiten Umfang klein halten, nicht Quellenprüfung, Rückmeldung oder Revision streichen."
+      ]
+    },
+    {
+      "title": "Material, Projektion und zentrale Sicherung",
+      "paragraphs": [
+        "Lernbogen und alle Einzelmaterialien sind auf der Materialseite erreichbar; Werkzeugkarte und Projektspur stehen dort als Textdateien. Die Bibliotheksabbildung mit vollständiger Textbeschreibung dient dem Vergleich, die zusätzliche Projektionsansicht bündelt Frage, Modellvergleich, Rückmeldeauftrag und Sicherung für das gemeinsame Gespräch.",
+        "Die zentrale geprüfte Sicherung steht im Schritt „Vorstellen, prüfen, übertragen“ und im Wissen. Klären Sie sie im Gespräch anhand konkreter Produkte; der individuelle Nachweis zeigt, was die einzelne Person erklären kann. Lehrpersonenbriefing liegt als separate readerfähige HTML-Seite vor; es ist Vorlesetext, keine produzierte Audiodatei.",
+        "Für die Papierbrücke zusätzlich die sechs Original-Abrufblätter aus M01–M06 bereitstellen, für den Zwischentermin das M06-Abrufblatt erneut. Die direkten Links stehen auf dem Organisationsblatt und im Materialzugang. M02 ist ausdrücklich „Ein veraltetes Register“, Kennung abruf-index; der Quellenabruf gehört vor M03. Die Organisationsblätter ersetzen diese Aufgaben nicht."
+      ]
+    },
+    {
+      "title": "Nachweise, Abdeckung und Praxisrückfluss",
+      "paragraphs": [
+        "Zuordnungen: Belegen (3.1.2.2(5)/(6)) in Plan/Produkt; Text und Wirkung (3.1.5.1(5)–(9), 3.1.5.2(1)/(2)) in Werkstatt, Entwurf und Transfer; Bedienung (3.1.5.2(3)) tatsächlich am Gerät; Rechte (3.1.5.2(4)/(5)) in Lizenzkorrektur und echter Revision; Teilen (3.1.5.2(6)) an beiden Empfängerproben. Schulregeln/Zugangsschutz (3.1.1.1(1), 3.1.4.1(1)–(7)) an Kanal, Aushandlung, Vergleich und Zugangsschutz. Nur wenige passende Prozessziele je Phase fokussieren: Planen/Belegen, Austauschen/Überarbeiten, Darstellen/Reflektieren.",
+        "Prüfen Sie pro Person belegten Satz, selbst ausgeführte Operation und begründete Änderung. Gruppennote, Fortschrittsklick oder ausgefüllte Projektspur allein beweisen diese Kompetenzen nicht. Papier kann Planung und fachliche Beurteilung sichern; echte digitale Herstellung, Schulkanal und zweite Dateiübertragung bleiben bei Ausfall offen. Keine neue private M07-Reflexion; P56-04 gehört nur zum geschützten M06-Abruf.",
+        "Nach Erprobung knapp dokumentieren: Fassung/Schritt, tatsächliche Minuten, Hürde, genutzte Hilfe, Wirkung und noch offene Handlung; ohne Namen oder private Inhalte. Nächster Anschluss ist gezielte Nachsicherung oder Übergang zu Klasse 7, keine automatische Jahresfreigabe."
+      ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
+    }
+  ],
+  "briefing": [
+    "M07 führt zu einer kleinen gemeinsamen Informationskarte für Klasse fünf. Zwei Lernende verarbeiten die Pluto-Frage aus M02, gestalten selbst und überarbeiten nach echter Rückmeldung. Die Bibliothekskarte erklärt den Weg an einem anderen Thema.",
+    "Bereiten Sie eine ausgefüllte Werkzeugkarte vor. Prüfen Sie Schulkanal, zweiten digitalen Teilweg, Empfängergerät und Speicherort tatsächlich. Jede Person braucht eine eigene Bedienphase. Eine reale Ersatzperson sichert Rückmeldung bei Ausfall. Es werden keine privaten Konten oder Passwörter gebraucht.",
+    "Planen Sie 210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen und 30 Sicherung. Die zusätzlichen 30 Minuten für Aushandlung, Revision und zweiten Teilweg sind darin enthalten. Vier volle Schulstunden reichen für 210 Minuten nicht.",
+    "Vor dem Projekt sind 39 Minuten Wiederaufnahme aus früheren Reihen vorgesehen, verteilt auf zwei Termine. Weitere fünf M06-Minuten kommen an einem anderen Tag im Projekt hinzu. Zwei spätere M07-Termine brauchen je sechs Minuten. Diese Zeiten stammen aus dem vorhandenen Jahresabrufkonto.",
+    "Prüfen Sie nach zehn Produktionsminuten Satz, Beleg und Skizze. Bei bloßer Dekoration nach dem erklärten Zusammenhang fragen. Bei ungleichen Beiträgen die Bedienrolle wechseln. Eine sachliche Rückmeldung nennt Stelle, Wirkung und Vorschlag. Die Überarbeitung erhält die Erstfassung und zeigt eine echte Änderung sowie eine geklärte Rechteleiste.",
+    "Beim Teilen zählt das tatsächliche Öffnen beim Empfänger. Die lokale Vorstellung ergänzt den zweiten digitalen Übertragungsweg, ersetzt ihn aber nicht. Eine Lernwerk-Arbeitsdatei enthält keine extern erzeugte Informationskarte. Ohne Zugang bleiben digitale Handlungen offen und werden nachgeholt.",
+    "Lassen Sie jede Person ihren Satz und ihre Änderung erklären. Sichern Sie gemeinsam den Zusammenhang von Beleg, Gestaltung, Rechten, Rückmeldung und Zugriff. Persönliches aus der M06-Rechteprüfung bleibt geschützt. Halten Sie tatsächliche Zeiten und Hürden ohne Namen für die weitere Erprobung fest.",
+    "Für Papierarbeit legen Sie zusätzlich die sechs verlinkten Original-Abrufblätter bereit. Bei M02 verwenden Sie den Indexabruf vor M07. Das M06-Blatt wird am Zwischentermin nochmals gebraucht. Die Organisationsblätter enthalten die Zeitzuordnung, nicht die vollständigen alten Aufgaben.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
+  ]
+}
