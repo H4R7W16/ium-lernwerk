@@ -2,7 +2,7 @@
   "authorVersion": 2,
   "id": "IUM-6-M05-ALGORITHMEN",
   "grade": 6,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "family": "content",
   "toolKind": "drawing",
   "area": "algorithmen",
@@ -15,7 +15,7 @@
     "Heft oder Papier für deine Ablaufgrafik",
     "Grundidee einer Anweisung und einer festen Wiederholung"
   ],
-  "learnerDuration": "Ihr arbeitet in drei Unterrichtsstunden daran. Deine Lehrperson vereinbart die Etappen.",
+  "learnerDuration": "135 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
   "duration": "135 Kernminuten: 20 Orientierung/Erklärung, 30 angeleitete Übung, 35 eigenes Programm, 25 Rückmeldung/Revision, 25 Sicherung/Transfer. Davor 7 Minuten M04-Abruf; später je 7 M05-Minuten vor M06 und M07 aus dem Jahreskonto. 38 Jahres-UE K6 bleiben unbestätigt.",
   "workNotice": "Code, Vorhersagen und aufgenommene Spuren gehören zu deiner Arbeit. Sichere vor dem Schließen eine Arbeitsdatei unter „Deine Arbeit“. Deine Heftgrafik bleibt gesondert bei dir.",
   "preview": "band",
@@ -607,7 +607,7 @@
       "title": "Vorbereitung und Diagnose",
       "paragraphs": [
         "Zeichenwerkstatt auf den tatsächlichen Schulgeräten öffnen. Tastatur/Touch und Sichern/Wiederöffnen einer Arbeitsdatei prüfen. Kein Konto oder zusätzliches Programm nötig. Beim Offlineeinsatz Seiten vorher vollständig bereitstellen.",
-        "Vorab sieben Minuten M04-Abruf mit vorhandener Codetabelle: neue kurze Nachricht codieren und einen Zeichenwechsel erklären. Im Auftakt prüfen: Dreht rechts am Ort? Was steht innerhalb der Wiederholung? Bei fehlender Grundlage zwei Befehle mit einem Pfeil vormachen; den nächsten Zustand selbst erklären lassen. Mehrbedarf aus dem begrenzten Brückenkonto transparent verbuchen."
+        "Vorab R03: sieben Minuten M04-Abruf „Eindeutig und trotzdem falsch?“; feste Gruppen erklären, gültige Fehler unterscheiden und JA mit Tabelle codieren. Kein zusätzlicher Nachrichten-/Fehlerversuch. Im Auftakt prüfen: Dreht rechts am Ort? Was steht innerhalb der Wiederholung? Bei fehlender Grundlage zwei Befehle mit einem Pfeil vormachen; den nächsten Zustand selbst erklären lassen. Mehrbedarf aus dem begrenzten Brückenkonto transparent verbuchen."
       ]
     },
     {
@@ -647,6 +647,13 @@
         "Die 14 M05-Abrufminuten liegen als je sieben Minuten vor M06 und M07 mit zeitlichem Abstand. Die Aufträge stehen im letzten Lernschritt; Befehlskarte erlaubt, alte Lösungen zuerst geschlossen. Vollständig aus dem bestehenden 90-Minuten-Jahreskonto.",
         "M06 greift das Trennen von Beobachtung und Schlussfolgerung auf; M07 die nachvollziehbare Verbesserung eines Produkts. Bei fehlendem Abruf einen kurzen fremden Code schrittweise erklären lassen und den beobachteten Hilfebedarf nachsichern. 38 Jahres-UE für Klasse 6 bleiben unbestätigt."
       ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -657,6 +664,7 @@
     "Die dritte Stunde nutzt Rückmeldung und eine gezielte Änderung. Der erste Versuch bleibt erhalten. Die erwartete Wirkung wird vor dem neuen Lauf festgehalten und danach verglichen. Bereits richtige Programme erhalten eine begründete Variation. Ein neuer Fall mit einer Lücke und die gemeinsame fachliche Sicherung schließen die Reihe ab.",
     "Beobachten Sie die Verwechslung von Drehen und Bewegen, den Umfang der Klammergruppe und die Annahme, beendet bedeute richtig. Machen Sie bei Bedarf einen Schritt vor und lassen Sie den nächsten selbst erklären.",
     "Code und aufgenommene Spuren werden in einer Arbeitsdatei gesichert. Heftgrafiken bleiben getrennt. Papier ermöglicht Ablaufanalyse; eigene praktische Programmierung muss am Gerät stattfinden. Zeit und Schulgeräte sind noch nicht erprobt.",
-    "Vor den Reihen sechs und sieben folgen jeweils sieben Minuten Wiederaufnahme. Alte Lösungen bleiben zuerst geschlossen. Prüfen Sie an einem kleinen neuen Fall, was noch selbst erklärt werden kann, und unterstützen Sie gezielt."
+    "Vor den Reihen sechs und sieben folgen jeweils sieben Minuten Wiederaufnahme. Alte Lösungen bleiben zuerst geschlossen. Prüfen Sie an einem kleinen neuen Fall, was noch selbst erklärt werden kann, und unterstützen Sie gezielt.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
   ]
 }

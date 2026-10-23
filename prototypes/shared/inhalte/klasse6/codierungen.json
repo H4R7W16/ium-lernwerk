@@ -3,7 +3,7 @@
   "id": "IUM-6-M04-CODIERUNGEN",
   "area": "codierungen",
   "grade": 6,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "family": "content",
   "topic": "Codierungen",
   "title": "Welcher Code bringt die Nachricht ans Ziel?",
@@ -17,7 +17,7 @@
     "Zwei vollständige Übungsvorschriften dienen dem Anwenden und begründeten Vergleichen. Eigene Modelle, keine ASCII-, Unicode- oder Braille-Tabelle."
   ],
   "duration": "180 Kernminuten. Später 7 Minuten vor M05 und 7 vor M07 aus dem Jahresabrufkonto.",
-  "learnerDuration": "Vier Unterrichtsstunden. Die Tabelle bleibt dein Werkzeug. Zwei kurze Wiederholungen folgen in späteren Stunden.",
+  "learnerDuration": "180 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
   "workNotice": "Arbeite auf Papier oder in den Textfeldern. Bewahre Original und Revision auf. Die Lernwerk-Arbeitsdatei sichert Textantworten; Papierblätter bewahrst du selbst auf.",
   "curriculum": {
     "moduleId": "G6-M04",
@@ -1053,7 +1053,7 @@
           "id": "regeln",
           "title": "Eindeutig und trotzdem falsch?",
           "text": "Erkläre ohne Tabelle: Warum brauchen unsere Codes feste Gruppen und einen bekannten Anfang? Kann ein gültiger Code trotzdem eine falsche Nachricht liefern? Nenne ein Beispiel. Nutze danach die Tabelle, um JA mit Z und B zu codieren.",
-          "when": "Wenn deine Lehrperson diesen Teil aufruft: fünf Minuten selbst bearbeiten, dann zwei Minuten vergleichen und korrigieren.",
+          "when": "R03 vor M05, im Beispielplan UE 22: fünf Minuten selbst bearbeiten, dann zwei Minuten vergleichen und korrigieren. Nur diesen ersten Teil.",
           "prompt": "Meine Erklärung und neuer Code für JA.",
           "solution": "Feste Gruppen und bekannter Anfang ermöglichen eindeutige Aufteilung. Eine gültige Gruppe kann durch Fehler zu einer anderen gültigen Gruppe werden, etwa RAD → SAD. JA: Z 10 01; B 01010 00001. Bei fehlender Null eine Gruppe neu vollständig abschreiben und erklären."
         },
@@ -1062,7 +1062,7 @@
           "id": "wahl",
           "title": "Andere Grenze, andere Wahl?",
           "text": "Eine Nachricht hat sechs Zeichen aus unserer Tabelle, darunter ein Leerzeichen. Der Weg erlaubt nur 0/1 und höchstens 30 Stellen; Empfänger kennen Regeln und Beginn. Erkläre erst aus dem Gedächtnis, was zu prüfen ist. Entscheide mit den Gruppenlängen. Was ändert sich bei 29 Stellen? Welche Angabe fehlt für eine sichere Aussage zu Z?",
-          "when": "Wenn deine Lehrperson diesen Teil aufruft: fünf Minuten selbst bearbeiten, dann zwei Minuten vergleichen und korrigieren.",
+          "when": "R07 vor M07, im Beispielplan UE 30: fünf Minuten selbst bearbeiten, dann zwei Minuten vergleichen und korrigieren. Nur diesen zweiten Teil.",
           "prompt": "Bedingungen, Wahl und fehlende Angabe.",
           "solution": "Zeichen der ursprünglichen Nachricht, erlaubte Zeichen, Länge, Empfängerkenntnis und Anfang prüfen. B braucht 6×5=30 Stellen und passt genau. Mit 29 passt B nicht mehr. Z braucht zwölf Stellen, passt aber nur, wenn die konkrete Folge ausschließlich 0/1 enthält. A, J und Leerzeichen werden zu 01, 10 und 00. Deshalb muss man die konkreten Zeichen der ursprünglichen Nachricht erfragen. Bei Unsicherheit das JA-Beispiel erneut nachschlagen."
         }
@@ -1160,6 +1160,13 @@
         "Zweiter Abruf: konkreter Originaltext fehlt bewusst. A, J und Leerzeichen ergeben nur 0/1 auch im Z-Code; die tatsächliche Folge entscheidet. Nachfragen ist hier eine fachliche Leistung.",
         "Nach Erprobung ohne Namen notieren: Zeit, Gruppen-/Leerzeichenfehler, eigene Rückübersetzung, Codewahl und Hilfebedarf. Reale Schulgeräte, Bildschirmleser und physischer Druck sind gesondert zu prüfen."
       ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -1167,7 +1174,8 @@
     "Die Tabelle bleibt beim digitalen Arbeiten sichtbar oder aufklappbar. Für Papier zusätzlich das Nachschlageblatt bereitlegen. Die ersten Umwandlungen sind in einzelne Aufträge aufgeteilt. Bei der eigenen Nachricht wird das Original zugeklappt oder abgedeckt. Beide Rückübersetzungen werden vor dem Vergleich notiert.",
     "Vier Stunden: dreißig Minuten Einstieg und Regeln, vierzig Üben und Grenzen, fünfzig eigene Nachricht und Fehleruntersuchung, dreißig Codewahl und Revision, dreißig Transfer und Sicherung. Dies ist weiterhin eine ungeprüfte Zeitannahme. Beobachten Sie die tatsächliche Arbeit und prüfen Sie eine neue Zuordnung mündlich.",
     "Beim Fehler wird eine selbst gewählte Stelle geändert und untersucht. Keine Vorhersage ohne Grundlage verlangen. Kontrastfälle zeigen gültig, aber verändert und nicht vergeben. Ohne Original bleibt eine sichere Korrektur oft offen. Bei der Codewahl zählen erlaubte Zeichen und verfügbare Plätze gemeinsam.",
-    "Je sieben Minuten Abruf vor M fünf und M sieben aus dem Jahreskonto. Der zweite Abruf enthält bewusst eine fehlende Angabe. Den Zugang am Sporthallenschild anhand tatsächlich erhöhter Punkte und bekannter Schrift erklären; das Bildschirmbild ist kein taktiler Nachweis."
+    "Je sieben Minuten Abruf vor M fünf und M sieben aus dem Jahreskonto. Der zweite Abruf enthält bewusst eine fehlende Angabe. Den Zugang am Sporthallenschild anhand tatsächlich erhöhter Punkte und bekannter Schrift erklären; das Bildschirmbild ist kein taktiler Nachweis.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
   ],
   "toolKind": "coding"
 }

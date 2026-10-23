@@ -3,7 +3,7 @@
   "id": "IUM-6-M03-WERBUNG",
   "area": "werbung",
   "grade": 6,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "family": "content",
   "topic": "Werbung und Daten",
   "title": "Warum sehe ich diese Werbung?",
@@ -18,7 +18,7 @@
     "M03 verbindet Werbeerkennung, Datenwege und Interessen mit eigener Gestaltung. Öffentlich beurteilt wird der neutrale Fall. Der eigene schulische Bezug bleibt privat; seine Durchführung ist keine von außen belegte Kompetenz."
   ],
   "duration": "210 Kernminuten. Vorab 8 Minuten M02-Abruf; später zweimal 6 Minuten M03-Abruf aus dem Jahreskonto.",
-  "learnerDuration": "Vier Unterrichtsstunden und weitere 30 Minuten. Arbeite an kleinen Produkten; sichere Entwurf und Überarbeitung. Zwei kurze Erinnerungsaufgaben folgen erst später.",
+  "learnerDuration": "210 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
   "workNotice": "Die Werbekarte entsteht im freigegebenen Schreibwerkzeug, das Datenbild auf Papier oder dort. Sichere diese Produkte selbst. Die Lernwerk-Arbeitsdatei enthält nur deine öffentlichen Antworten; persönliche Reflexion bleibt getrennt.",
   "curriculum": {
     "moduleId": "G6-M03",
@@ -1116,6 +1116,13 @@
         "M03 vor M06 sechs Minuten zu Datenentscheidung und Metadaten, vor M07 sechs Minuten zu Auswahl und Gestaltung wieder aufgreifen. Zusammen zwölf aus M03s Anteil am 90-Minuten-Jahreskonto; M01- und M02-Abrufe vor M07 bleiben getrennt. 38 UE für Klasse 6 sind unbestätigt.",
         "Nach Erprobung ohne Namen notieren: Zeitbedarf, häufigste Begriffsverwechslung, tatsächliche Softwarehandlung, Qualität eines veränderten Transferfalls und nötige nächste Unterstützung. Keine Unterrichtserprobung oder sichere Lernwirkung aus dieser Produktionsprüfung ableiten."
       ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -1123,6 +1130,7 @@
     "Prüfen Sie vorher das erlaubte Schreibwerkzeug, eine einfache Formfunktion und das Wiederöffnen am Schulgerät. Tragen Sie die Wege in die Werkzeugkarte ein. Es werden keine privaten Konten, echten Feeds oder persönlichen Trackingversuche gebraucht. Papier ermöglicht Analyse und Planung; fehlende digitale Bedienhandlungen werden gesondert nachgeholt.",
     "Der Verlauf umfasst dreißig Minuten Orientierung, vierzig Minuten Daten und Modell, fünfzig Minuten Datenbild und eigene Gestaltung, dreißig Minuten Revision, dreißig Minuten geschützten Eigenbezug und dreißig Minuten Transfer mit Sicherung. Halten Sie das Gestaltungsprodukt klein und beobachten Sie bei jeder Person eine echte Änderung.",
     "Achten Sie auf drei Verwechslungen: Metadaten können personenbezogen sein. Die Kennung im Browser ist nicht die Besuchsliste beim Anbieter. Die sichtbare Anzeige beweist keine unbekannte Auswahlregel. Bei abgeschriebener Lösung verändern Sie eine Bedingung und lassen die Erklärung erneut geben. Rückmeldung nennt Stelle, Kriterium und nächste Handlung.",
-    "Öffentlich bleiben der neutrale Datenfall, die Produkte und ihre Überarbeitung. Die eigene schulische Datenentscheidung wird privat reflektiert, ohne Abgabe und ohne Kompetenzfreigabe durch Selbsthaken. Eine harmlose Entscheidung zum eigenen Lernprodukt ist ein möglicher eigener Bezug. Zwölf spätere Abrufminuten sind auf M sechs und M sieben verteilt; das Jahresbudget ist noch nicht bestätigt."
+    "Öffentlich bleiben der neutrale Datenfall, die Produkte und ihre Überarbeitung. Die eigene schulische Datenentscheidung wird privat reflektiert, ohne Abgabe und ohne Kompetenzfreigabe durch Selbsthaken. Eine harmlose Entscheidung zum eigenen Lernprodukt ist ein möglicher eigener Bezug. Zwölf spätere Abrufminuten sind auf M sechs und M sieben verteilt; das Jahresbudget ist noch nicht bestätigt.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
   ]
 }

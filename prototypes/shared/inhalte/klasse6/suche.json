@@ -3,7 +3,7 @@
   "id": "IUM-6-M02-SUCHE",
   "area": "suche",
   "grade": 6,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "family": "content",
   "topic": "Suchen und Quellen prüfen",
   "title": "Acht oder neun – was ist belegt?",
@@ -18,7 +18,7 @@
     "Lassen Sie erst selbst vermuten und begründen. Offene Vergleichslösungen dienen der Überarbeitung; abgeschriebene Lösungen belegen kein eigenständiges Können. Echte Recherche und schriftliche Quellenprüfung getrennt dokumentieren."
   ],
   "duration": "225 Kernminuten = fünf UE. Vorher 6 Minuten M01-Abruf aus dem Jahreskonto. M02 später 8 Minuten vor M03 und 8 Minuten vor M07 aus seinem 16-Minuten-Anteil. Jahreszeit Klasse 6 unbestätigt.",
-  "learnerDuration": "Fünf Unterrichtsstunden. Zu Beginn erinnerst du dich kurz an M01; zwei kurze Wiederaufnahmen folgen später.",
+  "learnerDuration": "225 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
   "curriculum": {
     "moduleId": "G6-M02",
     "goalIds": [
@@ -267,7 +267,7 @@
       "id": "bruecke",
       "title": "Kurz zurück zu M01",
       "goal": "Erinnere dich ohne Nachlesen: Was beweist ein möglicher Weg im Netz?",
-      "task": "Erinnere dich ohne Nachlesen: Was beweist ein möglicher Weg im Netz?",
+      "task": "Nur wenn die Lehrperson diese Alternative wählt: erinnere dich an Weg und tatsächliche Antwort. Den M01-Abruf heute nicht doppelt bearbeiten.",
       "outcome": "Ich trenne erreichbaren Weg und tatsächliche Antwort.",
       "knowledge": [
         "suchgrenze"
@@ -277,11 +277,26 @@
       ],
       "blocks": [
         {
+          "type": "explanation",
+          "title": "Ein Termin, ein Abruf",
+          "text": "Im Jahresplan ist R01 aus M01 vorgesehen. Wenn du „Vor M02 · 6 Minuten“ dort schon bearbeitet hast, gehe direkt zum nächsten Schritt. Die Lehrperson kann stattdessen den Gerätefall unten wählen: dieselben sechs Minuten, kein zusätzlicher Auftrag.",
+          "links": [
+            {
+              "href": "../netze/schritt-erinnern.html#recall-erinnern-netz",
+              "label": "R01: ursprünglicher M01-Abruf"
+            },
+            {
+              "href": "schritt-einstieg.html",
+              "label": "Nach einem der beiden Abrufe: mit M02 beginnen"
+            }
+          ]
+        },
+        {
           "type": "retrieval",
           "title": "6 Minuten vor M02",
           "text": "Ein Gerät hat im Modell einen Weg zum Schulserver. Trotzdem lässt sich eine Datei nicht öffnen.",
           "id": "m01",
-          "when": "Zu Beginn von M02; 6 Minuten aus M01s Jahresabrufkonto, außerhalb der 225 Minuten.",
+          "when": "Alternative zu R01: genau 6 Minuten aus M01s Jahresabrufkonto, außerhalb der 225 Kernminuten; nur einen der beiden Aufträge bearbeiten.",
           "prompt": "Nenne zwei mögliche Gründe. Welche reale Prüfung hilft dir, einen davon zu klären?",
           "solution": "Ein erreichbarer Weg genügt nicht: Dienst, Datei, Berechtigung oder Anmeldung können fehlen. Zum Beispiel die erlaubte Datei aus dem angegebenen Schulordner tatsächlich öffnen und die angezeigte Meldung festhalten. Ein Modell bestätigt keinen echten Zugriff.",
           "links": [
@@ -1098,7 +1113,7 @@
       "paragraphs": [
         "Prüfen Sie auf den tatsächlich eingesetzten Schulgeräten den erlaubten Browser/Suchdienst und den Zugriff auf die verlinkten NASA-/IAU-Seiten. Die Texte sind kurz übersetzt; englische Originale dienen der Fundstellenprüfung, nicht einem Englischtest. Erklären Sie die Wörter planet, dwarf planet und resolution bei Bedarf. Kein privates Konto, keine Installation.",
         "Einzelmaterialien können digital oder auf Papier bearbeitet werden. Für das Indexmodell genügen die vier gedruckten Kartentexte und ein selbst geführtes Register. Bei Netzausfall mit den lokalen Quellenauszügen weiterarbeiten, die echte Suchprobe aber als offen festhalten und einen Geräteblock nachholen.",
-        "Beginnen Sie mit 6 Minuten M01-Abruf. Dieser stammt aus dem Jahresabrufkonto, nicht aus M02s Kernzeit. Vorwissen zu Planeten nur als Vermutung sammeln; niemand muss die Planetenliste kennen."
+        "Beginnen Sie mit R01 im M01-Abrufschritt: Weg K–R–L und nicht bereiter Dienst. Der Gerätefall auf M02s Brückenseite ist eine Alternative innerhalb derselben sechs Minuten, keine zweite Pflichtaufgabe. Vorwissen zu Planeten nur als Vermutung sammeln; niemand muss die Planetenliste kennen."
       ]
     },
     {
@@ -1160,6 +1175,13 @@
         "Produktionsauftrag: „Schreibe vier kurze nummerierte Sätze für eine Quellenprüfübung zu Pluto. Gib einen nützlichen Suchvorschlag. Baue absichtlich die Fehlschlüsse ein, ein alter NASA-Bericht gelte unverändert heute, viele Kopien seien unabhängige Belege und ein später Abruf mache einen Text aktuell. Behaupte keine tatsächlich ausgeführte Websuche.“",
         "Der genaue Produktionsauftrag steht nur hier, weil seine Aufzählung der Fehler sonst die Belegprüfung der Lernenden vorwegnehmen würde. Die Lernendenseite kennzeichnet die absichtlichen Fehler und die Herkunftsart weiterhin transparent."
       ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -1167,6 +1189,7 @@
     "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister und prüfen die Folgen einer Dokumentänderung vor und nach dessen Aktualisierung. Es folgen echte Quellen und eine echte Browserrecherche. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
     "Die Stunde zu Interessen unterscheidet Verkaufsziel und Wahrheitsgehalt sowie Erzeugen, Veröffentlichen und Weiterverbreiten. Der vorbereitete KI-Text enthält absichtlich Fehler. Lassen Sie einzelne Aussagen an Belegen korrigieren und zugleich die brauchbare Suchanregung erkennen.",
     "Zum Schluss werden Rückmeldung und Revision sichtbar. Im neuen Bibliotheksfall zählt die passende Einrichtung und Geltungszeit; das neueste Datum genügt nicht. Verlangen Sie Begründungen, keine abgeschriebenen Muster. Lassen Sie eine mündliche Erklärung zu, wenn die Schreiblast den fachlichen Nachweis verdeckt.",
-    "Die Wiederaufnahmen liegen vor M03 und M07, jeweils acht Minuten aus M02s Jahresanteil. Halten Sie Hilfen und offene Praxisnachweise fest. Die geplanten 38 Jahresstunden sind für Klasse 6 weiterhin unbestätigt."
+    "Die Wiederaufnahmen liegen vor M03 und M07, jeweils acht Minuten aus M02s Jahresanteil. Halten Sie Hilfen und offene Praxisnachweise fest. Die geplanten 38 Jahresstunden sind für Klasse 6 weiterhin unbestätigt.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
   ]
 }

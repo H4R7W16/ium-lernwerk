@@ -3,7 +3,7 @@
   "id": "IUM-6-M06-KOMMUNIKATION",
   "area": "kommunikation",
   "grade": 6,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "family": "content",
   "topic": "Kommunikationsräume",
   "title": "Wer liest mit? Was folgt daraus?",
@@ -18,7 +18,7 @@
     "M06 verbindet eine abgewogene Entscheidung mit tatsächlich ausgeführter Kommunikation. Das neutrale Fallurteil, der reale Austausch und die geschützte eigene Rechteprüfung werden getrennt betrachtet. Keine persönlichen Konflikte nachspielen lassen."
   ],
   "duration": "165 Kernminuten: 20 Orientierung, 30 Anleitung, 35 Anwendung, 25 Rückmeldung/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor 6 Minuten M03 und 7 Minuten M05; später zweimal 5 Minuten M06 aus den vorhandenen Abrufkonten.",
-  "learnerDuration": "Drei Unterrichtsstunden und weitere 30 Minuten. Die Lehrperson plant kurze Erinnerungsaufgaben davor und in späteren Stunden ein.",
+  "learnerDuration": "165 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
   "workNotice": "Die Lernwerk-Arbeitsdatei sichert öffentliche Antworten. Nachrichten im Schulwerkzeug sicherst du nach der Schulregel getrennt. Persönliche Gedanken gehören nicht in die Arbeitsdatei.",
   "curriculum": {
     "moduleId": "G6-M06",
@@ -843,6 +843,13 @@
         "Schulwegkarte herunterladen oder ihren Druckinhalt ausgeben. Ohne Netz sind alle Fall- und Wissensinformationen lokal vorhanden; die Originalquellen dienen der Nachprüfung durch Lehrpersonen. Ohne digitalen Schulzugang Nachricht mit realer Person auf Papier austauschen und digitalen Schritt terminieren. Private Anweisungen stehen auf Papier, das private Bildschirmfeld wird nicht gedruckt.",
         "M05-Anschluss: Wirkung nicht allein am Ergebnis beurteilen; eigene Erklärung und Revision sichtbar halten. Recherche-Anschluss: Behauptung, Beleg und Grenze unterscheiden, direkte Hilfe an der Hürde. M07 übernimmt begründete Auswahl von Zielgruppe/Teilweg, Rechteprüfung und tatsächliche Rückmeldung. Redaktionelle Sichtung ersetzt keine Unterrichtserprobung."
       ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -851,6 +858,7 @@
     "Planen Sie 165 Kernminuten: 20 Modell, 30 Vergleich, 35 Entscheidung/Nachricht, 25 Austausch/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor sechs Minuten M03 und sieben M05 aus bestehenden Konten. Später zweimal fünf M06-Minuten an getrennten Terminen vor/in M07.",
     "Achten Sie auf fallbezogene Gewichtung, mögliche statt unterstellte Gefühle, Identitätsprüfung und Unterstützung ohne Schuldzuweisung. „Geschlossen“ verhindert nicht jede Kopie. Ein öffentlicher Aufruf kann je nach Zweck begründet sein.",
     "Prüfen Sie Urteil, tatsächlichen Austausch und privaten Eigenbezug getrennt. Eine Notiz beweist keinen Versand; ein Haken beweist keine Reflexionsqualität. Ohne Schulzugang Papierdialog durchführen, digitale Handlung offen lassen und nachholen. Die vollständige Kommunikation braucht reale Personen.",
-    "Sichern Sie erste und zweite Fassung sowie die sachliche Rückmeldung. Persönliche Gedanken oder Hilfeanliegen nicht einsammeln. Beobachtete Hürden mit Fassung/Schritt und ohne Namen für die Erprobung festhalten."
+    "Sichern Sie erste und zweite Fassung sowie die sachliche Rückmeldung. Persönliche Gedanken oder Hilfeanliegen nicht einsammeln. Beobachtete Hürden mit Fassung/Schritt und ohne Namen für die Erprobung festhalten.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
   ]
 }

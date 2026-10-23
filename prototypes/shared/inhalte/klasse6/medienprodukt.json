@@ -3,7 +3,7 @@
   "id": "IUM-6-M07-MEDIENPRODUKT",
   "area": "medienprodukt",
   "grade": 6,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "family": "content",
   "topic": "Ein gemeinsames Medienprodukt",
   "title": "Aus Wissen wird eine verständliche Karte.",
@@ -18,7 +18,7 @@
     "M07 verbindet belegte Information, eigene digitale Gestaltung und tatsächliche Kooperation. Gruppenergebnis, individueller Beitrag und ausgeführte Teilwege getrennt prüfen. Die Lernwerk-Arbeitsdatei enthält keine extern erstellte Produktdatei."
   ],
   "duration": "210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen, 30 Transfer/Sicherung. 39 Abrufminuten vorher, 5 M06-Minuten währenddessen und 12 M07-Minuten später aus dem vorhandenen Jahreskonto.",
-  "learnerDuration": "Die sieben Projektphasen dauern zusammen 210 Minuten. Die kurzen Wiederaufnahmen verteilt eure Lehrperson auf andere Termine.",
+  "learnerDuration": "210 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
   "workNotice": "Sichere deine Produktdateien und die Lernwerk-Notizen getrennt. Ein ausgefülltes Feld oder Haken beweist weder Herstellung noch Austausch. Auf Papier bleiben deine Notizen bei dir; digitale Handlungen werden gesondert ausgeführt.",
   "curriculum": {
     "moduleId": "G6-M07",
@@ -268,31 +268,35 @@
         {
           "type": "explanation",
           "title": "Zwei kurze Termine vor dem Projekt",
-          "text": "Beginne jeweils ohne Altlösung. Erst nach deinem Versuch öffnest du die dortige Vergleichshilfe. Die Lehrperson teilt die 39 Minuten auf: Termin A 20 Minuten (M01 6, M04 7, M05 7), Termin B 19 Minuten (M02 8, M03 6, M06 5). Das ist Jahresabrufzeit, keine der 210 Projektminuten.",
+          "text": "Beginne jeweils ohne Altlösung. Erst nach deinem Versuch öffnest du die dortige Vergleichshilfe. Im Jahresplan UE 30: R06 M01 „Vor M07“ 6 Minuten, R07 M04 „Andere Grenze“ 7, R08 M05 „fehlende Linie“ 7. In UE 31: R09 M02 „veraltetes Register“ 8, R10 M03 „Warum diese Anzeige?“ 6, R11 M06 „Zweck vor Reichweite“ 5. Nur diese Teile bearbeiten; sie ergeben 20+19=39 Minuten aus dem Jahresabrufkonto, keine Projektkernzeit.",
           "links": [
             {
               "label": "M01 · sechs Minuten",
-              "href": "../netze/schritt-erinnern.html"
+              "href": "../netze/schritt-erinnern.html#recall-erinnern-speicher"
             },
             {
               "label": "M04 · sieben Minuten",
-              "href": "../codierungen/schritt-abruf.html"
+              "href": "../codierungen/schritt-abruf.html#recall-abruf-wahl"
             },
             {
               "label": "M05 · sieben Minuten",
-              "href": "../algorithmen/schritt-abruf.html"
+              "href": "../algorithmen/schritt-abruf.html#recall-abruf-vor-m07"
             },
             {
               "label": "M02 · acht Minuten Index-/KI-Abruf",
-              "href": "../suche/schritt-abruf-index.html"
+              "href": "../suche/schritt-abruf-index.html#recall-abruf-index-abruf"
             },
             {
               "label": "M03 · sechs Minuten",
-              "href": "../werbung/schritt-abruf.html"
+              "href": "../werbung/schritt-abruf.html#recall-abruf-auswahl"
             },
             {
               "label": "M06 · fünf Minuten, erste Wiederaufnahme",
-              "href": "../kommunikation/schritt-abruf.html"
+              "href": "../kommunikation/schritt-abruf.html#recall-abruf-weg"
+            },
+            {
+              "href": "../wiederholen.html",
+              "label": "Genaue Teilaufträge und Rückwege im Abrufregister"
             }
           ]
         },
@@ -793,7 +797,7 @@
           "links": [
             {
               "label": "M06 · zweite Wiederaufnahme",
-              "href": "../kommunikation/schritt-abruf.html"
+              "href": "../kommunikation/schritt-abruf.html#recall-abruf-hilfe"
             },
             {
               "label": "M06 · vollständiges Abrufblatt für Papier",
@@ -913,7 +917,7 @@
       "title": "Verlauf: 210 Kernminuten, kein Vierstundenversprechen",
       "paragraphs": [
         "Auftrag/Modell 20 Minuten (5 Anlass, 10 vollständiges anderes Beispiel, 5 Wirkung); Werkstatt 30 (5 Begriffe, 15 eigene Bedienprobe, 10 Lizenzkorrektur); Entwurf 55 (15 Plan/Beleg, 30 Herstellung mit Kontrolle nach zehn Produktionsminuten und Rollenwechsel, 10 Lese-/Rechtekontrolle/Sicherung); Austausch 25 (15 echter Schulkanal und Rückmeldung, 10 Aushandlung); Revision 30 (20 Produktänderung, 10 Rechtekorrektur/Export); Teilen 20 (10 finale Fassung im Schulkanal, 10 anderer Teilweg); Sichern 30 (15 lokale Vorstellung/individueller Nachweis, 10 veränderter Transfer, 5 gemeinsame Sicherung). Die 30 zusätzlichen Übungsminuten sind enthalten.",
-        "210 Minuten sind vier 45-Minuten-Einheiten plus 30 Minuten. Möglich: Termin 1 Auftrag20/Werkstatt25; Termin 2 Werkstatt5/Entwurf40; Termin 3 Entwurf15/Austausch25/Revision5; Termin 4 Revision25/Teilen20; Termin 5 Sichern30. Die zusätzlich budgetierten M06-Abrufminuten liegen an einem anderen Tag im Verlauf, zum Beispiel vor Termin 4; dort werden insgesamt 50 Minuten benötigt oder die restlichen fünf bewusst weitergeschoben. Keine beleglose Zusage von vier Schulstunden."
+        "Im gemeinsamen Jahresplan liegen die 210 Kernminuten in UE 32–36:45+45+40+45+35. Vor den 40 Kernminuten in UE 34 stehen die fünf M06-Abrufminuten; dadurch bleibt dieser Termin bei 45 Minuten. In UE 36 kommen 10 Organisationsminuten hinzu. R13/R14 folgen in UE 37/38 an späteren, verschiedenen Unterrichtstagen. Die frühere isolierte Vierstundenfolge wird nicht zusätzlich gezählt."
       ]
     },
     {
@@ -946,6 +950,13 @@
         "Prüfen Sie pro Person belegten Satz, selbst ausgeführte Operation und begründete Änderung. Gruppennote, Fortschrittsklick oder ausgefüllte Projektspur allein beweisen diese Kompetenzen nicht. Papier kann Planung und fachliche Beurteilung sichern; echte digitale Herstellung, Schulkanal und zweite Dateiübertragung bleiben bei Ausfall offen. Keine neue private M07-Reflexion; P56-04 gehört nur zum geschützten M06-Abruf.",
         "Nach Erprobung knapp dokumentieren: Fassung/Schritt, tatsächliche Minuten, Hürde, genutzte Hilfe, Wirkung und noch offene Handlung; ohne Namen oder private Inhalte. Nächster Anschluss ist gezielte Nachsicherung oder Übergang zu Klasse 7, keine automatische Jahresfreigabe."
       ]
+    },
+    {
+      "title": "Jahrgangsreview: Kernzeit und Kalendertermine",
+      "paragraphs": [
+        "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
+        "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -956,6 +967,7 @@
     "Prüfen Sie nach zehn Produktionsminuten Satz, Beleg und Skizze. Bei bloßer Dekoration nach dem erklärten Zusammenhang fragen. Bei ungleichen Beiträgen die Bedienrolle wechseln. Eine sachliche Rückmeldung nennt Stelle, Wirkung und Vorschlag. Die Überarbeitung erhält die Erstfassung und zeigt eine echte Änderung sowie eine geklärte Rechteleiste.",
     "Beim Teilen zählt das tatsächliche Öffnen beim Empfänger. Die lokale Vorstellung ergänzt den zweiten digitalen Übertragungsweg, ersetzt ihn aber nicht. Eine Lernwerk-Arbeitsdatei enthält keine extern erzeugte Informationskarte. Ohne Zugang bleiben digitale Handlungen offen und werden nachgeholt.",
     "Lassen Sie jede Person ihren Satz und ihre Änderung erklären. Sichern Sie gemeinsam den Zusammenhang von Beleg, Gestaltung, Rechten, Rückmeldung und Zugriff. Persönliches aus der M06-Rechteprüfung bleibt geschützt. Halten Sie tatsächliche Zeiten und Hürden ohne Namen für die weitere Erprobung fest.",
-    "Für Papierarbeit legen Sie zusätzlich die sechs verlinkten Original-Abrufblätter bereit. Bei M02 verwenden Sie den Indexabruf vor M07. Das M06-Blatt wird am Zwischentermin nochmals gebraucht. Die Organisationsblätter enthalten die Zeitzuordnung, nicht die vollständigen alten Aufgaben."
+    "Für Papierarbeit legen Sie zusätzlich die sechs verlinkten Original-Abrufblätter bereit. Bei M02 verwenden Sie den Indexabruf vor M07. Das M06-Blatt wird am Zwischentermin nochmals gebraucht. Die Organisationsblätter enthalten die Zeitzuordnung, nicht die vollständigen alten Aufgaben.",
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
   ]
 }
