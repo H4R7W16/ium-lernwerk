@@ -1,0 +1,179 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-1-3-4 - Lehrpersonenfassung · IuM 7</title><link rel="stylesheet" href="../stil.css"></head><body><header><nav aria-label="Materialnavigation"><a href="../index.html">Programmierbogen</a><a href="../lernende/alg-1.html">ALG-1</a><a href="../lernende/alg-2.html">ALG-2</a><a href="../lernende/alg-3.html">ALG-3</a><a href="../lernende/alg-4.html">ALG-4</a><a href="../lernende/alg-5.html">ALG-5</a><a href="../lernende/alg-6.html">ALG-6</a><a href="../snap/index.html" target="_blank" rel="noopener">Snap! öffnen ↗</a></nav></header><main><h1>ALG-1, ALG-3 und ALG-4 · Lehrpersonenfassung</h1><p>Lehrpersonenmaterial: Lösungen erst nach dem eigenen Versuch zeigen. Öffentliche Ordner sind nicht zugriffsgeschützt.</p><p><a class="download" href="ALG-3-Beispielloesung.xml" download>ALG-3 · Lehrbeispiel</a><a class="download" href="ALG-4-Repariert.xml" download>ALG-4 · Lehrbeispiel</a><a class="download" href="ALG-5-Beispielloesung.xml" download>ALG-5 · Lehrbeispiel</a><a class="download" href="ALG-6-Repariert.xml" download>ALG-6 · Lehrbeispiel</a></p><p class="note">Bereitstellung für die Safari-Erprobung: Alle sechs Aufgaben und Projekte liegen in diesem Bereich. Der Snap!-Editor ist die mitgelieferte Version 12.3.6 unter <a href="../snap/index.html">Snap! öffnen</a>. Cloudanmeldung ist abgeschaltet; die Analyseinitialisierung des Originalstarts wurde entfernt. Die Verbindungsrichtlinie erlaubt Ressourcen desselben Ursprungs. Das ist noch kein Nachweis des tatsächlichen Verbindungs- oder Offlineverhaltens. Ältere Bereitstellungsangaben in den übernommenen Planungsnotizen beschreiben den Produktionsverlauf.</p><p><a href="safari-test.html">Safari-Prüfauftrag</a> · <a href="durchfuehrung-134.html">ALG-1/3/4</a> · <a href="durchfuehrung-256.html">ALG-2/5/6</a> · <a href="sicherung.html">Sicherung</a> · <a href="hoerbriefing.html">Briefing</a> · <a href="jahrgang.html">Jahrgangsbrief</a></p>
+<p>Fassung 1.0 · 24.10.2026 · Ergänzung des bestehenden Programmierpakets. <strong>Textlich und rechnerisch vorbereitete Entwürfe; neue XML-Dateien und HTML-Ansichten sind noch nicht praktisch geprüft.</strong> Safari über die GitHub Page ist nach Jans Entscheidung der primäre spätere Testweg. Keine Veröffentlichung in diesem Arbeitsschritt.</p>
+<h2>Einordnung und Vorbereitung</h2>
+<p>Diese drei Aufgaben ergänzen 195 Minuten. Zusammen mit <a href="durchfuehrung-256.html">ALG-2-5-6 - Lehrpersonenfassung</a> sind alle sechs Aufgaben innerhalb der vorgesehenen 405 Minuten konkretisiert: <strong>45 + 60 + 75 + 75 + 90 + 60 = 405 Minuten = 9 UE</strong>. Die Jahresplanung bleibt bei 36 UE. ALG-1 ist Wiederaufnahme mit Beobachtungsfunktion, keine zusätzliche Eingangsdiagnose. Die ganze Reihe bleibt in der Reihenfolge ALG-1 bis ALG-6; ALG-3 und ALG-4 werden vor ALG-5 unterrichtet.</p>
+<p>Aufgabenbasis: die Aufgabenverträge und Kompetenzmatrix des 2026-09-23 - Didaktisches Inhaltsmapping IuM 7-8. ALG-1/3/4 bereiten dort die Implementierung in ALG-5 sowie Analyse und Ablaufdarstellung in ALG-6 vor. Sie werden durch diese Materialproduktion nicht als bereits durchgeführte oder abschließend nachgewiesene Kompetenzen markiert.</p>
+<p>Vorbereitung: <a href="umgebung.html">Programmierumgebung - Snap und Reihenanschluss</a>, vorbereitete Projektdateien, vereinbarter Ablageort, ein Dokument/Heft für Vorhersagen und grafische Pläne. Keine neuen Konten, eigenen Variablen, Funktionen oder Erweiterungen nötig. Alle Beispiele sind eigene Unterrichtskonstruktionen mit einem Pfeil auf der x-Achse. Positive Bewegung bei Richtung 90 ist eine Modellannahme; keine Zusage über reale Robotik.</p>
+<p>Primäre Ausgabe: digitales Material mit XML-Downloads. Es gibt keine zweite vollständige Arbeitsblattstruktur. Notizen und grafische Pläne dürfen auf Papier entstehen. Lehrlösungen erst nach eigenem Versuch zeigen; der Lehrpersonenordner ist kein Zugriffsschutz. Das öffentliche Verteilen eines ganzen Ordners kann die Lösungen zugänglich machen.</p>
+<h2>ALG-1 · feste Wiederholung · 45 Minuten</h2>
+<p>Lernendenfassung: <a href="../lernende/alg-1.html">ALG-1 - Was bleibt gleich was steuert den Ablauf</a>. Start: <code>projekte/ALG-1-Start.xml</code>. Zwei getrennte, anklickbare Stapel ohne Ereignisblock verhindern einen unbeabsichtigten gleichzeitigen Start. Nicht beide gleichzeitig anklicken. Jeder Stapel stellt x = 0, y = 0 und Richtung 90 selbst her.</p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th align="right">Minuten</th>
+<th>Handlung und Beobachtung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Erklärung</td>
+<td align="right">10</td>
+<td>Anweisungsfolge, Klammerreichweite, feste Anzahl an einem kleinen Beispiel klären; Erstvorhersage erhalten.</td>
+</tr>
+<tr>
+<td>Gelenkte Übung</td>
+<td align="right">10</td>
+<td>A vorhersagen, einzeln ausführen, Spur abgleichen; eine Meldung außerhalb der Schleife erklären.</td>
+</tr>
+<tr>
+<td>Eigene Anwendung</td>
+<td align="right">15</td>
+<td>B vorhersagen und prüfen, Plan zeichnen; A auf 4 × 5 ändern, vorher begründen.</td>
+</tr>
+<tr>
+<td>Rückmeldung/Revision</td>
+<td align="right">10</td>
+<td>Spur und Plan konkret abgleichen; neuen B-Fall prüfen, begründet nacharbeiten, XML sichern.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Erwartung:</strong> A: 0 → 10 → 20 → 30; drei Bewegungen, eine Meldung <code>Ende</code>. B: 0 → 10 → 15 → 20; zuerst eine einzelne Bewegung, dann zwei Schleifendurchläufe, eine Meldung. Geändertes A: 0 → 5 → 10 → 15 → 20. Neuer B-Fall mit 3 × 5: 0 → 10 → 15 → 20 → 25. Derselbe Endort von geändertem A und ursprünglichem B beweist keine gleiche Laufspur.</p>
+<p><strong>Kommentierter Plan B:</strong> Start → Ort/Richtung herstellen → 10 Schritte → zweimal [5 Schritte] → <code>Ende</code> sagen → Ende. Die feste Anzahl gehört an die Schleife, der einzelne Zehnerschritt liegt davor. Ein ausgeschriebener Plan mit zwei einzelnen Fünferschritten ist als erste Stütze zulässig; für den Nachweis die feste Wiederholung sichtbar zusammenfassen.</p>
+<p><strong>Steuerung:</strong> Werden alle Bewegungen pauschal multipliziert, zunächst Klammer markieren und B ausschreiben lassen. Stimmt nur der Endwert, aber nicht die Spur, nach jeder Bewegung fragen. Schwierigkeiten beim Anklicken getrennt als Bedienhilfe erfassen. Bei Lücken aus Klasse 5/6 das reservierte Unterstützungskonto nutzen; keine stillschweigende Verlängerung der 45 Minuten.</p>
+<h2>ALG-3 · Verzweigung und Grenzwert · 75 Minuten</h2>
+<p>Lernendenfassung: <a href="../lernende/alg-3.html">ALG-3 - Ein Programm entscheidet</a>. Start: <code>projekte/ALG-3-Start.xml</code>. Die Verzweigung liegt lose neben dem Flaggenstapel. Erster Zweig: <code>sage Bereich A</code>; zweiter Zweig leer. Vervollständigen und unter den Startstapel hängen. Das Startfeld x ist die Eingabe, 40 in der Bedingung die Schwelle. Beides nicht gleichzeitig verändern.</p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th align="right">Minuten</th>
+<th>Handlung und Beobachtung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Erklärung</td>
+<td align="right">15</td>
+<td>Bedingungen bei 30/40/50 vergleichen; Wahrheitswert und Zweigentscheidung unterscheiden.</td>
+</tr>
+<tr>
+<td>Gelenkte Übung</td>
+<td align="right">15</td>
+<td>Leeren Zweig ergänzen, an Start anschließen, 40 und 30 vorhersagen und prüfen.</td>
+</tr>
+<tr>
+<td>Eigene Anwendung</td>
+<td align="right">30</td>
+<td>Schwelle 60/80, eigene Meldungen, Plan, drei Tests; Export und Wiederimport des Grenzfalls.</td>
+</tr>
+<tr>
+<td>Rückmeldung/Revision</td>
+<td align="right">15</td>
+<td>Gegen Regel prüfen, begründet verbessern; neue umgekehrte Frage mit neu zugeordneten Zweigen testen, sichern.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Erwartung des Vergleichs:</strong></p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>x</th>
+<th><code>x &lt; 40</code></th>
+<th><code>nicht (x &gt; 40)</code></th>
+<th>Regel: links A, sonst B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>30</td>
+<td>wahr</td>
+<td>wahr</td>
+<td>A</td>
+</tr>
+<tr>
+<td>40</td>
+<td>falsch</td>
+<td>wahr</td>
+<td>B</td>
+</tr>
+<tr>
+<td>50</td>
+<td>falsch</td>
+<td>falsch</td>
+<td>B</td>
+</tr>
+</tbody></table></div>
+<p>Die zweite Bedingung bedeutet „kleiner oder gleich 40“. Sie ist keine passende Ersatzbedingung für den ersten Zweig der gegebenen Regel, solange die Zweige unverändert bleiben. Beide Bedingungen unterscheiden sich genau am Grenzwert. <code>sage Bereich B</code> vervollständigt den zweiten Zweig des Startbeispiels.</p>
+<p><strong>Eigenfassung, Beispiel Schwelle 60:</strong> <code>falls x &lt; 60 [sage frei] sonst [sage Halt]</code>. Tests 59 → wahr/frei, 60 → falsch/Halt, 61 → falsch/Halt. Bei Schwelle 80 entsprechend 79/80/81. Namen dürfen variieren, die Regel bleibt gleich. Der Plan stellt eine Frage vor beide Meldungswege und führt sie anschließend zum Ende zusammen. Der Pfeil bewegt sich nicht.</p>
+<p><strong>Neuer Fall:</strong> Für die Frage „An oder hinter der Schwelle?“ passt <code>nicht (x &lt; Schwelle)</code>. Der Wahrzweig zeigt jetzt Meldung 2, der Falschzweig Meldung 1. Bei 60 → wahr/Halt, bei 59 → falsch/frei. Gleichwertige logisch korrekte Bedingungen akzeptieren. Die Funktionsgleichheit wird durch Erklärung und Tests belegt; Blockgleichheit ist kein Kriterium.</p>
+<p>Lehrdatei <code>ALG-3-Beispielloesung.xml</code> zeigt nur das Ausgangsmuster der Eigenfassung mit Schwelle 60, nicht einen einzig zulässigen Lösungsweg.</p>
+<p><strong>Steuerung:</strong> Bei fehlerhaftem Grenzfall erst den Wahrheitswert aussprechen lassen. Bei vertauschten Meldungen den gewählten Zweig verfolgen. Bei wechselnder Schwelle ein Eingabefeld und ein Regelfeld markieren lassen. Bei korrekten Bildschirmmeldungen ohne eigene Begründung den Grenzfall mündlich erklären lassen. Eine Projektkopie allein reicht nicht.</p>
+<h2>ALG-4 · bedingte Wiederholung und Reparatur · 75 Minuten</h2>
+<p>Lernendenfassung: <a href="../lernende/alg-4.html">ALG-4 - Wann hört die Wiederholung auf</a>. Start: <code>projekte/ALG-4-Fehlersuche.xml</code>. Fehler: Abbruch bei <code>x = 40</code>, obwohl der Auftrag auch Überschreiten erfasst. Starts 0/40/45, Schrittweite 10. Der Flaggenstapel setzt vor jedem Lauf zurück; Start dort ändern. Schrittmodus für den fehlerhaften Start 45 erst verwenden, wenn die Bedienung erprobt ist. Spätestens nach vier Bewegungen stoppen; ohne geprüfte Bedienung bleibt dieser Lauf schriftliche Vorhersage und die Realhandlung offen.</p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th align="right">Minuten</th>
+<th>Handlung und Beobachtung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Erklärung</td>
+<td align="right">15</td>
+<td>Feste Anzahl und Abbruchprüfung vor dem Durchlauf klären, Auftrag lesen.</td>
+</tr>
+<tr>
+<td>Gelenkte Übung</td>
+<td align="right">15</td>
+<td>Drei Starts vorhersagen; feste/bedingte Schleife vergleichen, Fehlerläufe begrenzt beobachten.</td>
+</tr>
+<tr>
+<td>Eigene Anwendung</td>
+<td align="right">30</td>
+<td>Nur Bedingung reparieren, Plan zeichnen, drei Starts mit vollständiger Prüfspur testen.</td>
+</tr>
+<tr>
+<td>Rückmeldung/Revision</td>
+<td align="right">15</td>
+<td>Reparatur erklären und verbessern; Start 35/Schritt 12 prüfen, zurückstellen, exportieren und wiederimportieren.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Ausgangsvergleich:</strong></p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Start</th>
+<th>Fest 4 × 10</th>
+<th>Fehlerhafte bedingte Schleife <code>bis x = 40</code></th>
+<th>Auftrag verlangt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>10, 20, 30, 40; Ende nach 4 Bewegungen</td>
+<td>gleiches Ende; 5 Prüfungen, 4 Bewegungen</td>
+<td>Ende bei 40</td>
+</tr>
+<tr>
+<td>40</td>
+<td>50, 60, 70, 80; 4 Bewegungen</td>
+<td>erste Prüfung wahr; 0 Bewegungen</td>
+<td>sofortiges Ende bei 40</td>
+</tr>
+<tr>
+<td>45</td>
+<td>55, 65, 75, 85; 4 Bewegungen</td>
+<td>Prüfung bleibt falsch; 40 wird bei positiven Zehnerschritten nicht mehr erreicht</td>
+<td>sofortiges Ende bei 45</td>
+</tr>
+</tbody></table></div>
+<p>Das fehlerhafte Programm ist ein Gegenbeispiel zur Gleichheitsbedingung, kein Auftrag, den Browser lange zu beschäftigen. Vier beobachtete Bewegungen allein beweisen keine Nichtterminierung. Die Begründung lautet: Von 45 aus erhöht jede Bewegung die Position um 10; sie kann deshalb niemals 40 erreichen.</p>
+<p><strong>Reparatur:</strong> <code>wiederhole bis nicht (x-Position &lt; 40) [gehe 10 Schritte]</code>. Das ist „erreicht oder überschritten“. Die passende Fortsetzungsfrage „noch davor?“ wird zur Abbruchfrage umgekehrt. <code>x &gt; 40</code> allein wäre bei Start 40 noch falsch und ließe den Pfeil unnötig weiterfahren. Plan: Abbruchfrage vor der Bewegung; wahr zur Meldung, falsch zur Bewegung und zurück zur Frage.</p>
+<p><strong>Vollständige Prüfspur, Start 0:</strong> x = 0/falsch → 10; 10/falsch → 20; 20/falsch → 30; 30/falsch → 40; 40/wahr → Schleife verlassen und Meldung. Start 40: 40/wahr → Meldung, null Bewegungen. Start 45: 45/wahr → Meldung, null Bewegungen. Endposition, Anzahl Bewegungen und Anzahl Prüfungen nicht gleichsetzen.</p>
+<p><strong>Veränderter Fall:</strong> Start 35, Schritt 12, Marke 40. 35/falsch → 47; 47/wahr → Meldung. Eine Bewegung, zwei Prüfungen. Die Marke wird übersprungen; Gleichheit wäre nie erreicht. Danach für die Rückkehrprüfung auf Start 0 und Schritt 10 zurückstellen. Lehrdatei <code>ALG-4-Repariert.xml</code> enthält diese Ausgangsfassung.</p>
+<p><strong>Steuerung:</strong> Bei einer Bewegung trotz wahrer Startbedingung die Prüfung vor dem Rumpf verfolgen. Bei Verwechslung von Fortsetzung und Abbruch zuerst beide Fragen sprachlich gegenüberstellen. Bei fehlender Zustandsänderung nach dem Bewegungsblock fragen. Bei reinem Endwert eine vollständige Spur inklusive letzter wahrer Prüfung nachfordern. Diese Stützen führen zu ALG-5; ALG-6 nutzt dieselben Begriffe am fremden Code.</p>
+<h2>Kriterien, Rückmeldung und Zeitgrenzen</h2>
+<p>Individuelle Nachweise: Erstvorhersage, beobachtete/als offen markierte Ausführung, zutreffende grafische Darstellung, erklärter Grenz-/Fehlerfall und begründete Revision. ALG-3/4 zusätzlich ausführbare Datei und Rückkehrprüfung. Formative Rückmeldung, keine neue benotete Leistungsprüfung und keine Gesamtnote.</p>
+<p>Lehrbeobachtung knapp als <strong>Beleg → nächste Hilfe</strong> festhalten. Fachliche Hilfe und Bedienhilfe unterscheiden; keine erfundenen Lernendenbefunde. Übernahme von Musterlösungen wird durch eigene Vorhersagen und einen veränderten Fall nicht automatisch verhindert, aber besser erkennbar. Bei Zweifeln eine kurze individuelle Erklärung an der betreffenden Codezeile einholen.</p>
+<p>Die Zeiten sind Arbeitsannahmen, keine erprobten Durchschnittswerte. Insbesondere ALG-4 ist mit Plan, Spur, Reparatur und Dateirundlauf dicht. Vorbereitetes Startprojekt und bekannte Speicherroutine sind nötig. Fehlende Produkte sichtbar offen lassen; zusätzliche Nachsicherung mit tatsächlicher Zeit im 135-Minuten-Unterstützungskonto buchen. Wenn dieses nicht genügt, den Jahrgangsbrief anpassen, keine verdeckten Zusatzstunden ansetzen. Der gemeinsame 45-Minuten-Takt steht im Umgebungsdokument.</p>
+<h2>Materialien und Prüfstatus</h2>
+<p>Ergänzender Einstieg: <code>Assets/IuM-Lernwerk/Klasse7-Programmieren/2026-10-24/index.html</code>. Er verlinkt die neuen ALG-1/3/4-Seiten sowie die unveränderten ALG-2/5/6-Seiten vom 22.10. Der ganze gemeinsame Datumsordnerbereich muss bei einer späteren Bereitstellung erhalten bleiben; einzelne HTML-Dateien funktionieren nicht allein.</p>
+<p>Neue XML-Dateien: drei Startprojekte, zwei Lehrbeispiele. Inhaltliche Sollwerte und Projektstruktur können statisch geprüft werden; das belegt weder Snap!-Ausführung noch Safari-Dateidialoge. Die ergänzende HTML-Ausgabe ist bis zur tatsächlichen Sichtprüfung ein Entwurf. Gemeinsame Sicherung: <a href="sicherung.html">ALG - Besprechung und Sicherung</a>. Vorlesetext: <a href="hoerbriefing.html">ALG - Hörbriefing</a>. Kein Audio erzeugt, kein Unterricht durchgeführt, keine Website geändert.</p>
+<footer>Safari-Testfassung · 24.10.2026 · IuM Klasse 7 · 405 Minuten innerhalb der 36-UE-Planung. Das Material speichert keine Antworten. Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Safari-, Offline- und Verbindungsprüfung noch offen. <a href="safari-test.html">Prüfauftrag für Lehrpersonen</a></footer></main></body></html>

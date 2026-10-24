@@ -1,0 +1,93 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Programmierumgebung - Snap und Reihenanschluss · IuM 7</title><link rel="stylesheet" href="../stil.css"></head><body><header><nav aria-label="Materialnavigation"><a href="../index.html">Programmierbogen</a><a href="../lernende/alg-1.html">ALG-1</a><a href="../lernende/alg-2.html">ALG-2</a><a href="../lernende/alg-3.html">ALG-3</a><a href="../lernende/alg-4.html">ALG-4</a><a href="../lernende/alg-5.html">ALG-5</a><a href="../lernende/alg-6.html">ALG-6</a><a href="../snap/index.html" target="_blank" rel="noopener">Snap! öffnen ↗</a></nav></header><main><h1>Programmierumgebung: Snap! und Reihenanschluss</h1><p class="note">Bereitstellung für die Safari-Erprobung: Alle sechs Aufgaben und Projekte liegen in diesem Bereich. Der Snap!-Editor ist die mitgelieferte Version 12.3.6 unter <a href="../snap/index.html">Snap! öffnen</a>. Cloudanmeldung ist abgeschaltet; die Analyseinitialisierung des Originalstarts wurde entfernt. Die Verbindungsrichtlinie erlaubt Ressourcen desselben Ursprungs. Das ist noch kein Nachweis des tatsächlichen Verbindungs- oder Offlineverhaltens. Ältere Bereitstellungsangaben in den übernommenen Planungsnotizen beschreiben den Produktionsverlauf.</p><p><a href="safari-test.html">Safari-Prüfauftrag</a> · <a href="durchfuehrung-134.html">ALG-1/3/4</a> · <a href="durchfuehrung-256.html">ALG-2/5/6</a> · <a href="sicherung.html">Sicherung</a> · <a href="hoerbriefing.html">Briefing</a> · <a href="jahrgang.html">Jahrgangsbrief</a></p>
+<h2>Festlegung für diese Produktionsfassung</h2>
+<p><strong>Snap! mit deutscher Oberfläche, Standardblöcken und lokaler XML-Sicherung</strong> bleibt die Referenzumgebung für ALG-1 bis ALG-6. Jan hat die Wahl am 23.10. bestätigt und am 24.10. Safari über die GitHub Page als primären späteren Testweg festgelegt. Die praktische Geräteprüfung wird jetzt zurückgestellt, während die Materialproduktion weiterläuft. Die Auswahl konkretisiert Jans Auftrag; sie ist keine schulische Softwarefreigabe. Technisch geprüft wurde die am 22.10.2026 erreichbare Version <strong>12.3.5</strong> im Desktopbrowser Edge. Schulgerät, Klassenstärke und Bedienvorkenntnisse sind weiterhin offen.</p>
+<p>Entscheidend sind sichtbar unterscheidbare Anweisungen und Ausdrücke, direkt anklickbare Rückgabewerte, zwei Schleifentypen und ein schrittweise beobachtbarer Ablauf. Snap! bietet dafür den sichtbaren Schrittmodus. Er markiert auch die Auswertung geschachtelter Eingaben. <a href="https://docs.snap.berkeley.edu/blocks-scripts-and-sprites/">Offizielle Anleitung zu Blöcken und Schrittmodus</a>, geprüft am 22.10.2026.</p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Weg</th>
+<th>Passung zum vorliegenden Auftrag</th>
+<th>Entscheidung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Snap!</td>
+<td>Blockdarstellung und sichtbarer Schrittmodus in einer Umgebung; lokale Projektdateien</td>
+<td>Referenz für dieses Paket</td>
+</tr>
+<tr>
+<td>Bereits eingeführte andere Blockumgebung, etwa Scratch</td>
+<td>Kann die zentralen Standardbausteine abbilden; Prüfprojekte und Praxistest vom 22.10. vorhanden; die Umstellung des gesamten Materials wäre gesondert erforderlich</td>
+<td>Bei nachgewiesener schulischer Routine gesondert adaptieren, nicht zusätzlich parallel unterrichten</td>
+</tr>
+<tr>
+<td>Textumgebung</td>
+<td>Zusätzliche Syntaxarbeit; Textprogrammierung ist als Anschluss in Klasse 8 geplant</td>
+<td>Für diesen Bogen keine neue Pflicht</td>
+</tr>
+</tbody></table></div>
+<p>Eigene Funktionen, Variablendeklarationen, Listen, Nebenläufigkeit, Erweiterungsbibliotheken und Cloudkonten sind nicht erforderlich. Rückgabewerte werden an vorhandenen Ausdrücken untersucht. <code>x-Position</code> ist ein gegebener Zustandsausdruck; seine Verwendung führt keinen eigenständigen Variablenkurs ein. Zahlenfelder und Textwerte bleiben eindeutig; automatische Umwandlung von Zahlentexten wird nicht als Typverständnis ausgegeben.</p>
+<h2>Zugang und Sicherung</h2>
+<ol>
+<li><a href="../snap/index.html">Snap! öffnen</a>. Am Zahnrad Sprache Deutsch wählen. Ein Konto ist für Import, Bearbeitung und lokalen Export dieses Pakets nicht nötig.</li>
+<li>Auf der Materialseite die passende XML-Datei speichern. Im Dateimenü (Blattsymbol) über <strong>Importieren</strong> öffnen. Alternativ die Datei in die Snap!-Fläche ziehen, falls das Gerät dies unterstützt. Vor einem Wechsel das eigene Projekt exportieren.</li>
+<li>Start über die grüne Flagge; lose Blöcke in ALG-2 durch Anklicken. Roter Knopf stoppt. Das Fußspuren-Symbol aktiviert den sichtbaren Schrittmodus; mit dem Regler langsamer stellen, ganz links einzeln weitergehen. Die Lehrperson probiert diese Bedienung vorab am Zielgerät.</li>
+<li>Über Dateimenü → <strong>Projekt exportieren</strong> eine XML-Datei mit Aufgabenkennung und einer schulischen Kennung sichern. Der Browser kann die Datei zunächst im Downloadordner ablegen; in den vereinbarten Kursordner übernehmen. Keine privaten Namen oder Konten nötig.</li>
+<li>Zum Rückkehrtest das gespeicherte XML erneut importieren und den festgelegten Ausgangsfall ausführen. Screenshots ersetzen die ausführbare Projektdatei nicht.</li>
+</ol>
+<p>Menübezeichnungen können mit Sprach-/Versionsstand leicht variieren. Die Export- und Importfunktionen sind im <a href="https://docs.snap.berkeley.edu/saving-and-loading-projects-and/">offiziellen Speicherhandbuch</a> und in der <a href="https://docs.snap.berkeley.edu/user-interface-elements/">Oberflächenbeschreibung</a> dokumentiert. Zugriff: 22.10.2026. Die Dateien dieses Pakets wurden im tatsächlichen Editor geladen und ausgeführt; Export und Wiederimport einer reparierten Fassung wurden geprüft.</p>
+<h2>Schulgeräteprüfung und Ausfallweg</h2>
+<p>Primärer Testweg: Safari über die GitHub Page. Gerät, Betriebssystem, Safari-Version, Material-URL und tatsächliche Editor-URL protokollieren. Die GitHub Page ist noch nicht mit diesem Paket veröffentlicht. Der oben verlinkte Berkeley-Editor ist ein externer Dienst; ein Portal-Link ist keine selbst gehostete Laufzeit. Vor Einsatz am tatsächlich vorgesehenen Gerät prüfen: Editor öffnet, deutsche Blöcke sind lesbar, Zahlen lassen sich verändern, XML lässt sich importieren/exportieren/wiederöffnen, Schrittmodus und Stoppen sind bedienbar. Eine vorhandene Snap!-Routine kann diese Prüfung verkürzen; sie ist bisher nicht belegt. Kleine Tabletdisplays können zusätzlichen Bedienaufwand verursachen. Die Snap!-Projektseite empfiehlt bei Tabletgebrauch unter anderem Stift und gegebenenfalls Tastatur. Daraus folgt keine hier bereits geprüfte iPad-Eignung. <a href="https://snap.berkeley.edu/offline">Offizielle Offline-/Gerätehinweise</a>.</p>
+<p>Das Materialportal selbst ist eine lokale HTML-Ausgabe ohne externe Skripte. Der verlinkte Editor braucht zunächst Zugang zum Internet. Eine lokale Snap!-Fassung wurde am 23.10. vorbereitet und statisch geprüft, aber nicht im Browser ausgeführt. Sie gehört nicht zur hier verlinkten Materialausgabe. Auch der spätere HTTPS-Test in Safari bestätigt nicht von selbst Offlinebetrieb oder ausbleibende externe Verbindungen. Siehe 2026-10-23 - Snap Offlinebetrieb Klasse 7 - Pruefstand und Grenzen. Kein ungeprüftes Offlineversprechen. Bei Störung sind Vorhersage, Ablaufplan und Wertfragen schriftlich möglich; tatsächliches Implementieren, Ausführen und Speichern bleiben dann offen und werden mit real benötigter Nachholzeit gebucht.</p>
+<p>Die statischen Materialdateien enthalten keine Antwortspeicherung, eigenen Analyse-Skripte oder eingebetteten Fremddienste. Daraus folgt keine Aussage über Zugriffsprotokolle oder sonstige Datenverarbeitung eines späteren GitHub-Pages-Hostings. Materialhosting, tatsächlicher Snap!-Editor, mögliche Drittverbindungen und vereinbarter Dateispeicher sind getrennt zu prüfen. Die schulische Zulässigkeit und konkrete Gerätekonfiguration sind vor Ort zu klären. Kein Lernendenkonto und keine öffentliche Projektfreigabe werden durch dieses Paket angelegt.</p>
+<h2>Anschluss innerhalb der neun ALG-Unterrichtseinheiten</h2>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Aufgabe</th>
+<th align="right">Minuten</th>
+<th>Funktion / Voraussetzung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALG-1</td>
+<td align="right">45</td>
+<td>Vorhersage und feste Wiederholung; vertraute Bedienung prüfen; Entwurf vom 24.10.</td>
+</tr>
+<tr>
+<td>ALG-2</td>
+<td align="right">60</td>
+<td>Eingabe, Rückgabe, Typ und Wirkung untersuchen; hier ausgearbeitet</td>
+</tr>
+<tr>
+<td>ALG-3</td>
+<td align="right">75</td>
+<td>Verzweigung und Grenzwert; Entwurf vom 24.10.</td>
+</tr>
+<tr>
+<td>ALG-4</td>
+<td align="right">75</td>
+<td>Bedingte Wiederholung, Zustandsänderung und Abbruch; Entwurf vom 24.10.</td>
+</tr>
+<tr>
+<td>ALG-5</td>
+<td align="right">90</td>
+<td>Eigene begrenzte Steuerung, drei Tests, Revision; hier ausgearbeitet</td>
+</tr>
+<tr>
+<td>ALG-6</td>
+<td align="right">60</td>
+<td>Fremden Code analysieren, verändern, reparieren; hier ausgearbeitet</td>
+</tr>
+<tr>
+<td><strong>Gesamt</strong></td>
+<td align="right"><strong>405</strong></td>
+<td><strong>9 UE; alle 405 Minuten konkretisiert, neue Praxisprüfung offen</strong></td>
+</tr>
+</tbody></table></div>
+<p>In einem 45-Minuten-Raster: UE 1 ALG-1; UE 2 erste 45 Minuten ALG-2; UE 3 restliche 15 Minuten ALG-2 und erste 30 Minuten ALG-3; UE 4 restliche 45 Minuten ALG-3; UE 5 erste 45 Minuten ALG-4; UE 6 restliche 30 Minuten ALG-4 und erste 15 Minuten ALG-5; UE 7 nächste 45 Minuten ALG-5; UE 8 letzte 30 Minuten ALG-5 und erste 15 Minuten ALG-6; UE 9 letzte 45 Minuten ALG-6. Unterbrechungen erfordern gesicherte Zwischenstände. Bei ALG-6 die eigene Vorhersage vor der Pause erhalten und keine Lösung vorziehen.</p>
+<p>Diese Taktung ist ein rechnerischer Vorschlag. Es entstehen keine drei zusätzlichen Doppelstunden. Bedienungsnachsicherung, die nicht in die Phasen passt, nutzt tatsächlich das gemeinsame Unterstützungskonto; kein stiller Abzug von Übung oder Revision. ALG-1/3/4 sind Voraussetzungen; ihre Materialentwürfe liegen seit 24.10. vor. Materialproduktion ersetzt weder Geräteprüfung noch tatsächlich belegte Lernvoraussetzungen. Der Jahrgang bleibt bei 36 Netto-UE.</p>
+<h2>Dateien und Status</h2>
+<p>Maßgeblich: <a href="durchfuehrung-134.html">ALG-1-3-4 - Lehrpersonenfassung</a> und <a href="durchfuehrung-256.html">ALG-2-5-6 - Lehrpersonenfassung</a> mit ihren sechs Aufgaben. Neuer ergänzender Einstieg: <code>Assets/IuM-Lernwerk/Klasse7-Programmieren/2026-10-24/index.html</code> (Entwurf, HTML-Sichtprüfung und neue Snap!-Läufe offen); dieser verlinkt ALG-2/5/6 aus der unveränderten älteren Ausgabe. Digitales Materialpaket unter <code>Assets/IuM-Lernwerk/Klasse7-Programmieren/2026-10-22/</code>; Einstieg <code>index.html</code>, Lernseiten unter <code>lernende/</code>, drei Startprojekte unter <code>projekte/</code>, Lösungen und Besprechung unter <code>lehrpersonen/</code>. Diese Lehrdateien nur gezielt weitergeben; die Ordnertrennung ist kein technischer Zugriffsschutz. Keine bestehende Website und keine LearningView-Kachel wurde verändert.</p>
+<p>Planung konkretisiert und lokale Bereitstellung vorbereitet. Unterrichtsdurchführung und Auswertung offen. Reale Bearbeitungsdauer, Unterstützung und fehlende Nachweise nach der Durchführung in <a href="jahrgang.html">Klasse 7 - Jahrgangsbrief</a> dokumentieren.</p>
+<footer>Safari-Testfassung · 24.10.2026 · IuM Klasse 7 · 405 Minuten innerhalb der 36-UE-Planung. Das Material speichert keine Antworten. Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Safari-, Offline- und Verbindungsprüfung noch offen. <a href="safari-test.html">Prüfauftrag für Lehrpersonen</a></footer></main></body></html>

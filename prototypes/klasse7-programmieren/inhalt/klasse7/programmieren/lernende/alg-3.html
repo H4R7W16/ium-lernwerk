@@ -1,0 +1,85 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-3 - Ein Programm entscheidet · IuM 7</title><link rel="stylesheet" href="../stil.css"></head><body><header><nav aria-label="Materialnavigation"><a href="../index.html">Programmierbogen</a><a href="alg-1.html">ALG-1</a><a href="alg-2.html">ALG-2</a><a href="alg-3.html">ALG-3</a><a href="alg-4.html">ALG-4</a><a href="alg-5.html">ALG-5</a><a href="alg-6.html">ALG-6</a><a href="../snap/index.html" target="_blank" rel="noopener">Snap! öffnen ↗</a></nav></header><main><h1>ALG-3 · Ein Programm entscheidet</h1><p><a class="download" href="../snap/index.html#open:../projekte/ALG-3-Start.xml" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download" href="../projekte/ALG-3-Start.xml" download>Startprojekt speichern (.xml)</a></p><p>Halte die Vorhersage vor dem Ausführen fest. Der Editor öffnet in einem neuen Tab; starte das Projekt erst an der passenden Stelle der Aufgabe. Alternativ: XML speichern und in Snap! importieren.</p>
+<p><strong>75 Minuten.</strong> Du vergleichst Bedingungen und baust eine Verzweigung, die eine Position einem von zwei Bereichen zuordnet. Du kennst Anweisungen, Ausdrücke und Wahrheitswerte aus ALG-1/2.</p>
+<h2>1 · Was entscheidet über den Zweig? · 15 Minuten gemeinsam</h2>
+<p>Ein <code>falls … sonst …</code>-Block prüft eine Bedingung. Bei <strong>wahr</strong> wird der erste Zweig ausgeführt, bei <strong>falsch</strong> der zweite. Ein einzelner Aufruf dieses Blocks wählt genau einen Zweig. Die Bedingung liefert einen Wahrheitswert; die Meldung im gewählten Zweig ist eine Wirkung.</p>
+<p>Eine Markierung liegt bei x = 40. Der Pfeil wird nach seiner Position sortiert: <strong>links von 40 → Bereich A; an der Marke oder rechts davon → Bereich B.</strong> Er soll sich dabei nicht bewegen. Die x-Position ist die vorbereitete Eingabe, keine Messung an einem realen Gegenstand.</p>
+<p>Vergleiche zunächst diese beiden Bedingungen auf Papier:</p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>x-Position</th>
+<th><code>x-Position &lt; 40</code></th>
+<th><code>nicht (x-Position &gt; 40)</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>30</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>40</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>50</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table></div>
+<p><code>nicht</code> kehrt einen Wahrheitswert um. Begründe, bei welchem Fall sich die Bedingungen unterscheiden. Welche Bedingung passt zur Regel für Bereich A?</p>
+<h2>2 · Beispiel vervollständigen · 15 Minuten gemeinsam</h2>
+<p>Importiere <code>ALG-3-Start.xml</code>. Die grüne Flagge setzt die vorbereitete x-Position auf 40 und die Richtung auf 90. Daneben liegt eine noch unverbundene Verzweigung:</p>
+<pre><code class="language-text">falls x-Position &lt; 40
+    sage Bereich A
+sonst
+    [hier fehlt noch eine Anweisung]
+</code></pre>
+<p>Ergänze im leeren Zweig die passende Meldung. Hänge die Verzweigung unten an den Startstapel. <strong>Sage die Meldung für x = 40 voraus</strong>, bevor du startest. Prüfe danach. Ändere für einen zweiten Versuch nur die x-Eingabe im Startblock auf 30; der Schwellenwert in der Bedingung bleibt 40.</p>
+<p>Du änderst Eingabe und Schwelle an verschiedenen Stellen: Die Eingabe beschreibt den untersuchten Fall. Die Schwelle gehört zur Regel. Verändere sie nicht unbemerkt gemeinsam.</p>
+<h2>3 · Eigene Sortierentscheidung · 30 Minuten</h2>
+<p>Wähle eine neue Schwelle: <strong>60 oder 80</strong>. Deine Regel lautet: <strong>Vor der Schwelle → Meldung 1; an oder hinter der Schwelle → Meldung 2.</strong> Wähle zwei eindeutige, sachliche Meldungen. Plane und baue deine Verzweigung. Sie darf keinen Bewegungsblock enthalten. Der Startblock stellt die jeweilige Testposition her.</p>
+<p>Zeichne einen Ablaufplan mit einer Entscheidungsraute. Beschrifte die Frage sowie den Wahr- und Falschzweig; beide führen zu ihrer Meldung und danach zum Ende. Übertrage deine konkrete Regel in die Bedingung. Die Darstellung muss zu deinem Programm passen.</p>
+<p>Prüfe <strong>drei Fälle</strong>: eine Position unmittelbar davor, genau die Schwelle und eine Position unmittelbar dahinter. Bei Schwelle 60 sind das 59, 60 und 61; bei Schwelle 80 entsprechend 79, 80 und 81.</p>
+<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
+<thead>
+<tr>
+<th>Eingabe x</th>
+<th>Erwartete Meldung vor dem Start</th>
+<th>Bedingung: wahr/falsch</th>
+<th>Beobachtete Meldung</th>
+<th>Erklärung bei Abweichung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>davor</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>genau</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>dahinter</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table></div>
+<p>Jede Person führt ihre Tabelle und erklärt den Grenzfall selbst, auch bei gemeinsamer Beratung. Speichere deine Fassung als <code>ALG-3_Kennung.xml</code>. Öffne das exportierte Projekt erneut über Importieren und prüfe den Grenzfall. Sichere vorher Notizen und Projekt; keine ungesicherten Änderungen verwerfen.</p>
+<p><strong>Hilfen bei Bedarf:</strong> Formuliere zuerst nur den Satz für den ersten Zweig. Frage dann, ob dieser Satz an der Grenze wahr ist. Zum Untersuchen kannst du den losen Bedingungsblock anklicken. Bei einer falschen Meldung prüfe getrennt: Startposition, Bedingung, Zuordnung der Meldungen.</p>
+<h2>4 · Rückmeldung und neuer Fall · 15 Minuten</h2>
+<p>Lasse die drei Tests gegen deine Regel prüfen. Eine Rückmeldung nennt einen konkreten Fall und erklärt, welcher Teil dazu passt oder davon abweicht. Überarbeite begründet. Wenn die Entscheidung bereits stimmt, präzisiere eine unklare Meldung oder deinen Ablaufplan; erfinde keinen Programmfehler.</p>
+<p><strong>Neuer Fall:</strong> Die Regel bleibt gleich, aber die Bedingung soll jetzt ausdrücklich fragen: <strong>„An oder hinter der Schwelle?“</strong> Formuliere die neue Bedingung und ordne die beiden Meldungen den passenden Zweigen zu. Sage erst die Ausgabe am Grenzwert und für eine Position davor voraus. Prüfe beide Fälle und erkläre, warum die Zuordnung getauscht werden muss. Sichere auch diese begründete Änderung.</p>
+<h2>Dein Nachweis</h2>
+<p>Abgabe: ausführbares XML, eigener Ablaufplan, drei Tests mit Erstvorhersage, Grenzwerterklärung und begründete Überarbeitung. Du kannst Eingabe und Regel unterscheiden und erklären, warum genau ein Zweig ausgeführt wird. Nur zwei passende Bildschirmmeldungen reichen als Nachweis nicht.</p>
+<p><strong>Stand:</strong> Für den Safari-Test über GitHub Pages bereitgestellt. Die Geräteprüfung steht aus. Eigene Unterrichtskonstruktion.</p>
+<footer>Safari-Testfassung · 24.10.2026 · IuM Klasse 7 · 405 Minuten innerhalb der 36-UE-Planung. Das Material speichert keine Antworten. Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Safari-, Offline- und Verbindungsprüfung noch offen. <a href="../lehrpersonen/safari-test.html">Prüfauftrag für Lehrpersonen</a></footer></main></body></html>

@@ -1,0 +1,37 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG - Besprechung und Sicherung · IuM 7</title><link rel="stylesheet" href="../stil.css"></head><body><header><nav aria-label="Materialnavigation"><a href="../index.html">Programmierbogen</a><a href="../lernende/alg-1.html">ALG-1</a><a href="../lernende/alg-2.html">ALG-2</a><a href="../lernende/alg-3.html">ALG-3</a><a href="../lernende/alg-4.html">ALG-4</a><a href="../lernende/alg-5.html">ALG-5</a><a href="../lernende/alg-6.html">ALG-6</a><a href="../snap/index.html" target="_blank" rel="noopener">Snap! öffnen ↗</a></nav></header><main class="projection"><h1>Programmieren · Besprechung und Sicherung</h1><p class="note">Bereitstellung für die Safari-Erprobung: Alle sechs Aufgaben und Projekte liegen in diesem Bereich. Der Snap!-Editor ist die mitgelieferte Version 12.3.6 unter <a href="../snap/index.html">Snap! öffnen</a>. Cloudanmeldung ist abgeschaltet; die Analyseinitialisierung des Originalstarts wurde entfernt. Die Verbindungsrichtlinie erlaubt Ressourcen desselben Ursprungs. Das ist noch kein Nachweis des tatsächlichen Verbindungs- oder Offlineverhaltens. Ältere Bereitstellungsangaben in den übernommenen Planungsnotizen beschreiben den Produktionsverlauf.</p><p><a href="safari-test.html">Safari-Prüfauftrag</a> · <a href="durchfuehrung-134.html">ALG-1/3/4</a> · <a href="durchfuehrung-256.html">ALG-2/5/6</a> · <a href="sicherung.html">Sicherung</a> · <a href="hoerbriefing.html">Briefing</a> · <a href="jahrgang.html">Jahrgangsbrief</a></p>
+<p>Fassung 1.1, 24.10.2026. Die ergänzte HTML-Ausgabe ist noch nicht gesichtet. Karten erst nach dem eigenen Versuch zeigen. Lösungen: <a href="durchfuehrung-134.html">ALG-1-3-4 - Lehrpersonenfassung</a> und <a href="durchfuehrung-256.html">ALG-2-5-6 - Lehrpersonenfassung</a>. Die Ausgabe vom 22.10. bleibt eine unveränderte ältere Teilfassung.</p>
+<section><h2>Gespräch ALG-1 · Was gehört in die Schleife?</h2>
+<p>Einmal 10 Schritte, danach zweimal 5 Schritte. Start x = 0, Richtung 90.</p>
+<p>Welche Zustände folgen? Welcher Teil wird zweimal ausgeführt? Warum steht die Meldung Ende außerhalb der Schleife? Zeige im Plan, was sich bei drei statt zwei Wiederholungen ändert.</p>
+</section><section><h2>Sicherung ALG-1 · Feste Anzahl und Klammer</h2>
+<p>Die feste Wiederholung legt eine Anzahl fest. Nur ihr Inhalt wird so oft ausgeführt. B: 0 → 10 → 15 → 20; die einmalige Bewegung liegt davor. Mit drei Wiederholungen folgt zusätzlich 25. Eine Endposition erklärt noch nicht den gesamten Ablauf; dafür brauchen wir Laufspur und Schleifenreichweite.</p>
+</section><section><h2>Gespräch ALG-2 · Wo geht der Wert hin?</h2>
+<p><code>5 + 7</code> und <code>gehe (5 + 7) Schritte</code></p>
+<p>Welche Eingaben erhält jeweils der Block? Welcher liefert einen Wert, welcher verändert etwas? Zeige den Weg des Werts am inneren und äußeren Block. Welche Beobachtung stützt deine Antwort?</p>
+</section><section><h2>Sicherung ALG-2 · Wert ist nicht Wirkung</h2>
+<p>Ein Ausdruck liefert einen Wert. Ein Rechenausdruck kann die Eingabe einer Anweisung liefern. Eine Anweisung bewirkt eine Handlung, ohne selbst einen einsetzbaren Rückgabewert zu liefern.</p>
+<p><code>5 + 7</code> liefert 12 als Zahl. <code>8 &gt; 8</code> liefert falsch als Wahrheitswert. „Ziel“ ist eine Zeichenkette. <code>sage Ziel</code> zeigt diesen Text an. <code>x-Position</code> liefert einen veränderlichen Zustand, keine feste Konstante.</p>
+</section><section><h2>Gespräch ALG-3 · Was geschieht an der Grenze?</h2>
+<p>Regel: links von 40 → A; an oder rechts von 40 → B.</p>
+<p>Vergleiche <code>x &lt; 40</code> mit <code>nicht (x &gt; 40)</code> bei x = 40. Welche Bedingung passt für den ersten Zweig? Wie müssen die Zweige zugeordnet werden, wenn die Frage stattdessen „an oder dahinter?“ lautet?</p>
+</section><section><h2>Sicherung ALG-3 · Bedingung, Zweig und Grenzwert</h2>
+<p>Eine Bedingung liefert wahr oder falsch. <code>falls … sonst …</code> führt genau den dazugehörigen Zweig aus. <code>x &lt; 40</code> ist bei 40 falsch; die Regel führt zu B. <code>nicht (x &gt; 40)</code> wäre bei 40 wahr und passt hier nicht zum unveränderten ersten Zweig. Eingabe und Schwelle sind verschieden. Davor, genau, dahinter: Drei gezielte Tests prüfen die Grenze.</p>
+</section><section><h2>Gespräch ALG-4 · Null Bewegungen – kann das stimmen?</h2>
+<p>Auftrag: Vor 40 fahren, an oder hinter 40 aufhören. Starts 0, 40 und 45; positive Zehnerschritte.</p>
+<p>Wann wird die Abbruchbedingung geprüft? Warum ist <code>x = 40</code> bei Start 45 ungeeignet? Zeige die letzte Prüfung in deiner Spur und den Rücksprung im Plan. Was ändert sich bei Start 35 und Schrittweite 12?</p>
+</section><section><h2>Sicherung ALG-4 · Abbruch vor der Bewegung prüfen</h2>
+<p><code>wiederhole bis</code> prüft vor dem Durchlauf und endet bei wahr. <code>nicht (x &lt; 40)</code> erfasst Erreichen und Überschreiten. Start 0 endet nach vier Bewegungen bei 40; Start 40 oder 45 endet ohne Bewegung. Zur vollständigen Spur gehört die letzte wahre Prüfung. Start 35, Schritt 12 endet bei 47. Der Gleichheitstest würde diese Marke nicht erreichen. Diese Aussage gilt für unser Modell mit positiven Schritten nach rechts.</p>
+</section><section><h2>Gespräch ALG-5 · Wann darf der Wagen noch fahren?</h2>
+<p>Marke 60: Start 0, Start 60, Start 55. Schrittweite 10.</p>
+<p>Welche Bedingung trägt alle drei Fälle? Wo liegt die Prüfung im Ablaufplan? Welche Änderung folgt aus dem Gegenfall? Belege deine Behauptung mit Erwartung und tatsächlicher Beobachtung.</p>
+</section><section><h2>Sicherung ALG-5 · Abbruch und Prüfung</h2>
+<p>„Noch davor?“ ist eine Fortsetzungsfrage. <code>wiederhole bis …</code> braucht eine Abbruchbedingung: „nicht mehr davor“. Daher passt <code>nicht (x-Position &lt; Zielzahl)</code>.</p>
+<p>Danach unterscheidet eine Verzweigung „genau getroffen“ von „überschritten“. Start am Ziel führt zu null Bewegungen. Ein Normalfall allein bestätigt die Steuerung nicht. Plan, Tests und begründete Revision gehören zum Programm.</p>
+</section><section><h2>Gespräch ALG-6 · Warum fährt die Fehlerfassung weiter?</h2>
+<p>Bei x = 50 gilt: <code>x &gt; 50</code> ist falsch.</p>
+<p>Was tut <code>wiederhole bis</code> deshalb? Welche einzelne Änderung passt zum Auftrag? Trägt ein Gleichheitstest auch bei Schrittweite 12? Erkläre mit deiner eigenen Spur.</p>
+</section><section><h2>Sicherung ALG-6 · Code mit Belegen verstehen</h2>
+<p>Fehlerfassung: nach festem Teil x = 20, danach 30, 40, 50, 60 → „vorbei“.</p>
+<p>Repariert: Abbruch bei <code>nicht (x &lt; 50)</code> → 30, 40, 50 → „Ziel“.</p>
+<p>Schrittweite 12: 32, 44, 56 → „vorbei“. Die Marke muss nicht exakt getroffen werden. Eine Laufspur enthält Zustand, Bedingungswert und nächste Handlung; die Grafik zeigt Rücksprünge und Zweige. Erst vorhersagen, dann ausführen, erklären und gezielt verändern.</p>
+</section><footer>Safari-Testfassung · 24.10.2026 · IuM Klasse 7 · 405 Minuten innerhalb der 36-UE-Planung. Das Material speichert keine Antworten. Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Safari-, Offline- und Verbindungsprüfung noch offen. <a href="safari-test.html">Prüfauftrag für Lehrpersonen</a></footer></main></body></html>

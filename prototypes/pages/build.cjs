@@ -3,18 +3,19 @@ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypt
 const {prepareAdditionalPages}=require('../recherche-beispiel/build.cjs');
 const {augment}=require('../shared/class6-render.cjs');
 const preserved=require('./bestand-sha256.json');
+const {addClass7}=require('../klasse7-programmieren/build.cjs');
 const digest=data=>crypto.createHash('sha256').update(data).digest('hex');
 function preparePages(){
- const old=prepareAdditionalPages(),all=augment(new Map(old));
+ const old=prepareAdditionalPages(),all=addClass7(augment(new Map(old)));
  for(const [name,hash]of Object.entries(preserved.files)){
   if(!all.has(name)||digest(all.get(name))!==hash)throw Error('Veröffentlichter Bestand verändert: '+name);
  }
  for(const name of old.keys())if(!Object.hasOwn(preserved.files,name))throw Error('Ungeprüfter Bestandspfad: '+name);
- for(const name of all.keys())if(!old.has(name)&&!name.startsWith('klasse6/'))throw Error('Zusatz außerhalb Klasse 6: '+name);
+ for(const name of all.keys())if(!old.has(name)&&!name.startsWith('klasse6/')&&!name.startsWith('klasse7/'))throw Error('Zusatz außerhalb Klasse 6/7: '+name);
  for(const [name,data]of all){
-  if(name.startsWith('klasse6/')){
+  if(name.startsWith('klasse6/')||name.startsWith('klasse7/')){
    if(/(?:^|\/)(?:docs|qa|quelle|node_modules|\.git)(?:\/|$)|\.(?:test\.cjs|py|log)$/i.test(name))throw Error('Interner Pfad: '+name);
-   if(typeof data==='string'&&/C:[\\/]Users[\\/]|127\.0\.0\.1|localhost/i.test(data))throw Error('Lokaler Verweis: '+name);
+   if(typeof data==='string'&&(!name.startsWith('klasse7/programmieren/snap/src/')||name.endsWith('.html'))&&/C:[\\/]Users[\\/]|127\.0\.0\.1|localhost/i.test(data))throw Error('Lokaler Verweis: '+name);
   }
   if(!name.endsWith('.html'))continue;
   for(const [,ref]of data.matchAll(/(?:href|src)="([^"]+)"/g)){
