@@ -1,0 +1,40 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-1 - Was bleibt gleich was steuert den Ablauf · IuM 7</title><link rel="stylesheet" href="../stil.css"></head><body><header><nav aria-label="Materialnavigation"><a href="../index.html">Programmierbogen</a><a href="alg-1.html">ALG-1</a><a href="alg-2.html">ALG-2</a><a href="alg-3.html">ALG-3</a><a href="alg-4.html">ALG-4</a><a href="alg-5.html">ALG-5</a><a href="alg-6.html">ALG-6</a><a href="../snap/index.html" target="_blank" rel="noopener">Snap! öffnen ↗</a></nav></header><main><h1>ALG-1 · Was bleibt gleich, was steuert den Ablauf?</h1><p><a class="download" href="../snap/index.html#open:../projekte/ALG-1-Start.xml" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download" href="../projekte/ALG-1-Start.xml" download>Startprojekt speichern (.xml)</a></p><p>Halte die Vorhersage vor dem Ausführen fest. Der Editor öffnet in einem neuen Tab; starte das Projekt erst an der passenden Stelle der Aufgabe. Alternativ: XML speichern und in Snap! importieren.</p>
+<p><strong>45 Minuten.</strong> Du liest zwei kurze Programme, hältst deine Vorhersage fest und erklärst eine feste Wiederholung. Du brauchst Snap! auf Deutsch und einen Ort für deine Notizen. Arbeite mit einer schulischen Kennung; ein Konto ist nicht nötig.</p>
+<h2>1 · Kurz erklärt · 10 Minuten gemeinsam</h2>
+<p>Ein Programm führt Anweisungen in ihrer Reihenfolge aus. In <code>wiederhole 2-mal [gehe 3 Schritte]</code> wird nur der eingerückte Inhalt zweimal ausgeführt. Die Zahl 2 legt die Anzahl fest; eine nachfolgende Anweisung gehört nicht automatisch zur Schleife.</p>
+<p>Unser Pfeil schaut nach rechts, Richtung 90. <code>gehe zu x: 0 y: 0</code> stellt den Ausgangsort her. <code>x-Position</code> sagt, wie weit der Pfeil auf der waagerechten Achse steht. In diesen Beispielen entspricht ein Schritt einer Änderung von x um 1. Das ist ein vereinfachtes Bewegungsmodell, kein echter Roboter.</p>
+<p>Lies die Programme erst. Führe sie noch nicht aus. Im Startprojekt gibt es zwei getrennte Stapel ohne Startblock. Starte immer nur einen durch Anklicken; beide setzen ihren Anfang selbst zurück.</p>
+<pre><code class="language-text">A                              B
+gehe zu x: 0 y: 0               gehe zu x: 0 y: 0
+setze Richtung auf 90           setze Richtung auf 90
+wiederhole 3-mal                gehe 10 Schritte
+    gehe 10 Schritte            wiederhole 2-mal
+sage Ende                           gehe 5 Schritte
+                               sage Ende
+</code></pre>
+<p>Die Einrückung zeigt, was zur Wiederholung gehört. In Snap! erkennst du das an der Klammer des Schleifenblocks.</p>
+<h2>2 · Programm A vorhersagen und prüfen · 10 Minuten gemeinsam</h2>
+<p>Notiere <strong>vor dem Start</strong> die x-Position nach jeder Bewegung und die Position am Ende. Wie oft erscheint die Meldung <code>Ende</code>? Begründe aus dem Code.</p>
+<p>Öffne <code>ALG-1-Start.xml</code> über das Dateimenü → Importieren. Prüfe, dass A links dreimal 10 Schritte und B rechts zunächst 10, dann zweimal 5 Schritte enthält. Klicke nur A an. Vergleiche mit deiner Vorhersage. Bei einer Abweichung markierst du die Stelle, ohne deine Erstvorhersage zu löschen.</p>
+<p>Bei Bedarf aktiviere den sichtbaren Schrittmodus über das Fußspuren-Symbol. Die Lehrperson zeigt die auf eurem Gerät geprüfte Bedienung. Stoppe mit dem roten Knopf. Ein veränderter Ort auf der Bühne ist eine Wirkung der Anweisung.</p>
+<h2>3 · Programm B selbst untersuchen · 15 Minuten</h2>
+<ol>
+<li>Sage für B wieder jede x-Position, das Endergebnis und die Anzahl der Meldungen voraus. Begründe, welche Anweisung nur einmal ausgeführt wird.</li>
+<li>Führe B aus und vergleiche. Zeichne einen Ablaufplan: Start → Ausgangsort/Richtung → erste Bewegung → feste Wiederholung mit ihrem Inhalt → Meldung → Ende. Zeige, welcher Teil zweimal durchlaufen wird. Du kannst Kästen und Pfeile auf Papier oder digital zeichnen.</li>
+<li>Verändere <strong>nur A</strong>: vier Wiederholungen mit jeweils 5 Schritten. Halte deine neue Laufspur vor der Ausführung fest. Prüfe danach und erkläre: Welche Zahlen steuern die Wiederholung, welche die einzelne Bewegung?</li>
+</ol>
+<p>Eine Laufspur enthält den Start und die Zustände nach den Bewegungen. Schreibe die Zustände einzeln auf; nur die Rechnung für den Endwert reicht nicht.</p>
+<p><strong>Hilfe bei Bedarf:</strong> Markiere zunächst die Klammer. Schreibe den Inhalt für jeden Durchlauf einmal untereinander. Verfolge die erste Bewegung von B gesondert. Wenn du Bedienhilfe brauchst, notiere sie; du kannst die Vorhersage trotzdem selbst begründen.</p>
+<h2>4 · Rückmeldung und neuer Fall · 10 Minuten</h2>
+<p>Zeige deine Spur und deinen Plan einer anderen Person oder der Lehrperson. Die Rückmeldung beantwortet genau zwei Fragen: Passt jeder Bewegungsschritt zum Code? Ist im Plan erkennbar, welcher Teil wiederholt wird? Berichtige eine Abweichung mit Begründung; bei einem passenden Ergebnis ergänze die bislang knappste Erklärung. Erfinde keinen Fehler.</p>
+<p><strong>Neuer Fall, zunächst ohne Ausführen:</strong> B behält die erste Bewegung von 10 Schritten. Ändere nur die feste Wiederholung auf <strong>3-mal 5 Schritte</strong>. Notiere die neue Laufspur und erkläre, warum die erste Bewegung nicht dreimal ausgeführt wird. Prüfe anschließend.</p>
+<p>Exportiere dein Projekt als <code>ALG-1_Kennung.xml</code> in den vereinbarten Kursordner. Deine Notizen enthalten A/B-Vorhersage, Ablaufplan, Änderung und neuen Fall. Bei einer Unterbrechung sichere auch deine noch ungeprüfte Vorhersage.</p>
+<h2>Woran du dein Ergebnis prüfst</h2>
+<ul>
+<li>Start, einzelne Bewegungen und Endposition sind voneinander unterscheidbar.</li>
+<li>Dein Plan und deine Erklärung zeigen die Reichweite der Schleifenklammer.</li>
+<li>Erstvorhersage, Beobachtung und begründete Korrektur bleiben sichtbar.</li>
+<li>Du erklärst den neuen Fall selbst; eine fremde Projektdatei genügt nicht.</li>
+</ul>
+<p><strong>Stand:</strong> Für den Safari-Test über GitHub Pages bereitgestellt. Die Geräteprüfung steht aus. Eigene Unterrichtskonstruktion.</p>
+<footer>Safari-Testfassung · 24.10.2026 · IuM Klasse 7 · 405 Minuten innerhalb der 36-UE-Planung. Das Material speichert keine Antworten. Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Safari-, Offline- und Verbindungsprüfung noch offen. <a href="../lehrpersonen/safari-test.html">Prüfauftrag für Lehrpersonen</a></footer></main></body></html>

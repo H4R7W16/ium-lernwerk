@@ -351,6 +351,7 @@ test('publishes preserved Klasse 5 and research example plus Klasse 6 and retire
   expect(checks).toContain('prototypes/m06-reinigungsfall/class5-pages.test.cjs');
   expect(checks).toContain('prototypes/recherche-beispiel/pages.test.cjs');
   expect(checks).toContain('prototypes/pages/pages.test.cjs');
+  expect(checks).toContain('prototypes/klasse7-programmieren/*.test.cjs');
   expect(build.steps?.find(step => step.uses === 'actions/upload-pages-artifact@v4')?.with)
     .toEqual({ path: 'dist/klasse5-pages' });
   const deploy = workflow.jobs.deploy!;

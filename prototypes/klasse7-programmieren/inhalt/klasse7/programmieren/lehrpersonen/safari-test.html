@@ -1,0 +1,80 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Safari-Prüfauftrag · IuM 7</title><link rel="stylesheet" href="../stil.css"></head><body><header><nav aria-label="Materialnavigation"><a href="../index.html">Programmierbogen</a><a href="../lernende/alg-1.html">ALG-1</a><a href="../lernende/alg-2.html">ALG-2</a><a href="../lernende/alg-3.html">ALG-3</a><a href="../lernende/alg-4.html">ALG-4</a><a href="../lernende/alg-5.html">ALG-5</a><a href="../lernende/alg-6.html">ALG-6</a><a href="../snap/index.html" target="_blank" rel="noopener">Snap! öffnen ↗</a></nav></header><main><h1>Safari-Prüfauftrag · ALG-1 bis ALG-6</h1>
+<p><strong>Testfassung vom 24.10.2026.</strong> Ziel ist eine belastbare Geräteprobe vor Unterrichtseinsatz. Veröffentlichung bedeutet noch keine Safari-, Offline- oder Datenschutzfreigabe. Für den Test nur die mitgelieferten Unterrichtsprojekte und eigene technische Notizen verwenden.</p>
+<h2>Gerät und Ausgangslage festhalten</h2>
+<p>Notiere Datum, Gerät, Betriebssystem und Version, Safari-Version, Materialadresse, tatsächliche Editoradresse und Online-/Offlinezustand. Prüfe Hoch-/Querformat beziehungsweise Fenstergröße und die Bedienung mit den tatsächlich verfügbaren Eingabemitteln.</p>
+<p><a href="../index.html">Materialübersicht</a> · <a href="../snap/index.html">Snap! öffnen</a> · <a href="../snap/AENDERUNGEN.md">Herkunft und Änderungen der Snap!-Fassung</a> · <a href="../snap/LICENSE">AGPL-Lizenz</a></p>
+<p>Der Editor dieser Ausgabe liegt unter demselben GitHub-Pages-Ursprung wie die Aufgaben. Er verwendet Snap! 12.3.6, deutsche Oberfläche und <code>noCloud: true</code>. Die Analyseinitialisierung des Originalstarts wurde entfernt; die Inhaltsrichtlinie erlaubt Verbindungen zum eigenen Ursprung. Die Konfiguration allein bestätigt keine tatsächlichen Verbindungen. Es ist kein Service Worker für diesen Editor eingebunden. Zusätzliche Beispiel-/Medienkataloge sind nicht Teil des Prüfumfangs.</p>
+<h2>Zugang und Bedienung</h2>
+<ol>
+<li>Öffne alle sechs Aufgabenseiten. Prüfe Navigation, Schrift, breite Tabellen und die Lesefassung des Codes. Keine Zeile oder Schaltfläche soll unzugänglich sein.</li>
+<li>Öffne ein Startprojekt über den jeweiligen Knopf. Der Editor soll in einem zweiten Tab mit dem richtigen Projekt öffnen, ohne es automatisch auszuführen.</li>
+<li>Prüfe den alternativen Weg: XML über „Startprojekt speichern“ sichern und über das Snap!-Dateimenü importieren. Notiere den tatsächlichen Speicherort und die im Gerät sichtbaren Menübezeichnungen.</li>
+<li>Verändere ein Zahlenfeld, löse eine passende Anweisung aus und stoppe mit dem roten Knopf. Prüfe, ob die lose Stapelanordnung von ALG-1 und ALG-3 erreichbar ist.</li>
+<li>Aktiviere den sichtbaren Schrittmodus über das Fußspuren-Symbol. Stelle die Geschwindigkeit langsam, dann auf einzelne Schritte. Prüfe, ob Hervorhebung, Pause, Weitergehen und Stoppen auf diesem Gerät verlässlich bedienbar sind. Notiere die tatsächliche Geste oder Schaltfläche statt eine Desktopbedienung vorauszusetzen.</li>
+</ol>
+<h2>Fachliche Sollfälle</h2>
+<p>Die vollständigen Lösungen sind Lehrpersonenmaterial und werden erst nach eigenen Lernversuchen gezeigt. Beim technischen Test darfst du die Lehrbeispiele verwenden; die Starter von ALG-3 und ALG-5 sind bewusst unvollständig.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Prüffälle, bei Bedarf seitlich scrollen"><table>
+<thead>
+<tr>
+<th>Aufgabe</th>
+<th>Durchzuführender Fall</th>
+<th>Erwartung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALG-1</td>
+<td>Getrennt A und B anklicken</td>
+<td>A: 0 → 10 → 20 → 30; B: 0 → 10 → 15 → 20; jeweils eine Meldung Ende.</td>
+</tr>
+<tr>
+<td>ALG-2</td>
+<td>Lose Summe 5 + 7; Bewegung mit dieser Eingabe ab x = 0; innere 7 zu 9 ändern</td>
+<td>Rückgabe 12; erste Bewegung zu 12; geänderte Bewegung zu 14. Eine unveränderte lose Summe bleibt 12.</td>
+</tr>
+<tr>
+<td>ALG-3</td>
+<td>Zweiten Zweig ergänzen und an Start hängen; Eingaben 30, 40, 50 bei Schwelle 40</td>
+<td>Bereich A, Bereich B, Bereich B. Eigene Schwelle 60 zusätzlich bei 59/60/61 prüfen.</td>
+</tr>
+<tr>
+<td>ALG-4</td>
+<td>Fehlerfassung ab 0, 40 und 45</td>
+<td>Ab 0 bis 40; ab 40 keine Bewegung; ab 45 stoppt der Gleichheitstest nicht passend. Nach spätestens vier Bewegungen manuell stoppen.</td>
+</tr>
+<tr>
+<td>ALG-4</td>
+<td>Reparatur „nicht (x &lt; 40)“ ab 0, 40 und 45; danach Start 35 und Schritt 12</td>
+<td>Enden bei 40, 40, 45; zuletzt bei 47. Schrittmodus zeigt die Prüfung vor der Bewegung, auch beim Null-Durchlauf.</td>
+</tr>
+<tr>
+<td>ALG-5</td>
+<td>Lehrbeispiel mit Ziel 60/Schritt 10, Starts 0, 60, 55, 65</td>
+<td>60/Ziel, 60/Ziel, 65/vorbei, 65/vorbei. Ziel 80/Schritt 15, Starts 0 und 75: jeweils 90/vorbei. Start im Zurücksetzblock ändern.</td>
+</tr>
+<tr>
+<td>ALG-6</td>
+<td>Originalfehler, Reparatur, dann nur bedingte Schrittweite 10 → 12</td>
+<td>Fehler endet bei 60/vorbei; repariert bei 50/Ziel; verändert bei 56/vorbei. Feste Wiederholung bleibt dabei unverändert.</td>
+</tr>
+</tbody></table></div>
+<p><a href="durchfuehrung-134.html">Lehrhinweise ALG-1/3/4</a> · <a href="durchfuehrung-256.html">Lehrhinweise ALG-2/5/6</a></p>
+<p><a href="ALG-3-Beispielloesung.xml">ALG-3-Beispiel</a> · <a href="ALG-4-Repariert.xml">ALG-4-Reparatur</a> · <a href="ALG-5-Beispielloesung.xml">ALG-5-Beispiel</a> · <a href="ALG-6-Repariert.xml">ALG-6-Reparatur</a>. Diese Dateien im Editor importieren; ein Browser kann XML sonst nur als Text anzeigen.</p>
+<h2>Speichern und Wiederimport</h2>
+<p>Für jede Aufgabe eine eigene kleine Änderung vornehmen, die vorhergesagte Wirkung notieren und über <strong>Projekt exportieren</strong> als <code>ALG-x_Test.xml</code> sichern. Das ist kein Cloudspeichern.</p>
+<p>Öffne danach einen neuen leeren Editor-Tab. Importiere ausdrücklich die exportierte Datei aus dem ermittelten Ablageort. Prüfe Projektname, die eigene Änderung und einen passenden Sollfall erneut. Ein Screenshot oder das noch offene Ursprungsprojekt belegt keinen Wiederimport. Notiere unerwartete Dateinamen, Dateiendungen, fehlende Downloadmöglichkeiten oder Unterschiede nach dem erneuten Öffnen.</p>
+<h2>Externe Verbindungen und Datenschutzbeobachtung</h2>
+<p>Materialhosting bei GitHub Pages, Snap!-Editor, mögliche Drittverbindungen und Dateispeicher getrennt betrachten. Auch ohne Projektkonto stellt das Gerät eine Verbindung zum Hosting her; eigene Skriptfreiheit des Materials ist kein Beleg über Protokolle des Anbieters.</p>
+<p>Erfasse mit dem verfügbaren Netzwerkprotokoll die angefragten Ziele beim ersten Editorstart, beim Öffnen eines Starters und beim Export/Wiederimport. Leere das Protokoll vor jedem Vergleich, sofern das Prüfwerkzeug dies erlaubt. Unterscheide geladene Ressourcen, fehlgeschlagene beziehungsweise von der Richtlinie gesperrte Versuche und bewusste Aufrufe externer Dokumentation. Keine reale Erhebung behaupten, falls das Gerät hierfür kein geeignetes Protokoll bietet.</p>
+<p>Erwartete technische Begrenzung: Aufgaben, Kernskripte, deutsche Sprachdatei und Projekte werden vom eigenen Ursprung geladen; keine Cloudanmeldung und keine Analyseinitialisierung im Startdokument. Ob das tatsächlich eingehalten wird, muss beobachtet werden. Schulische Zulässigkeit und vereinbarter Speicherort sind damit noch nicht abschließend geklärt.</p>
+<h2>Offline gesondert prüfen</h2>
+<ol>
+<li>Online Seite und Projekt vollständig laden und einen Sollfall ausführen.</li>
+<li>Netzwerkverbindung tatsächlich trennen. Im bereits geöffneten Tab Ausführen, Änderung, Export und Wiederimport prüfen.</li>
+<li>Gesondert beobachten, ob ein Neuladen ohne Netz funktioniert. Ein weiterlaufender offener Tab beweist keine Offline-Neuladung und keine dauerhafte Installation.</li>
+<li>Netzwerk wiederherstellen. Ergebnis, Fehlermeldung und erforderliche Vorbedingungen dokumentieren.</li>
+</ol>
+<p>Für diese Fassung gibt es kein Versprechen eines installierbaren Offlinepakets. Abweichungen sind Prüfresultate und kein Anlass, nachträglich einen bestandenen Test einzutragen.</p>
+<h2>Ergebnisprotokoll</h2>
+<p>Je Prüfschritt: <strong>Soll · tatsächlich beobachtet · bestanden/offen/abweichend · konkreter nächster Schritt</strong>. Bei einem Fehler die genaue Aufgabe, Startdatei, Eingabe, letzte sichtbare Aktion und Bildschirmmeldung notieren. Unterrichtsdauer und Lernendenverständnis werden erst später im Unterricht erprobt; diese technische Probe ändert die 405 Minuten nicht.</p>
+<footer>Safari-Testfassung · 24.10.2026 · Beobachtete Ergebnisse gesondert protokollieren.</footer></main></body></html>

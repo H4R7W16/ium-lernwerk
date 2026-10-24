@@ -5,7 +5,7 @@ const all=preparePages(),Y=require('../shared/class6-year.cjs');
 test('alle veröffentlichten Bestandsdateien und der bisherige Einstieg bleiben bytegleich',()=>{
  assert.equal(Object.keys(preserved.files).length,812);
  for(const [name,hash]of Object.entries(preserved.files))assert.equal(crypto.createHash('sha256').update(all.get(name)).digest('hex'),hash,name);
- for(const name of all.keys())if(!Object.hasOwn(preserved.files,name))assert.ok(name.startsWith('klasse6/'),name);
+ for(const name of all.keys())if(!Object.hasOwn(preserved.files,name))assert.ok(name.startsWith('klasse6/')||name.startsWith('klasse7/'),name);
 });
 test('vollständiger Klasse6-Jahrgang mit Materialien, Werkzeugen und allen Jahreszugängen wird veröffentlicht',()=>{
  for(const m of Y.modules)for(const file of ['index.html','wissen.html','material.html','lehrkraft.html','briefing.html'])assert.ok(all.has('klasse6/'+m.area+'/'+file),m.id+'/'+file);
