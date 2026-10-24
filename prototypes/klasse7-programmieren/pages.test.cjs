@@ -28,3 +28,7 @@ test('keine lokalen Arbeits-, Prüf- oder Geheimnisdateien gelangen in das neue 
 test('ein veränderter Altbestand wird vor Veröffentlichung abgewiesen',()=>{const {addClass7}=require('./build.cjs');const base=new Map([...all].filter(([name])=>!name.startsWith('klasse7/')));base.set('index.html','unbeabsichtigt verändert');assert.throws(()=>addClass7(base),/Veröffentlichter Bestand verändert/);});
 
 test('alle ausgelieferten Snap-Dateien sind durch das Herkunftsmanifest gebunden',()=>{const p=JSON.parse(all.get(prefix+'snap/provenienz.json'));assert.equal(p.release,'v12.3.6');for(const [file,h]of Object.entries(p.files))assert.equal(hash(all.get(prefix+'snap/'+file)),h,file);});
+
+test('Start- und Lehrprojekte zeigen in Snap den passenden Projektnamen',()=>{
+ for(const [name,data]of all)if(name.startsWith(prefix)&&name.endsWith('.xml')){const xml=data.toString(),project=xml.match(/<project\s+name="([^"]+)"/),scene=xml.match(/<scene\s+name="([^"]+)"/);assert.ok(project,name);assert.ok(scene,name);assert.equal(scene[1],project[1],name);}
+});
