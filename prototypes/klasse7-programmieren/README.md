@@ -22,3 +22,14 @@ node prototypes/pages/build.cjs <frisches-ausgabeverzeichnis>
 ```
 
 Der vollständige Pages-Testbefehl steht in `.github/workflows/klasse5-pages.yml`. Die bestehenden Klasse-5-, Recherche- und Klasse-6-Ausgaben bleiben bytegleich. Wurzeleinstieg bleibt unverändert; Klasse 7 hat einen eigenen Einstieg. Die veröffentlichten Lehrdateien sind kein geschützter Lösungsbereich.
+## Gestaltung vom 25.10.2026
+
+Übersicht und alle dreizehn Materialseiten verwenden den bereits beauftragten Lernwerk-UI-Rahmen 1.2: warmes Canvas, Waldgrün, Systemschrift, getrennte Lern-/Lehrnavigation, Standortmarkierung, Abschnittsanker sowie eindeutige Editor- und XML-Aktionen. Die Übersicht bündelt die sechs Aufgaben in drei Abschnitten. Keine neue Speicherung, keine Laufzeitskripte und keine externen Schriften. CSS/HTML passen sich schmalen Ansichten an; Tabellen bleiben in einem eigenen Scrollbereich, der mit der Tastatur erreichbar ist.
+
+`ui-inhalt-sha256.json` bindet alle ursprünglichen Absatz-, Überschriften-, Listen-, Tabellen- und Codeblöcke der dreizehn Materialseiten an main `5d997232537893239e847eb3a1f0fb3031b9403a`; zusätzlich alle Projekt-, Bild- und Snap!-Dateien bytegenau. Ergänzte Abschnittsnavigation wird beim Inhaltsvergleich separat behandelt. `ui.test.cjs` prüft Inhaltswahrung, Navigationsziele und den Schutz des Laufzeitpakets. Die Inhalte werden für den Vergleich in Textblöcke zerlegt; dies ersetzt keine Sicht- oder Geräteprüfung.
+
+```text
+node --test prototypes/klasse7-programmieren/*.test.cjs
+```
+
+Sichtprüfung der tatsächlichen HTML-Ausgabe auf Desktop und in eingebetteten Ansichten mit 320, 390 und 834 Pixeln; direkte Navigation, Abschnittssprung und Tastatureinstieg tatsächlich bedient. Das ist eine redaktionelle Gestaltungsprüfung im verfügbaren Browser. Der umfassendere Materialreview vom 24.10. sowie Safari, Schrittmodus, Export/Wiederimport, Netzwerk und Offline bleiben getrennte offene Prüfungen. Snap! und die zehn XML-Projekte sind bei dieser Überarbeitung unverändert.
