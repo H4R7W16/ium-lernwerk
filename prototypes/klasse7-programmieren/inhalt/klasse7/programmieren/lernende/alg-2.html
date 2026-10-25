@@ -1,61 +1,28 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-2 - Werte hinein Ergebnisse heraus · IuM 7</title><link rel="stylesheet" href="../stil.css?v=20261025"></head><body><a class="skip-link" href="#main">Zum Inhalt</a><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span><small>Informatik und Medienbildung</small>Lernwerk</span></a><span class="header-context">Klasse 7 · Programmieren</span><nav class="header-links" aria-label="Hauptnavigation"><a href="../index.html#lernweg">Lernweg</a><a href="../index.html#lehrpersonen">Lehrpersonen</a><a class="editor-link" href="../snap/lernwerk.html?aufgabe=alg-2" target="_blank" rel="noopener">Snap! öffnen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></nav></div></header><div class="app-layout"><aside class="course-aside"><p class="aside-label">Dein Lernweg</p><nav class="course-nav " aria-label="Aufgaben im Programmierbogen"><ol><li><a href="alg-1.html"><span class="nav-number" aria-hidden="true">01</span><span class="course-label">Feste Wiederholung<small>ALG-1 · 45 Minuten</small></span></a></li><li><a href="alg-2.html" aria-current="page"><span class="nav-number" aria-hidden="true">02</span><span class="course-label">Werte und Wirkung<small>ALG-2 · 60 Minuten</small></span></a></li><li><a href="alg-3.html"><span class="nav-number" aria-hidden="true">03</span><span class="course-label">Ein Programm entscheidet<small>ALG-3 · 75 Minuten</small></span></a></li><li><a href="alg-4.html"><span class="nav-number" aria-hidden="true">04</span><span class="course-label">Wann ist Schluss?<small>ALG-4 · 75 Minuten</small></span></a></li><li><a href="alg-5.html"><span class="nav-number" aria-hidden="true">05</span><span class="course-label">Deine eigene Steuerung<small>ALG-5 · 90 Minuten</small></span></a></li><li><a href="alg-6.html"><span class="nav-number" aria-hidden="true">06</span><span class="course-label">Code unter der Lupe<small>ALG-6 · 60 Minuten</small></span></a></li></ol></nav><a class="aside-back" href="../index.html#lernweg">← Zur Übersicht</a></aside><main id="main" class="lesson-main "><div class="lesson-meta"><span>Aufgabe 2 von 6 · Programmieren</span><span class="test-badge">Erprobungsfassung</span></div><article data-lesson-content="" class="lesson-article "><h1>ALG-2 · Werte hinein, Ergebnisse heraus</h1><p><strong>60 Minuten.</strong> Du untersuchst, welche Werte ein Block erhält, welchen Wert ein Ausdruck liefert und welche Wirkung eine Anweisung auslöst. Du brauchst keine eigenen Variablen oder Funktionen.</p><p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-2" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-2-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Halte die Vorhersage vor dem Ausführen fest. Der Editor öffnet in einem neuen Tab; starte das Projekt erst an der passenden Stelle der Aufgabe. Alternativ: XML speichern und in Snap! importieren.</p>
-
-<p>Öffne <code>projekte/ALG-2-Start.xml</code> in Snap! über das Dateimenü → Importieren. Wähle bei Bedarf am Zahnrad die Sprache Deutsch. Die grüne Flagge setzt den Pfeil auf x = 0, y = 0 und Richtung 90 Grad, also nach rechts. Einzelne lose Blöcke startest du durch Anklicken. Vor jeder Bewegung zuerst die Flagge anklicken. Das ist hier ein Modell auf der Bühne, kein echter Roboter.</p>
-<nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>In dieser Aufgabe</strong><ol><li><a href="#abschnitt-1">Ein Block tut etwas, ein anderer liefert etwas</a></li><li><a href="#abschnitt-2">Gemeinsam untersuchen</a></li><li><a href="#abschnitt-3">Deine Untersuchung</a></li><li><a href="#abschnitt-4">Rückmeldung und neuer Kurzfall</a></li><li><a href="#abschnitt-5">Hilfen bei Bedarf</a></li></ol></nav><section class="lesson-section" id="abschnitt-1"><h2>1 · Ein Block tut etwas, ein anderer liefert etwas · 15 Minuten gemeinsam</h2>
-<p>Betrachte die beiden Blöcke <code>5 + 7</code> und <code>gehe (5 + 7) Schritte</code>. Sage zuerst voraus, was beim Anklicken passiert. Führe beide danach aus.</p>
-<p>Ein <strong>Ausdruck</strong> liefert einen Wert, den ein anderer Block verwenden kann. <code>5 + 7</code> erhält zwei Zahlen und liefert eine Zahl. Bei einem einzelnen Klick zeigt Snap! diesen Wert in einer kleinen Blase. Diese Anzeige macht den Ausdruck noch nicht zu einer „sage“-Anweisung.</p>
-<p>Eine <strong>Anweisung</strong> bewirkt etwas: <code>gehe … Schritte</code> verändert den Ort. Sie erhält hier das Ergebnis der Rechnung. Sie liefert keinen Wert zum Einsetzen in einen anderen Block zurück. Auch <code>sage Ziel</code> bewirkt eine Anzeige; der angezeigte Text ist kein Rückgabewert dieser Anweisung.</p>
-<p>Es gibt unter anderem Zahlen, Zeichenketten und Wahrheitswerte. Die Zeichenkette <code>Ziel</code> ist Text. <code>8 &gt; 8</code> liefert einen Wahrheitswert: wahr oder falsch. Die Form des Blocks hilft beim Erkennen; Farbe allein genügt nicht. Ein ovaler Block kann verschiedene Werttypen liefern.</p>
-</section><section class="lesson-section" id="abschnitt-2"><h2>2 · Gemeinsam untersuchen · 15 Minuten</h2>
-<p>Erstelle in deinem Heft oder Dokument diese Tabelle. Bearbeite die ersten beiden Zeilen mit der Lehrperson, danach die dritte Zeile mit einer eigenen Begründung.</p>
-<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
-<thead>
-<tr>
-<th>Block</th>
-<th>Übergebene Werte</th>
-<th>Rückgabewert und Typ oder Wirkung?</th>
-<th>Vorhersage → Beobachtung</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>5 + 7</code></td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td><code>gehe (5 + 7) Schritte</code>, Start x = 0</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td><code>sage Ziel</code></td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table></div>
-<p>Markiere im Bewegungsblock den inneren Ausdruck. Erkläre den Weg: zwei Eingaben → Rechenergebnis → Eingabe der Bewegung → neuer Ort. Unterscheide dabei Eingaben des inneren und des äußeren Blocks.</p>
-</section><section class="lesson-section" id="abschnitt-3"><h2>3 · Deine Untersuchung · 20 Minuten</h2>
-<p>Ergänze die Tabelle für <code>3 × 4</code>, <code>8 &gt; 8</code> und <code>x-Position</code>. Klicke jeweils erst nach deiner Vorhersage. Setze vor <code>x-Position</code> den Pfeil mit der Flagge zurück. Der Positionsblock erhält hier keine sichtbare Eingabe und liefert die aktuelle x-Koordinate als Zahl.</p>
-<p>Ändere danach <strong>nur die 7 im Bewegungsblock</strong> in 9. Die lose Rechnung <code>5 + 7</code> bleibt unverändert. Notiere vor dem Lauf:</p>
-<ol>
-<li>Was liefert die Rechnung innerhalb der Bewegung jetzt?</li>
-<li>Wo steht der Pfeil nach der Bewegung, wenn du zuvor zurücksetzt?</li>
-<li>Was bleibt gleich: Blockart, Werttyp oder Ergebnis? Begründe.</li>
-</ol>
-<p>Prüfe in Snap! und ergänze eine abweichende Beobachtung, ohne deine Vorhersage zu löschen. Ändere anschließend beim Vergleich nur den linken Wert von <code>8 &gt; 8</code> auf 9 und begründe die Veränderung des Wahrheitswerts.</p>
-</section><section class="lesson-section" id="abschnitt-4"><h2>4 · Rückmeldung und neuer Kurzfall · 10 Minuten</h2>
-<p>Vergleiche deine Eingabe-/Ergebnisunterscheidung mit der Besprechung. Überarbeite eine unklare Zeile sichtbar. Falls alles stimmte, ergänze eine genauere Begründung zur Anweisung ohne Rückgabewert.</p>
-<p>Baue als kurzen neuen Fall <code>gehe (2 × 6) Schritte</code>. Beginne bei x = 0. Sage vor dem Klick Ergebnis, Typ und Wirkung voraus und prüfe. Erkläre in einem Satz, warum „Der Pfeil steht auf 12“ allein noch nicht die Rückgabe des Bewegungsblocks beschreibt.</p>
-<p><strong>Dein Nachweis:</strong> Tabelle, Vergleich vor/nach der Eingabeänderung und begründeter Kurzfall. Speichere die Projektfassung als <code>ALG-2-Kennung.xml</code>; deine Tabelle liegt im vereinbarten Heft oder Dokument. Ein Screenshot ohne Erklärung genügt nicht.</p>
-</section><section class="lesson-section" id="abschnitt-5"><h2>Hilfen bei Bedarf</h2>
-<ul>
-<li><strong>Einstieg:</strong> Zeichne einen Rahmen um den inneren Block. Welchen Wert braucht der äußere Block von ihm?</li>
-<li><strong>Rückgabe oder Wirkung:</strong> Kannst du den ganzen Block als Wert in einen Eingabeplatz einsetzen? Was ändert sich beim Ausführen auf der Bühne?</li>
-<li><strong>Vergleich:</strong> Lies <code>&gt;</code> als „ist größer als“, nicht als „ist mindestens“. Prüfe gleiche Zahlen zuerst.</li>
-<li><strong>Bedienung:</strong> Zahlenfelder anklicken, Zahl ersetzen; grüne Flagge setzt zurück. Die Multiplikation findest du bei Operatoren. Frage bei Bedienhürden nach; die Hilfe wird getrennt vom fachlichen Ergebnis festgehalten.</li>
-</ul>
-<p>Material und Beispiele: eigene Unterrichtskonstruktion, Fassung 1.0 vom 22.10.2026.</p>
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-2 · Gleiche Zahl – gleiche Wirkung? · IuM 7</title><link rel="stylesheet" href="../stil.css?v=20261025-2"></head><body><a class="skip-link" href="#main">Zum Inhalt</a><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span><small>Informatik und Medienbildung</small>Lernwerk</span></a><span class="header-context">Klasse 7 · Programmieren</span><nav class="header-links" aria-label="Hauptnavigation"><a href="../index.html#lernweg">Lernweg</a><a href="../index.html#lehrpersonen">Lehrpersonen</a><a class="editor-link" href="../snap/lernwerk.html?aufgabe=alg-2" target="_blank" rel="noopener">Snap! öffnen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></nav></div></header><div class="app-layout"><aside class="course-aside"><p class="aside-label">Dein Lernweg</p><nav class="course-nav " aria-label="Aufgaben im Programmierbogen"><ol><li><a href="alg-1.html"><span class="nav-number" aria-hidden="true">01</span><span class="course-label">Feste Wiederholung<small>ALG-1 · 45 Minuten</small></span></a></li><li><a href="alg-2.html" aria-current="page"><span class="nav-number" aria-hidden="true">02</span><span class="course-label">Werte und Wirkung<small>ALG-2 · 60 Minuten</small></span></a></li><li><a href="alg-3.html"><span class="nav-number" aria-hidden="true">03</span><span class="course-label">Ein Programm entscheidet<small>ALG-3 · 75 Minuten</small></span></a></li><li><a href="alg-4.html"><span class="nav-number" aria-hidden="true">04</span><span class="course-label">Wann ist Schluss?<small>ALG-4 · 75 Minuten</small></span></a></li><li><a href="alg-5.html"><span class="nav-number" aria-hidden="true">05</span><span class="course-label">Deine eigene Steuerung<small>ALG-5 · 90 Minuten</small></span></a></li><li><a href="alg-6.html"><span class="nav-number" aria-hidden="true">06</span><span class="course-label">Code unter der Lupe<small>ALG-6 · 60 Minuten</small></span></a></li></ol></nav><a class="aside-back" href="../index.html#lernweg">← Zur Übersicht</a></aside><main id="main" class="lesson-main "><div class="lesson-meta"><span>Aufgabe 2 von 6 · Programmieren</span><span class="test-badge">Erprobungsfassung</span></div><article data-lesson-content="" class="lesson-article "><h1>ALG-2 · Gleiche Zahl – gleiche Wirkung?</h1>
+<p><strong>60 Minuten · Rover-Werkstatt.</strong> Zwei Rechnungen können dieselbe Strecke liefern. Aber bewegt eine Rechnung allein schon den Rover?</p>
+<p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-2" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-2-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Der Link lädt dein Startprojekt bereits. Halte deine Vorhersage fest, bevor du startest. Eigene Arbeit sicherst du über Datei speichern und prüfst sie mit Datei öffnen.</p>
+<nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>Auf dieser Seite</strong><ol><li><a href="#abschnitt-1">1 · Wert oder Wirkung? · 15 Minuten gemeinsam</a></li><li><a href="#abschnitt-2">2 · Drei Bausteine prüfen · 15 Minuten gemeinsam</a></li><li><a href="#abschnitt-3">3 · Deine Rechnung für die Station 12 · 20 Minuten</a></li><li><a href="#abschnitt-4">4 · Erklären und weiterdenken · 10 Minuten</a></li></ol></nav><section class="lesson-section" id="abschnitt-1">
+<h2>1 · Wert oder Wirkung? · 15 Minuten gemeinsam</h2>
+<p>Öffne das vorbereitete Startprojekt. <strong>Starten</strong> setzt den Rover auf x = 0. Sage voraus, was beim Anklicken von <code>5 + 7</code> und <code>gehe (5 + 7) Schritte</code> passiert. Prüfe danach.</p>
+<p>Ein <strong>Ausdruck</strong> liefert einen Wert: <code>5 + 7</code> liefert die Zahl 12. Die kleine Ergebnisblase ist die Anzeige dieses Werts. Eine <strong>Anweisung</strong> bewirkt etwas: <code>gehe … Schritte</code> verändert den Ort. Sie liefert keinen Wert zurück, den du in einen anderen Block einsetzen kannst.</p>
+</section>
+<section class="lesson-section" id="abschnitt-2">
+<h2>2 · Drei Bausteine prüfen · 15 Minuten gemeinsam</h2>
+<p>Fülle diese kleine Tabelle. Zuerst die ersten beiden Zeilen gemeinsam, dann die dritte selbst. Setze vor jeder Bewegung mit <strong>Starten</strong> zurück.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich verschieben"><table><thead><tr><th>Code</th><th>Was erhält er?</th><th>Wert und Typ oder Wirkung?</th></tr></thead><tbody><tr><td><code>5 + 7</code></td><td>…</td><td>…</td></tr><tr><td><code>gehe (5 + 7) Schritte</code></td><td>…</td><td>…</td></tr><tr><td><code>sage Ziel</code></td><td>…</td><td>…</td></tr></tbody></table></div>
+<p>Der Text <code>Ziel</code> ist eine <strong>Zeichenkette</strong>. Ein Vergleich wie <code>8 &gt; 8</code> liefert einen <strong>Wahrheitswert</strong>: wahr oder falsch. Klicke ihn nach deiner Vorhersage an.</p>
+</section>
+<section class="lesson-section" id="abschnitt-3">
+<h2>3 · Deine Rechnung für die Station 12 · 20 Minuten</h2>
+<p>Verändere zuerst nur die 7 <strong>im Bewegungsblock</strong> in 9. Sage Ergebnis und Endposition voraus. Prüfe: Welche Blockart und welcher Werttyp bleiben gleich?</p>
+<p>Baue nun eine eigene Rechnung, die ebenfalls 12 liefert, und setze sie in einen Bewegungsblock ein. Du entscheidest, ob du etwa Addition oder Multiplikation nutzt. Notiere eine weitere Tabellenzeile und erkläre: Rechnung → Zahl → Eingabe der Bewegung → neuer Ort.</p>
+<p>Untersuche außerdem <code>x-Position</code>: Welchen Wert zeigt der Block nach dem Zurücksetzen und nach deiner Bewegung? Er liest den aktuellen Zustand, ohne sichtbare Eingabe.</p>
+</section>
+<section class="lesson-section" id="abschnitt-4">
+<h2>4 · Erklären und weiterdenken · 10 Minuten</h2>
+<p>Lasse deine eigene Tabellenzeile gegenprüfen. Verbessere eine unklare Erklärung. <strong>Neuer Kurzfall:</strong> Ändere <code>8 &gt; 8</code> zu <code>9 &gt; 8</code>. Sage das Ergebnis vorher voraus und begründe den Wechsel.</p>
+<p><strong>Behalte:</strong> deine vier Tabellenzeilen und den Vergleich vor/nach der Änderung. Sichere <code>ALG-2_Kennung.xml</code> über <strong>Datei speichern</strong> und prüfe sie über <strong>Datei öffnen</strong>.</p>
+<details><summary>Hilfe und Bedienung</summary>
+<p>Markiere den inneren Rechenblock. Sein Ergebnis wird zur Eingabe des äußeren Blocks. <code>&gt;</code> bedeutet „ist größer als“. Blockform und Bedeutung helfen beim Erkennen; Farbe allein reicht nicht. Nutze bei Bedarf <strong>Schrittmodus</strong>, starte den Stapel und gehe mit <strong>Ein Schritt</strong> weiter. Lose Ausdrücke klickst du direkt an.</p>
+</details>
 </section></article><nav class="lesson-pagination" aria-label="Zwischen Aufgaben wechseln"><a href="alg-1.html"><small>Vorherige Aufgabe</small>← ALG-1 · Feste Wiederholung</a><a href="alg-3.html"><small>Nächste Aufgabe</small>ALG-3 · Ein Programm entscheidet →</a></nav><details class="testing-note"><summary>Erprobungsstand und technische Hinweise</summary><p>Erprobungsfassung für Safari. Die vollständige Geräteprüfung von Schrittmodus, Export und Wiederimport, Verbindungen und Offlineverhalten ist weiterhin offen. Gestaltung vom 25.10.2026; Aufgaben und Zeitplanung bleiben erhalten. <a href="../lehrpersonen/safari-test.html">Zum Prüfauftrag für Lehrpersonen</a>.</p></details></main></div><footer class="page-footer"><p>IuM Lernwerk · Klasse 7<br>Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Diese Materialseite speichert keine Antworten.</p><div class="footer-links"><a href="../lehrpersonen/safari-test.html">Safari-Prüfauftrag</a><a href="../snap/AENDERUNGEN.md">Snap! · Herkunft</a><a href="../../../klasse6/index.html">Klasse 6</a><a href="../../../klasse5/index.html">Klasse 5</a></div></footer></body></html>

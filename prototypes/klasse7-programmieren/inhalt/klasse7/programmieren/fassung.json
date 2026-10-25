@@ -1,0 +1,102 @@
+{
+  "version": "2.0",
+  "date": "2026-10-25",
+  "totalMinutes": 405,
+  "annualUE": 36,
+  "source": "Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026",
+  "license": "CC BY-SA 4.0",
+  "tasks": [
+    {
+      "id": "alg-1",
+      "title": "Welche Route trifft die Station?",
+      "minutes": 45,
+      "phases": [
+        10,
+        10,
+        15,
+        10
+      ],
+      "project": "projekte/ALG-1-Start.xml",
+      "targets": [
+        20
+      ]
+    },
+    {
+      "id": "alg-2",
+      "title": "Gleiche Zahl – gleiche Wirkung?",
+      "minutes": 60,
+      "phases": [
+        15,
+        15,
+        20,
+        10
+      ],
+      "project": "projekte/ALG-2-Start.xml",
+      "targets": [
+        12
+      ]
+    },
+    {
+      "id": "alg-3",
+      "title": "Welches Depot ist zuständig?",
+      "minutes": 75,
+      "phases": [
+        15,
+        15,
+        30,
+        15
+      ],
+      "project": "projekte/ALG-3-Start.xml",
+      "targets": [
+        40
+      ]
+    },
+    {
+      "id": "alg-4",
+      "title": "Warum fährt der Rover immer weiter?",
+      "minutes": 75,
+      "phases": [
+        15,
+        15,
+        30,
+        15
+      ],
+      "project": "projekte/ALG-4-Fehlersuche.xml",
+      "targets": [
+        40
+      ]
+    },
+    {
+      "id": "alg-5",
+      "title": "Dein Rover, dein Härtetest",
+      "minutes": 90,
+      "phases": [
+        15,
+        15,
+        40,
+        20
+      ],
+      "project": "projekte/ALG-5-Start.xml",
+      "targets": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "alg-6",
+      "title": "Die Haltestelle ist verpasst!",
+      "minutes": 60,
+      "phases": [
+        0,
+        10,
+        35,
+        15
+      ],
+      "project": "projekte/ALG-6-Fehlersuche.xml",
+      "targets": [
+        50
+      ]
+    }
+  ],
+  "boundaries": "Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe."
+}
