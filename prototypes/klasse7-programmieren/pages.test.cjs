@@ -32,3 +32,9 @@ test('alle ausgelieferten Snap-Dateien sind durch das Herkunftsmanifest gebunden
 test('Start- und Lehrprojekte zeigen in Snap den passenden Projektnamen',()=>{
  for(const [name,data]of all)if(name.startsWith(prefix)&&name.endsWith('.xml')){const xml=data.toString(),project=xml.match(/<project\s+name="([^"]+)"/),scene=xml.match(/<scene\s+name="([^"]+)"/);assert.ok(project,name);assert.ok(scene,name);assert.equal(scene[1],project[1],name);}
 });
+test('zusätzliche Lernwerk-Dateien sind vollständig gebunden, originale Herkunft bleibt maßgeblich',()=>{
+ const original=JSON.parse(all.get(prefix+'snap/provenienz.json')),addition=JSON.parse(all.get(prefix+'snap/lernwerk-herkunft.json'));
+ const bound=new Set(['provenienz.json','lernwerk-herkunft.json',...Object.keys(original.files),...Object.keys(addition.files)]);
+ for(const [file,h]of Object.entries(addition.files))assert.equal(hash(all.get(prefix+'snap/'+file)),h,file);
+ for(const name of all.keys())if(name.startsWith(prefix+'snap/'))assert.ok(bound.has(name.slice((prefix+'snap/').length)),'ungebundene Editor-Datei '+name);
+});
