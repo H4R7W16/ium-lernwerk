@@ -4,7 +4,7 @@ const {preparePages}=require('../pages/build.cjs');
 const all=preparePages(),prefix='klasse7/programmieren/';
 const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
 test('alle sechs ALG-Aufgaben mit vollständigen Startprojekten und Lehrhinweisen sind erreichbar',()=>{
- for(const id of [1,2,3,4,5,6]){const html=all.get(prefix+'lernende/alg-'+id+'.html');assert.ok(html,'ALG-'+id);assert.match(html,/Startprojekt speichern/);assert.match(html,/snap\/index\.html#open:/);assert.match(html,/405|Vorhersage|vorhersagen/);}
+ for(const id of [1,2,3,4,5,6]){const html=all.get(prefix+'lernende/alg-'+id+'.html');assert.ok(html,'ALG-'+id);assert.match(html,/Startprojekt speichern/);assert.match(html,/snap\/lernwerk\.html\?aufgabe=alg-/);assert.match(html,/405|Vorhersage|vorhersagen/);}
  for(const f of ['index.html','lehrpersonen/durchfuehrung-134.html','lehrpersonen/durchfuehrung-256.html','lehrpersonen/sicherung.html','lehrpersonen/hoerbriefing.html','lehrpersonen/safari-test.html','snap/index.html'])assert.ok(all.has(prefix+f),f);
  for(const f of ['ALG-1-Start','ALG-2-Start','ALG-3-Start','ALG-4-Fehlersuche','ALG-5-Start','ALG-6-Fehlersuche'])assert.match(all.get(prefix+'projekte/'+f+'.xml').toString(),/<project /,f);
 });
