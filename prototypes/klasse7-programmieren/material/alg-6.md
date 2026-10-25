@@ -40,7 +40,7 @@ Nutzt die [Ablaufvorlage](../bilder/alg6-codekarte.svg). Beginnt gemeinsam bei 0
 
 **Deine Variante:** Wähle für die bedingte Schleife Schrittweite **12 oder 15**. Sage Endposition und Meldung vorher voraus, führe aus und ergänze beides auf der Karte. Was erklärt die Veränderung?
 
-Richtwert: 10 Minuten Spur, 7 Randnotizen, 18 Erprobung/Reparatur/Variante. Wenn du festhängst, nutze einen passenden Hinweis.
+Richtwert: 10 Minuten Spur, 7 Minuten Randnotizen, 18 Minuten Erprobung/Reparatur/Variante. Wenn du festhängst, nutze einen passenden Hinweis.
 
 ## 3 · Gegencheck und Kurzfall · 15 Minuten
 
