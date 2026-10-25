@@ -1,85 +1,28 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-3 - Ein Programm entscheidet · IuM 7</title><link rel="stylesheet" href="../stil.css?v=20261025"></head><body><a class="skip-link" href="#main">Zum Inhalt</a><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span><small>Informatik und Medienbildung</small>Lernwerk</span></a><span class="header-context">Klasse 7 · Programmieren</span><nav class="header-links" aria-label="Hauptnavigation"><a href="../index.html#lernweg">Lernweg</a><a href="../index.html#lehrpersonen">Lehrpersonen</a><a class="editor-link" href="../snap/lernwerk.html?aufgabe=alg-3" target="_blank" rel="noopener">Snap! öffnen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></nav></div></header><div class="app-layout"><aside class="course-aside"><p class="aside-label">Dein Lernweg</p><nav class="course-nav " aria-label="Aufgaben im Programmierbogen"><ol><li><a href="alg-1.html"><span class="nav-number" aria-hidden="true">01</span><span class="course-label">Feste Wiederholung<small>ALG-1 · 45 Minuten</small></span></a></li><li><a href="alg-2.html"><span class="nav-number" aria-hidden="true">02</span><span class="course-label">Werte und Wirkung<small>ALG-2 · 60 Minuten</small></span></a></li><li><a href="alg-3.html" aria-current="page"><span class="nav-number" aria-hidden="true">03</span><span class="course-label">Ein Programm entscheidet<small>ALG-3 · 75 Minuten</small></span></a></li><li><a href="alg-4.html"><span class="nav-number" aria-hidden="true">04</span><span class="course-label">Wann ist Schluss?<small>ALG-4 · 75 Minuten</small></span></a></li><li><a href="alg-5.html"><span class="nav-number" aria-hidden="true">05</span><span class="course-label">Deine eigene Steuerung<small>ALG-5 · 90 Minuten</small></span></a></li><li><a href="alg-6.html"><span class="nav-number" aria-hidden="true">06</span><span class="course-label">Code unter der Lupe<small>ALG-6 · 60 Minuten</small></span></a></li></ol></nav><a class="aside-back" href="../index.html#lernweg">← Zur Übersicht</a></aside><main id="main" class="lesson-main "><div class="lesson-meta"><span>Aufgabe 3 von 6 · Programmieren</span><span class="test-badge">Erprobungsfassung</span></div><article data-lesson-content="" class="lesson-article "><h1>ALG-3 · Ein Programm entscheidet</h1><p><strong>75 Minuten.</strong> Du vergleichst Bedingungen und baust eine Verzweigung, die eine Position einem von zwei Bereichen zuordnet. Du kennst Anweisungen, Ausdrücke und Wahrheitswerte aus ALG-1/2.</p><p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-3" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-3-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Halte die Vorhersage vor dem Ausführen fest. Der Editor öffnet in einem neuen Tab; starte das Projekt erst an der passenden Stelle der Aufgabe. Alternativ: XML speichern und in Snap! importieren.</p>
-
-<nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>In dieser Aufgabe</strong><ol><li><a href="#abschnitt-1">Was entscheidet über den Zweig?</a></li><li><a href="#abschnitt-2">Beispiel vervollständigen</a></li><li><a href="#abschnitt-3">Eigene Sortierentscheidung</a></li><li><a href="#abschnitt-4">Rückmeldung und neuer Fall</a></li><li><a href="#abschnitt-5">Dein Nachweis</a></li></ol></nav><section class="lesson-section" id="abschnitt-1"><h2>1 · Was entscheidet über den Zweig? · 15 Minuten gemeinsam</h2>
-<p>Ein <code>falls … sonst …</code>-Block prüft eine Bedingung. Bei <strong>wahr</strong> wird der erste Zweig ausgeführt, bei <strong>falsch</strong> der zweite. Ein einzelner Aufruf dieses Blocks wählt genau einen Zweig. Die Bedingung liefert einen Wahrheitswert; die Meldung im gewählten Zweig ist eine Wirkung.</p>
-<p>Eine Markierung liegt bei x = 40. Der Pfeil wird nach seiner Position sortiert: <strong>links von 40 → Bereich A; an der Marke oder rechts davon → Bereich B.</strong> Er soll sich dabei nicht bewegen. Die x-Position ist die vorbereitete Eingabe, keine Messung an einem realen Gegenstand.</p>
-<p>Vergleiche zunächst diese beiden Bedingungen auf Papier:</p>
-<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
-<thead>
-<tr>
-<th>x-Position</th>
-<th><code>x-Position &lt; 40</code></th>
-<th><code>nicht (x-Position &gt; 40)</code></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>30</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>40</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>50</td>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table></div>
-<p><code>nicht</code> kehrt einen Wahrheitswert um. Begründe, bei welchem Fall sich die Bedingungen unterscheiden. Welche Bedingung passt zur Regel für Bereich A?</p>
-</section><section class="lesson-section" id="abschnitt-2"><h2>2 · Beispiel vervollständigen · 15 Minuten gemeinsam</h2>
-<p>Importiere <code>ALG-3-Start.xml</code>. Die grüne Flagge setzt die vorbereitete x-Position auf 40 und die Richtung auf 90. Daneben liegt eine noch unverbundene Verzweigung:</p>
-<pre><code class="language-text">falls x-Position &lt; 40
-    sage Bereich A
-sonst
-    [hier fehlt noch eine Anweisung]
-</code></pre>
-<p>Ergänze im leeren Zweig die passende Meldung. Hänge die Verzweigung unten an den Startstapel. <strong>Sage die Meldung für x = 40 voraus</strong>, bevor du startest. Prüfe danach. Ändere für einen zweiten Versuch nur die x-Eingabe im Startblock auf 30; der Schwellenwert in der Bedingung bleibt 40.</p>
-<p>Du änderst Eingabe und Schwelle an verschiedenen Stellen: Die Eingabe beschreibt den untersuchten Fall. Die Schwelle gehört zur Regel. Verändere sie nicht unbemerkt gemeinsam.</p>
-</section><section class="lesson-section" id="abschnitt-3"><h2>3 · Eigene Sortierentscheidung · 30 Minuten</h2>
-<p>Wähle eine neue Schwelle: <strong>60 oder 80</strong>. Deine Regel lautet: <strong>Vor der Schwelle → Meldung 1; an oder hinter der Schwelle → Meldung 2.</strong> Wähle zwei eindeutige, sachliche Meldungen. Plane und baue deine Verzweigung. Sie darf keinen Bewegungsblock enthalten. Der Startblock stellt die jeweilige Testposition her.</p>
-<p>Zeichne einen Ablaufplan mit einer Entscheidungsraute. Beschrifte die Frage sowie den Wahr- und Falschzweig; beide führen zu ihrer Meldung und danach zum Ende. Übertrage deine konkrete Regel in die Bedingung. Die Darstellung muss zu deinem Programm passen.</p>
-<p>Prüfe <strong>drei Fälle</strong>: eine Position unmittelbar davor, genau die Schwelle und eine Position unmittelbar dahinter. Bei Schwelle 60 sind das 59, 60 und 61; bei Schwelle 80 entsprechend 79, 80 und 81.</p>
-<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
-<thead>
-<tr>
-<th>Eingabe x</th>
-<th>Erwartete Meldung vor dem Start</th>
-<th>Bedingung: wahr/falsch</th>
-<th>Beobachtete Meldung</th>
-<th>Erklärung bei Abweichung</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>davor</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>genau</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>dahinter</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table></div>
-<p>Jede Person führt ihre Tabelle und erklärt den Grenzfall selbst, auch bei gemeinsamer Beratung. Speichere deine Fassung als <code>ALG-3_Kennung.xml</code>. Öffne das exportierte Projekt erneut über Importieren und prüfe den Grenzfall. Sichere vorher Notizen und Projekt; keine ungesicherten Änderungen verwerfen.</p>
-<p class="hint"><strong>Hilfen bei Bedarf:</strong> Formuliere zuerst nur den Satz für den ersten Zweig. Frage dann, ob dieser Satz an der Grenze wahr ist. Zum Untersuchen kannst du den losen Bedingungsblock anklicken. Bei einer falschen Meldung prüfe getrennt: Startposition, Bedingung, Zuordnung der Meldungen.</p>
-</section><section class="lesson-section" id="abschnitt-4"><h2>4 · Rückmeldung und neuer Fall · 15 Minuten</h2>
-<p>Lasse die drei Tests gegen deine Regel prüfen. Eine Rückmeldung nennt einen konkreten Fall und erklärt, welcher Teil dazu passt oder davon abweicht. Überarbeite begründet. Wenn die Entscheidung bereits stimmt, präzisiere eine unklare Meldung oder deinen Ablaufplan; erfinde keinen Programmfehler.</p>
-<p><strong>Neuer Fall:</strong> Die Regel bleibt gleich, aber die Bedingung soll jetzt ausdrücklich fragen: <strong>„An oder hinter der Schwelle?“</strong> Formuliere die neue Bedingung und ordne die beiden Meldungen den passenden Zweigen zu. Sage erst die Ausgabe am Grenzwert und für eine Position davor voraus. Prüfe beide Fälle und erkläre, warum die Zuordnung getauscht werden muss. Sichere auch diese begründete Änderung.</p>
-</section><section class="lesson-section" id="abschnitt-5"><h2>Dein Nachweis</h2>
-<p>Abgabe: ausführbares XML, eigener Ablaufplan, drei Tests mit Erstvorhersage, Grenzwerterklärung und begründete Überarbeitung. Du kannst Eingabe und Regel unterscheiden und erklären, warum genau ein Zweig ausgeführt wird. Nur zwei passende Bildschirmmeldungen reichen als Nachweis nicht.</p>
-<p><strong>Stand:</strong> Für den Safari-Test über GitHub Pages bereitgestellt. Die Geräteprüfung steht aus. Eigene Unterrichtskonstruktion.</p>
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-3 · Welches Depot ist zuständig? · IuM 7</title><link rel="stylesheet" href="../stil.css?v=20261025-2"></head><body><a class="skip-link" href="#main">Zum Inhalt</a><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span><small>Informatik und Medienbildung</small>Lernwerk</span></a><span class="header-context">Klasse 7 · Programmieren</span><nav class="header-links" aria-label="Hauptnavigation"><a href="../index.html#lernweg">Lernweg</a><a href="../index.html#lehrpersonen">Lehrpersonen</a><a class="editor-link" href="../snap/lernwerk.html?aufgabe=alg-3" target="_blank" rel="noopener">Snap! öffnen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></nav></div></header><div class="app-layout"><aside class="course-aside"><p class="aside-label">Dein Lernweg</p><nav class="course-nav " aria-label="Aufgaben im Programmierbogen"><ol><li><a href="alg-1.html"><span class="nav-number" aria-hidden="true">01</span><span class="course-label">Feste Wiederholung<small>ALG-1 · 45 Minuten</small></span></a></li><li><a href="alg-2.html"><span class="nav-number" aria-hidden="true">02</span><span class="course-label">Werte und Wirkung<small>ALG-2 · 60 Minuten</small></span></a></li><li><a href="alg-3.html" aria-current="page"><span class="nav-number" aria-hidden="true">03</span><span class="course-label">Ein Programm entscheidet<small>ALG-3 · 75 Minuten</small></span></a></li><li><a href="alg-4.html"><span class="nav-number" aria-hidden="true">04</span><span class="course-label">Wann ist Schluss?<small>ALG-4 · 75 Minuten</small></span></a></li><li><a href="alg-5.html"><span class="nav-number" aria-hidden="true">05</span><span class="course-label">Deine eigene Steuerung<small>ALG-5 · 90 Minuten</small></span></a></li><li><a href="alg-6.html"><span class="nav-number" aria-hidden="true">06</span><span class="course-label">Code unter der Lupe<small>ALG-6 · 60 Minuten</small></span></a></li></ol></nav><a class="aside-back" href="../index.html#lernweg">← Zur Übersicht</a></aside><main id="main" class="lesson-main "><div class="lesson-meta"><span>Aufgabe 3 von 6 · Programmieren</span><span class="test-badge">Erprobungsfassung</span></div><article data-lesson-content="" class="lesson-article "><h1>ALG-3 · Welches Depot ist zuständig?</h1>
+<p><strong>75 Minuten · Rover-Werkstatt.</strong> Bei x = 40 verläuft die Depotgrenze. Vor ihr ist Depot A zuständig, an der Grenze und dahinter Depot B. Der Rover soll die passende Meldung zeigen und dabei stehen bleiben.</p>
+<p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-3" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-3-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Der Link lädt dein Startprojekt bereits. Halte deine Vorhersage fest, bevor du startest. Eigene Arbeit sicherst du über Datei speichern und prüfst sie mit Datei öffnen.</p>
+<nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>Auf dieser Seite</strong><ol><li><a href="#abschnitt-1">1 · Die Grenze entscheidet · 15 Minuten gemeinsam</a></li><li><a href="#abschnitt-2">2 · Die Depotanzeige ergänzen · 15 Minuten gemeinsam</a></li><li><a href="#abschnitt-3">3 · Deine Melderegel · 30 Minuten</a></li><li><a href="#abschnitt-4">4 · Regel wechseln · 15 Minuten</a></li></ol></nav><section class="lesson-section" id="abschnitt-1">
+<h2>1 · Die Grenze entscheidet · 15 Minuten gemeinsam</h2>
+<p>Ein <code>falls … sonst …</code> prüft eine Bedingung: <strong>wahr</strong> führt in den ersten, <strong>falsch</strong> in den zweiten Zweig. Pro Aufruf wird genau ein Zweig ausgeführt.</p>
+<p>Vergleiche vor dem Ausführen:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich verschieben"><table><thead><tr><th>Position</th><th><code>x-Position &lt; 40</code></th><th><code>nicht (x-Position &gt; 40)</code></th></tr></thead><tbody><tr><td>30</td><td>…</td><td>…</td></tr><tr><td>40</td><td>…</td><td>…</td></tr><tr><td>50</td><td>…</td><td>…</td></tr></tbody></table></div>
+<p><code>nicht</code> kehrt wahr und falsch um. Wo unterscheiden sich die Bedingungen? Welche passt zu „Depot A“?</p>
+</section>
+<section class="lesson-section" id="abschnitt-2">
+<h2>2 · Die Depotanzeige ergänzen · 15 Minuten gemeinsam</h2>
+<p>Öffne das Startprojekt. <strong>Starten</strong> stellt zunächst x = 40 her. Ergänze im losen <code>falls … sonst …</code> den fehlenden zweiten Meldungsblock und hänge die Verzweigung unten an den Startstapel.</p>
+<p>Halte deine <strong>Vorhersage für 40</strong> fest und prüfe. Teste danach 30: Ändere nur die Startposition, nicht die Grenze 40.</p>
+</section>
+<section class="lesson-section" id="abschnitt-3">
+<h2>3 · Deine Melderegel · 30 Minuten</h2>
+<p>Du entscheidest, welches Depot du zuerst abfragen willst: <strong>„vor 40?“</strong> oder <strong>„an oder hinter 40?“</strong>. Wähle verständliche Meldungen, plane die Bedingung und ordne beide Zweige passend zu. Baue deine Fassung ohne Bewegung.</p>
+<p>Skizziere die Entscheidungsraute mit Frage, wahr/falsch und beiden Meldungen. Ergänze darin drei Tests: <strong>39, 40 und 41</strong>. Notiere jeweils deine erwartete Meldung vor dem Lauf und hake sie nach dem Prüfen mit einer kurzen Beobachtung ab.</p>
+</section>
+<section class="lesson-section" id="abschnitt-4">
+<h2>4 · Regel wechseln · 15 Minuten</h2>
+<p>Lasse den Grenzfall erklären und überarbeite bei Bedarf. <strong>Neuer Kurzfall:</strong> Formuliere dieselbe Depotregel nun mit der jeweils anderen Frage. Sage für 39 und 40 voraus, welcher Zweig gewählt wird. Prüfe: Was muss außer der Bedingung geändert werden?</p>
+<p><strong>Behalte:</strong> deine Skizze mit den drei Tests und einem Satz zum Fragenwechsel. Sichere <code>ALG-3_Kennung.xml</code> über <strong>Datei speichern</strong>. Öffne sie über <strong>Datei öffnen</strong> und prüfe 40 erneut.</p>
+<details><summary>Hilfe und Bedienung</summary>
+<p>Frage zuerst, ob deine Bedingung genau bei 40 wahr ist. <code>nicht (x-Position &lt; 40)</code> fragt „nicht mehr davor?“. Bei einer falschen Meldung prüfe getrennt Startposition, Bedingung und Zweig. Nutze bei Bedarf <strong>Schrittmodus</strong> und <strong>Ein Schritt</strong>; der grüne Link lädt das Startprojekt bereits.</p>
+</details>
 </section></article><nav class="lesson-pagination" aria-label="Zwischen Aufgaben wechseln"><a href="alg-2.html"><small>Vorherige Aufgabe</small>← ALG-2 · Werte und Wirkung</a><a href="alg-4.html"><small>Nächste Aufgabe</small>ALG-4 · Wann ist Schluss? →</a></nav><details class="testing-note"><summary>Erprobungsstand und technische Hinweise</summary><p>Erprobungsfassung für Safari. Die vollständige Geräteprüfung von Schrittmodus, Export und Wiederimport, Verbindungen und Offlineverhalten ist weiterhin offen. Gestaltung vom 25.10.2026; Aufgaben und Zeitplanung bleiben erhalten. <a href="../lehrpersonen/safari-test.html">Zum Prüfauftrag für Lehrpersonen</a>.</p></details></main></div><footer class="page-footer"><p>IuM Lernwerk · Klasse 7<br>Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Diese Materialseite speichert keine Antworten.</p><div class="footer-links"><a href="../lehrpersonen/safari-test.html">Safari-Prüfauftrag</a><a href="../snap/AENDERUNGEN.md">Snap! · Herkunft</a><a href="../../../klasse6/index.html">Klasse 6</a><a href="../../../klasse5/index.html">Klasse 5</a></div></footer></body></html>

@@ -1,68 +1,31 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-5 - Ein kleines Steuerungsprogramm · IuM 7</title><link rel="stylesheet" href="../stil.css?v=20261025"></head><body><a class="skip-link" href="#main">Zum Inhalt</a><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span><small>Informatik und Medienbildung</small>Lernwerk</span></a><span class="header-context">Klasse 7 · Programmieren</span><nav class="header-links" aria-label="Hauptnavigation"><a href="../index.html#lernweg">Lernweg</a><a href="../index.html#lehrpersonen">Lehrpersonen</a><a class="editor-link" href="../snap/lernwerk.html?aufgabe=alg-5" target="_blank" rel="noopener">Snap! öffnen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></nav></div></header><div class="app-layout"><aside class="course-aside"><p class="aside-label">Dein Lernweg</p><nav class="course-nav " aria-label="Aufgaben im Programmierbogen"><ol><li><a href="alg-1.html"><span class="nav-number" aria-hidden="true">01</span><span class="course-label">Feste Wiederholung<small>ALG-1 · 45 Minuten</small></span></a></li><li><a href="alg-2.html"><span class="nav-number" aria-hidden="true">02</span><span class="course-label">Werte und Wirkung<small>ALG-2 · 60 Minuten</small></span></a></li><li><a href="alg-3.html"><span class="nav-number" aria-hidden="true">03</span><span class="course-label">Ein Programm entscheidet<small>ALG-3 · 75 Minuten</small></span></a></li><li><a href="alg-4.html"><span class="nav-number" aria-hidden="true">04</span><span class="course-label">Wann ist Schluss?<small>ALG-4 · 75 Minuten</small></span></a></li><li><a href="alg-5.html" aria-current="page"><span class="nav-number" aria-hidden="true">05</span><span class="course-label">Deine eigene Steuerung<small>ALG-5 · 90 Minuten</small></span></a></li><li><a href="alg-6.html"><span class="nav-number" aria-hidden="true">06</span><span class="course-label">Code unter der Lupe<small>ALG-6 · 60 Minuten</small></span></a></li></ol></nav><a class="aside-back" href="../index.html#lernweg">← Zur Übersicht</a></aside><main id="main" class="lesson-main "><div class="lesson-meta"><span>Aufgabe 5 von 6 · Programmieren</span><span class="test-badge">Erprobungsfassung</span></div><article data-lesson-content="" class="lesson-article "><h1>ALG-5 · Ein kleines Steuerungsprogramm</h1><p><strong>90 Minuten.</strong> Du entwirfst und baust eine Steuerung. Dein Programm soll nicht nur einmal zufällig funktionieren: Du erklärst seinen Plan, prüfst begründete Fälle und verbesserst es.</p><p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-5" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-5-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Halte die Vorhersage vor dem Ausführen fest. Der Editor öffnet in einem neuen Tab; starte das Projekt erst an der passenden Stelle der Aufgabe. Alternativ: XML speichern und in Snap! importieren.</p>
-
-<p>Du kennst aus ALG-3 die Verzweigung und aus ALG-4 die bedingte Wiederholung. <code>x-Position</code> liefert die aktuelle Position des Pfeils. Falls du das noch nicht selbst anwenden konntest, zeige es der Lehrperson vor dem Programmieren.</p>
-<nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>In dieser Aufgabe</strong><ol><li><a href="#abschnitt-1">Dein Auftrag</a></li><li><a href="#abschnitt-2">Vom Vertrag zum Plan</a></li><li><a href="#abschnitt-3">Eigenes Programm und Tests</a></li><li><a href="#abschnitt-4">Rückmeldung und begründete Revision</a></li><li><a href="#abschnitt-5">Hilfen bei Bedarf</a></li></ol></nav><section class="lesson-section" id="abschnitt-1"><h2>1 · Dein Auftrag · 15 Minuten für Klärung und Modell</h2>
-<p>Ein Pfeil stellt einen Wagen auf einer geraden Strecke dar. Er fährt nach rechts in gleich großen Schritten. Wähle eine Zielmarke <strong>60 oder 80</strong>, eine Schrittweite <strong>10 oder 15</strong> und zwei kurze passende Meldungen. Das sind Zahlen im Programm, keine selbst angelegten Variablen. Notiere deinen gewählten Vertrag.</p>
-<ul>
-<li>Normaler Start ist x = 0, y = 0, Richtung 90 Grad.</li>
-<li>Der Wagen bewegt sich, solange er noch vor der Zielmarke steht.</li>
-<li>Sobald er die Marke erreicht oder überschritten hat, darf kein weiterer Schritt folgen.</li>
-<li>Genau auf der Marke zeigt er eine Meldung für „Ziel erreicht“; nach einem Überschreiten eine andere Meldung für „vorbei“.</li>
-<li>Steht er schon am Ziel oder dahinter, fährt er nicht noch einmal.</li>
-</ul>
-<p>Die Strecke ist ein vereinfachtes Modell. Ein Schritt ist eine Bühnenstrecke, keine Sekunde und kein gemessener Meter. Es gibt keine Beschleunigung, Hindernisse oder echte Sensoren. Schrittweiten null oder kleiner sind außerhalb dieses Auftrags.</p>
-</section><section class="lesson-section" id="abschnitt-2"><h2>2 · Vom Vertrag zum Plan · 15 Minuten gelenkt</h2>
-<p>Besprecht an einem anderen Mini-Fall nur die Entscheidung: Liegt eine Position 25 vor einer Marke 30? Was verändert sich bei Position 30 und 35? Noch kein vollständiges Steuerungsprogramm vorzeigen.</p>
-<p>Zeichne dann deinen eigenen Ablauf mit Start/Ende, Handlungskästen, einer Entscheidungsraute und beschrifteten Pfeilen. Mache den Rücksprung sichtbar. Danach muss außerdem eine Entscheidung zwischen deinen zwei Meldungen erkennbar sein. Du darfst eine gleichwertige verständliche grafische Darstellung wählen.</p>
-<p>Beantworte am Plan: An welcher Stelle wird vor der nächsten Bewegung geprüft? Warum passt hier eine bedingte Wiederholung? Eine feste Zahl von Bewegungen darfst du nur verwenden, wenn du nachweist, dass damit auch die veränderten Startfälle erfüllt werden.</p>
-</section><section class="lesson-section" id="abschnitt-3"><h2>3 · Eigenes Programm und Tests · 40 Minuten</h2>
-<p>Importiere <code>projekte/ALG-5-Start.xml</code>. Es enthält nur Startposition und Richtung. Baue die Wiederholung und Verzweigung selbst. Nutze die vorhandenen Kategorien Bewegung, Steuerung, Operatoren und Aussehen. Eigene Variablen, Funktionen, Kostüme und ein Spiel sind nicht erforderlich.</p>
-<p>Plane etwa 20 Minuten fürs Bauen, 15 Minuten für Tests und 5 Minuten fürs Sichern ein. Zeige nach etwa 10 Minuten deinen Plan und die begonnene Steuerung. Bei fehlendem Plan kläre zuerst die Abbruchfrage.</p>
-<p>Prüfe diese drei Fälle. Ändere die Startposition in der ersten Anweisung und notiere <strong>vorher</strong> die erwarteten Positionen und die Meldung. Ziel und Schrittweite bleiben jeweils deine gewählten Werte.</p>
-<div class="table-scroll" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen" tabindex="0"><table>
-<thead>
-<tr>
-<th>Fall</th>
-<th>Start</th>
-<th>Warum dieser Fall?</th>
-<th>Erwartung</th>
-<th>Beobachtung / nächster Schritt</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Normalfall</td>
-<td>0</td>
-<td>normale Fahrt</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>Grenzfall</td>
-<td>genau deine Zielmarke</td>
-<td>muss ohne Bewegung enden</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>Fehler-/Gegenfall</td>
-<td>x = Zielzahl − 5, also 55 bei Ziel 60 oder 75 bei Ziel 80</td>
-<td>überspringt bei Schrittweite 10 oder 15 die Marke; deckt einen falschen Gleichheitstest auf</td>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table></div>
-<p>Der dritte Fall ist eine <strong>gültige Eingabe, die einen typischen Programmfehler sichtbar machen kann</strong>. Er ist keine Aufforderung, einen Fehler einzubauen. Wenn dein Wagen trotz Überschreitung weiterfährt: stoppe mit dem roten Stoppknopf, notiere den Fehlweg und prüfe die Bedingung. Nach spätestens sechs unerwarteten Bewegungen stoppen; kein Endloslauf als Experiment nötig.</p>
-</section><section class="lesson-section" id="abschnitt-4"><h2>4 · Rückmeldung und begründete Revision · 20 Minuten</h2>
-<p>Lass eine andere Person einen deiner Testfälle anhand deines Plans nachvollziehen. Ihr Feedback nennt eine konkrete Stelle; du entscheidest begründet, was du änderst. Jede Person bearbeitet und erklärt eine eigene Fassung. Wenn du allein arbeitest, prüfe Plan und Code mit den untenstehenden Kriterien; die Lehrperson übernimmt den kurzen Gegencheck.</p>
-<p>Dokumentiere <strong>vorher → Änderung → Grund → erneuter Test</strong>. Wenn die drei Fälle bereits funktionieren, prüfe zusätzlich einen Start bei x = Zielzahl + 5, also 65 oder 85, und verbessere nach Rückmeldung etwa die Genauigkeit deiner Meldung oder die Übereinstimmung zwischen Plan und Code. Behaupte keinen behobenen Fehler, den es nicht gab.</p>
-<p>Zum Schluss setzt du den Start wieder auf 0, exportierst <code>ALG-5-Kennung.xml</code>, öffnest die gespeicherte Datei erneut und führst den Normalfall aus. Eine offene Browserseite ist noch keine gesicherte Projektdatei.</p>
-<p><strong>Dein Nachweis:</strong> eigener grafischer Plan, ausführbare Projektdatei, drei begründete Tests und eine nachvollziehbare Überarbeitung. Die Lehrperson prüft: Erfüllt die Steuerung den Vertrag? Passen Plan und Code zusammen? Sind erwarteter und beobachteter Ablauf getrennt? Begründet die Revision eine Verbesserung?</p>
-</section><section class="lesson-section" id="abschnitt-5"><h2>Hilfen bei Bedarf</h2>
-<ul>
-<li><strong>Hilfe 1 – Plan:</strong> „Bin ich noch vor der Marke?“ und „Habe ich die Marke genau getroffen?“ sind verschiedene Fragen. Wo brauchst du welche?</li>
-<li><strong>Hilfe 2 – Schleife:</strong> <code>wiederhole bis …</code> beendet die Wiederholung, sobald die eingesetzte Bedingung wahr ist. Übersetze deine Frage daher sorgfältig. <code>nicht (x-Position &lt; Zielzahl)</code> bedeutet „nicht mehr davor“.</li>
-<li><strong>Hilfe 3 – Meldungen:</strong> Die Verzweigung nach der Fahrt kann mit <code>x-Position = Zielzahl</code> entscheiden. Baue die Zweige selbst und prüfe beide Meldungen.</li>
-</ul>
-<p>Notiere verwendete fachliche Hilfe. Eine ergänzte Musterlösung allein belegt noch keine eigene Entwicklung.</p>
-<p>Material und Beispiele: eigene Unterrichtskonstruktion, Fassung 1.0 vom 22.10.2026.</p>
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ALG-5 · Dein Rover, dein Härtetest · IuM 7</title><link rel="stylesheet" href="../stil.css?v=20261025-2"></head><body><a class="skip-link" href="#main">Zum Inhalt</a><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span><span><small>Informatik und Medienbildung</small>Lernwerk</span></a><span class="header-context">Klasse 7 · Programmieren</span><nav class="header-links" aria-label="Hauptnavigation"><a href="../index.html#lernweg">Lernweg</a><a href="../index.html#lehrpersonen">Lehrpersonen</a><a class="editor-link" href="../snap/lernwerk.html?aufgabe=alg-5" target="_blank" rel="noopener">Snap! öffnen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></nav></div></header><div class="app-layout"><aside class="course-aside"><p class="aside-label">Dein Lernweg</p><nav class="course-nav " aria-label="Aufgaben im Programmierbogen"><ol><li><a href="alg-1.html"><span class="nav-number" aria-hidden="true">01</span><span class="course-label">Feste Wiederholung<small>ALG-1 · 45 Minuten</small></span></a></li><li><a href="alg-2.html"><span class="nav-number" aria-hidden="true">02</span><span class="course-label">Werte und Wirkung<small>ALG-2 · 60 Minuten</small></span></a></li><li><a href="alg-3.html"><span class="nav-number" aria-hidden="true">03</span><span class="course-label">Ein Programm entscheidet<small>ALG-3 · 75 Minuten</small></span></a></li><li><a href="alg-4.html"><span class="nav-number" aria-hidden="true">04</span><span class="course-label">Wann ist Schluss?<small>ALG-4 · 75 Minuten</small></span></a></li><li><a href="alg-5.html" aria-current="page"><span class="nav-number" aria-hidden="true">05</span><span class="course-label">Deine eigene Steuerung<small>ALG-5 · 90 Minuten</small></span></a></li><li><a href="alg-6.html"><span class="nav-number" aria-hidden="true">06</span><span class="course-label">Code unter der Lupe<small>ALG-6 · 60 Minuten</small></span></a></li></ol></nav><a class="aside-back" href="../index.html#lernweg">← Zur Übersicht</a></aside><main id="main" class="lesson-main "><div class="lesson-meta"><span>Aufgabe 5 von 6 · Programmieren</span><span class="test-badge">Erprobungsfassung</span></div><article data-lesson-content="" class="lesson-article "><h1>ALG-5 · Dein Rover, dein Härtetest</h1>
+<p><strong>90 Minuten · Rover-Werkstatt.</strong> Entwickle eine Steuerung, die auch bei einem ungewohnten Start funktioniert. Dein Team soll sie anhand deiner Regeln testen können.</p>
+<p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-5" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-5-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Der Link lädt dein Startprojekt bereits. Halte deine Vorhersage fest, bevor du startest. Eigene Arbeit sicherst du über Datei speichern und prüfst sie mit Datei öffnen.</p>
+<nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>Auf dieser Seite</strong><ol><li><a href="#abschnitt-1">1 · Deine Regeln festlegen · 15 Minuten</a></li><li><a href="#abschnitt-2">2 · Vom Auftrag zum Plan · 15 Minuten gelenkt</a></li><li><a href="#abschnitt-3">3 · Bauen und selbst testen · 40 Minuten</a></li><li><a href="#abschnitt-4">4 · Fremder Test, eigene Verbesserung · 20 Minuten</a></li></ol></nav><section class="lesson-section" id="abschnitt-1">
+<h2>1 · Deine Regeln festlegen · 15 Minuten</h2>
+<p>Wähle die Station <strong>60 oder 80</strong>, die Schrittweite <strong>10 oder 15</strong> und zwei klare Meldungen. Der Rover startet normalerweise bei 0 und schaut nach rechts.</p>
+<p>Dein Auftrag:</p>
+<ul><li>Fahren, solange der Rover vor deiner Station steht; an oder hinter ihr keinen weiteren Schritt machen.</li><li>Eine Meldung für „genau getroffen“, eine andere für „vorbei“ zeigen.</li><li>Auch dann richtig reagieren, wenn der Rover bereits an oder hinter der Station startet.</li></ul>
+<p>Halte deine Wahl in zwei Sätzen fest. Die Zahlen stehen direkt im Code; eigene Variablen sind nicht nötig. Die beiden Linien auf der Bühne zeigen die möglichen Stationen.</p>
+</section>
+<section class="lesson-section" id="abschnitt-2">
+<h2>2 · Vom Auftrag zum Plan · 15 Minuten gelenkt</h2>
+<p>Klärt gemeinsam nur den Mini-Fall: Position 25, Marke 30 – fahren oder stoppen? Was ändert sich bei 30 und 35?</p>
+<p>Zeichne dann deinen <strong>eigenen grafischen Ablaufplan</strong>: Wo wird vor der Bewegung geprüft? Wo verzweigen die Meldungen? Mache Fragen, Rückwege und Ende sichtbar. Entscheide, welche Wiederholung deine Regel auch bei verändertem Start erfüllt.</p>
+</section>
+<section class="lesson-section" id="abschnitt-3">
+<h2>3 · Bauen und selbst testen · 40 Minuten</h2>
+<p>Öffne das Startprojekt. Es enthält nur Start und Richtung. Baue deine Steuerung selbst. Zeige nach etwa zehn Minuten kurz Plan und ersten Code.</p>
+<p>Plane ungefähr 20 Minuten fürs Bauen, 15 für Tests und 5 fürs Sichern. Führe diese kleine Testliste; schreibe die Erwartung <strong>vor</strong> dem Start auf:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich verschieben"><table><thead><tr><th>Fall</th><th>Deine Eingabe</th><th>Erwartete Position/Meldung</th><th>Beobachtung</th></tr></thead><tbody><tr><td>Normalfall</td><td>Start 0</td><td>…</td><td>…</td></tr><tr><td>Grenzfall</td><td>Start an deiner Station</td><td>…</td><td>…</td></tr><tr><td>Dein Gegenfall</td><td>Wähle selbst einen Start, bei dem die Marke übersprungen wird. Begründe deine Wahl.</td><td>…</td><td>…</td></tr></tbody></table></div>
+<p>Wenn der Rover unerwartet weiterfährt, nutze <strong>Stopp</strong>. Ein kurzer Fehlweg genügt zum Untersuchen; stoppe spätestens nach sechs unerwarteten Bewegungen.</p>
+</section>
+<section class="lesson-section" id="abschnitt-4">
+<h2>4 · Fremder Test, eigene Verbesserung · 20 Minuten</h2>
+<p>Tauscht einen zusätzlichen Startwert aus und sagt die Wirkung vorher voraus. Jede Person prüft am eigenen Programm. Allein übernimmt die Lehrperson den Gegencheck.</p>
+<p>Überarbeite eine konkrete Stelle an Code, Plan oder Meldung und teste erneut. Notiere kurz <strong>Änderung – Grund – neuer Test</strong>. Wenn alles passt, darf die Verbesserung auch eine verständlichere Meldung sein.</p>
+<p><strong>Behalte:</strong> Plan, Testliste und eine begründete Verbesserung. Stelle den Start auf 0, sichere <code>ALG-5_Kennung.xml</code> über <strong>Datei speichern</strong>, öffne sie über <strong>Datei öffnen</strong> und teste erneut.</p>
+<details><summary>Hilfe nach Bedarf</summary>
+<p>„Noch vor der Station?“ und „genau getroffen?“ sind zwei verschiedene Fragen. <code>wiederhole bis …</code> endet bei wahr. <code>nicht (x-Position &lt; Zielzahl)</code> fragt „nicht mehr davor?“. Für deinen Gegenfall hilft ein Start knapp vor dem Ziel; prüfe, ob ein ganzer Schritt darüber hinausführt. Mit <strong>Schrittmodus</strong> und <strong>Ein Schritt</strong> kannst du den Weg verfolgen.</p>
+</details>
 </section></article><nav class="lesson-pagination" aria-label="Zwischen Aufgaben wechseln"><a href="alg-4.html"><small>Vorherige Aufgabe</small>← ALG-4 · Wann ist Schluss?</a><a href="alg-6.html"><small>Nächste Aufgabe</small>ALG-6 · Code unter der Lupe →</a></nav><details class="testing-note"><summary>Erprobungsstand und technische Hinweise</summary><p>Erprobungsfassung für Safari. Die vollständige Geräteprüfung von Schrittmodus, Export und Wiederimport, Verbindungen und Offlineverhalten ist weiterhin offen. Gestaltung vom 25.10.2026; Aufgaben und Zeitplanung bleiben erhalten. <a href="../lehrpersonen/safari-test.html">Zum Prüfauftrag für Lehrpersonen</a>.</p></details></main></div><footer class="page-footer"><p>IuM Lernwerk · Klasse 7<br>Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Diese Materialseite speichert keine Antworten.</p><div class="footer-links"><a href="../lehrpersonen/safari-test.html">Safari-Prüfauftrag</a><a href="../snap/AENDERUNGEN.md">Snap! · Herkunft</a><a href="../../../klasse6/index.html">Klasse 6</a><a href="../../../klasse5/index.html">Klasse 5</a></div></footer></body></html>
