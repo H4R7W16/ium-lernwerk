@@ -7,7 +7,7 @@
 <title>Programmieren · Klasse 7 · Lernwerk</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="src/favicon.ico">
-<link rel="stylesheet" href="lernwerk.css?v=20261025-1">
+<link rel="stylesheet" href="lernwerk.css?v=20261025-2">
 <script src="src/morphic.js?version=2026-05-11"></script>
 <script src="src/symbols.js?version=2026-10-19"></script>
 <script src="src/widgets.js?version=2026-10-10"></script>
@@ -32,8 +32,8 @@
 <script src="src/embroider.js?version=2024-05-09"></script>
 <script src="src/sha512.js?version=2019-06-27"></script>
 <script src="src/FileSaver.min.js?version=2019-06-27"></script>
-<script src="lernwerk-modell.js?v=20261025-1" defer></script>
-<script src="lernwerk-editor.js?v=20261025-1" defer></script>
+<script src="lernwerk-modell.js?v=20261025-2" defer></script>
+<script src="lernwerk-editor.js?v=20261025-2" defer></script>
 </head>
 <body>
 <a class="skip" href="#werkzeugleiste">Zur Bedienung</a>
@@ -51,7 +51,7 @@
 <section class="workspace-top" aria-label="Arbeitsfläche auswählen">
 <div class="palette-controls"><label for="category">Bausteine</label><select id="category" disabled><option value="motion">Bewegung</option><option value="looks">Aussehen</option><option value="control">Steuerung</option><option value="operators">Operatoren</option></select></div>
 <div class="programme-label"><strong>Dein Programm</strong><span id="run-state">Wird geladen …</span></div>
-<button id="tools" class="tools-toggle" aria-pressed="false" disabled>Mehr Werkzeuge</button>
+<button id="tools" class="tools-toggle" aria-expanded="false" aria-controls="workspace" disabled>Mehr Werkzeuge</button>
 </section>
 <div id="workspace-scroll" class="workspace-scroll"><div id="workspace" class="workspace"><canvas id="world" width="1100" height="600" tabindex="0" aria-label="Snap!-Arbeitsfläche: links Bausteine, in der Mitte das Programm, rechts die Bühne"></canvas></div></div>
 <section class="state-bar" aria-label="Zustand der Figur"><div class="position"><strong>Bühne</strong><span>Position x: <output id="x">–</output></span><span>y: <output id="y">–</output></span><span>Richtung: <output id="direction">–</output><span aria-hidden="true">°</span></span></div><p id="notice" role="status">Die vorbereitete Datei wird geladen. Starte erst nach deiner Vorhersage.</p></section>
@@ -63,7 +63,7 @@
 <dialog id="help-dialog" aria-labelledby="help-title"><h2 id="help-title">So arbeitest du hier</h2>
 <h3>Programm starten</h3><p><strong>Starten</strong> entspricht der grünen Flagge. Lose Stapel, wie in ALG-1, startest du durch Antippen des gewünschten Stapels. Halte deine Vorhersage vorher fest.</p>
 <h3>Code Schritt für Schritt untersuchen</h3><p>Schalte den <strong>Schrittmodus</strong> ein. Starte dann mit der grünen Flagge oder tippe einen Stapel an. Mit <strong>Ein Schritt</strong> gehst du weiter. Der markierte Teil ist der nächste Auswertungsschritt; auch ein Ausdruck kann mehrere Schritte brauchen. Mit ausgeschaltetem Schrittmodus und <strong>Fortsetzen</strong> läuft das Programm wieder normal.</p>
-<h3>Bausteine und weitere Werkzeuge</h3><p>Links wählst du die Kategorie. Die Lernwerk-Ansicht zeigt die für den Programmierbogen nötigen Bausteine. <strong>Mehr Werkzeuge</strong> öffnet die vollständige Auswahl und die ursprünglichen Snap!-Menüs. Dein Programm bleibt dabei geöffnet.</p>
+<h3>Bausteine und weitere Werkzeuge</h3><p>Links wählst du die Kategorie. Die Lernwerk-Ansicht zeigt die für den Programmierbogen nötigen Bausteine. <strong>Mehr Werkzeuge</strong> öffnet die vollständige Auswahl und die ursprünglichen Snap!-Menüs. Dein Programm bleibt dabei geöffnet. Mit <strong>Weniger Werkzeuge</strong> kehrst du zurück. In längeren Programmen kannst du im Programmfeld scrollen.</p>
 <h3>Datei sichern und wieder öffnen</h3><p><strong>Datei speichern</strong> fordert einen XML-Download an. Prüfe selbst, wo Safari die Datei ablegt. Öffne sie anschließend über <strong>Datei öffnen</strong>. Das Öffnen einer Datei ersetzt das aktuelle Projekt; bei Änderungen erscheint vorher eine Rückfrage. Diese Seite bestätigt keine Speicherung im Downloadordner und speichert keine Antworten automatisch.</p>
 <p class="dialog-hint">Die Bühne zeigt ein Modell. Die Positionswerte unter der Arbeitsfläche stammen aus der laufenden Figur. Die vollständige Safari- und Offlineprobe steht weiterhin aus.</p><button id="help-close" class="button primary">Zurück zum Programm</button></dialog>
 <noscript>Zum Programmieren muss JavaScript im Browser aktiviert sein. Deine Aufgaben findest du über den Lernwerk-Link.</noscript>

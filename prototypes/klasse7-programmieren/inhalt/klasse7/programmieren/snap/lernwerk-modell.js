@@ -31,10 +31,17 @@
         }
         return TASKS[0];
     }
-    function hiddenPrimitives(blocks, original, focused) {
+    function hiddenPrimitives(blocks, original, focused, migrations = {}) {
         const hidden = Object.assign({}, original);
+        const allowed = new Set(SELECTORS);
+        SELECTORS.forEach(initial => {
+            let selector = initial; const seen = new Set();
+            while (migrations[selector] && migrations[selector].selector && !seen.has(selector)) {
+                seen.add(selector); selector = migrations[selector].selector; allowed.add(selector);
+            }
+        });
         if (focused) Object.keys(blocks).forEach(selector => {
-            if (!SELECTORS.includes(selector)) hidden[selector] = true;
+            if (!allowed.has(selector)) hidden[selector] = true;
         });
         return hidden;
     }
@@ -54,17 +61,23 @@
         if (!/^<project(?:\s|>)/.test(body) || !/<\/project>\s*$/.test(body)) {
             throw Error('Bitte öffne ein vollständiges Snap!-Projekt als XML.');
         }
-        return text;
+        return body;
     }
     function filename(raw) {
         const name = String(raw || '').trim().replace(/\.xml$/i, '')
             .replace(/[<>:"/\\|?*\x00-\x1f]/g, '_').replace(/^[._ -]+/, '').slice(0, 80).trim();
         return (name || 'MeinProgramm') + '.xml';
     }
+    function layout(availableWidth) {
+        const width = Math.max(840, Math.round(availableWidth || 840));
+        // Binär exakte Faktoren bewahren die ganzzahligen Grenzwerte dieser Aufgaben.
+        return {width, paletteWidth: width >= 1100 ? 300 : 280,
+            stageRatio: width >= 1100 ? 0.75 : (width >= 1000 ? 0.5 : 0.375)};
+    }
     function controls(state) {
         return {canStep: Boolean(state.running && state.stepping),
             canPause: Boolean(state.running && !state.stepping), pauseLabel: state.stepping ? 'Pause' : (state.paused ? 'Fortsetzen' : 'Pause')};
     }
     return Object.freeze({TASKS, SELECTORS, resolveTask, hiddenPrimitives,
-        withOriginalVisibility, readProject, filename, controls});
+        withOriginalVisibility, readProject, filename, layout, controls});
 }));

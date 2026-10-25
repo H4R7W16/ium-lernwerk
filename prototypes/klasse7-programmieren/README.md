@@ -33,3 +33,9 @@ node --test prototypes/klasse7-programmieren/*.test.cjs
 ```
 
 Sichtprüfung der tatsächlichen HTML-Ausgabe auf Desktop und in eingebetteten Ansichten mit 320, 390 und 834 Pixeln; direkte Navigation, Abschnittssprung und Tastatureinstieg tatsächlich bedient. Das ist eine redaktionelle Gestaltungsprüfung im verfügbaren Browser. Der umfassendere Materialreview vom 24.10. sowie Safari, Schrittmodus, Export/Wiederimport, Netzwerk und Offline bleiben getrennte offene Prüfungen. Snap! und die zehn XML-Projekte sind bei dieser Überarbeitung unverändert.
+
+## Zusätzliche Lernwerk-Ansicht für den Editor
+
+Der anschließende Nutzerauftrag umfasst jetzt ausdrücklich auch die Programmieroberfläche: Funktionsfülle, kleine Bedienung und Gestaltung. `snap/lernwerk.html` verwendet dieselbe originale Snap!-Engine und dieselben XML-Dateien. Zusätzliche eigene HTML-/CSS-/JS-Dateien stellen klare Datei-/Ausführungsaktionen, native Schritte und tatsächliche Zustandswerte bereit. Die früheren Aussagen ohne zusätzliche Laufzeitskripte beziehen sich auf die vorangehende Materialseitengestaltung. Das Original `snap/index.html` und sämtliche Originaldateien bleiben bytegleich; `snap/LERNWERK.md` beschreibt den zusätzlichen Umfang und die Grenzen, `snap/lernwerk-herkunft.json` bindet die neuen Dateien.
+
+Die Nacharbeit berücksichtigt tatsächliche Blockmigrationen und verwendet binär exakte Bühnenmaßstäbe, damit die ganzzahligen Grenzwerte dieser Aufgaben nicht durch die Ansicht verfälscht werden. `editor.test.cjs` prüft Verhaltensgrenzen, native Migrationsdaten, Layoutgeometrie und die aufgabenrichtigen Editoreinstiege. Materiallinks führen auf die zugehörige neue Ansicht; die vollständige Palette ist ohne Projektverlust erreichbar. Die bisherige Ansicht bleibt als Rückweg mit Startdatei in einem neuen Tab erhalten. Echte Safari-/Touch-/Netzwerk-/Offlineprobe bleibt gesondert offen.

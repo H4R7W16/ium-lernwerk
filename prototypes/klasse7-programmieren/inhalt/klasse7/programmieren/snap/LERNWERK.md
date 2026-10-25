@@ -10,7 +10,7 @@ Die ergänzenden Dateien sind vollständig lesbar veröffentlicht: [HTML](lernwe
 
 ## Bedienung und Grenzen
 
-Helles flaches Design, größere Blöcke, vier Einstiegskategorien und große beschriftete HTML-Aktionen. Mehr Werkzeuge erweitert die Palette und zeigt native Menüs ohne Projektwechsel. Die ursprünglichen Blockfarben und deutschen Bezeichnungen bleiben erhalten. In schmaleren Ansichten werden die vorbereiteten Stapel beim ersten Laden untereinander angeordnet; Befehlsfolge und Verbindungen bleiben gleich. Importierte eigene Anordnungen werden erhalten. Der Auswahlfilter verändert keine Programmblöcke; beim XML-Export wird die ursprüngliche Sichtbarkeit der importierten Datei verwendet.
+Helles flaches Design, größere Blöcke, vier Einstiegskategorien und große beschriftete HTML-Aktionen. Mehr Werkzeuge erweitert die Palette und zeigt native Menüs ohne Projektwechsel. Die ursprünglichen Blockfarben und deutschen Bezeichnungen bleiben erhalten. Die vorbereiteten Stapel werden beim ersten Laden kompakt untereinander angeordnet; Befehlsfolge und Verbindungen bleiben gleich. Importierte eigene Anordnungen werden erhalten. Der Auswahlfilter verändert keine Programmblöcke; beim XML-Export wird die ursprüngliche Sichtbarkeit der importierten Datei verwendet.
 
 Starten ist die grüne Flagge. Lose Stapel aus ALG-1 benötigen weiterhin einen Stapeltipp. Der Schrittmodus verwendet Snap!s echte Auswertung und Pausen. Auch einzelne Ausdrücke können mehrere Auswertungsschritte brauchen. Es wird keine eigene Debugger- oder Rückwärtsschrittlogik simuliert. Angezeigte Position und Richtung stammen aus der aktuell ausgewählten Figur.
 
@@ -21,3 +21,9 @@ Die Zusatzansicht ergänzt keine externe Schrift, Analyse, Cloudanmeldung oder z
 Der bisherige Einstieg öffnet die vorbereitete Startdatei in einem neuen Tab. Zum Übertragen eigener Arbeit dort vorher die XML-Datei sichern und in der anderen Ansicht öffnen. Mehr Werkzeuge erhält das aktuelle Projekt direkt in dieser Ansicht.
 
 [Zur bisherigen unveränderten Snap!-Ansicht](index.html) · [Zum Safari-Prüfauftrag](../lehrpersonen/safari-test.html)
+
+## Nacharbeit nach tatsächlicher erster Bedienprüfung
+
+Die Einstiegspalette berücksichtigt Snap!s registrierte Blockmigrationen. So bleiben auch die aktuellen variadischen Varianten von Plus, Produkt, Vergleichen und logischen Operatoren verfügbar. Snap! migriert ältere XML-Selektoren beim Laden selbst in diese Formen; ihre Zwei-Eingaben-Bedeutung bleibt erhalten.
+
+Die Bühne verwendet ausschließlich die binär exakten Verkleinerungsfaktoren 3/4, 1/2 oder 3/8. Damit werden bei den ganzzahligen Schrittweiten und Blickrichtung 90 dieser Aufgaben keine zusätzlichen Darstellungs-Rundungsreste an Grenzwerten erzeugt. Dies ersetzt keine allgemeine numerische Prüfung beliebiger Projekte.

@@ -1,14 +1,14 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "2026-10-25",
   "scope": "Zusätzliche Lernwerk-Ansicht, originale Snap!-Dateien unverändert",
   "upstreamManifest": "provenienz.json",
   "license": "AGPL-3.0-or-later",
   "files": {
-    "lernwerk.html": "79e0b6e297ed238cd68bbd12dc806a662ecc96cd96c60e04dbfa0a931018aa50",
-    "lernwerk.css": "f848c60ac461732c40406b4d37d1d98674ef8ea76cac32370c4017f3757e85c3",
-    "lernwerk-modell.js": "284c8f505945827af4e078122366f71629342ff75b26c085b95cc2043e58e75e",
-    "lernwerk-editor.js": "28f8dc3bc6812484d5097f7bfd8c68ed314b507c941b835a77c2a22f298bbfb0",
-    "LERNWERK.md": "9e3c8a46bb2d19d5852da17d424f1ddd45fb189933f1fd6c4e0c6e314d277a20"
+    "lernwerk.html": "36c99d653d2967e69dd3e5b22e97b2aed664a7ecb372c9182169962b97af1564",
+    "lernwerk.css": "64d36a3c83c1c10e60cebd79aac7b3516eabb98509517c7d4ff3fcfdd9bd5742",
+    "lernwerk-modell.js": "ebbb5b4c086380a22dd5482450f0d37b3007ed586be6a59845b8d839209c7758",
+    "lernwerk-editor.js": "910f4dd8dc8328a0a0b1eef63ba70468f1838538e919a630c582eb8cae46d0b9",
+    "LERNWERK.md": "421186a6d87e6af38ffbcb20d51d3dd46d83af776ee7f6ddaf76f851fa1af05d"
   }
 }

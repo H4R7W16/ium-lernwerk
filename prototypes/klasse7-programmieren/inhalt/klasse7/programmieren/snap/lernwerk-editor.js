@@ -1,5 +1,5 @@
 /* Lernwerk-Ansicht für Snap! – AGPL-3.0-or-later. Siehe LERNWERK.md. */
-/* global WorldMorph, IDE_Morph, Point, StageMorph, SpriteMorph, Process, saveAs, localize, LernwerkModell */
+/* global WorldMorph, IDE_Morph, Point, StageMorph, SpriteMorph, Process, Color, saveAs, localize, LernwerkModell */
 var world;
 (function () {
     'use strict';
@@ -34,14 +34,15 @@ var world;
     }
     function applyPalette() {
         const original = originalVisibility.get(ide.scene) || {};
-        StageMorph.prototype.hiddenPrimitives = model.hiddenPrimitives(SpriteMorph.prototype.blocks, original, focused);
+        StageMorph.prototype.hiddenPrimitives = model.hiddenPrimitives(SpriteMorph.prototype.blocks, original, focused, SpriteMorph.prototype.blockMigrations);
         ide.flushBlocksCache();
         ide.refreshPalette(true);
     }
     function fitWorkspace() {
         if (!ide || !world) return;
         const area = byId('workspace');
-        const width = Math.max(840, byId('workspace-scroll').clientWidth);
+        const layout = model.layout(byId('workspace-scroll').clientWidth);
+        const width = layout.width;
         const height = Math.round(area.getBoundingClientRect().height);
         const canvas = byId('world');
         if (canvas.width !== width || canvas.height !== height) {
@@ -51,9 +52,9 @@ var world;
             canvas.style.height = height + 'px';
             world.setExtent(new Point(width, height));
         }
-        ide.paletteWidth = width < 1000 ? 230 : 250;
+        ide.paletteWidth = layout.paletteWidth;
         ide.isSmallStage = true;
-        ide.stageRatio = width < 1000 ? 0.5 : 0.68;
+        ide.stageRatio = layout.stageRatio;
         ide.reactToWorldResize(world.bounds);
         document.documentElement.style.setProperty('--palette', ide.paletteWidth + 'px');
         document.documentElement.style.setProperty('--stage', ide.stage.width() + 'px');
@@ -73,10 +74,11 @@ var world;
         }
         ide.applyPaneHidingConfigurations();
         ide.zoomBar.hide();
+        ide.setColor(new Color(246, 245, 240));
         rebuildCategories();
         applyPalette();
-        byId('tools').setAttribute('aria-pressed', String(!focused));
-        byId('tools').textContent = focused ? 'Mehr Werkzeuge' : 'Lernwerk-Ansicht';
+        byId('tools').setAttribute('aria-expanded', String(!focused));
+        byId('tools').textContent = focused ? 'Mehr Werkzeuge' : 'Weniger Werkzeuge';
         fitWorkspace();
     }
     function updateState() {
@@ -115,9 +117,9 @@ var world;
         ready = true;
         ['start', 'stop', 'step-mode', 'save', 'open', 'tools', 'category'].forEach(id => byId(id).disabled = false);
         applyView();
-        // Auf dem iPad werden vorbereitete lose Stapel übersichtlich untereinander angeordnet.
+        // Vorbereitete Stapel werden kompakt untereinander angeordnet.
         // Das verändert nur ihre Bildschirmposition, nicht ihre Verbindung oder Befehlsfolge.
-        if (byId('workspace-scroll').clientWidth < 1180) ide.currentSprite.scripts.cleanUp();
+        ide.currentSprite.scripts.cleanUp();
         updateState();
         notice('Halte deine Vorhersage fest. Einzelne Stapel startest du durch Antippen.');
     }
