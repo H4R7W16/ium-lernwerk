@@ -1,0 +1,19 @@
+# Briefing für den ersten Unterrichtseinsatz von ALG-5
+
+Vorlesetext; keine Audiodatei.
+
+In dieser Einheit entwickeln die Lernenden ihre eigene Roversteuerung. Sie wählen Station sechzig oder achtzig, Schritte von zehn oder fünfzehn und zwei klare Meldungen. Vor der Station darf gefahren werden; an oder hinter ihr nicht mehr. Danach wird genau getroffen von vorbei unterschieden. Die neunzig Minuten verteilen sich auf fünfzehn Minuten Regelklärung, fünfzehn Minuten Planen, vierzig Minuten Bauen und selbst Testen sowie zwanzig Minuten Rückmeldung und Verbesserung.
+
+Lasst die eigene Wahl in zwei Sätzen festhalten. Klärt gemeinsam nur den Mini-Fall mit Position fünfundzwanzig und Marke dreißig, dann die Orte dreißig und fünfunddreißig. Danach zeichnen die Lernenden ihren eigenen grafischen Plan mit Frage vor der Bewegung, Rückweg, Meldungsverzweigung und Ende. Noch kein vollständiges Beispielprogramm vorführen.
+
+Das Startprojekt enthält nur Startort und Richtung. Dass Starten zunächst keine Fahrt auslöst, ist deshalb erwartbar. Für die Eigenphase sind ungefähr zwanzig Minuten Bauen, fünfzehn Minuten für drei Tests und fünf Minuten Zwischensichern vorgesehen. Nach etwa zehn Minuten kurz Plan und ersten Code ansehen. Hilfen an der konkreten Hürde geben; eigene passende Lösungen zulassen. Bei Partnergeräten wechseln die Bedienrollen, beide sagen Wirkungen voraus und erklären selbst.
+
+Die Testliste enthält Normalfall ab null, Start genau an der eigenen Station und einen selbst gewählten Start, dessen Schrittfolge die Marke überspringt. Jede Erwartung steht vor dem Lauf fest. Gebt die Zahl für den Gegenfall nicht vorzeitig an alle aus. Start am Ziel muss ohne Bewegung enden. Beim Ziel achtzig mit Fünfzehnerschritten ist schon der Normalfall neunzig mit einer Vorbei-Meldung korrekt. Beim Ziel achtzig mit Zehnerschritten sind acht erwartete Bewegungen nötig. Die Grenze von sechs gilt für unerwartete Bewegungen; bei Abweichung möglichst sofort stoppen. Schrittmodus hilft beim Untersuchen, Bedienklicks sind keine Bewegungen.
+
+Die letzten zwanzig Minuten enthalten vier Minuten Austausch und Vorhersage eines fremden Starts, sechs Minuten Prüfen und Erklären, fünf Minuten Verbesserung mit neuem Test und fünf Minuten Datei-Rückkehr. Falls Start bereits hinter dem Ziel noch nicht belegt ist, nutzt ihn als fremden Fall; der konkrete Wert bleibt frei. Auch dort darf keine Bewegung erfolgen. Wenn der Code schon korrekt ist, darf eine unklare Meldung oder Planstelle verbessert werden. Kein künstlicher Fehler ist nötig. Eine Zeile mit Änderung, Grund und neuem Test genügt.
+
+Vor der letzten Speicherung nur den Start auf null zurückstellen. Eigene Station und Schrittweite behalten. Datei wieder öffnen und den eigenen Normalfall erneut prüfen; bei achtzig und fünfzehn bleibt neunzig mit vorbei richtig. Ein Download oder ein gemeinsames Partnerprojekt allein belegt noch keine individuelle Datei- und Programmierhandlung. Dateiroutine vorher auf dem Safari-Schulgerät erproben. Für eine Pause nach fünfundvierzig Minuten enthält der Plan eine Variante mit Zwischenspeichern innerhalb der Eigenphase. Fehlende Umsetzung oder Erklärung vor der fremden Codeanalyse in ALG sechs gezielt nachsichern.
+
+## Anhang · Arbeitsfassung
+
+Maßgeblicher Ablauf, Lösungen, Hilfen und Materiallinks: [Durchführungsplan für ALG-5](alg-5-durchfuehrung.html).

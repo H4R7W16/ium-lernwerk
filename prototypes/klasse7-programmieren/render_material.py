@@ -15,6 +15,8 @@ FILES.update({'einsatz-alg-3':'lehrpersonen/alg-3-durchfuehrung.html', 'briefing
 
 FILES.update({'einsatz-alg-4':'lehrpersonen/alg-4-durchfuehrung.html', 'briefing-alg-4':'lehrpersonen/alg-4-briefing.html'})
 
+FILES.update({'einsatz-alg-5':'lehrpersonen/alg-5-durchfuehrung.html', 'briefing-alg-5':'lehrpersonen/alg-5-briefing.html'})
+
 def inline(text):
  tokens=[]
  def protect(m):
