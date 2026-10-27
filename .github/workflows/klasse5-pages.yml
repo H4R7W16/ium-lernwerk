@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 22.20.0
       - name: Check preserved content and Klasse 6/7
-        run: node --test prototypes/shared/*.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-reinigungsfall/class5-pages.test.cjs prototypes/recherche-beispiel/pages.test.cjs prototypes/pages/pages.test.cjs prototypes/klasse7-programmieren/*.test.cjs prototypes/m01-netze/*.test.cjs prototypes/m05-zeichnen/*.test.cjs
+        run: node --test prototypes/shared/*.test.cjs prototypes/m06-reinigungsfall/pages-build.test.cjs prototypes/m06-reinigungsfall/class5-pages.test.cjs prototypes/recherche-beispiel/pages.test.cjs prototypes/pages/*.test.cjs prototypes/klasse7-programmieren/*.test.cjs prototypes/m01-netze/*.test.cjs prototypes/m05-zeichnen/*.test.cjs
       - name: Build existing content and Klasse 6/7
         run: node prototypes/pages/build.cjs
       - name: Configure GitHub Pages

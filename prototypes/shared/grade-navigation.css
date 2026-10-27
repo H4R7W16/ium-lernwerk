@@ -1,0 +1,23 @@
+/* Klassenstufen-Auswahl: gleicher Zugang in den regulären Jahrgangsköpfen. */
+.lw-grade-switch{position:relative;flex-shrink:0;max-width:100%;color:var(--lw-ink,var(--text,#20362f))}
+.lw-grade-switch[open]{z-index:80}
+.lw-grade-switch>.lw-grade-summary{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none;text-decoration:none;border-radius:8px;min-height:48px}
+.lw-grade-switch>.lw-grade-summary.lw-shell-brand{display:grid;grid-template-columns:minmax(0,1fr) 28px;column-gap:10px}
+.lw-grade-summary.lw-shell-brand picture{grid-column:1;grid-row:1}
+.lw-grade-summary.lw-shell-brand .lw-brand-subject{grid-column:1;grid-row:2}
+.lw-grade-summary.lw-shell-brand .lw-grade-chevron{grid-column:2;grid-row:1}
+.lw-grade-summary::-webkit-details-marker{display:none}
+.lw-grade-summary::marker{content:""}
+.lw-grade-summary:focus-visible{outline:3px solid var(--lw-accent,var(--primary,#245743));outline-offset:5px}
+.lw-grade-summary picture{display:block;flex:1;min-width:0}
+.lw-grade-summary .lw-grade-chevron{display:inline-flex;align-items:center;justify-content:center;flex:none;width:28px;height:28px;border:1px solid #c4d1c8;border-radius:50%;font:18px/1 system-ui,sans-serif;color:var(--lw-accent,var(--primary,#245743));background:#fff}
+.lw-grade-switch[open] .lw-grade-chevron{transform:rotate(180deg)}
+.lw-grade-summary .lw-grade-number{font:inherit;color:var(--primary,#245743);margin-left:4px}
+.lw-grade-options{position:absolute;top:calc(100% + 10px);left:0;width:248px;max-width:calc(100vw - 40px);padding:8px;background:#fff;border:1px solid #c4d1c8;border-radius:12px;box-shadow:0 10px 32px #20362f24;font:16px/1.4 system-ui,-apple-system,sans-serif}
+.lw-grade-options a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:12px;color:inherit;text-decoration:none;border-radius:8px}
+.lw-grade-options a:hover,.lw-grade-options a:focus-visible{background:var(--lw-accent-soft,var(--selected,#eaf2ec))}
+.lw-grade-options a[aria-current]{background:var(--lw-accent-soft,var(--selected,#eaf2ec));font-weight:700}
+.lw-grade-options a span{font-size:12px;font-weight:500;color:var(--lw-muted,var(--muted,#526258))}
+.lw-grade-options a:focus-visible{outline:2px solid var(--lw-accent,var(--primary,#245743));outline-offset:-2px}
+@media(max-width:760px){.lw-grade-switch>.lw-grade-summary{gap:6px}.lw-grade-summary .lw-grade-chevron{width:26px;height:26px}.lw-grade-options{top:calc(100% + 6px)}}
+@media print{.lw-grade-options,.lw-grade-chevron{display:none!important}}
