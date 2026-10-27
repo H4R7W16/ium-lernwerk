@@ -3,10 +3,11 @@
 <p class="project-actions"><a class="download button button-primary" href="../snap/lernwerk.html?aufgabe=alg-3" target="_blank" rel="noopener">Startprojekt in Snap! öffnen ↗</a><a class="download button button-secondary" href="../projekte/ALG-3-Start.xml" download="">Startprojekt speichern (.xml)</a></p><p class="project-instruction">Der Link lädt dein Startprojekt bereits. Halte deine Vorhersage fest, bevor du startest. Eigene Arbeit sicherst du über Datei speichern und prüfst sie mit Datei öffnen.</p>
 <nav class="phase-links" aria-label="Abschnitte dieser Aufgabe"><strong>Auf dieser Seite</strong><ol><li><a href="#abschnitt-1">1 · Die Grenze entscheidet · 15 Minuten gemeinsam</a></li><li><a href="#abschnitt-2">2 · Die Depotanzeige ergänzen · 15 Minuten gemeinsam</a></li><li><a href="#abschnitt-3">3 · Deine Melderegel · 30 Minuten</a></li><li><a href="#abschnitt-4">4 · Regel wechseln · 15 Minuten</a></li></ol></nav><section class="lesson-section" id="abschnitt-1">
 <h2>1 · Die Grenze entscheidet · 15 Minuten gemeinsam</h2>
-<p>Ein <code>falls … sonst …</code> prüft eine Bedingung: <strong>wahr</strong> führt in den ersten, <strong>falsch</strong> in den zweiten Zweig. Pro Aufruf wird genau ein Zweig ausgeführt.</p>
-<p>Vergleiche vor dem Ausführen:</p>
+<p><strong>Deine Vorhersage:</strong> Welches Depot muss bei 30, genau 40 und 50 melden? Entscheide zuerst nach der Depotregel.</p>
+<p>Zwei Vorschläge fragen nach Depot A. Sind sie gleich? <code>nicht</code> kehrt wahr und falsch um. Vergleiche:</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich verschieben"><table><thead><tr><th>Position</th><th><code>x-Position &lt; 40</code></th><th><code>nicht (x-Position &gt; 40)</code></th></tr></thead><tbody><tr><td>30</td><td>…</td><td>…</td></tr><tr><td>40</td><td>…</td><td>…</td></tr><tr><td>50</td><td>…</td><td>…</td></tr></tbody></table></div>
-<p><code>nicht</code> kehrt wahr und falsch um. Wo unterscheiden sich die Bedingungen? Welche passt zu „Depot A“?</p>
+<p>Wo unterscheiden sich die Bedingungen? Welche passt zu deiner Depotzuordnung?</p>
+<p>Klärt daran: <code>falls … sonst …</code> prüft einmal. <strong>Wahr → erster Zweig, falsch → zweiter Zweig.</strong> Genau ein Zweig wird ausgeführt.</p>
 </section>
 <section class="lesson-section" id="abschnitt-2">
 <h2>2 · Die Depotanzeige ergänzen · 15 Minuten gemeinsam</h2>
@@ -17,12 +18,15 @@
 <h2>3 · Deine Melderegel · 30 Minuten</h2>
 <p>Du entscheidest, welches Depot du zuerst abfragen willst: <strong>„vor 40?“</strong> oder <strong>„an oder hinter 40?“</strong>. Wähle verständliche Meldungen, plane die Bedingung und ordne beide Zweige passend zu. Baue deine Fassung ohne Bewegung.</p>
 <p>Skizziere die Entscheidungsraute mit Frage, wahr/falsch und beiden Meldungen. Ergänze darin drei Tests: <strong>39, 40 und 41</strong>. Notiere jeweils deine erwartete Meldung vor dem Lauf und hake sie nach dem Prüfen mit einer kurzen Beobachtung ab.</p>
+<details><summary>Hilfe: Die falsche Meldung erscheint</summary>
+<p>Prüfe nacheinander: richtiger Testort? Wahrheitswert deiner Frage? Zugehöriger Meldungszweig? Ändere nur die erste unpassende Stelle und teste erneut. <strong>Schrittmodus</strong> und <strong>Ein Schritt</strong> helfen beim Verfolgen.</p>
+</details>
+<details><summary>Hilfe: Wie frage ich „an oder hinter 40“?</summary>
+<p>Überlege zuerst, wann „noch vor 40?“ falsch ist. Verneine diese Frage mit <code>nicht</code>. Prüfe deinen Vorschlag genau bei 40 und ordne erst dann die Meldungen zu.</p>
+</details>
 </section>
 <section class="lesson-section" id="abschnitt-4">
 <h2>4 · Regel wechseln · 15 Minuten</h2>
 <p>Lasse den Grenzfall erklären und überarbeite bei Bedarf. <strong>Neuer Kurzfall:</strong> Formuliere dieselbe Depotregel nun mit der jeweils anderen Frage. Sage für 39 und 40 voraus, welcher Zweig gewählt wird. Prüfe: Was muss außer der Bedingung geändert werden?</p>
 <p><strong>Behalte:</strong> deine Skizze mit den drei Tests und einem Satz zum Fragenwechsel. Sichere <code>ALG-3_Kennung.xml</code> über <strong>Datei speichern</strong>. Öffne sie über <strong>Datei öffnen</strong> und prüfe 40 erneut.</p>
-<details><summary>Hilfe und Bedienung</summary>
-<p>Frage zuerst, ob deine Bedingung genau bei 40 wahr ist. <code>nicht (x-Position &lt; 40)</code> fragt „nicht mehr davor?“. Bei einer falschen Meldung prüfe getrennt Startposition, Bedingung und Zweig. Nutze bei Bedarf <strong>Schrittmodus</strong> und <strong>Ein Schritt</strong>; der grüne Link lädt das Startprojekt bereits.</p>
-</details>
 </section></article><nav class="lesson-pagination" aria-label="Zwischen Aufgaben wechseln"><a href="alg-2.html"><small>Vorherige Aufgabe</small>← ALG-2 · Werte und Wirkung</a><a href="alg-4.html"><small>Nächste Aufgabe</small>ALG-4 · Wann ist Schluss? →</a></nav><details class="testing-note"><summary>Erprobungsstand und technische Hinweise</summary><p>Erprobungsfassung für Safari. Die vollständige Geräteprüfung von Schrittmodus, Export und Wiederimport, Verbindungen und Offlineverhalten ist weiterhin offen. Gestaltung vom 25.10.2026; Aufgaben und Zeitplanung bleiben erhalten. <a href="../lehrpersonen/safari-test.html">Zum Prüfauftrag für Lehrpersonen</a>.</p></details></main></div><footer class="page-footer"><p>IuM Lernwerk · Klasse 7<br>Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Diese Materialseite speichert keine Antworten.</p><div class="footer-links"><a href="../lehrpersonen/safari-test.html">Safari-Prüfauftrag</a><a href="../snap/AENDERUNGEN.md">Snap! · Herkunft</a><a href="../../../klasse6/index.html">Klasse 6</a><a href="../../../klasse5/index.html">Klasse 5</a></div></footer></body></html>

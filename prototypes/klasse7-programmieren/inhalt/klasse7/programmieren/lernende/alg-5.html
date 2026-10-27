@@ -6,7 +6,7 @@
 <p>Wähle die Station <strong>60 oder 80</strong>, die Schrittweite <strong>10 oder 15</strong> und zwei klare Meldungen. Der Rover startet normalerweise bei 0 und schaut nach rechts.</p>
 <p>Dein Auftrag:</p>
 <ul><li>Fahren, solange der Rover vor deiner Station steht; an oder hinter ihr keinen weiteren Schritt machen.</li><li>Eine Meldung für „genau getroffen“, eine andere für „vorbei“ zeigen.</li><li>Auch dann richtig reagieren, wenn der Rover bereits an oder hinter der Station startet.</li></ul>
-<p>Halte deine Wahl in zwei Sätzen fest. Die Zahlen stehen direkt im Code; eigene Variablen sind nicht nötig. Die beiden Linien auf der Bühne zeigen die möglichen Stationen.</p>
+<p>Wähle bewusst: Soll der Normalfall <strong>genau treffen</strong> oder mit <strong>wenigen Bewegungen</strong> enden? Vergleiche dafür beide Schrittweiten an deiner Station. Geht beides zugleich? Halte Wahl und Grund in zwei Sätzen fest. Weniger Bewegungen bedeutet im Modell nicht automatisch weniger Energie. Die Zahlen stehen direkt im Code; eigene Variablen sind nicht nötig. Die beiden Linien auf der Bühne zeigen die möglichen Stationen.</p>
 </section>
 <section class="lesson-section" id="abschnitt-2">
 <h2>2 · Vom Auftrag zum Plan · 15 Minuten gelenkt</h2>
@@ -19,13 +19,16 @@
 <p>Plane ungefähr 20 Minuten fürs Bauen, 15 für Tests und 5 fürs Sichern. Führe diese kleine Testliste; schreibe die Erwartung <strong>vor</strong> dem Start auf:</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich verschieben"><table><thead><tr><th>Fall</th><th>Deine Eingabe</th><th>Erwartete Position/Meldung</th><th>Beobachtung</th></tr></thead><tbody><tr><td>Normalfall</td><td>Start 0</td><td>…</td><td>…</td></tr><tr><td>Grenzfall</td><td>Start an deiner Station</td><td>…</td><td>…</td></tr><tr><td>Dein Gegenfall</td><td>Wähle selbst einen Start, bei dem die Marke übersprungen wird. Begründe deine Wahl.</td><td>…</td><td>…</td></tr></tbody></table></div>
 <p>Wenn der Rover unerwartet weiterfährt, nutze <strong>Stopp</strong>. Ein kurzer Fehlweg genügt zum Untersuchen; stoppe spätestens nach sechs unerwarteten Bewegungen.</p>
+<details><summary>Hilfe: Wo beginne ich mit dem Programm?</summary>
+<p>Baue zuerst die Fahrentscheidung. <code>wiederhole bis …</code> endet bei wahr. Prüfe sie am Ziel, bevor du die Meldungsverzweigung ergänzt. „Nicht mehr davor?“ und „genau getroffen?“ sind verschiedene Fragen. <strong>Schrittmodus</strong> und <strong>Ein Schritt</strong> helfen beim Verfolgen.</p>
+</details>
+<details><summary>Hilfe: Wie finde ich einen Gegenfall?</summary>
+<p>Wähle einen Start knapp vor dem Ziel. Führt ein ganzer Schritt darüber hinaus? Erkläre, warum ein Programm mit Gleichheitsabbruch hier versagen würde.</p>
+</details>
 </section>
 <section class="lesson-section" id="abschnitt-4">
 <h2>4 · Fremder Test, eigene Verbesserung · 20 Minuten</h2>
-<p>Tauscht einen zusätzlichen Startwert aus und sagt die Wirkung vorher voraus. Jede Person prüft am eigenen Programm. Allein übernimmt die Lehrperson den Gegencheck.</p>
-<p>Überarbeite eine konkrete Stelle an Code, Plan oder Meldung und teste erneut. Notiere kurz <strong>Änderung – Grund – neuer Test</strong>. Wenn alles passt, darf die Verbesserung auch eine verständlichere Meldung sein.</p>
-<p><strong>Behalte:</strong> Plan, Testliste und eine begründete Verbesserung. Stelle den Start auf 0, sichere <code>ALG-5_Kennung.xml</code> über <strong>Datei speichern</strong>, öffne sie über <strong>Datei öffnen</strong> und teste erneut.</p>
-<details><summary>Hilfe nach Bedarf</summary>
-<p>„Noch vor der Station?“ und „genau getroffen?“ sind zwei verschiedene Fragen. <code>wiederhole bis …</code> endet bei wahr. <code>nicht (x-Position &lt; Zielzahl)</code> fragt „nicht mehr davor?“. Für deinen Gegenfall hilft ein Start knapp vor dem Ziel; prüfe, ob ein ganzer Schritt darüber hinausführt. Mit <strong>Schrittmodus</strong> und <strong>Ein Schritt</strong> kannst du den Weg verfolgen.</p>
-</details>
+<p>Tauscht einen zusätzlichen Startwert <strong>hinter der gewählten Station</strong> aus und sagt die Wirkung vorher voraus. Jede Person prüft am eigenen Programm. Allein übernimmt die Lehrperson den Gegencheck.</p>
+<p>Überarbeite nach dem Test gezielt Code, Plan oder Meldung und prüfe erneut: <strong>Änderung – Grund – neuer Test</strong>. Ist alles klar und richtig, begründe deine Abnahme an einem kritischen Test. Einen fehlenden Test darfst du ergänzen. Keine Änderung ohne Zweck.</p>
+<p><strong>Behalte:</strong> Plan, Testliste und deine begründete Verbesserung oder Abnahme. Stelle den Start auf 0, sichere <code>ALG-5_Kennung.xml</code> über <strong>Datei speichern</strong>, öffne sie über <strong>Datei öffnen</strong> und teste erneut.</p>
 </section></article><nav class="lesson-pagination" aria-label="Zwischen Aufgaben wechseln"><a href="alg-4.html"><small>Vorherige Aufgabe</small>← ALG-4 · Wann ist Schluss?</a><a href="alg-6.html"><small>Nächste Aufgabe</small>ALG-6 · Code unter der Lupe →</a></nav><details class="testing-note"><summary>Erprobungsstand und technische Hinweise</summary><p>Erprobungsfassung für Safari. Die vollständige Geräteprüfung von Schrittmodus, Export und Wiederimport, Verbindungen und Offlineverhalten ist weiterhin offen. Gestaltung vom 25.10.2026; Aufgaben und Zeitplanung bleiben erhalten. <a href="../lehrpersonen/safari-test.html">Zum Prüfauftrag für Lehrpersonen</a>.</p></details></main></div><footer class="page-footer"><p>IuM Lernwerk · Klasse 7<br>Eigene Ergebnisse als XML und Notizen im vereinbarten Ablageort sichern. Diese Materialseite speichert keine Antworten.</p><div class="footer-links"><a href="../lehrpersonen/safari-test.html">Safari-Prüfauftrag</a><a href="../snap/AENDERUNGEN.md">Snap! · Herkunft</a><a href="../../../klasse6/index.html">Klasse 6</a><a href="../../../klasse5/index.html">Klasse 5</a></div></footer></body></html>

@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Durchführung ALG-1, ALG-3 und ALG-4
 
-**Fassung 2.1 · Klasse 7 · 195 Minuten.** ALG-4 wurde problemorientiert überarbeitet; ALG-1 und ALG-3 bleiben in Fassung 2.0. Zusammen mit ALG-2/5/6 bleiben es 405 Minuten und 36 Jahres-UE. Zeiten sind Planungsannahmen; Lernzeit und Motivation sind noch nicht im Unterricht erprobt. Digitales Primärmaterial, kurze eigene Notizen auf Papier oder im bekannten Dokument. Kein zusätzliches Aufgabenheft erforderlich.
+**Fassung 2.2 · Klasse 7 · 195 Minuten.** Frühe eigene Beobachtung, begründete Entscheidungen und gezielte Fehlersuche verbinden die drei Aufgaben. Zusammen mit ALG-2/5/6 bleiben es 405 Minuten und 36 Jahres-UE. Zeiten sind Planungsannahmen; Lernzeit und Motivation sind noch nicht im Unterricht erprobt. Digitales Primärmaterial, kurze eigene Notizen auf Papier oder im bekannten Dokument. Kein zusätzliches Aufgabenheft erforderlich.
 
 ## Vorbereiten und steuern
 
@@ -12,12 +12,12 @@ Lösungen erst nach eigenem Versuch besprechen; der öffentliche Lehrpersonenber
 
 | Phase | min | Lernhandlung / nächster Blick |
 |---|---|---|
-| Erklärung | 10 | Klammerreichweite, Start und Ziel; beide Endorte vorher vermuten. |
-| Gelenkt | 10 | A ausführen und einzelne Positionen erklären. |
+| Vorhersage und erster Versuch | 10 | Start/Ziel klären, beide Endorte vermuten, A bereits selbst ausführen. |
+| Gelenkt | 10 | A langsam erneut verfolgen, Positionen und Klammerreichweite erklären. |
 | Eigene Anwendung | 15 | B mit integrierter Ablaufskizze; eigene feste Route nach 20. |
 | Rückmeldung/Revision | 10 | Skizze abgleichen, B-Variante mit drei Fünferschritten, Datei-Rückkehr. |
 
-**Erwartung:** A 0→10→20→30, B 0→10→15→20; jeweils einmal „Ende“. Für eigenes A sind etwa 2×10, 4×5 oder 5×4 gültig. Nicht nur den Endort prüfen: Die feste Wiederholungszahl und einzelne Bewegung müssen erklärt werden. B-Variante: 0→10→15→20→25. Ein gleiches Ende beweist keinen gleichen Weg.
+**Erwartung:** A 0→10→20→30, B 0→10→15→20; jeweils einmal „Ende“. Für eigenes A sind etwa 2×10, 4×5 oder 5×4 gültig. Nicht nur den Endort prüfen: Die feste Wiederholungszahl und einzelne Bewegung müssen erklärt werden. B-Variante: 0→10→15→20→25. Ein gleiches Ende beweist keinen gleichen Weg. Die eigene Route wird anhand von Anzahl und Länge ihrer Bewegungen mit B verglichen.
 
 **Beobachtung → Hilfe:** Werden alle Zahlen miteinander multipliziert, Klammer markieren und den Rumpf ausschreiben lassen. Stimmt nur der Endwert, eine Zwischenposition erläutern lassen. Bei sicherem Einstieg eigene Route früher entwickeln lassen; gemeinsamer Gegencheck bleibt.
 
@@ -27,14 +27,14 @@ Lösungen erst nach eigenem Versuch besprechen; der öffentliche Lehrpersonenber
 
 | Phase | min | Lernhandlung / nächster Blick |
 |---|---|---|
-| Erklärung | 15 | Zwei Bedingungen bei 30/40/50 vergleichen. |
+| Regel und Erklärung | 15 | Erst Depots für 30/40/50 zuordnen, dann zwei Bedingungen daran vergleichen und Verzweigung klären. |
 | Gelenkt | 15 | Fehlenden Meldungszweig ergänzen, 40 und 30 prüfen. |
 | Eigene Anwendung | 30 | Erste Frage selbst wählen, Zweige begründen, Plan mit Tests 39/40/41. |
 | Rückmeldung/Revision | 15 | Frage umkehren, Zweige passend neu zuordnen; sichern und wieder öffnen. |
 
 `x < 40` ergibt bei 30/40/50 wahr/falsch/falsch; `nicht (x > 40)` wahr/wahr/falsch. Letzteres bedeutet kleiner oder gleich und passt an der Grenze nicht zu „Depot A“. Ausgangsregel: 39→A, 40→B, 41→B. Wer zuerst „an oder hinter 40?“ fragt, kann `nicht (x < 40)` verwenden und muss im Wahrzweig B melden. Logisch gleichwertige Lösungen akzeptieren; keine Bewegung.
 
-**Beobachtung → Hilfe:** Bei falscher Grenzmeldung zuerst den Wahrheitswert, danach den Zweig nennen lassen. Startposition und Regelgrenze getrennt markieren. Eine gezeichnete Entscheidungsraute kann gleichzeitig die drei Testeinträge tragen; kein zweites Ablaufprotokoll verlangen.
+**Beobachtung → Hilfe:** Bei falscher Meldung zuerst Testort, dann Wahrheitswert und zugehörigen Zweig prüfen; die erste unpassende Stelle gezielt ändern. Startposition und Regelgrenze getrennt markieren. Eine gezeichnete Entscheidungsraute kann gleichzeitig die drei Testeinträge tragen; kein zweites Ablaufprotokoll verlangen.
 
 ## ALG-4 · Haltestelle 40 reparieren · 75 Minuten
 
@@ -45,7 +45,7 @@ Lösungen erst nach eigenem Versuch besprechen; der öffentliche Lehrpersonenber
 | Reparieren | 35 | Abbruchfrage selbst formulieren, ersten Test 40 oder 45 begründet wählen; alle drei Fälle prüfen, volle Spur und zwei erste Prüfungen. |
 | Gegencheck/Transfer/Sicherung | 15 | Eigene Erklärung, neuer Fall 35/12; reparierte Datei sichern und wieder öffnen. |
 
-Der Fehlerlauf erzeugt die Frage vor der Erklärung. Ab Minute 10 explizit klären, ab Minute 25 eigene Reparatur. Die Testwahl hängt vom eigenen Vorschlag ab: 40 prüft die eingeschlossene Grenze, 45 deckt Gleichheitsabbruch auf. Keine Zusatznotiz für diese mündlich mögliche Begründung. Im [ausführlichen Durchführungsplan](alg-4-durchfuehrung.html) stehen Steuerung, gestufte Hilfen und die Variante 45 + 30 Minuten.
+Der Fehlerlauf erzeugt die Frage vor der Erklärung. Ab Minute 10 explizit klären, ab Minute 25 eigene Reparatur. Die Testwahl hängt vom eigenen Vorschlag ab: 40 prüft die eingeschlossene Grenze, 45 deckt Gleichheitsabbruch auf. Bei Abweichungen die erste regelwidrige Entscheidung lokalisieren, Wahrheitswert klären und denselben Start nach der Änderung erneut testen. Alle drei Starts müssen zur endgültigen Bedingung passen. Keine Zusatznotiz für diese mündlich mögliche Begründung. Im [ausführlichen Durchführungsplan](alg-4-durchfuehrung.html) stehen Steuerung, gestufte Hilfen und die Variante 45 + 30 Minuten.
 
 Fehler `x = 40`: Start 0 endet nach vier Bewegungen bei 40; Start 40 braucht null. Start 45 erreicht mit positiven Zehnerschritten die 40 nie. Im vorher aktivierten Schrittmodus zwei Bewegungen beobachten, spätestens nach vier stoppen; erst danach den Modus beenden. Alte „fertig“-Anzeige und Bedienklicks beweisen kein Ende. Feste vier Wiederholungen bewegen dagegen bei jedem Start viermal.
 

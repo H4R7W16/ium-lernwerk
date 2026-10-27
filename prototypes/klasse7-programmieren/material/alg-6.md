@@ -26,7 +26,23 @@ Nutzt die [Ablaufvorlage](../bilder/alg6-codekarte.svg). Beginnt gemeinsam bei 0
 
 **Vorhersage:** Ergänze die Positionsfolge an beiden Schleifen bis zur Meldung. Beschrifte die Bedingungsausgänge mit wahr/falsch. Notiere auch die letzte Abbruchprüfung. Erkläre mit deiner Karte, was Anweisung, feste Wiederholung, bedingte Wiederholung und Verzweigung jeweils tun.
 
-**Randnotizen zur selben Karte:** Ergänze knapp, was die folgenden Stellen erhalten bzw. liefern oder bewirken. Benenne Werttyp und vorhandenen Rechen-/Vergleichsoperator.
+**Prüfen:** Nutze **Schrittmodus**, **Starten**, dann **Ein Schritt**. Vergleiche mit deiner ersten Spur. Markiere die erste Prüfung, deren Folge gegen den Auftrag verstößt. Formuliere dort die Fehlerursache und ändere nur die Abbruchbedingung. Prüfe denselben Fall erneut.
+
+<details><summary>Hilfe: Wo beginnt der Fehler?</summary>
+
+Suche die erste Bewegung, die nicht mehr erlaubt wäre. Welche Frage wurde unmittelbar davor geprüft? Was liefert sie an dieser Position?
+
+</details>
+
+<details><summary>Hilfe: Wie ändere ich die Abbruchfrage?</summary>
+
+Soll bei wahr weitergefahren oder aufgehört werden? Formuliere „erreicht oder überschritten“ anders: „nicht mehr …“. Baue daraus einen Vergleich, bei Bedarf mit `nicht`. Erprobe den neuen Kurzfall danach selbst.
+
+</details>
+
+**Deine Variante:** Wähle für die bedingte Schleife Schrittweite **12 oder 15**. Welche Wahl trifft die Marke, welche überspringt sie? Sage Endposition und Meldung vorher voraus, führe aus und ergänze beides auf der Karte. Was erklärt die Veränderung?
+
+**Randnotizen zur selben Karte:** Ergänze knapp, was die folgenden Stellen erhalten bzw. liefern oder bewirken. Benenne Werttyp und vorhandenen Rechen-/Vergleichsoperator. Stichwörter und Wertpfeile genügen; beziehe dich auf den ursprünglichen Code.
 
 | Stelle | Deine kurze Notiz |
 |---|---|
@@ -36,20 +52,10 @@ Nutzt die [Ablaufvorlage](../bilder/alg6-codekarte.svg). Beginnt gemeinsam bei 0
 | `x-Position > 50` bei x = 50 | … |
 | `sage Ziel` | … |
 
-**Prüfen:** Nutze **Schrittmodus**, **Starten**, dann **Ein Schritt**. Vergleiche mit deiner ersten Spur. Formuliere die Fehlerursache und ändere möglichst nur die Bedingung. Prüfe die Reparatur.
-
-**Deine Variante:** Wähle für die bedingte Schleife Schrittweite **12 oder 15**. Sage Endposition und Meldung vorher voraus, führe aus und ergänze beides auf der Karte. Was erklärt die Veränderung?
-
-Richtwert: 10 Minuten Spur, 7 Minuten Randnotizen, 18 Minuten Erprobung/Reparatur/Variante. Wenn du festhängst, nutze einen passenden Hinweis.
+Richtwert: 10 Minuten Spur, 18 Minuten Erprobung/Reparatur/Variante, 7 Minuten Randnotizen. Wenn du festhängst, nutze einen passenden Hinweis.
 
 ## 3 · Gegencheck und Kurzfall · 15 Minuten
 
 Lasse einen kritischen Schritt erklären und verbessere deine Karte oder Reparatur. **Neuer Kurzfall:** Setze die bedingte Schrittweite auf 10 zurück und ändere die feste Wiederholung auf **3**. Sage die Zahl der Bewegungen beider Schleifen und die Meldung voraus, prüfe und begründe.
 
 **Behalte:** deine Codekarte mit erster Spur, Randnotizen, Reparaturgrund und Varianten. Sichere die reparierte Fassung mit **2 Wiederholungen und Schrittweite 10** über **Datei speichern** als `ALG-6_Kennung.xml`. Prüfe sie über **Datei öffnen**.
-
-<details><summary>Ein Hinweis zur Spur und zur Grenze</summary>
-
-Prüfe die Abbruchbedingung vor jeder weiteren Bewegung. Was liefert `50 > 50`? Passt das zu „erreicht oder überschritten“? Falls du einen Reparaturhinweis brauchst: „nicht mehr kleiner als 50“ lässt sich mit `nicht` und `<` ausdrücken. Erprobe den neuen Kurzfall danach selbst.
-
-</details>

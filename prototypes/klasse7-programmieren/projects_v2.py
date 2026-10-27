@@ -32,6 +32,6 @@ def main():
    next_id=max([int(e.attrib['id']) for e in root.iter() if e.attrib.get('id','').isdigit()]+[10000])+1
    item=E.SubElement(costumes,'item');E.SubElement(item,'costume',{'name':'Lernwerk '+task['id'],'center-x':'240','center-y':'180','image':'data:image/svg+xml;base64,'+base64.b64encode(svg.encode()).decode(),'id':str(next_id)})
    stage.attrib['costume']='1';file.write_text(E.tostring(root,encoding='unicode',short_empty_elements=True),encoding='utf-8',newline='\n')
- (ROOT/'fassung.json').write_text(json.dumps({'version':'2.1','date':'2026-10-27','totalMinutes':405,'annualUE':36,'source':'Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026','license':'CC BY-SA 4.0','tasks':[dict(t,revision='2.1' if t['id']=='alg-4' else '2.0') for t in TASKS],'boundaries':'Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe.'},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (ROOT/'fassung.json').write_text(json.dumps({'version':'2.2','date':'2026-10-27','totalMinutes':405,'annualUE':36,'source':'Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026','license':'CC BY-SA 4.0','tasks':[dict(t,revision='2.2') for t in TASKS],'boundaries':'Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe.'},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print('Prepared 10 embedded stages; program blocks untouched')
 if __name__=='__main__':main()

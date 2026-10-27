@@ -15,7 +15,7 @@ sage fertig
 
 Ändere nur die Startposition auf 45. Untersucht diesen Lauf gemeinsam: **Schrittmodus einschalten → Starten → Ein Schritt**. Beobachtet die x-Position nach zwei Bewegungen. Spätestens nach vier Bewegungen **Stopp**, erst danach den Schrittmodus beenden.
 
-**Passt die Beobachtung zu deiner Vermutung?** Notiere eine Positionsfolge. Eine alte „fertig“-Blase kann stehen bleiben; zählt Bewegungen, nicht Klicks oder Meldungen.
+**Passt die Beobachtung zu deiner Vermutung?** Notiere eine Positionsfolge. Zählt Positionsänderungen; eine alte „fertig“-Blase beweist kein Ende.
 
 ## 2 · Was fragt die Schleife? · 15 Minuten
 
@@ -29,20 +29,20 @@ Vergleicht mündlich: Wo enden vier feste Zehnerschritte ab **0, 40 und 45**? Wa
 
 Formuliere deine Abbruchfrage in eigenen Worten. Ändere **nur die Abbruchbedingung**; `gehe 10 Schritte` bleibt. Wähle einen Vergleich, bei Bedarf mit `nicht`.
 
-**Teste zuerst 40 oder 45 – du entscheidest.** Was willst du damit an deinem Vorschlag prüfen? Sage das Ergebnis vorher, teste im Schrittmodus, verbessere bei Bedarf. Bei unerwartetem Weiterfahren spätestens nach vier Bewegungen stoppen.
+**Teste zuerst 40 oder 45 – du entscheidest.** Was willst du damit an deinem Vorschlag prüfen? Sage das Ergebnis vorher, teste im Schrittmodus. **Bei einer Abweichung:** Finde die erste Prüfung, die eine falsche Handlung auslöst. Kläre dort wahr/falsch, ändere gezielt und teste denselben Start erneut. Spätestens nach vier unerwarteten Bewegungen stoppen.
 
-Prüfe danach alle drei Starts. Führe für **0** eine vollständige Prüfspur; ergänze für **40 und 45** jeweils die erste Prüfung:
+Prüfe mit der endgültigen Bedingung alle drei Starts. Führe für **0** die volle Prüfspur; für **40 und 45** genügt jeweils die erste Prüfung:
 
 | x bei der Prüfung | Bedingung wahr/falsch | Nächste Handlung |
 |---|---|---|
 | 0 | … | … |
 | weitere Prüfungen bis zum Ende | … | … |
 
-**Die letzte Prüfung gehört dazu.** Erkläre damit das Ende. Eine eigene Notiz für Vermutung, Reparatur und Spur genügt.
+**Die letzte Prüfung gehört dazu.** Zeige im Code, was nach ihr folgt. Eine Notiz für Vermutung, Reparatur und Spur genügt.
 
-<details><summary>Hilfe: Welche Frage braucht der bis-Block?</summary>
+<details><summary>Hilfe: Er stoppt sofort oder fährt zu lange</summary>
 
-„Noch vor 40?“ ist eine Fortsetzungsfrage. Deine Abbruchfrage muss bei „ja“ zum Aufhören führen. Probiere sie bei 0, 40 und 45.
+Setze den aktuellen Ort gedanklich in deine Frage ein. Bei wahr wird gestoppt, bei falsch gefahren. Passt das zur Zielregel? „Noch vor 40?“ wäre eine Fortsetzungsfrage.
 
 </details>
 

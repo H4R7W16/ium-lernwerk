@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Durchführung ALG-2, ALG-5 und ALG-6
 
-**Fassung 2.0 · Klasse 7 · 210 Minuten.** Mit ALG-1/3/4 weiterhin 405 Minuten innerhalb der 36-UE-Planung. Das Inhaltsmapping bleibt Grundlage. Fachliche Ziele sind erhalten; Dokumentation wird zusammengeführt. Keine Durchführung, gemessene Motivation oder reale Bearbeitungszeit behauptet.
+**Fassung 2.2 · Klasse 7 · 210 Minuten.** Mit ALG-1/3/4 weiterhin 405 Minuten innerhalb der 36-UE-Planung. Das Inhaltsmapping bleibt Grundlage. Fachliche Ziele sind erhalten; Dokumentation wird zusammengeführt. Keine Durchführung, gemessene Motivation oder reale Bearbeitungszeit behauptet.
 
 ## Vorbereiten und Zugang
 
@@ -13,11 +13,11 @@ ALG-3/4 müssen vor ALG-5 verstanden sein. Bei Lücken kurze Nachsicherung und v
 | Phase | min | Schwerpunkt |
 |---|---|---|
 | Erklärung | 15 | Ausdruck liefert Wert; Anweisung bewirkt Bewegung. |
-| Gelenkt | 15 | Drei Tabellenzeilen, Zahl/Text/Wahrheitswert. |
+| Gelenkt | 15 | Drei Tabellenzeilen, Zahl/Text/Wahrheitswert, Vergleich 8>8→9>8. |
 | Eigene Anwendung | 20 | Eingabe 7→9; eigene Rechnung für 12 und Zustand lesen. |
-| Rückmeldung/Revision | 10 | Zeile präzisieren, Vergleich 8>8→9>8; Datei-Rückkehr. |
+| Rückmeldung/Revision | 10 | Zeile präzisieren, Doppelfahrt ohne Reset vorhersagen/prüfen; Datei-Rückkehr. |
 
-`5+7`: Eingaben 5 und 7, Rückgabe 12/Zahl. `gehe(5+7)`: erhält 12, verändert bei Richtung 90 den Ort; kein einsetzbarer Rückgabewert. `sage Ziel`: Eingabe „Ziel“/Zeichenkette, Wirkung Textanzeige, kein einsetzbarer Rückgabewert. `8>8`: falsch/Wahrheitswert; `9>8`: wahr. Inneres 7→9 ergibt 14, die lose Rechnung bleibt 12. Eigene passende Rechnungen sind etwa 3×4, 6+6, 15−3. `x-Position` zeigt nach Reset 0, nach eigener Zwölferbewegung 12; keine sichtbare Eingabe, Zustandszugriff.
+`5+7`: Eingaben 5 und 7, Rückgabe 12/Zahl. `gehe(5+7)`: erhält 12, verändert bei Richtung 90 den Ort; kein einsetzbarer Rückgabewert. `sage Ziel`: Eingabe „Ziel“/Zeichenkette, Wirkung Textanzeige, kein einsetzbarer Rückgabewert. `8>8`: falsch/Wahrheitswert; `9>8`: wahr. Inneres 7→9 ergibt 14, die lose Rechnung bleibt 12. Eigene passende Rechnungen sind etwa 3×4, 6+6, 15−3. `x-Position` zeigt nach Reset 0, nach eigener Zwölferbewegung 12; keine sichtbare Eingabe, Zustandszugriff. Neuer Kurzfall: zweimal eigener Zwölfer-Bewegungsblock, Reset nur davor. Rechenwert jeweils 12, Orte 12 und 24. Derselbe Wert führt abhängig vom Ausgangsort zu einer anderen Endposition.
 
 **Beobachtung → Hilfe:** Ergebnisblase eines Ausdrucks von `sage` unterscheiden. Inneren und äußeren Block markieren; Eingabe des äußeren Blocks ist Ergebnis des inneren. Eine eigene Tabellenzeile und kurze Vorher-/Nachhernotiz genügen; keine parallele zweite Erklärungssammlung.
 
@@ -25,18 +25,18 @@ ALG-3/4 müssen vor ALG-5 verstanden sein. Bei Lücken kurze Nachsicherung und v
 
 | Phase | min | Schwerpunkt |
 |---|---|---|
-| Erklärung/Klärung | 15 | Ziel 60/80, Schritt 10/15, verständliche Meldungen wählen. |
+| Erklärung/Klärung | 15 | Ziel 60/80 und Schritt 10/15 anhand von Treffgenauigkeit und Bewegungszahl wählen; klare Meldungen. |
 | Gelenkt | 15 | Entscheidung am Mini-Fall 25/30/35, dann eigener grafischer Plan. |
 | Eigene Anwendung | 40 | Bauen 20, drei Tests 15, Sichern 5; kurzer Blick nach 10. |
-| Rückmeldung/Revision | 20 | Fremden Startwert prüfen, begründet verbessern, Datei-Rückkehr. |
+| Rückmeldung/Revision | 20 | Fremden Start hinter der Station prüfen, Programm oder Testabdeckung begründet verbessern, Datei-Rückkehr. |
 
 **Vertrag:** Nur fahren, solange x vor dem Ziel liegt. Bei Erreichen oder Überschreiten nicht weiterfahren. Anschließend genau getroffen/vorbei unterscheiden, auch bei Start am oder hinter dem Ziel. Positive Schritte, Richtung 90; keine eigenen Variablen/Funktionen nötig. Beide Stationslinien sind im Hintergrund beschriftet.
 
 Beispiel: `wiederhole bis nicht(x < Ziel)` mit Bewegung, danach `falls x = Ziel ... sonst ...`. Andere passende Kontrollstrukturen akzeptieren, wenn Wiederholung, Verzweigung und alle Startfälle verständlich nachgewiesen sind. Eine pauschale feste Anzahl genügt bei veränderten Starts nicht.
 
-Normalfallwerte: Ziel 60/Schritt 10→60, 60/15→60, 80/10→80, 80/15→90. Am Ziel null Bewegungen. Der dritte Test ist selbst zu entwickeln: ein gültiger Start knapp vor dem Ziel, dessen Schrittfolge es überspringt. Zum Beispiel Ziel−1 oder Ziel−5 bei den vorgesehenen Schrittweiten. Begründung vor Ausführung verlangen; den Startwert nicht vorweg an alle verteilen. Ein solcher Gegenfall deckt den falschen Gleichheitsabbruch auf. Bei unerwarteten Bewegungen spätestens nach sechs stoppen; acht erwartete Schritte bei Ziel 80/Schritt 10 bleiben korrekt.
+Normalfallwerte: Ziel 60/Schritt 10→60 (6 Bewegungen), 60/15→60 (4), 80/10→80 (8), 80/15→90 (6). Die Wahl hat damit fachliche Folgen: Bei Station 80 erlauben größere Schritte weniger Bewegungen, verfehlen aber die genaue Marke. Bei 60 erreichen beide Schrittweiten das Ziel. Bewegungszahl bedeutet im Modell nicht automatisch Geschwindigkeit oder Energieverbrauch. Am Ziel null Bewegungen. Der dritte Test ist selbst zu entwickeln: ein gültiger Start knapp vor dem Ziel, dessen Schrittfolge es überspringt. Zum Beispiel Ziel−1 oder Ziel−5 bei den vorgesehenen Schrittweiten. Begründung vor Ausführung verlangen; den Startwert nicht vorweg an alle verteilen. Ein solcher Gegenfall deckt den falschen Gleichheitsabbruch auf. Bei unerwarteten Bewegungen spätestens nach sechs stoppen; acht erwartete Schritte bei Ziel 80/Schritt 10 bleiben korrekt.
 
-**Zwei Individualkriterien aus dem Mapping:** eigenes begrenztes Problem mit Anweisung, Verzweigung und passender Wiederholung implementieren; Normal-, Grenz- und Fehler-/Gegenfall begründet prüfen und überarbeiten. Grafischer Plan, eine Testliste und eine konkrete Revision tragen diese Kriterien. Der zusätzliche fremde Startwert ist der kurze neue Fall im bestehenden Rückmeldefenster, keine Zusatzstunde. Wenn der Code korrekt ist, begründete Klarstellung von Meldung/Plan akzeptieren; keinen Fehler erfinden lassen.
+**Zwei Individualkriterien aus dem Mapping:** eigenes begrenztes Problem mit Anweisung, Verzweigung und passender Wiederholung implementieren; Normal-, Grenz- und Fehler-/Gegenfall begründet prüfen und überarbeiten. Grafischer Plan, eine Testliste und eine konkrete Revision tragen diese Kriterien. Der zusätzliche fremde Startwert ist der kurze neue Fall im bestehenden Rückmeldefenster, keine Zusatzstunde. Wenn Code, Plan und Meldung tragfähig sind, begründete Abnahme an einem kritischen Test akzeptieren. Nur eine echte Testlücke ergänzen; keinen Fehler oder zwecklose Umformulierung verlangen. Abnahme nicht als tatsächlich durchgeführte Revision werten; Umgang mit einer Abweichung gegebenenfalls als nicht beobachtet lassen.
 
 ## ALG-6 · Eine Codekarte statt doppelter Dokumentation · 60 Minuten
 
@@ -44,16 +44,16 @@ Normalfallwerte: Ziel 60/Schritt 10→60, 60/15→60, 80/10→80, 80/15→90. Am
 |---|---|---|
 | Neue Erklärung | 0 | Voraussetzung aus ALG-1 bis ALG-5; bei Lücken vorher nachsichern. |
 | Gelenkt | 10 | Vorlage erklären und nur Start/ersten festen Durchlauf anlegen. |
-| Eigene Anwendung | 35 | Grafische Spur 10, kurze Randnotizen 7, Ausführen/Reparatur/Variante 18. |
+| Eigene Anwendung | 35 | Grafische Spur 10, Ausführen/Reparatur/Variante 18, kurze Randnotizen 7. |
 | Rückmeldung/Revision | 15 | Kritischen Schritt erklären, fester Teil 3 statt 2, sichern/wieder öffnen. |
 
 Die [Ablaufvorlage](../bilder/alg6-codekarte.svg) wird klein skizziert oder ausgedruckt und individuell ergänzt. Positionsfolgen, letzte Abbruchprüfung und wahr/falsch gehören direkt an die betreffenden Schleifen-/Zweigstellen. Die ergänzte grafische Karte ist gleichzeitig Laufspur und Ablaufdarstellung; keine zweite Volltabelle oder neu gestaltete Grafik verlangen. Alle vier Grundbausteine müssen am Ablauf erklärt werden. Bei Bedarf ist eine kurze mündliche Erläuterung mit Lehrpersonennotiz gleichwertig; die individuelle erste Spur bleibt erhalten.
 
-**Erwartung:** Fehlerfassung: Start 0, fester Teil 10/20, bedingt 30/40/50/60, Abbruch bei 60, Meldung „vorbei“. Vier bedingte Bewegungen und letzte Prüfung 60>wahr. Bei 50 ist 50>50 falsch – entgegen dem Ziel „erreicht oder überschritten“. Korrektur `nicht(x < 50)` oder gleichwertig: drei bedingte Bewegungen, Ende 50/„Ziel“. Die Fehlerhypothese muss die Prüfung an 50 erklären.
+**Erwartung:** Fehlerfassung: Start 0, fester Teil 10/20, bedingt 30/40/50/60, Abbruch bei 60, Meldung „vorbei“. Vier bedingte Bewegungen und letzte Prüfung 60>wahr. Bei 50 ist 50>50 falsch – entgegen dem Ziel „erreicht oder überschritten“. Korrektur `nicht(x < 50)` oder gleichwertig: drei bedingte Bewegungen, Ende 50/„Ziel“. Die Fehlerhypothese muss die erste regelwidrige Entscheidung an 50 erklären. Erst Spur vorhersagen, dann im Schrittmodus prüfen/reparieren, erst anschließend die Randnotizen zur ursprünglichen Codefassung ergänzen. Die Hilfen sind gestuft: Fehlerstelle suchen, dann Abbruchfrage sprachlich bilden; keine vollständige Reparatur sofort anzeigen.
 
-**Kurze Randnotizen, fünf Codezeilen:** `10` ist Zahl und Ausdruck ohne Operator; `5+5` erhält 5/5, liefert 10/Zahl, Operator+; die äußere Bewegung erhält 10, verändert den Ort und gibt keinen einsetzbaren Wert zurück. `x-Position` nach festem Teil:20/Zahl, keine sichtbare Eingabe, kein Rechen-/Vergleichsoperator. `x>50` bei 50: falsch/Wahrheitswert, Vergleich>. `sage Ziel`: übergebene Zeichenkette, Textanzeige statt einsetzbarer Rückgabe. Nicht zu fünf langen Aufsätzen erweitern.
+**Kurze Randnotizen, fünf Codezeilen:** `10` ist Zahl und Ausdruck ohne Operator; `5+5` erhält 5/5, liefert 10/Zahl, Operator+; die äußere Bewegung erhält 10, verändert den Ort und gibt keinen einsetzbaren Wert zurück. `x-Position` nach festem Teil:20/Zahl, keine sichtbare Eingabe, kein Rechen-/Vergleichsoperator. `x>50` bei 50: falsch/Wahrheitswert, Vergleich>. `sage Ziel`: übergebene Zeichenkette, Textanzeige statt einsetzbarer Rückgabe. Stichwörter und Wertpfeile reichen; nicht zu fünf langen Aufsätzen erweitern. Die Randnotizen beziehen sich auf den abgedruckten ursprünglichen Code, auch wenn die eigene reparierte Bedingung schon anders lautet.
 
-**Varianten:** Wählt ein Kind 12, ergibt die reparierte bedingte Folge 20→32→44→56/„vorbei“; bei 15:20→35→50/„Ziel“. Vorhersage und Beobachtung gegenüber dem Zehnerlauf erklären. Neuer Kurzfall mit festem Teil 3×10 und bedingt 10:30→40→50/„Ziel“, drei feste und zwei bedingte Bewegungen. Bei erster Reparaturhilfe diesen Kurzfall ohne eingeblendete Lösung erklären lassen. Exportierte Abschlussfassung wieder 2 feste Durchläufe und bedingt 10.
+**Varianten:** Die Person entscheidet begründet, ob die bedingte Schrittweite 12 oder 15 die Marke trifft oder überspringt. Wählt sie 12, ergibt die reparierte bedingte Folge 20→32→44→56/„vorbei“; bei 15:20→35→50/„Ziel“. Vorhersage und Beobachtung gegenüber dem Zehnerlauf erklären. Neuer Kurzfall mit festem Teil 3×10 und bedingt 10:30→40→50/„Ziel“, drei feste und zwei bedingte Bewegungen. Bei erster Reparaturhilfe diesen Kurzfall ohne eingeblendete Lösung erklären lassen. Exportierte Abschlussfassung wieder 2 feste Durchläufe und bedingt 10.
 
 ### Elf Kriterien bleiben in derselben Codekarte sichtbar
 

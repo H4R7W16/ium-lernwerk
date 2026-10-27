@@ -12,7 +12,7 @@ Dein Auftrag:
 - Eine Meldung für „genau getroffen“, eine andere für „vorbei“ zeigen.
 - Auch dann richtig reagieren, wenn der Rover bereits an oder hinter der Station startet.
 
-Halte deine Wahl in zwei Sätzen fest. Die Zahlen stehen direkt im Code; eigene Variablen sind nicht nötig. Die beiden Linien auf der Bühne zeigen die möglichen Stationen.
+Wähle bewusst: Soll der Normalfall **genau treffen** oder mit **wenigen Bewegungen** enden? Vergleiche dafür beide Schrittweiten an deiner Station. Geht beides zugleich? Halte Wahl und Grund in zwei Sätzen fest. Weniger Bewegungen bedeutet im Modell nicht automatisch weniger Energie. Die Zahlen stehen direkt im Code; eigene Variablen sind nicht nötig. Die beiden Linien auf der Bühne zeigen die möglichen Stationen.
 
 ## 2 · Vom Auftrag zum Plan · 15 Minuten gelenkt
 
@@ -34,16 +34,22 @@ Plane ungefähr 20 Minuten fürs Bauen, 15 für Tests und 5 fürs Sichern. Führ
 
 Wenn der Rover unerwartet weiterfährt, nutze **Stopp**. Ein kurzer Fehlweg genügt zum Untersuchen; stoppe spätestens nach sechs unerwarteten Bewegungen.
 
-## 4 · Fremder Test, eigene Verbesserung · 20 Minuten
+<details><summary>Hilfe: Wo beginne ich mit dem Programm?</summary>
 
-Tauscht einen zusätzlichen Startwert aus und sagt die Wirkung vorher voraus. Jede Person prüft am eigenen Programm. Allein übernimmt die Lehrperson den Gegencheck.
-
-Überarbeite eine konkrete Stelle an Code, Plan oder Meldung und teste erneut. Notiere kurz **Änderung – Grund – neuer Test**. Wenn alles passt, darf die Verbesserung auch eine verständlichere Meldung sein.
-
-**Behalte:** Plan, Testliste und eine begründete Verbesserung. Stelle den Start auf 0, sichere `ALG-5_Kennung.xml` über **Datei speichern**, öffne sie über **Datei öffnen** und teste erneut.
-
-<details><summary>Hilfe nach Bedarf</summary>
-
-„Noch vor der Station?“ und „genau getroffen?“ sind zwei verschiedene Fragen. `wiederhole bis …` endet bei wahr. `nicht (x-Position < Zielzahl)` fragt „nicht mehr davor?“. Für deinen Gegenfall hilft ein Start knapp vor dem Ziel; prüfe, ob ein ganzer Schritt darüber hinausführt. Mit **Schrittmodus** und **Ein Schritt** kannst du den Weg verfolgen.
+Baue zuerst die Fahrentscheidung. `wiederhole bis …` endet bei wahr. Prüfe sie am Ziel, bevor du die Meldungsverzweigung ergänzt. „Nicht mehr davor?“ und „genau getroffen?“ sind verschiedene Fragen. **Schrittmodus** und **Ein Schritt** helfen beim Verfolgen.
 
 </details>
+
+<details><summary>Hilfe: Wie finde ich einen Gegenfall?</summary>
+
+Wähle einen Start knapp vor dem Ziel. Führt ein ganzer Schritt darüber hinaus? Erkläre, warum ein Programm mit Gleichheitsabbruch hier versagen würde.
+
+</details>
+
+## 4 · Fremder Test, eigene Verbesserung · 20 Minuten
+
+Tauscht einen zusätzlichen Startwert **hinter der gewählten Station** aus und sagt die Wirkung vorher voraus. Jede Person prüft am eigenen Programm. Allein übernimmt die Lehrperson den Gegencheck.
+
+Überarbeite nach dem Test gezielt Code, Plan oder Meldung und prüfe erneut: **Änderung – Grund – neuer Test**. Ist alles klar und richtig, begründe deine Abnahme an einem kritischen Test. Einen fehlenden Test darfst du ergänzen. Keine Änderung ohne Zweck.
+
+**Behalte:** Plan, Testliste und deine begründete Verbesserung oder Abnahme. Stelle den Start auf 0, sichere `ALG-5_Kennung.xml` über **Datei speichern**, öffne sie über **Datei öffnen** und teste erneut.
