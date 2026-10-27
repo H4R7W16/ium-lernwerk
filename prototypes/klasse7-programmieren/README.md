@@ -54,3 +54,7 @@ Die gemeinsame letzte Pages-Ausgabestufe ergänzt die Klassenstufen-Auswahl im T
 ## ALG-2 · Erster Unterrichtseinsatz vom 27.10.2026
 
 Zusätzlicher 60-Minuten-Durchführungsplan unter `lehrpersonen/alg-2-durchfuehrung.html` und separates Vorlesebriefing unter `lehrpersonen/alg-2-briefing.html`. Die Quellen `material/einsatz-alg-2.md` und `material/briefing-alg-2.md` übertragen die maßgeblichen Vault-Fassungen 1.0 mit angepassten Links. Der Renderer erzeugt und prüft nun 16 Artikel. Zeitfenster 15 + 15 + 20 + 10, Variante 45 + 15 mit Zwischenspeicherung, vier vorhandene Tabellenzeilen und individuelle Anschlussdiagnose bleiben im bestehenden 405-Minuten-Konto. Keine Änderung von Aufgabenfassung 2.0, XML-Projekten oder Snap!-Laufzeit. Tatsächliche Schulgeräte-/Safari-Dateiroutine und Unterrichtserprobung bleiben getrennt offen.
+
+## ALG-3 · Erster Unterrichtseinsatz vom 27.10.2026
+
+Ergänzte 75-Minuten-Durchführung unter `lehrpersonen/alg-3-durchfuehrung.html` und separates Vorlesebriefing unter `lehrpersonen/alg-3-briefing.html`. Die Markdownquellen `material/einsatz-alg-3.md` und `briefing-alg-3.md` übertragen die maßgeblichen Vault-Fassungen1.0 mit Weblinks; der Renderer prüft jetzt18Artikel. Zeitfenster15+15+30+15, Variante45+30, eigene Entscheidungsfrage, Grenztests und Fragenwechsel bleiben im vorhandenen405-Minuten-Konto. Übersicht und13Lehrnavigationen verlinken beide Seiten. Aufgabenfassung2.0, XML und Original-Engine unverändert. Reale Safari-Dateiroutine und Unterrichtserprobung bleiben offen.
