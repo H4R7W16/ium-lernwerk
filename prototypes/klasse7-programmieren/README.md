@@ -58,3 +58,7 @@ Zusätzlicher 60-Minuten-Durchführungsplan unter `lehrpersonen/alg-2-durchfuehr
 ## ALG-3 · Erster Unterrichtseinsatz vom 27.10.2026
 
 Ergänzte 75-Minuten-Durchführung unter `lehrpersonen/alg-3-durchfuehrung.html` und separates Vorlesebriefing unter `lehrpersonen/alg-3-briefing.html`. Die Markdownquellen `material/einsatz-alg-3.md` und `briefing-alg-3.md` übertragen die maßgeblichen Vault-Fassungen1.0 mit Weblinks; der Renderer prüft jetzt18Artikel. Zeitfenster15+15+30+15, Variante45+30, eigene Entscheidungsfrage, Grenztests und Fragenwechsel bleiben im vorhandenen405-Minuten-Konto. Übersicht und13Lehrnavigationen verlinken beide Seiten. Aufgabenfassung2.0, XML und Original-Engine unverändert. Reale Safari-Dateiroutine und Unterrichtserprobung bleiben offen.
+
+## ALG-4 · Erster Unterrichtseinsatz vom 27.10.2026
+
+Ergänzte 75-Minuten-Durchführung unter `lehrpersonen/alg-4-durchfuehrung.html` und separates Vorlesebriefing unter `lehrpersonen/alg-4-briefing.html`. Quellen `material/einsatz-alg-4.md` und `material/briefing-alg-4.md` aus maßgeblichen Vault-Fassungen1.0 mit Weblinks; Renderer nun20Artikel. Zeitfenster15+15+30+15, Variante45+30, eigene Bedingungsreparatur und gebündeltePrüfspur. Im öffentlichen Fehlerlauf können alteSprechblasen stehenbleiben; Schritte/Meldung/endendenCodeweg unterscheiden. Übersicht und15Lehrnavigationen ergänzt. Lernaufgaben,XML,Engine und405-Minuten-Konto unverändert. Safari-Dateiroutine und realeUnterrichtserprobung offen.
