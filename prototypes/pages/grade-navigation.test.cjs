@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const build=require('./build.cjs');
-const base=build.preparePages(),published=build.preparePublishedPages?build.preparePublishedPages():base;
+const base=require('../klasse7-programmieren/layout.cjs').applySeriesLayout(build.preparePages()),published=build.preparePublishedPages?build.preparePublishedPages():base;
 const roots=['klasse5/','klasse6/','klasse7/programmieren/'];
 const targets=['klasse5/index.html','klasse6/index.html','klasse7/programmieren/index.html'];
 const editable=[...base].filter(([name,data])=>roots.some(root=>name.startsWith(root))&&name.endsWith('.html')&&(/<body\b[^>]*class="[^"]*\blw-mantel\b/.test(data)||/<header class="(?:site-header|editor-header)"/.test(data)));
