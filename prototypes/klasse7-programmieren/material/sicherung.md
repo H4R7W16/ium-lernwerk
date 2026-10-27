@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Besprechung und Sicherung
 
-**Fassung 2.0.** Karten erst nach dem eigenen Versuch gemeinsam nutzen. Die Seite ist öffentlich. Ein fremdes Lösungsprojekt belegt keine eigene Erklärung.
+**Fassung 2.2.** Karten erst nach dem eigenen Versuch gemeinsam nutzen. Die Seite ist öffentlich. Ein fremdes Lösungsprojekt belegt keine eigene Erklärung.
 
 ## ALG-1 · Gleicher Endort, anderer Weg
 
@@ -12,7 +12,7 @@ A endet 30, B endet 20. B:0→10→15→20. Eine eigene feste Route nach 20 kann
 
 `5+7` erhält 5 und 7 und liefert 12/Zahl. `gehe(5+7)` erhält 12 und verändert den Ort; kein einsetzbarer Rückgabewert. `sage Ziel` erhält eine Zeichenkette und bewirkt eine Anzeige. `8>8` ist falsch, `9>8` wahr. `x-Position` liefert den aktuellen Zustand als Zahl, ohne sichtbare Eingabe.
 
-**Merksatz:** Ein Wert kann Eingabe eines anderen Blocks werden. Eine beobachtete Wirkung ist keine Rückgabe.
+**Merksatz:** Ein Wert kann Eingabe eines anderen Blocks werden. Eine beobachtete Wirkung ist keine Rückgabe. Zweimal dieselbe Zwölferbewegung ohne Reset ergibt ab 0 die Orte 12 und 24; der Rechenwert bleibt jedes Mal 12.
 
 ## ALG-3 · Die Grenze gehört zu Depot B
 
@@ -26,7 +26,7 @@ A endet 30, B endet 20. B:0→10→15→20. Eine eigene feste Route nach 20 kann
 
 Von 45 aus erreichen positive Zehnerschritte die 40 nie. `nicht(x<40)` bedeutet „an oder hinter 40“. Der bis-Block prüft vor der Bewegung. Bei Start 40 oder 45 endet die reparierte Fassung ohne Bewegung; bei 35/Schritt 12 endet sie 47.
 
-**Merksatz:** Anzahl der Bewegungen und Anzahl der Bedingungsprüfungen unterscheiden. Die letzte Prüfung gehört zur Erklärung.
+**Merksatz:** Anzahl der Bewegungen und Anzahl der Bedingungsprüfungen unterscheiden. Die letzte Prüfung gehört zur Erklärung. Bei einem Fehler die erste regelwidrige Entscheidung suchen, ihren Wahrheitswert klären, gezielt ändern und denselben Fall erneut prüfen.
 
 [Repariertes Beispiel ALG-4](ALG-4-Repariert.xml)
 
@@ -34,7 +34,7 @@ Von 45 aus erreichen positive Zehnerschritte die 40 nie. `nicht(x<40)` bedeutet 
 
 Ein Normalfall allein genügt nicht. Der Start genau am Ziel prüft, ob eine unnötige Bewegung erfolgt. Ein selbst gewählter Start, der das Ziel überspringt, kann einen falschen Gleichheitsabbruch entlarven. Beispiel Ziel 60/Schritt 10/Start 55:55→65, dann Stopp und „vorbei“. Jede Person kann eine andere passende Testidee begründen.
 
-**Merksatz:** Erwartung vor Ausführung notieren, Abweichung erklären, Verbesserung erneut prüfen. Ein grafischer Plan und der Code beschreiben denselben Ablauf.
+**Merksatz:** Erwartung vor Ausführung notieren, Abweichung erklären, Verbesserung erneut prüfen. Ein grafischer Plan und der Code beschreiben denselben Ablauf. Bei 80/10 endet die Fahrt nach acht Bewegungen genau bei 80, bei 80/15 nach sechs Bewegungen bei 90. Weniger Bewegungen und genauer Treffer sind unterschiedliche Ziele. Ist das Programm schon tragfähig, die Abnahme an einem kritischen Test begründen. Nur erkennbare Schwächen verbessern; eine Abnahme ist keine ausgeführte Änderung.
 
 [Eine mögliche Steuerung ALG-5](ALG-5-Beispielloesung.xml)
 

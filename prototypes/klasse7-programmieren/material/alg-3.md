@@ -4,9 +4,9 @@
 
 ## 1 · Die Grenze entscheidet · 15 Minuten gemeinsam
 
-Ein `falls … sonst …` prüft eine Bedingung: **wahr** führt in den ersten, **falsch** in den zweiten Zweig. Pro Aufruf wird genau ein Zweig ausgeführt.
+**Deine Vorhersage:** Welches Depot muss bei 30, genau 40 und 50 melden? Entscheide zuerst nach der Depotregel.
 
-Vergleiche vor dem Ausführen:
+Zwei Vorschläge fragen nach Depot A. Sind sie gleich? `nicht` kehrt wahr und falsch um. Vergleiche:
 
 | Position | `x-Position < 40` | `nicht (x-Position > 40)` |
 |---|---|---|
@@ -14,7 +14,9 @@ Vergleiche vor dem Ausführen:
 | 40 | … | … |
 | 50 | … | … |
 
-`nicht` kehrt wahr und falsch um. Wo unterscheiden sich die Bedingungen? Welche passt zu „Depot A“?
+Wo unterscheiden sich die Bedingungen? Welche passt zu deiner Depotzuordnung?
+
+Klärt daran: `falls … sonst …` prüft einmal. **Wahr → erster Zweig, falsch → zweiter Zweig.** Genau ein Zweig wird ausgeführt.
 
 ## 2 · Die Depotanzeige ergänzen · 15 Minuten gemeinsam
 
@@ -28,14 +30,20 @@ Du entscheidest, welches Depot du zuerst abfragen willst: **„vor 40?“** oder
 
 Skizziere die Entscheidungsraute mit Frage, wahr/falsch und beiden Meldungen. Ergänze darin drei Tests: **39, 40 und 41**. Notiere jeweils deine erwartete Meldung vor dem Lauf und hake sie nach dem Prüfen mit einer kurzen Beobachtung ab.
 
+<details><summary>Hilfe: Die falsche Meldung erscheint</summary>
+
+Prüfe nacheinander: richtiger Testort? Wahrheitswert deiner Frage? Zugehöriger Meldungszweig? Ändere nur die erste unpassende Stelle und teste erneut. **Schrittmodus** und **Ein Schritt** helfen beim Verfolgen.
+
+</details>
+
+<details><summary>Hilfe: Wie frage ich „an oder hinter 40“?</summary>
+
+Überlege zuerst, wann „noch vor 40?“ falsch ist. Verneine diese Frage mit `nicht`. Prüfe deinen Vorschlag genau bei 40 und ordne erst dann die Meldungen zu.
+
+</details>
+
 ## 4 · Regel wechseln · 15 Minuten
 
 Lasse den Grenzfall erklären und überarbeite bei Bedarf. **Neuer Kurzfall:** Formuliere dieselbe Depotregel nun mit der jeweils anderen Frage. Sage für 39 und 40 voraus, welcher Zweig gewählt wird. Prüfe: Was muss außer der Bedingung geändert werden?
 
 **Behalte:** deine Skizze mit den drei Tests und einem Satz zum Fragenwechsel. Sichere `ALG-3_Kennung.xml` über **Datei speichern**. Öffne sie über **Datei öffnen** und prüfe 40 erneut.
-
-<details><summary>Hilfe und Bedienung</summary>
-
-Frage zuerst, ob deine Bedingung genau bei 40 wahr ist. `nicht (x-Position < 40)` fragt „nicht mehr davor?“. Bei einer falschen Meldung prüfe getrennt Startposition, Bedingung und Zweig. Nutze bei Bedarf **Schrittmodus** und **Ein Schritt**; der grüne Link lädt das Startprojekt bereits.
-
-</details>

@@ -1,6 +1,6 @@
 # IuM Klasse 7: Jahrgangsbrief
 
-Fassung 2.0 · 24.10.2026 · Gymnasium · 36 Netto-Unterrichtseinheiten à 45 Minuten
+Fassung 2.2 · 27.10.2026 · Gymnasium · 36 Netto-Unterrichtseinheiten à 45 Minuten
 
 ## Ziel und aktueller Kursstatus
 
@@ -10,9 +10,9 @@ Der rote Faden lautet: **Wie entstehen digitale Darstellungen und Entscheidungen
 
 Aktuell liegt eine Jahresplanung mit 22 Aufgabenentwürfen und 29 für Klasse 7 zugeordneten Inhaltszielen vor. Durchgeführte Stunden, Lernprodukte, Diagnoseergebnisse und tatsächliche Bearbeitungszeiten sind noch nicht dokumentiert. Schule, Klassengröße, Kalender, bekannte Anwendungen und Gerätekonfiguration sind offen. Deshalb ist dies ein Jahrgangsangebot, kein behaupteter Kursverlauf.
 
-Die Eingangsdiagnose ist vorbereitet. Alle sechs ALG-Aufgaben liegen in Fassung 2.0 als Rover-Werkstatt vor: kürzere Lernaufträge, eigene Entscheidungen und gebündelte Werkstattnotizen. Die ursprünglichen sechs Zeitfenster und die fachlichen Teilkriterien bleiben erhalten. Die neue Fassung ist noch nicht im Unterricht pilotiert. Die übrigen Lernbögen bleiben in Materialproduktion offen. GFS oder benotete Prüfungen sind nicht vorgegeben; zusätzliche Leistungsformate brauchen ein explizites Zeitkonto.
+Die Eingangsdiagnose ist vorbereitet. Alle sechs ALG-Aufgaben liegen in Fassung 2.2 als Rover-Werkstatt vor: frühe eigene Beobachtungen, begründete Entscheidungen, gezielte Fehlersuche und gebündelte Werkstattnotizen. Die ursprünglichen sechs Zeitfenster und die fachlichen Teilkriterien bleiben erhalten. Die neue Fassung ist noch nicht im Unterricht pilotiert. Die übrigen Lernbögen bleiben in Materialproduktion offen. GFS oder benotete Prüfungen sind nicht vorgegeben; zusätzliche Leistungsformate brauchen ein explizites Zeitkonto.
 
-**Revision vom 27.10.2026:** ALG-4 liegt in Fassung 2.1 vor: Widerspruch beobachten, Erklärung daran klären, ersten Reparaturtest begründet wählen. Das Raster 10 + 15 + 35 + 15 ersetzt die bisherige Binnenaufteilung bei weiterhin 75 Minuten. Eigene Reparatur, alle drei Starts, letzte Prüfung, neuer Fall und Datei-Rückkehr bleiben erhalten. Zugehörige Durchführung und Briefing sind nachgeführt. Die übrigen fünf Lernaufgaben und alle Zeitkonten bleiben unverändert; die reale Erprobung dieser Revision ist noch offen.
+**Qualitätsrevision 2.2 vom 27.10.2026:** ALG-1 führt früher zur eigenen Beobachtung; ALG-2 trennt Rechenwert und Ortsänderung mit einer Doppelfahrt; ALG-3 beginnt mit der Depotzuordnung; ALG-4 übt gezielte Fehlersuche an der ersten regelwidrigen Entscheidung; ALG-5 begründet Parameterwahl sowie Verbesserung oder Abnahme; ALG-6 führt vor den Begriffsnotizen zur Reparatur. Alle Aufgabenzeiten und Phasenbudgets einschließlich ALG-4 mit 10 + 15 + 35 + 15 bleiben erhalten. Durchführungen, Sicherung und Briefings sind nachgeführt. Reale Unterrichtserprobung weiterhin offen.
 
 ## Planungsgrundlage und Geltung
 
@@ -83,9 +83,9 @@ Größtes Risiko bleibt die Lerndauer: 36 UE passen rechnerisch, nur eine UE ble
 
 WU-Bezug: Aus den lokalen Pilotexzerpten der Bände 1 und 5 folgen hier klare Lernhandlungen, erreichbare Unterstützung und eine Rückmeldung mit konkretem nächsten Schritt. Die Diagnose ist eine redaktionelle Arbeitsfassung, kein standardisiertes oder empirisch validiertes Testinstrument.
 
-Alle sechs ALG-Aufgaben bleiben bei 45 + 60 + 75 + 75 + 90 + 60 = 405 Minuten. In Fassung 2.0 wählt ALG-5 einen Gegenfall selbst; ALG-6 bündelt grafischen Ablauf, Positionsspur und kurze Randnotizen in einer Codekarte. Alle elf ALG-6-Kriterien bleiben beobachtbar. Auf zusätzliche Ablaufgrafiken bei bereits aussagekräftiger Spur wird etwa in ALG-4 verzichtet. Die Text- und Bedienrevision ersetzt keine tatsächliche Zeit-, Motivations- oder Safari-Erprobung.
+Alle sechs ALG-Aufgaben bleiben bei 45 + 60 + 75 + 75 + 90 + 60 = 405 Minuten. In Fassung 2.2 wählt ALG-5 einen Gegenfall selbst; ALG-6 bündelt grafischen Ablauf, Positionsspur und kurze Randnotizen in einer Codekarte. Alle elf ALG-6-Kriterien bleiben beobachtbar. Auf zusätzliche Ablaufgrafiken bei bereits aussagekräftiger Spur wird etwa in ALG-4 verzichtet. Die Text- und Bedienrevision ersetzt keine tatsächliche Zeit-, Motivations- oder Safari-Erprobung.
 
-Änderungsstand 2.0: Inhalte und Lehrhinweise gemeinsam nachgearbeitet, sichtbare Stationslinien in den Projekten ergänzt. 36 UE, Diagnosefassung und die 30 Minuten spätere Code-Wiederaufnahme bleiben unverändert.
+Änderungsstand 2.2: Lernwege, Hilfen und Lehrhinweise gemeinsam nachgearbeitet. Vorhandene Stationslinien, XML-Projekte und Editor bleiben unverändert. 36 UE, Diagnosefassung und die 30 Minuten spätere Code-Wiederaufnahme bleiben unverändert.
 
 ## Rückfluss nach Durchführung
 

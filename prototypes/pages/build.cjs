@@ -28,7 +28,7 @@ function preparePages(){
  }
  return all;
 }
-function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(preparePages());}
+function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages()));}
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');
  const all=preparePublishedPages();

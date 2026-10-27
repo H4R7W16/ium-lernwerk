@@ -4,11 +4,11 @@ Vorlesetext; keine Audiodatei.
 
 In dieser Stunde prüfen die Lernenden zwei Routen eines Lieferrovers. Die Station liegt bei zwanzig. Das Ziel ist, den Umfang einer festen Wiederholung zu verstehen und anschließend eine eigene Route zu entwickeln.
 
-Die ersten zehn Minuten gehören dem Lesen und Vorhersagen. Lass jede Person zunächst selbst entscheiden, wo die beiden Programme enden und wie oft Ende erscheint. Noch nicht ausführen. Zeige die Schleifenklammer, ohne die vollständigen Lösungen vorwegzunehmen.
+In den ersten fünf Minuten vermutet jede Person, wo beide Programme enden und wie oft Ende erscheint. Danach öffnen die Lernenden das Projekt und starten nur A. So wird der erste eigene Lauf noch im ersten Zehn-Minuten-Fenster mit der Vermutung verglichen. Keine fertige Reparatur vorwegnehmen.
 
-In den nächsten zehn Minuten verfolgt ihr gemeinsam Route A. Klicke den Stapel mit drei Zehnerschritten an. Der Startknopf startet diese losen Stapel nicht. Die Positionen lauten null, zehn, zwanzig, dreißig. Ende steht außerhalb der Klammer und erscheint einmal. Im Schrittmodus kann ein Klick auch einen Auswertungsschritt ohne Bewegung ausführen.
+In den nächsten zehn Minuten verfolgt ihr gemeinsam Route A noch einmal langsam. Klicke den Stapel mit drei Zehnerschritten an. Der Startknopf startet diese losen Stapel nicht. Die Positionen lauten null, zehn, zwanzig, dreißig. Ende steht außerhalb der Klammer und erscheint einmal. Im Schrittmodus kann ein Klick auch einen Auswertungsschritt ohne Bewegung ausführen.
 
-Danach haben die Lernenden fünfzehn Minuten für Route B und ihre eigene Änderung von A. B führt über zehn und fünfzehn nach zwanzig. Die Positionen gehören direkt in die Ablaufskizze. Gib die Zahlen für die eigene Route nicht vor. Kontrolliere kurz, ob der wiederholte Teil verstanden wird. Bei Partnergeräten wechseln die Bedienrollen; beide erklären selbst.
+Danach haben die Lernenden fünfzehn Minuten für Route B und ihre eigene Änderung von A. B führt über zehn und fünfzehn nach zwanzig. Die Positionen gehören direkt in die Ablaufskizze. Gib die Zahlen für die eigene Route nicht vor. Lass Anzahl und Länge der Bewegungen mit B vergleichen: Gleicher Endort bedeutet nicht gleicher Weg. Kontrolliere kurz, ob der wiederholte Teil verstanden wird. Bei Partnergeräten wechseln die Bedienrollen; beide erklären selbst.
 
 Die letzten zehn Minuten sind knapp getaktet. Zwei Minuten Routenvergleich, drei Minuten für den neuen Fall und fünf Minuten für Sicherung und Datei-Rückkehr. Im neuen Fall fährt B zuerst zehn und danach dreimal fünf. Es endet bei fünfundzwanzig. Entscheidend ist die Erklärung, warum die erste Zehn nur einmal zählt.
 

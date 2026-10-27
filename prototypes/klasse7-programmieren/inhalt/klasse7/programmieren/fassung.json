@@ -1,5 +1,5 @@
 {
-  "version": "2.1",
+  "version": "2.2",
   "date": "2026-10-27",
   "totalMinutes": 405,
   "annualUE": 36,
@@ -20,7 +20,7 @@
       "targets": [
         20
       ],
-      "revision": "2.0"
+      "revision": "2.2"
     },
     {
       "id": "alg-2",
@@ -36,7 +36,7 @@
       "targets": [
         12
       ],
-      "revision": "2.0"
+      "revision": "2.2"
     },
     {
       "id": "alg-3",
@@ -52,7 +52,7 @@
       "targets": [
         40
       ],
-      "revision": "2.0"
+      "revision": "2.2"
     },
     {
       "id": "alg-4",
@@ -68,7 +68,7 @@
       "targets": [
         40
       ],
-      "revision": "2.1"
+      "revision": "2.2"
     },
     {
       "id": "alg-5",
@@ -85,7 +85,7 @@
         60,
         80
       ],
-      "revision": "2.0"
+      "revision": "2.2"
     },
     {
       "id": "alg-6",
@@ -101,7 +101,7 @@
       "targets": [
         50
       ],
-      "revision": "2.0"
+      "revision": "2.2"
     }
   ],
   "boundaries": "Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe."

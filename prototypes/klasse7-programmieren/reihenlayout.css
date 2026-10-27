@@ -1,0 +1,111 @@
+/* IuM 7 verwendet Identität 02 der Reihe. Nur der Jahrgangsakzent wechselt. */
+body.lw-grade7 {
+  --lw-accent:#245743; --lw-accent-dark:#173C2D; --lw-accent-soft:#EAF2EC;
+  --canvas:var(--lw-paper); --surface:#FFF; --text:var(--lw-ink);
+  --muted:var(--lw-muted); --primary:var(--lw-accent); --primary-dark:var(--lw-accent-dark);
+  --selected:var(--lw-accent-soft); --line:var(--lw-line); --link:var(--lw-accent);
+  --green:var(--lw-accent); --focus:var(--lw-accent); --radius:12px;
+}
+.lw-grade7 .home-main,.lw-grade7 .app-layout,.lw-grade7 .page-footer { max-width:1280px; }
+.lw-grade7[data-lw-area] .lw-shell-nav>.editor-link { display:inline-flex; gap:8px; white-space:nowrap; border:1px solid var(--lw-field); color:var(--lw-accent); font-weight:700; }
+.lw-grade7 .lw-shell-nav svg { width:16px; height:16px; flex:0 0 16px; }
+.lw-grade7 .button.button-primary { background:var(--lw-accent); color:#FFF; border-color:var(--lw-accent); }
+.lw-grade7 .button.button-primary:hover { background:var(--lw-accent-dark); }
+.lw-grade7 .button,.lw-grade7 .download { font-weight:700; border-radius:8px; }
+.lw-grade7 .hero { gap:48px; padding-bottom:32px; border-bottom:1px solid var(--lw-line); }
+.lw-grade7 .hero h1 { font-size:clamp(36px,4.4vw,56px); line-height:1.08; letter-spacing:-.04em; max-width:20ch; }
+.lw-grade7 .hero .lead { font-size:18px; line-height:1.6; }
+.lw-grade7 .hero-art { border-radius:12px; }
+.lw-grade7 .eyebrow { color:var(--lw-muted); font-weight:400; letter-spacing:.075em; }
+.lw-grade7 .section-title { margin-top:32px; }
+.lw-grade7 .section-title h2 { font-size:32px; }
+.lw-grade7 .unit-list { border-radius:12px; }
+.lw-grade7 .unit-row:hover { background:var(--lw-accent-soft); }
+.lw-grade7 .unit-row h4 { font-size:20px; }
+.lw-grade7 .unit-row p { font-size:16px; }
+.lw-grade7 .teacher-panel { background:var(--lw-accent-soft); border-color:var(--lw-line); border-radius:12px; }
+.lw-grade7 .teacher-links a { font-size:16px; font-weight:400; }
+.lw-grade7 .course-nav a { font-size:15px; }
+.lw-grade7 .course-label small { font-size:13px; }
+.lw-grade7 .course-nav a:hover { background:var(--lw-accent-soft); }
+.lw-grade7 .course-nav a[aria-current] { border-color:var(--lw-field); }
+.lw-grade7 .lesson-article h1 { font-size:clamp(30px,3vw,38px); line-height:1.2; max-width:30ch; }
+.lw-grade7 .lesson-article h2 { font-size:26px; line-height:1.25; }
+.lw-grade7 .lesson-section,.lw-grade7 .lesson-section:first-of-type { margin:24px 0; padding:28px; border:1px solid var(--lw-line); border-radius:12px; background:#FFF; }
+.lw-grade7 .project-instruction { font-size:16px; line-height:1.6; background:var(--lw-accent-soft); color:var(--lw-ink); border-left:4px solid var(--lw-accent); border-radius:8px; }
+.lw-grade7 .phase-links a { font-size:15px; border-color:var(--lw-line); }
+.lw-grade7 .phase-links a:hover { background:var(--lw-accent-soft); }
+.lw-grade7 .lesson-article code { background:#EDF0ED; color:var(--lw-ink); }
+.lw-grade7 .lesson-article pre { background:#222A2F; color:#FFF; }
+.lw-grade7 .lesson-article pre code { background:none; color:inherit; }
+.lw-grade7 .table-scroll { border-color:var(--lw-field); }
+.lw-grade7 table { font-size:16px; }
+.lw-grade7 th { background:var(--lw-accent-soft); color:var(--lw-ink); }
+.lw-grade7 td,.lw-grade7 th { border-color:var(--lw-line); }
+.lw-grade7 .lesson-article details { border-color:var(--lw-line); background:#FFF3D6; border-radius:12px; }
+.lw-grade7 .lesson-article summary { min-height:48px; display:flex; align-items:center; gap:12px; }
+.lw-grade7 .lesson-article summary::before { content:'▸'; flex:none; color:var(--lw-accent); }
+.lw-grade7 .lesson-article details[open]>summary::before { content:'▾'; }
+.lw-grade7 .lesson-article summary::-webkit-details-marker { display:none; }
+.lw-grade7 .lesson-article summary::marker { content:''; }
+.lw-grade7 .test-badge { background:var(--lw-accent-soft); color:var(--lw-accent); border-color:var(--lw-line); }
+.lw-grade7 .page-footer { color:var(--lw-muted); }
+.lw-grade7 .teacher-menu { background:#FFF; border:1px solid var(--lw-line); border-radius:12px; padding:6px 12px; }
+.lw-grade7 .teacher-menu>summary { min-height:48px; padding:10px 2px; font-size:16px; font-weight:700; cursor:pointer; }
+.lw-grade7 .teacher-menu>.teacher-nav { max-height:60vh; overflow:auto; margin-top:8px; }
+.lw-grade7 .teacher-menu .teacher-nav ol { display:block; overflow:visible; padding:0; }
+.lw-grade7 .teacher-menu .teacher-nav a { justify-content:flex-start; padding:10px; min-height:48px; font-size:15px; }
+/* Im Fachwerkzeug bleibt der Kopf kompakt; dieselbe Wortmarke führt zurück. */
+.lw-grade7-editor .editor-header { max-width:none; padding:12px 24px; background:var(--lw-paper); gap:24px; }
+.lw-grade7-editor .lw-shell-brand { width:280px; }
+.lw-grade7-editor .editor-header h1 { font-size:17px; line-height:1.3; letter-spacing:0; }
+.lw-grade7-editor .button.primary { color:#FFF; }
+.lw-grade7-editor .file-actions .button { font-size:16px; }
+.lw-grade7-editor .workspace { height:clamp(440px,calc(100dvh - 320px),950px); }
+@media(max-width:1050px) {
+ .lw-grade7 .app-layout { gap:32px; }
+ .lw-grade7-editor .editor-header { flex-wrap:wrap; gap:14px; }
+ .lw-grade7-editor .project-heading { flex:1; }
+ .lw-grade7-editor .file-actions { margin-left:auto; }
+}
+@media(max-width:780px) {
+ .lw-grade7 .hero { gap:24px; }
+ .lw-grade7 .lesson-section,.lw-grade7 .lesson-section:first-of-type { padding:24px; }
+ .lw-grade7 .app-layout { padding:18px; }
+ .lw-grade7 .lesson-article h1 { font-size:32px; }
+ .lw-grade7 .lesson-article h2 { font-size:24px; }
+}
+@media(max-width:760px) {
+ .lw-grade7[data-lw-area] .lw-shell-nav { grid-template-columns:repeat(3,max-content); width:100%; }
+ .lw-grade7 .lw-shell-nav>.editor-link { padding-inline:12px; }
+ .lw-grade7-editor .editor-header { padding:14px 18px; }
+ .lw-grade7-editor .project-heading { width:100%; flex:auto; }
+ .lw-grade7-editor .file-actions { width:100%; }
+ .lw-grade7-editor .workspace { height:550px; }
+}
+@media(max-width:480px) {
+ .lw-grade7 .home-main { padding:24px 18px; }
+ .lw-grade7 .hero h1 { font-size:36px; }
+ .lw-grade7 .unit-row h4 { font-size:18px; }
+ .lw-grade7 .unit-row p { font-size:16px; }
+ .lw-grade7 .lesson-section,.lw-grade7 .lesson-section:first-of-type { padding:20px 16px; }
+ .lw-grade7 .lesson-article h1 { font-size:29px; }
+ .lw-grade7 .lesson-article h2 { font-size:23px; }
+ .lw-grade7 .lesson-article details { padding:12px; }
+ .lw-grade7 .project-actions a { font-size:16px; }
+ .lw-grade7 .table-scroll { margin-inline:0; }
+ .lw-grade7 .phase-links ol { display:grid; }
+ .lw-grade7 .phase-links a { display:flex; font-size:16px; }
+ .lw-grade7-editor .file-actions .button { font-size:14px; padding-inline:10px; }
+}
+@media(max-width:359px) {
+ .lw-grade7[data-lw-area] .lw-shell-nav { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .lw-grade7 .lw-shell-nav>.editor-link { grid-column:1/-1; justify-content:center; }
+}
+@media print {
+ .lw-grade7 .lesson-section,.lw-grade7 .lesson-section:first-of-type { background:#FFF; border:0; border-radius:0; margin:18px 0; padding:0; }
+ .lw-grade7 .lesson-article h1 { font-size:22pt; }
+ .lw-grade7 .lesson-article h2 { font-size:16pt; }
+ .lw-grade7 .lesson-article pre { background:#EEE; color:#000; }
+ .lw-grade7 table { font-size:10pt; }
+}
