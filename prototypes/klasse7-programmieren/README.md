@@ -46,3 +46,7 @@ Der beauftragte Aufgabenreview wird als Rover-Werkstatt umgesetzt. Die Quellen u
 ## ALG-1 · Erster Unterrichtseinsatz vom 27.10.2026
 
 Zusätzlich veröffentlichte Durchführungshilfe mit konkreten Lehrerimpulsen, 45-Minuten-Verlauf, Hilfen, Diagnose und Datei-Rückkehr unter `lehrpersonen/alg-1-durchfuehrung.html`; separates Vorlesebriefing unter `lehrpersonen/alg-1-briefing.html`. Die Quellen `material/einsatz-alg-1.md` und `material/briefing-alg-1.md` stammen aus der maßgeblichen Vault-Durchführungsfassung 1.0 vom 27.10.2026; nur Links, Titel und Webkontext sind angepasst. Der Materialrenderer erzeugt und prüft nun 14 Artikel. Übersicht und Lehrpersonennavigation verlinken beide Ergänzungen. Bestehende Artikel, sechs Lernaufgaben, Zeitkonto, Projekte und Snap!-Laufzeit bleiben erhalten. Das Briefing ist ein lesbarer Vorlesetext, keine Audiodatei. Reale Schulgeräte-/Safari- und Unterrichtserprobung bleiben offen.
+
+## Klassenstufen-Auswahl vom 27.10.2026
+
+Die gemeinsame letzte Pages-Ausgabestufe ergänzt die Klassenstufen-Auswahl im Titel, auch in der eigenen Lernwerk-Editorhülle. Die Quellen und bisherigen Inhaltsbindungen dieses Pakets bleiben als Ausgang erhalten. Der veröffentlichte Hüllenhash und die zusätzlichen Navigationsdateien werden im eigenen Herkunftsmanifest neu gebunden; Original-Engine, Projekte und Laufzeit bleiben unverändert. Details und enger Bestandsschutz: `../pages/README.md`.

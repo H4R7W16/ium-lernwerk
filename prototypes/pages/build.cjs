@@ -28,11 +28,12 @@ function preparePages(){
  }
  return all;
 }
+function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(preparePages());}
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');
- const all=preparePages();
+ const all=preparePublishedPages();
  for(const [name,data]of all){const file=path.join(output,name);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,data);}
- console.log(`Validated and staged ${all.size} Pages-Dateien; ${Object.keys(preserved.files).length} Bestandsdateien bytegleich erhalten in ${output}`);
+ console.log(`Validated and staged ${all.size} Pages-Dateien; ${Object.keys(preserved.files).length} Bestandsdateien als Ausgang gebunden; Klassenstufen-Navigation ergänzt in ${output}`);
 }
 if(require.main===module)build(process.argv[2]?path.resolve(process.argv[2]):undefined);
-module.exports={preparePages,build};
+module.exports={preparePages,preparePublishedPages,build};
