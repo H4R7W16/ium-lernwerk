@@ -9,6 +9,8 @@ FILES={**{f'alg-{i}':f'lernende/alg-{i}.html' for i in range(1,7)},**{x:f'lehrpe
 
 FILES.update({'einsatz-alg-1':'lehrpersonen/alg-1-durchfuehrung.html', 'briefing-alg-1':'lehrpersonen/alg-1-briefing.html'})
 
+FILES.update({'einsatz-alg-2':'lehrpersonen/alg-2-durchfuehrung.html', 'briefing-alg-2':'lehrpersonen/alg-2-briefing.html'})
+
 def inline(text):
  tokens=[]
  def protect(m):

@@ -50,3 +50,7 @@ Zusätzlich veröffentlichte Durchführungshilfe mit konkreten Lehrerimpulsen, 4
 ## Klassenstufen-Auswahl vom 27.10.2026
 
 Die gemeinsame letzte Pages-Ausgabestufe ergänzt die Klassenstufen-Auswahl im Titel, auch in der eigenen Lernwerk-Editorhülle. Die Quellen und bisherigen Inhaltsbindungen dieses Pakets bleiben als Ausgang erhalten. Der veröffentlichte Hüllenhash und die zusätzlichen Navigationsdateien werden im eigenen Herkunftsmanifest neu gebunden; Original-Engine, Projekte und Laufzeit bleiben unverändert. Details und enger Bestandsschutz: `../pages/README.md`.
+
+## ALG-2 · Erster Unterrichtseinsatz vom 27.10.2026
+
+Zusätzlicher 60-Minuten-Durchführungsplan unter `lehrpersonen/alg-2-durchfuehrung.html` und separates Vorlesebriefing unter `lehrpersonen/alg-2-briefing.html`. Die Quellen `material/einsatz-alg-2.md` und `material/briefing-alg-2.md` übertragen die maßgeblichen Vault-Fassungen 1.0 mit angepassten Links. Der Renderer erzeugt und prüft nun 16 Artikel. Zeitfenster 15 + 15 + 20 + 10, Variante 45 + 15 mit Zwischenspeicherung, vier vorhandene Tabellenzeilen und individuelle Anschlussdiagnose bleiben im bestehenden 405-Minuten-Konto. Keine Änderung von Aufgabenfassung 2.0, XML-Projekten oder Snap!-Laufzeit. Tatsächliche Schulgeräte-/Safari-Dateiroutine und Unterrichtserprobung bleiben getrennt offen.
