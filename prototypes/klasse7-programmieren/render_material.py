@@ -7,6 +7,8 @@ BASE=Path(__file__).resolve().parent
 ROOT=BASE/'inhalt/klasse7/programmieren'
 FILES={**{f'alg-{i}':f'lernende/alg-{i}.html' for i in range(1,7)},**{x:f'lehrpersonen/{x}.html' for x in ['durchfuehrung-134','durchfuehrung-256','sicherung','hoerbriefing','umgebung','jahrgang']}}
 
+FILES.update({'einsatz-alg-1':'lehrpersonen/alg-1-durchfuehrung.html', 'briefing-alg-1':'lehrpersonen/alg-1-briefing.html'})
+
 def inline(text):
  tokens=[]
  def protect(m):
@@ -79,5 +81,5 @@ def main():
    if check:bad.append(relative)
    else:file.write_text(actual,encoding='utf-8',newline='\n')
  if bad:raise SystemExit('Materialausgabe veraltet: '+', '.join(bad))
- print(('Checked' if check else 'Rendered')+' 12 material pages')
+ print(('Checked' if check else 'Rendered')+f' {len(FILES)} material pages')
 if __name__=='__main__':main()
