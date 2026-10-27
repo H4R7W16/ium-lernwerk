@@ -1,6 +1,6 @@
 {
-  "version": "2.0",
-  "date": "2026-10-25",
+  "version": "2.1",
+  "date": "2026-10-27",
   "totalMinutes": 405,
   "annualUE": 36,
   "source": "Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026",
@@ -19,7 +19,8 @@
       "project": "projekte/ALG-1-Start.xml",
       "targets": [
         20
-      ]
+      ],
+      "revision": "2.0"
     },
     {
       "id": "alg-2",
@@ -34,7 +35,8 @@
       "project": "projekte/ALG-2-Start.xml",
       "targets": [
         12
-      ]
+      ],
+      "revision": "2.0"
     },
     {
       "id": "alg-3",
@@ -49,22 +51,24 @@
       "project": "projekte/ALG-3-Start.xml",
       "targets": [
         40
-      ]
+      ],
+      "revision": "2.0"
     },
     {
       "id": "alg-4",
       "title": "Warum fährt der Rover immer weiter?",
       "minutes": 75,
       "phases": [
+        10,
         15,
-        15,
-        30,
+        35,
         15
       ],
       "project": "projekte/ALG-4-Fehlersuche.xml",
       "targets": [
         40
-      ]
+      ],
+      "revision": "2.1"
     },
     {
       "id": "alg-5",
@@ -80,7 +84,8 @@
       "targets": [
         60,
         80
-      ]
+      ],
+      "revision": "2.0"
     },
     {
       "id": "alg-6",
@@ -95,7 +100,8 @@
       "project": "projekte/ALG-6-Fehlersuche.xml",
       "targets": [
         50
-      ]
+      ],
+      "revision": "2.0"
     }
   ],
   "boundaries": "Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe."

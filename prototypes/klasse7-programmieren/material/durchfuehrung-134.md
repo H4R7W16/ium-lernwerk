@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Durchführung ALG-1, ALG-3 und ALG-4
 
-**Fassung 2.0 · Klasse 7 · 195 Minuten.** Zusammen mit ALG-2/5/6 bleiben es 405 Minuten und 36 Jahres-UE. Zeiten sind Planungsannahmen; Lernzeit und Motivation sind noch nicht im Unterricht erprobt. Digitales Primärmaterial, kurze eigene Notizen auf Papier oder im bekannten Dokument. Kein zusätzliches Aufgabenheft erforderlich.
+**Fassung 2.1 · Klasse 7 · 195 Minuten.** ALG-4 wurde problemorientiert überarbeitet; ALG-1 und ALG-3 bleiben in Fassung 2.0. Zusammen mit ALG-2/5/6 bleiben es 405 Minuten und 36 Jahres-UE. Zeiten sind Planungsannahmen; Lernzeit und Motivation sind noch nicht im Unterricht erprobt. Digitales Primärmaterial, kurze eigene Notizen auf Papier oder im bekannten Dokument. Kein zusätzliches Aufgabenheft erforderlich.
 
 ## Vorbereiten und steuern
 
@@ -40,12 +40,14 @@ Lösungen erst nach eigenem Versuch besprechen; der öffentliche Lehrpersonenber
 
 | Phase | min | Lernhandlung / nächster Blick |
 |---|---|---|
-| Erklärung | 15 | Feste Anzahl gegen vorangestellte Abbruchprüfung. |
-| Gelenkt | 15 | Starts 0/40/45 vorhersagen, begrenzt ausführen. |
-| Eigene Anwendung | 30 | Nur Abbruchbedingung reparieren; eine volle Prüfspur und zwei erste Prüfungen. |
-| Rückmeldung/Revision | 15 | Fall 35/12 vorhersagen und prüfen; Ausgangsdatei sichern und wieder öffnen. |
+| Entdecken | 10 | Erst 0 und 45 vermuten; 0 selbst starten, 45 gemeinsam begrenzt beobachten. |
+| Erklären | 15 | Beobachtung mit vorangestellter Abbruchprüfung klären; 40 vorhersagen, feste vier Durchläufe vergleichen. |
+| Reparieren | 35 | Abbruchfrage selbst formulieren, ersten Test 40 oder 45 begründet wählen; alle drei Fälle prüfen, volle Spur und zwei erste Prüfungen. |
+| Gegencheck/Transfer/Sicherung | 15 | Eigene Erklärung, neuer Fall 35/12; reparierte Datei sichern und wieder öffnen. |
 
-Fehler `x = 40`: Start 0 endet nach vier Bewegungen bei 40; Start 40 braucht null. Start 45 erreicht mit positiven Zehnerschritten die 40 nie. Fehlerlauf nach spätestens vier Bewegungen stoppen. Feste vier Wiederholungen bewegen dagegen bei jedem Start viermal.
+Der Fehlerlauf erzeugt die Frage vor der Erklärung. Ab Minute 10 explizit klären, ab Minute 25 eigene Reparatur. Die Testwahl hängt vom eigenen Vorschlag ab: 40 prüft die eingeschlossene Grenze, 45 deckt Gleichheitsabbruch auf. Keine Zusatznotiz für diese mündlich mögliche Begründung. Im [ausführlichen Durchführungsplan](alg-4-durchfuehrung.html) stehen Steuerung, gestufte Hilfen und die Variante 45 + 30 Minuten.
+
+Fehler `x = 40`: Start 0 endet nach vier Bewegungen bei 40; Start 40 braucht null. Start 45 erreicht mit positiven Zehnerschritten die 40 nie. Im vorher aktivierten Schrittmodus zwei Bewegungen beobachten, spätestens nach vier stoppen; erst danach den Modus beenden. Alte „fertig“-Anzeige und Bedienklicks beweisen kein Ende. Feste vier Wiederholungen bewegen dagegen bei jedem Start viermal.
 
 Korrektur beispielsweise `nicht (x < 40)`. Start 0: Prüfungen 0/falsch, 10/falsch, 20/falsch, 30/falsch, 40/wahr. Start 40 und 45: erste Prüfung wahr, keine Bewegung. Variante Start 35/Schritt 12: Ende 47, eine Bewegung, zwei Prüfungen. `x > 40` allein wäre am Start 40 noch falsch. „fertig“ folgt erst nach dem Schleifenende.
 

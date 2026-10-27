@@ -6,7 +6,7 @@ TASKS=[
  {'id':'alg-1','title':'Welche Route trifft die Station?','minutes':45,'phases':[10,10,15,10],'project':'projekte/ALG-1-Start.xml','targets':[20]},
  {'id':'alg-2','title':'Gleiche Zahl – gleiche Wirkung?','minutes':60,'phases':[15,15,20,10],'project':'projekte/ALG-2-Start.xml','targets':[12]},
  {'id':'alg-3','title':'Welches Depot ist zuständig?','minutes':75,'phases':[15,15,30,15],'project':'projekte/ALG-3-Start.xml','targets':[40]},
- {'id':'alg-4','title':'Warum fährt der Rover immer weiter?','minutes':75,'phases':[15,15,30,15],'project':'projekte/ALG-4-Fehlersuche.xml','targets':[40]},
+ {'id':'alg-4','title':'Warum fährt der Rover immer weiter?','minutes':75,'phases':[10,15,35,15],'project':'projekte/ALG-4-Fehlersuche.xml','targets':[40]},
  {'id':'alg-5','title':'Dein Rover, dein Härtetest','minutes':90,'phases':[15,15,40,20],'project':'projekte/ALG-5-Start.xml','targets':[60,80]},
  {'id':'alg-6','title':'Die Haltestelle ist verpasst!','minutes':60,'phases':[0,10,35,15],'project':'projekte/ALG-6-Fehlersuche.xml','targets':[50]}]
 
@@ -32,6 +32,6 @@ def main():
    next_id=max([int(e.attrib['id']) for e in root.iter() if e.attrib.get('id','').isdigit()]+[10000])+1
    item=E.SubElement(costumes,'item');E.SubElement(item,'costume',{'name':'Lernwerk '+task['id'],'center-x':'240','center-y':'180','image':'data:image/svg+xml;base64,'+base64.b64encode(svg.encode()).decode(),'id':str(next_id)})
    stage.attrib['costume']='1';file.write_text(E.tostring(root,encoding='unicode',short_empty_elements=True),encoding='utf-8',newline='\n')
- (ROOT/'fassung.json').write_text(json.dumps({'version':'2.0','date':'2026-10-25','totalMinutes':405,'annualUE':36,'source':'Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026','license':'CC BY-SA 4.0','tasks':TASKS,'boundaries':'Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe.'},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (ROOT/'fassung.json').write_text(json.dumps({'version':'2.1','date':'2026-10-27','totalMinutes':405,'annualUE':36,'source':'Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026','license':'CC BY-SA 4.0','tasks':[dict(t,revision='2.1' if t['id']=='alg-4' else '2.0') for t in TASKS],'boundaries':'Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe.'},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print('Prepared 10 embedded stages; program blocks untouched')
 if __name__=='__main__':main()

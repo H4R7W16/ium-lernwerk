@@ -66,3 +66,7 @@ Ergänzte 75-Minuten-Durchführung unter `lehrpersonen/alg-4-durchfuehrung.html`
 ## ALG-5 · Erster Unterrichtseinsatz vom 27.10.2026
 
 Ergänzte 90-Minuten-Durchführung unter `lehrpersonen/alg-5-durchfuehrung.html` und separates Vorlesebriefing unter `lehrpersonen/alg-5-briefing.html`. Quellen `material/einsatz-alg-5.md` und `material/briefing-alg-5.md` übertragen die maßgeblichen Vault-Fassungen1.0 mit Weblinks; Renderer jetzt22Artikel. Zeitfenster15+15+40+20, Variante45+45; eigene Station,Schrittweite,Meldungen undGegenfall erhalten. Normalfall80/15 endet korrekt90/vorbei;6unerwarteteBewegungen nichtmit8erwartetenZehnerschritten verwechseln. Übersicht und17Lehrnavigationen ergänzt. Lernaufgaben,XML,Engine und405-Minuten-Konto unverändert; realeSafari-/Unterrichtserprobung offen.
+
+## ALG-4 · Problemorientierte Revision 2.1 vom 27.10.2026
+
+Revision 2.1: Beobachtung vor Erklärung, eigene Abbruchfrage, begründete Wahl des ersten Reparaturtests und zwei Hilfen direkt in der Eigenphase. 10 + 15 + 35 + 15 = 75 Minuten; alle Ziele und 405 Minuten bleiben. Sechs Markdownartikel einschließlich Durchführung, Briefings und Jahres-/Reihenkommentar sind nachgeführt. Die gebundene Fassung 2.0 bleibt historisch erhalten; inhalt-v2.1-sha256.json bindet die sechs geänderten Artikel und führt alle übrigen Bindungen unverändert fort. XML, Bühne und Engine bleiben bytegleich. Fachlicher Selbstreview, Browserprüfung und reale Erprobung werden getrennt dokumentiert. Veröffentlichung nach Nutzerauftrag und erfolgreichen Prüfungen.
