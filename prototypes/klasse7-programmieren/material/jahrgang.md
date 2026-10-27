@@ -12,6 +12,8 @@ Aktuell liegt eine Jahresplanung mit 22 Aufgabenentwürfen und 29 für Klasse 7 
 
 Die Eingangsdiagnose ist vorbereitet. Alle sechs ALG-Aufgaben liegen in Fassung 2.0 als Rover-Werkstatt vor: kürzere Lernaufträge, eigene Entscheidungen und gebündelte Werkstattnotizen. Die ursprünglichen sechs Zeitfenster und die fachlichen Teilkriterien bleiben erhalten. Die neue Fassung ist noch nicht im Unterricht pilotiert. Die übrigen Lernbögen bleiben in Materialproduktion offen. GFS oder benotete Prüfungen sind nicht vorgegeben; zusätzliche Leistungsformate brauchen ein explizites Zeitkonto.
 
+**Revision vom 27.10.2026:** ALG-4 liegt in Fassung 2.1 vor: Widerspruch beobachten, Erklärung daran klären, ersten Reparaturtest begründet wählen. Das Raster 10 + 15 + 35 + 15 ersetzt die bisherige Binnenaufteilung bei weiterhin 75 Minuten. Eigene Reparatur, alle drei Starts, letzte Prüfung, neuer Fall und Datei-Rückkehr bleiben erhalten. Zugehörige Durchführung und Briefing sind nachgeführt. Die übrigen fünf Lernaufgaben und alle Zeitkonten bleiben unverändert; die reale Erprobung dieser Revision ist noch offen.
+
 ## Planungsgrundlage und Geltung
 
 Maßgeblich ist das didaktische Mapping vom 23.09.2026: 29 Ziele in Klasse 7 und 30 in Klasse 8, je 36 bestätigte Netto-UE. Die Einzeljahrzuordnung ist eine Projektentscheidung innerhalb des Bands. Ältere sechsmodulige Klasse-7-Fassungen mit 38 UE sowie Working 40 sind abgelöst.
