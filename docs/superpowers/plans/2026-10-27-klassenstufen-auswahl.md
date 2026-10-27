@@ -18,7 +18,7 @@
 
 - [x] Integrationstests für reale Jahrgangsseiten, relative Ziele, Artikelerhalt, unveränderte Laufzeit und Offline-Dateien schreiben; fehlende Auswahl als roten Test beobachten.
 - [x] Header-Ergänzung und lokales Menüverhalten implementieren; Tests grün ausführen.
-- [x] Vollständigen bisherigen Pages-Testbefehl einmal ausführen und frischen Build erzeugen. Den Pages-Prüfbefehl auf `prototypes/pages/*.test.cjs` erweitern, damit die neue Integrationstestdatei mitläuft.
+- [x] Vollständigen bisherigen Pages-Testbefehl einmal ausführen und frischen Build erzeugen. Den bestehenden expliziten Pages-Prüfpfad erhalten und `prototypes/pages/grade-navigation.test.cjs` ausdrücklich ergänzen.
 - [x] Tatsächliche Ausgabe im Browser bedienen: Öffnen, aktuelle Stufe, Wechsel 5/6/7, Escape, Außenklick und Rückkehr mit einem synthetischen Arbeitsstand. Menü auf schmalem Gerät prüfen. Lokale Snap!-Ausführung bleibt außerhalb der Browserprobe; Original-Engine wird technisch unverändert geprüft.
 - [ ] Diff im Selbstreview prüfen, Commit/PR integrieren, Pages-Deployment und öffentliche Menüs prüfen. Keine Schutzregeln übersteuern. Git-Stand und tatsächliche Prüfgrenzen dokumentieren.
 
@@ -37,3 +37,5 @@ Rotlauf: drei fehlende Navigations-/Offline-Eigenschaften scheiterten, bestehend
 Endbuild release2: 144/144 Veröffentlichungsprüfungen erfolgreich, 1.154 Dateien. Browsernachprüfung: ein Kopfmenü offen; mobile Wortmarke wieder lesbar, Menü innerhalb375px Inhaltbreite, Tab/Enter/Escape/Außenklick funktionieren. Tatsächlicher Wechsel5→6→7 und zurück; synthetische Testantwort bleibt nach5→6→5 vorhanden. Safari-Hardwareprobe und unsicherer Snap-Verlassen-Fall nicht neu ausgeführt; bestehender Guard und originale Engine technisch erhalten.
 
 Vor Auslieferung neue Textdateien auf LF normalisiert und die Versionssortierung plattformunabhängig gemacht, damit lokaler und GitHub-Build identische Asset-/Cachehashes erzeugen. Eng betroffene Integrationsprüfungen und Endbuild werden erneut ausgeführt.
+
+CI-Nachprüfung: Der bestehende Workflow-Vertrag verlangt den wörtlichen bisherigen Pfad. Den ersetzenden Glob zurückgenommen und den neuen Test explizit daneben ergänzt; betroffenen Plattform-Vertrag gezielt nachprüfen. Keine Testanforderung gelockert.
