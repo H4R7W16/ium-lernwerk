@@ -1,0 +1,65 @@
+{
+  "fassung": "1.0",
+  "datum": "2026-10-28",
+  "minuten": 270,
+  "aufgaben": [
+    45,
+    45,
+    90,
+    45,
+    45
+  ],
+  "phasen": [
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      15,
+      15,
+      45,
+      15
+    ],
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      10,
+      10,
+      15,
+      10
+    ]
+  ],
+  "quellen": [
+    "MED-1 - Briefing.md",
+    "MED-1 - Wer lenkt unseren Blick.md",
+    "MED-2 - Briefing.md",
+    "MED-2 - Stimmt die Meldung.md",
+    "MED-3 - Bedienkarte Bildbearbeitung.md",
+    "MED-3 - Briefing.md",
+    "MED-3 - Ein Bild zwei Geschichten.md",
+    "MED-4 - Briefing.md",
+    "MED-4 - Welche Erwartungen stecken im Bild.md",
+    "MED-5 - Briefing.md",
+    "MED-5 - Welcher Weg ist sicher und passend.md",
+    "Medienbogen - Briefing.md",
+    "Medienbogen - Durchführung und Auswertung.md",
+    "Medienbogen - Produktionsbrief und Reihenkommentar.md",
+    "Medienbogen - Projektion.md",
+    "Medienbogen - Quellen und Nutzungsrechte.md",
+    "Medienbogen - Sicherung.md",
+    "Medienbogen - Werkstattnotizen.md"
+  ],
+  "html": 24
+}

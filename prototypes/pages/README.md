@@ -14,3 +14,7 @@ Die begrenzten Ausnahmen gegenüber dem gebundenen Ausgang sind:
 Eingefrorene zusätzliche Recherche-Beispiele behalten ihren Referenzstand. Die Navigation speichert nichts und sendet keine Analysedaten. Ein Klassenwechsel verspricht keine Offline-Verfügbarkeit eines noch nicht vorbereiteten anderen Jahrgangs.
 
 `grade-navigation.test.cjs` prüft die tatsächliche Ausgabe, relative Einstiege von allen Unterseiten, alle lokalen HTML-Verweise, den Erhalt sämtlicher Inhalte außerhalb des Headers, Offline-Assets und Herkunftsmanifeste. Bestehende Bestandstests laufen unverändert auf der gebundenen Ausgangsfassung weiter; die zusätzliche Ausgabestufe wird gesondert geprüft.
+
+## Medienbogen Klasse 7 (28.10.2026)
+
+Die geprüfte Medienfassung 1.0 wird über prototypes/klasse7-medien/build.cjs unter klasse7/medien/ ergänzt. Alle 32 Quellartefakte sind per SHA-256 gebunden. Eine begrenzte Publikationsstufe verbindet Medien und Programmieren in der Hauptnavigation und ergänzt die bestehende Klassenwahl. Der Klasse-7-Einstieg der Klassenwahl bleibt die Programmierübersicht; von dort ist die Medienwerkstatt direkt erreichbar. 24 Medienseiten einschließlich Durchführung, Sicherung, Projektion und Briefings werden vollständig veröffentlicht. Interne Nachweise bleiben außerhalb der öffentlichen Ausgabe. Bestehende Klassen 5/6, Snap-Laufzeit und Projekte behalten ihre Inhaltsbindungen.
