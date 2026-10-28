@@ -1,0 +1,4 @@
+# Exact imported bytes are part of quelle-sha256.json.
+inhalt/** -text
+material/** -text
+inhalt/material/*.txt whitespace=cr-at-eol,-blank-at-eof

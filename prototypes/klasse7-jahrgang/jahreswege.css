@@ -1,0 +1,22 @@
+/* Gemeinsamer Jahrgangsmantel. Snap-Arbeitsfläche und Projektionen behalten ihren Zweck. */
+.year-header{max-width:1280px;margin:auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px;border-bottom:1px solid #c8d1cb;box-sizing:border-box;background:transparent;position:relative;z-index:3}
+.year-header .brand,.year-header .lw-grade-switch>.lw-grade-summary{width:300px;max-width:100%;padding:0;display:block}
+.year-header .brand img{width:100%;height:auto;display:block}
+.year-header .lw-grade-switch{flex:0 0 300px;margin:0;padding:0;border:0;background:none}
+.year-header .year-nav{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0;justify-content:flex-end}
+.year-nav a{font:600 16px/1.4 'Segoe UI',Arial,sans-serif;padding:10px 9px;text-decoration:none;border-radius:6px;color:#245743;min-height:44px;box-sizing:border-box}
+.year-nav a[aria-current]{background:#eaf2ec;color:#173c2d;box-shadow:inset 0 -3px #245743}
+.year-tools{max-width:1280px;margin:0 auto;padding:10px 32px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;font:16px/1.5 'Segoe UI',Arial,sans-serif;box-sizing:border-box;border-bottom:1px solid #c8d1cb}
+.year-tools a{padding:8px 0;color:#245743;min-height:40px}.year-tools svg{width:16px;height:16px}
+.year-header a:focus-visible,.year-tools a:focus-visible{outline:3px solid #a85100;outline-offset:3px}
+.year-page main{max-width:1120px}.year-page h1{max-width:24ch;font-size:clamp(32px,4.4vw,56px)}
+.year-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:32px 0}
+.year-cards section{border:1px solid #c8d1cb;border-radius:10px;padding:24px;background:#f4f7f2}
+.year-cards section h2{font-size:27px;line-height:1.2;margin:12px 0 20px;padding:0;border:0}.year-cards .eyebrow{font-size:14px}.year-cards section p{font-size:17px}
+.year-legacy{max-width:1040px;margin:32px auto;padding:32px;background:white;border:1px solid #c8d1cb;border-radius:12px}
+.projection .year-tools{display:none}
+@media(max-width:900px){.year-header{display:block}.year-header .year-nav{justify-content:flex-start;margin-top:14px}.year-header .lw-grade-switch{width:300px;max-width:100%}}
+@media(max-width:700px){.year-header{padding:18px 20px}.year-header .brand,.year-header .lw-grade-switch>.lw-grade-summary{width:280px}.year-tools{padding:8px 20px;gap:4px 18px}.year-nav a{padding:10px 8px}.year-cards{grid-template-columns:1fr}.year-cards section{padding:20px}.year-cards section h2{font-size:25px}.year-legacy{margin:16px 12px;padding:24px}}
+@media print{.year-header,.year-tools{display:none}.year-cards{display:block}.year-cards section{break-inside:avoid;margin-bottom:16px}.year-legacy{border:0;margin:0;padding:0}.year-page pre{white-space:pre-wrap}}
+
+.year-header .lw-grade-switch>.lw-grade-summary{display:flex;align-items:center;gap:8px;width:330px}.year-header .lw-grade-summary picture{display:block;flex:1;min-width:0}.year-header .lw-grade-switch{flex-basis:330px}.year-header .lw-grade-chevron{flex:0 0 28px}@media(max-width:700px){.year-header .lw-grade-switch>.lw-grade-summary{width:300px}}

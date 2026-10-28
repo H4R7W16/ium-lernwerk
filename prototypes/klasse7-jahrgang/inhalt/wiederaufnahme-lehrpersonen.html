@@ -1,0 +1,59 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wiederaufnahme · Durchführung und Erwartungen · IuM 7</title><link rel="stylesheet" href="medien/medien.css"><link rel="icon" href="programmieren/brand/favicon.svg"></head><body class="year-page"><a class="skip" href="#inhalt">Zum Inhalt</a><header><a class="brand" href="index.html">IuM Lernwerk 7</a><nav aria-label="Hauptnavigation"></nav></header><main id="inhalt"><h1>Wiederaufnahme · Durchführung und Erwartungen</h1>
+<p><strong>20 + 20 + 30 + 20 = 90 Minuten · eigenes Jahreskonto</strong></p>
+<p>Die vier Lernendenseiten sind vollständig. Nach 1–2 Wochen Abstand zum jeweiligen Bogen, die gemischte Seite vor Klasse 8 einsetzen. Keine Vorbereitungs-Hausaufgabe. Zuerst ohne Sicherung abrufen, danach Belege vergleichen und eine Stelle gezielt verbessern. Lösungen erst im Vergleichsfenster gemeinsam öffnen; diese öffentlich zugänglichen Seiten sind kein gesicherter Testbereich.</p>
+<p>Die 20-Minuten-Seiten verwenden <strong>8 selbst lösen + 5 vergleichen/klären + 5 verbessern/erneut prüfen + 2 Anschluss</strong>. Die Codeseite verwendet <strong>12 + 7 + 8 + 3 = 30</strong>. Vorlesen und gleichwertige mündliche Antworten ermöglichen. Wer Hilfe braucht, markiert die fragliche Angabe; erst einen Hinweis geben, dann eine eigene Erklärung verlangen. Kein vollständiges Muster abschreiben lassen.</p>
+<h2>Medien · Beleg und Reichweite</h2>
+<p><a href="wiederaufnahme-medien.html">Lernendenseite</a></p>
+<p>B belegt 16 von 20 freiwillig teilnehmenden AG-Mitgliedern mit Wunsch nach einer <strong>zusätzlichen AG-Ausgabe</strong>. Weder ganze Schule noch ausschließlich digitale Bücher sind belegt. C übernimmt A und ist kein unabhängiger Beleg. D bestätigt unabhängig den Gegenstand der Frage, aber weder die Stimmenzahl noch eine Schulmehrheit. Likes ersetzen diese Belege nicht. Absichtliche Täuschung ist aus den Angaben nicht nachweisbar.</p>
+<p>Mögliche Überschrift: „16 befragte Mitglieder der Bücher-AG wünschen zusätzliche digitale Lektüre“. A nicht in der irreführenden Form weitergeben; wenn weitergegeben, mit Korrektur und Beleg. Neuer Fall: „9 von 12 befragten Robotik-AG-Mitgliedern wünschen einen zweiten Termin“. Für ein Urteil über die gesamte Schule braucht es eine geeignete Befragung dieser Zielgruppe mit klarer Frage; eine neue Prozentrechnung allein repariert die Reichweite nicht.</p>
+<p><strong>Anschluss:</strong> Bei Verwechslung Gruppe und Frage jeweils im Original unterstreichen lassen, dann den neuen Fall ohne Muster lösen. Bei Quellenverwechslung den Herkunftspfeil C→A zeichnen. Nur die offene Teilfrage nachprüfen.</p>
+<h2>Daten · Eindeutigkeit und Modellgrenze</h2>
+<p><a href="wiederaufnahme-daten.html">Lernendenseite</a> · übernimmt den bereits geplanten Datenabruf und ergänzt seine Rückmeldewege.</p>
+<p><code>0|10</code> bedeutet XY, <code>01|0</code> bedeutet ZX. Eine mögliche Reparatur: X→00, Y→01, Z→10, fester Beginn und Zweiergruppen. Gleich lange, verschiedene Wörter funktionieren bei vereinbartem Anfang. YZX wäre mit dieser Tabelle <code>011000</code>; andere eindeutige Tabellen gelten ebenso.</p>
+<p>12×8 = 96 Bit = 12 Byte; mit 12 Text-Byte insgesamt 24 Byte, also 6 Byte frei. Gegenfall: 8×8 = 64 Bit = 8 Byte; plus 10 = 18 Byte, also 2 Byte frei. Einheiten mitführen. Nur Nutzdaten unter den genannten Regeln, keine reale Dateigrößenprognose.</p>
+<p>Datenreduktion muss die benötigten Informationen erhalten: Erkennbarkeit im Plan, feine Schadensdetails in der Dokumentation. Verwechselbare Zeichen verfehlen den Zweck. Exakte Strommengen lassen sich ohne weitere Angaben zu Technik und Betrieb nicht aus Dateigrößen ableiten.</p>
+<p><strong>Anschluss:</strong> Bei Codefehlern zwei Segmentierungen zeigen lassen. Bei Einheitenfehlern zuerst Pixel→Bit, dann Bit→Byte. Bei pauschalem „kleiner ist besser“ den konkreten Nutzungszweck benennen lassen und den neuen Symbolfall prüfen.</p>
+<h2>Programmieren · Bedingung vor Bewegung</h2>
+<p><a href="wiederaufnahme-programmieren.html">Lernendenseite</a></p>
+<p><code>3+3</code> liefert die Zahl 6; <code>x=36</code> einen Wahrheitswert. <code>sage</code> ist hier ein Befehl zur Ausgabe des Texts und kein Reporter für einen rückgegebenen Rechenwert. Nach der festen Wiederholung ist x=12. Es folgen 22, 32, 42, 52. Danach immer weitere Zehnerschritte: Die letzte Ziffer bleibt 2; 36 wird nicht erreicht. Die nachfolgende Meldung läuft im idealisierten Modell deshalb nicht an.</p>
+<p>Passende Reparatur: <code>nicht (x &lt; 36)</code> beziehungsweise mathematisch <code>x ≥ 36</code>. Die vereinfachte Ablaufzeichnung prüft zuerst: wahr→Stopp, falsch→10 Schritte→erneute Prüfung. Der Vergleich muss sich auf die vereinbarte Zielregel beziehen; „genau 36“ wäre eine andere Aufgabe.</p>
+<div class="table-wrap" role="region" aria-label="Tabelle, horizontal scrollbar" tabindex="0"><table>
+<thead>
+<tr>
+<th align="right">Start der reparierten bedingten Schleife</th>
+<th align="right">Endposition</th>
+<th align="right">Bewegungen</th>
+<th align="right">Prüfungen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">12</td>
+<td align="right">42</td>
+<td align="right">3</td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td align="right">36</td>
+<td align="right">36</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">40</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+</tbody></table></div>
+<p>Bei Start 12 unterscheiden sich die Regeln zuerst an Position 42: Gleichheit falsch, „mindestens 36“ wahr. Neuer Fall 31 mit Schrittweite 8 endet bei 39 nach einer Bewegung und zwei Prüfungen. „Ziel erreicht oder überschritten“ passt; „genau am Ziel“ wäre falsch. Die Startwerte beziehen sich ausdrücklich nur auf die bedingte Schleife, damit die feste Wiederholung sie nicht zuvor verändert.</p>
+<p><strong>Anschluss:</strong> Bei Verwechslung der Prüfungen mit Bewegungen zuerst die Entscheidung an x=36 erklären lassen. Bei fehlender Grenze den Fall x=40 erneut prüfen. Bei Datenartfehlern einen Reporterwert von einer ausgeführten Handlung unterscheiden lassen. Erst anschließend eine kurze eigene Codeerprobung im Unterstützungskonto, wenn ein praktischer Nachweis noch offen ist.</p>
+<h2>Gemischt · Neue Situation, bekannte Kriterien</h2>
+<p><a href="wiederaufnahme-gemischt.html">Lernendenseite</a></p>
+<ol>
+<li>Belegt ist die Antwort von 6/8 freiwillig befragten AG-Mitgliedern zu einem weiteren Termin. Ganze Schule und wöchentlicher Termin sind nicht belegt; auch 2.000 Likes ändern das nicht.</li>
+<li>8×8 Bit = 8 Byte; 16×16 Bit = 32 Byte. Die kleinere Variante genügt, wenn das Symbol für den Zweck eindeutig erkennbar bleibt. Ohne sichtbare Bilder keine konkrete Qualitätsbehauptung. Größer ist dann nicht automatisch zweckmäßiger; Stromverbrauch nicht exakt daraus ableiten.</li>
+<li>28→35→42→49…; 40 wird bei diesen Siebenerschritten nicht getroffen. <code>nicht (x &lt; 40)</code> stoppt bei 42 nach zwei Bewegungen. Start 42: keine Bewegung, eine Prüfung.</li>
+<li>Passwort nicht weitergeben, Druck benennen und eine erreichbare Lehr-/Vertrauensperson hinzuziehen. Bei bereits erfolgter Weitergabe mit Unterstützung das Konto absichern. Freundschaft macht die Forderung nicht zu einer sicheren Zusammenarbeit. Keine realen Passwörter oder eigenen Erfahrungen abfragen.</li>
+</ol>
+<p><strong>Sicherung und Übergabe:</strong> Pro Person eine aussagekräftige Begründung oder offene Stelle erfassen, keine pauschale Rangliste. Eine Begründung aus der Vergleichsphase durch den neuen Fall individuell gegenprüfen. Die kurze Mischung zeigt einzelne fachliche Anschlüsse; praktische Eigenleistungen und private Reflexion bleiben eigene Nachweise beziehungsweise geschützte Bereiche. Größerer Nachholbedarf zählt zum Unterstützungskonto und wird mit tatsächlichen Minuten dokumentiert.</p>
+</main><footer>IuM Lernwerk · Klasse 7 · Jahreswege 1.0 · <a href="index.html">Jahrgangsübersicht</a> · <a href="lehrpersonen.html">Für Lehrpersonen</a><br>Eigene Texte und fiktive Fälle: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a> · Keine Antwortspeicherung</footer></body></html>
