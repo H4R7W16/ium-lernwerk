@@ -42,8 +42,8 @@ test('Öffentliche Datenfassung enthält keine lokalen Pfade, Freigabetexte oder
 });
 test('Jahrgangsbrief meldet Daten und Medien als ausgearbeitet mit direkten Einstiegen',()=>{
  const html=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html');
- assert.match(html,/<p>Fassung 2.3 · 28.10.2026/);assert.match(html,/Medienbogen liegt seit dem 28.10.2026/);assert.match(html,/Datenbogen liegt seit dem 28.10.2026/);
- assert.match(html,/href="\.\.\/\.\.\/daten\/index.html"/);assert.match(html,/Gaming\/Wohlbefinden bleibt in Materialproduktion offen/);
+ assert.match(html,/<p>Fassung 2.5 · 28.10.2026/);assert.match(html,/Medienbogen liegt seit dem 28.10.2026/);assert.match(html,/Datenbogen liegt seit dem 28.10.2026/);
+ assert.match(html,/href="\.\.\/\.\.\/daten\/index.html"/);assert.match(html,/Gaming und Wohlbefinden liegt seit dem 28.10.2026/);
  assert.doesNotMatch(html,/Daten und Gaming\/Wohlbefinden bleiben in Materialproduktion offen/);
 });
 test('Datenmenge und Auflösung bleiben in tatsächlicher Ausgabe konsistent',()=>{

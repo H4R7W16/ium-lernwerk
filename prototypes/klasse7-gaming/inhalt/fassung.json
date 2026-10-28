@@ -1,0 +1,128 @@
+{
+  "fassung": "1.0",
+  "datum": "2026-10-28",
+  "minuten": 270,
+  "aufgaben": [
+    45,
+    45,
+    60,
+    45,
+    60,
+    15
+  ],
+  "phasen": [
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      15,
+      15,
+      20,
+      10
+    ],
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      15,
+      15,
+      20,
+      10
+    ],
+    [
+      0,
+      0,
+      10,
+      5
+    ]
+  ],
+  "stunden": [
+    [
+      "GAM-1",
+      45
+    ],
+    [
+      "GAM-2",
+      45
+    ],
+    [
+      "GAM-3a",
+      45
+    ],
+    [
+      "GAM-3b",
+      15,
+      "GAM-4a",
+      30
+    ],
+    [
+      "GAM-4b",
+      15,
+      "GAM-5a",
+      30
+    ],
+    [
+      "GAM-5b",
+      30,
+      "GAM-6",
+      15
+    ]
+  ],
+  "kriterien": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09",
+    "G10",
+    "G11",
+    "G12"
+  ],
+  "privateKriterien": [
+    "G04",
+    "G05",
+    "G07",
+    "G08",
+    "G09",
+    "G10"
+  ],
+  "quellen": [
+    "GAM-1 - Briefing.md",
+    "GAM-1 - Warum noch eine Runde.md",
+    "GAM-2 - Briefing.md",
+    "GAM-2 - Kostenlos oder bezahlt.md",
+    "GAM-3 - Briefing.md",
+    "GAM-3 - Was tut gut was belastet.md",
+    "GAM-4 - Briefing.md",
+    "GAM-4 - Eine Strategie wirklich ausprobieren.md",
+    "GAM-5 - Briefing.md",
+    "GAM-5 - Grenzen schützen Hilfe erreichen.md",
+    "GAM-6 - Briefing.md",
+    "GAM-6 - Mit Abstand neu entscheiden.md",
+    "Gamingbogen - Briefing.md",
+    "Gamingbogen - Durchführung und Auswertung.md",
+    "Gamingbogen - Fachnotizen.md",
+    "Gamingbogen - Private Denkpause.md",
+    "Gamingbogen - Produktionsbrief und Reihenkommentar.md",
+    "Gamingbogen - Projektion.md",
+    "Gamingbogen - Quellen und Nutzungsrechte.md",
+    "Gamingbogen - Sicherung.md"
+  ],
+  "html": 27
+}

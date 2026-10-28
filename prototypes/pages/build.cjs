@@ -6,9 +6,10 @@ const preserved=require('./bestand-sha256.json');
 const {addClass7}=require('../klasse7-programmieren/build.cjs');
 const {addMedia,connectMedia}=require('../klasse7-medien/build.cjs');
 const {addData,connectData}=require('../klasse7-daten/build.cjs');
+const {addGaming,connectGaming}=require('../klasse7-gaming/build.cjs');
 const digest=data=>crypto.createHash('sha256').update(data).digest('hex');
 function preparePages(){
- const old=prepareAdditionalPages(),all=addData(addMedia(addClass7(augment(new Map(old)))));
+ const old=prepareAdditionalPages(),all=addGaming(addData(addMedia(addClass7(augment(new Map(old))))));
  for(const [name,hash]of Object.entries(preserved.files)){
   if(!all.has(name)||digest(all.get(name))!==hash)throw Error('Veröffentlichter Bestand verändert: '+name);
  }
@@ -30,7 +31,7 @@ function preparePages(){
  }
  return all;
 }
-function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(connectData(connectMedia(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages()))));}
+function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(connectGaming(connectData(connectMedia(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages())))));}
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');
  const all=preparePublishedPages();
