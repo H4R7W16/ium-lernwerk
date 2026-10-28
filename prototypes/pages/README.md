@@ -18,3 +18,7 @@ Eingefrorene zusätzliche Recherche-Beispiele behalten ihren Referenzstand. Die 
 ## Medienbogen Klasse 7 (28.10.2026)
 
 Die geprüfte Medienfassung 1.0 wird über prototypes/klasse7-medien/build.cjs unter klasse7/medien/ ergänzt. Alle 32 Quellartefakte sind per SHA-256 gebunden. Eine begrenzte Publikationsstufe verbindet Medien und Programmieren in der Hauptnavigation und ergänzt die bestehende Klassenwahl. Der Klasse-7-Einstieg der Klassenwahl bleibt die Programmierübersicht; von dort ist die Medienwerkstatt direkt erreichbar. 24 Medienseiten einschließlich Durchführung, Sicherung, Projektion und Briefings werden vollständig veröffentlicht. Interne Nachweise bleiben außerhalb der öffentlichen Ausgabe. Bestehende Klassen 5/6, Snap-Laufzeit und Projekte behalten ihre Inhaltsbindungen.
+
+## Datenbogen Klasse 7 (28.10.2026)
+
+Der Datenadapter ergänzt klasse7/daten/ mit 38 gebundenen Quellen und 24 HTML-Seiten. Durchführung, Sicherung, fünf Projektionen und sechs Vorlesebriefings sind enthalten. Daten, Medien und Programmieren sind gegenseitig verlinkt; die bestehende Klassenwahl wird wiederverwendet. Der öffentliche Jahrgangsbrief führt die ausgearbeiteten 270 Datenminuten nach. Eigene Tests prüfen vollständige Ausgabe, unveränderte Lernaufträge, Herkunft und Navigation.

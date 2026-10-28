@@ -1,0 +1,116 @@
+{
+  "rule": "Mittelpunkt auf schwarzer Form; Rand zählt schwarz",
+  "colors": {
+    "0": "weiß",
+    "1": "schwarz"
+  },
+  "order": "zeilenweise von links oben",
+  "shapes": {
+    "pfeil": {
+      "title": "Pfeil",
+      "poly": [
+        [
+          0.4,
+          2.6
+        ],
+        [
+          4.4,
+          2.6
+        ],
+        [
+          4.4,
+          0.1
+        ],
+        [
+          7.95,
+          4
+        ],
+        [
+          4.4,
+          7.9
+        ],
+        [
+          4.4,
+          5.4
+        ],
+        [
+          0.4,
+          5.4
+        ]
+      ],
+      "desc": "Pfeil nach rechts, mit rechteckigem Schaft und dreieckiger Spitze."
+    },
+    "dreieck": {
+      "title": "Dreieck",
+      "poly": [
+        [
+          0.2,
+          7.6
+        ],
+        [
+          4,
+          0.5
+        ],
+        [
+          7.8,
+          7.6
+        ]
+      ],
+      "desc": "Dreieck mit schrägen Seiten und waagrechter Unterkante."
+    },
+    "schluessel": {
+      "title": "Schlüssel",
+      "desc": "Schlüssel mit runder Öffnung links, waagrechtem Schaft nach rechts und zwei unterschiedlich langen Zähnen nach unten."
+    }
+  },
+  "rasters": {
+    "pfeil-4": [
+      "0010",
+      "1111",
+      "1111",
+      "0010"
+    ],
+    "pfeil-8": [
+      "00001000",
+      "00001100",
+      "00001110",
+      "11111110",
+      "11111110",
+      "00001110",
+      "00001100",
+      "00001000"
+    ],
+    "dreieck-4": [
+      "0000",
+      "0110",
+      "0110",
+      "1111"
+    ],
+    "dreieck-8": [
+      "00000000",
+      "00011000",
+      "00011000",
+      "00111100",
+      "00111100",
+      "01111110",
+      "01111110",
+      "11111111"
+    ],
+    "schluessel-4": [
+      "1100",
+      "1111",
+      "0011",
+      "0000"
+    ],
+    "schluessel-8": [
+      "01100000",
+      "10010000",
+      "10011111",
+      "01111111",
+      "00000101",
+      "00000100",
+      "00000000",
+      "00000000"
+    ]
+  }
+}

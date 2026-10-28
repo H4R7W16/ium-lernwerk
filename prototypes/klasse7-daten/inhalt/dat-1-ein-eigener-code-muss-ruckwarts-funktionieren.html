@@ -1,0 +1,82 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DAT-1 · Kommt wirklich dieselbe Nachricht an? · IuM 7</title><link rel="icon" href="material/favicon.svg"><link rel="stylesheet" href="daten.css"></head><body class=""><a class="skip" href="#inhalt">Zum Inhalt</a><header><a href="index.html" aria-label="IuM 7 Datenwerkstatt Start"><img class="brand" src="material/ium-lernwerk-7.svg" alt="IuM Lernwerk 7"></a><nav aria-label="Hauptnavigation"><a href="index.html">Datenwerkstatt</a><a href="datenbogen-werkstattnotizen.html">Meine Notizen</a><a href="datenbogen-sicherung.html">Sicherung</a></nav></header><nav class="course-nav" aria-label="Aufgaben"><a href="dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html">DAT-1</a><a href="dat-2-ascii-als-vereinbarte-codierung.html">DAT-2</a><a href="dat-3-vom-bild-zum-pixelraster-und-zuruck.html">DAT-3</a><a href="dat-4-wie-gro-sind-unsere-datenmengen.html">DAT-4</a><a href="dat-5-welche-datenmenge-passt-zum-zweck.html">DAT-5</a></nav><main id="inhalt"><h1 id="dat-1-kommt-wirklich-dieselbe-nachricht-an">DAT-1 · Kommt wirklich dieselbe Nachricht an?</h1>
+<p><strong>60 Minuten · erst allein, dann zu zweit</strong></p>
+<p>Dein Übertragungsgerät kennt nur zwei Zeichen: <strong>0 und 1</strong>. Du sollst eine kurze Nachricht so codieren, dass eine andere Person genau deinen Text zurückgewinnt. Ihr dürft dafür eine Tabelle vereinbaren.</p>
+<p>Am Ende hast du eine eigene Codetabelle, zwei Übertragungsproben und einen erklärten Fehlerfall. Arbeite in deinen <a href="datenbogen-werkstattnotizen.html">Werkstattnotizen</a>.</p>
+<h2 id="1-eine-nachricht-zwei-lesarten-10-minuten">1 · Eine Nachricht, zwei Lesarten · 10 Minuten</h2>
+<p>Die erste Tabelle lautet:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen"><table>
+<thead>
+<tr>
+<th>Textzeichen</th>
+<th>Codewort</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>0</td>
+</tr>
+<tr>
+<td>M</td>
+<td>01</td>
+</tr>
+<tr>
+<td>O</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+<p>Angekommen ist <strong>01</strong>. Was könnte die Nachricht gewesen sein? Schreibe vor dem Austausch deine Lesart auf. Suche anschließend eine zweite. Zeige durch Striche, wie du die Bits aufteilst.</p>
+<p>Die Lehrperson klärt mit euch: Ein <strong>Bit</strong> hat einen von zwei Werten, 0 oder 1. Eine <strong>Bitfolge</strong> besteht aus mehreren Bits. Eine <strong>Codierung</strong> ordnet Zeichen Codewörter zu. Beim <strong>Decodieren</strong> geht es zurück. Dafür müssen Tabelle und Grenzen der Codewörter klar sein. Erfolgreiches Raten genügt nicht.</p>
+<h2 id="2-eine-verlassliche-vereinbarung-15-minuten">2 · Eine verlässliche Vereinbarung · 15 Minuten</h2>
+<p>Wir brauchen genau vier Textzeichen: <strong>A, M, O und das Leerzeichen</strong>. In der Tabelle schreiben wir für das Leerzeichen „␣“. Es steht für eine Lücke im Text, nicht für den Buchstaben O oder eine Null.</p>
+<p>Nutze die vier Codewörter <strong>00, 01, 10, 11</strong>. Verteile sie selbst auf die vier Zeichen; jedes Codewort darf nur einmal vorkommen.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen"><table>
+<thead>
+<tr>
+<th>Textzeichen</th>
+<th>Mein Codewort</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>…</td>
+</tr>
+<tr>
+<td>M</td>
+<td>…</td>
+</tr>
+<tr>
+<td>O</td>
+<td>…</td>
+</tr>
+<tr>
+<td>Leerzeichen ␣</td>
+<td>…</td>
+</tr>
+</tbody></table></div>
+<p>Codiert gemeinsam ein Beispiel mit einer anderen Zuordnung als deiner. Lest es in Zweiergruppen zurück. Erkläre dann an deiner Tabelle: Warum kann jede Zweiergruppe nur ein Zeichen bedeuten? Was muss die empfangende Person außer den Bits wissen?</p>
+<details><summary>Hilfe: Ich verliere die Grenze</summary>
+<p>Beginne beim ersten Bit. Markiere immer genau zwei Bits, etwa <code>10 | 00 | 11</code>. Suche jede Gruppe in deiner Tabelle. Die Striche sind hier nur Lesehilfen. In eurer Übertragung sind die festen Zweiergruppen vereinbart.</p>
+</details>
+
+<h2 id="3-besteht-dein-code-den-fremdtest-25-minuten">3 · Besteht dein Code den Fremdtest? · 25 Minuten</h2>
+<ol>
+<li>Erfinde <strong>zwei verschiedene Texte mit je drei bis fünf Zeichen</strong> aus A, M, O und Leerzeichen. Eine Folge wie „MOA“ ist erlaubt. Mindestens einer der beiden Texte enthält ein Leerzeichen. Halte die Originaltexte zunächst verdeckt.</li>
+<li>Codiere beide Texte allein. Gib nur deine Tabelle und die beiden Bitfolgen weiter. Vereinbarung: vom ersten Bit an in Zweiergruppen lesen.</li>
+<li>Decodiere selbst die beiden Nachrichten deiner Partnerperson. Notiere die Gruppen und den zurückgewonnenen Text. Vergleicht erst danach mit den Originalen. Sagt bei einer Abweichung, <strong>an welcher Gruppe</strong> sie beginnt. Korrigiert dort und lest erneut.</li>
+<li>Erzeuge nun eine <strong>absichtlich fehlerhafte zweite Tabelle</strong> mit A, M und O. Finde dazu eine Bitfolge, die zwei verschiedene Texte ergeben kann. Nimm einen anderen Fall als das Einstiegsbeispiel. Notiere beide Rückübersetzungen. Verbessere die Tabelle oder die Vereinbarung, sodass dieser Fehler vermieden wird.</li>
+</ol>
+<p>Beide Personen entwerfen und decodieren. Ein gemeinsames Blatt ersetzt deine eigenen Versuche nicht. Haltet nach den ersten acht Minuten kurz an: Sind Tabelle und erste Nachricht bereits vorhanden? Wenn nicht, nutzt die Hilfe.</p>
+<details><summary>Hilfe: Einen mehrdeutigen Fall bauen</summary>
+<p>Prüfe zuerst, was passiert, wenn zwei Zeichen dasselbe Codewort bekommen. Oder lasse das Codewort eines Zeichens aus den Codewörtern zweier anderer Zeichen bestehen. Schreibe die zwei unterschiedlichen Texte dazu. Du musst keinen besonders komplizierten Code erfinden.</p>
+</details>
+
+<h2 id="4-prufen-verbessern-erklaren-10-minuten">4 · Prüfen, verbessern, erklären · 10 Minuten</h2>
+<p>Tauscht einen <strong>neuen Text mit vier Zeichen</strong> aus, der eure verbesserte Regel prüft. Danach beantwortest du allein:</p>
+<ul>
+<li>Was macht deinen Code eindeutig rückübersetzbar? Nenne Zuordnung <strong>und</strong> Codewortgrenzen.</li>
+<li>Was zeigen eure Versuche, und warum ist die Regelbegründung zusätzlich nötig?</li>
+</ul>
+<p>Ein guter Nachweis zeigt Tabelle, tatsächliche Rückübersetzungen, den mehrdeutigen Gegenfall und eine begründete Reparatur. Falls die erste Tabelle schon eindeutig war, bleibt sie erhalten; verbessert wird dann die absichtlich fehlerhafte Tabelle.</p>
+<p><strong>Festhalten:</strong> Codierung macht einen Text darstellbar und übertragbar. Sie macht ihn nicht automatisch geheim. Wer eure Tabelle kennt, kann mitlesen. Die gemeinsame <a href="datenbogen-sicherung.html">Sicherung</a> wird nach der Besprechung ergänzt.</p>
+<p>Wenn du ohne Partnerperson arbeitest, prüft die Lehrperson eine deiner Nachrichten und gibt dir eine fremde zurück. Selbstlesen nach kurzer Pause ersetzt diesen Fremdtest nicht.</p>
+</main><aside><details class="teacher-menu"><summary>Material für Lehrpersonen</summary><nav aria-label="Lehrpersonenmaterial"><a href="datenbogen-durchfuhrung-und-auswertung.html">Durchführung und Auswertung</a><a href="datenbogen-projektion.html">Projektion</a><a href="datenbogen-briefing.html">Briefing</a><a href="dat-1-briefing.html">DAT-1 - Briefing</a><a href="dat-2-briefing.html">DAT-2 - Briefing</a><a href="dat-3-briefing.html">DAT-3 - Briefing</a><a href="dat-4-briefing.html">DAT-4 - Briefing</a><a href="dat-5-briefing.html">DAT-5 - Briefing</a><a href="datenbogen-produktionsbrief-und-reihenkommentar.html">Produktionsbrief und Reihenkommentar</a><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a></nav></details></aside><footer>Datenwerkstatt · Fassung 1.0 · 270 Minuten · Lokale Lesefassung<br><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a> · Eigene Inhalte: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a> · Keine Antwortspeicherung</footer></body></html>
