@@ -24,14 +24,14 @@ test('Alle vier Lernbögen und der Jahrgangseinstieg erreichen Gaming, Gaming er
    assert.match(html,/data-grade-switch/,name);
    for(const other of ['programmieren','medien','daten'])assert.ok(html.includes('href="../'+other+'/index.html"'),name+' → '+other);
   }
-  if(name.startsWith('klasse7/programmieren/')&&html.includes('<nav class="lw-shell-nav"')){
-   const nav=html.match(/<nav class="lw-shell-nav"[^>]*>([\s\S]*?)<\/nav>/)[1],href=nav.match(/href="([^"]+)">Gaming<\/a>/)?.[1];assert.ok(href,name);
+  if(name.startsWith('klasse7/programmieren/')&&html.includes('<nav class="year-nav"')){
+   const nav=html.match(/<nav class="year-nav"[^>]*>([\s\S]*?)<\/nav>/)[1],href=nav.match(/href="([^"]+)">Gaming<\/a>/)?.[1];assert.ok(href,name);
    assert.equal(path.posix.normalize(path.posix.join(path.posix.dirname(name),href)),ROOT+'index.html');
   }
-  if(/^klasse7\/(medien|daten)\//.test(name)&&html.includes('<nav aria-label="Hauptnavigation">'))assert.match(html,/href="\.\.\/gaming\/index.html">Gaming<\/a>/,name);
+  if(/^klasse7\/(medien|daten)\//.test(name)&&html.includes('<nav class="year-nav" aria-label="Hauptnavigation">'))assert.match(html,/href="\.\.\/gaming\/index.html">Gaming<\/a>/,name);
  }
  assert.match(published.get('klasse7/index.html'),/href="gaming\/index.html"/);
- const year=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html');assert.match(year,/Fassung 2.5 · 28.10.2026/);assert.match(year,/href="\.\.\/\.\.\/gaming\/index.html"/);assert.doesNotMatch(year,/bleibt in Materialproduktion offen/);
+ const year=published.get('klasse7/lehrpersonen.html');assert.match(year,/href="gaming\/index.html"/);assert.match(year,/GAM-4 und GAM-6 müssen 1–2 Wochen/);assert.doesNotMatch(year,/bleibt in Materialproduktion offen/);
 });
 test('Öffentliche Webfassung enthält keine internen Freigabetexte, lokalen Pfade oder Antworterfassung',()=>{
  for(const [name,html]of published){if(!name.startsWith(ROOT)||!name.endsWith('.html'))continue;

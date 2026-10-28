@@ -1,0 +1,3 @@
+# Exact imported bytes are part of quelle-sha256.json.
+inhalt/** -text
+material/** -text

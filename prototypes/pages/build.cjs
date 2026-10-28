@@ -31,7 +31,8 @@ function preparePages(){
  }
  return all;
 }
-function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(connectGaming(connectData(connectMedia(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages())))));}
+function prepareNavigablePages(){return require('../klasse7-jahrgang/build.cjs').addYearRoutes(connectGaming(connectData(connectMedia(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages())))));}
+function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(prepareNavigablePages());}
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');
  const all=preparePublishedPages();
@@ -39,4 +40,4 @@ function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  console.log(`Validated and staged ${all.size} Pages-Dateien; ${Object.keys(preserved.files).length} Bestandsdateien als Ausgang gebunden; Klassenstufen-Navigation ergänzt in ${output}`);
 }
 if(require.main===module)build(process.argv[2]?path.resolve(process.argv[2]):undefined);
-module.exports={preparePages,preparePublishedPages,build};
+module.exports={preparePages,prepareNavigablePages,preparePublishedPages,build};

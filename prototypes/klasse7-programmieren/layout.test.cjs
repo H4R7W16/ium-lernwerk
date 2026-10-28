@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),crypto=require('node:crypto');
 const build=require('../pages/build.cjs'),{addGradeNavigation}=require('../shared/grade-navigation.cjs');
-const raw=build.preparePages(),before=addGradeNavigation(raw),published=build.preparePublishedPages(),root='klasse7/programmieren/';
+const raw=build.preparePages(),before=addGradeNavigation(raw),published=addGradeNavigation(require('./layout.cjs').applySeriesLayout(raw)),root='klasse7/programmieren/';
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 const pages=[...raw].filter(([name,html])=>name.startsWith(root)&&name.endsWith('.html')&&/<header class="(?:site-header|editor-header)"/.test(html));
 const main=html=>html.match(/<main\b[^>]*>[\s\S]*?<\/main>/)?.[0];
@@ -13,12 +13,12 @@ test('Klasse 7 nutzt die gemeinsame Wortmarke und die tatsächlichen Mantelquell
  for(const [name]of pages){const html=published.get(name);assert.match(html,/class="lw-brand-logo"/,name);assert.match(html,/IuM Lernwerk 7 – Informatik und Medienbildung/,name);assert.doesNotMatch(html,/class="brand-mark"/,name);assert.match(html,/reihenlayout\.css\?v=20261027/,name);}
 });
 
-test('Layoutwechsel erhält alle Lerntexte, Lehrtexte, Aufgabenlinks und den ausführbaren Editorinhalt',()=>{
+test('Isolierter Reihenlayout-Adapter erhält alle Lerntexte, Lehrtexte, Aufgabenlinks und den ausführbaren Editorinhalt',()=>{
  for(const [name,html]of pages){assert.equal(main(published.get(name)),main(html),name);}
  for(const [name,data]of raw)if(name.startsWith(root)&&!pages.some(([page])=>page===name)&&!name.endsWith('snap/lernwerk-herkunft.json'))assert.deepEqual(published.get(name),data,name);
 });
 
-test('Klasse 5 und 6 bleiben im tatsächlich veröffentlichten Paket bytegleich',()=>{
+test('Reihenlayout-Adapter erhält Klasse 5 und 6 bytegleich',()=>{
  for(const [name,data]of before)if(!name.startsWith('klasse7/'))assert.deepEqual(published.get(name),data,name);
  for(const name of published.keys())if(!before.has(name))assert.ok(name.startsWith(root),name);
 });

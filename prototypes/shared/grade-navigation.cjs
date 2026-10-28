@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const destinations=['klasse5/index.html','klasse6/index.html','klasse7/programmieren/index.html'];
+const destinations=['klasse5/index.html','klasse6/index.html','klasse7/index.html'];
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 function context(name){
  const match=name.match(/^klasse([56])\//);
@@ -8,7 +8,8 @@ function context(name){
  if(name.startsWith('klasse7/gaming/'))return {grade:7,root:'klasse7/gaming/'};
  if(name.startsWith('klasse7/daten/'))return {grade:7,root:'klasse7/daten/'};
  if(name.startsWith('klasse7/medien/'))return {grade:7,root:'klasse7/medien/'};
- return name.startsWith('klasse7/programmieren/')?{grade:7,root:'klasse7/programmieren/'}:null;
+ if(name.startsWith('klasse7/programmieren/'))return {grade:7,root:'klasse7/programmieren/'};
+ return name.startsWith('klasse7/')?{grade:7,root:'klasse7/'}:null;
 }
 function relative(name,target){return path.posix.relative(path.posix.dirname(name),target);}
 function enhance(name,html,info){

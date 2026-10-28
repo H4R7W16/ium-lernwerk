@@ -24,13 +24,13 @@ test('Datenwerkstatt und übrige Klasse-7-Lernbögen sind von Unterseiten gegens
   if(name.startsWith(ROOT)&&!name.includes('/projektion-')){
    assert.match(html,/data-grade-switch/,name);
    assert.match(html,/href="\.\.\/programmieren\/index.html">Programmieren<\/a>/,name);
-   assert.match(html,/href="\.\.\/medien\/index.html">Medienwerkstatt<\/a>/,name);
+   assert.match(html,/href="\.\.\/medien\/index.html">Medien<\/a>/,name);
   }
-  if(name.startsWith('klasse7/programmieren/')&&html.includes('<nav class="lw-shell-nav"')){
-   const nav=html.match(/<nav class="lw-shell-nav"[^>]*>([\s\S]*?)<\/nav>/)[1],href=nav.match(/href="([^"]+)">Datenwerkstatt<\/a>/)?.[1];assert.ok(href,name);
+  if(name.startsWith('klasse7/programmieren/')&&html.includes('<nav class="year-nav"')){
+   const nav=html.match(/<nav class="year-nav"[^>]*>([\s\S]*?)<\/nav>/)[1],href=nav.match(/href="([^"]+)">Daten<\/a>/)?.[1];assert.ok(href,name);
    assert.equal(path.posix.normalize(path.posix.join(path.posix.dirname(name),href)),ROOT+'index.html');
   }
-  if(name.startsWith('klasse7/medien/')&&html.includes('<nav aria-label="Hauptnavigation">'))assert.match(html,/href="\.\.\/daten\/index.html">Datenwerkstatt<\/a>/,name);
+  if(name.startsWith('klasse7/medien/')&&html.includes('<nav class="year-nav" aria-label="Hauptnavigation">'))assert.match(html,/href="\.\.\/daten\/index.html">Daten<\/a>/,name);
  }
 });
 test('Öffentliche Datenfassung enthält keine lokalen Pfade, Freigabetexte oder internen Nachweise',()=>{
@@ -40,12 +40,13 @@ test('Öffentliche Datenfassung enthält keine lokalen Pfade, Freigabetexte oder
  }
  const sources=published.get(ROOT+'datenbogen-quellen-und-nutzungsrechte.html');assert.match(sources,/vollständig in dieser Webfassung enthalten/);
 });
-test('Jahrgangsbrief meldet Daten und Medien als ausgearbeitet mit direkten Einstiegen',()=>{
- const html=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html');
- assert.match(html,/<p>Fassung 2.5 · 28.10.2026/);assert.match(html,/Medienbogen liegt seit dem 28.10.2026/);assert.match(html,/Datenbogen liegt seit dem 28.10.2026/);
- assert.match(html,/href="\.\.\/\.\.\/daten\/index.html"/);assert.match(html,/Gaming und Wohlbefinden liegt seit dem 28.10.2026/);
- assert.doesNotMatch(html,/Daten und Gaming\/Wohlbefinden bleiben in Materialproduktion offen/);
+test('Alter Jahrgangslink führt zum aktuellen gemeinsamen Leitfaden',()=>{
+ const legacy=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html'),guide=published.get('klasse7/lehrpersonen.html');
+ assert.match(legacy,/href="\.\.\/\.\.\/lehrpersonen.html"/);
+ for(const area of ['medien','daten','programmieren','gaming'])assert.ok(guide.includes('href="'+area+'/index.html"'));
+ assert.match(guide,/1620/);assert.match(guide,/29 Zielzuordnungen/);
 });
+
 test('Datenmenge und Auflösung bleiben in tatsächlicher Ausgabe konsistent',()=>{
  const model=JSON.parse(published.get(ROOT+'material/modell-daten.json'));
  assert.deepEqual(model.rasters['dreieck-4'],['0000','0110','0110','1111']);

@@ -1,0 +1,41 @@
+﻿IuM 7 - Startcheck 1.0 - Beobachtung je Person
+Kennung: __________  Datum: __________
+Kriterien: + belegt / - noch nicht tragfähig / ? kein Beleg
+Status: S selbstständig / H mit fachlicher Hilfe / U weiterer Bedarf / N nicht auswertbar
+Keine privaten Reflexionsinhalte eintragen.
+
+M Quellen
+K1: ___ K2: ___ K3: ___  Status: ___
+Hilfe oder Zugangsunterstützung: __________________________
+Beleg oder Hindernis: ____________________________________
+Nächster Auftrag und Termin: _____________________________
+Wiederprüfung / tatsächliche Minuten: ____________________
+
+C Codes
+K1: ___ K2: ___ K3: ___  Status: ___
+Hilfe oder Zugangsunterstützung: __________________________
+Beleg oder Hindernis: ____________________________________
+Nächster Auftrag und Termin: _____________________________
+Wiederprüfung / tatsächliche Minuten: ____________________
+
+A Abläufe
+K1: ___ K2: ___ K3: ___  Status: ___
+Hilfe oder Zugangsunterstützung: __________________________
+Beleg oder Hindernis: ____________________________________
+Nächster Auftrag und Termin: _____________________________
+Wiederprüfung / tatsächliche Minuten: ____________________
+
+T Dateien
+K1: ___ K2: ___ K3: ___  Status: ___
+Hilfe oder Zugangsunterstützung: __________________________
+Beleg oder Hindernis: ____________________________________
+Nächster Auftrag und Termin: _____________________________
+Wiederprüfung / tatsächliche Minuten: ____________________
+
+R Fall und Privatheit
+K1: ___ K2: ___ K3: ___  Status: ___
+Hilfe oder Zugangsunterstützung: __________________________
+Beleg oder Hindernis: ____________________________________
+Nächster Auftrag und Termin: _____________________________
+Wiederprüfung / tatsächliche Minuten: ____________________
+

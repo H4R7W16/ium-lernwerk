@@ -19,9 +19,9 @@ test('Medien und Programmieren sind von Aufgaben und Startseiten gegenseitig err
    assert.match(html,/aria-label="Klassenstufe wählen, aktuell Klasse 7"/,name);
    assert.match(html,/href="\.\.\/programmieren\/index\.html">Programmieren<\/a>/,name);
   }
-  if(name.startsWith('klasse7/programmieren/')&&/<nav class="lw-shell-nav"/.test(html)){
-   const nav=html.match(/<nav class="lw-shell-nav"[^>]*>([\s\S]*?)<\/nav>/)[1];
-   const ref=nav.match(/href="([^"]+)">Medienwerkstatt<\/a>/)?.[1];assert.ok(ref,name);
+  if(name.startsWith('klasse7/programmieren/')&&/<nav class="year-nav"/.test(html)){
+   const nav=html.match(/<nav class="year-nav"[^>]*>([\s\S]*?)<\/nav>/)[1];
+   const ref=nav.match(/href="([^"]+)">Medien<\/a>/)?.[1];assert.ok(ref,name);
    assert.equal(path.posix.normalize(path.posix.join(path.posix.dirname(name),ref)),ROOT+'index.html',name);
   }
  }
@@ -46,11 +46,8 @@ test('Öffentliche Medienausgabe enthält keine lokalen Pfade oder internen Prü
  assert.doesNotMatch(article,/Veröffentlichung auf GitHub\/Pages ist ein eigener Bereitstellungsschritt/);
  assert.match(published.get(ROOT+'med-3-ein-bild-zwei-geschichten.html'),/download="hof-original\.png"/);
 });
-test('Jahrgangsbrief zeigt die veröffentlichte Medienfassung und grenzt offene Lernbögen korrekt ein',()=>{
- const html=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html');
- assert.ok(!html.includes('Die übrigen Lernbögen bleiben in Materialproduktion offen.'));
- assert.ok(html.includes('Medienbogen liegt seit dem 28.10.2026'));
- assert.ok(html.includes('Datenbogen liegt seit dem 28.10.2026'));
- assert.ok(html.includes('Gaming und Wohlbefinden liegt seit dem 28.10.2026'));
- assert.ok(html.includes('href="../../medien/index.html">Zur Medienwerkstatt'));
+test('Jahresleitfaden erschließt die vollständigen Medienmaterialien',()=>{
+ const html=published.get('klasse7/lehrpersonen.html');
+ for(const file of ['medienbogen-durchfuhrung-und-auswertung','medienbogen-sicherung','medienbogen-briefing'])assert.ok(html.includes('href="medien/'+file+'.html"'));
+ assert.doesNotMatch(html,/bleiben in Materialproduktion offen/);
 });
