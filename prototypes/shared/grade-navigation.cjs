@@ -5,6 +5,7 @@ const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 function context(name){
  const match=name.match(/^klasse([56])\//);
  if(match)return {grade:Number(match[1]),root:'klasse'+match[1]+'/'};
+ if(name.startsWith('klasse7/daten/'))return {grade:7,root:'klasse7/daten/'};
  if(name.startsWith('klasse7/medien/'))return {grade:7,root:'klasse7/medien/'};
  return name.startsWith('klasse7/programmieren/')?{grade:7,root:'klasse7/programmieren/'}:null;
 }

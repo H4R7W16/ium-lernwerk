@@ -1,0 +1,61 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DAT-4 · Wie viel muss übertragen werden? · IuM 7</title><link rel="icon" href="material/favicon.svg"><link rel="stylesheet" href="daten.css"></head><body class=""><a class="skip" href="#inhalt">Zum Inhalt</a><header><a href="index.html" aria-label="IuM 7 Datenwerkstatt Start"><img class="brand" src="material/ium-lernwerk-7.svg" alt="IuM Lernwerk 7"></a><nav aria-label="Hauptnavigation"><a href="index.html">Datenwerkstatt</a><a href="datenbogen-werkstattnotizen.html">Meine Notizen</a><a href="datenbogen-sicherung.html">Sicherung</a></nav></header><nav class="course-nav" aria-label="Aufgaben"><a href="dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html">DAT-1</a><a href="dat-2-ascii-als-vereinbarte-codierung.html">DAT-2</a><a href="dat-3-vom-bild-zum-pixelraster-und-zuruck.html">DAT-3</a><a href="dat-4-wie-gro-sind-unsere-datenmengen.html">DAT-4</a><a href="dat-5-welche-datenmenge-passt-zum-zweck.html">DAT-5</a></nav><main id="inhalt"><h1 id="dat-4-wie-viel-muss-ubertragen-werden">DAT-4 · Wie viel muss übertragen werden?</h1>
+<p><strong>60 Minuten · eigene Rechnungen, gemeinsamer Vergleich</strong></p>
+<p>Ein Bild kann nur wenige schwarze Felder haben und trotzdem viele Bits benötigen. Berechne, wie viele Daten in unseren Text- und Bildpaketen stecken. Nutze deine Ergebnisse aus DAT-2 und DAT-3.</p>
+<h2 id="1-was-zahlen-wir-15-minuten">1 · Was zählen wir? · 15 Minuten</h2>
+<p>Zwei 8×8-Bilder: eines vollständig weiß, eines mit vielen schwarzen Feldern. Braucht das weiße Bild in unserem Modell weniger Bits? Vermute zuerst und begründe anschließend.</p>
+<p><strong>Unser Rechenmodell:</strong> Jedes Schwarzweißpixel wird mit genau <strong>einem Bit</strong> gespeichert, auch ein weißes. Jedes ASCII-Zeichen belegt in unserer Byte-Darstellung <strong>acht Bits</strong>, auch ein Leerzeichen. Wir zählen nur diese unkomprimierten <strong>Nutzdaten</strong>. Angaben wie Breite, Höhe und Codierung sind zusätzlich nötig, werden in diesen Rechnungen aber nicht mitgezählt.</p>
+<p>Eine echte PNG-, SVG- oder Textdatei kann deshalb eine andere Größe haben. Dateiformat, zusätzliche Angaben und Kompression spielen dabei eine Rolle. Die auf dieser Seite angezeigte SVG-Datei ist <strong>nicht</strong> das Ein-Bit-pro-Pixel-Modell. Ihre Dateieigenschaften sind kein Gegenbeweis gegen unsere Rechnung.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen"><table>
+<thead>
+<tr>
+<th>Beziehung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 Byte = 8 Bit</td>
+<td>24 Bit ÷ 8 = 3 Byte</td>
+</tr>
+<tr>
+<td>1 Kilobyte (kB) = 1 000 Byte</td>
+<td>3 kB = 3 000 Byte</td>
+</tr>
+<tr>
+<td>1 Megabyte (MB) = 1 000 kB</td>
+<td>2 MB = 2 000 kB</td>
+</tr>
+<tr>
+<td>1 Gigabyte (GB) = 1 000 MB</td>
+<td>4 GB = 4 000 MB</td>
+</tr>
+<tr>
+<td>1 Terabyte (TB) = 1 000 GB</td>
+<td>1 TB = 1 000 GB</td>
+</tr>
+</tbody></table></div>
+<p>Wir verwenden hier die <strong>Dezimalpräfixe</strong>, also immer den Faktor 1 000 zwischen benachbarten Zeilen ab kB. Das Zeichen B steht für Byte. Bit und Byte sind verschiedene Einheiten.</p>
+<h2 id="2-den-rechenweg-sichtbar-machen-15-minuten">2 · Den Rechenweg sichtbar machen · 15 Minuten</h2>
+<p><strong>Muster:</strong> „OK!“ hat drei Zeichen. <code>3 Zeichen × 8 Bit je Zeichen = 24 Bit = 3 Byte</code>.</p>
+<p>Ein 4×4-Schwarzweißbild: <code>4 × 4 Pixel × 1 Bit je Pixel = 16 Bit = 2 Byte</code>.</p>
+<p>Bearbeite gemeinsam zwei Änderungen: Wie verändert sich die Rechnung bei „O K!“ mit einem Leerzeichen? Wie viele Bits sind 5 Byte? Erklärt dabei, warum ihr multipliziert oder dividiert.</p>
+<details><summary>Hilfe: Erst die Einheit, dann die Zahl</summary>
+<p>Vom Bild zu Bits: Breite mal Höhe mal Bits je Pixel. Von Bits zu Byte: in Achtergruppen bündeln, also durch acht teilen. Von Byte zu Bits: mit acht multiplizieren. Schreibe die Einheiten an jeden Rechenschritt.</p>
+</details>
+
+<h2 id="3-ein-kleines-datenbudget-20-minuten">3 · Ein kleines Datenbudget · 20 Minuten</h2>
+<p>Notiere Ansatz, Ergebnis und Einheit. Ein Taschenrechner ist nach dem eigenen Ansatz erlaubt.</p>
+<ol>
+<li>Berechne die Nutzdatenmenge von <strong>AM TOR</strong> aus DAT-2 und von <strong>deinem eigenen Raster</strong> aus DAT-3 – jeweils in Bit und Byte. Falls dein Raster noch fehlt, nutze ein 8×8-Raster und kennzeichne den Ersatz.</li>
+<li>Vergleiche die beiden 8×8-Bilder vom Einstieg. Erkläre, warum „mehr Schwarz“ in unserem Modell nicht „mehr Daten“ bedeutet.</li>
+<li>Ordne diese <strong>erfundenen Größenkarten</strong> von klein nach groß. Zeige für mindestens zwei Vergleiche die Umrechnung: <strong>900 kB, 2 MB, 1 500 MB, 3 GB, 1 TB</strong>. Nenne außerdem, wie viele Byte 900 kB und wie viele GB 1 TB sind.</li>
+<li>Für ein Paket stehen <strong>genau 20 Byte Nutzdatenplatz</strong> zur Verfügung. Es soll <strong>AM TOR</strong> und ein <strong>8×8-Schwarzweißbild</strong> enthalten. Passt das? Zeige die Rechnung und den Rest. Würde stattdessen ein 16×16-Bild passen?</li>
+</ol>
+<details><summary>Hilfe: Eine große Zahl macht noch keine große Datenmenge</summary>
+<p>Vergleiche erst nach einer passenden Umrechnung. 1 500 MB lassen sich beispielsweise mit 3 GB vergleichen, wenn du beide Angaben in MB schreibst. Für 1 TB brauchst du nicht alle Nullen auszuschreiben: Der nächste Schritt nach unten führt zu GB.</p>
+</details>
+
+<h2 id="4-fehler-erklaren-und-erneut-rechnen-10-minuten">4 · Fehler erklären und erneut rechnen · 10 Minuten</h2>
+<p>Vergleicht eure Rechenwege. Ein Ergebnis ohne Einheit wird vervollständigt; bei einem Faktorfehler korrigiert ihr den betreffenden Schritt.</p>
+<p><strong>Neuer Fall, zuerst allein:</strong> Ein anderes Paket enthält <strong>zehn ASCII-Zeichen in unserer Byte-Darstellung</strong> und ein <strong>16×8-Schwarzweißbild</strong>. Hat es höchstens 30 Byte Nutzdaten? Notiere eine Rechnung und begründe deine Entscheidung.</p>
+<p>Die gemeinsame <a href="datenbogen-sicherung.html">Sicherung</a> hält Rechenregeln und Modellgrenze fest. Deine eigenen Rechnungen bleiben daneben sichtbar. DAT-5 braucht besonders den Zusammenhang: mehr Pixel bedeuten bei unverändertem Bitbedarf pro Pixel mehr Nutzdaten.</p>
+</main><aside><details class="teacher-menu"><summary>Material für Lehrpersonen</summary><nav aria-label="Lehrpersonenmaterial"><a href="datenbogen-durchfuhrung-und-auswertung.html">Durchführung und Auswertung</a><a href="datenbogen-projektion.html">Projektion</a><a href="datenbogen-briefing.html">Briefing</a><a href="dat-1-briefing.html">DAT-1 - Briefing</a><a href="dat-2-briefing.html">DAT-2 - Briefing</a><a href="dat-3-briefing.html">DAT-3 - Briefing</a><a href="dat-4-briefing.html">DAT-4 - Briefing</a><a href="dat-5-briefing.html">DAT-5 - Briefing</a><a href="datenbogen-produktionsbrief-und-reihenkommentar.html">Produktionsbrief und Reihenkommentar</a><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a></nav></details></aside><footer>Datenwerkstatt · Fassung 1.0 · 270 Minuten · Lokale Lesefassung<br><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a> · Eigene Inhalte: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a> · Keine Antwortspeicherung</footer></body></html>

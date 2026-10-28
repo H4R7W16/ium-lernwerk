@@ -1,0 +1,48 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kommt deine Botschaft an? Unsere Sicherung · IuM 7</title><link rel="icon" href="material/favicon.svg"><link rel="stylesheet" href="daten.css"></head><body class=""><a class="skip" href="#inhalt">Zum Inhalt</a><header><a href="index.html" aria-label="IuM 7 Datenwerkstatt Start"><img class="brand" src="material/ium-lernwerk-7.svg" alt="IuM Lernwerk 7"></a><nav aria-label="Hauptnavigation"><a href="index.html">Datenwerkstatt</a><a href="datenbogen-werkstattnotizen.html">Meine Notizen</a><a href="datenbogen-sicherung.html">Sicherung</a></nav></header><nav class="course-nav" aria-label="Aufgaben"><a href="dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html">DAT-1</a><a href="dat-2-ascii-als-vereinbarte-codierung.html">DAT-2</a><a href="dat-3-vom-bild-zum-pixelraster-und-zuruck.html">DAT-3</a><a href="dat-4-wie-gro-sind-unsere-datenmengen.html">DAT-4</a><a href="dat-5-welche-datenmenge-passt-zum-zweck.html">DAT-5</a></nav><main id="inhalt"><h1 id="kommt-deine-botschaft-an-unsere-sicherung">Kommt deine Botschaft an? Unsere Sicherung</h1>
+<p>Diese Seite wird <strong>nach der jeweiligen Besprechung</strong> genutzt. Sie hält die gemeinsamen Ergebnisse fest. Deine eigenen Versuche, Rechnungen und Änderungen bleiben in deinen Werkstattnotizen.</p>
+<h2 id="1-eindeutig-zuruckubersetzen">1 · Eindeutig zurückübersetzen</h2>
+<p>Codieren ordnet Zeichen Codewörter zu. Decodieren übersetzt mithilfe derselben Vereinbarung zurück. Bei unserem eigenen Code sind die Codewörter gleich lang und für alle Zeichen verschieden. Vom vereinbarten Anfang aus kann man die Bitfolge deshalb eindeutig in Zweiergruppen zerlegen und jede Gruppe einem Zeichen zuordnen.</p>
+<p>Verschiedene Codewörter allein genügen bei unterschiedlichen Längen nicht immer: Bei A → 0, M → 01 und O → 1 kann <code>01</code> sowohl M als auch AO bedeuten. Eine feste Länge mit verschiedenen Codewörtern ist eine mögliche Reparatur. Andere Längen sind nicht grundsätzlich verboten; dann müssen die Grenzen anders eindeutig bestimmbar sein.</p>
+<p>Fremdes Decodieren prüft, ob eine Vereinbarung verständlich ausgeführt wurde. Zwei erfolgreiche Nachrichten beweisen noch nicht für alle Fälle Eindeutigkeit; dafür betrachten wir zusätzlich die Regel. Codierung allein schützt keine Geheimnisse.</p>
+<h2 id="2-gemeinsame-zeichenvereinbarung">2 · Gemeinsame Zeichenvereinbarung</h2>
+<p>ASCII ist ein 7-Bit-Zeichencode. In unserer Darstellung steht davor eine Null: So passt der Code in ein Byte mit acht Bits. Ein Textleerzeichen hat einen eigenen Code; die Abstände zwischen dargestellten Achtblöcken sind nur Lesehilfen. Groß- und Kleinbuchstaben haben unterschiedliche Codes.</p>
+<p>Eigener Code und ASCII ordnen Zeichen Bitfolgen zu. Beim eigenen Code vereinbart das Team die Tabelle. Bei ASCII ist die Zuordnung festgelegt. Moderne Texte können andere Codierungen benutzen; deshalb gilt „ein Zeichen = ein Byte“ nicht allgemein. Ursprüngliches ASCII enthält zum Beispiel keine Umlaute oder Emoji.</p>
+<h2 id="3-bildvorlage-raster-und-bits">3 · Bildvorlage, Raster und Bits</h2>
+<p>Beim Diskretisieren wird die Vorlage in endlich viele Felder überführt. In unserem Modell wird ein Feld schwarz, wenn sein Mittelpunkt auf der schwarzen Form liegt; ein Randpunkt zählt als schwarz. Eine andere Abtastregel kann zu anderen Pixeln führen. Unsere Regel ist ein einfaches Modell, keine vollständige Beschreibung einer Kamera.</p>
+<p>Danach beschreiben wir das Raster durch Bits: 0 für weiß, 1 für schwarz, zeilenweise von links oben. <strong>Breite, Höhe, Farbzuordnung und Leserichtung</strong> gehören zur Bildvereinbarung. Die Herstellungsvorschrift erklärt den Weg von der Vorlage zum Raster. Zum Rückübersetzen der bereits festgelegten Bits reicht die Bildvereinbarung.</p>
+<p>Eine fehlerfreie Rückübersetzung gewinnt das Raster zurück. Sie gewinnt nicht automatisch Details zurück, die beim Diskretisieren verloren gingen. Mehr Pixel können feinere Unterschiede erhalten. Die bloße Vergrößerung eines vorhandenen Pixelbildes fügt keine ursprünglichen Details hinzu.</p>
+<h2 id="4-datenmengen-nachvollziehbar-bestimmen">4 · Datenmengen nachvollziehbar bestimmen</h2>
+<p>Die Datenmenge wird hier durch die Anzahl der Bits beschrieben. Ein Byte besteht aus acht Bits.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen"><table>
+<thead>
+<tr>
+<th>Modell</th>
+<th>Rechnung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ASCII-Text in unserer Byte-Darstellung</td>
+<td>Zeichenzahl einschließlich Leerzeichen × 8 Bit</td>
+</tr>
+<tr>
+<td>Unkomprimiertes Schwarzweißraster mit einem Bit pro Pixel</td>
+<td>Breite × Höhe × 1 Bit</td>
+</tr>
+<tr>
+<td>Bits in Byte</td>
+<td>Bitzahl ÷ 8</td>
+</tr>
+<tr>
+<td>Byte in Bits</td>
+<td>Bytezahl × 8</td>
+</tr>
+</tbody></table></div>
+<p>Alle Pixel zählen, auch weiße. Zwei 8×8-Bilder benötigen in diesem Modell jeweils 64 Bit = 8 Byte. Die Anzahl schwarzer Felder ändert daran nichts.</p>
+<p>Bei den Dezimalpräfixen gilt: 1 kB = 1 000 Byte, 1 MB = 1 000 kB, 1 GB = 1 000 MB, 1 TB = 1 000 GB. Bei Vergleichen zuerst dieselbe Einheit verwenden. Die Rechnung betrifft den Nutzdatenanteil. Eine reale Datei kann zusätzliche Angaben enthalten und komprimiert sein; ihre Dateigröße ist deshalb nicht mit jeder Modellrechnung identisch.</p>
+<h2 id="5-datenmenge-und-zweck-zusammen-betrachten">5 · Datenmenge und Zweck zusammen betrachten</h2>
+<p>Eine passende Auflösung erhält die Informationen, die für den Zweck gebraucht werden. Bei gleicher Bits-pro-Pixel-Zahl hat ein 8×8-Bild viermal so viele Nutzdaten wie ein 4×4-Bild: 64 statt 16 Bit, also 8 statt 2 Byte. Der Faktor ergibt sich aus <strong>beiden</strong> Bildrichtungen.</p>
+<p>Unter sonst gleichen Bedingungen müssen damit mehr Daten übertragen und gespeichert werden. Geräte, Netze und Speicher benötigen Energie; die Herstellung benötigt Rohstoffe. Aus der Bitzahl allein folgt aber kein fester Stromverbrauch und keine CO₂-Menge. Technik, Nutzung und Betrieb beeinflussen den Bedarf.</p>
+<p>Eine begründete Wahl nennt <strong>Zweck, sichtbares Detail, Datenmenge und Aussagegrenze</strong>. Eine kleine Datei, die den nötigen Unterschied nicht erkennen lässt, erfüllt den Auftrag nicht. Mehr Pixel allein garantieren ebenfalls keine ausreichende Darstellung.</p>
+<h2 id="spater-wieder-aufgreifen">Später wieder aufgreifen</h2>
+<p>Mit Abstand bearbeitet ihr neue Code- und Datenfälle zuerst ohne diese Sicherung. Dafür sind im Jahrgang bereits 20 Minuten außerhalb der 270 Minuten dieses Bogens vorgesehen. Die Lehrperson legt den Termin fest und nutzt die Ergebnisse, um gezielt zu unterstützen.</p>
+</main><aside><details class="teacher-menu"><summary>Material für Lehrpersonen</summary><nav aria-label="Lehrpersonenmaterial"><a href="datenbogen-durchfuhrung-und-auswertung.html">Durchführung und Auswertung</a><a href="datenbogen-projektion.html">Projektion</a><a href="datenbogen-briefing.html">Briefing</a><a href="dat-1-briefing.html">DAT-1 - Briefing</a><a href="dat-2-briefing.html">DAT-2 - Briefing</a><a href="dat-3-briefing.html">DAT-3 - Briefing</a><a href="dat-4-briefing.html">DAT-4 - Briefing</a><a href="dat-5-briefing.html">DAT-5 - Briefing</a><a href="datenbogen-produktionsbrief-und-reihenkommentar.html">Produktionsbrief und Reihenkommentar</a><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a></nav></details></aside><footer>Datenwerkstatt · Fassung 1.0 · 270 Minuten · Lokale Lesefassung<br><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a> · Eigene Inhalte: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a> · Keine Antwortspeicherung</footer></body></html>

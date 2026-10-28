@@ -2,9 +2,9 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const build=require('./build.cjs');
 const base=require('../klasse7-programmieren/layout.cjs').applySeriesLayout(build.preparePages()),published=build.preparePublishedPages?build.preparePublishedPages():base;
-const roots=['klasse5/','klasse6/','klasse7/programmieren/','klasse7/medien/'];
+const roots=['klasse5/','klasse6/','klasse7/programmieren/','klasse7/medien/','klasse7/daten/'];
 const targets=['klasse5/index.html','klasse6/index.html','klasse7/programmieren/index.html'];
-const editable=[...base].filter(([name,data])=>roots.some(root=>name.startsWith(root))&&name.endsWith('.html')&&(/<body\b[^>]*class="[^"]*\blw-mantel\b/.test(data)||/<header class="(?:site-header|editor-header)"/.test(data)||name.startsWith('klasse7/medien/')));
+const editable=[...base].filter(([name,data])=>roots.some(root=>name.startsWith(root))&&name.endsWith('.html')&&(/<body\b[^>]*class="[^"]*\blw-mantel\b/.test(data)||/<header class="(?:site-header|editor-header)"/.test(data)||name.startsWith('klasse7/medien/')||name.startsWith('klasse7/daten/')));
 function header(html){return html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0];}
 function local(ref,name){return new URL(ref,'https://example.test/ium-lernwerk/'+name).pathname.slice('/ium-lernwerk/'.length);}
 
@@ -15,7 +15,7 @@ test('Jahrgangstitel öffnen eine native Auswahl mit drei gültigen Jahrgangsein
   assert.match(html,/<details\b[^>]*data-grade-switch/,name);
   assert.match(html,new RegExp('aria-label="Klassenstufe wählen, aktuell Klasse '+grade+'"'),name);
   const deps=[...html.matchAll(/(?:href|src)="([^"]*grade-navigation\.(?:css|js))"/g)].map(m=>local(m[1],name)).sort();
-  const root=name.startsWith('klasse7/medien/')?'klasse7/medien/':roots[Number(grade)-5];
+  const root=name.startsWith('klasse7/daten/')?'klasse7/daten/':name.startsWith('klasse7/medien/')?'klasse7/medien/':roots[Number(grade)-5];
   assert.deepEqual(deps,[root+'grade-navigation.css',root+'grade-navigation.js'].sort(),name);
   const nav=html.match(/<nav class="lw-grade-options"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
   assert.ok(nav,'Jahrgangsnavigation '+name);

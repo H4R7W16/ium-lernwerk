@@ -50,6 +50,7 @@ test('Jahrgangsbrief zeigt die veröffentlichte Medienfassung und grenzt offene 
  const html=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html');
  assert.ok(!html.includes('Die übrigen Lernbögen bleiben in Materialproduktion offen.'));
  assert.ok(html.includes('Medienbogen liegt seit dem 28.10.2026'));
- assert.ok(html.includes('Daten und Gaming/Wohlbefinden bleiben in Materialproduktion offen.'));
+ assert.ok(html.includes('Datenbogen liegt seit dem 28.10.2026'));
+ assert.ok(html.includes('Gaming/Wohlbefinden bleibt in Materialproduktion offen.'));
  assert.ok(html.includes('href="../../medien/index.html">Zur Medienwerkstatt'));
 });

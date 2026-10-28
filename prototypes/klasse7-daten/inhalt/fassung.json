@@ -1,0 +1,79 @@
+{
+  "fassung": "1.0",
+  "datum": "2026-10-28",
+  "minuten": 270,
+  "aufgaben": [
+    60,
+    45,
+    75,
+    60,
+    30
+  ],
+  "phasen": [
+    [
+      10,
+      15,
+      25,
+      10
+    ],
+    [
+      10,
+      10,
+      15,
+      10
+    ],
+    [
+      15,
+      15,
+      30,
+      15
+    ],
+    [
+      15,
+      15,
+      20,
+      10
+    ],
+    [
+      5,
+      5,
+      10,
+      10
+    ]
+  ],
+  "kriterien": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12"
+  ],
+  "quellen": [
+    "DAT-1 - Briefing.md",
+    "DAT-1 - Ein eigener Code muss rückwärts funktionieren.md",
+    "DAT-2 - ASCII als vereinbarte Codierung.md",
+    "DAT-2 - Briefing.md",
+    "DAT-3 - Briefing.md",
+    "DAT-3 - Vom Bild zum Pixelraster und zurück.md",
+    "DAT-4 - Briefing.md",
+    "DAT-4 - Wie groß sind unsere Datenmengen.md",
+    "DAT-5 - Briefing.md",
+    "DAT-5 - Welche Datenmenge passt zum Zweck.md",
+    "Datenbogen - Briefing.md",
+    "Datenbogen - Durchführung und Auswertung.md",
+    "Datenbogen - Material und Alternativzugänge.md",
+    "Datenbogen - Produktionsbrief und Reihenkommentar.md",
+    "Datenbogen - Projektion.md",
+    "Datenbogen - Quellen und Nutzungsrechte.md",
+    "Datenbogen - Sicherung.md",
+    "Datenbogen - Werkstattnotizen.md"
+  ],
+  "html": 24
+}

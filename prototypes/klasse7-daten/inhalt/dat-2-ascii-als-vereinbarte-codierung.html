@@ -1,0 +1,81 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DAT-2 · Eine Tabelle, die beide kennen · IuM 7</title><link rel="icon" href="material/favicon.svg"><link rel="stylesheet" href="daten.css"></head><body class=""><a class="skip" href="#inhalt">Zum Inhalt</a><header><a href="index.html" aria-label="IuM 7 Datenwerkstatt Start"><img class="brand" src="material/ium-lernwerk-7.svg" alt="IuM Lernwerk 7"></a><nav aria-label="Hauptnavigation"><a href="index.html">Datenwerkstatt</a><a href="datenbogen-werkstattnotizen.html">Meine Notizen</a><a href="datenbogen-sicherung.html">Sicherung</a></nav></header><nav class="course-nav" aria-label="Aufgaben"><a href="dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html">DAT-1</a><a href="dat-2-ascii-als-vereinbarte-codierung.html">DAT-2</a><a href="dat-3-vom-bild-zum-pixelraster-und-zuruck.html">DAT-3</a><a href="dat-4-wie-gro-sind-unsere-datenmengen.html">DAT-4</a><a href="dat-5-welche-datenmenge-passt-zum-zweck.html">DAT-5</a></nav><main id="inhalt"><h1 id="dat-2-eine-tabelle-die-beide-kennen">DAT-2 · Eine Tabelle, die beide kennen</h1>
+<p><strong>45 Minuten · eigene Arbeit mit gemeinsamer Klärung</strong></p>
+<p>Eure eigenen Codes funktionieren nur, wenn beide Seiten dieselbe Vereinbarung kennen. Für den nächsten Auftrag gilt eine verbreitete Vereinbarung: <strong>ASCII</strong>, gesprochen ungefähr „Äski“. Du codierst eine Nachricht und liest eine andere zurück.</p>
+<h2 id="1-gleiche-bits-andere-tabelle-10-minuten">1 · Gleiche Bits, andere Tabelle? · 10 Minuten</h2>
+<p>Zwei Teams verwenden für A unterschiedliche Codewörter. Können sie ihre Tabellen einfach weglassen? Begründe kurz mit DAT-1.</p>
+<p><strong>ASCII</strong> ordnet Buchstaben, Ziffern, Satz- und Steuerzeichen festgelegte Codes zu. ASCII ist ein <strong>7-Bit-Code</strong>. In dieser Werkstatt schreiben und speichern wir jeden ASCII-Code in einem <strong>Byte mit acht Bits</strong>: Vor die sieben Bits kommt eine Null. Ein Byte besteht aus acht Bits.</p>
+<p>Unsere Tabelle zeigt nur einen Ausschnitt. Umlaute und Emoji gehören nicht zum ursprünglichen ASCII-Zeichenvorrat. Eine fehlende Tabellenzeile beweist aber nicht automatisch, dass ein Zeichen in ASCII fehlt: Unser Ausschnitt ist kleiner als die vollständige Tabelle.</p>
+<h2 id="2-nachschlagen-statt-binarrechnen-10-minuten">2 · Nachschlagen statt Binärrechnen · 10 Minuten</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen"><table>
+<thead>
+<tr>
+<th>Zeichen</th>
+<th>Darstellung in einem Byte</th>
+<th>Zeichen</th>
+<th>Darstellung in einem Byte</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Leerzeichen ␣</td>
+<td><code>00100000</code></td>
+<td>A</td>
+<td><code>01000001</code></td>
+</tr>
+<tr>
+<td>E</td>
+<td><code>01000101</code></td>
+<td>I</td>
+<td><code>01001001</code></td>
+</tr>
+<tr>
+<td>K</td>
+<td><code>01001011</code></td>
+<td>M</td>
+<td><code>01001101</code></td>
+</tr>
+<tr>
+<td>O</td>
+<td><code>01001111</code></td>
+<td>R</td>
+<td><code>01010010</code></td>
+</tr>
+<tr>
+<td>T</td>
+<td><code>01010100</code></td>
+<td>U</td>
+<td><code>01010101</code></td>
+</tr>
+<tr>
+<td>a</td>
+<td><code>01100001</code></td>
+<td>m</td>
+<td><code>01101101</code></td>
+</tr>
+<tr>
+<td>!</td>
+<td><code>00100001</code></td>
+<td>?</td>
+<td><code>00111111</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>Gemeinsames Beispiel:</strong> „OK“ wird zu <code>01001111 01001011</code>. Jeder Achtblock steht für ein Zeichen. Die Lücke zwischen den Blöcken dient nur der Lesbarkeit; ein echtes Leerzeichen im Text braucht seinen eigenen Code <code>00100000</code>.</p>
+<p>Suche jetzt selbst den Code für <strong>A!</strong>. Decke den Text ab und lese deine beiden Blöcke zurück. Die Tabelle bleibt offen; einen automatischen Konverter brauchst du nicht.</p>
+<details><summary>Hilfe: Den Achtblock finden</summary>
+<p>Beim Codieren suchst du links das Zeichen und übernimmst die acht Bits. Beim Decodieren suchst du den ganzen Achtblock in einer Bitspalte und liest das zugehörige Zeichen. Vergleiche Groß- und Kleinbuchstaben sorgfältig.</p>
+</details>
+
+<h2 id="3-zwei-verschiedene-richtungen-15-minuten">3 · Zwei verschiedene Richtungen · 15 Minuten</h2>
+<p>Bearbeite in deinen Notizen:</p>
+<ol>
+<li>Codiere <strong>AM TOR</strong>. Das Leerzeichen zwischen M und T gehört dazu. Notiere einen Achtblock pro Zeichen.</li>
+<li>Decodiere diese neue Nachricht: <code>01001011 01001111 01001101 01001101</code>. Notiere den Text und markiere eine Zuordnung in der Tabelle.</li>
+<li>Jemand codiert „AM“ als <code>01000001 01101101</code>. Prüfe den Text, der damit tatsächlich ankommt. Falls nötig, repariere genau den falschen Block.</li>
+<li>Erkläre in zwei Sätzen: Was haben dein eigener Code und ASCII gemeinsam? Was ist an der Vereinbarung anders?</li>
+</ol>
+<p><strong>Qualitätsmaßstab:</strong> richtige Zeichen, richtige Blockgrenzen, ein mitcodiertes Leerzeichen und eine Erklärung der gemeinsamen Vereinbarung. Die Zahl der ausgefüllten Blöcke allein genügt nicht.</p>
+<h2 id="4-ruckmeldung-und-neuer-fall-10-minuten">4 · Rückmeldung und neuer Fall · 10 Minuten</h2>
+<p>Vergleicht eure Ergebnisse mit der Lehrperson. Suche bei einer Abweichung zuerst das betreffende Zeichen, dann dessen Block. Erhalte den ersten Versuch lesbar und notiere die Korrektur.</p>
+<p>Danach ohne die vorherige Lösung: Codiere <strong>A?</strong> und decodiere <strong><code>01010100 01001111 01010010</code></strong>. Die Tabelle darfst du benutzen. Erkläre abschließend, warum „acht Bits pro Zeichen“ für unser vereinbartes Modell passt, aber keine Regel für sämtliche Texte und Zeichencodierungen ist.</p>
+<p><strong>Festhalten:</strong> Eine Bitfolge lässt sich nur mit der passenden Codierungsvereinbarung deuten. ASCII ist kein Geheimcode. Die <a href="datenbogen-sicherung.html">Sicherung</a> enthält nach der Besprechung das gemeinsame Ergebnis.</p>
+<p>Tabellendaten: ASCII nach <a href="https://www.rfc-editor.org/rfc/rfc20.html">RFC 20</a>, eigener verkürzter Ausschnitt mit führender Null. Keine Umrechnung zwischen Dezimal- und Binärzahlen verlangt.</p>
+</main><aside><details class="teacher-menu"><summary>Material für Lehrpersonen</summary><nav aria-label="Lehrpersonenmaterial"><a href="datenbogen-durchfuhrung-und-auswertung.html">Durchführung und Auswertung</a><a href="datenbogen-projektion.html">Projektion</a><a href="datenbogen-briefing.html">Briefing</a><a href="dat-1-briefing.html">DAT-1 - Briefing</a><a href="dat-2-briefing.html">DAT-2 - Briefing</a><a href="dat-3-briefing.html">DAT-3 - Briefing</a><a href="dat-4-briefing.html">DAT-4 - Briefing</a><a href="dat-5-briefing.html">DAT-5 - Briefing</a><a href="datenbogen-produktionsbrief-und-reihenkommentar.html">Produktionsbrief und Reihenkommentar</a><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a></nav></details></aside><footer>Datenwerkstatt · Fassung 1.0 · 270 Minuten · Lokale Lesefassung<br><a href="datenbogen-quellen-und-nutzungsrechte.html">Quellen und Nutzungsrechte</a> · Eigene Inhalte: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a> · Keine Antwortspeicherung</footer></body></html>
