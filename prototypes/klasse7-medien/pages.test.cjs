@@ -46,3 +46,10 @@ test('Öffentliche Medienausgabe enthält keine lokalen Pfade oder internen Prü
  assert.doesNotMatch(article,/Veröffentlichung auf GitHub\/Pages ist ein eigener Bereitstellungsschritt/);
  assert.match(published.get(ROOT+'med-3-ein-bild-zwei-geschichten.html'),/download="hof-original\.png"/);
 });
+test('Jahrgangsbrief zeigt die veröffentlichte Medienfassung und grenzt offene Lernbögen korrekt ein',()=>{
+ const html=published.get('klasse7/programmieren/lehrpersonen/jahrgang.html');
+ assert.ok(!html.includes('Die übrigen Lernbögen bleiben in Materialproduktion offen.'));
+ assert.ok(html.includes('Medienbogen liegt seit dem 28.10.2026'));
+ assert.ok(html.includes('Daten und Gaming/Wohlbefinden bleiben in Materialproduktion offen.'));
+ assert.ok(html.includes('href="../../medien/index.html">Zur Medienwerkstatt'));
+});
