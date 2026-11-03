@@ -137,7 +137,7 @@
           "title": "Frage und Suchplan",
           "action": "Eigene Frage 15, Leas Suchweg mit zwei Denkstellen und eigener Planung 30 Minuten.",
           "minutes": 45,
-          "status": "Überarbeitet · lokale Prüffassung",
+          "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-frage.html",
           "label": "Zum Lernbogen"
         },
@@ -145,7 +145,7 @@
           "title": "Suchen und erste Notiz",
           "action": "Zwei reale Suchversuche, erste passende Originalseite lesen und eigene Notiz samt genauer Fundstelle sichern: 45 Minuten.",
           "minutes": 45,
-          "status": "Überarbeitet · lokale Prüffassung",
+          "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-suchen.html",
           "label": "Zum Lernbogen"
         },
@@ -153,7 +153,7 @@
           "title": "Zwei Quellen prüfen",
           "action": "Herkunft, Absicht und Belege beider Quellen vergleichen: 45 Minuten.",
           "minutes": 45,
-          "status": "Überarbeitet · lokale Prüffassung",
+          "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-pruefen.html",
           "label": "Zum Lernbogen"
         },
@@ -161,7 +161,7 @@
           "title": "Prüfung abschließen und ordnen",
           "action": "Quellenvergleich 25 Minuten abschließen; Inhaltsentwurf 20 Minuten beginnen.",
           "minutes": 45,
-          "status": "Überarbeitet · lokale Prüffassung",
+          "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-pruefen.html",
           "label": "Zum Lernbogen"
         },
@@ -169,7 +169,7 @@
           "title": "Entwurf und neuer Fall",
           "action": "Inhaltsentwurf einschließlich Verständlichkeitsprüfung 20 Minuten abschließen; zeitabhängigen Transfer und gemeinsame Sicherung 25 Minuten.",
           "minutes": 45,
-          "status": "Überarbeitet · lokale Prüffassung",
+          "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-transfer.html",
           "label": "Zum Lernbogen"
         }

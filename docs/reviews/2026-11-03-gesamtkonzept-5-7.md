@@ -57,3 +57,9 @@ Prüffassungskennung: b13fa8f74aa7dc94130761435b1233a33883d60ad37356259c6eec5508
 Branch: feat/gesamtkonzept-5-7-20261103. Ausgangsstand und vor dem Abschluss erneut bestätigtes origin/main: c9a173c7bdfc60e33bbc40d6d44e784ab43d26a6. Kein Push, keine Pages-Veröffentlichung.
 
 Reguläre Klasse 5/6-Kataloge 2.0.0; Programmieren 7 in 2.3; Medien/Daten/Gaming und Jahreswege 7 in 1.1, Jahrgangsbrief 2.7. Kanonische Klasse-7-Markdownquellen und abhängige Ausgaben sind nachgeführt. Historische Hashbindungen und der gekennzeichnete Recherchevergleich bleiben erhalten; neue begrenzte Revisionsbindungen dokumentieren den Änderungsumfang. Snap-Engine und bestehende Projektdateien bleiben geschützt. Alte Arbeitsdateien bleiben lesbar/exportierbar; veränderte Aufgaben beginnen in einem eigenen neuen Stand. Keine neuen Konten, Cloudspeicherung oder Lernanalysen.
+
+## Nachtrag: Veröffentlichungsauftrag vom 03.11.2026
+
+Der Nutzer hat die Veröffentlichung der Gesamtfassung auf GitHub und GitHub Pages ausdrücklich beauftragt. Die zuvor dokumentierte lokale Sichtungsfassung bildet die Grundlage. Drei Bereitstellungsseiten und der abgeleitete Offline-Hash wurden nachgeführt; sämtliche Lernendenmaterialien, Aufgaben, Hilfen, Kriterien, Briefings, Sicherungen und Zeitkonten bleiben inhaltlich gleich. Die vollständige Pages-Suite besteht erneut mit179/179 Tests, der Gesamtbuild enthält1356Dateien.
+
+Gebundene Prüffassung3: e4e79204e658c0fda8b669ad82d8d6d6e8569d47fa8f182badece646f418b14a. Status READY_FOR_REVIEW. Die offene Hörsichtung sowie Schulgeräte-/Druck- und Unterrichtserprobung bleiben ausdrücklich ausgewiesen. Der vorhandene Workflow IuM Lernwerk Pages übernimmt die Bereitstellung nach Integration in main.
