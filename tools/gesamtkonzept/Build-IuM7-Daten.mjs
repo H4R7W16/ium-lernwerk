@@ -1,0 +1,80 @@
+// Eigene lokale Lesefassung. Keine Netzwerkzugriffe, keine Antwortspeicherung.
+// Eigener Code: MIT; Inhalte/Diagramme gemäß Quellenblatt des Datenbogens.
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const [root,out]=process.argv.slice(2);
+if(!root||!out) throw Error('node Build-IuM7-Daten.mjs WORKSPACE AUSGABE');
+const deps='C:/Users/Jan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+const {marked}=await import(pathToFileURL(path.join(deps,'marked/lib/marked.esm.js')));
+const src=path.join(root,'Vault/40_Projekte/IuM-Lernwerk/Klasse 7/Daten');
+const original=fs.readFileSync(path.join(root,'Shared/Scripts/Build-IuM7-Medien.mjs'),'utf8');
+const brand=path.join(root,'Assets/IuM-Lernwerk/Medien/2026-10-28-Fassung-1.0/material');
+fs.mkdirSync(path.join(out,'material'),{recursive:true});
+const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const files=fs.readdirSync(src).filter(f=>f.endsWith('.md'));
+const names=Object.fromEntries(files.map(f=>[f.slice(0,-3),slug(f.slice(0,-3))+'.html']));
+const target=n=>{if(!names[n]) throw Error('Fehlender Text: '+n);return names[n];};
+const renderer=new marked.Renderer();
+renderer.heading=({tokens,depth,text})=>`<h${depth} id="${slug(text)}">${marked.parser(tokens).replace(/^<p>|<\/p>\n$/g,'')}</h${depth}>\n`;
+marked.use({renderer});
+function render(txt){
+ txt=txt.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/,'');
+ txt=txt.replaceAll('../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/','material/');
+ txt=txt.replace(/\[\[([^\]]+)\]\]/g,(_,ref)=>{const [dest,label]=ref.split('|');const [name,anchor]=dest.split('#');return names[name]?`[${label??(anchor||name)}](${names[name]}${anchor?'#'+slug(anchor):''})`:`<span class="reference" title="Projektgrundlage im Vault">${esc(label??name)}</span>`;});
+ return marked.parse(txt).replace(/<table>/g,'<div class="table-wrap" tabindex="0" role="region" aria-label="Tabelle, bei Bedarf seitlich scrollen"><table>').replace(/<\/table>/g,'</table></div>').replace(/<p>(<img src="(material\/[^\"]+)"[^>]*>)<\/p>/g,(_,img,url)=>`<figure><div class="figure-scroll" tabindex="0" role="region" aria-label="Bildvergleich, bei schmaler Ansicht seitlich verschieben">${img}</div><figcaption class="figure-help">Bild seitlich verschieben · <a href="${url}">Große Bildansicht öffnen</a></figcaption></figure>`);
+}
+const tasks=files.filter(f=>/^DAT-\d - /.test(f)&&!f.includes('Briefing'));
+if(tasks.length!==5)throw Error('Fünf Aufgaben erwartet');
+const teacher=['Datenbogen - Durchführung und Auswertung','Datenbogen - Projektion','Datenbogen - Briefing',...Array.from({length:5},(_,i)=>`DAT-${i+1} - Briefing`),'Datenbogen - Produktionsbrief und Reihenkommentar','Datenbogen - Quellen und Nutzungsrechte'];
+function shell(title,body,extra=''){
+return `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} · IuM 7</title><link rel="icon" href="material/favicon.svg"><link rel="stylesheet" href="daten.css"></head><body class="${extra}"><a class="skip" href="#inhalt">Zum Inhalt</a><header><a href="index.html" aria-label="IuM 7 Datenwerkstatt Start"><img class="brand" src="material/ium-lernwerk-7.svg" alt="IuM Lernwerk 7"></a><nav aria-label="Hauptnavigation"><a href="index.html">Datenwerkstatt</a><a href="${target('Datenbogen - Werkstattnotizen')}">Meine Notizen</a><a href="${target('Datenbogen - Sicherung')}">Sicherung</a></nav></header><nav class="course-nav" aria-label="Aufgaben">${tasks.map((f,i)=>`<a href="${names[f.slice(0,-3)]}">DAT-${i+1}</a>`).join('')}</nav><main id="inhalt">${body}</main><aside><details class="teacher-menu"><summary>Material für Lehrpersonen</summary><nav aria-label="Lehrpersonenmaterial">${teacher.map(n=>`<a href="${target(n)}">${esc(n.replace('Datenbogen - ',''))}</a>`).join('')}</nav></details></aside><footer>Datenwerkstatt · Fassung 1.1 · 270 Minuten · Lokale Lesefassung<br><a href="${target('Datenbogen - Quellen und Nutzungsrechte')}">Quellen und Nutzungsrechte</a> · Eigene Inhalte: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC BY-SA 4.0</a> · Keine Antwortspeicherung</footer></body></html>`;
+}
+const css=original.match(/const css=`([\s\S]*?)`;/)?.[1];
+if(!css)throw Error('Reihenstil fehlt');
+fs.writeFileSync(path.join(out,'daten.css'),css+`\npre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;background:#eef1ed;border-radius:8px;line-height:1.8}pre code{padding:0;font-size:1em}main>p,main>ul,main>ol{max-width:78ch}main img{max-height:700px}main img[src$="datenweg.svg"]{width:900px}figure{margin:20px 0}.figure-scroll{overflow-x:auto;max-width:100%}.figure-scroll:focus-visible{outline:3px solid #a85100;outline-offset:3px}.figure-help{display:none;font-size:16px}.projection main{max-width:1280px;font-size:28px;line-height:1.4;padding:22px 32px;margin:16px auto}.projection h1{max-width:none;font-size:40px;margin:8px 0 18px}.projection p{margin:12px 0}.projection table{font-size:24px}.projection main img{max-height:47vh}.projection figure{margin:16px 0}.projection figure img{margin:0 auto}@media(max-width:700px){.figure-help{display:block}.figure-scroll img{min-width:720px;width:720px;max-width:none;max-height:none}.projection main{font-size:23px;padding:20px}.projection h1{font-size:32px}}\n`);
+for(const f of files){const txt=fs.readFileSync(path.join(src,f),'utf8');fs.writeFileSync(path.join(out,names[f.slice(0,-3)]),shell(txt.match(/^# (.+)$/m)?.[1]??f,render(txt)));}
+const durations=[60,45,75,60,30];
+const descriptions=['Entwirf einen Code, den jemand anderes eindeutig zurücklesen kann.','Übertrage Text mit einer gemeinsamen Tabelle in beide Richtungen.','Rastere ein Zeichen und baue ein fremdes Bild aus Bits zurück.','Berechne, wie viel Text und Bild in ein Datenbudget passen.','Wäge erkennbare Details, Datenmenge und Ressourcenbedarf ab.'];
+fs.writeFileSync(path.join(out,'index.html'),shell('Kommt deine Botschaft an?',`<p class="eyebrow">Klasse 7 · Daten · 6 Unterrichtsstunden</p><h1>Kommt deine Botschaft an?</h1><p>Ein Text, ein Bild – und eine Übertragung, die nur Nullen und Einsen kennt. Entwickle Regeln, mit denen andere deine Daten zuverlässig zurückübersetzen können. Prüfe anschließend, wie viele Daten du für deinen Zweck brauchst.</p><p><strong>270 Minuten</strong> · Eigene Ergebnisse im bekannten Dokument oder Heft · Keine Anmeldung</p><div class="cards">${tasks.map((f,i)=>`<section class="card"><h2><a href="${names[f.slice(0,-3)]}">DAT-${i+1} · ${esc(['Dein eigener Code','Eine gemeinsame Tabelle','Ein Bild aus Bits','Ein Datenbudget','So klein wie sinnvoll?'][i])}</a></h2><p>${descriptions[i]}</p><strong>${durations[i]} Minuten</strong></section>`).join('')}</div><h2>Dein Werkstattergebnis</h2><p>Ein getesteter Textcode, zwei ASCII-Umwandlungen, ein eigenes Raster mit Bildpaket, nachvollziehbare Rechnungen und eine begründete Empfehlung. Du erhältst Hilfen an den Stellen, an denen du sie brauchst.</p><p><a href="${target('Datenbogen - Werkstattnotizen')}">Mit den Werkstattnotizen beginnen</a> · <a href="${target('Datenbogen - Material und Alternativzugänge')}">Bildvorlagen und Alternativzugänge</a></p><h2>Für Lehrpersonen</h2><p>Durchführung mit Minutenplan und Erwartungen, gemeinsame Sicherung, fünf Projektionsimpulse und sechs Briefings als Vorlesetexte. Redaktionelle Prüfung und tatsächliche Unterrichtserprobung werden getrennt ausgewiesen.</p><p><a href="${target('Datenbogen - Durchführung und Auswertung')}">Durchführung und Auswertung öffnen</a></p>`));
+const projection=fs.readFileSync(path.join(src,'Datenbogen - Projektion.md'),'utf8');
+const parts=[...projection.matchAll(/^## (P\d[^\n]*)\n([\s\S]*?)(?=^## |$(?![\s\S]))/gm)];
+for(let i=0;i<parts.length;i++)fs.writeFileSync(path.join(out,`projektion-${i+1}.html`),shell(parts[i][1],`<nav class="project-nav" aria-label="Projektionen"><a href="${target('Datenbogen - Projektion')}">Impulse</a>${i?`<a href="projektion-${i}.html">Zurück</a>`:''}${i+1<parts.length?`<a href="projektion-${i+2}.html">Weiter</a>`:''}</nav>`+render('# '+parts[i][1]+'\n'+parts[i][2]),'projection'));
+const overview=path.join(out,target('Datenbogen - Projektion'));fs.writeFileSync(overview,fs.readFileSync(overview,'utf8').replace('<main id="inhalt">',`<main id="inhalt"><p>${parts.map((_,i)=>`<a href="projektion-${i+1}.html">Großansicht P${i+1}</a>`).join(' · ')}</p>`));
+for(const f of ['ium-lernwerk-7.svg','favicon.svg'])fs.copyFileSync(path.join(brand,f),path.join(out,'material',f));
+
+// Geometrische Arbeitsvorlagen in einem 8 × 8 Koordinatenraum.
+const shapes={
+ pfeil:{title:'Pfeil',poly:[[.4,2.6],[4.4,2.6],[4.4,.1],[7.95,4],[4.4,7.9],[4.4,5.4],[.4,5.4]],desc:'Pfeil nach rechts, mit rechteckigem Schaft und dreieckiger Spitze.'},
+ dreieck:{title:'Dreieck',poly:[[.2,7.6],[4,.5],[7.8,7.6]],desc:'Dreieck mit schrägen Seiten und waagrechter Unterkante.'},
+ schluessel:{title:'Schlüssel',desc:'Schlüssel mit runder Öffnung links, waagrechtem Schaft nach rechts und zwei unterschiedlich langen Zähnen nach unten.'}
+};
+function insidePoly(poly,x,y){let inside=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+ const[a,b]=poly[i],[c,d]=poly[j];const cross=(x-a)*(d-b)-(y-b)*(c-a);
+ if(Math.abs(cross)<1e-8&&x>=Math.min(a,c)&&x<=Math.max(a,c)&&y>=Math.min(b,d)&&y<=Math.max(b,d))return true;
+ if(((b>y)!==(d>y))&&(x<(c-a)*(y-b)/(d-b)+a))inside=!inside;
+}return inside;}
+function inside(name,x,y){if(shapes[name].poly)return insidePoly(shapes[name].poly,x,y);
+ const dist=Math.hypot(x-2,y-2);const ring=dist<=1.8&&dist>=.8;
+ return ring||(x>=3&&x<=7.7&&y>=2.4&&y<=3.6)||(x>=4.8&&x<=5.8&&y>=3.4&&y<=6.2)||(x>=6.8&&x<=7.7&&y>=3.4&&y<=5.2);
+}
+function geometry(name){return shapes[name].poly?`<polygon points="${shapes[name].poly.map(p=>p.join(',')).join(' ')}" fill="#172026"/>`:`<path fill="#172026" fill-rule="evenodd" d="M3.8 2A1.8 1.8 0 1 0 .2 2A1.8 1.8 0 1 0 3.8 2ZM2.8 2A.8 .8 0 1 0 1.2 2A.8 .8 0 1 0 2.8 2Z"/><path fill="#172026" d="M3 2.4H7.7V3.6H3Z M4.8 3.4H5.8V6.2H4.8Z M6.8 3.4H7.7V5.2H6.8Z"/>`;}
+function rows(name,n){return Array.from({length:n},(_,y)=>Array.from({length:n},(_,x)=>inside(name,(x+.5)*8/n,(y+.5)*8/n)?'1':'0').join(''));}
+function grid(n,midpoints=false){let s='';for(let i=0;i<=n;i++){const t=i*8/n;s+=`<path d="M${t} 0V8M0 ${t}H8" stroke="#647782" stroke-width=".025"/>`;}
+ if(midpoints)for(let y=0;y<n;y++)for(let x=0;x<n;x++)s+=`<circle cx="${(x+.5)*8/n}" cy="${(y+.5)*8/n}" r=".055" fill="#d06400" stroke="#fff" stroke-width=".018"/>`;
+ return s;
+}
+function pixels(name,n){return rows(name,n).map((r,y)=>[...r].map((c,x)=>c==='1'?`<rect x="${x*8/n}" y="${y*8/n}" width="${8/n}" height="${8/n}" fill="#172026"/>`:'').join('')).join('')+grid(n);}
+function svg(title,desc,body,w=1000,h=500){return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-labelledby="t d" font-family="Segoe UI,Arial,sans-serif"><title id="t">${title}</title><desc id="d">${desc}</desc><rect width="${w}" height="${h}" rx="14" fill="#f2f5f1"/>${body}</svg>`;}
+function panel(name,x,y,size,n=null,isPixel=false){return `<g transform="translate(${x} ${y}) scale(${size/8})"><rect width="8" height="8" fill="#fff"/>${isPixel?pixels(name,n):geometry(name)+(n?grid(n,true):'')}<rect width="8" height="8" fill="none" stroke="#647782" stroke-width=".03"/></g>`;}
+const save=(name,data)=>fs.writeFileSync(path.join(out,'material',name),data);
+for(const name of ['pfeil','schluessel'])for(const n of [4,8])save(`${name}-raster-${n}.svg`,svg(`${shapes[name].title} · ${n}×${n} Rasterhilfe`,`${shapes[name].desc} ${n} Spalten und ${n} Zeilen; Punkte markieren die Feldmitten und gehören nicht zum Motiv.`, `<text x="35" y="45" font-size="27" fill="#222a2f">${shapes[name].title} · ${n}×${n} · Mittelpunktregel</text>${panel(name,50,70,400,n)}<text x="35" y="510" font-size="20" fill="#43534a">Eigene Modellvorlage · kein fertiges Pixelbild</text>`,520,540));
+save('vorlagen.svg',svg('Zwei nicht gerasterte Vorlagen','Eigene Modellzeichnungen: Pfeil nach rechts und Schlüssel. Die Formen enthalten noch keine festgelegten Pixel.',`<text x="50" y="45" font-size="28">Pfeil</text><text x="550" y="45" font-size="28">Schlüssel</text>${panel('pfeil',50,70,360)}${panel('schluessel',550,70,360)}<text x="50" y="475" font-size="20">Eigene Modellvorlagen · ein Motiv wählen</text>`));
+save('dreieck-weg.svg',svg('Von der Vorlage zum Pixelbild','Links nicht gerastertes Dreieck, Mitte dieselbe Vorlage mit 4×4 Raster und Mittelpunkten, rechts daraus abgeleitetes 4×4 Pixelbild.',`<text x="20" y="40" font-size="25">Vorlage</text><text x="350" y="40" font-size="25">Raster und Mittelpunkte</text><text x="690" y="40" font-size="25">Pixelbild</text>${panel('dreieck',20,65,285)}${panel('dreieck',350,65,285,4)}${panel('dreieck',690,65,285,4,true)}<text x="20" y="390" font-size="22">Regel: Mitte auf der Form → ganzes Feld schwarz.</text>`,1000,430));
+save('schluessel-vergleich.svg',svg('Ein Schlüssel, zwei Auflösungen','A mit 4×4 Pixeln und B mit 8×8 Pixeln, jeweils gleiche Darstellungsgröße. Beide beruhen auf derselben Vorlage und Mittelpunktregel.',`<text x="50" y="45" font-size="28">A · 4×4 Pixel</text><text x="550" y="45" font-size="28">B · 8×8 Pixel</text>${panel('schluessel',50,70,360,4,true)}${panel('schluessel',550,70,360,8,true)}<text x="50" y="475" font-size="20">Gleiche Anzeigegröße · andere Anzahl von Bildpunkten</text>`));
+save('leere-raster.svg',svg('Leere Rastervorlagen','Ein leeres 4×4 und ein leeres 8×8 Raster zum eigenen Eintragen.',`<text x="50" y="45" font-size="28">4×4</text><text x="550" y="45" font-size="28">8×8</text><g transform="translate(50 70) scale(45)"><rect width="8" height="8" fill="white"/>${grid(4)}</g><g transform="translate(550 70) scale(45)"><rect width="8" height="8" fill="white"/>${grid(8)}</g>`));
+save('datenweg.svg',svg('Daten speichern, übertragen und anzeigen','Qualitatives Modell: Ausgangsspeicher, Netz und Zielgerät. Ein Zielgerät zeigt Daten an; es kann sie auch speichern. Alle benötigen Technik und Energie, die Herstellung benötigt Rohstoffe. Es gibt hier keine Verbrauchswerte.',`<g fill="white" stroke="#245743" stroke-width="2"><rect x="30" y="70" width="270" height="140" rx="12"/><rect x="365" y="70" width="270" height="140" rx="12"/><rect x="700" y="70" width="270" height="140" rx="12"/></g><g fill="#222a2f" text-anchor="middle" font-size="26"><text x="165" y="113">Speicher</text><text x="165" y="158">Daten bereithalten</text><text x="500" y="113">Netz</text><text x="500" y="158">Bits übertragen</text><text x="835" y="113">Zielgerät</text><text x="835" y="158">anzeigen / speichern</text></g><path d="M310 140H350M340 130L350 140L340 150M645 140H685M675 130L685 140L675 150" fill="none" stroke="#245743" stroke-width="4"/><text x="30" y="260" font-size="23" fill="#222a2f">Technik braucht Energie; ihre Herstellung benötigt Rohstoffe.</text><text x="30" y="305" font-size="23" fill="#222a2f">Datenmenge allein ergibt keine feste Strom- oder CO₂-Zahl.</text>`,1000,340));
+save('modell-daten.json',JSON.stringify({rule:'Mittelpunkt auf schwarzer Form; Rand zählt schwarz',colors:{'0':'weiß','1':'schwarz'},order:'zeilenweise von links oben',shapes,rasters:Object.fromEntries(Object.keys(shapes).flatMap(n=>[4,8].map(size=>[`${n}-${size}`,rows(n,size)])))},null,2));
+fs.writeFileSync(path.join(out,'fassung.json'),JSON.stringify({fassung:'1.1',datum:'2026-11-03',minuten:270,aufgaben:durations,phasen:[[10,15,25,10],[10,10,15,10],[15,15,30,15],[15,15,20,10],[5,5,10,10]],kriterien:Array.from({length:12},(_,i)=>`D${String(i+1).padStart(2,'0')}`),quellen:files,html:files.length+1+parts.length},null,2));
+console.log(JSON.stringify({out,quellen:files.length,html:files.length+1+parts.length,projektionen:parts.length,minuten:270,rasters:Object.fromEntries([4,8].map(n=>[n,rows('schluessel',n)]))}));

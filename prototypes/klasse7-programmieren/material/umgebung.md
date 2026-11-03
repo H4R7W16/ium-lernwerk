@@ -25,3 +25,13 @@ Desktop-Bedienung, native Schritte und XML-Rückkehr wurden in der vorausgehende
 ## Nach einer Unterbrechung
 
 Eigene Vorhersage und vorhandene Datei sichern. Ausstehende Ausführung oder Erklärung sichtbar offen lassen und vor der nächsten abhängigen Aufgabe nachholen. Zusätzliche Zeit transparent dem vorhandenen Jahreskonto zuordnen. Reine Papierbearbeitung bestätigt keine praktisch ausgeführte Dateirückkehr.
+
+
+## Anschluss aus Klasse 5/6 und Quereinstieg
+
+Bekannte Anweisung, Wiederholung und Zustandsfolge am Karten- oder Zeichenbeispiel kurz wiedererkennen. In ALG-1 innerhalb des Einstiegs das Anklicken eines losen Stapels, Stopp und einen Blockzug zeigen; anschließend führt jede Person selbst aus. Wer ohne Snap-Erfahrung beginnt, sagt nur den ersten Schritt des Startstapels voraus und prüft ihn. Fachliche Erklärung und neue Bedienung getrennt beobachten. Kein zusätzlicher Einführungskurs vor den 405 Minuten.
+
+
+## Drei Dinge getrennt sichern
+
+Notizen und Prüfspuren liegen im vereinbarten Dokument oder Heft; Dokument speichern, schließen und über den vereinbarten Ort wieder öffnen. Bilder aus der Medienarbeit als eigene Original-/Varianten-Dateien speichern und wieder öffnen. Snap-Code als XML über Datei speichern sichern, im Downloadordner prüfen und über Datei öffnen zurückholen. Eine Bilddatei oder ein Screenshot enthält keinen ausführbaren Snap-Code. Private Reflexion bleibt in einer eigenen freiwilligen Notiz; sie gehört nicht in die gemeinsame Abgabe.

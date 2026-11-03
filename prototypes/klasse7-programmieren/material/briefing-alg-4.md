@@ -21,3 +21,8 @@ Ein Notizprodukt und die eigene XML genügen. Vor dem Speichern Start null und S
 ## Anhang · Arbeitsfassung
 
 Maßgeblicher Ablauf, Lösungen, Hilfen und Materiallinks: [Durchführungsplan für ALG-4](alg-4-durchfuehrung.html).
+
+
+## Gemeinsame Prüfspur · Fassung 2.3
+
+ALG-4 bündelt Position, ausgesprochene Abbruchfrage, Wahrheitswert und nächste Handlung in derselben Notiz. An der ersten unerlaubten Bewegung klären, welche Prüfung sie ausgelöst hat. Keine zusätzliche Tabelle verlangen. Individueller Anschluss: 35/12 ohne Lauf vorhersagen, dann testen; Ende 47, eine Bewegung, zwei Prüfungen. Bei Hilfe einen anderen Start knapp vor 40 selbst erklären lassen. Die 75 Minuten bleiben 10 + 15 + 35 + 15.

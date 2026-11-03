@@ -1,0 +1,15 @@
+{
+  "duration": 14,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": "#A13-source",
+      "bySec": 1
+    },
+    {
+      "kind": "appearsBy",
+      "selector": "#A13-new-2",
+      "bySec": 12.6
+    }
+  ]
+}

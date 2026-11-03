@@ -1,0 +1,620 @@
+{
+  "version": "2.0.0",
+  "date": "2026-11-03",
+  "budgets": {
+    "5": {
+      "core": 1350,
+      "recall": 135,
+      "organisation": 45,
+      "buffer": 180
+    },
+    "6": {
+      "core": 1305,
+      "diagnosis": 90,
+      "recall": 90,
+      "bridge": 45,
+      "organisation": 45,
+      "buffer": 135
+    },
+    "7": {
+      "core": 1215,
+      "diagnosis": 90,
+      "recall": 90,
+      "support": 135,
+      "organisation": 45,
+      "buffer": 45
+    }
+  },
+  "rows": [
+    {
+      "id": "G5-M01",
+      "grade": 5,
+      "title": "Im schulischen Arbeitsraum sicher handeln",
+      "minutes": 180,
+      "goals": [
+        "3.1.5.1(2)",
+        "3.1.5.1(3)",
+        "3.1.5.1(4)",
+        "3.1.5.1(1)",
+        "3.1.4.1(6)",
+        "3.1.4.1(7)",
+        "3.1.1.1(1)"
+      ],
+      "goal": "Gerät, Programm und Speicherort unterscheiden; Dateien ordnen und wiederfinden; Zugänge schützen.",
+      "prior": "iPad mit „Dateien“ oder Windows-PC mit Datei-Explorer · einen von deiner Lehrperson gezeigten Startort, an dem du eigene Ordner und Dateien speichern darfst · die Übungsdateien aus diesem Lernbogen",
+      "action": "Routine erwerben: Ein eigener übersichtlicher Übungsordner mit passenden Dateinamen – und ein Weg, den du erklären und später wieder benutzen kannst. / Routine erwerben: Du erklärst an deinem Schulgerät, was Hardware, Betriebssystem und Programme beitragen – und zeigst Eingabe und Ausgabe. / Routine erwerben: Du begründest einen passenden Speicherort, prüfst den erlaubten Speicherweg am Schulgerät und führst eine Schutzhandlung aus.",
+      "evidence": "Jede Person schließt die Vorschau und findet die Datei ohne „Zuletzt verwendet“. Bei einer Lücke Ordnerweg einmal zeigen, dann mit geschlossenem Fenster erneut versuchen. / Lass dir am eigenen Gerät Eingabe, Programm und Ausgabe zeigen. Bei bloßer Begriffsliste eine Handlung vormachen und danach 8 + 6 selbst erklären lassen. / Schutzhandlung am eigenen Gerät beobachten; niemand nennt Kennwörter. Bei unklarer Wirkung den sichtbaren Kontostatus zeigen lassen, Handlung erneut ausführen und Zustand prüfen.",
+      "core": "Ein brauchbarer Speicherweg muss nach dem Schließen wieder auffindbar sein. Beispiel: Die Fundnotiz liegt im vereinbarten Ordner; du öffnest sie von dort erneut. Grenze: Der Name allein sagt weder Speicherort noch Zugriff von einem anderen Gerät aus. / Programm, Betriebssystem und Hardware arbeiten zusammen. Beispiel: Beim Rechnen gibt die Tastatur Zahlen ein; das Rechenprogramm verarbeitet sie, der Bildschirm zeigt das Ergebnis. Grenze: Eine sichtbare Bildschirmänderung bedeutet nicht, dass sich die Hardware geändert hat. / Speicherort und erlaubter Zugriff sind zwei verschiedene Fragen. Beispiel: Eine Datei kann im Schulraum liegen, während das eigene Konto noch offen ist. Grenze: Ein geschlossenes Fenster belegt keine Abmeldung.",
+      "later": "12 Minuten verteilt; 3 Minuten Schichtenabruf bereits im Dateien-Einstieg.",
+      "carry": "Dateiweg und Schutzroutine, keine Kennwörter",
+      "href": "reihe-arbeitsraum.html"
+    },
+    {
+      "id": "G5-M02",
+      "grade": 5,
+      "title": "Informationen finden, prüfen und ordnen",
+      "minutes": 225,
+      "goals": [
+        "3.1.2.1(1)",
+        "3.1.2.1(2)",
+        "3.1.2.1(3)",
+        "3.1.2.2(1)",
+        "3.1.2.2(5)",
+        "3.1.2.2(6)"
+      ],
+      "goal": "Suchfragen und Suchbegriffe bilden; Fundstellen prüfen und Informationen ordnen.",
+      "prior": "Schulgerät mit erlaubtem Browser, Suchmaschine und Internet · Ein Arbeitsbogen oder eine vereinbarte digitale Notiz; M01-Handgriffe bei Bedarf zeigen",
+      "action": "Untersuchen: Ein fortgeführter Arbeitsbogen: eigene Frage, echte Suchversuche, zwei geprüfte Quellen und ein einfacher Inhaltsentwurf mit Belegstellen. Diesen Entwurf verwendest du in Zusammenarbeit und Mediengestaltung weiter.",
+      "evidence": "Im Quellenvergleich zeigt jede Person eine eigene Aussage und die genaue Originalstelle. Bei bloßem Abschreiben Aussage zuerst mündlich erklären lassen; dann eine andere Textstelle selbst zuordnen.",
+      "core": "Eine Aussage braucht eine passende, auffindbare Belegstelle. Beispiel: Eine Mondquelle erklärt beleuchtete und sichtbare Hälfte; der Satz muss zur eigenen Frage passen. Grenze: Ein bekannter Anbieter oder ein neueres Datum allein macht eine Aussage noch nicht passend.",
+      "later": "5 Minuten späterer Abruf aus dem Jahreskonto.",
+      "carry": "Belegte Inhaltsentwürfe und Quellenkarten",
+      "href": "reihe-recherche.html"
+    },
+    {
+      "id": "G5-M03",
+      "grade": 5,
+      "title": "Digital zusammenarbeiten und verständlich kommunizieren",
+      "minutes": 135,
+      "goals": [
+        "3.1.1.1(1)",
+        "3.1.1.1(4)",
+        "3.1.4.1(1)",
+        "3.1.4.1(2)",
+        "3.1.4.1(3)",
+        "3.1.4.1(4)",
+        "3.1.4.1(5)",
+        "3.1.4.1(6)",
+        "3.1.4.1(7)",
+        "3.1.4.2(7)",
+        "3.1.5.2(4)",
+        "3.1.5.2(5)",
+        "3.1.5.2(6)"
+      ],
+      "goal": "Im schulischen Kanal Beiträge austauschen und ein gemeinsames Ergebnis verbessern.",
+      "prior": "Partnerperson, eigene Schulzugänge und ein freigegebener geschlossener Kursraum · iPad oder Windows-Schulgerät; eine erlaubte Schreib- und Austauschmöglichkeit · ausgefüllte Kursraumkarte der Lehrperson; Recherche-Notizen aus M02 oder die lokale Startbasis",
+      "action": "Gestalten: Eine gemeinsame Gliederung für eine Infokarte: mit Quellen, einem eigenen Beitrag von jeder Person und einer begründeten Überarbeitung.",
+      "evidence": "Jede Person zeigt ihren Beitrag, die erhaltene sachliche Rückmeldung und die Entscheidung dazu. Fehlt der Austausch, an einer offenen Stelle wirklich nachfragen und die Antwort in der Gliederung verwenden.",
+      "core": "Zusammenarbeit verändert ein gemeinsames Ergebnis durch verständliche Beiträge und Rückfragen. Beispiel: Eine Rückfrage klärt, welche Aussage in den ersten Abschnitt gehört; ihr passt die Gliederung an. Grenze: Zwei nebeneinander abgelegte Texte belegen noch keine gemeinsame Entscheidung.",
+      "later": "5 Minuten späterer Abruf aus dem Jahreskonto.",
+      "carry": "Gemeinsame Gliederung und sachliche Änderungsspur",
+      "href": "reihe-zusammenarbeit.html"
+    },
+    {
+      "id": "G5-M04",
+      "grade": 5,
+      "title": "Ein Medienprodukt gestalten, prüfen und vorstellen",
+      "minutes": 360,
+      "goals": [
+        "3.1.2.2(5)",
+        "3.1.2.2(6)",
+        "3.1.4.1(1)",
+        "3.1.5.1(5)",
+        "3.1.5.1(6)",
+        "3.1.5.1(7)",
+        "3.1.5.1(8)",
+        "3.1.5.1(9)",
+        "3.1.5.2(1)",
+        "3.1.5.2(2)",
+        "3.1.5.2(3)",
+        "3.1.5.2(4)",
+        "3.1.5.2(5)",
+        "3.1.5.2(6)"
+      ],
+      "goal": "Informationen adressatengerecht gestalten, Quellen nennen und Rückmeldung einarbeiten.",
+      "prior": "iPad oder Windows-Schulgerät; freigegebenes Schreibwerkzeug und beschreibbarer Arbeitsort · Partnerperson, ein anderes Paar für den Lesetest und ausgefüllte Werkzeugkarte der Lehrperson · Gliederung aus M03 und Recherche-Notizen aus M02; ersatzweise die Startbasis",
+      "action": "Gestalten: Eine digitale Infokarte: eine Seite mit eigenen Texten, einem hilfreichen Bildelement und Quellen. Entwurf und bessere Fassung zeigen eure Entscheidungen.",
+      "evidence": "Beim stillen Lesetest lässt jede Person einen eigenen Teil erklären. Wird nur gelobt, eine konkrete Inhaltsfrage stellen; gezielt überarbeiten und mit neuem Lesen prüfen.",
+      "core": "Gestaltung wird an der beabsichtigten und tatsächlich verstandenen Aussage geprüft. Beispiel: Ein Absatz und eine beschriftete Grafik helfen einer anderen Person, eine Mondphase zu erklären. Grenze: Schönes Aussehen oder Zustimmung allein belegt kein Verständnis.",
+      "later": "5 Minuten späterer Abruf aus dem Jahreskonto.",
+      "carry": "Endprodukt, geprüfter Dateiweg und eigene Erklärung",
+      "href": "reihe-medienprodukt.html"
+    },
+    {
+      "id": "G5-M05",
+      "grade": 5,
+      "title": "Medienwirkungen und Selbstdarstellung beurteilen",
+      "minutes": 225,
+      "goals": [
+        "3.1.1.1(2)",
+        "3.1.1.1(3)",
+        "3.1.1.1(5)",
+        "3.1.4.2(6)",
+        "3.1.4.2(7)",
+        "3.1.5.1(8)",
+        "3.1.5.1(9)",
+        "3.1.5.2(1)",
+        "3.1.5.2(2)",
+        "3.1.5.2(3)"
+      ],
+      "goal": "Wirkungen am Material begründen; eigenes Medienhandeln geschützt reflektieren.",
+      "prior": "Schulgerät mit Browser oder ausgedruckte Fallkarten; Partnerperson für echte Rückmeldung · Ein eigener Arbeitsort für den Bildbeitrag; Papier für persönliche Gedanken · Die Lehrperson nennt eine erreichbare Vertrauensperson und den schulischen Hilfeweg.",
+      "action": "Beurteilen: Ein begründetes Fallurteil und ein verbesserter Bildbeitrag. Über eine eigene Medienerfahrung denkst du getrennt und geschützt nach.",
+      "evidence": "Im Bibliotheksfall nennt jede Person Bildbeleg und Aussagegrenze ohne alte Antwort. Bei Verallgemeinerung sichtbare Stelle markieren und die Behauptung erneut begrenzen. Persönliche Reflexion bleibt privat.",
+      "core": "Eine mediale Darstellung zeigt einen ausgewählten Ausschnitt. Beispiel: Leere Bibliothekssessel belegen leere Sessel im gezeigten Moment. Grenze: Sie belegen weder die Nutzung der ganzen Bibliothek noch die Absicht der Person, die fotografierte.",
+      "later": "5 Minuten späterer Abruf aus dem Jahreskonto.",
+      "carry": "Fallurteil und begrenzte Bildaussage; private Notizen bleiben privat",
+      "href": "reihe-medienwirkung.html"
+    },
+    {
+      "id": "G5-M06",
+      "grade": 5,
+      "title": "Präzise Abläufe entwickeln und prüfen",
+      "minutes": 225,
+      "goals": [
+        "3.1.3.1(1)",
+        "3.1.3.1(2)",
+        "3.1.3.1(3)",
+        "3.1.3.1(4)",
+        "3.1.3.1(5)",
+        "3.1.3.1(6)"
+      ],
+      "goal": "Abläufe darstellen, ausführen, verbessern und auf neue Fälle übertragen.",
+      "prior": "Browser auf iPad oder Windows; für die Kartenstation muss JavaScript erlaubt sein · Vier kleine Papierkarten, Stift und ein Blatt als Arbeitsplatz · Kein Programmierwissen nötig; Vorlesen und mündliche Erklärungen sind möglich",
+      "action": "Gestalten: Deine Ablaufgrafik, dein ausführbares Programm und eine erklärte Spur – mit einem geprüften Fehler und einer begründeten Korrektur.",
+      "evidence": "Jede Person erklärt einen Zwischenzustand ihres eigenen Vier-Karten-Programms. Bei nur kopiertem Code einen Befehl abdecken, Zustand vorhersagen, anschließend ausführen und prüfen.",
+      "core": "Code beschreibt genaue Zustandsänderungen; die Ausführung prüft den Plan. Beispiel: Nach nimm liegt eine Karte auf dem Arbeitsplatz und eine weniger im Vorrat. Grenze: Ein passendes Endbild allein zeigt nicht, ob jeder Befehl ausführbar war.",
+      "later": "5 Minuten späterer Abruf aus dem Jahreskonto.",
+      "carry": "Eigener Code, Grafik und erklärbare Zustandsfolge",
+      "href": "reihe-ablaeufe.html"
+    },
+    {
+      "id": "G6-M01",
+      "grade": 6,
+      "title": "Welche Verbindung zählt?",
+      "minutes": 180,
+      "goals": [
+        "3.1.1.1(1)",
+        "3.1.4.1(6)",
+        "3.1.4.1(7)",
+        "3.1.4.2(1)",
+        "3.1.4.2(2)",
+        "3.1.4.2(3)",
+        "3.1.5.1(1)",
+        "3.1.5.1(2)",
+        "3.1.5.1(3)",
+        "3.1.5.1(4)"
+      ],
+      "goal": "Projektplanung nach der Anhörungsfassung vom 21.09.2026, kein behaupteter Beschluss. Vernetzung und Client/Server, Speicherorte und sicherer Zugriff. Prozessbezug: 2.2(7), 2.2(9), 2.3(1). Modellgrenzen werden ausdrücklich erklärt; IP-Adressen und DNS sind kein Pflichtstoff dieses Bogens.",
+      "prior": "Du kannst eine Datei in einem Ordner wiederfinden; wenn nötig, zeigt dir deine Lehrperson den Weg. · Für das Modell: Browser oder Papier und Marker. Für die Speicherprobe: Schulgerät, harmlose Übungsdatei und zwei von der Schule erlaubte Speicherwege.",
+      "action": "Untersuchen: Ein Versuchsprotokoll mit Vorhersage, Beobachtung und Erklärung; eine eigene Lösung für ein neues Netz; ein Vergleich tatsächlich geprüfter Speicherwege und eine begründete Speicherentscheidung.",
+      "evidence": "Jede Person erklärt den Unterschied zwischen unterbrochener Verbindung und ausgeschaltetem Dienst anhand ihrer Spur. Bei Wortwiederholung nur eine Bedingung ändern lassen, vorhersagen, testen und erneut erklären.",
+      "core": "Erreichbarer Weg und verfügbarer Dienst sind unterschiedliche Bedingungen. Beispiel: Bei aktivem Weg kann ein ausgeschalteter Dateidienst trotzdem keine Datei liefern. Grenze: Das vereinfachte Modell bildet weder alle Internetwege noch deren reale Auswahl ab.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Ein Versuchsprotokoll mit Vorhersage, Beobachtung und Erklärung; eine eigene Lösung für ein neues Netz; ein Vergleich tatsächlich geprüfter Speicherwege und eine begründete Speicherentscheidung.",
+      "href": "netze/lehrkraft.html"
+    },
+    {
+      "id": "G6-M02",
+      "grade": 6,
+      "title": "Acht oder neun – was ist belegt?",
+      "minutes": 225,
+      "goals": [
+        "3.1.2.1(1)",
+        "3.1.2.1(2)",
+        "3.1.2.1(3)",
+        "3.1.2.1(4)",
+        "3.1.2.2(1)",
+        "3.1.2.2(2)",
+        "3.1.2.2(3)",
+        "3.1.2.2(4)",
+        "3.1.2.2(5)",
+        "3.1.2.2(6)",
+        "3.1.2.2(7)",
+        "3.1.2.2(8)"
+      ],
+      "goal": "Projektplanung nach Anhörungsfassung 21.09.2026. Informationsgewinnung, Indexsuche, Quellenkriterien, Akteure, Motive, Interessenkonflikte, Automatisierung und Nutzen/Grenzen KI-generierter Recherche. Prozessbezug: 2.2(1), 2.2(5), 2.6(5). Kein Nachweis bereits erworbener Kompetenz.",
+      "prior": "Browser am Schulgerät oder Papier und Stift. Für die echte Recherche brauchst du Internet und einen von der Schule erlaubten Suchdienst. · Du musst nichts über Planeten wissen. Kurze Übersetzungen und Hilfen sind dabei. Private Konten sind nicht nötig.",
+      "action": "Beurteilen: Deine Quellenakte: ein eigener Indexversuch, ein echter Suchweg, ein begründetes Quellenurteil und eine belegte Korrektur. Am Ende löst du einen neuen Fall.",
+      "evidence": "Im neuen Quellenfall jede Person nach zwei Belegstellen und dem Grund des scheinbaren Widerspruchs fragen. Bei Sprachhürde darf sie markieren und mündlich mit „Damals … / nach dieser Definition …“ erklären; danach einen anderen Beleg selbst zuordnen.",
+      "core": "Ein Beleg gilt für eine bestimmte Definition, Zeit und Frage. Beispiel: Die Zahl acht passt zur heutigen IAU-Definition; ein älterer Text kann Pluto nach einer früheren Einteilung zählen. Grenze: Neuer heißt nicht für jede Frage richtiger; zwei Kopien sind keine unabhängigen Belege.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Deine Quellenakte: ein eigener Indexversuch, ein echter Suchweg, ein begründetes Quellenurteil und eine belegte Korrektur. Am Ende löst du einen neuen Fall.",
+      "href": "suche/lehrkraft.html"
+    },
+    {
+      "id": "G6-M03",
+      "grade": 6,
+      "title": "Warum sehe ich diese Werbung?",
+      "minutes": 210,
+      "goals": [
+        "3.1.1.1(5)",
+        "3.1.1.1(6)",
+        "3.1.1.2(1)",
+        "3.1.1.2(2)",
+        "3.1.1.2(3)",
+        "3.1.5.1(8)",
+        "3.1.5.1(9)",
+        "3.1.5.2(1)",
+        "3.1.5.2(2)",
+        "3.1.5.2(3)"
+      ],
+      "goal": "Aktives Mapping zur IuM-Anhörungsfassung vom 21.09.2026, Planung dee82ec. Lerngelegenheiten und begrenzte Nachweise, keine vollständige Kompetenzfreigabe. Private Reflexion P56-03 bleibt nicht öffentlich überprüfbar.",
+      "prior": "Freigegebenes Schreibwerkzeug auf einem Schulgerät und vereinbarter Speicherort · Papier und Stift für ein eigenes Datenflussbild; keine privaten Konten oder Feeds · Grundlagen aus Klasse 5 zu Dateien und Textgestaltung; bei Bedarf die kurze Gerätehilfe nutzen",
+      "action": "Untersuchen: Dein erklärtes Datenflussbild und deine digitale Werbekarte: mit Entwurf, Prüfung und begründeter Überarbeitung.",
+      "evidence": "Vor dem einzelnen Eingriff eigene Vorhersage jeder Person lesen oder hören. Bei bloßem Ergebnisprotokoll die geänderte Eingabe und Regel zeigen lassen; mit anderem Besuch erneut vorhersagen und prüfen.",
+      "core": "Ein Auswahlmodell reagiert auf die Daten und Regeln, die es verwendet. Beispiel: Du veränderst einen früheren Besuch und prüfst, ob dadurch eine andere Karte gewählt wird. Grenze: Aus einer Anzeige lässt sich das tatsächliche Profil einer Person nicht sicher zurückrechnen.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Dein erklärtes Datenflussbild und deine digitale Werbekarte: mit Entwurf, Prüfung und begründeter Überarbeitung.",
+      "href": "werbung/lehrkraft.html"
+    },
+    {
+      "id": "G6-M04",
+      "grade": 6,
+      "title": "Welcher Code bringt die Nachricht ans Ziel?",
+      "minutes": 180,
+      "goals": [
+        "3.1.2.2(9)",
+        "3.1.2.2(10)",
+        "3.1.2.2(11)"
+      ],
+      "goal": "Aktives Mapping zur Anhörungsfassung 21.09.2026, Planung dee82ec. Zwecke erklären, zwei Vorschriften anwenden und passend wählen. Beispielverfahren sind keine vollständige Pflichtliste. Kein Braillekurs oder Nachweis realer Fernübertragung.",
+      "prior": "Papier und Stift oder die Textfelder im Lernwerk · Zeichen in einer Tabelle nachschlagen; Binärzahlen musst du nicht berechnen können",
+      "action": "Untersuchen: Deine eigene Nachricht: zwei Codes, zurückgelesene Texte, ein untersuchter Fehler und deine begründete Codewahl.",
+      "evidence": "Jede Person liest ihre veränderte Gruppe ohne Original zurück. Bei Gleichsetzung gültig/richtig eine gültige andere Gruppe wählen lassen; vorhersagen, zurücklesen und Unterschied erklären.",
+      "core": "Codieren braucht feste Zuordnung und erkennbare Grenzen zwischen Zeichen. Beispiel: Eine veränderte Bitgruppe kann weiterhin ein erlaubter Buchstabe sein, obwohl die Nachricht falsch ist. Grenze: Tabellengültigkeit garantiert weder richtige Übertragung noch richtige Bedeutung.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Deine eigene Nachricht: zwei Codes, zurückgelesene Texte, ein untersuchter Fehler und deine begründete Codewahl.",
+      "href": "codierungen/lehrkraft.html"
+    },
+    {
+      "id": "G6-M05",
+      "grade": 6,
+      "title": "Dein Muster. Dein Programm.",
+      "minutes": 135,
+      "goals": [
+        "3.1.3.1(1)",
+        "3.1.3.1(2)",
+        "3.1.3.1(3)",
+        "3.1.3.1(4)",
+        "3.1.3.1(5)",
+        "3.1.3.1(6)"
+      ],
+      "goal": "Aktive Projektplanung zur Anhörungsfassung 21.09.2026, G6-M05 aus dee82ec. Neue grafische Darstellung, feste Wiederholung, eigener Code, Ausführung und begründete Revision. Keine Behauptung aktueller Inkraftsetzung; keine allgemeine Programmiersprache.",
+      "prior": "Browser am Computer oder Tablet · Heft oder Papier für deine Ablaufgrafik · Grundidee einer Anweisung und einer festen Wiederholung",
+      "action": "Gestalten: Ein eigenes Musterband mit Ablaufgrafik, ausführbarem Code, erklärter Versuchsspur und begründeter Verbesserung. Dein Entwurf wächst weiter; du beginnst nicht nach jedem Schritt ein neues Produkt.",
+      "evidence": "Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Schrittweite verändern und Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen.",
+      "core": "Grafik, Code und Zustand beschreiben denselben Ablauf auf unterschiedliche Weise. Beispiel: Nach einer Drehung ändert sich die Richtung, nicht die Position; hoch verändert den Stiftzustand. Grenze: Eine fertige Zeichnung verrät nicht sicher den verwendeten Code.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Ein eigenes Musterband mit Ablaufgrafik, ausführbarem Code, erklärter Versuchsspur und begründeter Verbesserung. Dein Entwurf wächst weiter; du beginnst nicht nach jedem Schritt ein neues Produkt.",
+      "href": "algorithmen/lehrkraft.html"
+    },
+    {
+      "id": "G6-M06",
+      "grade": 6,
+      "title": "Wer liest mit? Was folgt daraus?",
+      "minutes": 165,
+      "goals": [
+        "3.1.1.1(4)",
+        "3.1.4.1(2)",
+        "3.1.4.1(3)",
+        "3.1.4.1(4)",
+        "3.1.4.1(5)",
+        "3.1.4.2(4)",
+        "3.1.4.2(5)",
+        "3.1.4.2(6)",
+        "3.1.4.2(7)",
+        "3.1.4.2(8)"
+      ],
+      "goal": "Aktive Projektverteilung zur IuM-Anhörungsfassung vom 21.09.2026, Planungscommit dee82ec. Lerngelegenheiten und begrenzte Nachweise, keine pauschale Kompetenzfreigabe. Eigene Reflexion P56-04 bleibt privat; reale Kommunikation muss tatsächlich stattfinden.",
+      "prior": "Papier und Stift oder Lernwerk-Notizen · Freigegebener schulischer Kommunikationsweg und eine reale Übungspartnerin oder ein realer Übungspartner; alternativ die Lehrperson · Ausgefüllte Schulwegkarte mit aktuellen Bedingungen und örtlichen Hilfewegen; keine privaten Konten",
+      "action": "Beurteilen: Eine wachsende Entscheidungskarte zum erfundenen Schulfest: erster Entwurf, eigene Nachricht, sachlich zusammengefasste Rückmeldung und begründete Revision.",
+      "evidence": "Jede Person begründet im Transfer eine veränderte Kanalentscheidung mit Fallbeleg und Grenze. Bei bloßer Regelwiedergabe den Zweck ändern, erneut entscheiden lassen. Persönliche Erfahrungen werden weder verlangt noch weitergereicht.",
+      "core": "Zweck, Empfängerkreis und mögliche Weitergabe bestimmen einen passenden Kommunikationsweg. Beispiel: Eine technische AG-Anleitung kann öffentlich nützlich sein; private Kontaktdaten gehören nicht automatisch dazu. Grenze: Ein geschlossener Raum verhindert nicht jede Weitergabe; ein unbekanntes Konto belegt keine sichere Identität.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Eine wachsende Entscheidungskarte zum erfundenen Schulfest: erster Entwurf, eigene Nachricht, sachlich zusammengefasste Rückmeldung und begründete Revision.",
+      "href": "kommunikation/lehrkraft.html"
+    },
+    {
+      "id": "G6-M07",
+      "grade": 6,
+      "title": "Aus Wissen wird eine verständliche Karte.",
+      "minutes": 210,
+      "goals": [
+        "3.1.1.1(1)",
+        "3.1.2.2(5)",
+        "3.1.2.2(6)",
+        "3.1.4.1(1)",
+        "3.1.4.1(2)",
+        "3.1.4.1(3)",
+        "3.1.4.1(4)",
+        "3.1.4.1(5)",
+        "3.1.4.1(6)",
+        "3.1.4.1(7)",
+        "3.1.5.1(5)",
+        "3.1.5.1(6)",
+        "3.1.5.1(7)",
+        "3.1.5.1(8)",
+        "3.1.5.1(9)",
+        "3.1.5.2(1)",
+        "3.1.5.2(2)",
+        "3.1.5.2(3)",
+        "3.1.5.2(4)",
+        "3.1.5.2(5)",
+        "3.1.5.2(6)"
+      ],
+      "goal": "Aktive AHF-Projektverteilung 5/6, Planungscommit dee82ec. Ziele werden an konkreten Teilhandlungen betrachtet, nicht pauschal als erreicht markiert. Zwei reale digitale Teilwege und jede einzelne Lernleistung gesondert prüfen.",
+      "prior": "Ergebnisse aus M02; die nötigen Sachinformationen stehen auch hier · Eine reale Partnerperson und ein von der Lehrperson freigegebenes Text-/Bildwerkzeug · Ausgefüllte Werkzeugkarte: Schulkanal, zweiter digitaler Teilweg, Ablage und erreichbare Hilfe",
+      "action": "Gestalten: Eine selbst gestaltete Informationskarte mit Quellen und Rechtehinweisen, erster und überarbeiteter Fassung sowie zwei tatsächlich erprobten digitalen Teilwegen. Dein eigener Beitrag und deine begründete Überarbeitung bleiben erkennbar.",
+      "evidence": "Jede Person zeigt belegten Satz, selbst ausgeführte Operation und Revision nach fremdem Verständnis. Bei unklarem Eigenanteil eine eigene Stelle am Gerät verändern und erklären lassen; keine Namen oder privaten Nachrichten in die Dokumentation übernehmen.",
+      "core": "Eine erklärende Darstellung macht eine schwierige Unterscheidung nachvollziehbar. Beispiel: Die Karte erklärt, warum historische und heutige Planetenzahlen voneinander abweichen können. Grenze: Vereinfachen darf die zeitliche oder begriffliche Bedingung nicht unterschlagen.",
+      "later": "Die zugehörigen R01–R14 im Jahresweg nutzen; insgesamt 90 Minuten. Bestehende Übergangsbrücke nicht doppelt buchen.",
+      "carry": "Quellenakte, Endprodukt und individuelle Erklärung für die Eingangsdiagnose 7. Keine privaten Reflexionen.",
+      "href": "medienprodukt/lehrkraft.html"
+    },
+    {
+      "id": "G7-MED",
+      "grade": 7,
+      "title": "Medien",
+      "minutes": 270,
+      "goals": [
+        "3.2.1.1 (1)",
+        "3.2.1.1 (2)",
+        "3.2.1.1 (3)",
+        "3.2.1.1 (4)",
+        "3.2.1.1 (5)",
+        "3.2.4.2 (6)",
+        "3.2.4.2 (7)",
+        "3.2.5.1 (1)",
+        "3.2.5.1 (2)"
+      ],
+      "goal": "Mediale Gestaltung und Interessen untersuchen, Aussagen mit Belegen beurteilen, Bilder zielgerichtet bearbeiten und sichere Wege der Nutzung und Weitergabe begründen.",
+      "prior": "Belegstelle und Zeitbezug aus Klasse 6; Darstellung und Wirkung aus Klasse 5.",
+      "action": "Originalquellen prüfen, Bildvarianten gestalten und fremde Deutungen für eine Revision nutzen.",
+      "evidence": "MED-3: Jede Person zeigt eigene Operation, Absicht, fremde Deutung und begründete Revision; bei bloßem Lob zuerst eine Inhaltsfrage prüfen.",
+      "core": "Bildbearbeitung verändert eine Darstellung. Beispiel: anderer Ausschnitt lenkt den Blick. Grenze: Absicht und tatsächliche Wirkung können auseinanderfallen.",
+      "later": "Wiederaufnahme Medien sowie der gemischte Abruf; Anteile bleiben im gemeinsamen 90-Minuten-Konto.",
+      "carry": "Neutraler Quellencheck und Bildvarianten; keine privaten Selbstbilder.",
+      "href": "medien/index.html"
+    },
+    {
+      "id": "G7-DAT",
+      "grade": 7,
+      "title": "Daten",
+      "minutes": 270,
+      "goals": [
+        "3.2.2.1 (1)",
+        "3.2.2.1 (2)",
+        "3.2.2.1 (3)",
+        "3.2.2.1 (4)",
+        "3.2.2.1 (5)",
+        "3.2.2.1 (6)",
+        "3.2.2.1 (7)"
+      ],
+      "goal": "Informationen nach vereinbarten Regeln codieren und decodieren, Bilder als Raster darstellen, Datenmengen unter Modellannahmen berechnen und Darstellungen passend zum Zweck auswählen.",
+      "prior": "Feste Codezuordnung, Zeichengrenzen und Rückübersetzung aus Klasse 6.",
+      "action": "Eigenen Code rückübersetzen lassen, Raster herstellen und Nutzdatenmodelle für einen Zweck beurteilen.",
+      "evidence": "DAT-3: Fremde Person rekonstruiert aus dem Paket; jede Person erklärt eine Regel und einen Verlust. Bei Lücke nur eine Zelle gemeinsam klären, andere Zelle selbst codieren.",
+      "core": "Reversibilität gilt für die vereinbarten Zeichen und Regeln. Beispiel: Bitgruppen lassen sich eindeutig zurücklesen. Grenze: ein Raster verliert bereits bei der Erfassung Bilddetails.",
+      "later": "Wiederaufnahme Daten sowie der gemischte Abruf; Anteile bleiben im gemeinsamen 90-Minuten-Konto.",
+      "carry": "Codepaket, Nutzdatenrechnung und Modellgrenze für spätere Wiederaufnahme.",
+      "href": "daten/index.html"
+    },
+    {
+      "id": "G7-ALG",
+      "grade": 7,
+      "title": "Programmieren",
+      "minutes": 405,
+      "goals": [
+        "3.2.3.1 (1)",
+        "3.2.3.1 (2)",
+        "3.2.3.1 (3)",
+        "3.2.3.1 (4)",
+        "3.2.3.1 (5)",
+        "3.2.3.1 (6)"
+      ],
+      "goal": "Abläufe mit Sequenzen, Wiederholungen und Bedingungen darstellen, in Snap umsetzen, gezielt testen, Fehler erklären und ein eigenes Programm an begründeten Anforderungen überprüfen.",
+      "prior": "Genaue Befehle, Wiederholung und Zustandsfolge aus Klasse 5/6; neue Snap-Bedienung wird modelliert.",
+      "action": "Eigenen Einsatzauftrag planen, Abbruchbedingungen reparieren und Normal-/Grenzfälle am tatsächlichen Programm prüfen.",
+      "evidence": "ALG-4: Bei Start 35/Schritt 12 allein letzte Prüfung erklären. Bei Verwechslung von Fortsetzungs- und Abbruchfrage eine Position einsetzen und dann neuen Fall erneut prüfen.",
+      "core": "Bei wiederhole bis führt wahr zum Verlassen. Beispiel: Start 35, Schritt 12, Ziel 40 endet 47 nach einer Bewegung und zwei Prüfungen. Grenze: positive Bewegung nach rechts, kein echter Roboter.",
+      "later": "Wiederaufnahme Programmieren sowie der gemischte Abruf; Anteile bleiben im gemeinsamen 90-Minuten-Konto.",
+      "carry": "Eigene XML-Datei, Plan und eine Prüfspur; kein bloßes Lösungsprojekt.",
+      "href": "programmieren/index.html"
+    },
+    {
+      "id": "G7-GAM",
+      "grade": 7,
+      "title": "Gaming und Wohlbefinden",
+      "minutes": 270,
+      "goals": [
+        "3.2.1.1 (6)",
+        "3.2.1.1 (7)",
+        "3.2.1.1 (8)",
+        "3.2.1.1 (9)",
+        "3.2.1.2 (1)",
+        "3.2.1.2 (2)",
+        "3.2.1.2 (3)"
+      ],
+      "goal": "Spielanreize, Geschäftsmodelle und Nutzungssituationen beurteilen, Chancen und Belastungen unterscheiden sowie eigene Schutz- und Handlungsstrategien ohne Offenlegungspflicht reflektieren.",
+      "prior": "Interessen, Kriterien und verantwortliche Weitergabe an neutralen Fällen.",
+      "action": "Spielanreize und Kosten beurteilen; schulische Strategien geschützt erproben und mit Abstand privat vergleichen.",
+      "evidence": "GAM-5: Jede Person begründet im neutralen Fall Schutzhandlung und erreichbaren Hilfeweg. Bei pauschalem Verbot eine Fallbeobachtung wählen und passende Handlung nochmals erklären.",
+      "core": "Wirkungen hängen von Situation, Nutzung und Person ab. Beispiel: Zusammenarbeit kann unterstützen, Gruppendruck aber belasten. Grenze: ein Fallbeispiel ist keine Diagnose einer Person.",
+      "later": "Fachurteile im gemischten Abruf wiederaufnehmen. Private Erprobung bleibt privat; die vier gemeinsamen Abrufe belegen insgesamt 90 Minuten.",
+      "carry": "Nur öffentliche Fachurteile; Ergebnisse privater Erprobung bleiben bei der Person.",
+      "href": "gaming/index.html"
+    }
+  ],
+  "progression": [
+    {
+      "field": "Quellenprüfung",
+      "stages": [
+        "5: eigene Frage, reale Suchänderung und genaue Belegstelle.",
+        "6: dieselbe Quellenakte berücksichtigt Definition, Zeitbezug und scheinbaren Widerspruch.",
+        "7: Originalbeleg und unabhängige Quelle tragen ein begrenztes Urteil über eine Behauptung."
+      ],
+      "gap": "Fehlt eine Vorarbeit, zuerst eine Aussage an einer bereitgestellten Originalstelle prüfen. Danach selbst eine andere Stelle finden. Reale Suche bei Ausfall als offen kennzeichnen."
+    },
+    {
+      "field": "Daten und Systeme",
+      "stages": [
+        "5: Dateiort, Programm und Zugriff durch tatsächliches Wiederöffnen unterscheiden.",
+        "6: eine Modellbedingung ändern, Ergebnis beobachten und Ursache begründen.",
+        "7: Darstellungen reversibel codieren, Verluste und Speicherbedarf unter Modellannahmen prüfen."
+      ],
+      "gap": "Einen bekannten Datei- oder Codefall handelnd rekonstruieren. Im Anschluss einen kleinen veränderten Fall allein prüfen; Gerätehandlung nicht durch schriftliche Zustimmung ersetzen."
+    },
+    {
+      "field": "Programmieren",
+      "stages": [
+        "5: genaue Befehle mit Karten ausführen; Grafik, Code und Zustand verbinden.",
+        "6: eigenes Muster entwerfen; Richtung und Stiftzustand verfolgen; erste Abweichung erklären.",
+        "7: Bedingungen als Wahrheitswerte auswerten, Schleifen reparieren und ein eigenes Programm an Grenzfällen abnehmen."
+      ],
+      "gap": "Bekannte Wiederholung zuerst ohne Snap benennen. Neue Bedienhandlung kurz vormachen, danach von jeder Person selbst ausführen lassen. Eine korrekte Kopie ist noch kein Verständnisnachweis."
+    },
+    {
+      "field": "Gestaltung",
+      "stages": [
+        "5: belegten Inhalt gemeinsam gliedern und lesbar gestalten.",
+        "6: eine schwierige fachliche Unterscheidung für andere verständlich darstellen.",
+        "7: eigene Absicht mit fremder Wahrnehmung vergleichen und eine begründete Revision prüfen."
+      ],
+      "gap": "Mit gekennzeichnetem kleinen Ausgangsprodukt arbeiten; eigener Sachbeitrag, Bedienhandlung und Revision bleiben sichtbar. Fehlende Vorprodukte nicht durch eine komplette zweite Produktion ersetzen."
+    },
+    {
+      "field": "Verantwortliches Handeln",
+      "stages": [
+        "5: konkrete Schutz- und Hilfeschritte am Gerät und am neutralen Fall erproben.",
+        "6: Zweck, Leserkreis, Interessen und mögliche Weitergabe gegeneinander abwägen.",
+        "7: öffentliche Fachurteile von eigener geschützter Erprobung trennen; selbst begründete Anforderungen verfolgen."
+      ],
+      "gap": "Erfundene Fälle und erreichbaren schulischen Hilfeweg anbieten. Private Reflexion bleibt freiwillig, wird nicht bewertet oder an den nächsten Jahrgang übergeben."
+    }
+  ],
+  "forms": [
+    [
+      "Routine erwerben",
+      "Kurze Handlung zeigen, selbst ausführen, nach Schließen erneut ausführen."
+    ],
+    [
+      "Untersuchen",
+      "Vorhersage, gezielte Veränderung, Beobachtung und begrenzte Erklärung."
+    ],
+    [
+      "Beurteilen",
+      "Kriterien, passende Belege, begründetes Urteil und offene Reichweite."
+    ],
+    [
+      "Gestalten",
+      "Eigener Entwurf, reale fremde Wahrnehmung, begründete Überarbeitung."
+    ],
+    [
+      "Geschützt reflektieren",
+      "Eigene Erfahrung oder Nichtnutzung privat bedenken und gegebenenfalls erproben; Offenlegung freiwillig."
+    ]
+  ],
+  "practice": [
+    {
+      "when": "Vor M02",
+      "title": "Datei wiederfinden",
+      "minutes": 10,
+      "place": "Dateien: wiederfinden",
+      "expectation": "Datei selbst nach Schließen am vereinbarten Ort öffnen.",
+      "help": "Ordnerweg einmal markieren; danach ohne Markierung erneut öffnen.",
+      "href": "dateien/schritt-wiederfinden.html"
+    },
+    {
+      "when": "Vor M03",
+      "title": "Aussage und Beleg",
+      "minutes": 12,
+      "place": "Recherche: prüfen",
+      "expectation": "Eine eigene Aussage mit genauer Originalstelle und begrenztem Urteil erklären.",
+      "help": "Einen Satz gemeinsam zuordnen; andere Stelle allein prüfen.",
+      "href": "recherche/schritt-pruefen.html"
+    },
+    {
+      "when": "Vor M04",
+      "title": "Rückfrage mit Wirkung",
+      "minutes": 8,
+      "place": "Zusammenarbeit: Rückmeldung",
+      "expectation": "Eine reale Rückfrage verändert oder bestätigt begründet die Gliederung.",
+      "help": "Satzanfang „Bei … verstehe ich … noch nicht“; echte Antwort verwenden.",
+      "href": "zusammenarbeit/schritt-rueckmelden.html"
+    },
+    {
+      "when": "In M04, mit Abstand zur Übung",
+      "title": "Formatierung selbst zeigen",
+      "minutes": 10,
+      "place": "Medienprodukt: Text",
+      "expectation": "Wort- und Absatzänderung unterscheiden und rückgängig machen.",
+      "help": "Eine Handlung zeigen; zweite selbst ausführen.",
+      "href": "medienprodukt/schritt-text.html"
+    },
+    {
+      "when": "Nach M04",
+      "title": "Kopie tatsächlich öffnen",
+      "minutes": 12,
+      "place": "Medienprodukt: Dateiweg",
+      "expectation": "Empfangende Person öffnet richtige Fassung; Grenzen des Kopierwegs erklären.",
+      "help": "Speicherort und Dateityp getrennt prüfen, dann erneut übertragen.",
+      "href": "medienprodukt/schritt-dateiweg.html"
+    },
+    {
+      "when": "Vor oder nach M05",
+      "title": "Ausschnitt und Behauptung",
+      "minutes": 10,
+      "place": "Medienwirkung: Transfer",
+      "expectation": "Sichtbare Stelle und nicht belegte Verallgemeinerung unterscheiden.",
+      "help": "Zuerst nur beschreiben; dann Behauptung begrenzen.",
+      "href": "medienwirkung/schritt-transfer.html"
+    },
+    {
+      "when": "Nach M05",
+      "title": "Schutzweg am neutralen Fall",
+      "minutes": 8,
+      "place": "Medienwirkung: Handeln",
+      "expectation": "Sachkritik/Angriff unterscheiden und lokalen Hilfeweg nennen.",
+      "help": "Kursraumkarte öffnen, erreichbaren Ersatzweg erklären.",
+      "href": "medienwirkung/schritt-handeln.html"
+    },
+    {
+      "when": "Nach M06",
+      "title": "Zwischenzustand erklären",
+      "minutes": 10,
+      "place": "Abläufe: Programm",
+      "expectation": "Vorrat, Platz und Ausgabe nach einem Befehl richtig zeigen.",
+      "help": "Mit Papierkarten ausführen; anderen Zustand vorhersagen.",
+      "href": "ablaeufe/schritt-programm.html"
+    },
+    {
+      "when": "Vor dem Übergang in Klasse 6",
+      "title": "Ein gezielter Gegenfall",
+      "minutes": 8,
+      "place": "Abläufe: Prüfen",
+      "expectation": "Erste Abweichung finden, einen Befehl ändern und erneut prüfen.",
+      "help": "Nur bis zum ersten Unterschied ausführen; Ursache erklären.",
+      "href": "ablaeufe/schritt-pruefen.html"
+    },
+    {
+      "when": "Nach M01 oder vor Gerätewechsel",
+      "title": "Speicherort und Zugriff",
+      "minutes": 10,
+      "place": "Speicher/Zugang: Entscheiden",
+      "expectation": "Gleichen Ordnernamen von tatsächlicher Erreichbarkeit unterscheiden.",
+      "help": "Zwei Speicherorte anhand der Karten vergleichen; neuen Fall erklären.",
+      "href": "speicher-zugang/schritt-entscheiden.html"
+    }
+  ]
+}

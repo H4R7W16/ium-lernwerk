@@ -1,0 +1,1864 @@
+{
+  "id": "leas-rechercheweg",
+  "version": "Film 1.1 / Storyboard 1.0",
+  "duration": 186.867,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "voice": "de-DE-KatjaNeural",
+  "scenes": [
+    {
+      "id": "A01",
+      "title": "Lea hat eine Frage",
+      "source": "Storyboard 1.0",
+      "text": "Lea fragt: Leuchtet der Mond selbst? Sie möchte herausfinden, woher das Licht kommt.",
+      "thought": "„Ich möchte wissen, woher das Licht kommt.“",
+      "start": 0.0,
+      "duration": 8.633,
+      "voiceStart": 0.4,
+      "voiceDuration": 7.416,
+      "path": "assets/voice-A01.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "text": "fragt",
+          "start": 0.912,
+          "end": 1.388
+        },
+        {
+          "text": "Leuchtet",
+          "start": 1.65,
+          "end": 2.05
+        },
+        {
+          "text": "der",
+          "start": 2.062,
+          "end": 2.188
+        },
+        {
+          "text": "Mond",
+          "start": 2.2,
+          "end": 2.475
+        },
+        {
+          "text": "selbst",
+          "start": 2.487,
+          "end": 3.05
+        },
+        {
+          "text": "Sie",
+          "start": 3.925,
+          "end": 4.125
+        },
+        {
+          "text": "möchte",
+          "start": 4.138,
+          "end": 4.488
+        },
+        {
+          "text": "herausfinden",
+          "start": 4.5,
+          "end": 5.4
+        },
+        {
+          "text": "woher",
+          "start": 5.588,
+          "end": 5.913
+        },
+        {
+          "text": "das",
+          "start": 5.925,
+          "end": 6.125
+        },
+        {
+          "text": "Licht",
+          "start": 6.138,
+          "end": 6.438
+        },
+        {
+          "text": "kommt",
+          "start": 6.45,
+          "end": 6.95
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "Browser und Suchfeld finden",
+      "source": "Storyboard 1.0",
+      "text": "Der Browser ist ein Programm für Webseiten. Die Suchmaschine fragFINN hilft beim Finden von Webseiten. Hier ist das Suchfeld.",
+      "thought": "„Hier gebe ich die Wörter für meine Suche ein.“",
+      "start": 8.633,
+      "duration": 11.9,
+      "voiceStart": 9.033,
+      "voiceDuration": 10.68,
+      "path": "assets/voice-A02.mp3",
+      "words": [
+        {
+          "text": "Der",
+          "start": 9.133,
+          "end": 9.358
+        },
+        {
+          "text": "Browser",
+          "start": 9.371,
+          "end": 9.833
+        },
+        {
+          "text": "ist",
+          "start": 9.846,
+          "end": 10.033
+        },
+        {
+          "text": "ein",
+          "start": 10.046,
+          "end": 10.171
+        },
+        {
+          "text": "Programm",
+          "start": 10.183,
+          "end": 10.633
+        },
+        {
+          "text": "für",
+          "start": 10.646,
+          "end": 10.833
+        },
+        {
+          "text": "Webseiten",
+          "start": 10.846,
+          "end": 11.608
+        },
+        {
+          "text": "Die",
+          "start": 12.471,
+          "end": 12.696
+        },
+        {
+          "text": "Suchmaschine",
+          "start": 12.708,
+          "end": 13.471
+        },
+        {
+          "text": "fragFINN",
+          "start": 13.483,
+          "end": 14.446
+        },
+        {
+          "text": "hilft",
+          "start": 14.458,
+          "end": 14.771
+        },
+        {
+          "text": "beim",
+          "start": 14.783,
+          "end": 14.983
+        },
+        {
+          "text": "Finden",
+          "start": 14.996,
+          "end": 15.396
+        },
+        {
+          "text": "von",
+          "start": 15.408,
+          "end": 15.621
+        },
+        {
+          "text": "Webseiten",
+          "start": 15.633,
+          "end": 16.433
+        },
+        {
+          "text": "Hier",
+          "start": 17.296,
+          "end": 17.696
+        },
+        {
+          "text": "ist",
+          "start": 17.708,
+          "end": 17.858
+        },
+        {
+          "text": "das",
+          "start": 17.871,
+          "end": 18.058
+        },
+        {
+          "text": "Suchfeld",
+          "start": 18.071,
+          "end": 18.821
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Eine breite Suche reicht noch nicht",
+      "source": "Storyboard 1.0",
+      "text": "Lea sucht nach Mond. Ihre eingegebenen Wörter heißen Suchwörter. Ein Treffer ist ein Suchergebnis. Der erste Titel handelt vom blauen Mond.",
+      "thought": "„Der Titel passt noch nicht zu meiner Lichtfrage.“",
+      "start": 20.533,
+      "duration": 13.2,
+      "voiceStart": 20.933,
+      "voiceDuration": 11.976,
+      "path": "assets/voice-A03.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 21.033,
+          "end": 21.396
+        },
+        {
+          "text": "sucht",
+          "start": 21.408,
+          "end": 21.708
+        },
+        {
+          "text": "nach",
+          "start": 21.721,
+          "end": 21.908
+        },
+        {
+          "text": "Mond",
+          "start": 21.921,
+          "end": 22.421
+        },
+        {
+          "text": "Ihre",
+          "start": 23.283,
+          "end": 23.608
+        },
+        {
+          "text": "eingegebenen",
+          "start": 23.621,
+          "end": 24.358
+        },
+        {
+          "text": "Wörter",
+          "start": 24.371,
+          "end": 24.696
+        },
+        {
+          "text": "heißen",
+          "start": 24.708,
+          "end": 25.133
+        },
+        {
+          "text": "Suchwörter",
+          "start": 25.146,
+          "end": 25.821
+        },
+        {
+          "text": "Ein",
+          "start": 26.683,
+          "end": 26.858
+        },
+        {
+          "text": "Treffer",
+          "start": 26.871,
+          "end": 27.383
+        },
+        {
+          "text": "ist",
+          "start": 27.396,
+          "end": 27.596
+        },
+        {
+          "text": "ein",
+          "start": 27.608,
+          "end": 27.771
+        },
+        {
+          "text": "Suchergebnis",
+          "start": 27.783,
+          "end": 28.683
+        },
+        {
+          "text": "Der",
+          "start": 29.558,
+          "end": 29.796
+        },
+        {
+          "text": "erste",
+          "start": 29.808,
+          "end": 30.183
+        },
+        {
+          "text": "Titel",
+          "start": 30.196,
+          "end": 30.583
+        },
+        {
+          "text": "handelt",
+          "start": 30.596,
+          "end": 30.996
+        },
+        {
+          "text": "vom",
+          "start": 31.008,
+          "end": 31.183
+        },
+        {
+          "text": "blauen",
+          "start": 31.196,
+          "end": 31.521
+        },
+        {
+          "text": "Mond",
+          "start": 31.533,
+          "end": 32.033
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Mitdenkstelle 1: Suchwort ergänzen",
+      "source": "Storyboard 1.0",
+      "text": "Welches Wort würdest du ergänzen?",
+      "thought": "„Ich muss genauer sagen, was ich wissen will.“",
+      "start": 33.733,
+      "duration": 10.333,
+      "voiceStart": 34.133,
+      "voiceDuration": 2.904,
+      "path": "assets/voice-A04.mp3",
+      "words": [
+        {
+          "text": "Welches",
+          "start": 34.233,
+          "end": 34.708
+        },
+        {
+          "text": "Wort",
+          "start": 34.721,
+          "end": 34.983
+        },
+        {
+          "text": "würdest",
+          "start": 34.996,
+          "end": 35.321
+        },
+        {
+          "text": "du",
+          "start": 35.333,
+          "end": 35.421
+        },
+        {
+          "text": "ergänzen",
+          "start": 35.433,
+          "end": 36.171
+        }
+      ],
+      "silence": {
+        "start": 37.037,
+        "end": 44.037,
+        "duration": 7,
+        "noResolution": true
+      }
+    },
+    {
+      "id": "A05",
+      "title": "Suche ändern, weiterhin auswählen",
+      "source": "Storyboard 1.0",
+      "text": "Lea ergänzt leuchtet. Auch jetzt passt der erste Titel noch nicht: Er handelt von einer Mondfinsternis. Lea liest weitere Treffer.",
+      "thought": "„Genauer suchen hilft. Trotzdem muss ich die Treffer lesen.“",
+      "start": 44.067,
+      "duration": 12.0,
+      "voiceStart": 44.467,
+      "voiceDuration": 10.44,
+      "path": "assets/voice-A05.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 44.567,
+          "end": 44.929
+        },
+        {
+          "text": "ergänzt",
+          "start": 44.942,
+          "end": 45.442
+        },
+        {
+          "text": "leuchtet",
+          "start": 45.454,
+          "end": 46.117
+        },
+        {
+          "text": "Auch",
+          "start": 46.979,
+          "end": 47.229
+        },
+        {
+          "text": "jetzt",
+          "start": 47.242,
+          "end": 47.567
+        },
+        {
+          "text": "passt",
+          "start": 47.579,
+          "end": 47.854
+        },
+        {
+          "text": "der",
+          "start": 47.867,
+          "end": 48.029
+        },
+        {
+          "text": "erste",
+          "start": 48.042,
+          "end": 48.392
+        },
+        {
+          "text": "Titel",
+          "start": 48.404,
+          "end": 48.779
+        },
+        {
+          "text": "noch",
+          "start": 48.792,
+          "end": 48.992
+        },
+        {
+          "text": "nicht",
+          "start": 49.004,
+          "end": 49.304
+        },
+        {
+          "text": "Er",
+          "start": 49.567,
+          "end": 49.654
+        },
+        {
+          "text": "handelt",
+          "start": 49.667,
+          "end": 50.079
+        },
+        {
+          "text": "von",
+          "start": 50.092,
+          "end": 50.279
+        },
+        {
+          "text": "einer",
+          "start": 50.292,
+          "end": 50.517
+        },
+        {
+          "text": "Mondfinsternis",
+          "start": 50.529,
+          "end": 51.542
+        },
+        {
+          "text": "Lea",
+          "start": 52.417,
+          "end": 52.767
+        },
+        {
+          "text": "liest",
+          "start": 52.779,
+          "end": 53.054
+        },
+        {
+          "text": "weitere",
+          "start": 53.067,
+          "end": 53.479
+        },
+        {
+          "text": "Treffer",
+          "start": 53.492,
+          "end": 54.042
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "title": "Einen passenden Titel auswählen",
+      "source": "Storyboard 1.0",
+      "text": "Weiter unten findet Lea einen passenden Titel: Warum leuchtet der Mond? Sie klickt ihn an. Bei deiner Suche können andere Treffer erscheinen.",
+      "thought": "„Dieser Titel passt zu dem, was ich wissen möchte.“",
+      "start": 56.067,
+      "duration": 13.0,
+      "voiceStart": 56.467,
+      "voiceDuration": 11.28,
+      "path": "assets/voice-A06.mp3",
+      "words": [
+        {
+          "text": "Weiter",
+          "start": 56.567,
+          "end": 57.079
+        },
+        {
+          "text": "unten",
+          "start": 57.092,
+          "end": 57.467
+        },
+        {
+          "text": "findet",
+          "start": 57.479,
+          "end": 57.867
+        },
+        {
+          "text": "Lea",
+          "start": 57.879,
+          "end": 58.192
+        },
+        {
+          "text": "einen",
+          "start": 58.204,
+          "end": 58.479
+        },
+        {
+          "text": "passenden",
+          "start": 58.492,
+          "end": 59.042
+        },
+        {
+          "text": "Titel",
+          "start": 59.054,
+          "end": 59.479
+        },
+        {
+          "text": "Warum",
+          "start": 59.754,
+          "end": 60.054
+        },
+        {
+          "text": "leuchtet",
+          "start": 60.067,
+          "end": 60.504
+        },
+        {
+          "text": "der",
+          "start": 60.517,
+          "end": 60.654
+        },
+        {
+          "text": "Mond",
+          "start": 60.667,
+          "end": 61.142
+        },
+        {
+          "text": "Sie",
+          "start": 62.004,
+          "end": 62.217
+        },
+        {
+          "text": "klickt",
+          "start": 62.229,
+          "end": 62.579
+        },
+        {
+          "text": "ihn",
+          "start": 62.592,
+          "end": 62.792
+        },
+        {
+          "text": "an",
+          "start": 62.804,
+          "end": 63.179
+        },
+        {
+          "text": "Bei",
+          "start": 64.054,
+          "end": 64.279
+        },
+        {
+          "text": "deiner",
+          "start": 64.292,
+          "end": 64.629
+        },
+        {
+          "text": "Suche",
+          "start": 64.642,
+          "end": 65.004
+        },
+        {
+          "text": "können",
+          "start": 65.017,
+          "end": 65.367
+        },
+        {
+          "text": "andere",
+          "start": 65.379,
+          "end": 65.779
+        },
+        {
+          "text": "Treffer",
+          "start": 65.792,
+          "end": 66.192
+        },
+        {
+          "text": "erscheinen",
+          "start": 66.204,
+          "end": 66.867
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "title": "Jetzt ist die Quelle geöffnet",
+      "source": "Storyboard 1.0",
+      "text": "Jetzt ist Frag Sophie geöffnet. Diese Seite ist Leas Quelle. Lea liest im Text unter dem Comic nach.",
+      "thought": "„Ich lese auf der geöffneten Seite nach.“",
+      "start": 69.067,
+      "duration": 10.4,
+      "voiceStart": 69.467,
+      "voiceDuration": 9.168,
+      "path": "assets/voice-A07.mp3",
+      "words": [
+        {
+          "text": "Jetzt",
+          "start": 69.567,
+          "end": 69.967
+        },
+        {
+          "text": "ist",
+          "start": 69.979,
+          "end": 70.167
+        },
+        {
+          "text": "Frag",
+          "start": 70.179,
+          "end": 70.467
+        },
+        {
+          "text": "Sophie",
+          "start": 70.479,
+          "end": 70.817
+        },
+        {
+          "text": "geöffnet",
+          "start": 70.829,
+          "end": 71.604
+        },
+        {
+          "text": "Diese",
+          "start": 72.467,
+          "end": 72.817
+        },
+        {
+          "text": "Seite",
+          "start": 72.829,
+          "end": 73.242
+        },
+        {
+          "text": "ist",
+          "start": 73.254,
+          "end": 73.479
+        },
+        {
+          "text": "Leas",
+          "start": 73.492,
+          "end": 73.967
+        },
+        {
+          "text": "Quelle",
+          "start": 73.979,
+          "end": 74.429
+        },
+        {
+          "text": "Lea",
+          "start": 75.292,
+          "end": 75.667
+        },
+        {
+          "text": "liest",
+          "start": 75.679,
+          "end": 75.992
+        },
+        {
+          "text": "im",
+          "start": 76.004,
+          "end": 76.117
+        },
+        {
+          "text": "Text",
+          "start": 76.129,
+          "end": 76.504
+        },
+        {
+          "text": "unter",
+          "start": 76.517,
+          "end": 76.767
+        },
+        {
+          "text": "dem",
+          "start": 76.779,
+          "end": 76.942
+        },
+        {
+          "text": "Comic",
+          "start": 76.954,
+          "end": 77.329
+        },
+        {
+          "text": "nach",
+          "start": 77.342,
+          "end": 77.754
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "title": "Zwei Stellen derselben Seite lesen",
+      "source": "Storyboard 1.0",
+      "text": "Eine Textstelle ist ein Teil des Textes. Hier stehen zwei kurze Auszüge. Angestrahlt heißt: Licht fällt darauf. Ein Teleskop ist ein Fernrohr.",
+      "thought": "„Welche Stelle hilft bei meiner Frage?“",
+      "start": 79.467,
+      "duration": 20.0,
+      "voiceStart": 79.867,
+      "voiceDuration": 12.696,
+      "path": "assets/voice-A08.mp3",
+      "words": [
+        {
+          "text": "Eine",
+          "start": 79.967,
+          "end": 80.254
+        },
+        {
+          "text": "Textstelle",
+          "start": 80.267,
+          "end": 81.029
+        },
+        {
+          "text": "ist",
+          "start": 81.042,
+          "end": 81.242
+        },
+        {
+          "text": "ein",
+          "start": 81.254,
+          "end": 81.392
+        },
+        {
+          "text": "Teil",
+          "start": 81.404,
+          "end": 81.679
+        },
+        {
+          "text": "des",
+          "start": 81.692,
+          "end": 81.879
+        },
+        {
+          "text": "Textes",
+          "start": 81.892,
+          "end": 82.579
+        },
+        {
+          "text": "Hier",
+          "start": 83.454,
+          "end": 83.754
+        },
+        {
+          "text": "stehen",
+          "start": 83.767,
+          "end": 84.129
+        },
+        {
+          "text": "zwei",
+          "start": 84.142,
+          "end": 84.404
+        },
+        {
+          "text": "kurze",
+          "start": 84.417,
+          "end": 84.867
+        },
+        {
+          "text": "Auszüge",
+          "start": 84.879,
+          "end": 85.654
+        },
+        {
+          "text": "Angestrahlt",
+          "start": 86.517,
+          "end": 87.254
+        },
+        {
+          "text": "heißt",
+          "start": 87.267,
+          "end": 87.629
+        },
+        {
+          "text": "Licht",
+          "start": 87.854,
+          "end": 88.104
+        },
+        {
+          "text": "fällt",
+          "start": 88.117,
+          "end": 88.367
+        },
+        {
+          "text": "darauf",
+          "start": 88.379,
+          "end": 88.942
+        },
+        {
+          "text": "Ein",
+          "start": 89.804,
+          "end": 90.004
+        },
+        {
+          "text": "Teleskop",
+          "start": 90.017,
+          "end": 90.692
+        },
+        {
+          "text": "ist",
+          "start": 90.704,
+          "end": 90.892
+        },
+        {
+          "text": "ein",
+          "start": 90.904,
+          "end": 91.042
+        },
+        {
+          "text": "Fernrohr",
+          "start": 91.054,
+          "end": 91.692
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "title": "Mitdenkstelle 2: passende Textstelle wählen",
+      "source": "Storyboard 1.0",
+      "text": "Welche Stelle hilft Lea? Zeige die Wörter. Warum hilft die andere nicht?",
+      "thought": "Ihre Entscheidung ist noch verborgen.",
+      "start": 99.467,
+      "duration": 14.3,
+      "voiceStart": 99.867,
+      "voiceDuration": 6.888,
+      "path": "assets/voice-A09.mp3",
+      "words": [
+        {
+          "text": "Welche",
+          "start": 99.967,
+          "end": 100.392
+        },
+        {
+          "text": "Stelle",
+          "start": 100.404,
+          "end": 100.729
+        },
+        {
+          "text": "hilft",
+          "start": 100.742,
+          "end": 101.042
+        },
+        {
+          "text": "Lea",
+          "start": 101.054,
+          "end": 101.517
+        },
+        {
+          "text": "Zeige",
+          "start": 102.379,
+          "end": 102.817
+        },
+        {
+          "text": "die",
+          "start": 102.829,
+          "end": 102.942
+        },
+        {
+          "text": "Wörter",
+          "start": 102.954,
+          "end": 103.442
+        },
+        {
+          "text": "Warum",
+          "start": 104.304,
+          "end": 104.654
+        },
+        {
+          "text": "hilft",
+          "start": 104.667,
+          "end": 104.904
+        },
+        {
+          "text": "die",
+          "start": 104.917,
+          "end": 105.054
+        },
+        {
+          "text": "andere",
+          "start": 105.067,
+          "end": 105.417
+        },
+        {
+          "text": "nicht",
+          "start": 105.429,
+          "end": 105.892
+        }
+      ],
+      "silence": {
+        "start": 106.755,
+        "end": 113.755,
+        "duration": 7,
+        "noResolution": true
+      }
+    },
+    {
+      "id": "A10",
+      "title": "Auswahl am Text erklären",
+      "source": "Storyboard 1.0",
+      "text": "Lea wählt A. Dort steht, dass der Mond nicht selbst leuchtet und Licht von der Sonne bekommt. B erklärt, was man mit einem Fernrohr beobachten kann.",
+      "thought": "„A erklärt die Lichtquelle. B erklärt etwas anderes.“",
+      "start": 113.767,
+      "duration": 14.0,
+      "voiceStart": 114.167,
+      "voiceDuration": 11.52,
+      "path": "assets/voice-A10.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 114.267,
+          "end": 114.617
+        },
+        {
+          "text": "wählt",
+          "start": 114.629,
+          "end": 114.992
+        },
+        {
+          "text": "A.",
+          "start": 115.004,
+          "end": 115.242
+        },
+        {
+          "text": "Dort",
+          "start": 116.104,
+          "end": 116.392
+        },
+        {
+          "text": "steht",
+          "start": 116.404,
+          "end": 116.767
+        },
+        {
+          "text": "dass",
+          "start": 116.942,
+          "end": 117.129
+        },
+        {
+          "text": "der",
+          "start": 117.142,
+          "end": 117.304
+        },
+        {
+          "text": "Mond",
+          "start": 117.317,
+          "end": 117.642
+        },
+        {
+          "text": "nicht",
+          "start": 117.654,
+          "end": 117.892
+        },
+        {
+          "text": "selbst",
+          "start": 117.904,
+          "end": 118.279
+        },
+        {
+          "text": "leuchtet",
+          "start": 118.292,
+          "end": 118.817
+        },
+        {
+          "text": "und",
+          "start": 118.829,
+          "end": 119.042
+        },
+        {
+          "text": "Licht",
+          "start": 119.054,
+          "end": 119.329
+        },
+        {
+          "text": "von",
+          "start": 119.342,
+          "end": 119.492
+        },
+        {
+          "text": "der",
+          "start": 119.504,
+          "end": 119.642
+        },
+        {
+          "text": "Sonne",
+          "start": 119.654,
+          "end": 119.954
+        },
+        {
+          "text": "bekommt",
+          "start": 119.967,
+          "end": 120.567
+        },
+        {
+          "text": "B",
+          "start": 121.429,
+          "end": 121.679
+        },
+        {
+          "text": "erklärt",
+          "start": 121.692,
+          "end": 122.242
+        },
+        {
+          "text": "was",
+          "start": 122.379,
+          "end": 122.554
+        },
+        {
+          "text": "man",
+          "start": 122.567,
+          "end": 122.754
+        },
+        {
+          "text": "mit",
+          "start": 122.767,
+          "end": 122.942
+        },
+        {
+          "text": "einem",
+          "start": 122.954,
+          "end": 123.204
+        },
+        {
+          "text": "Fernrohr",
+          "start": 123.217,
+          "end": 123.754
+        },
+        {
+          "text": "beobachten",
+          "start": 123.767,
+          "end": 124.379
+        },
+        {
+          "text": "kann",
+          "start": 124.392,
+          "end": 124.804
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "title": "In eigenen Worten antworten",
+      "source": "Storyboard 1.0",
+      "text": "Lea sagt es mit eigenen Worten. Der Mond wirft Sonnenlicht zurück. Dieses Zurückwerfen nennt man Reflexion. Dann schreibt sie ihre Antwort auf.",
+      "thought": "„Ich sage es so, dass ich es selbst erklären kann.“",
+      "start": 127.767,
+      "duration": 15.0,
+      "voiceStart": 128.167,
+      "voiceDuration": 11.808,
+      "path": "assets/voice-A11.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 128.267,
+          "end": 128.629
+        },
+        {
+          "text": "sagt",
+          "start": 128.642,
+          "end": 128.942
+        },
+        {
+          "text": "es",
+          "start": 128.954,
+          "end": 129.067
+        },
+        {
+          "text": "mit",
+          "start": 129.079,
+          "end": 129.292
+        },
+        {
+          "text": "eigenen",
+          "start": 129.304,
+          "end": 129.717
+        },
+        {
+          "text": "Worten",
+          "start": 129.729,
+          "end": 130.279
+        },
+        {
+          "text": "Der",
+          "start": 131.142,
+          "end": 131.342
+        },
+        {
+          "text": "Mond",
+          "start": 131.354,
+          "end": 131.679
+        },
+        {
+          "text": "wirft",
+          "start": 131.692,
+          "end": 131.967
+        },
+        {
+          "text": "Sonnenlicht",
+          "start": 131.979,
+          "end": 132.542
+        },
+        {
+          "text": "zurück",
+          "start": 132.554,
+          "end": 133.067
+        },
+        {
+          "text": "Dieses",
+          "start": 133.929,
+          "end": 134.329
+        },
+        {
+          "text": "Zurückwerfen",
+          "start": 134.342,
+          "end": 135.042
+        },
+        {
+          "text": "nennt",
+          "start": 135.054,
+          "end": 135.317
+        },
+        {
+          "text": "man",
+          "start": 135.329,
+          "end": 135.479
+        },
+        {
+          "text": "Reflexion",
+          "start": 135.492,
+          "end": 136.342
+        },
+        {
+          "text": "Dann",
+          "start": 137.204,
+          "end": 137.429
+        },
+        {
+          "text": "schreibt",
+          "start": 137.442,
+          "end": 137.792
+        },
+        {
+          "text": "sie",
+          "start": 137.804,
+          "end": 137.942
+        },
+        {
+          "text": "ihre",
+          "start": 137.954,
+          "end": 138.179
+        },
+        {
+          "text": "Antwort",
+          "start": 138.192,
+          "end": 138.692
+        },
+        {
+          "text": "auf",
+          "start": 138.704,
+          "end": 139.104
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "title": "Die genaue Stelle festhalten",
+      "source": "Storyboard 1.0",
+      "text": "Lea notiert auch die passende Stelle: erster Textabsatz unter dem Comic, erster Satz. So weiß sie später, wo ihre Antwort herkommt.",
+      "thought": "„Später muss ich genau diese Stelle wiederfinden können.“",
+      "start": 142.767,
+      "duration": 11.433,
+      "voiceStart": 143.167,
+      "voiceDuration": 10.224,
+      "path": "assets/voice-A12.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 143.267,
+          "end": 143.642
+        },
+        {
+          "text": "notiert",
+          "start": 143.654,
+          "end": 144.129
+        },
+        {
+          "text": "auch",
+          "start": 144.142,
+          "end": 144.304
+        },
+        {
+          "text": "die",
+          "start": 144.317,
+          "end": 144.454
+        },
+        {
+          "text": "passende",
+          "start": 144.467,
+          "end": 144.954
+        },
+        {
+          "text": "Stelle",
+          "start": 144.967,
+          "end": 145.404
+        },
+        {
+          "text": "erster",
+          "start": 145.642,
+          "end": 145.992
+        },
+        {
+          "text": "Textabsatz",
+          "start": 146.004,
+          "end": 146.804
+        },
+        {
+          "text": "unter",
+          "start": 146.817,
+          "end": 147.092
+        },
+        {
+          "text": "dem",
+          "start": 147.104,
+          "end": 147.267
+        },
+        {
+          "text": "Comic",
+          "start": 147.279,
+          "end": 147.729
+        },
+        {
+          "text": "erster",
+          "start": 147.954,
+          "end": 148.279
+        },
+        {
+          "text": "Satz",
+          "start": 148.292,
+          "end": 148.767
+        },
+        {
+          "text": "So",
+          "start": 149.629,
+          "end": 149.817
+        },
+        {
+          "text": "weiß",
+          "start": 149.829,
+          "end": 150.054
+        },
+        {
+          "text": "sie",
+          "start": 150.067,
+          "end": 150.204
+        },
+        {
+          "text": "später",
+          "start": 150.217,
+          "end": 150.754
+        },
+        {
+          "text": "wo",
+          "start": 150.929,
+          "end": 151.067
+        },
+        {
+          "text": "ihre",
+          "start": 151.079,
+          "end": 151.354
+        },
+        {
+          "text": "Antwort",
+          "start": 151.367,
+          "end": 151.804
+        },
+        {
+          "text": "herkommt",
+          "start": 151.817,
+          "end": 152.517
+        }
+      ]
+    },
+    {
+      "id": "A13",
+      "title": "Seitenname und Adresse übernehmen",
+      "source": "Storyboard 1.0",
+      "text": "Oben steht die Webadresse. Lea kopiert sie in ihre Notiz. Ein anklickbarer Verweis heißt Link. Der Seitenname kommt dazu.",
+      "thought": "„Mit dieser Adresse kann ich die Seite später öffnen.“",
+      "start": 154.2,
+      "duration": 14.0,
+      "voiceStart": 154.6,
+      "voiceDuration": 11.256,
+      "path": "assets/voice-A13.mp3",
+      "words": [
+        {
+          "text": "Oben",
+          "start": 154.7,
+          "end": 154.987
+        },
+        {
+          "text": "steht",
+          "start": 155.0,
+          "end": 155.287
+        },
+        {
+          "text": "die",
+          "start": 155.3,
+          "end": 155.4
+        },
+        {
+          "text": "Webadresse",
+          "start": 155.412,
+          "end": 156.287
+        },
+        {
+          "text": "Lea",
+          "start": 157.15,
+          "end": 157.525
+        },
+        {
+          "text": "kopiert",
+          "start": 157.537,
+          "end": 158.0
+        },
+        {
+          "text": "sie",
+          "start": 158.012,
+          "end": 158.162
+        },
+        {
+          "text": "in",
+          "start": 158.175,
+          "end": 158.275
+        },
+        {
+          "text": "ihre",
+          "start": 158.287,
+          "end": 158.512
+        },
+        {
+          "text": "Notiz",
+          "start": 158.525,
+          "end": 159.213
+        },
+        {
+          "text": "Ein",
+          "start": 160.075,
+          "end": 160.35
+        },
+        {
+          "text": "anklickbarer",
+          "start": 160.362,
+          "end": 161.137
+        },
+        {
+          "text": "Verweis",
+          "start": 161.15,
+          "end": 161.612
+        },
+        {
+          "text": "heißt",
+          "start": 161.625,
+          "end": 162.0
+        },
+        {
+          "text": "Link",
+          "start": 162.012,
+          "end": 162.438
+        },
+        {
+          "text": "Der",
+          "start": 163.3,
+          "end": 163.487
+        },
+        {
+          "text": "Seitenname",
+          "start": 163.5,
+          "end": 164.175
+        },
+        {
+          "text": "kommt",
+          "start": 164.188,
+          "end": 164.45
+        },
+        {
+          "text": "dazu",
+          "start": 164.463,
+          "end": 164.987
+        }
+      ]
+    },
+    {
+      "id": "A14",
+      "title": "Gespeicherten Link nutzen",
+      "source": "Storyboard 1.0",
+      "text": "Lea öffnet ihren gespeicherten Link. Sie findet die Seite und den ersten Satz wieder. Ihre Notiz hilft ihr beim Nachlesen.",
+      "thought": "„Meine Notiz führt mich zurück zur gelesenen Stelle.“",
+      "start": 168.2,
+      "duration": 11.0,
+      "voiceStart": 168.6,
+      "voiceDuration": 9.72,
+      "path": "assets/voice-A14.mp3",
+      "words": [
+        {
+          "text": "Lea",
+          "start": 168.7,
+          "end": 169.1
+        },
+        {
+          "text": "öffnet",
+          "start": 169.112,
+          "end": 169.5
+        },
+        {
+          "text": "ihren",
+          "start": 169.512,
+          "end": 169.737
+        },
+        {
+          "text": "gespeicherten",
+          "start": 169.75,
+          "end": 170.463
+        },
+        {
+          "text": "Link",
+          "start": 170.475,
+          "end": 170.925
+        },
+        {
+          "text": "Sie",
+          "start": 171.787,
+          "end": 171.975
+        },
+        {
+          "text": "findet",
+          "start": 171.987,
+          "end": 172.338
+        },
+        {
+          "text": "die",
+          "start": 172.35,
+          "end": 172.45
+        },
+        {
+          "text": "Seite",
+          "start": 172.463,
+          "end": 172.912
+        },
+        {
+          "text": "und",
+          "start": 172.925,
+          "end": 173.062
+        },
+        {
+          "text": "den",
+          "start": 173.075,
+          "end": 173.237
+        },
+        {
+          "text": "ersten",
+          "start": 173.25,
+          "end": 173.612
+        },
+        {
+          "text": "Satz",
+          "start": 173.625,
+          "end": 173.9
+        },
+        {
+          "text": "wieder",
+          "start": 173.912,
+          "end": 174.362
+        },
+        {
+          "text": "Ihre",
+          "start": 175.225,
+          "end": 175.487
+        },
+        {
+          "text": "Notiz",
+          "start": 175.5,
+          "end": 176.012
+        },
+        {
+          "text": "hilft",
+          "start": 176.025,
+          "end": 176.3
+        },
+        {
+          "text": "ihr",
+          "start": 176.312,
+          "end": 176.412
+        },
+        {
+          "text": "beim",
+          "start": 176.425,
+          "end": 176.612
+        },
+        {
+          "text": "Nachlesen",
+          "start": 176.625,
+          "end": 177.438
+        }
+      ]
+    },
+    {
+      "id": "A15",
+      "title": "Von Leas Beispiel zur eigenen Suche",
+      "source": "Storyboard 1.0",
+      "text": "Jetzt suchst du zu rund und Sichel. Leas Lichtantwort genügt dafür noch nicht.",
+      "thought": "„Dieser Weg hilft auch bei einer anderen Frage.“",
+      "start": 179.2,
+      "duration": 7.667,
+      "voiceStart": 179.6,
+      "voiceDuration": 6.456,
+      "path": "assets/voice-A15.mp3",
+      "words": [
+        {
+          "text": "Jetzt",
+          "start": 179.7,
+          "end": 180.125
+        },
+        {
+          "text": "suchst",
+          "start": 180.137,
+          "end": 180.375
+        },
+        {
+          "text": "du",
+          "start": 180.387,
+          "end": 180.5
+        },
+        {
+          "text": "zu",
+          "start": 180.512,
+          "end": 180.662
+        },
+        {
+          "text": "rund",
+          "start": 180.675,
+          "end": 181.037
+        },
+        {
+          "text": "und",
+          "start": 181.05,
+          "end": 181.262
+        },
+        {
+          "text": "Sichel",
+          "start": 181.275,
+          "end": 181.75
+        },
+        {
+          "text": "Leas",
+          "start": 182.612,
+          "end": 183.175
+        },
+        {
+          "text": "Lichtantwort",
+          "start": 183.188,
+          "end": 183.912
+        },
+        {
+          "text": "genügt",
+          "start": 183.925,
+          "end": 184.275
+        },
+        {
+          "text": "dafür",
+          "start": 184.287,
+          "end": 184.55
+        },
+        {
+          "text": "noch",
+          "start": 184.562,
+          "end": 184.737
+        },
+        {
+          "text": "nicht",
+          "start": 184.75,
+          "end": 185.188
+        }
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "scene": "A01",
+      "start": 0.5,
+      "end": 3.17,
+      "text": "Lea fragt: Leuchtet der Mond selbst?"
+    },
+    {
+      "scene": "A01",
+      "start": 3.925,
+      "end": 7.07,
+      "text": "Sie möchte herausfinden, woher das Licht kommt."
+    },
+    {
+      "scene": "A02",
+      "start": 9.133,
+      "end": 11.728,
+      "text": "Der Browser ist ein Programm für Webseiten."
+    },
+    {
+      "scene": "A02",
+      "start": 12.471,
+      "end": 16.553,
+      "text": "Die Suchmaschine fragFINN hilft beim Finden von Webseiten."
+    },
+    {
+      "scene": "A02",
+      "start": 17.296,
+      "end": 18.941,
+      "text": "Hier ist das Suchfeld."
+    },
+    {
+      "scene": "A03",
+      "start": 21.033,
+      "end": 22.541,
+      "text": "Lea sucht nach Mond."
+    },
+    {
+      "scene": "A03",
+      "start": 23.283,
+      "end": 25.941,
+      "text": "Ihre eingegebenen Wörter heißen Suchwörter."
+    },
+    {
+      "scene": "A03",
+      "start": 26.683,
+      "end": 28.803,
+      "text": "Ein Treffer ist ein Suchergebnis."
+    },
+    {
+      "scene": "A03",
+      "start": 29.558,
+      "end": 32.153,
+      "text": "Der erste Titel handelt vom blauen Mond."
+    },
+    {
+      "scene": "A04",
+      "start": 34.233,
+      "end": 36.291,
+      "text": "Welches Wort würdest du ergänzen?"
+    },
+    {
+      "scene": "A05",
+      "start": 44.567,
+      "end": 46.237,
+      "text": "Lea ergänzt leuchtet."
+    },
+    {
+      "scene": "A05",
+      "start": 46.979,
+      "end": 51.662,
+      "text": "Auch jetzt passt der erste Titel noch nicht: Er handelt von\neiner Mondfinsternis."
+    },
+    {
+      "scene": "A05",
+      "start": 52.417,
+      "end": 54.162,
+      "text": "Lea liest weitere Treffer."
+    },
+    {
+      "scene": "A06",
+      "start": 56.567,
+      "end": 61.262,
+      "text": "Weiter unten findet Lea einen passenden Titel: Warum leuchtet\nder Mond?"
+    },
+    {
+      "scene": "A06",
+      "start": 62.004,
+      "end": 63.299,
+      "text": "Sie klickt ihn an."
+    },
+    {
+      "scene": "A06",
+      "start": 64.054,
+      "end": 66.987,
+      "text": "Bei deiner Suche können andere Treffer erscheinen."
+    },
+    {
+      "scene": "A07",
+      "start": 69.567,
+      "end": 71.724,
+      "text": "Jetzt ist Frag Sophie geöffnet."
+    },
+    {
+      "scene": "A07",
+      "start": 72.467,
+      "end": 74.549,
+      "text": "Diese Seite ist Leas Quelle."
+    },
+    {
+      "scene": "A07",
+      "start": 75.292,
+      "end": 77.874,
+      "text": "Lea liest im Text unter dem Comic nach."
+    },
+    {
+      "scene": "A08",
+      "start": 79.967,
+      "end": 82.699,
+      "text": "Eine Textstelle ist ein Teil des Textes."
+    },
+    {
+      "scene": "A08",
+      "start": 83.454,
+      "end": 85.774,
+      "text": "Hier stehen zwei kurze Auszüge."
+    },
+    {
+      "scene": "A08",
+      "start": 86.517,
+      "end": 89.062,
+      "text": "Angestrahlt heißt: Licht fällt darauf."
+    },
+    {
+      "scene": "A08",
+      "start": 89.804,
+      "end": 91.812,
+      "text": "Ein Teleskop ist ein Fernrohr."
+    },
+    {
+      "scene": "A09",
+      "start": 99.967,
+      "end": 101.637,
+      "text": "Welche Stelle hilft Lea?"
+    },
+    {
+      "scene": "A09",
+      "start": 102.379,
+      "end": 103.562,
+      "text": "Zeige die Wörter."
+    },
+    {
+      "scene": "A09",
+      "start": 104.304,
+      "end": 106.012,
+      "text": "Warum hilft die andere nicht?"
+    },
+    {
+      "scene": "A10",
+      "start": 114.267,
+      "end": 115.362,
+      "text": "Lea wählt A."
+    },
+    {
+      "scene": "A10",
+      "start": 116.104,
+      "end": 120.687,
+      "text": "Dort steht, dass der Mond nicht selbst leuchtet und Licht von\nder Sonne bekommt."
+    },
+    {
+      "scene": "A10",
+      "start": 121.429,
+      "end": 124.924,
+      "text": "B erklärt, was man mit einem Fernrohr beobachten kann."
+    },
+    {
+      "scene": "A11",
+      "start": 128.267,
+      "end": 130.399,
+      "text": "Lea sagt es mit eigenen Worten."
+    },
+    {
+      "scene": "A11",
+      "start": 131.142,
+      "end": 133.187,
+      "text": "Der Mond wirft Sonnenlicht zurück."
+    },
+    {
+      "scene": "A11",
+      "start": 133.929,
+      "end": 136.462,
+      "text": "Dieses Zurückwerfen nennt man Reflexion."
+    },
+    {
+      "scene": "A11",
+      "start": 137.204,
+      "end": 139.224,
+      "text": "Dann schreibt sie ihre Antwort auf."
+    },
+    {
+      "scene": "A12",
+      "start": 143.267,
+      "end": 148.887,
+      "text": "Lea notiert auch die passende Stelle: erster Textabsatz unter\ndem Comic, erster Satz."
+    },
+    {
+      "scene": "A12",
+      "start": 149.629,
+      "end": 152.637,
+      "text": "So weiß sie später, wo ihre Antwort herkommt."
+    },
+    {
+      "scene": "A13",
+      "start": 154.7,
+      "end": 156.407,
+      "text": "Oben steht die Webadresse."
+    },
+    {
+      "scene": "A13",
+      "start": 157.15,
+      "end": 159.333,
+      "text": "Lea kopiert sie in ihre Notiz."
+    },
+    {
+      "scene": "A13",
+      "start": 160.075,
+      "end": 162.558,
+      "text": "Ein anklickbarer Verweis heißt Link."
+    },
+    {
+      "scene": "A13",
+      "start": 163.3,
+      "end": 165.107,
+      "text": "Der Seitenname kommt dazu."
+    },
+    {
+      "scene": "A14",
+      "start": 168.7,
+      "end": 171.045,
+      "text": "Lea öffnet ihren gespeicherten Link."
+    },
+    {
+      "scene": "A14",
+      "start": 171.787,
+      "end": 174.482,
+      "text": "Sie findet die Seite und den ersten Satz wieder."
+    },
+    {
+      "scene": "A14",
+      "start": 175.225,
+      "end": 177.558,
+      "text": "Ihre Notiz hilft ihr beim Nachlesen."
+    },
+    {
+      "scene": "A15",
+      "start": 179.7,
+      "end": 181.87,
+      "text": "Jetzt suchst du zu rund und Sichel."
+    },
+    {
+      "scene": "A15",
+      "start": 182.612,
+      "end": 185.308,
+      "text": "Leas Lichtantwort genügt dafür noch nicht."
+    }
+  ]
+}

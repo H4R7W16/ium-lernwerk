@@ -4,6 +4,8 @@
 
 ## 1 · Welche Route würdest du losschicken? · 10 Minuten gemeinsam
 
+**Bekannt und neu:** Genaue Befehle und Wiederholung kennst du aus Kartenstation oder Musterband. Hier sind dieselben Ideen als Snap-Blöcke sichtbar. Die Lehrperson zeigt kurz das Anklicken eines losen Stapels, Stopp und das Ziehen eines Blocks; führe diese drei Bedienhandlungen anschließend selbst aus. Das liegt im folgenden Einstiegsfenster, nicht davor. Ohne Vorerfahrung beginne beim gezeigten Stapel und sage nur den ersten Schritt voraus.
+
 Der Rover startet bei x = 0 und schaut nach rechts, Richtung 90°. Ein Schritt verändert x um 1. Die Klammer des Wiederholungsblocks zeigt, welche Anweisung wiederholt wird.
 
 ```text

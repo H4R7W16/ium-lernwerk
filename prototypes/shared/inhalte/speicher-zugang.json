@@ -2,7 +2,7 @@
   "authorVersion": 2,
   "area": "speicher-zugang",
   "id": "IUM-5-M01-SPEICHER-ZUGANG",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "grade": 5,
   "family": "content",
   "title": "Deine Datei. Dein Zugang.",
@@ -243,6 +243,19 @@
         "entscheiden",
         "wiederaufnahme"
       ]
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Speicherort und erlaubter Zugriff sind zwei verschiedene Fragen."
+      ],
+      "example": "Eine Datei kann im Schulraum liegen, während das eigene Konto noch offen ist.",
+      "boundary": "Ein geschlossenes Fenster belegt keine Abmeldung.",
+      "steps": [
+        "schuetzen"
+      ],
+      "sources": []
     }
   ],
   "steps": [
@@ -476,7 +489,8 @@
       "outcome": "Eine ausgeführte Schutzhandlung und ihre Begründung – ohne geheime Angaben.",
       "knowledge": [
         "schutz",
-        "geheim"
+        "geheim",
+        "zusammenhang"
       ],
       "materialNeeds": [
         "Schulgerät, bekannter Rückweg und von der Lehrperson geprüfte Schutzhandlung"
@@ -506,6 +520,12 @@
           "text": "Stoppe vor der Handlung und lass ihn von deiner Lehrperson klären. Keine Codes raten oder verändern.",
           "knowledge": "schutz",
           "label": "Passendes Wissen öffnen"
+        },
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
         }
       ],
       "blocks": [
@@ -536,7 +556,7 @@
           "return": "Entsperre bzw. melde dich selbst nach Schulregel wieder an, ohne dass andere deine Eingabe sehen. Öffne den Lernwerktab und erkläre deine Beobachtung. Bei Abbruch bleibt die praktische Handlung offen.",
           "prompt": "Welche Handlung hast du ausgeführt? Woran erkennst du ihre Wirkung? Warum schützt das deine Arbeit?",
           "responseMode": "oral",
-          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse.",
+          "responseHint": "Erkläre kurz mündlich. Freiwillige Stichwörter: keine persönlichen Kontodaten oder Geheimnisse. Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben.",
           "routes": [
             {
               "device": "ipad",
@@ -731,6 +751,21 @@
         "Bei nur einem Speicherweg steht ein vollständiger Ersatzfall direkt im Geräteblatt. Fehlt jeder Zugang, sichern Fallvergleich und mündliche Begründung das Verständnis; Speicherprobe/Schutzhandlung werden nachgeholt. Eine ausgefüllte Antwort ersetzt keine beobachtete Handlung.",
         "Für M02 müssen Lernende den erlaubten Speicherweg wiederfinden und den Zugang schützen können. Sonst vor Recherche kurz nachsichern. Nach Erprobung genügen Dauer, häufigste Verwechslung und nächste Anpassung; bisher kein realer Unterrichtsversuch."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Schutzhandlung am eigenen Gerät beobachten; niemand nennt Kennwörter. Bei unklarer Wirkung den sichtbaren Kontostatus zeigen lassen, Handlung erneut ausführen und Zustand prüfen.",
+        "Der Prüfpunkt liegt im Lernschritt „Pause oder Übergabe?“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Speicherort und erlaubter Zugriff sind zwei verschiedene Fragen. Beispiel: Eine Datei kann im Schulraum liegen, während das eigene Konto noch offen ist. Grenze: Ein geschlossenes Fenster belegt keine Abmeldung."
+      ]
+    },
+    {
+      "title": "Eine Speicherhandlung, drei verschiedene Dinge",
+      "paragraphs": [
+        "Routine am bereits vorgesehenen Arbeitsprodukt: erstellen – am vereinbarten Ort sichern – schließen – wiederfinden. In „Geräte“ wird die Routine angekündigt; eine speicherbare Datei entsteht erst im Dateien-Bogen. Das Rechenergebnis wird nicht als künstliche zusätzliche Datei verlangt.",
+        "Lernwerk-Arbeitsdatei sichert Antworten im Lernwerk. Die echte Produktdatei, etwa eine Textdatei, liegt gesondert im vereinbarten Ordner. Eine private Notiz wird nur auf eigenen Wunsch separat gesichert und nicht mit abgegeben. Ein Protokollsatz ersetzt nicht das Wiederöffnen am Gerät."
+      ]
     }
   ],
   "briefing": [
@@ -739,6 +774,16 @@
     "Planen Sie fünf Minuten für die Vermutung, zehn für den Vergleich, zehn für die Speicherprobe und zehn für die Schutzhandlung. Sieben Minuten dienen dem neuen Fall und der Sicherung. Drei Minuten bleiben als Reserve.",
     "Achten Sie auf die Begründung: Ein eigener Bereich kann in der Cloud liegen; ein lokaler Ordner kann mehreren Personen zugänglich sein. Ein dunkler Bildschirm oder ein geschlossener Tab ist noch kein Nachweis eines geschützten Zugangs.",
     "Fehlt die sichere Gerätehandlung, bleibt sie offen. Der Fallvergleich ist dann möglich. Reservieren Sie später zwei Minuten zum Erinnern aus dem Jahreskonto. Halten Sie nach dem Einsatz nur Zeitabweichung, häufigste Hürde und nächste Anpassung fest.",
-    "Anschaulicher Einstieg innerhalb der vorhandenen 45 Minuten: erst Geräte und Datei im Bild zeigen lassen, dann Speicherort, Verbindung und Leserkreis getrennt benennen. Bei Pause/Übergabe die Wirkung prüfen, nicht nur einen dunklen Bildschirm. Die Schulkarten müssen den tatsächlichen Startort und Schutzweg enthalten."
-  ]
+    "Anschaulicher Einstieg innerhalb der vorhandenen 45 Minuten: erst Geräte und Datei im Bild zeigen lassen, dann Speicherort, Verbindung und Leserkreis getrennt benennen. Bei Pause/Übergabe die Wirkung prüfen, nicht nur einen dunklen Bildschirm. Die Schulkarten müssen den tatsächlichen Startort und Schutzweg enthalten.",
+    "Individueller Prüfpunkt: Schutzhandlung am eigenen Gerät beobachten; niemand nennt Kennwörter. Bei unklarer Wirkung den sichtbaren Kontostatus zeigen lassen, Handlung erneut ausführen und Zustand prüfen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
+  ],
+  "sequence": {
+    "form": "Routine erwerben",
+    "diagnosticStep": "schuetzen",
+    "diagnosticBlock": "schutzhandlung",
+    "core": "Speicherort und erlaubter Zugriff sind zwei verschiedene Fragen.",
+    "example": "Eine Datei kann im Schulraum liegen, während das eigene Konto noch offen ist.",
+    "boundary": "Ein geschlossenes Fenster belegt keine Abmeldung.",
+    "diagnosis": "Schutzhandlung am eigenen Gerät beobachten; niemand nennt Kennwörter. Bei unklarer Wirkung den sichtbaren Kontostatus zeigen lassen, Handlung erneut ausführen und Zustand prüfen."
+  }
 }

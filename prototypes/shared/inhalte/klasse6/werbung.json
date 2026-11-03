@@ -3,7 +3,7 @@
   "id": "IUM-6-M03-WERBUNG",
   "area": "werbung",
   "grade": 6,
-  "version": "1.0.3",
+  "version": "2.0.0",
   "family": "content",
   "topic": "Werbung und Daten",
   "title": "Warum sehe ich diese Werbung?",
@@ -316,6 +316,19 @@
         "daten",
         "dsa"
       ]
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Ein Auswahlmodell reagiert auf die Daten und Regeln, die es verwendet."
+      ],
+      "example": "Du veränderst einen früheren Besuch und prüfst, ob dadurch eine andere Karte gewählt wird.",
+      "boundary": "Aus einer Anzeige lässt sich das tatsächliche Profil einer Person nicht sicher zurückrechnen.",
+      "steps": [
+        "modell"
+      ],
+      "sources": []
     }
   ],
   "steps": [
@@ -519,7 +532,8 @@
       "outcome": "Vorhersage, selbst gewählte Änderung, Ergebnisse und Modellgrenze.",
       "knowledge": [
         "auswahl",
-        "technik"
+        "technik",
+        "zusammenhang"
       ],
       "criteria": [
         "Ich trenne aktuelle Seite und frühere Besuche.",
@@ -597,7 +611,8 @@
               "label": "Auswahlwege unterscheiden"
             }
           ],
-          "solution": "Start: K Buch (aktuelle Seite Lesen); V Stifte (einmal Lesen, zweimal Zeichnen). Ersetzt du einen Zeichnen-Besuch durch Lesen, zeigt V danach Buch (2:1). Ersetzt du Lesen durch Zeichnen, bleibt V bei Stiften (0:3). K bleibt in beiden Fällen Buch. Der selbst gewählte Eingriff und die eigene Erklärung gehören zum Nachweis; eine abgeschriebene Ergebnistabelle genügt nicht."
+          "solution": "Start: K Buch (aktuelle Seite Lesen); V Stifte (einmal Lesen, zweimal Zeichnen). Ersetzt du einen Zeichnen-Besuch durch Lesen, zeigt V danach Buch (2:1). Ersetzt du Lesen durch Zeichnen, bleibt V bei Stiften (0:3). K bleibt in beiden Fällen Buch. Der selbst gewählte Eingriff und die eigene Erklärung gehören zum Nachweis; eine abgeschriebene Ergebnistabelle genügt nicht.",
+          "responseHint": "Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben."
         }
       ],
       "materialNeeds": [
@@ -609,6 +624,12 @@
           "text": "Nutze zuerst das passende Wissen. Erkläre danach eine konkrete Stelle am Fall mit eigenen Worten.",
           "knowledge": "auswahl",
           "label": "Passendes Wissen"
+        },
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
         }
       ]
     },
@@ -1123,6 +1144,14 @@
         "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
         "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Vor dem einzelnen Eingriff eigene Vorhersage jeder Person lesen oder hören. Bei bloßem Ergebnisprotokoll die geänderte Eingabe und Regel zeigen lassen; mit anderem Besuch erneut vorhersagen und prüfen.",
+        "Der Prüfpunkt liegt im Lernschritt „Verändere die Auswahl selbst“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Ein Auswahlmodell reagiert auf die Daten und Regeln, die es verwendet. Beispiel: Du veränderst einen früheren Besuch und prüfst, ob dadurch eine andere Karte gewählt wird. Grenze: Aus einer Anzeige lässt sich das tatsächliche Profil einer Person nicht sicher zurückrechnen."
+      ]
     }
   ],
   "briefing": [
@@ -1131,6 +1160,16 @@
     "Der Verlauf umfasst dreißig Minuten Orientierung, vierzig Minuten Daten und Modell, fünfzig Minuten Datenbild und eigene Gestaltung, dreißig Minuten Revision, dreißig Minuten geschützten Eigenbezug und dreißig Minuten Transfer mit Sicherung. Halten Sie das Gestaltungsprodukt klein und beobachten Sie bei jeder Person eine echte Änderung.",
     "Achten Sie auf drei Verwechslungen: Metadaten können personenbezogen sein. Die Kennung im Browser ist nicht die Besuchsliste beim Anbieter. Die sichtbare Anzeige beweist keine unbekannte Auswahlregel. Bei abgeschriebener Lösung verändern Sie eine Bedingung und lassen die Erklärung erneut geben. Rückmeldung nennt Stelle, Kriterium und nächste Handlung.",
     "Öffentlich bleiben der neutrale Datenfall, die Produkte und ihre Überarbeitung. Die eigene schulische Datenentscheidung wird privat reflektiert, ohne Abgabe und ohne Kompetenzfreigabe durch Selbsthaken. Eine harmlose Entscheidung zum eigenen Lernprodukt ist ein möglicher eigener Bezug. Zwölf spätere Abrufminuten sind auf M sechs und M sieben verteilt; das Jahresbudget ist noch nicht bestätigt.",
-    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
-  ]
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben.",
+    "Individueller Prüfpunkt: Vor dem einzelnen Eingriff eigene Vorhersage jeder Person lesen oder hören. Bei bloßem Ergebnisprotokoll die geänderte Eingabe und Regel zeigen lassen; mit anderem Besuch erneut vorhersagen und prüfen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
+  ],
+  "sequence": {
+    "form": "Untersuchen",
+    "diagnosticStep": "modell",
+    "diagnosticBlock": "versuch",
+    "core": "Ein Auswahlmodell reagiert auf die Daten und Regeln, die es verwendet.",
+    "example": "Du veränderst einen früheren Besuch und prüfst, ob dadurch eine andere Karte gewählt wird.",
+    "boundary": "Aus einer Anzeige lässt sich das tatsächliche Profil einer Person nicht sicher zurückrechnen.",
+    "diagnosis": "Vor dem einzelnen Eingriff eigene Vorhersage jeder Person lesen oder hören. Bei bloßem Ergebnisprotokoll die geänderte Eingabe und Regel zeigen lassen; mit anderem Besuch erneut vorhersagen und prüfen."
+  }
 }

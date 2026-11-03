@@ -1,0 +1,252 @@
+{
+  "version": "Film 1.0 / Kapitel 1.7.0 / RQ05-F1",
+  "duration": 186.867,
+  "voice": "de-DE-KatjaNeural",
+  "source": "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+  "scenes": [
+    {
+      "id": "A01",
+      "title": "Lea hat eine Frage",
+      "text": "Lea fragt: Leuchtet der Mond selbst? Sie möchte herausfinden, woher das Licht kommt.",
+      "start": 0,
+      "duration": 8.633,
+      "image": "assets/recherche/rq05-film/a01.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": []
+    },
+    {
+      "id": "A02",
+      "title": "Browser und Suchfeld finden",
+      "text": "Der Browser ist ein Programm für Webseiten. Die Suchmaschine fragFINN hilft beim Finden von Webseiten. Hier ist das Suchfeld.",
+      "start": 8.633,
+      "duration": 11.9,
+      "image": "assets/recherche/rq05-film/a02.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Lea öffnet die Suchmaschine fragFINN im Browser. Sie sucht zuerst nach „Mond“."
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Eine breite Suche reicht noch nicht",
+      "text": "Lea sucht nach Mond. Ihre eingegebenen Wörter heißen Suchwörter. Ein Treffer ist ein Suchergebnis. Der erste Titel handelt vom blauen Mond.",
+      "start": 20.533,
+      "duration": 13.2,
+      "image": "assets/recherche/rq05-film/a03.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Der erste sichtbare Titel „Blue Moon“ beantwortet die Frage nach dem Licht noch nicht."
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Mitdenkstelle 1: Suchwort ergänzen",
+      "text": "Welches Wort würdest du ergänzen?",
+      "start": 33.733,
+      "duration": 10.333,
+      "image": "assets/recherche/rq05-film/a04.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Mond + ?",
+        "Denk kurz mit: Welches Wort würdest du ergänzen? Sage deine Idee, bevor du weiterliest."
+      ]
+    },
+    {
+      "id": "A05",
+      "title": "Suche ändern, weiterhin auswählen",
+      "text": "Lea ergänzt leuchtet. Auch jetzt passt der erste Titel noch nicht: Er handelt von einer Mondfinsternis. Lea liest weitere Treffer.",
+      "start": 44.067,
+      "duration": 12,
+      "image": "assets/recherche/rq05-film/a05.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Neue Suche: „Mond leuchtet“. Der erste Titel zur Mondfinsternis passt noch nicht."
+      ]
+    },
+    {
+      "id": "A06",
+      "title": "Einen passenden Titel auswählen",
+      "text": "Weiter unten findet Lea einen passenden Titel: Warum leuchtet der Mond? Sie klickt ihn an. Bei deiner Suche können andere Treffer erscheinen.",
+      "start": 56.067,
+      "duration": 13,
+      "image": "assets/recherche/rq05-film/a06.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Der Treffer „Warum leuchtet der Mond?“ passt zur Lichtfrage. Lea öffnet ihn."
+      ]
+    },
+    {
+      "id": "A07",
+      "title": "Jetzt ist die Quelle geöffnet",
+      "text": "Jetzt ist Frag Sophie geöffnet. Diese Seite ist Leas Quelle. Lea liest im Text unter dem Comic nach.",
+      "start": 69.067,
+      "duration": 10.4,
+      "image": "assets/recherche/rq05-film/a07.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Die geöffnete Quelle: Universität Münster / Frag Sophie!, Dr. Nico Schmedemann. Der erste Textabsatz steht unter dem Comic."
+      ]
+    },
+    {
+      "id": "A08",
+      "title": "Zwei Stellen derselben Seite lesen",
+      "text": "Eine Textstelle ist ein Teil des Textes. Hier stehen zwei kurze Auszüge. Angestrahlt heißt: Licht fällt darauf. Ein Teleskop ist ein Fernrohr.",
+      "start": 79.467,
+      "duration": 20,
+      "image": "assets/recherche/rq05-film/a08.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "A · Am Anfang des Textes: „Der Mond leuchtet nicht selbst, […] weil er von der Sonne, […] angestrahlt wird.“",
+        "B · Am Ende des Textes: Dort geht es um kleine Hügel auf dem Mond. Ihre Schatten kann man „in einem Teleskop beobachten lassen.“",
+        "[…] zeigt ausgelassene Wörter. Die beiden Originalauszüge stammen von Frag Sophie!, erster und letzter Textsatz."
+      ]
+    },
+    {
+      "id": "A09",
+      "title": "Mitdenkstelle 2: passende Textstelle wählen",
+      "text": "Welche Stelle hilft Lea? Zeige die Wörter. Warum hilft die andere nicht?",
+      "start": 99.467,
+      "duration": 14.3,
+      "image": "assets/recherche/rq05-film/a09.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Denk kurz mit: Welche Stelle hilft Lea? Zeige die Wörter. Warum hilft die andere nicht? Wähle zuerst selbst."
+      ]
+    },
+    {
+      "id": "A10",
+      "title": "Auswahl am Text erklären",
+      "text": "Lea wählt A. Dort steht, dass der Mond nicht selbst leuchtet und Licht von der Sonne bekommt. B erklärt, was man mit einem Fernrohr beobachten kann.",
+      "start": 113.767,
+      "duration": 14,
+      "image": "assets/recherche/rq05-film/a10.jpg",
+      "note": [
+        "Noch leer",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "A beantwortet die Lichtfrage: nicht selbst – Licht von der Sonne. B behandelt das Beobachten mit einem Fernrohr; es erklärt die Herkunft des Lichts nicht."
+      ]
+    },
+    {
+      "id": "A11",
+      "title": "In eigenen Worten antworten",
+      "text": "Lea sagt es mit eigenen Worten. Der Mond wirft Sonnenlicht zurück. Dieses Zurückwerfen nennt man Reflexion. Dann schreibt sie ihre Antwort auf.",
+      "start": 127.767,
+      "duration": 15,
+      "image": "assets/recherche/rq05-film/a11.jpg",
+      "note": [
+        "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.",
+        "Noch leer",
+        "Noch leer"
+      ],
+      "details": [
+        "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne."
+      ]
+    },
+    {
+      "id": "A12",
+      "title": "Die genaue Stelle festhalten",
+      "text": "Lea notiert auch die passende Stelle: erster Textabsatz unter dem Comic, erster Satz. So weiß sie später, wo ihre Antwort herkommt.",
+      "start": 142.767,
+      "duration": 11.433,
+      "image": "assets/recherche/rq05-film/a12.jpg",
+      "note": [
+        "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.",
+        "Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.",
+        "Noch leer"
+      ],
+      "details": [
+        "Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz."
+      ]
+    },
+    {
+      "id": "A13",
+      "title": "Seitenname und Adresse übernehmen",
+      "text": "Oben steht die Webadresse. Lea kopiert sie in ihre Notiz. Ein anklickbarer Verweis heißt Link. Der Seitenname kommt dazu.",
+      "start": 154.2,
+      "duration": 14,
+      "image": "assets/recherche/rq05-film/a13.jpg",
+      "note": [
+        "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.",
+        "Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.",
+        "Frag Sophie! · Warum leuchtet der Mond? · https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+      ],
+      "details": [
+        "Frag Sophie! · Warum leuchtet der Mond?",
+        "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+        "Animierte Erklärdarstellung: vollständige Adresse auswählen, kopieren und bei „Hier steht es“ einfügen. Deine Lehrperson zeigt die Adresszeile am echten Schulbrowser."
+      ]
+    },
+    {
+      "id": "A14",
+      "title": "Gespeicherten Link nutzen",
+      "text": "Lea öffnet ihren gespeicherten Link. Sie findet die Seite und den ersten Satz wieder. Ihre Notiz hilft ihr beim Nachlesen.",
+      "start": 168.2,
+      "duration": 11,
+      "image": "assets/recherche/rq05-film/a14.jpg",
+      "note": [
+        "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.",
+        "Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.",
+        "Frag Sophie! · Warum leuchtet der Mond? · https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+      ],
+      "details": [
+        "Lea öffnet den gespeicherten Link. Auf derselben Seite findet sie unter dem Comic den ersten Satz wieder."
+      ]
+    },
+    {
+      "id": "A15",
+      "title": "Von Leas Beispiel zur eigenen Suche",
+      "text": "Jetzt suchst du zu rund und Sichel. Leas Lichtantwort genügt dafür noch nicht.",
+      "start": 179.2,
+      "duration": 7.667,
+      "image": "assets/recherche/rq05-film/a15.jpg",
+      "note": [
+        "Der Mond leuchtet nicht von selbst. Das Licht kommt von der Sonne.",
+        "Frag Sophie!: erster Textabsatz unter dem Comic, erster Satz.",
+        "Frag Sophie! · Warum leuchtet der Mond? · https://www.frag-sophie.de/warum-leuchtet-der-mond/"
+      ],
+      "details": [
+        "Unsere Frage: Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?",
+        "Führe deinen eigenen Arbeitsbogen weiter. Leas Lichtantwort beantwortet diese Frage noch nicht."
+      ]
+    }
+  ]
+}

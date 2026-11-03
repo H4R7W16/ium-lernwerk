@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Durchführung ALG-2, ALG-5 und ALG-6
 
-**Fassung 2.2 · Klasse 7 · 210 Minuten.** Mit ALG-1/3/4 weiterhin 405 Minuten innerhalb der 36-UE-Planung. Das Inhaltsmapping bleibt Grundlage. Fachliche Ziele sind erhalten; Dokumentation wird zusammengeführt. Keine Durchführung, gemessene Motivation oder reale Bearbeitungszeit behauptet.
+**Fassung 2.3 · Klasse 7 · 210 Minuten.** Mit ALG-1/3/4 weiterhin 405 Minuten innerhalb der 36-UE-Planung. Das Inhaltsmapping bleibt Grundlage. Fachliche Ziele sind erhalten; Dokumentation wird zusammengeführt. Keine Durchführung, gemessene Motivation oder reale Bearbeitungszeit behauptet.
 
 ## Vorbereiten und Zugang
 
@@ -55,7 +55,13 @@ Die [Ablaufvorlage](../bilder/alg6-codekarte.svg) wird klein skizziert oder ausg
 
 **Varianten:** Die Person entscheidet begründet, ob die bedingte Schrittweite 12 oder 15 die Marke trifft oder überspringt. Wählt sie 12, ergibt die reparierte bedingte Folge 20→32→44→56/„vorbei“; bei 15:20→35→50/„Ziel“. Vorhersage und Beobachtung gegenüber dem Zehnerlauf erklären. Neuer Kurzfall mit festem Teil 3×10 und bedingt 10:30→40→50/„Ziel“, drei feste und zwei bedingte Bewegungen. Bei erster Reparaturhilfe diesen Kurzfall ohne eingeblendete Lösung erklären lassen. Exportierte Abschlussfassung wieder 2 feste Durchläufe und bedingt 10.
 
-### Elf Kriterien bleiben in derselben Codekarte sichtbar
+### Elf Kriterien, nach ihrer Funktion geordnet
+
+**Beim Untersuchen und Reparieren:** Nr. 2, 3, 4, 8, 9, 10 und 11 werden direkt an der Positionsspur, der ersten Abweichung und dem veränderten Lauf sichtbar. Die kurzen Fragen nach Zustand, Wahrheit und Folge führen die Arbeit.
+
+**Nach der Reparatur fachlich sichern:** Nr. 1, 5, 6 und 7 werden an derselben Karte mit den vorhandenen Randnotizen geklärt. Die vier Kontrollbausteine werden am Ablauf erläutert; keine zweite Ablaufdarstellung oder zusätzliche elfteilige Lernendenliste.
+
+### Fundstellen aller elf Kriterien
 
 | Mappingkriterium | Fundstelle des Individualbelegs |
 |---|---|
@@ -76,3 +82,8 @@ Nr 1–5 beziehen sich auf 3.2.3.1(1), Nr 6 auf(2), Nr 7 auf(3), Nr 8–9 auf(5)
 ## Sicherung, Zeit und Pilotierung
 
 [Sicherung](sicherung.html) nach eigenem Versuch nutzen. Rückmeldung nennt eine konkrete Stelle und einen nächsten Schritt. Tatsächliche Zeit bei ALG-4/6 besonders erfassen;405 Minuten sind weiterhin eine zu prüfende Annahme. Größere Lücken transparent über Unterstützung/Puffer beziehungsweise eine neue Kapazitätsentscheidung bearbeiten. Nach Durchführung in den Jahrgangsbrief Minuten, Hilfe und nächsten Auftrag zurückmelden. Safari/Touch, Offline und Verbindungen bleiben getrennte Geräteprüfungen.
+
+
+## Einsatzauftrag als Maßstab · Fassung 2.3
+
+In den vorhandenen ersten 15 Minuten formuliert jede Person den eigenen Einsatzauftrag: Zweck im Modell, Station, Schrittweite und Priorität für Treffer oder Bewegungszahl. Er ersetzt die bisherige separate Zweitsatzbegründung. Plan und Testliste verweisen auf diese Anforderungen; der Gegenfall muss eine mögliche Schwäche aufdecken. In der vorhandenen Abnahme entscheidet die Person mit Testbeleg, ob ihre Anforderungen erfüllt sind. Individuell prüfen: Warum passt genau dieser Gegenfall? Bei übernommenem Testwert einen anderen Start selbst begründen und testen lassen. 15 + 15 + 40 + 20 = 90 Minuten.

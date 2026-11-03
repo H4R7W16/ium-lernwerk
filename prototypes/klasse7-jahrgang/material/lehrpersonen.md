@@ -60,3 +60,7 @@ Die [29 Zielzuordnungen](lernziele.html) zeigen, wo Angebote und Nachweise liege
 Das Projekt verwendet das vereinbarte Inhaltsmapping zur Anhörungsfassung vom 21.09.2026. Das ist von der jeweils verbindlichen schulischen Planlage zu unterscheiden. Die [Ministeriumsseite zu IuM](https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung) nennt am 28.10.2026 für die Übergangszeit in Klasse 5–7 bestehende Bildungspläne und Lesehilfe. Ein konkretes neues Inkrafttretensdatum wird daraus hier nicht abgeleitet.
 
 Redaktionelle und technische Prüfung liegen vor; tatsächliche Lernergebnisse, Zeitbedarf und Einsatz auf den konkreten Schulgeräten sind noch zu erheben. Eigene neue Texte und Fälle: CC BY-SA 4.0; Rechte der bestehenden Materialien siehe die Quellenhinweise in jedem Lernbogen.
+
+## Anschluss aus Klasse 6
+
+In der vorhandenen Eingangsdiagnose zunächst eine sachliche Arbeit aus Klasse 6 heranziehen: Quellenakte, Grafik mit Code oder revidierte Erklärung. Jede Person benennt ihren Beitrag und eine offene Handlung; anschließend entscheidet die eigene Bearbeitung des neuen Diagnosefalls über die Hilfe. Ein Gruppenprodukt allein belegt kein individuelles Können. Fehlt das Vorprodukt oder erfolgt ein Quereinstieg, bleibt die bereitliegende Startdatei der gemeinsame Einstieg. Private Reflexionen und Hilfeanliegen werden nicht übernommen. Dieser Anschluss ersetzt die bisherige allgemeine Vorerfahrungsabfrage; die 90 Minuten bleiben unverändert.

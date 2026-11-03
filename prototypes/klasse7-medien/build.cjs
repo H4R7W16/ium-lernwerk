@@ -31,8 +31,8 @@ function addMedia(source){
  }
  walk(dir);if(count!==Object.keys(manifest.files).length)throw Error('Unvollständige Medienquelle');
  const year='klasse7/programmieren/lehrpersonen/jahrgang.html',html=all.get(year);
- if(typeof html!=='string'||!html.includes('Die übrigen Lernbögen bleiben in Materialproduktion offen.'))throw Error('Bekannter Jahrgangsstatus fehlt.');
- all.set(year,html.replace('Die übrigen Lernbögen bleiben in Materialproduktion offen.','Der Medienbogen liegt seit dem 28.10.2026 als vollständige, redaktionell geprüfte Fassung 1.0 mit 270 Minuten vor. <a href="../../medien/index.html">Zur Medienwerkstatt mit Durchführung, Sicherung und Briefings</a>. Unterrichtserprobung bleibt offen. Daten und Gaming/Wohlbefinden bleiben in Materialproduktion offen.'));
+ if(typeof html!=='string'||!html.includes('Gesamtkonzept 5–7'))throw Error('Aktuelle kanonische Jahrgangsfassung fehlt.');
+ all.set(year,html.replace('</article>','<p><a href="../../medien/index.html">Medienwerkstatt: Lernendenmaterial, Durchführung, Sicherung und Briefings</a></p></article>'));
  return all;
 }
 function connectMedia(source){

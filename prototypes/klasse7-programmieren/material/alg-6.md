@@ -24,6 +24,8 @@ Nutzt die [Ablaufvorlage](../bilder/alg6-codekarte.svg). Beginnt gemeinsam bei 0
 
 ## 2 · Untersuchen und reparieren · 35 Minuten
 
+**Während der Fehlersuche brauchst du drei Prüffragen:** Wo steht der Rover? Was ergibt die nächste Bedingung? Welche Handlung folgt? Trage Antworten direkt an der entsprechenden Stelle deiner Codekarte ein.
+
 **Vorhersage:** Ergänze die Positionsfolge an beiden Schleifen bis zur Meldung. Beschrifte die Bedingungsausgänge mit wahr/falsch. Notiere auch die letzte Abbruchprüfung. Erkläre mit deiner Karte, was Anweisung, feste Wiederholung, bedingte Wiederholung und Verzweigung jeweils tun.
 
 **Prüfen:** Nutze **Schrittmodus**, **Starten**, dann **Ein Schritt**. Vergleiche mit deiner ersten Spur. Markiere die erste Prüfung, deren Folge gegen den Auftrag verstößt. Formuliere dort die Fehlerursache und ändere nur die Abbruchbedingung. Prüfe denselben Fall erneut.
@@ -41,6 +43,8 @@ Soll bei wahr weitergefahren oder aufgehört werden? Formuliere „erreicht oder
 </details>
 
 **Deine Variante:** Wähle für die bedingte Schleife Schrittweite **12 oder 15**. Welche Wahl trifft die Marke, welche überspringt sie? Sage Endposition und Meldung vorher voraus, führe aus und ergänze beides auf der Karte. Was erklärt die Veränderung?
+
+**Nach der Reparatur: fachlich sichern.** Erkläre die vier Ablaufbausteine an deiner vorhandenen Karte; zeichne nichts erneut.
 
 **Randnotizen zur selben Karte:** Ergänze knapp, was die folgenden Stellen erhalten bzw. liefern oder bewirken. Benenne Werttyp und vorhandenen Rechen-/Vergleichsoperator. Stichwörter und Wertpfeile genügen; beziehe dich auf den ursprünglichen Code.
 

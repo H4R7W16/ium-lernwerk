@@ -25,13 +25,13 @@ function enhance(name,html,info){
  const dependencies='<link rel="stylesheet" href="'+relative(name,info.root+'grade-navigation.css')+'"><script src="'+relative(name,info.root+'grade-navigation.js')+'" defer></script>';
  return html.replace(header,next).replace('</head>',dependencies+'</head>');
 }
-function refreshWorker(all,root){
+function refreshWorker(all,root,extra=[]){
  const name=root+'mantel-sw.js',worker=all.get(name);
  if(!worker)return;
  const list=worker.match(/FILES=(\[[^\r\n]*?\]),CACHE=/);
  if(!list||!/const VERSION='[a-f0-9]{12}'/.test(worker))throw Error('Unbekanntes Offlinepaket: '+name);
  const files=JSON.parse(list[1]);
- for(const file of ['grade-navigation.css','grade-navigation.js'])if(!files.includes(file))files.push(file);
+ for(const file of ['grade-navigation.css','grade-navigation.js',...extra])if(!files.includes(file))files.push(file);
  const hash=crypto.createHash('sha256');
  for(const [file,value]of [...all].filter(([file])=>file.startsWith(root)&&file!==name).sort(([a],[b])=>a<b?-1:a>b?1:0)){hash.update(file);hash.update(value);}
  all.set(name,worker.replace(/const VERSION='[a-f0-9]{12}'/,"const VERSION='"+hash.digest('hex').slice(0,12)+"'").replace(list[0],'FILES='+JSON.stringify(files)+',CACHE='));
@@ -67,4 +67,4 @@ function addGradeNavigation(source){
  bindEditorShell(all);validateLinks(all);
  return all;
 }
-module.exports={addGradeNavigation};
+module.exports={addGradeNavigation,refreshWorker,validateLinks};

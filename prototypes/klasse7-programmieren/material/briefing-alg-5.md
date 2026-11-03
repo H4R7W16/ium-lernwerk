@@ -17,3 +17,8 @@ Vor der letzten Speicherung nur den Start auf null zurückstellen. Eigene Statio
 ## Anhang · Arbeitsfassung
 
 Maßgeblicher Ablauf, Lösungen, Hilfen und Materiallinks: [Durchführungsplan für ALG-5](alg-5-durchfuehrung.html).
+
+
+## Einsatzauftrag als Maßstab · Fassung 2.3
+
+In den vorhandenen ersten 15 Minuten formuliert jede Person den eigenen Einsatzauftrag: Zweck im Modell, Station, Schrittweite und Priorität für Treffer oder Bewegungszahl. Er ersetzt die bisherige separate Zweitsatzbegründung. Plan und Testliste verweisen auf diese Anforderungen; der Gegenfall muss eine mögliche Schwäche aufdecken. In der vorhandenen Abnahme entscheidet die Person mit Testbeleg, ob ihre Anforderungen erfüllt sind. Individuell prüfen: Warum passt genau dieser Gegenfall? Bei übernommenem Testwert einen anderen Start selbst begründen und testen lassen. 15 + 15 + 40 + 20 = 90 Minuten.

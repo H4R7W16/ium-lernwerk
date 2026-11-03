@@ -1,0 +1,174 @@
+{
+  "scope": "Öffentliche Tabaufnahmen; keine Browser-Adressleiste, keine anderen Fenster, keine privaten Tabs.",
+  "captureDate": "2026-10-13",
+  "captures": [
+    {
+      "name": "01-suchfeld-mond.jpg",
+      "url": "https://www.fragfinn.de/",
+      "moment": "Mond im Suchfeld, noch nicht abgesendet",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1149,
+      "height": 775,
+      "sha256": "f21c4243d1f97676d7a1588775fe761b7152a652dfa58e3d2577d3b463acdaf7"
+    },
+    {
+      "name": "02-treffer-mond.jpg",
+      "url": "https://www.fragfinn.de/?stype=&s=Mond",
+      "moment": "Echte Ergebnisse: erster Titel Blue Moon",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1149,
+      "height": 775,
+      "sha256": "3ec5362e87f6bb23815e054de64a94af1169bf674653f1e9cd21ae6a53e9c45f"
+    },
+    {
+      "name": "03-suchfeld-mond-leuchtet.jpg",
+      "url": "https://www.fragfinn.de/?stype=&s=Mond",
+      "moment": "Suchfeld auf Mond leuchtet geändert, noch nicht abgesendet",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1148,
+      "height": 440,
+      "sha256": "b016fc74fb92c6c1071dec39a23af9f1e18c7a12cec79a56f5d1cfe4caf46e7e"
+    },
+    {
+      "name": "04-treffer-mond-leuchtet.jpg",
+      "url": "https://www.fragfinn.de/?stype=&s=Mond+leuchtet",
+      "moment": "Echte Ergebnisse: erster Titel Mondfinsternis",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1149,
+      "height": 775,
+      "sha256": "58cb53a847ed24851c869d98f93b1c5bf60560017ebe26bf2dc9c91f8ef42ba6"
+    },
+    {
+      "name": "05-passender-treffer.jpg",
+      "url": "https://www.fragfinn.de/?stype=&s=Mond+leuchtet",
+      "moment": "Sichtbare Trefferstelle unmittelbar nach tatsächlichem Titelklick; ursprüngliche Clip-Koordinaten korrigiert",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1149,
+      "height": 775,
+      "sha256": "df4856bfa27145a629e0eec24b8413396d2a6ae3bfe453cb59f994bc58dc5a40"
+    },
+    {
+      "name": "06-quelle-geoeffnet.jpg",
+      "url": "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+      "moment": "Durch den echten Trefferklick geöffnet: neuer öffentlicher Tab 200229400",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1148,
+      "height": 425,
+      "sha256": "d5e3607103b55a836c833df3d28f456fe43200cab5ef89ed00bc6f92cd226aa0"
+    },
+    {
+      "name": "07-erster-textabsatz.jpg",
+      "url": "https://www.frag-sophie.de/warum-leuchtet-der-mond/",
+      "moment": "Erster Textabsatz unter dem Comic; dokumentgebundener Clip x52/y5133/w1045/h65, im öffentlichen Tab 200229401 tatsächlich gesichtet",
+      "captured": "2026-10-13",
+      "controller": "Cua Browser API, Edge 3; nur öffentliche Tabs im freigegebenen Fenster",
+      "width": 1045,
+      "height": 65,
+      "sha256": "efd6a032cd5a20eb43dbb9a73595b926100f4478e37a1b4bebf4efa893aeea0f"
+    }
+  ],
+  "crops": [
+    {
+      "input": "01-suchfeld-mond.jpg",
+      "output": "01-uebersicht.jpg",
+      "rectangle": {
+        "left": 0,
+        "top": 0,
+        "width": 1148,
+        "height": 300
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "01-suchfeld-mond.jpg",
+      "output": "01-suchfeld.jpg",
+      "rectangle": {
+        "left": 270,
+        "top": 198,
+        "width": 690,
+        "height": 75
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "02-treffer-mond.jpg",
+      "output": "02-treffer.jpg",
+      "rectangle": {
+        "left": 287,
+        "top": 550,
+        "width": 515,
+        "height": 90
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "03-suchfeld-mond-leuchtet.jpg",
+      "output": "03-suchfeld.jpg",
+      "rectangle": {
+        "left": 270,
+        "top": 198,
+        "width": 690,
+        "height": 75
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "04-treffer-mond-leuchtet.jpg",
+      "output": "04-treffer.jpg",
+      "rectangle": {
+        "left": 287,
+        "top": 550,
+        "width": 515,
+        "height": 95
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "05-passender-treffer.jpg",
+      "output": "05-treffer.jpg",
+      "rectangle": {
+        "left": 282,
+        "top": 370,
+        "width": 520,
+        "height": 95
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "06-quelle-geoeffnet.jpg",
+      "output": "06-uebersicht.jpg",
+      "rectangle": null,
+      "processing": "Unveränderte Originalbytes"
+    },
+    {
+      "input": "06-quelle-geoeffnet.jpg",
+      "output": "06-titel.jpg",
+      "rectangle": {
+        "left": 379,
+        "top": 360,
+        "width": 395,
+        "height": 61
+      },
+      "processing": "Reiner rechteckiger Ausschnitt; keine Retusche, Ergänzung oder nachgebaute Browseroberfläche"
+    },
+    {
+      "input": "07-erster-textabsatz.jpg",
+      "output": "07-absatz.jpg",
+      "rectangle": null,
+      "processing": "Unveränderte Originalbytes"
+    }
+  ],
+  "open": [
+    "Native Adressleiste markieren/kopieren",
+    "Echte URL-Einfügung",
+    "Wiederöffnen aus derselben tatsächlich ergänzten Notiz"
+  ],
+  "captureCorrections": "Vor Übernahme gesichtet: zwei anfänglich falsch positionierte Clips ersetzt; sie wurden nicht in die Bildfolge übernommen.",
+  "liveReview": "Lokale Bildfolge im Codex-Browser ausdrücklich zusätzlich freigegeben. Vorschau nach Korrektur des eigenen Servers (normalisierte Windows-Pfade) erreichbar. 13 Momente über Bildnavigation und Textzugang live gelesen; breite 1200x900 und schmale 390x844 Browseransicht zusätzlich gesichtet. Keine technischen Funktionalitätstests."
+}

@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {prepareAdditionalPages}=require('../recherche-beispiel/build.cjs');
 const {augment}=require('../shared/class6-render.cjs');
-const preserved=require('./bestand-sha256.json');
+const preserved=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'));
 const {addClass7}=require('../klasse7-programmieren/build.cjs');
 const {addMedia,connectMedia}=require('../klasse7-medien/build.cjs');
 const {addData,connectData}=require('../klasse7-daten/build.cjs');
@@ -32,7 +32,7 @@ function preparePages(){
  return all;
 }
 function prepareNavigablePages(){return require('../klasse7-jahrgang/build.cjs').addYearRoutes(connectGaming(connectData(connectMedia(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages())))));}
-function preparePublishedPages(){return require('../shared/grade-navigation.cjs').addGradeNavigation(prepareNavigablePages());}
+function preparePublishedPages(){return require('../shared/gesamtkonzept.cjs').addConcept(require('../shared/grade-navigation.cjs').addGradeNavigation(prepareNavigablePages()));}
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');
  const all=preparePublishedPages();

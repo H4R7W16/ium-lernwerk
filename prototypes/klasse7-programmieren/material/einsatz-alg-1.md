@@ -4,7 +4,7 @@
 
 ## Auftrag, Referenz und Grenzen
 
-Maßgebliche Durchführungsfassung für den ersten Einsatz von **„Welche Route trifft die Station?“**. Sie konkretisiert die veröffentlichte [Lernendenfassung 2.2](../lernende/alg-1.html) und den vorhandenen [Reihenkommentar](durchfuehrung-134.html). Revision 2.2 zieht die erste eigene Ausführung nach kurzer Vorhersage in die ersten zehn Minuten; der Editor bleibt unverändert.
+Maßgebliche Durchführungsfassung für den ersten Einsatz von **„Welche Route trifft die Station?“**. Sie konkretisiert die veröffentlichte [Lernendenfassung 2.3](../lernende/alg-1.html) und den vorhandenen [Reihenkommentar](durchfuehrung-134.html). Revision 2.2 zieht die erste eigene Ausführung nach kurzer Vorhersage in die ersten zehn Minuten; der Editor bleibt unverändert.
 
 **Verbindlich:** Snap! in der Lernwerk-Ansicht, Rover-Rahmung, Station x = 20, 45 Minuten mit 10 + 10 + 15 + 10 Minuten. ALG-1 bleibt Teil der 405 Programmierminuten innerhalb der 36 Jahres-UE. Eigene Routenentscheidung, Vorhersage vor dem Lauf, ein gebündeltes Lernprodukt und Datei-Rückkehr bleiben erhalten.
 
@@ -99,6 +99,11 @@ Selbstreview anhand des Lernwerk-Prüfrasters und der bereits verwendeten Planun
 - **Fallback:** Papier hält das fachliche Arbeiten aufrecht; fehlender Gerätelauf und fehlende Diagnose bleiben offen und steuern den Anschluss.
 - **Wichtigster Prüfpunkt im Einsatz:** Bleiben nach eigener Route und Kurzfall tatsächlich fünf Minuten für die Datei-Rückkehr? Dauer und konkrete Hürde notieren.
 
-Gelesene Referenzen: revidierte ALG-1-Quelle 2.2, vorhandene Lehrpersonenfassung, Jahrgangsbrief und Reihenstand; Unterrichtsmanifest, pädagogisches Profil und Prüf-Gates aus dem Planungsstart. Diese Durchführungsnotiz ist eine redaktionelle Planung, keine neue Safari- oder Unterrichtsprobe.
+Gelesene Referenzen: revidierte ALG-1-Quelle 2.3, vorhandene Lehrpersonenfassung, Jahrgangsbrief und Reihenstand; Unterrichtsmanifest, pädagogisches Profil und Prüf-Gates aus dem Planungsstart. Diese Durchführungsnotiz ist eine redaktionelle Planung, keine neue Safari- oder Unterrichtsprobe.
 
 **Nach dem Einsatz hier ergänzen:** tatsächlich erreichte Phase/Zeit; typische Vorhersage und ihre Begründung; welche Hilfe nötig war; neue-Fall-Antworten sicher/unsicher/nicht erhoben; Datei-Rückkehr erfolgreich/offen und Gerätekonfiguration; konkrete Konsequenz für ALG-2. Bis dahin keine Zahlen oder Lernendenbeobachtungen eintragen.
+
+
+## Anschluss aus Klasse 5/6 und Quereinstieg
+
+Bekannte Anweisung, Wiederholung und Zustandsfolge am Karten- oder Zeichenbeispiel kurz wiedererkennen. In ALG-1 innerhalb des Einstiegs das Anklicken eines losen Stapels, Stopp und einen Blockzug zeigen; anschließend führt jede Person selbst aus. Wer ohne Snap-Erfahrung beginnt, sagt nur den ersten Schritt des Startstapels voraus und prüft ihn. Fachliche Erklärung und neue Bedienung getrennt beobachten. Kein zusätzlicher Einführungskurs vor den 405 Minuten.

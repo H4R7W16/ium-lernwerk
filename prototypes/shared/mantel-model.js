@@ -52,21 +52,32 @@ function toolValid(tool,unit){
 }
 function genericFieldAllowed(unit,key){return unit.family!=='algorithm'&&unit.family!=='media'||key==='i:lw-retrieval';}
 function envelope(unit,payload,id,date){return {format:'ium-learning-state',formatVersion:1,moduleId:unit.id,moduleVersion:unit.version,stateSchemaVersion:1,workspaceId:id,savedAt:date,payload:{schema:unit.grade===6?'klasse6-mantel-1':'klasse5-mantel-1',family:unit.family,...clone(payload)}};}
+function resolveUnit(record,units){
+ const current=units.find(u=>u.id===record.moduleId);
+ if(!current)return null;
+ if(current.version===record.moduleVersion)return current;
+ const previous=current.compatibleVersions?.find(u=>u.id===record.moduleId&&u.version===record.moduleVersion);
+ return previous?{...previous,readOnly:true}:null;
+}
+function resumeId(store,unit,newId){
+ const candidates=store.records.filter(r=>r.moduleId===unit.id&&r.moduleVersion===unit.version);
+ return candidates.find(r=>r.workspaceId===store.active[unit.id])?.workspaceId||candidates.at(-1)?.workspaceId||newId;
+}
 function parse(text,units){
  const bad=message=>({ok:false,message});if(typeof text!=='string'||new TextEncoder().encode(text).length>MAX_BYTES)return bad('Die Arbeitsdatei ist zu groß (höchstens 2 MB).');
  try{
  const r=JSON.parse(text);if(!safe(r)||!keys(r,['format','formatVersion','moduleId','moduleVersion','stateSchemaVersion','workspaceId','savedAt','payload'])||r.format!=='ium-learning-state'||r.formatVersion!==1||r.stateSchemaVersion!==1||!uuid.test(r.workspaceId)||typeof r.savedAt!=='string'||!Number.isFinite(Date.parse(r.savedAt)))return bad('Die Datei ist keine unterstützte Lernwerk-Arbeitsdatei.');
- const unit=units.find(u=>u.id===r.moduleId);if(!unit||r.moduleVersion!==unit.version)return bad('Diese Arbeitsdatei passt nicht zu einer verfügbaren Lerneinheit/Fassung.');
+ const unit=resolveUnit(r,units);if(!unit)return bad('Diese Arbeitsdatei passt nicht zu einer verfügbaren Lerneinheit/Fassung.');
  const p=r.payload;if(!keys(p,['schema','family','step','fields','tool'])||p.schema!==(unit.grade===6?'klasse6-mantel-1':'klasse5-mantel-1')||p.family!==unit.family||!unit.steps.some(s=>s.id===p.step)||!Array.isArray(p.fields)||p.fields.length>300||!toolValid(p.tool,unit))return bad('Aufgabe oder Werkzeugdaten sind nicht kompatibel.');
  if(p.fields.some(f=>!keys(f,['key','value','type','label','category'])||!unit.fields.includes(f.key)||!['text','radio','checkbox','select','range'].includes(f.type)||!(f.type==='checkbox'?typeof f.value==='boolean':str(f.value))||('category' in f&&f.category!=='work')||('label' in f&&!str(f.label,120))))return bad('Die Datei enthält unbekannte oder private Datenfelder.');
- return {ok:true,record:clone(r),unit};
+ return {ok:true,record:clone(r),unit,readOnly:!!unit.readOnly};
  }catch{return bad('Diese Datei konnte nicht gelesen werden. Deine bisherige Arbeit bleibt erhalten.');}
 }
 function accept(store,record,mode,newId){
  const next=clone(store),r=clone(record);if(mode==='separate'){if(!uuid.test(newId))throw new Error('Ungültige Stand-ID');r.workspaceId=newId;next.records.push(r);}
- else if(mode==='replace'){const index=next.records.findIndex(x=>x.workspaceId===newId&&x.moduleId===r.moduleId);if(index<0)throw new Error('Der zu ersetzende Stand fehlt.');r.workspaceId=newId;next.records[index]=r;}
+ else if(mode==='replace'){const index=next.records.findIndex(x=>x.workspaceId===newId&&x.moduleId===r.moduleId);if(index<0)throw new Error('Der zu ersetzende Stand fehlt.');if(next.records[index].moduleVersion!==r.moduleVersion)throw new Error('Eine andere Fassung muss als getrennter Stand übernommen werden.');r.workspaceId=newId;next.records[index]=r;}
  else throw new Error('Unbekannte Übernahme');
  next.active[r.moduleId]=r.workspaceId;return next;
 }
-return {MAX_BYTES,clone,parse,envelope,accept,toolValid,genericFieldAllowed};
+return {MAX_BYTES,clone,parse,envelope,accept,toolValid,genericFieldAllowed,resolveUnit,resumeId};
 });
