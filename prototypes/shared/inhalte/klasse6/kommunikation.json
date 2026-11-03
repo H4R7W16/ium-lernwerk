@@ -3,7 +3,7 @@
   "id": "IUM-6-M06-KOMMUNIKATION",
   "area": "kommunikation",
   "grade": 6,
-  "version": "1.0.1",
+  "version": "2.0.0",
   "family": "content",
   "topic": "Kommunikationsräume",
   "title": "Wer liest mit? Was folgt daraus?",
@@ -221,6 +221,19 @@
         "revision",
         "transfer",
         "abruf"
+      ],
+      "sources": []
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Zweck, Empfängerkreis und mögliche Weitergabe bestimmen einen passenden Kommunikationsweg."
+      ],
+      "example": "Eine technische AG-Anleitung kann öffentlich nützlich sein; private Kontaktdaten gehören nicht automatisch dazu.",
+      "boundary": "Ein geschlossener Raum verhindert nicht jede Weitergabe; ein unbekanntes Konto belegt keine sichere Identität.",
+      "steps": [
+        "transfer"
       ],
       "sources": []
     }
@@ -663,7 +676,8 @@
         "raeume",
         "wirkung",
         "handeln",
-        "urteil"
+        "urteil",
+        "zusammenhang"
       ],
       "blocks": [
         {
@@ -680,7 +694,7 @@
           "title": "Erst selbst entscheiden",
           "text": "Empfiehl einen Kommunikationsweg für die technische Frage. Nenne einen Nutzen, einen Einwand und deine Gewichtung. Erkläre, warum deine Schulfest-Regel nicht einfach unverändert gelten muss. Reagiere auf die Telefonforderung und ordne den Erfolgsbeitrag ein. Erst danach die Vergleichslösung öffnen.",
           "prompt": "Mein neues Urteil mit Belegen und Grenzen.",
-          "responseHint": "Fünf kurze Sätze genügen. Nutze auf Papier die leere Fläche oder dein Heft.",
+          "responseHint": "Fünf kurze Sätze genügen. Nutze auf Papier die leere Fläche oder dein Heft. Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben.",
           "help": [
             {
               "title": "Welche Bedingung ist wirklich neu?",
@@ -719,7 +733,15 @@
       "completion": {
         "title": "Deine Empfehlung ist begründet",
         "text": "Dein Fallurteil und die Revision zeigen deine Überlegungen. Die tatsächliche Kommunikation wird gesondert betrachtet; fehlende digitale Schritte bleiben offen. Bewahre die öffentliche Arbeit auf. Deine persönliche Reflexion bleibt bei dir."
-      }
+      },
+      "checkHelp": [
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
+        }
+      ]
     },
     {
       "id": "abruf",
@@ -850,6 +872,21 @@
         "Die genannten Kernblöcke beschreiben die Abfolge innerhalb dieser Reihe. Die vollständigen 45-Minuten-Termine einschließlich Abrufen, Förderung, Organisation und Puffer stehen im gemeinsamen Jahresplan. Nur den im Abrufregister bezeichneten Teil bearbeiten; nicht ein ganzes Blatt zusätzlich zählen.",
         "Fachliche Ergebnisse am vereinbarten Ort aufbewahren. Lernwerk-Arbeitsdatei und externe Produktdateien getrennt sichern; persönliche Reflexionen und Hilfeanliegen nicht in die Jahrgangssammlung aufnehmen."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Jede Person begründet im Transfer eine veränderte Kanalentscheidung mit Fallbeleg und Grenze. Bei bloßer Regelwiedergabe den Zweck ändern, erneut entscheiden lassen. Persönliche Erfahrungen werden weder verlangt noch weitergereicht.",
+        "Der Prüfpunkt liegt im Lernschritt „Andere Bedingungen, neues Urteil“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Zweck, Empfängerkreis und mögliche Weitergabe bestimmen einen passenden Kommunikationsweg. Beispiel: Eine technische AG-Anleitung kann öffentlich nützlich sein; private Kontaktdaten gehören nicht automatisch dazu. Grenze: Ein geschlossener Raum verhindert nicht jede Weitergabe; ein unbekanntes Konto belegt keine sichere Identität."
+      ]
+    },
+    {
+      "title": "Vorbereitung und offene Gerätehandlungen",
+      "paragraphs": [
+        "Vorab zwei erlaubte schulische Kommunikationswege, Empfängerkonto, Rechte, Dateiformat und konkreten lokalen Hilfeweg prüfen. Die empfangende Person bestätigt den Inhalt aus ihrem eigenen Zugang; ein sichtbarer Senden-Knopf genügt nicht.",
+        "Ohne Zugang werden Entscheidung und Nachrichtentext bearbeitet; tatsächliches Senden und Empfangen bleiben ausdrücklich offen. Innerhalb der vorhandenen Gerätephase nachholen, bei größerer Hürde im vorgesehenen Unterstützungskonto dokumentieren. Private Reflexionen weder in die gemeinsame Karte noch in die Übergabe an Klasse 7 aufnehmen."
+      ]
     }
   ],
   "briefing": [
@@ -859,6 +896,16 @@
     "Achten Sie auf fallbezogene Gewichtung, mögliche statt unterstellte Gefühle, Identitätsprüfung und Unterstützung ohne Schuldzuweisung. „Geschlossen“ verhindert nicht jede Kopie. Ein öffentlicher Aufruf kann je nach Zweck begründet sein.",
     "Prüfen Sie Urteil, tatsächlichen Austausch und privaten Eigenbezug getrennt. Eine Notiz beweist keinen Versand; ein Haken beweist keine Reflexionsqualität. Ohne Schulzugang Papierdialog durchführen, digitale Handlung offen lassen und nachholen. Die vollständige Kommunikation braucht reale Personen.",
     "Sichern Sie erste und zweite Fassung sowie die sachliche Rückmeldung. Persönliche Gedanken oder Hilfeanliegen nicht einsammeln. Beobachtete Hürden mit Fassung/Schritt und ohne Namen für die Erprobung festhalten.",
-    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben."
-  ]
+    "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben.",
+    "Individueller Prüfpunkt: Jede Person begründet im Transfer eine veränderte Kanalentscheidung mit Fallbeleg und Grenze. Bei bloßer Regelwiedergabe den Zweck ändern, erneut entscheiden lassen. Persönliche Erfahrungen werden weder verlangt noch weitergereicht. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
+  ],
+  "sequence": {
+    "form": "Beurteilen",
+    "diagnosticStep": "transfer",
+    "diagnosticBlock": "transfer",
+    "core": "Zweck, Empfängerkreis und mögliche Weitergabe bestimmen einen passenden Kommunikationsweg.",
+    "example": "Eine technische AG-Anleitung kann öffentlich nützlich sein; private Kontaktdaten gehören nicht automatisch dazu.",
+    "boundary": "Ein geschlossener Raum verhindert nicht jede Weitergabe; ein unbekanntes Konto belegt keine sichere Identität.",
+    "diagnosis": "Jede Person begründet im Transfer eine veränderte Kanalentscheidung mit Fallbeleg und Grenze. Bei bloßer Regelwiedergabe den Zweck ändern, erneut entscheiden lassen. Persönliche Erfahrungen werden weder verlangt noch weitergereicht."
+  }
 }

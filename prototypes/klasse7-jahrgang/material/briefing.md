@@ -15,3 +15,7 @@ Planen Sie nach den ersten drei Bögen mit Abstand neue Abruffälle ein: zwanzig
 Die engsten Stellen sind die Kommunikationsentscheidung in MED fünf und die gebündelte Codeanalyse in ALG sechs. Halten Sie Antworten knapp und lassen Sie gleichwertige mündliche Erklärungen zu. Streichen Sie bei Zeitdruck keine zentrale Eigenhandlung. Halten Sie die offene Stelle fest und buchen Sie gezielte Nachholzeit sichtbar.
 
 Persönliche Reflexion bleibt privat. Fachliche Fallurteile können besprochen werden; daraus folgt keine nachgewiesene Änderung des persönlichen Medienhandelns. Geben Sie an Klasse acht nur sachliche Produkte, offene fachliche Fragen und hilfreiche Unterstützungen weiter. Die Fassung ist redaktionell geprüft. Wie gut die Zeiten für Ihre Lerngruppe tragen, muss der reale Einsatz zeigen.
+
+## Anschluss aus Klasse 6
+
+In der vorhandenen Eingangsdiagnose zunächst eine sachliche Arbeit aus Klasse 6 heranziehen: Quellenakte, Grafik mit Code oder revidierte Erklärung. Jede Person benennt ihren Beitrag und eine offene Handlung; anschließend entscheidet die eigene Bearbeitung des neuen Diagnosefalls über die Hilfe. Ein Gruppenprodukt allein belegt kein individuelles Können. Fehlt das Vorprodukt oder erfolgt ein Quereinstieg, bleibt die bereitliegende Startdatei der gemeinsame Einstieg. Private Reflexionen und Hilfeanliegen werden nicht übernommen. Dieser Anschluss ersetzt die bisherige allgemeine Vorerfahrungsabfrage; die 90 Minuten bleiben unverändert.

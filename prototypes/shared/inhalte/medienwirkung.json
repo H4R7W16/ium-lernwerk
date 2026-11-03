@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M05-MEDIENWIRKUNG",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "grade": 5,
   "area": "medienwirkung",
   "family": "content",
@@ -73,6 +73,14 @@
       "paragraphs": [
         "Fallurteil und Bildbeitrag samt Änderungsspur sichern. Fünf spätere Minuten: drei neutraler Abruf, zwei private Wiederaufnahme. Damit M01–M05: 32 von 135 Jahresminuten; keine Doppelzählung des sofortigen Bibliothekstransfers. Für M06 bleiben präzise Beschreibung, Belegprüfung und Revision anschlussfähig. Nach Erprobung Zeitabweichung, eine häufige Hürde und Anpassung festhalten."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Im Bibliotheksfall nennt jede Person Bildbeleg und Aussagegrenze ohne alte Antwort. Bei Verallgemeinerung sichtbare Stelle markieren und die Behauptung erneut begrenzen. Persönliche Reflexion bleibt privat.",
+        "Der Prüfpunkt liegt im Lernschritt „Trägt dein Urteil auch beim neuen Bild?“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Eine mediale Darstellung zeigt einen ausgewählten Ausschnitt. Beispiel: Leere Bibliothekssessel belegen leere Sessel im gezeigten Moment. Grenze: Sie belegen weder die Nutzung der ganzen Bibliothek noch die Absicht der Person, die fotografierte."
+      ]
     }
   ],
   "briefing": [
@@ -80,7 +88,8 @@
     "Bereiten Sie die Hilfekarte und einen geschützten Reflexionsweg vor. Persönliche Gedanken werden nicht eingesammelt, vorgezeigt oder in normale Antwortfelder übertragen. Papier oder Denken ist gleichwertig zur freiwilligen privaten Notiz. Eine harmlose eigene Erfahrung aus dem Unterricht genügt. Ein fiktiver Fall bleibt Vorbereitung. Auf einem geteilten Gerät erhält jede Person einen eigenen Browsertab und eine unterscheidbare Arbeitsdatei. Wegblätter für das Bildlabor zusammen mit den drei verlinkten Bildblättern austeilen.",
     "Die ersten beiden Stunden führen vom Werbevergleich über den Bildversuch zum Fallurteil. Stunde drei beginnt mit eigener Gestaltung und echtem Lesetest. Stunde vier enthält dessen Abschluss, das neutrale Reflexionsmodell und persönliche Denkzeit. Stunde fünf schließt den Optionenvergleich ab und führt über den Bibliotheksfall zu Hilfe bei Ausgrenzung.",
     "Beobachten Sie konkrete Begründungen, tatsächliche Bedienung, echte Rückmeldung und begründete Änderungen. Weder Häkchen noch freiwillige Fertigmeldungen beweisen die Qualität persönlicher Reflexion. Fünf Minuten Wiederaufnahme folgen später: drei öffentlich am neutralen Fall, zwei privat am eigenen Vorhaben.",
-    "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen."
+    "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen.",
+    "Individueller Prüfpunkt: Im Bibliotheksfall nennt jede Person Bildbeleg und Aussagegrenze ohne alte Antwort. Bei Verallgemeinerung sichtbare Stelle markieren und die Behauptung erneut begrenzen. Persönliche Reflexion bleibt privat. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "sources": [
     {
@@ -318,6 +327,19 @@
       "sources": [
         "klicksafe"
       ]
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Eine mediale Darstellung zeigt einen ausgewählten Ausschnitt."
+      ],
+      "example": "Leere Bibliothekssessel belegen leere Sessel im gezeigten Moment.",
+      "boundary": "Sie belegen weder die Nutzung der ganzen Bibliothek noch die Absicht der Person, die fotografierte.",
+      "steps": [
+        "transfer"
+      ],
+      "sources": []
     }
   ],
   "steps": [
@@ -798,7 +820,8 @@
       "task": "Bearbeite den Bibliotheksfall der Bildwerkstatt ohne deine alten Antworten.",
       "outcome": "Ein neues Urteil, das Ausschnitt und Gesamtbild unterscheidet.",
       "knowledge": [
-        "belege"
+        "belege",
+        "zusammenhang"
       ],
       "criteria": [
         "Ich beginne mit einem eigenen Urteil.",
@@ -835,7 +858,8 @@
               "knowledge": "belege",
               "label": "Passendes Wissen öffnen"
             }
-          ]
+          ],
+          "responseHint": "Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben."
         }
       ],
       "materialNeeds": [
@@ -848,6 +872,12 @@
           "text": "Decke die Erklärung ab und begründe selbst eine noch offene Aussage.",
           "knowledge": "belege",
           "label": "Passendes Wissen öffnen"
+        },
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
         }
       ]
     },
@@ -1001,5 +1031,14 @@
     "retrieval": [
       "erinnern"
     ]
+  },
+  "sequence": {
+    "form": "Beurteilen",
+    "diagnosticStep": "transfer",
+    "diagnosticBlock": "grenze",
+    "core": "Eine mediale Darstellung zeigt einen ausgewählten Ausschnitt.",
+    "example": "Leere Bibliothekssessel belegen leere Sessel im gezeigten Moment.",
+    "boundary": "Sie belegen weder die Nutzung der ganzen Bibliothek noch die Absicht der Person, die fotografierte.",
+    "diagnosis": "Im Bibliotheksfall nennt jede Person Bildbeleg und Aussagegrenze ohne alte Antwort. Bei Verallgemeinerung sichtbare Stelle markieren und die Behauptung erneut begrenzen. Persönliche Reflexion bleibt privat."
   }
 }

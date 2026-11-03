@@ -1,6 +1,7 @@
+
 # IuM Klasse 7: Jahrgangsbrief
 
-Fassung 2.2 · 27.10.2026 · Gymnasium · 36 Netto-Unterrichtseinheiten à 45 Minuten
+Fassung 2.7 · 03.11.2026 · Gymnasium · 36 Netto-Unterrichtseinheiten à 45 Minuten
 
 ## Ziel und aktueller Kursstatus
 
@@ -8,19 +9,23 @@ Am Ende des Jahrgangs sollen Lernende digitale Beiträge mit Belegen beurteilen 
 
 Der rote Faden lautet: **Wie entstehen digitale Darstellungen und Entscheidungen – und wie kann ich sie verstehen, prüfen und verantwortlich gestalten?** Informatik und Medienbildung behalten ihre fachlichen Eigenleistungen. Nicht jede Aufgabe muss beide Stränge zugleich abdecken.
 
-Aktuell liegt eine Jahresplanung mit 22 Aufgabenentwürfen und 29 für Klasse 7 zugeordneten Inhaltszielen vor. Durchgeführte Stunden, Lernprodukte, Diagnoseergebnisse und tatsächliche Bearbeitungszeiten sind noch nicht dokumentiert. Schule, Klassengröße, Kalender, bekannte Anwendungen und Gerätekonfiguration sind offen. Deshalb ist dies ein Jahrgangsangebot, kein behaupteter Kursverlauf.
+Aktuell liegt eine Jahresplanung mit 22 ausgearbeiteten Aufgaben und 29 für Klasse 7 zugeordneten Inhaltszielen vor. Durchgeführte Stunden, Lernprodukte, Diagnoseergebnisse und tatsächliche Bearbeitungszeiten sind noch nicht dokumentiert. Schule, Klassengröße, Kalender, bekannte Anwendungen und Gerätekonfiguration sind offen. Deshalb ist dies ein Jahrgangsangebot, kein behaupteter Kursverlauf.
 
-Die Eingangsdiagnose ist vorbereitet. Alle sechs ALG-Aufgaben liegen in Fassung 2.2 als Rover-Werkstatt vor: frühe eigene Beobachtungen, begründete Entscheidungen, gezielte Fehlersuche und gebündelte Werkstattnotizen. Die ursprünglichen sechs Zeitfenster und die fachlichen Teilkriterien bleiben erhalten. Die neue Fassung ist noch nicht im Unterricht pilotiert. Die übrigen Lernbögen bleiben in Materialproduktion offen. GFS oder benotete Prüfungen sind nicht vorgegeben; zusätzliche Leistungsformate brauchen ein explizites Zeitkonto.
+Die Eingangsdiagnose ist vorbereitet. Alle sechs ALG-Aufgaben liegen in Fassung 2.3 als Rover-Werkstatt vor: frühe eigene Beobachtungen, begründete Entscheidungen, gezielte Fehlersuche und gebündelte Werkstattnotizen. Die ursprünglichen sechs Zeitfenster und die fachlichen Teilkriterien bleiben erhalten. Der Medienbogen liegt seit dem 28.10.2026 vollständig in Fassung 1.0 vor und wurde auf GitHub Pages veröffentlicht; Prüf- und Bereitstellungsstand stehen in 2026-10-28 - Medienbogen Klasse 7 Qualitätsbericht und 2026-10-28 - Medienbogen Klasse 7 Veröffentlichung. Auch der Datenbogen wurde nach seiner Produktion vollständig auf Pages veröffentlicht; siehe 2026-10-28 - Datenbogen Klasse 7 Qualitätsbericht und 2026-10-28 - Datenbogen Klasse 7 Veröffentlichung. Gaming und Wohlbefinden ist ebenfalls als vollständige Fassung 1.0 mit sechs Aufgaben, Durchführung, Sicherung, Projektion und sieben Briefings auf GitHub Pages veröffentlicht. 2026-10-28 - Gamingbogen Klasse 7 Qualitätsbericht dokumentiert die Inhaltsprüfung; 2026-10-28 - Gamingbogen Klasse 7 Veröffentlichung belegt Merge, erfolgreiches Deployment und Live-Prüfung. [Zum Gamingbogen](https://h4r7w16.github.io/ium-lernwerk/klasse7/gaming/index.html). Keiner der Bögen ist bisher im Unterricht pilotiert. GFS oder benotete Prüfungen sind nicht vorgegeben; zusätzliche Leistungsformate brauchen ein explizites Zeitkonto.
 
 **Qualitätsrevision 2.2 vom 27.10.2026:** ALG-1 führt früher zur eigenen Beobachtung; ALG-2 trennt Rechenwert und Ortsänderung mit einer Doppelfahrt; ALG-3 beginnt mit der Depotzuordnung; ALG-4 übt gezielte Fehlersuche an der ersten regelwidrigen Entscheidung; ALG-5 begründet Parameterwahl sowie Verbesserung oder Abnahme; ALG-6 führt vor den Begriffsnotizen zur Reparatur. Alle Aufgabenzeiten und Phasenbudgets einschließlich ALG-4 mit 10 + 15 + 35 + 15 bleiben erhalten. Durchführungen, Sicherung und Briefings sind nachgeführt. Reale Unterrichtserprobung weiterhin offen.
+
+## Gesamtkonzept 5–7 · lokale Revision vom 03.11.2026
+
+Die aktuelle lokale Prüffassung verbindet alle vier Bögen mit den Jahrgängen 5/6. ALG-4 bündelt die Prüfspur, ALG-5 nutzt einen eigenen Einsatzauftrag und ALG-6 trennt Fehlersuche und abschließende Sicherung. Medien, Daten und Gaming liegen lokal in der gemeinsamen Fassung 1.1 vor. Jahreskonto, Ziele und Aufgabenzeiten bleiben erhalten. Die Veröffentlichungen vom Oktober dokumentieren die Vorfassung; die hier überarbeitete Gesamtfassung wurde noch nicht veröffentlicht.
 
 ## Planungsgrundlage und Geltung
 
 Maßgeblich ist das didaktische Mapping vom 23.09.2026: 29 Ziele in Klasse 7 und 30 in Klasse 8, je 36 bestätigte Netto-UE. Die Einzeljahrzuordnung ist eine Projektentscheidung innerhalb des Bands. Ältere sechsmodulige Klasse-7-Fassungen mit 38 UE sowie Working 40 sind abgelöst.
 
-Die Grundlage ist die gymnasiale Anhörungsfassung vom 21.09.2026. Am 22.10.2026 läuft die Anhörung noch; die Inkraftsetzung ist zum 01.08.2027 vorgesehen. Für tatsächlichen Unterricht 2026/27 sind BMB und Aufbaukurs Informatik mit der Lesehilfe gesondert abzugleichen. Die Eingangsdiagnose untersucht ausgewählte Voraussetzungen aus 5/6 und bescheinigt keine vollständige Abdeckung einer dieser Grundlagen.
+Projektgrundlage ist die vereinbarte gymnasiale Anhörungsfassung vom 21.09.2026. Für tatsächlichen Unterricht ist die verbindliche Planlage gesondert abzugleichen: Die Ministeriumsseite nennt bei Prüfung am 28.10.2026 für die Übergangszeit in Klasse 5–7 BMB und Aufbaukurs Informatik mit der Lesehilfe. Das aktuell eingesehene Anhörungsportal belegt keinen konkreten IuM-Inkraftsetzungstermin; frühere Datumsannahmen werden hier nicht als aktuell bestätigt fortgeschrieben. Die Eingangsdiagnose untersucht ausgewählte Voraussetzungen aus 5/6 und bescheinigt keine vollständige Abdeckung einer dieser Grundlagen.
 
-Quellen: [Anhörungsportal](https://bildungsplaene-bw.de/,Lde/ANHOERUNG), [Übergangsgrundlage des Kultusministeriums](https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung), amtlich geprüft am 22.10.2026. Projektanker: [[2026-09-23 - Didaktisches Inhaltsmapping IuM 7-8]].
+Quellen: [Anhörungsportal](https://bildungsplaene-bw.de/,Lde/ANHOERUNG), [Übergangsgrundlage des Kultusministeriums](https://km.baden-wuerttemberg.de/de/schule/schulartuebergreifend/mint/schule-und-unterricht/informatik-und-medienbildung), Webquellen erneut geprüft am 28.10.2026. Projektanker: 2026-09-23 - Didaktisches Inhaltsmapping IuM 7-8.
 
 ## Lernfolge und erkennbare Ergebnisse
 
@@ -53,7 +58,7 @@ GAM-6 umfasst bereits 15 Minuten des Gamingbogens und folgt 1–2 Wochen nach GA
 
 ## Voraussetzungen und adaptive Weiterarbeit
 
-Die Diagnose prüft Quellenentscheidung, Regelanwendung beim Codieren, feste Wiederholung, reale Dateihandlung sowie die Trennung von Fallurteil und privatem Reflexionsinhalt. Die konkreten Aufgaben, Hilfen und Anschlussentscheidungen stehen in [[Klasse 7 - Eingangsdiagnose - Lehrpersonenfassung]].
+Die Diagnose prüft Quellenentscheidung, Regelanwendung beim Codieren, feste Wiederholung, reale Dateihandlung sowie die Trennung von Fallurteil und privatem Reflexionsinhalt. Die konkreten Aufgaben, Hilfen und Anschlussentscheidungen stehen in Klasse 7 - Eingangsdiagnose - Lehrpersonenfassung.
 
 Es gibt keine Gesamtnote und keine Rangfolge. Pro Bereich wird festgehalten: selbstständig belegt, mit fachlicher Hilfe belegt, weiterer Klärungsbedarf oder nicht auswertbar. Vorlesen, größere Schrift oder eine gleichwertige mündliche Antwort gelten als Zugangsunterstützung und werden nicht automatisch als fachliche Hilfe gewertet. Fehlendes Gerät, Zeitablauf und Abwesenheit begründen keinen fachlichen Misserfolg.
 
@@ -89,4 +94,26 @@ Alle sechs ALG-Aufgaben bleiben bei 45 + 60 + 75 + 75 + 90 + 60 = 405 Minuten. I
 
 ## Rückfluss nach Durchführung
 
+**Medienproduktion vom 28.10.2026:** Medienbogen - Produktionsbrief und Reihenkommentar und Medienbogen - Durchführung und Auswertung konkretisieren die vorhandenen 270 Minuten als 45 + 45 + 90 + 45 + 45. Alle 16 Teilkriterien bleiben zugeordnet. Zwei davon betreffen geschützte persönliche Reflexion und werden nicht durch Offenlegung oder Haken als individuell erreicht ausgewiesen. MED-3 enthält echte Bilddateien, Rückmeldung und Revision; MED-5 bleibt zeitkritisch und nutzt kompakte Antworten. Jahreskonten einschließlich 20 Minuten späterer Quellen-Wiederaufnahme bleiben unverändert. Lokale Materialproduktion ist keine Pages-Veröffentlichung und keine Unterrichtserprobung.
+
 In dieser Notiz ergänzen: Datum/Kurs, tatsächlich genutzte Minuten je Konto, auswertbare Bereiche, ausgefallene Realhandlungen, Verteilung der Unterstützungsbedarfe ohne private Inhalte, beschlossene Brücken, Termin der Wiederprüfung und dokumentierter Anschluss. Bis dahin gilt: **Diagnose vorbereitet; Durchführung und Auswertung offen.**
+
+**Datenproduktion vom 28.10.2026:** Datenbogen - Produktionsbrief und Reihenkommentar und Datenbogen - Durchführung und Auswertung konkretisieren die bestehenden 270 Minuten als 60 + 45 + 75 + 60 + 30. Sieben Inhaltsziele bleiben in zwölf Teilkriterien beobachtbar. Eigene Codierung, fremde Rückübersetzung, selbst gewähltes Raster und Datenrechnung sind getrennte Nachweise. Die sechs 45-Minuten-Stunden enthalten Übergänge, Hilfen, Rückmeldung und Sicherung. Der spätere neue Abruf von 20 Minuten bleibt im Jahreskonto; 36 Netto-UE und andere Lernbögen werden nicht verkürzt. Die zunächst lokale Datenfassung wurde anschließend auf Pages veröffentlicht; Unterrichtserprobung weiterhin offen.
+
+**Gamingproduktion vom 28.10.2026:** Gamingbogen - Produktionsbrief und Reihenkommentar und Gamingbogen - Durchführung und Auswertung konkretisieren 45 + 45 + 60 + 45 + 60 + 15 = 270 Minuten. Sieben Inhaltsziele verteilen sich auf zwölf Teilkriterien; sechs betreffen geschützte Eigenhandlungen und werden nicht aus Selbsthaken oder fremden Fallurteilen als individuell erfüllt ausgewiesen. Die erste reale schulische Strategieerprobung liegt in GAM-4, eine weitere in der ohnehin vorgesehenen Fallarbeit von GAM-5. GAM-6 bleibt mit ein bis zwei Wochen Abstand Teil desselben Kontos. 36 Netto-UE und die gesonderten 20 Minuten gemischter Abschlussfälle bleiben unverändert. Zum Abschluss der Produktion lag die vollständige lokale Fassung vor. Die öffentliche Bereitstellung wurde anschließend im gesonderten Publikationsauftrag abgeschlossen; tatsächliche Durchführung und Auswertung bleiben offen.
+
+Die historischen Prüfungen von Medien und Daten bleiben an ihre damalige Fassung gebunden. Die Jahrgangsänderung 2.4 gehört zur aktuellen Gaming-Prüfung; sie ist keine rückwirkende Änderung der älteren Prüfnachweise.
+
+**Publikation 2.5 vom 28.10.2026:** Alle vier Lernbögen sind vollständig auf Pages erreichbar. Gaming wurde über PR 42 und Merge `966ef2dcb4027fcc3db1c1b914d600ca61bf4e3b` veröffentlicht; 108 öffentliche Dateien stimmen mit dem geprüften Build überein. Zeitkonten und Lernziele unverändert. Die historische Gaming-Inhaltsprüfung bleibt auf Jahrgangsfassung 2.4 bezogen; deren damalige Datei ist im Publikationsnachweis gesichert. Der separate Publikationsreview bindet die aktuelle Webfassung einschließlich des Jahrgangsstatus.
+
+## Gesamtprüfung 2.6 vom 28.10.2026
+
+Alle 29 Zielzuordnungen und 22 Aufgaben wurden erneut gelesen und mit den tatsächlichen Lernhandlungen abgeglichen. Die Kerne bleiben erhalten. Neu ausgearbeitet sind der gemeinsame Jahresleitfaden, fachliche Übergangsimpulse, eine erreichbare Ziel-Nachweis-Matrix und alle vier späteren Abruffälle mit Erwartungen. Der vorhandene Datenabruf wurde übernommen, nicht als Zusatzkonto neu erfunden. Navigation und Jahrgangseinstieg werden gemeinsam vereinheitlicht. Neue Fassung lokal geprüft; eine erneute Pages-Veröffentlichung ist ein gesonderter Schritt.
+
+- Jahresleitfaden und Materialzugänge
+- Übergänge innerhalb der vorhandenen Einstiege
+- 29 Ziele und Nachweise
+- 90 Minuten Wiederaufnahme: Durchführung und Erwartungen
+- Jahrgangsbriefing
+
+Die Zeitkonten bleiben 270 + 270 + 405 + 270 Minuten und insgesamt 36 Netto-UE. MED-5 und ALG-6 bleiben enge, noch nicht zeitlich erprobte Fenster. Unterrichtserprobung und gerätespezifische Prüfung sind weiterhin offen. 2026-10-28 - Gesamtprüfung IuM 7 dokumentiert Befunde, Änderungen und Nachprüfung.

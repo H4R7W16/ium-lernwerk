@@ -11,9 +11,9 @@ function adapt(name,html){
  if(name==='gamingbogen-durchfuhrung-und-auswertung.html')next=next.replace(' lokal öffnen.',' öffnen.');
  if(name==='gamingbogen-quellen-und-nutzungsrechte.html')next=next.replace('Die portable Lesefassung','Diese Webfassung').replace('Vor öffentlicher Veröffentlichung: lokale Kontaktangaben nicht in den allgemeinen Materialien ergänzen; Hosting und öffentliche Pfade gesondert prüfen.','Öffentliche Bereitstellung auf GitHub Pages: Die Inhalte und Materialpfade sind vollständig enthalten. Lokale Kontaktangaben gehören weiterhin nicht in die allgemeinen Materialien.');
  if(name==='gamingbogen-produktionsbrief-und-reihenkommentar.html'){
-  next=next.replace(/<h2 id="auftrag-und-arbeitsplan">[\s\S]*?<\/ol>/,'<h2 id="auftrag-und-arbeitsplan">Rahmen und Bereitstellung</h2><p>Der Lernbogen Gaming und Wohlbefinden umfasst sechs Aufgaben mit Wissen, Hilfen und privaten Reflexionswegen, Fachnotizen, Durchführung und Auswertung, gemeinsamer Sicherung, sechs Projektionen und sieben Briefings als Vorlesetexte. Die redaktionell geprüfte Fassung 1.0 steht auf GitHub Pages bereit. Das Zeitbudget beträgt 270 Minuten; GAM-6 wird mit ein bis zwei Wochen Abstand zur ersten Erprobung eingeplant.</p>');
+  next=next.replace(/<h2 id="auftrag-und-arbeitsplan">[\s\S]*?<\/ol>/,'<h2 id="auftrag-und-arbeitsplan">Rahmen und Bereitstellung</h2><p>Der Lernbogen Gaming und Wohlbefinden umfasst sechs Aufgaben mit Wissen, Hilfen und privaten Reflexionswegen, Fachnotizen, Durchführung und Auswertung, gemeinsamer Sicherung, sechs Projektionen und sieben Briefings als Vorlesetexte. Die überarbeitete Fassung 1.1 liegt als lokale Prüffassung vor; die Veröffentlichung erfolgt separat. Das Zeitbudget beträgt 270 Minuten; GAM-6 wird mit ein bis zwei Wochen Abstand zur ersten Erprobung eingeplant.</p>');
   next=next.replace('Das ist eine Produktionsentscheidung innerhalb des bestätigten Auftrags, keine vom Nutzer neu gewählte Variante.','Die Fallanalyse und eigene schulische Erprobung erschließen die vorgesehenen Lernziele innerhalb des Zeitbudgets.');
-  next=next.replace(/Prüfbericht: <span class="reference"[^>]*>2026-10-28 - Gamingbogen Klasse 7 Qualitätsbericht<\/span>\./,'Redaktionelles Selbstreview vom 28.10.2026: drei konkrete Befunde zu Fallwahl, Jahrgangsstatus und privater Notiz nachgearbeitet und an der Endfassung überprüft. Die Veröffentlichung wurde zusätzlich auf Vollständigkeit und Navigation geprüft.');
+  next=next.replace(/Prüfbericht: <span class="reference"[^>]*>2026-10-28 - Gamingbogen Klasse 7 Qualitätsbericht<\/span>\./,'Redaktionelles Selbstreview vom 28.10.2026: drei konkrete Befunde zu Fallwahl, Jahrgangsstatus und privater Notiz nachgearbeitet und an der Endfassung überprüft. Die frühere Veröffentlichung wurde auf Vollständigkeit und Navigation geprüft; die aktuelle lokale Revision benötigt eine eigene Abschlussprüfung.');
  }
  return next;
 }
@@ -31,9 +31,9 @@ function addGaming(source){
   all.set(ROOT+file,value);count++;
  }}
  walk(dir);if(count!==Object.keys(manifest.files).length)throw Error('Unvollständige Gamingquelle');
- const year='klasse7/programmieren/lehrpersonen/jahrgang.html',html=all.get(year),old='Gaming/Wohlbefinden bleibt in Materialproduktion offen.';
- if(typeof html!=='string'||!html.includes(old))throw Error('Bekannter Jahrgangsstatus fehlt.');
- all.set(year,html.replace('<p>Fassung 2.3 · 28.10.2026 · Gymnasium','<p>Fassung 2.5 · 28.10.2026 · Gymnasium').replace(old,'Auch Gaming und Wohlbefinden liegt seit dem 28.10.2026 als vollständige, redaktionell geprüfte Fassung 1.0 mit 270 Minuten vor. <a href="../../gaming/index.html">Zum Lernbogen mit Lernendenmaterialien, Durchführung, Sicherung und Briefings</a>. Die letzte Viertelstunde bleibt mit ein bis zwei Wochen Abstand zur ersten Erprobung eingeplant. Unterrichtserprobung bleibt offen.'));
+ const year='klasse7/programmieren/lehrpersonen/jahrgang.html',html=all.get(year);
+ if(typeof html!=='string'||!html.includes('Gesamtkonzept 5–7'))throw Error('Aktuelle kanonische Jahrgangsfassung fehlt.');
+ all.set(year,html.replace('</article>','<p><a href="../../gaming/index.html">Gaming und Wohlbefinden: Lernendenmaterial, Durchführung, Sicherung und Briefings</a></p></article>'));
  const entry='klasse7/index.html';
  all.set(entry,all.get(entry).replace('derzeit bereitgestellter Testbereich:','vier vollständig ausgearbeitete Lernbögen:').replace('</main>','<p><a href="medien/index.html">Medienwerkstatt</a> · <a href="daten/index.html">Datenwerkstatt</a> · <a href="gaming/index.html">Gaming und Wohlbefinden</a></p></main>'));
  return all;

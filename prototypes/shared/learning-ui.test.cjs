@@ -25,10 +25,11 @@ test('Wissen bietet fachliche Fragen und frühe Rückkehr bei stabilen Direktank
   for(const s of c.steps)assert.ok(html.includes('id="'+s.id+'"'),s.id);
  }
 });
-test('Gemeinsamer Einstieg zeigt drei Fachvorschauen und führt zu allen Lernwegen',()=>{
+test('Gemeinsamer Einstieg erhält Fachvorschauen und führt zum regulären Rechercheweg',()=>{
  const html=build.prepare().get('klasse5/index.html');
- for(const area of ['lernstudio','medienanalyse','quellenquest']){
+ for(const area of ['lernstudio','medienanalyse']){
   assert.ok(html.includes('data-preview="'+area+'"'),area+' preview');
   assert.ok(html.includes('href="'+area+'/index.html"'),area+' route');
  }
+ assert.ok(html.includes('href="recherche/index.html"'));assert.doesNotMatch(html,/data-preview="quellenquest"/);assert.match(build.prepare().get('klasse5/recherche/lehrkraft.html'),/quellenquest/);
 });

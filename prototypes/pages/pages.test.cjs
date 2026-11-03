@@ -1,9 +1,9 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto');
-const {preparePages}=require('./build.cjs'),preserved=require('./bestand-sha256.json');
+const {preparePages}=require('./build.cjs'),preserved=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'));
 const all=preparePages(),Y=require('../shared/class6-year.cjs');
-test('alle veröffentlichten Bestandsdateien und der bisherige Einstieg bleiben bytegleich',()=>{
- assert.equal(Object.keys(preserved.files).length,812);
+test('historischer Bestand oder explizit gebundene Gesamtfassung; ungeplante Änderungen werden abgewiesen',()=>{
+ assert.equal(Object.keys(require('./bestand-sha256.json').files).length,812);
  for(const [name,hash]of Object.entries(preserved.files))assert.equal(crypto.createHash('sha256').update(all.get(name)).digest('hex'),hash,name);
  for(const name of all.keys())if(!Object.hasOwn(preserved.files,name))assert.ok(name.startsWith('klasse6/')||name.startsWith('klasse7/'),name);
 });

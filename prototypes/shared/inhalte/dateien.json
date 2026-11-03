@@ -2,7 +2,7 @@
   "authorVersion": 2,
   "area": "dateien",
   "id": "IUM-5-M01-DATEIEN",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "grade": 5,
   "family": "content",
   "title": "Gut abgelegt. Wiedergefunden.",
@@ -288,6 +288,19 @@
       "media": [
         "vorschau-datei"
       ]
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Ein brauchbarer Speicherweg muss nach dem Schließen wieder auffindbar sein."
+      ],
+      "example": "Die Fundnotiz liegt im vereinbarten Ordner; du öffnest sie von dort erneut.",
+      "boundary": "Der Name allein sagt weder Speicherort noch Zugriff von einem anderen Gerät aus.",
+      "steps": [
+        "wiederfinden"
+      ],
+      "sources": []
     }
   ],
   "coverage": {
@@ -695,7 +708,8 @@
       "knowledge": [
         "speicherort",
         "benennen",
-        "bewegen"
+        "bewegen",
+        "zusammenhang"
       ],
       "blocks": [
         {
@@ -718,7 +732,7 @@
             }
           ],
           "solution": "Zum Beispiel: „Ich finde die Fundnotiz über meinen Themenordner und erkenne BLAU-17. Ich habe den Namen genauer gemacht, damit ich den Inhalt erkenne.“ Du kannst auch erklären, warum dein bisheriger Name und Ort schon passen.",
-          "responseHint": "Zeige deinen Weg am Gerät. Ein Satz zur Verbesserung genügt, mündlich, im Heft oder hier."
+          "responseHint": "Zeige deinen Weg am Gerät. Ein Satz zur Verbesserung genügt, mündlich, im Heft oder hier. Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben."
         }
       ],
       "prerequisites": [
@@ -734,6 +748,12 @@
         {
           "title": "Ich finde sie, kann meine Entscheidung aber noch nicht erklären.",
           "text": "Vervollständige: „Mein Name und Ordner passen, weil …“. Nenne einen Vorteil beim Wiederfinden. Ändere nur etwas, wenn es dir dabei hilft."
+        },
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
         }
       ],
       "materialNeeds": [
@@ -910,6 +930,21 @@
         "Vor der nächsten Recherche die Datei ohne Schrittkarte wiederfinden lassen. Wenn das nicht gelingt, den Ordnerweg kurz nachsichern.",
         "Zeit und Schulgeräte sind noch nicht erprobt. Nach der Durchführung genügen drei Stichpunkte: benötigte Zeit, häufigste Hürde, nächste Anpassung. Der Reihenkommentar zeigt, welche weiteren Ziele noch fehlen."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Jede Person schließt die Vorschau und findet die Datei ohne „Zuletzt verwendet“. Bei einer Lücke Ordnerweg einmal zeigen, dann mit geschlossenem Fenster erneut versuchen.",
+        "Der Prüfpunkt liegt im Lernschritt „Funktioniert deine Ordnung?“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Ein brauchbarer Speicherweg muss nach dem Schließen wieder auffindbar sein. Beispiel: Die Fundnotiz liegt im vereinbarten Ordner; du öffnest sie von dort erneut. Grenze: Der Name allein sagt weder Speicherort noch Zugriff von einem anderen Gerät aus."
+      ]
+    },
+    {
+      "title": "Eine Speicherhandlung, drei verschiedene Dinge",
+      "paragraphs": [
+        "Routine am bereits vorgesehenen Arbeitsprodukt: erstellen – am vereinbarten Ort sichern – schließen – wiederfinden. In „Geräte“ wird die Routine angekündigt; eine speicherbare Datei entsteht erst im Dateien-Bogen. Das Rechenergebnis wird nicht als künstliche zusätzliche Datei verlangt.",
+        "Lernwerk-Arbeitsdatei sichert Antworten im Lernwerk. Die echte Produktdatei, etwa eine Textdatei, liegt gesondert im vereinbarten Ordner. Eine private Notiz wird nur auf eigenen Wunsch separat gesichert und nicht mit abgegeben. Ein Protokollsatz ersetzt nicht das Wiederöffnen am Gerät."
+      ]
     }
   ],
   "briefing": [
@@ -918,7 +953,8 @@
     "Die erste Stunde verbindet Einstieg (8 Minuten), Beispiel und Begriffe (12), eigene Planung (10) und Gerätearbeit (15). In der zweiten folgen weitere Gerätearbeit (10), Wiederfinden und Verbessern (15), ein neuer Fall (10) sowie Reserve und Sicherung (10). Wurde zuvor der Geräte-Bogen bearbeitet, ist der dreiminütige Schichtenabruf bereits im Einstieg enthalten.",
     "Lassen Sie die eigene Ordnungsbegründung erklären und die richtige Datei vom Startort aus öffnen. Bei Schwierigkeiten helfen zunächst der Startort, dann die Gerätekarte. Geübte können bei der Planung beginnen. Kurze mündliche Erklärungen genügen.",
     "Im neuen Fall gehört eine Materialliste zu zwei Vorhaben; unterschiedliche begründete Ablageorte sind möglich. Lernwerk-Antworten und echte Übungsdateien werden getrennt gesichert. Planen Sie später zehn Minuten Wiederfinden ohne Vorlage aus dem Jahreskonto ein. Fehlt der Gerätezugang, bleibt die praktische Handlung nachzuholen.",
-    "Die neuen Gerätebilder sind ausdrücklich Modelle. Tragen Sie den konkreten Schulstartort vor dem Arbeiten ein und zeigen Sie dort Dateien-App beziehungsweise Explorer. Beim Nachweis aus dem Themenordner öffnen lassen; die Browser-Vorschau genügt nicht. Umbenennen, Verschieben und Kopieren innerhalb der Gerätephase am gleichen Übungsinhalt unterscheiden."
+    "Die neuen Gerätebilder sind ausdrücklich Modelle. Tragen Sie den konkreten Schulstartort vor dem Arbeiten ein und zeigen Sie dort Dateien-App beziehungsweise Explorer. Beim Nachweis aus dem Themenordner öffnen lassen; die Browser-Vorschau genügt nicht. Umbenennen, Verschieben und Kopieren innerhalb der Gerätephase am gleichen Übungsinhalt unterscheiden.",
+    "Individueller Prüfpunkt: Jede Person schließt die Vorschau und findet die Datei ohne „Zuletzt verwendet“. Bei einer Lücke Ordnerweg einmal zeigen, dann mit geschlossenem Fenster erneut versuchen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "learnerDuration": "Für diesen Lernbogen sind zwei Unterrichtsstunden vorgesehen. In einer späteren Stunde findest du deine Datei noch einmal wieder.",
   "workNotice": "Im Lernwerk sicherst du Antworten. Deine Übungsdateien liegen in „Dateien“ oder im Datei-Explorer. Eine Lernwerk-Arbeitsdatei nimmt diese Übungsdateien nicht mit.",
@@ -927,5 +963,14 @@
     "text": "Starte mit deinem eigenen Ablageplan. Setze ihn anschließend am Gerät um und prüfe, ob du die Datei wiederfindest. Bearbeite auch den neuen Fall. Wenn du Datei und Ordner noch verwechselst, hilft dir zuerst das Beispiel.",
     "step": "planen",
     "label": "Mit der eigenen Planung starten"
+  },
+  "sequence": {
+    "form": "Routine erwerben",
+    "diagnosticStep": "wiederfinden",
+    "diagnosticBlock": "pruefung",
+    "core": "Ein brauchbarer Speicherweg muss nach dem Schließen wieder auffindbar sein.",
+    "example": "Die Fundnotiz liegt im vereinbarten Ordner; du öffnest sie von dort erneut.",
+    "boundary": "Der Name allein sagt weder Speicherort noch Zugriff von einem anderen Gerät aus.",
+    "diagnosis": "Jede Person schließt die Vorschau und findet die Datei ohne „Zuletzt verwendet“. Bei einer Lücke Ordnerweg einmal zeigen, dann mit geschlossenem Fenster erneut versuchen."
   }
 }

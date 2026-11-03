@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M04-MEDIENPRODUKT",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "grade": 5,
   "area": "medienprodukt",
   "family": "content",
@@ -77,6 +77,20 @@
       "paragraphs": [
         "Kurzvorstellungen in Gruppen aus drei Paaren organisieren; jede Person spricht. Empfänger öffnen sowohl eine lokale Kopie als auch den geschützten Link. Umfang der Freigabe kontrollieren, bei Fehlern keine öffentliche Freigabe wählen. Bearbeitbare Datei, Endfassung und Änderungsnachweis bewahren; Zugang nach Schulregel schützen. Fünf spätere Abrufminuten ergeben zusammen mit M01–M03 27 von 135 Jahresminuten. Für M05 Wirkung und Gestaltungsentscheidung aufbewahren. Nach Erprobung genügen Zeitabweichung, häufigste Hürde und nächste Anpassung."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Beim stillen Lesetest lässt jede Person einen eigenen Teil erklären. Wird nur gelobt, eine konkrete Inhaltsfrage stellen; gezielt überarbeiten und mit neuem Lesen prüfen.",
+        "Der Prüfpunkt liegt im Lernschritt „Andere lesen zuerst“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Gestaltung wird an der beabsichtigten und tatsächlich verstandenen Aussage geprüft. Beispiel: Ein Absatz und eine beschriftete Grafik helfen einer anderen Person, eine Mondphase zu erklären. Grenze: Schönes Aussehen oder Zustimmung allein belegt kein Verständnis."
+      ]
+    },
+    {
+      "title": "Weiterarbeit mit vorhandenem Inhalt",
+      "paragraphs": [
+        "M04 gestaltet dasselbe Sachprodukt aus M02/M03. Inhalt nicht nochmals abschreiben oder erneut vollständig recherchieren lassen. Nach Bedarf eine offene Belegstelle nachprüfen. Die kurze Formatierungsübung bleibt eine Geräteübung, kein zweites Medienprodukt."
+      ]
     }
   ],
   "briefing": [
@@ -85,7 +99,8 @@
     "Der Verlauf: vierzig Minuten Wirkung, sechzig Minuten angeleitete Text- und Objektübung, fünfundzwanzig Minuten Plan, sechzig Minuten Gestaltung, zwanzig Minuten Austausch, fünfundzwanzig Minuten Lesetest und fünfunddreißig Minuten Überarbeitung. Hinzu kommen dreißig Minuten Rechteprüfung mit Korrektur, fünfzehn Minuten Dateikopie, fünfundzwanzig Minuten Vorstellung, fünfzehn Minuten Linkfreigabe und zehn Minuten Sicherung. Arbeitsstände werden innerhalb dieser Phasen gespeichert.",
     "Beobachten Sie den tatsächlichen Umgang mit Zeichen, Absätzen und Objekten sowie den Zusammenhang zwischen Rückmeldung und Änderung. Beim Lesetest erklären die Gestaltenden zunächst nichts. Unklare Bildrechte führen zu einem geklärten Ersatz. Am Gegenbeispiel korrigieren alle; am eigenen Produkt werden notwendige Änderungen begründet. Bewahren Sie die bearbeitbare Datei, eine lesbare Endfassung und die Änderungsspur. Papierarbeit ersetzt keine digitale Handlung. Fünf Minuten Abruf folgen später aus dem bestehenden Jahreskonto.",
     "Drei geplante Arbeitsschritte werden bei der Revision mit dem tatsächlichen Weg verglichen. Vor dem Link entscheiden beide Gestaltenden über den erlaubten Leserkreis und die Bearbeitung. Das bleibt Teil der vorhandenen Planungs-, Revisions- und Freigabezeit.",
-    "Formatphase innerhalb ihrer vorhandenen 35 Minuten in drei kurze Beobachtungsversuche gliedern: ausgewähltes Wort, ganzer Absatz, Zeilenwechsel. Erst danach Überschrift sowie Kopieren/Rückgängig verbinden. Die Bilder erklären die Wirkung, Ihre Werkzeugkarte zeigt die tatsächlich vorhandenen Knöpfe. PDF/Lesekopie und bearbeitbares Original getrennt wiederöffnen lassen."
+    "Formatphase innerhalb ihrer vorhandenen 35 Minuten in drei kurze Beobachtungsversuche gliedern: ausgewähltes Wort, ganzer Absatz, Zeilenwechsel. Erst danach Überschrift sowie Kopieren/Rückgängig verbinden. Die Bilder erklären die Wirkung, Ihre Werkzeugkarte zeigt die tatsächlich vorhandenen Knöpfe. PDF/Lesekopie und bearbeitbares Original getrennt wiederöffnen lassen.",
+    "Individueller Prüfpunkt: Beim stillen Lesetest lässt jede Person einen eigenen Teil erklären. Wird nur gelobt, eine konkrete Inhaltsfrage stellen; gezielt überarbeiten und mit neuem Lesen prüfen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "sources": [
     {
@@ -476,6 +491,19 @@
       "media": [
         "weitergabe"
       ]
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Gestaltung wird an der beabsichtigten und tatsächlich verstandenen Aussage geprüft."
+      ],
+      "example": "Ein Absatz und eine beschriftete Grafik helfen einer anderen Person, eine Mondphase zu erklären.",
+      "boundary": "Schönes Aussehen oder Zustimmung allein belegt kein Verständnis.",
+      "steps": [
+        "lesetest"
+      ],
+      "sources": []
     }
   ],
   "steps": [
@@ -806,7 +834,7 @@
       "id": "planen",
       "title": "Ein Plan für eure Leser",
       "goal": "Du verbindest eure Recherche mit einer klaren Absicht für die Infokarte.",
-      "task": "Nehmt eure Gliederung aus M03. Plant eine Seite mit zwei Abschnitten und einem erklärenden Objekt.",
+      "task": "Öffnet die gemeinsam ausgehandelte Gliederung aus M03 und die Belegstellen aus M02. Plant daraus eure Infokarte mit zwei Abschnitten und einem erklärenden Objekt. Verwendet geprüfte Aussagen weiter.",
       "outcome": "Ein kurzer Seitenplan mit Leserziel, Quellen und Beiträgen beider Personen.",
       "knowledge": [
         "wirkung",
@@ -1018,7 +1046,8 @@
       "outcome": "Konkrete Rückmeldung zur Hauptaussage und zu einer unklaren Stelle.",
       "knowledge": [
         "wirkung",
-        "feedback"
+        "feedback",
+        "zusammenhang"
       ],
       "criteria": [
         "Die anderen lesen zunächst ohne unsere Erklärung.",
@@ -1036,7 +1065,7 @@
           "return": "Wähle für deinen Anteil eine hilfreiche Rückmeldung. Erkläre, welche konkrete Änderung du daraus ableitest. Wenn ein Vorschlag nicht passt, begründe das und sucht eine andere hilfreiche Verbesserung.",
           "prompt": "Was wurde tatsächlich verstanden? Welche Stelle wirst du deshalb verändern?",
           "responseMode": "oral",
-          "responseHint": "Erhaltene Antwort und geplante Änderung kurz in der Werkstattspur festhalten.",
+          "responseHint": "Erhaltene Antwort und geplante Änderung kurz in der Werkstattspur festhalten. Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben.",
           "help": [
             {
               "title": "Ich bekomme nur Lob",
@@ -1070,6 +1099,12 @@
           "text": "Lass die andere Person einen Abschnitt ohne eure Hilfe lesen und in eigenen Worten erklären.",
           "knowledge": "feedback",
           "label": "Passendes Wissen öffnen"
+        },
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
         }
       ]
     },
@@ -1623,5 +1658,14 @@
     "retrieval": [
       "erinnern"
     ]
+  },
+  "sequence": {
+    "form": "Gestalten",
+    "diagnosticStep": "lesetest",
+    "diagnosticBlock": "testen",
+    "core": "Gestaltung wird an der beabsichtigten und tatsächlich verstandenen Aussage geprüft.",
+    "example": "Ein Absatz und eine beschriftete Grafik helfen einer anderen Person, eine Mondphase zu erklären.",
+    "boundary": "Schönes Aussehen oder Zustimmung allein belegt kein Verständnis.",
+    "diagnosis": "Beim stillen Lesetest lässt jede Person einen eigenen Teil erklären. Wird nur gelobt, eine konkrete Inhaltsfrage stellen; gezielt überarbeiten und mit neuem Lesen prüfen."
   }
 }

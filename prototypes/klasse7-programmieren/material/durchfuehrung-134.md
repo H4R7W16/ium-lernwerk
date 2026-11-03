@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Durchführung ALG-1, ALG-3 und ALG-4
 
-**Fassung 2.2 · Klasse 7 · 195 Minuten.** Frühe eigene Beobachtung, begründete Entscheidungen und gezielte Fehlersuche verbinden die drei Aufgaben. Zusammen mit ALG-2/5/6 bleiben es 405 Minuten und 36 Jahres-UE. Zeiten sind Planungsannahmen; Lernzeit und Motivation sind noch nicht im Unterricht erprobt. Digitales Primärmaterial, kurze eigene Notizen auf Papier oder im bekannten Dokument. Kein zusätzliches Aufgabenheft erforderlich.
+**Fassung 2.3 · Klasse 7 · 195 Minuten.** Frühe eigene Beobachtung, begründete Entscheidungen und gezielte Fehlersuche verbinden die drei Aufgaben. Zusammen mit ALG-2/5/6 bleiben es 405 Minuten und 36 Jahres-UE. Zeiten sind Planungsannahmen; Lernzeit und Motivation sind noch nicht im Unterricht erprobt. Digitales Primärmaterial, kurze eigene Notizen auf Papier oder im bekannten Dokument. Kein zusätzliches Aufgabenheft erforderlich.
 
 ## Vorbereiten und steuern
 
@@ -56,3 +56,8 @@ Korrektur beispielsweise `nicht (x < 40)`. Start 0: Prüfungen 0/falsch, 10/fals
 ## Sicherung und Rückfluss
 
 Für die Besprechung stehen die [Sicherungskarten](sicherung.html) bereit. Nach Durchführung knapp festhalten: tatsächliche Minuten, belegte Erklärung, Hilfe, offener nächster Schritt. Nicht beobachtete Ausführung als offen lassen. Peer-Gegencheck hat ein konkretes Objekt; allein übernimmt die Lehrperson. Ein Projektimport oder eine kopierte Lösung ersetzt keine eigene Erklärung.
+
+
+## Gemeinsame Prüfspur · Fassung 2.3
+
+ALG-4 bündelt Position, ausgesprochene Abbruchfrage, Wahrheitswert und nächste Handlung in derselben Notiz. An der ersten unerlaubten Bewegung klären, welche Prüfung sie ausgelöst hat. Keine zusätzliche Tabelle verlangen. Individueller Anschluss: 35/12 ohne Lauf vorhersagen, dann testen; Ende 47, eine Bewegung, zwei Prüfungen. Bei Hilfe einen anderen Start knapp vor 40 selbst erklären lassen. Die 75 Minuten bleiben 10 + 15 + 35 + 15.

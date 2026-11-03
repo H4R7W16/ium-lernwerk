@@ -13,3 +13,8 @@ ALG-5 dauert 90 Minuten. Ziel und Schrittweite nach genauem Treffer und Bewegung
 ALG-6 dauert 60 Minuten:10 gelenkt,35 eigene Arbeit,15 Rückmeldung. Eine ergänzte Ablaufvorlage trägt gleichzeitig grafischen Ablauf und Positionsspur. Nach der vorhergesagten Spur zuerst ausführen und reparieren, danach kurze Randnotizen an fünf Stellen der ursprünglichen Codefassung. Die Eigenphase verteilt sich auf zehn Minuten Spur, achtzehn Minuten Erprobung, Reparatur und Variante, sieben Minuten Randnotizen. Alle elf fachlichen Kriterien bleiben beobachtbar; kein zweites Vollprotokoll verlangen. Fehlerhaft bis 60/vorbei, repariert bis 50/Ziel. Gewählte Schrittweite 12 führt 56,15 führt 50. Der neue feste Dreierfall bleibt als kurze selbstständige Anwendung.
 
 Rückmeldung nennt eine Stelle, eine Erklärung und einen nächsten Schritt. Individuelle Produkte bleiben wichtig, Hilfe wird zugelassen. Lösungen erst nach dem eigenen Versuch zeigen; der öffentliche Lehrpersonenbereich ist kein Zugriffsschutz. Zeiten und Motivation sind nicht empirisch erprobt. Tatsächliche Minuten und Hürden zurückmelden und Unterstützungsbedarf transparent buchen. Keine Ziele allein wegen einer abgegebenen XML als erreicht markieren.
+
+
+## Gemeinsame Prüfspur · Fassung 2.3
+
+ALG-4 bündelt Position, ausgesprochene Abbruchfrage, Wahrheitswert und nächste Handlung in derselben Notiz. An der ersten unerlaubten Bewegung klären, welche Prüfung sie ausgelöst hat. Keine zusätzliche Tabelle verlangen. Individueller Anschluss: 35/12 ohne Lauf vorhersagen, dann testen; Ende 47, eine Bewegung, zwei Prüfungen. Bei Hilfe einen anderen Start knapp vor 40 selbst erklären lassen. Die 75 Minuten bleiben 10 + 15 + 35 + 15.

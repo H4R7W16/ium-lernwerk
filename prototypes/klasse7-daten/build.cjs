@@ -11,8 +11,8 @@ function adapt(name,html){
  if(name==='datenbogen-durchfuhrung-und-auswertung.html')next=next.replace('Die Startseite der lokalen Lesefassung öffnen.','Die Startseite der Datenwerkstatt öffnen.');
  if(name==='datenbogen-quellen-und-nutzungsrechte.html')next=next.replace('vollständig lokal verfügbar','vollständig in dieser Webfassung enthalten');
  if(name==='datenbogen-produktionsbrief-und-reihenkommentar.html'){
-  next=next.replace(/<h2 id="auftrag-und-arbeitsplan">[\s\S]*?<\/ol>/,'<h2 id="auftrag-und-arbeitsplan">Rahmen und Bereitstellung</h2><p>Die Datenwerkstatt umfasst fünf Lernendenaufgaben mit Materialien und Hilfen, Durchführung und Auswertung, gemeinsamer Sicherung, fünf Projektionen und sechs Briefings als Vorlesetexte. Die redaktionell geprüfte Fassung 1.0 steht auf GitHub Pages bereit. Eigene Ergebnisse entstehen im bekannten Dokument oder Heft. Das Zeitbudget beträgt 270 Minuten.</p>');
-  next=next.replace(/<p>Dokumentierte Endprüfung:[\s\S]*?<\/p>/,'<p>Redaktionelles Selbstreview vom 28.10.2026 mit Nacharbeit und Prüfung der Endfassung: Codierungen, Rechenfälle, Rastergeometrie, Materialien und Zeitbudget wurden kontrolliert. Die Veröffentlichung wurde zusätzlich auf Vollständigkeit und Navigation geprüft. Unterrichtserprobung und die Prüfung benötigter Zugänge am Schulgerät bleiben offen.</p>');
+  next=next.replace(/<h2 id="auftrag-und-arbeitsplan">[\s\S]*?<\/ol>/,'<h2 id="auftrag-und-arbeitsplan">Rahmen und Bereitstellung</h2><p>Die Datenwerkstatt umfasst fünf Lernendenaufgaben mit Materialien und Hilfen, Durchführung und Auswertung, gemeinsamer Sicherung, fünf Projektionen und sechs Briefings als Vorlesetexte. Die überarbeitete Fassung 1.1 liegt als lokale Prüffassung vor; die Veröffentlichung erfolgt separat. Eigene Ergebnisse entstehen im bekannten Dokument oder Heft. Das Zeitbudget beträgt 270 Minuten.</p>');
+  next=next.replace(/<p>Dokumentierte Endprüfung:[\s\S]*?<\/p>/,'<p>Redaktionelles Selbstreview vom 28.10.2026 mit Nacharbeit und Prüfung der Endfassung: Codierungen, Rechenfälle, Rastergeometrie, Materialien und Zeitbudget wurden kontrolliert. Die frühere Veröffentlichung wurde auf Vollständigkeit und Navigation geprüft; die aktuelle lokale Revision benötigt eine eigene Abschlussprüfung. Unterrichtserprobung und die Prüfung benötigter Zugänge am Schulgerät bleiben offen.</p>');
  }
  return next;
 }
@@ -30,9 +30,9 @@ function addData(source){
   all.set(ROOT+file,value);count++;
  }}
  walk(dir);if(count!==Object.keys(manifest.files).length)throw Error('Unvollständige Datenquelle');
- const year='klasse7/programmieren/lehrpersonen/jahrgang.html',html=all.get(year),old='Daten und Gaming/Wohlbefinden bleiben in Materialproduktion offen.';
- if(typeof html!=='string'||!html.includes(old))throw Error('Bekannter Jahrgangsstatus fehlt.');
- all.set(year,html.replace('<p>Fassung 2.2 · 27.10.2026 · Gymnasium','<p>Fassung 2.3 · 28.10.2026 · Gymnasium').replace(old,'Auch der Datenbogen liegt seit dem 28.10.2026 als vollständige, redaktionell geprüfte Fassung 1.0 mit 270 Minuten vor. <a href="../../daten/index.html">Zur Datenwerkstatt mit Lernendenmaterialien, Durchführung, Sicherung und Briefings</a>. Unterrichtserprobung bleibt offen. Gaming/Wohlbefinden bleibt in Materialproduktion offen.'));
+ const year='klasse7/programmieren/lehrpersonen/jahrgang.html',html=all.get(year);
+ if(typeof html!=='string'||!html.includes('Gesamtkonzept 5–7'))throw Error('Aktuelle kanonische Jahrgangsfassung fehlt.');
+ all.set(year,html.replace('</article>','<p><a href="../../daten/index.html">Datenwerkstatt: Lernendenmaterial, Durchführung, Sicherung und Briefings</a></p></article>'));
  return all;
 }
 function connectData(source){

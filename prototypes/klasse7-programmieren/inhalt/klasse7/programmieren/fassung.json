@@ -1,6 +1,6 @@
 {
-  "version": "2.2",
-  "date": "2026-10-27",
+  "version": "2.3",
+  "date": "2026-11-03",
   "totalMinutes": 405,
   "annualUE": 36,
   "source": "Eigene Unterrichtskonstruktion, bestätigtes didaktisches Mapping vom 23.09.2026",
@@ -20,7 +20,7 @@
       "targets": [
         20
       ],
-      "revision": "2.2"
+      "revision": "2.3"
     },
     {
       "id": "alg-2",
@@ -36,7 +36,7 @@
       "targets": [
         12
       ],
-      "revision": "2.2"
+      "revision": "2.3"
     },
     {
       "id": "alg-3",
@@ -52,7 +52,7 @@
       "targets": [
         40
       ],
-      "revision": "2.2"
+      "revision": "2.3"
     },
     {
       "id": "alg-4",
@@ -68,7 +68,7 @@
       "targets": [
         40
       ],
-      "revision": "2.2"
+      "revision": "2.3"
     },
     {
       "id": "alg-5",
@@ -85,7 +85,7 @@
         60,
         80
       ],
-      "revision": "2.2"
+      "revision": "2.3"
     },
     {
       "id": "alg-6",
@@ -101,7 +101,7 @@
       "targets": [
         50
       ],
-      "revision": "2.2"
+      "revision": "2.3"
     }
   ],
   "boundaries": "Unterrichtszeit, Motivation und Safari/Touch noch zu erproben; keine neue Datenschutzfreigabe."

@@ -71,7 +71,7 @@ function restore(){
 }
 window.LernwerkMantel={register(value){pendingAdapter=value;if(booted)restore();},changed(){if(restoring)return;dirty=true;queueMicrotask(capture);},capture};
 function products(record){
- const u=units.find(x=>x.id===record.moduleId),items=record.payload.fields.filter(f=>M.genericFieldAllowed(u,f.key)&&f.type==='text'&&String(f.value).trim()).map(f=>({title:f.label||'Deine Erklärung',text:String(f.value)})),tool=record.payload.tool;
+ const u=M.resolveUnit(record,units),items=record.payload.fields.filter(f=>M.genericFieldAllowed(u,f.key)&&f.type==='text'&&String(f.value).trim()).map(f=>({title:f.label||'Deine Erklärung',text:String(f.value)})),tool=record.payload.tool;
  if(tool?.kind==='network')for(const [i,h]of tool.state.history.entries())items.push({title:'Netzversuch '+(i+1),text:'Ziel '+h.config.target+' · Unterbrochen: '+(h.config.disabled.join(', ')||'keine')+' · Dienst bereit: '+(h.config.service?'ja':'nein')+'\nVorhersage: '+h.prediction+'\n'+window.NetModel.observe(h).trace.join('\n')});
  if(tool?.family==='algorithm')for(const [id,w]of Object.entries(tool.data.works)){if(w.note&&!items.some(x=>x.text===w.note))items.push({title:u.steps.find(s=>s.id===id)?.title||id,text:w.note});if(w.code)items.push({title:'Programm · '+(u.steps.find(s=>s.id===id)?.title||id),text:w.code});}
  if(tool?.family==='media'&&tool.state.draft.headline)items.push({title:'Dein Bildbeitrag',text:tool.state.draft.headline+'\n'+tool.state.draft.caption+'\nBegründung: '+tool.state.draft.reason+'\nAusschnitt: '+JSON.stringify(tool.state.draft.crop)});
@@ -79,15 +79,15 @@ function products(record){
  return items;
 }
 function date(r){return new Date(r.savedAt).toLocaleString('de-DE',{timeZone:'Europe/Berlin'});}
-function destination(r){const u=units.find(x=>x.id===r.moduleId);return u.area+'/'+(u.family==='content'?'schritt-'+r.payload.step+'.html':r.payload.step==='wiederaufnahme'?'wiederaufnahme.html':'index.html#'+r.payload.step);}
+function destination(r){const u=M.resolveUnit(r,units);return u.area+'/'+(u.family==='content'?'schritt-'+r.payload.step+'.html':r.payload.step==='wiederaufnahme'?'wiederaufnahme.html':'index.html#'+r.payload.step);}
 function download(content,name,type){
  const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);announce('Datei angeboten. Prüfe, ob du sie an einem wiederfindbaren Ort gespeichert hast.');
 }
 function renderWork(){
  const root=$('lw-work-list');if(!root)return;
  root.innerHTML=store.records.length?store.records.map(r=>{
- const u=units.find(x=>x.id===r.moduleId),p=products(r);
- return '<article class="lw-card" style="margin:20px 0"><p class="lw-eyebrow">'+e(u.topic)+' · Begonnen</p><h2>'+e(u.title)+'</h2><p>Stand vom '+e(date(r))+' · '+e(u.steps.find(s=>s.id===r.payload.step)?.title)+'</p><details><summary>Eigenes Produkt ansehen</summary>'+(p.length?p.map(x=>'<h3>'+e(x.title)+'</h3><p class="lw-product">'+e(x.text)+'</p>').join(''):'<p>Ein Werkzeugstand ist vorhanden. Öffne die Aufgabe, um ihn zu untersuchen.</p>')+'</details><div class="lw-actions"><a class="lw-button" data-lw-open="'+e(r.workspaceId)+'" href="'+destination(r)+'">Weiterarbeiten</a><button class="lw-button secondary" data-lw-export="'+e(r.workspaceId)+'">Arbeitsdatei sichern<small>Zum Weiterarbeiten im Lernwerk</small></button><button class="lw-button secondary" data-lw-product="'+e(r.workspaceId)+'">Lesbares Ergebnis sichern<small>Zum Lesen und Zeigen</small></button><button class="lw-button secondary" data-lw-delete="'+e(r.workspaceId)+'">Diesen Stand löschen</button></div><a href="'+u.area+'/index.html?neu=1">Neu beginnen – bisherigen Stand behalten</a></article>';
+ const u=M.resolveUnit(r,units),p=products(r),legacy=!!u.readOnly;
+ return '<article class="lw-card" style="margin:20px 0"><p class="lw-eyebrow">'+e(u.topic)+' · Begonnen</p><h2>'+e(u.title)+'</h2>'+(legacy?'<p><b>Frühere Fassung '+e(r.moduleVersion)+'</b> · Deine Ergebnisse bleiben hier lesbar und als Arbeitsdatei sicherbar. Die überarbeiteten Aufgaben beginnen mit einem getrennten neuen Stand.</p>':'')+'<p>Stand vom '+e(date(r))+' · '+e(u.steps.find(s=>s.id===r.payload.step)?.title)+'</p><details><summary>Eigenes Produkt ansehen</summary>'+(p.length?p.map(x=>'<h3>'+e(x.title)+'</h3><p class="lw-product">'+e(x.text)+'</p>').join(''):'<p>Ein Werkzeugstand ist vorhanden. Öffne die Aufgabe, um ihn zu untersuchen.</p>')+'</details><div class="lw-actions">'+(legacy?'':'<a class="lw-button" data-lw-open="'+e(r.workspaceId)+'" href="'+destination(r)+'">Weiterarbeiten</a>')+'<button class="lw-button secondary" data-lw-export="'+e(r.workspaceId)+'">Arbeitsdatei sichern<small>Zum Weiterarbeiten im Lernwerk</small></button><button class="lw-button secondary" data-lw-product="'+e(r.workspaceId)+'">Lesbares Ergebnis sichern<small>Zum Lesen und Zeigen</small></button><button class="lw-button secondary" data-lw-delete="'+e(r.workspaceId)+'">Diesen Stand löschen</button></div><a href="'+u.area+'/index.html?neu=1">Neu beginnen – bisherigen Stand behalten</a></article>';
  }).join(''):'<div class="lw-notice"><p>Hier sind noch keine Antworten oder Werkzeugstände im Lernwerk gespeichert. Wenn du mündlich, im Heft oder in „Dateien“ bzw. im Datei-Explorer gearbeitet hast, erscheint das hier nicht. Deine Gerätearbeit kann trotzdem gelungen sein.</p><a href="index.html">Lerneinheit wählen</a></div>';
  if($('lw-persist'))$('lw-persist').checked=device;
 }
@@ -98,7 +98,7 @@ async function openFile(file){
  if(generation!==fileGeneration)return;
  if(!result.ok){announce(result.message);return;}preview=result.record;
  $('lw-import-preview').innerHTML='<p><b>'+e(result.unit.title)+'</b> · Fassung '+e(result.record.moduleVersion)+'</p><p>Stand vom '+e(date(result.record))+'. '+products(result.record).length+' eigene Ergebnisanteile. Die bestehende Arbeit wird erst bei bestätigter Übernahme geändert.</p>';
- const matches=store.records.filter(r=>r.moduleId===result.record.moduleId);
+ const matches=store.records.filter(r=>r.moduleId===result.record.moduleId&&r.moduleVersion===result.record.moduleVersion);
  $('lw-replace-target').innerHTML=matches.map(r=>'<option value="'+e(r.workspaceId)+'">'+e(date(r))+'</option>').join('');
  document.querySelector('[name=lw-import-mode][value=replace]').disabled=!matches.length;
  document.querySelector('[name=lw-import-mode][value=separate]').checked=true;
@@ -123,7 +123,7 @@ function boot(){
  units=JSON.parse($('lw-catalog').textContent);unit=units.find(u=>u.area===document.body.dataset.lwArea)||null;load();
  if(unit){
  const url=new URL(location.href),fresh=url.searchParams.get('neu')==='1';
- currentId=fresh?uuid():store.active[unit.id]||uuid();
+ currentId=fresh?uuid():M.resumeId(store,unit,uuid());
  if(fresh){url.searchParams.delete('neu');history.replaceState(null,'',url);}
  if(unit.family==='content'){
   if(!store.reading||typeof store.reading!=='object'||Array.isArray(store.reading))store.reading={};
@@ -192,7 +192,7 @@ function boot(){
  $('lw-import-cancel').onclick=()=>{++fileGeneration;preview=null;$('lw-import-dialog').close();};
  $('lw-import-confirm').onclick=()=>{
  if(!preview)return;const mode=document.querySelector('[name=lw-import-mode]:checked').value;
- try{store=M.accept(store,preview,mode,mode==='separate'?uuid():$('lw-replace-target').value);const secured=save();$('lw-import-dialog').close();preview=null;renderWork();announce(secured?'Arbeitsstand übernommen und im Tab gesichert. Öffne ihn mit „Weiterarbeiten“.':'Arbeitsstand ist nur hier geöffnet. Tabsicherung fehlgeschlagen: Sichere ihn als Arbeitsdatei, bevor du wechselst.');}catch{announce('Übernahme nicht möglich. Deine Arbeit bleibt erhalten.');}
+ try{store=M.accept(store,preview,mode,mode==='separate'?uuid():$('lw-replace-target').value);const secured=save();$('lw-import-dialog').close();preview=null;renderWork();announce(secured?'Arbeitsstand übernommen und im Tab gesichert. Die eigene Ausgabe und die angebotenen nächsten Schritte stehen unten.':'Arbeitsstand ist nur hier geöffnet. Tabsicherung fehlgeschlagen: Sichere ihn als Arbeitsdatei, bevor du wechselst.');}catch{announce('Übernahme nicht möglich. Deine Arbeit bleibt erhalten.');}
  };
  }
  if($('lw-delete-device'))$('lw-delete-device').onclick=()=>{if(confirm('Die Gerätekopie löschen? Die Arbeit im geöffneten Tab bleibt erhalten.')){try{localStorage.removeItem(KEY);localStorage.removeItem(PERSIST);device=false;status();$('lw-persist').checked=false;announce('Gerätekopie gelöscht; Tabarbeit bleibt erhalten.');}catch{announce('Gerätespeicher ist nicht zugänglich.');}}};

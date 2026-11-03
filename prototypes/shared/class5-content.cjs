@@ -120,7 +120,20 @@ function assets(pack){
   if(m.file.endsWith('.svg')&&/<script|<foreignObject|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|data:|javascript:)/i.test(data.toString()))throw new Error('Aktiver SVG-Inhalt unzulässig');
   if(m.kind==='download'&&data.toString('utf8').trim()!==m.printText.trim())throw new Error('Datei und Druckinhalt weichen ab: '+m.file);
   out.set(m.file,data);
- }return out;
-}
+ }
+  if(pack.area==='recherche')for(const name of ['ersatztexte.txt','fundseite.svg','suchweg.svg']){const key='assets/recherche/'+name;out.set(key,fs.readFileSync(path.join(root,key)));}
+  // Film bundle is explicit and bounded; existing image/download checks stay unchanged.
+  const bundle=pack.reference?.modelMedia;
+  if(bundle?.video){
+   if(!Array.isArray(bundle.files)||new Set(bundle.files).size!==bundle.files.length)throw new Error('Ungültige Filmdateiliste');
+   for(const required of [bundle.video,bundle.poster,bundle.captions,bundle.storyboard])if(!bundle.files.includes(required))throw new Error('Filmmedium fehlt in Dateiliste: '+required);
+   for(const name of bundle.files){
+    if(!/^assets\/recherche\/rq05-film\/[a-z0-9-]+(?:\.[0-9]+)?\.(mp4|jpg|png|vtt|srt|json)$/.test(name))throw new Error('Unzulässiger Filmdateipfad: '+name);
+    const file=fs.realpathSync(path.join(root,name));if(!file.startsWith(root+path.sep))throw new Error('Filmmedium außerhalb des Inhaltsordners');
+    const data=fs.readFileSync(file),limit=(name.endsWith('.mp4')?64:2)*1024*1024;if(!data.length||data.length>limit)throw new Error('Unzulässige Filmdateigröße: '+name);
+    out.set(name,data);
+   }
+  }return out;
+ }
 function unit(pack){return {...pack,kind:pack.kind||'core',status:'working',schemaVersion:1,learningDesign:{goal:pack.product,coverage:Object.fromEntries(Object.entries(pack.coverage).map(([k,v])=>[k,v.join('/')]))},fields:pack.steps.flatMap(s=>s.blocks.filter(b=>['task','external','cooperative','retrieval'].includes(b.type)).map(b=>'i:answer-'+s.id+'-'+b.id))};}
 module.exports={actionLink,validate,renderBlocks,load,unit,assets,esc,paragraphs,mediaHTML,citations};

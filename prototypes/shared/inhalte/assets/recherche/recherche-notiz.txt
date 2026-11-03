@@ -1,31 +1,86 @@
-RECHERCHE-NOTIZ
-IuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0
+MEINE RECHERCHE – ein Arbeitsbogen wächst zum Inhaltsentwurf
+IuM-Lernwerk · CC BY-SA 4.0 · Fassung 2.0 / Gesamtkonzept 5–7
+Nutze deinen Arbeitsbogen oder eure vereinbarte digitale Notiz.
+Auf Papier: Schreibe Seitennamen und Textstelle hier auf. Kopiere den Link
+in die vorhandene digitale Notiz zu diesem Bogen. Die Lehrperson zeigt dir den Ort.
+Meine Links stehen in: ____________________________________
+Öffne jeden gespeicherten Link noch einmal und zeige die passende Stelle.
 
-Meine Frage:
-Meine erste Vermutung:
+1 · MEINE FRAGE
+Ausgangsfrage: Warum sieht der Mond manchmal rund und manchmal wie eine Sichel aus?
+Meine eigene Formulierung oder passende Teilfrage:
+________________________________________________________
+Meine Vermutung (oder: Das weiß ich noch nicht):
+________________________________________________________
 
-Mein Informationsweg und Grund (Suchdienst / bekannte Adresse):
+2 · LEAS BEISPIEL
+Leas Lichtfrage ist eine andere. Wähle die passende Textstelle und begründe deine Wahl.
+Keine zweite Modellkarte abschreiben.
 
-Suchspur: Suchwörter 1 / Beobachtung / veränderte Suchwörter 2 / Grund
-Einen Treffer verworfen, weil:
+3 · MEINE ERSTE EIGENE NOTIZ
+Erste tatsächliche Suche: ________________________________
+Veränderte Suche: _______________________________________
+Vergleiche einen Titel: passt er besser, gleich gut oder weniger gut?
+Meine erste Antwort darf noch unsicher oder unvollständig sein.
+Meine Antwort in eigenen Worten:
+________________________________________________________
+Diese Stelle hilft mir (markieren oder Überschrift + kurzer Satzanfang):
+________________________________________________________
+Hier steht es (Seitenname + Link; auf Papier: Linkort siehe oben):
+________________________________________________________
+Mein Weg: selbst gefunden / Startlink bekommen / Ersatztext
 
-Q1: Titel / Anbieter / direkte URL / Datum oder nicht angegeben / abgerufen am / Abschnitt
-Q1: eigene Aussage / Absicht / warum passend / Grenze
-Q2: Titel / Anbieter / direkte URL / Datum oder nicht angegeben / abgerufen am / Abschnitt
-Q2: eigene Aussage / Absicht / warum passend / Grenze
-Vergleich: Übereinstimmung / Unterschied / noch prüfen
+4 · DIESELBE ANTWORT PRÜFEN
+Zweite Seite (Name + Link; auf Papier: am selben Linkort speichern):
+________________________________________________________
+Vergleichbare Textstelle:
+________________________________________________________
+Mein Stand: bestätigt / genauer / noch offen, weil …
+Zeige dazu die passende Stelle.
+________________________________________________________
+Zeige die Anbieterangaben der zwei Beispiele:
+DLR_next = Forschungseinrichtung; timeanddate = Unternehmen.
+Deine selbst gefundene erste Quelle darf zu einer anderen Anbieterart gehören.
+Erkläre an einer gelesenen Stelle, was deine Antwort stützt oder noch unklar bleibt.
+Auch zwei Seiten können denselben Fehler übernehmen.
+Vergleiche mit deiner Vermutung oder vorherigen Wissenslücke.
 
-SAMMLUNG
-Überschrift 1:
-- Information [Q..., Abschnitt ...]
-- Information [Q..., Abschnitt ...]
-Überschrift 2:
-- Information [Q..., Abschnitt ...]
-Meine Anfangsvermutung -> bestätigt, ergänzt oder korrigiert durch [Q..., Abschnitt ...]:
-Eine Information weggelassen und warum:
-Offene Frage:
+5 · MEIN INHALTSENTWURF (denselben Bogen weiterführen)
+Ordne drei wichtige Informationen unter zwei Überschriften.
+Formuliere selbst; jede Aussage braucht ihre genaue Belegstelle.
+M03 nutzt deine Gliederung, M04 gestaltet das Medienprodukt.
+Beide Seitennamen/Links bleiben dabei; Textstellen oben sind Arbeitsbelege.
+________________________________________________________
+________________________________________________________
+________________________________________________________
+________________________________________________________
+Eine wirklich gelesene Information lasse ich weg, weil …
+________________________________________________________
+Konkrete Rückmeldung an dieser Stelle:
+________________________________________________________
+Meine Verbesserung: vorher → nachher, weil … (oder ich behalte die Stelle bei und erkläre warum)
+________________________________________________________
 
-Überarbeitung: vorher -> nachher / Grund
-Gespeichert an:
-Arbeitsweise: selbst gesucht / bereitgestellte Originalseiten / Ersatztexte
-Noch nachholen:
+6 · NEUER FALL – wenige Stichwörter genügen
+Pfleghof, Samstag 7. November 2026, 16 Uhr.
+Bekannte offizielle Startadresse: https://stadtbuecherei.esslingen.de/start
+Meine Wahl (bekannte Adresse / Suchmaschine) und Grund:
+________________________________________________________
+Antwort für den Besuchstag; passende Stelle, Seitenname/Link:
+________________________________________________________
+Welche Unsicherheit oder Ausnahme bleibt zu prüfen?
+________________________________________________________
+
+AUFBEWAHREN: Inhaltsentwurf und Arbeitsbelege für „Zusammenarbeiten“.
+Pausenstand nur bei Bedarf: Als Nächstes mache ich …
+________________________________________________________
+Ohne Internet habe ich Ersatztexte / den gespeicherten Bildausschnitt genutzt.
+Das hole ich nach: selbst suchen / Originalseiten vergleichen / Öffnungszeit prüfen
+________________________________________________________
+
+SPÄTERER ABRUF: andere Stunde, ohne alte Notizen beginnen.
+Kein neuer Entwurf und keine zusätzliche Live-Recherche.
+
+HILFE NACH VERSUCH: erst Suchhinweis, dann Startlink im Suchabschnitt,
+bei Bedarf Lesestelle/Notizgerüst. Antwort und Stelle ergänzt du selbst.
+Bereitgestellte Quellen kennzeichnen.

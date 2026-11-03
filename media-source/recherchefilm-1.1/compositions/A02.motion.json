@@ -1,0 +1,10 @@
+{
+  "duration": 11.9,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": "#A02-source",
+      "bySec": 1
+    }
+  ]
+}

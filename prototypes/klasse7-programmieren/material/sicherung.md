@@ -1,6 +1,6 @@
 # Rover-Werkstatt · Besprechung und Sicherung
 
-**Fassung 2.2.** Karten erst nach dem eigenen Versuch gemeinsam nutzen. Die Seite ist öffentlich. Ein fremdes Lösungsprojekt belegt keine eigene Erklärung.
+**Fassung 2.3.** Karten erst nach dem eigenen Versuch gemeinsam nutzen. Die Seite ist öffentlich. Ein fremdes Lösungsprojekt belegt keine eigene Erklärung.
 
 ## ALG-1 · Gleicher Endort, anderer Weg
 
@@ -51,3 +51,8 @@ Die beschriftete Codekarte verbindet Positionsspur, Abbruchfrage und Meldungsent
 ## Nach einer Schwierigkeit
 
 Wählt eine konkrete unklare Stelle und ein passendes Beispiel. Bei fehlender Ablaufvorstellung kurze Spur gemeinsam beginnen; danach einen veränderten Fall selbst erklären. Ein noch nicht beobachteter Lauf bleibt offen. Hilfe ist Teil des Lernens; fachliche Klärung und technische Bedienung getrennt betrachten.
+
+
+## Gemeinsame Prüfspur · Fassung 2.3
+
+ALG-4 bündelt Position, ausgesprochene Abbruchfrage, Wahrheitswert und nächste Handlung in derselben Notiz. An der ersten unerlaubten Bewegung klären, welche Prüfung sie ausgelöst hat. Keine zusätzliche Tabelle verlangen. Individueller Anschluss: 35/12 ohne Lauf vorhersagen, dann testen; Ende 47, eine Bewegung, zwei Prüfungen. Bei Hilfe einen anderen Start knapp vor 40 selbst erklären lassen. Die 75 Minuten bleiben 10 + 15 + 35 + 15.

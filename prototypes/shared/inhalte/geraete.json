@@ -2,7 +2,7 @@
   "authorVersion": 2,
   "area": "geraete",
   "id": "IUM-5-M01-GERAETE",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "grade": 5,
   "family": "content",
   "title": "Ein Gerät. Viele Möglichkeiten.",
@@ -224,6 +224,19 @@
         "browser"
       ],
       "mediaLayout": "comparison"
+    },
+    {
+      "id": "zusammenhang",
+      "title": "Was bleibt aus diesem Lernbogen?",
+      "paragraphs": [
+        "Programm, Betriebssystem und Hardware arbeiten zusammen."
+      ],
+      "example": "Beim Rechnen gibt die Tastatur Zahlen ein; das Rechenprogramm verarbeitet sie, der Bildschirm zeigt das Ergebnis.",
+      "boundary": "Eine sichtbare Bildschirmänderung bedeutet nicht, dass sich die Hardware geändert hat.",
+      "steps": [
+        "geraet"
+      ],
+      "sources": []
     }
   ],
   "coverage": {
@@ -408,7 +421,8 @@
       "knowledge": [
         "schichten",
         "eva",
-        "wechsel"
+        "wechsel",
+        "zusammenhang"
       ],
       "materialNeeds": [
         "freigegebenes Schulgerät und darauf verfügbares Rechenprogramm"
@@ -438,6 +452,12 @@
           "text": "Der Programmname genügt nicht. Frage deine Lehrperson nach dem Betriebssystem des Schulgeräts; rate nicht anhand des Hintergrundbildes.",
           "knowledge": "schichten",
           "label": "Passendes Wissen öffnen"
+        },
+        {
+          "title": "Ich kann den Zusammenhang noch nicht erklären",
+          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
+          "knowledge": "zusammenhang",
+          "label": "Zusammenhang mit Beispiel"
         }
       ],
       "blocks": [
@@ -461,7 +481,7 @@
           "return": "Erkläre deine Beobachtung. Wenn du nur das Papierbeispiel bearbeiten konntest, sage das; der Versuch am Gerät bleibt dann offen.",
           "prompt": "Welche Hardware, welches Betriebssystem und welches Programm hast du benutzt? Was waren Eingabe, Verarbeitung und Ausgabe?",
           "responseMode": "oral",
-          "responseHint": "Zeige es am Gerät und erkläre kurz. Stichwörter reichen für eine freiwillige Notiz.",
+          "responseHint": "Zeige es am Gerät und erkläre kurz. Stichwörter reichen für eine freiwillige Notiz. Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben.",
           "routes": [
             {
               "device": "ipad",
@@ -636,6 +656,21 @@
         "Vor dem Dateien-Bogen drei Schichten kurz abrufen; unklare Begriffe am Gerät nachsichern. Für den Dateien-Bogen ist die App „Dateien“ beziehungsweise der Datei-Explorer eine Anwendung – der gespeicherte Inhalt wird dort noch nicht zum Programm.",
         "Zeit und Schulgeräte noch nicht real erprobt. Nach dem Einsatz genügen: benötigte Zeit, häufigste Verwechslung, nächste Anpassung. Sicherer Zugang und Speicherortvergleich folgen im übrigen M01-Teil."
       ]
+    },
+    {
+      "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
+      "paragraphs": [
+        "Lass dir am eigenen Gerät Eingabe, Programm und Ausgabe zeigen. Bei bloßer Begriffsliste eine Handlung vormachen und danach 8 + 6 selbst erklären lassen.",
+        "Der Prüfpunkt liegt im Lernschritt „Am Schulgerät untersuchen“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
+        "Sicherung: Programm, Betriebssystem und Hardware arbeiten zusammen. Beispiel: Beim Rechnen gibt die Tastatur Zahlen ein; das Rechenprogramm verarbeitet sie, der Bildschirm zeigt das Ergebnis. Grenze: Eine sichtbare Bildschirmänderung bedeutet nicht, dass sich die Hardware geändert hat."
+      ]
+    },
+    {
+      "title": "Eine Speicherhandlung, drei verschiedene Dinge",
+      "paragraphs": [
+        "Routine am bereits vorgesehenen Arbeitsprodukt: erstellen – am vereinbarten Ort sichern – schließen – wiederfinden. In „Geräte“ wird die Routine angekündigt; eine speicherbare Datei entsteht erst im Dateien-Bogen. Das Rechenergebnis wird nicht als künstliche zusätzliche Datei verlangt.",
+        "Lernwerk-Arbeitsdatei sichert Antworten im Lernwerk. Die echte Produktdatei, etwa eine Textdatei, liegt gesondert im vereinbarten Ordner. Eine private Notiz wird nur auf eigenen Wunsch separat gesichert und nicht mit abgegeben. Ein Protokollsatz ersetzt nicht das Wiederöffnen am Gerät."
+      ]
     }
   ],
   "briefing": [
@@ -643,12 +678,22 @@
     "Beginnen Sie fünf Minuten mit den zwei Bildern desselben Notebooks. Erwarten Sie zunächst eine Beobachtung zur Anzeige und ein gleichbleibendes Geräteteil. Die Lernenden brauchen dafür noch keine Fachwörter. In den nächsten zehn Minuten werden Hardware, Programme und Betriebssystem erklärt. Der Wechsel zu einem Schreibprogramm bietet einen neuen Fall, bevor die Beispiele zugeordnet werden. Danach bleiben fünfzehn Minuten für den Geräteversuch, zehn für Übertragung und Sicherung sowie fünf Minuten Reserve. Diese Zeitannahmen sind noch nicht mit Lernenden erprobt.",
     "Prüfen Sie mehr als das Rechenergebnis: Was war Eingabe, was wurde verarbeitet, was ist Ausgabe? Fragen Sie beim App-Wechsel, welche Schichten gleich bleiben. Am Touchscreen gehören Berührung und Anzeige zu unterschiedlichen Funktionen derselben Hardware.",
     "Der Automatenfall verlangt eine neue Erklärung, ohne ein unbekanntes Betriebssystem zu erraten. Lassen Sie danach die erste Vermutung verbessern; bei Direkteinstieg genügt die eigene Erklärung zum App-Wechsel. Fehlt der Gerätezugang, bleibt der praktische Nachweis offen.",
-    "Nutzen Sie beim nächsten Einstieg drei Minuten für die Erklärung ohne Vorlage. Im Dateien-Bogen sind diese drei Minuten Teil der bereits geplanten acht Minuten Einstieg. Notieren Sie nach der Erprobung nur Zeitabweichung, häufigste Hürde und nächste Anpassung."
+    "Nutzen Sie beim nächsten Einstieg drei Minuten für die Erklärung ohne Vorlage. Im Dateien-Bogen sind diese drei Minuten Teil der bereits geplanten acht Minuten Einstieg. Notieren Sie nach der Erprobung nur Zeitabweichung, häufigste Hürde und nächste Anpassung.",
+    "Individueller Prüfpunkt: Lass dir am eigenen Gerät Eingabe, Programm und Ausgabe zeigen. Bei bloßer Begriffsliste eine Handlung vormachen und danach 8 + 6 selbst erklären lassen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "experiencedEntry": {
     "title": "Du kennst Hardware, Betriebssystem und Apps schon?",
     "text": "Beginne am Schulgerät. Zeige die drei Schichten und erkläre Eingabe und Ausgabe. Bearbeite anschließend den anderen Fall; bei Unsicherheit hilft das Modell.",
     "step": "geraet",
     "label": "Zum Geräteversuch"
+  },
+  "sequence": {
+    "form": "Routine erwerben",
+    "diagnosticStep": "geraet",
+    "diagnosticBlock": "beobachtung",
+    "core": "Programm, Betriebssystem und Hardware arbeiten zusammen.",
+    "example": "Beim Rechnen gibt die Tastatur Zahlen ein; das Rechenprogramm verarbeitet sie, der Bildschirm zeigt das Ergebnis.",
+    "boundary": "Eine sichtbare Bildschirmänderung bedeutet nicht, dass sich die Hardware geändert hat.",
+    "diagnosis": "Lass dir am eigenen Gerät Eingabe, Programm und Ausgabe zeigen. Bei bloßer Begriffsliste eine Handlung vormachen und danach 8 + 6 selbst erklären lassen."
   }
 }

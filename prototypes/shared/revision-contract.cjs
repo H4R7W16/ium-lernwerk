@@ -1,0 +1,3 @@
+ 'use strict';
+function expected(baseline,revision){const files={...baseline.files};if(revision.base!==require('node:crypto').createHash('sha256').update(JSON.stringify(baseline.files)).digest('hex'))throw Error('Historische Bindung der Prüffassung stimmt nicht');for(const [name,c]of Object.entries(revision.changes)){if(name.startsWith('beispiele/')||name.includes('/snap/'))throw Error('Geschützte Ressource in Revision: '+name);if((baseline.files[name]||null)!==c.before||!/^[a-f0-9]{64}$/.test(c.after))throw Error('Ungebundene Änderung: '+name);files[name]=c.after;}return {files};}
+module.exports={expected};

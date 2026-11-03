@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const build=require('./build.cjs');
-const base=build.prepareNavigablePages(),published=build.preparePublishedPages();
+const base=build.prepareNavigablePages(),published=require('../shared/grade-navigation.cjs').addGradeNavigation(base);
 const roots=['klasse5/','klasse6/','klasse7/programmieren/','klasse7/medien/','klasse7/daten/','klasse7/gaming/','klasse7/'];
 const targets=['klasse5/index.html','klasse6/index.html','klasse7/index.html'];
 const editable=[...base].filter(([name,data])=>/^klasse[567]\//.test(name)&&name.endsWith('.html')&&/<header\b[^>]*>[\s\S]*?<a class="(?:lw-shell-brand|brand)"/.test(data));
@@ -68,3 +68,5 @@ test('Herkunftsbindungen bleiben auch in der tatsächlichen Snap-Ausgabe korrekt
  for(const [file,expected]of Object.entries(after.navigation.assets))assert.equal(sha(published.get(path.posix.normalize(root+file))),expected,file);
  for(const file of Object.keys(before.files))if(file!=='lernwerk.html')assert.equal(after.files[file],before.files[file],file);
 });
+
+test('Gesamtkonzept ergänzt die finale Ausgabe, Altvergleich und Offlinebindung',()=>{const final=require('../shared/gesamtkonzept.cjs').addConcept(published);for(const grade of [5,6,7]){const name='klasse'+grade+'/gesamtkonzept.html';assert.ok(final.has(name));assert.match(final.get(name),/Individueller Nachweis/);const id=grade===7?'inhalt':'main';assert.match(final.get(name),new RegExp('id="'+id+'"'));if(grade<7)assert.ok(final.get('klasse'+grade+'/mantel-sw.js').includes('"gesamtkonzept.html"'));}assert.match(final.get('beispiele/recherche/klasse5/recherche/index.html'),/Historischer Vergleichsstand/);require('../shared/grade-navigation.cjs').validateLinks(final);});

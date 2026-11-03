@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-28",
+  "files": {
+    "material/briefing.md": "64a82ae2545272a35549d19ea8279a27b73d5ed5f7f02a33b0332cbefb11f68c",
+    "inhalt/briefing.html": "56a988841b363279c87feab972d5bfd6f24cbb0a97190767b6a2ddff93f83400",
+    "material/index.md": "ba1a85d2d3189b8093c2ebb70feb9a83f10daeac026469d5c9b81e1a6596bf2a",
+    "inhalt/index.html": "d4263b257fe1cde12ad9be97a2f5551c043d474a6c31698a348e2f30c21722c7",
+    "material/lehrpersonen.md": "a6af3cb680ded374a5768eeffe17acc95b9d9b442b23b6abd21877568b83ed16",
+    "inhalt/lehrpersonen.html": "e8f324844c0a79b02987d806c9134b7bd1d3dd09f9c9d07eb42d3171a37311bf",
+    "material/lernziele.md": "a6eb7ca46731e33654d6a5f393bce1ae68ef31972b4b114c76b7b8c802f6d1b6",
+    "inhalt/lernziele.html": "df278db9a55801356e35303335a958430c721d19e5a676eecdf8644e8a0cce1c",
+    "material/uebergaenge.md": "8c0dcdb8261679c62bcd57d0a48b80448ab9480691ade76c1b84bfe218ac6fab",
+    "inhalt/uebergaenge.html": "a389d403095236327c16e248367b8ecff31a9e410b04b07d7b6c24ddf1a663d9",
+    "material/wiederaufnahme-daten.md": "1c9c5ddede1761c60e84801e2a5b6c46e7fa5b6f4a09c7730fe940037f062daa",
+    "inhalt/wiederaufnahme-daten.html": "6077b93ac1310721b9251dc4a4376638c850068912a7a9203faafd39d6861b2b",
+    "material/wiederaufnahme-gemischt.md": "319feeb3ba5be07a305b2e4c6f53fb30fefaeccac974e7b243025dd8d4253d1f",
+    "inhalt/wiederaufnahme-gemischt.html": "e3095623198de6ccaf13c8e3bf1658d763248e90e99d3c63ecf114aff1db1024",
+    "material/wiederaufnahme-lehrpersonen.md": "463b6fb94b97ebeffa63e2c66226d81be275d769d567e2fcb5bf647ba6b1c5d9",
+    "inhalt/wiederaufnahme-lehrpersonen.html": "94f54fa4d0c9d387c0849b38238aefe7d84dd3e51ea77065bb577d5ebe5edf76",
+    "material/wiederaufnahme-medien.md": "a3a677bceef7b4ce0f93c8add7e4baf99369f8bebedcec8776caea411b2815aa",
+    "inhalt/wiederaufnahme-medien.html": "48b7693275ed412d9cf2e638fd95c23d8e1eaa4f1a1a319fa276d316b73c0d10",
+    "material/wiederaufnahme-programmieren.md": "48851efc9a669389ca14d2eabcf7bdc0c4fb92c04a3744c31b9290808fbf893f",
+    "inhalt/wiederaufnahme-programmieren.html": "fc56ad258388ec11643f75ff1c56f7809683a3c8666fc52bf786fe959e0dd0a3",
+    "inhalt/material/eingangsdiagnose-lernende.pdf": "80377443d8b5ee035eaea2b7e3eefa70bda627c2736a67fcd03b5a06355c29dc",
+    "inhalt/material/eingangsdiagnose-lehrpersonen.pdf": "794089d6e65bfc8fe7b69997829a35dddd5bc76b1d13c9f91779e5a97bbf41ff",
+    "inhalt/material/Startdatei.txt": "e22f1adc2cbcd6278bf03bb7b34a4c1029b87740262236a9c02279474bd06d45",
+    "inhalt/material/Beobachtungsraster.txt": "3024de9d0059d162cc086c3a57553089c36e975ee6bf6d67bc89b8b0f82dc8be"
+  },
+  "sources": {
+    "briefing.md": "398987d2c1c7c9b09b6752d5bc149f72a478aff7019e3b2de1ed4615a92eed7a",
+    "index.md": "ad75f4abbb19773090dab5b765217b61a7d1ea0bc15d2587ca1ac595b9d70fb3",
+    "lehrpersonen.md": "efab1084c450fed766a766ac2ac29d97fb2af5dcfc762521ccbad5523dafad33",
+    "lernziele.md": "e8af7e0cdf43300feda3bf27c2bb7be558b1c08d9652f5e567818764ce06bf57",
+    "uebergaenge.md": "db17e296b44b7e929dd1cb9e41526c0e25d36cd79ec5f39830b8e3918296668f",
+    "wiederaufnahme-daten.md": "1a129549eb4a944dc05eb12e538e1afac91f3a5472c18cbaa54e3510fc3f9741",
+    "wiederaufnahme-gemischt.md": "e2a9c884ac060c093f1f6573e204dccbeacd702c8c7aad87a79587ddf5012f86",
+    "wiederaufnahme-lehrpersonen.md": "b2b3031c12a3a791f037d1028a6fbf6395bd605cbd812e16b2a9e8c294f4acac",
+    "wiederaufnahme-medien.md": "3f850840391c177d938c88ba31c45458f410df83986524782accd0e77ce1fb5e",
+    "wiederaufnahme-programmieren.md": "b015ad9262f928f24c653bb374516e3e0d3693112b036297a452f6d9e50d65ac"
+  }
+}

@@ -855,11 +855,11 @@
       "refs": [
         {
           "unit": "recherche",
-          "step": "lesen"
+          "step": "pruefen"
         },
         {
           "unit": "recherche",
-          "step": "ueberarbeiten"
+          "step": "ordnen"
         },
         {
           "unit": "recherche",
@@ -895,7 +895,7 @@
       "refs": [
         {
           "unit": "recherche",
-          "step": "lesen"
+          "step": "pruefen"
         }
       ],
       "action": "Forschungsorganisation und kommerziellen Anbieter an den Quellen unterscheiden und Absichten benennen.",
@@ -931,11 +931,11 @@
       "refs": [
         {
           "unit": "recherche",
-          "step": "lesen"
+          "step": "pruefen"
         },
         {
           "unit": "recherche",
-          "step": "ueberarbeiten"
+          "step": "ordnen"
         }
       ],
       "action": "Vertrauenswürdigkeitskriterium an einer konkreten Fundstelle erklären, nicht nur Anbietername nennen.",
@@ -983,7 +983,7 @@
       "refs": [
         {
           "unit": "recherche",
-          "step": "lesen"
+          "step": "pruefen"
         },
         {
           "unit": "recherche",
@@ -1023,7 +1023,7 @@
         },
         {
           "unit": "recherche",
-          "step": "sichern"
+          "step": "transfer"
         }
       ],
       "action": "Gegliederte Sammlung mit zugeordneten Quellenkarten erstellen und wieder öffnen.",

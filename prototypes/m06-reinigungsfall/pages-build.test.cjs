@@ -15,6 +15,9 @@ test('Pages bietet aktuellen Einstieg und erhält beide unabhängigen Fassungen'
 test('Veröffentlichung enthält keine Tests, lokalen Nachweise oder Lernstände', () => {
   const assets = prepare();
   for (const name of assets.keys()) {
+    if(name==='klasse5/recherche/assets/recherche/rq05-film/film-ablauf.json'){
+      const story=JSON.parse(assets.get(name));assert.equal(story.scenes.length,15);assert.ok(story.scenes.every(s=>typeof s.text==='string'&&typeof s.start==='number'));assert.doesNotMatch(JSON.stringify(story),/workspaceId|savedAt|ium-learning-state/);continue;
+    }
     assert.doesNotMatch(name, /(?:^|\/)(?:tests?|qa|implementation)(?:[.\/-]|$)|(?:[.-](?:test|spec)\.[cm]?js$)|\.json$/i);
     assert.doesNotMatch(name, /\.(?:cjs|py|log)$/i);
   }

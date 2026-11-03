@@ -6,7 +6,7 @@
 
 „Dein Rover, dein Härtetest“: Die Lernenden planen und bauen eine eigene begrenzte Steuerung mit Bewegung, passender Wiederholung und Meldungsverzweigung. Sie prüfen Normalfall, Grenzfall und einen **selbst gewählten Überschreitungsfall**, reagieren auf einen fremden Start hinter der Station und verbessern begründet Code, Plan, Meldung oder Testabdeckung. Ist keine konkrete Schwäche erkennbar, begründen sie die Abnahme; dies zählt nicht als durchgeführte Revision.
 
-Grundlage sind die [Lernendenfassung 2.2](../lernende/alg-5.html), der [Reihenkommentar](durchfuehrung-256.html) und der [Jahrgangsbrief](jahrgang.html). **15 + 15 + 40 + 20 = 90 Minuten**; weiterhin **405 Programmierminuten innerhalb der 36 Jahres-UE**. Eigene Wahl zwischen Station 60/80, Schrittweite 10/15 und zwei klaren Meldungen bleibt erhalten. Die Zahlen dürfen direkt im Code stehen; eigene Variablen oder Funktionen werden nicht verlangt.
+Grundlage sind die [Lernendenfassung 2.3](../lernende/alg-5.html), der [Reihenkommentar](durchfuehrung-256.html) und der [Jahrgangsbrief](jahrgang.html). **15 + 15 + 40 + 20 = 90 Minuten**; weiterhin **405 Programmierminuten innerhalb der 36 Jahres-UE**. Eigene Wahl zwischen Station 60/80, Schrittweite 10/15 und zwei klaren Meldungen bleibt erhalten. Die Zahlen dürfen direkt im Code stehen; eigene Variablen oder Funktionen werden nicht verlangt.
 
 ALG-3/4 liefern Wahrheitswerte, Verzweigung, vorangestellte Abbruchprüfung und null Bewegungen. Deren tatsächliche Rückmeldung vorher prüfen. Diagnose, Geräteverteilung und reale Bearbeitungszeit sind noch unbekannt; der Ablauf setzt startbereite, ausreichend bedienbare Geräte voraus. Er ist eine Erprobungsplanung. Bildungsplanbezug: vorhandene Projektgrundlage mit der dokumentierten Anhörungsfassung vom 21.09.2026, keine neue Aussage zum verbindlichen Planstatus oder zu einer Fachprofilfreigabe.
 
@@ -95,3 +95,8 @@ Bei Verzögerung zuerst freiwillige Vertiefung und zusätzliche Plenumsbeiträge
 Bei Geräteausfall Regeln, grafischen Plan und Testvorhersagen auf Papier bearbeiten, gegebenenfalls Demonstrationslauf nutzen. Eigene Implementation und Datei-Rückkehr sind damit nicht nachgewiesen. Größerer Verlust verlangt neue Anschlussplanung anhand der tatsächlichen Lage.
 
 **Kompakter WU-Check:** Eigene Parameter und begründete Gegenfälle aktivieren Denken (Band 1); konkrete Hürden steuern gestufte Hilfen (Band 3); eigene Lösung, Peer-Rückmeldung und erneuter Test erhalten den fachlichen Anspruch (Band 6). Redaktionelle Planungsprüfung, kein Wirksamkeitsnachweis. Nach Einsatz tatsächliche Minuten, belegte Einzelumsetzung, Test-/Revisionsbegründung, Hilfe und Datei-Rückkehr dokumentieren; nächsten Schritt vor ALG-6 entscheiden und Briefing bei Ablaufänderungen mitführen.
+
+
+## Einsatzauftrag als Maßstab · Fassung 2.3
+
+In den vorhandenen ersten 15 Minuten formuliert jede Person den eigenen Einsatzauftrag: Zweck im Modell, Station, Schrittweite und Priorität für Treffer oder Bewegungszahl. Er ersetzt die bisherige separate Zweitsatzbegründung. Plan und Testliste verweisen auf diese Anforderungen; der Gegenfall muss eine mögliche Schwäche aufdecken. In der vorhandenen Abnahme entscheidet die Person mit Testbeleg, ob ihre Anforderungen erfüllt sind. Individuell prüfen: Warum passt genau dieser Gegenfall? Bei übernommenem Testwert einen anderen Start selbst begründen und testen lassen. 15 + 15 + 40 + 20 = 90 Minuten.
