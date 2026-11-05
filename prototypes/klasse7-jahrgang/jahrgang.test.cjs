@@ -1,4 +1,5 @@
 'use strict';
+const { assertReadingContent } = require('../klasse7-jahrgang/lesefassung-vergleich.cjs');
 const test=require('node:test'),assert=require('node:assert/strict');
 const {prepareNavigablePages,preparePublishedPages,preparePages}=require('../pages/build.cjs');
 const original=require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages());
@@ -7,7 +8,7 @@ const main=s=>s.match(/<main\b[^>]*>[\s\S]*?<\/main>/)?.[0];
 test('22 Aufgaben und fachliche Materialien behalten ihre Hauptinhalte',()=>{
  let count=0;
  for(const [name,html]of original){if(!name.startsWith('klasse7/')||!name.endsWith('.html')||name==='klasse7/index.html'||name.endsWith('/lehrpersonen/jahrgang.html')||name==='klasse7/programmieren/index.html')continue;
-  assert.equal(main(final.get(name)),main(html),name);count++;
+  assertReadingContent(main(final.get(name)),main(html),name);count++;
  }assert.ok(count>=22);
  for(let i=1;i<=6;i++)assert.ok(final.has('klasse7/programmieren/lernende/alg-'+i+'.html'));
  for(const [prefix,total]of [['med',5],['dat',5],['gam',6]])assert.equal([...final.keys()].filter(n=>new RegExp('/'+prefix+'-[1-6]-(?!briefing)[^/]+\\.html$').test(n)&&!n.includes('bedienkarte')).length,total);
@@ -16,7 +17,7 @@ test('Die Kopfzeile führt aus jedem Lernbogen zu Themen, Wissen und Unterrichts
   const topics = ['index.html', 'medien/index.html', 'daten/index.html', 'programmieren/index.html', 'gaming/index.html'];
   const knowledge = {medien:'medien/medienbogen-sicherung.html', daten:'daten/datenbogen-sicherung.html',
     programmieren:'wissen.html#programmieren', gaming:'gaming/gamingbogen-sicherung.html'};
-  const href = a => a.match(/\bhref="([^"]+)"/)?.[1];
+  const href = a => a.match(/\shref="([^"]+)"/)?.[1];
   let count = 0;
   for (const [name, html] of final) {
     if (!name.startsWith('klasse7/') || !name.endsWith('.html')) continue;
@@ -47,17 +48,27 @@ test('Die Kopfzeile führt aus jedem Lernbogen zu Themen, Wissen und Unterrichts
     const wissen = access.find(a => />Wissen<\/a>/.test(a));
     const material = access.find(a => a.includes('aria-label="Unterrichtsmaterial"'));
     assert.ok(wissen && material, name);
-    assert.equal(target(wissen), knowledge[area] || 'wissen.html', name);
-    assert.equal(target(material), 'lehrpersonen.html#unterrichtsmaterial', name);
+    const knowledgeTarget = target(wissen);
+    const [file, fragment] = knowledgeTarget.split('#');
+    if (area === 'programmieren') assert.equal(knowledgeTarget, knowledge.programmieren, name);
+    else assert.equal(file, knowledge[area] || 'wissen.html', name);
+    if (fragment) assert.ok(final.get('klasse7/' + file).includes('id="' + fragment + '"'), name);
+    const materials = {
+      medien: 'medien/medienbogen-durchfuhrung-und-auswertung.html',
+      daten: 'daten/datenbogen-durchfuhrung-und-auswertung.html',
+      gaming: 'gaming/gamingbogen-durchfuhrung-und-auswertung.html',
+      programmieren: 'programmieren/index.html#lehrpersonen'
+    };
+    assert.equal(target(material), materials[area] || 'lehrpersonen.html#unterrichtsmaterial', name);
     count++;
   }
   assert.ok(count >= 22);
   for (const [page, destination] of [
-    ['gaming/gam-4-eine-strategie-wirklich-ausprobieren.html', 'gamingbogen-private-denkpause.html'],
+    ['gaming/gam-4-eine-strategie-wirklich-ausprobieren.html', 'gamingbogen-private-denkpause.html#mein-versuch'],
     ['programmieren/lernende/alg-5.html', '../snap/lernwerk.html?aufgabe=alg-5']
   ]) {
     const tools = final.get('klasse7/' + page).match(/<nav class="year-tools"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
-    assert.ok(tools?.includes('href="' + destination + '"'), page);
+    assert.ok(tools?.includes(' href="' + destination + '"'), page);
   }
 });
 test('Jahresmaterialien und vier unveränderte Diagnosedateien sind erreichbar',()=>{
@@ -108,5 +119,77 @@ test('Alle Jahreswege und das Gesamtkonzept nutzen die gemeinsamen Reihenstile',
     }
     assert.doesNotMatch(html, /href="medien\/medien\.css"/);
     assert.match(html, /<main\b[^>]*\bid="inhalt"[^>]*tabindex="-1"/);
+  }
+});
+
+test('15 Aufgaben haben eine benannte Wahl, einen lesbaren Standort und den richtigen Anschluss', () => {
+  for (const [area, prefix, total] of [['medien','med',5],['daten','dat',5],['gaming','gam',6]]) {
+    const folder = 'klasse7/' + area + '/';
+    const tasks = [...final.keys()].filter(file => file.startsWith(folder + prefix + '-')
+      && file.endsWith('.html') && !/briefing|bedienkarte/.test(file)).sort();
+    assert.equal(tasks.length, total);
+    for (const [index, file] of tasks.entries()) {
+      if (prefix === 'med' && index === 0) continue; // MED-1 besitzt einen eigenen Lernweg.
+      const html = final.get(file);
+      const picker = html.match(/<nav data-task-routes="selection"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+      const steps = html.match(/<nav data-task-routes="sequence"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+      assert.ok(picker && steps, file);
+      assert.ok(picker.includes('Aufgabe ' + (index + 1) + ' von ' + total), file);
+      const choices = [...picker.matchAll(/<li><a([^>]*)>([^<]+)<\/a>/g)];
+      assert.equal(choices.length, total, file);
+      for (const [n, [, attributes, title]] of choices.entries()) {
+        assert.ok(title.startsWith(prefix.toUpperCase() + '-' + (n + 1) + ' · '), file);
+        assert.ok(attributes.includes(' href="' + tasks[n].slice(folder.length) + '"'), file);
+        assert.equal(attributes.includes('aria-current="page"'), n === index, file);
+      }
+      if (index > 0) assert.ok(steps.includes(' href="' + tasks[index - 1].slice(folder.length) + '"'), file);
+      const onward = index < tasks.length - 1 ? tasks[index + 1].slice(folder.length) : 'index.html';
+      assert.ok(steps.includes(' href="' + onward + '"'), file);
+      if (prefix === 'gam' && index === 4) assert.match(steps, /späteren Termin[^<]*1–2 Wochen nach GAM-4/, file);
+    }
+  }
+});
+
+test('Das Briefing jeder Stunde führt zur Lernaufgabe und an eine vorhandene Stelle im Stundenplan', () => {
+  for (const [area, prefix, total] of [['medien','med',5],['daten','dat',5],['gaming','gam',6],['programmieren','alg',6]]) {
+    const codeDir = area === 'programmieren' ? 'programmieren/lehrpersonen' : area;
+    for (let n = 1; n <= total; n++) {
+      const code = prefix + '-' + n;
+      const file = 'klasse7/' + codeDir + '/' + (code === 'alg-6' ? 'hoerbriefing.html' : code + '-briefing.html');
+      const html = final.get(file);
+      const content = html.slice(html.indexOf('<main')).split('<aside')[0];
+      const shownLinks = [...content.matchAll(/<a\s[^>]*?\bhref="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+      assert.ok(shownLinks.some(([, href]) => {
+        const page = href.split('/').pop();
+        return page === code + '.html' || (page.startsWith(code + '-') && !/(?:briefing|bedienkarte|durchfuehrung)/.test(page));
+      }), file);
+      const plan = shownLinks.find(([, href, title]) => href.includes('#') && /durchfuhrung|durchfuehrung/.test(href)
+        && (code !== 'alg-6' || title.includes('ALG-6')));
+      assert.ok(plan, file);
+      const url = new URL(plan[1], 'https://example.test/' + file);
+      assert.ok(final.get(url.pathname.slice(1)).includes('id="' + url.hash.slice(1) + '"'), file);
+      if (prefix !== 'alg') assert.ok(url.hash.slice(1).startsWith(code + '-'), file);
+    }
+  }
+});
+
+test('Wissen und Arbeitsvorlagen führen zu den zugehörigen Lernaufgaben zurück', () => {
+  const root = 'klasse7/';
+  const routes = [
+    ['medien/medienbogen-sicherung.html', 'med-2-stimmt-die-meldung.html#4-ruckmeldung-neuer-fall-und-private-denkpause-10-minuten'],
+    ['daten/datenbogen-werkstattnotizen.html', 'dat-3-vom-bild-zum-pixelraster-und-zuruck.html#3-dein-eigenes-bildpaket-30-minuten'],
+    ['gaming/gamingbogen-private-denkpause.html', 'gam-4-eine-strategie-wirklich-ausprobieren.html#3-erproben-und-beobachten-15-minuten'],
+    ['gaming/gamingbogen-private-denkpause.html', 'gam-5-grenzen-schutzen-hilfe-erreichen.html#3-deine-entscheidung-20-minuten']
+  ];
+  for (const [file, expected] of routes) {
+    assert.ok(final.get(root + file).includes(' href="' + expected + '"'), file);
+    const url = new URL(expected, 'https://example.test/' + root + file);
+    assert.ok(final.get(url.pathname.slice(1)).includes('id="' + url.hash.slice(1) + '"'), expected);
+  }
+  const section = final.get(root + 'wissen.html').split('<h2 id="programmieren">')[1].split('<h2 id="gaming">')[0];
+  const list = section.match(/<nav data-task-routes="programming-return"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  assert.ok(list && list.includes('Zurück zu deiner Programmieraufgabe'));
+  for (let i = 1; i <= 6; i++) {
+    assert.ok(list.includes('href="programmieren/lernende/alg-' + i + '.html"'), 'ALG-' + i);
   }
 });

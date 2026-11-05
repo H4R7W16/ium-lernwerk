@@ -1,0 +1,115 @@
+/* Lokale Aufgabenwahl und Rückwege in den drei textbasierten Lernbögen. */
+.task-route-picker,
+.task-route-sequence {
+  width: min(100% - 2rem, 58rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+  color: var(--ink, #222a2f);
+}
+
+.task-route-picker {
+  padding-block: .6rem;
+  border-bottom: 1px solid var(--line, #c8d1cb);
+}
+
+.task-route-picker summary,
+.task-route-picker li a {
+  display: block;
+  padding: .4rem .25rem;
+}
+
+.task-route-picker summary {
+  cursor: pointer;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.task-route-picker summary span {
+  display: inline-block;
+  margin-inline-start: .65rem;
+  color: var(--accent, #245743);
+  text-decoration: underline;
+  text-underline-offset: .16em;
+  font-size: .88rem;
+  font-weight: 400;
+}
+
+.task-route-picker summary span::after { content: ' ▾'; }
+.task-route-picker details[open] summary span::after { content: ' ▴'; }
+
+.task-route-picker ol {
+  list-style: none;
+  margin: .25rem 0 .5rem;
+  padding: 0 .75rem;
+  border-inline-start: 2px solid var(--line, #c8d1cb);
+}
+
+.task-route-picker li a[aria-current="page"] {
+  font-weight: 700;
+  background-color: var(--soft, #eaf2ec);
+}
+
+.task-route-sequence {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: .65rem;
+  margin-block: .8rem 1.4rem;
+}
+
+.task-route-sequence a {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: .65rem .85rem;
+  border: 1px solid var(--line, #c8d1cb);
+  border-radius: .45rem;
+  background: #fff;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.task-route-sequence a span { color: var(--muted, #5b656d); font-size: .85rem; }
+.task-route-sequence a strong { text-decoration: underline; text-underline-offset: .15em; }
+.task-route-sequence a:hover,
+.task-route-picker li a:hover { background-color: var(--soft, #eaf2ec); }
+
+.task-route-return {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .85rem;
+  margin: .55rem 0 .9rem;
+}
+.task-route-return a,
+.task-route-tool a { overflow-wrap: anywhere; }
+.task-route-return a { padding-block: .2rem; }
+td .task-route-return { margin-bottom: 0; }
+[data-task-anchor] { scroll-margin-block-start: 1rem; }
+
+.task-route-programming {
+  margin-block: .6rem 1rem;
+}
+.task-route-programming summary {
+  width: fit-content;
+  max-width: 100%;
+  padding: .4rem 0;
+  color: var(--accent, #245743);
+  cursor: pointer;
+  font-weight: 600;
+}
+.task-route-programming ul {
+  margin: .25rem 0 .5rem;
+  padding-inline-start: 1.15rem;
+}
+.task-route-programming a {
+  display: inline-block;
+  padding-block: .2rem;
+  overflow-wrap: anywhere;
+}
+.task-route-programming :is(summary, a):focus-visible {
+  outline: 3px solid #a85100;
+  outline-offset: 3px;
+}
+
+@media print {
+  .task-route-picker, .task-route-sequence, .task-route-return, .task-route-tool, .task-route-programming { display: none; }
+}

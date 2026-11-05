@@ -5,6 +5,9 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { units, isProjection, regularNavigation, projectionNavigation } = require('./kopfzeile.cjs');
 
+const { addTaskRoutes } = require('./aufgabenwege.cjs');
+const { addMaterialRoutes } = require('./materialwege.cjs');
+
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 
 function addYearRoutes(source) {
@@ -46,7 +49,15 @@ function addYearRoutes(source) {
     }
     all.set(name, html);
   }
-  return all;
+  const routes = addMaterialRoutes(addTaskRoutes(all));
+  const stylesheet = 'aufgabenwege.css';
+  routes.set('klasse7/' + stylesheet, fs.readFileSync(path.join(__dirname, stylesheet), 'utf8'));
+  for (const [name, html] of routes) {
+    if (!name.startsWith('klasse7/') || !name.endsWith('.html') || !html.includes('data-task-routes')) continue;
+    const href = path.posix.relative(path.posix.dirname(name), 'klasse7/' + stylesheet);
+    routes.set(name, html.replace('</head>', '<link rel="stylesheet" href="' + href + '"></head>'));
+  }
+  return routes;
 }
 
 module.exports = { addYearRoutes, units };

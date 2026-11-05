@@ -1,4 +1,5 @@
 'use strict';
+const { assertReadingContent } = require('../klasse7-jahrgang/lesefassung-vergleich.cjs');
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {preparePages,preparePublishedPages}=require('../pages/build.cjs');
 const original=preparePages(),published=preparePublishedPages(),ROOT='klasse7/daten/';
@@ -13,11 +14,11 @@ test('Geprüfte Quellen, Lernaufträge, Briefings und alle Bilder bleiben gebund
  const manifest=require('./quelle-sha256.json'),dir=path.join(__dirname,'inhalt');assert.equal(Object.keys(manifest.files).length,38);
  for(const [file,hash]of Object.entries(manifest.files)){
   const source=fs.readFileSync(path.join(dir,file));assert.equal(sha(source),hash,file);
-  if(file.endsWith('.html')&&!['datenbogen-produktionsbrief-und-reihenkommentar.html','datenbogen-durchfuhrung-und-auswertung.html','datenbogen-quellen-und-nutzungsrechte.html'].includes(file))assert.equal(main(published.get(ROOT+file)),main(source.toString()),file);
+  if(file.endsWith('.html')&&!['datenbogen-produktionsbrief-und-reihenkommentar.html','datenbogen-durchfuhrung-und-auswertung.html','datenbogen-quellen-und-nutzungsrechte.html'].includes(file))assertReadingContent(main(published.get(ROOT+file)),main(source.toString()),file);
   if(file.startsWith('material/'))assert.equal(sha(published.get(ROOT+file)),hash,file);
  }
  const plan=main(fs.readFileSync(path.join(dir,'datenbogen-durchfuhrung-und-auswertung.html'),'utf8')).replace('<span class="reference" title="Projektgrundlage im Vault">Klasse 7 - Jahrgangsbrief</span>','<a href="../programmieren/lehrpersonen/jahrgang.html">Klasse 7 – Jahrgangsbrief</a>').replace('Die Startseite der lokalen Lesefassung öffnen.','Die Startseite der Datenwerkstatt öffnen.');
- assert.equal(main(published.get(ROOT+'datenbogen-durchfuhrung-und-auswertung.html')),plan);
+ assertReadingContent(main(published.get(ROOT+'datenbogen-durchfuhrung-und-auswertung.html')),plan,'Durchführung und Auswertung');
 });
 test('Datenwerkstatt und übrige Klasse-7-Lernbögen sind von Unterseiten gegenseitig erreichbar',()=>{
  for(const [name,html]of published){if(!name.endsWith('.html'))continue;

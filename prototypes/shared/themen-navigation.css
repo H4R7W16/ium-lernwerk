@@ -1,0 +1,17 @@
+/* Der Themenname bleibt auch zwischen Telefon- und Desktopbreite als Rückweg sichtbar. */
+.lw-mantel .lw-shell-location a {
+  display: inline-block;
+  padding-block: 4px;
+  color: var(--lw-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.lw-mantel .lw-shell-topics {
+  max-height: min(65vh, 36rem);
+  overflow-y: auto;
+}
+.lw-mantel .lw-shell-topics a[aria-current] {
+  background: var(--lw-soft);
+  box-shadow: inset 3px 0 0 var(--lw-blue);
+}

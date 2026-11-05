@@ -70,3 +70,34 @@ test('Herkunftsbindungen bleiben auch in der tatsächlichen Snap-Ausgabe korrekt
 });
 
 test('Gesamtkonzept ergänzt die finale Ausgabe, Altvergleich und Offlinebindung',()=>{const final=require('../shared/gesamtkonzept.cjs').addConcept(published);for(const grade of [5,6,7]){const name='klasse'+grade+'/gesamtkonzept.html';assert.ok(final.has(name));assert.match(final.get(name),/Individueller Nachweis/);const id=grade===7?'inhalt':'main';assert.match(final.get(name),new RegExp('id="'+id+'"'));if(grade<7)assert.ok(final.get('klasse'+grade+'/mantel-sw.js').includes('"gesamtkonzept.html"'));}assert.match(final.get('beispiele/recherche/klasse5/recherche/index.html'),/Historischer Vergleichsstand/);require('../shared/grade-navigation.cjs').validateLinks(final);});
+
+test('In Klasse 5/6 finden Lernende die Themenübersicht und Lehrende das gesamte Material des Jahrgangs', () => {
+  const source = require('../shared/gesamtkonzept.cjs').addConcept(published);
+  const final = require('../shared/themen-navigation.cjs').addTopicNavigation(source);
+  for (const [name, prior] of source) {
+    if (!/^klasse[56]\//.test(name) || name === 'klasse6/medienprodukt/projektion.html') {
+      assert.deepEqual(final.get(name), prior, name);
+      continue;
+    }
+    const match = name.match(/^(klasse[56])\/([^/]+)\/([^/]+\.html)$/);
+    if (!match || !prior.includes('<span class="lw-shell-location"><b>')) continue;
+    const [,grade,area,file] = match;
+    const markup = header(final.get(name));
+    assert.match(markup, /class="lw-shell-location"><a href="index.html"/, name);
+    const topics = markup.match(/<div class="lw-shell-topics">([\s\S]*?)<button/)[1];
+    const current = [...topics.matchAll(/<a\b([^>]*aria-current[^>]*)>/g)];
+    assert.equal(current.length, 1, name);
+    assert.equal(local(current[0][1].match(/\shref="([^"]+)"/)[1], name), grade + '/' + area + '/index.html', name);
+    assert.ok(topics.includes('Jahrgangsübersicht'), name);
+    if (file === 'material.html') assert.match(final.get(name), /href="\.\.\/material.html">← Alle Unterrichtsmaterialien<\/a>/, name);
+  }
+  for (const [grade, total] of [[5,10],[6,7]]) {
+    const name = 'klasse' + grade + '/index.html';
+    const cards = final.get(name).match(/<article class="lw-card"[^>]*>[\s\S]*?<\/article>/g);
+    assert.equal(cards.length, total);
+    const labels = cards.map(card => card.match(/<a[^>]*>([^<]*öffnen →)<\/a>/)?.[1]);
+    assert.ok(labels.every(Boolean), name);
+    assert.equal(new Set(labels).size, total);
+  }
+  assert.match(final.get('klasse6/jahresstart.html'), /href="netze\/schritt-einstieg.html">Zur ersten Netzaufgabe/);
+});
