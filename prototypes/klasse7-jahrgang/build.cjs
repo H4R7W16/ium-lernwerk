@@ -26,13 +26,14 @@ function addYearRoutes(source) {
     if (!oldHeader) continue;
     const ref = target => path.posix.relative(path.posix.dirname(name), 'klasse7/' + target);
     const projection = isProjection(name, original);
-    const navigation = projection ? projectionNavigation(name, oldHeader, ref) : regularNavigation(name, oldHeader, ref);
+    const hasLocalMaterials = original.includes('<!--year-plan-->');
+    const navigation = projection ? projectionNavigation(name, oldHeader, ref) : regularNavigation(name, oldHeader, ref, hasLocalMaterials);
     let sheets = '<link rel="stylesheet" href="' + ref('jahreswege.css') + '">';
     if (!projection) sheets += '<link rel="stylesheet" href="' + ref('kopfzeile.css') + '">';
     let html = original.replace(oldHeader, navigation)
       .replace('</head>', sheets + '</head>')
       .replace('Lehrmaterial auswählen', 'Material für Lehrpersonen');
-    if (original.includes('<!--year-plan-->')) {
+    if (hasLocalMaterials) {
       const teacherLink = '<a href="' + ref('lehrpersonen.html') + '">Jahresplanung und Übergänge</a>';
       html = html.replace('<!--year-plan-->', projection ? teacherLink : '');
     }

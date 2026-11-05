@@ -49,7 +49,7 @@ function topicLink(name, current, id, target, label, ref) {
   return '<a' + status + ' href="' + ref(target) + '">' + label + '</a>';
 }
 
-function regularNavigation(name, oldHeader, ref) {
+function regularNavigation(name, oldHeader, ref, hasLocalMaterials) {
   const unit = units.find(([id]) => name.startsWith('klasse7/' + id + '/'));
   const current = unit?.[0];
   const location = unit ? { target: current + '/index.html', label: unit[1] }
@@ -70,6 +70,7 @@ function regularNavigation(name, oldHeader, ref) {
     + '<a' + (onKnowledgePage ? ' aria-current="page"' : '') + ' href="' + ref(knowledge) + '">Wissen</a>'
     + '<a href="' + ref('lehrpersonen.html#unterrichtsmaterial') + '" aria-label="Unterrichtsmaterial">'
     + '<span class="year-nav-full">Unterrichtsmaterial</span><span class="year-nav-short">Material</span></a></nav></header>';
+  if (hasLocalMaterials) return header;
   const tools = unitTools(name, oldHeader, 'klasse7/' + knowledge);
   return tools ? header + '<nav class="year-tools" aria-label="Arbeitsmittel im Lernbogen">' + tools + '</nav>' : header;
 }
