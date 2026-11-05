@@ -4,7 +4,7 @@ status: reviewed
 area: Unterricht
 project: IuM-Lernwerk
 klassenstufe: 7
-fassung: "1.1"
+fassung: "1.2"
 owner_agent: Codex
 created: 2026-10-28
 updated: 2026-11-05
@@ -16,7 +16,9 @@ Nutze ein bekanntes schulisches Dokument oder dein Heft. Übernimm nur die passe
 
 ## MED-1 · Einfluss
 
-Zwei Tabellenzeilen für B/C: Rollen – Interesse – Merkmal/Wirkung. Vier kurze Erklärungen zu Auswahl, Bewertungen, Kommentaren und Werbung. Begründete Quellenwahl. Neuer Fall: Position und Qualität unterscheiden.
+Halte für B und C die Rollen, Interessen und ein Merkmal mit möglicher Wirkung fest. Wähle für B ein Detail aus Mikas Spot oder seiner Lesefassung. Was hat es bei dir bewirkt? Welche Frage zur Flasche bleibt offen?
+
+Vier kurze Erklärungen zu Auswahl, Bewertungen, Kommentaren und Werbung; begründete Quellenwahl. Im neuen Fall unterscheidest du Position und Qualität.
 
 ## MED-2 · Quellenurteil
 

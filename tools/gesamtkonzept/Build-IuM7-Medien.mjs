@@ -21,6 +21,22 @@ const titleOf=s=>s.match(/^# (.+)$/m)?.[1]??'Medienwerkstatt';
 const renderer=new marked.Renderer();
 renderer.heading=({tokens,depth,text})=>`<h${depth} id="${slug(text)}">${marked.parser(tokens).replace(/^<p>|<\/p>\n$/g,'')}</h${depth}>\n`;
 marked.use({renderer});
+const fizzFolder='Assets/Outputs/IuM-Lernwerk/Fizz-MED-1-20261105-v4';
+const fizzClips=[
+ {id:'spot',video:'Fizz-MED-1-v4.mp4',captions:'fizz-med1-v4.de.vtt',poster:'spot-vorschau.jpg'},
+ {id:'tonvergleich',video:'Fizz-MED-1-Tonvergleich-v4.mp4',captions:'fizz-tonvergleich-v4.de.vtt',poster:'vergleich-vorschau.jpg'}
+];
+function renderFizzClips(html) {
+ return html.replace(/<p><a href="([^"]+)">([^<]+)<\/a><\/p>/g,(original,href,label)=>{
+  const clip=fizzClips.find(item=>href==='../../../../../'+fizzFolder+'/'+item.video);
+  if(!clip)return original;
+  const base='material/fizz/'+clip.id;
+  return `<figure class="mp-clip"><figcaption id="fizz-${clip.id}">${label}</figcaption>
+<video controls playsinline preload="none" width="900" height="1600" aria-labelledby="fizz-${clip.id}" src="${base}.mp4" poster="${base}.jpg">
+<track kind="captions" srclang="de" label="Deutsch · Sprache und Geräusche" src="${base}.de.vtt">
+<a href="${base}.mp4">${label}</a></video></figure>`;
+ });
+}
 function render(text){
  text=text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/,'');
  text=text.replaceAll('../../../../../Assets/IuM-Lernwerk/Medien/2026-10-28-Fassung-1.0/material/','material/');
@@ -90,7 +106,7 @@ function firstLesson(text){
  const [title,result,assignment,...context]=md.slice(0,start).trim().split(/\r?\n\s*\r?\n/);
  const outcomePrefix='**'+lessons[0].minutes+' Minuten · Dein Ergebnis:**';
  if(!result?.startsWith(outcomePrefix)||!assignment||!context.length)throw Error('MED-1: Autorenstruktur des Einstiegs prüfen');
- const steps=render(md.slice(start));
+ const steps=renderFizzClips(render(md.slice(start)));
  const firstId=steps.match(/^<h2 id="([^"]+)"/)?.[1];
  if(!firstId)throw Error('MED-1: Ziel des ersten Arbeitsschritts fehlt');
  const choices=lessons.map((item,i)=>`<a href="${item.href}"${i===0?' aria-current="page"':''}><b>${item.code}</b> ${item.title}</a>`).join('');
@@ -102,7 +118,19 @@ function firstLesson(text){
  <aside class="mp-outcome" aria-label="Ergebnis und Zeit"><p class="mp-kicker">${lessons[0].minutes} Minuten</p><h2>Dein Ergebnis</h2>${render(result.slice(outcomePrefix.length).trim().replace(/^eine /,'Eine '))}</aside></div></section>
  <article class="mp-article"><div class="mp-context">${render(context.join('\n\n'))}</div>${steps}</article>
  <nav class="mp-next" aria-label="Weiter im Lernbogen"><a class="mp-secondary" href="index.html">← Zur Medienübersicht</a><a class="mp-primary" href="${lessons[1].href}">Weiter zu ${lessons[1].code} · ${lessons[1].title} ${arrow}</a></nav>
- ${materialsLinks()}`;
+ ${materialsLinks()}
+ <script>
+ const fizzPlayers = document.querySelectorAll('.mp-clip video');
+ for (const player of fizzPlayers) {
+   player.addEventListener('play', () => {
+     for (const other of fizzPlayers) if (other !== player) other.pause();
+   });
+   const disclosure = player.closest('details');
+   if (disclosure) disclosure.addEventListener('toggle', () => {
+     if (!disclosure.open) player.pause();
+   });
+ }
+ </script>`;
 }
 
 for(const f of files){
@@ -118,6 +146,15 @@ const parts=[...projectionText.matchAll(/^## (P\d[^\n]*)\n([\s\S]*?)(?=^## |$(?!
 for(let i=0;i<parts.length;i++) fs.writeFileSync(path.join(out,`projektion-${i+1}.html`),shell(parts[i][1],`<div class="project-nav"><a href="${target('Medienbogen - Projektion')}">Impulse</a>${i?`<a href="projektion-${i}.html">Zurück</a>`:''}${i+1<parts.length?`<a href="projektion-${i+2}.html">Weiter</a>`:''}</div>`+render('# '+parts[i][1]+'\n'+parts[i][2]),'projection'));
 let overview=path.join(out,target('Medienbogen - Projektion'));fs.writeFileSync(overview,fs.readFileSync(overview,'utf8').replace('<main id="inhalt">',`<main id="inhalt"><p>${parts.map((_,i)=>`<a href="projektion-${i+1}.html">Großansicht P${i+1}</a>`).join(' · ')}</p>`));
 for(const f of ['ium-lernwerk-7.svg','favicon.svg'])fs.copyFileSync(path.join(brand,f),path.join(out,'material',f));
+const fizzOut=path.join(out,'material','fizz');
+fs.mkdirSync(fizzOut,{recursive:true});
+for(const clip of fizzClips){
+ for(const [source,suffix] of [[clip.video,'.mp4'],[clip.captions,'.de.vtt'],[clip.poster,'.jpg']]){
+  const from=path.join(root,fizzFolder,source), to=path.join(fizzOut,clip.id+suffix);
+  if(suffix==='.de.vtt') fs.writeFileSync(to,fs.readFileSync(from,'utf8').replace(/\r\n/g,'\n'));
+  else fs.copyFileSync(from,to);
+ }
+}
 const hof=`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720"><title>Ein Hof mit verschiedenen Ecken</title><desc>Eigene schematische Illustration. Links grüne Bäume und Bank, rechts grauer Papierkorb und drei Papierstücke, hinten Schule und Spielfeld. Keine Personen.</desc><rect width="1200" height="720" fill="#dcecf0"/><rect y="310" width="1200" height="410" fill="#d6d2c7"/><path d="M0 530L1200 420M0 650L1200 540M220 310L350 720M580 310L700 720M930 310L1080 720" stroke="#c0bdaf" stroke-width="3"/><rect x="470" y="100" width="630" height="245" rx="4" fill="#e7bb7d"/><path d="M440 100L780 28L1130 100" fill="#687f89"/><g fill="#648c99" stroke="#fff" stroke-width="8"><rect x="510" y="145" width="100" height="85"/><rect x="650" y="145" width="100" height="85"/><rect x="790" y="145" width="100" height="85"/><rect x="930" y="145" width="100" height="85"/></g><rect x="750" y="260" width="70" height="85" fill="#556e76"/><path d="M450 390H790L860 485H390Z" fill="#86adac" stroke="#fff" stroke-width="5"/><path d="M620 390L630 485" stroke="#fff" stroke-width="4"/><ellipse cx="213" cy="585" rx="200" ry="90" fill="#a3bd74"/><rect x="155" y="225" width="40" height="260" rx="8" fill="#8b6545"/><g fill="#5d995d"><circle cx="170" cy="185" r="115"/><circle cx="85" cy="230" r="75"/><circle cx="250" cy="232" r="85"/></g><g fill="#ca8c4e" stroke="#6e563d" stroke-width="8"><path d="M75 470H345V495H75Z"/><path d="M85 420H335V448H85Z"/><path d="M105 495V550M315 495V550"/></g><g fill="#767f85" stroke="#4c555b" stroke-width="7"><path d="M950 435H1080L1068 575H962Z"/><rect x="942" y="420" width="146" height="24" rx="9"/></g><g stroke="#b4b2a8" stroke-width="3" fill="#faf9f0"><path d="M895 590L930 574L945 605L910 620Z"/><path d="M1040 630L1070 618L1090 645L1053 653Z"/><path d="M1130 565L1160 580L1142 606L1117 588Z"/></g><circle cx="400" cy="560" r="20" fill="#efad45"/><path d="M380 560H420M400 540V580" stroke="#965d2b" stroke-width="3"/></svg>`;
 fs.writeFileSync(path.join(out,'material/hof-original.svg'),hof);
 await sharp(Buffer.from(hof)).png().toFile(path.join(out,'material/hof-original.png'));

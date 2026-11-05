@@ -4,7 +4,7 @@ status: reviewed
 area: Unterricht
 project: IuM-Lernwerk
 klassenstufe: 7
-fassung: "1.1"
+fassung: "1.2"
 owner_agent: Codex
 created: 2026-10-28
 updated: 2026-11-05
@@ -25,7 +25,7 @@ Urheber erstellen Beiträge, Plattformen verbreiten und ordnen sie, Werbepartner
 | Kommentare | Welche Erfahrungen, Fragen oder Wertungen mir auffallen | Dass alle Kommentare stimmen oder alle Menschen so denken |
 | Werbung/Provision | Aufmerksamkeit, Kaufanreiz und finanzielle Interessen | Dass jede Aussage falsch ist |
 
-Gute Erklärung: **sichtbares Merkmal → möglicher Einfluss → Aussagegrenze**. Im Flaschenfall sind Testbedingungen ein konkreter Ansatz zur Prüfung. Der Absender allein entscheidet nicht.
+In Mikas Spot kann der Jubel beim Sprung den Eindruck von Zustimmung zur Flasche verstärken. Wer anders reagiert, kann das am selben Moment begründen. Für die Dichtigkeit braucht die Redaktion einen Test mit beschriebenen Bedingungen. Eine gute Erklärung verbindet **ein sichtbares, hörbares oder beschriebenes Merkmal → einen möglichen Einfluss → eine Aussagegrenze**.
 
 ## MED-2 · Belege haben eine Reichweite
 

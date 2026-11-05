@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 ---
 
 # MED-1 · Wer lenkt unseren Blick?
@@ -38,13 +38,35 @@ Unter dem Beitrag: **12 hilfreiche Bewertungen.** Kommentar: „Meine Flasche B 
 
 ### B · Clip auf „Loop“
 
-**Urheber:** Creator Mika · **Kennzeichnung:** „Werbung – bezahlt von der erfundenen Marke Fizz“ · **Publikum:** Jugendliche mit Interesse an Sport und Alltagstipps
+Schau dir Mikas Beitrag einmal an oder öffne die Lesefassung. Was fällt dir zuerst auf? Merke dir eine Stelle, an der du das festmachen kannst.
 
-„Diese Flasche ist immer dabei. Mit meinem Code bekommst du Rabatt!“ Das Markenlogo erscheint dreimal. Ein kurzer Sprung und ein jubelnder Ton begleiten das Hochhalten der Flasche.
+[Mikas Foto-Reel auf Loop (13 Sekunden)](../../../../../Assets/Outputs/IuM-Lernwerk/Fizz-MED-1-20261105-v4/Fizz-MED-1-v4.mp4)
 
-**4.800 Likes.** Oben angehefteter Kommentar: „Alle in meinem Team haben sie!“ Darunter steht: „Wieso wird sie mit warmem Wasser undicht?“
+<details><summary>Den Beitrag als Text lesen</summary>
 
-Rahmen der Plattform: **„Für dich – weil du zuletzt Sportclips angesehen hast.“** Loop finanziert sich in diesem Beispiel durch Werbung.
+Über dem Beitrag steht „@mika · Werbung · bezahlt von Fizz“. Auf dem Basketballplatz greift Mika nach der Fizz-Flasche in ihrer Sporttasche. Sie sagt: „Diese Flasche ist immer dabei.“ Ein Kameraklick. Das nächste Foto zeigt Mika in der Luft, die Flasche über dem Kopf. Eine Gruppe jubelt und klatscht. Auf dem letzten Foto steht die Flasche auf dem Platz. Mika sagt: „Mit meinem Code bekommst du Rabatt!“ Dazu erscheint der Code MIKA. Auf jedem der drei Fotos ist das Fizz-Logo zu sehen.
+
+Unter dem Beitrag stehen **4.800 Likes** und „Für dich – weil du zuletzt Sportclips angesehen hast.“ Der angeheftete Kommentar lautet „Alle in meinem Team haben sie!“ Darunter fragt jemand: „Wieso wird sie mit warmem Wasser undicht?“
+
+</details>
+
+Vergleiche anschließend den Sprung in den beiden Durchgängen. Lass die Lautstärke dabei gleich.
+
+<details><summary>Den Sprung zweimal vergleichen (9 Sekunden)</summary>
+
+Was hörst du jeweils beim Wechsel zum Sprungfoto? Beschreibe, wie derselbe Sprung im ersten und im zweiten Durchgang auf dich wirkt.
+
+[Sprung im Hörvergleich (9 Sekunden)](../../../../../Assets/Outputs/IuM-Lernwerk/Fizz-MED-1-20261105-v4/Fizz-MED-1-Tonvergleich-v4.mp4)
+
+<details><summary>Den Hörvergleich als Text lesen</summary>
+
+Beide Durchgänge zeigen zuerst die Tasche und wechseln mit einem Kameraklick zum selben Sprungfoto. Im ersten Durchgang sind zur Musik Jubel und Klatschen zu hören. Im zweiten hörst du die Musik und den Klick allein.
+
+</details>
+
+</details>
+
+Loop zeigt Mikas Beitrag Jugendlichen mit Interesse an Sport und Alltagstipps. Die Plattform finanziert sich in diesem Beispiel durch Werbung.
 
 ### C · Vergleich auf „Flaschenblick“
 
@@ -56,9 +78,9 @@ Rahmen der Plattform: **„Für dich – weil du zuletzt Sportclips angesehen ha
 
 ## 3 · Deine Redaktionsnotiz · 15 Minuten
 
-Fülle für B und C je eine Zeile aus:
+Fülle für B und C je eine Zeile aus. Wähle für B eine Stelle, die du im Spot oder im Hörvergleich gesehen, gehört oder gelesen hast. Beschreibe ihren möglichen Einfluss auf deinen Eindruck und eine Eigenschaft der Flasche, die du anders prüfen müsstest.
 
-| Beitrag | Urheber / Plattform oder Veröffentlichungsort / Werbepartner / Publikum | Belegtes oder vermutetes Interesse | Ein Merkmal und seine mögliche Wirkung |
+| Beitrag | Urheber / Plattform oder Veröffentlichungsort / Werbepartner / Publikum | Belegtes oder vermutetes Interesse | Merkmal und mögliche Wirkung, bei B auch eine offene Prüffrage |
 |---|---|---|---|
 | B | … | … | … |
 | C | … | … | … |
@@ -67,7 +89,7 @@ Schreibe darunter vier kurze Sätze. Verwende je einen Beleg aus A, B oder C:
 
 1. **Auswahl:** Wie kann „Für dich“ beeinflussen, welche Flaschen du überhaupt wahrnimmst? Was wissen wir hier über die Auswahl, was nicht?
 2. **Bewertungen:** Was können viele Likes oder Sterne mit dem ersten Eindruck machen? Was belegen sie nicht?
-3. **Kommentare:** Wie könnten der angeheftete Jubel und der kritische Kommentar unterschiedlich wirken?
+3. **Kommentare:** Wie könnten der angeheftete Kommentar und die Frage zum warmen Wasser unterschiedlich wirken?
 4. **Werbung:** Wer hat hier ein finanzielles Interesse, und an welchem Merkmal erkennst du es?
 
 Entscheide abschließend: Welchen Beitrag würdest du für eine Aussage zur Dichtigkeit zuerst prüfen? Nenne den konkreten Grund und eine noch offene Frage. Ein Beitrag mit Werbung kann richtige Informationen enthalten. Ein Schulblog kann sich irren.
@@ -86,7 +108,7 @@ Die Rahmenzeile nennt einen Auswahlgrund. Den Beitrag hat Mika erstellt; Loop en
 
 ## 4 · Prüfen und verbessern · 10 Minuten
 
-Vergleicht eure Erklärungen: Sind Rollen getrennt? Ist jede mögliche Wirkung mit einem sichtbaren Merkmal verbunden? Wird Beliebtheit mit Qualität verwechselt? Verbessere eine unklare Stelle; wenn sie bereits trägt, begründe kurz, warum.
+Vergleicht eure Erklärungen: Sind die Rollen getrennt? Zeigt ein konkretes Bild-, Ton- oder Textdetail, wie ihr auf die mögliche Wirkung kommt? Welche Frage zur Qualität bleibt offen? Verbessere eine unklare Stelle oder begründe kurz, warum sie bereits trägt.
 
 **Neuer Kurzfall:** Auf einer Videoplattform ist ein ausführlicher Test ohne Werbung nach Datum weit unten. Ein bezahlter Kurzclip wird oben als „Gesponsert“ angezeigt, hat aber wenige Likes. Erkläre in zwei Sätzen, warum die Position keine Aussage über die Testqualität erlaubt und welche zwei Einflusswege du hier unterscheiden musst.
 

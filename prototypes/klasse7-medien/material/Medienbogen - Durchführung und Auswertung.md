@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fach: Informatik und Medienbildung
 klassenstufe: 7
-fassung: "1.1"
+fassung: "1.2"
 owner_agent: Codex
 created: 2026-10-28
 updated: 2026-11-05
@@ -13,7 +13,7 @@ updated: 2026-11-05
 
 # Medienbogen · Durchführung und Auswertung
 
-**Maßgebliche Durchführung · Fassung 1.0 · 270 Minuten.** Zusammenhang, Planungsgrundlagen und Ausgabeverzeichnis: [[Medienbogen - Produktionsbrief und Reihenkommentar]]. Noch kein tatsächlicher Kursverlauf dokumentiert. Alle Minuten sind Planungsansätze.
+**Maßgebliche Durchführung · 270 Minuten.** Zusammenhang, Planungsgrundlagen und Ausgabeverzeichnis: [[Medienbogen - Produktionsbrief und Reihenkommentar]]. Noch kein tatsächlicher Kursverlauf dokumentiert. Alle Minuten sind Planungsansätze.
 
 ## Vorbereitung und gemeinsame Routinen
 
@@ -31,16 +31,16 @@ Pro Aufgabe: eigener Erstversuch, kurzer Abgleich, gezielte Präzisierung und ve
 
 ## MED-1 · Interessen und Einflusswege · 45 Minuten
 
-**Material:** [[MED-1 - Wer lenkt unseren Blick]], Projektion P1, Sicherung MED-1. Ziel: Akteure unterscheiden; Auswahl, Bewertung, Kommentare und Werbung getrennt erklären.
+**Material:** [[MED-1 - Wer lenkt unseren Blick]], [[MED-1 - Wer lenkt unseren Blick#B · Clip auf „Loop“]], Projektion P1 und Sicherung MED-1. Spot, Hörvergleich und deutsche Untertitel vorab am Schulgerät öffnen. Die Lesefassung ermöglicht die Analyse auch ohne Ton oder Bild. Ziel: Akteure unterscheiden und Auswahl, Bewertungen, Kommentare und Werbung getrennt erklären.
 
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
 | 0–10 | Erster Eindruck zu A/B/C; Rollen und Mechanismus am Radwerkstattbeispiel modellieren. Auf „kann“ und „vermutlich“ achten. | Interesse statt Mechanismus? „Was genau sieht das Publikum – und was könnte das auslösen?“ |
-| 10–20 | Karten lesen; A gemeinsam untersuchen. Ein Kommentar kann eine gute Gegenfrage sein, ohne schon den Test zu widerlegen. | Kommentar als Beweis? Benötigte Gegenprüfung am Deckel benennen lassen. |
-| 20–35 | Jede Person bearbeitet B/C, vier Wirkungswege und Quellenwahl. Nach 5–7 Minuten zwei Zeilen stichprobenartig ansehen. | Rollen vermischt? Autor und Rahmen getrennt markieren. Starke Lernende prüfen, welche Interessen nur vermutet sind. |
+| 10–20 | A und C lesen. Bei B erst den ganzen Spot ansehen oder die Lesefassung nutzen: Welches Detail fällt auf? Danach im Hörvergleich die Wirkung am selben Sprung vergleichen. An A gemeinsam die Gegenfrage zum Deckel untersuchen. | Nur ein Werturteil? Den Moment noch einmal zeigen oder beschreiben lassen. Kommentar als Beweis? Nach dem nächsten Prüfschritt fragen. |
+| 20–35 | Jede Person bearbeitet B/C, vier Wirkungswege und Quellenwahl. Nach 5–7 Minuten zwei B-Zeilen prüfen: konkretes Bild- oder Tondetail, möglicher Eindruck, offene Frage. | Nur Verkaufsabsicht genannt? Nach einem Moment im Spot fragen. Rollen vermischt? Gestaltung durch Mika und Angaben von Loop getrennt markieren. |
 | 35–45 | 5 min begründeter Abgleich/Präzisierung; 3 min neuer Platzierungsfall; 2 min gemeinsame Sicherung. | Fehlt ein Wirkungsweg, diesen gezielt ergänzen statt alle Texte neu schreiben. |
 
-**Erwartung:** B: Mika erstellt; Loop wählt/verbreitet, finanziert über Werbung; Fizz bezahlt; Jugendliche als Publikum. Mögliche Interessen: Reichweite/Einnahmen/Verkauf. Sichtbar sind Werbung, Logo, Rabatt, Sportzuordnung und Kommentare. C: Redaktion und eigene Seite; Provision an Kauf geknüpft, genaue Kooperationspartner außer den Verkaufsbezügen nicht genannt. Sterne bündeln Bewertungen, ersetzen keinen eigenen Test. A ist für Dichtigkeit wegen beschriebener Bedingungen ein begründbarer erster Prüfweg, kein automatischer Sieger. Kritische Nachfrage und begrenzte Stichprobe bleiben wichtig.
+**Erwartung:** B: Mika erstellt; Loop wählt/verbreitet, finanziert über Werbung; Fizz bezahlt; Jugendliche als Publikum. Mögliche Interessen: Reichweite/Einnahmen/Verkauf. Ein möglicher B-Beleg: Beim Sprung hält Mika die Flasche hoch, während Menschen jubeln. Das kann die Flasche mit Anerkennung verbinden. Auch eine andere begründete Wirkung zählt. Der angeheftete Kommentar steht im Feed und ist ein eigener Einflussweg. C: Redaktion und eigene Seite; Provision an Kauf geknüpft, genaue Kooperationspartner außer den Verkaufsbezügen nicht genannt. Sterne bündeln Bewertungen, ersetzen keinen eigenen Test. A ist für Dichtigkeit wegen beschriebener Bedingungen ein begründbarer erster Prüfweg, kein automatischer Sieger. A prüft ein Modell B. Ob dieses von Fizz stammt, lässt das Material offen. Die Frage nach warmem Wasser unter Mikas Clip ist eine Nachfrage.
 
 **Neuer Fall:** Gesponserte Platzierung kann unabhängig von Likes oben stehen. Zu trennen sind bezahlte Sichtbarkeit und Bewertung/Qualität; die Qualität verlangt Testbedingungen und Belege. Wenige Likes widerlegen den Clip nicht.
 

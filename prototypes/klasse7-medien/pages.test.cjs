@@ -72,3 +72,37 @@ test('MED-1 zeigt Position, Titelwahl, Arbeitsbeginn und den direkten Weiter- un
   assert.match(main, /href="med-2-stimmt-die-meldung.html">[^<]*MED-2 · Stimmt die Meldung\?/);
   assert.doesNotMatch(page.split('<main')[0], /class="(?:year-tools|course-nav)"/);
 });
+
+test('MED-1 bindet den Fizz-Spot und den Tonvergleich als zugängliche Belege für die Redaktionsnotiz ein', () => {
+  const page = published.get(ROOT + 'med-1-wer-lenkt-unseren-blick.html');
+  const main = page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
+  const clips = [...main.matchAll(/<video\b([^>]*)>([\s\S]*?)<\/video>/g)];
+  assert.equal(clips.length, 2);
+
+  for (const [index, name] of ['spot', 'tonvergleich'].entries()) {
+    const [, attributes, contents] = clips[index];
+    assert.match(attributes, /\bcontrols\b/);
+    assert.match(attributes, /\bplaysinline\b/);
+    assert.match(attributes, /\bpreload="none"/);
+    assert.doesNotMatch(attributes, /\bautoplay\b/);
+    assert.match(attributes, /\baria-label(?:ledby)?="[^"]+"/);
+    assert.ok(clips[index][0].includes('src="material/fizz/' + name + '.mp4"'));
+    assert.ok(attributes.includes('poster="material/fizz/' + name + '.jpg"'));
+    const track = contents.match(/<track\b[^>]*>/)?.[0] ?? '';
+    assert.match(track, /\bkind="captions"/);
+    assert.match(track, /\bsrclang="de"/);
+    assert.ok(track.includes('src="material/fizz/' + name + '.de.vtt"'));
+    const base = ROOT + 'material/fizz/' + name;
+    assert.ok(published.get(base + '.mp4')?.length > 0);
+    assert.ok(published.get(base + '.jpg')?.length > 0);
+    assert.match(String(published.get(base + '.de.vtt')), /^WEBVTT\b/);
+  }
+
+  const b = main.search(/<h3\b[^>]*>B\s*·/);
+  const c = main.search(/<h3\b[^>]*>C\s*·/);
+  assert.ok(b >= 0 && b < clips[0].index && clips[0].index < c, 'Spot gehört zu Beitrag B');
+  assert.match(main, /<summary\b[^>]*>[^<]*(?:[Ll]ese|[Tt]ext)/);
+  const note = main.match(/<h2\b[^>]*>3\s*·[\s\S]*?(?=<h2\b)/)?.[0] ?? '';
+  assert.match(note, /(?:Clip|Spot|Bild|Ton|[Hh]örvergleich)/, 'Redaktionsnotiz greift einen Filmbeleg auf');
+  assert.match(note, /(?:Grenze|prüfen|offen|belegt)/i, 'Redaktionsnotiz fordert eine Aussagegrenze');
+});
