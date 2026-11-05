@@ -60,6 +60,7 @@
       "title": "Beobachten → unterstützen",
       "paragraphs": [
         "Eine lernende Person zählt nur drei Aktionen? Den Körper nimm–markiere–lege dreimal mit Karten auslegen. Eine lernende Person verschiebt nur die Zahl? Ersten abweichenden Zustand markieren lassen: Ort des Fehlers, Ursache, Änderung, erneuter Lauf. Eine lernende Person zeigt nur Raumplan? Pfeile, Reihenfolge und Wiederholungsrahmen ergänzen; eine Anordnung allein ist kein grafischer Algorithmus.",
+        "Im Lampentransfer zuerst den eigenen Plan und die Vorhersage für fünf Schritte zeigen lassen. Fehlen Pausen, fragen Sie: „Bei welchem Befehl vergeht eine Sekunde? Wo ist die Lampe dann hell, wo dunkel?“ Überspringt ein Kind beim Ausführen einen Wartebefehl, für jeden Befehl einen Strich setzen lassen, auch wenn die Papierkarte liegen bleibt. Anschließend erklärt es einen weiteren Übergang ohne Hilfe.",
         "Für eine Lernbeobachtung einen noch nicht ausgeführten Schritt erläutern lassen und Grafik zum Code zuordnen. Kopierte Spur und passender Endzustand allein genügen nicht. Programmieren tatsächlich beobachten; offene Freitexte werden nicht automatisch bewertet. Schwerpunktprozesse: Modell 2.2(7), Grafik/Spur 2.5(4)/(6), Entwurf 2.1(1)/(4)/(7), Revision 2.1(8), Rückblick 2.6(1). Pro Auftrag nur passende Prozesse beobachten.",
         "Im Abschluss Papiermodell und digitale Spur vergleichen lassen. Die gewählte nächste Prüfweise wird an einer eigenen Codestelle tatsächlich erprobt; ein allgemeines „Das Werkzeug half“ genügt nicht. Fünf Minuten innerhalb der zehn Abschlussminuten."
       ]
@@ -83,7 +84,7 @@
   "briefing": [
     "M06 umfasst fünf Stunden. Lernende erklären präzise Anweisungen, lesen eine Ablaufgrafik und programmieren eine kleine Kartenstation. Die Sprache hat drei Befehle und feste Wiederholungen. In jedem Schritt sollen Vorhersage, tatsächliche Ausführung und eigene Erklärung zusammenkommen.",
     "Bereiten Sie pro Person vier Papierkarten und einen markierten Arbeitsplatz vor. Prüfen Sie den lokalen Interpreter sowie das Sichern und Öffnen einer Arbeitsdatei am Schulgerät. Papier ist ein sinnvoller Ersatz für das Ausführen von Abläufen, aber kein praktischer Nachweis des Programmierens.",
-    "Stunde eins eröffnet Alltagssysteme und Modell. Stunde zwei verbindet Grafik und Code. Stunde drei führt zum eigenen Entwurf: zuerst eine unmarkierte, dann drei markierte Karten. Stunde vier und der Beginn der fünften dienen der Fehlerprüfung und begründeten Revision. Transfer und Sicherung schließen ab.",
+    "Stunde eins eröffnet Alltagssysteme und Modell. Stunde zwei verbindet Grafik und Code. Stunde drei führt zum eigenen Entwurf: zuerst eine unmarkierte, dann drei markierte Karten. Stunde vier und der Beginn der fünften dienen der Fehlerprüfung und begründeten Revision. Transfer und Sicherung schließen ab. Beim Lampentransfer entwerfen die Kinder die Blinkfolge selbst. Wer nur Schaltvorgänge zählt, setzt für jeden Befehl im eigenen Plan einen Strich und zeigt den jeweiligen Zustand.",
     "Beobachten Sie den ersten abweichenden Schritt und seine Erklärung. Ein fertiger Lauf oder eine kopierte Spur genügt nicht. Das Roboterstudio bleibt zusätzliche Übung. Später folgen fünf Minuten Abruf aus dem vorhandenen Jahreskonto.",
     "Im Abschluss vergleichen die Lernenden Papiermodell und digitale Spur und erproben eine daraus gewählte Prüfweise am eigenen Code. Das geschieht innerhalb der vorhandenen Abschlusszeit.",
     "Die digitale Kartenstation zeigt dieselben Kartenorte wie das Papiermodell. Vor jedem Befehl den nächsten Zustand voraussagen, danach Karten, aktuellen Befehl und Durchlauf erklären lassen.",
@@ -741,15 +742,15 @@
       "id": "transfer",
       "title": "Neue Maschine, gleicher Gedanke?",
       "goal": "Feste Wiederholung auf einen anderen Zustand und neue Befehle übertragen.",
-      "task": "Eine Signallampe ist am Anfang aus. Sie soll dreimal blinken und danach aus bleiben. Nutze an, warte, aus, warte. Eine Pause ist ein sichtbarer Schritt.",
-      "outcome": "Feste Wiederholung auf einen anderen Zustand und neue Befehle übertragen.",
+      "task": "Deine Signallampe ist am Anfang aus. Sie soll dreimal blinken. Bei jedem Blinken soll es eine Sekunde lang hell und eine Sekunde lang dunkel sein. Am Ende bleibt die Lampe aus. Wie muss dein Programm aussehen?",
+      "outcome": "Dein Blinkplan und die ersten fünf Schritte, mit denen du ihn prüfst.",
       "knowledge": [
         "schleife",
         "grafisch",
         "fehler"
       ],
       "criteria": [
-        "Ich übertrage die ganze Blinkgruppe und nenne ihre feste Anzahl.",
+        "Ich zeige in meinem Plan, was sich dreimal wiederholt. Ich erkläre, wann die Lampe hell bleibt und wann sie dunkel bleibt.",
         "Ich erkläre die Wirkung eines Befehls hinter der Schleife.",
         "Ich benenne eine Grenze des Lampenmodells."
       ],
@@ -757,27 +758,31 @@
         {
           "type": "explanation",
           "title": "Die Regeln der Lampe",
-          "text": "an schaltet die Lampe ein. aus schaltet sie aus. warte hält den aktuellen Zustand eine gedachte Sekunde. Zeige an/aus mit einer Papierkarte statt mit einer echten blinkenden Lampe.",
+          "text": "Die Lampe kennt drei Befehle: „warte“ lässt eine gedachte Sekunde vergehen. Die Lampe bleibt dabei, wie sie ist. „aus“ schaltet sie aus. „an“ schaltet sie ein. Die beiden Schaltbefehle wirken in diesem Modell sofort.",
           "paragraphs": [
-            "Eine Aktion wird gezählt, auch wenn warte den Zustand nicht ändert. Hier gibt es keine Karten und keinen belegten Arbeitsplatz."
+            "Du kannst eine Papierkarte mit „an“ und „aus“ auf den beiden Seiten verwenden. Du kannst die Zustände auch aufschreiben oder laut nennen."
           ]
         },
         {
           "type": "task",
           "id": "lampe",
           "title": "Entwickle und prüfe den Lampenplan",
-          "text": "Zeichne einen Ablauf mit drei sichtbaren Blinkphasen. Schreibe Code in der gedachten Lampensprache. Zeige die ersten fünf Aktionen mit einer Karte „an“/„aus“. Was würde ein zusätzliches an nach der Schleife verändern?",
-          "prompt": "Lampenablauf, erste fünf Zustände und Wirkung des Zusatzbefehls",
-          "responseHint": "Dieser Transfer läuft auf Papier. Die Kartenstation versteht die Lampenbefehle nicht.",
+          "text": "Zeichne oder lege einen Plan für deine Lampe. Markiere, welcher Teil sich wiederholt, und schreibe deinen Code auf.",
+          "prompt": "Mein Blinkplan und Code · meine ersten fünf Zustände · mein Grund für den Endzustand mit dem Zusatzbefehl",
+          "responseHint": "Du kannst die Aufgabe vollständig auf Papier bearbeiten.",
           "help": [
             {
-              "title": "Was muss in die Gruppe?",
-              "text": "Eine vollständige Blinkphase braucht Einschalten, Warten, Ausschalten und Warten.",
+              "title": "Meine Lampe wechselt zu schnell",
+              "text": "Zeige mit der Karte nur ein Blinken. Bei welchem Befehl vergeht Zeit? Prüfe das einmal für die helle und einmal für die dunkle Seite.",
               "knowledge": "schleife",
               "label": "Passendes Wissen öffnen"
             }
           ],
-          "solution": "wiederhole 3 [an warte aus warte] ergibt12 Aktionen. Nach 1 an, nach 2 an, nach 3 aus, nach 4 aus, nach 5 an. Ein an hinter der Klammer läuft nur einmal: Aktion 13 lässt die Lampe am Ende an. Das verletzt das Ziel „danach aus“. Das Kartenmodell simuliert keine echten Sekunden, Helligkeit oder Stromversorgung."
+          "solution": "Ein möglicher Plan: wiederhole 3 [an warte aus warte]. Die ersten fünf Aktionen ergeben: 1 an → hell, 2 warte → hell, 3 aus → dunkel, 4 warte → dunkel, 5 an → hell. Bei 2 und 4 bleibt die Karte jeweils eine gedachte Sekunde liegen. Nach drei Durchläufen sind 12 Aktionen vorbei und die Lampe ist aus. Ein zusätzliches an hinter der Klammer würde sie bei Aktion 13 wieder einschalten.",
+          "paragraphs": [
+            "Sage die ersten fünf Zustände voraus. Spiele deinen Plan dann Schritt für Schritt durch. Bei welchem Befehl vergeht Zeit, obwohl sich der Zustand nicht ändert? Prüfe an deinem Plan, wie lange es jeweils hell und dunkel ist.",
+            "Stell dir vor, hinter der Schleife steht noch ein „an“. Wie endet dein Programm jetzt? Begründe."
+          ]
         },
         {
           "type": "task",
@@ -786,16 +791,16 @@
           "text": "Jemand überträgt den Kartenfehler und behauptet: „Zweimal an stoppt, weil die Lampe schon belegt ist.“ Stimmt das nach unseren Lampenregeln? Begründe.",
           "prompt": "Was bleibt beim Übertragen gleich – was ändert sich?",
           "responseMode": "oral",
-          "solution": "Nein. an bei bereits eingeschalteter Lampe lässt sie an; die Regeln nennen keinen Stopp. Gleich bleiben geordnete Schritte und feste Wiederholung. Die Voraussetzungen einzelner Befehle gehören zum jeweiligen Modell und dürfen nicht blind übertragen werden."
+          "solution": "Zweimal an lässt die Lampe eingeschaltet. Im Lampenmodell darf derselbe Zustand bestehen bleiben; die Regel mit dem belegten Platz gilt nur für die Kartenstation. Beide Pläne haben feste Wiederholungen. Unsere Papierkarte zeigt die Zustände, aber keine echte Helligkeit."
         }
       ],
       "materialNeeds": [
-        "Vier Papierkarten, Stift und Arbeitsblatt; für digitale Ausführung Browser mit JavaScript"
+        "Papier und Stift, bei Bedarf eine Papierkarte mit „an“ und „aus“"
       ],
       "checkHelp": [
         {
-          "title": "Du findest keinen Anfang?",
-          "text": "Nenne zuerst den Startzustand. Führe nur einen Befehl aus und beschreibe seine Änderung.",
+          "title": "Wo fange ich mit der Probe an?",
+          "text": "Starte mit „aus“. Zeige oder nenne nach jedem Befehl den Zustand. Notiere auch dann einen Schritt, wenn du die Karte liegen lässt.",
           "knowledge": "schleife",
           "label": "Passendes Wissen öffnen"
         }

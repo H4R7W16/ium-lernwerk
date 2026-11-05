@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 ---
 
 # MED-3 · Ein Bild, zwei Geschichten
@@ -58,12 +58,17 @@ Frage: „Welches Detail lässt dich so denken?“ Du musst ihre Deutung nicht �
 
 ## 4 · Überarbeiten und verantworten · 15 Minuten
 
-**7 Minuten:** Führe die geplante Änderung selbst aus. Brauchst du nach dem Zuschneiden wieder mehr Bildfläche, öffne das unveränderte Original und stelle deinen neuen Ausschnitt sowie die gewünschten Farben erneut ein. Eine exportierte, beschnittene PNG enthält die entfernten Bildteile nicht mehr. Speichere zusätzlich als `bild-A-revision.png` oder `bild-B-revision.png`. Behalte die Vorfassung. Öffne die gespeicherte Revision erneut. Zeige und erkläre das veränderte Detail.
+**7 Minuten:** Führe die geplante Änderung selbst aus. Brauchst du nach dem Zuschneiden wieder mehr Bildfläche, öffne das unveränderte Original und stelle deinen neuen Ausschnitt sowie die gewünschten Farben erneut ein. Eine exportierte, beschnittene PNG enthält die entfernten Bildteile nicht mehr. Speichere zusätzlich als `bild-A-revision.png` oder `bild-B-revision.png`. Behalte die Vorfassung. Öffne die gespeicherte Revision erneut und halte die Vorfassung für den Vergleich bereit.
 
-**5 Minuten:** Zeige die wieder geöffnete Revision nochmals ohne Vorab-Erklärung. Die andere Person nennt ihren Eindruck und die entscheidende Bildstelle. Prüfe, ob deine Änderung die beabsichtigte Wirkung tatsächlich verständlicher macht; ein begründeter Deutungsunterschied darf bleiben. Ergänze dann knapp dieselbe Bildnotiz:
+**5 Minuten für den zweiten Blick:** Wenn möglich, tauscht mit einem Nachbarpaar. Wählt den passenden Weg:
+
+- **Neue Person, die deine Absicht noch nicht kennt:** Zeige zuerst nur die Revision. Frage: „Wie wirkt der Hof auf dich? Welche Stelle bringt dich darauf?“ Erkläre deine Absicht erst nach der Antwort.
+- **Person, die deine Absicht schon kennt:** Zeige Vorfassung und Revision nebeneinander. Frage: „Was fällt dir jetzt anders auf? An welcher Stelle siehst du das?“ Auch ein ähnlicher Eindruck kann begründet sein.
+
+Tauscht die Rollen. Ergänze dann knapp dieselbe Bildnotiz:
 
 - Absicht A und B; je eine verwendete Veränderung mit möglicher Wirkung.
-- Rückmeldung → eigene Revision → Deutung beim zweiten Blick und beobachteter Unterschied.
+- Erste Rückmeldung und deine Änderung. Halte für den zweiten Blick fest: erster Eindruck einer neuen Person oder Vergleich mit der Vorfassung? Nenne die Deutung und die Bildstelle, auf die sie sich stützt.
 - Welche Information geht in einem Ausschnitt verloren? Welche Aussage über den ganzen Hof wäre damit nicht belegt?
 - Bildnachweis: „IuM-Lernwerk: Ein Hof mit verschiedenen Ecken, 2026, CC BY-SA 4.0. Bearbeitet: Ausschnitt/Farben … .“ Ergänze deine zutreffenden Änderungen.
 

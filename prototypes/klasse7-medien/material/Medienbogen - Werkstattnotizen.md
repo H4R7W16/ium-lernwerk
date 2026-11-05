@@ -26,7 +26,14 @@ Behauptung – Belegstelle M3 – unabhängiger Beitrag M4 – Grenze von M5 –
 
 Vorher: Absicht A … / Absicht B …; geplanter Ausschnitt und Farbwirkung … .
 
-Nachher: Eingesetzte Mittel …; Partnerdeutung mit Bildmerkmal …; meine Revision und ihr Grund …; Unterschied nach Wiederöffnung …; verlorener Kontext und Aussagegrenze …; Bildnachweis mit Änderungen … .
+Nachher: Eingesetzte Mittel …; erste Rückmeldung mit Bildmerkmal …; meine Revision und ihr Grund … .
+
+Zweiter Blick (eine Zeile wählen):
+
+- Die neue Person kannte meinen Plan noch nicht. Ihr erster Eindruck war …, weil sie an dieser Bildstelle … sah.
+- Die Person kannte meinen Plan. Im Vergleich zur Vorfassung fiel ihr an dieser Bildstelle … auf.
+
+Verlorener Kontext und Aussagegrenze …; Bildnachweis mit Änderungen … .
 
 Dateien: Original, `bild-A.png`, `bild-B.png`, eine zusätzliche Revision. Zeige die eigene Handlung am Gerät. Die vorbereitete Vorlage ist nicht dein eigenes Werk.
 

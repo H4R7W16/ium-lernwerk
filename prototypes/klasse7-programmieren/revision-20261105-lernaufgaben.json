@@ -1,0 +1,75 @@
+{
+  "base": "5601ea12d84602086152414ee61447f67fd43e4f6c0105f252650c4800a45c29",
+  "date": "2026-11-05",
+  "scope": "Lampenplan selbst entwickeln und in der Pluto-Recherche die Herkunft der Belege unterscheiden.",
+  "changes": {
+    "klasse5/ablaeufe/schritt-transfer.html": {
+      "before": "825c420359cfee436e08abdefe99842d3472ac4312a440a1af92cd41550d6665",
+      "after": "ab7bc3ed3ac99f5254d203a1d4c82292bb92fada8a85bc3a62f0cdf3e484b69a"
+    },
+    "klasse5/ablaeufe/baustein-transfer.html": {
+      "before": "704f9c899bfd0bd4f176a0507a0041cd06fa2ee01b37f45c4dc285cec69e0e4c",
+      "after": "2ff545de5bc67514a10f528e736b122e52fdd8cd4198d7f5794547d0c15fb5e8"
+    },
+    "klasse5/ablaeufe/lehrkraft.html": {
+      "before": "5a253cd3d82ffb0f585fb07f8aa0c3d663b1b28e2f2f5e29fff7f406dc1f2309",
+      "after": "454fd390f495984f979a90eb0ec2f44ac04307e8d609f6a9f1ebd237dc097754"
+    },
+    "klasse5/ablaeufe/briefing.html": {
+      "before": "ec1b4ea30a42d7ee6365163412ffd9c434db2931ea94959c10e9dfe7ac7cb34e",
+      "after": "64e185af43b2df4c1168f3c42f5ab1988466d3907d98f5be356ff3775c41afaa"
+    },
+    "klasse5/mantel-sw.js": {
+      "before": "257e0d0fe0064acd2de40888fcebbd58f83aa568131c4f24ce9fa907d256785e",
+      "after": "4d19e013378c316d4464586b32693a98cc645681c76e29e068cf1fea96f51f8d"
+    },
+    "klasse6/suche/schritt-quellen.html": {
+      "before": "d1036aea6c1ff66fd49dcdbe2841ce65129880820bb9ab9c20d44c3d078a5d4b",
+      "after": "71c4b832ec370a711dbaf07f47f3a7d990b97a4c6a990dd336af03a2e8d72750"
+    },
+    "klasse6/suche/baustein-quellen.html": {
+      "before": "7931ac267032283d20306301bd27c6e2297295c6d4b255189e8fc394852eb27f",
+      "after": "37b81a918371ff30b629a36abf319bd762f673b1983d6d7ddc142aecca5bf03e"
+    },
+    "klasse6/suche/schritt-recherche.html": {
+      "before": "1520515a1fdc67652f8e3a7e48408c6243641919d48a2c1b18c28a94673591c3",
+      "after": "44e304c0c7409bf46ce7d6b185bc2d36f894ac18ac7026caeb1bdfc2622c13dd"
+    },
+    "klasse6/suche/baustein-recherche.html": {
+      "before": "4d36e3c0100360d4c6b448e8b2d731be5942235948469a9027f1ffb56f5e445e",
+      "after": "a6af6c700556dfc2809673741a3d32bfc7d7f902706b8345955d447b9d835e82"
+    },
+    "klasse6/suche/baustein-recherche-ipad.html": {
+      "before": "f7f4ddeac68d590b4ce70085e90cd4c2e52bf6d57173480eb2c123248be893aa",
+      "after": "88aba209343e9491043682412e82be35ce4af5cb7e858da391504719c334e20e"
+    },
+    "klasse6/suche/baustein-recherche-windows.html": {
+      "before": "5b082cf6b5a16ecc29a63d489ebb5b99caf1120240efa9499817dc8baac24d2a",
+      "after": "a7e69bdbac59ed8239bc89eb21b8bbb8e25a1498e8834a97a1c9b7b0c6ca095f"
+    },
+    "klasse6/suche/wissen.html": {
+      "before": "fabbd9766d1565d20fc22f5b8cde399df4ac6f4096d483111a662dd7b8fd95a6",
+      "after": "5d9ab43a191c1becd76fe3f4f3f01190fd17a7ab298b934a2643cc54f410c09c"
+    },
+    "klasse6/suche/material.html": {
+      "before": "73f029b33bf3571ec6223b003cbc66b6ed0042b1ca4f924b4f8994b2a1e1bc27",
+      "after": "c66ea748d85ea527a080b6d838c8d203c73f0f85e9a0db49980a4d76055ba04b"
+    },
+    "klasse6/suche/lehrkraft.html": {
+      "before": "c5870797aeccf3a30828cd32b0107a57332151f09ae034ac10d5ab6f694d7422",
+      "after": "036fcd2a678d64a8f13001b8047b3ce3064854209b23c8e6f95da21a80a07492"
+    },
+    "klasse6/suche/briefing.html": {
+      "before": "dd238166beb5be99dcaa098a997a993c3854ecf10e8f6613aba5fcbb8043fb8b",
+      "after": "1515f7151294707f9b0c82db3f2180976c4f0a33a3c9dbf07249eac592ad4fc8"
+    },
+    "klasse6/reihe-m02.html": {
+      "before": "6f8aa2d7f2afb2f3d47874676408a74caa101a6201bf6896bbdb4edd21e092a3",
+      "after": "21efc9333bad5462902d8b0c81cae93608b7f09c01018bf1d6824fd7e08472e4"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "c17740db09c2b23222fa83d1c19af5657cc9596d47147344426d59fa0a17eb54",
+      "after": "edff595dc62bb52ee02cee500df556f8649369e065e803715b3e34028be4aa54"
+    }
+  }
+}
