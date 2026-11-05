@@ -62,27 +62,27 @@
       "title": "NASA: New Horizons startet · 19.01.2006",
       "author": "NASA",
       "url": "https://www.nasa.gov/news-release/nasas-pluto-mission-launched-toward-new-horizons/",
-      "checked": "2026-10-04",
+      "checked": "2026-11-05",
       "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
       "note": "Quelle A; Fundstelle: Zitat von Colleen Hartman. Eigene Übersetzung des kurzen englischen Auszugs."
     },
     {
       "id": "iau",
-      "title": "IAU: Pluto und die Einteilung des Sonnensystems",
-      "author": "International Astronomical Union; Archiv bei ESO",
-      "url": "https://iauarchive.eso.org/public/themes/pluto/",
-      "checked": "2026-10-04",
-      "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
-      "note": "Quelle B; FAQ und Abschnitt The definition of a dwarf planet. Kein eindeutiger Veröffentlichungstag ausgewiesen; Abrufdatum ist kein Veröffentlichungsdatum."
+      "title": "IAU: Beschluss zur Einteilung der Planeten vom 24. August 2006",
+      "author": "International Astronomical Union",
+      "url": "https://www.iau.org/IAU/Iau/News/PR2006/iau-2006-general-assembly-resolution-votes.aspx",
+      "checked": "2026-11-05",
+      "license": "Originalquelle verlinkt; eigene Rechte. Erläuterung in eigenen Worten.",
+      "note": "Quelle B. Resolution 5A und Fußnote 1 nennen die Einteilung und die acht Planeten. Resolution 6A ordnet Pluto als Zwergplaneten ein."
     },
     {
       "id": "nasa-heute",
       "title": "NASA: Pluto Facts",
       "author": "NASA Science",
       "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
-      "checked": "2026-10-04",
+      "checked": "2026-11-05",
       "license": "Originalquelle verlinkt; eigene Rechte. Kurzauszug nur zur Quellenanalyse; keine offene Gesamtlizenz übernommen.",
-      "note": "Quelle C zur zusätzlichen Gegenprüfung; Abschnitt Introduction. Die zwei NASA-Seiten sind keine zwei unabhängigen Institutionen."
+      "note": "Quelle C. Im Abschnitt Introduction nennt NASA die IAU und das Jahr der Neueinteilung und verweist auf die IAU. Die Seite berichtet außerdem, wie Pluto zuvor eingeordnet wurde."
     },
     {
       "id": "suchtechnik",
@@ -178,7 +178,7 @@
         "Prüfe, ob die Quelle genau deinen Schluss trägt. Eine Seite über eine andere Einrichtung oder einen anderen Zeitraum beantwortet deine Frage möglicherweise nicht."
       ],
       "example": "„Die Bibliotheksleitung am Park, Regeln 2026/27, Abschnitt Leihfrist: 14 Tage“ lässt sich im bereitgestellten Fall prüfen. „Steht im Internet“ lässt die Belegstelle offen.",
-      "boundary": "Mehrere Seiten können von derselben Ausgangsquelle abhängen. Gleiche Aussagen sind erst dann unabhängige Belege, wenn ihre Grundlage entsprechend geprüft ist.",
+      "boundary": "Zwei verschiedene Herausgeber können denselben Beschluss wiedergeben. Prüfe an jeder Fundstelle, woher ihre Aussage kommt. Manchmal lässt der Text das offen.",
       "steps": [
         "quellen",
         "recherche",
@@ -609,10 +609,10 @@
         {
           "type": "explanation",
           "title": "Quelle B · Eine fachliche Einteilung",
-          "text": "IAU, „Pluto and the Developing Landscape of Our Solar System“, archivierte IAU-Seite bei ESO. Kurzauszug aus der FAQ: „There are eight planets in our Solar System“. Eigene Übersetzung: „Es gibt acht Planeten in unserem Sonnensystem“.",
+          "text": "Am 24. August 2006 veröffentlichte die IAU das Ergebnis ihrer Abstimmung. In ihrem Bericht „IAU 2006 General Assembly: Result of the IAU Resolution votes“ stehen die Beschlüsse, auf die sich die Einteilung stützt.",
           "paragraphs": [
-            "Sinngemäß aus dem Abschnitt zur Definition eines Zwergplaneten: Nach der Einteilung von 2006 zählt Pluto zu einer gesonderten Kategorie, den Zwergplaneten. Die IAU erläutert hier ihre eigene Einteilung.",
-            "Ein eindeutiger Veröffentlichungstag dieser Erläuterungsseite ist nicht ausgewiesen. Die beschriebene Entscheidung stammt aus 2006; die Seite wurde für das Material am 04.10.2026 geprüft."
+            "Kurze Erläuterung in eigenen Worten: Resolution 5A unterscheidet Planeten und Zwergplaneten. Fußnote 1 nennt die acht Planeten. Resolution 6A ordnet Pluto bei den Zwergplaneten ein.",
+            "Im englischen Original findest du die beiden Abschnitte unter „RESOLUTION 5A“ und „RESOLUTION 6A“."
           ],
           "sources": [
             "iau"
@@ -676,7 +676,7 @@
       "title": "Suche selbst und halte den Weg fest",
       "goal": "Führe eine echte Suche durch und prüfe die Originalseiten für die Plakatfrage.",
       "task": "Führe eine echte Suche durch und prüfe die Originalseiten für die Plakatfrage.",
-      "outcome": "Ich habe zwei eigene Suchanfragen tatsächlich ausgeführt und die Änderung begründet. Ich habe zwei Originalseiten geöffnet und jeweils URL, Herkunft und passende Fundstelle notiert. Ich trenne Suchtreffer, Originaltext und mein Urteil.",
+      "outcome": "Zwei ausgeführte Suchanfragen und zwei Fundstellen. Du erklärst, was jede Seite für die Plakatfrage belegt und ob beide auf dieselbe Entscheidung zurückgehen.",
       "knowledge": [
         "recherchieren",
         "belege"
@@ -684,7 +684,7 @@
       "criteria": [
         "Ich habe zwei eigene Suchanfragen tatsächlich ausgeführt und die Änderung begründet.",
         "Ich habe zwei Originalseiten geöffnet und jeweils URL, Herkunft und passende Fundstelle notiert.",
-        "Ich trenne Suchtreffer, Originaltext und mein Urteil."
+        "Ich zeige an den Fundstellen, worauf sich die beiden Aussagen stützen oder was darüber offenbleibt."
       ],
       "blocks": [
         {
@@ -702,7 +702,7 @@
           "id": "suchweg",
           "context": "device",
           "preparation": "Lass dir den erlaubten Browser und Suchdienst nennen. Du brauchst Internet. Lass das Lernwerk in seinem Tab geöffnet. Arbeite ohne privates Konto.",
-          "action": "Formuliere eine eigene Suchanfrage. Führe sie aus und sichte die Fundliste. Verändere mindestens ein Suchwort begründet und führe auch diese Anfrage aus. Öffne zwei passende Originalseiten. Mindestens eine soll erklären, wer die Einteilung festgelegt hat und wann. Prüfe, ob beide voneinander unabhängig sind.",
+          "action": "Formuliere eine eigene Suchanfrage. Führe sie aus und sichte die Fundliste. Verändere mindestens ein Suchwort begründet und führe auch diese Anfrage aus. Öffne zwei passende Originalseiten. Mindestens eine soll erklären, wer die Einteilung festgelegt hat und wann. Finde heraus, worauf jede Seite ihre Aussage über Pluto stützt.",
           "return": "Kehre zum Lernwerk-Tab zurück. Halte deine tatsächlichen Suchschritte und Belege fest. Fehlt Internet oder ist die Suche gesperrt, schreibe „Reale Suche noch offen“; nutze vorerst die lokalen Auszüge aus dem vorigen Schritt.",
           "routes": [
             {
@@ -733,14 +733,14 @@
               "Notiere den Seitentitel und wer den Inhalt verantwortet. Eine Domain kann ein Hinweis sein; prüfe auch die Herkunftsangabe auf der Seite.",
               "Halte das Datum des Textes fest, soweit erkennbar, und getrennt davon dein Suchdatum. Kein Datum auffindbar? Schreibe genau das.",
               "Notiere eine kurze Aussage in eigenen Worten und die Fundstelle, etwa Überschrift plus Absatzanfang. Passt sie zur IAU-Frage?",
-              "Stammt die zweite Aussage aus einer eigenen Untersuchung oder übernimmt sie nur dieselbe Einteilung? Zwei Seiten derselben Institution sind keine zwei unabhängigen Bestätigungen."
+              "Markiere auf jeder Seite, wer Pluto eingeordnet hat oder woher die Angabe stammt. Vergleiche: Gehen beide Stellen auf dieselbe Entscheidung zurück? Was erfährst du auf einer der Seiten zusätzlich? Wenn die Herkunft offenbleibt, halte das fest."
             ],
             "paragraphs": [
               "Keine Werbung anklicken, nichts kaufen oder installieren. Falls eine Seite Anmeldung verlangt oder unpassend wird, kehre zur Fundliste zurück und frage deine Lehrperson. Eine automatisch erzeugte Kurzantwort ersetzt nicht die Originalseite."
             ]
           },
-          "prompt": "Suchdatum und Suchdienst · Anfrage 1 → Anfrage 2 mit Grund · Quelle 1 und 2 mit URL, Herkunft, Datum, Fundstelle, Aussage · Bedeutung für mein Urteil",
-          "responseHint": "Stichwörter genügen. Behalte beide Suchanfragen, damit deine Änderung sichtbar bleibt.",
+          "prompt": "Suchdatum und Suchdienst · beide Anfragen und Grund der Änderung · je Seite URL, Herausgeber, Datum, Fundstelle und Aussage · Woher stammt die Angabe jeweils? Was trägt jede Seite zu deinem Urteil bei?",
+          "responseHint": "Stichwörter genügen. Für den Vergleich kannst du schreiben: „Seite 1 stützt sich auf … . Auf Seite 2 erkenne ich an …, dass … .“",
           "help": [
             {
               "title": "Wenn kein brauchbarer Treffer kommt",
@@ -754,10 +754,10 @@
         },
         {
           "type": "explanation",
-          "title": "Hilfsquelle C für die Gegenprüfung",
-          "text": "NASA Science, „Pluto Facts“, Abschnitt „Introduction“: Sinngemäß beschreibt die Seite, dass Pluto früher als neunter Planet galt und 2006 von der IAU als Zwergplanet eingeordnet wurde. Diese eigene Zusammenfassung wurde am 04.10.2026 mit dem Original verglichen.",
+          "title": "Falls du Hilfe brauchst: Quelle C",
+          "text": "NASA Science nennt in „Pluto Facts“, Abschnitt „Introduction“, die frühere Einordnung Plutos und die spätere Entscheidung der IAU. Markiere, welche Wörter dir zeigen, wer die Einordnung geändert hat.",
           "paragraphs": [
-            "Nutze C, wenn du nicht weiterkommst oder nach deiner Suche vergleichen möchtest. Notiere dann, dass du einen Hilfslink verwendet hast. A und C kommen beide von NASA. Eine vorbereitete Quelle darf deine Sachprüfung unterstützen; sie ersetzt deine Suchhandlung nicht."
+            "Nutze C, wenn du bei deiner Suche festhängst oder deine Funde anschließend vergleichen möchtest. Notiere, wenn du den Hilfslink verwendet hast."
           ],
           "sources": [
             "nasa-heute"
@@ -767,7 +767,8 @@
               "href": "schritt-quellen.html",
               "label": "Lokale Auszüge A und B"
             }
-          ]
+          ],
+          "solution": "In B veröffentlicht die IAU ihren Beschluss. In C schreibt NASA, dass die IAU Pluto 2006 als Zwergplaneten eingestuft hat. Für die Einordnung führen beide Stellen zu derselben Entscheidung. NASA ergänzt, dass man Pluto lange als neunten Planeten zählte. A zeigt das an einer Stelle aus dem Jahr 2006: Im Januar 2006 bezeichnete Colleen Hartman von der NASA Pluto im Bericht zum Start der Sonde als neunten Planeten."
         }
       ],
       "materialNeeds": [
@@ -775,8 +776,10 @@
       ],
       "checkHelp": [
         {
-          "title": "Eine Stelle verbessern",
-          "text": "Prüfe eine konkrete Begründung: Welche Fundstelle trägt deine Aussage? Was bleibt noch offen?"
+          "title": "Ich finde nur zwei verschiedene Seitennamen",
+          "text": "Suche bei der Aussage nach Wörtern wie „beschloss“, „nach Angaben von“ oder „according to“. Wer wird dort genannt? Fehlt ein Hinweis, lass die Herkunft offen.",
+          "knowledge": "belege",
+          "label": "Wie prüfe ich eine Fundstelle?"
         }
       ],
       "deviceNeeds": {
@@ -1204,7 +1207,7 @@
         "Registerarbeit: Lassen Sie zuerst die neun Wortzuordnungen prüfen, dann die beiden Vorhersagen vor dem Nachschlagen festhalten. Vergleichen Sie bei einer Abweichung nur die betroffene Wortliste und die gemeinsame Treffernummer. Ein vorhandener Gesamteintrag aus einer früheren Fassung kann weiterverwendet werden.",
         "Register enthält nur die Suchwörter: eine einzige Karte gemeinsam lesen und alle Wörter zuordnen; dann eine weitere Karte selbst bearbeiten lassen. Dokumentänderung wird sofort als Indexänderung behandelt: altes Register sichtbar liegen lassen und erst danach einen zweiten Stand erstellen.",
         "Eine lernende Person schreibt nur „acht“: auf die beiden unterschiedlichen Aussagen zeigen lassen und einen weil-Satz mit Fundstelle verlangen. „Neu gewinnt“: fragen, ob die neue Mitteilung für dieselbe Einrichtung und Zeit gilt. Vertrauen nicht als Eigenschaft einer ganzen Domain abhaken.",
-        "Suchprotokoll zeigt nur einen fertigen Link: eine eigene Anfrage am Gerät wiederholen lassen, Änderung begründen und Originalseite öffnen. Hilfslink oder lokale Auszüge sind Sachhilfen, kein Ersatz für die Suchhandlung.",
+        "Suchprotokoll zeigt nur einen fertigen Link: eine eigene Anfrage am Gerät wiederholen lassen, Änderung begründen und Originalseite öffnen. Hilfslink oder lokale Auszüge sind Sachhilfen, kein Ersatz für die Suchhandlung. Zählt ein Kind zwei Herausgeber als zwei Bestätigungen, lassen Sie es in beiden Fundstellen die Stelle markieren, die den Urheber der Einordnung nennt. Fehlt eine Herkunftsangabe, darf es die Abhängigkeit offenlassen.",
         "Preis oder Automatisierung wird als Beweis für Falschheit behandelt: eine richtige automatisch versandte Terminankündigung als Gegenbeispiel nutzen. Gleichlautende Posts sind ohne weitere Angaben kein Bot-Nachweis.",
         "KI-Antwort wird vollständig abgelehnt: nützlichen Suchvorschlag von Sachbehauptung unterscheiden lassen. Bei Quellenlinks zur genauen Fundstelle zurückführen. Für sprachliche Hürden Satzgerüste oder mündliche Erklärung mit Ihrer kurzen Nachweisnotiz zulassen."
       ]
@@ -1213,7 +1216,7 @@
       "title": "Nachweise und Rückmeldung",
       "paragraphs": [
         "Index: vollständige Wortzuordnung, eigener Eingriff, vorher notierte Vorhersagen, geprüfte Fundlisten und eine Grenze. Das Muster ist nur eine Variante. Prüfen Sie eine zusätzliche eigene Anfrage am tatsächlich veränderten Register.",
-        "Recherche: zwei tatsächlich ausgeführte Suchanfragen mit Änderungsgrund und zwei geöffnete Originalseiten samt Fundstellen. Prüfen Sie stichprobenartig die Handlung am Gerät. Schriftliche Behauptung allein ist kein sicherer Praxisbeleg. Quellenurteil: konkreter Widerspruch, Kontext und nachvollziehbare Auswahl.",
+        "Recherche: zwei tatsächlich ausgeführte Suchanfragen mit Änderungsgrund und zwei geöffnete Originalseiten samt Fundstellen. An beiden Aussagen erläutert das Kind, was sie zur Frage beitragen und ob ihre Grundlage dieselbe ist oder offenbleibt. Prüfen Sie stichprobenartig die Handlung am Gerät. Schriftliche Behauptung allein ist kein sicherer Praxisbeleg. Quellenurteil: konkreter Widerspruch, Kontext und nachvollziehbare Auswahl.",
         "Interessen: Motiv am Hinweis, möglicher Zielkonflikt und getrennte Automatisierungsschritte. KI: Einzelurteile, mindestens zwei begründete Korrekturen sowie Nutzen und Grenze. Die Sammlung unterstützt die Diagnose; keine automatische Note und kein Kompetenzpass durch Klicks.",
         "Revision: erste und neue Fassung sowie Änderungsgrund. Rückmeldung kann aus Selbstprüfung, Lehrperson oder freiwilligem Austausch stammen; individuelle Leistung bleibt sichtbar. Bei unveränderter guter Fassung ein neues Gegenbeispiel verlangen.",
         "Transfer zunächst ohne Hilfe bearbeiten lassen; Hilfen und Vergleichslösung dürfen danach für die Revision geöffnet werden. Eine passende Begründung zählt, nicht ein bestimmter Wortlaut. Bei nur übernommener Lösung eine neue Rückfrage stellen: Welche Angabe müsste sich ändern, damit ein anderes Fundstück brauchbar wird?"
@@ -1223,8 +1226,8 @@
       "title": "Lösungshinweise und fachliche Grenzen",
       "paragraphs": [
         "Register zu den Ausgangskarten: Pluto D1/D2/D4; Raumsonde D1/D3; Forschung D1; Zwergplanet D2; Sonne D2; Mars D3; Planet D3; Zeichnung D4; Ausstellung D4. Bei einer Änderung muss die alte Zuordnung entfernt und die neue ergänzt werden. Wenn Pluto ersetzt wurde, entsteht nicht automatisch ein zusätzlicher UND-Treffer.",
-        "NASA A stammt vom Januar 2006; die IAU-Einteilung aus 2006 wird in B erläutert und in NASA C bestätigt. A ist historisch brauchbar. B beschreibt die eigene fachliche Einteilung, kein unabhängig gemessenes Naturgesetz. Andere Definitionen können in der Fachwelt diskutiert werden; die Aufgabenfrage grenzt bewusst auf die IAU ein.",
-        "B liegt im IAU-Archiv bei ESO; kein eindeutiger Veröffentlichungstag. Alte IAU-PDF-Adressen waren bei der Produktion nicht erreichbar. Prüfen Sie Links vor Einsatz. Die lokalen kurzen Auszüge ermöglichen Quellenanalyse, aber keine Behauptung einer live ausgeführten Recherche.",
+        "A belegt am Missionsstart im Januar 2006, wie Pluto damals bezeichnet wurde. Die IAU veröffentlicht ihre Einteilung in B (Resolution 5A mit Fußnote 1, Resolution 6A). Für dieselbe Aussage nennt NASA in C ausdrücklich den IAU-Beschluss. Zwei Herausgeber berichten hier über eine Entscheidung. Die historische Zusatzinformation in C beantwortet eine andere Teilfrage.",
+        "Für B direkt den Abstimmungsbericht der IAU vom 24. August 2006 öffnen, für C den Abschnitt „Introduction“. Die kurzen lokalen Auszüge erlauben den fachlichen Vergleich; für den Nachweis der eigenen Recherche müssen die Kinder ihren Suchweg tatsächlich ausführen.",
         "Kartenmodell: vorbereiteter Index und seine Aktualisierung. Keine vollständige Internetabdeckung, Synonyme oder Rangfolge; keine Wahrheitserkennung. Die durch Codex absichtlich fehlerhaft erzeugte KI-Übung ist keine Stichprobe zur Zuverlässigkeit eines Modells."
       ]
     },
@@ -1269,7 +1272,7 @@
   ],
   "briefing": [
     "M02 beginnt mit einer Frage, die nicht durch Trefferzählen gelöst werden kann: Acht oder neun Planeten nach der IAU? Sammeln Sie zuerst Vermutungen. Der alte NASA-Bericht ist keine plumpe Fälschung. Sein zeitlicher Kontext ist die entscheidende Lerngelegenheit.",
-    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister. Erst die neun Wörter zu Karten zuordnen, dann getrennt für altes und aktualisiertes Register vorhersagen und an den Wortlisten prüfen. Es folgen echte Quellen und eine echte Browserrecherche. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
+    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister. Erst die neun Wörter zu Karten zuordnen, dann getrennt für altes und aktualisiertes Register vorhersagen und an den Wortlisten prüfen. Bei der Pluto-Recherche zeigt jedes Kind an zwei Fundstellen, worauf die Aussagen beruhen. IAU-Beschluss und NASA-Bericht darüber zählen für die Einordnung als ein Beschluss; der Januarbericht der NASA belegt die frühere Bezeichnung. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
     "Die Stunde zu Interessen unterscheidet Verkaufsziel und Wahrheitsgehalt sowie Erzeugen, Veröffentlichen und Weiterverbreiten. Der vorbereitete KI-Text enthält absichtlich Fehler. Lassen Sie einzelne Aussagen an Belegen korrigieren und zugleich die brauchbare Suchanregung erkennen.",
     "Zum Schluss werden Rückmeldung und Revision sichtbar. Im neuen Bibliotheksfall zählt die passende Einrichtung und Geltungszeit; das neueste Datum genügt nicht. Verlangen Sie Begründungen, keine abgeschriebenen Muster. Lassen Sie eine mündliche Erklärung zu, wenn die Schreiblast den fachlichen Nachweis verdeckt.",
     "Die Wiederaufnahmen liegen vor M03 und M07, jeweils acht Minuten aus M02s Jahresanteil. Halten Sie Hilfen und offene Praxisnachweise fest. Die geplanten 38 Jahresstunden sind für Klasse 6 weiterhin unbestätigt.",

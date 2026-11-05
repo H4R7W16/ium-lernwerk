@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 ---
 
 # Was wir aus der Medienwerkstatt mitnehmen
@@ -63,4 +63,4 @@ Die Leitfrage der Werkstatt verbindet alle fünf Aufgaben: **Was genau sehe ich,
 
 ## Revision prüfen · Fassung 1.1
 
-In MED-3 gehört der erneute fremde Blick auf die gespeicherte Revision in die vorhandenen fünf Minuten Bildnotiz. Die Absicht wird wieder erst danach erklärt. Jede Person belegt ihre Entscheidung mit einer Bildstelle und der tatsächlich erhaltenen Deutung. Bei bloßer Zustimmung nach dem ausschlaggebenden Detail fragen; anschließend erneut entscheiden. Eine zusätzliche Reflexionsseite entfällt. 90 Minuten, der Medienbogen insgesamt 270 Minuten, bleiben erhalten.
+Beim zweiten Blick hilft die Frage: Kannte die Person meinen Plan? Eine Person ohne Vorwissen beschreibt ihren ersten Eindruck der Revision. Wer den Plan kennt, kann Vorfassung und Revision vergleichen und erklären, welche Stelle jetzt anders wirkt oder einen ähnlichen Eindruck hinterlässt. Die Rückmeldung beschreibt die Sicht dieser Person. Halte die Bildstelle fest, mit der sie ihren Eindruck begründet.

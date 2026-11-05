@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 ---
 
 # Briefing · Ein Bild, zwei Geschichten
@@ -35,4 +35,4 @@ Material: [[MED-3 - Ein Bild zwei Geschichten]], [[MED-3 - Bedienkarte Bildbearb
 
 ## Revision prüfen · Fassung 1.1
 
-In MED-3 gehört der erneute fremde Blick auf die gespeicherte Revision in die vorhandenen fünf Minuten Bildnotiz. Die Absicht wird wieder erst danach erklärt. Jede Person belegt ihre Entscheidung mit einer Bildstelle und der tatsächlich erhaltenen Deutung. Bei bloßer Zustimmung nach dem ausschlaggebenden Detail fragen; anschließend erneut entscheiden. Eine zusätzliche Reflexionsseite entfällt. 90 Minuten, der Medienbogen insgesamt 270 Minuten, bleiben erhalten.
+Für die fünf Minuten Bildnotiz können zwei Nachbarpaare ihre Gegenüber tauschen. Wer die Absicht noch nicht kennt, sieht zunächst allein die Revision und nennt einen Eindruck mit Bildstelle. Kennt das Gegenüber den Plan schon, legen die Lernenden beide Fassungen daneben und fragen nach dem wahrgenommenen Unterschied. Geben Sie das Signal zum Rollenwechsel, damit jede Person eine Rückmeldung erhält und kurz in ihrer Bildnotiz festhält.

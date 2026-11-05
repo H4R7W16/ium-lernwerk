@@ -79,7 +79,7 @@ Mögliche Überschrift: „18 von 20 freiwillig Befragten am Kiosk wünschen lä
 | 60–70 | Partnerdeutung ohne bekannte Absicht, Bildbeleg, dann Planvergleich; Rollenwechsel. | Beide geben und erhalten eine merkmalsbezogene Rückmeldung. Bei Ausfall Lehrperson als Gegenüber. |
 | 70–75 | Jede Person plant eine begründete Revision. | Rückmeldung „gut“? Konkret nach Kontextverlust oder unklarem Detail fragen. |
 | 75–82 | Revision ausführen, als zusätzliche Datei exportieren, wieder öffnen und zeigen. Für mehr Kontext vom Original neu zuschneiden und Farben einstellen; abgeschnittene Pixel fehlen in der exportierten PNG. | Dateiname allein reicht nicht: Unterschied im Inhalt prüfen. |
-| 82–87 | Bildnotiz und Lizenz-/Änderungshinweis vervollständigen. | Mittel, Wirkung und Aussagegrenze trennen. |
+| 82–87 | Zwei Nachbarpaare tauschen möglichst die Gegenüber. Je etwa eine Minute pro Bild, dann Bildnotiz und Bildnachweis ergänzen. | Neue Person: Revision allein deuten. Ist die Absicht bekannt, Vorfassung und Revision vergleichen. In beiden Fällen nach der Bildstelle fragen. |
 | 87–90 | Neuer Vereinsfoto-Fall und gemeinsamer Sicherungssatz. | Ausschnitt beweist keine Stimmung aller Gäste. Gegenprüfung am Gesamtbild oder weiteren Beobachtungen. |
 
 **Erwartung und Freiheit:** Ein enger rechter Ausschnitt kann Papierstücke hervorheben; ein linker Ausschnitt Bank/Baum. Entsättigung kann kühler oder dokumentarischer wirken, kräftige Farben lebendiger oder künstlicher. Das sind plausible Deutungen, keine universellen Farbgesetze. Jede andere am Bild begründete Absicht ist zulässig. Original+zwei echte Varianten+echte Revision müssen vorhanden sein. Mindestens einmal Ausschnitt und einmal Farbveränderung erklären; bei Kombination beide unterscheiden. Eine Revision kann die Wirkung schärfen oder Kontext zurückgeben. „Original“ bedeutet hier unbearbeitete Ausgangszeichnung, nicht unvermittelte Wirklichkeit.
@@ -163,4 +163,4 @@ Nach jeder Aufgabe kurz dokumentieren: Datum/Kurs – tatsächlich genutzte Minu
 
 ## Revision prüfen · Fassung 1.1
 
-In MED-3 gehört der erneute fremde Blick auf die gespeicherte Revision in die vorhandenen fünf Minuten Bildnotiz. Die Absicht wird wieder erst danach erklärt. Jede Person belegt ihre Entscheidung mit einer Bildstelle und der tatsächlich erhaltenen Deutung. Bei bloßer Zustimmung nach dem ausschlaggebenden Detail fragen; anschließend erneut entscheiden. Eine zusätzliche Reflexionsseite entfällt. 90 Minuten, der Medienbogen insgesamt 270 Minuten, bleiben erhalten.
+Ordnen Sie die zweite Rückmeldung nach dem Vorwissen des Gegenübers ein. Wer die Absicht noch nicht kennt, kann einen ersten Eindruck der Revision schildern. Wer den Plan kennt, kann am Vergleich beider Fassungen begründen, was sich für diese Person geändert hat. Die Bildnotiz zeigt, welche Rückmeldung die eigene Entscheidung stützt. Auch eine andere Deutung mit Bildbeleg ist zulässig.

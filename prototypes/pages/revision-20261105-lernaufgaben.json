@@ -1,0 +1,27 @@
+{
+  "base": "fb49e665214fa848e86d047fe0b2ac0fc31092a079a798fad05dec1455f257e8",
+  "date": "2026-11-05",
+  "scope": "Lampenplan selbst entwickeln und in der Pluto-Recherche die Herkunft der Belege unterscheiden.",
+  "changes": {
+    "klasse5/ablaeufe/baustein-transfer.html": {
+      "before": "704f9c899bfd0bd4f176a0507a0041cd06fa2ee01b37f45c4dc285cec69e0e4c",
+      "after": "2ff545de5bc67514a10f528e736b122e52fdd8cd4198d7f5794547d0c15fb5e8"
+    },
+    "klasse5/ablaeufe/briefing.html": {
+      "before": "ec1b4ea30a42d7ee6365163412ffd9c434db2931ea94959c10e9dfe7ac7cb34e",
+      "after": "64e185af43b2df4c1168f3c42f5ab1988466d3907d98f5be356ff3775c41afaa"
+    },
+    "klasse5/ablaeufe/lehrkraft.html": {
+      "before": "5a253cd3d82ffb0f585fb07f8aa0c3d663b1b28e2f2f5e29fff7f406dc1f2309",
+      "after": "454fd390f495984f979a90eb0ec2f44ac04307e8d609f6a9f1ebd237dc097754"
+    },
+    "klasse5/ablaeufe/schritt-transfer.html": {
+      "before": "825c420359cfee436e08abdefe99842d3472ac4312a440a1af92cd41550d6665",
+      "after": "ab7bc3ed3ac99f5254d203a1d4c82292bb92fada8a85bc3a62f0cdf3e484b69a"
+    },
+    "klasse5/mantel-sw.js": {
+      "before": "257e0d0fe0064acd2de40888fcebbd58f83aa568131c4f24ce9fa907d256785e",
+      "after": "4d19e013378c316d4464586b32693a98cc645681c76e29e068cf1fea96f51f8d"
+    }
+  }
+}

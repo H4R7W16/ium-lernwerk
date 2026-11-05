@@ -9,7 +9,7 @@ test('alle sechs ALG-Aufgaben mit vollständigen Startprojekten und Lehrhinweise
  for(const f of ['ALG-1-Start','ALG-2-Start','ALG-3-Start','ALG-4-Fehlersuche','ALG-5-Start','ALG-6-Fehlersuche'])assert.match(all.get(prefix+'projekte/'+f+'.xml').toString(),/<project /,f);
 });
 test('1066 historische Bindungen bleiben erhalten; aktuelle Änderungen sind einzeln gebunden',()=>{
- const baseline=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'));assert.equal(Object.keys(require('./bestand-sha256.json').files).length,1066);
+ const baseline=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'));assert.equal(Object.keys(require('./bestand-sha256.json').files).length,1066);
  for(const [name,h]of Object.entries(baseline.files))assert.equal(hash(all.get(name)),h,name);
  for(const name of all.keys())if(!Object.hasOwn(baseline.files,name))assert.ok(name.startsWith('klasse7/'),name);
 });
