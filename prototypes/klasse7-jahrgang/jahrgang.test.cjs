@@ -12,13 +12,53 @@ test('22 Aufgaben und fachliche Materialien behalten ihre Hauptinhalte',()=>{
  for(let i=1;i<=6;i++)assert.ok(final.has('klasse7/programmieren/lernende/alg-'+i+'.html'));
  for(const [prefix,total]of [['med',5],['dat',5],['gam',6]])assert.equal([...final.keys()].filter(n=>new RegExp('/'+prefix+'-[1-6]-(?!briefing)[^/]+\\.html$').test(n)&&!n.includes('bedienkarte')).length,total);
 });
-test('Alle regulären Klasse-7-Seiten haben dieselbe geordnete Hauptnavigation',()=>{
- let count=0;
- for(const [name,html]of final){if(!name.startsWith('klasse7/')||!name.endsWith('.html')||name.includes('/snap/'))continue;
-  const nav=html.match(/<nav class="year-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1];assert.ok(nav,name);
-  const labels=[...nav.matchAll(/<a[^>]*>([^<]+)<\/a>/g)].map(m=>m[1]);assert.deepEqual(labels,['Jahrgang','Medien','Daten','Programmieren','Gaming'],name);
-  assert.equal([...nav.matchAll(/aria-current=/g)].length,1,name);count++;
- }assert.ok(count>=22);
+test('Die Kopfzeile führt aus jedem Lernbogen zu Themen, Wissen und Unterrichtsmaterial', () => {
+  const topics = ['index.html', 'medien/index.html', 'daten/index.html', 'programmieren/index.html', 'gaming/index.html'];
+  const knowledge = {medien:'medien/medienbogen-sicherung.html', daten:'daten/datenbogen-sicherung.html',
+    programmieren:'wissen.html#programmieren', gaming:'gaming/gamingbogen-sicherung.html'};
+  const href = a => a.match(/\bhref="([^"]+)"/)?.[1];
+  let count = 0;
+  for (const [name, html] of final) {
+    if (!name.startsWith('klasse7/') || !name.endsWith('.html')) continue;
+    const projection = /projektion(?:-\d+)?\.html$/.test(name) || /<(?:body|main)\b[^>]*class="[^"]*\bprojection\b/.test(html);
+    if (name.includes('/snap/') || projection) {
+      assert.doesNotMatch(html, /class="year-topics"/, name);
+      continue;
+    }
+    const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0];
+    const menu = header?.match(/<details class="year-topics"[^>]*>([\s\S]*?)<\/details>/)?.[1];
+    assert.ok(menu, name);
+    assert.match(menu, /<summary\b[^>]*>Themen\b/, name);
+    const target = a => {
+      const url = new URL(href(a), 'https://example.test/ium-lernwerk/' + name);
+      return url.pathname.slice('/ium-lernwerk/klasse7/'.length) + url.hash;
+    };
+    const area = name.split('/').length > 2 ? name.split('/')[1] : '';
+    const links = [...menu.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)].map(m => m[0]);
+    assert.deepEqual(links.map(target), topics, name);
+    const current = area ? area + '/index.html' : 'index.html';
+    assert.deepEqual(links.filter(a => a.includes('aria-current=')).map(target), [current], name);
+    if (area) {
+      const context = header.match(/<a\b[^>]*class="year-shell-context"[^>]*>[\s\S]*?<\/a>/)?.[0];
+      assert.ok(context, name);
+      assert.equal(target(context), current, name);
+    }
+    const access = [...header.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)].map(m => m[0]);
+    const wissen = access.find(a => />Wissen<\/a>/.test(a));
+    const material = access.find(a => a.includes('aria-label="Unterrichtsmaterial"'));
+    assert.ok(wissen && material, name);
+    assert.equal(target(wissen), knowledge[area] || 'wissen.html', name);
+    assert.equal(target(material), 'lehrpersonen.html#unterrichtsmaterial', name);
+    count++;
+  }
+  assert.ok(count >= 22);
+  for (const [page, destination] of [
+    ['gaming/gam-4-eine-strategie-wirklich-ausprobieren.html', 'gamingbogen-private-denkpause.html'],
+    ['programmieren/lernende/alg-5.html', '../snap/lernwerk.html?aufgabe=alg-5']
+  ]) {
+    const tools = final.get('klasse7/' + page).match(/<nav class="year-tools"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    assert.ok(tools?.includes('href="' + destination + '"'), page);
+  }
 });
 test('Jahresmaterialien und vier unveränderte Diagnosedateien sind erreichbar',()=>{
  for(const name of ['index','lehrpersonen','lernziele','briefing','uebergaenge','wiederaufnahme-medien','wiederaufnahme-daten','wiederaufnahme-programmieren','wiederaufnahme-gemischt','wiederaufnahme-lehrpersonen'])assert.ok(final.has('klasse7/'+name+'.html'));

@@ -4,7 +4,7 @@
 
 Vier ausgearbeitete Lernbögen verbinden Medienbildung und Informatik. Das gemeinsame Muster ist: eine Vermutung prüfen, ein eigenes Ergebnis herstellen oder begründen, Rückmeldung nutzen und an einem veränderten Fall erneut entscheiden. Das bedeutet nicht, dass alle Bögen dieselbe Methode brauchen.
 
-## Material schnell finden
+<h2 id="unterrichtsmaterial">Material schnell finden</h2>
 
 | Lernbogen | Minuten | Durchführung | Sicherung | Briefing |
 |---|---:|---|---|---|
