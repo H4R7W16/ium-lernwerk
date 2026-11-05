@@ -51,3 +51,24 @@ test('Jahresleitfaden erschließt die vollständigen Medienmaterialien',()=>{
  for(const file of ['medienbogen-durchfuhrung-und-auswertung','medienbogen-sicherung','medienbogen-briefing'])assert.ok(html.includes('href="medien/'+file+'.html"'));
  assert.doesNotMatch(html,/bleiben in Materialproduktion offen/);
 });
+
+test('Medienübersicht führt zuerst zu MED-1 und bietet fünf benannte Aufgaben zur freien Wahl', () => {
+  const page = published.get(ROOT + 'index.html');
+  const main = page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
+  assert.ok(/href="med-1-wer-lenkt-unseren-blick.html">Mit MED-1 beginnen/.test(main), 'Benannter Ersteinstieg fehlt');
+  assert.match(main, /href="#aufgaben">Alle Aufgaben/);
+  const list = main.match(/<ol[^>]*>([\s\S]*?)<\/ol>/)[1];
+  assert.equal([...list.matchAll(/href="med-[1-5]-/g)].length, 5);
+  assert.doesNotMatch(page.split('<main')[0], /class="(?:year-tools|course-nav)"/);
+});
+
+test('MED-1 zeigt Position, Titelwahl, Arbeitsbeginn und den direkten Weiter- und Rückweg', () => {
+  const page = published.get(ROOT + 'med-1-wer-lenkt-unseren-blick.html');
+  const main = page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
+  assert.ok(main.includes('Medien · Aufgabe 1 von 5'), 'Aufgabenposition fehlt');
+  assert.match(main, /<a[^>]*href="med-1-wer-lenkt-unseren-blick.html"[^>]*aria-current="page"/);
+  assert.match(main, /href="#1-einen-beitrag-auseinandernehmen-10-minuten"/);
+  assert.match(main, /href="index.html">[^<]*Zur Medienübersicht/);
+  assert.match(main, /href="med-2-stimmt-die-meldung.html">[^<]*MED-2 · Stimmt die Meldung\?/);
+  assert.doesNotMatch(page.split('<main')[0], /class="(?:year-tools|course-nav)"/);
+});
