@@ -35,7 +35,8 @@ function prepareNavigablePages(){return require('../klasse7-jahrgang/build.cjs')
 function preparePublishedPages(){
  const navigation=require('../shared/grade-navigation.cjs').addGradeNavigation(prepareNavigablePages());
  const content=require('../shared/gesamtkonzept.cjs').addConcept(navigation);
- return require('../shared/themen-navigation.cjs').addTopicNavigation(content);
+ const topics=require('../shared/themen-navigation.cjs').addTopicNavigation(content);
+ return require('../shared/arbeitsstellen.cjs').addArbeitsstellen(topics);
 }
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');

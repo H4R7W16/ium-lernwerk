@@ -1,5 +1,5 @@
-/* Lokale Aufgabenwahl und Rückwege in den drei textbasierten Lernbögen. */
-.task-route-picker,
+/* Aufgabenwahl und fachliche Werkzeuge stehen gemeinsam vor dem Lernauftrag. */
+.task-route-workbar,
 .task-route-sequence {
   width: min(100% - 2rem, 58rem);
   margin-inline: auto;
@@ -7,43 +7,73 @@
   color: var(--ink, #222a2f);
 }
 
-.task-route-picker {
-  padding-block: .6rem;
+.task-route-workbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0 1rem;
+  padding-block: .2rem;
   border-bottom: 1px solid var(--line, #c8d1cb);
 }
 
-.task-route-picker summary,
-.task-route-picker li a {
-  display: block;
-  padding: .4rem .25rem;
+.task-route-workbar > .task-route-picker {
+  flex: 1 1 13rem;
+  min-width: 0;
+}
+.task-route-workbar > .year-tools {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 .7rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.task-route-workbar > .year-tools a {
+  min-height: 44px;
+  padding-inline: .3rem;
 }
 
+.task-route-picker details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.task-route-picker summary,
+.task-route-picker li a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: .25rem .4rem;
+}
 .task-route-picker summary {
+  flex-wrap: wrap;
+  gap: 0 .6rem;
   cursor: pointer;
   font-weight: 600;
   overflow-wrap: anywhere;
+  list-style: none;
 }
-
+.task-route-picker summary::-webkit-details-marker { display: none; }
 .task-route-picker summary span {
-  display: inline-block;
-  margin-inline-start: .65rem;
   color: var(--accent, #245743);
   text-decoration: underline;
   text-underline-offset: .16em;
-  font-size: .88rem;
+  font-size: .9rem;
   font-weight: 400;
 }
-
 .task-route-picker summary span::after { content: ' ▾'; }
 .task-route-picker details[open] summary span::after { content: ' ▴'; }
-
 .task-route-picker ol {
   list-style: none;
-  margin: .25rem 0 .5rem;
-  padding: 0 .75rem;
+  margin: 0 0 .4rem;
+  padding: 0 .45rem;
   border-inline-start: 2px solid var(--line, #c8d1cb);
 }
-
 .task-route-picker li a[aria-current="page"] {
   font-weight: 700;
   background-color: var(--soft, #eaf2ec);
@@ -55,7 +85,6 @@
   gap: .65rem;
   margin-block: .8rem 1.4rem;
 }
-
 .task-route-sequence a {
   display: flex;
   flex-direction: column;
@@ -67,7 +96,6 @@
   text-decoration: none;
   overflow-wrap: anywhere;
 }
-
 .task-route-sequence a span { color: var(--muted, #5b656d); font-size: .85rem; }
 .task-route-sequence a strong { text-decoration: underline; text-underline-offset: .15em; }
 .task-route-sequence a:hover,
@@ -77,20 +105,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: .25rem .85rem;
-  margin: .55rem 0 .9rem;
+  margin: .4rem 0 .65rem;
 }
 .task-route-return a,
-.task-route-tool a { overflow-wrap: anywhere; }
-.task-route-return a { padding-block: .2rem; }
+.task-route-tool a,
+.task-route-programming a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: .2rem .35rem;
+  overflow-wrap: anywhere;
+}
+.task-route-return a { padding-inline-start: 0; }
 td .task-route-return { margin-bottom: 0; }
 [data-task-anchor] { scroll-margin-block-start: 1rem; }
 
-.task-route-programming {
-  margin-block: .6rem 1rem;
-}
+.task-route-programming { margin-block: .6rem 1rem; }
 .task-route-programming summary {
   width: fit-content;
   max-width: 100%;
+  min-height: 44px;
   padding: .4rem 0;
   color: var(--accent, #245743);
   cursor: pointer;
@@ -100,16 +135,82 @@ td .task-route-return { margin-bottom: 0; }
   margin: .25rem 0 .5rem;
   padding-inline-start: 1.15rem;
 }
-.task-route-programming a {
-  display: inline-block;
-  padding-block: .2rem;
-  overflow-wrap: anywhere;
-}
-.task-route-programming :is(summary, a):focus-visible {
+.task-route-programming :is(summary, a):focus-visible,
+.task-route-workbar :is(summary, a):focus-visible,
+.task-raster-hint a:focus-visible,
+.task-raster-lines a:focus-visible {
   outline: 3px solid #a85100;
   outline-offset: 3px;
 }
 
+/* DAT-5: Das Tabellenmodell bleibt ein zweidimensionales Raster mit echten
+   Zeilen-/Spaltenköpfen. Nur bei Platzmangel erhält das 8×8-Raster eine Leseliste. */
+#schluesselraster .table-wrap {
+  container: schluessel-raster / inline-size;
+  overflow-x: auto;
+  margin-block: .65rem;
+}
+#schluesselraster table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  font-size: .9rem;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+@supports (container-type: inline-size) {
+  #schluesselraster table:has(th:nth-child(9)) { min-width: 14rem; }
+}
+#schluesselraster :is(th, td) {
+  padding: .3rem .08rem;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+#schluesselraster caption {
+  padding: .35rem .3rem;
+  text-align: start;
+  font-weight: 650;
+}
+.task-raster-hint,
+.task-raster-lines { display: none; }
+.task-raster-lines:target { display: block; scroll-margin-top: .65rem; }
+.task-raster-lines :is(strong, span) { display: block; }
+.task-raster-lines code { white-space: normal; font-size: 1em; }
+.task-raster-lines a,
+.task-raster-hint a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  width: fit-content;
+  max-width: 100%;
+}
+@container schluessel-raster (inline-size < 30rem) {
+  #schluesselraster .task-raster-column-prefix {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+@container schluessel-raster (inline-size < 14rem) {
+  .task-raster-hint {
+    display: block;
+    position: sticky;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: .35rem;
+    color: var(--ink, #222a2f);
+    background: #fff;
+    font-size: .92rem;
+  }
+}
 @media print {
-  .task-route-picker, .task-route-sequence, .task-route-return, .task-route-tool, .task-route-programming { display: none; }
+  .task-route-workbar, .task-route-sequence, .task-route-return, .task-route-tool,
+  .task-route-programming, .task-raster-hint, .task-raster-lines:target { display: none; }
+  #schluesselraster .table-wrap { container-type: normal; overflow: visible; }
+  #schluesselraster table:has(th:nth-child(9)) { min-width: 0; }
 }

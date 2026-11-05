@@ -1,0 +1,21 @@
+[data-arbeitsstelle] { scroll-margin-top: 1rem; }
+.lw-mantel [data-arbeitsstellen-return] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  max-width: 100%;
+  margin: .25rem 0 .6rem;
+  padding: .45rem .7rem;
+  border: 1px solid var(--lw-line, #bfc9c6);
+  border-radius: .4rem;
+  color: var(--lw-accent, #245743);
+  background: white;
+  font: 600 1rem/1.4 system-ui, sans-serif;
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+.lw-mantel [data-arbeitsstellen-return]:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+@media print { .lw-mantel [data-arbeitsstellen-return] { display: none; } }

@@ -87,7 +87,7 @@ function picker(tasks, current) {
     return '<li><a' + selected + ' href="' + task.file + '">' + task.code + ' · ' + task.title + late + '</a></li>';
   }).join('');
   return '<nav data-task-routes="selection" class="task-route-picker" aria-label="Aufgabe wählen">'
-    + '<details><summary>Aufgabe ' + current.number + ' von ' + tasks.length + ' · ' + current.title + '<span>Aufgabe wechseln</span></summary>'
+    + '<details><summary>Aufgabe ' + current.number + ' von ' + tasks.length + ' <span>Aufgabe wechseln</span></summary>'
     + '<ol>' + items + '</ol></details></nav>';
 }
 
@@ -120,10 +120,41 @@ function pointToSections(html, sections) {
   });
 }
 
+// Die kompakte Tabellenansicht behält alle Zellpositionen. Für besonders schmale
+// Ansichten stammt die alternative Reihenfolge direkt aus der gebundenen Tabelle.
+function addRasterReadingView(page) {
+  const target = /(<div class="table-wrap"[^>]*>)(<table><caption>B · 8 × 8 Pixel<\/caption>[\s\S]*?<\/table>)(<\/div>)/;
+  if (!target.test(page)) throw Error('DAT-5: Die 8×8-Tabelle für die alternative Zeilenansicht fehlt.');
+  const withAlternative = page.replace(target, (block, opening, table, closing) => {
+    const rows = [...table.matchAll(/<tr><th scope="row">(\d+)<\/th>([\s\S]*?)<\/tr>/g)];
+    if (rows.length !== 8) throw Error('DAT-5: Raster B muss acht beschriftete Zeilen enthalten.');
+    const lines = rows.map(([, number, cells], index) => {
+      const bits = [...cells.matchAll(/<td>([01])<\/td>/g)].map(match => match[1]);
+      if (Number(number) !== index + 1 || bits.length !== 8) throw Error('DAT-5: Positionen in Raster B, Zeile ' + (index + 1) + ', sind unvollständig.');
+      return '<span>Zeile ' + number + ': <code>' + bits.join(' ') + '</code></span>';
+    }).join('');
+    const hint = '<p data-task-routes="raster-hint" class="task-raster-hint">'
+      + 'Weitere Spalten siehst du, wenn du die Tabelle seitlich verschiebst. '
+      + '<a href="#raster-b-zeilen">Zeilen ohne Verschieben lesen</a></p>';
+    const alternative = '<p data-task-routes="raster-lines" class="task-raster-lines" id="raster-b-zeilen" tabindex="-1">'
+      + '<strong>Raster B · Von links nach rechts</strong>' + lines
+      + '<a href="#schluesselraster">Zurück zur Rasterauswahl</a></p>';
+    return opening + hint + table + closing + alternative;
+  });
+  return withAlternative.replace(/<details id="schluesselraster">[\s\S]*?<\/details>/, raster =>
+    raster.replace(/(<th scope="col">)Spalte (\d+)(<\/th>)/g, '$1<span class="task-raster-column-prefix">Spalte </span>$2$3')
+  );
+}
+
 function taskPage(html, group, tasks, task, recapName) {
   const targets = { [recapName]: task.recap, [group.notes]: task.note };
   if (group.area === 'gaming') targets[privatePage] = privateSections[task.number - 1];
-  let page = pointToSections(html, targets).replace(originalPicker, picker(tasks, task));
+  let page = pointToSections(html, targets);
+  const tools = page.match(/<nav class="year-tools"[^>]*>[\s\S]*?<\/nav>/);
+  if (!tools) throw Error(task.code + ': Die Arbeitsmittel fehlen im ' + group.name + '.');
+  const workbar = '<div class="task-route-workbar">' + picker(tasks, task) + tools[0] + '</div>';
+  page = page.replace(tools[0], '').replace(originalPicker, () => workbar);
+  if (task.code === 'DAT-5') page = addRasterReadingView(page);
   if (task.code === 'DAT-3') {
     const heading = new RegExp('(<h2 id="' + task.work.id + '">[^<]+</h2>)');
     page = page.replace(heading, '$1<p data-task-routes="tool" class="task-route-tool"><a href="'
