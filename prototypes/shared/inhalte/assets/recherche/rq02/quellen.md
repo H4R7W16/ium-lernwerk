@@ -47,7 +47,7 @@ Fall: **Samstag, 24.10.2026, 16 Uhr**. Die Standortseite nennt Sommer-Samstage 1
 
 ## Aktualisierung für die reguläre Fassung · 03.11.2026
 
-Aktueller Übungsfall: Samstag, 7. November 2026, 16 Uhr. Startseite und Standortseite der Stadtbücherei Esslingen erneut geöffnet. Beide nennen nun für Winter-Samstage 10–18 Uhr. Der oben dokumentierte Widerspruch besteht im aktuellen Seitenstand nicht mehr. Nach den regelmäßigen Zeiten wäre der Besuch möglich; die Prüfung besonderer Schließungen für den Besuchstag bleibt Teil der Aufgabe. Keine besondere Öffnung zugesagt und keine Anfrage versandt. Der Screenshot vom 12.10.2026 ist eine datierte Ausfallhilfe, kein aktueller Öffnungsbeleg.
+Vergleichsfall der Quellenprüfung vom 3. November: Samstag, 7. November 2026, 16 Uhr. Die Klasse prüft für ihren eigenen Besuch den neu vereinbarten Samstag. Startseite und Standortseite der Stadtbücherei Esslingen erneut geöffnet. Beide nennen nun für Winter-Samstage 10–18 Uhr. Der oben dokumentierte Widerspruch besteht im aktuellen Seitenstand nicht mehr. Nach den regelmäßigen Zeiten wäre der Besuch möglich; die Prüfung besonderer Schließungen für den Besuchstag bleibt Teil der Aufgabe. Keine besondere Öffnung zugesagt und keine Anfrage versandt. Der Screenshot vom 12.10.2026 ist eine datierte Ausfallhilfe, kein aktueller Öffnungsbeleg.
 
 <a id="bildfolge"></a>
 ## Bildfolge: Aufnahme, Veränderung und Verwendungszweck

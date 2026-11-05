@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 tags:
   - output/lernmaterial
 ---
@@ -19,7 +19,7 @@ Nutze ein bekanntes Dokument oder dein Heft. Diese Seite speichert keine Eingabe
 | [[GAM-1 - Warum noch eine Runde|GAM-1]] | Vier Befunde; überarbeitete Stelle; Antwort zum neuen Jo-Fall | Begriff, Zusammenhang, Textbeleg und Grenze; Zugehörigkeit und Druck unterscheiden |
 | [[GAM-2 - Kostenlos oder bezahlt|GAM-2]] | Drei Angebotszeilen; Rat mit zwei Kriterien und einem Nachteil; Abo-Kurzfall | Wer zahlt wofür? Interesse am Kartenmerkmal erklären; nicht pauschal „kostenlos“ urteilen |
 | [[GAM-3 - Was tut gut was belastet|GAM-3]] | Vier Zeilen zu Kim; Änderung mit Begründung für Lee | Psychische und physische Aspekte; mögliche Ursache und alternative Erklärung trennen |
-| [[GAM-4 - Eine Strategie wirklich ausprobieren|GAM-4]] | Stadtbau-Empfehlung, geänderte Bedingung; Strategie für Pat | Strategie muss zum Problem passen; eigene Beobachtungen stehen hier nicht |
+| [[GAM-4 - Eine Strategie wirklich ausprobieren|GAM-4]] | Nach vier Minuten Lesen: in zwei Minuten Kosten, Kaufanreiz und Empfehlung für Robin festhalten. Später: geänderte Bedingung und Strategie für Pat | Strategie muss zum Problem passen; eigene Beobachtungen stehen hier nicht |
 | [[GAM-5 - Grenzen schützen Hilfe erreichen|GAM-5]] | Vier Felder zur Fallentscheidung und allgemeiner schulischer Hilfeweg | Grenze und mögliche Folgen, sichere Handlung, erreichbare Person und Ersatzweg |
 | [[GAM-6 - Mit Abstand neu entscheiden|GAM-6]] | Nur der abschließende unpersönliche Fachsatz | Beobachtung ist keine sichere Ursache; nächster Prüfschritt passt |
 

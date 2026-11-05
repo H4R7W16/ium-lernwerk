@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 tags:
   - output/lernmaterial
 ---
@@ -48,7 +48,7 @@ Die Zeilenumbrüche helfen nur beim Lesen. Was wäre ohne bekannte Breite an der
 
 ## 3 · Dein eigenes Bildpaket · 30 Minuten
 
-**A · Entscheiden und rastern – etwa 12 Minuten.** Wähle eine der beiden eigenen Vorlagen. Lege selbst fest, ob du **4×4 oder 8×8 Pixel** verwenden willst. Begründe deine Wahl mit einem Detail, das du erhalten möchtest. Verwende die Mittelpunktregel und übertrage die Vorlage Feld für Feld in ein **eigenes** Schwarzweißraster. Die Hilfsbilder zeigen noch keine fertige Pixellösung.
+**A · Entscheiden und rastern – etwa 12 Minuten.** Wähle eine der beiden eigenen Vorlagen. Mit **4×4 Pixeln** kannst du alle Schritte vollständig zeigen. Wähle **8×8**, wenn du ein feineres Detail untersuchen möchtest. Begründe deine Wahl mit einem Detail, das du erhalten möchtest. Verwende die Mittelpunktregel und übertrage die Vorlage Feld für Feld in ein **eigenes** Schwarzweißraster. Die Hilfsbilder zeigen noch keine fertige Pixellösung.
 
 ![Pfeil und Schlüssel als nicht gerasterte Vorlagen](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/vorlagen.svg)
 
@@ -58,7 +58,7 @@ Du kannst das Raster im bekannten Dokument als `□`/`■`-Zeilen schreiben, im 
 
 **B · Codieren – etwa 6 Minuten.** Übersetze dein fertiges Raster in Bits. Dein Paket enthält **Breite, Höhe, Farbzuordnung, Leserichtung und Bitfolge**. Die Mittelpunktregel dokumentiert, wie du dein Raster hergestellt hast. Zum Decodieren des fertigen Rasters muss die andere Person sie nicht erneut anwenden. Gib Original und Pixelbild noch nicht weiter.
 
-**C · Zurückbauen – etwa 12 Minuten.** Tauscht eure Pakete. Beide rekonstruieren allein das fremde Bild. Erst danach zeigt ihr eure Pixelbilder. Prüft Zeile für Zeile; benennt eine Abweichung mit Zeile und Spalte und repariert sie. Wenn alles übereinstimmt, prüft zusätzlich ein selbst ausgewähltes weißes und schwarzes Feld.
+**C · Zurückbauen – etwa 12 Minuten.** Nach 18 Minuten eigener Arbeit gibt die Lehrperson das Tauschsignal. Tauscht eure fertigen Pakete. Wenn du bereit bist und dein Gegenüber sein Paket noch erstellt, erhältst du von der Lehrperson das bereitliegende Ersatzpaket. Beginne gleich mit dem Zurückbauen; dein Gegenüber beendet die eigene Codierung und erhält dein Paket. Jede Person rekonstruiert allein ein fremdes Bild. Erst danach vergleicht ihr mit dem fremden Pixelbild oder dem Muster zum Ersatzpaket. Prüft Zeile für Zeile; benennt eine Abweichung mit Zeile und Spalte und repariert sie. Wenn alles übereinstimmt, prüft zusätzlich ein selbst ausgewähltes weißes und schwarzes Feld.
 
 Zwischenhalt nach acht Minuten: Rasterwahl, Regel und mindestens die erste Rasterzeile sollen vorliegen. Hole dir bei Bedarf Hilfe für **eine** Randzelle. Die restlichen entscheidest du selbst.
 

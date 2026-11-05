@@ -394,9 +394,9 @@
       "p:5aed98f568a216358dd3d8a3529836be84b410cacc2952ab5023bfbc4c30b69e",
       "p:6525a78f5519b170b151979aa432cdda8184c21b2dccda0b405c42effe742027",
       "p:73a11d60fc96f87559a5dfe63b5c0acd13aec90c4a9ff90b2592edc823f2aff8",
-      "p:7e4c948703a9822de2f9c518a80995abfcf22c3b0ce8f2d8e9a333ac5eb6479e",
       "p:96cb173f292cd955ba7a3a5157a7ace2c39086d9da50c826a8ef59f2612592fb",
       "p:a3b7adbd4ce9896e58a6062967486f7937543891fc010d8cbb8a216c5b766460",
+      "p:afa3e2e7a73bfbc750ba374db4e5e9bf024213a698b0b39d75be05639df73db9",
       "p:d3bf27ad34479eaff80ecf79c93d35b3fc1aa98976cd34f50520554bd383268d",
       "p:e029c325851ab3f9104c5c4b96fd73ab05ff6fd18526c27e983593da15a88c22",
       "p:edd26e51de8feca246f932faae14dbde28ec5b3322464817a2353dd87ed1b019",
@@ -892,5 +892,11 @@
     "date": "2026-11-03",
     "basis": "inhalt-v2.2-sha256.json",
     "scope": "Gesamtkonzept: Snap-Anschluss, Prüfspur, Einsatzauftrag und geordnete Sicherung. Engine/XML unverändert."
+  },
+  "inhaltspflege_2026_11_05": {
+    "seite": "lernende/alg-5.html",
+    "grund": "Stoppgrenze nur für unerwartete Bewegungen.",
+    "vorher": "p:7e4c948703a9822de2f9c518a80995abfcf22c3b0ce8f2d8e9a333ac5eb6479e",
+    "nachher": "p:afa3e2e7a73bfbc750ba374db4e5e9bf024213a698b0b39d75be05639df73db9"
   }
 }

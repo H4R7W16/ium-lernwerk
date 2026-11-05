@@ -7,16 +7,16 @@
     "dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html": "0398612f669f6ec73e38ac8a34da21f9d9028fee7b663170d0e03f55b0a7ca38",
     "dat-2-ascii-als-vereinbarte-codierung.html": "8effcdfa57aa44f46651cf154d7a3d455d91b5fa7392eedc8626cd8a18b9c12e",
     "dat-2-briefing.html": "962a69c9cc085d342d4c3d2eb8b036c93e4403f76db64db33b6aa1aaad801fc0",
-    "dat-3-briefing.html": "6e8b63d3f41366de985309481826f8fd192f28281f996f8b050f6cf6ef9ced0e",
-    "dat-3-vom-bild-zum-pixelraster-und-zuruck.html": "5789d7590a600bfae8520cf343b4f918869a4737529040ff5f826bb9ca69678f",
+    "dat-3-briefing.html": "c466b249a7d46eb682c40683f25f6c0ae727739104ae12e7eb3dd351bf6e7d6a",
+    "dat-3-vom-bild-zum-pixelraster-und-zuruck.html": "14279edf5e9b4fb355b5c7dde128a97f26f471a99aea9068060f3b0c7c8717f3",
     "dat-4-briefing.html": "20f4c3e4b7d445f8a4a8a1a77b722f940ee619ff6bb15220c04cc652c8964027",
     "dat-4-wie-gro-sind-unsere-datenmengen.html": "44f764b03cd95418f8bdcfa6468da88734e83aea9a0cc570645ba522beb9a9d2",
-    "dat-5-briefing.html": "782d74657aa65e35f3d94afab2b9015a30f7ea13a4f28faa94b4a3819ec6a8a0",
-    "dat-5-welche-datenmenge-passt-zum-zweck.html": "ac3d94c285bd6bf597ef01e56615d40c6d6b49860c3d7bfb08a84a38f4b07614",
+    "dat-5-briefing.html": "ae35b645330d05ae97b6bfa6817f66d12e7dca5b868967939c2608d27122e46b",
+    "dat-5-welche-datenmenge-passt-zum-zweck.html": "be8b79bab65b9cbe3f0b4cafb311657aeeec6f90c88d248b27574cc897b2bf22",
     "daten.css": "0c5d30d7c22bc52c6439239bc488ee38e596ab797bbd557df0d5704f2bfbf92d",
     "datenbogen-briefing.html": "4ef228f9d90ddef0b51d738b8dd2dae7c4384bca0acaaaf720c0b0b061a2bd7c",
-    "datenbogen-durchfuhrung-und-auswertung.html": "211e1aecc7b3cfcfa7053ab55efdd8c93f3ac0e1c9cd6f1da04909ccb1252ac2",
-    "datenbogen-material-und-alternativzugange.html": "b93aca09564aa5817426e50bc951b6c834142a409ef516b5745f71166280d04a",
+    "datenbogen-durchfuhrung-und-auswertung.html": "a3475a6aae12653dba2f1e9f4fa86c4e09383edde8be46f20bcccf9f26d4327d",
+    "datenbogen-material-und-alternativzugange.html": "158e2f750b41c2ca38d7c627a5d833cfcf8cfe88b458203a671eb51d6be133e4",
     "datenbogen-produktionsbrief-und-reihenkommentar.html": "025401c11f447d55f7e1a721cd68fcd81d1bb2686242c1afa0ba664ad5254a7a",
     "datenbogen-projektion.html": "85372ee7370b221d9afa90d0624faa2d308f518e5cef04f3e4c9d0d0d4ead803",
     "datenbogen-quellen-und-nutzungsrechte.html": "4948a6ded113e07ac07d85fb46fcd19b3dd5744c5cfa498d77d79c8d51a9a68a",
@@ -41,5 +41,6 @@
     "projektion-3.html": "9d2c8225ed16e8588445c884b35c7941fdd6f836c04d6cf3812dedace88040f0",
     "projektion-4.html": "62670e644985481213dd0b77e269cb0b343ffeed1b0adead28f592b5e53042da",
     "projektion-5.html": "f8fe0cb3d7e339b640de5493a1ef9a6a905744ab8020d34a1d6fd62db3d5b011"
-  }
+  },
+  "inhaltspflege_2026_11_05": "DAT-3: gleichwertiger Einstieg und Tauschsignal. DAT-5: beide Schlüsselraster feld- und positionsgetreu als Tabellen."
 }

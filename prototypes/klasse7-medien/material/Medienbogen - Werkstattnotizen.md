@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 ---
 
 # Deine Werkstattnotizen
@@ -36,7 +36,14 @@ Geschlechterrollen mit Text- und Bildbeleg – Aussehensnorm – mögliche Wirku
 
 ## MED-5 · Kommunikation
 
-Vier Zeilen K1–K4: zeitlicher Ablauf – Speicherung/Kopierbarkeit – Reichweite/Weitergabe. Klärungsnachricht mit Begründung. Zwei Druckmittel – geforderte Handlung – sicherer unabhängiger Prüfweg – Hilfe nach Weitergabe. Neuer freundlicher Fall: sichere Reaktion und Begründung.
+K1 und K2 stehen als Beispiele in der Lernaufgabe. Für deine eigenen Zuordnungen genügen zwei Zeilen:
+
+| Fall | Zeitlicher Ablauf + Merkmal | Was bleibt oder kann kopiert werden? | Wer ist zunächst erreichbar und wer durch Weitergabe? |
+|---|---|---|---|
+| K3 Gruppenchat | … | … | … |
+| K4 Schulblog | … | … | … |
+
+Klärungsnachricht mit Begründung. Zwei Druckmittel – geforderte Handlung – sicherer unabhängiger Prüfweg – Hilfe nach Weitergabe. Neuer freundlicher Fall: sichere Reaktion und Begründung.
 
 ## So erhältst du Rückmeldung
 

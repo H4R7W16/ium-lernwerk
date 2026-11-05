@@ -34,7 +34,7 @@ Plane ungefähr 20 Minuten fürs Bauen, 15 für Tests und 5 fürs Sichern. Ordne
 | Grenzfall | Start an der Station | … | … |
 | Dein Gegenfall | Wähle und begründe einen Start, der die Marke überspringt. | … | … |
 
-Bei unerwarteter Weiterfahrt: **Stopp**, spätestens nach sechs Bewegungen.
+Fährt dein Rover weiter, obwohl er schon stoppen sollte? Drücke **Stopp**, spätestens nach sechs unerwarteten Bewegungen. Erwartete Schritte auf dem Weg zur Station zählen hier nicht mit.
 
 <details><summary>Hilfe: Wo beginne ich?</summary>
 

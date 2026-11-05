@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 tags:
   - output/lernmaterial
 ---
@@ -36,7 +36,7 @@ Eine Beschwerde oder Belastung muss nicht vorhanden sein. **Fallweg:** Jona lies
 
 **Vor GAM-4:** „Ich wähle …, weil … Meine Bildschirmphase endet … Daran will ich den Nutzen prüfen: …“
 
-**Unmittelbar nach der ersten Arbeitsphase, 3 Minuten:** „Tatsächlich getan: … Beobachtet: … Unklar bleibt: …“ Datum nur für deinen eigenen Vergleich. Kein Erfolgsdruck. Fallweg: dieselbe Struktur als Plan für Lee, Beobachtung ausdrücklich noch offen.
+**Nach vier Minuten Lesen und zwei Minuten Fachnotizen: drei Minuten auf diesem privaten Zettel.** „Tatsächlich getan: … Beobachtet: … Unklar bleibt: …“ Datum nur für deinen eigenen Vergleich. Kein Erfolgsdruck. Fallweg: dieselbe Struktur als Plan für Lee, Beobachtung ausdrücklich noch offen.
 
 **In GAM-5:** Dieselbe oder eine begründet angepasste Strategie in der ohnehin stattfindenden Facharbeit nutzen. In den letzten 2 Minuten notieren: „Diesmal habe ich … Beobachtet habe ich … Eine andere Erklärung könnte … sein.“ Fallweg: eine passende Vergleichsbeobachtung für Lee formulieren.
 

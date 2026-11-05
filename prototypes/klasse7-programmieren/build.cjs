@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const baseline=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'));
+const baseline=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'));
 const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
 function addClass7(existing){
  for(const [name,h]of Object.entries(baseline.files))if(!existing.has(name)||hash(existing.get(name))!==h)throw Error('Veröffentlichter Bestand verändert: '+name);

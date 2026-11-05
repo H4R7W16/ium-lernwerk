@@ -33,6 +33,21 @@ body.lw-mantel{
 }
 
 
+/* Die Wortliste behält für jede Karte eine direkt beschriftete Schreibstelle. */
+.lw-response-parts{display:grid;gap:.7rem}
+.lw-short-responses{grid-template-columns:repeat(auto-fit,minmax(min(12rem,100%),1fr))}
+.lw-response-part label{margin:.35rem 0}
+.lw-response-part input{width:100%;padding:.55rem;border:1px solid var(--lw-line);border-radius:.4rem}
+.lw-response-part textarea{min-height:3.5rem}
+.lw-response-line{display:block;min-height:1.2rem;border-bottom:1px solid currentColor}
+@media print{
+ .lw-response-parts{gap:2mm}
+ .lw-short-responses{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .lw-response-part{break-inside:avoid}
+ .lw-previous-response{display:none!important}
+ .lw-mantel[data-lw-area="suche"][data-lw-page="baustein-index.html"] .lw-sheet .lw-block-task{break-inside:auto}
+ .lw-mantel[data-lw-print="solutions"] .lw-response-line{display:none}
+}
 /* M03: vergleichbare Werbeansichten und vollständige Arbeitsabschnitte auf Papier. */
 @media print{
  .lw-mantel[data-lw-area="werbung"] .lw-self-check>div>p{display:none}
