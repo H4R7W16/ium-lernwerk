@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 ---
 
 # Medienbogen · Durchführung und Auswertung
@@ -52,8 +52,8 @@ Pro Aufgabe: eigener Erstversuch, kurzer Abgleich, gezielte Präzisierung und ve
 
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
-| 0–10 | M1/M2 lesen. Behauptung eingrenzen; Irrtum, Zuspitzung und absichtliche Irreführung unterscheiden. | „Alles Fake“? Nach der einzelnen überprüfbaren Behauptung fragen. |
-| 10–20 | M3–M5 erschließen. 18/20 zur tatsächlichen Frage gemeinsam rechnen und auf Bezugsgruppe beziehen. | Prozentzahl blockiert? 20 Striche zeigen; Rechnen ist hier Werkzeug, nicht Hauptziel. |
+| 0–10 | M1 lesen, die Aussage zur Befragung und zur Bezugsgruppe formulieren; Irrtum, Zuspitzung und absichtliche Irreführung unterscheiden. | „Alles Fake“? Nach der einzelnen überprüfbaren Behauptung fragen. |
+| 10–20 | M3–M5 lesen. Jede Person hält zuerst ein Urteil mit der Frage, der Bezugsgruppe und der Reichweite von M4 fest. Erst dann M2 öffnen, das Urteil abgleichen und P2 zeigen. | Prozentzahl blockiert? 20 Striche zeigen; Rechnen ist hier Werkzeug, nicht Hauptziel. |
 | 20–35 | Fünfsätzige Redaktionsnotiz. Früh prüfen, ob M4/M5 unterschiedlich gewichtet werden. | Nur „seriöser Absender“? Konkrete Belegstelle und Erkenntnisgrenze verlangen. |
 | 35–45 | 4 min Rückmeldung/Revision und fachlicher Sicherungssatz; 3 min Theaterfall einschließlich Kurzabgleich; 3 min geschützte Denkpause. | Private Inhalte nicht erfragen. Fehlende fachliche Aussage am Fall nachsichern. |
 
@@ -112,7 +112,7 @@ Mögliche Überschrift: „18 von 20 freiwillig Befragten am Kiosk wünschen lä
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
 | 0–10 | Drei Merkmale erläutern. Chat kann je nach Nutzung synchron/asynchron sein. Reichweite zunächst versus Weitergabe unterscheiden. | „Privater Chat = sicher“? An Speicher- und Weitergabemöglichkeit erinnern. |
-| 10–20 | K1/K2 modelliert, K3/K4 selbst zuordnen, alle vier kompakt notieren. Kurzer Abgleich. | Zwei vorgegebene Zeilen erklären lassen; nicht bloß Abschreiben als Diagnose werten. |
+| 10–20 | K1/K2 als ausgefüllte Beispiele gemeinsam betrachten. Nur K3/K4 ordnet jede Person in ihren eigenen zwei Zeilen zu. Kurzer Abgleich. | Eine Angabe in K1/K2 mündlich begründen lassen. In K3/K4 nach dem entscheidenden Fallmerkmal fragen. |
 | 20–25 | Missverständnis K3: Klärungsnachricht und eine Begründung. | Motiv unterstellt? Frage nach gemeinter Zustimmung statt Vorwurf anregen. |
 | 25–35 | Nachricht prüfen: zwei Druckmittel, unabhängiger Weg, Hilfe nach Fehler. | Antwort an den verdächtigen Absender als Prüfung? Woher stammt dein Kontrollkontakt? |
 | 35–41 | Rückmeldung, gezielte Revision und Sicherung. | Ein fachliches Problem pro Person rückmelden, nicht alle Texte neu schreiben. |

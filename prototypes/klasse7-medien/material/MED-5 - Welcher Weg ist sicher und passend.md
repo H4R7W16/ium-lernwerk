@@ -7,12 +7,12 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 ---
 
 # MED-5 · Welcher Weg ist sicher und passend?
 
-**45 Minuten · Dein Ergebnis:** vier kurze Zuordnungen und zwei begründete Kommunikationsentscheidungen.
+**45 Minuten · Dein Ergebnis:** zwei eigene Zuordnungen (K3 und K4) und zwei begründete Kommunikationsentscheidungen.
 
 Die Schulredaktion muss etwas klären, einen Termin mitteilen und mit einer verdächtigen Nachricht umgehen. Welcher Weg passt wozu? Alle Fälle sind erfunden; du sendest nichts und gibst keine Daten ein.
 
@@ -33,13 +33,16 @@ Die Schulredaktion muss etwas klären, einen Termin mitteilen und mit einer verd
 | K3 | Vier Mitglieder schreiben jetzt gleichzeitig in einem Gruppenchat. Der Verlauf bleibt gespeichert. |
 | K4 | Die Redaktion veröffentlicht eine Nachricht auf dem öffentlich lesbaren Schulblog. Menschen lesen und kommentieren sie zu unterschiedlichen Zeiten. Der Beitrag bleibt online. |
 
-**Zwei vorgemachte Zuordnungen:** K1 ist synchron, hier nicht automatisch aufgezeichnet und zunächst auf zwei Beteiligte begrenzt. Eine Aufnahme durch Beteiligte wäre technisch trotzdem möglich. K2 ist asynchron, als Text gespeichert und zunächst für 24 Empfänger bestimmt; Weiterleiten kann den Kreis vergrößern.
+**Lest K1 und K2 als Beispiele.** Erklärt an einer der ausgefüllten Zeilen mündlich: Welche Angabe im Fall braucht ihr zusätzlich zu „Video“ oder „Mail“?
 
-Notiere alle vier Fälle in diesem Raster. Übernimm K1/K2 bewusst und erkläre mündlich, warum „Video“ oder „Mail“ allein noch nicht alle Bedingungen festlegt. Ordne K3/K4 selbst zu.
-
-| Fall | synchron / asynchron – mit Fallmerkmal | Was bleibt, was könnte kopiert werden? | zunächst erreichbar / durch Weitergabe möglich |
+| Fall | Zeitlicher Ablauf mit Fallmerkmal | Was bleibt, was könnte kopiert werden? | Wer ist zunächst erreichbar? Wie könnte der Kreis wachsen? |
 |---|---|---|---|
-| K1–K4, je eine Zeile | … | … | … |
+| K1 · Beispiel | synchron: beide sprechen gleichzeitig | keine automatische Aufnahme; Beteiligte könnten aufnehmen | die beiden Gesprächspartner; eine Aufnahme könnte weitergegeben werden |
+| K2 · Beispiel | asynchron: Antworten über den Tag verteilt | Mail bleibt im Postfach; Text kann kopiert werden | 24 Mitglieder; durch Weiterleiten auch andere |
+| K3 · deine Zeile | … | … | … |
+| K4 · deine Zeile | … | … | … |
+
+Halte in deinen [[Medienbogen - Werkstattnotizen#MED-5 · Kommunikation|Werkstattnotizen]] nur K3 und K4 fest. Nenne für jede Zeile das entscheidende Fallmerkmal.
 
 ## 3 · Zwei Entscheidungen treffen · 15 Minuten
 
@@ -74,7 +77,7 @@ Zügig eine zuständige erwachsene Person oder die schulische IT informieren; da
 
 ## 4 · Rückmeldung und Schlussentscheidung · 10 Minuten
 
-**6 Minuten:** Prüft die vier Zuordnungen sowie die beiden Entscheidungen mit der Lehrperson. Korrigiere eine Aussage, die Reichweite, Speicherung oder den Prüfweg zu sicher dargestellt hat. Für die Nachricht genügen ein konkretes Druckmittel und eine dazu passende sichere Handlung nicht allein: Zeige zwei unterschiedliche Mittel und einen unabhängigen Prüfweg.
+**6 Minuten:** Besprecht eure eigenen Zeilen zu K3 und K4 sowie die beiden Entscheidungen mit der Lehrperson. Korrigiere eine Aussage, die Reichweite, Speicherung oder den Prüfweg zu sicher dargestellt hat. Für die Nachricht genügen ein konkretes Druckmittel und eine dazu passende sichere Handlung nicht allein: Zeige zwei unterschiedliche Mittel und einen unabhängigen Prüfweg.
 
 **4 Minuten neuer Fall:** „Hallo, ich helfe neu in der Schulredaktion. Kannst du mir freundlich deinen Anmeldecode schicken, damit ich deinen Entwurf hochlade?“ Kein Zeitdruck, keine Drohung, korrekte Rechtschreibung. Formuliere eine sichere Reaktion mit Begründung. Was bleibt gegenüber der ersten Nachricht gleich, was ändert sich?
 

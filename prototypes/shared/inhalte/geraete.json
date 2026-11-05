@@ -454,10 +454,10 @@
           "label": "Passendes Wissen öffnen"
         },
         {
-          "title": "Ich kann den Zusammenhang noch nicht erklären",
-          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
-          "knowledge": "zusammenhang",
-          "label": "Zusammenhang mit Beispiel"
+          "title": "Ich sehe das Ergebnis. Was hat das Gerät getan?",
+          "text": "Zeige an 7 + 5, womit du die Zahlen eingegeben hast und wo du das Ergebnis siehst. Welches Programm hat die Rechnung verarbeitet? Erkläre an diesem Versuch Eingabe, Verarbeitung und Ausgabe.",
+          "knowledge": "eva",
+          "label": "Eingabe, Verarbeitung und Ausgabe"
         }
       ],
       "blocks": [

@@ -19,7 +19,8 @@ function enhance(name,html,info){
  let content=brand[2];
  if(info.grade===7&&!content.includes('class-label'))content=content.replace('Lernwerk</span>','Lernwerk <span class="lw-grade-number" aria-hidden="true">7</span></span>');
  const links=destinations.map((target,index)=>'<a href="'+relative(name,target)+'"'+(index+5===info.grade?' aria-current="true"':'')+'>Klasse '+(index+5)+(index+5===info.grade?'<span aria-hidden="true">Aktuell</span>':'')+'</a>').join('');
- const menu='<details class="lw-grade-switch" data-grade-switch><summary class="'+brand[1]+' lw-grade-summary" aria-label="Klassenstufe wählen, aktuell Klasse '+info.grade+'" title="Klassenstufe wechseln">'+content+'<span class="lw-grade-chevron" aria-hidden="true">▾</span></summary><nav class="lw-grade-options" aria-label="Klassenstufe">'+links+'</nav></details>';
+ const homeLabel=name==='klasse'+info.grade+'/index.html' ? '<span class="lw-grade-picker-label" aria-hidden="true">Klasse wählen</span>' : '';
+ const menu='<details class="lw-grade-switch" data-grade-switch><summary class="'+brand[1]+' lw-grade-summary'+(homeLabel?' lw-grade-home':'')+'" aria-label="Klassenstufe wählen, aktuell Klasse '+info.grade+'" title="Klassenstufe wechseln">'+content+homeLabel+'<span class="lw-grade-chevron" aria-hidden="true">▾</span></summary><nav class="lw-grade-options" aria-label="Klassenstufe">'+links+'</nav></details>';
  let next=header.replace(brand[0],menu);
  if(info.grade===7)next=next.replace('<span class="header-context">Klasse 7 · Programmieren</span>','<span class="header-context">Programmieren</span>');
  const dependencies='<link rel="stylesheet" href="'+relative(name,info.root+'grade-navigation.css')+'"><script src="'+relative(name,info.root+'grade-navigation.js')+'" defer></script>';

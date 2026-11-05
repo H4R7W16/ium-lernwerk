@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 tags:
   - output/projektion
 ---
@@ -54,9 +54,9 @@ Erfundener Fall. Keine Diagnose von Menschen aus der Klasse.
 
 **Meine Methode: Handlung + Endpunkt + Prüfmaßstab**
 
-6 Minuten Facharbeit mit gewählter Unterbrechung
+4 Minuten Stadtbau-Karte lesen · 2 Minuten Empfehlung in die Fachnotizen schreiben
 
-3 Minuten eigene Beobachtung · 1 Minute geschützt weglegen
+3 Minuten Beobachtung auf dem privaten Zettel · 1 Minute geschützt weglegen
 
 „Unklar“ und „hat nicht geholfen“ sind mögliche Ergebnisse.
 

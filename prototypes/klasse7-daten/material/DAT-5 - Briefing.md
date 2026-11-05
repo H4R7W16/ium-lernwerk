@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 tags:
   - output/briefing
 ---
@@ -17,7 +17,7 @@ Vorlesetext zur Durchführung, Fassung 1.0 vom 28. Oktober 2026. Keine Audiodate
 
 Der Abschluss hat dreißig Minuten. Fünf Minuten klären den Zweck, fünf das Datenwegmodell, zehn dienen einer eigenen Empfehlung und zehn der Gegenprüfung, Revision und Sicherung. Halten Sie die Antworten kurz; zusätzliche Recherche passt nicht hinein.
 
-Die Bilder zeigen dasselbe Schlüsselmotiv mit vier mal vier und acht mal acht Pixeln in gleicher Anzeigegröße. Für einen fiktiven Leihplan soll ein Zeichen gewählt werden. Fordern Sie ein tatsächlich sichtbares Detail, nicht nur den Motivnamen aus der Beschriftung. Die kleine Variante hat sechzehn Bit oder zwei Byte Nutzdaten, die größere vierundsechzig Bit oder acht Byte. Das Verhältnis ist vier zu eins, weil beide Bildrichtungen verdoppelt wurden.
+Die Bilder zeigen dasselbe Schlüsselmotiv mit vier mal vier und acht mal acht Pixeln in gleicher Anzeigegröße. Für einen fiktiven Leihplan soll ein Zeichen gewählt werden. Die ausklappbaren Tabellen unter dem Bild enthalten dieselben Pixel mit Zeilen- und Spaltenköpfen. Lassen Sie ein Detail im Bild zeigen oder an konkreten Feldern erklären. Zum Beispiel liegt in B in der zweiten Zeile zwischen den schwarzen Feldern der ersten und vierten Spalte eine weiße Lücke. Fragen Sie, ob diese Stelle und ihre Nachbarn für den Zweck wichtig sind. Die kleine Variante hat sechzehn Bit oder zwei Byte Nutzdaten, die größere vierundsechzig Bit oder acht Byte. Das Verhältnis ist vier zu eins, weil beide Bildrichtungen verdoppelt wurden.
 
 Der Ressourcenbezug bleibt qualitativ. Bei gleichen weiteren Bedingungen müssen mehr Daten übertragen und gespeichert werden. Dafür werden technische Systeme mit Energie- und Rohstoffbedarf benötigt. Aus dem Datenfaktor folgt aber kein gleicher Stromfaktor. Die Lernenden sollen eine Aussagegrenze ausdrücklich benennen.
 
