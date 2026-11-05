@@ -4,10 +4,10 @@ status: reviewed
 area: Unterricht
 project: IuM-Lernwerk
 klassenstufe: 7
-fassung: "1.0"
+fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 ---
 
 # Gesprächsimpulse für die Medienwerkstatt
@@ -16,15 +16,13 @@ Jeweils nur den betreffenden Abschnitt projizieren. Die HTML-Ausgabe bietet eine
 
 ## P1 · Was lenkt den ersten Blick?
 
-„Für dich – weil du zuletzt Sportclips angesehen hast.“
+[[MED-1 - Wer lenkt unseren Blick#B · Clip auf „Loop“]]
 
-„Werbung – bezahlt von Fizz.“
+**Was fällt dir beim ersten Ansehen auf? An welchem Moment machst du das fest?**
 
-„4.800 Likes“ · „Alle in meinem Team haben sie!“
+Nach dem Hörvergleich: Wie wirkt der Sprung in den beiden Fassungen auf dich? Welche Frage über die Flasche bleibt offen?
 
-**Wer handelt hier? Welches Merkmal könnte wie wirken? Was wissen wir dadurch noch nicht?**
-
-Offene Ergebnisstruktur: Akteur → Interesse → Merkmal → möglicher Einfluss → Grenze.
+Für die Besprechung: Was gestaltet Mika? Was zeigt Loop zusätzlich im Feed?
 
 ## P2 · 90 Prozent – wovon?
 

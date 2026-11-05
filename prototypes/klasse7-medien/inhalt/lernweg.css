@@ -137,3 +137,14 @@
   .mp-route li, .mp-outcome { break-inside: avoid; }
   .mp-article { border: 0; padding: 0; }
 }
+/* Die Foto-Reels lassen sich auf dem iPad im Text oder im Vollbild abspielen. */
+.mp-clip { margin: 1rem 0; }
+.mp-clip figcaption { margin-bottom: .4rem; font-weight: 650; }
+.mp-clip video {
+  display: block;
+  width: min(100%, 21rem, 36vh);
+  height: auto;
+  aspect-ratio: 9 / 16;
+  background: #19231f;
+}
+@media print { .mp-clip { display: none; } }

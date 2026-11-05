@@ -4,16 +4,16 @@ status: reviewed
 area: Unterricht
 project: IuM-Lernwerk
 klassenstufe: 7
-fassung: "1.0"
+fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 source_status: Primärseiten gelesen; eigene Unterrichtsfälle
 ---
 
 # Quellen, Materialherkunft und Nutzungsrechte
 
-Stand der Prüfung: 28.10.2026. Fachliche Hintergrundquellen wurden gelesen; Unterrichtskarten, Aufgaben und Illustrationen sind neu für dieses Lernwerk formuliert bzw. gezeichnet. Es werden keine fremden Arbeitsblätter, Screenshots, Logos, Fotos oder langen Textauszüge in den Kern übernommen. Die fiktiven Fallakten dürfen nicht als echte Nachrichten oder Studien weitergegeben werden.
+Fachliche Hintergrundquellen wurden am 28.10.2026 geprüft, die Herkunft des MED-1-Spots am 05.11.2026 ergänzt. Unterrichtskarten, Aufgaben und Illustrationen wurden für das Lernwerk erstellt. Die fiktiven Fallakten, einschließlich des Fizz-Spots, sind als Unterrichtsbeispiele gekennzeichnet.
 
 ## Fachliche Hintergrundquellen
 
@@ -33,12 +33,18 @@ Eine angefragte BSI-Seite war im Recherchewerkzeug mit HTTP 403 nicht lesbar. Si
 | Datei/Material | Herkunft, Entstehung und Kennzeichnung | Rechte / Änderungen |
 |---|---|---|
 | MED-1 A–C und Radwerkstattfall | Eigene fiktive Texte, Marken und Plattformnamen; Zahlen ohne Realitätsanspruch | IuM-Lernwerk, 2026, CC BY-SA 4.0 |
+| MED-1 · Spot und Hörvergleich | Für das Lernwerk inszenierter Werbeclip mit KI-erzeugten Fotos. Mika spricht mit der synthetischen Stimme Microsoft de-DE-AmalaNeural. | Herkunft der fremden Tonbestandteile siehe unten. |
 | MED-2 M1–M5, Theaterfall | Vollständig konstruierte Fallakte; keine tatsächliche Befragung. M4s Unabhängigkeit ist eine Fallannahme. | Gleiche Lizenz; nicht als echte Untersuchung ausgeben |
 | `hof-original.svg`, `hof-original.png` | Mit Codex als SVG gezeichnete schematische Hofillustration, 1200 × 720; PNG technisch aus derselben SVG gerastert. Keine Fremdvorlage, keine Personen, kein generiertes Foto | Gleiche Lizenz; Rasterung ist Formatumwandlung. Lernendenänderungen separat angeben |
 | `rollen-A.svg`, `rollen-B.svg` | Eigene konstruierte Vektorkarten; bewusster Kontrast derselben erfundenen Figuren. Der im Fall genannte Glättungsfilter ist Bestandteil der fiktiven Werbebotschaft, kein behaupteter Bearbeitungsnachweis einer Fotografie | Gleiche Lizenz; keine Fremdfiguren oder geschützten Marken |
 | MED-5 K1–K4 und Schulnachrichten | Eigene harmlose Unterrichtsfälle ohne Links, reale Konten oder Zugangsdaten | Gleiche Lizenz |
 | Erklärungen, Hilfen, Durchführung, Sicherung, Briefings | Mit Codex erstellte und redaktionell selbst geprüfte Arbeitsfassung des IuM-Lernwerks | CC BY-SA 4.0, soweit Rechte entstehen; keine Wirksamkeitsgarantie |
 | IuM-7-Wortmarke | Bestehendes Projektasset der Reihenidentität vom 27.10.2026, unverändert übernommen | Bestehende Projektzuordnung; keine fremde Marke |
+
+**Ton im Fizz-Spot und Hörvergleich**
+
+- Jubel und Klatschen: „Group of people - Clapping and cheering - Outside.wav“ von Sirderf. Für den Spot wurde die Aufnahme gekürzt, an den Rändern überblendet, bei einzelnen Klatschspitzen komprimiert und im Pegel angepasst. [Originalaufnahme](https://freesound.org/people/Sirderf/sounds/332312/) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Musik und Kameraklick: eigenes Arrangement mit Instrumentenaufnahmen von Versilian Studios, Sam Gossner und Mitwirkenden. Das Verschlussgeräusch entstand aus einer bearbeiteten Klavierpedalaufnahme. [Versilian Community Sample Library, CC0](https://github.com/sgossner/VCSL/blob/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/LICENSE) · [VSCO 2 Community Edition, CC0](https://github.com/sgossner/VSCO-2-CE/blob/440300901dfe9275fd84e0b7763af1f8443ae62e/LICENSE).
 
 **Namensnennung für die Unterrichtsmaterialien:** „IuM-Lernwerk, Medienwerkstatt Klasse 7, Fassung 1.0, 28.10.2026, erstellt mit Codex, CC BY-SA 4.0“. Bei Bearbeitungen die Änderungen nennen und die Lizenz verlinken. Beispiel für die Bildarbeit: „IuM-Lernwerk: Ein Hof mit verschiedenen Ecken, 2026, CC BY-SA 4.0; Ausschnitt und Farben verändert.“
 
