@@ -5,8 +5,8 @@
     "inhalt/briefing.html": "883ef9c186f535f675d565ddb5466781463815d7b8005836085bc2caefc349e6",
     "material/index.md": "d8b54c6867c0adf9f3baf12a1d717b8e0707c0fc68872b4e15bf7bc02417dee9",
     "inhalt/index.html": "09036fbace39949d56e5ee9641f9e215867b35bf931cd65b55c2f44326a8b736",
-    "material/lehrpersonen.md": "2ba31443f1cf7303780e4751d469851c84d58aef2c901559e94a300c56f5c1ba",
-    "inhalt/lehrpersonen.html": "637c68ce43ed8d7f8359573f0841d447d704a0d812c7489299e0907783e544da",
+    "material/lehrpersonen.md": "4bc5e4f5799c4ebf3e95568617591977db5556fc75c9eaab25eac8b03d7b0282",
+    "inhalt/lehrpersonen.html": "5a7e60d891011edb8a4ea66e858e9314a6f9a8e295d01f95f5dc73eef7597524",
     "material/lernziele.md": "a6eb7ca46731e33654d6a5f393bce1ae68ef31972b4b114c76b7b8c802f6d1b6",
     "inhalt/lernziele.html": "3147d3d7e9dba5c1beb9bd1aa46117d827a248b42dadc5f67b575983a2d79359",
     "material/uebergaenge.md": "8c0dcdb8261679c62bcd57d0a48b80448ab9480691ade76c1b84bfe218ac6fab",
@@ -21,6 +21,8 @@
     "inhalt/wiederaufnahme-medien.html": "0818aee40c9a01f88404333e999920d7a88e4ca36d9b042188173b6ddfa24889",
     "material/wiederaufnahme-programmieren.md": "48851efc9a669389ca14d2eabcf7bdc0c4fb92c04a3744c31b9290808fbf893f",
     "inhalt/wiederaufnahme-programmieren.html": "6da6668059ed363f6151229c934d2ac7efbf6fc87dd659fce5afc3e0d4e866da",
+    "material/wissen.md": "a13834ca6b2d900e7d9be9c1a527973ad6fb0e11279e95edeea8214bca4df053",
+    "inhalt/wissen.html": "13ee15fb2cd133722cff519971117d8652ae810aafb7f1d3066a20bca23de3f5",
     "inhalt/material/eingangsdiagnose-lernende.pdf": "80377443d8b5ee035eaea2b7e3eefa70bda627c2736a67fcd03b5a06355c29dc",
     "inhalt/material/eingangsdiagnose-lehrpersonen.pdf": "794089d6e65bfc8fe7b69997829a35dddd5bc76b1d13c9f91779e5a97bbf41ff",
     "inhalt/material/Startdatei.txt": "e22f1adc2cbcd6278bf03bb7b34a4c1029b87740262236a9c02279474bd06d45",
@@ -29,14 +31,15 @@
   "sources": {
     "briefing.md": "dd034b3f08e8cddd92fedade659f99ded5d5a6550af7924a1571c276752da22a",
     "index.md": "1966f93e16d633e4dd59e3c410965e0f52d17d138acca155d840a76058fa03a4",
-    "lehrpersonen.md": "4b9b06137f44ada5520eced8dd1cad4a2230261100fb0356db45d9cba1393d9a",
+    "lehrpersonen.md": "bfb4c94934a03571a81b3e942be30c03bc19bb91e44a018bbeecb95fd77a4e40",
     "lernziele.md": "e8af7e0cdf43300feda3bf27c2bb7be558b1c08d9652f5e567818764ce06bf57",
     "uebergaenge.md": "db17e296b44b7e929dd1cb9e41526c0e25d36cd79ec5f39830b8e3918296668f",
     "wiederaufnahme-daten.md": "1a129549eb4a944dc05eb12e538e1afac91f3a5472c18cbaa54e3510fc3f9741",
     "wiederaufnahme-gemischt.md": "e2a9c884ac060c093f1f6573e204dccbeacd702c8c7aad87a79587ddf5012f86",
     "wiederaufnahme-lehrpersonen.md": "b2b3031c12a3a791f037d1028a6fbf6395bd605cbd812e16b2a9e8c294f4acac",
     "wiederaufnahme-medien.md": "3f850840391c177d938c88ba31c45458f410df83986524782accd0e77ce1fb5e",
-    "wiederaufnahme-programmieren.md": "b015ad9262f928f24c653bb374516e3e0d3693112b036297a452f6d9e50d65ac"
+    "wiederaufnahme-programmieren.md": "b015ad9262f928f24c653bb374516e3e0d3693112b036297a452f6d9e50d65ac",
+    "wissen.md": "bc3cd4f72275a8c396bc33c4e6eae6268bb44da06274c8e0d85aafd2fd5dc2ee"
   },
   "inhaltspruefung": "Gesamtkonzept 5–7: lokale Prüffassung 03.11.2026; Umfang, Nachweise und offene Erprobungsgrenzen im Gesamtprüfbericht."
 }
