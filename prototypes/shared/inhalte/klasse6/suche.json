@@ -453,37 +453,52 @@
           "title": "Dein Wortregister",
           "text": "Erstelle nun selbst das vollständige Register für die vier unveränderten Karten. Notiere zu jedem Wort alle passenden Dokumentnummern.",
           "prompt": "Mein vollständiges Register: Wort → Dokumentnummern",
-          "responseHint": "Ordne jedem Wort alle Dokumentnummern zu. Auf Papier kannst du direkt in die neun Felder schreiben; digital nutzt du das Antwortfeld.",
+          "responseHint": "Trage bei jedem Wort nur die Nummern der Karten ein, auf denen es vorkommt. Stichwörter und Nummern genügen.",
           "help": [
             {
               "title": "Ein Startpunkt",
               "text": "Beginne mit einer Karte. Jedes Wort erhält eine Zeile. Taucht es auf der nächsten Karte wieder auf, ergänzt du deren Nummer in derselben Zeile."
             }
           ],
-          "responseTable": {
-            "headers": [
-              "Wort → Dokumente",
-              "Wort → Dokumente",
-              "Wort → Dokumente"
-            ],
-            "rows": [
-              [
-                "Pluto → …",
-                "Raumsonde → …",
-                "Forschung → …"
-              ],
-              [
-                "Zwergplanet → …",
-                "Sonne → …",
-                "Mars → …"
-              ],
-              [
-                "Planet → …",
-                "Zeichnung → …",
-                "Ausstellung → …"
-              ]
-            ]
-          }
+          "responseParts": [
+            {
+              "id": "pluto",
+              "label": "Pluto"
+            },
+            {
+              "id": "raumsonde",
+              "label": "Raumsonde"
+            },
+            {
+              "id": "forschung",
+              "label": "Forschung"
+            },
+            {
+              "id": "zwergplanet",
+              "label": "Zwergplanet"
+            },
+            {
+              "id": "sonne",
+              "label": "Sonne"
+            },
+            {
+              "id": "mars",
+              "label": "Mars"
+            },
+            {
+              "id": "planet",
+              "label": "Planet"
+            },
+            {
+              "id": "zeichnung",
+              "label": "Zeichnung"
+            },
+            {
+              "id": "ausstellung",
+              "label": "Ausstellung"
+            }
+          ],
+          "responseLayout": "short"
         },
         {
           "type": "task",
@@ -497,7 +512,7 @@
             "Suche im Register nach „Stern“. Was darfst du aus keinem Treffer schließen – und was nicht?"
           ],
           "prompt": "Geänderte Karte · zwei Vorhersagen · zwei geprüfte Fundlisten · aktualisierte Einträge · Erklärung · eigene Anfrage · Grenze",
-          "responseHint": "Halte hier deinen Versuch fest. Das Ausgangsregister bleibt bei der vorigen Aufgabe erhalten. Schreibe die Vorhersagen vor den Ergebnissen auf.",
+          "responseHint": "Fülle erst die beiden Vorhersagen aus. Prüfe dann am alten und am aktualisierten Register. Lass die Vorhersagen zum Vergleichen stehen.",
           "help": [
             {
               "title": "Der nächste kleine Schritt",
@@ -508,7 +523,41 @@
               "text": "Wähle eine Änderung, bei der die Anfrage trotz des neuen Wortes keinen zusätzlichen Treffer liefert. Erkläre, warum beide Bedingungen nötig sind."
             }
           ],
-          "solution": "Beispielvariante: D4 wird zu „Pluto Raumsonde Ausstellung“. Das alte Register liefert weiterhin D1. Im aktualisierten Register steht Raumsonde bei D1, D3 und D4; Pluto bei D1, D2 und D4. Die gemeinsame Liste ist D1, D4. Andere zulässige Änderungen können andere Treffer ergeben. „Stern“ fehlt im kleinen Register; das beweist nicht, dass es keine Sterne gibt. Eine eigene Anfrage muss am tatsächlich geänderten Register geprüft werden."
+          "solution": "Beispielvariante: D4 wird zu „Pluto Raumsonde Ausstellung“. Das alte Register liefert weiterhin D1. Im aktualisierten Register steht Raumsonde bei D1, D3 und D4; Pluto bei D1, D2 und D4. Die gemeinsame Liste ist D1, D4. Andere zulässige Änderungen können andere Treffer ergeben. „Stern“ fehlt im kleinen Register; das beweist nicht, dass es keine Sterne gibt. Eine eigene Anfrage muss am tatsächlich geänderten Register geprüft werden.",
+          "responseParts": [
+            {
+              "id": "karte",
+              "label": "Meine geänderte Karte (D2 oder D4)"
+            },
+            {
+              "id": "vorher-alt",
+              "label": "Vorhersage vor dem Prüfen: Treffer im alten Register"
+            },
+            {
+              "id": "vorher-neu",
+              "label": "Vorhersage vor dem Prüfen: Treffer im aktualisierten Register"
+            },
+            {
+              "id": "pruefung-alt",
+              "label": "Prüfung am alten Register: tatsächliche Treffer"
+            },
+            {
+              "id": "pruefung-neu",
+              "label": "Prüfung nach dem Aktualisieren: geänderte Wortlisten und tatsächliche Treffer"
+            },
+            {
+              "id": "erklaerung",
+              "label": "Warum stimmen Vorhersage und Treffer überein oder weichen ab?"
+            },
+            {
+              "id": "anfrage",
+              "label": "Meine neue UND-Anfrage, ihre Treffer und der Grund"
+            },
+            {
+              "id": "grenze",
+              "label": "Kein Treffer für „Stern“: Was folgt daraus? Was bleibt offen?"
+            }
+          ]
         }
       ],
       "materialNeeds": [
@@ -988,6 +1037,10 @@
             {
               "title": "Wenn du festhängst",
               "text": "Vergleiche nicht nur die Zahlen. Prüfe, für welchen Ort und welchen Zeitraum die einzelnen Aussagen gelten."
+            },
+            {
+              "title": "Ein Satzanfang für den Vergleich",
+              "text": "„Die Angabe in … gilt für die Bibliothek … . Das erkenne ich an … . C übernimmt … von … .“ Zeige die Wörter, auf die du dich stützt."
             }
           ],
           "solution": "Für die Schulbibliothek am Park spricht A mit 14 Tagen, weil die zuständige Leitung genau diese Einrichtung und das ganze Schuljahr nennt. B betrifft eine andere Bibliothek. C kopiert B und ist keine zusätzliche unabhängige Auskunft. Bei realem Zweifel würde ich eine aktuelle Mitteilung dieser Schulbibliothek prüfen oder dort nachfragen. Aus den drei Angaben folgt nicht, dass die Stadtbibliothek ebenfalls 14 Tage hat.",
@@ -1148,6 +1201,7 @@
     {
       "title": "Beobachtung → nächste Hilfe",
       "paragraphs": [
+        "Registerarbeit: Lassen Sie zuerst die neun Wortzuordnungen prüfen, dann die beiden Vorhersagen vor dem Nachschlagen festhalten. Vergleichen Sie bei einer Abweichung nur die betroffene Wortliste und die gemeinsame Treffernummer. Ein vorhandener Gesamteintrag aus einer früheren Fassung kann weiterverwendet werden.",
         "Register enthält nur die Suchwörter: eine einzige Karte gemeinsam lesen und alle Wörter zuordnen; dann eine weitere Karte selbst bearbeiten lassen. Dokumentänderung wird sofort als Indexänderung behandelt: altes Register sichtbar liegen lassen und erst danach einen zweiten Stand erstellen.",
         "Eine lernende Person schreibt nur „acht“: auf die beiden unterschiedlichen Aussagen zeigen lassen und einen weil-Satz mit Fundstelle verlangen. „Neu gewinnt“: fragen, ob die neue Mitteilung für dieselbe Einrichtung und Zeit gilt. Vertrauen nicht als Eigenschaft einer ganzen Domain abhaken.",
         "Suchprotokoll zeigt nur einen fertigen Link: eine eigene Anfrage am Gerät wiederholen lassen, Änderung begründen und Originalseite öffnen. Hilfslink oder lokale Auszüge sind Sachhilfen, kein Ersatz für die Suchhandlung.",
@@ -1207,7 +1261,7 @@
     {
       "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
       "paragraphs": [
-        "Im neuen Quellenfall jede Person nach zwei Belegstellen und dem Grund des scheinbaren Widerspruchs fragen. Bei Sprachhürde darf sie markieren und mündlich mit „Damals … / nach dieser Definition …“ erklären; danach einen anderen Beleg selbst zuordnen.",
+        "Im Bibliotheksfall lässt jede Person an zwei Textstellen erkennen, für welche Einrichtung und welchen Zeitraum die Angaben gelten. Bei Sprachhürde beide Ortsangaben markieren und erklären lassen: „Die Angabe in … gilt für …, erkennbar an … . C übernimmt … von … .“ Danach eine andere Fundstelle selbst zuordnen lassen.",
         "Der Prüfpunkt liegt im Lernschritt „Neuer Fall: Welche Leihfrist gilt?“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
         "Sicherung: Ein Beleg gilt für eine bestimmte Definition, Zeit und Frage. Beispiel: Die Zahl acht passt zur heutigen IAU-Definition; ein älterer Text kann Pluto nach einer früheren Einteilung zählen. Grenze: Neuer heißt nicht für jede Frage richtiger; zwei Kopien sind keine unabhängigen Belege."
       ]
@@ -1215,12 +1269,12 @@
   ],
   "briefing": [
     "M02 beginnt mit einer Frage, die nicht durch Trefferzählen gelöst werden kann: Acht oder neun Planeten nach der IAU? Sammeln Sie zuerst Vermutungen. Der alte NASA-Bericht ist keine plumpe Fälschung. Sein zeitlicher Kontext ist die entscheidende Lerngelegenheit.",
-    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister und prüfen die Folgen einer Dokumentänderung vor und nach dessen Aktualisierung. Es folgen echte Quellen und eine echte Browserrecherche. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
+    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister. Erst die neun Wörter zu Karten zuordnen, dann getrennt für altes und aktualisiertes Register vorhersagen und an den Wortlisten prüfen. Es folgen echte Quellen und eine echte Browserrecherche. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
     "Die Stunde zu Interessen unterscheidet Verkaufsziel und Wahrheitsgehalt sowie Erzeugen, Veröffentlichen und Weiterverbreiten. Der vorbereitete KI-Text enthält absichtlich Fehler. Lassen Sie einzelne Aussagen an Belegen korrigieren und zugleich die brauchbare Suchanregung erkennen.",
     "Zum Schluss werden Rückmeldung und Revision sichtbar. Im neuen Bibliotheksfall zählt die passende Einrichtung und Geltungszeit; das neueste Datum genügt nicht. Verlangen Sie Begründungen, keine abgeschriebenen Muster. Lassen Sie eine mündliche Erklärung zu, wenn die Schreiblast den fachlichen Nachweis verdeckt.",
     "Die Wiederaufnahmen liegen vor M03 und M07, jeweils acht Minuten aus M02s Jahresanteil. Halten Sie Hilfen und offene Praxisnachweise fest. Die geplanten 38 Jahresstunden sind für Klasse 6 weiterhin unbestätigt.",
     "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben.",
-    "Individueller Prüfpunkt: Im neuen Quellenfall jede Person nach zwei Belegstellen und dem Grund des scheinbaren Widerspruchs fragen. Bei Sprachhürde darf sie markieren und mündlich mit „Damals … / nach dieser Definition …“ erklären; danach einen anderen Beleg selbst zuordnen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
+    "Individueller Prüfpunkt: Im Bibliotheksfall lässt jede Person an zwei Textstellen erkennen, für welche Einrichtung und welchen Zeitraum die Angaben gelten. Bei Sprachhürde beide Ortsangaben markieren und erklären lassen: „Die Angabe in … gilt für …, erkennbar an … . C übernimmt … von … .“ Danach eine andere Fundstelle selbst zuordnen lassen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "sequence": {
     "form": "Beurteilen",
@@ -1229,6 +1283,6 @@
     "core": "Ein Beleg gilt für eine bestimmte Definition, Zeit und Frage.",
     "example": "Die Zahl acht passt zur heutigen IAU-Definition; ein älterer Text kann Pluto nach einer früheren Einteilung zählen.",
     "boundary": "Neuer heißt nicht für jede Frage richtiger; zwei Kopien sind keine unabhängigen Belege.",
-    "diagnosis": "Im neuen Quellenfall jede Person nach zwei Belegstellen und dem Grund des scheinbaren Widerspruchs fragen. Bei Sprachhürde darf sie markieren und mündlich mit „Damals … / nach dieser Definition …“ erklären; danach einen anderen Beleg selbst zuordnen."
+    "diagnosis": "Im Bibliotheksfall lässt jede Person an zwei Textstellen erkennen, für welche Einrichtung und welchen Zeitraum die Angaben gelten. Bei Sprachhürde beide Ortsangaben markieren und erklären lassen: „Die Angabe in … gilt für …, erkennbar an … . C übernimmt … von … .“ Danach eine andere Fundstelle selbst zuordnen lassen."
   }
 }

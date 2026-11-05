@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 ---
 
 # MED-2 · Stimmt die Meldung?
@@ -26,9 +26,7 @@ Prüfweg: Behauptung eingrenzen → Ursprung und Belege ansehen → eine davon u
 
 **Schulfeed, Konto Pausenalarm, 12. Mai, 16 Uhr.** „90 Prozent gegen den Kiosk! Fast die ganze Schule will ihn loswerden. Teilt das, bevor es wieder verschwindet!“ Als Beleg ist ein Ausschnitt der folgenden Strichliste zu sehen. Die Zeile mit der Frage fehlt im Ausschnitt. **180 Mal geteilt.**
 
-### M2 · Antwort der Schülervertretung
-
-**Schulblog, 13. Mai, 8 Uhr.** „Die Umfrage belegt keine Mehrheit gegen den Kiosk. Gefragt wurde nach längeren Öffnungszeiten. Über eine Abschaffung wurde nicht abgestimmt.“ Die Schülervertretung verlinkt ihre vollständige Liste M3.
+Notiere die überprüfbare Behauptung aus M1: Was sollen die Befragten angeblich gewollt haben, und für wen soll die Aussage gelten?
 
 ## 2 · Die Fallakte öffnen · 10 Minuten
 
@@ -44,11 +42,17 @@ Prüfweg: Behauptung eingrenzen → Ursprung und Belege ansehen → eine davon u
 
 **12. Mai, 17 Uhr.** „Stimmt wohl, habe ich jetzt auch gelesen!“ Darunter steht nur ein Bild von M1. Weitere Belege fehlen.
 
-**Gemeinsam:** Prüft nur diesen Teil: Worauf beziehen sich die 90 Prozent tatsächlich? Notiert 18 von 20 und die Frage, auf die geantwortet wurde. Die Rechnung sagt noch nichts über alle 400 Lernenden.
+**Zuerst allein:** Notiere ein vorläufiges Urteil zu M1. Worüber wurde abgestimmt, wie viele Personen nahmen teil, und was genau kann M4 unabhängig bestätigen? Lass diesen ersten Satz stehen.
+
+<details id="m2-antwort-der-schulervertretung"><summary>M2 · Antwort der Schülervertretung – nach deinem ersten Urteil öffnen</summary>
+<p><strong>Schulblog, 13. Mai, 8 Uhr.</strong> „Die Umfrage belegt keine Mehrheit gegen den Kiosk. Gefragt wurde nach längeren Öffnungszeiten. Über eine Abschaffung wurde nicht abgestimmt.“ Die Schülervertretung verlinkt ihre vollständige Liste M3.</p>
+</details>
+
+**Vergleicht:** An welcher Stelle stimmen dein Urteil und M2 überein oder weichen ab? Entscheide anhand von M3 und M4, was du beibehältst oder änderst. M2 darf auch geprüft werden.
 
 ## 3 · Entscheide für die Redaktion · 15 Minuten
 
-Verfasse eine Notiz von etwa fünf kurzen Sätzen, gern mit Stichpunkten:
+Bau deinen ersten Satz zu einer Redaktionsnotiz von etwa fünf kurzen Sätzen aus. Stichpunkte sind möglich:
 
 - Welche konkrete Aussage aus M1 ist mit dieser Fallakte nicht haltbar? Belege mit **M3 und einer genauen Angabe**.
 - Was stützt M4 unabhängig, und was kann M4 nicht bestätigen? Warum ist M5 keine weitere unabhängige Bestätigung?

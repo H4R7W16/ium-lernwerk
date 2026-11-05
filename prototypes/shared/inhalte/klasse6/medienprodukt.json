@@ -496,6 +496,17 @@
       "blocks": [
         {
           "type": "explanation",
+          "title": "Wann kommt die kurze Unterbrechung?",
+          "text": "Beginnt oder bearbeitet euren Entwurf weiter. Nur wenn eure Lehrperson den vereinbarten Termin für R12 nennt, unterbrecht ihr die Arbeit für fünf Minuten. Merkt euch eure Stelle auf der Karte. Nach der Rechtefrage aus M06 kehrt ihr hierher zurück.",
+          "links": [
+            {
+              "label": "Zum vereinbarten R12-Termin",
+              "href": "schritt-zwischen.html"
+            }
+          ]
+        },
+        {
+          "type": "explanation",
           "title": "Sachmaterial aus M02: genau lesen",
           "text": "Eigene kurze Zusammenfassungen, keine Originalzitate. Ihr dürft sie als Arbeitsgrundlage nutzen; formuliert eure Karte selbst.",
           "paragraphs": [
@@ -566,6 +577,58 @@
       "materialNeeds": [
         "Diese Materialien, Stift oder Lernwerk-Notizen; für die digitale Handlung die ausgefüllte Werkzeugkarte"
       ]
+    },
+    {
+      "id": "zwischen",
+      "title": "R12 während des Entwurfs",
+      "short": "R12 während des Entwurfs",
+      "goal": "Nur am vereinbarten Unterrichtstag: Du prüfst die Rechtefrage aus M06 und gehst zu eurer Karte zurück.",
+      "task": "Am vereinbarten Termin für fünf Minuten: Prüfe die Rechtefrage aus M06. Danach setzt ihr euren Entwurf fort.",
+      "outcome": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan.",
+      "knowledge": [
+        "teilen",
+        "rechte"
+      ],
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "Erst erinnern, dann prüfen",
+          "text": "Eure Lehrperson ruft R12 im Beispielplan zu Beginn von UE 34 auf. Merkt euch vorher, wo ihr im Entwurf weiterarbeiten wollt. Bearbeite im M06-Blatt nur „Rechte und Unterstützung“: zwei Minuten selbst erinnern, zwei Minuten vergleichen, eine Minute für deine persönliche Rechteprüfung.",
+          "links": [
+            {
+              "label": "R12: Rechte und Unterstützung bearbeiten",
+              "href": "../kommunikation/schritt-abruf.html#recall-abruf-hilfe"
+            },
+            {
+              "label": "M06 · vollständiges Abrufblatt für Papier",
+              "href": "../kommunikation/baustein-abruf.html"
+            }
+          ]
+        },
+        {
+          "type": "task",
+          "id": "regel",
+          "title": "Was hilft beim Projekt?",
+          "text": "Nenne eine allgemeine Regel mündlich, wenn sie für eure Karte hilfreich ist. Persönliche Gedanken bleiben bei dir. Kehre anschließend zum Entwurf zurück und setze die Arbeit an der gemerkten Stelle fort.",
+          "prompt": "Eine allgemeine Regel, ohne persönliche Angaben.",
+          "responseMode": "oral",
+          "links": [
+            {
+              "label": "Zurück zum Entwurf",
+              "href": "schritt-entwurf.html"
+            }
+          ]
+        }
+      ],
+      "criteria": [
+        "Ich prüfe eine allgemeine Regel am aktuellen Projekt.",
+        "Meine eigene M06-Reflexion bleibt geschützt."
+      ],
+      "materialNeeds": [
+        "M06, Einzelmaterial „Mit Abstand wieder prüfen“, Kennung kommunikation/baustein-abruf.html, digital oder zuvor ausgedruckt",
+        "Eigene M06-Rechteentscheidung nur privat; sie wird nicht eingesammelt"
+      ],
+      "returnTo": "entwurf"
     },
     {
       "id": "austausch",
@@ -781,6 +844,17 @@
           "prompt": "Mein belegter Satz, meine Operation, meine Revision.",
           "responseMode": "oral",
           "responseHint": "Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben."
+        },
+        {
+          "type": "explanation",
+          "title": "Nach dem Projekt: zwei Termine",
+          "text": "Damit ist eure Karte vorgestellt. An einem späteren Tag bearbeitest du R13 über eine fremde Karte. Für R14 ruft deine Lehrperson euch an einem weiteren Tag zur Frage nach dem Empfang eines Links zurück. Beide Aufgaben dauern je sechs Minuten.",
+          "links": [
+            {
+              "href": "baustein-abruf.html",
+              "label": "Einzelblatt für R13 und R14"
+            }
+          ]
         }
       ],
       "criteria": [
@@ -799,53 +873,17 @@
           "knowledge": "zusammenhang",
           "label": "Zusammenhang mit Beispiel"
         }
-      ]
-    },
-    {
-      "id": "zwischen",
-      "title": "An einem weiteren Tag: M06 wieder aufnehmen",
-      "short": "An einem weiteren Tag: M06 wieder aufnehmen",
-      "goal": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan.",
-      "task": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan. · 5 Minuten aus dem M06-Abrufkonto",
-      "outcome": "Du prüfst mit Abstand eine Kommunikationsentscheidung und deinen eigenen Rechteplan.",
-      "knowledge": [
-        "teilen",
-        "rechte"
       ],
-      "blocks": [
+      "nextLinks": [
         {
-          "type": "explanation",
-          "title": "Erst erinnern, dann prüfen",
-          "text": "Die Lehrperson legt einen anderen Unterrichtstag innerhalb des Projekts fest. Nutze M06s zweite Wiederaufnahme: vier Minuten zum neutralen Fall, eine Minute für deinen eigenen harmlosen schulischen Rechteplan. Persönliches bleibt bei dir; keine Qualität durch einen Haken behaupten.",
-          "links": [
-            {
-              "label": "M06 · zweite Wiederaufnahme",
-              "href": "../kommunikation/schritt-abruf.html#recall-abruf-hilfe"
-            },
-            {
-              "label": "M06 · vollständiges Abrufblatt für Papier",
-              "href": "../kommunikation/baustein-abruf.html"
-            }
-          ]
+          "href": "schritt-abruf.html#recall-abruf-karte",
+          "label": "R13 am ersten späteren Termin: Eine fremde Karte beurteilen"
         },
         {
-          "type": "task",
-          "id": "regel",
-          "title": "Was hilft beim Projekt?",
-          "text": "Nenne nur eine allgemeine Regel für eure jetzigen Teilwege. Persönliche Gedanken aus M06 werden hier nicht eingetragen.",
-          "prompt": "Eine allgemeine Regel, ohne persönliche Angaben.",
-          "responseMode": "oral"
+          "href": "schritt-abruf.html#recall-abruf-weg",
+          "label": "R14 an einem weiteren Tag: Ein Link ist noch kein Empfang"
         }
-      ],
-      "criteria": [
-        "Ich prüfe eine allgemeine Regel am aktuellen Projekt.",
-        "Meine eigene M06-Reflexion bleibt geschützt."
-      ],
-      "materialNeeds": [
-        "M06, Einzelmaterial „Mit Abstand wieder prüfen“, Kennung kommunikation/baustein-abruf.html, digital oder zuvor ausgedruckt",
-        "Eigene M06-Rechteentscheidung nur privat; sie wird nicht eingesammelt"
-      ],
-      "timing": "later"
+      ]
     },
     {
       "id": "abruf",
@@ -940,7 +978,8 @@
       "title": "Verlauf: 210 Kernminuten, kein Vierstundenversprechen",
       "paragraphs": [
         "Auftrag/Modell 20 Minuten (5 Anlass, 10 vollständiges anderes Beispiel, 5 Wirkung); Werkstatt 30 (5 Begriffe, 15 eigene Bedienprobe, 10 Lizenzkorrektur); Entwurf 55 (15 Plan/Beleg, 30 Herstellung mit Kontrolle nach zehn Produktionsminuten und Rollenwechsel, 10 Lese-/Rechtekontrolle/Sicherung); Austausch 25 (15 echter Schulkanal und Rückmeldung, 10 Aushandlung); Revision 30 (20 Produktänderung, 10 Rechtekorrektur/Export); Teilen 20 (10 finale Fassung im Schulkanal, 10 anderer Teilweg); Sichern 30 (15 lokale Vorstellung/individueller Nachweis, 10 veränderter Transfer, 5 gemeinsame Sicherung). Die 30 zusätzlichen Übungsminuten sind enthalten.",
-        "Im gemeinsamen Jahresplan liegen die 210 Kernminuten in UE 32–36:45+45+40+45+35. Vor den 40 Kernminuten in UE 34 stehen die fünf M06-Abrufminuten; dadurch bleibt dieser Termin bei 45 Minuten. In UE 36 kommen 10 Organisationsminuten hinzu. R13/R14 folgen in UE 37/38 an späteren, verschiedenen Unterrichtstagen. Die frühere isolierte Vierstundenfolge wird nicht zusätzlich gezählt."
+        "Im gemeinsamen Jahresplan liegen die 210 Kernminuten in UE 32–36:45+45+40+45+35. Vor den 40 Kernminuten in UE 34 stehen die fünf M06-Abrufminuten; dadurch bleibt dieser Termin bei 45 Minuten. In UE 36 kommen 10 Organisationsminuten hinzu. R13/R14 folgen in UE 37/38 an späteren, verschiedenen Unterrichtstagen. Die frühere isolierte Vierstundenfolge wird nicht zusätzlich gezählt.",
+        "R12 zu Beginn der UE 34 am offenen Entwurf aufrufen. Das Team markiert seine Arbeitsstelle, bearbeitet nur den zweiten M06-Fall und kehrt zum Entwurf zurück. Bei anderem örtlichen Stundenraster den Termin ansagen. Nach dem Projekt führen die beiden Links am Abschlussschritt direkt zu R13 und R14."
       ]
     },
     {
@@ -994,7 +1033,7 @@
     "M07 führt zu einer kleinen gemeinsamen Informationskarte für Klasse fünf. Zwei Lernende verarbeiten die Pluto-Frage aus M02, gestalten selbst und überarbeiten nach echter Rückmeldung. Die Bibliothekskarte erklärt den Weg an einem anderen Thema.",
     "Bereiten Sie eine ausgefüllte Werkzeugkarte vor. Prüfen Sie Schulkanal, zweiten digitalen Teilweg, Empfängergerät und Speicherort tatsächlich. Jede Person braucht eine eigene Bedienphase. Eine reale Ersatzperson sichert Rückmeldung bei Ausfall. Es werden keine privaten Konten oder Passwörter gebraucht.",
     "Planen Sie 210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen und 30 Sicherung. Die zusätzlichen 30 Minuten für Aushandlung, Revision und zweiten Teilweg sind darin enthalten. Vier volle Schulstunden reichen für 210 Minuten nicht.",
-    "Vor dem Projekt sind 39 Minuten Wiederaufnahme aus früheren Reihen vorgesehen, verteilt auf zwei Termine. Weitere fünf M06-Minuten kommen an einem anderen Tag im Projekt hinzu. Zwei spätere M07-Termine brauchen je sechs Minuten. Diese Zeiten stammen aus dem vorhandenen Jahresabrufkonto.",
+    "Vor dem Projekt sind 39 Minuten Wiederaufnahme aus früheren Reihen vorgesehen, verteilt auf zwei Termine. Für R12 unterbrechen die Teams ihren Entwurf zu Beginn der UE 34 für fünf Minuten und kehren danach zur gemerkten Stelle zurück. Vom Projektabschluss führen Links direkt zu R13 und R14 an zwei verschiedenen späteren Tagen, je sechs Minuten. Diese Zeiten stammen aus dem vorhandenen Jahresabrufkonto.",
     "Prüfen Sie nach zehn Produktionsminuten Satz, Beleg und Skizze. Bei bloßer Dekoration nach dem erklärten Zusammenhang fragen. Bei ungleichen Beiträgen die Bedienrolle wechseln. Eine sachliche Rückmeldung nennt Stelle, Wirkung und Vorschlag. Die Überarbeitung erhält die Erstfassung und zeigt eine echte Änderung sowie eine geklärte Rechteleiste.",
     "Beim Teilen zählt das tatsächliche Öffnen beim Empfänger. Die lokale Vorstellung ergänzt den zweiten digitalen Übertragungsweg, ersetzt ihn aber nicht. Eine Lernwerk-Arbeitsdatei enthält keine extern erzeugte Informationskarte. Ohne Zugang bleiben digitale Handlungen offen und werden nachgeholt.",
     "Lassen Sie jede Person ihren Satz und ihre Änderung erklären. Sichern Sie gemeinsam den Zusammenhang von Beleg, Gestaltung, Rechten, Rückmeldung und Zugriff. Persönliches aus der M06-Rechteprüfung bleibt geschützt. Halten Sie tatsächliche Zeiten und Hürden ohne Namen für die weitere Erprobung fest.",

@@ -1,11 +1,12 @@
 // Eigene lokale Lesefassung. Keine Netzwerkzugriffe, keine Antwortspeicherung.
 // Eigener Code: MIT; Inhalte/Diagramme gemäß Quellenblatt des Datenbogens.
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 const [root,out]=process.argv.slice(2);
 if(!root||!out) throw Error('node Build-IuM7-Daten.mjs WORKSPACE AUSGABE');
-const deps='C:/Users/Jan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+const deps=path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const {marked}=await import(pathToFileURL(path.join(deps,'marked/lib/marked.esm.js')));
 const src=path.join(root,'Vault/40_Projekte/IuM-Lernwerk/Klasse 7/Daten');
 const original=fs.readFileSync(path.join(root,'Shared/Scripts/Build-IuM7-Medien.mjs'),'utf8');

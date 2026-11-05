@@ -650,10 +650,10 @@
           "label": "Passendes Wissen öffnen"
         },
         {
-          "title": "Ich kann den Zusammenhang noch nicht erklären",
-          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
-          "knowledge": "zusammenhang",
-          "label": "Zusammenhang mit Beispiel"
+          "title": "Wo passt meine Zeichnung zur Spur?",
+          "text": "Lege die vier Karten wie am Start. Folge deiner Zeichnung bis zum zweiten Befehl. Wo liegt jetzt die erste Karte? Gehe bis zum fünften Befehl. Zeige dieselbe Stelle im Code und vergleiche die Ausgabe mit deiner Vorhersage.",
+          "knowledge": "grafisch",
+          "label": "Grafik und Befehlsfolge vergleichen"
         }
       ]
     },

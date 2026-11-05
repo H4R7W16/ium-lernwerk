@@ -1101,10 +1101,10 @@
           "label": "Passendes Wissen öffnen"
         },
         {
-          "title": "Ich kann den Zusammenhang noch nicht erklären",
-          "text": "Gehe zu deinem eigenen Beispiel zurück. Zeige zuerst, was du beobachtet hast. Vergleiche dann den Zusammenhang und seine Grenze. Versuche die Erklärung anschließend nochmals ohne den Wissensabschnitt.",
-          "knowledge": "zusammenhang",
-          "label": "Zusammenhang mit Beispiel"
+          "title": "Kam unser Satz so an, wie wir ihn gemeint haben?",
+          "text": "Zeige einen Satz aus eurer Karte. Bitte das andere Paar, ihn mit eigenen Worten zu erklären. Vergleiche seine Erklärung mit dem, was ihr sagen wolltet. Welches Wort hilft beim Verstehen oder braucht eine Änderung?",
+          "knowledge": "feedback",
+          "label": "Eine Rückmeldung für die Überarbeitung nutzen"
         }
       ]
     },

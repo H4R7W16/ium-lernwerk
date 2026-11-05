@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 tags:
   - output/material
 ---
@@ -32,7 +32,9 @@ Alle Aufgaben sind eigene Konstruktionen. Die Bilder bilden vereinfachte Formen 
 
 Der Pfeil zeigt nach rechts. Ein waagrechter rechteckiger Schaft geht in eine dreieckige Spitze über. Der Schlüssel hat links eine runde Öffnung, nach rechts einen waagrechten Schaft und unten zwei verschieden lange Zähne. Beim Dreieck sind beide Seiten schräg, die Unterkante ist waagrecht.
 
-Diese Beschreibungen helfen beim Orientieren. Sie ersetzen die räumliche Entscheidung über einzelne Felder noch nicht. Bei Sehbeeinträchtigung stellt die Lehrperson eine ausreichend vergrößerte oder taktile Form mit ertastbaren Rastergrenzen und Mittelpunkten bereit. Möglich ist auch das positionsweise Beschreiben der **Vorlage** durch eine Assistenz; die lernende Person entscheidet selbst über das Rasterfeld und die Codierung. Ein vorgelesener fertiger Bitcode belegt keine eigene Diskretisierung. Konkretes assistives Material und dessen Nutzbarkeit müssen für die Lerngruppe vor Ort geprüft werden.
+Für den **Vergleich fertiger Raster in DAT-5** enthält [[DAT-5 - Welche Datenmenge passt zum Zweck#schluesselraster|die Lernaufgabe]] beide Varianten feldweise als aufklappbare Tabellen. Zeilen beginnen oben, Spalten links; der Wert jeder Zelle ist als 0 oder 1 lesbar. So kann eine Person dieselbe Formstelle selbst vergleichen und mit ihren Koordinaten begründen.
+
+Für das **eigene Rastern in DAT-3** helfen die Beschreibungen beim Orientieren. Sie ersetzen die räumliche Entscheidung über einzelne Felder noch nicht. Bei Sehbeeinträchtigung stellt die Lehrperson eine ausreichend vergrößerte oder taktile Form mit ertastbaren Rastergrenzen und Mittelpunkten bereit. Möglich ist auch das positionsweise Beschreiben der **Vorlage** durch eine Assistenz; die lernende Person entscheidet selbst über das Rasterfeld und die Codierung. Ein vorgelesener fertiger Bitcode belegt keine eigene Diskretisierung. Konkretes assistives Material und dessen Nutzbarkeit müssen für die Lerngruppe vor Ort geprüft werden.
 
 Für ASCII können Zeilen der Tabelle vorgelesen und Achtblöcke in zwei Vierergruppen gesprochen werden. Die lernende Person wählt die Zuordnung selbst. Bei motorischen Hürden darf eine Assistenz die selbst getroffenen Entscheidungen eintragen. Bei Sprachhürden genügen kurze Begründungen mit den Satzanfängen in den Aufgaben; Fachbegriffe werden zusätzlich gezeigt und erklärt.
 

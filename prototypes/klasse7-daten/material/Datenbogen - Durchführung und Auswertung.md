@@ -10,7 +10,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 tags:
   - output/durchfuehrung
 ---
@@ -87,14 +87,14 @@ Bei Doppelstunden kann ohne die Zwischenstopps gearbeitet werden. Diese Minuten 
 
 - **0–15:** Dreiecksmitten vorhersagen, dann Pixelbild prüfen. Mittelpunktregel inklusive Randfall ausdrücklich festlegen. Im Modell sind Hilfspunkte keine Bildbestandteile. Andere Abtastmethoden existieren, werden nicht als Zusatzstoff eingeführt.
 - **15–30:** Jede Person rekonstruiert die vier Zeilen `0100 / 1110 / 0100 / 0100`. Farbzuordnung und Leserichtung klären. Gleiche 16 Bits wären bei Breite 8 ein 8×2-Bild: Bits allein legen die Form nicht fest.
-- **30–60:** Etwa 12 Minuten für selbst gewähltes Motiv und 4×4 oder 8×8-Raster; 6 fürs Codieren; 12 für fremde Rekonstruktion und direkten Rastervergleich. Nach acht Minuten kontrollieren: eigene Entscheidung, Regel und erste Zeile. **Nicht** beide Motive bearbeiten lassen. 4×4 ist ein gleichwertiger begrenzter Rasterauftrag, keine Befreiung vom Lernziel.
+- **30–60:** Etwa 12 Minuten für selbst gewähltes Motiv und 4×4 oder 8×8-Raster; 6 fürs Codieren; 12 für fremde Rekonstruktion und direkten Rastervergleich. Nach acht Minuten kontrollieren: eigene Entscheidung, Regel und erste Zeile. **Nicht** beide Motive bearbeiten lassen. 4×4 als vollwertigen Einstieg nennen. Bei Minute 48 der Aufgabe (18 Minuten Eigenarbeit) das angekündigte Tauschsignal geben. Wenn ein Gegenüber noch codiert, erhält die bereite Person sofort das unten stehende Fremdpaket. Die langsamere Person schließt ihr eigenes Paket ab und decodiert das schon verfügbare Partnerpaket. Bei Zeitablauf offene Handlungen einzeln kennzeichnen.
 - **60–75:** Auflösungsvergleich B5 und Unterschied zwischen Übertragungsfehler und Rasterverlust sichern. Revision oder begründete Abnahme. Neuer 6×2-Fall individuell, dann Sicherung 3. Raster und Code bleiben für DAT-4 griffbereit.
 
 **Erwartung:** Ein eigenes Raster aus der Vorlage nach der gewählten Größe und Mittelpunktregel. Farbzuordnung 0/1 und Leserichtung bleiben für die gemeinsame Übertragung vorgegeben. Ein vollständig empfangenes Bild kann blockiger sein als der Umriss; das ist zunächst eine Folge der Diskretisierung, kein Übertragungsfehler. Bei Schlüsseldetails lohnt besonders der Blick auf Öffnung, Schaft und Zähne. Ein 8×8-Raster kann mehr unterscheiden, wird aber nicht als generell ausreichende Darstellung ausgegeben.
 
 Die formalen Referenzraster liegen bei B3/B5 im Modell-Datensatz. Sie dienen dem Lehrpersonenabgleich nach dem eigenen Versuch. Beispiel Dreieck 4×4: `0000 / 0110 / 0110 / 1111`. Bei strittiger Randzelle zuerst die zugrunde liegende Regel prüfen, nicht nach schönstem Bild bewerten. Der neue 6×2-Fall ergibt `■□□□□■ / ■■■■■■`; mit Breite 4 entstünden drei andere Zeilen.
 
-**Fremdpaket bei Ausfall:** Breite 6, Höhe 4; 0 weiß, 1 schwarz; zeilenweise von oben links. Bits: `001100 / 010010 / 100001 / 111111`. Diese Folge wird allein rekonstruiert, bevor die Lehrperson ein Muster zeigt. Zusätzlich prüft die Lehrperson die eigenen Bits an mindestens einer weißen und einer schwarzen Zelle. Das Ersatzpaket erfüllt die fremde Rückrichtung; es ersetzt weder eigenes Rastern noch Codieren.
+**Fremdpaket vor Stundenbeginn bereitlegen:** Breite 6, Höhe 4; 0 weiß, 1 schwarz; zeilenweise von oben links. Bits: `001100 / 010010 / 100001 / 111111`. Diese Folge wird allein rekonstruiert, bevor die Lehrperson ein Muster zeigt. Zusätzlich prüft die Lehrperson die eigenen Bits an mindestens einer weißen und einer schwarzen Zelle. Das Ersatzpaket erfüllt die fremde Rückrichtung; es ersetzt weder eigenes Rastern noch Codieren.
 
 **Beobachtung → Hilfe:** Vorlage nur abgezeichnet → an einer Feldmitte entscheiden, dann eine neue Randzelle allein bearbeiten lassen. Schon die Bitfolge erhalten, ohne eigenes Raster → Rasterentscheidung nachholen, nicht automatisch D05 annehmen. Zeilenverschiebung → Breite und Beginn jeder Zeile markieren. Bild nur am Motiv erraten → zwei konkrete Koordinaten aus Bits zurücklesen lassen. „Größere Anzeige = mehr Pixel“ → gleiche Pixelzahl größer zeigen und die Zahl unveränderter Felder benennen.
 
@@ -117,7 +117,7 @@ Budget: 6 + 8 = **14 Byte**, also **6 Byte Rest**. Mit 16×16-Raster: 256 Bit = 
 
 **Material:** [[DAT-5 - Welche Datenmenge passt zum Zweck]], B5/B6, P5. Ziel: Datenmenge und Ressourcenbezug mit der benötigten Bildinformation abwägen.
 
-- **0–5:** Zweck Schlüsselausleihe benennen, sichtbares Detail suchen. Der Motivname im Text ist noch kein Bildbeleg.
+- **0–5:** Zweck Schlüsselausleihe benennen. Lernende wählen Bild oder Tabellen direkt darunter. Ein Beispiel für eine prüfbare Stelle in B sind die weißen Felder in Zeile 2, Spalten 2 und 3, zwischen zwei schwarzen Feldern. Zusammen mit den Nachbarzeilen können sie die Form unabhängig deuten. Der Motivname allein genügt nicht.
 - **5–10:** Qualitatives Datenwegmodell erklären. A gemeinsam berechnen; B nicht zusätzlich vorrechnen. Mehr Bits beanspruchen unter gleichen Bedingungen mehr Datenübertragung und Speicher, daraus folgt kein fester Stromfaktor.
 - **10–20:** Individuelle Empfehlung, 3–5 Sätze oder entsprechend knappe Stichpunkte. Rechnung, Bildbeleg, Übertragung und Speicherung, Aussagegrenze gehören hinein.
 - **20–30:** Vier Minuten enge Gegenprüfung und Revision; drei Minuten neuer Zweck individuell; drei Minuten Besprechung und Sicherung 5. Eine Rückfrage pro Person genügt. Kein ausuferndes Nachhaltigkeitsreferat.

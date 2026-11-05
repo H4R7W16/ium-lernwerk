@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-05
 tags:
   - output/briefing
 ---
@@ -27,7 +27,7 @@ Beim Austausch bleiben Vorlage und Pixelbild verdeckt. Beide erhalten nur Breite
 
 Der anschließende Auflösungsvergleich zeigt: Ein korrekt übertragenes Raster kann Details der ursprünglichen Form verlieren. Vergrößern der Anzeige fügt sie nicht wieder hinzu. Der neue Fall mit sechs Spalten und zwei Zeilen prüft die Bildvereinbarung nochmals. Sichern Sie Raster und Bits für die Datenrechnung.
 
-Für fehlende Partnerprodukte enthält die Durchführung ein fremdes Ersatzpaket. Es ersetzt nicht die eigene Diskretisierung. Bei Sehbeeinträchtigung muss ein geeigneter räumlicher oder taktiler Zugang vorbereitet werden; eine vorgelesene fertige Lösung ist kein gleichwertiger Nachweis dieser Handlung.
+Legen Sie das 6-mal-4-Ersatzpaket aus der Durchführung vor der Stunde bereit. Nach achtzehn Minuten Eigenarbeit geben Sie das Tauschsignal. Bei ungleichem Tempo decodiert die wartende Person das bereitliegende Paket. Die andere schließt ihre eigene Codierung ab und bekommt das erste Paket. Offene Einzelhandlungen bleiben im Nachweis sichtbar. Es ersetzt nicht die eigene Diskretisierung. Bei Sehbeeinträchtigung muss ein geeigneter räumlicher oder taktiler Zugang vorbereitet werden; eine vorgelesene fertige Lösung ist kein gleichwertiger Nachweis dieser Handlung.
 
 
 ## Zwei Rückwege unterscheiden · Fassung 1.1

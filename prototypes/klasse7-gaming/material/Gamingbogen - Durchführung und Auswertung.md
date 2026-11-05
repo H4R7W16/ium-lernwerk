@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-05
 tags:
   - output/durchfuehrung
 ---
@@ -118,7 +118,7 @@ Material: [[GAM-4 - Eine Strategie wirklich ausprobieren]], private Denkpause, S
 |---|---|---|
 | 0–10 Erklärung | Lee aufgreifen; Stressor und tatsächliche Erprobung unterscheiden. Keine Belastung erzeugen. | „Man muss gestresst sein“ → auch eine vorsorgliche Arbeitsmethode kann geprüft werden. |
 | 10–20 Gelenkte Übung | Drei Strategien vergleichen, Beispielmaßstab; eigene Wahl/Endpunkt privat vorbereiten. | „Es soll besser sein“ → eine beobachtbare Arbeitssituation wählen; keine Gefühlszahl erheben. |
-| 20–30 Eigene Anwendung, Teil 1 | 6 Minuten Stadtbau-Facharbeit mit Strategie, 3 ohne Bildschirm Beobachtung notieren, 1 geschütztes Weglegen. Pause liegt im Arbeitsfenster. | Ruhig Beginn/Ende nennen; niemanden beim privaten Schreiben beobachten. Ausbleibender Nutzen ist kein Fehler. |
+| 20–30 Eigene Anwendung, Teil 1 | 4 Minuten Stadtbau-Karte mit gewählter Methode lesen, 2 Minuten für die Fachnotizen (Kosten, Anreiz, Empfehlung), 3 Minuten für die Beobachtung auf dem privaten Zettel, 1 Minute zum Weglegen. Hilfsmittel bleiben nutzbar. | Ruhig Beginn/Ende nennen; niemanden beim privaten Schreiben beobachten. Ausbleibender Nutzen ist kein Fehler. |
 | 30–35 Eigene Anwendung, Teil 2 | Am Folgetermin Gegenbedingung Zusatzkarte bearbeiten. Einstieg/Rückkehr sind in den fünf Minuten enthalten. | „Immer 8 €“ → bedingten Gesamtbedarf für Robins Zweck prüfen. |
 | 35–45 Rückmeldung | 3 fachlicher Vergleich, 2 Revision, 3 Pat-Fall, 2 Ausblick/Termin. | Pat: Markierung oder nächster Arbeitsschritt vor Pause; Pause selbst muss nicht entfallen. |
 

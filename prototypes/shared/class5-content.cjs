@@ -26,6 +26,18 @@ function validateEditorial(pack,steps){
  for(const k of pack.knowledge){layout(k);text(k.title,'Wissensfrage');texts(k.paragraphs,'Wissen');text(k.example,'Beispiel');text(k.boundary,'Aussagegrenze');if(!k.steps?.length)throw new Error('Wissensbezug fehlt');refs(k.steps,steps,'Wissensschritt');refs(k.media,media,'Wissensmedium');refs(k.sources,sources,'Wissensquelle');}
  for(const s of pack.steps){
   if(s.layout!==undefined&&(s.layout!=='model-task'||s.blocks.length!==2||s.blocks[0].type!=='example'||s.blocks[1].type!=='task'))throw new Error('Modell-Aufgaben-Paar ungültig');
+  if(s.returnTo){
+   refs([s.returnTo],steps,'Rückweg der Unterbrechung');
+   if(s.returnTo===s.id||pack.steps.find(x=>x.id===s.returnTo).returnTo)throw new Error('Rückweg braucht einen regulären Lernschritt');
+  }
+  if(s.nextLinks){
+   if(!Array.isArray(s.nextLinks)||!s.nextLinks.length)throw new Error('Anschlussschritte fehlen');
+   for(const l of s.nextLinks){
+    text(l.label,'Anschlussschritt');
+    const target=/^schritt-([a-z0-9-]+)\.html(?:#[a-z0-9-]+)?$/.exec(l.href);
+    if(!target||!steps.has(target[1]))throw new Error('Anschlussschritt ungültig');
+   }
+  }
   if(s.materialNeeds)texts(s.materialNeeds,'Materialbedarf');
   if(s.deviceNeeds)for(const [device,needs]of Object.entries(s.deviceNeeds)){if(!['ipad','windows'].includes(device))throw new Error('Gerät ungültig');texts(needs,'Gerätebedarf');}
   if(s.checkHelp){if(!Array.isArray(s.checkHelp)||!s.checkHelp.length)throw new Error('Prüfhilfe fehlt');s.checkHelp.forEach(aid);}
@@ -59,6 +71,15 @@ function validate(pack){
    if(!['explanation','example','task','external','cooperative','private','retrieval'].includes(b.type))throw new Error('Unbekannter Inhaltsbaustein: '+b.type);
    text(b.title,'Bausteintitel');text(b.text,'Bausteintext');
    if(['task','external','cooperative','private','retrieval'].includes(b.type)){if(!id(b.id)||fields.has(b.id))throw new Error('Antwort-ID ungültig/doppelt');fields.add(b.id);text(b.prompt,'Eigenes Produkt');}
+   if(b.responseParts){
+    if(b.type!=='task'||!Array.isArray(b.responseParts)||!b.responseParts.length)throw new Error('Antwortgruppe braucht Teilfelder einer Aufgabe');
+    if(b.responseLayout!==undefined&&b.responseLayout!=='short')throw new Error('Unbekannte Darstellung der Teilfelder');
+    for(const part of b.responseParts){
+     const key=b.id+'-'+part.id;
+     if(!id(part.id)||fields.has(key))throw new Error('Teilfeld-ID ungültig/doppelt');
+     fields.add(key);text(part.label,'Beschriftung des Teilfelds');
+    }
+   }
    if(b.type==='external'){for(const k of ['preparation','action','return'])text(b[k],k);if(b.context==='device'){if(pack.authorVersion!==2||!b.routes?.length)throw new Error('Geräteweg fehlt');}else https(b.url);}
    if(b.type==='cooperative')for(const k of ['contribution','exchange','return'])text(b[k],k);
    if(b.type==='retrieval'){text(b.when,'Zeitpunkt');text(b.solution,'Vergleich nach Abruf');}
@@ -79,6 +100,19 @@ function mediaHTML(ids,pack,layout){
  return comparison?'<div class="lw-media-comparison" role="group" aria-label="Bildvergleich">'+html+'</div>':html;
 }
 function actionLink(h){return h.step?'<a href="schritt-'+esc(h.step)+'.html">'+esc(h.label)+' →</a>':h.knowledge?'<a href="wissen.html#'+esc(h.knowledge)+'">'+esc(h.label)+' →</a>':'';}
+function renderResponseParts(block,fieldId,hint,legacyInput,paper){
+ const short=block.responseLayout==='short';
+ const parts=block.responseParts.map(part=>{
+  const key=fieldId+'-'+part.id;
+  const label=esc(part.label);
+  if(paper)return '<div class="lw-response-part"><b>'+label+'</b><span class="lw-response-line"></span></div>';
+  const attrs=' id="'+key+'" aria-label="'+label+'" maxlength="10000"';
+  const control=short?'<input type="text"'+attrs+'>':'<textarea'+attrs+' rows="2"></textarea>';
+  return '<div class="lw-response-part"><label for="'+key+'">'+label+'</label>'+control+'</div>';
+ }).join('');
+ const previous=paper?'':'<details class="lw-previous-response"><summary>Früheren Gesamteintrag ansehen oder ergänzen</summary>'+legacyInput+'</details>';
+ return hint+'<div class="lw-response-parts'+(short?' lw-short-responses':'')+'">'+parts+'</div>'+previous;
+}
 function renderBlocks(step,pack={},options={}){
  let privateUsed=false;
  const html=step.blocks.filter(b=>!options.paper||b.type!=='private').map(original=>{
@@ -99,7 +133,7 @@ function renderBlocks(step,pack={},options={}){
   const hint=b.responseHint?'<p class="lw-response-hint" id="'+fieldId+'-hint">'+esc(b.responseHint)+'</p>':'';
   let input='<label for="'+fieldId+'">'+esc(b.prompt)+'</label><textarea id="'+fieldId+'" aria-label="'+esc(b.prompt)+'"'+(b.responseHint?' aria-describedby="'+fieldId+'-hint"':'')+' rows="2" maxlength="10000"></textarea>';
   if(!options.paper&&pack.area==='ablaeufe'&&b.id==='code')input=require('../m06-kartenstation/render.cjs').enhance(input,step.id);
-  const answer=!field?'':options.paper?hint+'<p><b>'+esc(b.prompt)+'</b></p>'+(b.responseMode==='oral'?'':'<div class="lw-answer-space" aria-label="Platz für deine Antwort"></div>'):hint+(b.responseMode==='oral'?'<p><b>'+esc(b.prompt)+'</b></p><details class="lw-optional-answer"><summary>Wenn du möchtest: hier notieren</summary>'+input+'</details>':input);
+  const answer=!field?'':b.responseParts?renderResponseParts(b,fieldId,hint,input,options.paper):options.paper?hint+'<p><b>'+esc(b.prompt)+'</b></p>'+(b.responseMode==='oral'?'':'<div class="lw-answer-space" aria-label="Platz für deine Antwort"></div>'):hint+(b.responseMode==='oral'?'<p><b>'+esc(b.prompt)+'</b></p><details class="lw-optional-answer"><summary>Wenn du möchtest: hier notieren</summary>'+input+'</details>':input);
   const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p>'+actionLink(h)+'</details>').join('');
   const links=b.links?'<nav class="lw-reading-links" aria-label="Material und Arbeitsweg">'+b.links.map(l=>'<a href="'+esc(l.href)+'">'+esc(l.label)+' →</a>').join('')+'</nav>':'';
   const table=b.table?'<div class="lw-table-wrap"><table><thead><tr>'+b.table.headers.map(v=>'<th scope="col">'+esc(v)+'</th>').join('')+'</tr></thead><tbody>'+b.table.rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'';
@@ -135,5 +169,5 @@ function assets(pack){
    }
   }return out;
  }
-function unit(pack){return {...pack,kind:pack.kind||'core',status:'working',schemaVersion:1,learningDesign:{goal:pack.product,coverage:Object.fromEntries(Object.entries(pack.coverage).map(([k,v])=>[k,v.join('/')]))},fields:pack.steps.flatMap(s=>s.blocks.filter(b=>['task','external','cooperative','retrieval'].includes(b.type)).map(b=>'i:answer-'+s.id+'-'+b.id))};}
+function unit(pack){return {...pack,kind:pack.kind||'core',status:'working',schemaVersion:1,learningDesign:{goal:pack.product,coverage:Object.fromEntries(Object.entries(pack.coverage).map(([k,v])=>[k,v.join('/')]))},fields:pack.steps.flatMap(s=>s.blocks.filter(b=>['task','external','cooperative','retrieval'].includes(b.type)).flatMap(b=>[b.id,...(b.responseParts||[]).map(part=>b.id+'-'+part.id)].map(key=>'i:answer-'+s.id+'-'+key)))};}
 module.exports={actionLink,validate,renderBlocks,load,unit,assets,esc,paragraphs,mediaHTML,citations};
