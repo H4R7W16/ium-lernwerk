@@ -1,22 +1,178 @@
-/* Gemeinsamer Jahrgangsmantel. Snap-Arbeitsfläche und Projektionen behalten ihren Zweck. */
-.year-header{max-width:1280px;margin:auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px;border-bottom:1px solid #c8d1cb;box-sizing:border-box;background:transparent;position:relative;z-index:3}
-.year-header .brand,.year-header .lw-grade-switch>.lw-grade-summary{width:300px;max-width:100%;padding:0;display:block}
-.year-header .brand img{width:100%;height:auto;display:block}
-.year-header .lw-grade-switch{flex:0 0 300px;margin:0;padding:0;border:0;background:none}
-.year-header .year-nav{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0;justify-content:flex-end}
-.year-nav a{font:600 16px/1.4 'Segoe UI',Arial,sans-serif;padding:10px 9px;text-decoration:none;border-radius:6px;color:#245743;min-height:44px;box-sizing:border-box}
-.year-nav a[aria-current]{background:#eaf2ec;color:#173c2d;box-shadow:inset 0 -3px #245743}
-.year-tools{max-width:1280px;margin:0 auto;padding:10px 32px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;font:16px/1.5 'Segoe UI',Arial,sans-serif;box-sizing:border-box;border-bottom:1px solid #c8d1cb}
-.year-tools a{padding:8px 0;color:#245743;min-height:40px}.year-tools svg{width:16px;height:16px}
-.year-header a:focus-visible,.year-tools a:focus-visible{outline:3px solid #a85100;outline-offset:3px}
-.year-page main{max-width:1120px}.year-page h1{max-width:24ch;font-size:clamp(32px,4.4vw,56px)}
-.year-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:32px 0}
-.year-cards section{border:1px solid #c8d1cb;border-radius:10px;padding:24px;background:#f4f7f2}
-.year-cards section h2{font-size:27px;line-height:1.2;margin:12px 0 20px;padding:0;border:0}.year-cards .eyebrow{font-size:14px}.year-cards section p{font-size:17px}
-.year-legacy{max-width:1040px;margin:32px auto;padding:32px;background:white;border:1px solid #c8d1cb;border-radius:12px}
-.projection .year-tools{display:none}
-@media(max-width:900px){.year-header{display:block}.year-header .year-nav{justify-content:flex-start;margin-top:14px}.year-header .lw-grade-switch{width:300px;max-width:100%}}
-@media(max-width:700px){.year-header{padding:18px 20px}.year-header .brand,.year-header .lw-grade-switch>.lw-grade-summary{width:280px}.year-tools{padding:8px 20px;gap:4px 18px}.year-nav a{padding:10px 8px}.year-cards{grid-template-columns:1fr}.year-cards section{padding:20px}.year-cards section h2{font-size:25px}.year-legacy{margin:16px 12px;padding:24px}}
-@media print{.year-header,.year-tools{display:none}.year-cards{display:block}.year-cards section{break-inside:avoid;margin-bottom:16px}.year-legacy{border:0;margin:0;padding:0}.year-page pre{white-space:pre-wrap}}
+/* Gemeinsame Kopfzeile der vier Lernbögen und der Jahreswege. */
+.year-header, .year-tools {
+  max-width: 1280px;
+  margin-inline: auto;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dee2df;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+.year-header {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 32px 16px;
+  background: transparent;
+}
+.year-header .lw-grade-switch {
+  flex: 0 1 360px;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+.year-header .brand, .year-header .lw-grade-switch > .lw-grade-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 360px;
+  max-width: 100%;
+  padding: 0;
+}
+.year-header .brand picture { flex: 1; min-width: 0; }
+.year-header .brand img { display: block; width: 100%; height: auto; }
+.year-header .lw-grade-options { display: block; margin: 0; }
+.year-header .year-nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 0;
+}
+.year-header .year-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: #222a2f;
+  font: 400 16px/1.4 "Segoe UI", system-ui, sans-serif;
+  text-decoration: none;
+}
+.year-nav a:hover { background: #eaf2ec; }
+.year-header .year-nav a[aria-current] {
+  background: #eaf2ec;
+  color: #245743;
+  box-shadow: inset 0 -2px #245743;
+  font-weight: 700;
+}
+.year-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 24px;
+  padding: 4px 32px;
+  font-size: 16px;
+}
+.year-tools a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: #245743; }
+.year-tools svg { width: 16px; height: 16px; }
+.year-header :is(a, summary):focus-visible, .year-tools a:focus-visible { outline: 3px solid #245743; outline-offset: 3px; }
+.year-legacy { max-width: 1040px; margin: 32px auto; padding: 32px; border: 1px solid #c8d1cb; border-radius: 12px; background: white; }
+.projection .year-tools { display: none; }
 
-.year-header .lw-grade-switch>.lw-grade-summary{display:flex;align-items:center;gap:8px;width:330px}.year-header .lw-grade-summary picture{display:block;flex:1;min-width:0}.year-header .lw-grade-switch{flex-basis:330px}.year-header .lw-grade-chevron{flex:0 0 28px}@media(max-width:700px){.year-header .lw-grade-switch>.lw-grade-summary{width:300px}}
+/* Nur die Jahresmaterialien verwenden die gemeinsamen Mantel-, Karten- und Lesestile. */
+body.lw-mantel.year-page {
+  --lw-accent: #245743;
+  --lw-accent-dark: #173c2d;
+  --lw-accent-soft: #eaf2ec;
+}
+.year-skip {
+  position: absolute;
+  left: 16px;
+  top: 10px;
+  z-index: 10;
+  padding: 10px 16px;
+  transform: translateY(calc(-100% - 16px));
+  background: white;
+}
+.year-skip:focus { transform: none; }
+.year-home .lw-page { padding-top: 32px; }
+.year-home .lw-home-hero h1 span { display: block; }
+.year-home .lw-card-body h3 { margin: 10px 0 12px; font-size: 23px; line-height: 1.25; }
+.year-home .year-preview { display: grid; place-items: center; padding: 0; background: #f2f5f1; }
+.year-preview img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.year-preview-media img { object-fit: cover; object-position: 50% 55%; }
+.year-home .year-preview-code { background: #e4ebdf; }
+.year-preview-code img { padding-block: 8px; }
+.year-home .lw-notice h2 { margin: 0 0 8px; }
+.year-home .lw-notice p { margin: 0; }
+.year-followup { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--lw-line); scroll-margin-top: 20px; }
+.year-followup h2 { margin: 0 0 12px; }
+.year-followup p { max-width: 72ch; }
+.year-recall-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.year-recall-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--lw-line);
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none;
+}
+.year-recall-links a:hover { border-color: var(--lw-accent); background: var(--lw-soft); }
+.year-recall-links small { flex: none; color: var(--lw-muted); }
+.year-teacher-links { display: flex; flex-wrap: wrap; gap: 0 24px; }
+.year-teacher-links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+.year-reader .lw-page {
+  max-width: 1080px;
+  padding: 32px clamp(18px, 4vw, 48px) 48px;
+  background: #fff;
+  border: 1px solid var(--lw-line);
+  border-radius: 12px;
+  margin: 24px auto;
+  overflow-wrap: anywhere;
+}
+.year-reader .lw-page h1 { margin: 0 0 20px; }
+.year-reader .lw-page h2 { margin: 36px 0 14px; padding-top: 20px; border-top: 1px solid var(--lw-line); }
+.year-reader .lw-page :is(p, ul, ol, dl) { max-width: 76ch; }
+.year-reader .lw-page li + li { margin-top: 6px; }
+.year-reader .lw-reading-links { margin: 0 0 18px; padding: 0; border: 0; }
+.year-reader .table-wrap { max-width: 100%; overflow-x: auto; margin: 20px 0; }
+.year-reader table { border-collapse: collapse; min-width: 560px; width: 100%; font-size: 16px; }
+.year-reader :is(th, td) { border: 1px solid var(--lw-line); padding: 10px 14px; text-align: left; vertical-align: top; }
+.year-reader th { background: var(--lw-soft); }
+.year-reader pre { max-width: 100%; overflow-x: auto; padding: 16px; background: var(--lw-soft); }
+.year-reader blockquote { margin-inline: 0; padding: 4px 20px; border-left: 4px solid var(--lw-accent); }
+.year-reader .lw-footer, .year-home .lw-footer { flex-wrap: wrap; }
+
+@media (max-width: 940px) {
+  .year-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .year-header .lw-grade-switch { flex-basis: auto; }
+  .year-header .year-nav { justify-content: flex-start; }
+}
+@media (max-width: 760px) {
+  .year-header { padding: 14px 18px 10px; }
+  .year-header .brand, .year-header .lw-grade-switch > .lw-grade-summary { width: 280px; }
+  .year-header .year-nav { gap: 0 6px; }
+  .year-header .year-nav a { min-height: 44px; padding: 6px 8px; }
+  .year-tools { padding: 2px 18px; gap: 0 16px; }
+  .year-reader .lw-page, .year-legacy { margin: 16px 12px; padding: 22px 18px; }
+  .year-home .lw-page { padding-top: 22px; }
+}
+@media (max-width: 600px) {
+  .year-home .lw-grid, .year-recall-links { grid-template-columns: minmax(0, 1fr); }
+}
+@media print {
+  .year-header, .year-tools, .year-skip { display: none; }
+  .year-home .lw-grid { display: block; }
+  .year-home .lw-card { break-inside: avoid; margin-bottom: 12px; }
+  .year-reader .lw-page, .year-legacy { max-width: none; padding: 0; margin: 0; border: 0; }
+  .year-reader .table-wrap { overflow: visible; }
+  .year-reader table { min-width: 0; font-size: 10pt; }
+  .year-reader pre { white-space: pre-wrap; }
+}

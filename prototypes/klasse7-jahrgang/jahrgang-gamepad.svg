@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220">
+  <title>Gamepad mit Pausentaste</title>
+  <rect width="480" height="220" fill="#edf0e7"/>
+  <ellipse cx="240" cy="173" rx="104" ry="8" fill="#d7dfd2"/>
+  <path d="M174 60c-13 1-22 13-28 30l-18 53c-6 18 1 29 14 29 12 0 21-12 33-27l10-12h109l10 12c12 15 21 27 33 27 13 0 20-11 14-29l-18-53c-6-17-15-29-28-30-15-2-29 5-43 5h-45c-14 0-28-7-43-5Z" fill="#faf9f0" stroke="#304d42" stroke-width="4"/>
+  <path d="M169 83h12v12h12v12h-12v12h-12v-12h-12V95h12Z" fill="#345d4b"/>
+  <g fill="#b26340" stroke="#784730" stroke-width="1.5">
+    <circle cx="304" cy="84" r="5"/><circle cx="317" cy="97" r="5"/>
+    <circle cx="291" cy="97" r="5"/><circle cx="304" cy="110" r="5"/>
+  </g>
+  <g fill="#d4dfcf" stroke="#52715d" stroke-width="3">
+    <circle cx="203" cy="119" r="11"/><circle cx="277" cy="119" r="11"/>
+  </g>
+  <rect x="225" y="80" width="30" height="19" rx="9.5" fill="#345d4b"/>
+  <path d="M237 85v9m6-9v9" stroke="#faf9f0" stroke-width="3"/>
+</svg>

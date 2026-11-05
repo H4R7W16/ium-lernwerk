@@ -35,3 +35,38 @@ test('Snap-Laufzeit bleibt vom Jahresmantel unberührt und Verweise sind unterpf
   const target=decodeURIComponent(url.pathname.slice(14));assert.ok(final.has(target.endsWith('/')?target+'index.html':target),name+' -> '+ref);
  }}
 });
+
+test('Der Jahrgangseinstieg bietet vier beschriftete Themenkarten und direkte Zugänge wie die Reihe', () => {
+  const home = final.get('klasse7/index.html');
+  assert.ok(/class="lw-hero lw-home-hero"/.test(home), 'Gemeinsamer Jahrgangseinstieg fehlt');
+  assert.match(home, /href="#themen"/);
+  const cards = [...home.matchAll(/<article\b[^>]*class="lw-card"[^>]*>([\s\S]*?)<\/article>/g)];
+  assert.equal(cards.length, 4);
+  for (const [i, slug] of ['medien', 'daten', 'programmieren', 'gaming'].entries()) {
+    const card = cards[i][1];
+    assert.match(card, new RegExp('href="' + slug + '/index.html"'));
+    assert.match(card, /<h3\b[^>]*>[^<]+<\/h3>/);
+    assert.match(card, /<img\b[^>]*alt=""/);
+    assert.match(card, /Dein Ergebnis/);
+    assert.match(card, new RegExp((i === 2 ? 405 : 270) + ' Minuten'));
+  }
+  for (const id of ['themen', 'wiederaufnahme']) {
+    assert.match(home, new RegExp('id="' + id + '"'));
+    assert.match(home, new RegExp('href="#' + id + '"'));
+  }
+  for (const page of ['wiederaufnahme-medien', 'wiederaufnahme-daten', 'wiederaufnahme-programmieren',
+    'wiederaufnahme-gemischt', 'lehrpersonen', 'lernziele', 'briefing', 'gesamtkonzept']) {
+    assert.ok(main(home).includes('href="' + page + '.html"'), page);
+  }
+});
+
+test('Alle Jahreswege und das Gesamtkonzept nutzen die gemeinsamen Reihenstile', () => {
+  for (const [name, html] of final) {
+    if (!/^klasse7\/[^/]+\.html$/.test(name)) continue;
+    for (const css of ['mantel.css', 'learning-ui.css', 'identity.css']) {
+      assert.ok(html.includes('href="../klasse5/' + css + '"'), name + ': ' + css);
+    }
+    assert.doesNotMatch(html, /href="medien\/medien\.css"/);
+    assert.match(html, /<main\b[^>]*\bid="inhalt"[^>]*tabindex="-1"/);
+  }
+});
