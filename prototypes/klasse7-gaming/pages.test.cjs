@@ -1,4 +1,5 @@
 'use strict';
+const { assertReadingContent } = require('../klasse7-jahrgang/lesefassung-vergleich.cjs');
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const published=require('../pages/build.cjs').preparePublishedPages(),ROOT='klasse7/gaming/',dir=path.join(__dirname,'inhalt'),manifest=require('./quelle-sha256.json');
 const main=x=>x.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1],sha=b=>crypto.createHash('sha256').update(b).digest('hex');
@@ -12,11 +13,11 @@ test('Lernhandlungen, Sicherung, private Reflexion und Briefings bleiben gegenü
  assert.equal(Object.keys(manifest.files).length,31);
  for(const [file,hash]of Object.entries(manifest.files)){
   const source=fs.readFileSync(path.join(dir,file));assert.equal(sha(source),hash,file);
-  if(file.endsWith('.html')&&!['gamingbogen-produktionsbrief-und-reihenkommentar.html','gamingbogen-durchfuhrung-und-auswertung.html','gamingbogen-quellen-und-nutzungsrechte.html'].includes(file))assert.equal(main(published.get(ROOT+file)),main(source.toString()),file);
+  if(file.endsWith('.html')&&!['gamingbogen-produktionsbrief-und-reihenkommentar.html','gamingbogen-durchfuhrung-und-auswertung.html','gamingbogen-quellen-und-nutzungsrechte.html'].includes(file))assertReadingContent(main(published.get(ROOT+file)),main(source.toString()),file);
   if(file.startsWith('material/'))assert.equal(sha(published.get(ROOT+file)),hash,file);
  }
  const plan=main(fs.readFileSync(path.join(dir,'gamingbogen-durchfuhrung-und-auswertung.html'),'utf8')).replace('<span class="reference" title="Projektgrundlage im Vault">Klasse 7 - Jahrgangsbrief</span>','<a href="../programmieren/lehrpersonen/jahrgang.html">Klasse 7 – Jahrgangsbrief</a>').replace(' lokal öffnen.',' öffnen.');
- assert.equal(main(published.get(ROOT+'gamingbogen-durchfuhrung-und-auswertung.html')),plan);
+ assertReadingContent(main(published.get(ROOT+'gamingbogen-durchfuhrung-und-auswertung.html')),plan,'Durchführung und Auswertung');
 });
 test('Alle vier Lernbögen und der Jahrgangseinstieg erreichen Gaming, Gaming erreicht die anderen Bögen',()=>{
  for(const [name,html]of published){if(!name.endsWith('.html'))continue;

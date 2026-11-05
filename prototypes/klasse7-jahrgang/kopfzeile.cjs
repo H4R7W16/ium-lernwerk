@@ -1,5 +1,7 @@
 'use strict';
 
+const { materialTarget } = require('./materialwege.cjs');
+
 const units = [
   ['medien', 'Medien'],
   ['daten', 'Daten'],
@@ -68,7 +70,7 @@ function regularNavigation(name, oldHeader, ref, hasLocalMaterials) {
     + '<details class="year-topics" data-lw-menu><summary>Themen <span aria-hidden="true">▾</span></summary>'
     + '<div class="year-topic-links">' + topics + '</div></details>'
     + '<a' + (onKnowledgePage ? ' aria-current="page"' : '') + ' href="' + ref(knowledge) + '">Wissen</a>'
-    + '<a href="' + ref('lehrpersonen.html#unterrichtsmaterial') + '" aria-label="Unterrichtsmaterial">'
+    + '<a href="' + ref(materialTarget(current)) + '" aria-label="Unterrichtsmaterial">'
     + '<span class="year-nav-full">Unterrichtsmaterial</span><span class="year-nav-short">Material</span></a></nav></header>';
   if (hasLocalMaterials) return header;
   const tools = unitTools(name, oldHeader, 'klasse7/' + knowledge);

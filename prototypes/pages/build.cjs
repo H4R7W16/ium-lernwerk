@@ -32,7 +32,11 @@ function preparePages(){
  return all;
 }
 function prepareNavigablePages(){return require('../klasse7-jahrgang/build.cjs').addYearRoutes(connectGaming(connectData(connectMedia(require('../klasse7-programmieren/layout.cjs').applySeriesLayout(preparePages())))));}
-function preparePublishedPages(){return require('../shared/gesamtkonzept.cjs').addConcept(require('../shared/grade-navigation.cjs').addGradeNavigation(prepareNavigablePages()));}
+function preparePublishedPages(){
+ const navigation=require('../shared/grade-navigation.cjs').addGradeNavigation(prepareNavigablePages());
+ const content=require('../shared/gesamtkonzept.cjs').addConcept(navigation);
+ return require('../shared/themen-navigation.cjs').addTopicNavigation(content);
+}
 function build(output=path.resolve(__dirname,'../../dist/klasse5-pages')){
  if(fs.existsSync(output))throw Error('Buildausgabe existiert bereits; frisches Ziel wählen.');
  const all=preparePublishedPages();

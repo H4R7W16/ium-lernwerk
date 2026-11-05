@@ -199,7 +199,20 @@
   .year-shell-header .year-topic-links { inset-inline: 18px; width: auto; }
 }
 
+/* Verweise außerhalb des Vorlesetexts und am Unterrichtsmaterial der vier Bögen. */
+.year-material-routes {
+  max-width: 1040px;
+  margin: 12px auto;
+  padding: 8px 24px;
+  color: #245743;
+  font: 400 16px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+.year-material-routes a { display: inline-block; padding: 6px 0; color: inherit; }
+.year-material-routes a:focus-visible { outline: 3px solid #245743; outline-offset: 3px; }
+.year-material-routes ul { display: grid; gap: 4px; margin: 0; padding-left: 20px; }
+main .year-material-routes { margin: 8px 0 16px; padding: 0; }
 @media print {
+  .year-material-routes { display: none; }
   .year-header.year-shell-header,
   .year-shell-header + .year-tools { display: none; }
 }
